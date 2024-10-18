@@ -748,7 +748,7 @@ _ZN7datalog13relation_baseC2ERNS_15relation_pluginERKNS_18relation_signatureE.ex
 lpad.i:                                           ; preds = %_ZN7datalog13relation_baseC2ERNS_15relation_pluginERKNS_18relation_signatureE.exit.i
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog13relation_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %call14) #18
+  tail call void @_ZN7datalog13relation_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call14) #18
   resume { ptr, i32 } %34
 
 _ZN7datalog20explanation_relationC2ERNS_27explanation_relation_pluginERKNS_18relation_signatureE.exit: ; preds = %_ZN7datalog13relation_baseC2ERNS_15relation_pluginERKNS_18relation_signatureE.exit.i
@@ -1079,7 +1079,7 @@ lpad2.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %10, %lpad2.i.i ], [ %9, %lpad.i.i ]
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call2) #18
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call2) #18
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7datalog27explanation_relation_plugin10project_fnC2ERKNS_18relation_signatureEjPKj.exit: ; preds = %invoke.cont.i.i
@@ -2516,7 +2516,7 @@ entry:
   store ptr %orig_decl, ptr %temp.i.i.i, align 8
   %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %temp.i.i.i, i64 8
   store ptr null, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i, align 8
-  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE24insert_if_not_there_coreEOS6_RPS4_(ptr noundef nonnull align 8 dereferenceable(20) %m_e_decl_map, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
+  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE24insert_if_not_there_coreEOS6_RPS4_(ptr noundef nonnull align 8 dereferenceable(24) %m_e_decl_map, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %0 = load ptr, ptr %et.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i)
@@ -3154,7 +3154,7 @@ lpad.i.i:                                         ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_visited.i.i) #18
-  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ctr) #18
+  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %ctr) #18
   br label %common.resume
 
 _ZN7datalog12rule_counterC2Ev.exit:               ; preds = %entry
@@ -4617,7 +4617,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -6423,7 +6423,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(28) %this) #18
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %this)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(28) %this)
   ret void
 }
 
@@ -9930,7 +9930,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -9940,7 +9940,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   br label %cleanup.action
 
 invoke.cont:                                      ; preds = %.noexc

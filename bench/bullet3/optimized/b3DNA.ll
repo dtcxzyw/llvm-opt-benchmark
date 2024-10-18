@@ -484,7 +484,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %1 = load ptr, ptr %m_data.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds %struct.b3HashString, ptr %1, i64 %indvars.iv.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i.i.i) #20
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %2 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
   br i1 %2, label %_ZN20b3AlignedObjectArrayI12b3HashStringE7destroyEii.exit.i.i, label %for.body.i.i.i, !llvm.loop !5
@@ -765,12 +765,12 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %key) #20
   resume { ptr, i32 } %2
 
 cleanup:                                          ; preds = %invoke.cont, %if.then
   %retval.0 = phi i32 [ %1, %if.then ], [ -1, %invoke.cont ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %key) #20
   ret i32 %retval.0
 }
 
@@ -783,7 +783,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -800,7 +800,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -1724,7 +1724,7 @@ if.end122:                                        ; preds = %if.then115, %land.l
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end122
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp125) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp125) #20
   %63 = load i32, ptr %i, align 4
   %inc131 = add nsw i32 %63, 1
   store i32 %inc131, ptr %i, align 4
@@ -1735,7 +1735,7 @@ invoke.cont:                                      ; preds = %if.end122
 lpad:                                             ; preds = %if.end122
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp125) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp125) #20
   resume { ptr, i32 } %65
 
 for.end132:                                       ; preds = %invoke.cont, %for.cond101.preheader
@@ -1983,7 +1983,7 @@ _ZN20b3AlignedObjectArrayI12b3HashStringE9push_backERKS0_.exit: ; preds = %_ZN20
   %13 = load ptr, ptr %m_data.i16, align 8
   %idxprom.i17 = sext i32 %12 to i64
   %arrayidx.i18 = getelementptr inbounds %struct.b3HashString, ptr %13, i64 %idxprom.i17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i18, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i18, ptr noundef nonnull align 8 dereferenceable(36) %key)
   %m_hash.i.i = getelementptr inbounds i8, ptr %arrayidx.i18, i64 32
   %14 = load i32, ptr %m_hash.i, align 8
   store i32 %14, ptr %m_hash.i.i, align 8
@@ -2427,15 +2427,15 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %4 = load ptr, ptr %m_data.i6, align 8
   %idxprom.i7 = sext i32 %index.015 to i64
   %arrayidx.i8 = getelementptr inbounds %struct.b3HashString, ptr %4, i64 %idxprom.i7
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #20
-  %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i8) #20
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %key) #20
+  %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i8) #20
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.body
 
 land.rhs.i.i:                                     ; preds = %land.rhs
-  %call2.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #20
-  %call3.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i8) #20
-  %call4.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #20
+  %call2.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(36) %key) #20
+  %call3.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i8) #20
+  %call4.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %key) #20
   %cmp.i.i.i = icmp eq i64 %call4.i.i, 0
   br i1 %cmp.i.i.i, label %return, label %_ZNK12b3HashString6equalsERKS_.exit
 
@@ -3214,7 +3214,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.b3HashString, ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds %struct.b3HashString, ptr %2, i64 %indvars.iv.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx3.i)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(36) %arrayidx3.i)
   %m_hash.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %m_hash3.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 32
   %3 = load i32, ptr %m_hash3.i.i, align 8
@@ -3244,7 +3244,7 @@ for.body.i24:                                     ; preds = %for.body.i24, %for.
   %indvars.iv.i25 = phi i64 [ 0, %for.body.lr.ph.i22 ], [ %indvars.iv.next.i27, %for.body.i24 ]
   %5 = load ptr, ptr %m_data.i23, align 8
   %arrayidx.i26 = getelementptr inbounds %struct.b3HashString, ptr %5, i64 %indvars.iv.i25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i26) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i26) #20
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i25, 1
   %6 = icmp eq i64 %indvars.iv.next.i27, %zext37
   br i1 %6, label %_ZN20b3AlignedObjectArrayI12b3HashStringE7destroyEii.exit, label %for.body.i24, !llvm.loop !5

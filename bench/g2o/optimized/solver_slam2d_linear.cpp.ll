@@ -1059,7 +1059,7 @@ _ZN3g2o16OptimizableGraph6Vertex11setToOriginEv.exit.preheader: ; preds = %.noex
   %288 = load ptr, ptr %273, align 16
   %289 = getelementptr inbounds i8, ptr %288, i64 216
   %290 = load ptr, ptr %289, align 8
-  invoke void %290(ptr noundef nonnull align 8 dereferenceable(128) %273)
+  invoke void %290(ptr noundef nonnull align 16 dereferenceable(232) %273)
           to label %_ZN3g2o10BaseVertexILi3ENS_3SE2EE11setEstimateERKS1_.exit unwind label %.loopexit204
 
 _ZN3g2o10BaseVertexILi3ENS_3SE2EE11setEstimateERKS1_.exit: ; preds = %.lr.ph235
@@ -1094,7 +1094,7 @@ _ZN3g2o10BaseVertexILi3ENS_3SE2EE11setEstimateERKS1_.exit: ; preds = %.lr.ph235
 _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit.i: ; preds = %.loopexit
   %308 = getelementptr inbounds i8, ptr %6, i64 16
   %309 = load ptr, ptr %308, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %309)
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexESt4pairIKS3_NS0_13HyperDijkstra17AdjacencyMapEntryEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef %309)
           to label %_ZN3g2o13HyperDijkstraD2Ev.exit unwind label %310
 
 310:                                              ; preds = %_ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit.i
@@ -1591,7 +1591,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o17LinearSolverEigenIN5Eigen6Matri
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %11, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  call void @_ZNK5Eigen22SimplicialCholeskyBaseINS_13SimplicialLLTINS_12SparseMatrixIdLi0EiEELi2ENS_11AMDOrderingIiEEEEE11_solve_implINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS9_ISB_Li0ESE_EEEEvRKNS_10MatrixBaseIT_EERNSH_IT0_EE(ptr noundef nonnull align 8 dereferenceable(184) %14, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call void @_ZNK5Eigen22SimplicialCholeskyBaseINS_13SimplicialLLTINS_12SparseMatrixIdLi0EiEELi2ENS_11AMDOrderingIiEEEEE11_solve_implINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS9_ISB_Li0ESE_EEEEvRKNS_10MatrixBaseIT_EERNSH_IT0_EE(ptr noundef nonnull align 8 dereferenceable(184) %14, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(19) %6)
   %15 = load ptr, ptr @_ZN3g2o18G2OBatchStatistics12_globalStatsE, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %101, label %16
@@ -2158,7 +2158,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o15LinearSolverCCSIN5Eigen6MatrixI
   br i1 %.not.i.i, label %_ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit unwind label %15
 
 15:                                               ; preds = %13
@@ -2179,7 +2179,7 @@ _ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit: ; preds = %11, 
   br i1 %.not.i.i5, label %_ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit6, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit6 unwind label %23
 
 23:                                               ; preds = %21
@@ -2221,7 +2221,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o15LinearSolverCCSIN5Eigen6MatrixI
   br i1 %.not.i.i, label %_ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit unwind label %18
 
 18:                                               ; preds = %16
@@ -2242,7 +2242,7 @@ _ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit: ; preds = %14, 
   br i1 %.not.i.i6, label %_ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit7, label %24
 
 24:                                               ; preds = %21
-  %25 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %25 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEED2Ev.exit7 unwind label %26
 
 26:                                               ; preds = %24
@@ -2295,7 +2295,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o17LinearSolverEigenIN5Eigen6Matri
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(120) %5)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(120) %5)
           to label %_ZNKSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEEclES2_.exit unwind label %107
 
 _ZNKSt8functionIFvRN3g2o26MarginalCovarianceCholeskyEEEclES2_.exit: ; preds = %23
@@ -3679,7 +3679,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o17SparseBlockMatrixIN5Eigen6Matr
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc54 unwind label %18
 
 .noexc54:                                         ; preds = %.noexc
@@ -3696,7 +3696,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o17SparseBlockMatrixIN5Eigen6Matr
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #29
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #29
   br label %.body
 
 13:                                               ; preds = %.noexc54
@@ -11983,7 +11983,7 @@ define linkonce_odr void @_ZNK5Eigen22SimplicialCholeskyBaseINS_13SimplicialLLTI
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %13, ptr %4, align 8, !alias.scope !149
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %14, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %14, ptr noundef nonnull align 8 dereferenceable(19) %1, i64 17, i1 false)
   call void @_ZN5Eigen8internal26permutation_matrix_productINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runINS2_IS4_Li0ES7_EENS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS8_(ptr noundef nonnull align 8 dereferenceable(19) %2, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(19) %14)
   br label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEaSINS1_IKS3_Li0ES5_EEEERS6_RKNS_9DenseBaseIT_EE.exit
 
@@ -12634,7 +12634,7 @@ _ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_12SparseMatrixIdLi0EiEEEELj2EN
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %358, ptr %5, align 8, !alias.scope !162
   %359 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %359, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %359, ptr noundef nonnull align 8 dereferenceable(19) %2, i64 17, i1 false)
   call void @_ZN5Eigen8internal26permutation_matrix_productINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELi1ELb0ENS_10DenseShapeEE3runIS7_NS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS7_(ptr noundef nonnull align 8 dereferenceable(19) %2, ptr noundef nonnull align 8 dereferenceable(16) %358, ptr noundef nonnull align 8 dereferenceable(19) %359)
   br label %360
 

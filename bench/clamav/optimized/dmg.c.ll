@@ -130,7 +130,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
   %14 = add i64 %10, -512
   %15 = getelementptr inbounds i8, ptr %6, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr %16(ptr noundef nonnull %6, i64 noundef %14, i64 noundef 512, i32 noundef 0) #13
+  %17 = tail call ptr %16(ptr noundef nonnull %6, i64 noundef range(i64 1, -512) %14, i64 noundef 512, i32 noundef 0) #13
   %.not26.i = icmp eq ptr %17, null
   br i1 %.not26.i, label %18, label %19
 
@@ -1271,7 +1271,7 @@ dmg_track_sectors.exit:                           ; preds = %61
 
 .lr.ph.i:                                         ; preds = %116, %119
   %.06.i = phi i64 [ %120, %119 ], [ %113, %116 ]
-  %118 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %12, i64 noundef 8192) #13
+  %118 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %12, i64 noundef 8192) #13
   %.not.i187 = icmp eq i64 %118, 8192
   br i1 %.not.i187, label %119, label %.loopexit.i
 
@@ -1282,7 +1282,7 @@ dmg_track_sectors.exit:                           ; preds = %61
 
 ._crit_edge.i:                                    ; preds = %119, %116
   %.0.lcssa.i = phi i64 [ %113, %116 ], [ %120, %119 ]
-  %122 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %12, i64 noundef %.0.lcssa.i) #13
+  %122 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %12, i64 noundef %.0.lcssa.i) #13
   %.not19.i = icmp eq i64 %122, %.0.lcssa.i
   br i1 %.not19.i, label %dmg_stripe_zeroes.exit, label %.loopexit.i
 
@@ -1320,7 +1320,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %110, %._crit_edge.i
   br label %._crit_edge276.thread328
 
 137:                                              ; preds = %131
-  %138 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %135, i64 noundef %128) #13
+  %138 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %135, i64 noundef %128) #13
   %139 = icmp eq i64 %138, -1
   br i1 %139, label %140, label %141
 
@@ -1396,7 +1396,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %110, %._crit_edge.i
   br i1 %168, label %169, label %175
 
 169:                                              ; preds = %167
-  %170 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %11, i64 noundef 8192) #13
+  %170 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %11, i64 noundef 8192) #13
   %.not47.i = icmp eq i64 %170, 8192
   br i1 %.not47.i, label %173, label %171
 
@@ -1422,7 +1422,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %110, %._crit_edge.i
   br i1 %.not45.i, label %185, label %179
 
 179:                                              ; preds = %177
-  %180 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %11, i64 noundef %178) #13
+  %180 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %11, i64 noundef %178) #13
   %.not46.i = icmp eq i64 %180, %178
   br i1 %.not46.i, label %183, label %181
 
@@ -1532,7 +1532,7 @@ dmg_stripe_adc.exit:                              ; preds = %143, %159, %162, %1
   br i1 %220, label %221, label %227
 
 221:                                              ; preds = %219
-  %222 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %9, i64 noundef 8192) #13
+  %222 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %9, i64 noundef 8192) #13
   %.not46.i202 = icmp eq i64 %222, 8192
   br i1 %.not46.i202, label %225, label %223
 
@@ -1561,7 +1561,7 @@ dmg_stripe_adc.exit:                              ; preds = %143, %159, %162, %1
   br i1 %.not42.i, label %239, label %232
 
 232:                                              ; preds = %229
-  %233 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %9, i64 noundef %231) #13
+  %233 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %9, i64 noundef %231) #13
   %.not43.i = icmp eq i64 %233, %231
   br i1 %.not43.i, label %236, label %234
 
@@ -1603,7 +1603,7 @@ dmg_stripe_adc.exit:                              ; preds = %143, %159, %162, %1
 245:                                              ; preds = %._crit_edge.i200
   %246 = zext i32 %.pr.i to i64
   %247 = sub nsw i64 8192, %246
-  %248 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %9, i64 noundef %247) #13
+  %248 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %9, i64 noundef %247) #13
   %249 = icmp eq i64 %248, -1
   br i1 %249, label %250, label %.thread.i
 
@@ -1716,7 +1716,7 @@ dmg_stripe_inflate.exit:                          ; preds = %191, %207, %212, %2
   br i1 %.not77.i, label %292, label %.loopexit.i207
 
 292:                                              ; preds = %289
-  %293 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %7, i64 noundef 8192) #13
+  %293 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %7, i64 noundef 8192) #13
   %.not78.i = icmp eq i64 %293, 8192
   br i1 %.not78.i, label %295, label %294
 
@@ -1767,7 +1767,7 @@ dmg_stripe_inflate.exit:                          ; preds = %191, %207, %212, %2
   br i1 %.not80.i, label %312, label %.thread5.i
 
 312:                                              ; preds = %305
-  %313 = call i64 @cli_writen(i32 noundef %85, ptr noundef nonnull %7, i64 noundef %308) #13
+  %313 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %7, i64 noundef %308) #13
   %.not81.i = icmp eq i64 %313, %308
   br i1 %.not81.i, label %315, label %314
 

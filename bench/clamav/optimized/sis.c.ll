@@ -547,7 +547,7 @@ fmap_readn.exit575.thread.i:                      ; preds = %fmap_readn.exit575.
 
 117:                                              ; preds = %115
   %118 = sub nuw i64 %114, %.0445785.i
-  %spec.select.i577.i = call i64 @llvm.umin.i64(i64 %113, i64 %118)
+  %spec.select.i577.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %113, i64 %118)
   %119 = load ptr, ptr %42, align 8
   %120 = call ptr %119(ptr noundef nonnull %37, i64 noundef %.0445785.i, i64 noundef %spec.select.i577.i, i32 noundef 0) #8
   %.not.i578.i = icmp eq ptr %120, null
@@ -969,7 +969,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
 
 325:                                              ; preds = %323
   %326 = sub nuw i64 %322, %.9454754.i
-  %spec.select.i582.i = call i64 @llvm.umin.i64(i64 %321, i64 %326)
+  %spec.select.i582.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %321, i64 %326)
   %327 = load ptr, ptr %42, align 8
   %328 = call ptr %327(ptr noundef nonnull %37, i64 noundef %.9454754.i, i64 noundef %spec.select.i582.i, i32 noundef 0) #8
   %.not.i583.i = icmp eq ptr %328, null
@@ -1041,7 +1041,7 @@ fmap_readn.exit584.i:                             ; preds = %select.unfold633.i,
 
 355:                                              ; preds = %353
   %356 = sub nuw i64 %352, %.11456763.i
-  %spec.select.i587.i = call i64 @llvm.umin.i64(i64 %351, i64 %356)
+  %spec.select.i587.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %351, i64 %356)
   %357 = load ptr, ptr %42, align 8
   %358 = call ptr %357(ptr noundef nonnull %37, i64 noundef %.11456763.i, i64 noundef %spec.select.i587.i, i32 noundef 0) #8
   %.not.i588.i = icmp eq ptr %358, null
@@ -1113,7 +1113,7 @@ fmap_readn.exit589.i:                             ; preds = %select.unfold635.i,
 
 386:                                              ; preds = %384
   %387 = sub nuw i64 %383, %.13458771.i
-  %spec.select.i592.i = call i64 @llvm.umin.i64(i64 %382, i64 %387)
+  %spec.select.i592.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %382, i64 %387)
   %388 = load ptr, ptr %42, align 8
   %389 = call ptr %388(ptr noundef nonnull %37, i64 noundef %.13458771.i, i64 noundef %spec.select.i592.i, i32 noundef 0) #8
   %.not.i593.i = icmp eq ptr %389, null
@@ -1748,7 +1748,7 @@ real_scansis.exit:                                ; preds = %fmap_readn.exit.thr
 
 670:                                              ; preds = %668
   %671 = sub nuw i64 %665, %661
-  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %663, i64 %671)
+  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %663, i64 %671)
   %672 = getelementptr inbounds i8, ptr %657, i64 104
   %673 = load ptr, ptr %672, align 8
   %674 = call ptr %673(ptr noundef nonnull %657, i64 noundef %661, i64 noundef %spec.select.i.i.i, i32 noundef 0) #8
@@ -1883,7 +1883,7 @@ getd.exit.i:                                      ; preds = %681, %647
 
 752:                                              ; preds = %750
   %753 = sub nuw i64 %747, %743
-  %spec.select.i.i224.i = call i64 @llvm.umin.i64(i64 %745, i64 %753)
+  %spec.select.i.i224.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %745, i64 %753)
   %754 = getelementptr inbounds i8, ptr %739, i64 104
   %755 = load ptr, ptr %754, align 8
   %756 = call ptr %755(ptr noundef nonnull %739, i64 noundef %743, i64 noundef %spec.select.i.i224.i, i32 noundef 0) #8
@@ -2018,7 +2018,7 @@ getd.exit228.i:                                   ; preds = %763, %729
 
 834:                                              ; preds = %832
   %835 = sub nuw i64 %829, %825
-  %spec.select.i.i236.i = call i64 @llvm.umin.i64(i64 %827, i64 %835)
+  %spec.select.i.i236.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %827, i64 %835)
   %836 = getelementptr inbounds i8, ptr %821, i64 104
   %837 = load ptr, ptr %836, align 8
   %838 = call ptr %837(ptr noundef nonnull %821, i64 noundef %825, i64 noundef %spec.select.i.i236.i, i32 noundef 0) #8
@@ -2090,7 +2090,7 @@ fmap_readn.exit.i234.i:                           ; preds = %.fmap_readn.exit_cr
 
 875:                                              ; preds = %873
   %876 = sub nuw i64 %870, %866
-  %spec.select.i.i248.i = call i64 @llvm.umin.i64(i64 %868, i64 %876)
+  %spec.select.i.i248.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %868, i64 %876)
   %877 = getelementptr inbounds i8, ptr %862, i64 104
   %878 = load ptr, ptr %877, align 8
   %879 = call ptr %878(ptr noundef nonnull %862, i64 noundef %866, i64 noundef %spec.select.i.i248.i, i32 noundef 0) #8
@@ -2161,7 +2161,7 @@ fmap_readn.exit.i246.i:                           ; preds = %.fmap_readn.exit_cr
 
 916:                                              ; preds = %914
   %917 = sub nuw i64 %911, %907
-  %spec.select.i.i260.i = call i64 @llvm.umin.i64(i64 %909, i64 %917)
+  %spec.select.i.i260.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %909, i64 %917)
   %918 = getelementptr inbounds i8, ptr %903, i64 104
   %919 = load ptr, ptr %918, align 8
   %920 = call ptr %919(ptr noundef nonnull %903, i64 noundef %907, i64 noundef %spec.select.i.i260.i, i32 noundef 0) #8
@@ -2287,7 +2287,7 @@ getd.exit264.i:                                   ; preds = %927, %._crit_edge.i
 
 999:                                              ; preds = %997
   %1000 = sub nuw i64 %994, %991
-  %spec.select.i.i41 = call i64 @llvm.umin.i64(i64 %992, i64 %1000)
+  %spec.select.i.i41 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %992, i64 %1000)
   %1001 = getelementptr inbounds i8, ptr %990, i64 104
   %1002 = load ptr, ptr %1001, align 8
   %1003 = call ptr %1002(ptr noundef nonnull %990, i64 noundef %991, i64 noundef %spec.select.i.i41, i32 noundef 0) #8
@@ -2593,7 +2593,7 @@ define internal fastcc void @spamsisnames(ptr noundef %0, i64 noundef range(i64 
   %5 = shl nuw nsw i64 %.tr, 3
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1, i64 noundef %5, i32 noundef 1) #8
+  %8 = tail call ptr %7(ptr noundef %0, i64 noundef range(i64 0, 38653919236) %1, i64 noundef range(i64 0, 524281) %5, i32 noundef 1) #8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %10
 
@@ -2637,7 +2637,7 @@ define internal fastcc void @spamsisnames(ptr noundef %0, i64 noundef range(i64 
 ._crit_edge:                                      ; preds = %22, %10
   %23 = getelementptr inbounds i8, ptr %0, i64 128
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef %0, i64 noundef %1, i64 noundef %5) #8
+  tail call void %24(ptr noundef %0, i64 noundef range(i64 0, 38653919236) %1, i64 noundef range(i64 0, 524281) %5) #8
   br label %25
 
 25:                                               ; preds = %._crit_edge, %9
@@ -2671,7 +2671,7 @@ define internal fastcc ptr @getsistring(ptr noundef %0, i32 noundef %1, i32 noun
 
 14:                                               ; preds = %9
   %15 = sub nuw i64 %13, %10
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %15)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %11, i64 %15)
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, i64 noundef %10, i64 noundef %spec.select.i, i32 noundef 0) #8
@@ -2773,7 +2773,7 @@ define internal fastcc range(i32 0, 2) i32 @getfield(ptr nocapture noundef nonnu
 
 29:                                               ; preds = %27
   %30 = sub nuw i64 %24, %20
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %30)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %22, i64 %30)
   %31 = getelementptr inbounds i8, ptr %15, i64 104
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr %32(ptr noundef nonnull %15, i64 noundef %20, i64 noundef %spec.select.i.i, i32 noundef 0) #8
@@ -2900,7 +2900,7 @@ define internal fastcc range(i32 0, 2) i32 @getsize(ptr nocapture noundef nonnul
 
 33:                                               ; preds = %31
   %34 = sub nuw i64 %28, %24
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %34)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %26, i64 %34)
   %35 = getelementptr inbounds i8, ptr %19, i64 104
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %19, i64 noundef %24, i64 noundef %spec.select.i.i, i32 noundef 0) #8

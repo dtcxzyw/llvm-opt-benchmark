@@ -129,7 +129,7 @@ define void @_ZN18nonbonded_verlet_t14putAtomsOnGridEPA3_KfiRKN3gmx11BasicVector
   store ptr %24, ptr %14, align 8
   %42 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %30, ptr %42, align 8
-  tail call void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(188) %16, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i64 %6, float noundef %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %13, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %14, i32 noundef %10, ptr noundef %11, ptr noundef %32)
+  tail call void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(296) %16, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i64 %6, float noundef %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %13, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %14, i32 noundef %10, ptr noundef %11, ptr noundef %32)
   %43 = getelementptr inbounds i8, ptr %16, i64 224
   %44 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
   %45 = extractvalue { i32, i32 } %44, 0
@@ -246,7 +246,7 @@ _ZN3gmx5RangeIiEC2Eii.exit:                       ; preds = %.preheader
   store ptr %4, ptr %8, align 8
   store ptr %25, ptr %29, align 8
   %48 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(188) %38, ptr noundef null, i32 noundef %48, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null, i64 %.sroa.021.0.insert.insert, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %8, i32 noundef 0, ptr noundef null, ptr noundef %39)
+  call void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(296) %38, ptr noundef null, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef null, i64 %.sroa.021.0.insert.insert, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %8, i32 noundef 0, ptr noundef null, ptr noundef %39)
   %49 = getelementptr inbounds i8, ptr %38, i64 224
   %50 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
   %51 = extractvalue { i32, i32 } %50, 0
@@ -376,7 +376,7 @@ define { ptr, ptr } @_ZNK18nonbonded_verlet_t17getLocalAtomOrderEv(ptr nocapture
 define void @_ZNK18nonbonded_verlet_t17setLocalAtomOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @_ZN5Nbnxm7GridSet17setLocalAtomOrderEv(ptr noundef nonnull align 8 dereferenceable(188) %3)
+  tail call void @_ZN5Nbnxm7GridSet17setLocalAtomOrderEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   ret void
 }
 
@@ -738,7 +738,7 @@ define void @_ZN18nonbonded_verlet_t24atomdata_add_nbat_f_to_fEN3gmx12AtomLocali
   %.0.i = phi i1 [ false, %18 ], [ true, %16 ]
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
   br i1 %.0.i, label %23, label %24
@@ -956,7 +956,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -973,7 +973,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -1078,7 +1078,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   ret void
 }
 
@@ -1142,7 +1142,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

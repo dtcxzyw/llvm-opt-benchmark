@@ -312,7 +312,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define linkonce_odr hidden void @_ZN22XWorkersInitializeTask4workEj(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZN7XThread10set_workerEv() #8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #8
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %3) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
@@ -335,7 +335,7 @@ define linkonce_odr hidden void @_ZN22XWorkersInitializeTask4workEj(ptr noundef 
   br i1 %.not, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !6
 
 _ZN7XLockerI14XConditionLockED2Ev.exit:           ; preds = %.lr.ph, %11
-  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #8
+  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %3) #8
   ret void
 }
 

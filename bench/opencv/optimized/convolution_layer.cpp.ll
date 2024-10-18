@@ -134,8 +134,6 @@ $_ZNSt6vectorIiSaIiEEaSERKS1_ = comdat any
 
 $_ZSt18__do_uninit_fill_nIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RKT1_ = comdat any
 
-$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3dnn24ConvolutionLayerInt8ImplEEET_ = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN2cv3dnn24ConvolutionLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN2cv3dnn24ConvolutionLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
@@ -341,10 +339,10 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3dnn14dnn4_v2024052120ConvolutionLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3dnn14dnn4_v2024052120ConvolutionLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(600) ptr @_Znwm(i64 noundef 600) #23
-  invoke void @_ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS0_14dnn4_v2024052111LayerParamsE(ptr noundef nonnull align 8 dereferenceable(342) %3, ptr noundef nonnull align 8 dereferenceable(136) %1)
-          to label %4 unwind label %10
+  invoke void @_ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS0_14dnn4_v2024052111LayerParamsE(ptr noundef nonnull align 8 dereferenceable(600) %3, ptr noundef nonnull align 8 dereferenceable(136) %1)
+          to label %4 unwind label %24
 
 4:                                                ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 280) (i8, ptr @_ZTVN2cv3dnn24ConvolutionLayerInt8ImplE, i64 16), ptr %3, align 8
@@ -358,14 +356,56 @@ define void @_ZN2cv3dnn14dnn4_v2024052120ConvolutionLayerInt86createERKNS1_11Lay
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store ptr %3, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3dnn24ConvolutionLayerInt8ImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %3)
+  store ptr null, ptr %9, align 8
+  %10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3dnn24ConvolutionLayerInt8ImplEEET_.exit unwind label %11
+
+11:                                               ; preds = %4
+  %12 = landingpad { ptr, i32 }
+          catch ptr null
+  %13 = extractvalue { ptr, i32 } %12, 0
+  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #24
+  tail call void @_ZN2cv3dnn24ConvolutionLayerInt8ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %3) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #25
+  invoke void @__cxa_rethrow() #26
+          to label %20 unwind label %15
+
+15:                                               ; preds = %11
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %17
+
+common.resume:                                    ; preds = %15, %24
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %16, %15 ]
+  resume { ptr, i32 } %common.resume.op
+
+17:                                               ; preds = %15
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #27
+  unreachable
+
+20:                                               ; preds = %11
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3dnn24ConvolutionLayerInt8ImplEEET_.exit: ; preds = %4
+  %21 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %10, i64 12
+  store i32 1, ptr %22, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn24ConvolutionLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8
+  %23 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %3, ptr %23, align 8
+  store ptr %10, ptr %9, align 8
   ret void
 
-10:                                               ; preds = %2
-  %11 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
-  resume { ptr, i32 } %11
+  br label %common.resume
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -398,7 +438,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS
   %20 = alloca %"class.std::allocator.0", align 1
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
   %22 = alloca %"class.std::allocator.0", align 1
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0)
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(342) %0)
   store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052120BaseConvolutionLayerE, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 100
   %24 = getelementptr inbounds i8, ptr %0, i64 144
@@ -462,7 +502,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #26
+  call void @__clang_call_terminate(ptr %48) #27
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -487,7 +527,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #26
+  call void @__clang_call_terminate(ptr %56) #27
   unreachable
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202405219DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i: ; preds = %51
@@ -555,7 +595,7 @@ _ZNK2cv3dnn14dnn4_v202405214Dict3getIiEET_RKNSt7__cxx1112basic_stringIcSt11char_
           to label %78 unwind label %80
 
 78:                                               ; preds = %77
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS0_14dnn4_v2024052111LayerParamsE, ptr noundef nonnull @.str.3, i32 noundef 49) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS0_14dnn4_v2024052111LayerParamsE, ptr noundef nonnull @.str.3, i32 noundef 49) #26
           to label %79 unwind label %82
 
 79:                                               ; preds = %78
@@ -670,7 +710,7 @@ _ZNK2cv3dnn14dnn4_v202405214Dict3getIiEET_RKNSt7__cxx1112basic_stringIcSt11char_
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #26
+  call void @__clang_call_terminate(ptr %116) #27
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i72: ; preds = %.lr.ph.i.i.i.i69
@@ -695,7 +735,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #26
+  call void @__clang_call_terminate(ptr %124) #27
   unreachable
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202405219DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i79: ; preds = %119
@@ -783,7 +823,7 @@ _ZNK2cv3dnn14dnn4_v202405214Dict3getIbEET_RKNSt7__cxx1112basic_stringIcSt11char_
           to label %163 unwind label %190
 
 163:                                              ; preds = %162
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS0_14dnn4_v2024052111LayerParamsE, ptr noundef nonnull @.str.3, i32 noundef 62) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS0_14dnn4_v2024052111LayerParamsE, ptr noundef nonnull @.str.3, i32 noundef 62) #26
           to label %164 unwind label %192
 
 164:                                              ; preds = %163
@@ -951,7 +991,7 @@ _ZNK2cv3dnn14dnn4_v202405214Dict3getIbEET_RKNSt7__cxx1112basic_stringIcSt11char_
           to label %229 unwind label %231
 
 229:                                              ; preds = %228
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS0_14dnn4_v2024052111LayerParamsE, ptr noundef nonnull @.str.3, i32 noundef 72) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8ImplC2ERKNS0_14dnn4_v2024052111LayerParamsE, ptr noundef nonnull @.str.3, i32 noundef 72) #26
           to label %230 unwind label %233
 
 230:                                              ; preds = %229
@@ -978,7 +1018,7 @@ _ZNK2cv3dnn14dnn4_v202405214Dict3getIbEET_RKNSt7__cxx1112basic_stringIcSt11char_
 
 236:                                              ; preds = %235, %194, %189, %184, %179, %174, %169, %84, %76, %71, %65
   %.pn52.pn = phi { ptr, i32 } [ %.pn52, %194 ], [ %.pn50, %235 ], [ %.pn48, %189 ], [ %.pn46, %184 ], [ %.pn44, %179 ], [ %.pn42, %174 ], [ %.pn40, %169 ], [ %.pn38, %84 ], [ %.pn36, %76 ], [ %.pn, %71 ], [ %66, %65 ]
-  call void @_ZN2cv3dnn14dnn4_v2024052120BaseConvolutionLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(324) %0) #24
+  call void @_ZN2cv3dnn14dnn4_v2024052120BaseConvolutionLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(342) %0) #24
   resume { ptr, i32 } %.pn52.pn
 }
 
@@ -1085,7 +1125,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZN2cv3PtrINS_3dnn1
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %44
   %45 = getelementptr inbounds i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %45) #24
-  tail call void @_ZN2cv3dnn14dnn4_v2024052120BaseConvolutionLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(324) %0) #24
+  tail call void @_ZN2cv3dnn14dnn4_v2024052120BaseConvolutionLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(342) %0) #24
   ret void
 }
 
@@ -1632,7 +1672,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERK
           to label %46 unwind label %48
 
 46:                                               ; preds = %45
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1529) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1529) #26
           to label %47 unwind label %50
 
 47:                                               ; preds = %46
@@ -1670,7 +1710,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERK
           to label %62 unwind label %64
 
 62:                                               ; preds = %61
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1529) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1529) #26
           to label %63 unwind label %66
 
 63:                                               ; preds = %62
@@ -1708,7 +1748,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERK
           to label %78 unwind label %80
 
 78:                                               ; preds = %77
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1529) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1529) #26
           to label %79 unwind label %82
 
 79:                                               ; preds = %78
@@ -1744,7 +1784,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERK
           to label %91 unwind label %93
 
 91:                                               ; preds = %90
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1529) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1529) #26
           to label %92 unwind label %95
 
 92:                                               ; preds = %91
@@ -1781,7 +1821,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERK
           to label %106 unwind label %108
 
 106:                                              ; preds = %105
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1532) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_, ptr noundef nonnull @.str.3, i32 noundef 1532) #26
           to label %107 unwind label %110
 
 107:                                              ; preds = %106
@@ -1826,7 +1866,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24ConvolutionLayerInt8Impl7forwardERK
   br i1 %122, label %123, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
 
 123:                                              ; preds = %121
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.38) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.38) #26
           to label %.noexc unwind label %127
 
 .noexc:                                           ; preds = %123
@@ -1960,7 +2000,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit40:        ; preds = %_ZSt8_DestroyIPN2cv
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #26
+  call void @__clang_call_terminate(ptr %168) #27
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit40, %165
@@ -2351,7 +2391,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn24ConvolutionLayerInt8
           to label %23 unwind label %25
 
 23:                                               ; preds = %22
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 208) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 208) #26
           to label %24 unwind label %27
 
 24:                                               ; preds = %23
@@ -2389,7 +2429,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn24ConvolutionLayerInt8
           to label %39 unwind label %41
 
 39:                                               ; preds = %38
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 210) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 210) #26
           to label %40 unwind label %43
 
 40:                                               ; preds = %39
@@ -2450,7 +2490,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %46, %_ZSt8_DestroyI
           to label %57 unwind label %59
 
 57:                                               ; preds = %56
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 214) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 214) #26
           to label %58 unwind label %61
 
 58:                                               ; preds = %57
@@ -2485,7 +2525,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %46, %_ZSt8_DestroyI
   br i1 %72, label %73, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 73:                                               ; preds = %64
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.38) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.38) #26
           to label %.noexc.i unwind label %80
 
 .noexc.i:                                         ; preds = %73
@@ -2632,7 +2672,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit65:        ; preds = %93
   br i1 %151, label %152, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
 
 152:                                              ; preds = %146
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #26
           to label %.noexc67 unwind label %.loopexit.split-lp
 
 .noexc67:                                         ; preds = %152
@@ -2725,7 +2765,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
           to label %187 unwind label %.loopexit.split-lp
 
 187:                                              ; preds = %186
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 236) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 236) #26
           to label %188 unwind label %189
 
 188:                                              ; preds = %187
@@ -2757,7 +2797,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
           to label %200 unwind label %202
 
 200:                                              ; preds = %199
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 237) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_, ptr noundef nonnull @.str.3, i32 noundef 237) #26
           to label %201 unwind label %204
 
 201:                                              ; preds = %200
@@ -2894,7 +2934,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn24ConvolutionLayerInt8Impl8ge
           to label %21 unwind label %23
 
 21:                                               ; preds = %20
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl8getFLOPSERKSt6vectorIS2_IiSaIiEESaIS4_EES8_, ptr noundef nonnull @.str.3, i32 noundef 1551) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl8getFLOPSERKSt6vectorIS2_IiSaIiEESaIS4_EES8_, ptr noundef nonnull @.str.3, i32 noundef 1551) #26
           to label %22 unwind label %25
 
 22:                                               ; preds = %21
@@ -2976,7 +3016,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
   br label %.lr.ph.i22
 
 50:                                               ; preds = %43
-  tail call void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef 0, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172) #27
+  tail call void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef 0, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172) #26
   unreachable
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i22, %.lr.ph.preheader.i
@@ -3032,7 +3072,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn24ConvolutionLayerInt8Impl18computeC
           to label %13 unwind label %15
 
 13:                                               ; preds = %12
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl18computeColRowShapeERKSt6vectorIiSaIiEES6_, ptr noundef nonnull @.str.3, i32 noundef 174) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl18computeColRowShapeERKSt6vectorIiSaIiEES6_, ptr noundef nonnull @.str.3, i32 noundef 174) #26
           to label %14 unwind label %17
 
 14:                                               ; preds = %13
@@ -3248,7 +3288,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit:                     ; preds = %4
           to label %42 unwind label %44
 
 42:                                               ; preds = %41
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl11fuseWeightsERKNS_3MatES4_RKf, ptr noundef nonnull @.str.3, i32 noundef 306) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl11fuseWeightsERKNS_3MatES4_RKf, ptr noundef nonnull @.str.3, i32 noundef 306) #26
           to label %43 unwind label %46
 
 43:                                               ; preds = %42
@@ -3290,7 +3330,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit:                     ; preds = %4
           to label %62 unwind label %64
 
 62:                                               ; preds = %61
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl11fuseWeightsERKNS_3MatES4_RKf, ptr noundef nonnull @.str.3, i32 noundef 306) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl11fuseWeightsERKNS_3MatES4_RKf, ptr noundef nonnull @.str.3, i32 noundef 306) #26
           to label %63 unwind label %66
 
 63:                                               ; preds = %62
@@ -3334,7 +3374,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit:                     ; preds = %4
           to label %78 unwind label %80
 
 78:                                               ; preds = %77
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl11fuseWeightsERKNS_3MatES4_RKf, ptr noundef nonnull @.str.3, i32 noundef 306) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl11fuseWeightsERKNS_3MatES4_RKf, ptr noundef nonnull @.str.3, i32 noundef 306) #26
           to label %79 unwind label %82
 
 79:                                               ; preds = %78
@@ -3378,7 +3418,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit:                     ; preds = %4
           to label %94 unwind label %96
 
 94:                                               ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl11fuseWeightsERKNS_3MatES4_RKf, ptr noundef nonnull @.str.3, i32 noundef 306) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl11fuseWeightsERKNS_3MatES4_RKf, ptr noundef nonnull @.str.3, i32 noundef 306) #26
           to label %95 unwind label %98
 
 95:                                               ; preds = %94
@@ -3623,13 +3663,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn28BaseConvolutionLayerInt8ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(342) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv3dnn14dnn4_v2024052120BaseConvolutionLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(324) %0) #24
+  tail call void @_ZN2cv3dnn14dnn4_v2024052120BaseConvolutionLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(342) %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn28BaseConvolutionLayerInt8ImplD0Ev(ptr noundef nonnull align 8 dereferenceable(342) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @llvm.trap() #26
+  tail call void @llvm.trap() #27
   unreachable
 }
 
@@ -3694,7 +3734,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finali
           to label %43 unwind label %45
 
 43:                                               ; preds = %42
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 85) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 85) #26
           to label %44 unwind label %47
 
 44:                                               ; preds = %43
@@ -3734,7 +3774,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finali
           to label %61 unwind label %63
 
 61:                                               ; preds = %60
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 88) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 88) #26
           to label %62 unwind label %65
 
 62:                                               ; preds = %61
@@ -3942,7 +3982,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit86:          ; preds = %152, %150, %148, %1
           to label %166 unwind label %168
 
 166:                                              ; preds = %165
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 97) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 97) #26
           to label %167 unwind label %170
 
 167:                                              ; preds = %166
@@ -3985,7 +4025,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit86:          ; preds = %152, %150, %148, %1
           to label %180 unwind label %182
 
 180:                                              ; preds = %179
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 99) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 99) #26
           to label %181 unwind label %184
 
 181:                                              ; preds = %180
@@ -4053,7 +4093,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit86:          ; preds = %152, %150, %148, %1
           to label %208 unwind label %210
 
 208:                                              ; preds = %.thread
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 103) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 103) #26
           to label %209 unwind label %212
 
 209:                                              ; preds = %208
@@ -4089,7 +4129,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit86:          ; preds = %152, %150, %148, %1
           to label %221 unwind label %223
 
 221:                                              ; preds = %220
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 106) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 106) #26
           to label %222 unwind label %225
 
 222:                                              ; preds = %221
@@ -4148,7 +4188,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit86:          ; preds = %152, %150, %148, %1
           to label %246 unwind label %248
 
 246:                                              ; preds = %245
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 107) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 107) #26
           to label %247 unwind label %250
 
 247:                                              ; preds = %246
@@ -4190,7 +4230,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit86:          ; preds = %152, %150, %148, %1
           to label %260 unwind label %262
 
 260:                                              ; preds = %259
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 109) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 109) #26
           to label %261 unwind label %264
 
 261:                                              ; preds = %260
@@ -4259,7 +4299,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit86:          ; preds = %152, %150, %148, %1
   br i1 %288, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
 .invoke:                                          ; preds = %312, %283
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #26
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -4436,7 +4476,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit99:        ; preds = %_ZNSt6vectorIiSaIiE
           to label %358 unwind label %360
 
 358:                                              ; preds = %357
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 123) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE, ptr noundef nonnull @.str.3, i32 noundef 123) #26
           to label %359 unwind label %362
 
 359:                                              ; preds = %358
@@ -4643,7 +4683,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn28BaseConvolutionLayerI
           to label %36 unwind label %38
 
 36:                                               ; preds = %35
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl7tryFuseERNS_3PtrINS0_14dnn4_v202405215LayerEEE, ptr noundef nonnull @.str.3, i32 noundef 145) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv3dnn28BaseConvolutionLayerInt8Impl7tryFuseERNS_3PtrINS0_14dnn4_v202405215LayerEEE, ptr noundef nonnull @.str.3, i32 noundef 145) #26
           to label %37 unwind label %40
 
 37:                                               ; preds = %36
@@ -4802,7 +4842,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120BaseConvolutionLaye
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #26
+  tail call void @_ZSt9terminatev() #27
   unreachable
 }
 
@@ -4832,7 +4872,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #26
+  tail call void @__clang_call_terminate(ptr %12) #27
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
@@ -4857,7 +4897,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #26
+  tail call void @__clang_call_terminate(ptr %20) #27
   unreachable
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202405219DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit: ; preds = %15
@@ -4871,7 +4911,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v2
 
 23:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202405219DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %22) #24
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -204, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 350) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -204, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 350) #26
           to label %24 unwind label %27
 
 24:                                               ; preds = %23
@@ -4984,7 +5024,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn14dnn4_v202405219DictValue3ge
 
 15:                                               ; preds = %13
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.17, i32 noundef %14)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv, ptr noundef nonnull @.str.13, i32 noundef 298) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv, ptr noundef nonnull @.str.13, i32 noundef 298) #26
           to label %16 unwind label %17
 
 16:                                               ; preds = %15
@@ -5025,7 +5065,7 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit: ; preds = %13, %13, %13
 
 28:                                               ; preds = %26
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.17, i32 noundef %27)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv, ptr noundef nonnull @.str.13, i32 noundef 298) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv, ptr noundef nonnull @.str.13, i32 noundef 298) #26
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -5053,7 +5093,7 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit29: ; preds = %26, %26, %26
           to label %36 unwind label %38
 
 36:                                               ; preds = %.thread
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 88) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 88) #26
           to label %37 unwind label %40
 
 37:                                               ; preds = %36
@@ -5107,7 +5147,7 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit29: ; preds = %26, %26, %26
           to label %60 unwind label %62
 
 60:                                               ; preds = %59
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 101) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 101) #26
           to label %61 unwind label %64
 
 61:                                               ; preds = %60
@@ -5153,7 +5193,7 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit29: ; preds = %26, %26, %26
           to label %79 unwind label %81
 
 79:                                               ; preds = %78
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 111) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 111) #26
           to label %80 unwind label %83
 
 80:                                               ; preds = %79
@@ -5213,7 +5253,7 @@ define linkonce_odr hidden noundef double @_ZNK2cv3dnn14dnn4_v202405219DictValue
 
 12:                                               ; preds = %10
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.17, i32 noundef %11)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv, ptr noundef nonnull @.str.13, i32 noundef 298) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv, ptr noundef nonnull @.str.13, i32 noundef 298) #26
           to label %13 unwind label %14
 
 13:                                               ; preds = %12
@@ -5254,7 +5294,7 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit: ; preds = %10, %10, %10
 
 25:                                               ; preds = %23
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.17, i32 noundef %24)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv, ptr noundef nonnull @.str.13, i32 noundef 298) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -3, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv, ptr noundef nonnull @.str.13, i32 noundef 298) #26
           to label %26 unwind label %27
 
 26:                                               ; preds = %25
@@ -5282,7 +5322,7 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit23: ; preds = %23, %23, %23
           to label %33 unwind label %35
 
 33:                                               ; preds = %.thread
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 142) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 142) #26
           to label %34 unwind label %37
 
 34:                                               ; preds = %33
@@ -5343,7 +5383,7 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit23: ; preds = %23, %23, %23
           to label %62 unwind label %64
 
 62:                                               ; preds = %61
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 159) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZNK2cv3dnn14dnn4_v202405214Dict3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull @.str.13, i32 noundef 159) #26
           to label %63 unwind label %66
 
 63:                                               ; preds = %62
@@ -5519,7 +5559,7 @@ _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   br i1 %48, label %49, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
 
 49:                                               ; preds = %42
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #26
   unreachable
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %42
@@ -5753,7 +5793,7 @@ _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_Z
   br i1 %26, label %27, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
 
 27:                                               ; preds = %25
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #26
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %25
@@ -5851,7 +5891,7 @@ _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_Z
   br i1 %26, label %27, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
 
 27:                                               ; preds = %25
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #26
   unreachable
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %25
@@ -5969,7 +6009,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit
-  tail call void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %56, i32 noundef %57, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8EiiiiE15__cv_check__728) #27
+  tail call void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %56, i32 noundef %57, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8EiiiiE15__cv_check__728) #26
   unreachable
 
 60:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit
@@ -5984,7 +6024,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %65 unwind label %67
 
 65:                                               ; preds = %64
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %66 unwind label %69
 
 66:                                               ; preds = %65
@@ -6022,7 +6062,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %81 unwind label %83
 
 81:                                               ; preds = %80
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %82 unwind label %85
 
 82:                                               ; preds = %81
@@ -6058,7 +6098,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %95 unwind label %97
 
 95:                                               ; preds = %94
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %96 unwind label %99
 
 96:                                               ; preds = %95
@@ -6098,7 +6138,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %113 unwind label %115
 
 113:                                              ; preds = %112
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %114 unwind label %117
 
 114:                                              ; preds = %113
@@ -6132,7 +6172,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %125 unwind label %127
 
 125:                                              ; preds = %124
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %126 unwind label %129
 
 126:                                              ; preds = %125
@@ -6166,7 +6206,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %137 unwind label %139
 
 137:                                              ; preds = %136
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %138 unwind label %141
 
 138:                                              ; preds = %137
@@ -6200,7 +6240,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %149 unwind label %151
 
 149:                                              ; preds = %148
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %150 unwind label %153
 
 150:                                              ; preds = %149
@@ -6233,7 +6273,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %159 unwind label %161
 
 159:                                              ; preds = %158
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %160 unwind label %163
 
 160:                                              ; preds = %159
@@ -6266,7 +6306,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %169 unwind label %171
 
 169:                                              ; preds = %168
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %170 unwind label %173
 
 170:                                              ; preds = %169
@@ -6307,7 +6347,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
           to label %188 unwind label %190
 
 188:                                              ; preds = %187
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @__func__._ZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8Eiiii, ptr noundef nonnull @.str.3, i32 noundef 738) #26
           to label %189 unwind label %192
 
 189:                                              ; preds = %188
@@ -6337,7 +6377,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
 
 199:                                              ; preds = %195
   %200 = tail call noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 0)
-  tail call void @_ZN2cv6detail17check_failed_autoEmRKNS0_12CheckContextE(i64 noundef %200, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8EiiiiE15__cv_check__739) #27
+  tail call void @_ZN2cv6detail17check_failed_autoEmRKNS0_12CheckContextE(i64 noundef %200, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn24ConvolutionLayerInt8Impl12ParallelConv3runERKNS_3MatERS3_S5_RKSt6vectorIfSaIfEERKS7_IiSaIiEES5_RKS7_ImSaImEESJ_SJ_SJ_SJ_PKNS0_14dnn4_v2024052119ActivationLayerInt8EiiiiE15__cv_check__739) #26
   unreachable
 
 201:                                              ; preds = %195
@@ -6821,7 +6861,7 @@ _ZNSt6vectorImSaImEEaSERKS1_.exit281:             ; preds = %_ZSt4copyIN9__gnu_c
   br i1 %398, label %.invoke, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i297
 
 .invoke:                                          ; preds = %397, %356, %315, %274, %233
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
           to label %.cont unwind label %518
 
 .cont:                                            ; preds = %.invoke
@@ -7164,7 +7204,7 @@ _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6
   br i1 %571, label %572, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 572:                                              ; preds = %570
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #26
           to label %.noexc308 unwind label %518
 
 .noexc308:                                        ; preds = %572
@@ -7456,7 +7496,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #26
+  tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 }
 
@@ -7858,7 +7898,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn24ConvolutionLayerInt8Impl12Parallel
   br i1 %.not.i.i.not, label %220, label %_ZNKSt6vectorIiSaIiEE2atEm.exit
 
 220:                                              ; preds = %204
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.56, i64 noundef 0, i64 noundef 0) #27
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.56, i64 noundef 0, i64 noundef 0) #26
   unreachable
 
 _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %204
@@ -7871,7 +7911,7 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit:                  ; preds = %204
   br i1 %.not.i.i850.not, label %226, label %_ZNKSt6vectorIfSaIfEE2atEm.exit
 
 226:                                              ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.56, i64 noundef 0, i64 noundef 0) #27
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.56, i64 noundef 0, i64 noundef 0) #26
   unreachable
 
 _ZNKSt6vectorIfSaIfEE2atEm.exit:                  ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit
@@ -9330,7 +9370,7 @@ _ZN2cv10AutoBufferIaLm1032EE8allocateEm.exit:     ; preds = %241, %.noexc
           to label %1001 unwind label %1003
 
 1001:                                             ; preds = %.split.us
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl12ParallelConvclERKNS_5RangeE, ptr noundef nonnull @.str.3, i32 noundef 956) #27
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZNK2cv3dnn24ConvolutionLayerInt8Impl12ParallelConvclERKNS_5RangeE, ptr noundef nonnull @.str.3, i32 noundef 956) #26
           to label %1002 unwind label %1005
 
 1002:                                             ; preds = %1001
@@ -9482,7 +9522,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE14_M_fill_insertEN9__gn
   br i1 %27, label %.noexc.i.i.i.i.i, label %28
 
 .noexc.i.i.i.i.i:                                 ; preds = %26
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #26
   unreachable
 
 28:                                               ; preds = %26
@@ -9688,7 +9728,7 @@ _ZSt4fillIPSt6vectorIiSaIiEES2_EvT_S4_RKT0_.exit: ; preds = %.noexc81, %.noexc, 
   br i1 %101, label %102, label %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit
 
 102:                                              ; preds = %95
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #26
   unreachable
 
 _ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %95
@@ -9834,7 +9874,7 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit110.thread126: ; preds = 
   br label %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit118
 
 _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit118: ; preds = %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i108, %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit110.thread126
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #26
           to label %153 unwind label %148
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE16_Temporary_valueD2Ev.exit84: ; preds = %94, %_ZSt4fillIPSt6vectorIiSaIiEES2_EvT_S4_RKT0_.exit, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit, %4
@@ -9848,7 +9888,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE16_Temporary_valueD2Ev.exit: ; preds = %75, %.loo
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  tail call void @__clang_call_terminate(ptr %152) #26
+  tail call void @__clang_call_terminate(ptr %152) #27
   unreachable
 
 153:                                              ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit118
@@ -9881,7 +9921,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   br i1 %18, label %19, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
 19:                                               ; preds = %17
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #26
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %17
@@ -9992,7 +10032,7 @@ define linkonce_odr noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIiSaIiEEmS2_
   br i1 %13, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %12
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.noexc.i.i.i
@@ -10063,7 +10103,7 @@ _ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i:    ; preds = %33, %.lr.ph.i.i
   br i1 %.not.i.i, label %_ZSt8_DestroyIPSt6vectorIiSaIiEEEvT_S4_.exit, label %.lr.ph.i.i, !llvm.loop !27
 
 _ZSt8_DestroyIPSt6vectorIiSaIiEEEvT_S4_.exit:     ; preds = %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i, %29
-  invoke void @__cxa_rethrow() #27
+  invoke void @__cxa_rethrow() #26
           to label %41 unwind label %35
 
 ._crit_edge:                                      ; preds = %25, %3
@@ -10083,7 +10123,7 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEEEvT_S4_.exit:     ; preds = %_ZSt8_DestroyISt6ve
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #26
+  tail call void @__clang_call_terminate(ptr %40) #27
   unreachable
 
 41:                                               ; preds = %_ZSt8_DestroyIPSt6vectorIiSaIiEEEvT_S4_.exit
@@ -10091,60 +10131,6 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEEEvT_S4_.exit:     ; preds = %_ZSt8_DestroyISt6ve
 }
 
 declare void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3dnn24ConvolutionLayerInt8ImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-          to label %4 unwind label %8
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn24ConvolutionLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8
-  store ptr %3, ptr %0, align 8
-  ret void
-
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #24
-  %12 = icmp eq ptr %1, null
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %8
-  tail call void @_ZN2cv3dnn24ConvolutionLayerInt8ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %1) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #25
-  br label %14
-
-14:                                               ; preds = %13, %8
-  invoke void @__cxa_rethrow() #27
-          to label %21 unwind label %15
-
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %17 unwind label %18
-
-17:                                               ; preds = %15
-  resume { ptr, i32 } %16
-
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
-          catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #26
-  unreachable
-
-21:                                               ; preds = %14
-  unreachable
-}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv3dnn24ConvolutionLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
@@ -10241,8 +10227,8 @@ attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #23 = { builtin allocsize(0) }
 attributes #24 = { nounwind }
 attributes #25 = { builtin nounwind }
-attributes #26 = { noreturn nounwind }
-attributes #27 = { noreturn }
+attributes #26 = { noreturn }
+attributes #27 = { noreturn nounwind }
 attributes #28 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

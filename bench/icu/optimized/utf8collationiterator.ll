@@ -1191,7 +1191,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524FCDUTF8CollationIteratorE, i64 16), ptr %this, align 8
   %normalized = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #16
-  tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(389) %this) #16
+  tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) #16
   ret void
 }
 

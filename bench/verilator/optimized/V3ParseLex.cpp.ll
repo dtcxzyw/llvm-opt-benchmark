@@ -19010,7 +19010,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #34
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #34
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -19297,7 +19297,7 @@ define dso_local void @_ZN10V3ParseImp14lexUnputStringEPKcm(ptr nocapture nonnul
   %68 = load ptr, ptr %6, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 112
   %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef nonnull align 8 dereferenceable(732) %6, ptr noundef nonnull @.str.27)
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(736) %6, ptr noundef nonnull @.str.27)
   br label %_ZN11V3LexerBase7yyunputEiPc.exit.i
 
 _ZN11V3LexerBase7yyunputEiPc.exit.i:              ; preds = %67, %._crit_edge.i.i, %14
@@ -19340,7 +19340,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10V3ParseImp9newNumberEP8FileLineP
 .body:                                            ; preds = %.noexc.i, %3
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN12V3NumberDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #34
+  tail call void @_ZN12V3NumberDataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #34
   tail call void @_ZdlPv(ptr noundef nonnull %5) #37
   resume { ptr, i32 } %11
 
@@ -19420,7 +19420,7 @@ define internal fastcc noundef double @_ZL14lexParseDoubleP8FileLinePKcm(ptr nou
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %25, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %25, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc12 unwind label %33
 
 .noexc12:                                         ; preds = %.noexc
@@ -19430,7 +19430,7 @@ define internal fastcc noundef double @_ZL14lexParseDoubleP8FileLinePKcm(ptr nou
 26:                                               ; preds = %.noexc12
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #34
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #34
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc12
@@ -19574,7 +19574,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10V3ParseImp9newStringB5cxx11EPKc(
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc4 unwind label %26
 
 .noexc4:                                          ; preds = %.noexc
@@ -19591,7 +19591,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10V3ParseImp9newStringB5cxx11EPKc(
 10:                                               ; preds = %12, %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
   br label %.body
 
 12:                                               ; preds = %.noexc4
@@ -21529,7 +21529,7 @@ define dso_local void @_ZN10V3ParseImp6lexNewEv(ptr nocapture noundef nonnull al
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(732) %3) #34
+  tail call void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %3) #34
   tail call void @_ZdlPv(ptr noundef nonnull %3) #37
   br label %5
 
@@ -21638,7 +21638,7 @@ define linkonce_odr dso_local noundef i32 @_ZN10V3ParseImp9debugFlexEv() #4 comd
           to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc18 unwind label %29
 
 .noexc18:                                         ; preds = %.noexc
@@ -21648,7 +21648,7 @@ define linkonce_odr dso_local noundef i32 @_ZN10V3ParseImp9debugFlexEv() #4 comd
 9:                                                ; preds = %.noexc18
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #34
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #34
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc18
@@ -21675,7 +21675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc19 unwind label %33
 
 .noexc19:                                         ; preds = %20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc20 unwind label %33
 
 .noexc20:                                         ; preds = %.noexc19
@@ -21685,7 +21685,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 22:                                               ; preds = %.noexc20
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #34
   br label %.body21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; preds = %.noexc20
@@ -21763,7 +21763,7 @@ define dso_local void @_ZN10V3ParseImp10lexDestroyEv(ptr nocapture noundef nonnu
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(732) %3) #34
+  tail call void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %3) #34
   tail call void @_ZdlPv(ptr noundef nonnull %3) #37
   store ptr null, ptr %2, align 8
   br label %5
@@ -21986,7 +21986,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberDataD2Ev(ptr noundef nonnull al
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #34
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #34
   br label %_ZN12V3NumberData18destroyStoredValueEv.exit
 
 6:                                                ; preds = %1
@@ -22026,7 +22026,7 @@ define linkonce_odr dso_local void @_ZN8V3Number4initEP7AstNodeib(ptr noundef no
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #34
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #34
   %.pre.i = load i8, ptr %8, align 4
   br label %12
 
@@ -22043,14 +22043,14 @@ define linkonce_odr dso_local void @_ZN8V3Number4initEP7AstNodeib(ptr noundef no
   br i1 %16, label %17, label %.noexc3.i.i
 
 17:                                               ; preds = %15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
   br label %_ZN12V3NumberData8setLogicEv.exit
 
 .noexc3.i.i:                                      ; preds = %15
   %18 = add nuw nsw i32 %.pre1.i, 31
   %19 = lshr i32 %18, 5
   %20 = zext nneg i32 %19 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %21 = shl nuw nsw i64 %20, 3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #36
   store ptr %22, ptr %0, align 8
@@ -22141,8 +22141,8 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %.lr.ph
 
 64:                                               ; preds = %58
   %65 = load ptr, ptr %0, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %65, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(32) %65, i64 32, i1 false)
   tail call void @_ZdlPv(ptr noundef nonnull %65) #37
   br label %.sink.split.i
 
@@ -22242,7 +22242,7 @@ _ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EED2Ev.exit: ; preds = %18
 _ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %43 = zext nneg i32 %10 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %44 = shl nuw nsw i64 %43, 3
   %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #36
   store ptr %45, ptr %0, align 8
@@ -23266,7 +23266,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIKNSt7__cxx1112basic_stringIcS
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #34
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(34) %7) #34
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #37
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
@@ -23279,7 +23279,7 @@ declare noundef i64 @_ZN10V3ParseImp12ppInputToLexEPcm(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7V3LexerD0Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(732) %0) #34
+  tail call void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #34
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }

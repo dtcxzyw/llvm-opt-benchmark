@@ -3146,7 +3146,7 @@ sip_is_known_request.exit:                        ; preds = %157
   store i32 0, ptr %15, align 4
   %185 = getelementptr inbounds i8, ptr %15, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %185, i8 -1, i64 56, i1 false)
-  %186 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %184, i32 noundef %37, i8 noundef zeroext 32) #15
+  %186 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %184, i32 noundef range(i32 1, 0) %37, i8 noundef zeroext 32) #15
   %187 = add i32 %186, -1
   %188 = getelementptr inbounds i8, ptr %15, i64 16
   store i32 %187, ptr %188, align 4

@@ -46,8 +46,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.tstrings::any", align 8
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
-  %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str)
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
+  %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef nonnull @.str)
           to label %_ZN8tstrings3anylsIPKcEERS0_T_.exit unwind label %13
 
 _ZN8tstrings3anylsIPKcEERS0_T_.exit:              ; preds = %2
@@ -55,15 +55,15 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit:              ; preds = %2
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(16) %1) #7
-  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %9)
+  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef %9)
           to label %_ZN8tstrings3anylsIPKcEERS0_T_.exit5 unwind label %13
 
 _ZN8tstrings3anylsIPKcEERS0_T_.exit5:             ; preds = %_ZN8tstrings3anylsIPKcEERS0_T_.exit
-  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.1)
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef nonnull @.str.1)
           to label %_ZN8tstrings3anylsIPKcEERS0_T_.exit6 unwind label %13
 
 _ZN8tstrings3anylsIPKcEERS0_T_.exit6:             ; preds = %_ZN8tstrings3anylsIPKcEERS0_T_.exit5
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(112) %4)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(376) %4)
           to label %_ZNK8tstrings3any4tstrB5cxx11Ev.exit unwind label %13
 
 _ZNK8tstrings3any4tstrB5cxx11Ev.exit:             ; preds = %_ZN8tstrings3anylsIPKcEERS0_T_.exit6
@@ -72,7 +72,7 @@ _ZNK8tstrings3any4tstrB5cxx11Ev.exit:             ; preds = %_ZN8tstrings3anylsI
 
 12:                                               ; preds = %_ZNK8tstrings3any4tstrB5cxx11Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #7
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #7
   ret void
 
 13:                                               ; preds = %_ZN8tstrings3anylsIPKcEERS0_T_.exit6, %_ZN8tstrings3anylsIPKcEERS0_T_.exit5, %_ZN8tstrings3anylsIPKcEERS0_T_.exit, %2
@@ -88,7 +88,7 @@ _ZNK8tstrings3any4tstrB5cxx11Ev.exit:             ; preds = %_ZN8tstrings3anylsI
 
 17:                                               ; preds = %15, %13
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #7
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #7
   resume { ptr, i32 } %.pn
 }
 

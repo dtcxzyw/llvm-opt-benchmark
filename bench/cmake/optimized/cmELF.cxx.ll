@@ -735,7 +735,7 @@ _ZNK5cmELF5ValidEv.exit:                          ; preds = %3
 
 _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %3, %_ZNK5cmELF5ValidEv.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %11
 
@@ -1610,7 +1610,7 @@ _ZNSt6vectorISt4pairIlmESaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes32E20EncodeDynamicEntriesERKSt6vectorISt4pairIlmESaIS4_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.Elf32_Dyn, align 4
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2358,7 +2358,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEnt
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #18
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -2432,7 +2432,7 @@ _ZNSt6vectorI9Elf32_DynSaIS0_EE6resizeEm.exit:    ; preds = %19, %24
   %40 = load ptr, ptr %6, align 8
   %41 = getelementptr inbounds %struct.Elf32_Dyn, ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %26, align 8
-  %43 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %41, i64 noundef 8)
+  %43 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(8) %41, i64 noundef 8)
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
@@ -2708,7 +2708,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
@@ -2883,7 +2883,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntr
   store i32 %12, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 56, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(52) %13) #18
   store ptr %8, ptr %7, align 8
   %14 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntryEESt10_Select1stIS4_ESt4lessIjESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %15 unwind label %30
@@ -2924,7 +2924,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntr
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(52) %13) #18
   tail call void @_ZdlPv(ptr noundef nonnull %8) #20
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEntryEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_nodeD2Ev.exit
 
@@ -3154,7 +3154,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIjSt4pairIKjN5cmELF11StringEnt
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(52) %5) #18
   tail call void @_ZdlPv(ptr noundef nonnull %3) #20
   br label %6
 
@@ -3208,7 +3208,7 @@ _ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev.exit:
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %23 = inttoptr i64 %6 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
-  %24 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %22, i64 noundef 64)
+  %24 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 noundef 64)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev.exit
@@ -3489,7 +3489,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELF
   %17 = load ptr, ptr %15, align 8
   %18 = getelementptr inbounds %struct.Elf64_Shdr, ptr %17, i64 %16
   %19 = load ptr, ptr %3, align 8
-  %20 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %18, i64 noundef 64)
+  %20 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 noundef 64)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
@@ -3763,7 +3763,7 @@ _ZNSt6vectorISt4pairIlmESaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes64E20EncodeDynamicEntriesERKSt6vectorISt4pairIlmESaIS4_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.Elf64_Dyn, align 8
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8

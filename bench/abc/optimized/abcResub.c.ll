@@ -5058,8 +5058,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %139 = getelementptr inbounds i8, ptr %54, i64 20
   %140 = load i32, ptr %139, align 4
   %141 = lshr i32 %140, 12
-  %142 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %138, i32 %141)
-  %143 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %136, i32 %142)
+  %142 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %138, i32 range(i32 0, 1048576) %141)
+  %143 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %136, i32 range(i32 0, 1048576) %142)
   %.not543.us.us = icmp samesign ult i32 %136, %142
   %.0396.us.us = select i1 %.not543.us.us, ptr null, ptr %.fr
   %.3385.us.us = select i1 %.not543.us.us, ptr %.2384627.us.us, ptr %34
@@ -5351,8 +5351,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %264 = getelementptr inbounds i8, ptr %176, i64 20
   %265 = load i32, ptr %264, align 4
   %266 = lshr i32 %265, 12
-  %267 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %263, i32 %266)
-  %268 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %261, i32 %267)
+  %267 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %263, i32 range(i32 0, 1048576) %266)
+  %268 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %261, i32 range(i32 0, 1048576) %267)
   %.not543 = icmp samesign ult i32 %261, %267
   %.0396 = select i1 %.not543, ptr null, ptr %.fr
   %.3385 = select i1 %.not543, ptr %.2384627, ptr %156
@@ -5628,8 +5628,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %396 = getelementptr inbounds i8, ptr %311, i64 20
   %397 = load i32, ptr %396, align 4
   %398 = lshr i32 %397, 12
-  %399 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %395, i32 %398)
-  %400 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %393, i32 %399)
+  %399 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %395, i32 range(i32 0, 1048576) %398)
+  %400 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %393, i32 range(i32 0, 1048576) %399)
   %.not542.us.us = icmp samesign ult i32 %393, %399
   %.3399.us.us = select i1 %.not542.us.us, ptr null, ptr %.fr740
   %.10392.us.us = select i1 %.not542.us.us, ptr %.9391702.us.us, ptr %291
@@ -5921,8 +5921,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %521 = getelementptr inbounds i8, ptr %433, i64 20
   %522 = load i32, ptr %521, align 4
   %523 = lshr i32 %522, 12
-  %524 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %520, i32 %523)
-  %525 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %518, i32 %524)
+  %524 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %520, i32 range(i32 0, 1048576) %523)
+  %525 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 range(i32 0, 1048576) %518, i32 range(i32 0, 1048576) %524)
   %.not542 = icmp samesign ult i32 %518, %524
   %.3399 = select i1 %.not542, ptr null, ptr %.fr740
   %.10392 = select i1 %.not542, ptr %.9391702, ptr %413

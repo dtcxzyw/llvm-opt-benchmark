@@ -1283,13 +1283,13 @@ while.body.i.i:                                   ; preds = %if.end5.i.i, %while
 if.then.i.i63:                                    ; preds = %while.body.i.i
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %func_watchers.i.i, i64 0, i64 %indvars.iv.i.i
   %35 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = call i32 %35(i32 noundef 0, ptr noundef %call1, ptr noundef null) #7
+  %call.i.i = call i32 %35(i32 noundef range(i32 0, 5) 0, ptr noundef nonnull %call1, ptr noundef null) #7
   %cmp.i.i64 = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i64, label %if.then3.i.i, label %if.end5.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i63
   %36 = load ptr, ptr %func_qualname, align 8
-  call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %36, ptr noundef %call1) #7
+  call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %36, ptr noundef nonnull %call1) #7
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.then3.i.i, %if.then.i.i63, %while.body.i.i
@@ -1487,7 +1487,7 @@ while.body.i.i:                                   ; preds = %if.end5.i.i, %while
 if.then.i.i:                                      ; preds = %while.body.i.i
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %func_watchers.i.i, i64 0, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = call i32 %27(i32 noundef 0, ptr noundef nonnull %call20, ptr noundef null) #7
+  %call.i.i = call i32 %27(i32 noundef range(i32 0, 5) 0, ptr noundef nonnull %call20, ptr noundef null) #7
   %cmp.i.i63 = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i63, label %if.then3.i.i, label %if.end5.i.i
 
@@ -1932,7 +1932,7 @@ while.body.i.i:                                   ; preds = %if.end5.i.i, %while
 if.then.i.i:                                      ; preds = %while.body.i.i
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %func_watchers.i.i, i64 0, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call i32 %11(i32 noundef 3, ptr noundef %op, ptr noundef %defaults.addr.0) #7
+  %call.i.i = tail call i32 %11(i32 noundef range(i32 0, 5) 3, ptr noundef %op, ptr noundef %defaults.addr.0) #7
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
@@ -2122,7 +2122,7 @@ while.body.i.i:                                   ; preds = %if.end5.i.i, %while
 if.then.i.i:                                      ; preds = %while.body.i.i
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %func_watchers.i.i, i64 0, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call i32 %11(i32 noundef 4, ptr noundef %op, ptr noundef %defaults.addr.0) #7
+  %call.i.i = tail call i32 %11(i32 noundef range(i32 0, 5) 4, ptr noundef %op, ptr noundef %defaults.addr.0) #7
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
@@ -2572,7 +2572,7 @@ while.body.i.i:                                   ; preds = %if.end5.i.i, %while
 if.then.i.i:                                      ; preds = %while.body.i.i
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %func_watchers.i.i, i64 0, i64 %indvars.iv.i.i
   %7 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call i32 %7(i32 noundef 1, ptr noundef nonnull %op, ptr noundef null) #7
+  %call.i.i = tail call i32 %7(i32 noundef range(i32 0, 5) 1, ptr noundef nonnull %op, ptr noundef null) #7
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
@@ -4248,7 +4248,7 @@ while.body.i.i:                                   ; preds = %if.end5.i.i, %while
 if.then.i.i:                                      ; preds = %while.body.i.i
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %func_watchers.i.i, i64 0, i64 %indvars.iv.i.i
   %18 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call i32 %18(i32 noundef 2, ptr noundef %op, ptr noundef nonnull %value) #7
+  %call.i.i = tail call i32 %18(i32 noundef range(i32 0, 5) 2, ptr noundef %op, ptr noundef nonnull %value) #7
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
@@ -4403,7 +4403,7 @@ while.body.i.i:                                   ; preds = %if.end5.i.i, %while
 if.then.i.i:                                      ; preds = %while.body.i.i
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %func_watchers.i.i, i64 0, i64 %indvars.iv.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call i32 %9(i32 noundef 3, ptr noundef %op, ptr noundef %value) #7
+  %call.i.i = tail call i32 %9(i32 noundef range(i32 0, 5) 3, ptr noundef %op, ptr noundef nonnull %value) #7
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
@@ -4483,7 +4483,7 @@ while.body.i.i24:                                 ; preds = %if.end5.i.i32, %whi
 if.then.i.i28:                                    ; preds = %while.body.i.i24
   %arrayidx.i.i29 = getelementptr [8 x ptr], ptr %func_watchers.i.i22, i64 0, i64 %indvars.iv.i.i25
   %22 = load ptr, ptr %arrayidx.i.i29, align 8
-  %call.i.i30 = tail call i32 %22(i32 noundef 3, ptr noundef %op, ptr noundef null) #7
+  %call.i.i30 = tail call i32 %22(i32 noundef range(i32 0, 5) 3, ptr noundef %op, ptr noundef null) #7
   %cmp.i.i31 = icmp slt i32 %call.i.i30, 0
   br i1 %cmp.i.i31, label %if.then3.i.i36, label %if.end5.i.i32
 
@@ -4635,7 +4635,7 @@ while.body.i.i:                                   ; preds = %if.end5.i.i, %while
 if.then.i.i:                                      ; preds = %while.body.i.i
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %func_watchers.i.i, i64 0, i64 %indvars.iv.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call i32 %9(i32 noundef 4, ptr noundef %op, ptr noundef %value) #7
+  %call.i.i = tail call i32 %9(i32 noundef range(i32 0, 5) 4, ptr noundef %op, ptr noundef nonnull %value) #7
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then3.i.i, label %if.end5.i.i
 
@@ -4715,7 +4715,7 @@ while.body.i.i24:                                 ; preds = %if.end5.i.i32, %whi
 if.then.i.i28:                                    ; preds = %while.body.i.i24
   %arrayidx.i.i29 = getelementptr [8 x ptr], ptr %func_watchers.i.i22, i64 0, i64 %indvars.iv.i.i25
   %22 = load ptr, ptr %arrayidx.i.i29, align 8
-  %call.i.i30 = tail call i32 %22(i32 noundef 4, ptr noundef %op, ptr noundef null) #7
+  %call.i.i30 = tail call i32 %22(i32 noundef range(i32 0, 5) 4, ptr noundef %op, ptr noundef null) #7
   %cmp.i.i31 = icmp slt i32 %call.i.i30, 0
   br i1 %cmp.i.i31, label %if.then3.i.i36, label %if.end5.i.i32
 

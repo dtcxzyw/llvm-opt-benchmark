@@ -436,7 +436,7 @@ define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noca
   br i1 %29, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %22
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %8, i32 noundef %27) #2
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %8, i32 noundef range(i32 -32767, 32768) %27) #2
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %22, %slot_getsomeattrs.exit.i
@@ -453,7 +453,7 @@ slot_getattr.exit:                                ; preds = %22, %slot_getsomeat
   br i1 %39, label %slot_getsomeattrs.exit.i26, label %slot_getattr.exit27
 
 slot_getsomeattrs.exit.i26:                       ; preds = %slot_getattr.exit
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %11, i32 noundef %27) #2
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %11, i32 noundef range(i32 -32767, 32768) %27) #2
   br label %slot_getattr.exit27
 
 slot_getattr.exit27:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i26

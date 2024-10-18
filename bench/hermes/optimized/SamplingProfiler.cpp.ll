@@ -446,7 +446,7 @@ return:                                           ; preds = %_ZNSt6vectorIPN6her
 define hidden void @_ZN6hermes2vm16SamplingProfiler27markRootsForCompleteMarkingERNS0_12RootAcceptorE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
 entry:
   %runtimeDataLock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -473,7 +473,7 @@ for.body:                                         ; preds = %_ZNSt10lock_guardIS
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   ret void
 }
 
@@ -481,7 +481,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt10l
 define hidden void @_ZN6hermes2vm16SamplingProfiler9markRootsERNS0_12RootAcceptorE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
 entry:
   %runtimeDataLock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -526,7 +526,7 @@ for.body16:                                       ; preds = %for.end, %for.body1
   br i1 %cmp.i5.not, label %for.end20, label %for.body16
 
 for.end20:                                        ; preds = %for.body16, %for.end
-  %call1.i.i.i9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   ret void
 }
 
@@ -712,7 +712,7 @@ entry:
   store volatile i32 0, ptr %preSuspendStackDepth_, align 4
   %preSuspendStackStorage_ = getelementptr inbounds i8, ptr %this, i64 80
   %stack.i = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %preSuspendStackStorage_, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %preSuspendStackStorage_, i8 0, i64 16, i1 false)
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(12000) ptr @_Znwm(i64 noundef 12000) #16
   store ptr %call5.i.i.i.i.i.i.i, ptr %stack.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12000
@@ -831,7 +831,7 @@ define hidden void @_ZN6hermes2vm16SamplingProfiler22dumpSampledStackGlobalERN4l
 entry:
   %call = tail call noundef ptr @_ZN6hermes2vm17sampling_profiler7Sampler3getEv() #18
   %profilerLock_ = getelementptr inbounds i8, ptr %call, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %profilerLock_) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %profilerLock_) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -854,7 +854,7 @@ if.then:                                          ; preds = %_ZNSt10lock_guardIS
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %profilerLock_) #18
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %profilerLock_) #18
   ret void
 }
 
@@ -865,7 +865,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::allocator.33", align 1
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
   %runtimeDataLock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1200,7 +1200,7 @@ if.then.i:                                        ; preds = %_ZN4llvh11raw_ostre
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %if.then.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #18, !noalias !15
   %call.i.i181 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37, ptr noundef %call.i.i181, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef %call.i.i181, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #18
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call2.i) #18
   %add.ptr.i.i182 = getelementptr inbounds i8, ptr %call2.i, i64 %call.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i)
@@ -1303,7 +1303,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit215:              ; preds = %if.then.i.i213, %if
   br i1 %cmp, label %for.body, label %for.end43, !llvm.loop !19
 
 for.end43:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit215, %_ZN4llvh11raw_ostreamlsEPKc.exit49
-  %call1.i.i.i216 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i216 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   ret void
 }
 
@@ -1314,7 +1314,7 @@ define hidden void @_ZN6hermes2vm16SamplingProfiler21dumpChromeTraceGlobalERN4ll
 entry:
   %call = tail call noundef ptr @_ZN6hermes2vm17sampling_profiler7Sampler3getEv() #18
   %profilerLock_ = getelementptr inbounds i8, ptr %call, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %profilerLock_) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %profilerLock_) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1337,7 +1337,7 @@ if.then:                                          ; preds = %_ZNSt10lock_guardIS
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %profilerLock_) #18
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %profilerLock_) #18
   ret void
 }
 
@@ -1347,7 +1347,7 @@ entry:
   %serializer = alloca %"class.hermes::vm::ChromeTraceSerializer", align 8
   %ref.tmp = alloca %"class.hermes::vm::ChromeTraceFormat", align 8
   %runtimeDataLock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1367,7 +1367,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   call void @_ZN6hermes2vm16SamplingProfiler5clearEv(ptr noundef nonnull align 8 dereferenceable(256) %this)
   %trace_.i = getelementptr inbounds i8, ptr %serializer, i64 8
   call void @_ZN6hermes2vm17ChromeTraceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %trace_.i) #18
-  %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   ret void
 }
 
@@ -1716,7 +1716,7 @@ define hidden void @_ZN6hermes2vm16SamplingProfiler25serializeInDevToolsFormatER
 entry:
   %ref.tmp = alloca %"class.hermes::vm::ChromeTraceFormat", align 8
   %runtimeDataLock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1733,7 +1733,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   call void @_ZN6hermes2vm26serializeAsProfilerProfileERKNS0_16SamplingProfilerERN4llvh11raw_ostreamEONS0_17ChromeTraceFormatE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp) #18
   call void @_ZN6hermes2vm17ChromeTraceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp) #18
   call void @_ZN6hermes2vm16SamplingProfiler5clearEv(ptr noundef nonnull align 8 dereferenceable(256) %this)
-  %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   ret void
 }
 
@@ -1766,7 +1766,7 @@ entry:
   %call = tail call noundef ptr @_ZN6hermes2vm17sampling_profiler7Sampler3getEv() #18
   %call2 = tail call noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler7enabledEv(ptr noundef nonnull align 8 dereferenceable(208) %call) #18
   %runtimeDataLock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1813,7 +1813,7 @@ if.then6:                                         ; preds = %land.rhs
   br label %if.end7
 
 if.end7:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %if.then6, %land.rhs
-  %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   ret void
 }
 
@@ -1846,7 +1846,7 @@ entry:
 define hidden void @_ZN6hermes2vm16SamplingProfiler6resumeEv(ptr noundef nonnull align 8 dereferenceable(256) %this) local_unnamed_addr #0 align 2 {
 entry:
   %runtimeDataLock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1868,7 +1868,7 @@ if.then:                                          ; preds = %_ZNSt10lock_guardIS
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %runtimeDataLock_) #18
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #18
   ret void
 }
 
@@ -2200,7 +2200,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
 if.end.i.i:                                       ; preds = %if.then
   %idx.ext.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #18
   %.pr.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
@@ -2306,7 +2306,7 @@ for.body.i.i.i43:                                 ; preds = %if.then.i.i37, %for
 if.end.i.i34:                                     ; preds = %if.then10
   %idx.ext.i.i35 = zext i32 %1 to i64
   %add.ptr.i.i36 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %12, i64 %idx.ext.i.i35
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
   tail call void @_ZdlPv(ptr noundef nonnull %12) #18
   %.pr82.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre96 = load ptr, ptr %this, align 8
@@ -2640,13 +2640,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %__it.sroa.0.041 = phi ptr [ %__it.sroa.0.0, %for.inc ], [ %__it.sroa.0.039, %entry ]
   %add.ptr12 = getelementptr inbounds i8, ptr %__it.sroa.0.041, i64 8
   %call.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #18
-  %call1.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr12) #18
+  %call1.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr12) #18
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #18
-  %call3.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr12) #18
+  %call3.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr12) #18
   %call4.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #18
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i19, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS6_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit
@@ -2797,13 +2797,13 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
 
 land.rhs.i:                                       ; preds = %for.cond
   %call.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
-  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #18
+  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr) #18
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end3
 
 land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
-  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #18
+  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr) #18
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #18
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS6_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit

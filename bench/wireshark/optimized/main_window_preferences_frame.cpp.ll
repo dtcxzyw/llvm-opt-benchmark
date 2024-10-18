@@ -1550,7 +1550,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i222:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit224
 
 _ZN7QStringD2Ev.exit224:                          ; preds = %_ZN7QStringD2Ev.exit220, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i222, %532
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #16
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #16
   %534 = load ptr, ptr %11, align 8
   %.not.i.i.i225 = icmp eq ptr %534, null
   br i1 %.not.i.i.i225, label %_ZN7QStringD2Ev.exit228, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i226
@@ -1629,7 +1629,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i238:   ; preds = %546
 
 _ZN7QStringD2Ev.exit164:                          ; preds = %549, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i238, %546, %384, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i162, %_ZN7QStringD2Ev.exit160, %372
   %.pn46.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %373, %372 ], [ %.pn, %_ZN7QStringD2Ev.exit160 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i162 ], [ %.pn, %384 ], [ %.pn46.pn.pn.pn.pn.pn.pn, %546 ], [ %.pn46.pn.pn.pn.pn.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i238 ], [ %.pn46.pn.pn.pn.pn.pn.pn, %549 ]
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #16
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #16
   br label %551
 
 551:                                              ; preds = %_ZN7QStringD2Ev.exit164, %370, %368, %366
@@ -2445,7 +2445,7 @@ _ZN7QStringD2Ev.exit166:                          ; preds = %294, %_ZN17QArrayDa
   %303 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %301, ptr %303, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 24, i1 false)
   %304 = getelementptr inbounds i8, ptr %31, i64 24
   store i64 2, ptr %304, align 8
   %305 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %301)
@@ -2484,7 +2484,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i168:   ; preds = %308
 _ZN7QStringD2Ev.exit170:                          ; preds = %308, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i168, %311
   %313 = load ptr, ptr %303, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 24, i1 false)
   %314 = getelementptr inbounds i8, ptr %33, i64 24
   store i64 2, ptr %314, align 8
   %315 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %313)
@@ -2523,7 +2523,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i176:   ; preds = %318
 _ZN7QStringD2Ev.exit178:                          ; preds = %318, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i176, %321
   %323 = load ptr, ptr %303, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 24, i1 false)
   %324 = getelementptr inbounds i8, ptr %35, i64 24
   store i64 2, ptr %324, align 8
   %325 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %323)
@@ -2857,7 +2857,7 @@ _ZN7QStringD2Ev.exit240:                          ; preds = %429, %_ZN17QArrayDa
   %438 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr %436, ptr %438, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false)
   %439 = getelementptr inbounds i8, ptr %46, i64 24
   store i64 2, ptr %439, align 8
   %440 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %436)
@@ -4168,7 +4168,7 @@ define void @_ZN26MainWindowPreferencesFrameD0Ev(ptr noundef nonnull align 8 der
 define void @_ZThn16_N26MainWindowPreferencesFrameD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN26MainWindowPreferencesFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(144) %2) #18
   ret void
 }
 

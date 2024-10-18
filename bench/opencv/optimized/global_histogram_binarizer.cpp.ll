@@ -472,7 +472,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit.i:                 ; preds = %10, %5, %1
 
 _ZN5zxing24GlobalHistogramBinarizerD2Ev.exit:     ; preds = %_ZN5zxing8ArrayRefIiED2Ev.exit.i, %17, %22
   store ptr null, ptr %15, align 8
-  tail call void @_ZN5zxing9BinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
+  tail call void @_ZN5zxing9BinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -1784,7 +1784,7 @@ define linkonce_odr hidden void @_ZN5zxing5ArrayIcEC2Ei(ptr noundef nonnull alig
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %4) #13
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i
@@ -1800,7 +1800,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i: ; preds = %_ZNSt6vec
 12:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   br label %.body
 
 14:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i
@@ -1879,7 +1879,7 @@ define linkonce_odr hidden void @_ZN5zxing5ArrayIcED2Ev(ptr noundef nonnull alig
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %4
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
   ret void
 }
 
@@ -1896,7 +1896,7 @@ define linkonce_odr hidden void @_ZN5zxing5ArrayIcED0Ev(ptr noundef nonnull alig
   br label %_ZN5zxing5ArrayIcED2Ev.exit
 
 _ZN5zxing5ArrayIcED2Ev.exit:                      ; preds = %1, %4
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -1993,7 +1993,7 @@ define internal void @_GLOBAL__sub_I_global_histogram_binarizer.cpp() #10 sectio
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %2) #13
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %2) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)

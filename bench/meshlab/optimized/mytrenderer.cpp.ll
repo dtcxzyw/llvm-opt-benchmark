@@ -218,7 +218,7 @@ define void @_ZN11MyTrenderer5beginEv(ptr noundef nonnull align 8 dereferenceabl
   %5 = getelementptr inbounds i8, ptr %0, i64 208
   %6 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.22, i32 noundef 5)
   store ptr %6, ptr %3, align 8
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %8 unwind label %29
 
 8:                                                ; preds = %1
@@ -336,7 +336,7 @@ define void @_ZN11MyTrenderer3endEv(ptr noundef nonnull align 8 dereferenceable(
   %5 = getelementptr inbounds i8, ptr %0, i64 208
   %6 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.23, i32 noundef 3)
   store ptr %6, ptr %3, align 8
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %8 unwind label %29
 
 8:                                                ; preds = %1
@@ -503,7 +503,7 @@ define void @_ZN11MyTrenderer7drawBoxEN12SyntopiaCore4Math7Vector3IfEES3_S3_S3_P
   %56 = getelementptr inbounds i8, ptr %0, i64 208
   %57 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str, i32 noundef 3)
   store ptr %57, ptr %12, align 8
-  %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %59 unwind label %290
 
 59:                                               ; preds = %10
@@ -2229,7 +2229,7 @@ define void @_ZN11MyTrenderer8drawMeshEN12SyntopiaCore4Math7Vector3IfEES3_S3_S3_
   %41 = getelementptr inbounds i8, ptr %0, i64 208
   %42 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 4)
   store ptr %42, ptr %17, align 8
-  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %44 unwind label %175
 
 44:                                               ; preds = %12
@@ -3374,7 +3374,7 @@ define void @_ZN11MyTrenderer7drawDotEN12SyntopiaCore4Math7Vector3IfEEPNS0_8GLEn
   %22 = getelementptr inbounds i8, ptr %0, i64 208
   %23 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.24, i32 noundef 3)
   store ptr %23, ptr %6, align 8
-  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %25 unwind label %144
 
 25:                                               ; preds = %4
@@ -4051,7 +4051,7 @@ define void @_ZN11MyTrenderer10drawSphereEN12SyntopiaCore4Math7Vector3IfEEfPNS0_
   %32 = getelementptr inbounds i8, ptr %0, i64 208
   %33 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 6)
   store ptr %33, ptr %7, align 8
-  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %35 unwind label %127
 
 35:                                               ; preds = %5
@@ -5060,7 +5060,7 @@ define void @_ZN11MyTrenderer12drawTriangleEN12SyntopiaCore4Math7Vector3IfEES3_S
   %38 = getelementptr inbounds i8, ptr %0, i64 208
   %39 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.28, i32 noundef 8)
   store ptr %39, ptr %10, align 8
-  %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEEixERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %41 unwind label %238
 
 41:                                               ; preds = %8
@@ -6566,7 +6566,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE7destroyEv.exit
 
 _ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE7destroyEv.exit: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -6978,7 +6978,7 @@ define void @_ZN11MyTrenderer9getOutputEv(ptr dead_on_unwind noalias writable sr
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
   %11 = getelementptr inbounds i8, ptr %7, i64 4
   %12 = load i32, ptr %11, align 4, !noalias !53
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK11QStringListPK5QChari(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef %12)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK11QStringListPK5QChari(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %10, i32 noundef %12)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %31
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %2
@@ -7387,7 +7387,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %35
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %30)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %30)
           to label %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEED2Ev.exit unwind label %35
 
 35:                                               ; preds = %.noexc1.i, %.noexc.i, %33

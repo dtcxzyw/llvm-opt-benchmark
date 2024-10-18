@@ -169,7 +169,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL17TestDynamicLoaderPKcS0_
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc42 unwind label %26
 
 .noexc42:                                         ; preds = %.noexc
@@ -186,7 +186,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL17TestDynamicLoaderPKcS0_
 17:                                               ; preds = %19, %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   br label %.body
 
 19:                                               ; preds = %.noexc42
@@ -224,7 +224,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc43 unwind label %44
 
 .noexc43:                                         ; preds = %30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc44 unwind label %44
 
 .noexc44:                                         ; preds = %.noexc43
@@ -241,7 +241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 35:                                               ; preds = %37, %33
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #10
   br label %.body
 
 37:                                               ; preds = %.noexc44

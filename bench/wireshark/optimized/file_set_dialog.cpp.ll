@@ -593,7 +593,7 @@ define void @_ZN13FileSetDialogC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %"class.QMetaObject::Connection", align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -1305,7 +1305,7 @@ define void @_ZN13FileSetDialog16selectionChangedERK14QItemSelectionS2_(ptr noun
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 @_ZNK21QPersistentModelIndex3rowEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %10 = tail call noundef i32 @_ZNK21QPersistentModelIndex3rowEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 32
   %13 = load i64, ptr %12, align 8
@@ -1499,7 +1499,7 @@ define void @_ZN13FileSetDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZThn16_N13FileSetDialogD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN13FileSetDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(92) %2) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(92) %2) #18
   ret void
 }
 

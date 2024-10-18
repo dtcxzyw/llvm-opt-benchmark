@@ -443,7 +443,7 @@ nsvg__createGradients.exit.thread:                ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.029.i, i64 296
   call fastcc void @nsvg__xformInverse(ptr noundef nonnull %5, ptr noundef %34)
   call fastcc void @nsvg__getLocalBounds(ptr noundef %6, ptr noundef %.029.i, ptr noundef %5)
-  %35 = call fastcc ptr @nsvg__createGradient(ptr noundef %calloc30.i, ptr noundef %31, ptr noundef %6, ptr noundef %34, ptr noundef %27)
+  %35 = call fastcc ptr @nsvg__createGradient(ptr noundef nonnull %calloc30.i, ptr noundef %31, ptr noundef %6, ptr noundef %34, ptr noundef %27)
   %36 = getelementptr inbounds i8, ptr %.029.i, i64 72
   store ptr %35, ptr %36, align 8
   %.pre.i = load i8, ptr %27, align 8
@@ -470,7 +470,7 @@ nsvg__createGradients.exit.thread:                ; preds = %12
   %46 = getelementptr inbounds i8, ptr %.029.i, i64 296
   call fastcc void @nsvg__xformInverse(ptr noundef nonnull %7, ptr noundef %46)
   call fastcc void @nsvg__getLocalBounds(ptr noundef %8, ptr noundef %.029.i, ptr noundef %7)
-  %47 = call fastcc ptr @nsvg__createGradient(ptr noundef %calloc30.i, ptr noundef %43, ptr noundef %8, ptr noundef %46, ptr noundef %39)
+  %47 = call fastcc ptr @nsvg__createGradient(ptr noundef nonnull %calloc30.i, ptr noundef %43, ptr noundef %8, ptr noundef %46, ptr noundef %39)
   %48 = getelementptr inbounds i8, ptr %.029.i, i64 88
   store ptr %47, ptr %48, align 8
   %.pre30.i = load i8, ptr %39, align 8
@@ -1558,7 +1558,7 @@ nsvg__getNextPathItemWhenArcFlag.exit.thread.i:   ; preds = %.critedge2.i.i, %.c
   br i1 %103, label %nsvg__getNextPathItem.exit.thread.sink.split.i, label %nsvg__getNextPathItem.exit.i
 
 nsvg__getNextPathItem.exit.i:                     ; preds = %101, %.critedge.i122.i, %.critedge.i122.i, %.critedge.i122.i
-  %104 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i.i, ptr noundef %6)
+  %104 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i.i, ptr noundef nonnull %6)
   %.pr203.pre.i = load i8, ptr %6, align 16
   %.not107.i = icmp eq i8 %.pr203.pre.i, 0
   br i1 %.not107.i, label %nsvg__getNextPathItem.exit.thread208.i, label %nsvg__getNextPathItem.exit.thread.i
@@ -8534,7 +8534,7 @@ nsvg__getNextPathItem.exit.thread50:              ; preds = %.critedge2.i
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %35, %.critedge.i, %.critedge.i, %.critedge.i
-  %39 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i, ptr noundef %6)
+  %39 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i, ptr noundef nonnull %6)
   %.pr.pre = load i8, ptr %6, align 16
   br label %nsvg__getNextPathItem.exit
 

@@ -7188,7 +7188,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorppEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet::IntersectionIterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -7664,7 +7664,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionItera
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet16IntersectionViewC2ERKNS0_20IntersectionIteratorES4_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -7730,7 +7730,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 24, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 156

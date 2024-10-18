@@ -231,7 +231,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29HdMakeEncapsulatingSceneInde
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EEC2ERKS5_.exit.i.i: ; preds = %.noexc4.i
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %40, ptr %43, align 8, !noalias !4
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %38)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %38)
           to label %44 unwind label %149, !noalias !4
 
 44:                                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EEC2ERKS5_.exit.i.i
@@ -518,13 +518,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 .body.i.i:                                        ; preds = %161, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i21.i.i, %155, %153, %136, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i, %130
   %.pn.i.i = phi { ptr, i32 } [ %154, %153 ], [ %131, %136 ], [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i ], [ %131, %130 ], [ %156, %155 ], [ %156, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i21.i.i ], [ %156, %161 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %92) #19, !noalias !4
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %92) #19, !noalias !4
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %76) #19, !noalias !4
   br label %165
 
 165:                                              ; preds = %.body.i.i, %151
   %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %.body.i.i ], [ %152, %151 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %38) #19, !noalias !4
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %38) #19, !noalias !4
   br label %.body.i
 
 common.resume:                                    ; preds = %.body.i21, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit47.i, %.body.i
@@ -1115,7 +1115,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16Hd
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EEC2ERKS5_.exit.i.i25: ; preds = %.noexc4.i23
   %380 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %376, ptr %380, align 8, !noalias !32
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %365)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %365)
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit.i.i26 unwind label %458, !noalias !32
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit.i.i26: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EEC2ERKS5_.exit.i.i25
@@ -1332,13 +1332,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 .body.i.i37:                                      ; preds = %470, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i21.i.i36, %464, %462, %445, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i43, %439
   %.pn.i.i38 = phi { ptr, i32 } [ %463, %462 ], [ %440, %445 ], [ %440, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i.i43 ], [ %440, %439 ], [ %465, %464 ], [ %465, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i21.i.i36 ], [ %465, %470 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %401) #19, !noalias !32
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %401) #19, !noalias !32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %385) #19, !noalias !32
   br label %474
 
 474:                                              ; preds = %.body.i.i37, %460
   %.pn.pn.pn.i.i39 = phi { ptr, i32 } [ %.pn.i.i38, %.body.i.i37 ], [ %461, %460 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_FilteringEncapsulatingSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %365) #19, !noalias !32
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_FilteringEncapsulatingSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %365) #19, !noalias !32
   br label %.body.i21
 
 475:                                              ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEEEE8allocateERS4_m.exit.i.i.i.i.i.i20, %.noexc.i.i.i.i48
@@ -3209,7 +3209,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enca
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEEE, i64 80), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, null
@@ -3274,7 +3274,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enca
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEEE, i64 80), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
@@ -3329,7 +3329,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEED2Ev.exit: ; preds = %1, %16, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %22
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 160) #21
   ret void
 }
@@ -3630,7 +3630,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCoun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEE9_ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
   ret void
 }
@@ -3774,7 +3774,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enca
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEEE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, null
@@ -3839,7 +3839,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enca
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEEE, i64 88), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
@@ -3894,7 +3894,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEED2Ev.exit: ; preds = %1, %16, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %22
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_FilteringEncapsulatingSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_FilteringEncapsulatingSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #21
   ret void
 }
@@ -4246,7 +4246,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_Filt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEE9_ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
   ret void
 }

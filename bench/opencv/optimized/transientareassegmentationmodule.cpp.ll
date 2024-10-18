@@ -215,7 +215,7 @@ define void @_ZN2cv11bioinspired32TransientAreasSegmentationModule6createENS_5Si
   store i32 1, ptr %5, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11bioinspired37TransientAreasSegmentationModuleImpl_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(480) %6)
           to label %.noexc.i.i.i.i.i unwind label %9, !noalias !4
 
 .noexc.i.i.i.i.i:                                 ; preds = %2
@@ -227,7 +227,7 @@ define void @_ZN2cv11bioinspired32TransientAreasSegmentationModule6createENS_5Si
 .body.i.i.i.i.i.i:                                ; preds = %.noexc.i.i.i.i.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23, !noalias !4
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %6) #23, !noalias !4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11bioinspired37TransientAreasSegmentationModuleImpl_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i
 
 9:                                                ; preds = %2
@@ -2752,7 +2752,7 @@ define linkonce_odr hidden void @_ZN2cv11bioinspired37TransientAreasSegmentation
   tail call void @_ZdlPv(ptr noundef %10) #23
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %11) #23
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }

@@ -90,23 +90,23 @@ define hidden void @_ZN5ceres8internal24CudaBlockSparseStructureC2ERKNS0_27Compr
   %13 = alloca %"class.google::LogMessage", align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
   store ptr %3, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 64
   %17 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 16, i1 false)
   store ptr %3, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 88
   %19 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 16, i1 false)
   store ptr %3, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 112
   %21 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 16, i1 false)
   store ptr %3, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 136
   %23 = getelementptr inbounds i8, ptr %0, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 16, i1 false)
   store ptr %3, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)

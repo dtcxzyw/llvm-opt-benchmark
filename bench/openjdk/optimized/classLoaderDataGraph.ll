@@ -330,7 +330,7 @@ _ZNK6HandleclEv.exit14:                           ; preds = %11, %12
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 8
   %29 = load i64, ptr %28, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #10
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %30 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %30) #10

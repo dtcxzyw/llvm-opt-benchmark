@@ -39,7 +39,7 @@ entry:
 define dso_local void @plugin_gen_empty_mem_callback(ptr noundef %addr, i32 noundef %info) local_unnamed_addr #1 {
 entry:
   %shr.i = lshr i32 %info, 16
-  tail call void @tcg_gen_plugin_cb_start(i32 noundef 2, i32 noundef 2, i32 noundef %shr.i) #9
+  tail call void @tcg_gen_plugin_cb_start(i32 noundef 2, i32 noundef 2, i32 noundef range(i32 0, 65536) %shr.i) #9
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #9
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #9
   %call2.i = tail call ptr @tcg_temp_ebb_new_ptr() #9
@@ -62,7 +62,7 @@ entry:
   tail call void @tcg_temp_free_i32(ptr noundef %call1.i) #9
   tail call void @tcg_temp_free_i32(ptr noundef %call.i) #9
   tail call void @tcg_gen_plugin_cb_end() #9
-  tail call void @tcg_gen_plugin_cb_start(i32 noundef 2, i32 noundef 1, i32 noundef %shr.i) #9
+  tail call void @tcg_gen_plugin_cb_start(i32 noundef 2, i32 noundef 1, i32 noundef range(i32 0, 65536) %shr.i) #9
   %call.i3 = tail call ptr @tcg_temp_ebb_new_i64() #9
   %call1.i4 = tail call ptr @tcg_temp_ebb_new_ptr() #9
   tail call void @tcg_gen_movi_i64(ptr noundef %call1.i4, i64 noundef 0) #9
@@ -179,7 +179,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  tail call void @tcg_gen_plugin_cb_start(i32 noundef 3, i32 noundef 4, i32 noundef 0) #9
+  tail call void @tcg_gen_plugin_cb_start(i32 noundef range(i32 0, 4) 3, i32 noundef range(i32 0, 5) 4, i32 noundef 0) #9
   %call.i = tail call ptr @tcg_temp_ebb_new_ptr() #9
   tail call void @tcg_gen_movi_i64(ptr noundef %call.i, i64 noundef 0) #9
   %0 = load ptr, ptr @tcg_env, align 8
@@ -188,7 +188,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  tail call void @tcg_gen_plugin_cb_start(i32 noundef 1, i32 noundef 3, i32 noundef 0) #9
+  tail call void @tcg_gen_plugin_cb_start(i32 noundef range(i32 0, 4) 1, i32 noundef range(i32 0, 5) 3, i32 noundef 0) #9
   %call.i5 = tail call ptr @tcg_temp_ebb_new_ptr() #9
   tail call void @tcg_gen_movi_i64(ptr noundef %call.i5, i64 noundef 0) #9
   %1 = load ptr, ptr @tcg_env, align 8
@@ -198,7 +198,7 @@ sw.bb1:                                           ; preds = %entry
   br label %sw.bb2
 
 sw.bb2:                                           ; preds = %entry, %sw.bb1
-  tail call void @tcg_gen_plugin_cb_start(i32 noundef %from, i32 noundef 0, i32 noundef 0) #9
+  tail call void @tcg_gen_plugin_cb_start(i32 noundef range(i32 0, 4) %from, i32 noundef range(i32 0, 5) 0, i32 noundef 0) #9
   %call.i6 = tail call ptr @tcg_temp_ebb_new_i32() #9
   %call1.i = tail call ptr @tcg_temp_ebb_new_ptr() #9
   tail call void @tcg_gen_movi_i64(ptr noundef %call1.i, i64 noundef 0) #9
@@ -214,7 +214,7 @@ sw.bb2:                                           ; preds = %entry, %sw.bb1
   tail call void @tcg_temp_free_ptr(ptr noundef %call1.i) #9
   tail call void @tcg_temp_free_i32(ptr noundef %call.i6) #9
   tail call void @tcg_gen_plugin_cb_end() #9
-  tail call void @tcg_gen_plugin_cb_start(i32 noundef %from, i32 noundef 1, i32 noundef 0) #9
+  tail call void @tcg_gen_plugin_cb_start(i32 noundef range(i32 0, 4) %from, i32 noundef range(i32 0, 5) 1, i32 noundef 0) #9
   %call.i7 = tail call ptr @tcg_temp_ebb_new_i64() #9
   %call1.i8 = tail call ptr @tcg_temp_ebb_new_ptr() #9
   tail call void @tcg_gen_movi_i64(ptr noundef %call1.i8, i64 noundef 0) #9
@@ -369,7 +369,7 @@ declare i64 @get_page_addr_code_hostp(ptr noundef, i64 noundef, ptr noundef) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @plugin_gen_insn_end() local_unnamed_addr #1 {
 entry:
-  tail call void @tcg_gen_plugin_cb_start(i32 noundef 3, i32 noundef 4, i32 noundef 0) #9
+  tail call void @tcg_gen_plugin_cb_start(i32 noundef range(i32 0, 4) 3, i32 noundef range(i32 0, 5) 4, i32 noundef 0) #9
   %call.i.i = tail call ptr @tcg_temp_ebb_new_ptr() #9
   tail call void @tcg_gen_movi_i64(ptr noundef %call.i.i, i64 noundef 0) #9
   %0 = load ptr, ptr @tcg_env, align 8
@@ -454,12 +454,12 @@ do.end.i:                                         ; preds = %do.body.i
 
 sw.bb7.i:                                         ; preds = %do.end.i
   %plugin_tb.val.i = load ptr, ptr %6, align 8
-  tail call fastcc void @inject_udata_cb(ptr noundef %plugin_tb.val.i, ptr noundef %op.088.i)
+  tail call fastcc void @inject_udata_cb(ptr noundef %plugin_tb.val.i, ptr noundef nonnull %op.088.i)
   br label %for.inc.i
 
 sw.bb8.i:                                         ; preds = %do.end.i
   %plugin_tb.val33.i = load ptr, ptr %5, align 8
-  tail call fastcc void @inject_inline_cb(ptr noundef %plugin_tb.val33.i, ptr noundef %op.088.i, ptr noundef nonnull @op_ok)
+  tail call fastcc void @inject_inline_cb(ptr noundef %plugin_tb.val33.i, ptr noundef nonnull %op.088.i, ptr noundef nonnull @op_ok)
   br label %for.inc.i
 
 do.body9.i:                                       ; preds = %do.end.i
@@ -489,7 +489,7 @@ sw.bb19.i:                                        ; preds = %do.end18.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %cbs.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %cbs.i.i, align 8
-  tail call fastcc void @inject_udata_cb(ptr noundef %10, ptr noundef %op.088.i)
+  tail call fastcc void @inject_udata_cb(ptr noundef %10, ptr noundef nonnull %op.088.i)
   br label %for.inc.i
 
 sw.bb20.i:                                        ; preds = %do.end18.i
@@ -500,7 +500,7 @@ sw.bb20.i:                                        ; preds = %do.end18.i
   %11 = load ptr, ptr %arrayidx.i40.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %11, i64 32
   %12 = load ptr, ptr %arrayidx2.i.i, align 8
-  tail call fastcc void @inject_inline_cb(ptr noundef %12, ptr noundef %op.088.i, ptr noundef nonnull @op_ok)
+  tail call fastcc void @inject_inline_cb(ptr noundef %12, ptr noundef nonnull %op.088.i, ptr noundef nonnull @op_ok)
   br label %for.inc.i
 
 sw.bb21.i:                                        ; preds = %do.end18.i
@@ -589,7 +589,7 @@ if.end.i.i.i:                                     ; preds = %for.end.i.i.i
   %29 = load i32, ptr %len26.i.c.i.i, align 8
   %call27.i.c.i.i = tail call ptr @g_array_append_vals(ptr noundef %call19.i.i.i, ptr noundef %28, i32 noundef %29) #9
   tail call void @qemu_plugin_add_dyn_cb_arr(ptr noundef %call19.i.i.i) #9
-  tail call fastcc void @inject_mem_helper(ptr noundef %op.088.i, ptr noundef %call19.i.i.i)
+  tail call fastcc void @inject_mem_helper(ptr noundef nonnull %op.088.i, ptr noundef %call19.i.i.i)
   br label %for.inc.i
 
 do.body23.i:                                      ; preds = %do.end18.i
@@ -872,7 +872,7 @@ sw.bb35.i:                                        ; preds = %do.end33.i
   %70 = load ptr, ptr %arrayidx.i61.i, align 8
   %arrayidx3.i.i = getelementptr i8, ptr %70, i64 48
   %71 = load ptr, ptr %arrayidx3.i.i, align 8
-  tail call fastcc void @inject_inline_cb(ptr noundef %71, ptr noundef %op.088.i, ptr noundef nonnull @op_rw)
+  tail call fastcc void @inject_inline_cb(ptr noundef %71, ptr noundef nonnull %op.088.i, ptr noundef nonnull @op_rw)
   br label %for.inc.i
 
 do.body37.i:                                      ; preds = %do.end33.i
@@ -943,7 +943,7 @@ rm_ops.exit.i.i81.i:                              ; preds = %if.else.i.i.i.i82.i
   br label %for.inc.i
 
 if.end.i.i84.i:                                   ; preds = %sw.bb48.i
-  tail call fastcc void @inject_mem_helper(ptr noundef %op.088.i, ptr noundef null)
+  tail call fastcc void @inject_mem_helper(ptr noundef nonnull %op.088.i, ptr noundef null)
   br label %for.inc.i
 
 do.body50.i:                                      ; preds = %do.end47.i

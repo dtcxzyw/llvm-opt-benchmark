@@ -1296,7 +1296,7 @@ sw.bb5.i:                                         ; preds = %sw.default
 
 sw.default.i:                                     ; preds = %sw.default
   %4 = load ptr, ptr @PyExc_ValueError, align 8
-  %call7.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.18, i32 noundef %err) #4
+  %call7.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.18, i32 noundef range(i32 1, 0) %err) #4
   br label %return
 
 sw.epilog.i:                                      ; preds = %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i

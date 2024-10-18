@@ -290,7 +290,7 @@ find_exact_matches.exit:                          ; preds = %for.inc44.i, %for.c
   br i1 %mul.ov.i.i, label %if.then.i.i, label %st_mult.exit.i
 
 if.then.i.i:                                      ; preds = %find_exact_matches.exit
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.48, i64 noundef %conv2.i, i64 noundef %conv2.i) #15
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.48, i64 noundef range(i64 -2147483648, 2147483648) %conv2.i, i64 noundef %conv2.i) #15
   unreachable
 
 st_mult.exit.i:                                   ; preds = %find_exact_matches.exit

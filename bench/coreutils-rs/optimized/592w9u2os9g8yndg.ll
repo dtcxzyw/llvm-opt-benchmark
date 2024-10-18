@@ -1235,7 +1235,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 31:                                               ; preds = %23
   %32 = add nuw i64 %.0.i, 1
-  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %17, i64 %32)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %17, i64 range(i64 1, -2305843009213693957) %32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12), !noalias !194
   %33 = icmp ult i64 %.0.sroa.speculated.i, 8
@@ -1454,7 +1454,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
   call void @llvm.experimental.noalias.scope.decl(metadata !265)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !268
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull readonly align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !245
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull readonly align 8 dereferenceable(72) %11, i64 32, i1 false), !noalias !245
   %117 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, align 8, !alias.scope !269, !noalias !245, !noundef !10
   %118 = shl i64 %117, 56
   %119 = load i64, ptr %78, align 8, !alias.scope !269, !noalias !245, !noundef !10
@@ -1708,7 +1708,7 @@ _ZN4core3ptr19swap_nonoverlapping17hbd996395f0515ab3E.exit.i: ; preds = %_ZN4cor
   call void @llvm.experimental.noalias.scope.decl(metadata !339)
   call void @llvm.experimental.noalias.scope.decl(metadata !342)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !345
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !319
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %7, i64 32, i1 false), !noalias !319
   %228 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !346, !noalias !319, !noundef !10
   %229 = shl i64 %228, 56
   %230 = load i64, ptr %203, align 8, !alias.scope !346, !noalias !319, !noundef !10

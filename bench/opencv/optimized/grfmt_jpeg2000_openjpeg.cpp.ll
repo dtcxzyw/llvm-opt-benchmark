@@ -460,7 +460,7 @@ _ZNSt10unique_ptrIPvN2cv6detail15OpjCodecDeleterEE5resetEPS0_.exit: ; preds = %_
 
 73:                                               ; preds = %_ZNSt10unique_ptrIPvN2cv6detail15OpjCodecDeleterEE5resetEPS0_.exit
   tail call fastcc void @_ZN2cv12_GLOBAL__N_117setupLogCallbacksEPPv(ptr noundef nonnull %72)
-  call void @opj_set_default_decoder_parameters(ptr noundef nonnull %3)
+  call void @opj_set_default_decoder_parameters(ptr noundef nonnull align 4 %3)
   %74 = load ptr, ptr %63, align 8
   %75 = call i32 @opj_setup_decoder(ptr noundef %74, ptr noundef nonnull %3)
   %.not = icmp eq i32 %75, 0
@@ -2026,7 +2026,7 @@ declare void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 nound
 define hidden void @_ZN2cv19Jpeg2KJP2OpjDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  tail call void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0)
+  tail call void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = getelementptr inbounds i8, ptr %0, i64 324
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %4, i8 0, i64 52, i1 false)
@@ -2087,7 +2087,7 @@ _ZN2cv3PtrINS_19Jpeg2KJP2OpjDecoderEED2Ev.exit:   ; preds = %2
 define hidden void @_ZN2cv19Jpeg2KJ2KOpjDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  tail call void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0)
+  tail call void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
@@ -2357,7 +2357,7 @@ common.resume:                                    ; preds = %46, %60, %_ZNSt6vec
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @opj_set_default_encoder_parameters(ptr noundef nonnull %13)
+  call void @opj_set_default_encoder_parameters(ptr noundef nonnull align 8 %13)
   %68 = load ptr, ptr %31, align 8, !noalias !27
   %69 = load ptr, ptr %2, align 8, !noalias !27
   %.not32.i = icmp eq ptr %68, %69

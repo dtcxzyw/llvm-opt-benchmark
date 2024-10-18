@@ -182,16 +182,16 @@ define dso_local void @_ZN4llvm3pdb9TpiStreamC2ERNS0_7PDBFileESt10unique_ptrINS_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 0, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i8 0, ptr %13, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 32, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14, i8 0, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
@@ -210,7 +210,7 @@ define dso_local void @_ZN4llvm3pdb9TpiStreamC2ERNS0_7PDBFileESt10unique_ptrINS_
   store i64 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %19, ptr %22, align 8
-  tail call void @_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef 8)
+  tail call void @_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(88) %14, i64 noundef 8)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   ret void
@@ -273,7 +273,7 @@ _ZNSt6vectorIS_IN4llvm8codeview9TypeIndexESaIS2_EESaIS4_EED2Ev.exit: ; preds = %
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIS_IN4llvm8codeview9TypeIndexESaIS2_EESaIS4_EED2Ev.exit, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %23, %_ZNSt6vectorIS_IN4llvm8codeview9TypeIndexESaIS2_EESaIS4_EED2Ev.exit ]
   %24 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i.i.i.i, i64 noundef 40) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i.i, i64 noundef 40) #19
   %.not.i.i.i.i.i = icmp eq ptr %24, %22
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
 
@@ -286,7 +286,7 @@ _ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i:     ; preds = %.lr.ph.i.i.i.i.i, %
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i, %.lr.ph.i.i.i.i2.i
   %.09.i.i.i.i3.i = phi ptr [ %27, %.lr.ph.i.i.i.i2.i ], [ %26, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit.i ]
   %27 = load ptr, ptr %.09.i.i.i.i3.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i.i.i3.i, i64 noundef 40) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i3.i, i64 noundef 40) #19
   %.not.i.i.i.i4.i = icmp eq ptr %27, %25
   br i1 %.not.i.i.i.i4.i, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit5.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !6
 
@@ -1427,7 +1427,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReader9readArrayINS_8code
   %.sroa.5 = alloca { ptr, i64, %"class.std::optional" }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i8 0, ptr %7, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 32, i1 false)
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %3) #20
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
@@ -1961,7 +1961,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %7, %_ZNSt16_Sp_coun
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 0, ptr %50, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
   %51 = shl nuw i32 %3, 2
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %51) #20
   %52 = load ptr, ptr %0, align 8
@@ -2469,7 +2469,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %7, %_ZNSt16_Sp_coun
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 0, ptr %50, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
   %51 = shl nuw i32 %3, 3
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %51) #20
   %52 = load ptr, ptr %0, align 8
@@ -4237,7 +4237,7 @@ define dso_local void @_ZNK4llvm3pdb9TpiStream5typesEPb(ptr dead_on_unwind noali
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr null, ptr %12, align 8, !alias.scope !130
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !alias.scope !130
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 48, i1 false), !alias.scope !130
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %11, i8 0, i64 17, i1 false), !alias.scope !130
   call void @_ZN4llvm10make_rangeINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEEENS_14iterator_rangeIT_EESA_SA_(ptr dead_on_unwind writable sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -5227,12 +5227,12 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #20
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #20
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #20
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #20
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #20
   ret void
 }
 

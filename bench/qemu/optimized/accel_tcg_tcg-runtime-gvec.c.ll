@@ -2730,7 +2730,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.012 = phi i64 [ 0, %entry ], [ %add, %for.body ]
   %add.ptr = getelementptr i8, ptr %a, i64 %i.012
   %0 = load i32, ptr %add.ptr, align 4
-  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 %shr.i.i8)
+  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 range(i32 -2097152, 2097152) %shr.i.i8)
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %or.i, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.012, 4
@@ -3430,7 +3430,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i32, ptr %add.ptr, align 4
   %add.ptr1 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i32, ptr %add.ptr1, align 4
-  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 %0)
+  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 range(i32 -2097152, 2097152) %0)
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %or.i, ptr %add.ptr4, align 4
   %add = add nuw nsw i64 %i.011, 4
@@ -3602,7 +3602,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i32, ptr %add.ptr, align 4
   %add.ptr1 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i32, ptr %add.ptr1, align 4
-  %or.i = tail call noundef i32 @llvm.fshr.i32(i32 %1, i32 %1, i32 %0)
+  %or.i = tail call noundef i32 @llvm.fshr.i32(i32 %1, i32 %1, i32 range(i32 0, 32) %0)
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %or.i, ptr %add.ptr4, align 4
   %add = add nuw nsw i64 %i.011, 4

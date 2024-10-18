@@ -263,7 +263,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   br i1 %86, label %87, label %.lr.ph.preheader.i
 
 87:                                               ; preds = %85
-  %88 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_bencode_int, ptr noundef %0, i32 noundef %2, i32 noundef %3) #2
+  %88 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_bencode_int, ptr noundef %0, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3) #2
   br label %dissect_bencoding_int.exit
 
 .lr.ph.preheader.i:                               ; preds = %85

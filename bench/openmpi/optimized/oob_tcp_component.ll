@@ -312,7 +312,7 @@ define internal noundef i32 @tcp_component_close() #0 {
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %22 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
-  tail call void %28(ptr noundef %5) #18
+  tail call void %28(ptr noundef nonnull %5) #18
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
@@ -405,7 +405,7 @@ pmix_obj_run_destructors.exit44:                  ; preds = %.lr.ph.i41, %._crit
 .lr.ph.i48:                                       ; preds = %67, %.lr.ph.i48
   %73 = phi ptr [ %75, %.lr.ph.i48 ], [ %72, %67 ]
   %.07.i49 = phi ptr [ %74, %.lr.ph.i48 ], [ %71, %67 ]
-  tail call void %73(ptr noundef %50) #18
+  tail call void %73(ptr noundef nonnull %50) #18
   %74 = getelementptr inbounds i8, ptr %.07.i49, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not.i50 = icmp eq ptr %75, null
@@ -979,7 +979,7 @@ define internal void @component_shutdown() #0 {
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.i
   %64 = phi ptr [ %66, %.lr.ph.i ], [ %63, %58 ]
   %.07.i = phi ptr [ %65, %.lr.ph.i ], [ %62, %58 ]
-  tail call void %64(ptr noundef %41) #18
+  tail call void %64(ptr noundef nonnull %41) #18
   %65 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not.i = icmp eq ptr %66, null
@@ -3187,7 +3187,7 @@ define internal void @peer_des(ptr noundef %0) #0 {
 .lr.ph.i:                                         ; preds = %70, %.lr.ph.i
   %76 = phi ptr [ %78, %.lr.ph.i ], [ %75, %70 ]
   %.07.i = phi ptr [ %77, %.lr.ph.i ], [ %74, %70 ]
-  tail call void %76(ptr noundef %53) #18
+  tail call void %76(ptr noundef nonnull %53) #18
   %77 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not.i = icmp eq ptr %78, null
@@ -3287,7 +3287,7 @@ pmix_obj_run_destructors.exit57:                  ; preds = %.lr.ph.i54, %._crit
 .lr.ph.i61:                                       ; preds = %120, %.lr.ph.i61
   %126 = phi ptr [ %128, %.lr.ph.i61 ], [ %125, %120 ]
   %.07.i62 = phi ptr [ %127, %.lr.ph.i61 ], [ %124, %120 ]
-  tail call void %126(ptr noundef %103) #18
+  tail call void %126(ptr noundef nonnull %103) #18
   %127 = getelementptr inbounds i8, ptr %.07.i62, i64 8
   %128 = load ptr, ptr %127, align 8
   %.not.i63 = icmp eq ptr %128, null

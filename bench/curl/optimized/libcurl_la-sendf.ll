@@ -615,7 +615,7 @@ if.end39.i:                                       ; preds = %do.end.i, %if.then2
   %idxprom41.pre-phi.i = phi i64 [ %idxprom24.i.pre-phi, %if.then22.i ], [ %indvars.iv.i, %do.end.i ]
   %tempwrite40.i = getelementptr inbounds i8, ptr %data, i64 3288
   %arrayidx42.i = getelementptr inbounds [3 x %struct.tempbuf], ptr %tempwrite40.i, i64 0, i64 %idxprom41.pre-phi.i
-  %call44.i = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i, ptr noundef %optr, i64 noundef %olen) #9
+  %call44.i = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i, ptr noundef %optr, i64 noundef range(i64 1, 0) %olen) #9
   %tobool45.not.i = icmp eq i32 %call44.i, 0
   br i1 %tobool45.not.i, label %if.end47.i, label %return
 
@@ -760,7 +760,7 @@ if.end39.i84:                                     ; preds = %do.end.i97, %if.the
   %idxprom41.pre-phi.i85 = phi i64 [ %idxprom24.i76.pre-phi, %if.then22.i74 ], [ %indvars.iv.i65, %do.end.i97 ]
   %tempwrite40.i86 = getelementptr inbounds i8, ptr %data, i64 3288
   %arrayidx42.i87 = getelementptr inbounds [3 x %struct.tempbuf], ptr %tempwrite40.i86, i64 0, i64 %idxprom41.pre-phi.i85
-  %call44.i88 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i87, ptr noundef %ptr.0153, i64 noundef %len.0152) #9
+  %call44.i88 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i87, ptr noundef %ptr.0153, i64 noundef range(i64 1, 0) %len.0152) #9
   %tobool45.not.i89 = icmp eq i32 %call44.i88, 0
   br i1 %tobool45.not.i89, label %if.end47.i91, label %return
 
@@ -888,7 +888,7 @@ if.end39.i127:                                    ; preds = %do.end.i140, %if.th
   %idxprom41.pre-phi.i128 = phi i64 [ %idxprom24.i119.pre-phi, %if.then22.i117 ], [ %indvars.iv.i108, %do.end.i140 ]
   %tempwrite40.i129 = getelementptr inbounds i8, ptr %data, i64 3288
   %arrayidx42.i130 = getelementptr inbounds [3 x %struct.tempbuf], ptr %tempwrite40.i129, i64 0, i64 %idxprom41.pre-phi.i128
-  %call44.i131 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i130, ptr noundef %optr, i64 noundef %olen) #9
+  %call44.i131 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i130, ptr noundef %optr, i64 noundef range(i64 1, 0) %olen) #9
   %tobool45.not.i132 = icmp eq i32 %call44.i131, 0
   br i1 %tobool45.not.i132, label %if.end47.i134, label %return
 

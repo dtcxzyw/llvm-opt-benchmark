@@ -362,7 +362,7 @@ declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #6
 define void @stbi__start_file(ptr noundef %s, ptr noundef %f) local_unnamed_addr #2 {
 entry:
   %io.i = getelementptr inbounds i8, ptr %s, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i, align 8
   %buflen.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -7648,7 +7648,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 define ptr @stbi_load(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -7660,7 +7660,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -7736,7 +7736,7 @@ define ptr @stbi_load_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr no
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -7809,7 +7809,7 @@ define ptr @stbi_load_from_file_16(ptr noundef %f, ptr nocapture noundef %x, ptr
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -7878,7 +7878,7 @@ if.end:                                           ; preds = %if.then, %stbi__sta
 define ptr @stbi_load_16(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -7890,7 +7890,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -8829,7 +8829,7 @@ stbi__start_callbacks.exit:                       ; preds = %if.then.i.i, %if.el
 define noundef ptr @stbi_loadf(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -8841,7 +8841,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -8902,7 +8902,7 @@ define noundef ptr @stbi_loadf_from_file(ptr noundef %f, ptr nocapture noundef %
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -8980,7 +8980,7 @@ entry:
 define range(i32 0, 2) i32 @stbi_is_hdr(ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -8988,7 +8988,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %call.i3 = tail call i64 @ftell(ptr noundef nonnull %call.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -9051,7 +9051,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -22769,9 +22769,9 @@ if.end14:                                         ; preds = %if.end9
   %call1.i = tail call i32 @stbi__get16be(ptr noundef %0)
   %add.i = or disjoint i32 %shl.i, %call1.i
   store i32 %add.i, ptr %0, align 8
-  %call.i184 = tail call i32 @stbi__get16be(ptr noundef %0)
+  %call.i184 = tail call i32 @stbi__get16be(ptr noundef nonnull %0)
   %shl.i185 = shl nuw i32 %call.i184, 16
-  %call1.i186 = tail call i32 @stbi__get16be(ptr noundef %0)
+  %call1.i186 = tail call i32 @stbi__get16be(ptr noundef nonnull %0)
   %add.i187 = or disjoint i32 %shl.i185, %call1.i186
   store i32 %add.i187, ptr %img_y, align 4
   %cmp18 = icmp ugt i32 %add.i187, 16777216
@@ -32866,7 +32866,7 @@ return:                                           ; preds = %stbi__png_is16.exit
 define range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -32879,7 +32879,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %call.i3 = tail call i64 @ftell(ptr noundef nonnull %call.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -32942,7 +32942,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -32996,7 +32996,7 @@ stbi__start_file.exit:                            ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull readonly @.str.2)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -33022,7 +33022,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52

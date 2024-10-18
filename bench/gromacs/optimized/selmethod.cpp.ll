@@ -714,13 +714,13 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
           to label %.noexc unwind label %160
 
 .noexc:                                           ; preds = %.loopexit.thread
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %151, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %151, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc246 unwind label %160
 
 152:                                              ; preds = %.noexc246
   %153 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   br label %.body
 
 .noexc246:                                        ; preds = %.noexc

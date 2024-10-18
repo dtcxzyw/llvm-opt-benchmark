@@ -412,7 +412,7 @@ _ZN3zmq8yqueue_tINS_9command_tELi16ELm64EED2Ev.exit: ; preds = %if.end.i, %entry
 define void @_ZN3zmq9mailbox_tD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_sync = getelementptr inbounds i8, ptr %this, i64 120
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %_sync) #13
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %_sync) #13
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
@@ -426,7 +426,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %call.i1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %_sync) #13
+  %call.i1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %_sync) #13
   %tobool.not.i2 = icmp eq i32 %call.i1, 0
   br i1 %tobool.not.i2, label %invoke.cont3, label %if.then.i3
 
@@ -515,7 +515,7 @@ declare noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 d
 define void @_ZN3zmq9mailbox_t4sendERKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 64 dereferenceable(64) %cmd_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_sync = getelementptr inbounds i8, ptr %this, i64 120
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %_sync) #13
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %_sync) #13
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN3zmq7mutex_t4lockEv.exit, label %if.then.i
 
@@ -574,7 +574,7 @@ return.sink.split.i:                              ; preds = %if.then6.i, %if.end
 
 _ZN3zmq7ypipe_tINS_9command_tELi16EE5flushEv.exit: ; preds = %_ZN3zmq7mutex_t4lockEv.exit, %return.sink.split.i
   %retval.0.i = phi i1 [ true, %_ZN3zmq7mutex_t4lockEv.exit ], [ %cmp5.not.i, %return.sink.split.i ]
-  %call.i3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %_sync) #13
+  %call.i3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %_sync) #13
   %tobool.not.i4 = icmp eq i32 %call.i3, 0
   br i1 %tobool.not.i4, label %_ZN3zmq7mutex_t6unlockEv.exit, label %if.then.i5
 

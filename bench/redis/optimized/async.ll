@@ -1031,14 +1031,14 @@ if.then.i127:                                     ; preds = %if.then41
 if.then2.i:                                       ; preds = %if.then.i127
   %or.i131 = or disjoint i32 %82, 16
   store i32 %or.i131, ptr %flags, align 8
-  tail call void %84(ptr noundef nonnull %ac, i32 noundef %spec.store.select) #15
+  tail call void %84(ptr noundef nonnull %ac, i32 noundef range(i32 -1, 1) %spec.store.select) #15
   %85 = load i32, ptr %flags, align 8
   %and8.i = and i32 %85, -17
   store i32 %and8.i, ptr %flags, align 8
   br label %if.end48
 
 if.else.i:                                        ; preds = %if.then.i127
-  tail call void %84(ptr noundef nonnull %ac, i32 noundef %spec.store.select) #15
+  tail call void %84(ptr noundef nonnull %ac, i32 noundef range(i32 -1, 1) %spec.store.select) #15
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else.i, %if.then2.i, %if.then41, %if.end37

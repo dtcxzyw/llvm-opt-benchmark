@@ -396,7 +396,7 @@ define void @_ZNK13sentencepiece4util6Status8ToStringB5cxx11Ev(ptr dead_on_unwin
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc5 unwind label %9
 
 .noexc5:                                          ; preds = %.noexc
@@ -406,7 +406,7 @@ define void @_ZNK13sentencepiece4util6Status8ToStringB5cxx11Ev(ptr dead_on_unwin
 7:                                                ; preds = %.noexc5
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5

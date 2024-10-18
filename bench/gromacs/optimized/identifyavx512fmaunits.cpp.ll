@@ -37,7 +37,7 @@ define noundef range(i32 0, 3) i32 @_ZN3gmx22identifyAvx512FmaUnitsEv() local_un
   br i1 %.b34, label %45, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN3gmx12_GLOBAL__N_19initMutexE) #8
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx12_GLOBAL__N_19initMutexE) #8
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
 
@@ -143,7 +143,7 @@ _ZN3gmx7CpuInfoD2Ev.exit:                         ; preds = %_ZNSt6vectorIN3gmx7
 39:                                               ; preds = %5
   %40 = landingpad { ptr, i32 }
           cleanup
-  %41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3gmx12_GLOBAL__N_19initMutexE) #8
+  %41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx12_GLOBAL__N_19initMutexE) #8
   resume { ptr, i32 } %40
 
 42:                                               ; preds = %_ZN3gmx7CpuInfoD2Ev.exit, %33
@@ -153,7 +153,7 @@ _ZN3gmx7CpuInfoD2Ev.exit:                         ; preds = %_ZNSt6vectorIN3gmx7
   br label %43
 
 43:                                               ; preds = %42, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3gmx12_GLOBAL__N_19initMutexE) #8
+  %44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx12_GLOBAL__N_19initMutexE) #8
   br label %45
 
 45:                                               ; preds = %43, %0

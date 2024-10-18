@@ -189,7 +189,7 @@ define hidden noundef nonnull ptr @ncnn_version() local_unnamed_addr #0 {
 define hidden noundef ptr @ncnn_allocator_create_pool_allocator() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #23
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  invoke void @_ZN4ncnn13PoolAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @_ZN4ncnn13PoolAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %7
 
 3:                                                ; preds = %0
@@ -239,7 +239,7 @@ define internal void @_ZL30__ncnn_PoolAllocator_fast_freeP18__ncnn_allocator_tPv
 define hidden noundef ptr @ncnn_allocator_create_unlocked_pool_allocator() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #23
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  invoke void @_ZN4ncnn21UnlockedPoolAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @_ZN4ncnn21UnlockedPoolAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %7
 
 3:                                                ; preds = %0
@@ -1854,7 +1854,7 @@ declare void @_ZN4ncnn9ParamDict3setEiRKNS_3MatE(ptr noundef nonnull align 8 der
 define hidden noundef ptr @ncnn_datareader_create() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #23
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-  invoke void @_ZN4ncnn10DataReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @_ZN4ncnn10DataReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %7
 
 3:                                                ; preds = %0
@@ -1893,7 +1893,7 @@ define internal noundef i64 @_ZL22__ncnn_DataReader_readP19__ncnn_datareader_tPv
 define hidden noundef ptr @ncnn_datareader_create_from_stdio(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #23
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  invoke void @_ZN4ncnn19DataReaderFromStdioC2EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %0)
+  invoke void @_ZN4ncnn19DataReaderFromStdioC2EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %0)
           to label %4 unwind label %8
 
 4:                                                ; preds = %1
@@ -1932,7 +1932,7 @@ define internal noundef i64 @_ZL31__ncnn_DataReaderFromStdio_readP19__ncnn_datar
 define hidden noundef ptr @ncnn_datareader_create_from_memory(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #23
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  invoke void @_ZN4ncnn20DataReaderFromMemoryC2ERPKh(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN4ncnn20DataReaderFromMemoryC2ERPKh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %4 unwind label %8
 
 4:                                                ; preds = %1
@@ -1990,7 +1990,7 @@ define hidden noundef ptr @ncnn_modelbin_create_from_datareader(ptr nocapture no
   %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #23
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %4 = load ptr, ptr %0, align 8
-  invoke void @_ZN4ncnn22ModelBinFromDataReaderC2ERKNS_10DataReaderE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @_ZN4ncnn22ModelBinFromDataReaderC2ERKNS_10DataReaderE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %5 unwind label %10
 
 5:                                                ; preds = %1
@@ -2234,7 +2234,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
 
 76:                                               ; preds = %._crit_edge
   %77 = load ptr, ptr %3, align 8
-  invoke void @_ZN4ncnn20ModelBinFromMatArrayC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef %77)
+  invoke void @_ZN4ncnn20ModelBinFromMatArrayC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull %77)
           to label %78 unwind label %112
 
 78:                                               ; preds = %76
@@ -2490,7 +2490,7 @@ define hidden void @ncnn_modelbin_destroy(ptr nocapture noundef %0) local_unname
 define hidden noundef ptr @ncnn_layer_create() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %1 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #23
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #24
-  invoke void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
+  invoke void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %13
 
 3:                                                ; preds = %0
@@ -5653,7 +5653,7 @@ define linkonce_odr hidden void @_ZN19PoolAllocator_c_apiD2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19PoolAllocator_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4ncnn13PoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN4ncnn13PoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -5695,7 +5695,7 @@ define linkonce_odr hidden void @_ZN27UnlockedPoolAllocator_c_apiD2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN27UnlockedPoolAllocator_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -5765,7 +5765,7 @@ define linkonce_odr hidden void @_ZN16DataReader_c_apiD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16DataReader_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4ncnn10DataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZN4ncnn10DataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #25
   ret void
 }
@@ -5809,7 +5809,7 @@ define linkonce_odr hidden void @_ZN25DataReaderFromStdio_c_apiD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25DataReaderFromStdio_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4ncnn19DataReaderFromStdioD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN4ncnn19DataReaderFromStdioD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -5851,7 +5851,7 @@ define linkonce_odr hidden void @_ZN26DataReaderFromMemory_c_apiD2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26DataReaderFromMemory_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4ncnn20DataReaderFromMemoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN4ncnn20DataReaderFromMemoryD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -5895,7 +5895,7 @@ define linkonce_odr hidden void @_ZN28ModelBinFromDataReader_c_apiD2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN28ModelBinFromDataReader_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4ncnn22ModelBinFromDataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN4ncnn22ModelBinFromDataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -6209,7 +6209,7 @@ define linkonce_odr hidden void @_ZN26ModelBinFromMatArray_c_apiD2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26ModelBinFromMatArray_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -6517,7 +6517,7 @@ define linkonce_odr hidden void @_ZN11Layer_c_apiD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11Layer_c_apiD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #26
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #25
   ret void
 }

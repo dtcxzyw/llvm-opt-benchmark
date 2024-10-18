@@ -195,7 +195,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit32:             ; preds = %61, %59, %57, %55
 
 _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %63, %_ZNSt6vectorIfSaIfEE6resizeEm.exit32
   %.0.i.i = phi i64 [ %.sroa.speculated.i.i, %63 ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit32 ]
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %.0.i.i)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %.0.i.i)
           to label %.noexc33 unwind label %206
 
 .noexc33:                                         ; preds = %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i
@@ -211,7 +211,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %63, %_ZNSt6vectorIf
 
 76:                                               ; preds = %.noexc33
   %77 = sub nuw nsw i64 %15, %74
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %77)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %77)
           to label %.noexc34 unwind label %206
 
 .noexc34:                                         ; preds = %76
@@ -244,7 +244,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   %88 = sub nsw i64 %.0.i.i, %87
   store float 0.000000e+00, ptr %6, align 4
   %89 = getelementptr inbounds i8, ptr %83, i64 %86
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %89, i64 noundef %88, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr %89, i64 noundef %88, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %90 unwind label %206
 
 90:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
@@ -265,7 +265,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
 
 _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i37: ; preds = %94, %90
   %.0.i.i38 = phi i64 [ %.sroa.speculated.i.i36, %94 ], [ 0, %90 ]
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %.0.i.i38)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %.0.i.i38)
           to label %.noexc45 unwind label %206
 
 .noexc45:                                         ; preds = %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i37
@@ -281,7 +281,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i37: ; preds = %94, %90
 
 107:                                              ; preds = %.noexc45
   %108 = sub nuw nsw i64 %15, %105
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %108)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %108)
           to label %.noexc46 unwind label %206
 
 .noexc46:                                         ; preds = %107
@@ -314,7 +314,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   %119 = sub nsw i64 %.0.i.i38, %118
   store float 0.000000e+00, ptr %5, align 4
   %120 = getelementptr inbounds i8, ptr %114, i64 %117
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %120, i64 noundef %119, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr %120, i64 noundef %119, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %121 unwind label %206
 
 121:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i39
@@ -335,7 +335,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
 
 _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i50: ; preds = %125, %121
   %.0.i.i51 = phi i64 [ %.sroa.speculated.i.i49, %125 ], [ 0, %121 ]
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %.0.i.i51)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %.0.i.i51)
           to label %.noexc58 unwind label %206
 
 .noexc58:                                         ; preds = %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i50
@@ -351,7 +351,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i50: ; preds = %125, %121
 
 138:                                              ; preds = %.noexc58
   %139 = sub nuw nsw i64 %15, %136
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %139)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %139)
           to label %.noexc59 unwind label %206
 
 .noexc59:                                         ; preds = %138
@@ -384,7 +384,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   %150 = sub nsw i64 %.0.i.i51, %149
   store float 0.000000e+00, ptr %4, align 4
   %151 = getelementptr inbounds i8, ptr %145, i64 %148
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %151, i64 noundef %150, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr %151, i64 noundef %150, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %152 unwind label %206
 
 152:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i52
@@ -405,7 +405,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
 
 _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i63: ; preds = %156, %152
   %.0.i.i64 = phi i64 [ %.sroa.speculated.i.i62, %156 ], [ 0, %152 ]
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %.0.i.i64)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %.0.i.i64)
           to label %.noexc71 unwind label %206
 
 .noexc71:                                         ; preds = %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i63
@@ -421,7 +421,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i63: ; preds = %156, %152
 
 169:                                              ; preds = %.noexc71
   %170 = sub nuw nsw i64 %15, %167
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %170)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %170)
           to label %.noexc72 unwind label %206
 
 .noexc72:                                         ; preds = %169
@@ -454,7 +454,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   %181 = sub nsw i64 %.0.i.i64, %180
   store float 0.000000e+00, ptr %3, align 4
   %182 = getelementptr inbounds i8, ptr %176, i64 %179
-  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %182, i64 noundef %181, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS4_EEmRKf(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr %182, i64 noundef %181, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %183 unwind label %206
 
 183:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i65

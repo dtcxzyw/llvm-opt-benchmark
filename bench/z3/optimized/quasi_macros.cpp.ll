@@ -982,7 +982,7 @@ if.then24:                                        ; preds = %land.rhs.i.i74, %_Z
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   store ptr %40, ptr %temp.i.i.i, align 8
   store i32 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i, align 8
-  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(20) %m_occurrences, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
+  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_occurrences, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i)
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 12
@@ -2819,7 +2819,7 @@ _ZNK6vectorI6symbolLb1EjE4sizeEv.exit:            ; preds = %if.then20, %if.end.
           to label %call.i.noexc unwind label %lpad25
 
 call.i.noexc:                                     ; preds = %_ZNK6vectorI6symbolLb1EjE4sizeEv.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i98, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i98, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24)
           to label %.noexc unwind label %lpad25
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2829,7 +2829,7 @@ call.i.noexc:                                     ; preds = %_ZNK6vectorI6symbol
 lpad.i:                                           ; preds = %.noexc
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   br label %ehcleanup
 
 invoke.cont26:                                    ; preds = %.noexc
@@ -3816,7 +3816,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -5731,7 +5731,7 @@ return.sink.split.sink.split:                     ; preds = %if.then41, %if.then
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.then41, %if.then17
   %new_entry42.0.sink76 = phi ptr [ %curr.055, %if.then17 ], [ %curr.158, %if.then41 ], [ %new_entry42.0.sink76.ph, %return.sink.split.sink.split ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %new_entry42.0.sink76, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_entry42.0.sink76, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
   %12 = load i32, ptr %m_size, align 4
   %inc50 = add i32 %12, 1
   store i32 %inc50, ptr %m_size, align 4

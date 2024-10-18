@@ -226,7 +226,7 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %56
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i
 
 76:                                               ; preds = %64
-  %77 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef %74, i32 noundef 0) #15
+  %77 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef range(i32 0, -2) %74, i32 noundef 0) #15
   %.not.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i, label %.preheader.i.i.i
 
@@ -260,7 +260,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.i:    ; preds = %84, %76, %75, %64
   br i1 %or.cond.i.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %88
 
 88:                                               ; preds = %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i
-  %89 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef %87, i32 noundef 0) #15
+  %89 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef range(i32 0, -2) %87, i32 noundef 0) #15
   %.not.i.i63.i = icmp eq ptr %89, null
   br i1 %.not.i.i63.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %.preheader.i.i64.i
 
@@ -295,7 +295,7 @@ hwloc_get_obj_inside_cpuset_by_type.exit.i:       ; preds = %93
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit78.i
 
 101:                                              ; preds = %hwloc_get_obj_inside_cpuset_by_type.exit.i
-  %102 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef %99, i32 noundef 0) #15
+  %102 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %71, i32 noundef range(i32 0, -2) %99, i32 noundef 0) #15
   %.not.i.i69.i = icmp eq ptr %102, null
   br i1 %.not.i.i69.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit78.i, label %.preheader.i.i70.i
 
@@ -368,7 +368,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit78.i:  ; preds = %109, %101, %100, %h
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit89.i
 
 137:                                              ; preds = %132
-  %138 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %133, i32 noundef %135, i32 noundef 0) #15
+  %138 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %133, i32 noundef range(i32 0, -2) %135, i32 noundef 0) #15
   %.not.i.i80.i = icmp eq ptr %138, null
   br i1 %.not.i.i80.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit89.i, label %.preheader.i.i81.i
 
@@ -450,7 +450,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit89.i:  ; preds = %145, %137, %136, %1
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit100.i
 
 173:                                              ; preds = %168
-  %174 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %169, i32 noundef %171, i32 noundef 0) #15
+  %174 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %169, i32 noundef range(i32 0, -2) %171, i32 noundef 0) #15
   %.not.i.i91.i = icmp eq ptr %174, null
   br i1 %.not.i.i91.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit100.i, label %.preheader.i.i92.i
 
@@ -715,7 +715,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %or.cond.i.i47, label %._crit_edge68.i, label %284
 
 284:                                              ; preds = %.lr.ph71.i
-  %285 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %280, i32 noundef %283, i32 noundef 0) #15
+  %285 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %280, i32 noundef range(i32 0, -2) %283, i32 noundef 0) #15
   %.not.i.i.i48 = icmp eq ptr %285, null
   br i1 %.not.i.i.i48, label %._crit_edge68.i, label %.preheader.i.i.i49
 
@@ -762,7 +762,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %or.cond.i29.i, label %._crit_edge.i, label %304
 
 304:                                              ; preds = %299
-  %305 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %301, i32 noundef %303, i32 noundef 0) #15
+  %305 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %301, i32 noundef range(i32 0, -2) %303, i32 noundef 0) #15
   %.not.i.i30.i = icmp eq ptr %305, null
   br i1 %.not.i.i30.i, label %._crit_edge.i, label %.preheader.i.i31.i
 
@@ -811,7 +811,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   %328 = phi i32 [ %325, %.lr.ph.i55.loopexit ], [ 1, %.lr.ph.i55.preheader ]
   %329 = phi ptr [ %324, %.lr.ph.i55.loopexit ], [ %315, %.lr.ph.i55.preheader ]
   %330 = phi ptr [ %323, %.lr.ph.i55.loopexit ], [ %314, %.lr.ph.i55.preheader ]
-  %331 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %330, i32 noundef %327, i32 noundef 0) #15
+  %331 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %330, i32 noundef range(i32 0, -2) %327, i32 noundef 0) #15
   %.not.i.i41.i = icmp eq ptr %331, null
   br i1 %.not.i.i41.i, label %._crit_edge.i, label %.preheader.i.i42.i
 
@@ -853,7 +853,7 @@ hwloc_get_obj_by_type.exit.i46:                   ; preds = %273
   br i1 %or.cond.i51.i, label %._crit_edge68.i, label %348
 
 348:                                              ; preds = %._crit_edge.i
-  %349 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %344, i32 noundef %347, i32 noundef 0) #15
+  %349 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %344, i32 noundef range(i32 0, -2) %347, i32 noundef 0) #15
   %.not.i.i52.i = icmp eq ptr %349, null
   br i1 %.not.i.i52.i, label %._crit_edge68.i, label %.preheader.i.i53.i
 
@@ -1068,7 +1068,7 @@ hwloc_get_nbobjs_by_type.exit63.i:                ; preds = %14, %13, %hwloc_get
   br i1 %or.cond.i.i, label %build_map.exit, label %32
 
 32:                                               ; preds = %._crit_edge.i
-  %33 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %31, i32 noundef 0) #15
+  %33 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef range(i32 0, -2) %31, i32 noundef 0) #15
   %.not.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i, label %build_map.exit, label %.preheader.i.i.i
 
@@ -1153,7 +1153,7 @@ hwloc_get_nbobjs_by_type.exit63.i:                ; preds = %14, %13, %hwloc_get
   br i1 %or.cond.i65.i, label %build_map.exit, label %68
 
 68:                                               ; preds = %.critedge61.i
-  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %67, i32 noundef 0) #15
+  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef range(i32 0, -2) %67, i32 noundef 0) #15
   %.not.i.i66.i = icmp eq ptr %69, null
   br i1 %.not.i.i66.i, label %build_map.exit, label %.preheader.i.i67.i
 
@@ -1438,7 +1438,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %or.cond.i, label %._crit_edge88, label %14
 
 14:                                               ; preds = %.lr.ph91
-  %15 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %13, i32 noundef 0) #15
+  %15 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef range(i32 0, -2) %13, i32 noundef 0) #15
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %._crit_edge88, label %.preheader.i.i
 
@@ -1481,7 +1481,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %or.cond.i48, label %._crit_edge, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %31, i32 noundef 0) #15
+  %33 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef range(i32 0, -2) %31, i32 noundef 0) #15
   %.not.i.i49 = icmp eq ptr %33, null
   br i1 %.not.i.i49, label %._crit_edge, label %.preheader.i.i50
 
@@ -1522,7 +1522,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %or.cond.i59, label %._crit_edge, label %51
 
 51:                                               ; preds = %.lr.ph
-  %52 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %50, i32 noundef 0) #15
+  %52 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef range(i32 0, -2) %50, i32 noundef 0) #15
   %.not.i.i60 = icmp eq ptr %52, null
   br i1 %.not.i.i60, label %._crit_edge, label %.preheader.i.i61
 
@@ -1563,7 +1563,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
   br i1 %or.cond.i70, label %._crit_edge88, label %68
 
 68:                                               ; preds = %._crit_edge
-  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef %67, i32 noundef 0) #15
+  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1, i32 noundef range(i32 0, -2) %67, i32 noundef 0) #15
   %.not.i.i71 = icmp eq ptr %69, null
   br i1 %.not.i.i71, label %._crit_edge88, label %.preheader.i.i72
 

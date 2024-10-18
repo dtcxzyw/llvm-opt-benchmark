@@ -214,7 +214,7 @@ define internal void @finalize() #0 {
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %22 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
-  tail call void %28(ptr noundef %5) #10
+  tail call void %28(ptr noundef nonnull %5) #10
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
@@ -1624,7 +1624,7 @@ pmix_obj_run_destructors.exit331:                 ; preds = %.lr.ph.i328, %487
 .lr.ph.i333:                                      ; preds = %607, %.lr.ph.i333
   %613 = phi ptr [ %615, %.lr.ph.i333 ], [ %612, %607 ]
   %.07.i334 = phi ptr [ %614, %.lr.ph.i333 ], [ %611, %607 ]
-  call void %613(ptr noundef %590) #10
+  call void %613(ptr noundef nonnull %590) #10
   %614 = getelementptr inbounds i8, ptr %.07.i334, i64 8
   %615 = load ptr, ptr %614, align 8
   %.not.i335 = icmp eq ptr %615, null

@@ -181,7 +181,7 @@ define hidden noundef ptr @_ZNK11EncodePNode5ValueEP8PhaseGVN(ptr nocapture noun
   br i1 %or.cond.i.i, label %_ZNK4Type14make_narrowoopEv.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call noundef ptr @_ZN13TypeNarrowOop4makeEPK7TypePtr(ptr noundef nonnull %15) #3
+  %30 = tail call noundef ptr @_ZN13TypeNarrowOop4makeEPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(20) %15) #3
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 _ZNK4Type14make_narrowoopEv.exit:                 ; preds = %29, %27, %23, %2, %21
@@ -344,7 +344,7 @@ define hidden noundef ptr @_ZNK16EncodePKlassNode5ValueEP8PhaseGVN(ptr nocapture
   br i1 %or.cond.i.i, label %_ZNK4Type16make_narrowklassEv.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call noundef ptr @_ZN15TypeNarrowKlass4makeEPK7TypePtr(ptr noundef nonnull %15) #3
+  %25 = tail call noundef ptr @_ZN15TypeNarrowKlass4makeEPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(20) %15) #3
   br label %_ZNK4Type16make_narrowklassEv.exit
 
 _ZNK4Type16make_narrowklassEv.exit:               ; preds = %24, %22, %18, %2

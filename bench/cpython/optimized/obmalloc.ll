@@ -3330,7 +3330,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -3399,7 +3399,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_calloc.exit, label %if.end.i
@@ -3466,7 +3466,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -3519,7 +3519,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_mallocn.exit, label %if.end.i
@@ -3860,7 +3860,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -3906,7 +3906,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -3939,7 +3939,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_reallocn.exit, label %if.end.i
@@ -3991,7 +3991,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_recalloc.exit, label %if.end.i
@@ -4475,7 +4475,7 @@ entry:
   br i1 %cmp.i, label %if.else, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %if.then, label %if.else
@@ -4882,7 +4882,7 @@ entry:
   br i1 %cmp.i, label %if.else, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %newcount, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %newcount, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %if.then, label %if.else
@@ -5027,7 +5027,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %call.i.i.i.i.i = tail call noalias ptr @_mi_malloc_generic(ptr noundef nonnull %heap, i64 noundef %size, i1 noundef zeroext %zero, i64 noundef 0)
+  %call.i.i.i.i.i = tail call noalias ptr @_mi_malloc_generic(ptr noundef nonnull %heap, i64 noundef range(i64 0, -9223372036854775808) %size, i1 noundef zeroext %zero, i64 noundef 0)
   br label %return
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
@@ -5068,7 +5068,7 @@ if.end.thread.i:                                  ; preds = %if.end50
   br i1 %cmp767.i, label %return, label %if.else.i19
 
 if.end20.i:                                       ; preds = %if.end.i21
-  %cond.i = tail call i64 @llvm.umax.i64(i64 %size, i64 1025)
+  %cond.i = tail call i64 @llvm.umax.i64(i64 range(i64 0, -9223372036854775808) %size, i64 1025)
   %call4.i.i = tail call noalias ptr @_mi_malloc_generic(ptr noundef %heap, i64 noundef %cond.i, i1 noundef zeroext false, i64 noundef %alignment)
   %cmp24.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp24.i, label %return, label %if.end36.i
@@ -5335,7 +5335,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -5357,7 +5357,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %mi_heap_calloc_aligned_at.exit, label %if.end.i
@@ -5408,7 +5408,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_calloc_aligned_at.exit, label %if.end.i
@@ -5432,7 +5432,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.end.i.i, label %mi_count_size_overflow.exit.i.i
 
 mi_count_size_overflow.exit.i.i:                  ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_calloc_aligned.exit, label %if.end.i.i
@@ -5665,7 +5665,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %newcount, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %newcount, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -5687,7 +5687,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %entry
-  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %newcount, i64 %size)
+  %0 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %newcount, i64 %size)
   %1 = extractvalue { i64, i1 } %0, 1
   %2 = extractvalue { i64, i1 } %0, 0
   br i1 %1, label %return, label %if.end
@@ -5785,7 +5785,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %newcount, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %newcount, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_recalloc_aligned_at.exit, label %if.end.i
@@ -5809,7 +5809,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
 
 mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %newcount, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %newcount, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_heap_recalloc_aligned.exit, label %if.end.i
@@ -6617,7 +6617,7 @@ entry:
   br i1 %cmp.i.i.i, label %mi_reallocn.exit, label %mi_count_size_overflow.exit.i.i
 
 mi_count_size_overflow.exit.i.i:                  ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %if.then, label %mi_reallocn.exit
@@ -6660,7 +6660,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i.i, label %mi_reallocn.exit.i, label %mi_count_size_overflow.exit.i.i.i
 
 mi_count_size_overflow.exit.i.i.i:                ; preds = %if.end
-  %3 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %count, i64 %size)
+  %3 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
   br i1 %4, label %if.then4, label %mi_reallocn.exit.i
@@ -7048,7 +7048,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.end.i.i, label %mi_count_size_overflow.exit.i.i
 
 mi_count_size_overflow.exit.i.i:                  ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %newcount, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %newcount, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_recalloc_aligned_at.exit, label %if.end.i.i
@@ -7072,7 +7072,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.end.i.i, label %mi_count_size_overflow.exit.i.i
 
 mi_count_size_overflow.exit.i.i:                  ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %newcount, i64 %size)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %newcount, i64 %size)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_recalloc_aligned.exit, label %if.end.i.i
@@ -7182,7 +7182,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br i1 %cmp7.i, label %if.then9.i, label %if.end23
 
 if.then9.i:                                       ; preds = %if.then5.i
-  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull %memid, ptr noundef readonly %tld)
+  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef range(i64 16777216, 0) %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull %memid, ptr noundef readonly %tld)
   %cmp13.not.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.not.i, label %if.end23, label %return
 
@@ -7195,7 +7195,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.cond
   %i.035.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end.i ]
   %conv.i31.i = trunc i64 %i.035.i to i32
   %add.i.i = add i32 %conv.i31.i, 1
-  %call24.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i.i, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef readonly %tld)
+  %call24.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i.i, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef range(i64 16777216, 0) %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef readonly %tld)
   %cmp25.not.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.not.i, label %for.cond.i, label %return
 
@@ -7212,7 +7212,7 @@ for.body36.i:                                     ; preds = %for.end.i, %for.con
   %i32.036.i = phi i64 [ %inc47.i, %for.cond33.i ], [ 0, %for.end.i ]
   %conv.i32.i = trunc i64 %i32.036.i to i32
   %add.i33.i = add i32 %conv.i32.i, 1
-  %call41.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i33.i, i1 noundef zeroext false, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef readonly %tld)
+  %call41.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i33.i, i1 noundef zeroext false, i32 noundef %retval.0.i, i64 noundef range(i64 16777216, 0) %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef readonly %tld)
   %cmp42.not.i = icmp eq ptr %call41.i, null
   br i1 %cmp42.not.i, label %for.cond33.i, label %return
 
@@ -8017,7 +8017,7 @@ if.else.i.i19:                                    ; preds = %if.end4.i
 
 _mi_align_up.exit.i:                              ; preds = %if.else.i.i19, %if.then.i.i24
   %retval.0.i.i = phi i64 [ %and1.i.i26, %if.then.i.i24 ], [ %mul.i.i20, %if.else.i.i19 ]
-  %call9.i = call fastcc ptr @mi_os_prim_alloc(i64 noundef %retval.0.i.i, i64 noundef %retval.0.i13, i1 noundef zeroext %commit, i1 noundef zeroext %spec.select.i, ptr noundef %os_is_large, ptr noundef %os_is_zero)
+  %call9.i = call fastcc ptr @mi_os_prim_alloc(i64 noundef %retval.0.i.i, i64 noundef %retval.0.i13, i1 noundef zeroext %commit, i1 noundef zeroext %spec.select.i, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero)
   %cmp10.i = icmp eq ptr %call9.i, null
   br i1 %cmp10.i, label %return, label %if.end12.i21
 
@@ -8116,7 +8116,7 @@ mi_os_prim_free.exit.i:                           ; preds = %if.else.i.i19.i.i, 
 
 if.end19.i:                                       ; preds = %mi_os_prim_free.exit.i
   %add.i23 = add i64 %retval.0.i.i, %retval.0.i13
-  %call33.i = call fastcc ptr @mi_os_prim_alloc(i64 noundef %add.i23, i64 noundef 1, i1 noundef zeroext %commit, i1 noundef zeroext false, ptr noundef %os_is_large, ptr noundef %os_is_zero)
+  %call33.i = call fastcc ptr @mi_os_prim_alloc(i64 noundef %add.i23, i64 noundef 1, i1 noundef zeroext %commit, i1 noundef zeroext false, ptr noundef nonnull %os_is_large, ptr noundef nonnull %os_is_zero)
   %cmp34.i = icmp eq ptr %call33.i, null
   br i1 %cmp34.i, label %return, label %mi_align_up_ptr.exit79.i
 
@@ -8612,7 +8612,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %cmp3.i, label %mi_show_error_message.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %land.lhs.true.i, %if.end.i, %entry
-  call fastcc void @mi_vfprintf_thread(ptr noundef nonnull @.str.83, ptr noundef %fmt, ptr noundef %args)
+  call fastcc void @mi_vfprintf_thread(ptr noundef nonnull @.str.83, ptr noundef %fmt, ptr noundef nonnull %args)
   br label %mi_show_error_message.exit
 
 mi_show_error_message.exit:                       ; preds = %if.then.i, %land.lhs.true.i, %if.end6.i
@@ -9022,7 +9022,7 @@ while.end.i.i:                                    ; preds = %while.body6.i.i, %l
 
 if.then.i.i:                                      ; preds = %while.end.i.i
   %add.i.i.i = add i64 %bitidx.018.i.i, %mul.i.i8
-  call fastcc void @mi_arena_purge(ptr noundef readonly %6, i64 noundef %add.i.i.i, i64 noundef %count.0.lcssa.i.i, ptr noundef %stats)
+  call fastcc void @mi_arena_purge(ptr noundef nonnull readonly %6, i64 noundef %add.i.i.i, i64 noundef %count.0.lcssa.i.i, ptr noundef %stats)
   %cmp8.i.i = icmp eq i64 %count.0.lcssa.i.i, %bitlen.164.i
   %spec.select.i.i = select i1 %cmp8.i.i, i1 true, i1 %all_purged.017.i.i
   %22 = freeze i1 %spec.select.i.i
@@ -9164,7 +9164,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   %mul.i.i.i = shl i64 %.val.i, 25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %memid15.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid15.i, ptr noundef nonnull align 1 dereferenceable(24) %memid.i, i64 24, i1 false)
-  tail call void @_mi_os_free_ex(ptr noundef %6, i64 noundef %mul.i.i.i, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid15.i, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef %6, i64 noundef %mul.i.i.i, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid15.i, ptr nonnull poison)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid15.i)
   br label %if.end.i
 
@@ -9181,7 +9181,7 @@ if.end.i:                                         ; preds = %if.then4.i, %land.l
   br i1 %11, label %if.then.i.i, label %mi_arena_meta_free.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  tail call void @_mi_os_free_ex(ptr noundef nonnull %2, i64 noundef %8, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %meta_memid16.i, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef nonnull %2, i64 noundef %8, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %meta_memid16.i, ptr nonnull poison)
   br label %mi_arena_meta_free.exit.i
 
 mi_arena_meta_free.exit.i:                        ; preds = %if.then.i.i, %if.end.i
@@ -9926,7 +9926,7 @@ if.end17:                                         ; preds = %if.end10
 
 if.then19:                                        ; preds = %if.end17
   %6 = load i64, ptr %hsize, align 8
-  call void @_mi_os_free_ex(ptr noundef nonnull %call11, i64 noundef %6, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr nonnull readnone poison)
+  call void @_mi_os_free_ex(ptr noundef nonnull %call11, i64 noundef %6, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr nonnull poison)
   br label %return
 
 return:                                           ; preds = %if.end17, %if.end, %if.then19, %if.then16
@@ -10454,7 +10454,7 @@ mi_bitmap_mask_.exit:                             ; preds = %if.end, %if.end.i, 
   %retval.0.i = phi i64 [ %sub.i, %if.end3.i ], [ -1, %if.end ], [ 0, %if.end.i ]
   %sub = sub i64 64, %count
   %not = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not, i1 true)
   %cmp2.not22 = icmp ugt i64 %1, %sub
   br i1 %cmp2.not22, label %return, label %while.cond.outer.split.lr.ph
 
@@ -10554,7 +10554,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.end.i.us:                                      ; preds = %for.body.us
   %not.i.us = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us, i1 true)
   %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
@@ -10609,7 +10609,7 @@ for.body.us27:                                    ; preds = %for.body.lr.ph.spli
 
 if.end.i.us35:                                    ; preds = %for.body.us27
   %not.i.us38 = xor i64 %5, -1
-  %6 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us38, i1 true)
+  %6 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us38, i1 true)
   %cmp2.not22.i.us39 = icmp ugt i64 %6, %sub.i
   br i1 %cmp2.not22.i.us39, label %for.inc.us42, label %while.cond.outer.split.lr.ph.i.us40
 
@@ -10666,7 +10666,7 @@ for.body.us50:                                    ; preds = %for.body.lr.ph.spli
 
 if.end.i.us58:                                    ; preds = %for.body.us50
   %not.i.us61 = xor i64 %12, -1
-  %13 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us61, i1 true)
+  %13 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us61, i1 true)
   %cmp2.not22.i.us62 = icmp ugt i64 %13, %sub.i
   br i1 %cmp2.not22.i.us62, label %for.inc.us85, label %while.cond.outer.split.i.us65.preheader
 
@@ -10699,7 +10699,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 
 if.end.i:                                         ; preds = %for.body
   %not.i = xor i64 %17, -1
-  %18 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
+  %18 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
   %cmp2.not22.i = icmp ugt i64 %18, %sub.i
   br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
 
@@ -10782,7 +10782,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.end.i.us:                                      ; preds = %for.body.us
   %not.i.us = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us, i1 true)
   %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
@@ -10866,7 +10866,7 @@ for.body.us40.us:                                 ; preds = %for.body.lr.ph.spli
 
 if.end.i.us48.us:                                 ; preds = %for.body.us40.us
   %not.i.us53.us = xor i64 %9, -1
-  %10 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us53.us, i1 true)
+  %10 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us53.us, i1 true)
   %cmp2.not22.i.us54.us = icmp ugt i64 %10, %sub.i
   br i1 %cmp2.not22.i.us54.us, label %for.inc.us57.us, label %while.cond.outer.split.lr.ph.i.us55.us
 
@@ -10920,7 +10920,7 @@ for.body.us40:                                    ; preds = %for.body.lr.ph.spli
 
 if.end.i.us48:                                    ; preds = %for.body.us40
   %not.i.us53 = xor i64 %16, -1
-  %17 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.us53, i1 true)
+  %17 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us53, i1 true)
   %cmp2.not22.i.us54 = icmp ugt i64 %17, %sub.i
   br i1 %cmp2.not22.i.us54, label %for.inc.us57, label %while.cond.outer.split.lr.ph.i.us55
 
@@ -10982,7 +10982,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end.i:                                         ; preds = %for.body
   %not.i = xor i64 %23, -1
-  %24 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
+  %24 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
   %cmp2.not22.i = icmp ugt i64 %24, %sub.i
   br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
 
@@ -11248,7 +11248,7 @@ if.then6:                                         ; preds = %for.body
 
 if.end.i:                                         ; preds = %if.then6
   %not.i = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i, i1 true)
+  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
   %cmp2.not22.i = icmp samesign ugt i64 %1, %sub.i
   br i1 %cmp2.not22.i, label %if.end10, label %while.cond.outer.split.lr.ph.i
 
@@ -11322,7 +11322,7 @@ if.then2.i:                                       ; preds = %if.end.i18
 
 if.end.i.i20:                                     ; preds = %if.then2.i
   %not.i.i = xor i64 %13, -1
-  %14 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 %not.i.i, i1 true)
+  %14 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.i, i1 true)
   %cmp2.not22.i.i = icmp samesign ugt i64 %14, %sub.i
   br i1 %cmp2.not22.i.i, label %for.inc, label %while.cond.outer.split.lr.ph.i.i
 
@@ -12129,7 +12129,7 @@ if.then6.i:                                       ; preds = %if.then.i52
   %memid.i = getelementptr inbounds i8, ptr %55, i64 4664
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %memid7.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid7.i, ptr noundef nonnull align 1 dereferenceable(24) %memid.i, i64 24, i1 false)
-  tail call void @_mi_os_free_ex(ptr noundef nonnull %55, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid7.i, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef nonnull %55, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid7.i, ptr nonnull poison)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid7.i)
   br label %for.inc.i53
 
@@ -14050,7 +14050,7 @@ if.then6:                                         ; preds = %if.then
   %memid = getelementptr inbounds i8, ptr %2, i64 4664
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %memid7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid7, ptr noundef nonnull align 1 dereferenceable(24) %memid, i64 24, i1 false)
-  tail call void @_mi_os_free_ex(ptr noundef nonnull %2, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid7, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef nonnull %2, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid7, ptr nonnull poison)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid7)
   br label %for.inc
 
@@ -14145,8 +14145,8 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %mi_pr
 
 if.then.i.i.i8:                                   ; preds = %if.end.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i.i.i, i8 0, i64 32, i1 false)
-  %call.i3.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i.i.i, ptr noundef nonnull %buf.i.i.i, i64 noundef 32) #45
-  %call.i4.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i.i.i) #45
+  %call.i3.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -2147483648) %conv.i.i.i.i, ptr noundef nonnull %buf.i.i.i, i64 noundef 32) #45
+  %call.i4.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %conv.i.i.i.i) #45
   %cmp3.i.i.i = icmp sgt i64 %call.i3.i.i.i, 0
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %_mi_os_init.exit
 
@@ -14794,7 +14794,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i
   %memid.i.i = getelementptr inbounds i8, ptr %18, i64 4664
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %memid6.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid6.i.i, ptr noundef nonnull align 1 dereferenceable(24) %memid.i.i, i64 24, i1 false)
-  tail call void @_mi_os_free_ex(ptr noundef nonnull %18, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid6.i.i, ptr nonnull readnone poison)
+  tail call void @_mi_os_free_ex(ptr noundef nonnull %18, i64 noundef 4688, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid6.i.i, ptr nonnull poison)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid6.i.i)
   br label %if.end13
 
@@ -14862,8 +14862,8 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i.i, i8 0, i64 32, i1 false)
-  %call.i3.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i.i, ptr noundef nonnull %buf.i.i, i64 noundef 32) #45
-  %call.i4.i.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i.i) #45
+  %call.i3.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -2147483648) %conv.i.i.i, ptr noundef nonnull %buf.i.i, i64 noundef 32) #45
+  %call.i4.i.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %conv.i.i.i) #45
   %cmp3.i.i = icmp sgt i64 %call.i3.i.i, 0
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_mi_prim_mem_init.exit
 
@@ -16420,8 +16420,8 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then.i:                                        ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i, i8 0, i64 32, i1 false)
-  %call.i3.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i, ptr noundef nonnull %buf.i, i64 noundef 32) #45
-  %call.i4.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i) #45
+  %call.i3.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -2147483648) %conv.i.i, ptr noundef nonnull %buf.i, i64 noundef 32) #45
+  %call.i4.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %conv.i.i) #45
   %cmp3.i = icmp sgt i64 %call.i3.i, 0
   br i1 %cmp3.i, label %if.then4.i, label %unix_detect_overcommit.exit
 
@@ -16689,7 +16689,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end.i
   br label %unix_mmap_prim.exit
 
 unix_mmap_prim.exit:                              ; preds = %lor.lhs.false.i.i.i, %if.end.i
-  %call13.i = tail call ptr @mmap64(ptr noundef null, i64 noundef %retval.0.i23, i32 noundef 3, i32 noundef %spec.select.i.i, i32 noundef -1, i64 noundef 0) #45
+  %call13.i = tail call ptr @mmap64(ptr noundef null, i64 noundef %retval.0.i23, i32 noundef 3, i32 noundef range(i32 34, 2013528099) %spec.select.i.i, i32 noundef -1, i64 noundef 0) #45
   %cmp14.not.i = icmp eq ptr %call13.i, inttoptr (i64 -1 to ptr)
   %.call13.i = select i1 %cmp14.not.i, ptr null, ptr %call13.i
   %cmp48.not.i.i = icmp eq ptr %.call13.i, null
@@ -17231,7 +17231,7 @@ if.else.i:                                        ; preds = %_mi_stat_increase.e
 _mi_stat_counter_increase.exit:                   ; preds = %if.then.i, %if.else.i
   %21 = load atomic i64, ptr @_mi_prim_reset.advice monotonic, align 8
   %conv.i = trunc nuw nsw i64 %21 to i32
-  %call.i7.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef %conv.i) #45
+  %call.i7.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef range(i32 4, 15) %conv.i) #45
   %cmp.not8.i = icmp eq i32 %call.i7.i, 0
   br i1 %cmp.not8.i, label %return, label %land.rhs.lr.ph.i
 
@@ -17248,7 +17248,7 @@ land.rhs.i:                                       ; preds = %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.lr.ph.i, %land.rhs.i
   store i32 0, ptr %call2.i, align 4
-  %call.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef %conv.i) #45
+  %call.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef range(i32 4, 15) %conv.i) #45
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %return, label %land.rhs.i, !llvm.loop !85
 
@@ -17281,7 +17281,7 @@ define hidden i32 @_mi_prim_reset(ptr noundef %start, i64 noundef %size) local_u
 entry:
   %0 = load atomic i64, ptr @_mi_prim_reset.advice monotonic, align 8
   %conv = trunc nuw nsw i64 %0 to i32
-  %call.i7 = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef %conv) #45
+  %call.i7 = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef range(i32 4, 15) %conv) #45
   %cmp.not8 = icmp eq i32 %call.i7, 0
   br i1 %cmp.not8, label %if.end, label %land.rhs.lr.ph
 
@@ -17298,7 +17298,7 @@ land.rhs:                                         ; preds = %while.body
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
   store i32 0, ptr %call2, align 4
-  %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef %conv) #45
+  %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef range(i32 4, 15) %conv) #45
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %if.end, label %land.rhs, !llvm.loop !85
 
@@ -22931,7 +22931,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 mi_span_queue_for.exit.i:                         ; preds = %if.end3.i.i.i.i, %if.end.i.i.i.i, %entry
   %retval.0.i.i.i.i = phi i64 [ %sub4.i.i.i.i, %if.end3.i.i.i.i ], [ %div13, %entry ], [ %div13, %if.end.i.i.i.i ]
   %arrayidx.i.i = getelementptr [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i
-  %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %div13, i64 1)
+  %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 range(i64 0, 281474976710656) %div13, i64 1)
   %arrayidx.i = getelementptr i8, ptr %tld, i64 840
   %cmp1.not53.i = icmp ugt ptr %arrayidx.i.i, %arrayidx.i
   br i1 %cmp1.not53.i, label %if.then, label %for.cond.preheader.lr.ph.i
@@ -23334,7 +23334,7 @@ if.else.i.i.i.i:                                  ; preds = %while.body.i.i
 
 _mi_heap_memid_is_suitable.exit.i.i:              ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i20
   %retval.0.i.i.i.i15 = phi i1 [ %spec.select.i.i.i.i.i, %if.then.i.i.i.i20 ], [ %cmp.i2.i.i.i.i, %if.else.i.i.i.i ]
-  %call4.i.i = tail call fastcc zeroext i1 @mi_segment_check_free(ptr noundef %45, i64 noundef %div13, i64 noundef %block_size, ptr noundef %tld)
+  %call4.i.i = tail call fastcc zeroext i1 @mi_segment_check_free(ptr noundef %45, i64 noundef range(i64 0, 281474976710656) %div13, i64 noundef range(i64 0, 16777217) %block_size, ptr noundef %tld)
   %used.i.i = getelementptr inbounds i8, ptr %45, i64 208
   %54 = load i64, ptr %used.i.i, align 8
   %cmp6.i.i = icmp eq i64 %54, 0
@@ -23349,7 +23349,7 @@ if.else.i.i:                                      ; preds = %_mi_heap_memid_is_s
   br i1 %55, label %if.then9.i.i, label %if.else11.i.i
 
 if.then9.i.i:                                     ; preds = %if.else.i.i
-  %call10.i.i = call fastcc ptr @mi_segment_reclaim(ptr noundef %45, ptr noundef nonnull %heap, i64 noundef %block_size, ptr noundef nonnull %reclaimed.i, ptr noundef %tld)
+  %call10.i.i = call fastcc ptr @mi_segment_reclaim(ptr noundef %45, ptr noundef nonnull %heap, i64 noundef range(i64 0, 16777217) %block_size, ptr noundef nonnull %reclaimed.i, ptr noundef %tld)
   %56 = icmp eq ptr %call10.i.i, null
   br label %mi_segment_try_reclaim.exit.i
 
@@ -24048,56 +24048,56 @@ entry:
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.102)
   %peak.i = getelementptr inbounds i8, ptr %stats, i64 144
   %1 = load i64, ptr %peak.i, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.103)
   %peak.i68 = getelementptr inbounds i8, ptr %stats, i64 176
   %2 = load i64, ptr %peak.i68, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125)
   %page_committed = getelementptr inbounds i8, ptr %stats, i64 192
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %page_committed, ptr noundef nonnull @.str.104, i64 noundef 1, ptr noundef %buffer, ptr noundef null)
-  call fastcc void @mi_stat_print_ex(ptr noundef readonly %stats, ptr noundef nonnull @.str.105, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %page_committed, ptr noundef nonnull @.str.104, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null)
+  call fastcc void @mi_stat_print_ex(ptr noundef readonly %stats, ptr noundef nonnull @.str.105, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   %segments_abandoned = getelementptr inbounds i8, ptr %stats, i64 224
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_abandoned, ptr noundef nonnull @.str.106, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_abandoned, ptr noundef nonnull @.str.106, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   %segments_cache = getelementptr inbounds i8, ptr %stats, i64 448
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_cache, ptr noundef nonnull @.str.107, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_cache, ptr noundef nonnull @.str.107, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   %pages = getelementptr inbounds i8, ptr %stats, i64 32
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages, ptr noundef nonnull @.str.108, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages, ptr noundef nonnull @.str.108, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   %pages_abandoned = getelementptr inbounds i8, ptr %stats, i64 256
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages_abandoned, ptr noundef nonnull @.str.106, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages_abandoned, ptr noundef nonnull @.str.106, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   %pages_extended = getelementptr inbounds i8, ptr %stats, i64 480
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.109)
   %3 = load i64, ptr %pages_extended, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125)
   %page_no_retire = getelementptr inbounds i8, ptr %stats, i64 560
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.110)
   %4 = load i64, ptr %page_no_retire, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %4, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_printf_amount(i64 noundef %4, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125)
   %mmap_calls = getelementptr inbounds i8, ptr %stats, i64 496
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.111)
   %5 = load i64, ptr %mmap_calls, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %5, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_printf_amount(i64 noundef %5, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125)
   %commit_calls = getelementptr inbounds i8, ptr %stats, i64 512
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.112)
   %6 = load i64, ptr %commit_calls, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125)
   %reset_calls = getelementptr inbounds i8, ptr %stats, i64 528
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.113)
   %7 = load i64, ptr %reset_calls, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125)
   %purge_calls = getelementptr inbounds i8, ptr %stats, i64 544
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.114)
   %8 = load i64, ptr %purge_calls, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125)
   %threads = getelementptr inbounds i8, ptr %stats, i64 288
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %threads, ptr noundef nonnull @.str.115, i64 noundef -1, ptr noundef %buffer, ptr noundef null)
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %threads, ptr noundef nonnull @.str.115, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null)
   %count.i = getelementptr inbounds i8, ptr %stats, i64 584
   %9 = load i64, ptr %count.i, align 8
   %cmp.i = icmp eq i64 %9, 0
@@ -24536,7 +24536,7 @@ if.else17.i:                                      ; preds = %land.lhs.true13.i, 
 if.end19.i:                                       ; preds = %if.else17.i, %land.lhs.true13.i
   %lflags.0.i = phi i32 [ 1409548322, %if.else17.i ], [ 2013528098, %land.lhs.true13.i ]
   store i8 1, ptr %is_large, align 1
-  %call24.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef null, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %cond, i32 noundef %lflags.0.i)
+  %call24.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef null, i64 noundef %size, i64 noundef %try_alignment, i32 noundef range(i32 0, 4) %cond, i32 noundef %lflags.0.i)
   %cmp25.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.i, label %if.end34.i, label %unix_mmap.exit.thread
 
@@ -24545,7 +24545,7 @@ if.end34.i:                                       ; preds = %if.end19.i
   %call30.i = tail call ptr @__errno_location() #55
   %3 = load i32, ptr %call30.i, align 4
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.152, i32 noundef %3)
-  %call33.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef null, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %cond, i32 noundef 1409548322)
+  %call33.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef null, i64 noundef %size, i64 noundef %try_alignment, i32 noundef range(i32 0, 4) %cond, i32 noundef 1409548322)
   %cmp38.i.not = icmp eq ptr %call33.i, null
   br i1 %cmp38.i.not, label %if.then39.i, label %unix_mmap.exit.thread
 
@@ -24555,7 +24555,7 @@ if.then39.i:                                      ; preds = %if.end34.i
 
 if.then46.i:                                      ; preds = %if.then39.i, %if.then8.i, %_mi_os_use_large_page.exit.i, %lor.lhs.false.i.i, %entry
   store i8 0, ptr %is_large, align 1
-  %call47.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef null, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %cond, i32 noundef %spec.select.i)
+  %call47.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef null, i64 noundef %size, i64 noundef %try_alignment, i32 noundef range(i32 0, 4) %cond, i32 noundef %spec.select.i)
   %cmp48.not.i = icmp eq ptr %call47.i, null
   %allow_large.not41.i = xor i1 %allow_large, true
   %brmerge42.i = or i1 %cmp48.not.i, %allow_large.not41.i
@@ -24831,7 +24831,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %count.019 = phi i64 [ %count.1, %if.end24 ], [ 0, %while.cond.preheader ]
   %add.ptr = getelementptr i8, ptr %buf, i64 %count.019
   %sub = sub nuw i64 %buf_len, %count.019
-  %call.i15 = tail call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i, ptr noundef %add.ptr, i64 noundef %sub) #45
+  %call.i15 = tail call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -2147483648) %conv.i, ptr noundef %add.ptr, i64 noundef %sub) #45
   %cmp16 = icmp slt i64 %call.i15, 1
   br i1 %cmp16, label %if.then17, label %if.else
 
@@ -24854,7 +24854,7 @@ if.end24:                                         ; preds = %if.then17, %if.then
 
 while.end:                                        ; preds = %if.end24, %if.then17, %while.cond.preheader
   %count.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %count.019, %if.then17 ], [ %count.1, %if.end24 ]
-  %call.i16 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i) #45
+  %call.i16 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %conv.i) #45
   %cmp26 = icmp eq i64 %count.0.lcssa, %buf_len
   br label %return
 
@@ -24991,7 +24991,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.end.i.i, label %mi_count_size_overflow.exit.i.i
 
 mi_count_size_overflow.exit.i.i:                  ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %nelem, i64 %elsize)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %nelem, i64 %elsize)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_calloc.exit, label %if.end.i.i
@@ -25118,7 +25118,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.end.i.i, label %mi_count_size_overflow.exit.i.i
 
 mi_count_size_overflow.exit.i.i:                  ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %nelem, i64 %elsize)
+  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %nelem, i64 %elsize)
   %3 = extractvalue { i64, i1 } %2, 1
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %mi_calloc.exit, label %if.end.i.i
@@ -31584,15 +31584,15 @@ entry:
 if.then:                                          ; preds = %entry
   %peak = getelementptr inbounds i8, ptr %stat, i64 16
   %0 = load i64, ptr %peak, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef 1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null)
   %1 = load i64, ptr %stat, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null)
   %freed = getelementptr inbounds i8, ptr %stat, i64 8
   %2 = load i64, ptr %freed, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null)
   %current = getelementptr inbounds i8, ptr %stat, i64 24
   %3 = load i64, ptr %current, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef 1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i)
   store i8 0, ptr %buf.i, align 16
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %arg, ptr noundef nonnull @.str.141, ptr noundef nonnull %buf.i)
@@ -31622,15 +31622,15 @@ if.else7:                                         ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.else26
 
 if.then9:                                         ; preds = %if.else7
-  tail call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef null)
   %7 = load i64, ptr %stat, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef null)
   %freed12 = getelementptr inbounds i8, ptr %stat, i64 8
   %8 = load i64, ptr %freed12, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef null)
   %current13 = getelementptr inbounds i8, ptr %stat, i64 24
   %9 = load i64, ptr %current13, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %9, i64 noundef -1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %9, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef null)
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %arg, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.10)
   %10 = load i64, ptr %stat, align 8
   %11 = load i64, ptr %freed12, align 8
@@ -31646,13 +31646,13 @@ if.else24:                                        ; preds = %if.then9
   br label %if.end31
 
 if.else26:                                        ; preds = %if.else7
-  tail call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef 1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null)
   %12 = load i64, ptr %stat, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %12, i64 noundef 1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %12, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null)
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %arg, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.140)
   %current29 = getelementptr inbounds i8, ptr %stat, i64 24
   %13 = load i64, ptr %current29, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %13, i64 noundef 1, ptr noundef %arg, ptr noundef null)
+  tail call fastcc void @mi_printf_amount(i64 noundef %13, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null)
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %arg, ptr noundef nonnull @.str.125)
   br label %if.end31
 

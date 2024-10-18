@@ -294,14 +294,14 @@ if.end:                                           ; preds = %if.then
   %2 = load ptr, ptr %blk, align 8
   %call7 = tail call i64 @blk_getlength(ptr noundef %2) #18
   %cmp = icmp slt i64 %call7, 1
-  %3 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %call7)
+  %3 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 range(i64 1, -9223372036854775808) %call7)
   %tobool1.not.i = icmp samesign ult i64 %3, 2
   %or.cond = select i1 %cmp, i1 true, i1 %tobool1.not.i
   br i1 %or.cond, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.end
   %sub.i = add nsw i64 %call7, -1
-  %4 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
+  %4 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 range(i64 0, 9223372036854775807) %sub.i, i1 false)
   %sub2.i = add nuw nsw i64 %4, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i
@@ -916,11 +916,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %80 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %81 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i, i64 noundef %80, i64 noundef %81, ptr noundef %retval.0.i63, i32 noundef %rsplen.081) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i, i64 noundef %80, i64 noundef %81, ptr noundef %retval.0.i63, i32 noundef range(i32 0, 17) %rsplen.081) #18
   br label %trace_sdcard_response.exit
 
 if.else.i.i64:                                    ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef %retval.0.i63, i32 noundef %rsplen.081) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef %retval.0.i63, i32 noundef range(i32 0, 17) %rsplen.081) #18
   br label %trace_sdcard_response.exit
 
 trace_sdcard_response.exit:                       ; preds = %sd_response_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i64
@@ -1213,7 +1213,7 @@ if.end120:                                        ; preds = %if.end115
 
 lor.lhs.false124:                                 ; preds = %if.end120
   %and127 = and i32 %req.sroa.16187.0.extract.trunc, -256
-  %32 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %and127, i1 false)
+  %32 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 0, -255) %and127, i1 false)
   %add = add nuw nsw i32 %32, 1
   %shr129 = lshr i32 %req.sroa.16187.0.extract.trunc, %add
   %tobool130.not = icmp eq i32 %shr129, 0

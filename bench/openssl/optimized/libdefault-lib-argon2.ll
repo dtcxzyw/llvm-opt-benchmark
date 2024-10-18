@@ -1363,7 +1363,7 @@ for.body.i16:                                     ; preds = %load_block.exit30.i
   %conv8.i.i23 = trunc nuw i32 %shr7.i.i22 to i8
   store i8 %conv8.i.i23, ptr %arrayidx9.i19.i, align 1
   %31 = load ptr, ptr %md.i15, align 8
-  call fastcc void @blake2b_long(ptr noundef %31, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef %blockhash, i64 noundef 72)
+  call fastcc void @blake2b_long(ptr noundef %31, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72)
   %32 = load ptr, ptr %2, align 8
   %33 = load i32, ptr %lane_length.i, align 4
   %mul.i = mul i32 %33, %l.032.i
@@ -1388,7 +1388,7 @@ load_block.exit.i:                                ; preds = %for.body.i.i
   store i8 0, ptr %arrayidx6.i.i13, align 2
   store i8 0, ptr %arrayidx9.i.i14, align 1
   %35 = load ptr, ptr %md.i15, align 8
-  call fastcc void @blake2b_long(ptr noundef %35, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef %blockhash, i64 noundef 72)
+  call fastcc void @blake2b_long(ptr noundef %35, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72)
   %36 = load ptr, ptr %2, align 8
   %37 = load i32, ptr %lane_length.i, align 4
   %mul11.i = mul i32 %37, %l.032.i

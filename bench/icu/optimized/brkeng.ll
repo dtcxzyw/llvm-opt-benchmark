@@ -1200,12 +1200,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %dictnbuf)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %dictnbuf)
   %len.i = getelementptr inbounds i8, ptr %dictnbuf, i64 56
   store i32 0, ptr %len.i, align 8
   %1 = load ptr, ptr %dictnbuf, align 8
   store i8 0, ptr %1, align 1
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ext)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ext)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -1385,18 +1385,18 @@ if.then75:                                        ; preds = %if.else73
 
 cleanup:                                          ; preds = %new.notnull57, %new.notnull, %if.else73, %if.then70, %if.then75
   %retval.1 = phi ptr [ null, %if.then75 ], [ null, %if.then70 ], [ null, %if.else73 ], [ %call46, %new.notnull ], [ %call55, %new.notnull57 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ext) #14
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %dictnbuf) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ext) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %dictnbuf) #14
   br label %return
 
 ehcleanup78:                                      ; preds = %ehcleanup27, %ehcleanup, %lpad6
   %.pn24 = phi { ptr, i32 } [ %7, %lpad6 ], [ %.pn22, %ehcleanup27 ], [ %.pn, %ehcleanup ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ext) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ext) #14
   br label %ehcleanup80
 
 ehcleanup80:                                      ; preds = %ehcleanup78, %lpad
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %ehcleanup78 ], [ %6, %lpad ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %dictnbuf) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %dictnbuf) #14
   resume { ptr, i32 } %.pn24.pn
 
 return:                                           ; preds = %cleanup, %if.then

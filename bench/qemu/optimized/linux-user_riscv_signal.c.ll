@@ -71,11 +71,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %env, i64 noundef %retval.0.i) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %env, i64 noundef range(i64 -1, -15) %retval.0.i) #6
   br label %trace_user_setup_rt_frame.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, ptr noundef nonnull %env, i64 noundef %retval.0.i) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, ptr noundef nonnull %env, i64 noundef range(i64 -1, -15) %retval.0.i) #6
   br label %trace_user_setup_rt_frame.exit
 
 trace_user_setup_rt_frame.exit:                   ; preds = %get_sigframe.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -264,7 +264,7 @@ restore_ucontext.exit:                            ; preds = %do.body11.i.i
   %fcsr23.i.i = getelementptr inbounds i8, ptr %call, i64 816
   %fcsr23.val.i.i = load i32, ptr %fcsr23.i.i, align 1
   %conv.i.i = zext i32 %fcsr23.val.i.i to i64
-  %call.i.i.i = call i32 @riscv_csrrw(ptr noundef nonnull %env, i32 noundef 3, ptr noundef null, i64 noundef %conv.i.i, i64 noundef -1) #6
+  %call.i.i.i = call i32 @riscv_csrrw(ptr noundef nonnull %env, i32 noundef 3, ptr noundef null, i64 noundef range(i64 0, 4294967296) %conv.i.i, i64 noundef -1) #6
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %blocked.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %target_set.i)
   %uc_stack = getelementptr inbounds i8, ptr %call, i64 144

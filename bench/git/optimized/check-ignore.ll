@@ -237,7 +237,7 @@ if.end.i:                                         ; preds = %strbuf_setlen.exit.
 if.end9.i:                                        ; preds = %if.end.i, %land.lhs.true.i, %while.body.i
   %15 = phi ptr [ %.pre6.i, %if.end.i ], [ %.pre7.i, %land.lhs.true.i ], [ %.pre7.i, %while.body.i ]
   store ptr %15, ptr %pathspec.i, align 16
-  %call12.i = call fastcc i32 @check_ignore(ptr noundef %dir, ptr noundef %prefix, i32 noundef 1, ptr noundef nonnull %pathspec.i)
+  %call12.i = call fastcc i32 @check_ignore(ptr noundef nonnull %dir, ptr noundef %prefix, i32 noundef 1, ptr noundef nonnull %pathspec.i)
   %add.i = add nsw i32 %call12.i, %num_ignored.05.i
   %16 = load ptr, ptr @stdout, align 8
   call void @maybe_flush_or_die(ptr noundef %16, ptr noundef nonnull @.str.23) #10

@@ -1798,7 +1798,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %262
 
 269:                                              ; preds = %268
   store i32 -16777152, ptr %32, align 4
-  invoke void @glColor4ubv(ptr noundef nonnull %32)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %32)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit unwind label %104
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %269
@@ -1810,7 +1810,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %269
   %272 = getelementptr inbounds i8, ptr %271, i64 8
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %274)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %274)
           to label %275 unwind label %104
 
 275:                                              ; preds = %270
@@ -1818,7 +1818,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %269
   %277 = getelementptr inbounds i8, ptr %276, i64 16
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %279)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %279)
           to label %280 unwind label %104
 
 280:                                              ; preds = %275
@@ -1826,7 +1826,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit:            ; preds = %269
   %282 = getelementptr inbounds i8, ptr %281, i64 24
   %283 = load ptr, ptr %282, align 8
   %284 = getelementptr inbounds i8, ptr %283, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %284)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %284)
           to label %_ZN3vcg8glVertexERKNS_6Point3IfEE.exit152 unwind label %104
 
 _ZN3vcg8glVertexERKNS_6Point3IfEE.exit152:        ; preds = %280
@@ -1847,7 +1847,7 @@ _ZN3vcg8glVertexERKNS_6Point3IfEE.exit152:        ; preds = %280
 
 288:                                              ; preds = %287
   store i32 -16776961, ptr %33, align 4
-  invoke void @glColor4ubv(ptr noundef nonnull %33)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %33)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit154 unwind label %104
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit154:         ; preds = %288
@@ -1859,7 +1859,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit154:         ; preds = %288
   %291 = getelementptr inbounds i8, ptr %290, i64 8
   %292 = load ptr, ptr %291, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %293)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %293)
           to label %294 unwind label %104
 
 294:                                              ; preds = %289
@@ -1867,7 +1867,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit154:         ; preds = %288
   %296 = getelementptr inbounds i8, ptr %295, i64 16
   %297 = load ptr, ptr %296, align 8
   %298 = getelementptr inbounds i8, ptr %297, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %298)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %298)
           to label %299 unwind label %104
 
 299:                                              ; preds = %294
@@ -1875,7 +1875,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit154:         ; preds = %288
   %301 = getelementptr inbounds i8, ptr %300, i64 24
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds i8, ptr %302, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %303)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %303)
           to label %_ZN3vcg8glVertexERKNS_6Point3IfEE.exit160 unwind label %104
 
 _ZN3vcg8glVertexERKNS_6Point3IfEE.exit160:        ; preds = %299
@@ -2012,7 +2012,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i168:       ; preds = %335
 
 342:                                              ; preds = %341
   store i32 -12582912, ptr %34, align 4
-  invoke void @glColor4ubv(ptr noundef nonnull %34)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %34)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit172 unwind label %104
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit172:         ; preds = %342
@@ -2022,7 +2022,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit172:         ; preds = %342
 343:                                              ; preds = %_ZN3vcg7glColorERKNS_6Color4IhEE.exit172
   %344 = load ptr, ptr %115, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %345)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %345)
           to label %_ZN3vcg8glVertexERKNS_6Point3IfEE.exit174 unwind label %104
 
 _ZN3vcg8glVertexERKNS_6Point3IfEE.exit174:        ; preds = %343
@@ -2043,7 +2043,7 @@ _ZN3vcg8glVertexERKNS_6Point3IfEE.exit174:        ; preds = %343
 
 349:                                              ; preds = %348
   store i32 -65536, ptr %35, align 4
-  invoke void @glColor4ubv(ptr noundef nonnull %35)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %35)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit176 unwind label %104
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit176:         ; preds = %349
@@ -2053,7 +2053,7 @@ _ZN3vcg7glColorERKNS_6Color4IhEE.exit176:         ; preds = %349
 350:                                              ; preds = %_ZN3vcg7glColorERKNS_6Color4IhEE.exit176
   %351 = load ptr, ptr %115, align 8
   %352 = getelementptr inbounds i8, ptr %351, i64 8
-  invoke void @glVertex3fv(ptr noundef nonnull %352)
+  invoke void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %352)
           to label %_ZN3vcg8glVertexERKNS_6Point3IfEE.exit178 unwind label %104
 
 _ZN3vcg8glVertexERKNS_6Point3IfEE.exit178:        ; preds = %350
@@ -7226,21 +7226,21 @@ _ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit74.thread: ; preds = %_ZNK3vcg4Box3If
 
 _ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit77.thread: ; preds = %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit74.thread, %75, %78
   %81 = getelementptr inbounds i8, ptr %5, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %82 = call noundef zeroext i1 @_ZN3vcg22IntersectionSegmentBoxIfEEbRKNS_4Box3IT_EERKNS_8Segment3IS2_EERNS_6Point3IS2_EE(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(12) %4)
   br i1 %82, label %.critedge, label %83
 
 83:                                               ; preds = %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit77.thread
   %84 = getelementptr inbounds i8, ptr %6, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %85 = call noundef zeroext i1 @_ZN3vcg22IntersectionSegmentBoxIfEEbRKNS_4Box3IT_EERKNS_8Segment3IS2_EERNS_6Point3IS2_EE(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(12) %4)
   br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds i8, ptr %7, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %87, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %88 = call noundef zeroext i1 @_ZN3vcg22IntersectionSegmentBoxIfEEbRKNS_4Box3IT_EERKNS_8Segment3IS2_EERNS_6Point3IS2_EE(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %4)
   br i1 %88, label %.critedge, label %.preheader.preheader
@@ -7620,7 +7620,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit13:
 _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %41, %33
   %.sroa.6.0 = phi float [ %44, %41 ], [ %36, %33 ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %41 ], [ %.sroa.0.4.vec.insert.i, %33 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %45 = getelementptr inbounds i8, ptr %3, i64 12
   store <2 x float> %.sroa.0.0, ptr %45, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
@@ -7693,7 +7693,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg27IntersectionSegmentTriangleIfEE
   %27 = fcmp olt float %.sroa.34.12.copyload, %23
   %.sroa.34.1 = select i1 %27, float %23, float %.sroa.34.12.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %28 = load float, ptr %7, align 4
   %29 = load float, ptr %11, align 4
   %30 = fcmp ogt float %28, %29
@@ -7713,7 +7713,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.i29:               ; preds = %31
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i30:        ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i29, %31, %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %.pre = load float, ptr %7, align 4
   %.pre71 = load float, ptr %11, align 4
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit31
@@ -7793,7 +7793,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.i32:               ; preds = %66
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i33:        ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i32, %66, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %.pre72 = load float, ptr %7, align 4
   %.pre73 = load float, ptr %11, align 4
   %.pre74 = load float, ptr %12, align 4
@@ -7921,7 +7921,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit34:      ; preds = %100, %97, %_ZNK3vcg
 _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %135, %115
   %.sroa.6.0 = phi float [ %138, %135 ], [ %130, %115 ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %135 ], [ %.sroa.0.4.vec.insert.i, %115 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %139 = getelementptr inbounds i8, ptr %9, i64 12
   store <2 x float> %.sroa.0.0, ptr %139, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 20

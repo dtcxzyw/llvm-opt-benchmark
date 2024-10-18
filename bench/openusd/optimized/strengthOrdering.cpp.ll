@@ -143,7 +143,7 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__29PcpC
   br i1 %65, label %66, label %361
 
 66:                                               ; preds = %63
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 16, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %67, align 8, !alias.scope !4
   %68 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -182,7 +182,7 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__29PcpC
   br i1 %.not3.i.i, label %76, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit: ; preds = %76, %66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %90, align 8, !alias.scope !9
   %91 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
@@ -957,7 +957,7 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L35_Get
   %3 = alloca %"struct.std::pair.16", align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__36Pcp_FindStartingNodeOfClassHierarchyERKNS_10PcpNodeRefE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.16") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   %5 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %6 = icmp eq i32 %5, 3
   br i1 %6, label %.lr.ph, label %._crit_edge

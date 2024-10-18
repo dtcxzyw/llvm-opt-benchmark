@@ -2178,7 +2178,7 @@ i2b.exit.i.i:                                     ; preds = %if.end.i.i.i.i, %if
   br label %have_i.i.i
 
 if.else.i636.i:                                   ; preds = %if.then921.i
-  %call4.i.i = call fastcc ptr @d2b(ptr noundef nonnull %dalloc, ptr noundef %rv.i, ptr noundef %p2.i.i, ptr noundef %bbits.i.i)
+  %call4.i.i = call fastcc ptr @d2b(ptr noundef nonnull %dalloc, ptr noundef nonnull %rv.i, ptr noundef %p2.i.i, ptr noundef %bbits.i.i)
   %202 = load i32, ptr %p2.i.i, align 4
   %sub5.i637.i = sub nsw i32 %202, %bc.sroa.42.0.i
   %203 = load i32, ptr %bbits.i.i, align 4

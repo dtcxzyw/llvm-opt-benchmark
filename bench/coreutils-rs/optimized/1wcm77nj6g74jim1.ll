@@ -114,7 +114,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup3arg17hb6d9dca48
           to label %22 unwind label %20
 
 11:                                               ; preds = %4
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h72cfe624fb0799c6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %6)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h72cfe624fb0799c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %6)
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %11
@@ -184,7 +184,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17he8a7e244
           to label %30 unwind label %21, !noalias !79
 
 20:                                               ; preds = %8
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h72cfe624fb0799c6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %15)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h72cfe624fb0799c6E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %3, i64 noundef %15)
           to label %.noexc.i unwind label %18, !noalias !79
 
 .noexc.i:                                         ; preds = %20

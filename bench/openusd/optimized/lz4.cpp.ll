@@ -281,7 +281,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 .thread:                                          ; preds = %118
   %122 = xor i64 %.val2901, %.val2900
-  %123 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %122, i1 true)
+  %123 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %122, i1 true)
   %124 = trunc nuw nsw i64 %123 to i32
   %125 = lshr i32 %124, 3
   %narrow2965 = add nuw nsw i32 %125, 4
@@ -311,7 +311,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 134:                                              ; preds = %.lr.ph3080
   %135 = xor i64 %.12503.val2903, %.12508.val2902
-  %136 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %135, i1 true)
+  %136 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %135, i1 true)
   %137 = lshr i64 %136, 3
   %138 = getelementptr inbounds i8, ptr %.125033078, i64 %137
   br label %158
@@ -719,7 +719,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2934:
 
 .thread2948:                                      ; preds = %327
   %331 = xor i64 %.val2908, %.val2907
-  %332 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %331, i1 true)
+  %332 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %331, i1 true)
   %333 = trunc nuw nsw i64 %332 to i32
   %334 = lshr i32 %333, 3
   %narrow = add nuw nsw i32 %334, 4
@@ -749,7 +749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2934:
 
 343:                                              ; preds = %.lr.ph3042
   %344 = xor i64 %.12460.val2910, %.12465.val2909
-  %345 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %344, i1 true)
+  %345 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %344, i1 true)
   %346 = lshr i64 %345, 3
   %347 = getelementptr inbounds i8, ptr %.124603040, i64 %346
   br label %367
@@ -1173,7 +1173,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2939:
 
 554:                                              ; preds = %550
   %555 = xor i64 %.val2915, %.val2914
-  %556 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %555, i1 true)
+  %556 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %555, i1 true)
   %557 = trunc nuw nsw i64 %556 to i32
   %558 = lshr i32 %557, 3
   br label %598
@@ -1200,7 +1200,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2939:
 
 565:                                              ; preds = %.lr.ph3157
   %566 = xor i64 %.12403.val2917, %.12408.val2916
-  %567 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %566, i1 true)
+  %567 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %566, i1 true)
   %568 = lshr i64 %567, 3
   %569 = getelementptr inbounds i8, ptr %.124033155, i64 %568
   %570 = ptrtoint ptr %569 to i64
@@ -1639,7 +1639,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2944:
 
 786:                                              ; preds = %782
   %787 = xor i64 %.val2922, %.val2921
-  %788 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %787, i1 true)
+  %788 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %787, i1 true)
   %789 = trunc nuw nsw i64 %788 to i32
   %790 = lshr i32 %789, 3
   br label %830
@@ -1666,7 +1666,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2944:
 
 797:                                              ; preds = %.lr.ph3119
   %798 = xor i64 %.1.val2924, %.12367.val2923
-  %799 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %798, i1 true)
+  %799 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %798, i1 true)
   %800 = lshr i64 %799, 3
   %801 = getelementptr inbounds i8, ptr %.13117, i64 %800
   %802 = ptrtoint ptr %801 to i64
@@ -2202,7 +2202,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 .thread:                                          ; preds = %132
   %136 = xor i64 %.val4526, %.val4525
-  %137 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %136, i1 true)
+  %137 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %136, i1 true)
   %138 = trunc nuw nsw i64 %137 to i32
   %139 = lshr i32 %138, 3
   %narrow4617 = add nuw nsw i32 %139, 4
@@ -2232,7 +2232,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 148:                                              ; preds = %.lr.ph4775
   %149 = xor i64 %.13894.val4528, %.13899.val4527
-  %150 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %149, i1 true)
+  %150 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %149, i1 true)
   %151 = lshr i64 %150, 3
   %152 = getelementptr inbounds i8, ptr %.138944773, i64 %151
   br label %172
@@ -2644,7 +2644,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4565:
 
 .thread4589:                                      ; preds = %342
   %346 = xor i64 %.val4530, %.val4529
-  %347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %346, i1 true)
+  %347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %346, i1 true)
   %348 = trunc nuw nsw i64 %347 to i32
   %349 = lshr i32 %348, 3
   %narrow4618 = add nuw nsw i32 %349, 4
@@ -2674,7 +2674,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4565:
 
 358:                                              ; preds = %.lr.ph4813
   %359 = xor i64 %.13853.val4532, %.13858.val4531
-  %360 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %359, i1 true)
+  %360 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %359, i1 true)
   %361 = lshr i64 %360, 3
   %362 = getelementptr inbounds i8, ptr %.138534811, i64 %361
   br label %382
@@ -3121,7 +3121,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4570:
 
 .thread4592:                                      ; preds = %566
   %570 = xor i64 %.val4537, %.val4536
-  %571 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %570, i1 true)
+  %571 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %570, i1 true)
   %572 = trunc nuw nsw i64 %571 to i32
   %573 = lshr i32 %572, 3
   %narrow = add nuw nsw i32 %573, 4
@@ -3151,7 +3151,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4570:
 
 582:                                              ; preds = %.lr.ph4728
   %583 = xor i64 %.13823.val4539, %.13828.val4538
-  %584 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %583, i1 true)
+  %584 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %583, i1 true)
   %585 = lshr i64 %584, 3
   %586 = getelementptr inbounds i8, ptr %.138234726, i64 %585
   br label %606
@@ -3629,7 +3629,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4575:
 
 814:                                              ; preds = %810
   %815 = xor i64 %.val4544, %.val4543
-  %816 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %815, i1 true)
+  %816 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %815, i1 true)
   %817 = trunc nuw nsw i64 %816 to i32
   %818 = lshr i32 %817, 3
   br label %858
@@ -3656,7 +3656,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4575:
 
 825:                                              ; preds = %.lr.ph4899
   %826 = xor i64 %.13780.val4546, %.13785.val4545
-  %827 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %826, i1 true)
+  %827 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %826, i1 true)
   %828 = lshr i64 %827, 3
   %829 = getelementptr inbounds i8, ptr %.137804897, i64 %828
   %830 = ptrtoint ptr %829 to i64
@@ -4101,7 +4101,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4580:
 
 1049:                                             ; preds = %1045
   %1050 = xor i64 %.val4548, %.val4547
-  %1051 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1050, i1 true)
+  %1051 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1050, i1 true)
   %1052 = trunc nuw nsw i64 %1051 to i32
   %1053 = lshr i32 %1052, 3
   br label %1093
@@ -4128,7 +4128,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4580:
 
 1060:                                             ; preds = %.lr.ph4936
   %1061 = xor i64 %.13723.val4550, %.13728.val4549
-  %1062 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1061, i1 true)
+  %1062 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1061, i1 true)
   %1063 = lshr i64 %1062, 3
   %1064 = getelementptr inbounds i8, ptr %.137234934, i64 %1063
   %1065 = ptrtoint ptr %1064 to i64
@@ -4608,7 +4608,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4585:
 
 1298:                                             ; preds = %1294
   %1299 = xor i64 %.val4555, %.val4554
-  %1300 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1299, i1 true)
+  %1300 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1299, i1 true)
   %1301 = trunc nuw nsw i64 %1300 to i32
   %1302 = lshr i32 %1301, 3
   br label %1342
@@ -4635,7 +4635,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4585:
 
 1309:                                             ; preds = %.lr.ph4852
   %1310 = xor i64 %.1.val4557, %.13687.val4556
-  %1311 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1310, i1 true)
+  %1311 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1310, i1 true)
   %1312 = lshr i64 %1311, 3
   %1313 = getelementptr inbounds i8, ptr %.14850, i64 %1312
   %1314 = ptrtoint ptr %1313 to i64
@@ -5105,7 +5105,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 111:                                              ; preds = %107
   %112 = xor i64 %.val1439, %.val1438
-  %113 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %112, i1 true)
+  %113 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %112, i1 true)
   %114 = trunc nuw nsw i64 %113 to i32
   %115 = lshr i32 %114, 3
   br label %155
@@ -5132,7 +5132,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 122:                                              ; preds = %.lr.ph1555
   %123 = xor i64 %.11216.val1441, %.11221.val1440
-  %124 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %123, i1 true)
+  %124 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %123, i1 true)
   %125 = lshr i64 %124, 3
   %126 = getelementptr inbounds i8, ptr %.112161553, i64 %125
   %127 = ptrtoint ptr %126 to i64
@@ -5568,7 +5568,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1458:
 
 340:                                              ; preds = %336
   %341 = xor i64 %.val1446, %.val1445
-  %342 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %341, i1 true)
+  %342 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %341, i1 true)
   %343 = trunc nuw nsw i64 %342 to i32
   %344 = lshr i32 %343, 3
   br label %384
@@ -5595,7 +5595,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1458:
 
 351:                                              ; preds = %.lr.ph1517
   %352 = xor i64 %.1.val1448, %.11180.val1447
-  %353 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %352, i1 true)
+  %353 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %352, i1 true)
   %354 = lshr i64 %353, 3
   %355 = getelementptr inbounds i8, ptr %.11515, i64 %354
   %356 = ptrtoint ptr %355 to i64
@@ -6074,7 +6074,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.preh
 
 123:                                              ; preds = %119
   %124 = xor i64 %.val1453.i, %.val1452.i
-  %125 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %124, i1 true)
+  %125 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %124, i1 true)
   %126 = trunc nuw nsw i64 %125 to i32
   %127 = lshr i32 %126, 3
   br label %167
@@ -6101,7 +6101,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.preh
 
 134:                                              ; preds = %.lr.ph1572.i
   %135 = xor i64 %.11225.val1455.i, %.11231.val1454.i
-  %136 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %135, i1 true)
+  %136 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %135, i1 true)
   %137 = lshr i64 %136, 3
   %138 = getelementptr inbounds i8, ptr %.112251570.i, i64 %137
   %139 = ptrtoint ptr %138 to i64
@@ -6580,7 +6580,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.
 
 382:                                              ; preds = %378
   %383 = xor i64 %.val1460.i, %.val1459.i
-  %384 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %383, i1 true)
+  %384 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %383, i1 true)
   %385 = trunc nuw nsw i64 %384 to i32
   %386 = lshr i32 %385, 3
   br label %426
@@ -6607,7 +6607,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.
 
 393:                                              ; preds = %.lr.ph1521.i
   %394 = xor i64 %.1.val1462.i, %.11190.val1461.i
-  %395 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %394, i1 true)
+  %395 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %394, i1 true)
   %396 = lshr i64 %395, 3
   %397 = getelementptr inbounds i8, ptr %.11519.i, i64 %396
   %398 = ptrtoint ptr %397 to i64
@@ -7444,7 +7444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 177:                                              ; preds = %173
   %178 = xor i64 %.val4428, %.val4427
-  %179 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %178, i1 true)
+  %179 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %178, i1 true)
   %180 = trunc nuw nsw i64 %179 to i32
   %181 = lshr i32 %180, 3
   br label %221
@@ -7471,7 +7471,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 188:                                              ; preds = %.lr.ph5006
   %189 = xor i64 %.13804.val4430, %.13812.val4429
-  %190 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %189, i1 true)
+  %190 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %189, i1 true)
   %191 = lshr i64 %190, 3
   %192 = getelementptr inbounds i8, ptr %.138045004, i64 %191
   %193 = ptrtoint ptr %192 to i64
@@ -7926,7 +7926,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4516:
 
 417:                                              ; preds = %413
   %418 = xor i64 %.val4438, %.val4437
-  %419 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %418, i1 true)
+  %419 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %418, i1 true)
   %420 = trunc nuw nsw i64 %419 to i32
   %421 = lshr i32 %420, 3
   br label %461
@@ -7953,7 +7953,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4516:
 
 428:                                              ; preds = %.lr.ph4959
   %429 = xor i64 %.13760.val4440, %.13769.val4439
-  %430 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %429, i1 true)
+  %430 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %429, i1 true)
   %431 = lshr i64 %430, 3
   %432 = getelementptr inbounds i8, ptr %.137604957, i64 %431
   %433 = ptrtoint ptr %432 to i64
@@ -8439,7 +8439,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
 
 675:                                              ; preds = %671
   %676 = xor i64 %.val4448, %.val4447
-  %677 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %676, i1 true)
+  %677 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %676, i1 true)
   %678 = trunc nuw nsw i64 %677 to i32
   %679 = lshr i32 %678, 3
   br label %721
@@ -8466,7 +8466,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
 
 686:                                              ; preds = %.lr.ph4778
   %687 = xor i64 %.13740.val4450, %.13745.val4449
-  %688 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %687, i1 true)
+  %688 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %687, i1 true)
   %689 = lshr i64 %688, 3
   %690 = getelementptr inbounds i8, ptr %.137404776, i64 %689
   %691 = ptrtoint ptr %690 to i64
@@ -8557,7 +8557,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
 
 731:                                              ; preds = %728
   %732 = xor i64 %spec.select4400.val, %.val4451
-  %733 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %732, i1 true)
+  %733 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %732, i1 true)
   %734 = trunc nuw nsw i64 %733 to i32
   %735 = lshr i32 %734, 3
   br label %775
@@ -8584,7 +8584,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
 
 742:                                              ; preds = %.lr.ph4785
   %743 = xor i64 %.13750.val4453, %.13755.val4452
-  %744 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %743, i1 true)
+  %744 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %743, i1 true)
   %745 = lshr i64 %744, 3
   %746 = getelementptr inbounds i8, ptr %.137504783, i64 %745
   %747 = ptrtoint ptr %746 to i64
@@ -8675,7 +8675,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
 
 787:                                              ; preds = %783
   %788 = xor i64 %.val4455, %.val4454
-  %789 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %788, i1 true)
+  %789 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %788, i1 true)
   %790 = trunc nuw nsw i64 %789 to i32
   %791 = lshr i32 %790, 3
   br label %831
@@ -8702,7 +8702,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
 
 798:                                              ; preds = %.lr.ph4771
   %799 = xor i64 %.13730.val4457, %.13735.val4456
-  %800 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %799, i1 true)
+  %800 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %799, i1 true)
   %801 = lshr i64 %800, 3
   %802 = getelementptr inbounds i8, ptr %.137304769, i64 %801
   %803 = ptrtoint ptr %802 to i64
@@ -9210,7 +9210,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
 
 1062:                                             ; preds = %1058
   %1063 = xor i64 %.val4465, %.val4464
-  %1064 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1063, i1 true)
+  %1064 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1063, i1 true)
   %1065 = trunc nuw nsw i64 %1064 to i32
   %1066 = lshr i32 %1065, 3
   br label %1108
@@ -9237,7 +9237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
 
 1073:                                             ; preds = %.lr.ph4714
   %1074 = xor i64 %.13697.val4467, %.13702.val4466
-  %1075 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1074, i1 true)
+  %1075 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1074, i1 true)
   %1076 = lshr i64 %1075, 3
   %1077 = getelementptr inbounds i8, ptr %.136974712, i64 %1076
   %1078 = ptrtoint ptr %1077 to i64
@@ -9328,7 +9328,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
 
 1118:                                             ; preds = %1115
   %1119 = xor i64 %spec.select4404.val, %.val4468
-  %1120 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1119, i1 true)
+  %1120 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1119, i1 true)
   %1121 = trunc nuw nsw i64 %1120 to i32
   %1122 = lshr i32 %1121, 3
   br label %1162
@@ -9355,7 +9355,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
 
 1129:                                             ; preds = %.lr.ph4721
   %1130 = xor i64 %.13714.val4470, %.13725.val4469
-  %1131 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1130, i1 true)
+  %1131 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1130, i1 true)
   %1132 = lshr i64 %1131, 3
   %1133 = getelementptr inbounds i8, ptr %.137144719, i64 %1132
   %1134 = ptrtoint ptr %1133 to i64
@@ -9446,7 +9446,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
 
 1174:                                             ; preds = %1170
   %1175 = xor i64 %.val4472, %.val4471
-  %1176 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1175, i1 true)
+  %1176 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1175, i1 true)
   %1177 = trunc nuw nsw i64 %1176 to i32
   %1178 = lshr i32 %1177, 3
   br label %1218
@@ -9473,7 +9473,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
 
 1185:                                             ; preds = %.lr.ph4707
   %1186 = xor i64 %.13687.val4474, %.13692.val4473
-  %1187 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1186, i1 true)
+  %1187 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1186, i1 true)
   %1188 = lshr i64 %1187, 3
   %1189 = getelementptr inbounds i8, ptr %.136874705, i64 %1188
   %1190 = ptrtoint ptr %1189 to i64
@@ -9986,7 +9986,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
 
 1445:                                             ; preds = %1441
   %1446 = xor i64 %.val4482, %.val4481
-  %1447 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1446, i1 true)
+  %1447 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1446, i1 true)
   %1448 = trunc nuw nsw i64 %1447 to i32
   %1449 = lshr i32 %1448, 3
   br label %1491
@@ -10013,7 +10013,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
 
 1456:                                             ; preds = %.lr.ph4904
   %1457 = xor i64 %.13664.val4484, %.13669.val4483
-  %1458 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1457, i1 true)
+  %1458 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1457, i1 true)
   %1459 = lshr i64 %1458, 3
   %1460 = getelementptr inbounds i8, ptr %.136644902, i64 %1459
   %1461 = ptrtoint ptr %1460 to i64
@@ -10104,7 +10104,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
 
 1501:                                             ; preds = %1498
   %1502 = xor i64 %spec.select4410.val, %.val4485
-  %1503 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1502, i1 true)
+  %1503 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1502, i1 true)
   %1504 = trunc nuw nsw i64 %1503 to i32
   %1505 = lshr i32 %1504, 3
   br label %1545
@@ -10131,7 +10131,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
 
 1512:                                             ; preds = %.lr.ph4911
   %1513 = xor i64 %.13674.val4487, %.13682.val4486
-  %1514 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1513, i1 true)
+  %1514 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1513, i1 true)
   %1515 = lshr i64 %1514, 3
   %1516 = getelementptr inbounds i8, ptr %.136744909, i64 %1515
   %1517 = ptrtoint ptr %1516 to i64
@@ -10222,7 +10222,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
 
 1557:                                             ; preds = %1553
   %1558 = xor i64 %.val4489, %.val4488
-  %1559 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1558, i1 true)
+  %1559 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1558, i1 true)
   %1560 = trunc nuw nsw i64 %1559 to i32
   %1561 = lshr i32 %1560, 3
   br label %1601
@@ -10249,7 +10249,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
 
 1568:                                             ; preds = %.lr.ph4897
   %1569 = xor i64 %.13633.val4491, %.13641.val4490
-  %1570 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1569, i1 true)
+  %1570 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1569, i1 true)
   %1571 = lshr i64 %1570, 3
   %1572 = getelementptr inbounds i8, ptr %.136334895, i64 %1571
   %1573 = ptrtoint ptr %1572 to i64
@@ -10737,7 +10737,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
 
 1811:                                             ; preds = %1807
   %1812 = xor i64 %.val4499, %.val4498
-  %1813 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1812, i1 true)
+  %1813 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1812, i1 true)
   %1814 = trunc nuw nsw i64 %1813 to i32
   %1815 = lshr i32 %1814, 3
   br label %1857
@@ -10764,7 +10764,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
 
 1822:                                             ; preds = %.lr.ph4841
   %1823 = xor i64 %.13603.val4501, %.13609.val4500
-  %1824 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1823, i1 true)
+  %1824 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1823, i1 true)
   %1825 = lshr i64 %1824, 3
   %1826 = getelementptr inbounds i8, ptr %.136034839, i64 %1825
   %1827 = ptrtoint ptr %1826 to i64
@@ -10855,7 +10855,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
 
 1867:                                             ; preds = %1864
   %1868 = xor i64 %spec.select4415.val, %.val4502
-  %1869 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1868, i1 true)
+  %1869 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1868, i1 true)
   %1870 = trunc nuw nsw i64 %1869 to i32
   %1871 = lshr i32 %1870, 3
   br label %1911
@@ -10882,7 +10882,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
 
 1878:                                             ; preds = %.lr.ph4848
   %1879 = xor i64 %.13619.val4504, %.13625.val4503
-  %1880 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1879, i1 true)
+  %1880 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1879, i1 true)
   %1881 = lshr i64 %1880, 3
   %1882 = getelementptr inbounds i8, ptr %.136194846, i64 %1881
   %1883 = ptrtoint ptr %1882 to i64
@@ -10973,7 +10973,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
 
 1923:                                             ; preds = %1919
   %1924 = xor i64 %.val4506, %.val4505
-  %1925 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1924, i1 true)
+  %1925 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1924, i1 true)
   %1926 = trunc nuw nsw i64 %1925 to i32
   %1927 = lshr i32 %1926, 3
   br label %1967
@@ -11000,7 +11000,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
 
 1934:                                             ; preds = %.lr.ph4834
   %1935 = xor i64 %.1.val4508, %.13598.val4507
-  %1936 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1935, i1 true)
+  %1936 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1935, i1 true)
   %1937 = lshr i64 %1936, 3
   %1938 = getelementptr inbounds i8, ptr %.14832, i64 %1937
   %1939 = ptrtoint ptr %1938 to i64
@@ -11550,7 +11550,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 147:                                              ; preds = %143
   %148 = xor i64 %.val1457, %.val1456
-  %149 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %148, i1 true)
+  %149 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %148, i1 true)
   %150 = trunc nuw nsw i64 %149 to i32
   %151 = lshr i32 %150, 3
   br label %193
@@ -11577,7 +11577,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 158:                                              ; preds = %.lr.ph1615
   %159 = xor i64 %.11252.val1459, %.11262.val1458
-  %160 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %159, i1 true)
+  %160 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %159, i1 true)
   %161 = lshr i64 %160, 3
   %162 = getelementptr inbounds i8, ptr %.112521613, i64 %161
   %163 = ptrtoint ptr %162 to i64
@@ -11668,7 +11668,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 203:                                              ; preds = %200
   %204 = xor i64 %spec.select.val, %.val1460
-  %205 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %204, i1 true)
+  %205 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %204, i1 true)
   %206 = trunc nuw nsw i64 %205 to i32
   %207 = lshr i32 %206, 3
   br label %247
@@ -11695,7 +11695,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 214:                                              ; preds = %.lr.ph1622
   %215 = xor i64 %.11267.val1462, %.11272.val1461
-  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %215, i1 true)
+  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %215, i1 true)
   %217 = lshr i64 %216, 3
   %218 = getelementptr inbounds i8, ptr %.112671620, i64 %217
   %219 = ptrtoint ptr %218 to i64
@@ -11786,7 +11786,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 259:                                              ; preds = %255
   %260 = xor i64 %.val1464, %.val1463
-  %261 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %260, i1 true)
+  %261 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %260, i1 true)
   %262 = trunc nuw nsw i64 %261 to i32
   %263 = lshr i32 %262, 3
   br label %303
@@ -11813,7 +11813,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 270:                                              ; preds = %.lr.ph1608
   %271 = xor i64 %.11223.val1466, %.11231.val1465
-  %272 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %271, i1 true)
+  %272 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %271, i1 true)
   %273 = lshr i64 %272, 3
   %274 = getelementptr inbounds i8, ptr %.112231606, i64 %273
   %275 = ptrtoint ptr %274 to i64
@@ -12272,7 +12272,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
 
 490:                                              ; preds = %486
   %491 = xor i64 %.val1474, %.val1473
-  %492 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %491, i1 true)
+  %492 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %491, i1 true)
   %493 = trunc nuw nsw i64 %492 to i32
   %494 = lshr i32 %493, 3
   br label %536
@@ -12299,7 +12299,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
 
 501:                                              ; preds = %.lr.ph1552
   %502 = xor i64 %.11196.val1476, %.11201.val1475
-  %503 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %502, i1 true)
+  %503 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %502, i1 true)
   %504 = lshr i64 %503, 3
   %505 = getelementptr inbounds i8, ptr %.111961550, i64 %504
   %506 = ptrtoint ptr %505 to i64
@@ -12390,7 +12390,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
 
 546:                                              ; preds = %543
   %547 = xor i64 %spec.select1450.val, %.val1477
-  %548 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %547, i1 true)
+  %548 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %547, i1 true)
   %549 = trunc nuw nsw i64 %548 to i32
   %550 = lshr i32 %549, 3
   br label %590
@@ -12417,7 +12417,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
 
 557:                                              ; preds = %.lr.ph1559
   %558 = xor i64 %.11207.val1479, %.11217.val1478
-  %559 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %558, i1 true)
+  %559 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %558, i1 true)
   %560 = lshr i64 %559, 3
   %561 = getelementptr inbounds i8, ptr %.112071557, i64 %560
   %562 = ptrtoint ptr %561 to i64
@@ -12508,7 +12508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
 
 602:                                              ; preds = %598
   %603 = xor i64 %.val1481, %.val1480
-  %604 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %603, i1 true)
+  %604 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %603, i1 true)
   %605 = trunc nuw nsw i64 %604 to i32
   %606 = lshr i32 %605, 3
   br label %646
@@ -12535,7 +12535,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
 
 613:                                              ; preds = %.lr.ph1545
   %614 = xor i64 %.1.val1483, %.11188.val1482
-  %615 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %614, i1 true)
+  %615 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %614, i1 true)
   %616 = lshr i64 %615, 3
   %617 = getelementptr inbounds i8, ptr %.11543, i64 %616
   %618 = ptrtoint ptr %617 to i64

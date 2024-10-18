@@ -207,7 +207,7 @@ default.unreachable100:                           ; preds = %16
   %31 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 1, ptr %31, align 8
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !9
-  %33 = tail call noundef align 8 dereferenceable_or_null(456) ptr @__rust_alloc(i64 noundef 456, i64 noundef 8) #12, !noalias !9
+  %33 = tail call noundef align 8 dereferenceable_or_null(456) ptr @__rust_alloc(i64 noundef range(i64 400, 457) 456, i64 noundef 8) #12, !noalias !9
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %44
 
@@ -268,7 +268,7 @@ default.unreachable100:                           ; preds = %16
   %51 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %46, ptr %51, align 8
   %52 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !12
-  %53 = call noundef align 8 dereferenceable_or_null(400) ptr @__rust_alloc(i64 noundef 400, i64 noundef 8) #12, !noalias !12
+  %53 = call noundef align 8 dereferenceable_or_null(400) ptr @__rust_alloc(i64 noundef range(i64 400, 457) 400, i64 noundef 8) #12, !noalias !12
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %61
 
@@ -330,7 +330,7 @@ default.unreachable100:                           ; preds = %16
   %70 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %65, ptr %70, align 8
   %71 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !15
-  %72 = call noundef align 8 dereferenceable_or_null(440) ptr @__rust_alloc(i64 noundef 440, i64 noundef 8) #12, !noalias !15
+  %72 = call noundef align 8 dereferenceable_or_null(440) ptr @__rust_alloc(i64 noundef range(i64 400, 457) 440, i64 noundef 8) #12, !noalias !15
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %80
 
@@ -794,7 +794,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
 .split176.us:                                     ; preds = %70, %38
   %.us-phi177 = phi i64 [ %39, %38 ], [ %71, %70 ]
   %.us-phi178 = phi i64 [ %.0.us, %38 ], [ %.0, %70 ]
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %.us-phi178, i64 noundef %.us-phi177, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.38) #13, !noalias !20
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef range(i64 0, 65) %.us-phi178, i64 noundef range(i64 0, -2) %.us-phi177, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.38) #13, !noalias !20
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b6de3bc991b0b08E.exit": ; preds = %70

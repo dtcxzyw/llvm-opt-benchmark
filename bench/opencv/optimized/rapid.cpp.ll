@@ -3020,7 +3020,7 @@ _ZN2cv4Mat_INS_6Point_IfEEEclEi.exit:             ; preds = %114, %109
   %.sroa.5.8.insert.shift.i = shl nuw i64 %.sroa.5.8.insert.ext.i, 32
   %.sroa.3.8.insert.ext.i = zext i32 %274 to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i
-  invoke void @_ZN2cv12LineIterator4initEPKNS_3MatENS_5Rect_IiEENS_6Point_IiEES7_ib(ptr noundef nonnull align 8 dereferenceable(65) %16, ptr noundef nonnull %8, i64 0, i64 %.sroa.3.8.insert.insert.i, i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.insert.insert.i86, i32 noundef 8, i1 noundef zeroext false)
+  invoke void @_ZN2cv12LineIterator4initEPKNS_3MatENS_5Rect_IiEENS_6Point_IiEES7_ib(ptr noundef nonnull align 8 dereferenceable(65) %16, ptr noundef nonnull align 8 dereferenceable(96) %8, i64 0, i64 %.sroa.3.8.insert.insert.i, i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.insert.insert.i86, i32 noundef 8, i1 noundef zeroext false)
           to label %_ZN2cv12LineIteratorC2ERKNS_3MatENS_6Point_IiEES5_ib.exit unwind label %.loopexit115
 
 _ZN2cv12LineIteratorC2ERKNS_3MatENS_6Point_IiEES5_ib.exit: ; preds = %266
@@ -6632,7 +6632,7 @@ define linkonce_odr hidden void @_ZN2cv5rapid9RapidImplD0Ev(ptr noundef nonnull 
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #23
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }

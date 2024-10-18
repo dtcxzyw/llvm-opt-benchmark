@@ -1284,7 +1284,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal5LBFGSD2Ev(ptr noundef nonnul
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #22
   %.not.i.i.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i.i.i, label %_ZN5ceres8internal21LowRankInverseHessianD2Ev.exit, label %.lr.ph.i.i.i.i, !llvm.loop !25
 
@@ -1299,7 +1299,7 @@ _ZN5ceres8internal21LowRankInverseHessianD2Ev.exit: ; preds = %.lr.ph.i.i.i.i, %
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #23
-  tail call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  tail call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #23
   ret void
 }
 
@@ -1313,7 +1313,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal5LBFGSD0Ev(ptr noundef nonnul
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #22
   %.not.i.i.i.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i.i.i.i, label %_ZN5ceres8internal5LBFGSD2Ev.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
@@ -1328,7 +1328,7 @@ _ZN5ceres8internal5LBFGSD2Ev.exit:                ; preds = %.lr.ph.i.i.i.i.i, %
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #23
-  tail call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  tail call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -4054,7 +4054,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE7setZeroEv.exit.i: ; pr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %28 = getelementptr inbounds i8, ptr %5, i64 8
   %29 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 16, i1 false)
   %30 = getelementptr inbounds i8, ptr %5, i64 24
   %31 = getelementptr inbounds i8, ptr %1, i64 24
   %32 = load double, ptr %31, align 8, !noalias !90

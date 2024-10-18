@@ -210,7 +210,7 @@ invoke.cont:
 
 for.body.i:                                       ; preds = %invoke.cont, %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i ], [ %__l.coerce0, %invoke.cont ]
-  %call3.i.i2 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(8) %__first.addr.04.i)
+  %call3.i.i2 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(9) %__first.addr.04.i)
           to label %call3.i.i.noexc unwind label %lpad4
 
 call3.i.i.noexc:                                  ; preds = %for.body.i
@@ -325,7 +325,7 @@ invoke.cont:
 
 for.body.i:                                       ; preds = %invoke.cont, %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i ], [ %__l.coerce0, %invoke.cont ]
-  %call3.i.i2 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(8) %__first.addr.04.i)
+  %call3.i.i2 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(9) %__first.addr.04.i)
           to label %call3.i.i.noexc unwind label %lpad4
 
 call3.i.i.noexc:                                  ; preds = %for.body.i
@@ -414,7 +414,7 @@ define void @_ZN7rocksdb12ErrorHandler19CancelErrorRecoveryEv(ptr noundef nonnul
 entry:
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %db_mutex_, align 8
-  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %auto_recovery_ = getelementptr inbounds i8, ptr %this, i64 152
   store i8 0, ptr %auto_recovery_, align 8
   %db_options_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -426,7 +426,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %db_mutex_, align 8
-  tail call void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  tail call void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %3)
   %call3 = tail call noundef zeroext i1 @_ZN7rocksdb18SstFileManagerImpl19CancelErrorRecoveryEPNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(808) %2, ptr noundef nonnull %this)
   %4 = load ptr, ptr %db_mutex_, align 8
   tail call void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %4)
@@ -452,7 +452,7 @@ entry:
   %old_recovery_thread = alloca %"class.std::unique_ptr.56", align 8
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %db_mutex_, align 8
-  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %end_recovery_ = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i8, ptr %end_recovery_, align 8
   %tobool = trunc i8 %1 to i1
@@ -473,12 +473,12 @@ if.then3:                                         ; preds = %if.end
   store i64 %3, ptr %old_recovery_thread, align 8
   store ptr null, ptr %recovery_thread_, align 8
   %4 = load ptr, ptr %db_mutex_, align 8
-  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then3
   %cv_ = getelementptr inbounds i8, ptr %this, i64 48
-  invoke void @_ZN7rocksdb4port7CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(56) %cv_)
+  invoke void @_ZN7rocksdb4port7CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(76) %cv_)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -532,7 +532,7 @@ entry:
   %s = alloca %"class.rocksdb::Status", align 8
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %db_mutex_, align 8
-  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %1 = load i8, ptr %bg_err, align 8
   %cmp.i = icmp eq i8 %1, 0
   br i1 %cmp.i, label %if.then, label %if.end
@@ -574,7 +574,7 @@ if.end8:                                          ; preds = %if.then.i8, %_ZN7ro
   %frombool = and i8 %9, 1
   %state_.i = getelementptr inbounds i8, ptr %new_bg_err, i64 8
   store ptr null, ptr %state_.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %new_bg_err, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_bg_err, i8 0, i64 6, i1 false)
   %10 = load i8, ptr %bg_err, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %bg_err, i64 1
   %11 = load i8, ptr %subcode_.i, align 1
@@ -1559,7 +1559,7 @@ entry:
   %bg_err117 = alloca %"class.rocksdb::Status", align 8
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %db_mutex_, align 8
-  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %1 = load i8, ptr %bg_status, align 8
   %subcode_3.i = getelementptr inbounds i8, ptr %bg_status, i64 1
@@ -2399,7 +2399,7 @@ entry:
   %old_recovery_thread = alloca %"class.std::unique_ptr.56", align 8
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %db_mutex_, align 8
-  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %bg_error_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %bg_error_, align 8
   %cmp.i = icmp eq i8 %1, 0
@@ -2459,7 +2459,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %state_.i.i, align 8
   %10 = load ptr, ptr %db_mutex_, align 8
-  call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+  call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %10)
   br label %return
 
 lpad:                                             ; preds = %if.then10
@@ -2502,7 +2502,7 @@ if.then28:                                        ; preds = %if.end23
   store i64 %17, ptr %old_recovery_thread, align 8
   store ptr null, ptr %recovery_thread_, align 8
   %18 = load ptr, ptr %db_mutex_, align 8
-  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
+  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %18)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %if.then28
@@ -2622,7 +2622,7 @@ invoke.cont:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %db_mutex_, align 8
-  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %quarantine_files_oss)
   %1 = load i64, ptr %files_to_quarantine, align 8, !noalias !16
   %vect_.i.i = getelementptr inbounds i8, ptr %files_to_quarantine, i64 80
@@ -2852,7 +2852,7 @@ define void @_ZN7rocksdb12ErrorHandler22ClearFilesToQuarantineEv(ptr nocapture n
 entry:
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %db_mutex_, align 8
-  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %files_to_quarantine_ = getelementptr inbounds i8, ptr %this, i64 184
   %.pr.i = load i64, ptr %files_to_quarantine_, align 8
   %cmp.not1.i = icmp eq i64 %.pr.i, 0
@@ -2891,7 +2891,7 @@ entry:
   %old_bg_error = alloca %"class.rocksdb::Status", align 8
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %db_mutex_, align 8
-  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %recovery_error_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %recovery_error_, align 8
   %cmp.i = icmp eq i8 %1, 0
@@ -3055,7 +3055,7 @@ if.then5:                                         ; preds = %if.then
 lpad:                                             ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit28, %_ZN7rocksdb8IOStatusD2Ev.exit
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
           to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit33 unwind label %terminate.lpad.i32
 
 if.end:                                           ; preds = %if.then
@@ -3153,7 +3153,7 @@ if.then50:                                        ; preds = %invoke.cont32
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont32, %if.then5, %if.then50, %_ZN7rocksdb8IOStatusD2Ev.exit
-  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
           to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
@@ -3599,7 +3599,7 @@ _ZN7rocksdb6StatusD2Ev.exit81:                    ; preds = %lpad117, %_ZNKSt14d
   br label %ehcleanup
 
 cleanup126:                                       ; preds = %_ZN7rocksdb6StatusD2Ev.exit64, %if.then.i73, %_ZN7rocksdb6StatusD2Ev.exit70, %_ZN7rocksdb6StatusD2Ev.exit17, %_ZN7rocksdb6StatusD2Ev.exit
-  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
           to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup126
@@ -3614,7 +3614,7 @@ _ZN7rocksdb21InstrumentedMutexLockD2Ev.exit:      ; preds = %cleanup126
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %_ZN7rocksdb6StatusD2Ev.exit81, %_ZN7rocksdb6StatusD2Ev.exit28, %_ZN7rocksdb6StatusD2Ev.exit21, %_ZN7rocksdb6StatusD2Ev.exit10
   %.pn = phi { ptr, i32 } [ %5, %_ZN7rocksdb6StatusD2Ev.exit10 ], [ %14, %_ZN7rocksdb6StatusD2Ev.exit21 ], [ %20, %_ZN7rocksdb6StatusD2Ev.exit28 ], [ %48, %_ZN7rocksdb6StatusD2Ev.exit81 ], [ %lpad.loopexit86, %lpad.loopexit ], [ %lpad.loopexit.split-lp87, %lpad.loopexit.split-lp ]
-  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
           to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit83 unwind label %terminate.lpad.i82
 
 terminate.lpad.i82:                               ; preds = %ehcleanup
@@ -3797,7 +3797,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit
   %__first.addr.04 = phi ptr [ %__first, %for.body.lr.ph ], [ %incdec.ptr, %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit ]
-  %call3.i = tail call { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS8_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(8) %__first.addr.04)
+  %call3.i = tail call { ptr, ptr } @_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS8_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(9) %__first.addr.04)
   %0 = extractvalue { ptr, ptr } %call3.i, 1
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEESt4pairIKS6_NS3_8SeverityEESt10_Select1stISA_ESt4lessIS6_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit, label %if.then.i
@@ -5224,7 +5224,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN7rocksdb12ErrorHandlerEFvvEPS4_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -5785,7 +5785,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %entry
   %call.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
   %state_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %state_.i.i.i, align 8, !alias.scope !40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %call.i, i8 0, i64 6, i1 false), !alias.scope !40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 6, i1 false), !alias.scope !40
   store ptr %call.i, ptr @_ZN7rocksdbL9kOkStatusE, align 8
   ret void
 }

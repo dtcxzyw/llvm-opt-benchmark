@@ -24884,7 +24884,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
   %7 = getelementptr inbounds i8, ptr %6, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit unwind label %8
 
 8:                                                ; preds = %4
@@ -24977,7 +24977,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 .noexc:                                           ; preds = %.lr.ph
   %35 = getelementptr inbounds i8, ptr %.038, i64 32
   %36 = getelementptr inbounds i8, ptr %34, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %35)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35)
           to label %47 unwind label %37
 
 37:                                               ; preds = %.noexc
@@ -25071,7 +25071,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #25
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #23
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -25376,8 +25376,8 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread: ; preds = %21, %18, %24, %22, %12
   %25 = getelementptr inbounds i8, ptr %4, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #25
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE17_M_construct_nodeIJRKS9_EEEvPSt13_Rb_tree_nodeIS9_EDpOT_.exit unwind label %26
 
 26:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread
@@ -25412,7 +25412,7 @@ common.resume:                                    ; preds = %42, %30
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9: ; preds = %2
   %36 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
   %37 = getelementptr inbounds i8, ptr %36, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE17_M_construct_nodeIJRKS9_EEEvPSt13_Rb_tree_nodeIS9_EDpOT_.exit unwind label %38
 
 38:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9
@@ -25701,7 +25701,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester7StrFun1EPKc(ptr no
           to label %7 unwind label %13
 
 7:                                                ; preds = %6
-  %8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %_ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit unwind label %15
 
 _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit: ; preds = %7
@@ -25755,7 +25755,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester7StrFun2EPKcd(ptr n
           to label %8 unwind label %15
 
 8:                                                ; preds = %7
-  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit unwind label %17
 
 _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit: ; preds = %8
@@ -25810,7 +25810,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester7StrFun3EPKcdd(ptr 
           to label %9 unwind label %17
 
 9:                                                ; preds = %8
-  %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit unwind label %19
 
 _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit: ; preds = %9
@@ -25866,7 +25866,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester7StrFun4EPKcddd(ptr
           to label %10 unwind label %19
 
 10:                                               ; preds = %9
-  %11 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %11 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit unwind label %21
 
 _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit: ; preds = %10
@@ -25923,7 +25923,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester7StrFun5EPKcdddd(pt
           to label %11 unwind label %21
 
 11:                                               ; preds = %10
-  %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit unwind label %23
 
 _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit: ; preds = %11
@@ -25981,7 +25981,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester7StrFun6EPKcddddd(p
           to label %12 unwind label %23
 
 12:                                               ; preds = %11
-  %13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %_ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit unwind label %25
 
 _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit: ; preds = %12
@@ -26231,7 +26231,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester10StrToFloatEPKc(pt
           to label %7 unwind label %12
 
 7:                                                ; preds = %6
-  %8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERdEOT_S8_OT0_.exit unwind label %14
 
 _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERdEOT_S8_OT0_.exit: ; preds = %7
@@ -26410,7 +26410,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester9StrFunUd3EPvPKcdd(
           to label %10 unwind label %21
 
 10:                                               ; preds = %9
-  %11 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %11 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit unwind label %23
 
 _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.exit: ; preds = %10

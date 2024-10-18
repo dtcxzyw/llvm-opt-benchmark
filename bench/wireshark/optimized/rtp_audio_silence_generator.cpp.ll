@@ -101,7 +101,7 @@ define linkonce_odr void @_ZN21AudioSilenceGeneratorD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21AudioSilenceGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #10
+  tail call void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }

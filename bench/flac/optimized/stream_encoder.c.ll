@@ -3891,7 +3891,7 @@ if.end5.i:                                        ; preds = %if.end5
   %cond18.i = select i1 %13, ptr null, ptr @file_read_callback_
   %cond22.i = select i1 %cmp17.i, ptr null, ptr @file_seek_callback_
   %cond26.i = select i1 %cmp17.i, ptr null, ptr @file_tell_callback_
-  %call27.i = tail call fastcc i32 @init_stream_internal_(ptr noundef nonnull %encoder, ptr noundef %cond18.i, ptr noundef nonnull @file_write_callback_, ptr noundef %cond22.i, ptr noundef %cond26.i, ptr noundef null, ptr noundef %client_data, i32 noundef %is_ogg)
+  %call27.i = tail call fastcc i32 @init_stream_internal_(ptr noundef nonnull %encoder, ptr noundef %cond18.i, ptr noundef nonnull @file_write_callback_, ptr noundef %cond22.i, ptr noundef %cond26.i, ptr noundef null, ptr noundef %client_data, i32 noundef range(i32 0, 2) %is_ogg)
   %cmp28.not.i = icmp eq i32 %call27.i, 0
   br i1 %cmp28.not.i, label %if.end30.i, label %return
 
@@ -4184,7 +4184,7 @@ if.then85.i:                                      ; preds = %if.end82.i
   %61 = load ptr, ptr %write_callback.i, align 8
   %client_data90.i = getelementptr inbounds i8, ptr %57, i64 2608
   %62 = load ptr, ptr %client_data90.i, align 8
-  %call91.i = call i32 @FLAC__ogg_encoder_aspect_write_callback_wrapper(ptr noundef nonnull %ogg_encoder_aspect.i, ptr noundef %18, i64 noundef %17, i32 noundef %samples, i32 noundef %59, i32 noundef %is_last_block, ptr noundef %61, ptr noundef nonnull %encoder, ptr noundef %62) #24
+  %call91.i = call i32 @FLAC__ogg_encoder_aspect_write_callback_wrapper(ptr noundef nonnull %ogg_encoder_aspect.i, ptr noundef %18, i64 noundef %17, i32 noundef %samples, i32 noundef %59, i32 noundef range(i32 0, 2) %is_last_block, ptr noundef %61, ptr noundef nonnull %encoder, ptr noundef %62) #24
   br label %if.end100.i
 
 if.else92.i:                                      ; preds = %if.end82.i
@@ -10537,7 +10537,7 @@ lor.lhs.false.i:                                  ; preds = %if.end9.i
 
 if.else16.i:                                      ; preds = %lor.lhs.false.i
   %shr12.i = lshr i64 %mul.i, 18
-  %15 = tail call range(i64 18, 65) i64 @llvm.ctlz.i64(i64 %shr12.i, i1 true)
+  %15 = tail call range(i64 18, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 70368744177664) %shr12.i, i1 true)
   %cast.i.i = trunc nuw nsw i64 %15 to i32
   %add21.i = sub nuw nsw i32 64, %cast.i.i
   br label %if.end22.i

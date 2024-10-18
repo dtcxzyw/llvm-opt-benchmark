@@ -565,7 +565,7 @@ call5.i.i.i.i.i.i.i.i.noexc.i:                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %.noexc.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i26.i, i64 64
   %19 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i26.i, i64 72
@@ -583,7 +583,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %.noexc.i.i.i.i.i.i.
   %_M_node5.i8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i26.i, i64 120
   %26 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !40
   store ptr %19, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
   store ptr %20, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
   store ptr %21, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
@@ -2103,8 +2103,8 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEED2Ev.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %pq, i8 0, i64 80, i1 false)
-  invoke fastcc void @_ZNSt11_Deque_baseIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %pq)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %pq, i8 0, i64 80, i1 false)
+  invoke fastcc void @_ZNSt11_Deque_baseIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(81) %pq)
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %invoke.cont3
@@ -2114,7 +2114,7 @@ invoke.cont3:                                     ; preds = %_ZNSt13unordered_ma
 
 if.then.i.i.i23:                                  ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %pq, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %pq, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pq, i64 16
   %223 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pq, i64 24
@@ -2131,8 +2131,8 @@ if.then.i.i.i23:                                  ; preds = %.noexc
   %229 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i, align 8
   %_M_node5.i8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pq, i64 72
   %230 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %pq, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp1, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %pq, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp1, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store ptr %223, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 24
@@ -2271,7 +2271,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit.i.i.
 
 if.then.i.i.i.i.i.i34:                            ; preds = %.noexc.i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i, i64 16, i1 false)
   %242 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i.i.i.i, align 8
   %243 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i.i.i.i.i, align 8
   %244 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -2282,7 +2282,7 @@ if.then.i.i.i.i.i.i34:                            ; preds = %.noexc.i32
   %249 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i, i8 0, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 24
   store ptr %242, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 32
@@ -2322,7 +2322,7 @@ _ZN3ue212_GLOBAL__N_110RegionInfoC2EOS1_.exit.i.i.i: ; preds = %if.then.i.i.i.i.
 
 if.then.i.i.i35.i.i.i:                            ; preds = %.noexc.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i31.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i31.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i32.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i31.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i32.i.i.i, i64 16, i1 false)
   %252 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i36.i.i.i, align 8
   %253 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i.i37.i.i.i, align 8
   %254 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i38.i.i.i, align 8
@@ -2332,7 +2332,7 @@ if.then.i.i.i35.i.i.i:                            ; preds = %.noexc.i.i.i
   %258 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i42.i.i.i, align 8
   %259 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i43.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i32.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i31.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i31.i.i.i, i64 16, i1 false)
   store ptr %252, ptr %_M_start3.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %253, ptr %_M_first3.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %254, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -2435,7 +2435,7 @@ lpad.i:                                           ; preds = %_ZStplRKSt15_Deque_
 
 lpad.body.i:                                      ; preds = %lpad.i, %ehcleanup.i.i.i
   %eh.lpad-body.i31 = phi { ptr, i32 } [ %272, %lpad.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
-  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pq) #20
+  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %pq) #20
   br label %lpad4.body
 
 invoke.cont8:                                     ; preds = %_ZN3ue212_GLOBAL__N_110RegionInfoD2Ev.exit73.i.i.i, %_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EEC2EOS4_.exit.i
@@ -3018,7 +3018,7 @@ _ZStmiRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit.i.i:
 
 if.then.i.i.i2.i.i:                               ; preds = %.noexc129
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i, i64 16, i1 false)
   %357 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i.i.i, align 8
   %358 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i.i.i.i, align 8
   %359 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i, align 8
@@ -3028,7 +3028,7 @@ if.then.i.i.i2.i.i:                               ; preds = %.noexc129
   %363 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i.i, align 8
   %364 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i63, i64 24
   store ptr %357, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i63, i64 32
@@ -3080,7 +3080,7 @@ _ZN3ue212_GLOBAL__N_110RegionInfoC2EOS1_.exit.i.i: ; preds = %if.then.i.i.i2.i.i
 
 if.then.i.i.i10.i.i:                              ; preds = %.noexc.i.i78
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i6.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i7.i.i, i64 16, i1 false)
   %367 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i11.i.i, align 8
   %368 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i.i12.i.i, align 8
   %369 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i13.i.i, align 8
@@ -3090,7 +3090,7 @@ if.then.i.i.i10.i.i:                              ; preds = %.noexc.i.i78
   %373 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i17.i.i, align 8
   %374 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i18.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i7.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i6.i.i, i64 16, i1 false)
   store ptr %367, ptr %_M_start3.i.i.i.i.i.i.i.i.i, align 8
   store ptr %368, ptr %_M_first3.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %369, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i, align 8
@@ -3213,7 +3213,7 @@ lpad7.loopexit.split-lp.loopexit.split-lp:        ; preds = %if.then.i.i270, %if
 
 lpad7.body:                                       ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp.loopexit.split-lp, %lpad7.loopexit.split-lp.loopexit, %lpad.body.i134, %if.then.i.i.i.i137, %ehcleanup.i.i.i360, %lpad22.i.i.i, %lpad.i.i77
   %eh.lpad-body128 = phi { ptr, i32 } [ %385, %lpad.i.i77 ], [ %342, %lpad22.i.i.i ], [ %.pn.i.i.i361, %ehcleanup.i.i.i360 ], [ %eh.lpad-body.i135, %if.then.i.i.i.i137 ], [ %eh.lpad-body.i135, %lpad.body.i134 ], [ %lpad.loopexit459, %lpad7.loopexit ], [ %lpad.loopexit462, %lpad7.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp463, %lpad7.loopexit.split-lp.loopexit.split-lp ]
-  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %pq) #20
+  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(81) %pq) #20
   br label %ehcleanup
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZNSt14priority_queueIN3ue212_GLOBAL__N_110RegionInfoESt5dequeIS2_SaIS2_EENS1_19RegionInfoQueueCompEE3popEv.exit
@@ -3307,7 +3307,7 @@ invoke.cont14.i139:                               ; preds = %call.i.noexc444
   %reports.i.i.i = getelementptr inbounds i8, ptr %call.i445, i64 48
   %m_storage_start.i.i.i.i.i.i.i.i.i.i.i425 = getelementptr inbounds i8, ptr %call.i445, i64 72
   %393 = getelementptr inbounds i8, ptr %call.i445, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %393, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %393, i8 0, i64 32, i1 false)
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i.i425, ptr %reports.i.i.i, align 8
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i426 = getelementptr inbounds i8, ptr %call.i445, i64 56
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i427 = getelementptr inbounds i8, ptr %call.i445, i64 64
@@ -4710,7 +4710,7 @@ entry._ZN3ue212_GLOBAL__N_110RegionInfoC2EOS1_.exit_crit_edge.i.i.i: ; preds = %
 
 if.then.i.i.i.i.i.i324:                           ; preds = %.noexc380
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i.i274)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i274, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i.i.i.i321, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i274, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i321, i64 16, i1 false)
   %561 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i.i.i.i325, align 8
   %562 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i.i.i.i.i326, align 8
   %563 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i.i327, align 8
@@ -4720,7 +4720,7 @@ if.then.i.i.i.i.i.i324:                           ; preds = %.noexc380
   %567 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i.i.i331, align 8
   %568 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i.i332, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i321, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i.i322, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i.i.i.i322, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i274, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i.i322, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i.i274, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i.i333 = getelementptr inbounds i8, ptr %558, i64 -112
   store ptr %561, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i.i333, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i.i334 = getelementptr inbounds i8, ptr %558, i64 -104
@@ -4755,10 +4755,10 @@ _ZN3ue212_GLOBAL__N_110RegionInfoC2EOS1_.exit.i.i.i341: ; preds = %if.then.i.i.i
   store i32 %577, ptr %incdec.ptr.i.i.i320, align 8
   %vertices3.i5.i.i.i = getelementptr inbounds i8, ptr %548, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i3.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i.i.i.i322, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i3.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i.i322, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i.i322, i8 0, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i.i322, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i5.i.i.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i5.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i3.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i5.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i3.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %548, i64 24
   store ptr %576, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i14.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i15.i.i.i = getelementptr inbounds i8, ptr %548, i64 32
@@ -4824,7 +4824,7 @@ _ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit.i.i.i: ; preds = %for.body.i.i.i.i
 
 if.then.i.i.i31.i.i.i:                            ; preds = %.noexc.i.i.i362
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i27.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i27.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i28.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i27.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i28.i.i.i, i64 16, i1 false)
   %581 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i32.i.i.i, align 8
   %582 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i.i33.i.i.i, align 8
   %583 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i34.i.i.i, align 8
@@ -4834,7 +4834,7 @@ if.then.i.i.i31.i.i.i:                            ; preds = %.noexc.i.i.i362
   %587 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i38.i.i.i, align 8
   %588 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i39.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i28.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i321, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices.i.i.i.i321, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i27.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i.i.i.i321, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i27.i.i.i, i64 16, i1 false)
   store ptr %581, ptr %_M_start3.i.i.i.i.i.i.i.i.i.i325, align 8
   store ptr %582, ptr %_M_first3.i.i.i.i.i.i.i.i.i.i.i326, align 8
   store ptr %583, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i.i327, align 8
@@ -5121,7 +5121,7 @@ if.end.i.i397:                                    ; preds = %for.cond19.i.i.i.i.
   br i1 %cmp.i.i.i.i.not.i.i398, label %invoke.cont44, label %while.body.i.i383, !llvm.loop !272
 
 invoke.cont44:                                    ; preds = %if.end.i.i397, %while.end
-  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %pq) #20
+  call fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(81) %pq) #20
   %regions.val = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   call fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_110RegionInfoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %regions.val)
   ret void
@@ -6346,7 +6346,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit106: 
   %vertices.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 8
   %vertices3.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 24
   %12 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 32
@@ -6365,7 +6365,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit106: 
   %19 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 24
   store ptr %12, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 32
@@ -6500,7 +6500,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit166: 
   %vertices.i168 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 8
   %vertices3.i169 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i167)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i167, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i168, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i167, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i168, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i170 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 24
   %29 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i170, align 8
   %_M_first3.i.i.i.i.i.i.i.i171 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 32
@@ -6519,7 +6519,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit166: 
   %36 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i177, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i168, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i168, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i169, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i169, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i167, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i169, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i167, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i178 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 24
   store ptr %29, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i178, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i179 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 32
@@ -6586,7 +6586,7 @@ if.end21:                                         ; preds = %_ZN3ue212_GLOBAL__N
 
 if.then.i.i.i:                                    ; preds = %if.end21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i194)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i194, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i195, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i194, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i195, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i197 = getelementptr inbounds i8, ptr %agg.tmp23, i64 24
   %44 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i197, align 8
   %_M_first3.i.i.i.i.i.i.i.i198 = getelementptr inbounds i8, ptr %agg.tmp23, i64 32
@@ -6604,7 +6604,7 @@ if.then.i.i.i:                                    ; preds = %if.end21
   %_M_node5.i8.i.i.i.i.i.i.i204 = getelementptr inbounds i8, ptr %agg.tmp23, i64 80
   %51 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i204, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i195, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i196, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i196, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i194, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i196, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i194, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i205 = getelementptr inbounds i8, ptr %__value, i64 24
   store ptr %44, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i205, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i206 = getelementptr inbounds i8, ptr %__value, i64 32
@@ -6790,7 +6790,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit66: ;
   %vertices.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 8
   %vertices3.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 24
   %10 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 32
@@ -6809,7 +6809,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit66: ;
   %17 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 24
   store ptr %10, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 32
@@ -6898,7 +6898,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit96: ;
   %vertices.i98 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 8
   %vertices3.i99 = getelementptr inbounds i8, ptr %__value, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i97)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i97, ptr noundef nonnull align 8 dereferenceable(16) %vertices.i98, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i97, ptr noundef nonnull align 8 dereferenceable(80) %vertices.i98, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i100 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 24
   %25 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i100, align 8
   %_M_first3.i.i.i.i.i.i.i.i101 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 32
@@ -6917,7 +6917,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit96: ;
   %32 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i107, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i98, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i98, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i99, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i99, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i97, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i99, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i97, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i108 = getelementptr inbounds i8, ptr %__value, i64 24
   store ptr %25, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i108, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i109 = getelementptr inbounds i8, ptr %__value, i64 32

@@ -677,7 +677,7 @@ if.then53:                                        ; preds = %sw.bb51
 lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %if.then53
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i.i.i.i.i.i461) #25, !noalias !41
+  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i461) #25, !noalias !41
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i458) #24, !noalias !41
   br label %common.resume
 
@@ -699,7 +699,7 @@ if.else55:                                        ; preds = %sw.bb51
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %if.else55
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i.i.i.i.i.i461) #25, !noalias !44
+  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i461) #25, !noalias !44
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i458) #24, !noalias !44
   br label %common.resume
 
@@ -731,7 +731,7 @@ if.then59:                                        ; preds = %sw.bb57
 lpad.i.i.i.i.i.i.i.i.i540:                        ; preds = %if.then59
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i.i.i.i.i.i537) #25, !noalias !47
+  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i537) #25, !noalias !47
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i534) #24, !noalias !47
   br label %common.resume
 
@@ -753,7 +753,7 @@ if.else61:                                        ; preds = %sw.bb57
 lpad.i.i.i.i.i.i.i.i581:                          ; preds = %if.else61
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i.i.i.i.i.i537) #25, !noalias !50
+  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i.i.i.i.i.i537) #25, !noalias !50
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i534) #24, !noalias !50
   br label %common.resume
 
@@ -1484,7 +1484,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #25
+  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #25
   resume { ptr, i32 } %0
 
 _ZN19OpenColorIO_v2_4dev15Log2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit: ; preds = %entry
@@ -1826,7 +1826,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #25
+  tail call void @_ZN19OpenColorIO_v2_4dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #25
   resume { ptr, i32 } %0
 
 _ZN19OpenColorIO_v2_4dev15Lin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit: ; preds = %entry
@@ -2040,7 +2040,7 @@ entry:
   %m_paramsR.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraLog2LinRendererE, i64 16), ptr %this, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2507,7 +2507,7 @@ entry:
   %m_paramsR.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_paramsR.i.i, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CameraLin2LogRendererE, i64 16), ptr %this, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
+  invoke void @_ZN19OpenColorIO_v2_4dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %log)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

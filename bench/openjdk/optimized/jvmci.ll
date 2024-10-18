@@ -461,7 +461,7 @@ define hidden void @_ZN5JVMCI18initialize_globalsEv() local_unnamed_addr #0 alig
 5:                                                ; preds = %0
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #13
   %7 = load i32, ptr @LogEventsBufferEntries, align 4
-  tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
+  tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #13
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %8, i32 noundef 0, ptr noundef nonnull @.str.9, i1 noundef zeroext true) #13
@@ -524,7 +524,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %23, %5
 
 38:                                               ; preds = %36
   %39 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #13
-  tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #13
+  tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %39) #13
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %40, i32 noundef 0, ptr noundef nonnull @.str.11, i1 noundef zeroext true) #13
@@ -1284,7 +1284,7 @@ define hidden void @_ZN5JVMCI9fatal_logEPKcm(ptr noundef %0, i64 noundef %1) loc
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %27
   %33 = load volatile i32, ptr @_ZN5JVMCI13_fatal_log_fdE, align 4
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #13
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %3, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %3, align 8
   %34 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 %33, ptr %34, align 8

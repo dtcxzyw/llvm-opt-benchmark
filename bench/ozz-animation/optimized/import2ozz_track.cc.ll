@@ -675,7 +675,7 @@ _ZN3ozz3log6LoggerlsIA29_cEERSoRKT_.exit.i:       ; preds = %.noexc81
 
 300:                                              ; preds = %298
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %107) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %108, i8 0, i64 24, i1 false)
   store ptr %169, ptr %168, align 8
   store i64 0, ptr %170, align 8
   store i8 0, ptr %169, align 8
@@ -806,7 +806,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE8capacit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %104)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %105)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %106)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, i8 0, i64 24, i1 false)
   store ptr %172, ptr %171, align 8
   store i64 0, ptr %173, align 8
   store i8 0, ptr %172, align 8
@@ -848,7 +848,7 @@ _ZN3ozz3log6LoggerlsIA18_cEERSoRKT_.exit.i.i:     ; preds = %354
 
 363:                                              ; preds = %361
   store float %362, ptr %90, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %91, i8 0, i64 24, i1 false)
   store ptr %175, ptr %174, align 8
   store i64 0, ptr %176, align 8
   store i8 0, ptr %175, align 8
@@ -962,7 +962,7 @@ _ZN3ozz3log6LoggerlsIA29_cEERSoRKT_.exit.i.i.i:   ; preds = %393
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %86) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87)
-  %407 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %91)
+  %407 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(56) %88, ptr noundef nonnull align 8 dereferenceable(56) %91)
           to label %.noexc38.i.i unwind label %376
 
 .noexc38.i.i:                                     ; preds = %406
@@ -1679,7 +1679,7 @@ _ZN3ozz3log6LoggerlsIA29_cEERSoRKT_.exit.i83:     ; preds = %.noexc152
 
 672:                                              ; preds = %670
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %81) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %82, i8 0, i64 24, i1 false)
   store ptr %155, ptr %154, align 8
   store i64 0, ptr %156, align 8
   store i8 0, ptr %155, align 8
@@ -1810,7 +1810,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE8capacit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %62, i8 0, i64 24, i1 false)
   store ptr %158, ptr %157, align 8
   store i64 0, ptr %159, align 8
   store i8 0, ptr %158, align 8
@@ -1852,7 +1852,7 @@ _ZN3ozz3log6LoggerlsIA18_cEERSoRKT_.exit.i.i132:  ; preds = %726
 
 735:                                              ; preds = %733
   store float %734, ptr %64, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %65, i8 0, i64 24, i1 false)
   store ptr %161, ptr %160, align 8
   store i64 0, ptr %162, align 8
   store i8 0, ptr %161, align 8
@@ -1966,7 +1966,7 @@ _ZN3ozz3log6LoggerlsIA29_cEERSoRKT_.exit.i.i.i147: ; preds = %765
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %60) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61)
-  %779 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %65)
+  %779 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(56) %65)
           to label %.noexc38.i.i148 unwind label %748
 
 .noexc38.i.i148:                                  ; preds = %778
@@ -2683,7 +2683,7 @@ _ZN3ozz3log6LoggerlsIA29_cEERSoRKT_.exit.i156:    ; preds = %.noexc225
 
 1044:                                             ; preds = %1042
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %55) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %56, i8 0, i64 24, i1 false)
   store ptr %141, ptr %140, align 8
   store i64 0, ptr %142, align 8
   store i8 0, ptr %141, align 8
@@ -2814,7 +2814,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE8capacit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, i8 0, i64 24, i1 false)
   store ptr %144, ptr %143, align 8
   store i64 0, ptr %145, align 8
   store i8 0, ptr %144, align 8
@@ -2856,7 +2856,7 @@ _ZN3ozz3log6LoggerlsIA18_cEERSoRKT_.exit.i.i205:  ; preds = %1098
 
 1107:                                             ; preds = %1105
   store float %1106, ptr %38, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %39, i8 0, i64 24, i1 false)
   store ptr %147, ptr %146, align 8
   store i64 0, ptr %148, align 8
   store i8 0, ptr %147, align 8
@@ -2970,7 +2970,7 @@ _ZN3ozz3log6LoggerlsIA29_cEERSoRKT_.exit.i.i.i220: ; preds = %1137
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %34) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
-  %1151 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  %1151 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %39)
           to label %.noexc38.i.i221 unwind label %1120
 
 .noexc38.i.i221:                                  ; preds = %1150
@@ -3687,7 +3687,7 @@ _ZN3ozz3log6LoggerlsIA29_cEERSoRKT_.exit.i229:    ; preds = %.noexc298
 
 1416:                                             ; preds = %1414
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %29) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 24, i1 false)
   store ptr %127, ptr %126, align 8
   store i64 0, ptr %128, align 8
   store i8 0, ptr %127, align 8
@@ -3818,7 +3818,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE8capacit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 24, i1 false)
   store ptr %130, ptr %129, align 8
   store i64 0, ptr %131, align 8
   store i8 0, ptr %130, align 8
@@ -3860,7 +3860,7 @@ _ZN3ozz3log6LoggerlsIA18_cEERSoRKT_.exit.i.i278:  ; preds = %1470
 
 1479:                                             ; preds = %1477
   store float %1478, ptr %12, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 24, i1 false)
   store ptr %133, ptr %132, align 8
   store i64 0, ptr %134, align 8
   store i8 0, ptr %133, align 8
@@ -3974,7 +3974,7 @@ _ZN3ozz3log6LoggerlsIA29_cEERSoRKT_.exit.i.i.i293: ; preds = %1509
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %8) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %1523 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %1523 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %13)
           to label %.noexc38.i.i294 unwind label %1492
 
 .noexc38.i.i294:                                  ; preds = %1522

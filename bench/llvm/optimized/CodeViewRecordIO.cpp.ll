@@ -2255,7 +2255,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i.i: ; p
 _ZNK4llvm8codeview16CodeViewRecordIO11RecordLimit14bytesRemainingEj.exit.i: ; preds = %53, %_ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i.i
   %.sroa.0.0.insert.insert.i.i = phi i64 [ 0, %_ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i.i ], [ %59, %53 ]
   %.sroa.023.0.extract.trunc.i = trunc i64 %.sroa.0.0.insert.insert.i.i to i32
-  %60 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
+  %60 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #14
   %.idx.i = mul i64 %60, 12
   %61 = getelementptr i8, ptr %49, i64 %.idx.i
   %.not47.i = icmp eq i64 %.idx.i, 12
@@ -2434,7 +2434,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO16getCurrentOffsetEv.exit.i: ; preds = %_ZNK
 _ZNK4llvm8codeview16CodeViewRecordIO11RecordLimit14bytesRemainingEj.exit.i: ; preds = %52, %_ZNK4llvm8codeview16CodeViewRecordIO16getCurrentOffsetEv.exit.i
   %.sroa.0.0.insert.insert.i.i = phi i64 [ 0, %_ZNK4llvm8codeview16CodeViewRecordIO16getCurrentOffsetEv.exit.i ], [ %58, %52 ]
   %.sroa.023.0.extract.trunc.i = trunc i64 %.sroa.0.0.insert.insert.i.i to i32
-  %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
+  %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #14
   %.idx.i = mul i64 %59, 12
   %60 = getelementptr i8, ptr %48, i64 %.idx.i
   %.not47.i = icmp eq i64 %.idx.i, 12
@@ -3036,12 +3036,12 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #14
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #14
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #14
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #14
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #14
   ret void
 }
 

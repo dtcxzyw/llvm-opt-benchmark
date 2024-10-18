@@ -53,7 +53,7 @@ getJavaPath.exit:                                 ; preds = %9
   br i1 %.not, label %.critedge, label %16
 
 16:                                               ; preds = %getJavaPath.exit
-  %17 = call ptr @realpath(ptr noundef nonnull readonly @.str, ptr noundef nonnull %3) #18
+  %17 = call ptr @realpath(ptr noundef nonnull @.str, ptr noundef nonnull %3) #18
   %.not.i43 = icmp eq ptr %17, null
   br i1 %.not.i43, label %getJavaPath.exit52, label %.lr.ph.i45
 

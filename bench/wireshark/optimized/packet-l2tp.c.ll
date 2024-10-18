@@ -3261,7 +3261,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
 
 .sink.split.i:                                    ; preds = %743, %742
   %.sink8.i = phi i64 [ 80, %743 ], [ 32, %742 ]
-  %744 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %455) #8
+  %744 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 -2147483642, 65545) %455) #8
   %745 = getelementptr inbounds i8, ptr %6, i64 %.sink8.i
   store i32 %744, ptr %745, align 8
   br label %store_ccid.exit
@@ -3325,12 +3325,12 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   ]
 
 772:                                              ; preds = %771, %771
-  %773 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %455) #8
+  %773 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 -2147483642, 65545) %455) #8
   store i32 %773, ptr %.0.i609, align 4
   br label %store_ccid.exit
 
 774:                                              ; preds = %771, %771
-  %775 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %455) #8
+  %775 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 -2147483642, 65545) %455) #8
   %776 = getelementptr inbounds i8, ptr %.0.i609, i64 12
   store i32 %775, ptr %776, align 4
   br label %store_ccid.exit
@@ -3367,7 +3367,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
 
 792:                                              ; preds = %784, %782
   %.0.i610 = phi ptr [ %786, %784 ], [ %.0638670, %782 ]
-  %793 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %455) #8
+  %793 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 -2147483642, 65545) %455) #8
   store i32 %793, ptr %.0.i610, align 4
   br label %store_ccid.exit
 
@@ -3456,7 +3456,7 @@ switch.lookup732:                                 ; preds = %switch.hole_check73
 
 829:                                              ; preds = %821, %819
   %.0.i613 = phi ptr [ %823, %821 ], [ %.0638670, %819 ]
-  %830 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %455) #8
+  %830 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483642, 65545) %455) #8
   %831 = zext i16 %830 to i32
   %832 = getelementptr inbounds i8, ptr %.0.i613, i64 24
   store i32 %831, ptr %832, align 4
@@ -3491,7 +3491,7 @@ switch.lookup732:                                 ; preds = %switch.hole_check73
 
 847:                                              ; preds = %839, %837
   %.014.i = phi ptr [ %841, %839 ], [ %.0638670, %837 ]
-  %848 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %455) #8
+  %848 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483642, 65545) %455) #8
   %849 = icmp ult i16 %848, 4
   br i1 %849, label %switch.lookup738, label %851
 
@@ -3589,7 +3589,7 @@ default.unreachable.i:                            ; preds = %851
 
 887:                                              ; preds = %885
   %888 = zext nneg i16 %456 to i64
-  %889 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.0.i617, i32 noundef %455, i64 noundef %888) #8
+  %889 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.0.i617, i32 noundef range(i32 -2147483642, 65545) %455, i64 noundef %888) #8
   br label %store_ccid.exit
 
 890:                                              ; preds = %451

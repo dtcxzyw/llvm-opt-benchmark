@@ -116,13 +116,13 @@ define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef 
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr @stderr, align 8
-  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.7, i64 noundef %55, i64 noundef 8) #18
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.7, i64 noundef range(i64 -2147483648, 2147483648) %55, i64 noundef 8) #18
   call fastcc void @graphviz_exit() #19
   unreachable
 
 59:                                               ; preds = %53
   %60 = icmp ne i32 %49, 0
-  %61 = call noalias ptr @calloc(i64 noundef %55, i64 noundef 8) #20
+  %61 = call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %55, i64 noundef 8) #20
   %62 = icmp eq ptr %61, null
   %or.cond3.i = and i1 %60, %62
   br i1 %or.cond3.i, label %63, label %67
@@ -136,7 +136,7 @@ define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef 
 
 67:                                               ; preds = %59
   store ptr %61, ptr %7, align 8
-  %68 = call noalias ptr @calloc(i64 noundef %55, i64 noundef 8) #20
+  %68 = call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %55, i64 noundef 8) #20
   %69 = icmp eq ptr %68, null
   %or.cond3.i94 = and i1 %60, %69
   br i1 %or.cond3.i94, label %70, label %gv_calloc.exit95
@@ -188,7 +188,7 @@ gv_calloc.exit95:                                 ; preds = %67
   %.02331.i = phi i32 [ %.124.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
   %.02630.i = phi i32 [ %95, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %92 = call i32 @irand(i32 noundef 100000) #15
-  call fastcc void @node_distinct_coloring_internal2(i32 noundef %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef %.079, double noundef %.077, i32 noundef %92, ptr noundef %68, ptr noundef %9, ptr noundef %10)
+  call fastcc void @node_distinct_coloring_internal2(i32 noundef range(i32 0, 3) %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef range(i32 1, 4) %.079, double noundef %.077, i32 noundef %92, ptr noundef %68, ptr noundef %9, ptr noundef %10)
   %93 = load double, ptr %9, align 8
   %94 = fcmp olt double %.032.i, %93
   %.124.i = select i1 %94, i32 %92, i32 %.02331.i
@@ -199,7 +199,7 @@ gv_calloc.exit95:                                 ; preds = %67
 
 node_distinct_coloring_internal.exit:             ; preds = %.lr.ph.i, %82
   %.025.i = phi i32 [ %5, %82 ], [ %.124.i, %.lr.ph.i ]
-  call fastcc void @node_distinct_coloring_internal2(i32 noundef %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef %.079, double noundef %.077, i32 noundef %.025.i, ptr noundef %68, ptr noundef %9, ptr noundef %10)
+  call fastcc void @node_distinct_coloring_internal2(i32 noundef range(i32 0, 3) %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef range(i32 1, 4) %.079, double noundef %.077, i32 noundef %.025.i, ptr noundef %68, ptr noundef %9, ptr noundef %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %96 = load i32, ptr %85, align 4
@@ -453,13 +453,13 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
 
 72:                                               ; preds = %._crit_edge
   %73 = load ptr, ptr @stderr, align 8
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.7, i64 noundef %71, i64 noundef 8) #18
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.7, i64 noundef range(i64 -2147483648, 2147483648) %71, i64 noundef 8) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
 75:                                               ; preds = %._crit_edge
   %76 = icmp ne i32 %35, 0
-  %77 = tail call noalias ptr @calloc(i64 noundef %71, i64 noundef 8) #20
+  %77 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %71, i64 noundef 8) #20
   %78 = icmp eq ptr %77, null
   %or.cond3.i = and i1 %76, %78
   br i1 %or.cond3.i, label %79, label %gv_calloc.exit
@@ -481,12 +481,12 @@ gv_calloc.exit:                                   ; preds = %75
 
 85:                                               ; preds = %83
   %86 = load ptr, ptr @stderr, align 8
-  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.7, i64 noundef %84, i64 noundef 8) #18
+  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.7, i64 noundef range(i64 -2147483648, 2147483648) %84, i64 noundef 8) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
 88:                                               ; preds = %83
-  %89 = tail call noalias ptr @calloc(i64 noundef %84, i64 noundef 8) #20
+  %89 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %84, i64 noundef 8) #20
   %90 = icmp eq ptr %89, null
   %or.cond3.i192 = and i1 %76, %90
   br i1 %or.cond3.i192, label %91, label %gv_calloc.exit193

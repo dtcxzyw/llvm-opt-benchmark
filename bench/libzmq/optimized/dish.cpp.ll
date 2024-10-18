@@ -296,7 +296,7 @@ define void @_ZThn1448_N3zmq6dish_tD0Ev(ptr noundef %this) unnamed_addr #8 align
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq6dish_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2056) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2056) %0) #20
   ret void
 }
 
@@ -305,7 +305,7 @@ define void @_ZThn1464_N3zmq6dish_tD0Ev(ptr noundef %this) unnamed_addr #8 align
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq6dish_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2056) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2056) %0) #20
   ret void
 }
 
@@ -314,7 +314,7 @@ define void @_ZThn1472_N3zmq6dish_tD0Ev(ptr noundef %this) unnamed_addr #8 align
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
   tail call void @_ZN3zmq6dish_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2056) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2056) %0) #20
   ret void
 }
 
@@ -978,7 +978,7 @@ define void @_ZThn1448_N3zmq14dish_session_tD0Ev(ptr noundef %this) unnamed_addr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq14dish_session_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1696) %0) #20
   ret void
 }
 
@@ -987,7 +987,7 @@ define void @_ZThn1464_N3zmq14dish_session_tD0Ev(ptr noundef %this) unnamed_addr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq14dish_session_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1696) %0) #20
   ret void
 }
 

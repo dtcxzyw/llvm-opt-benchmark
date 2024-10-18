@@ -716,7 +716,7 @@ hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
   br i1 %.not35.i.us.i.i, label %.sink.split.i.i, label %166
 
 166:                                              ; preds = %164
-  %167 = call i32 @cl_update_hash(ptr noundef nonnull %165, ptr noundef nonnull %157, i64 noundef %160) #18
+  %167 = call i32 @cl_update_hash(ptr noundef nonnull %165, ptr noundef nonnull %157, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %160) #18
   %168 = call i32 @cl_update_hash(ptr noundef nonnull %165, ptr noundef nonnull %.fr118.i.i, i64 noundef %153) #18
   %169 = call i32 @cl_finish_hash(ptr noundef nonnull %165, ptr noundef nonnull %5) #18
   br label %170
@@ -851,7 +851,7 @@ hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
   br i1 %.not.i48, label %212, label %207
 
 207:                                              ; preds = %204
-  call fastcc void @cleanupURL(ptr noundef %16, ptr noundef null, i32 noundef 1)
+  call fastcc void @cleanupURL(ptr noundef nonnull %16, ptr noundef null, i32 noundef 1)
   call fastcc void @cleanupURL(ptr noundef %34, ptr noundef nonnull %38, i32 noundef 0)
   %208 = load ptr, ptr %37, align 8
   %.not10.i = icmp eq ptr %208, null
@@ -942,12 +942,12 @@ isNumericURL.exit..thread130_crit_edge.i:         ; preds = %isNumericURL.exit.i
   br label %240
 
 240:                                              ; preds = %237, %234
-  %241 = call fastcc i32 @url_get_host(ptr noundef %16, ptr noundef %13, i32 noundef 0, ptr noundef %15)
+  %241 = call fastcc i32 @url_get_host(ptr noundef nonnull %16, ptr noundef %13, i32 noundef 0, ptr noundef %15)
   %.not75.i = icmp eq i32 %241, 0
   br i1 %.not75.i, label %242, label %.thread134.thread157.i
 
 242:                                              ; preds = %240
-  %243 = call fastcc i32 @url_get_host(ptr noundef %16, ptr noundef %13, i32 noundef 1, ptr noundef %15)
+  %243 = call fastcc i32 @url_get_host(ptr noundef nonnull %16, ptr noundef %13, i32 noundef 1, ptr noundef %15)
   %.not76.i = icmp eq i32 %243, 0
   br i1 %.not76.i, label %244, label %.thread134.thread157.i
 

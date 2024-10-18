@@ -63,7 +63,7 @@ define void @_ZNK4LIEF2PE18PKCS9MessageDigest5printB5cxx11Ev(ptr dead_on_unwind 
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc4 unwind label %16
 
 .noexc4:                                          ; preds = %.noexc
@@ -73,7 +73,7 @@ define void @_ZNK4LIEF2PE18PKCS9MessageDigest5printB5cxx11Ev(ptr dead_on_unwind 
 13:                                               ; preds = %.noexc4
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc4
@@ -139,7 +139,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE18PKCS9MessageDigestD2Ev(ptr noundef
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %1, %4
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #11
   ret void
 }
 
@@ -156,7 +156,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE18PKCS9MessageDigestD0Ev(ptr noundef
   br label %_ZN4LIEF2PE18PKCS9MessageDigestD2Ev.exit
 
 _ZN4LIEF2PE18PKCS9MessageDigestD2Ev.exit:         ; preds = %1, %4
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
@@ -164,7 +164,7 @@ _ZN4LIEF2PE18PKCS9MessageDigestD2Ev.exit:         ; preds = %1, %4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4LIEF2PE18PKCS9MessageDigest5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
-  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %2
@@ -221,7 +221,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %18
 25:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #11
   br label %.body
 
 27:                                               ; preds = %21, %.noexc4.i.thread

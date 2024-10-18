@@ -909,7 +909,7 @@ cond.false.i159:                                  ; preds = %invoke.cont140
 
 invoke.cont142:                                   ; preds = %.noexc161, %invoke.cont140
   %96 = phi ptr [ %95, %invoke.cont140 ], [ %.pre.i160, %.noexc161 ]
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %96, double noundef %maturity, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %96, double noundef %maturity, i1 noundef zeroext false)
           to label %.noexc162 unwind label %lpad135
 
 .noexc162:                                        ; preds = %invoke.cont142
@@ -962,7 +962,7 @@ cond.false.i171:                                  ; preds = %invoke.cont153
 
 invoke.cont155:                                   ; preds = %.noexc173, %invoke.cont153
   %101 = phi ptr [ %100, %invoke.cont153 ], [ %.pre.i172, %.noexc173 ]
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %101, double noundef %maturity, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %101, double noundef %maturity, i1 noundef zeroext false)
           to label %.noexc177 unwind label %lpad148
 
 .noexc177:                                        ; preds = %invoke.cont155

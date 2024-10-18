@@ -1351,7 +1351,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #8 section
 5:                                                ; preds = %.noexc1.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN4LuauL24kBuiltinDefinitionLuaSrcB5cxx11E) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4LuauL24kBuiltinDefinitionLuaSrcB5cxx11E) #10
   br label %common.resume
 
 7:                                                ; preds = %.noexc.i, %0
@@ -1385,7 +1385,7 @@ __cxx_global_var_init.53.exit:                    ; preds = %.noexc1.i
 11:                                               ; preds = %.noexc1.i4
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN4LuauL31kBuiltinDefinitionLuaSrcCheckedB5cxx11E) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4LuauL31kBuiltinDefinitionLuaSrcCheckedB5cxx11E) #10
   br label %common.resume
 
 13:                                               ; preds = %.noexc.i3, %__cxx_global_var_init.53.exit

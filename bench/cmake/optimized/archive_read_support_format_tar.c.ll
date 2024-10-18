@@ -1739,12 +1739,12 @@ tar_flush_unconsumed.exit175:                     ; preds = %81, %83
   store ptr @.str.16, ptr %6, align 8
   %89 = getelementptr inbounds i8, ptr %13, i64 124
   %90 = call fastcc i64 @tar_atol(ptr noundef nonnull readonly %89, i64 noundef 12)
-  %91 = call fastcc i32 @read_body_to_string(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly %13, ptr noundef %3)
+  %91 = call fastcc i32 @read_body_to_string(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly %13, ptr noundef nonnull %3)
   %.not.i244 = icmp eq i32 %91, 0
   br i1 %.not.i244, label %92, label %header_Solaris_ACL.exit
 
 92:                                               ; preds = %88
-  %93 = call fastcc i32 @tar_read_header(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %93 = call fastcc i32 @tar_read_header(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   switch i32 %93, label %header_Solaris_ACL.exit [
     i32 -20, label %94
     i32 0, label %94
@@ -1878,23 +1878,23 @@ tar_flush_unconsumed.exit175:                     ; preds = %81, %83
   store i32 196610, ptr %7, align 8
   store ptr @.str.17, ptr %6, align 8
   %157 = getelementptr inbounds i8, ptr %1, i64 216
-  %158 = call fastcc i32 @read_body_to_string(ptr noundef %0, ptr noundef nonnull %157, ptr noundef nonnull readonly %13, ptr noundef %3)
+  %158 = call fastcc i32 @read_body_to_string(ptr noundef %0, ptr noundef nonnull %157, ptr noundef nonnull readonly %13, ptr noundef nonnull %3)
   %.not.i246 = icmp eq i32 %158, 0
   br i1 %.not.i246, label %header_pax_global.exit, label %header_Solaris_ACL.exit
 
 header_pax_global.exit:                           ; preds = %156
-  %159 = call fastcc i32 @tar_read_header(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %159 = call fastcc i32 @tar_read_header(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   %160 = icmp eq i32 %159, 1
   br i1 %160, label %.loopexit, label %header_Solaris_ACL.exit
 
 161:                                              ; preds = %85
   %162 = getelementptr inbounds i8, ptr %1, i64 144
-  %163 = call fastcc i32 @read_body_to_string(ptr noundef %0, ptr noundef nonnull %162, ptr noundef nonnull readonly %13, ptr noundef %3)
+  %163 = call fastcc i32 @read_body_to_string(ptr noundef %0, ptr noundef nonnull %162, ptr noundef nonnull readonly %13, ptr noundef nonnull %3)
   %.not.i247 = icmp eq i32 %163, 0
   br i1 %.not.i247, label %164, label %header_Solaris_ACL.exit
 
 164:                                              ; preds = %161
-  %165 = call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %165 = call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   switch i32 %165, label %header_Solaris_ACL.exit [
     i32 -20, label %166
     i32 0, label %166
@@ -1907,12 +1907,12 @@ header_pax_global.exit:                           ; preds = %156
 
 168:                                              ; preds = %85
   %169 = getelementptr inbounds i8, ptr %1, i64 168
-  %170 = call fastcc i32 @read_body_to_string(ptr noundef %0, ptr noundef nonnull %169, ptr noundef nonnull readonly %13, ptr noundef %3)
+  %170 = call fastcc i32 @read_body_to_string(ptr noundef %0, ptr noundef nonnull %169, ptr noundef nonnull readonly %13, ptr noundef nonnull %3)
   %.not.i249 = icmp eq i32 %170, 0
   br i1 %.not.i249, label %171, label %header_Solaris_ACL.exit
 
 171:                                              ; preds = %168
-  %172 = call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %172 = call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   switch i32 %172, label %header_Solaris_ACL.exit [
     i32 -20, label %173
     i32 0, label %173
@@ -1945,7 +1945,7 @@ header_pax_global.exit:                           ; preds = %156
   br label %header_Solaris_ACL.exit.thread
 
 188:                                              ; preds = %85
-  %189 = call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %189 = call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   %190 = icmp ne i32 %189, 1
   br label %header_Solaris_ACL.exit
 
@@ -2153,7 +2153,7 @@ tar_flush_unconsumed.exit177:                     ; preds = %header_Solaris_ACL.
   br label %tar_flush_unconsumed.exit.i
 
 tar_flush_unconsumed.exit.i:                      ; preds = %266, %263
-  %268 = call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %268 = call fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   br label %read_mac_metadata_blob.exit
 
 read_mac_metadata_blob.exit:                      ; preds = %228, %230, %233, %237, %246, %248, %251, %258, %262, %tar_flush_unconsumed.exit.i

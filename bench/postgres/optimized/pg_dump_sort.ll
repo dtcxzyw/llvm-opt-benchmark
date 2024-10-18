@@ -282,7 +282,7 @@ define dso_local void @sortDumpableObjects(ptr nocapture noundef %0, i32 noundef
 
 11:                                               ; preds = %findDependencyLoops.exit, %7
   %12 = call i32 @getMaxDumpId() #9
-  %13 = call ptr @binaryheap_allocate(i32 noundef %1, ptr noundef nonnull @int_cmp, ptr noundef null) #9
+  %13 = call ptr @binaryheap_allocate(i32 noundef range(i32 1, -2147483648) %1, ptr noundef nonnull @int_cmp, ptr noundef null) #9
   %14 = add i32 %12, 1
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2

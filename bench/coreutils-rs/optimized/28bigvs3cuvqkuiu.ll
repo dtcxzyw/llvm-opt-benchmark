@@ -68,7 +68,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18extend_from_within17h83281
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4c942fdedf8ac734E.llvm.16374473169365211629.exit"
 
 11:                                               ; preds = %2
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc5e49e360801aef3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4, i64 noundef %spec.select.i.i)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc5e49e360801aef3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %4, i64 noundef %spec.select.i.i)
   %.pre = load i64, ptr %3, align 8, !alias.scope !13
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4c942fdedf8ac734E.llvm.16374473169365211629.exit"
 

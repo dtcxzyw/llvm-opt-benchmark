@@ -194,7 +194,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %83
   br i1 %89, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %90
 
 90:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %38, i64 noundef 4) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull %38, i64 noundef 4) #11
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i8 noundef signext 32, i32 noundef -1, i1 noundef zeroext false) #11
   %91 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #11
   %.not = icmp eq i64 %91, 3
@@ -527,7 +527,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit185:               ; preds = %_ZN4llvm12StringSwi
 
 212:                                              ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34, %_ZN4llvmplERKNS_5TwineES2_.exit185, %_ZN4llvmplERKNS_5TwineES2_.exit140, %_ZN4llvmplERKNS_5TwineES2_.exit95, %_ZN4llvmplERKNS_5TwineES2_.exit50, %_ZN4llvmplERKNS_5TwineES2_.exit
   %switch = phi i1 [ true, %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit140 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit95 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit185 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit50 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %213 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #11
+  %213 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %21) #11
   %214 = load ptr, ptr %21, align 8
   %215 = icmp eq ptr %214, %38
   br i1 %215, label %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit, label %216
@@ -668,12 +668,12 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #11
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #11
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #11
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #11
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #11
   ret void
 }
 

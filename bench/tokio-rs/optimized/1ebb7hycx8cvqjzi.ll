@@ -102,7 +102,7 @@ common.resume:                                    ; preds = %18, %7
   resume { ptr, i32 } %common.resume.op
 
 _ZN10tokio_util4sync18cancellation_token9tree_node8TreeNode3new17hb337ed5d1fb84f7fE.exit: ; preds = %0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !5

@@ -150,7 +150,7 @@ define void @_ZThn1448_N3zmq15tcp_connecter_tD0Ev(ptr noundef %this) unnamed_add
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq15tcp_connecter_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1552) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1552) %0) #16
   ret void
 }
 
@@ -430,13 +430,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_connect_timer_started.i = getelementptr inbounds i8, ptr %this, i64 96
   store i8 0, ptr %_connect_timer_started.i, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t9rm_handleEv(ptr noundef nonnull align 8 dereferenceable(1544) %0)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %0)
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %0)
+  tail call void @_ZN3zmq23stream_connecter_base_t9rm_handleEv(ptr noundef nonnull align 8 dereferenceable(1552) %0)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1552) %0)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1552) %0)
   br label %_ZN3zmq15tcp_connecter_t11timer_eventEi.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @_ZN3zmq23stream_connecter_base_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(1544) %0, i32 noundef %id_)
+  tail call void @_ZN3zmq23stream_connecter_base_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(1552) %0, i32 noundef %id_)
   br label %_ZN3zmq15tcp_connecter_t11timer_eventEi.exit
 
 _ZN3zmq15tcp_connecter_t11timer_eventEi.exit:     ; preds = %if.then.i, %if.else.i
@@ -489,7 +489,7 @@ invoke.cont:                                      ; preds = %if.then6
 invoke.cont14:                                    ; preds = %invoke.cont
   %remote.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #13
   %connect_timeout.i = getelementptr inbounds i8, ptr %this, i64 340
   %4 = load i32, ptr %connect_timeout.i, align 4
   %cmp.i = icmp sgt i32 %4, 0
@@ -506,7 +506,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
           cleanup
   %remote.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i2) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #13
   resume { ptr, i32 } %5
 
 if.else15:                                        ; preds = %land.lhs.true

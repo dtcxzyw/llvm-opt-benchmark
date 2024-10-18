@@ -293,7 +293,7 @@ define void @arkProcessError(ptr noundef readonly %0, i32 noundef %1, i32 nounde
   br i1 %.not.i, label %28, label %29
 
 28:                                               ; preds = %26
-  call void (i32, ptr, ptr, ptr, i32, ...) @SUNGlobalFallbackErrHandler(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef %1) #16
+  call void (i32, ptr, ptr, ptr, i32, ...) @SUNGlobalFallbackErrHandler(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef range(i32 100, 99) %1) #16
   br label %29
 
 29:                                               ; preds = %28, %26
@@ -310,7 +310,7 @@ define void @arkProcessError(ptr noundef readonly %0, i32 noundef %1, i32 nounde
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %.021.i, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %33(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef %1, ptr noundef %35, ptr noundef %27) #16
+  call void %33(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef range(i32 100, 99) %1, ptr noundef %35, ptr noundef %27) #16
   %.0.i = load ptr, ptr %.021.i, align 8
   %.not18.i = icmp eq ptr %.0.i, null
   br i1 %.not18.i, label %SUNHandleErrWithMsg.exit, label %.lr.ph.i

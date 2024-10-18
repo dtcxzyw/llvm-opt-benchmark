@@ -120,7 +120,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row3new(ptr dead_on
   %5 = alloca [24 x i8], align 8
   %6 = alloca [36 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6)
-  call void @_RNvXsR_NtCs1LoaDTb72WA_4core5arrayAcj6_NtNtB7_7default7Default7defaultCs8mTrBI1stz4_15turborepo_vt100(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 4 dereferenceable(24) %6)
+  call void @_RNvXsR_NtCs1LoaDTb72WA_4core5arrayAcj6_NtNtB7_7default7Default7defaultCs8mTrBI1stz4_15turborepo_vt100(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 4 dereferenceable(36) %6)
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %7, i8 0, i64 11, i1 false), !alias.scope !13
   %8 = zext i16 %1 to i64
@@ -326,7 +326,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6insert(ptr noal
   unreachable
 
 12:                                               ; preds = %8
-  tail call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE8grow_oneBQ_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !49
+  tail call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE8grow_oneBQ_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0), !noalias !49
   br label %13
 
 13:                                               ; preds = %12, %8
@@ -744,7 +744,7 @@ select.unfold:                                    ; preds = %_RNvXs_NtNtNtCs1Loa
   br i1 %40, label %41, label %_ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit
 
 41:                                               ; preds = %37
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit
 
 _ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit: ; preds = %37, %41
@@ -791,7 +791,7 @@ _ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit: ; preds = %37, %41
   br i1 %57, label %58, label %_ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit27
 
 58:                                               ; preds = %.lr.ph
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit27
 
 _ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit27: ; preds = %.lr.ph, %58
@@ -821,7 +821,7 @@ _ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit27: ; preds = %.lr.ph, %58
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %._crit_edge
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %66, i64 noundef %65)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %66, i64 noundef %65)
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %70
@@ -842,7 +842,7 @@ _ZN5alloc6string6String4push17h2eefef5338b5c74cE.exit27: ; preds = %.lr.ph, %58
 77:                                               ; preds = %71
   %78 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %common.resume unwind label %79
 
 79:                                               ; preds = %77
@@ -856,7 +856,7 @@ common.resume:                                    ; preds = %62, %77
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit: ; preds = %71
-  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %81 = load i8, ptr %51, align 2, !alias.scope !126, !noundef !7
   %82 = icmp slt i8 %81, 0
@@ -888,7 +888,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row24write_contents
   %22 = alloca [9 x i8], align 1
   %23 = alloca [36 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %23)
-  call void @_RNvXsR_NtCs1LoaDTb72WA_4core5arrayAcj6_NtNtB7_7default7Default7defaultCs8mTrBI1stz4_15turborepo_vt100(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 4 dereferenceable(24) %23)
+  call void @_RNvXsR_NtCs1LoaDTb72WA_4core5arrayAcj6_NtNtB7_7default7Default7defaultCs8mTrBI1stz4_15turborepo_vt100(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 4 dereferenceable(36) %23)
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %24, i8 0, i64 11, i1 false), !alias.scope !129
   %trunc = trunc i48 %7 to i16
@@ -1106,7 +1106,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %137, label %138, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.exit
 
 138:                                              ; preds = %133
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.exit
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.exit: ; preds = %133, %138
@@ -1121,7 +1121,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   br i1 %144, label %145, label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit
 
 145:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.exit
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %142, i64 noundef 1)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %142, i64 noundef 1)
   %.pre.i.i = load i64, ptr %134, align 8, !alias.scope !150
   br label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit
 
@@ -1223,7 +1223,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtB
   br i1 %181, label %182, label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i
 
 182:                                              ; preds = %177
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %178, i64 noundef 2), !noalias !163
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %178, i64 noundef 2), !noalias !163
   %.pre.i.i.i = load i64, ptr %54, align 8, !alias.scope !158, !noalias !163
   br label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i
 
@@ -1328,7 +1328,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %222, label %223, label %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit
 
 223:                                              ; preds = %219
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %220, i64 noundef 1)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %220, i64 noundef 1)
   %.pre.i.i89 = load i64, ptr %54, align 8, !alias.scope !174
   br label %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit
 
@@ -1345,7 +1345,7 @@ _RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendR
   br i1 %230, label %231, label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit91
 
 231:                                              ; preds = %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %228, i64 noundef 1)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %228, i64 noundef 1)
   %.pre.i.i90 = load i64, ptr %54, align 8, !alias.scope !179
   br label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit91
 
@@ -1374,7 +1374,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
   br i1 %246, label %247, label %250
 
 247:                                              ; preds = %237
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %243, i64 noundef %242)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %243, i64 noundef %242)
           to label %.noexc unwind label %248
 
 .noexc:                                           ; preds = %247
@@ -1401,7 +1401,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
 256:                                              ; preds = %250
   %257 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
           to label %common.resume unwind label %258
 
 258:                                              ; preds = %256
@@ -1415,7 +1415,7 @@ common.resume:                                    ; preds = %588, %452, %248, %4
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit: ; preds = %250
-  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
+  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf.exit
 
@@ -1478,7 +1478,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %291, label %292, label %_RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB4_15ClearRowForwardNtB4_8BufWrite9write_buf.exit
 
 292:                                              ; preds = %287
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %288, i64 noundef 3)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %288, i64 noundef 3)
   %.pre.i.i97 = load i64, ptr %54, align 8, !alias.scope !194
   br label %_RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB4_15ClearRowForwardNtB4_8BufWrite9write_buf.exit
 
@@ -1659,7 +1659,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %381, label %382, label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i117
 
 382:                                              ; preds = %377
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %378, i64 noundef 2), !noalias !217
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %378, i64 noundef 2), !noalias !217
   %.pre.i.i.i118 = load i64, ptr %54, align 8, !alias.scope !212, !noalias !217
   br label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i117
 
@@ -1762,7 +1762,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %421, label %422, label %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit126
 
 422:                                              ; preds = %418
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %419, i64 noundef 1)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %419, i64 noundef 1)
   %.pre.i.i125 = load i64, ptr %54, align 8, !alias.scope !228
   br label %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit126
 
@@ -1779,7 +1779,7 @@ _RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendR
   br i1 %429, label %430, label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit128
 
 430:                                              ; preds = %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit126
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %427, i64 noundef 1)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %427, i64 noundef 1)
   %.pre.i.i127 = load i64, ptr %54, align 8, !alias.scope !233
   br label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit128
 
@@ -1805,7 +1805,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
   br i1 %442, label %443, label %446
 
 443:                                              ; preds = %436
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %439, i64 noundef %438)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %439, i64 noundef %438)
           to label %.noexc130 unwind label %444
 
 .noexc130:                                        ; preds = %443
@@ -1832,7 +1832,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
 452:                                              ; preds = %446
   %453 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
           to label %common.resume unwind label %454
 
 454:                                              ; preds = %452
@@ -1842,7 +1842,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit133: ; preds = %446
-  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
+  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   br label %_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf.exit119
 
@@ -2022,7 +2022,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %527, label %528, label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i153
 
 528:                                              ; preds = %523
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %524, i64 noundef 2), !noalias !261
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %524, i64 noundef 2), !noalias !261
   %.pre.i.i.i154 = load i64, ptr %54, align 8, !alias.scope !256, !noalias !261
   br label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i153
 
@@ -2143,7 +2143,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %578, label %579, label %582
 
 579:                                              ; preds = %570
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %575, i64 noundef %574)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %575, i64 noundef %574)
           to label %.noexc162 unwind label %580
 
 .noexc162:                                        ; preds = %579
@@ -2175,7 +2175,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 588:                                              ; preds = %582
   %589 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
           to label %common.resume unwind label %590
 
 590:                                              ; preds = %588
@@ -2186,7 +2186,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit165: ; preds = %582
   %592 = add i16 %., %.sroa.15.6
-  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
+  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %.outer.backedge
 
@@ -2473,7 +2473,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 157:                                              ; preds = %155
   %158 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
           to label %.body unwind label %159
 
 159:                                              ; preds = %157
@@ -2483,7 +2483,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VechEECs8mTrBI1stz4_15turborepo_vt100.exit.i: ; preds = %155
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit unwind label %161
 
 161:                                              ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VechEECs8mTrBI1stz4_15turborepo_vt100.exit.i
@@ -2517,7 +2517,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %163
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %167, i64 noundef %164)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %167, i64 noundef %164)
           to label %.noexc105 unwind label %153
 
 .noexc105:                                        ; preds = %171
@@ -2538,7 +2538,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   br i1 %180, label %181, label %182
 
 181:                                              ; preds = %172
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %178, i64 noundef 1)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %178, i64 noundef 1)
           to label %.noexc107 unwind label %153
 
 .noexc107:                                        ; preds = %181
@@ -2566,7 +2566,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   br i1 %193, label %194, label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit110
 
 194:                                              ; preds = %191
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %187, i64 noundef 1)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %187, i64 noundef 1)
           to label %.noexc109 unwind label %153
 
 .noexc109:                                        ; preds = %194
@@ -2590,7 +2590,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
 201:                                              ; preds = %200
   %202 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
           to label %common.resume unwind label %203
 
 203:                                              ; preds = %201
@@ -2604,7 +2604,7 @@ common.resume:                                    ; preds = %787, %652, %487, %3
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit113: ; preds = %200
-  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
+  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   br label %48
 
@@ -2667,7 +2667,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtB6_
 
 .lr.ph.preheader.i.i.i:                           ; preds = %209
   %222 = sub i64 %.sroa.0.0.sroa.speculated.i.i.i, %.sroa.10.0547
-  %.sroa.0.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.26.0549, i64 %222)
+  %.sroa.0.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %.sroa.26.0549, i64 %222)
   %223 = add i64 %.sroa.0.0.sroa.speculated.i.i.i.i, %.sroa.10.0547
   %spec.select316 = call i64 @llvm.umax.i64(i64 %.sroa.10.0547, i64 %223)
   %224 = icmp ult i64 %spec.select316, %.sroa.0.0.sroa.speculated.i.i.i
@@ -2756,7 +2756,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtB6_
   br i1 %257, label %258, label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i
 
 258:                                              ; preds = %253
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %254, i64 noundef 2), !noalias !335
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %254, i64 noundef 2), !noalias !335
   %.pre.i.i.i = load i64, ptr %53, align 8, !alias.scope !330, !noalias !335
   br label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i
 
@@ -2861,7 +2861,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %298, label %299, label %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit123
 
 299:                                              ; preds = %295
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %296, i64 noundef 1)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %296, i64 noundef 1)
   %.pre.i.i122 = load i64, ptr %53, align 8, !alias.scope !346
   br label %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit123
 
@@ -2878,7 +2878,7 @@ _RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendR
   br i1 %306, label %307, label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit125
 
 307:                                              ; preds = %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit123
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %304, i64 noundef 1)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %304, i64 noundef 1)
   %.pre.i.i124 = load i64, ptr %53, align 8, !alias.scope !351
   br label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit125
 
@@ -2907,7 +2907,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
   br i1 %322, label %323, label %326
 
 323:                                              ; preds = %313
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %319, i64 noundef %318)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %319, i64 noundef %318)
           to label %.noexc127 unwind label %324
 
 .noexc127:                                        ; preds = %323
@@ -2934,7 +2934,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
 332:                                              ; preds = %326
   %333 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
           to label %common.resume unwind label %334
 
 334:                                              ; preds = %332
@@ -2944,7 +2944,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit131: ; preds = %326
-  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
+  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   br label %_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf.exit
 
@@ -3007,7 +3007,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %367, label %368, label %_RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB4_15ClearRowForwardNtB4_8BufWrite9write_buf.exit
 
 368:                                              ; preds = %363
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %364, i64 noundef 3)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %364, i64 noundef 3)
   %.pre.i.i135 = load i64, ptr %53, align 8, !alias.scope !366
   br label %_RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB4_15ClearRowForwardNtB4_8BufWrite9write_buf.exit
 
@@ -3087,7 +3087,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.408305762663316268
   br i1 %396, label %397, label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i155
 
 397:                                              ; preds = %392
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %393, i64 noundef 2), !noalias !385
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %393, i64 noundef 2), !noalias !385
   %.pre.i.i.i156 = load i64, ptr %53, align 8, !alias.scope !380, !noalias !385
   br label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i155
 
@@ -3260,7 +3260,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %477, label %478, label %481
 
 478:                                              ; preds = %469
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %474, i64 noundef %473)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %474, i64 noundef %473)
           to label %.noexc165 unwind label %479
 
 .noexc165:                                        ; preds = %478
@@ -3292,7 +3292,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 487:                                              ; preds = %481
   %488 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %23)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
           to label %common.resume unwind label %489
 
 489:                                              ; preds = %487
@@ -3302,7 +3302,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit169: ; preds = %481
-  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %23)
+  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   %491 = load i8, ptr %414, align 2, !alias.scope !406, !noundef !7
   %492 = icmp slt i8 %491, 0
@@ -3478,7 +3478,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %580, label %581, label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i189
 
 581:                                              ; preds = %576
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %577, i64 noundef 2), !noalias !428
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %577, i64 noundef 2), !noalias !428
   %.pre.i.i.i190 = load i64, ptr %53, align 8, !alias.scope !423, !noalias !428
   br label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i189
 
@@ -3582,7 +3582,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %620, label %621, label %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit198
 
 621:                                              ; preds = %617
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %618, i64 noundef 1)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %618, i64 noundef 1)
   %.pre.i.i197 = load i64, ptr %53, align 8, !alias.scope !439
   br label %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit198
 
@@ -3599,7 +3599,7 @@ _RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendR
   br i1 %628, label %629, label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit200
 
 629:                                              ; preds = %_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_10SpecExtendRhINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhEE11spec_extendCs8mTrBI1stz4_15turborepo_vt100.exit198
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %626, i64 noundef 1)
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %626, i64 noundef 1)
   %.pre.i.i199 = load i64, ptr %53, align 8, !alias.scope !444
   br label %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit200
 
@@ -3626,7 +3626,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
   br i1 %642, label %643, label %646
 
 643:                                              ; preds = %635
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %639, i64 noundef %638)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %639, i64 noundef %638)
           to label %.noexc202 unwind label %644
 
 .noexc202:                                        ; preds = %643
@@ -3653,7 +3653,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
 652:                                              ; preds = %646
   %653 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %28)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
           to label %common.resume unwind label %654
 
 654:                                              ; preds = %652
@@ -3663,7 +3663,7 @@ _RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9writ
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit206: ; preds = %646
-  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %28)
+  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   br label %_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf.exit191
 
@@ -3842,7 +3842,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %726, label %727, label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i226
 
 727:                                              ; preds = %722
-  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %723, i64 noundef 2), !noalias !472
+  call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %723, i64 noundef 2), !noalias !472
   %.pre.i.i.i227 = load i64, ptr %53, align 8, !alias.scope !467, !noalias !472
   br label %_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit.i226
 
@@ -3963,7 +3963,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %777, label %778, label %781
 
 778:                                              ; preds = %769
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %774, i64 noundef %773)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %774, i64 noundef %773)
           to label %.noexc235 unwind label %779
 
 .noexc235:                                        ; preds = %778
@@ -3995,7 +3995,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 787:                                              ; preds = %781
   %788 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %26)
           to label %common.resume unwind label %789
 
 789:                                              ; preds = %787
@@ -4006,7 +4006,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit239: ; preds = %781
   %791 = add i16 %.98, %.sroa.16.7
-  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
+  call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull align 8 dereferenceable(24) %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   br label %.outer
 }

@@ -686,7 +686,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define void @_ZN7rocksdb22HistogramWindowingImpl5ClearEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -734,7 +734,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZNSt10lock_guardIS
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit12, %lpad.loopexit ], [ %lpad.loopexit.split-lp13, %lpad.loopexit.split-lp ]
-  %call1.i.i.i9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #11
+  %call1.i.i.i9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
@@ -751,7 +751,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 invoke.cont5:                                     ; preds = %for.end
   %last_swap_time_ = getelementptr inbounds i8, ptr %this, i64 1000
   store atomic i64 %call6, ptr %last_swap_time_ monotonic, align 8
-  %call1.i.i.i10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #11
+  %call1.i.i.i10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   ret void
 }
 
@@ -880,7 +880,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define void @_ZN7rocksdb22HistogramWindowingImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(1032) %this, ptr noundef nonnull align 8 dereferenceable(1032) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -922,7 +922,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZNSt10lock_guardIS
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
-  %call1.i.i.i11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #11
+  %call1.i.i.i11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -972,7 +972,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp14, label %for.body, label %cleanup, !llvm.loop !6
 
 cleanup:                                          ; preds = %for.inc, %if.end, %invoke.cont, %lor.lhs.false
-  %call1.i.i.i14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #11
+  %call1.i.i.i14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   ret void
 }
 
@@ -1059,7 +1059,7 @@ declare void @_ZNK7rocksdb13HistogramStat4DataEPNS_13HistogramDataE(ptr noundef 
 define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
-  %call1.i.i = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %mutex_) #11
+  %call1.i.i = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i, label %if.then, label %if.end76
 
@@ -1209,7 +1209,7 @@ if.end64:                                         ; preds = %for.end62, %if.end3
 
 if.end74:                                         ; preds = %if.end64, %if.then
   store atomic i64 %cond, ptr %current_window_.i monotonic, align 8
-  %call1.i.i59 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #11
+  %call1.i.i59 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end74, %entry

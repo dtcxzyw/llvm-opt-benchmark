@@ -554,7 +554,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn23ActivationLayerInt8ImplD2Ev(ptr nou
 define linkonce_odr hidden void @_ZN2cv3dnn23ActivationLayerInt8ImplD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #19
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -718,11 +718,11 @@ define linkonce_odr hidden void @_ZN2cv3dnn23ActivationLayerInt8Impl7forwardERKN
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #19
   br label %.body
 
 _ZN2cv3dnn23ActivationLayerInt8Impl10Activation3runERKNS_3MatES5_RS3_i.exit: ; preds = %57
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %66
@@ -1646,7 +1646,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn23ActivationLayerInt8Impl10Activation
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn23ActivationLayerInt8Impl10ActivationD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -1814,7 +1814,7 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 120
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #19
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %1) #19
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %1) #19
   tail call void @_ZdlPv(ptr noundef nonnull %1) #18
   br label %15
 
@@ -1867,7 +1867,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv3dnn23ActivationLay
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 120
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %3) #19
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #19
   tail call void @_ZdlPv(ptr noundef nonnull %3) #18
   br label %7
 

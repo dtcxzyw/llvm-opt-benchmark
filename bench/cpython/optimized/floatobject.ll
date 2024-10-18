@@ -5216,12 +5216,12 @@ if.else20.i:                                      ; preds = %if.else.i, %if.end9
   br i1 %cmp.not.i61.i, label %do.end.thread.i.i, label %if.then11.i.i
 
 do.end.thread.i.i:                                ; preds = %if.else20.i
-  %call525.i.i = call ptr @_Py_dg_dtoa(double noundef %call.i, i32 noundef 3, i32 noundef %conv.i, ptr noundef nonnull %decpt.i.i, ptr noundef nonnull %sign.i.i, ptr noundef nonnull %buf_end.i.i) #17
+  %call525.i.i = call ptr @_Py_dg_dtoa(double noundef %call.i, i32 noundef 3, i32 noundef range(i32 -308, 324) %conv.i, ptr noundef nonnull %decpt.i.i, ptr noundef nonnull %sign.i.i, ptr noundef nonnull %buf_end.i.i) #17
   br label %do.end13.i.i
 
 if.then11.i.i:                                    ; preds = %if.else20.i
   tail call void @_Py_set_387controlword(i16 noundef zeroext %or.i.i) #17
-  %call5.i62.i = call ptr @_Py_dg_dtoa(double noundef %call.i, i32 noundef 3, i32 noundef %conv.i, ptr noundef nonnull %decpt.i.i, ptr noundef nonnull %sign.i.i, ptr noundef nonnull %buf_end.i.i) #17
+  %call5.i62.i = call ptr @_Py_dg_dtoa(double noundef %call.i, i32 noundef 3, i32 noundef range(i32 -308, 324) %conv.i, ptr noundef nonnull %decpt.i.i, ptr noundef nonnull %sign.i.i, ptr noundef nonnull %buf_end.i.i) #17
   call void @_Py_set_387controlword(i16 noundef zeroext %call.i.i) #17
   br label %do.end13.i.i
 
@@ -6633,8 +6633,8 @@ if.then:                                          ; preds = %entry
   %spec.select = select i1 %cmp5, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %x
   %0 = getelementptr i8, ptr %spec.select, i64 8
   %x.val.i = load ptr, ptr %0, align 8
-  %cmp.i9.not.i = icmp eq ptr %x.val.i, @PyUnicode_Type
-  br i1 %cmp.i9.not.i, label %if.then10.i, label %if.end12.i
+  %cmp.i9.i.not = icmp eq ptr %x.val.i, @PyUnicode_Type
+  br i1 %cmp.i9.i.not, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.then
   %call11.i = tail call ptr @PyFloat_FromString(ptr noundef nonnull %spec.select)
@@ -6645,8 +6645,8 @@ if.end12.i:                                       ; preds = %if.then
   br label %float_new_impl.exit
 
 float_new_impl.exit:                              ; preds = %if.then10.i, %if.end12.i
-  %retval.0.i = phi ptr [ %call11.i, %if.then10.i ], [ %call13.i, %if.end12.i ]
-  %cmp.i = icmp eq ptr %retval.0.i, null
+  %retval.0.i12 = phi ptr [ %call11.i, %if.then10.i ], [ %call13.i, %if.end12.i ]
+  %cmp.i = icmp eq ptr %retval.0.i12, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %float_new_impl.exit
@@ -6657,39 +6657,39 @@ if.end.i:                                         ; preds = %float_new_impl.exit
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %2 = load i64, ptr %retval.0.i, align 8
+  %2 = load i64, ptr %retval.0.i12, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i16.not.i = icmp eq i64 %3, 0
   br i1 %cmp.i16.not.i, label %if.end.i9.i, label %return
 
 if.end.i9.i:                                      ; preds = %if.then3.i
   %dec.i10.i = add i64 %2, -1
-  store i64 %dec.i10.i, ptr %retval.0.i, align 8
+  store i64 %dec.i10.i, ptr %retval.0.i12, align 8
   %cmp.i11.i = icmp eq i64 %dec.i10.i, 0
   br i1 %cmp.i11.i, label %if.then1.i12.i, label %return
 
 if.then1.i12.i:                                   ; preds = %if.end.i9.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i) #17
+  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i12) #17
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %ob_fval.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %ob_fval.i = getelementptr inbounds i8, ptr %retval.0.i12, i64 16
   %4 = load double, ptr %ob_fval.i, align 8
   %ob_fval5.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store double %4, ptr %ob_fval5.i, align 8
-  %5 = load i64, ptr %retval.0.i, align 8
+  %5 = load i64, ptr %retval.0.i12, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i19.not.i = icmp eq i64 %6, 0
   br i1 %cmp.i19.not.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.end4.i
   %dec.i.i = add i64 %5, -1
-  store i64 %dec.i.i, ptr %retval.0.i, align 8
+  store i64 %dec.i.i, ptr %retval.0.i12, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %return
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i) #17
+  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i12) #17
   br label %return
 
 if.end4:                                          ; preds = %entry

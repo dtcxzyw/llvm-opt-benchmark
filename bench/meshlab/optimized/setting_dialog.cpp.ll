@@ -640,7 +640,7 @@ define void @_ZN13SettingDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZThn16_N13SettingDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN13SettingDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(320) %2) #12
   ret void
 }
 

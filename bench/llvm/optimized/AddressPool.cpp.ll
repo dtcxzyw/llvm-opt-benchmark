@@ -95,7 +95,7 @@ define dso_local noundef i32 @_ZN4llvm11AddressPool8getIndexEPKNS_8MCSymbolEb(pt
 
 38:                                               ; preds = %27, %3
   %.sink.i.i.i.i = phi ptr [ %28, %27 ], [ null, %3 ]
-  %39 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolENS_11AddressPool16AddressPoolEntryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E20InsertIntoBucketImplIS4_EEPSB_RKS4_RKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !4
+  %39 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolENS_11AddressPool16AddressPoolEntryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E20InsertIntoBucketImplIS4_EEPSB_RKS4_RKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.sink.i.i.i.i), !noalias !4
   %40 = load ptr, ptr %4, align 8, !noalias !4
   store ptr %40, ptr %39, align 8, !noalias !4
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -238,8 +238,8 @@ define dso_local void @_ZN4llvm11AddressPool4emitERNS_10AsmPrinterEPNS_9MCSectio
   %25 = load i32, ptr %5, align 8
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %27, i64 noundef 64) #7
-  call void @_ZN4llvm15SmallVectorImplIPKNS_6MCExprEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %26)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull %27, i64 noundef 64) #7
+  call void @_ZN4llvm15SmallVectorImplIPKNS_6MCExprEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(528) %4, i64 noundef %26)
   %28 = load i32, ptr %5, align 8
   %29 = icmp eq i32 %28, 0
   %30 = load ptr, ptr %0, align 8
@@ -365,7 +365,7 @@ _ZN4llvm16DenseMapIteratorIPKNS_8MCSymbolENS_11AddressPool16AddressPoolEntryENS_
   br label %80
 
 80:                                               ; preds = %75, %._crit_edge42
-  %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
+  %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %4) #7
   %82 = load ptr, ptr %4, align 8
   %83 = icmp eq ptr %82, %27
   br i1 %83, label %_ZN4llvm11SmallVectorIPKNS_6MCExprELj64EED2Ev.exit, label %84

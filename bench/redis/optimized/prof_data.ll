@@ -139,7 +139,7 @@ if.then.i.i:                                      ; preds = %if.end.i6
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i6, %if.then.i.i
   %6 = load ptr, ptr @tdatas, align 8
-  %call2.i = call fastcc ptr @tdata_tree_iter_recurse(ptr noundef %6, ptr noundef nonnull readonly @prof_tdata_count_iter, ptr noundef nonnull %tdata_count)
+  %call2.i = call fastcc ptr @tdata_tree_iter_recurse(ptr noundef %6, ptr noundef nonnull @prof_tdata_count_iter, ptr noundef nonnull %tdata_count)
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @tdatas_mtx, i64 104) monotonic, align 8
   %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @tdatas_mtx, i64 64)) #12
   %7 = load i64, ptr %tdata_count, align 8
@@ -203,7 +203,7 @@ if.end.i16:                                       ; preds = %if.end3
 if.end5.i:                                        ; preds = %if.end.i16
   %shl.i = shl nuw i64 %add, 1
   %sub.i = add i64 %shl.i, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 8193, -2305843009213693952) %sub.i, i1 true)
   %2 = trunc nuw nsw i64 %1 to i32
   %conv1.i.i.i.i = shl nuw nsw i32 %2, 2
   %sub8.i = xor i32 %conv1.i.i.i.i, 252

@@ -100,7 +100,7 @@ entry:
   %status_ = getelementptr inbounds i8, ptr %this, i64 32
   %state_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %state_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status_, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status_, i8 0, i64 6, i1 false)
   %cmp.not.i.i = icmp eq ptr %status_, %status
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %if.then.i.i
 
@@ -181,7 +181,7 @@ entry:
   %status_ = getelementptr inbounds i8, ptr %this, i64 32
   %state_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %state_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status_, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status_, i8 0, i64 6, i1 false)
   %cmp.not.i.i = icmp eq ptr %status_, %status
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %if.then.i.i
 
@@ -269,7 +269,7 @@ entry:
   %status_ = getelementptr inbounds i8, ptr %this, i64 32
   %state_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %state_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status_, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status_, i8 0, i64 6, i1 false)
   %cmp.not.i.i = icmp eq ptr %status_, %status
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %if.then.i.i
 
@@ -585,7 +585,7 @@ entry:
   %status_ = getelementptr inbounds i8, ptr %this, i64 40
   %state_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %state_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status_, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status_, i8 0, i64 6, i1 false)
   %cmp.not.i.i = icmp eq ptr %status_, %status
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %if.then.i.i
 
@@ -692,7 +692,7 @@ entry:
   %status_ = getelementptr inbounds i8, ptr %this, i64 40
   %state_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %state_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status_, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status_, i8 0, i64 6, i1 false)
   %cmp.not.i.i = icmp eq ptr %status_, %status
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %if.then.i.i
 

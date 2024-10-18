@@ -3286,7 +3286,7 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   store float %79, ptr %80, align 4
   %81 = fmul float %13, 5.000000e-01
   tail call void @glLineWidth(float noundef %81)
-  call void @glColor4ubv(ptr noundef nonnull %20)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %20)
   call void @glBegin(i32 noundef 1)
   %82 = fcmp ugt float %76, %79
   br i1 %82, label %.preheader104, label %.lr.ph
@@ -3309,8 +3309,8 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   %.080105 = phi float [ %76, %.lr.ph ], [ %89, %88 ]
   store float %.080105, ptr %83, align 4
   store float %.080105, ptr %84, align 4
-  call void @glVertex3fv(ptr noundef nonnull %22)
-  call void @glVertex3fv(ptr noundef nonnull %23)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %22)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
   %89 = fadd float %11, %.080105
   %90 = fcmp ugt float %89, %79
   br i1 %90, label %.preheader104, label %88, !llvm.loop !90
@@ -3319,8 +3319,8 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   %.079106 = phi float [ %69, %.lr.ph107 ], [ %92, %91 ]
   store float %.079106, ptr %86, align 4
   store float %.079106, ptr %87, align 4
-  call void @glVertex3fv(ptr noundef nonnull %24)
-  call void @glVertex3fv(ptr noundef nonnull %25)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %24)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %25)
   %92 = fadd float %11, %.079106
   %93 = fcmp ugt float %92, %72
   br i1 %93, label %._crit_edge, label %91, !llvm.loop !91
@@ -3328,7 +3328,7 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
 ._crit_edge:                                      ; preds = %91, %.preheader104
   call void @glEnd()
   call void @glLineWidth(float noundef %13)
-  call void @glColor4ubv(ptr noundef nonnull %19)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %19)
   call void @glBegin(i32 noundef 1)
   br i1 %82, label %.preheader, label %.lr.ph110
 
@@ -3349,8 +3349,8 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   %.078108 = phi float [ %76, %.lr.ph110 ], [ %99, %98 ]
   store float %.078108, ptr %94, align 4
   store float %.078108, ptr %95, align 4
-  call void @glVertex3fv(ptr noundef nonnull %22)
-  call void @glVertex3fv(ptr noundef nonnull %23)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %22)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
   %99 = fadd float %10, %.078108
   %100 = fcmp ugt float %99, %79
   br i1 %100, label %.preheader, label %98, !llvm.loop !92
@@ -3359,15 +3359,15 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   %.0111 = phi float [ %69, %.lr.ph112 ], [ %102, %101 ]
   store float %.0111, ptr %96, align 4
   store float %.0111, ptr %97, align 4
-  call void @glVertex3fv(ptr noundef nonnull %24)
-  call void @glVertex3fv(ptr noundef nonnull %25)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %24)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %25)
   %102 = fadd float %10, %.0111
   %103 = fcmp ugt float %102, %72
   br i1 %103, label %._crit_edge113, label %101, !llvm.loop !93
 
 ._crit_edge113:                                   ; preds = %101, %.preheader
   call void @glEnd()
-  call void @glColor4ubv(ptr noundef nonnull %21)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %21)
   %104 = fmul float %13, 1.500000e+00
   call void @glLineWidth(float noundef %104)
   call void @glBegin(i32 noundef 1)
@@ -3386,8 +3386,8 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   store float 0.000000e+00, ptr %112, align 4
   %113 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %74
   store float 0.000000e+00, ptr %113, align 4
-  call void @glVertex3fv(ptr noundef nonnull %22)
-  call void @glVertex3fv(ptr noundef nonnull %23)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %22)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
   br label %114
 
 114:                                              ; preds = %111, %._crit_edge113
@@ -3406,8 +3406,8 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   store float %79, ptr %123, align 4
   store float 0.000000e+00, ptr %73, align 4
   store float 0.000000e+00, ptr %70, align 4
-  call void @glVertex3fv(ptr noundef nonnull %22)
-  call void @glVertex3fv(ptr noundef nonnull %23)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %22)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
   br label %124
 
 124:                                              ; preds = %121, %114

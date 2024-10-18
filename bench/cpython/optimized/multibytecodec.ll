@@ -2853,7 +2853,7 @@ if.end14:                                         ; preds = %if.end
 
 skip_optional_pos:                                ; preds = %if.end14, %if.end
   %final.0 = phi i32 [ %call16, %if.end14 ], [ 0, %if.end ]
-  %call.i = call fastcc ptr @encoder_encode_stateful(ptr noundef %self, ptr noundef %3, i32 noundef %final.0)
+  %call.i = call fastcc ptr @encoder_encode_stateful(ptr noundef %self, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %final.0)
   br label %exit
 
 exit:                                             ; preds = %if.end14, %cond.end9, %skip_optional_pos
@@ -3860,7 +3860,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 if.else.i.i:                                      ; preds = %while.body.i.i
   %15 = load ptr, ptr %codec.i.i, align 8
   %16 = load ptr, ptr %errors.i.i, align 8
-  %call9.i.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %15, ptr noundef %buf.i, ptr noundef %16, i64 noundef %call.i.i)
+  %call9.i.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %15, ptr noundef nonnull %buf.i, ptr noundef %16, i64 noundef %call.i.i)
   %tobool.not.i.i = icmp eq i32 %call9.i.i, 0
   br i1 %tobool.not.i.i, label %while.cond.i.i, label %errorexit.i, !llvm.loop !7
 
@@ -4806,7 +4806,7 @@ while.body.i:                                     ; preds = %while.cond.i
 if.else.i:                                        ; preds = %while.body.i
   %17 = load ptr, ptr %codec.i, align 8
   %18 = load ptr, ptr %errors.i, align 8
-  %call9.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %17, ptr noundef %buf, ptr noundef %18, i64 noundef %call.i)
+  %call9.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %17, ptr noundef nonnull %buf, ptr noundef %18, i64 noundef %call.i)
   %tobool.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool.not.i, label %while.cond.i, label %if.then.i70, !llvm.loop !7
 

@@ -212,7 +212,7 @@ common.resume:                                    ; preds = %ehcleanup16.i, %lpa
 lpad.i:                                           ; preds = %sw.bb
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN12_GLOBAL__N_120act_case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call21) #24
+  tail call void @_ZN12_GLOBAL__N_120act_case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call21) #24
   br label %common.resume
 
 sw.bb22:                                          ; preds = %if.end19
@@ -233,7 +233,7 @@ sw.bb22:                                          ; preds = %if.end19
 lpad.i31:                                         ; preds = %sw.bb22
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN12_GLOBAL__N_120act_case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call23) #24
+  tail call void @_ZN12_GLOBAL__N_120act_case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %call23) #24
   br label %common.resume
 
 _ZN12_GLOBAL__N_121cact_case_split_queueC2ERN3smt7contextER10smt_params.exit: ; preds = %sw.bb22
@@ -3282,7 +3282,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #24
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -3822,7 +3822,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   store ptr %5, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store double %3, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprdE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprdE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
@@ -11329,14 +11329,14 @@ entry:
   store i32 %v, ptr %ref.tmp.i, align 4
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
   store i32 %phase, ptr %m_value.i.i, align 4
-  call void @_ZN14core_hashtableI17default_map_entryIj5lboolEN9table2mapIS2_8int_hash10default_eqIjEE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_theory_var_phase, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i)
+  call void @_ZN14core_hashtableI17default_map_entryIj5lboolEN9table2mapIS2_8int_hash10default_eqIjEE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIjS1_E(ptr noundef nonnull align 8 dereferenceable(24) %m_theory_var_phase, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %m_theory_var_priority = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i1)
   store i32 %v, ptr %ref.tmp.i1, align 8
   %m_value.i.i2 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 8
   store double %priority, ptr %m_value.i.i2, align 8
-  call void @_ZN14core_hashtableI17default_map_entryIjdEN9table2mapIS1_8int_hash10default_eqIjEE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataIjdE(ptr noundef nonnull align 8 dereferenceable(20) %m_theory_var_priority, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i1)
+  call void @_ZN14core_hashtableI17default_map_entryIjdEN9table2mapIS1_8int_hash10default_eqIjEE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataIjdE(ptr noundef nonnull align 8 dereferenceable(24) %m_theory_var_priority, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i1)
   %m_queue = getelementptr inbounds i8, ptr %this, i64 48
   %0 = getelementptr inbounds i8, ptr %this, i64 72

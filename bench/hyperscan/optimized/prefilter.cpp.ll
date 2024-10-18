@@ -108,7 +108,7 @@ declare void @_ZN3ue223DefaultComponentVisitorD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue216PrefilterVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN3ue223DefaultComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN3ue223DefaultComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -121,7 +121,7 @@ define hidden void @_ZN3ue213prefilterTreeERSt10unique_ptrINS_9ComponentESt14def
 entry:
   %vis = alloca %"class.ue2::PrefilterVisitor", align 8
   %0 = load ptr, ptr %root, align 8
-  call void @_ZN3ue223DefaultComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis)
+  call void @_ZN3ue223DefaultComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vis)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue216PrefilterVisitorE, i64 16), ptr %vis, align 8
   %root.i = getelementptr inbounds i8, ptr %vis, i64 8
   store ptr %0, ptr %root.i, align 8
@@ -154,11 +154,11 @@ _ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i.i: ; preds = %if.then
 lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3ue223DefaultComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis) #18
+  call void @_ZN3ue223DefaultComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vis) #18
   resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i.i, %if.then, %invoke.cont
-  call void @_ZN3ue223DefaultComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis) #18
+  call void @_ZN3ue223DefaultComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vis) #18
   ret void
 }
 
@@ -257,7 +257,7 @@ for.end:                                          ; preds = %_ZNSt10unique_ptrIN
   %vtable.i = load ptr, ptr %call, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %11 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %call.i = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef nonnull align 8 dereferenceable(24) %this)
   %cmp.not.i9 = icmp eq ptr %call.i, %call
   br i1 %cmp.not.i9, label %_ZN3ue216PrefilterVisitor17visit_replacementINS_17ComponentSequenceEEEPNS_9ComponentEPT_.exit, label %delete.notnull.i
 
@@ -295,7 +295,7 @@ entry:
   br i1 %call3, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis)
+  call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(44) %vis)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis, align 8
   %name.i10 = getelementptr inbounds i8, ptr %vis, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i10, ptr noundef nonnull align 8 dereferenceable(32) %name.i)
@@ -308,7 +308,7 @@ common.resume:                                    ; preds = %_ZNKSt14default_del
 lpad.i:                                           ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis) #18
+  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %vis) #18
   br label %common.resume
 
 _ZN3ue212_GLOBAL__N_119FindSequenceVisitorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.then
@@ -319,7 +319,7 @@ _ZN3ue212_GLOBAL__N_119FindSequenceVisitorC2ERKNSt7__cxx1112basic_stringIcSt11ch
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %3 = load ptr, ptr %vfn.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %vis)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %vis)
           to label %if.end11 unwind label %lpad.i11
 
 lpad.i11:                                         ; preds = %_ZN3ue212_GLOBAL__N_119FindSequenceVisitorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -334,7 +334,7 @@ lpad.i11:                                         ; preds = %_ZN3ue212_GLOBAL__N
 lpad.body:                                        ; preds = %lpad.i11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i10) #18
-  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis) #18
+  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %vis) #18
   br label %common.resume
 
 if.else:                                          ; preds = %entry
@@ -342,7 +342,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not, label %if.end21, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis6)
+  call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(44) %vis6)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis6, align 8
   %name.i14 = getelementptr inbounds i8, ptr %vis6, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i14) #18
@@ -353,7 +353,7 @@ if.then5:                                         ; preds = %if.else
   %vtable.i16 = load ptr, ptr %7, align 8
   %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 32
   %8 = load ptr, ptr %vfn.i17, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %vis6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(44) %vis6)
           to label %if.end11 unwind label %lpad.i18
 
 lpad.i18:                                         ; preds = %if.then5
@@ -368,7 +368,7 @@ lpad.i18:                                         ; preds = %if.then5
 lpad8.body:                                       ; preds = %lpad.i18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis6, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i14) #18
-  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis6) #18
+  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %vis6) #18
   br label %common.resume
 
 if.end11.sink.split:                              ; preds = %lpad.i18, %lpad.i11
@@ -386,13 +386,13 @@ if.end11:                                         ; preds = %if.end11.sink.split
   %ref.0 = phi ptr [ null, %_ZN3ue212_GLOBAL__N_119FindSequenceVisitorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ null, %if.then5 ], [ %13, %if.end11.sink.split ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %vis6.sink62, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i14.sink) #18
-  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis6.sink62) #18
+  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %vis6.sink62) #18
   %tobool.not = icmp eq ptr %ref.0, null
   br i1 %tobool.not, label %if.end21, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %vis.i)
-  invoke void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis.i)
+  invoke void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %vis.i)
           to label %.noexc.i unwind label %lpad.i27
 
 .noexc.i:                                         ; preds = %land.lhs.true
@@ -407,7 +407,7 @@ lpad.i.i:                                         ; preds = %.noexc.i
   %14 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3ue212_GLOBAL__N_119SafeReferentVisitor6UnsafeE
-  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis.i) #18
+  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %vis.i) #18
   br label %catch.dispatch.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i
@@ -478,7 +478,7 @@ _ZN3ue212_GLOBAL__N_114isSafeReferentERKNS_9ComponentE.exit.thread: ; preds = %c
   br label %if.end21
 
 _ZN3ue212_GLOBAL__N_114isSafeReferentERKNS_9ComponentE.exit: ; preds = %invoke.cont2.i, %_ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.i.i.i.i.i
-  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis.i) #18
+  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %vis.i) #18
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %vis.i)
   br i1 %cmp.i.i, label %do.end, label %if.end21
 
@@ -492,7 +492,7 @@ do.end:                                           ; preds = %_ZN3ue212_GLOBAL__N
           to label %call.i.noexc unwind label %lpad16
 
 call.i.noexc:                                     ; preds = %do.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i35, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i35, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
           to label %.noexc unwind label %lpad16
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -502,7 +502,7 @@ call.i.noexc:                                     ; preds = %do.end
 lpad.i34:                                         ; preds = %.noexc
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   br label %ehcleanup
 
 invoke.cont17:                                    ; preds = %.noexc
@@ -518,7 +518,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   %vtable.i39 = load ptr, ptr %call14, align 8
   %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 24
   %27 = load ptr, ptr %vfn.i40, align 8
-  %call.i = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(88) %call14, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %call.i = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(88) %call14, ptr noundef nonnull align 8 dereferenceable(24) %this)
   %cmp.not.i = icmp eq ptr %call.i, %call14
   br i1 %cmp.not.i, label %return, label %delete.notnull.i
 
@@ -714,7 +714,7 @@ if.end21:                                         ; preds = %if.then16, %for.end
   %vtable.i = load ptr, ptr %call, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %14 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %call.i = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef nonnull align 8 dereferenceable(24) %this)
   %cmp.not.i14 = icmp eq ptr %call.i, %call
   br i1 %cmp.not.i14, label %return, label %delete.notnull.i
 
@@ -960,7 +960,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %this, align 8
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #18
-  tail call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -1189,7 +1189,7 @@ _ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.i.i.i.i: ; preds = %_ZN
   br label %_ZN3ue212_GLOBAL__N_119SafeReferentVisitorD2Ev.exit
 
 _ZN3ue212_GLOBAL__N_119SafeReferentVisitorD2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.i.i.i.i
-  tail call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }

@@ -224,7 +224,7 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit: ; preds = %entry
           to label %call.i.noexc unwind label %lpad12
 
 call.i.noexc:                                     ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10, ptr noundef %call.i27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef %call.i27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
           to label %.noexc28 unwind label %lpad12
 
 .noexc28:                                         ; preds = %call.i.noexc
@@ -241,7 +241,7 @@ invoke.cont.i26:                                  ; preds = %if.then.i25
 lpad.i:                                           ; preds = %if.end.i, %if.then.i25
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #14
   br label %ehcleanup18
 
 if.end.i:                                         ; preds = %.noexc28
@@ -868,7 +868,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }

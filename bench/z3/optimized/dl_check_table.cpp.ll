@@ -598,7 +598,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %call15) #15
+  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call15) #15
   resume { ptr, i32 } %13
 
 _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit: ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
@@ -2078,7 +2078,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i30
   %vtable.i.i.i.i.i = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %vtable.i.i.i.i.i, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(12) %51) #15
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %51)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %51)
           to label %_ZN7datalog10table_base8iteratorD2Ev.exit unwind label %terminate.lpad.i.i31
 
 terminate.lpad.i.i31:                             ; preds = %if.then.i.i.i.i
@@ -2105,7 +2105,7 @@ if.then.i.i.i.i37:                                ; preds = %if.then.i.i.i33
   %vtable.i.i.i.i.i38 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %vtable.i.i.i.i.i38, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(12) %56) #15
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %56)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %56)
           to label %_ZN7datalog10table_base8iteratorD2Ev.exit40 unwind label %terminate.lpad.i.i39
 
 terminate.lpad.i.i39:                             ; preds = %if.then.i.i.i.i37
@@ -2132,7 +2132,7 @@ if.then.i.i.i.i46:                                ; preds = %if.then.i.i.i42
   %vtable.i.i.i.i.i47 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %vtable.i.i.i.i.i47, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(12) %61) #15
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %61)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %61)
           to label %_ZN7datalog10table_base8iteratorD2Ev.exit49 unwind label %terminate.lpad.i.i48
 
 terminate.lpad.i.i48:                             ; preds = %if.then.i.i.i.i46
@@ -2159,7 +2159,7 @@ if.then.i.i.i.i55:                                ; preds = %if.then.i.i.i51
   %vtable.i.i.i.i.i56 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %vtable.i.i.i.i.i56, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(12) %66) #15
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %66)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %66)
           to label %_ZN7datalog10table_base8iteratorD2Ev.exit58 unwind label %terminate.lpad.i.i57
 
 terminate.lpad.i.i57:                             ; preds = %if.then.i.i.i.i55
@@ -2456,7 +2456,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #15
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %0)
           to label %_ZN3refIN7datalog10table_base13iterator_coreEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -2719,7 +2719,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %call11) #15
+  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call11) #15
   resume { ptr, i32 } %14
 
 _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit: ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
@@ -2804,7 +2804,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %call) #15
+  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call) #15
   resume { ptr, i32 } %14
 
 _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit: ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
@@ -2961,7 +2961,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(36) %this) #15
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %this)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(36) %this)
   ret void
 }
 
@@ -3315,7 +3315,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %call21) #15
+  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call21) #15
   resume { ptr, i32 } %18
 
 _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit: ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
@@ -3512,7 +3512,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %call11) #15
+  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call11) #15
   resume { ptr, i32 } %18
 
 _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit: ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
@@ -3922,7 +3922,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %call9) #15
+  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call9) #15
   resume { ptr, i32 } %16
 
 _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit: ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
@@ -4108,7 +4108,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %call9) #15
+  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call9) #15
   resume { ptr, i32 } %16
 
 _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit: ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
@@ -4317,7 +4317,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %call19) #15
+  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call19) #15
   resume { ptr, i32 } %16
 
 _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit: ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
@@ -4902,7 +4902,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
 lpad.i:                                           ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %call9) #15
+  tail call void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call9) #15
   resume { ptr, i32 } %16
 
 _ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_.exit: ; preds = %_ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i

@@ -1227,7 +1227,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h99d0e3e74438d084E(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #0 {
-  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b0dd6a7da785fd2653983024a7106a77.28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b0dd6a7da785fd2653983024a7106a77.28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
   ret i1 %3
 }
 

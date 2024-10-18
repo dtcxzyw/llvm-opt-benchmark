@@ -50,12 +50,12 @@ define internal fastcc void @doBlock(ptr noundef %0, ptr noundef %1, double noun
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, i64 noundef %.025.lcssa, i64 noundef 56) #11
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, i64 noundef range(i64 1, 0) %.025.lcssa, i64 noundef 56) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call noalias ptr @calloc(i64 noundef %.025.lcssa, i64 noundef 56) #13
+  %15 = tail call noalias ptr @calloc(i64 noundef range(i64 1, 0) %.025.lcssa, i64 noundef 56) #13
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %gv_calloc.exit.i
 

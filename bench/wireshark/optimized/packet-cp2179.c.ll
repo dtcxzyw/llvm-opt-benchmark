@@ -331,7 +331,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_cp2179(ptr noundef %0, pt
   br i1 %or.cond, label %13, label %38
 
 13:                                               ; preds = %7
-  %14 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %5) #3
+  %14 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 7, -2147483648) %5) #3
   %15 = getelementptr inbounds i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %5 to i64

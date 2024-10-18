@@ -38431,7 +38431,7 @@ cleanup.cont77:                                   ; preds = %_ZNKSt14default_del
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %registry, i64 16
   %94 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 16, !tbaa !325
   store ptr %94, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 16, !tbaa !325
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %registry, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %registry, i8 0, i64 24, i1 false)
   %packed.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %packed3.i.i.i = getelementptr inbounds i8, ptr %registry, i64 24
   %95 = load <2 x ptr>, ptr %packed3.i.i.i, align 8, !tbaa !24
@@ -39167,7 +39167,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i3, align 8, !tbaa !325
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i2, align 8, !tbaa !325
   %tobool.not.i.i.i.i.i.i.i.i4 = icmp eq ptr %0, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %other, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i4, label %_ZN4entt15compressed_pairISt6vectorImSaImEENS_8identityEEaSEOS5_.exit.i, label %if.then.i.i.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i.i.i5:                         ; preds = %entry
@@ -40863,7 +40863,7 @@ entry:
   store <2 x ptr> %5, ptr %this, align 8, !tbaa !24
   %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8, !tbaa !325
   store ptr %6, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8, !tbaa !325
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %other, i8 0, i64 24, i1 false)
   %packed3.i = getelementptr inbounds i8, ptr %other, i64 24
   %7 = load ptr, ptr %packed3.i.i.i, align 8, !tbaa !62
   %_M_finish.i.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -126216,7 +126216,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZNK4entt16basic_sp
   %vtable.i.i.i.i = load ptr, ptr %call2, align 8, !tbaa !4
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %call2, ptr nonnull %packed.i.i.i.i.i.i, i64 %inc.i.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i)
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(176) %call2, ptr nonnull %packed.i.i.i.i.i.i, i64 %inc.i.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i)
   br label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit.i.i
 
 _ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit.i.i: ; preds = %land.rhs.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i, %land.lhs.true.i.i.i.i.i, %for.body
@@ -126253,7 +126253,7 @@ land.rhs.i26.i.i:                                 ; preds = %_ZNK4entt16basic_sp
   %vtable.i.i32.i.i = load ptr, ptr %call4, align 8, !tbaa !4
   %vfn.i.i33.i.i = getelementptr inbounds i8, ptr %vtable.i.i32.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i33.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(72) %call4, ptr nonnull %packed.i.i.i.i27.i.i, i64 %inc.i.i.i.i30.i.i, ptr nonnull %packed.i.i.i.i27.i.i, i64 %sub.i.i.i.i31.i.i)
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(176) %call4, ptr nonnull %packed.i.i.i.i27.i.i, i64 %inc.i.i.i.i30.i.i, ptr nonnull %packed.i.i.i.i27.i.i, i64 %sub.i.i.i.i31.i.i)
   br label %_ZSt13__invoke_implIjZN4entt14basic_registryINS0_6entityESaIS2_EE6removeIiJcEPS2_EEmT1_S7_EUlDpRT_E_JRNS0_16basic_sigh_mixinINS0_13basic_storageIiS2_SaIiEvEES4_EERNSC_INSD_IcS2_SaIcEvEES4_EEEET_St14__invoke_otherOT0_DpOT1_.exit
 
 _ZSt13__invoke_implIjZN4entt14basic_registryINS0_6entityESaIS2_EE6removeIiJcEPS2_EEmT1_S7_EUlDpRT_E_JRNS0_16basic_sigh_mixinINS0_13basic_storageIiS2_SaIiEvEES4_EERNSC_INSD_IcS2_SaIcEvEES4_EEEET_St14__invoke_otherOT0_DpOT1_.exit: ; preds = %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit.i.i, %land.lhs.true.i.i.i17.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i20.i.i, %land.rhs.i26.i.i
@@ -211225,7 +211225,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i3, align 8, !tbaa !325
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i2, align 8, !tbaa !325
   %tobool.not.i.i.i.i.i.i.i.i4 = icmp eq ptr %0, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %other, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i4, label %_ZN4entt15compressed_pairISt6vectorImSaImEENS_8identityEEaSEOS5_.exit.i, label %if.then.i.i.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i.i.i5:                         ; preds = %entry

@@ -102,7 +102,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6memory10initializeEm(i64 noundef %max_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN6memory10initializeEmE8init_mux) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN6memory10initializeEmE8init_mux) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -132,13 +132,13 @@ invoke.cont:                                      ; preds = %if.end2
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %invoke.cont
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN6memory10initializeEmE8init_mux) #24
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN6memory10initializeEmE8init_mux) #24
   ret void
 
 lpad:                                             ; preds = %if.end2
   %0 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN6memory10initializeEmE8init_mux) #24
+  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN6memory10initializeEmE8init_mux) #24
   resume { ptr, i32 } %0
 }
 
@@ -170,7 +170,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @_ZL12g_memory_mux, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -182,7 +182,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.end
   %2 = load i64, ptr @_ZL18g_memory_watermark, align 8
   %3 = load i64, ptr @_ZL19g_memory_alloc_size, align 8
   %cmp1 = icmp slt i64 %2, %3
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #24
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -231,7 +231,7 @@ declare void @_ZN12scoped_timer8finalizeEv() local_unnamed_addr #0
 define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN6memory19get_allocation_sizeEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_memory_mux, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -241,7 +241,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %1 = load i64, ptr @_ZL19g_memory_alloc_size, align 8
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
   ret i64 %spec.store.select
 }
@@ -250,7 +250,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN6memory19get_max_used_memoryEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_memory_mux, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -260,7 +260,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %1 = load i64, ptr @_ZL22g_memory_max_used_size, align 8
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   ret i64 %1
 }
 
@@ -281,7 +281,7 @@ entry:
 define hidden void @_ZN6memory17display_max_usageERSo(ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_memory_mux, align 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZN6memory19get_max_used_memoryEv.exit, label %if.then.i.i.i
 
@@ -291,7 +291,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN6memory19get_max_used_memoryEv.exit:           ; preds = %entry
   %1 = load i64, ptr @_ZL22g_memory_max_used_size, align 8
-  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
+  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str)
   %conv = uitofp nneg i64 %1 to double
   %div = fmul double %conv, 0x3EB0000000000000
@@ -308,7 +308,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 define hidden void @_ZN6memory19display_i_max_usageERSo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_memory_mux, align 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZN6memory19get_max_used_memoryEv.exit, label %if.then.i.i.i
 
@@ -318,7 +318,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN6memory19get_max_used_memoryEv.exit:           ; preds = %entry
   %1 = load i64, ptr @_ZL22g_memory_max_used_size, align 8
-  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
+  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.3)
   %conv = uitofp nneg i64 %1 to double
   %div = fmul double %conv, 0x3EB0000000000000
@@ -342,7 +342,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @_ZL12g_memory_mux, align 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #24
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -369,7 +369,7 @@ if.then.i:                                        ; preds = %_ZNSt10lock_guardIS
   br label %_ZL20synchronize_countersb.exit
 
 _ZL20synchronize_countersb.exit:                  ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %if.then.i
-  %call1.i.i.i8.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #24
+  %call1.i.i.i8.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #24
   store i64 0, ptr %0, align 8
   br label %if.end
 
@@ -390,7 +390,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 define internal fastcc void @_ZL20synchronize_countersb(i1 noundef zeroext %allocating) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_memory_mux, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -423,7 +423,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt10lo
   %cmp3 = icmp sgt i64 %add, %8
   %or.cond.not.not9 = and i1 %cmp2.not, %cmp3
   %9 = load i64, ptr @_ZL24g_memory_max_alloc_count, align 8
-  %call1.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
+  %call1.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   store i64 0, ptr %1, align 8
   %brmerge.not = and i1 %allocating, %or.cond.not.not9
   br i1 %brmerge.not, label %if.then13, label %if.end14

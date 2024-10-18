@@ -1226,7 +1226,7 @@ if.end34:                                         ; preds = %if.end22
 
 if.then40:                                        ; preds = %if.end34
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ehdr.i)
-  %call.i = call i64 @read(i32 noundef %call, ptr noundef nonnull %ehdr.i, i64 noundef 64) #23
+  %call.i = call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef nonnull %ehdr.i, i64 noundef 64) #23
   %cmp.not.i = icmp eq i64 %call.i, 64
   br i1 %cmp.not.i, label %if.end.i, label %load_elf64.exit
 
@@ -1358,7 +1358,7 @@ if.end66.i:                                       ; preds = %if.then65.i, %if.en
   %36 = load i64, ptr %e_shoff.i164.i, align 8
   %e_shnum.i165.i = getelementptr inbounds i8, ptr %ehdr.i, i64 60
   %37 = load i16, ptr %e_shnum.i165.i, align 4
-  %call.i.i.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef %36, i32 noundef 0) #23
+  %call.i.i.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %36, i32 noundef 0) #23
   %cmp.i.i.i = icmp slt i64 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %load_symbols64.exit.i, label %if.end.i.i.i
 
@@ -1366,7 +1366,7 @@ if.end.i.i.i:                                     ; preds = %if.end66.i
   %conv.i.i = zext i16 %37 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 6
   %call1.i.i.i = tail call noalias ptr @g_malloc(i64 noundef %mul.i.i) #24
-  %call2.i.i.i = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i.i.i, i64 noundef %mul.i.i) #23
+  %call2.i.i.i = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i.i.i, i64 noundef %mul.i.i) #23
   %cmp3.not.i.i.i = icmp eq i64 %call2.i.i.i, %mul.i.i
   br i1 %cmp3.not.i.i.i, label %load_at.exit.i.i, label %if.then4.i.i.i
 
@@ -1457,13 +1457,13 @@ if.end12.i.i:                                     ; preds = %find_section64.exit
   %59 = load i64, ptr %sh_offset.i.i, align 8
   %sh_size.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 32
   %60 = load i64, ptr %sh_size.i.i, align 8
-  %call.i51.i.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef %59, i32 noundef 0) #23
+  %call.i51.i.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %59, i32 noundef 0) #23
   %cmp.i52.i.i = icmp slt i64 %call.i51.i.i, 0
   br i1 %cmp.i52.i.i, label %load_symbols64.exit.i, label %if.end.i53.i.i
 
 if.end.i53.i.i:                                   ; preds = %if.end12.i.i
   %call1.i54.i.i = tail call noalias ptr @g_malloc(i64 noundef %60) #24
-  %call2.i55.i.i = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i54.i.i, i64 noundef %60) #23
+  %call2.i55.i.i = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i54.i.i, i64 noundef %60) #23
   %cmp3.not.i56.i.i = icmp eq i64 %call2.i55.i.i, %60
   br i1 %cmp3.not.i56.i.i, label %load_at.exit59.i.i, label %if.then4.i57.i.i
 
@@ -1492,13 +1492,13 @@ if.end24.i.i:                                     ; preds = %if.end16.i.i
   %63 = load i64, ptr %sh_offset26.i.i, align 8
   %sh_size27.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %64 = load i64, ptr %sh_size27.i.i, align 8
-  %call.i60.i.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef %63, i32 noundef 0) #23
+  %call.i60.i.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %63, i32 noundef 0) #23
   %cmp.i61.i.i = icmp slt i64 %call.i60.i.i, 0
   br i1 %cmp.i61.i.i, label %load_symbols64.exit.i, label %if.end.i62.i.i
 
 if.end.i62.i.i:                                   ; preds = %if.end24.i.i
   %call1.i63.i.i = tail call noalias ptr @g_malloc(i64 noundef %64) #24
-  %call2.i64.i.i = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i63.i.i, i64 noundef %64) #23
+  %call2.i64.i.i = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i63.i.i, i64 noundef %64) #23
   %cmp3.not.i65.i.i = icmp eq i64 %call2.i64.i.i, %64
   br i1 %cmp3.not.i65.i.i, label %load_at.exit68.i.i, label %if.then4.i66.i.i
 
@@ -1906,7 +1906,7 @@ load_symbols64.exit.i:                            ; preds = %for.cond.i.i.i, %fo
   %137 = load i16, ptr %e_phnum.i, align 8
   %e_phoff.i = getelementptr inbounds i8, ptr %ehdr.i, i64 32
   %138 = load i64, ptr %e_phoff.i, align 8
-  %call69.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef %138, i32 noundef 0) #23
+  %call69.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %138, i32 noundef 0) #23
   %cmp71.not.i = icmp eq i64 %call69.i, %138
   br i1 %cmp71.not.i, label %if.end74.i, label %load_elf64.exit
 
@@ -1918,7 +1918,7 @@ if.end74.i:                                       ; preds = %load_symbols64.exit
   br i1 %tobool77.not.i, label %load_elf64.exit, label %if.end79.i
 
 if.end79.i:                                       ; preds = %if.end74.i
-  %call81.i = tail call i64 @read(i32 noundef %call, ptr noundef nonnull %call76.i, i64 noundef %mul.i) #23
+  %call81.i = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef nonnull %call76.i, i64 noundef %mul.i) #23
   %cmp83.not.i = icmp eq i64 %call81.i, %mul.i
   br i1 %cmp83.not.i, label %if.end86.i, label %load_elf64.exit
 
@@ -1968,12 +1968,12 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond.not.i, label %if.end93.i, label %for.body.i, !llvm.loop !15
 
 if.end93.i:                                       ; preds = %for.body.i, %if.end86.i
-  %call94.i = tail call ptr @g_mapped_file_new_from_fd(i32 noundef %call, i32 noundef 1, ptr noundef null) #23
+  %call94.i = tail call ptr @g_mapped_file_new_from_fd(i32 noundef range(i32 0, -2147483648) %call, i32 noundef 1, ptr noundef null) #23
   %tobool95.not.i = icmp eq ptr %call94.i, null
   br i1 %tobool95.not.i, label %load_elf64.exit, label %for.cond98.preheader.i
 
 if.end93.thread.i:                                ; preds = %for.cond.preheader.i
-  %call94332.i = tail call ptr @g_mapped_file_new_from_fd(i32 noundef %call, i32 noundef 1, ptr noundef null) #23
+  %call94332.i = tail call ptr @g_mapped_file_new_from_fd(i32 noundef range(i32 0, -2147483648) %call, i32 noundef 1, ptr noundef null) #23
   %tobool95.not333.i = icmp eq ptr %call94332.i, null
   br i1 %tobool95.not333.i, label %load_elf64.exit, label %for.end351.i
 
@@ -2086,13 +2086,13 @@ if.end158.i:                                      ; preds = %if.end154.i
 
 if.then160.i:                                     ; preds = %if.end158.i
   %call162.i = tail call i64 %translate_fn(ptr noundef %translate_opaque, i64 noundef %164) #23
-  %call.i.i166.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef %36, i32 noundef 0) #23
+  %call.i.i166.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %36, i32 noundef 0) #23
   %cmp.i.i167.i = icmp slt i64 %call.i.i166.i, 0
   br i1 %cmp.i.i167.i, label %if.end165.i, label %if.end.i.i168.i
 
 if.end.i.i168.i:                                  ; preds = %if.then160.i
   %call1.i.i171.i = tail call noalias ptr @g_malloc(i64 noundef %mul.i170.i) #24
-  %call2.i.i172.i = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i.i171.i, i64 noundef %mul.i170.i) #23
+  %call2.i.i172.i = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i.i171.i, i64 noundef %mul.i170.i) #23
   %cmp3.not.i.i173.i = icmp eq i64 %call2.i.i172.i, %mul.i170.i
   br i1 %cmp3.not.i.i173.i, label %load_at.exit.i174.i, label %return.sink.split.i.i
 
@@ -2177,13 +2177,13 @@ if.end12.i206.i:                                  ; preds = %find_section64.exit
   %186 = load i64, ptr %sh_offset.i207.i, align 8
   %sh_size.i208.i = getelementptr inbounds i8, ptr %arrayidx.i.i199.i, i64 32
   %187 = load i64, ptr %sh_size.i208.i, align 8
-  %call.i40.i.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef %186, i32 noundef 0) #23
+  %call.i40.i.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %186, i32 noundef 0) #23
   %cmp.i41.i.i = icmp slt i64 %call.i40.i.i, 0
   br i1 %cmp.i41.i.i, label %fail.i.i, label %if.end.i42.i.i
 
 if.end.i42.i.i:                                   ; preds = %if.end12.i206.i
   %call1.i43.i.i = tail call noalias ptr @g_malloc(i64 noundef %187) #24
-  %call2.i44.i.i = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i43.i.i, i64 noundef %187) #23
+  %call2.i44.i.i = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i43.i.i, i64 noundef %187) #23
   %cmp3.not.i45.i.i = icmp eq i64 %call2.i44.i.i, %187
   br i1 %cmp3.not.i45.i.i, label %load_at.exit48.i.i, label %if.then4.i46.i.i
 
@@ -2564,7 +2564,7 @@ load_elf64.exit:                                  ; preds = %if.then40, %sw.bb.i
 
 if.else43:                                        ; preds = %if.end34
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %ehdr.i28)
-  %call.i29 = call i64 @read(i32 noundef %call, ptr noundef nonnull %ehdr.i28, i64 noundef 52) #23
+  %call.i29 = call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef nonnull %ehdr.i28, i64 noundef 52) #23
   %cmp.not.i30 = icmp eq i64 %call.i29, 52
   br i1 %cmp.not.i30, label %if.end.i31, label %load_elf32.exit
 
@@ -2698,7 +2698,7 @@ if.end67.i:                                       ; preds = %if.then65.i58, %if.
   %conv.i.i61 = zext i32 %257 to i64
   %e_shnum.i165.i62 = getelementptr inbounds i8, ptr %ehdr.i28, i64 48
   %258 = load i16, ptr %e_shnum.i165.i62, align 4
-  %call.i.i.i63 = tail call i64 @lseek64(i32 noundef %call, i64 noundef %conv.i.i61, i32 noundef 0) #23
+  %call.i.i.i63 = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %conv.i.i61, i32 noundef 0) #23
   %cmp.i.i.i64 = icmp slt i64 %call.i.i.i63, 0
   br i1 %cmp.i.i.i64, label %load_symbols32.exit.i, label %if.end.i.i.i65
 
@@ -2706,7 +2706,7 @@ if.end.i.i.i65:                                   ; preds = %if.end67.i
   %conv1.i.i = zext i16 %258 to i64
   %mul.i.i66 = mul nuw nsw i64 %conv1.i.i, 40
   %call1.i.i.i67 = tail call noalias ptr @g_malloc(i64 noundef %mul.i.i66) #24
-  %call2.i.i.i68 = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i.i.i67, i64 noundef %mul.i.i66) #23
+  %call2.i.i.i68 = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i.i.i67, i64 noundef %mul.i.i66) #23
   %cmp3.not.i.i.i69 = icmp eq i64 %call2.i.i.i68, %mul.i.i66
   br i1 %cmp3.not.i.i.i69, label %load_at.exit.i.i172, label %if.then4.i.i.i70
 
@@ -2798,14 +2798,14 @@ if.end13.i.i:                                     ; preds = %find_section32.exit
   %conv14.i.i = zext i32 %280 to i64
   %sh_size.i.i200 = getelementptr inbounds i8, ptr %arrayidx.i.i.i193, i64 20
   %281 = load i32, ptr %sh_size.i.i200, align 4
-  %call.i51.i.i201 = tail call i64 @lseek64(i32 noundef %call, i64 noundef %conv14.i.i, i32 noundef 0) #23
+  %call.i51.i.i201 = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %conv14.i.i, i32 noundef 0) #23
   %cmp.i52.i.i202 = icmp slt i64 %call.i51.i.i201, 0
   br i1 %cmp.i52.i.i202, label %load_symbols32.exit.i, label %if.end.i53.i.i203
 
 if.end.i53.i.i203:                                ; preds = %if.end13.i.i
   %conv15.i.i = zext i32 %281 to i64
   %call1.i54.i.i204 = tail call noalias ptr @g_malloc(i64 noundef %conv15.i.i) #24
-  %call2.i55.i.i205 = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i54.i.i204, i64 noundef %conv15.i.i) #23
+  %call2.i55.i.i205 = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i54.i.i204, i64 noundef %conv15.i.i) #23
   %cmp3.not.i56.i.i206 = icmp eq i64 %call2.i55.i.i205, %conv15.i.i
   br i1 %cmp3.not.i56.i.i206, label %load_at.exit59.i.i208, label %if.then4.i57.i.i207
 
@@ -2834,14 +2834,14 @@ if.end28.i.i:                                     ; preds = %if.end19.i.i
   %conv31.i.i = zext i32 %285 to i64
   %sh_size32.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i211, i64 20
   %286 = load i32, ptr %sh_size32.i.i, align 4
-  %call.i60.i.i212 = tail call i64 @lseek64(i32 noundef %call, i64 noundef %conv31.i.i, i32 noundef 0) #23
+  %call.i60.i.i212 = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %conv31.i.i, i32 noundef 0) #23
   %cmp.i61.i.i213 = icmp slt i64 %call.i60.i.i212, 0
   br i1 %cmp.i61.i.i213, label %load_symbols32.exit.i, label %if.end.i62.i.i214
 
 if.end.i62.i.i214:                                ; preds = %if.end28.i.i
   %conv33.i.i = zext i32 %286 to i64
   %call1.i63.i.i215 = tail call noalias ptr @g_malloc(i64 noundef %conv33.i.i) #24
-  %call2.i64.i.i216 = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i63.i.i215, i64 noundef %conv33.i.i) #23
+  %call2.i64.i.i216 = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i63.i.i215, i64 noundef %conv33.i.i) #23
   %cmp3.not.i65.i.i217 = icmp eq i64 %call2.i64.i.i216, %conv33.i.i
   br i1 %cmp3.not.i65.i.i217, label %load_at.exit68.i.i219, label %if.then4.i66.i.i218
 
@@ -3256,7 +3256,7 @@ load_symbols32.exit.i:                            ; preds = %for.cond.i.i.i196, 
   %e_phoff.i75 = getelementptr inbounds i8, ptr %ehdr.i28, i64 28
   %360 = load i32, ptr %e_phoff.i75, align 4
   %conv70.i = zext i32 %360 to i64
-  %call71.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef %conv70.i, i32 noundef 0) #23
+  %call71.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %conv70.i, i32 noundef 0) #23
   %cmp74.not.i = icmp eq i64 %call71.i, %conv70.i
   br i1 %cmp74.not.i, label %if.end77.i, label %load_elf32.exit
 
@@ -3268,7 +3268,7 @@ if.end77.i:                                       ; preds = %load_symbols32.exit
   br i1 %tobool80.not.i, label %load_elf32.exit, label %if.end82.i
 
 if.end82.i:                                       ; preds = %if.end77.i
-  %call84.i = tail call i64 @read(i32 noundef %call, ptr noundef nonnull %call79.i, i64 noundef %mul.i76) #23
+  %call84.i = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef nonnull %call79.i, i64 noundef %mul.i76) #23
   %cmp86.not.i = icmp eq i64 %call84.i, %mul.i76
   br i1 %cmp86.not.i, label %if.end89.i, label %load_elf32.exit
 
@@ -3318,12 +3318,12 @@ for.body.i80:                                     ; preds = %for.cond.preheader.
   br i1 %exitcond.not.i91, label %if.end96.i, label %for.body.i80, !llvm.loop !26
 
 if.end96.i:                                       ; preds = %for.body.i80, %if.end89.i
-  %call97.i = tail call ptr @g_mapped_file_new_from_fd(i32 noundef %call, i32 noundef 1, ptr noundef null) #23
+  %call97.i = tail call ptr @g_mapped_file_new_from_fd(i32 noundef range(i32 0, -2147483648) %call, i32 noundef 1, ptr noundef null) #23
   %tobool98.not.i = icmp eq ptr %call97.i, null
   br i1 %tobool98.not.i, label %load_elf32.exit, label %for.cond101.preheader.i
 
 if.end96.thread.i:                                ; preds = %for.cond.preheader.i77
-  %call97333.i = tail call ptr @g_mapped_file_new_from_fd(i32 noundef %call, i32 noundef 1, ptr noundef null) #23
+  %call97333.i = tail call ptr @g_mapped_file_new_from_fd(i32 noundef range(i32 0, -2147483648) %call, i32 noundef 1, ptr noundef null) #23
   %tobool98.not334.i = icmp eq ptr %call97333.i, null
   br i1 %tobool98.not334.i, label %load_elf32.exit, label %for.end370.i
 
@@ -3440,13 +3440,13 @@ if.end163.i:                                      ; preds = %if.end158.i124
 
 if.then165.i:                                     ; preds = %if.end163.i
   %call168.i = tail call i64 %translate_fn(ptr noundef %translate_opaque, i64 noundef %conv167.i) #23
-  %call.i.i167.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef %conv.i.i61, i32 noundef 0) #23
+  %call.i.i167.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %conv.i.i61, i32 noundef 0) #23
   %cmp.i.i168.i = icmp slt i64 %call.i.i167.i, 0
   br i1 %cmp.i.i168.i, label %if.end172.i, label %if.end.i.i169.i
 
 if.end.i.i169.i:                                  ; preds = %if.then165.i
   %call1.i.i172.i = tail call noalias ptr @g_malloc(i64 noundef %mul.i171.i) #24
-  %call2.i.i173.i = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i.i172.i, i64 noundef %mul.i171.i) #23
+  %call2.i.i173.i = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i.i172.i, i64 noundef %mul.i171.i) #23
   %cmp3.not.i.i174.i = icmp eq i64 %call2.i.i173.i, %mul.i171.i
   br i1 %cmp3.not.i.i174.i, label %load_at.exit.i175.i, label %return.sink.split.i.i138
 
@@ -3532,14 +3532,14 @@ if.end13.i207.i:                                  ; preds = %find_section32.exit
   %conv14.i209.i = zext i32 %408 to i64
   %sh_size.i210.i = getelementptr inbounds i8, ptr %arrayidx.i.i200.i, i64 20
   %409 = load i32, ptr %sh_size.i210.i, align 4
-  %call.i40.i.i142 = tail call i64 @lseek64(i32 noundef %call, i64 noundef %conv14.i209.i, i32 noundef 0) #23
+  %call.i40.i.i142 = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef %conv14.i209.i, i32 noundef 0) #23
   %cmp.i41.i.i143 = icmp slt i64 %call.i40.i.i142, 0
   br i1 %cmp.i41.i.i143, label %fail.i.i140, label %if.end.i42.i.i144
 
 if.end.i42.i.i144:                                ; preds = %if.end13.i207.i
   %conv15.i211.i = zext i32 %409 to i64
   %call1.i43.i.i145 = tail call noalias ptr @g_malloc(i64 noundef %conv15.i211.i) #24
-  %call2.i44.i.i146 = tail call i64 @read(i32 noundef %call, ptr noundef %call1.i43.i.i145, i64 noundef %conv15.i211.i) #23
+  %call2.i44.i.i146 = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call1.i43.i.i145, i64 noundef %conv15.i211.i) #23
   %cmp3.not.i45.i.i147 = icmp eq i64 %call2.i44.i.i146, %conv15.i211.i
   br i1 %cmp3.not.i45.i.i147, label %load_at.exit48.i.i149, label %if.then4.i46.i.i148
 

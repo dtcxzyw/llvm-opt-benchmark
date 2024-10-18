@@ -125,7 +125,7 @@ define void @_ZN12grep_printer4util11PrinterPath14with_separator17ha7fabe1939492
 
 24:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !12
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hed26c23aaf3dd599E.llvm.1773065985454848448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hed26c23aaf3dd599E.llvm.1773065985454848448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %.noexc3 unwind label %33
 
 .noexc3:                                          ; preds = %24

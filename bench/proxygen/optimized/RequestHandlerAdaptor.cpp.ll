@@ -373,7 +373,7 @@ if.then20:                                        ; preds = %_ZNK5folly20AsciiCa
           to label %call.i6.noexc unwind label %terminate.lpad
 
 call.i6.noexc:                                    ; preds = %if.then20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24, ptr noundef %call.i68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef %call.i68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i6.noexc
@@ -383,7 +383,7 @@ call.i6.noexc:                                    ; preds = %if.then20
 lpad.i:                                           ; preds = %.noexc
   %14 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #21
   br label %terminate.lpad.body
 
 invoke.cont26:                                    ; preds = %.noexc
@@ -449,7 +449,7 @@ if.else:                                          ; preds = %for.inc.i.i
           to label %call.i15.noexc unwind label %terminate.lpad
 
 call.i15.noexc:                                   ; preds = %if.else
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35, ptr noundef %call.i1519, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef %call.i1519, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36)
           to label %.noexc20 unwind label %terminate.lpad
 
 .noexc20:                                         ; preds = %call.i15.noexc
@@ -459,7 +459,7 @@ call.i15.noexc:                                   ; preds = %if.else
 lpad.i18:                                         ; preds = %.noexc20
   %18 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #21
   br label %terminate.lpad.body
 
 invoke.cont37:                                    ; preds = %.noexc20
@@ -639,7 +639,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -1038,7 +1038,7 @@ if.else:                                          ; preds = %invoke.cont4
           to label %call.i.noexc unwind label %terminate.lpad
 
 call.i.noexc:                                     ; preds = %if.else
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1048,7 +1048,7 @@ call.i.noexc:                                     ; preds = %if.else
 lpad.i:                                           ; preds = %.noexc
   %6 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #21
   br label %terminate.lpad.body
 
 invoke.cont13:                                    ; preds = %.noexc
@@ -1142,7 +1142,7 @@ if.else34:                                        ; preds = %invoke.cont29
           to label %call.i.noexc17 unwind label %terminate.lpad
 
 call.i.noexc17:                                   ; preds = %if.else34
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp38, ptr noundef %call.i18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, ptr noundef %call.i18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39)
           to label %.noexc19 unwind label %terminate.lpad
 
 .noexc19:                                         ; preds = %call.i.noexc17
@@ -1152,7 +1152,7 @@ call.i.noexc17:                                   ; preds = %if.else34
 lpad.i16:                                         ; preds = %.noexc19
   %15 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #21
   br label %terminate.lpad.body
 
 invoke.cont40:                                    ; preds = %.noexc19
@@ -1647,7 +1647,7 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
   br i1 %cmp.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i: ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
-  invoke void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE15scheduleTimeoutEPNS6_8CallbackES5_(ptr noundef nonnull align 8 dereferenceable(16704) %1, ptr noundef nonnull %0, i64 %3)
+  invoke void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE15scheduleTimeoutEPNS6_8CallbackES5_(ptr noundef nonnull align 8 dereferenceable(16704) %1, ptr noundef nonnull align 8 dereferenceable(912) %0, i64 %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %land.lhs.true.i, %entry, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i
@@ -1684,7 +1684,7 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
   br i1 %cmp.i.i.not.i.i, label %_ZN8proxygen21RequestHandlerAdaptor14refreshTimeoutEv.exit, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i.i: ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i.i
-  invoke void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE15scheduleTimeoutEPNS6_8CallbackES5_(ptr noundef nonnull align 8 dereferenceable(16704) %1, ptr noundef nonnull %0, i64 %3)
+  invoke void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE15scheduleTimeoutEPNS6_8CallbackES5_(ptr noundef nonnull align 8 dereferenceable(16704) %1, ptr noundef nonnull align 8 dereferenceable(912) %0, i64 %3)
           to label %_ZN8proxygen21RequestHandlerAdaptor14refreshTimeoutEv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i.i
@@ -2155,7 +2155,7 @@ entry:
 define linkonce_odr void @_ZThn8_N8proxygen21RequestHandlerAdaptorD0Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(36) %0) #23
   ret void
 }
 

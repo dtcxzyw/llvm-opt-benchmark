@@ -371,7 +371,7 @@ define dso_local void @_Z15JoinStringPieceB5cxx11RKSt6vectorI11StringPieceSaIS0_
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc27 unwind label %13
 
 .noexc27:                                         ; preds = %.noexc
@@ -381,7 +381,7 @@ define dso_local void @_Z15JoinStringPieceB5cxx11RKSt6vectorI11StringPieceSaIS0_
 11:                                               ; preds = %.noexc27
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc27

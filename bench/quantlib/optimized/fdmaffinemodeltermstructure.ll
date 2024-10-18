@@ -2347,7 +2347,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib27FdmAffineModelTermStructureD2Ev.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib11AffineModelEED2Ev.exit.i, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
   store ptr null, ptr %r_.i, align 8, !tbaa !3
-  tail call void @_ZN8QuantLib18YieldTermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib27FdmAffineModelTermStructureE, i64 8)) #23
+  tail call void @_ZN8QuantLib18YieldTermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib27FdmAffineModelTermStructureE, i64 8)) #23
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr6.i, align 8, !tbaa !39
   %observers_.i = getelementptr inbounds i8, ptr %this, i64 256
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
@@ -2401,7 +2401,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %16 = phi ptr [ %15, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull %add.ptr.i)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -2447,7 +2447,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib27FdmAffineModelTermStructureD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 304) #26
   ret void
 }
 

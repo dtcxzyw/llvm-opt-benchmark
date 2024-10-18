@@ -538,7 +538,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i: ; preds = %for.body.i.i, %for.cond.preheader.i, %for.end.i
   %max.0.lcssa.i.i = phi i32 [ 0, %for.end.i ], [ 0, %for.cond.preheader.i ], [ %spec.select.i.i, %for.body.i.i ]
-  invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %max.0.lcssa.i.i)
+  invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max.0.lcssa.i.i)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.end7.i, %if.then6.i, %entry, %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
@@ -793,7 +793,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit: ; preds = %for.body.i, %if.end43
   %max.0.lcssa.i = phi i32 [ 0, %if.end43 ], [ %spec.select.i, %for.body.i ]
-  call void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %max.0.lcssa.i)
+  call void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max.0.lcssa.i)
   br label %return
 
 return:                                           ; preds = %entry, %if.end7, %lor.lhs.false, %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit, %if.then6
@@ -889,7 +889,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i: ; preds = %for.body.i.i, %for.cond.preheader.i, %for.end.i
   %max.0.lcssa.i.i = phi i32 [ 0, %for.end.i ], [ 0, %for.cond.preheader.i ], [ %spec.select.i.i, %for.body.i.i ]
-  invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %max.0.lcssa.i.i)
+  invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max.0.lcssa.i.i)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
 invoke.cont3:                                     ; preds = %if.end7.i, %if.then6.i, %invoke.cont, %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
@@ -1010,7 +1010,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i: ; preds = %for.body.i.i, %for.cond.preheader.i, %for.end.i
   %max.0.lcssa.i.i = phi i32 [ 0, %for.end.i ], [ 0, %for.cond.preheader.i ], [ %spec.select.i.i, %for.body.i.i ]
-  invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %max.0.lcssa.i.i)
+  invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max.0.lcssa.i.i)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
 invoke.cont3:                                     ; preds = %if.end7.i, %if.then6.i, %invoke.cont, %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
@@ -1517,7 +1517,7 @@ for.body.i4:                                      ; preds = %for.body.i4, %for.b
 
 _ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit: ; preds = %for.body.i4, %_ZN6icu_7522CompoundTransliterator19freeTransliteratorsEv.exit
   %max.0.lcssa.i = phi i32 [ 0, %_ZN6icu_7522CompoundTransliterator19freeTransliteratorsEv.exit ], [ %spec.select.i, %for.body.i4 ]
-  tail call void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %max.0.lcssa.i)
+  tail call void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max.0.lcssa.i)
   %11 = load ptr, ptr %trans.i, align 8
   %12 = load i32, ptr %count6.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)

@@ -578,7 +578,7 @@ _ZN3ozz3log6LoggerlsIA31_cEERSoRKT_.exit.i:       ; preds = %168
   %.sroa.0.0.insert.insert.i.i.i.i = call i32 @llvm.bswap.i32(i32 %187)
   %188 = select i1 %186, i32 %.sroa.0.0.insert.insert.i.i.i.i, i32 %187
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45), !noalias !5
-  invoke void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeletonEE4LoadERNS0_8IArchiveEPS4_mj(ptr noundef nonnull align 8 dereferenceable(9) %53, ptr noundef nonnull %55, i64 noundef 1, i32 noundef %188)
+  invoke void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeletonEE4LoadERNS0_8IArchiveEPS4_mj(ptr noundef nonnull align 8 dereferenceable(9) %53, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef 1, i32 noundef %188)
           to label %_ZN3ozz2io8IArchiversINS_9animation7offline11RawSkeletonEEEvRT_.exit.i unwind label %203, !noalias !5
 
 _ZN3ozz2io8IArchiversINS_9animation7offline11RawSkeletonEEEvRT_.exit.i: ; preds = %.noexc25.i
@@ -1684,7 +1684,7 @@ _ZN3ozz3log6LoggerlsIA12_cEERSoRKT_.exit.i.i.i:   ; preds = %617
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %9) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %631 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %631 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %17)
           to label %.noexc80.i.i unwind label %516
 
 .noexc80.i.i:                                     ; preds = %630
@@ -2227,7 +2227,7 @@ _ZN3ozz3log6LoggerlsIA35_cEERSoRKT_.exit.i.i:     ; preds = %851
   br label %.loopexit.split-lp.i.i
 
 858:                                              ; preds = %_ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEED2Ev.exit.i.i
-  %859 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %22)
+  %859 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %22)
           to label %.noexc94.i.i unwind label %.loopexit.split-lp.i.i.loopexit
 
 .noexc94.i.i:                                     ; preds = %858
@@ -2615,7 +2615,7 @@ _ZN3ozz3log6LoggerlsIA40_cEERSoRKT_.exit.i.i:     ; preds = %993
 
 .noexc124.i.i:                                    ; preds = %.noexc123.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  invoke void @_ZN3ozz2io6ExternINS_9animation7offline12RawAnimationEE4SaveERNS0_8OArchiveEPKS4_m(ptr noundef nonnull align 8 dereferenceable(9) %35, ptr noundef nonnull %11, i64 noundef 1)
+  invoke void @_ZN3ozz2io6ExternINS_9animation7offline12RawAnimationEE4SaveERNS0_8OArchiveEPKS4_m(ptr noundef nonnull align 8 dereferenceable(9) %35, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 noundef 1)
           to label %_ZN3ozz2io8OArchivelsINS_9animation7offline12RawAnimationEEEvRKT_.exit.i.i unwind label %982
 
 1011:                                             ; preds = %_ZN3ozz3log6LoggerlsIA40_cEERSoRKT_.exit.i.i, %993
@@ -4907,7 +4907,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdA
   %.012.i.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i.i ], [ %42, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
-  %43 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i)
+  %43 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(72) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.0910.i.i.i.i.i)
   %44 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %46 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -4956,7 +4956,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3ozz9animation7offline12RawAnimation
   %.012.i.i.i.i.i31 = phi i64 [ %70, %.lr.ph.i.i.i.i.i30 ], [ %60, %.lr.ph.preheader.i.i.i.i.i29 ]
   %.0811.i.i.i.i.i32 = phi ptr [ %69, %.lr.ph.i.i.i.i.i30 ], [ %12, %.lr.ph.preheader.i.i.i.i.i29 ]
   %.0910.i.i.i.i.i33 = phi ptr [ %68, %.lr.ph.i.i.i.i.i30 ], [ %6, %.lr.ph.preheader.i.i.i.i.i29 ]
-  %61 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i32, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i33)
+  %61 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(72) %.0811.i.i.i.i.i32, ptr noundef nonnull align 8 dereferenceable(72) %.0910.i.i.i.i.i33)
   %62 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 24
   %63 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 24
   %64 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %63)

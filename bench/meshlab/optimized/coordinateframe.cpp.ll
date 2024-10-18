@@ -281,7 +281,7 @@ _ZN3vcg7glLabel4ModeC2Ev.exit:                    ; preds = %3
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds i8, ptr %0, i64 12
-  invoke void @glColor4ubv(ptr noundef nonnull %108)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %108)
           to label %109 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 109:                                              ; preds = %107
@@ -297,16 +297,16 @@ _ZN3vcg7glLabel4ModeC2Ev.exit:                    ; preds = %3
   store double %113, ptr %116, align 8, !alias.scope !14
   %117 = getelementptr inbounds i8, ptr %15, i64 16
   store double %115, ptr %117, align 8, !alias.scope !14
-  invoke void @glVertex3dv(ptr noundef nonnull %15)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit:           ; preds = %109
-  invoke void @glVertex3dv(ptr noundef nonnull %6)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit78 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit78:         ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit
   %118 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @glColor4ubv(ptr noundef nonnull %118)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %118)
           to label %119 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 119:                                              ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit78
@@ -322,16 +322,16 @@ _ZN3vcg8glVertexERKNS_6Point3IdEE.exit78:         ; preds = %_ZN3vcg8glVertexERK
   store double %123, ptr %126, align 8, !alias.scope !17
   %127 = getelementptr inbounds i8, ptr %16, i64 16
   store double %125, ptr %127, align 8, !alias.scope !17
-  invoke void @glVertex3dv(ptr noundef nonnull %16)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit80:         ; preds = %119
-  invoke void @glVertex3dv(ptr noundef nonnull %7)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit81 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit81:         ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit80
   %128 = getelementptr inbounds i8, ptr %0, i64 20
-  invoke void @glColor4ubv(ptr noundef nonnull %128)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %128)
           to label %129 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 129:                                              ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit81
@@ -347,11 +347,11 @@ _ZN3vcg8glVertexERKNS_6Point3IdEE.exit81:         ; preds = %_ZN3vcg8glVertexERK
   store double %133, ptr %136, align 8, !alias.scope !20
   %137 = getelementptr inbounds i8, ptr %17, i64 16
   store double %135, ptr %137, align 8, !alias.scope !20
-  invoke void @glVertex3dv(ptr noundef nonnull %17)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit83 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit83:         ; preds = %129
-  invoke void @glVertex3dv(ptr noundef nonnull %8)
+  invoke void @glVertex3dv(ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit84 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg8glVertexERKNS_6Point3IdEE.exit84:         ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit83
@@ -360,7 +360,7 @@ _ZN3vcg8glVertexERKNS_6Point3IdEE.exit84:         ; preds = %_ZN3vcg8glVertexERK
 
 138:                                              ; preds = %_ZN3vcg8glVertexERKNS_6Point3IdEE.exit84
   %139 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @glColor4ubv(ptr noundef nonnull %139)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %139)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit85 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit85:          ; preds = %138
@@ -710,7 +710,7 @@ _ZN5QFont7setBoldEb.exit102:                      ; preds = %263
   %265 = getelementptr inbounds i8, ptr %4, i64 5
   store i32 -4144960, ptr %265, align 1
   store i32 -4144960, ptr %27, align 4
-  invoke void @glColor4ubv(ptr noundef nonnull %27)
+  invoke void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %27)
           to label %_ZN3vcg7glColorERKNS_6Color4IhEE.exit103.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3vcg7glColorERKNS_6Color4IhEE.exit103.preheader: ; preds = %264
@@ -2720,8 +2720,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %.lr.ph, %67
   %.sroa.055.0 = phi <2 x float> [ %.sroa.055.4.vec.insert, %67 ], [ %.sroa.0.4.vec.insert.i50, %.lr.ph ]
   store <2 x float> %.sroa.055.0, ptr %6, align 8
   store float %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @glNormal3fv(ptr noundef nonnull %6)
-  call void @glVertex3fv(ptr noundef nonnull %5)
+  call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %6)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %5)
   call void @glNormal3f(float noundef 1.000000e+00, float noundef %.sroa.072.sroa.3.0109, float noundef %.sroa.072.sroa.6.0110)
   call void @glVertex3f(float noundef 0.000000e+00, float noundef %.sroa.077.sroa.4.0111, float noundef %.sroa.077.sroa.8.0112)
   call void @glNormal3f(float noundef 1.000000e+00, float noundef %42, float noundef %43)

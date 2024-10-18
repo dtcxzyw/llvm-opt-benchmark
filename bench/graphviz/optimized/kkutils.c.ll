@@ -468,7 +468,7 @@ define void @quicksort_placef(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %13 = sext i32 %8 to i64
   %14 = sext i32 %2 to i64
   %15 = getelementptr inbounds i32, ptr %1, i64 %14
-  tail call void @qsort(ptr noundef %15, i64 noundef %13, i64 noundef 4, ptr noundef nonnull @gv_sort_compar_wrapper) #16
+  tail call void @qsort(ptr noundef %15, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 4, ptr noundef nonnull @gv_sort_compar_wrapper) #16
   br label %gv_sort.exit
 
 gv_sort.exit:                                     ; preds = %6, %12
@@ -508,7 +508,7 @@ define void @quicksort_place(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 7:                                                ; preds = %3
   %8 = sext i32 %2 to i64
-  tail call void @qsort(ptr noundef %1, i64 noundef %8, i64 noundef 4, ptr noundef nonnull @gv_sort_compar_wrapper) #16
+  tail call void @qsort(ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %8, i64 noundef 4, ptr noundef nonnull @gv_sort_compar_wrapper) #16
   br label %gv_sort.exit
 
 gv_sort.exit:                                     ; preds = %3, %7

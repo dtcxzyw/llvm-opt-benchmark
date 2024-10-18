@@ -1913,7 +1913,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier9isMPITypeEPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(272) %3) #5
   %.idx4.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %4, i64 %.idx4.i
   %7 = ashr i64 %5, 2
@@ -2012,7 +2012,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj32EEEPKS3_E
 _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj32EEEPKS3_EEbOT_RKT0_.exit: ; preds = %10, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj32EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj32EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj32EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16, %30, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %41
   %.028.i.i.i.i = phi ptr [ %6, %41 ], [ %.029.lcssa.i.i.i.i, %30 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %42, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj32EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %43, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj32EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14 ], [ %44, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj32EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16 ], [ %.02946.i.i.i.i, %10 ]
   %45 = load ptr, ptr %3, align 8
-  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(272) %3) #5
   %47 = getelementptr inbounds ptr, ptr %45, i64 %46
   %48 = icmp ne ptr %.028.i.i.i.i, %47
   ret i1 %48
@@ -2021,7 +2021,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj32EEEPKS3_E
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier17isNonBlockingTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #5
   %.idx4.i = shl nsw i64 %4, 3
   %5 = getelementptr inbounds i8, ptr %3, i64 %.idx4.i
   %6 = ashr i64 %4, 2
@@ -2120,7 +2120,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj12EEEPKS3_E
 _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj12EEEPKS3_EEbOT_RKT0_.exit: ; preds = %9, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj12EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj12EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj12EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16, %29, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %40
   %.028.i.i.i.i = phi ptr [ %5, %40 ], [ %.029.lcssa.i.i.i.i, %29 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %41, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj12EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %42, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj12EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14 ], [ %43, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj12EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16 ], [ %.02946.i.i.i.i, %9 ]
   %44 = load ptr, ptr %0, align 8
-  %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
+  %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #5
   %46 = getelementptr inbounds ptr, ptr %44, i64 %45
   %47 = icmp ne ptr %.028.i.i.i.i, %46
   ret i1 %47
@@ -2130,7 +2130,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj12EEEPKS3_E
 define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier18isPointToPointTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(96) %3) #5
   %.idx4.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %4, i64 %.idx4.i
   %7 = ashr i64 %5, 2
@@ -2229,7 +2229,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj10EEEPKS3_E
 _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj10EEEPKS3_EEbOT_RKT0_.exit: ; preds = %10, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj10EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj10EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj10EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16, %30, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %41
   %.028.i.i.i.i = phi ptr [ %6, %41 ], [ %.029.lcssa.i.i.i.i, %30 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %42, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj10EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %43, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj10EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14 ], [ %44, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj10EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16 ], [ %.02946.i.i.i.i, %10 ]
   %45 = load ptr, ptr %3, align 8
-  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(96) %3) #5
   %47 = getelementptr inbounds ptr, ptr %45, i64 %46
   %48 = icmp ne ptr %.028.i.i.i.i, %47
   ret i1 %48
@@ -2239,7 +2239,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj10EEEPKS3_E
 define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier16isCollectiveTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #5
   %.idx4.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %4, i64 %.idx4.i
   %7 = ashr i64 %5, 2
@@ -2338,7 +2338,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj16EEEPKS3_E
 _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj16EEEPKS3_EEbOT_RKT0_.exit: ; preds = %10, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj16EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj16EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj16EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16, %30, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %41
   %.028.i.i.i.i = phi ptr [ %6, %41 ], [ %.029.lcssa.i.i.i.i, %30 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %42, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj16EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %43, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj16EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14 ], [ %44, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj16EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16 ], [ %.02946.i.i.i.i, %10 ]
   %45 = load ptr, ptr %3, align 8
-  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #5
   %47 = getelementptr inbounds ptr, ptr %45, i64 %46
   %48 = icmp ne ptr %.028.i.i.i.i, %47
   ret i1 %48
@@ -2348,7 +2348,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj16EEEPKS3_E
 define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier12isCollToCollEPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #5
   %.idx4.i = shl nsw i64 %5, 3
   %6 = getelementptr inbounds i8, ptr %4, i64 %.idx4.i
   %7 = ashr i64 %5, 2
@@ -2447,7 +2447,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj6EEEPKS3_EE
 _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj6EEEPKS3_EEbOT_RKT0_.exit: ; preds = %10, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj6EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj6EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj6EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16, %30, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %41
   %.028.i.i.i.i = phi ptr [ %6, %41 ], [ %.029.lcssa.i.i.i.i, %30 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %42, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj6EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %43, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj6EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit14 ], [ %44, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj6EEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit16 ], [ %.02946.i.i.i.i, %10 ]
   %45 = load ptr, ptr %3, align 8
-  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #5
   %47 = getelementptr inbounds ptr, ptr %45, i64 %46
   %48 = icmp ne ptr %.028.i.i.i.i, %47
   ret i1 %48

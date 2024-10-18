@@ -1348,7 +1348,7 @@ cond.end:                                         ; preds = %while.body2
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %shl, i1 true)
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %shl, i1 true)
   %cast.i = trunc nuw nsw i64 %6 to i32
   %add = add i32 %.pre48, %cast.i
   store i32 %add, ptr %val, align 4
@@ -1401,7 +1401,7 @@ if.then22:                                        ; preds = %while.end
   br i1 %tobool36.not, label %if.else43, label %if.then37
 
 if.then37:                                        ; preds = %if.then22
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %shl35, i1 true)
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %shl35, i1 true)
   %cast.i38 = trunc nuw nsw i64 %16 to i32
   %17 = load i32, ptr %val, align 4
   %add39 = add i32 %17, %cast.i38
@@ -1506,7 +1506,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %b.0110 = phi i64 [ %b.0.ph, %while.body13.lr.ph ], [ %b.2, %if.end59 ]
   %ucbits.0109 = phi i32 [ %ucbits.0.ph, %while.body13.lr.ph ], [ %ucbits.1, %if.end59 ]
   %cwords.0108 = phi i32 [ %cwords.0.ph, %while.body13.lr.ph ], [ %cwords.3, %if.end59 ]
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %b.0110, i1 false)
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %b.0110, i1 false)
   %cast.i.i = trunc nuw nsw i64 %6 to i32
   %cmp15 = icmp eq i64 %b.0110, 0
   br i1 %cmp15, label %do.body, label %if.end25
@@ -1523,7 +1523,7 @@ if.end19:                                         ; preds = %do.body
   %idxprom21 = zext i32 %inc to i64
   %arrayidx22 = getelementptr inbounds i64, ptr %7, i64 %idxprom21
   %8 = load i64, ptr %arrayidx22, align 8
-  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 false)
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %8, i1 false)
   %cast.i.i92 = trunc nuw nsw i64 %9 to i32
   %add = add i32 %x.1, %cast.i.i92
   %cmp24 = icmp eq i64 %8, 0
@@ -1761,7 +1761,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %b.0110 = phi i64 [ %b.0.ph, %while.body13.lr.ph ], [ %b.2, %if.end59 ]
   %ucbits.0109 = phi i32 [ %ucbits.0.ph, %while.body13.lr.ph ], [ %ucbits.1, %if.end59 ]
   %cwords.0108 = phi i32 [ %cwords.0.ph, %while.body13.lr.ph ], [ %cwords.3, %if.end59 ]
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %b.0110, i1 false)
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %b.0110, i1 false)
   %cast.i.i = trunc nuw nsw i64 %6 to i32
   %cmp15 = icmp eq i64 %b.0110, 0
   br i1 %cmp15, label %do.body, label %if.end25
@@ -1778,7 +1778,7 @@ if.end19:                                         ; preds = %do.body
   %idxprom21 = zext i32 %inc to i64
   %arrayidx22 = getelementptr inbounds i64, ptr %7, i64 %idxprom21
   %8 = load i64, ptr %arrayidx22, align 8
-  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 false)
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %8, i1 false)
   %cast.i.i92 = trunc nuw nsw i64 %9 to i32
   %add = add i32 %x.1, %cast.i.i92
   %cmp24 = icmp eq i64 %8, 0

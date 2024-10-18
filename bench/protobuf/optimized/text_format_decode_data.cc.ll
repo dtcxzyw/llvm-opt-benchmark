@@ -781,7 +781,7 @@ invoke.cont4:                                     ; preds = %call.i.i.noexc.invo
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %invoke.cont4
-  %call.i.i14 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output_stream, ptr noundef %7)
+  %call.i.i14 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output_stream, ptr noundef %7)
           to label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i unwind label %lpad5.loopexit.split-lp
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i11, %invoke.cont4
@@ -821,7 +821,7 @@ for.body:                                         ; preds = %invoke.cont8, %for.
   br i1 %cmp.not.i.i16, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i18, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %for.body
-  %call.i.i33 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output_stream, ptr noundef %13)
+  %call.i.i33 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output_stream, ptr noundef %13)
           to label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i18 unwind label %lpad5.loopexit
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i18: ; preds = %if.then.i.i17, %for.body
@@ -862,7 +862,7 @@ invoke.cont15:                                    ; preds = %while.body.i.i.i25,
 
 if.then.i.i.i:                                    ; preds = %invoke.cont15
   %conv.i = trunc i64 %call2.i to i32
-  %call.i.i.i39 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output_stream, ptr noundef %call.i, i32 noundef %conv.i, ptr noundef %17)
+  %call.i.i.i39 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output_stream, ptr noundef %call.i, i32 noundef %conv.i, ptr noundef %17)
           to label %for.inc unwind label %lpad5.loopexit
 
 if.end.i.i.i:                                     ; preds = %invoke.cont15

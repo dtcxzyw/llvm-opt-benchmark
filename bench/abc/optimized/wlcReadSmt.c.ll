@@ -278,7 +278,7 @@ Smt_VecEntryName.exit153.thread.thread:           ; preds = %Smt_VecEntryName.ex
 96:                                               ; preds = %Smt_VecEntryName.exit153.thread.thread
   %.val24.i = load ptr, ptr %11, align 8
   %97 = tail call ptr @Abc_NamStr(ptr noundef %.val24.i, i32 noundef %95) #17
-  %98 = call fastcc i32 @Smt_StrToType(ptr noundef %97, ptr noundef %7)
+  %98 = call fastcc i32 @Smt_StrToType(ptr noundef %97, ptr noundef nonnull %7)
   br label %Smt_PrsReadType.exit
 
 99:                                               ; preds = %Smt_VecEntryName.exit153.thread.thread
@@ -315,7 +315,7 @@ Smt_VecEntryName.exit.i:                          ; preds = %105, %99
 
 Smt_VecEntryName.exit31.i:                        ; preds = %111, %Smt_VecEntryName.exit.i
   %114 = phi ptr [ %113, %111 ], [ null, %Smt_VecEntryName.exit.i ]
-  %115 = call fastcc i32 @Smt_StrToType(ptr noundef %114, ptr noundef %7)
+  %115 = call fastcc i32 @Smt_StrToType(ptr noundef %114, ptr noundef nonnull %7)
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %Smt_PrsReadType.exit, label %117
 

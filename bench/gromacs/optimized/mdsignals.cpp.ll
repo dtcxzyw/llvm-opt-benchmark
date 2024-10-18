@@ -316,7 +316,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -401,7 +401,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %8) #13
   tail call void @_ZdlPv(ptr noundef nonnull %7) #16
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6atomicIbEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev.exit
 
@@ -738,7 +738,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #13
   tail call void @_ZdlPv(ptr noundef nonnull %3) #16
   br label %6
 
@@ -943,7 +943,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6gmxapi13ProtocolErrorCI2NS_14BasicExceptionIS0_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  invoke void @_ZN6gmxapi9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN6gmxapi9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %_ZN6gmxapi14BasicExceptionINS_13ProtocolErrorEEC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %3
 
 3:                                                ; preds = %2
@@ -966,7 +966,7 @@ define linkonce_odr void @_ZN6gmxapi13ProtocolErrorD2Ev(ptr noundef nonnull alig
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_13ProtocolErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   ret void
 }
 
@@ -975,7 +975,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6gmxapi26MissingImplementationErrorCI2NS_14BasicExceptionIS0_EEEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6gmxapi9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @_ZN6gmxapi9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_26MissingImplementationErrorEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
@@ -986,7 +986,7 @@ define linkonce_odr void @_ZN6gmxapi26MissingImplementationErrorCI2NS_14BasicExc
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   resume { ptr, i32 } %6
 
 _ZN6gmxapi14BasicExceptionINS_26MissingImplementationErrorEEC2EPKc.exit: ; preds = %2
@@ -1001,7 +1001,7 @@ define linkonce_odr void @_ZN6gmxapi26MissingImplementationErrorD2Ev(ptr noundef
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_26MissingImplementationErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   ret void
 }
 
@@ -1012,7 +1012,7 @@ define linkonce_odr void @_ZN6gmxapi13ProtocolErrorD0Ev(ptr noundef nonnull alig
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_13ProtocolErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1040,7 +1040,7 @@ define linkonce_odr void @_ZN6gmxapi14BasicExceptionINS_13ProtocolErrorEED0Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_13ProtocolErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1056,7 +1056,7 @@ define linkonce_odr void @_ZN6gmxapi26MissingImplementationErrorD0Ev(ptr noundef
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_26MissingImplementationErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1087,7 +1087,7 @@ define linkonce_odr void @_ZN6gmxapi14BasicExceptionINS_26MissingImplementationE
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_26MissingImplementationErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1261,7 +1261,7 @@ define void @_ZN6gmxapi17getMdrunnerSignalEPNS_16SessionResourcesENS_2md7signals
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6gmxapi10UsageErrorCI2NS_14BasicExceptionIS0_EEEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6gmxapi9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @_ZN6gmxapi9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_10UsageErrorEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
@@ -1272,7 +1272,7 @@ define linkonce_odr void @_ZN6gmxapi10UsageErrorCI2NS_14BasicExceptionIS0_EEEPKc
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   resume { ptr, i32 } %6
 
 _ZN6gmxapi14BasicExceptionINS_10UsageErrorEEC2EPKc.exit: ; preds = %2
@@ -1285,7 +1285,7 @@ define linkonce_odr void @_ZN6gmxapi10UsageErrorD2Ev(ptr noundef nonnull align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_10UsageErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   ret void
 }
 
@@ -1296,7 +1296,7 @@ define linkonce_odr void @_ZN6gmxapi10UsageErrorD0Ev(ptr noundef nonnull align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_10UsageErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1322,7 +1322,7 @@ define linkonce_odr void @_ZN6gmxapi14BasicExceptionINS_10UsageErrorEED0Ev(ptr n
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6gmxapi14BasicExceptionINS_10UsageErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN6gmxapi9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

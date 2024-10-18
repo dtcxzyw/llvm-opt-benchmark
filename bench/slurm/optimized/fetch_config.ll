@@ -465,7 +465,7 @@ define ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %155
 
 155:                                              ; preds = %154, %153
-  %156 = call i32 @waitpid(i32 noundef %44, ptr noundef nonnull %5, i32 noundef 0) #13
+  %156 = call i32 @waitpid(i32 noundef range(i32 1, -2147483648) %44, ptr noundef nonnull %5, i32 noundef 0) #13
   %157 = call i32 @get_log_level() #13
   %158 = icmp sgt i32 %157, 5
   br i1 %158, label %159, label %161
@@ -481,7 +481,7 @@ define ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 163:                                              ; preds = %139, %.split135.us.i, %136, %.split128.us.i, %133, %.split139.us.i, %90, %.split82.us.i, %87, %.split.us.i, %84, %.split85.us.i
   %164 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__._fetch_parent) #13
-  %165 = call i32 @waitpid(i32 noundef %44, ptr noundef nonnull %5, i32 noundef 0) #13
+  %165 = call i32 @waitpid(i32 noundef range(i32 1, -2147483648) %44, ptr noundef nonnull %5, i32 noundef 0) #13
   %166 = call i32 @get_log_level() #13
   %167 = icmp sgt i32 %166, 5
   br i1 %167, label %168, label %_fetch_parent.exit

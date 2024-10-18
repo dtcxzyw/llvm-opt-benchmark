@@ -233,7 +233,7 @@ if.then10:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %20, ptr %ref.tmp.i, align 8
   store ptr %20, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %28 = load ptr, ptr %m_todo, align 8
   %arrayidx.i15 = getelementptr inbounds i8, ptr %28, i64 -4
@@ -612,7 +612,7 @@ if.end57:                                         ; preds = %for.body.i.i.i124, 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i178)
   store ptr %20, ptr %ref.tmp.i178, align 8
   store ptr %b.1, ptr %m_value.i.i179, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i178)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i178)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i178)
   %89 = load ptr, ptr %m_todo, align 8
   %arrayidx.i180 = getelementptr inbounds i8, ptr %89, i64 -4
@@ -738,7 +738,7 @@ if.end74:                                         ; preds = %if.then66, %_ZN15re
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i241)
   store ptr %20, ptr %ref.tmp.i241, align 8
   store ptr %b.2, ptr %m_value.i.i242, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i241)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i241)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i241)
   %107 = load ptr, ptr %m_todo, align 8
   %arrayidx.i243 = getelementptr inbounds i8, ptr %107, i64 -4
@@ -1244,7 +1244,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

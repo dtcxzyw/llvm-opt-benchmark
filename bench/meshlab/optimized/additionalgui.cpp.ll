@@ -114,7 +114,7 @@ define linkonce_odr void @_ZN27DelayedToolButtonPopUpStyleD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN27DelayedToolButtonPopUpStyleD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN11QProxyStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  tail call void @_ZN11QProxyStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -1301,7 +1301,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %274, %_ZN9QtPrivate
           to label %.noexc60 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc60:                                         ; preds = %.noexc59
-  %297 = invoke noundef i32 @_ZNK7QWidget1yEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %297 = invoke noundef i32 @_ZNK7QWidget1yEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
           to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc61:                                         ; preds = %.noexc60
@@ -1318,7 +1318,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %274, %_ZN9QtPrivate
   store i32 %301, ptr %3, align 4
   %302 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %297, ptr %302, align 4
-  invoke void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  invoke void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
           to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc62:                                         ; preds = %.noexc61
@@ -1569,7 +1569,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
 8:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %9 = getelementptr inbounds i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4, !noalias !9
-  %11 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %10)
+  %11 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %10)
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %8
@@ -2322,12 +2322,12 @@ _ZN10SearchMenu20selectTextIfNotEmptyEv.exit:     ; preds = %_ZN7QStringD2Ev.exi
   %.neg.i = add i32 %.neg, %.sroa.23.8.extract.trunc.i
   %34 = add i32 %.sroa.01.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %35 = sub i32 %.neg.i, %34
-  %36 = call noundef i32 @_ZNK7QWidget1yEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %36 = call noundef i32 @_ZNK7QWidget1yEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i32 %35, ptr %2, align 4
   %37 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %36, ptr %37, align 4
-  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %_ZN10SearchMenu21alignToParentGeometryEv.exit
 
@@ -2386,12 +2386,12 @@ define void @_ZN10SearchMenu11resizeEventEP12QResizeEvent(ptr noundef nonnull al
   %.neg.i = add i32 %.neg, %.sroa.23.8.extract.trunc.i
   %29 = add i32 %.sroa.01.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %30 = sub i32 %.neg.i, %29
-  %31 = call noundef i32 @_ZNK7QWidget1yEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %31 = call noundef i32 @_ZNK7QWidget1yEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %30, ptr %3, align 4
   %32 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %31, ptr %32, align 4
-  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN10SearchMenu21alignToParentGeometryEv.exit
 
@@ -2527,7 +2527,7 @@ declare void @_ZN11QToolButton16setDefaultActionEP7QAction(ptr noundef nonnull a
 define void @_ZN12MyToolButton10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readnone %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QStylePainter, align 8
   %4 = alloca %class.QStyleOptionToolButton, align 8
-  call void @_ZN8QPainterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN8QPainterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8
   %6 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -2537,12 +2537,12 @@ define void @_ZN12MyToolButton10paintEventEP11QPaintEvent(ptr noundef nonnull al
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %6, ptr %8, align 8
-  %9 = invoke noundef zeroext i1 @_ZN8QPainter5beginEP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %7)
+  %9 = invoke noundef zeroext i1 @_ZN8QPainter5beginEP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %7)
           to label %_ZN13QStylePainterC2EP7QWidget.exit unwind label %10
 
 common.resume:                                    ; preds = %29, %31, %10
   %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %32, %31 ], [ %30, %29 ]
-  call void @_ZN8QPainterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  call void @_ZN8QPainterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %.noexc.i, %2
@@ -2568,7 +2568,7 @@ _ZN13QStylePainterC2EP7QWidget.exit:              ; preds = %.noexc.i
   %19 = load ptr, ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 200
   %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %18)
+  invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %18)
           to label %_ZN13QStylePainter18drawComplexControlEN6QStyle14ComplexControlERK19QStyleOptionComplex.exit unwind label %31
 
 _ZN13QStylePainter18drawComplexControlEN6QStyle14ComplexControlERK19QStyleOptionComplex.exit: ; preds = %13
@@ -2599,8 +2599,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
 _ZN22QStyleOptionToolButtonD2Ev.exit:             ; preds = %_ZN13QStylePainter18drawComplexControlEN6QStyle14ComplexControlERK19QStyleOptionComplex.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
   %28 = getelementptr inbounds i8, ptr %4, i64 80
   call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #12
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #12
-  call void @_ZN8QPainterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #12
+  call void @_ZN8QPainterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   ret void
 
 29:                                               ; preds = %_ZN13QStylePainterC2EP7QWidget.exit
@@ -2648,7 +2648,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  tail call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #12
+  tail call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
   ret void
 }
 

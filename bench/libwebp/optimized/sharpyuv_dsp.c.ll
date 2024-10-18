@@ -56,7 +56,7 @@ define internal i64 @SharpYuvUpdateY_C(ptr nocapture noundef readonly %0, ptr no
   %17 = zext i16 %16 to i32
   %18 = add nsw i32 %14, %17
   %19 = icmp slt i32 %18, 0
-  %20 = tail call i32 @llvm.smin.i32(i32 %18, i32 %6)
+  %20 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %18, i32 range(i32 -2147483648, 2147483647) %6)
   %21 = trunc i32 %20 to i16
   %22 = select i1 %19, i16 0, i16 %21
   store i16 %22, ptr %15, align 2
@@ -145,7 +145,7 @@ define internal void @SharpYuvFilterRow_C(ptr nocapture noundef readonly %0, ptr
   %32 = zext i16 %31 to i32
   %33 = add nsw i32 %23, %32
   %34 = icmp slt i32 %33, 0
-  %35 = tail call i32 @llvm.smin.i32(i32 %33, i32 %7)
+  %35 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %33, i32 range(i32 -2147483648, 2147483647) %7)
   %36 = trunc i32 %35 to i16
   %37 = select i1 %34, i16 0, i16 %36
   %38 = getelementptr inbounds i16, ptr %4, i64 %29
@@ -156,7 +156,7 @@ define internal void @SharpYuvFilterRow_C(ptr nocapture noundef readonly %0, ptr
   %42 = zext i16 %41 to i32
   %43 = add nsw i32 %28, %42
   %44 = icmp slt i32 %43, 0
-  %45 = tail call i32 @llvm.smin.i32(i32 %43, i32 %7)
+  %45 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %43, i32 range(i32 -2147483648, 2147483647) %7)
   %46 = trunc i32 %45 to i16
   %47 = select i1 %44, i16 0, i16 %46
   %48 = getelementptr inbounds i16, ptr %4, i64 %39

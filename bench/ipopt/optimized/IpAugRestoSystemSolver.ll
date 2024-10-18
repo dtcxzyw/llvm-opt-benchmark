@@ -290,7 +290,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.thread, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %13, %._crit_edge.thread ]
   %14 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #19
   %.not.i.i.i = icmp eq ptr %14, %.lcssa13
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !6
 
@@ -380,7 +380,7 @@ _ZN5Ipopt8SmartPtrINS_15AugSystemSolverEED2Ev.exit: ; preds = %1, %4, %12
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %28, %._crit_edge.thread.i ]
   %29 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #19
   %.not.i.i.i.i = icmp eq ptr %29, %.lcssa13.i
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
@@ -440,7 +440,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit: ; preds = %_ZN5Ip
 .lr.ph.i.i.i.i16:                                 ; preds = %._crit_edge.thread.i13, %.lr.ph.i.i.i.i16
   %.09.i.i.i.i17 = phi ptr [ %43, %.lr.ph.i.i.i.i16 ], [ %42, %._crit_edge.thread.i13 ]
   %43 = load ptr, ptr %.09.i.i.i.i17, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i17) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i17) #19
   %.not.i.i.i.i18 = icmp eq ptr %43, %.lcssa13.i14
   br i1 %.not.i.i.i.i18, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i19, label %.lr.ph.i.i.i.i16, !llvm.loop !6
 
@@ -500,7 +500,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit20: ; preds = %_ZN5
 .lr.ph.i.i.i.i36:                                 ; preds = %._crit_edge.thread.i33, %.lr.ph.i.i.i.i36
   %.09.i.i.i.i37 = phi ptr [ %57, %.lr.ph.i.i.i.i36 ], [ %56, %._crit_edge.thread.i33 ]
   %57 = load ptr, ptr %.09.i.i.i.i37, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i37) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i37) #19
   %.not.i.i.i.i38 = icmp eq ptr %57, %.lcssa13.i34
   br i1 %.not.i.i.i.i38, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i39, label %.lr.ph.i.i.i.i36, !llvm.loop !6
 
@@ -560,7 +560,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit40: ; preds = %_ZN5
 .lr.ph.i.i.i.i56:                                 ; preds = %._crit_edge.thread.i53, %.lr.ph.i.i.i.i56
   %.09.i.i.i.i57 = phi ptr [ %71, %.lr.ph.i.i.i.i56 ], [ %70, %._crit_edge.thread.i53 ]
   %71 = load ptr, ptr %.09.i.i.i.i57, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i57) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i57) #19
   %.not.i.i.i.i58 = icmp eq ptr %71, %.lcssa13.i54
   br i1 %.not.i.i.i.i58, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i59, label %.lr.ph.i.i.i.i56, !llvm.loop !6
 
@@ -620,7 +620,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit60: ; preds = %_ZN5
 .lr.ph.i.i.i.i76:                                 ; preds = %._crit_edge.thread.i73, %.lr.ph.i.i.i.i76
   %.09.i.i.i.i77 = phi ptr [ %85, %.lr.ph.i.i.i.i76 ], [ %84, %._crit_edge.thread.i73 ]
   %85 = load ptr, ptr %.09.i.i.i.i77, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i77) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i77) #19
   %.not.i.i.i.i78 = icmp eq ptr %85, %.lcssa13.i74
   br i1 %.not.i.i.i.i78, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i79, label %.lr.ph.i.i.i.i76, !llvm.loop !6
 
@@ -680,7 +680,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit80: ; preds = %_ZN5
 .lr.ph.i.i.i.i96:                                 ; preds = %._crit_edge.thread.i93, %.lr.ph.i.i.i.i96
   %.09.i.i.i.i97 = phi ptr [ %99, %.lr.ph.i.i.i.i96 ], [ %98, %._crit_edge.thread.i93 ]
   %99 = load ptr, ptr %.09.i.i.i.i97, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i97) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i97) #19
   %.not.i.i.i.i98 = icmp eq ptr %99, %.lcssa13.i94
   br i1 %.not.i.i.i.i98, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i99, label %.lr.ph.i.i.i.i96, !llvm.loop !6
 
@@ -740,7 +740,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit100: ; preds = %_ZN
 .lr.ph.i.i.i.i116:                                ; preds = %._crit_edge.thread.i113, %.lr.ph.i.i.i.i116
   %.09.i.i.i.i117 = phi ptr [ %113, %.lr.ph.i.i.i.i116 ], [ %112, %._crit_edge.thread.i113 ]
   %113 = load ptr, ptr %.09.i.i.i.i117, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i117) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i117) #19
   %.not.i.i.i.i118 = icmp eq ptr %113, %.lcssa13.i114
   br i1 %.not.i.i.i.i118, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i119, label %.lr.ph.i.i.i.i116, !llvm.loop !6
 
@@ -800,7 +800,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit120: ; preds = %_ZN
 .lr.ph.i.i.i.i136:                                ; preds = %._crit_edge.thread.i133, %.lr.ph.i.i.i.i136
   %.09.i.i.i.i137 = phi ptr [ %127, %.lr.ph.i.i.i.i136 ], [ %126, %._crit_edge.thread.i133 ]
   %127 = load ptr, ptr %.09.i.i.i.i137, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i137) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i137) #19
   %.not.i.i.i.i138 = icmp eq ptr %127, %.lcssa13.i134
   br i1 %.not.i.i.i.i138, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i139, label %.lr.ph.i.i.i.i136, !llvm.loop !6
 
@@ -860,7 +860,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit140: ; preds = %_ZN
 .lr.ph.i.i.i.i156:                                ; preds = %._crit_edge.thread.i153, %.lr.ph.i.i.i.i156
   %.09.i.i.i.i157 = phi ptr [ %141, %.lr.ph.i.i.i.i156 ], [ %140, %._crit_edge.thread.i153 ]
   %141 = load ptr, ptr %.09.i.i.i.i157, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i157) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i157) #19
   %.not.i.i.i.i158 = icmp eq ptr %141, %.lcssa13.i154
   br i1 %.not.i.i.i.i158, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i159, label %.lr.ph.i.i.i.i156, !llvm.loop !6
 
@@ -1361,7 +1361,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i249: ; preds = %_ZNK5Ipopt14
   %179 = load i32, ptr %178, align 8
   %180 = add nsw i32 %179, 1
   store i32 %180, ptr %178, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %18)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %18)
           to label %.noexc unwind label %283
 
 .noexc:                                           ; preds = %174
@@ -1383,7 +1383,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i249: ; preds = %_ZNK5Ipopt14
   %190 = load i32, ptr %189, align 8
   %191 = add nsw i32 %190, 1
   store i32 %191, ptr %189, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %19)
           to label %.noexc268 unwind label %285
 
 .noexc268:                                        ; preds = %188
@@ -1405,7 +1405,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i249: ; preds = %_ZNK5Ipopt14
   %201 = load i32, ptr %200, align 8
   %202 = add nsw i32 %201, 1
   store i32 %202, ptr %200, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %20)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %20)
           to label %.noexc275 unwind label %287
 
 .noexc275:                                        ; preds = %199
@@ -2473,7 +2473,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit521:     ; preds = %684, %680
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit523
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit523:     ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit521, %692
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %17)
           to label %.noexc525 unwind label %797
 
 .noexc525:                                        ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit523
@@ -2539,7 +2539,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2ERKS2_.exit537:  ; preds = %_ZN5Ipopt8SmartPtrI
   br i1 %727, label %728, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit643
 
 728:                                              ; preds = %726
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %17)
           to label %.noexc539 unwind label %799
 
 .noexc539:                                        ; preds = %728
@@ -2564,7 +2564,7 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit540: ; preds = %732, %.noexc539
           to label %.noexc541 unwind label %801
 
 .noexc541:                                        ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit540
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %731)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %731)
           to label %739 unwind label %801
 
 739:                                              ; preds = %.noexc541
@@ -2599,7 +2599,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i544: ; preds = %_ZNK5Ipopt14
           to label %.noexc550 unwind label %803
 
 .noexc550:                                        ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i544
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %731)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %731)
           to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit unwind label %803
 
 _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit: ; preds = %.noexc550
@@ -2624,7 +2624,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit553:     ; preds = %_ZN5Ipopt6Vector13A
           to label %.noexc554 unwind label %801
 
 .noexc554:                                        ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit553
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %731)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %731)
           to label %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit unwind label %801
 
 765:                                              ; preds = %_ZNK5Ipopt14CompoundMatrix7GetCompEii.exit469
@@ -2725,7 +2725,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit561:     ; preds = %788, %783
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit565
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit: ; preds = %.noexc554, %739
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %17)
           to label %.noexc567 unwind label %801
 
 .noexc567:                                        ; preds = %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit
@@ -2750,7 +2750,7 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit568: ; preds = %815, %.noexc567
           to label %.noexc569 unwind label %848
 
 .noexc569:                                        ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit568
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %814)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %814)
           to label %822 unwind label %848
 
 822:                                              ; preds = %.noexc569
@@ -2785,7 +2785,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i573: ; preds = %_ZNK5Ipopt14
           to label %.noexc579 unwind label %850
 
 .noexc579:                                        ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i573
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %814)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %814)
           to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit581 unwind label %850
 
 _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit581: ; preds = %.noexc579
@@ -2810,7 +2810,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit583:     ; preds = %_ZN5Ipopt6Vector13A
           to label %.noexc584 unwind label %848
 
 .noexc584:                                        ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit583
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %814)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %814)
           to label %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit586 unwind label %848
 
 848:                                              ; preds = %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit586, %.noexc584, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit583, %.noexc569, %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit568
@@ -2835,7 +2835,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit583:     ; preds = %_ZN5Ipopt6Vector13A
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit588
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit586: ; preds = %.noexc584, %822
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %17)
           to label %.noexc590 unwind label %848
 
 .noexc590:                                        ; preds = %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit586
@@ -2860,7 +2860,7 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit591: ; preds = %862, %.noexc590
           to label %.noexc592 unwind label %899
 
 .noexc592:                                        ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit591
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %861)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %861)
           to label %869 unwind label %899
 
 869:                                              ; preds = %.noexc592
@@ -2902,7 +2902,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i597: ; preds = %_ZNK5Ipopt14
           to label %.noexc603 unwind label %901
 
 .noexc603:                                        ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i597
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %861)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %861)
           to label %_ZN5Ipopt6Vector4AxpyEdRKS0_.exit unwind label %901
 
 _ZN5Ipopt6Vector4AxpyEdRKS0_.exit:                ; preds = %.noexc603
@@ -2928,7 +2928,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit606:     ; preds = %_ZN5Ipopt6Vector4Ax
           to label %.noexc607 unwind label %899
 
 .noexc607:                                        ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit606
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %861)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %861)
           to label %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit609 unwind label %899
 
 899:                                              ; preds = %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit609, %.noexc607, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit606, %871, %.noexc592, %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit591
@@ -2953,7 +2953,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit606:     ; preds = %_ZN5Ipopt6Vector4Ax
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit611
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit609: ; preds = %.noexc607, %869
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %17)
           to label %.noexc613 unwind label %899
 
 .noexc613:                                        ; preds = %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit609
@@ -2978,7 +2978,7 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit614: ; preds = %913, %.noexc613
           to label %.noexc615 unwind label %950
 
 .noexc615:                                        ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit614
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %912)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %912)
           to label %920 unwind label %950
 
 920:                                              ; preds = %.noexc615
@@ -3020,7 +3020,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i621: ; preds = %_ZNK5Ipopt14
           to label %.noexc627 unwind label %952
 
 .noexc627:                                        ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i621
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %912)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %912)
           to label %_ZN5Ipopt6Vector4AxpyEdRKS0_.exit629 unwind label %952
 
 _ZN5Ipopt6Vector4AxpyEdRKS0_.exit629:             ; preds = %.noexc627
@@ -3046,7 +3046,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit631:     ; preds = %_ZN5Ipopt6Vector4Ax
           to label %.noexc632 unwind label %950
 
 .noexc632:                                        ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit631
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %912)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %912)
           to label %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit634 unwind label %950
 
 950:                                              ; preds = %.noexc632, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit631, %922, %.noexc615, %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit614
@@ -5016,7 +5016,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit:                 ; preds = %26
           to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %52
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %53)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %53)
           to label %_ZN5Ipopt6Vector9AddScalarEd.exit unwind label %65
 
 _ZN5Ipopt6Vector9AddScalarEd.exit:                ; preds = %.noexc
@@ -5056,7 +5056,7 @@ _ZN5Ipopt6Vector9AddScalarEd.exit:                ; preds = %.noexc
           to label %.noexc24 unwind label %65
 
 .noexc24:                                         ; preds = %69
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %32)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %32)
           to label %_ZN5Ipopt6Vector3SetEd.exit unwind label %65
 
 _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc24
@@ -5078,7 +5078,7 @@ _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc24
 
 .noexc28.invoke:                                  ; preds = %_ZN5Ipopt6Vector9AddScalarEd.exit, %78, %_ZN5Ipopt6Vector3SetEd.exit
   %83 = phi ptr [ %73, %_ZN5Ipopt6Vector3SetEd.exit ], [ %32, %78 ], [ %57, %_ZN5Ipopt6Vector9AddScalarEd.exit ]
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %83)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %83)
           to label %_ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit unwind label %65
 
 _ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit:   ; preds = %.noexc28.invoke
@@ -5273,7 +5273,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit:                 ; preds = %26
           to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %52
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %53)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %53)
           to label %_ZN5Ipopt6Vector9AddScalarEd.exit unwind label %65
 
 _ZN5Ipopt6Vector9AddScalarEd.exit:                ; preds = %.noexc
@@ -5313,7 +5313,7 @@ _ZN5Ipopt6Vector9AddScalarEd.exit:                ; preds = %.noexc
           to label %.noexc24 unwind label %65
 
 .noexc24:                                         ; preds = %69
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %32)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %32)
           to label %_ZN5Ipopt6Vector3SetEd.exit unwind label %65
 
 _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc24
@@ -5335,7 +5335,7 @@ _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc24
 
 .noexc28.invoke:                                  ; preds = %_ZN5Ipopt6Vector9AddScalarEd.exit, %78, %_ZN5Ipopt6Vector3SetEd.exit
   %83 = phi ptr [ %73, %_ZN5Ipopt6Vector3SetEd.exit ], [ %32, %78 ], [ %57, %_ZN5Ipopt6Vector9AddScalarEd.exit ]
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %83)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %83)
           to label %_ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit unwind label %65
 
 _ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit:   ; preds = %.noexc28.invoke
@@ -5530,7 +5530,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit:                 ; preds = %26
           to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %52
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %53)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %53)
           to label %_ZN5Ipopt6Vector9AddScalarEd.exit unwind label %65
 
 _ZN5Ipopt6Vector9AddScalarEd.exit:                ; preds = %.noexc
@@ -5570,7 +5570,7 @@ _ZN5Ipopt6Vector9AddScalarEd.exit:                ; preds = %.noexc
           to label %.noexc24 unwind label %65
 
 .noexc24:                                         ; preds = %69
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %32)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %32)
           to label %_ZN5Ipopt6Vector3SetEd.exit unwind label %65
 
 _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc24
@@ -5592,7 +5592,7 @@ _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc24
 
 .noexc28.invoke:                                  ; preds = %_ZN5Ipopt6Vector9AddScalarEd.exit, %78, %_ZN5Ipopt6Vector3SetEd.exit
   %83 = phi ptr [ %73, %_ZN5Ipopt6Vector3SetEd.exit ], [ %32, %78 ], [ %57, %_ZN5Ipopt6Vector9AddScalarEd.exit ]
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %83)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %83)
           to label %_ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit unwind label %65
 
 _ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit:   ; preds = %.noexc28.invoke
@@ -5787,7 +5787,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit:                 ; preds = %26
           to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %52
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %53)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %53)
           to label %_ZN5Ipopt6Vector9AddScalarEd.exit unwind label %65
 
 _ZN5Ipopt6Vector9AddScalarEd.exit:                ; preds = %.noexc
@@ -5827,7 +5827,7 @@ _ZN5Ipopt6Vector9AddScalarEd.exit:                ; preds = %.noexc
           to label %.noexc24 unwind label %65
 
 .noexc24:                                         ; preds = %69
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %32)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %32)
           to label %_ZN5Ipopt6Vector3SetEd.exit unwind label %65
 
 _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc24
@@ -5849,7 +5849,7 @@ _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc24
 
 .noexc28.invoke:                                  ; preds = %_ZN5Ipopt6Vector9AddScalarEd.exit, %78, %_ZN5Ipopt6Vector3SetEd.exit
   %83 = phi ptr [ %73, %_ZN5Ipopt6Vector3SetEd.exit ], [ %32, %78 ], [ %57, %_ZN5Ipopt6Vector9AddScalarEd.exit ]
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %83)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %83)
           to label %_ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit unwind label %65
 
 _ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit:   ; preds = %.noexc28.invoke
@@ -6062,7 +6062,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit:                 ; preds = %23
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
 
 .noexc:                                           ; preds = %45
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %29)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %29)
           to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit unwind label %57
 
 _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit: ; preds = %.noexc
@@ -6308,7 +6308,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %57, %51
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit31
 
 .noexc:                                           ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSERKS3_.exit36
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %22)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %22)
           to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit unwind label %51
 
 _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit: ; preds = %.noexc
@@ -6324,7 +6324,7 @@ _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit: ; preds = %.noexc
           to label %.noexc41 unwind label %51
 
 .noexc41:                                         ; preds = %69
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %70)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %70)
           to label %_ZN5Ipopt6Vector4AxpyEdRKS0_.exit unwind label %51
 
 _ZN5Ipopt6Vector4AxpyEdRKS0_.exit:                ; preds = %.noexc41, %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit
@@ -6512,7 +6512,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit:                 ; preds = %31
           to label %.noexc unwind label %66
 
 .noexc:                                           ; preds = %53
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %37)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %37)
           to label %57 unwind label %66
 
 57:                                               ; preds = %.noexc
@@ -6765,7 +6765,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit19:               ; preds = %47
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %62
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %54)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %54)
           to label %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit unwind label %.thread
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit: ; preds = %.noexc
@@ -6777,7 +6777,7 @@ _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit: ; preds = %.noexc
           to label %.noexc23 unwind label %.thread
 
 .noexc23:                                         ; preds = %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %66)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %66)
           to label %82 unwind label %.thread
 
 70:                                               ; preds = %47, %24, %46, %7
@@ -6828,7 +6828,7 @@ _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit: ; preds = %.noexc
           to label %.noexc26 unwind label %.thread
 
 .noexc26:                                         ; preds = %85
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %54)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %54)
           to label %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit28 unwind label %.thread
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit28: ; preds = %.noexc26
@@ -6840,7 +6840,7 @@ _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit28: ; preds = %.noexc26
           to label %.noexc29 unwind label %.thread
 
 .noexc29:                                         ; preds = %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit28
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %89)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %89)
           to label %_ZN5Ipopt6Vector4AxpyEdRKS0_.exit31 unwind label %.thread
 
 _ZN5Ipopt6Vector4AxpyEdRKS0_.exit31:              ; preds = %.noexc29, %82
@@ -7082,7 +7082,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit:      ; preds = %_ZNK5Ipopt6Vector7M
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %65
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %59)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %59)
           to label %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit unwind label %.thread
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit: ; preds = %.noexc
@@ -7177,7 +7177,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit38:    ; preds = %_ZNK5Ipopt6Vector7M
           to label %.noexc39 unwind label %.thread81
 
 .noexc39:                                         ; preds = %107
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %101)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %101)
           to label %_ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit41 unwind label %.thread81
 
 _ZN5Ipopt6Vector19ElementWiseMultiplyERKS0_.exit41: ; preds = %.noexc39
@@ -7996,7 +7996,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEE25CleanupInvalidatedResults
   %66 = add i64 %62, -1
   store i64 %66, ptr %65, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #18
-  tail call void @_ZdlPv(ptr noundef %63) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %63) #19
   br label %67
 
 67:                                               ; preds = %45, %61, %34
@@ -8300,7 +8300,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED0
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %13, %._crit_edge.thread.i ]
   %14 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #19
   %.not.i.i.i.i = icmp eq ptr %14, %.lcssa13.i
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 

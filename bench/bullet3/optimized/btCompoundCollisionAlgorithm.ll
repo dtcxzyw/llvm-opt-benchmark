@@ -2030,7 +2030,7 @@ lor.lhs.false21.i:                                ; preds = %cond.end15.i
   br i1 %brmerge, label %if.end97, label %if.then22
 
 if.then22:                                        ; preds = %lor.lhs.false21.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %preTransform, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %preTransform, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx.i.i, i64 16, i1 false)
   %arrayidx8.i.i26 = getelementptr inbounds i8, ptr %preTransform, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i26, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx4.i.i.i, i64 16, i1 false)
   %arrayidx12.i.i28 = getelementptr inbounds i8, ptr %preTransform, i64 32

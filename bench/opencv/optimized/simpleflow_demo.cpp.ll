@@ -121,7 +121,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %28, i32 noundef 3)
+  %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef range(i32 0, 2147483646) %28, i32 noundef 3)
   call void @exit(i32 noundef 1) #12
   unreachable
 
@@ -464,7 +464,7 @@ _ZL3runiPPc.exit:                                 ; preds = %._crit_edge.us.i.i,
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %161
-  %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %28, i32 noundef 2)
+  %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef range(i32 0, 2147483646) %28, i32 noundef 2)
   call void @exit(i32 noundef 1) #12
   unreachable
 

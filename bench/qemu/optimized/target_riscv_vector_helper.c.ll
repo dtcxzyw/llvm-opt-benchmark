@@ -9362,7 +9362,7 @@ if.then14:                                        ; preds = %if.end
   %or.i80 = or i64 %or.i, -4096
   %sub.i81 = sub nsw i64 0, %or.i80
   %cmp.i82 = icmp samesign ugt i64 %conv18, %sub.i81
-  %cond.i83 = tail call i64 @llvm.umin.i64(i64 %conv18, i64 %sub.i81)
+  %cond.i83 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %conv18, i64 %sub.i81)
   %conv.i85 = trunc nuw nsw i64 %cond.i83 to i32
   %call1.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef nonnull %env, i1 noundef zeroext false) #10
   %call2.i = tail call ptr @probe_access(ptr noundef nonnull %env, i64 noundef %or.i, i32 noundef %conv.i85, i32 noundef 0, i32 noundef %call1.i, i64 noundef %ra) #10
@@ -36252,7 +36252,7 @@ do_vsaddu_vv_b.exit71:                            ; preds = %if.end.us.i.i, %if.
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsaddu_vv_b.exit71
@@ -36325,7 +36325,7 @@ do_vsaddu_vv_b.exit51:                            ; preds = %if.end.us.i63.i, %i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsaddu_vv_b.exit51
@@ -36398,7 +36398,7 @@ do_vsaddu_vv_b.exit31:                            ; preds = %if.end.us.i88.i, %i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsaddu_vv_b.exit31
@@ -36471,7 +36471,7 @@ do_vsaddu_vv_b.exit11:                            ; preds = %if.end.us.i113.i, %
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsaddu_vv_b.exit11
@@ -36573,7 +36573,7 @@ if.end.us.i:                                      ; preds = %for.body.us.i
 if.then.us.i:                                     ; preds = %for.body.us.i
   %mul.us.i = mul i32 %i.012.us.i, %esz
   %mul3.us.i = mul i32 %add.us.i, %esz
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44, i32 noundef %mul.us.i, i32 noundef %mul3.us.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44, i32 noundef %mul.us.i, i32 noundef %mul3.us.i) #10
   br label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %if.then.us.i, %if.end.us.i
@@ -36615,7 +36615,7 @@ if.end.us.i63:                                    ; preds = %for.body.us.i54
 if.then.us.i66:                                   ; preds = %for.body.us.i54
   %mul.us.i67 = mul i32 %i.012.us.i55, %esz
   %mul3.us.i68 = mul i32 %add.us.i62, %esz
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44, i32 noundef %mul.us.i67, i32 noundef %mul3.us.i68) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44, i32 noundef %mul.us.i67, i32 noundef %mul3.us.i68) #10
   br label %for.inc.us.i64
 
 for.inc.us.i64:                                   ; preds = %if.then.us.i66, %if.end.us.i63
@@ -36657,7 +36657,7 @@ if.end.us.i88:                                    ; preds = %for.body.us.i79
 if.then.us.i91:                                   ; preds = %for.body.us.i79
   %mul.us.i92 = mul i32 %i.012.us.i80, %esz
   %mul3.us.i93 = mul i32 %add.us.i87, %esz
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44, i32 noundef %mul.us.i92, i32 noundef %mul3.us.i93) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44, i32 noundef %mul.us.i92, i32 noundef %mul3.us.i93) #10
   br label %for.inc.us.i89
 
 for.inc.us.i89:                                   ; preds = %if.then.us.i91, %if.end.us.i88
@@ -36699,7 +36699,7 @@ if.end.us.i113:                                   ; preds = %for.body.us.i104
 if.then.us.i116:                                  ; preds = %for.body.us.i104
   %mul.us.i117 = mul i32 %i.012.us.i105, %esz
   %mul3.us.i118 = mul i32 %add.us.i112, %esz
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44, i32 noundef %mul.us.i117, i32 noundef %mul3.us.i118) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44, i32 noundef %mul.us.i117, i32 noundef %mul3.us.i118) #10
   br label %for.inc.us.i114
 
 for.inc.us.i114:                                  ; preds = %if.then.us.i116, %if.end.us.i113
@@ -36720,7 +36720,7 @@ sw.epilog:                                        ; preds = %for.body.i75, %for.
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %esz, i1 true)
+  %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 9) %esz, i1 true)
   %17 = trunc i64 %env.val to i32
   %18 = lshr i32 %17, 3
   %sh_prom.i = and i32 %18, 7
@@ -36807,7 +36807,7 @@ do_vsaddu_vv_h.exit71:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsaddu_vv_h.exit71
@@ -36882,7 +36882,7 @@ do_vsaddu_vv_h.exit51:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsaddu_vv_h.exit51
@@ -36957,7 +36957,7 @@ do_vsaddu_vv_h.exit31:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsaddu_vv_h.exit31
@@ -37032,7 +37032,7 @@ do_vsaddu_vv_h.exit11:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsaddu_vv_h.exit11
@@ -37154,7 +37154,7 @@ do_vsaddu_vv_w.exit71:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsaddu_vv_w.exit71
@@ -37229,7 +37229,7 @@ do_vsaddu_vv_w.exit51:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsaddu_vv_w.exit51
@@ -37304,7 +37304,7 @@ do_vsaddu_vv_w.exit31:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsaddu_vv_w.exit31
@@ -37379,7 +37379,7 @@ do_vsaddu_vv_w.exit11:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsaddu_vv_w.exit11
@@ -37501,7 +37501,7 @@ do_vsaddu_vv_d.exit71:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsaddu_vv_d.exit71
@@ -37576,7 +37576,7 @@ do_vsaddu_vv_d.exit51:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsaddu_vv_d.exit51
@@ -37651,7 +37651,7 @@ do_vsaddu_vv_d.exit31:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsaddu_vv_d.exit31
@@ -37726,7 +37726,7 @@ do_vsaddu_vv_d.exit11:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsaddu_vv_d.exit11
@@ -37845,7 +37845,7 @@ do_vsaddu_vx_b.exit72:                            ; preds = %if.end.us.i.i, %if.
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsaddu_vx_b.exit72
@@ -37915,7 +37915,7 @@ do_vsaddu_vx_b.exit52:                            ; preds = %if.end.us.i63.i, %i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsaddu_vx_b.exit52
@@ -37985,7 +37985,7 @@ do_vsaddu_vx_b.exit32:                            ; preds = %if.end.us.i88.i, %i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsaddu_vx_b.exit32
@@ -38055,7 +38055,7 @@ do_vsaddu_vx_b.exit12:                            ; preds = %if.end.us.i113.i, %
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsaddu_vx_b.exit12
@@ -38155,7 +38155,7 @@ if.end.us.i:                                      ; preds = %for.body.us.i
 if.then.us.i:                                     ; preds = %for.body.us.i
   %mul.us.i = mul i32 %i.012.us.i, %esz
   %mul3.us.i = mul i32 %add.us.i, %esz
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44, i32 noundef %mul.us.i, i32 noundef %mul3.us.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44, i32 noundef %mul.us.i, i32 noundef %mul3.us.i) #10
   br label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %if.then.us.i, %if.end.us.i
@@ -38197,7 +38197,7 @@ if.end.us.i63:                                    ; preds = %for.body.us.i54
 if.then.us.i66:                                   ; preds = %for.body.us.i54
   %mul.us.i67 = mul i32 %i.012.us.i55, %esz
   %mul3.us.i68 = mul i32 %add.us.i62, %esz
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44, i32 noundef %mul.us.i67, i32 noundef %mul3.us.i68) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44, i32 noundef %mul.us.i67, i32 noundef %mul3.us.i68) #10
   br label %for.inc.us.i64
 
 for.inc.us.i64:                                   ; preds = %if.then.us.i66, %if.end.us.i63
@@ -38239,7 +38239,7 @@ if.end.us.i88:                                    ; preds = %for.body.us.i79
 if.then.us.i91:                                   ; preds = %for.body.us.i79
   %mul.us.i92 = mul i32 %i.012.us.i80, %esz
   %mul3.us.i93 = mul i32 %add.us.i87, %esz
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44, i32 noundef %mul.us.i92, i32 noundef %mul3.us.i93) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44, i32 noundef %mul.us.i92, i32 noundef %mul3.us.i93) #10
   br label %for.inc.us.i89
 
 for.inc.us.i89:                                   ; preds = %if.then.us.i91, %if.end.us.i88
@@ -38281,7 +38281,7 @@ if.end.us.i113:                                   ; preds = %for.body.us.i104
 if.then.us.i116:                                  ; preds = %for.body.us.i104
   %mul.us.i117 = mul i32 %i.012.us.i105, %esz
   %mul3.us.i118 = mul i32 %add.us.i112, %esz
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44, i32 noundef %mul.us.i117, i32 noundef %mul3.us.i118) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44, i32 noundef %mul.us.i117, i32 noundef %mul3.us.i118) #10
   br label %for.inc.us.i114
 
 for.inc.us.i114:                                  ; preds = %if.then.us.i116, %if.end.us.i113
@@ -38302,7 +38302,7 @@ sw.epilog:                                        ; preds = %for.body.i75, %for.
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %esz, i1 true)
+  %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 9) %esz, i1 true)
   %17 = trunc i64 %env.val to i32
   %18 = lshr i32 %17, 3
   %sh_prom.i = and i32 %18, 7
@@ -38388,7 +38388,7 @@ do_vsaddu_vx_h.exit72:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsaddu_vx_h.exit72
@@ -38460,7 +38460,7 @@ do_vsaddu_vx_h.exit52:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsaddu_vx_h.exit52
@@ -38532,7 +38532,7 @@ do_vsaddu_vx_h.exit32:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsaddu_vx_h.exit32
@@ -38604,7 +38604,7 @@ do_vsaddu_vx_h.exit12:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsaddu_vx_h.exit12
@@ -38723,7 +38723,7 @@ do_vsaddu_vx_w.exit72:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsaddu_vx_w.exit72
@@ -38795,7 +38795,7 @@ do_vsaddu_vx_w.exit52:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsaddu_vx_w.exit52
@@ -38867,7 +38867,7 @@ do_vsaddu_vx_w.exit32:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsaddu_vx_w.exit32
@@ -38939,7 +38939,7 @@ do_vsaddu_vx_w.exit12:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsaddu_vx_w.exit12
@@ -39057,7 +39057,7 @@ do_vsaddu_vx_d.exit64:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsaddu_vx_d.exit64
@@ -39128,7 +39128,7 @@ do_vsaddu_vx_d.exit46:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsaddu_vx_d.exit46
@@ -39199,7 +39199,7 @@ do_vsaddu_vx_d.exit28:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsaddu_vx_d.exit28
@@ -39270,7 +39270,7 @@ do_vsaddu_vx_d.exit10:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsaddu_vx_d.exit10
@@ -39393,7 +39393,7 @@ do_vsadd_vv_b.exit107:                            ; preds = %if.end.us.i.i, %if.
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsadd_vv_b.exit107
@@ -39476,7 +39476,7 @@ do_vsadd_vv_b.exit77:                             ; preds = %if.end.us.i63.i, %i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsadd_vv_b.exit77
@@ -39559,7 +39559,7 @@ do_vsadd_vv_b.exit47:                             ; preds = %if.end.us.i88.i, %i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsadd_vv_b.exit47
@@ -39642,7 +39642,7 @@ do_vsadd_vv_b.exit17:                             ; preds = %if.end.us.i113.i, %
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsadd_vv_b.exit17
@@ -39771,7 +39771,7 @@ do_vsadd_vv_h.exit107:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsadd_vv_h.exit107
@@ -39856,7 +39856,7 @@ do_vsadd_vv_h.exit77:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsadd_vv_h.exit77
@@ -39941,7 +39941,7 @@ do_vsadd_vv_h.exit47:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsadd_vv_h.exit47
@@ -40026,7 +40026,7 @@ do_vsadd_vv_h.exit17:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsadd_vv_h.exit17
@@ -40158,7 +40158,7 @@ do_vsadd_vv_w.exit108:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsadd_vv_w.exit108
@@ -40243,7 +40243,7 @@ do_vsadd_vv_w.exit78:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsadd_vv_w.exit78
@@ -40328,7 +40328,7 @@ do_vsadd_vv_w.exit48:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsadd_vv_w.exit48
@@ -40413,7 +40413,7 @@ do_vsadd_vv_w.exit18:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsadd_vv_w.exit18
@@ -40545,7 +40545,7 @@ do_vsadd_vv_d.exit108:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsadd_vv_d.exit108
@@ -40630,7 +40630,7 @@ do_vsadd_vv_d.exit78:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsadd_vv_d.exit78
@@ -40715,7 +40715,7 @@ do_vsadd_vv_d.exit48:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsadd_vv_d.exit48
@@ -40800,7 +40800,7 @@ do_vsadd_vv_d.exit18:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsadd_vv_d.exit18
@@ -40929,7 +40929,7 @@ do_vsadd_vx_b.exit108:                            ; preds = %if.end.us.i.i, %if.
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsadd_vx_b.exit108
@@ -41009,7 +41009,7 @@ do_vsadd_vx_b.exit78:                             ; preds = %if.end.us.i63.i, %i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsadd_vx_b.exit78
@@ -41089,7 +41089,7 @@ do_vsadd_vx_b.exit48:                             ; preds = %if.end.us.i88.i, %i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsadd_vx_b.exit48
@@ -41169,7 +41169,7 @@ do_vsadd_vx_b.exit18:                             ; preds = %if.end.us.i113.i, %
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsadd_vx_b.exit18
@@ -41295,7 +41295,7 @@ do_vsadd_vx_h.exit108:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsadd_vx_h.exit108
@@ -41377,7 +41377,7 @@ do_vsadd_vx_h.exit78:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsadd_vx_h.exit78
@@ -41459,7 +41459,7 @@ do_vsadd_vx_h.exit48:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsadd_vx_h.exit48
@@ -41541,7 +41541,7 @@ do_vsadd_vx_h.exit18:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsadd_vx_h.exit18
@@ -41670,7 +41670,7 @@ do_vsadd_vx_w.exit109:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsadd_vx_w.exit109
@@ -41752,7 +41752,7 @@ do_vsadd_vx_w.exit79:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsadd_vx_w.exit79
@@ -41834,7 +41834,7 @@ do_vsadd_vx_w.exit49:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsadd_vx_w.exit49
@@ -41916,7 +41916,7 @@ do_vsadd_vx_w.exit19:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsadd_vx_w.exit19
@@ -42044,7 +42044,7 @@ do_vsadd_vx_d.exit101:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsadd_vx_d.exit101
@@ -42125,7 +42125,7 @@ do_vsadd_vx_d.exit73:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsadd_vx_d.exit73
@@ -42206,7 +42206,7 @@ do_vsadd_vx_d.exit45:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsadd_vx_d.exit45
@@ -42287,7 +42287,7 @@ do_vsadd_vx_d.exit17:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsadd_vx_d.exit17
@@ -42410,7 +42410,7 @@ do_vssubu_vv_b.exit70:                            ; preds = %if.end.us.i.i, %if.
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssubu_vv_b.exit70
@@ -42483,7 +42483,7 @@ do_vssubu_vv_b.exit50:                            ; preds = %if.end.us.i63.i, %i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssubu_vv_b.exit50
@@ -42556,7 +42556,7 @@ do_vssubu_vv_b.exit30:                            ; preds = %if.end.us.i88.i, %i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssubu_vv_b.exit30
@@ -42629,7 +42629,7 @@ do_vssubu_vv_b.exit10:                            ; preds = %if.end.us.i113.i, %
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssubu_vv_b.exit10
@@ -42748,7 +42748,7 @@ do_vssubu_vv_h.exit71:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssubu_vv_h.exit71
@@ -42823,7 +42823,7 @@ do_vssubu_vv_h.exit51:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssubu_vv_h.exit51
@@ -42898,7 +42898,7 @@ do_vssubu_vv_h.exit31:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssubu_vv_h.exit31
@@ -42973,7 +42973,7 @@ do_vssubu_vv_h.exit11:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssubu_vv_h.exit11
@@ -43095,7 +43095,7 @@ do_vssubu_vv_w.exit71:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssubu_vv_w.exit71
@@ -43170,7 +43170,7 @@ do_vssubu_vv_w.exit51:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssubu_vv_w.exit51
@@ -43245,7 +43245,7 @@ do_vssubu_vv_w.exit31:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssubu_vv_w.exit31
@@ -43320,7 +43320,7 @@ do_vssubu_vv_w.exit11:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssubu_vv_w.exit11
@@ -43442,7 +43442,7 @@ do_vssubu_vv_d.exit71:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssubu_vv_d.exit71
@@ -43517,7 +43517,7 @@ do_vssubu_vv_d.exit51:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssubu_vv_d.exit51
@@ -43592,7 +43592,7 @@ do_vssubu_vv_d.exit31:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssubu_vv_d.exit31
@@ -43667,7 +43667,7 @@ do_vssubu_vv_d.exit11:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssubu_vv_d.exit11
@@ -43786,7 +43786,7 @@ do_vssubu_vx_b.exit71:                            ; preds = %if.end.us.i.i, %if.
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssubu_vx_b.exit71
@@ -43856,7 +43856,7 @@ do_vssubu_vx_b.exit51:                            ; preds = %if.end.us.i63.i, %i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssubu_vx_b.exit51
@@ -43926,7 +43926,7 @@ do_vssubu_vx_b.exit31:                            ; preds = %if.end.us.i88.i, %i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssubu_vx_b.exit31
@@ -43996,7 +43996,7 @@ do_vssubu_vx_b.exit11:                            ; preds = %if.end.us.i113.i, %
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssubu_vx_b.exit11
@@ -44112,7 +44112,7 @@ do_vssubu_vx_h.exit72:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssubu_vx_h.exit72
@@ -44184,7 +44184,7 @@ do_vssubu_vx_h.exit52:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssubu_vx_h.exit52
@@ -44256,7 +44256,7 @@ do_vssubu_vx_h.exit32:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssubu_vx_h.exit32
@@ -44328,7 +44328,7 @@ do_vssubu_vx_h.exit12:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssubu_vx_h.exit12
@@ -44447,7 +44447,7 @@ do_vssubu_vx_w.exit72:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssubu_vx_w.exit72
@@ -44519,7 +44519,7 @@ do_vssubu_vx_w.exit52:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssubu_vx_w.exit52
@@ -44591,7 +44591,7 @@ do_vssubu_vx_w.exit32:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssubu_vx_w.exit32
@@ -44663,7 +44663,7 @@ do_vssubu_vx_w.exit12:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssubu_vx_w.exit12
@@ -44781,7 +44781,7 @@ do_vssubu_vx_d.exit64:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssubu_vx_d.exit64
@@ -44852,7 +44852,7 @@ do_vssubu_vx_d.exit46:                            ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssubu_vx_d.exit46
@@ -44923,7 +44923,7 @@ do_vssubu_vx_d.exit28:                            ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssubu_vx_d.exit28
@@ -44994,7 +44994,7 @@ do_vssubu_vx_d.exit10:                            ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssubu_vx_d.exit10
@@ -45117,7 +45117,7 @@ do_vssub_vv_b.exit106:                            ; preds = %if.end.us.i.i, %if.
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssub_vv_b.exit106
@@ -45200,7 +45200,7 @@ do_vssub_vv_b.exit76:                             ; preds = %if.end.us.i63.i, %i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssub_vv_b.exit76
@@ -45283,7 +45283,7 @@ do_vssub_vv_b.exit46:                             ; preds = %if.end.us.i88.i, %i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssub_vv_b.exit46
@@ -45366,7 +45366,7 @@ do_vssub_vv_b.exit16:                             ; preds = %if.end.us.i113.i, %
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssub_vv_b.exit16
@@ -45495,7 +45495,7 @@ do_vssub_vv_h.exit107:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssub_vv_h.exit107
@@ -45580,7 +45580,7 @@ do_vssub_vv_h.exit77:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssub_vv_h.exit77
@@ -45665,7 +45665,7 @@ do_vssub_vv_h.exit47:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssub_vv_h.exit47
@@ -45750,7 +45750,7 @@ do_vssub_vv_h.exit17:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssub_vv_h.exit17
@@ -45882,7 +45882,7 @@ do_vssub_vv_w.exit108:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssub_vv_w.exit108
@@ -45967,7 +45967,7 @@ do_vssub_vv_w.exit78:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssub_vv_w.exit78
@@ -46052,7 +46052,7 @@ do_vssub_vv_w.exit48:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssub_vv_w.exit48
@@ -46137,7 +46137,7 @@ do_vssub_vv_w.exit18:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssub_vv_w.exit18
@@ -46269,7 +46269,7 @@ do_vssub_vv_d.exit108:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssub_vv_d.exit108
@@ -46354,7 +46354,7 @@ do_vssub_vv_d.exit78:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssub_vv_d.exit78
@@ -46439,7 +46439,7 @@ do_vssub_vv_d.exit48:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssub_vv_d.exit48
@@ -46524,7 +46524,7 @@ do_vssub_vv_d.exit18:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssub_vv_d.exit18
@@ -46653,7 +46653,7 @@ do_vssub_vx_b.exit107:                            ; preds = %if.end.us.i.i, %if.
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssub_vx_b.exit107
@@ -46733,7 +46733,7 @@ do_vssub_vx_b.exit77:                             ; preds = %if.end.us.i63.i, %i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssub_vx_b.exit77
@@ -46813,7 +46813,7 @@ do_vssub_vx_b.exit47:                             ; preds = %if.end.us.i88.i, %i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssub_vx_b.exit47
@@ -46893,7 +46893,7 @@ do_vssub_vx_b.exit17:                             ; preds = %if.end.us.i113.i, %
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssub_vx_b.exit17
@@ -47019,7 +47019,7 @@ do_vssub_vx_h.exit108:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssub_vx_h.exit108
@@ -47101,7 +47101,7 @@ do_vssub_vx_h.exit78:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssub_vx_h.exit78
@@ -47183,7 +47183,7 @@ do_vssub_vx_h.exit48:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssub_vx_h.exit48
@@ -47265,7 +47265,7 @@ do_vssub_vx_h.exit18:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssub_vx_h.exit18
@@ -47394,7 +47394,7 @@ do_vssub_vx_w.exit109:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssub_vx_w.exit109
@@ -47476,7 +47476,7 @@ do_vssub_vx_w.exit79:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssub_vx_w.exit79
@@ -47558,7 +47558,7 @@ do_vssub_vx_w.exit49:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssub_vx_w.exit49
@@ -47640,7 +47640,7 @@ do_vssub_vx_w.exit19:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssub_vx_w.exit19
@@ -47768,7 +47768,7 @@ do_vssub_vx_d.exit101:                            ; preds = %if.end.us.i.i, %if.
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vssub_vx_d.exit101
@@ -47849,7 +47849,7 @@ do_vssub_vx_d.exit73:                             ; preds = %if.end.us.i63.i, %i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vssub_vx_d.exit73
@@ -47930,7 +47930,7 @@ do_vssub_vx_d.exit45:                             ; preds = %if.end.us.i88.i, %i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vssub_vx_d.exit45
@@ -48011,7 +48011,7 @@ do_vssub_vx_d.exit17:                             ; preds = %if.end.us.i113.i, %
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vssub_vx_d.exit17
@@ -48130,7 +48130,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -48198,7 +48198,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -48264,7 +48264,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -48330,7 +48330,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -48444,7 +48444,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -48514,7 +48514,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -48582,7 +48582,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -48650,7 +48650,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -48767,7 +48767,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -48837,7 +48837,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -48905,7 +48905,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -48973,7 +48973,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -49092,7 +49092,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -49166,7 +49166,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -49238,7 +49238,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -49310,7 +49310,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -49426,7 +49426,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -49490,7 +49490,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -49552,7 +49552,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -49614,7 +49614,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -49724,7 +49724,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -49790,7 +49790,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -49854,7 +49854,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -49918,7 +49918,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -50031,7 +50031,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -50097,7 +50097,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -50161,7 +50161,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -50225,7 +50225,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -50339,7 +50339,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -50409,7 +50409,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -50477,7 +50477,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -50545,7 +50545,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -50660,7 +50660,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -50728,7 +50728,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -50794,7 +50794,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -50860,7 +50860,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -50974,7 +50974,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -51044,7 +51044,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -51112,7 +51112,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -51180,7 +51180,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -51297,7 +51297,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -51367,7 +51367,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -51435,7 +51435,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -51503,7 +51503,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -51620,7 +51620,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -51690,7 +51690,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -51758,7 +51758,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -51826,7 +51826,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -51939,7 +51939,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -52002,7 +52002,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -52063,7 +52063,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -52124,7 +52124,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -52233,7 +52233,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -52298,7 +52298,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -52361,7 +52361,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -52424,7 +52424,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -52536,7 +52536,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -52601,7 +52601,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -52664,7 +52664,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -52727,7 +52727,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -52839,7 +52839,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -52905,7 +52905,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -52969,7 +52969,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -53033,7 +53033,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -53146,7 +53146,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -53214,7 +53214,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -53280,7 +53280,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -53346,7 +53346,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -53460,7 +53460,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -53530,7 +53530,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -53598,7 +53598,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -53666,7 +53666,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -53783,7 +53783,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -53853,7 +53853,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -53921,7 +53921,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -53989,7 +53989,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -54108,7 +54108,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -54182,7 +54182,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -54254,7 +54254,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -54326,7 +54326,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -54442,7 +54442,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -54506,7 +54506,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -54568,7 +54568,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -54630,7 +54630,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -54740,7 +54740,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -54806,7 +54806,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -54870,7 +54870,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -54934,7 +54934,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -55047,7 +55047,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -55113,7 +55113,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -55177,7 +55177,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -55241,7 +55241,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -55355,7 +55355,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -55425,7 +55425,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -55493,7 +55493,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -55561,7 +55561,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -55676,7 +55676,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -55744,7 +55744,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -55810,7 +55810,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -55876,7 +55876,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -55990,7 +55990,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -56060,7 +56060,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -56128,7 +56128,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -56196,7 +56196,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -56313,7 +56313,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -56383,7 +56383,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -56451,7 +56451,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -56519,7 +56519,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -56636,7 +56636,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -56706,7 +56706,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -56774,7 +56774,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -56842,7 +56842,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -56955,7 +56955,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
   br label %for.inc.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -57018,7 +57018,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
   br label %for.inc.us.i64.i
 
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -57079,7 +57079,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
   br label %for.inc.us.i89.i
 
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -57140,7 +57140,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
   br label %for.inc.us.i114.i
 
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -57249,7 +57249,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 1
   %mul3.us.i.i = shl i32 %add.us.i.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -57314,7 +57314,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 1
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -57377,7 +57377,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 1
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -57440,7 +57440,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 1
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -57552,7 +57552,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 2
   %mul3.us.i.i = shl i32 %add.us.i.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -57617,7 +57617,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 2
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -57680,7 +57680,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 2
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -57743,7 +57743,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 2
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i
@@ -57855,7 +57855,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
   %mul.us.i.i = shl i32 %i.012.us.i.i, 3
   %mul3.us.i.i = shl i32 %add.us.i.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i.i, i32 noundef %mul3.us.i.i) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %if.end.us.i.i
@@ -57921,7 +57921,7 @@ if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
 if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
   %mul.us.i67.i = shl i32 %i.012.us.i55.i, 3
   %mul3.us.i68.i = shl i32 %add.us.i62.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i67.i, i32 noundef %mul3.us.i68.i) #10
   br label %for.inc.us.i64.i
 
 for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %if.end.us.i63.i
@@ -57985,7 +57985,7 @@ if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
 if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
   %mul.us.i92.i = shl i32 %i.012.us.i80.i, 3
   %mul3.us.i93.i = shl i32 %add.us.i87.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i92.i, i32 noundef %mul3.us.i93.i) #10
   br label %for.inc.us.i89.i
 
 for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %if.end.us.i88.i
@@ -58049,7 +58049,7 @@ if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
 if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
   %mul.us.i117.i = shl i32 %i.012.us.i105.i, 3
   %mul3.us.i118.i = shl i32 %add.us.i112.i, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %mul.us.i117.i, i32 noundef %mul3.us.i118.i) #10
   br label %for.inc.us.i114.i
 
 for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %if.end.us.i113.i

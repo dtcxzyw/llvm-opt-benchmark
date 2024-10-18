@@ -295,7 +295,7 @@ define hidden void @_ZN17LogStreamImplBase10LineBuffer5resetEv(ptr nocapture nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleEC2ES0_(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 %1, ptr %2) unnamed_addr #1 comdat($_ZN13LogStreamImplI15LogTargetHandleEC5ES0_) align 2 {
-  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false) #8
+  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(144) %0, i1 noundef zeroext false) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %4, ptr %5, align 8
@@ -429,7 +429,7 @@ declare noundef zeroext i1 @_ZN12outputStream15update_positionEPKcm(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleEC2ES0_(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 %1, ptr %2) unnamed_addr #1 comdat($_ZN13LogStreamImplI16LogMessageHandleEC5ES0_) align 2 {
-  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false) #8
+  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(144) %0, i1 noundef zeroext false) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %4, ptr %5, align 8

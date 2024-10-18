@@ -1006,7 +1006,7 @@ skipqname.exit116.i:                              ; preds = %126, %117
   br i1 %200, label %doh_decode.exit, label %201
 
 201:                                              ; preds = %187
-  %202 = call fastcc i32 @rdata(ptr noundef %51, i64 noundef %52, i16 noundef zeroext %196, i16 noundef zeroext %139, i32 noundef %184, ptr noundef %5)
+  %202 = call fastcc i32 @rdata(ptr noundef %51, i64 noundef %52, i16 noundef zeroext %196, i16 noundef zeroext %139, i32 noundef %184, ptr noundef nonnull %5)
   %.not110.i = icmp eq i32 %202, 0
   br i1 %.not110.i, label %106, label %doh_decode.exit
 

@@ -170,19 +170,19 @@ for.body82:                                       ; preds = %for.cond79.preheade
   %conv.i58 = select i1 %11, i32 255, i32 0
   %conv1.i = zext i8 %9 to i32
   %conv2.i = zext i8 %10 to i32
-  %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i58) #5, !srcloc !6
+  %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %conv.i58) #5, !srcloc !6
   %and.i.i = and i32 %12, %conv1.i
   %not.i.i = xor i32 %conv.i58, -1
-  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #5, !srcloc !6
+  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %not.i.i) #5, !srcloc !6
   %and2.i.i = and i32 %13, %conv2.i
   %or.i.i = or i32 %and2.i.i, %and.i.i
   %inc92 = add i64 %rotate_offset.182, 1
   %arrayidx95 = getelementptr inbounds [64 x i8], ptr %randmac, i64 0, i64 %j.181
   %14 = load i8, ptr %arrayidx95, align 1
   %conv2.i61 = zext i8 %14 to i32
-  %15 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i59) #5, !srcloc !6
+  %15 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %conv.i59) #5, !srcloc !6
   %and.i.i62 = and i32 %15, %or.i.i
-  %16 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i63) #5, !srcloc !6
+  %16 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %not.i.i63) #5, !srcloc !6
   %and2.i.i64 = and i32 %16, %conv2.i61
   %or.i.i65 = or i32 %and2.i.i64, %and.i.i62
   %conv3.i66 = trunc nuw i32 %or.i.i65 to i8

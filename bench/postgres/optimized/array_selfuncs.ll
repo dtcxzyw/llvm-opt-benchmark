@@ -1143,7 +1143,7 @@ define dso_local i64 @arraycontsel(ptr nocapture noundef readonly %0) local_unna
   %65 = load i64, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  %66 = call ptr @lookup_type_cache(i32 noundef %56, i32 noundef 64) #10
+  %66 = call ptr @lookup_type_cache(i32 noundef range(i32 1, 0) %56, i32 noundef 64) #10
   %67 = getelementptr inbounds i8, ptr %66, i64 128
   %68 = load i32, ptr %67, align 8
   %.not.i = icmp eq i32 %68, 0

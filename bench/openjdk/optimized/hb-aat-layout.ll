@@ -3745,7 +3745,7 @@ _ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face
 
 _ZNK3AAT4feat18get_selector_infosE28hb_aat_layout_feature_type_tjPjP37hb_aat_layout_feature_selector_info_tS2_.exit: ; preds = %61, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit, %62
   %64 = phi ptr [ %63, %62 ], [ @_hb_NullPool, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit ], [ @_hb_NullPool, %61 ]
-  %65 = tail call noundef i32 @_ZNK3AAT11FeatureName18get_selector_infosEjPjP37hb_aat_layout_feature_selector_info_tS1_PKv(ptr noundef nonnull align 1 dereferenceable(12) %64, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %spec.select.i.i.i.i.i)
+  %65 = tail call noundef i32 @_ZNK3AAT11FeatureName18get_selector_infosEjPjP37hb_aat_layout_feature_selector_info_tS1_PKv(ptr noundef nonnull align 1 dereferenceable(12) %64, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(24) %spec.select.i.i.i.i.i)
   ret i32 %65
 }
 
@@ -4855,7 +4855,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 99:                                               ; preds = %90
   %100 = zext nneg i32 %97 to i64
   %101 = getelementptr inbounds i8, ptr %0, i64 %100
-  %102 = tail call noundef zeroext i1 @_ZNK2OT10AttachList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %101, ptr noundef nonnull %1)
+  %102 = tail call noundef zeroext i1 @_ZNK2OT10AttachList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %101, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %102, label %.thread74, label %103
 
 103:                                              ; preds = %99
@@ -4901,7 +4901,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i45: ; preds = %103
 128:                                              ; preds = %119
   %129 = zext nneg i32 %126 to i64
   %130 = getelementptr inbounds i8, ptr %0, i64 %129
-  %131 = tail call noundef zeroext i1 @_ZNK2OT12LigCaretList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %130, ptr noundef nonnull %1)
+  %131 = tail call noundef zeroext i1 @_ZNK2OT12LigCaretList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %130, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %131, label %.thread80, label %132
 
 132:                                              ; preds = %128
@@ -5089,7 +5089,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i55: ; preds = %209
 261:                                              ; preds = %242
   %262 = zext i32 %259 to i64
   %263 = getelementptr inbounds i8, ptr %0, i64 %262
-  %264 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %263, ptr noundef nonnull %1)
+  %264 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %263, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %264, label %.thread69, label %265
 
 265:                                              ; preds = %261
@@ -5666,7 +5666,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_8LigGlyphENS_7IntTypeItLj2EEELb1EEES4_E16sanitiz
 130:                                              ; preds = %121
   %131 = zext nneg i32 %128 to i64
   %132 = getelementptr inbounds i8, ptr %0, i64 %131
-  %133 = tail call noundef zeroext i1 @_ZNK2OT8LigGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(4) %132, ptr noundef nonnull %1)
+  %133 = tail call noundef zeroext i1 @_ZNK2OT8LigGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(4) %132, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %133, label %141, label %134
 
 134:                                              ; preds = %130
@@ -5805,7 +5805,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEELb1EEES4_E16sani
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
 
 74:                                               ; preds = %63
-  %75 = tail call noundef zeroext i1 @_ZNK2OT17CaretValueFormat38sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %59, ptr noundef nonnull %1)
+  %75 = tail call noundef zeroext i1 @_ZNK2OT17CaretValueFormat38sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %59, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %75, label %85, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i: ; preds = %63
@@ -7551,12 +7551,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13ChainSubtableINS_13Exte
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 12
-  %7 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesEvE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull %1, ptr noundef null)
+  %7 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesEvE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef null)
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ExtendedTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 12
-  %10 = tail call noundef zeroext i1 @_ZNK3AAT18ContextualSubtableINS_13ExtendedTypesEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(20) %9, ptr noundef nonnull %1)
+  %10 = tail call noundef zeroext i1 @_ZNK3AAT18ContextualSubtableINS_13ExtendedTypesEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ExtendedTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 11:                                               ; preds = %2
@@ -7574,7 +7574,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13ChainSubtableINS_13Exte
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds i8, ptr %0, i64 12
-  %23 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_13LigatureEntryILb1EE9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(16) %22, ptr noundef nonnull %1, ptr noundef null)
+  %23 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_13LigatureEntryILb1EE9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(28) %22, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef null)
   br i1 %23, label %24, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ExtendedTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 24:                                               ; preds = %21
@@ -7645,7 +7645,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13ChainSubtableINS_13Exte
 
 82:                                               ; preds = %2
   %83 = getelementptr inbounds i8, ptr %0, i64 12
-  %84 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT11HBGlyphID16EE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %83, ptr noundef nonnull %1)
+  %84 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT11HBGlyphID16EE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %83, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ExtendedTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 85:                                               ; preds = %2
@@ -7663,7 +7663,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13ChainSubtableINS_13Exte
 
 95:                                               ; preds = %85
   %96 = getelementptr inbounds i8, ptr %0, i64 12
-  %97 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_17InsertionSubtableIS1_E9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(16) %96, ptr noundef nonnull %1, ptr noundef null)
+  %97 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_17InsertionSubtableIS1_E9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(20) %96, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef null)
   br i1 %97, label %98, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ExtendedTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 98:                                               ; preds = %95
@@ -7754,7 +7754,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT10StateTableINS_13Extende
   %53 = zext i8 %52 to i64
   %54 = or disjoint i64 %50, %53
   %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull %1)
+  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %36
@@ -8616,7 +8616,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToIN3AAT6LookupINS1_11HBGlyphID16
   %111 = zext i8 %110 to i64
   %112 = or disjoint i64 %108, %111
   %113 = getelementptr inbounds i8, ptr %72, i64 %112
-  %114 = call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT11HBGlyphID16EE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %113, ptr noundef nonnull %1)
+  %114 = call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT11HBGlyphID16EE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %113, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %114, label %86, label %_ZN21hb_sanitize_context_t8dispatchIN2OT23UnsizedListOfOffset16ToIN3AAT6LookupINS1_11HBGlyphID16EEENS1_7IntTypeIjLj4EEELb0EEEJRjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSD_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT23UnsizedListOfOffset16ToIN3AAT6LookupINS1_11HBGlyphID16EEENS1_7IntTypeIjLj4EEELb0EEEJRjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSD_.exit: ; preds = %86, %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToIN3AAT6LookupINS1_11HBGlyphID16EEENS1_7IntTypeIjLj4EEELb0EEEJPKNS1_23UnsizedListOfOffset16ToIS6_S8_Lb0EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSG_.exit.i.i.i, %87, %._crit_edge, %.preheader.i.i.i, %_ZNK2OT14UnsizedArrayOfINS_8OffsetToIN3AAT6LookupINS_11HBGlyphID16EEENS_7IntTypeIjLj4EEELb0EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i, %76, %53, %2
@@ -8685,7 +8685,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT10StateTableINS_13Extende
   %53 = zext i8 %52 to i64
   %54 = or disjoint i64 %50, %53
   %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull %1)
+  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %36
@@ -9440,7 +9440,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT10StateTableINS_13Extende
   %53 = zext i8 %52 to i64
   %54 = or disjoint i64 %50, %53
   %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull %1)
+  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %36
@@ -9724,7 +9724,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT10StateTableINS_13Extende
   %53 = zext i8 %52 to i64
   %54 = or disjoint i64 %50, %53
   %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull %1)
+  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %36
@@ -11329,14 +11329,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT13ChainSubtableINS_13Obso
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ObsoleteTypesEvE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(8) %7, ptr noundef nonnull %1, ptr noundef null)
+  %8 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ObsoleteTypesEvE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef null)
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  %11 = call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ObsoleteTypesENS_18ContextualSubtableIS1_E9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(8) %10, ptr noundef nonnull %1, ptr noundef nonnull %3)
+  %11 = call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ObsoleteTypesENS_18ContextualSubtableIS1_E9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(10) %10, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %3)
   br i1 %11, label %12, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT18ContextualSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 12:                                               ; preds = %9
@@ -11391,7 +11391,7 @@ _ZN21hb_sanitize_context_t8dispatchIN3AAT18ContextualSubtableINS1_13ObsoleteType
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ObsoleteTypesEvE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(8) %48, ptr noundef nonnull %1, ptr noundef null)
+  %49 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ObsoleteTypesEvE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(14) %48, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef null)
   br i1 %49, label %50, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 50:                                               ; preds = %47
@@ -11432,7 +11432,7 @@ _ZN21hb_sanitize_context_t8dispatchIN3AAT18ContextualSubtableINS1_13ObsoleteType
 
 78:                                               ; preds = %2
   %79 = getelementptr inbounds i8, ptr %0, i64 8
-  %80 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT11HBGlyphID16EE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %79, ptr noundef nonnull %1)
+  %80 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT11HBGlyphID16EE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %79, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 81:                                               ; preds = %2
@@ -11450,7 +11450,7 @@ _ZN21hb_sanitize_context_t8dispatchIN3AAT18ContextualSubtableINS1_13ObsoleteType
 
 91:                                               ; preds = %81
   %92 = getelementptr inbounds i8, ptr %0, i64 8
-  %93 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ObsoleteTypesENS_17InsertionSubtableIS1_E9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(8) %92, ptr noundef nonnull %1, ptr noundef null)
+  %93 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ObsoleteTypesENS_17InsertionSubtableIS1_E9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(10) %92, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef null)
   br i1 %93, label %94, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT16LigatureSubtableINS1_13ObsoleteTypesEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 94:                                               ; preds = %91
@@ -13706,7 +13706,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_21RearrangementSubtableINS_13Extende
   %.0.i.i.i.i = phi i32 [ %22, %21 ], [ %19, %9 ]
   %23 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 %.0.i.i.i.i, ptr %23, align 8
-  call void @_ZN3AAT16StateTableDriverINS_13ExtendedTypesEvE5driveINS_21RearrangementSubtableIS1_E16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull %5, ptr noundef nonnull %1)
+  call void @_ZN3AAT16StateTableDriverINS_13ExtendedTypesEvE5driveINS_21RearrangementSubtableIS1_E16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %24 = load i8, ptr %5, align 4
   %25 = trunc i8 %24 to i1
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
@@ -13715,17 +13715,17 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_21RearrangementSubtableINS_13Extende
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds i8, ptr %0, i64 12
-  %28 = tail call noundef zeroext i1 @_ZNK3AAT18ContextualSubtableINS_13ExtendedTypesEE5applyEPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(20) %27, ptr noundef nonnull %1)
+  %28 = tail call noundef zeroext i1 @_ZNK3AAT18ContextualSubtableINS_13ExtendedTypesEE5applyEPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(20) %27, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %72
 
 29:                                               ; preds = %2
   %30 = getelementptr inbounds i8, ptr %0, i64 12
-  %31 = tail call noundef zeroext i1 @_ZNK3AAT16LigatureSubtableINS_13ExtendedTypesEE5applyEPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(28) %30, ptr noundef nonnull %1)
+  %31 = tail call noundef zeroext i1 @_ZNK3AAT16LigatureSubtableINS_13ExtendedTypesEE5applyEPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(28) %30, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %72
 
 32:                                               ; preds = %2
   %33 = getelementptr inbounds i8, ptr %0, i64 12
-  %34 = tail call noundef zeroext i1 @_ZNK3AAT21NoncontextualSubtableINS_13ExtendedTypesEE5applyEPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(13) %33, ptr noundef nonnull %1)
+  %34 = tail call noundef zeroext i1 @_ZNK3AAT21NoncontextualSubtableINS_13ExtendedTypesEE5applyEPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(13) %33, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %72
 
 35:                                               ; preds = %2
@@ -13778,7 +13778,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ExtendedTyp
   %.0.i.i.i.i7 = phi i32 [ %68, %67 ], [ %65, %35 ]
   %69 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %.0.i.i.i.i7, ptr %69, align 8
-  call void @_ZN3AAT16StateTableDriverINS_13ExtendedTypesENS_17InsertionSubtableIS1_E9EntryDataEE5driveINS3_16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull %3, ptr noundef nonnull %1)
+  call void @_ZN3AAT16StateTableDriverINS_13ExtendedTypesENS_17InsertionSubtableIS1_E9EntryDataEE5driveINS3_16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %70 = load i8, ptr %3, align 8
   %71 = trunc i8 %70 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -14479,7 +14479,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit58:       ; preds = %_ZN11hb_buffer_t14m
   br i1 %.not.i59.not, label %66, label %_ZL9hb_memcpyPvPKvm.exit
 
 66:                                               ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %61, i64 %63, i1 false), !alias.scope !87
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %61, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !87
   br label %_ZL9hb_memcpyPvPKvm.exit
 
 _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58, %66
@@ -14495,7 +14495,7 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %_ZN11hb_buffer_t14m
   %73 = sub nsw i64 0, %68
   %74 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %72, i64 %73
   %.40..40..40..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.40..40..40..sroa_idx, ptr nonnull readonly align 1 %74, i64 %69, i1 false), !alias.scope !91
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.40..40..40..sroa_idx, ptr nonnull readonly align 1 %74, i64 range(i64 0, 85899345901) %69, i1 false), !alias.scope !91
   br label %_ZL9hb_memcpyPvPKvm.exit61
 
 _ZL9hb_memcpyPvPKvm.exit61:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit, %70
@@ -14520,7 +14520,7 @@ _ZL9hb_memcpyPvPKvm.exit61:                       ; preds = %_ZL9hb_memcpyPvPKvm
   %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %59, i64 %85
   %.40..40..40..sroa_idx90 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull readonly align 8 %.40..40..40..sroa_idx90, i64 %69, i1 false), !alias.scope !95
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull readonly align 8 %.40..40..40..sroa_idx90, i64 range(i64 0, 85899345901) %69, i1 false), !alias.scope !95
   br label %_ZL9hb_memcpyPvPKvm.exit63
 
 _ZL9hb_memcpyPvPKvm.exit63:                       ; preds = %82, %83
@@ -14532,7 +14532,7 @@ _ZL9hb_memcpyPvPKvm.exit63:                       ; preds = %82, %83
   %90 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %59, i64 %89
   %91 = sub nsw i64 0, %62
   %92 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %90, i64 %91
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr nonnull readonly align 16 %4, i64 %63, i1 false), !alias.scope !99
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr nonnull readonly align 16 %4, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !99
   br label %_ZL9hb_memcpyPvPKvm.exit65
 
 _ZL9hb_memcpyPvPKvm.exit65:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit63, %87
@@ -20045,7 +20045,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_21RearrangementSubtableINS_13Obsolet
   %.0.i.i.i.i = phi i32 [ %26, %25 ], [ %23, %13 ]
   %27 = getelementptr inbounds i8, ptr %10, i64 16
   store i32 %.0.i.i.i.i, ptr %27, align 8
-  call void @_ZN3AAT16StateTableDriverINS_13ObsoleteTypesEvE5driveINS_21RearrangementSubtableIS1_E16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull %9, ptr noundef nonnull %1)
+  call void @_ZN3AAT16StateTableDriverINS_13ObsoleteTypesEvE5driveINS_21RearrangementSubtableIS1_E16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %28 = load i8, ptr %9, align 4
   %29 = trunc i8 %28 to i1
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
@@ -20127,7 +20127,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_18ContextualSubtableINS_13ObsoleteTy
   %.0.i.i5.i.i = phi i32 [ %77, %76 ], [ %74, %_ZN3AAT18ContextualSubtableINS_13ObsoleteTypesEE16driver_context_tC2EPKS2_PNS_22hb_aat_apply_context_tE.exit.i.i ]
   %78 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %.0.i.i5.i.i, ptr %78, align 8
-  call void @_ZN3AAT16StateTableDriverINS_13ObsoleteTypesENS_18ContextualSubtableIS1_E9EntryDataEE5driveINS3_16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull %7, ptr noundef nonnull %1)
+  call void @_ZN3AAT16StateTableDriverINS_13ObsoleteTypesENS_18ContextualSubtableIS1_E9EntryDataEE5driveINS3_16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %79 = load i8, ptr %7, align 8
   %80 = trunc i8 %79 to i1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
@@ -20198,7 +20198,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_16LigatureSubtableINS_13ObsoleteType
   %.0.i.i.i.i8 = phi i32 [ %125, %124 ], [ %122, %81 ]
   %126 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 %.0.i.i.i.i8, ptr %126, align 8
-  call void @_ZN3AAT16StateTableDriverINS_13ObsoleteTypesEvE5driveINS_16LigatureSubtableIS1_E16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull %5, ptr noundef nonnull %1)
+  call void @_ZN3AAT16StateTableDriverINS_13ObsoleteTypesEvE5driveINS_16LigatureSubtableIS1_E16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %127 = load i8, ptr %5, align 8
   %128 = trunc i8 %127 to i1
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %5)
@@ -20207,7 +20207,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_16LigatureSubtableINS_13ObsoleteType
 
 129:                                              ; preds = %2
   %130 = getelementptr inbounds i8, ptr %0, i64 8
-  %131 = tail call noundef zeroext i1 @_ZNK3AAT21NoncontextualSubtableINS_13ObsoleteTypesEE5applyEPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(13) %130, ptr noundef nonnull %1)
+  %131 = tail call noundef zeroext i1 @_ZNK3AAT21NoncontextualSubtableINS_13ObsoleteTypesEE5applyEPNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 1 dereferenceable(13) %130, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %159
 
 132:                                              ; preds = %2
@@ -20250,7 +20250,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_17InsertionSubtableINS_13ObsoleteTyp
   %.0.i.i.i.i9 = phi i32 [ %155, %154 ], [ %152, %132 ]
   %156 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %.0.i.i.i.i9, ptr %156, align 8
-  call void @_ZN3AAT16StateTableDriverINS_13ObsoleteTypesENS_17InsertionSubtableIS1_E9EntryDataEE5driveINS3_16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull %3, ptr noundef nonnull %1)
+  call void @_ZN3AAT16StateTableDriverINS_13ObsoleteTypesENS_17InsertionSubtableIS1_E9EntryDataEE5driveINS3_16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %157 = load i8, ptr %3, align 8
   %158 = trunc i8 %157 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -20953,7 +20953,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit58:       ; preds = %_ZN11hb_buffer_t14m
   br i1 %.not.i59.not, label %66, label %_ZL9hb_memcpyPvPKvm.exit
 
 66:                                               ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %61, i64 %63, i1 false), !alias.scope !125
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %61, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !125
   br label %_ZL9hb_memcpyPvPKvm.exit
 
 _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58, %66
@@ -20969,7 +20969,7 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %_ZN11hb_buffer_t14m
   %73 = sub nsw i64 0, %68
   %74 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %72, i64 %73
   %.40..40..40..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.40..40..40..sroa_idx, ptr nonnull readonly align 1 %74, i64 %69, i1 false), !alias.scope !129
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.40..40..40..sroa_idx, ptr nonnull readonly align 1 %74, i64 range(i64 0, 85899345901) %69, i1 false), !alias.scope !129
   br label %_ZL9hb_memcpyPvPKvm.exit61
 
 _ZL9hb_memcpyPvPKvm.exit61:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit, %70
@@ -20994,7 +20994,7 @@ _ZL9hb_memcpyPvPKvm.exit61:                       ; preds = %_ZL9hb_memcpyPvPKvm
   %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %59, i64 %85
   %.40..40..40..sroa_idx90 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull readonly align 8 %.40..40..40..sroa_idx90, i64 %69, i1 false), !alias.scope !133
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull readonly align 8 %.40..40..40..sroa_idx90, i64 range(i64 0, 85899345901) %69, i1 false), !alias.scope !133
   br label %_ZL9hb_memcpyPvPKvm.exit63
 
 _ZL9hb_memcpyPvPKvm.exit63:                       ; preds = %82, %83
@@ -21006,7 +21006,7 @@ _ZL9hb_memcpyPvPKvm.exit63:                       ; preds = %82, %83
   %90 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %59, i64 %89
   %91 = sub nsw i64 0, %62
   %92 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %90, i64 %91
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr nonnull readonly align 16 %4, i64 %63, i1 false), !alias.scope !137
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr nonnull readonly align 16 %4, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !137
   br label %_ZL9hb_memcpyPvPKvm.exit65
 
 _ZL9hb_memcpyPvPKvm.exit65:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit63, %87
@@ -24730,11 +24730,11 @@ _ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE16sani
 
 61:                                               ; preds = %51
   %62 = getelementptr inbounds i8, ptr %0, i64 12
-  %63 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_12Format1EntryILb1EE9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(16) %62, ptr noundef nonnull %1, ptr noundef null)
+  %63 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_12Format1EntryILb1EE9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef null)
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT19KerxSubTableFormat0INS1_18KerxSubTableHeaderEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 64:                                               ; preds = %2
-  %65 = tail call noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(28) %0, ptr noundef nonnull %1)
+  %65 = tail call noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat2INS_18KerxSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT19KerxSubTableFormat0INS1_18KerxSubTableHeaderEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 66:                                               ; preds = %2
@@ -24752,11 +24752,11 @@ _ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE16sani
 
 76:                                               ; preds = %66
   %77 = getelementptr inbounds i8, ptr %0, i64 12
-  %78 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_19KerxSubTableFormat4INS_18KerxSubTableHeaderEE9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(16) %77, ptr noundef nonnull %1, ptr noundef null)
+  %78 = tail call noundef zeroext i1 @_ZNK3AAT10StateTableINS_13ExtendedTypesENS_19KerxSubTableFormat4INS_18KerxSubTableHeaderEE9EntryDataEE8sanitizeEP21hb_sanitize_context_tPj(ptr noundef nonnull align 1 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef null)
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT19KerxSubTableFormat0INS1_18KerxSubTableHeaderEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 79:                                               ; preds = %2
-  %80 = tail call noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(36) %0, ptr noundef nonnull %1)
+  %80 = tail call noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat6INS_18KerxSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t8dispatchIN3AAT19KerxSubTableFormat0INS1_18KerxSubTableHeaderEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN3AAT19KerxSubTableFormat0INS1_18KerxSubTableHeaderEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit: ; preds = %76, %66, %61, %51, %_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i, %41, %37, %15, %5, %2, %79, %64
@@ -24825,7 +24825,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT10StateTableINS_13Extende
   %53 = zext i8 %52 to i64
   %54 = or disjoint i64 %50, %53
   %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull %1)
+  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %36
@@ -25088,7 +25088,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat2INS_
   %33 = zext i8 %32 to i64
   %34 = or disjoint i64 %30, %33
   %35 = getelementptr inbounds i8, ptr %0, i64 %34
-  %36 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %35, ptr noundef nonnull %1)
+  %36 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %35, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %16
@@ -25121,7 +25121,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat2INS_
   %61 = zext i8 %60 to i64
   %62 = or disjoint i64 %58, %61
   %63 = getelementptr inbounds i8, ptr %0, i64 %62
-  %64 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %63, ptr noundef nonnull %1)
+  %64 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %63, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %64, label %65, label %.thread
 
 65:                                               ; preds = %45
@@ -25233,7 +25233,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT10StateTableINS_13Extende
   %53 = zext i8 %52 to i64
   %54 = or disjoint i64 %50, %53
   %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull %1)
+  %56 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %55, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %36
@@ -25505,7 +25505,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat6INS_
   %38 = zext i8 %37 to i64
   %39 = or disjoint i64 %35, %38
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
-  %41 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeIjLj4EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %40, ptr noundef nonnull %1)
+  %41 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeIjLj4EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %40, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %21
@@ -25538,7 +25538,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat6INS_
   %66 = zext i8 %65 to i64
   %67 = or disjoint i64 %63, %66
   %68 = getelementptr inbounds i8, ptr %0, i64 %67
-  %69 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeIjLj4EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %68, ptr noundef nonnull %1)
+  %69 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeIjLj4EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %68, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %69, label %70, label %.thread
 
 70:                                               ; preds = %50
@@ -25607,7 +25607,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat6INS_
   %122 = zext i8 %121 to i64
   %123 = or disjoint i64 %119, %122
   %124 = getelementptr inbounds i8, ptr %0, i64 %123
-  %125 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %124, ptr noundef nonnull %1)
+  %125 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %124, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %125, label %126, label %.thread
 
 126:                                              ; preds = %105
@@ -25640,7 +25640,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat6INS_
   %150 = zext i8 %149 to i64
   %151 = or disjoint i64 %147, %150
   %152 = getelementptr inbounds i8, ptr %0, i64 %151
-  %153 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %152, ptr noundef nonnull %1)
+  %153 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(13) %152, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %153, label %154, label %.thread
 
 154:                                              ; preds = %134
@@ -26512,7 +26512,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT4ankr8sanitizeEP21hb_sani
 91:                                               ; preds = %72
   %92 = zext i32 %89 to i64
   %93 = getelementptr inbounds i8, ptr %0, i64 %92
-  %94 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(13) %93, ptr noundef nonnull %1, ptr noundef nonnull %69)
+  %94 = tail call noundef zeroext i1 @_ZNK3AAT6LookupIN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(13) %93, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %69)
   br i1 %94, label %_ZNK2OT8OffsetToIN3AAT6LookupINS0_INS_7ArrayOfINS1_6AnchorENS_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEEES6_Lb1EE6neuterEP21hb_sanitize_context_t.exit, label %95
 
 95:                                               ; preds = %91
@@ -27701,7 +27701,7 @@ _ZN3AAT16StateTableDriverINS_13ExtendedTypesENS_12Format1EntryILb1EE9EntryDataEE
   %.0.i.i.i.i = phi i32 [ %79, %78 ], [ %76, %._crit_edge.i.i ]
   %80 = getelementptr inbounds i8, ptr %10, i64 16
   store i32 %.0.i.i.i.i, ptr %80, align 8
-  call void @_ZN3AAT16StateTableDriverINS_13ExtendedTypesENS_12Format1EntryILb1EE9EntryDataEE5driveINS_19KerxSubTableFormat1INS_18KerxSubTableHeaderEE16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull %9, ptr noundef nonnull %1)
+  call void @_ZN3AAT16StateTableDriverINS_13ExtendedTypesENS_12Format1EntryILb1EE9EntryDataEE5driveINS_19KerxSubTableFormat1INS_18KerxSubTableHeaderEE16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %_ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat1INS_18KerxSubTableHeaderEEEEEbRKT_.exit
 
 _ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat1INS_18KerxSubTableHeaderEEEEEbRKT_.exit: ; preds = %35, %_ZN3AAT16StateTableDriverINS_13ExtendedTypesENS_12Format1EntryILb1EE9EntryDataEEC2ERKNS_10StateTableIS1_S4_EEP11hb_buffer_tP9hb_face_t.exit.i.i
@@ -27803,7 +27803,7 @@ _ZN3AAT22hb_aat_apply_context_t8dispatchINS_19KerxSubTableFormat4INS_18KerxSubTa
   %.0.i.i.i.i11 = phi i32 [ %136, %135 ], [ %133, %101 ]
   %137 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 %.0.i.i.i.i11, ptr %137, align 8
-  call void @_ZN3AAT16StateTableDriverINS_13ExtendedTypesENS_19KerxSubTableFormat4INS_18KerxSubTableHeaderEE9EntryDataEE5driveINS4_16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull %5, ptr noundef nonnull %1)
+  call void @_ZN3AAT16StateTableDriverINS_13ExtendedTypesENS_19KerxSubTableFormat4INS_18KerxSubTableHeaderEE9EntryDataEE5driveINS4_16driver_context_tEEEvPT_PNS_22hb_aat_apply_context_tE(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(136) %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %158
@@ -32197,7 +32197,7 @@ define linkonce_odr hidden noundef i32 @_ZN9hb_font_t34get_glyph_contour_point_f
 
 _ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit: ; preds = %6, %17
   %20 = phi ptr [ %19, %17 ], [ null, %6 ]
-  %21 = tail call noundef i32 %12(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %20)
+  %21 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %14, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %20)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %33, label %22
 
@@ -32344,7 +32344,7 @@ define linkonce_odr hidden void @_ZN9hb_font_t32get_glyph_h_origin_with_fallback
 
 _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %14
   %17 = phi ptr [ %16, %14 ], [ null, %4 ]
-  %18 = tail call noundef i32 %9(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
+  %18 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %64
 
@@ -32367,7 +32367,7 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %14
 
 _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %19, %26
   %29 = phi ptr [ %28, %26 ], [ null, %19 ]
-  %30 = tail call noundef i32 %22(ptr noundef nonnull %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
+  %30 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
   %.not9 = icmp eq i32 %30, 0
   br i1 %.not9, label %64, label %31
 
@@ -32389,7 +32389,7 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %19, %26
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
   %41 = phi ptr [ %40, %38 ], [ null, %31 ]
-  %42 = tail call noundef i32 %34(ptr noundef nonnull %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
+  %42 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
   %.neg = sdiv i32 %42, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %43 = load ptr, ptr %6, align 8
@@ -32407,7 +32407,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %49, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
   %51 = phi ptr [ %50, %49 ], [ null, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i ]
-  %52 = call noundef i32 %45(ptr noundef nonnull %0, ptr noundef %46, ptr noundef nonnull %5, ptr noundef %51)
+  %52 = call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %46, ptr noundef nonnull %5, ptr noundef %51)
   %.not.i3.i = icmp eq i32 %52, 0
   br i1 %.not.i3.i, label %53, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit_crit_edge.i
 
@@ -32461,7 +32461,7 @@ define linkonce_odr hidden void @_ZN9hb_font_t32get_glyph_v_origin_with_fallback
 
 _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %4, %14
   %17 = phi ptr [ %16, %14 ], [ null, %4 ]
-  %18 = tail call noundef i32 %9(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
+  %18 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %65
 
@@ -32484,7 +32484,7 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %4, %14
 
 _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %19, %26
   %29 = phi ptr [ %28, %26 ], [ null, %19 ]
-  %30 = tail call noundef i32 %22(ptr noundef nonnull %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
+  %30 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
   %.not9 = icmp eq i32 %30, 0
   br i1 %.not9, label %65, label %31
 
@@ -32506,7 +32506,7 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %19, %26
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
   %41 = phi ptr [ %40, %38 ], [ null, %31 ]
-  %42 = tail call noundef i32 %34(ptr noundef nonnull %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
+  %42 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
   %43 = sdiv i32 %42, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %44 = load ptr, ptr %6, align 8
@@ -32524,7 +32524,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %50, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
   %52 = phi ptr [ %51, %50 ], [ null, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i ]
-  %53 = call noundef i32 %46(ptr noundef nonnull %0, ptr noundef %47, ptr noundef nonnull %5, ptr noundef %52)
+  %53 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %47, ptr noundef nonnull %5, ptr noundef %52)
   %.not.i3.i = icmp eq i32 %53, 0
   br i1 %.not.i3.i, label %54, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit_crit_edge.i
 
@@ -34840,7 +34840,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT4trak8sanitizeEP21hb_sani
 35:                                               ; preds = %26
   %36 = zext nneg i32 %33 to i64
   %37 = getelementptr inbounds i8, ptr %0, i64 %36
-  %38 = tail call noundef zeroext i1 @_ZNK3AAT9TrackData8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(16) %37, ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %38 = tail call noundef zeroext i1 @_ZNK3AAT9TrackData8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %35
@@ -34886,7 +34886,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %39
 64:                                               ; preds = %55
   %65 = zext nneg i32 %62 to i64
   %66 = getelementptr inbounds i8, ptr %0, i64 %65
-  %67 = tail call noundef zeroext i1 @_ZNK3AAT9TrackData8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(16) %66, ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %67 = tail call noundef zeroext i1 @_ZNK3AAT9TrackData8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   br i1 %67, label %.thread33, label %68
 
 68:                                               ; preds = %64

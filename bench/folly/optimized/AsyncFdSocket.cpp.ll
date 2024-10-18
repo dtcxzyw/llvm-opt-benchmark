@@ -3054,7 +3054,7 @@ invoke.cont123:                                   ; preds = %if.then114
           to label %.noexc unwind label %lpad124
 
 .noexc:                                           ; preds = %invoke.cont123
-  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ex118, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25)
+  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ex118, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25)
           to label %invoke.cont.i33 unwind label %lpad.i26
 
 invoke.cont.i33:                                  ; preds = %.noexc

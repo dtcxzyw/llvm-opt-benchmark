@@ -733,7 +733,7 @@ declare void @_ZN6icu_7515ValueNameGetterD2Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23PropertyValueNameGetterD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN6icu_7515ValueNameGetterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  tail call void @_ZN6icu_7515ValueNameGetterD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
   ret void
 }
@@ -1100,7 +1100,7 @@ terminate.lpad.i40:                               ; preds = %if.then.i39
   unreachable
 
 _ZN6icu_7526LocalUMutableCPTriePointerD2Ev.exit:  ; preds = %_ZN6icu_7519LocalUCPTriePointerD2Ev.exit, %if.then.i39
-  call void @_ZN6icu_7515ValueNameGetterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %valueNameGetter) #25
+  call void @_ZN6icu_7515ValueNameGetterD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %valueNameGetter) #25
   call void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %status) #25
   ret void
 
@@ -1122,7 +1122,7 @@ ehcleanup:                                        ; preds = %lpad50, %lpad42
 
 ehcleanup57:                                      ; preds = %ehcleanup, %lpad27
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad27 ]
-  call void @_ZN6icu_7515ValueNameGetterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %valueNameGetter) #25
+  call void @_ZN6icu_7515ValueNameGetterD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %valueNameGetter) #25
   br label %ehcleanup58
 
 ehcleanup58:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %ehcleanup57
@@ -2166,7 +2166,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %status, align 8
   %location.i = getelementptr inbounds i8, ptr %status, i64 16
   store ptr @.str.35, ptr %location.i, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFileName)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %outFileName)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2206,7 +2206,7 @@ lpad:                                             ; preds = %entry
 lpad2:                                            ; preds = %invoke.cont18, %invoke.cont12, %invoke.cont3, %if.end52, %if.then50, %invoke.cont44, %invoke.cont40, %if.then39, %invoke.cont34, %invoke.cont30, %if.then29, %invoke.cont21, %invoke.cont15, %if.end, %invoke.cont5, %if.then
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFileName) #25
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %outFileName) #25
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont5, %land.lhs.true, %invoke.cont
@@ -2290,7 +2290,7 @@ if.end52:                                         ; preds = %if.then50, %if.end4
           to label %invoke.cont53 unwind label %lpad2
 
 invoke.cont53:                                    ; preds = %if.end52
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFileName) #25
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %outFileName) #25
   call void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %status) #25
   ret ptr %call27
 

@@ -128,7 +128,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -138,7 +138,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -250,7 +250,7 @@ do.end.i:                                         ; preds = %entry
 
 delete.notnull.i.i:                               ; preds = %do.end.i
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   br label %_ZN9grpc_core14promise_detail20FreestandingActivity6Handle12DropActivityEv.exit
 
 _ZN9grpc_core14promise_detail20FreestandingActivity6Handle12DropActivityEv.exit: ; preds = %do.end.i, %delete.notnull.i.i
@@ -445,7 +445,7 @@ call.i.i2.noexc.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !10
   store ptr %digits_.i.i.i.i.i.i, ptr %_M_str.i.i.i.i.i.i.i, align 8, !noalias !10
-  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i.i.i)
+  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i.i.i)
           to label %invoke.cont6.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont6.i.i.i.i:                             ; preds = %call.i.i2.noexc.i.i.i.i
@@ -575,7 +575,7 @@ do.end.i.i:                                       ; preds = %.noexc
 
 delete.notnull.i.i.i:                             ; preds = %.noexc2
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   br label %_ZN9grpc_core14promise_detail20FreestandingActivity10DropHandleEv.exit
 
 _ZN9grpc_core14promise_detail20FreestandingActivity10DropHandleEv.exit: ; preds = %.noexc2, %delete.notnull.i.i.i
@@ -651,7 +651,7 @@ entry:
   %vtable.i = load ptr, ptr %1, align 8, !noalias !21
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %2 = load ptr, ptr %vfn.i, align 8, !noalias !21
-  tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
@@ -750,7 +750,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 delete.notnull.i:                                 ; preds = %if.end
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
   br label %_ZN9grpc_core14promise_detail20FreestandingActivity6Handle5UnrefEv.exit
 
 _ZN9grpc_core14promise_detail20FreestandingActivity6Handle5UnrefEv.exit: ; preds = %if.end, %delete.notnull.i
@@ -806,7 +806,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 delete.notnull.i:                                 ; preds = %if.end
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
   br label %_ZN9grpc_core14promise_detail20FreestandingActivity6Handle5UnrefEv.exit
 
 _ZN9grpc_core14promise_detail20FreestandingActivity6Handle5UnrefEv.exit: ; preds = %if.end, %delete.notnull.i
@@ -824,7 +824,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   %mu_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
   br label %_ZN9grpc_core14promise_detail20FreestandingActivity6Handle5UnrefEv.exit
 
 _ZN9grpc_core14promise_detail20FreestandingActivity6Handle5UnrefEv.exit: ; preds = %entry, %delete.notnull.i
@@ -848,7 +848,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad.body.thread8
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad.body.thread8
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -858,7 +858,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.body.thread:                                 ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   br label %cleanup.action5
 
 cond.false:                                       ; preds = %entry

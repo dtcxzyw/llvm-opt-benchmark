@@ -2187,7 +2187,7 @@ Vga_ManFind.exit486:                              ; preds = %328, %332, %Vga_Man
   %342 = getelementptr inbounds i8, ptr %335, i64 12
   %343 = load i32, ptr %342, align 4
   %344 = and i32 %343, 268435455
-  %345 = tail call range(i32 0, 268435456) i32 @llvm.umax.i32(i32 %341, i32 %344)
+  %345 = tail call range(i32 0, 268435456) i32 @llvm.umax.i32(i32 range(i32 0, 268435456) %341, i32 range(i32 0, 268435456) %344)
   %346 = and i32 %284, -268435456
   %347 = or disjoint i32 %345, %346
   br label %.critedge12.sink.split

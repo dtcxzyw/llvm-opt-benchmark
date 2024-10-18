@@ -1769,7 +1769,7 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %255, %.prehead
 _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %437
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %38)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(96) %38)
           to label %.noexc180 unwind label %509
 
 .noexc180:                                        ; preds = %_ZN2cv4Mat_IdEC2Eii.exit
@@ -4043,7 +4043,7 @@ define void @_ZN2cv8ximgproc20createContourFittingEii(ptr dead_on_unwind noalias
   store i32 1, ptr %6, align 4, !noalias !90
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc14ContourFittingESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !90
   %7 = getelementptr inbounds i8, ptr %4, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %7)
           to label %_ZN2cvL7makePtrINS_8ximgproc14ContourFittingEJiiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc14ContourFittingESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !90
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc14ContourFittingESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %3

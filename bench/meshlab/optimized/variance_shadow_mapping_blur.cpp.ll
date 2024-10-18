@@ -1008,7 +1008,7 @@ define noundef zeroext i1 @_ZN25VarianceShadowMappingBlur5setupEv(ptr noundef no
   tail call void @_ZN14DecorateShader18genColorTextureEXTERjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef 36066)
   %20 = getelementptr inbounds i8, ptr %0, i64 44
   %21 = load ptr, ptr @__glewGenRenderbuffers, align 8
-  tail call void %21(i32 noundef 1, ptr noundef nonnull %20)
+  tail call void %21(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %20)
   %22 = load ptr, ptr @__glewBindRenderbuffer, align 8
   %23 = load i32, ptr %20, align 4
   tail call void %22(i32 noundef 36161, i32 noundef %23)

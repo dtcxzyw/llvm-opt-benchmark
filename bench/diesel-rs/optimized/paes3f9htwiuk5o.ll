@@ -861,7 +861,7 @@ define internal void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$1
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !272
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf2efacf639a2cd70E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf2efacf639a2cd70E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !range !281, !noalias !272, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %9, 0
@@ -903,7 +903,7 @@ define internal void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$1
   br i1 %27, label %common.resume, label %28
 
 28:                                               ; preds = %19
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %23, i64 noundef %25) #21
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %23, i64 noundef range(i64 1, -9223372036854775807) %25) #21
   br label %common.resume
 
 29:                                               ; preds = %15
@@ -919,7 +919,7 @@ define internal void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$1
   br i1 %36, label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3ecb3b5c918eb194E.exit", label %37
 
 37:                                               ; preds = %29
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %32, i64 noundef %34) #21
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %32, i64 noundef range(i64 1, -9223372036854775807) %34) #21
   br label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3ecb3b5c918eb194E.exit"
 
 common.resume:                                    ; preds = %.body, %88, %97, %65, %74, %42, %51, %19, %28, %115
@@ -950,7 +950,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
   br i1 %50, label %common.resume, label %51
 
 51:                                               ; preds = %42
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val6, i64 noundef %46, i64 noundef %48) #21
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val6, i64 noundef range(i64 1, -9223372036854775808) %46, i64 noundef range(i64 1, -9223372036854775807) %48) #21
   br label %common.resume
 
 52:                                               ; preds = %38
@@ -966,7 +966,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
   br i1 %59, label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3ecb3b5c918eb194E.exit", label %60
 
 60:                                               ; preds = %52
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val6, i64 noundef %55, i64 noundef %57) #21
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val6, i64 noundef range(i64 1, -9223372036854775808) %55, i64 noundef range(i64 1, -9223372036854775807) %57) #21
   br label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3ecb3b5c918eb194E.exit"
 
 61:                                               ; preds = %1
@@ -993,7 +993,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
   br i1 %73, label %common.resume, label %74
 
 74:                                               ; preds = %65
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %69, i64 noundef %71) #21
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef range(i64 1, -9223372036854775808) %69, i64 noundef range(i64 1, -9223372036854775807) %71) #21
   br label %common.resume
 
 75:                                               ; preds = %61
@@ -1009,7 +1009,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
   br i1 %82, label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3ecb3b5c918eb194E.exit", label %83
 
 83:                                               ; preds = %75
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %78, i64 noundef %80) #21
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef range(i64 1, -9223372036854775808) %78, i64 noundef range(i64 1, -9223372036854775807) %80) #21
   br label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3ecb3b5c918eb194E.exit"
 
 84:                                               ; preds = %1
@@ -1036,7 +1036,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
   br i1 %96, label %common.resume, label %97
 
 97:                                               ; preds = %88
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef %92, i64 noundef %94) #21
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef range(i64 1, -9223372036854775808) %92, i64 noundef range(i64 1, -9223372036854775807) %94) #21
   br label %common.resume
 
 98:                                               ; preds = %84
@@ -1052,7 +1052,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
   br i1 %105, label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3ecb3b5c918eb194E.exit", label %106
 
 106:                                              ; preds = %98
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef %101, i64 noundef %103) #21
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef range(i64 1, -9223372036854775808) %101, i64 noundef range(i64 1, -9223372036854775807) %103) #21
   br label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3ecb3b5c918eb194E.exit"
 
 107:                                              ; preds = %1
@@ -1557,7 +1557,7 @@ define hidden void @"_ZN6diesel10type_impls10primitives94_$LT$impl$u20$diesel..s
   br i1 %10, label %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h51d311909f7af968E.llvm.1037472463927168953.exit"
 
 11:                                               ; preds = %4
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h3881f9658539a24aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %7, i64 noundef %2), !noalias !295
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h3881f9658539a24aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %7, i64 noundef %2), !noalias !295
   %.pre.i.i = load i64, ptr %6, align 8, !alias.scope !290, !noalias !295
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h51d311909f7af968E.llvm.1037472463927168953.exit"
 
@@ -2047,7 +2047,7 @@ define { ptr, ptr } @_ZN17all_about_inserts24insert_insertable_struct17h00b2c54d
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %12, ptr %.sroa.47.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_105_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$$RF$str$GT$13as_expression17h3e9485229295b47dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_105_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$$RF$str$GT$13as_expression17h3e9485229295b47dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
   %15 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !375, !noundef !5
   %16 = icmp eq ptr %15, null
   br i1 %16, label %"_ZN6diesel13query_builder16insert_statement39IncompleteInsertStatement$LT$T$C$Op$GT$6values17h6f1990a3e56be2b4E.exit", label %17
@@ -2192,7 +2192,7 @@ define { ptr, ptr } @_ZN17all_about_inserts31insert_insertable_struct_option17h1
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %12, ptr %.sroa.47.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_105_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$$RF$str$GT$13as_expression17h3e9485229295b47dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_105_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$$RF$str$GT$13as_expression17h3e9485229295b47dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
   %15 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !392, !noundef !5
   %16 = icmp eq ptr %15, null
   br i1 %16, label %"_ZN6diesel13query_builder16insert_statement39IncompleteInsertStatement$LT$T$C$Op$GT$6values17h6f1990a3e56be2b4E.exit", label %17
@@ -2357,7 +2357,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
   store i64 2, ptr %26, align 8, !alias.scope !409, !noalias !412
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !414
   %27 = getelementptr inbounds i8, ptr %7, i64 32
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd1637483b9781cdeE.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %27)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd1637483b9781cdeE.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly align 8 %7, ptr noundef nonnull readonly %27)
           to label %30 unwind label %28
 
 28:                                               ; preds = %"_ZN4core3ptr556drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17he3a1e8c6e78bb1f4E.exit.i", %17
@@ -2389,7 +2389,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
 34:                                               ; preds = %33
   %35 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf65a4a01fcce469aE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf65a4a01fcce469aE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %.body unwind label %36, !noalias !423
 
 36:                                               ; preds = %34
@@ -2399,7 +2399,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
   unreachable
 
 "_ZN4core3ptr556drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17he3a1e8c6e78bb1f4E.exit.i": ; preds = %33
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf65a4a01fcce469aE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf65a4a01fcce469aE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h5374924bb137e433E.exit" unwind label %28
 
 38:                                               ; preds = %31
@@ -2411,7 +2411,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
 "_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h5374924bb137e433E.exit": ; preds = %"_ZN4core3ptr556drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17he3a1e8c6e78bb1f4E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !426
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h351f0d4153685e79E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h351f0d4153685e79E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %40 = getelementptr inbounds i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8, !range !281, !noalias !426, !noundef !5
   %.not.i.i.i = icmp eq i64 %41, 0
@@ -2484,7 +2484,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
   store i64 2, ptr %20, align 8, !alias.scope !433, !noalias !436
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !438
   %21 = getelementptr inbounds i8, ptr %7, i64 32
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h28bd12a0f48fab05E.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %21)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h28bd12a0f48fab05E.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly align 8 %7, ptr noundef nonnull readonly %21)
           to label %24 unwind label %22
 
 22:                                               ; preds = %"_ZN4core3ptr612drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$GT$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17hba494458ac3ac3b9E.exit.i", %13
@@ -2516,7 +2516,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
 28:                                               ; preds = %27
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha054014e978e9ec2E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha054014e978e9ec2E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %.body unwind label %30, !noalias !447
 
 30:                                               ; preds = %28
@@ -2526,7 +2526,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
   unreachable
 
 "_ZN4core3ptr612drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$GT$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17hba494458ac3ac3b9E.exit.i": ; preds = %27
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha054014e978e9ec2E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha054014e978e9ec2E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h766bc9aeec62150cE.exit" unwind label %22
 
 32:                                               ; preds = %25
@@ -2538,7 +2538,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
 "_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h766bc9aeec62150cE.exit": ; preds = %"_ZN4core3ptr612drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$GT$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17hba494458ac3ac3b9E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !450
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h48e8837aeb526c2dE.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h48e8837aeb526c2dE.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = load i64, ptr %34, align 8, !range !281, !noalias !450, !noundef !5
   %.not.i.i.i = icmp eq i64 %35, 0
@@ -2645,7 +2645,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
   store i64 2, ptr %34, align 8, !alias.scope !457, !noalias !460
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !462
   %35 = getelementptr inbounds i8, ptr %7, i64 64
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h5028e90e1e1c2450E.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %35)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h5028e90e1e1c2450E.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly align 8 %7, ptr noundef nonnull readonly %35)
           to label %38 unwind label %36
 
 36:                                               ; preds = %"_ZN4core3ptr780drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$$LP$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$C$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..hair_color$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$C$$RF$str$GT$$GT$$RP$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17h45a95732bb7268c3E.exit.i", %27
@@ -2677,7 +2677,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
 42:                                               ; preds = %41
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1a282e3d9d353fb2E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1a282e3d9d353fb2E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %.body unwind label %44, !noalias !471
 
 44:                                               ; preds = %42
@@ -2687,7 +2687,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
   unreachable
 
 "_ZN4core3ptr780drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$$LP$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$C$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..hair_color$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$C$$RF$str$GT$$GT$$RP$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17h45a95732bb7268c3E.exit.i": ; preds = %41
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1a282e3d9d353fb2E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1a282e3d9d353fb2E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h093e15c216ff8340E.exit" unwind label %36
 
 46:                                               ; preds = %39
@@ -2699,7 +2699,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
 "_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h093e15c216ff8340E.exit": ; preds = %"_ZN4core3ptr780drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$$LP$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$C$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..hair_color$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$C$$RF$str$GT$$GT$$RP$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17h45a95732bb7268c3E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !474
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h67bf6b1dba99a4a3E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h67bf6b1dba99a4a3E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %48 = getelementptr inbounds i8, ptr %3, i64 8
   %49 = load i64, ptr %48, align 8, !range !281, !noalias !474, !noundef !5
   %.not.i.i.i = icmp eq i64 %49, 0
@@ -2796,7 +2796,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
   store i64 2, ptr %29, align 8, !alias.scope !481, !noalias !484
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !486
   %30 = getelementptr inbounds i8, ptr %7, i64 64
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1412963eccff9c1bE.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %30)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1412963eccff9c1bE.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly align 8 %7, ptr noundef nonnull readonly %30)
           to label %33 unwind label %31
 
 31:                                               ; preds = %"_ZN4core3ptr836drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$$LP$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$C$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..hair_color$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$C$$RF$str$GT$$GT$$GT$$RP$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17h7f311a9448ae904cE.exit.i", %22
@@ -2828,7 +2828,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b8ff1f6f54e5caaE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b8ff1f6f54e5caaE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %.body unwind label %39, !noalias !495
 
 39:                                               ; preds = %37
@@ -2838,7 +2838,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
   unreachable
 
 "_ZN4core3ptr836drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$$LP$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$C$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..hair_color$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$C$$RF$str$GT$$GT$$GT$$RP$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17h7f311a9448ae904cE.exit.i": ; preds = %36
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b8ff1f6f54e5caaE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b8ff1f6f54e5caaE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17he791a1a4048ded00E.exit" unwind label %31
 
 41:                                               ; preds = %34
@@ -2850,7 +2850,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1037472463927168953.ex
 "_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17he791a1a4048ded00E.exit": ; preds = %"_ZN4core3ptr836drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$$LP$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$C$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..hair_color$C$$RF$diesel..expression..bound..Bound$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$C$$RF$str$GT$$GT$$GT$$RP$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17h7f311a9448ae904cE.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !498
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hee2ec25434a9d031E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hee2ec25434a9d031E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %43 = getelementptr inbounds i8, ptr %3, i64 8
   %44 = load i64, ptr %43, align 8, !range !281, !noalias !498, !noundef !5
   %.not.i.i.i = icmp eq i64 %44, 0
@@ -2920,7 +2920,7 @@ define { ptr, ptr } @_ZN17all_about_inserts30insert_insertable_struct_batch17hc7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !505
   %16 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %14, i64 %.sroa.521.0.copyload
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h73ff3236cf928d2dE.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %16)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h73ff3236cf928d2dE.llvm.4517153386013165442"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull readonly align 8 %14, ptr noundef nonnull readonly %16)
           to label %28 unwind label %26
 
 17:                                               ; preds = %1
@@ -2988,7 +2988,7 @@ common.resume:                                    ; preds = %.body, %22
 32:                                               ; preds = %31
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2907a766583bda59E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2907a766583bda59E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %.body unwind label %34, !noalias !517
 
 34:                                               ; preds = %32
@@ -2998,7 +2998,7 @@ common.resume:                                    ; preds = %.body, %22
   unreachable
 
 "_ZN4core3ptr892drop_in_place$LT$diesel..query_builder..insert_statement..InsertStatement$LT$all_about_inserts..schema..users..table$C$diesel..query_builder..insert_statement..batch_insert..BatchInsert$LT$alloc..vec..Vec$LT$diesel..query_builder..insert_statement..ValuesClause$LT$$LP$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..name$C$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$$RF$str$GT$$GT$$GT$$C$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$all_about_inserts..schema..users..columns..hair_color$C$diesel..expression..bound..Bound$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Text$GT$$C$$RF$$RF$str$GT$$GT$$GT$$RP$$C$all_about_inserts..schema..users..table$GT$$GT$$C$all_about_inserts..schema..users..table$C$$LP$$RP$$C$_$GT$$GT$$GT$17h3978ab6a0a421c06E.exit.i": ; preds = %31
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2907a766583bda59E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2907a766583bda59E.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4cc09381e30fa1baE.exit" unwind label %26
 
 36:                                               ; preds = %29
@@ -3016,7 +3016,7 @@ common.resume:                                    ; preds = %.body, %22
 40:                                               ; preds = %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17h4cc09381e30fa1baE.exit"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !520
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1ddb0b87f076c371E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1ddb0b87f076c371E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   %41 = getelementptr inbounds i8, ptr %3, i64 8
   %42 = load i64, ptr %41, align 8, !range !281, !noalias !520, !noundef !5
   %.not.i.i.i = icmp eq i64 %42, 0
@@ -3080,7 +3080,7 @@ common.resume:                                    ; preds = %.body, %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !530
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1ddb0b87f076c371E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1ddb0b87f076c371E.llvm.14992767593304109899"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   %60 = getelementptr inbounds i8, ptr %2, i64 8
   %61 = load i64, ptr %60, align 8, !range !281, !noalias !530, !noundef !5
   %.not.i.i.i38 = icmp eq i64 %61, 0

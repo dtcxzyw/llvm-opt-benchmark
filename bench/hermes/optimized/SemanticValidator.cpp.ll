@@ -667,7 +667,7 @@ _ZN6hermes3sem15FunctionContextC2EPNS0_17SemanticValidatorEbPNS_6ESTree16Functio
   %conv.i.i = zext i32 %11 to i64
   store i64 %conv.i.i, ptr %varDeclaredBegin_.i, align 8
   %hoistingCandidates_.i = getelementptr inbounds i8, ptr %wrapperContext, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %hoistingCandidates_.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hoistingCandidates_.i, i8 0, i64 20, i1 false)
   %Vector.i.i = getelementptr inbounds i8, ptr %wrapperContext, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Vector.i.i, i8 0, i64 24, i1 false)
   store ptr %wrapperContext, ptr %funcCtx_.i, align 8
@@ -804,9 +804,9 @@ _ZN6hermes3sem10SemContext14createFunctionEv.exit.i: ; preds = %if.then.i.i.i.i,
   %sourceVisibility7.i = getelementptr inbounds i8, ptr %newFuncCtx, i64 84
   %functionScope_.i = getelementptr inbounds i8, ptr %newFuncCtx, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %sourceVisibility7.i, i8 0, i64 24, i1 false)
-  call void @_ZN6hermes3sem12BlockContextC2EPNS0_17SemanticValidatorEPNS0_15FunctionContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %functionScope_.i, ptr noundef nonnull %this, ptr noundef nonnull %newFuncCtx, ptr noundef %node)
+  call void @_ZN6hermes3sem12BlockContextC2EPNS0_17SemanticValidatorEPNS0_15FunctionContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %functionScope_.i, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(200) %newFuncCtx, ptr noundef %node)
   %hoistingCandidates_.i = getelementptr inbounds i8, ptr %newFuncCtx, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %hoistingCandidates_.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hoistingCandidates_.i, i8 0, i64 20, i1 false)
   %Vector.i.i = getelementptr inbounds i8, ptr %newFuncCtx, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Vector.i.i, i8 0, i64 24, i1 false)
   store ptr %newFuncCtx, ptr %funcCtx_.i, align 8
@@ -1805,9 +1805,9 @@ _ZN6hermes3sem10SemContext14createFunctionEv.exit.i: ; preds = %if.then.i.i.i.i,
   %labelMap.i = getelementptr inbounds i8, ptr %newFuncCtx, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %labelMap.i, i8 0, i64 20, i1 false)
   %functionScope_.i = getelementptr inbounds i8, ptr %newFuncCtx, i64 112
-  call void @_ZN6hermes3sem12BlockContextC2EPNS0_17SemanticValidatorEPNS0_15FunctionContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %functionScope_.i, ptr noundef nonnull %this, ptr noundef nonnull %newFuncCtx, ptr noundef %body)
+  call void @_ZN6hermes3sem12BlockContextC2EPNS0_17SemanticValidatorEPNS0_15FunctionContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %functionScope_.i, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(200) %newFuncCtx, ptr noundef %body)
   %hoistingCandidates_.i = getelementptr inbounds i8, ptr %newFuncCtx, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %hoistingCandidates_.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hoistingCandidates_.i, i8 0, i64 20, i1 false)
   %Vector.i.i = getelementptr inbounds i8, ptr %newFuncCtx, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Vector.i.i, i8 0, i64 24, i1 false)
   store ptr %newFuncCtx, ptr %funcCtx_.i, align 8
@@ -2141,7 +2141,7 @@ if.then42:                                        ; preds = %if.end39
   store ptr %62, ptr %61, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 8
   store ptr %61, ptr %Next2.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %60, i8 0, i64 16, i1 false)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then27, %if.end39, %if.then42, %if.then31, %if.end23
@@ -2395,7 +2395,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 56, i64 noundef 8) #21
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %2, i64 noundef 56, i64 noundef 8) #21
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then
@@ -2408,7 +2408,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %12, %if.end.i.i.i ]
   %_body = getelementptr inbounds i8, ptr %arrowFunc, i64 96
   %13 = load ptr, ptr %_body, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store i32 23, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 20
@@ -2459,7 +2459,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   br i1 %cmp9.i.i.i23, label %if.then.i.i.i27, label %if.end.i.i.i24
 
 if.then.i.i.i27:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %call11.i.i.i28 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 72, i64 noundef 8) #21
+  %call11.i.i.i28 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %15, i64 noundef 72, i64 noundef 8) #21
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit29
 
 if.end.i.i.i24:                                   ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
@@ -2470,7 +2470,7 @@ if.end.i.i.i24:                                   ; preds = %_ZN6hermes6ESTree4N
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit29:  ; preds = %if.then.i.i.i27, %if.end.i.i.i24
   %retval.0.i.i.i26 = phi ptr [ %call11.i.i.i28, %if.then.i.i.i27 ], [ %25, %if.end.i.i.i24 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i26, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %retval.0.i.i.i26, i8 0, i64 16, i1 false)
   %kind_.i.i.i30 = getelementptr inbounds i8, ptr %retval.0.i.i.i26, i64 16
   store i32 19, ptr %kind_.i.i.i30, align 8
   %parens_.i.i.i31 = getelementptr inbounds i8, ptr %retval.0.i.i.i26, i64 20
@@ -2890,7 +2890,7 @@ if.then.i2.i:                                     ; preds = %if.then, %_ZN4llvh2
   %6 = phi ptr [ %13, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree20BinaryExpressionNodeELb1EE9push_backERKS4_.exit14.i ], [ %4, %if.then ]
   %_operator.i.i = getelementptr inbounds i8, ptr %6, i64 64
   %7 = load ptr, ptr %_operator.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPKN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull %ref.tmp5, ptr noundef nonnull %ref.tmp5.sroa.gep, ptr nonnull %7)
+  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPKN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull %ref.tmp5, ptr noundef nonnull %ref.tmp5.sroa.gep, ptr nonnull align 8 dereferenceable(16) %7)
   %cmp.not.i4.i = icmp eq ptr %call.i.i.i.i, %ref.tmp5.sroa.gep
   %.pre23.pre.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br i1 %cmp.not.i4.i, label %while.end.loopexit.i, label %while.body.i
@@ -3083,7 +3083,7 @@ if.then.i2.i:                                     ; preds = %if.then, %_ZN4llvh2
   %6 = phi ptr [ %13, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree24AssignmentExpressionNodeELb1EE9push_backERKS4_.exit14.i ], [ %3, %if.then ]
   %_operator.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %_operator.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPKN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull %ref.tmp2, ptr noundef nonnull %ref.tmp2.sroa.gep, ptr nonnull %7)
+  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPKN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull %ref.tmp2, ptr noundef nonnull %ref.tmp2.sroa.gep, ptr nonnull align 8 dereferenceable(16) %7)
   %cmp.not.i4.i = icmp eq ptr %call.i.i.i.i, %ref.tmp2.sroa.gep
   %.pre.pre = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br i1 %cmp.not.i4.i, label %_ZN6hermes6ESTreeL14linearizeRightINS0_24AssignmentExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit, label %while.body.i
@@ -3415,7 +3415,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS2_3sem15FunctionContext5LabelENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit: ; preds = %do.end, %if.then12.i.i.i.i
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %do.end ]
-  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS2_3sem15FunctionContext5LabelENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %labelMap, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %cond.sink.i.i.i.i), !noalias !58
+  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS2_3sem15FunctionContext5LabelENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %labelMap, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef %cond.sink.i.i.i.i), !noalias !58
   %16 = load ptr, ptr %ref.tmp, align 8, !noalias !58
   store ptr %16, ptr %call.i.i.i, align 8, !noalias !58
   %second.i.i2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -3651,7 +3651,7 @@ if.end:                                           ; preds = %_ZN4llvhplERKNS_5Tw
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %if.end13
 
 if.then.i.i.i:                                    ; preds = %if.end
-  call void @_ZN6hermes14CompiledRegExpD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %compiled) #21
+  call void @_ZN6hermes14CompiledRegExpD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %compiled) #21
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then.i.i.i, %if.end, %entry
@@ -3931,7 +3931,7 @@ if.then7:                                         ; preds = %land.lhs.true5
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then7
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 72, i64 noundef 8) #21
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %15, i64 noundef 72, i64 noundef 8) #21
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then7
@@ -3945,7 +3945,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %_block = getelementptr inbounds i8, ptr %tryStatement, i64 48
   %26 = load ptr, ptr %_block, align 8
   %27 = load ptr, ptr %_handler3, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store i32 28, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 20
@@ -4002,7 +4002,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   br i1 %cmp9.i.i.i35, label %if.then.i.i.i39, label %if.end.i.i.i36
 
 if.then.i.i.i39:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %call11.i.i.i40 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 72, i64 noundef 8) #21
+  %call11.i.i.i40 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %28, i64 noundef 72, i64 noundef 8) #21
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41
 
 if.end.i.i.i36:                                   ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
@@ -4013,7 +4013,7 @@ if.end.i.i.i36:                                   ; preds = %_ZN6hermes6ESTree4N
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41:  ; preds = %if.then.i.i.i39, %if.end.i.i.i36
   %retval.0.i.i.i38 = phi ptr [ %call11.i.i.i40, %if.then.i.i.i39 ], [ %38, %if.end.i.i.i36 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i38, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %retval.0.i.i.i38, i8 0, i64 16, i1 false)
   %kind_.i.i.i42 = getelementptr inbounds i8, ptr %retval.0.i.i.i38, i64 16
   store i32 19, ptr %kind_.i.i.i42, align 8
   %parens_.i.i.i43 = getelementptr inbounds i8, ptr %retval.0.i.i.i38, i64 20
@@ -4142,7 +4142,7 @@ if.then6:                                         ; preds = %_ZN4llvh16dyn_cast_
 
 for.body:                                         ; preds = %if.then6, %for.body
   %__begin4.sroa.0.029 = phi ptr [ %__begin4.sroa.0.0, %for.body ], [ %__begin4.sroa.0.027, %if.then6 ]
-  %call.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin4.sroa.0.029, ptr noundef %5)
+  %call.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.sroa.0.029, ptr noundef nonnull %5)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.029, i64 8
   %__begin4.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.sroa.0.0, %_body7
@@ -4357,7 +4357,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
 
 if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, %if.then19
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %if.then19 ]
-  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyELj8ENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %generatorOrAsync, ptr noundef nonnull align 8 dereferenceable(8) %_name, ptr noundef nonnull align 8 dereferenceable(8) %_name, ptr noundef %cond.sink.i.i.i.i), !noalias !98
+  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyELj8ENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(72) %generatorOrAsync, ptr noundef nonnull align 8 dereferenceable(8) %_name, ptr noundef nonnull align 8 dereferenceable(8) %_name, ptr noundef %cond.sink.i.i.i.i), !noalias !98
   %22 = load ptr, ptr %_name, align 8
   store ptr %22, ptr %call.i.i.i, align 8, !noalias !98
   br label %if.end20
@@ -4420,7 +4420,7 @@ if.end13.i.i.i.i45:                               ; preds = %if.end9.i.i.i.i39
 
 _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes12UniqueStringEPNS2_6ESTree14IdentifierNodeELj8ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit: ; preds = %if.end20, %if.then12.i.i.i.i58
   %cond.sink.i.i.i.i62 = phi ptr [ %cond.i.i.i.i60, %if.then12.i.i.i.i58 ], [ null, %if.end20 ]
-  %call.i.i.i63 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes12UniqueStringEPNS2_6ESTree14IdentifierNodeELj8ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %lexicallyDeclaredNames, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %cond.sink.i.i.i.i62), !noalias !104
+  %call.i.i.i63 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes12UniqueStringEPNS2_6ESTree14IdentifierNodeELj8ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %lexicallyDeclaredNames, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %cond.sink.i.i.i.i62), !noalias !104
   %30 = load ptr, ptr %ref.tmp, align 8, !noalias !104
   store ptr %30, ptr %call.i.i.i63, align 8, !noalias !104
   %second.i.i7.i.i = getelementptr inbounds i8, ptr %call.i.i.i63, i64 8
@@ -4797,7 +4797,7 @@ if.then67:                                        ; preds = %if.end.i.i.i.i102, 
 
 for.inc74:                                        ; preds = %if.then12.i.i.i.i137, %_ZN6hermes3sem12BlockContext12stopHoistingEPNS_6ESTree14IdentifierNodeE.exit
   %cond.sink.i.i.i.i141 = phi ptr [ %cond.i.i.i.i139, %if.then12.i.i.i.i137 ], [ null, %_ZN6hermes3sem12BlockContext12stopHoistingEPNS_6ESTree14IdentifierNodeE.exit ]
-  %call.i.i.i142 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes12UniqueStringEPNS2_6ESTree14IdentifierNodeELj8ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %lexicallyDeclaredNames, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60, ptr noundef %cond.sink.i.i.i.i141), !noalias !128
+  %call.i.i.i142 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes12UniqueStringEPNS2_6ESTree14IdentifierNodeELj8ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %lexicallyDeclaredNames, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp60, ptr noundef %cond.sink.i.i.i.i141), !noalias !128
   %79 = load ptr, ptr %ref.tmp60, align 8, !noalias !128
   store ptr %79, ptr %call.i.i.i142, align 8, !noalias !128
   %second.i.i7.i.i143 = getelementptr inbounds i8, ptr %call.i.i.i142, i64 8
@@ -6320,7 +6320,7 @@ if.then10:                                        ; preds = %land.lhs.true8
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then10
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 136, i64 noundef 8) #21
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %7, i64 noundef 136, i64 noundef 8) #21
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then10
@@ -6343,7 +6343,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %22 = load ptr, ptr %_predicate, align 8
   %_generator = getelementptr inbounds i8, ptr %3, i64 128
   %23 = load i8, ptr %_generator, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(130) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store i32 4, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 20
@@ -6574,7 +6574,7 @@ for.body.lr.ph:                                   ; preds = %sw.bb
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %__begin3.sroa.0.088 = phi ptr [ %__begin3.sroa.0.086, %for.body.lr.ph ], [ %__begin3.sroa.0.0, %for.body ]
   store i8 1, ptr %isFormalParams_, align 8
-  %call.i34 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin3.sroa.0.088, ptr noundef %node)
+  %call.i34 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin3.sroa.0.088, ptr noundef %node)
   store i8 %2, ptr %isFormalParams_, align 8
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.088, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
@@ -6600,7 +6600,7 @@ if.then.i:                                        ; preds = %for.end
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
   %__begin3.sroa.0.011.i = phi ptr [ %__begin3.sroa.0.0.i, %for.body.i ], [ %__begin3.sroa.0.09.i, %if.then.i ]
-  %call.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin3.sroa.0.011.i, ptr noundef %3)
+  %call.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin3.sroa.0.011.i, ptr noundef nonnull %3)
   %Next.i.i.i.i92 = getelementptr inbounds i8, ptr %__begin3.sroa.0.011.i, i64 8
   %__begin3.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i92, align 8
   %cmp.i.not.i = icmp eq ptr %__begin3.sroa.0.0.i, %_body.i
@@ -6629,7 +6629,7 @@ for.body23.lr.ph:                                 ; preds = %sw.bb9
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
   %__begin315.sroa.0.085 = phi ptr [ %__begin315.sroa.0.083, %for.body23.lr.ph ], [ %__begin315.sroa.0.0, %for.body23 ]
   store i8 1, ptr %isFormalParams_27, align 8
-  %call.i43 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin315.sroa.0.085, ptr noundef %node)
+  %call.i43 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin315.sroa.0.085, ptr noundef %node)
   store i8 %6, ptr %isFormalParams_27, align 8
   %Next.i.i.i46 = getelementptr inbounds i8, ptr %__begin315.sroa.0.085, i64 8
   %__begin315.sroa.0.0 = load ptr, ptr %Next.i.i.i46, align 8
@@ -6655,7 +6655,7 @@ if.then.i97:                                      ; preds = %for.end31
 
 for.body.i102:                                    ; preds = %if.then.i97, %for.body.i102
   %__begin3.sroa.0.011.i103 = phi ptr [ %__begin3.sroa.0.0.i106, %for.body.i102 ], [ %__begin3.sroa.0.09.i100, %if.then.i97 ]
-  %call.i.i104 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin3.sroa.0.011.i103, ptr noundef %7)
+  %call.i.i104 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin3.sroa.0.011.i103, ptr noundef nonnull %7)
   %Next.i.i.i.i105 = getelementptr inbounds i8, ptr %__begin3.sroa.0.011.i103, i64 8
   %__begin3.sroa.0.0.i106 = load ptr, ptr %Next.i.i.i.i105, align 8
   %cmp.i.not.i107 = icmp eq ptr %__begin3.sroa.0.0.i106, %_body.i98
@@ -6684,7 +6684,7 @@ for.body47.lr.ph:                                 ; preds = %sw.bb33
 for.body47:                                       ; preds = %for.body47.lr.ph, %for.body47
   %__begin339.sroa.0.082 = phi ptr [ %__begin339.sroa.0.080, %for.body47.lr.ph ], [ %__begin339.sroa.0.0, %for.body47 ]
   store i8 1, ptr %isFormalParams_51, align 8
-  %call.i53 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin339.sroa.0.082, ptr noundef %node)
+  %call.i53 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin339.sroa.0.082, ptr noundef %node)
   store i8 %10, ptr %isFormalParams_51, align 8
   %Next.i.i.i56 = getelementptr inbounds i8, ptr %__begin339.sroa.0.082, i64 8
   %__begin339.sroa.0.0 = load ptr, ptr %Next.i.i.i56, align 8
@@ -6710,7 +6710,7 @@ if.then.i115:                                     ; preds = %for.end55
 
 for.body.i120:                                    ; preds = %if.then.i115, %for.body.i120
   %__begin3.sroa.0.011.i121 = phi ptr [ %__begin3.sroa.0.0.i124, %for.body.i120 ], [ %__begin3.sroa.0.09.i118, %if.then.i115 ]
-  %call.i.i122 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin3.sroa.0.011.i121, ptr noundef %11)
+  %call.i.i122 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin3.sroa.0.011.i121, ptr noundef nonnull %11)
   %Next.i.i.i.i123 = getelementptr inbounds i8, ptr %__begin3.sroa.0.011.i121, i64 8
   %__begin3.sroa.0.0.i124 = load ptr, ptr %Next.i.i.i.i123, align 8
   %cmp.i.not.i125 = icmp eq ptr %__begin3.sroa.0.0.i124, %_body.i116
@@ -6745,7 +6745,7 @@ for.body71.lr.ph:                                 ; preds = %sw.bb57
 for.body71:                                       ; preds = %for.body71.lr.ph, %for.body71
   %__begin363.sroa.0.079 = phi ptr [ %__begin363.sroa.0.077, %for.body71.lr.ph ], [ %__begin363.sroa.0.0, %for.body71 ]
   store i8 1, ptr %isFormalParams_75, align 8
-  %call.i64 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin363.sroa.0.079, ptr noundef %node)
+  %call.i64 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin363.sroa.0.079, ptr noundef %node)
   store i8 %15, ptr %isFormalParams_75, align 8
   %Next.i.i.i67 = getelementptr inbounds i8, ptr %__begin363.sroa.0.079, i64 8
   %__begin363.sroa.0.0 = load ptr, ptr %Next.i.i.i67, align 8
@@ -6771,7 +6771,7 @@ if.then.i133:                                     ; preds = %for.end79
 
 for.body.i138:                                    ; preds = %if.then.i133, %for.body.i138
   %__begin3.sroa.0.011.i139 = phi ptr [ %__begin3.sroa.0.0.i142, %for.body.i138 ], [ %__begin3.sroa.0.09.i136, %if.then.i133 ]
-  %call.i.i140 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin3.sroa.0.011.i139, ptr noundef %16)
+  %call.i.i140 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin3.sroa.0.011.i139, ptr noundef nonnull %16)
   %Next.i.i.i.i141 = getelementptr inbounds i8, ptr %__begin3.sroa.0.011.i139, i64 8
   %__begin3.sroa.0.0.i142 = load ptr, ptr %Next.i.i.i.i141, align 8
   %cmp.i.not.i143 = icmp eq ptr %__begin3.sroa.0.0.i142, %_body.i134
@@ -6814,7 +6814,7 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %if.then, %for.body
   %__begin3.sroa.0.011 = phi ptr [ %__begin3.sroa.0.0, %for.body ], [ %__begin3.sroa.0.09, %if.then ]
-  %call.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %__begin3.sroa.0.011, ptr noundef %body)
+  %call.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin3.sroa.0.011, ptr noundef nonnull %body)
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.011, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin3.sroa.0.0, %_body
@@ -7302,7 +7302,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   store ptr %11, ptr %__result.addr.08.i.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 8
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 8
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIPN6hermes6ESTree23FunctionDeclarationNodeEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i)
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIPN6hermes6ESTree23FunctionDeclarationNodeEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %second3.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i.i)
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 56
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 56
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
@@ -7500,7 +7500,7 @@ _ZN6hermes3sem10SemContext14createFunctionEv.exit: ; preds = %if.end.i.i, %if.th
   %functionScope_ = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN6hermes3sem12BlockContextC2EPNS0_17SemanticValidatorEPNS0_15FunctionContextEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %functionScope_, ptr noundef nonnull %validator, ptr noundef nonnull %this, ptr noundef %body)
   %hoistingCandidates_ = getelementptr inbounds i8, ptr %this, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %hoistingCandidates_, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hoistingCandidates_, i8 0, i64 20, i1 false)
   %Vector.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Vector.i, i8 0, i64 24, i1 false)
   store ptr %this, ptr %funcCtx_, align 8
@@ -7978,7 +7978,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoI
 
 _ZSt9make_pairIRKPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS0_6ESTree23FunctionDeclarationNodeELj4EEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_.exit: ; preds = %entry, %if.then12.i.i.i.i
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %entry ]
-  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %Pair, ptr noundef nonnull align 8 dereferenceable(8) %Pair, ptr noundef %cond.sink.i.i.i.i), !noalias !240
+  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E20InsertIntoBucketImplIS5_EEPSA_RKS5_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(12) %Pair, ptr noundef nonnull align 8 dereferenceable(12) %Pair, ptr noundef %cond.sink.i.i.i.i), !noalias !240
   %8 = load ptr, ptr %Pair, align 8, !noalias !240
   store ptr %8, ptr %call.i.i.i, align 8, !noalias !240
   %second.i.i2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -8044,7 +8044,7 @@ if.end24.i38:                                     ; preds = %if.end.i
   br i1 %cmp26.i40, label %if.end37.i45, label %if.then.i.i.i49
 
 if.end37.i45:                                     ; preds = %if.end24.i38
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef %conv.i30.i29, i64 noundef 8) #21
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef %conv.i30.i29, i64 noundef 8) #21
   %.pre = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
   %.pre71 = zext i32 %.pre to i64
   %cmp.not.i.i.i48 = icmp eq i32 %.pre, 0
@@ -8236,18 +8236,18 @@ _ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefER
   store ptr %retval.0.i.i.i, ptr %retval.0.i.i, align 8
   %str.sroa.2.0.str_.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 %agg.tmp8.sroa.2.0.copyload, ptr %str.sroa.2.0.str_.sroa_idx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
   store ptr %retval.0.i.i, ptr %second.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !248
-  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !248
+  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !248
   %26 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !248
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !248
   br i1 %call.i.i.i, label %return, label %if.end.i.i4
 
 if.end.i.i4:                                      ; preds = %_ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefERT_S3_.exit
-  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef %26), !noalias !248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i64 16, i1 false), !noalias !248
+  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef %26), !noalias !248
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, i64 16, i1 false), !noalias !248
   %second.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2.i.i, i64 16
   %27 = load ptr, ptr %second.i, align 8, !noalias !248
   store ptr %27, ptr %second.i.i3.i.i, align 8, !noalias !248
@@ -8689,7 +8689,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeISt4pairIPN6hermes12UniqueStringES
 entry:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #23
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   tail call void @_ZN6hermes14CompiledRegExpC1EOS0_(ptr noundef nonnull align 8 dereferenceable(192) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %__args1) #21
   %call5 = tail call { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIPN6hermes12UniqueStringES3_ES0_IKS4_NS1_14CompiledRegExpEESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i)
@@ -11007,7 +11007,7 @@ sw.bb4:                                           ; preds = %if.end
 
 for.body.i:                                       ; preds = %sw.bb4, %for.body.i
   %__begin4.sroa.0.07.i = phi ptr [ %__begin4.sroa.0.0.i, %for.body.i ], [ %__begin4.sroa.0.05.i, %sw.bb4 ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i, i64 8
   %__begin4.sroa.0.0.i = load ptr, ptr %__begin4.sroa.0.0.in.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.sroa.0.0.i, %_body.i
@@ -11058,7 +11058,7 @@ sw.bb28:                                          ; preds = %if.end
 
 for.body.i529:                                    ; preds = %sw.bb28, %for.body.i529
   %__begin4.sroa.0.07.i530 = phi ptr [ %__begin4.sroa.0.0.i533, %for.body.i529 ], [ %__begin4.sroa.0.05.i527, %sw.bb28 ]
-  %call5.i531 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i530, ptr noundef %node)
+  %call5.i531 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i530, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i532 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i530, i64 8
   %__begin4.sroa.0.0.i533 = load ptr, ptr %__begin4.sroa.0.0.in.i532, align 8
   %cmp.i.not.i534 = icmp eq ptr %__begin4.sroa.0.0.i533, %_body.i465
@@ -11123,7 +11123,7 @@ sw.bb66:                                          ; preds = %if.end
 
 for.body.i541:                                    ; preds = %sw.bb66, %for.body.i541
   %__begin4.sroa.0.07.i542 = phi ptr [ %__begin4.sroa.0.0.i545, %for.body.i541 ], [ %__begin4.sroa.0.05.i539, %sw.bb66 ]
-  %call5.i543 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i542, ptr noundef %node)
+  %call5.i543 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i542, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i544 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i542, i64 8
   %__begin4.sroa.0.0.i545 = load ptr, ptr %__begin4.sroa.0.0.in.i544, align 8
   %cmp.i.not.i546 = icmp eq ptr %__begin4.sroa.0.0.i545, %_expressions.i
@@ -11138,7 +11138,7 @@ sw.bb68:                                          ; preds = %if.end
 
 for.body.i551:                                    ; preds = %sw.bb68, %for.body.i551
   %__begin4.sroa.0.07.i552 = phi ptr [ %__begin4.sroa.0.0.i555, %for.body.i551 ], [ %__begin4.sroa.0.05.i549, %sw.bb68 ]
-  %call5.i553 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i552, ptr noundef %node)
+  %call5.i553 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i552, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i554 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i552, i64 8
   %__begin4.sroa.0.0.i555 = load ptr, ptr %__begin4.sroa.0.0.in.i554, align 8
   %cmp.i.not.i556 = icmp eq ptr %__begin4.sroa.0.0.i555, %_properties.i
@@ -11153,7 +11153,7 @@ sw.bb70:                                          ; preds = %if.end
 
 for.body.i.i:                                     ; preds = %sw.bb70, %for.body.i.i
   %__begin4.i.sroa.0.09.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.07.i, %sw.bb70 ]
-  %call5.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i, ptr noundef %node)
+  %call5.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i, ptr noundef nonnull %node)
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i558 = icmp eq ptr %__begin4.i.sroa.0.0.i, %_elements.i
@@ -11272,7 +11272,7 @@ sw.bb118:                                         ; preds = %if.end
 
 for.body.i.i570:                                  ; preds = %sw.bb118, %for.body.i.i570
   %__begin4.i.sroa.0.09.i571 = phi ptr [ %__begin4.i.sroa.0.0.i574, %for.body.i.i570 ], [ %__begin4.i.sroa.0.07.i568, %sw.bb118 ]
-  %call5.i.i572 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i571, ptr noundef %node)
+  %call5.i.i572 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i571, ptr noundef nonnull %node)
   %Next.i.i.i.i573 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09.i571, i64 8
   %__begin4.i.sroa.0.0.i574 = load ptr, ptr %Next.i.i.i.i573, align 8
   %cmp.i.not.i575 = icmp eq ptr %__begin4.i.sroa.0.0.i574, %_declarations.i
@@ -11307,7 +11307,7 @@ sw.bb132:                                         ; preds = %if.end
 
 for.body.i579:                                    ; preds = %sw.bb132, %for.body.i579
   %__begin4.sroa.0.07.i580 = phi ptr [ %__begin4.sroa.0.0.i583, %for.body.i579 ], [ %__begin4.sroa.0.05.i577, %sw.bb132 ]
-  %call5.i581 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i580, ptr noundef %node)
+  %call5.i581 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i580, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i582 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i580, i64 8
   %__begin4.sroa.0.0.i583 = load ptr, ptr %__begin4.sroa.0.0.in.i582, align 8
   %cmp.i.not.i584 = icmp eq ptr %__begin4.sroa.0.0.i583, %_body.i477
@@ -11498,7 +11498,7 @@ sw.bb250:                                         ; preds = %if.end
 
 for.body.i593:                                    ; preds = %sw.bb250, %for.body.i593
   %__begin4.sroa.0.07.i594 = phi ptr [ %__begin4.sroa.0.0.i597, %for.body.i593 ], [ %__begin4.sroa.0.05.i591, %sw.bb250 ]
-  %call5.i595 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i594, ptr noundef %node)
+  %call5.i595 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i594, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i596 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i594, i64 8
   %__begin4.sroa.0.0.i597 = load ptr, ptr %__begin4.sroa.0.0.in.i596, align 8
   %cmp.i.not.i598 = icmp eq ptr %__begin4.sroa.0.0.i597, %_types.i
@@ -11533,7 +11533,7 @@ sw.bb260:                                         ; preds = %if.end
 
 for.body.i603:                                    ; preds = %sw.bb260, %for.body.i603
   %__begin4.sroa.0.07.i604 = phi ptr [ %__begin4.sroa.0.0.i607, %for.body.i603 ], [ %__begin4.sroa.0.05.i601, %sw.bb260 ]
-  %call5.i605 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i604, ptr noundef %node)
+  %call5.i605 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i604, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i606 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i604, i64 8
   %__begin4.sroa.0.0.i607 = load ptr, ptr %__begin4.sroa.0.0.in.i606, align 8
   %cmp.i.not.i608 = icmp eq ptr %__begin4.sroa.0.0.i607, %_types.i498
@@ -11548,7 +11548,7 @@ sw.bb262:                                         ; preds = %if.end
 
 for.body.i613:                                    ; preds = %sw.bb262, %for.body.i613
   %__begin4.sroa.0.07.i614 = phi ptr [ %__begin4.sroa.0.0.i617, %for.body.i613 ], [ %__begin4.sroa.0.05.i611, %sw.bb262 ]
-  %call5.i615 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i614, ptr noundef %node)
+  %call5.i615 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i614, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i616 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i614, i64 8
   %__begin4.sroa.0.0.i617 = load ptr, ptr %__begin4.sroa.0.0.in.i616, align 8
   %cmp.i.not.i618 = icmp eq ptr %__begin4.sroa.0.0.i617, %_types.i499
@@ -11699,7 +11699,7 @@ sw.bb328:                                         ; preds = %if.end
 
 for.body.i627:                                    ; preds = %sw.bb328, %for.body.i627
   %__begin4.sroa.0.07.i628 = phi ptr [ %__begin4.sroa.0.0.i631, %for.body.i627 ], [ %__begin4.sroa.0.05.i625, %sw.bb328 ]
-  %call5.i629 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i628, ptr noundef %node)
+  %call5.i629 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i628, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i630 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i628, i64 8
   %__begin4.sroa.0.0.i631 = load ptr, ptr %__begin4.sroa.0.0.in.i630, align 8
   %cmp.i.not.i632 = icmp eq ptr %__begin4.sroa.0.0.i631, %_params.i
@@ -11718,7 +11718,7 @@ sw.bb332:                                         ; preds = %if.end
 
 for.body.i637:                                    ; preds = %sw.bb332, %for.body.i637
   %__begin4.sroa.0.07.i638 = phi ptr [ %__begin4.sroa.0.0.i641, %for.body.i637 ], [ %__begin4.sroa.0.05.i635, %sw.bb332 ]
-  %call5.i639 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i638, ptr noundef %node)
+  %call5.i639 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i638, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i640 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i638, i64 8
   %__begin4.sroa.0.0.i641 = load ptr, ptr %__begin4.sroa.0.0.in.i640, align 8
   %cmp.i.not.i642 = icmp eq ptr %__begin4.sroa.0.0.i641, %_params.i507
@@ -11751,7 +11751,7 @@ sw.bb344:                                         ; preds = %if.end
 
 for.body.i.i646:                                  ; preds = %sw.bb344, %for.body.i.i646
   %__begin4.i.sroa.0.012.i = phi ptr [ %__begin4.i.sroa.0.0.i649, %for.body.i.i646 ], [ %__begin4.i.sroa.0.010.i, %sw.bb344 ]
-  %call5.i.i647 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i, ptr noundef %node)
+  %call5.i.i647 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i, ptr noundef nonnull %node)
   %Next.i.i.i.i648 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i, i64 8
   %__begin4.i.sroa.0.0.i649 = load ptr, ptr %Next.i.i.i.i648, align 8
   %cmp.i.not.i650 = icmp eq ptr %__begin4.i.sroa.0.0.i649, %_members.i644
@@ -11766,7 +11766,7 @@ sw.bb346:                                         ; preds = %if.end
 
 for.body.i.i655:                                  ; preds = %sw.bb346, %for.body.i.i655
   %__begin4.i.sroa.0.012.i656 = phi ptr [ %__begin4.i.sroa.0.0.i659, %for.body.i.i655 ], [ %__begin4.i.sroa.0.010.i653, %sw.bb346 ]
-  %call5.i.i657 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i656, ptr noundef %node)
+  %call5.i.i657 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i656, ptr noundef nonnull %node)
   %Next.i.i.i.i658 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i656, i64 8
   %__begin4.i.sroa.0.0.i659 = load ptr, ptr %Next.i.i.i.i658, align 8
   %cmp.i.not.i660 = icmp eq ptr %__begin4.i.sroa.0.0.i659, %_members.i651
@@ -11781,7 +11781,7 @@ sw.bb348:                                         ; preds = %if.end
 
 for.body.i.i665:                                  ; preds = %sw.bb348, %for.body.i.i665
   %__begin4.i.sroa.0.012.i666 = phi ptr [ %__begin4.i.sroa.0.0.i669, %for.body.i.i665 ], [ %__begin4.i.sroa.0.010.i663, %sw.bb348 ]
-  %call5.i.i667 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i666, ptr noundef %node)
+  %call5.i.i667 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012.i666, ptr noundef nonnull %node)
   %Next.i.i.i.i668 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.012.i666, i64 8
   %__begin4.i.sroa.0.0.i669 = load ptr, ptr %Next.i.i.i.i668, align 8
   %cmp.i.not.i670 = icmp eq ptr %__begin4.i.sroa.0.0.i669, %_members.i661
@@ -11796,7 +11796,7 @@ sw.bb350:                                         ; preds = %if.end
 
 for.body.i.i675:                                  ; preds = %sw.bb350, %for.body.i.i675
   %__begin4.i.sroa.0.09.i676 = phi ptr [ %__begin4.i.sroa.0.0.i679, %for.body.i.i675 ], [ %__begin4.i.sroa.0.07.i673, %sw.bb350 ]
-  %call5.i.i677 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i676, ptr noundef %node)
+  %call5.i.i677 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09.i676, ptr noundef nonnull %node)
   %Next.i.i.i.i678 = getelementptr inbounds i8, ptr %__begin4.i.sroa.0.09.i676, i64 8
   %__begin4.i.sroa.0.0.i679 = load ptr, ptr %Next.i.i.i.i678, align 8
   %cmp.i.not.i680 = icmp eq ptr %__begin4.i.sroa.0.0.i679, %_members.i671
@@ -11875,7 +11875,7 @@ sw.bb402:                                         ; preds = %if.end
 
 for.body.i684:                                    ; preds = %sw.bb402, %for.body.i684
   %__begin4.sroa.0.07.i685 = phi ptr [ %__begin4.sroa.0.0.i688, %for.body.i684 ], [ %__begin4.sroa.0.05.i682, %sw.bb402 ]
-  %call5.i686 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i685, ptr noundef %node)
+  %call5.i686 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i685, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i687 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i685, i64 8
   %__begin4.sroa.0.0.i688 = load ptr, ptr %__begin4.sroa.0.0.in.i687, align 8
   %cmp.i.not.i689 = icmp eq ptr %__begin4.sroa.0.0.i688, %_elementTypes.i
@@ -11916,7 +11916,7 @@ sw.bb416:                                         ; preds = %if.end
 
 for.body.i695:                                    ; preds = %sw.bb416, %for.body.i695
   %__begin4.sroa.0.07.i696 = phi ptr [ %__begin4.sroa.0.0.i699, %for.body.i695 ], [ %__begin4.sroa.0.05.i693, %sw.bb416 ]
-  %call5.i697 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i696, ptr noundef %node)
+  %call5.i697 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i696, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i698 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i696, i64 8
   %__begin4.sroa.0.0.i699 = load ptr, ptr %__begin4.sroa.0.0.in.i698, align 8
   %cmp.i.not.i700 = icmp eq ptr %__begin4.sroa.0.0.i699, %_body.i517
@@ -11943,7 +11943,7 @@ sw.bb424:                                         ; preds = %if.end
 
 for.body.i705:                                    ; preds = %sw.bb424, %for.body.i705
   %__begin4.sroa.0.07.i706 = phi ptr [ %__begin4.sroa.0.0.i709, %for.body.i705 ], [ %__begin4.sroa.0.05.i703, %sw.bb424 ]
-  %call5.i707 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i706, ptr noundef %node)
+  %call5.i707 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i706, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i708 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i706, i64 8
   %__begin4.sroa.0.0.i709 = load ptr, ptr %__begin4.sroa.0.0.in.i708, align 8
   %cmp.i.not.i710 = icmp eq ptr %__begin4.sroa.0.0.i709, %_body.i518
@@ -11962,7 +11962,7 @@ sw.bb428:                                         ; preds = %if.end
 
 for.body.i715:                                    ; preds = %sw.bb428, %for.body.i715
   %__begin4.sroa.0.07.i716 = phi ptr [ %__begin4.sroa.0.0.i719, %for.body.i715 ], [ %__begin4.sroa.0.05.i713, %sw.bb428 ]
-  %call5.i717 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i716, ptr noundef %node)
+  %call5.i717 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i716, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i718 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i716, i64 8
   %__begin4.sroa.0.0.i719 = load ptr, ptr %__begin4.sroa.0.0.in.i718, align 8
   %cmp.i.not.i720 = icmp eq ptr %__begin4.sroa.0.0.i719, %_params.i519
@@ -11981,7 +11981,7 @@ sw.bb432:                                         ; preds = %if.end
 
 for.body.i725:                                    ; preds = %sw.bb432, %for.body.i725
   %__begin4.sroa.0.07.i726 = phi ptr [ %__begin4.sroa.0.0.i729, %for.body.i725 ], [ %__begin4.sroa.0.05.i723, %sw.bb432 ]
-  %call5.i727 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i726, ptr noundef %node)
+  %call5.i727 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i726, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i728 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i726, i64 8
   %__begin4.sroa.0.0.i729 = load ptr, ptr %__begin4.sroa.0.0.in.i728, align 8
   %cmp.i.not.i730 = icmp eq ptr %__begin4.sroa.0.0.i729, %_params.i520
@@ -11996,7 +11996,7 @@ sw.bb434:                                         ; preds = %if.end
 
 for.body.i735:                                    ; preds = %sw.bb434, %for.body.i735
   %__begin4.sroa.0.07.i736 = phi ptr [ %__begin4.sroa.0.0.i739, %for.body.i735 ], [ %__begin4.sroa.0.05.i733, %sw.bb434 ]
-  %call5.i737 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i736, ptr noundef %node)
+  %call5.i737 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i736, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i738 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i736, i64 8
   %__begin4.sroa.0.0.i739 = load ptr, ptr %__begin4.sroa.0.0.in.i738, align 8
   %cmp.i.not.i740 = icmp eq ptr %__begin4.sroa.0.0.i739, %_types.i521
@@ -12011,7 +12011,7 @@ sw.bb436:                                         ; preds = %if.end
 
 for.body.i745:                                    ; preds = %sw.bb436, %for.body.i745
   %__begin4.sroa.0.07.i746 = phi ptr [ %__begin4.sroa.0.0.i749, %for.body.i745 ], [ %__begin4.sroa.0.05.i743, %sw.bb436 ]
-  %call5.i747 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i746, ptr noundef %node)
+  %call5.i747 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i746, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i748 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i746, i64 8
   %__begin4.sroa.0.0.i749 = load ptr, ptr %__begin4.sroa.0.0.in.i748, align 8
   %cmp.i.not.i750 = icmp eq ptr %__begin4.sroa.0.0.i749, %_types.i522
@@ -12036,7 +12036,7 @@ sw.bb442:                                         ; preds = %if.end
 
 for.body.i755:                                    ; preds = %sw.bb442, %for.body.i755
   %__begin4.sroa.0.07.i756 = phi ptr [ %__begin4.sroa.0.0.i759, %for.body.i755 ], [ %__begin4.sroa.0.05.i753, %sw.bb442 ]
-  %call5.i757 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i756, ptr noundef %node)
+  %call5.i757 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.sroa.0.07.i756, ptr noundef nonnull %node)
   %__begin4.sroa.0.0.in.i758 = getelementptr inbounds i8, ptr %__begin4.sroa.0.07.i756, i64 8
   %__begin4.sroa.0.0.i759 = load ptr, ptr %__begin4.sroa.0.0.in.i758, align 8
   %cmp.i.not.i760 = icmp eq ptr %__begin4.sroa.0.0.i759, %_members.i
@@ -14805,7 +14805,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
 if.end.i.i:                                       ; preds = %if.then
   %idx.ext.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.216", ptr %2, i64 %idx.ext.i.i
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E18moveFromOldBucketsEPSJ_SM_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E18moveFromOldBucketsEPSJ_SM_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #21
   %.pr.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
@@ -14914,7 +14914,7 @@ for.body.i.i.i43:                                 ; preds = %if.then.i.i37, %for
 if.end.i.i34:                                     ; preds = %if.then10
   %idx.ext.i.i35 = zext i32 %1 to i64
   %add.ptr.i.i36 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.216", ptr %12, i64 %idx.ext.i.i35
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E18moveFromOldBucketsEPSJ_SM_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E18moveFromOldBucketsEPSJ_SM_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
   tail call void @_ZdlPv(ptr noundef nonnull %12) #21
   %.pr85.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre99 = load ptr, ptr %this, align 8
@@ -15170,7 +15170,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
 if.end.i.i:                                       ; preds = %if.then
   %idx.ext.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.182", ptr %2, i64 %idx.ext.i.i
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E18moveFromOldBucketsEPSI_SL_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E18moveFromOldBucketsEPSI_SL_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #21
   %.pr.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
@@ -15279,7 +15279,7 @@ for.body.i.i.i43:                                 ; preds = %if.then.i.i37, %for
 if.end.i.i34:                                     ; preds = %if.then10
   %idx.ext.i.i35 = zext i32 %1 to i64
   %add.ptr.i.i36 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.182", ptr %12, i64 %idx.ext.i.i35
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E18moveFromOldBucketsEPSI_SL_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E18moveFromOldBucketsEPSI_SL_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
   tail call void @_ZdlPv(ptr noundef nonnull %12) #21
   %.pr85.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre99 = load ptr, ptr %this, align 8
@@ -16702,7 +16702,7 @@ _ZNSt12_Vector_baseISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6E
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESaISB_EE11_M_allocateEm.exit
   %second3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %call2.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIPN6hermes6ESTree23FunctionDeclarationNodeEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i)
+  %call2.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIPN6hermes6ESTree23FunctionDeclarationNodeEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %second3.i.i.i)
   br label %_ZNSt16allocator_traitsISaISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEESaISB_EE11_M_allocateEm.exit, %if.then.i.i.i.i
@@ -16735,7 +16735,7 @@ if.end13.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i
 
 if.end28.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end13.i.i.i.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %6 to i64
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #21
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #21
   %.pre.i.i.i.i.i.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.pre.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %return.sink.split.i.i.i.i.i.i.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i
@@ -16795,7 +16795,7 @@ if.end13.i.i.i.i.i.i.i.i.i26:                     ; preds = %for.body.i.i.i.i.i1
 
 if.end28.i.i.i.i.i.i.i.i.i37:                     ; preds = %if.end13.i.i.i.i.i.i.i.i.i26
   %conv.i.i.i.i.i.i.i.i.i.i38 = zext i32 %11 to i64
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i17, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i19, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i38, i64 noundef 8) #21
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i17, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i19, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i38, i64 noundef 8) #21
   %.pre.i.i.i.i.i.i.i.i39 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i22, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i40 = icmp eq i32 %.pre.i.i.i.i.i.i.i.i39, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i40, label %return.sink.split.i.i.i.i.i.i.i.i.i31, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41

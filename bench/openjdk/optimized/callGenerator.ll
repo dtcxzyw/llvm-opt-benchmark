@@ -615,7 +615,7 @@ define linkonce_odr hidden void @_ZN18CallStaticJavaNodeC2EP7CompilePK8TypeFuncP
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %10) #8
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(145) %0, i32 noundef %10) #8
   %11 = getelementptr inbounds i8, ptr %0, i64 44
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %12, align 8
@@ -1038,7 +1038,7 @@ _ZN4NodenwEm.exit:                                ; preds = %159, %161
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 20
   %175 = load i32, ptr %174, align 4
-  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef %175) #8
+  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(152) %.0.i.i.i, i32 noundef %175) #8
   %176 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
   %177 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
   store ptr null, ptr %177, align 8
@@ -1744,7 +1744,7 @@ _ZN8GraphKit12set_argumentEjP4Node.exit:          ; preds = %233, %223, %_ZN4Nod
   %280 = add i32 %279, -1
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %8, i64 noundef 0) #8
-  call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %8, ptr noundef %2, i32 noundef %280, i32 noundef %277, i32 noundef 1, ptr noundef nonnull @.str.13) #8
+  call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef %280, i32 noundef %277, i32 noundef 1, ptr noundef nonnull @.str.13) #8
   %281 = getelementptr inbounds i8, ptr %20, i64 2096
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds i8, ptr %8, i64 56
@@ -2485,7 +2485,7 @@ define hidden void @_ZN13CallGenerator21do_late_inline_helperEv(ptr noundef nonn
   br i1 %144, label %149, label %145
 
 145:                                              ; preds = %139
-  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %143, i32 noundef %142) #8
+  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(81) %143, i32 noundef %142) #8
   %146 = getelementptr inbounds i8, ptr %143, i64 44
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV13SafePointNode, i64 16), ptr %143, align 8
   %147 = getelementptr inbounds i8, ptr %143, i64 56
@@ -3760,7 +3760,7 @@ _ZN4NodenwEm.exit:                                ; preds = %245, %247
   br i1 %249, label %_ZN10RegionNodeC2Ej.exit, label %250
 
 250:                                              ; preds = %_ZN4NodenwEm.exit
-  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 3) #8
+  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i, i32 noundef 3) #8
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %.0.i.i.i, align 8
   %251 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
   store i8 0, ptr %251, align 4
@@ -3785,7 +3785,7 @@ _ZN4NodenwEm.exit:                                ; preds = %245, %247
   br i1 %264, label %265, label %266
 
 265:                                              ; preds = %259
-  call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef %261) #8
+  call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i, i32 noundef %261) #8
   %.pre.i.i.i = load ptr, ptr %256, align 8
   %.pre2.i.i.i = load i32, ptr %260, align 8
   br label %266
@@ -4795,7 +4795,7 @@ _ZN4NodenwEm.exit:                                ; preds = %104, %106
   br i1 %108, label %_ZN10RegionNodeC2Ej.exit, label %109
 
 109:                                              ; preds = %_ZN4NodenwEm.exit
-  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 1) #8
+  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i, i32 noundef 1) #8
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %.0.i.i.i, align 8
   %110 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
   store i8 0, ptr %110, align 4
@@ -4820,7 +4820,7 @@ _ZN4NodenwEm.exit:                                ; preds = %104, %106
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %118
-  call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef %120) #8
+  call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i, i32 noundef %120) #8
   %.pre.i.i.i = load ptr, ptr %115, align 8
   %.pre2.i.i.i = load i32, ptr %119, align 8
   br label %125
@@ -5229,7 +5229,7 @@ _ZN4NodenwEm.exit144:                             ; preds = %351, %353
 
 356:                                              ; preds = %_ZN4NodenwEm.exit144
   %357 = add nsw i32 %.3, 1
-  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i143, i32 noundef %357) #8
+  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i143, i32 noundef %357) #8
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %.0.i.i.i143, align 8
   %358 = getelementptr inbounds i8, ptr %.0.i.i.i143, i64 52
   store i8 0, ptr %358, align 4
@@ -5254,7 +5254,7 @@ _ZN4NodenwEm.exit144:                             ; preds = %351, %353
   br i1 %371, label %372, label %373
 
 372:                                              ; preds = %366
-  call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i143, i32 noundef %368) #8
+  call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i143, i32 noundef %368) #8
   %.pre.i.i.i145 = load ptr, ptr %363, align 8
   %.pre2.i.i.i146 = load i32, ptr %367, align 8
   br label %373

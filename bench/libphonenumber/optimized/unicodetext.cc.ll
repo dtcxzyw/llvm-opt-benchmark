@@ -171,7 +171,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr6resizeEi(ptr noc
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit: ; preds = %7, %8, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   br label %39
 
 12:                                               ; preds = %2
@@ -278,7 +278,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci(ptr no
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i: ; preds = %12, %9, %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr6resizeEi.exit
 
 13:                                               ; preds = %3
@@ -607,7 +607,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4i18n12phonenumbers11UnicodeTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 1, ptr %3, align 1
@@ -617,7 +617,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeTextC2Ev(ptr nocapture nou
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers11UnicodeTextC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 1, ptr %4, align 1
@@ -671,7 +671,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %14, %11, %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit
 
 15:                                               ; preds = %2
@@ -744,7 +744,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit: ; preds = %_ZN4i18n12ph
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers11UnicodeTextC2ERKNS1_14const_iteratorES4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 1, ptr %5, align 1
@@ -846,7 +846,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %16, %13, %12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit
 
 17:                                               ; preds = %3
@@ -1060,7 +1060,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(pt
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %14
 
 .noexc1:                                          ; preds = %.noexc
@@ -1070,7 +1070,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(pt
 7:                                                ; preds = %.noexc1
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #25
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -1121,7 +1121,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %12, %9, %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit
 
 13:                                               ; preds = %3
@@ -1487,7 +1487,7 @@ _ZN4i18n12phonenumbers3LOGEi.exit.thread:         ; preds = %21
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread: ; preds = %41, %42, %45
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -2094,7 +2094,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText5clearEv(ptr nocapture
   br label %_ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit: ; preds = %1, %5, %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %2, align 8
   ret void
 }
@@ -2836,7 +2836,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers15ConvertToStringIA39_
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %9
 
 .noexc2:                                          ; preds = %.noexc
@@ -2848,7 +2848,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers15ConvertToStringIA39_
 7:                                                ; preds = %.noexc2
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #25
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2

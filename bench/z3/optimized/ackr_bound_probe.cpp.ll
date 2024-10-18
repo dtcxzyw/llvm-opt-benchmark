@@ -426,7 +426,7 @@ invoke.cont:                                      ; preds = %entry
   %m_num_deleted.i.i6 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %m_num_deleted.i.i6, align 8
   %m_ackr_helper = getelementptr inbounds i8, ptr %this, i64 56
-  invoke void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %m_ackr_helper, ptr noundef nonnull align 8 dereferenceable(976) %m)
+  invoke void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(40) %m_ackr_helper, ptr noundef nonnull align 8 dereferenceable(976) %m)
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
@@ -1739,7 +1739,7 @@ if.then8:                                         ; preds = %for.body.i.i.i, %fo
 common.resume:                                    ; preds = %lpad.i64, %lpad.i
   %call16.sink = phi ptr [ %call16, %lpad.i64 ], [ %call9, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %36, %lpad.i64 ], [ %22, %lpad.i ]
-  tail call void @_ZN13obj_hashtableI3appED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %call16.sink) #18
+  tail call void @_ZN13obj_hashtableI3appED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call16.sink) #18
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then8
@@ -1761,7 +1761,7 @@ _ZN11ackr_helper7app_occC2Ev.exit:                ; preds = %if.then8
   store ptr %8, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %call9, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6insertEOS8_(ptr noundef nonnull align 8 dereferenceable(20) %s2t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6insertEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %s2t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   br label %land.rhs.lr.ph
 
@@ -1895,7 +1895,7 @@ _ZN11ackr_helper7app_occC2Ev.exit69:              ; preds = %if.then15
   store ptr %27, ptr %ref.tmp.i70, align 8
   %m_value.i.i71 = getelementptr inbounds i8, ptr %ref.tmp.i70, i64 8
   store ptr %call16, ptr %m_value.i.i71, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI9func_declPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6insertEOS8_(ptr noundef nonnull align 8 dereferenceable(20) %f2t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i70)
+  call void @_ZN14core_hashtableIN7obj_mapI9func_declPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6insertEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %f2t, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i70)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i70)
   br label %if.end22
 
@@ -3196,7 +3196,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -3968,7 +3968,7 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store ptr %26, ptr %ref.tmp.i.i, align 8
   store ptr null, ptr %m_value.i.i.i, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6removeERKS8_(ptr noundef nonnull align 8 dereferenceable(20) %sels, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  invoke void @_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6removeERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %sels, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
           to label %for.inc26 unwind label %lpad.loopexit
 
 for.inc26:                                        ; preds = %for.body24

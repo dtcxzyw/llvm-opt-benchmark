@@ -406,7 +406,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK21XIsUnloadingBehaviour12has_
   br i1 %.not.i.i, label %_ZN14XReentrantLock4lockEv.exit.i, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #8
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
   store volatile ptr %7, ptr %8, align 8
   br label %_ZN14XReentrantLock4lockEv.exit.i
 
@@ -438,7 +438,7 @@ _ZN7XLockerI14XReentrantLockEC2EPS0_.exit:        ; preds = %2, %_ZN14XReentrant
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %4, i64 40
   store volatile ptr null, ptr %24, align 8
-  %25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #8
+  %25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
   br label %_ZN7XLockerI14XReentrantLockED2Ev.exit
 
 _ZN7XLockerI14XReentrantLockED2Ev.exit:           ; preds = %_ZN7XLockerI14XReentrantLockEC2EPS0_.exit, %18, %23
@@ -457,7 +457,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN30XCompiledICProtectionBehavio
   br i1 %.not.i, label %_ZN14XReentrantLock4lockEv.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #8
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
   store volatile ptr %5, ptr %6, align 8
   br label %_ZN14XReentrantLock4lockEv.exit
 
@@ -482,7 +482,7 @@ define linkonce_odr hidden void @_ZN30XCompiledICProtectionBehaviour6unlockEP7nm
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   store volatile ptr null, ptr %9, align 8
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #8
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
   br label %_ZN14XReentrantLock6unlockEv.exit
 
 _ZN14XReentrantLock6unlockEv.exit:                ; preds = %2, %8

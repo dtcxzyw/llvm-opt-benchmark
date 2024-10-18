@@ -102,7 +102,7 @@ _ZN5faiss15ScalarQuantizerD2Ev.exit:              ; preds = %1, %5
   br label %_ZN5faiss14IndexFlatCodesD2Ev.exit
 
 _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %_ZN5faiss15ScalarQuantizerD2Ev.exit, %8
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #12
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
   ret void
 }
 
@@ -132,7 +132,7 @@ _ZN5faiss15ScalarQuantizerD2Ev.exit.i:            ; preds = %5, %1
   br label %_ZN5faiss20IndexScalarQuantizerD2Ev.exit
 
 _ZN5faiss20IndexScalarQuantizerD2Ev.exit:         ; preds = %_ZN5faiss15ScalarQuantizerD2Ev.exit.i, %8
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #12
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -510,7 +510,7 @@ define linkonce_odr void @_ZN5faiss23IndexIVFScalarQuantizerD0Ev(ptr noundef non
   br label %_ZN5faiss23IndexIVFScalarQuantizerD2Ev.exit
 
 _ZN5faiss23IndexIVFScalarQuantizerD2Ev.exit:      ; preds = %1, %6
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) #12
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -964,7 +964,7 @@ define linkonce_odr void @_ZThn40_N5faiss23IndexIVFScalarQuantizerD1Ev(ptr nound
   br label %_ZN5faiss23IndexIVFScalarQuantizerD2Ev.exit
 
 _ZN5faiss23IndexIVFScalarQuantizerD2Ev.exit:      ; preds = %1, %6
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %2) #12
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %2) #12
   ret void
 }
 
@@ -985,8 +985,8 @@ define linkonce_odr void @_ZThn40_N5faiss23IndexIVFScalarQuantizerD0Ev(ptr nound
   br label %_ZN5faiss23IndexIVFScalarQuantizerD0Ev.exit
 
 _ZN5faiss23IndexIVFScalarQuantizerD0Ev.exit:      ; preds = %1, %6
-  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %2) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  tail call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(336) %2) #19
   ret void
 }
 
@@ -1061,7 +1061,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss20IndexScalarQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef 0, i64 noundef 0, i32 noundef 1)
+  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 0, i64 noundef 0, i32 noundef 1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20IndexScalarQuantizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @_ZN5faiss15ScalarQuantizerC1EmNS0_13QuantizerTypeE(ptr noundef nonnull align 8 dereferenceable(72) %2, i64 noundef 0, i32 noundef 0)
@@ -1070,7 +1070,7 @@ define void @_ZN5faiss20IndexScalarQuantizerC2Ev(ptr noundef nonnull align 8 der
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
+  tail call void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #12
   resume { ptr, i32 } %4
 
 _ZN5faiss20IndexScalarQuantizerC2EiNS_15ScalarQuantizer13QuantizerTypeENS_10MetricTypeE.exit: ; preds = %1

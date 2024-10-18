@@ -609,14 +609,14 @@ _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
   br i1 %10, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i: ; preds = %_ZN4llvm8CallBase17data_operands_endEv.exit
-  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #3
   %12 = extractvalue { ptr, i64 } %11, 0
   %.pr.i.i.i = load i32, ptr %8, align 4
   %13 = icmp slt i32 %.pr.i.i.i, 0
   br i1 %13, label %14, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i
 
 14:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i
-  %15 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %15 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #3
   %16 = extractvalue { ptr, i64 } %15, 0
   %17 = extractvalue { ptr, i64 } %15, 1
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
@@ -636,14 +636,14 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   %24 = load i32, ptr %8, align 4
   %25 = icmp slt i32 %24, 0
   tail call void @llvm.assume(i1 %25)
-  %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #3
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = load i32, ptr %8, align 4
   %31 = icmp slt i32 %30, 0
   tail call void @llvm.assume(i1 %31)
-  %32 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %32 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #3
   %33 = extractvalue { ptr, i64 } %32, 0
   %34 = extractvalue { ptr, i64 } %32, 1
   %35 = getelementptr inbounds i8, ptr %33, i64 %34

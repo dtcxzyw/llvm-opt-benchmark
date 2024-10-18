@@ -783,7 +783,7 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %52, %_ZN14PhaseIdea
   br i1 %.not.i.i.i7, label %_ZN9Node_List4pushEP4Node.exit.i, label %68
 
 68:                                               ; preds = %62
-  tail call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %46, i32 noundef %64) #9
+  tail call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(68) %46, i32 noundef %64) #9
   br label %_ZN9Node_List4pushEP4Node.exit.i
 
 _ZN9Node_List4pushEP4Node.exit.i:                 ; preds = %68, %62
@@ -845,7 +845,7 @@ _ZN4NodenwEm.exit:                                ; preds = %30, %32
 
 35:                                               ; preds = %_ZN4NodenwEm.exit
   %36 = load ptr, ptr @_ZN8TypeLong3INTE, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 2) #9
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 2) #9
   %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
@@ -1080,7 +1080,7 @@ _ZN4NodenwEm.exit:                                ; preds = %40, %42
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17PopulateIndexNodeC2EP4NodeS1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 3) #9
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 3) #9
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1542,7 +1542,7 @@ _ZN4NodenwEm.exit:                                ; preds = %77, %79
   br i1 %81, label %85, label %82
 
 82:                                               ; preds = %_ZN4NodenwEm.exit
-  tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, ptr noundef %44, ptr noundef %51, ptr noundef %57, ptr noundef %61)
+  tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(68) %.0.i.i.i, ptr noundef %44, ptr noundef %51, ptr noundef %57, ptr noundef %61)
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV17VectorMaskCmpNode, i64 16), ptr %.0.i.i.i, align 8
   %83 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
   store i32 %.sroa.0.0.extract.trunc, ptr %83, align 8
@@ -2060,7 +2060,7 @@ declare noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 4) #9
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 4) #9
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 44

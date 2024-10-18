@@ -124,7 +124,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15MallocSiteTable13allocation_
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 40
-  %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %8) #14, !srcloc !9
+  %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(32) %8) #14, !srcloc !9
   %.not.i.i = icmp eq i64 %1, 0
   br i1 %.not.i.i, label %_ZN10MallocSite8allocateEm.exit, label %10
 
@@ -206,7 +206,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %35 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
   %36 = getelementptr inbounds ptr, ptr %35, i64 %14
-  %37 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20, ptr null, ptr %36) #14, !srcloc !10
+  %37 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr null, ptr %36) #14, !srcloc !10
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
 
@@ -241,7 +241,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %45
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %.04459, ptr noundef nonnull dereferenceable(32) %0, i64 32)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(33) %.04459, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32)
   %50 = icmp eq i32 %bcmp.i.i, 0
   br i1 %50, label %51, label %54
 
@@ -294,7 +294,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   %75 = getelementptr inbounds i8, ptr %61, i64 80
   store volatile ptr null, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %76 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %61, ptr null, ptr nonnull %55) #14, !srcloc !10
+  %76 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %61, ptr null, ptr nonnull %55) #14, !srcloc !10
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %82
 

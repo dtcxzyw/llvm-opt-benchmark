@@ -234,7 +234,7 @@ for.body154:                                      ; preds = %if.end149, %for.bod
   %inc161 = add i16 %9, 1
   store i16 %inc161, ptr %arrayidx160, align 2
   %conv162 = zext i16 %9 to i32
-  %10 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv162, i1 true)
+  %10 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv162, i1 true)
   %sub.i = xor i32 %10, 31
   %sub163 = sub nsw i32 %tableLog, %sub.i
   %conv164 = trunc nsw i32 %sub163 to i8
@@ -1791,7 +1791,7 @@ cond.end.thread:                                  ; preds = %if.then3
 
 cond.end:                                         ; preds = %if.then3
   %conv = zext i8 %0 to i32
-  %1 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
+  %1 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv, i1 true)
   %sub.i = xor i32 %1, 31
   %sub9 = sub nuw nsw i32 8, %sub.i
   %bitsConsumed = getelementptr inbounds i8, ptr %bitD, i64 8
@@ -1886,7 +1886,7 @@ cond.end63.thread:                                ; preds = %sw.epilog
 
 if.end70:                                         ; preds = %sw.epilog
   %conv56 = zext i8 %15 to i32
-  %16 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv56, i1 true)
+  %16 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv56, i1 true)
   %bitsConsumed65 = getelementptr inbounds i8, ptr %bitD, i64 8
   %17 = trunc nuw i64 %srcSize to i32
   %18 = shl nuw nsw i32 %17, 3

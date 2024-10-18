@@ -1351,7 +1351,7 @@ if.then70.i:                                      ; preds = %if.then68.i
 
 if.end74.i:                                       ; preds = %if.end66.i, %if.end25.tail.i
   %arg.0.i = phi ptr [ %call.i.i, %if.end66.i ], [ %tobool29.not.i, %if.end25.tail.i ]
-  call fastcc void @setup_new_branch_info_and_source_tree(ptr noundef %new_branch_info, ptr noundef %opts, ptr noundef %rev, ptr noundef %arg.0.i)
+  call fastcc void @setup_new_branch_info_and_source_tree(ptr noundef nonnull %new_branch_info, ptr noundef nonnull %opts, ptr noundef nonnull %rev, ptr noundef %arg.0.i)
   %source_tree.i = getelementptr inbounds i8, ptr %opts, i64 808
   %70 = load ptr, ptr %source_tree.i, align 8
   %tobool76.not.i = icmp eq ptr %70, null
@@ -2705,7 +2705,7 @@ if.then.i62.i.i:                                  ; preds = %if.then38.i.i
 
 if.end.i59.i.i:                                   ; preds = %if.then38.i.i
   %conv.i.i = sext i32 %237 to i64
-  %call.i60.i.i = call ptr @ngettext(ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, i64 noundef %conv.i.i) #16
+  %call.i60.i.i = call ptr @ngettext(ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i) #16
   %.pre91.i.i = load i32, ptr %nr_unmerged.i.i, align 4
   br label %Q_.exit.i.i
 
@@ -2734,7 +2734,7 @@ if.then.i68.i.i:                                  ; preds = %if.then43.i.i
 
 if.end.i65.i.i:                                   ; preds = %if.then43.i.i
   %conv44.i.i = sext i32 %243 to i64
-  %call.i66.i.i = call ptr @ngettext(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, i64 noundef %conv44.i.i) #16
+  %call.i66.i.i = call ptr @ngettext(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, i64 noundef range(i64 -2147483648, 2147483648) %conv44.i.i) #16
   %.pre92.i.i = load i32, ptr %nr_checkouts.i.i, align 4
   %.pre93.i.i = load ptr, ptr %source_tree127.i, align 8
   br label %Q_.exit71.i.i
@@ -2771,7 +2771,7 @@ if.then.i76.i.i:                                  ; preds = %if.then54.i.i
 
 if.end.i73.i.i:                                   ; preds = %if.then54.i.i
   %conv55.i.i = sext i32 %250 to i64
-  %call.i74.i.i = call ptr @ngettext(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, i64 noundef %conv55.i.i) #16
+  %call.i74.i.i = call ptr @ngettext(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, i64 noundef range(i64 -2147483648, 2147483648) %conv55.i.i) #16
   %.pre94.i.i = load i32, ptr %nr_checkouts.i.i, align 4
   br label %Q_.exit79.i.i
 
@@ -3057,7 +3057,7 @@ land.lhs.true91.i240:                             ; preds = %land.lhs.true86.i
   br i1 %tobool92.not.i, label %if.then93.i, label %if.end94.i
 
 if.then93.i:                                      ; preds = %land.lhs.true91.i240
-  call fastcc void @die_expecting_a_branch(ptr noundef %new_branch_info)
+  call fastcc void @die_expecting_a_branch(ptr noundef nonnull %new_branch_info)
   unreachable
 
 if.end94.i:                                       ; preds = %land.lhs.true91.i240, %land.lhs.true86.i, %land.lhs.true83.i, %if.end78.i, %land.lhs.true73.i
@@ -3514,7 +3514,7 @@ if.end13.i.i.i:                                   ; preds = %if.else.i.i86.i, %i
   br i1 %tobool14.not.i.i.i, label %if.else20.i.i.i, label %if.then15.i.i.i
 
 if.then15.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %call16.i.i.i = call fastcc i32 @reset_tree(ptr noundef %new_tree.0.i.i.i, ptr noundef readonly %opts, i32 noundef 1, ptr noundef %writeout_error.i.i, ptr noundef %new_branch_info)
+  %call16.i.i.i = call fastcc i32 @reset_tree(ptr noundef %new_tree.0.i.i.i, ptr noundef nonnull readonly %opts, i32 noundef 1, ptr noundef nonnull %writeout_error.i.i, ptr noundef nonnull %new_branch_info)
   %tobool17.not.i.i.i = icmp eq i32 %call16.i.i.i, 0
   br i1 %tobool17.not.i.i.i, label %if.end99.i.i.i, label %if.then49.i.i
 
@@ -3649,7 +3649,7 @@ if.end72.i.i.i:                                   ; preds = %if.end65.i.i.i
   store i32 0, ptr %verbosity.i.i.i, align 4
   %356 = load ptr, ptr @the_repository, align 8
   %call74.i.i.i = call ptr @write_in_core_index_as_tree(ptr noundef %356) #16
-  %call75.i.i.i = call fastcc i32 @reset_tree(ptr noundef nonnull %new_tree.0.i.i.i, ptr noundef readonly %opts, i32 noundef 1, ptr noundef %writeout_error.i.i, ptr noundef %new_branch_info)
+  %call75.i.i.i = call fastcc i32 @reset_tree(ptr noundef nonnull %new_tree.0.i.i.i, ptr noundef nonnull readonly %opts, i32 noundef 1, ptr noundef nonnull %writeout_error.i.i, ptr noundef nonnull %new_branch_info)
   %tobool76.not.i.i.i = icmp eq i32 %call75.i.i.i, 0
   br i1 %tobool76.not.i.i.i, label %if.end78.i.i.i, label %if.then49.i.i
 
@@ -3684,7 +3684,7 @@ if.then91.i.i.i:                                  ; preds = %if.end87.i.i.i
   unreachable
 
 if.end93.i.i.i:                                   ; preds = %if.end87.i.i.i
-  %call94.i.i.i = call fastcc i32 @reset_tree(ptr noundef nonnull %new_tree.0.i.i.i, ptr noundef readonly %opts, i32 noundef 0, ptr noundef %writeout_error.i.i, ptr noundef %new_branch_info)
+  %call94.i.i.i = call fastcc i32 @reset_tree(ptr noundef nonnull %new_tree.0.i.i.i, ptr noundef nonnull readonly %opts, i32 noundef 0, ptr noundef nonnull %writeout_error.i.i, ptr noundef nonnull %new_branch_info)
   %obuf.i.i.i = getelementptr inbounds i8, ptr %o.i.i.i, i64 80
   call void @strbuf_release(ptr noundef nonnull %obuf.i.i.i) #16
   call void @strbuf_release(ptr noundef nonnull %old_commit_shortname.i.i.i) #16
@@ -4018,7 +4018,7 @@ if.then.i45.i.i.i.i:                              ; preds = %if.end8.i.i.i.i
   br label %Q_.exit.i.i.i.i
 
 if.end.i42.i.i.i.i:                               ; preds = %if.end8.i.i.i.i
-  %call.i43.i.i.i.i = call ptr @ngettext(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.188, i64 noundef %conv.i.i.i.i) #16
+  %call.i43.i.i.i.i = call ptr @ngettext(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.188, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i.i.i) #16
   br label %Q_.exit.i.i.i.i
 
 Q_.exit.i.i.i.i:                                  ; preds = %if.end.i42.i.i.i.i, %if.then.i45.i.i.i.i
@@ -4043,7 +4043,7 @@ if.then.i50.i.i.i.i:                              ; preds = %if.then12.i.i.i.i
   br label %Q_.exit53.i.i.i.i
 
 if.end.i47.i.i.i.i:                               ; preds = %if.then12.i.i.i.i
-  %call.i48.i.i.i.i = call ptr @ngettext(ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, i64 noundef %conv.i.i.i.i) #16
+  %call.i48.i.i.i.i = call ptr @ngettext(ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i.i.i) #16
   br label %Q_.exit53.i.i.i.i
 
 Q_.exit53.i.i.i.i:                                ; preds = %if.end.i47.i.i.i.i, %if.then.i50.i.i.i.i
@@ -4160,7 +4160,7 @@ if.end21.i.i.i:                                   ; preds = %if.else.i69.i.i, %i
   %421 = load ptr, ptr %new_branch, align 8
   %call25.i.i.i = call ptr @xstrdup(ptr noundef %421) #16
   store ptr %call25.i.i.i, ptr %new_branch_info, align 8
-  call fastcc void @setup_branch_path(ptr noundef %new_branch_info)
+  call fastcc void @setup_branch_path(ptr noundef nonnull %new_branch_info)
   br label %if.end27.i.i.i
 
 if.end27.i.i.i:                                   ; preds = %if.end21.i.i.i, %if.end65.i.i

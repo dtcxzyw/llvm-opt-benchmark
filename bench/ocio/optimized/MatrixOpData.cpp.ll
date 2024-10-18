@@ -2889,7 +2889,7 @@ if.end8:                                          ; preds = %for.body.i, %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %agg.result, align 8, !alias.scope !43
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev12MatrixOpDataESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr nonnull %__a.i)
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev12MatrixOpDataESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr nonnull %__a.i)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %if.end8
@@ -3413,7 +3413,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %agg.result, align 8, !alias.scope !49
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev12MatrixOpDataESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr nonnull %__a.i)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev12MatrixOpDataESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr nonnull %__a.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
   %0 = load ptr, ptr %agg.result, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -3719,7 +3719,7 @@ invoke.cont22:                                    ; preds = %if.end16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %agg.result, align 8, !alias.scope !52
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev12MatrixOpDataESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr nonnull %__a.i)
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev12MatrixOpDataESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr nonnull %__a.i)
           to label %invoke.cont23 unwind label %lpad19
 
 invoke.cont23:                                    ; preds = %invoke.cont22
@@ -4219,7 +4219,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %m_offsets = getelementptr inbounds i8, ptr %this, i64 216
   %m_offsets3 = getelementptr inbounds i8, ptr %other, i64 216
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %m_offsets, ptr noundef nonnull readonly dereferenceable(32) %m_offsets3, i64 32)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %m_offsets, ptr noundef nonnull readonly align 8 dereferenceable(32) %m_offsets3, i64 32)
   %cmp.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i, label %land.rhs, label %return
 
@@ -4293,7 +4293,7 @@ entry:
   %ref.tmp27 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp36 = alloca %"class.std::__cxx11::basic_string", align 8
   %m_mutex = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex) #32
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #32
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -4389,7 +4389,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
 invoke.cont43:                                    ; preds = %invoke.cont41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hash) #32
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %cacheIDStream) #32
-  %call1.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #32
+  %call1.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #32
   ret void
 
 lpad17:                                           ; preds = %invoke.cont41, %invoke.cont34, %invoke.cont25, %invoke.cont15
@@ -4427,7 +4427,7 @@ ehcleanup44:                                      ; preds = %ehcleanup, %lpad2
 
 ehcleanup45:                                      ; preds = %ehcleanup44, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup44 ], [ %0, %lpad ]
-  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #32
+  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex) #32
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -4978,7 +4978,7 @@ entry:
   store i32 1, ptr %_M_weak_count.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %this, align 8
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN19OpenColorIO_v2_4dev6OpDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %_M_impl.i, ptr noundef nonnull align 8 dereferenceable(168) %__args)
+  tail call void @_ZN19OpenColorIO_v2_4dev6OpDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i, ptr noundef nonnull align 8 dereferenceable(260) %__args)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12MatrixOpDataE, i64 16), ptr %_M_impl.i, align 8
   %m_array.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev6ArrayTIdEE, i64 16), ptr %m_array.i.i.i, align 8
@@ -5129,7 +5129,7 @@ entry:
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
-  invoke void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %_M_impl.i.i)
+  invoke void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i)
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %entry

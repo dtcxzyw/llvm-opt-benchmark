@@ -440,7 +440,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9hashbrown11ru
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9fd470b40eef0efbE.llvm.15067062799476971826"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9fd470b40eef0efbE.llvm.15067062799476971826"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h745f72f504a84dbbE.exit.i.i.i" unwind label %7
 
 7:                                                ; preds = %5
@@ -456,7 +456,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9hashbrown11ru
 9:                                                ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h745f72f504a84dbbE.exit.i.i.i"
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc24ede3ad8dec557E.llvm.15067062799476971826"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc24ede3ad8dec557E.llvm.15067062799476971826"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %common.resume.i.i.i unwind label %11
 
 11:                                               ; preds = %9
@@ -470,7 +470,7 @@ common.resume.i.i.i:                              ; preds = %9, %7
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 "_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$diesel..sqlite..backend..SqliteType$GT$$GT$17he6102f7c7745946aE.exit.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h745f72f504a84dbbE.exit.i.i.i"
-  tail call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc24ede3ad8dec557E.llvm.15067062799476971826"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc24ede3ad8dec557E.llvm.15067062799476971826"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br label %"_ZN4core3ptr210drop_in_place$LT$hashbrown..rustc_entry..RustcOccupiedEntry$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$C$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h3c47aa5213a1f894E.exit"
 
 13:                                               ; preds = %7

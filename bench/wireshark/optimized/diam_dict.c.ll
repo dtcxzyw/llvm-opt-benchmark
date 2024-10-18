@@ -773,7 +773,7 @@ append_to_buffer.exit432:                         ; preds = %291, %298
   %306 = getelementptr i8, ptr %304, i64 %305
   %307 = getelementptr inbounds i8, ptr %280, i64 8
   store ptr %306, ptr %307, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %306, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %306, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %308 = load i32, ptr %293, align 4
   %309 = add i32 %308, 2
   store i32 %309, ptr %293, align 4
@@ -826,7 +826,7 @@ append_to_buffer.exit435:                         ; preds = %322, %329
   %337 = getelementptr i8, ptr %335, i64 %336
   %338 = getelementptr inbounds i8, ptr %311, i64 8
   store ptr %337, ptr %338, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %337, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %337, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
   %339 = load i32, ptr %324, align 4
   %340 = add i32 %339, 2
   store i32 %340, ptr %324, align 4

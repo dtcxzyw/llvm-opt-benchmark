@@ -374,7 +374,7 @@ SlabGetNextFreeChunk.exit.i:                      ; preds = %29, %26
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %42
-  %49 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2) #11
+  %49 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2) #11
   br label %SlabAllocFromNewBlock.exit
 
 50:                                               ; preds = %42

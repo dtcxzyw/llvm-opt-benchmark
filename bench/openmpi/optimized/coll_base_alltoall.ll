@@ -271,7 +271,7 @@ define i32 @ompi_coll_base_alltoall_intra_pairwise(ptr noundef %0, i32 noundef %
   br label %ompi_coll_base_sendrecv.exit
 
 48:                                               ; preds = %33
-  %49 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %40, i64 noundef %27, ptr noundef %2, i32 noundef %35, i32 noundef -13, ptr noundef %43, i64 noundef %29, ptr noundef %5, i32 noundef %37, i32 noundef -13, ptr noundef %6, ptr noundef null) #7
+  %49 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %40, i64 noundef range(i64 -2147483648, 2147483648) %27, ptr noundef %2, i32 noundef %35, i32 noundef -13, ptr noundef %43, i64 noundef range(i64 -2147483648, 2147483648) %29, ptr noundef %5, i32 noundef %37, i32 noundef -13, ptr noundef %6, ptr noundef null) #7
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %46, %48
@@ -425,7 +425,7 @@ opal_datatype_span.exit:                          ; preds = %13, %30
   %90 = mul nsw i32 %spec.select, %4
   %91 = sext i32 %90 to i64
   %.reass = mul i64 %indvars.iv, %factor.op.mul
-  %92 = call i32 @opal_datatype_add(ptr noundef %89, ptr noundef %5, i64 noundef %91, i64 noundef %.reass, i64 noundef %22) #7
+  %92 = call i32 @opal_datatype_add(ptr noundef %89, ptr noundef %5, i64 noundef range(i64 -2147483648, 2147483648) %91, i64 noundef %.reass, i64 noundef %22) #7
   %indvars.iv.next = add nsw i64 %indvars.iv, %85
   %93 = icmp slt i64 %indvars.iv.next, %23
   br i1 %93, label %86, label %94, !llvm.loop !8
@@ -894,7 +894,7 @@ define i32 @ompi_coll_base_alltoall_intra_two_procs(ptr noundef %0, i32 noundef 
   %34 = mul i64 %26, %33
   %35 = mul i64 %34, %28
   %36 = getelementptr inbounds i8, ptr %3, i64 %35
-  %37 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %32, i64 noundef %29, ptr noundef %2, i32 noundef %27, i32 noundef -13, ptr noundef %36, i64 noundef %33, ptr noundef %5, i32 noundef %27, i32 noundef -13, ptr noundef nonnull %6, ptr noundef null) #7
+  %37 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %32, i64 noundef range(i64 -2147483648, 2147483648) %29, ptr noundef %2, i32 noundef %27, i32 noundef -13, ptr noundef %36, i64 noundef range(i64 -2147483648, 2147483648) %33, ptr noundef %5, i32 noundef %27, i32 noundef -13, ptr noundef nonnull %6, ptr noundef null) #7
   %.not48 = icmp eq i32 %37, 0
   br i1 %.not48, label %38, label %47
 

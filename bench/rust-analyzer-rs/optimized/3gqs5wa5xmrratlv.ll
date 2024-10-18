@@ -99,7 +99,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h326cf4ba7b
 22:                                               ; preds = %16
   %23 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda5e188ff66f14d3E.llvm.1604671798424797212"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda5e188ff66f14d3E.llvm.1604671798424797212"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hb0af3eaf0314ba99E.exit.i.i" unwind label %24, !noalias !33
 
 24:                                               ; preds = %22
@@ -112,7 +112,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h326cf4ba7b
   resume { ptr, i32 } %23
 
 "_ZN9toolchain14lookup_in_path28_$u7b$$u7b$closure$u7d$$u7d$17h26d2aef094d6915bE.exit.i": ; preds = %16
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda5e188ff66f14d3E.llvm.1604671798424797212"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !33
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda5e188ff66f14d3E.llvm.1604671798424797212"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !26
@@ -136,7 +136,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h326cf4ba7b
 
 .thread.i.i.i.i.i.i:                              ; preds = %26, %"_ZN9toolchain14lookup_in_path28_$u7b$$u7b$closure$u7d$$u7d$17h26d2aef094d6915bE.exit.i"
   %.sroa.01.0.i.i.i.i = phi i64 [ %.sroa.4.0.copyload.i.i.i, %26 ], [ -9223372036854775808, %"_ZN9toolchain14lookup_in_path28_$u7b$$u7b$closure$u7d$$u7d$17h26d2aef094d6915bE.exit.i" ]
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda5e188ff66f14d3E.llvm.1604671798424797212"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx5.i.i.i.i), !noalias !55
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda5e188ff66f14d3E.llvm.1604671798424797212"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx5.i.i.i.i), !noalias !55
   br label %_ZN4core3ops8function5FnMut8call_mut17h89ebcd1db5553a9bE.exit.i.i.i.i
 
 _ZN4core3ops8function5FnMut8call_mut17h89ebcd1db5553a9bE.exit.i.i.i.i: ; preds = %.thread.i.i.i.i.i.i, %26

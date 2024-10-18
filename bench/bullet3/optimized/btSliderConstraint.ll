@@ -549,7 +549,7 @@ invoke.cont2:
   %m_useSolveConstraintObsolete = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %m_useSolveConstraintObsolete, align 8
   %m_frameInA = getelementptr inbounds i8, ptr %this, i64 76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(16) %frameInA, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(64) %frameInA, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %frameInA, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -560,7 +560,7 @@ invoke.cont2:
   %m_origin3.i = getelementptr inbounds i8, ptr %frameInA, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, i64 16, i1 false)
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 140
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameInB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %frameInB, i64 16, i1 false)
   %arrayidx6.i.i1 = getelementptr inbounds i8, ptr %frameInB, i64 16
   %arrayidx8.i.i2 = getelementptr inbounds i8, ptr %this, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i2, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i1, i64 16, i1 false)
@@ -666,7 +666,7 @@ invoke.cont2:
   %m_useSolveConstraintObsolete = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %m_useSolveConstraintObsolete, align 8
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 140
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameInB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %frameInB, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %frameInB, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)

@@ -2034,7 +2034,7 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   ]
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %11) #17
+  %21 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 12, 0) %11) #17
   %22 = tail call i32 @update_adler32(i32 noundef 1, ptr noundef %21, i64 noundef 8) #17
   %23 = tail call i32 @update_adler32(i32 noundef %22, ptr noundef nonnull @.str.464, i64 noundef 4) #17
   %24 = getelementptr i8, ptr %21, i64 12
@@ -2049,7 +2049,7 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
 
 30:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %31 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %11) #17
+  %31 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 12, 0) %11) #17
   store i32 0, ptr %10, align 4
   %32 = tail call i32 @crc32c_calculate_no_swap(ptr noundef %31, i32 noundef 8, i32 noundef -1) #17
   %33 = call i32 @crc32c_calculate_no_swap(ptr noundef nonnull %10, i32 noundef 4, i32 noundef %32) #17
@@ -2066,7 +2066,7 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   br label %60
 
 41:                                               ; preds = %18
-  %42 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %11) #17
+  %42 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 12, 0) %11) #17
   %43 = tail call i32 @update_adler32(i32 noundef 1, ptr noundef %42, i64 noundef 8) #17
   %44 = tail call i32 @update_adler32(i32 noundef %43, ptr noundef nonnull @.str.464, i64 noundef 4) #17
   %45 = getelementptr i8, ptr %42, i64 12
@@ -2076,7 +2076,7 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   %49 = icmp eq i32 %13, %48
   %50 = zext i1 %49 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %51 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %11) #17
+  %51 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 12, 0) %11) #17
   store i32 0, ptr %9, align 4
   %52 = tail call i32 @crc32c_calculate_no_swap(ptr noundef %51, i32 noundef 8, i32 noundef -1) #17
   %53 = call i32 @crc32c_calculate_no_swap(ptr noundef nonnull %9, i32 noundef 4, i32 noundef %52) #17
@@ -2188,7 +2188,7 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   %.0.i = phi ptr [ %88, %89 ], [ %94, %92 ]
   %108 = load ptr, ptr %74, align 8
   %109 = getelementptr inbounds i8, ptr %1, i64 232
-  %110 = call fastcc ptr @make_address_key(ptr noundef %108, i32 noundef %65, i32 noundef %64, ptr noundef nonnull %109)
+  %110 = call fastcc ptr @make_address_key(ptr noundef %108, i32 noundef range(i32 0, 65536) %65, i32 noundef range(i32 0, 65536) %64, ptr noundef nonnull %109)
   %111 = load ptr, ptr @dirs_by_ptaddr, align 8
   %112 = call ptr @wmem_tree_lookup32_array(ptr noundef %111, ptr noundef %110) #17
   %.not51.i = icmp eq ptr %112, null
@@ -2218,7 +2218,7 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   store ptr %.0.i, ptr %122, align 8
   %123 = load ptr, ptr %74, align 8
   %124 = getelementptr inbounds i8, ptr %1, i64 208
-  %125 = call fastcc ptr @make_address_key(ptr noundef %123, i32 noundef %64, i32 noundef %65, ptr noundef nonnull %124)
+  %125 = call fastcc ptr @make_address_key(ptr noundef %123, i32 noundef range(i32 0, 65536) %64, i32 noundef range(i32 0, 65536) %65, ptr noundef nonnull %124)
   %126 = load ptr, ptr @dirs_by_ptaddr, align 8
   call void @wmem_tree_insert32_array(ptr noundef %126, ptr noundef %125, ptr noundef nonnull %122) #17
   br label %get_half_assoc.exit
@@ -5245,7 +5245,7 @@ add_fragment.exit.thread.i:                       ; preds = %476, %.critedge8.i.
   %868 = load i32, ptr %744, align 8
   %869 = load i32, ptr %751, align 4
   %870 = icmp ugt i32 %868, %869
-  %871 = call fastcc ptr @find_fragment(i32 noundef %868, i16 noundef zeroext %365, i32 noundef %.0197, i8 noundef zeroext %54)
+  %871 = call fastcc ptr @find_fragment(i32 noundef %868, i16 noundef zeroext %365, i32 noundef %.0197, i8 noundef zeroext range(i8 0, 5) %54)
   %.not449590.i.i = icmp eq ptr %871, null
   br i1 %870, label %872, label %906
 

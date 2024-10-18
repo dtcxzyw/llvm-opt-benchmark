@@ -1585,7 +1585,7 @@ define void @_ZN19SCTPAllAssocsDialogD0Ev(ptr noundef nonnull align 8 dereferenc
 define void @_ZThn16_N19SCTPAllAssocsDialogD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN19SCTPAllAssocsDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(58) %2) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(58) %2) #10
   ret void
 }
 
@@ -1646,7 +1646,7 @@ define void @_ZN19SCTPAllAssocsDialog15getSelectedItemEv(ptr nocapture noundef n
   br i1 %.not.i, label %_ZNK16QTableWidgetItem3rowEv.exit, label %22
 
 22:                                               ; preds = %1
-  %23 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull %19)
+  %23 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(60) %19)
           to label %_ZNK16QTableWidgetItem3rowEv.exit unwind label %39
 
 _ZNK16QTableWidgetItem3rowEv.exit:                ; preds = %1, %22

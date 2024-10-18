@@ -3884,7 +3884,7 @@ if.then.i.i:                                      ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %this, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
   %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %2, i64 noundef %sub.ptr.sub.i.i.i) #26
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %2, i64 noundef %sub.ptr.sub.i.i.i) #26
   br label %_ZN4llvh11raw_ostream5flushEv.exit.i
 
 _ZN4llvh11raw_ostream5flushEv.exit.i:             ; preds = %if.then.i.i, %entry
@@ -3921,7 +3921,7 @@ if.then.i.i7:                                     ; preds = %_ZN4llvh14raw_fd_os
   %vtable.i.i.i11 = load ptr, ptr %this, align 8
   %vfn.i.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i.i11, i64 56
   %8 = load ptr, ptr %vfn.i.i.i12, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %7, i64 noundef %sub.ptr.sub.i.i.i10) #26
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %7, i64 noundef %sub.ptr.sub.i.i.i10) #26
   br label %_ZN4llvh11raw_ostream5flushEv.exit.i13
 
 _ZN4llvh11raw_ostream5flushEv.exit.i13:           ; preds = %if.then.i.i7, %_ZN4llvh14raw_fd_ostream4seekEm.exit

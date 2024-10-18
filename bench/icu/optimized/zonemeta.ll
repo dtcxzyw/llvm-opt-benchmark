@@ -1085,7 +1085,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
   call void @ucln_i18n_registerCleanup_75(i32 noundef 18, ptr noundef nonnull @_ZL16zoneMeta_cleanupv)
-  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashUChars_75, ptr noundef nonnull @uhash_compareUChars_75, ptr noundef null, ptr noundef nonnull %status)
+  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashUChars_75, ptr noundef nonnull @uhash_compareUChars_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %call.i, ptr @_ZL12gOlsonToMeta, align 8
   %5 = load i32, ptr %status, align 4
   %cmp.i.i21 = icmp slt i32 %5, 1

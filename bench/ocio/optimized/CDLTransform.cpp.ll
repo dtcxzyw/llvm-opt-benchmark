@@ -1660,7 +1660,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEED2Ev.exit:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev16CDLTransformImplE, i64 0) #23
   %m_data.i2 = getelementptr inbounds i8, ptr %2, i64 40
-  %call.i3 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i2, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
+  %call.i3 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %m_data.i2, ptr noundef nonnull align 8 dereferenceable(256) %m_data.i)
           to label %nrvo.skipdtor unwind label %lpad
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEED2Ev.exit
@@ -2497,7 +2497,7 @@ if.then6:                                         ; preds = %land.lhs.true
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then6
-  call void @_ZNSt15__new_allocatorIN19OpenColorIO_v2_4dev18FormatMetadataImplEE9constructIS1_JRA15_KcRPS4_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %call7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(15) @_ZN19OpenColorIO_v2_4devL24METADATA_SOP_DESCRIPTIONE, ptr noundef nonnull align 8 dereferenceable(8) %description.addr)
+  call void @_ZNSt15__new_allocatorIN19OpenColorIO_v2_4dev18FormatMetadataImplEE9constructIS1_JRA15_KcRPS4_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %call7, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(15) @_ZN19OpenColorIO_v2_4devL24METADATA_SOP_DESCRIPTIONE, ptr noundef nonnull align 8 dereferenceable(8) %description.addr)
   %3 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 120
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8

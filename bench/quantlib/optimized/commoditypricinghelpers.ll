@@ -1401,7 +1401,7 @@ _ZN8QuantLib8QuantityC2ERKS0_.exit:               ; preds = %_ZN8QuantLib13Commo
   %amount_4.i = getelementptr inbounds nuw i8, ptr %args5, i64 32
   %11 = load double, ptr %amount_4.i, align 8, !tbaa !15
   store double %11, ptr %amount_.i, align 8, !tbaa !15
-  invoke void @_ZN8QuantLib12DateIntervalC2ERKNS_4DateES3_(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
+  invoke void @_ZN8QuantLib12DateIntervalC2ERKNS_4DateES3_(ptr noundef nonnull align 8 dereferenceable(64) %storage_.i, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
           to label %if.then.i.i15 unwind label %lpad
 
 if.then.i.i15:                                    ; preds = %_ZN8QuantLib8QuantityC2ERKS0_.exit
@@ -1412,7 +1412,7 @@ if.then.i.i15:                                    ; preds = %_ZN8QuantLib8Quanti
   store ptr %5, ptr %quantity_.i, align 8, !tbaa !3
   %pn.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 64
   store ptr %6, ptr %pn.i.i.i.i, align 8, !tbaa !9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp11, i8 0, i64 16, i1 false)
   %unitOfMeasure_.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 72
   store ptr %8, ptr %unitOfMeasure_.i.i, align 8, !tbaa !13
   %pn.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 80

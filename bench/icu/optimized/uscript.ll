@@ -586,7 +586,7 @@ if.end30:                                         ; preds = %land.lhs.true, %if.
   br i1 %or.cond, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.end30
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %likely)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %likely)
   %len.i = getelementptr inbounds i8, ptr %likely, i64 56
   store i32 0, ptr %len.i, align 8
   %3 = load ptr, ptr %likely, align 8
@@ -660,12 +660,12 @@ if.end2.i49:                                      ; preds = %if.end.i47
 
 cleanup:                                          ; preds = %if.end2.i49, %if.then1.i50, %if.then64, %invoke.cont48, %if.end57, %invoke.cont61
   %retval.1 = phi i32 [ %call49, %invoke.cont48 ], [ 0, %invoke.cont61 ], [ 0, %if.end57 ], [ 1, %if.then1.i50 ], [ 1, %if.end2.i49 ], [ 0, %if.then64 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %likely) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %likely) #11
   br label %return
 
 ehcleanup:                                        ; preds = %lpad38, %lpad
   %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %8, %lpad38 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %likely) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %likely) #11
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end2.i, %if.then1.i, %if.then27, %if.end30, %entry, %cleanup, %if.then4

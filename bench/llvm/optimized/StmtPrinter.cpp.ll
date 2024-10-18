@@ -584,7 +584,7 @@ define dso_local void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13P
   br i1 %28, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit, label %29
 
 29:                                               ; preds = %23, %7
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull %0)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull %0)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit: ; preds = %23, %29
@@ -717,7 +717,7 @@ define dso_local void @_ZNK5clang4Stmt9printJsonERN4llvm11raw_ostreamEPNS_13Prin
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %7, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %6, ptr %14, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   store ptr @.str, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %15, align 8
@@ -730,7 +730,7 @@ define dso_local void @_ZNK5clang4Stmt9printJsonERN4llvm11raw_ostreamEPNS_13Prin
   %20 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %19, i64 noundef %20) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #19
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   ret void
 }
@@ -757,7 +757,7 @@ define linkonce_odr hidden void @_ZN5clang10JsonFormatB5cxx11EN4llvm9StringRefEb
 15:                                               ; preds = %4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   %16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %10) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.366, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.366, i64 4))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   br label %63
@@ -2562,7 +2562,7 @@ _ZN5clang9WhileStmt28getConditionVariableDeclStmtEv.exit.thread: ; preds = %_ZN4
   br i1 %53, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %54
 
 54:                                               ; preds = %48, %45
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %44)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %44)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 55:                                               ; preds = %_ZN5clang9WhileStmt28getConditionVariableDeclStmtEv.exit.thread
@@ -2779,7 +2779,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   br i1 %29, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %30
 
 30:                                               ; preds = %24, %21
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %20)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %20)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 31:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -2979,7 +2979,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %53, %51, %38, %36, 
   br i1 %65, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %66
 
 66:                                               ; preds = %60, %57
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %56)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %56)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 67:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
@@ -3198,7 +3198,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %65, %67
   br i1 %80, label %_ZN4llvm11raw_ostreamlsEc.exit10, label %81
 
 81:                                               ; preds = %75, %72
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %71)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %71)
   br label %_ZN4llvm11raw_ostreamlsEc.exit10
 
 82:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14
@@ -3616,7 +3616,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %33, %35
   br i1 %48, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %49
 
 49:                                               ; preds = %43, %41
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %phi.call)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %phi.call)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 50:                                               ; preds = %40
@@ -4028,7 +4028,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit63:               ; preds = %141, %139, %127
   br i1 %173, label %_ZN4llvm11raw_ostreamlsEPKc.exit66, label %174
 
 174:                                              ; preds = %168, %166
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %165)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %165)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit66
 
 175:                                              ; preds = %162
@@ -4256,7 +4256,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit85:               ; preds = %275, %277
   br i1 %308, label %_ZN4llvm11raw_ostreamlsEPKc.exit59, label %309
 
 309:                                              ; preds = %303, %301
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %300)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %300)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit59
 
 310:                                              ; preds = %298
@@ -4422,7 +4422,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %34, %36, %37
   br i1 %47, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %48
 
 48:                                               ; preds = %42, %40
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %23)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 49:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit13
@@ -4597,7 +4597,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %29, %31
   br i1 %42, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %43
 
 43:                                               ; preds = %37, %35
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %phi.call)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %phi.call)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 44:                                               ; preds = %.split
@@ -4694,7 +4694,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %9, %11
   br i1 %24, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %25
 
 25:                                               ; preds = %19, %16
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %15)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 26:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -4819,7 +4819,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter22VisitPackExpansionE
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -4898,7 +4898,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter25VisitUnresolvedMemb
   br i1 %15, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %16
 
 16:                                               ; preds = %10, %7
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %6)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 17:                                               ; preds = %4
@@ -5268,7 +5268,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %57, %59
   br i1 %77, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %78
 
 78:                                               ; preds = %72, %70
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %69)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %69)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 79:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit18
@@ -5426,7 +5426,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter25VisitObjCSubscriptR
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -5493,7 +5493,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   br i1 %51, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit4, label %52
 
 52:                                               ; preds = %46, %43
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %42)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %42)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit4
 
 53:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -5732,7 +5732,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitObjCPropertyRe
   br i1 %33, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %34
 
 34:                                               ; preds = %28, %25
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %24)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %24)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit: ; preds = %34, %28
@@ -5974,7 +5974,7 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %20
   br i1 %33, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %34
 
 34:                                               ; preds = %28, %25
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %24)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %24)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %20, %_ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit
@@ -6270,7 +6270,7 @@ _ZN4llvm11raw_ostreamlsEc.exit34:                 ; preds = %181, %179, %166, %1
   br i1 %193, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit42, label %194
 
 194:                                              ; preds = %188, %186
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %185)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %185)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit42
 
 195:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit34
@@ -6383,7 +6383,7 @@ _ZL14isImplicitSelfPKN5clang4ExprE.exit:          ; preds = %5, %9, %12, %19, %2
   br i1 %34, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %35
 
 35:                                               ; preds = %29, %_ZL14isImplicitSelfPKN5clang4ExprE.exit
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit: ; preds = %35, %29
@@ -6444,7 +6444,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter16VisitObjCIsaExprEPN
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -6660,7 +6660,7 @@ _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit: ; preds = %44, %_Z
   br i1 %57, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit, label %58
 
 58:                                               ; preds = %52, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %40)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %40)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit: ; preds = %52, %58
@@ -6700,7 +6700,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %68, %70
   br i1 %79, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit16, label %80
 
 80:                                               ; preds = %74, %_ZN4llvm11raw_ostreamlsEPKc.exit14
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %42)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %42)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit16
 
 _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit16: ; preds = %74, %80
@@ -6799,7 +6799,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %9, %11
   br i1 %23, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit, label %24
 
 24:                                               ; preds = %18, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %15)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %15)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit: ; preds = %18, %24
@@ -6966,7 +6966,7 @@ _ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = 
   br i1 %57, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit, label %58
 
 58:                                               ; preds = %52, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %50)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %50)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit: ; preds = %52, %58
@@ -7186,7 +7186,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %77, %79
   br i1 %90, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %91
 
 91:                                               ; preds = %85, %83
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %82)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %82)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 92:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit19
@@ -7251,7 +7251,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %113, %115
   br i1 %126, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit25, label %127
 
 127:                                              ; preds = %121, %119
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %118)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %118)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit25
 
 128:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit23
@@ -7321,7 +7321,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %151, %153
   br i1 %164, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit30, label %165
 
 165:                                              ; preds = %159, %157
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %156)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %156)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit30
 
 166:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit28
@@ -7479,7 +7479,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %27, %29
   br i1 %39, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %40
 
 40:                                               ; preds = %34, %32
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %20)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %20)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 41:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit12
@@ -7573,7 +7573,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %74, %76
   br i1 %91, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit20, label %92
 
 92:                                               ; preds = %86, %83
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %82)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %82)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit20
 
 93:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit18
@@ -7677,7 +7677,7 @@ _ZL14isImplicitThisPKN5clang4ExprE.exit.thread:   ; preds = %2
   br i1 %22, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %23
 
 23:                                               ; preds = %17, %13
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.pre)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %.pre)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 24:                                               ; preds = %_ZL14isImplicitThisPKN5clang4ExprE.exit.thread
@@ -7939,7 +7939,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitMatrixSubscrip
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -8006,7 +8006,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   br i1 %51, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit5, label %52
 
 52:                                               ; preds = %46, %43
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %42)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %42)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit5
 
 53:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -8093,7 +8093,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %85, %87
   br i1 %100, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit13, label %101
 
 101:                                              ; preds = %95, %92
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %91)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %91)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit13
 
 102:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11
@@ -8165,7 +8165,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter28VisitMSPropertySubs
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -8232,7 +8232,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   br i1 %51, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit4, label %52
 
 52:                                               ; preds = %46, %43
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %42)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %42)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit4
 
 53:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -8304,7 +8304,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter22VisitMSPropertyRefE
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -8796,7 +8796,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96:    ; preds = %.critedge, %205, %2
   br i1 %218, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %219
 
 219:                                              ; preds = %213, %211
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %210)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %210)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 220:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit96
@@ -9686,7 +9686,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitInitListExprEP
   br i1 %15, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit, label %16
 
 16:                                               ; preds = %10, %7
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %6)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit
 
 17:                                               ; preds = %2
@@ -9791,7 +9791,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %51, %53
   br i1 %70, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %71
 
 71:                                               ; preds = %65, %63
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %62)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %62)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 72:                                               ; preds = %60
@@ -10050,7 +10050,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitImaginaryLiter
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -10156,7 +10156,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %16, %18
   br i1 %35, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %36
 
 36:                                               ; preds = %30, %27
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %26)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %26)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 37:                                               ; preds = %25
@@ -10336,7 +10336,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %122, %124
   br i1 %134, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit20, label %135
 
 135:                                              ; preds = %129, %127
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %80)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %80)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit20
 
 136:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit18
@@ -10849,7 +10849,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter25VisitExtVectorEleme
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -11010,7 +11010,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %27, %29
   br i1 %41, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %42
 
 42:                                               ; preds = %36, %33
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %32)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %32)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 43:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
@@ -11124,7 +11124,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %23, %25
   br i1 %38, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %39
 
 39:                                               ; preds = %33, %30
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %29)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %29)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 40:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit5
@@ -11217,7 +11217,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %78, %80
   br i1 %93, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit13, label %94
 
 94:                                               ; preds = %88, %85
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %84)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %84)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit13
 
 95:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11
@@ -11455,7 +11455,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %92, %94
   br i1 %108, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %109
 
 109:                                              ; preds = %103, %101
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %100)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %100)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 110:                                              ; preds = %99
@@ -11500,7 +11500,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %92, %94
   br i1 %134, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit42, label %135
 
 135:                                              ; preds = %129, %127
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %126)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %126)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit42
 
 136:                                              ; preds = %125
@@ -11568,7 +11568,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %160, %162
   br i1 %173, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %174
 
 174:                                              ; preds = %168, %166
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %165)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %165)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 175:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit45
@@ -11669,8 +11669,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %198, %196, %82, %81
 _ZN4llvm11raw_ostreamlsEPKc.exit53:               ; preds = %225, %223, %213, %211
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.762") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1) #19, !noalias !52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.762") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1) #19, !noalias !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %228 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %229 = load i64, ptr %228, align 8
@@ -11708,7 +11708,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %232, %234
   br i1 %246, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit58, label %247
 
 247:                                              ; preds = %241, %238
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %237)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %237)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit58
 
 248:                                              ; preds = %_ZNK5clang18DesignatedInitExpr7getInitEv.exit
@@ -11860,7 +11860,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   br i1 %27, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %28
 
 28:                                               ; preds = %22, %19
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %18)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %18)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 29:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -12164,7 +12164,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   br i1 %27, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %28
 
 28:                                               ; preds = %22, %19
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %18)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %18)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 29:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -12239,7 +12239,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   br i1 %27, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %28
 
 28:                                               ; preds = %22, %19
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %18)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %18)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 29:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -12316,7 +12316,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   br i1 %29, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %30
 
 30:                                               ; preds = %24, %21
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %20)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %20)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 31:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -12580,7 +12580,7 @@ _ZN4llvm11raw_ostreamlsEc.exit5:                  ; preds = %24, %26
   br i1 %38, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %39
 
 39:                                               ; preds = %33, %30
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %29)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %29)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 40:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit5
@@ -12655,7 +12655,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   br i1 %27, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %28
 
 28:                                               ; preds = %22, %19
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %18)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %18)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 29:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -12725,7 +12725,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %53, %55
   br i1 %68, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit8, label %69
 
 69:                                               ; preds = %63, %60
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %59)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %59)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit8
 
 70:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit6
@@ -12795,7 +12795,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %94, %96
   br i1 %109, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit13, label %110
 
 110:                                              ; preds = %104, %101
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %100)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %100)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit13
 
 111:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11
@@ -12947,7 +12947,7 @@ _ZN4llvm11raw_ostreamlsEc.exit8:                  ; preds = %41, %43
   br i1 %55, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %56
 
 56:                                               ; preds = %50, %47
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %46)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %46)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 57:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit8
@@ -13103,7 +13103,7 @@ _ZN4llvm11raw_ostreamlsEc.exit15:                 ; preds = %55, %53, %_ZN4llvm1
   br i1 %67, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %68
 
 68:                                               ; preds = %62, %59
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %58)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %58)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 69:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit15
@@ -13230,7 +13230,7 @@ _ZN4llvm11raw_ostreamlsEc.exit5:                  ; preds = %25, %27
   br i1 %39, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %40
 
 40:                                               ; preds = %34, %31
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %30)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %30)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 41:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit5
@@ -13341,7 +13341,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %34, %36
   br i1 %49, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %50
 
 50:                                               ; preds = %44, %41
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %40)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %40)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 51:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit5
@@ -13416,7 +13416,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter13VisitCallExprEPN5cl
   br i1 %16, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %17
 
 17:                                               ; preds = %11, %8
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %7)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %7)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 18:                                               ; preds = %2
@@ -13844,7 +13844,7 @@ _ZNK5clang12APIntStorage8getValueEv.exit:         ; preds = %178, %184
   br i1 %217, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %218
 
 218:                                              ; preds = %212, %209
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %208)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %208)
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 219:                                              ; preds = %207
@@ -14004,7 +14004,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %34, %36
   br i1 %56, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %57
 
 57:                                               ; preds = %51, %48
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %47)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %47)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 58:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
@@ -14059,7 +14059,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %34, %36
   br i1 %92, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit36, label %93
 
 93:                                               ; preds = %87, %84
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %83)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %83)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit36
 
 94:                                               ; preds = %73
@@ -14170,7 +14170,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i41:                ; preds = %_ZN4llvm11raw_ostre
   br i1 %155, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %156
 
 156:                                              ; preds = %150, %147
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %146)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %146)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 157:                                              ; preds = %136
@@ -14231,7 +14231,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i41:                ; preds = %_ZN4llvm11raw_ostre
   br i1 %194, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit48, label %195
 
 195:                                              ; preds = %189, %186
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %185)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %185)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit48
 
 196:                                              ; preds = %175
@@ -14345,7 +14345,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55:               ; preds = %239, %237, %225
   br i1 %260, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit57, label %261
 
 261:                                              ; preds = %255, %253
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %250)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %250)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit57
 
 _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit57: ; preds = %255, %261, %_ZN4llvm11raw_ostreamlsEPKc.exit55
@@ -14462,7 +14462,7 @@ _ZN4llvm11raw_ostreamlsEc.exit68:                 ; preds = %301, %303
   br i1 %323, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %324
 
 324:                                              ; preds = %318, %315
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %314)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %314)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 325:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit68
@@ -14519,7 +14519,7 @@ _ZN4llvm11raw_ostreamlsEc.exit68:                 ; preds = %301, %303
   br i1 %360, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit72, label %361
 
 361:                                              ; preds = %355, %352
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %351)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %351)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit72
 
 362:                                              ; preds = %340
@@ -14646,7 +14646,7 @@ _ZN4llvm11raw_ostreamlsEc.exit83:                 ; preds = %406, %408
   br i1 %429, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %430
 
 430:                                              ; preds = %424, %421
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %420)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %420)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 431:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit83
@@ -14709,7 +14709,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang17CXXConversionDeclEEPNS1_13CXXMethodDeclEEEbR
   br i1 %18, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %19
 
 19:                                               ; preds = %13, %10
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %9)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %9)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 20:                                               ; preds = %8
@@ -14759,7 +14759,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang17CXXConversionDeclEEPNS1_13CXXMethodDeclEEEbR
   br i1 %48, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit14, label %49
 
 49:                                               ; preds = %43, %40
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %39)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %39)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit14
 
 50:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang17CXXConversionDeclEEPNS1_13CXXMethodDeclEEEbRKT0_.exit.thread
@@ -14855,7 +14855,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitCUDAKernelCall
   br i1 %16, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %17
 
 17:                                               ; preds = %11, %8
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %7)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %7)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 18:                                               ; preds = %2
@@ -15025,7 +15025,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   br i1 %37, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %38
 
 38:                                               ; preds = %32, %29
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %22)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %22)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 39:                                               ; preds = %28
@@ -15179,7 +15179,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %41, %39, %28
   br i1 %52, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %53
 
 53:                                               ; preds = %47, %45
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %44)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %44)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 54:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -15306,7 +15306,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   br i1 %37, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %38
 
 38:                                               ; preds = %32, %29
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %22)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %22)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 39:                                               ; preds = %28
@@ -15421,7 +15421,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %22, %24
   br i1 %36, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %37
 
 37:                                               ; preds = %31, %28
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %27)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %27)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 38:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit5
@@ -15565,7 +15565,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter31VisitCXXRewrittenBi
   br i1 %14, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %15
 
 15:                                               ; preds = %9, %6
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %5)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 16:                                               ; preds = %2
@@ -15683,7 +15683,7 @@ _ZN4llvm11raw_ostreamlsEc.exit7:                  ; preds = %61, %63
   br i1 %76, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit9, label %77
 
 77:                                               ; preds = %71, %68
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %67)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %67)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit9
 
 78:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit7
@@ -15737,7 +15737,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter28VisitCXXPseudoDestr
   br i1 %15, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %16
 
 16:                                               ; preds = %10, %7
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %6)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 17:                                               ; preds = %2
@@ -15953,7 +15953,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %9, %11
   br i1 %28, label %"_ZZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPN5clang20CXXParenListInitExprEENK3$_0clEPNS1_4ExprE.exit15", label %29
 
 29:                                               ; preds = %24, %21
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %20)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %20)
   br label %"_ZZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPN5clang20CXXParenListInitExprEENK3$_0clEPNS1_4ExprE.exit15"
 
 30:                                               ; preds = %19
@@ -16029,7 +16029,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %9, %11
   br i1 %67, label %"_ZZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPN5clang20CXXParenListInitExprEENK3$_0clEPNS1_4ExprE.exit", label %68
 
 68:                                               ; preds = %62, %60
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %59)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %59)
   br label %"_ZZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPN5clang20CXXParenListInitExprEENK3$_0clEPNS1_4ExprE.exit"
 
 69:                                               ; preds = %"_ZZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPNS2_20CXXParenListInitExprEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit"
@@ -16156,7 +16156,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   br i1 %27, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %28
 
 28:                                               ; preds = %22, %19
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %18)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %18)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 29:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -16333,7 +16333,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit35:               ; preds = %59, %61
   br i1 %79, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %80
 
 80:                                               ; preds = %74, %71
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %70)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %70)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 81:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit35
@@ -16435,7 +16435,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %118, %120
   br i1 %138, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit46, label %139
 
 139:                                              ; preds = %133, %131
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %130)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %130)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit46
 
 140:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit42
@@ -16534,7 +16534,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit52:               ; preds = %180, %178, %.crited
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8
   %190 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %3, ptr %190, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   %191 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -16591,7 +16591,7 @@ _ZN5clang10CXXNewExpr12getArraySizeEv.exit.thread: ; preds = %_ZN4llvm11raw_ostr
   br label %_ZN4llvm11raw_ostreamlsEc.exit57
 
 _ZN4llvm11raw_ostreamlsEc.exit57:                 ; preds = %210, %212
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #19
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   br label %214
 
 214:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit57, %_ZN4llvm11raw_ostreamlsEPKc.exit52
@@ -16717,7 +16717,7 @@ _ZN5clang10CXXNewExpr14getInitializerEv.exit68:   ; preds = %_ZN4llvm11raw_ostre
   br i1 %277, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit70, label %278
 
 278:                                              ; preds = %272, %269
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %268)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %268)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit70
 
 _ZN5clang10CXXNewExpr14getInitializerEv.exit68.thread: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit65, %_ZN5clang10CXXNewExpr14getInitializerEv.exit68
@@ -16793,7 +16793,7 @@ _ZN5clang10CXXNewExpr14getInitializerEv.exit76:   ; preds = %_ZN5clang10CXXNewEx
   br i1 %318, label %_ZN4llvm11raw_ostreamlsEPKc.exit73, label %319
 
 319:                                              ; preds = %313, %310
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %309)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %309)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit73
 
 _ZN5clang10CXXNewExpr14getInitializerEv.exit76.thread: ; preds = %.critedge28, %_ZN5clang10CXXNewExpr14getInitializerEv.exit76
@@ -16893,7 +16893,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %9, %11
   br i1 %24, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %25
 
 25:                                               ; preds = %19, %16
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %15)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit: ; preds = %25, %19
@@ -17093,7 +17093,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %117, %119
   br i1 %132, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit30, label %133
 
 133:                                              ; preds = %127, %124
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %123)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %123)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit30
 
 134:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit28
@@ -17174,7 +17174,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit: ; preds = %2
   br i1 %16, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %17
 
 17:                                               ; preds = %11, %8
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %7)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %7)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 18:                                               ; preds = %6
@@ -17407,7 +17407,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %48, %46, %_ZN4llvm1
   br i1 %61, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %62
 
 62:                                               ; preds = %56, %53
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %52)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %52)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 63:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9
@@ -17545,7 +17545,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %39, %41
   br i1 %54, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %55
 
 55:                                               ; preds = %49, %47
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %phi.call)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %phi.call)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 56:                                               ; preds = %.split
@@ -17739,7 +17739,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %58, %56, %43
   br i1 %69, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %70
 
 70:                                               ; preds = %64, %62
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %61)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %61)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 71:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit18
@@ -18124,7 +18124,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitBinaryOperator
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -18246,7 +18246,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %65, %67
   br i1 %81, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit9, label %82
 
 82:                                               ; preds = %76, %73
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %72)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %72)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit9
 
 83:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit7
@@ -18298,7 +18298,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter27VisitCompoundAssign
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -18420,7 +18420,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %65, %67
   br i1 %81, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit9, label %82
 
 82:                                               ; preds = %76, %73
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %72)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %72)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit9
 
 83:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit7
@@ -18509,7 +18509,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %2, %17, %19, %20
   br i1 %33, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %34
 
 34:                                               ; preds = %28, %25
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %24)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %24)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 35:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -18594,7 +18594,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %61, %63
   br i1 %77, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit32, label %78
 
 78:                                               ; preds = %72, %69
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.0.i)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %.0.i)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit32
 
 79:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit30
@@ -18678,7 +18678,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %106, %108
   br i1 %122, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit42, label %123
 
 123:                                              ; preds = %117, %114
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.0.i40)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %.0.i40)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit42
 
 124:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit36
@@ -18754,7 +18754,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit46:               ; preds = %151, %153
   br i1 %166, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit48thread-pre-split, label %167
 
 167:                                              ; preds = %161, %158
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %157)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %157)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit48thread-pre-split
 
 168:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit46
@@ -18835,7 +18835,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit52:               ; preds = %194, %196
   br i1 %209, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit54, label %210
 
 210:                                              ; preds = %204, %201
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %200)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %200)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit54
 
 211:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit52
@@ -18909,7 +18909,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %237, %239
   br i1 %252, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit60, label %253
 
 253:                                              ; preds = %247, %244
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %243)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %243)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit60
 
 254:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit58
@@ -19006,7 +19006,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   br i1 %29, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %30
 
 30:                                               ; preds = %24, %21
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %20)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %20)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 31:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -19204,7 +19204,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitArraySubscript
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -19271,7 +19271,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   br i1 %51, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit4, label %52
 
 52:                                               ; preds = %46, %43
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %42)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %42)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit4
 
 53:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -19343,7 +19343,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter21VisitArraySectionEx
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -19410,7 +19410,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   br i1 %51, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit14, label %52
 
 52:                                               ; preds = %46, %43
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %42)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %42)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit14
 
 _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit14: ; preds = %46, %52, %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -19460,7 +19460,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %61, %63
   br i1 %76, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit19, label %77
 
 77:                                               ; preds = %71, %68
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %67)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %67)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit19
 
 _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit19: ; preds = %71, %77, %_ZN4llvm11raw_ostreamlsEPKc.exit17, %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit14
@@ -19516,7 +19516,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %90, %92
   br i1 %105, label %.critedge, label %106
 
 106:                                              ; preds = %100, %97
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %96)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %96)
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %106, %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit19, %_ZN4llvm11raw_ostreamlsEPKc.exit23, %81
@@ -19585,7 +19585,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %9, %11
   br i1 %24, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %25
 
 25:                                               ; preds = %19, %16
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %15)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %15)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 26:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -19753,7 +19753,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitConditionalOpe
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -19823,7 +19823,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %39, %41
   br i1 %54, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit5, label %55
 
 55:                                               ; preds = %49, %46
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %45)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %45)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit5
 
 56:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -19893,7 +19893,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %80, %82
   br i1 %95, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit10, label %96
 
 96:                                               ; preds = %90, %87
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %86)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %86)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit10
 
 97:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8
@@ -19945,7 +19945,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter30VisitBinaryConditio
   br i1 %13, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %14
 
 14:                                               ; preds = %8, %5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 15:                                               ; preds = %2
@@ -20015,7 +20015,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %39, %41
   br i1 %54, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit4, label %55
 
 55:                                               ; preds = %49, %46
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %45)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %45)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit4
 
 56:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -20200,7 +20200,7 @@ _ZN5clang10SwitchStmt7getInitEv.exit10:           ; preds = %_ZN5clang10SwitchSt
   br i1 %51, label %_ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit, label %52
 
 52:                                               ; preds = %46, %43
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %38)
   br label %_ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit: ; preds = %52, %46, %42
@@ -20285,7 +20285,7 @@ _ZN5clang10SwitchStmt28getConditionVariableDeclStmtEv.exit.thread: ; preds = %_Z
   br i1 %90, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %91
 
 91:                                               ; preds = %85, %82
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %81)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %81)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 92:                                               ; preds = %_ZN5clang10SwitchStmt28getConditionVariableDeclStmtEv.exit.thread
@@ -20545,7 +20545,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
   br i1 %46, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %47
 
 47:                                               ; preds = %41, %38
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %37)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %37)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 48:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -20632,7 +20632,7 @@ _ZN5clang8CaseStmt6getRHSEv.exit10:               ; preds = %_ZN4llvm11raw_ostre
   br i1 %93, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit12, label %94
 
 94:                                               ; preds = %88, %85
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %84)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %84)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit12
 
 _ZN5clang8CaseStmt6getRHSEv.exit10.thread:        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8, %_ZN5clang8CaseStmt6getRHSEv.exit10
@@ -21260,7 +21260,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %44, %46
   br i1 %58, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %59
 
 59:                                               ; preds = %53, %50
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %49)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %49)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 60:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit6
@@ -21430,7 +21430,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %43, %45
 52:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %.lr.ph.i9
   %.014.i = phi ptr [ %.sroa.0.0.copyload.i4, %.lr.ph.i9 ], [ %65, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %53 = load ptr, ptr %.014.i, align 8
-  call void @_ZN5clang20OpenACCClauseVisitorINS_20OpenACCClausePrinterEE5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %53)
+  call void @_ZN5clang20OpenACCClauseVisitorINS_20OpenACCClausePrinterEE5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %53)
   %54 = load ptr, ptr %51, align 8
   %.not9.i = icmp eq ptr %53, %54
   br i1 %.not9.i, label %_ZN4llvm11raw_ostreamlsEc.exit.i, label %55
@@ -21602,7 +21602,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %46, %48
 55:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %.lr.ph.i10
   %.014.i = phi ptr [ %.sroa.0.0.copyload.i5, %.lr.ph.i10 ], [ %68, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %56 = load ptr, ptr %.014.i, align 8
-  call void @_ZN5clang20OpenACCClauseVisitorINS_20OpenACCClausePrinterEE5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %56)
+  call void @_ZN5clang20OpenACCClauseVisitorINS_20OpenACCClausePrinterEE5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %56)
   %57 = load ptr, ptr %54, align 8
   %.not9.i = icmp eq ptr %56, %57
   br i1 %.not9.i, label %_ZN4llvm11raw_ostreamlsEc.exit.i, label %58
@@ -21750,7 +21750,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
   br i1 %47, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %48
 
 48:                                               ; preds = %42, %39
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %36)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %36)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit: ; preds = %42, %48, %38
@@ -21797,7 +21797,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %58, %60
   br i1 %73, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit11, label %74
 
 74:                                               ; preds = %68, %65
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %64)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %64)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit11
 
 75:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9
@@ -22366,7 +22366,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %44, %46
   br i1 %58, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %59
 
 59:                                               ; preds = %53, %50
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %49)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %49)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 60:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit5
@@ -22501,7 +22501,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
   br i1 %45, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %46
 
 46:                                               ; preds = %40, %37
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %36)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %36)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 47:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -27847,7 +27847,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
   br i1 %45, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %46
 
 46:                                               ; preds = %40, %37
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %36)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %36)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 47:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -28147,7 +28147,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
   br i1 %50, label %_ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit, label %51
 
 51:                                               ; preds = %45, %42
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %36)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %36)
   br label %_ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit: ; preds = %51, %45, %41
@@ -28238,7 +28238,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %84, %82, %_ZN4llvm1
   br i1 %101, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %102
 
 102:                                              ; preds = %96, %93
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %92)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %92)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit: ; preds = %96, %102, %90, %89
@@ -28307,7 +28307,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %123, %125
   br i1 %137, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit27, label %138
 
 138:                                              ; preds = %132, %129
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %128)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %128)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit27
 
 139:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit25
@@ -28581,7 +28581,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %87, %89
   br i1 %102, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %103
 
 103:                                              ; preds = %97, %94
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %93)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %93)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 104:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit16
@@ -28771,7 +28771,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %26, %28
   br i1 %39, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit, label %40
 
 40:                                               ; preds = %34, %_ZN4llvm11raw_ostreamlsEPKc.exit5
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %31)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %31)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit: ; preds = %40, %34, %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -29137,7 +29137,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
   br i1 %51, label %_ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit, label %52
 
 52:                                               ; preds = %46, %43
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %37)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %37)
   br label %_ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit: ; preds = %52, %46, %42
@@ -29221,7 +29221,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %85, %87
   br i1 %99, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %100
 
 100:                                              ; preds = %94, %91
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %90)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %90)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 101:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8
@@ -30015,7 +30015,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit126:              ; preds = %197, %199
   br i1 %210, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit, label %211
 
 211:                                              ; preds = %205, %_ZN4llvm11raw_ostreamlsEPKc.exit126
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %203)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %203)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit: ; preds = %205, %211
@@ -30280,7 +30280,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit165:              ; preds = %345, %347
   br i1 %357, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit167, label %358
 
 358:                                              ; preds = %352, %_ZN4llvm11raw_ostreamlsEPKc.exit165
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %350)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %350)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit167
 
 _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit167: ; preds = %352, %358
@@ -30607,8 +30607,8 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %9, %13
   %.0.i.i.i = phi ptr [ %10, %9 ], [ %16, %13 ]
   %.0.i.i1.i = phi ptr [ %12, %9 ], [ %19, %13 ]
   %20 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %20, i64 noundef 2) #19
-  call void @_ZN4llvm15SmallVectorImplIPN5clang4DeclEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.0.i.i.i, ptr noundef %.0.i.i1.i)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %20, i64 noundef 2) #19
+  call void @_ZN4llvm15SmallVectorImplIPN5clang4DeclEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %.0.i.i.i, ptr noundef %.0.i.i1.i)
   %21 = load ptr, ptr %3, align 8
   %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   %23 = trunc i64 %22 to i32
@@ -30617,7 +30617,7 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %9, %13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8
   call void @_ZN5clang4Decl10printGroupEPPS0_jRN4llvm11raw_ostreamERKNS_14PrintingPolicyEj(ptr noundef %21, i32 noundef %23, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %27) #19
-  %28 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  %28 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %29 = load ptr, ptr %3, align 8
   %30 = icmp eq ptr %29, %20
   br i1 %30, label %_ZN4llvm11SmallVectorIPN5clang4DeclELj2EED2Ev.exit, label %31
@@ -30650,7 +30650,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4E
   br i1 %11, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit, label %12
 
 12:                                               ; preds = %6, %3
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit
 
 13:                                               ; preds = %2
@@ -30803,7 +30803,7 @@ _ZN12_GLOBAL__N_111StmtPrinter6IndentEi.exit:     ; preds = %_ZN4llvm11raw_ostre
   br i1 %33, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit, label %34
 
 34:                                               ; preds = %28, %_ZN12_GLOBAL__N_111StmtPrinter6IndentEi.exit
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit: ; preds = %28, %34
@@ -30849,7 +30849,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %41, %43
   br i1 %58, label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit4, label %59
 
 59:                                               ; preds = %53, %50
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1)
   br label %_ZN12_GLOBAL__N_111StmtPrinter5VisitEPN5clang4StmtE.exit4
 
 60:                                               ; preds = %3
@@ -31637,16 +31637,16 @@ define linkonce_odr hidden void @_ZN4llvm8toStringB5cxx11ERKNS_5APIntEjbbbb(ptr 
   %8 = alloca %"class.std::allocator.130", align 1
   %9 = alloca %"class.llvm::SmallString", align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %10, i64 noundef 40) #19
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull %10, i64 noundef 40) #19
   call void @_ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %11 = load ptr, ptr %9, align 8, !noalias !87
-  %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #19, !noalias !87
+  %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %9) #19, !noalias !87
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19, !noalias !87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #19
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %9) #19
   %14 = load ptr, ptr %9, align 8
   %15 = icmp eq ptr %14, %10
   br i1 %15, label %_ZN4llvm11SmallStringILj40EED2Ev.exit, label %16
@@ -31685,7 +31685,7 @@ define internal fastcc void @_ZL20PrintFloatingLiteralRN4llvm11raw_ostreamEPN5cl
   %5 = alloca %"class.llvm::SmallString.922", align 8
   %6 = alloca %"class.llvm::APFloat", align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %7, i64 noundef 16) #19
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %7, i64 noundef 16) #19
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i24, ptr %1, align 8, !noalias !90
   %10 = lshr i24 %9, 18
@@ -31717,7 +31717,7 @@ _ZNK4llvm7APFloat8toStringERNS_15SmallVectorImplIcEEjjb.exit: ; preds = %17, %18
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 21:                                               ; preds = %_ZNK4llvm7APFloat8toStringERNS_15SmallVectorImplIcEEjjb.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #19
+  call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #19
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %20, %21
@@ -31726,7 +31726,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %20, %21
   %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %22, i64 noundef %23) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %25 = load ptr, ptr %5, align 8
-  %26 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
+  %26 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   store ptr %25, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %26, ptr %27, align 8
@@ -31861,7 +31861,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %37, %35, %_ZN4llvm7
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %92, %90, %83, %81, %74, %72, %64, %62, %39, %39, %39, %_ZN4llvm11raw_ostreamlsEc.exit
-  %94 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
+  %94 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   %95 = load ptr, ptr %5, align 8
   %96 = icmp eq ptr %95, %7
   br i1 %96, label %_ZN4llvm11SmallStringILj16EED2Ev.exit, label %97
@@ -31918,7 +31918,7 @@ _ZNK5clang16APNumericStorage11getIntValueEv.exit: ; preds = %8, %14
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit
 
 27:                                               ; preds = %_ZNK5clang16APNumericStorage11getIntValueEv.exit
-  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 8 dereferenceable(12) %4) #19
+  call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 8 dereferenceable(12) %4) #19
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit
 
 _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit: ; preds = %26, %27
@@ -31987,7 +31987,7 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 16:                                               ; preds = %10
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #19
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %16, %15
@@ -32146,7 +32146,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %45, %47
   br i1 %60, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %61
 
 61:                                               ; preds = %55, %52
-  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %51)
+  call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %51)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 62:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit7
@@ -32288,7 +32288,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %29, %31
   br i1 %49, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %50
 
 50:                                               ; preds = %44, %42
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %phi.call)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %phi.call)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 51:                                               ; preds = %.split
@@ -34019,7 +34019,7 @@ _ZN5clang6IfStmt7getInitEv.exit61:                ; preds = %_ZN5clang6IfStmt7ge
   br i1 %138, label %_ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit, label %139
 
 139:                                              ; preds = %133, %130
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %124)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %124)
   br label %_ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit
 
 _ZN12_GLOBAL__N_111StmtPrinter13PrintInitStmtEPN5clang4StmtEj.exit: ; preds = %139, %133, %129
@@ -34104,7 +34104,7 @@ _ZN5clang6IfStmt28getConditionVariableDeclStmtEv.exit.thread: ; preds = %_ZN5cla
   br i1 %177, label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit, label %178
 
 178:                                              ; preds = %172, %169
-  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %168)
+  tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_111StmtPrinterEvJEE5VisitEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %168)
   br label %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
 
 179:                                              ; preds = %_ZN5clang6IfStmt28getConditionVariableDeclStmtEv.exit.thread
@@ -34208,7 +34208,7 @@ _ZN5clang6IfStmt7getElseEv.exit80:                ; preds = %_ZN4llvm11raw_ostre
 229:                                              ; preds = %_ZN5clang6IfStmt7getElseEv.exit80
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   %230 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %230, ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %230, ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   %231 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %232 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %232, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 1)) #19

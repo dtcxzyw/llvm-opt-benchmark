@@ -1973,7 +1973,7 @@ if.else6:                                         ; preds = %if.else
   ]
 
 is_atom.exit.i:                                   ; preds = %if.else6
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) @.str.71, ptr noundef nonnull readonly dereferenceable(10) %scevgep, i64 10)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @.str.71, ptr noundef nonnull readonly dereferenceable(10) %scevgep, i64 10)
   %tobool.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.not.i, label %if.then.i6, label %is_atom.exit49.i
 
@@ -1989,7 +1989,7 @@ if.then2.i:                                       ; preds = %if.then.i6
   br label %expand_atom.exit
 
 is_atom.exit49.i:                                 ; preds = %is_atom.exit.i
-  %bcmp.i47.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) @.str.72, ptr noundef nonnull readonly dereferenceable(10) %scevgep, i64 10)
+  %bcmp.i47.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @.str.72, ptr noundef nonnull readonly dereferenceable(10) %scevgep, i64 10)
   %tobool.not.i48.not.i = icmp eq i32 %bcmp.i47.i, 0
   br i1 %tobool.not.i48.not.i, label %if.then6.i, label %is_atom.exit60.i
 
@@ -2010,7 +2010,7 @@ if.else10.i:                                      ; preds = %if.then6.i
   br label %expand_atom.exit
 
 is_atom.exit60.i:                                 ; preds = %is_atom.exit49.i
-  %bcmp.i58.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) @.str.73, ptr noundef nonnull readonly dereferenceable(10) %scevgep, i64 10)
+  %bcmp.i58.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @.str.73, ptr noundef nonnull readonly dereferenceable(10) %scevgep, i64 10)
   %tobool.not.i59.not.i = icmp eq i32 %bcmp.i58.i, 0
   br i1 %tobool.not.i59.not.i, label %if.then17.i, label %if.else62.i
 
@@ -2029,7 +2029,7 @@ if.else22.i:                                      ; preds = %if.then17.i
   br label %expand_atom.exit
 
 is_atom.exit70.i:                                 ; preds = %if.else6
-  %bcmp.i68.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.75, ptr noundef nonnull readonly dereferenceable(15) %scevgep, i64 15)
+  %bcmp.i68.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.75, ptr noundef nonnull readonly dereferenceable(15) %scevgep, i64 15)
   %tobool.not.i69.not.i = icmp eq i32 %bcmp.i68.i, 0
   br i1 %tobool.not.i69.not.i, label %if.then28.i, label %if.else62.i
 
@@ -2048,7 +2048,7 @@ if.else33.i:                                      ; preds = %if.then28.i
   br label %expand_atom.exit
 
 is_atom.exit18:                                   ; preds = %if.else6
-  %bcmp.i16 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) @.str.76, ptr noundef nonnull readonly dereferenceable(4) %scevgep, i64 4)
+  %bcmp.i16 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.76, ptr noundef nonnull readonly dereferenceable(4) %scevgep, i64 4)
   %tobool.not.i17.not = icmp eq i32 %bcmp.i16, 0
   br i1 %tobool.not.i17.not, label %if.then39.i, label %if.else62.i
 
@@ -2072,7 +2072,7 @@ if.then45.i:                                      ; preds = %if.else43.i
   br label %expand_atom.exit
 
 is_atom.exit:                                     ; preds = %if.else6
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.77, ptr noundef nonnull readonly dereferenceable(9) %scevgep, i64 9)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.77, ptr noundef nonnull readonly dereferenceable(9) %scevgep, i64 9)
   %tobool.not.i8.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i8.not, label %if.then52.i, label %if.else62.i
 

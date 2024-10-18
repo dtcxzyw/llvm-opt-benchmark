@@ -33,7 +33,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Optio
   ret void
 
 4:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17h1731c41b144dcc18E.llvm.12279157293026222448"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17h1731c41b144dcc18E.llvm.12279157293026222448"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %12 unwind label %5
 
 5:                                                ; preds = %4
@@ -119,7 +119,7 @@ define noalias noundef nonnull ptr @ts_highlighter_new(ptr noundef nonnull %0, p
 "_ZN21tree_sitter_highlight5c_lib18ts_highlighter_new28_$u7b$$u7b$closure$u7d$$u7d$17h2101bfb9e01ab5afE.exit.i": ; preds = %.lr.ph.i
   %22 = getelementptr i8, ptr %19, i64 8
   %.val.i = load ptr, ptr %22, align 8, !noalias !23, !nonnull !4, !noundef !4
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) %.val.i, ptr noundef nonnull readonly dereferenceable(15) @anon.523c58fb58cccde2d373535d57ba3669.12, i64 15), !alias.scope !26, !noalias !23
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(15) %.val.i, ptr noundef nonnull dereferenceable(15) @anon.523c58fb58cccde2d373535d57ba3669.12, i64 15), !alias.scope !26, !noalias !23
   %23 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %23, label %26, label %"_ZN21tree_sitter_highlight5c_lib18ts_highlighter_new28_$u7b$$u7b$closure$u7d$$u7d$17h2101bfb9e01ab5afE.exit.thread.i"
 
@@ -178,7 +178,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   %40 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.012.i, ptr %40, align 8
   %41 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !39
-  %42 = tail call noundef align 8 dereferenceable_or_null(112) ptr @__rust_alloc(i64 noundef 112, i64 noundef 8) #17, !noalias !39
+  %42 = tail call noundef align 8 dereferenceable_or_null(112) ptr @__rust_alloc(i64 noundef range(i64 96, 113) 112, i64 noundef 8) #17, !noalias !39
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %49
 
@@ -406,7 +406,7 @@ define noundef range(i32 0, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
 
 87:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !60
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haee51611dfd7056eE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %85)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haee51611dfd7056eE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %85)
           to label %.noexc6 unwind label %73
 
 .noexc6:                                          ; preds = %87
@@ -536,7 +536,7 @@ define noundef range(i32 0, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
 
 135:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !83
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haee51611dfd7056eE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %134)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haee51611dfd7056eE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %134)
           to label %.noexc169.i unwind label %96, !noalias !42
 
 .noexc169.i:                                      ; preds = %135
@@ -598,7 +598,7 @@ define noundef range(i32 0, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
   br i1 %157, label %"_ZN4core3ptr132drop_in_place$LT$$LP$core..option..Option$LT$regex..regex..string..Regex$GT$$C$tree_sitter_highlight..HighlightConfiguration$RP$$GT$17h18533f45424affc3E.exit.i.i", label %158
 
 158:                                              ; preds = %155
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17h1731c41b144dcc18E.llvm.12279157293026222448"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17h1731c41b144dcc18E.llvm.12279157293026222448"(ptr noalias noundef nonnull align 8 dereferenceable(384) %19)
           to label %166 unwind label %159, !noalias !42
 
 159:                                              ; preds = %158
@@ -677,7 +677,7 @@ define noundef range(i32 0, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
   br i1 %183, label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i", label %184
 
 184:                                              ; preds = %181
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17h1731c41b144dcc18E.llvm.12279157293026222448"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17h1731c41b144dcc18E.llvm.12279157293026222448"(ptr noalias noundef nonnull align 8 dereferenceable(32) %28)
           to label %192 unwind label %185, !noalias !42
 
 185:                                              ; preds = %184
@@ -721,7 +721,7 @@ define noundef range(i32 0, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
   %.1.i = phi i32 [ 5, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.2.i, %197 ], [ %.2.i, %181 ], [ %.2.i, %192 ], [ 4, %75 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !144
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haee51611dfd7056eE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %30)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haee51611dfd7056eE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
           to label %.noexc180.i unwind label %49, !noalias !42
 
 .noexc180.i:                                      ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i"
@@ -813,7 +813,7 @@ define noalias noundef nonnull ptr @ts_highlight_buffer_new() unnamed_addr #1 pe
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !156
-  %11 = tail call noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef 96, i64 noundef 8) #17, !noalias !156
+  %11 = tail call noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef range(i64 96, 113) 96, i64 noundef 8) #17, !noalias !156
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he83397d4c3467f10E.exit"
 
@@ -879,11 +879,11 @@ define void @ts_highlight_buffer_delete(ptr noundef %0) unnamed_addr #1 personal
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$tree_sitter_highlight..HtmlRenderer$GT$17hf79b567ab5d51be7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) #18
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$tree_sitter_highlight..HtmlRenderer$GT$17hf79b567ab5d51be7E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) #18
           to label %11 unwind label %7
 
 6:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$tree_sitter_highlight..HtmlRenderer$GT$17hf79b567ab5d51be7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$tree_sitter_highlight..HtmlRenderer$GT$17hf79b567ab5d51be7E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_highlight..c_lib..TSHighlightBuffer$GT$$GT$17hd7587e00cdcee1f8E.exit" unwind label %9
 
 7:                                                ; preds = %4
@@ -1175,7 +1175,7 @@ _ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !244)
   call void @llvm.experimental.noalias.scope.decl(metadata !247)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !250
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !223
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, i64 32, i1 false), !noalias !223
   %60 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, align 8, !alias.scope !251, !noalias !223, !noundef !4
   %61 = shl i64 %60, 56
   %62 = getelementptr inbounds i8, ptr %10, i64 56
@@ -1248,7 +1248,7 @@ _ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit: ; preds = %_ZN
 99:                                               ; preds = %.lr.ph.i.i.i.i
   %100 = getelementptr i8, ptr %97, i64 -400
   %.val5.i.i.i.i.i = load ptr, ptr %100, align 8, !noalias !280, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %43, ptr nonnull readonly %.val5.i.i.i.i.i, i64 %45), !alias.scope !281, !noalias !288
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %43, ptr nonnull readonly align 1 %.val5.i.i.i.i.i, i64 %45), !alias.scope !281, !noalias !288
   %101 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %101, label %105, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6713a1b158a55348E.exit.backedge.i.i.i.i"
 
@@ -1265,7 +1265,7 @@ _ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %14), !noalias !291
   %106 = getelementptr inbounds i8, ptr %4, i64 64
   %107 = getelementptr inbounds i8, ptr %97, i64 -352
-  call void @_ZN21tree_sitter_highlight11Highlighter9highlight17h070055a7420d5b15E(ptr noalias nocapture noundef nonnull sret({ i64, [18 x i64] }) align 8 dereferenceable(152) %14, ptr noalias noundef nonnull align 8 dereferenceable(32) %106, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %107, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %46, ptr noundef align 8 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %47)
+  call void @_ZN21tree_sitter_highlight11Highlighter9highlight17h070055a7420d5b15E(ptr noalias nocapture noundef nonnull sret({ i64, [18 x i64] }) align 8 dereferenceable(152) %14, ptr noalias noundef nonnull align 8 dereferenceable(32) %106, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %107, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef range(i64 0, 4294967296) %46, ptr noundef align 8 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %47)
   %108 = load i64, ptr %14, align 8, !range !292, !noalias !291, !noundef !4
   %.not16.i = icmp eq i64 %108, 2
   br i1 %.not16.i, label %120, label %109
@@ -1273,7 +1273,7 @@ _ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit: ; preds = %_ZN
 109:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %13), !noalias !291
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull align 8 dereferenceable(152) %14, i64 152, i1 false), !noalias !291
-  invoke void @_ZN21tree_sitter_highlight12HtmlRenderer5reset17hdac89b5d336b67b7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
+  invoke void @_ZN21tree_sitter_highlight12HtmlRenderer5reset17hdac89b5d336b67b7E(ptr noalias noundef nonnull align 8 dereferenceable(96) %4)
           to label %switch.lookup unwind label %116
 
 switch.lookup:                                    ; preds = %109
@@ -1289,7 +1289,7 @@ switch.lookup:                                    ; preds = %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef nonnull align 8 dereferenceable(152) %14, i64 152, i1 false), !noalias !291
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !291
   store ptr %0, ptr %11, align 8, !noalias !291
-  %114 = call noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f67eb64de7d1e1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %12, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11), !range !298
+  %114 = call noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f67eb64de7d1e1E(ptr noalias noundef nonnull align 8 dereferenceable(96) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %12, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef range(i64 0, 4294967296) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11), !range !298
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %12), !noalias !291
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !291
   %115 = zext nneg i8 %114 to i64

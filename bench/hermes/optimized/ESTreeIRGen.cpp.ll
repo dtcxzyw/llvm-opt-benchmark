@@ -1335,12 +1335,12 @@ _ZN6hermes5irgenL28materializeScopeChainForEvalERNS_9IRBuilderEPNS_6ESTree11Prog
   br i1 %tobool.i.i.i, label %if.then.i.i.i30, label %_ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit
 
 if.then.i.i.i30:                                  ; preds = %_ZN6hermes5irgenL28materializeScopeChainForEvalERNS_9IRBuilderEPNS_6ESTree11ProgramNodeERKSt10shared_ptrIKNS_15SerializedScopeEE.exit
-  call void @_ZN6hermes5irgen15FunctionContextD1Ev(ptr noundef nonnull align 8 dereferenceable(480) %wrapperFunctionContext) #15
+  call void @_ZN6hermes5irgen15FunctionContextD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %wrapperFunctionContext) #15
   br label %_ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit
 
 _ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit: ; preds = %_ZN6hermes5irgenL28materializeScopeChainForEvalERNS_9IRBuilderEPNS_6ESTree11ProgramNodeERKSt10shared_ptrIKNS_15SerializedScopeEE.exit, %if.then.i.i.i30
   store i8 1, ptr %hasVal.i.i, align 8
-  call void @_ZN6hermes5irgen15FunctionContextC1EPNS0_11ESTreeIRGenEPNS_8FunctionEPNS_3sem12FunctionInfoE(ptr noundef nonnull align 8 dereferenceable(480) %wrapperFunctionContext, ptr noundef nonnull %this, ptr noundef %call7.i, ptr noundef null) #15
+  call void @_ZN6hermes5irgen15FunctionContextC1EPNS0_11ESTreeIRGenEPNS_8FunctionEPNS_3sem12FunctionInfoE(ptr noundef nonnull align 8 dereferenceable(488) %wrapperFunctionContext, ptr noundef nonnull %this, ptr noundef %call7.i, ptr noundef null) #15
   %currentIRScopeDesc_ = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %23, ptr %currentIRScopeDesc_, align 8
   %nameTable_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -1496,7 +1496,7 @@ if.end53:                                         ; preds = %for.body, %if.then4
   br i1 %tobool.i.i.i75, label %if.then.i.i.i76, label %return
 
 if.then.i.i.i76:                                  ; preds = %if.end53
-  call void @_ZN6hermes5irgen15FunctionContextD1Ev(ptr noundef nonnull align 8 dereferenceable(480) %wrapperFunctionContext) #15
+  call void @_ZN6hermes5irgen15FunctionContextD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %wrapperFunctionContext) #15
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i76, %if.end53, %if.then
@@ -2849,7 +2849,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -3800,7 +3800,7 @@ _ZN6hermes5irgen11ESTreeIRGen31canCreateLRefWithoutSideEffectsEPNS_6ESTree4NodeE
 if.then44:                                        ; preds = %_ZN6hermes5irgen11ESTreeIRGen31canCreateLRefWithoutSideEffectsEPNS_6ESTree4NodeE.exit
   call fastcc void @"_ZZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(32) %storePreviousValue)
   call void @_ZN6hermes5irgen11ESTreeIRGen10createLRefEPNS_6ESTree4NodeEb(ptr nonnull sret(%"class.hermes::irgen::LReference") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %target.0, i1 noundef zeroext %declInit)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %lref, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %lref, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i64 48, i1 false)
   store i8 1, ptr %hasVal.i.i, align 8
   br label %if.end58
 
@@ -3995,7 +3995,7 @@ sw.epilog.i132:                                   ; preds = %if.then.i.i
 
 "_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueEE3$_1ZNS1_24emitTryWithSharedHandlerIS8_EEvPNS1_22SharedExceptionHandlerET_EUlvE_ZNS9_IS8_EEvSB_SC_EUlPNS_10BasicBlockEE_EESF_SF_SC_T0_T1_.exit": ; preds = %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit160, %sw.bb4.i124, %sw.bb2.i129, %if.then.i.i, %if.then.i.i, %if.end54
   call void @_ZN6hermes5irgen11ESTreeIRGen10createLRefEPNS_6ESTree4NodeEb(ptr nonnull sret(%"class.hermes::irgen::LReference") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %target.0, i1 noundef zeroext %declInit)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %lref, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %lref, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i, i64 48, i1 false)
   store i8 1, ptr %hasVal.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   %call12.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %42) #15
@@ -5187,7 +5187,7 @@ entry:
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %computedExcludedItems, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %literalExcludedItems, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %literalExcludedItems, i8 0, i64 20, i1 false)
   %vector_.i = getelementptr inbounds i8, ptr %literalExcludedItems, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vector_.i, i8 0, i64 24, i1 false)
   %Builder = getelementptr inbounds i8, ptr %this, i64 8
@@ -5545,7 +5545,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
 
 if.then:                                          ; preds = %if.then12.i.i.i.i, %entry
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %entry ]
-  %call.i.i.i = tail call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes7LiteralENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef %cond.sink.i.i.i.i), !noalias !77
+  %call.i.i.i = tail call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes7LiteralENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef %cond.sink.i.i.i.i), !noalias !77
   %7 = load ptr, ptr %X, align 8
   store ptr %7, ptr %call.i.i.i, align 8, !noalias !77
   %vector_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -7527,7 +7527,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
 if.end.i.i:                                       ; preds = %if.then
   %idx.ext.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.306", ptr %2, i64 %idx.ext.i.i
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   %.pr.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
@@ -7632,7 +7632,7 @@ for.body.i.i.i43:                                 ; preds = %if.then.i.i37, %for
 if.end.i.i34:                                     ; preds = %if.then10
   %idx.ext.i.i35 = zext i32 %1 to i64
   %add.ptr.i.i36 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.306", ptr %11, i64 %idx.ext.i.i35
-  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %11, ptr noundef nonnull %add.ptr.i.i36)
+  tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %11, ptr noundef nonnull %add.ptr.i.i36)
   tail call void @_ZdlPv(ptr noundef nonnull %11) #15
   %.pr82.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre96 = load ptr, ptr %this, align 8
@@ -9324,7 +9324,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -9390,7 +9390,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -9456,7 +9456,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -9566,7 +9566,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -9676,7 +9676,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -9786,7 +9786,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -9893,7 +9893,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -9979,7 +9979,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10065,7 +10065,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10154,7 +10154,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10243,7 +10243,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10335,7 +10335,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10401,7 +10401,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10467,7 +10467,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10559,7 +10559,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10642,7 +10642,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10725,7 +10725,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10808,7 +10808,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10891,7 +10891,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -10977,7 +10977,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11072,7 +11072,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11158,7 +11158,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11241,7 +11241,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11330,7 +11330,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11419,7 +11419,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11485,7 +11485,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11551,7 +11551,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11617,7 +11617,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11683,7 +11683,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11749,7 +11749,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11815,7 +11815,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11881,7 +11881,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -11947,7 +11947,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12039,7 +12039,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12131,7 +12131,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12223,7 +12223,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12306,7 +12306,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12404,7 +12404,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12487,7 +12487,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12570,7 +12570,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12656,7 +12656,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12754,7 +12754,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12852,7 +12852,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -12938,7 +12938,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13021,7 +13021,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13104,7 +13104,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13190,7 +13190,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13276,7 +13276,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13362,7 +13362,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13451,7 +13451,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13537,7 +13537,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13620,7 +13620,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13686,7 +13686,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13769,7 +13769,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13852,7 +13852,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -13938,7 +13938,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14033,7 +14033,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14119,7 +14119,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14205,7 +14205,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14297,7 +14297,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14404,7 +14404,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14490,7 +14490,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14556,7 +14556,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14642,7 +14642,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14767,7 +14767,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14892,7 +14892,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -14984,7 +14984,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15079,7 +15079,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15174,7 +15174,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15260,7 +15260,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15370,7 +15370,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15456,7 +15456,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15539,7 +15539,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15622,7 +15622,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15708,7 +15708,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15809,7 +15809,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15895,7 +15895,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -15978,7 +15978,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16061,7 +16061,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16144,7 +16144,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16242,7 +16242,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16340,7 +16340,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16423,7 +16423,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16509,7 +16509,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16575,7 +16575,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16661,7 +16661,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16747,7 +16747,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16813,7 +16813,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16896,7 +16896,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -16979,7 +16979,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17080,7 +17080,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17163,7 +17163,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17249,7 +17249,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17332,7 +17332,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17398,7 +17398,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17464,7 +17464,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17565,7 +17565,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17666,7 +17666,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17732,7 +17732,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17798,7 +17798,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17864,7 +17864,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17930,7 +17930,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -17996,7 +17996,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18062,7 +18062,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18128,7 +18128,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18194,7 +18194,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18260,7 +18260,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18326,7 +18326,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18392,7 +18392,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18458,7 +18458,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18524,7 +18524,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18590,7 +18590,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18656,7 +18656,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18722,7 +18722,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18788,7 +18788,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18895,7 +18895,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -18981,7 +18981,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19085,7 +19085,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19171,7 +19171,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19254,7 +19254,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19340,7 +19340,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19423,7 +19423,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19506,7 +19506,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19589,7 +19589,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19675,7 +19675,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19767,7 +19767,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19853,7 +19853,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -19942,7 +19942,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20025,7 +20025,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20108,7 +20108,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20200,7 +20200,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20292,7 +20292,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20378,7 +20378,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20464,7 +20464,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20550,7 +20550,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20642,7 +20642,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20728,7 +20728,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20826,7 +20826,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -20915,7 +20915,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21007,7 +21007,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21111,7 +21111,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21200,7 +21200,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21292,7 +21292,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21396,7 +21396,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21530,7 +21530,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21616,7 +21616,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21723,7 +21723,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21806,7 +21806,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21892,7 +21892,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -21993,7 +21993,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22076,7 +22076,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22162,7 +22162,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22245,7 +22245,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22331,7 +22331,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22417,7 +22417,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22500,7 +22500,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22637,7 +22637,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22726,7 +22726,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22809,7 +22809,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22895,7 +22895,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -22978,7 +22978,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23070,7 +23070,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23162,7 +23162,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23228,7 +23228,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23320,7 +23320,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23409,7 +23409,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23501,7 +23501,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23587,7 +23587,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23673,7 +23673,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23739,7 +23739,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23822,7 +23822,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -23908,7 +23908,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24000,7 +24000,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24092,7 +24092,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24184,7 +24184,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24276,7 +24276,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24359,7 +24359,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24445,7 +24445,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24531,7 +24531,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24617,7 +24617,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24703,7 +24703,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24786,7 +24786,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24852,7 +24852,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24918,7 +24918,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -24984,7 +24984,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25050,7 +25050,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25116,7 +25116,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25182,7 +25182,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25248,7 +25248,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25314,7 +25314,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25380,7 +25380,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25446,7 +25446,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25512,7 +25512,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25595,7 +25595,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25681,7 +25681,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25764,7 +25764,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25850,7 +25850,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -25936,7 +25936,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26037,7 +26037,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26138,7 +26138,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26224,7 +26224,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26316,7 +26316,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26402,7 +26402,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26488,7 +26488,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26571,7 +26571,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26660,7 +26660,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26764,7 +26764,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26850,7 +26850,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -26942,7 +26942,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27037,7 +27037,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27123,7 +27123,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27209,7 +27209,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27301,7 +27301,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27387,7 +27387,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27479,7 +27479,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27568,7 +27568,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27660,7 +27660,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27752,7 +27752,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27844,7 +27844,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -27927,7 +27927,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28019,7 +28019,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28111,7 +28111,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28200,7 +28200,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28301,7 +28301,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28399,7 +28399,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28497,7 +28497,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28563,7 +28563,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28629,7 +28629,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28695,7 +28695,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28778,7 +28778,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -28861,7 +28861,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE9push_backERKS4_.exit.i.i
 

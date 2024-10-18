@@ -1075,7 +1075,7 @@ if.then:                                          ; preds = %lor.lhs.false2, %en
   %shl = shl nuw i32 1, %max_partition_order
   %conv = sext i32 %shl to i64
   %mul = shl nsw i64 %conv, 2
-  %call.i = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %mul) #16
+  %call.i = tail call ptr @realloc(ptr noundef %.pre, i64 noundef range(i64 -8589934592, 8589934589) %mul) #16
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %safe_realloc_.exit.thread, label %if.end
 
@@ -1088,7 +1088,7 @@ if.end:                                           ; preds = %if.then
   store ptr %call.i, ptr %object, align 8
   %raw_bits9 = getelementptr inbounds i8, ptr %object, i64 8
   %2 = load ptr, ptr %raw_bits9, align 8
-  %call.i13 = tail call ptr @realloc(ptr noundef %2, i64 noundef %mul) #16
+  %call.i13 = tail call ptr @realloc(ptr noundef %2, i64 noundef range(i64 -8589934592, 8589934589) %mul) #16
   %cmp1.i14 = icmp eq ptr %call.i13, null
   br i1 %cmp1.i14, label %safe_realloc_.exit16.thread, label %if.end18
 

@@ -303,7 +303,7 @@ _ZL13get_thread_idP10JavaThreadPb.exit:           ; preds = %8
 
 15:                                               ; preds = %14
   %16 = tail call noundef ptr @_ZNK10JavaThread7vthreadEv(ptr noundef nonnull align 8 dereferenceable(1800) %2) #11, !noalias !11
-  call void @_ZN20JfrCheckpointManager18create_thread_blobEP10JavaThreadmP7oopDesc(ptr dead_on_unwind nonnull writable sret(%class.RefCountHandle) align 8 %5, ptr noundef nonnull %2, i64 noundef %12, ptr noundef %16) #11
+  call void @_ZN20JfrCheckpointManager18create_thread_blobEP10JavaThreadmP7oopDesc(ptr dead_on_unwind nonnull writable sret(%class.RefCountHandle) align 8 %5, ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %12, ptr noundef %16) #11
   br label %_ZL15get_thread_blobP10JavaThreadmb.exit
 
 17:                                               ; preds = %14
@@ -311,7 +311,7 @@ _ZL13get_thread_idP10JavaThreadPb.exit:           ; preds = %8
   br i1 %18, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i, label %19
 
 19:                                               ; preds = %17
-  call void @_ZN20JfrCheckpointManager18create_thread_blobEP10JavaThreadmP7oopDesc(ptr dead_on_unwind nonnull writable sret(%class.RefCountHandle) align 8 %4, ptr noundef nonnull %2, i64 noundef %12, ptr noundef null) #11, !noalias !11
+  call void @_ZN20JfrCheckpointManager18create_thread_blobEP10JavaThreadmP7oopDesc(ptr dead_on_unwind nonnull writable sret(%class.RefCountHandle) align 8 %4, ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %12, ptr noundef null) #11, !noalias !11
   call void @_ZN14JfrThreadLocal15set_thread_blobERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE(ptr noundef nonnull align 8 dereferenceable(195) %9, ptr noundef nonnull align 8 dereferenceable(8) %4) #11, !noalias !11
   %20 = load ptr, ptr %4, align 8, !noalias !11
   %.not.i.i = icmp eq ptr %20, null
@@ -319,7 +319,7 @@ _ZL13get_thread_idP10JavaThreadPb.exit:           ; preds = %8
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %20, i64 8
-  %23 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %22) #11, !noalias !11, !srcloc !14
+  %23 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %22) #11, !noalias !11, !srcloc !14
   %24 = icmp eq i64 %23, 1
   br i1 %24, label %25, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
 
@@ -335,7 +335,7 @@ _ZL13get_thread_idP10JavaThreadPb.exit:           ; preds = %8
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i: ; preds = %28, %25
-  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %20, i64 noundef 16) #11, !noalias !11
+  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef 16) #11, !noalias !11
   br label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
 
 _ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i: ; preds = %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i, %21
@@ -351,7 +351,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
 
 31:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i
   %32 = getelementptr inbounds i8, ptr %30, i64 8
-  %33 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %32) #11, !noalias !11, !srcloc !14
+  %33 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %32) #11, !noalias !11, !srcloc !14
   br label %_ZL15get_thread_blobP10JavaThreadmb.exit
 
 _ZL15get_thread_blobP10JavaThreadmb.exit:         ; preds = %15, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i, %31
@@ -403,7 +403,7 @@ _ZN16RecordStackTraceD2Ev.exit:                   ; preds = %_ZN10JfrTryLockD2Ev
 
 47:                                               ; preds = %_ZN16RecordStackTraceD2Ev.exit
   %48 = getelementptr inbounds i8, ptr %46, i64 8
-  %49 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %48) #11, !srcloc !14
+  %49 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %48) #11, !srcloc !14
   %50 = icmp eq i64 %49, 1
   br i1 %50, label %51, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
 
@@ -419,7 +419,7 @@ _ZN16RecordStackTraceD2Ev.exit:                   ; preds = %_ZN10JfrTryLockD2Ev
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i: ; preds = %54, %51
-  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %46, i64 noundef 16) #11
+  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %46, i64 noundef 16) #11
   br label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
 
 _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit: ; preds = %47, %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i, %8, %3, %_ZN16RecordStackTraceD2Ev.exit, %_ZL13get_thread_idP10JavaThreadPb.exit
@@ -519,7 +519,7 @@ _ZL23signal_unresolved_entryv.exit:               ; preds = %40, %43
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds i8, ptr %50, i64 8
-  %54 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %53) #11, !srcloc !14
+  %54 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %53) #11, !srcloc !14
   %.pr.i = load ptr, ptr %48, align 8
   br label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i
 
@@ -531,7 +531,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4
 
 56:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i
   %57 = getelementptr inbounds i8, ptr %55, i64 8
-  %58 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %57) #11, !srcloc !14
+  %58 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %57) #11, !srcloc !14
   %59 = icmp eq i64 %58, 1
   br i1 %59, label %60, label %_ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit
 
@@ -547,7 +547,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i: ; preds = %63, %60
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %55, i64 noundef 16) #11
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %55, i64 noundef 16) #11
   br label %_ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit
 
 _ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit: ; preds = %47, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i, %56, %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i

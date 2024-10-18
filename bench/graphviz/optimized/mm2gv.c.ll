@@ -118,7 +118,7 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
 
 8:                                                ; preds = %openF.exit.i
   %9 = load ptr, ptr @optarg, align 8
-  %10 = call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull readonly @.str.4)
+  %10 = call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull @.str.4)
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %11, label %openF.exit.i.outer129
 
@@ -181,7 +181,7 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
   %40 = sext i32 %37 to i64
   %41 = getelementptr inbounds ptr, ptr %1, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = call noalias ptr @fopen(ptr noundef %42, ptr noundef nonnull readonly @.str.10)
+  %43 = call noalias ptr @fopen(ptr noundef %42, ptr noundef nonnull @.str.10)
   %.not.i23.i = icmp eq ptr %43, null
   br i1 %.not.i23.i, label %44, label %init.exit
 
@@ -339,7 +339,7 @@ agxbsizeof.exit.i.i:                              ; preds = %38
   br i1 %.not.i.i, label %49, label %48
 
 48:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %42, align 1
   br label %49
 
@@ -413,7 +413,7 @@ agxbsizeof.exit.i.i190:                           ; preds = %agxbsizeof.exit.i.i
   br i1 %.not.i.i193, label %76, label %75
 
 75:                                               ; preds = %agxbsizeof.exit.i.i190
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i194 = load i8, ptr %68, align 1
   br label %76
 
@@ -923,7 +923,7 @@ Hue2RGB.exit26.i:                                 ; preds = %300, %297, %294, %2
   %.018.i25.i = phi double [ %293, %292 ], [ %302, %300 ], [ 1.000000e+00, %294 ], [ 0.000000e+00, %297 ]
   %303 = call double @llvm.fmuladd.f64(double %.018.i25.i, double 2.550000e+02, double 5.000000e-01)
   %304 = fptosi double %303 to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.31, i32 noundef %265, i32 noundef %284, i32 noundef %304)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.31, i32 noundef %265, i32 noundef %284, i32 noundef %304)
   %.val.i.i.i.i = load i8, ptr %179, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
   br i1 %.not.i.i.i.i, label %agxbsizeof.exit.i.i.i, label %agxbsizeof.exit.i.i.i.thread
@@ -1290,7 +1290,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

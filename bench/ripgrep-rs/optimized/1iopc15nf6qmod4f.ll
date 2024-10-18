@@ -138,7 +138,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !22
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c0f8d83c7a79a8dE.llvm.1231196827938639477"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c0f8d83c7a79a8dE.llvm.1231196827938639477"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !21, !noalias !22, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -413,7 +413,7 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i: ; preds = %2
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit.i.i.i": ; preds = %29
   %35 = add i64 %31, -3
   %36 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %35
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %36, ptr noundef nonnull readonly dereferenceable(3) %14, i64 3), !alias.scope !76, !noalias !80
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %36, ptr noundef nonnull readonly align 1 dereferenceable(3) %14, i64 3), !alias.scope !76, !noalias !80
   %37 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %37, label %39, label %33
 
@@ -431,7 +431,7 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i: ; preds = %2
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !84
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c0f8d83c7a79a8dE.llvm.1231196827938639477"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !56
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c0f8d83c7a79a8dE.llvm.1231196827938639477"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6), !noalias !56
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   %44 = load i64, ptr %43, align 8, !range !21, !noalias !84, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %44, 0
@@ -573,7 +573,7 @@ define void @_ZN8grep_cli7pattern18pattern_from_bytes17hac5fbb6ec38b0a6eE(ptr no
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !109
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !109
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !101
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !100
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.03.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !93, !noalias !100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)

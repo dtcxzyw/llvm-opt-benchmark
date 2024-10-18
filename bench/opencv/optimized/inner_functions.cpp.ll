@@ -949,7 +949,7 @@ define noundef float @_ZNK2cv2ml9StatModel9calcErrorERKNS_3PtrINS0_9TrainDataEEE
   %145 = select i1 %57, double 1.000000e+02, double 1.000000e+00
   %146 = fmul double %145, %144
   %147 = fptrunc double %146 to float
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #24
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #24
   %148 = load ptr, ptr %15, align 8
   %.not.i.i.i = icmp eq ptr %148, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %149
@@ -964,7 +964,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %142, %149
 
 150:                                              ; preds = %140, %123
   %.pn = phi { ptr, i32 } [ %124, %123 ], [ %141, %140 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #24
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #24
   %151 = load ptr, ptr %15, align 8
   %.not.i.i.i55 = icmp eq ptr %151, null
   br i1 %.not.i.i.i55, label %_ZNSt6vectorIdSaIdEED2Ev.exit56, label %152
@@ -1650,7 +1650,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv2ml17ParallelCalcErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }

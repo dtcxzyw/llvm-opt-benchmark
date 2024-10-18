@@ -205,7 +205,7 @@ _ZL11argc_paramsP8ARG_list.exit:                  ; preds = %34, %._crit_edge.lo
   %44 = trunc i64 %.0.lcssa.i to i32
   %sext = shl i64 %.0.lcssa.i, 32
   %45 = ashr exact i64 %sext, 32
-  %46 = tail call noalias ptr @calloc(i64 noundef %45, i64 noundef 8) #19
+  %46 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef 8) #19
   %47 = icmp eq ptr %46, null
   br i1 %47, label %52, label %.preheader.i281
 

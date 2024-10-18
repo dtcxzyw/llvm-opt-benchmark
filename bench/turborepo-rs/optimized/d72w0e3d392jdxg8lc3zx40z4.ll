@@ -191,12 +191,12 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtCs8mTrBI1stz4_15tu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4), !noalias !38
-  invoke void @_RNvXsR_NtCs1LoaDTb72WA_4core5arrayAcj6_NtNtB7_7default7Default7defaultCs8mTrBI1stz4_15turborepo_vt100(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 4 dereferenceable(24) %4)
+  invoke void @_RNvXsR_NtCs1LoaDTb72WA_4core5arrayAcj6_NtNtB7_7default7Default7defaultCs8mTrBI1stz4_15turborepo_vt100(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 4 dereferenceable(36) %4)
           to label %.noexc.i.i.i unwind label %23, !noalias !41
 
 .noexc.i.i.i:                                     ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %15, i8 0, i64 11, i1 false), !alias.scope !42, !noalias !38
-  invoke void @_RINvXNtNtCs68wO5nsWeTG_5alloc3vec14spec_from_elemNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellNtB3_12SpecFromElem9from_elemNtNtB7_5alloc6GlobalEBP_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(36) %4, i64 noundef %17)
+  invoke void @_RINvXNtNtCs68wO5nsWeTG_5alloc3vec14spec_from_elemNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellNtB3_12SpecFromElem9from_elemNtNtB7_5alloc6GlobalEBP_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(32) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(36) %4, i64 noundef %17)
           to label %19 unwind label %23, !noalias !41
 
 19:                                               ; preds = %.noexc.i.i.i
@@ -356,7 +356,7 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15tur
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
 18:                                               ; preds = %7
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellNtNtBa_5alloc6GlobalEB1r_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %8), !noalias !109
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellNtNtBa_5alloc6GlobalEB1r_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %8), !noalias !109
   %.pre.i = load i64, ptr %4, align 8, !alias.scope !106, !noalias !109
   br label %12
 
@@ -999,7 +999,7 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapNtNtCscmPyG4XWoQZ_3
   %23 = load i64, ptr %22, align 8, !noalias !218, !noundef !4
   %24 = sub i64 %23, %.val5
   %25 = call i64 @llvm.uadd.sat.i64(i64 %24, i64 1)
-  %.sroa.0.0.sroa.speculated.i = call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %25, i64 4)
+  %.sroa.0.0.sroa.speculated.i = call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %25, i64 4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtB7_6string6StringE15try_allocate_inCsbYUTfhIhMOk_7ratatui(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, i64 noundef %.sroa.0.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %26 unwind label %19
@@ -1071,7 +1071,7 @@ define void @_RNvXs2_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB7_3VechEINtB5_
   br i1 %12, label %13, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.8707740070445408493.exit
 
 13:                                               ; preds = %3
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %9, i64 noundef %7)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %9, i64 noundef %7)
   %.pre.i = load i64, ptr %8, align 8, !alias.scope !223
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.8707740070445408493.exit
 
@@ -1171,7 +1171,7 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB6_3VecNtNtB8_6s
   br i1 %14, label %15, label %_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE14extend_trustedINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB1r_5slice4iter4IterRShENCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform13osc_param_str0EEB2H_.exit
 
 15:                                               ; preds = %3
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtBa_6string6StringNtNtBa_5alloc6GlobalECsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %11, i64 noundef %9)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtBa_6string6StringNtNtBa_5alloc6GlobalECsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %11, i64 noundef %9)
   %.pre.i = load i64, ptr %10, align 8, !alias.scope !237
   br label %_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE14extend_trustedINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB1r_5slice4iter4IterRShENCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform13osc_param_str0EEB2H_.exit
 
@@ -1208,7 +1208,7 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB6_3VecNtNtB8_6s
   br i1 %14, label %15, label %_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE14extend_trustedINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB1r_5slice4iter4ItertENvYtNtBI_8ToString9to_stringEECs8mTrBI1stz4_15turborepo_vt100.exit
 
 15:                                               ; preds = %3
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtBa_6string6StringNtNtBa_5alloc6GlobalECsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %11, i64 noundef %9)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtBa_6string6StringNtNtBa_5alloc6GlobalECsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %11, i64 noundef %9)
   %.pre.i = load i64, ptr %10, align 8, !alias.scope !246
   br label %_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE14extend_trustedINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB1r_5slice4iter4ItertENvYtNtBI_8ToString9to_stringEECs8mTrBI1stz4_15turborepo_vt100.exit
 
@@ -1262,12 +1262,12 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB6_3VecNtNtCs8mT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4), !noalias !272
-  invoke void @_RNvXsR_NtCs1LoaDTb72WA_4core5arrayAcj6_NtNtB7_7default7Default7defaultCs8mTrBI1stz4_15turborepo_vt100(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 4 dereferenceable(24) %4)
+  invoke void @_RNvXsR_NtCs1LoaDTb72WA_4core5arrayAcj6_NtNtB7_7default7Default7defaultCs8mTrBI1stz4_15turborepo_vt100(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 4 dereferenceable(36) %4)
           to label %.noexc.i.i.i.i unwind label %23, !noalias !275
 
 .noexc.i.i.i.i:                                   ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %15, i8 0, i64 11, i1 false), !alias.scope !276, !noalias !272
-  invoke void @_RINvXNtNtCs68wO5nsWeTG_5alloc3vec14spec_from_elemNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellNtB3_12SpecFromElem9from_elemNtNtB7_5alloc6GlobalEBP_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(36) %4, i64 noundef %17)
+  invoke void @_RINvXNtNtCs68wO5nsWeTG_5alloc3vec14spec_from_elemNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellNtB3_12SpecFromElem9from_elemNtNtB7_5alloc6GlobalEBP_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(32) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(36) %4, i64 noundef %17)
           to label %19 unwind label %23, !noalias !275
 
 19:                                               ; preds = %.noexc.i.i.i.i
@@ -1291,7 +1291,7 @@ _RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter7sources11repeat_withINtB5_10RepeatWithNCN
   br label %_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE14extend_trustedINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters4take4TakeINtNtNtB1L_7sources11repeat_with10RepeatWithNCNvMNtBK_4gridNtB3h_4Grid13allocate_rows0EEEBK_.exit
 
 .thread.i:                                        ; preds = %3
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowNtNtBa_5alloc6GlobalEB1r_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7, i64 noundef %2), !noalias !258
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowNtNtBa_5alloc6GlobalEB1r_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %7, i64 noundef %2), !noalias !258
   %.pre.i = load i64, ptr %6, align 8, !alias.scope !255, !noalias !258
   br label %12
 
@@ -1334,7 +1334,7 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB6_3Ve
   br i1 %20, label %21, label %_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE14extend_trustedINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB1r_5slice4iter4IterRShENCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform13osc_param_str0EEB2H_.exit.i
 
 21:                                               ; preds = %16
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtBa_6string6StringNtNtBa_5alloc6GlobalECsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 0, i64 noundef %11)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtBa_6string6StringNtNtBa_5alloc6GlobalECsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 0, i64 noundef %11)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %21
@@ -1416,7 +1416,7 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB6_3Ve
   br i1 %20, label %21, label %_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE14extend_trustedINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB1r_5slice4iter4ItertENvYtNtBI_8ToString9to_stringEECs8mTrBI1stz4_15turborepo_vt100.exit.i
 
 21:                                               ; preds = %16
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtBa_6string6StringNtNtBa_5alloc6GlobalECsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 0, i64 noundef %11)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtBa_6string6StringNtNtBa_5alloc6GlobalECsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 0, i64 noundef %11)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %21

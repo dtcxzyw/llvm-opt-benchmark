@@ -790,7 +790,7 @@ define hidden void @av1_filter_intra_predictor_c(ptr nocapture noundef writeonly
   %88 = add nsw i32 %87, %78
   %89 = add nsw i32 %88, %82
   %90 = ashr i32 %89, 4
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -14280, 14169) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = add nuw nsw i32 %53, %23
@@ -1002,7 +1002,7 @@ define hidden void @av1_upsample_intra_edge_c(ptr nocapture noundef %0, i32 noun
   %reass.sub = sub nsw i32 %29, %30
   %31 = add nsw i32 %reass.sub, 8
   %32 = ashr i32 %31, 4
-  %33 = tail call i32 @llvm.smax.i32(i32 %32, i32 0)
+  %33 = tail call i32 @llvm.smax.i32(i32 range(i32 -14280, 14169) %32, i32 0)
   %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 255)
   %35 = trunc nuw i32 %34 to i8
   %36 = shl nuw nsw i64 %indvars.iv, 1
@@ -1078,7 +1078,7 @@ clip_pixel_highbd.exit.us:                        ; preds = %.lr.ph34, %clip_pix
   %reass.sub44 = sub nsw i32 %31, %32
   %33 = add nsw i32 %reass.sub44, 8
   %34 = ashr i32 %33, 4
-  %35 = tail call i32 @llvm.umin.i32(i32 %34, i32 4095)
+  %35 = tail call i32 @llvm.umin.i32(i32 range(i32 -3669960, 3641289) %34, i32 4095)
   %36 = icmp slt i32 %34, 0
   %37 = trunc nuw nsw i32 %35 to i16
   %.0.i.us = select i1 %36, i16 0, i16 %37
@@ -1109,7 +1109,7 @@ clip_pixel_highbd.exit.us41:                      ; preds = %.lr.ph34, %clip_pix
   %reass.sub = sub nsw i32 %51, %52
   %53 = add nsw i32 %reass.sub, 8
   %54 = ashr i32 %53, 4
-  %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 1023)
+  %55 = tail call i32 @llvm.umin.i32(i32 range(i32 -3669960, 3641289) %54, i32 1023)
   %56 = icmp slt i32 %54, 0
   %57 = trunc nuw nsw i32 %55 to i16
   %.0.i.us43 = select i1 %56, i16 0, i16 %57
@@ -1140,7 +1140,7 @@ clip_pixel_highbd.exit:                           ; preds = %.lr.ph34, %clip_pix
   %reass.sub45 = sub nsw i32 %71, %72
   %73 = add nsw i32 %reass.sub45, 8
   %74 = ashr i32 %73, 4
-  %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 255)
+  %75 = tail call i32 @llvm.umin.i32(i32 range(i32 -3669960, 3641289) %74, i32 255)
   %76 = icmp slt i32 %74, 0
   %77 = trunc nuw nsw i32 %75 to i16
   %.0.i = select i1 %76, i16 0, i16 %77
@@ -2045,15 +2045,15 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
   ]
 
 555:                                              ; preds = %515
-  %556 = call i32 @llvm.umin.i32(i32 %554, i32 255)
+  %556 = call i32 @llvm.umin.i32(i32 range(i32 -3669960, 3641289) %554, i32 255)
   br label %clip_pixel_highbd.exit.i.i
 
 557:                                              ; preds = %515
-  %558 = call i32 @llvm.umin.i32(i32 %554, i32 1023)
+  %558 = call i32 @llvm.umin.i32(i32 range(i32 -3669960, 3641289) %554, i32 1023)
   br label %clip_pixel_highbd.exit.i.i
 
 559:                                              ; preds = %515
-  %560 = call i32 @llvm.umin.i32(i32 %554, i32 4095)
+  %560 = call i32 @llvm.umin.i32(i32 range(i32 -3669960, 3641289) %554, i32 4095)
   br label %clip_pixel_highbd.exit.i.i
 
 clip_pixel_highbd.exit.i.i:                       ; preds = %559, %557, %555
@@ -2262,7 +2262,7 @@ get_filt_type.exit.i:                             ; preds = %615, %is_inter_bloc
 
 658:                                              ; preds = %651, %649, %get_filt_type.exit.i, %get_filt_type.exit.i
   %659 = add nsw i32 %.0257.i, -90
-  %660 = call i32 @llvm.abs.i32(i32 %659, i1 true)
+  %660 = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483558) %659, i1 true)
   %661 = icmp eq i32 %659, 0
   %662 = icmp samesign ugt i32 %660, 39
   %or.cond.i.i218 = select i1 %661, i1 true, i1 %662
@@ -2286,7 +2286,7 @@ av1_use_intra_edge_upsample.exit.i:               ; preds = %658
 av1_use_intra_edge_upsample.exit.thread.i:        ; preds = %665, %av1_use_intra_edge_upsample.exit.i, %658
   %.0.i285295.i = phi i32 [ 1, %665 ], [ %664, %av1_use_intra_edge_upsample.exit.i ], [ 0, %658 ]
   %669 = add nsw i32 %.0257.i, -180
-  %670 = call i32 @llvm.abs.i32(i32 %669, i1 true)
+  %670 = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483558) %669, i1 true)
   %671 = icmp eq i32 %669, 0
   %672 = icmp samesign ugt i32 %670, 39
   %or.cond.i286.i = select i1 %671, i1 true, i1 %672
@@ -2598,7 +2598,7 @@ av1_highbd_dr_prediction_z1_c.exit.sink.split.i.i: ; preds = %826, %825
   %.sink.i.i = phi ptr [ getelementptr inbounds (i8, ptr @pred_high, i64 304), %826 ], [ getelementptr inbounds (i8, ptr @pred_high, i64 152), %825 ]
   %827 = getelementptr inbounds [19 x ptr], ptr %.sink.i.i, i64 0, i64 %27
   %828 = load ptr, ptr %827, align 8
-  call void %828(ptr noundef %313, i64 noundef %679, ptr noundef nonnull %317, ptr noundef nonnull %318, i32 noundef %680) #11
+  call void %828(ptr noundef %313, i64 noundef range(i64 -2147483648, 2147483648) %679, ptr noundef nonnull %317, ptr noundef nonnull %318, i32 noundef %680) #11
   br label %build_intra_predictors_high.exit
 
 829:                                              ; preds = %.thread.i
@@ -3068,7 +3068,7 @@ get_filt_type.exit.i288:                          ; preds = %1021, %is_inter_blo
 
 1064:                                             ; preds = %1057, %1055, %get_filt_type.exit.i288, %get_filt_type.exit.i288
   %1065 = add nsw i32 %.0243.i, -90
-  %1066 = tail call i32 @llvm.abs.i32(i32 %1065, i1 true)
+  %1066 = tail call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483558) %1065, i1 true)
   %1067 = icmp eq i32 %1065, 0
   %1068 = icmp samesign ugt i32 %1066, 39
   %or.cond.i.i291 = select i1 %1067, i1 true, i1 %1068
@@ -3139,7 +3139,7 @@ av1_use_intra_edge_upsample.exit.i292:            ; preds = %1064
   %1100 = add nuw nsw i32 %1090, %1096
   %1101 = sub nsw i32 %1099, %1100
   %1102 = ashr i32 %1101, 4
-  %1103 = tail call i32 @llvm.smax.i32(i32 %1102, i32 0)
+  %1103 = tail call i32 @llvm.smax.i32(i32 range(i32 -14280, 14169) %1102, i32 0)
   %1104 = tail call i32 @llvm.umin.i32(i32 %1103, i32 255)
   %1105 = trunc nuw i32 %1104 to i8
   %1106 = shl nuw nsw i64 %indvars.iv.i.i299, 1
@@ -3157,7 +3157,7 @@ av1_upsample_intra_edge_c.exit.i:                 ; preds = %.lr.ph32.i.i, %._cr
 av1_use_intra_edge_upsample.exit.thread.i296:     ; preds = %av1_upsample_intra_edge_c.exit.i, %av1_use_intra_edge_upsample.exit.i292, %1064
   %.0.i269292.shrunk.i = phi i1 [ true, %av1_upsample_intra_edge_c.exit.i ], [ %.in.i.i294, %av1_use_intra_edge_upsample.exit.i292 ], [ false, %1064 ]
   %1109 = add nsw i32 %.0243.i, -180
-  %1110 = tail call i32 @llvm.abs.i32(i32 %1109, i1 true)
+  %1110 = tail call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483558) %1109, i1 true)
   %1111 = icmp eq i32 %1109, 0
   %1112 = icmp samesign ugt i32 %1110, 39
   %or.cond.i270.i = select i1 %1111, i1 true, i1 %1112
@@ -3228,7 +3228,7 @@ av1_use_intra_edge_upsample.exit275.i:            ; preds = %av1_use_intra_edge_
   %1144 = add nuw nsw i32 %1134, %1140
   %1145 = sub nsw i32 %1143, %1144
   %1146 = ashr i32 %1145, 4
-  %1147 = tail call i32 @llvm.smax.i32(i32 %1146, i32 0)
+  %1147 = tail call i32 @llvm.smax.i32(i32 range(i32 -14280, 14169) %1146, i32 0)
   %1148 = tail call i32 @llvm.umin.i32(i32 %1147, i32 255)
   %1149 = trunc nuw i32 %1148 to i8
   %1150 = shl nuw nsw i64 %indvars.iv.i283.i, 1
@@ -3534,7 +3534,7 @@ av1_dr_prediction_z1_c.exit.sink.split.i.i:       ; preds = %1297, %1296
   %.sink.i.i228 = phi ptr [ getelementptr inbounds (i8, ptr @pred, i64 304), %1297 ], [ getelementptr inbounds (i8, ptr @pred, i64 152), %1296 ]
   %1298 = getelementptr inbounds [19 x ptr], ptr %.sink.i.i228, i64 0, i64 %27
   %1299 = load ptr, ptr %1298, align 8
-  call void %1299(ptr noundef %11, i64 noundef %1153, ptr noundef nonnull %850, ptr noundef nonnull %851) #11
+  call void %1299(ptr noundef %11, i64 noundef range(i64 -2147483648, 2147483648) %1153, ptr noundef nonnull %850, ptr noundef nonnull %851) #11
   br label %build_intra_predictors.exit
 
 1300:                                             ; preds = %.thread.i225

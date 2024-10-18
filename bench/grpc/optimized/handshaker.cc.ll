@@ -1588,7 +1588,7 @@ invoke.cont72:                                    ; preds = %invoke.cont59
   %ref.tmp48.sroa.2.0.deadline_timer_handle_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 192
   store i64 %30, ptr %ref.tmp48.sroa.2.0.deadline_timer_handle_.sroa_idx, align 8
   %31 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %31(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp55, ptr noundef nonnull %agg.tmp55) #17
+  call void %31(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp55, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp55) #17
   %32 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !24
   store i64 0, ptr %agg.tmp71, align 8, !alias.scope !27
   %call75 = invoke noundef zeroext i1 @_ZN9grpc_core16HandshakeManager24CallNextHandshakerLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull %agg.tmp71)
@@ -1641,7 +1641,7 @@ lpad61:                                           ; preds = %invoke.cont59
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %41(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp55, ptr noundef nonnull %agg.tmp55) #17
+  call void %41(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp55, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp55) #17
   br label %ehcleanup77
 
 lpad73:                                           ; preds = %invoke.cont72

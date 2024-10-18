@@ -4437,12 +4437,12 @@ define internal fastcc range(i32 6, 42) i32 @dissect_epl_asnd_nmtcmd(ptr noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %30 = load i32, ptr @hf_epl_asnd_nmtcommand_nmtdna, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef %29, i32 noundef 27, i32 noundef 0) #18
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef range(i32 5, 9) %29, i32 noundef 27, i32 noundef 0) #18
   %32 = load i32, ptr @ett_epl_feat, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #18
   %34 = load i32, ptr @hf_epl_asnd_nmtcommand_nmtdna_flags, align 4
   %35 = load i32, ptr @ett_epl_asnd_nmt_dna, align 4
-  %36 = tail call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %1, i32 noundef %29, i32 noundef %34, i32 noundef %35, ptr noundef nonnull @dissect_epl_asnd_nmtdna.dna_flags, i32 noundef 0) #18
+  %36 = tail call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %1, i32 noundef range(i32 5, 9) %29, i32 noundef %34, i32 noundef %35, ptr noundef nonnull @dissect_epl_asnd_nmtdna.dna_flags, i32 noundef 0) #18
   %37 = load i32, ptr @hf_epl_asnd_nmtcommand_nmtdna_currmac, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %37, ptr noundef %1, i32 noundef %12, i32 noundef 6, i32 noundef 0) #18
   %39 = or disjoint i32 %3, 8
@@ -4514,7 +4514,7 @@ define internal fastcc i32 @dissect_epl_asnd_sdo(ptr noundef %0, ptr noundef %1,
   %9 = alloca %struct._GHashTableIter, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #18
+  %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef range(i32 4, 8) %3) #18
   %13 = and i8 %12, 3
   %14 = lshr i8 %12, 2
   store i8 %14, ptr @epl_segmentation.2, align 1
@@ -4790,15 +4790,15 @@ epl_duplication_remove.exit152.i:                 ; preds = %138, %125
 dissect_epl_sdo_sequence.exit:                    ; preds = %123, %epl_duplication_remove.exit152.i
   call void @g_slice_free1(i64 noundef 4, ptr noundef nonnull %23) #18
   %140 = load i32, ptr @hf_epl_asnd_sdo_seq, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %140, ptr noundef %1, i32 noundef %3, i32 noundef 5, i32 noundef 0) #18
+  %141 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %140, ptr noundef %1, i32 noundef range(i32 4, 8) %3, i32 noundef 5, i32 noundef 0) #18
   %142 = load i32, ptr @ett_epl_sdo_sequence_layer, align 4
   %143 = call ptr @proto_item_add_subtree(ptr noundef %141, i32 noundef %142) #18
-  %144 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #18
+  %144 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef range(i32 4, 8) %3) #18
   %145 = load i32, ptr @hf_epl_asnd_sdo_seq_receive_sequence_number, align 4
   %146 = zext i8 %144 to i32
-  %147 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %145, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef %146) #18
+  %147 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %145, ptr noundef %1, i32 noundef range(i32 4, 8) %3, i32 noundef 1, i32 noundef %146) #18
   %148 = load i32, ptr @hf_epl_asnd_sdo_seq_receive_con, align 4
-  %149 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %148, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef %146) #18
+  %149 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %148, ptr noundef %1, i32 noundef range(i32 4, 8) %3, i32 noundef 1, i32 noundef %146) #18
   %150 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %15) #18
   %151 = load i32, ptr @hf_epl_asnd_sdo_seq_send_sequence_number, align 4
   %152 = zext i8 %150 to i32

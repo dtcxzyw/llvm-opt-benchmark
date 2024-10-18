@@ -137,7 +137,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %37, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_.exit.i
   %39 = phi i64 [ %38, %37 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_.exit.i ]
-  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %35, ptr noundef nonnull %34, ptr nonnull @.str, i64 16, ptr %36, i64 %39, i1 noundef zeroext false)
+  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %35, ptr noundef nonnull align 8 dereferenceable(240) %34, ptr nonnull @.str, i64 16, ptr %36, i64 %39, i1 noundef zeroext false)
   %40 = load ptr, ptr @_ZN5clang4ento10categories11TaintedDataE, align 8
   %.not.i1.i.i = icmp eq ptr %40, null
   br i1 %.not.i1.i.i, label %_ZN12_GLOBAL__N_114DivZeroCheckerC2Ev.exit.i, label %41
@@ -149,7 +149,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %37, %_ZN4llvm12Dens
 _ZN12_GLOBAL__N_114DivZeroCheckerC2Ev.exit.i:     ; preds = %41, %_ZN4llvm9StringRefC2EPKc.exit.i.i
   %43 = phi i64 [ %42, %41 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 136
-  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %44, ptr noundef nonnull %34, ptr nonnull @.str, i64 16, ptr %40, i64 %43, i1 noundef zeroext false)
+  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %44, ptr noundef nonnull align 8 dereferenceable(240) %34, ptr nonnull @.str, i64 16, ptr %40, i64 %43, i1 noundef zeroext false)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
@@ -631,7 +631,7 @@ define internal void @_ZN12_GLOBAL__N_114DivZeroCheckerD2Ev(ptr noundef nonnull 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   ret void
 }
 
@@ -650,7 +650,7 @@ define internal void @_ZN12_GLOBAL__N_114DivZeroCheckerD0Ev(ptr noundef nonnull 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 240) #17
   ret void
 }

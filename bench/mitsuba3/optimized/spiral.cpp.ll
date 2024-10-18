@@ -363,7 +363,7 @@ define linkonce_odr void @_ZN7mitsuba6SpiralD2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7mitsuba6SpiralD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #12
+  tail call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

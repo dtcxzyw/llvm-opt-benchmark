@@ -552,7 +552,7 @@ invoke.cont29:                                    ; preds = %if.end8.sink.split.
 if.then31:                                        ; preds = %invoke.cont29
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false)
   %cmp.not.i.i57 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i57, label %cleanup43, label %if.then.i.i
 
@@ -730,7 +730,7 @@ if.end9.i.i.i:                                    ; preds = %if.end8.sink.split.
 invoke.cont41:                                    ; preds = %invoke.cont35, %if.then37, %if.end9.i.i.i
   %state_.i.i91 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i91, align 8, !alias.scope !4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
   %_M_refcount.i.i92 = getelementptr inbounds i8, ptr %new_snapshot, i64 8
   %61 = load ptr, ptr %_M_refcount.i.i92, align 8
   %cmp.not.i.i.i93 = icmp eq ptr %61, null
@@ -1137,7 +1137,7 @@ ehcleanup:                                        ; preds = %lpad26, %lpad23
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEESt14default_deleteIS6_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %ehcleanup
-  call void @_ZNKSt14default_deleteISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEEEclEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %save_points_, ptr noundef nonnull %16)
+  call void @_ZNKSt14default_deleteISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEEEclEPS6_(ptr noundef nonnull align 8 dereferenceable(8) %save_points_, ptr noundef nonnull %16)
   br label %_ZNSt10unique_ptrISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEESt14default_deleteIS6_EED2Ev.exit
 
 _ZNSt10unique_ptrISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %ehcleanup, %if.then.i
@@ -1377,7 +1377,7 @@ _ZNSt10shared_ptrIN7rocksdb19TransactionNotifierEED2Ev.exit: ; preds = %invoke.c
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEESt14default_deleteIS6_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10shared_ptrIN7rocksdb19TransactionNotifierEED2Ev.exit
-  call void @_ZNKSt14default_deleteISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEEEclEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %save_points_, ptr noundef nonnull %23)
+  call void @_ZNKSt14default_deleteISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEEEclEPS6_(ptr noundef nonnull align 8 dereferenceable(8) %save_points_, ptr noundef nonnull %23)
   br label %_ZNSt10unique_ptrISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEESt14default_deleteIS6_EED2Ev.exit
 
 _ZNSt10unique_ptrISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN7rocksdb19TransactionNotifierEED2Ev.exit, %if.then.i
@@ -1616,7 +1616,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEESt14default_deleteIS6_EE5resetEPS6_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZNKSt14default_deleteISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEEEclEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %save_points_, ptr noundef nonnull %0)
+  tail call void @_ZNKSt14default_deleteISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEEEclEPS6_(ptr noundef nonnull align 8 dereferenceable(8) %save_points_, ptr noundef nonnull %0)
   br label %_ZNSt10unique_ptrISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEESt14default_deleteIS6_EE5resetEPS6_.exit
 
 _ZNSt10unique_ptrISt5stackIN7rocksdb19TransactionBaseImpl9SavePointENS1_10autovectorIS3_Lm8EEEESt14default_deleteIS6_EE5resetEPS6_.exit: ; preds = %entry, %if.then.i.i
@@ -3310,7 +3310,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry, %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %read_options, ptr noundef nonnull align 8 dereferenceable(120) %_read_options, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(154) %_read_options, i64 120, i1 false)
   %table_filter.i = getelementptr inbounds i8, ptr %read_options, i64 120
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %read_options, i64 136
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %read_options, i64 144
@@ -3322,7 +3322,7 @@ if.end:                                           ; preds = %entry, %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %table_filter3.i = getelementptr inbounds i8, ptr %_read_options, i64 120
-  %call3.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter3.i, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
@@ -3341,7 +3341,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br i1 %tobool.not.i.i.i, label %common.resume, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -3384,7 +3384,7 @@ lpad:                                             ; preds = %if.end9
   br i1 %tobool.not.i.i.i5, label %common.resume, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %lpad
-  %call.i.i.i8 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i8 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i9
 
 terminate.lpad.i.i.i9:                            ; preds = %if.then.i.i.i6
@@ -3400,7 +3400,7 @@ nrvo.skipdtor:                                    ; preds = %if.end9
   br i1 %tobool.not.i.i.i11, label %return, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %nrvo.skipdtor
-  %call.i.i.i14 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i14 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %return unwind label %terminate.lpad.i.i.i15
 
 terminate.lpad.i.i.i15:                           ; preds = %if.then.i.i.i12
@@ -3510,7 +3510,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry, %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %read_options, ptr noundef nonnull align 8 dereferenceable(120) %_read_options, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(154) %_read_options, i64 120, i1 false)
   %table_filter.i = getelementptr inbounds i8, ptr %read_options, i64 120
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %read_options, i64 136
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %read_options, i64 144
@@ -3522,7 +3522,7 @@ if.end:                                           ; preds = %entry, %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %table_filter3.i = getelementptr inbounds i8, ptr %_read_options, i64 120
-  %call3.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter3.i, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
@@ -3541,7 +3541,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br i1 %tobool.not.i.i.i, label %common.resume, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -3582,7 +3582,7 @@ invoke.cont:                                      ; preds = %if.end9
   br i1 %tobool.not.i.i.i5, label %return, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %invoke.cont
-  %call.i.i.i8 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i8 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %return unwind label %terminate.lpad.i.i.i9
 
 terminate.lpad.i.i.i9:                            ; preds = %if.then.i.i.i6
@@ -3600,7 +3600,7 @@ lpad:                                             ; preds = %if.end9
   br i1 %tobool.not.i.i.i11, label %common.resume, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %lpad
-  %call.i.i.i14 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i14 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i15
 
 terminate.lpad.i.i.i15:                           ; preds = %if.then.i.i.i12
@@ -3985,7 +3985,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %sub.ptr.div.i, %_ZNSt12_Vector_baseIN7rocksdb6StatusESaIS1_EEC2EmRKS2_.exit.i ]
   %state_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store ptr null, ptr %state_.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.08.i.i.i.i.i, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, i8 0, i64 6, i1 false)
   %dec.i.i.i.i.i = add i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
@@ -4121,7 +4121,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %nrvo.skipdtor
 
 if.end:                                           ; preds = %invoke.cont, %invoke.cont
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %read_options, ptr noundef nonnull align 8 dereferenceable(120) %_read_options, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(154) %_read_options, i64 120, i1 false)
   %table_filter.i = getelementptr inbounds i8, ptr %read_options, i64 120
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %read_options, i64 136
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %read_options, i64 144
@@ -4133,7 +4133,7 @@ if.end:                                           ; preds = %invoke.cont, %invok
 
 if.then.i.i28:                                    ; preds = %if.end
   %table_filter3.i = getelementptr inbounds i8, ptr %_read_options, i64 120
-  %call3.i.i = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter3.i, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i28
@@ -4152,7 +4152,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i28
   br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -4316,7 +4316,7 @@ lpad21:                                           ; preds = %lpad21.loopexit.spl
   br i1 %tobool.not.i.i.i54, label %ehcleanup, label %if.then.i.i.i55
 
 if.then.i.i.i55:                                  ; preds = %lpad21
-  %call.i.i.i57 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i57 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i58
 
 terminate.lpad.i.i.i58:                           ; preds = %if.then.i.i.i55
@@ -4332,7 +4332,7 @@ for.end36:                                        ; preds = %_ZN7rocksdb6StatusD
   br i1 %tobool.not.i.i.i60, label %nrvo.skipdtor, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %for.end36
-  %call.i.i.i63 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i63 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %nrvo.skipdtor unwind label %terminate.lpad.i.i.i64
 
 terminate.lpad.i.i.i64:                           ; preds = %if.then.i.i.i61
@@ -4523,7 +4523,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %return
 
 if.end10:                                         ; preds = %entry, %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %read_options, ptr noundef nonnull align 8 dereferenceable(120) %_read_options, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(154) %_read_options, i64 120, i1 false)
   %table_filter.i = getelementptr inbounds i8, ptr %read_options, i64 120
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %read_options, i64 136
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %read_options, i64 144
@@ -4535,7 +4535,7 @@ if.end10:                                         ; preds = %entry, %entry
 
 if.then.i.i:                                      ; preds = %if.end10
   %table_filter3.i = getelementptr inbounds i8, ptr %_read_options, i64 120
-  %call3.i.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter3.i, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
@@ -4554,7 +4554,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br i1 %tobool.not.i.i.i, label %common.resume, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -4595,7 +4595,7 @@ invoke.cont17:                                    ; preds = %if.end15
   br i1 %tobool.not.i.i.i19, label %return, label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %invoke.cont17
-  %call.i.i.i22 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i22 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %return unwind label %terminate.lpad.i.i.i23
 
 terminate.lpad.i.i.i23:                           ; preds = %if.then.i.i.i20
@@ -4616,7 +4616,7 @@ lpad16:                                           ; preds = %if.end15
   br i1 %tobool.not.i.i.i25, label %common.resume, label %if.then.i.i.i26
 
 if.then.i.i.i26:                                  ; preds = %lpad16
-  %call.i.i.i28 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i28 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i29
 
 terminate.lpad.i.i.i29:                           ; preds = %if.then.i.i.i26
@@ -4889,7 +4889,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %sub.ptr.div.i, %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59 ]
   %state_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store ptr null, ptr %state_.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.08.i.i.i.i.i, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, i8 0, i64 6, i1 false)
   %dec.i.i.i.i.i = add i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i65 = icmp eq i64 %dec.i.i.i.i.i, 0
@@ -6896,13 +6896,13 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %copycat) #23
+  call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %copycat) #23
   ret void
 
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %copycat) #23
+  call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %copycat) #23
   resume { ptr, i32 } %1
 }
 
@@ -8227,7 +8227,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  tail call void @_ZNSt15__new_allocatorIN7rocksdb19TransactionBaseImpl9SavePointEE9constructIS2_JRSt10shared_ptrIKNS0_8SnapshotEERbRS5_INS0_19TransactionNotifierEERmSE_SE_RKNS0_18LockTrackerFactoryEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %vect_, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(16) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 8 dereferenceable(16) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5, ptr noundef nonnull align 8 dereferenceable(8) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9, ptr noundef nonnull align 8 dereferenceable(8) %args11)
+  tail call void @_ZNSt15__new_allocatorIN7rocksdb19TransactionBaseImpl9SavePointEE9constructIS2_JRSt10shared_ptrIKNS0_8SnapshotEERbRS5_INS0_19TransactionNotifierEERmSE_SE_RKNS0_18LockTrackerFactoryEEEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %vect_, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(16) %args, ptr noundef nonnull align 1 dereferenceable(1) %args1, ptr noundef nonnull align 8 dereferenceable(16) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5, ptr noundef nonnull align 8 dereferenceable(8) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9, ptr noundef nonnull align 8 dereferenceable(8) %args11)
   %41 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %41, i64 80
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
@@ -8862,7 +8862,7 @@ declare void @_ZN7rocksdb6Status9CopyStateEPKc(ptr sret(%"class.std::unique_ptr"
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN7rocksdb19TransactionBaseImpl21RebuildFromWriteBatchEPNS_10WriteBatchEEN24IndexedWriteBatchBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #23
+  tail call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }

@@ -839,7 +839,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp.i.i.i.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
-  tail call void @_ZN6hermes13platform_intl22ParsedLocaleIdentifierC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this)
+  tail call void @_ZN6hermes13platform_intl22ParsedLocaleIdentifierC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(520) %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this)
   br label %return
 
 return:                                           ; preds = %if.end4, %if.end, %entry, %if.end7
@@ -3483,7 +3483,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp.i.i.i.not.i, label %if.end7.i, label %_ZN6hermes13platform_intl17LanguageTagParser20parseUnicodeLocaleIdEv.exit
 
 if.end7.i:                                        ; preds = %if.end4.i
-  call void @_ZN6hermes13platform_intl22ParsedLocaleIdentifierC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %parser)
+  call void @_ZN6hermes13platform_intl22ParsedLocaleIdentifierC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(520) %agg.result, ptr noundef nonnull align 8 dereferenceable(536) %parser)
   br label %_ZN6hermes13platform_intl17LanguageTagParser20parseUnicodeLocaleIdEv.exit
 
 _ZN6hermes13platform_intl17LanguageTagParser20parseUnicodeLocaleIdEv.exit: ; preds = %entry, %if.end.i, %if.end4.i, %if.end7.i
@@ -3534,7 +3534,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPNSt7
   br label %_ZN6hermes13platform_intl17LanguageTagParserD2Ev.exit
 
 _ZN6hermes13platform_intl17LanguageTagParserD2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_EvT_S7_RSaIT0_E.exit.i.i, %if.then.i.i.i.i
-  call void @_ZN6hermes13platform_intl22ParsedLocaleIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %parser) #14
+  call void @_ZN6hermes13platform_intl22ParsedLocaleIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %parser) #14
   ret void
 }
 
@@ -7478,7 +7478,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit.loopexit, %if.then, %if.then.i.i.i.i
   %22 = phi i1 [ true, %if.then ], [ %21, %if.then.i.i.i.i ], [ %cmp.i.i.i.i.i.i15, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit.loopexit ]
   %call.i.i22 = tail call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_create_nodeIJS8_EEEPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(64) %__v)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %22, ptr noundef %call.i.i22, ptr noundef %retval.sroa.4.0.i45, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #14
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %22, ptr noundef %call.i.i22, ptr noundef nonnull %retval.sroa.4.0.i45, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #14
   %_M_node_count.i = getelementptr inbounds i8, ptr %this, i64 40
   %23 = load i64, ptr %_M_node_count.i, align 8
   %inc.i = add i64 %23, 1

@@ -4120,7 +4120,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %291, %289
 
 321:                                              ; preds = %317
   %322 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull align 8 dereferenceable(16) %312, i32 noundef %322, ptr noundef %158)
+  call void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull align 8 dereferenceable(16) %312, i32 noundef %322, ptr noundef nonnull %158)
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
 323:                                              ; preds = %317

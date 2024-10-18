@@ -4649,11 +4649,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef range(i32 1, 3001) %conv) #18
   br label %trace_console_refresh.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %conv) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef range(i32 1, 3001) %conv) #18
   br label %trace_console_refresh.exit
 
 trace_console_refresh.exit:                       ; preds = %if.then6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

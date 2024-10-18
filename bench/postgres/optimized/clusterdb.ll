@@ -252,7 +252,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.020.us.i = phi i32 [ %70, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %69 = call ptr @PQgetvalue(ptr noundef %66, i32 noundef %.020.us.i, i32 noundef 0) #8
   store ptr %69, ptr %56, align 8
-  call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
+  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
   %70 = add nuw nsw i32 %.020.us.i, 1
   %71 = call i32 @PQntuples(ptr noundef %66) #8
   %72 = icmp slt i32 %70, %71
@@ -265,7 +265,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %75 = load ptr, ptr @stdout, align 8
   %76 = call i32 @fflush(ptr noundef %75)
   store ptr %73, ptr %56, align 8
-  call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
+  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
   %77 = add nuw nsw i32 %.020.i, 1
   %78 = call i32 @PQntuples(ptr noundef %66) #8
   %79 = icmp slt i32 %77, %78

@@ -87,7 +87,7 @@ if.then.i:                                        ; preds = %entry
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call fastcc i32 @asn1_item_embed_d2i(ptr noundef %spec.store.select, ptr noundef %in, i64 noundef %len, ptr noundef nonnull %it, i32 noundef -1, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull %c, i32 noundef 0, ptr noundef %libctx, ptr noundef %propq)
+  %call.i = call fastcc i32 @asn1_item_embed_d2i(ptr noundef nonnull %spec.store.select, ptr noundef %in, i64 noundef %len, ptr noundef nonnull %it, i32 noundef -1, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull %c, i32 noundef 0, ptr noundef %libctx, ptr noundef %propq)
   %cmp2.i = icmp slt i32 %call.i, 1
   br i1 %cmp2.i, label %if.then3.i, label %if.then2
 
@@ -125,7 +125,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %ASN1_item_d2i_ex.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = call fastcc i32 @asn1_item_embed_d2i(ptr noundef %spec.store.select.i, ptr noundef %in, i64 noundef %len, ptr noundef nonnull %it, i32 noundef -1, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull %c.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i.i = call fastcc i32 @asn1_item_embed_d2i(ptr noundef nonnull %spec.store.select.i, ptr noundef %in, i64 noundef %len, ptr noundef nonnull %it, i32 noundef -1, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull %c.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   %cmp2.i.i = icmp slt i32 %call.i.i, 1
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.then2.i
 
@@ -2105,7 +2105,7 @@ collect_data.exit:                                ; preds = %land.lhs.true25
   %10 = load ptr, ptr %data.i, align 8
   %add.ptr.i16 = getelementptr inbounds i8, ptr %10, i64 %conv1.i
   %11 = load ptr, ptr %p, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i16, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i16, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 range(i64 1, 0) %8, i1 false)
   %add.ptr5.i = getelementptr inbounds i8, ptr %11, i64 %8
   store ptr %add.ptr5.i, ptr %p, align 8
   br label %if.end30

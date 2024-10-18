@@ -62,7 +62,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 0, i64 24, i1 false)
   store i32 -1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 84
   store i32 -1, ptr %8, align 4

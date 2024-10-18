@@ -1533,7 +1533,7 @@ readNumber.exit104.i:                             ; preds = %._crit_edge.i94.i, 
   store i64 %.032.i96.i, ptr %100, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   store i32 0, ptr %19, align 4
-  %101 = call fastcc ptr @readData(ptr noundef nonnull readonly %23, ptr noundef %21, i32 noundef %37, ptr noundef %20, ptr noundef %19)
+  %101 = call fastcc ptr @readData(ptr noundef nonnull readonly %23, ptr noundef nonnull %21, i32 noundef %37, ptr noundef nonnull %20, ptr noundef %19)
   %102 = load i8, ptr %20, align 1
   %103 = trunc i8 %102 to i1
   %104 = load i32, ptr %19, align 4
@@ -1992,7 +1992,7 @@ readNumber.exit165.i:                             ; preds = %._crit_edge.i155.i,
   store i32 %.032.i157.i, ptr %284, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   store i32 0, ptr %18, align 4
-  %285 = call fastcc ptr @readData(ptr noundef nonnull readonly %23, ptr noundef %21, i32 noundef %37, ptr noundef %20, ptr noundef %18)
+  %285 = call fastcc ptr @readData(ptr noundef nonnull readonly %23, ptr noundef nonnull %21, i32 noundef %37, ptr noundef nonnull %20, ptr noundef %18)
   %286 = load i8, ptr %20, align 1
   %287 = trunc i8 %286 to i1
   %288 = load i32, ptr %18, align 4
@@ -2358,7 +2358,7 @@ readNumber.exit193.i:                             ; preds = %._crit_edge.i183.lo
 445:                                              ; preds = %442
   %446 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %420, i32 noundef 59) #27
   %.not.i138 = icmp eq ptr %446, null
-  %447 = call ptr @cli_safer_strdup(ptr noundef %420) #25
+  %447 = call ptr @cli_safer_strdup(ptr noundef nonnull %420) #25
   br i1 %.not.i138, label %449, label %448
 
 448:                                              ; preds = %445
@@ -3247,7 +3247,7 @@ readTypeID.exit.i160:                             ; preds = %813, %812
   %.0.i.i161 = phi i16 [ -1, %812 ], [ %814, %813 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %13, align 4
-  %815 = call fastcc ptr @readData(ptr noundef nonnull readonly %420, ptr noundef %14, i32 noundef %679, ptr noundef %15, ptr noundef %13)
+  %815 = call fastcc ptr @readData(ptr noundef nonnull readonly %420, ptr noundef nonnull %14, i32 noundef %679, ptr noundef nonnull %15, ptr noundef %13)
   %816 = load i8, ptr %15, align 1
   %817 = trunc i8 %816 to i1
   %818 = load i32, ptr %13, align 4
@@ -3688,7 +3688,7 @@ readTypeID.exit.i193:                             ; preds = %962, %961
   br i1 %exitcond.not.i67.i, label %998, label %999
 
 998:                                              ; preds = %.lr.ph1053
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.314, i32 noundef %970) #25
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.314, i32 noundef range(i32 0, 65536) %970) #25
   store i8 0, ptr %12, align 1
   br label %readConstant.exit.i
 
@@ -3789,7 +3789,7 @@ readNumber.exit.i71.i:                            ; preds = %1021, %.readNumber.
   br i1 %.not33.i.i, label %.critedge.thread.i.i, label %1038
 
 1038:                                             ; preds = %.critedge.i.i
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.315, i32 noundef %indvars.iv49.i.i.lcssa, i32 noundef %970) #25
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.315, i32 noundef %indvars.iv49.i.i.lcssa, i32 noundef range(i32 0, 65536) %970) #25
   store i8 0, ptr %12, align 1
   br label %.critedge.thread.i.i
 

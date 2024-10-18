@@ -520,7 +520,7 @@ define hidden void @_ZNK18WeakProcessorTimes11log_summaryEN13OopStorageSet6WeakI
   %4 = alloca %class.LogStream, align 8
   %5 = alloca %class.LogStream, align 8
   %6 = alloca %class.LogStream, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #13
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #13
@@ -551,7 +551,7 @@ define hidden void @_ZNK18WeakProcessorTimes11log_summaryEN13OopStorageSet6WeakI
   br label %_ZNK18WeakProcessorTimes11log_detailsIdEEvP15WorkerDataArrayIT_Ej.exit
 
 20:                                               ; preds = %3
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #13
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %21) #13
@@ -564,7 +564,7 @@ define hidden void @_ZNK18WeakProcessorTimes11log_summaryEN13OopStorageSet6WeakI
   %24 = getelementptr inbounds [5 x ptr], ptr @_ZL7indents, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.5, ptr noundef %25) #13
-  call void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull %17, ptr noundef nonnull %5) #13
+  call void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull align 8 dereferenceable(112) %17, ptr noundef nonnull %5) #13
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %5) #13
   br label %_ZNK18WeakProcessorTimes11log_detailsIdEEvP15WorkerDataArrayIT_Ej.exit
 
@@ -596,14 +596,14 @@ _ZNK18WeakProcessorTimes11log_detailsIdEEvP15WorkerDataArrayIT_Ej.exit: ; preds 
   br i1 %.not.i15, label %_ZNK18WeakProcessorTimes11log_detailsImEEvP15WorkerDataArrayIT_Ej.exit, label %37
 
 37:                                               ; preds = %34
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #13
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %27) #13
   store i32 1, ptr %28, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i16, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.5, ptr noundef %35) #13
-  call void @_ZN15WorkerDataArrayImE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull %33, ptr noundef nonnull %4) #13
+  call void @_ZN15WorkerDataArrayImE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull align 8 dereferenceable(112) %33, ptr noundef nonnull %4) #13
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #13
   br label %_ZNK18WeakProcessorTimes11log_detailsImEEvP15WorkerDataArrayIT_Ej.exit
 

@@ -287,7 +287,7 @@ if.then.i:                                        ; preds = %if.then
 if.end.i:                                         ; preds = %if.then
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !32
-  %call4.i28 = invoke noundef double %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %f)
+  %call4.i28 = invoke noundef double %13(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %f)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i, %if.then.i
@@ -590,7 +590,7 @@ if.then.i70:                                      ; preds = %for.cond.cleanup
 if.end.i68:                                       ; preds = %for.cond.cleanup
   %_M_invoker.i69 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %_M_invoker.i69, align 8, !tbaa !32
-  %call4.i72 = invoke noundef double %53(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %g)
+  %call4.i72 = invoke noundef double %53(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %g)
           to label %invoke.cont82 unwind label %lpad81
 
 lpad17:                                           ; preds = %if.end

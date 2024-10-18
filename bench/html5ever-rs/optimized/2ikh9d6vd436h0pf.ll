@@ -40,7 +40,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i"
 
 17:                                               ; preds = %13
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %15, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6ae7258ebf4289f4c9be1426e6622b8.1) #3, !noalias !18
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %15, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6ae7258ebf4289f4c9be1426e6622b8.1) #3, !noalias !18
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i": ; preds = %13
@@ -101,7 +101,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i"
 
 17:                                               ; preds = %13
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %15, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6ae7258ebf4289f4c9be1426e6622b8.1) #3, !noalias !32
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %15, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6ae7258ebf4289f4c9be1426e6622b8.1) #3, !noalias !32
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i": ; preds = %13

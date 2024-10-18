@@ -832,7 +832,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL15heap_inspectionP15AttachOpera
   br label %56
 
 56:                                               ; preds = %50, %52, %39
-  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #8
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
   br label %57
 
 57:                                               ; preds = %29, %31, %56, %14

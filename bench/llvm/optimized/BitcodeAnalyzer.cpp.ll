@@ -931,7 +931,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %42
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21, !noalias !14
   %47 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #21, !noalias !14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %5) #21, !noalias !14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %5) #21, !noalias !14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.81, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.81, i64 16)), !noalias !14
   call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 84, ptr nonnull %46) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -1057,7 +1057,7 @@ define dso_local void @_ZN4llvm15BitcodeAnalyzerC2ENS_9StringRefESt8optionalIS1_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 8) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %9, ptr noundef nonnull %10, i64 noundef 8) #21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store i8 0, ptr %12, align 8
@@ -1095,7 +1095,7 @@ _ZNSt8optionalIN4llvm15BitstreamCursorEE7emplaceIJRNS0_9StringRefEEEENSt9enable_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %28 = getelementptr inbounds i8, ptr %0, i64 456
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %28, i64 noundef 8) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %27, ptr noundef nonnull %28, i64 noundef 8) #21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store ptr null, ptr %29, align 8
   store i8 1, ptr %12, align 8
@@ -1206,7 +1206,7 @@ _ZN4llvm5ErrorD2Ev.exit37:                        ; preds = %_ZN4llvm8ExpectedIN
 _ZN4llvm15BitstreamCursor8ReadCodeEv.exit:        ; preds = %47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %54 = load i32, ptr %37, align 4, !noalias !30
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %6, ptr noundef nonnull align 8 dereferenceable(36) %8, i32 noundef %54), !noalias !30
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %6, ptr noundef nonnull align 8 dereferenceable(344) %8, i32 noundef %54), !noalias !30
   %55 = load i8, ptr %38, align 8, !noalias !30
   %56 = trunc i8 %55 to i1
   %57 = load i64, ptr %6, align 8, !noalias !30
@@ -1229,7 +1229,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit.thread129:          ; preds = %59
   br label %.critedge
 
 61:                                               ; preds = %59
-  call void @_ZN4llvm21SimpleBitstreamCursor7ReadVBREj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %10, ptr noundef nonnull align 8 dereferenceable(36) %8, i32 noundef 8)
+  call void @_ZN4llvm21SimpleBitstreamCursor7ReadVBREj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %10, ptr noundef nonnull align 8 dereferenceable(344) %8, i32 noundef 8)
   %62 = load i8, ptr %39, align 8
   %63 = trunc i8 %62 to i1
   br i1 %63, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i42, label %66
@@ -1276,7 +1276,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i42: ;
   %84 = load ptr, ptr %46, align 8, !noalias !39
   store ptr %84, ptr %45, align 8, !noalias !39
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %79, %80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !noalias !39
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %12, i8 0, i64 24, i1 false), !noalias !39
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %78, %.lr.ph.i.i.i.i.i.i.i.i
@@ -1307,7 +1307,7 @@ _ZSt8_DestroyIPN4llvm18BitstreamBlockInfo9BlockInfoES2_EvT_S4_RSaIT0_E.exit.i.i.
   store ptr %92, ptr %43, align 8, !noalias !39
   %93 = load ptr, ptr %46, align 8, !noalias !39
   store ptr %93, ptr %45, align 8, !noalias !39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !noalias !39
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %12, i8 0, i64 24, i1 false), !noalias !39
   store i8 1, ptr %40, align 8, !noalias !39
   br label %_ZNSt22_Optional_payload_baseIN4llvm18BitstreamBlockInfoEE14_M_move_assignEOS2_.exit
 
@@ -1518,7 +1518,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit59:                  ; preds = %_ZNSt8optionalIN4ll
 _ZN4llvm15BitstreamCursor8ReadCodeEv.exit62:      ; preds = %157
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %164 = load i32, ptr %153, align 4, !noalias !48
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %164), !noalias !48
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %5, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef %164), !noalias !48
   %165 = load i8, ptr %154, align 8, !noalias !48
   %166 = trunc i8 %165 to i1
   %167 = load i64, ptr %5, align 8, !noalias !48
@@ -1536,7 +1536,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit77.thread144:        ; preds = %168
   br label %.loopexit
 
 170:                                              ; preds = %168
-  call void @_ZN4llvm21SimpleBitstreamCursor7ReadVBREj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %13, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8)
+  call void @_ZN4llvm21SimpleBitstreamCursor7ReadVBREj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %13, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8)
   %171 = load i8, ptr %155, align 8
   %172 = trunc i8 %171 to i1
   br i1 %172, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i67, label %175
@@ -1965,24 +1965,24 @@ _ZN4llvm16isBitcodeWrapperEPKhS1_.exit.thread:    ; preds = %2, %24, %27, %31, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %199, i8 0, i64 24, i1 false)
   %200 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %201 = getelementptr inbounds i8, ptr %22, i64 80
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull %201, i64 noundef 8) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %200, ptr noundef nonnull %201, i64 noundef 8) #21
   %202 = getelementptr inbounds nuw i8, ptr %22, i64 336
   store ptr null, ptr %202, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %22, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(344) %22, i64 36, i1 false)
   %203 = load i32, ptr %198, align 4
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %203, ptr %204, align 4
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE14_M_move_assignEOS5_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %205, ptr noundef nonnull align 8 dereferenceable(24) %199) #21
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %207 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_15BitstreamCursor5BlockEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef nonnull align 8 dereferenceable(16) %200)
+  %207 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_15BitstreamCursor5BlockEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(272) %206, ptr noundef nonnull align 8 dereferenceable(272) %200)
   %208 = load ptr, ptr %202, align 8
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store ptr %208, ptr %209, align 8
   call void @_ZN4llvm15BitstreamCursorD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %22) #21
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %14, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !81
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %14, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8), !noalias !81
   %210 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %211 = load i8, ptr %210, align 8, !noalias !81
   %212 = trunc i8 %211 to i1
@@ -2011,7 +2011,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %"_ZZL13ReadSignatur
 219:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.thread.i"
   %.sroa.0182.0194.ph.i = phi i8 [ %214, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %13, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !87
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %13, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8), !noalias !87
   %220 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %221 = load i8, ptr %220, align 8, !noalias !87
   %222 = trunc i8 %221 to i1
@@ -2042,7 +2042,7 @@ _ZN4llvm5ErrorD2Ev.exit92.i:                      ; preds = %"_ZZL13ReadSignatur
 
 232:                                              ; preds = %228
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %12, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !93
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %12, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8), !noalias !93
   %233 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %234 = load i8, ptr %233, align 8, !noalias !93
   %235 = trunc i8 %234 to i1
@@ -2071,7 +2071,7 @@ _ZN4llvm5ErrorD2Ev.exit97.i:                      ; preds = %"_ZZL13ReadSignatur
 243:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.thread.i"
   %.sroa.6.0211.ph.i = phi i1 [ %238, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %11, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !99
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %11, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8), !noalias !99
   %244 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %245 = load i8, ptr %244, align 8, !noalias !99
   %246 = trunc i8 %245 to i1
@@ -2114,7 +2114,7 @@ _ZN4llvm5ErrorD2Ev.exit102.i:                     ; preds = %"_ZZL13ReadSignatur
 
 262:                                              ; preds = %259
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %10, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !105
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %10, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8), !noalias !105
   %263 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %264 = load i8, ptr %263, align 8, !noalias !105
   %265 = trunc i8 %264 to i1
@@ -2143,7 +2143,7 @@ _ZN4llvm5ErrorD2Ev.exit107.i:                     ; preds = %"_ZZL13ReadSignatur
 273:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.thread.i"
   %.sroa.6.1232.ph.i = phi i1 [ %268, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %9, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !111
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %9, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8), !noalias !111
   %274 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %275 = load i8, ptr %274, align 8, !noalias !111
   %276 = trunc i8 %275 to i1
@@ -2186,7 +2186,7 @@ _ZN4llvm5ErrorD2Ev.exit112.i:                     ; preds = %"_ZZL13ReadSignatur
 
 292:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !117
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %8, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8), !noalias !117
   %293 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %294 = load i8, ptr %293, align 8, !noalias !117
   %295 = trunc i8 %294 to i1
@@ -2215,7 +2215,7 @@ _ZN4llvm5ErrorD2Ev.exit117.i:                     ; preds = %"_ZZL13ReadSignatur
 303:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.thread.i"
   %.sroa.6.2253.ph.i = phi i1 [ %298, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %7, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !123
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %7, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8), !noalias !123
   %304 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %305 = load i8, ptr %304, align 8, !noalias !123
   %306 = trunc i8 %305 to i1
@@ -2253,7 +2253,7 @@ _ZN4llvm5ErrorD2Ev.exit122.i:                     ; preds = %"_ZZL13ReadSignatur
 .thread247.i:                                     ; preds = %289, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit91.i"
   %.sroa.3.0201.ph208229250.i = phi i8 [ %229, %289 ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit91.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %6, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 4), !noalias !129
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %6, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 4), !noalias !129
   %319 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %320 = load i8, ptr %319, align 8, !noalias !129
   %321 = trunc i8 %320 to i1
@@ -2282,7 +2282,7 @@ _ZN4llvm5ErrorD2Ev.exit127.i:                     ; preds = %"_ZZL13ReadSignatur
 329:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.thread.i"
   %.sroa.6.3270.ph.i = phi i1 [ %324, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 4), !noalias !135
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %5, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 4), !noalias !135
   %330 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %331 = load i8, ptr %330, align 8, !noalias !135
   %332 = trunc i8 %331 to i1
@@ -2311,7 +2311,7 @@ _ZN4llvm5ErrorD2Ev.exit132.i:                     ; preds = %"_ZZL13ReadSignatur
 340:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.thread.i"
   %.sroa.14.3277.ph.i = phi i1 [ %335, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %4, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 4), !noalias !141
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 4), !noalias !141
   %341 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %342 = load i8, ptr %341, align 8, !noalias !141
   %343 = trunc i8 %342 to i1
@@ -2340,7 +2340,7 @@ _ZN4llvm5ErrorD2Ev.exit137.i:                     ; preds = %"_ZZL13ReadSignatur
 351:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.thread.i"
   %.sroa.22.0284.ph.i = phi i1 [ %346, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !78
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %3, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 4), !noalias !147
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %3, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 4), !noalias !147
   %352 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %353 = load i8, ptr %352, align 8, !noalias !147
   %354 = trunc i8 %353 to i1
@@ -2482,12 +2482,12 @@ _ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EEC2ERKS5_.exit: ; pred
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %41 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %41, i64 noundef 8) #21
-  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %39, ptr noundef nonnull %41, i64 noundef 8) #21
+  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(272) %40) #21
   br i1 %42, label %_ZN4llvm11SmallVectorINS_15BitstreamCursor5BlockELj8EEC2ERKS3_.exit, label %43
 
 43:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EEC2ERKS5_.exit
-  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_15BitstreamCursor5BlockEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %40)
+  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_15BitstreamCursor5BlockEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(272) %39, ptr noundef nonnull align 8 dereferenceable(272) %40)
   br label %_ZN4llvm11SmallVectorINS_15BitstreamCursor5BlockELj8EEC2ERKS3_.exit
 
 _ZN4llvm11SmallVectorINS_15BitstreamCursor5BlockELj8EEC2ERKS3_.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EEC2ERKS5_.exit, %43
@@ -2618,7 +2618,7 @@ _ZN4llvm8ExpectedIjE9takeErrorEv.exit12:          ; preds = %_ZN4llvm21SimpleBit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #21, !noalias !160
   %47 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21, !noalias !160
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %4) #21, !noalias !160
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %4) #21, !noalias !160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 42)), !noalias !160
   call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 84, ptr nonnull %46) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
@@ -2651,7 +2651,7 @@ _ZN4llvm8ExpectedIjE9takeErrorEv.exit12:          ; preds = %_ZN4llvm21SimpleBit
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8, !noalias !169
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %7, ptr %56, align 8, !noalias !169
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #21, !noalias !169
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #21, !noalias !169
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @.str.93, ptr %57, align 8, !alias.scope !170, !noalias !169
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmEEE, i64 16), ptr %9, align 8, !alias.scope !170, !noalias !169
@@ -2659,8 +2659,8 @@ _ZN4llvm8ExpectedIjE9takeErrorEv.exit12:          ; preds = %_ZN4llvm21SimpleBit
   store i64 %37, ptr %58, align 8, !alias.scope !170, !noalias !169
   %59 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 %39, ptr %59, align 8, !alias.scope !170, !noalias !169
-  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(16) %9) #21, !noalias !169
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #21, !noalias !169
+  %60 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #21, !noalias !169
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #21, !noalias !169
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !176
   %61 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !177
@@ -2720,7 +2720,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit16:                  ; preds = %_ZN4llvm8ExpectedIj
 define linkonce_odr hidden void @_ZN4llvm15BitstreamCursorD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(272) %2) #21
   %5 = getelementptr inbounds %"struct.llvm::BitstreamCursor::Block", ptr %3, i64 %4
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_15BitstreamCursor5BlockELb0EE13destroy_rangeEPS2_S4_(ptr noundef %3, ptr noundef %5)
   %6 = load ptr, ptr %2, align 8
@@ -2869,7 +2869,7 @@ define dso_local void @_ZN4llvm15BitcodeAnalyzer10parseBlockEjjSt8optionalINS_13
   %28 = zext i32 %27 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #21
   %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %13) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %13) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %28, i8 noundef signext 32) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #21
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2988,7 +2988,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %78, %76, %59, %58
   %90 = load ptr, ptr %89, align 8, !noalias !188
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %92 = load ptr, ptr %91, align 8, !noalias !188
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !noalias !188
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %14, i8 0, i64 24, i1 false), !noalias !188
   store ptr null, ptr %0, align 8, !alias.scope !191
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %94 = load i8, ptr %93, align 8
@@ -3468,7 +3468,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit208:              ; preds = %295, %293, %_ZN4llv
   %.sroa.0386.0 = phi ptr [ undef, %_ZN4llvm5ErrorD2Ev.exit179 ], [ %.sroa.0.0.i409436, %293 ], [ %.sroa.0.0.i409436, %295 ]
   %.sroa.3.0 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit179 ], [ %.sroa.21.0.i411434, %293 ], [ %.sroa.21.0.i411434, %295 ]
   %298 = getelementptr inbounds i8, ptr %16, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %298, i64 noundef 64) #21
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %16, ptr noundef nonnull %298, i64 noundef 64) #21
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %300 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %301 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 60
@@ -4275,7 +4275,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit279:              ; preds = %._crit_edge
   br i1 %.not145, label %._crit_edge512, label %.lr.ph511
 
 ._crit_edge512:                                   ; preds = %.lr.ph511, %714
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %22, ptr noundef nonnull dereferenceable(20) %24, i64 20)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 1 dereferenceable(20) %22, ptr noundef nonnull align 1 dereferenceable(20) %24, i64 20)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %728 = load ptr, ptr %4, align 8
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 24
@@ -4346,7 +4346,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit307:              ; preds = %759, %761
   br i1 %.not146, label %.loopexit, label %764
 
 764:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit307
-  %765 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0133) #21
+  %765 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %.0133) #21
   %766 = trunc i64 %765 to i32
   %.not147513 = icmp eq i32 %766, 1
   br i1 %.not147513, label %.loopexit, label %.lr.ph516
@@ -4699,7 +4699,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i352: 
   br label %.critedge157, !llvm.loop !206
 
 .critedge157:                                     ; preds = %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit345, %823, %_ZN4llvm8ExpectedIjED2Ev.exit231, %_ZN4llvm8ExpectedIPKNS_13BitCodeAbbrevEED2Ev.exit, %374, %395, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i352, %_ZN4llvm12ErrorSuccessD2Ev.exit, %336, %_ZN4llvm8ExpectedIjED2Ev.exit.outer471._crit_edge
-  %937 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
+  %937 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %16) #21
   %938 = load ptr, ptr %16, align 8
   %939 = icmp eq ptr %938, %298
   br i1 %939, label %.critedge155, label %940
@@ -7345,7 +7345,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit23:                  ; preds = %67, %3
 _ZN4llvm15BitstreamCursor8ReadCodeEv.exit:        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %27 = load i32, ptr %10, align 4, !noalias !261
-  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %4, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %27), !noalias !261
+  call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef %27), !noalias !261
   %28 = load i8, ptr %11, align 8, !noalias !261
   %29 = trunc i8 %28 to i1
   %30 = load i64, ptr %4, align 8, !noalias !261
@@ -7408,7 +7408,7 @@ _ZN4llvm15BitstreamCursor12ReadBlockEndEv.exit:   ; preds = %35, %38
   br label %.loopexit
 
 56:                                               ; preds = %31
-  call void @_ZN4llvm21SimpleBitstreamCursor7ReadVBREj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8)
+  call void @_ZN4llvm21SimpleBitstreamCursor7ReadVBREj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %5, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8)
   %57 = load i8, ptr %14, align 8
   %58 = trunc i8 %57 to i1
   br i1 %58, label %62, label %59
@@ -7498,7 +7498,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21, !noalias !276
   %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #21, !noalias !276
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %5) #21, !noalias !276
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %5) #21, !noalias !276
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.300, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.300, i64 21)), !noalias !276
   call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 84, ptr nonnull %17) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -7555,7 +7555,7 @@ define linkonce_odr hidden void @_ZN4llvm17createStringErrorESt10error_codePKc(p
   %6 = alloca %"class.std::allocator.72", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
   %7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %6) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %6) #21
   %8 = icmp eq ptr %3, null
   br i1 %8, label %9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -7703,7 +7703,7 @@ _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %34
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8, !noalias !288
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %42, align 8, !noalias !288
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #21, !noalias !288
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #21, !noalias !288
   call void @llvm.experimental.noalias.scope.decl(metadata !291)
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.82, ptr %43, align 8, !alias.scope !291, !noalias !288
@@ -7713,8 +7713,8 @@ _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %34
   %45 = getelementptr inbounds i8, ptr %7, i64 20
   %46 = load i32, ptr %9, align 8, !noalias !294
   store i32 %46, ptr %45, align 4, !alias.scope !291, !noalias !288
-  %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #21, !noalias !288
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #21, !noalias !288
+  %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #21, !noalias !288
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #21, !noalias !288
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !295
   %48 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !298
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -7793,7 +7793,7 @@ define linkonce_odr hidden void @_ZN4llvm21SimpleBitstreamCursor11fillCurWordEv(
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !310
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %4, ptr %17, align 8, !noalias !310
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #21, !noalias !310
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #21, !noalias !310
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.83, ptr %18, align 8, !alias.scope !311, !noalias !310
@@ -7803,8 +7803,8 @@ define linkonce_odr hidden void @_ZN4llvm21SimpleBitstreamCursor11fillCurWordEv(
   %20 = getelementptr inbounds i8, ptr %6, i64 24
   %21 = load i64, ptr %7, align 8, !noalias !314
   store i64 %21, ptr %20, align 8, !alias.scope !311, !noalias !310
-  %22 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #21, !noalias !310
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #21, !noalias !310
+  %22 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #21, !noalias !310
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #21, !noalias !310
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !318
   %23 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !319

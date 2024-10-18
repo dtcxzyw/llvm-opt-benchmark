@@ -784,7 +784,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %5, %11
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(85) %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %18 unwind label %16
 
 16:                                               ; preds = %.noexc
@@ -1052,7 +1052,7 @@ define linkonce_odr void @_ZN25PickedPointTreeWidgetItemD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN25PickedPointTreeWidgetItemD0Ev(ptr noundef nonnull align 8 dereferenceable(85) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #29
+  tail call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(85) %0) #29
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   ret void
 }
@@ -1276,7 +1276,7 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %39, %_ZN9QtPrivate8
   store i8 0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %0, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = call noundef ptr @_ZNK11QTreeWidget10itemWidgetEP15QTreeWidgetItemi(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %0, i32 noundef 4)
+  %47 = call noundef ptr @_ZNK11QTreeWidget10itemWidgetEP15QTreeWidgetItemi(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(85) %0, i32 noundef 4)
   %48 = call noundef ptr @_ZNK11QMetaObject4castEP7QObject(ptr noundef nonnull align 8 dereferenceable(48) @_ZN9QCheckBox16staticMetaObjectE, ptr noundef %47)
   call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %48, i1 noundef zeroext false)
   ret void
@@ -5704,7 +5704,7 @@ define void @_ZN16PickPointsDialogD0Ev(ptr noundef nonnull align 8 dereferenceab
 define void @_ZThn16_N16PickPointsDialogD0Ev(ptr noundef %0) unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16PickPointsDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %2) #29
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(464) %2) #28
   ret void
 }
 
@@ -5756,7 +5756,7 @@ define void @_ZN16PickPointsDialog18addMoveSelectPointEN3vcg6Point3IfEES2_(ptr n
   store i8 1, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %18, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr @_ZNK11QTreeWidget10itemWidgetEP15QTreeWidgetItemi(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %18, i32 noundef 4)
+  %32 = tail call noundef ptr @_ZNK11QTreeWidget10itemWidgetEP15QTreeWidgetItemi(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(85) %18, i32 noundef 4)
   %33 = tail call noundef ptr @_ZNK11QMetaObject4castEP7QObject(ptr noundef nonnull align 8 dereferenceable(48) @_ZN9QCheckBox16staticMetaObjectE, ptr noundef %32)
   tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %33, i1 noundef zeroext true)
   %34 = load ptr, ptr %14, align 8
@@ -5887,7 +5887,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exi
   store i8 1, ptr %74, align 4
   %75 = getelementptr inbounds i8, ptr %73, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = call noundef ptr @_ZNK11QTreeWidget10itemWidgetEP15QTreeWidgetItemi(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull %73, i32 noundef 4)
+  %77 = call noundef ptr @_ZNK11QTreeWidget10itemWidgetEP15QTreeWidgetItemi(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(85) %73, i32 noundef 4)
   %78 = call noundef ptr @_ZNK11QMetaObject4castEP7QObject(ptr noundef nonnull align 8 dereferenceable(48) @_ZN9QCheckBox16staticMetaObjectE, ptr noundef %77)
   call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %78, i1 noundef zeroext true)
   %79 = getelementptr inbounds i8, ptr %0, i64 144
@@ -6073,7 +6073,7 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE9push_backERKS1_.exit: ; preds 
   call void @_ZN11QTreeWidget14setCurrentItemEP15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull %8)
   %53 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #32
   %54 = load ptr, ptr %50, align 8
-  invoke void @_ZN9QCheckBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef %54)
+  invoke void @_ZN9QCheckBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef %54)
           to label %55 unwind label %62
 
 55:                                               ; preds = %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE9push_backERKS1_.exit
@@ -7756,7 +7756,7 @@ define linkonce_odr void @_ZNK3vcg12FaceArityMaxI11CUsedTypesONS_4face7InfoOcfEN
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = getelementptr inbounds i8, ptr %1, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
@@ -7783,7 +7783,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.i:                 ; preds = %23
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i:          ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i, %23, %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
   %.pre = load float, ptr %1, align 4
   %.pre8 = load float, ptr %16, align 4
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit
@@ -7873,7 +7873,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.i5:                ; preds = %68
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i6:         ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i5, %68, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(12) %66, i64 12, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %66, i64 12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(12) %66, i64 12, i1 false)
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit7
 
 79:                                               ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i5
@@ -12137,7 +12137,7 @@ define void @_ZN16PickPointsDialog22renameHighlightedPointEv(ptr noundef nonnull
   %20 = load ptr, ptr %19, align 8, !noalias !66
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !noalias !66
-  call void %22(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %3, ptr noundef nonnull align 8 dereferenceable(60) %19, i32 noundef 0, i32 noundef 0), !noalias !66
+  call void %22(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %3, ptr noundef nonnull align 8 dereferenceable(85) %19, i32 noundef 0, i32 noundef 0), !noalias !66
   invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN25PickedPointTreeWidgetItem7getNameEv.exit unwind label %23
 
@@ -12341,7 +12341,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %_ZN7QStringD2Ev.exi
   %69 = load ptr, ptr %19, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
-  invoke void %71(ptr noundef nonnull align 8 dereferenceable(60) %19, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void %71(ptr noundef nonnull align 8 dereferenceable(85) %19, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %74 unwind label %72
 
 72:                                               ; preds = %.noexc
@@ -12630,7 +12630,7 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit: ; preds = %.prehead
   %13 = load ptr, ptr %12, align 8, !noalias !72
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !noalias !72
-  call void %15(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %2, ptr noundef nonnull align 8 dereferenceable(60) %12, i32 noundef 0, i32 noundef 0), !noalias !72
+  call void %15(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %2, ptr noundef nonnull align 8 dereferenceable(85) %12, i32 noundef 0, i32 noundef 0), !noalias !72
   invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN25PickedPointTreeWidgetItem7getNameEv.exit unwind label %16
 
@@ -13451,7 +13451,7 @@ define void @_ZN16PickPointsDialog17savePointTemplateEv(ptr noundef nonnull alig
   %25 = load ptr, ptr %24, align 8, !noalias !79
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !noalias !79
-  invoke void %27(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %2, ptr noundef nonnull align 8 dereferenceable(60) %24, i32 noundef 0, i32 noundef 0)
+  invoke void %27(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %2, ptr noundef nonnull align 8 dereferenceable(85) %24, i32 noundef 0, i32 noundef 0)
           to label %.noexc21 unwind label %.loopexit
 
 .noexc21:                                         ; preds = %21

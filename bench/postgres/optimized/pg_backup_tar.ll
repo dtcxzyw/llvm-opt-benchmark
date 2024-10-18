@@ -665,7 +665,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
 
 76:                                               ; preds = %68
   %77 = sub i64 %73, %75
-  %..i.i = call i64 @llvm.umin.i64(i64 %77, i64 %spec.select.i35.i)
+  %..i.i = call i64 @llvm.umin.i64(i64 %77, i64 range(i64 1, 0) %spec.select.i35.i)
   %78 = getelementptr inbounds i8, ptr %69, i64 184
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr i8, ptr %79, i64 %75

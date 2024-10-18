@@ -537,7 +537,7 @@ for.body9.i98:                                    ; preds = %for.body9.i98, %for
   %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %arrayidx12.i100, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_initInvInertia.i.i = getelementptr inbounds i8, ptr %arrayidx12.i100, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_initInvInertia.i.i, ptr noundef nonnull align 16 dereferenceable(16) %m_initInvInertia3.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %m_initInvInertia.i.i, ptr noundef nonnull align 16 dereferenceable(48) %m_initInvInertia3.i.i, i64 16, i1 false)
   %arrayidx8.i3.i.i = getelementptr inbounds i8, ptr %arrayidx12.i100, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i3.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i2.i.i, i64 16, i1 false)
   %arrayidx12.i5.i.i = getelementptr inbounds i8, ptr %arrayidx12.i100, i64 80
@@ -6113,7 +6113,7 @@ if.then.i:                                        ; preds = %if.then
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %m_clBuffer.i, align 8
   %mul2.i = mul i64 %4, 112
-  %call3.i = tail call i32 %7(ptr noundef %8, ptr noundef %9, i32 noundef 0, i64 noundef 0, i64 noundef %mul2.i, ptr noundef %6, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call3.i = tail call i32 %7(ptr noundef %8, ptr noundef %9, i32 noundef 0, i64 noundef 0, i64 noundef %mul2.i, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -6973,7 +6973,7 @@ _ZN13b3OpenCLArrayI15b3RigidBodyDataE19copyFromHostPointerEPKS0_mmb.exit: ; pred
   %36 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %32, i64 24
   %37 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = tail call i32 %35(ptr noundef %36, ptr noundef %37, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %34, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = tail call i32 %35(ptr noundef %36, ptr noundef %37, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %34, i32 noundef 0, ptr noundef null, ptr noundef null)
   %38 = load ptr, ptr @__clewFinish, align 8
   %39 = load ptr, ptr %m_commandQueue.i, align 8
   %call6.i = tail call i32 %38(ptr noundef %39)
@@ -6997,7 +6997,7 @@ if.then.i11:                                      ; preds = %_ZN13b3OpenCLArrayI
   %46 = load ptr, ptr %m_commandQueue.i13, align 8
   %m_clBuffer.i14 = getelementptr inbounds i8, ptr %44, i64 24
   %47 = load ptr, ptr %m_clBuffer.i14, align 8
-  %call.i15 = tail call i32 %45(ptr noundef %46, ptr noundef %47, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i12, ptr noundef %43, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i15 = tail call i32 %45(ptr noundef %46, ptr noundef %47, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i12, ptr noundef nonnull %43, i32 noundef 0, ptr noundef null, ptr noundef null)
   %48 = load ptr, ptr @__clewFinish, align 8
   %49 = load ptr, ptr %m_commandQueue.i13, align 8
   %call6.i16 = tail call i32 %48(ptr noundef %49)
@@ -7134,7 +7134,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -7255,7 +7255,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -7376,7 +7376,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -7497,7 +7497,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -7618,7 +7618,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -7739,7 +7739,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -7860,7 +7860,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -7981,7 +7981,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -8102,7 +8102,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -8223,7 +8223,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -8913,7 +8913,7 @@ if.then.i:                                        ; preds = %entry
   %m_clBuffer.i = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %m_clBuffer.i, align 8
   %mul2.i = mul nsw i64 %conv, 80
-  %call3.i = tail call i32 %6(ptr noundef %7, ptr noundef %8, i32 noundef 0, i64 noundef 0, i64 noundef %mul2.i, ptr noundef %5, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call3.i = tail call i32 %6(ptr noundef %7, ptr noundef %8, i32 noundef 0, i64 noundef 0, i64 noundef %mul2.i, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef null)
   %9 = load ptr, ptr @__clewFinish, align 8
   %10 = load ptr, ptr %m_commandQueue.i, align 8
   %call6.i = tail call i32 %9(ptr noundef %10)
@@ -9545,7 +9545,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.b3InertiaData, ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds %struct.b3InertiaData, ptr %2, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %arrayidx.i, ptr noundef nonnull align 16 dereferenceable(96) %arrayidx3.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 16
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
@@ -9554,7 +9554,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
   %m_initInvInertia.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   %m_initInvInertia3.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_initInvInertia.i.i, ptr noundef nonnull align 16 dereferenceable(16) %m_initInvInertia3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %m_initInvInertia.i.i, ptr noundef nonnull align 16 dereferenceable(48) %m_initInvInertia3.i.i, i64 16, i1 false)
   %arrayidx6.i2.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 64
   %arrayidx8.i3.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i3.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i2.i.i, i64 16, i1 false)

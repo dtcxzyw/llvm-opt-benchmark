@@ -1836,7 +1836,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN9QtPrivate8RefCo
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge1302, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %306, %.lr.ph.i.i.i ], [ %305, %._crit_edge1302 ]
   %306 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %306, %37
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !19
 
@@ -2126,7 +2126,7 @@ _ZN7QStringD2Ev.exit157:                          ; preds = %404, %_ZN9QtPrivate
 .lr.ph.i.i.i159:                                  ; preds = %413, %.lr.ph.i.i.i159
   %.09.i.i.i160 = phi ptr [ %415, %.lr.ph.i.i.i159 ], [ %414, %413 ]
   %415 = load ptr, ptr %.09.i.i.i160, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i160) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i160) #22
   %.not.i.i.i161 = icmp eq ptr %415, %37
   br i1 %.not.i.i.i161, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit162, label %.lr.ph.i.i.i159, !llvm.loop !19
 
@@ -2164,7 +2164,7 @@ _ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit:    ; preds = %.lr.ph.i.i.i, %._cr
 .lr.ph.i.i.i164:                                  ; preds = %._crit_edge1307, %.lr.ph.i.i.i164
   %.09.i.i.i165 = phi ptr [ %425, %.lr.ph.i.i.i164 ], [ %424, %._crit_edge1307 ]
   %425 = load ptr, ptr %.09.i.i.i165, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i165) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i165) #22
   %.not.i.i.i166 = icmp eq ptr %425, %39
   br i1 %.not.i.i.i166, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit167, label %.lr.ph.i.i.i164, !llvm.loop !19
 
@@ -2454,7 +2454,7 @@ _ZN7QStringD2Ev.exit175:                          ; preds = %523, %_ZN9QtPrivate
 .lr.ph.i.i.i177:                                  ; preds = %532, %.lr.ph.i.i.i177
   %.09.i.i.i178 = phi ptr [ %534, %.lr.ph.i.i.i177 ], [ %533, %532 ]
   %534 = load ptr, ptr %.09.i.i.i178, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i178) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i178) #22
   %.not.i.i.i179 = icmp eq ptr %534, %39
   br i1 %.not.i.i.i179, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit162, label %.lr.ph.i.i.i177, !llvm.loop !19
 
@@ -3058,7 +3058,7 @@ _ZN7QStringD2Ev.exit214:                          ; preds = %.body, %_ZN9QtPriva
   %720 = load ptr, ptr %.09.i.i.i217, align 8
   %721 = getelementptr inbounds i8, ptr %.09.i.i.i217, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %721) #23
-  call void @_ZdlPv(ptr noundef %.09.i.i.i217) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i217) #22
   %.not.i.i.i218 = icmp eq ptr %720, %41
   br i1 %.not.i.i.i218, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit162, label %.lr.ph.i.i.i216, !llvm.loop !20
 
@@ -3640,7 +3640,7 @@ _ZN7QStringD2Ev.exit271:                          ; preds = %.body228, %_ZN9QtPr
   %899 = load ptr, ptr %.09.i.i.i274, align 8
   %900 = getelementptr inbounds i8, ptr %.09.i.i.i274, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %900) #23
-  call void @_ZdlPv(ptr noundef %.09.i.i.i274) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i274) #22
   %.not.i.i.i275 = icmp eq ptr %899, %45
   br i1 %.not.i.i.i275, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit162, label %.lr.ph.i.i.i273, !llvm.loop !20
 
@@ -4222,7 +4222,7 @@ _ZN7QStringD2Ev.exit328:                          ; preds = %.body285, %_ZN9QtPr
   %1078 = load ptr, ptr %.09.i.i.i331, align 8
   %1079 = getelementptr inbounds i8, ptr %.09.i.i.i331, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1079) #23
-  call void @_ZdlPv(ptr noundef %.09.i.i.i331) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i331) #22
   %.not.i.i.i332 = icmp eq ptr %1078, %49
   br i1 %.not.i.i.i332, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit162, label %.lr.ph.i.i.i330, !llvm.loop !20
 
@@ -4804,7 +4804,7 @@ _ZN7QStringD2Ev.exit385:                          ; preds = %.body342, %_ZN9QtPr
   %1257 = load ptr, ptr %.09.i.i.i388, align 8
   %1258 = getelementptr inbounds i8, ptr %.09.i.i.i388, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1258) #23
-  call void @_ZdlPv(ptr noundef %.09.i.i.i388) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i388) #22
   %.not.i.i.i389 = icmp eq ptr %1257, %53
   br i1 %.not.i.i.i389, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit162, label %.lr.ph.i.i.i387, !llvm.loop !20
 
@@ -5386,7 +5386,7 @@ _ZN7QStringD2Ev.exit442:                          ; preds = %.body399, %_ZN9QtPr
   %1436 = load ptr, ptr %.09.i.i.i445, align 8
   %1437 = getelementptr inbounds i8, ptr %.09.i.i.i445, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1437) #23
-  call void @_ZdlPv(ptr noundef %.09.i.i.i445) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i445) #22
   %.not.i.i.i446 = icmp eq ptr %1436, %57
   br i1 %.not.i.i.i446, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit162, label %.lr.ph.i.i.i444, !llvm.loop !20
 
@@ -5956,7 +5956,7 @@ _ZN7QStringD2Ev.exit499:                          ; preds = %.body456, %_ZN9QtPr
   %1612 = load ptr, ptr %.09.i.i.i502, align 8
   %1613 = getelementptr inbounds i8, ptr %.09.i.i.i502, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1613) #23
-  call void @_ZdlPv(ptr noundef %.09.i.i.i502) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i502) #22
   %.not.i.i.i503 = icmp eq ptr %1612, %61
   br i1 %.not.i.i.i503, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit162, label %.lr.ph.i.i.i501, !llvm.loop !20
 
@@ -7308,7 +7308,7 @@ define void @_ZN16PluginInfoDialogD0Ev(ptr noundef nonnull align 8 dereferenceab
 define void @_ZThn16_N16PluginInfoDialogD0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16PluginInfoDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %2) #22
   ret void
 }
 
@@ -9230,7 +9230,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN11MLExceptionD2Ev.exit
 
 _ZN11MLExceptionD2Ev.exit:                        ; preds = %_ZN10QByteArrayD2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

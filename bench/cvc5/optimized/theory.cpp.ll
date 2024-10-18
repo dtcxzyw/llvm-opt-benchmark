@@ -361,7 +361,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %invoke.cont33 unwind label %lpad2
 
 invoke.cont33:                                    ; preds = %invoke.cont27
-  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_sharedTerms, ptr noundef %call34)
+  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(74) %d_sharedTerms, ptr noundef %call34)
           to label %invoke.cont36 unwind label %lpad2
 
 invoke.cont36:                                    ; preds = %invoke.cont33
@@ -401,7 +401,7 @@ cond.end:                                         ; preds = %invoke.cont39, %con
           to label %invoke.cont45 unwind label %lpad38
 
 invoke.cont45:                                    ; preds = %cond.end
-  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_facts, ptr noundef %call46)
+  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(74) %d_facts, ptr noundef %call46)
           to label %invoke.cont48 unwind label %lpad38
 
 invoke.cont48:                                    ; preds = %invoke.cont45
@@ -416,7 +416,7 @@ invoke.cont48:                                    ; preds = %invoke.cont45
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont48
-  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_factsHead, ptr noundef %call52)
+  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(44) %d_factsHead, ptr noundef %call52)
           to label %.noexc unwind label %lpad50
 
 .noexc:                                           ; preds = %invoke.cont51
@@ -434,7 +434,7 @@ invoke.cont51:                                    ; preds = %invoke.cont48
   br i1 %cmp.i.i.i, label %invoke.cont54, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %.noexc
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_factsHead)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(44) %d_factsHead)
           to label %invoke.cont54 unwind label %lpad50
 
 invoke.cont54:                                    ; preds = %.noexc, %if.then.i.i
@@ -445,7 +445,7 @@ invoke.cont54:                                    ; preds = %.noexc, %if.then.i.
 
 invoke.cont57:                                    ; preds = %invoke.cont54
   %d_sharedTermsIndex = getelementptr inbounds i8, ptr %this, i64 344
-  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_sharedTermsIndex, ptr noundef %call58)
+  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(44) %d_sharedTermsIndex, ptr noundef %call58)
           to label %.noexc28 unwind label %lpad56
 
 .noexc28:                                         ; preds = %invoke.cont57
@@ -463,7 +463,7 @@ invoke.cont57:                                    ; preds = %invoke.cont54
   br i1 %cmp.i.i.i26, label %invoke.cont60, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %.noexc28
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_sharedTermsIndex)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(44) %d_sharedTermsIndex)
           to label %invoke.cont60 unwind label %lpad56
 
 invoke.cont60:                                    ; preds = %.noexc28, %if.then.i.i27
@@ -780,7 +780,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory6TheoryE, i64 16), ptr %this, align 8
   %d_sharedTermsIndex = getelementptr inbounds i8, ptr %this, i64 344
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_sharedTermsIndex, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_sharedTermsIndex)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_sharedTermsIndex)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %entry
@@ -793,7 +793,7 @@ terminate.lpad.i:                                 ; preds = %entry
 _ZN4cvc57context3CDOIjED2Ev.exit:                 ; preds = %entry
   %d_factsHead = getelementptr inbounds i8, ptr %this, i64 296
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_factsHead, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_factsHead)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_factsHead)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %_ZN4cvc57context3CDOIjED2Ev.exit
@@ -822,7 +822,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS
   store ptr null, ptr %d_allocEqualityEngine, align 8
   %d_sharedTerms = getelementptr inbounds i8, ptr %this, i64 64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb0EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i64 16), ptr %d_sharedTerms, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_sharedTerms)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(74) %d_sharedTerms)
           to label %invoke.cont.i unwind label %terminate.lpad.i3
 
 invoke.cont.i:                                    ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS4_EED2Ev.exit
@@ -4242,7 +4242,7 @@ _ZN4cvc58internal6theory9AssertionC2ERKS2_.exit.i: ; preds = %if.then13.i.i.i.i,
   br i1 %cmp.i.i.i.i.i, label %cond.true53, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZN4cvc58internal6theory9AssertionC2ERKS2_.exit.i
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_factsHead.i)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(44) %d_factsHead.i)
           to label %cond.true53 unwind label %lpad.i, !noalias !83
 
 lpad.i:                                           ; preds = %if.then.i.i.i2.i
@@ -4461,7 +4461,7 @@ _ZN4cvc58internal6theory9AssertionC2ERKS2_.exit:  ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %cond.true, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZN4cvc58internal6theory9AssertionC2ERKS2_.exit
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_factsHead)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(44) %d_factsHead)
           to label %cond.true unwind label %lpad
 
 cond.true:                                        ; preds = %if.then.i.i.i2, %_ZN4cvc58internal6theory9AssertionC2ERKS2_.exit
@@ -5037,7 +5037,7 @@ _ZN4cvc57context6CDListINS_8internal12NodeTemplateILb0EEENS0_14DefaultCleanUpIS4
 define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb0EEENS0_14DefaultCleanUpIS4_EESaIS4_EED0Ev(ptr noundef nonnull align 8 dereferenceable(74) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb0EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(74) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -5385,7 +5385,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIjED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %this)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %entry

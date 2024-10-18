@@ -854,7 +854,7 @@ if.then23:                                        ; preds = %if.then19
   %checked.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %29 = load i64, ptr %checked.i, align 8
   %30 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @do_item_stats_add_crawl(i32 noundef %30, i64 noundef %27, i64 noundef %28, i64 noundef %29) #17
+  call void @do_item_stats_add_crawl(i32 noundef range(i32 -2147483648, 256) %30, i64 noundef %27, i64 noundef %28, i64 noundef %29) #17
   %arrayidx10.i = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
   %call.i31 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx10.i) #17
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @active_crawler_mod, i64 40), align 8
@@ -864,7 +864,7 @@ if.then23:                                        ; preds = %if.then19
   br i1 %cmp.not.i, label %for.inc, label %if.then.i32
 
 if.then.i32:                                      ; preds = %if.then23
-  call void %32(ptr noundef nonnull @active_crawler_mod, i32 noundef %30) #17
+  call void %32(ptr noundef nonnull @active_crawler_mod, i32 noundef range(i32 -2147483648, 256) %30) #17
   br label %for.inc
 
 if.else26:                                        ; preds = %if.end13
@@ -887,7 +887,7 @@ if.then28:                                        ; preds = %if.else26
   %checked.i39 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %38 = load i64, ptr %checked.i39, align 8
   %39 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @do_item_stats_add_crawl(i32 noundef %39, i64 noundef %36, i64 noundef %37, i64 noundef %38) #17
+  call void @do_item_stats_add_crawl(i32 noundef range(i32 -2147483648, 256) %39, i64 noundef %36, i64 noundef %37, i64 noundef %38) #17
   %arrayidx10.i40 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx10.i40) #17
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @active_crawler_mod, i64 40), align 8
@@ -897,7 +897,7 @@ if.then28:                                        ; preds = %if.else26
   br i1 %cmp.not.i43, label %for.inc, label %if.then.i44
 
 if.then.i44:                                      ; preds = %if.then28
-  call void %41(ptr noundef nonnull @active_crawler_mod, i32 noundef %39) #17
+  call void %41(ptr noundef nonnull @active_crawler_mod, i32 noundef range(i32 -2147483648, 256) %39) #17
   br label %for.inc
 
 if.end30:                                         ; preds = %if.else26, %if.then16, %if.then19
@@ -947,7 +947,7 @@ if.end52:                                         ; preds = %if.then47.if.end52_
   %48 = load i64, ptr %unfetched.i51, align 8
   %checked.i52 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %49 = load i64, ptr %checked.i52, align 8
-  call void @do_item_stats_add_crawl(i32 noundef %.pre-phi, i64 noundef %47, i64 noundef %48, i64 noundef %49) #17
+  call void @do_item_stats_add_crawl(i32 noundef range(i32 -2147483648, 256) %.pre-phi, i64 noundef %47, i64 noundef %48, i64 noundef %49) #17
   %call.i54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx32) #17
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @active_crawler_mod, i64 40), align 8
   %doneclass.i55 = getelementptr inbounds i8, ptr %50, i64 16
@@ -956,7 +956,7 @@ if.end52:                                         ; preds = %if.then47.if.end52_
   br i1 %cmp.not.i56, label %for.inc, label %if.then.i57
 
 if.then.i57:                                      ; preds = %if.end52
-  call void %51(ptr noundef nonnull @active_crawler_mod, i32 noundef %.pre-phi) #17
+  call void %51(ptr noundef nonnull @active_crawler_mod, i32 noundef range(i32 -2147483648, 256) %.pre-phi) #17
   br label %for.inc
 
 if.end53:                                         ; preds = %land.lhs.true, %lor.lhs.false
@@ -1246,7 +1246,7 @@ if.then.i.us.if.end.i20.us_crit_edge:             ; preds = %if.then.i.us
 if.then6.i.us:                                    ; preds = %if.then.i.us
   %11 = load ptr, ptr @stderr, align 8
   %12 = trunc nuw nsw i64 %indvars.iv39 to i32
-  %call7.i.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.21, i32 noundef %12) #18
+  %call7.i.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.21, i32 noundef range(i32 -2147483648, 256) %12) #18
   br label %if.end.i20.us
 
 if.end.i20.us:                                    ; preds = %if.then.i.us.if.end.i20.us_crit_edge, %if.then6.i.us
@@ -1259,7 +1259,7 @@ if.end.i20.us:                                    ; preds = %if.then.i.us.if.end
   %time.i.us = getelementptr inbounds i8, ptr %arrayidx2.i.us, i64 24
   store i32 0, ptr %time.i.us, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx2.i.us, i8 0, i64 16, i1 false)
-  %call24.i.us = tail call i32 @do_get_lru_size(i32 noundef %.pre-phi) #17
+  %call24.i.us = tail call i32 @do_get_lru_size(i32 noundef range(i32 -2147483648, 256) %.pre-phi) #17
   %tobool.not.i.us = icmp eq i32 %call24.i.us, 0
   %inc.i.us = add i32 %call24.i.us, 1
   %spec.select.i.us = select i1 %tobool.not.i.us, i32 0, i32 %inc.i.us
@@ -1385,7 +1385,7 @@ if.then.i.if.end.i20_crit_edge:                   ; preds = %if.then.i
 if.then6.i:                                       ; preds = %if.then.i
   %22 = load ptr, ptr @stderr, align 8
   %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %call7.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.21, i32 noundef %23) #18
+  %call7.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.21, i32 noundef range(i32 -2147483648, 256) %23) #18
   br label %if.end.i20
 
 if.end.i20:                                       ; preds = %if.then.i.if.end.i20_crit_edge, %if.then6.i

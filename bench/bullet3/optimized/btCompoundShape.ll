@@ -145,7 +145,7 @@ for.inc.i.i:                                      ; preds = %for.inc.i.i, %for.i
   %arrayidx.i.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %3, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %arrayidx3.i.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 16
   %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i.i, i64 16, i1 false)
@@ -381,7 +381,7 @@ entry:
   store i32 %inc, ptr %m_updateRevision, align 8
   %m_node = getelementptr inbounds i8, ptr %child, i64 80
   store ptr null, ptr %m_node, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %child, ptr noundef nonnull align 4 dereferenceable(16) %localTransform, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %child, ptr noundef nonnull align 4 dereferenceable(64) %localTransform, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %localTransform, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %child, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -511,7 +511,7 @@ for.inc.i.i:                                      ; preds = %for.inc.i.i, %for.i
   %arrayidx.i.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %3, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %arrayidx3.i.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 16
   %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i.i, i64 16, i1 false)
@@ -558,7 +558,7 @@ invoke.cont:                                      ; preds = %entry, %if.then, %_
   %7 = load ptr, ptr %m_data, align 8
   %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr inbounds %struct.btCompoundShapeChild, ptr %7, i64 %idxprom
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef nonnull align 8 dereferenceable(16) %_Val, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx, ptr noundef nonnull align 8 dereferenceable(88) %_Val, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %_Val, i64 16
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
@@ -587,7 +587,7 @@ entry:
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %childIndex to i64
   %arrayidx.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %0, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(16) %newChildTransform, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(64) %newChildTransform, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %newChildTransform, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -690,7 +690,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp.sroa.8.i, ptr noundef nonnull align 8 dereferenceable(24) %m_childShape3.i.i, i64 24, i1 false)
   %idxprom3.i = sext i32 %sub to i64
   %arrayidx4.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %5, i64 %idxprom3.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i6, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i6, ptr noundef nonnull align 8 dereferenceable(88) %arrayidx4.i, i64 16, i1 false)
   %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i.i.i, i64 16, i1 false)
   %arrayidx9.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 32
@@ -806,7 +806,7 @@ if.end.i:                                         ; preds = %if.then, %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp.sroa.8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_childShape3.i.i.i, i64 24, i1 false)
   %idxprom3.i.i = sext i32 %sub.i to i64
   %arrayidx4.i.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %9, i64 %idxprom3.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i6.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i6.i, ptr noundef nonnull align 8 dereferenceable(88) %arrayidx4.i.i, i64 16, i1 false)
   %arrayidx5.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx4.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i.i.i.i, i64 16, i1 false)
   %arrayidx9.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx4.i.i, i64 32
@@ -1579,7 +1579,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN15btCompoundShape20updateChildTransformEiRK11btTransformb.exit ]
   %1 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %1, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %childTrans, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %childTrans, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx.i.i, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
@@ -1645,7 +1645,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bounds.i)
   %25 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i.i48 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %25, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i48, ptr noundef nonnull align 4 dereferenceable(16) %childTrans, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx.i.i48, ptr noundef nonnull align 4 dereferenceable(64) %childTrans, i64 16, i1 false)
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i48, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, i64 16, i1 false)
   %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i48, i64 32

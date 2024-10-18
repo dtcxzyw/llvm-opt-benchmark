@@ -215,7 +215,7 @@ InitPassStats.exit.i:                             ; preds = %76, %73
   %.028.i.i = phi i64 [ 0, %126 ], [ %183, %188 ]
   %.027.i.i = phi i64 [ 0, %126 ], [ %185, %188 ]
   call void @VP8IteratorImport(ptr noundef nonnull %4, ptr noundef null) #7
-  %129 = call i32 @VP8Decimate(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %54) #7
+  %129 = call i32 @VP8Decimate(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef range(i32 0, 2) %54) #7
   %.not.i.i = icmp eq i32 %129, 0
   br i1 %.not.i.i, label %133, label %130
 
@@ -339,7 +339,7 @@ RecordResiduals.exit.i.i:                         ; preds = %178
   br i1 %.not33.i.i, label %188, label %186
 
 186:                                              ; preds = %RecordResiduals.exit.i.i
-  %187 = call i32 @VP8IteratorProgress(ptr noundef nonnull %4, i32 noundef %48) #7
+  %187 = call i32 @VP8IteratorProgress(ptr noundef nonnull %4, i32 noundef range(i32 -1073741843, 1073741844) %48) #7
   %.not34.i.i = icmp eq i32 %187, 0
   br i1 %.not34.i.i, label %OneStatPass.exit.thread.i, label %188
 

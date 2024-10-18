@@ -84,9 +84,9 @@ define void @_ZNK5ZXing5Aztec6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_unw
 
 9:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
-  tail call void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(54) %0)
+  tail call void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(211) %0)
   %10 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(43) %10) #12
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 96
@@ -135,12 +135,12 @@ define void @_ZNK5ZXing5Aztec6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_unw
 
 38:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
-  invoke void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(54) %0)
+  invoke void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(211) %0)
           to label %_ZN5ZXing6ResultC2Ev.exit unwind label %56
 
 _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %38
   %39 = getelementptr inbounds i8, ptr %0, i64 56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(43) %39) #12
   %40 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 96
@@ -206,7 +206,7 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %38
   %76 = getelementptr inbounds i8, ptr %6, i64 16
   %77 = load ptr, ptr %76, align 8
   store ptr %77, ptr %75, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 24, i1 false)
   %78 = getelementptr inbounds i8, ptr %5, i64 24
   %79 = getelementptr inbounds i8, ptr %6, i64 24
   %80 = load ptr, ptr %79, align 8
@@ -242,7 +242,7 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %38
   store i16 %100, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %5, i64 144
   %102 = getelementptr inbounds i8, ptr %6, i64 144
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %102) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(43) %101, ptr noundef nonnull align 8 dereferenceable(43) %102) #12
   %103 = getelementptr inbounds i8, ptr %5, i64 176
   %104 = getelementptr inbounds i8, ptr %6, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %103, ptr noundef nonnull align 8 dereferenceable(11) %104, i64 11, i1 false)
@@ -384,7 +384,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN5ZXing10CustomDataEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %38) #12
   %39 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #12
   %40 = getelementptr inbounds i8, ptr %0, i64 56
@@ -504,7 +504,7 @@ define void @_ZNK5ZXing5Aztec6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_un
   store ptr %69, ptr %25, align 8
   %70 = load ptr, ptr %28, align 8
   store ptr %70, ptr %27, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %7, i8 0, i64 24, i1 false)
   %71 = load ptr, ptr %30, align 8
   store ptr %71, ptr %29, align 8
   %72 = load ptr, ptr %32, align 8
@@ -521,7 +521,7 @@ define void @_ZNK5ZXing5Aztec6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_un
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %44) #12
   %76 = load i16, ptr %23, align 8
   store i16 %76, ptr %45, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %47) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(43) %46, ptr noundef nonnull align 8 dereferenceable(43) %47) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %48, ptr noundef nonnull align 8 dereferenceable(11) %49, i64 11, i1 false)
   %77 = load ptr, ptr %51, align 8
   store ptr %77, ptr %50, align 8
@@ -558,7 +558,7 @@ _ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %59
   br i1 %.not.i, label %94, label %91
 
 91:                                               ; preds = %88
-  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %89, ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.026.033, i32 noundef 1)
+  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %89, ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(84) %.sroa.026.033, i32 noundef 1)
           to label %.noexc unwind label %105
 
 .noexc:                                           ; preds = %91
@@ -666,7 +666,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef n
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 56
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %6) #12
   %7 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -825,7 +825,7 @@ _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNK
   %25 = phi ptr [ %24, %22 ], [ null, %_ZNKSt6vectorIN5ZXing6ResultESaIS1_EE12_M_check_lenEmPKc.exit ]
   %26 = getelementptr inbounds %"class.ZXing::Result", ptr %25, i64 %21
   %27 = load i32, ptr %4, align 4
-  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %26, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %27)
+  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %26, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(84) %3, i32 noundef %27)
           to label %_ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JNS0_13DecoderResultENS0_5Aztec14DetectorResultENS0_13BarcodeFormatEEEEvRS2_PT_DpOT0_.exit unwind label %36
 
 _ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JNS0_13DecoderResultENS0_5Aztec14DetectorResultENS0_13BarcodeFormatEEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE11_M_allocateEm.exit
@@ -918,7 +918,7 @@ define linkonce_odr void @_ZNSt16allocator_traitsISaIN5ZXing6ResultEEE7destroyIS
   %3 = getelementptr inbounds i8, ptr %1, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
   %4 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %4) #12
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -963,7 +963,7 @@ define linkonce_odr void @_ZSt19__relocate_object_aIN5ZXing6ResultES1_SaIS1_EEvP
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(211) %1, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
@@ -982,7 +982,7 @@ define linkonce_odr void @_ZSt19__relocate_object_aIN5ZXing6ResultES1_SaIS1_EEvP
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %20, ptr noundef nonnull align 8 dereferenceable(6) %21, i64 6, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 56
   %23 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(43) %22, ptr noundef nonnull align 8 dereferenceable(43) %23) #12
   %24 = getelementptr inbounds i8, ptr %0, i64 88
   %25 = getelementptr inbounds i8, ptr %1, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %24, ptr noundef nonnull align 8 dereferenceable(11) %25, i64 11, i1 false)
@@ -1000,7 +1000,7 @@ define linkonce_odr void @_ZSt19__relocate_object_aIN5ZXing6ResultES1_SaIS1_EEvP
   %34 = getelementptr inbounds i8, ptr %1, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %33, ptr noundef nonnull align 8 dereferenceable(19) %34, i64 19, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %23) #12
   %35 = load ptr, ptr %12, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EED2Ev.exit.i.i.i.i, label %36

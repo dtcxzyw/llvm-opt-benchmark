@@ -123,7 +123,7 @@ invoke.cont:                                      ; preds = %call6.i.i.i.noexc.i
   %status_.i = getelementptr inbounds i8, ptr %call, i64 128
   %state_.i.i = getelementptr inbounds i8, ptr %call, i64 136
   store ptr null, ptr %state_.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status_.i, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status_.i, i8 0, i64 6, i1 false)
   %data_block_handle_.i = getelementptr inbounds i8, ptr %call, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_block_handle_.i, i8 -1, i64 16, i1 false)
   ret ptr %call

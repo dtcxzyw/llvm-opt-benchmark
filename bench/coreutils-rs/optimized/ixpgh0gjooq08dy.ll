@@ -435,7 +435,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$alloc..raw_vec..RawVec$LT$c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr103drop_in_place$LT$hashbrown..set..HashSet$LT$std..path..PathBuf$C$std..hash..random..RandomState$GT$$GT$17hc7f3fd25c20e40edE.llvm.3307611119196902081"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc02c7974f4951175E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 24, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc02c7974f4951175E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 24, i64 noundef 16)
   ret void
 }
 
@@ -1098,11 +1098,11 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$walkdir..DirList$GT
 
 9:                                                ; preds = %4
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h30cd8e7bed8e5403E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h30cd8e7bed8e5403E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   br label %"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$std..fs..ReadDir$C$core..option..Option$LT$walkdir..error..Error$GT$$GT$$GT$17h65fa58bc762b21bfE.exit"
 
 10:                                               ; preds = %3
-  tail call void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
+  tail call void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0)
   br label %"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$std..fs..ReadDir$C$core..option..Option$LT$walkdir..error..Error$GT$$GT$$GT$17h65fa58bc762b21bfE.exit"
 
 11:                                               ; preds = %1
@@ -1162,7 +1162,7 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$walkdir..DirList$GT
   br label %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$walkdir..dent..DirEntry$C$walkdir..error..Error$GT$$GT$17h34825405c27cd112E.exit.i.i.i"
 
 38:                                               ; preds = %.lr.ph.i.i.i
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %28)
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %28)
           to label %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$walkdir..dent..DirEntry$C$walkdir..error..Error$GT$$GT$17h34825405c27cd112E.exit.i.i.i" unwind label %42, !noalias !416
 
 "_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$walkdir..dent..DirEntry$C$walkdir..error..Error$GT$$GT$17h34825405c27cd112E.exit.i.i.i": ; preds = %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3307611119196902081.exit.i.i1.i.i.i.i.i.i.i.i.i", %32
@@ -4695,7 +4695,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$$u5b$clap_builder..builder..
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr83drop_in_place$LT$std..collections..hash..set..HashSet$LT$std..path..PathBuf$GT$$GT$17h287dcb38126f2e66E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc02c7974f4951175E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 24, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc02c7974f4951175E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 24, i64 noundef 16)
   ret void
 }
 
@@ -5104,7 +5104,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Resul
   br label %"_ZN4core3ptr44drop_in_place$LT$walkdir..dent..DirEntry$GT$17hd53feb0ebe1043e6E.exit"
 
 10:                                               ; preds = %1
-  tail call void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
+  tail call void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17hd3f132a67cc10f7bE.llvm.3307611119196902081"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0)
   br label %"_ZN4core3ptr44drop_in_place$LT$walkdir..dent..DirEntry$GT$17hd53feb0ebe1043e6E.exit"
 
 "_ZN4core3ptr44drop_in_place$LT$walkdir..dent..DirEntry$GT$17hd53feb0ebe1043e6E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3307611119196902081.exit.i.i1.i.i.i.i.i", %4, %10

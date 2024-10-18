@@ -1070,7 +1070,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %or.cond.i.i, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %.pr.i = load double, ptr %ncp.i, align 8, !tbaa !50
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i
 
@@ -1158,7 +1158,7 @@ _ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_
   br i1 %or.cond.i.i42, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i45, label %if.then.i.i43
 
 if.then.i.i43:                                    ; preds = %_ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_36non_central_chi_squared_distributionIS6_T0_EERKS6_.exit
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
   %.pr.i44 = load double, ptr %ncp.i41, align 8, !tbaa !50
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i45
 
@@ -1276,7 +1276,7 @@ _ZN5boost4math7gamma_pIddEENS0_5tools12promote_argsIT_T0_ffffE4typeES4_S5_.exit:
   br i1 %or.cond.i.i75, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i78, label %if.then.i.i76
 
 if.then.i.i76:                                    ; preds = %_ZN5boost4math7gamma_pIddEENS0_5tools12promote_argsIT_T0_ffffE4typeES4_S5_.exit
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp23)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23)
   %.pr.i77 = load double, ptr %ncp.i74, align 8, !tbaa !50
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i78
 
@@ -1366,7 +1366,7 @@ _ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_
   br i1 %or.cond.i.i108, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i111, label %if.then.i.i109
 
 if.then.i.i109:                                   ; preds = %_ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_36non_central_chi_squared_distributionIS6_T0_EERKS6_.exit105
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp33)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33)
   %.pr.i110 = load double, ptr %ncp.i107, align 8, !tbaa !50
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i111
 
@@ -1470,7 +1470,7 @@ if.then47:                                        ; preds = %if.then44
   br i1 %or.cond.i.i141, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i144, label %if.then.i.i142
 
 if.then.i.i142:                                   ; preds = %if.then47
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp49)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp49)
   %.pr.i143 = load double, ptr %ncp.i140, align 8, !tbaa !50
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i144
 
@@ -1557,7 +1557,7 @@ _ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_
   br i1 %or.cond.i.i174, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i177, label %if.then.i.i175
 
 if.then.i.i175:                                   ; preds = %_ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_36non_central_chi_squared_distributionIS6_T0_EERKS6_.exit171
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp58)
   %.pr.i176 = load double, ptr %ncp.i173, align 8, !tbaa !50
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i177
 
@@ -1653,7 +1653,7 @@ if.else68:                                        ; preds = %if.then44
   br i1 %or.cond.i.i207, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i210, label %if.then.i.i208
 
 if.then.i.i208:                                   ; preds = %if.else68
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp71)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71)
   %.pr.i209 = load double, ptr %ncp.i206, align 8, !tbaa !50
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i210
 
@@ -1743,7 +1743,7 @@ _ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_
   br i1 %or.cond.i.i240, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i243, label %if.then.i.i241
 
 if.then.i.i241:                                   ; preds = %_ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_36non_central_chi_squared_distributionIS6_T0_EERKS6_.exit237
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp80)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp80)
   %.pr.i242 = load double, ptr %ncp.i239, align 8, !tbaa !50
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i243
 
@@ -2042,7 +2042,7 @@ lpad.i.i:                                         ; preds = %entry
           cleanup
   tail call void @_ZN8QuantLib6Option9argumentsD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %arguments_.i.i) #33
   tail call void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #33
-  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #33
+  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this) #33
   br label %common.resume
 
 _ZN8QuantLib14OneAssetOption6engineC2Ev.exit:     ; preds = %entry
@@ -3020,7 +3020,7 @@ cond.false.i76:                                   ; preds = %invoke.cont97
 
 invoke.cont99:                                    ; preds = %.noexc78, %invoke.cont97
   %59 = phi ptr [ %58, %invoke.cont97 ], [ %.pre.i77, %.noexc78 ]
-  %call.i80 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate)
+  %call.i80 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %59, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate)
           to label %call.i.noexc unwind label %lpad73
 
 call.i.noexc:                                     ; preds = %invoke.cont99
@@ -3675,7 +3675,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i3.i,
   unreachable
 
 _ZN8QuantLib17AnalyticCEVEngineD2Ev.exit:         ; preds = %_ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit.i, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i3.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_6Option9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this) #33
+  tail call void @_ZN8QuantLib13GenericEngineINS_6Option9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) #33
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 368) #36
   ret void
 }
@@ -3854,7 +3854,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i3.i,
   unreachable
 
 _ZN8QuantLib17AnalyticCEVEngineD2Ev.exit:         ; preds = %_ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit.i, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i3.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_6Option9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #33
+  tail call void @_ZN8QuantLib13GenericEngineINS_6Option9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) #33
   ret void
 }
 
@@ -3942,8 +3942,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i3.i.
   unreachable
 
 _ZN8QuantLib17AnalyticCEVEngineD0Ev.exit:         ; preds = %_ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit.i.i, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i3.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_6Option9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 368) #36
+  tail call void @_ZN8QuantLib13GenericEngineINS_6Option9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(368) %0, i64 noundef 368) #36
   ret void
 }
 
@@ -3951,7 +3951,7 @@ _ZN8QuantLib17AnalyticCEVEngineD0Ev.exit:         ; preds = %_ZN8QuantLib6Handle
 define linkonce_odr void @_ZThn56_N8QuantLib13GenericEngineINS_6Option9argumentsENS_14OneAssetOption7resultsEE6updateEv(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(336) %0)
   ret void
 }
 
@@ -4425,7 +4425,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %22 = phi ptr [ %21, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -5271,7 +5271,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #36
   ret void
 }
 
@@ -5377,7 +5377,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #36
   ret void
 }
 
@@ -6524,7 +6524,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #36
   ret void
 }
 
@@ -6601,7 +6601,7 @@ _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noex
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #36
   ret void
 }
 
@@ -10340,7 +10340,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_4math16evaluation_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #36
   ret void
 }
 
@@ -10417,7 +10417,7 @@ _ZN5boost10wrapexceptINS_4math16evaluation_errorEED0Ev.exit: ; preds = %entry, %
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #36
   ret void
 }
 
@@ -11077,7 +11077,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #36
   ret void
 }
 
@@ -11151,7 +11151,7 @@ _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.no
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #36
   ret void
 }
 
@@ -12164,7 +12164,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_4math14rounding_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #36
   ret void
 }
 
@@ -12238,7 +12238,7 @@ _ZN5boost10wrapexceptINS_4math14rounding_errorEED0Ev.exit: ; preds = %entry, %ca
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #36
   ret void
 }
 

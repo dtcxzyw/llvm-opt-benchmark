@@ -885,7 +885,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef range(i32 16, 25) %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #9
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 16, 25) %1) #9
   %.not7.i.i = icmp eq i32 %5, 0
   br i1 %.not7.i.i, label %get_read_list_chunk_count.exit.i, label %.lr.ph.i.i
 
@@ -901,10 +901,10 @@ define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef range(
 get_read_list_chunk_count.exit.i:                 ; preds = %.lr.ph.i.i, %4
   %.0.lcssa.i.i = phi i32 [ 0, %4 ], [ %6, %.lr.ph.i.i ]
   %9 = load i32, ptr @hf_rpcordma_reads_count, align 4
-  %10 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.86, i32 noundef %.0.lcssa.i.i) #9
+  %10 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef range(i32 16, 25) %1, i32 noundef 0, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.86, i32 noundef %.0.lcssa.i.i) #9
   %11 = load i32, ptr @ett_rpcordma_read_list, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #9
-  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #9
+  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 16, 25) %1) #9
   %14 = add nuw nsw i32 %1, 4
   %.not25.i = icmp eq i32 %13, 0
   br i1 %.not25.i, label %dissect_rpcrdma_read_list.exit, label %.lr.ph.i

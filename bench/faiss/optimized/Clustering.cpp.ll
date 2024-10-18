@@ -218,7 +218,7 @@ _ZN5faiss10ClusteringD2Ev.exit:                   ; preds = %_ZNSt6vectorIN5fais
 define noundef nonnull ptr @_ZN5faiss26ProgressiveDimIndexFactoryclEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
   %4 = sext i32 %1 to i64
-  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %3, i64 noundef %4, i32 noundef 1)
+  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef %4, i32 noundef 1)
           to label %5 unwind label %7
 
 5:                                                ; preds = %2
@@ -3522,7 +3522,7 @@ define noundef float @_ZN5faiss17kmeans_clusteringEmmmPKfPf(i64 noundef %0, i64 
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %13, align 8
-  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %7, i64 noundef %0, i32 noundef 1)
+  invoke void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(96) %7, i64 noundef %0, i32 noundef 1)
           to label %15 unwind label %35
 
 15:                                               ; preds = %5
@@ -3564,7 +3564,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %27, %_ZN5faiss10Clu
   br label %_ZN5faiss11IndexFlatL2D2Ev.exit
 
 _ZN5faiss11IndexFlatL2D2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %30
-  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #17
+  call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10ClusteringE, i64 16), ptr %6, align 8
   %31 = load ptr, ptr %21, align 8
   %.not.i.i.i.i14 = icmp eq ptr %31, null
@@ -3627,7 +3627,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZN5faiss9IndexFlatD2Ev.exit
 
 _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %7
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #17
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
   ret void
 }
 
@@ -4030,7 +4030,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit42:             ; preds = %120, %118, %116, %_
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit42
   %124 = load ptr, ptr %41, align 8
   %125 = load ptr, ptr %44, align 8
-  %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %75, i64 %122)
+  %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %75, i64 %122)
   %126 = shl nsw i64 %.sroa.speculated.i, 2
   br label %127
 
@@ -4099,7 +4099,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %45, label %.lr.ph.i45, label %_ZN5faiss12_GLOBAL__N_112copy_columnsEllPKflPf.exit51
 
 .lr.ph.i45:                                       ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %.sroa.speculated.i46 = call i64 @llvm.smin.i64(i64 %.pre-phi, i64 %142)
+  %.sroa.speculated.i46 = call i64 @llvm.smin.i64(i64 range(i64 -2147483648, 2147483648) %.pre-phi, i64 %142)
   %143 = shl i64 %.sroa.speculated.i46, 2
   br label %144
 

@@ -157,7 +157,7 @@ define void @prte_rml_close() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %22 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
-  tail call void %28(ptr noundef %5) #10
+  tail call void %28(ptr noundef nonnull %5) #10
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
@@ -250,7 +250,7 @@ pmix_obj_run_destructors.exit56:                  ; preds = %.lr.ph.i53, %._crit
 .lr.ph.i60:                                       ; preds = %67, %.lr.ph.i60
   %73 = phi ptr [ %75, %.lr.ph.i60 ], [ %72, %67 ]
   %.07.i61 = phi ptr [ %74, %.lr.ph.i60 ], [ %71, %67 ]
-  tail call void %73(ptr noundef %50) #10
+  tail call void %73(ptr noundef nonnull %50) #10
   %74 = getelementptr inbounds i8, ptr %.07.i61, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not.i62 = icmp eq ptr %75, null
@@ -343,7 +343,7 @@ pmix_obj_run_destructors.exit68:                  ; preds = %.lr.ph.i65, %._crit
 .lr.ph.i72:                                       ; preds = %112, %.lr.ph.i72
   %118 = phi ptr [ %120, %.lr.ph.i72 ], [ %117, %112 ]
   %.07.i73 = phi ptr [ %119, %.lr.ph.i72 ], [ %116, %112 ]
-  tail call void %118(ptr noundef %95) #10
+  tail call void %118(ptr noundef nonnull %95) #10
   %119 = getelementptr inbounds i8, ptr %.07.i73, i64 8
   %120 = load ptr, ptr %119, align 8
   %.not.i74 = icmp eq ptr %120, null

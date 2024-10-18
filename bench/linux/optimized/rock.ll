@@ -182,7 +182,7 @@ define dso_local i32 @get_rock_ridge_filename(ptr noundef %0, ptr nocapture noun
 rock_check_overflow.exit:                         ; preds = %77
   %80 = zext i16 %65 to i32
   %81 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
-  %82 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %80, i32 noundef %78, i32 noundef %.val18) #11
+  %82 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %80, i32 noundef %78, i32 noundef %.val18) #11
   br label %.loopexit5
 
 83:                                               ; preds = %77
@@ -665,7 +665,7 @@ define internal fastcc i32 @parse_rock_ridge_inode_internal(ptr noundef %0, ptr 
 rock_check_overflow.exit:                         ; preds = %96
   %99 = zext i16 %84 to i32
   %100 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
-  %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %99, i32 noundef %97, i32 noundef %.val34) #11
+  %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %99, i32 noundef %97, i32 noundef %.val34) #11
   br label %.loopexit11
 
 102:                                              ; preds = %96
@@ -1326,7 +1326,7 @@ define internal noundef range(i32 -5, 1) i32 @rock_ridge_symlink_read_folio(ptr 
 rock_check_overflow.exit:                         ; preds = %99
   %102 = zext i16 %87 to i32
   %103 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
-  %104 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %102, i32 noundef %100, i32 noundef %.val) #11
+  %104 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 65536) %102, i32 noundef %100, i32 noundef %.val) #11
   br label %.thread15
 
 105:                                              ; preds = %99

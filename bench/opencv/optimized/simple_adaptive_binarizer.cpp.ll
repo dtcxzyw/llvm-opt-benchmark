@@ -127,7 +127,7 @@ declare void @_ZN5zxing24GlobalHistogramBinarizerD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5zxing23SimpleAdaptiveBinarizerD0Ev(ptr noundef nonnull align 8 dereferenceable(122) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN5zxing24GlobalHistogramBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %0) #10
+  tail call void @_ZN5zxing24GlobalHistogramBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(122) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }
@@ -740,7 +740,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread: ; preds = %3
 
 _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.i: ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread, %7
   store ptr %6, ptr %4, align 8
-  invoke void @_ZN5zxing24GlobalHistogramBinarizerC2ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(121) %5, ptr noundef nonnull %4)
+  invoke void @_ZN5zxing24GlobalHistogramBinarizerC2ENS_3RefINS_15LuminanceSourceEEE(ptr noundef nonnull align 8 dereferenceable(122) %5, ptr noundef nonnull %4)
           to label %11 unwind label %22
 
 11:                                               ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.i

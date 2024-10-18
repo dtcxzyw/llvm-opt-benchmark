@@ -752,7 +752,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
 
 108:                                              ; preds = %104, %77
   %109 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke void @_ZN11ComprDataIO18AdjustTotalArcSizeEP7Archive(ptr noundef nonnull align 8 dereferenceable(266) %109, ptr noundef nonnull %2)
+  invoke void @_ZN11ComprDataIO18AdjustTotalArcSizeEP7Archive(ptr noundef nonnull align 8 dereferenceable(266) %109, ptr noundef nonnull align 8 dereferenceable(57108) %2)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %108
@@ -1978,7 +1978,7 @@ _ZN10CmdExtract11CheckUnpVerER7ArchivePKw.exit.thread: ; preds = %306
 
 355:                                              ; preds = %352
   %356 = getelementptr inbounds i8, ptr %353, i64 100848
-  invoke void @_ZNSt6vectorIwSaIwEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %356)
+  invoke void @_ZNSt6vectorIwSaIwEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %19, ptr noundef nonnull align 8 dereferenceable(25) %356)
           to label %357 unwind label %348
 
 357:                                              ; preds = %355
@@ -4322,7 +4322,7 @@ define linkonce_odr void @_ZNSt6vectorIwSaIwEEC2ERKS1_(ptr noundef nonnull align
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %1) #19
-  call void @_ZNSaIwEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %3) #19
+  call void @_ZNSaIwEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i, label %16, label %11
@@ -4345,7 +4345,7 @@ _ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i: ; preds = %11
 .body:                                            ; preds = %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i, %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #19
+  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   call void @_ZNSaIwED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   resume { ptr, i32 } %15
 
@@ -4435,7 +4435,7 @@ define linkonce_odr void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 derefere
   unreachable
 
 _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %.ptr1) #19
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr1) #19
   %11 = icmp eq i64 %.add, 328
   br i1 %11, label %12, label %2
 
@@ -4473,7 +4473,7 @@ _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
   unreachable
 
 _ZN9CryptData13KDF3CacheItemD2Ev.exit:            ; preds = %.noexc2.i5
-  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %16) #19
+  tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %16) #19
   %24 = icmp eq ptr %16, %0
   br i1 %24, label %25, label %14
 

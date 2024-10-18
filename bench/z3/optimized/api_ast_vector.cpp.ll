@@ -148,7 +148,7 @@ if.end:                                           ; preds = %if.then, %entry
 invoke.cont13:                                    ; preds = %if.end
   %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
   %8 = load ptr, ptr %m_manager.i, align 8
-  invoke void @_ZN3api6objectC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(24) %call8, ptr noundef nonnull align 8 dereferenceable(3048) %c)
+  invoke void @_ZN3api6objectC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(40) %call8, ptr noundef nonnull align 8 dereferenceable(3048) %c)
           to label %invoke.cont15 unwind label %lpad1
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -1092,7 +1092,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
 
 invoke.cont30:                                    ; preds = %invoke.cont22
   %4 = load ptr, ptr %m_manager.i22, align 8
-  invoke void @_ZN3api6objectC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(24) %call25, ptr noundef nonnull align 8 dereferenceable(3048) %t)
+  invoke void @_ZN3api6objectC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(40) %call25, ptr noundef nonnull align 8 dereferenceable(3048) %t)
           to label %invoke.cont32 unwind label %lpad23.loopexit.split-lp
 
 invoke.cont32:                                    ; preds = %invoke.cont30
@@ -1863,7 +1863,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

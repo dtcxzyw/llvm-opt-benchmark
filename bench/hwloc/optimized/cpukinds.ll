@@ -93,11 +93,11 @@ define hidden range(i32 -1, 1) i32 @hwloc_internal_cpukinds_dup(ptr nocapture no
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %4, align 8
-  %12 = tail call ptr %11(ptr noundef nonnull %4, i64 noundef %9) #19
+  %12 = tail call ptr %11(ptr noundef nonnull %4, i64 noundef range(i64 40, 171798691801) %9) #19
   br label %hwloc_tma_malloc.exit
 
 13:                                               ; preds = %7
-  %14 = tail call noalias ptr @malloc(i64 noundef %9) #20
+  %14 = tail call noalias ptr @malloc(i64 noundef range(i64 40, 171798691801) %9) #20
   br label %hwloc_tma_malloc.exit
 
 hwloc_tma_malloc.exit:                            ; preds = %10, %13

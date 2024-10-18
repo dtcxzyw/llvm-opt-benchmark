@@ -963,7 +963,7 @@ _ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEED2Ev.exit: ; preds = %entry,
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib19DiscretizedSwaptionE, i64 16), ptr %this, align 8, !tbaa !51
   %arguments_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib13PricingEngine9argumentsE, i64 16), ptr %arguments_, align 8, !tbaa !51
-  invoke void @_ZN8QuantLib19FixedVsFloatingSwap9argumentsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(336) %arguments_, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib8Swaption9argumentsE, i64 8), ptr noundef nonnull align 8 dereferenceable(336) %args)
+  invoke void @_ZN8QuantLib19FixedVsFloatingSwap9argumentsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(400) %arguments_, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib8Swaption9argumentsE, i64 8), ptr noundef nonnull align 8 dereferenceable(400) %args)
           to label %.noexc33 unwind label %lpad7
 
 .noexc33:                                         ; preds = %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEED2Ev.exit
@@ -4465,7 +4465,7 @@ terminate.lpad.i.i9.i:                            ; preds = %if.then.i.i.i.i13.i
   unreachable
 
 _ZN8QuantLib8SwaptionD2Ev.exit:                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib11VanillaSwapEED2Ev.exit.i, %if.then.i.i3.i, %.noexc.i.i10.i, %if.then.i.i.i.i13.i
-  tail call void @_ZN8QuantLib6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib8SwaptionE, i64 8)) #22
+  tail call void @_ZN8QuantLib6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib8SwaptionE, i64 8)) #22
   %17 = getelementptr inbounds i8, ptr %this, i64 232
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %17, align 8, !tbaa !51
   %observables_.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -4505,7 +4505,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %23 = phi ptr [ %22, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull %17)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %17)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -5052,7 +5052,7 @@ entry:
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib19DiscretizedSwaptionE, i64 16), ptr %this, align 8, !tbaa !51
   %arguments_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZN8QuantLib8Swaption9argumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %arguments_.i, ptr noundef nonnull @_ZTTN8QuantLib8Swaption9argumentsE) #22
-  tail call void @_ZN8QuantLib17DiscretizedOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #22
+  tail call void @_ZN8QuantLib17DiscretizedOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 520) #25
   ret void
 }

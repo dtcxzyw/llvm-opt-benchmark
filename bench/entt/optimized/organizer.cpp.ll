@@ -44252,7 +44252,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i3, align 8, !tbaa !130
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i2, align 8, !tbaa !130
   %tobool.not.i.i.i.i.i.i.i.i4 = icmp eq ptr %0, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %other, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i4, label %_ZN4entt15compressed_pairISt6vectorImSaImEENS_8identityEEaSEOS5_.exit.i, label %if.then.i.i.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i.i.i5:                         ; preds = %entry

@@ -323,7 +323,7 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %37 = load ptr, ptr %7, align 8
   call void @col_clear(ptr noundef %37, i32 noundef 25) #4
   %38 = load i32, ptr @hf_ismp_edp, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef 0) #4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef range(i32 7, 266) %35, i32 noundef -1, i32 noundef 0) #4
   %40 = load i32, ptr @ett_ismp_edp, align 4
   %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #4
   %42 = load ptr, ptr %7, align 8
@@ -338,7 +338,7 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %51 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %50) #4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.144, ptr noundef %46, ptr noundef %49, i32 noundef %51) #4
   %52 = load i32, ptr @hf_ismp_edp_version, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %52, ptr noundef %0, i32 noundef %35, i32 noundef 2, i32 noundef 0) #4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %52, ptr noundef %0, i32 noundef range(i32 7, 266) %35, i32 noundef 2, i32 noundef 0) #4
   %54 = load i32, ptr @hf_ismp_edp_module_ip, align 4
   %55 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %54, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0) #4
   %56 = load i32, ptr @hf_ismp_edp_module_mac, align 4

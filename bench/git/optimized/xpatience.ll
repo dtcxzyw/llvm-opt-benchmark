@@ -615,7 +615,7 @@ if.else50:                                        ; preds = %if.end.i, %for.end.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 32, i1 false)
   %and.i = and i64 %map.val24.val, -49153
   store i64 %and.i, ptr %xpp.i48, align 8
-  %call.i49 = call i32 @xdl_fall_back_diff(ptr noundef %env, ptr noundef nonnull %xpp.i48, i32 noundef %line1, i32 noundef %count1, i32 noundef %line2, i32 noundef %count2) #6
+  %call.i49 = call i32 @xdl_fall_back_diff(ptr noundef %env, ptr noundef nonnull %xpp.i48, i32 noundef %line1, i32 noundef range(i32 1, 0) %count1, i32 noundef %line2, i32 noundef range(i32 1, 0) %count2) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %xpp.i48)
   br label %out
 

@@ -82,7 +82,7 @@ define hidden void @VP8EncDspInit() local_unnamed_addr #1 {
 .preheader.i.i:                                   ; preds = %5, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ -255, %5 ]
   %7 = trunc nsw i64 %indvars.iv.i.i to i32
-  %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
+  %8 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 268435711) %7, i32 0)
   %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 255)
   %10 = trunc nuw i32 %9 to i8
   %11 = add nsw i64 %indvars.iv.i.i, 255
@@ -2442,7 +2442,7 @@ define internal fastcc void @ITransformOne(ptr nocapture noundef readonly %0, pt
   %67 = add nsw i32 %62, %45
   %68 = ashr i32 %67, 3
   %69 = add nsw i32 %68, %66
-  %70 = tail call i32 @llvm.smax.i32(i32 %69, i32 0)
+  %70 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 268435711) %69, i32 0)
   %71 = tail call i32 @llvm.umin.i32(i32 %70, i32 255)
   %72 = trunc nuw i32 %71 to i8
   %73 = getelementptr inbounds i8, ptr %2, i64 %63
@@ -2454,7 +2454,7 @@ define internal fastcc void @ITransformOne(ptr nocapture noundef readonly %0, pt
   %78 = add nsw i32 %56, %46
   %79 = ashr i32 %78, 3
   %80 = add nsw i32 %79, %77
-  %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
+  %81 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 268435711) %80, i32 0)
   %82 = tail call i32 @llvm.umin.i32(i32 %81, i32 255)
   %83 = trunc nuw i32 %82 to i8
   %84 = getelementptr inbounds i8, ptr %2, i64 %74
@@ -2466,7 +2466,7 @@ define internal fastcc void @ITransformOne(ptr nocapture noundef readonly %0, pt
   %89 = sub nsw i32 %46, %56
   %90 = ashr i32 %89, 3
   %91 = add nsw i32 %90, %88
-  %92 = tail call i32 @llvm.smax.i32(i32 %91, i32 0)
+  %92 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 268435711) %91, i32 0)
   %93 = tail call i32 @llvm.umin.i32(i32 %92, i32 255)
   %94 = trunc nuw i32 %93 to i8
   %95 = getelementptr inbounds i8, ptr %2, i64 %85
@@ -2478,7 +2478,7 @@ define internal fastcc void @ITransformOne(ptr nocapture noundef readonly %0, pt
   %100 = sub nsw i32 %45, %62
   %101 = ashr i32 %100, 3
   %102 = add nsw i32 %101, %99
-  %103 = tail call i32 @llvm.smax.i32(i32 %102, i32 0)
+  %103 = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 268435711) %102, i32 0)
   %104 = tail call i32 @llvm.umin.i32(i32 %103, i32 255)
   %105 = trunc nuw i32 %104 to i8
   %106 = getelementptr inbounds i8, ptr %2, i64 %96

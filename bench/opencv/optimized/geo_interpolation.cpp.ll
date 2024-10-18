@@ -1223,7 +1223,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %25
   %124 = load i32, ptr %115, align 4
   %125 = mul nsw i32 %124, %123
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %16, i8 0, i64 24, i1 false)
   %126 = shl nsw i32 %5, 1
   %127 = or disjoint i32 %126, 1
   %128 = getelementptr inbounds i8, ptr %16, i64 24
@@ -1235,7 +1235,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %25
 129:                                              ; preds = %117
   %130 = mul nsw i32 %125, %127
   %131 = sext i32 %130 to i64
-  invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr null, i64 noundef %131, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(28) %16, ptr null, i64 noundef %131, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %._crit_edge306 unwind label %132
 
 ._crit_edge306:                                   ; preds = %129

@@ -256,7 +256,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -999,7 +999,7 @@ define dso_local void @_ZN23cmMakefileProfilingData4RAIIC2ERS_RKNSt7__cxx1112bas
   br i1 %10, label %11, label %_ZNSt8optionalIN4Json5ValueEEC2EOS2_.exit
 
 11:                                               ; preds = %5
-  call void @_ZN4Json5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %4) #13
+  call void @_ZN4Json5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   store i8 1, ptr %8, align 8
   br label %_ZNSt8optionalIN4Json5ValueEEC2EOS2_.exit
 
@@ -1014,7 +1014,7 @@ _ZNSt8optionalIN4Json5ValueEEC2EOS2_.exit:        ; preds = %5, %11
 
 15:                                               ; preds = %12
   store i8 0, ptr %8, align 8
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #13
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #13
   br label %_ZNSt8optionalIN4Json5ValueEED2Ev.exit
 
 _ZNSt8optionalIN4Json5ValueEED2Ev.exit:           ; preds = %12, %15
@@ -1029,7 +1029,7 @@ _ZNSt8optionalIN4Json5ValueEED2Ev.exit:           ; preds = %12, %15
 
 20:                                               ; preds = %16
   store i8 0, ptr %8, align 8
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #13
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #13
   br label %_ZNSt8optionalIN4Json5ValueEED2Ev.exit5
 
 _ZNSt8optionalIN4Json5ValueEED2Ev.exit5:          ; preds = %16, %20

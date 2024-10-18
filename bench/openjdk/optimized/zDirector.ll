@@ -153,18 +153,18 @@ define hidden void @_ZN9ZDirector14evaluate_rulesEv() local_unnamed_addr #0 alig
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:
   %0 = load ptr, ptr @_ZN9ZDirector9_directorE, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 920
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #11
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %1) #11
   %3 = load ptr, ptr @_ZN9ZDirector9_directorE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 960
   %5 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %4) #11
-  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #11
+  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %1) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9ZDirector13wait_for_tickEv(ptr noundef nonnull align 8 dereferenceable(1009) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 920
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #11
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 1008
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -176,7 +176,7 @@ define hidden noundef zeroext i1 @_ZN9ZDirector13wait_for_tickEv(ptr noundef non
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %1, %7
   %.0 = xor i1 %6, true
-  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #11
+  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
   ret i1 %.0
 }
 
@@ -197,7 +197,7 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
   %12 = alloca %struct.ZStatHeapStats, align 8
   %13 = alloca %struct.ZDirectorStats, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 920
-  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #11
+  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %14) #11
   %16 = getelementptr inbounds i8, ptr %0, i64 1008
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
@@ -256,7 +256,7 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
 
 47:                                               ; preds = %.lr.ph, %_ZL8start_gcRK14ZDirectorStats.exit
   %48 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %14, i64 noundef 10) #11
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #11
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %14) #11
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9)
@@ -293,7 +293,7 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
   br i1 %.not.i.i.i, label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i, label %70
 
 70:                                               ; preds = %47
-  %71 = call i32 @pthread_mutex_lock(ptr noundef nonnull %69) #11, !noalias !15
+  %71 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %69) #11, !noalias !15
   br label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i
 
 _ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i:              ; preds = %70, %47
@@ -318,7 +318,7 @@ _ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i:              ; preds = %70, %47
   br i1 %.not.i.i.i, label %_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.exit.i, label %79
 
 79:                                               ; preds = %78
-  %80 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %69) #11, !noalias !15
+  %80 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %69) #11, !noalias !15
   br label %_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.exit.i
 
 _ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.exit.i: ; preds = %79, %78
@@ -329,7 +329,7 @@ _ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.
   br i1 %.not.i.i15.i, label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i, label %83
 
 83:                                               ; preds = %_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.exit.i
-  %84 = call i32 @pthread_mutex_lock(ptr noundef nonnull %82) #11, !noalias !19
+  %84 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %82) #11, !noalias !19
   br label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i
 
 _ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i:            ; preds = %83, %_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers.exit.i
@@ -354,7 +354,7 @@ _ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i:            ; preds = %83, %_ZL26sample_wo
   br i1 %.not.i.i15.i, label %_ZL12sample_statsv.exit, label %92
 
 92:                                               ; preds = %91
-  %93 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %82) #11, !noalias !19
+  %93 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %82) #11, !noalias !19
   br label %_ZL12sample_statsv.exit
 
 _ZL12sample_statsv.exit:                          ; preds = %91, %92
@@ -544,7 +544,7 @@ _ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL20rule_major
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %177 to i32
   %.sroa.2.0.extract.shift.i.i = lshr i64 %177, 32
   %.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i to i32
-  call void @_ZN14ZDriverRequestC1EN7GCCause5CauseEjj(ptr noundef nonnull align 4 dereferenceable(12) %7, i32 noundef %.0.i.i, i32 noundef %.sroa.0.0.extract.trunc.i.i, i32 noundef %.sroa.2.0.extract.trunc.i.i) #11
+  call void @_ZN14ZDriverRequestC1EN7GCCause5CauseEjj(ptr noundef nonnull align 4 dereferenceable(12) %7, i32 noundef range(i32 12, 33) %.0.i.i, i32 noundef %.sroa.0.0.extract.trunc.i.i, i32 noundef %.sroa.2.0.extract.trunc.i.i) #11
   %178 = call noundef ptr @_ZN7ZDriver5majorEv() #11
   call void @_ZN12ZDriverMajor7collectERK14ZDriverRequest(ptr noundef nonnull align 8 dereferenceable(1264) %178, ptr noundef nonnull align 4 dereferenceable(12) %7) #11
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
@@ -594,7 +594,7 @@ _ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_mi
 
 198:                                              ; preds = %_ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i
   %199 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %200 = call noundef zeroext i1 @_ZNK14ZPageAllocator25is_alloc_stalling_for_oldEv(ptr noundef nonnull align 8 dereferenceable(609) %199) #11
+  %200 = call noundef zeroext i1 @_ZNK14ZPageAllocator25is_alloc_stalling_for_oldEv(ptr noundef nonnull align 64 dereferenceable(15937) %199) #11
   br i1 %200, label %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread.i.i, label %201
 
 201:                                              ; preds = %198
@@ -860,7 +860,7 @@ _ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread.i: ; preds = %_ZL2
 
 _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %334, %331, %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread.i
   %.sroa.01.0.extract.trunc.i.i = trunc i64 %328 to i32
-  call void @_ZN14ZDriverRequestC1EN7GCCause5CauseEjj(ptr noundef nonnull align 4 dereferenceable(12) %3, i32 noundef %.0.i15.i, i32 noundef %.sroa.01.0.extract.trunc.i.i, i32 noundef 0) #11
+  call void @_ZN14ZDriverRequestC1EN7GCCause5CauseEjj(ptr noundef nonnull align 4 dereferenceable(12) %3, i32 noundef range(i32 12, 11) %.0.i15.i, i32 noundef %.sroa.01.0.extract.trunc.i.i, i32 noundef 0) #11
   %337 = call noundef ptr @_ZN7ZDriver5minorEv() #11
   call void @_ZN12ZDriverMinor7collectERK14ZDriverRequest(ptr noundef nonnull align 8 dereferenceable(1264) %337, ptr noundef nonnull align 4 dereferenceable(12) %3) #11
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
@@ -912,7 +912,7 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %334, %3
   %361 = load i32, ptr %.sroa.524.0..sroa_idx.i, align 8
   %362 = load i32, ptr %.sroa.5.0..sroa_idx.i, align 8
   %363 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %364 = call noundef zeroext i1 @_ZNK14ZPageAllocator17is_alloc_stallingEv(ptr noundef nonnull align 8 dereferenceable(609) %363) #11
+  %364 = call noundef zeroext i1 @_ZNK14ZPageAllocator17is_alloc_stallingEv(ptr noundef nonnull align 64 dereferenceable(15937) %363) #11
   br i1 %364, label %365, label %368
 
 365:                                              ; preds = %359
@@ -1011,13 +1011,13 @@ _ZL9adjust_gcRK14ZDirectorStats.exit:             ; preds = %338, %341, %343, %4
   br label %_ZL8start_gcRK14ZDirectorStats.exit
 
 _ZL8start_gcRK14ZDirectorStats.exit:              ; preds = %_ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i, %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread34.i, %_ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i, %_ZL9adjust_gcRK14ZDirectorStats.exit
-  %417 = call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #11
+  %417 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %14) #11
   %418 = load i8, ptr %16, align 8
   %419 = trunc i8 %418 to i1
   br i1 %419, label %._crit_edge, label %47, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZL8start_gcRK14ZDirectorStats.exit, %1
-  %420 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #11
+  %420 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %14) #11
   ret void
 }
 
@@ -1025,12 +1025,12 @@ _ZL8start_gcRK14ZDirectorStats.exit:              ; preds = %_ZL14start_minor_gc
 define hidden void @_ZN9ZDirector9terminateEv(ptr noundef nonnull align 8 dereferenceable(1009) %0) unnamed_addr #0 align 2 {
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:
   %1 = getelementptr inbounds i8, ptr %0, i64 920
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #11
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %1) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 1008
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 960
   %5 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %4) #11
-  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #11
+  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %1) #11
   ret void
 }
 
@@ -1044,7 +1044,7 @@ define linkonce_odr hidden void @_ZN9ZDirectorD2Ev(ptr noundef nonnull align 8 d
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV9ZDirector, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #11
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #11
   ret void
 }
 
@@ -1053,7 +1053,7 @@ define linkonce_odr hidden void @_ZN9ZDirectorD0Ev(ptr noundef nonnull align 8 d
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV9ZDirector, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #11
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1009) %0) #11
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #11
   ret void
 }
@@ -1409,7 +1409,7 @@ define internal fastcc i64 @_ZL21select_worker_threadsRK14ZDirectorStatsj20ZWork
   %6 = getelementptr inbounds i8, ptr %0, i64 384
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %9 = tail call noundef zeroext i1 @_ZNK14ZPageAllocator17is_alloc_stallingEv(ptr noundef nonnull align 8 dereferenceable(609) %8) #11
+  %9 = tail call noundef zeroext i1 @_ZNK14ZPageAllocator17is_alloc_stallingEv(ptr noundef nonnull align 64 dereferenceable(15937) %8) #11
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3

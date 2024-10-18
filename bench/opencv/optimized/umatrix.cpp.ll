@@ -368,7 +368,7 @@ define void @_ZN2cv8UMatData4lockEv(ptr noundef nonnull align 8 dereferenceable(
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 31
   %4 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %3
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #22
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #22
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZNSt15recursive_mutex4lockEv.exit, label %6
 
@@ -385,7 +385,7 @@ define void @_ZN2cv8UMatData6unlockEv(ptr noundef nonnull align 8 dereferenceabl
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 31
   %4 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %3
-  %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #22
+  %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #22
   ret void
 }
 
@@ -504,7 +504,7 @@ define linkonce_odr hidden void @_ZN2cv18UMatDataAutoLocker4lockERPNS_8UMatDataE
   %27 = ptrtoint ptr %26 to i64
   %28 = urem i64 %27, 31
   %29 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %28
-  %30 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %29) #22
+  %30 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %29) #22
   %.not.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i, label %_ZN2cv8UMatData4lockEv.exit, label %31
 
@@ -619,7 +619,7 @@ define linkonce_odr hidden void @_ZN2cv18UMatDataAutoLocker4lockERPNS_8UMatDataE
   %34 = ptrtoint ptr %32 to i64
   %35 = urem i64 %34, 31
   %36 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %35
-  %37 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %36) #22
+  %37 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %36) #22
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %._ZN2cv8UMatData4lockEv.exit_crit_edge, label %38
 
@@ -640,7 +640,7 @@ _ZN2cv8UMatData4lockEv.exit:                      ; preds = %._ZN2cv8UMatData4lo
   %41 = ptrtoint ptr %39 to i64
   %42 = urem i64 %41, 31
   %43 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %42
-  %44 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %43) #22
+  %44 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %43) #22
   %.not.i.i27 = icmp eq i32 %44, 0
   br i1 %.not.i.i27, label %_ZN2cv8UMatData4lockEv.exit28, label %45
 
@@ -725,7 +725,7 @@ define linkonce_odr hidden void @_ZN2cv18UMatDataAutoLocker7releaseEPNS_8UMatDat
   %21 = ptrtoint ptr %1 to i64
   %22 = urem i64 %21, 31
   %23 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %22
-  %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #22
+  %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %23) #22
   br label %25
 
 25:                                               ; preds = %20, %19
@@ -735,7 +735,7 @@ define linkonce_odr hidden void @_ZN2cv18UMatDataAutoLocker7releaseEPNS_8UMatDat
   %27 = ptrtoint ptr %2 to i64
   %28 = urem i64 %27, 31
   %29 = getelementptr inbounds [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %28
-  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #22
+  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %29) #22
   br label %31
 
 31:                                               ; preds = %26, %25

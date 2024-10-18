@@ -374,11 +374,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %conv34, i32 noundef %parity.0, i32 noundef %add, i32 noundef %stop_bits.0) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %conv34, i32 noundef %parity.0, i32 noundef range(i32 5, 9) %add, i32 noundef range(i32 1, 3) %stop_bits.0) #10
   br label %trace_serial_update_parameters.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i64 noundef %conv34, i32 noundef %parity.0, i32 noundef %add, i32 noundef %stop_bits.0) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i64 noundef %conv34, i32 noundef %parity.0, i32 noundef range(i32 5, 9) %add, i32 noundef range(i32 1, 3) %stop_bits.0) #10
   br label %trace_serial_update_parameters.exit
 
 trace_serial_update_parameters.exit:              ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

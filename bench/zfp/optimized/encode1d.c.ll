@@ -561,7 +561,7 @@ fwd_cast_double.exit.i:                           ; preds = %261
 fwd_order_int64.exit.i.i17:                       ; preds = %295
   %305 = tail call i32 @llvm.usub.sat.i32(i32 %269, i32 12)
   %306 = add i32 %271, -12
-  %307 = call fastcc i32 @encode_ints_uint64(ptr noundef %268, i32 noundef %306, i32 noundef %231, ptr noundef %3)
+  %307 = call fastcc i32 @encode_ints_uint64(ptr noundef %268, i32 noundef %306, i32 noundef range(i32 0, -2147483648) %231, ptr noundef %3)
   %308 = icmp ult i32 %307, %305
   br i1 %308, label %309, label %encode_block_int64_1.exit.i
 

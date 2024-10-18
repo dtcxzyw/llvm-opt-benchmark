@@ -228,7 +228,7 @@ define internal i32 @dissect_xip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %switch.i.i, label %73, label %dissect_xip_sink_node.exit.i
 
 73:                                               ; preds = %64
-  %74 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %68) #4
+  %74 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef range(i32 8, 14289) %68) #4
   %75 = load ptr, ptr @xip_serval_handle, align 8
   %76 = tail call i32 @call_dissector(ptr noundef %75, ptr noundef %74, ptr noundef nonnull %1, ptr noundef %2) #4
   br label %dissect_xip_sink_node.exit.i

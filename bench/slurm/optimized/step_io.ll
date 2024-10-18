@@ -258,7 +258,7 @@ define internal noundef i32 @_listening_socket_read(ptr nocapture noundef readon
   call void @fd_set_blocking(i32 noundef %38) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %50 = call i32 @io_init_msg_read_from_fd(i32 noundef %38, ptr noundef nonnull %3) #10
+  %50 = call i32 @io_init_msg_read_from_fd(i32 noundef range(i32 0, -2147483648) %38, ptr noundef nonnull %3) #10
   %.not.i.i = icmp eq i32 %50, 0
   br i1 %.not.i.i, label %51, label %135
 
@@ -285,7 +285,7 @@ define internal noundef i32 @_listening_socket_read(ptr nocapture noundef readon
 
 63:                                               ; preds = %60
   %64 = load i32, ptr %20, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.22, ptr noundef nonnull %5, i32 noundef %64, i32 noundef %38) #10
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.22, ptr noundef nonnull %5, i32 noundef %64, i32 noundef range(i32 0, -2147483648) %38) #10
   br label %65
 
 65:                                               ; preds = %63, %60
@@ -361,8 +361,8 @@ define internal noundef i32 @_listening_socket_read(ptr nocapture noundef readon
   store i32 0, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %93, i64 76
   store i8 0, ptr %105, align 4
-  %106 = call i32 @net_set_keep_alive(i32 noundef %38) #10
-  %107 = call ptr @eio_obj_create(i32 noundef %38, ptr noundef nonnull @server_ops, ptr noundef nonnull %93) #10
+  %106 = call i32 @net_set_keep_alive(i32 noundef range(i32 0, -2147483648) %38) #10
+  %107 = call ptr @eio_obj_create(i32 noundef range(i32 0, -2147483648) %38, ptr noundef nonnull @server_ops, ptr noundef nonnull %93) #10
   %108 = load ptr, ptr %24, align 8
   %109 = load i32, ptr %20, align 8
   %110 = zext i32 %109 to i64
@@ -419,7 +419,7 @@ define internal noundef i32 @_listening_socket_read(ptr nocapture noundef readon
   br i1 %136, label %137, label %_read_io_init_msg.exit.thread.i
 
 137:                                              ; preds = %135
-  %138 = call i32 @close(i32 noundef %38) #10
+  %138 = call i32 @close(i32 noundef range(i32 0, -2147483648) %38) #10
   br label %_read_io_init_msg.exit.thread.i
 
 _read_io_init_msg.exit.thread.i:                  ; preds = %137, %135
@@ -1996,7 +1996,7 @@ _wid.exit:                                        ; preds = %.lr.ph.i, %7, %14
   store i32 %.sroa.7.0.copyload, ptr %69, align 4
   %70 = getelementptr inbounds i8, ptr %63, i64 32
   store i32 %.sroa.9.0.copyload, ptr %70, align 8
-  %71 = tail call ptr @eio_obj_create(i32 noundef %.sroa.6.0.copyload, ptr noundef nonnull @file_write_ops, ptr noundef nonnull %63) #10
+  %71 = tail call ptr @eio_obj_create(i32 noundef range(i32 0, -2147483648) %.sroa.6.0.copyload, ptr noundef nonnull @file_write_ops, ptr noundef nonnull %63) #10
   %72 = getelementptr inbounds i8, ptr %9, i64 232
   store ptr %71, ptr %72, align 8
   %73 = load ptr, ptr %23, align 8
@@ -2047,7 +2047,7 @@ _wid.exit:                                        ; preds = %.lr.ph.i, %7, %14
   store i32 %.sroa.12.0.copyload, ptr %95, align 4
   %96 = getelementptr inbounds i8, ptr %89, i64 32
   store i32 %.sroa.14.0.copyload, ptr %96, align 8
-  %97 = tail call ptr @eio_obj_create(i32 noundef %.sroa.11.0.copyload, ptr noundef nonnull @file_write_ops, ptr noundef nonnull %89) #10
+  %97 = tail call ptr @eio_obj_create(i32 noundef range(i32 0, -2147483648) %.sroa.11.0.copyload, ptr noundef nonnull @file_write_ops, ptr noundef nonnull %89) #10
   %98 = getelementptr inbounds i8, ptr %9, i64 240
   store ptr %97, ptr %98, align 8
   %99 = load ptr, ptr %23, align 8

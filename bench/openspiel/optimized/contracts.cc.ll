@@ -158,7 +158,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc4 unwind label %21
 
 .noexc4:                                          ; preds = %.noexc
@@ -168,7 +168,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 19:                                               ; preds = %.noexc4
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 21:                                               ; preds = %.noexc, %17
@@ -182,7 +182,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc5 unwind label %27
 
 .noexc5:                                          ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc6 unwind label %27
 
 .noexc6:                                          ; preds = %.noexc5
@@ -192,7 +192,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 25:                                               ; preds = %.noexc6
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 27:                                               ; preds = %.noexc5, %23
@@ -206,7 +206,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc10 unwind label %33
 
 .noexc10:                                         ; preds = %29
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc11 unwind label %33
 
 .noexc11:                                         ; preds = %.noexc10
@@ -216,7 +216,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 31:                                               ; preds = %.noexc11
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 33:                                               ; preds = %.noexc10, %29
@@ -230,7 +230,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc15 unwind label %39
 
 .noexc15:                                         ; preds = %35
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc16 unwind label %39
 
 .noexc16:                                         ; preds = %.noexc15
@@ -240,7 +240,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 37:                                               ; preds = %.noexc16
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 39:                                               ; preds = %.noexc15, %35
@@ -254,7 +254,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc20 unwind label %45
 
 .noexc20:                                         ; preds = %41
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %42, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %42, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc21 unwind label %45
 
 .noexc21:                                         ; preds = %.noexc20
@@ -264,7 +264,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 43:                                               ; preds = %.noexc21
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 45:                                               ; preds = %.noexc20, %41
@@ -278,7 +278,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc25 unwind label %51
 
 .noexc25:                                         ; preds = %47
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc26 unwind label %51
 
 .noexc26:                                         ; preds = %.noexc25
@@ -288,7 +288,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 49:                                               ; preds = %.noexc26
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 51:                                               ; preds = %.noexc25, %47
@@ -302,7 +302,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc30 unwind label %57
 
 .noexc30:                                         ; preds = %53
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %54, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %54, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc31 unwind label %57
 
 .noexc31:                                         ; preds = %.noexc30
@@ -312,7 +312,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 55:                                               ; preds = %.noexc31
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 57:                                               ; preds = %.noexc30, %53
@@ -326,7 +326,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc35 unwind label %63
 
 .noexc35:                                         ; preds = %59
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %60, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %60, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc36 unwind label %63
 
 .noexc36:                                         ; preds = %.noexc35
@@ -336,7 +336,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 61:                                               ; preds = %.noexc36
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 63:                                               ; preds = %.noexc35, %59
@@ -350,7 +350,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc40 unwind label %69
 
 .noexc40:                                         ; preds = %65
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc41 unwind label %69
 
 .noexc41:                                         ; preds = %.noexc40
@@ -360,7 +360,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 67:                                               ; preds = %.noexc41
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 69:                                               ; preds = %.noexc40, %65
@@ -374,7 +374,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc45 unwind label %75
 
 .noexc45:                                         ; preds = %71
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %72, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %72, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc46 unwind label %75
 
 .noexc46:                                         ; preds = %.noexc45
@@ -384,7 +384,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 73:                                               ; preds = %.noexc46
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 75:                                               ; preds = %.noexc45, %71
@@ -398,7 +398,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc50 unwind label %81
 
 .noexc50:                                         ; preds = %77
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %78, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %78, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %.noexc51 unwind label %81
 
 .noexc51:                                         ; preds = %.noexc50
@@ -408,7 +408,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 79:                                               ; preds = %.noexc51
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 81:                                               ; preds = %.noexc50, %77
@@ -422,7 +422,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc55 unwind label %87
 
 .noexc55:                                         ; preds = %83
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %84, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %84, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.noexc56 unwind label %87
 
 .noexc56:                                         ; preds = %.noexc55
@@ -432,7 +432,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 85:                                               ; preds = %.noexc56
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 87:                                               ; preds = %.noexc55, %83
@@ -446,7 +446,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
           to label %.noexc60 unwind label %93
 
 .noexc60:                                         ; preds = %89
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %90, ptr noundef nonnull align 1 dereferenceable(1) %15)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %90, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %.noexc61 unwind label %93
 
 .noexc61:                                         ; preds = %.noexc60
@@ -456,7 +456,7 @@ define void @_ZN10open_spiel5tarok20ContractNameToStringB5cxx11ERKNS0_12Contract
 91:                                               ; preds = %.noexc61
   %92 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   br label %.body
 
 93:                                               ; preds = %.noexc60, %89

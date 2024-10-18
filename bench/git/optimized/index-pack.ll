@@ -913,7 +913,7 @@ if.then17.i.i:                                    ; preds = %do.body.i.i
   br i1 %mul.ov.i.i.i, label %if.then.i29.i.i, label %st_mult.exit.i.i
 
 if.then.i29.i.i:                                  ; preds = %if.then17.i.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 4, i64 noundef %conv36.i.i) #22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 4, i64 noundef range(i64 -2147483648, 2147483648) %conv36.i.i) #22
   unreachable
 
 st_mult.exit.i.i:                                 ; preds = %if.then17.i.i
@@ -955,7 +955,7 @@ if.then.i35.i.i:                                  ; preds = %for.end.i.i
   %conv53.i.i = sext i32 %82 to i64
   %anomaly51.i.i = getelementptr inbounds i8, ptr %opts, i64 24
   %83 = load ptr, ptr %anomaly51.i.i, align 8
-  call void @qsort(ptr noundef %83, i64 noundef %conv53.i.i, i64 noundef 4, ptr noundef nonnull @cmp_uint32) #23
+  call void @qsort(ptr noundef %83, i64 noundef range(i64 -2147483648, 2147483648) %conv53.i.i, i64 noundef 4, ptr noundef nonnull @cmp_uint32) #23
   br label %read_idx_option.exit
 
 read_idx_option.exit:                             ; preds = %if.end7.i, %for.end.i.i, %if.then.i35.i.i
@@ -1601,7 +1601,7 @@ sw.epilog.i.i:                                    ; preds = %while.end38.i.i, %s
   br i1 %.not.i.i.i, label %if.else8.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.epilog.i.i
-  %call1.i.i.i = call i32 @format_object_header(ptr noundef nonnull %hdr.i.i.i, i64 noundef 32, i32 noundef %conv66.i.i, i64 noundef %169) #23
+  %call1.i.i.i = call i32 @format_object_header(ptr noundef nonnull %hdr.i.i.i, i64 noundef 32, i32 noundef range(i32 -128, 128) %conv66.i.i, i64 noundef %169) #23
   %172 = load ptr, ptr @the_repository, align 8
   %hash_algo.i33.i.i = getelementptr inbounds i8, ptr %172, i64 256
   %173 = load ptr, ptr %hash_algo.i33.i.i, align 8
@@ -2395,7 +2395,7 @@ if.then23.i:                                      ; preds = %do.body.i110
   br i1 %mul.ov.i.i, label %if.then.i41.i, label %st_mult.exit.i
 
 if.then.i41.i:                                    ; preds = %if.then23.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 40, i64 noundef %conv35.i) #22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 40, i64 noundef range(i64 -2147483648, 2147483648) %conv35.i) #22
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then23.i
@@ -2658,7 +2658,7 @@ if.end.i122:                                      ; preds = %if.end304
 if.then.i.i144:                                   ; preds = %if.end.i122
   %conv.i145 = sext i32 %353 to i64
   %355 = load ptr, ptr @ofs_deltas, align 8
-  call void @qsort(ptr noundef %355, i64 noundef %conv.i145, i64 noundef 16, ptr noundef nonnull @compare_ofs_delta_entry) #23
+  call void @qsort(ptr noundef %355, i64 noundef range(i64 -2147483648, 2147483648) %conv.i145, i64 noundef 16, ptr noundef nonnull @compare_ofs_delta_entry) #23
   %.pre.i146 = load i32, ptr @nr_ref_deltas, align 4
   br label %sane_qsort.exit.i
 
@@ -2670,7 +2670,7 @@ sane_qsort.exit.i:                                ; preds = %if.then.i.i144, %if
 if.then.i11.i:                                    ; preds = %sane_qsort.exit.i
   %conv2.i = sext i32 %356 to i64
   %357 = load ptr, ptr @ref_deltas, align 8
-  call void @qsort(ptr noundef %357, i64 noundef %conv2.i, i64 noundef 40, ptr noundef nonnull @compare_ref_delta_entry) #23
+  call void @qsort(ptr noundef %357, i64 noundef range(i64 -2147483648, 2147483648) %conv2.i, i64 noundef 40, ptr noundef nonnull @compare_ref_delta_entry) #23
   br label %sane_qsort.exit12.i
 
 sane_qsort.exit12.i:                              ; preds = %if.then.i11.i, %sane_qsort.exit.i
@@ -2926,7 +2926,7 @@ if.end5.i:                                        ; preds = %if.then1.i
   br i1 %mul.ov.i.i154, label %if.then.i9.i, label %st_mult.exit.i155
 
 if.then.i9.i:                                     ; preds = %if.end5.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 64, i64 noundef %conv.i153) #22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 64, i64 noundef range(i64 -2147483648, 2147483648) %conv.i153) #22
   unreachable
 
 st_mult.exit.i155:                                ; preds = %if.end5.i
@@ -2952,7 +2952,7 @@ st_mult.exit.i155:                                ; preds = %if.end5.i
   br i1 %mul.ov.i.i.i160, label %if.then.i.i.i185, label %st_mult.exit.i.i161
 
 if.then.i.i.i185:                                 ; preds = %st_mult.exit.i155
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 8, i64 noundef %conv.i10.i) #22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv.i10.i) #22
   unreachable
 
 st_mult.exit.i.i161:                              ; preds = %st_mult.exit.i155
@@ -2982,7 +2982,7 @@ for.end.i.i164:                                   ; preds = %for.body.i.i181, %s
 
 if.then.i22.i.i:                                  ; preds = %for.end.i.i164
   %conv5.i.i = sext i32 %404 to i64
-  call void @qsort(ptr noundef %call1.i.i163, i64 noundef %conv5.i.i, i64 noundef 8, ptr noundef nonnull @delta_pos_compare) #23
+  call void @qsort(ptr noundef %call1.i.i163, i64 noundef range(i64 -2147483648, 2147483648) %conv5.i.i, i64 noundef 8, ptr noundef nonnull @delta_pos_compare) #23
   br label %sane_qsort.exit.i.i
 
 sane_qsort.exit.i.i:                              ; preds = %if.then.i22.i.i, %for.end.i.i164
@@ -3625,7 +3625,7 @@ if.end312:                                        ; preds = %show_pack_info.exit
   br i1 %mul.ov.i, label %if.then.i262, label %st_mult.exit
 
 if.then.i262:                                     ; preds = %if.end312
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 8, i64 noundef %conv313) #22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv313) #22
   unreachable
 
 st_mult.exit:                                     ; preds = %if.end312
@@ -3703,7 +3703,7 @@ if.end5.i266:                                     ; preds = %if.else.i289, %if.t
   br i1 %tobool6.not.i, label %if.end8.i267, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i266
-  call fastcc void @write_special_file(ptr noundef nonnull @.str.108, ptr noundef %514, ptr noundef %pack_name.0.lcssa, ptr noundef %pack_hash, ptr noundef nonnull %report.i)
+  call fastcc void @write_special_file(ptr noundef nonnull @.str.108, ptr noundef %514, ptr noundef %pack_name.0.lcssa, ptr noundef nonnull %pack_hash, ptr noundef nonnull %report.i)
   br label %if.end8.i267
 
 if.end8.i267:                                     ; preds = %if.then7.i, %if.end5.i266
@@ -3711,7 +3711,7 @@ if.end8.i267:                                     ; preds = %if.then7.i, %if.end
   br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i267
-  call fastcc void @write_special_file(ptr noundef nonnull @.str.109, ptr noundef %515, ptr noundef %pack_name.0.lcssa, ptr noundef %pack_hash, ptr noundef null)
+  call fastcc void @write_special_file(ptr noundef nonnull @.str.109, ptr noundef %515, ptr noundef %pack_name.0.lcssa, ptr noundef nonnull %pack_hash, ptr noundef null)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then10.i, %if.end8.i267
@@ -5683,7 +5683,7 @@ if.then7:                                         ; preds = %do.body
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then7
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 8, i64 noundef %conv17) #22
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.106, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv17) #22
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then7

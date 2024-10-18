@@ -1783,7 +1783,7 @@ x64_get_member_at_offset.exit.thread:             ; preds = %.lr.ph.preheader.i,
   ]
 
 78:                                               ; preds = %74, %74, %74, %74
-  %79 = tail call ptr @type_int_unsigned_by_bitsize(i64 noundef %75) #7
+  %79 = tail call ptr @type_int_unsigned_by_bitsize(i64 noundef range(i64 0, 65) %75) #7
   br label %abi_type_get_int_bits.exit
 
 80:                                               ; preds = %74

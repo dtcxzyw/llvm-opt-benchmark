@@ -68,14 +68,14 @@ define hidden void @_ZN4cvc58internal6theory2ff21FiniteFieldProperties18computeC
 entry:
   %size = alloca %"class.cvc5::internal::Integer", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal8TypeNode9getFfSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %type)
-  call void @__gmpz_init_set(ptr noundef nonnull %size, ptr noundef nonnull %call)
+  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %size, ptr noundef nonnull align 8 dereferenceable(16) %call)
   invoke void @_ZN4cvc58internal11CardinalityC1ERKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %size)
           to label %nrvo.skipdtor unwind label %lpad
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %size)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %size)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %lpad
@@ -89,7 +89,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %lpad
   resume { ptr, i32 } %0
 
 nrvo.skipdtor:                                    ; preds = %entry
-  invoke void @__gmpz_clear(ptr noundef nonnull %size)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %size)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit2 unwind label %terminate.lpad.i.i1
 
 terminate.lpad.i.i1:                              ; preds = %nrvo.skipdtor
@@ -538,7 +538,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

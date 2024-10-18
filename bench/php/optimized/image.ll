@@ -939,11 +939,11 @@ php_handle_gif.exit.i:                            ; preds = %84, %82, %80
   br i1 %.not.i, label %101, label %99
 
 99:                                               ; preds = %98
-  %100 = call fastcc ptr @php_handle_jpeg(ptr noundef %.0107, ptr noundef nonnull %.1)
+  %100 = call fastcc ptr @php_handle_jpeg(ptr noundef nonnull %.0107, ptr noundef nonnull %.1)
   br label %599
 
 101:                                              ; preds = %98
-  %102 = call fastcc ptr @php_handle_jpeg(ptr noundef %.0107, ptr noundef null)
+  %102 = call fastcc ptr @php_handle_jpeg(ptr noundef nonnull %.0107, ptr noundef null)
   br label %599
 
 103:                                              ; preds = %76
@@ -1334,15 +1334,15 @@ php_handle_bmp.exit.i:                            ; preds = %.sink.split.i.i, %3
   br label %599
 
 345:                                              ; preds = %76
-  %346 = call fastcc ptr @php_handle_tiff(ptr noundef %.0107, i32 noundef 0)
+  %346 = call fastcc ptr @php_handle_tiff(ptr noundef nonnull %.0107, i32 noundef 0)
   br label %599
 
 347:                                              ; preds = %76
-  %348 = call fastcc ptr @php_handle_tiff(ptr noundef %.0107, i32 noundef 1)
+  %348 = call fastcc ptr @php_handle_tiff(ptr noundef nonnull %.0107, i32 noundef 1)
   br label %599
 
 349:                                              ; preds = %76
-  %350 = call fastcc ptr @php_handle_jpc(ptr noundef %.0107)
+  %350 = call fastcc ptr @php_handle_jpc(ptr noundef nonnull %.0107)
   br label %599
 
 351:                                              ; preds = %76
@@ -1409,7 +1409,7 @@ php_read4.exit.thread.i.i:                        ; preds = %355
 
 .loopexit29.i.i:                                  ; preds = %375, %php_read4.exit.thread.i.i
   %382 = call i32 @_php_stream_seek(ptr noundef nonnull %.0107, i64 noundef 3, i32 noundef 1) #13
-  %383 = call fastcc ptr @php_handle_jpc(ptr noundef %.0107)
+  %383 = call fastcc ptr @php_handle_jpc(ptr noundef nonnull %.0107)
   %384 = icmp eq ptr %383, null
   br i1 %384, label %.thread26.i.i, label %php_handle_jp2.exit.i
 

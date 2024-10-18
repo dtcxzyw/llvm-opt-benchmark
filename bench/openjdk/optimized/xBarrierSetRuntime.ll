@@ -377,7 +377,7 @@ define hidden noundef ptr @_ZN18XBarrierSetRuntime35load_barrier_on_oop_field_pr
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i, ptr %1) #8, !srcloc !6
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i, ptr nonnull %1) #8, !srcloc !6
   %14 = icmp eq i64 %13, %phi.call9.i.i.i
   br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
@@ -488,7 +488,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #8, !srcloc !6
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #8, !srcloc !6
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
@@ -592,7 +592,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #8, !srcloc !6
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #8, !srcloc !6
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
@@ -696,7 +696,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier40load_barrier_on_weak_oop_f
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #8, !srcloc !6
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #8, !srcloc !6
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
@@ -727,7 +727,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i, ptr %0) #8, !srcloc !6
+  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i, ptr nonnull %0) #8, !srcloc !6
   %28 = icmp eq i64 %27, %phi.call9.i.i.i
   br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
@@ -779,7 +779,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier43load_barrier_on_phantom_oo
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #8, !srcloc !6
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #8, !srcloc !6
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
@@ -810,7 +810,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i, ptr %0) #8, !srcloc !6
+  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i, ptr nonnull %0) #8, !srcloc !6
   %28 = icmp eq i64 %27, %phi.call9.i.i.i
   br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
@@ -1298,7 +1298,7 @@ _ZN9ZIterator11oop_iterateI22ZLoadBarrierOopClosureEEvP7oopDescPT_.exit: ; preds
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22ZLoadBarrierOopClosureE6_tableE, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %.0.i.i.i) #8
+  call void %42(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i) #8
   %43 = load i32, ptr @MinObjAlignment, align 4
   %44 = add nsw i32 %43, -1
   %45 = sext i32 %44 to i64
@@ -1338,7 +1338,7 @@ _ZN9ZIterator11oop_iterateI25ZColorStoreGoodOopClosureEEvP7oopDescPT_.exit: ; pr
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ZColorStoreGoodOopClosureE6_tableE, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %.0.i.i.i8) #8
+  call void %69(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i8) #8
   br label %70
 
 70:                                               ; preds = %_ZN9ZIterator11oop_iterateI25ZColorStoreGoodOopClosureEEvP7oopDescPT_.exit, %25
@@ -1715,7 +1715,7 @@ _ZN9ZIterator11oop_iterateI22ZLoadBarrierOopClosureEEvP7oopDescPT_.exit: ; preds
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22ZLoadBarrierOopClosureE6_tableE, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %.0.i.i.i) #8
+  call void %42(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i) #8
   %43 = load i32, ptr @MinObjAlignment, align 4
   %44 = add nsw i32 %43, -1
   %45 = sext i32 %44 to i64
@@ -1755,7 +1755,7 @@ _ZN9ZIterator11oop_iterateI25ZColorStoreGoodOopClosureEEvP7oopDescPT_.exit: ; pr
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ZColorStoreGoodOopClosureE6_tableE, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %.0.i.i.i8) #8
+  call void %69(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i8) #8
   br label %70
 
 70:                                               ; preds = %_ZN9ZIterator11oop_iterateI25ZColorStoreGoodOopClosureEEvP7oopDescPT_.exit, %25
@@ -4109,7 +4109,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
   %91 = load ptr, ptr %.0.i.i.i, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 256
   %93 = load ptr, ptr %92, align 8
-  %94 = tail call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #8
+  %94 = tail call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 95:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -4142,7 +4142,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
   %118 = load ptr, ptr %.0.i.i.i, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 256
   %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #8
+  %121 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %87, %90, %97, %117
@@ -4308,7 +4308,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %86, %76
   %97 = load ptr, ptr %.0.i.i.i, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 256
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call noundef i64 %99(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #8
+  %100 = tail call noundef i64 %99(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 101:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -4341,7 +4341,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %86, %76
   %124 = load ptr, ptr %.0.i.i.i, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 256
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef i64 %126(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #8
+  %127 = tail call noundef i64 %126(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %93, %96, %103, %123
@@ -5376,7 +5376,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
   %91 = load ptr, ptr %.0.i.i.i, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 256
   %93 = load ptr, ptr %92, align 8
-  %94 = tail call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #8
+  %94 = tail call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 95:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -5409,7 +5409,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
   %118 = load ptr, ptr %.0.i.i.i, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 256
   %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #8
+  %121 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %87, %90, %97, %117
@@ -5584,7 +5584,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %99, %89
   %110 = load ptr, ptr %.0.i.i.i, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 256
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call noundef i64 %112(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #8
+  %113 = tail call noundef i64 %112(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 114:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -5617,7 +5617,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %99, %89
   %137 = load ptr, ptr %.0.i.i.i, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 256
   %139 = load ptr, ptr %138, align 8
-  %140 = tail call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #8
+  %140 = tail call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %106, %109, %116, %136

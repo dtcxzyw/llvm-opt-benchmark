@@ -105,7 +105,7 @@ _ZN5faiss20RandomRotationMatrixD2Ev.exit:         ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZN5faiss14IndexFlatCodesD2Ev.exit
 
 _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %_ZN5faiss20RandomRotationMatrixD2Ev.exit, %14
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
   ret void
 }
 
@@ -155,7 +155,7 @@ _ZN5faiss20RandomRotationMatrixD2Ev.exit.i:       ; preds = %11, %_ZNSt6vectorIf
   br label %_ZN5faiss8IndexLSHD2Ev.exit
 
 _ZN5faiss8IndexLSHD2Ev.exit:                      ; preds = %_ZN5faiss20RandomRotationMatrixD2Ev.exit.i, %14
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

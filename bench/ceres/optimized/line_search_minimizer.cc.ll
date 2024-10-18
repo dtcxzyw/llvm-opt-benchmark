@@ -183,7 +183,7 @@ define hidden void @_ZN5ceres8internal19LineSearchMinimizer8MinimizeERKNS0_9Mini
   %73 = sext i32 %65 to i64
   %74 = getelementptr inbounds i8, ptr %7, i64 8
   %75 = sext i32 %69 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 24, i1 false)
   %76 = getelementptr inbounds i8, ptr %7, i64 16
   %.not.i377 = icmp eq i32 %69, 0
   br i1 %.not.i377, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit.i257.thread, label %86
@@ -199,7 +199,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit.i257.thread: ; preds = 
   %80 = getelementptr inbounds i8, ptr %7, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
   %81 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 16, i1 false)
   %82 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %75, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %8, i64 24
@@ -292,7 +292,7 @@ common.resume.i:                                  ; preds = %.body.i, %95
   %116 = getelementptr inbounds i8, ptr %7, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false)
   %117 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 24, i1 false)
   %118 = getelementptr inbounds i8, ptr %8, i64 16
   %119 = icmp sgt i32 %69, 0
   br i1 %119, label %120, label %129

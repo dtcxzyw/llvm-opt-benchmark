@@ -1049,7 +1049,7 @@ if.end8.i82:                                      ; preds = %if.end.i75
   br i1 %tobool.not.i85, label %if.end20, label %if.end11.i86
 
 if.end11.i86:                                     ; preds = %if.end8.i82
-  %call12.i87 = call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i76, i32 noundef %retval.0.i70, ptr noundef %txtoid)
+  %call12.i87 = call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i76, i32 noundef %retval.0.i70, ptr noundef nonnull %txtoid)
   %14 = load ptr, ptr %lock.i83, align 8
   %call14.i88 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %14) #7
   br label %if.end20
@@ -1083,7 +1083,7 @@ if.end8.i101:                                     ; preds = %lor.lhs.false.i97
   br i1 %tobool.not.i104, label %if.end24, label %if.end11.i105
 
 if.end11.i105:                                    ; preds = %if.end8.i101
-  %call12.i106 = call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i95, i32 noundef %num.1, ptr noundef %pem_name)
+  %call12.i106 = call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i95, i32 noundef %num.1, ptr noundef nonnull %pem_name)
   %17 = load ptr, ptr %lock.i102, align 8
   %call14.i107 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %17) #7
   br label %if.end24

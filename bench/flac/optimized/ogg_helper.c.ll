@@ -202,7 +202,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %conv70 = zext i32 %add69 to i64
   %body_len = getelementptr inbounds i8, ptr %page, i64 24
   store i64 %conv70, ptr %body_len, align 8
-  %spec.select.i = call i64 @llvm.umax.i64(i64 %conv70, i64 1)
+  %spec.select.i = call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %conv70, i64 1)
   %call.i43 = call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #11
   %body = getelementptr inbounds i8, ptr %page, i64 16
   store ptr %call.i43, ptr %body, align 8

@@ -413,7 +413,7 @@ if.then.i95:                                      ; preds = %if.end29
 
 _ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit: ; preds = %if.end29
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  %call3.i = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 8 dereferenceable(16) %__args.i, ptr noundef nonnull align 8 dereferenceable(64) %out)
+  %call3.i = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %callback, ptr noundef nonnull align 8 dereferenceable(16) %__args.i, ptr noundef nonnull align 8 dereferenceable(64) %out)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -1142,7 +1142,7 @@ if.end.i:                                         ; preds = %_ZN4absl18debugging
   %6 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %6 to ptr
   %call3.i = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef %mul.i.i, ptr noundef %atomic-temp.i.0.i.i.i)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call3.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22560) %call3.i, i8 0, i64 24, i1 false)
   %ok_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i8 1, ptr %ok_.i.i, align 8
   %addr_map_read_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 25
@@ -1966,7 +1966,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit.i.i.i.i: ; preds =
   store i64 %inc.i.i.i.i.i, ptr %retval.0.i, align 8
   %arrayidx.i36.i.i.i.i = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %74, i64 %73
   %fd.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i36.i.i.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i36.i.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %arrayidx.i36.i.i.i.i, i8 0, i64 32, i1 false)
   store i32 -1, ptr %fd.i.i.i.i.i.i, align 8
   %elf_type.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i36.i.i.i.i, i64 36
   store i32 -1, ptr %elf_type.i.i.i.i.i.i, align 4

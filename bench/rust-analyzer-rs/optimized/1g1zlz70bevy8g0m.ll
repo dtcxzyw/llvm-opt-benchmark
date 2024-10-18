@@ -346,7 +346,7 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h0e501b7ec5f259bb
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !nonnull !16, !noundef !16
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %5, i64 noundef 8) #9
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef range(i64 1, -7) %5, i64 noundef 8) #9
   br label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$str$GT$$GT$$GT$17hdb4024ccc314a635E.exit"
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$str$GT$$GT$$GT$17hdb4024ccc314a635E.exit": ; preds = %1, %7

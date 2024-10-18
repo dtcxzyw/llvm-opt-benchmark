@@ -370,7 +370,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_9Symbolize
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds = %24
   %28 = getelementptr inbounds i8, ptr %1, i64 %25
   %29 = sub nuw i64 %2, %25
-  %30 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef nonnull readonly dereferenceable(2) @.str.2, i64 noundef %29) #21
+  %30 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef nonnull dereferenceable(2) @.str.2, i64 noundef %29) #21
   %31 = getelementptr i8, ptr %1, i64 %2
   %32 = getelementptr i8, ptr %31, i64 -1
   store i8 0, ptr %32, align 1
@@ -1092,7 +1092,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %.not136.i.i, label %271, label %273
 
 271:                                              ; preds = %270
-  %272 = call ptr @strncpy(ptr noundef nonnull %34, ptr noundef nonnull %storemerge49.lcssa.i.i, i64 noundef %35) #21, !noalias !8
+  %272 = call ptr @strncpy(ptr noundef nonnull %34, ptr noundef nonnull %storemerge49.lcssa.i.i, i64 noundef range(i64 0, -1) %35) #21, !noalias !8
   store i8 0, ptr %32, align 1, !noalias !8
   br label %274
 
@@ -1170,7 +1170,7 @@ _ZN6google24glog_internal_namespace_14FileDescriptor5resetEi.exit.i: ; preds = %
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit60.i: ; preds = %286
   %290 = getelementptr inbounds i8, ptr %1, i64 %287
   %291 = sub nuw i64 %2, %287
-  %292 = call ptr @strncpy(ptr noundef nonnull %290, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %291) #21
+  %292 = call ptr @strncpy(ptr noundef nonnull %290, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef %291) #21
   store i8 0, ptr %32, align 1
   %293 = load i64, ptr %20, align 8
   %294 = sub i64 %22, %293
@@ -1244,7 +1244,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i: ; preds = %.lr.ph.
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds = %316
   %323 = getelementptr inbounds i8, ptr %1, i64 %320
   %324 = sub nuw i64 %2, %320
-  %325 = call ptr @strncpy(ptr noundef nonnull %323, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %324) #21
+  %325 = call ptr @strncpy(ptr noundef nonnull %323, ptr noundef nonnull dereferenceable(2) @.str.4, i64 noundef %324) #21
   store i8 0, ptr %32, align 1
   br label %499
 
@@ -1563,7 +1563,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit31.i.i: ; p
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit87.i: ; preds = %446
   %452 = getelementptr inbounds i8, ptr %.050.i, i64 %449
   %453 = sub nuw i64 %.051.i, %449
-  %454 = call ptr @strncpy(ptr noundef %452, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %453) #21
+  %454 = call ptr @strncpy(ptr noundef %452, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef %453) #21
   %455 = getelementptr i8, ptr %.050.i, i64 %.051.i
   %456 = getelementptr i8, ptr %455, i64 -1
   store i8 0, ptr %456, align 1
@@ -1639,7 +1639,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i: ; preds = %.lr.p
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97.i: ; preds = %480
   %487 = getelementptr inbounds i8, ptr %.050.i, i64 %484
   %488 = sub nuw i64 %.051.i, %484
-  %489 = call ptr @strncpy(ptr noundef %487, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %488) #21
+  %489 = call ptr @strncpy(ptr noundef %487, ptr noundef nonnull dereferenceable(2) @.str.4, i64 noundef %488) #21
   store i8 0, ptr %456, align 1
   br label %499
 

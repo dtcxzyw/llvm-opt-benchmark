@@ -603,7 +603,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   call void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager16_ComputeAdaptersERKNS_15UsdPrimTypeInfoE(ptr dead_on_unwind nonnull writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::UsdImaging_AdapterManager::AdaptersEntry") align 8 %7, ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   store ptr %1, ptr %6, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(200) %37, ptr noundef nonnull align 8 dereferenceable(200) %7)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(216) %37, ptr noundef nonnull align 8 dereferenceable(216) %7)
           to label %38 unwind label %116
 
 38:                                               ; preds = %.loopexit
@@ -694,7 +694,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt4pairIKPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS0_25UsdImaging_AdapterManager13AdaptersEntryEED2Ev.exit
 
 _ZNSt4pairIKPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS0_25UsdImaging_AdapterManager13AdaptersEntryEED2Ev.exit: ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE6insertEOSG_.exit, %62, %75, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %37) #20
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %37) #20
   %80 = load ptr, ptr %43, align 8
   %.not.i.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager13AdaptersEntryD2Ev.exit, label %81
@@ -768,7 +768,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager13AdaptersEntryD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager13AdaptersEntryD2Ev.exit: ; preds = %_ZNSt4pairIKPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS0_25UsdImaging_AdapterManager13AdaptersEntryEED2Ev.exit, %97, %110, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #20
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #20
   %115 = load ptr, ptr %5, align 8
   br label %.loopexit16
 
@@ -1508,7 +1508,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager13AdaptersEntryD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %38) #20
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %38) #20
   ret void
 }
 
@@ -2193,7 +2193,7 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_25UsdImaging_Adapter
   store ptr %60, ptr %58, align 8
   store ptr null, ptr %56, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !25
-  invoke void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE15internal_insertIRSE_ZNSH_21internal_insert_valueISE_EESC_INS1_15solist_iteratorISH_SE_EEbEOT_EUlmE_EENSH_27internal_insert_return_typeESP_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_map_traits<pxrInternal_v0_24__pxrReserved__::TfToken, pxrInternal_v0_24__pxrReserved__::UsdImaging_AdapterManager::_WrappedPrimAdapterEntry, pxrInternal_v0_24__pxrReserved__::TfHash, std::equal_to<pxrInternal_v0_24__pxrReserved__::TfToken>, tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, pxrInternal_v0_24__pxrReserved__::UsdImaging_AdapterManager::_WrappedPrimAdapterEntry>>, false>>::internal_insert_return_type") align 8 %3, ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr nonnull %6, ptr nonnull %0)
+  invoke void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE15internal_insertIRSE_ZNSH_21internal_insert_valueISE_EESC_INS1_15solist_iteratorISH_SE_EEbEOT_EUlmE_EENSH_27internal_insert_return_typeESP_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.tbb::detail::d1::concurrent_unordered_base<tbb::detail::d1::concurrent_unordered_map_traits<pxrInternal_v0_24__pxrReserved__::TfToken, pxrInternal_v0_24__pxrReserved__::UsdImaging_AdapterManager::_WrappedPrimAdapterEntry, pxrInternal_v0_24__pxrReserved__::TfHash, std::equal_to<pxrInternal_v0_24__pxrReserved__::TfToken>, tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfToken, pxrInternal_v0_24__pxrReserved__::UsdImaging_AdapterManager::_WrappedPrimAdapterEntry>>, false>>::internal_insert_return_type") align 8 %3, ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr nonnull align 8 dereferenceable(40) %6, ptr nonnull align 8 dereferenceable(592) %0)
           to label %.noexc unwind label %87
 
 .noexc:                                           ; preds = %_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryEEC2IRS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
@@ -3594,7 +3594,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16allocator_traitsIN3tbb6detail2d113tbb_allocatorINS2_10value_nodeISt4pairIKPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS6_25UsdImaging_AdapterManager13AdaptersEntryEEmEEEEE7destroyISD_EEvRSF_PT_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %41, %28, %9
   %46 = getelementptr inbounds nuw i8, ptr %.015, i64 24
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %46) #20
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %46) #20
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit: ; preds = %.lr.ph, %_ZNSt16allocator_traitsIN3tbb6detail2d113tbb_allocatorINS2_10value_nodeISt4pairIKPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS6_25UsdImaging_AdapterManager13AdaptersEntryEEmEEEEE7destroyISD_EEvRSF_PT_.exit.i
@@ -4962,7 +4962,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16allocator_traitsIN3tbb6detail2d113tbb_allocatorINS2_10value_nodeISt4pairIKPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS6_25UsdImaging_AdapterManager13AdaptersEntryEEmEEEEE7destroyISD_EEvRSF_PT_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %54, %41, %22
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %59) #20
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %59) #20
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit: ; preds = %18, %_ZNSt16allocator_traitsIN3tbb6detail2d113tbb_allocatorINS2_10value_nodeISt4pairIKPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS6_25UsdImaging_AdapterManager13AdaptersEntryEEmEEEEE7destroyISD_EEvRSF_PT_.exit.i
@@ -5076,7 +5076,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16allocator_traitsIN3tbb6detail2d113tbb_allocatorINS2_10value_nodeISt4pairIKPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS6_25UsdImaging_AdapterManager13AdaptersEntryEEmEEEEE7destroyISD_EEvRSF_PT_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %43, %30, %11
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %48) #20
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %48) #20
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit: ; preds = %6, %_ZNSt16allocator_traitsIN3tbb6detail2d113tbb_allocatorINS2_10value_nodeISt4pairIKPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS6_25UsdImaging_AdapterManager13AdaptersEntryEEmEEEEE7destroyISD_EEvRSF_PT_.exit.i
@@ -5194,7 +5194,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   store ptr %46, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(200) %47, ptr noundef nonnull align 8 dereferenceable(200) %48)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(216) %47, ptr noundef nonnull align 8 dereferenceable(216) %48)
           to label %_ZZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE21internal_insert_valueISG_EESE_INS1_15solist_iteratorISJ_SG_EEbEOT_ENKUlmE_clEm.exit unwind label %49
 
 49:                                               ; preds = %.loopexit
@@ -6543,7 +6543,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #24
   ret void
 }

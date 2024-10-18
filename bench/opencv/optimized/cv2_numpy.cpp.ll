@@ -247,7 +247,7 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
           to label %.noexc60 unwind label %50
 
 .noexc60:                                         ; preds = %70
-  invoke void @_ZN2cv8UMatDataC1EPKNS_12MatAllocatorE(ptr noundef nonnull align 8 dereferenceable(104) %71, ptr noundef nonnull %0)
+  invoke void @_ZN2cv8UMatDataC1EPKNS_12MatAllocatorE(ptr noundef nonnull align 8 dereferenceable(104) %71, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %72 unwind label %82
 
 72:                                               ; preds = %.noexc60

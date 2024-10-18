@@ -452,8 +452,8 @@ select.unfold._crit_edge:                         ; preds = %_ZN4llvm18MCSuperRe
   %113 = lshr i64 %112, 6
   %114 = and i64 %113, 67108863
   %115 = getelementptr inbounds i8, ptr %111, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull %115, i64 noundef 6) #13
-  call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(16) %111, i64 noundef %114, i64 noundef 0)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %111, ptr noundef nonnull %115, i64 noundef 6) #13
+  call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(68) %111, i64 noundef %114, i64 noundef 0)
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 64
   store i32 %105, ptr %116, align 8
   %117 = ptrtoint ptr %111 to i64
@@ -504,8 +504,8 @@ _ZN4llvm14SmallBitVectorC2Ejb.exit:               ; preds = %107, %110
 142:                                              ; preds = %141
   %143 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #14
   %144 = getelementptr inbounds i8, ptr %143, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull %144, i64 noundef 6) #13
-  call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(16) %143, i64 noundef %129, i64 noundef 0)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %143, ptr noundef nonnull %144, i64 noundef 6) #13
+  call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(68) %143, i64 noundef %129, i64 noundef 0)
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 64
   store i32 %105, ptr %145, align 8
   %146 = ptrtoint ptr %143 to i64
@@ -824,7 +824,7 @@ _ZN4llvm14SmallBitVector3setEjj.exit139:          ; preds = %248, %252, %._crit_
   br i1 %314, label %_ZN4llvm14SmallBitVectorD2Ev.exit, label %315
 
 315:                                              ; preds = %312
-  %316 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %313) #13
+  %316 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %313) #13
   %317 = load ptr, ptr %313, align 8
   %318 = getelementptr inbounds i8, ptr %313, i64 16
   %319 = icmp eq ptr %317, %318
@@ -894,7 +894,7 @@ select.unfold197._crit_edge.thread:               ; preds = %_ZN4llvm14SmallBitV
   br i1 %344, label %_ZN4llvm14SmallBitVectorD2Ev.exit152, label %345
 
 345:                                              ; preds = %342
-  %346 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %343) #13
+  %346 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %343) #13
   %347 = load ptr, ptr %343, align 8
   %348 = getelementptr inbounds i8, ptr %343, i64 16
   %349 = icmp eq ptr %347, %348
@@ -962,9 +962,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm14SmallBitVector4testERK
 
 22:                                               ; preds = %20
   %23 = inttoptr i64 %5 to ptr
-  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #13
+  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %21) #13
   %25 = trunc i64 %24 to i32
-  %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #13
+  %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %23) #13
   %27 = trunc i64 %26 to i32
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %27, i32 %25)
   %.not20.i = icmp eq i32 %.sroa.speculated.i, 0
@@ -1992,7 +1992,7 @@ _ZN4llvm15DwarfExpression6addRegEiPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   br i1 %214, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit, label %215
 
 215:                                              ; preds = %210
-  %216 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  %216 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %217 = zext i32 %216 to i64
   %218 = getelementptr inbounds i64, ptr %212, i64 %217
   %219 = ptrtoint ptr %218 to i64
@@ -2030,7 +2030,7 @@ thread-pre-split:                                 ; preds = %215, %204
   %233 = phi ptr [ %237, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %232 ]
   %.02.i.i.i = phi i64 [ %234, %.lr.ph.i.i.i ], [ 2, %232 ]
   %234 = add nsw i64 %.02.i.i.i, -1
-  %235 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  %235 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %236 = zext i32 %235 to i64
   %237 = getelementptr inbounds i64, ptr %233, i64 %236
   %238 = ptrtoint ptr %237 to i64
@@ -2060,7 +2060,7 @@ thread-pre-split:                                 ; preds = %215, %204
   %247 = phi ptr [ %251, %.lr.ph.i.i.i76 ], [ %.pre.i.i.i75, %245 ]
   %.02.i.i.i77 = phi i64 [ %248, %.lr.ph.i.i.i76 ], [ 2, %245 ]
   %248 = add nsw i64 %.02.i.i.i77, -1
-  %249 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  %249 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %250 = zext i32 %249 to i64
   %251 = getelementptr inbounds i64, ptr %247, i64 %250
   %252 = ptrtoint ptr %251 to i64
@@ -2372,7 +2372,7 @@ define dso_local void @_ZN4llvm15DwarfExpression25beginEntryValueExpressionERNS_
   br i1 %6, label %_ZN4llvm18DIExpressionCursor4takeEv.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  %8 = tail call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds i64, ptr %4, i64 %9
   %11 = ptrtoint ptr %10 to i64
@@ -2511,7 +2511,7 @@ _ZN4llvm18DIExpressionCursor4takeEv.exit.lr.ph:   ; preds = %_ZN4llvm18DIExpress
 
 _ZN4llvm18DIExpressionCursor4takeEv.exit:         ; preds = %_ZN4llvm18DIExpressionCursor4takeEv.exit.lr.ph, %.backedge
   %17 = phi ptr [ %16, %_ZN4llvm18DIExpressionCursor4takeEv.exit.lr.ph ], [ %28, %.backedge ]
-  %18 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  %18 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds i64, ptr %17, i64 %19
   %21 = ptrtoint ptr %20 to i64
@@ -2769,7 +2769,7 @@ _ZN4llvm15DwarfExpression13addStackValueEv.exit:  ; preds = %67, %50
 
 _ZN4llvm18DIExpressionCursor4takeEv.exit.i:       ; preds = %147, %154
   %148 = phi ptr [ %151, %154 ], [ %20, %147 ]
-  %149 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  %149 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %150 = zext i32 %149 to i64
   %151 = getelementptr inbounds i64, ptr %148, i64 %150
   %152 = ptrtoint ptr %151 to i64

@@ -231,7 +231,7 @@ if.then69:                                        ; preds = %if.end42, %if.end66
 blk_log_writes_log2.exit:                         ; preds = %blk_log_writes_sector_size_valid.exit51
   %sectorsize72 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %conv67, ptr %sectorsize72, align 8
-  %17 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv67, i1 true)
+  %17 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %conv67, i1 true)
   %sub.i = xor i32 %17, 31
   %sectorbits = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %sub.i, ptr %sectorbits, align 4
@@ -392,7 +392,7 @@ blk_log_writes_log2.exit:                         ; preds = %entry
   br i1 %cmp14.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %blk_log_writes_log2.exit
-  %0 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sector_size, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %sector_size, i1 true)
   %sub.i = xor i32 %0, 31
   %sh_prom = zext nneg i32 %sub.i to i64
   %flags = getelementptr inbounds i8, ptr %cur_entry, i64 16

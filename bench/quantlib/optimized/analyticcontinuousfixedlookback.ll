@@ -522,7 +522,7 @@ lpad.i.i:                                         ; preds = %entry
           cleanup
   tail call void @_ZN8QuantLib29ContinuousFixedLookbackOption9argumentsD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %arguments_.i.i) #27
   tail call void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #27
-  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #27
+  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) #27
   br label %common.resume
 
 invoke.cont:                                      ; preds = %entry
@@ -2840,7 +2840,7 @@ _ZNK8QuantLib37AnalyticContinuousFixedLookbackEngine12residualTimeEv.exit: ; pre
   %call4.i = call noundef double %8(ptr noundef nonnull align 8 dereferenceable(250) %5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #27
   %call6 = call noundef double @_ZNK8QuantLib37AnalyticContinuousFixedLookbackEngine6strikeEv(ptr noundef nonnull align 8 dereferenceable(424) %this)
-  call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %3, double noundef %call4.i, i1 noundef zeroext false)
+  call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %3, double noundef %call4.i, i1 noundef zeroext false)
   call void @_ZNK8QuantLib23VolatilityTermStructure11checkStrikeEdb(ptr noundef nonnull align 8 dereferenceable(68) %3, double noundef %call6, i1 noundef zeroext false)
   %vtable.i4 = load ptr, ptr %3, align 8, !tbaa !35
   %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 112
@@ -3801,7 +3801,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 _ZN8QuantLib37AnalyticContinuousFixedLookbackEngineD2Ev.exit: ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_29ContinuousFixedLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) #27
+  tail call void @_ZN8QuantLib13GenericEngineINS_29ContinuousFixedLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 424) #32
   ret void
 }
@@ -3941,7 +3941,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 _ZN8QuantLib37AnalyticContinuousFixedLookbackEngineD2Ev.exit: ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_29ContinuousFixedLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #27
+  tail call void @_ZN8QuantLib13GenericEngineINS_29ContinuousFixedLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #27
   ret void
 }
 
@@ -3990,8 +3990,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib37AnalyticContinuousFixedLookbackEngineD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_29ContinuousFixedLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 424) #32
+  tail call void @_ZN8QuantLib13GenericEngineINS_29ContinuousFixedLookbackOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(424) %0, i64 noundef 424) #32
   ret void
 }
 
@@ -3999,7 +3999,7 @@ _ZN8QuantLib37AnalyticContinuousFixedLookbackEngineD0Ev.exit: ; preds = %entry, 
 define linkonce_odr void @_ZThn56_N8QuantLib13GenericEngineINS_29ContinuousFixedLookbackOption9argumentsENS_14OneAssetOption7resultsEE6updateEv(ptr noundef %this) unnamed_addr #15 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(344) %0)
   ret void
 }
 
@@ -4397,7 +4397,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %24 = phi ptr [ %23, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -4814,7 +4814,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #32
   ret void
 }
 
@@ -4920,7 +4920,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #32
   ret void
 }
 

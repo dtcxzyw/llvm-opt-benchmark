@@ -159,7 +159,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp6.i, label %land.lhs.true.i, label %if.end10.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call8.i = tail call i32 @curl_strnequal(ptr noundef nonnull %date.addr.2, ptr noundef %16, i64 noundef %len.0) #7
+  %call8.i = tail call i32 @curl_strnequal(ptr noundef nonnull %date.addr.2, ptr noundef %16, i64 noundef range(i64 13, 12) %len.0) #7
   %tobool.not.i97 = icmp eq i32 %call8.i, 0
   br i1 %tobool.not.i97, label %if.end10.i, label %if.end71
 
@@ -207,7 +207,7 @@ for.body.i106:                                    ; preds = %if.end56, %if.end9.
   br i1 %cmp3.i, label %land.lhs.true.i113, label %if.end9.i
 
 land.lhs.true.i113:                               ; preds = %for.body.i106
-  %call7.i = tail call i32 @curl_strnequal(ptr noundef nonnull %date.addr.2, ptr noundef nonnull %what.09.i, i64 noundef %len.0) #7
+  %call7.i = tail call i32 @curl_strnequal(ptr noundef nonnull %date.addr.2, ptr noundef nonnull %what.09.i, i64 noundef range(i64 13, 12) %len.0) #7
   %tobool.not.i114 = icmp eq i32 %call7.i, 0
   br i1 %tobool.not.i114, label %if.end9.i, label %checktz.exit
 

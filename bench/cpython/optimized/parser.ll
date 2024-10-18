@@ -17571,7 +17571,7 @@ _gather_132_rule.exit:                            ; preds = %for.body.i.i, %for.
   %49 = load i32, ptr %level, align 8
   %dec59.i.i = add i32 %49, -1
   store i32 %dec59.i.i, ptr %level, align 8
-  %call14.i300 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i297, ptr noundef nonnull %call44.i.i) #4
+  %call14.i300 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i297, ptr noundef nonnull %call44.i.i) #4
   %storemerge.in.i294 = load i32, ptr %level, align 8
   %storemerge.i295 = add i32 %storemerge.in.i294, -1
   store i32 %storemerge.i295, ptr %level, align 8
@@ -20080,7 +20080,7 @@ _gather_229_rule.exit.i:                          ; preds = %for.body.i.i, %for.
   %37 = load i32, ptr %level, align 8
   %dec59.i.i = add i32 %37, -1
   store i32 %dec59.i.i, ptr %level, align 8
-  %call14.i.i169 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i.i157, ptr noundef nonnull %call44.i.i) #4
+  %call14.i.i169 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i.i157, ptr noundef nonnull %call44.i.i) #4
   %storemerge.in.i.i170 = load i32, ptr %level, align 8
   %storemerge.i.i171 = add i32 %storemerge.in.i.i170, -1
   store i32 %storemerge.i.i171, ptr %level, align 8

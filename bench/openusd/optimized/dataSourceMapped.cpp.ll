@@ -1235,7 +1235,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread48: ; preds = %
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %73, i64 88
   %190 = load ptr, ptr %189, align 8, !noalias !10
-  invoke void %190(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.22") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull align 4 dereferenceable(8) %186, ptr noundef nonnull align 8 dereferenceable(56) %185)
+  invoke void %190(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.22") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull align 4 dereferenceable(8) %186, ptr noundef nonnull align 8 dereferenceable(56) %185)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit unwind label %173
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit: ; preds = %183
@@ -2465,7 +2465,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReser
   %157 = call ptr @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EERS6_(ptr noundef nonnull align 8 dereferenceable(24) %151, ptr %.sroa.012.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(8) %105)
   %158 = load ptr, ptr %2, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %1)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(97) %8, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %160 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i8 0, ptr %160, align 8
   %161 = load ptr, ptr %159, align 8
@@ -2716,7 +2716,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %67, %70, 
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.034.052, i64 64
-  %86 = invoke noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %85, i32 noundef 2)
+  %86 = invoke noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 2)
           to label %87 unwind label %91
 
 87:                                               ; preds = %84
@@ -2735,7 +2735,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %67, %70, 
   br i1 %.not.i.i19, label %.body, label %94
 
 94:                                               ; preds = %91
-  %95 = invoke noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %59, i32 noundef 3)
+  %95 = invoke noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %59, i32 noundef 3)
           to label %.body unwind label %96
 
 96:                                               ; preds = %94
@@ -2872,7 +2872,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMappe
   br i1 %.not.i.i.i30, label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit.i, label %152
 
 152:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEED2Ev.exit29
-  %153 = invoke noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %59, i32 noundef 3)
+  %153 = invoke noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %59, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit.i unwind label %154
 
 154:                                              ; preds = %152
@@ -3038,7 +3038,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26UsdI
 
 24:                                               ; preds = %.lr.ph.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
-  %26 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef 3)
+  %26 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit.i.i.i.i.i unwind label %27
 
 27:                                               ; preds = %24
@@ -3204,7 +3204,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataS
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -3295,7 +3295,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26UsdI
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit.i.i.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -3649,7 +3649,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #21
   ret void
 }
@@ -3740,7 +3740,7 @@ define linkonce_odr void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_st
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit.i.i.i.i.i.i unwind label %11
 
 11:                                               ; preds = %8
@@ -3988,7 +3988,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit: ; preds
 
 52:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %54 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %53, i32 noundef 2)
+  %54 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %53, i32 noundef 2)
           to label %55 unwind label %59
 
 55:                                               ; preds = %52
@@ -4007,7 +4007,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit: ; preds
   br i1 %.not.i.i7, label %.body, label %62
 
 62:                                               ; preds = %59
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %47, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef 3)
           to label %.body unwind label %64
 
 64:                                               ; preds = %62
@@ -4514,11 +4514,11 @@ _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdI
   ]
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i
-  call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS9_ENUlOT_T0_E_clIRS4_St17integral_constantImLm0EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(96) %25)
+  call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS9_ENUlOT_T0_E_clIRS4_St17integral_constantImLm0EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(97) %25)
   br label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit.i.i.i.i.i
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i
-  call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS9_ENUlOT_T0_E_clIRS8_St17integral_constantImLm1EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %25)
+  call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS9_ENUlOT_T0_E_clIRS8_St17integral_constantImLm1EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(97) %25)
   br label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit.i.i.i.i.i
 
 31:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -4558,11 +4558,11 @@ _ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImaging
   ]
 
 40:                                               ; preds = %_ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_ET0_T_SB_SA_.exit
-  call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS9_ENUlOT_T0_E_clIRS4_St17integral_constantImLm0EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(96) %2)
+  call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS9_ENUlOT_T0_E_clIRS4_St17integral_constantImLm0EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(97) %2)
   br label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit
 
 41:                                               ; preds = %_ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_ET0_T_SB_SA_.exit
-  call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS9_ENUlOT_T0_E_clIRS8_St17integral_constantImLm1EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS9_ENUlOT_T0_E_clIRS8_St17integral_constantImLm1EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(97) %2)
   br label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit
 
 42:                                               ; preds = %_ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_ET0_T_SB_SA_.exit
@@ -4834,7 +4834,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i.i.i.i.
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 24, i1 false)
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -4845,7 +4845,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i.i.i.i.
 46:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i.i.i.i.i.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %47, i64 16, i1 false)
   %49 = load ptr, ptr %44, align 8
   store ptr %49, ptr %48, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
@@ -4921,7 +4921,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit.i: ; pre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %34 = load ptr, ptr %33, align 8
@@ -4930,15 +4930,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit.i: ; pre
 
 35:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit.i
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEEC2EOSH_.exit.i.i
 
 _ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEEC2EOSH_.exit.i.i: ; preds = %35, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -4953,7 +4953,7 @@ _ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDat
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingaSEOS1_.exit, label %42
 
 42:                                               ; preds = %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEEC2EOSH_.exit.i.i
-  %43 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %43 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingaSEOS1_.exit unwind label %44
 
 44:                                               ; preds = %42
@@ -5196,7 +5196,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i.i: ; p
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 24, i1 false)
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -5207,7 +5207,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i.i: ; p
 46:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i.i
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %47, i64 16, i1 false)
   %49 = load ptr, ptr %44, align 8
   store ptr %49, ptr %48, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
@@ -5383,7 +5383,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKSt7variantIJN32pxrInte
   ]
 
 7:                                                ; preds = %.lr.ph
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %.017, ptr noundef nonnull align 8 dereferenceable(96) %.01216)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(97) %.017, ptr noundef nonnull align 8 dereferenceable(97) %.01216)
           to label %25 unwind label %.body
 
 8:                                                ; preds = %.lr.ph
@@ -5474,7 +5474,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26Us
 
 6:                                                ; preds = %.lr.ph.i.i
   %7 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 64
-  %8 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %8 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit.i.i.i.i unwind label %9
 
 9:                                                ; preds = %6
@@ -5567,7 +5567,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26Us
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds nuw i8, ptr %.05.i, i64 64
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit.i.i.i unwind label %8
 
 8:                                                ; preds = %5
@@ -5908,7 +5908,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__26U
 
 58:                                               ; preds = %.lr.ph.i.i.i
   %59 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
-  %60 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %59, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %59, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit.i.i.i.i.i unwind label %61
 
 61:                                               ; preds = %58
@@ -6061,7 +6061,7 @@ define linkonce_odr void @_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrRe
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEED2Ev.exit.i.i unwind label %8
 
 8:                                                ; preds = %5

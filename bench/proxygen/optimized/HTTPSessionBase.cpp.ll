@@ -348,7 +348,7 @@ invoke.cont:                                      ; preds = %entry
 lpad.i:                                           ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8proxygen26PassThroughHTTPCodecFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %codec_) #22
+  call void @_ZN8proxygen26PassThroughHTTPCodecFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %codec_) #22
   br label %ehcleanup32
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -437,7 +437,7 @@ invoke.cont13:                                    ; preds = %invoke.cont.i
   %isPermanent_.i.i = getelementptr inbounds i8, ptr %this, i64 1200
   store i8 1, ptr %isPermanent_.i.i, align 8
   %localAddr_ = getelementptr inbounds i8, ptr %this, i64 1360
-  invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %localAddr_)
+  invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 8 dereferenceable(27) %localAddr_)
           to label %.noexc unwind label %lpad14
 
 .noexc:                                           ; preds = %invoke.cont13
@@ -473,7 +473,7 @@ call.i.i.noexc:                                   ; preds = %if.then.i
   br label %invoke.cont15
 
 if.else.i:                                        ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %localAddr_, ptr noundef nonnull align 8 dereferenceable(24) %localAddr, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %localAddr_, ptr noundef nonnull align 8 dereferenceable(27) %localAddr, i64 24, i1 false)
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %if.else.i, %call.i.i.noexc
@@ -481,7 +481,7 @@ invoke.cont15:                                    ; preds = %if.else.i, %call.i.
   %frombool.i = and i8 %12, 1
   store i8 %frombool.i, ptr %external_.i, align 2
   %peerAddr_ = getelementptr inbounds i8, ptr %this, i64 1392
-  invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %peerAddr_)
+  invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 8 dereferenceable(27) %peerAddr_)
           to label %.noexc23 unwind label %lpad16
 
 .noexc23:                                         ; preds = %invoke.cont15
@@ -517,7 +517,7 @@ call.i.i.noexc24:                                 ; preds = %if.then.i19
   br label %invoke.cont17
 
 if.else.i17:                                      ; preds = %.noexc23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %peerAddr_, ptr noundef nonnull align 8 dereferenceable(24) %peerAddr, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %peerAddr_, ptr noundef nonnull align 8 dereferenceable(27) %peerAddr, i64 24, i1 false)
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %if.else.i17, %call.i.i.noexc24
@@ -608,7 +608,7 @@ _ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_E
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
   store i8 0, ptr %hasValue.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %connectionToken_) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %connectionToken_) #22
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i
@@ -2969,7 +2969,7 @@ _ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_E
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
   %connectionToken_ = getelementptr inbounds i8, ptr %this, i64 1424
   store i8 0, ptr %hasValue.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %connectionToken_) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %connectionToken_) #22
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i
@@ -3044,7 +3044,7 @@ _ZN8proxygen18HTTP2PriorityQueueD2Ev.exit:        ; preds = %_ZN5folly13SocketAd
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %16 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %16, ptr %15
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %codec_)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(80) %codec_)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %_ZN8proxygen18HTTP2PriorityQueueD2Ev.exit
@@ -4307,7 +4307,7 @@ if.then4:                                         ; preds = %if.end2
   br i1 %tobool.not.i.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %if.end5 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4873,7 +4873,7 @@ entry:
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -5582,7 +5582,7 @@ entry:
   %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %1, ptr %0
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -5850,7 +5850,7 @@ entry:
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
-  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -5872,7 +5872,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
   unreachable
 
 _ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EED0Ev.exit: ; preds = %invoke.cont.i.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %0) #24
   ret void
 }
 
@@ -5897,7 +5897,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

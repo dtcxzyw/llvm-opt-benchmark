@@ -168,7 +168,7 @@ entry:
   store ptr %oe, ptr %d_opElim, align 8
   %call = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11userContextEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %d_reduced = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_reduced, ptr noundef %call)
+  tail call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(112) %d_reduced, ptr noundef %call)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_reduced, align 8
   %d_map.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = getelementptr inbounds i8, ptr %this, i64 104
@@ -365,7 +365,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
   %d_map.i = getelementptr inbounds i8, ptr %this, i64 72
-  %call2.i.i.i.i7 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %d_map.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %call2.i.i.i.i7 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %d_map.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %call2.i.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.i.noexc:                              ; preds = %if.end15.i.i.i
@@ -557,7 +557,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
   br i1 %cmp.i.i.i.i, label %invoke.cont28, label %if.then.i.i.i32
 
 if.then.i.i.i32:                                  ; preds = %invoke.cont26
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %call27)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(80) %call27)
           to label %invoke.cont28 unwind label %lpad25
 
 invoke.cont28:                                    ; preds = %invoke.cont26, %if.then.i.i.i32
@@ -684,7 +684,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
   br i1 %cmp.i.i.i.i74, label %invoke.cont48, label %if.then.i.i.i75
 
 if.then.i.i.i75:                                  ; preds = %invoke.cont46
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %call47)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(80) %call47)
           to label %invoke.cont48 unwind label %lpad45
 
 invoke.cont48:                                    ; preds = %invoke.cont46, %if.then.i.i.i75
@@ -1075,7 +1075,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
   %d_map.i = getelementptr inbounds i8, ptr %this, i64 72
-  %call2.i.i.i.i1 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %d_map.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %call2.i.i.i.i1 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %d_map.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %call2.i.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.i.noexc:                              ; preds = %if.end15.i.i.i
@@ -1469,7 +1469,7 @@ for.body:                                         ; preds = %entry, %for.body
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   %__begin0.sroa.0.0 = load ptr, ptr %__begin0.sroa.0.08, align 8
   %cmp.i.not = icmp eq ptr %__begin0.sroa.0.0, null
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -1724,7 +1724,7 @@ invoke.cont:                                      ; preds = %if.then13.i.i.i, %i
   br i1 %cmp.i.i.i7, label %invoke.cont3, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont, %if.then.i.i
@@ -2414,7 +2414,7 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry

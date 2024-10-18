@@ -38,7 +38,7 @@ invoke.cont:                                      ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %is, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i2 = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i, i32 noundef 4)
+  %call.i.i.i2 = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(49) %is, ptr noundef nonnull %b.i, i32 noundef 4)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -48,7 +48,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %vtable.i.i.i4 = load ptr, ptr %is, align 8
   %vfn.i.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i.i4, i64 24
   %2 = load ptr, ptr %vfn.i.i.i5, align 8
-  %call.i.i.i6 = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i3, i32 noundef 4)
+  %call.i.i.i6 = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(49) %is, ptr noundef nonnull %b.i3, i32 noundef 4)
           to label %invoke.cont3 unwind label %lpad1
 
 invoke.cont3:                                     ; preds = %invoke.cont2

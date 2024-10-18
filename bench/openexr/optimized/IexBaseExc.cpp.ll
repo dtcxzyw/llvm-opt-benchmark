@@ -1917,7 +1917,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %_message, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %_message, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1929,7 +1929,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %_message) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message) #15
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -2394,7 +2394,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -2425,7 +2425,7 @@ lpad.i:                                           ; preds = %cond.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -2468,7 +2468,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -2504,7 +2504,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i
@@ -2540,7 +2540,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -2618,7 +2618,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i) #15
   %_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -2681,7 +2681,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -2712,7 +2712,7 @@ lpad.i:                                           ; preds = %cond.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -2755,7 +2755,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -2791,7 +2791,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i
@@ -2827,7 +2827,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -2893,7 +2893,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i) #15
   %_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -2956,7 +2956,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -2987,7 +2987,7 @@ lpad.i:                                           ; preds = %cond.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3030,7 +3030,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3066,7 +3066,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i
@@ -3102,7 +3102,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -3168,7 +3168,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i) #15
   %_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -3231,7 +3231,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3262,7 +3262,7 @@ lpad.i:                                           ; preds = %cond.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3305,7 +3305,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3341,7 +3341,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i
@@ -3377,7 +3377,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -3443,7 +3443,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i) #15
   %_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -3506,7 +3506,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3537,7 +3537,7 @@ lpad.i:                                           ; preds = %cond.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3580,7 +3580,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3616,7 +3616,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i
@@ -3652,7 +3652,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -3718,7 +3718,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i) #15
   %_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -3781,7 +3781,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3812,7 +3812,7 @@ lpad.i:                                           ; preds = %cond.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3855,7 +3855,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3891,7 +3891,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i
@@ -3927,7 +3927,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -3993,7 +3993,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i) #15
   %_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -4056,7 +4056,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4087,7 +4087,7 @@ lpad.i:                                           ; preds = %cond.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4130,7 +4130,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4166,7 +4166,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i
@@ -4202,7 +4202,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -4268,7 +4268,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i) #15
   %_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -4331,7 +4331,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4362,7 +4362,7 @@ lpad.i:                                           ; preds = %cond.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4405,7 +4405,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4441,7 +4441,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i
@@ -4477,7 +4477,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -4543,7 +4543,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i) #15
   %_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -4606,7 +4606,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4637,7 +4637,7 @@ lpad.i:                                           ; preds = %cond.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4680,7 +4680,7 @@ lpad2.i:                                          ; preds = %cond.true.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i, %cond.false.i
@@ -4716,7 +4716,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i
 
 _ZN7Iex_3_27BaseExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i
@@ -4752,7 +4752,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -4818,7 +4818,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i) #15
   %_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -4881,7 +4881,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -4912,7 +4912,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -4955,7 +4955,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -4991,7 +4991,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -5027,7 +5027,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -5093,7 +5093,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -5156,7 +5156,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -5187,7 +5187,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -5230,7 +5230,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -5266,7 +5266,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -5302,7 +5302,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -5368,7 +5368,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -5431,7 +5431,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -5462,7 +5462,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -5505,7 +5505,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -5541,7 +5541,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -5577,7 +5577,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -5643,7 +5643,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -5706,7 +5706,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -5737,7 +5737,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -5780,7 +5780,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -5816,7 +5816,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -5852,7 +5852,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -5918,7 +5918,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -5981,7 +5981,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6012,7 +6012,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6055,7 +6055,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6091,7 +6091,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -6127,7 +6127,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -6193,7 +6193,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -6256,7 +6256,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6287,7 +6287,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6330,7 +6330,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6366,7 +6366,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -6402,7 +6402,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -6468,7 +6468,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -6531,7 +6531,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6562,7 +6562,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6605,7 +6605,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6641,7 +6641,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -6677,7 +6677,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -6743,7 +6743,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -6806,7 +6806,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6837,7 +6837,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6880,7 +6880,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -6916,7 +6916,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -6952,7 +6952,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -7018,7 +7018,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -7081,7 +7081,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7112,7 +7112,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7155,7 +7155,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7191,7 +7191,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -7227,7 +7227,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -7293,7 +7293,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -7356,7 +7356,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7387,7 +7387,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7430,7 +7430,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7466,7 +7466,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -7502,7 +7502,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -7568,7 +7568,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -7631,7 +7631,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7662,7 +7662,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7705,7 +7705,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7741,7 +7741,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -7777,7 +7777,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -7843,7 +7843,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -7906,7 +7906,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7937,7 +7937,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -7980,7 +7980,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8016,7 +8016,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -8052,7 +8052,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -8118,7 +8118,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -8181,7 +8181,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8212,7 +8212,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8255,7 +8255,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8291,7 +8291,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -8327,7 +8327,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -8393,7 +8393,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -8456,7 +8456,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8487,7 +8487,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8530,7 +8530,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8566,7 +8566,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -8602,7 +8602,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -8668,7 +8668,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -8731,7 +8731,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8762,7 +8762,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8805,7 +8805,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -8841,7 +8841,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -8877,7 +8877,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -8943,7 +8943,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -9006,7 +9006,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9037,7 +9037,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9080,7 +9080,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9116,7 +9116,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -9152,7 +9152,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -9218,7 +9218,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -9281,7 +9281,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9312,7 +9312,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9355,7 +9355,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9391,7 +9391,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -9427,7 +9427,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -9493,7 +9493,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -9556,7 +9556,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9587,7 +9587,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9630,7 +9630,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9666,7 +9666,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -9702,7 +9702,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -9768,7 +9768,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -9831,7 +9831,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9862,7 +9862,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9905,7 +9905,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -9941,7 +9941,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -9977,7 +9977,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -10043,7 +10043,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -10106,7 +10106,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10137,7 +10137,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10180,7 +10180,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10216,7 +10216,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -10252,7 +10252,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -10318,7 +10318,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -10381,7 +10381,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10412,7 +10412,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10455,7 +10455,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10491,7 +10491,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -10527,7 +10527,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -10593,7 +10593,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -10656,7 +10656,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10687,7 +10687,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10730,7 +10730,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10766,7 +10766,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -10802,7 +10802,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -10868,7 +10868,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -10931,7 +10931,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -10962,7 +10962,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11005,7 +11005,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11041,7 +11041,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -11077,7 +11077,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -11143,7 +11143,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -11206,7 +11206,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11237,7 +11237,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11280,7 +11280,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11316,7 +11316,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -11352,7 +11352,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -11418,7 +11418,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -11481,7 +11481,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11512,7 +11512,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11555,7 +11555,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11591,7 +11591,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -11627,7 +11627,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -11693,7 +11693,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -11756,7 +11756,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11787,7 +11787,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11830,7 +11830,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -11866,7 +11866,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -11902,7 +11902,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -11968,7 +11968,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -12031,7 +12031,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12062,7 +12062,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12105,7 +12105,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12141,7 +12141,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -12177,7 +12177,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -12243,7 +12243,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -12306,7 +12306,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12337,7 +12337,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12380,7 +12380,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12416,7 +12416,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -12452,7 +12452,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -12518,7 +12518,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -12581,7 +12581,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12612,7 +12612,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12655,7 +12655,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12691,7 +12691,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -12727,7 +12727,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -12793,7 +12793,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -12856,7 +12856,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12887,7 +12887,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12930,7 +12930,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -12966,7 +12966,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -13002,7 +13002,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -13068,7 +13068,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -13131,7 +13131,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13162,7 +13162,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13205,7 +13205,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13241,7 +13241,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -13277,7 +13277,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -13343,7 +13343,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -13406,7 +13406,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13437,7 +13437,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13480,7 +13480,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13516,7 +13516,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -13552,7 +13552,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -13618,7 +13618,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -13681,7 +13681,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13712,7 +13712,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13755,7 +13755,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13791,7 +13791,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -13827,7 +13827,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -13893,7 +13893,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -13956,7 +13956,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -13987,7 +13987,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14030,7 +14030,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14066,7 +14066,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -14102,7 +14102,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -14168,7 +14168,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -14231,7 +14231,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14262,7 +14262,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14305,7 +14305,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14341,7 +14341,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -14377,7 +14377,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -14443,7 +14443,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -14506,7 +14506,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14537,7 +14537,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14580,7 +14580,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14616,7 +14616,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -14652,7 +14652,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -14718,7 +14718,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -14781,7 +14781,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14812,7 +14812,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14855,7 +14855,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -14891,7 +14891,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -14927,7 +14927,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -14993,7 +14993,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -15056,7 +15056,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15087,7 +15087,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15130,7 +15130,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15166,7 +15166,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -15202,7 +15202,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -15268,7 +15268,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -15331,7 +15331,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15362,7 +15362,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15405,7 +15405,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15441,7 +15441,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -15477,7 +15477,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -15543,7 +15543,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -15606,7 +15606,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15637,7 +15637,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15680,7 +15680,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15716,7 +15716,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -15752,7 +15752,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -15818,7 +15818,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -15881,7 +15881,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15912,7 +15912,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15955,7 +15955,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -15991,7 +15991,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -16027,7 +16027,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -16093,7 +16093,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -16156,7 +16156,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -16187,7 +16187,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -16230,7 +16230,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -16266,7 +16266,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -16302,7 +16302,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -16368,7 +16368,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -16431,7 +16431,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -16462,7 +16462,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -16505,7 +16505,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -16541,7 +16541,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -16577,7 +16577,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -16643,7 +16643,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -16706,7 +16706,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -16737,7 +16737,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -16780,7 +16780,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -16816,7 +16816,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -16852,7 +16852,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -16918,7 +16918,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -16981,7 +16981,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17012,7 +17012,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17055,7 +17055,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17091,7 +17091,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -17127,7 +17127,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -17193,7 +17193,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -17256,7 +17256,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17287,7 +17287,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17330,7 +17330,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17366,7 +17366,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -17402,7 +17402,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -17468,7 +17468,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -17531,7 +17531,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17562,7 +17562,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17605,7 +17605,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17641,7 +17641,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -17677,7 +17677,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -17743,7 +17743,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -17806,7 +17806,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17837,7 +17837,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17880,7 +17880,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -17916,7 +17916,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -17952,7 +17952,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -18018,7 +18018,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -18081,7 +18081,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18112,7 +18112,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18155,7 +18155,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18191,7 +18191,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -18227,7 +18227,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -18293,7 +18293,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -18356,7 +18356,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18387,7 +18387,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18430,7 +18430,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18466,7 +18466,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -18502,7 +18502,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -18568,7 +18568,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -18631,7 +18631,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18662,7 +18662,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18705,7 +18705,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18741,7 +18741,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -18777,7 +18777,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -18843,7 +18843,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -18906,7 +18906,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18937,7 +18937,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -18980,7 +18980,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19016,7 +19016,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -19052,7 +19052,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -19118,7 +19118,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -19181,7 +19181,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19212,7 +19212,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19255,7 +19255,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19291,7 +19291,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -19327,7 +19327,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -19393,7 +19393,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -19456,7 +19456,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19487,7 +19487,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19530,7 +19530,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19566,7 +19566,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -19602,7 +19602,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -19668,7 +19668,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -19731,7 +19731,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19762,7 +19762,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19805,7 +19805,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -19841,7 +19841,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -19877,7 +19877,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -19943,7 +19943,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -20006,7 +20006,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20037,7 +20037,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20080,7 +20080,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20116,7 +20116,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -20152,7 +20152,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -20218,7 +20218,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -20281,7 +20281,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20312,7 +20312,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20355,7 +20355,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20391,7 +20391,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -20427,7 +20427,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -20493,7 +20493,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -20556,7 +20556,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20587,7 +20587,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20630,7 +20630,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20666,7 +20666,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -20702,7 +20702,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -20768,7 +20768,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -20831,7 +20831,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20862,7 +20862,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20905,7 +20905,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -20941,7 +20941,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -20977,7 +20977,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -21043,7 +21043,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -21106,7 +21106,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21137,7 +21137,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21180,7 +21180,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21216,7 +21216,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -21252,7 +21252,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -21318,7 +21318,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -21381,7 +21381,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21412,7 +21412,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21455,7 +21455,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21491,7 +21491,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -21527,7 +21527,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -21593,7 +21593,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -21656,7 +21656,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21687,7 +21687,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21730,7 +21730,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21766,7 +21766,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -21802,7 +21802,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -21868,7 +21868,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -21931,7 +21931,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -21962,7 +21962,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22005,7 +22005,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22041,7 +22041,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -22077,7 +22077,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -22143,7 +22143,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -22206,7 +22206,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22237,7 +22237,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22280,7 +22280,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22316,7 +22316,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -22352,7 +22352,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -22418,7 +22418,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -22481,7 +22481,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22512,7 +22512,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22555,7 +22555,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22591,7 +22591,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -22627,7 +22627,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -22693,7 +22693,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -22756,7 +22756,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22787,7 +22787,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22830,7 +22830,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -22866,7 +22866,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -22902,7 +22902,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -22968,7 +22968,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -23031,7 +23031,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23062,7 +23062,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23105,7 +23105,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23141,7 +23141,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -23177,7 +23177,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -23243,7 +23243,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -23306,7 +23306,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23337,7 +23337,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23380,7 +23380,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23416,7 +23416,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -23452,7 +23452,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -23518,7 +23518,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -23581,7 +23581,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23612,7 +23612,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23655,7 +23655,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23691,7 +23691,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -23727,7 +23727,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -23793,7 +23793,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -23856,7 +23856,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23887,7 +23887,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23930,7 +23930,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -23966,7 +23966,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -24002,7 +24002,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -24068,7 +24068,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -24131,7 +24131,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24162,7 +24162,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24205,7 +24205,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24241,7 +24241,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -24277,7 +24277,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -24343,7 +24343,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -24406,7 +24406,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24437,7 +24437,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24480,7 +24480,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24516,7 +24516,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -24552,7 +24552,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -24618,7 +24618,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -24681,7 +24681,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24712,7 +24712,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24755,7 +24755,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24791,7 +24791,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -24827,7 +24827,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -24893,7 +24893,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -24956,7 +24956,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -24987,7 +24987,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25030,7 +25030,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25066,7 +25066,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -25102,7 +25102,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -25168,7 +25168,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -25231,7 +25231,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25262,7 +25262,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25305,7 +25305,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25341,7 +25341,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -25377,7 +25377,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -25443,7 +25443,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -25506,7 +25506,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25537,7 +25537,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25580,7 +25580,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25616,7 +25616,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -25652,7 +25652,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -25718,7 +25718,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -25781,7 +25781,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25812,7 +25812,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25855,7 +25855,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -25891,7 +25891,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -25927,7 +25927,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -25993,7 +25993,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -26056,7 +26056,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26087,7 +26087,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26130,7 +26130,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26166,7 +26166,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -26202,7 +26202,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -26268,7 +26268,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -26331,7 +26331,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26362,7 +26362,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26405,7 +26405,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26441,7 +26441,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -26477,7 +26477,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -26543,7 +26543,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -26606,7 +26606,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26637,7 +26637,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26680,7 +26680,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26716,7 +26716,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -26752,7 +26752,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -26818,7 +26818,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -26881,7 +26881,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26912,7 +26912,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26955,7 +26955,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -26991,7 +26991,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -27027,7 +27027,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -27093,7 +27093,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -27156,7 +27156,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -27187,7 +27187,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -27230,7 +27230,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -27266,7 +27266,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -27302,7 +27302,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -27368,7 +27368,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -27431,7 +27431,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -27462,7 +27462,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -27505,7 +27505,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -27541,7 +27541,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -27577,7 +27577,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -27643,7 +27643,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -27706,7 +27706,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -27737,7 +27737,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -27780,7 +27780,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -27816,7 +27816,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -27852,7 +27852,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -27918,7 +27918,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -27981,7 +27981,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28012,7 +28012,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28055,7 +28055,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28091,7 +28091,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -28127,7 +28127,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -28193,7 +28193,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -28256,7 +28256,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28287,7 +28287,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28330,7 +28330,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28366,7 +28366,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -28402,7 +28402,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -28468,7 +28468,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -28531,7 +28531,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28562,7 +28562,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28605,7 +28605,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28641,7 +28641,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -28677,7 +28677,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -28743,7 +28743,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -28806,7 +28806,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28837,7 +28837,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28880,7 +28880,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -28916,7 +28916,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -28952,7 +28952,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -29018,7 +29018,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -29081,7 +29081,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29112,7 +29112,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29155,7 +29155,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29191,7 +29191,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -29227,7 +29227,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -29293,7 +29293,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -29356,7 +29356,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29387,7 +29387,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29430,7 +29430,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29466,7 +29466,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -29502,7 +29502,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -29568,7 +29568,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -29631,7 +29631,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29662,7 +29662,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29705,7 +29705,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29741,7 +29741,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -29777,7 +29777,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -29843,7 +29843,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -29906,7 +29906,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29937,7 +29937,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -29980,7 +29980,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30016,7 +30016,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -30052,7 +30052,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -30118,7 +30118,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -30181,7 +30181,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30212,7 +30212,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30255,7 +30255,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30291,7 +30291,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -30327,7 +30327,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -30393,7 +30393,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -30456,7 +30456,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30487,7 +30487,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30530,7 +30530,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30566,7 +30566,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -30602,7 +30602,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -30668,7 +30668,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -30731,7 +30731,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30762,7 +30762,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30805,7 +30805,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -30841,7 +30841,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -30877,7 +30877,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -30943,7 +30943,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -31006,7 +31006,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31037,7 +31037,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31080,7 +31080,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31116,7 +31116,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -31152,7 +31152,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -31218,7 +31218,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -31281,7 +31281,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31312,7 +31312,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31355,7 +31355,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31391,7 +31391,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -31427,7 +31427,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -31493,7 +31493,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -31556,7 +31556,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31587,7 +31587,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31630,7 +31630,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31666,7 +31666,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -31702,7 +31702,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -31768,7 +31768,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -31831,7 +31831,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31862,7 +31862,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31905,7 +31905,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -31941,7 +31941,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -31977,7 +31977,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -32043,7 +32043,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -32106,7 +32106,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32137,7 +32137,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32180,7 +32180,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32216,7 +32216,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -32252,7 +32252,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -32318,7 +32318,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -32381,7 +32381,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32412,7 +32412,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32455,7 +32455,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32491,7 +32491,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -32527,7 +32527,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -32593,7 +32593,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -32656,7 +32656,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32687,7 +32687,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32730,7 +32730,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32766,7 +32766,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -32802,7 +32802,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -32868,7 +32868,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -32931,7 +32931,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -32962,7 +32962,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33005,7 +33005,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33041,7 +33041,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -33077,7 +33077,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -33143,7 +33143,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -33206,7 +33206,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33237,7 +33237,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33280,7 +33280,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33316,7 +33316,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -33352,7 +33352,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -33418,7 +33418,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -33481,7 +33481,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33512,7 +33512,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33555,7 +33555,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33591,7 +33591,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -33627,7 +33627,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -33693,7 +33693,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -33756,7 +33756,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33787,7 +33787,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33830,7 +33830,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -33866,7 +33866,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -33902,7 +33902,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -33968,7 +33968,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -34031,7 +34031,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34062,7 +34062,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34105,7 +34105,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34141,7 +34141,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -34177,7 +34177,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -34243,7 +34243,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -34306,7 +34306,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34337,7 +34337,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34380,7 +34380,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34416,7 +34416,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -34452,7 +34452,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -34518,7 +34518,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -34581,7 +34581,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34612,7 +34612,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34655,7 +34655,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34691,7 +34691,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -34727,7 +34727,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -34793,7 +34793,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -34856,7 +34856,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34887,7 +34887,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34930,7 +34930,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -34966,7 +34966,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -35002,7 +35002,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -35068,7 +35068,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -35131,7 +35131,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35162,7 +35162,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35205,7 +35205,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35241,7 +35241,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -35277,7 +35277,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -35343,7 +35343,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -35406,7 +35406,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35437,7 +35437,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35480,7 +35480,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35516,7 +35516,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -35552,7 +35552,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -35618,7 +35618,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -35681,7 +35681,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35712,7 +35712,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35755,7 +35755,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35791,7 +35791,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -35827,7 +35827,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -35893,7 +35893,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -35956,7 +35956,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -35987,7 +35987,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36030,7 +36030,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36066,7 +36066,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -36102,7 +36102,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -36168,7 +36168,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -36231,7 +36231,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36262,7 +36262,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36305,7 +36305,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36341,7 +36341,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -36377,7 +36377,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -36443,7 +36443,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -36506,7 +36506,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36537,7 +36537,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36580,7 +36580,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36616,7 +36616,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -36652,7 +36652,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -36718,7 +36718,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -36781,7 +36781,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36812,7 +36812,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36855,7 +36855,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -36891,7 +36891,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -36927,7 +36927,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -36993,7 +36993,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -37056,7 +37056,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37087,7 +37087,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37130,7 +37130,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37166,7 +37166,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -37202,7 +37202,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -37268,7 +37268,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -37331,7 +37331,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37362,7 +37362,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37405,7 +37405,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37441,7 +37441,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -37477,7 +37477,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -37543,7 +37543,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -37606,7 +37606,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37637,7 +37637,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37680,7 +37680,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37716,7 +37716,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -37752,7 +37752,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -37818,7 +37818,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -37881,7 +37881,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37912,7 +37912,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37955,7 +37955,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -37991,7 +37991,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -38027,7 +38027,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -38093,7 +38093,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -38156,7 +38156,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -38187,7 +38187,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -38230,7 +38230,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -38266,7 +38266,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -38302,7 +38302,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -38368,7 +38368,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -38431,7 +38431,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -38462,7 +38462,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -38505,7 +38505,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -38541,7 +38541,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -38577,7 +38577,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -38643,7 +38643,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -38706,7 +38706,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -38737,7 +38737,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -38780,7 +38780,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -38816,7 +38816,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -38852,7 +38852,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -38918,7 +38918,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -38981,7 +38981,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39012,7 +39012,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39055,7 +39055,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39091,7 +39091,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -39127,7 +39127,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -39193,7 +39193,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -39256,7 +39256,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39287,7 +39287,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39330,7 +39330,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39366,7 +39366,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -39402,7 +39402,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -39468,7 +39468,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -39531,7 +39531,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39562,7 +39562,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39605,7 +39605,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39641,7 +39641,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -39677,7 +39677,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -39743,7 +39743,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -39806,7 +39806,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39837,7 +39837,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39880,7 +39880,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -39916,7 +39916,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -39952,7 +39952,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -40018,7 +40018,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -40081,7 +40081,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40112,7 +40112,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40155,7 +40155,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40191,7 +40191,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -40227,7 +40227,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -40293,7 +40293,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -40356,7 +40356,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40387,7 +40387,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40430,7 +40430,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40466,7 +40466,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -40502,7 +40502,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -40568,7 +40568,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -40631,7 +40631,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40662,7 +40662,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40705,7 +40705,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40741,7 +40741,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -40777,7 +40777,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -40843,7 +40843,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -40906,7 +40906,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40937,7 +40937,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -40980,7 +40980,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41016,7 +41016,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -41052,7 +41052,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -41118,7 +41118,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -41181,7 +41181,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41212,7 +41212,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41255,7 +41255,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41291,7 +41291,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -41327,7 +41327,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -41393,7 +41393,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -41456,7 +41456,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41487,7 +41487,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41530,7 +41530,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41566,7 +41566,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -41602,7 +41602,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -41668,7 +41668,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -41731,7 +41731,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41762,7 +41762,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41805,7 +41805,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -41841,7 +41841,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -41877,7 +41877,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -41943,7 +41943,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -42006,7 +42006,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42037,7 +42037,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42080,7 +42080,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42116,7 +42116,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -42152,7 +42152,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -42218,7 +42218,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -42281,7 +42281,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42312,7 +42312,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42355,7 +42355,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42391,7 +42391,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -42427,7 +42427,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -42493,7 +42493,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -42556,7 +42556,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42587,7 +42587,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42630,7 +42630,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42666,7 +42666,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -42702,7 +42702,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -42768,7 +42768,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -42831,7 +42831,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42862,7 +42862,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42905,7 +42905,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -42941,7 +42941,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -42977,7 +42977,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -43043,7 +43043,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -43106,7 +43106,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43137,7 +43137,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43180,7 +43180,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43216,7 +43216,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -43252,7 +43252,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -43318,7 +43318,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -43381,7 +43381,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43412,7 +43412,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43455,7 +43455,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43491,7 +43491,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -43527,7 +43527,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -43593,7 +43593,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -43656,7 +43656,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43687,7 +43687,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43730,7 +43730,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43766,7 +43766,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -43802,7 +43802,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -43868,7 +43868,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -43931,7 +43931,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -43962,7 +43962,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44005,7 +44005,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44041,7 +44041,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -44077,7 +44077,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -44143,7 +44143,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -44206,7 +44206,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44237,7 +44237,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44280,7 +44280,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44316,7 +44316,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -44352,7 +44352,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -44418,7 +44418,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -44481,7 +44481,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44512,7 +44512,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44555,7 +44555,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44591,7 +44591,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -44627,7 +44627,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -44693,7 +44693,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -44756,7 +44756,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44787,7 +44787,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44830,7 +44830,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -44866,7 +44866,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -44902,7 +44902,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -44968,7 +44968,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -45031,7 +45031,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45062,7 +45062,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45105,7 +45105,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45141,7 +45141,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -45177,7 +45177,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -45243,7 +45243,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -45306,7 +45306,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45337,7 +45337,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45380,7 +45380,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45416,7 +45416,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -45452,7 +45452,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -45518,7 +45518,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -45581,7 +45581,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45612,7 +45612,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45655,7 +45655,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45691,7 +45691,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -45727,7 +45727,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -45793,7 +45793,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -45856,7 +45856,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45887,7 +45887,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45930,7 +45930,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -45966,7 +45966,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -46002,7 +46002,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -46068,7 +46068,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -46131,7 +46131,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46162,7 +46162,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46205,7 +46205,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46241,7 +46241,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -46277,7 +46277,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -46343,7 +46343,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -46406,7 +46406,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46437,7 +46437,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46480,7 +46480,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46516,7 +46516,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -46552,7 +46552,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -46618,7 +46618,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -46681,7 +46681,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46712,7 +46712,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46755,7 +46755,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46791,7 +46791,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -46827,7 +46827,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -46893,7 +46893,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -46956,7 +46956,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -46987,7 +46987,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47030,7 +47030,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47066,7 +47066,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -47102,7 +47102,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -47168,7 +47168,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -47231,7 +47231,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47262,7 +47262,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47305,7 +47305,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47341,7 +47341,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_28ErrnoExcC2ERKS0_.exit:                ; preds = %invoke.cont.i.i
@@ -47377,7 +47377,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -47443,7 +47443,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -47506,7 +47506,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47537,7 +47537,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47580,7 +47580,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47616,7 +47616,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i.i
@@ -47652,7 +47652,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -47718,7 +47718,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -47781,7 +47781,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47812,7 +47812,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47855,7 +47855,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -47891,7 +47891,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i.i
@@ -47927,7 +47927,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -47993,7 +47993,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -48056,7 +48056,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -48087,7 +48087,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -48130,7 +48130,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -48166,7 +48166,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i.i
@@ -48202,7 +48202,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -48268,7 +48268,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -48331,7 +48331,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -48362,7 +48362,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -48405,7 +48405,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -48441,7 +48441,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i.i
@@ -48477,7 +48477,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -48543,7 +48543,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 
@@ -48606,7 +48606,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -48637,7 +48637,7 @@ lpad.i.i:                                         ; preds = %cond.true.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %1
 
 _ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -48680,7 +48680,7 @@ lpad2.i.i:                                        ; preds = %cond.true.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %2, %lpad2.i.i ], [ %1, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cond.true.i.i, %cond.false.i.i
@@ -48716,7 +48716,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7Iex_3_27MathExcC2ERKS0_.exit:                 ; preds = %invoke.cont.i.i
@@ -48752,7 +48752,7 @@ lpad4.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %1, %lpad4.i.i ], [ %0, %lpad.i.i ]
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   %2 = extractvalue { ptr, i32 } %.pn.i.i, 0
   tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
@@ -48818,7 +48818,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace.i.i) #15
   %_message.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message.i.i) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 }
 

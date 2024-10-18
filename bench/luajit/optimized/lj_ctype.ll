@@ -1559,7 +1559,7 @@ sw.bb48.i:                                        ; preds = %for.cond.i
   %and49.i = and i32 %7, 8388608
   %tobool50.not.i = icmp eq i32 %and49.i, 0
   %cond.i = select i1 %tobool50.not.i, ptr @.str.14, ptr @.str.13
-  call fastcc void @ctype_preptype(ptr noundef %ctr, ptr noundef nonnull %ct.0.i, i32 noundef %qual.0.i, ptr noundef nonnull %cond.i)
+  call fastcc void @ctype_preptype(ptr noundef nonnull %ctr, ptr noundef nonnull %ct.0.i, i32 noundef %qual.0.i, ptr noundef nonnull %cond.i)
   br label %ctype_repr.exit
 
 sw.bb51.i:                                        ; preds = %for.cond.i
@@ -1602,7 +1602,7 @@ while.end.i397.i:                                 ; preds = %while.body.i392.i
   br label %ctype_repr.exit
 
 if.end55.i:                                       ; preds = %sw.bb51.i
-  call fastcc void @ctype_preptype(ptr noundef %ctr, ptr noundef nonnull %ct.0.i, i32 noundef %qual.0.i, ptr noundef nonnull @.str.16)
+  call fastcc void @ctype_preptype(ptr noundef nonnull %ctr, ptr noundef nonnull %ct.0.i, i32 noundef %qual.0.i, ptr noundef nonnull @.str.16)
   br label %ctype_repr.exit
 
 sw.bb56.i:                                        ; preds = %for.cond.i

@@ -123,7 +123,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %header_list_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %header_list_, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_start3.i.i.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -142,7 +142,7 @@ if.then.i.i:                                      ; preds = %entry
   %8 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, ptr noundef nonnull align 8 dereferenceable(80) %header_list_2, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %header_list_2, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %header_list_2, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   store ptr %1, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 32
@@ -758,7 +758,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %second.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   %4 = load ptr, ptr %_M_finish.i, align 8
@@ -891,7 +891,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -901,7 +901,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -1270,7 +1270,7 @@ for.body.i.i.i:                                   ; preds = %for.body, %for.body
   %__first.addr.04.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.ptr) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.ptr) #15
   %__first.addr.04.i.i.i.add = add nuw nsw i64 %__first.addr.04.i.i.i.idx, 64
   %cmp.not.i.i.i = icmp eq i64 %__first.addr.04.i.i.i.add, 512
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !78
@@ -1302,7 +1302,7 @@ for.body.i.i.i4:                                  ; preds = %if.then, %for.body.
   %__first.addr.04.i.i.i5 = phi ptr [ %incdec.ptr.i.i.i7, %for.body.i.i.i4 ], [ %5, %if.then ]
   %second.i.i.i.i.i6 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i6) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i5) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i5) #15
   %incdec.ptr.i.i.i7 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5, i64 64
   %cmp.not.i.i.i8 = icmp eq ptr %incdec.ptr.i.i.i7, %6
   br i1 %cmp.not.i.i.i8, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit9, label %for.body.i.i.i4, !llvm.loop !78
@@ -1318,7 +1318,7 @@ for.body.i.i.i11:                                 ; preds = %_ZSt8_DestroyIPSt4p
   %__first.addr.04.i.i.i12 = phi ptr [ %incdec.ptr.i.i.i14, %for.body.i.i.i11 ], [ %7, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit9 ]
   %second.i.i.i.i.i13 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i12, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i13) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i12) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i12) #15
   %incdec.ptr.i.i.i14 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i12, i64 64
   %cmp.not.i.i.i15 = icmp eq ptr %incdec.ptr.i.i.i14, %8
   br i1 %cmp.not.i.i.i15, label %if.end, label %for.body.i.i.i11, !llvm.loop !78
@@ -1332,7 +1332,7 @@ for.body.i.i.i18:                                 ; preds = %if.else, %for.body.
   %__first.addr.04.i.i.i19 = phi ptr [ %incdec.ptr.i.i.i21, %for.body.i.i.i18 ], [ %5, %if.else ]
   %second.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i19, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i20) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i19) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i19) #15
   %incdec.ptr.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i19, i64 64
   %cmp.not.i.i.i22 = icmp eq ptr %incdec.ptr.i.i.i21, %9
   br i1 %cmp.not.i.i.i22, label %if.end, label %for.body.i.i.i18, !llvm.loop !78
@@ -1376,7 +1376,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %7 = phi ptr [ %0, %for.body.lr.ph ], [ %19, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
   %8 = phi ptr [ %2, %for.body.lr.ph ], [ %18, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
   %9 = phi ptr [ %3, %for.body.lr.ph ], [ %17, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
@@ -1388,7 +1388,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 lpad.i.i:                                         ; preds = %.noexc
   %10 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
   br label %lpad.body
 
 for.inc:                                          ; preds = %.noexc
@@ -1517,7 +1517,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %agg.tmp.sroa.10.0 = phi ptr [ %agg.tmp.sroa.10.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i ], [ %2, %for.body.i.preheader ]
   %second.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.0.0) #15
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0, i64 64
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp.sroa.7.0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i
@@ -1968,7 +1968,7 @@ for.body.i.i.i.i:                                 ; preds = %while.body.i, %for.
   %__n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.body.i.i.i.i ], [ %.sroa.speculated.i, %while.body.i ]
   %__result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %agg.tmp.sroa.0.0, %while.body.i ]
   %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.015.i, %while.body.i ]
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i), !noalias !110
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %__result.addr.08.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.07.i.i.i.i), !noalias !110
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 32
   %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i, i64 32
   %call4.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i), !noalias !110
@@ -2065,7 +2065,7 @@ for.body.i.i.i.i65:                               ; preds = %while.body.i29, %fo
   %__n.09.i.i.i.i66 = phi i64 [ %dec.i.i.i.i75, %for.body.i.i.i.i65 ], [ %.sroa.speculated.i36, %while.body.i29 ]
   %__result.addr.08.i.i.i.i67 = phi ptr [ %incdec.ptr1.i.i.i.i74, %for.body.i.i.i.i65 ], [ %agg.tmp7.sroa.0.0, %while.body.i29 ]
   %__first.addr.07.i.i.i.i68 = phi ptr [ %incdec.ptr.i.i.i.i73, %for.body.i.i.i.i65 ], [ %__first.addr.015.i30, %while.body.i29 ]
-  %call.i.i.i.i.i69 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i68), !noalias !115
+  %call.i.i.i.i.i69 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %__result.addr.08.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.07.i.i.i.i68), !noalias !115
   %second.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i68, i64 32
   %second3.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i67, i64 32
   %call4.i.i.i.i.i72 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i71, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i70), !noalias !115
@@ -2163,7 +2163,7 @@ for.body.i.i.i.i141:                              ; preds = %while.body.i105, %f
   %__n.09.i.i.i.i142 = phi i64 [ %dec.i.i.i.i151, %for.body.i.i.i.i141 ], [ %.sroa.speculated.i112, %while.body.i105 ]
   %__result.addr.08.i.i.i.i143 = phi ptr [ %incdec.ptr1.i.i.i.i150, %for.body.i.i.i.i141 ], [ %agg.tmp9.sroa.0.0, %while.body.i105 ]
   %__first.addr.07.i.i.i.i144 = phi ptr [ %incdec.ptr.i.i.i.i149, %for.body.i.i.i.i141 ], [ %__first.addr.015.i106, %while.body.i105 ]
-  %call.i.i.i.i.i145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i143, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i144), !noalias !119
+  %call.i.i.i.i.i145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %__result.addr.08.i.i.i.i143, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.07.i.i.i.i144), !noalias !119
   %second.i.i.i.i.i146 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i144, i64 32
   %second3.i.i.i.i.i147 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i143, i64 32
   %call4.i.i.i.i.i148 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i147, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i146), !noalias !119
@@ -2251,7 +2251,7 @@ for.body.i.i.i.i217:                              ; preds = %while.body.i181, %f
   %__n.09.i.i.i.i218 = phi i64 [ %dec.i.i.i.i227, %for.body.i.i.i.i217 ], [ %.sroa.speculated.i188, %while.body.i181 ]
   %__result.addr.08.i.i.i.i219 = phi ptr [ %incdec.ptr1.i.i.i.i226, %for.body.i.i.i.i217 ], [ %agg.tmp12.sroa.0.0, %while.body.i181 ]
   %__first.addr.07.i.i.i.i220 = phi ptr [ %incdec.ptr.i.i.i.i225, %for.body.i.i.i.i217 ], [ %__first.addr.015.i182, %while.body.i181 ]
-  %call.i.i.i.i.i221 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i219, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i220), !noalias !122
+  %call.i.i.i.i.i221 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %__result.addr.08.i.i.i.i219, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.07.i.i.i.i220), !noalias !122
   %second.i.i.i.i.i222 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i220, i64 32
   %second3.i.i.i.i.i223 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i219, i64 32
   %call4.i.i.i.i.i224 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i223, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i222), !noalias !122
@@ -2575,7 +2575,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZStplRKSt15_Deque_
   %21 = phi ptr [ %28, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %storemerge.i.i.i.i, %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit61 ]
   %22 = phi ptr [ %27, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %__new_start.sroa.9.0, %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit61 ]
   %23 = phi ptr [ %26, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %__new_start.sroa.13.0, %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit61 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i.i.i.i) #15, !noalias !137
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.0.0.i.i.i.i) #15, !noalias !137
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 32
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #15, !noalias !137
@@ -3076,7 +3076,7 @@ for.body.i.i.i.i.i396:                            ; preds = %_ZStmiRKSt15_Deque_
   %77 = phi ptr [ %84, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i410 ], [ %72, %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit368 ]
   %78 = phi ptr [ %83, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i410 ], [ %74, %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit368 ]
   %79 = phi ptr [ %82, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i410 ], [ %75, %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit368 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i.i.i.i397) #15, !noalias !191
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.0.0.i.i.i.i397) #15, !noalias !191
   %second.i.i.i.i.i.i.i400 = getelementptr inbounds i8, ptr %77, i64 32
   %second3.i.i.i.i.i.i.i401 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i397, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i400, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i401) #15, !noalias !191
@@ -3335,7 +3335,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %122 = phi ptr [ %129, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i.i ], [ %121, %for.body.i.i.i.i.i.i.preheader ]
   %123 = phi ptr [ %128, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i.i ], [ %120, %for.body.i.i.i.i.i.i.preheader ]
   %124 = phi ptr [ %127, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i.i ], [ %119, %for.body.i.i.i.i.i.i.preheader ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i.i.i.i.i) #15, !noalias !231
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %122, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.0.0.i.i.i.i.i) #15, !noalias !231
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %122, i64 32
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i.i) #15, !noalias !231
@@ -3843,7 +3843,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %8 = phi ptr [ %__mid.sroa.0.0, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i.preheader ]
   %9 = phi ptr [ %14, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %4, %for.body.i.i.i.i.i.preheader ]
   %10 = phi ptr [ %13, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %5, %for.body.i.i.i.i.i.preheader ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i.i.i.i) #15, !noalias !255
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.0.0.i.i.i.i) #15, !noalias !255
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #15, !noalias !255
@@ -4034,7 +4034,7 @@ for.body.i.i.i.i:                                 ; preds = %while.body.i, %for.
   %__n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.body.i.i.i.i ], [ %.sroa.speculated.i, %while.body.i ]
   %__result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %agg.tmp.sroa.0.0, %while.body.i ]
   %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.015.i, %while.body.i ]
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i) #15, !noalias !274
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__result.addr.08.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.07.i.i.i.i) #15, !noalias !274
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 32
   %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i, i64 32
   %call4.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #15, !noalias !274
@@ -4131,7 +4131,7 @@ for.body.i.i.i.i65:                               ; preds = %while.body.i29, %fo
   %__n.09.i.i.i.i66 = phi i64 [ %dec.i.i.i.i75, %for.body.i.i.i.i65 ], [ %.sroa.speculated.i36, %while.body.i29 ]
   %__result.addr.08.i.i.i.i67 = phi ptr [ %incdec.ptr1.i.i.i.i74, %for.body.i.i.i.i65 ], [ %agg.tmp7.sroa.0.0, %while.body.i29 ]
   %__first.addr.07.i.i.i.i68 = phi ptr [ %incdec.ptr.i.i.i.i73, %for.body.i.i.i.i65 ], [ %__first.addr.015.i30, %while.body.i29 ]
-  %call.i.i.i.i.i69 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i68) #15, !noalias !279
+  %call.i.i.i.i.i69 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__result.addr.08.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.07.i.i.i.i68) #15, !noalias !279
   %second.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i68, i64 32
   %second3.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i67, i64 32
   %call4.i.i.i.i.i72 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i71, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i70) #15, !noalias !279
@@ -4229,7 +4229,7 @@ for.body.i.i.i.i141:                              ; preds = %while.body.i105, %f
   %__n.09.i.i.i.i142 = phi i64 [ %dec.i.i.i.i151, %for.body.i.i.i.i141 ], [ %.sroa.speculated.i112, %while.body.i105 ]
   %__result.addr.08.i.i.i.i143 = phi ptr [ %incdec.ptr1.i.i.i.i150, %for.body.i.i.i.i141 ], [ %agg.tmp9.sroa.0.0, %while.body.i105 ]
   %__first.addr.07.i.i.i.i144 = phi ptr [ %incdec.ptr.i.i.i.i149, %for.body.i.i.i.i141 ], [ %__first.addr.015.i106, %while.body.i105 ]
-  %call.i.i.i.i.i145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i143, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i144) #15, !noalias !283
+  %call.i.i.i.i.i145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__result.addr.08.i.i.i.i143, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.07.i.i.i.i144) #15, !noalias !283
   %second.i.i.i.i.i146 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i144, i64 32
   %second3.i.i.i.i.i147 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i143, i64 32
   %call4.i.i.i.i.i148 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i147, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i146) #15, !noalias !283
@@ -4317,7 +4317,7 @@ for.body.i.i.i.i217:                              ; preds = %while.body.i181, %f
   %__n.09.i.i.i.i218 = phi i64 [ %dec.i.i.i.i227, %for.body.i.i.i.i217 ], [ %.sroa.speculated.i188, %while.body.i181 ]
   %__result.addr.08.i.i.i.i219 = phi ptr [ %incdec.ptr1.i.i.i.i226, %for.body.i.i.i.i217 ], [ %agg.tmp12.sroa.0.0, %while.body.i181 ]
   %__first.addr.07.i.i.i.i220 = phi ptr [ %incdec.ptr.i.i.i.i225, %for.body.i.i.i.i217 ], [ %__first.addr.015.i182, %while.body.i181 ]
-  %call.i.i.i.i.i221 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i219, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i220) #15, !noalias !286
+  %call.i.i.i.i.i221 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__result.addr.08.i.i.i.i219, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.07.i.i.i.i220) #15, !noalias !286
   %second.i.i.i.i.i222 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i220, i64 32
   %second3.i.i.i.i.i223 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i219, i64 32
   %call4.i.i.i.i.i224 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i223, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i222) #15, !noalias !286
@@ -4409,7 +4409,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %agg.tmp.sroa.10.0.i = phi ptr [ %agg.tmp.sroa.10.1.i, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i ], [ %3, %for.body.i.i.preheader ]
   %second.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.0.0.i) #15
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i, i64 64
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.7.0.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i
@@ -4503,7 +4503,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   %__last.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__last.addr.012.i, %for.body.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i, i64 -64
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i, i64 -64
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i) #15, !noalias !289
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr.i.i.i.i) #15, !noalias !289
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i, i64 -32
   %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i, i64 -32
   %call4.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #15, !noalias !289
@@ -4632,7 +4632,7 @@ for.body.i.i.i.i68:                               ; preds = %for.body.i.i.i.i68.
   %__last.addr.05.i.i.i.i71 = phi ptr [ %incdec.ptr.i.i.i.i72, %for.body.i.i.i.i68 ], [ %__last.addr.012.i31, %for.body.i.i.i.i68.preheader ]
   %incdec.ptr.i.i.i.i72 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i71, i64 -64
   %incdec.ptr1.i.i.i.i73 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i70, i64 -64
-  %call.i.i.i.i.i74 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i73, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i72) #15, !noalias !294
+  %call.i.i.i.i.i74 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr1.i.i.i.i73, ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr.i.i.i.i72) #15, !noalias !294
   %second.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i71, i64 -32
   %second3.i.i.i.i.i76 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i70, i64 -32
   %call4.i.i.i.i.i77 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i76, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i75) #15, !noalias !294
@@ -4761,7 +4761,7 @@ for.body.i.i.i.i153:                              ; preds = %for.body.i.i.i.i153
   %__last.addr.05.i.i.i.i156 = phi ptr [ %incdec.ptr.i.i.i.i157, %for.body.i.i.i.i153 ], [ %__last.addr.012.i116, %for.body.i.i.i.i153.preheader ]
   %incdec.ptr.i.i.i.i157 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i156, i64 -64
   %incdec.ptr1.i.i.i.i158 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i155, i64 -64
-  %call.i.i.i.i.i159 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i158, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i157) #15, !noalias !298
+  %call.i.i.i.i.i159 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr1.i.i.i.i158, ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr.i.i.i.i157) #15, !noalias !298
   %second.i.i.i.i.i160 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i156, i64 -32
   %second3.i.i.i.i.i161 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i155, i64 -32
   %call4.i.i.i.i.i162 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i161, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i160) #15, !noalias !298
@@ -4882,7 +4882,7 @@ for.body.i.i.i.i238:                              ; preds = %for.body.i.i.i.i238
   %__last.addr.05.i.i.i.i241 = phi ptr [ %incdec.ptr.i.i.i.i242, %for.body.i.i.i.i238 ], [ %__last.addr.012.i201, %for.body.i.i.i.i238.preheader ]
   %incdec.ptr.i.i.i.i242 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i241, i64 -64
   %incdec.ptr1.i.i.i.i243 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i240, i64 -64
-  %call.i.i.i.i.i244 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i243, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i242) #15, !noalias !301
+  %call.i.i.i.i.i244 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr1.i.i.i.i243, ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr.i.i.i.i242) #15, !noalias !301
   %second.i.i.i.i.i245 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i241, i64 -32
   %second3.i.i.i.i.i246 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i240, i64 -32
   %call4.i.i.i.i.i247 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i246, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i245) #15, !noalias !301
@@ -4964,7 +4964,7 @@ entry:
   %agg.tmp2.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %__tmp.sroa.0.i.i = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(80) %this, i64 16, i1 false)
   %_M_start3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_start3.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4983,7 +4983,7 @@ entry:
   %7 = load ptr, ptr %_M_node5.i8.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %__x, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__x, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %__x, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i = getelementptr inbounds i8, ptr %__x, i64 16
   store ptr %0, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i = getelementptr inbounds i8, ptr %__x, i64 24
@@ -5112,7 +5112,7 @@ invoke.cont:                                      ; preds = %if.then.i, %if.end
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %__args) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(32) %__args) #15
   %second.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1) #15
   %10 = load ptr, ptr %_M_node.i.i, align 8

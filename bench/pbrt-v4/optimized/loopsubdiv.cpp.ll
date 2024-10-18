@@ -4009,7 +4009,7 @@ terminate.lpad.i:                                 ; preds = %while.body.i.i
 _ZN4pstd3pmr25monotonic_buffer_resourceD2Ev.exit: ; preds = %.noexc.i, %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit1528
   store ptr null, ptr %block_list.i.i, align 8
   store ptr null, ptr %current.i.i, align 8
-  call void @_ZN4pstd3pmr15memory_resourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %resource) #22
+  call void @_ZN4pstd3pmr15memory_resourceD2Ev(ptr noundef nonnull align 64 dereferenceable(48) %resource) #22
   %tobool.not.i.i.i1536 = icmp eq ptr %v150.sroa.0.0.lcssa, null
   br i1 %tobool.not.i.i.i1536, label %_ZNSt6vectorIPN4pbrt8SDVertexESaIS2_EED2Ev.exit1538, label %if.then.i.i.i1537
 
@@ -4162,7 +4162,7 @@ terminate.lpad.i1596:                             ; preds = %while.body.i.i1589
 _ZN4pstd3pmr25monotonic_buffer_resourceD2Ev.exit1601: ; preds = %.noexc.i1597, %ehcleanup945
   store ptr null, ptr %block_list.i.i1585, align 8
   store ptr null, ptr %current.i.i, align 8
-  call void @_ZN4pstd3pmr15memory_resourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %resource) #22
+  call void @_ZN4pstd3pmr15memory_resourceD2Ev(ptr noundef nonnull align 64 dereferenceable(48) %resource) #22
   %tobool.not.i.i.i1603 = icmp eq ptr %v150.sroa.0.02512, null
   br i1 %tobool.not.i.i.i1603, label %ehcleanup947, label %if.then.i.i.i1604
 

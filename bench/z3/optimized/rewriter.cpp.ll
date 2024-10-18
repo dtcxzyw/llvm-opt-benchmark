@@ -2828,7 +2828,7 @@ _ZN13rewriter_core18set_new_child_flagEP4exprS1_.exit: ; preds = %_ZN15ref_vecto
 if.then27:                                        ; preds = %_ZN13rewriter_core18set_new_child_flagEP4exprS1_.exit
   %m_cache.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %30 = load ptr, ptr %m_cache.i.i, align 8
-  tail call void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %30, ptr noundef %t, i32 noundef 0, ptr noundef %new_t.0)
+  tail call void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %30, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %new_t.0)
   br label %if.end28
 
 if.end28:                                         ; preds = %while.body, %if.then27, %_ZN13rewriter_core18set_new_child_flagEP4exprS1_.exit
@@ -3149,7 +3149,7 @@ _ZN13rewriter_core9end_scopeEv.exit:              ; preds = %_ZNK6vectorIN13rewr
   br i1 %tobool38.not, label %if.end40, label %if.then39
 
 if.then39:                                        ; preds = %_ZN13rewriter_core9end_scopeEv.exit
-  tail call void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %55, ptr noundef %q, i32 noundef 0, ptr noundef %new_q.0)
+  tail call void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %55, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %new_q.0)
   br label %if.end40
 
 if.end40:                                         ; preds = %_ZNK10quantifier9get_childEj.exit, %if.then39, %_ZN13rewriter_core9end_scopeEv.exit
@@ -4207,7 +4207,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -5290,7 +5290,7 @@ entry:
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %m_bindings, align 8
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
@@ -5302,7 +5302,7 @@ invoke.cont3:                                     ; preds = %entry
   %m_shift2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i32 0, ptr %m_shift2.i, align 8
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -5331,7 +5331,7 @@ lpad2:                                            ; preds = %entry
 lpad4:                                            ; preds = %invoke.cont3
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #16
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %lpad4, %lpad2
@@ -5562,9 +5562,9 @@ terminate.lpad.i18:                               ; preds = %if.then2.i.i.i17
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit10, %if.then.i.i.i12, %if.then2.i.i.i17
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter) #16
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #16
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load ptr, ptr %m_bindings, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %18, null
@@ -6133,7 +6133,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end16, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -6488,7 +6488,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -6703,7 +6703,7 @@ entry:
   store ptr null, ptr %agg.result, align 8
   %m_manager.i1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %0, ptr %m_manager.i1, align 8
-  invoke void @_ZN13rewriter_core5resetEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  invoke void @_ZN13rewriter_core5resetEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %entry
@@ -6913,7 +6913,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -7396,7 +7396,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -8892,7 +8892,7 @@ entry:
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %m_bindings, align 8
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
@@ -8904,7 +8904,7 @@ invoke.cont3:                                     ; preds = %entry
   %m_shift2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i32 0, ptr %m_shift2.i, align 8
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -8933,7 +8933,7 @@ lpad2:                                            ; preds = %entry
 lpad4:                                            ; preds = %invoke.cont3
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #16
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %lpad4, %lpad2
@@ -9063,9 +9063,9 @@ terminate.lpad.i18:                               ; preds = %if.then2.i.i.i17
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit10, %if.then.i.i.i12, %if.then2.i.i.i17
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter) #16
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #16
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load ptr, ptr %m_bindings, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %18, null
@@ -9634,7 +9634,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -9989,7 +9989,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -10204,7 +10204,7 @@ entry:
   store ptr null, ptr %agg.result, align 8
   %m_manager.i1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %0, ptr %m_manager.i1, align 8
-  invoke void @_ZN13rewriter_core5resetEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  invoke void @_ZN13rewriter_core5resetEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %entry
@@ -10414,7 +10414,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -10897,7 +10897,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -12393,7 +12393,7 @@ entry:
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %m_bindings, align 8
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
@@ -12405,7 +12405,7 @@ invoke.cont3:                                     ; preds = %entry
   %m_shift2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i32 0, ptr %m_shift2.i, align 8
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -12434,7 +12434,7 @@ lpad2:                                            ; preds = %entry
 lpad4:                                            ; preds = %invoke.cont3
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #16
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %lpad4, %lpad2
@@ -12564,9 +12564,9 @@ terminate.lpad.i18:                               ; preds = %if.then2.i.i.i17
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit10, %if.then.i.i.i12, %if.then2.i.i.i17
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter) #16
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #16
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load ptr, ptr %m_bindings, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %18, null
@@ -13135,7 +13135,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -13490,7 +13490,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -13705,7 +13705,7 @@ entry:
   store ptr null, ptr %agg.result, align 8
   %m_manager.i1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %0, ptr %m_manager.i1, align 8
-  invoke void @_ZN13rewriter_core5resetEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  invoke void @_ZN13rewriter_core5resetEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %entry
@@ -13915,7 +13915,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -14398,7 +14398,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -15894,7 +15894,7 @@ entry:
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %m_bindings, align 8
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
@@ -15906,7 +15906,7 @@ invoke.cont3:                                     ; preds = %entry
   %m_shift2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i32 0, ptr %m_shift2.i, align 8
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -15935,7 +15935,7 @@ lpad2:                                            ; preds = %entry
 lpad4:                                            ; preds = %invoke.cont3
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #16
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %lpad4, %lpad2
@@ -16065,9 +16065,9 @@ terminate.lpad.i18:                               ; preds = %if.then2.i.i.i17
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit10, %if.then.i.i.i12, %if.then2.i.i.i17
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter) #16
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #16
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load ptr, ptr %m_bindings, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %18, null
@@ -16636,7 +16636,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -16991,7 +16991,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -17206,7 +17206,7 @@ entry:
   store ptr null, ptr %agg.result, align 8
   %m_manager.i1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %0, ptr %m_manager.i1, align 8
-  invoke void @_ZN13rewriter_core5resetEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  invoke void @_ZN13rewriter_core5resetEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %entry
@@ -17416,7 +17416,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -17899,7 +17899,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -18212,7 +18212,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11var_shifterD0Ev(ptr noundef nonnull align 8 dereferenceable(156) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -18220,7 +18220,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15inv_var_shifterD0Ev(ptr noundef nonnull align 8 dereferenceable(148) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #16
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -21018,13 +21018,13 @@ if.then.i621:                                     ; preds = %invoke.cont259
   %58 = load ptr, ptr %m_r, align 8
   %m_cache.i.i622 = getelementptr inbounds i8, ptr %this, i64 32
   %59 = load ptr, ptr %m_cache.i.i622, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %59, ptr noundef %t, i32 noundef 0, ptr noundef %58)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %59, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %58)
           to label %.noexc624 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc624:                                        ; preds = %if.then.i621
   %m_cache_pr.i.i623 = getelementptr inbounds i8, ptr %this, i64 72
   %60 = load ptr, ptr %m_cache_pr.i.i623, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %60, ptr noundef %t, i32 noundef 0, ptr noundef %57)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %60, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %57)
           to label %invoke.cont269 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont269:                                   ; preds = %invoke.cont259, %.noexc624
@@ -21739,7 +21739,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -22910,13 +22910,13 @@ invoke.cont191:                                   ; preds = %if.then9.i, %_ZNK6v
   br i1 %tobool.not, label %invoke.cont198, label %if.then.i398
 
 if.then.i398:                                     ; preds = %invoke.cont191
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %176, ptr noundef %q, i32 noundef 0, ptr noundef %180)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %176, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %180)
           to label %.noexc399 unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc399:                                        ; preds = %if.then.i398
   %m_cache_pr.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %182 = load ptr, ptr %m_cache_pr.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %182, ptr noundef %q, i32 noundef 0, ptr noundef %181)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %182, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %181)
           to label %invoke.cont198thread-pre-split unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont198thread-pre-split:                   ; preds = %.noexc399
@@ -23391,7 +23391,7 @@ if.then.i248:                                     ; preds = %invoke.cont185
   %28 = load ptr, ptr %m_r, align 8
   %m_cache.i.i.i249 = getelementptr inbounds i8, ptr %this, i64 32
   %29 = load ptr, ptr %m_cache.i.i.i249, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %29, ptr noundef %t, i32 noundef 0, ptr noundef %28)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %29, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %28)
           to label %invoke.cont195 unwind label %lpad.loopexit.split-lp
 
 invoke.cont195:                                   ; preds = %invoke.cont185, %if.then.i248
@@ -24025,7 +24025,7 @@ invoke.cont262:                                   ; preds = %.noexc491, %lor.lhs
 if.then.i494:                                     ; preds = %invoke.cont262
   %143 = load ptr, ptr %m_r242, align 8
   %144 = load ptr, ptr %m_cache.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %144, ptr noundef %t, i32 noundef 0, ptr noundef %143)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %144, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %143)
           to label %invoke.cont272 unwind label %lpad237.loopexit.split-lp
 
 invoke.cont272:                                   ; preds = %invoke.cont262, %if.then.i494
@@ -24083,7 +24083,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -24967,7 +24967,7 @@ invoke.cont125:                                   ; preds = %if.then9.i, %_ZNK6v
   br i1 %tobool132.not, label %invoke.cont133, label %if.then.i254
 
 if.then.i254:                                     ; preds = %invoke.cont125
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %133, ptr noundef %q, i32 noundef 0, ptr noundef %137)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %133, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %137)
           to label %invoke.cont133thread-pre-split unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont133thread-pre-split:                   ; preds = %if.then.i254
@@ -27414,13 +27414,13 @@ if.then.i:                                        ; preds = %if.then100
   %77 = load ptr, ptr %m_r, align 8
   %m_cache.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %78 = load ptr, ptr %m_cache.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %78, ptr noundef %t, i32 noundef 0, ptr noundef %77)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %78, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %77)
           to label %.noexc196 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc196:                                        ; preds = %if.then.i
   %m_cache_pr.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %79 = load ptr, ptr %m_cache_pr.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %79, ptr noundef %t, i32 noundef 0, ptr noundef %76)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %79, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %76)
           to label %invoke.cont107 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont107:                                   ; preds = %if.then100, %.noexc196
@@ -27939,13 +27939,13 @@ if.then.i436:                                     ; preds = %invoke.cont176
   %172 = load ptr, ptr %m_r, align 8
   %m_cache.i.i437 = getelementptr inbounds i8, ptr %this, i64 32
   %173 = load ptr, ptr %m_cache.i.i437, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %173, ptr noundef %t, i32 noundef 0, ptr noundef %172)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %173, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %172)
           to label %.noexc439 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc439:                                        ; preds = %if.then.i436
   %m_cache_pr.i.i438 = getelementptr inbounds i8, ptr %this, i64 72
   %174 = load ptr, ptr %m_cache_pr.i.i438, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %174, ptr noundef %t, i32 noundef 0, ptr noundef %171)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %174, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %171)
           to label %invoke.cont186 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont186:                                   ; preds = %invoke.cont176, %.noexc439
@@ -28287,13 +28287,13 @@ if.then.i621:                                     ; preds = %invoke.cont257
   %227 = load ptr, ptr %m_r, align 8
   %m_cache.i.i622 = getelementptr inbounds i8, ptr %this, i64 32
   %228 = load ptr, ptr %m_cache.i.i622, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %228, ptr noundef %t, i32 noundef 0, ptr noundef %227)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %228, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %227)
           to label %.noexc624 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc624:                                        ; preds = %if.then.i621
   %m_cache_pr.i.i623 = getelementptr inbounds i8, ptr %this, i64 72
   %229 = load ptr, ptr %m_cache_pr.i.i623, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %229, ptr noundef %t, i32 noundef 0, ptr noundef %226)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %229, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %226)
           to label %invoke.cont267 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont267:                                   ; preds = %invoke.cont257, %.noexc624
@@ -29012,7 +29012,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -29895,13 +29895,13 @@ invoke.cont183:                                   ; preds = %if.then9.i, %_ZNK6v
   br i1 %tobool.not, label %invoke.cont190, label %if.then.i398
 
 if.then.i398:                                     ; preds = %invoke.cont183
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %138, ptr noundef %q, i32 noundef 0, ptr noundef %142)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %138, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %142)
           to label %.noexc399 unwind label %lpad37.loopexit.split-lp
 
 .noexc399:                                        ; preds = %if.then.i398
   %m_cache_pr.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %144 = load ptr, ptr %m_cache_pr.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %144, ptr noundef %q, i32 noundef 0, ptr noundef %143)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %144, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %143)
           to label %invoke.cont190thread-pre-split unwind label %lpad37.loopexit.split-lp
 
 invoke.cont190thread-pre-split:                   ; preds = %.noexc399
@@ -30320,7 +30320,7 @@ if.then.i:                                        ; preds = %if.then70
   %26 = load ptr, ptr %m_r, align 8
   %m_cache.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %27 = load ptr, ptr %m_cache.i.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %27, ptr noundef %t, i32 noundef 0, ptr noundef %26)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %27, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %26)
           to label %invoke.cont76 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont76:                                    ; preds = %if.then70, %if.then.i
@@ -30448,7 +30448,7 @@ if.then.i118:                                     ; preds = %invoke.cont108
   %44 = load ptr, ptr %m_r, align 8
   %m_cache.i.i.i119 = getelementptr inbounds i8, ptr %this, i64 32
   %45 = load ptr, ptr %m_cache.i.i.i119, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %45, ptr noundef %t, i32 noundef 0, ptr noundef %44)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %45, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %44)
           to label %invoke.cont118 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont118:                                   ; preds = %invoke.cont108, %if.then.i118
@@ -30606,7 +30606,7 @@ if.then.i248:                                     ; preds = %invoke.cont186
   %74 = load ptr, ptr %m_r, align 8
   %m_cache.i.i.i249 = getelementptr inbounds i8, ptr %this, i64 32
   %75 = load ptr, ptr %m_cache.i.i.i249, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %75, ptr noundef %t, i32 noundef 0, ptr noundef %74)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %75, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %74)
           to label %invoke.cont196 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont196:                                   ; preds = %invoke.cont186, %if.then.i248
@@ -31240,7 +31240,7 @@ invoke.cont263:                                   ; preds = %.noexc491, %lor.lhs
 if.then.i494:                                     ; preds = %invoke.cont263
   %189 = load ptr, ptr %m_r243, align 8
   %190 = load ptr, ptr %m_cache.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %190, ptr noundef %t, i32 noundef 0, ptr noundef %189)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %190, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %189)
           to label %invoke.cont273 unwind label %lpad238.loopexit.split-lp
 
 invoke.cont273:                                   ; preds = %invoke.cont263, %if.then.i494
@@ -31298,7 +31298,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -31882,7 +31882,7 @@ invoke.cont125:                                   ; preds = %if.then9.i, %_ZNK6v
   br i1 %tobool132.not, label %invoke.cont133, label %if.then.i254
 
 if.then.i254:                                     ; preds = %invoke.cont125
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %94, ptr noundef %q, i32 noundef 0, ptr noundef %98)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %94, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %98)
           to label %invoke.cont133thread-pre-split unwind label %lpad37.loopexit.split-lp
 
 invoke.cont133thread-pre-split:                   ; preds = %if.then.i254
@@ -34327,13 +34327,13 @@ if.then.i:                                        ; preds = %if.then100
   %77 = load ptr, ptr %m_r, align 8
   %m_cache.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %78 = load ptr, ptr %m_cache.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %78, ptr noundef %t, i32 noundef 0, ptr noundef %77)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %78, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %77)
           to label %.noexc196 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc196:                                        ; preds = %if.then.i
   %m_cache_pr.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %79 = load ptr, ptr %m_cache_pr.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %79, ptr noundef %t, i32 noundef 0, ptr noundef %76)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %79, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %76)
           to label %invoke.cont107 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont107:                                   ; preds = %if.then100, %.noexc196
@@ -34852,13 +34852,13 @@ if.then.i436:                                     ; preds = %invoke.cont176
   %172 = load ptr, ptr %m_r, align 8
   %m_cache.i.i437 = getelementptr inbounds i8, ptr %this, i64 32
   %173 = load ptr, ptr %m_cache.i.i437, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %173, ptr noundef %t, i32 noundef 0, ptr noundef %172)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %173, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %172)
           to label %.noexc439 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc439:                                        ; preds = %if.then.i436
   %m_cache_pr.i.i438 = getelementptr inbounds i8, ptr %this, i64 72
   %174 = load ptr, ptr %m_cache_pr.i.i438, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %174, ptr noundef %t, i32 noundef 0, ptr noundef %171)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %174, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %171)
           to label %invoke.cont186 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont186:                                   ; preds = %invoke.cont176, %.noexc439
@@ -35200,13 +35200,13 @@ if.then.i621:                                     ; preds = %invoke.cont257
   %227 = load ptr, ptr %m_r, align 8
   %m_cache.i.i622 = getelementptr inbounds i8, ptr %this, i64 32
   %228 = load ptr, ptr %m_cache.i.i622, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %228, ptr noundef %t, i32 noundef 0, ptr noundef %227)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %228, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %227)
           to label %.noexc624 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc624:                                        ; preds = %if.then.i621
   %m_cache_pr.i.i623 = getelementptr inbounds i8, ptr %this, i64 72
   %229 = load ptr, ptr %m_cache_pr.i.i623, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %229, ptr noundef %t, i32 noundef 0, ptr noundef %226)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %229, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %226)
           to label %invoke.cont267 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont267:                                   ; preds = %invoke.cont257, %.noexc624
@@ -35925,7 +35925,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -36808,13 +36808,13 @@ invoke.cont183:                                   ; preds = %if.then9.i, %_ZNK6v
   br i1 %tobool.not, label %invoke.cont190, label %if.then.i398
 
 if.then.i398:                                     ; preds = %invoke.cont183
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %138, ptr noundef %q, i32 noundef 0, ptr noundef %142)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %138, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %142)
           to label %.noexc399 unwind label %lpad37.loopexit.split-lp
 
 .noexc399:                                        ; preds = %if.then.i398
   %m_cache_pr.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %144 = load ptr, ptr %m_cache_pr.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %144, ptr noundef %q, i32 noundef 0, ptr noundef %143)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %144, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %143)
           to label %invoke.cont190thread-pre-split unwind label %lpad37.loopexit.split-lp
 
 invoke.cont190thread-pre-split:                   ; preds = %.noexc399
@@ -37233,7 +37233,7 @@ if.then.i:                                        ; preds = %if.then70
   %26 = load ptr, ptr %m_r, align 8
   %m_cache.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %27 = load ptr, ptr %m_cache.i.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %27, ptr noundef %t, i32 noundef 0, ptr noundef %26)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %27, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %26)
           to label %invoke.cont76 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont76:                                    ; preds = %if.then70, %if.then.i
@@ -37361,7 +37361,7 @@ if.then.i118:                                     ; preds = %invoke.cont108
   %44 = load ptr, ptr %m_r, align 8
   %m_cache.i.i.i119 = getelementptr inbounds i8, ptr %this, i64 32
   %45 = load ptr, ptr %m_cache.i.i.i119, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %45, ptr noundef %t, i32 noundef 0, ptr noundef %44)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %45, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %44)
           to label %invoke.cont118 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont118:                                   ; preds = %invoke.cont108, %if.then.i118
@@ -37519,7 +37519,7 @@ if.then.i248:                                     ; preds = %invoke.cont186
   %74 = load ptr, ptr %m_r, align 8
   %m_cache.i.i.i249 = getelementptr inbounds i8, ptr %this, i64 32
   %75 = load ptr, ptr %m_cache.i.i.i249, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %75, ptr noundef %t, i32 noundef 0, ptr noundef %74)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %75, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %74)
           to label %invoke.cont196 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont196:                                   ; preds = %invoke.cont186, %if.then.i248
@@ -38153,7 +38153,7 @@ invoke.cont263:                                   ; preds = %.noexc491, %lor.lhs
 if.then.i494:                                     ; preds = %invoke.cont263
   %189 = load ptr, ptr %m_r243, align 8
   %190 = load ptr, ptr %m_cache.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %190, ptr noundef %t, i32 noundef 0, ptr noundef %189)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %190, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %189)
           to label %invoke.cont273 unwind label %lpad238.loopexit.split-lp
 
 invoke.cont273:                                   ; preds = %invoke.cont263, %if.then.i494
@@ -38211,7 +38211,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -38795,7 +38795,7 @@ invoke.cont125:                                   ; preds = %if.then9.i, %_ZNK6v
   br i1 %tobool132.not, label %invoke.cont133, label %if.then.i254
 
 if.then.i254:                                     ; preds = %invoke.cont125
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %94, ptr noundef %q, i32 noundef 0, ptr noundef %98)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %94, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %98)
           to label %invoke.cont133thread-pre-split unwind label %lpad37.loopexit.split-lp
 
 invoke.cont133thread-pre-split:                   ; preds = %if.then.i254
@@ -40652,13 +40652,13 @@ if.then.i621:                                     ; preds = %invoke.cont256
   %58 = load ptr, ptr %m_r, align 8
   %m_cache.i.i622 = getelementptr inbounds i8, ptr %this, i64 32
   %59 = load ptr, ptr %m_cache.i.i622, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %59, ptr noundef %t, i32 noundef 0, ptr noundef %58)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %59, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %58)
           to label %.noexc624 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc624:                                        ; preds = %if.then.i621
   %m_cache_pr.i.i623 = getelementptr inbounds i8, ptr %this, i64 72
   %60 = load ptr, ptr %m_cache_pr.i.i623, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %60, ptr noundef %t, i32 noundef 0, ptr noundef %57)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %60, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %57)
           to label %invoke.cont266 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont266:                                   ; preds = %invoke.cont256, %.noexc624
@@ -41373,7 +41373,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -42621,13 +42621,13 @@ invoke.cont184:                                   ; preds = %if.then9.i, %_ZNK6v
   br i1 %tobool.not, label %invoke.cont191, label %if.then.i398
 
 if.then.i398:                                     ; preds = %invoke.cont184
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %191, ptr noundef %q, i32 noundef 0, ptr noundef %195)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %191, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %195)
           to label %.noexc399 unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc399:                                        ; preds = %if.then.i398
   %m_cache_pr.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %197 = load ptr, ptr %m_cache_pr.i.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %197, ptr noundef %q, i32 noundef 0, ptr noundef %196)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %197, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %196)
           to label %invoke.cont191thread-pre-split unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont191thread-pre-split:                   ; preds = %.noexc399
@@ -43062,7 +43062,7 @@ if.then.i248:                                     ; preds = %invoke.cont185
   %28 = load ptr, ptr %m_r, align 8
   %m_cache.i.i.i249 = getelementptr inbounds i8, ptr %this, i64 32
   %29 = load ptr, ptr %m_cache.i.i.i249, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %29, ptr noundef %t, i32 noundef 0, ptr noundef %28)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %29, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %28)
           to label %invoke.cont195 unwind label %lpad.loopexit.split-lp
 
 invoke.cont195:                                   ; preds = %invoke.cont185, %if.then.i248
@@ -43696,7 +43696,7 @@ invoke.cont262:                                   ; preds = %.noexc491, %lor.lhs
 if.then.i494:                                     ; preds = %invoke.cont262
   %143 = load ptr, ptr %m_r242, align 8
   %144 = load ptr, ptr %m_cache.i, align 8
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %144, ptr noundef %t, i32 noundef 0, ptr noundef %143)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %144, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %143)
           to label %invoke.cont272 unwind label %lpad237.loopexit.split-lp
 
 invoke.cont272:                                   ; preds = %invoke.cont262, %if.then.i494
@@ -43754,7 +43754,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -44649,7 +44649,7 @@ invoke.cont126:                                   ; preds = %if.then9.i, %_ZNK6v
   br i1 %tobool133.not, label %invoke.cont134, label %if.then.i254
 
 if.then.i254:                                     ; preds = %invoke.cont126
-  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %136, ptr noundef %q, i32 noundef 0, ptr noundef %140)
+  invoke void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92) %136, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %140)
           to label %invoke.cont134thread-pre-split unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont134thread-pre-split:                   ; preds = %if.then.i254

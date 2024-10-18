@@ -845,7 +845,7 @@ buffer_append.exit.i.i:                           ; preds = %dump_flush.exit.i.i
   %146 = load i64, ptr %119, align 8
   %147 = add i64 %146, 26
   store i64 %147, ptr %119, align 8
-  %148 = tail call i64 @rb_sym2str(i64 noundef %0) #10
+  %148 = tail call i64 @rb_sym2str(i64 noundef range(i64 21, 20) %0) #10
   tail call fastcc void @dump_append_string_value(ptr noundef nonnull %1, i64 noundef %148)
   %149 = load i64, ptr %119, align 8
   %150 = add i64 %149, -4095

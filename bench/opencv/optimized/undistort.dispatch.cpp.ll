@@ -7579,7 +7579,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_131initUndistortRectifyMapComputerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #7 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }

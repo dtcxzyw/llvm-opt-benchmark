@@ -6461,7 +6461,7 @@ _ZSt11get_deleterIN2cm17uv_handle_deleterI10uv_async_sEES2_EPT_RKSt10shared_ptrI
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN2cm17uv_handle_deleterI10uv_async_sEE) #17
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #17
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %9
 
@@ -6481,11 +6481,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZSt11get_deleterIN
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #17
+  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   resume { ptr, i32 } %14
 
 16:                                               ; preds = %11, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #17
+  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   ret void
 }
 
@@ -7250,7 +7250,7 @@ _ZNKSt8weak_ptrISt8functionIFviEEE4lockEv.exit:   ; preds = %_ZNKSt14__shared_co
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %21, i64 24
   %28 = load ptr, ptr %27, align 8
-  invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZNKSt8functionIFviEEclEi.exit unwind label %29
 
 _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %26
@@ -8524,7 +8524,7 @@ _ZN2cm17uv_handle_deleterI10uv_async_sED2Ev.exit: ; preds = %3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN2cm17uv_handle_deleterI10uv_async_sEclEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #17
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -8549,13 +8549,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
           to label %_ZN2cmL21handle_default_deleteI10uv_async_sEEvPT_.exit unwind label %10
 
 _ZN2cmL21handle_default_deleteI10uv_async_sEEvPT_.exit: ; preds = %.noexc, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %8
-  %9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #17
+  %9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   ret void
 
 10:                                               ; preds = %8, %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #17
+  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   resume { ptr, i32 } %11
 }
 
@@ -8724,7 +8724,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP10uv_async_sN2cm
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #17
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %7
 
@@ -8754,11 +8754,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %1
 11:                                               ; preds = %10, %8
   %12 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #17
+  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   br label %.body
 
 14:                                               ; preds = %10, %.noexc.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #17
+  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   ret void
 
 16:                                               ; preds = %7

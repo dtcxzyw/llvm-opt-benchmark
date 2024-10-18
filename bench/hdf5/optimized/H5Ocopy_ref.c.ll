@@ -204,7 +204,7 @@ define range(i32 -1, 1) i32 @H5O_copy_expand_ref(ptr noundef %0, ptr noundef %1,
 
 82:                                               ; preds = %76
   store i64 -1, ptr %52, align 8
-  %83 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef %22, ptr noundef %21, ptr noundef %23, ptr noundef %6)
+  %83 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef %6)
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %89
 
@@ -322,7 +322,7 @@ H5O__copy_expand_ref_object1.exit:                ; preds = %105, %46
 
 137:                                              ; preds = %128
   store i64 -1, ptr %113, align 8
-  %138 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef %22, ptr noundef %21, ptr noundef %23, ptr noundef %6)
+  %138 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef %6)
   %139 = icmp slt i32 %138, 0
   %140 = load ptr, ptr %14, align 8
   br i1 %139, label %141, label %145
@@ -533,7 +533,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   br label %.thread.thread.i
 
 253:                                              ; preds = %243
-  %254 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef %22, ptr noundef %21, ptr noundef %23, ptr noundef %6)
+  %254 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef %6)
   %255 = icmp slt i32 %254, 0
   br i1 %255, label %256, label %260
 

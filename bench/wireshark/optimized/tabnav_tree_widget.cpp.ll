@@ -365,7 +365,7 @@ define linkonce_odr void @_ZThn16_N16TabnavTreeWidgetD1Ev(ptr noundef %0) unname
 define linkonce_odr void @_ZThn16_N16TabnavTreeWidgetD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN11QTreeWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
   ret void
 }
 

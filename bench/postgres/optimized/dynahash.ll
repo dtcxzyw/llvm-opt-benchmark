@@ -323,7 +323,7 @@ hdefault.exit:                                    ; preds = %hdefault.exit.sink.
   %spec.store.select.i = tail call i64 @llvm.smin.i64(i64 %136, i64 4611686018427387903)
   %138 = icmp ult i64 %spec.store.select.i, 2
   %139 = add i64 %spec.store.select.i, -1
-  %140 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %139, i1 true)
+  %140 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %139, i1 true)
   %141 = trunc nuw nsw i64 %140 to i32
   %142 = sub nuw nsw i32 64, %141
   %143 = select i1 %138, i32 0, i32 %142
@@ -390,7 +390,7 @@ hdefault.exit:                                    ; preds = %hdefault.exit.sink.
   %spec.store.select.i.i = tail call i64 @llvm.smin.i64(i64 %1, i64 1073741823)
   %173 = icmp ult i64 %spec.store.select.i.i, 2
   %174 = add i64 %spec.store.select.i.i, -1
-  %175 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %174, i1 true)
+  %175 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %174, i1 true)
   %176 = trunc nuw nsw i64 %175 to i32
   %177 = sub nuw nsw i32 64, %176
   %178 = shl nuw i32 1, %177
@@ -422,7 +422,7 @@ hdefault.exit:                                    ; preds = %hdefault.exit.sink.
   %195 = ashr exact i64 %sext.i, 32
   %spec.store.select.i46.i = tail call i64 @llvm.smin.i64(i64 %195, i64 1073741823)
   %196 = add nsw i64 %spec.store.select.i46.i, -1
-  %197 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %196, i1 true)
+  %197 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %196, i1 true)
   %198 = trunc nuw nsw i64 %197 to i32
   %199 = sub nuw nsw i32 64, %198
   %200 = shl nuw i32 1, %199
@@ -741,7 +741,7 @@ define dso_local range(i32 0, 65) i32 @my_log2(i64 noundef %0) local_unnamed_add
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %0, i64 4611686018427387903)
   %2 = icmp ult i64 %spec.store.select, 2
   %3 = add i64 %spec.store.select, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %3, i1 true)
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %3, i1 true)
   %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   %7 = select i1 %2, i32 0, i32 %6
@@ -754,7 +754,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 define dso_local i64 @hash_estimate_size(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %spec.store.select.i.i = tail call i64 @llvm.smin.i64(i64 %0, i64 4611686018427387903)
   %3 = add i64 %spec.store.select.i.i, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %3, i1 true)
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %3, i1 true)
   %5 = sub nuw nsw i64 64, %4
   %.inv.i = icmp ugt i64 %spec.store.select.i.i, 1
   %notmask = shl nsw i64 -1, %5
@@ -763,7 +763,7 @@ define dso_local i64 @hash_estimate_size(i64 noundef %0, i64 noundef %1) local_u
   %8 = add nuw nsw i64 %7, 1
   %9 = select i1 %.inv.i, i64 %8, i64 1
   %10 = add nsw i64 %9, -1
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %10, i1 true)
   %12 = sub nuw nsw i64 64, %11
   %13 = shl nuw nsw i64 1, %12
   %.inv.i20 = icmp samesign ugt i64 %9, 1
@@ -813,7 +813,7 @@ declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @hash_select_dirsize(i64 noundef %0) local_unnamed_addr #9 {
   %spec.store.select.i.i = tail call i64 @llvm.smin.i64(i64 %0, i64 4611686018427387903)
   %2 = add i64 %spec.store.select.i.i, -1
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %2, i1 true)
   %4 = sub nuw nsw i64 64, %3
   %.inv.i = icmp ugt i64 %spec.store.select.i.i, 1
   %notmask = shl nsw i64 -1, %4
@@ -822,7 +822,7 @@ define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @hash
   %7 = add nuw nsw i64 %6, 1
   %8 = select i1 %.inv.i, i64 %7, i64 1
   %9 = add nsw i64 %8, -1
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %9, i1 true)
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %9, i1 true)
   %11 = sub nuw nsw i64 64, %10
   %12 = shl nuw nsw i64 1, %11
   %.inv.i7 = icmp samesign ugt i64 %8, 1

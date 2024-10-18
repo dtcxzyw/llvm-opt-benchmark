@@ -303,7 +303,7 @@ define linkonce_odr void @_ZNK12FilterPlugin7actionsB5cxx11Ev(ptr dead_on_unwind
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %0) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   %11 = load i64, ptr %5, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %5, align 8
@@ -321,7 +321,7 @@ define linkonce_odr void @_ZNK12FilterPlugin7actionsB5cxx11Ev(ptr dead_on_unwind
 .lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %16, %14 ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #23
   %.not.i.i.i = icmp eq ptr %17, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIP7QActionSaIS2_EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
@@ -354,7 +354,7 @@ define linkonce_odr void @_ZNK12FilterPlugin5typesB5cxx11Ev(ptr dead_on_unwind n
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i32, ptr %8, align 4
   store i32 %10, ptr %9, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %0) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   %11 = load i64, ptr %5, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %5, align 8
@@ -372,7 +372,7 @@ define linkonce_odr void @_ZNK12FilterPlugin5typesB5cxx11Ev(ptr dead_on_unwind n
 .lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %16, %14 ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #23
   %.not.i.i.i = icmp eq ptr %17, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
@@ -479,7 +479,7 @@ define linkonce_odr void @_ZN12FilterCreateD1Ev(ptr noundef nonnull align 8 dere
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i ], [ %6, %1 ]
   %7 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i) #23
   %.not.i.i.i.i.i = icmp eq ptr %7, %5
   br i1 %.not.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
@@ -492,12 +492,12 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i, %
 .lr.ph.i.i.i3.i.i:                                ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i, %.lr.ph.i.i.i3.i.i
   %.09.i.i.i4.i.i = phi ptr [ %10, %.lr.ph.i.i.i3.i.i ], [ %9, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i ]
   %10 = load ptr, ptr %.09.i.i.i4.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i4.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i) #23
   %.not.i.i.i5.i.i = icmp eq ptr %10, %8
   br i1 %.not.i.i.i5.i.i, label %_ZN12FilterCreateD2Ev.exit, label %.lr.ph.i.i.i3.i.i, !llvm.loop !7
 
 _ZN12FilterCreateD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
@@ -520,7 +520,7 @@ define linkonce_odr void @_ZN12FilterCreateD0Ev(ptr noundef nonnull align 8 dere
 .lr.ph.i.i.i.i.i.i:                               ; preds = %1, %.lr.ph.i.i.i.i.i.i
   %.09.i.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i.i ], [ %6, %1 ]
   %7 = load ptr, ptr %.09.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i = icmp eq ptr %7, %5
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
 
@@ -533,12 +533,12 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 .lr.ph.i.i.i3.i.i.i:                              ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, %.lr.ph.i.i.i3.i.i.i
   %.09.i.i.i4.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i3.i.i.i ], [ %9, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i ]
   %10 = load ptr, ptr %.09.i.i.i4.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i4.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i) #23
   %.not.i.i.i5.i.i.i = icmp eq ptr %10, %8
   br i1 %.not.i.i.i5.i.i.i, label %_ZN12FilterCreateD1Ev.exit, label %.lr.ph.i.i.i3.i.i.i, !llvm.loop !7
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
@@ -587,7 +587,7 @@ _ZN7meshlab14meshlabVersionB5cxx11Ev.exit:        ; preds = %2
 
 8:                                                ; preds = %_ZN7meshlab14meshlabVersionB5cxx11Ev.exit
   %9 = zext i1 %7 to i8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %9, ptr %10, align 8, !alias.scope !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
@@ -636,7 +636,7 @@ define linkonce_odr void @_ZThn16_N12FilterCreateD1Ev(ptr noundef %0) unnamed_ad
 .lr.ph.i.i.i.i.i.i:                               ; preds = %1, %.lr.ph.i.i.i.i.i.i
   %.09.i.i.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i ], [ %5, %1 ]
   %6 = load ptr, ptr %.09.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
 
@@ -649,13 +649,13 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 .lr.ph.i.i.i3.i.i.i:                              ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, %.lr.ph.i.i.i3.i.i.i
   %.09.i.i.i4.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i3.i.i.i ], [ %8, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i ]
   %9 = load ptr, ptr %.09.i.i.i4.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i4.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i) #23
   %.not.i.i.i5.i.i.i = icmp eq ptr %9, %7
   br i1 %.not.i.i.i5.i.i.i, label %_ZN12FilterCreateD1Ev.exit, label %.lr.ph.i.i.i3.i.i.i, !llvm.loop !7
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #22
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
@@ -677,7 +677,7 @@ define linkonce_odr void @_ZThn16_N12FilterCreateD0Ev(ptr noundef %0) unnamed_ad
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %1, %.lr.ph.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i.i ], [ %5, %1 ]
   %6 = load ptr, ptr %.09.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !9
 
@@ -690,17 +690,17 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
 .lr.ph.i.i.i3.i.i.i.i:                            ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i, %.lr.ph.i.i.i3.i.i.i.i
   %.09.i.i.i4.i.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i3.i.i.i.i ], [ %8, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i ]
   %9 = load ptr, ptr %.09.i.i.i4.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i4.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i.i) #23
   %.not.i.i.i5.i.i.i.i = icmp eq ptr %9, %7
   br i1 %.not.i.i.i5.i.i.i.i, label %_ZN12FilterCreateD0Ev.exit, label %.lr.ph.i.i.i3.i.i.i.i, !llvm.loop !7
 
 _ZN12FilterCreateD0Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #22
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %10) #23
   ret void
 }
 
@@ -743,7 +743,7 @@ define linkonce_odr void @_ZTv0_n24_N12FilterCreateD1Ev(ptr noundef %0) unnamed_
 .lr.ph.i.i.i.i.i.i:                               ; preds = %1, %.lr.ph.i.i.i.i.i.i
   %.09.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i ], [ %10, %1 ]
   %11 = load ptr, ptr %.09.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
 
@@ -756,12 +756,12 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 .lr.ph.i.i.i3.i.i.i:                              ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i, %.lr.ph.i.i.i3.i.i.i
   %.09.i.i.i4.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i3.i.i.i ], [ %13, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i ]
   %14 = load ptr, ptr %.09.i.i.i4.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i4.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i) #23
   %.not.i.i.i5.i.i.i = icmp eq ptr %14, %12
   br i1 %.not.i.i.i5.i.i.i, label %_ZN12FilterCreateD1Ev.exit, label %.lr.ph.i.i.i3.i.i.i, !llvm.loop !7
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #22
@@ -788,7 +788,7 @@ define linkonce_odr void @_ZTv0_n24_N12FilterCreateD0Ev(ptr noundef %0) unnamed_
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %1, %.lr.ph.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i.i ], [ %10, %1 ]
   %11 = load ptr, ptr %.09.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i.i) #23
   %.not.i.i.i.i.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !9
 
@@ -801,16 +801,16 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
 .lr.ph.i.i.i3.i.i.i.i:                            ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i, %.lr.ph.i.i.i3.i.i.i.i
   %.09.i.i.i4.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i3.i.i.i.i ], [ %13, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i ]
   %14 = load ptr, ptr %.09.i.i.i4.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i4.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i.i.i.i) #23
   %.not.i.i.i5.i.i.i.i = icmp eq ptr %14, %12
   br i1 %.not.i.i.i5.i.i.i.i, label %_ZN12FilterCreateD0Ev.exit, label %.lr.ph.i.i.i3.i.i.i.i, !llvm.loop !7
 
 _ZN12FilterCreateD0Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %5) #23
   ret void
 }
 

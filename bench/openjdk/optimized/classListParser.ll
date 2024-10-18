@@ -260,7 +260,7 @@ _ZN15ClassListParser7do_openEPKc.exit:            ; preds = %3, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %15, ptr %14, align 8
-  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %15, i1 noundef zeroext false) #19
+  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %15, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %.0.i, ptr %16, align 8
@@ -417,7 +417,7 @@ define hidden void @_ZN15ClassListParserD2Ev(ptr noundef nonnull align 8 derefer
 
 9:                                                ; preds = %5
   store i32 0, ptr %3, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN13GrowableArrayIPKcED2Ev.exit
 
 _ZN13GrowableArrayIPKcED2Ev.exit:                 ; preds = %5, %9
@@ -439,7 +439,7 @@ _ZN13GrowableArrayIPKcED2Ev.exit:                 ; preds = %5, %9
 
 18:                                               ; preds = %14
   store i32 0, ptr %12, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
   br label %_ZN13GrowableArrayIiED2Ev.exit
 
 _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %14, %18
@@ -1381,7 +1381,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %.preheader
 
 50:                                               ; preds = %26
   %51 = load ptr, ptr %14, align 8
-  %52 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(12) @.str.17, i64 noundef 11) #20
+  %52 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(12) @.str.17, i64 noundef 11) #20
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %_ZN15ClassListParser10skip_tokenEPKc.exit, label %106
 
@@ -1501,7 +1501,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   br label %.backedge22
 
 106:                                              ; preds = %50
-  %107 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(8) @.str.19, i64 noundef 7) #20
+  %107 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #20
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %_ZN15ClassListParser10skip_tokenEPKc.exit10
 
@@ -1666,7 +1666,7 @@ _ZN9Signature8is_arrayEPK6Symbol.exit.thread:     ; preds = %17, %21, %_ZN9Signa
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 46:                                               ; preds = %34
-  %47 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef 8, i32 noundef 0) #19
+  %47 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %36, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %46, %44
@@ -2069,7 +2069,7 @@ define hidden void @_ZN15ClassListParser5errorEPKcz(ptr noundef nonnull align 8 
   %7 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
   %8 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %9 = select i1 %6, ptr %7, ptr %8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %4, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr %9, ptr %10, align 8
@@ -3182,7 +3182,7 @@ define hidden void @_ZN15ClassListParser32constant_pool_resolution_warningEPKcz(
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca %class.LogStream, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #19
@@ -4058,7 +4058,7 @@ define hidden void @_ZN15ClassListParser17resolve_indy_implEP6SymbolP10JavaThrea
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 21:                                               ; preds = %9
-  %22 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef 8, i32 noundef 0) #19
+  %22 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %21, %19
@@ -4538,7 +4538,7 @@ define hidden noundef ptr @_ZN15ClassListParser25find_builtin_class_helperEP10Ja
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 18:                                               ; preds = %6
-  %19 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef 8, i32 noundef 0) #19
+  %19 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %8, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %18, %16
@@ -4601,7 +4601,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %3, %7, %11
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 28:                                               ; preds = %16
-  %29 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %18, i64 noundef 8, i32 noundef 0) #19
+  %29 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %18, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %28, %26
@@ -4639,7 +4639,7 @@ _ZN15ClassListParser25find_builtin_class_helperEP10JavaThreadP6SymbolP7oopDesc.e
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i14
 
 46:                                               ; preds = %34
-  %47 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef 8, i32 noundef 0) #19
+  %47 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %36, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i14
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i14: ; preds = %46, %44

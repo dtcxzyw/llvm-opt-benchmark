@@ -253,7 +253,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 97:                                               ; preds = %95
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %96) #14
-  %99 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef %46, i64 noundef %45)
+  %99 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef nonnull %46, i64 noundef %45)
   switch i8 %99, label %117 [
     i8 63, label %100
     i8 47, label %100
@@ -271,7 +271,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 104:                                              ; preds = %102
   %105 = sub nuw i64 %42, %98
-  %106 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef %46, i64 noundef %105)
+  %106 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef nonnull %46, i64 noundef %105)
   switch i8 %106, label %117 [
     i8 46, label %107
     i8 32, label %107

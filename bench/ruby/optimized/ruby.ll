@@ -947,7 +947,7 @@ define internal fastcc i64 @open_load_file(i64 noundef %0) unnamed_addr #2 {
 33:                                               ; preds = %25, %15
   %.021 = phi i32 [ %26, %25 ], [ %16, %15 ]
   call void @rb_update_max_fd(i32 noundef %.021) #25
-  %34 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.021, i32 noundef 4, i32 noundef 0) #25
+  %34 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -2147483648) %.021, i32 noundef 4, i32 noundef 0) #25
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %select.unfold
 
@@ -1493,7 +1493,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
   %140 = getelementptr i8, ptr %138, i64 %139
   %141 = add nsw i32 %133, -1
   %142 = add nsw i32 %136, -1
-  call fastcc void @show_usage_part(ptr noundef %130, i32 noundef %141, ptr noundef %138, i32 noundef %142, ptr noundef %140, i32 noundef %79, i32 noundef %80, i32 noundef %spec.select.i.i, i32 noundef %.0.fr.i.i)
+  call fastcc void @show_usage_part(ptr noundef %130, i32 noundef %141, ptr noundef %138, i32 noundef %142, ptr noundef %140, i32 noundef range(i32 0, 33) %79, i32 noundef %80, i32 noundef range(i32 16, 1073741801) %spec.select.i.i, i32 noundef %.0.fr.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %143, label %128, !llvm.loop !16
@@ -1517,7 +1517,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
   %155 = getelementptr i8, ptr %153, i64 %154
   %156 = add nsw i32 %148, -1
   %157 = add nsw i32 %151, -1
-  call fastcc void @show_usage_part(ptr noundef %145, i32 noundef %156, ptr noundef %153, i32 noundef %157, ptr noundef %155, i32 noundef %79, i32 noundef %80, i32 noundef %spec.select.i.i, i32 noundef %.0.fr.i.i)
+  call fastcc void @show_usage_part(ptr noundef %145, i32 noundef %156, ptr noundef %153, i32 noundef %157, ptr noundef %155, i32 noundef range(i32 0, 33) %79, i32 noundef %80, i32 noundef range(i32 16, 1073741801) %spec.select.i.i, i32 noundef %.0.fr.i.i)
   %indvars.iv.next80.i.i.i = add nuw nsw i64 %indvars.iv79.i.i.i, 1
   %exitcond82.not.i.i.i = icmp eq i64 %indvars.iv.next80.i.i.i, 11
   br i1 %exitcond82.not.i.i.i, label %158, label %.preheader.i.i, !llvm.loop !17
@@ -1538,7 +1538,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
   %167 = getelementptr i8, ptr %162, i64 %166
   %168 = getelementptr i8, ptr %167, i64 1
   %169 = add nsw i32 %165, -1
-  call fastcc void @show_usage_part(ptr noundef %162, i32 noundef %169, ptr noundef %167, i32 noundef 0, ptr noundef %168, i32 noundef %79, i32 noundef %80, i32 noundef %spec.select.i.i, i32 noundef %.0.fr.i.i)
+  call fastcc void @show_usage_part(ptr noundef %162, i32 noundef %169, ptr noundef %167, i32 noundef 0, ptr noundef %168, i32 noundef range(i32 0, 33) %79, i32 noundef %80, i32 noundef range(i32 16, 1073741801) %spec.select.i.i, i32 noundef %.0.fr.i.i)
   %indvars.iv.next84.i.i.i = add nuw nsw i64 %indvars.iv83.i.i.i, 1
   %exitcond86.not.i.i.i = icmp eq i64 %indvars.iv.next84.i.i.i, 5
   br i1 %exitcond86.not.i.i.i, label %170, label %160, !llvm.loop !18
@@ -1558,7 +1558,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
   %179 = getelementptr i8, ptr %174, i64 %178
   %180 = getelementptr i8, ptr %179, i64 1
   %181 = add nsw i32 %177, -1
-  call fastcc void @show_usage_part(ptr noundef %174, i32 noundef %181, ptr noundef %179, i32 noundef 0, ptr noundef %180, i32 noundef %79, i32 noundef %80, i32 noundef %spec.select.i.i, i32 noundef %.0.fr.i.i)
+  call fastcc void @show_usage_part(ptr noundef %174, i32 noundef %181, ptr noundef %179, i32 noundef 0, ptr noundef %180, i32 noundef range(i32 0, 33) %79, i32 noundef %80, i32 noundef range(i32 16, 1073741801) %spec.select.i.i, i32 noundef %.0.fr.i.i)
   %indvars.iv.next88.i.i.i = add nuw nsw i64 %indvars.iv87.i.i.i, 1
   %exitcond90.not.i.i.i = icmp eq i64 %indvars.iv.next88.i.i.i, 8
   br i1 %exitcond90.not.i.i.i, label %182, label %172, !llvm.loop !19
@@ -1578,14 +1578,14 @@ rb_array_len.exit.i:                              ; preds = %62, %59
   %191 = getelementptr i8, ptr %186, i64 %190
   %192 = getelementptr i8, ptr %191, i64 1
   %193 = add nsw i32 %189, -1
-  call fastcc void @show_usage_part(ptr noundef %186, i32 noundef %193, ptr noundef %191, i32 noundef 0, ptr noundef %192, i32 noundef %79, i32 noundef %80, i32 noundef %spec.select.i.i, i32 noundef %.0.fr.i.i)
+  call fastcc void @show_usage_part(ptr noundef %186, i32 noundef %193, ptr noundef %191, i32 noundef 0, ptr noundef %192, i32 noundef range(i32 0, 33) %79, i32 noundef %80, i32 noundef range(i32 16, 1073741801) %spec.select.i.i, i32 noundef %.0.fr.i.i)
   %indvars.iv.next92.i.i.i = add nuw nsw i64 %indvars.iv91.i.i.i, 1
   %exitcond94.not.i.i.i = icmp eq i64 %indvars.iv.next92.i.i.i, 3
   br i1 %exitcond94.not.i.i.i, label %194, label %184, !llvm.loop !20
 
 194:                                              ; preds = %184
   %195 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.204, ptr noundef nonnull %spec.select.i.i.i, ptr noundef nonnull %122)
-  call void @rb_yjit_show_usage(i32 noundef %79, i32 noundef %80, i32 noundef %spec.select.i.i, i32 noundef %.0.fr.i.i) #25
+  call void @rb_yjit_show_usage(i32 noundef range(i32 0, 33) %79, i32 noundef %80, i32 noundef %spec.select.i.i, i32 noundef %.0.fr.i.i) #25
   %196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.205, ptr noundef nonnull %spec.select.i.i.i, ptr noundef nonnull %122)
   %197 = load ptr, ptr @rb_rjit_option_messages, align 8
   %.not7076.i.i.i = icmp eq ptr %197, null
@@ -1607,7 +1607,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
   %209 = getelementptr i8, ptr %207, i64 %208
   %210 = add nsw i32 %202, -1
   %211 = add nsw i32 %205, -1
-  call fastcc void @show_usage_part(ptr noundef nonnull %198, i32 noundef %210, ptr noundef %207, i32 noundef %211, ptr noundef %209, i32 noundef %79, i32 noundef %80, i32 noundef %spec.select.i.i, i32 noundef %.0.fr.i.i)
+  call fastcc void @show_usage_part(ptr noundef nonnull %198, i32 noundef %210, ptr noundef %207, i32 noundef %211, ptr noundef %209, i32 noundef range(i32 0, 33) %79, i32 noundef %80, i32 noundef range(i32 16, 1073741801) %spec.select.i.i, i32 noundef %.0.fr.i.i)
   %212 = add i32 %.577.i.i.i, 1
   %213 = sext i32 %212 to i64
   %214 = getelementptr [0 x %struct.ruby_opt_message], ptr @rb_rjit_option_messages, i64 0, i64 %213
@@ -2139,7 +2139,7 @@ copy_str.exit.thread364.i:                        ; preds = %424
   br i1 %.not.i.i.i325.i, label %445, label %RARRAY_ASET.exit.i
 
 445:                                              ; preds = %441
-  call void @rb_gc_writebarrier(i64 noundef %405, i64 noundef %.0.i320367371.i) #25
+  call void @rb_gc_writebarrier(i64 noundef %405, i64 noundef range(i64 1, 0) %.0.i320367371.i) #25
   br label %RARRAY_ASET.exit.i
 
 RARRAY_ASET.exit.i:                               ; preds = %445, %441
@@ -2232,7 +2232,7 @@ copy_str.exit337.i:                               ; preds = %473, %RARRAY_AREF.e
   br i1 %.not.i.i.i338.i, label %484, label %RARRAY_ASET.exit339.i
 
 484:                                              ; preds = %480
-  call void @rb_gc_writebarrier(i64 noundef %453, i64 noundef %476) #25
+  call void @rb_gc_writebarrier(i64 noundef %453, i64 noundef range(i64 1, 0) %476) #25
   br label %RARRAY_ASET.exit339.i
 
 RARRAY_ASET.exit339.i:                            ; preds = %484, %480
@@ -2867,7 +2867,7 @@ vm_block_iseq.exit.i:                             ; preds = %tailrecurse.i.i, %t
   br i1 %.not291.i, label %803, label %process_options.exit
 
 803:                                              ; preds = %800
-  call fastcc void @process_options_global_setup(ptr noundef %9, ptr noundef %.0203.i)
+  call fastcc void @process_options_global_setup(ptr noundef nonnull %9, ptr noundef %.0203.i)
   %804 = ptrtoint ptr %.0203.i to i64
   br label %process_options.exit
 
@@ -5997,12 +5997,12 @@ proc_long_options.exit.thread:                    ; preds = %705
 
 756:                                              ; preds = %743, %740, %737
   %757 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %757, ptr noundef nonnull @.str.94, ptr noundef %451) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %757, ptr noundef nonnull @.str.94, ptr noundef nonnull %451) #26
   unreachable
 
 .loopexit260:                                     ; preds = %676, %624, %461, %705
   %758 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %758, ptr noundef nonnull @.str.95, ptr noundef %451) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %758, ptr noundef nonnull @.str.95, ptr noundef nonnull %451) #26
   unreachable
 
 proc_long_options.exit:                           ; preds = %462, %478, %479, %.thread.thread.i, %.thread416.thread.i, %537, %set_option_encoding_once.exit.i, %set_option_encoding_once.exit414.i, %614, %616, %625, %631, %638, %652, %667, %677, %701, %736, %.thread432.thread.i
@@ -8791,7 +8791,7 @@ define internal fastcc void @process_options_global_setup(ptr nocapture noundef 
   br i1 %45, label %49, label %47
 
 47:                                               ; preds = %40
-  %48 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %31, i64 noundef %46) #25
+  %48 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef range(i64 1, 0) %31, i64 noundef %46) #25
   %.pre.i = load ptr, ptr %41, align 8
   br label %49
 

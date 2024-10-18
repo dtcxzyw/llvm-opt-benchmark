@@ -797,7 +797,7 @@ define noalias noundef ptr @Aig_ManPackConstNodes(ptr nocapture noundef readonly
   ]
 
 31:                                               ; preds = %24
-  %32 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %30)
+  %32 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %30)
   %33 = add nsw i64 %32, -2
   %or.cond = icmp ult i64 %33, 61
   br i1 %or.cond, label %62, label %34

@@ -906,7 +906,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 if.end15.i.i:                                     ; preds = %_ZNSt3mapISt4pairIbbESt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS6_ESt8equal_toIS6_ESaIS6_EESt4lessIS1_ESaIS0_IKS1_SC_EEEixERSF_.exit
   %second.i23 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
-  %call2.i.i.i = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %second.i23, ptr noundef nonnull align 8 dereferenceable(8) %n)
+  %call2.i.i.i = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %second.i23, ptr noundef nonnull align 8 dereferenceable(8) %n)
   %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 48
   %12 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %call2.i.i.i, %12

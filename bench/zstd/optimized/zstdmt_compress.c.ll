@@ -107,7 +107,7 @@ if.end22.i:                                       ; preds = %if.else.i, %if.then
   %call26.i = tail call fastcc ptr @ZSTDMT_createCCtxPool(i32 noundef %cond.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem1)
   %cctxPool.i = getelementptr inbounds i8, ptr %retval.0.i44.i, i64 24
   store ptr %call26.i, ptr %cctxPool.i, align 8
-  %call.i39.i = tail call fastcc ptr @ZSTDMT_createBufferPool(i32 noundef %cond.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem1)
+  %call.i39.i = tail call fastcc ptr @ZSTDMT_createBufferPool(i32 noundef range(i32 1, 0) %cond.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %cMem1)
   %cmp.i.i = icmp eq ptr %call.i39.i, null
   br i1 %cmp.i.i, label %ZSTDMT_createSeqPool.exit.i, label %if.end.i40.i
 
@@ -2819,12 +2819,12 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %cMem.val14 = load ptr, ptr %4, align 8
-  %call.i = tail call ptr %cMem.val(ptr noundef %cMem.val14, i64 noundef %mul) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i, i8 0, i64 %mul, i1 false)
+  %call.i = tail call ptr %cMem.val(ptr noundef %cMem.val14, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i, i8 0, i64 range(i64 -17179869184, 1924145348161) %mul, i1 false)
   br label %ZSTD_customCalloc.exit
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul) #15
+  %call2.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #15
   br label %ZSTD_customCalloc.exit
 
 ZSTD_customCalloc.exit:                           ; preds = %if.then.i, %if.end.i
@@ -2933,14 +2933,14 @@ if.else.i:                                        ; preds = %if.then.i17
 if.then.i20:                                      ; preds = %if.end.thread
   %conv35 = zext i32 %maxNbBuffers to i64
   %mul36 = shl nuw nsw i64 %conv35, 4
-  %call.i21 = tail call ptr %cMem.val13(ptr noundef %cMem.val14, i64 noundef %mul36) #14
-  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i21, i8 0, i64 %mul36, i1 false)
+  %call.i21 = tail call ptr %cMem.val13(ptr noundef %cMem.val14, i64 noundef range(i64 -17179869184, 1924145348161) %mul36) #14
+  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i21, i8 0, i64 range(i64 -17179869184, 1924145348161) %mul36, i1 false)
   br label %ZSTD_customCalloc.exit25
 
 if.end.i23:                                       ; preds = %if.end
   %conv = zext i32 %maxNbBuffers to i64
   %mul = shl nuw nsw i64 %conv, 4
-  %call2.i24 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul) #15
+  %call2.i24 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #15
   br label %ZSTD_customCalloc.exit25
 
 ZSTD_customCalloc.exit25:                         ; preds = %if.then.i20, %if.end.i23
@@ -3020,12 +3020,12 @@ if.end4:                                          ; preds = %if.end
 
 if.then.i22:                                      ; preds = %if.end4
   %cMem.val14 = load ptr, ptr %0, align 8
-  %call.i23 = tail call ptr %cMem.val15(ptr noundef %cMem.val14, i64 noundef %mul) #14
-  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i23, i8 0, i64 %mul, i1 false)
+  %call.i23 = tail call ptr %cMem.val15(ptr noundef %cMem.val14, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #14
+  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i23, i8 0, i64 range(i64 -17179869184, 1924145348161) %mul, i1 false)
   br label %ZSTD_customCalloc.exit27
 
 if.end.i25:                                       ; preds = %if.end4
-  %call2.i26 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul) #15
+  %call2.i26 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #15
   br label %ZSTD_customCalloc.exit27
 
 ZSTD_customCalloc.exit27:                         ; preds = %if.then.i22, %if.end.i25
@@ -3437,7 +3437,7 @@ if.then33.i.i:                                    ; preds = %if.end17.i.i
   br label %ZSTD_window_update.exit.i
 
 ZSTD_window_update.exit.i:                        ; preds = %if.then33.i.i, %if.end17.i.i, %if.then6.i
-  %call13.i = call i64 @ZSTD_ldm_generateSequences(ptr noundef nonnull %ldmState.i, ptr noundef nonnull %rawSeqStore134, ptr noundef nonnull %ldmParams.i, ptr noundef %21, i64 noundef %23) #14
+  %call13.i = call i64 @ZSTD_ldm_generateSequences(ptr noundef nonnull %ldmState.i, ptr noundef nonnull align 8 %rawSeqStore134, ptr noundef nonnull %ldmParams.i, ptr noundef %21, i64 noundef %23) #14
   %ldmWindowMutex.i = getelementptr inbounds i8, ptr %19, i64 2512
   %call14.i = call i32 @pthread_mutex_lock(ptr noundef nonnull %ldmWindowMutex.i) #14
   %ldmWindow.i = getelementptr inbounds i8, ptr %19, i64 2600

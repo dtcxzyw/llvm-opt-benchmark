@@ -72,7 +72,7 @@ entry:
   %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 120
   store i32 1, ptr %m_numVertices, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt0, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
@@ -81,7 +81,7 @@ invoke.cont2:                                     ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #10
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) #10
   resume { ptr, i32 } %0
 }
 
@@ -111,7 +111,7 @@ entry:
   %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 120
   store i32 1, ptr %m_numVertices, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt0, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
@@ -121,7 +121,7 @@ invoke.cont2:                                     ; preds = %entry
   %idxprom.i4 = sext i32 %0 to i64
   %arrayidx.i5 = getelementptr inbounds [4 x %class.btVector3], ptr %m_vertices.i, i64 0, i64 %idxprom.i4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i5, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt1, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
@@ -130,7 +130,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
 lpad:                                             ; preds = %invoke.cont2, %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #10
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) #10
   resume { ptr, i32 } %1
 }
 
@@ -145,7 +145,7 @@ entry:
   %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 120
   store i32 1, ptr %m_numVertices, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt0, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
@@ -155,7 +155,7 @@ invoke.cont2:                                     ; preds = %entry
   %idxprom.i4 = sext i32 %0 to i64
   %arrayidx.i5 = getelementptr inbounds [4 x %class.btVector3], ptr %m_vertices.i, i64 0, i64 %idxprom.i4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i5, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt1, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
@@ -165,7 +165,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   %idxprom.i10 = sext i32 %1 to i64
   %arrayidx.i11 = getelementptr inbounds [4 x %class.btVector3], ptr %m_vertices.i, i64 0, i64 %idxprom.i10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i11, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt2, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -174,7 +174,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont2, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #10
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) #10
   resume { ptr, i32 } %2
 }
 
@@ -189,7 +189,7 @@ entry:
   %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 120
   store i32 1, ptr %m_numVertices, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_vertices.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt0, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
@@ -199,7 +199,7 @@ invoke.cont2:                                     ; preds = %entry
   %idxprom.i4 = sext i32 %0 to i64
   %arrayidx.i5 = getelementptr inbounds [4 x %class.btVector3], ptr %m_vertices.i, i64 0, i64 %idxprom.i4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i5, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt1, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
@@ -209,7 +209,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   %idxprom.i10 = sext i32 %1 to i64
   %arrayidx.i11 = getelementptr inbounds [4 x %class.btVector3], ptr %m_vertices.i, i64 0, i64 %idxprom.i10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i11, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt2, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -219,7 +219,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   %idxprom.i16 = sext i32 %2 to i64
   %arrayidx.i17 = getelementptr inbounds [4 x %class.btVector3], ptr %m_vertices.i, i64 0, i64 %idxprom.i16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i17, ptr noundef nonnull readonly align 4 dereferenceable(16) %pt3, i64 16, i1 false)
-  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %this)
+  invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -228,7 +228,7 @@ invoke.cont5:                                     ; preds = %invoke.cont4
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont2, %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #10
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) #10
   resume { ptr, i32 } %3
 }
 
@@ -414,14 +414,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btBU_Simplex1to4D2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #10
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btBU_Simplex1to4D0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #10
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #10
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN16btBU_Simplex1to4dlEPv.exit unwind label %terminate.lpad.i
 

@@ -1149,7 +1149,7 @@ if.end44.i:                                       ; preds = %if.else39.i, %if.th
 
 handle_range_dir.exit:                            ; preds = %if.end44.i, %strbuf_addch.exit93, %if.else.i, %if.else9.i
   %k.0.i = phi i32 [ %k_end, %strbuf_addch.exit93 ], [ %add.i, %if.else.i ], [ %k_end, %if.else9.i ], [ %begin.1.i, %if.end44.i ]
-  %call48.i = call fastcc i32 @handle_range_1(ptr noundef nonnull %istate, i32 noundef %k.0114, i32 noundef %k.0.i, ptr noundef nonnull %dir.0.i, ptr noundef %prefix, ptr noundef %lazy_entries)
+  %call48.i = call fastcc i32 @handle_range_1(ptr noundef nonnull %istate, i32 noundef %k.0114, i32 noundef %k.0.i, ptr noundef nonnull %dir.0.i, ptr noundef nonnull %prefix, ptr noundef %lazy_entries)
   %sext.i = shl i64 %6, 32
   %conv49.i = ashr exact i64 %sext.i, 32
   %35 = load i64, ptr %prefix, align 8

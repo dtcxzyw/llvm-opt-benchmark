@@ -3203,7 +3203,7 @@ if.then79.i.i:                                    ; preds = %if.end77.i.i
   br i1 %cmp81.i.i, label %unref.i.i, label %if.end85.i.i
 
 if.end85.i.i:                                     ; preds = %if.then79.i.i, %if.end77.i.i
-  %call87.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %44, ptr noundef %call5.i.i, ptr noundef %call67.i.i, ptr noundef %block_job_txn.0, ptr noundef %local_err)
+  %call87.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %44, ptr noundef %call5.i.i, ptr noundef %call67.i.i, ptr noundef %block_job_txn.0, ptr noundef nonnull %local_err)
   %job.i.i = getelementptr inbounds i8, ptr %call.i33.i, i64 8
   store ptr %call87.i.i, ptr %job.i.i, align 8
   br label %unref.i.i
@@ -3251,7 +3251,7 @@ if.end12.i.i:                                     ; preds = %if.end7.i.i
   call void @aio_context_acquire(ptr noundef %call8.i.i) #15
   store ptr %call2.i.i, ptr %call.i44.i, align 8
   call void @bdrv_drained_begin(ptr noundef nonnull %call2.i.i) #15
-  %call16.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %64, ptr noundef %call2.i.i, ptr noundef %call4.i.i, ptr noundef %block_job_txn.0, ptr noundef %local_err)
+  %call16.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %64, ptr noundef %call2.i.i, ptr noundef %call4.i.i, ptr noundef %block_job_txn.0, ptr noundef nonnull %local_err)
   %job.i51.i = getelementptr inbounds i8, ptr %call.i44.i, i64 8
   store ptr %call16.i.i, ptr %job.i51.i, align 8
   call void @aio_context_release(ptr noundef %call8.i.i) #15

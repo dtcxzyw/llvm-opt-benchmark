@@ -716,12 +716,12 @@ ZSTDMT_freeJobsTable.exit.i.i:                    ; preds = %34, %33, %26
 
 41:                                               ; preds = %ZSTDMT_freeJobsTable.exit.i.i
   %.val13.i.i = load ptr, ptr %31, align 8
-  %42 = tail call ptr %.val12.i.i(ptr noundef %.val13.i.i, i64 noundef %40) #16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, i8 0, i64 %40, i1 false)
+  %42 = tail call ptr %.val12.i.i(ptr noundef %.val13.i.i, i64 noundef range(i64 -17179869136, 1546188226201) %40) #16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, i8 0, i64 range(i64 -17179869136, 1546188226201) %40, i1 false)
   br label %ZSTD_customCalloc.exit.i.i.i
 
 43:                                               ; preds = %ZSTDMT_freeJobsTable.exit.i.i
-  %44 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %40) #17
+  %44 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 -17179869136, 1546188226201) %40) #17
   br label %ZSTD_customCalloc.exit.i.i.i
 
 ZSTD_customCalloc.exit.i.i.i:                     ; preds = %43, %41
@@ -811,12 +811,12 @@ ZSTDMT_freeCCtxPool.exit.i.i:                     ; preds = %76, %74
 81:                                               ; preds = %ZSTDMT_freeCCtxPool.exit.i.i
   %.sroa.426.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
   %.sroa.426.0.copyload.i = load ptr, ptr %.sroa.426.0..sroa_idx.i, align 8
-  %82 = tail call ptr %.sroa.0.0.copyload.i(ptr noundef %.sroa.426.0.copyload.i, i64 noundef %80) #16
-  tail call void @llvm.memset.p0.i64(ptr align 1 %82, i8 0, i64 %80, i1 false)
+  %82 = tail call ptr %.sroa.0.0.copyload.i(ptr noundef %.sroa.426.0.copyload.i, i64 noundef range(i64 -17179869136, 1546188226201) %80) #16
+  tail call void @llvm.memset.p0.i64(ptr align 1 %82, i8 0, i64 range(i64 -17179869136, 1546188226201) %80, i1 false)
   br label %ZSTD_customCalloc.exit.i.i24.i
 
 83:                                               ; preds = %ZSTDMT_freeCCtxPool.exit.i.i
-  %84 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %80) #17
+  %84 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 -17179869136, 1546188226201) %80) #17
   br label %ZSTD_customCalloc.exit.i.i24.i
 
 ZSTD_customCalloc.exit.i.i24.i:                   ; preds = %83, %81
@@ -2864,12 +2864,12 @@ ZSTDMT_freeBufferPool.exit:                       ; preds = %20, %21
   br i1 %.not.i.i17, label %28, label %26
 
 26:                                               ; preds = %ZSTDMT_freeBufferPool.exit
-  %27 = tail call ptr %.sroa.025.0.copyload(ptr noundef %.sroa.3.0.copyload, i64 noundef %25) #16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %27, i8 0, i64 %25, i1 false)
+  %27 = tail call ptr %.sroa.025.0.copyload(ptr noundef %.sroa.3.0.copyload, i64 noundef range(i64 -17179869136, 1546188226201) %25) #16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %27, i8 0, i64 range(i64 -17179869136, 1546188226201) %25, i1 false)
   br label %ZSTD_customCalloc.exit.i
 
 28:                                               ; preds = %ZSTDMT_freeBufferPool.exit
-  %29 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %25) #17
+  %29 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 -17179869136, 1546188226201) %25) #17
   br label %ZSTD_customCalloc.exit.i
 
 ZSTD_customCalloc.exit.i:                         ; preds = %28, %26
@@ -3337,7 +3337,7 @@ ZSTDMT_getBuffer.exit:                            ; preds = %64, %ZSTD_customMal
   br label %ZSTD_window_update.exit.i
 
 ZSTD_window_update.exit.i:                        ; preds = %189, %177, %156
-  %197 = call i64 @ZSTD_ldm_generateSequences(ptr noundef nonnull %157, ptr noundef nonnull %2, ptr noundef nonnull %153, ptr noundef %144, i64 noundef %146) #16
+  %197 = call i64 @ZSTD_ldm_generateSequences(ptr noundef nonnull %157, ptr noundef nonnull align 8 %2, ptr noundef nonnull %153, ptr noundef %144, i64 noundef %146) #16
   %198 = getelementptr inbounds i8, ptr %141, i64 2432
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %198, ptr noundef nonnull align 8 dereferenceable(40) %157, i64 40, i1 false)
   br label %199

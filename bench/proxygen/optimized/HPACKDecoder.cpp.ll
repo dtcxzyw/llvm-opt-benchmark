@@ -98,7 +98,7 @@ if.else.i:                                        ; preds = %while.body
   br i1 %or.cond.not.i, label %if.then11.i, label %if.end13.i
 
 if.then11.i:                                      ; preds = %if.else.i
-  call void @_ZN8proxygen16HPACKDecoderBase21handleTableSizeUpdateERNS_17HPACKDecodeBufferERNS_11HeaderTableEb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i, i1 noundef zeroext false)
+  call void @_ZN8proxygen16HPACKDecoderBase21handleTableSizeUpdateERNS_17HPACKDecodeBufferERNS_11HeaderTableEb(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i, i1 noundef zeroext false)
   br label %invoke.cont4
 
 if.end13.i:                                       ; preds = %if.else.i

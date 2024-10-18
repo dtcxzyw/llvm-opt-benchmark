@@ -654,7 +654,7 @@ if.end17.i:                                       ; preds = %if.then12.i, %ss_is
   br i1 %cmp22117.i, label %for.body.lr.ph.i, label %for.end48.thread.i
 
 for.end48.thread.i:                               ; preds = %if.end17.i
-  tail call fastcc void @ss_mintrosort(ptr noundef %T, ptr noundef %add.ptr99, ptr noundef %spec.select.i, ptr noundef %middle.0.i)
+  tail call fastcc void @ss_mintrosort(ptr noundef nonnull %T, ptr noundef nonnull %add.ptr99, ptr noundef %spec.select.i, ptr noundef %middle.0.i)
   br label %for.end66.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end17.i
@@ -665,7 +665,7 @@ for.body.i:                                       ; preds = %for.inc46.i, %for.b
   %i.0119.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc46.i ]
   %a.0118.i = phi ptr [ %spec.select.i, %for.body.lr.ph.i ], [ %add.ptr24.i, %for.inc46.i ]
   %add.ptr24.i = getelementptr inbounds i8, ptr %a.0118.i, i64 4096
-  tail call fastcc void @ss_mintrosort(ptr noundef %T, ptr noundef %add.ptr99, ptr noundef %a.0118.i, ptr noundef %add.ptr24.i)
+  tail call fastcc void @ss_mintrosort(ptr noundef nonnull %T, ptr noundef nonnull %add.ptr99, ptr noundef %a.0118.i, ptr noundef %add.ptr24.i)
   %sub.ptr.rhs.cast27.i = ptrtoint ptr %add.ptr24.i to i64
   %sub.ptr.sub28.i = sub i64 %sub.ptr.lhs.cast26.i, %sub.ptr.rhs.cast27.i
   %sub.ptr.div29.i = lshr exact i64 %sub.ptr.sub28.i, 2
@@ -685,7 +685,7 @@ for.body37.i:                                     ; preds = %for.body.i, %for.bo
   %idx.neg39.i = sub nsw i64 0, %idx.ext38.i
   %add.ptr40.i = getelementptr inbounds i32, ptr %b.0112.i, i64 %idx.neg39.i
   %add.ptr42.i = getelementptr inbounds i32, ptr %b.0112.i, i64 %idx.ext38.i
-  tail call fastcc void @ss_swapmerge(ptr noundef %T, ptr noundef %add.ptr99, ptr noundef %add.ptr40.i, ptr noundef %b.0112.i, ptr noundef %add.ptr42.i, ptr noundef %spec.select81.i, i32 noundef %spec.select82.i)
+  tail call fastcc void @ss_swapmerge(ptr noundef nonnull %T, ptr noundef nonnull %add.ptr99, ptr noundef %add.ptr40.i, ptr noundef %b.0112.i, ptr noundef %add.ptr42.i, ptr noundef %spec.select81.i, i32 noundef %spec.select82.i)
   %shl.i = shl i32 %k.0114.i, 1
   %shr.i = lshr i32 %j.0113.i, 1
   %43 = and i32 %j.0113.i, 2
@@ -699,7 +699,7 @@ for.inc46.i:                                      ; preds = %for.body37.i, %for.
   br i1 %cmp22.i, label %for.body.i, label %for.body52.preheader.i, !llvm.loop !15
 
 for.body52.preheader.i:                           ; preds = %for.inc46.i
-  tail call fastcc void @ss_mintrosort(ptr noundef %T, ptr noundef %add.ptr99, ptr noundef %add.ptr24.i, ptr noundef %middle.0.i)
+  tail call fastcc void @ss_mintrosort(ptr noundef nonnull %T, ptr noundef nonnull %add.ptr99, ptr noundef %add.ptr24.i, ptr noundef %middle.0.i)
   br label %for.body52.i
 
 for.body52.i:                                     ; preds = %for.inc63.i, %for.body52.preheader.i
@@ -714,7 +714,7 @@ if.then55.i:                                      ; preds = %for.body52.i
   %idx.ext56.i = sext i32 %k.1123.i to i64
   %idx.neg57.i = sub nsw i64 0, %idx.ext56.i
   %add.ptr58.i = getelementptr inbounds i32, ptr %a.1122.i, i64 %idx.neg57.i
-  tail call fastcc void @ss_swapmerge(ptr noundef %T, ptr noundef %add.ptr99, ptr noundef %add.ptr58.i, ptr noundef %a.1122.i, ptr noundef %middle.0.i, ptr noundef %buf.addr.0.i, i32 noundef %bufsize.addr.0.i)
+  tail call fastcc void @ss_swapmerge(ptr noundef nonnull %T, ptr noundef nonnull %add.ptr99, ptr noundef %add.ptr58.i, ptr noundef %a.1122.i, ptr noundef %middle.0.i, ptr noundef %buf.addr.0.i, i32 noundef %bufsize.addr.0.i)
   br label %for.inc63.i
 
 for.inc63.i:                                      ; preds = %if.then55.i, %for.body52.i
@@ -728,7 +728,7 @@ for.end66.i:                                      ; preds = %for.inc63.i, %for.e
   br i1 %limit.0.i, label %if.end70.i, label %if.then69.i
 
 if.then69.i:                                      ; preds = %for.end66.i
-  tail call fastcc void @ss_mintrosort(ptr noundef %T, ptr noundef %add.ptr99, ptr noundef %middle.0.i, ptr noundef %add.ptr166)
+  tail call fastcc void @ss_mintrosort(ptr noundef nonnull %T, ptr noundef nonnull %add.ptr99, ptr noundef %middle.0.i, ptr noundef nonnull %add.ptr166)
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end47.i.i, %if.then69.i

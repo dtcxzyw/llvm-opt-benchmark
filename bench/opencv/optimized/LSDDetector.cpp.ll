@@ -129,7 +129,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv15line_descriptor11LSDDetector17createLSDDetectorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #18
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2)
           to label %3 unwind label %30
 
 3:                                                ; preds = %1
@@ -217,7 +217,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv15line_descriptor11LSDDetector17createLSDDetectorENS0_8LSDParamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef readonly byval(%"struct.cv::line_descriptor::LSDParam") align 8 %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #18
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3)
           to label %4 unwind label %25
 
 4:                                                ; preds = %2
@@ -919,7 +919,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIS_IN2c
   %.sroa.5.8.insert.shift.i = shl nuw i64 %.sroa.5.8.insert.ext.i, 32
   %.sroa.3.8.insert.ext.i = zext i32 %200 to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i
-  invoke void @_ZN2cv12LineIterator4initEPKNS_3MatENS_5Rect_IiEENS_6Point_IiEES7_ib(ptr noundef nonnull align 8 dereferenceable(65) %18, ptr noundef nonnull %190, i64 0, i64 %.sroa.3.8.insert.insert.i, i64 %.sroa.0.0.insert.insert.i78, i64 %.sroa.0.0.insert.insert.i82, i32 noundef 8, i1 noundef zeroext false)
+  invoke void @_ZN2cv12LineIterator4initEPKNS_3MatENS_5Rect_IiEENS_6Point_IiEES7_ib(ptr noundef nonnull align 8 dereferenceable(65) %18, ptr noundef nonnull align 8 dereferenceable(96) %190, i64 0, i64 %.sroa.3.8.insert.insert.i, i64 %.sroa.0.0.insert.insert.i78, i64 %.sroa.0.0.insert.insert.i82, i32 noundef 8, i1 noundef zeroext false)
           to label %203 unwind label %.loopexit148
 
 203:                                              ; preds = %.lr.ph164
@@ -1633,7 +1633,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN
   br label %_ZN2cv15line_descriptor11LSDDetectorD2Ev.exit
 
 _ZN2cv15line_descriptor11LSDDetectorD2Ev.exit:    ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i, %8
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

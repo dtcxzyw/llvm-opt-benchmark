@@ -35,7 +35,7 @@ define dso_local void @_ZN4llvm16StripGCRelocates3runERNS_8FunctionERNS_15Analys
   %6 = alloca %"class.llvm::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  %7 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #4
+  %7 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #4
   br i1 %7, label %_ZL16stripGCRelocatesRN4llvm8FunctionE.exit.thread, label %8
 
 _ZL16stripGCRelocatesRN4llvm8FunctionE.exit.thread: ; preds = %4
@@ -45,7 +45,7 @@ _ZL16stripGCRelocatesRN4llvm8FunctionE.exit.thread: ; preds = %4
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %9, i64 noundef 20) #4
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull %9, i64 noundef 20) #4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load ptr, ptr %11, align 8, !noalias !4
@@ -281,7 +281,7 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
 
 ._crit_edge.i:                                    ; preds = %130, %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit.i
   %133 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  %134 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
+  %134 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %5) #4
   %135 = load ptr, ptr %5, align 8
   %136 = icmp eq ptr %135, %9
   br i1 %136, label %_ZL16stripGCRelocatesRN4llvm8FunctionE.exit, label %137
@@ -420,7 +420,7 @@ define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14
   br label %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit
 
 23:                                               ; preds = %11
-  %24 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE) #4
+  %24 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE) #4
   %.not.i.i.i = icmp eq ptr %24, null
   %.pre.i.i = load ptr, ptr %8, align 8
   %.pre4.i.i = load ptr, ptr %0, align 8

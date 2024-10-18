@@ -411,7 +411,7 @@ invoke.cont.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -429,7 +429,7 @@ lpad.i:                                           ; preds = %entry
   br i1 %tobool.not.i.i3.i, label %lpad.body, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i
-  %call.i.i5.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %lpad.body unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
@@ -446,7 +446,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %inv
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvlEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -465,7 +465,7 @@ lpad.body:                                        ; preds = %lpad.i, %if.then.i.
   br i1 %tobool.not.i.i4, label %_ZNSt8functionIFvlEED2Ev.exit8, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %lpad.body
-  %call.i.i6 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i6 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit8 unwind label %terminate.lpad.i.i7
 
 terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
@@ -518,7 +518,7 @@ invoke.cont.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -536,7 +536,7 @@ lpad.i:                                           ; preds = %entry
   br i1 %tobool.not.i.i3.i, label %lpad.body, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i
-  %call.i.i5.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %lpad.body unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
@@ -553,7 +553,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %inv
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvlEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -572,7 +572,7 @@ lpad.body:                                        ; preds = %lpad.i, %if.then.i.
   br i1 %tobool.not.i.i4, label %_ZNSt8functionIFvlEED2Ev.exit8, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %lpad.body
-  %call.i.i6 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i6 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit8 unwind label %terminate.lpad.i.i7
 
 terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
@@ -625,7 +625,7 @@ invoke.cont.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -643,7 +643,7 @@ lpad.i:                                           ; preds = %entry
   br i1 %tobool.not.i.i3.i, label %lpad.body, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i
-  %call.i.i5.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %lpad.body unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
@@ -660,7 +660,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %inv
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvlEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -679,7 +679,7 @@ lpad.body:                                        ; preds = %lpad.i, %if.then.i.
   br i1 %tobool.not.i.i4, label %_ZNSt8functionIFvlEED2Ev.exit8, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %lpad.body
-  %call.i.i6 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i6 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit8 unwind label %terminate.lpad.i.i7
 
 terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
@@ -726,7 +726,7 @@ invoke.cont.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -744,7 +744,7 @@ lpad.i:                                           ; preds = %entry
   br i1 %tobool.not.i.i3.i, label %lpad.body, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i
-  %call.i.i5.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3)
           to label %lpad.body unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
@@ -761,7 +761,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %inv
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvlEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -780,7 +780,7 @@ lpad.body:                                        ; preds = %lpad.i, %if.then.i.
   br i1 %tobool.not.i.i4, label %_ZNSt8functionIFvlEED2Ev.exit8, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %lpad.body
-  %call.i.i6 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i6 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit8 unwind label %terminate.lpad.i.i7
 
 terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
@@ -909,7 +909,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
 _ZNKSt8functionIFvlEEclEl.exit.i.i.i:             ; preds = %for.body.i.i.i
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)
+  call void %4(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   %inc.i.i.i = add i64 %i.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %1
@@ -1199,7 +1199,7 @@ entry:
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %r.i.i.i, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(188) %r.i.i.i, i64 28, i1 false)
   %medium.i.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 32
   store i64 %18, ptr %medium.i.i1.i.i.i, align 8
   %depth.i2.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 40
@@ -1219,7 +1219,7 @@ if.end.i.i.i:                                     ; preds = %entry
   br i1 %tobool.i.i.i.i, label %invoke.cont18.i.i.i, label %invoke.cont6.i.i.i
 
 invoke.cont6.i.i.i:                               ; preds = %if.end.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp5.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %r.i.i.i, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %agg.tmp5.i.i.i, ptr noundef nonnull align 8 dereferenceable(188) %r.i.i.i, i64 28, i1 false)
   %medium.i.i4.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5.i.i.i, i64 32
   %64 = load i64, ptr %medium.i.i.i.i.i.i, align 8
   store i64 %64, ptr %medium.i.i4.i.i.i, align 8
@@ -1233,7 +1233,7 @@ invoke.cont6.i.i.i:                               ; preds = %if.end.i.i.i
   br label %"_ZSt10__invoke_rIvRZNK4pbrt12CPUAggregate16IntersectClosestEiPKNS0_8RayQueueEPNS0_15EscapedRayQueueEPNS0_9WorkQueueINS0_20HitAreaLightWorkItemEEEPNS0_14MultiWorkQueueINS0_8TypePackIJNS0_20MaterialEvalWorkItemINS0_21CoatedDiffuseMaterialEEENSD_INS0_23CoatedConductorMaterialEEENSD_INS0_17ConductorMaterialEEENSD_INS0_18DielectricMaterialEEENSD_INS0_15DiffuseMaterialEEENSD_INS0_27DiffuseTransmissionMaterialEEENSD_INS0_12HairMaterialEEENSD_INS0_16MeasuredMaterialEEENSD_INS0_18SubsurfaceMaterialEEENSD_INS0_22ThinDielectricMaterialEEENSD_INS0_11MixMaterialEEEEEEEES12_PNS0_17MediumSampleQueueEPS2_E3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES19_E4typeEOS1A_DpOS1B_.exit"
 
 invoke.cont18.i.i.i:                              ; preds = %if.end.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp8.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %r.i.i.i, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %agg.tmp8.i.i.i, ptr noundef nonnull align 8 dereferenceable(188) %r.i.i.i, i64 28, i1 false)
   %medium.i.i8.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i.i, i64 32
   %69 = load i64, ptr %medium.i.i.i.i.i.i, align 8
   store i64 %69, ptr %medium.i.i8.i.i.i, align 8
@@ -1242,7 +1242,7 @@ invoke.cont18.i.i.i:                              ; preds = %if.end.i.i.i
   store i64 %69, ptr %agg.tmp10.i.i.i, align 8
   %tHit.i.i.i = getelementptr inbounds i8, ptr %si.i.i.i, i64 248
   %70 = load float, ptr %tHit.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp15.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %si.i.i.i, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %agg.tmp15.i.i.i, ptr noundef nonnull align 8 dereferenceable(248) %si.i.i.i, i64 72, i1 false)
   %medium.i.i19.i.i.i = getelementptr inbounds i8, ptr %agg.tmp15.i.i.i, i64 72
   %medium3.i.i20.i.i.i = getelementptr inbounds i8, ptr %si.i.i.i, i64 72
   %71 = load i64, ptr %medium3.i.i20.i.i.i, align 8
@@ -1779,7 +1779,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(28) %r, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(40) %r, i64 28, i1 false)
   %medium.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 32
   %medium3.i = getelementptr inbounds i8, ptr %r, i64 32
   %5 = load i64, ptr %medium3.i, align 8
@@ -2468,7 +2468,7 @@ cond.end106:                                      ; preds = %land.lhs.true.i, %f
   %cond = phi ptr [ %basicEvalMaterialQueue, %land.lhs.true ], [ %universalEvalMaterialQueue, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ %basicEvalMaterialQueue, %for.inc.i ], [ %universalEvalMaterialQueue, %land.lhs.true.i ]
   store ptr %cond, ptr %enqueue, align 8
   %91 = getelementptr inbounds i8, ptr %enqueue, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(72) %intr, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %91, ptr noundef nonnull align 8 dereferenceable(248) %intr, i64 72, i1 false)
   %medium.i.i37 = getelementptr inbounds i8, ptr %enqueue, i64 80
   %medium3.i.i = getelementptr inbounds i8, ptr %intr, i64 72
   %92 = load i64, ptr %medium3.i.i, align 8
@@ -2486,7 +2486,7 @@ cond.end106:                                      ; preds = %land.lhs.true.i, %f
   %dpdx5.i = getelementptr inbounds i8, ptr %intr, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %dpdx.i, ptr noundef nonnull align 8 dereferenceable(40) %dpdx5.i, i64 40, i1 false)
   %95 = getelementptr inbounds i8, ptr %enqueue, i64 256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %95, ptr noundef nonnull align 8 dereferenceable(28) %r, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %95, ptr noundef nonnull align 8 dereferenceable(188) %r, i64 28, i1 false)
   %medium.i.i39 = getelementptr inbounds i8, ptr %enqueue, i64 288
   %medium3.i.i40 = getelementptr inbounds i8, ptr %r, i64 32
   %96 = load i64, ptr %medium3.i.i40, align 8
@@ -3337,7 +3337,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRNS_12FloatTextureEEEEvNS
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #26
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRNS_12FloatTextureEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRNS_12FloatTextureEJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args)
           to label %_ZN4pbrt12StringPrintfIJRNS_12FloatTextureEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -3563,14 +3563,14 @@ sw.default:                                       ; preds = %entry
   %agg.tmp.sroa.5.0.copyload.i58 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i57, align 4, !noalias !101
   %agg.tmp.sroa.6.0..sroa_idx.i59 = getelementptr inbounds i8, ptr %0, i64 32
   %agg.tmp.sroa.6.0.copyload.i60 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i59, align 4, !noalias !101
-  %call.i.i61 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i50, float %agg.tmp.sroa.2.0.copyload.i52), !noalias !104
+  %call.i.i61 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(160) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i50, float %agg.tmp.sroa.2.0.copyload.i52), !noalias !104
   %call.fca.0.extract.i.i62 = extractvalue { <2 x float>, float } %call.i.i61, 0
   %call.fca.1.extract.i.i63 = extractvalue { <2 x float>, float } %call.i.i61, 1
   %p.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %call.fca.0.extract.i.i62, i64 1
-  %call6.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i54, float %agg.tmp.sroa.4.0.copyload.i56), !noalias !104
+  %call6.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(160) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i54, float %agg.tmp.sroa.4.0.copyload.i56), !noalias !104
   %call6.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call6.i.i, 0
   %call6.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call6.i.i, 1
-  %call12.i.i64 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i58, float %agg.tmp.sroa.6.0.copyload.i60), !noalias !104
+  %call12.i.i64 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(160) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i58, float %agg.tmp.sroa.6.0.copyload.i60), !noalias !104
   %call12.fca.0.extract.i.i65 = extractvalue { <2 x float>, float } %call12.i.i64, 0
   %call12.fca.1.extract.i.i66 = extractvalue { <2 x float>, float } %call12.i.i64, 1
   %vs.i.i = getelementptr inbounds i8, ptr %ptr, i64 128
@@ -4038,7 +4038,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJPKcRS2_EEEvNS_8LogLevelES
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #26
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKcJRS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
           to label %_ZN4pbrt12StringPrintfIJPKcRS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -10327,7 +10327,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #26
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA4_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(4) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA4_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(4) %args)
           to label %_ZN4pbrt12StringPrintfIJRA4_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -11333,7 +11333,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i.i.i.i.i.i: ; preds 
   br i1 %tobool.i4.i.i.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread.i.i.i.i.i, label %invoke.cont.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.thread.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5resetEv.exit.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %si.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp.i.i.i.i.i, i64 72, i1 false), !noalias !138
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %si.i.i.i, ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp.i.i.i.i.i, i64 72, i1 false), !noalias !138
   %72 = load i64, ptr %medium3.i.i.i.i.i.i.i.i.i, align 8, !noalias !138
   store i64 %72, ptr %medium.i.i.i.i.i.i.i.i.i, align 8, !noalias !138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %dpdu.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %dpdu2.i.i.i.i.i.i.i.i, i64 112, i1 false), !noalias !138
@@ -11729,7 +11729,7 @@ invoke.cont76.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i114.i.i.i
   %retval.sroa.0.0.vec.insert.i3.i.i.i.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i123.i.i.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i.i.i.i.i.i.i.i, float %add4.i.i.i.i.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt17HomogeneousMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %85, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp86.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mp.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp86.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mp.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
   %114 = load i64, ptr %phase3.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 %114, ptr %phase.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
@@ -12181,7 +12181,7 @@ invoke.cont75.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i113.i.i.i
   %retval.sroa.0.0.vec.insert.i3.i.i.i85.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i122.i.i.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i86.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i85.i.i.i.i.i.i.i, float %add4.i.i.i.i83.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt10GridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i18.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(520) %129, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i86.i.i.i.i.i.i.i, float %add6.i.i.i.i84.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp85.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mp.i.i18.i.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp85.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mp.i.i18.i.i.i.i.i.i.i, i64 32, i1 false)
   %165 = load i64, ptr %phase3.i.i.i62.i.i.i.i.i.i.i, align 8
   store i64 %165, ptr %phase.i.i.i61.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i63.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i64.i.i.i.i.i.i.i, i64 16, i1 false)
@@ -12647,7 +12647,7 @@ invoke.cont75.i.i322.i.i.i.i.i.i.i:               ; preds = %for.body.i113.i.i31
   %retval.sroa.0.0.vec.insert.i3.i.i.i329.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i122.i.i326.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i330.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i329.i.i.i.i.i.i.i, float %add4.i.i.i.i327.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i131.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(408) %182, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i330.i.i.i.i.i.i.i, float %add6.i.i.i.i328.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp85.i.i132.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mp.i.i131.i.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp85.i.i132.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mp.i.i131.i.i.i.i.i.i.i, i64 32, i1 false)
   %218 = load i64, ptr %phase3.i.i.i183.i.i.i.i.i.i.i, align 8
   store i64 %218, ptr %phase.i.i.i182.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i184.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i185.i.i.i.i.i.i.i, i64 16, i1 false)
@@ -13094,7 +13094,7 @@ invoke.cont75.i.i598.i.i.i.i.i.i.i:               ; preds = %for.body.i114.i.i59
   %retval.sroa.0.0.vec.insert.i3.i.i.i605.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i123.i.i602.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i606.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i605.i.i.i.i.i.i.i, float %add4.i.i.i.i603.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt11CloudMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i414.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(252) %235, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i606.i.i.i.i.i.i.i, float %add6.i.i.i.i604.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp85.i.i415.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mp.i.i414.i.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp85.i.i415.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mp.i.i414.i.i.i.i.i.i.i, i64 32, i1 false)
   %264 = load i64, ptr %phase3.i.i.i467.i.i.i.i.i.i.i, align 8
   store i64 %264, ptr %phase.i.i.i466.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i468.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i469.i.i.i.i.i.i.i, i64 16, i1 false)
@@ -13542,7 +13542,7 @@ invoke.cont75.i.i874.i.i.i.i.i.i.i:               ; preds = %for.body.i113.i.i86
   %retval.sroa.0.0.vec.insert.i3.i.i.i881.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i122.i.i878.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i882.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i881.i.i.i.i.i.i.i, float %add4.i.i.i.i879.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt13NanoVDBMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i683.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(404) %279, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i882.i.i.i.i.i.i.i, float %add6.i.i.i.i880.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp85.i.i684.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mp.i.i683.i.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp85.i.i684.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mp.i.i683.i.i.i.i.i.i.i, i64 32, i1 false)
   %315 = load i64, ptr %phase3.i.i.i735.i.i.i.i.i.i.i, align 8
   store i64 %315, ptr %phase.i.i.i734.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i736.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i737.i.i.i.i.i.i.i, i64 16, i1 false)
@@ -15133,7 +15133,7 @@ _ZNK4pbrt15SampledSpectrumplERKS0_.exit:          ; preds = %for.body.i.i
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %ret.i, align 8
   %retval.sroa.2.0.copyload.i = load <2 x float>, ptr %sigma_a.sroa.2.0.ret.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ret.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(28) %ray, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(40) %ray, i64 28, i1 false)
   %medium.i37 = getelementptr inbounds i8, ptr %agg.tmp12, i64 32
   %28 = load i64, ptr %medium.i, align 8
   store i64 %28, ptr %medium.i37, align 8
@@ -16552,7 +16552,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA3_KcRA2_S1_S3_RfS5_RiEE
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #26
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA3_KcJRA2_S2_S4_RfS6_RiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(3) %args, ptr noundef nonnull align 1 dereferenceable(2) %args1, ptr noundef nonnull align 1 dereferenceable(3) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(2) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA3_KcJRA2_S2_S4_RfS6_RiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(3) %args, ptr noundef nonnull align 1 dereferenceable(2) %args1, ptr noundef nonnull align 1 dereferenceable(3) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(2) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9)
           to label %_ZN4pbrt12StringPrintfIJRA3_KcRA2_S1_S3_RfS5_RiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -17566,7 +17566,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA11_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #26
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA11_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(11) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA11_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(11) %args)
           to label %_ZN4pbrt12StringPrintfIJRA11_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -17939,7 +17939,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %do.e
   br i1 %exitcond.not.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit, label %for.body.i.i, !llvm.loop !137
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(28) %ray, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(40) %ray, i64 28, i1 false)
   %medium.i4 = getelementptr inbounds i8, ptr %agg.tmp4, i64 32
   store i64 %13, ptr %medium.i4, align 8
   %majorantGrid = getelementptr inbounds i8, ptr %this, i64 336
@@ -19723,7 +19723,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp48.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i, i8 0, i64 24, i1 false)
-  %call.i.i = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1522)
+  %call.i.i = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1522)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp48.i)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit
 
@@ -19738,7 +19738,7 @@ if.end.i:                                         ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %7, i64 %conv.i23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp79.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, i64 24, i1 false)
-  %call.i10.i = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1522)
+  %call.i10.i = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1522)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp79.i)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit
 
@@ -19775,7 +19775,7 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
 if.then.i59:                                      ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp48.i33)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i33, i8 0, i64 24, i1 false)
-  %call.i.i60 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i33, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp2531)
+  %call.i.i60 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i33, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2531)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp48.i33)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit71
 
@@ -19790,7 +19790,7 @@ if.end.i62:                                       ; preds = %_ZNK4pbrt11SampledG
   %arrayidx.i.i69 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %14, i64 %conv.i67
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp79.i32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i32, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i69, i64 24, i1 false)
-  %call.i10.i70 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i32, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp2531)
+  %call.i10.i70 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i32, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2531)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp79.i32)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit71
 
@@ -19895,7 +19895,7 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit:   ; preds = %for.body.i.i15.i
 if.then.i117:                                     ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp48.i91)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i91, i8 0, i64 24, i1 false)
-  %call.i.i118 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i91, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp3989)
+  %call.i.i118 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i91, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3989)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp48.i91)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit129
 
@@ -19910,7 +19910,7 @@ if.end.i120:                                      ; preds = %_ZN4pbrt4LerpEfRKNS
   %arrayidx.i.i127 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %26, i64 %conv.i125
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp79.i90)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i90, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i127, i64 24, i1 false)
-  %call.i10.i128 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i90, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp3989)
+  %call.i10.i128 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i90, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3989)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp79.i90)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit129
 
@@ -19946,7 +19946,7 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
 if.then.i174:                                     ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit129
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp48.i148)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i148, i8 0, i64 24, i1 false)
-  %call.i.i175 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i148, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp49146)
+  %call.i.i175 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i148, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp49146)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp48.i148)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit186
 
@@ -19961,7 +19961,7 @@ if.end.i177:                                      ; preds = %_ZNK4pbrt11SampledG
   %arrayidx.i.i184 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %33, i64 %conv.i182
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp79.i147)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i147, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i184, i64 24, i1 false)
-  %call.i10.i185 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i147, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp49146)
+  %call.i10.i185 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i147, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp49146)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp79.i147)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit186
 
@@ -20065,7 +20065,7 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit224: ; preds = %for.body.i.i15.i21
 if.then.i269:                                     ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit224
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp48.i243)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i243, i8 0, i64 24, i1 false)
-  %call.i.i270 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i243, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp63241)
+  %call.i.i270 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i243, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp63241)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp48.i243)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit281
 
@@ -20080,7 +20080,7 @@ if.end.i272:                                      ; preds = %_ZN4pbrt4LerpEfRKNS
   %arrayidx.i.i279 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %45, i64 %conv.i277
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp79.i242)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i242, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i279, i64 24, i1 false)
-  %call.i10.i280 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i242, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp63241)
+  %call.i10.i280 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i242, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp63241)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp79.i242)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit281
 
@@ -20116,7 +20116,7 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
 if.then.i326:                                     ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit281
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp48.i300)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i300, i8 0, i64 24, i1 false)
-  %call.i.i327 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i300, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp73298)
+  %call.i.i327 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i300, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp73298)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp48.i300)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit338
 
@@ -20131,7 +20131,7 @@ if.end.i329:                                      ; preds = %_ZNK4pbrt11SampledG
   %arrayidx.i.i336 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %52, i64 %conv.i334
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp79.i299)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i299, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i336, i64 24, i1 false)
-  %call.i10.i337 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i299, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp73298)
+  %call.i10.i337 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i299, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp73298)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp79.i299)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit338
 
@@ -20234,7 +20234,7 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit376: ; preds = %for.body.i.i15.i36
 if.then.i421:                                     ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit376
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp48.i395)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i395, i8 0, i64 24, i1 false)
-  %call.i.i422 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i395, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp87393)
+  %call.i.i422 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i395, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp87393)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp48.i395)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit433
 
@@ -20249,7 +20249,7 @@ if.end.i424:                                      ; preds = %_ZN4pbrt4LerpEfRKNS
   %arrayidx.i.i431 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %64, i64 %conv.i429
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp79.i394)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i394, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i431, i64 24, i1 false)
-  %call.i10.i432 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i394, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp87393)
+  %call.i10.i432 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i394, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp87393)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp79.i394)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit433
 
@@ -20285,7 +20285,7 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
 if.then.i478:                                     ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit433
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp48.i452)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i452, i8 0, i64 24, i1 false)
-  %call.i.i479 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i452, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp97450)
+  %call.i.i479 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp48.i452, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp97450)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp48.i452)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit490
 
@@ -20300,7 +20300,7 @@ if.end.i481:                                      ; preds = %_ZNK4pbrt11SampledG
   %arrayidx.i.i488 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %71, i64 %conv.i486
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp79.i451)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i451, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i488, i64 24, i1 false)
-  %call.i10.i489 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i451, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp97450)
+  %call.i10.i489 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp79.i451, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp97450)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp79.i451)
   br label %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit490
 
@@ -21550,7 +21550,7 @@ _ZNK4pbrt15SampledSpectrumplERKS0_.exit:          ; preds = %for.body.i.i
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %ret.i, align 8
   %retval.sroa.2.0.copyload.i = load <2 x float>, ptr %sigma_a.sroa.2.0.ret.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ret.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(28) %ray, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(40) %ray, i64 28, i1 false)
   %medium.i37 = getelementptr inbounds i8, ptr %agg.tmp12, i64 32
   %28 = load i64, ptr %medium.i, align 8
   store i64 %28, ptr %medium.i37, align 8
@@ -22383,7 +22383,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK4pbrt11Interact
   br i1 %tobool.i.i.i.i, label %invoke.cont18.i.i.i, label %while.end.i.i.i
 
 invoke.cont18.i.i.i:                              ; preds = %if.end.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %base.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %si.i.i.i, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %base.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %si.i.i.i, i64 72, i1 false)
   %12 = load i64, ptr %medium3.i10.i.i.i, align 8
   store i64 %12, ptr %medium3.i.i.i.i, align 8
   %13 = load i64, ptr %material.i.i.i, align 8

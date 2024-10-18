@@ -512,7 +512,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %151 = getelementptr inbounds i8, ptr %48, i64 56
   %152 = load i32, ptr %52, align 4
   %153 = sext i32 %152 to i64
-  %154 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 332, i64 noundef %153, i64 noundef 4)
+  %154 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 332, i64 noundef range(i64 -2147483648, 2147483648) %153, i64 noundef 4)
   store ptr %154, ptr %151, align 8
   %155 = getelementptr inbounds i8, ptr %3, i64 208
   %156 = load i32, ptr %155, align 4
@@ -572,7 +572,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %183 = getelementptr inbounds i8, ptr %48, i64 64
   %184 = load i32, ptr %52, align 4
   %185 = sext i32 %184 to i64
-  %186 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 358, i64 noundef %185, i64 noundef 4)
+  %186 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 358, i64 noundef range(i64 -2147483648, 2147483648) %185, i64 noundef 4)
   store ptr %186, ptr %183, align 8
   %187 = load i32, ptr %52, align 4
   %188 = icmp sgt i32 %187, 0
@@ -700,7 +700,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
 .loopexit252:                                     ; preds = %.loopexit250, %._crit_edge272..loopexit252_crit_edge
   %.pre-phi = phi i64 [ %.pre378, %._crit_edge272..loopexit252_crit_edge ], [ %201, %.loopexit250 ]
   %247 = getelementptr inbounds i8, ptr %48, i64 72
-  %248 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 396, i64 noundef %.pre-phi, i64 noundef 4)
+  %248 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 396, i64 noundef range(i64 -2147483648, 2147483648) %.pre-phi, i64 noundef 4)
   store ptr %248, ptr %247, align 8
   %249 = load i32, ptr %52, align 4
   %250 = icmp sgt i32 %249, 0
@@ -1004,17 +1004,17 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %415 = getelementptr inbounds i8, ptr %48, i64 104
   %416 = load i32, ptr %52, align 4
   %417 = sext i32 %416 to i64
-  %418 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.1, i32 noundef 479, i64 noundef %417, i64 noundef 4)
+  %418 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.1, i32 noundef 479, i64 noundef range(i64 -2147483648, 2147483648) %417, i64 noundef 4)
   store ptr %418, ptr %415, align 8
   %419 = getelementptr inbounds i8, ptr %48, i64 120
   %420 = load i32, ptr %52, align 4
   %421 = sext i32 %420 to i64
-  %422 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.1, i32 noundef 480, i64 noundef %421, i64 noundef 4)
+  %422 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.1, i32 noundef 480, i64 noundef range(i64 -2147483648, 2147483648) %421, i64 noundef 4)
   store ptr %422, ptr %419, align 8
   %423 = getelementptr inbounds i8, ptr %48, i64 112
   %424 = load i32, ptr %52, align 4
   %425 = sext i32 %424 to i64
-  %426 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.1, i32 noundef 481, i64 noundef %425, i64 noundef 8)
+  %426 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.1, i32 noundef 481, i64 noundef range(i64 -2147483648, 2147483648) %425, i64 noundef 8)
   store ptr %426, ptr %423, align 8
   %427 = load i32, ptr %52, align 4
   %428 = icmp sgt i32 %427, 0
@@ -1026,7 +1026,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %430 = load ptr, ptr %423, align 8
   %431 = getelementptr inbounds ptr, ptr %430, i64 %indvars.iv366
   %432 = sext i32 %429 to i64
-  %433 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 484, i64 noundef %432, i64 noundef 4)
+  %433 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 484, i64 noundef range(i64 -2147483648, 2147483648) %432, i64 noundef 4)
   store ptr %433, ptr %431, align 8
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %434 = load i32, ptr %52, align 4
@@ -1039,27 +1039,27 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %438 = getelementptr inbounds i8, ptr %48, i64 128
   %439 = load i32, ptr %52, align 4
   %440 = sext i32 %439 to i64
-  %441 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 490, i64 noundef %440, i64 noundef 4)
+  %441 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 490, i64 noundef range(i64 -2147483648, 2147483648) %440, i64 noundef 4)
   store ptr %441, ptr %438, align 8
   %442 = getelementptr inbounds i8, ptr %48, i64 160
   %443 = load i32, ptr %52, align 4
   %444 = sext i32 %443 to i64
-  %445 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 491, i64 noundef %444, i64 noundef 1)
+  %445 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 491, i64 noundef range(i64 -2147483648, 2147483648) %444, i64 noundef 1)
   store ptr %445, ptr %442, align 8
   %446 = getelementptr inbounds i8, ptr %48, i64 152
   %447 = load i32, ptr %52, align 4
   %448 = sext i32 %447 to i64
-  %449 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.1, i32 noundef 492, i64 noundef %448, i64 noundef 4)
+  %449 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.1, i32 noundef 492, i64 noundef range(i64 -2147483648, 2147483648) %448, i64 noundef 4)
   store ptr %449, ptr %446, align 8
   %450 = getelementptr inbounds i8, ptr %48, i64 136
   %451 = load i32, ptr %52, align 4
   %452 = sext i32 %451 to i64
-  %453 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 493, i64 noundef %452, i64 noundef 8)
+  %453 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 493, i64 noundef range(i64 -2147483648, 2147483648) %452, i64 noundef 8)
   store ptr %453, ptr %450, align 8
   %454 = getelementptr inbounds i8, ptr %48, i64 144
   %455 = load i32, ptr %52, align 4
   %456 = sext i32 %455 to i64
-  %457 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, i32 noundef 494, i64 noundef %456, i64 noundef 8)
+  %457 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, i32 noundef 494, i64 noundef range(i64 -2147483648, 2147483648) %456, i64 noundef 8)
   store ptr %457, ptr %454, align 8
   %458 = load i32, ptr %52, align 4
   %459 = icmp sgt i32 %458, 0
@@ -1076,13 +1076,13 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %462 = getelementptr inbounds ptr, ptr %461, i64 %indvars.iv369
   %463 = add nsw i32 %460, 1
   %464 = sext i32 %463 to i64
-  %465 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 497, i64 noundef %464, i64 noundef 4)
+  %465 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 497, i64 noundef range(i64 -2147483648, 2147483648) %464, i64 noundef 4)
   store ptr %465, ptr %462, align 8
   %466 = load ptr, ptr %454, align 8
   %467 = getelementptr inbounds ptr, ptr %466, i64 %indvars.iv369
   %468 = load i32, ptr %52, align 4
   %469 = sext i32 %468 to i64
-  %470 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 498, i64 noundef %469, i64 noundef 4)
+  %470 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 498, i64 noundef range(i64 -2147483648, 2147483648) %469, i64 noundef 4)
   store ptr %470, ptr %467, align 8
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %471 = load i32, ptr %52, align 4
@@ -1093,32 +1093,32 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
 ._crit_edge310:                                   ; preds = %.lr.ph309, %._crit_edge306.._crit_edge310_crit_edge
   %.pre-phi380 = phi i64 [ %.pre379, %._crit_edge306.._crit_edge310_crit_edge ], [ %472, %.lr.ph309 ]
   %474 = getelementptr inbounds i8, ptr %48, i64 176
-  %475 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1, i32 noundef 503, i64 noundef %.pre-phi380, i64 noundef 4)
+  %475 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1, i32 noundef 503, i64 noundef range(i64 -2147483648, 2147483648) %.pre-phi380, i64 noundef 4)
   store ptr %475, ptr %474, align 8
   %476 = getelementptr inbounds i8, ptr %48, i64 168
   %477 = load i32, ptr %52, align 4
   %478 = sext i32 %477 to i64
-  %479 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 504, i64 noundef %478, i64 noundef 1)
+  %479 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 504, i64 noundef range(i64 -2147483648, 2147483648) %478, i64 noundef 1)
   store ptr %479, ptr %476, align 8
   %480 = getelementptr inbounds i8, ptr %48, i64 192
   %481 = load i32, ptr %52, align 4
   %482 = sext i32 %481 to i64
-  %483 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 505, i64 noundef %482, i64 noundef 4)
+  %483 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 505, i64 noundef range(i64 -2147483648, 2147483648) %482, i64 noundef 4)
   store ptr %483, ptr %480, align 8
   %484 = getelementptr inbounds i8, ptr %48, i64 200
   %485 = load i32, ptr %52, align 4
   %486 = sext i32 %485 to i64
-  %487 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 506, i64 noundef %486, i64 noundef 4)
+  %487 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 506, i64 noundef range(i64 -2147483648, 2147483648) %486, i64 noundef 4)
   store ptr %487, ptr %484, align 8
   %488 = getelementptr inbounds i8, ptr %48, i64 184
   %489 = load i32, ptr %52, align 4
   %490 = sext i32 %489 to i64
-  %491 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 507, i64 noundef %490, i64 noundef 4)
+  %491 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 507, i64 noundef range(i64 -2147483648, 2147483648) %490, i64 noundef 4)
   store ptr %491, ptr %488, align 8
   %492 = getelementptr inbounds i8, ptr %48, i64 208
   %493 = load i32, ptr %52, align 4
   %494 = sext i32 %493 to i64
-  %495 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.1, i32 noundef 508, i64 noundef %494, i64 noundef 8)
+  %495 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.1, i32 noundef 508, i64 noundef range(i64 -2147483648, 2147483648) %494, i64 noundef 8)
   store ptr %495, ptr %492, align 8
   %496 = load i32, ptr %52, align 4
   %497 = icmp sgt i32 %496, 0
@@ -1130,7 +1130,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %499 = load ptr, ptr %492, align 8
   %500 = getelementptr inbounds ptr, ptr %499, i64 %indvars.iv372
   %501 = sext i32 %498 to i64
-  %502 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.1, i32 noundef 511, i64 noundef %501, i64 noundef 4)
+  %502 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.1, i32 noundef 511, i64 noundef range(i64 -2147483648, 2147483648) %501, i64 noundef 4)
   store ptr %502, ptr %500, align 8
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %503 = load i32, ptr %52, align 4
@@ -1159,7 +1159,7 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(131) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(131) %1) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #21
@@ -1205,7 +1205,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #21
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #21
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -1232,7 +1232,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #21
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #21
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
@@ -1253,7 +1253,7 @@ declare noundef float @_Z27constantEnsembleTemperatureRK10t_inputrec(ptr noundef
 define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP11gmx_repl_ex19ReplicaExchangeTypef(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2, float noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8
   %6 = sext i32 %5 to i64
-  %7 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef %6, i64 noundef 4)
+  %7 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 4)
   %8 = load i32, ptr %1, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds float, ptr %7, i64 %9
@@ -1295,7 +1295,7 @@ define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP
   %27 = getelementptr inbounds i8, ptr %1, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.1, i32 noundef 190, i64 noundef %29, i64 noundef 4)
+  %30 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.1, i32 noundef 190, i64 noundef range(i64 -2147483648, 2147483648) %29, i64 noundef 4)
   store ptr %30, ptr %26, align 8
   %31 = load i32, ptr %0, align 8
   %32 = icmp sgt i32 %31, 0
@@ -1349,7 +1349,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -1581,7 +1581,7 @@ define noundef zeroext i1 @_Z16replica_exchangeP8_IO_FILEPK9t_commrecPK14gmx_mul
   store i64 %68, ptr %19, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store i64 28672, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
-  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull %19, i64 noundef 63)
+  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull align 8 dereferenceable(52) %19, i64 noundef 63)
   %69 = getelementptr inbounds i8, ptr %19, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
   %.sroa.74.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %19, i64 24
@@ -2165,7 +2165,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i:   ; preds = %28
   %.0.i.i = phi i1 [ false, %420 ], [ true, %418 ]
   %424 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #21
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #21
   br i1 %.0.i.i, label %common.resume.sink.split.i, label %common.resume.i
@@ -2372,7 +2372,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_12ThreeFry2x64ILj64EEEEEiRT_.exit.i: ; p
   %.0.i289.i = phi i1 [ false, %541 ], [ true, %539 ]
   %545 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #21
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #21
   br i1 %.0.i289.i, label %common.resume.sink.split.i, label %common.resume.i
@@ -2502,7 +2502,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_12ThreeFry2x64ILj64EEEEEiRT_.exit244.thr
   %641 = load i32, ptr %640, align 4
   %642 = getelementptr inbounds i32, ptr %65, i64 %637
   %643 = load i32, ptr %642, align 4
-  %644 = call fastcc noundef float @_ZL10calc_deltaP8_IO_FILEbP11gmx_repl_exiiii(ptr noundef %0, i1 noundef zeroext false, ptr noundef %3, i32 noundef %641, i32 noundef %643, i32 noundef %636, i32 noundef %639)
+  %644 = call fastcc noundef float @_ZL10calc_deltaP8_IO_FILEbP11gmx_repl_exiiii(ptr noundef %0, i1 noundef zeroext false, ptr noundef nonnull %3, i32 noundef %641, i32 noundef %643, i32 noundef %636, i32 noundef %639)
   %645 = fcmp ugt float %644, 0.000000e+00
   br i1 %645, label %647, label %646
 
@@ -3953,7 +3953,7 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   %.018 = phi i1 [ false, %15 ], [ true, %13 ]
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   br i1 %.018, label %.sink.split, label %37
@@ -4007,7 +4007,7 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   %.0 = phi i1 [ false, %31 ], [ true, %29 ]
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #21
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #21
   br i1 %.0, label %.sink.split, label %37
@@ -4101,7 +4101,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -4118,7 +4118,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -4221,7 +4221,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
 
 _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   ret void
 }
 
@@ -4285,7 +4285,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -4361,7 +4361,7 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EE
   %.0 = phi i1 [ false, %14 ], [ true, %12 ]
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #21
   br i1 %.0, label %19, label %21
@@ -4399,7 +4399,7 @@ define internal fastcc void @_ZL14exchange_rvecsPK14gmx_multisim_tiPA3_fi(ptr no
 
 6:                                                ; preds = %4
   %7 = sext i32 %3 to i64
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1, i32 noundef 585, i64 noundef %7, i64 noundef 12)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1, i32 noundef 585, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 12)
   %9 = mul i32 %3, 12
   %10 = load ptr, ptr @TMPI_BYTE, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4449,7 +4449,7 @@ define internal fastcc void @_ZL16exchange_doublesPK14gmx_multisim_tiPdi(ptr noc
 
 6:                                                ; preds = %4
   %7 = sext i32 %3 to i64
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1, i32 noundef 555, i64 noundef %7, i64 noundef 8)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1, i32 noundef 555, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8)
   %9 = shl i32 %3, 3
   %10 = load ptr, ptr @TMPI_BYTE, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8

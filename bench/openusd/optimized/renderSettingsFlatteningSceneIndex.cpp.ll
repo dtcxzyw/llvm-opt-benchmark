@@ -964,7 +964,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 .body.i:                                          ; preds = %.body.i.i, %144
   %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %145, %144 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #24, !noalias !7
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #24, !noalias !7
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #24, !noalias !7
   call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef 40) #22, !noalias !7
   br label %.body
 
@@ -1246,7 +1246,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrim
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__44UsdImagingRenderSettingsFlatteningSceneIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -1301,7 +1301,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit: ; preds = %1, %15, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %21
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #24
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #24
   ret void
 }
 
@@ -1309,7 +1309,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__44UsdImagingRenderSettingsFlatteningSceneIndexD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -1364,7 +1364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__44UsdImagingRenderSettingsFlatteningSceneIndexD2Ev.exit: ; preds = %1, %15, %.noexc.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %21
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #24
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #22
   ret void
 }
@@ -2089,7 +2089,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 .body.i:                                          ; preds = %.body.i.i, %106
   %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %107, %106 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #24, !noalias !13
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #24, !noalias !13
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #24, !noalias !13
   call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 32) #22, !noalias !13
   br label %common.resume.i
 
@@ -2923,7 +2923,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i: ; preds = %165, %152
   br i1 %.not.i.i86.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %179
 
 179:                                              ; preds = %175
-  invoke void %178(ptr noundef nonnull %176)
+  invoke void %178(ptr noundef nonnull align 8 dereferenceable(16) %176)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %180
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %179, %175, %172, %._crit_edge.i.i, %143
@@ -3586,7 +3586,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i97.i: ; preds = %457, %4
   br i1 %.not.i.i92.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i91.i, label %471
 
 471:                                              ; preds = %467
-  invoke void %470(ptr noundef nonnull %468)
+  invoke void %470(ptr noundef nonnull align 8 dereferenceable(16) %468)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i91.i unwind label %472
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i91.i: ; preds = %471, %467, %464, %._crit_edge.i101.i, %435
@@ -5511,7 +5511,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.thread: ; preds = %.prehe
           to label %.noexc232 unwind label %1741
 
 .noexc232:                                        ; preds = %1341
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %1342, ptr noundef nonnull align 1 dereferenceable(1) %32)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %1342, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %.noexc233 unwind label %1741
 
 .noexc233:                                        ; preds = %.noexc232
@@ -5521,7 +5521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.thread: ; preds = %.prehe
 1343:                                             ; preds = %.noexc233
   %1344 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #24
   br label %.body234
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc233
@@ -13563,7 +13563,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %1990, %1977
   br i1 %.not.i.i165, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %2004
 
 2004:                                             ; preds = %2000
-  invoke void %2003(ptr noundef nonnull %2001)
+  invoke void %2003(ptr noundef nonnull align 8 dereferenceable(16) %2001)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %2005
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %2004, %2000, %1997, %._crit_edge.i, %1968
@@ -14064,7 +14064,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i177: ; preds = %2211, %2
   br i1 %.not.i.i172, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEED2Ev.exit149.sink.split, label %2225
 
 2225:                                             ; preds = %2221
-  invoke void %2224(ptr noundef nonnull %2222)
+  invoke void %2224(ptr noundef nonnull align 8 dereferenceable(16) %2222)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEED2Ev.exit149.sink.split unwind label %2226
 
 2226:                                             ; preds = %2225
@@ -15969,7 +15969,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTyped
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7SdfPathEED2Ev.exit: ; preds = %1, %4, %17
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #22
   ret void
 }
@@ -16384,7 +16384,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTyped
   br label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEED2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEED2Ev.exit: ; preds = %1, %6
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #22
   ret void
 }
@@ -18281,7 +18281,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %.lr.ph, %16, 
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %43
 
 43:                                               ; preds = %39
-  tail call void %42(ptr noundef nonnull %40)
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %40)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %43, %39, %36, %7, %._crit_edge
@@ -18386,7 +18386,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #21
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.12, i32 noundef 0)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull @.str.12, i32 noundef 0)
           to label %.noexc.i.i.i unwind label %333
 
 .noexc.i.i.i:                                     ; preds = %4
@@ -20124,7 +20124,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc6 unwind label %57
 
 .noexc6:                                          ; preds = %.noexc
@@ -20134,7 +20134,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 22:                                               ; preds = %.noexc6
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc6
@@ -20987,7 +20987,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
   br label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_19HdDataSourceLocatorEED2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_19HdDataSourceLocatorEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i, %21
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #22
   ret void
 }

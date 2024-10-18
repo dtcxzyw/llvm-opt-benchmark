@@ -37,7 +37,7 @@ define void @_ZN3g2o9ScopeTimeC2EPKc(ptr noundef nonnull align 8 dereferenceable
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc5 unwind label %18
 
 .noexc5:                                          ; preds = %.noexc
@@ -54,7 +54,7 @@ define void @_ZN3g2o9ScopeTimeC2EPKc(ptr noundef nonnull align 8 dereferenceable
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
   br label %.body
 
 10:                                               ; preds = %.noexc5

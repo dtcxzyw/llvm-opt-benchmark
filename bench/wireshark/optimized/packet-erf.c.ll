@@ -2856,7 +2856,7 @@ erf_host_anchor_info_insert.exit.i:               ; preds = %493, %489
   store ptr null, ptr %16, align 8
   %501 = load i32, ptr @ett_erf_anchor, align 4
   %502 = and i64 %.1110141.i, 281474976710655
-  %503 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %501, ptr noundef nonnull %16, ptr noundef nonnull @.str.411, i64 noundef %502, i64 noundef %473) #11
+  %503 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %501, ptr noundef nonnull %16, ptr noundef nonnull @.str.411, i64 noundef %502, i64 noundef range(i64 0, 281474976710656) %473) #11
   %504 = load ptr, ptr %16, align 8
   %.not.i.i134.i = icmp eq ptr %504, null
   br i1 %.not.i.i134.i, label %proto_item_set_generated.exit.i.i, label %505
@@ -2896,7 +2896,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %508, %505, %._crit_
 
 proto_item_set_generated.exit30.i.i:              ; preds = %517, %514, %proto_item_set_generated.exit.i.i
   %521 = load i32, ptr @hf_erf_anchor_anchorid, align 4
-  %522 = call ptr @proto_tree_add_uint64(ptr noundef %503, i32 noundef %521, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %473) #11
+  %522 = call ptr @proto_tree_add_uint64(ptr noundef %503, i32 noundef %521, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef range(i64 0, 281474976710656) %473) #11
   store ptr %522, ptr %16, align 8
   %.not.i31.i.i = icmp eq ptr %522, null
   br i1 %.not.i31.i.i, label %proto_item_set_generated.exit33.i.i, label %523
@@ -4175,11 +4175,11 @@ thread-pre-split.i.i:                             ; preds = %1231, %1218
   br i1 %or.cond.i.i152, label %1238, label %1240
 
 1238:                                             ; preds = %thread-pre-split.i.i
-  %1239 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %.2.i144, i32 noundef %1221, ptr noundef %0, i32 noundef %1219, i32 noundef %1025, ptr noundef nonnull %6, ptr noundef nonnull @.str.438, i32 noundef %1234) #11
+  %1239 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %.2.i144, i32 noundef %1221, ptr noundef %0, i32 noundef %1219, i32 noundef range(i32 0, 65536) %1025, ptr noundef nonnull %6, ptr noundef nonnull @.str.438, i32 noundef %1234) #11
   br label %dissect_ptp_timeinterval.exit.i
 
 1240:                                             ; preds = %thread-pre-split.i.i
-  %1241 = call ptr @proto_tree_add_time(ptr noundef %.2.i144, i32 noundef %1221, ptr noundef %0, i32 noundef %1219, i32 noundef %1025, ptr noundef nonnull %6) #11
+  %1241 = call ptr @proto_tree_add_time(ptr noundef %.2.i144, i32 noundef %1221, ptr noundef %0, i32 noundef %1219, i32 noundef range(i32 0, 65536) %1025, ptr noundef nonnull %6) #11
   br label %dissect_ptp_timeinterval.exit.i
 
 dissect_ptp_timeinterval.exit.i:                  ; preds = %1240, %1238
@@ -4201,11 +4201,11 @@ dissect_ptp_timeinterval.exit.i:                  ; preds = %1240, %1238
   br i1 %1247, label %1248, label %1250
 
 1248:                                             ; preds = %1242
-  %1249 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %.2.i144, i32 noundef %1246, ptr noundef %0, i32 noundef %1243, i32 noundef %1025, ptr noundef nonnull %13, ptr noundef nonnull @.str.438, i32 noundef 0) #11
+  %1249 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %.2.i144, i32 noundef %1246, ptr noundef %0, i32 noundef %1243, i32 noundef range(i32 0, 65536) %1025, ptr noundef nonnull %13, ptr noundef nonnull @.str.438, i32 noundef 0) #11
   br label %dissect_relative_time.exit.i
 
 1250:                                             ; preds = %1242
-  %1251 = call ptr @proto_tree_add_time(ptr noundef %.2.i144, i32 noundef %1246, ptr noundef %0, i32 noundef %1243, i32 noundef %1025, ptr noundef nonnull %13) #11
+  %1251 = call ptr @proto_tree_add_time(ptr noundef %.2.i144, i32 noundef %1246, ptr noundef %0, i32 noundef %1243, i32 noundef range(i32 0, 65536) %1025, ptr noundef nonnull %13) #11
   br label %dissect_relative_time.exit.i
 
 dissect_relative_time.exit.i:                     ; preds = %1250, %1248
@@ -4253,7 +4253,7 @@ dissect_relative_time.exit.i:                     ; preds = %1250, %1248
   %spec.store.select.sroa.sel539.i = select i1 %1013, ptr %988, ptr %.sroa.gep538.i
   %1272 = load i32, ptr %spec.store.select.sroa.sel539.i, align 4
   %1273 = add i32 %.0406609.i, 4
-  %1274 = call ptr @proto_tree_add_item(ptr noundef %.2.i144, i32 noundef %1272, ptr noundef %0, i32 noundef %1273, i32 noundef %1025, i32 noundef 0) #11
+  %1274 = call ptr @proto_tree_add_item(ptr noundef %.2.i144, i32 noundef %1272, ptr noundef %0, i32 noundef %1273, i32 noundef range(i32 0, 65536) %1025, i32 noundef 0) #11
   %.sroa.gep541.i = getelementptr inbounds i8, ptr %1012, i64 24
   %spec.store.select.sroa.sel542.i = select i1 %1013, ptr %986, ptr %.sroa.gep541.i
   %1275 = load i32, ptr %spec.store.select.sroa.sel542.i, align 8

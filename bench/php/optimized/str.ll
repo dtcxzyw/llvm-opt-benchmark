@@ -405,7 +405,7 @@ define hidden ptr @lexbor_str_append_with_rep_null_chars(ptr nocapture noundef %
   %22 = phi i64 [ %58, %60 ], [ %.pre.i49, %67 ]
   %23 = phi ptr [ %.val.i46, %60 ], [ %65, %67 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %24, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %24, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %25 = load i64, ptr %5, align 8
   %26 = add i64 %25, 3
   store i64 %26, ptr %5, align 8

@@ -138,7 +138,7 @@ define dso_local void @_ZN22DefaultRndNumGeneratorD0Ev(ptr noundef nonnull align
 _ZN22DefaultRndNumGeneratorD2Ev.exit:             ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  tail call void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
@@ -157,7 +157,7 @@ define dso_local noundef nonnull ptr @_ZN22DefaultRndNumGenerator21make_rndnum_g
   %5 = tail call noundef ptr @_ZN15SequenceFactory13make_sequenceEv()
   %6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  invoke void @_ZN18AbsRndNumGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN18AbsRndNumGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6)
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %4
@@ -173,7 +173,7 @@ define dso_local noundef nonnull ptr @_ZN22DefaultRndNumGenerator21make_rndnum_g
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #12
-  call void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  call void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #12
   br label %.body
 
 11:                                               ; preds = %.noexc

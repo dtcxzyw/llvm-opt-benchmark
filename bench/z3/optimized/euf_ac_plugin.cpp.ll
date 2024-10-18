@@ -272,7 +272,7 @@ lpad56:                                           ; preds = %invoke.cont50
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad56
-  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify, ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -865,7 +865,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   ret void
 
 if.then.i.i:                                      ; preds = %lpad60
-  %call.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify, ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1181,7 +1181,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %30 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i)
   %31 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i, label %if.then.i1.i, label %_ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit
@@ -1192,7 +1192,7 @@ if.then.i1.i:                                     ; preds = %_ZN6vectorIN3euf9ac
 
 _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit: ; preds = %_ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i
   %32 = load ptr, ptr %_M_invoker.i.i, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0108, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp.not, label %for.end, label %for.body
@@ -1314,7 +1314,7 @@ _ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.i:        ; preds = %while.cond.i.i.i
   br i1 %cmp3.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.i, %while.cond.i.i.i
-  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_shared_todo)
+  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_shared_todo)
   %.pr.pre.i.i.i = load ptr, ptr %m_shared_todo, align 8
   br label %while.cond.i.i.i, !llvm.loop !7
 
@@ -1451,7 +1451,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i78: ; preds = 
   %vfn.i84 = getelementptr inbounds i8, ptr %vtable.i83, i64 16
   %73 = load ptr, ptr %vfn.i84, align 8
   %call2.i85 = tail call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i85)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i85)
   %_M_manager.i.i.i86 = getelementptr inbounds i8, ptr %this, i64 264
   %74 = load ptr, ptr %_M_manager.i.i.i86, align 8
   %tobool.not.i.i.i87 = icmp eq ptr %74, null
@@ -1465,7 +1465,7 @@ _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit95: ; preds = %_ZN6vectorIN3euf9
   %m_undo_notify.i88 = getelementptr inbounds i8, ptr %this, i64 248
   %_M_invoker.i.i89 = getelementptr inbounds i8, ptr %this, i64 272
   %75 = load ptr, ptr %_M_invoker.i.i89, align 8
-  tail call void %75(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i88)
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i88)
   br label %return
 
 return:                                           ; preds = %_ZNK6vectorIbLb0EjE3getEjRKb.exit.cont, %_ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit95
@@ -1857,7 +1857,7 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %_ZN6vectorIN3euf9ac
   %m_undo_notify = getelementptr inbounds i8, ptr %this, i64 248
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 272
   %9 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify)
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify)
   ret void
 }
 
@@ -2561,14 +2561,14 @@ _ZNK3euf9ac_plugin14display_statusERSoNS0_9eq_statusE.exit: ; preds = %entry, %s
   %4 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i = zext i32 %3 to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %4, i64 %idxprom.i.i
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i)
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4)
   %r = getelementptr inbounds i8, ptr %e, i64 4
   %5 = load i32, ptr %r, align 4
   %6 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i8 = zext i32 %5 to i64
   %arrayidx.i.i9 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %6, i64 %idxprom.i.i8
-  %call.i10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i9)
+  %call.i10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i9)
   ret ptr %out
 }
 
@@ -2640,13 +2640,13 @@ _ZNK3euf9ac_plugin16display_equationERSoRKNS0_2eqE.exit: ; preds = %for.body, %s
   %9 = load ptr, ptr %m_monomials.i.i, align 8
   %idxprom.i.i.i = zext i32 %8 to i64
   %arrayidx.i.i.i = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %9, i64 %idxprom.i.i.i
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull readonly align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i.i)
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull readonly align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i.i)
   %call5.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4)
   %10 = load i32, ptr %r, align 4
   %11 = load ptr, ptr %m_monomials.i.i, align 8
   %idxprom.i.i8.i = zext i32 %10 to i64
   %arrayidx.i.i9.i = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %11, i64 %idxprom.i.i8.i
-  %call.i10.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull readonly align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i9.i)
+  %call.i10.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull readonly align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i9.i)
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
   %inc = add nuw i32 %i.081, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.080, i64 40
@@ -2721,7 +2721,7 @@ invoke.cont:                                      ; preds = %_ZN3euf9ac_plugin10
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont
-  %call.i46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %m)
+  %call.i46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin16display_monomialERSoRK10ptr_vectorINS0_4nodeEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(24) %m)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -3518,7 +3518,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %71 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %72 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %72, null
@@ -3532,7 +3532,7 @@ _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit: ; preds = %_ZN6vectorIN3euf9ac
   %m_undo_notify.i = getelementptr inbounds i8, ptr %this, i64 248
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %73 = load ptr, ptr %_M_invoker.i.i, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
   %m_tick = getelementptr inbounds i8, ptr %this, i64 144
   %74 = load i64, ptr %m_tick, align 8
   %inc = add i64 %74, 1
@@ -3608,7 +3608,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %13 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %14 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %14, null
@@ -3622,7 +3622,7 @@ _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit: ; preds = %_ZN6vectorIN3euf9ac
   %m_undo_notify.i = getelementptr inbounds i8, ptr %this, i64 248
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %15 = load ptr, ptr %_M_invoker.i.i, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
   %16 = load ptr, ptr %m_nodes, align 8
   %cmp.i.i8 = icmp eq ptr %16, null
   br i1 %cmp.i.i8, label %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i.i, label %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i
@@ -3901,7 +3901,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %38 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i)
   %39 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i, label %if.then.i1.i, label %_ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit
@@ -3912,7 +3912,7 @@ if.then.i1.i:                                     ; preds = %_ZN6vectorIN3euf9ac
 
 _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit: ; preds = %_ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i
   %40 = load ptr, ptr %_M_invoker.i.i, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
   %41 = load ptr, ptr %m_node_trail, align 8
   %cmp.i44 = icmp eq ptr %41, null
   br i1 %cmp.i44, label %if.then.i54, label %lor.lhs.false.i45
@@ -4062,7 +4062,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i91: ; preds = 
   %vfn.i97 = getelementptr inbounds i8, ptr %vtable.i96, i64 16
   %74 = load ptr, ptr %vfn.i97, align 8
   %call2.i98 = tail call noundef i32 %74(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i98)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i98)
   %75 = load ptr, ptr %_M_manager.i.i.i99, align 8
   %tobool.not.i.i.i100 = icmp eq ptr %75, null
   br i1 %tobool.not.i.i.i100, label %if.then.i1.i103, label %_ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit108
@@ -4073,7 +4073,7 @@ if.then.i1.i103:                                  ; preds = %_ZN6vectorIN3euf9ac
 
 _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit108: ; preds = %_ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i91
   %76 = load ptr, ptr %_M_invoker.i.i102, align 8
-  tail call void %76(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i101)
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i101)
   %77 = load ptr, ptr %m_node_trail38, align 8
   %cmp.i109 = icmp eq ptr %77, null
   br i1 %cmp.i109, label %if.then.i119, label %lor.lhs.false.i110
@@ -4211,7 +4211,7 @@ _ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.i:        ; preds = %while.cond.i.i.i
   br i1 %cmp3.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.i, %while.cond.i.i.i
-  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_to_simplify_todo)
+  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_to_simplify_todo)
   %.pr.pre.i.i.i = load ptr, ptr %m_to_simplify_todo, align 8
   br label %while.cond.i.i.i, !llvm.loop !7
 
@@ -4752,7 +4752,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.i, label %_ZN3euf9ac_plugin9are_equalERNS0_10monomial_tES2_.exit, label %if.end7
 
 _ZN3euf9ac_plugin9are_equalERNS0_10monomial_tES2_.exit: ; preds = %land.lhs.true
-  %call4.i = tail call noundef zeroext i1 @_ZN3euf9ac_plugin9are_equalERK10ptr_vectorINS0_4nodeEES5_(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i12)
+  %call4.i = tail call noundef zeroext i1 @_ZN3euf9ac_plugin9are_equalERK10ptr_vectorINS0_4nodeEES5_(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i12)
   %spec.select = select i1 %call4.i, i32 2, i32 1
   br label %if.end7
 
@@ -4834,7 +4834,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %20 = load ptr, ptr %vfn.i, align 8
   %call2.i16 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i16)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i16)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %21 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %21, null
@@ -4848,7 +4848,7 @@ _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit: ; preds = %_ZN6vectorIN3euf9ac
   %m_undo_notify.i = getelementptr inbounds i8, ptr %this, i64 248
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %22 = load ptr, ptr %_M_invoker.i.i, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
   br label %if.end13
 
 if.end13:                                         ; preds = %_ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit, %if.end7
@@ -4961,7 +4961,7 @@ _ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.i:        ; preds = %while.cond.i.i.i
   br i1 %cmp3.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.i, %while.cond.i.i.i
-  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_to_simplify_todo15)
+  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_to_simplify_todo15)
   %.pr.pre.i.i.i = load ptr, ptr %m_to_simplify_todo15, align 8
   br label %while.cond.i.i.i, !llvm.loop !7
 
@@ -5159,7 +5159,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %23 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %24 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %24, null
@@ -5173,7 +5173,7 @@ _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit: ; preds = %_ZN6vectorIN3euf9ac
   %m_undo_notify.i = getelementptr inbounds i8, ptr %this, i64 248
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %25 = load ptr, ptr %_M_invoker.i.i, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
   ret i32 %retval.0.i
 
 lpad:                                             ; preds = %if.then.i
@@ -5600,13 +5600,13 @@ entry:
   %idxprom.i.i = zext i32 %1 to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %2, i64 %idxprom.i.i
   %m_dst_r_counts = getelementptr inbounds i8, ptr %this, i64 368
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_dst_r_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_dst_r_counts)
   %3 = load i32, ptr %arrayidx.i, align 8
   %4 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i6 = zext i32 %3 to i64
   %arrayidx.i.i7 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %4, i64 %idxprom.i.i6
   %m_dst_l_counts = getelementptr inbounds i8, ptr %this, i64 336
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %m_dst_l_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i7, ptr noundef nonnull align 8 dereferenceable(16) %m_dst_l_counts)
   %m_dst_r = getelementptr inbounds i8, ptr %this, i64 304
   %5 = load ptr, ptr %m_dst_r, align 8
   %tobool.not.i = icmp eq ptr %5, null
@@ -5758,7 +5758,7 @@ if.end11:                                         ; preds = %_ZN3euf9ac_plugin13
   %9 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i14 = zext i32 %8 to i64
   %arrayidx.i.i15 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %9, i64 %idxprom.i.i14
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
   %src_counts.val.i = load ptr, ptr %m_src_l_counts, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %src_counts.val.i, null
   br i1 %cmp.i.i.i.i.i, label %if.end16, label %_ZNK3euf9ac_plugin10ref_counts3endEv.exit.i.i
@@ -5883,7 +5883,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %29 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i19 = zext i32 %28 to i64
   %arrayidx.i.i20 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %29, i64 %idxprom.i.i19
-  invoke void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
+  invoke void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont
@@ -6055,7 +6055,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %.
           to label %call2.i.noexc51 unwind label %lpad
 
 call2.i.noexc51:                                  ; preds = %_ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i
-  invoke void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i52)
+  invoke void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i52)
           to label %.noexc53 unwind label %lpad
 
 .noexc53:                                         ; preds = %call2.i.noexc51
@@ -6075,7 +6075,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %.noexc53
   %m_undo_notify.i = getelementptr inbounds i8, ptr %this, i64 248
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %58 = load ptr, ptr %_M_invoker.i.i, align 8
-  invoke void %58(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  invoke void %58(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
           to label %invoke.cont55 unwind label %lpad
 
 invoke.cont55:                                    ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -6191,13 +6191,13 @@ _ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE6appendERKS4_.exit: ; preds = %_ZNK6vecto
   %idxprom.i.i13 = zext i32 %15 to i64
   %arrayidx.i.i14 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %16, i64 %idxprom.i.i13
   %m_src_l_counts = getelementptr inbounds i8, ptr %this, i64 320
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i14, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i14, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
   %17 = load i32, ptr %r, align 4
   %18 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i16 = zext i32 %17 to i64
   %arrayidx.i.i17 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %18, i64 %idxprom.i.i16
   %m_src_r_counts = getelementptr inbounds i8, ptr %this, i64 352
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %m_src_r_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %m_src_r_counts)
   %19 = load i32, ptr %arrayidx.i, align 8
   %20 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i19 = zext i32 %19 to i64
@@ -6556,7 +6556,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i, label %if.then.i.i69, label %_ZN3euf9ac_plugin10ref_counts3decEjj.exit
 
 if.then.i.i69:                                    ; preds = %lor.lhs.false.i.i, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_dst_r_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_dst_r_counts)
   %.pre.i.i = load ptr, ptr %m_dst_r_counts, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -6753,7 +6753,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %84 = load ptr, ptr %vfn.i, align 8
   %call2.i119 = tail call noundef i32 %84(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i119)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i119)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %85 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %85, null
@@ -6767,7 +6767,7 @@ _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit: ; preds = %_ZN6vectorIN3euf9ac
   %m_undo_notify.i = getelementptr inbounds i8, ptr %this, i64 248
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %86 = load ptr, ptr %_M_invoker.i.i, align 8
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
   %87 = load ptr, ptr %m_src_r, align 8
   %tobool.not.i124 = icmp eq ptr %87, null
   br i1 %tobool.not.i124, label %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE5resetEv.exit, label %if.then.i125
@@ -6927,7 +6927,7 @@ _ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE6appendERKS4_.exit: ; preds = %_ZNK6vecto
   %idxprom.i.i7 = zext i32 %15 to i64
   %arrayidx.i.i8 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %16, i64 %idxprom.i.i7
   %m_src_l_counts = getelementptr inbounds i8, ptr %this, i64 320
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i8, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i8, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
   %17 = load i32, ptr %arrayidx.i, align 8
   %18 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i10 = zext i32 %17 to i64
@@ -7248,7 +7248,7 @@ lor.lhs.false.i.i48:                              ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i51, label %if.then.i.i57, label %_ZN3euf9ac_plugin10ref_counts3incEjj.exit
 
 if.then.i.i57:                                    ; preds = %lor.lhs.false.i.i48, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_dst_l_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_dst_l_counts)
   %.pre.i.i58 = load ptr, ptr %m_dst_l_counts, align 8
   %arrayidx8.phi.trans.insert.i.i59 = getelementptr inbounds i8, ptr %.pre.i.i58, i64 -4
   %.pre1.i.i60 = load i32, ptr %arrayidx8.phi.trans.insert.i.i59, align 4
@@ -7434,7 +7434,7 @@ lor.lhs.false.i.i124:                             ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i127, label %if.then.i.i134, label %_ZN3euf9ac_plugin10ref_counts3decEjj.exit
 
 if.then.i.i134:                                   ; preds = %lor.lhs.false.i.i124, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i122
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_dst_l_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_dst_l_counts)
   %.pre.i.i135 = load ptr, ptr %m_dst_l_counts, align 8
   %arrayidx8.phi.trans.insert.i.i136 = getelementptr inbounds i8, ptr %.pre.i.i135, i64 -4
   %.pre1.i.i137 = load i32, ptr %arrayidx8.phi.trans.insert.i.i136, align 4
@@ -7914,7 +7914,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 0, ptr %j.i.i.i.i, align 8
   store i8 0, ptr %33, align 8
   store ptr null, ptr %34, align 8
-  %call.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIjN3euf9ac_plugin6sharedEEN9table2mapIS4_NS2_13monomial_hashENS2_11monomial_eqEE15entry_hash_procENS8_13entry_eq_procEE9find_coreERK9_key_dataIjS3_E(ptr noundef nonnull align 8 dereferenceable(36) %m_monomial_table, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i)
+  %call.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIjN3euf9ac_plugin6sharedEEN9table2mapIS4_NS2_13monomial_hashENS2_11monomial_eqEE15entry_hash_procENS8_13entry_eq_procEE9find_coreERK9_key_dataIjS3_E(ptr noundef nonnull align 8 dereferenceable(40) %m_monomial_table, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   %tobool.i.not = icmp eq ptr %call.i.i, null
   br i1 %tobool.i.not, label %if.then18, label %if.else
@@ -7924,7 +7924,7 @@ if.then18:                                        ; preds = %for.body
   %38 = load i32, ptr %m, align 4
   store i32 %38, ptr %ref.tmp.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_value.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__begin1.060, i64 40, i1 false)
-  call void @_ZN14core_hashtableI17default_map_entryIjN3euf9ac_plugin6sharedEEN9table2mapIS4_NS2_13monomial_hashENS2_11monomial_eqEE15entry_hash_procENS8_13entry_eq_procEE6insertEO9_key_dataIjS3_E(ptr noundef nonnull align 8 dereferenceable(36) %m_monomial_table, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i)
+  call void @_ZN14core_hashtableI17default_map_entryIjN3euf9ac_plugin6sharedEEN9table2mapIS4_NS2_13monomial_hashENS2_11monomial_eqEE15entry_hash_procENS8_13entry_eq_procEE6insertEO9_key_dataIjS3_E(ptr noundef nonnull align 8 dereferenceable(40) %m_monomial_table, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   br label %for.inc
 
@@ -8866,7 +8866,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i, label %if.then.i.i13, label %_ZN3euf9ac_plugin10ref_counts3incEjj.exit
 
 if.then.i.i13:                                    ; preds = %lor.lhs.false.i.i, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %counts)
   %.pre.i.i = load ptr, ptr %counts, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -9329,7 +9329,7 @@ _ZNK3euf9ac_plugin10monomial_t4sizeEv.exit77:     ; preds = %_ZNK3euf9ac_plugin1
 if.end28:                                         ; preds = %_ZNK3euf9ac_plugin10monomial_t4sizeEv.exit77
   %m_src_l_counts = getelementptr inbounds i8, ptr %this, i64 320
   %m_dst_l_counts = getelementptr inbounds i8, ptr %this, i64 336
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i52, ptr noundef nonnull align 8 dereferenceable(16) %m_dst_l_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i52, ptr noundef nonnull align 8 dereferenceable(16) %m_dst_l_counts)
   %src_counts.val.i = load ptr, ptr %m_src_l_counts, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %src_counts.val.i, null
   br i1 %cmp.i.i.i.i.i, label %if.end33, label %_ZNK3euf9ac_plugin10ref_counts3endEv.exit.i.i
@@ -9419,7 +9419,7 @@ if.end33:                                         ; preds = %for.cond.i.i, %for.
   %40 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i82 = zext i32 %39 to i64
   %arrayidx.i.i83 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %40, i64 %idxprom.i.i82
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i83, ptr noundef nonnull align 8 dereferenceable(16) %m_dst_r_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i83, ptr noundef nonnull align 8 dereferenceable(16) %m_dst_r_counts)
   %src_counts.val.i84 = load ptr, ptr %m_src_r_counts, align 8
   %cmp.i.i.i.i.i85 = icmp eq ptr %src_counts.val.i84, null
   br i1 %cmp.i.i.i.i.i85, label %if.end38, label %_ZNK3euf9ac_plugin10ref_counts3endEv.exit.i.i86
@@ -9638,7 +9638,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN3euf9ac_plugin10ref_counts3decEjj.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_dst_l_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_dst_l_counts)
   %.pre.i.i = load ptr, ptr %m_dst_l_counts, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -9731,7 +9731,7 @@ lor.lhs.false.i.i177:                             ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i180, label %if.then.i.i188, label %_ZN3euf9ac_plugin10ref_counts3decEjj.exit212
 
 if.then.i.i188:                                   ; preds = %lor.lhs.false.i.i177, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i175
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_dst_r_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_dst_r_counts)
   %.pre.i.i189 = load ptr, ptr %m_dst_r_counts, align 8
   %arrayidx8.phi.trans.insert.i.i190 = getelementptr inbounds i8, ptr %.pre.i.i189, i64 -4
   %.pre1.i.i191 = load i32, ptr %arrayidx8.phi.trans.insert.i.i190, align 4
@@ -10188,7 +10188,7 @@ if.end17:                                         ; preds = %_ZN3euf9ac_plugin13
   %57 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i34 = zext i32 %56 to i64
   %arrayidx.i.i35 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %57, i64 %idxprom.i.i34
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i35, ptr noundef nonnull align 8 dereferenceable(16) %m_eq_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i35, ptr noundef nonnull align 8 dereferenceable(16) %m_eq_counts)
   %src_counts.val.i = load ptr, ptr %m_eq_counts, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %src_counts.val.i, null
   br i1 %cmp.i.i.i.i.i, label %if.end23, label %_ZNK3euf9ac_plugin10ref_counts3endEv.exit.i.i
@@ -10499,7 +10499,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %37 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(432) %this)
-  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i)
+  tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i)
   %38 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i, label %if.then.i1.i, label %_ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit
@@ -10510,7 +10510,7 @@ if.then.i1.i:                                     ; preds = %_ZN6vectorIN3euf9ac
 
 _ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit: ; preds = %_ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i
   %39 = load ptr, ptr %_M_invoker.i.i, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body11, %_ZN3euf9ac_plugin9push_undoENS0_9undo_kindE.exit
@@ -10728,7 +10728,7 @@ _ZNK3euf9ac_plugin10monomial_t4sizeEv.exit75:     ; preds = %_ZNK3euf9ac_plugin1
 
 if.end28:                                         ; preds = %_ZNK3euf9ac_plugin10monomial_t4sizeEv.exit75
   %m_src_l_counts = getelementptr inbounds i8, ptr %this, i64 320
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i54, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i54, ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
   %src_counts.val.i = load ptr, ptr %m_src_l_counts, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %src_counts.val.i, null
   br i1 %cmp.i.i.i.i.i, label %if.end33, label %_ZNK3euf9ac_plugin10ref_counts3endEv.exit.i.i
@@ -10817,7 +10817,7 @@ if.end33:                                         ; preds = %for.cond.i.i, %for.
   %40 = load ptr, ptr %m_monomials.i, align 8
   %idxprom.i.i80 = zext i32 %39 to i64
   %arrayidx.i.i81 = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %40, i64 %idxprom.i.i80
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %arrayidx.i.i81, ptr noundef nonnull align 8 dereferenceable(16) %m_src_r_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %arrayidx.i.i81, ptr noundef nonnull align 8 dereferenceable(16) %m_src_r_counts)
   %src_counts.val.i82 = load ptr, ptr %m_src_r_counts, align 8
   %cmp.i.i.i.i.i83 = icmp eq ptr %src_counts.val.i82, null
   br i1 %cmp.i.i.i.i.i83, label %if.end38, label %_ZNK3euf9ac_plugin10ref_counts3endEv.exit.i.i84
@@ -11040,7 +11040,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN3euf9ac_plugin10ref_counts3incEjj.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_src_l_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_src_l_counts)
   %.pre.i.i = load ptr, ptr %m_src_l_counts, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -11128,7 +11128,7 @@ lor.lhs.false.i.i165:                             ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i168, label %if.then.i.i176, label %_ZN3euf9ac_plugin10ref_counts3incEjj.exit200
 
 if.then.i.i176:                                   ; preds = %lor.lhs.false.i.i165, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i163
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_src_r_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_src_r_counts)
   %.pre.i.i177 = load ptr, ptr %m_src_r_counts, align 8
   %arrayidx8.phi.trans.insert.i.i178 = getelementptr inbounds i8, ptr %.pre.i.i177, i64 -4
   %.pre1.i.i179 = load i32, ptr %arrayidx8.phi.trans.insert.i.i178, align 4
@@ -11294,7 +11294,7 @@ return:                                           ; preds = %"_ZZN3euf9ac_plugin
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dst_counts, ptr noundef nonnull align 8 dereferenceable(16) %src_counts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %src) local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %src, ptr noundef nonnull align 8 dereferenceable(16) %src_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %src, ptr noundef nonnull align 8 dereferenceable(16) %src_counts)
   %src_counts.val = load ptr, ptr %src_counts, align 8
   %cmp.i.i.i.i = icmp eq ptr %src_counts.val, null
   br i1 %cmp.i.i.i.i, label %"_Z6all_ofIN3euf9ac_plugin10ref_countsEZNS1_9is_subsetERKS2_RS2_RKNS1_10monomial_tEE3$_0EbRKT_RKT0_.exit", label %_ZNK3euf9ac_plugin10ref_counts3endEv.exit.i
@@ -11598,7 +11598,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN3euf9ac_plugin10ref_counts3decEjj.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %dst_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %dst_counts)
   %.pre.i.i = load ptr, ptr %dst_counts, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -11703,7 +11703,7 @@ _ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE6appendERKS4_.exit: ; preds = %_ZNK6vecto
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3euf9ac_plugin11is_supersetERKNS0_10ref_countsERS1_RKNS0_10monomial_tE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %src_counts, ptr noundef nonnull align 8 dereferenceable(16) %dst_counts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dst) local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(8) %dst, ptr noundef nonnull align 8 dereferenceable(16) %dst_counts)
+  tail call void @_ZNK3euf9ac_plugin15init_ref_countsERK10ptr_vectorINS0_4nodeEERNS0_10ref_countsE(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(24) %dst, ptr noundef nonnull align 8 dereferenceable(16) %dst_counts)
   %src_counts.val = load ptr, ptr %src_counts, align 8
   %cmp.i.i.i.i = icmp eq ptr %src_counts.val, null
   br i1 %cmp.i.i.i.i, label %"_Z6all_ofIN3euf9ac_plugin10ref_countsEZNS1_11is_supersetERKS2_RS2_RKNS1_10monomial_tEE3$_0EbRKT_RKT0_.exit", label %_ZNK3euf9ac_plugin10ref_counts3endEv.exit.i
@@ -12072,7 +12072,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i, label %if.then.i.i23, label %_ZN3euf9ac_plugin10ref_counts3incEjj.exit
 
 if.then.i.i23:                                    ; preds = %lor.lhs.false.i.i, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_eq_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_eq_counts)
   %.pre.i.i = load ptr, ptr %m_eq_counts, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -12155,7 +12155,7 @@ lor.lhs.false.i.i45:                              ; preds = %_ZN6vectorIjLb0EjE7
   br i1 %cmp5.i.i48, label %if.then.i.i55, label %_ZN3euf9ac_plugin10ref_counts3decEjj.exit
 
 if.then.i.i55:                                    ; preds = %lor.lhs.false.i.i45, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i43
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_eq_counts)
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %m_eq_counts)
   %.pre.i.i56 = load ptr, ptr %m_eq_counts, align 8
   %arrayidx8.phi.trans.insert.i.i57 = getelementptr inbounds i8, ptr %.pre.i.i56, i64 -4
   %.pre1.i.i58 = load i32, ptr %arrayidx8.phi.trans.insert.i.i57, align 4
@@ -12609,7 +12609,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i: ; preds = %.
           to label %call2.i.noexc unwind label %lpad.loopexit.loopexit.split-lp
 
 call2.i.noexc:                                    ; preds = %_ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i
-  invoke void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i59)
+  invoke void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i59)
           to label %.noexc60 unwind label %lpad.loopexit.loopexit.split-lp
 
 .noexc60:                                         ; preds = %call2.i.noexc
@@ -12626,7 +12626,7 @@ if.then.i1.i.cont:                                ; preds = %if.then.i1.i.invoke
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %.noexc60
   %64 = load ptr, ptr %_M_invoker.i.i, align 8
-  invoke void %64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i)
+  invoke void %64(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i)
           to label %for.inc39 unwind label %lpad.loopexit.loopexit.split-lp
 
 for.inc39:                                        ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i, %for.body23
@@ -12741,7 +12741,7 @@ _ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i94: ; preds = 
           to label %call2.i.noexc112 unwind label %lpad.loopexit.split-lp
 
 call2.i.noexc112:                                 ; preds = %_ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE9push_backERKS2_.exit.i94
-  invoke void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %call2.i113)
+  invoke void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %call2.i113)
           to label %.noexc114 unwind label %lpad.loopexit.split-lp
 
 .noexc114:                                        ; preds = %call2.i.noexc112
@@ -12754,7 +12754,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i103:              ; preds = %.noexc114
   %m_undo_notify.i104 = getelementptr inbounds i8, ptr %this, i64 248
   %_M_invoker.i.i105 = getelementptr inbounds i8, ptr %this, i64 272
   %88 = load ptr, ptr %_M_invoker.i.i105, align 8
-  invoke void %88(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i104)
+  invoke void %88(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify.i104)
           to label %invoke.cont64 unwind label %lpad.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i103
@@ -13400,7 +13400,7 @@ _ZN10ptr_vectorIN3euf5enodeEED2Ev.exit:           ; preds = %_ZN10ptr_vectorIN3e
 
 if.then.i.i:                                      ; preds = %_ZN10ptr_vectorIN3euf5enodeEED2Ev.exit
   %m_undo_notify = getelementptr inbounds i8, ptr %this, i64 248
-  %call.i.i = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify, ptr noundef nonnull align 8 dereferenceable(32) %m_undo_notify, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %terminate.lpad.i.i83
 
 terminate.lpad.i.i83:                             ; preds = %if.then.i.i
@@ -13870,7 +13870,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

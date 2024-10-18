@@ -104,7 +104,7 @@ define void @_ZN15IOConsoleDialogC2ER7QWidget7QStringPFiPKcPPcS6_PvEPFvPFvS4_S7_
   %25 = alloca %class.QString, align 8
   %26 = alloca %class.QKeySequence, align 8
   %27 = alloca %class.QFont, align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
@@ -2129,7 +2129,7 @@ define void @_ZN15IOConsoleDialogD0Ev(ptr noundef nonnull align 8 dereferenceabl
 define void @_ZThn16_N15IOConsoleDialogD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15IOConsoleDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(104) %2) #19
   ret void
 }
 

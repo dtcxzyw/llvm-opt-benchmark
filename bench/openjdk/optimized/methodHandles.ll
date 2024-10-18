@@ -439,7 +439,7 @@ define hidden void @_ZN13MethodHandles17generate_adaptersEv() local_unnamed_addr
   %.09.i = phi i32 [ 8, %0 ], [ %34, %33 ]
   %28 = add nuw nsw i32 %.09.i, 388
   %29 = call noundef ptr @_ZN12vmIntrinsics7name_atE13vmIntrinsicID(i32 noundef %28) #14
-  call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %4, ptr noundef nonnull @.str.5, ptr noundef %29) #14
+  call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @.str.5, ptr noundef %29) #14
   %30 = load ptr, ptr %26, align 8
   %31 = call noundef ptr @_ZN13MethodHandles40generate_method_handle_interpreter_entryEP14MacroAssembler13vmIntrinsicID(ptr noundef %30, i32 noundef %28) #14
   %.not.i = icmp eq ptr %31, null
@@ -623,7 +623,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %3, %5
   br label %24
 
 22:                                               ; preds = %10
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 8, i32 noundef 0) #14
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef 8, i32 noundef 0) #14
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -738,7 +738,7 @@ define linkonce_odr hidden void @_ZN6HandleC2EP6ThreadP7oopDesc(ptr noundef nonn
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 17:                                               ; preds = %5
-  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef 8, i32 noundef 0) #14
+  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit:  ; preds = %15, %17
@@ -1236,7 +1236,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %2, %_ZN26GrowableAr
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %51, i64 8
   %59 = load i64, ptr %58, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #14
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #14
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %60 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %60) #14
@@ -1347,7 +1347,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %2, %_ZN26GrowableAr
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %108, i64 8
   %116 = load i64, ptr %115, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #14
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #14
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %117 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %117) #14
@@ -2503,7 +2503,7 @@ _ZNK6HandleclEv.exit100:                          ; preds = %_ZNK6HandleclEv.exi
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 34:                                               ; preds = %22
-  %35 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, i64 noundef 8, i32 noundef 0) #14
+  %35 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %34, %32
@@ -2544,7 +2544,7 @@ _ZNK6HandleclEv.exit101:                          ; preds = %_ZN6HandleC2EP6Thre
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i103
 
 53:                                               ; preds = %41
-  %54 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %43, i64 noundef 8, i32 noundef 0) #14
+  %54 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %43, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i103
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i103: ; preds = %53, %51
@@ -2585,7 +2585,7 @@ _ZNK6HandleclEv.exit107:                          ; preds = %_ZN6HandleC2EP6Thre
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i109
 
 72:                                               ; preds = %60
-  %73 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %62, i64 noundef 8, i32 noundef 0) #14
+  %73 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %62, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i109
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i109: ; preds = %72, %70
@@ -3436,7 +3436,7 @@ _ZN13MethodHandles28field_signature_type_or_nullEP6Symbol.exit: ; preds = %172, 
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 222:                                              ; preds = %210
-  %223 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %212, i64 noundef 8, i32 noundef 0) #14
+  %223 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %212, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %220, %222
@@ -3832,7 +3832,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %36, %40, %44
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 59:                                               ; preds = %47
-  %60 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef 8, i32 noundef 0) #14
+  %60 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %49, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %59, %57
@@ -3889,7 +3889,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit18: ; preds = %63, %67, %71
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i20
 
 86:                                               ; preds = %74
-  %87 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %76, i64 noundef 8, i32 noundef 0) #14
+  %87 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %76, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i20
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i20: ; preds = %86, %84
@@ -4048,7 +4048,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %31, %35, %39
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 54:                                               ; preds = %42
-  %55 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %44, i64 noundef 8, i32 noundef 0) #14
+  %55 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %44, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %54, %52
@@ -4207,7 +4207,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %34, %38, %42
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 57:                                               ; preds = %45
-  %58 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %47, i64 noundef 8, i32 noundef 0) #14
+  %58 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %47, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %57, %55
@@ -5032,7 +5032,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %30, %34, %38
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 53:                                               ; preds = %41
-  %54 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %43, i64 noundef 8, i32 noundef 0) #14
+  %54 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %43, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %51, %53
@@ -5066,7 +5066,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZN10JNIHandles16re
   %..i = select i1 %66, i64 20, i64 24
   %69 = select i1 %68, i64 16, i64 %..i
   %70 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %70(ptr noundef nonnull %64, i64 noundef %69, ptr noundef %61) #14
+  call void %70(ptr noundef nonnull align 8 dereferenceable(16) %64, i64 noundef %69, ptr noundef %61) #14
   br i1 %40, label %_ZNK6HandleclEv.exit19, label %_ZNK6HandleclEv.exit19.thread
 
 _ZNK6HandleclEv.exit19:                           ; preds = %63
@@ -5109,7 +5109,7 @@ _ZNK14objArrayHandleclEv.exit:                    ; preds = %80, %_ZNK6HandleclE
   %89 = select i1 %85, i64 4, i64 8
   %90 = add nuw nsw i64 %88, %89
   %91 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %91(ptr noundef nonnull %83, i64 noundef %90, ptr noundef %.016) #14
+  call void %91(ptr noundef nonnull align 8 dereferenceable(16) %83, i64 noundef %90, ptr noundef %.016) #14
   %92 = load ptr, ptr %57, align 8
   %93 = call noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %7, ptr noundef %92, i32 noundef 0) #14
   br label %94
@@ -5259,7 +5259,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %31, %35, %39
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 54:                                               ; preds = %42
-  %55 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %44, i64 noundef 8, i32 noundef 0) #14
+  %55 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %44, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %54, %52
@@ -5316,7 +5316,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit12: ; preds = %58, %62, %66
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i14
 
 81:                                               ; preds = %69
-  %82 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %71, i64 noundef 8, i32 noundef 0) #14
+  %82 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %71, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i14
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i14: ; preds = %81, %79
@@ -5394,7 +5394,7 @@ _ZNK6HandleclEv.exit19:                           ; preds = %_ZNK6HandleclEv.exi
   %104 = load i32, ptr @_ZN25java_lang_invoke_CallSite14_target_offsetE, align 4
   %105 = sext i32 %104 to i64
   %106 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %106(ptr noundef nonnull %99, i64 noundef %105, ptr noundef %103) #14
+  call void %106(ptr noundef nonnull align 8 dereferenceable(16) %99, i64 noundef %105, ptr noundef %103) #14
   call void @_ZN19DeoptimizationScope17deoptimize_markedEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %107
 
@@ -5550,7 +5550,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %31, %35, %39
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 54:                                               ; preds = %42
-  %55 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %44, i64 noundef 8, i32 noundef 0) #14
+  %55 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %44, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %54, %52
@@ -5607,7 +5607,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit12: ; preds = %58, %62, %66
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i14
 
 81:                                               ; preds = %69
-  %82 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %71, i64 noundef 8, i32 noundef 0) #14
+  %82 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %71, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i14
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i14: ; preds = %81, %79
@@ -5920,7 +5920,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit92.thread: ; preds = %56, %88, %_ZNK7oopD
   br label %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit
 
 106:                                              ; preds = %94
-  %107 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %96, i64 noundef 8, i32 noundef 0) #14
+  %107 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %96, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit
 
 _ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit: ; preds = %104, %106
@@ -6170,7 +6170,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZNK6HandleclEv.exi
   %267 = shl nuw nsw i64 %265, %.8.i
   %268 = add nuw nsw i64 %266, %267
   %269 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %269(ptr noundef nonnull %259, i64 noundef %268, ptr noundef %.081) #14
+  call void %269(ptr noundef nonnull align 8 dereferenceable(16) %259, i64 noundef %268, ptr noundef %.081) #14
   %270 = add nsw i32 %.1117, 1
   br label %271
 
@@ -6283,7 +6283,7 @@ define linkonce_odr hidden void @_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDes
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 17:                                               ; preds = %5
-  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef 8, i32 noundef 0) #14
+  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %17, %15
@@ -6507,7 +6507,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %29, %33, %37
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 52:                                               ; preds = %40
-  %53 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %42, i64 noundef 8, i32 noundef 0) #14
+  %53 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %42, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %52, %50
@@ -6846,7 +6846,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZN20ThreadInVMfrom
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 1720
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call noundef i32 %36(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @_ZL11MHN_methods, i32 noundef 12) #14
+  %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @_ZL11MHN_methods, i32 noundef 12) #14
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %44
 
@@ -6854,7 +6854,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZN20ThreadInVMfrom
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 120
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef ptr %42(ptr noundef nonnull %0) #14
+  %43 = tail call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %46, label %44
 
@@ -6868,7 +6868,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZN20ThreadInVMfrom
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 1720
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef i32 %49(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull @_ZL10MH_methods, i32 noundef 2) #14
+  %50 = tail call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %32, ptr noundef nonnull @_ZL10MH_methods, i32 noundef 2) #14
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %57
 
@@ -6876,7 +6876,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZN20ThreadInVMfrom
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 120
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef ptr %55(ptr noundef nonnull %0) #14
+  %56 = tail call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %.not14 = icmp eq ptr %56, null
   br i1 %.not14, label %59, label %57
 

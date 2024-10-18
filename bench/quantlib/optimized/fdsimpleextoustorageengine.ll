@@ -1117,7 +1117,7 @@ lpad.i:                                           ; preds = %entry
           cleanup
   tail call void @_ZN8QuantLib20VanillaStorageOption9argumentsD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arguments_.i) #30
   tail call void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #30
-  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #30
+  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) #30
   resume { ptr, i32 } %3
 
 _ZN8QuantLib13GenericEngineINS_20VanillaStorageOption9argumentsENS_14OneAssetOption7resultsEEC2Ev.exit: ; preds = %entry
@@ -1696,7 +1696,7 @@ for.cond.cleanup:                                 ; preds = %invoke.cont101, %in
   %66 = getelementptr inbounds i8, ptr %orderedValues, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %orderedValues, i64 16
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %orderedValues, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %orderedValues, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %orderedValues, i8 0, i64 24, i1 false)
   store ptr %66, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !25
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %orderedValues, i64 32
   store ptr %66, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !26
@@ -3243,7 +3243,7 @@ invoke.cont272:                                   ; preds = %if.then.i.i.i.i.i.i
   %cond.i.i.i.i.i.i16.i.i.i = phi ptr [ null, %invoke.cont.i.i.i.thread.i.i.i ], [ %call5.i.i.i.i2.i6.i.i.i4.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i16.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i17.i.i.i, align 8, !tbaa !104
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i310, ptr noundef nonnull %stoppingTimes) #30
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i310, ptr noundef nonnull align 8 dereferenceable(24) %stoppingTimes) #30
   %249 = load i64, ptr %_M_size.i.i.i.i.i298, align 8, !tbaa !129
   %add.i.i.i307 = add i64 %249, 1
   store i64 %add.i.i.i307, ptr %_M_size.i.i.i.i.i298, align 8, !tbaa !129
@@ -3543,7 +3543,7 @@ invoke.cont313:                                   ; preds = %invoke.cont311
   %pn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i538, i64 24
   store ptr %call.i.i.i521, ptr %pn.i.i.i.i.i.i, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp297, i8 0, i64 16, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i538, ptr noundef nonnull %stepConditions) #30
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i538, ptr noundef nonnull align 8 dereferenceable(24) %stepConditions) #30
   %283 = load i64, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !151
   %add.i.i.i536 = add i64 %283, 1
   store i64 %add.i.i.i536, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !151
@@ -3712,7 +3712,7 @@ if.then.i.i.i.i.i.i.i.i.i598:                     ; preds = %call5.i.i.i.i.i.i.i
   br label %_ZNSt7__cxx114listIN5boost10shared_ptrIN8QuantLib13StepConditionINS3_5ArrayEEEEESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit.i.i
 
 _ZNSt7__cxx114listIN5boost10shared_ptrIN8QuantLib13StepConditionINS3_5ArrayEEEEESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i598, %call5.i.i.i.i.i.i.i.noexc.i
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4.i, ptr noundef nonnull %agg.tmp326) #30
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp326) #30
   %311 = load i64, ptr %_M_size.i.i.i.i.i594, align 8, !tbaa !151
   %add.i.i.i.i.i = add i64 %311, 1
   store i64 %add.i.i.i.i.i, ptr %_M_size.i.i.i.i.i594, align 8, !tbaa !151
@@ -4023,7 +4023,7 @@ if.then.i.i14.i:                                  ; preds = %_ZN5boost10shared_p
 lpad.i664:                                        ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEEE8allocateERS7_m.exit.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
   %357 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp352) #30
+  call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp352) #30
   br label %ehcleanup362
 
 invoke.cont354:                                   ; preds = %if.then.i.i14.i, %_ZN5boost10shared_ptrIN8QuantLib25FdmStepConditionCompositeEEC2ERKS3_.exit.i
@@ -4200,7 +4200,7 @@ invoke.cont377:                                   ; preds = %.noexc724, %invoke.
   %vtable.i = load ptr, ptr %384, align 8, !tbaa !14
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %385 = load ptr, ptr %vfn.i, align 8
-  invoke void %385(ptr noundef nonnull align 8 dereferenceable(12) %384)
+  invoke void %385(ptr noundef nonnull align 8 dereferenceable(184) %384)
           to label %.noexc726 unwind label %lpad376
 
 .noexc726:                                        ; preds = %invoke.cont377
@@ -6020,7 +6020,7 @@ if.then.i.i14.i:                                  ; preds = %_ZN5boost10shared_p
 lpad.i:                                           ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEEE8allocateERS7_m.exit.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %solverDesc_) #30
+  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %solverDesc_) #30
   br label %ehcleanup12
 
 invoke.cont4:                                     ; preds = %if.then.i.i14.i, %_ZN5boost10shared_ptrIN8QuantLib25FdmStepConditionCompositeEEC2ERKS3_.exit.i
@@ -7129,7 +7129,7 @@ define linkonce_odr void @_ZThn56_N8QuantLib26FdSimpleExtOUStorageEngineD0Ev(ptr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib26FdSimpleExtOUStorageEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %0) #30
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 456) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(456) %0, i64 noundef 456) #32
   ret void
 }
 
@@ -7137,7 +7137,7 @@ entry:
 define linkonce_odr void @_ZThn56_N8QuantLib13GenericEngineINS_20VanillaStorageOption9argumentsENS_14OneAssetOption7resultsEE6updateEv(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(360) %0)
   ret void
 }
 
@@ -7716,7 +7716,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %22 = phi ptr [ %21, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -8803,7 +8803,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #32
   ret void
 }
 
@@ -8909,7 +8909,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #32
   ret void
 }
 
@@ -9866,7 +9866,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -10419,7 +10419,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib22FdmSimple2dExtOUSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #30
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %2, i64 noundef 296) #32
   ret void
 }
 
@@ -11908,7 +11908,7 @@ if.then.i.i:                                      ; preds = %if.then8
   br label %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
 
 _ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i: ; preds = %if.then.i.i, %if.then8
-  %call3.i4 = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i, ptr noundef nonnull %add.ptr)
+  %call3.i4 = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %if.end.i unwind label %lpad
 
 if.end.i:                                         ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
@@ -12390,7 +12390,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %12 = phi ptr [ %11, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -12452,7 +12452,7 @@ define linkonce_odr void @_ZThn56_N8QuantLib6HandleINS_32ExtendedOrnsteinUhlenbe
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib6HandleINS_32ExtendedOrnsteinUhlenbeckProcessEE4LinkD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %0) #30
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(129) %0, i64 noundef 136) #32
   ret void
 }
 
@@ -12460,7 +12460,7 @@ entry:
 define linkonce_odr void @_ZThn56_N8QuantLib6HandleINS_32ExtendedOrnsteinUhlenbeckProcessEE4Link6updateEv(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(129) %0)
   ret void
 }
 

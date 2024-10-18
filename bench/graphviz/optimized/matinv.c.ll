@@ -20,13 +20,13 @@ define range(i32 0, 2) i32 @matinv(ptr noundef %0, ptr nocapture noundef readonl
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, i64 noundef %7, i64 noundef 8) #10
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8) #10
   tail call fastcc void @graphviz_exit() #11
   unreachable
 
 11:                                               ; preds = %6
   %12 = icmp ne i32 %2, 0
-  %13 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #12
+  %13 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8) #12
   %14 = icmp eq ptr %13, null
   %or.cond3.i = and i1 %12, %14
   br i1 %or.cond3.i, label %20, label %gv_calloc.exit.preheader

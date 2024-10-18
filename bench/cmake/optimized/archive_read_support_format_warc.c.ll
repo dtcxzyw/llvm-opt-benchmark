@@ -126,7 +126,7 @@ define internal range(i32 -30, 2) i32 @_warc_rdhdr(ptr noundef %0, ptr noundef %
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %21, i64 %20
-  %25 = call ptr @memchr(ptr noundef nonnull readonly %21, i32 noundef 13, i64 noundef %20) #18
+  %25 = call ptr @memchr(ptr noundef nonnull readonly %21, i32 noundef 13, i64 noundef range(i64 0, -9223372036854775808) %20) #18
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_warc_find_eoh.exit.thread, label %27
 
@@ -183,7 +183,7 @@ define internal range(i32 -30, 2) i32 @_warc_rdhdr(ptr noundef %0, ptr noundef %
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %.lr.ph68.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %43, ptr noundef nonnull readonly dereferenceable(3) @_warc_find_eoh._marker, i64 3)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %43, ptr noundef nonnull dereferenceable(3) @_warc_find_eoh._marker, i64 3)
   %52 = icmp eq i32 %bcmp.i.i, 0
   br i1 %52, label %_warc_find_eoh.exit.thread261, label %54
 
@@ -295,7 +295,7 @@ _warc_find_eoh.exit.thread:                       ; preds = %27, %23, %_warc_fin
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %.lr.ph68.i.i103
-  %bcmp.i.i107 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %90, ptr noundef nonnull readonly dereferenceable(16) @_warc_rdlen._key, i64 16)
+  %bcmp.i.i107 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %90, ptr noundef nonnull dereferenceable(16) @_warc_rdlen._key, i64 16)
   %99 = icmp eq i32 %bcmp.i.i107, 0
   br i1 %99, label %xmemmem.exit.thread25.i, label %100
 
@@ -486,7 +486,7 @@ _warc_rdlen.exit:                                 ; preds = %141
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %.lr.ph68.i.i124
-  %bcmp.i.i128 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %166, ptr noundef nonnull readonly dereferenceable(11) @_warc_rdrtm._key, i64 11)
+  %bcmp.i.i128 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %166, ptr noundef nonnull dereferenceable(11) @_warc_rdrtm._key, i64 11)
   %175 = icmp eq i32 %bcmp.i.i128, 0
   br i1 %175, label %xmemmem.exit.thread14.i, label %176
 
@@ -650,7 +650,7 @@ _warc_rdrtm.exit:                                 ; preds = %_warc_find_eol.exit
   br i1 %241, label %242, label %244
 
 242:                                              ; preds = %.lr.ph68.i.i155
-  %bcmp.i.i159 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %234, ptr noundef nonnull readonly dereferenceable(11) @_warc_rdtyp._key, i64 11)
+  %bcmp.i.i159 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %234, ptr noundef nonnull dereferenceable(11) @_warc_rdtyp._key, i64 11)
   %243 = icmp eq i32 %bcmp.i.i159, 0
   br i1 %243, label %xmemmem.exit.thread24.i, label %244
 
@@ -828,7 +828,7 @@ _warc_find_eol.exit.i178:                         ; preds = %.lr.ph.preheader.i.
   br i1 %311, label %312, label %314
 
 312:                                              ; preds = %.lr.ph68.i.i194
-  %bcmp.i.i198 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %304, ptr noundef nonnull readonly dereferenceable(17) @_warc_rduri._key, i64 17)
+  %bcmp.i.i198 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %304, ptr noundef nonnull dereferenceable(17) @_warc_rduri._key, i64 17)
   %313 = icmp eq i32 %bcmp.i.i198, 0
   br i1 %313, label %xmemmem.exit.thread67.i, label %314
 
@@ -990,7 +990,7 @@ _warc_find_eol.exit.i218:                         ; preds = %.lr.ph.preheader.i.
   br i1 %375, label %376, label %378
 
 376:                                              ; preds = %.lr.ph68.i60.i
-  %bcmp.i64.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %368, ptr noundef nonnull readonly dereferenceable(2) @.str.12, i64 2)
+  %bcmp.i64.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %368, ptr noundef nonnull dereferenceable(2) @.str.12, i64 2)
   %377 = icmp eq i32 %bcmp.i64.i, 0
   br i1 %377, label %.preheader.i210, label %378
 
@@ -1157,7 +1157,7 @@ _warc_rduri.exit:                                 ; preds = %400, %402, %393
   br i1 %451, label %452, label %454
 
 452:                                              ; preds = %.lr.ph68.i.i235
-  %bcmp.i.i239 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %444, ptr noundef nonnull readonly dereferenceable(15) @_warc_rdmtm._key, i64 15)
+  %bcmp.i.i239 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %444, ptr noundef nonnull dereferenceable(15) @_warc_rdmtm._key, i64 15)
   %453 = icmp eq i32 %bcmp.i.i239, 0
   br i1 %453, label %xmemmem.exit.thread14.i240, label %454
 

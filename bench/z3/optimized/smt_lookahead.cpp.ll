@@ -359,7 +359,7 @@ invoke.cont27:                                    ; preds = %invoke.cont27.lr.ph
 
 if.end31:                                         ; preds = %invoke.cont27
   %27 = load ptr, ptr %m, align 8
-  %call2.i37 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %27)
+  %call2.i37 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %27)
           to label %invoke.cont32 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont32:                                    ; preds = %if.end31
@@ -1414,7 +1414,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 lor.lhs.false:                                    ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
   %m = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load ptr, ptr %m, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %17)
   br i1 %call2.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
@@ -1701,7 +1701,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

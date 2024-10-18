@@ -338,7 +338,7 @@ define void @_ZN3gmx16TimeUnitBehavior26setTimeUnitFromEnvironmentEv(ptr nocaptu
 16:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %17 = call ptr @__cxa_allocate_exception(i64 24) #22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %18 unwind label %.thread29
 
 18:                                               ; preds = %16
@@ -383,7 +383,7 @@ define void @_ZN3gmx16TimeUnitBehavior26setTimeUnitFromEnvironmentEv(ptr nocaptu
   %.0 = phi i1 [ false, %22 ], [ true, %20 ]
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #22
   br i1 %.0, label %29, label %36
@@ -579,7 +579,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   ret void
 }
 
@@ -661,7 +661,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionINS_8TimeUnitEEEEEPNT_8InfoT
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %3)
   ret void
 }
 
@@ -691,8 +691,8 @@ define void @_ZN3gmx16TimeUnitBehavior16optionsFinishingEPNS_7OptionsE(ptr nocap
   %14 = call noundef nonnull align 1 ptr @_ZN3gmx7Options11rootSectionEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @_ZN3gmx24OptionsModifyingIteratorC1EPNS_17OptionSectionInfoE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %14)
-  call void @_ZNK3gmx24OptionsModifyingIterator14acceptSectionsEPNS_23OptionsModifyingVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %5)
-  call void @_ZNK3gmx24OptionsModifyingIterator13acceptOptionsEPNS_23OptionsModifyingVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %5)
+  call void @_ZNK3gmx24OptionsModifyingIterator14acceptSectionsEPNS_23OptionsModifyingVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZNK3gmx24OptionsModifyingIterator13acceptOptionsEPNS_23OptionsModifyingVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_116TimeOptionScalerINS_15FloatOptionInfoEEE, i64 16), ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 8
@@ -700,8 +700,8 @@ define void @_ZN3gmx16TimeUnitBehavior16optionsFinishingEPNS_7OptionsE(ptr nocap
   %16 = call noundef nonnull align 1 ptr @_ZN3gmx7Options11rootSectionEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @_ZN3gmx24OptionsModifyingIteratorC1EPNS_17OptionSectionInfoE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %16)
-  call void @_ZNK3gmx24OptionsModifyingIterator14acceptSectionsEPNS_23OptionsModifyingVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %6)
-  call void @_ZNK3gmx24OptionsModifyingIterator13acceptOptionsEPNS_23OptionsModifyingVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %6)
+  call void @_ZNK3gmx24OptionsModifyingIterator14acceptSectionsEPNS_23OptionsModifyingVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call void @_ZNK3gmx24OptionsModifyingIterator13acceptOptionsEPNS_23OptionsModifyingVisitorE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
@@ -755,7 +755,7 @@ define linkonce_odr void @_ZN3gmx16TimeUnitBehaviorD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx16TimeUnitBehaviorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZN3gmx16IOptionsBehaviorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN3gmx16IOptionsBehaviorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -823,7 +823,7 @@ define linkonce_odr void @_ZN3gmx13formatAndJoinIPKPKcNS_17IdentityFormatterEEEN
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc18 unwind label %25
 
 .noexc18:                                         ; preds = %.noexc
@@ -849,7 +849,7 @@ define linkonce_odr void @_ZN3gmx13formatAndJoinIPKPKcNS_17IdentityFormatterEEEN
 
 16:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   br label %.body
 
 17:                                               ; preds = %.noexc18
@@ -1029,7 +1029,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -1673,7 +1673,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_16DoubleOptionI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx27OptionsModifyingTypeVisitorINS_16DoubleOptionInfoEE11visitOptionEPNS_10OptionInfoE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
-  %3 = tail call noundef ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3gmx10OptionInfoE, ptr nonnull @_ZTIN3gmx16DoubleOptionInfoE, i64 0) #22
+  %3 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %1, ptr nonnull @_ZTIN3gmx10OptionInfoE, ptr nonnull @_ZTIN3gmx16DoubleOptionInfoE, i64 0) #22
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
@@ -1721,7 +1721,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_15FloatOptionIn
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx27OptionsModifyingTypeVisitorINS_15FloatOptionInfoEE11visitOptionEPNS_10OptionInfoE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
-  %3 = tail call noundef ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN3gmx10OptionInfoE, ptr nonnull @_ZTIN3gmx15FloatOptionInfoE, i64 0) #22
+  %3 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %1, ptr nonnull @_ZTIN3gmx10OptionInfoE, ptr nonnull @_ZTIN3gmx15FloatOptionInfoE, i64 0) #22
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 

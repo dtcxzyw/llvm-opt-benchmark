@@ -4701,7 +4701,7 @@ cf2_font_setup.exit.i:                            ; preds = %517, %508, %338, %2
   %542 = getelementptr inbounds i8, ptr %541, i64 24
   %543 = load ptr, ptr %542, align 8
   call void @FT_GlyphLoader_Rewind(ptr noundef %543) #20
-  call fastcc void @cf2_interpT2CharString(ptr noundef nonnull %.068, ptr noundef readonly %9, ptr noundef nonnull %45, ptr noundef %6, i8 noundef zeroext 0, i32 noundef 0, i32 noundef 0, ptr noundef %7)
+  call fastcc void @cf2_interpT2CharString(ptr noundef nonnull %.068, ptr noundef nonnull readonly %9, ptr noundef nonnull %45, ptr noundef %6, i8 noundef zeroext 0, i32 noundef 0, i32 noundef 0, ptr noundef %7)
   %544 = load i32, ptr %140, align 8
   %.not19.i = icmp eq i32 %544, 0
   br i1 %.not19.i, label %545, label %cf2_getGlyphOutline.exit.thread
@@ -11418,7 +11418,7 @@ cf2_stack_getReal.exit1349:                       ; preds = %705, %707, %709, %7
   %730 = trunc i64 %729 to i32
   %731 = load i64, ptr %179, align 8
   %732 = trunc i64 %731 to i32
-  call fastcc void @cf2_glyphpath_lineTo(ptr noundef %22, i32 noundef %730, i32 noundef %732)
+  call fastcc void @cf2_glyphpath_lineTo(ptr noundef nonnull %22, i32 noundef %730, i32 noundef %732)
   %733 = load i8, ptr %105, align 8
   %.not14.i = icmp eq i8 %733, 0
   br i1 %.not14.i, label %737, label %734
@@ -11426,7 +11426,7 @@ cf2_stack_getReal.exit1349:                       ; preds = %705, %707, %709, %7
 734:                                              ; preds = %728
   %735 = load i64, ptr %181, align 8
   %736 = load i64, ptr %182, align 8
-  call fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef %22, ptr noundef %49, ptr noundef %180, i64 %735, i64 %736, i8 noundef zeroext 1)
+  call fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %22, ptr noundef %49, ptr noundef %180, i64 %735, i64 %736, i8 noundef zeroext 1)
   br label %737
 
 737:                                              ; preds = %734, %728
@@ -16268,7 +16268,7 @@ define internal fastcc void @cf2_glyphpath_moveTo(ptr noundef nonnull %0, i32 no
   %11 = getelementptr inbounds i8, ptr %0, i64 18792
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
-  tail call fastcc void @cf2_glyphpath_lineTo(ptr noundef %0, i32 noundef %10, i32 noundef %13)
+  tail call fastcc void @cf2_glyphpath_lineTo(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %13)
   %14 = getelementptr inbounds i8, ptr %0, i64 18800
   %15 = load i8, ptr %14, align 8
   %.not14.i = icmp eq i8 %15, 0
@@ -16281,7 +16281,7 @@ define internal fastcc void @cf2_glyphpath_moveTo(ptr noundef nonnull %0, i32 no
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 18744
   %22 = load i64, ptr %21, align 8
-  tail call fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef %0, ptr noundef %17, ptr noundef %18, i64 %20, i64 %22, i8 noundef zeroext 1)
+  tail call fastcc void @cf2_glyphpath_pushPrevElem(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i64 %20, i64 %22, i8 noundef zeroext 1)
   br label %23
 
 23:                                               ; preds = %16, %6
@@ -16414,7 +16414,7 @@ define internal fastcc void @cf2_glyphpath_lineTo(ptr noundef nonnull %0, i32 no
   %54 = getelementptr inbounds i8, ptr %0, i64 18792
   %55 = load i64, ptr %54, align 8
   %56 = trunc i64 %55 to i32
-  tail call fastcc void @cf2_glyphpath_moveTo(ptr noundef %0, i32 noundef %53, i32 noundef %56)
+  tail call fastcc void @cf2_glyphpath_moveTo(ptr noundef nonnull %0, i32 noundef %53, i32 noundef %56)
   br label %cf2_glyphpath_pushMove.exit
 
 cf2_glyphpath_pushMove.exit:                      ; preds = %45, %50
@@ -16633,7 +16633,7 @@ define internal fastcc void @cf2_glyphpath_curveTo(ptr noundef nonnull %0, i32 n
   %69 = getelementptr inbounds i8, ptr %0, i64 18792
   %70 = load i64, ptr %69, align 8
   %71 = trunc i64 %70 to i32
-  tail call fastcc void @cf2_glyphpath_moveTo(ptr noundef %0, i32 noundef %68, i32 noundef %71)
+  tail call fastcc void @cf2_glyphpath_moveTo(ptr noundef nonnull %0, i32 noundef %68, i32 noundef %71)
   br label %cf2_glyphpath_pushMove.exit
 
 cf2_glyphpath_pushMove.exit:                      ; preds = %61, %65

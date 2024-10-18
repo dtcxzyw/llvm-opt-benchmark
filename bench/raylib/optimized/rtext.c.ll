@@ -4218,13 +4218,13 @@ stbtt__find_table.exit335.thread.i.i:             ; preds = %717, %736, %stbtt__
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  %858 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef readonly %26, i32 noundef %854, ptr noundef %19)
+  %858 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %26, i32 noundef %854, ptr noundef %19)
   br i1 %843, label %859, label %stbtt_GetCodepointBitmap.exit
 
 859:                                              ; preds = %857
   %860 = getelementptr inbounds i8, ptr %853, i64 8
   %861 = getelementptr inbounds i8, ptr %853, i64 4
-  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly %26, i32 noundef %854, float noundef %828, float noundef %828, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull readonly %26, i32 noundef %854, float noundef %828, float noundef %828, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
   %862 = load i32, ptr %17, align 4
   %863 = load i32, ptr %15, align 4
   %864 = sub i32 %862, %863
@@ -4537,7 +4537,7 @@ stbtt_FlattenCurves.exit.i.i.i.i:                 ; preds = %._crit_edge11.us.i.
   br i1 %exitcond31.not.i.i.i.i.i, label %._crit_edge16.i.i.i.i.i, label %.lr.ph15.i.i.i.i.i
 
 ._crit_edge16.i.i.i.i.i:                          ; preds = %._crit_edge10.i.i.i.i.i
-  call fastcc void @stbtt__sort_edges_quicksort(ptr noundef %977, i32 noundef %.2.lcssa.i.i.i.i.i)
+  call fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %977, i32 noundef %.2.lcssa.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.3.i.i.i.i.i.i.i)
   %1017 = icmp sgt i32 %.2.lcssa.i.i.i.i.i, 1
   br i1 %1017, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %stbtt__sort_edges.exit.i.i.i.i.i
@@ -6593,7 +6593,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
   br i1 %841, label %stbtt_GetCodepointSDF.exit, label %2197
 
 2197:                                             ; preds = %2194
-  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly %26, i32 noundef %854, float noundef %828, float noundef %828, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull readonly %26, i32 noundef %854, float noundef %828, float noundef %828, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %2198 = load i32, ptr %7, align 4
   %2199 = load i32, ptr %9, align 4
   %2200 = icmp eq i32 %2198, %2199
@@ -6614,7 +6614,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
   %2211 = sub nsw i32 %2209, %2207
   store i32 %2206, ptr %2195, align 4
   store i32 %2207, ptr %2196, align 4
-  %2212 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef readonly %26, i32 noundef %854, ptr noundef %11)
+  %2212 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %26, i32 noundef %854, ptr noundef %11)
   %2213 = mul nsw i32 %2211, %2210
   %2214 = sext i32 %2213 to i64
   %2215 = call noalias ptr @malloc(i64 noundef %2214) #44
@@ -12987,7 +12987,7 @@ stbtt__close_shape.exit:                          ; preds = %339, %356, %360
   %470 = fmul float %.sroa.22.0.i, %.sroa.22.0.i
   %471 = tail call float @llvm.fmuladd.f32(float %.sroa.15.0.i, float %.sroa.15.0.i, float %470)
   %sqrt = tail call float @llvm.sqrt.f32(float %471)
-  %472 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %376, ptr noundef %6)
+  %472 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull %0, i32 noundef %376, ptr noundef %6)
   %473 = icmp sgt i32 %472, 0
   br i1 %473, label %.preheader26, label %528
 
@@ -13111,7 +13111,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %stbtt__GetGlyfOffse
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %531 = call fastcc i32 @stbtt__run_charstring(ptr noundef readonly %0, i32 noundef %1, ptr noundef %4)
+  %531 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %4)
   %.not.i7 = icmp eq i32 %531, 0
   br i1 %.not.i7, label %543, label %532
 
@@ -13124,7 +13124,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %stbtt__GetGlyfOffse
   store ptr %537, ptr %2, align 8
   %538 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %537, ptr %538, align 8
-  %539 = call fastcc i32 @stbtt__run_charstring(ptr noundef readonly %0, i32 noundef %1, ptr noundef %5)
+  %539 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %5)
   %.not7.i = icmp eq i32 %539, 0
   br i1 %.not7.i, label %543, label %540
 
@@ -13160,7 +13160,7 @@ define internal fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr nocapture nound
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   store i32 1, ptr %9, align 8
-  %13 = call fastcc i32 @stbtt__run_charstring(ptr noundef readonly %0, i32 noundef %1, ptr noundef %9)
+  %13 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %9)
   %.not.i.i = icmp eq i32 %13, 0
   %14 = getelementptr inbounds i8, ptr %9, i64 24
   %15 = load i32, ptr %14, align 8

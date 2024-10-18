@@ -149,7 +149,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures14PCTClusterizer6createER
   store i32 1, ptr %11, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d14pct_signatures19PCTClusterizer_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !4
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d14pct_signatures19PCTClusterizer_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i
 
 .noexc:                                           ; preds = %8
@@ -201,7 +201,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %2
 .body.i:                                          ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17, !noalias !4
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #17, !noalias !4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d14pct_signatures19PCTClusterizer_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i.body
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d14pct_signatures19PCTClusterizer_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i: ; preds = %8
@@ -269,7 +269,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv11xfeatures2d14pct_signatures19PCTClusterizer_ImplEEEvRS0_PT_.exit: ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   ret void
 }
 
@@ -339,7 +339,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d14pct_signatures19PCTCluster
   br label %_ZN2cv11xfeatures2d14pct_signatures19PCTClusterizer_ImplD2Ev.exit
 
 _ZN2cv11xfeatures2d14pct_signatures19PCTClusterizer_ImplD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

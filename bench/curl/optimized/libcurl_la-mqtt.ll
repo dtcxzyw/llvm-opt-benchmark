@@ -197,7 +197,7 @@ add_user.exit.thread.i:                           ; preds = %if.then60.i
   %arrayidx9.i.i = getelementptr i8, ptr %arrayidx5.i57.i, i64 1
   store i8 %conv7.i.i, ptr %arrayidx9.i.i, align 1
   %arrayidx11.i58.i = getelementptr i8, ptr %arrayidx5.i57.i, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx11.i58.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %spec.select.i, i64 %call.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx11.i58.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %spec.select.i, i64 range(i64 1, 0) %call.i, i1 false)
   br label %if.end66.i
 
 if.then64.i:                                      ; preds = %if.then60.i
@@ -224,7 +224,7 @@ add_passwd.exit.thread.i:                         ; preds = %if.then68.i
   %arrayidx9.i67.i = getelementptr i8, ptr %arrayidx5.i65.i, i64 1
   store i8 %conv7.i66.i, ptr %arrayidx9.i67.i, align 1
   %arrayidx11.i68.i = getelementptr i8, ptr %arrayidx5.i65.i, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx11.i68.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %cond14.i, i64 %call15.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx11.i68.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %cond14.i, i64 range(i64 1, 0) %call15.i, i1 false)
   br label %if.end73.i
 
 if.then71.i:                                      ; preds = %if.then68.i

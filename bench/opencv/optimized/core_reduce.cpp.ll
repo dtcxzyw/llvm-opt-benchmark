@@ -107,7 +107,7 @@ define hidden noundef i32 @main() local_unnamed_addr #3 personality ptr @__gxx_p
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef 3, i32 noundef 2, i32 noundef 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(96) %5)
           to label %.noexc unwind label %190
 
 .noexc:                                           ; preds = %0

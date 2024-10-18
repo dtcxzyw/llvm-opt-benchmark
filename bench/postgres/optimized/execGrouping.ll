@@ -311,7 +311,7 @@ define internal fastcc i32 @TupleHashTableHash_internal(ptr nocapture readonly %
   br i1 %29, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %23
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.026, i32 noundef %27) #14
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.026, i32 noundef range(i32 -32767, 32768) %27) #14
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %23, %slot_getsomeattrs.exit.i
@@ -1360,7 +1360,7 @@ define dso_local ptr @LookupTupleHashEntry(ptr nocapture noundef %0, ptr noundef
   br i1 %38, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %32
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %25, i32 noundef %36) #14
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %25, i32 noundef range(i32 -32767, 32768) %36) #14
   br label %slot_getattr.exit.i
 
 slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.exit.i.i, %32
@@ -1502,7 +1502,7 @@ define dso_local i32 @TupleHashTableHash(ptr nocapture noundef %0, ptr noundef %
   br i1 %32, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %26
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %19, i32 noundef %30) #14
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %19, i32 noundef range(i32 -32767, 32768) %30) #14
   br label %slot_getattr.exit.i
 
 slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.exit.i.i, %26
@@ -1653,7 +1653,7 @@ define dso_local ptr @FindTupleHashEntry(ptr nocapture noundef %0, ptr noundef %
   br i1 %33, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %27
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %20, i32 noundef %31) #14
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %20, i32 noundef range(i32 -32767, 32768) %31) #14
   br label %slot_getattr.exit.i
 
 slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.exit.i.i, %27

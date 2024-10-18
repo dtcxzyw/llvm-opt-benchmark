@@ -83,7 +83,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9WriteJsonERN
   br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.exit
 
 7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %8 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(33) %0)
   br label %_ZSt5visitIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115JsValue_visitorEJRKSt7variantIJNS0_14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_.exit
 
 9:                                                ; preds = %2

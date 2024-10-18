@@ -103,7 +103,7 @@ define void @_ZN3gmx12AnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceab
           to label %3 unwind label %7
 
 3:                                                ; preds = %1
-  invoke void @_ZN3gmx19AnalysisDataStorageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @_ZN3gmx19AnalysisDataStorageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %4 unwind label %9
 
 4:                                                ; preds = %3
@@ -191,7 +191,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default
   br label %_ZNKSt14default_deleteIN3gmx12AnalysisData4ImplEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN3gmx12AnalysisData4ImplEEclEPS2_.exit.i: ; preds = %12, %_ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i
-  tail call void @_ZN3gmx19AnalysisDataStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  tail call void @_ZN3gmx19AnalysisDataStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
   tail call void @_ZdlPv(ptr noundef nonnull %3) #12
   br label %_ZNSt10unique_ptrIN3gmx12AnalysisData4ImplESt14default_deleteIS2_EED2Ev.exit
 

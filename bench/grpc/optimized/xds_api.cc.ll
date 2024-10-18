@@ -1062,7 +1062,7 @@ call3.i.noexc:                                    ; preds = %call1.i.i.noexc
 
 invoke.cont17:                                    ; preds = %call3.i.noexc, %if.end, %call1.i.noexc32
   call void @llvm.lifetime.end.p0(i64 10240, ptr nonnull %buf.i)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fields) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %fields) #20
   %version.i = getelementptr inbounds i8, ptr %fields, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version.i) #20
   %nonce.i = getelementptr inbounds i8, ptr %fields, i64 64
@@ -1163,7 +1163,7 @@ invoke.cont40:                                    ; preds = %if.then.i68, %invok
   %retval.0.i70 = phi ptr [ %20, %if.then.i68 ], [ null, %invoke.cont38 ]
   %num_resources42 = getelementptr inbounds i8, ptr %fields, i64 96
   store i64 %num_resources.0, ptr %num_resources42, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %fields) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(104) %fields) #20
   %version.i71 = getelementptr inbounds i8, ptr %agg.tmp43, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %version.i71, ptr noundef nonnull align 8 dereferenceable(32) %version.i) #20
   %nonce.i72 = getelementptr inbounds i8, ptr %agg.tmp43, i64 64
@@ -1180,7 +1180,7 @@ invoke.cont40:                                    ; preds = %if.then.i68, %invok
 invoke.cont47:                                    ; preds = %invoke.cont40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nonce.i72) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version.i71) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp43) #20
   %23 = load i64, ptr %status, align 8
   %cmp.i = icmp eq i64 %23, 0
   br i1 %cmp.i, label %for.cond.preheader, label %cleanup.thread
@@ -1384,7 +1384,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i187
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %cleanup.thread222, %cleanup.thread, %cleanup, %if.then.i.i187
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nonce.i) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version.i) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fields) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %fields) #20
   br label %if.then.i.i192
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad.i62, %lpad46, %lpad44, %lpad25
@@ -4181,7 +4181,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }

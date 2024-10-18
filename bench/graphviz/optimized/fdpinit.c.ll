@@ -30,13 +30,13 @@ define void @fdp_init_node_edge(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.2, i64 noundef %5, i64 noundef 8) #9
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.2, i64 noundef range(i64 -2147483647, 2147483648) %5, i64 noundef 8) #9
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
 9:                                                ; preds = %1
   %10 = icmp ne i32 %4, 0
-  %11 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #11
+  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483647, 2147483648) %5, i64 noundef 8) #11
   %12 = icmp eq ptr %11, null
   %or.cond3.i = and i1 %10, %12
   br i1 %or.cond3.i, label %13, label %gv_calloc.exit
@@ -68,7 +68,7 @@ gv_calloc.exit:                                   ; preds = %9
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i64
   %27 = icmp ne i16 %25, 0
-  %28 = tail call noalias ptr @calloc(i64 noundef %26, i64 noundef 8) #11
+  %28 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483647, 2147483648) %26, i64 noundef 8) #11
   %29 = icmp eq ptr %28, null
   %or.cond3.i.i = and i1 %27, %29
   br i1 %or.cond3.i.i, label %30, label %init_node.exit

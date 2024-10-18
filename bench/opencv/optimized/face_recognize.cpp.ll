@@ -1056,7 +1056,7 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %13, i32 noundef 2, i32 noundef 2, i32 noundef 6)
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %13)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(96) %13)
           to label %.noexc unwind label %176
 
 .noexc:                                           ; preds = %122
@@ -1354,7 +1354,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %246
 _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %267
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %27)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(96) %27)
           to label %.noexc175 unwind label %349
 
 .noexc175:                                        ; preds = %_ZN2cv4Mat_IdEC2Eii.exit
@@ -1602,7 +1602,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit198:              ; preds = %328
 _ZN2cv4Mat_IdEC2Eii.exit200:                      ; preds = %357
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %35)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(96) %35)
           to label %.noexc206 unwind label %439
 
 .noexc206:                                        ; preds = %_ZN2cv4Mat_IdEC2Eii.exit200
@@ -1908,7 +1908,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit229:              ; preds = %418
 _ZN2cv4Mat_IdEC2Eii.exit231:                      ; preds = %459
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %42)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(96) %42)
           to label %.noexc237 unwind label %548
 
 .noexc237:                                        ; preds = %_ZN2cv4Mat_IdEC2Eii.exit231

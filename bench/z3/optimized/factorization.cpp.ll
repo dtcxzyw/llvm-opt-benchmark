@@ -495,7 +495,7 @@ if.end4:                                          ; preds = %invoke.cont
 
 cleanup:                                          ; preds = %if.then2, %if.end4
   %4 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %sign)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %sign)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %cleanup
@@ -552,7 +552,7 @@ lor.lhs.false.i.i:                                ; preds = %for.body.i
   br i1 %cmp5.i.i, label %if.then.i.i, label %for.inc.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %for.body.i
-  invoke void @_ZN6vectorIN3nla6factorELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
+  invoke void @_ZN6vectorIN3nla6factorELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i
@@ -587,7 +587,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %if.then.i.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7svectorIN3nla6factorEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #17
+  tail call void @_ZN7svectorIN3nla6factorEjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #17
   br label %common.resume
 
 if.end:                                           ; preds = %entry
@@ -624,7 +624,7 @@ lor.lhs.false.i.i9:                               ; preds = %for.body
   br i1 %cmp5.i.i12, label %if.then.i.i17, label %for.inc
 
 if.then.i.i17:                                    ; preds = %lor.lhs.false.i.i9, %for.body
-  invoke void @_ZN6vectorIN3nla6factorELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
+  invoke void @_ZN6vectorIN3nla6factorELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i17
@@ -666,7 +666,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 define hidden void @_ZNK3nla18const_iterator_mon27create_binary_factorizationENS_6factorES1_(ptr noalias nonnull sret(%"class.nla::factorization") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %j.coerce0, i8 %j.coerce1, i64 %k.coerce0, i8 %k.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
-  invoke void @_ZN6vectorIN3nla6factorELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
+  invoke void @_ZN6vectorIN3nla6factorELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i
@@ -696,7 +696,7 @@ lor.lhs.false.i.i3:                               ; preds = %invoke.cont
   br i1 %cmp5.i.i6, label %if.then.i.i11, label %invoke.cont3
 
 if.then.i.i11:                                    ; preds = %lor.lhs.false.i.i3, %invoke.cont
-  invoke void @_ZN6vectorIN3nla6factorELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
+  invoke void @_ZN6vectorIN3nla6factorELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %.noexc15 unwind label %lpad
 
 .noexc15:                                         ; preds = %if.then.i.i11
@@ -761,7 +761,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define linkonce_odr hidden void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
@@ -1424,7 +1424,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

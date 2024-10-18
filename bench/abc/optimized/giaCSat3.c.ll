@@ -3843,7 +3843,7 @@ Vec_WecGrow.exit.i.i.i.i:                         ; preds = %280, %266
 Vec_WecPushTwo.exit.i.i.i:                        ; preds = %Vec_WecGrow.exit.i.i.i.i, %263
   %.val.i.i.i.i = load ptr, ptr %49, align 8
   %288 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val.i.i.i.i, i64 %indvars.iv20.i.i
-  call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %288, i32 noundef %260, i32 noundef 0)
+  call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %288, i32 noundef range(i32 1, 0) %260, i32 noundef 0)
   %289 = load i32, ptr %48, align 4
   %290 = sext i32 %289 to i64
   %.not.i23.i.i.i = icmp slt i64 %indvars.iv20.i.i, %290

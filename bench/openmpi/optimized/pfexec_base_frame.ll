@@ -356,7 +356,7 @@ define internal i32 @pmix_pfexec_base_close() #0 {
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
   %34 = phi ptr [ %36, %.lr.ph.i ], [ %33, %28 ]
   %.07.i = phi ptr [ %35, %.lr.ph.i ], [ %32, %28 ]
-  tail call void %34(ptr noundef %11) #9
+  tail call void %34(ptr noundef nonnull %11) #9
   %35 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null

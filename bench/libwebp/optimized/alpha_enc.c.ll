@@ -239,7 +239,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
 88:                                               ; preds = %GetFilterMap.exit.i.i, %GetFilterMap.exit.thread57.i.i
   %89 = phi ptr [ %80, %GetFilterMap.exit.thread57.i.i ], [ %86, %GetFilterMap.exit.i.i ]
   %.0.i60.i.i = phi i32 [ 15, %GetFilterMap.exit.thread57.i.i ], [ %spec.select.i.i.i, %GetFilterMap.exit.i.i ]
-  %90 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %26) #5
+  %90 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %26) #5
   %91 = icmp eq ptr %90, null
   br i1 %91, label %147, label %.preheader.i.i
 
@@ -256,7 +256,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   br i1 %.not52.i.i, label %103, label %95
 
 95:                                               ; preds = %93
-  %96 = call fastcc i32 @EncodeAlphaInternal(ptr noundef %37, i32 noundef %22, i32 noundef %24, i32 noundef %18, i32 noundef %.04561.i.i, i32 noundef %28, i32 noundef %9, ptr noundef nonnull %90, ptr noundef %5)
+  %96 = call fastcc i32 @EncodeAlphaInternal(ptr noundef nonnull %37, i32 noundef %22, i32 noundef %24, i32 noundef range(i32 0, 2) %18, i32 noundef %.04561.i.i, i32 noundef range(i32 0, 2) %28, i32 noundef %9, ptr noundef nonnull %90, ptr noundef %5)
   %.not53.i.i = icmp eq i32 %96, 0
   br i1 %.not53.i.i, label %102, label %97
 
@@ -290,7 +290,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
 
 110:                                              ; preds = %GetFilterMap.exit.i.i, %GetFilterMap.exit.thread.i.i
   %111 = phi ptr [ %60, %GetFilterMap.exit.thread.i.i ], [ %86, %GetFilterMap.exit.i.i ]
-  %112 = call fastcc i32 @EncodeAlphaInternal(ptr noundef %37, i32 noundef %22, i32 noundef %24, i32 noundef %18, i32 noundef 0, i32 noundef %28, i32 noundef %9, ptr noundef null, ptr noundef %4)
+  %112 = call fastcc i32 @EncodeAlphaInternal(ptr noundef nonnull %37, i32 noundef %22, i32 noundef %24, i32 noundef range(i32 0, 2) %18, i32 noundef 0, i32 noundef range(i32 0, 2) %28, i32 noundef %9, ptr noundef null, ptr noundef %4)
   br label %113
 
 113:                                              ; preds = %110, %109

@@ -172,7 +172,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(96) ptr @_ZN3nix14Derive
   ]
 
 8:                                                ; preds = %2
-  %9 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %9 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(49) %1)
           to label %_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit unwind label %47
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i: ; preds = %2
@@ -185,7 +185,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   ]
 
 13:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i
-  %14 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %14 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(49) %10)
           to label %.noexc9 unwind label %47
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i
@@ -198,7 +198,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   ]
 
 18:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12
-  %19 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  %19 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(49) %15)
           to label %.noexc16 unwind label %47
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12
@@ -222,12 +222,12 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   unreachable
 
 25:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20
-  %26 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  %26 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(49) %20)
           to label %.noexc23 unwind label %47
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20
   %27 = load ptr, ptr %20, align 8
-  %28 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt17_Function_handlerIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEZNSD_10ensureSlotESI_EUlRKT_E_E9_M_invokeERKSt9_Any_dataSI_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(49) %27)
+  %28 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt17_Function_handlerIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEZNSD_10ensureSlotESI_EUlRKT_E_E9_M_invokeERKSt9_Any_dataSI_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(49) %27)
           to label %.noexc32 unwind label %47
 
 .noexc32:                                         ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29
@@ -264,7 +264,7 @@ _ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i4, label %_ZNSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit, label %42
 
 42:                                               ; preds = %_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit
-  %43 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %43 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit unwind label %44
 
 44:                                               ; preds = %42
@@ -285,7 +285,7 @@ _ZNSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11cha
   br i1 %.not.i.i5, label %_ZNSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit6, label %50
 
 50:                                               ; preds = %47
-  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit6 unwind label %52
 
 52:                                               ; preds = %50
@@ -341,7 +341,7 @@ _ZNKSt8functionIFPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i4, label %_ZNSt8functionIFPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit, label %15
 
 15:                                               ; preds = %_ZNKSt8functionIFPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit
-  %16 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit unwind label %17
 
 17:                                               ; preds = %15
@@ -362,7 +362,7 @@ _ZNSt8functionIFPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11cha
   br i1 %.not.i.i5, label %_ZNSt8functionIFPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit6, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit6 unwind label %25
 
 25:                                               ; preds = %23
@@ -1020,7 +1020,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt17_Fun
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %12 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(49) %1)
   br label %_ZSt10__invoke_rIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERZNSD_10ensureSlotERKNS0_17SingleDerivedPathEEUlRKT_E_JSI_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit
 
 13:                                               ; preds = %2
@@ -1037,7 +1037,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef nonnull align 8 dereferenceable(96) ptr %19(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(49) %17)
+  %20 = tail call noundef nonnull align 8 dereferenceable(96) ptr %19(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(49) %17)
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   %23 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
@@ -1085,7 +1085,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -1485,7 +1485,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIN3nix9StorePathESt4pairIKS1_NS0_
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i64, ptr %2, align 8
   %8 = inttoptr i64 %7 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZNSt8_Rb_treeIN3nix9StorePathESt4pairIKS1_NS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEESt10_Select1stISI_ESC_IS1_ESaISI_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESS_IJEEEEEvPSt13_Rb_tree_nodeISI_EDpOT_.exit unwind label %9
 
 9:                                                ; preds = %4
@@ -1551,7 +1551,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   %3 = alloca %"class.std::allocator.25", align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %1) #19
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %3) #19
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   store ptr %4, ptr %0, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   %5 = load ptr, ptr %1, align 8
@@ -1623,7 +1623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, %15, %11
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   resume { ptr, i32 } %27
 }
 
@@ -1771,7 +1771,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %10 = getelementptr inbounds i8, ptr %1, i64 64
   %11 = getelementptr inbounds i8, ptr %1, i64 80
   %12 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef %12)
           to label %_ZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEE9ChildNodeD2Ev.exit.i.i.i.i unwind label %13
 
 13:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEESt10_Select1stISH_ESC_SaISH_EED2Ev.exit.i.i.i.i.i
@@ -1799,7 +1799,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt8_Rb_treeIN3nix9StorePathESt4pairIKS1_NS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEESt10_Select1stISI_ESC_IS1_ESaISI_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISI_E.exit
 
 _ZNSt8_Rb_treeIN3nix9StorePathESt4pairIKS1_NS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEESt10_Select1stISI_ESC_IS1_ESaISI_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISI_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #19
   tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   ret void
 }
@@ -1834,7 +1834,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %14 = getelementptr inbounds i8, ptr %.07, i64 64
   %15 = getelementptr inbounds i8, ptr %.07, i64 80
   %16 = load ptr, ptr %15, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %16)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef %16)
           to label %_ZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEE9ChildNodeD2Ev.exit.i unwind label %17
 
 17:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEESt10_Select1stISH_ESC_SaISH_EED2Ev.exit.i.i
@@ -1862,7 +1862,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS6_St4lessIS6_ESaIS6_EEE9ChildNodeEEEvPT_.exit
 
 _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS6_St4lessIS6_ESaIS6_EEE9ChildNodeEEEvPT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #19
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #23
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
@@ -1891,7 +1891,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %10 = getelementptr inbounds i8, ptr %1, i64 64
   %11 = getelementptr inbounds i8, ptr %1, i64 80
   %12 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef %12)
           to label %_ZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEE9ChildNodeD2Ev.exit.i.i unwind label %13
 
 13:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEESt10_Select1stISH_ESC_SaISH_EED2Ev.exit.i.i.i
@@ -1919,7 +1919,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEESt10_Select1stISH_ESC_SaISH_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISH_E.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEESt10_Select1stISH_ESC_SaISH_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISH_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #19
   tail call void @_ZdlPv(ptr noundef nonnull %1) #23
   ret void
 }
@@ -1954,7 +1954,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #23
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
@@ -2345,7 +2345,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i64, ptr %2, align 8
   %8 = inttoptr i64 %7 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEESt10_Select1stISH_ESC_SaISH_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESQ_IJEEEEEvPSt13_Rb_tree_nodeISH_EDpOT_.exit unwind label %9
 
 9:                                                ; preds = %4
@@ -2637,7 +2637,7 @@ _ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringI
 
 33:                                               ; preds = %2
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  %35 = tail call noundef ptr @_ZZZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEE8findSlotERKNS_17SingleDerivedPathEENKUlRKT_E_clISD_EEDaSI_ENKUlRKNS_22SingleDerivedPathBuiltEE_clB5cxx11ESN_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %35 = tail call noundef ptr @_ZZZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEE8findSlotERKNS_17SingleDerivedPathEENKUlRKT_E_clISD_EEDaSI_ENKUlRKNS_22SingleDerivedPathBuiltEE_clB5cxx11ESN_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(49) %1)
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_8findSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EEDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_8findSlotESO_ENKST_ISM_EEDaSR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSU_SY_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES13_S17_.exit
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_8findSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EEDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_8findSlotESO_ENKST_ISM_EEDaSR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSU_SY_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES13_S17_.exit: ; preds = %_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEE4findERSI_.exit.i.i.i.i, %_ZNSt8_Rb_treeIN3nix9StorePathESt4pairIKS1_NS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEESt10_Select1stISI_ESC_IS1_ESaISI_EE14_M_lower_boundEPSt13_Rb_tree_nodeISI_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i.i.i.i, %5, %33
@@ -2661,7 +2661,7 @@ _ZNKSt8functionIFPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11ch
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(49) %7)
+  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(49) %7)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEE4findERSG_.exit.thread, label %11
 

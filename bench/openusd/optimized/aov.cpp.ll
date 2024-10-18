@@ -122,7 +122,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22HdRend
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
   br i1 %38, label %40, label %_ZN32pxrInternal_v0_24__pxrReserved__eqINS_7TfTokenENS_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEbRKNS_9TfHashMapIT_T0_T1_T2_T3_EESI_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %30
@@ -202,7 +202,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %30
   %84 = inttoptr i64 %83 to ptr
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %60)
+  %87 = tail call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %60)
   br i1 %87, label %95, label %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i
 
 _ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueEEbRKSt4pairIT_T0_ES9_.exit.i.i.i: ; preds = %79

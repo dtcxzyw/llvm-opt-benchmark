@@ -120,7 +120,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %should_index_ = getelementptr inbounds i8, ptr %this, i64 312
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %should_index_, ptr noundef nonnull align 8 dereferenceable(16) %should_index_, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %should_index_, ptr noundef nonnull align 8 dereferenceable(32) %should_index_, i32 noundef 3)
           to label %_ZNSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -247,7 +247,7 @@ _ZN3net12HpackEncoder22RepresentationIterator4NextB5cxx11Ev.exit: ; preds = %if.
 
 if.then:                                          ; preds = %_ZN3net12HpackEncoder22RepresentationIterator4NextB5cxx11Ev.exit
   call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i8 1, i64 1)
-  %call.i = call noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull %call4)
+  %call.i = call noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull %call4)
   %conv.i6 = trunc i64 %call.i to i32
   call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i32 noundef %conv.i6)
   br label %if.end12
@@ -269,19 +269,19 @@ if.then.i8:                                       ; preds = %if.else
 
 _ZNKSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EEclES8_S8_.exit: ; preds = %if.else
   %15 = load ptr, ptr %_M_invoker.i, align 8
-  %call6.i = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %should_index_, ptr noundef nonnull align 8 dereferenceable(16) %__args.i, ptr noundef nonnull align 8 dereferenceable(16) %__args4.i)
+  %call6.i = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %should_index_, ptr noundef nonnull align 8 dereferenceable(16) %__args.i, ptr noundef nonnull align 8 dereferenceable(16) %__args4.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args4.i)
   br i1 %call6.i, label %if.then10, label %if.else11
 
 if.then10:                                        ; preds = %_ZNKSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EEclES8_S8_.exit
   call void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i8 1, i64 2)
-  %call.i15 = call noundef ptr @_ZN3net16HpackHeaderTable9GetByNameEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload)
+  %call.i15 = call noundef ptr @_ZN3net16HpackHeaderTable9GetByNameEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload)
   %cmp.not.i = icmp eq ptr %call.i15, null
   br i1 %cmp.not.i, label %if.else.i20, label %if.then.i16
 
 if.then.i16:                                      ; preds = %if.then10
-  %call3.i = call noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull %call.i15)
+  %call3.i = call noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull %call.i15)
   %conv.i17 = trunc i64 %call3.i to i32
   call void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %output_stream_.i5, i32 noundef %conv.i17)
   br label %_ZN3net12HpackEncoder11EmitLiteralERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_E.exit
@@ -293,7 +293,7 @@ if.else.i20:                                      ; preds = %if.then10
 
 _ZN3net12HpackEncoder11EmitLiteralERKSt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_E.exit: ; preds = %if.then.i16, %if.else.i20
   call void @_ZN3net12HpackEncoder10EmitStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %header.sroa.13.0.copyload, i64 %header.sroa.18.0.copyload)
-  %call.i10 = call noundef ptr @_ZN3net16HpackHeaderTable11TryAddEntryEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload, ptr %header.sroa.13.0.copyload, i64 %header.sroa.18.0.copyload)
+  %call.i10 = call noundef ptr @_ZN3net16HpackHeaderTable11TryAddEntryEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr %header.sroa.0.0.copyload, i64 %header.sroa.7.0.copyload, ptr %header.sroa.13.0.copyload, i64 %header.sroa.18.0.copyload)
   br label %if.end12
 
 if.else11:                                        ; preds = %_ZNKSt8functionIFbN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EEclES8_S8_.exit

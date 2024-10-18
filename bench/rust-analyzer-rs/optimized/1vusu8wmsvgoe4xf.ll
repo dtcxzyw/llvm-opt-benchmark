@@ -1633,7 +1633,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$$u5b$cfg..dnf..Literal$u5d$$
   br i1 %8, label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit", label %9
 
 9:                                                ; preds = %.lr.ph
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
           to label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit" unwind label %11
 
 "_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit": ; preds = %9, %.lr.ph
@@ -1659,7 +1659,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$$u5b$cfg..dnf..Literal$u5d$$
   br i1 %18, label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8", label %19
 
 19:                                               ; preds = %.lr.ph12
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14)
           to label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8" unwind label %21
 
 "_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8": ; preds = %19, %.lr.ph12
@@ -1997,7 +1997,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf.
   br i1 %11, label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit.i.i", label %12
 
 12:                                               ; preds = %.lr.ph.i.i
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7)
           to label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit.i.i" unwind label %14, !noalias !1091
 
 "_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit.i.i": ; preds = %12, %.lr.ph.i.i
@@ -2020,7 +2020,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$cfg..dnf.
   br i1 %21, label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8.i.i", label %22
 
 22:                                               ; preds = %.lr.ph12.i.i
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17)
           to label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8.i.i" unwind label %24, !noalias !1091
 
 "_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8.i.i": ; preds = %22, %.lr.ph12.i.i
@@ -2446,7 +2446,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Weak$LT$str$C$$
   br i1 %13, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85ba25598982ee8aE.llvm.4042744832115172583.exit", label %14
 
 14:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #16, !noalias !1290
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 0, -7) %12, i64 noundef 8) #16, !noalias !1290
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85ba25598982ee8aE.llvm.4042744832115172583.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85ba25598982ee8aE.llvm.4042744832115172583.exit": ; preds = %1, %4, %8, %14
@@ -2929,7 +2929,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %11, label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit.i", label %12
 
 12:                                               ; preds = %.lr.ph.i
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7)
           to label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit.i" unwind label %14
 
 "_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit.i": ; preds = %12, %.lr.ph.i
@@ -2952,7 +2952,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %21, label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8.i", label %22
 
 22:                                               ; preds = %.lr.ph12.i
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17)
           to label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8.i" unwind label %24
 
 "_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8.i": ; preds = %22, %.lr.ph12.i
@@ -3063,7 +3063,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %13, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe4150c74a7975eeE.exit", label %14
 
 14:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #16
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 0, -7) %12, i64 noundef 8) #16
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe4150c74a7975eeE.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe4150c74a7975eeE.exit": ; preds = %14, %8, %1, %4
@@ -3325,7 +3325,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br i1 %21, label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit.i", label %22
 
 22:                                               ; preds = %.lr.ph.i
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17)
           to label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit.i" unwind label %24
 
 "_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit.i": ; preds = %22, %.lr.ph.i
@@ -3348,7 +3348,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br i1 %31, label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8.i", label %32
 
 32:                                               ; preds = %.lr.ph12.i
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(48) %27)
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17h125fb5a0ce258ab2E.llvm.4042744832115172583"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27)
           to label %"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8.i" unwind label %34
 
 "_ZN4core3ptr38drop_in_place$LT$cfg..dnf..Literal$GT$17h24a13c172e16fff4E.exit8.i": ; preds = %32, %.lr.ph12.i

@@ -112,11 +112,11 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h8
 
 10:                                               ; preds = %7
   %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %12 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %1, i64 noundef %.sroa.0.0.i) #4
+  %12 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %1, i64 noundef range(i64 1, 0) %.sroa.0.0.i) #4
   br label %15
 
 13:                                               ; preds = %7
-  %14 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %1, i64 noundef %.sroa.0.0.i) #4
+  %14 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %1, i64 noundef range(i64 1, 0) %.sroa.0.0.i) #4
   br label %15
 
 15:                                               ; preds = %13, %10

@@ -596,7 +596,7 @@ if.end:                                           ; preds = %_Z7deallocI11func_i
   store ptr %f, ptr %ref.tmp.i, align 8
   %m_value.i.i5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %new_fi, ptr %m_value.i.i5, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI9func_declP11func_interpE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_finterp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI9func_declP11func_interpE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_finterp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   br label %if.end5
 
@@ -924,7 +924,7 @@ if.end:                                           ; preds = %invoke.cont19, %inv
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %11, ptr %ref.tmp.i, align 8
   store ptr %ai.0, ptr %m_value.i.i, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %_ZN7obj_mapI4exprPS0_E6insertES1_RKS1_.exit unwind label %ehcleanup.loopexit.split-lp.loopexit
 
 _ZN7obj_mapI4exprPS0_E6insertES1_RKS1_.exit:      ; preds = %if.end
@@ -1326,7 +1326,7 @@ if.end63:                                         ; preds = %_ZN15ref_vector_cor
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i127)
   store ptr %11, ptr %ref.tmp.i127, align 8
   store ptr %66, ptr %m_value.i.i128, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i127)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i127)
           to label %_ZN7obj_mapI4exprPS0_E6insertES1_OS1_.exit unwind label %ehcleanup.loopexit.split-lp.loopexit
 
 _ZN7obj_mapI4exprPS0_E6insertES1_OS1_.exit:       ; preds = %if.end63
@@ -1337,7 +1337,7 @@ sw.default:                                       ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i130)
   store ptr %11, ptr %ref.tmp.i130, align 8
   store ptr %11, ptr %m_value.i.i131, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i130)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i130)
           to label %invoke.cont69 unwind label %ehcleanup.loopexit.split-lp.loopexit
 
 invoke.cont69:                                    ; preds = %sw.default
@@ -3769,7 +3769,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

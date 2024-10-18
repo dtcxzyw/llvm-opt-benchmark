@@ -791,13 +791,13 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
   br i1 %.not64, label %81, label %42
 
 42:                                               ; preds = %39
-  %43 = call i32 @acct_gather_parse_freq(i32 noundef 0, ptr noundef %0) #14
+  %43 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 0, ptr noundef %0) #14
   store i32 %43, ptr %27, align 8
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %45, label %_set_freq.exit
 
 45:                                               ; preds = %42
-  %46 = call i32 @acct_gather_parse_freq(i32 noundef 0, ptr noundef %1) #14
+  %46 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 0, ptr noundef %1) #14
   %47 = icmp eq i32 %46, -1
   %spec.store.select.i = select i1 %47, i32 0, i32 %46
   store i32 %spec.store.select.i, ptr %27, align 8
@@ -809,13 +809,13 @@ _set_freq.exit:                                   ; preds = %42, %45
   br label %81
 
 50:                                               ; preds = %37
-  %51 = call i32 @acct_gather_parse_freq(i32 noundef 1, ptr noundef %0) #14
+  %51 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 1, ptr noundef %0) #14
   store i32 %51, ptr %27, align 8
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %_set_freq.exit67
 
 53:                                               ; preds = %50
-  %54 = call i32 @acct_gather_parse_freq(i32 noundef 1, ptr noundef %1) #14
+  %54 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 1, ptr noundef %1) #14
   %55 = icmp eq i32 %54, -1
   %spec.store.select.i66 = select i1 %55, i32 0, i32 %54
   store i32 %spec.store.select.i66, ptr %27, align 8
@@ -834,13 +834,13 @@ _set_freq.exit67:                                 ; preds = %50, %53
   br i1 %.not63, label %81, label %62
 
 62:                                               ; preds = %59
-  %63 = call i32 @acct_gather_parse_freq(i32 noundef 2, ptr noundef %0) #14
+  %63 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 2, ptr noundef %0) #14
   store i32 %63, ptr %27, align 8
   %64 = icmp eq i32 %63, -1
   br i1 %64, label %65, label %_set_freq.exit69
 
 65:                                               ; preds = %62
-  %66 = call i32 @acct_gather_parse_freq(i32 noundef 2, ptr noundef %1) #14
+  %66 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 2, ptr noundef %1) #14
   %67 = icmp eq i32 %66, -1
   %spec.store.select.i68 = select i1 %67, i32 0, i32 %66
   store i32 %spec.store.select.i68, ptr %27, align 8
@@ -858,13 +858,13 @@ _set_freq.exit69:                                 ; preds = %62, %65
   br i1 %.not62, label %81, label %73
 
 73:                                               ; preds = %70
-  %74 = call i32 @acct_gather_parse_freq(i32 noundef 3, ptr noundef %0) #14
+  %74 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 3, ptr noundef %0) #14
   store i32 %74, ptr %27, align 8
   %75 = icmp eq i32 %74, -1
   br i1 %75, label %76, label %_set_freq.exit71
 
 76:                                               ; preds = %73
-  %77 = call i32 @acct_gather_parse_freq(i32 noundef 3, ptr noundef %1) #14
+  %77 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 3, ptr noundef %1) #14
   %78 = icmp eq i32 %77, -1
   %spec.store.select.i70 = select i1 %78, i32 0, i32 %77
   store i32 %spec.store.select.i70, ptr %27, align 8

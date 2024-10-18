@@ -769,7 +769,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 149:                                              ; preds = %148
   %150 = load ptr, ptr @X11im, align 8
-  %151 = call ptr (ptr, ...) @XCreateIC(ptr noundef %150, ptr noundef nonnull @.str.16, i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef nonnull @.str.17, i64 noundef 1032, ptr noundef null) #14
+  %151 = call ptr (ptr, ...) @XCreateIC(ptr noundef %150, ptr noundef nonnull @.str.16, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.17, i64 noundef 1032, ptr noundef null) #14
   %152 = getelementptr inbounds i8, ptr %77, i64 16
   store ptr %151, ptr %152, align 8
   %153 = call noalias dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #15
@@ -831,7 +831,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   store i32 0, ptr %10, align 4
   %174 = load ptr, ptr @dpy, align 8
-  %175 = call i32 @XGetGeometry(ptr noundef %174, i64 noundef %2, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #14
+  %175 = call i32 @XGetGeometry(ptr noundef %174, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #14
   %176 = getelementptr inbounds i8, ptr %4, i64 88
   store i32 1, ptr %176, align 8
   %177 = load i32, ptr @awt_numScreens, align 4
@@ -879,10 +879,10 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %201 = call i32 %200(i32 noundef 128, i32 noundef 128, i32 noundef 128, ptr noundef %189) #14
   %202 = sext i32 %201 to i64
   %203 = load ptr, ptr @dpy, align 8
-  %204 = call i32 @XGetWindowAttributes(ptr noundef %203, i64 noundef %2, ptr noundef nonnull %7) #14
+  %204 = call i32 @XGetWindowAttributes(ptr noundef %203, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull %7) #14
   store i32 2, ptr %16, align 4
   %205 = load ptr, ptr @dpy, align 8
-  %206 = call i32 @XQueryTree(ptr noundef %205, i64 noundef %2, ptr noundef nonnull %19, ptr noundef nonnull %5, ptr noundef nonnull %20, ptr noundef nonnull %21) #14
+  %206 = call i32 @XQueryTree(ptr noundef %205, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull %19, ptr noundef nonnull %5, ptr noundef nonnull %20, ptr noundef nonnull %21) #14
   %207 = load ptr, ptr @dpy, align 8
   %208 = load i64, ptr %5, align 8
   %209 = call i32 @XGetWindowAttributes(ptr noundef %207, i64 noundef %208, ptr noundef nonnull %8) #14
@@ -907,7 +907,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %228 = load i32, ptr %7, align 8
   %229 = getelementptr inbounds i8, ptr %7, i64 4
   %230 = load i32, ptr %229, align 4
-  %231 = call i32 @XTranslateCoordinates(ptr noundef %225, i64 noundef %2, i64 noundef %227, i32 noundef %228, i32 noundef %230, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %6) #14
+  %231 = call i32 @XTranslateCoordinates(ptr noundef %225, i64 noundef range(i64 1, 0) %2, i64 noundef %227, i32 noundef %228, i32 noundef %230, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %6) #14
   %232 = load i32, ptr %12, align 4
   %233 = sub nsw i32 %232, %215
   %234 = load i32, ptr %13, align 4
@@ -1040,7 +1040,7 @@ createStatusWindow.exit.i:                        ; preds = %268, %257
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   store ptr %255, ptr %116, align 8
   %309 = load ptr, ptr @X11im, align 8
-  %310 = call ptr (ptr, ...) @XCreateIC(ptr noundef %309, ptr noundef nonnull @.str.16, i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef nonnull @.str.17, i64 noundef %.091.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %166, ptr noundef nonnull @.str.25, ptr noundef nonnull %171, ptr noundef null) #14
+  %310 = call ptr (ptr, ...) @XCreateIC(ptr noundef %309, ptr noundef nonnull @.str.16, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.17, i64 noundef %.091.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %166, ptr noundef nonnull @.str.25, ptr noundef nonnull %171, ptr noundef null) #14
   %311 = getelementptr inbounds i8, ptr %77, i64 8
   store ptr %310, ptr %311, align 8
   %312 = call i32 @XFree(ptr noundef nonnull %171) #14
@@ -1050,7 +1050,7 @@ createStatusWindow.exit.i:                        ; preds = %268, %257
 .thread.i:                                        ; preds = %148, %147, %.thread51.i
   %.1903.i = phi i64 [ 0, %.thread51.i ], [ %145, %148 ], [ %spec.select.i, %147 ]
   %314 = load ptr, ptr @X11im, align 8
-  %315 = call ptr (ptr, ...) @XCreateIC(ptr noundef %314, ptr noundef nonnull @.str.16, i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef nonnull @.str.17, i64 noundef %.1903.i, ptr noundef null) #14
+  %315 = call ptr (ptr, ...) @XCreateIC(ptr noundef %314, ptr noundef nonnull @.str.16, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.17, i64 noundef %.1903.i, ptr noundef null) #14
   %316 = getelementptr inbounds i8, ptr %77, i64 8
   store ptr %315, ptr %316, align 8
   %317 = getelementptr inbounds i8, ptr %77, i64 16
@@ -1170,7 +1170,7 @@ createXIC.exit:                                   ; preds = %setXICFocus.exit.i,
   br label %destroyX11InputMethodData.exit
 
 destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %354
-  call fastcc void @freeX11InputMethodData(ptr noundef null, ptr noundef %77)
+  call fastcc void @freeX11InputMethodData(ptr noundef null, ptr noundef nonnull %77)
   %355 = load ptr, ptr %0, align 8
   %356 = getelementptr inbounds i8, ptr %355, i64 1824
   %357 = load ptr, ptr %356, align 8
@@ -1425,7 +1425,7 @@ getX11InputMethodData.exit.thread:                ; preds = %46, %38, %getX11Inp
   br label %setXICWindowFocus.exit
 
 107:                                              ; preds = %101
-  %108 = tail call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %102, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef null) #14
+  %108 = tail call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %102, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef null) #14
   br label %setXICWindowFocus.exit
 
 setXICWindowFocus.exit:                           ; preds = %104, %107
@@ -2074,7 +2074,7 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
   br label %destroyX11InputMethodData.exit
 
 destroyX11InputMethodData.exit:                   ; preds = %82, %85, %93
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef %31)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef nonnull %31)
   tail call void (...) @awt_output_flush() #14
   %94 = load ptr, ptr %0, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 120

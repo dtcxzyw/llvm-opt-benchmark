@@ -745,7 +745,7 @@ if.end12.i:                                       ; preds = %if.then295
   br i1 %or.cond21.not.i, label %if.end299, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end12.i
-  %call.i83 = call ptr @prepare_bitmap_walk(ptr noundef nonnull %revs, i32 noundef %filter_provided_objects.0.lcssa) #11
+  %call.i83 = call ptr @prepare_bitmap_walk(ptr noundef nonnull %revs, i32 noundef range(i32 0, 2) %filter_provided_objects.0.lcssa) #11
   %tobool34.not.i = icmp eq ptr %call.i83, null
   br i1 %tobool34.not.i, label %if.end299, label %if.end36.i
 
@@ -795,7 +795,7 @@ if.end299:                                        ; preds = %if.then295, %if.end
   br i1 %.b.i, label %if.end.i85, label %if.end303
 
 if.end.i85:                                       ; preds = %if.end299
-  %call.i86 = call ptr @prepare_bitmap_walk(ptr noundef nonnull %revs, i32 noundef %filter_provided_objects.0.lcssa) #11
+  %call.i86 = call ptr @prepare_bitmap_walk(ptr noundef nonnull %revs, i32 noundef range(i32 0, 2) %filter_provided_objects.0.lcssa) #11
   %tobool1.not.i = icmp eq ptr %call.i86, null
   br i1 %tobool1.not.i, label %if.end303, label %if.end3.i
 
@@ -829,7 +829,7 @@ if.end303:                                        ; preds = %if.end299, %if.end.
   br i1 %cmp.i87, label %if.end308, label %if.end.i88
 
 if.end.i88:                                       ; preds = %if.end303
-  %call.i89 = call ptr @prepare_bitmap_walk(ptr noundef nonnull %revs, i32 noundef %filter_provided_objects.0.lcssa) #11
+  %call.i89 = call ptr @prepare_bitmap_walk(ptr noundef nonnull %revs, i32 noundef range(i32 0, 2) %filter_provided_objects.0.lcssa) #11
   %tobool.not.i90 = icmp eq ptr %call.i89, null
   br i1 %tobool.not.i90, label %if.end308, label %try_bitmap_traversal.exit
 

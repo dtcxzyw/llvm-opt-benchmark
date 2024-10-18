@@ -1777,7 +1777,7 @@ define hidden void @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_wi
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %6 = tail call noundef align 4 dereferenceable_or_null(36) ptr @__rust_alloc(i64 noundef 36, i64 noundef 4) #12
+  %6 = tail call noundef align 4 dereferenceable_or_null(36) ptr @__rust_alloc(i64 noundef range(i64 36, 129) 36, i64 noundef range(i64 1, 5) 4) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %12
 
@@ -1844,7 +1844,7 @@ define hidden void @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_wi
 25:                                               ; preds = %30, %19
   %storemerge = phi i32 [ %22, %19 ], [ %.zext, %30 ]
   %26 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %27 = tail call noundef dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef 128, i64 noundef 1) #12
+  %27 = tail call noundef dereferenceable_or_null(128) ptr @__rust_alloc(i64 noundef range(i64 36, 129) 128, i64 noundef range(i64 1, 5) 1) #12
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %.lr.ph.i
 
@@ -1894,7 +1894,7 @@ define hidden void @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$16new_wi
   %41 = add nuw nsw i32 %40, 50
   %42 = udiv i32 %41, 100
   %43 = icmp samesign ult i32 %40, 50
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %42, i32 255)
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 42949673) %42, i32 255)
   %44 = trunc nuw i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i.i to i8
   %45 = select i1 %43, i8 1, i8 %44
   store i8 %45, ptr %.sroa.0.06.i.ptr.i.i, align 1, !alias.scope !193, !noalias !198
@@ -2392,7 +2392,7 @@ switch.lookup:
   %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 %.sink186
   store ptr %.sink, ptr %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !219, !noalias !227
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46), !noalias !234
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %55), !noalias !224
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %55), !noalias !224
   %197 = getelementptr inbounds i8, ptr %46, i64 8
   %198 = load i64, ptr %197, align 8, !range !241, !noalias !234, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %198, 0
@@ -2433,7 +2433,7 @@ switch.lookup:
   br label %196
 
 213:                                              ; preds = %210
-  %214 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$11encode_gray17h26131e2d1467377aE"(ptr noalias noundef align 8 dereferenceable(4200) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %59)
+  %214 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$11encode_gray17h26131e2d1467377aE"(ptr noalias noundef nonnull align 8 dereferenceable(4200) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59)
           to label %215 unwind label %.loopexit.split-lp.i, !noalias !219
 
 215:                                              ; preds = %213
@@ -2801,7 +2801,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i89 = getelementptr inbounds i8, ptr %0, i64 %.sink188
   store ptr %.sink187, ptr %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i89, align 8, !alias.scope !245, !noalias !253
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !260
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43), !noalias !250
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43), !noalias !250
   %334 = getelementptr inbounds i8, ptr %34, i64 8
   %335 = load i64, ptr %334, align 8, !range !241, !noalias !260, !noundef !4
   %.not.i.i.i.i55 = icmp eq i64 %335, 0
@@ -2842,7 +2842,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   br label %333
 
 350:                                              ; preds = %347
-  %351 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$11encode_gray17h2b9d2ec3d16ff19eE"(ptr noalias noundef align 8 dereferenceable(4200) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %58)
+  %351 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$11encode_gray17h2b9d2ec3d16ff19eE"(ptr noalias noundef nonnull align 8 dereferenceable(4200) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %58)
           to label %352 unwind label %.loopexit.split-lp.i48, !noalias !245
 
 352:                                              ; preds = %350
@@ -3238,7 +3238,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i116 = getelementptr inbounds i8, ptr %0, i64 %.sink190
   store ptr %.sink189, ptr %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i116, align 8, !alias.scope !270, !noalias !278
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !285
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31), !noalias !275
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31), !noalias !275
   %486 = getelementptr inbounds i8, ptr %22, i64 8
   %487 = load i64, ptr %486, align 8, !range !241, !noalias !285, !noundef !4
   %.not.i.i.i.i98 = icmp eq i64 %487, 0
@@ -3279,7 +3279,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   br label %485
 
 502:                                              ; preds = %499
-  %503 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$10encode_rgb17h25e69c92e5a5a1acE"(ptr noalias noundef align 8 dereferenceable(4200) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %57)
+  %503 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$10encode_rgb17h25e69c92e5a5a1acE"(ptr noalias noundef nonnull align 8 dereferenceable(4200) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57)
           to label %504 unwind label %.loopexit.split-lp.i92, !noalias !270
 
 504:                                              ; preds = %502
@@ -3675,7 +3675,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i163 = getelementptr inbounds i8, ptr %0, i64 %.sink192
   store ptr %.sink191, ptr %.sroa.4119.sroa.4.0..sroa.4119.0..sroa_idx.sroa_idx.i163, align 8, !alias.scope !295, !noalias !303
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !310
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19), !noalias !300
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19), !noalias !300
   %638 = getelementptr inbounds i8, ptr %10, i64 8
   %639 = load i64, ptr %638, align 8, !range !241, !noalias !310, !noundef !4
   %.not.i.i.i.i127 = icmp eq i64 %639, 0
@@ -3716,7 +3716,7 @@ common.resume:                                    ; preds = %545, %393, %257, %1
   br label %637
 
 654:                                              ; preds = %651
-  %655 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$10encode_rgb17hf0dcba2183a8aa0aE"(ptr noalias noundef align 8 dereferenceable(4200) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %56)
+  %655 = invoke fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$10encode_rgb17hf0dcba2183a8aa0aE"(ptr noalias noundef nonnull align 8 dereferenceable(4200) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56)
           to label %656 unwind label %.loopexit.split-lp.i120, !noalias !295
 
 656:                                              ; preds = %654

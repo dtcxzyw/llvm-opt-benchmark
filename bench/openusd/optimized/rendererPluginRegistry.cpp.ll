@@ -484,7 +484,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24HdRendererPluginRegistry18Ge
 
 _ZN32pxrInternal_v0_24__pxrReserved__24HdRendererPluginRegistry11GetInstanceEv.exit: ; preds = %.lr.ph, %10
   %.0.i.i = phi ptr [ %.0.i.i.i, %.lr.ph ], [ %11, %10 ]
-  %12 = invoke noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry9GetPluginERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(89) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.031.038)
+  %12 = invoke noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry9GetPluginERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.031.038)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__24HdRendererPluginRegistry17GetRendererPluginERKNS_7TfTokenE.exit unwind label %.loopexit
 
 _ZN32pxrInternal_v0_24__pxrReserved__24HdRendererPluginRegistry17GetRendererPluginERKNS_7TfTokenE.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24HdRendererPluginRegistry11GetInstanceEv.exit
@@ -760,7 +760,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24HdRendererPluginRegistry20Cr
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdRendererPluginHandle", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %7 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry9GetPluginERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef nonnull align 8 dereferenceable(8) %2), !noalias !8
+  %7 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry9GetPluginERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %2), !noalias !8
   store ptr %7, ptr %5, align 8, !alias.scope !8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %24

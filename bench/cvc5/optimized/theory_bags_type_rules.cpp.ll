@@ -795,7 +795,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -8692,7 +8692,7 @@ invoke.cont18:                                    ; preds = %if.else.i.i67, %if.
   store i16 %24, ptr %d_sygusAllowConst, align 8
   %d_card = getelementptr inbounds i8, ptr %this, i64 136
   %d_card20 = getelementptr inbounds i8, ptr %0, i64 136
-  invoke void @__gmpz_init_set(ptr noundef nonnull %d_card, ptr noundef nonnull %d_card20)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_card, ptr noundef nonnull align 8 dereferenceable(16) %d_card20)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont18
@@ -9085,7 +9085,7 @@ ehcleanup44:                                      ; preds = %ehcleanup43, %lpad2
 
 ehcleanup45:                                      ; preds = %ehcleanup44, %lpad24
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup44 ], [ %62, %lpad24 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_card)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_card)
           to label %ehcleanup46 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %ehcleanup45
@@ -14050,7 +14050,7 @@ unreachable:                                      ; preds = %invoke.cont69, %inv
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory4bags14BagsProperties18computeCardinalityENS0_8TypeNodeE(ptr noalias sret(%"class.cvc5::internal::Cardinality") align 8 %agg.result, ptr nocapture noundef readnone %type) local_unnamed_addr #3 align 2 {
 entry:
-  tail call void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull @_ZN4cvc58internal11Cardinality8INTEGERSE)
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) @_ZN4cvc58internal11Cardinality8INTEGERSE)
   ret void
 }
 
@@ -15426,7 +15426,7 @@ if.then13.i.i8.i.i.i:                             ; preds = %if.else.i.i6.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then13.i.i8.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i) #17
+  tail call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i) #17
   br label %lpad.body
 
 lpad:                                             ; preds = %if.then13.i.i.i.i.i

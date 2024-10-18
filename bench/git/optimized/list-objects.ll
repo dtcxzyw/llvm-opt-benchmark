@@ -408,7 +408,7 @@ if.end54.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %tobool60.not.i, label %if.end62.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %if.end54.i
-  call fastcc void @traverse_non_commits(ptr noundef %ctx, ptr noundef %csp.i)
+  call fastcc void @traverse_non_commits(ptr noundef nonnull %ctx, ptr noundef %csp.i)
   %.pre.i = load ptr, ptr %ctx, align 8
   br label %if.end62.i
 
@@ -419,7 +419,7 @@ if.end62.i:                                       ; preds = %if.then61.i, %if.en
   br i1 %cmp.not.i, label %do_traverse.exit, label %while.body.i, !llvm.loop !11
 
 do_traverse.exit:                                 ; preds = %if.end62.i, %if.end
-  call fastcc void @traverse_non_commits(ptr noundef %ctx, ptr noundef %csp.i)
+  call fastcc void @traverse_non_commits(ptr noundef nonnull %ctx, ptr noundef %csp.i)
   call void @strbuf_release(ptr noundef nonnull %csp.i) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %csp.i)
   %14 = load ptr, ptr %filter, align 8

@@ -277,7 +277,7 @@ fix_colors.exit:                                  ; preds = %.lr.ph.i, %1
   %20 = call i32 @deflateInit_(ptr noundef nonnull %2, i32 noundef -1, ptr noundef nonnull @.str.11, i32 noundef 112) #14
   %.not.i8 = icmp eq i32 %20, 0
   call void @llvm.assume(i1 %.not.i8)
-  %21 = call i64 @deflateBound(ptr noundef nonnull %2, i64 noundef %11) #14
+  %21 = call i64 @deflateBound(ptr noundef nonnull %2, i64 noundef range(i64 0, 4294967296) %11) #14
   %22 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %21) #11
   %23 = icmp ne i64 %21, 0
   %24 = icmp eq ptr %22, null

@@ -548,7 +548,7 @@ if.end.i:                                         ; preds = %if.then7
 
 initial_certreq.exit:                             ; preds = %if.end.i
   store i32 -2, ptr %status, align 8
-  %call5.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call1.i, ptr noundef %rep, i32 noundef %cond2)
+  %call5.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call1.i, ptr noundef nonnull %rep, i32 noundef range(i32 -2147483647, -2147483648) %cond2)
   tail call void @OSSL_CMP_MSG_free(ptr noundef nonnull %call1.i) #4
   %tobool8.not = icmp eq i32 %call5.i, 0
   br i1 %tobool8.not, label %err, label %if.end21
@@ -1097,7 +1097,7 @@ if.end.i:                                         ; preds = %if.end
 
 initial_certreq.exit:                             ; preds = %if.end.i
   store i32 -2, ptr %status.i, align 8
-  %call5.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call1.i, ptr noundef %rep, i32 noundef %cond2)
+  %call5.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call1.i, ptr noundef nonnull %rep, i32 noundef range(i32 -2147483647, -2147483648) %cond2)
   tail call void @OSSL_CMP_MSG_free(ptr noundef nonnull %call1.i) #4
   %tobool5.not = icmp eq i32 %call5.i, 0
   br i1 %tobool5.not, label %err, label %if.end7

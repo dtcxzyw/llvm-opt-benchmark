@@ -491,13 +491,13 @@ define internal fastcc void @sfdpLayout(ptr noundef %0, ptr noundef %1, double %
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr @stderr, align 8
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.25, i64 noundef %24, i64 noundef 8) #14
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.25, i64 noundef range(i64 -2147483648, 2147483648) %24, i64 noundef 8) #14
   call fastcc void @graphviz_exit() #15
   unreachable
 
 28:                                               ; preds = %20
   %29 = icmp ne i32 %23, 0
-  %30 = call noalias ptr @calloc(i64 noundef %24, i64 noundef 8) #16
+  %30 = call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %24, i64 noundef 8) #16
   %31 = icmp eq ptr %30, null
   %or.cond3.i.i = and i1 %29, %31
   br i1 %or.cond3.i.i, label %32, label %gv_calloc.exit.i

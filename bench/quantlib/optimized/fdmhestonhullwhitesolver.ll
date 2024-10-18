@@ -754,7 +754,7 @@ if.then.i.i14.i:                                  ; preds = %_ZN5boost10shared_p
 lpad.i:                                           ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEEE8allocateERS7_m.exit.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %solverDesc_) #27
+  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %solverDesc_) #27
   br label %ehcleanup30
 
 invoke.cont:                                      ; preds = %if.then.i.i14.i, %_ZN5boost10shared_ptrIN8QuantLib25FdmStepConditionCompositeEEC2ERKS3_.exit.i
@@ -1769,7 +1769,7 @@ if.then.i.i14.i:                                  ; preds = %_ZN5boost10shared_p
 lpad.i:                                           ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEEEE8allocateERS7_m.exit.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
   %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %solverDesc_) #27
+  tail call void @_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %solverDesc_) #27
   br label %ehcleanup25
 
 invoke.cont4:                                     ; preds = %if.then.i.i14.i, %_ZN5boost10shared_ptrIN8QuantLib25FdmStepConditionCompositeEEC2ERKS3_.exit.i
@@ -3149,7 +3149,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !33
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %call.i = tail call double @log(double noundef %add) #27, !tbaa !118
   %solver_.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %1 = load ptr, ptr %solver_.i, align 8, !tbaa !101
@@ -3168,7 +3168,7 @@ _ZNK8QuantLib24FdmHestonHullWhiteSolver7valueAtEddd.exit: ; preds = %entry, %con
   %vtable.i6 = load ptr, ptr %this, align 8, !tbaa !33
   %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 24
   %3 = load ptr, ptr %vfn.i7, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %call.i8 = tail call double @log(double noundef %sub) #27, !tbaa !118
   %4 = load ptr, ptr %solver_.i, align 8, !tbaa !101
   %cmp.not.i.i10 = icmp eq ptr %4, null
@@ -3195,7 +3195,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !33
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %call.i = tail call double @log(double noundef %add) #27, !tbaa !118
   %solver_.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %1 = load ptr, ptr %solver_.i, align 8, !tbaa !101
@@ -3214,7 +3214,7 @@ _ZNK8QuantLib24FdmHestonHullWhiteSolver7valueAtEddd.exit: ; preds = %entry, %con
   %vtable.i10 = load ptr, ptr %this, align 8, !tbaa !33
   %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 24
   %3 = load ptr, ptr %vfn.i11, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %call.i12 = tail call double @log(double noundef %sub) #27, !tbaa !118
   %4 = load ptr, ptr %solver_.i, align 8, !tbaa !101
   %cmp.not.i.i14 = icmp eq ptr %4, null
@@ -3231,7 +3231,7 @@ _ZNK8QuantLib24FdmHestonHullWhiteSolver7valueAtEddd.exit18: ; preds = %_ZNK8Quan
   %vtable.i19 = load ptr, ptr %this, align 8, !tbaa !33
   %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 24
   %6 = load ptr, ptr %vfn.i20, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(192) %this)
   %call.i21 = tail call double @log(double noundef %s) #27, !tbaa !118
   %7 = load ptr, ptr %solver_.i, align 8, !tbaa !101
   %cmp.not.i.i23 = icmp eq ptr %7, null
@@ -3478,7 +3478,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -3540,7 +3540,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib24FdmHestonHullWhiteSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef 304) #32
   ret void
 }
 

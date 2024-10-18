@@ -1849,7 +1849,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv2ml13TrainDataImpl7loadCSVE
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %12) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %60 = invoke noalias noundef nonnull dereferenceable(1000000) ptr @_Znwm(i64 noundef 1000000) #30
           to label %62 unwind label %.body
@@ -1857,7 +1857,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv2ml13TrainDataImpl7loadCSVE
 .body:                                            ; preds = %59
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #28
   br label %608
 
@@ -3414,7 +3414,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit259:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit259, %600
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #28
   br label %607
 
 .loopexit.split-lp:                               ; preds = %.loopexit333, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %487, %481, %385, %586, %516, %479, %414, %364, %320, %301, %281, %262, %158
@@ -6736,7 +6736,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull al
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   ret void
 }
 
@@ -6770,7 +6770,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #28
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #31
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
@@ -6882,7 +6882,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i64, ptr %3, align 8
   %11 = inttoptr i64 %10 to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #28
   %12 = getelementptr inbounds i8, ptr %8, i64 64
   store i32 0, ptr %12, align 8
   store ptr %8, ptr %7, align 8
@@ -6934,7 +6934,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   resume { ptr, i32 } %32
 
 33:                                               ; preds = %14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #28
   tail call void @_ZdlPv(ptr noundef nonnull %8) #31
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_Auto_nodeD2Ev.exit
 
@@ -7269,7 +7269,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #28
   tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %6
 
@@ -7715,8 +7715,8 @@ _ZSt4sortIPiN2cv2ml13TrainDataImpl8CmpByIdxEEvT_S5_T0_.exit: ; preds = %._crit_e
   %111 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %109, i1 true)
   %112 = shl nuw nsw i64 %111, 1
   %113 = xor i64 %112, 126
-  tail call void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_S9_T0_T1_(ptr noundef %63, ptr noundef nonnull %110, i64 noundef %113, ptr %.0118212, i32 %.0117213)
-  tail call void @_ZSt22__final_insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_S9_T0_(ptr noundef %63, ptr noundef nonnull %110, ptr %.0118212, i32 %.0117213)
+  tail call void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_S9_T0_T1_(ptr noundef nonnull %63, ptr noundef nonnull %110, i64 noundef %113, ptr %.0118212, i32 %.0117213)
+  tail call void @_ZSt22__final_insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_S9_T0_(ptr noundef nonnull %63, ptr noundef nonnull %110, ptr %.0118212, i32 %.0117213)
   %114 = icmp sgt i32 %45, 1
   br i1 %114, label %.lr.ph158.preheader, label %._crit_edge159
 

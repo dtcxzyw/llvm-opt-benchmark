@@ -1058,7 +1058,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i.i, label %for.inc77, label %for.cond.i.i, !llvm.loop !7
 
 if.end15.i.i:                                     ; preds = %for.body61
-  %call2.i.i.i24 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %removed, ptr noundef nonnull align 8 dereferenceable(8) %__begin253.sroa.0.073)
+  %call2.i.i.i24 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %removed, ptr noundef nonnull align 8 dereferenceable(8) %__begin253.sroa.0.073)
           to label %call2.i.i.i.noexc unwind label %lpad64
 
 call2.i.i.i.noexc:                                ; preds = %if.end15.i.i
@@ -2147,7 +2147,7 @@ if.then.i.i151:                                   ; preds = %invoke.cont79
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 16
   %82 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
   store ptr %82, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp54, i8 0, i64 24, i1 false)
   %d_id.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 24
   %83 = load i32, ptr %d_id3.i.i.i.i.i, align 8
   store i32 %83, ptr %d_id.i.i.i.i.i, align 8
@@ -2182,7 +2182,7 @@ if.then13.i.i.i.i.i.i.i:                          ; preds = %if.else.i.i.i.i.i.i
 lpad.i.i.i.i.i:                                   ; preds = %if.then13.i.i.i.i.i.i.i
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #18
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %78) #18
   br label %lpad80.body
 
 _ZNSt16allocator_traitsISaIN4cvc58internal16InstantiationVecEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i: ; preds = %if.then13.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i153, %if.then.i.i.i.i.i.i.i154
@@ -5923,7 +5923,7 @@ _ZNSt12_Vector_baseIN4cvc58internal16InstantiationVecESaIS2_EE11_M_allocateEm.ex
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__args, i8 0, i64 24, i1 false)
   %d_id.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %d_id3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %6 = load i32, ptr %d_id3.i.i.i, align 8
@@ -5960,7 +5960,7 @@ if.then13.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then13.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr) #18
+  tail call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr) #18
   br label %if.else
 
 invoke.cont:                                      ; preds = %if.then13.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i

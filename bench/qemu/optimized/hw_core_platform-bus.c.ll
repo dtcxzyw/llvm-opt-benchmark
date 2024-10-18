@@ -127,7 +127,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %pl
 if.end.i:                                         ; preds = %for.body
   %1 = load ptr, ptr %used_irqs.i, align 16
   %conv.i = sext i32 %0 to i64
-  %call.i.i = tail call i64 @find_next_zero_bit(ptr noundef %1, i64 noundef %conv.i, i64 noundef 0) #9
+  %call.i.i = tail call i64 @find_next_zero_bit(ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %conv.i, i64 noundef 0) #9
   %conv2.i = trunc i64 %call.i.i to i32
   %cmp.not.i = icmp sgt i32 %0, %conv2.i
   br i1 %cmp.not.i, label %if.end5.i, label %if.then4.i

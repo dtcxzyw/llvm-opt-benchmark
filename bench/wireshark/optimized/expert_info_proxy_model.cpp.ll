@@ -587,7 +587,7 @@ _ZNK11QModelIndex6parentEv.exit:                  ; preds = %26
   br i1 %or.cond70, label %.critedge, label %_ZNK11QModelIndex7isValidEv.exit39.thread
 
 .critedge:                                        ; preds = %_ZNK11QModelIndex6parentEv.exit, %26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %43 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %43, align 8
   br label %224
@@ -598,7 +598,7 @@ _ZNK11QModelIndex7isValidEv.exit39.thread:        ; preds = %_ZNK11QModelIndex6p
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit39.thread
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %47 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %47, align 8
   br label %224
@@ -722,7 +722,7 @@ _ZNK11QModelIndex6parentEv.exit43:                ; preds = %74
   br i1 %or.cond76, label %.critedge2, label %_ZNK11QModelIndex7isValidEv.exit45.thread
 
 .critedge2:                                       ; preds = %_ZNK11QModelIndex6parentEv.exit43, %74
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %91 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %91, align 8
   br label %224
@@ -733,7 +733,7 @@ _ZNK11QModelIndex7isValidEv.exit45.thread:        ; preds = %_ZNK11QModelIndex6p
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit45.thread
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %95 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %95, align 8
   br label %224
@@ -1626,7 +1626,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49:    ; preds = %75
   br i1 %.not.i.i50, label %_ZN7QStringD2Ev.exit11.sink.split, label %_ZN7QStringD2Ev.exit11
 
 79:                                               ; preds = %14, %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %80 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %80, align 8
   br label %_ZN7QStringD2Ev.exit

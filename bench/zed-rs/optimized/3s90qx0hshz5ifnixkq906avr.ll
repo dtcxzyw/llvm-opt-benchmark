@@ -32,7 +32,7 @@ define hidden { ptr, i64 } @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$
   br i1 %4, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0e29dba48732ecaE.llvm.4836507767981107884.exit.thread", label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h00d0f6c17592aa72E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  %6 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h00d0f6c17592aa72E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %7 = load i64, ptr %2, align 8, !alias.scope !5, !noundef !4
   %8 = add i64 %7, -1
   store i64 %8, ptr %2, align 8, !alias.scope !5
@@ -131,7 +131,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN105_$LT$std..
   br i1 %4, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4a4562e0c904ef96E.exit", label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h00d0f6c17592aa72E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  %6 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h00d0f6c17592aa72E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %7 = load i64, ptr %2, align 8, !alias.scope !26, !noundef !4
   %8 = add i64 %7, -1
   store i64 %8, ptr %2, align 8, !alias.scope !26
@@ -243,7 +243,7 @@ define noundef zeroext i1 @"_ZN23assistant_slash_command53SlashCommandOutputSect
 
 6:                                                ; preds = %2
   %7 = tail call noundef align 8 dereferenceable(104) ptr @"_ZN56_$LT$text..Buffer$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd6ee4ea7f831e6efE"(ptr noundef nonnull align 8 %1)
-  %8 = tail call noundef i64 @"_ZN55_$LT$text..anchor..Anchor$u20$as$u20$text..ToOffset$GT$9to_offset17h7c2ea2ffd4c1136cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %7)
+  %8 = tail call noundef i64 @"_ZN55_$LT$text..anchor..Anchor$u20$as$u20$text..ToOffset$GT$9to_offset17h7c2ea2ffd4c1136cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %7)
   %9 = getelementptr inbounds i8, ptr %0, i64 128
   %10 = tail call noundef i64 @"_ZN55_$LT$text..anchor..Anchor$u20$as$u20$text..ToOffset$GT$9to_offset17h7c2ea2ffd4c1136cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %7)
   %11 = icmp ult i64 %8, %10

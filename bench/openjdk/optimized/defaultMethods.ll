@@ -319,7 +319,7 @@ define hidden void @_ZN20StatefulMethodFamily28record_method_and_dq_furtherEP18S
   %31 = sub nuw nsw i32 32, %30
   %32 = shl nuw i32 1, %31
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %26, i32 %32
-  tail call void @_ZN26GrowableArrayWithAllocatorIP13StateRestorer13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP13StateRestorer13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %1, align 8
   br label %_ZN18StateRestorerScope4markEP20StatefulMethodFamily14QualifiedState.exit
 
@@ -372,7 +372,7 @@ _ZN18StateRestorerScope4markEP20StatefulMethodFamily14QualifiedState.exit: ; pre
   %59 = sub nuw nsw i32 32, %58
   %60 = shl nuw i32 1, %59
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %54, i32 %60
-  tail call void @_ZN26GrowableArrayWithAllocatorI11MethodState13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorI11MethodState13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(48) %39, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %39, align 8
   br label %_ZN12MethodFamily10add_methodEP6Method14QualifiedState.exit.i
 
@@ -528,7 +528,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %3, %_ZN26Grow
   %82 = load ptr, ptr %81, align 8
   %83 = call noundef ptr @_ZNK6Symbol22as_klass_external_nameEv(ptr noundef nonnull align 4 dereferenceable(8) %82) #12
   call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE2ELN6LogTag4typeE34ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.9, ptr noundef nonnull %80, ptr noundef %83)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %12, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %12, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %12, align 8
   %84 = getelementptr inbounds i8, ptr %12, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %84) #12
@@ -1231,7 +1231,7 @@ _ZL23already_in_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP6Method.exit74.
   %445 = load ptr, ptr %444, align 8
   %446 = getelementptr inbounds i8, ptr %439, i64 8
   %447 = load i64, ptr %446, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %8, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %8, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %8, align 8
   %448 = getelementptr inbounds i8, ptr %8, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %448) #12
@@ -1364,7 +1364,7 @@ _ZL23find_empty_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlass
   br i1 %.not291, label %515, label %504
 
 504:                                              ; preds = %500
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %15, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %15, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %15, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %492) #12
   store i32 2, ptr %493, align 8
@@ -1401,7 +1401,7 @@ _ZL23find_empty_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlass
   store ptr %519, ptr %497, align 8
   store ptr null, ptr %498, align 8
   store i8 %522, ptr %499, align 8
-  call void @_ZN16HierarchyVisitorI22FindMethodsByErasedSigE3runEP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %0)
+  call void @_ZN16HierarchyVisitorI22FindMethodsByErasedSigE3runEP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull %0)
   %523 = load ptr, ptr %498, align 8
   %.not.i.i25 = icmp eq ptr %523, null
   %524 = getelementptr inbounds i8, ptr %523, i64 8
@@ -1472,7 +1472,7 @@ _ZL23find_empty_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlass
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %.preheader.i.i26
   %.0.lcssa26.i.i = phi i32 [ %.1.i.i, %._crit_edge.i.i ], [ 0, %.preheader.i.i26 ]
   %.013.lcssa25.i.i = phi i32 [ %.114.i.i, %._crit_edge.i.i ], [ -1, %.preheader.i.i26 ]
-  call void @_ZN12MethodFamily34generate_and_set_exception_messageEP13InstanceKlassii(ptr noundef nonnull align 8 dereferenceable(48) %524, ptr noundef %0, i32 noundef %.0.lcssa26.i.i, i32 noundef %.013.lcssa25.i.i)
+  call void @_ZN12MethodFamily34generate_and_set_exception_messageEP13InstanceKlassii(ptr noundef nonnull align 8 dereferenceable(48) %524, ptr noundef nonnull %0, i32 noundef %.0.lcssa26.i.i, i32 noundef %.013.lcssa25.i.i)
   br label %_ZN12MethodFamily41determine_target_or_set_exception_messageEP13InstanceKlass.exit.i
 
 _ZN12MethodFamily41determine_target_or_set_exception_messageEP13InstanceKlass.exit.i: ; preds = %._crit_edge.thread.i.i, %552, %525
@@ -1541,7 +1541,7 @@ _ZL24generate_erased_defaultsP22FindMethodsByErasedSigP13InstanceKlassP15EmptyVt
   %583 = load ptr, ptr %582, align 8
   %584 = getelementptr inbounds i8, ptr %577, i64 8
   %585 = load i64, ptr %584, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %7, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %7, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %563) #12
   store i32 2, ptr %564, align 8
@@ -4169,7 +4169,7 @@ _ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE4pushERKS1_.exit: ;
   br i1 %.not, label %_ZN13GrowableArrayIP6MethodED2Ev.exit, label %67
 
 67:                                               ; preds = %61
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %68 = getelementptr inbounds i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %68) #12

@@ -93,8 +93,8 @@ call.i.i.noexc.i:                                 ; preds = %if.then.i
   br i1 %call.i.i1.i, label %if.then.i.i.i, label %_ZN13scoped_refptrIKN4base8internal13WeakReference4FlagEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %call.i.i.noexc.i
-  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(6) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %0) #13
   br label %_ZN13scoped_refptrIKN4base8internal13WeakReference4FlagEED2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -181,8 +181,8 @@ call.i.i.i.i.noexc:                               ; preds = %if.then4.i.i
   br i1 %call.i.i.i.i1, label %if.then.i.i.i.i, label %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i.i.i.noexc
-  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %1) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #13
+  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(6) %1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %1) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %call.i.i.i.i.noexc
@@ -198,8 +198,8 @@ call.i.i.noexc.i:                                 ; preds = %if.then.i3
   br i1 %call.i.i1.i, label %if.then.i.i.i, label %_ZN13scoped_refptrIN4base8internal13WeakReference4FlagEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %call.i.i.noexc.i
-  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.pr) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr) #13
+  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(6) %.pr) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %.pr) #13
   br label %_ZN13scoped_refptrIN4base8internal13WeakReference4FlagEED2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i3
@@ -240,8 +240,8 @@ if.then4.i:                                       ; preds = %if.then
   br i1 %call.i.i.i, label %if.then.i.i.i, label %if.end
 
 if.then.i.i.i:                                    ; preds = %if.then4.i
-  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %1) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #13
+  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(6) %1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %1) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i.i, %if.then4.i, %if.then, %entry
@@ -273,7 +273,7 @@ _ZNK4base8internal18WeakReferenceOwner7HasRefsEv.exit: ; preds = %entry
 
 if.then:                                          ; preds = %entry, %_ZNK4base8internal18WeakReferenceOwner7HasRefsEv.exit
   %call2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
-  invoke void @_ZN4base6subtle24RefCountedThreadSafeBaseC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %call2)
+  invoke void @_ZN4base6subtle24RefCountedThreadSafeBaseC2Ev(ptr noundef nonnull align 4 dereferenceable(6) %call2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -294,8 +294,8 @@ if.then4.i:                                       ; preds = %invoke.cont
   br i1 %call.i.i.i, label %if.then.i.i.i, label %if.end
 
 if.then.i.i.i:                                    ; preds = %if.then4.i
-  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %1) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #13
+  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(6) %1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %1) #13
   br label %if.end
 
 lpad:                                             ; preds = %if.then
@@ -347,8 +347,8 @@ call.i.i.noexc.i.i:                               ; preds = %if.then.i.i
   br i1 %call.i.i1.i.i, label %if.then.i.i.i.i, label %_ZN4base8internal13WeakReferenceD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i.noexc.i.i
-  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(6) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %0) #13
   br label %_ZN4base8internal13WeakReferenceD2Ev.exit
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i

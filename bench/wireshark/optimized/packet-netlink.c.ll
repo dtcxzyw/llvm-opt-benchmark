@@ -630,9 +630,9 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
 
 63:                                               ; preds = %.critedge
   %64 = load i32, ptr @hf_netlink_error, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %64, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.099) #5
+  %65 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %64, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %.099) #5
   %66 = add i32 %61, 4
-  %67 = call i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %60, i32 noundef %66, i32 noundef %.099, i32 noundef -1, ptr noundef null)
+  %67 = call i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %60, i32 noundef %66, i32 noundef range(i32 0, -2147483647) %.099, i32 noundef -1, ptr noundef null)
   br label %73
 
 68:                                               ; preds = %.critedge

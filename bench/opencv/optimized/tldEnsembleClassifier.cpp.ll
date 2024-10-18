@@ -1037,7 +1037,7 @@ _ZNSt6vectorIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE9push_backEOS
   %213 = getelementptr inbounds i8, ptr %208, i64 16
   %214 = load ptr, ptr %195, align 8
   store ptr %214, ptr %213, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %7, i8 0, i64 24, i1 false)
   %215 = getelementptr inbounds i8, ptr %208, i64 24
   %216 = load ptr, ptr %196, align 8
   store ptr %216, ptr %215, align 8
@@ -1518,7 +1518,7 @@ _ZNSt12_Vector_baseIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE11_M_a
   %30 = getelementptr inbounds i8, ptr %2, i64 16
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %29, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %2, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds i8, ptr %24, i64 24
   %33 = getelementptr inbounds i8, ptr %2, i64 24
   %34 = load ptr, ptr %33, align 8
@@ -1567,7 +1567,7 @@ _ZNSt12_Vector_baseIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE11_M_a
   %58 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %59 = load ptr, ptr %58, align 8, !alias.scope !21, !noalias !18
   store ptr %59, ptr %57, align 8, !alias.scope !18, !noalias !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !21, !noalias !18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !21, !noalias !18
   %60 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
   %61 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
   %62 = load ptr, ptr %61, align 8, !alias.scope !21, !noalias !18
@@ -1624,7 +1624,7 @@ _ZNSt6vectorIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE11_S_relocate
   %89 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
   %90 = load ptr, ptr %89, align 8, !alias.scope !27, !noalias !24
   store ptr %90, ptr %88, align 8, !alias.scope !24, !noalias !27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !27, !noalias !24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %.0911.i.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !27, !noalias !24
   %91 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
   %92 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
   %93 = load ptr, ptr %92, align 8, !alias.scope !27, !noalias !24

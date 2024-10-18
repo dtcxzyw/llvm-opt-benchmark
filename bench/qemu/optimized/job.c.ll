@@ -662,7 +662,7 @@ if.end15:                                         ; preds = %for.inc.i, %if.end6
   %call27 = tail call ptr @qemu_get_aio_context() #16
   %sleep_timer = getelementptr inbounds i8, ptr %call16, i64 128
   %tlg.i = getelementptr inbounds i8, ptr %call27, i64 480
-  tail call void @timer_init_full(ptr noundef nonnull %sleep_timer, ptr noundef nonnull %tlg.i, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @job_sleep_timer_cb, ptr noundef %call16) #16
+  tail call void @timer_init_full(ptr noundef nonnull %sleep_timer, ptr noundef nonnull %tlg.i, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @job_sleep_timer_cb, ptr noundef nonnull %call16) #16
   %4 = load ptr, ptr @jobs, align 8
   %job_list = getelementptr inbounds i8, ptr %call16, i64 240
   store ptr %4, ptr %job_list, align 8
@@ -2658,7 +2658,7 @@ job_txn_apply_locked.exit20.i:                    ; preds = %land.rhs.i15.i
 
 if.then7.i:                                       ; preds = %for.cond.i12.i
   tail call void @job_unref_locked(ptr noundef nonnull %job)
-  tail call fastcc void @job_do_finalize_locked(ptr noundef %job)
+  tail call fastcc void @job_do_finalize_locked(ptr noundef nonnull %job)
   br label %if.end7
 
 if.end7:                                          ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %if.then7.i, %job_txn_apply_locked.exit20.i, %if.then5

@@ -399,7 +399,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure8do_
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #14
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #14
   ret void
 }
 
@@ -793,7 +793,7 @@ _ZN22ShenandoahConcurrentGC8op_resetEv.exit:      ; preds = %1, %16
   br i1 %20, label %21, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 21:                                               ; preds = %_ZN22ShenandoahConcurrentGC8op_resetEv.exit
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %4) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %4) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %_ZN22ShenandoahConcurrentGC8op_resetEv.exit, %21
@@ -854,7 +854,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC16entry_mark_rootsEv(ptr noundef 
   br i1 %15, label %16, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 16:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %4) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %4) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %16
@@ -910,7 +910,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC10entry_markEv(ptr noundef nonnul
   br i1 %17, label %18, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 18:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %4) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %4) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %18
@@ -979,7 +979,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC18entry_thread_rootsEv(ptr nocapt
   %20 = load ptr, ptr %12, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %20, ptr noundef nonnull %3) #14
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV40ShenandoahConcurrentEvacUpdateThreadTask, i64 16), ptr %3, align 8
-  call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #14
+  call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #14
   call void @_ZN23ShenandoahGCWorkerPhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
@@ -989,7 +989,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC18entry_thread_rootsEv(ptr nocapt
   br i1 %22, label %23, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 23:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %5) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %5) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %23
@@ -1037,7 +1037,7 @@ _ZN22ShenandoahConcurrentGC12op_weak_refsEv.exit: ; preds = %1, %14
   br i1 %20, label %21, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 21:                                               ; preds = %_ZN22ShenandoahConcurrentGC12op_weak_refsEv.exit
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %4) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %4) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %_ZN22ShenandoahConcurrentGC12op_weak_refsEv.exit, %21
@@ -1094,7 +1094,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC16entry_weak_rootsEv(ptr nocaptur
   br i1 %21, label %22, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 22:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %8) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %8) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %22
@@ -1125,7 +1125,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC19entry_cleanup_earlyEv(ptr nocap
   br i1 %13, label %14, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 14:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %4) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %4) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %14
@@ -1164,7 +1164,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC21entry_class_unloadingEv(ptr noc
   br i1 %15, label %16, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 16:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %4) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %4) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %16
@@ -1210,7 +1210,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC18entry_strong_rootsEv(ptr nocapt
   br i1 %19, label %20, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 20:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %5) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %5) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %20
@@ -1245,7 +1245,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC14entry_evacuateEv(ptr nocapture 
   br i1 %15, label %16, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 16:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %4) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %4) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %16
@@ -1306,7 +1306,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC16entry_updaterefsEv(ptr nocaptur
   br i1 %15, label %16, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 16:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %4) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %4) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %16
@@ -1349,7 +1349,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC25entry_update_thread_rootsEv(ptr
   br i1 %17, label %18, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 18:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %5) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %5) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %18
@@ -1406,7 +1406,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC22entry_cleanup_completeEv(ptr no
   br i1 %13, label %14, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 14:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %4) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %4) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %14
@@ -1479,7 +1479,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC15entry_init_markEv(ptr noundef n
   br i1 %12, label %13, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 13:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %3) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %3) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %13
@@ -1612,7 +1612,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC16entry_final_markEv(ptr noundef 
   br i1 %12, label %13, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 13:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %3) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %3) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %13
@@ -1745,7 +1745,7 @@ _ZN22ShenandoahConcurrentGC18op_init_updaterefsEv.exit: ; preds = %1, %7
   br i1 %11, label %12, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 12:                                               ; preds = %_ZN22ShenandoahConcurrentGC18op_init_updaterefsEv.exit
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %3) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %3) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %_ZN22ShenandoahConcurrentGC18op_init_updaterefsEv.exit, %12
@@ -1793,7 +1793,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC22entry_final_updaterefsEv(ptr no
   br i1 %10, label %11, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 11:                                               ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %3) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %3) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %11
@@ -1869,7 +1869,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC17entry_final_rootsEv(ptr nocaptu
   br i1 %6, label %7, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 7:                                                ; preds = %1
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %3) #14
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %3) #14
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events3logEP6ThreadPKczEEED2Ev.exit: ; preds = %1, %7
@@ -1958,7 +1958,7 @@ define hidden void @_ZN22ShenandoahConcurrentGC15op_thread_rootsEv(ptr nocapture
   %13 = load ptr, ptr %5, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %13, ptr noundef nonnull %3) #14
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV40ShenandoahConcurrentEvacUpdateThreadTask, i64 16), ptr %3, align 8
-  call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #14
+  call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #14
   call void @_ZN23ShenandoahGCWorkerPhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
   ret void
 }
@@ -2320,9 +2320,9 @@ define linkonce_odr hidden void @_ZN43ShenandoahConcurrentWeakRootsEvacUpdateTas
   store i32 %5, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV43ShenandoahConcurrentWeakRootsEvacUpdateTask, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(572) %6, i8 0, i64 80, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1ELb0EEELi10EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(488) %7, i32 5, ptr noundef nonnull %6)
+  tail call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1ELb0EEELi10EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(488) %7, i32 5, ptr noundef nonnull align 8 dereferenceable(572) %6)
   %8 = getelementptr inbounds i8, ptr %0, i64 592
   store i32 %1, ptr %8, align 8
   %9 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -2399,16 +2399,16 @@ _ZN21ShenandoahVMWeakRootsILb1EE15report_num_deadEv.exit: ; preds = %8
   %22 = getelementptr inbounds i8, ptr %0, i64 440
   %23 = getelementptr inbounds i8, ptr %0, i64 488
   %24 = getelementptr inbounds i8, ptr %0, i64 536
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %24) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %23) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %22) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %21) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %20) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(296) %19) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %18) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %17) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %16) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %15) #14
   ret void
 }
 
@@ -2428,11 +2428,11 @@ define linkonce_odr hidden void @_ZN39ShenandoahConcurrentRootsEvacUpdateTaskC2E
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(292) %7, i8 0, i64 40, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef 0) #14
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(248) %8, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1ELb0EEELi4EEC2IN13OopStorageSet8IteratorINS5_8StrongIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(200) %11, i32 1, ptr noundef nonnull %12)
@@ -2492,11 +2492,11 @@ define linkonce_odr hidden void @_ZN39ShenandoahConcurrentRootsEvacUpdateTaskD2E
   %10 = getelementptr inbounds i8, ptr %0, i64 160
   %11 = getelementptr inbounds i8, ptr %0, i64 208
   %12 = getelementptr inbounds i8, ptr %0, i64 256
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #14
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %12) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %11) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %10) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %9) #14
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %8) #14
   ret void
 }
 
@@ -3097,8 +3097,8 @@ define linkonce_odr hidden void @_ZN43ShenandoahConcurrentWeakRootsEvacUpdateTas
   %7 = alloca %class.ShenandoahIsCLDAliveClosure, align 8
   %8 = alloca %class.ShenandoahWorkerTimingsTracker, align 8
   %9 = alloca %class.ShenandoahIsNMethodAliveClosure, align 8
-  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef %1) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %5, i8 0, i64 19, i1 false)
+  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %1) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 19, i1 false)
   %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1697), align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %_ZN33ShenandoahConcurrentWorkerSessionC2Ej.exit, label %12
@@ -3171,7 +3171,7 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %22, %23, %27, %32
   %46 = getelementptr inbounds i8, ptr %0, i64 592
   %47 = load i32, ptr %46, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %47, i32 noundef 4, i32 noundef %1) #14
-  call void @_ZN25OopStorageSetWeakParStateILb1ELb0EE7oops_doI49ShenandoahEvacUpdateCleanupOopStorageRootsClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %45, ptr noundef nonnull %6)
+  call void @_ZN25OopStorageSetWeakParStateILb1ELb0EE7oops_doI49ShenandoahEvacUpdateCleanupOopStorageRootsClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(572) %45, ptr noundef nonnull %6)
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #14
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   %48 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -3249,13 +3249,13 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1EL
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %7) #14
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(440) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = add i32 %1, 2
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %12) #14
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(392) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #14
   %16 = getelementptr inbounds i8, ptr %0, i64 144
   %17 = add i32 %1, 3
   %18 = getelementptr inbounds i8, ptr %2, i64 24
@@ -3282,13 +3282,13 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1EL
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %7) #14
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(296) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = add i32 %1, 2
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %12) #14
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #14
   %16 = getelementptr inbounds i8, ptr %0, i64 144
   %17 = add i32 %1, 3
   %18 = getelementptr inbounds i8, ptr %2, i64 24
@@ -3309,19 +3309,19 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1EL
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %7) #14
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = add i32 %1, 2
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %12) #14
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #14
   %16 = getelementptr inbounds i8, ptr %0, i64 144
   %17 = add i32 %1, 3
   %18 = getelementptr inbounds i8, ptr %2, i64 24
   %19 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %17) #14
   %20 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %19, i32 noundef %20, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(49) %16, ptr noundef %19, i32 noundef %20, i1 noundef zeroext true) #14
   store ptr %16, ptr %18, align 8
   store ptr %11, ptr %13, align 8
   store ptr %6, ptr %8, align 8
@@ -3925,7 +3925,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #14, !srcloc !9
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #14, !srcloc !9
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
@@ -4363,8 +4363,8 @@ define linkonce_odr hidden void @_ZN39ShenandoahConcurrentRootsEvacUpdateTask4wo
   %7 = alloca %class.CLDToOopClosure, align 8
   %8 = alloca %class.ShenandoahWorkerTimingsTracker, align 8
   %9 = alloca %class.ShenandoahEvacUpdateCodeCacheClosure, align 8
-  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef %1) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %4, i8 0, i64 19, i1 false)
+  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %1) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 19, i1 false)
   %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1697), align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %_ZN33ShenandoahConcurrentWorkerSessionC2Ej.exit, label %12
@@ -4527,19 +4527,19 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1EL
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef %7) #14
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = add i32 %1, 2
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef %12) #14
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext true) #14
   %16 = getelementptr inbounds i8, ptr %0, i64 144
   %17 = add i32 %1, 3
   %18 = getelementptr inbounds i8, ptr %2, i64 24
   %19 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef %17) #14
   %20 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext true) #14
-  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %19, i32 noundef %20, i1 noundef zeroext true) #14
+  tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(49) %16, ptr noundef %19, i32 noundef %20, i1 noundef zeroext true) #14
   store ptr %16, ptr %18, align 8
   store ptr %11, ptr %13, align 8
   store ptr %6, ptr %8, align 8

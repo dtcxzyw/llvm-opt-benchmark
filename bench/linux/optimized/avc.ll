@@ -1444,7 +1444,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
 146:                                              ; preds = %141, %138
   %147 = getelementptr inbounds i8, ptr %8, i64 12
   %148 = load i32, ptr %147, align 4
-  call fastcc void @avc_update_node(i32 noundef 1, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %148, ptr noundef null, i32 noundef 2)
+  call fastcc void @avc_update_node(i32 noundef 1, i32 noundef range(i32 1, 0) %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %148, ptr noundef null, i32 noundef 2)
   br label %avc_denied.exit
 
 avc_denied.exit:                                  ; preds = %146, %141, %132

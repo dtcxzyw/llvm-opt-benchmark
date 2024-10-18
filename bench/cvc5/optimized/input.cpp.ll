@@ -325,7 +325,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc516CVC5ApiExceptionE, i64 16), ptr %this, align 8
   %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #12
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   ret void
 }
 
@@ -388,7 +388,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc516CVC5ApiExceptionE, i64 16), ptr %this, align 8
   %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #12
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }

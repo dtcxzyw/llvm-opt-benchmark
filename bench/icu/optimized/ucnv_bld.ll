@@ -1531,8 +1531,8 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i)
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %tempConverter.i)
   tail call void @ucln_common_registerCleanup_75(i32 noundef 21, ptr noundef nonnull @_ZL12ucnv_cleanupv)
-  %call.i = tail call ptr @ucnv_openAllNames_75(ptr noundef nonnull %pErrorCode)
-  %call1.i = tail call i32 @uenum_count_75(ptr noundef %call.i, ptr noundef nonnull %pErrorCode)
+  %call.i = tail call ptr @ucnv_openAllNames_75(ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
+  %call1.i = tail call i32 @uenum_count_75(ptr noundef %call.i, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
   %2 = load i32, ptr %pErrorCode, align 4
   %cmp.i.i2 = icmp slt i32 %2, 1
   br i1 %cmp.i.i2, label %if.end.i3, label %_ZL27initAvailableConvertersListR10UErrorCode.exit

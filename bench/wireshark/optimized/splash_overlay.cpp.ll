@@ -1458,7 +1458,7 @@ define void @_ZN13SplashOverlayD0Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZThn16_N13SplashOverlayD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN13SplashOverlayD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %2) #12
   ret void
 }
 

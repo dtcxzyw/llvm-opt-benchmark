@@ -224,7 +224,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 
 "_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h380290a9ebab3874E.llvm.879589673345173508.exit": ; preds = %18, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$std..io..error..Error$GT$$GT$17hd098d8c7501ef00fE.llvm.5672684187459784779.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !alias.scope !35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !alias.scope !35
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %16, ptr %28, align 8, !alias.scope !30, !noalias !33
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -549,7 +549,7 @@ define hidden void @"_ZN10vfs_notify11NotifyActor3run28_$u7b$$u7b$closure$u7d$$u
 .critedge:                                        ; preds = %48, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h31574c6dc455f367E.exit", %21, %23
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !107
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %75 = getelementptr inbounds i8, ptr %4, i64 8
   %76 = load i64, ptr %75, align 8, !range !9, !noalias !107, !noundef !4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %76, 0
@@ -1017,7 +1017,7 @@ common.resume:                                    ; preds = %39, %21
 .critedge.thread:                                 ; preds = %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfded72499c08cbc3E.exit.backedge.i", %90, %.critedge, %75, %59
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !192
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   %78 = getelementptr inbounds i8, ptr %4, i64 8
   %79 = load i64, ptr %78, align 8, !range !9, !noalias !192, !noundef !4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %79, 0
@@ -1071,7 +1071,7 @@ common.resume:                                    ; preds = %39, %21
 105:                                              ; preds = %.lr.ph.i
   %106 = getelementptr i8, ptr %102, i64 8
   %.val3.i = load ptr, ptr %106, align 8, !noalias !209, !nonnull !4, !noundef !4
-  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val3.i, ptr nonnull readonly %spec.select, i64 %spec.select33), !alias.scope !213, !noalias !209
+  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val3.i, ptr nonnull readonly align 1 %spec.select, i64 %spec.select33), !alias.scope !213, !noalias !209
   %.not.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3a7fa12e6ab3ecc4E.exit", label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfded72499c08cbc3E.exit.backedge.i"
 

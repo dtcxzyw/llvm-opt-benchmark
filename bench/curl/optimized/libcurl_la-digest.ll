@@ -212,7 +212,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.21) #11
+  %call.i.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) @.str.21) #11
   %tobool.not.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.not.i, label %return, label %if.end.i.i
 
@@ -253,7 +253,7 @@ auth_digest_get_key_value.exit.i:                 ; preds = %switch.early.test.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %auth_digest_get_key_value.exit.i, %auth_digest_get_key_value.exit.thread75.i
-  %call.i6.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #11
+  %call.i6.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) @.str.22) #11
   %tobool.not.i7.not.i = icmp eq ptr %call.i6.i, null
   br i1 %tobool.not.i7.not.i, label %if.then6.i, label %if.end.i8.i
 
@@ -298,7 +298,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then6.i, %auth_digest_get_key_value.exit28.i, %auth_digest_get_key_value.exit28.thread78.i
-  %call.i29.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.24) #11
+  %call.i29.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) @.str.24) #11
   %tobool.not.i30.not.i = icmp eq ptr %call.i29.i, null
   br i1 %tobool.not.i30.not.i, label %return, label %if.end.i31.i
 
@@ -339,7 +339,7 @@ auth_digest_get_key_value.exit51.i:               ; preds = %switch.early.test85
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %auth_digest_get_key_value.exit51.i, %auth_digest_get_key_value.exit51.thread81.i
-  %call.i52.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(1) @.str.25) #11
+  %call.i52.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) @.str.25) #11
   %tobool.not.i53.not.i = icmp eq ptr %call.i52.i, null
   br i1 %tobool.not.i53.not.i, label %return, label %if.end.i54.i
 

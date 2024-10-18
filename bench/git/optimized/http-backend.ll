@@ -1763,12 +1763,12 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i4, label %if.then.i12, label %if.end.i5
 
 if.then.i12:                                      ; preds = %if.else
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.80, i64 noundef %3, i64 noundef %req_len) #19
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.80, i64 noundef %3, i64 noundef range(i64 0, -9223372036854775808) %req_len) #19
   unreachable
 
 if.end.i5:                                        ; preds = %if.else
-  %call.i6 = tail call ptr @xmalloc(i64 noundef %req_len) #18
-  %call1.i7 = tail call i64 @read_in_full(i32 noundef 0, ptr noundef %call.i6, i64 noundef %req_len) #18
+  %call.i6 = tail call ptr @xmalloc(i64 noundef range(i64 0, -9223372036854775808) %req_len) #18
+  %call1.i7 = tail call i64 @read_in_full(i32 noundef 0, ptr noundef %call.i6, i64 noundef range(i64 0, -9223372036854775808) %req_len) #18
   %cmp2.i8 = icmp slt i64 %call1.i7, 0
   br i1 %cmp2.i8, label %if.then3.i11, label %if.end4.i9
 

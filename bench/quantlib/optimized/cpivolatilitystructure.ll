@@ -1892,11 +1892,11 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %0 = load ptr, ptr %vfn.i, align 8
-  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this)
+  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %1 = load ptr, ptr %vfn3.i, align 8
-  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(64) %this)
+  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(68) %this)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -2397,11 +2397,11 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %0 = load ptr, ptr %vfn.i, align 8
-  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this)
+  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %1 = load ptr, ptr %vfn3.i, align 8
-  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(64) %this)
+  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(68) %this)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry

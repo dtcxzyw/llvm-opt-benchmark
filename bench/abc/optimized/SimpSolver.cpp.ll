@@ -262,7 +262,7 @@ define void @_ZN5Gluco10SimpSolverC2Ev(ptr noundef nonnull align 8 dereferenceab
   %32 = getelementptr inbounds i8, ptr %0, i64 1384
   %33 = getelementptr inbounds i8, ptr %0, i64 1416
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
-  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef 1)
+  invoke void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef 1)
           to label %34 unwind label %54
 
 34:                                               ; preds = %1
@@ -1054,7 +1054,7 @@ _ZN5Gluco3vecIiE4pushERKi.exit8:                  ; preds = %._ZN5Gluco3vecIiE4p
   %129 = getelementptr inbounds i8, ptr %0, i64 1304
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %130 = add nsw i32 %5, 1
-  tail call void @_ZN5Gluco3vecINS0_IjEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %129, i32 noundef %130)
+  tail call void @_ZN5Gluco3vecINS0_IjEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %129, i32 noundef %130)
   %131 = getelementptr inbounds i8, ptr %0, i64 1320
   store i8 0, ptr %4, align 1
   call void @_ZN5Gluco3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %131, i32 noundef %130, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -1945,7 +1945,7 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE5clearEb.exit35: ; preds = %._crit_edge.i
   br label %_ZN5Gluco5QueueIjE5clearEb.exit
 
 _ZN5Gluco5QueueIjE5clearEb.exit:                  ; preds = %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE5clearEb.exit35, %.preheader.i.i37
-  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %183, i32 noundef 1)
+  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %183, i32 noundef 1)
   %187 = getelementptr inbounds i8, ptr %0, i64 1436
   store i32 0, ptr %187, align 4
   %188 = getelementptr inbounds i8, ptr %0, i64 1432
@@ -4032,7 +4032,7 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver24backwardSubsumptionCheckEb(ptr
   br label %_ZN5Gluco5QueueIjE5clearEb.exit
 
 _ZN5Gluco5QueueIjE5clearEb.exit:                  ; preds = %32, %.preheader.i.i
-  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 1)
+  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 1)
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 8
   %34 = load i32, ptr %8, align 8
@@ -6270,7 +6270,7 @@ define void @_ZN5Gluco10SimpSolver8relocAllERNS_15ClauseAllocatorE(ptr noundef n
   %70 = load ptr, ptr %1, align 8
   %71 = zext i32 %58 to i64
   %72 = shl nuw nsw i64 %71, 2
-  %73 = tail call ptr @realloc(ptr noundef %70, i64 noundef %72) #27
+  %73 = tail call ptr @realloc(ptr noundef %70, i64 noundef range(i64 0, 17179869181) %72) #27
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %_ZN5GlucoL8xreallocEPvm.exit.i
 
@@ -6687,8 +6687,8 @@ define void @_ZN5Gluco10SimpSolver14garbageCollectEv(ptr noundef nonnull align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 880
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  call void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %8)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, i8 0, i64 20, i1 false)
+  call void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %2, i32 noundef %8)
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   store i8 0, ptr %9, align 4
   call void @_ZN5Gluco10SimpSolver14cleanUpClausesEv(ptr noundef nonnull align 8 dereferenceable(1484) %0)
@@ -6862,7 +6862,7 @@ _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE5clearEb.exit: ; preds = %._crit_edge.i, 
   br label %_ZN5Gluco5QueueIjE5clearEb.exit
 
 _ZN5Gluco5QueueIjE5clearEb.exit:                  ; preds = %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE5clearEb.exit, %.preheader.i.i7
-  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef 1)
+  tail call void @_ZN5Gluco3vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %37, i32 noundef 1)
   %40 = getelementptr inbounds i8, ptr %0, i64 1436
   store i32 0, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %0, i64 1432
@@ -8097,7 +8097,7 @@ define linkonce_odr void @_ZN5Gluco15RegionAllocatorIjE8capacityEj(ptr noundef n
   %17 = load ptr, ptr %0, align 8
   %18 = zext i32 %5 to i64
   %19 = shl nuw nsw i64 %18, 2
-  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef %19) #27
+  %20 = tail call ptr @realloc(ptr noundef %17, i64 noundef range(i64 0, 17179869181) %19) #27
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_ZN5GlucoL8xreallocEPvm.exit
 

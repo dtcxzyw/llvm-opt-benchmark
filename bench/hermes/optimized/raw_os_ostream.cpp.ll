@@ -52,11 +52,11 @@ entry:
   br i1 %cmp.not.i.i, label %_ZN4llvh14raw_os_ostreamD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZN4llvh11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(36) %this) #4
+  tail call void @_ZN4llvh11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4
   br label %_ZN4llvh14raw_os_ostreamD2Ev.exit
 
 _ZN4llvh14raw_os_ostreamD2Ev.exit:                ; preds = %entry, %if.then.i.i
-  tail call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #4
+  tail call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #4
   tail call void @_ZdlPv(ptr noundef nonnull %this) #5
   ret void
 }

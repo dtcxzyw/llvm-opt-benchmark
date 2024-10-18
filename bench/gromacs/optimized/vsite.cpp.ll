@@ -544,7 +544,7 @@ define void @_ZNK3gmx19VirtualSitesHandler4Impl9constructENS_8ArrayRefINS_11Basi
 
 75:                                               ; preds = %69
   call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %23, i32 %70)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 5, ptr nonnull @_ZN3gmxL16construct_vsitesILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVelocityE0EEEvPKNS_13ThreadingInfoENS_8ArrayRefINS_11BasicVectorIfEEEES9_NS6_IK9t_iparamsEENS6_IK15InteractionListEERKNS_10DomainInfoEPA3_Kf.omp_outlined, ptr nonnull %17, ptr nonnull %15, ptr nonnull %16, ptr nonnull %21, ptr nonnull %19)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 5, ptr nonnull @_ZN3gmxL16construct_vsitesILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVelocityE0EEEvPKNS_13ThreadingInfoENS_8ArrayRefINS_11BasicVectorIfEEEES9_NS6_IK9t_iparamsEENS6_IK15InteractionListEERKNS_10DomainInfoEPA3_Kf.omp_outlined, ptr nonnull %17, ptr nonnull %15, ptr nonnull %16, ptr nonnull align 8 %21, ptr nonnull %19)
   %76 = load ptr, ptr %15, align 8
   %77 = load ptr, ptr %50, align 8
   %78 = ptrtoint ptr %77 to i64
@@ -657,7 +657,7 @@ _ZN3gmxL16construct_vsitesILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVe
 
 137:                                              ; preds = %131
   call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %23, i32 %132)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 5, ptr nonnull @_ZN3gmxL16construct_vsitesILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVelocityE0EEEvPKNS_13ThreadingInfoENS_8ArrayRefINS_11BasicVectorIfEEEES9_NS6_IK9t_iparamsEENS6_IK15InteractionListEERKNS_10DomainInfoEPA3_Kf.omp_outlined, ptr nonnull %10, ptr nonnull %8, ptr nonnull %9, ptr nonnull %14, ptr nonnull %12)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 5, ptr nonnull @_ZN3gmxL16construct_vsitesILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVelocityE0EEEvPKNS_13ThreadingInfoENS_8ArrayRefINS_11BasicVectorIfEEEES9_NS6_IK9t_iparamsEENS6_IK15InteractionListEERKNS_10DomainInfoEPA3_Kf.omp_outlined, ptr nonnull %10, ptr nonnull %8, ptr nonnull %9, ptr nonnull align 8 %14, ptr nonnull %12)
   %138 = load ptr, ptr %8, align 8
   %139 = load ptr, ptr %112, align 8
   %140 = ptrtoint ptr %139 to i64
@@ -810,7 +810,7 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA121_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(121) %1, i8 noundef zeroext %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.38", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(121) %1) #10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #10
@@ -856,7 +856,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA121_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #10
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #10
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -881,7 +881,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #10
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #10
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
@@ -12188,7 +12188,7 @@ define void @_ZN3gmx13ThreadingInfoC2Ev(ptr noundef nonnull align 8 dereferencea
   %22 = getelementptr inbounds i8, ptr %15, i64 5192
   store i32 0, ptr %22, align 8, !noalias !85
   %23 = getelementptr inbounds i8, ptr %15, i64 5200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2316) %18, i8 0, i64 2316, i1 false), !noalias !85
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %18, i8 0, i64 2316, i1 false), !noalias !85
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, i8 0, i64 72, i1 false), !noalias !85
   store i32 -1, ptr %15, align 8, !noalias !85
   %24 = getelementptr inbounds i8, ptr %15, i64 4
@@ -12434,7 +12434,7 @@ define internal void @_ZN3gmx13ThreadingInfoC2Ev.omp_outlined(ptr noalias nocapt
   %26 = getelementptr inbounds i8, ptr %19, i64 5192
   store i32 0, ptr %26, align 8, !noalias !94
   %27 = getelementptr inbounds i8, ptr %19, i64 5200
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2316) %22, i8 0, i64 2316, i1 false), !noalias !94
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %22, i8 0, i64 2316, i1 false), !noalias !94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %27, i8 0, i64 72, i1 false), !noalias !94
   store i32 -1, ptr %19, align 8, !noalias !94
   %28 = getelementptr inbounds i8, ptr %19, i64 4

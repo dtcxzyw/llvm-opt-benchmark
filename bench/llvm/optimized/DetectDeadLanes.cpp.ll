@@ -109,16 +109,16 @@ define dso_local void @_ZN4llvm16DeadLaneDetectorC2EPKNS_19MachineRegisterInfoEP
   store ptr %9, ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = getelementptr inbounds i8, ptr %0, i64 120
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef 6) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %19, ptr noundef nonnull %20, i64 noundef 6) #15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %23 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %23, i64 noundef 6) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %22, ptr noundef nonnull %23, i64 noundef 6) #15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #15
+  %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %25) #15
   %27 = trunc i64 %26 to i32
   %28 = shl i64 %26, 4
   %29 = and i64 %28, 68719476720
@@ -151,7 +151,7 @@ _ZNSt10unique_ptrIA_N4llvm16DeadLaneDetector8VRegInfoESt14default_deleteIS3_EED2
   %37 = shl nsw i64 -1, %36
   %38 = xor i64 %37, -1
   %39 = load ptr, ptr %19, align 8
-  %40 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #15
+  %40 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %19) #15
   %41 = getelementptr inbounds i64, ptr %39, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -8
   %43 = load i64, ptr %42, align 8
@@ -164,7 +164,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %35, %_ZNSt10unique_
   %45 = add i64 %26, 63
   %46 = lshr i64 %45, 6
   %47 = and i64 %46, 67108863
-  tail call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %47, i64 noundef 0)
+  tail call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(68) %19, i64 noundef %47, i64 noundef 0)
   %48 = load i32, ptr %21, align 8
   %49 = and i32 %48, 63
   %.not.i.i.i = icmp eq i32 %49, 0
@@ -175,7 +175,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %35, %_ZNSt10unique_
   %52 = shl nsw i64 -1, %51
   %53 = xor i64 %52, -1
   %54 = load ptr, ptr %19, align 8
-  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #15
+  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %19) #15
   %56 = getelementptr inbounds i64, ptr %54, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -8
   %58 = load i64, ptr %57, align 8
@@ -194,7 +194,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm9BitVector1
   %64 = shl nsw i64 -1, %63
   %65 = xor i64 %64, -1
   %66 = load ptr, ptr %22, align 8
-  %67 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #15
+  %67 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %22) #15
   %68 = getelementptr inbounds i64, ptr %66, i64 %67
   %69 = getelementptr inbounds i8, ptr %68, i64 -8
   %70 = load i64, ptr %69, align 8
@@ -204,7 +204,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm9BitVector1
 
 _ZN4llvm9BitVector15set_unused_bitsEb.exit.i7:    ; preds = %62, %_ZN4llvm9BitVector6resizeEjb.exit
   store i32 %27, ptr %24, align 8
-  tail call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(16) %22, i64 noundef %47, i64 noundef 0)
+  tail call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(68) %22, i64 noundef %47, i64 noundef 0)
   %72 = load i32, ptr %24, align 8
   %73 = and i32 %72, 63
   %.not.i.i.i8 = icmp eq i32 %73, 0
@@ -215,7 +215,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i7:    ; preds = %62, %_ZN4llvm9BitVe
   %76 = shl nsw i64 -1, %75
   %77 = xor i64 %76, -1
   %78 = load ptr, ptr %22, align 8
-  %79 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #15
+  %79 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %22) #15
   %80 = getelementptr inbounds i64, ptr %78, i64 %79
   %81 = getelementptr inbounds i8, ptr %80, i64 -8
   %82 = load i64, ptr %81, align 8
@@ -1345,7 +1345,7 @@ define dso_local void @_ZN4llvm29initializeDetectDeadLanesPassERNS_12PassRegistr
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL33InitializeDetectDeadLanesPassFlag, ptr noundef nonnull @__once_proxy) #15
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL33InitializeDetectDeadLanesPassFlag, ptr noundef nonnull @__once_proxy) #15
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -1388,7 +1388,7 @@ define dso_local void @_ZN4llvm16DeadLaneDetector29computeSubRegisterLaneBitInfo
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
+  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %5) #15
   %7 = and i64 %6, 4294967295
   %.not53 = icmp eq i64 %7, 0
   br i1 %.not53, label %.preheader, label %.lr.ph
@@ -2218,13 +2218,13 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115DetectDeadLanesD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #15
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115DetectDeadLanesD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #15
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #16
   ret void
 }
@@ -2831,7 +2831,7 @@ declare void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16DeadLaneDetectorD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %2) #15
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = icmp eq ptr %4, %5
@@ -2843,7 +2843,7 @@ define linkonce_odr hidden void @_ZN4llvm16DeadLaneDetectorD2Ev(ptr noundef nonn
 
 _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %8) #15
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 120
   %12 = icmp eq ptr %10, %11

@@ -177,7 +177,7 @@ call4.i.noexc.us:                                 ; preds = %if.end.us41
   store i64 %5, ptr %abs_timeout.i, align 8
   %6 = extractvalue { i64, i64 } %call4.i7.us, 1
   store i64 %6, ptr %3, align 8
-  %call7.i8.us = invoke i32 @pthread_cond_timedwait(ptr noundef nonnull %cv_5.i, ptr noundef nonnull %this, ptr noundef nonnull %abs_timeout.i)
+  %call7.i8.us = invoke i32 @pthread_cond_timedwait(ptr noundef nonnull %cv_5.i, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %abs_timeout.i)
           to label %invoke.cont16.us unwind label %lpad.loopexit.split.split.us
 
 invoke.cont16.us:                                 ; preds = %call4.i.noexc.us
@@ -241,7 +241,7 @@ call2.i.noexc:                                    ; preds = %if.end
   store i64 %11, ptr %abs_clock_timeout.i, align 8
   %12 = extractvalue { i64, i64 } %call2.i5, 1
   store i64 %12, ptr %2, align 8
-  %call3.i6 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %cv_5.i, ptr noundef nonnull %this, i32 noundef 1, ptr noundef nonnull %abs_clock_timeout.i)
+  %call3.i6 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %cv_5.i, ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef 1, ptr noundef nonnull %abs_clock_timeout.i)
           to label %invoke.cont16 unwind label %lpad.loopexit.split.split
 
 invoke.cont16:                                    ; preds = %call2.i.noexc

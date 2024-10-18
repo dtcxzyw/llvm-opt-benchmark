@@ -171,7 +171,7 @@ entry:
   %1 = load i64, ptr %worker, align 8
   store i64 %1, ptr %_M_storage.i.i.i.i, align 8
   store ptr null, ptr %worker, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %workers_) #23
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %workers_) #23
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %2, 1
@@ -251,7 +251,7 @@ entry:
   %1 = load i64, ptr %worker, align 8
   store i64 %1, ptr %_M_storage.i.i.i.i, align 8
   store ptr null, ptr %worker, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %workers_) #23
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %workers_) #23
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %2, 1
@@ -1094,7 +1094,7 @@ _ZN5folly3f146detail10BasePolicyIPN8proxygen7ServiceEPNS3_13ServiceWorkerEvvvSt4
 for.body.i:                                       ; preds = %_ZN5folly3f146detail10BasePolicyIPN8proxygen7ServiceEPNS3_13ServiceWorkerEvvvSt4pairIKS5_S7_EE12beforeRehashEmmmmRPh.exit, %for.body.i
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN5folly3f146detail10BasePolicyIPN8proxygen7ServiceEPNS3_13ServiceWorkerEvvvSt4pairIKS5_S7_EE12beforeRehashEmmmmRPh.exit ]
   %arrayidx.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i2.i.i1.i, i64 %i.06.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %arrayidx.i, i8 0, i64 16, i1 false)
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %newChunkCount
   br i1 %exitcond.not.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPN8proxygen7ServiceEPNS4_13ServiceWorkerEvvvEEE16initializeChunksEPhmm.exit.loopexit, label %for.body.i, !llvm.loop !17

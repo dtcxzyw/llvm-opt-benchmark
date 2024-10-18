@@ -13416,7 +13416,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %73 = load i64, ptr %5, align 8
   %74 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %74, i64 noundef %73) #25
-  %75 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %74, i1 noundef zeroext false)
+  %75 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %74, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %74) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %75) #25
   %76 = getelementptr inbounds i8, ptr %27, i64 -24
@@ -13619,7 +13619,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %206 = load i64, ptr %5, align 8
   %207 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %207, i64 noundef %206) #25
-  %208 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %207, i1 noundef zeroext false)
+  %208 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %207, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %207) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %208) #25
   %209 = load ptr, ptr %94, align 8
@@ -13684,7 +13684,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %260 = load i64, ptr %5, align 8
   %261 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %261, i64 noundef %260) #25
-  %262 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %261, i1 noundef zeroext false)
+  %262 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %261, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %261) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %262) #25
   %263 = load ptr, ptr %94, align 8
@@ -13743,7 +13743,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %305 = load i64, ptr %304, align 8
   %306 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %306, i64 noundef %305) #25
-  %307 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %306, i1 noundef zeroext false)
+  %307 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %306, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %306) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %307) #25
   %308 = load ptr, ptr %174, align 8
@@ -13867,7 +13867,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %388 = load i64, ptr %378, align 8
   %389 = call ptr @timelib_time_ctor() #25
   call void @timelib_unixtime2gmt(ptr noundef %389, i64 noundef %388) #25
-  %390 = call fastcc ptr @date_format(ptr noundef nonnull readonly @.str.63, i64 noundef 13, ptr noundef %389, i1 noundef zeroext false)
+  %390 = call fastcc ptr @date_format(ptr noundef nonnull @.str.63, i64 noundef 13, ptr noundef %389, i1 noundef zeroext false)
   call void @timelib_time_dtor(ptr noundef %389) #25
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 4, ptr noundef %390) #25
   %391 = load ptr, ptr %352, align 8
@@ -21005,7 +21005,7 @@ create_date_period_datetime.exit:                 ; preds = %10, %16
   %21 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 5, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %22, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.357, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %22, ptr noundef nonnull align 1 dereferenceable(5) @.str.357, i64 5, i1 false)
   %23 = getelementptr inbounds i8, ptr %18, i64 29
   store i8 0, ptr %23, align 1
   %24 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21067,7 +21067,7 @@ create_date_period_datetime.exit23:               ; preds = %38, %44
   %49 = getelementptr inbounds i8, ptr %46, i64 16
   store i64 7, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %46, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %50, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.358, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %50, ptr noundef nonnull align 1 dereferenceable(7) @.str.358, i64 7, i1 false)
   %51 = getelementptr inbounds i8, ptr %46, i64 31
   store i8 0, ptr %51, align 1
   %52 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %46, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21129,7 +21129,7 @@ create_date_period_datetime.exit28:               ; preds = %66, %72
   %77 = getelementptr inbounds i8, ptr %74, i64 16
   store i64 3, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %74, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %78, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.359, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %78, ptr noundef nonnull align 1 dereferenceable(3) @.str.359, i64 3, i1 false)
   %79 = getelementptr inbounds i8, ptr %74, i64 27
   store i8 0, ptr %79, align 1
   %80 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %74, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21241,7 +21241,7 @@ write_date_period_property.exit35:                ; preds = %create_date_period_
   %128 = getelementptr inbounds i8, ptr %125, i64 16
   store i64 11, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %125, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %129, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.360, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %129, ptr noundef nonnull align 1 dereferenceable(11) @.str.360, i64 11, i1 false)
   %130 = getelementptr inbounds i8, ptr %125, i64 35
   store i8 0, ptr %130, align 1
   %131 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %125, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21288,7 +21288,7 @@ write_date_period_property.exit38:                ; preds = %write_date_period_p
   %150 = getelementptr inbounds i8, ptr %147, i64 16
   store i64 18, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %147, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %151, ptr noundef nonnull readonly align 1 dereferenceable(18) @.str.361, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %151, ptr noundef nonnull align 1 dereferenceable(18) @.str.361, i64 18, i1 false)
   %152 = getelementptr inbounds i8, ptr %147, i64 42
   store i8 0, ptr %152, align 1
   %153 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %147, ptr noundef nonnull %2, ptr noundef null) #25
@@ -21335,7 +21335,7 @@ write_date_period_property.exit41:                ; preds = %write_date_period_p
   %172 = getelementptr inbounds i8, ptr %169, i64 16
   store i64 16, ptr %172, align 8
   %173 = getelementptr inbounds i8, ptr %169, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.362, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 1 dereferenceable(16) @.str.362, i64 16, i1 false)
   %174 = getelementptr inbounds i8, ptr %169, i64 40
   store i8 0, ptr %174, align 1
   %175 = call ptr @zend_std_write_property(ptr noundef nonnull %3, ptr noundef nonnull %169, ptr noundef nonnull %2, ptr noundef null) #25

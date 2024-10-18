@@ -31,7 +31,7 @@ define hidden void @_ZN12clap_builder7builder14possible_value13PossibleValue5ali
           to label %22 unwind label %20
 
 11:                                               ; preds = %4
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbe645b1c967f4b4aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %6)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbe645b1c967f4b4aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %6)
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %11

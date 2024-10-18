@@ -1417,7 +1417,7 @@ _ZL11TestSignCtxv.exit.thread:                    ; preds = %_ZL17PrivateKeyFrom
   br label %return
 
 if.end.i64:                                       ; preds = %_ZL17PrivateKeyFromPEMPKc.exit.i
-  invoke void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i)
+  invoke void @EVP_MD_CTX_init(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %invoke.cont.i68 unwind label %lpad.i65
 
 invoke.cont.i68:                                  ; preds = %if.end.i64
@@ -1452,7 +1452,7 @@ lpad.i65:                                         ; preds = %if.end.i64
 lpad1.i69:                                        ; preds = %lor.lhs.false37.i, %invoke.cont32.i, %lor.lhs.false31.i, %lor.lhs.false27.i, %invoke.cont21.i, %invoke.cont18.i, %call.i3.noexc.i, %if.end17.i, %lor.lhs.false.i, %invoke.cont4.i71, %invoke.cont.i68
   %123 = landingpad { ptr, i32 }
           cleanup
-  %call.i.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i)
+  %call.i.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %ehcleanup.i66 unwind label %terminate.lpad.i.i70
 
 terminate.lpad.i.i70:                             ; preds = %lpad1.i69
@@ -1463,11 +1463,11 @@ terminate.lpad.i.i70:                             ; preds = %lpad1.i69
   unreachable
 
 if.end17.i:                                       ; preds = %invoke.cont12.i73
-  %call.i34.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i)
+  %call.i34.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %call.i3.noexc.i unwind label %lpad1.i69
 
 call.i3.noexc.i:                                  ; preds = %if.end17.i
-  invoke void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i)
+  invoke void @EVP_MD_CTX_init(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %invoke.cont18.i unwind label %lpad1.i69
 
 invoke.cont18.i:                                  ; preds = %call.i3.noexc.i
@@ -1518,7 +1518,7 @@ if.then43.i:                                      ; preds = %invoke.cont41.i, %i
 
 cleanup.i:                                        ; preds = %if.then43.i, %invoke.cont41.i, %if.then14.i
   %retval.1.i = phi i1 [ false, %if.then43.i ], [ false, %if.then14.i ], [ true, %invoke.cont41.i ]
-  %call.i5.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i)
+  %call.i5.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %if.then.i.i75 unwind label %terminate.lpad.i6.i74
 
 terminate.lpad.i6.i74:                            ; preds = %cleanup.i

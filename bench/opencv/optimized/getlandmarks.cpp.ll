@@ -876,7 +876,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit: ; preds = %_ZSt8_
   %145 = ptrtoint ptr %144 to i64
   %146 = ptrtoint ptr %142 to i64
   %147 = sub i64 %145, %146
-  %148 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %142, i64 noundef %147)
+  %148 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull %142, i64 noundef %147)
           to label %_ZN2cv4face18FacemarkKazemiImpl10readPixelsERSt14basic_ifstreamIcSt11char_traitsIcEEm.exit unwind label %.loopexit159
 
 _ZN2cv4face18FacemarkKazemiImpl10readPixelsERSt14basic_ifstreamIcSt11char_traitsIcEEm.exit: ; preds = %139
@@ -1213,7 +1213,7 @@ _ZNKSt6vectorIN2cv4face9tree_nodeESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = 
   %.0911.i.i.i.i.i = phi ptr [ %287, %.lr.ph.i.i.i.i.i105 ], [ %253, %.noexc108 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i, i64 24, i1 false), !alias.scope !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i.i.i, i64 24, i1 false), !alias.scope !21
   %278 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 24
   %279 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 24
   %280 = load ptr, ptr %279, align 8, !alias.scope !19, !noalias !16
@@ -1316,20 +1316,20 @@ _ZNSt6vectorIN2cv4face9tree_nodeESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__unin
 
 315:                                              ; preds = %311
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %316 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %39, i64 noundef 8)
+  %316 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef 8)
           to label %.noexc65 unwind label %.loopexit149
 
 .noexc65:                                         ; preds = %315
-  %317 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %220, i64 noundef 8)
+  %317 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull %220, i64 noundef 8)
           to label %.noexc66 unwind label %.loopexit149
 
 .noexc66:                                         ; preds = %.noexc65
-  %318 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %221, i64 noundef 4)
+  %318 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull %221, i64 noundef 4)
           to label %.noexc67 unwind label %.loopexit149
 
 .noexc67:                                         ; preds = %.noexc66
   store i32 0, ptr %4, align 4
-  %319 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %4, i64 noundef 4)
+  %319 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull %4, i64 noundef 4)
           to label %320 unwind label %.loopexit149
 
 320:                                              ; preds = %.noexc67
@@ -1362,7 +1362,7 @@ _ZNSt6vectorIN2cv4face9tree_nodeESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__unin
 326:                                              ; preds = %323
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %327 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %3, i64 noundef 8)
+  %327 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull %3, i64 noundef 8)
           to label %.noexc70 unwind label %.loopexit144
 
 .noexc70:                                         ; preds = %326
@@ -1376,7 +1376,7 @@ _ZNSt6vectorIN2cv4face9tree_nodeESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__unin
   %331 = ptrtoint ptr %330 to i64
   %332 = ptrtoint ptr %329 to i64
   %333 = sub i64 %331, %332
-  %334 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %329, i64 noundef %333)
+  %334 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull %329, i64 noundef %333)
           to label %335 unwind label %.loopexit144
 
 335:                                              ; preds = %.noexc71
@@ -1657,7 +1657,7 @@ _ZNSt16allocator_traitsISaIN2cv4face9tree_nodeEEE8allocateERS3_m.exit.i.i.i.i.i.
 .lr.ph.i:                                         ; preds = %.noexc84, %.loopexit.i
   %.019.i = phi ptr [ %450, %.loopexit.i ], [ %422, %.noexc84 ]
   %.sroa.010.018.i = phi ptr [ %449, %.loopexit.i ], [ %426, %.noexc84 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.019.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.018.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.019.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.010.018.i, i64 24, i1 false)
   %428 = getelementptr inbounds i8, ptr %.019.i, i64 24
   %429 = getelementptr inbounds i8, ptr %.sroa.010.018.i, i64 24
   %430 = getelementptr inbounds i8, ptr %.sroa.010.018.i, i64 32
@@ -2921,7 +2921,7 @@ _ZNSt16allocator_traitsISaIN2cv4face9tree_nodeEEE8allocateERS3_m.exit.i.i.i.i.i.
 .lr.ph.i220:                                      ; preds = %.noexc114, %.loopexit.i
   %.019.i = phi ptr [ %340, %.loopexit.i ], [ %317, %.noexc114 ]
   %.sroa.010.018.i = phi ptr [ %339, %.loopexit.i ], [ %316, %.noexc114 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.019.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.018.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.019.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.010.018.i, i64 24, i1 false)
   %318 = getelementptr inbounds i8, ptr %.019.i, i64 24
   %319 = getelementptr inbounds i8, ptr %.sroa.010.018.i, i64 24
   %320 = getelementptr inbounds i8, ptr %.sroa.010.018.i, i64 32
@@ -4637,7 +4637,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__no
 .lr.ph:                                           ; preds = %3, %.loopexit
   %.019 = phi ptr [ %26, %.loopexit ], [ %2, %3 ]
   %.sroa.010.018 = phi ptr [ %25, %.loopexit ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.019, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.018, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.019, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.010.018, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %.019, i64 24
   %5 = getelementptr inbounds i8, ptr %.sroa.010.018, i64 24
   %6 = getelementptr inbounds i8, ptr %.sroa.010.018, i64 32

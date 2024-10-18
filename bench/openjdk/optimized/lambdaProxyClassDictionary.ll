@@ -36,7 +36,7 @@ define hidden void @_ZN28DumpTimeLambdaProxyClassInfoD2Ev(ptr nocapture noundef 
 
 7:                                                ; preds = %3
   store i32 0, ptr %2, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP13InstanceKlass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP13InstanceKlass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN13GrowableArrayIP13InstanceKlassED2Ev.exit
 
 _ZN13GrowableArrayIP13InstanceKlassED2Ev.exit:    ; preds = %3, %7
@@ -107,7 +107,7 @@ declare noundef i32 @_ZN22SystemDictionaryShared26hash_for_shared_dictionaryEPh(
 define hidden void @_ZN27RunTimeLambdaProxyClassInfo4initER19LambdaProxyClassKeyR28DumpTimeLambdaProxyClassInfo(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %5 = load ptr, ptr %1, align 8
-  tail call void @_ZN14ArchiveBuilder23write_pointer_in_bufferEPPhS0_(ptr noundef nonnull align 8 dereferenceable(1080) %4, ptr noundef nonnull %0, ptr noundef %5) #4
+  tail call void @_ZN14ArchiveBuilder23write_pointer_in_bufferEPPhS0_(ptr noundef nonnull align 8 dereferenceable(1080) %4, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %5) #4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8

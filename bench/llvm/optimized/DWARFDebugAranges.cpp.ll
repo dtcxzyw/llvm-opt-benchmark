@@ -167,7 +167,7 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %26
   br label %_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE12emplace_backIJRmS6_bEEERS2_DpOT_.exit.i
 
 57:                                               ; preds = %49
-  call void @_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE17_M_realloc_insertIJRmS6_bEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %50, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE17_M_realloc_insertIJRmS6_bEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %50, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %10)
   %.pre.i = load ptr, ptr %22, align 8
   br label %_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE12emplace_backIJRmS6_bEEERS2_DpOT_.exit.i
 
@@ -191,7 +191,7 @@ _ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE12emplace_backIJRm
   br label %_ZN4llvm17DWARFDebugAranges11appendRangeEmmm.exit
 
 66:                                               ; preds = %_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE12emplace_backIJRmS6_bEEERS2_DpOT_.exit.i
-  call void @_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE17_M_realloc_insertIJRmS6_bEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %58, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  call void @_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE17_M_realloc_insertIJRmS6_bEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %58, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %11)
   br label %_ZN4llvm17DWARFDebugAranges11appendRangeEmmm.exit
 
 _ZN4llvm17DWARFDebugAranges11appendRangeEmmm.exit: ; preds = %.lr.ph, %60, %66
@@ -254,7 +254,7 @@ _ZN4llvm17DWARFDebugAranges11appendRangeEmmm.exit: ; preds = %.lr.ph, %60, %66
 
 96:                                               ; preds = %85, %._crit_edge
   %.sink.i.i.i.i = phi ptr [ %86, %85 ], [ null, %._crit_edge ]
-  %97 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E20InsertIntoBucketImplImEEPS7_RKmRKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %.sink.i.i.i.i), !noalias !4
+  %97 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E20InsertIntoBucketImplImEEPS7_RKmRKT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %.sink.i.i.i.i), !noalias !4
   %98 = load i64, ptr %16, align 8, !noalias !4
   store i64 %98, ptr %97, align 8, !noalias !4
   br label %_ZN4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E6insertERKm.exit
@@ -407,7 +407,7 @@ _ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit.i: ; preds = 
   br i1 %or.cond.i.i.i, label %34, label %35
 
 34:                                               ; preds = %28
-  tail call void @_ZN4llvm8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS1_12DenseSetPairImEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %21)
+  tail call void @_ZN4llvm8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS1_12DenseSetPairImEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %21)
   br label %_ZN4llvm17DWARFDebugAranges5clearEv.exit
 
 35:                                               ; preds = %28
@@ -474,7 +474,7 @@ _ZN4llvm17DWARFDebugAranges5clearEv.exit:         ; preds = %_ZNSt6vectorIN4llvm
   br i1 %67, label %68, label %_ZN4llvm12DWARFContext18info_section_unitsEv.exit.i
 
 68:                                               ; preds = %39
-  %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #13, !noalias !12
+  %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %63) #13, !noalias !12
   %70 = trunc i64 %69 to i32
   br label %_ZN4llvm12DWARFContext18info_section_unitsEv.exit.i
 
@@ -568,7 +568,7 @@ _ZN4llvm12DWARFContext13compile_unitsEv.exit:     ; preds = %.lr.ph.i.i.i.i.i, %
 
 118:                                              ; preds = %107, %87
   %.sink.i.i.i.i = phi ptr [ %108, %107 ], [ null, %87 ]
-  %119 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E20InsertIntoBucketImplImEEPS7_RKmRKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i), !noalias !19
+  %119 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E20InsertIntoBucketImplImEEPS7_RKmRKT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i), !noalias !19
   %120 = load i64, ptr %10, align 8, !noalias !19
   store i64 %120, ptr %119, align 8, !noalias !19
   %121 = load ptr, ptr %.sroa.035.055, align 8
@@ -593,7 +593,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 _ZNKSt8functionIFvN4llvm5ErrorEEEclES1_.exit.i:   ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   %128 = load ptr, ptr %86, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %3) #13
+  call void %128(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   %129 = load ptr, ptr %3, align 8
   %130 = icmp eq ptr %129, null
   br i1 %130, label %_ZN4llvm5ErrorD2Ev.exit, label %131
@@ -651,7 +651,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %131, %_ZNKSt8functi
   br label %_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE12emplace_backIJRmS6_bEEERS2_DpOT_.exit.i
 
 150:                                              ; preds = %142
-  call void @_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE17_M_realloc_insertIJRmS6_bEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %143, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE17_M_realloc_insertIJRmS6_bEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %143, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %7)
   %.pre.i = load ptr, ptr %13, align 8
   br label %_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE12emplace_backIJRmS6_bEEERS2_DpOT_.exit.i
 
@@ -675,7 +675,7 @@ _ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE12emplace_backIJRm
   br label %_ZN4llvm17DWARFDebugAranges11appendRangeEmmm.exit
 
 159:                                              ; preds = %_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE12emplace_backIJRmS6_bEEERS2_DpOT_.exit.i
-  call void @_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE17_M_realloc_insertIJRmS6_bEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %151, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE17_M_realloc_insertIJRmS6_bEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %151, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %8)
   br label %_ZN4llvm17DWARFDebugAranges11appendRangeEmmm.exit
 
 _ZN4llvm17DWARFDebugAranges11appendRangeEmmm.exit: ; preds = %.lr.ph, %153, %159
@@ -801,7 +801,7 @@ _ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit: ; preds = %_
   br i1 %or.cond.i.i, label %24, label %25
 
 24:                                               ; preds = %18
-  tail call void @_ZN4llvm8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS1_12DenseSetPairImEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %11)
+  tail call void @_ZN4llvm8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS1_12DenseSetPairImEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
   br label %_ZN4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5clearEv.exit
 
 25:                                               ; preds = %18
@@ -1156,7 +1156,7 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFvNS_5ErrorEEE11callback
 _ZNKSt8functionIFvN4llvm5ErrorEEEclES1_.exit:     ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3) #13
+  call void %10(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   %11 = load ptr, ptr %3, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN4llvm5ErrorD2Ev.exit, label %13

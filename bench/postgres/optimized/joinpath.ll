@@ -491,8 +491,8 @@ list_head.exit.us.i:                              ; preds = %.lr.ph.split.us.i.p
   %254 = call ptr @find_mergeclauses_for_outer_pathkeys(ptr noundef %0, ptr noundef %.097.us.i, ptr noundef %253) #5
   %255 = call ptr @make_inner_pathkeys_for_merge(ptr noundef %0, ptr noundef %254, ptr noundef %.097.us.i) #5
   %256 = call ptr @build_join_pathkeys(ptr noundef %0, ptr noundef %1, i32 noundef %.0.i, ptr noundef %.097.us.i) #5
-  call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %.096.i, ptr noundef %.098.i, ptr noundef %256, ptr noundef %254, ptr noundef %.097.us.i, ptr noundef %255, i32 noundef %.0.i, ptr noundef %8, i1 noundef zeroext false)
-  call fastcc void @try_partial_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.099.i, ptr noundef nonnull %.0100.i, ptr noundef %256, ptr noundef %254, ptr noundef %.097.us.i, ptr noundef %255, i32 noundef %.0.i, ptr noundef %8)
+  call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %.096.i, ptr noundef %.098.i, ptr noundef %256, ptr noundef %254, ptr noundef %.097.us.i, ptr noundef %255, i32 noundef %.0.i, ptr noundef nonnull %8, i1 noundef zeroext false)
+  call fastcc void @try_partial_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.099.i, ptr noundef nonnull %.0100.i, ptr noundef %256, ptr noundef %254, ptr noundef %.097.us.i, ptr noundef %255, i32 noundef %.0.i, ptr noundef nonnull %8)
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i142, 1
   %257 = load i32, ptr %239, align 4
   %258 = sext i32 %257 to i64
@@ -523,7 +523,7 @@ list_head.exit.i:                                 ; preds = %.lr.ph.split.split.
   %270 = call ptr @find_mergeclauses_for_outer_pathkeys(ptr noundef %0, ptr noundef %.097.i, ptr noundef %269) #5
   %271 = call ptr @make_inner_pathkeys_for_merge(ptr noundef %0, ptr noundef %270, ptr noundef %.097.i) #5
   %272 = call ptr @build_join_pathkeys(ptr noundef %0, ptr noundef %1, i32 noundef %.0.i, ptr noundef %.097.i) #5
-  call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %.096.i, ptr noundef %.098.i, ptr noundef %272, ptr noundef %270, ptr noundef %.097.i, ptr noundef %271, i32 noundef %.0.i, ptr noundef %8, i1 noundef zeroext false)
+  call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %.096.i, ptr noundef %.098.i, ptr noundef %272, ptr noundef %270, ptr noundef %.097.i, ptr noundef %271, i32 noundef %.0.i, ptr noundef nonnull %8, i1 noundef zeroext false)
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %273 = load i32, ptr %239, align 4
   %274 = sext i32 %273 to i64
@@ -713,13 +713,13 @@ sort_inner_and_outer.exit.thread:                 ; preds = %268, %.lr.ph.split.
   %359 = load ptr, ptr %356, align 8
   %360 = getelementptr %union.ListCell, ptr %359, i64 %indvars.iv.i111
   %361 = load ptr, ptr %360, align 8
-  call fastcc void @try_nestloop_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0146.i, ptr noundef %361, ptr noundef %351, i32 noundef %.0.i101, ptr noundef %8)
-  %362 = call fastcc ptr @get_memoize_path(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %361, ptr noundef %.0146.i, i32 noundef %.0.i101, ptr noundef %8)
+  call fastcc void @try_nestloop_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0146.i, ptr noundef %361, ptr noundef %351, i32 noundef %.0.i101, ptr noundef nonnull %8)
+  %362 = call fastcc ptr @get_memoize_path(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %361, ptr noundef %.0146.i, i32 noundef %.0.i101, ptr noundef nonnull %8)
   %.not170.i = icmp eq ptr %362, null
   br i1 %.not170.i, label %364, label %363
 
 363:                                              ; preds = %.lr.ph196.i
-  call fastcc void @try_nestloop_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0146.i, ptr noundef nonnull %362, ptr noundef %351, i32 noundef %.0.i101, ptr noundef %8)
+  call fastcc void @try_nestloop_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0146.i, ptr noundef nonnull %362, ptr noundef %351, i32 noundef %.0.i101, ptr noundef nonnull %8)
   br label %364
 
 364:                                              ; preds = %363, %.lr.ph196.i
@@ -734,14 +734,14 @@ sort_inner_and_outer.exit.thread:                 ; preds = %268, %.lr.ph.split.
 
 .sink.split.i:                                    ; preds = %._crit_edge.i110, %348
   %.0147.sink.i = phi ptr [ %.1.i105, %348 ], [ %.0147.i, %._crit_edge.i110 ]
-  call fastcc void @try_nestloop_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0146.i, ptr noundef %.0147.sink.i, ptr noundef %351, i32 noundef %.0.i101, ptr noundef %8)
+  call fastcc void @try_nestloop_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0146.i, ptr noundef %.0147.sink.i, ptr noundef %351, i32 noundef %.0.i101, ptr noundef nonnull %8)
   br label %368
 
 368:                                              ; preds = %.sink.split.i, %._crit_edge.i110, %352
   br i1 %or.cond11.i, label %370, label %369
 
 369:                                              ; preds = %368
-  call fastcc void @generate_mergejoin_paths(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %.0146.i, i32 noundef %4, ptr noundef %8, i1 noundef zeroext %.0143.i, ptr noundef %.1.i105, ptr noundef %351, i1 noundef zeroext false)
+  call fastcc void @generate_mergejoin_paths(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %.0146.i, i32 noundef %4, ptr noundef nonnull %8, i1 noundef zeroext %.0143.i, ptr noundef %.1.i105, ptr noundef %351, i1 noundef zeroext false)
   br label %370
 
 370:                                              ; preds = %369, %368, %343, %338, %332
@@ -781,7 +781,7 @@ switch.early.test.i107:                           ; preds = %._crit_edge200.i
   br i1 %.0142.i, label %384, label %385
 
 384:                                              ; preds = %383
-  call fastcc void @consider_parallel_nestloop(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef %8)
+  call fastcc void @consider_parallel_nestloop(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8)
   br label %385
 
 385:                                              ; preds = %384, %383
@@ -807,7 +807,7 @@ switch.early.test.i107:                           ; preds = %._crit_edge200.i
 .thread189.i:                                     ; preds = %392, %387
   %.2192.i = phi ptr [ %395, %392 ], [ %.1.i105, %387 ]
   %.val.i108 = load ptr, ptr %378, align 8
-  call fastcc void @consider_parallel_mergejoin(ptr noundef %0, ptr noundef nonnull %1, ptr %.val.i108, ptr noundef %3, i32 noundef %4, ptr noundef %8, ptr noundef %.2192.i)
+  call fastcc void @consider_parallel_mergejoin(ptr noundef %0, ptr noundef nonnull %1, ptr %.val.i108, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, ptr noundef %.2192.i)
   br label %match_unsorted_outer.exit
 
 match_unsorted_outer.exit:                        ; preds = %._crit_edge, %.thread189.i, %392, %391, %380, %377, %switch.early.test.i107, %switch.early.test.i107, %switch.early.test.i107, %switch.early.test.i107, %._crit_edge200.i, %.thread172.i
@@ -1043,20 +1043,20 @@ clause_sides_match_join.exit.thread.i117:         ; preds = %481, %476, %472, %4
 .thread231.i:                                     ; preds = %.thread213.i
   %522 = load ptr, ptr %15, align 8
   %523 = call ptr @create_unique_path(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %491, ptr noundef %522) #5
-  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %523, ptr noundef nonnull %493, ptr noundef %.0161.lcssa.i, i32 noundef 0, ptr noundef %8)
+  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %523, ptr noundef nonnull %493, ptr noundef %.0161.lcssa.i, i32 noundef 0, ptr noundef nonnull %8)
   br label %hash_inner_and_outer.exit
 
 524:                                              ; preds = %.thread213.i
   %525 = load ptr, ptr %15, align 8
   %526 = call ptr @create_unique_path(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %493, ptr noundef %525) #5
-  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %491, ptr noundef %526, ptr noundef %.0161.lcssa.i, i32 noundef 0, ptr noundef %8)
+  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %491, ptr noundef %526, ptr noundef %.0161.lcssa.i, i32 noundef 0, ptr noundef nonnull %8)
   %.not198.i = icmp eq ptr %489, null
   %.not199.i = icmp eq ptr %489, %491
   %or.cond202.i = or i1 %.not198.i, %.not199.i
   br i1 %or.cond202.i, label %.thread216.i, label %527
 
 527:                                              ; preds = %524
-  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %489, ptr noundef %526, ptr noundef %.0161.lcssa.i, i32 noundef 0, ptr noundef %8)
+  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %489, ptr noundef %526, ptr noundef %.0161.lcssa.i, i32 noundef 0, ptr noundef nonnull %8)
   br label %.thread216.i
 
 528:                                              ; preds = %.thread213.i
@@ -1064,7 +1064,7 @@ clause_sides_match_join.exit.thread.i117:         ; preds = %481, %476, %472, %4
   br i1 %.not189.i, label %530, label %529
 
 529:                                              ; preds = %528
-  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %489, ptr noundef nonnull %493, ptr noundef %.0161.lcssa.i, i32 noundef %4, ptr noundef %8)
+  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %489, ptr noundef nonnull %493, ptr noundef %.0161.lcssa.i, i32 noundef %4, ptr noundef nonnull %8)
   br label %530
 
 530:                                              ; preds = %529, %528
@@ -1159,7 +1159,7 @@ clause_sides_match_join.exit.thread.i117:         ; preds = %481, %476, %472, %4
   br i1 %577, label %578, label %.thread229.us.i
 
 .thread229.us.i:                                  ; preds = %573, %572, %.lr.ph274.i
-  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %542, ptr noundef nonnull %564, ptr noundef %.0161.lcssa.i, i32 noundef %4, ptr noundef %8)
+  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %542, ptr noundef nonnull %564, ptr noundef %.0161.lcssa.i, i32 noundef %4, ptr noundef nonnull %8)
   br label %578
 
 578:                                              ; preds = %.thread229.us.i, %573, %567
@@ -1208,7 +1208,7 @@ clause_sides_match_join.exit.thread.i117:         ; preds = %481, %476, %472, %4
   br i1 %.old280.i, label %600, label %599
 
 599:                                              ; preds = %.thread229.i, %593
-  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %542, ptr noundef nonnull %584, ptr noundef %.0161.lcssa.i, i32 noundef %4, ptr noundef %8)
+  call fastcc void @try_hashjoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %542, ptr noundef nonnull %584, ptr noundef %.0161.lcssa.i, i32 noundef %4, ptr noundef nonnull %8)
   br label %600
 
 600:                                              ; preds = %599, %.thread229.i, %593, %587
@@ -1266,7 +1266,7 @@ clause_sides_match_join.exit.thread.i117:         ; preds = %481, %476, %472, %4
   %628 = getelementptr i8, ptr %621, i64 16
   %.val205.i = load ptr, ptr %628, align 8
   %629 = load ptr, ptr %.val205.i, align 8
-  call fastcc void @try_partial_hashjoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %619, ptr noundef %629, ptr noundef %.0161.lcssa.i, i32 noundef %.0160.i, ptr noundef %8, i1 noundef zeroext true)
+  call fastcc void @try_partial_hashjoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %619, ptr noundef %629, ptr noundef %.0161.lcssa.i, i32 noundef %.0160.i, ptr noundef nonnull %8, i1 noundef zeroext true)
   br label %630
 
 630:                                              ; preds = %627, %624, %617
@@ -1297,7 +1297,7 @@ clause_sides_match_join.exit.thread.i117:         ; preds = %481, %476, %472, %4
   br i1 %.not201.i, label %hash_inner_and_outer.exit, label %640
 
 640:                                              ; preds = %639
-  call fastcc void @try_partial_hashjoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %619, ptr noundef nonnull %.0.i124, ptr noundef %.0161.lcssa.i, i32 noundef %.0160.i, ptr noundef %8, i1 noundef zeroext false)
+  call fastcc void @try_partial_hashjoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %619, ptr noundef nonnull %.0.i124, ptr noundef %.0161.lcssa.i, i32 noundef %.0160.i, ptr noundef nonnull %8, i1 noundef zeroext false)
   br label %hash_inner_and_outer.exit
 
 hash_inner_and_outer.exit:                        ; preds = %640, %639, %630, %630, %630, %614, %611, %.thread216.i, %.thread231.i, %516, %510, %502, %496, %._crit_edge.i120, %.lr.ph.split.split.i115, %.lr.ph.split.us.split.i, %398, %match_unsorted_outer.exit
@@ -2124,7 +2124,7 @@ define internal fastcc void @consider_parallel_nestloop(ptr noundef %0, ptr noun
   br i1 %58, label %59, label %try_partial_nestloop_path.exit
 
 59:                                               ; preds = %57, %45
-  call void @initial_cost_nestloop(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %spec.store.select, ptr noundef %23, ptr noundef nonnull %.0, ptr noundef nonnull %5) #5
+  call void @initial_cost_nestloop(ptr noundef %0, ptr noundef nonnull %8, i32 noundef range(i32 8, 7) %spec.store.select, ptr noundef %23, ptr noundef nonnull %.0, ptr noundef nonnull %5) #5
   %60 = load double, ptr %17, align 8
   %61 = call zeroext i1 @add_partial_path_precheck(ptr noundef %1, double noundef %60, ptr noundef %26) #5
   br i1 %61, label %62, label %try_partial_nestloop_path.exit
@@ -2152,7 +2152,7 @@ define internal fastcc void @consider_parallel_nestloop(ptr noundef %0, ptr noun
 74:                                               ; preds = %71, %64, %62
   %.031.i = phi ptr [ %73, %71 ], [ %.0, %64 ], [ %.0, %62 ]
   %75 = load ptr, ptr %5, align 8
-  %76 = call ptr @create_nestloop_path(ptr noundef %0, ptr noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef %23, ptr noundef nonnull %.031.i, ptr noundef %75, ptr noundef %26, ptr noundef null) #5
+  %76 = call ptr @create_nestloop_path(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 7) %spec.store.select, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef %23, ptr noundef nonnull %.031.i, ptr noundef %75, ptr noundef %26, ptr noundef null) #5
   call void @add_partial_path(ptr noundef %1, ptr noundef %76) #5
   br label %try_partial_nestloop_path.exit
 
@@ -2189,7 +2189,7 @@ try_partial_nestloop_path.exit:                   ; preds = %57, %59, %71, %74
   br i1 %91, label %92, label %try_partial_nestloop_path.exit66
 
 92:                                               ; preds = %90, %78
-  call void @initial_cost_nestloop(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %spec.store.select, ptr noundef %23, ptr noundef nonnull %77, ptr noundef nonnull %5) #5
+  call void @initial_cost_nestloop(ptr noundef %0, ptr noundef nonnull %7, i32 noundef range(i32 8, 7) %spec.store.select, ptr noundef %23, ptr noundef nonnull %77, ptr noundef nonnull %5) #5
   %93 = load double, ptr %18, align 8
   %94 = call zeroext i1 @add_partial_path_precheck(ptr noundef %1, double noundef %93, ptr noundef %26) #5
   br i1 %94, label %95, label %try_partial_nestloop_path.exit66
@@ -2217,7 +2217,7 @@ try_partial_nestloop_path.exit:                   ; preds = %57, %59, %71, %74
 107:                                              ; preds = %104, %97, %95
   %.031.i64 = phi ptr [ %106, %104 ], [ %77, %97 ], [ %77, %95 ]
   %108 = load ptr, ptr %5, align 8
-  %109 = call ptr @create_nestloop_path(ptr noundef %0, ptr noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef %23, ptr noundef nonnull %.031.i64, ptr noundef %108, ptr noundef %26, ptr noundef null) #5
+  %109 = call ptr @create_nestloop_path(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 7) %spec.store.select, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef %23, ptr noundef nonnull %.031.i64, ptr noundef %108, ptr noundef %26, ptr noundef null) #5
   call void @add_partial_path(ptr noundef %1, ptr noundef %109) #5
   br label %try_partial_nestloop_path.exit66
 

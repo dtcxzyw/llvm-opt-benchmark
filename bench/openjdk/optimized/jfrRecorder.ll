@@ -262,7 +262,7 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_2Ev() local_unn
 
 29:                                               ; preds = %._crit_edge.thread.i.i.i
   store i32 0, ptr %25, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %25)
   br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i
 
 _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i: ; preds = %29, %._crit_edge.thread.i.i.i
@@ -388,7 +388,7 @@ _ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1
   %89 = load ptr, ptr %61, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(37) %61, ptr noundef nonnull %2, i8 noundef signext 44, ptr noundef %33) #12
+  call void %91(ptr noundef nonnull align 8 dereferenceable(37) %61, ptr noundef nonnull %2, i8 noundef signext 44, ptr noundef nonnull %33) #12
   %92 = load ptr, ptr %59, align 8
   %.not.i.i = icmp eq ptr %92, null
   br i1 %.not.i.i, label %93, label %_ZL26validate_recording_optionsP10JavaThread.exit
@@ -419,7 +419,7 @@ _ZL26validate_recording_optionsP10JavaThread.exit: ; preds = %_ZN26GrowableArray
 
 99:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %100 = getelementptr inbounds i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %100) #12
@@ -428,7 +428,7 @@ _ZL26validate_recording_optionsP10JavaThread.exit: ; preds = %_ZN26GrowableArray
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %1, align 8
-  %102 = call noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEP12outputStreamP10JavaThread(ptr noundef nonnull %1, ptr noundef %33) #12
+  %102 = call noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEP12outputStreamP10JavaThread(ptr noundef nonnull %1, ptr noundef nonnull %33) #12
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %1) #12
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
   br label %103
@@ -575,7 +575,7 @@ _ZL16launch_recordingP27JfrStartFlightRecordingDCmdP10JavaThread.exit.i: ; preds
 
 51:                                               ; preds = %._crit_edge.thread.i.i.i
   store i32 0, ptr %47, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %47)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %47)
   br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i
 
 _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i: ; preds = %51, %._crit_edge.thread.i.i.i

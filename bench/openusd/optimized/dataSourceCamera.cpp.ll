@@ -3683,7 +3683,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataS
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceCameraD2Ev.exit: ; preds = %1, %5, %18
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #22
   ret void
 }
@@ -7133,7 +7133,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_ScalingTypedSampledDataSourceIfED2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_ScalingTypedSampledDataSourceIfED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #22
   ret void
 }
@@ -7547,7 +7547,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133_Vec4fArrayToVec4dArrayDataSourceD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133_Vec4fArrayToVec4dArrayDataSourceD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #22
   ret void
 }
@@ -7565,7 +7565,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133_Vec4
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %9, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %12 unwind label %10
 
 10:                                               ; preds = %.noexc
@@ -7741,7 +7741,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 
 7:                                                ; preds = %3
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #18
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %2) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 48) #22
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfVec4dEEEEEED2Ev.exit
 
@@ -7805,7 +7805,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 6:                                                ; preds = %1
   %.pre.i.i = load ptr, ptr %0, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21, !noalias !31
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.pre.i.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull align 8 dereferenceable(40) %.pre.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfVec4dEEEEEJRKS5_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit.i.i unwind label %8, !noalias !31
 
 8:                                                ; preds = %6
@@ -7830,7 +7830,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
 
 17:                                               ; preds = %13
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #18
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %12) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 48) #22
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_7VtArrayINS_7GfVec4dEEEEEED2Ev.exit.i.i
 
@@ -7935,7 +7935,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7VtArrayINS_7GfVec4dEEEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !34
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21, !noalias !34
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7VtArrayINS_7GfVec4dEEEvE19GetProxiedAsVtValueERKS4_.exit unwind label %6, !noalias !34
 
 6:                                                ; preds = %2

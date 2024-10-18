@@ -15594,7 +15594,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end62.us
   %pkt.val.i.i38.us = phi i64 [ %pkt.val.i.i.us, %if.end62.us ], [ %pkt.val.i.i36, %while.body.lr.ph ]
   %1 = load ptr, ptr %cipher_suites, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %cipher, ptr noundef nonnull align 1 dereferenceable(2) %1, i64 %cond, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %cipher, ptr noundef nonnull align 1 dereferenceable(2) %1, i64 range(i64 2, 4) %cond, i1 false)
   %add.ptr.i.i.us = getelementptr inbounds i8, ptr %1, i64 %cond
   store ptr %add.ptr.i.i.us, ptr %cipher_suites, align 8
   %sub.i.i.us = sub nuw i64 %pkt.val.i.i38.us, %cond
@@ -15646,7 +15646,7 @@ if.else22:                                        ; preds = %if.then19
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %pkt.val.i.i38 = phi i64 [ %pkt.val.i.i, %while.cond.backedge ], [ %pkt.val.i.i36, %while.body.lr.ph ]
   %3 = load ptr, ptr %cipher_suites, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %cipher, ptr noundef nonnull align 1 dereferenceable(2) %3, i64 %cond, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %cipher, ptr noundef nonnull align 1 dereferenceable(2) %3, i64 range(i64 2, 4) %cond, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %cond
   store ptr %add.ptr.i.i, ptr %cipher_suites, align 8
   %sub.i.i = sub nuw i64 %pkt.val.i.i38, %cond

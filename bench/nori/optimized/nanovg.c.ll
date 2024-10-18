@@ -4167,7 +4167,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.loopexi
 
 ._crit_edge115.i:                                 ; preds = %._crit_edge109.split.i, %._crit_edge109.split.us.us.i
   %.1.lcssa.i = phi i32 [ %.2.lcssa.us.i, %._crit_edge109.split.us.us.i ], [ %.2.lcssa.i, %._crit_edge109.split.i ]
-  tail call fastcc void @stbtt__sort_edges_quicksort(ptr noundef %137, i32 noundef %.1.lcssa.i)
+  tail call fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %137, i32 noundef %.1.lcssa.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.3.i.i.i)
   %223 = icmp sgt i32 %.1.lcssa.i, 1
   br i1 %223, label %.lr.ph.preheader.i.i.i, label %stbtt__sort_edges.exit.i
@@ -14198,7 +14198,7 @@ define dso_local ptr @stbi_load(ptr nocapture noundef readonly %0, ptr nocapture
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 52
@@ -14261,7 +14261,7 @@ stbi_load_from_file.exit:                         ; preds = %stbi__start_file.ex
 define dso_local ptr @stbi_load_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -14342,7 +14342,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef nonnull 
   %20 = mul nsw i32 %14, %13
   %21 = mul nsw i32 %20, %19
   %22 = sext i32 %21 to i64
-  %23 = tail call noalias noundef ptr @malloc(i64 noundef %22) #59
+  %23 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %22) #59
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %.preheader.i
 
@@ -14454,7 +14454,7 @@ stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %3
 define dso_local ptr @stbi_load_from_file_16(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -14536,7 +14536,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_16bit(ptr noundef nonnull
   %21 = mul nsw i32 %20, %19
   %22 = shl nsw i32 %21, 1
   %23 = sext i32 %22 to i64
-  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #59
+  %24 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %23) #59
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %.preheader.i
 
@@ -14659,7 +14659,7 @@ define dso_local ptr @stbi_load_16(ptr nocapture noundef readonly %0, ptr nocapt
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 52
@@ -14864,7 +14864,7 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   %19 = getelementptr inbounds i8, ptr %11, i64 192
   store ptr %17, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %10)
-  %20 = call fastcc i32 @stbi__gif_test(ptr noundef %11)
+  %20 = call fastcc i32 @stbi__gif_test(ptr noundef nonnull %11)
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %79, label %21
 
@@ -14878,7 +14878,7 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   br label %23
 
 23:                                               ; preds = %22, %21
-  %24 = call fastcc ptr @stbi__gif_load_next(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef null)
+  %24 = call fastcc ptr @stbi__gif_load_next(ptr noundef nonnull %11, ptr noundef %10, ptr noundef %6, ptr noundef null)
   %25 = icmp eq ptr %24, %11
   %.not596068.i = icmp eq ptr %24, null
   %.not5969.i = or i1 %25, %.not596068.i
@@ -14918,12 +14918,12 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   br label %.sink.split.i
 
 43:                                               ; preds = %28
-  %44 = call noalias noundef ptr @malloc(i64 noundef %36) #59
+  %44 = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %36) #59
   br i1 %.not58.i, label %48, label %45
 
 45:                                               ; preds = %43
   %46 = shl nuw nsw i64 %indvars.iv.next.i, 2
-  %47 = call noalias noundef ptr @malloc(i64 noundef %46) #59
+  %47 = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %46) #59
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %45, %39
@@ -14956,7 +14956,7 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   br label %62
 
 62:                                               ; preds = %58, %48
-  %63 = call fastcc ptr @stbi__gif_load_next(ptr noundef %11, ptr noundef %10, ptr noundef %6, ptr noundef %.1.i)
+  %63 = call fastcc ptr @stbi__gif_load_next(ptr noundef nonnull %11, ptr noundef %10, ptr noundef %6, ptr noundef %.1.i)
   %64 = icmp eq ptr %63, %11
   %.not5960.i = icmp eq ptr %63, null
   %.not59.i = or i1 %64, %.not5960.i
@@ -15224,7 +15224,7 @@ stbi__malloc_mad4.exit.i:                         ; preds = %stbi__mul2sizes_val
   %58 = shl i32 %51, 2
   %59 = mul i32 %58, %46
   %60 = sext i32 %59 to i64
-  %61 = tail call noalias noundef ptr @malloc(i64 noundef %60) #59
+  %61 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %60) #59
   %62 = icmp eq ptr %61, null
   br i1 %62, label %stbi__malloc_mad4.exit.thread.i, label %63
 
@@ -15374,7 +15374,7 @@ define dso_local noundef ptr @stbi_loadf(ptr nocapture noundef readonly %0, ptr 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 52
@@ -15422,7 +15422,7 @@ stbi_loadf_from_file.exit:                        ; preds = %19, %21
 define dso_local noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 52
@@ -15651,7 +15651,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_hdr(ptr nocapture noundef readonly
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2)
   %5 = tail call i64 @ftell(ptr noundef nonnull %3)
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 52
@@ -15701,7 +15701,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_hdr_from_file(ptr noundef %0) loca
   %2 = alloca %struct.stbi__context, align 8
   %3 = tail call i64 @ftell(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 52
@@ -15812,7 +15812,7 @@ define dso_local void @stbi_hdr_to_ldr_scale(float noundef %0) local_unnamed_add
 define dso_local ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %5 = alloca %struct.stbi__zbuf, align 8
   %6 = sext i32 %2 to i64
-  %7 = tail call noalias noundef ptr @malloc(i64 noundef %6) #59
+  %7 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %6) #59
   %8 = icmp eq ptr %7, null
   br i1 %8, label %27, label %9
 
@@ -17265,7 +17265,7 @@ stbi__parse_zlib.exit:                            ; preds = %stbi__zreceive.exit
 define dso_local ptr @stbi_zlib_decode_malloc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
-  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #59
+  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) 16384) #59
   %6 = icmp eq ptr %5, null
   br i1 %6, label %stbi_zlib_decode_malloc_guesssize.exit, label %7
 
@@ -17316,7 +17316,7 @@ stbi_zlib_decode_malloc_guesssize.exit:           ; preds = %3, %._crit_edge.i, 
 define dso_local ptr @stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__zbuf, align 8
   %7 = sext i32 %2 to i64
-  %8 = tail call noalias noundef ptr @malloc(i64 noundef %7) #59
+  %8 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %7) #59
   %9 = icmp eq ptr %8, null
   br i1 %9, label %28, label %10
 
@@ -17482,7 +17482,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %5)
   %9 = tail call i64 @ftell(ptr noundef nonnull %6)
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %6, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 52
@@ -17532,7 +17532,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr no
   %5 = alloca %struct.stbi__context, align 8
   %6 = tail call i64 @ftell(ptr noundef %0)
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 52
@@ -17632,7 +17632,7 @@ stbi__jpeg_info.exit.thread:                      ; preds = %19, %18
   tail call void @free(ptr noundef nonnull %7) #57
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  %32 = call fastcc i32 @stbi__parse_png_file(ptr noundef %6, i32 noundef 2, i32 noundef 0)
+  %32 = call fastcc i32 @stbi__parse_png_file(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 0)
   %.not.i.i44 = icmp eq i32 %32, 0
   br i1 %.not.i.i44, label %47, label %33
 
@@ -17684,7 +17684,7 @@ stbi__png_info.exit.thread:                       ; preds = %43, %42
   store ptr %53, ptr %54, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %55 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #59
-  %56 = tail call fastcc i32 @stbi__gif_header(ptr noundef %0, ptr noundef %55, ptr noundef %3, i32 noundef 1)
+  %56 = tail call fastcc i32 @stbi__gif_header(ptr noundef nonnull %0, ptr noundef %55, ptr noundef %3, i32 noundef 1)
   %.not.i.i49 = icmp eq i32 %56, 0
   br i1 %.not.i.i49, label %64, label %57
 
@@ -17724,7 +17724,7 @@ stbi__gif_info.exit:                              ; preds = %60, %61
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %71 = getelementptr inbounds i8, ptr %5, i64 28
   store i32 255, ptr %71, align 4
-  %72 = call fastcc ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %5)
+  %72 = call fastcc ptr @stbi__bmp_parse_header(ptr noundef nonnull %0, ptr noundef %5)
   %73 = load ptr, ptr %65, align 8
   store ptr %73, ptr %67, align 8
   %74 = load ptr, ptr %68, align 8
@@ -17817,7 +17817,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef reado
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2)
   %6 = tail call i64 @ftell(ptr noundef nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 52
@@ -17867,7 +17867,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit_from_file(ptr noundef %0) l
   %2 = alloca %struct.stbi__context, align 8
   %3 = tail call i64 @ftell(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 52
@@ -17911,7 +17911,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__is_16_main(ptr noundef nonnull
   %2 = alloca %struct.stbi__png, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   store ptr %0, ptr %2, align 8
-  %3 = call fastcc i32 @stbi__parse_png_file(ptr noundef %2, i32 noundef 2, i32 noundef 0)
+  %3 = call fastcc i32 @stbi__parse_png_file(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 0)
   %.not.i.i = icmp ne i32 %3, 0
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load i32, ptr %4, align 8
@@ -28765,7 +28765,7 @@ stbi__jpeg_get_bits.exit.i.us.i.i.i.i:            ; preds = %657, %655
   %658 = phi i32 [ %.pre196.i.us.i.i.i.i, %657 ], [ %654, %655 ]
   %659 = phi i32 [ %.pre195.i.us.i.i.i.i, %657 ], [ %639, %655 ]
   %660 = phi i32 [ %.pre.i148.i.us.i.i.i.i, %657 ], [ %640, %655 ]
-  %661 = call i32 @llvm.fshl.i32(i32 %659, i32 %659, i32 %642)
+  %661 = call i32 @llvm.fshl.i32(i32 %659, i32 %659, i32 range(i32 1, 15) %642)
   %662 = zext nneg i32 %642 to i64
   %663 = getelementptr inbounds [17 x i32], ptr @stbi__bmask, i64 0, i64 %662
   %664 = load i32, ptr %663, align 4
@@ -29705,12 +29705,12 @@ stbi__get16be.exit77.i.i.i:                       ; preds = %stbi__refill_buffer
 
 1126:                                             ; preds = %71
   %.1.i.i.i = zext i8 %.1.in.i.i.i to i32
-  %1127 = call fastcc i32 @stbi__process_marker(ptr noundef %34, i32 noundef %.1.i.i.i)
+  %1127 = call fastcc i32 @stbi__process_marker(ptr noundef nonnull %34, i32 noundef %.1.i.i.i)
   %.not33.i.i.i = icmp eq i32 %1127, 0
   br i1 %.not33.i.i.i, label %.loopexit357.i.i, label %stbi__at_eof.exit.thread96.i.i.i
 
 stbi__at_eof.exit.thread96.i.i.i:                 ; preds = %stbi__at_eof.exit.i.i.i, %933, %1126, %1117, %stbi__get8.exit59.i.i.i, %.loopexit.i.i.i
-  %1128 = call fastcc zeroext i8 @stbi__get_marker(ptr noundef %34)
+  %1128 = call fastcc zeroext i8 @stbi__get_marker(ptr noundef nonnull %34)
   br label %71, !llvm.loop !163
 
 1129:                                             ; preds = %71
@@ -29931,7 +29931,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
   %1230 = getelementptr inbounds [4 x %struct.stbi__resample], ptr %15, i64 0, i64 %indvars.iv.i.i
   %1231 = add i32 %1229, 3
   %1232 = zext i32 %1231 to i64
-  %1233 = call noalias noundef ptr @malloc(i64 noundef %1232) #59
+  %1233 = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %1232) #59
   %1234 = getelementptr inbounds [4 x %struct.anon.0], ptr %43, i64 0, i64 %indvars.iv.i.i
   %1235 = getelementptr inbounds i8, ptr %1234, i64 72
   store ptr %1233, ptr %1235, align 8
@@ -30096,7 +30096,7 @@ stbi__mad3sizes_valid.exit.i.i.i:                 ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit.i.i:                       ; preds = %stbi__mad3sizes_valid.exit.i.i.i
   %1296 = add nsw i32 %1295, 1
   %1297 = sext i32 %1296 to i64
-  %1298 = call noalias noundef ptr @malloc(i64 noundef %1297) #59
+  %1298 = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %1297) #59
   %.not279.i.i = icmp eq ptr %1298, null
   br i1 %.not279.i.i, label %stbi__malloc_mad3.exit.thread.i.i, label %.preheader346.i.i
 
@@ -30846,7 +30846,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   br label %stbi__png_load.exit
 
 1701:                                             ; preds = %1697
-  %1702 = call fastcc i32 @stbi__parse_png_file(ptr noundef %11, i32 noundef 0, i32 noundef %4)
+  %1702 = call fastcc i32 @stbi__parse_png_file(ptr noundef nonnull %11, i32 noundef 0, i32 noundef %4)
   %.not.i.i90 = icmp eq i32 %1702, 0
   br i1 %.not.i.i90, label %._crit_edge.i, label %1703
 
@@ -31026,7 +31026,7 @@ stbi__get8.exit25.i.i:                            ; preds = %stbi__refill_buffer
   br i1 %.not19.i.i, label %1774, label %stbi__bmp_test.exit.thread
 
 1774:                                             ; preds = %stbi__get8.exit25.i.i
-  %1775 = tail call fastcc i32 @stbi__get32le(ptr noundef %0)
+  %1775 = tail call fastcc i32 @stbi__get32le(ptr noundef nonnull %0)
   %1776 = load ptr, ptr %29, align 8
   %1777 = load ptr, ptr %32, align 8
   %1778 = icmp ult ptr %1776, %1777
@@ -31202,8 +31202,8 @@ stbi__get16le.exit37.sink.split.i.i:              ; preds = %stbi__refill_buffer
   br label %stbi__get16le.exit37.i.i
 
 stbi__get16le.exit37.i.i:                         ; preds = %stbi__get16le.exit37.sink.split.i.i, %1832
-  %1844 = tail call fastcc i32 @stbi__get32le(ptr noundef %0)
-  %1845 = tail call fastcc i32 @stbi__get32le(ptr noundef %0)
+  %1844 = tail call fastcc i32 @stbi__get32le(ptr noundef nonnull %0)
+  %1845 = tail call fastcc i32 @stbi__get32le(ptr noundef nonnull %0)
   switch i32 %1845, label %stbi__bmp_test.exit [
     i32 108, label %stbi__bmp_test.exit.thread129
     i32 56, label %stbi__bmp_test.exit.thread129
@@ -31238,7 +31238,7 @@ stbi__bmp_test.exit:                              ; preds = %stbi__get16le.exit3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %1853 = getelementptr inbounds i8, ptr %10, i64 28
   store i32 255, ptr %1853, align 4
-  %1854 = call fastcc ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %10)
+  %1854 = call fastcc ptr @stbi__bmp_parse_header(ptr noundef nonnull %0, ptr noundef %10)
   %1855 = icmp eq ptr %1854, null
   br i1 %1855, label %stbi__bmp_load.exit, label %1856
 
@@ -31341,7 +31341,7 @@ stbi__mul2sizes_valid.exit12.i.i.i:               ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit.i:                         ; preds = %stbi__mul2sizes_valid.exit12.i.i.i, %stbi__mul2sizes_valid.exit.thread15.i.i.i
   %1902 = mul nuw nsw i32 %1896, %1860
   %1903 = zext nneg i32 %1902 to i64
-  %1904 = tail call noalias noundef ptr @malloc(i64 noundef %1903) #59
+  %1904 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %1903) #59
   %.not315.i = icmp eq ptr %1904, null
   br i1 %.not315.i, label %stbi__malloc_mad3.exit.thread.i, label %1905
 
@@ -32853,7 +32853,7 @@ stbi__get16le.exit.i:                             ; preds = %stbi__refill_buffer
   br label %2656
 
 2654:                                             ; preds = %.lr.ph34.i
-  %2655 = tail call fastcc i32 @stbi__get32le(ptr noundef %0)
+  %2655 = tail call fastcc i32 @stbi__get32le(ptr noundef nonnull %0)
   br label %2656
 
 2656:                                             ; preds = %2654, %stbi__get16le.exit.i
@@ -33095,7 +33095,7 @@ stbi__bmp_load.exit:                              ; preds = %1852, %1899, %stbi_
 2768:                                             ; preds = %2766
   call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %8, i8 0, i64 34928, i1 false)
-  %2769 = call fastcc ptr @stbi__gif_load_next(ptr noundef %0, ptr noundef %8, ptr noundef %3, ptr noundef null)
+  %2769 = call fastcc ptr @stbi__gif_load_next(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %3, ptr noundef null)
   %2770 = icmp eq ptr %2769, %0
   %.not1.i = icmp eq ptr %2769, null
   %.not.i122 = or i1 %2770, %.not1.i
@@ -34344,7 +34344,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   %398 = shl i32 %144, 2
   %399 = mul i32 %398, %145
   %400 = sext i32 %399 to i64
-  %401 = tail call noalias noundef ptr @malloc(i64 noundef %400) #59
+  %401 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %400) #59
   br label %402
 
 402:                                              ; preds = %397, %395
@@ -35787,7 +35787,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i
   %210 = shl nuw nsw i32 %209, 2
   %211 = zext nneg i32 %210 to i64
-  %212 = tail call noalias noundef ptr @malloc(i64 noundef %211) #59
+  %212 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %211) #59
   br label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit.thread15.i.i, %stbi__mad3sizes_valid.exit.i
@@ -37119,7 +37119,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i, %stbi__mul2sizes_valid.exit12.i.i
   %28 = mul i32 %20, %14
   %29 = sext i32 %28 to i64
-  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #59
+  %30 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %29) #59
   %.not42 = icmp eq ptr %30, null
   br i1 %.not42, label %stbi__malloc_mad3.exit.thread, label %31
 
@@ -37347,7 +37347,7 @@ stbi__malloc_mad4.exit:                           ; preds = %stbi__mul2sizes_val
   %57 = shl i32 %spec.store.select, 2
   %58 = mul i32 %57, %49
   %59 = sext i32 %58 to i64
-  %60 = call noalias noundef ptr @malloc(i64 noundef %59) #59
+  %60 = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %59) #59
   %.not136 = icmp eq ptr %60, null
   br i1 %.not136, label %stbi__malloc_mad4.exit.thread, label %61
 
@@ -37408,7 +37408,7 @@ stbi__malloc_mad4.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %88, label %stbi__malloc_mad2.exit.us, label %.split.us.us
 
 stbi__malloc_mad2.exit.us:                        ; preds = %87
-  %89 = call noalias noundef ptr @malloc(i64 noundef %65) #59
+  %89 = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %65) #59
   %.not140.us = icmp eq ptr %89, null
   br i1 %.not140.us, label %stbi__malloc_mad2.exit.thread, label %.split.us.us
 
@@ -37906,7 +37906,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %12
 stbi__malloc_mad3.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit12.i.i
   %15 = mul nsw i32 %10, %3
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #59
+  %17 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %16) #59
   %18 = icmp eq ptr %17, null
   br i1 %18, label %stbi__malloc_mad3.exit.thread, label %19
 
@@ -39692,7 +39692,7 @@ stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_val
   %514 = phi i32 [ %510, %stbi__mul2sizes_valid.exit.i.i ], [ %508, %stbi__mul2sizes_valid.exit.thread15.i ]
   %515 = mul nuw nsw i32 %514, %.0190.ph
   %516 = zext nneg i32 %515 to i64
-  %517 = tail call noalias noundef ptr @malloc(i64 noundef %516) #59
+  %517 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %516) #59
   %.not201 = icmp eq ptr %517, null
   br i1 %.not201, label %stbi__malloc_mad3.exit.thread, label %518
 
@@ -39912,7 +39912,7 @@ stbi__getn.exit:                                  ; preds = %stbi__getn.exit.sin
 stbi__skip.exit326:                               ; preds = %603, %609
   %613 = mul nuw nsw i32 %202, %.0190.ph
   %614 = zext nneg i32 %613 to i64
-  %615 = tail call noalias noundef ptr @malloc(i64 noundef %614) #59
+  %615 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %614) #59
   %.not203 = icmp eq ptr %615, null
   br i1 %.not203, label %stbi__malloc_mad2.exit.thread, label %616
 
@@ -43517,7 +43517,7 @@ stbi__malloc_mad2.exit:                           ; preds = %408, %stbi__mul2siz
   %412 = mul nsw i32 %403, %400
   %413 = or disjoint i32 %412, 15
   %414 = sext i32 %413 to i64
-  %415 = tail call noalias noundef ptr @malloc(i64 noundef %414) #59
+  %415 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %414) #59
   %416 = getelementptr inbounds i8, ptr %386, i64 56
   store ptr %415, ptr %416, align 8
   %417 = icmp eq ptr %415, null
@@ -44091,7 +44091,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %11, %stbi__mul2size
 16:                                               ; preds = %stbi__mad3sizes_valid.exit
   %17 = add nsw i32 %14, %3
   %18 = sext i32 %17 to i64
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #59
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %18) #59
   br label %stbi__mad3sizes_valid.exit.thread
 
 stbi__mad3sizes_valid.exit.thread:                ; preds = %stbi__mul2sizes_valid.exit.thread15.i, %4, %stbi__mul2sizes_valid.exit.i, %stbi__mul2sizes_valid.exit12.i, %stbi__mad3sizes_valid.exit, %16
@@ -46570,7 +46570,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %14
 stbi__malloc_mad3.exit:                           ; preds = %14, %stbi__mul2sizes_valid.exit12.i.i
   %17 = mul nsw i32 %12, %4
   %18 = sext i32 %17 to i64
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #59
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %18) #59
   %20 = icmp eq ptr %19, null
   br i1 %20, label %stbi__malloc_mad3.exit.thread, label %.preheader191
 
@@ -46924,7 +46924,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
   %9 = mul i32 %8, %3
   %10 = mul i32 %9, %4
   %11 = zext i32 %10 to i64
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #59
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %11) #59
   %13 = icmp eq ptr %12, null
   br i1 %13, label %18, label %.preheader190
 
@@ -47601,7 +47601,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %24
 stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_valid.exit12.i.i, %24
   %27 = mul nsw i32 %22, %10
   %28 = sext i32 %27 to i64
-  %29 = tail call noalias noundef ptr @malloc(i64 noundef %28) #59
+  %29 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %28) #59
   br label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %17, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit.thread15.i.i, %stbi__mul2sizes_valid.exit12.i.i, %stbi__mad3sizes_valid.exit.i
@@ -48000,7 +48000,7 @@ stbi__mul2sizes_valid.exit.i.i:                   ; preds = %12
 stbi__malloc_mad2.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit.i.i
   %15 = mul nsw i32 %8, %2
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #59
+  %17 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %16) #59
   %18 = icmp eq ptr %17, null
   br i1 %18, label %stbi__malloc_mad2.exit.thread, label %19
 
@@ -48146,7 +48146,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2sizes_valid.exit12.i.i
   %28 = mul nsw i32 %16, %22
   %29 = sext i32 %28 to i64
-  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #59
+  %30 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %29) #59
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
   %.not = icmp eq ptr %30, null
@@ -50465,13 +50465,13 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   %17 = mul nuw nsw i32 %12, %10
   %18 = shl nsw i32 %17, 2
   %19 = zext nneg i32 %18 to i64
-  %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #59
+  %20 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %19) #59
   store ptr %20, ptr %5, align 8
-  %21 = tail call noalias noundef ptr @malloc(i64 noundef %19) #59
+  %21 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %19) #59
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %21, ptr %22, align 8
   %23 = zext nneg i32 %17 to i64
-  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #59
+  %24 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %23) #59
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %24, ptr %25, align 8
   %.not164 = icmp eq ptr %20, null
@@ -51559,7 +51559,7 @@ stbi__skip.exit.i.backedge:                       ; preds = %._crit_edge.i126.i,
 520:                                              ; preds = %518, %516
   %.286.i = phi i32 [ %501, %516 ], [ %.084.i.ph, %518 ]
   %521 = trunc i32 %434 to i16
-  tail call fastcc void @stbi__out_gif_code(ptr noundef %1, i16 noundef zeroext %521)
+  tail call fastcc void @stbi__out_gif_code(ptr noundef nonnull %1, i16 noundef zeroext %521)
   %522 = and i32 %.286.i, %.087.i.ph
   %523 = icmp eq i32 %522, 0
   %524 = icmp slt i32 %.286.i, 4096

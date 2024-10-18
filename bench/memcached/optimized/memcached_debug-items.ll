@@ -4205,14 +4205,14 @@ if.end45:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %chunks_perslab.i)
   store i32 0, ptr %chunks_perslab.i, align 4
   %12 = trunc nuw nsw i64 %indvars.iv to i32
-  %call.i = call i32 @slabs_available_chunks(i32 noundef %12, ptr noundef null, ptr noundef nonnull %chunks_perslab.i) #18
+  %call.i = call i32 @slabs_available_chunks(i32 noundef range(i32 -2147483648, 64) %12, ptr noundef null, ptr noundef nonnull %chunks_perslab.i) #18
   %13 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 228), align 4
   %tobool.i = trunc i8 %13 to i1
   br i1 %tobool.i, label %for.body.i, label %if.end5.i
 
 for.body.i:                                       ; preds = %if.end45, %if.else.i
   %did_moves.130.i = phi i32 [ %inc.i, %if.else.i ], [ 0, %if.end45 ]
-  %call1.i = call i32 @lru_pull_tail(i32 noundef %12, i32 noundef 192, i64 noundef 0, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null)
+  %call1.i = call i32 @lru_pull_tail(i32 noundef range(i32 -2147483648, 64) %12, i32 noundef 192, i64 noundef 0, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null)
   %cmp2.i = icmp slt i32 %call1.i, 1
   br i1 %cmp2.i, label %if.end5.i, label %if.else.i
 
@@ -4279,12 +4279,12 @@ if.end53.i:                                       ; preds = %if.end17.i, %if.end
 
 for.body57.i:                                     ; preds = %if.end73.i, %if.end53.i
   %did_moves.232.i = phi i32 [ %did_moves.0.i, %if.end53.i ], [ %inc74.i, %if.end73.i ]
-  %call58.i = call i32 @lru_pull_tail(i32 noundef %12, i32 noundef 0, i64 noundef %total_bytes.0.i, i8 noundef zeroext 2, i32 noundef %hot_age.0.i, ptr noundef null)
+  %call58.i = call i32 @lru_pull_tail(i32 noundef range(i32 -2147483648, 64) %12, i32 noundef 0, i64 noundef %total_bytes.0.i, i8 noundef zeroext 2, i32 noundef %hot_age.0.i, ptr noundef null)
   %tobool59.not.i = icmp eq i32 %call58.i, 0
   br i1 %tobool59.not.i, label %lor.lhs.false.i, label %if.then62.i
 
 lor.lhs.false.i:                                  ; preds = %for.body57.i
-  %call60.i = call i32 @lru_pull_tail(i32 noundef %12, i32 noundef 64, i64 noundef %total_bytes.0.i, i8 noundef zeroext 2, i32 noundef %warm_age.0.i, ptr noundef null)
+  %call60.i = call i32 @lru_pull_tail(i32 noundef range(i32 -2147483648, 64) %12, i32 noundef 64, i64 noundef %total_bytes.0.i, i8 noundef zeroext 2, i32 noundef %warm_age.0.i, ptr noundef null)
   %tobool61.not.i = icmp eq i32 %call60.i, 0
   br i1 %tobool61.not.i, label %if.end64.i, label %if.then62.i
 
@@ -4298,7 +4298,7 @@ if.end64.i:                                       ; preds = %if.then62.i, %lor.l
   br i1 %tobool65.i, label %if.then66.i, label %if.end69.i
 
 if.then66.i:                                      ; preds = %if.end64.i
-  %call67.i = call i32 @lru_pull_tail(i32 noundef %12, i32 noundef 128, i64 noundef %total_bytes.0.i, i8 noundef zeroext 2, i32 noundef 0, ptr noundef null)
+  %call67.i = call i32 @lru_pull_tail(i32 noundef range(i32 -2147483648, 64) %12, i32 noundef 128, i64 noundef %total_bytes.0.i, i8 noundef zeroext 2, i32 noundef 0, ptr noundef null)
   %add68.i = add nsw i32 %call67.i, %do_more.0.i
   br label %if.end69.i
 

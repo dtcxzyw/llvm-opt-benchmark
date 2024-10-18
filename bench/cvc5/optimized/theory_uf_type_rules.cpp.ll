@@ -971,7 +971,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -2716,7 +2716,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN4cvc58internal11CardinalityD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont6
@@ -2776,7 +2776,7 @@ lpad3:                                            ; preds = %invoke.cont2
 lpad5:                                            ; preds = %invoke.cont4
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i15
 
 terminate.lpad.i.i.i15:                           ; preds = %lpad5
@@ -2886,7 +2886,7 @@ terminate.lpad.i71:                               ; preds = %if.then13.i.i70
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit72:            ; preds = %invoke.cont15, %if.then.i.i64, %if.then13.i.i70
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %valueCard)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %valueCard)
           to label %.noexc73 unwind label %lpad17
 
 .noexc73:                                         ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit72
@@ -2896,7 +2896,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit72:            ; preds = %invoke.cont15, %if.
 lpad.i:                                           ; preds = %.noexc73
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %agg.result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %lpad17.body unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad.i
@@ -2907,7 +2907,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad.i
   unreachable
 
 invoke.cont18:                                    ; preds = %.noexc73
-  invoke void @__gmpz_clear(ptr noundef nonnull %valueCard)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %valueCard)
           to label %_ZN4cvc58internal11CardinalityD2Ev.exit75 unwind label %terminate.lpad.i.i.i74
 
 terminate.lpad.i.i.i74:                           ; preds = %invoke.cont18
@@ -2918,7 +2918,7 @@ terminate.lpad.i.i.i74:                           ; preds = %invoke.cont18
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit75:        ; preds = %invoke.cont18
-  invoke void @__gmpz_clear(ptr noundef nonnull %argsCard)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %argsCard)
           to label %_ZN4cvc58internal11CardinalityD2Ev.exit77 unwind label %terminate.lpad.i.i.i76
 
 terminate.lpad.i.i.i76:                           ; preds = %_ZN4cvc58internal11CardinalityD2Ev.exit75
@@ -2944,7 +2944,7 @@ lpad17:                                           ; preds = %_ZN4cvc58internal8T
 
 lpad17.body:                                      ; preds = %lpad.i, %lpad17
   %eh.lpad-body = phi { ptr, i32 } [ %30, %lpad17 ], [ %22, %lpad.i ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %valueCard)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %valueCard)
           to label %ehcleanup20 unwind label %terminate.lpad.i.i.i78
 
 terminate.lpad.i.i.i78:                           ; preds = %lpad17.body
@@ -2956,7 +2956,7 @@ terminate.lpad.i.i.i78:                           ; preds = %lpad17.body
 
 ehcleanup20:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad17.body, %lpad14, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %29, %lpad14 ], [ %eh.lpad-body, %lpad17.body ], [ %lpad.loopexit82, %lpad.loopexit ], [ %lpad.loopexit.split-lp83, %lpad.loopexit.split-lp ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %argsCard)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %argsCard)
           to label %_ZN4cvc58internal11CardinalityD2Ev.exit81 unwind label %terminate.lpad.i.i.i80
 
 terminate.lpad.i.i.i80:                           ; preds = %ehcleanup20
@@ -3191,7 +3191,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit23:            ; preds = %invoke.cont4, %if.t
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 26)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 26)
           to label %.noexc unwind label %lpad11
 
 .noexc:                                           ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit23

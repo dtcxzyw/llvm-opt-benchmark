@@ -351,7 +351,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !13
 
 39:                                               ; preds = %37
@@ -502,7 +502,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 47:                                               ; preds = %46
   %48 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %7) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #13
           to label %.thread81 unwind label %49, !noalias !19
 
 49:                                               ; preds = %47
@@ -755,7 +755,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %43, !noalias !36
 
 43:                                               ; preds = %41
@@ -918,7 +918,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !43
 
 39:                                               ; preds = %37
@@ -1062,7 +1062,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %40, !noalias !49
 
 40:                                               ; preds = %38
@@ -1217,7 +1217,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %43, !noalias !55
 
 43:                                               ; preds = %41
@@ -1380,7 +1380,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 45:                                               ; preds = %44
   %46 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %7) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #13
           to label %.thread75 unwind label %47, !noalias !61
 
 47:                                               ; preds = %45
@@ -1605,7 +1605,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %common.resume unwind label %41, !noalias !67
 
 41:                                               ; preds = %39
@@ -1760,7 +1760,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %43, !noalias !73
 
 43:                                               ; preds = %41
@@ -1923,7 +1923,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !79
 
 38:                                               ; preds = %36
@@ -2060,7 +2060,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %.thread59 unwind label %43, !noalias !85
 
 43:                                               ; preds = %41
@@ -2275,7 +2275,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 47:                                               ; preds = %46
   %48 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %7) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #13
           to label %.thread81 unwind label %49, !noalias !98
 
 49:                                               ; preds = %47
@@ -2510,7 +2510,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %38, !noalias !111
 
 38:                                               ; preds = %36
@@ -2660,7 +2660,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !117
 
 39:                                               ; preds = %37
@@ -2802,7 +2802,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !123
 
 38:                                               ; preds = %36
@@ -2950,7 +2950,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !129
 
 39:                                               ; preds = %37
@@ -3092,7 +3092,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !135
 
 38:                                               ; preds = %36
@@ -3234,7 +3234,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !141
 
 38:                                               ; preds = %36
@@ -3376,7 +3376,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !147
 
 38:                                               ; preds = %36
@@ -3519,7 +3519,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %.thread81 unwind label %46, !noalias !153
 
 46:                                               ; preds = %44
@@ -3754,7 +3754,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !166
 
 39:                                               ; preds = %37
@@ -3908,7 +3908,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %43, !noalias !172
 
 43:                                               ; preds = %41
@@ -4077,7 +4077,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !178
 
 38:                                               ; preds = %36
@@ -4225,7 +4225,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !184
 
 39:                                               ; preds = %37
@@ -4373,7 +4373,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !190
 
 38:                                               ; preds = %36
@@ -4515,7 +4515,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !196
 
 38:                                               ; preds = %36
@@ -4666,7 +4666,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 47:                                               ; preds = %46
   %48 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %7) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #13
           to label %.thread81 unwind label %49, !noalias !202
 
 49:                                               ; preds = %47
@@ -4902,7 +4902,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !216
 
 38:                                               ; preds = %36
@@ -5046,7 +5046,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %common.resume unwind label %41, !noalias !222
 
 41:                                               ; preds = %39
@@ -5189,7 +5189,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !228
 
 39:                                               ; preds = %37
@@ -5331,7 +5331,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !234
 
 38:                                               ; preds = %36
@@ -5473,7 +5473,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !240
 
 38:                                               ; preds = %36
@@ -5621,7 +5621,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !246
 
 38:                                               ; preds = %36
@@ -5786,7 +5786,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %7) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #13
           to label %.thread76 unwind label %46, !noalias !252
 
 46:                                               ; preds = %44
@@ -6018,7 +6018,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %.thread75 unwind label %46, !noalias !258
 
 46:                                               ; preds = %44
@@ -6239,7 +6239,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !264
 
 38:                                               ; preds = %36
@@ -6393,7 +6393,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 42:                                               ; preds = %41
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %common.resume unwind label %44, !noalias !270
 
 44:                                               ; preds = %42
@@ -6563,7 +6563,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 45:                                               ; preds = %44
   %46 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %6) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #13
           to label %.thread81 unwind label %47, !noalias !276
 
 47:                                               ; preds = %45
@@ -6806,7 +6806,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %40, !noalias !289
 
 40:                                               ; preds = %38
@@ -6951,7 +6951,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %common.resume unwind label %41, !noalias !295
 
 41:                                               ; preds = %39
@@ -7096,7 +7096,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %common.resume unwind label %41, !noalias !301
 
 41:                                               ; preds = %39
@@ -7241,7 +7241,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %40, !noalias !307
 
 40:                                               ; preds = %38
@@ -7398,7 +7398,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 43:                                               ; preds = %42
   %44 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %common.resume unwind label %45, !noalias !314
 
 45:                                               ; preds = %43
@@ -7562,7 +7562,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !320
 
 38:                                               ; preds = %36
@@ -7704,7 +7704,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !326
 
 38:                                               ; preds = %36
@@ -7914,7 +7914,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %40, !noalias !358
 
 40:                                               ; preds = %38
@@ -8057,7 +8057,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !364
 
 38:                                               ; preds = %36
@@ -8199,7 +8199,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !370
 
 38:                                               ; preds = %36
@@ -8376,7 +8376,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %40, !noalias !389
 
 40:                                               ; preds = %38
@@ -8525,7 +8525,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !395
 
 38:                                               ; preds = %36
@@ -8667,7 +8667,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !401
 
 38:                                               ; preds = %36
@@ -8809,7 +8809,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !407
 
 38:                                               ; preds = %36
@@ -8951,7 +8951,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !413
 
 38:                                               ; preds = %36
@@ -9093,7 +9093,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !419
 
 38:                                               ; preds = %36
@@ -9235,7 +9235,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !425
 
 38:                                               ; preds = %36
@@ -9377,7 +9377,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !431
 
 38:                                               ; preds = %36
@@ -9519,7 +9519,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !437
 
 38:                                               ; preds = %36
@@ -9661,7 +9661,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !443
 
 39:                                               ; preds = %37
@@ -9803,7 +9803,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !449
 
 38:                                               ; preds = %36
@@ -9945,7 +9945,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !455
 
 38:                                               ; preds = %36
@@ -10087,7 +10087,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !461
 
 38:                                               ; preds = %36
@@ -10264,7 +10264,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %40, !noalias !480
 
 40:                                               ; preds = %38
@@ -10407,7 +10407,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !486
 
 39:                                               ; preds = %37
@@ -10549,7 +10549,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !492
 
 39:                                               ; preds = %37
@@ -10693,7 +10693,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %40, !noalias !498
 
 40:                                               ; preds = %38
@@ -10836,7 +10836,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !504
 
 38:                                               ; preds = %36
@@ -10978,7 +10978,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !510
 
 38:                                               ; preds = %36
@@ -11120,7 +11120,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !516
 
 38:                                               ; preds = %36
@@ -11262,7 +11262,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !522
 
 38:                                               ; preds = %36
@@ -11412,7 +11412,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %40, !noalias !528
 
 40:                                               ; preds = %38
@@ -11555,7 +11555,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !534
 
 38:                                               ; preds = %36
@@ -11703,7 +11703,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !540
 
 38:                                               ; preds = %36
@@ -11845,7 +11845,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !546
 
 38:                                               ; preds = %36
@@ -11987,7 +11987,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !552
 
 38:                                               ; preds = %36
@@ -12129,7 +12129,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !558
 
 38:                                               ; preds = %36
@@ -12279,7 +12279,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %40, !noalias !564
 
 40:                                               ; preds = %38
@@ -12421,7 +12421,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %38, !noalias !570
 
 38:                                               ; preds = %36
@@ -12565,7 +12565,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !576
 
 38:                                               ; preds = %36
@@ -12758,7 +12758,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %43, !noalias !596
 
 43:                                               ; preds = %41
@@ -12923,7 +12923,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %common.resume unwind label %41, !noalias !603
 
 41:                                               ; preds = %39
@@ -13084,7 +13084,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !609
 
 38:                                               ; preds = %36
@@ -13262,7 +13262,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !615
 
 38:                                               ; preds = %36
@@ -13407,7 +13407,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !alias.scope !618, !noundef !6
-  %6 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17h6028cbc136eeafe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %5)
+  %6 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17h6028cbc136eeafe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %5)
           to label %9 unwind label %7
 
 7:                                                ; preds = %3
@@ -13475,13 +13475,13 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..Ente
 
 "_ZN68_$LT$tracing..span..EnteredSpan$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1174fff7db1c15fbE.exit": ; preds = %4
   %8 = load i64, ptr %5, align 8, !alias.scope !640, !noundef !6
-  %9 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17h6028cbc136eeafe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %8)
+  %9 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17h6028cbc136eeafe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %8)
           to label %12 unwind label %10
 
 10:                                               ; preds = %"_ZN68_$LT$tracing..span..EnteredSpan$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1174fff7db1c15fbE.exit"
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h339b0b233ab156acE"(ptr noalias noundef align 8 dereferenceable(32) %0) #13
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h339b0b233ab156acE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #13
           to label %common.resume unwind label %20
 
 12:                                               ; preds = %"_ZN68_$LT$tracing..span..EnteredSpan$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1174fff7db1c15fbE.exit"
@@ -13623,7 +13623,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Optio
 "_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.sink.split.i": ; preds = %15, %12, %9, %5
   %.val1.i.sink.i = phi i64 [ %.val1.i.i.i, %9 ], [ %.val1.i2.i.i, %12 ], [ %.val1.i4.i, %15 ], [ %.val1.i.i, %5 ]
   %.val.i.i = load ptr, ptr %.8.val, align 8, !nonnull !6, !noundef !6
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i, i64 noundef %.val1.i.sink.i, i64 noundef 1) #16
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i, i64 noundef range(i64 1, 0) %.val1.i.sink.i, i64 noundef 1) #16
   br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.i"
 
 "_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.i": ; preds = %15, %12, %9, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.sink.split.i", %5
@@ -14171,7 +14171,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !704
 
 38:                                               ; preds = %36
@@ -14319,7 +14319,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !710
 
 38:                                               ; preds = %36
@@ -14475,7 +14475,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %common.resume unwind label %41, !noalias !716
 
 41:                                               ; preds = %39
@@ -14624,7 +14624,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !722
 
 39:                                               ; preds = %37
@@ -14792,7 +14792,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 43:                                               ; preds = %42
   %44 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %5) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #13
           to label %common.resume unwind label %45, !noalias !728
 
 45:                                               ; preds = %43
@@ -14968,7 +14968,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !734
 
 39:                                               ; preds = %37
@@ -15128,7 +15128,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !740
 
 39:                                               ; preds = %37
@@ -15194,18 +15194,18 @@ define hidden { i64, ptr } @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatab
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$13real_span_map17h4ca5e2134d5fdbfdE"(ptr noundef align 1 %0, i32 noundef %1)
+  %6 = tail call noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$13real_span_map17h4ca5e2134d5fdbfdE"(ptr noundef nonnull align 1 %0, i32 noundef %1)
   br label %_ZN10hir_expand8span_map7SpanMap3new17h3760d0f4730ddb7dE.exit
 
 7:                                                ; preds = %2
   %8 = and i32 %1, 2147483647
   %9 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %8), !range !39
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21parse_macro_expansion17he0932aca01030cefE"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] }, { { ptr, { ptr, [1 x i64] }, {} }, ptr } }) align 8 dereferenceable(48) %3, ptr noundef align 1 %0, i32 noundef %9)
+  call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21parse_macro_expansion17he0932aca01030cefE"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] }, { { ptr, { ptr, [1 x i64] }, {} }, ptr } }) align 8 dereferenceable(48) %3, ptr noundef nonnull align 1 %0, i32 noundef %9)
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 40
   %12 = load ptr, ptr %11, align 8, !nonnull !6, !noundef !6
-  invoke void @"_ZN74_$LT$rowan..arc..ThinArc$LT$H$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc28492c21e345c9cE.llvm.13580319295917089645"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @"_ZN74_$LT$rowan..arc..ThinArc$LT$H$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc28492c21e345c9cE.llvm.13580319295917089645"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN4core3ptr50drop_in_place$LT$rowan..green..node..GreenNode$GT$17h7e1e2b29db95cabeE.llvm.13580319295917089645.exit.i.i" unwind label %13
 
 13:                                               ; preds = %7
@@ -15286,7 +15286,7 @@ define hidden { i64, ptr } @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatab
 "_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.sink.split.i.i.i": ; preds = %45, %42, %39, %35
   %.val1.i.sink.i.i.i = phi i64 [ %.val1.i.i.i.i.i, %39 ], [ %.val1.i2.i.i.i.i, %42 ], [ %.val1.i4.i.i.i, %45 ], [ %.val1.i.i.i.i, %35 ]
   %.val.i.i.i.i = load ptr, ptr %.val7.i, align 8, !nonnull !6, !noundef !6
-  call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef %.val1.i.sink.i.i.i, i64 noundef 1) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef range(i64 1, 0) %.val1.i.sink.i.i.i, i64 noundef 1) #16
   br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.i.i.i"
 
 "_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.i.i.i": ; preds = %45, %42, %39, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.sink.split.i.i.i", %35
@@ -15430,7 +15430,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %39, !noalias !761
 
 39:                                               ; preds = %37
@@ -15739,7 +15739,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %4) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #13
           to label %common.resume unwind label %38, !noalias !772
 
 38:                                               ; preds = %36
@@ -15883,7 +15883,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef align 8 dereferenceable(40) %3) #13
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h8eaccb09dc64b419E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #13
           to label %common.resume unwind label %38, !noalias !778
 
 38:                                               ; preds = %36

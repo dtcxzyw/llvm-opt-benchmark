@@ -1403,14 +1403,14 @@ define hidden void @_ZN22DiscoveredListIterator9load_ptrsEv(ptr nocapture nounde
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %8, ptr %9, align 8
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull %3, i64 noundef %6) #17
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %6) #17
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr %2, align 8
   %14 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %15 = sext i32 %14 to i64
   %16 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %17 = tail call noundef ptr %16(ptr noundef nonnull %13, i64 noundef %15) #17
+  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %15) #17
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %17, ptr %18, align 8
   ret void
@@ -1657,11 +1657,11 @@ _ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosure
   %30 = add nsw i64 %29, %28
   %31 = inttoptr i64 %30 to ptr
   %32 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull %.sroa.16.048, i64 noundef %29) #17
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.048, i64 noundef %29) #17
   %34 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %35 = sext i32 %34 to i64
   %36 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %37 = tail call noundef ptr %36(ptr noundef nonnull %.sroa.16.048, i64 noundef %35) #17
+  %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.048, i64 noundef %35) #17
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %62
 
@@ -1930,11 +1930,11 @@ _ZN22DiscoveredListIterator19make_referent_aliveEv.exit: ; preds = %_ZN22Discove
   %26 = add nsw i64 %25, %24
   %27 = inttoptr i64 %26 to ptr
   %28 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %29 = tail call noundef ptr %28(ptr noundef nonnull %.sroa.10.019, i64 noundef %25) #17
+  %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.019, i64 noundef %25) #17
   %30 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %31 = sext i32 %30 to i64
   %32 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull %.sroa.10.019, i64 noundef %31) #17
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.019, i64 noundef %31) #17
   %34 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %35 = load i8, ptr @UseCompressedOops, align 1
   %36 = trunc i8 %35 to i1
@@ -2077,7 +2077,7 @@ _ZNK14DiscoveredList4headEv.exit:                 ; preds = %5, %17
   %20 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull %.09, i64 noundef %21) #17
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(16) %.09, i64 noundef %21) #17
   %24 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.09, i32 noundef %24, ptr noundef null) #17
   %.not = icmp eq ptr %23, %.09
@@ -2155,7 +2155,7 @@ _ZNK14DiscoveredList4headEv.exit.i:               ; preds = %22, %10
   %25 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %28 = tail call noundef ptr %27(ptr noundef nonnull %.09.i, i64 noundef %26) #17
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(16) %.09.i, i64 noundef %26) #17
   %29 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.09.i, i32 noundef %29, ptr noundef null) #17
   %.not.i = icmp eq ptr %28, %.09.i
@@ -2295,7 +2295,7 @@ define hidden void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(p
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %4
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #17
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #17
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #17
@@ -2586,7 +2586,7 @@ _ZNK14DiscoveredList4headEv.exit:                 ; preds = %35, %47
   %50 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %51 = sext i32 %50 to i64
   %52 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %53 = tail call noundef ptr %52(ptr noundef nonnull %.06682, i64 noundef %51) #17
+  %53 = tail call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(16) %.06682, i64 noundef %51) #17
   %54 = add nuw i64 %.083, 1
   %exitcond104.not = icmp eq i64 %54, %32
   br i1 %exitcond104.not, label %._crit_edge85.loopexit, label %.lr.ph84, !llvm.loop !16
@@ -2851,7 +2851,7 @@ define hidden noundef zeroext i1 @_ZN18ReferenceProcessor18discover_referenceEP7
   %10 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
   %11 = sext i32 %10 to i64
   %12 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull %1, i64 noundef %11) #17
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %11) #17
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %_ZN12ResourceMarkD2Ev.exit
 
@@ -2873,7 +2873,7 @@ define hidden noundef zeroext i1 @_ZN18ReferenceProcessor18discover_referenceEP7
   %24 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %25 = sext i32 %24 to i64
   %26 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull %1, i64 noundef %25) #17
+  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %25) #17
   %28 = load ptr, ptr %21, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
@@ -2912,7 +2912,7 @@ define hidden noundef zeroext i1 @_ZN18ReferenceProcessor18discover_referenceEP7
   %57 = add nsw i64 %56, %55
   %58 = inttoptr i64 %57 to ptr
   %59 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %60 = tail call noundef ptr %59(ptr noundef nonnull %1, i64 noundef %56) #17
+  %60 = tail call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %56) #17
   %.not18 = icmp eq ptr %60, null
   br i1 %.not18, label %61, label %91
 
@@ -3897,11 +3897,11 @@ _ZN22DiscoveredListIteratorC2ER14DiscoveredListP10OopClosureP17BoolObjectClosure
   %34 = add nsw i64 %33, %32
   %35 = inttoptr i64 %34 to ptr
   %36 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %37 = tail call noundef ptr %36(ptr noundef nonnull %.sroa.11.034, i64 noundef %33) #17
+  %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.034, i64 noundef %33) #17
   %38 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %39 = sext i32 %38 to i64
   %40 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm397382EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %41 = tail call noundef ptr %40(ptr noundef nonnull %.sroa.11.034, i64 noundef %39) #17
+  %41 = tail call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.034, i64 noundef %39) #17
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %65
 
@@ -5561,7 +5561,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #17, !srcloc !21
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #17, !srcloc !21
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
@@ -5659,7 +5659,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #17, !srcloc !21
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #17, !srcloc !21
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 

@@ -2674,7 +2674,7 @@ define internal fastcc void @FillInDevInfo(ptr nocapture noundef nonnull %0, ptr
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %1, align 8
-  %20 = call i32 @snd_pcm_open(ptr noundef nonnull %6, ptr noundef %19, i32 noundef 1, i32 noundef %2) #25, !callees !49
+  %20 = call i32 @snd_pcm_open(ptr noundef nonnull %6, ptr noundef %19, i32 noundef 1, i32 noundef range(i32 0, 2) %2) #25, !callees !49
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %27
 
@@ -2694,7 +2694,7 @@ define internal fastcc void @FillInDevInfo(ptr nocapture noundef nonnull %0, ptr
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %1, align 8
-  %32 = call i32 @snd_pcm_open(ptr noundef nonnull %6, ptr noundef %31, i32 noundef 0, i32 noundef %2) #25, !callees !49
+  %32 = call i32 @snd_pcm_open(ptr noundef nonnull %6, ptr noundef %31, i32 noundef 0, i32 noundef range(i32 0, 2) %2) #25, !callees !49
   %33 = icmp sgt i32 %32, -1
   br i1 %33, label %34, label %39
 
@@ -3416,7 +3416,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaOpen(ptr nocapture noundef r
   %.019 = load ptr, ptr %.019.in, align 8
   %17 = xor i32 %2, 1
   %18 = load i32, ptr @busyRetries_, align 4
-  %19 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.019, i32 noundef %17, i32 noundef 1) #25, !callees !49
+  %19 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.019, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #25, !callees !49
   %20 = icmp sgt i32 %18, 0
   %21 = icmp eq i32 %19, -16
   %22 = select i1 %20, i1 %21, i1 false
@@ -3425,7 +3425,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaOpen(ptr nocapture noundef r
 .lr.ph.split.i:                                   ; preds = %16, %.lr.ph.split.i
   %.01617.i = phi i32 [ %24, %.lr.ph.split.i ], [ 0, %16 ]
   tail call void @Pa_Sleep(i64 noundef 10) #25
-  %23 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.019, i32 noundef %17, i32 noundef 1) #25, !callees !49
+  %23 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.019, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #25, !callees !49
   %24 = add nuw nsw i32 %.01617.i, 1
   %25 = icmp sgt i32 %18, %24
   %26 = icmp eq i32 %23, -16
@@ -3902,7 +3902,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
 218:                                              ; preds = %44
   %219 = getelementptr i8, ptr %1, i64 16
   %.val.i = load double, ptr %219, align 8
-  %220 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr noundef %23, double %.val.i, i64 noundef %4, double noundef %41, ptr noundef %20, ptr noundef %10)
+  %220 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr noundef %23, double %.val.i, i64 noundef %4, double noundef %41, ptr noundef nonnull %20, ptr noundef %10)
   store i32 %220, ptr @paUtilErr_, align 4
   %221 = icmp slt i32 %220, 0
   br i1 %221, label %PaAlsaStream_DetermineFramesPerBuffer.exit, label %222
@@ -3915,7 +3915,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
 225:                                              ; preds = %40
   %226 = getelementptr i8, ptr %2, i64 16
   %.val237.i = load double, ptr %226, align 8
-  %227 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr noundef %32, double %.val237.i, i64 noundef %4, double noundef %41, ptr noundef %22, ptr noundef %10)
+  %227 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr noundef %32, double %.val237.i, i64 noundef %4, double noundef %41, ptr noundef nonnull %22, ptr noundef %10)
   store i32 %227, ptr @paUtilErr_, align 4
   %228 = icmp slt i32 %227, 0
   br i1 %228, label %PaAlsaStream_DetermineFramesPerBuffer.exit, label %229

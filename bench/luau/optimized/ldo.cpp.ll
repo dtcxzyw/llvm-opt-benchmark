@@ -1544,7 +1544,7 @@ declare hidden void @_Z10luaF_closeP9lua_StateP10lua_TValue(ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13lua_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #17
   ret void
 }

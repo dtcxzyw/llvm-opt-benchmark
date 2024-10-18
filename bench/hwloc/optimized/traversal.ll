@@ -745,7 +745,7 @@ define range(i32 -1, 1) i32 @hwloc_type_sscanf(ptr noundef %0, ptr nocapture nou
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   store i64 0, ptr %7, align 8
-  %9 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.21, i64 noundef 6) #18
+  %9 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.21, i64 noundef 6) #18
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %20
 
@@ -773,7 +773,7 @@ hwloc__osdev_types_sscanf.exit:                   ; preds = %12
   br label %hwloc__type_match.exit
 
 20:                                               ; preds = %4
-  %21 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.22, i64 noundef 3) #18
+  %21 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.22, i64 noundef 3) #18
   %.not79 = icmp eq i32 %21, 0
   br i1 %.not79, label %22, label %32
 

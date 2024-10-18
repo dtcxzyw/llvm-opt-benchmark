@@ -550,7 +550,7 @@ define internal noundef i128 @_ZN4core5error5Error7type_id17h566d538e53644e8bE(p
 define hidden noundef i128 @"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h1bd268da833e52c8E.llvm.11417486217840573292"(ptr noundef nonnull align 16 %0) unnamed_addr #0 {
   %2 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8
   %.0.i.i = inttoptr i64 %2 to ptr
-  %3 = tail call noundef i128 %.0.i.i(ptr noundef nonnull %0)
+  %3 = tail call noundef i128 %.0.i.i(ptr noundef nonnull align 16 %0)
   %4 = icmp eq i128 %3, 0
   br i1 %4, label %5, label %9
 
@@ -559,7 +559,7 @@ define hidden noundef i128 @"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_
   %7 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17hfca31474057cdca5E.llvm.11417486217840573292(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %8 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8
   %.0.i1.i.i = inttoptr i64 %8 to ptr
-  tail call void %.0.i1.i.i(ptr noundef nonnull %0, i128 noundef %7)
+  tail call void %.0.i1.i.i(ptr noundef nonnull align 16 %0, i128 noundef %7)
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -729,7 +729,7 @@ define hidden void @"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Ha
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8
   %.0.i.i.i = inttoptr i64 %8 to ptr
-  %9 = tail call noundef i128 %.0.i.i.i(ptr noundef nonnull %7)
+  %9 = tail call noundef i128 %.0.i.i.i(ptr noundef nonnull align 16 %7)
   %10 = icmp eq i128 %9, 0
   br i1 %10, label %11, label %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h1bd268da833e52c8E.llvm.11417486217840573292.exit"
 
@@ -738,7 +738,7 @@ define hidden void @"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Ha
   %13 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17hfca31474057cdca5E.llvm.11417486217840573292(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   %14 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8
   %.0.i1.i.i.i = inttoptr i64 %14 to ptr
-  tail call void %.0.i1.i.i.i(ptr noundef nonnull %7, i128 noundef %13)
+  tail call void %.0.i1.i.i.i(ptr noundef nonnull align 16 %7, i128 noundef %13)
   br label %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h1bd268da833e52c8E.llvm.11417486217840573292.exit"
 
 "_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h1bd268da833e52c8E.llvm.11417486217840573292.exit": ; preds = %2, %11
@@ -1061,7 +1061,7 @@ define hidden void @_ZN6flate27deflate7bufread18reset_decoder_data17hee3c852b20c
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @_ZN6flate23mem10Decompress3new17hdbcdc60c29433706E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, i64 } }) align 8 dereferenceable(24) %2, i1 noundef zeroext false)
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h404fb1953bfbffb9E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h404fb1953bfbffb9E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %"_ZN4core3ptr44drop_in_place$LT$flate2..mem..Decompress$GT$17hca8732eed3756a2bE.exit" unwind label %4
 
 4:                                                ; preds = %1
@@ -1130,7 +1130,7 @@ define hidden void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$cor
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i, 3
   br i1 %12, label %13, label %15
 

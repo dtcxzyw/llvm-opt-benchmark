@@ -139,7 +139,7 @@ define dso_local noundef ptr @_ZN4llvm20CrashRecoveryContext10GetCurrentEv() loc
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm20CrashRecoveryContext6EnableEv() local_unnamed_addr #3 align 2 {
   %1 = alloca %struct.sigaction, align 8
-  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
+  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %3
 
@@ -176,13 +176,13 @@ _ZL32installExceptionOrSignalHandlersv.exit:      ; preds = %8
   br label %13
 
 13:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZL32installExceptionOrSignalHandlersv.exit
-  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
+  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm20CrashRecoveryContext7DisableEv() local_unnamed_addr #3 align 2 {
-  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
+  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
   %.not.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %2
 
@@ -209,7 +209,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
   br i1 %.not.i, label %_ZL34uninstallExceptionOrSignalHandlersv.exit, label %4, !llvm.loop !7
 
 _ZL34uninstallExceptionOrSignalHandlersv.exit:    ; preds = %4, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
+  %9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
   ret void
 }
 
@@ -473,7 +473,7 @@ define internal void @_ZL26CrashRecoverySignalHandleri(i32 noundef %0) #3 {
   br i1 %.not, label %5, label %16
 
 5:                                                ; preds = %1
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %7
 
@@ -500,7 +500,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %5
   br i1 %.not.i.i, label %_ZN4llvm20CrashRecoveryContext7DisableEv.exit, label %9, !llvm.loop !7
 
 _ZN4llvm20CrashRecoveryContext7DisableEv.exit:    ; preds = %9, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
   %15 = tail call i32 @raise(i32 noundef %0) #19
   br label %_ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim.exit
 
@@ -526,7 +526,7 @@ _ZN4llvm20CrashRecoveryContext7DisableEv.exit:    ; preds = %9, %_ZNSt10lock_gua
 
 31:                                               ; preds = %16
   %32 = sext i32 %0 to i64
-  call void @_ZN4llvm3sys15CleanupOnSignalEm(i64 noundef %32) #19
+  call void @_ZN4llvm3sys15CleanupOnSignalEm(i64 noundef range(i64 -2147483648, 2147483648) %32) #19
   %.pre.i = load ptr, ptr %26, align 8
   br label %33
 

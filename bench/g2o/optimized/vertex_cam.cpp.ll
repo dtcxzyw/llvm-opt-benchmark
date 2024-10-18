@@ -258,7 +258,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o9VertexCamC2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0)
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_6SBACamEEE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10BaseVertexILi6ENS_6SBACamEEE, i64 288), ptr %2, align 16
@@ -271,7 +271,7 @@ define void @_ZN3g2o9VertexCamC2Ev(ptr noundef nonnull align 16 dereferenceable(
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #20
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) #20
   resume { ptr, i32 } %6
 
 _ZN3g2o10BaseVertexILi6ENS_6SBACamEEC2Ev.exit:    ; preds = %1
@@ -528,7 +528,7 @@ define linkonce_odr void @_ZN3g2o9VertexCamD2Ev(ptr noundef nonnull align 16 der
   br label %_ZN3g2o10BaseVertexILi6ENS_6SBACamEED2Ev.exit
 
 _ZN3g2o10BaseVertexILi6ENS_6SBACamEED2Ev.exit:    ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #20
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) #20
   ret void
 }
 
@@ -552,7 +552,7 @@ define linkonce_odr void @_ZN3g2o9VertexCamD0Ev(ptr noundef nonnull align 16 der
   br label %_ZN3g2o9VertexCamD2Ev.exit
 
 _ZN3g2o9VertexCamD2Ev.exit:                       ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #20
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 784) #21
   ret void
 }
@@ -794,7 +794,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi6ENS_6SBACamEE11solveD
   store i8 0, ptr %18, align 8, !alias.scope !16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 345
   store i8 0, ptr %19, align 1, !alias.scope !16
-  %20 = call noundef nonnull align 16 dereferenceable(346) ptr @_ZN5Eigen12PartialPivLUINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEEE7computeIS2_EERS3_RKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(346) %3, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %20 = call noundef nonnull align 16 dereferenceable(346) ptr @_ZN5Eigen12PartialPivLUINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEEE7computeIS2_EERS3_RKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(346) %3, ptr noundef nonnull align 16 dereferenceable(288) %8)
   %21 = load i8, ptr %18, align 8
   %22 = sitofp i8 %21 to double
   %23 = load double, ptr %3, align 16
@@ -1008,7 +1008,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi1ELi6E
 
 151:                                              ; preds = %148
   store i8 1, ptr %43, align 8
-  %152 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEEEElRT_(ptr noundef nonnull align 16 dereferenceable(288) %10)
+  %152 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEEEElRT_(ptr noundef nonnull align 16 dereferenceable(304) %10)
   %153 = icmp ne i64 %152, -1
   %154 = zext i1 %153 to i32
   %155 = getelementptr inbounds nuw i8, ptr %10, i64 300
@@ -1335,7 +1335,7 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi6ENS_6SBACamEE4pushEv(ptr nounde
   br i1 %.not.i.i, label %27, label %7
 
 7:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(552) %4, ptr noundef nonnull align 16 dereferenceable(552) %2, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 16 dereferenceable(24) %9, i64 24, i1 false)
@@ -1578,7 +1578,7 @@ define linkonce_odr void @_ZN3g2o9VertexCam9oplusImplEPKd(ptr noundef nonnull al
   call void @_ZN3g2o6SBACam6updateERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEE(ptr noundef nonnull align 16 dereferenceable(552) %5, ptr noundef nonnull align 16 dereferenceable(48) %4)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  call void @_ZN3g2o6SBACam12transformW2FERN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEERKNS2_IdLi3ELi1ELi0ELi3ELi1EEERKNS1_10QuaternionIdLi0EEE(ptr noundef nonnull align 16 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 16 dereferenceable(32) %5)
+  call void @_ZN3g2o6SBACam12transformW2FERN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEERKNS2_IdLi3ELi1ELi0ELi3ELi1EEERKNS1_10QuaternionIdLi0EEE(ptr noundef nonnull align 16 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 16 dereferenceable(552) %5)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   %16 = getelementptr inbounds i8, ptr %0, i64 272
@@ -1663,7 +1663,7 @@ define linkonce_odr void @_ZN3g2o9VertexCam15setToOriginImplEv(ptr noundef nonnu
   %2 = alloca %"class.g2o::SBACam", align 16
   call void @_ZN3g2o6SBACamC1Ev(ptr noundef nonnull align 16 dereferenceable(552) %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(552) %3, ptr noundef nonnull align 16 dereferenceable(552) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) %5, i64 24, i1 false)
@@ -1925,8 +1925,8 @@ define linkonce_odr void @_ZN3g2o9VertexCam11setEstimateERKNS_6SBACamE(ptr nound
   %114 = load ptr, ptr %0, align 16
   %115 = getelementptr inbounds i8, ptr %114, i64 216
   %116 = load ptr, ptr %115, align 8
-  tail call void %116(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  tail call void @_ZN3g2o6SBACam12transformW2FERN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEERKNS2_IdLi3ELi1ELi0ELi3ELi1EEERKNS1_10QuaternionIdLi0EEE(ptr noundef nonnull align 16 dereferenceable(96) %33, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 16 dereferenceable(32) %4)
+  tail call void %116(ptr noundef nonnull align 16 dereferenceable(776) %0)
+  tail call void @_ZN3g2o6SBACam12transformW2FERN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEERKNS2_IdLi3ELi1ELi0ELi3ELi1EEERKNS1_10QuaternionIdLi0EEE(ptr noundef nonnull align 16 dereferenceable(96) %33, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 16 dereferenceable(552) %4)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   %117 = getelementptr inbounds i8, ptr %0, i64 272
   %118 = getelementptr inbounds i8, ptr %0, i64 344
@@ -2015,7 +2015,7 @@ define linkonce_odr void @_ZThn64_N3g2o9VertexCamD1Ev(ptr noundef %0) unnamed_ad
   br label %_ZN3g2o9VertexCamD2Ev.exit
 
 _ZN3g2o9VertexCamD2Ev.exit:                       ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #20
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %2) #20
   ret void
 }
 
@@ -2039,8 +2039,8 @@ define linkonce_odr void @_ZThn64_N3g2o9VertexCamD0Ev(ptr noundef %0) unnamed_ad
   br label %_ZN3g2o9VertexCamD0Ev.exit
 
 _ZN3g2o9VertexCamD0Ev.exit:                       ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #20
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 784) #21
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %2) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(776) %2, i64 noundef 784) #21
   ret void
 }
 
@@ -2117,7 +2117,7 @@ define linkonce_odr void @_ZThn64_N3g2o10BaseVertexILi6ENS_6SBACamEED1Ev(ptr nou
   br label %_ZN3g2o10BaseVertexILi6ENS_6SBACamEED2Ev.exit
 
 _ZN3g2o10BaseVertexILi6ENS_6SBACamEED2Ev.exit:    ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #20
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %2) #20
   ret void
 }
 
@@ -2412,7 +2412,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(346) ptr @_ZN5Eigen
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %3, align 8
   store i64 6, ptr %113, align 8
-  %114 = call noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLi6EE12unblocked_luERNS_3RefINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_11OuterStrideILin1EEEEEPiRi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %112, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %114 = call noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLi6EE12unblocked_luERNS_3RefINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_11OuterStrideILin1EEEEEPiRi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(24) %112, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %115 = load i32, ptr %4, align 4
   %116 = and i32 %115, 1
@@ -3490,7 +3490,7 @@ _ZNKSt6vectorIN3g2o6SBACamESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
 23:                                               ; preds = %20, %_ZNKSt6vectorIN3g2o6SBACamESaIS1_EE12_M_check_lenEmPKc.exit
   %24 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN3g2o6SBACamESaIS1_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds %"class.g2o::SBACam", ptr %24, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %25, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(552) %25, ptr noundef nonnull align 16 dereferenceable(552) %2, i64 32, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %26, ptr noundef nonnull align 16 dereferenceable(24) %27, i64 24, i1 false)
@@ -3524,7 +3524,7 @@ _ZNKSt6vectorIN3g2o6SBACamESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %.0911.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i ], [ %6, %23 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i, i64 32, i1 false), !alias.scope !98
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(552) %.012.i.i.i, ptr noundef nonnull align 16 dereferenceable(552) %.0911.i.i.i, i64 32, i1 false), !alias.scope !98
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %43, ptr noundef nonnull align 16 dereferenceable(24) %44, i64 24, i1 false), !alias.scope !98
@@ -3566,7 +3566,7 @@ _ZNSt6vectorIN3g2o6SBACamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %
   %.0911.i.i.i29 = phi ptr [ %80, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN3g2o6SBACamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i28, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i29, i64 32, i1 false), !alias.scope !105
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(552) %.012.i.i.i28, ptr noundef nonnull align 16 dereferenceable(552) %.0911.i.i.i29, i64 32, i1 false), !alias.scope !105
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %63, ptr noundef nonnull align 16 dereferenceable(24) %64, i64 24, i1 false), !alias.scope !105

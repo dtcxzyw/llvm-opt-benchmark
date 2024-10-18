@@ -93,7 +93,7 @@ entry:
   %toTime_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %toTime, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %toTime_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %toTime_, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !14
   store ptr %7, ptr %_M_invoker.i, align 8, !tbaa !14
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %toTime, i64 16
@@ -103,7 +103,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %toTime_, ptr noundef nonnull align 8 dereferenceable(16) %toTime, i64 16, i1 false), !tbaa.struct !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %toTime_, ptr noundef nonnull align 8 dereferenceable(32) %toTime, i64 16, i1 false), !tbaa.struct !18
   %9 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !17
   store ptr %9, ptr %_M_manager.i.i, align 8, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -168,7 +168,7 @@ if.then.i:                                        ; preds = %_ZNK5boost10shared_
 
 _ZNKSt8functionIFdN8QuantLib4DateEEEclES1_.exit:  ; preds = %_ZNK5boost10shared_ptrIN8QuantLib8DividendEEptEv.exit
   %6 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !14
-  %call2.i = call noundef double %6(ptr noundef nonnull align 8 dereferenceable(16) %toTime_, ptr noundef nonnull align 8 dereferenceable(8) %__args.i)
+  %call2.i = call noundef double %6(ptr noundef nonnull align 8 dereferenceable(32) %toTime_, ptr noundef nonnull align 8 dereferenceable(8) %__args.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.i)
   %cmp = fcmp ult double %call2.i, %t
   %7 = load double, ptr %maturity_, align 8

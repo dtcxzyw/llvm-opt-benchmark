@@ -647,7 +647,7 @@ if.end18:                                         ; preds = %if.then9, %if.then1
   store i64 170, ptr %api_struct.i13, align 8
   %features1.i = getelementptr inbounds i8, ptr %api_struct.i13, i64 8
   store i64 %asked_features.0, ptr %features1.i, align 8
-  %call.i14 = call i32 (i32, i64, ...) @ioctl(i32 noundef %ufd, i64 noundef 3222841919, ptr noundef nonnull %api_struct.i13) #16
+  %call.i14 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -1) %ufd, i64 noundef 3222841919, ptr noundef nonnull %api_struct.i13) #16
   %tobool.not.i15 = icmp eq i32 %call.i14, 0
   br i1 %tobool.not.i15, label %if.end.i20, label %if.then.i16
 
@@ -1111,11 +1111,11 @@ if.then8.i.i65:                                   ; preds = %if.then.i.i62
   %51 = load i64, ptr %_now.i.i55, align 8
   %tv_usec.i.i68 = getelementptr inbounds i8, ptr %_now.i.i55, i64 8
   %52 = load i64, ptr %tv_usec.i.i68, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i67, i64 noundef %51, i64 noundef %52, i64 noundef %retval.0.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i67, i64 noundef %51, i64 noundef %52, i64 noundef range(i64 0, 4294967296) %retval.0.i) #16
   br label %trace_postcopy_ram_incoming_cleanup_blocktime.exit
 
 if.else.i.i64:                                    ; preds = %if.then.i.i62
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i64 noundef %retval.0.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i64 noundef range(i64 0, 4294967296) %retval.0.i) #16
   br label %trace_postcopy_ram_incoming_cleanup_blocktime.exit
 
 trace_postcopy_ram_incoming_cleanup_blocktime.exit: ; preds = %get_postcopy_total_blocktime.exit, %land.lhs.true5.i.i59, %if.then8.i.i65, %if.else.i.i64
@@ -1897,11 +1897,11 @@ if.then8.i.i93:                                   ; preds = %if.then.i.i90
   %call10.i.i95 = tail call i32 @qemu_get_thread_id() #16
   %27 = load i64, ptr %_now.i.i83, align 8
   %28 = load i64, ptr %tv_usec.i.i96, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i95, i64 noundef %27, i64 noundef %28, i64 noundef %add17, ptr noundef %21, i32 noundef %22) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i95, i64 noundef %27, i64 noundef %28, i64 noundef range(i64 2, 4294967297) %add17, ptr noundef %21, i32 noundef %22) #16
   br label %trace_postcopy_ram_fault_thread_fds_extra.exit
 
 if.else.i.i92:                                    ; preds = %if.then.i.i90
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i64 noundef %add17, ptr noundef %21, i32 noundef %22) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i64 noundef range(i64 2, 4294967297) %add17, ptr noundef %21, i32 noundef %22) #16
   br label %trace_postcopy_ram_fault_thread_fds_extra.exit
 
 trace_postcopy_ram_fault_thread_fds_extra.exit:   ; preds = %for.body, %land.lhs.true5.i.i87, %if.then8.i.i93, %if.else.i.i92
@@ -2143,11 +2143,11 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #16
   %69 = load i64, ptr %_now.i.i.i.i, align 8
   %70 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i.i.i, i64 noundef %69, i64 noundef %70, i32 noundef %64, i32 noundef %60) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i.i.i, i64 noundef %69, i64 noundef %70, i32 noundef %64, i32 noundef range(i32 1, 0) %60) #16
   br label %get_mem_fault_cpu_index.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %64, i32 noundef %60) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %64, i32 noundef range(i32 1, 0) %60) #16
   br label %get_mem_fault_cpu_index.exit.i
 
 while.end6.i.i:                                   ; preds = %for.body.i.i
@@ -2182,11 +2182,11 @@ if.then8.i.i17.i.i:                               ; preds = %if.then.i.i14.i.i
   %call10.i.i19.i.i = call i32 @qemu_get_thread_id() #16
   %76 = load i64, ptr %_now.i.i7.i.i, align 8
   %77 = load i64, ptr %tv_usec.i.i20.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i19.i.i, i64 noundef %76, i64 noundef %77, i32 noundef -1, i32 noundef %60) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i19.i.i, i64 noundef %76, i64 noundef %77, i32 noundef -1, i32 noundef range(i32 1, 0) %60) #16
   br label %get_mem_fault_cpu_index.exit.thread.i
 
 if.else.i.i16.i.i:                                ; preds = %if.then.i.i14.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef -1, i32 noundef %60) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef -1, i32 noundef range(i32 1, 0) %60) #16
   br label %get_mem_fault_cpu_index.exit.thread.i
 
 get_mem_fault_cpu_index.exit.thread.i:            ; preds = %if.else.i.i16.i.i, %if.then8.i.i17.i.i, %land.lhs.true5.i.i11.i.i, %for.end.i.i
@@ -2262,11 +2262,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call10.i.i.i = call i32 @qemu_get_thread_id() #16
   %95 = load i64, ptr %_now.i.i.i, align 8
   %96 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i.i, i64 noundef %95, i64 noundef %96, i64 noundef %59, ptr noundef nonnull %61, i32 noundef %90, i32 noundef %78, i32 noundef 0) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i.i, i64 noundef %95, i64 noundef %96, i64 noundef %59, ptr noundef nonnull %61, i32 noundef %90, i32 noundef range(i32 0, -2147483648) %78, i32 noundef 0) #16
   br label %trace_mark_postcopy_blocktime_begin.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i64 noundef %59, ptr noundef nonnull %61, i32 noundef %90, i32 noundef %78, i32 noundef 0) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i64 noundef %59, ptr noundef nonnull %61, i32 noundef %90, i32 noundef range(i32 0, -2147483648) %78, i32 noundef 0) #16
   br label %trace_mark_postcopy_blocktime_begin.exit.i
 
 trace_mark_postcopy_blocktime_begin.exit.i:       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %while.end.split.i
@@ -2309,11 +2309,11 @@ if.then8.i.i36.i:                                 ; preds = %if.then.i.i33.i
   %call10.i.i38.i = call i32 @qemu_get_thread_id() #16
   %108 = load i64, ptr %_now.i.i26.i, align 8
   %109 = load i64, ptr %tv_usec.i.i39.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i38.i, i64 noundef %108, i64 noundef %109, i64 noundef %59, ptr noundef nonnull %61, i32 noundef %103, i32 noundef %78, i32 noundef %call35.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i38.i, i64 noundef %108, i64 noundef %109, i64 noundef %59, ptr noundef nonnull %61, i32 noundef %103, i32 noundef range(i32 0, -2147483648) %78, i32 noundef %call35.i) #16
   br label %trace_mark_postcopy_blocktime_begin.exit40.i
 
 if.else.i.i35.i:                                  ; preds = %if.then.i.i33.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i64 noundef %59, ptr noundef nonnull %61, i32 noundef %103, i32 noundef %78, i32 noundef %call35.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i64 noundef %59, ptr noundef nonnull %61, i32 noundef %103, i32 noundef range(i32 0, -2147483648) %78, i32 noundef %call35.i) #16
   br label %trace_mark_postcopy_blocktime_begin.exit40.i
 
 trace_mark_postcopy_blocktime_begin.exit40.i:     ; preds = %if.else.i.i35.i, %if.then8.i.i36.i, %land.lhs.true5.i.i30.i, %while.end42.i

@@ -481,7 +481,7 @@ if.else.i:                                        ; preds = %if.then2.i
   br i1 %cmp12.not.i, label %if.end15.i, label %migrate_one.exit
 
 if.end15.i:                                       ; preds = %if.else.i, %if.then5.i
-  %call16.i15 = call fastcc i32 @migrate_paths(ptr noundef %src, ptr noundef %dst)
+  %call16.i15 = call fastcc i32 @migrate_paths(ptr noundef nonnull %src, ptr noundef nonnull %dst)
   br label %migrate_one.exit
 
 if.end17.i:                                       ; preds = %if.end.i

@@ -17382,7 +17382,7 @@ _ZN7QStringD2Ev.exit292:                          ; preds = %430, %_ZN17QArrayDa
   %440 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %437, ptr %440, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 24, i1 false)
   %441 = getelementptr inbounds i8, ptr %52, i64 24
   store i64 2, ptr %441, align 8
   %442 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %437)
@@ -17421,7 +17421,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i294:   ; preds = %445
 _ZN7QStringD2Ev.exit296:                          ; preds = %445, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i294, %448
   %450 = load ptr, ptr %440, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 24, i1 false)
   %451 = getelementptr inbounds i8, ptr %54, i64 24
   store i64 2, ptr %451, align 8
   %452 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %450)
@@ -17460,7 +17460,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i302:   ; preds = %455
 _ZN7QStringD2Ev.exit304:                          ; preds = %455, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i302, %458
   %460 = load ptr, ptr %440, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 24, i1 false)
   %461 = getelementptr inbounds i8, ptr %56, i64 24
   store i64 2, ptr %461, align 8
   %462 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %460)
@@ -17499,7 +17499,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i310:   ; preds = %465
 _ZN7QStringD2Ev.exit312:                          ; preds = %465, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i310, %468
   %470 = load ptr, ptr %440, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 24, i1 false)
   %471 = getelementptr inbounds i8, ptr %58, i64 24
   store i64 2, ptr %471, align 8
   %472 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %470)
@@ -20557,7 +20557,7 @@ define void @_ZN23LBMLBTRMTransportDialogD0Ev(ptr noundef nonnull align 8 derefe
 define void @_ZThn16_N23LBMLBTRMTransportDialogD0Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN23LBMLBTRMTransportDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
   ret void
 }
 
@@ -21586,7 +21586,7 @@ define linkonce_odr void @_ZN18LBMLBTRMFrameEntryD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18LBMLBTRMFrameEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %0) #18
+  tail call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

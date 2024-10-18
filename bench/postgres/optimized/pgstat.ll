@@ -293,7 +293,7 @@ pgstat_reset_after_failure.exit.i:                ; preds = %30
   %119 = getelementptr [12 x %struct.PgStat_KindInfo], ptr @pgstat_kind_infos, i64 0, i64 %114, i32 3
   %120 = load i32, ptr %119, align 4
   %121 = zext i32 %120 to i64
-  %122 = call i64 @fread(ptr noundef %118, i64 noundef 1, i64 noundef %121, ptr noundef nonnull %11)
+  %122 = call i64 @fread(ptr noundef %118, i64 noundef 1, i64 noundef range(i64 0, 4294967296) %121, ptr noundef nonnull %11)
   %123 = icmp eq i64 %122, %121
   br i1 %123, label %.preheader.i.backedge, label %.loopexit.i
 
@@ -668,7 +668,7 @@ pgstat_build_snapshot_fixed.exit51.i:             ; preds = %70, %67
   %101 = getelementptr [12 x %struct.PgStat_KindInfo], ptr @pgstat_kind_infos, i64 0, i64 %96, i32 3
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
-  %104 = call i64 @fwrite(ptr noundef %100, i64 noundef %103, i64 noundef 1, ptr noundef nonnull %15)
+  %104 = call i64 @fwrite(ptr noundef %100, i64 noundef range(i64 0, 4294967296) %103, i64 noundef 1, ptr noundef nonnull %15)
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %94, %77

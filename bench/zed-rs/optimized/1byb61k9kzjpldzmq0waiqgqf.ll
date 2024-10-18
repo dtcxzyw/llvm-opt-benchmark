@@ -70,7 +70,7 @@ define hidden noundef range(i8 1, 4) i8 @"_ZN15futures_channel4mpsc15Sender$LT$T
   br i1 %.not.i, label %"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$10poll_ready17h832f6555169bf22bE.llvm.5881848573710235496.exit", label %10
 
 10:                                               ; preds = %6
-  %11 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17hc37d148b2116f532E.llvm.5881848573710235496"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(32) %1)
+  %11 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17hc37d148b2116f532E.llvm.5881848573710235496"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %1)
   %spec.select.i = select i1 %11, i8 3, i8 2
   br label %"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$10poll_ready17h832f6555169bf22bE.llvm.5881848573710235496.exit"
 
@@ -243,7 +243,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message1
   store ptr %33, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %35 = getelementptr inbounds i8, ptr %33, i64 16
-  %36 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h7f8b90b43eb2d61aE.llvm.14686985191095695476(ptr noundef nonnull %35, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
+  %36 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h7f8b90b43eb2d61aE.llvm.14686985191095695476(ptr noundef nonnull align 8 %35, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc.i unwind label %52
 
 .noexc.i:                                         ; preds = %32
@@ -252,7 +252,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message1
   br i1 %switch.i3.i, label %.noexc4.i, label %38
 
 38:                                               ; preds = %.noexc.i
-  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 4 %35)
+  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %35)
           to label %.noexc4.i unwind label %52
 
 .noexc4.i:                                        ; preds = %38, %.noexc.i
@@ -276,7 +276,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message1
 _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.14686985191095695476.exit.i.i: ; preds = %.noexc6.i, %.noexc5.i
   %.sroa.01.0.i.i.i = phi i8 [ %45, %.noexc6.i ], [ 0, %.noexc5.i ]
   %46 = getelementptr inbounds i8, ptr %33, i64 20
-  %47 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h8435ef128c58ef90E.llvm.14686985191095695476(ptr noundef nonnull %46, i8 noundef 0)
+  %47 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h8435ef128c58ef90E.llvm.14686985191095695476(ptr noundef nonnull align 1 %46, i8 noundef 0)
           to label %54 unwind label %52
 
 .body.i:                                          ; preds = %65, %57, %52
@@ -530,7 +530,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$5close17h350199
   store ptr %20, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %22 = getelementptr inbounds i8, ptr %20, i64 16
-  %23 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h7f8b90b43eb2d61aE.llvm.14686985191095695476(ptr noundef nonnull %22, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
+  %23 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h7f8b90b43eb2d61aE.llvm.14686985191095695476(ptr noundef nonnull align 8 %22, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %19
@@ -539,7 +539,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$5close17h350199
   br i1 %switch.i2, label %.noexc3, label %25
 
 25:                                               ; preds = %.noexc
-  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 4 %22)
+  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %22)
           to label %.noexc3 unwind label %39
 
 .noexc3:                                          ; preds = %25, %.noexc
@@ -563,7 +563,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$5close17h350199
 _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.14686985191095695476.exit.i: ; preds = %.noexc5, %.noexc4
   %.sroa.01.0.i.i = phi i8 [ %32, %.noexc5 ], [ 0, %.noexc4 ]
   %33 = getelementptr inbounds i8, ptr %20, i64 20
-  %34 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h8435ef128c58ef90E.llvm.14686985191095695476(ptr noundef nonnull %33, i8 noundef 0)
+  %34 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h8435ef128c58ef90E.llvm.14686985191095695476(ptr noundef nonnull align 1 %33, i8 noundef 0)
           to label %41 unwind label %39
 
 .body:                                            ; preds = %44, %39, %51
@@ -754,13 +754,13 @@ define hidden noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %12 = tail call { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h7f8b90b43eb2d61aE.llvm.14686985191095695476(ptr noundef nonnull %11, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0), !noalias !108
+  %12 = tail call { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h7f8b90b43eb2d61aE.llvm.14686985191095695476(ptr noundef nonnull align 8 %11, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0), !noalias !108
   %13 = extractvalue { i32, i32 } %12, 0
   %switch.i10 = icmp eq i32 %13, 0
   br i1 %switch.i10, label %15, label %14
 
 14:                                               ; preds = %8
-  tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 4 %11), !noalias !108
+  tail call void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %11), !noalias !108
   br label %15
 
 15:                                               ; preds = %14, %8
@@ -778,7 +778,7 @@ define hidden noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner
 "_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17h39cc322407cd5737E.exit": ; preds = %15, %19
   %.sroa.01.0.i.i = phi i8 [ %22, %19 ], [ 0, %15 ]
   %23 = getelementptr inbounds i8, ptr %10, i64 20
-  %24 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h8435ef128c58ef90E.llvm.14686985191095695476(ptr noundef nonnull %23, i8 noundef 0), !noalias !108
+  %24 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h8435ef128c58ef90E.llvm.14686985191095695476(ptr noundef nonnull align 1 %23, i8 noundef 0), !noalias !108
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7c434ce3823fbe07E.llvm.5881848573710235496.exit", label %25
 
@@ -991,7 +991,7 @@ define hidden void @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$8try_
   br label %.body.thread.i
 
 24:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !143, !noalias !135
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false), !alias.scope !143, !noalias !135
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !132, !noalias !146
   br label %"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$9do_send_b17h38f5702f7f5afe26E.exit"
@@ -1054,7 +1054,7 @@ define hidden void @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$8try_
   %44 = getelementptr inbounds i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !157, !noalias !143, !nonnull !5, !noundef !5
   %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %47 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h7f8b90b43eb2d61aE.llvm.14686985191095695476(ptr noundef nonnull %46, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
+  %47 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h7f8b90b43eb2d61aE.llvm.14686985191095695476(ptr noundef nonnull align 8 %46, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc9.i unwind label %.body.thread26.i, !noalias !145
 
 .noexc9.i:                                        ; preds = %43
@@ -1063,7 +1063,7 @@ define hidden void @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$8try_
   br i1 %switch.i3.i.i, label %.noexc10.i, label %49
 
 49:                                               ; preds = %.noexc9.i
-  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 4 %46)
+  invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %46)
           to label %.noexc10.i unwind label %.body.thread26.i, !noalias !145
 
 .noexc10.i:                                       ; preds = %49, %.noexc9.i
@@ -1087,7 +1087,7 @@ define hidden void @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$8try_
 "_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17h39cc322407cd5737E.exit.i.i": ; preds = %.noexc12.i, %.noexc11.i
   %.sroa.01.0.i.i.i.i = phi i8 [ %56, %.noexc12.i ], [ 0, %.noexc11.i ]
   %57 = getelementptr inbounds i8, ptr %45, i64 20
-  %58 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h8435ef128c58ef90E.llvm.14686985191095695476(ptr noundef nonnull %57, i8 noundef 0)
+  %58 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h8435ef128c58ef90E.llvm.14686985191095695476(ptr noundef nonnull align 1 %57, i8 noundef 0)
           to label %.noexc13.i unwind label %.body.thread26.i, !noalias !145
 
 .noexc13.i:                                       ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17h39cc322407cd5737E.exit.i.i"
@@ -1304,7 +1304,7 @@ define hidden void @_ZN15futures_channel4mpsc7channel17h835f7f2f6316361aE(ptr de
   store ptr null, ptr %11, align 8
   store i64 -9223372036854775807, ptr %4, align 8
   %12 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !180
-  %13 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #20, !noalias !180
+  %13 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 97) 32, i64 noundef 8) #20, !noalias !180
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h89cba6f7baf386f3E.exit"
 
@@ -1338,7 +1338,7 @@ common.resume:                                    ; preds = %.body, %57, %"_ZN4c
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %13, ptr %20, align 8
   %21 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !183
-  %22 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #20, !noalias !183
+  %22 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 97) 16, i64 noundef 8) #20, !noalias !183
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %26
 
@@ -1380,7 +1380,7 @@ common.resume:                                    ; preds = %.body, %57, %"_ZN4c
   %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 88
   store i64 0, ptr %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !186
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef 96, i64 noundef 8) #20, !noalias !186
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef range(i64 16, 97) 96, i64 noundef 8) #20, !noalias !186
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9e60fd3881b85d4cE.exit"
 
@@ -1415,7 +1415,7 @@ common.resume:                                    ; preds = %.body, %57, %"_ZN4c
 40:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9e60fd3881b85d4cE.exit"
   store ptr %31, ptr %5, align 8
   %41 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !189
-  %42 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #20, !noalias !189
+  %42 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef range(i64 16, 97) 48, i64 noundef 8) #20, !noalias !189
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %50
 
@@ -1502,7 +1502,7 @@ define hidden noundef range(i8 2, 4) i8 @"_ZN15futures_channel4mpsc9sink_impl96_
   br i1 %.not.i.i, label %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h50fe0eb0b8929fb3E.llvm.5881848573710235496.exit.thread", label %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h50fe0eb0b8929fb3E.llvm.5881848573710235496.exit"
 
 "_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h50fe0eb0b8929fb3E.llvm.5881848573710235496.exit": ; preds = %6
-  %10 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17hc37d148b2116f532E.llvm.5881848573710235496"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(32) %1)
+  %10 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17hc37d148b2116f532E.llvm.5881848573710235496"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %1)
   %spec.select.i.i = select i1 %10, i8 3, i8 2
   br label %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h50fe0eb0b8929fb3E.llvm.5881848573710235496.exit.thread"
 
@@ -1528,7 +1528,7 @@ define hidden noundef range(i8 1, 4) i8 @"_ZN15futures_channel4mpsc9sink_impl96_
   br i1 %.not.i.i, label %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h50fe0eb0b8929fb3E.llvm.5881848573710235496.exit", label %10
 
 10:                                               ; preds = %6
-  %11 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17hc37d148b2116f532E.llvm.5881848573710235496"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(32) %1)
+  %11 = tail call noundef zeroext i1 @"_ZN15futures_channel4mpsc27BoundedSenderInner$LT$T$GT$13poll_unparked17hc37d148b2116f532E.llvm.5881848573710235496"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %1)
   %spec.select.i.i = select i1 %11, i8 3, i8 2
   br label %"_ZN15futures_channel4mpsc15Sender$LT$T$GT$10poll_ready17h50fe0eb0b8929fb3E.llvm.5881848573710235496.exit"
 
@@ -2227,7 +2227,7 @@ define hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv.
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb17e5c62104536baE.exit.i": ; preds = %9
   %12 = load ptr, ptr %1, align 16, !alias.scope !358, !noalias !361, !nonnull !5, !align !363, !noundef !5
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %12, ptr nonnull readonly %2, i64 %3), !alias.scope !364, !noalias !368
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %12, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !364, !noalias !368
   %13 = icmp eq i32 %bcmp.i.i, 0
   br i1 %13, label %14, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb17e5c62104536baE.exit.thread.i"
 

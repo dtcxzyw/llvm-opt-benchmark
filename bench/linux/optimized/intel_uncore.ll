@@ -5774,7 +5774,7 @@ ___force_wake_auto.exit:                          ; preds = %59
   %61 = getelementptr inbounds i8, ptr %0, i64 104
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef %0, i32 noundef %32) #12
+  tail call void %63(ptr noundef %0, i32 noundef range(i32 1, 0) %32) #12
   br label %64
 
 64:                                               ; preds = %___force_wake_auto.exit, %25, %22
@@ -5973,7 +5973,7 @@ ___force_wake_auto.exit:                          ; preds = %59
   %61 = getelementptr inbounds i8, ptr %0, i64 104
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef %0, i32 noundef %32) #12
+  tail call void %63(ptr noundef %0, i32 noundef range(i32 1, 0) %32) #12
   br label %64
 
 64:                                               ; preds = %___force_wake_auto.exit, %25, %22
@@ -6172,7 +6172,7 @@ ___force_wake_auto.exit:                          ; preds = %59
   %61 = getelementptr inbounds i8, ptr %0, i64 104
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef %0, i32 noundef %32) #12
+  tail call void %63(ptr noundef %0, i32 noundef range(i32 1, 0) %32) #12
   br label %64
 
 64:                                               ; preds = %___force_wake_auto.exit, %25, %22
@@ -6371,7 +6371,7 @@ ___force_wake_auto.exit:                          ; preds = %59
   %61 = getelementptr inbounds i8, ptr %0, i64 104
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef %0, i32 noundef %32) #12
+  tail call void %63(ptr noundef %0, i32 noundef range(i32 1, 0) %32) #12
   br label %64
 
 64:                                               ; preds = %___force_wake_auto.exit, %25, %22
@@ -6630,7 +6630,7 @@ ___force_wake_auto.exit:                          ; preds = %85
   %87 = getelementptr inbounds i8, ptr %0, i64 104
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %88, align 8
-  tail call void %89(ptr noundef %0, i32 noundef %58) #12
+  tail call void %89(ptr noundef %0, i32 noundef range(i32 1, 0) %58) #12
   br label %.thread
 
 .thread:                                          ; preds = %46, %___force_wake_auto.exit, %51, %48
@@ -6833,7 +6833,7 @@ ___force_wake_auto.exit:                          ; preds = %85
   %87 = getelementptr inbounds i8, ptr %0, i64 104
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %88, align 8
-  tail call void %89(ptr noundef %0, i32 noundef %58) #12
+  tail call void %89(ptr noundef %0, i32 noundef range(i32 1, 0) %58) #12
   br label %.thread
 
 .thread:                                          ; preds = %46, %___force_wake_auto.exit, %51, %48
@@ -7036,7 +7036,7 @@ ___force_wake_auto.exit:                          ; preds = %85
   %87 = getelementptr inbounds i8, ptr %0, i64 104
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %88, align 8
-  tail call void %89(ptr noundef %0, i32 noundef %58) #12
+  tail call void %89(ptr noundef %0, i32 noundef range(i32 1, 0) %58) #12
   br label %.thread
 
 .thread:                                          ; preds = %46, %___force_wake_auto.exit, %51, %48

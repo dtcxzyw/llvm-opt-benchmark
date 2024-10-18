@@ -2793,7 +2793,7 @@ define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef 
   %22 = load i32, ptr @hf_bssap_length, align 4
   %23 = zext i8 %21 to i32
   %24 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %22, ptr noundef %20, i32 noundef 0, i32 noundef 1, i32 noundef %23) #2
-  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 511) 1) #2
   %26 = zext i8 %25 to i16
   %27 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 2, i16 noundef zeroext %26, ptr noundef %4)
   %28 = zext i8 %25 to i32
@@ -2802,12 +2802,12 @@ define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef 
 
 30:                                               ; preds = %5
   %31 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, i32 noundef 1, i16 noundef zeroext 1, ptr noundef %4)
-  %32 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1) #2
+  %32 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef range(i32 1, 512) 2, i32 noundef 1) #2
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %32, i32 noundef 0) #2
   %34 = load i32, ptr @hf_bssap_length, align 4
   %35 = zext i8 %33 to i32
   %36 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %34, ptr noundef %32, i32 noundef 0, i32 noundef 1, i32 noundef %35) #2
-  %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
+  %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 511) 2) #2
   %38 = zext i8 %37 to i16
   %39 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 3, i16 noundef zeroext %38, ptr noundef %4)
   %narrow53 = add nuw nsw i16 %38, 4

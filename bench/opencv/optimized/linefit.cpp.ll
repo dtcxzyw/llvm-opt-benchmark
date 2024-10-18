@@ -201,7 +201,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %27, %30
   ]
 
 77:                                               ; preds = %69
-  invoke fastcc void @_ZN2cvL14fitLine2D_wodsEPKNS_6Point_IfEEiPfS4_(ptr noundef readonly %65, i32 noundef %31, ptr noundef null, ptr noundef %19)
+  invoke fastcc void @_ZN2cvL14fitLine2D_wodsEPKNS_6Point_IfEEiPfS4_(ptr noundef readonly %65, i32 noundef range(i32 0, -2147483648) %31, ptr noundef null, ptr noundef nonnull %19)
           to label %_ZN2cvL9fitLine2DEPKNS_6Point_IfEEiifffPf.exit unwind label %39
 
 78:                                               ; preds = %69
@@ -271,7 +271,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc32, %90
   %99 = zext nneg i32 %31 to i64
   %100 = getelementptr inbounds float, ptr %98, i64 %99
   %.not.i = icmp eq i32 %31, 0
-  %101 = call i32 @llvm.umin.i32(i32 %31, i32 10)
+  %101 = call i32 @llvm.umin.i32(i32 range(i32 0, -2147483648) %31, i32 10)
   %102 = getelementptr inbounds i8, ptr %13, i64 4
   %103 = fpext float %76 to double
   %104 = getelementptr inbounds i8, ptr %13, i64 8
@@ -343,7 +343,7 @@ _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %122, %_ZN2cv3RNG7un
 
 ._crit_edge.i:                                    ; preds = %122, %.preheader134.i
   %.sroa.0.1126.lcssa.i = phi i64 [ %.sroa.0.0125175.i, %.preheader134.i ], [ %113, %122 ]
-  invoke fastcc void @_ZN2cvL14fitLine2D_wodsEPKNS_6Point_IfEEiPfS4_(ptr noundef readonly %65, i32 noundef %31, ptr noundef nonnull %98, ptr noundef %13)
+  invoke fastcc void @_ZN2cvL14fitLine2D_wodsEPKNS_6Point_IfEEiPfS4_(ptr noundef readonly %65, i32 noundef range(i32 0, -2147483648) %31, ptr noundef nonnull %98, ptr noundef %13)
           to label %.preheader131.i.preheader unwind label %.loopexit.split-lp.i
 
 .preheader131.i.preheader:                        ; preds = %._crit_edge.i
@@ -435,11 +435,11 @@ _ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i, %146
   br i1 %.not119.i, label %168, label %167
 
 167:                                              ; preds = %166
-  invoke void %.0.i(ptr noundef nonnull %100, i32 noundef %31, ptr noundef nonnull %98)
+  invoke void %.0.i(ptr noundef nonnull %100, i32 noundef range(i32 0, -2147483648) %31, ptr noundef nonnull %98)
           to label %169 unwind label %.loopexit132.i, !callees !10
 
 168:                                              ; preds = %166
-  invoke void %.097.i(ptr noundef nonnull %100, i32 noundef %31, ptr noundef nonnull %98, float noundef %66)
+  invoke void %.097.i(ptr noundef nonnull %100, i32 noundef range(i32 0, -2147483648) %31, ptr noundef nonnull %98, float noundef %66)
           to label %169 unwind label %.loopexit132.i, !callees !11
 
 169:                                              ; preds = %168, %167
@@ -652,7 +652,7 @@ _ZN2cvL9fitLine2DEPKNS_6Point_IfEEiifffPf.exit:   ; preds = %77, %240, %243
   ]
 
 252:                                              ; preds = %244
-  invoke fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr noundef readonly %65, i32 noundef %33, ptr noundef null, ptr noundef %19)
+  invoke fastcc void @_ZN2cvL14fitLine3D_wodsEPKNS_7Point3_IfEEiPfS4_(ptr noundef readonly %65, i32 noundef %33, ptr noundef null, ptr noundef nonnull %19)
           to label %_ZN2cvL9fitLine3DEPNS_7Point3_IfEEiifffPf.exit unwind label %39
 
 253:                                              ; preds = %244

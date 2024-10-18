@@ -157,7 +157,7 @@ if.then2:                                         ; preds = %if.then
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx3, i64 40, i1 false)
   %invoker_.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %invoker_.i.i, align 8
-  %call2.i = call noundef zeroext i1 %2(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp23)
+  %call2.i = call noundef zeroext i1 %2(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp23)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp23)
   %arrayidx4 = getelementptr inbounds [41 x i8], ptr %agg.result, i64 0, i64 %i.040
   %frombool = zext i1 %call2.i to i8
@@ -510,7 +510,7 @@ invoke.cont21:                                    ; preds = %cond.true.i.i, %inv
           to label %call.i.noexc unwind label %lpad28
 
 call.i.noexc:                                     ; preds = %invoke.cont21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp23, ptr noundef %call.i22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef %call.i22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
           to label %.noexc unwind label %lpad28
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -520,7 +520,7 @@ call.i.noexc:                                     ; preds = %invoke.cont21
 lpad.i:                                           ; preds = %.noexc
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #19
   br label %ehcleanup85
 
 invoke.cont29:                                    ; preds = %.noexc
@@ -588,7 +588,7 @@ invoke.cont49:                                    ; preds = %invoke.cont44, %con
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx19, i64 40, i1 false)
   %invoker_.i.i = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load ptr, ptr %invoker_.i.i, align 8
-  %call2.i44 = invoke noundef zeroext i1 %30(ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp43)
+  %call2.i44 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 16 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp43)
           to label %invoke.cont59 unwind label %lpad30
 
 invoke.cont59:                                    ; preds = %invoke.cont49
@@ -785,7 +785,7 @@ if.then.i:                                        ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp14.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %arrayidx.i, i64 40, i1 false)
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %invoker_.i.i.i, align 8
-  %call2.i.i2 = invoke noundef zeroext i1 %5(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp14.i)
+  %call2.i.i2 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp14.i)
           to label %call2.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call2.i.i.noexc:                                  ; preds = %if.then.i
@@ -1301,7 +1301,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %manager_.i.i.i = getelementptr inbounds i8, ptr %check_constraints_cb, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
-  tail call void %0(i1 noundef zeroext false, ptr noundef nonnull %check_constraints_cb, ptr noundef nonnull %call) #19
+  tail call void %0(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %check_constraints_cb, ptr noundef nonnull align 16 dereferenceable(32) %call) #19
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %1, ptr %manager_5.i.i.i, align 16
@@ -1745,7 +1745,7 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   store i64 0, ptr %second.i.i.i.i.i.i.i, align 8
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i)

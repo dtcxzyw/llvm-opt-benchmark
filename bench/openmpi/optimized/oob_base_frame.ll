@@ -159,7 +159,7 @@ define internal i32 @prte_oob_base_close() #0 {
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
   %34 = phi ptr [ %36, %.lr.ph.i ], [ %33, %28 ]
   %.07.i = phi ptr [ %35, %.lr.ph.i ], [ %32, %28 ]
-  tail call void %34(ptr noundef %5) #8
+  tail call void %34(ptr noundef nonnull %5) #8
   %35 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
@@ -252,7 +252,7 @@ pmix_obj_run_destructors.exit42:                  ; preds = %.lr.ph.i39, %._crit
 .lr.ph.i46:                                       ; preds = %73, %.lr.ph.i46
   %79 = phi ptr [ %81, %.lr.ph.i46 ], [ %78, %73 ]
   %.07.i47 = phi ptr [ %80, %.lr.ph.i46 ], [ %77, %73 ]
-  tail call void %79(ptr noundef %56) #8
+  tail call void %79(ptr noundef nonnull %56) #8
   %80 = getelementptr inbounds i8, ptr %.07.i47, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not.i48 = icmp eq ptr %81, null

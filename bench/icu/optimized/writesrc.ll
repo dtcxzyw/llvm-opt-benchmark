@@ -1622,7 +1622,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %4, %lpad ]
-  call void @_ZN6icu_758ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sbs) #19
+  call void @_ZN6icu_758ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %sbs) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -1635,7 +1635,7 @@ _ZN6icu_7514StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7514StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPS6_i.exit
-  call void @_ZN6icu_758ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sbs) #19
+  call void @_ZN6icu_758ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %sbs) #19
   ret ptr %result
 
 lpad:                                             ; preds = %_ZN6icu_7514StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPS6_i.exit
@@ -1687,7 +1687,7 @@ declare void @_ZN6icu_758ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7514StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_758ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZN6icu_758ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #19
   ret void
 }

@@ -737,9 +737,9 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI13ObjArrayKlassE23a
   %4 = alloca %class.CppVtableTesterB.17, align 8
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %4)
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %3) #10
   store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16CppVtableTesterAI13ObjArrayKlassE, i64 16), ptr %3, align 8
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %4) #10
   store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16CppVtableTesterBI13ObjArrayKlassE, i64 16), ptr %4, align 8
   %.val7.i = load ptr, ptr %3, align 8
   br label %5
@@ -776,7 +776,7 @@ _ZN15CppVtableClonerI13ObjArrayKlassE17get_vtable_lengthEPKc.exit: ; preds = %10
   %19 = call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %15, i64 noundef %18) #10
   store i64 %16, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %2)
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %2) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV13ObjArrayKlass, i64 16), ptr %2, align 8
   %20 = load i64, ptr %19, align 8
   %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -804,9 +804,9 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI14TypeArrayKlassE23
   %4 = alloca %class.CppVtableTesterB.20, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4)
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %3) #10
   store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16CppVtableTesterAI14TypeArrayKlassE, i64 16), ptr %3, align 8
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %4) #10
   store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16CppVtableTesterBI14TypeArrayKlassE, i64 16), ptr %4, align 8
   %.val7.i = load ptr, ptr %3, align 8
   br label %5
@@ -843,7 +843,7 @@ _ZN15CppVtableClonerI14TypeArrayKlassE17get_vtable_lengthEPKc.exit: ; preds = %1
   %19 = call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %15, i64 noundef %18) #10
   store i64 %16, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %2)
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %2) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %2, align 8
   %20 = load i64, ptr %19, align 8
   %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -1047,7 +1047,7 @@ _ZN15CppVtableClonerI6MethodE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr nonnull align 8 getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV6Method, i64 16), i64 %77, i1 false)
   %78 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6_index, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %3)
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %3) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV13ObjArrayKlass, i64 16), ptr %3, align 8
   %79 = load i64, ptr %78, align 8
   %80 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -1067,7 +1067,7 @@ _ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %3)
   %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6_index, i64 64), align 16
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %2)
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %2) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %2, align 8
   %86 = load i64, ptr %85, align 8
   %87 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -1137,11 +1137,11 @@ define hidden noundef ptr @_ZN10CppVtables19get_archived_vtableEN12MetaspaceObj4
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV6Method, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL16_orig_cpp_vtptrs, i64 48), align 16
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %4)
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %4) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV13ObjArrayKlass, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL16_orig_cpp_vtptrs, i64 56), align 8
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3)
-  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #10
+  call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %3) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL16_orig_cpp_vtptrs, i64 64), align 16
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3)
   store i1 true, ptr @_ZL23_orig_cpp_vtptrs_inited, align 1

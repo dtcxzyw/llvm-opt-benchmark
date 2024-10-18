@@ -1041,7 +1041,7 @@ define void @_ZTv0_n24_N2cv8saliency28MotionSaliencyBinWangApr2014D1Ev(ptr nound
   tail call void @_ZN2cv8saliency28MotionSaliencyBinWangApr2014D2Ev(ptr noundef nonnull align 8 dereferenceable(500) %5, ptr noundef nonnull @_ZTTN2cv8saliency28MotionSaliencyBinWangApr2014E) #20
   %6 = getelementptr inbounds i8, ptr %5, i64 504
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency28MotionSaliencyBinWangApr2014E, i64 48)) #20
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(500) %5) #20
   ret void
 }
 
@@ -1050,7 +1050,7 @@ define void @_ZN2cv8saliency28MotionSaliencyBinWangApr2014D0Ev(ptr noundef nonnu
   tail call void @_ZN2cv8saliency28MotionSaliencyBinWangApr2014D2Ev(ptr noundef nonnull align 8 dereferenceable(500) %0, ptr noundef nonnull @_ZTTN2cv8saliency28MotionSaliencyBinWangApr2014E) #20
   %2 = getelementptr inbounds i8, ptr %0, i64 504
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency28MotionSaliencyBinWangApr2014E, i64 48)) #20
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(500) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -1067,8 +1067,8 @@ define void @_ZTv0_n24_N2cv8saliency28MotionSaliencyBinWangApr2014D0Ev(ptr nound
   tail call void @_ZN2cv8saliency28MotionSaliencyBinWangApr2014D2Ev(ptr noundef nonnull align 8 dereferenceable(500) %5, ptr noundef nonnull @_ZTTN2cv8saliency28MotionSaliencyBinWangApr2014E) #20
   %6 = getelementptr inbounds i8, ptr %5, i64 504
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency28MotionSaliencyBinWangApr2014E, i64 48)) #20
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(500) %5) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(500) %5) #21
   ret void
 }
 

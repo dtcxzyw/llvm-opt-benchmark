@@ -275,11 +275,11 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %0 = load ptr, ptr %vfn.i, align 8
-  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this)
+  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %1 = load ptr, ptr %vfn3.i, align 8
-  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(64) %this)
+  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(68) %this)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -342,8 +342,8 @@ lpad.i:                                           ; preds = %invoke.cont6.i, %in
 _ZNK8QuantLib23VolatilityTermStructure19optionDateFromTenorERKNS_6PeriodE.exit: ; preds = %invoke.cont8.i, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #20
   store i64 %call9.i, ptr %d, align 8
-  %call.i1 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d)
-  call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %call.i1, i1 noundef zeroext %extrapolate)
+  %call.i1 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(8) %d)
+  call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %this, double noundef %call.i1, i1 noundef zeroext %extrapolate)
   %vtable.i.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 112
   %11 = load ptr, ptr %vfn.i.i, align 8
@@ -356,7 +356,7 @@ _ZNK8QuantLib23VolatilityTermStructure19optionDateFromTenorERKNS_6PeriodE.exit: 
 define noundef double @_ZNK8QuantLib16BlackAtmVolCurve6atmVolERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(8) %d, i1 noundef zeroext %extrapolate) local_unnamed_addr #5 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d)
-  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %call, i1 noundef zeroext %extrapolate)
+  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %this, double noundef %call, i1 noundef zeroext %extrapolate)
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
   %0 = load ptr, ptr %vfn.i, align 8
@@ -491,11 +491,11 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %0 = load ptr, ptr %vfn.i, align 8
-  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this)
+  call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %1 = load ptr, ptr %vfn3.i, align 8
-  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(64) %this)
+  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(68) %this)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -558,8 +558,8 @@ lpad.i:                                           ; preds = %invoke.cont6.i, %in
 _ZNK8QuantLib23VolatilityTermStructure19optionDateFromTenorERKNS_6PeriodE.exit: ; preds = %invoke.cont8.i, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #20
   store i64 %call9.i, ptr %d, align 8
-  %call.i1 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d)
-  call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %call.i1, i1 noundef zeroext %extrapolate)
+  %call.i1 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(8) %d)
+  call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %this, double noundef %call.i1, i1 noundef zeroext %extrapolate)
   %vtable.i.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 104
   %11 = load ptr, ptr %vfn.i.i, align 8
@@ -572,7 +572,7 @@ _ZNK8QuantLib23VolatilityTermStructure19optionDateFromTenorERKNS_6PeriodE.exit: 
 define noundef double @_ZNK8QuantLib16BlackAtmVolCurve11atmVarianceERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(8) %d, i1 noundef zeroext %extrapolate) local_unnamed_addr #5 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %d)
-  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %call, i1 noundef zeroext %extrapolate)
+  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %this, double noundef %call, i1 noundef zeroext %extrapolate)
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !22
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104
   %0 = load ptr, ptr %vfn.i, align 8

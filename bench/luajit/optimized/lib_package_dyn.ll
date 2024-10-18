@@ -90,7 +90,7 @@ for.end:                                          ; preds = %for.body
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10000, ptr noundef nonnull @.str.4) #7
   %call5 = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #7
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #7
-  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly @.str.6) #7
+  %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.6) #7
   %cmp.i = icmp eq ptr %call.i, null
   %tobool.i = icmp ne i32 %call5, 0
   %or.cond.i = or i1 %tobool.i, %cmp.i
@@ -108,7 +108,7 @@ if.else.i:                                        ; preds = %for.end
 
 setpath.exit:                                     ; preds = %if.then.i, %if.else.i
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.5) #7
-  %call.i27 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.9) #7
+  %call.i27 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #7
   %cmp.i28 = icmp eq ptr %call.i27, null
   %or.cond.i30 = or i1 %tobool.i, %cmp.i28
   br i1 %or.cond.i30, label %if.then.i34, label %if.else.i31

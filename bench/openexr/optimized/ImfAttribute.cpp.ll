@@ -102,7 +102,7 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN7Imf_3_212_GLOBAL__N_17typeMapEv.exit
 
 _ZN7Imf_3_212_GLOBAL__N_17typeMapEv.exit:         ; preds = %entry, %init.check.i, %init.i
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -142,7 +142,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeIPKcS
 
 invoke.cont:                                      ; preds = %lor.lhs.false.i.i, %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %retval.sroa.0.0.i.i = phi i1 [ false, %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ false, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %cmp.i3.i.i, %lor.lhs.false.i.i ]
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   ret i1 %retval.sroa.0.0.i.i
 }
 
@@ -172,7 +172,7 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN7Imf_3_212_GLOBAL__N_17typeMapEv.exit
 
 _ZN7Imf_3_212_GLOBAL__N_17typeMapEv.exit:         ; preds = %entry, %init.check.i, %init.i
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -327,12 +327,12 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIPKcS
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %call5.i.i.i.i.i.i.i.i.noexc, %if.end12.i.i.i
-  %call1.i.i.i14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   ret void
 
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad ]
-  %call1.i.i.i15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   resume { ptr, i32 } %.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont16
@@ -383,7 +383,7 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN7Imf_3_212_GLOBAL__N_17typeMapEv.exit
 
 _ZN7Imf_3_212_GLOBAL__N_17typeMapEv.exit:         ; preds = %entry, %init.check.i, %init.i
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -497,7 +497,7 @@ while.body.i2.i.i:                                ; preds = %while.cond.preheade
   br i1 %cmp.i2.not.i.i.i, label %invoke.cont, label %while.body.i2.i.i, !llvm.loop !10
 
 invoke.cont:                                      ; preds = %while.body.i2.i.i, %if.then.i.i.i, %while.cond.preheader.i.i.i, %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE11equal_rangeERS3_.exit.thread.i.i
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   ret void
 }
 
@@ -525,7 +525,7 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN7Imf_3_212_GLOBAL__N_17typeMapEv.exit
 
 _ZN7Imf_3_212_GLOBAL__N_17typeMapEv.exit:         ; preds = %entry, %init.check.i, %init.i
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -621,12 +621,12 @@ if.end:                                           ; preds = %lor.lhs.false.i.i
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %if.end
-  %call1.i.i.i5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   ret ptr %call20
 
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad ]
-  %call1.i.i.i6 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
+  %call1.i.i.i6 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 48)) #18
   resume { ptr, i32 } %.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont17

@@ -317,7 +317,7 @@ chunk_append.exit:                                ; preds = %12
   %17 = sub i64 %16, %14
   %18 = getelementptr inbounds i8, ptr %5, i64 32
   %19 = getelementptr inbounds [1 x i8], ptr %18, i64 0, i64 %14
-  %20 = tail call i64 @llvm.umin.i64(i64 %17, i64 %.02437)
+  %20 = tail call i64 @llvm.umin.i64(i64 %17, i64 range(i64 1, 0) %.02437)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr readonly align 1 %.02338, i64 %20, i1 false)
   %21 = load i64, ptr %13, align 8
   %22 = add i64 %21, %20
@@ -514,7 +514,7 @@ define dso_local range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %0, p
   br label %chunk_read.exit
 
 23:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.01829, ptr noundef nonnull align 1 dereferenceable(1) %17, i64 %.02028, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.01829, ptr noundef nonnull align 1 dereferenceable(1) %17, i64 range(i64 1, 0) %.02028, i1 false)
   %24 = load i64, ptr %15, align 8
   %25 = add i64 %24, %.02028
   store i64 %25, ptr %15, align 8
@@ -851,7 +851,7 @@ define dso_local void @Curl_bufq_skip(ptr nocapture noundef %0, i64 noundef %1) 
 
 16:                                               ; preds = %11
   %17 = sub i64 %13, %15
-  %18 = tail call i64 @llvm.umin.i64(i64 %17, i64 %.010)
+  %18 = tail call i64 @llvm.umin.i64(i64 %17, i64 range(i64 1, 0) %.010)
   %19 = add i64 %18, %15
   store i64 %19, ptr %14, align 8
   %20 = icmp eq i64 %19, %13
@@ -1259,7 +1259,7 @@ chunk_append.exit.i:                              ; preds = %get_non_full_tail.e
   %99 = sub i64 %98, %96
   %100 = getelementptr inbounds i8, ptr %.0.i40, i64 32
   %101 = getelementptr inbounds [1 x i8], ptr %100, i64 0, i64 %96
-  %102 = tail call i64 @llvm.umin.i64(i64 %99, i64 %.02437.i)
+  %102 = tail call i64 @llvm.umin.i64(i64 %99, i64 range(i64 1, 0) %.02437.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr readonly align 1 %.02338.i, i64 %102, i1 false)
   %103 = load i64, ptr %95, align 8
   %104 = add i64 %103, %102

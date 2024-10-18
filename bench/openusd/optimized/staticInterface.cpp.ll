@@ -55,7 +55,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__24Plug_StaticInterfaceBase19_
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %11 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  %12 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__L20_initializationMutexE) #11
+  %12 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN32pxrInternal_v0_24__pxrReserved__L20_initializationMutexE) #11
   %.not.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %13
 
@@ -317,7 +317,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit26: ; 
 
 123:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit26
   %124 = load ptr, ptr %18, align 8
-  invoke void %124(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void %124(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %131
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %123
@@ -326,7 +326,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %123
   br i1 %.not.i.i2.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfScopedISt8functionIFvvEEED2Ev.exit, label %126
 
 126:                                              ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
-  %127 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %127 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8TfScopedISt8functionIFvvEEED2Ev.exit unwind label %128
 
 128:                                              ; preds = %126
@@ -344,13 +344,13 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %123
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfScopedISt8functionIFvvEEED2Ev.exit: ; preds = %126, %_ZNKSt8functionIFvvEEclEv.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %134 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__L20_initializationMutexE) #11
+  %134 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN32pxrInternal_v0_24__pxrReserved__L20_initializationMutexE) #11
   ret void
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit: ; preds = %80, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %74, %39, %37
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %40, %39 ], [ %75, %74 ], [ %75, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i ], [ %75, %80 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfScopedISt8functionIFvvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
-  %135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__L20_initializationMutexE) #11
+  %135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN32pxrInternal_v0_24__pxrReserved__L20_initializationMutexE) #11
   resume { ptr, i32 } %.pn
 }
 
@@ -393,7 +393,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__8TfScopedISt8func
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZNKSt8functionIFvvEEclEv.exit unwind label %14
 
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %5
@@ -402,7 +402,7 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %5
   br i1 %.not.i.i2, label %_ZNSt8functionIFvvEED2Ev.exit, label %9
 
 9:                                                ; preds = %_ZNKSt8functionIFvvEEclEv.exit
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %11
 
 11:                                               ; preds = %9

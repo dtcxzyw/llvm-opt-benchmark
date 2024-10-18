@@ -407,7 +407,7 @@ if.end5:                                          ; preds = %if.else.i
   %storemerge.i = select i1 %tobool.not.i92, i16 %4, i16 2
   store i16 %storemerge.i, ptr %fUnion.i.i, align 8
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %5 = load i16, ptr %fUnion.i, align 8
   %cmp.i.i = icmp slt i16 %5, 0
@@ -958,7 +958,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %cmp7 = icmp eq i32 %src.coerce1, 0
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -3857,7 +3857,7 @@ invoke.cont:                                      ; preds = %if.end
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %vtable = load ptr, ptr %idna, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -4010,7 +4010,7 @@ invoke.cont:                                      ; preds = %if.end
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %vtable = load ptr, ptr %idna, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -4157,7 +4157,7 @@ invoke.cont:                                      ; preds = %if.end
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %vtable = load ptr, ptr %idna, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
@@ -4304,7 +4304,7 @@ invoke.cont:                                      ; preds = %if.end
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %vtable = load ptr, ptr %idna, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
@@ -4446,7 +4446,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi i32 [ %conv, %cond.true ], [ %length, %if.end ]
   call void @_ZN6icu_7520CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29) %sink, ptr noundef %dest, i32 noundef %capacity)
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %vtable = load ptr, ptr %idna, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
@@ -4564,7 +4564,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi i32 [ %conv, %cond.true ], [ %length, %if.end ]
   call void @_ZN6icu_7520CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29) %sink, ptr noundef %dest, i32 noundef %capacity)
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %vtable = load ptr, ptr %idna, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
@@ -4672,7 +4672,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi i32 [ %conv, %cond.true ], [ %length, %if.end ]
   call void @_ZN6icu_7520CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29) %sink, ptr noundef %dest, i32 noundef %capacity)
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %vtable = load ptr, ptr %idna, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
@@ -4780,7 +4780,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi i32 [ %conv, %cond.true ], [ %length, %if.end ]
   call void @_ZN6icu_7520CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29) %sink, ptr noundef %dest, i32 noundef %capacity)
   %isOkBiDi.i = getelementptr inbounds i8, ptr %info, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %info, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %info, i8 0, i64 10, i1 false)
   store i8 1, ptr %isOkBiDi.i, align 2
   %vtable = load ptr, ptr %idna, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80

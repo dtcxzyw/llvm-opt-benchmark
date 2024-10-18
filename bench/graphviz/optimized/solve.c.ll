@@ -13,7 +13,7 @@ define void @solve(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocap
   %5 = mul nsw i32 %3, %3
   %6 = zext nneg i32 %5 to i64
   %7 = icmp ne i32 %3, 0
-  %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #10
+  %8 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8) #10
   %9 = icmp eq ptr %8, null
   %or.cond3.i = and i1 %7, %9
   br i1 %or.cond3.i, label %10, label %gv_calloc.exit
@@ -32,12 +32,12 @@ gv_calloc.exit:                                   ; preds = %4
 
 15:                                               ; preds = %gv_calloc.exit
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i64 noundef %14, i64 noundef 8) #11
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i64 noundef range(i64 -2147483648, 2147483648) %14, i64 noundef 8) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
 
 18:                                               ; preds = %gv_calloc.exit
-  %19 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #10
+  %19 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %14, i64 noundef 8) #10
   %20 = icmp eq ptr %19, null
   %or.cond3.i174 = and i1 %7, %20
   br i1 %or.cond3.i174, label %21, label %gv_calloc.exit175.preheader

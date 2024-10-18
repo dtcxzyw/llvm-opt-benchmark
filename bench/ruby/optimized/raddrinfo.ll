@@ -645,7 +645,7 @@ str_is_number.exit.thread:                        ; preds = %43, %42, %49, %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %8)
   store i32 0, ptr %6, align 4
-  %71 = call i64 @rb_fiber_scheduler_address_resolve(i64 noundef %64, i64 noundef %0) #19
+  %71 = call i64 @rb_fiber_scheduler_address_resolve(i64 noundef range(i64 5, 4) %64, i64 noundef %0) #19
   switch i64 %71, label %72 [
     i64 36, label %103
     i64 4, label %.thread77
@@ -2909,20 +2909,20 @@ rb_num2int_inline.exit32:                         ; preds = %74, %76
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   %98 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %98, i8 0, i64 32, i1 false)
-  %99 = call i32 @rsock_family_arg(i64 noundef %90) #19
+  %99 = call i32 @rsock_family_arg(i64 noundef range(i64 1, 0) %90) #19
   %100 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %99, ptr %100, align 4
-  %101 = call i32 @rsock_socktype_arg(i64 noundef %93) #19
+  %101 = call i32 @rsock_socktype_arg(i64 noundef range(i64 1, 0) %93) #19
   %102 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %101, ptr %102, align 8
-  %103 = call i64 @rb_fix2int(i64 noundef %96) #19
+  %103 = call i64 @rb_fix2int(i64 noundef range(i64 1, 0) %96) #19
   %104 = trunc i64 %103 to i32
   %105 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %104, ptr %105, align 4
   %106 = call i64 @rb_fix2int(i64 noundef 2057) #19
   %107 = trunc i64 %106 to i32
   store i32 %107, ptr %4, align 8
-  %108 = call noalias noundef nonnull ptr @rsock_getaddrinfo(i64 noundef %85, i64 noundef %79, ptr noundef nonnull %4, i32 noundef 1)
+  %108 = call noalias noundef nonnull ptr @rsock_getaddrinfo(i64 noundef %85, i64 noundef range(i64 1, 0) %79, ptr noundef nonnull %4, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %109 = call i64 @rb_str_equal(i64 noundef %85, i64 noundef %97) #19
   %.not.i33 = icmp eq i64 %109, 0
@@ -2930,7 +2930,7 @@ rb_num2int_inline.exit32:                         ; preds = %74, %76
   br i1 %.not.i33, label %110, label %112
 
 110:                                              ; preds = %83
-  %111 = call fastcc i64 @make_inspectname(i64 noundef %97, i64 noundef %79, ptr noundef %.pre.i)
+  %111 = call fastcc i64 @make_inspectname(i64 noundef %97, i64 noundef range(i64 1, 0) %79, ptr noundef %.pre.i)
   br label %112
 
 112:                                              ; preds = %110, %83
@@ -2951,11 +2951,11 @@ rb_num2int_inline.exit32:                         ; preds = %74, %76
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %122 = load i32, ptr %121, align 8
-  %123 = call i64 @rb_fix2int(i64 noundef %90) #19
+  %123 = call i64 @rb_fix2int(i64 noundef range(i64 1, 0) %90) #19
   %124 = trunc i64 %123 to i32
-  %125 = call i64 @rb_fix2int(i64 noundef %93) #19
+  %125 = call i64 @rb_fix2int(i64 noundef range(i64 1, 0) %93) #19
   %126 = trunc i64 %125 to i32
-  %127 = call i64 @rb_fix2int(i64 noundef %96) #19
+  %127 = call i64 @rb_fix2int(i64 noundef range(i64 1, 0) %96) #19
   %128 = trunc i64 %127 to i32
   %129 = icmp ugt i32 %122, 2048
   br i1 %129, label %130, label %132

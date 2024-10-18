@@ -19,7 +19,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h429873bb422b6957E(ptr noali
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.0.06 = phi ptr [ %6, %.lr.ph ], [ %0, %3 ]
   %6 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 192
-  tail call void @"_ZN64_$LT$typst..layout..point..Point$u20$as$u20$core..hash..Hash$GT$4hash17h8f8a2d1a41c3ea32E.llvm.4929685277518489967"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.06, ptr noalias noundef nonnull align 8 dereferenceable(72) %2), !alias.scope !4
+  tail call void @"_ZN64_$LT$typst..layout..point..Point$u20$as$u20$core..hash..Hash$GT$4hash17h8f8a2d1a41c3ea32E.llvm.4929685277518489967"(ptr noalias noundef nonnull readonly align 16 dereferenceable(192) %.sroa.0.06, ptr noalias noundef nonnull align 8 dereferenceable(72) %2), !alias.scope !4
   %7 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 16
   tail call void @"_ZN68_$LT$typst..layout..frame..FrameItem$u20$as$u20$core..hash..Hash$GT$4hash17h451039e62a6da216E.llvm.4929685277518489967"(ptr noalias noundef nonnull readonly align 16 dereferenceable(176) %7, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
   %8 = icmp eq ptr %6, %4
@@ -1749,7 +1749,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit19.i.i: ; preds = %973
   %1021 = load i128, ptr %1020, align 16, !alias.scope !308, !noalias !311, !noundef !8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !313
   store i128 %1021, ptr %3, align 16, !noalias !313
-  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16), !noalias !308
+  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16), !noalias !308
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !313
   %1022 = getelementptr inbounds i8, ptr %1019, i64 80
   %1023 = load i64, ptr %1022, align 16, !alias.scope !308, !noalias !311, !noundef !8
@@ -2481,7 +2481,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i: ; preds = 
 .lr.ph:                                           ; preds = %_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i, %.lr.ph
   %.sroa.0.0105 = phi ptr [ %244, %.lr.ph ], [ %203, %_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i ]
   %244 = getelementptr inbounds i8, ptr %.sroa.0.0105, i64 192
-  tail call void @"_ZN64_$LT$typst..layout..point..Point$u20$as$u20$core..hash..Hash$GT$4hash17h8f8a2d1a41c3ea32E.llvm.4929685277518489967"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0105, ptr noalias noundef nonnull align 8 dereferenceable(72) %1), !alias.scope !440, !noalias !388
+  tail call void @"_ZN64_$LT$typst..layout..point..Point$u20$as$u20$core..hash..Hash$GT$4hash17h8f8a2d1a41c3ea32E.llvm.4929685277518489967"(ptr noalias noundef nonnull readonly align 16 dereferenceable(192) %.sroa.0.0105, ptr noalias noundef nonnull align 8 dereferenceable(72) %1), !alias.scope !440, !noalias !388
   %245 = getelementptr inbounds i8, ptr %.sroa.0.0105, i64 16
   tail call void @"_ZN68_$LT$typst..layout..frame..FrameItem$u20$as$u20$core..hash..Hash$GT$4hash17h451039e62a6da216E.llvm.4929685277518489967"(ptr noalias noundef nonnull readonly align 16 dereferenceable(176) %245, ptr noalias noundef nonnull align 8 dereferenceable(72) %1), !noalias !388
   %246 = icmp eq ptr %244, %242
@@ -3045,7 +3045,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit: ; preds = %5
   %585 = load ptr, ptr %584, align 8, !noalias !544, !nonnull !8, !noundef !8
   %586 = getelementptr inbounds i8, ptr %585, i64 16
   %587 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E, i8 noundef 0), !noalias !544
-  %588 = tail call noundef i128 %587(ptr noundef nonnull %586), !noalias !544
+  %588 = tail call noundef i128 %587(ptr noundef nonnull align 16 %586), !noalias !544
   %589 = icmp eq i128 %588, 0
   br i1 %589, label %590, label %"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Hash$GT$4hash17h5ae635e63da70aeaE.exit.i"
 
@@ -3053,7 +3053,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit: ; preds = %5
   %591 = getelementptr inbounds i8, ptr %585, i64 32
   %592 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.llvm.2546880118954093015(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %591), !noalias !544
   %593 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE, i8 noundef 0), !noalias !544
-  tail call void %593(ptr noundef nonnull %586, i128 noundef %592), !noalias !544
+  tail call void %593(ptr noundef nonnull align 16 %586, i128 noundef %592), !noalias !544
   br label %"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Hash$GT$4hash17h5ae635e63da70aeaE.exit.i"
 
 "_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Hash$GT$4hash17h5ae635e63da70aeaE.exit.i": ; preds = %590, %581
@@ -3123,7 +3123,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit: ; preds = %5
 
 "_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i": ; preds = %634, %608
   %636 = getelementptr inbounds i8, ptr %0, i64 112
-  call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hdb47ffa2520e711cE"(ptr noalias noundef readonly align 8 dereferenceable(24) %636, ptr noalias noundef align 8 dereferenceable(72) %1)
+  call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hdb47ffa2520e711cE"(ptr noalias noundef readonly align 8 dereferenceable(24) %636, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   %637 = getelementptr inbounds i8, ptr %0, i64 32
   %638 = load i64, ptr %637, align 16, !range !556, !alias.scope !533, !noalias !536, !noundef !8
   %639 = icmp ne i64 %638, -9223372036854775807
@@ -3186,13 +3186,13 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i: ; preds = %676, %6
   br i1 %.not.i6, label %679, label %678
 
 678:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i
-  call fastcc void @"_ZN74_$LT$typst..visualize..stroke..FixedStroke$u20$as$u20$core..hash..Hash$GT$4hash17h14a8f8b047342834E"(ptr noalias noundef readonly align 8 dereferenceable(80) %637, ptr noalias noundef align 8 dereferenceable(72) %1)
+  call fastcc void @"_ZN74_$LT$typst..visualize..stroke..FixedStroke$u20$as$u20$core..hash..Hash$GT$4hash17h14a8f8b047342834E"(ptr noalias noundef readonly align 8 dereferenceable(80) %637, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   br label %679
 
 679:                                              ; preds = %678, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i
   %680 = getelementptr inbounds i8, ptr %0, i64 168
   call void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hcefa131a390998a9E.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef 3, i64 noundef 3), !noalias !567
-  call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %680, i64 noundef 3)
+  call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %680, i64 noundef 3)
   %681 = getelementptr inbounds i8, ptr %0, i64 171
   %682 = load i8, ptr %681, align 1, !alias.scope !533, !noalias !536, !noundef !8
   %683 = zext i8 %682 to i64
@@ -3262,7 +3262,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i: ; preds = %676, %6
   %731 = zext nneg i8 %730 to i64
   %.sroa.3.0.i.i = select i1 %726, i64 %731, i64 %729
   %.sroa.0.0.i.i = select i1 %726, ptr %723, ptr %727
-  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
   %732 = load i64, ptr %12, align 8, !alias.scope !581, !noalias !588, !noundef !8
   %733 = load i64, ptr %15, align 8, !alias.scope !581, !noalias !588, !noundef !8
   %734 = sub i64 8, %733
@@ -3799,7 +3799,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i7: ; preds = %1079, 
   br i1 %.not.i8, label %1084, label %1083
 
 1083:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i7
-  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hdb47ffa2520e711cE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1043, ptr noalias noundef align 8 dereferenceable(72) %1)
+  tail call fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u20$core..hash..Hash$GT$4hash17hdb47ffa2520e711cE"(ptr noalias noundef readonly align 8 dereferenceable(24) %1043, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   %.pre10.i = load i64, ptr %12, align 8, !alias.scope !680, !noalias !603
   %.pre11.i = load i64, ptr %15, align 8
   %.pre12.i = load i64, ptr %20, align 8, !alias.scope !680, !noalias !603
@@ -3870,7 +3870,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
   br i1 %.not2.i, label %"_ZN67_$LT$typst..visualize..shape..Shape$u20$as$u20$core..hash..Hash$GT$4hash17hbd7d3805a407ed21E.exit", label %1128
 
 1128:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i
-  tail call fastcc void @"_ZN74_$LT$typst..visualize..stroke..FixedStroke$u20$as$u20$core..hash..Hash$GT$4hash17h14a8f8b047342834E"(ptr noalias noundef readonly align 8 dereferenceable(80) %1088, ptr noalias noundef align 8 dereferenceable(72) %1)
+  tail call fastcc void @"_ZN74_$LT$typst..visualize..stroke..FixedStroke$u20$as$u20$core..hash..Hash$GT$4hash17h14a8f8b047342834E"(ptr noalias noundef readonly align 8 dereferenceable(80) %1088, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   %.pre121 = load i64, ptr %12, align 8, !alias.scope !690
   %.pre122 = load i64, ptr %15, align 8, !alias.scope !690
   %.pre123 = load i64, ptr %20, align 8, !alias.scope !690
@@ -3938,7 +3938,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
   %1171 = getelementptr inbounds i8, ptr %1170, i64 16
   %1172 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8
   %1173 = inttoptr i64 %1172 to ptr
-  %1174 = tail call noundef i128 %1173(ptr noundef nonnull %1171)
+  %1174 = tail call noundef i128 %1173(ptr noundef nonnull align 16 %1171)
   %1175 = icmp eq i128 %1174, 0
   br i1 %1175, label %1176, label %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h3c812dde0e63667fE.exit"
 
@@ -3987,7 +3987,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
   %1193 = load ptr, ptr %1192, align 8, !alias.scope !720, !noalias !723, !nonnull !8, !noundef !8
   %1194 = getelementptr inbounds i8, ptr %1193, i64 16
   %1195 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E, i8 noundef 0), !noalias !725
-  %1196 = tail call noundef i128 %1195(ptr noundef nonnull %1194), !noalias !725
+  %1196 = tail call noundef i128 %1195(ptr noundef nonnull align 16 %1194), !noalias !725
   %1197 = icmp eq i128 %1196, 0
   br i1 %1197, label %1198, label %"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$core..hash..Hash$GT$4hash17hed50de1c26cb21b5E.exit.i.i.i.i"
 
@@ -3995,7 +3995,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
   %1199 = getelementptr inbounds i8, ptr %1193, i64 32
   %1200 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.llvm.2546880118954093015(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1199), !noalias !725
   %1201 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE, i8 noundef 0), !noalias !725
-  tail call void %1201(ptr noundef nonnull %1194, i128 noundef %1200), !noalias !725
+  tail call void %1201(ptr noundef nonnull align 16 %1194, i128 noundef %1200), !noalias !725
   br label %"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$core..hash..Hash$GT$4hash17hed50de1c26cb21b5E.exit.i.i.i.i"
 
 "_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$core..hash..Hash$GT$4hash17hed50de1c26cb21b5E.exit.i.i.i.i": ; preds = %1198, %1191
@@ -4015,7 +4015,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
   %1207 = load ptr, ptr %1206, align 8, !noalias !731, !nonnull !8, !noundef !8
   %1208 = getelementptr inbounds i8, ptr %1207, i64 16
   %1209 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E, i8 noundef 0), !noalias !731
-  %1210 = tail call noundef i128 %1209(ptr noundef nonnull %1208), !noalias !731
+  %1210 = tail call noundef i128 %1209(ptr noundef nonnull align 16 %1208), !noalias !731
   %1211 = icmp eq i128 %1210, 0
   br i1 %1211, label %1212, label %"_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h209c6341d84a0699E.exit.i.i.i.i"
 
@@ -4023,7 +4023,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
   %1213 = getelementptr inbounds i8, ptr %1207, i64 32
   %1214 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.llvm.2546880118954093015(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1213), !noalias !731
   %1215 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE, i8 noundef 0), !noalias !731
-  tail call void %1215(ptr noundef nonnull %1208, i128 noundef %1214), !noalias !731
+  tail call void %1215(ptr noundef nonnull align 16 %1208, i128 noundef %1214), !noalias !731
   br label %"_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h209c6341d84a0699E.exit.i.i.i.i"
 
 "_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h209c6341d84a0699E.exit.i.i.i.i": ; preds = %1212, %1205
@@ -4109,7 +4109,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i.i: ; preds = %125
   %1263 = zext nneg i8 %1262 to i64
   %.sroa.3.0.i.i.i.i = select i1 %1258, i64 %1263, i64 %1261
   %.sroa.0.0.i.i.i.i = select i1 %1258, ptr %1255, ptr %1259
-  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.3.0.i.i.i.i)
+  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.3.0.i.i.i.i)
   %1264 = load i64, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !754, !noalias !761, !noundef !8
   %1265 = add i64 %1264, 1
   store i64 %1265, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !754, !noalias !761
@@ -4175,14 +4175,14 @@ _ZN5typst4util4hash9hash_item17h783acfb1d80cb38fE.exit.i: ; preds = %_ZN4core4ha
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !698
   %1307 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8
   %1308 = inttoptr i64 %1307 to ptr
-  call void %1308(ptr noundef nonnull %1171, i128 noundef %1306)
+  call void %1308(ptr noundef nonnull align 16 %1171, i128 noundef %1306)
   br label %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h3c812dde0e63667fE.exit"
 
 "_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h3c812dde0e63667fE.exit": ; preds = %1168, %_ZN5typst4util4hash9hash_item17h783acfb1d80cb38fE.exit.i
   %.0.i = phi i128 [ %1306, %_ZN5typst4util4hash9hash_item17h783acfb1d80cb38fE.exit.i ], [ %1174, %1168 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !766
   store i128 %.0.i, ptr %5, align 16, !noalias !766
-  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 16)
+  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !766
   %1309 = getelementptr inbounds i8, ptr %0, i64 8
   %1310 = load i64, ptr %1309, align 8, !noundef !8
@@ -4489,7 +4489,7 @@ default.unreachable15.i.i:                        ; preds = %_ZN4core4hash6Hashe
   %1505 = zext nneg i8 %1504 to i64
   %.sroa.3.0.i.i.i = select i1 %1500, i64 %1505, i64 %1503
   %.sroa.0.0.i.i.i = select i1 %1500, ptr %1497, ptr %1501
-  tail call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.3.0.i.i.i)
+  tail call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.3.0.i.i.i)
   %1506 = load i64, ptr %12, align 8, !alias.scope !830, !noalias !837, !noundef !8
   %1507 = add i64 %1506, 1
   store i64 %1507, ptr %12, align 8, !alias.scope !830, !noalias !837
@@ -4716,7 +4716,7 @@ _ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.exit.i.i: ; preds = %1543, %1
 
 1654:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i36
   %1655 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call fastcc void @"_ZN77_$LT$typst..introspection..location..Location$u20$as$u20$core..hash..Hash$GT$4hash17h7de7b2cbf0a89a38E"(ptr noalias noundef readonly align 16 dereferenceable(32) %1655, ptr noalias noundef align 8 dereferenceable(72) %1)
+  tail call fastcc void @"_ZN77_$LT$typst..introspection..location..Location$u20$as$u20$core..hash..Hash$GT$4hash17h7de7b2cbf0a89a38E"(ptr noalias noundef readonly align 16 dereferenceable(32) %1655, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   %.pr103.pre = load i64, ptr %15, align 8
   %.pre.pre = load i64, ptr %12, align 8, !alias.scope !873
   %.pre107.pre = load i64, ptr %20, align 8, !alias.scope !873
@@ -4912,7 +4912,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit6.i.i: ; preds = %1784
 
 1788:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit6.i.i
   %1789 = getelementptr i8, ptr %1666, i64 32
-  tail call fastcc void @"_ZN77_$LT$typst..introspection..location..Location$u20$as$u20$core..hash..Hash$GT$4hash17h7de7b2cbf0a89a38E"(ptr noalias noundef readonly align 16 dereferenceable(32) %1789, ptr noalias noundef align 8 dereferenceable(72) %1), !noalias !894
+  tail call fastcc void @"_ZN77_$LT$typst..introspection..location..Location$u20$as$u20$core..hash..Hash$GT$4hash17h7de7b2cbf0a89a38E"(ptr noalias noundef readonly align 16 dereferenceable(32) %1789, ptr noalias noundef nonnull align 8 dereferenceable(72) %1), !noalias !894
   %.pre.i4.i = load i64, ptr %12, align 8, !alias.scope !917, !noalias !894
   %.pre9.i5.i = load i64, ptr %15, align 8, !alias.scope !924, !noalias !894
   %.pre10.i.i = load i64, ptr %20, align 8, !alias.scope !917, !noalias !894
@@ -5093,7 +5093,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i.i31: ; preds = %1
 
 _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i: ; preds = %1904, %1878
   %1906 = shl nsw i64 %1871, 3
-  tail call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %1869, i64 noundef %1906), !noalias !894
+  tail call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %1869, i64 noundef %1906), !noalias !894
   br label %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17h247a00da1027f5bfE.exit.i.i"
 
 "_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17h247a00da1027f5bfE.exit.i.i": ; preds = %_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i.i31
@@ -5103,7 +5103,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i: ; pred
   tail call void @llvm.experimental.noalias.scope.decl(metadata !950)
   %1910 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8, !noalias !953
   %1911 = inttoptr i64 %1910 to ptr
-  %1912 = tail call noundef i128 %1911(ptr noundef nonnull %1909), !noalias !954
+  %1912 = tail call noundef i128 %1911(ptr noundef nonnull align 16 %1909), !noalias !954
   %1913 = icmp eq i128 %1912, 0
   br i1 %1913, label %1914, label %"_ZN80_$LT$typst..foundations..content..Inner$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h55df3b5655891ab0E.exit.i"
 
@@ -5128,7 +5128,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i: ; pred
   tail call void @llvm.experimental.noalias.scope.decl(metadata !965)
   %1919 = getelementptr inbounds i8, ptr %1660, i64 136
   %1920 = load ptr, ptr %1919, align 8, !invariant.load !8, !alias.scope !968, !noalias !969, !nonnull !8
-  call void %1920(ptr noundef nonnull align 1 %1918, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6d981bbdd211541ce803f2c721ad95e.31.llvm.2546880118954093015), !noalias !971
+  call void %1920(ptr noundef nonnull align 1 %1918, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6d981bbdd211541ce803f2c721ad95e.31.llvm.2546880118954093015), !noalias !971
   %1921 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef readonly align 8 dereferenceable(72) %4), !noalias !958
   %1922 = extractvalue { i64, i64 } %1921, 0
   %1923 = extractvalue { i64, i64 } %1921, 1
@@ -5139,14 +5139,14 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i: ; pred
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !958
   %1928 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8, !noalias !953
   %1929 = inttoptr i64 %1928 to ptr
-  call void %1929(ptr noundef nonnull %1909, i128 noundef %1927), !noalias !954
+  call void %1929(ptr noundef nonnull align 16 %1909, i128 noundef %1927), !noalias !954
   br label %"_ZN80_$LT$typst..foundations..content..Inner$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h55df3b5655891ab0E.exit.i"
 
 "_ZN80_$LT$typst..foundations..content..Inner$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h55df3b5655891ab0E.exit.i": ; preds = %1914, %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17h247a00da1027f5bfE.exit.i.i"
   %.0.i.i.i33 = phi i128 [ %1927, %1914 ], [ %1912, %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17h247a00da1027f5bfE.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !972
   store i128 %.0.i.i.i33, ptr %3, align 16, !noalias !972
-  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16), !noalias !894
+  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16), !noalias !894
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !972
   %1930 = getelementptr inbounds i8, ptr %0, i64 56
   %1931 = load i64, ptr %1930, align 8, !alias.scope !795, !noalias !798, !noundef !8
@@ -5330,7 +5330,7 @@ define internal fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u2
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i.i, 3
   br i1 %12, label %13, label %15
 
@@ -6021,7 +6021,7 @@ define internal fastcc void @"_ZN77_$LT$typst..introspection..location..Location
   %4 = load i128, ptr %0, align 16, !noundef !8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1100
   store i128 %4, ptr %3, align 16, !noalias !1100
-  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16)
+  call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1100
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 16, !noundef !8

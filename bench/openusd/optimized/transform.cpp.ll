@@ -261,7 +261,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16: ; preds = %_ZNK32
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %66 = load double, ptr %35, align 8, !noalias !10
   %67 = fneg double %66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 24, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %67, ptr %68, align 8, !alias.scope !10
   %69 = load double, ptr %5, align 8, !alias.scope !10
@@ -299,7 +299,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16: ; preds = %_ZNK32
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %90 = load double, ptr %35, align 8, !noalias !13
   %91 = fneg double %90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 24, i1 false)
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double %91, ptr %92, align 8, !alias.scope !13
   %93 = load double, ptr %6, align 8, !alias.scope !13

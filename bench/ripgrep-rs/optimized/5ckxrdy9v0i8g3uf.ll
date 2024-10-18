@@ -44,7 +44,7 @@ define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..result..Resu
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hed26c23aaf3dd599E.llvm.1773065985454848448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hed26c23aaf3dd599E.llvm.1773065985454848448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !range !19, !noalias !6, !noundef !5
   %.not.i.i.i.i.i.i = icmp eq i64 %7, 0
@@ -198,7 +198,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.val24 = load i64, ptr %12, align 8, !noundef !5
   %13 = sub i64 %.val24, %.val5.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val24, i64 %.val5.i)
-  %14 = tail call i32 @memcmp(ptr nonnull readonly %.val23, ptr nonnull readonly %.val4.i, i64 %..i.i.i.i), !alias.scope !43
+  %14 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val23, ptr nonnull readonly align 1 %.val4.i, i64 %..i.i.i.i), !alias.scope !43
   %15 = sext i32 %14 to i64
   %16 = icmp eq i32 %14, 0
   %spec.store.select.i.i.i.i = select i1 %16, i64 %13, i64 %15
@@ -256,7 +256,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20bina
   %.val24.i = load i64, ptr %11, align 8, !alias.scope !50, !noalias !53, !noundef !5
   %12 = sub i64 %.val24.i, %.val5.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val24.i, i64 %.val5.i.i)
-  %13 = tail call i32 @memcmp(ptr nonnull readonly %.val23.i, ptr nonnull readonly %.val4.i.i, i64 %..i.i.i.i.i), !alias.scope !55, !noalias !62
+  %13 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val23.i, ptr nonnull readonly align 1 %.val4.i.i, i64 %..i.i.i.i.i), !alias.scope !55, !noalias !62
   %14 = sext i32 %13 to i64
   %15 = icmp eq i32 %13, 0
   %spec.store.select.i.i.i.i.i = select i1 %15, i64 %12, i64 %14
@@ -334,7 +334,7 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %.val24.i.i = load i64, ptr %8, align 8, !alias.scope !70, !noalias !71, !noundef !5
   %9 = sub i64 %.val24.i.i, %1
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val24.i.i, i64 %1)
-  %10 = tail call i32 @memcmp(ptr nonnull readonly %.val23.i.i, ptr nonnull readonly %0, i64 %..i.i.i.i.i.i), !alias.scope !74, !noalias !81
+  %10 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val23.i.i, ptr nonnull readonly align 1 %0, i64 %..i.i.i.i.i.i), !alias.scope !74, !noalias !81
   %11 = sext i32 %10 to i64
   %12 = icmp eq i32 %10, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %12, i64 %9, i64 %11

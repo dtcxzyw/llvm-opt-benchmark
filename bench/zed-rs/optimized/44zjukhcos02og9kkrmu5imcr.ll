@@ -49,7 +49,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
 
 7:                                                ; preds = %3
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %9 = tail call noalias ptr @__rust_alloc(i64 %2, i64 %1) #4
+  %9 = tail call noalias ptr @__rust_alloc(i64 range(i64 1, 0) %2, i64 %1) #4
   br label %_ZN5alloc5alloc6Global10alloc_impl17h367e10630be63acbE.exit
 
 _ZN5alloc5alloc6Global10alloc_impl17h367e10630be63acbE.exit: ; preds = %5, %7

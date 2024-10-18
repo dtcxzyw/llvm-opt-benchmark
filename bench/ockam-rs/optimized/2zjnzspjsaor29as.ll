@@ -939,7 +939,7 @@ default.unreachable11.i.i:                        ; preds = %240
 
 258:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$..process..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9cdd183bfe6abc37E.llvm.15364203667604460574"(ptr noundef nonnull align 8 %4) #18
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$mitm_node..tcp_interceptor..workers..processor..TcpMitmProcessor$u20$as$u20$ockam_core..processor..Processor$GT$..process..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9cdd183bfe6abc37E.llvm.15364203667604460574"(ptr noundef nonnull align 8 dereferenceable(552) %4) #18
           to label %.body.i25 unwind label %259
 
 259:                                              ; preds = %258
@@ -1340,7 +1340,7 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded15Permit$LT$T$GT$4send17h9f1510e
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %6, i64 128
   %11 = atomicrmw add ptr %8, i64 1 acquire, align 8, !noalias !128
-  %12 = invoke noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_block17h7587d2448890e472E.llvm.816006147668348934"(ptr noundef nonnull align 8 %10, i64 noundef %11)
+  %12 = invoke noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_block17h7587d2448890e472E.llvm.816006147668348934"(ptr noundef nonnull align 128 %10, i64 noundef %11)
           to label %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h966a46be2cf9f5c6E.exit.i" unwind label %13, !noalias !128
 
 13:                                               ; preds = %9, %2

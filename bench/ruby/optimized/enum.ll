@@ -754,11 +754,11 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   %30 = add i64 %29, %.0127
   %31 = shl i64 %30, %25
   %32 = getelementptr i64, ptr %.0.i.i, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %2, ptr noundef nonnull readonly align 1 dereferenceable(8) %32, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %2, ptr noundef nonnull readonly align 1 dereferenceable(8) %32, i64 range(i64 8, 17) %24, i1 false)
   %33 = shl i64 %.0125, %25
   %34 = getelementptr i64, ptr %.0.i.i, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %32, ptr noundef nonnull readonly align 1 dereferenceable(8) %34, i64 %24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %34, ptr noundef nonnull readonly align 16 dereferenceable(8) %2, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %32, ptr noundef nonnull readonly align 1 dereferenceable(8) %34, i64 range(i64 8, 17) %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %34, ptr noundef nonnull readonly align 16 dereferenceable(8) %2, i64 range(i64 8, 17) %24, i1 false)
   %35 = add i64 %.0125, -1
   %.not134153160 = icmp sgt i64 %.0127, %35
   br i1 %.not134153160, label %.preheader, label %.lr.ph
@@ -795,11 +795,11 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %3, ptr noundef nonnull readonly align 1 dereferenceable(8) %38, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %3, ptr noundef nonnull readonly align 1 dereferenceable(8) %38, i64 range(i64 8, 17) %24, i1 false)
   %49 = shl i64 %41, %25
   %50 = getelementptr i64, ptr %.0.i.i, i64 %49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %38, ptr noundef nonnull readonly align 1 dereferenceable(8) %50, i64 %24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %50, ptr noundef nonnull readonly align 16 dereferenceable(8) %3, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %38, ptr noundef nonnull readonly align 1 dereferenceable(8) %50, i64 range(i64 8, 17) %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %50, ptr noundef nonnull readonly align 16 dereferenceable(8) %3, i64 range(i64 8, 17) %24, i1 false)
   %51 = add i64 %.0120154, 1
   %52 = sub i64 %.0125, %51
   %.not134 = icmp sgt i64 %.0122.ph162, %52
@@ -810,11 +810,11 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   br i1 %54, label %55, label %.outer
 
 55:                                               ; preds = %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %4, ptr noundef nonnull readonly align 1 dereferenceable(8) %38, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %4, ptr noundef nonnull readonly align 1 dereferenceable(8) %38, i64 range(i64 8, 17) %24, i1 false)
   %56 = shl i64 %.0123.ph161, %25
   %57 = getelementptr i64, ptr %.0.i.i, i64 %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %38, ptr noundef nonnull readonly align 1 dereferenceable(8) %57, i64 %24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %57, ptr noundef nonnull readonly align 16 dereferenceable(8) %4, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %38, ptr noundef nonnull readonly align 1 dereferenceable(8) %57, i64 range(i64 8, 17) %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %57, ptr noundef nonnull readonly align 16 dereferenceable(8) %4, i64 range(i64 8, 17) %24, i1 false)
   %58 = add i64 %.0123.ph161, 1
   br label %.outer
 
@@ -830,11 +830,11 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   %.1169 = phi i64 [ %66, %.lr.ph171 ], [ %.0125, %.preheader ]
   %61 = shl i64 %.0121170, %25
   %62 = getelementptr i64, ptr %.0.i.i, i64 %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %5, ptr noundef nonnull readonly align 1 dereferenceable(8) %62, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(8) %5, ptr noundef nonnull readonly align 1 dereferenceable(8) %62, i64 range(i64 8, 17) %24, i1 false)
   %63 = shl i64 %.1169, %25
   %64 = getelementptr i64, ptr %.0.i.i, i64 %63
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %62, ptr noundef nonnull readonly align 1 dereferenceable(8) %64, i64 %24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %64, ptr noundef nonnull readonly align 16 dereferenceable(8) %5, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %62, ptr noundef nonnull readonly align 1 dereferenceable(8) %64, i64 range(i64 8, 17) %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %64, ptr noundef nonnull readonly align 16 dereferenceable(8) %5, i64 range(i64 8, 17) %24, i1 false)
   %65 = add nsw i64 %.0121170, 1
   %66 = add nsw i64 %.1169, -1
   %67 = icmp slt i64 %.lcssa, %66
@@ -1247,7 +1247,7 @@ rb_array_len.exit84:                              ; preds = %85, %88
   %91 = getelementptr i64, ptr %81, i64 %.0.i83
   %.idx = shl i64 %.0.i83, 3
   %92 = ashr exact i64 %.idx, 4
-  %93 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %92, i1 false)
+  %93 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -576460752303423488, 576460752303423488) %92, i1 false)
   %.013.i = getelementptr i8, ptr %81, i64 16
   %.not14.i = icmp ult ptr %.013.i, %91
   br i1 %.not14.i, label %.lr.ph.i, label %.sink.split
@@ -3037,7 +3037,7 @@ rb_num2long_inline.exit:                          ; preds = %5, %7
   %20 = and i64 %19, 1
   %.not.i17 = icmp eq i64 %20, 0
   %21 = ashr i64 %19, 1
-  %22 = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %21)
+  %22 = tail call i64 @llvm.umin.i64(i64 range(i64 1, -9223372036854775808) %.0.i, i64 %21)
   %.0.i18 = select i1 %.not.i17, i64 %.0.i, i64 %22
   %23 = tail call i64 @rb_ary_new_capa(i64 noundef %.0.i18) #13
   %24 = tail call i32 @rb_block_arity() #13
@@ -3802,7 +3802,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %20
   %35 = add nsw i64 %.neg.i.i, 2
   %36 = and i64 %13, -4
   %37 = or i64 %35, %36
-  %38 = tail call noundef i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 61)
+  %38 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %37, i64 range(i64 1, 0) %37, i64 61)
   %39 = bitcast i64 %38 to double
   br label %rb_float_value_inline.exit
 
@@ -3966,7 +3966,7 @@ rb_class_of.exit:                                 ; preds = %101
   br i1 %.not7.i, label %126, label %130
 
 126:                                              ; preds = %121
-  %127 = call noundef i64 @llvm.fshl.i64(i64 %120, i64 %120, i64 3)
+  %127 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %120, i64 range(i64 3458764513820540929, 3458764513820540928) %120, i64 3)
   %128 = and i64 %127, -4
   %129 = or disjoint i64 %128, 2
   br label %int_range_sum.exit
@@ -8545,7 +8545,7 @@ RB_FLOAT_TYPE_P.exit.thread28:                    ; preds = %30, %RB_FLOAT_TYPE_
   br label %rb_long2num_inline.exit.i
 
 46:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread28
-  %47 = tail call i64 @rb_int2big(i64 noundef %41) #13
+  %47 = tail call i64 @rb_int2big(i64 noundef range(i64 -9223372036854775806, 9223372036854775807) %41) #13
   br label %rb_long2num_inline.exit.i
 
 rb_long2num_inline.exit.i:                        ; preds = %46, %43
@@ -8591,7 +8591,7 @@ add_int.exit:                                     ; preds = %rb_integer_type_p.e
   br label %rb_long2num_inline.exit.i20
 
 64:                                               ; preds = %add_int.exit
-  %65 = call i64 @rb_int2big(i64 noundef %.0.i) #13
+  %65 = call i64 @rb_int2big(i64 noundef range(i64 1, -9223372036854775808) %.0.i) #13
   br label %rb_long2num_inline.exit.i20
 
 rb_long2num_inline.exit.i20:                      ; preds = %64, %61
@@ -8781,7 +8781,7 @@ rb_num2long_inline.exit:                          ; preds = %16, %18
   br label %rb_long2num_inline.exit.i
 
 31:                                               ; preds = %26
-  %32 = tail call i64 @rb_int2big(i64 noundef %27) #13
+  %32 = tail call i64 @rb_int2big(i64 noundef range(i64 -9223372036854775806, 9223372036854775807) %27) #13
   br label %rb_long2num_inline.exit.i
 
 rb_long2num_inline.exit.i:                        ; preds = %31, %28
@@ -10833,7 +10833,7 @@ rb_type.exit.thread52:                            ; preds = %12, %rb_type.exit
   %23 = add nsw i64 %.neg.i.i, 2
   %24 = and i64 %0, -4
   %25 = or i64 %23, %24
-  %26 = tail call noundef i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 61)
+  %26 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %25, i64 range(i64 1, 0) %25, i64 61)
   %27 = bitcast i64 %26 to double
   br label %rb_float_value_inline.exit
 
@@ -10872,7 +10872,7 @@ rb_type.exit.thread:                              ; preds = %12, %8, %8, %8, %8,
   br i1 %.not7.i, label %46, label %50
 
 46:                                               ; preds = %41
-  %47 = tail call noundef i64 @llvm.fshl.i64(i64 %40, i64 %40, i64 3)
+  %47 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %40, i64 range(i64 3458764513820540929, 3458764513820540928) %40, i64 3)
   %48 = and i64 %47, -4
   %49 = or disjoint i64 %48, 2
   br label %rb_float_new_inline.exit
@@ -10936,7 +10936,7 @@ rb_float_value_inline.exit:                       ; preds = %28, %22, %21, %36, 
   br i1 %.not7.i48, label %75, label %79
 
 75:                                               ; preds = %70
-  %76 = tail call noundef i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 3)
+  %76 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %68, i64 range(i64 3458764513820540929, 3458764513820540928) %68, i64 3)
   %77 = and i64 %76, -4
   %78 = or disjoint i64 %77, 2
   br label %rb_float_new_inline.exit50

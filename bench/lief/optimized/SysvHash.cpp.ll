@@ -599,7 +599,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %4, %1
   br label %_ZN4LIEF3ELF8SysvHashD2Ev.exit
 
 _ZN4LIEF3ELF8SysvHashD2Ev.exit:                   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i, %7
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #6
   tail call void @_ZdlPv(ptr noundef nonnull %0) #7
   ret void
 }

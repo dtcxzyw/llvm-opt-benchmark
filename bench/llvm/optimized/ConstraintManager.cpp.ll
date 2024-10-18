@@ -24,7 +24,7 @@ $_ZN5clang4ento17ConstraintManager10printValueERN4llvm11raw_ostreamENS2_18Intrus
 define dso_local void @_ZN5clang4ento17ConstraintManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang4ento17ConstraintManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #7
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #7
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = icmp eq ptr %4, %5
@@ -175,7 +175,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i: ; p
 20:                                               ; preds = %5
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !4
-  %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #7, !noalias !4
+  %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #7, !noalias !4
   %.idx4.i.i.i = shl nsw i64 %23, 3
   %24 = getelementptr inbounds i8, ptr %22, i64 %.idx4.i.i.i
   %25 = ashr i64 %23, 2
@@ -274,7 +274,7 @@ _ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE
 _ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i: ; preds = %28, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit19, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit21, %59, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %48
   %.028.i.i.i.i.i.i = phi ptr [ %24, %59 ], [ %.029.lcssa.i.i.i.i.i.i, %48 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %60, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit ], [ %61, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit19 ], [ %62, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit21 ], [ %.02946.i.i.i.i.i.i, %28 ]
   %63 = load ptr, ptr %21, align 8, !noalias !4
-  %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #7, !noalias !4
+  %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #7, !noalias !4
   %65 = getelementptr inbounds ptr, ptr %63, i64 %64
   %.not.i = icmp eq ptr %.028.i.i.i.i.i.i, %65
   br i1 %.not.i, label %71, label %66
@@ -303,26 +303,26 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i16.i: ;
   br label %"_ZN5clang4ento17ConstraintManager14assumeDualImplIZNS1_10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEE3$_0EESt4pairIS7_S7_ERS7_RT_.exit"
 
 71:                                               ; preds = %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i
-  %72 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #7, !noalias !4
+  %72 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #7, !noalias !4
   %73 = add i64 %72, 1
-  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #7, !noalias !4
+  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #7, !noalias !4
   %.not.i.i.i.i.i = icmp ugt i64 %73, %74
   br i1 %.not.i.i.i.i.i, label %75, label %_ZN5clang4ento17ConstraintManager13AssumeStackTy4pushEPKNS0_12ProgramStateE.exit.i
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %76, i64 noundef %73, i64 noundef 8) #7, !noalias !4
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull %76, i64 noundef %73, i64 noundef 8) #7, !noalias !4
   br label %_ZN5clang4ento17ConstraintManager13AssumeStackTy4pushEPKNS0_12ProgramStateE.exit.i
 
 _ZN5clang4ento17ConstraintManager13AssumeStackTy4pushEPKNS0_12ProgramStateE.exit.i: ; preds = %75, %71
   %77 = load ptr, ptr %21, align 8, !noalias !4
-  %78 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #7, !noalias !4
+  %78 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #7, !noalias !4
   %79 = getelementptr inbounds ptr, ptr %77, i64 %78
   %80 = ptrtoint ptr %13 to i64
   store i64 %80, ptr %79, align 1, !noalias !4
-  %81 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #7, !noalias !4
+  %81 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #7, !noalias !4
   %82 = add i64 %81, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %82) #7, !noalias !4
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %82) #7, !noalias !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !4
   %83 = load ptr, ptr %2, align 8, !noalias !9
   store ptr %83, ptr %8, align 8, !noalias !9
@@ -511,9 +511,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i: ; preds
   br label %"_ZN4llvm6detail10scope_exitIZN5clang4ento17ConstraintManager14assumeDualImplIZNS4_10assumeDualENS_18IntrusiveRefCntPtrIKNS3_12ProgramStateEEENS3_11DefinedSValEE3$_0EESt4pairIS9_S9_ERS9_RT_EUlvE_ED2Ev.exit.i"
 
 "_ZN4llvm6detail10scope_exitIZN5clang4ento17ConstraintManager14assumeDualImplIZNS4_10assumeDualENS_18IntrusiveRefCntPtrIKNS3_12ProgramStateEEENS3_11DefinedSValEE3$_0EESt4pairIS9_S9_ERS9_RT_EUlvE_ED2Ev.exit.i": ; preds = %127, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i
-  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #7, !noalias !4
+  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #7, !noalias !4
   %129 = add i64 %128, -1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %129) #7, !noalias !4
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %129) #7, !noalias !4
   br label %"_ZN5clang4ento17ConstraintManager14assumeDualImplIZNS1_10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEE3$_0EESt4pairIS7_S7_ERS7_RT_.exit"
 
 "_ZN5clang4ento17ConstraintManager14assumeDualImplIZNS1_10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEE3$_0EESt4pairIS7_S7_ERS7_RT_.exit": ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i, %19, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i16.thread.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i16.i, %70, %"_ZN4llvm6detail10scope_exitIZN5clang4ento17ConstraintManager14assumeDualImplIZNS4_10assumeDualENS_18IntrusiveRefCntPtrIKNS3_12ProgramStateEEENS3_11DefinedSValEE3$_0EESt4pairIS9_S9_ERS9_RT_EUlvE_ED2Ev.exit.i"
@@ -560,7 +560,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i: ; p
 22:                                               ; preds = %7
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !noalias !18
-  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #7, !noalias !18
+  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #7, !noalias !18
   %.idx4.i.i.i = shl nsw i64 %25, 3
   %26 = getelementptr inbounds i8, ptr %24, i64 %.idx4.i.i.i
   %27 = ashr i64 %25, 2
@@ -659,7 +659,7 @@ _ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE
 _ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i: ; preds = %30, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit27, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit29, %61, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %50
   %.028.i.i.i.i.i.i = phi ptr [ %26, %61 ], [ %.029.lcssa.i.i.i.i.i.i, %50 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %62, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit ], [ %63, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit27 ], [ %64, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i.loopexit.split.loop.exit29 ], [ %.02946.i.i.i.i.i.i, %30 ]
   %65 = load ptr, ptr %23, align 8, !noalias !18
-  %66 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #7, !noalias !18
+  %66 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #7, !noalias !18
   %67 = getelementptr inbounds ptr, ptr %65, i64 %66
   %.not.i = icmp eq ptr %.028.i.i.i.i.i.i, %67
   br i1 %.not.i, label %73, label %68
@@ -688,26 +688,26 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i16.i: ;
   br label %"_ZN5clang4ento17ConstraintManager14assumeDualImplIZNS1_24assumeInclusiveRangeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_6NonLocERKNS3_6APSIntESB_E3$_0EESt4pairIS7_S7_ERS7_RT_.exit"
 
 73:                                               ; preds = %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.i
-  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #7, !noalias !18
+  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #7, !noalias !18
   %75 = add i64 %74, 1
-  %76 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #7, !noalias !18
+  %76 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #7, !noalias !18
   %.not.i.i.i.i.i = icmp ugt i64 %75, %76
   br i1 %.not.i.i.i.i.i, label %77, label %_ZN5clang4ento17ConstraintManager13AssumeStackTy4pushEPKNS0_12ProgramStateE.exit.i
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %78, i64 noundef %75, i64 noundef 8) #7, !noalias !18
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %78, i64 noundef %75, i64 noundef 8) #7, !noalias !18
   br label %_ZN5clang4ento17ConstraintManager13AssumeStackTy4pushEPKNS0_12ProgramStateE.exit.i
 
 _ZN5clang4ento17ConstraintManager13AssumeStackTy4pushEPKNS0_12ProgramStateE.exit.i: ; preds = %77, %73
   %79 = load ptr, ptr %23, align 8, !noalias !18
-  %80 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #7, !noalias !18
+  %80 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #7, !noalias !18
   %81 = getelementptr inbounds ptr, ptr %79, i64 %80
   %82 = ptrtoint ptr %15 to i64
   store i64 %82, ptr %81, align 1, !noalias !18
-  %83 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #7, !noalias !18
+  %83 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #7, !noalias !18
   %84 = add i64 %83, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %84) #7, !noalias !18
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %84) #7, !noalias !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !18
   %85 = load ptr, ptr %2, align 8, !noalias !21
   store ptr %85, ptr %10, align 8, !noalias !21
@@ -896,9 +896,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i: ; preds
   br label %"_ZN4llvm6detail10scope_exitIZN5clang4ento17ConstraintManager14assumeDualImplIZNS4_24assumeInclusiveRangeDualENS_18IntrusiveRefCntPtrIKNS3_12ProgramStateEEENS3_6NonLocERKNS_6APSIntESD_E3$_0EESt4pairIS9_S9_ERS9_RT_EUlvE_ED2Ev.exit.i"
 
 "_ZN4llvm6detail10scope_exitIZN5clang4ento17ConstraintManager14assumeDualImplIZNS4_24assumeInclusiveRangeDualENS_18IntrusiveRefCntPtrIKNS3_12ProgramStateEEENS3_6NonLocERKNS_6APSIntESD_E3$_0EESt4pairIS9_S9_ERS9_RT_EUlvE_ED2Ev.exit.i": ; preds = %129, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i
-  %130 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #7, !noalias !18
+  %130 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #7, !noalias !18
   %131 = add i64 %130, -1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %131) #7, !noalias !18
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %131) #7, !noalias !18
   br label %"_ZN5clang4ento17ConstraintManager14assumeDualImplIZNS1_24assumeInclusiveRangeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_6NonLocERKNS3_6APSIntESB_E3$_0EESt4pairIS7_S7_ERS7_RT_.exit"
 
 "_ZN5clang4ento17ConstraintManager14assumeDualImplIZNS1_24assumeInclusiveRangeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_6NonLocERKNS3_6APSIntESB_E3$_0EESt4pairIS7_S7_ERS7_RT_.exit": ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i, %21, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i16.thread.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i16.i, %72, %"_ZN4llvm6detail10scope_exitIZN5clang4ento17ConstraintManager14assumeDualImplIZNS4_24assumeInclusiveRangeDualENS_18IntrusiveRefCntPtrIKNS3_12ProgramStateEEENS3_6NonLocERKNS_6APSIntESD_E3$_0EESt4pairIS9_S9_ERS9_RT_EUlvE_ED2Ev.exit.i"

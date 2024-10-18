@@ -3967,7 +3967,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end53
   %and.i.i.i.i.i54 = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %25 = inttoptr i64 %and.i.i.i.i.i54 to ptr
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %buffer_.i, ptr noundef %25) #6
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %buffer_.i, ptr noundef %25) #6
   br label %_ZN6hermes2vm10JSDataView9setBufferERNS0_7RuntimeEPNS0_13JSArrayBufferEjj.exit
 
 _ZN6hermes2vm10JSDataView9setBufferERNS0_7RuntimeEPNS0_13JSArrayBufferEjj.exit: ; preds = %if.end53, %if.then.i.i.i.i

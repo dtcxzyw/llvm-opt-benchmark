@@ -4682,7 +4682,7 @@ recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.
   br i1 %261, label %262, label %264
 
 262:                                              ; preds = %255
-  %263 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %3, ptr noundef nonnull %250, i32 noundef %68) #10
+  %263 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %3, ptr noundef nonnull %250, i32 noundef range(i32 0, -1) %68) #10
   %.pre.i = load ptr, ptr %256, align 8
   br label %264
 
@@ -5362,7 +5362,7 @@ define internal noundef i32 @mca_pml_ob1_recv_request_cancel(ptr noundef %0, i32
   br i1 %63, label %64, label %mca_pml_ob1_peer_lookup.exit
 
 64:                                               ; preds = %57
-  %65 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %4, ptr noundef nonnull %52, i32 noundef %36) #10
+  %65 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %4, ptr noundef nonnull %52, i32 noundef range(i32 0, -1) %36) #10
   %.pre.i = load ptr, ptr %58, align 8
   br label %mca_pml_ob1_peer_lookup.exit
 

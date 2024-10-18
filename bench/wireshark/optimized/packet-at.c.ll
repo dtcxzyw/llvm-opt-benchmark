@@ -1031,7 +1031,7 @@ get_at_packet_info.exit:                          ; preds = %get_at_conv_info.ex
 
 110:                                              ; preds = %.critedge.i
   %111 = load i16, ptr %80, align 4
-  %112 = call i32 %109(ptr noundef %0, ptr noundef %1, ptr noundef %108, i32 noundef %.066127, i32 noundef %.1, i16 noundef zeroext %111, ptr noundef nonnull %96, i32 noundef %84, i32 noundef %.0.lcssa.i, ptr noundef nonnull %.0.i) #9
+  %112 = call i32 %109(ptr noundef %0, ptr noundef %1, ptr noundef %108, i32 noundef %.066127, i32 noundef range(i32 1, 3) %.1, i16 noundef zeroext %111, ptr noundef nonnull %96, i32 noundef %84, i32 noundef %.0.lcssa.i, ptr noundef nonnull %.0.i) #9
   %.not57.i = icmp eq i32 %112, 0
   br i1 %.not57.i, label %113, label %117
 
@@ -1399,7 +1399,7 @@ proto_item_set_generated.exit.i:                  ; preds = %216, %218, %234, %2
   br i1 %.not420.i, label %279, label %275
 
 275:                                              ; preds = %272
-  %276 = call i32 %274(i32 noundef %.1, i16 noundef zeroext %.0349.i) #9
+  %276 = call i32 %274(i32 noundef range(i32 1, 3) %.1, i16 noundef zeroext %.0349.i) #9
   %.not421.i = icmp eq i32 %276, 0
   br i1 %.not421.i, label %277, label %279
 
@@ -1525,7 +1525,7 @@ proto_item_set_generated.exit.i:                  ; preds = %216, %218, %234, %2
   br i1 %.not425.i, label %.thread457.i, label %321
 
 321:                                              ; preds = %319
-  %322 = call i32 %320(ptr noundef %0, ptr noundef %1, ptr noundef %283, i32 noundef %.5.i, i32 noundef %.1, i16 noundef zeroext %.0349.i, ptr noundef nonnull %291, i32 noundef %.0354524.i, i32 noundef %.1358478.i, ptr noundef %.0.i, ptr noundef nonnull %5) #9
+  %322 = call i32 %320(ptr noundef %0, ptr noundef %1, ptr noundef %283, i32 noundef %.5.i, i32 noundef range(i32 1, 3) %.1, i16 noundef zeroext %.0349.i, ptr noundef nonnull %291, i32 noundef %.0354524.i, i32 noundef %.1358478.i, ptr noundef %.0.i, ptr noundef nonnull %5) #9
   %.not426.i = icmp eq i32 %322, 0
   br i1 %.not426.i, label %323, label %327
 

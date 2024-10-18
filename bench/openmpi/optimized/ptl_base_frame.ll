@@ -460,7 +460,7 @@ define internal i32 @pmix_ptl_close() #0 {
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %48 = phi ptr [ %50, %.lr.ph.i ], [ %47, %42 ]
   %.07.i = phi ptr [ %49, %.lr.ph.i ], [ %46, %42 ]
-  tail call void %48(ptr noundef %25) #14
+  tail call void %48(ptr noundef nonnull %25) #14
   %49 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %50, null
@@ -553,7 +553,7 @@ pmix_obj_run_destructors.exit97:                  ; preds = %.lr.ph.i94, %._crit
 .lr.ph.i101:                                      ; preds = %87, %.lr.ph.i101
   %93 = phi ptr [ %95, %.lr.ph.i101 ], [ %92, %87 ]
   %.07.i102 = phi ptr [ %94, %.lr.ph.i101 ], [ %91, %87 ]
-  tail call void %93(ptr noundef %70) #14
+  tail call void %93(ptr noundef nonnull %70) #14
   %94 = getelementptr inbounds i8, ptr %.07.i102, i64 8
   %95 = load ptr, ptr %94, align 8
   %.not.i103 = icmp eq ptr %95, null

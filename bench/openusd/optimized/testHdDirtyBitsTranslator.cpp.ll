@@ -327,7 +327,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.10, i32 noundef 0)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_ImmortalTagE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull @.str.10, i32 noundef 0)
           to label %.noexc.i.i.i unwind label %145
 
 .noexc.i.i.i:                                     ; preds = %4
@@ -1060,7 +1060,7 @@ define dso_local noundef zeroext i1 @_Z20TestCustomSprimTypesv() local_unnamed_a
   br i1 %.not.i.i, label %_ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEEED2Ev.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEEED2Ev.exit unwind label %16
 
 16:                                               ; preds = %14
@@ -1076,7 +1076,7 @@ _ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEE
   br i1 %.not.i.i11, label %_ZNSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEED2Ev.exit, label %20
 
 20:                                               ; preds = %_ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEEED2Ev.exit
-  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEED2Ev.exit unwind label %22
 
 22:                                               ; preds = %20
@@ -1108,7 +1108,7 @@ _ZNSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEP
   br i1 %.not.i.i12, label %_ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEEED2Ev.exit13, label %33
 
 33:                                               ; preds = %30
-  %34 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %34 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEEED2Ev.exit13 unwind label %35
 
 35:                                               ; preds = %33
@@ -1124,7 +1124,7 @@ _ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEE
   br i1 %.not.i.i14, label %_ZNSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEED2Ev.exit15, label %39
 
 39:                                               ; preds = %_ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEEED2Ev.exit13
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEED2Ev.exit15 unwind label %41
 
 41:                                               ; preds = %39

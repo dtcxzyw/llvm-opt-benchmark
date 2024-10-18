@@ -273,7 +273,7 @@ define dso_local void @_ZN4llvm3pdb14NativeTypeEnumC2ERNS0_13NativeSessionEjNS_8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -308,7 +308,7 @@ define dso_local void @_ZN4llvm3pdb14NativeTypeEnumC2ERNS0_13NativeSessionEjRS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb14NativeTypeEnumD2Ev(ptr noundef nonnull align 8 dereferenceable(114) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   ret void
 }
 
@@ -1881,7 +1881,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %3, %8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %12, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 106
@@ -1890,7 +1890,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %3, %8
   store i8 0, ptr %20, align 2
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %22 = getelementptr inbounds i8, ptr %4, i64 128
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %22, i64 noundef 2) #19
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull %22, i64 noundef 2) #19
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %17, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -1912,7 +1912,7 @@ _ZN4llvm5ErrorD2Ev.exit21:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 
 .critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit21, %_ZN4llvm5ErrorD2Ev.exit, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %18, align 8
-  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #19
+  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %21) #19
   %28 = load ptr, ptr %21, align 8
   %29 = icmp eq ptr %28, %22
   br i1 %29, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit.i, label %30
@@ -2271,7 +2271,7 @@ define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMe
   br label %_ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
 
 22:                                               ; preds = %9
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %15) #19
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %14, ptr noundef nonnull align 8 dereferenceable(13) %15) #19
   br label %_ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i: ; preds = %22, %20
@@ -2427,7 +2427,7 @@ _ZSt8_DestroyIPN4llvm8codeview16EnumeratorRecordES2_EvT_S4_RSaIT0_E.exit.i.i.i: 
   br label %_ZN12_GLOBAL__N_125NativeEnumEnumEnumeratorsD0Ev.exit
 
 _ZN12_GLOBAL__N_125NativeEnumEnumEnumeratorsD0Ev.exit: ; preds = %_ZSt8_DestroyIPN4llvm8codeview16EnumeratorRecordES2_EvT_S4_RSaIT0_E.exit.i.i.i, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 72) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(68) %2, i64 noundef 72) #20
   ret void
 }
 
@@ -2673,7 +2673,7 @@ define internal void @_ZThn8_N12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKn
   br label %_ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
 
 22:                                               ; preds = %9
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %15) #19, !noalias !23
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %14, ptr noundef nonnull align 8 dereferenceable(13) %15) #19, !noalias !23
   br label %_ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i: ; preds = %22, %20
@@ -3230,7 +3230,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm3pdb11SymbolCache12createSymbol
   br label %_ZN4llvm8codeview16EnumeratorRecordC2ERKS1_.exit.i
 
 29:                                               ; preds = %3
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(12) %22) #19, !noalias !36
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %21, ptr noundef nonnull align 8 dereferenceable(13) %22) #19, !noalias !36
   br label %_ZN4llvm8codeview16EnumeratorRecordC2ERKS1_.exit.i
 
 _ZN4llvm8codeview16EnumeratorRecordC2ERKS1_.exit.i: ; preds = %29, %27
@@ -3355,7 +3355,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4p
 38:                                               ; preds = %12
   %39 = zext i32 %8 to i64
   %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %14, i64 %39
-  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %14, ptr noundef nonnull %40)
+  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %14, ptr noundef nonnull %40)
   %41 = mul nuw nsw i64 %39, 12
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %14, i64 noundef %41, i64 noundef 4) #19
   %.pr.pre = load i32, ptr %7, align 8
@@ -3491,7 +3491,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12Dense
 115:                                              ; preds = %91
   %116 = zext i32 %8 to i64
   %117 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %92, i64 %116
-  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %92, ptr noundef nonnull %117)
+  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_8codeview9TypeIndexEjEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %92, ptr noundef nonnull %117)
   %118 = mul nuw nsw i64 %116, 12
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %92, i64 noundef %118, i64 noundef 4) #19
   %.pr35.pre = load i32, ptr %7, align 8
@@ -3898,7 +3898,7 @@ _ZNSt12_Vector_baseIN4llvm8codeview16EnumeratorRecordESaIS2_EE11_M_allocateEm.ex
   br label %_ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
 
 37:                                               ; preds = %_ZNSt12_Vector_baseIN4llvm8codeview16EnumeratorRecordESaIS2_EE11_M_allocateEm.exit
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %30) #19
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %29, ptr noundef nonnull align 8 dereferenceable(13) %30) #19
   br label %_ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %35, %37
@@ -3937,7 +3937,7 @@ _ZNSt16allocator_traitsISaIN4llvm8codeview16EnumeratorRecordEEE9constructIS2_JRK
   br label %_ZSt10_ConstructIN4llvm8codeview16EnumeratorRecordEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 56:                                               ; preds = %.lr.ph.i.i.i.i.i
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %48, ptr noundef nonnull align 8 dereferenceable(12) %49) #19
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %48, ptr noundef nonnull align 8 dereferenceable(13) %49) #19
   br label %_ZSt10_ConstructIN4llvm8codeview16EnumeratorRecordEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN4llvm8codeview16EnumeratorRecordEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %56, %54
@@ -3984,7 +3984,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm8codeview16EnumeratorRecordES3_S
   br label %_ZSt10_ConstructIN4llvm8codeview16EnumeratorRecordEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i22
 
 78:                                               ; preds = %.lr.ph.i.i.i.i.i19
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %70, ptr noundef nonnull align 8 dereferenceable(12) %71) #19
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %70, ptr noundef nonnull align 8 dereferenceable(13) %71) #19
   br label %_ZSt10_ConstructIN4llvm8codeview16EnumeratorRecordEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i22
 
 _ZSt10_ConstructIN4llvm8codeview16EnumeratorRecordEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i22: ; preds = %78, %76

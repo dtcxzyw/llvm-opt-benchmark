@@ -1296,7 +1296,7 @@ if.end47.i:                                       ; preds = %if.end41.i
   %5 = load ptr, ptr %out.i, align 8
   %6 = load i64, ptr %out_len.i, align 8
   call void @CBS_init(ptr noundef nonnull %content_infos.i, ptr noundef %5, i64 noundef %6) #12
-  %call48.i = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef %content_infos.i, i32 noundef %add55.i, ptr noundef %ctx)
+  %call48.i = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef %content_infos.i, i32 noundef %add55.i, ptr noundef nonnull %ctx)
   call void @free(ptr noundef %5) #12
   br label %PKCS12_handle_content_info.exit
 
@@ -1310,7 +1310,7 @@ if.then53.i:                                      ; preds = %if.then50.i
   br label %PKCS12_handle_content_info.exit.thread
 
 if.end54.i:                                       ; preds = %if.then50.i
-  %call56.i = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef %octet_string_contents.i, i32 noundef %add55.i, ptr noundef %ctx)
+  %call56.i = call fastcc i32 @PKCS12_handle_content_infos(ptr noundef %octet_string_contents.i, i32 noundef %add55.i, ptr noundef nonnull %ctx)
   br label %PKCS12_handle_content_info.exit
 
 if.then59.i:                                      ; preds = %if.end.i
@@ -2052,7 +2052,7 @@ if.end25.i:                                       ; preds = %if.else19.i, %if.en
   %md.0.i = phi ptr [ %call21.i, %if.else19.i ], [ null, %if.end16.i ]
   %keygen.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %5 = load ptr, ptr %keygen.i, align 8
-  %call26.i = call i32 %5(ptr noundef nonnull %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %1, ptr noundef %cipher.0.i, ptr noundef %md.0.i, i32 noundef %is_encrypt) #12
+  %call26.i = call i32 %5(ptr noundef nonnull %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %1, ptr noundef %cipher.0.i, ptr noundef %md.0.i, i32 noundef range(i32 0, 2) %is_encrypt) #12
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %if.then28.i, label %if.end
 

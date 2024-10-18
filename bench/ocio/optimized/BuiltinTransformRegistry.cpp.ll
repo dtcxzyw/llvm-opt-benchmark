@@ -213,7 +213,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev24BuiltinTransformRegistryELN9__gnu_cx
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_4dev24BuiltinTransformRegistry3GetEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119globalRegistryMutexE) #22
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119globalRegistryMutexE) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
@@ -448,7 +448,7 @@ if.else.i.i.i.i.i50:                              ; preds = %if.then.i.i.i46
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev24BuiltinTransformRegistryEEC2IS1_vEERKS_IT_E.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev24BuiltinTransformRegistryEEC2IS1_vEERKS_IT_E.exit: ; preds = %if.end, %if.then.i.i.i.i.i48, %if.else.i.i.i.i.i50
-  %call1.i.i.i51 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119globalRegistryMutexE) #22
+  %call1.i.i.i51 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119globalRegistryMutexE) #22
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %if.then.i.i
@@ -494,7 +494,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
   %m_creator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 64
-  %call.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEvPT_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -507,7 +507,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %m_description.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i.i.i.i.i.i) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i.i) #22
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !13
@@ -519,7 +519,7 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN19Op
 _ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEZNS0_28BuiltinTransformRegistryImpl11registerAllEvE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEZNS0_28BuiltinTransformRegistryImpl11registerAllEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataC2EPKcS3_St8functionIFvRNS_10OpRcPtrVecEEE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %agg.tmp)
@@ -533,14 +533,14 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIN19Ope
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #22
   %m_description.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %m_description3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i.i.i) #22
   %m_creator.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 64
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 88
   %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_creator.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
@@ -551,7 +551,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   %m_creator4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator4.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator4.i.i.i.i.i, i64 16, i1 false)
   %9 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   store ptr %9, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -575,7 +575,7 @@ invoke.cont4:                                     ; preds = %if.else.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4
   %m_creator.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
-  %call.i.i.i = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i, i32 noundef 3)
           to label %_ZN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -588,13 +588,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 _ZN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataD2Ev.exit: ; preds = %invoke.cont4.thread, %invoke.cont4, %if.then.i.i.i
   %m_description.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #22
   %13 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i3 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %_ZN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataD2Ev.exit
-  %call.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i4
@@ -638,7 +638,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEC2ERKS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %creator, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %creator, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -657,7 +657,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -681,7 +681,7 @@ invoke.cont:                                      ; preds = %_ZNSt8functionIFvRN
   br i1 %tobool.not.i.i6, label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %invoke.cont
-  %call.i.i8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
@@ -722,7 +722,7 @@ lpad:                                             ; preds = %_ZNSt8functionIFvRN
   br i1 %tobool.not.i.i12, label %common.resume, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %lpad
-  %call.i.i14 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i14 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i15
 
 terminate.lpad.i.i15:                             ; preds = %if.then.i.i13
@@ -785,7 +785,7 @@ cleanup:                                          ; preds = %.noexc, %if.else.i,
 
 if.then.i.i.i:                                    ; preds = %cleanup
   %m_creator.i = getelementptr inbounds i8, ptr %data, i64 64
-  %call.i.i.i = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i, i32 noundef 3)
           to label %_ZN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -798,7 +798,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 _ZN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataD2Ev.exit: ; preds = %cleanup, %if.then.i.i.i
   %m_description.i = getelementptr inbounds i8, ptr %data, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %data) #22
   ret void
 }
 
@@ -834,7 +834,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
   br i1 %tobool.not.i.i.not.i, label %invoke.cont11, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont9
-  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %m_creator, ptr noundef nonnull align 8 dereferenceable(16) %creator, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %m_creator, ptr noundef nonnull align 8 dereferenceable(32) %creator, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -853,7 +853,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %lpad10.body, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %m_creator, ptr noundef nonnull align 8 dereferenceable(16) %m_creator, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %m_creator, ptr noundef nonnull align 8 dereferenceable(32) %m_creator, i32 noundef 3)
           to label %lpad10.body unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -918,7 +918,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %m_creator = getelementptr inbounds i8, ptr %o, i64 64
-  %call3.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
@@ -935,7 +935,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br i1 %tobool.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -952,9 +952,9 @@ _ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEC2ERKS4_.exit.i: ; preds 
   %7 = phi ptr [ null, %entry ], [ %1, %invoke.cont.i.i ]
   %8 = phi ptr [ null, %entry ], [ %2, %invoke.cont.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_creator5, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator5, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %9 = load ptr, ptr %_M_manager3.i.i, align 8
@@ -968,7 +968,7 @@ _ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEC2ERKS4_.exit.i: ; preds 
   br i1 %tobool.not.i.i4.i, label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEaSERKS4_.exit, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEC2ERKS4_.exit.i
-  %call.i.i6.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEaSERKS4_.exit unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
@@ -993,7 +993,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %m_creator = getelementptr inbounds i8, ptr %this, i64 64
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %m_creator, ptr noundef nonnull align 8 dereferenceable(16) %m_creator, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %m_creator, ptr noundef nonnull align 8 dereferenceable(32) %m_creator, i32 noundef 3)
           to label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1149,7 +1149,7 @@ if.then.i:                                        ; preds = %if.end
 _ZNKSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEclES2_.exit: ; preds = %if.end
   %_M_invoker.i = getelementptr inbounds i8, ptr %m_creator, i64 24
   %4 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %m_creator, ptr noundef nonnull align 8 dereferenceable(144) %ops)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(32) %m_creator, ptr noundef nonnull align 8 dereferenceable(144) %ops)
   ret void
 }
 
@@ -1414,7 +1414,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 _ZNK19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl9createOpsEmRNS_10OpRcPtrVecE.exit: ; preds = %if.end.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %m_creator.i, i64 24
   %33 = load ptr, ptr %_M_invoker.i.i, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i, ptr noundef nonnull align 8 dereferenceable(144) %ops)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i, ptr noundef nonnull align 8 dereferenceable(144) %ops)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev24BuiltinTransformRegistryEED2Ev.exit40
@@ -1465,7 +1465,7 @@ if.then.i.i57:                                    ; preds = %if.end.i52
 _ZNKSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEclES2_.exit.i: ; preds = %if.end.i52
   %_M_invoker.i.i56 = getelementptr inbounds i8, ptr %m_creator.i53, i64 24
   %38 = load ptr, ptr %_M_invoker.i.i56, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i53, ptr noundef nonnull align 8 dereferenceable(144) %tmp)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i53, ptr noundef nonnull align 8 dereferenceable(144) %tmp)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %_ZNKSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEclES2_.exit.i
@@ -1643,7 +1643,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
   %m_creator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
-  %call.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEvPT_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i
@@ -1656,7 +1656,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %m_description.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i.i.i.i.i) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !13
@@ -1698,7 +1698,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
   %m_creator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 64
-  %call.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEvPT_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -1711,7 +1711,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %m_description.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i.i.i.i.i.i) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i.i) #22
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !13
@@ -1886,14 +1886,14 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %_ZSt1
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i.i) #22
   %m_description.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
   %m_description3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i.i.i.i.i.i) #22
   %m_creator.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 64
   %_M_invoker.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 88
   %_M_invoker2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_creator.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !16, !noalias !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !16, !noalias !19
   %3 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !19, !noalias !16
   store ptr %3, ptr %_M_invoker.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !19
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 80
@@ -1904,14 +1904,14 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %_ZSt1
 _ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i
   %m_creator4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 64
   %_M_manager.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator4.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator4.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !21
   store ptr %4, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !19, !noalias !16
   br label %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i.i, %for.body.i.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i.i.i.i.i.i) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 96
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
@@ -1928,14 +1928,14 @@ for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorIN19Ope
   %__first.addr.06.i.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i.i33, %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i32 ], [ %__position.coerce, %_ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %__cur.07.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i.i21) #22
   %m_description.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 32
   %m_description3.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i.i.i.i.i.i23) #22
   %m_creator.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 64
   %_M_invoker.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 88
   %_M_invoker2.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_creator.i.i.i.i.i.i.i.i24, i8 0, i64 24, i1 false), !alias.scope !23, !noalias !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i.i24, i8 0, i64 24, i1 false), !alias.scope !23, !noalias !26
   %5 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !26, !noalias !23
   store ptr %5, ptr %_M_invoker.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !23, !noalias !26
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 80
@@ -1946,14 +1946,14 @@ for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorIN19Ope
 _ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i.i29: ; preds = %for.body.i.i.i.i19
   %m_creator4.i.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 64
   %_M_manager.i.i.i.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %m_creator4.i.i.i.i.i.i.i.i30, i64 16, i1 false), !alias.scope !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(32) %m_creator4.i.i.i.i.i.i.i.i30, i64 16, i1 false), !alias.scope !28
   store ptr %6, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i31, align 8, !alias.scope !23, !noalias !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i.i27, i8 0, i64 16, i1 false), !alias.scope !26, !noalias !23
   br label %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i32
 
 _ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i32: ; preds = %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i.i29, %for.body.i.i.i.i19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i.i.i.i.i.i23) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i.i21) #22
   %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 96
   %incdec.ptr1.i.i.i.i34 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 96
   %cmp.not.i.i.i.i35 = icmp eq ptr %incdec.ptr.i.i.i.i33, %0
@@ -2037,7 +2037,7 @@ invoke.cont:                                      ; preds = %entry
 
 if.then.i:                                        ; preds = %invoke.cont
   %m_creator4 = getelementptr inbounds i8, ptr %o, i64 64
-  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %m_creator, ptr noundef nonnull align 8 dereferenceable(16) %m_creator4, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %m_creator, ptr noundef nonnull align 8 dereferenceable(32) %m_creator4, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -2056,7 +2056,7 @@ lpad.i:                                           ; preds = %if.then.i
   br i1 %tobool.not.i.i, label %lpad5.body, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %m_creator, ptr noundef nonnull align 8 dereferenceable(16) %m_creator, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %m_creator, ptr noundef nonnull align 8 dereferenceable(32) %m_creator, i32 noundef 3)
           to label %lpad5.body unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -2096,7 +2096,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %m_creator.i.i = getelementptr inbounds i8, ptr %__p, i64 64
-  %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i, i32 noundef 3)
           to label %_ZNSt15__new_allocatorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEE7destroyIS2_EEvPT_.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -2109,7 +2109,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 _ZNSt15__new_allocatorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEE7destroyIS2_EEvPT_.exit: ; preds = %entry, %if.then.i.i.i.i
   %m_description.i.i = getelementptr inbounds i8, ptr %__p, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__p) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__p) #22
   ret void
 }
 
@@ -2163,14 +2163,14 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN19Op
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::BuiltinTransformRegistryImpl::BuiltinData", ptr %cond.i10, i64 %sub.ptr.div.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr, ptr noundef nonnull align 8 dereferenceable(96) %__args) #22
   %m_description.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %m_description3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i) #22
   %m_creator.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 88
   %_M_invoker2.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_creator.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i.i.i.i, align 8
   store ptr %3, ptr %_M_invoker.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 80
@@ -2181,7 +2181,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11Builti
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_M_allocateEm.exit
   %m_creator4.i.i.i = getelementptr inbounds i8, ptr %__args, i64 64
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator4.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator4.i.i.i, i64 16, i1 false)
   store ptr %4, ptr %_M_manager.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit
@@ -2195,14 +2195,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i.i) #22
   %m_description.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
   %m_description3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i.i.i.i.i.i) #22
   %m_creator.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 64
   %_M_invoker.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 88
   %_M_invoker2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_creator.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !29, !noalias !32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !29, !noalias !32
   %5 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !32, !noalias !29
   store ptr %5, ptr %_M_invoker.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !29, !noalias !32
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 80
@@ -2213,14 +2213,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
 _ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i
   %m_creator4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 64
   %_M_manager.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_creator4.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_creator4.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !34
   store ptr %6, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !29, !noalias !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !32, !noalias !29
   br label %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i.i, %for.body.i.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i.i.i.i.i.i) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 96
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
@@ -2237,14 +2237,14 @@ for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorIN19Ope
   %__first.addr.06.i.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i.i26, %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i25 ], [ %__position.coerce, %_ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i14) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %__cur.07.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i.i14) #22
   %m_description.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 32
   %m_description3.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_description.i.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i.i.i.i.i.i16) #22
   %m_creator.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 64
   %_M_invoker.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 88
   %_M_invoker2.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_creator.i.i.i.i.i.i.i.i17, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i.i17, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !38
   %7 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !38, !noalias !35
   store ptr %7, ptr %_M_invoker.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !35, !noalias !38
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 80
@@ -2255,14 +2255,14 @@ for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorIN19Ope
 _ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i.i22: ; preds = %for.body.i.i.i.i12
   %m_creator4.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 64
   %_M_manager.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_creator.i.i.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %m_creator4.i.i.i.i.i.i.i.i23, i64 16, i1 false), !alias.scope !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_creator.i.i.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %m_creator4.i.i.i.i.i.i.i.i23, i64 16, i1 false), !alias.scope !40
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !35, !noalias !38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i.i20, i8 0, i64 16, i1 false), !alias.scope !38, !noalias !35
   br label %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i25
 
 _ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i25: ; preds = %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i.i22, %for.body.i.i.i.i12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_description3.i.i.i.i.i.i.i.i16) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i14) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i.i14) #22
   %incdec.ptr.i.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 96
   %incdec.ptr1.i.i.i.i27 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 96
   %cmp.not.i.i.i.i28 = icmp eq ptr %incdec.ptr.i.i.i.i26, %0

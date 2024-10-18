@@ -355,7 +355,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15btCapsuleShapeXC2Eff(ptr noundef nonnull align 8 dereferenceable(76) %this, float noundef %radius, float noundef %height) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 10, ptr %m_shapeType.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15btCapsuleShapeX, i64 16), ptr %this, align 8
@@ -378,7 +378,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15btCapsuleShapeZC2Eff(ptr noundef nonnull align 8 dereferenceable(76) %this, float noundef %radius, float noundef %height) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 10, ptr %m_shapeType.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15btCapsuleShapeZ, i64 16), ptr %this, align 8
@@ -401,14 +401,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btCapsuleShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btCapsuleShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #13
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN14btCapsuleShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -615,7 +615,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK14btCapsuleShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
+  %call.i = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
   %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %this, i64 48
   %m_implicitShapeDimensions2.i = getelementptr inbounds i8, ptr %dataBuffer, i64 32
   br label %for.body.i.i
@@ -684,14 +684,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btCapsuleShapeXD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btCapsuleShapeXD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #13
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN14btCapsuleShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -715,14 +715,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btCapsuleShapeZD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btCapsuleShapeZD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #13
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN14btCapsuleShapedlEPv.exit unwind label %terminate.lpad.i
 

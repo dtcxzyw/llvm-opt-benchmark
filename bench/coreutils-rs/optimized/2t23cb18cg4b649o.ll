@@ -177,7 +177,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg14conflicts_with17hd30b3323
           to label %23 unwind label %21
 
 12:                                               ; preds = %4
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h59e5d1d596d80935E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h59e5d1d596d80935E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %7)
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %12

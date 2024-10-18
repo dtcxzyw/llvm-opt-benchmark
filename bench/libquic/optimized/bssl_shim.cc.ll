@@ -895,7 +895,7 @@ lor.rhs:                                          ; preds = %invoke.cont
 invoke.cont5:                                     ; preds = %lor.rhs
   %session.i = getelementptr inbounds i8, ptr %call6, i64 56
   %private_key.i = getelementptr inbounds i8, ptr %call6, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %call6, i8 0, i64 49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(117) %call6, i8 0, i64 49, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %session.i, i8 0, i64 18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %private_key.i, i8 0, i64 37, i1 false)
   store ptr %call6, ptr %agg.tmp, align 8
@@ -1364,7 +1364,7 @@ if.end256:                                        ; preds = %invoke.cont251, %if
   br i1 %cmp.i125, label %if.then.i126, label %if.end.i
 
 if.then.i126:                                     ; preds = %if.end256
-  call void @perror(ptr noundef nonnull readonly @.str.35) #29
+  call void @perror(ptr noundef nonnull @.str.35) #29
   br label %invoke.cont258.thread
 
 if.end.i:                                         ; preds = %if.end256
@@ -1394,7 +1394,7 @@ call11.i.noexc:                                   ; preds = %if.end10.i
 
 if.then13.i.invoke:                               ; preds = %call11.i.noexc, %if.end5.i, %if.end.i
   %.str.36.sink = phi ptr [ @.str.36, %if.end.i ], [ @.str.38, %if.end5.i ], [ @.str.39, %call11.i.noexc ]
-  call void @perror(ptr noundef nonnull readonly %.str.36.sink) #29
+  call void @perror(ptr noundef nonnull %.str.36.sink) #29
   %38 = invoke noundef i32 @close(i32 noundef %call.i)
           to label %invoke.cont258.thread unwind label %lpad
 

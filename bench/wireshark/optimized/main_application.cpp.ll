@@ -912,7 +912,7 @@ define void @_ZN15MainApplication13addRecentItemE7QStringxb(ptr noundef nonnull 
   %5 = alloca %class.QString, align 8
   %6 = zext i1 %3 to i8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %7, i8 0, i64 24, i1 false)
   %8 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1) #27
   %9 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 %2, ptr %9, align 8
@@ -3925,7 +3925,7 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %_ZN5QListI7QStringE
   %.not.i.i.i12 = icmp eq ptr %51, null
   %spec.select.i.i.i = select i1 %.not.i.i.i12, ptr @_ZN7QString6_emptyE, ptr %51
   %52 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15MainApplication23window_title_separator_E, i64 16), align 8, !noalias !13
-  call void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull %2, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %52)
+  call void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %52)
   ret void
 
 53:                                               ; preds = %._crit_edge
@@ -13354,7 +13354,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEEC2Em.exit, label %27
@@ -13549,7 +13549,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38
@@ -13812,7 +13812,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit32, label %30

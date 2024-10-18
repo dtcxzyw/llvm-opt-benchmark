@@ -5758,7 +5758,7 @@ common.ret:                                       ; preds = %1363, %1185, %1069,
 1457:                                             ; preds = %1453
   %1458 = getelementptr inbounds i8, ptr %.tr, i64 8
   %1459 = load ptr, ptr %1458, align 8
-  %1460 = call fastcc range(i32 -2, 1) i32 @get_char_length_tree1(ptr noundef %1459, ptr noundef %1, ptr noundef %3, i32 noundef 0)
+  %1460 = call fastcc range(i32 -2, 1) i32 @get_char_length_tree1(ptr noundef %1459, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0)
   %.not91.i = icmp eq i32 %1460, 0
   br i1 %.not91.i, label %._crit_edge457, label %compile_anchor_node.exit
 
@@ -5796,7 +5796,7 @@ common.ret:                                       ; preds = %1363, %1185, %1069,
 
 1479:                                             ; preds = %1475
   %1480 = load ptr, ptr %1470, align 8
-  %1481 = call fastcc range(i32 -2, 1) i32 @get_char_length_tree1(ptr noundef %1480, ptr noundef %1, ptr noundef %4, i32 noundef 0)
+  %1481 = call fastcc range(i32 -2, 1) i32 @get_char_length_tree1(ptr noundef %1480, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 0)
   %.not87.i = icmp eq i32 %1481, 0
   br i1 %.not87.i, label %._crit_edge456, label %compile_anchor_node.exit
 
@@ -7386,7 +7386,7 @@ define internal fastcc range(i32 -122, 1) i32 @setup_look_behind(ptr noundef %0,
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = call fastcc range(i32 -2, 1) i32 @get_char_length_tree1(ptr noundef %6, ptr noundef %1, ptr noundef %4, i32 noundef 0)
+  %7 = call fastcc range(i32 -2, 1) i32 @get_char_length_tree1(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 0)
   switch i32 %7, label %default.unreachable12 [
     i32 0, label %8
     i32 -1, label %divide_look_behind_alternatives.exit
@@ -9031,9 +9031,9 @@ concat_left_node_opt_info.exit:                   ; preds = %245, %251, %281, %2
   %314 = load i32, ptr %40, align 4
   %315 = and i32 %314, %313
   store i32 %315, ptr %40, align 4
-  call fastcc void @alt_merge_opt_exact_info(ptr noundef %25, ptr noundef readonly %41, ptr noundef readonly %2)
-  call fastcc void @alt_merge_opt_exact_info(ptr noundef %16, ptr noundef readonly %42, ptr noundef readonly %2)
-  call fastcc void @alt_merge_opt_exact_info(ptr noundef %20, ptr noundef readonly %43, ptr noundef readonly %2)
+  call fastcc void @alt_merge_opt_exact_info(ptr noundef %25, ptr noundef readonly %41, ptr noundef nonnull readonly %2)
+  call fastcc void @alt_merge_opt_exact_info(ptr noundef %16, ptr noundef readonly %42, ptr noundef nonnull readonly %2)
+  call fastcc void @alt_merge_opt_exact_info(ptr noundef %20, ptr noundef readonly %43, ptr noundef nonnull readonly %2)
   %316 = load ptr, ptr %44, align 8
   %317 = load i32, ptr %46, align 8
   %318 = icmp eq i32 %317, 0

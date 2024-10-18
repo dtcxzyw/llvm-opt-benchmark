@@ -41,7 +41,7 @@ define dso_local void @_ZN4llvm19formatv_object_base17parseFormatStringENS_9Stri
   %16 = alloca %"struct.llvm::ReplacementItem", align 8
   %.sroa.38 = alloca [3 x i8], align 1
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef 2) #9
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %17, i64 noundef 2) #9
   %18 = icmp eq i64 %2, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 

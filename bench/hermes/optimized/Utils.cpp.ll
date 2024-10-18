@@ -178,17 +178,17 @@ return:                                           ; preds = %if.then8, %if.end5,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6hermes14isDirectCalleeEPNS_5ValueEPNS_8CallInstE(ptr noundef readnone %C, ptr noundef nonnull %CI) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %CI, i32 noundef 0) #3
+  %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %CI, i32 noundef 0) #3
   %cmp.not = icmp eq ptr %call.i, %C
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i8 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %CI, i32 noundef 1) #3
+  %call.i8 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %CI, i32 noundef 1) #3
   %cmp2 = icmp eq ptr %call.i8, %C
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call.i9 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %CI) #3
+  %call.i9 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %CI) #3
   %sub.i = add i32 %call.i9, -2
   %cmp611 = icmp sgt i32 %sub.i, 0
   br i1 %cmp611, label %for.body, label %return
@@ -196,7 +196,7 @@ if.end4:                                          ; preds = %if.end
 for.body:                                         ; preds = %if.end4, %for.body
   %i.012 = phi i32 [ %inc, %for.body ], [ 0, %if.end4 ]
   %add.i = add nuw i32 %i.012, 2
-  %call.i10 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %CI, i32 noundef %add.i) #3
+  %call.i10 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %CI, i32 noundef %add.i) #3
   %cmp8.not = icmp ne ptr %C, %call.i10
   %inc = add nuw nsw i32 %i.012, 1
   %exitcond.not = icmp ne i32 %inc, %sub.i
@@ -257,17 +257,17 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body10
-  %call.i.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %6, i32 noundef 0) #3
+  %call.i.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %6, i32 noundef 0) #3
   %cmp.not.i = icmp eq ptr %call.i.i, %spec.select
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %call.i8.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %6, i32 noundef 1) #3
+  %call.i8.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %6, i32 noundef 1) #3
   %cmp2.i = icmp eq ptr %call.i8.i, %spec.select
   br i1 %cmp2.i, label %if.end, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call.i9.i = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %6) #3
+  %call.i9.i = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #3
   %sub.i.i = add i32 %call.i9.i, -2
   %cmp611.i = icmp sgt i32 %sub.i.i, 0
   br i1 %cmp611.i, label %for.body.i, label %if.then
@@ -280,7 +280,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.end4.i, %for.cond.i
   %i.012.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end4.i ]
   %add.i.i = add nuw i32 %i.012.i, 2
-  %call.i10.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %6, i32 noundef %add.i.i) #3
+  %call.i10.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %6, i32 noundef %add.i.i) #3
   %cmp8.not.i = icmp eq ptr %spec.select, %call.i10.i
   br i1 %cmp8.not.i, label %if.end, label %for.cond.i
 
@@ -393,17 +393,17 @@ if.end35:                                         ; preds = %if.then31
   br i1 %30, label %return, label %land.lhs.true47
 
 land.lhs.true47:                                  ; preds = %if.end35
-  %call.i.i43 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i, i32 noundef 0) #3
+  %call.i.i43 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %sub.ptr.i.i.i, i32 noundef 0) #3
   %cmp.not.i44 = icmp eq ptr %call.i.i43, %add.ptr.i.i.i.i.i.i39
   br i1 %cmp.not.i44, label %if.end.i46, label %return
 
 if.end.i46:                                       ; preds = %land.lhs.true47
-  %call.i8.i47 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i, i32 noundef 1) #3
+  %call.i8.i47 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %sub.ptr.i.i.i, i32 noundef 1) #3
   %cmp2.i48 = icmp eq ptr %call.i8.i47, %add.ptr.i.i.i.i.i.i39
   br i1 %cmp2.i48, label %return, label %if.end4.i49
 
 if.end4.i49:                                      ; preds = %if.end.i46
-  %call.i9.i50 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i) #3
+  %call.i9.i50 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %sub.ptr.i.i.i) #3
   %sub.i.i51 = add i32 %call.i9.i50, -2
   %cmp611.i52 = icmp sgt i32 %sub.i.i51, 0
   br i1 %cmp611.i52, label %for.body.i53, label %if.then53
@@ -416,7 +416,7 @@ for.cond.i58:                                     ; preds = %for.body.i53
 for.body.i53:                                     ; preds = %if.end4.i49, %for.cond.i58
   %i.012.i54 = phi i32 [ %inc.i59, %for.cond.i58 ], [ 0, %if.end4.i49 ]
   %add.i.i55 = add nuw i32 %i.012.i54, 2
-  %call.i10.i56 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i42, i32 noundef %add.i.i55) #3
+  %call.i10.i56 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i42, i32 noundef %add.i.i55) #3
   %cmp8.not.i57 = icmp eq ptr %add.ptr.i.i.i.i.i.i39, %call.i10.i56
   br i1 %cmp8.not.i57, label %return, label %for.cond.i58
 

@@ -8203,7 +8203,7 @@ for.body.i:                                       ; preds = %entry, %_ZN6duckdb1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !117
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 32, i1 false), !tbaa.struct !117
   br label %_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_18RegrSlopeOperationEEEvRKT_RS4_RNS_18AggregateInputDataE.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i
@@ -10605,7 +10605,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %target, ptr noundef nonnull align 8 dereferenceable(32) %source, i64 32, i1 false), !tbaa.struct !117
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %target, ptr noundef nonnull align 8 dereferenceable(80) %source, i64 32, i1 false), !tbaa.struct !117
   br label %_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_15RegrR2OperationEEEvRKT_RS4_RNS_18AggregateInputDataE.exit.i
 
 if.else.i.i:                                      ; preds = %entry
@@ -16304,7 +16304,7 @@ for.body.i:                                       ; preds = %entry, %_ZN6duckdb1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slope6.i.i, ptr noundef nonnull align 8 dereferenceable(32) %slope.i.i, i64 32, i1 false), !tbaa.struct !117
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %slope6.i.i, ptr noundef nonnull align 8 dereferenceable(56) %slope.i.i, i64 32, i1 false), !tbaa.struct !117
   br label %_ZN6duckdb14CovarOperation7CombineINS_10CovarStateENS_22RegrInterceptOperationEEEvRKT_RS4_RNS_18AggregateInputDataE.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i

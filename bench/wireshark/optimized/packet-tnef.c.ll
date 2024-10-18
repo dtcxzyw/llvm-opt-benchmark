@@ -545,7 +545,7 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 132:                                              ; preds = %122
   %133 = load i32, ptr @hf_tnef_PropValue_lpszA, align 4
-  %134 = call fastcc i32 @dissect_counted_values(ptr noundef %69, i32 noundef %.2.i, i32 noundef %133, ptr noundef %1, ptr noundef %77, i32 noundef %.0145)
+  %134 = call fastcc i32 @dissect_counted_values(ptr noundef %69, i32 noundef %.2.i, i32 noundef %133, ptr noundef %1, ptr noundef %77, i32 noundef range(i32 0, 61) %.0145)
   br label %177
 
 135:                                              ; preds = %122

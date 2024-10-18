@@ -380,7 +380,7 @@ define hidden noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$4pus
   %90 = add i64 %89, %88
   %91 = load i64, ptr %5, align 8, !alias.scope !111, !noundef !4
   %92 = sub i64 %90, %91
-  %93 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hcc4054ae12036942E.llvm.14841418887450666567"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %91, i64 noundef %92)
+  %93 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hcc4054ae12036942E.llvm.14841418887450666567"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %91, i64 noundef %92)
   %94 = extractvalue { i64, i64 } %93, 0
   %95 = icmp eq i64 %94, -9223372036854775807
   br i1 %95, label %"._ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17hfae4154e33df6f43E.exit_crit_edge", label %96
@@ -401,7 +401,7 @@ define hidden noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$4pus
   br i1 %100, label %101, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfadc2466143c9122E.exit"
 
 101:                                              ; preds = %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17hfae4154e33df6f43E.exit"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h9506d8863ec66d86E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !117
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h9506d8863ec66d86E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0), !noalias !117
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfadc2466143c9122E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfadc2466143c9122E.exit": ; preds = %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17hfae4154e33df6f43E.exit", %101

@@ -1692,7 +1692,7 @@ while.end27:                                      ; preds = %while.body25, %land
   %LineEnd.0.lcssa = phi ptr [ %Loc.coerce, %while.end ], [ %LineEnd.049, %land.lhs.true16 ], [ %LineEnd.049, %land.lhs.true16 ], [ %scevgep56, %while.body25 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #18
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #18
   %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull %LineStart.0.lcssa, ptr noundef nonnull %LineEnd.0.lcssa)
@@ -2465,7 +2465,7 @@ if.end103:                                        ; preds = %_ZN4llvh7find_ifIRK
   %add106 = add i64 %call105, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp107) #18
   %call.i219 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %CaretLine) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %CaretLine, ptr noundef %call.i219, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp107) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %CaretLine, ptr noundef %call.i219, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp107) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %CaretLine, i64 noundef %add106, i8 noundef signext 32) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp107) #18
   %Ranges = getelementptr inbounds i8, ptr %this, i64 128
@@ -3061,7 +3061,7 @@ _ZNK4llvh8ArrayRefISt4pairIjjEE3vecEv.exit:       ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i.i, label %if.end.i.i14.thread, label %if.end.i.i14
 
 if.end.i.i14.thread:                              ; preds = %_ZNK4llvh8ArrayRefISt4pairIjjEE3vecEv.exit
-  call void @_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %FixIts, i64 noundef %8)
+  call void @_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(208) %FixIts, i64 noundef %8)
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i, align 8
   %.pre14.i.i = zext i32 %.pre.i.i to i64
   %.pre24.pre = load ptr, ptr %FixIts, align 8
@@ -3080,7 +3080,7 @@ for.body.i.i.i.i.preheader.i.i:                   ; preds = %if.end.i.i14.thread
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.preheader.i.i
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %add.ptr.i.i.i15, %for.body.i.i.i.i.preheader.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %7, %for.body.i.i.i.i.preheader.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false)
   %Text.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %Text3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i.i.i) #18
@@ -4460,7 +4460,7 @@ _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
 for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mallocEm.exit, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i, %_ZN4llvh11safe_mallocEm.exit ]
   %__first.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZN4llvh11safe_mallocEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.06.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.sroa.0.06.i.i.i.i, i64 16, i1 false)
   %Text.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
   %Text3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i) #18
@@ -4551,10 +4551,10 @@ if.end.i.i:                                       ; preds = %while.body
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.end.i.i
   %__parent.0.i.i = phi i64 [ %div9.i.i, %if.end.i.i ], [ %dec.i.i, %while.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__parent.0.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__value.i.i, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i, i64 16, i1 false)
   %Text3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__value.i.i, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i) #18
   call void @_ZSt13__adjust_heapIPN4llvh7SMFixItElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_(ptr noundef %__first, i64 noundef %__parent.0.i.i, i64 noundef %sub.ptr.div.i.i10, ptr noundef nonnull %agg.tmp.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i10.i.i) #18
@@ -4609,15 +4609,15 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %incdec.ptr = getelementptr inbounds i8, ptr %__last.addr.08, i64 -48
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__value.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__value.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__value.i, ptr noundef nonnull align 8 dereferenceable(48) %incdec.ptr, i64 16, i1 false)
   %Text3.i.i = getelementptr inbounds i8, ptr %__last.addr.08, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__first, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(48) %__first, i64 16, i1 false)
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i5.i) #18
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %__value.i, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i6.i, ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i) #18
   call void @_ZSt13__adjust_heapIPN4llvh7SMFixItElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %agg.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i6.i) #18
@@ -4680,7 +4680,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit: ; pred
   %spec.select = select i1 %retval.0.i.i, i64 %sub1, i64 %mul
   %add.ptr3 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__secondChild.031
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr3, i64 16, i1 false)
   %Text.i = getelementptr inbounds i8, ptr %add.ptr4, i64 16
   %Text3.i = getelementptr inbounds i8, ptr %add.ptr3, i64 16
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i) #18
@@ -4704,7 +4704,7 @@ if.then10:                                        ; preds = %land.lhs.true
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__secondChild.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr14, i64 16, i1 false)
   %Text.i23 = getelementptr inbounds i8, ptr %add.ptr15, i64 16
   %Text3.i24 = getelementptr inbounds i8, ptr %add.ptr14, i64 16
   %call.i25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i23, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i24) #18
@@ -4712,7 +4712,7 @@ if.then10:                                        ; preds = %land.lhs.true
 
 if.end18:                                         ; preds = %if.then10, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__secondChild.0.lcssa, %land.lhs.true ], [ %__secondChild.0.lcssa, %while.end ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp19, ptr noundef nonnull align 8 dereferenceable(16) %__value, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp19, ptr noundef nonnull align 8 dereferenceable(48) %__value, i64 16, i1 false)
   %Text.i26 = getelementptr inbounds i8, ptr %agg.tmp19, i64 16
   %Text3.i27 = getelementptr inbounds i8, ptr %__value, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i26, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i27) #18
@@ -4756,7 +4756,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i: ; pr
 
 while.body.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i, %if.then18.i.i.i, %if.then.i.i.i
   %add.ptr2.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__holeIndex.addr.016.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i, i64 16, i1 false)
   %Text.i.i28 = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
   %Text3.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i) #18
@@ -4766,7 +4766,7 @@ while.body.i:                                     ; preds = %_ZNK9__gnu_cxx5__op
 _ZSt11__push_heapIPN4llvh7SMFixItElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1_RT2_.exit: ; preds = %if.then.i.i.i, %if.then18.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i, %while.body.i, %if.end18
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.016.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvh7SMFixItES4_EEbT_RT0_.exit.i ], [ %__parent.017.i, %while.body.i ], [ %__holeIndex.addr.016.i, %if.then.i.i.i ], [ %__holeIndex.addr.016.i, %if.then18.i.i.i ]
   %add.ptr6.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr6.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr6.i, ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp19, i64 16, i1 false)
   %Text.i10.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 16
   %call.i12.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i10.i, ptr noundef nonnull align 8 dereferenceable(32) %Text.i26) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i26) #18
@@ -4855,14 +4855,14 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit34.if.el
 
 if.then2:                                         ; preds = %if.then18.i.i27, %if.then.i.i20, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit34
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__result, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__result, i64 16, i1 false)
   %Text.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i, i64 16
   %Text3.i.i.i = getelementptr inbounds i8, ptr %__result, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(16) %__b, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__result, ptr noundef nonnull align 8 dereferenceable(48) %__b, i64 16, i1 false)
   %Text3.i4.i.i = getelementptr inbounds i8, ptr %__b, i64 16
   %call.i.i.i35 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__b, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__b, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i, i64 16, i1 false)
   %call.i7.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__tmp.i.i)
@@ -4899,14 +4899,14 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit51: ; pr
 
 if.then4:                                         ; preds = %if.then18.i.i44, %if.then.i.i37, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit51
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i.i52)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i52, ptr noundef nonnull align 8 dereferenceable(16) %__result, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i52, ptr noundef nonnull align 8 dereferenceable(48) %__result, i64 16, i1 false)
   %Text.i.i.i53 = getelementptr inbounds i8, ptr %__tmp.i.i52, i64 16
   %Text3.i.i.i54 = getelementptr inbounds i8, ptr %__result, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i53, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i54) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(16) %__c, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__result, ptr noundef nonnull align 8 dereferenceable(48) %__c, i64 16, i1 false)
   %Text3.i4.i.i55 = getelementptr inbounds i8, ptr %__c, i64 16
   %call.i.i.i56 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i54, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i55) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__c, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i52, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__c, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i52, i64 16, i1 false)
   %call.i7.i.i57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i55, ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i53) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i53) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__tmp.i.i52)
@@ -4914,14 +4914,14 @@ if.then4:                                         ; preds = %if.then18.i.i44, %i
 
 if.else5:                                         ; preds = %if.then18.i.i44, %if.then.i.i37, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit51
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i.i58)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i58, ptr noundef nonnull align 8 dereferenceable(16) %__result, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i58, ptr noundef nonnull align 8 dereferenceable(48) %__result, i64 16, i1 false)
   %Text.i.i.i59 = getelementptr inbounds i8, ptr %__tmp.i.i58, i64 16
   %Text3.i.i.i60 = getelementptr inbounds i8, ptr %__result, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i59, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i60) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(16) %__a, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__result, ptr noundef nonnull align 8 dereferenceable(48) %__a, i64 16, i1 false)
   %Text3.i4.i.i61 = getelementptr inbounds i8, ptr %__a, i64 16
   %call.i.i.i62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i60, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i61) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__a, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i58, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__a, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i58, i64 16, i1 false)
   %call.i7.i.i63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i61, ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i59) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i59) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__tmp.i.i58)
@@ -4962,14 +4962,14 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit79.if.el
 
 if.then9:                                         ; preds = %if.then18.i.i72, %if.then.i.i65, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit79
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i.i80)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i80, ptr noundef nonnull align 8 dereferenceable(16) %__result, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i80, ptr noundef nonnull align 8 dereferenceable(48) %__result, i64 16, i1 false)
   %Text.i.i.i81 = getelementptr inbounds i8, ptr %__tmp.i.i80, i64 16
   %Text3.i.i.i82 = getelementptr inbounds i8, ptr %__result, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i81, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i82) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(16) %__a, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__result, ptr noundef nonnull align 8 dereferenceable(48) %__a, i64 16, i1 false)
   %Text3.i4.i.i83 = getelementptr inbounds i8, ptr %__a, i64 16
   %call.i.i.i84 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i82, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i83) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__a, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i80, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__a, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i80, i64 16, i1 false)
   %call.i7.i.i85 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i83, ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i81) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i81) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__tmp.i.i80)
@@ -5006,14 +5006,14 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit101: ; p
 
 if.then12:                                        ; preds = %if.then18.i.i94, %if.then.i.i87, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit101
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i.i102)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i102, ptr noundef nonnull align 8 dereferenceable(16) %__result, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i102, ptr noundef nonnull align 8 dereferenceable(48) %__result, i64 16, i1 false)
   %Text.i.i.i103 = getelementptr inbounds i8, ptr %__tmp.i.i102, i64 16
   %Text3.i.i.i104 = getelementptr inbounds i8, ptr %__result, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i103, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i104) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(16) %__c, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__result, ptr noundef nonnull align 8 dereferenceable(48) %__c, i64 16, i1 false)
   %Text3.i4.i.i105 = getelementptr inbounds i8, ptr %__c, i64 16
   %call.i.i.i106 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i104, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i105) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__c, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i102, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__c, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i102, i64 16, i1 false)
   %call.i7.i.i107 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i105, ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i103) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i103) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__tmp.i.i102)
@@ -5021,14 +5021,14 @@ if.then12:                                        ; preds = %if.then18.i.i94, %i
 
 if.else13:                                        ; preds = %if.then18.i.i94, %if.then.i.i87, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit101
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i.i108)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i108, ptr noundef nonnull align 8 dereferenceable(16) %__result, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i108, ptr noundef nonnull align 8 dereferenceable(48) %__result, i64 16, i1 false)
   %Text.i.i.i109 = getelementptr inbounds i8, ptr %__tmp.i.i108, i64 16
   %Text3.i.i.i110 = getelementptr inbounds i8, ptr %__result, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i109, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i110) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(16) %__b, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__result, ptr noundef nonnull align 8 dereferenceable(48) %__b, i64 16, i1 false)
   %Text3.i4.i.i111 = getelementptr inbounds i8, ptr %__b, i64 16
   %call.i.i.i112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i110, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i111) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__b, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i108, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__b, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i108, i64 16, i1 false)
   %call.i7.i.i113 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i111, ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i109) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i109) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__tmp.i.i108)
@@ -5128,13 +5128,13 @@ if.then:                                          ; preds = %while.end8
 
 if.end:                                           ; preds = %while.end8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.1, i64 16, i1 false)
   %Text3.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.1, ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.1, ptr noundef nonnull align 8 dereferenceable(48) %__last.addr.1, i64 16, i1 false)
   %Text3.i4.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn, i64 -32
   %call.i.i.i27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__last.addr.1, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i.i, i64 16, i1 false)
   %call.i7.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text3.i4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__tmp.i.i)
@@ -5194,7 +5194,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit: ; pred
   br i1 %cmp.i.i.i, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then18.i.i, %if.then.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvh7SMFixItES5_EEbT_T0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val, ptr noundef nonnull align 8 dereferenceable(16) %__i.018, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__val, ptr noundef nonnull align 8 dereferenceable(48) %__i.018, i64 16, i1 false)
   %Text3.i = getelementptr inbounds i8, ptr %__first.pn17, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i) #18
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.018 to i64
@@ -5213,7 +5213,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.018, %for.body.preheader.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -48
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %incdec.ptr.i.i.i.i.i, i64 16, i1 false)
   %Text.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -32
   %Text3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -32
   %call.i.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i) #18
@@ -5222,7 +5222,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvh7SMFixItES2_ET0_T_S4_S3_.exit, !llvm.loop !78
 
 _ZSt13move_backwardIPN4llvh7SMFixItES2_ET0_T_S4_S3_.exit: ; preds = %for.body.i.i.i.i.i, %if.then2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first, ptr noundef nonnull align 8 dereferenceable(16) %__val, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__first, ptr noundef nonnull align 8 dereferenceable(48) %__val, i64 16, i1 false)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text27.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i) #18
   br label %for.inc
@@ -5244,7 +5244,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIPN4llvh7SMFixItEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_(ptr noundef %__last) local_unnamed_addr #0 comdat {
 entry:
   %__val = alloca %"class.llvh::SMFixIt", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val, ptr noundef nonnull align 8 dereferenceable(16) %__last, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__val, ptr noundef nonnull align 8 dereferenceable(48) %__last, i64 16, i1 false)
   %Text.i = getelementptr inbounds i8, ptr %__val, i64 16
   %Text3.i = getelementptr inbounds i8, ptr %__last, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i) #18
@@ -5281,14 +5281,14 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN4llvh7SMFixItEPS4_EEbRT_T0_.exit: ; pred
   br i1 %cmp.i.i.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.then18.i.i, %if.then.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN4llvh7SMFixItEPS4_EEbRT_T0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0, ptr noundef nonnull align 8 dereferenceable(16) %__next.0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__last.addr.0, ptr noundef nonnull align 8 dereferenceable(48) %__next.0, i64 16, i1 false)
   %Text.i8 = getelementptr inbounds i8, ptr %__last.addr.0, i64 16
   %Text3.i9 = getelementptr inbounds i8, ptr %__last.addr.0, i64 -32
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i8, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i9) #18
   br label %while.cond, !llvm.loop !80
 
 while.end:                                        ; preds = %if.then18.i.i, %if.then.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN4llvh7SMFixItEPS4_EEbRT_T0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0, ptr noundef nonnull align 8 dereferenceable(16) %__val, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__last.addr.0, ptr noundef nonnull align 8 dereferenceable(48) %__val, i64 16, i1 false)
   %Text.i10 = getelementptr inbounds i8, ptr %__last.addr.0, i64 16
   %call.i12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i10, ptr noundef nonnull align 8 dereferenceable(32) %Text.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i) #18

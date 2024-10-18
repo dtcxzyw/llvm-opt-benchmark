@@ -1227,9 +1227,9 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %4, i1 true)
   %add.i = or disjoint i64 %5, %result.012.i
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 %conv)
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 range(i64 0, 4294967296) %conv)
   br label %find_first_bit.exit
 
 for.inc.i:                                        ; preds = %for.body.i

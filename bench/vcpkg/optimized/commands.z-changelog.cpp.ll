@@ -710,9 +710,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %.05.i.i.i.i3 = phi ptr [ %15, %.lr.ph.i.i.i.i2 ], [ %10, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %13 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 32
   %14 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %14) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %13) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.05.i.i.i.i3) #16
   %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 112
   %.not.i.i.i.i4 = icmp eq ptr %15, %12
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN5vcpkg11UpdatedPortES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !14
@@ -740,8 +740,8 @@ _ZNSt6vectorIN5vcpkg11UpdatedPortESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
 .lr.ph.i.i.i.i8:                                  ; preds = %_ZNSt6vectorIN5vcpkg11UpdatedPortESaIS1_EED2Ev.exit, %.lr.ph.i.i.i.i8
   %.05.i.i.i.i9 = phi ptr [ %22, %.lr.ph.i.i.i.i8 ], [ %18, %_ZNSt6vectorIN5vcpkg11UpdatedPortESaIS1_EED2Ev.exit ]
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i.i9, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i9) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %21) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i9) #16
   %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i9, i64 72
   %.not.i.i.i.i10 = icmp eq ptr %22, %20
   br i1 %.not.i.i.i.i10, label %_ZSt8_DestroyIPN5vcpkg11VersionSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i8, !llvm.loop !15

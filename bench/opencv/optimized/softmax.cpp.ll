@@ -272,7 +272,7 @@ define hidden void @_ZN2cv3dnn7softmaxERNS_3MatERKS1_iii(ptr noundef nonnull ali
 .body.i.i:                                        ; preds = %92
   %97 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #15
   br label %.body.i
 
 _ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit.i: ; preds = %92
@@ -291,7 +291,7 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit.i: ; p
   br i1 %.not.i.i.i5.i, label %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i, label %101
 
 101:                                              ; preds = %99
-  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %94, i32 noundef 3)
+  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %94, i32 noundef 3)
           to label %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i unwind label %103
 
 103:                                              ; preds = %101
@@ -302,13 +302,13 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit.i: ; p
   unreachable
 
 _ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i: ; preds = %101, %99
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #15
   %106 = load ptr, ptr %88, align 8
   %.not.i.i6.i = icmp eq ptr %106, null
   br i1 %.not.i.i6.i, label %120, label %107
 
 107:                                              ; preds = %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i
-  %108 = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %108 = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %120 unwind label %109
 
 109:                                              ; preds = %107
@@ -331,7 +331,7 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i: ; preds = %101, %99
   br i1 %.not.i.i8.i, label %.body, label %115
 
 115:                                              ; preds = %.body.i
-  %116 = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %116 = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %.body unwind label %117
 
 117:                                              ; preds = %115
@@ -349,7 +349,7 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i: ; preds = %101, %99
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit, label %122
 
 122:                                              ; preds = %120
-  %123 = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %123 = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit unwind label %124
 
 124:                                              ; preds = %122
@@ -369,7 +369,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %120, %122
   br i1 %.not.i.i33, label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit34, label %128
 
 128:                                              ; preds = %.body
-  %129 = invoke noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %129 = invoke noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit34 unwind label %130
 
 130:                                              ; preds = %128
@@ -465,7 +465,7 @@ define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -508,7 +508,7 @@ define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD0Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -519,7 +519,7 @@ define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD0Ev(ptr n
   unreachable
 
 _ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit:   ; preds = %1, %4
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -539,7 +539,7 @@ _ZNKSt8functionIFvRKN2cv5RangeEEEclES3_.exit:     ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(8) %1)
   ret void
 }
 

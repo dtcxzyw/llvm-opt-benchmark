@@ -453,9 +453,9 @@ define dso_local void @_ZN4llvm15MCXCOFFStreamer14emitInstToDataERKNS_6MCInstERK
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %8, i64 noundef 4) #8
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull %8, i64 noundef 4) #8
   %9 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %9, i64 noundef 256) #8
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %9, i64 noundef 256) #8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -498,7 +498,7 @@ define dso_local void @_ZN4llvm15MCXCOFFStreamer14emitInstToDataERKNS_6MCInstERK
   %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPcvEEvT_S4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %32, ptr noundef %34)
-  %35 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %35 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %5) #8
   %36 = load ptr, ptr %5, align 8
   %37 = icmp eq ptr %36, %9
   br i1 %37, label %_ZN4llvm11SmallStringILj256EED2Ev.exit, label %38
@@ -508,7 +508,7 @@ define dso_local void @_ZN4llvm15MCXCOFFStreamer14emitInstToDataERKNS_6MCInstERK
   br label %_ZN4llvm11SmallStringILj256EED2Ev.exit
 
 _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %._crit_edge, %38
-  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
+  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %4) #8
   %40 = load ptr, ptr %4, align 8
   %41 = icmp eq ptr %40, %8
   br i1 %41, label %_ZN4llvm11SmallVectorINS_7MCFixupELj4EED2Ev.exit, label %42

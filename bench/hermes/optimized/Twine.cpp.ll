@@ -197,7 +197,7 @@ if.end:                                           ; preds = %if.end.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %Out, ptr %OS.i.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
   %LHSKind.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i8, ptr %LHSKind.i.i.i, align 8
@@ -206,7 +206,7 @@ if.end:                                           ; preds = %if.end.i, %entry
   %agg.tmp2.sroa.0.0.copyload.i.i = load ptr, ptr %RHS.i.i, align 8
   %9 = load i8, ptr %RHSKind.i.i, align 1
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr %agg.tmp2.sroa.0.0.copyload.i.i, i8 noundef zeroext %9)
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %OS.i) #8
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i)
   %10 = load ptr, ptr %Out, align 8
   %Size.i = getelementptr inbounds i8, ptr %Out, i64 8
@@ -233,7 +233,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS, align 8
   %OS.i = getelementptr inbounds i8, ptr %OS, i64 40
   store ptr %Out, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %OS, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %this, align 8
   %LHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %LHSKind.i.i, align 8
@@ -243,7 +243,7 @@ entry:
   %RHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 17
   %1 = load i8, ptr %RHSKind.i.i, align 1
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp2.sroa.0.0.copyload.i, i8 noundef zeroext %1)
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %OS) #8
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS) #8
   ret void
 }
 
@@ -305,7 +305,7 @@ if.end:                                           ; preds = %if.then, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %Out, ptr %OS.i.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
   %5 = load i8, ptr %LHSKind.i.i.i.i, align 8
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr %agg.tmp.sroa.0.0.copyload.i.i, i8 noundef zeroext %5)
@@ -313,7 +313,7 @@ if.end:                                           ; preds = %if.then, %entry
   %agg.tmp2.sroa.0.0.copyload.i.i = load ptr, ptr %RHS.i.i, align 8
   %6 = load i8, ptr %RHSKind.i.i, align 1
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr %agg.tmp2.sroa.0.0.copyload.i.i, i8 noundef zeroext %6)
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %OS.i) #8
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i)
   %Size.i.i = getelementptr inbounds i8, ptr %Out, i64 8
   %7 = load i32, ptr %Size.i.i, align 8

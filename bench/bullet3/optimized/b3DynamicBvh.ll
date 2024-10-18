@@ -107,7 +107,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  invoke fastcc void @_ZL19b3RecurseDeleteNodeP12b3DynamicBvhP10b3DbvtNode(ptr noundef %this, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19b3RecurseDeleteNodeP12b3DynamicBvhP10b3DbvtNode(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %0)
           to label %if.end.i unwind label %terminate.lpad
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -1390,11 +1390,11 @@ _ZL6b3SortP10b3DbvtNodeRS0_.exit:                 ; preds = %while.body, %if.end
 
 while.end:                                        ; preds = %_ZL6b3SortP10b3DbvtNodeRS0_.exit, %do.body
   %node.0.lcssa = phi ptr [ %node.011, %do.body ], [ %node.0, %_ZL6b3SortP10b3DbvtNodeRS0_.exit ]
-  %call.i = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef %this, ptr noundef nonnull %node.0.lcssa)
+  %call.i = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %node.0.lcssa)
   %tobool.not.i8 = icmp eq ptr %call.i, null
   %20 = load ptr, ptr %this, align 8
   %spec.select = select i1 %tobool.not.i8, ptr null, ptr %20
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef %this, ptr noundef %spec.select, ptr noundef nonnull %node.0.lcssa)
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %spec.select, ptr noundef nonnull %node.0.lcssa)
   %21 = load i32, ptr %m_opath, align 8
   %inc = add i32 %21, 1
   store i32 %inc, ptr %m_opath, align 8
@@ -2037,7 +2037,7 @@ _ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit: ; preds = %if.then.i, %if.els
   %21 = load float, ptr %z36.i, align 8
   %add39.i = fadd float %20, %21
   store float %add39.i, ptr %z36.i, align 8
-  %call.i = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef %this, ptr noundef nonnull %leaf)
+  %call.i = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %leaf)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit, label %if.then.i13
 
@@ -2071,7 +2071,7 @@ if.else.i15:                                      ; preds = %if.then.i13
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i16, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit, %for.cond.preheader.i, %if.else.i15
   %root.0.i = phi ptr [ %24, %if.else.i15 ], [ null, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit ], [ %call.i, %for.cond.preheader.i ], [ %23, %for.cond.i ], [ %root.18.i, %land.rhs.i16 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
   br label %return
 
 return:                                           ; preds = %_ZNK12b3DbvtAabbMm7ContainERKS_.exit, %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
@@ -2161,7 +2161,7 @@ _ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit: ; preds = %if.then.i, %if.els
   %17 = load float, ptr %z36.i, align 8
   %add39.i = fadd float %16, %17
   store float %add39.i, ptr %z36.i, align 8
-  %call.i = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef %this, ptr noundef nonnull %leaf)
+  %call.i = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %leaf)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit, label %if.then.i9
 
@@ -2195,7 +2195,7 @@ if.else.i11:                                      ; preds = %if.then.i9
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i12, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit, %for.cond.preheader.i, %if.else.i11
   %root.0.i = phi ptr [ %20, %if.else.i11 ], [ null, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit ], [ %call.i, %for.cond.preheader.i ], [ %19, %for.cond.i ], [ %root.18.i, %land.rhs.i12 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
   br label %return
 
 return:                                           ; preds = %_ZNK12b3DbvtAabbMm7ContainERKS_.exit, %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
@@ -2279,7 +2279,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %16 = load float, ptr %arrayidx7.i5.i, align 8
   %add8.i.i = fadd float %margin, %16
   store float %add8.i.i, ptr %arrayidx7.i5.i, align 8
-  %call.i = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef %this, ptr noundef nonnull %leaf)
+  %call.i = tail call fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNode(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %leaf)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit, label %if.then.i
 
@@ -2313,7 +2313,7 @@ if.else.i:                                        ; preds = %if.then.i
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i8, %if.end, %for.cond.preheader.i, %if.else.i
   %root.0.i = phi ptr [ %19, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %18, %for.cond.i ], [ %root.18.i, %land.rhs.i8 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
   br label %return
 
 return:                                           ; preds = %_ZNK12b3DbvtAabbMm7ContainERKS_.exit, %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
@@ -2746,7 +2746,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @_ZL19b3RecurseDeleteNodeP12b3DynamicBvhP10b3DbvtNode(ptr noundef %dest, ptr noundef nonnull %0)
+  tail call fastcc void @_ZL19b3RecurseDeleteNodeP12b3DynamicBvhP10b3DbvtNode(ptr noundef nonnull align 8 dereferenceable(96) %dest, ptr noundef nonnull %0)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry

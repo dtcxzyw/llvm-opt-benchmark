@@ -141,7 +141,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %1, %8
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %29, %30
   br i1 %.not.i.i.i.i.i, label %.noexc161, label %35
 

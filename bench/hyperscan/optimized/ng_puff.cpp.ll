@@ -289,7 +289,7 @@ invoke.cont17.i:                                  ; preds = %invoke.cont8.prehea
   %nodes.sroa.14.0692.i = phi ptr [ %nodes.sroa.14.5.i, %invoke.cont58.i ], [ null, %invoke.cont8.preheader.i ]
   %nodes.sroa.44.0691.i = phi ptr [ %nodes.sroa.44.2.i, %invoke.cont58.i ], [ null, %invoke.cont8.preheader.i ]
   %props.i57.i = getelementptr inbounds i8, ptr %a.sroa.0.0694.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i57.i, ptr noundef nonnull dereferenceable(32) %props.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i57.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i, label %if.end23.i, label %while.end.i
 
@@ -767,7 +767,7 @@ invoke.cont105.i:                                 ; preds = %for.body21.i.i.i183
 
 land.end.i:                                       ; preds = %invoke.cont105.i
   %props.i197.i = getelementptr inbounds i8, ptr %a.sroa.0.2.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i197.i, ptr noundef nonnull dereferenceable(32) %props.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i197.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i, label %if.then115.i, label %if.end118.i
 
@@ -1126,7 +1126,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN3ue216proper_in_
 call5.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   %63 = extractvalue { ptr, i64 } %call5.i305.i, 0
   %props.i14.i.i = getelementptr inbounds i8, ptr %63, i64 16
-  %bcmp.i.i.i.i.i.i.i.i300.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i269.i, ptr noundef nonnull dereferenceable(32) %props.i14.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i300.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i.i269.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i14.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i301.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i300.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i301.i, label %if.then.i302.i, label %if.end.i273.i
 
@@ -2645,7 +2645,7 @@ lpad:                                             ; preds = %if.end7
   br label %ehcleanup
 
 invoke.cont17:                                    ; preds = %invoke.cont
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %repeat, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %repeat, i8 0, i64 32, i1 false)
   %bounds.i = getelementptr inbounds i8, ptr %repeat, i64 32
   store i32 2147483647, ptr %bounds.i, align 8
   %max.i.i = getelementptr inbounds i8, ptr %repeat, i64 36
@@ -2948,7 +2948,7 @@ if.then.thread:                                   ; preds = %lor.rhs
   br i1 %cmp.not.i.i.i13, label %if.then.i.i.i, label %if.then6.i.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.thread, %if.then
-  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.149") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull %value)
+  call void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.149") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull align 4 dereferenceable(4) %value)
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %return
 

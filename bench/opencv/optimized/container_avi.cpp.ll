@@ -228,7 +228,7 @@ define hidden void @_ZN2cv16VideoInputStreamC2ERKNSt7__cxx1112basic_stringIcSt11
           to label %6 unwind label %13
 
 6:                                                ; preds = %2
-  %7 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  %7 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %6
@@ -236,16 +236,16 @@ define hidden void @_ZN2cv16VideoInputStreamC2ERKNSt7__cxx1112basic_stringIcSt11
 
 8:                                                ; preds = %.noexc
   store i8 0, ptr %3, align 8
-  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
           to label %_ZN2cv16VideoInputStream5closeEv.exit.i unwind label %13
 
 _ZN2cv16VideoInputStream5closeEv.exit.i:          ; preds = %8, %.noexc
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %9, i32 noundef 4)
+  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(560) %0, ptr noundef %9, i32 noundef 4)
           to label %.noexc5 unwind label %13
 
 .noexc5:                                          ; preds = %_ZN2cv16VideoInputStream5closeEv.exit.i
-  %10 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  %10 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc5
@@ -267,19 +267,19 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN2cv16VideoInputStream4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(560) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
-  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
   br i1 %3, label %4, label %_ZN2cv16VideoInputStream5closeEv.exit
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 520
   store i8 0, ptr %5, align 8
-  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
   br label %_ZN2cv16VideoInputStream5closeEv.exit
 
 _ZN2cv16VideoInputStream5closeEv.exit:            ; preds = %2, %4
   %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %6, i32 noundef 4)
-  %7 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  %7 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
   %8 = getelementptr inbounds i8, ptr %0, i64 520
   %9 = zext i1 %7 to i8
   store i8 %9, ptr %8, align 8
@@ -299,7 +299,7 @@ declare noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openE
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv16VideoInputStream5closeEv(ptr noundef nonnull align 8 dereferenceable(560) %0) local_unnamed_addr #3 align 2 {
-  %2 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  %2 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
@@ -321,7 +321,7 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef non
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream4readEPcj(ptr noundef nonnull returned align 8 dereferenceable(560) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  %4 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %3
@@ -426,7 +426,7 @@ define hidden noundef zeroext i1 @_ZN2cv16VideoInputStreamcvbEv(ptr nocapture no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv16VideoInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  %2 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
           to label %.noexc unwind label %6
 
 .noexc:                                           ; preds = %1
@@ -435,7 +435,7 @@ define hidden void @_ZN2cv16VideoInputStreamD2Ev(ptr noundef nonnull align 8 der
 3:                                                ; preds = %.noexc
   %4 = getelementptr inbounds i8, ptr %0, i64 520
   store i8 0, ptr %4, align 8
-  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
           to label %_ZN2cv16VideoInputStream5closeEv.exit unwind label %6
 
 _ZN2cv16VideoInputStream5closeEv.exit:            ; preds = %.noexc, %3
@@ -481,7 +481,7 @@ _ZNSt5dequeISt4pairImjESaIS1_EEC2Ev.exit:         ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16VideoInputStreamESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !4
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !4
-  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %9)
+  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(560) %9)
           to label %11 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16VideoInputStreamESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i, !noalias !4
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16VideoInputStreamESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i: ; preds = %.noexc
@@ -1108,13 +1108,13 @@ _ZN2cv3PtrINS_16VideoInputStreamEEaSERKS2_.exit:  ; preds = %2, %_ZNSt16_Sp_coun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv16AVIReadContainer5closeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %2)
+  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %2)
   br i1 %3, label %4, label %_ZN2cv16VideoInputStream5closeEv.exit
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 520
   store i8 0, ptr %5, align 8
-  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(256) %2)
+  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(560) %2)
   br label %_ZN2cv16VideoInputStream5closeEv.exit
 
 _ZN2cv16VideoInputStream5closeEv.exit:            ; preds = %1, %4
@@ -1126,7 +1126,7 @@ define noundef zeroext i1 @_ZN2cv16AVIReadContainer10parseIndexEjRSt5dequeISt4pa
   %4 = alloca %"struct.cv::AviIndex", align 4
   %5 = alloca %"struct.std::pair", align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %7 = tail call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %6)
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = zext i32 %1 to i64
   %10 = add i64 %8, %9
@@ -1143,25 +1143,25 @@ define noundef zeroext i1 @_ZN2cv16AVIReadContainer10parseIndexEjRSt5dequeISt4pa
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   %18 = getelementptr inbounds i8, ptr %2, i64 48
   %19 = getelementptr inbounds i8, ptr %2, i64 64
-  %20 = tail call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %20 = tail call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %11)
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = icmp ult i64 %21, %10
   br i1 %22, label %.lr.ph9, label %.critedge
 
 23:                                               ; preds = %_ZNSt5dequeISt4pairImjESaIS1_EE9push_backEOS1_.exit
-  %24 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %57)
+  %24 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %57)
   %25 = extractvalue { i64, i64 } %24, 0
   %26 = icmp ult i64 %25, %10
   br i1 %26, label %.lr.ph9, label %.critedge, !llvm.loop !14
 
 .lr.ph9:                                          ; preds = %.lr.ph, %23
   %27 = load ptr, ptr %0, align 8
-  %28 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %27)
+  %28 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %27)
   br i1 %28, label %29, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit
 
 29:                                               ; preds = %.lr.ph9
-  %30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %4, i64 noundef 16)
-  %31 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
+  %30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %27, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 noundef 16)
+  %31 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %27)
   %32 = icmp eq i64 %31, 16
   %33 = getelementptr inbounds i8, ptr %27, i64 520
   %34 = zext i1 %32 to i8
@@ -1227,12 +1227,12 @@ define noundef zeroext i1 @_ZN2cv16AVIReadContainer9parseStrlEcNS_6CodecsE(ptr n
   %4 = alloca %"struct.cv::RiffChunk", align 4
   %5 = alloca %"struct.cv::AviStreamHeader", align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %6)
+  %7 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %6)
   br i1 %7, label %8, label %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit
 
 8:                                                ; preds = %3
-  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %4, i64 noundef 8)
-  %10 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %6, ptr noundef nonnull align 1 dereferenceable(8) %4, i64 noundef 8)
+  %10 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %6)
   %11 = icmp eq i64 %10, 8
   %12 = getelementptr inbounds i8, ptr %6, i64 520
   %13 = zext i1 %11 to i8
@@ -1252,12 +1252,12 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit: ; preds = %3, %8
   br i1 %18, label %19, label %64
 
 19:                                               ; preds = %15
-  %20 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %14)
+  %20 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %14)
   br i1 %20, label %21, label %_ZN2cvrsERNS_16VideoInputStreamERNS_15AviStreamHeaderE.exit
 
 21:                                               ; preds = %19
-  %22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %5, i64 noundef 56)
-  %23 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %14, ptr noundef nonnull align 1 dereferenceable(56) %5, i64 noundef 56)
+  %23 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %14)
   %24 = icmp eq i64 %23, 56
   %25 = getelementptr inbounds i8, ptr %14, i64 520
   %26 = zext i1 %24 to i8
@@ -1325,12 +1325,12 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_15AviStreamHeaderE.exit: ; preds = %19, %21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE(ptr noundef nonnull align 8 dereferenceable(560) %0, ptr noundef nonnull align 1 dereferenceable(8) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
   br i1 %3, label %4, label %_ZN2cv16VideoInputStream4readEPcj.exit
 
 4:                                                ; preds = %2
-  %5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i64 noundef 8)
-  %6 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %0, ptr noundef nonnull %1, i64 noundef 8)
+  %6 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
   %7 = icmp eq i64 %6, 8
   %8 = getelementptr inbounds i8, ptr %0, i64 520
   %9 = zext i1 %7 to i8
@@ -1351,7 +1351,7 @@ define void @_ZN2cv16AVIReadContainer8skipJunkERNS_9RiffChunkE(ptr nocapture nou
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = tail call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %8 = tail call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %7)
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = getelementptr inbounds i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 1
@@ -1359,12 +1359,12 @@ define void @_ZN2cv16AVIReadContainer8skipJunkERNS_9RiffChunkE(ptr nocapture nou
   %13 = add i64 %9, %12
   %14 = tail call noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream5seekgEm(ptr noundef nonnull align 8 dereferenceable(560) %7, i64 noundef %13)
   %15 = load ptr, ptr %0, align 8
-  %16 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %15)
+  %16 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %15)
   br i1 %16, label %17, label %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit
 
 17:                                               ; preds = %6
-  %18 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %1, i64 noundef 8)
-  %19 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %18 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %15, ptr noundef nonnull align 1 dereferenceable(8) %1, i64 noundef 8)
+  %19 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %15)
   %20 = icmp eq i64 %19, 8
   %21 = getelementptr inbounds i8, ptr %15, i64 520
   %22 = zext i1 %20 to i8
@@ -1385,7 +1385,7 @@ define void @_ZN2cv16AVIReadContainer8skipJunkERNS_8RiffListE(ptr nocapture noun
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = tail call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %8 = tail call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %7)
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = getelementptr inbounds i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 1
@@ -1394,12 +1394,12 @@ define void @_ZN2cv16AVIReadContainer8skipJunkERNS_8RiffListE(ptr nocapture noun
   %14 = add i64 %13, %12
   %15 = tail call noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream5seekgEm(ptr noundef nonnull align 8 dereferenceable(560) %7, i64 noundef %14)
   %16 = load ptr, ptr %0, align 8
-  %17 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %16)
+  %17 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %16)
   br i1 %17, label %18, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
 
 18:                                               ; preds = %6
-  %19 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %1, i64 noundef 12)
-  %20 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %19 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %16, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 noundef 12)
+  %20 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %16)
   %21 = icmp eq i64 %20, 12
   %22 = getelementptr inbounds i8, ptr %16, i64 520
   %23 = zext i1 %21 to i8
@@ -1412,12 +1412,12 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit: ; preds = %18, %6, %2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE(ptr noundef nonnull align 8 dereferenceable(560) %0, ptr noundef nonnull align 1 dereferenceable(12) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
   br i1 %3, label %4, label %_ZN2cv16VideoInputStream4readEPcj.exit
 
 4:                                                ; preds = %2
-  %5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i64 noundef 12)
-  %6 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %0, ptr noundef nonnull %1, i64 noundef 12)
+  %6 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %0)
   %7 = icmp eq i64 %6, 12
   %8 = getelementptr inbounds i8, ptr %0, i64 520
   %9 = zext i1 %7 to i8
@@ -1436,12 +1436,12 @@ define noundef zeroext i1 @_ZN2cv16AVIReadContainer13parseHdrlListENS_6CodecsE(p
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"struct.cv::RiffList", align 4
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %8)
+  %9 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %8)
   br i1 %9, label %10, label %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit
 
 10:                                               ; preds = %2
-  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %3, i64 noundef 8)
-  %12 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %8, ptr noundef nonnull align 1 dereferenceable(8) %3, i64 noundef 8)
+  %12 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %8)
   %13 = icmp eq i64 %12, 8
   %14 = getelementptr inbounds i8, ptr %8, i64 520
   %15 = zext i1 %13 to i8
@@ -1459,19 +1459,19 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit: ; preds = %2, %10
   br i1 %or.cond, label %19, label %93
 
 19:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit
-  %20 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %20 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %16)
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = getelementptr inbounds i8, ptr %3, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = add i64 %21, %24
   %26 = load ptr, ptr %0, align 8
-  %27 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %26)
+  %27 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %26)
   br i1 %27, label %28, label %_ZN2cvrsERNS_16VideoInputStreamERNS_13AviMainHeaderE.exit
 
 28:                                               ; preds = %19
-  %29 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %4, i64 noundef 56)
-  %30 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
+  %29 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %26, ptr noundef nonnull align 1 dereferenceable(56) %4, i64 noundef 56)
+  %30 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %26)
   %31 = icmp eq i64 %30, 56
   %32 = getelementptr inbounds i8, ptr %26, i64 520
   %33 = zext i1 %31 to i8
@@ -1548,12 +1548,12 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_13AviMainHeaderE.exit: ; preds = %19, %28
   %63 = load ptr, ptr %0, align 8
   %64 = call noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream5seekgEm(ptr noundef nonnull align 8 dereferenceable(560) %63, i64 noundef %.01521)
   %65 = load ptr, ptr %0, align 8
-  %66 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %65)
+  %66 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %65)
   br i1 %66, label %67, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
 
 67:                                               ; preds = %62
-  %68 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull %7, i64 noundef 12)
-  %69 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %65)
+  %68 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %65, ptr noundef nonnull align 1 dereferenceable(12) %7, i64 noundef 12)
+  %69 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %65)
   %70 = icmp eq i64 %69, 12
   %71 = getelementptr inbounds i8, ptr %65, i64 520
   %72 = zext i1 %70 to i8
@@ -1583,7 +1583,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge: ; preds = %_ZN2c
   br i1 %or.cond30, label %80, label %89
 
 80:                                               ; preds = %74
-  %81 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %73)
+  %81 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %73)
   %82 = extractvalue { i64, i64 } %81, 0
   %83 = load i32, ptr %61, align 4
   %84 = add i32 %83, -4
@@ -1789,12 +1789,12 @@ define noundef zeroext i1 @_ZN2cv16AVIReadContainer21parseAviWithFrameListERSt5d
   %5 = alloca %"struct.cv::RiffList", align 4
   %6 = alloca %"struct.cv::RiffChunk", align 4
   %7 = load ptr, ptr %0, align 8
-  %8 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %7)
+  %8 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %7)
   br i1 %8, label %9, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
 
 9:                                                ; preds = %3
-  %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %4, i64 noundef 12)
-  %11 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %7, ptr noundef nonnull align 1 dereferenceable(12) %4, i64 noundef 12)
+  %11 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %7)
   %12 = icmp eq i64 %11, 12
   %13 = getelementptr inbounds i8, ptr %7, i64 520
   %14 = zext i1 %12 to i8
@@ -1825,7 +1825,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge: ; preds = %_ZN2c
   br i1 %or.cond, label %23, label %126
 
 23:                                               ; preds = %16
-  %24 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %24 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %15)
   %25 = getelementptr inbounds i8, ptr %4, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = call noundef zeroext i1 @_ZN2cv16AVIReadContainer13parseHdrlListENS_6CodecsE(ptr noundef nonnull align 8 dereferenceable(137) %0, i32 noundef %2)
@@ -1839,12 +1839,12 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge: ; preds = %_ZN2c
   %33 = load ptr, ptr %0, align 8
   %34 = call noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream5seekgEm(ptr noundef nonnull align 8 dereferenceable(560) %33, i64 noundef %32)
   %35 = load ptr, ptr %0, align 8
-  %36 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %35)
+  %36 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %35)
   br i1 %36, label %37, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit11
 
 37:                                               ; preds = %28
-  %38 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull %5, i64 noundef 12)
-  %39 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %35)
+  %38 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %35, ptr noundef nonnull align 1 dereferenceable(12) %5, i64 noundef 12)
+  %39 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %35)
   %40 = icmp eq i64 %39, 12
   %41 = getelementptr inbounds i8, ptr %35, i64 520
   %42 = zext i1 %40 to i8
@@ -1871,7 +1871,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit11: ; preds = %28, %37
   br i1 %50, label %51, label %63
 
 51:                                               ; preds = %46
-  %52 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %43)
+  %52 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %43)
   %53 = extractvalue { i64, i64 } %52, 0
   %54 = getelementptr inbounds i8, ptr %5, i64 4
   %55 = load i32, ptr %54, align 4
@@ -1894,7 +1894,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit11: ; preds = %28, %37
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %0, align 8
-  %69 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %68)
+  %69 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %68)
   %70 = extractvalue { i64, i64 } %69, 0
   %71 = getelementptr inbounds i8, ptr %5, i64 4
   %72 = load i32, ptr %71, align 4
@@ -1903,12 +1903,12 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit11: ; preds = %28, %37
   %75 = add i64 %74, %73
   %76 = call noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream5seekgEm(ptr noundef nonnull align 8 dereferenceable(560) %68, i64 noundef %75)
   %77 = load ptr, ptr %0, align 8
-  %78 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %77)
+  %78 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %77)
   br i1 %78, label %79, label %_ZN2cv16AVIReadContainer8skipJunkERNS_8RiffListE.exit
 
 79:                                               ; preds = %67
-  %80 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull %5, i64 noundef 12)
-  %81 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %77)
+  %80 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %77, ptr noundef nonnull align 1 dereferenceable(12) %5, i64 noundef 12)
+  %81 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %77)
   %82 = icmp eq i64 %81, 12
   %83 = getelementptr inbounds i8, ptr %77, i64 520
   %84 = zext i1 %82 to i8
@@ -1939,7 +1939,7 @@ _ZN2cv16AVIReadContainer8skipJunkERNS_8RiffListE.exit._crit_edge: ; preds = %_ZN
   br i1 %or.cond28, label %93, label %124
 
 93:                                               ; preds = %86
-  %94 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %85)
+  %94 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %85)
   %95 = extractvalue { i64, i64 } %94, 0
   %96 = getelementptr inbounds i8, ptr %0, i64 24
   %97 = add i64 %95, -4
@@ -2042,12 +2042,12 @@ define void @_ZN2cv16AVIReadContainer9readFrameESt15_Deque_iteratorISt4pairImjER
   %9 = load i64, ptr %8, align 8
   %10 = tail call noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream5seekgEm(ptr noundef nonnull align 8 dereferenceable(560) %7, i64 noundef %9)
   %11 = load ptr, ptr %1, align 8
-  %12 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %11)
+  %12 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %11)
   br i1 %12, label %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit, label %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit.thread
 
 _ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit: ; preds = %3
-  %13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %4, i64 noundef 8)
-  %14 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %11, ptr noundef nonnull align 1 dereferenceable(8) %4, i64 noundef 8)
+  %14 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %11)
   %15 = icmp eq i64 %14, 8
   %16 = getelementptr inbounds i8, ptr %11, i64 520
   %17 = zext i1 %15 to i8
@@ -2087,7 +2087,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit.thread: ; preds = %3, %_ZN2
   br label %48
 
 27:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %28 = load i32, ptr %19, align 1
   %29 = zext i32 %28 to i64
@@ -2115,7 +2115,7 @@ _ZNSt6vectorIcSaIcEE7reserveEm.exit:              ; preds = %.noexc, %27
   %35 = load ptr, ptr %1, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = load i32, ptr %19, align 1
-  %38 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %35)
+  %38 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %35)
           to label %.noexc8 unwind label %46
 
 .noexc8:                                          ; preds = %34
@@ -2123,11 +2123,11 @@ _ZNSt6vectorIcSaIcEE7reserveEm.exit:              ; preds = %.noexc, %27
 
 39:                                               ; preds = %.noexc8
   %40 = zext i32 %37 to i64
-  %41 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef %36, i64 noundef %40)
+  %41 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %35, ptr noundef nonnull %36, i64 noundef %40)
           to label %.noexc9 unwind label %46
 
 .noexc9:                                          ; preds = %39
-  %42 = invoke noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %35)
+  %42 = invoke noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %35)
           to label %.noexc10 unwind label %46
 
 .noexc10:                                         ; preds = %.noexc9
@@ -2269,7 +2269,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull al
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   ret void
 }
 
@@ -2291,12 +2291,12 @@ define noundef zeroext i1 @_ZN2cv16AVIReadContainer9parseRiffERSt5dequeISt4pairI
   %11 = phi ptr [ %5, %.lr.ph ], [ %46, %34 ]
   %12 = phi ptr [ %4, %.lr.ph ], [ %45, %34 ]
   %.06 = phi i1 [ false, %.lr.ph ], [ %42, %34 ]
-  %13 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %12)
+  %13 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %12)
   br i1 %13, label %14, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
 
 14:                                               ; preds = %10
-  %15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %3, i64 noundef 12)
-  %16 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %12, ptr noundef nonnull align 1 dereferenceable(12) %3, i64 noundef 12)
+  %16 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(560) %12)
   %17 = icmp eq i64 %16, 12
   %18 = zext i1 %17 to i8
   store i8 %18, ptr %11, align 8
@@ -2328,7 +2328,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit: ; preds = %10, %14
   br i1 %33, label %34, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge
 
 34:                                               ; preds = %27
-  %35 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
+  %35 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %19)
   %36 = extractvalue { i64, i64 } %35, 0
   %37 = load i32, ptr %9, align 4
   %38 = add i32 %37, -4
@@ -2523,7 +2523,7 @@ define hidden noundef zeroext i1 @_ZN2cv9BitStream4openERKNSt7__cxx1112basic_str
   br i1 %10, label %11, label %_ZN2cv9BitStream5closeEv.exit
 
 11:                                               ; preds = %2
-  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %6, i64 noundef %9)
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %6, i64 noundef %9)
   %.pre.i.i = load ptr, ptr %5, align 8
   br label %_ZN2cv9BitStream5closeEv.exit
 
@@ -2534,7 +2534,7 @@ _ZN2cv9BitStream5closeEv.exit:                    ; preds = %2, %11
   %16 = add i64 %15, %9
   store i64 %16, ptr %14, align 8
   store ptr %13, ptr %3, align 8
-  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
+  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(569) %0)
   %17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %17, i32 noundef 4)
   %18 = tail call noundef zeroext i1 @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -2563,7 +2563,7 @@ define hidden void @_ZN2cv9BitStream5closeEv(ptr noundef nonnull align 8 derefer
   br i1 %9, label %10, label %_ZN2cv9BitStream10writeBlockEv.exit
 
 10:                                               ; preds = %1
-  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5, i64 noundef %8)
+  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %5, i64 noundef %8)
   %.pre.i = load ptr, ptr %4, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit
 
@@ -2690,7 +2690,7 @@ define hidden void @_ZN2cv9BitStream7putByteEi(ptr noundef nonnull align 8 deref
   br i1 %16, label %17, label %_ZN2cv9BitStream10writeBlockEv.exit
 
 17:                                               ; preds = %10
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %12, i64 noundef %15)
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %12, i64 noundef %15)
   %.pre.i = load ptr, ptr %11, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit
 
@@ -2766,7 +2766,7 @@ define hidden void @_ZN2cv9BitStream8putBytesEPKhi(ptr noundef nonnull align 8 d
   br i1 %28, label %29, label %_ZN2cv9BitStream10writeBlockEv.exit
 
 29:                                               ; preds = %22
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %24, i64 noundef %27)
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %24, i64 noundef %27)
   %.pre.i = load ptr, ptr %23, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit
 
@@ -2830,7 +2830,7 @@ _ZN2cv9BitStream10writeBlockEv.exit:              ; preds = %22, %29
   br i1 %61, label %62, label %_ZN2cv9BitStream10writeBlockEv.exit32
 
 62:                                               ; preds = %56
-  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %57, i64 noundef %60)
+  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %57, i64 noundef %60)
   %.pre.i31 = load ptr, ptr %37, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit32
 
@@ -2883,7 +2883,7 @@ define hidden void @_ZN2cv9BitStream8putShortEi(ptr noundef nonnull align 8 dere
   br i1 %20, label %21, label %_ZN2cv9BitStream10writeBlockEv.exit
 
 21:                                               ; preds = %14
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %16, i64 noundef %19)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %16, i64 noundef %19)
   %.pre.i = load ptr, ptr %15, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit
 
@@ -2939,7 +2939,7 @@ define hidden void @_ZN2cv9BitStream6putIntEj(ptr noundef nonnull align 8 derefe
   br i1 %28, label %29, label %_ZN2cv9BitStream10writeBlockEv.exit
 
 29:                                               ; preds = %22
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %24, i64 noundef %27)
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %24, i64 noundef %27)
   %.pre.i = load ptr, ptr %23, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit
 
@@ -2985,7 +2985,7 @@ define hidden void @_ZN2cv9BitStream9jputShortEi(ptr noundef nonnull align 8 der
   br i1 %20, label %21, label %_ZN2cv9BitStream10writeBlockEv.exit
 
 21:                                               ; preds = %14
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %16, i64 noundef %19)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %16, i64 noundef %19)
   %.pre.i = load ptr, ptr %15, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit
 
@@ -3253,7 +3253,7 @@ define hidden void @_ZN2cv9BitStream4jputEj(ptr noundef nonnull align 8 derefere
   br i1 %43, label %44, label %_ZN2cv9BitStream10writeBlockEv.exit
 
 44:                                               ; preds = %37
-  %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %39, i64 noundef %42)
+  %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %39, i64 noundef %42)
   %.pre.i = load ptr, ptr %38, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit
 
@@ -3324,7 +3324,7 @@ define hidden void @_ZN2cv9BitStream6jflushEji(ptr noundef nonnull align 8 deref
   br i1 %27, label %28, label %_ZN2cv9BitStream10writeBlockEv.exit
 
 28:                                               ; preds = %21
-  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, i64 noundef %26)
+  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %23, i64 noundef %26)
   %.pre.i = load ptr, ptr %22, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit
 
@@ -3351,7 +3351,7 @@ define void @_ZN2cv17AVIWriteContainerC2Ev(ptr noundef nonnull align 8 dereferen
   store i32 1, ptr %4, align 4, !noalias !19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9BitStreamESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !19
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %5)
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(569) %5)
           to label %.noexc.i.i unwind label %11, !noalias !19
 
 .noexc.i.i:                                       ; preds = %1
@@ -3372,7 +3372,7 @@ define void @_ZN2cv17AVIWriteContainerC2Ev(ptr noundef nonnull align 8 dereferen
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i.i:        ; preds = %10, %7
-  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %5) #23, !noalias !19
+  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(569) %5) #23, !noalias !19
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9BitStreamESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i
 
 11:                                               ; preds = %1
@@ -3413,7 +3413,7 @@ _ZN2cvL7makePtrINS_9BitStreamEJEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.noexc.i.
   br i1 %26, label %27, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 27:                                               ; preds = %_ZN2cvL7makePtrINS_9BitStreamEJEEENS_3PtrIT_EEDpRKT0_.exit
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %13, i64 noundef %25)
+  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %5, ptr noundef %13, i64 noundef %25)
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %27
@@ -3429,7 +3429,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i:            ; preds = %.noexc, %_ZN2cvL7ma
   %32 = sub i64 %29, %24
   store i64 %32, ptr %31, align 8
   store ptr %30, ptr %17, align 8
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %5)
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(569) %5)
           to label %_ZN2cv9BitStream5closeEv.exit unwind label %33
 
 _ZN2cv9BitStream5closeEv.exit:                    ; preds = %_ZN2cv9BitStream10writeBlockEv.exit.i
@@ -3571,7 +3571,7 @@ define void @_ZN2cv17AVIWriteContainerD2Ev(ptr nocapture noundef nonnull align 8
   br i1 %10, label %11, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 11:                                               ; preds = %1
-  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6, i64 noundef %9)
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %2, ptr noundef %6, i64 noundef %9)
           to label %.noexc unwind label %80
 
 .noexc:                                           ; preds = %11
@@ -3585,7 +3585,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i:            ; preds = %.noexc, %1
   %16 = add i64 %15, %9
   store i64 %16, ptr %14, align 8
   store ptr %13, ptr %3, align 8
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %2)
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(569) %2)
           to label %_ZN2cv9BitStream5closeEv.exit unwind label %80
 
 _ZN2cv9BitStream5closeEv.exit:                    ; preds = %_ZN2cv9BitStream10writeBlockEv.exit.i
@@ -3799,7 +3799,7 @@ define noundef zeroext i1 @_ZN2cv17AVIWriteContainer13initContainerERKNSt7__cxx1
   br i1 %22, label %23, label %_ZN2cv9BitStream5closeEv.exit.i
 
 23:                                               ; preds = %5
-  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %18, i64 noundef %21)
+  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %14, ptr noundef %18, i64 noundef %21)
   %.pre.i.i.i = load ptr, ptr %17, align 8
   br label %_ZN2cv9BitStream5closeEv.exit.i
 
@@ -3810,10 +3810,10 @@ _ZN2cv9BitStream5closeEv.exit.i:                  ; preds = %23, %5
   %28 = add i64 %27, %21
   store i64 %28, ptr %26, align 8
   store ptr %25, ptr %15, align 8
-  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %14)
+  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(569) %14)
   %29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %14, ptr noundef %29, i32 noundef 4)
-  %30 = tail call noundef zeroext i1 @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(248) %14)
+  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(569) %14, ptr noundef %29, i32 noundef 4)
+  %30 = tail call noundef zeroext i1 @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(569) %14)
   br i1 %30, label %31, label %_ZN2cv9BitStream4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 31:                                               ; preds = %_ZN2cv9BitStream5closeEv.exit.i
@@ -3873,7 +3873,7 @@ define void @_ZN2cv17AVIWriteContainer13startWriteAVIEi(ptr nocapture noundef no
   br i1 %33, label %34, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 34:                                               ; preds = %27
-  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %29, i64 noundef %32)
+  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %6, ptr noundef %29, i64 noundef %32)
   %.pre.i.i = load ptr, ptr %28, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
@@ -3930,7 +3930,7 @@ _ZN2cv9BitStream6putIntEj.exit:                   ; preds = %2, %_ZN2cv9BitStrea
   br i1 %68, label %69, label %_ZN2cv9BitStream10writeBlockEv.exit.i2
 
 69:                                               ; preds = %62
-  %70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %64, i64 noundef %67)
+  %70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %41, ptr noundef %64, i64 noundef %67)
   %.pre.i.i3 = load ptr, ptr %63, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i2
 
@@ -3984,7 +3984,7 @@ _ZN2cv9BitStream6putIntEj.exit4:                  ; preds = %_ZN2cv9BitStream6pu
   br i1 %102, label %103, label %_ZN2cv9BitStream10writeBlockEv.exit.i6
 
 103:                                              ; preds = %96
-  %104 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %98, i64 noundef %101)
+  %104 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %75, ptr noundef %98, i64 noundef %101)
   %.pre.i.i7 = load ptr, ptr %97, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i6
 
@@ -4029,7 +4029,7 @@ _ZN2cv9BitStream6putIntEj.exit8:                  ; preds = %_ZN2cv9BitStream6pu
   br i1 %128, label %129, label %_ZN2cv9BitStream10writeBlockEv.exit.i10
 
 129:                                              ; preds = %122
-  %130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef %124, i64 noundef %127)
+  %130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %109, ptr noundef %124, i64 noundef %127)
   %.pre.i.i11 = load ptr, ptr %123, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i10
 
@@ -4087,7 +4087,7 @@ _ZN2cv9BitStream6putIntEj.exit12:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %167, label %168, label %_ZN2cv9BitStream10writeBlockEv.exit.i14
 
 168:                                              ; preds = %161
-  %169 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef %163, i64 noundef %166)
+  %169 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %135, ptr noundef %163, i64 noundef %166)
   %.pre.i.i15 = load ptr, ptr %162, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i14
 
@@ -4132,7 +4132,7 @@ _ZN2cv9BitStream6putIntEj.exit16:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %193, label %194, label %_ZN2cv9BitStream10writeBlockEv.exit.i18
 
 194:                                              ; preds = %187
-  %195 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %174, ptr noundef %189, i64 noundef %192)
+  %195 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %174, ptr noundef %189, i64 noundef %192)
   %.pre.i.i19 = load ptr, ptr %188, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i18
 
@@ -4177,7 +4177,7 @@ _ZN2cv9BitStream6putIntEj.exit20:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %219, label %220, label %_ZN2cv9BitStream10writeBlockEv.exit.i22
 
 220:                                              ; preds = %213
-  %221 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef %215, i64 noundef %218)
+  %221 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %200, ptr noundef %215, i64 noundef %218)
   %.pre.i.i23 = load ptr, ptr %214, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i22
 
@@ -4222,7 +4222,7 @@ _ZN2cv9BitStream6putIntEj.exit24:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %245, label %246, label %_ZN2cv9BitStream10writeBlockEv.exit.i26
 
 246:                                              ; preds = %239
-  %247 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %226, ptr noundef %241, i64 noundef %244)
+  %247 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %226, ptr noundef %241, i64 noundef %244)
   %.pre.i.i27 = load ptr, ptr %240, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i26
 
@@ -4385,7 +4385,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %277, %_ZNSt6vectorI
   br i1 %322, label %323, label %_ZN2cv9BitStream10writeBlockEv.exit.i30
 
 323:                                              ; preds = %316
-  %324 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %303, ptr noundef %318, i64 noundef %321)
+  %324 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %303, ptr noundef %318, i64 noundef %321)
   %.pre.i.i31 = load ptr, ptr %317, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i30
 
@@ -4430,7 +4430,7 @@ _ZN2cv9BitStream6putIntEj.exit32:                 ; preds = %_ZNSt6vectorImSaImE
   br i1 %348, label %349, label %_ZN2cv9BitStream10writeBlockEv.exit.i34
 
 349:                                              ; preds = %342
-  %350 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %329, ptr noundef %344, i64 noundef %347)
+  %350 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %329, ptr noundef %344, i64 noundef %347)
   %.pre.i.i35 = load ptr, ptr %343, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i34
 
@@ -4482,7 +4482,7 @@ _ZN2cv9BitStream6putIntEj.exit36:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %381, label %382, label %_ZN2cv9BitStream10writeBlockEv.exit.i38
 
 382:                                              ; preds = %375
-  %383 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %355, ptr noundef %377, i64 noundef %380)
+  %383 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %355, ptr noundef %377, i64 noundef %380)
   %.pre.i.i39 = load ptr, ptr %376, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i38
 
@@ -4527,7 +4527,7 @@ _ZN2cv9BitStream6putIntEj.exit40:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %407, label %408, label %_ZN2cv9BitStream10writeBlockEv.exit.i42
 
 408:                                              ; preds = %401
-  %409 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %388, ptr noundef %403, i64 noundef %406)
+  %409 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %388, ptr noundef %403, i64 noundef %406)
   %.pre.i.i43 = load ptr, ptr %402, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i42
 
@@ -4581,7 +4581,7 @@ _ZN2cv9BitStream6putIntEj.exit44:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %442, label %443, label %_ZN2cv9BitStream10writeBlockEv.exit.i46
 
 443:                                              ; preds = %436
-  %444 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %414, ptr noundef %438, i64 noundef %441)
+  %444 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %414, ptr noundef %438, i64 noundef %441)
   %.pre.i.i47 = load ptr, ptr %437, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i46
 
@@ -4635,7 +4635,7 @@ _ZN2cv9BitStream6putIntEj.exit48:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %477, label %478, label %_ZN2cv9BitStream10writeBlockEv.exit.i50
 
 478:                                              ; preds = %471
-  %479 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %449, ptr noundef %473, i64 noundef %476)
+  %479 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %449, ptr noundef %473, i64 noundef %476)
   %.pre.i.i51 = load ptr, ptr %472, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i50
 
@@ -4680,7 +4680,7 @@ _ZN2cv9BitStream6putIntEj.exit52:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %503, label %504, label %_ZN2cv9BitStream10writeBlockEv.exit.i54
 
 504:                                              ; preds = %497
-  %505 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %484, ptr noundef %499, i64 noundef %502)
+  %505 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %484, ptr noundef %499, i64 noundef %502)
   %.pre.i.i55 = load ptr, ptr %498, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i54
 
@@ -4725,7 +4725,7 @@ _ZN2cv9BitStream6putIntEj.exit56:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %529, label %530, label %_ZN2cv9BitStream10writeBlockEv.exit.i58
 
 530:                                              ; preds = %523
-  %531 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef %525, i64 noundef %528)
+  %531 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %510, ptr noundef %525, i64 noundef %528)
   %.pre.i.i59 = load ptr, ptr %524, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i58
 
@@ -4770,7 +4770,7 @@ _ZN2cv9BitStream6putIntEj.exit60:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %555, label %556, label %_ZN2cv9BitStream10writeBlockEv.exit.i62
 
 556:                                              ; preds = %549
-  %557 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %536, ptr noundef %551, i64 noundef %554)
+  %557 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %536, ptr noundef %551, i64 noundef %554)
   %.pre.i.i63 = load ptr, ptr %550, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i62
 
@@ -4815,7 +4815,7 @@ _ZN2cv9BitStream6putIntEj.exit64:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %581, label %582, label %_ZN2cv9BitStream10writeBlockEv.exit.i66
 
 582:                                              ; preds = %575
-  %583 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %562, ptr noundef %577, i64 noundef %580)
+  %583 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %562, ptr noundef %577, i64 noundef %580)
   %.pre.i.i67 = load ptr, ptr %576, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i66
 
@@ -4909,7 +4909,7 @@ common.resume:                                    ; preds = %61, %63, %10, %12
   br i1 %41, label %42, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 42:                                               ; preds = %35
-  %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %37, i64 noundef %40)
+  %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %15, ptr noundef %37, i64 noundef %40)
   %.pre.i.i = load ptr, ptr %36, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
@@ -5067,7 +5067,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %72, %_ZNSt6vectorIm
   br i1 %117, label %118, label %_ZN2cv9BitStream10writeBlockEv.exit.i8
 
 118:                                              ; preds = %111
-  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef %113, i64 noundef %116)
+  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %98, ptr noundef %113, i64 noundef %116)
   %.pre.i.i9 = load ptr, ptr %112, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i8
 
@@ -5137,7 +5137,7 @@ define void @_ZN2cv17AVIWriteContainer17writeStreamHeaderENS_6CodecsE(ptr nocapt
   br i1 %39, label %40, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 40:                                               ; preds = %33
-  %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %35, i64 noundef %38)
+  %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %12, ptr noundef %35, i64 noundef %38)
   %.pre.i.i = load ptr, ptr %34, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
@@ -5191,7 +5191,7 @@ _ZN2cv9BitStream6putIntEj.exit:                   ; preds = %2, %_ZN2cv9BitStrea
   br i1 %73, label %74, label %_ZN2cv9BitStream10writeBlockEv.exit.i6
 
 74:                                               ; preds = %67
-  %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %69, i64 noundef %72)
+  %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %46, ptr noundef %69, i64 noundef %72)
   %.pre.i.i7 = load ptr, ptr %68, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i6
 
@@ -5236,7 +5236,7 @@ _ZN2cv9BitStream6putIntEj.exit8:                  ; preds = %_ZN2cv9BitStream6pu
   br i1 %99, label %100, label %_ZN2cv9BitStream10writeBlockEv.exit.i10
 
 100:                                              ; preds = %93
-  %101 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef %95, i64 noundef %98)
+  %101 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %80, ptr noundef %95, i64 noundef %98)
   %.pre.i.i11 = load ptr, ptr %94, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i10
 
@@ -5290,7 +5290,7 @@ _ZN2cv9BitStream6putIntEj.exit12:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %133, label %134, label %_ZN2cv9BitStream10writeBlockEv.exit.i14
 
 134:                                              ; preds = %127
-  %135 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef %129, i64 noundef %132)
+  %135 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %106, ptr noundef %129, i64 noundef %132)
   %.pre.i.i15 = load ptr, ptr %128, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i14
 
@@ -5348,7 +5348,7 @@ _ZN2cv9BitStream6putIntEj.exit16:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %168, label %169, label %_ZN2cv9BitStream10writeBlockEv.exit.i18
 
 169:                                              ; preds = %162
-  %170 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef %164, i64 noundef %167)
+  %170 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %141, ptr noundef %164, i64 noundef %167)
   %.pre.i.i19 = load ptr, ptr %163, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i18
 
@@ -5393,7 +5393,7 @@ _ZN2cv9BitStream6putIntEj.exit20:                 ; preds = %_ZN2cv9BitStream10w
   br i1 %194, label %195, label %_ZN2cv9BitStream10writeBlockEv.exit.i22
 
 195:                                              ; preds = %188
-  %196 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %175, ptr noundef %190, i64 noundef %193)
+  %196 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %175, ptr noundef %190, i64 noundef %193)
   %.pre.i.i23 = load ptr, ptr %189, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i22
 
@@ -5438,7 +5438,7 @@ _ZN2cv9BitStream6putIntEj.exit24:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %220, label %221, label %_ZN2cv9BitStream10writeBlockEv.exit.i26
 
 221:                                              ; preds = %214
-  %222 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %201, ptr noundef %216, i64 noundef %219)
+  %222 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %201, ptr noundef %216, i64 noundef %219)
   %.pre.i.i27 = load ptr, ptr %215, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i26
 
@@ -5483,7 +5483,7 @@ _ZN2cv9BitStream6putIntEj.exit28:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %246, label %247, label %_ZN2cv9BitStream10writeBlockEv.exit.i30
 
 247:                                              ; preds = %240
-  %248 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %227, ptr noundef %242, i64 noundef %245)
+  %248 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %227, ptr noundef %242, i64 noundef %245)
   %.pre.i.i31 = load ptr, ptr %241, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i30
 
@@ -5528,7 +5528,7 @@ _ZN2cv9BitStream6putIntEj.exit32:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %272, label %273, label %_ZN2cv9BitStream10writeBlockEv.exit.i34
 
 273:                                              ; preds = %266
-  %274 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %253, ptr noundef %268, i64 noundef %271)
+  %274 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %253, ptr noundef %268, i64 noundef %271)
   %.pre.i.i35 = load ptr, ptr %267, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i34
 
@@ -5582,7 +5582,7 @@ _ZN2cv9BitStream6putIntEj.exit36:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %307, label %308, label %_ZN2cv9BitStream10writeBlockEv.exit.i38
 
 308:                                              ; preds = %301
-  %309 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %279, ptr noundef %303, i64 noundef %306)
+  %309 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %279, ptr noundef %303, i64 noundef %306)
   %.pre.i.i39 = load ptr, ptr %302, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i38
 
@@ -5627,7 +5627,7 @@ _ZN2cv9BitStream6putIntEj.exit40:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %333, label %334, label %_ZN2cv9BitStream10writeBlockEv.exit.i42
 
 334:                                              ; preds = %327
-  %335 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %314, ptr noundef %329, i64 noundef %332)
+  %335 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %314, ptr noundef %329, i64 noundef %332)
   %.pre.i.i43 = load ptr, ptr %328, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i42
 
@@ -5791,7 +5791,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %364, %_ZNSt6vectorI
   br i1 %409, label %410, label %_ZN2cv9BitStream10writeBlockEv.exit.i46
 
 410:                                              ; preds = %403
-  %411 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %390, ptr noundef %405, i64 noundef %408)
+  %411 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %390, ptr noundef %405, i64 noundef %408)
   %.pre.i.i47 = load ptr, ptr %404, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i46
 
@@ -5836,7 +5836,7 @@ _ZN2cv9BitStream6putIntEj.exit48:                 ; preds = %_ZNSt6vectorImSaImE
   br i1 %435, label %436, label %_ZN2cv9BitStream10writeBlockEv.exit.i50
 
 436:                                              ; preds = %429
-  %437 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %416, ptr noundef %431, i64 noundef %434)
+  %437 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %416, ptr noundef %431, i64 noundef %434)
   %.pre.i.i51 = load ptr, ptr %430, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i50
 
@@ -5881,7 +5881,7 @@ _ZN2cv9BitStream6putIntEj.exit52:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %461, label %462, label %_ZN2cv9BitStream10writeBlockEv.exit.i54
 
 462:                                              ; preds = %455
-  %463 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %442, ptr noundef %457, i64 noundef %460)
+  %463 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %442, ptr noundef %457, i64 noundef %460)
   %.pre.i.i55 = load ptr, ptr %456, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i54
 
@@ -5926,7 +5926,7 @@ _ZN2cv9BitStream6putIntEj.exit56:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %487, label %488, label %_ZN2cv9BitStream10writeBlockEv.exit.i58
 
 488:                                              ; preds = %481
-  %489 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %468, ptr noundef %483, i64 noundef %486)
+  %489 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %468, ptr noundef %483, i64 noundef %486)
   %.pre.i.i59 = load ptr, ptr %482, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i58
 
@@ -5965,7 +5965,7 @@ _ZN2cv9BitStream6putIntEj.exit60:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %509, label %510, label %_ZN2cv9BitStream10writeBlockEv.exit.i62
 
 510:                                              ; preds = %503
-  %511 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %494, ptr noundef %505, i64 noundef %508)
+  %511 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %494, ptr noundef %505, i64 noundef %508)
   %.pre.i.i63 = load ptr, ptr %504, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i62
 
@@ -6004,7 +6004,7 @@ _ZN2cv9BitStream8putShortEi.exit:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %531, label %532, label %_ZN2cv9BitStream10writeBlockEv.exit.i65
 
 532:                                              ; preds = %525
-  %533 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %516, ptr noundef %527, i64 noundef %530)
+  %533 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %516, ptr noundef %527, i64 noundef %530)
   %.pre.i.i66 = load ptr, ptr %526, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i65
 
@@ -6048,7 +6048,7 @@ _ZN2cv9BitStream8putShortEi.exit67:               ; preds = %_ZN2cv9BitStream8pu
   br i1 %558, label %559, label %_ZN2cv9BitStream10writeBlockEv.exit.i69
 
 559:                                              ; preds = %552
-  %560 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %538, ptr noundef %554, i64 noundef %557)
+  %560 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %538, ptr noundef %554, i64 noundef %557)
   %.pre.i.i70 = load ptr, ptr %553, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i69
 
@@ -6092,7 +6092,7 @@ _ZN2cv9BitStream8putShortEi.exit71:               ; preds = %_ZN2cv9BitStream8pu
   br i1 %585, label %586, label %_ZN2cv9BitStream10writeBlockEv.exit.i73
 
 586:                                              ; preds = %579
-  %587 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %565, ptr noundef %581, i64 noundef %584)
+  %587 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %565, ptr noundef %581, i64 noundef %584)
   %.pre.i.i74 = load ptr, ptr %580, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i73
 
@@ -6140,7 +6140,7 @@ _ZN2cv9BitStream8putShortEi.exit75:               ; preds = %_ZN2cv9BitStream8pu
   br i1 %612, label %613, label %_ZN2cv9BitStream10writeBlockEv.exit.i77
 
 613:                                              ; preds = %606
-  %614 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %593, ptr noundef %608, i64 noundef %611)
+  %614 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %593, ptr noundef %608, i64 noundef %611)
   %.pre.i.i78 = load ptr, ptr %607, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i77
 
@@ -6193,7 +6193,7 @@ _ZN2cv9BitStream6putIntEj.exit79:                 ; preds = %_ZN2cv9BitStream8pu
   br i1 %646, label %647, label %_ZN2cv9BitStream10writeBlockEv.exit.i81
 
 647:                                              ; preds = %640
-  %648 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %619, ptr noundef %642, i64 noundef %645)
+  %648 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %619, ptr noundef %642, i64 noundef %645)
   %.pre.i.i82 = load ptr, ptr %641, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i81
 
@@ -6246,7 +6246,7 @@ _ZN2cv9BitStream6putIntEj.exit83:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %680, label %681, label %_ZN2cv9BitStream10writeBlockEv.exit.i85
 
 681:                                              ; preds = %674
-  %682 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %653, ptr noundef %676, i64 noundef %679)
+  %682 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %653, ptr noundef %676, i64 noundef %679)
   %.pre.i.i86 = load ptr, ptr %675, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i85
 
@@ -6285,7 +6285,7 @@ _ZN2cv9BitStream6putIntEj.exit87:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %702, label %703, label %_ZN2cv9BitStream10writeBlockEv.exit.i89
 
 703:                                              ; preds = %696
-  %704 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %687, ptr noundef %698, i64 noundef %701)
+  %704 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %687, ptr noundef %698, i64 noundef %701)
   %.pre.i.i90 = load ptr, ptr %697, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i89
 
@@ -6330,7 +6330,7 @@ _ZN2cv9BitStream8putShortEi.exit91:               ; preds = %_ZN2cv9BitStream6pu
   br i1 %730, label %731, label %_ZN2cv9BitStream10writeBlockEv.exit.i93
 
 731:                                              ; preds = %724
-  %732 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %709, ptr noundef %726, i64 noundef %729)
+  %732 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %709, ptr noundef %726, i64 noundef %729)
   %.pre.i.i94 = load ptr, ptr %725, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i93
 
@@ -6387,7 +6387,7 @@ _ZN2cv9BitStream8putShortEi.exit95:               ; preds = %_ZN2cv9BitStream8pu
   br i1 %765, label %766, label %_ZN2cv9BitStream10writeBlockEv.exit.i97
 
 766:                                              ; preds = %759
-  %767 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %738, ptr noundef %761, i64 noundef %764)
+  %767 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %738, ptr noundef %761, i64 noundef %764)
   %.pre.i.i98 = load ptr, ptr %760, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i97
 
@@ -6444,7 +6444,7 @@ _ZN2cv9BitStream6putIntEj.exit99:                 ; preds = %_ZN2cv9BitStream10w
   br i1 %803, label %804, label %_ZN2cv9BitStream10writeBlockEv.exit.i101
 
 804:                                              ; preds = %797
-  %805 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %772, ptr noundef %799, i64 noundef %802)
+  %805 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %772, ptr noundef %799, i64 noundef %802)
   %.pre.i.i102 = load ptr, ptr %798, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i101
 
@@ -6489,7 +6489,7 @@ _ZN2cv9BitStream6putIntEj.exit103:                ; preds = %_ZN2cv9BitStream6pu
   br i1 %829, label %830, label %_ZN2cv9BitStream10writeBlockEv.exit.i105
 
 830:                                              ; preds = %823
-  %831 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %810, ptr noundef %825, i64 noundef %828)
+  %831 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %810, ptr noundef %825, i64 noundef %828)
   %.pre.i.i106 = load ptr, ptr %824, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i105
 
@@ -6534,7 +6534,7 @@ _ZN2cv9BitStream6putIntEj.exit107:                ; preds = %_ZN2cv9BitStream6pu
   br i1 %855, label %856, label %_ZN2cv9BitStream10writeBlockEv.exit.i109
 
 856:                                              ; preds = %849
-  %857 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %836, ptr noundef %851, i64 noundef %854)
+  %857 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %836, ptr noundef %851, i64 noundef %854)
   %.pre.i.i110 = load ptr, ptr %850, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i109
 
@@ -6579,7 +6579,7 @@ _ZN2cv9BitStream6putIntEj.exit111:                ; preds = %_ZN2cv9BitStream6pu
   br i1 %881, label %882, label %_ZN2cv9BitStream10writeBlockEv.exit.i113
 
 882:                                              ; preds = %875
-  %883 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %862, ptr noundef %877, i64 noundef %880)
+  %883 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %862, ptr noundef %877, i64 noundef %880)
   %.pre.i.i114 = load ptr, ptr %876, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i113
 
@@ -6624,7 +6624,7 @@ _ZN2cv9BitStream6putIntEj.exit115:                ; preds = %_ZN2cv9BitStream6pu
   br i1 %907, label %908, label %_ZN2cv9BitStream10writeBlockEv.exit.i117
 
 908:                                              ; preds = %901
-  %909 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %888, ptr noundef %903, i64 noundef %906)
+  %909 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %888, ptr noundef %903, i64 noundef %906)
   %.pre.i.i118 = load ptr, ptr %902, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i117
 
@@ -6683,7 +6683,7 @@ _ZN2cv9BitStream6putIntEj.exit119:                ; preds = %_ZN2cv9BitStream6pu
   br i1 %942, label %943, label %_ZN2cv9BitStream10writeBlockEv.exit.i121
 
 943:                                              ; preds = %936
-  %944 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %915, ptr noundef %938, i64 noundef %941)
+  %944 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %915, ptr noundef %938, i64 noundef %941)
   %.pre.i.i122 = load ptr, ptr %937, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i121
 
@@ -6841,7 +6841,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit134:        ; preds = %971, %_ZNSt6vectorI
   br i1 %1016, label %1017, label %_ZN2cv9BitStream10writeBlockEv.exit.i136
 
 1017:                                             ; preds = %1010
-  %1018 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %997, ptr noundef %1012, i64 noundef %1015)
+  %1018 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %997, ptr noundef %1012, i64 noundef %1015)
   %.pre.i.i137 = load ptr, ptr %1011, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i136
 
@@ -6886,7 +6886,7 @@ _ZN2cv9BitStream6putIntEj.exit138:                ; preds = %_ZNSt6vectorImSaImE
   br i1 %1042, label %1043, label %_ZN2cv9BitStream10writeBlockEv.exit.i140
 
 1043:                                             ; preds = %1036
-  %1044 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1023, ptr noundef %1038, i64 noundef %1041)
+  %1044 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %1023, ptr noundef %1038, i64 noundef %1041)
   %.pre.i.i141 = load ptr, ptr %1037, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i140
 
@@ -6984,7 +6984,7 @@ _ZNK2cv9BitStream6getPosEv.exit144:               ; preds = %_ZN2cv9BitStream6pu
   br i1 %1089, label %1090, label %_ZN2cv9BitStream10writeBlockEv.exit.i146
 
 1090:                                             ; preds = %1083
-  %1091 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1070, ptr noundef %1085, i64 noundef %1088)
+  %1091 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %1070, ptr noundef %1085, i64 noundef %1088)
   %.pre.i.i147 = load ptr, ptr %1084, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i146
 
@@ -7088,7 +7088,7 @@ _ZNK2cv9BitStream6getPosEv.exit150:               ; preds = %._crit_edge
   br i1 %1143, label %1144, label %_ZN2cv9BitStream10writeBlockEv.exit.i152
 
 1144:                                             ; preds = %1138
-  %1145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1099, ptr noundef %1139, i64 noundef %1142)
+  %1145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %1099, ptr noundef %1139, i64 noundef %1142)
   %.pre.i.i153 = load ptr, ptr %1102, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i152
 
@@ -7371,7 +7371,7 @@ _ZN2cv17AVIWriteContainer11getAVIIndexEiNS_10StreamTypeE.exit: ; preds = %switch
   br i1 %48, label %49, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 49:                                               ; preds = %42
-  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %44, i64 noundef %47)
+  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %25, ptr noundef %44, i64 noundef %47)
   %.pre.i.i = load ptr, ptr %43, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
@@ -7416,7 +7416,7 @@ _ZN2cv9BitStream6putIntEj.exit:                   ; preds = %_ZN2cv17AVIWriteCon
   br i1 %74, label %75, label %_ZN2cv9BitStream10writeBlockEv.exit.i8
 
 75:                                               ; preds = %68
-  %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef %70, i64 noundef %73)
+  %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %55, ptr noundef %70, i64 noundef %73)
   %.pre.i.i9 = load ptr, ptr %69, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i8
 
@@ -7471,7 +7471,7 @@ _ZN2cv9BitStream6putIntEj.exit10:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %110, label %111, label %_ZN2cv9BitStream10writeBlockEv.exit.i12
 
 111:                                              ; preds = %104
-  %112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef %106, i64 noundef %109)
+  %112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %81, ptr noundef %106, i64 noundef %109)
   %.pre.i.i13 = load ptr, ptr %105, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i12
 
@@ -7526,7 +7526,7 @@ _ZN2cv9BitStream6putIntEj.exit14:                 ; preds = %_ZN2cv9BitStream6pu
   br i1 %146, label %147, label %_ZN2cv9BitStream10writeBlockEv.exit.i16
 
 147:                                              ; preds = %140
-  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef %142, i64 noundef %145)
+  %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %117, ptr noundef %142, i64 noundef %145)
   %.pre.i.i17 = load ptr, ptr %141, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i16
 
@@ -7625,7 +7625,7 @@ _ZN2cv13safe_int_castIjmEET_T0_PKc.exit:          ; preds = %1
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK2cv17AVIWriteContainer14isOpenedStreamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(248) %2)
+  %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(569) %2)
   ret i1 %3
 }
 
@@ -7713,7 +7713,7 @@ define void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr nocapture noundef 
   br i1 %21, label %22, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 22:                                               ; preds = %15
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %17, i64 noundef %20)
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %3, ptr noundef %17, i64 noundef %20)
   %.pre.i.i = load ptr, ptr %16, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
@@ -7762,7 +7762,7 @@ define void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr nocapture noundef no
   br i1 %17, label %18, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 18:                                               ; preds = %11
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %13, i64 noundef %16)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %3, ptr noundef %13, i64 noundef %16)
   %.pre.i.i = load ptr, ptr %12, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
@@ -7858,7 +7858,7 @@ define void @_ZN2cv17AVIWriteContainer10jputStreamEj(ptr nocapture noundef nonnu
   br i1 %44, label %45, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 45:                                               ; preds = %38
-  %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %40, i64 noundef %43)
+  %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %3, ptr noundef %40, i64 noundef %43)
   %.pre.i.i = load ptr, ptr %39, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
@@ -7930,7 +7930,7 @@ define void @_ZN2cv17AVIWriteContainer12jflushStreamEji(ptr nocapture noundef no
   br i1 %28, label %29, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 29:                                               ; preds = %22
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %24, i64 noundef %27)
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %4, ptr noundef %24, i64 noundef %27)
   %.pre.i.i = load ptr, ptr %23, align 8
   br label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
@@ -8108,7 +8108,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16VideoInput
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16VideoInputStreamESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(576) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %2)
+  %3 = invoke noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %2)
           to label %.noexc.i.i.i unwind label %6
 
 .noexc.i.i.i:                                     ; preds = %1
@@ -8117,7 +8117,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16VideoInput
 4:                                                ; preds = %.noexc.i.i.i
   %5 = getelementptr inbounds i8, ptr %0, i64 536
   store i8 0, ptr %5, align 8
-  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(256) %2)
+  invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(560) %2)
           to label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv16VideoInputStreamEEEvRS0_PT_.exit unwind label %6
 
 6:                                                ; preds = %4, %1
@@ -8126,14 +8126,14 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16VideoInput
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = getelementptr inbounds i8, ptr %0, i64 544
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2) #23
+  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #23
   tail call void @__cxa_call_unexpected(ptr %8) #25
   unreachable
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv16VideoInputStreamEEEvRS0_PT_.exit: ; preds = %.noexc.i.i.i, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 544
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
-  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2) #23
+  tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(560) %2) #23
   ret void
 }
 
@@ -8447,7 +8447,7 @@ define linkonce_odr hidden void @_ZN2cv9BitStreamD2Ev(ptr noundef nonnull align 
   br i1 %9, label %10, label %_ZN2cv9BitStream10writeBlockEv.exit.i
 
 10:                                               ; preds = %1
-  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5, i64 noundef %8)
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(569) %0, ptr noundef %5, i64 noundef %8)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %10
@@ -8461,7 +8461,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i:            ; preds = %.noexc, %1
   %15 = add i64 %14, %8
   store i64 %15, ptr %13, align 8
   store ptr %12, ptr %2, align 8
-  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
+  invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(569) %0)
           to label %_ZN2cv9BitStream5closeEv.exit unwind label %19
 
 _ZN2cv9BitStream5closeEv.exit:                    ; preds = %_ZN2cv9BitStream10writeBlockEv.exit.i

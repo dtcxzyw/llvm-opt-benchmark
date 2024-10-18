@@ -4513,7 +4513,7 @@ default.unreachable32:                            ; preds = %1
   br i1 %57, label %common.resume, label %58
 
 58:                                               ; preds = %54
-  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h89b569c7525acb3eE.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull readonly align 1 %.sroa.09.sroa.4.0..sroa_idx.i, i64 noundef 4, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h89b569c7525acb3eE.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(48) %20, ptr noalias noundef nonnull readonly align 1 %.sroa.09.sroa.4.0..sroa_idx.i, i64 noundef 4, i64 noundef 16)
           to label %common.resume unwind label %93, !noalias !382
 
 ._crit_edge.i:                                    ; preds = %.backedge.i
@@ -4523,7 +4523,7 @@ default.unreachable32:                            ; preds = %1
   br i1 %59, label %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5trace17hbfd2561b3444ceabE.exit, label %60
 
 60:                                               ; preds = %._crit_edge.i
-  call void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h89b569c7525acb3eE.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull readonly align 1 %.sroa.09.sroa.4.0..sroa_idx.i, i64 noundef 4, i64 noundef 16), !noalias !382
+  call void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h89b569c7525acb3eE.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(48) %20, ptr noalias noundef nonnull readonly align 1 %.sroa.09.sroa.4.0..sroa_idx.i, i64 noundef 4, i64 noundef 16), !noalias !382
   br label %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5trace17hbfd2561b3444ceabE.exit
 
 61:                                               ; preds = %.backedge.i, %.lr.ph.i
@@ -4954,7 +4954,7 @@ _ZN4core3ptr19swap_nonoverlapping17h93973e0533b90afaE.exit.i: ; preds = %178
   br i1 %229, label %.noexc._crit_edge.i, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77a6b49e9edf2996E.llvm.15879439192596696759.exit.i.i.i"
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77a6b49e9edf2996E.llvm.15879439192596696759.exit.i.i.i": ; preds = %211, %284
-  %230 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h69aace28243cdea2E.llvm.15879439192596696759"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  %230 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h69aace28243cdea2E.llvm.15879439192596696759"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
           to label %.noexc.i unwind label %234
 
 .noexc.i:                                         ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77a6b49e9edf2996E.llvm.15879439192596696759.exit.i.i.i"
@@ -4971,7 +4971,7 @@ _ZN4core3ptr19swap_nonoverlapping17h93973e0533b90afaE.exit.i: ; preds = %178
           to label %.thread.i unwind label %286
 
 .noexc._crit_edge.i:                              ; preds = %284, %.noexc.i, %211
-  invoke void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h55692c71e45927a2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h55692c71e45927a2E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
           to label %.noexc78.i unwind label %.thread110.i
 
 .noexc78.i:                                       ; preds = %.noexc._crit_edge.i
@@ -4998,7 +4998,7 @@ _ZN4core3ptr19swap_nonoverlapping17h93973e0533b90afaE.exit.i: ; preds = %178
 244:                                              ; preds = %239
   %245 = getelementptr inbounds i8, ptr %240, i64 80
   %246 = getelementptr inbounds i8, ptr %240, i64 112
-  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h89b569c7525acb3eE.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(32) %245, ptr noalias noundef nonnull readonly align 1 %246, i64 noundef 4, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h89b569c7525acb3eE.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(48) %245, ptr noalias noundef nonnull readonly align 1 %246, i64 noundef 4, i64 noundef 16)
           to label %._crit_edge.i30 unwind label %.thread107.i
 
 ._crit_edge.i30:                                  ; preds = %244
@@ -5106,7 +5106,7 @@ _ZN4core3ptr19swap_nonoverlapping17h93973e0533b90afaE.exit.i: ; preds = %178
 
 290:                                              ; preds = %.thread.i
   %291 = getelementptr inbounds i8, ptr %9, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h89b569c7525acb3eE.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %291, i64 noundef 4, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h89b569c7525acb3eE.llvm.15879439192596696759(ptr noalias noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %291, i64 noundef 4, i64 noundef 16)
           to label %common.resume unwind label %286
 
 _ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5sweep17ha0064095a8edc10bE.exit: ; preds = %261, %267, %269
@@ -5406,7 +5406,7 @@ define void @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition12write_gc_ref17
   %14 = load ptr, ptr %13, align 8, !alias.scope !563, !noalias !572, !nonnull !9, !align !59, !noundef !9
   %15 = getelementptr inbounds i8, ptr %14, i64 80
   %16 = load ptr, ptr %15, align 8, !invariant.load !9, !noalias !574, !nonnull !9
-  tail call void %16(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 4 dereferenceable(4) %0, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %2)
+  tail call void %16(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 4 dereferenceable(4) %0, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %2)
   br label %_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit
 
 .thread.i:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h0dc055d5459f1fceE.llvm.10220905185939527020.exit.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020.exit.thread.i"

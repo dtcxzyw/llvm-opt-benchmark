@@ -59,7 +59,7 @@ define dso_local void @_ZN4llvm3pdb21StringTableHashTraitsC2ERNS0_21PDBStringTab
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb21StringTableHashTraits13hashLookupKeyENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection14getIdForStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(68) %4, ptr %1, i64 %2) #11
+  %5 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection14getIdForStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr %1, i64 %2) #11
   %6 = and i32 %5, 65535
   ret i32 %6
 }
@@ -76,7 +76,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i64 } @_ZNK4llvm3pdb21StringTableHashTraits21storageKeyToLookupKeyEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call { ptr, i64 } @_ZNK4llvm8codeview26DebugStringTableSubsection14getStringForIdEj(ptr noundef nonnull align 8 dereferenceable(68) %3, i32 noundef %1) #11
+  %4 = tail call { ptr, i64 } @_ZNK4llvm8codeview26DebugStringTableSubsection14getStringForIdEj(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %1) #11
   ret { ptr, i64 } %4
 }
 
@@ -89,7 +89,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm3pdb21PDBStringTableBuilder14getStringFo
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN4llvm3pdb21StringTableHashTraits21lookupKeyToStorageKeyENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call noundef i32 @_ZN4llvm8codeview26DebugStringTableSubsection6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(68) %4, ptr %1, i64 %2) #11
+  %5 = tail call noundef i32 @_ZN4llvm8codeview26DebugStringTableSubsection6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr %1, i64 %2) #11
   ret i32 %5
 }
 
@@ -138,7 +138,7 @@ declare noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb21PDBStringTableBuilder23calculateSerializedSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection23calculateSerializedSizeEv(ptr noundef nonnull align 8 dereferenceable(68) %0) #11
-  %3 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %0) #11
+  %3 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #11
   br label %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i
 
 _ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i, %1
@@ -219,14 +219,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(68) ptr @_ZN4
   br label %_ZN4llvm8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EEEaSERKS7_.exit
 
 31:                                               ; preds = %9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 16, i1 false)
   br label %_ZN4llvm8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EEEaSERKS7_.exit
 
 _ZN4llvm8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EEEaSERKS7_.exit: ; preds = %2, %17, %31
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 20, i1 false)
   store i32 16, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %36 = load i32, ptr %35, align 4
@@ -361,7 +361,7 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEEC2ERKS2_.exit: ; preds = %_ZN4llvm9Str
 97:                                               ; preds = %.lr.ph.i6
   %98 = load i64, ptr %96, align 8
   %99 = add i64 %98, 17
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %96, i64 noundef %99, i64 noundef 8) #11
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %96, i64 noundef %99, i64 noundef 8) #11
   br label %100
 
 100:                                              ; preds = %97, %.lr.ph.i6, %.lr.ph.i6
@@ -396,7 +396,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i32 %5, ptr %6, align 4
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %3, i64 12) #11
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(12) %3, i64 12) #11
   ret void
 }
 
@@ -677,7 +677,7 @@ _ZN4llvm14TimeTraceScopeC2ENS_9StringRefE.exit:   ; preds = %3, %16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i8 0, ptr %19, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 32, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 0, ptr %20, align 8
   call void @_ZNK4llvm18BinaryStreamWriter5splitEm(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 noundef 12) #11
@@ -692,11 +692,11 @@ _ZN4llvm14TimeTraceScopeC2ENS_9StringRefE.exit:   ; preds = %3, %16
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
   store i32 1, ptr %23, align 4, !noalias !27
-  %24 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection23calculateSerializedSizeEv(ptr noundef nonnull align 8 dereferenceable(68) %1) #11, !noalias !27
+  %24 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection23calculateSerializedSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #11, !noalias !27
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   store i32 %24, ptr %25, align 4, !noalias !27
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr nonnull %5, i64 12) #11
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr nonnull align 1 dereferenceable(12) %5, i64 12) #11
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %26 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %26, null
@@ -711,13 +711,13 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm14TimeTrace
   store ptr %6, ptr %29, align 8, !alias.scope !30
   %30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5tupleIJRN4llvm18BinaryStreamWriterES2_EEaSIS1_S1_EENSt9enable_ifIXcl12__assignableIT_T0_EEERS3_E4typeEOSt4pairIS6_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(128) %9) #11
   call void @_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %9) #11
-  call void @_ZNK4llvm8codeview26DebugStringTableSubsection6commitERNS_18BinaryStreamWriterE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(68) %1, ptr noundef nonnull align 8 dereferenceable(64) %6) #11
+  call void @_ZNK4llvm8codeview26DebugStringTableSubsection6commitERNS_18BinaryStreamWriterE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(64) %6) #11
   %31 = load ptr, ptr %0, align 8
   %.not36 = icmp eq ptr %31, null
   br i1 %.not36, label %_ZN4llvm5ErrorD2Ev.exit29, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit29:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %32 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %1) #11
+  %32 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #11
   br label %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i
 
 _ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i, %_ZN4llvm5ErrorD2Ev.exit29
@@ -759,7 +759,7 @@ _ZN4llvm5ErrorD2Ev.exit30:                        ; preds = %_ZNK4llvm3pdb21PDBS
   store ptr %6, ptr %49, align 8, !alias.scope !36
   %50 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5tupleIJRN4llvm18BinaryStreamWriterES2_EEaSIS1_S1_EENSt9enable_ifIXcl12__assignableIT_T0_EEERS3_E4typeEOSt4pairIS6_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(128) %13) #11
   call void @_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %13) #11
-  %51 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %1) #11, !noalias !39
+  %51 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #11, !noalias !39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !39
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %53 = load ptr, ptr %52, align 8, !noalias !42

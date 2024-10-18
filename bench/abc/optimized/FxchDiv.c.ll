@@ -1654,7 +1654,7 @@ Vec_QueIsMember.exit.thread:                      ; preds = %144, %Vec_QueIsMemb
 156:                                              ; preds = %Vec_QueIsMember.exit.thread
   %157 = add nsw i32 %155, 1
   %158 = shl nsw i32 %145, 1
-  %159 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %157, i32 %158)
+  %159 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %157, i32 %158)
   tail call fastcc void @Vec_QueGrow(ptr noundef nonnull %143, i32 noundef %159)
   %.pre.i46 = load i32, ptr %143, align 8
   br label %160
@@ -1667,7 +1667,7 @@ Vec_QueIsMember.exit.thread:                      ; preds = %144, %Vec_QueIsMemb
 162:                                              ; preds = %160
   %163 = add nsw i32 %9, 1
   %164 = shl nsw i32 %161, 1
-  %165 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %163, i32 %164)
+  %165 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %163, i32 %164)
   tail call fastcc void @Vec_QueGrow(ptr noundef nonnull %143, i32 noundef %165)
   br label %166
 

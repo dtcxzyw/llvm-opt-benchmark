@@ -842,7 +842,7 @@ if.then.i:                                        ; preds = %if.then
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %m_clBuffer.i, align 8
   %mul2.i = shl i64 %4, 3
-  %call3.i = tail call i32 %7(ptr noundef %8, ptr noundef %9, i32 noundef 0, i64 noundef 0, i64 noundef %mul2.i, ptr noundef %6, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call3.i = tail call i32 %7(ptr noundef %8, ptr noundef %9, i32 noundef 0, i64 noundef 0, i64 noundef %mul2.i, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -968,7 +968,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -1342,7 +1342,7 @@ if.end.i:                                         ; preds = %_ZN20b3AlignedObjec
   %41 = load i32, ptr %m_idx.i, align 8
   %inc.i = add nsw i32 %41, 1
   store i32 %inc.i, ptr %m_idx.i, align 8
-  %call.i52 = invoke i32 %39(ptr noundef %40, i32 noundef %41, i64 noundef 16, ptr noundef nonnull %cdata)
+  %call.i52 = invoke i32 %39(ptr noundef %40, i32 noundef %41, i64 noundef 16, ptr noundef nonnull align 4 dereferenceable(16) %cdata)
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %if.end.i
@@ -1511,7 +1511,7 @@ if.end.i61:                                       ; preds = %_ZN20b3AlignedObjec
   %64 = load i32, ptr %m_idx.i66, align 8
   %inc.i64 = add nsw i32 %64, 1
   store i32 %inc.i64, ptr %m_idx.i66, align 8
-  %call.i88 = invoke i32 %62(ptr noundef %63, i32 noundef %64, i64 noundef 16, ptr noundef nonnull %cdata)
+  %call.i88 = invoke i32 %62(ptr noundef %63, i32 noundef %64, i64 noundef 16, ptr noundef nonnull align 4 dereferenceable(16) %cdata)
           to label %invoke.cont48 unwind label %lpad46
 
 invoke.cont48:                                    ; preds = %if.end.i61
@@ -1694,7 +1694,7 @@ if.end.i112:                                      ; preds = %_ZN20b3AlignedObjec
   %90 = load i32, ptr %m_idx.i117, align 8
   %inc.i115 = add nsw i32 %90, 1
   store i32 %inc.i115, ptr %m_idx.i117, align 8
-  %call.i139 = invoke i32 %88(ptr noundef %89, i32 noundef %90, i64 noundef 16, ptr noundef nonnull %cdata)
+  %call.i139 = invoke i32 %88(ptr noundef %89, i32 noundef %90, i64 noundef 16, ptr noundef nonnull align 4 dereferenceable(16) %cdata)
           to label %invoke.cont67 unwind label %lpad65
 
 invoke.cont67:                                    ; preds = %if.end.i112
@@ -2182,7 +2182,7 @@ if.end.i:                                         ; preds = %_ZN20b3AlignedObjec
   %42 = load i32, ptr %m_idx.i, align 8
   %inc.i = add nsw i32 %42, 1
   store i32 %inc.i, ptr %m_idx.i, align 8
-  %call.i61 = invoke i32 %40(ptr noundef %41, i32 noundef %42, i64 noundef 16, ptr noundef nonnull %cdata)
+  %call.i61 = invoke i32 %40(ptr noundef %41, i32 noundef %42, i64 noundef 16, ptr noundef nonnull align 4 dereferenceable(16) %cdata)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %if.end.i
@@ -2351,7 +2351,7 @@ if.end.i70:                                       ; preds = %_ZN20b3AlignedObjec
   %65 = load i32, ptr %m_idx.i75, align 8
   %inc.i73 = add nsw i32 %65, 1
   store i32 %inc.i73, ptr %m_idx.i75, align 8
-  %call.i97 = invoke i32 %63(ptr noundef %64, i32 noundef %65, i64 noundef 16, ptr noundef nonnull %cdata)
+  %call.i97 = invoke i32 %63(ptr noundef %64, i32 noundef %65, i64 noundef 16, ptr noundef nonnull align 4 dereferenceable(16) %cdata)
           to label %invoke.cont50 unwind label %lpad48
 
 invoke.cont50:                                    ; preds = %if.end.i70
@@ -2534,7 +2534,7 @@ if.end.i121:                                      ; preds = %_ZN20b3AlignedObjec
   %91 = load i32, ptr %m_idx.i126, align 8
   %inc.i124 = add nsw i32 %91, 1
   store i32 %inc.i124, ptr %m_idx.i126, align 8
-  %call.i148 = invoke i32 %89(ptr noundef %90, i32 noundef %91, i64 noundef 16, ptr noundef nonnull %cdata)
+  %call.i148 = invoke i32 %89(ptr noundef %90, i32 noundef %91, i64 noundef 16, ptr noundef nonnull align 4 dereferenceable(16) %cdata)
           to label %invoke.cont69 unwind label %lpad67
 
 invoke.cont69:                                    ; preds = %if.end.i121

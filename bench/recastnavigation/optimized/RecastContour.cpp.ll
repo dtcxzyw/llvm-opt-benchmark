@@ -349,7 +349,7 @@ _ZN9rcContext9stopTimerE12rcTimerLabel.exit:      ; preds = %._crit_edge851, %18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   store i32 0, ptr %20, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef 256, ptr noundef nonnull %20)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef 256, ptr noundef nonnull align 4 dereferenceable(4) %20)
           to label %184 unwind label %107
 
 184:                                              ; preds = %_ZN9rcContext9stopTimerE12rcTimerLabel.exit
@@ -357,7 +357,7 @@ _ZN9rcContext9stopTimerE12rcTimerLabel.exit:      ; preds = %._crit_edge851, %18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   store i32 0, ptr %19, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef 64, ptr noundef nonnull %19)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef 64, ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %_ZN10rcIntArrayC2Ei.exit349 unwind label %1901
 
 _ZN10rcIntArrayC2Ei.exit349:                      ; preds = %184

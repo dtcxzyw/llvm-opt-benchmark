@@ -106,7 +106,7 @@ define dso_local void @gistSplitByKey(ptr noundef %0, ptr noundef %1, ptr nounde
   %60 = sext i16 %47 to i32
   %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %61)
-  %62 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %60) #7
+  %62 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef range(i32 -32768, 32768) %60) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #7
   unreachable
 

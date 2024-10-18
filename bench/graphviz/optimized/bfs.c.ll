@@ -34,14 +34,14 @@ define void @bfs(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef 
 
 14:                                               ; preds = %._crit_edge
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, i64 noundef %13, i64 noundef 4) #12
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 4) #12
   tail call fastcc void @graphviz_exit() #13
   unreachable
 
 17:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %18 = phi i64 [ %10, %._crit_edge.thread ], [ %13, %._crit_edge ]
   %19 = icmp ne i32 %2, 0
-  %20 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 4) #14
+  %20 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %18, i64 noundef 4) #14
   %21 = icmp eq ptr %20, null
   %or.cond3.i.i = and i1 %19, %21
   br i1 %or.cond3.i.i, label %22, label %mkQueue.exit
@@ -217,13 +217,13 @@ define void @mkQueue(ptr nocapture noundef writeonly %0, i32 noundef %1) local_u
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, i64 noundef %3, i64 noundef 4) #12
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef 4) #12
   tail call fastcc void @graphviz_exit() #13
   unreachable
 
 7:                                                ; preds = %2
   %8 = icmp ne i32 %1, 0
-  %9 = tail call noalias ptr @calloc(i64 noundef %3, i64 noundef 4) #14
+  %9 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef 4) #14
   %10 = icmp eq ptr %9, null
   %or.cond3.i = and i1 %8, %10
   br i1 %or.cond3.i, label %11, label %gv_calloc.exit

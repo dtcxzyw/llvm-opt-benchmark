@@ -7348,7 +7348,7 @@ get_typedef_config.exit:                          ; preds = %25
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %29, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = call fastcc i32 @dissect_someip_payload_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %34, i32 noundef %36, ptr noundef %38, ptr noundef %7, i32 noundef %8)
+  %39 = call fastcc i32 @dissect_someip_payload_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %34, i32 noundef %36, ptr noundef %38, ptr noundef %7, i32 noundef range(i32 -1, 1) %8)
   br label %dissect_someip_payload_typedef.exit
 
 40:                                               ; preds = %9, %9
@@ -7487,7 +7487,7 @@ get_base_type_config.exit.i:                      ; preds = %53
   store i64 0, ptr %20, align 8
   %103 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %104 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %105 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %102, ptr noundef %0, i32 noundef %8, i32 noundef %103, i32 noundef %104, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %20) #14
+  %105 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %102, ptr noundef %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %103, i32 noundef %104, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %20) #14
   %.not.i.i.i = icmp eq ptr %105, null
   br i1 %.not.i.i.i, label %dissect_someip_payload_add_wtlv_if_needed.exit.i, label %106
 
@@ -7595,7 +7595,7 @@ get_string_config.exit.i:                         ; preds = %128
   store i64 0, ptr %18, align 8
   %147 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %148 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %149 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %146, ptr noundef %0, i32 noundef %8, i32 noundef %147, i32 noundef %148, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %18) #14
+  %149 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %146, ptr noundef %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %147, i32 noundef %148, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %18) #14
   %.not.i.i.i64 = icmp eq ptr %149, null
   br i1 %.not.i.i.i64, label %proto_item_set_hidden.exit.i.i, label %150
 
@@ -7804,7 +7804,7 @@ get_array_config.exit:                            ; preds = %219
   store i64 0, ptr %16, align 8
   %251 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %252 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %253 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i, ptr noundef %0, i32 noundef %8, i32 noundef %251, i32 noundef %252, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %16) #14
+  %253 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i, ptr noundef %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %251, i32 noundef %252, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %16) #14
   %.not.i.i = icmp eq ptr %253, null
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %254
 
@@ -7977,7 +7977,7 @@ get_struct_config.exit:                           ; preds = %308
   store i64 0, ptr %14, align 8
   %333 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %334 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %335 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i83, ptr noundef nonnull %0, i32 noundef %8, i32 noundef %333, i32 noundef %334, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %14) #14
+  %335 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i83, ptr noundef nonnull %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %333, i32 noundef %334, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %14) #14
   %.not.i.i84 = icmp eq ptr %335, null
   br i1 %.not.i.i84, label %proto_item_set_hidden.exit.i86, label %336
 
@@ -8133,7 +8133,7 @@ get_union_config.exit:                            ; preds = %384
   store i64 0, ptr %11, align 8
   %413 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %414 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %415 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i94, ptr noundef %0, i32 noundef %8, i32 noundef %413, i32 noundef %414, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %11) #14
+  %415 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i94, ptr noundef %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %413, i32 noundef %414, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %11) #14
   %.not.i.i95 = icmp eq ptr %415, null
   br i1 %.not.i.i95, label %proto_item_set_hidden.exit.i97, label %416
 

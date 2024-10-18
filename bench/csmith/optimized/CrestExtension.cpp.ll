@@ -124,7 +124,7 @@ _ZNSt6vectorIP14ExtensionValueSaIS1_EE5clearEv.exit.i: ; preds = %6, %1
   br label %_ZN14CrestExtensionD2Ev.exit
 
 _ZN14CrestExtensionD2Ev.exit:                     ; preds = %_ZNSt6vectorIP14ExtensionValueSaIS1_EE5clearEv.exit.i, %7
-  tail call void @_ZN12AbsExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZN12AbsExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }

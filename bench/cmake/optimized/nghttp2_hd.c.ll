@@ -3499,12 +3499,12 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 10:                                               ; preds = %7
-  %bcmp.i143 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @.str.68, ptr noundef nonnull readonly dereferenceable(2) %0, i64 2)
+  %bcmp.i143 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.68, ptr noundef nonnull readonly dereferenceable(2) %0, i64 2)
   %.not257 = icmp eq i32 %bcmp.i143, 0
   br i1 %.not257, label %123, label %122
 
 11:                                               ; preds = %7
-  %bcmp.i144 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @.str.69, ptr noundef nonnull readonly dereferenceable(2) %0, i64 2)
+  %bcmp.i144 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.69, ptr noundef nonnull readonly dereferenceable(2) %0, i64 2)
   %.not256 = icmp eq i32 %bcmp.i144, 0
   br i1 %.not256, label %123, label %122
 
@@ -3521,32 +3521,32 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 15:                                               ; preds = %12
-  %bcmp.i145 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.70, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
+  %bcmp.i145 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.70, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not255 = icmp eq i32 %bcmp.i145, 0
   br i1 %.not255, label %123, label %122
 
 16:                                               ; preds = %12
-  %bcmp.i146 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.71, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
+  %bcmp.i146 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.71, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not254 = icmp eq i32 %bcmp.i146, 0
   br i1 %.not254, label %123, label %122
 
 17:                                               ; preds = %12
-  %bcmp.i147 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.72, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
+  %bcmp.i147 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.72, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not253 = icmp eq i32 %bcmp.i147, 0
   br i1 %.not253, label %123, label %122
 
 18:                                               ; preds = %12
-  %bcmp.i148 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.73, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
+  %bcmp.i148 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.73, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not252 = icmp eq i32 %bcmp.i148, 0
   br i1 %.not252, label %123, label %122
 
 19:                                               ; preds = %12
-  %bcmp.i149 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.74, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
+  %bcmp.i149 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.74, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not251 = icmp eq i32 %bcmp.i149, 0
   br i1 %.not251, label %123, label %122
 
 20:                                               ; preds = %12
-  %bcmp.i150 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) @.str.75, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
+  %bcmp.i150 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.75, ptr noundef nonnull readonly dereferenceable(3) %0, i64 3)
   %.not250 = icmp eq i32 %bcmp.i150, 0
   br i1 %.not250, label %123, label %122
 
@@ -3560,17 +3560,17 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 24:                                               ; preds = %21
-  %bcmp.i151 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) @.str.76, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
+  %bcmp.i151 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.76, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not249 = icmp eq i32 %bcmp.i151, 0
   br i1 %.not249, label %123, label %122
 
 25:                                               ; preds = %21
-  %bcmp.i152 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) @.str.77, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
+  %bcmp.i152 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.77, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not248 = icmp eq i32 %bcmp.i152, 0
   br i1 %.not248, label %123, label %122
 
 26:                                               ; preds = %21
-  %bcmp.i153 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) @.str.78, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
+  %bcmp.i153 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.78, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not247 = icmp eq i32 %bcmp.i153, 0
   br i1 %.not247, label %123, label %122
 
@@ -3584,22 +3584,22 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 30:                                               ; preds = %27
-  %bcmp.i154 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.79, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
+  %bcmp.i154 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.79, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
   %.not246 = icmp eq i32 %bcmp.i154, 0
   br i1 %.not246, label %123, label %122
 
 31:                                               ; preds = %27
-  %bcmp.i155 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.80, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
+  %bcmp.i155 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.80, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
   %.not245 = icmp eq i32 %bcmp.i155, 0
   br i1 %.not245, label %123, label %122
 
 32:                                               ; preds = %27
-  %bcmp.i156 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.81, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
+  %bcmp.i156 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.81, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
   %.not243 = icmp eq i32 %bcmp.i156, 0
   br i1 %.not243, label %123, label %33
 
 33:                                               ; preds = %32
-  %bcmp.i157 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.82, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
+  %bcmp.i157 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.82, ptr noundef nonnull readonly dereferenceable(5) %0, i64 5)
   %.not244 = icmp eq i32 %bcmp.i157, 0
   br i1 %.not244, label %123, label %122
 
@@ -3615,37 +3615,37 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 37:                                               ; preds = %34
-  %bcmp.i158 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.83, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
+  %bcmp.i158 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.83, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not242 = icmp eq i32 %bcmp.i158, 0
   br i1 %.not242, label %123, label %122
 
 38:                                               ; preds = %34
-  %bcmp.i159 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.84, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
+  %bcmp.i159 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.84, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not240 = icmp eq i32 %bcmp.i159, 0
   br i1 %.not240, label %123, label %39
 
 39:                                               ; preds = %38
-  %bcmp.i160 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.85, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
+  %bcmp.i160 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.85, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not241 = icmp eq i32 %bcmp.i160, 0
   br i1 %.not241, label %123, label %122
 
 40:                                               ; preds = %34
-  %bcmp.i161 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.86, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
+  %bcmp.i161 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.86, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not239 = icmp eq i32 %bcmp.i161, 0
   br i1 %.not239, label %123, label %122
 
 41:                                               ; preds = %34
-  %bcmp.i162 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.87, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
+  %bcmp.i162 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.87, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not238 = icmp eq i32 %bcmp.i162, 0
   br i1 %.not238, label %123, label %122
 
 42:                                               ; preds = %34
-  %bcmp.i163 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.88, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
+  %bcmp.i163 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.88, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not236 = icmp eq i32 %bcmp.i163, 0
   br i1 %.not236, label %123, label %43
 
 43:                                               ; preds = %42
-  %bcmp.i164 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) @.str.89, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
+  %bcmp.i164 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.89, ptr noundef nonnull readonly dereferenceable(6) %0, i64 6)
   %.not237 = icmp eq i32 %bcmp.i164, 0
   br i1 %.not237, label %123, label %122
 
@@ -3660,22 +3660,22 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 47:                                               ; preds = %44
-  %bcmp.i165 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.90, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
+  %bcmp.i165 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.90, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
   %.not235 = icmp eq i32 %bcmp.i165, 0
   br i1 %.not235, label %123, label %122
 
 48:                                               ; preds = %44
-  %bcmp.i166 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.91, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
+  %bcmp.i166 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.91, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
   %.not234 = icmp eq i32 %bcmp.i166, 0
   br i1 %.not234, label %123, label %122
 
 49:                                               ; preds = %44
-  %bcmp.i167 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.92, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
+  %bcmp.i167 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.92, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
   %.not233 = icmp eq i32 %bcmp.i167, 0
   br i1 %.not233, label %123, label %122
 
 50:                                               ; preds = %44
-  %bcmp.i168 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @.str.93, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
+  %bcmp.i168 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.93, ptr noundef nonnull readonly dereferenceable(7) %0, i64 7)
   %.not232 = icmp eq i32 %bcmp.i168, 0
   br i1 %.not232, label %123, label %122
 
@@ -3686,7 +3686,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %cond4, label %54, label %122
 
 54:                                               ; preds = %51
-  %bcmp.i169 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) @.str.94, ptr noundef nonnull readonly dereferenceable(8) %0, i64 8)
+  %bcmp.i169 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) @.str.94, ptr noundef nonnull readonly dereferenceable(8) %0, i64 8)
   %.not231 = icmp eq i32 %bcmp.i169, 0
   br i1 %.not231, label %123, label %122
 
@@ -3701,27 +3701,27 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 58:                                               ; preds = %55
-  %bcmp.i170 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.95, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
+  %bcmp.i170 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.95, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not229 = icmp eq i32 %bcmp.i170, 0
   br i1 %.not229, label %123, label %59
 
 59:                                               ; preds = %58
-  %bcmp.i171 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.96, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
+  %bcmp.i171 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.96, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not230 = icmp eq i32 %bcmp.i171, 0
   br i1 %.not230, label %123, label %122
 
 60:                                               ; preds = %55
-  %bcmp.i172 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.97, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
+  %bcmp.i172 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.97, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not228 = icmp eq i32 %bcmp.i172, 0
   br i1 %.not228, label %123, label %122
 
 61:                                               ; preds = %55
-  %bcmp.i173 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.98, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
+  %bcmp.i173 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.98, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not227 = icmp eq i32 %bcmp.i173, 0
   br i1 %.not227, label %123, label %122
 
 62:                                               ; preds = %55
-  %bcmp.i174 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.99, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
+  %bcmp.i174 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.99, ptr noundef nonnull readonly dereferenceable(9) %0, i64 9)
   %.not226 = icmp eq i32 %bcmp.i174, 0
   br i1 %.not226, label %123, label %122
 
@@ -3732,7 +3732,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %cond3, label %66, label %122
 
 66:                                               ; preds = %63
-  %bcmp.i175 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) @.str.100, ptr noundef nonnull readonly dereferenceable(10) %0, i64 10)
+  %bcmp.i175 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @.str.100, ptr noundef nonnull readonly dereferenceable(10) %0, i64 10)
   %.not225 = icmp eq i32 %bcmp.i175, 0
   br i1 %.not225, label %123, label %122
 
@@ -3745,12 +3745,12 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 70:                                               ; preds = %67
-  %bcmp.i176 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) @.str.101, ptr noundef nonnull readonly dereferenceable(11) %0, i64 11)
+  %bcmp.i176 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) @.str.101, ptr noundef nonnull readonly dereferenceable(11) %0, i64 11)
   %.not224 = icmp eq i32 %bcmp.i176, 0
   br i1 %.not224, label %123, label %122
 
 71:                                               ; preds = %67
-  %bcmp.i177 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) @.str.102, ptr noundef nonnull readonly dereferenceable(11) %0, i64 11)
+  %bcmp.i177 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) @.str.102, ptr noundef nonnull readonly dereferenceable(11) %0, i64 11)
   %.not223 = icmp eq i32 %bcmp.i177, 0
   br i1 %.not223, label %123, label %122
 
@@ -3767,32 +3767,32 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 75:                                               ; preds = %72
-  %bcmp.i178 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.103, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
+  %bcmp.i178 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.103, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not222 = icmp eq i32 %bcmp.i178, 0
   br i1 %.not222, label %123, label %122
 
 76:                                               ; preds = %72
-  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.104, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
+  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.104, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not221 = icmp eq i32 %bcmp.i179, 0
   br i1 %.not221, label %123, label %122
 
 77:                                               ; preds = %72
-  %bcmp.i180 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.105, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
+  %bcmp.i180 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.105, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not220 = icmp eq i32 %bcmp.i180, 0
   br i1 %.not220, label %123, label %122
 
 78:                                               ; preds = %72
-  %bcmp.i181 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.106, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
+  %bcmp.i181 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.106, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not219 = icmp eq i32 %bcmp.i181, 0
   br i1 %.not219, label %123, label %122
 
 79:                                               ; preds = %72
-  %bcmp.i182 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.107, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
+  %bcmp.i182 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.107, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not218 = icmp eq i32 %bcmp.i182, 0
   br i1 %.not218, label %123, label %122
 
 80:                                               ; preds = %72
-  %bcmp.i183 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @.str.108, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
+  %bcmp.i183 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.108, ptr noundef nonnull readonly dereferenceable(12) %0, i64 12)
   %.not217 = icmp eq i32 %bcmp.i183, 0
   br i1 %.not217, label %123, label %122
 
@@ -3805,12 +3805,12 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 84:                                               ; preds = %81
-  %bcmp.i184 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @.str.109, ptr noundef nonnull readonly dereferenceable(13) %0, i64 13)
+  %bcmp.i184 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @.str.109, ptr noundef nonnull readonly dereferenceable(13) %0, i64 13)
   %.not216 = icmp eq i32 %bcmp.i184, 0
   br i1 %.not216, label %123, label %122
 
 85:                                               ; preds = %81
-  %bcmp.i185 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @.str.110, ptr noundef nonnull readonly dereferenceable(13) %0, i64 13)
+  %bcmp.i185 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @.str.110, ptr noundef nonnull readonly dereferenceable(13) %0, i64 13)
   %.not215 = icmp eq i32 %bcmp.i185, 0
   br i1 %.not215, label %123, label %122
 
@@ -3823,12 +3823,12 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 89:                                               ; preds = %86
-  %bcmp.i186 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @.str.111, ptr noundef nonnull readonly dereferenceable(14) %0, i64 14)
+  %bcmp.i186 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @.str.111, ptr noundef nonnull readonly dereferenceable(14) %0, i64 14)
   %.not214 = icmp eq i32 %bcmp.i186, 0
   br i1 %.not214, label %123, label %122
 
 90:                                               ; preds = %86
-  %bcmp.i187 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @.str.112, ptr noundef nonnull readonly dereferenceable(14) %0, i64 14)
+  %bcmp.i187 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @.str.112, ptr noundef nonnull readonly dereferenceable(14) %0, i64 14)
   %.not213 = icmp eq i32 %bcmp.i187, 0
   br i1 %.not213, label %123, label %122
 
@@ -3842,27 +3842,27 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 94:                                               ; preds = %91
-  %bcmp.i188 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.113, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
+  %bcmp.i188 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.113, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not211 = icmp eq i32 %bcmp.i188, 0
   br i1 %.not211, label %123, label %95
 
 95:                                               ; preds = %94
-  %bcmp.i189 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.114, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
+  %bcmp.i189 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.114, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not212 = icmp eq i32 %bcmp.i189, 0
   br i1 %.not212, label %123, label %122
 
 96:                                               ; preds = %91
-  %bcmp.i190 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.115, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
+  %bcmp.i190 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.115, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not210 = icmp eq i32 %bcmp.i190, 0
   br i1 %.not210, label %123, label %122
 
 97:                                               ; preds = %91
-  %bcmp.i191 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.116, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
+  %bcmp.i191 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.116, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not208 = icmp eq i32 %bcmp.i191, 0
   br i1 %.not208, label %123, label %98
 
 98:                                               ; preds = %97
-  %bcmp.i192 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @.str.117, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
+  %bcmp.i192 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.117, ptr noundef nonnull readonly dereferenceable(15) %0, i64 15)
   %.not209 = icmp eq i32 %bcmp.i192, 0
   br i1 %.not209, label %123, label %122
 
@@ -3875,12 +3875,12 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 102:                                              ; preds = %99
-  %bcmp.i193 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) @.str.118, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
+  %bcmp.i193 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @.str.118, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
   %.not207 = icmp eq i32 %bcmp.i193, 0
   br i1 %.not207, label %123, label %122
 
 103:                                              ; preds = %99
-  %bcmp.i194 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) @.str.119, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
+  %bcmp.i194 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @.str.119, ptr noundef nonnull readonly dereferenceable(16) %0, i64 16)
   %.not206 = icmp eq i32 %bcmp.i194, 0
   br i1 %.not206, label %123, label %122
 
@@ -3891,7 +3891,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %cond2, label %107, label %122
 
 107:                                              ; preds = %104
-  %bcmp.i195 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(17) @.str.120, ptr noundef nonnull readonly dereferenceable(17) %0, i64 17)
+  %bcmp.i195 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @.str.120, ptr noundef nonnull readonly dereferenceable(17) %0, i64 17)
   %.not205 = icmp eq i32 %bcmp.i195, 0
   br i1 %.not205, label %123, label %122
 
@@ -3904,17 +3904,17 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 111:                                              ; preds = %108
-  %bcmp.i196 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @.str.121, ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
+  %bcmp.i196 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @.str.121, ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
   %.not204 = icmp eq i32 %bcmp.i196, 0
   br i1 %.not204, label %123, label %122
 
 112:                                              ; preds = %108
-  %bcmp.i197 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @.str.122, ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
+  %bcmp.i197 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @.str.122, ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
   %.not202 = icmp eq i32 %bcmp.i197, 0
   br i1 %.not202, label %123, label %113
 
 113:                                              ; preds = %112
-  %bcmp.i198 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @.str.123, ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
+  %bcmp.i198 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @.str.123, ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
   %.not203 = icmp eq i32 %bcmp.i198, 0
   br i1 %.not203, label %123, label %122
 
@@ -3925,7 +3925,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %cond1, label %117, label %122
 
 117:                                              ; preds = %114
-  %bcmp.i199 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) @.str.124, ptr noundef nonnull readonly dereferenceable(24) %0, i64 24)
+  %bcmp.i199 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(24) @.str.124, ptr noundef nonnull readonly dereferenceable(24) %0, i64 24)
   %.not201 = icmp eq i32 %bcmp.i199, 0
   br i1 %.not201, label %123, label %122
 
@@ -3936,7 +3936,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %cond, label %121, label %122
 
 121:                                              ; preds = %118
-  %bcmp.i200 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(26) @.str.125, ptr noundef nonnull readonly dereferenceable(26) %0, i64 26)
+  %bcmp.i200 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) @.str.125, ptr noundef nonnull readonly dereferenceable(26) %0, i64 26)
   %.not = icmp eq i32 %bcmp.i200, 0
   br i1 %.not, label %123, label %122
 

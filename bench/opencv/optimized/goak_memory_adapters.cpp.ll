@@ -257,7 +257,7 @@ define void @_ZN2cv4gapi3oak15OAKMediaAdapter6accessENS_10MediaFrame6AccessE(ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep13, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %6, i64 16
   %23 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN2cv10MediaFrame4ViewC1EOSt5arrayIPvLm4EEOS4_ImLm4EEOSt8functionIS0_EEd_UlvE_E9_M_invokeERKSt9_Any_data, ptr %23, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN2cv10MediaFrame4ViewC1EOSt5arrayIPvLm4EEOS4_ImLm4EEOSt8functionIS0_EEd_UlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %22, align 8
   invoke void @_ZN2cv10MediaFrame4ViewC1EOSt5arrayIPvLm4EEOS2_ImLm4EEOSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -269,7 +269,7 @@ define void @_ZN2cv4gapi3oak15OAKMediaAdapter6accessENS_10MediaFrame6AccessE(ptr
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %28
 
 28:                                               ; preds = %26
@@ -290,7 +290,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %24, %26
   br i1 %.not.i.i11, label %_ZNSt8functionIFvvEED2Ev.exit12, label %34
 
 34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit12 unwind label %36
 
 36:                                               ; preds = %34
@@ -383,7 +383,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %19
   store ptr %33, ptr %23, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 48
   %35 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, i8 -1, i64 16, i1 false)
   store i8 0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
@@ -535,7 +535,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK2cv4gapi3oak14OAKRMatAdapter4descEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(17) %3, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 17, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 72
   %6 = getelementptr inbounds i8, ptr %1, i64 80
@@ -599,7 +599,7 @@ define void @_ZN2cv4gapi3oak14OAKRMatAdapter6accessENS_4RMat6AccessE(ptr dead_on
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %14
 
 14:                                               ; preds = %12
@@ -630,7 +630,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt8functionIFvvE
   br i1 %.not.i.i2, label %_ZNSt8functionIFvvEED2Ev.exit3, label %23
 
 23:                                               ; preds = %19
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit3 unwind label %25
 
 25:                                               ; preds = %23
@@ -686,7 +686,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3oak15OAKMediaAdapterD0Ev(ptr nounde
   br label %_ZN2cv4gapi3oak15OAKMediaAdapterD2Ev.exit
 
 _ZN2cv4gapi3oak15OAKMediaAdapterD2Ev.exit:        ; preds = %1, %4
-  tail call void @_ZN2cv10MediaFrame8IAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv10MediaFrame8IAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

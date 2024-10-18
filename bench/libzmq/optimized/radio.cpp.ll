@@ -201,7 +201,7 @@ define void @_ZThn1448_N3zmq7radio_tD0Ev(ptr noundef %this) unnamed_addr #4 alig
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq7radio_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1968) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1968) %0) #21
   ret void
 }
 
@@ -210,7 +210,7 @@ define void @_ZThn1464_N3zmq7radio_tD0Ev(ptr noundef %this) unnamed_addr #4 alig
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq7radio_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1968) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1968) %0) #21
   ret void
 }
 
@@ -219,7 +219,7 @@ define void @_ZThn1472_N3zmq7radio_tD0Ev(ptr noundef %this) unnamed_addr #4 alig
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
   tail call void @_ZN3zmq7radio_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1968) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1968) %0) #21
   ret void
 }
 
@@ -413,7 +413,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then17:                                        ; preds = %for.body
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %it.sroa.0.08, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #22
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i.i.i) #22
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #21
   %6 = load i64, ptr %_M_node_count.i.i.i, align 8
   %dec.i.i.i = add i64 %6, -1
@@ -541,7 +541,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 if.then:                                          ; preds = %for.body
   %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %it.sroa.0.014, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #22
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #21
   %2 = load i64, ptr %_M_node_count.i.i.i, align 8
   %dec.i.i.i = add i64 %2, -1
@@ -878,7 +878,7 @@ define void @_ZThn1448_N3zmq15radio_session_tD0Ev(ptr noundef %this) unnamed_add
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq15radio_session_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1696) %0) #21
   ret void
 }
 
@@ -887,7 +887,7 @@ define void @_ZThn1464_N3zmq15radio_session_tD0Ev(ptr noundef %this) unnamed_add
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq15radio_session_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1696) %0) #21
   ret void
 }
 
@@ -1241,7 +1241,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
@@ -1264,7 +1264,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args) #22
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 64
   %0 = load ptr, ptr %__args1, align 8
   store ptr %0, ptr %second.i.i.i.i.i.i, align 8

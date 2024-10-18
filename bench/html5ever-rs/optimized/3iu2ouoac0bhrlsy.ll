@@ -93,7 +93,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1aa226528d5e00f7E.llvm.5870598909725602671"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1aa226528d5e00f7E.llvm.5870598909725602671"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !4, !noalias !6, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -270,7 +270,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice
   br i1 %.not.i, label %83, label %.thread255
 
 83:                                               ; preds = %82
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull readonly dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !26
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !26
   %84 = icmp ne i32 %bcmp.i, 0
   br label %.thread255
 
@@ -278,7 +278,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit141", label %.thread255
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit141": ; preds = %85
-  %bcmp.i140 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull readonly dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !30
+  %bcmp.i140 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !30
   %86 = icmp eq i32 %bcmp.i140, 0
   %.not.i149 = icmp eq i64 %.sroa.3.0.i132, 19
   %or.cond290 = and i1 %.not.i149, %86
@@ -380,7 +380,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br i1 %119, label %.loopexit332, label %.lr.ph.i.i.i142
 
 120:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit141"
-  %bcmp.i151 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(19) %.sroa.0.0.i133, ptr noundef nonnull readonly dereferenceable(19) @anon.dcf0590ddea9489929259de672f22440.68, i64 19), !alias.scope !57
+  %bcmp.i151 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) %.sroa.0.0.i133, ptr noundef nonnull dereferenceable(19) @anon.dcf0590ddea9489929259de672f22440.68, i64 19), !alias.scope !57
   %121 = icmp ne i32 %bcmp.i151, 0
   br label %.thread255
 
@@ -388,7 +388,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit156", label %.thread
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit156": ; preds = %122
-  %bcmp.i155 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull readonly dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !61
+  %bcmp.i155 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !61
   %123 = icmp eq i32 %bcmp.i155, 0
   br i1 %123, label %126, label %.thread
 
@@ -396,7 +396,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit160", label %.thread
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit160": ; preds = %124
-  %bcmp.i159 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull readonly dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !65
+  %bcmp.i159 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !65
   %125 = icmp eq i32 %bcmp.i159, 0
   br i1 %125, label %130, label %.thread
 
@@ -407,12 +407,12 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit164": ; preds = %126
-  %bcmp.i163 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) %.sroa.0.0.i126, ptr noundef nonnull readonly dereferenceable(24) @anon.dcf0590ddea9489929259de672f22440.69, i64 24), !alias.scope !69
+  %bcmp.i163 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(24) %.sroa.0.0.i126, ptr noundef nonnull dereferenceable(24) @anon.dcf0590ddea9489929259de672f22440.69, i64 24), !alias.scope !69
   %127 = icmp ne i32 %bcmp.i163, 0
   br label %.thread
 
 128:                                              ; preds = %126
-  %bcmp.i167 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) %.sroa.0.0.i126, ptr noundef nonnull readonly dereferenceable(25) @anon.dcf0590ddea9489929259de672f22440.70, i64 25), !alias.scope !73
+  %bcmp.i167 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(25) %.sroa.0.0.i126, ptr noundef nonnull dereferenceable(25) @anon.dcf0590ddea9489929259de672f22440.70, i64 25), !alias.scope !73
   %129 = icmp ne i32 %bcmp.i167, 0
   br label %.thread
 
@@ -424,33 +424,33 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit172": ; preds = %130
-  %bcmp.i171 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) %.sroa.0.0.i126, ptr noundef nonnull readonly dereferenceable(24) @anon.dcf0590ddea9489929259de672f22440.69, i64 24), !alias.scope !77
+  %bcmp.i171 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(24) %.sroa.0.0.i126, ptr noundef nonnull dereferenceable(24) @anon.dcf0590ddea9489929259de672f22440.69, i64 24), !alias.scope !77
   %131 = icmp eq i32 %bcmp.i171, 0
   %.not.i177 = icmp eq i64 %.sroa.3.0.i132, 42
   %or.cond = and i1 %.not.i177, %131
   br i1 %or.cond, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit180", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit184.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit176": ; preds = %130
-  %bcmp.i175 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) %.sroa.0.0.i126, ptr noundef nonnull readonly dereferenceable(25) @anon.dcf0590ddea9489929259de672f22440.70, i64 25), !alias.scope !81
+  %bcmp.i175 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(25) %.sroa.0.0.i126, ptr noundef nonnull dereferenceable(25) @anon.dcf0590ddea9489929259de672f22440.70, i64 25), !alias.scope !81
   %132 = icmp eq i32 %bcmp.i175, 0
   %.not.i185 = icmp eq i64 %.sroa.3.0.i132, 37
   %or.cond285 = and i1 %.not.i185, %132
   br i1 %or.cond285, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit188", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit192"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit180": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit172"
-  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(42) %.sroa.0.0.i133, ptr noundef nonnull readonly dereferenceable(42) @anon.dcf0590ddea9489929259de672f22440.71, i64 42), !alias.scope !85
+  %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(42) %.sroa.0.0.i133, ptr noundef nonnull dereferenceable(42) @anon.dcf0590ddea9489929259de672f22440.71, i64 42), !alias.scope !85
   %133 = icmp eq i32 %bcmp.i179, 0
   br i1 %133, label %.thread, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit184.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit184": ; preds = %130
-  %bcmp.i183 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %.sroa.0.0.i126, ptr noundef nonnull readonly dereferenceable(32) @anon.dcf0590ddea9489929259de672f22440.73, i64 32), !alias.scope !89
+  %bcmp.i183 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(32) %.sroa.0.0.i126, ptr noundef nonnull dereferenceable(32) @anon.dcf0590ddea9489929259de672f22440.73, i64 32), !alias.scope !89
   %134 = icmp eq i32 %bcmp.i183, 0
   %.not.i193 = icmp eq i64 %.sroa.3.0.i132, 49
   %or.cond288 = and i1 %.not.i193, %134
   br i1 %or.cond288, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit196", label %.thread
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit188": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit176"
-  %bcmp.i187 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(37) %.sroa.0.0.i133, ptr noundef nonnull readonly dereferenceable(37) @anon.dcf0590ddea9489929259de672f22440.72, i64 37), !alias.scope !93
+  %bcmp.i187 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(37) %.sroa.0.0.i133, ptr noundef nonnull dereferenceable(37) @anon.dcf0590ddea9489929259de672f22440.72, i64 37), !alias.scope !93
   %135 = icmp eq i32 %bcmp.i187, 0
   br i1 %135, label %.thread, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit192"
 
@@ -458,19 +458,19 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br label %.thread
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit192": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit176", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit188"
-  %bcmp.i191 = tail call i32 @bcmp(ptr nonnull readonly %.sroa.0.0.i126, ptr nonnull readonly @anon.dcf0590ddea9489929259de672f22440.75, i64 %.sroa.3.0.i125), !alias.scope !97
+  %bcmp.i191 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i126, ptr nonnull @anon.dcf0590ddea9489929259de672f22440.75, i64 %.sroa.3.0.i125), !alias.scope !97
   %136 = icmp eq i32 %bcmp.i191, 0
   %.not.i197 = icmp eq i64 %.sroa.3.0.i132, 44
   %or.cond291 = and i1 %.not.i197, %136
   br i1 %or.cond291, label %138, label %.thread
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit196": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit184"
-  %bcmp.i195 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(49) %.sroa.0.0.i133, ptr noundef nonnull readonly dereferenceable(49) @anon.dcf0590ddea9489929259de672f22440.74, i64 49), !alias.scope !101
+  %bcmp.i195 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(49) %.sroa.0.0.i133, ptr noundef nonnull dereferenceable(49) @anon.dcf0590ddea9489929259de672f22440.74, i64 49), !alias.scope !101
   %137 = icmp ne i32 %bcmp.i195, 0
   br label %.thread
 
 138:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit192"
-  %bcmp.i199 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(44) %.sroa.0.0.i133, ptr noundef nonnull readonly dereferenceable(44) @anon.dcf0590ddea9489929259de672f22440.76, i64 44), !alias.scope !105
+  %bcmp.i199 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(44) %.sroa.0.0.i133, ptr noundef nonnull dereferenceable(44) @anon.dcf0590ddea9489929259de672f22440.76, i64 44), !alias.scope !105
   %139 = icmp ne i32 %bcmp.i199, 0
   br label %.thread
 
@@ -537,7 +537,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br i1 %or.cond289.not, label %.critedge, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit208"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit208": ; preds = %148
-  %bcmp.i207 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull readonly dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !113
+  %bcmp.i207 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !113
   %157 = icmp ne i32 %bcmp.i207, 0
   %brmerge123 = or i1 %1, %157
   %.mux = select i1 %157, i8 0, i8 2
@@ -591,7 +591,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 172:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !135
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1aa226528d5e00f7E.llvm.5870598909725602671"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1aa226528d5e00f7E.llvm.5870598909725602671"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %.noexc211 unwind label %141
 
 .noexc211:                                        ; preds = %172
@@ -658,7 +658,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i": ; preds = %.lr.ph.i.i
   %.val4.i.i = load ptr, ptr %.ptr, align 8, !alias.scope !158, !noalias !161, !nonnull !5, !align !131, !noundef !5
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val4.i.i, ptr nonnull readonly %.sroa.0.0.i202320327, i64 %.val5.i.i), !alias.scope !166, !noalias !173
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val4.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i202320327, i64 %.val5.i.i), !alias.scope !166, !noalias !173
   %191 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %191, label %.critedge, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i"
 
@@ -677,7 +677,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220": ; preds = %.lr.ph.i.i217
   %.val4.i.i221 = load ptr, ptr %.ptr279, align 8, !alias.scope !174, !noalias !177, !nonnull !5, !align !131, !noundef !5
-  %bcmp.i.i.i.i.i222 = call i32 @bcmp(ptr nonnull readonly %.val4.i.i221, ptr nonnull readonly %.sroa.0.0.i202320327, i64 %.val5.i.i218), !alias.scope !182, !noalias !189
+  %bcmp.i.i.i.i.i222 = call i32 @bcmp(ptr nonnull readonly align 1 %.val4.i.i221, ptr nonnull readonly align 1 %.sroa.0.0.i202320327, i64 %.val5.i.i218), !alias.scope !182, !noalias !189
   %193 = icmp eq i32 %bcmp.i.i.i.i.i222, 0
   br i1 %193, label %.critedge, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223"
 
@@ -696,7 +696,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i230": ; preds = %.lr.ph.i.i227
   %.val4.i.i231 = load ptr, ptr %.ptr283, align 8, !alias.scope !190, !noalias !193, !nonnull !5, !align !131, !noundef !5
-  %bcmp.i.i.i.i.i232 = call i32 @bcmp(ptr nonnull readonly %.val4.i.i231, ptr nonnull readonly %.sroa.0.0.i202320327, i64 %.val5.i.i228), !alias.scope !198, !noalias !205
+  %bcmp.i.i.i.i.i232 = call i32 @bcmp(ptr nonnull readonly align 1 %.val4.i.i231, ptr nonnull readonly align 1 %.sroa.0.0.i202320327, i64 %.val5.i.i228), !alias.scope !198, !noalias !205
   %195 = icmp eq i32 %bcmp.i.i.i.i.i232, 0
   br i1 %195, label %196, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233"
 
@@ -717,7 +717,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 199:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d190e9db00c6749E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !209
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1aa226528d5e00f7E.llvm.5870598909725602671"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1aa226528d5e00f7E.llvm.5870598909725602671"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
   %200 = getelementptr inbounds i8, ptr %3, i64 8
   %201 = load i64, ptr %200, align 8, !range !4, !noalias !209, !noundef !5
   %.not.i.i.i.i.i237 = icmp eq i64 %201, 0

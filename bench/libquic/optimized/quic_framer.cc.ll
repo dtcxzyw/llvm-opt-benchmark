@@ -2027,7 +2027,7 @@ sw.default:                                       ; preds = %if.end47
   %vtable.i = load ptr, ptr %54, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %55 = load ptr, ptr %vfn.i, align 8
-  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull %this)
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %invoke.cont331 unwind label %lpad.loopexit.split-lp
 
 invoke.cont331:                                   ; preds = %sw.default
@@ -4469,7 +4469,7 @@ if.end:                                           ; preds = %invoke.cont5
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %this)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %cleanup unwind label %lpad4
 
 if.end19:                                         ; preds = %invoke.cont5
@@ -4963,7 +4963,7 @@ return:                                           ; preds = %_ZNSt6vectorIN3net1
   %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 %.sink15
   %7 = load ptr, ptr %vfn, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %public_header.sink)
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(48) %public_header.sink)
   ret i1 %call4
 }
 
@@ -5003,7 +5003,7 @@ invoke.cont6:                                     ; preds = %if.then
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %this)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %_ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EED2Ev.exit unwind label %lpad5
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -5044,7 +5044,7 @@ invoke.cont22.invoke:                             ; preds = %if.then21.invoke
   %vtable.i11 = load ptr, ptr %9, align 8
   %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 16
   %10 = load ptr, ptr %vfn.i12, align 8
-  invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %this)
+  invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %_ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i unwind label %lpad5
 
 if.end25:                                         ; preds = %invoke.cont18
@@ -5235,7 +5235,7 @@ _ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EED2Ev.exi
   %retval.028 = phi i1 [ %retval.0.ph, %_ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i ], [ false, %invoke.cont6 ]
   %client_address.i = getelementptr inbounds i8, ptr %packet, i64 64
   call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %client_address.i) #19
-  call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %packet) #19
+  call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %packet) #19
   ret i1 %retval.028
 
 ehcleanup51:                                      ; preds = %ehcleanup, %lpad5
@@ -5247,7 +5247,7 @@ ehcleanup53:                                      ; preds = %ehcleanup51, %lpad
   %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup51 ], [ %4, %lpad ]
   %client_address.i23 = getelementptr inbounds i8, ptr %packet, i64 64
   call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %client_address.i23) #19
-  call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %packet) #19
+  call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %packet) #19
   resume { ptr, i32 } %.pn2.pn
 }
 
@@ -5291,7 +5291,7 @@ invoke.cont5:                                     ; preds = %if.then4
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %this)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %cleanup67 unwind label %lpad
 
 if.end8:                                          ; preds = %invoke.cont2
@@ -5371,7 +5371,7 @@ cleanup.done:                                     ; preds = %invoke.cont26, %cle
   %vtable.i11 = load ptr, ptr %10, align 8
   %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 16
   %11 = load ptr, ptr %vfn.i12, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %this)
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %cleanup67 unwind label %lpad11
 
 lpad31:                                           ; preds = %invoke.cont34, %invoke.cont30
@@ -5397,12 +5397,12 @@ if.end62:                                         ; preds = %invoke.cont47
 
 cleanup67:                                        ; preds = %invoke.cont12, %invoke.cont18, %if.end62, %cleanup.done, %invoke.cont47, %invoke.cont5, %invoke.cont
   %retval.0 = phi i1 [ false, %invoke.cont ], [ false, %invoke.cont5 ], [ false, %invoke.cont12 ], [ true, %invoke.cont18 ], [ true, %if.end62 ], [ false, %cleanup.done ], [ false, %invoke.cont47 ]
-  call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %header) #19
+  call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %header) #19
   ret i1 %retval.0
 
 ehcleanup68:                                      ; preds = %lpad11, %lpad31, %lpad
   %.pn.pn = phi { ptr, i32 } [ %0, %lpad ], [ %5, %lpad11 ], [ %12, %lpad31 ]
-  call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %header) #19
+  call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %header) #19
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -5447,7 +5447,7 @@ if.then:                                          ; preds = %land.lhs.true
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %this)
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true.if.end_crit_edge, %entry
@@ -5491,7 +5491,7 @@ if.then15:                                        ; preds = %if.end12
   %vtable.i16 = load ptr, ptr %8, align 8
   %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 16
   %9 = load ptr, ptr %vfn.i17, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %this)
+  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end17:                                         ; preds = %if.end12
@@ -5542,7 +5542,7 @@ if.then19:                                        ; preds = %if.end17
   %vtable.i22 = load ptr, ptr %11, align 8
   %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 16
   %12 = load ptr, ptr %vfn.i23, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %this)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end21:                                         ; preds = %if.end17
@@ -5736,7 +5736,7 @@ if.then:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this)
+  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -5760,7 +5760,7 @@ if.then5:                                         ; preds = %if.then3
   %vtable.i10 = load ptr, ptr %4, align 8
   %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 16
   %5 = load ptr, ptr %vfn.i11, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %this)
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -5777,7 +5777,7 @@ if.then10:                                        ; preds = %if.else
   %vtable.i16 = load ptr, ptr %6, align 8
   %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 16
   %7 = load ptr, ptr %vfn.i17, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %this)
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end13:                                         ; preds = %if.else, %if.then3
@@ -5810,7 +5810,7 @@ if.then25:                                        ; preds = %if.then23
   %vtable.i22 = load ptr, ptr %11, align 8
   %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 16
   %12 = load ptr, ptr %vfn.i23, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %this)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end27:                                         ; preds = %if.then23
@@ -5836,7 +5836,7 @@ if.then30:                                        ; preds = %if.end27
   %vtable.i28 = load ptr, ptr %16, align 8
   %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 16
   %17 = load ptr, ptr %vfn.i29, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %this)
+  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end33:                                         ; preds = %if.end13.if.end33_crit_edge, %if.end27.if.end33_crit_edge
@@ -6076,7 +6076,7 @@ if.then:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this)
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -6092,7 +6092,7 @@ if.then5:                                         ; preds = %while.body
   %vtable.i35 = load ptr, ptr %2, align 8
   %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 16
   %3 = load ptr, ptr %vfn.i36, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %this)
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end7:                                          ; preds = %while.body
@@ -6120,7 +6120,7 @@ if.then14:                                        ; preds = %invoke.cont
   %vtable.i39 = load ptr, ptr %6, align 8
   %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 16
   %7 = load ptr, ptr %vfn.i40, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %this)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %cleanup.thread unwind label %lpad.loopexit.split-lp
 
 cleanup.thread:                                   ; preds = %if.then14
@@ -6179,7 +6179,7 @@ if.then32.invoke:                                 ; preds = %invoke.cont30, %inv
   %vtable.i48 = load ptr, ptr %12, align 8
   %vfn.i49 = getelementptr inbounds i8, ptr %vtable.i48, i64 16
   %13 = load ptr, ptr %vfn.i49, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %this)
+  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %cleanup50.thread unwind label %lpad29.loopexit.split-lp
 
 lpad29.loopexit:                                  ; preds = %if.then28, %if.else, %if.end42
@@ -6229,7 +6229,7 @@ if.end52:                                         ; preds = %if.end22
   %vtable.i55 = load ptr, ptr %16, align 8
   %vfn.i56 = getelementptr inbounds i8, ptr %vtable.i55, i64 16
   %17 = load ptr, ptr %vfn.i56, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %this)
+  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end54:                                         ; preds = %if.end7
@@ -6281,7 +6281,7 @@ if.then68:                                        ; preds = %if.end4.i, %if.end.
   %vtable.i60 = load ptr, ptr %20, align 8
   %vfn.i61 = getelementptr inbounds i8, ptr %vtable.i60, i64 16
   %21 = load ptr, ptr %vfn.i61, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %this)
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end70:                                         ; preds = %if.end4.i
@@ -6315,7 +6315,7 @@ if.then82:                                        ; preds = %invoke.cont80
   %vtable.i64 = load ptr, ptr %25, align 8
   %vfn.i65 = getelementptr inbounds i8, ptr %vtable.i64, i64 16
   %26 = load ptr, ptr %vfn.i65, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %this)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %cleanup93.thread unwind label %lpad79.loopexit.split-lp
 
 cleanup93.thread:                                 ; preds = %if.then82
@@ -6364,7 +6364,7 @@ if.then99:                                        ; preds = %invoke.cont97
   %vtable.i70 = load ptr, ptr %29, align 8
   %vfn.i71 = getelementptr inbounds i8, ptr %vtable.i70, i64 16
   %30 = load ptr, ptr %vfn.i71, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %this)
+  invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %cleanup110.thread unwind label %lpad96.loopexit.split-lp
 
 cleanup110.thread:                                ; preds = %if.then99
@@ -6416,7 +6416,7 @@ if.then114:                                       ; preds = %if.end.i76, %sw.bb1
   %vtable.i81 = load ptr, ptr %33, align 8
   %vfn.i82 = getelementptr inbounds i8, ptr %vtable.i81, i64 16
   %34 = load ptr, ptr %vfn.i82, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %this)
+  call void %34(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end116:                                        ; preds = %if.end.i76
@@ -6440,7 +6440,7 @@ if.then125:                                       ; preds = %sw.bb123
   %vtable.i89 = load ptr, ptr %37, align 8
   %vfn.i90 = getelementptr inbounds i8, ptr %vtable.i89, i64 16
   %38 = load ptr, ptr %vfn.i90, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %this)
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end127:                                        ; preds = %sw.bb123
@@ -6489,7 +6489,7 @@ if.then138:                                       ; preds = %if.then2.i.invoke
   %vtable.i102 = load ptr, ptr %45, align 8
   %vfn.i103 = getelementptr inbounds i8, ptr %vtable.i102, i64 16
   %46 = load ptr, ptr %vfn.i103, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull %this)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(408) %this)
           to label %cleanup149.thread unwind label %lpad135.loopexit.split-lp
 
 cleanup149.thread:                                ; preds = %if.then138
@@ -6549,7 +6549,7 @@ if.then160:                                       ; preds = %sw.bb158
   %vtable.i111 = load ptr, ptr %53, align 8
   %vfn.i112 = getelementptr inbounds i8, ptr %vtable.i111, i64 16
   %54 = load ptr, ptr %vfn.i112, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull %this)
+  call void %54(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end162:                                        ; preds = %sw.bb158
@@ -6569,7 +6569,7 @@ sw.default:                                       ; preds = %if.end54
   %vtable.i117 = load ptr, ptr %57, align 8
   %vfn.i118 = getelementptr inbounds i8, ptr %vtable.i117, i64 16
   %58 = load ptr, ptr %vfn.i118, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull %this)
+  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup50, %if.end70, %cleanup93, %cleanup110, %if.end116, %if.end127, %cleanup149, %sw.bb151, %if.end162, %while.cond.backedge, %while.cond.preheader, %cleanup149.thread, %cleanup110.thread, %cleanup93.thread, %cleanup50.thread, %cleanup.thread, %sw.default, %if.then160, %if.then125, %if.then114, %if.then68, %sw.bb, %if.end52, %if.then5, %if.then
@@ -8609,7 +8609,7 @@ if.then:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %this)
+  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -8669,7 +8669,7 @@ if.then:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %10, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %this)
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(408) %this)
   br label %return
 
 if.end:                                           ; preds = %entry

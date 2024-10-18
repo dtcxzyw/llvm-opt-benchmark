@@ -7093,7 +7093,7 @@ define internal range(i32 -1, 1) i32 @php_cli_server_send_event(ptr noundef %0, 
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %14, i64 32
   store i64 131072, ptr %19, align 8
-  %20 = tail call i64 @read(i32 noundef %8, ptr noundef nonnull %17, i64 noundef 131072) #29
+  %20 = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %8, ptr noundef nonnull %17, i64 noundef 131072) #29
   %21 = icmp sgt i64 %20, -1
   br i1 %21, label %39, label %22
 

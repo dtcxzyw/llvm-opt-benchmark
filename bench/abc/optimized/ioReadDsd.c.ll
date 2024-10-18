@@ -375,7 +375,7 @@ define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 
   %4 = add i8 %3, -97
   %or.cond = icmp ult i8 %4, 26
   %5 = zext nneg i8 %4 to i32
-  %6 = tail call range(i32 0, 26) i32 @llvm.umax.i32(i32 %.062, i32 %5)
+  %6 = tail call range(i32 0, 26) i32 @llvm.umax.i32(i32 range(i32 0, 26) %.062, i32 range(i32 0, 26) %5)
   %.1 = select i1 %or.cond, i32 %6, i32 %.062
   %7 = getelementptr inbounds i8, ptr %.04861, i64 1
   %8 = load i8, ptr %7, align 1

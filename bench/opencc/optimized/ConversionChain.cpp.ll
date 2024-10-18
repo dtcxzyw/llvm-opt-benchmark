@@ -88,7 +88,7 @@ define void @_ZN6opencc15ConversionChainC2ENSt7__cxx114listISt10shared_ptrINS_10
   br label %_ZNSt7__cxx114listISt10shared_ptrIN6opencc10ConversionEESaIS4_EE12emplace_backIJRKS4_EEEvDpOT_.exit.i.i
 
 _ZNSt7__cxx114listISt10shared_ptrIN6opencc10ConversionEESaIS4_EE12emplace_backIJRKS4_EEEvDpOT_.exit.i.i: ; preds = %19, %16, %.noexc.i
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %0) #11
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %0) #11
   %21 = load i64, ptr %4, align 8
   %22 = add i64 %21, 1
   store i64 %22, ptr %4, align 8

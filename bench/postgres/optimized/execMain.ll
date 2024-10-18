@@ -3965,7 +3965,7 @@ define dso_local noundef zeroext i1 @EvalPlanQualFetchRowMark(ptr nocapture noun
   br i1 %31, label %slot_getsomeattrs.exit.i.i, label %ExecGetJunkAttribute.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %23
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %25, i32 noundef %28) #10
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %25, i32 noundef range(i32 -32768, 32768) %28) #10
   br label %ExecGetJunkAttribute.exit
 
 ExecGetJunkAttribute.exit:                        ; preds = %23, %slot_getsomeattrs.exit.i.i
@@ -4010,7 +4010,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %23, %slot_getsomeat
   br i1 %58, label %slot_getsomeattrs.exit.i.i36, label %ExecGetJunkAttribute.exit37
 
 slot_getsomeattrs.exit.i.i36:                     ; preds = %54
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef %57) #10
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef range(i32 -32768, 32768) %57) #10
   br label %ExecGetJunkAttribute.exit37
 
 ExecGetJunkAttribute.exit37:                      ; preds = %54, %slot_getsomeattrs.exit.i.i36
@@ -4116,7 +4116,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %101
   br i1 %122, label %slot_getsomeattrs.exit.i.i38, label %ExecGetJunkAttribute.exit39
 
 slot_getsomeattrs.exit.i.i38:                     ; preds = %118
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef %121) #10
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef range(i32 -32768, 32768) %121) #10
   br label %ExecGetJunkAttribute.exit39
 
 ExecGetJunkAttribute.exit39:                      ; preds = %118, %slot_getsomeattrs.exit.i.i38

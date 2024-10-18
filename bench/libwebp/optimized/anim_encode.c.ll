@@ -982,7 +982,7 @@ CopyCurrentCanvas.exit:                           ; preds = %76, %80
   br i1 %.not.i62, label %104, label %97
 
 97:                                               ; preds = %CopyCurrentCanvas.exit
-  %98 = call fastcc i32 @SetFrame(ptr noundef %0, ptr noundef readonly %8, i32 noundef 1, ptr noundef %94, ptr noundef %5)
+  %98 = call fastcc i32 @SetFrame(ptr noundef nonnull %0, ptr noundef nonnull readonly %8, i32 noundef 1, ptr noundef %94, ptr noundef %5)
   %.not98.i = icmp eq i32 %98, 0
   br i1 %.not98.i, label %99, label %.thread.i
 
@@ -1005,7 +1005,7 @@ CopyCurrentCanvas.exit:                           ; preds = %76, %80
   %108 = getelementptr inbounds i8, ptr %0, i64 20
   %109 = load i32, ptr %108, align 4
   %.not87.not.i = icmp slt i32 %106, %109
-  %110 = call fastcc i32 @SetFrame(ptr noundef %0, ptr noundef readonly %8, i32 noundef 0, ptr noundef %94, ptr noundef %5)
+  %110 = call fastcc i32 @SetFrame(ptr noundef nonnull %0, ptr noundef nonnull readonly %8, i32 noundef 0, ptr noundef %94, ptr noundef %5)
   %.not96.i = icmp eq i32 %110, 0
   br i1 %.not87.not.i, label %111, label %120
 
@@ -1039,7 +1039,7 @@ CopyCurrentCanvas.exit:                           ; preds = %76, %80
 123:                                              ; preds = %121
   %124 = getelementptr inbounds i8, ptr %0, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %124, i64 16, i1 false)
-  %125 = call fastcc i32 @SetFrame(ptr noundef %0, ptr noundef readonly %8, i32 noundef 1, ptr noundef %94, ptr noundef %5)
+  %125 = call fastcc i32 @SetFrame(ptr noundef nonnull %0, ptr noundef nonnull readonly %8, i32 noundef 1, ptr noundef %94, ptr noundef %5)
   %.not90.i = icmp eq i32 %125, 0
   br i1 %.not90.i, label %126, label %.thread.i
 
@@ -2445,7 +2445,7 @@ define internal fastcc i32 @GetSubRects(ptr nocapture noundef nonnull readonly %
   br i1 %or.cond.i, label %20, label %21
 
 20:                                               ; preds = %6
-  tail call fastcc void @MinimizeChangeRectangle(ptr noundef readonly %0, ptr noundef %1, ptr noundef %7, i32 noundef 1, float noundef %4)
+  tail call fastcc void @MinimizeChangeRectangle(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 1, float noundef %4)
   %.pre = load i32, ptr %11, align 4
   br label %21
 
@@ -2490,7 +2490,7 @@ GetSubRect.exit.thread:                           ; preds = %IsEmptyRect.exit.th
   br i1 %or.cond.i, label %39, label %40
 
 39:                                               ; preds = %GetSubRect.exit.thread
-  tail call fastcc void @MinimizeChangeRectangle(ptr noundef readonly %0, ptr noundef %1, ptr noundef %36, i32 noundef 0, float noundef %4)
+  tail call fastcc void @MinimizeChangeRectangle(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %36, i32 noundef 0, float noundef %4)
   br label %40
 
 40:                                               ; preds = %39, %GetSubRect.exit.thread

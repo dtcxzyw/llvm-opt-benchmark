@@ -75,7 +75,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17nameUnamedGlobalsERNS_6ModuleE(pt
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %10, align 8
   call void @_ZN4llvm6Module14global_objectsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %6, ptr noundef nonnull align 8 dereferenceable(857) %0) #9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 32, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.021.0.copyload = load ptr, ptr %11, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
@@ -328,18 +328,18 @@ define internal fastcc void @"_ZZN4llvm17nameUnamedGlobalsERNS_6ModuleEENK3$_0cl
 ._crit_edge41.i:                                  ; preds = %64, %._crit_edge.i
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %4, ptr noundef nonnull align 1 dereferenceable(16) %5) #9
   %66 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %66, i64 noundef 32) #9
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %66, i64 noundef 32) #9
   call void @_ZN4llvm3MD515stringifyResultERNS0_9MD5ResultERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %67 = load ptr, ptr %6, align 8, !noalias !5
-  %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #9, !noalias !5
+  %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #9, !noalias !5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9, !noalias !5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %67, i64 noundef %68, ptr noundef nonnull align 1 dereferenceable(1) %3) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %69 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %7) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #9
-  %70 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
+  %70 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #9
   %71 = load ptr, ptr %6, align 8
   %72 = icmp eq ptr %71, %66
   br i1 %72, label %_ZN12_GLOBAL__N_112ModuleHasher3getB5cxx11Ev.exit, label %73

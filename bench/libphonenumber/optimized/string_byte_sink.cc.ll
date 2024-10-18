@@ -31,7 +31,7 @@ declare void @_ZN6icu_708ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers14StringByteSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZN6icu_708ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
+  tail call void @_ZN6icu_708ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
   tail call void @_ZN6icu_707UMemorydlEPv(ptr noundef nonnull %0) #5
   ret void
 }

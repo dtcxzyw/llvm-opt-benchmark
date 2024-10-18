@@ -110,7 +110,7 @@ define internal noundef i32 @hexdumpstream_puts(ptr noundef %0, ptr nocapture no
   %15 = sub nsw i32 128, %10
   %16 = sdiv i32 %15, 2
   %17 = sext i32 %16 to i64
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %17)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 1, 2147483648) %12, i64 range(i64 -1073741759, 1073741824) %17)
   %18 = add i32 %10, -127
   %.not.i = icmp ult i32 %18, 3
   br i1 %.not.i, label %bin2hex.exit, label %.lr.ph.i

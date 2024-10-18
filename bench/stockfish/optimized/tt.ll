@@ -480,7 +480,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN9Stock
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

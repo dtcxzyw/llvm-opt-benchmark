@@ -263,7 +263,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure8do_
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #8
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #8
   ret void
 }
 
@@ -353,16 +353,16 @@ define linkonce_odr hidden void @_ZN21ShenandoahRootUpdaterD2Ev(ptr noundef nonn
   %10 = getelementptr inbounds i8, ptr %0, i64 880
   %11 = getelementptr inbounds i8, ptr %0, i64 928
   %12 = getelementptr inbounds i8, ptr %0, i64 976
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %12) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %11) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %10) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %9) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %8) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(296) %7) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %6) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %5) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %4) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %3) #8
   %13 = getelementptr inbounds i8, ptr %0, i64 456
   tail call void @_ZN21ShenandoahThreadRootsD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %13) #8
   %14 = getelementptr inbounds i8, ptr %0, i64 64
@@ -370,11 +370,11 @@ define linkonce_odr hidden void @_ZN21ShenandoahRootUpdaterD2Ev(ptr noundef nonn
   %16 = getelementptr inbounds i8, ptr %0, i64 160
   %17 = getelementptr inbounds i8, ptr %0, i64 208
   %18 = getelementptr inbounds i8, ptr %0, i64 256
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #8
-  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %18) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %17) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %16) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %15) #8
+  tail call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %14) #8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN23ShenandoahGCWorkerPhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %19) #8
   ret void
@@ -493,8 +493,8 @@ define linkonce_odr hidden void @_ZN25ShenandoahUpdateRootsTask4workEj(ptr nound
   %4 = alloca %class.ShenandoahUpdateRefsClosure, align 8
   %5 = alloca %class.ShenandoahForwardedIsAliveClosure, align 8
   %6 = alloca %class.AlwaysTrueClosure, align 8
-  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %1) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3, i8 0, i64 19, i1 false)
+  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %1) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 19, i1 false)
   %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit, label %9
@@ -586,7 +586,7 @@ define linkonce_odr hidden void @_ZN21ShenandoahRootUpdater8roots_doI33Shenandoa
   %26 = getelementptr inbounds i8, ptr %0, i64 1032
   %27 = load i32, ptr %26, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %7, i32 noundef %27, i32 noundef 4, i32 noundef %1) #8
-  call void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_doI36ShenandoahCleanUpdateWeakOopsClosureILb0E33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %23, ptr noundef nonnull %6)
+  call void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_doI36ShenandoahCleanUpdateWeakOopsClosureILb0E33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEvPT_(ptr noundef nonnull align 8 dereferenceable(572) %23, ptr noundef nonnull %6)
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
@@ -647,7 +647,7 @@ define linkonce_odr hidden void @_ZN21ShenandoahRootUpdater8roots_doI17AlwaysTru
   %26 = getelementptr inbounds i8, ptr %0, i64 1032
   %27 = load i32, ptr %26, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %7, i32 noundef %27, i32 noundef 4, i32 noundef %1) #8
-  call void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_doI36ShenandoahCleanUpdateWeakOopsClosureILb0E17AlwaysTrueClosure27ShenandoahUpdateRefsClosureEEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %23, ptr noundef nonnull %6)
+  call void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_doI36ShenandoahCleanUpdateWeakOopsClosureILb0E17AlwaysTrueClosure27ShenandoahUpdateRefsClosureEEEvPT_(ptr noundef nonnull align 8 dereferenceable(572) %23, ptr noundef nonnull %6)
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
@@ -1551,7 +1551,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #8, !srcloc !17
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #8, !srcloc !17
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !18
 

@@ -43405,7 +43405,7 @@ if.end273:                                        ; preds = %_ZN6duckdb17Paralle
 
 invoke.cont275:                                   ; preds = %if.end273
   %144 = load i64, ptr %position_buffer57, align 8, !tbaa !892
-  %call.i7694 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15CSVBufferHandleESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %call276)
+  %call.i7694 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15CSVBufferHandleESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(88) %call276)
           to label %call.i76.noexc unwind label %lpad194.loopexit
 
 call.i76.noexc:                                   ; preds = %invoke.cont275
@@ -43415,7 +43415,7 @@ call.i76.noexc:                                   ; preds = %invoke.cont275
   br i1 %cmp.i78, label %if.then.i89, label %if.end.i79
 
 if.then.i89:                                      ; preds = %call.i76.noexc
-  %call3.i9095 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15CSVBufferHandleESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %call276)
+  %call3.i9095 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15CSVBufferHandleESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(88) %call276)
           to label %call3.i90.noexc unwind label %lpad194.loopexit
 
 call3.i90.noexc:                                  ; preds = %if.then.i89
@@ -43436,7 +43436,7 @@ call5.i81.noexc:                                  ; preds = %if.end.i79
   %148 = load ptr, ptr %node.i.i13.i82, align 8, !tbaa !590
   %buffer.i.i14.i83 = getelementptr inbounds i8, ptr %148, i64 24
   %149 = load ptr, ptr %buffer.i.i14.i83, align 8, !tbaa !591
-  %call8.i8497 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15CSVBufferHandleESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %call276)
+  %call8.i8497 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15CSVBufferHandleESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(88) %call276)
           to label %call8.i84.noexc unwind label %lpad194.loopexit
 
 call8.i84.noexc:                                  ; preds = %call5.i81.noexc

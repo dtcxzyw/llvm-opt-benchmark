@@ -1077,7 +1077,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   br label %122
 
 120:                                              ; preds = %116
-  %121 = call fastcc i32 @dissect_parameter(ptr noundef %0, i32 noundef %115, ptr noundef %3, ptr noundef %79, ptr noundef %5, i8 noundef zeroext %75, i16 noundef zeroext %.0.i.i, ptr noundef %114, ptr noundef %6, ptr noundef %7)
+  %121 = call fastcc i32 @dissect_parameter(ptr noundef %0, i32 noundef %115, ptr noundef %3, ptr noundef %79, ptr noundef %5, i8 noundef zeroext %75, i16 noundef zeroext %.0.i.i, ptr noundef %114, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not72.i = icmp eq i32 %121, 0
   %spec.select.i = select i1 %.not72.i, i32 0, i32 %.06490.i
   br label %122

@@ -67,7 +67,7 @@ define i32 @Psr_ManRangeSizeArray(ptr nocapture noundef readonly %0, ptr nocaptu
 
 33:                                               ; preds = %11
   %.val16.i = load ptr, ptr %8, align 8
-  %34 = tail call ptr @Abc_NamStr(ptr noundef %.val16.i, i32 noundef %14) #5
+  %34 = tail call ptr @Abc_NamStr(ptr noundef %.val16.i, i32 noundef range(i32 -536870912, 536870912) %14) #5
   %35 = tail call i32 @atoi(ptr nocapture noundef %34) #6
   br label %Psr_ManRangeSizeSignal.exit
 

@@ -181,7 +181,7 @@ entry:
 if.else:                                          ; preds = %entry
   %conv = zext nneg i32 %max_num_frames to i64
   %mul = shl nuw nsw i64 %conv, 3
-  %call.i = tail call ptr @mmap(ptr noundef null, i64 noundef %mul, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
+  %call.i = tail call ptr @mmap(ptr noundef null, i64 noundef range(i64 520, 17179869177) %mul, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
   %magicptr = ptrtoint ptr %call.i to i64
   switch i64 %magicptr, label %if.then2 [
     i64 -1, label %if.end3
@@ -259,7 +259,7 @@ if.end15:                                         ; preds = %if.then14, %for.end
   br i1 %cmp16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %call.i24 = call i32 @munmap(ptr noundef nonnull %stack.0, i64 noundef %allocated_bytes.0) #8
+  %call.i24 = call i32 @munmap(ptr noundef nonnull %stack.0, i64 noundef range(i64 1, 17179869177) %allocated_bytes.0) #8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end15

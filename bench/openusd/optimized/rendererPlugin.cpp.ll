@@ -124,7 +124,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin14CreateDele
           to label %20 unwind label %46
 
 20:                                               ; preds = %14
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22HdRendererPluginHandleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22HdRendererPluginHandleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %21 unwind label %46
 
 21:                                               ; preds = %20
@@ -232,7 +232,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin14CreateDele
           to label %.noexc21 unwind label %.loopexit.split-lp
 
 .noexc21:                                         ; preds = %57
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry11GetPluginIdEPKNS_12HfPluginBaseE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %6, ptr noundef nonnull align 8 dereferenceable(89) %60, ptr noundef nonnull %1)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry11GetPluginIdEPKNS_12HfPluginBaseE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %6, ptr noundef nonnull align 8 dereferenceable(89) %60, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin11GetPluginIdEv.exit unwind label %.loopexit.split-lp
 
 _ZNK32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin11GetPluginIdEv.exit: ; preds = %.noexc21

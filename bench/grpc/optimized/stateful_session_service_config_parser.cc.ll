@@ -475,7 +475,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %ref.tmp6, align 8, !alias.scope !5
   %vtable.i = load ptr, ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_33StatefulSessionMethodParsedConfigESt14default_deleteIS4_EEEEE6value_E, align 8, !noalias !5
   %2 = load ptr, ptr %vtable.i, align 8, !noalias !5
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_33StatefulSessionMethodParsedConfigESt14default_deleteIS4_EEEEE6value_E, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull %ref.tmp6, ptr noundef %errors)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_33StatefulSessionMethodParsedConfigESt14default_deleteIS4_EEEEE6value_E, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 %ref.tmp6, ptr noundef %errors)
           to label %_ZNSt10unique_ptrIN9grpc_core33StatefulSessionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.end
@@ -773,11 +773,11 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dst) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %dst) #16
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit: ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dst) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %dst) #16
   store i8 1, ptr %_M_engaged.i.i.i, align 8
   ret ptr %dst
 }
@@ -792,7 +792,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dst) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %dst) #16
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit: ; preds = %entry, %if.then.i.i.i
@@ -834,7 +834,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.i.i, label %land.lhs.true.i, label %_ZN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %call5.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %dst) #16
+  %call5.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %dst) #16
   br i1 %call5.i, label %if.then.i, label %_ZN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfig12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -1034,7 +1034,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(80) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i) #16
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !11, !noalias !14
   br label %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i
 
@@ -1053,7 +1053,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12Cooki
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !11
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i) #16
   br label %_ZSt19__relocate_object_aIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i
@@ -1081,7 +1081,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN9grpc
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i.i.i17, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i30, label %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i18
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i30:                ; preds = %for.body.i.i.i12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(80) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i14) #16
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !18, !noalias !21
   br label %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i18
 
@@ -1100,7 +1100,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12Cooki
 
 if.then.i.i.i.i.i.i.i.i.i.i.i29:                  ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i18
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i14) #16
   br label %_ZSt19__relocate_object_aIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i24
 
 _ZSt19__relocate_object_aIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i24: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i29, %_ZNSt16allocator_traitsISaIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i18
@@ -1259,7 +1259,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.04.i.i.i.i) #16
   br label %_ZSt8_DestroyIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
@@ -1306,7 +1306,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.04.i.i.i.i.i) #16
   br label %_ZSt8_DestroyIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i

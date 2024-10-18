@@ -537,7 +537,7 @@ index_getattr.exit.us:                            ; preds = %gistdentryinit.exit
   %121 = sext i16 %81 to i32
   %122 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %122)
-  %123 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %121) #10
+  %123 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %121) #10
   call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
@@ -619,7 +619,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   %37 = sext i16 %23 to i32
   %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %37) #10
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %37) #10
   tail call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
@@ -1654,7 +1654,7 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   %118 = sext i16 %105 to i32
   %119 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %119)
-  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %118) #10
+  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %118) #10
   call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 

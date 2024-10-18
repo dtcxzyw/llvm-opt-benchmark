@@ -1729,7 +1729,7 @@ initBuf.exit.i:                                   ; preds = %.split.us.i.i, %.sp
 267:                                              ; preds = %266
   %.b108.i = load i1, ptr @yuvAlign, align 4
   %268 = select i1 %.b108.i, i32 1, i32 4
-  %269 = call i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %268, i32 noundef %1, i32 noundef %93) #20
+  %269 = call i64 @tj3YUVBufSize(i32 noundef range(i32 35, 49) %0, i32 noundef %268, i32 noundef range(i32 35, 49) %1, i32 noundef %93) #20
   %270 = call ptr @tj3Init(i32 noundef 0) #20
   %271 = icmp eq ptr %270, null
   br i1 %271, label %272, label %275
@@ -1779,7 +1779,7 @@ initBuf.exit.i:                                   ; preds = %.split.us.i.i, %.sp
   %295 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.84, ptr noundef %91, ptr noundef nonnull %96, ptr noundef %294)
   %.b107.i = load i1, ptr @yuvAlign, align 4
   %296 = select i1 %.b107.i, i32 1, i32 4
-  %297 = call i32 @tj3EncodeYUV8(ptr noundef nonnull %270, ptr noundef nonnull %104, i32 noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef %88, ptr noundef nonnull %calloc.i, i32 noundef %296) #20
+  %297 = call i32 @tj3EncodeYUV8(ptr noundef nonnull %270, ptr noundef nonnull %104, i32 noundef range(i32 35, 49) %0, i32 noundef 0, i32 noundef range(i32 35, 49) %1, i32 noundef %88, ptr noundef nonnull %calloc.i, i32 noundef %296) #20
   %298 = icmp eq i32 %297, -1
   br i1 %298, label %299, label %302
 
@@ -1791,14 +1791,14 @@ initBuf.exit.i:                                   ; preds = %.split.us.i.i, %.sp
 
 302:                                              ; preds = %291
   call void @tj3Destroy(ptr noundef nonnull %270) #20
-  %303 = call fastcc i32 @checkBufYUV(ptr noundef %calloc.i, i32 noundef %0, i32 noundef %1, i32 noundef %93, i64 4294967297)
+  %303 = call fastcc i32 @checkBufYUV(ptr noundef %calloc.i, i32 noundef range(i32 35, 49) %0, i32 noundef range(i32 35, 49) %1, i32 noundef %93, i64 4294967297)
   %.not113.i = icmp eq i32 %303, 0
   %str.19.str.20.i = select i1 %.not113.i, ptr @str.21, ptr @str.22
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.19.str.20.i)
   %304 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.87, ptr noundef %294, ptr noundef nonnull %96, i32 noundef %95)
   %.b106.i = load i1, ptr @yuvAlign, align 4
   %305 = select i1 %.b106.i, i32 1, i32 4
-  %306 = call i32 @tj3CompressFromYUV8(ptr noundef nonnull %17, ptr noundef nonnull %calloc.i, i32 noundef %0, i32 noundef %305, i32 noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9) #20
+  %306 = call i32 @tj3CompressFromYUV8(ptr noundef nonnull %17, ptr noundef nonnull %calloc.i, i32 noundef range(i32 35, 49) %0, i32 noundef %305, i32 noundef range(i32 35, 49) %1, ptr noundef nonnull %8, ptr noundef nonnull %9) #20
   %307 = icmp eq i32 %306, -1
   br i1 %307, label %308, label %339
 
@@ -1831,7 +1831,7 @@ initBuf.exit.i:                                   ; preds = %.split.us.i.i, %.sp
   ]
 
 321:                                              ; preds = %319
-  %322 = call i32 @tj3Compress8(ptr noundef nonnull %17, ptr noundef nonnull %104, i32 noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef %88, ptr noundef nonnull %8, ptr noundef nonnull %9) #20
+  %322 = call i32 @tj3Compress8(ptr noundef nonnull %17, ptr noundef nonnull %104, i32 noundef range(i32 35, 49) %0, i32 noundef 0, i32 noundef range(i32 35, 49) %1, i32 noundef %88, ptr noundef nonnull %8, ptr noundef nonnull %9) #20
   %323 = icmp eq i32 %322, -1
   br i1 %323, label %324, label %339
 
@@ -1842,7 +1842,7 @@ initBuf.exit.i:                                   ; preds = %.split.us.i.i, %.sp
   br label %compTest.exit
 
 327:                                              ; preds = %319
-  %328 = call i32 @tj3Compress12(ptr noundef nonnull %17, ptr noundef nonnull %104, i32 noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef %88, ptr noundef nonnull %8, ptr noundef nonnull %9) #20
+  %328 = call i32 @tj3Compress12(ptr noundef nonnull %17, ptr noundef nonnull %104, i32 noundef range(i32 35, 49) %0, i32 noundef 0, i32 noundef range(i32 35, 49) %1, i32 noundef %88, ptr noundef nonnull %8, ptr noundef nonnull %9) #20
   %329 = icmp eq i32 %328, -1
   br i1 %329, label %330, label %339
 
@@ -1853,7 +1853,7 @@ initBuf.exit.i:                                   ; preds = %.split.us.i.i, %.sp
   br label %compTest.exit
 
 333:                                              ; preds = %319
-  %334 = call i32 @tj3Compress16(ptr noundef nonnull %17, ptr noundef nonnull %104, i32 noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef %88, ptr noundef nonnull %8, ptr noundef nonnull %9) #20
+  %334 = call i32 @tj3Compress16(ptr noundef nonnull %17, ptr noundef nonnull %104, i32 noundef range(i32 35, 49) %0, i32 noundef 0, i32 noundef range(i32 35, 49) %1, i32 noundef %88, ptr noundef nonnull %8, ptr noundef nonnull %9) #20
   %335 = icmp eq i32 %334, -1
   br i1 %335, label %336, label %339
 

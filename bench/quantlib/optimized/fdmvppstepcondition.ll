@@ -322,7 +322,7 @@ _ZNSt6vectorISt8functionIFddEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt8functionIFddEESaIS2_EEC2EmRKS3_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt8functionIFddEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorISt8functionIFddEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stateEvolveFcts_, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stateEvolveFcts_, i8 0, i64 16, i1 false)
   br label %invoke.cont
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorISt8functionIFddEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
@@ -594,9 +594,9 @@ if.then50:                                        ; preds = %for.body
   store i64 0, ptr %28, align 8
   store i64 %26, ptr %ref.tmp.i, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i48, i64 16, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i48, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i48, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i48, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i48, i64 16
   %56 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !57
@@ -610,7 +610,7 @@ if.then50:                                        ; preds = %for.body
   br i1 %tobool.not.i.i, label %"_ZNSt8functionIFddEEaSIZN8QuantLib19FdmVPPStepConditionC1ERKNS3_25FdmVPPStepConditionParamsEmRKNS3_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS3_23FdmInnerValueCalculatorEEESE_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSH_.exit", label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %if.then50
-  %call.i.i50 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i50 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %"_ZNSt8functionIFddEEaSIZN8QuantLib19FdmVPPStepConditionC1ERKNS3_25FdmVPPStepConditionParamsEmRKNS3_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS3_23FdmInnerValueCalculatorEEESE_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSH_.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i49
@@ -635,9 +635,9 @@ if.then58:                                        ; preds = %if.else
   store i64 0, ptr %27, align 8
   store i64 %26, ptr %ref.tmp.i53, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i52)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i52, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i53, i64 16, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i53, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i51, i64 16, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i51, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i52, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i52, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i53, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i53, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i51, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i51, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i52, i64 16, i1 false), !tbaa.struct !58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i52)
   %_M_manager3.i.i56 = getelementptr inbounds nuw i8, ptr %add.ptr.i51, i64 16
   %61 = load ptr, ptr %_M_manager3.i.i56, align 8, !tbaa !57
@@ -651,7 +651,7 @@ if.then58:                                        ; preds = %if.else
   br i1 %tobool.not.i.i58, label %"_ZNSt8functionIFddEEaSIZN8QuantLib19FdmVPPStepConditionC1ERKNS3_25FdmVPPStepConditionParamsEmRKNS3_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS3_23FdmInnerValueCalculatorEEESE_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSH_.exit", label %if.then.i.i59
 
 if.then.i.i59:                                    ; preds = %if.then58
-  %call.i.i60 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i53, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i53, i32 noundef 3)
+  %call.i.i60 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i53, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i53, i32 noundef 3)
           to label %"_ZNSt8functionIFddEEaSIZN8QuantLib19FdmVPPStepConditionC1ERKNS3_25FdmVPPStepConditionParamsEmRKNS3_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS3_23FdmInnerValueCalculatorEEESE_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSH_.exit" unwind label %terminate.lpad.i.i61
 
 terminate.lpad.i.i61:                             ; preds = %if.then.i.i59
@@ -704,7 +704,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i
-  %call.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
@@ -1215,7 +1215,7 @@ if.then.i.i:                                      ; preds = %call6.i.noexc
 _ZNKSt8functionIFddEEclEd.exit.i:                 ; preds = %call6.i.noexc
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i4.i, i64 24
   %51 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !88
-  %call2.i.i106 = invoke noundef double %51(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  %call2.i.i106 = invoke noundef double %51(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %call2.i.i.noexc unwind label %lpad13.loopexit
 
 call2.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFddEEclEd.exit.i
@@ -1658,7 +1658,7 @@ if.then.i:                                        ; preds = %_ZNK5boost10shared_
 _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib23FdmInnerValueCalculatorEEptEv.exit
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %add.ptr.i4, i64 24
   %10 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !88
-  %call2.i = call noundef double %10(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i4, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i = call noundef double %10(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i4, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   br label %cleanup
 
@@ -1759,7 +1759,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i

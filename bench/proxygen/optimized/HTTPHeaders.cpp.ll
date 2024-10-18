@@ -3657,7 +3657,7 @@ lpad.i1:                                          ; preds = %invoke.cont.i, %if.
   %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #21
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygen11HTTPHeaders17COMBINE_SEPARATORB5cxx11E) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygen11HTTPHeaders17COMBINE_SEPARATORB5cxx11E) #21
   br label %lpad.body.i
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %entry

@@ -476,7 +476,7 @@ if.else.i.i.i.thread.i.i:                         ; preds = %if.then.thread.i.i
   br label %.noexc.i.i
 
 if.then.i.i.i.i89.i:                              ; preds = %if.then.thread.i.i, %if.then.i.i
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %succ_v.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i, i64 noundef 1, ptr nonnull %ref.tmp.i.i.i.i)
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i, ptr noundef nonnull align 8 dereferenceable(40) %succ_v.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i, i64 noundef 1, ptr nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
           to label %.noexc.i.i unwind label %lpad4.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i
@@ -1108,7 +1108,7 @@ if.end10.i.i.i.i.i:                               ; preds = %if.end.i11.i.i.i.i
   %101 = load i64, ptr %arrayidx.i.i24.i.i.i.i.i.i.i, align 8, !alias.scope !96
   %and24.i.i.i.i.i.i.i = and i64 %101, %100
   store i64 %and24.i.i.i.i.i.i.i, ptr %arrayidx.i.i24.i.i.i.i.i.i.i, align 8, !alias.scope !96
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i103.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i103.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i, label %invoke.cont10.i.i.i.i.i, label %do.end17.i.invoke.i.i.i.i
 
@@ -1191,7 +1191,7 @@ invoke.cont22.i.i.i.i.i:                          ; preds = %_ZNKSt4lessIN3ue212
   br i1 %cmp.not.i.i.i.i5.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i6.i.i.i
 
 if.then.i.i.i.i6.i.i.i:                           ; preds = %invoke.cont22.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %109, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp14.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %109, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8
   %111 = load i8, ptr %second.i.i49.i.i.i.i.i, align 8
@@ -1259,7 +1259,7 @@ invoke.cont34.i.i.i.i.i:                          ; preds = %_ZNKSt4lessIN3ue212
   br i1 %cmp.not.i.i87.i.i.i.i.i, label %if.else.i.i101.i.i.i.i.i, label %if.then.i.i88.i.i.i.i.i
 
 if.then.i.i88.i.i.i.i.i:                          ; preds = %invoke.cont34.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %119, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp26.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i89.i.i.i.i.i = getelementptr inbounds i8, ptr %119, i64 16
   store i8 0, ptr %second.i.i.i.i.i89.i.i.i.i.i, align 8
   %121 = load i8, ptr %second.i.i75.i.i.i.i.i, align 8
@@ -1447,7 +1447,7 @@ invoke.cont14.i.thread.i.i.i.i.i:                 ; preds = %invoke.cont.i306.i.
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %invoke.cont.i306.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i
   %__cur.010.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i ], [ %cond.i19.i.i.i.i.i.i, %invoke.cont.i306.i.i.i.i.i ]
   %__first.addr.09.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i311.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i ], [ %147, %invoke.cont.i306.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.09.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.010.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.09.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %second3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i.i.i.i.i.i.i, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -1558,7 +1558,7 @@ if.end10.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i124.i
   %166 = load i64, ptr %arrayidx.i.i24.i.i.i.i.i.i.i.i, align 8, !alias.scope !122
   %and24.i.i.i.i.i.i.i.i = and i64 %166, %165
   store i64 %and24.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i24.i.i.i.i.i.i.i.i, align 8, !alias.scope !122
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i.i.i139.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i.i.i139.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i.i, label %invoke.cont109.i.i.i.i.i, label %do.end17.i.invoke.i.i.i.i
 
@@ -2480,7 +2480,7 @@ if.else.i.i.i.thread.i.i570:                      ; preds = %if.then.thread.i.i5
   br label %.noexc.i.i94
 
 if.then.i.i.i.i91.i:                              ; preds = %if.then.thread.i.i568, %if.then.i.i551
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i8, ptr noundef nonnull align 8 dereferenceable(24) %succ_v.i.i17, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i9, i64 noundef 1, ptr nonnull %ref.tmp.i.i.i.i15)
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12.i.i8, ptr noundef nonnull align 8 dereferenceable(40) %succ_v.i.i17, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i.i9, i64 noundef 1, ptr nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i15)
           to label %.noexc.i.i94 unwind label %lpad4.i.i563
 
 if.else.i.i.i.i.i552:                             ; preds = %if.then.i.i551
@@ -3112,7 +3112,7 @@ if.end10.i.i.i.i.i251:                            ; preds = %if.end.i11.i.i.i.i2
   %357 = load i64, ptr %arrayidx.i.i24.i.i.i.i.i.i.i34, align 8, !alias.scope !241
   %and24.i.i.i.i.i.i.i255 = and i64 %357, %356
   store i64 %and24.i.i.i.i.i.i.i255, ptr %arrayidx.i.i24.i.i.i.i.i.i.i34, align 8, !alias.scope !241
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i256 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i104.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i10, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i256 = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i104.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i10, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i257 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i256, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i257, label %invoke.cont9.i.i.i.i.i, label %do.end16.i.invoke.i.i.i.i
 
@@ -3195,7 +3195,7 @@ invoke.cont21.i.i.i.i.i:                          ; preds = %_ZNKSt4lessIN3ue212
   br i1 %cmp.not.i.i.i.i5.i.i.i271, label %if.else.i.i.i.i.i.i.i415, label %if.then.i.i.i.i6.i.i.i272
 
 if.then.i.i.i.i6.i.i.i272:                        ; preds = %invoke.cont21.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %365, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %365, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp13.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i.i.i.i.i.i273 = getelementptr inbounds i8, ptr %365, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i.i.i.i273, align 8
   %367 = load i8, ptr %second.i.i48.i.i.i.i.i, align 8
@@ -3263,7 +3263,7 @@ invoke.cont33.i.i.i.i.i:                          ; preds = %_ZNKSt4lessIN3ue212
   br i1 %cmp.not.i.i86.i.i.i.i.i, label %if.else.i.i100.i.i.i.i.i, label %if.then.i.i87.i.i.i.i.i
 
 if.then.i.i87.i.i.i.i.i:                          ; preds = %invoke.cont33.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %375, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %375, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp25.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i88.i.i.i.i.i = getelementptr inbounds i8, ptr %375, i64 16
   store i8 0, ptr %second.i.i.i.i.i88.i.i.i.i.i, align 8
   %377 = load i8, ptr %second.i.i74.i.i.i.i.i, align 8
@@ -3452,7 +3452,7 @@ invoke.cont14.i.thread.i.i.i.i.i411:              ; preds = %invoke.cont.i312.i.
 for.body.i.i.i.i.i.i.i.i.i.i.i392:                ; preds = %invoke.cont.i312.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i398
   %__cur.010.i.i.i.i.i.i.i.i.i.i.i393 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i.i.i.i403, %for.inc.i.i.i.i.i.i.i.i.i.i.i398 ], [ %cond.i19.i.i.i.i.i.i389, %invoke.cont.i312.i.i.i.i.i ]
   %__first.addr.09.i.i.i.i.i.i.i.i.i.i.i394 = phi ptr [ %incdec.ptr.i.i.i.i.i.i317.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i398 ], [ %403, %invoke.cont.i312.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i.i.i.i.i.i.i.i393, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.09.i.i.i.i.i.i.i.i.i.i.i394, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__cur.010.i.i.i.i.i.i.i.i.i.i.i393, ptr noundef nonnull align 8 dereferenceable(72) %__first.addr.09.i.i.i.i.i.i.i.i.i.i.i394, i64 16, i1 false)
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i395 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i.i.i.i.i.i.i393, i64 16
   %second3.i.i.i.i.i.i.i.i.i.i.i.i.i396 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i.i.i.i.i.i.i394, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i395, align 8
@@ -3563,7 +3563,7 @@ if.end10.i.i.i.i.i.i371:                          ; preds = %if.end.i.i.i.i125.i
   %422 = load i64, ptr %arrayidx.i.i24.i.i.i.i.i.i.i.i41, align 8, !alias.scope !269
   %and24.i.i.i.i.i.i.i.i375 = and i64 %422, %421
   store i64 %and24.i.i.i.i.i.i.i.i375, ptr %arrayidx.i.i24.i.i.i.i.i.i.i.i41, align 8, !alias.scope !269
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i376 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i.i.i140.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i.i11, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i376 = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i.i.i140.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i11, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i.i377 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i376, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i.i377, label %invoke.cont110.i.i.i.i.i, label %do.end16.i.invoke.i.i.i.i
 
@@ -4512,7 +4512,7 @@ if.else.i.i.i.i.i:
   store i64 0, ptr %m_size.i.i.i.i.i.i.i, align 8
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
           to label %invoke.cont4 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %if.else.i.i.i.i.i
@@ -5016,7 +5016,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt4pa
 _ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INS8_17out_edge_iteratorESF_EEESaISI_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.std::pair.124", ptr %cond.i19, i64 %sub.ptr.div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr, ptr noundef nonnull align 8 dereferenceable(56) %__args, i64 16, i1 false)
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %second3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   store i8 0, ptr %second.i.i.i, align 8
@@ -5046,7 +5046,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i.i.i
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.inc.i.i.i.i.i
   %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i19, %invoke.cont ]
   %__first.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.09.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.09.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 16
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i, align 8
@@ -5084,7 +5084,7 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i27
   %__cur.010.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i33, %for.inc.i.i.i.i.i27 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.09.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i32, %for.inc.i.i.i.i.i27 ], [ %__position.coerce, %invoke.cont10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.09.i.i.i.i.i23, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.010.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.09.i.i.i.i.i23, i64 16, i1 false)
   %second.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 16
   %second3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i24, align 8
@@ -5343,7 +5343,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt4pa
 _ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINSA_6detail29reverse_graph_edge_descriptorINS2_15edge_descriptorIS8_EEEEEES0_INSA_9iterators18transform_iteratorINSC_35reverse_graph_edge_descriptor_makerISF_EENS8_16in_edge_iteratorENSA_11use_defaultESN_EESO_EEESaISR_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINSA_6detail29reverse_graph_edge_descriptorINS2_15edge_descriptorIS8_EEEEEES0_INSA_9iterators18transform_iteratorINSC_35reverse_graph_edge_descriptor_makerISF_EENS8_16in_edge_iteratorENSA_11use_defaultESN_EESO_EEESaISR_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINSA_6detail29reverse_graph_edge_descriptorINS2_15edge_descriptorIS8_EEEEEES0_INSA_9iterators18transform_iteratorINSC_35reverse_graph_edge_descriptor_makerISF_EENS8_16in_edge_iteratorENSA_11use_defaultESN_EESO_EEESaISR_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.std::pair.183", ptr %cond.i19, i64 %sub.ptr.div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr, ptr noundef nonnull align 8 dereferenceable(72) %__args, i64 16, i1 false)
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %second3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   store i8 0, ptr %second.i.i.i, align 8
@@ -5373,7 +5373,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i.i.i
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.inc.i.i.i.i.i
   %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i19, %invoke.cont ]
   %__first.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.09.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %__first.addr.09.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 16
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i, align 8
@@ -5411,7 +5411,7 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i27
   %__cur.010.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i33, %for.inc.i.i.i.i.i27 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.09.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i32, %for.inc.i.i.i.i.i27 ], [ %__position.coerce, %invoke.cont10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.09.i.i.i.i.i23, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__cur.010.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(72) %__first.addr.09.i.i.i.i.i23, i64 16, i1 false)
   %second.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 16
   %second3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i24, align 8

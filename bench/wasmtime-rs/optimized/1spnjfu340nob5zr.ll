@@ -1145,7 +1145,7 @@ define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$
   br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h75a6769f06cb841cE.exit", label %12
 
 12:                                               ; preds = %3
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %7, i64 noundef %9) #25
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %7, i64 noundef range(i64 0, -9223372036854775807) %9) #25
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h75a6769f06cb841cE.exit"
 
 13:                                               ; preds = %0
@@ -1161,7 +1161,7 @@ define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$
   br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h75a6769f06cb841cE.exit4", label %21
 
 21:                                               ; preds = %13
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %16, i64 noundef %18) #25
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %16, i64 noundef range(i64 0, -9223372036854775807) %18) #25
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h75a6769f06cb841cE.exit4"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h75a6769f06cb841cE.exit4": ; preds = %13, %21
@@ -1790,7 +1790,7 @@ define noundef range(i32 1, 0) i32 @_ZN16wasmtime_runtime2gc9host_data22ExternRe
 42:                                               ; preds = %37, %.invoke.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h70dc59a0fc48b791E"(ptr nonnull %1, ptr nonnull readonly %2) #24
+  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h70dc59a0fc48b791E"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(24) %2) #24
           to label %41 unwind label %39, !noalias !127
 
 44:                                               ; preds = %31
@@ -4242,7 +4242,7 @@ _ZN16wasmtime_runtime4arch6x86_6420assert_fp_is_aligned17hc6833496cd237c5dE.exit
   br i1 %189, label %190, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h59b0d50fa4163a24E.exit.i"
 
 190:                                              ; preds = %184
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h4df21a78d19eb22eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %187), !noalias !439
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h4df21a78d19eb22eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %187), !noalias !439
   %.pre.i.i.i.i = load i64, ptr %100, align 8, !alias.scope !448, !noalias !439
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h59b0d50fa4163a24E.exit.i"
 
@@ -4812,7 +4812,7 @@ define hidden void @_ZN16wasmtime_runtime8libcalls9elem_drop17h156a2138c80388baE
 
 14:                                               ; preds = %7
   %15 = sub nuw nsw i64 %10, %12
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %15, i64 noundef 0)
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %15, i64 noundef 0)
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i"
@@ -4926,7 +4926,7 @@ define hidden void @_ZN16wasmtime_runtime8libcalls9data_drop17hc77737ce89663641E
 
 14:                                               ; preds = %7
   %15 = sub nuw nsw i64 %10, %12
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %15, i64 noundef 0)
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %15, i64 noundef 0)
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i"
@@ -5131,7 +5131,7 @@ _ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.138702190
   %52 = load ptr, ptr %51, align 8, !alias.scope !557, !nonnull !4, !align !44, !noundef !4
   %53 = getelementptr inbounds i8, ptr %52, i64 72
   %54 = load ptr, ptr %53, align 8, !invariant.load !4, !noalias !557, !nonnull !4
-  call void %54(ptr noundef nonnull align 1 %50, ptr noalias noundef nonnull align 8 dereferenceable(32) %44, i32 noundef %45)
+  call void %54(ptr noundef nonnull align 1 %50, ptr noalias noundef nonnull align 8 dereferenceable(56) %44, i32 noundef %45)
   br label %_ZN16wasmtime_runtime2gc7GcStore11drop_gc_ref17hfb1c4a2e2b0219d5E.exit
 
 _ZN16wasmtime_runtime2gc7GcStore11drop_gc_ref17hfb1c4a2e2b0219d5E.exit: ; preds = %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit, %48
@@ -5631,7 +5631,7 @@ _ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.138702190
   %49 = load ptr, ptr %48, align 8, !alias.scope !651, !noalias !652, !nonnull !4, !align !44, !noundef !4
   %50 = getelementptr inbounds i8, ptr %49, i64 80
   %51 = load ptr, ptr %50, align 8, !invariant.load !4, !noalias !651, !nonnull !4
-  call void %51(ptr noundef nonnull align 1 %47, ptr noalias noundef nonnull align 8 dereferenceable(32) %38, ptr noalias noundef nonnull align 4 dereferenceable(4) %5, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %.)
+  call void %51(ptr noundef nonnull align 1 %47, ptr noalias noundef nonnull align 8 dereferenceable(56) %38, ptr noalias noundef nonnull align 16 dereferenceable(16) %5, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %.)
   br label %_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition12write_gc_ref17h8b370597165adcf4E.exit
 
 52:                                               ; preds = %43

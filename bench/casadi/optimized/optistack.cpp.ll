@@ -647,7 +647,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -5497,13 +5497,13 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %12, %13
           to label %20 unwind label %21
 
 20:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %3) #19
   br label %52
 
 21:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %3) #19
   br label %common.resume
 
 23:                                               ; preds = %1
@@ -5512,7 +5512,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %12, %13
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc9 unwind label %48
 
 .noexc9:                                          ; preds = %.noexc
@@ -5522,7 +5522,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %12, %13
 25:                                               ; preds = %.noexc9
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc9
@@ -5882,13 +5882,13 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %12, %13
           to label %20 unwind label %21
 
 20:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %3) #19
   br label %52
 
 21:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %3) #19
   br label %common.resume
 
 23:                                               ; preds = %1
@@ -5897,7 +5897,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %12, %13
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc9 unwind label %48
 
 .noexc9:                                          ; preds = %.noexc
@@ -5907,7 +5907,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %12, %13
 25:                                               ; preds = %.noexc9
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc9
@@ -6267,13 +6267,13 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %12, %13
           to label %20 unwind label %21
 
 20:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %3) #19
   br label %52
 
 21:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %3) #19
   br label %common.resume
 
 23:                                               ; preds = %1
@@ -6282,7 +6282,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %12, %13
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc9 unwind label %48
 
 .noexc9:                                          ; preds = %.noexc
@@ -6292,7 +6292,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %12, %13
 25:                                               ; preds = %.noexc9
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc9
@@ -6652,13 +6652,13 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
           to label %20 unwind label %21
 
 20:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %50
 
 21:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %common.resume
 
 23:                                               ; preds = %2
@@ -6667,7 +6667,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc7 unwind label %46
 
 .noexc7:                                          ; preds = %.noexc
@@ -6677,7 +6677,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
 25:                                               ; preds = %.noexc7
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
@@ -7032,13 +7032,13 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
           to label %20 unwind label %21
 
 20:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %50
 
 21:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %common.resume
 
 23:                                               ; preds = %2
@@ -7047,7 +7047,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc7 unwind label %46
 
 .noexc7:                                          ; preds = %.noexc
@@ -7057,7 +7057,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
 25:                                               ; preds = %.noexc7
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
@@ -7412,13 +7412,13 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
           to label %20 unwind label %21
 
 20:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %50
 
 21:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %common.resume
 
 23:                                               ; preds = %2
@@ -7427,7 +7427,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc7 unwind label %46
 
 .noexc7:                                          ; preds = %.noexc
@@ -7437,7 +7437,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
 25:                                               ; preds = %.noexc7
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
@@ -7792,13 +7792,13 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
           to label %20 unwind label %21
 
 20:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %50
 
 21:                                               ; preds = %_ZNK6casadi8OptiNode10baked_copyEv.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %common.resume
 
 23:                                               ; preds = %2
@@ -7807,7 +7807,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc7 unwind label %46
 
 .noexc7:                                          ; preds = %.noexc
@@ -7817,7 +7817,7 @@ _ZNK6casadi8OptiNode10baked_copyEv.exit:          ; preds = %13, %14
 25:                                               ; preds = %.noexc7
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
@@ -7977,14 +7977,14 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
           to label %30 unwind label %31
 
 30:                                               ; preds = %.noexc
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %35
 
 31:                                               ; preds = %.noexc
   %32 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %.body
 
 33:                                               ; preds = %_ZNK6casadi4OptiptEv.exit
@@ -8257,14 +8257,14 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
           to label %30 unwind label %31
 
 30:                                               ; preds = %.noexc
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %35
 
 31:                                               ; preds = %.noexc
   %32 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %.body
 
 33:                                               ; preds = %_ZNK6casadi4OptiptEv.exit
@@ -8537,14 +8537,14 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
           to label %30 unwind label %31
 
 30:                                               ; preds = %.noexc
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %35
 
 31:                                               ; preds = %.noexc
   %32 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #19
   br label %.body
 
 33:                                               ; preds = %_ZNK6casadi4OptiptEv.exit
@@ -9113,7 +9113,7 @@ define void @_ZN6casadi4Opti11to_functionERKNSt7__cxx1112basic_stringIcSt11char_
   %39 = getelementptr inbounds i8, ptr %.sroa.079.089, i64 32
   %40 = load ptr, ptr %4, align 8
   %41 = load ptr, ptr %21, align 8
-  %42 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %40, ptr %41, ptr nonnull %39)
+  %42 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %40, ptr %41, ptr nonnull align 8 dereferenceable(32) %39)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SE_SE_RKT0_.exit unwind label %.loopexit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SE_SE_RKT0_.exit: ; preds = %.lr.ph
@@ -9154,7 +9154,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
 55:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SE_SE_RKT0_.exit
   %56 = load ptr, ptr %5, align 8
   %57 = load ptr, ptr %28, align 8
-  %58 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %56, ptr %57, ptr nonnull %39)
+  %58 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %56, ptr %57, ptr nonnull align 8 dereferenceable(32) %39)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SE_SE_RKT0_.exit59 unwind label %.loopexit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SE_SE_RKT0_.exit59: ; preds = %55
@@ -16945,7 +16945,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit30:     ; preds = %_ZSt8_DestroyIPN6ca
           to label %134 unwind label %26
 
 134:                                              ; preds = %132
-  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
+  call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #19
   ret void
 }
 
@@ -19018,7 +19018,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef non
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -19203,7 +19203,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %10 = getelementptr inbounds i8, ptr %.07, i64 32
   %11 = getelementptr inbounds i8, ptr %.07, i64 72
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %10) #19
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
@@ -19217,7 +19217,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi6MatrixIdEEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_construct_nodeIJRKSB_EEEvPSt13_Rb_tree_nodeISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
@@ -19229,7 +19229,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 7:                                                ; preds = %.noexc
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #19
   br label %.body
 
 9:                                                ; preds = %3
@@ -19241,7 +19241,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %eh.lpad-body = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
   %11 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #19
-  tail call void @_ZdlPv(ptr noundef %1) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
   invoke void @__cxa_rethrow() #20
           to label %19 unwind label %13
 

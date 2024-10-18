@@ -1165,7 +1165,7 @@ _ZN4llvm23WritableBinaryStreamRefD2Ev.exit:       ; preds = %_ZN4llvm23WritableB
   %129 = load ptr, ptr %5, align 8
   call void @_ZN4llvm18BinaryStreamWriterC1ERNS_20WritableBinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(8) %129) #13
   %130 = load ptr, ptr %15, align 8
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr nonnull %130, i64 56) #13
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr nonnull align 1 dereferenceable(56) %130, i64 56) #13
   %131 = load ptr, ptr %0, align 8
   %.not97 = icmp eq ptr %131, null
   br i1 %.not97, label %_ZN4llvm5ErrorD2Ev.exit43, label %.critedge31
@@ -1406,7 +1406,7 @@ _ZN4llvm5ErrorD2Ev.exit61:                        ; preds = %_ZN4llvm15BinaryStr
 
 _ZN4llvm5ErrorD2Ev.exit62:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit61, %236
   %.sroa.088.0107 = phi ptr [ %237, %236 ], [ %233, %_ZN4llvm5ErrorD2Ev.exit61 ]
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr nonnull %.sroa.088.0107, i64 8) #13
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr nonnull align 1 dereferenceable(8) %.sroa.088.0107, i64 8) #13
   %238 = load ptr, ptr %0, align 8
   %.not102 = icmp eq ptr %238, null
   br i1 %.not102, label %236, label %.critedge38

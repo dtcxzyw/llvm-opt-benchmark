@@ -2999,7 +2999,7 @@ _ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i: ; preds = %call2.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i.i)
   store i32 0, ptr %localStatus.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %names.i.i, i8 0, i64 56, i1 false)
-  invoke void @ures_getAllItemsWithFallback_75(ptr noundef %12, ptr noundef nonnull %key.i, ptr noundef nonnull align 8 dereferenceable(8) %loader, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i.i)
+  invoke void @ures_getAllItemsWithFallback_75(ptr noundef %12, ptr noundef nonnull %key.i, ptr noundef nonnull align 8 dereferenceable(64) %loader, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i.i)
           to label %.noexc unwind label %lpad15
 
 .noexc:                                           ; preds = %_ZN6icu_75L16mergeTimeZoneKeyERKNS_13UnicodeStringEPc.exit.i
@@ -3058,7 +3058,7 @@ if.else.i:                                        ; preds = %call1.i.noexc
 new.cont.i:                                       ; preds = %if.else.i
   %fDidAddIntoTrie.i.i = getelementptr inbounds i8, ptr %call4.i, i64 56
   store i8 0, ptr %fDidAddIntoTrie.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4.i, ptr noundef nonnull align 8 dereferenceable(56) %names.i.i, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(58) %call4.i, ptr noundef nonnull align 8 dereferenceable(56) %names.i.i, i64 56, i1 false)
   %22 = getelementptr inbounds i8, ptr %call4.i, i64 57
   store i8 0, ptr %22, align 1
   br label %if.end8.i
@@ -3069,7 +3069,7 @@ if.then6.i:                                       ; preds = %if.else.i
 
 if.end8.i:                                        ; preds = %new.cont.i, %call1.i.noexc
   %value.0.i = phi ptr [ %call4.i, %new.cont.i ], [ @_ZN6icu_75L5EMPTYE, %call1.i.noexc ]
-  %call9.i27 = invoke ptr @uhash_put_75(ptr noundef %19, ptr noundef %call1.i26, ptr noundef nonnull %value.0.i, ptr noundef nonnull %status)
+  %call9.i27 = invoke ptr @uhash_put_75(ptr noundef %19, ptr noundef %call1.i26, ptr noundef nonnull %value.0.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont20 unwind label %lpad15
 
 invoke.cont20.thread:                             ; preds = %if.then6.i, %_ZN6icu_756ZNames12ZNamesLoader8getNamesEv.exit
@@ -3898,7 +3898,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   store i32 0, ptr %localStatus.i, align 4
   %names.i.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %names.i.i, i8 0, i64 56, i1 false)
-  invoke void @ures_getAllItemsWithFallback_75(ptr noundef %zoneStrings, ptr noundef nonnull %key, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i)
+  invoke void @ures_getAllItemsWithFallback_75(ptr noundef %zoneStrings, ptr noundef nonnull %key, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i)
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %invoke.cont9
@@ -3998,7 +3998,7 @@ if.end20:                                         ; preds = %cleanup.thread, %if
 new.notnull:                                      ; preds = %if.end20
   %fDidAddIntoTrie.i = getelementptr inbounds i8, ptr %call22, i64 56
   store i8 0, ptr %fDidAddIntoTrie.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call22, ptr noundef nonnull align 8 dereferenceable(56) %names, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(58) %call22, ptr noundef nonnull align 8 dereferenceable(56) %names, i64 56, i1 false)
   %cmp.not.i = icmp eq ptr %locationName.0, null
   br i1 %cmp.not.i, label %if.end27, label %if.then.i
 
@@ -4032,7 +4032,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %fNamesTrie.i = getelementptr inbounds i8, ptr %this, i64 264
-  invoke void @_ZNK6icu_7511TextTrieMap6searchERKNS_13UnicodeStringEiPNS_30TextTrieMapSearchResultHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie.i, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef nonnull %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_7511TextTrieMap6searchERKNS_13UnicodeStringEiPNS_30TextTrieMapSearchResultHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie.i, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef nonnull align 8 dereferenceable(24) %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %invoke.cont
@@ -4099,7 +4099,7 @@ if.end7:                                          ; preds = %invoke.cont3, %if.e
           to label %invoke.cont8 unwind label %lpad2
 
 invoke.cont8:                                     ; preds = %if.end7
-  invoke void @_ZNK6icu_7511TextTrieMap6searchERKNS_13UnicodeStringEiPNS_30TextTrieMapSearchResultHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie.i, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef nonnull %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_7511TextTrieMap6searchERKNS_13UnicodeStringEiPNS_30TextTrieMapSearchResultHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie.i, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef nonnull align 8 dereferenceable(24) %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %.noexc41 unwind label %lpad2
 
 .noexc41:                                         ; preds = %invoke.cont8
@@ -4439,7 +4439,7 @@ if.then:                                          ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517TimeZoneNamesImpl17ZoneStringsLoaderE, i64 16), ptr %loader, align 8
   %tzn.i = getelementptr inbounds i8, ptr %loader, i64 8
   store ptr %this, ptr %tzn.i, align 8
-  %call.i = invoke ptr @uhash_open_75(ptr noundef nonnull @uhash_hashChars_75, ptr noundef nonnull @uhash_compareChars_75, ptr noundef null, ptr noundef nonnull %status)
+  %call.i = invoke ptr @uhash_open_75(ptr noundef nonnull @uhash_hashChars_75, ptr noundef nonnull @uhash_compareChars_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then
@@ -4456,7 +4456,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %invoke.cont4.i, %if.end.i, %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %loader) #21
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %loader) #21
   br label %common.resume
 
 if.end.i:                                         ; preds = %invoke.cont.i
@@ -5003,7 +5003,7 @@ if.else.i:                                        ; preds = %call1.i.noexc
 new.cont.i:                                       ; preds = %if.else.i
   %fDidAddIntoTrie.i.i = getelementptr inbounds i8, ptr %call4.i, i64 56
   store i8 0, ptr %fDidAddIntoTrie.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4.i, ptr noundef nonnull align 8 dereferenceable(56) %names.i, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(58) %call4.i, ptr noundef nonnull align 8 dereferenceable(56) %names.i, i64 56, i1 false)
   %11 = getelementptr inbounds i8, ptr %call4.i, i64 57
   store i8 0, ptr %11, align 1
   br label %if.end8.i
@@ -5014,7 +5014,7 @@ if.then6.i:                                       ; preds = %if.else.i
 
 if.end8.i:                                        ; preds = %new.cont.i, %call1.i.noexc
   %value.0.i = phi ptr [ %call4.i, %new.cont.i ], [ @_ZN6icu_75L5EMPTYE, %call1.i.noexc ]
-  %call9.i18 = invoke ptr @uhash_put_75(ptr noundef %8, ptr noundef %call1.i17, ptr noundef nonnull %value.0.i, ptr noundef nonnull %status)
+  %call9.i18 = invoke ptr @uhash_put_75(ptr noundef %8, ptr noundef %call1.i17, ptr noundef nonnull %value.0.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end19 unwind label %lpad
 
 lpad:                                             ; preds = %if.end8.i, %if.end.i
@@ -5940,7 +5940,7 @@ invoke.cont:                                      ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont
   store i32 0, ptr %status, align 4
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %loc)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %loc)
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %if.then
@@ -5969,7 +5969,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
   %cmp.i = icmp slt i32 %3, 1
   %cmp20 = icmp slt i32 %call17, 4
   %or.cond = select i1 %cmp.i, i1 %cmp20, i1 false
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %loc) #21
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %loc) #21
   br i1 %or.cond, label %if.end34, label %if.then30
 
 lpad:                                             ; preds = %entry
@@ -5995,7 +5995,7 @@ lpad10:                                           ; preds = %invoke.cont8
 
 ehcleanup:                                        ; preds = %lpad10, %lpad7
   %.pn = phi { ptr, i32 } [ %6, %lpad7 ], [ %7, %lpad10 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %loc) #21
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %loc) #21
   br label %ehcleanup35
 
 if.else:                                          ; preds = %invoke.cont
@@ -6256,7 +6256,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashUChars_75, ptr noundef nonnull @uhash_compareUChars_75, ptr noundef null, ptr noundef nonnull %status)
+  %call.i = tail call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashUChars_75, ptr noundef nonnull @uhash_compareUChars_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %call.i, ptr @_ZN6icu_75L13gTZDBNamesMapE, align 8
   %2 = load i32, ptr %status, align 4
   %cmp.i.i36 = icmp slt i32 %2, 1

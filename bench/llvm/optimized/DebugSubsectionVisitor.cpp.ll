@@ -400,7 +400,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm18BinaryStr
   %152 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i8 0, ptr %153, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %152, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %152, i8 0, i64 32, i1 false)
   %154 = getelementptr inbounds nuw i8, ptr %9, i64 68
   store i32 0, ptr %154, align 4
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %10, align 8
@@ -778,7 +778,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %_ZN4llvm18BinaryStr
   %332 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %333 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i8 0, ptr %333, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %332, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %332, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %14, align 8
   %334 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %335 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -969,7 +969,7 @@ _ZN4llvm5ErrorD2Ev.exit123:                       ; preds = %_ZN4llvm18BinaryStr
   %423 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %424 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i8 0, ptr %424, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %423, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %423, i8 0, i64 32, i1 false)
   %425 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 0, ptr %425, align 4
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %16, align 8
@@ -1162,7 +1162,7 @@ _ZN4llvm5ErrorD2Ev.exit140:                       ; preds = %_ZN4llvm18BinaryStr
   %515 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %516 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i8 0, ptr %516, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %515, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %515, i8 0, i64 32, i1 false)
   %517 = getelementptr inbounds nuw i8, ptr %17, i64 68
   store i32 0, ptr %517, align 4
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %18, align 8
@@ -1890,7 +1890,7 @@ _ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit.sink.split: ; preds = %_ZN4l
 
 _ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit: ; preds = %_ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit.sink.split, %847, %834, %_ZN4llvm15BinaryStreamRefD2Ev.exit203, %762, %749, %.critedge72, %728, %715, %.critedge70, %637, %624, %.critedge68, %603, %590, %.critedge66, %511, %498, %.critedge64, %419, %406, %.critedge62, %328, %315, %.critedge60, %240, %227, %.critedge58, %148, %135, %.critedge
   %.sink = phi ptr [ %7, %.critedge ], [ %7, %135 ], [ %7, %148 ], [ %9, %.critedge58 ], [ %9, %227 ], [ %9, %240 ], [ %11, %.critedge60 ], [ %11, %315 ], [ %11, %328 ], [ %13, %.critedge62 ], [ %13, %406 ], [ %13, %419 ], [ %15, %.critedge64 ], [ %15, %498 ], [ %15, %511 ], [ %17, %.critedge66 ], [ %17, %590 ], [ %17, %603 ], [ %19, %.critedge68 ], [ %19, %624 ], [ %19, %637 ], [ %20, %.critedge70 ], [ %20, %715 ], [ %20, %728 ], [ %22, %.critedge72 ], [ %22, %749 ], [ %22, %762 ], [ %23, %_ZN4llvm15BinaryStreamRefD2Ev.exit203 ], [ %23, %834 ], [ %23, %847 ], [ %.sink.ph, %_ZN4llvm8codeview23DebugLinesSubsectionRefD2Ev.exit.sink.split ]
-  call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %.sink) #6
+  call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink) #6
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %5, align 8
   %856 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %857 = load ptr, ptr %856, align 8
@@ -2808,7 +2808,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #7
   ret void
 }
@@ -2889,7 +2889,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview36DebugCrossModuleExportsSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview36DebugCrossModuleExportsSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #7
   ret void
 }
@@ -2970,7 +2970,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview36DebugCrossModuleImportsSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview36DebugCrossModuleImportsSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #7
   ret void
 }
@@ -3051,7 +3051,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview25DebugSymbolsSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview25DebugSymbolsSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #7
   ret void
 }
@@ -3133,7 +3133,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview29DebugStringTableSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview29DebugStringTableSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #7
   ret void
 }
@@ -3214,7 +3214,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview27DebugFrameDataSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview27DebugFrameDataSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #7
   ret void
 }
@@ -3295,7 +3295,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview25DebugUnknownSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview25DebugUnknownSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #7
   ret void
 }

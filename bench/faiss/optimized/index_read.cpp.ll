@@ -6446,7 +6446,7 @@ _ZN5faiss11IndexFlatIPC2Ev.exit:                  ; preds = %223
 
 231:                                              ; preds = %227
   %232 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
-  invoke void @_ZN5faiss14IndexFlatCodesC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %232)
+  invoke void @_ZN5faiss14IndexFlatCodesC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %232)
           to label %_ZN5faiss11IndexFlatL2C2Ev.exit unwind label %234
 
 _ZN5faiss11IndexFlatL2C2Ev.exit:                  ; preds = %231
@@ -11223,7 +11223,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit1931:                ; preds = %.loopexit1961, %.lo
 
 2730:                                             ; preds = %2726
   %2731 = call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #27
-  invoke void @_ZN5faiss12IndexIVFFlatC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %2731)
+  invoke void @_ZN5faiss12IndexIVFFlatC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %2731)
           to label %2732 unwind label %2769
 
 2732:                                             ; preds = %2730
@@ -22543,7 +22543,7 @@ define linkonce_odr void @_ZN5faiss11IndexFlatIPD2Ev(ptr noundef nonnull align 8
   br label %_ZN5faiss9IndexFlatD2Ev.exit
 
 _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #24
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
   ret void
 }
 
@@ -22560,7 +22560,7 @@ define linkonce_odr void @_ZN5faiss11IndexFlatIPD0Ev(ptr noundef nonnull align 8
   br label %_ZN5faiss11IndexFlatIPD2Ev.exit
 
 _ZN5faiss11IndexFlatIPD2Ev.exit:                  ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #24
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   ret void
 }
@@ -24972,7 +24972,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %_ZN5faiss19IndexIDMap2TemplateINS_5IndexEED2Ev.exit
 
 _ZN5faiss19IndexIDMap2TemplateINS_5IndexEED2Ev.exit: ; preds = %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %13
-  tail call void @_ZN5faiss18IndexIDMapTemplateINS_5IndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #24
+  tail call void @_ZN5faiss18IndexIDMapTemplateINS_5IndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   ret void
 }
@@ -25365,7 +25365,7 @@ define noundef nonnull ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr nou
 
 68:                                               ; preds = %64
   %69 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
-  invoke void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %69, i64 noundef 0, i32 noundef 1)
+  invoke void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(76) %69, i64 noundef 0, i32 noundef 1)
           to label %70 unwind label %98
 
 70:                                               ; preds = %68
@@ -25611,7 +25611,7 @@ define noundef nonnull ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr nou
 194:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef %193, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %193, ptr noundef nonnull %0)
   %195 = getelementptr inbounds i8, ptr %193, i64 168
   %196 = load ptr, ptr %0, align 8
   %197 = load ptr, ptr %196, align 8
@@ -25889,7 +25889,7 @@ _ZN5faissL18read_InvertedListsEPNS_14IndexBinaryIVFEPNS_8IOReaderEi.exit: ; pred
 
 330:                                              ; preds = %326
   %331 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #27
-  invoke void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %331, i64 noundef 0, i32 noundef 1)
+  invoke void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(128) %331, i64 noundef 0, i32 noundef 1)
           to label %_ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEC2Ev.exit unwind label %372
 
 _ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEC2Ev.exit: ; preds = %330
@@ -25913,7 +25913,7 @@ _ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEC2Ev.exit: ; preds = %330
 
 340:                                              ; preds = %326
   %341 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
-  invoke void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %341, i64 noundef 0, i32 noundef 1)
+  invoke void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %341, i64 noundef 0, i32 noundef 1)
           to label %_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2Ev.exit unwind label %374
 
 _ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2Ev.exit: ; preds = %340
@@ -28911,7 +28911,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %_ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEED2Ev.exit
 
 _ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEED2Ev.exit: ; preds = %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %13
-  tail call void @_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
+  tail call void @_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   ret void
 }

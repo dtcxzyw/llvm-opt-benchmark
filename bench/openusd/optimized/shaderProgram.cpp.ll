@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramC2ERKNS_20HgiShaderProgramDescE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -71,7 +71,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17H
 24:                                               ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #14
   resume { ptr, i32 } %25
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HgiShaderProgramDescC2ERKS0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc4.i
@@ -99,7 +99,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramD2Ev(ptr nou
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HgiShaderProgramDescD2Ev.exit: ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
   ret void
 }
 

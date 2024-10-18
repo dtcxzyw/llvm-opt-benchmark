@@ -814,7 +814,7 @@ if.end7.i.i:                                      ; preds = %if.end10.i
   %cond.i.i = select i1 %cmp14.i.i, ptr null, ptr @file_seek_callback_
   %cond18.i.i = select i1 %cmp14.i.i, ptr null, ptr @file_tell_callback_
   %cond22.i.i = select i1 %cmp14.i.i, ptr null, ptr @file_length_callback_
-  %call23.i.i = tail call fastcc i32 @init_stream_internal_(ptr noundef nonnull %decoder, ptr noundef nonnull @file_read_callback_, ptr noundef %cond.i.i, ptr noundef %cond18.i.i, ptr noundef %cond22.i.i, ptr noundef nonnull @file_eof_callback_, ptr noundef nonnull %write_callback, ptr noundef %metadata_callback, ptr noundef nonnull %error_callback, ptr noundef %client_data, i32 noundef 0)
+  %call23.i.i = tail call fastcc i32 @init_stream_internal_(ptr noundef nonnull %decoder, ptr noundef nonnull @file_read_callback_, ptr noundef %cond.i.i, ptr noundef %cond18.i.i, ptr noundef %cond22.i.i, ptr noundef nonnull @file_eof_callback_, ptr noundef nonnull %write_callback, ptr noundef %metadata_callback, ptr noundef nonnull %error_callback, ptr noundef %client_data, i32 noundef range(i32 0, 2) 0)
   br label %init_file_internal_.exit
 
 init_file_internal_.exit:                         ; preds = %if.then.i, %if.then4.i, %cond.end.i, %if.then.i.i, %if.end7.i.i
@@ -887,7 +887,7 @@ if.end7.i.i:                                      ; preds = %if.end10.i
   %cond.i.i = select i1 %cmp14.i.i, ptr null, ptr @file_seek_callback_
   %cond18.i.i = select i1 %cmp14.i.i, ptr null, ptr @file_tell_callback_
   %cond22.i.i = select i1 %cmp14.i.i, ptr null, ptr @file_length_callback_
-  %call23.i.i = tail call fastcc i32 @init_stream_internal_(ptr noundef nonnull %decoder, ptr noundef nonnull @file_read_callback_, ptr noundef %cond.i.i, ptr noundef %cond18.i.i, ptr noundef %cond22.i.i, ptr noundef nonnull @file_eof_callback_, ptr noundef nonnull %write_callback, ptr noundef %metadata_callback, ptr noundef nonnull %error_callback, ptr noundef %client_data, i32 noundef 1)
+  %call23.i.i = tail call fastcc i32 @init_stream_internal_(ptr noundef nonnull %decoder, ptr noundef nonnull @file_read_callback_, ptr noundef %cond.i.i, ptr noundef %cond18.i.i, ptr noundef %cond22.i.i, ptr noundef nonnull @file_eof_callback_, ptr noundef nonnull %write_callback, ptr noundef %metadata_callback, ptr noundef nonnull %error_callback, ptr noundef %client_data, i32 noundef range(i32 0, 2) 1)
   br label %init_file_internal_.exit
 
 init_file_internal_.exit:                         ; preds = %if.then.i, %if.then4.i, %cond.end.i, %if.then.i.i, %if.end7.i.i
@@ -4280,7 +4280,7 @@ if.then.i108.i183:                                ; preds = %if.then64.i
 
 if.end67.i:                                       ; preds = %if.then59.i
   %259 = trunc nuw i64 %indvars.iv to i32
-  %call68.i = call fastcc i32 @read_subframe_fixed_(ptr noundef nonnull %decoder, i32 noundef %259, i32 noundef %bps.addr.0.i, i32 noundef %and60.i, i32 noundef %do_full_decode)
+  %call68.i = call fastcc i32 @read_subframe_fixed_(ptr noundef nonnull %decoder, i32 noundef %259, i32 noundef %bps.addr.0.i, i32 noundef %and60.i, i32 noundef range(i32 0, 2) %do_full_decode)
   %tobool69.not.i = icmp eq i32 %call68.i, 0
   br i1 %tobool69.not.i, label %if.then65, label %if.end71.i
 
@@ -4344,7 +4344,7 @@ if.then.i126.i:                                   ; preds = %if.then92.i
 
 if.end95.i:                                       ; preds = %if.else82.i
   %273 = trunc nuw i64 %indvars.iv to i32
-  %call96.i = call fastcc i32 @read_subframe_lpc_(ptr noundef nonnull %decoder, i32 noundef %273, i32 noundef %bps.addr.0.i, i32 noundef %add86.i, i32 noundef %do_full_decode)
+  %call96.i = call fastcc i32 @read_subframe_lpc_(ptr noundef nonnull %decoder, i32 noundef %273, i32 noundef %bps.addr.0.i, i32 noundef %add86.i, i32 noundef range(i32 0, 2) %do_full_decode)
   %tobool97.not.i = icmp eq i32 %call96.i, 0
   br i1 %tobool97.not.i, label %if.then65, label %if.end99.i
 
@@ -6964,7 +6964,7 @@ if.end25:                                         ; preds = %if.end19
 
 safe_calloc_.exit:                                ; preds = %if.end25
   %conv = zext i32 %16 to i64
-  %call2.i = call noalias ptr @calloc(i64 noundef %conv, i64 noundef 32) #20
+  %call2.i = call noalias ptr @calloc(i64 noundef range(i64 0, 4294967296) %conv, i64 noundef 32) #20
   %tracks = getelementptr inbounds i8, ptr %obj, i64 152
   store ptr %call2.i, ptr %tracks, align 8
   %cmp30 = icmp eq ptr %call2.i, null
@@ -7080,7 +7080,7 @@ if.end87:                                         ; preds = %if.end81
 
 safe_calloc_.exit50:                              ; preds = %if.end87
   %conv95 = zext nneg i32 %conv90 to i64
-  %call2.i46 = call noalias ptr @calloc(i64 noundef %conv95, i64 noundef 16) #20
+  %call2.i46 = call noalias ptr @calloc(i64 noundef range(i64 0, 4294967296) %conv95, i64 noundef 16) #20
   %indices = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %call2.i46, ptr %indices, align 8
   %cmp97 = icmp eq ptr %call2.i46, null

@@ -3123,7 +3123,7 @@ _ZNK7glslang11TConstUnionltERKS0_.exit454:        ; preds = %1363, %1373, %1377,
   %1440 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #9
   %1441 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %1440, i64 noundef 208) #9
   %1442 = getelementptr inbounds i8, ptr %1441, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1442, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1442, i8 0, i64 20, i1 false)
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN7glslang12TIntermTypedE, i64 16), ptr %1441, align 8
   %1443 = getelementptr inbounds i8, ptr %1441, i64 32
   store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %1443, align 8
@@ -8248,7 +8248,7 @@ _ZNK7glslang11TConstUnioncoEv.exit:               ; preds = %207, %214, %217, %2
 ._crit_edge778:                                   ; preds = %1792, %._crit_edge771.thread, %.loopexit757
   %1794 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #9
   %1795 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %1794, i64 noundef 208) #9
-  tail call void @_ZN7glslang12TIntermTypedC2ERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(184) %1795, ptr noundef nonnull align 8 dereferenceable(152) %2)
+  tail call void @_ZN7glslang12TIntermTypedC2ERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(201) %1795, ptr noundef nonnull align 8 dereferenceable(152) %2)
   store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN7glslang20TIntermConstantUnionE, i64 16), ptr %1795, align 8
   %1796 = getelementptr inbounds i8, ptr %1795, i64 184
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %1796, align 8
@@ -10645,7 +10645,7 @@ _ZNK7glslang11TConstUnionmlERKS0_.exit.us:        ; preds = %1506, %1502, %1497,
   %1517 = getelementptr inbounds i8, ptr %1516, i64 240
   %1518 = load ptr, ptr %1517, align 8
   %1519 = call noundef nonnull align 8 dereferenceable(152) ptr %1518(ptr noundef nonnull align 8 dereferenceable(184) %1) #9
-  call void @_ZN7glslang12TIntermTypedC2ERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(184) %1515, ptr noundef nonnull align 8 dereferenceable(152) %1519)
+  call void @_ZN7glslang12TIntermTypedC2ERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(201) %1515, ptr noundef nonnull align 8 dereferenceable(152) %1519)
   store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN7glslang20TIntermConstantUnionE, i64 16), ptr %1515, align 8
   %1520 = getelementptr inbounds i8, ptr %1515, i64 184
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %1520, align 8
@@ -15295,7 +15295,7 @@ define linkonce_odr void @_ZN7glslang16TConstUnionArrayD0Ev(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang12TIntermTypedC2ERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 20, i1 false)
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN7glslang12TIntermTypedE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %4, align 8

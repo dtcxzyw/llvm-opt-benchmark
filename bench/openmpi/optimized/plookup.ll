@@ -393,7 +393,7 @@ pmix_obj_run_destructors.exit121:                 ; preds = %.lr.ph.i118, %141
   call void @llvm.assume(i1 %.not10.i)
   %154 = getelementptr inbounds i8, ptr %.09.i, i64 144
   %155 = load ptr, ptr %154, align 8
-  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull readonly dereferenceable(8) @.str.11) #14
+  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(8) @.str.11) #14
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %pmix_cmd_line_get_param.exit, label %.lr.ph.i122
 
@@ -405,7 +405,7 @@ pmix_obj_run_destructors.exit121:                 ; preds = %.lr.ph.i118, %141
   call void @llvm.assume(i1 %.not.i123)
   %159 = getelementptr inbounds i8, ptr %.0.i, i64 144
   %160 = load ptr, ptr %159, align 8
-  %161 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull readonly dereferenceable(8) @.str.11) #14
+  %161 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(8) @.str.11) #14
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %pmix_cmd_line_get_param.exit, label %.lr.ph.i122
 

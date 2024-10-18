@@ -1710,7 +1710,7 @@ define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef %0, i32
   br i1 %8, label %9, label %rb_check_arity.exit
 
 9:                                                ; preds = %3
-  call void @rb_error_arity(i32 noundef %7, i32 noundef 0, i32 noundef %1) #11
+  call void @rb_error_arity(i32 noundef %7, i32 noundef 0, i32 noundef range(i32 -1, 2) %1) #11
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -1823,7 +1823,7 @@ define internal fastcc i64 @ttymode(i64 noundef %0, ptr noundef %1, i64 noundef 
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %7)
-  %12 = call i32 @tcgetattr(i32 noundef %10, ptr noundef nonnull %9) #10
+  %12 = call i32 @tcgetattr(i32 noundef range(i32 0, -1) %10, ptr noundef nonnull %9) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %.loopexit66
 
@@ -1833,7 +1833,7 @@ define internal fastcc i64 @ttymode(i64 noundef %0, ptr noundef %1, i64 noundef 
   br label %15
 
 15:                                               ; preds = %17, %14
-  %16 = call i32 @tcsetattr(i32 noundef %10, i32 noundef 0, ptr noundef nonnull %7) #10
+  %16 = call i32 @tcsetattr(i32 noundef range(i32 0, -1) %10, i32 noundef 0, ptr noundef nonnull %7) #10
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %20, label %17
 
@@ -1870,7 +1870,7 @@ define internal fastcc i64 @ttymode(i64 noundef %0, ptr noundef %1, i64 noundef 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %9, i64 60
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %6)
-  %30 = call i32 @tcgetattr(i32 noundef %26, ptr noundef nonnull %29) #10
+  %30 = call i32 @tcgetattr(i32 noundef range(i32 0, -1) %26, ptr noundef nonnull %29) #10
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %.loopexit
 
@@ -1880,7 +1880,7 @@ define internal fastcc i64 @ttymode(i64 noundef %0, ptr noundef %1, i64 noundef 
   br label %33
 
 33:                                               ; preds = %35, %32
-  %34 = call i32 @tcsetattr(i32 noundef %26, i32 noundef 0, ptr noundef nonnull %6) #10
+  %34 = call i32 @tcsetattr(i32 noundef range(i32 0, -1) %26, i32 noundef 0, ptr noundef nonnull %6) #10
   %.not.i.i40 = icmp eq i32 %34, 0
   br i1 %.not.i.i40, label %.thread, label %35
 

@@ -981,7 +981,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h
 define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h38b6661ab07468a5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !459)
   %2 = load ptr, ptr %0, align 8, !alias.scope !459, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h12043eccd584d82fE.llvm.10987160594893011292"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h12043eccd584d82fE.llvm.10987160594893011292"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h2f9bb26189b4027aE.llvm.10987160594893011292.exit" unwind label %3, !noalias !459
 
 3:                                                ; preds = %1
@@ -1865,7 +1865,7 @@ define hidden void @"_ZN4core3ptr733drop_in_place$LT$diesel..query_builder..inse
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h2f9bb26189b4027aE.llvm.10987160594893011292"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h12043eccd584d82fE.llvm.10987160594893011292"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h12043eccd584d82fE.llvm.10987160594893011292"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h32b8ea6e7c4b8383E.llvm.10987160594893011292.exit" unwind label %3
 
 "_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h32b8ea6e7c4b8383E.llvm.10987160594893011292.exit": ; preds = %1
@@ -2205,7 +2205,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$diesel..sqlite..connection..
   ]
 
 3:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17h984e0b97bdc32c39E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17h984e0b97bdc32c39E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %10 unwind label %4
 
 4:                                                ; preds = %3
@@ -2459,7 +2459,7 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$diesel..sqlite..connection..
   ]
 
 3:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17h984e0b97bdc32c39E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17h984e0b97bdc32c39E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %10 unwind label %4
 
 4:                                                ; preds = %3
@@ -2516,7 +2516,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$dies
   ret void
 
 4:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17h984e0b97bdc32c39E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17h984e0b97bdc32c39E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %11 unwind label %5
 
 5:                                                ; preds = %4
@@ -2927,7 +2927,7 @@ define hidden void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..
   br i1 %.not.i.i.i, label %20, label %8
 
 8:                                                ; preds = %5
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17h984e0b97bdc32c39E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %6)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17h984e0b97bdc32c39E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %6)
           to label %15 unwind label %9
 
 9:                                                ; preds = %8

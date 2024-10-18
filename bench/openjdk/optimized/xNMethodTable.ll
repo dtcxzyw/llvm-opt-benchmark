@@ -339,7 +339,7 @@ _ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit: ; preds
   br i1 %.not.i.i.i, label %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i, label %74
 
 74:                                               ; preds = %._crit_edge
-  %75 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %73) #14
+  %75 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %73) #14
   br label %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
 
 _ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %74, %._crit_edge
@@ -355,7 +355,7 @@ _ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %74, %._crit_edge
   br i1 %.not.i.i.i, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i, label %80
 
 80:                                               ; preds = %79
-  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %73) #14
+  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %73) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i
 
 _ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i: ; preds = %80, %79
@@ -654,11 +654,11 @@ _ZN7XLockerI5XLockEC2EPS0_.exit.thread.i:         ; preds = %_ZN11MutexLockerC2E
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit
 
 6:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #14
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
   %9 = add i64 %8, 1
   store i64 %9, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #14
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit
 
 _ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit: ; preds = %_ZN7XLockerI5XLockEC2EPS0_.exit.thread.i, %6
@@ -694,7 +694,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %2
   br i1 %.not.i.i1, label %_ZN7XLockerI5XLockEC2EPS0_.exit.i, label %4
 
 4:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #14
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
   br label %_ZN7XLockerI5XLockEC2EPS0_.exit.i
 
 _ZN7XLockerI5XLockEC2EPS0_.exit.i:                ; preds = %4, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
@@ -721,7 +721,7 @@ _ZN7XLockerI5XLockEC2EPS0_.exit.i:                ; preds = %4, %_ZN11MutexLocke
   br i1 %.not.i.i1, label %_ZN7XLockerI5XLockED2Ev.exit.i, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #14
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
   br label %_ZN7XLockerI5XLockED2Ev.exit.i
 
 _ZN7XLockerI5XLockED2Ev.exit.i:                   ; preds = %15, %14

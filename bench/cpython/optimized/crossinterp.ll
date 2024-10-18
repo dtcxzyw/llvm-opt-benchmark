@@ -2423,7 +2423,7 @@ sw.bb6.i:                                         ; preds = %entry
 
 sw.default.i:                                     ; preds = %entry
   %37 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call8.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.24, i32 noundef %0) #13
+  %call8.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.24, i32 noundef range(i32 0, -1) %0) #13
   br label %_PyXI_ApplyErrorCode.exit
 
 _PyXI_ApplyErrorCode.exit:                        ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb5.i, %sw.bb6.i, %sw.default.i

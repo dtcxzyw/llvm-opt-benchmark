@@ -2358,7 +2358,7 @@ _ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i.i114: ; preds = %_ZN7Q
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %.not.i.i.i118 = icmp eq ptr %189, null
   %spec.select.i.i.i = select i1 %.not.i.i.i118, ptr @_ZN7QString6_emptyE, ptr %189
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %17, ptr noundef nonnull %6, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %191)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %191)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %207
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %186

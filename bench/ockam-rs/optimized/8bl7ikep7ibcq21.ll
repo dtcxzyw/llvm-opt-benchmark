@@ -103,7 +103,7 @@ define internal fastcc void @"_ZN4core3ptr154drop_in_place$LT$alloc..boxed..Box$
   br i1 %32, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf6ec204ef137f12E.exit", label %33
 
 33:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17hc584f5c5e27b99b4E.exit"
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %30, i64 noundef %26) #20
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %30, i64 noundef range(i64 1, -9223372036854775807) %26) #20
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf6ec204ef137f12E.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf6ec204ef137f12E.exit": ; preds = %"_ZN4core3ptr129drop_in_place$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17hc584f5c5e27b99b4E.exit", %33
@@ -171,7 +171,7 @@ define hidden noalias noundef nonnull ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17h4
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %1, ptr %6, align 8
   %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !19
-  %8 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #20, !noalias !19
+  %8 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef range(i64 1, -9223372036854775807) 8) #20, !noalias !19
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h68d8250e47a85988E.llvm.5413789356557153710.exit"
 
@@ -218,7 +218,7 @@ define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17h5339c734e5
 
 8:                                                ; preds = %2
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %10 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef %1) #20
+  %10 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef range(i64 1, -9223372036854775807) %1) #20
   br label %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit
 
 _ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit: ; preds = %6, %8
@@ -237,7 +237,7 @@ _ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit: ; preds = %6, %8
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT$3new17h68d8250e47a85988E.llvm.5413789356557153710"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #20
+  %3 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef range(i64 1, -9223372036854775807) 8) #20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.5413789356557153710.exit
 
@@ -325,7 +325,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %0
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %15, i64 noundef %11) #20
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %15, i64 noundef range(i64 1, -9223372036854775807) %11) #20
   br label %19
 
 19:                                               ; preds = %0, %18
@@ -383,7 +383,7 @@ define void @_ZN14ockam_executor8executor8Executor3new17h4edb83d538201cf0E(ptr n
   %7 = getelementptr inbounds i8, ptr %2, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull readonly align 128 dereferenceable(256) %3, i64 256, i1 false)
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !29
-  %9 = tail call noundef align 128 dereferenceable_or_null(384) ptr @__rust_alloc(i64 noundef 384, i64 noundef 128) #20, !noalias !29
+  %9 = tail call noundef align 128 dereferenceable_or_null(384) ptr @__rust_alloc(i64 noundef 384, i64 noundef range(i64 1, -9223372036854775807) 128) #20, !noalias !29
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %16
 
@@ -829,7 +829,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 define void @_ZN14ockam_executor8executor8Executor13sleep_if_idle17h925818fbd902ebaeE(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 128
-  %4 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hab1ca6d4d5437339E.llvm.9251317351765065292(ptr noundef nonnull %3, i8 noundef 4)
+  %4 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hab1ca6d4d5437339E.llvm.9251317351765065292(ptr noundef nonnull align 128 %3, i8 noundef 4)
   %5 = getelementptr inbounds i8, ptr %2, i64 256
   %6 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hab1ca6d4d5437339E.llvm.9251317351765065292(ptr noundef nonnull %5, i8 noundef 4)
   ret void
@@ -850,7 +850,7 @@ define noundef i64 @_ZN14ockam_executor8executor6TaskId3new17h720cda557e807308E(
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN14ockam_executor8executor9NodeWaker3new17h23acdf8152be2623E(i64 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !71
-  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #20, !noalias !71
+  %3 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef range(i64 1, -9223372036854775807) 8) #20, !noalias !71
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h921be1b44bda4f8bE.exit"
 
@@ -896,7 +896,7 @@ define hidden { ptr, ptr } @_ZN14ockam_executor8executor9TaskWaker3new17h6c94b83
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %0, ptr %6, align 8
   %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !79
-  %8 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #20, !noalias !79
+  %8 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef range(i64 1, -9223372036854775807) 8) #20, !noalias !79
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h492e947a6992b702E.llvm.5413789356557153710.exit"
 

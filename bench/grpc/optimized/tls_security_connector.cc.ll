@@ -530,7 +530,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit: ; preds = %_Z
           to label %call.i.noexc unwind label %lpad8
 
 call.i.noexc:                                     ; preds = %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %overridden_target_name_, ptr noundef %call.i20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name_, ptr noundef %call.i20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad8
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -542,7 +542,7 @@ call.i.noexc:                                     ; preds = %_ZN9grpc_core13RefC
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %overridden_target_name_) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name_) #20
   br label %lpad8.body
 
 invoke.cont9:                                     ; preds = %.noexc
@@ -774,7 +774,7 @@ invoke.cont48:                                    ; preds = %if.then.i.i.i55, %i
 
 if.else.i:                                        ; preds = %invoke.cont48
   %root_cert_name_.i = getelementptr inbounds i8, ptr %40, i64 64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %watched_root_cert_name, ptr noundef nonnull align 8 dereferenceable(32) %root_cert_name_.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name, ptr noundef nonnull align 8 dereferenceable(32) %root_cert_name_.i)
           to label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISt6__and_IJSt9is_scalarIS5_ESC_IS5_NSt5decayISF_E4typeEEEEESt16is_constructibleIS5_JSF_EESt13is_assignableIRS5_SF_EEERS6_E4typeEOSF_.exit unwind label %lpad51
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISt6__and_IJSt9is_scalarIS5_ESC_IS5_NSt5decayISF_E4typeEEEEESt16is_constructibleIS5_JSF_EESt13is_assignableIRS5_SF_EEERS6_E4typeEOSF_.exit: ; preds = %if.else.i
@@ -809,7 +809,7 @@ if.end64:                                         ; preds = %_ZNSt8optionalINSt7
 
 if.else.i67:                                      ; preds = %if.end64
   %identity_cert_name_.i = getelementptr inbounds i8, ptr %45, i64 104
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %watched_identity_cert_name, ptr noundef nonnull align 8 dereferenceable(32) %identity_cert_name_.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %watched_identity_cert_name, ptr noundef nonnull align 8 dereferenceable(32) %identity_cert_name_.i)
           to label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISt6__and_IJSt9is_scalarIS5_ESC_IS5_NSt5decayISF_E4typeEEEEESt16is_constructibleIS5_JSF_EESt13is_assignableIRS5_SF_EEERS6_E4typeEOSF_.exit72 unwind label %lpad66
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISt6__and_IJSt9is_scalarIS5_ESC_IS5_NSt5decayISF_E4typeEEEEESt16is_constructibleIS5_JSF_EESt13is_assignableIRS5_SF_EEERS6_E4typeEOSF_.exit72: ; preds = %if.else.i67
@@ -864,7 +864,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i, %f
   %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %54, %if.then.i.i.i.i ]
   %cert_chain_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cert_chain_.i.i.i.i.i.i.i.i.i.i.i) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i.i.i.i.i) #20
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %55
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !7
@@ -897,7 +897,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %invoke.cont101
 
 if.then.i.i.i.i.i:                                ; preds = %if.else
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp99, ptr noundef nonnull align 8 dereferenceable(32) %watched_root_cert_name)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp99, ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name)
           to label %.noexc82 unwind label %lpad100
 
 .noexc82:                                         ; preds = %if.then.i.i.i.i.i
@@ -913,7 +913,7 @@ invoke.cont101:                                   ; preds = %.noexc82, %if.else
   br i1 %tobool.i.i.i.i.i85, label %if.then.i.i.i.i.i86, label %invoke.cont104
 
 if.then.i.i.i.i.i86:                              ; preds = %invoke.cont101
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp102, ptr noundef nonnull align 8 dereferenceable(32) %watched_identity_cert_name)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp102, ptr noundef nonnull align 8 dereferenceable(40) %watched_identity_cert_name)
           to label %.noexc87 unwind label %lpad103
 
 .noexc87:                                         ; preds = %if.then.i.i.i.i.i86
@@ -931,7 +931,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
 
 if.then.i.i.i.i91:                                ; preds = %invoke.cont106
   store i8 0, ptr %_M_engaged.i.i.i.i.i84, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp102) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp102) #20
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %invoke.cont106, %if.then.i.i.i.i91
@@ -941,7 +941,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 
 if.then.i.i.i.i94:                                ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   store i8 0, ptr %_M_engaged.i.i.i.i.i81, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp99) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp99) #20
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %if.then.i.i.i.i94
@@ -979,7 +979,7 @@ lpad105:                                          ; preds = %invoke.cont104
 
 if.then.i.i.i.i99:                                ; preds = %lpad105
   store i8 0, ptr %_M_engaged.i.i.i.i.i84, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp102) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp102) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i.i.i99, %lpad105, %lpad103
@@ -990,7 +990,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i.i99, 
 
 if.then.i.i.i.i103:                               ; preds = %ehcleanup
   store i8 0, ptr %_M_engaged.i.i.i.i.i81, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp99) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp99) #20
   br label %ehcleanup107
 
 ehcleanup107:                                     ; preds = %if.then.i.i.i.i103, %ehcleanup, %lpad100
@@ -1018,7 +1018,7 @@ if.end108:                                        ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i112:                               ; preds = %if.end108
   store i8 0, ptr %_M_engaged.i.i.i.i.i63, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %watched_identity_cert_name) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %watched_identity_cert_name) #20
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit113
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit113: ; preds = %if.end108, %if.then.i.i.i.i112
@@ -1028,7 +1028,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit113
 
 if.then.i.i.i.i116:                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit113
   store i8 0, ptr %_M_engaged.i.i.i.i.i59, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %watched_root_cert_name) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name) #20
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit117
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit117: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit113, %if.then.i.i.i.i116
@@ -1054,7 +1054,7 @@ ehcleanup109:                                     ; preds = %_ZNSt10unique_ptrIN
 
 if.then.i.i.i.i123:                               ; preds = %ehcleanup109
   store i8 0, ptr %_M_engaged.i.i.i.i.i63, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %watched_identity_cert_name) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %watched_identity_cert_name) #20
   br label %ehcleanup110
 
 ehcleanup110:                                     ; preds = %if.then.i.i.i.i123, %ehcleanup109, %lpad51
@@ -1066,7 +1066,7 @@ ehcleanup110:                                     ; preds = %if.then.i.i.i.i123,
 
 if.then.i.i.i.i127:                               ; preds = %ehcleanup110
   store i8 0, ptr %_M_engaged.i.i.i.i.i59, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %watched_root_cert_name) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name) #20
   br label %ehcleanup111
 
 ehcleanup111:                                     ; preds = %if.then.i.i.i.i127, %ehcleanup110
@@ -1188,7 +1188,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i, %for
   %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %1, %if.then.i.i.i ]
   %cert_chain_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cert_chain_.i.i.i.i.i.i.i.i.i.i) #20
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i.i.i.i) #20
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !7
@@ -1391,7 +1391,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i, %f
   %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %13, %if.then.i.i.i.i ]
   %cert_chain_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cert_chain_.i.i.i.i.i.i.i.i.i.i.i) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i.i.i.i.i) #20
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %14
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !7
@@ -1763,7 +1763,7 @@ if.then.i.i7:                                     ; preds = %invoke.cont13
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i7
   call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #20
-  call void @_ZdlPv(ptr noundef nonnull %12) #21
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %12) #21
   br label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit
 
 _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit: ; preds = %if.then.i.i7, %if.then.i.i.i
@@ -1778,7 +1778,7 @@ if.then.i:                                        ; preds = %_ZN9grpc_core13RefC
 
 if.then.i.i9:                                     ; preds = %if.then.i
   call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pr) #20
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #21
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #21
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %invoke.cont13, %if.then.i.i9, %if.then.i, %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit
@@ -2090,7 +2090,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont12
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -2150,7 +2150,7 @@ lpad11:                                           ; preds = %invoke.cont10
   br i1 %tobool.not.i.i9, label %ehcleanup, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %lpad11
-  %call.i.i11 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i11 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
@@ -2395,7 +2395,7 @@ if.end5:                                          ; preds = %if.then3, %do.end
 if.then7:                                         ; preds = %if.end5
   %4 = load ptr, ptr %security_connector_, align 8
   %pem_key_cert_pair_list_ = getelementptr inbounds i8, ptr %4, i64 200
-  tail call void @_ZNSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE14_M_move_assignEOS5_(ptr noundef nonnull align 8 dereferenceable(25) %pem_key_cert_pair_list_, ptr noundef nonnull align 8 dereferenceable(25) %key_cert_pairs) #20
+  tail call void @_ZNSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE14_M_move_assignEOS5_(ptr noundef nonnull align 8 dereferenceable(32) %pem_key_cert_pair_list_, ptr noundef nonnull align 8 dereferenceable(32) %key_cert_pairs) #20
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %if.end5
@@ -4101,7 +4101,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad.body.thread5
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -4111,7 +4111,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.body.thread:                                 ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   br label %cleanup.action4
 
 cond.false:                                       ; preds = %entry
@@ -4673,7 +4673,7 @@ invoke.cont29:                                    ; preds = %if.then.i.i.i31, %i
 
 if.else.i:                                        ; preds = %invoke.cont29
   %root_cert_name_.i = getelementptr inbounds i8, ptr %24, i64 64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %watched_root_cert_name, ptr noundef nonnull align 8 dereferenceable(32) %root_cert_name_.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name, ptr noundef nonnull align 8 dereferenceable(32) %root_cert_name_.i)
           to label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISt6__and_IJSt9is_scalarIS5_ESC_IS5_NSt5decayISF_E4typeEEEEESt16is_constructibleIS5_JSF_EESt13is_assignableIRS5_SF_EEERS6_E4typeEOSF_.exit unwind label %lpad32
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISt6__and_IJSt9is_scalarIS5_ESC_IS5_NSt5decayISF_E4typeEEEEESt16is_constructibleIS5_JSF_EESt13is_assignableIRS5_SF_EEERS6_E4typeEOSF_.exit: ; preds = %if.else.i
@@ -4703,7 +4703,7 @@ if.end45:                                         ; preds = %_ZNSt8optionalINSt7
 
 if.else.i42:                                      ; preds = %if.end45
   %identity_cert_name_.i = getelementptr inbounds i8, ptr %29, i64 104
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %watched_identity_cert_name, ptr noundef nonnull align 8 dereferenceable(32) %identity_cert_name_.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %watched_identity_cert_name, ptr noundef nonnull align 8 dereferenceable(32) %identity_cert_name_.i)
           to label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISt6__and_IJSt9is_scalarIS5_ESC_IS5_NSt5decayISF_E4typeEEEEESt16is_constructibleIS5_JSF_EESt13is_assignableIRS5_SF_EEERS6_E4typeEOSF_.exit47 unwind label %lpad47
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISt6__and_IJSt9is_scalarIS5_ESC_IS5_NSt5decayISF_E4typeEEEEESt16is_constructibleIS5_JSF_EESt13is_assignableIRS5_SF_EEERS6_E4typeEOSF_.exit47: ; preds = %if.else.i42
@@ -4726,7 +4726,7 @@ if.end60:                                         ; preds = %_ZNSt8optionalINSt7
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %invoke.cont64
 
 if.then.i.i.i.i.i:                                ; preds = %if.end60
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp62, ptr noundef nonnull align 8 dereferenceable(32) %watched_root_cert_name)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp62, ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name)
           to label %.noexc50 unwind label %lpad63
 
 .noexc50:                                         ; preds = %if.then.i.i.i.i.i
@@ -4742,7 +4742,7 @@ invoke.cont64:                                    ; preds = %.noexc50, %if.end60
   br i1 %tobool.i.i.i.i.i53, label %if.then.i.i.i.i.i54, label %invoke.cont67
 
 if.then.i.i.i.i.i54:                              ; preds = %invoke.cont64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp65, ptr noundef nonnull align 8 dereferenceable(32) %watched_identity_cert_name)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp65, ptr noundef nonnull align 8 dereferenceable(40) %watched_identity_cert_name)
           to label %.noexc55 unwind label %lpad66
 
 .noexc55:                                         ; preds = %if.then.i.i.i.i.i54
@@ -4760,7 +4760,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont69
   store i8 0, ptr %_M_engaged.i.i.i.i.i52, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp65) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp65) #20
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %invoke.cont69, %if.then.i.i.i.i
@@ -4770,7 +4770,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 
 if.then.i.i.i.i60:                                ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   store i8 0, ptr %_M_engaged.i.i.i.i.i49, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp62) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp62) #20
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit61
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit61: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %if.then.i.i.i.i60
@@ -4793,7 +4793,7 @@ _ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInt
 
 if.then.i.i.i.i65:                                ; preds = %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit
   store i8 0, ptr %_M_engaged.i.i.i.i.i38, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %watched_identity_cert_name) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %watched_identity_cert_name) #20
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit66
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit66: ; preds = %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i.i65
@@ -4803,7 +4803,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit66:
 
 if.then.i.i.i.i69:                                ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit66
   store i8 0, ptr %_M_engaged.i.i.i.i.i34, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %watched_root_cert_name) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name) #20
   br label %_ZNSt10unique_ptrIN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcherESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcherESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.then.i.i.i.i69, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit66
@@ -4828,7 +4828,7 @@ lpad68:                                           ; preds = %invoke.cont67
 
 if.then.i.i.i.i76:                                ; preds = %lpad68
   store i8 0, ptr %_M_engaged.i.i.i.i.i52, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp65) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp65) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i.i.i76, %lpad68, %lpad66
@@ -4839,7 +4839,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i.i76, 
 
 if.then.i.i.i.i80:                                ; preds = %ehcleanup
   store i8 0, ptr %_M_engaged.i.i.i.i.i49, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp62) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp62) #20
   br label %ehcleanup70
 
 ehcleanup70:                                      ; preds = %if.then.i.i.i.i80, %ehcleanup, %lpad63
@@ -4868,7 +4868,7 @@ ehcleanup71:                                      ; preds = %_ZNSt10unique_ptrIN
 
 if.then.i.i.i.i89:                                ; preds = %ehcleanup71
   store i8 0, ptr %_M_engaged.i.i.i.i.i38, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %watched_identity_cert_name) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %watched_identity_cert_name) #20
   br label %ehcleanup72
 
 ehcleanup72:                                      ; preds = %if.then.i.i.i.i89, %ehcleanup71, %lpad32
@@ -4880,7 +4880,7 @@ ehcleanup72:                                      ; preds = %if.then.i.i.i.i89, 
 
 if.then.i.i.i.i93:                                ; preds = %ehcleanup72
   store i8 0, ptr %_M_engaged.i.i.i.i.i34, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %watched_root_cert_name) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %watched_root_cert_name) #20
   br label %ehcleanup73
 
 ehcleanup73:                                      ; preds = %if.then.i.i.i.i93, %ehcleanup72
@@ -5083,7 +5083,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i, %f
   %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %15, %if.then.i.i.i.i ]
   %cert_chain_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cert_chain_.i.i.i.i.i.i.i.i.i.i.i) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i.i.i.i.i) #20
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %16
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !7
@@ -5366,7 +5366,7 @@ if.then.i.i7:                                     ; preds = %invoke.cont9
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i7
   call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #20
-  call void @_ZdlPv(ptr noundef nonnull %12) #21
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %12) #21
   br label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit
 
 _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit: ; preds = %if.then.i.i7, %if.then.i.i.i
@@ -5381,7 +5381,7 @@ if.then.i:                                        ; preds = %_ZN9grpc_core13RefC
 
 if.then.i.i9:                                     ; preds = %if.then.i
   call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pr) #20
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #21
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #21
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %invoke.cont9, %if.then.i.i9, %if.then.i, %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit
@@ -5691,7 +5691,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont12
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -5751,7 +5751,7 @@ lpad11:                                           ; preds = %invoke.cont10
   br i1 %tobool.not.i.i9, label %ehcleanup, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %lpad11
-  %call.i.i11 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i11 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
@@ -5932,7 +5932,7 @@ if.end5:                                          ; preds = %if.then3, %do.end
 if.then7:                                         ; preds = %if.end5
   %4 = load ptr, ptr %security_connector_, align 8
   %pem_key_cert_pair_list_ = getelementptr inbounds i8, ptr %4, i64 104
-  tail call void @_ZNSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE14_M_move_assignEOS5_(ptr noundef nonnull align 8 dereferenceable(25) %pem_key_cert_pair_list_, ptr noundef nonnull align 8 dereferenceable(25) %key_cert_pairs) #20
+  tail call void @_ZNSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE14_M_move_assignEOS5_(ptr noundef nonnull align 8 dereferenceable(32) %pem_key_cert_pair_list_, ptr noundef nonnull align 8 dereferenceable(32) %key_cert_pairs) #20
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %if.end5
@@ -6825,7 +6825,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then, %for.body.
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %2, %if.then ]
   %cert_chain_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cert_chain_.i.i.i.i.i.i.i.i) #20
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i.i) #20
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !7
@@ -6868,7 +6868,7 @@ for.body.i.i.i.i.i.i6:                            ; preds = %if.then.i, %for.bod
   %__first.addr.04.i.i.i.i.i.i7 = phi ptr [ %incdec.ptr.i.i.i.i.i.i9, %for.body.i.i.i.i.i.i6 ], [ %10, %if.then.i ]
   %cert_chain_.i.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i7, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cert_chain_.i.i.i.i.i.i.i.i8) #20
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i7) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i.i7) #20
   %incdec.ptr.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i7, i64 64
   %cmp.not.i.i.i.i.i.i10 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i9, %11
   br i1 %cmp.not.i.i.i.i.i.i10, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i6, !llvm.loop !7
@@ -7059,7 +7059,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i6:                                       ; preds = %if.then.i
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %entry, %if.then.i6, %if.then.i
@@ -7125,7 +7125,7 @@ common.ret11:                                     ; preds = %if.then.i5, %_ZNSt1
 
 if.then.i8:                                       ; preds = %if.then.i5
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %9) #21
   br label %common.ret11
 
 terminate.lpad.loopexit:                          ; preds = %for.body

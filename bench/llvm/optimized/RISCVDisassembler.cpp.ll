@@ -144,7 +144,7 @@ _ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i: ; preds = %1
 
 _ZN12_GLOBAL__N_117RISCVDisassemblerD2Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
+  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #12
   ret void
 }
@@ -181,7 +181,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not1.i, label %23, label %54
 
 23:                                               ; preds = %16
-  %24 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableRISCV32Only_16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %19)
+  %24 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableRISCV32Only_16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %19)
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %._crit_edge.i, label %25
 
@@ -250,7 +250,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not2.i, label %61, label %59
 
 59:                                               ; preds = %54
-  %60 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL21DecoderTableZicfiss16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %55)
+  %60 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL21DecoderTableZicfiss16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %55)
   %.not42.i = icmp eq i32 %60, 0
   br i1 %.not42.i, label %._crit_edge10.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -267,7 +267,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not3.i, label %68, label %66
 
 66:                                               ; preds = %61
-  %67 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableRVZcmt16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %62)
+  %67 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableRVZcmt16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %62)
   %.not43.i = icmp eq i32 %67, 0
   br i1 %.not43.i, label %._crit_edge12.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -285,7 +285,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not4.i, label %74, label %72
 
 72:                                               ; preds = %68
-  %73 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableRVZcmp16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %70)
+  %73 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableRVZcmp16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %70)
   %.not44.i = icmp eq i32 %73, 0
   br i1 %.not44.i, label %._crit_edge15.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -302,7 +302,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not5.i, label %110, label %79
 
 79:                                               ; preds = %74
-  %80 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL19DecoderTableXwchc16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %75)
+  %80 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL19DecoderTableXwchc16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %75)
   %.not45.i = icmp eq i32 %80, 0
   br i1 %.not45.i, label %._crit_edge17.i, label %81
 
@@ -364,7 +364,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 
 110:                                              ; preds = %._crit_edge17.i, %74
   %111 = phi ptr [ %.pre18.i, %._crit_edge17.i ], [ %75, %74 ]
-  %112 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL14DecoderTable16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %111)
+  %112 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL14DecoderTable16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %111)
   %.not46.i = icmp eq i32 %112, 0
   br i1 %.not46.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, label %113
 
@@ -453,7 +453,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not2.i26, label %157, label %159
 
 157:                                              ; preds = %153
-  %158 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableRV32Zdinx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %149)
+  %158 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableRV32Zdinx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %149)
   %.not.i31 = icmp eq i32 %158, 0
   br i1 %.not.i31, label %._crit_edge.i32, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -478,7 +478,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not4.i28, label %167, label %169
 
 167:                                              ; preds = %163
-  %168 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableRV32Zacas32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %161)
+  %168 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableRV32Zacas32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %161)
   %.not189.i = icmp eq i32 %168, 0
   br i1 %.not189.i, label %._crit_edge34.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -496,7 +496,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not5.i29, label %175, label %173
 
 173:                                              ; preds = %169
-  %174 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL21DecoderTableRVZfinx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %171)
+  %174 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL21DecoderTableRVZfinx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %171)
   %.not190.i = icmp eq i32 %174, 0
   br i1 %.not190.i, label %._crit_edge38.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -513,7 +513,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not6.i, label %182, label %180
 
 180:                                              ; preds = %175
-  %181 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXVentana32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %176)
+  %181 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXVentana32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %176)
   %.not191.i = icmp eq i32 %181, 0
   br i1 %.not191.i, label %._crit_edge40.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -531,7 +531,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not7.i, label %188, label %186
 
 186:                                              ; preds = %182
-  %187 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXTHeadBa32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %184)
+  %187 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXTHeadBa32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %184)
   %.not192.i = icmp eq i32 %187, 0
   br i1 %.not192.i, label %._crit_edge44.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -549,7 +549,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not8.i, label %194, label %192
 
 192:                                              ; preds = %188
-  %193 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXTHeadBb32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %190)
+  %193 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXTHeadBb32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %190)
   %.not193.i = icmp eq i32 %193, 0
   br i1 %.not193.i, label %._crit_edge48.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -567,7 +567,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not9.i, label %200, label %198
 
 198:                                              ; preds = %194
-  %199 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXTHeadBs32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %196)
+  %199 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXTHeadBs32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %196)
   %.not194.i = icmp eq i32 %199, 0
   br i1 %.not194.i, label %._crit_edge52.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -585,7 +585,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not10.i, label %206, label %204
 
 204:                                              ; preds = %200
-  %205 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXTHeadCondMov32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %202)
+  %205 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXTHeadCondMov32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %202)
   %.not195.i = icmp eq i32 %205, 0
   br i1 %.not195.i, label %._crit_edge56.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -603,7 +603,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not11.i, label %212, label %210
 
 210:                                              ; preds = %206
-  %211 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableXTHeadCmo32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %208)
+  %211 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableXTHeadCmo32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %208)
   %.not196.i = icmp eq i32 %211, 0
   br i1 %.not196.i, label %._crit_edge60.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -621,7 +621,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not12.i, label %218, label %216
 
 216:                                              ; preds = %212
-  %217 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXTHeadFMemIdx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %214)
+  %217 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXTHeadFMemIdx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %214)
   %.not197.i = icmp eq i32 %217, 0
   br i1 %.not197.i, label %._crit_edge64.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -639,7 +639,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not13.i, label %224, label %222
 
 222:                                              ; preds = %218
-  %223 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableXTHeadMac32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %220)
+  %223 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableXTHeadMac32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %220)
   %.not198.i = icmp eq i32 %223, 0
   br i1 %.not198.i, label %._crit_edge68.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -657,7 +657,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not14.i, label %230, label %228
 
 228:                                              ; preds = %224
-  %229 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableXTHeadMemIdx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %226)
+  %229 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableXTHeadMemIdx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %226)
   %.not199.i = icmp eq i32 %229, 0
   br i1 %.not199.i, label %._crit_edge72.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -675,7 +675,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not15.i, label %236, label %234
 
 234:                                              ; preds = %230
-  %235 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXTHeadMemPair32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %232)
+  %235 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXTHeadMemPair32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %232)
   %.not200.i = icmp eq i32 %235, 0
   br i1 %.not200.i, label %._crit_edge76.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -693,7 +693,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not16.i, label %242, label %240
 
 240:                                              ; preds = %236
-  %241 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL24DecoderTableXTHeadSync32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %238)
+  %241 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL24DecoderTableXTHeadSync32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %238)
   %.not201.i = icmp eq i32 %241, 0
   br i1 %.not201.i, label %._crit_edge80.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -711,7 +711,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not17.i, label %248, label %246
 
 246:                                              ; preds = %242
-  %247 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL24DecoderTableXTHeadVdot32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %244)
+  %247 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL24DecoderTableXTHeadVdot32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %244)
   %.not202.i = icmp eq i32 %247, 0
   br i1 %.not202.i, label %._crit_edge84.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -729,7 +729,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not18.i, label %254, label %252
 
 252:                                              ; preds = %248
-  %253 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXSfvcp32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %250)
+  %253 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXSfvcp32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %250)
   %.not203.i = icmp eq i32 %253, 0
   br i1 %.not203.i, label %._crit_edge88.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -747,7 +747,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not19.i, label %260, label %258
 
 258:                                              ; preds = %254
-  %259 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableXSfvqmaccdod32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %256)
+  %259 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableXSfvqmaccdod32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %256)
   %.not204.i = icmp eq i32 %259, 0
   br i1 %.not204.i, label %._crit_edge92.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -765,7 +765,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not20.i, label %266, label %264
 
 264:                                              ; preds = %260
-  %265 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableXSfvqmaccqoq32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %262)
+  %265 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableXSfvqmaccqoq32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %262)
   %.not205.i = icmp eq i32 %265, 0
   br i1 %.not205.i, label %._crit_edge96.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -783,7 +783,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not21.i, label %272, label %270
 
 270:                                              ; preds = %266
-  %271 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXSfvfwmaccqqq32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %268)
+  %271 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXSfvfwmaccqqq32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %268)
   %.not206.i = icmp eq i32 %271, 0
   br i1 %.not206.i, label %._crit_edge100.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -801,7 +801,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not22.i, label %278, label %276
 
 276:                                              ; preds = %272
-  %277 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL29DecoderTableXSfvfnrclipxfqf32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %274)
+  %277 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL29DecoderTableXSfvfnrclipxfqf32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %274)
   %.not207.i = icmp eq i32 %277, 0
   br i1 %.not207.i, label %._crit_edge104.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -819,7 +819,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not23.i, label %284, label %282
 
 282:                                              ; preds = %278
-  %283 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL34DecoderTableXSiFivecdiscarddlone32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %280)
+  %283 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL34DecoderTableXSiFivecdiscarddlone32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %280)
   %.not208.i = icmp eq i32 %283, 0
   br i1 %.not208.i, label %._crit_edge108.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -837,7 +837,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not24.i, label %290, label %288
 
 288:                                              ; preds = %284
-  %289 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL32DecoderTableXSiFivecflushdlone32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %286)
+  %289 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL32DecoderTableXSiFivecflushdlone32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %286)
   %.not209.i = icmp eq i32 %289, 0
   br i1 %.not209.i, label %._crit_edge112.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -855,7 +855,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not25.i, label %296, label %294
 
 294:                                              ; preds = %290
-  %295 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXSfcease32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %292)
+  %295 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXSfcease32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %292)
   %.not210.i = icmp eq i32 %295, 0
   br i1 %.not210.i, label %._crit_edge116.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -873,7 +873,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not26.i, label %302, label %300
 
 300:                                              ; preds = %296
-  %301 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL25DecoderTableXCVbitmanip32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %298)
+  %301 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL25DecoderTableXCVbitmanip32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %298)
   %.not211.i = icmp eq i32 %301, 0
   br i1 %.not211.i, label %._crit_edge120.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -891,7 +891,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not27.i, label %308, label %306
 
 306:                                              ; preds = %302
-  %307 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCVelw32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %304)
+  %307 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCVelw32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %304)
   %.not212.i = icmp eq i32 %307, 0
   br i1 %.not212.i, label %._crit_edge124.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -909,7 +909,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not28.i, label %314, label %312
 
 312:                                              ; preds = %308
-  %313 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCVmac32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %310)
+  %313 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCVmac32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %310)
   %.not213.i = icmp eq i32 %313, 0
   br i1 %.not213.i, label %._crit_edge128.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -927,7 +927,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not29.i, label %320, label %318
 
 318:                                              ; preds = %314
-  %319 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCVmem32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %316)
+  %319 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCVmem32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %316)
   %.not214.i = icmp eq i32 %319, 0
   br i1 %.not214.i, label %._crit_edge132.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -945,7 +945,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not30.i, label %326, label %324
 
 324:                                              ; preds = %320
-  %325 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCValu32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %322)
+  %325 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCValu32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %322)
   %.not215.i = icmp eq i32 %325, 0
   br i1 %.not215.i, label %._crit_edge136.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -963,7 +963,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not31.i, label %332, label %330
 
 330:                                              ; preds = %326
-  %331 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL21DecoderTableXCVsimd32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %328)
+  %331 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL21DecoderTableXCVsimd32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %328)
   %.not216.i = icmp eq i32 %331, 0
   br i1 %.not216.i, label %._crit_edge140.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -981,7 +981,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not32.i, label %338, label %336
 
 336:                                              ; preds = %332
-  %337 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL19DecoderTableXCVbi32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %334)
+  %337 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL19DecoderTableXCVbi32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %334)
   %.not217.i = icmp eq i32 %337, 0
   br i1 %.not217.i, label %._crit_edge144.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
@@ -991,7 +991,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 
 338:                                              ; preds = %._crit_edge144.i, %332
   %339 = phi ptr [ %.pre145.i, %._crit_edge144.i ], [ %334, %332 ]
-  %340 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL14DecoderTable32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %339)
+  %340 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL14DecoderTable32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(288) %339)
   br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 341:                                              ; preds = %142
@@ -3022,8 +3022,8 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit129: ; preds = %922, %924
   %937 = getelementptr inbounds i8, ptr %934, i64 2
   %938 = getelementptr inbounds i8, ptr %934, i64 3
   %939 = load i8, ptr %937, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %15, i64 noundef 6) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 16, i1 false)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef nonnull %15, i64 noundef 6) #10
   store i32 %915, ptr %8, align 8
   %940 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048, i32 noundef %935, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %9)
   %941 = load i8, ptr %9, align 1
@@ -3031,8 +3031,8 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit129: ; preds = %922, %924
   br i1 %942, label %943, label %945
 
 943:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit129
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %944 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9MCOperandEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %14)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 16, i1 false)
+  %944 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9MCOperandEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef nonnull align 8 dereferenceable(112) %14)
   br label %951
 
 945:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit129
@@ -3047,7 +3047,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit129: ; preds = %922, %924
   %.2176 = phi ptr [ %938, %943 ], [ %950, %945 ]
   %.250 = phi i32 [ %940, %943 ], [ 3, %945 ]
   %.3 = phi i32 [ %940, %943 ], [ %.0, %945 ]
-  %952 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #10
+  %952 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %14) #10
   %953 = load ptr, ptr %14, align 8
   %954 = icmp eq ptr %953, %15
   br i1 %954, label %_ZN4llvm6MCInstD2Ev.exit, label %955

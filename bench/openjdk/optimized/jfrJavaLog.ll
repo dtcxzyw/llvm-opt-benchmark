@@ -735,13 +735,13 @@ define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10Java
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %20, i64 8
   %28 = load i64, ptr %27, align 8
-  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #6
+  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(81) %6) #6
   %29 = getelementptr inbounds i8, ptr %6, i64 72
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %6, i64 80
   store i8 0, ptr %30, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %6, align 8
-  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #6
+  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(81) %7) #6
   %31 = getelementptr inbounds i8, ptr %7, i64 72
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %7, i64 80
@@ -766,7 +766,7 @@ define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10Java
   %39 = shl nuw nsw i64 %indvars.iv29, %.7.i.us
   %40 = add nuw nsw i64 %38, %39
   %41 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %42 = call noundef ptr %41(ptr noundef nonnull %13, i64 noundef %40) #6
+  %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %40) #6
   %43 = call noundef ptr @_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb(ptr noundef %42, ptr noundef %4, i1 noundef zeroext false) #6
   %44 = icmp eq ptr %43, null
   br i1 %44, label %._crit_edge, label %45
@@ -789,7 +789,7 @@ define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10Java
   %51 = shl nuw nsw i64 %indvars.iv, %.7.i
   %52 = add nuw nsw i64 %50, %51
   %53 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %54 = call noundef ptr %53(ptr noundef nonnull %13, i64 noundef %52) #6
+  %54 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %52) #6
   %55 = call noundef ptr @_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb(ptr noundef %54, ptr noundef %4, i1 noundef zeroext false) #6
   %56 = icmp eq ptr %55, null
   br i1 %56, label %._crit_edge, label %57
@@ -808,13 +808,13 @@ define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10Java
 
 60:                                               ; preds = %._crit_edge
   %61 = load ptr, ptr %31, align 8
-  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %61, ptr noundef nonnull align 8 dereferenceable(72) %7) #6
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %61, ptr noundef nonnull align 8 dereferenceable(81) %7) #6
   store i8 0, ptr %32, align 8
-  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %7) #6
+  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(81) %7) #6
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
 _ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %._crit_edge, %60
-  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #6
+  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %7) #6
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %6, align 8
   %62 = load i8, ptr %30, align 8
   %63 = trunc i8 %62 to i1
@@ -822,13 +822,13 @@ _ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EED2Ev
 
 64:                                               ; preds = %_ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EED2Ev.exit
   %65 = load ptr, ptr %29, align 8
-  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %65, ptr noundef nonnull align 8 dereferenceable(72) %6) #6
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %65, ptr noundef nonnull align 8 dereferenceable(81) %6) #6
   store i8 0, ptr %30, align 8
-  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #6
+  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(81) %6) #6
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
 _ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %_ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EED2Ev.exit, %64
-  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #6
+  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %6) #6
   %66 = load ptr, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i, label %68, label %67

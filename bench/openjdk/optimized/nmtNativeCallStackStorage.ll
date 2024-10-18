@@ -64,7 +64,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %4
   %28 = sext i32 %.sroa.02.0.copyload to i64
   %29 = getelementptr inbounds %class.NativeCallStack, ptr %21, i64 %28
   %.0.i = select i1 %27, ptr %19, ptr %29
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1, ptr noundef nonnull dereferenceable(32) %.0.i, i64 32)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %.0.i, i64 32)
   %30 = icmp eq i32 %bcmp.i, 0
   br i1 %30, label %.loopexit, label %22, !llvm.loop !8
 
@@ -90,7 +90,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %4
 
 44:                                               ; preds = %31
   store i64 0, ptr %3, align 8
-  %45 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIN17ArrayWithFreeListIN22NativeCallStackStorage10TableEntryEL8MEMFLAGS12EE14BackingElementE18GrowableArrayCHeapIS5_LS3_12EEE6appendERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  %45 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIN17ArrayWithFreeListIN22NativeCallStackStorage10TableEntryEL8MEMFLAGS12EE14BackingElementE18GrowableArrayCHeapIS5_LS3_12EEE6appendERKS5_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
   %46 = load ptr, ptr %17, align 8
   %47 = sext i32 %45 to i64
   %48 = getelementptr inbounds %"union.ArrayWithFreeList<NativeCallStackStorage::TableEntry, MEMFLAGS::mtNMT>::BackingElement", ptr %46, i64 %47

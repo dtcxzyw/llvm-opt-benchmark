@@ -1250,7 +1250,7 @@ define void @If_DsdManFree(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %49
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.119, i32 noundef %54) #38
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.119, i32 noundef range(i32 0, 16) %54) #38
   br label %Vec_MemDumpDigit.exit.i.i
 
 58:                                               ; preds = %49
@@ -9846,7 +9846,7 @@ Abc_TtReadHexDigit.exit.i:                        ; preds = %101, %99, %95
 ._crit_edge55.i.thread:                           ; preds = %.thread, %._crit_edge.i, %._crit_edge55.i._crit_edge
   %114 = phi i64 [ %.pre103, %._crit_edge55.i._crit_edge ], [ 0, %._crit_edge.i ], [ 0, %.thread ]
   %115 = phi i32 [ %87, %._crit_edge55.i._crit_edge ], [ 2, %._crit_edge.i ], [ 2, %.thread ]
-  %.0.i43.i = tail call i32 @llvm.umax.i32(i32 %115, i32 1)
+  %.0.i43.i = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483646, 6) %115, i32 1)
   %116 = icmp ult i32 %115, 2
   %117 = and i64 %114, 3
   %118 = mul nuw nsw i64 %117, 5
@@ -12878,12 +12878,12 @@ define i32 @If_CutDsdBalanceEval_rec(ptr noundef %0, i32 noundef %1, ptr noundef
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds i8, ptr %11, i64 8
   %61 = load i32, ptr %60, align 4
-  %62 = call fastcc i32 @If_LogCreateAnd(ptr noundef %4, i32 noundef %57, i32 noundef %59, i32 noundef %6)
+  %62 = call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %4, i32 noundef %57, i32 noundef %59, i32 noundef %6)
   %63 = xor i32 %57, 1
-  %64 = call fastcc i32 @If_LogCreateAnd(ptr noundef %4, i32 noundef %63, i32 noundef %61, i32 noundef %6)
+  %64 = call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %4, i32 noundef %63, i32 noundef %61, i32 noundef %6)
   %65 = xor i32 %62, 1
   %66 = xor i32 %64, 1
-  %67 = call fastcc i32 @If_LogCreateAnd(ptr noundef %4, i32 noundef %65, i32 noundef %66, i32 noundef %6)
+  %67 = call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %4, i32 noundef %65, i32 noundef %66, i32 noundef %6)
   %68 = xor i32 %67, 1
   store i32 %68, ptr %5, align 4
   br label %72
@@ -13135,7 +13135,7 @@ If_LogCreateAndXor.exit.us.i:                     ; preds = %.lr.ph.i, %If_LogCr
   %186 = load i32, ptr %185, align 4
   %gep.us.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv15.i
   %187 = load i32, ptr %gep.us.i, align 4
-  %188 = call fastcc i32 @If_LogCreateAnd(ptr noundef %4, i32 noundef %186, i32 noundef %187, i32 noundef %6)
+  %188 = call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %4, i32 noundef %186, i32 noundef %187, i32 noundef %6)
   store i32 %188, ptr %gep.us.i, align 4
   %189 = icmp ugt i64 %indvars.iv15.i, 2
   br i1 %189, label %If_LogCreateAndXor.exit.us.i, label %If_LogCreateAndXorMulti.exit, !llvm.loop !147
@@ -13148,12 +13148,12 @@ If_LogCreateAndXor.exit.i:                        ; preds = %.lr.ph.i, %If_LogCr
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
   %192 = load i32, ptr %gep.i, align 4
   %193 = xor i32 %192, 1
-  %194 = call fastcc i32 @If_LogCreateAnd(ptr noundef %4, i32 noundef %191, i32 noundef %193, i32 noundef %6)
+  %194 = call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %4, i32 noundef %191, i32 noundef %193, i32 noundef %6)
   %195 = xor i32 %191, 1
-  %196 = call fastcc i32 @If_LogCreateAnd(ptr noundef %4, i32 noundef %195, i32 noundef %192, i32 noundef %6)
+  %196 = call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %4, i32 noundef %195, i32 noundef %192, i32 noundef %6)
   %197 = xor i32 %194, 1
   %198 = xor i32 %196, 1
-  %199 = call fastcc i32 @If_LogCreateAnd(ptr noundef %4, i32 noundef %197, i32 noundef %198, i32 noundef %6)
+  %199 = call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %4, i32 noundef %197, i32 noundef %198, i32 noundef %6)
   %200 = xor i32 %199, 1
   store i32 %200, ptr %gep.i, align 4
   %201 = icmp ugt i64 %indvars.iv.i, 2
@@ -13246,17 +13246,17 @@ define internal fastcc i32 @If_LogCounterAddAig(ptr nocapture noundef nonnull %0
 
 39:                                               ; preds = %34
   %40 = xor i32 %38, 1
-  %41 = tail call fastcc i32 @If_LogCreateAnd(ptr noundef %5, i32 noundef %36, i32 noundef %40, i32 noundef %6)
+  %41 = tail call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %5, i32 noundef %36, i32 noundef %40, i32 noundef %6)
   %42 = xor i32 %36, 1
-  %43 = tail call fastcc i32 @If_LogCreateAnd(ptr noundef %5, i32 noundef %42, i32 noundef %38, i32 noundef %6)
+  %43 = tail call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %5, i32 noundef %42, i32 noundef %38, i32 noundef %6)
   %44 = xor i32 %41, 1
   %45 = xor i32 %43, 1
-  %46 = tail call fastcc i32 @If_LogCreateAnd(ptr noundef %5, i32 noundef %44, i32 noundef %45, i32 noundef %6)
+  %46 = tail call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %5, i32 noundef %44, i32 noundef %45, i32 noundef %6)
   %47 = xor i32 %46, 1
   br label %.thread
 
 48:                                               ; preds = %34
-  %49 = tail call fastcc i32 @If_LogCreateAnd(ptr noundef %5, i32 noundef %36, i32 noundef %38, i32 noundef %6)
+  %49 = tail call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %5, i32 noundef %36, i32 noundef %38, i32 noundef %6)
   br label %.thread
 
 50:                                               ; preds = %32

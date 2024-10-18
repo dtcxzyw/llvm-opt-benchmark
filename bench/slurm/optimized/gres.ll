@@ -26588,7 +26588,7 @@ define internal fastcc void @_merge_gres2(ptr noundef %0, ptr noundef %1, i64 no
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %71, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.170, ptr noundef nonnull @__func__._set_file_subset, i64 noundef %.us-phi67, ptr noundef %92) #25
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.170, ptr noundef nonnull @__func__._set_file_subset, i64 noundef range(i64 1, 0) %.us-phi67, ptr noundef %92) #25
   br label %_set_file_subset.exit
 
 _set_file_subset.exit:                            ; preds = %73, %87, %91

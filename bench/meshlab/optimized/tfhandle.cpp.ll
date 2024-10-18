@@ -256,7 +256,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define void @_ZThn16_N8TFHandleD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN8TFHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #13
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(81) %2) #13
   ret void
 }
 
@@ -550,7 +550,7 @@ declare void @_ZN8TFHandle7clickedEPS_(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: uwtable
 define void @_ZThn16_N8TFHandle15mousePressEventEP24QGraphicsSceneMouseEvent(ptr noundef %0, ptr nocapture noundef readnone %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN8TFHandle7clickedEPS_(ptr noundef nonnull align 8 dereferenceable(81) %3, ptr noundef nonnull %3)
+  tail call void @_ZN8TFHandle7clickedEPS_(ptr noundef nonnull align 8 dereferenceable(81) %3, ptr noundef nonnull align 8 dereferenceable(81) %3)
   ret void
 }
 
@@ -565,7 +565,7 @@ declare void @_ZN8TFHandle13doubleClickedEPS_(ptr noundef nonnull align 8 derefe
 ; Function Attrs: uwtable
 define void @_ZThn16_N8TFHandle21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(ptr noundef %0, ptr nocapture noundef readnone %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN8TFHandle13doubleClickedEPS_(ptr noundef nonnull align 8 dereferenceable(81) %3, ptr noundef nonnull %3)
+  tail call void @_ZN8TFHandle13doubleClickedEPS_(ptr noundef nonnull align 8 dereferenceable(81) %3, ptr noundef nonnull align 8 dereferenceable(81) %3)
   ret void
 }
 

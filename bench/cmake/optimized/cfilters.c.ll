@@ -1499,7 +1499,7 @@ define dso_local void @Curl_conn_ev_data_done(ptr noundef %0, i1 noundef zeroext
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %.lr.ph.split.us.i.us.i
-  %15 = tail call i32 %12(ptr noundef nonnull %.01218.us.i.us.i, ptr noundef %0, i32 noundef 7, i32 noundef %5, ptr noundef null) #11
+  %15 = tail call i32 %12(ptr noundef nonnull %.01218.us.i.us.i, ptr noundef %0, i32 noundef 7, i32 noundef range(i32 0, 2) %5, ptr noundef null) #11
   br label %16
 
 16:                                               ; preds = %14, %.lr.ph.split.us.i.us.i
@@ -1540,7 +1540,7 @@ define dso_local i32 @Curl_conn_ev_data_pause(ptr noundef %0, i1 noundef zeroext
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %.lr.ph.split.i.i
-  %15 = tail call i32 %12(ptr noundef nonnull %.01218.i.i, ptr noundef %0, i32 noundef 6, i32 noundef %5, ptr noundef null) #11
+  %15 = tail call i32 %12(ptr noundef nonnull %.01218.i.i, ptr noundef %0, i32 noundef 6, i32 noundef range(i32 0, 2) %5, ptr noundef null) #11
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %cf_cntrl_all.exit
 

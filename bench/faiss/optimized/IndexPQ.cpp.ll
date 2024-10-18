@@ -291,7 +291,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit4.i.i:               ; preds = %11, %_ZNSt6vectorIf
   br label %_ZN5faiss19MultiIndexQuantizerD2Ev.exit
 
 _ZN5faiss19MultiIndexQuantizerD2Ev.exit:          ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit4.i.i, %14
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   ret void
 }
@@ -345,7 +345,7 @@ define void @_ZN5faiss19MultiIndexQuantizer3addElPKf(ptr nocapture nonnull readn
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc5 unwind label %11
 
 .noexc5:                                          ; preds = %.noexc
@@ -355,7 +355,7 @@ define void @_ZN5faiss19MultiIndexQuantizer3addElPKf(ptr nocapture nonnull readn
 8:                                                ; preds = %.noexc5
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -625,7 +625,7 @@ define void @_ZN5faiss19MultiIndexQuantizer5resetEv(ptr nocapture nonnull readno
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc5 unwind label %9
 
 .noexc5:                                          ; preds = %.noexc
@@ -635,7 +635,7 @@ define void @_ZN5faiss19MultiIndexQuantizer5resetEv(ptr nocapture nonnull readno
 6:                                                ; preds = %.noexc5
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   br label %.body.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -803,7 +803,7 @@ _ZN5faiss16ProductQuantizerD2Ev.exit:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZN5faiss14IndexFlatCodesD2Ev.exit
 
 _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %_ZN5faiss16ProductQuantizerD2Ev.exit, %18
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   ret void
 }
 
@@ -1638,7 +1638,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit4.i.i:               ; preds = %14, %_ZNSt6vectorIf
   br label %_ZN5faiss19MultiIndexQuantizerD2Ev.exit
 
 _ZN5faiss19MultiIndexQuantizerD2Ev.exit:          ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit4.i.i, %17
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #19
   ret void
 }
 
@@ -7311,7 +7311,7 @@ _ZNKSt6vectorIN5faiss12_GLOBAL__N_115SemiSortedArrayIfEESaIS3_EE12_M_check_lenEm
   %.092.i.i.i.i.i.i.i = phi ptr [ %124, %.lr.ph.i.i.i.i.i.i.i ], [ %.val.i.i.i.i, %.noexc17.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.092.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(52) %.092.i.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !64
   %113 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i, i64 16
   %114 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i, i64 16
   %115 = load ptr, ptr %114, align 8, !alias.scope !62, !noalias !59
@@ -8966,7 +8966,7 @@ common.resume:                                    ; preds = %_ZNSt6vectorIPN5fai
 15:                                               ; preds = %5
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #19
   br label %common.resume
 
 _ZN5faiss19MultiIndexQuantizerC2Eimm.exit:        ; preds = %5
@@ -9201,7 +9201,7 @@ common.resume:                                    ; preds = %_ZNSt6vectorIPN5fai
 15:                                               ; preds = %5
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #19
   br label %common.resume
 
 _ZN5faiss19MultiIndexQuantizerC2Eimm.exit:        ; preds = %5

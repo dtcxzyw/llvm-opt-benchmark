@@ -118,7 +118,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #11
+  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #11
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
@@ -136,7 +136,7 @@ _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
 
 _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNSt8functionIFvRKbEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #11
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
@@ -406,7 +406,7 @@ _ZNK4llvm10DILocation11getFilenameEv.exit._ZN4llvm12DenseMapBaseINS_8DenseMapISt
 
 122:                                              ; preds = %_ZNK4llvm10DILocation11getFilenameEv.exit.i
   %123 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIPKNS_10BasicBlockENS_12DenseMapInfoIS8_vEEEENS9_IS4_vEENS_6detail12DenseMapPairIS4_SB_EEEES4_SB_SC_SF_E20InsertIntoBucketImplIS4_EEPSF_RKS4_RKT_SJ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef %121)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %123, ptr noundef nonnull align 8 dereferenceable(20) %12, i64 16, i1 false)
   %124 = load i32, ptr %31, align 8
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i32 %124, ptr %125, align 8
@@ -469,7 +469,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEm
 
 _ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit.thread.i: ; preds = %141, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIPKNS_10BasicBlockENS_12DenseMapInfoIS8_vEEEENS9_IS4_vEENS_6detail12DenseMapPairIS4_SB_EEEES4_SB_SC_SF_EixERKS4_.exit.i
   %.sink.i.i.i.i.i = phi ptr [ %142, %141 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIPKNS_10BasicBlockENS_12DenseMapInfoIS8_vEEEENS9_IS4_vEENS_6detail12DenseMapPairIS4_SB_EEEES4_SB_SC_SF_EixERKS4_.exit.i ]
-  %155 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %128, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %.sink.i.i.i.i.i), !noalias !7
+  %155 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %.sink.i.i.i.i.i), !noalias !7
   %156 = load ptr, ptr %13, align 8, !noalias !7
   store ptr %156, ptr %155, align 8, !noalias !7
   %157 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -492,7 +492,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEm
 
 164:                                              ; preds = %160
   %165 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef %162)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %165, ptr noundef nonnull align 8 dereferenceable(20) %12, i64 16, i1 false)
   %166 = load i32, ptr %31, align 8
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store i32 %166, ptr %167, align 8
@@ -521,7 +521,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS
 
 174:                                              ; preds = %171
   %175 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef %173)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %175, ptr noundef nonnull align 8 dereferenceable(20) %12, i64 16, i1 false)
   %176 = load i32, ptr %31, align 8
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store i32 %176, ptr %177, align 8
@@ -548,7 +548,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS
   br i1 %.not.i.i.i.i.i60.i, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i, label %188
 
 188:                                              ; preds = %186
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %68, ptr noundef nonnull align 4 dereferenceable(8) %187) #11
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 4 dereferenceable(8) %187) #11
   br label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %188, %186
@@ -558,7 +558,7 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %188, %186
   br i1 %.not.i6.i.i.i.i.i, label %_ZL23shouldHaveDiscriminatorPKN4llvm11InstructionE.exit.i, label %190
 
 190:                                              ; preds = %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
-  %191 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull %14, ptr noundef nonnull align 4 dereferenceable(8) %189, ptr noundef nonnull %68) #11
+  %191 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %189, ptr noundef nonnull align 8 dereferenceable(8) %68) #11
   store ptr null, ptr %14, align 8
   br label %_ZL23shouldHaveDiscriminatorPKN4llvm11InstructionE.exit.i
 
@@ -568,7 +568,7 @@ _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit.i: ; preds = %183
   br i1 %.not.i.i.i.i61.i, label %_ZL23shouldHaveDiscriminatorPKN4llvm11InstructionE.exit.i, label %192
 
 192:                                              ; preds = %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %14, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i) #11
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i) #11
   br label %_ZL23shouldHaveDiscriminatorPKN4llvm11InstructionE.exit.i
 
 _ZL23shouldHaveDiscriminatorPKN4llvm11InstructionE.exit.i: ; preds = %192, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit.i, %190, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit59.i, %_ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit.thread.i, %_ZN4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertEOS4_.exit.i, %67, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i
@@ -591,7 +591,7 @@ _ZL23shouldHaveDiscriminatorPKN4llvm11InstructionE.exit.i: ; preds = %192, %_ZN4
   %196 = icmp eq ptr %.sroa.0104.0159.i, null
   %197 = getelementptr inbounds i8, ptr %.sroa.0104.0159.i, i64 -24
   %198 = select i1 %196, ptr null, ptr %197
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 20, i1 false)
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 56
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 48
   %.sroa.0100.0148.i = load ptr, ptr %199, align 8
@@ -737,14 +737,14 @@ _ZNK4llvm10DILocation11getFilenameEv.exit82.i:    ; preds = %265, %_ZNK4llvm6DIN
   store i64 %.sroa.3.0.i.i78.i, ptr %.sroa.297.0..sroa_idx.i, align 8
   store i32 %270, ptr %32, align 8, !alias.scope !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !17
-  %271 = call noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !17
+  %271 = call noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPKSA_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !17
   %272 = load ptr, ptr %6, align 8, !noalias !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17
   br i1 %271, label %276, label %_ZN4llvm6detail12DenseSetImplISt4pairINS_9StringRefEjENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit.thread.i
 
 _ZN4llvm6detail12DenseSetImplISt4pairINS_9StringRefEjENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit.thread.i: ; preds = %_ZNK4llvm10DILocation11getFilenameEv.exit82.i
-  %273 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef %272), !noalias !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %273, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !noalias !17
+  %273 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef %272), !noalias !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %273, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 16, i1 false), !noalias !17
   %274 = load i32, ptr %32, align 8, !noalias !17
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 16
   store i32 %274, ptr %275, align 8, !noalias !17
@@ -765,7 +765,7 @@ _ZN4llvm6detail12DenseSetImplISt4pairINS_9StringRefEjENS_8DenseMapIS4_NS0_13Dens
 
 280:                                              ; preds = %276
   %281 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef %278)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %281, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %281, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 16, i1 false)
   %282 = load i32, ptr %32, align 8
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 16
   store i32 %282, ptr %283, align 8
@@ -795,7 +795,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS
   br i1 %.not.i.i.i.i.i87.i, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i88.i, label %295
 
 295:                                              ; preds = %293
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %219, ptr noundef nonnull align 4 dereferenceable(8) %294) #11
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %219, ptr noundef nonnull align 4 dereferenceable(8) %294) #11
   br label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i88.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i88.i: ; preds = %295, %293
@@ -805,7 +805,7 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i88.i: ; preds = %295, %293
   br i1 %.not.i6.i.i.i.i89.i, label %_ZN4llvm8DebugLocD2Ev.exit92.i, label %297
 
 297:                                              ; preds = %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i88.i
-  %298 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(8) %296, ptr noundef nonnull %219) #11
+  %298 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(8) %296, ptr noundef nonnull align 8 dereferenceable(8) %219) #11
   store ptr null, ptr %17, align 8
   br label %_ZN4llvm8DebugLocD2Ev.exit92.i
 
@@ -815,7 +815,7 @@ _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit90.i: ; preds = %290
   br i1 %.not.i.i.i.i91.i, label %_ZN4llvm8DebugLocD2Ev.exit92.i, label %299
 
 299:                                              ; preds = %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit90.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(8) %.pr128.i) #11
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(8) %.pr128.i) #11
   br label %_ZN4llvm8DebugLocD2Ev.exit92.i
 
 _ZN4llvm8DebugLocD2Ev.exit92.i:                   ; preds = %299, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit90.i, %297, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i88.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit86.i, %_ZN4llvm6detail12DenseSetImplISt4pairINS_9StringRefEjENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit.thread.i, %_ZN4llvm3isaINS_13IntrinsicInstENS_11InstructionEEEbRKT0_.exit.thread.i, %_ZN4llvm3isaINS_13IntrinsicInstENS_11InstructionEEEbRKT0_.exit.i, %.lr.ph153.i
@@ -1635,14 +1635,14 @@ _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefEjEvE7isEqualERKS3_S6_.exit25.thread
   %19 = call noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIPKNS_10BasicBlockENS_12DenseMapInfoIS8_vEEEENS9_IS4_vEENS_6detail12DenseMapPairIS4_SB_EEEES4_SB_SC_SF_E15LookupBucketForIS4_EEbRKT_RPKSF_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(20) %.031, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %20 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %.031, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(20) %.031, i64 16, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %.031, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %24, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 20, i1 false)
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
   store ptr null, ptr %25, align 8
@@ -2434,7 +2434,7 @@ _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefEjEvE7isEqualERKS3_S6_.exit25.thread
   %45 = call noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPKS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(20) %.031.i, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %46 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %.031.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, ptr noundef nonnull align 8 dereferenceable(20) %.031.i, i64 16, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -3136,7 +3136,7 @@ _ZN4llvm12DenseMapInfoISt4pairINS_9StringRefEjEvE7isEqualERKS3_S6_.exit25.thread
   %45 = call noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(20) %.031.i, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %46 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %.031.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, ptr noundef nonnull align 8 dereferenceable(20) %.031.i, i64 16, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -3180,7 +3180,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef 1) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8
@@ -3299,10 +3299,10 @@ define internal void @_GLOBAL__sub_I_AddDiscriminators.cpp() #6 section ".text.s
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL16NoDiscriminators, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL16NoDiscriminators, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL16NoDiscriminators) #11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16NoDiscriminators, i64 152), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL16NoDiscriminators, i64 160), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL16NoDiscriminators, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL16NoDiscriminators, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL16NoDiscriminators, i64 176), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL16NoDiscriminators, ptr nonnull @.str, i64 17) #11
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL16NoDiscriminators, ptr nonnull align 1 dereferenceable(18) @.str, i64 17) #11
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL16NoDiscriminators, ptr noundef nonnull align 1 dereferenceable(1) %1) #11
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL16NoDiscriminators, i64 32), align 8
   store i64 48, ptr getelementptr inbounds (i8, ptr @_ZL16NoDiscriminators, i64 40), align 8

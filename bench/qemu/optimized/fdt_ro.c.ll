@@ -608,7 +608,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 land.lhs.true:                                    ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %olen.i)
-  %call.i = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %offset.addr.017, ptr noundef nonnull %olen.i)
+  %call.i = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef range(i32 0, -2147483648) %offset.addr.017, ptr noundef nonnull %olen.i)
   %tobool.not.i = icmp eq ptr %call.i, null
   %1 = load i32, ptr %olen.i, align 4
   %cmp.i = icmp slt i32 %1, %namelen

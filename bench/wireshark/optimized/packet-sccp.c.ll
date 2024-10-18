@@ -2818,7 +2818,7 @@ dissect_sccp_parameter.exit715.i:                 ; preds = %307, %301
   %336 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %335, i32 noundef 0) #9
   %337 = load i32, ptr @hf_sccp_hop_counter, align 4
   %338 = zext i8 %336 to i32
-  %339 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %337, ptr noundef %335, i32 noundef 0, i32 noundef 1, i32 noundef %338) #9
+  %339 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %337, ptr noundef %335, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %338) #9
   br label %dissect_sccp_parameter.exit719.i
 
 dissect_sccp_parameter.exit719.i:                 ; preds = %334, %324
@@ -2865,7 +2865,7 @@ dissect_sccp_parameter.exit721.i:                 ; preds = %357, %340
   %363 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %362, i32 noundef 0) #9
   %364 = load i32, ptr @hf_sccp_hop_counter, align 4
   %365 = zext i8 %363 to i32
-  %366 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %364, ptr noundef %362, i32 noundef 0, i32 noundef 1, i32 noundef %365) #9
+  %366 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %364, ptr noundef %362, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %365) #9
   br label %dissect_sccp_parameter.exit723.i
 
 dissect_sccp_parameter.exit723.i:                 ; preds = %361, %dissect_sccp_parameter.exit721.i
@@ -2897,7 +2897,7 @@ dissect_sccp_parameter.exit723.i:                 ; preds = %361, %dissect_sccp_
   %382 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %381, i32 noundef 0) #9
   %383 = load i32, ptr @hf_sccp_hop_counter, align 4
   %384 = zext i8 %382 to i32
-  %385 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %383, ptr noundef %381, i32 noundef 0, i32 noundef 1, i32 noundef %384) #9
+  %385 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %383, ptr noundef %381, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %384) #9
   br label %dissect_sccp_parameter.exit725.i
 
 dissect_sccp_parameter.exit725.i:                 ; preds = %380, %370
@@ -2970,7 +2970,7 @@ dissect_sccp_parameter.exit727.i:                 ; preds = %427, %414
   %433 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %432, i32 noundef 0) #9
   %434 = load i32, ptr @hf_sccp_hop_counter, align 4
   %435 = zext i8 %433 to i32
-  %436 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %434, ptr noundef %432, i32 noundef 0, i32 noundef 1, i32 noundef %435) #9
+  %436 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %434, ptr noundef %432, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %435) #9
   br label %dissect_sccp_parameter.exit729.i
 
 dissect_sccp_parameter.exit729.i:                 ; preds = %431, %dissect_sccp_parameter.exit727.i
@@ -3024,7 +3024,7 @@ dissect_sccp_parameter.exit712.i:                 ; preds = %465, %dissect_sccp_
 472:                                              ; preds = %dissect_sccp_parameter.exit712.i
   %473 = load i16, ptr %5, align 2
   %474 = zext i16 %473 to i32
-  %475 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %474) #9
+  %475 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 65536) %474) #9
   %.not17.i.i = icmp eq i8 %475, 0
   br i1 %.not17.i.i, label %dissect_sccp_optional_parameters.exit.i, label %.lr.ph.i.i
 
@@ -3032,7 +3032,7 @@ dissect_sccp_parameter.exit712.i:                 ; preds = %465, %dissect_sccp_
   %476 = phi i8 [ %481, %.lr.ph.i.i ], [ %475, %472 ]
   %.018.i.i = phi i32 [ %480, %.lr.ph.i.i ], [ %474, %472 ]
   %477 = add i32 %.018.i.i, 1
-  %478 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext %476, i32 noundef %477, ptr noundef %7)
+  %478 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext %476, i32 noundef %477, ptr noundef nonnull %7)
   %479 = zext i16 %478 to i32
   %480 = add i32 %477, %479
   %481 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %480) #9
@@ -3277,7 +3277,7 @@ define internal fastcc noundef zeroext i16 @dissect_sccp_parameter(ptr noundef %
   br i1 %.not.i, label %19, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.462, i32 noundef %11) #9
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.462, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 19:                                               ; preds = %16
@@ -3322,7 +3322,7 @@ proto_item_set_generated.exit.i:                  ; preds = %30, %27, %19
   br i1 %.not.i108, label %42, label %40
 
 40:                                               ; preds = %39
-  %41 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.462, i32 noundef %11) #9
+  %41 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.462, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 42:                                               ; preds = %39
@@ -3363,11 +3363,11 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br label %dissect_sccp_dlr_param.exit
 
 62:                                               ; preds = %10
-  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 1, ptr noundef readonly %7)
+  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef range(i32 0, 65536) %11, i32 noundef 1, ptr noundef nonnull readonly %7)
   br label %dissect_sccp_dlr_param.exit
 
 63:                                               ; preds = %10
-  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef %11, i32 noundef 0, ptr noundef readonly %7)
+  tail call fastcc void @dissect_sccp_called_calling_param(ptr noundef %12, ptr noundef %2, ptr noundef %1, i32 noundef range(i32 0, 65536) %11, i32 noundef 0, ptr noundef nonnull readonly %7)
   br label %dissect_sccp_dlr_param.exit
 
 64:                                               ; preds = %10
@@ -3375,7 +3375,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i113, label %67, label %65
 
 65:                                               ; preds = %64
-  %66 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %66 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 67:                                               ; preds = %64
@@ -3452,7 +3452,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i114, label %93, label %91
 
 91:                                               ; preds = %90
-  %92 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %92 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 93:                                               ; preds = %90
@@ -3465,7 +3465,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i115, label %99, label %97
 
 97:                                               ; preds = %96
-  %98 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %98 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 99:                                               ; preds = %96
@@ -3476,7 +3476,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
 102:                                              ; preds = %10
   %103 = load i32, ptr @ett_sccp_sequencing_segmenting, align 4
   %104 = tail call ptr @val_to_str(i32 noundef 8, ptr noundef nonnull @sccp_parameter_values, ptr noundef nonnull @.str.461) #9
-  %105 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %12, i32 noundef 0, i32 noundef %11, i32 noundef %103, ptr noundef null, ptr noundef %104) #9
+  %105 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, i32 noundef %103, ptr noundef null, ptr noundef %104) #9
   %106 = load i32, ptr @hf_sccp_sequencing_segmenting_ssn, align 4
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %108 = load i32, ptr @hf_sccp_sequencing_segmenting_rsn, align 4
@@ -3490,7 +3490,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i116, label %115, label %113
 
 113:                                              ; preds = %112
-  %114 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %114 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 115:                                              ; preds = %112
@@ -3503,7 +3503,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i117, label %121, label %119
 
 119:                                              ; preds = %118
-  %120 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %120 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 121:                                              ; preds = %118
@@ -3526,7 +3526,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i118, label %133, label %131
 
 131:                                              ; preds = %130
-  %132 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %132 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 133:                                              ; preds = %130
@@ -3549,7 +3549,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i120, label %145, label %143
 
 143:                                              ; preds = %142
-  %144 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %144 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 145:                                              ; preds = %142
@@ -3572,7 +3572,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i122, label %157, label %155
 
 155:                                              ; preds = %154
-  %156 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %156 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 157:                                              ; preds = %154
@@ -3595,7 +3595,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i124, label %169, label %167
 
 167:                                              ; preds = %166
-  %168 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %168 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 169:                                              ; preds = %166
@@ -3622,7 +3622,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
 181:                                              ; preds = %10
   %182 = load i32, ptr @ett_sccp_segmentation, align 4
   %183 = tail call ptr @val_to_str(i32 noundef 16, ptr noundef nonnull @sccp_parameter_values, ptr noundef nonnull @.str.461) #9
-  %184 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %12, i32 noundef 0, i32 noundef %11, i32 noundef %182, ptr noundef null, ptr noundef %183) #9
+  %184 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, i32 noundef %182, ptr noundef null, ptr noundef %183) #9
   %185 = load i32, ptr @hf_sccp_segmentation_first, align 4
   %186 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %187 = load i32, ptr @hf_sccp_segmentation_class, align 4
@@ -3646,7 +3646,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   %198 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef 0) #9
   %199 = load i32, ptr @hf_sccp_hop_counter, align 4
   %200 = zext i8 %198 to i32
-  %201 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %199, ptr noundef %12, i32 noundef 0, i32 noundef %11, i32 noundef %200) #9
+  %201 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %199, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, i32 noundef %200) #9
   br label %dissect_sccp_dlr_param.exit
 
 202:                                              ; preds = %10
@@ -3659,7 +3659,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   br i1 %.not.i127, label %207, label %205
 
 205:                                              ; preds = %204
-  %206 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef nonnull @.str.474, i32 noundef %11) #9
+  %206 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sccp_wrong_length, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull @.str.474, i32 noundef range(i32 0, 65536) %11) #9
   br label %dissect_sccp_dlr_param.exit
 
 207:                                              ; preds = %204
@@ -3671,7 +3671,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   %211 = load i32, ptr @hf_sccp_unknown_parameter, align 4
   %212 = icmp eq i16 %6, 1
   %213 = select i1 %212, ptr @.str.445, ptr @.str.468
-  %214 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %211, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef null, ptr noundef nonnull @.str.476, i32 noundef 18, i32 noundef %11, ptr noundef nonnull %213) #9
+  %214 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %211, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef null, ptr noundef nonnull @.str.476, i32 noundef 18, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull %213) #9
   br label %dissect_sccp_dlr_param.exit
 
 215:                                              ; preds = %10
@@ -3689,7 +3689,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   %221 = load i32, ptr @hf_sccp_unknown_parameter, align 4
   %222 = icmp eq i16 %6, 1
   %223 = select i1 %222, ptr @.str.445, ptr @.str.468
-  %224 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %221, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef null, ptr noundef nonnull @.str.476, i32 noundef 250, i32 noundef %11, ptr noundef nonnull %223) #9
+  %224 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %221, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef null, ptr noundef nonnull @.str.476, i32 noundef 250, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull %223) #9
   br label %dissect_sccp_dlr_param.exit
 
 225:                                              ; preds = %218
@@ -3735,7 +3735,7 @@ proto_item_set_generated.exit.i111:               ; preds = %53, %50, %42
   %253 = zext i8 %4 to i32
   %254 = icmp eq i16 %6, 1
   %255 = select i1 %254, ptr @.str.445, ptr @.str.468
-  %256 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %252, ptr noundef %12, i32 noundef 0, i32 noundef %11, ptr noundef null, ptr noundef nonnull @.str.476, i32 noundef %253, i32 noundef %11, ptr noundef nonnull %255) #9
+  %256 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %252, ptr noundef %12, i32 noundef 0, i32 noundef range(i32 0, 65536) %11, ptr noundef null, ptr noundef nonnull @.str.476, i32 noundef %253, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull %255) #9
   br label %dissect_sccp_dlr_param.exit
 
 dissect_sccp_dlr_param.exit:                      ; preds = %.lr.ph.i, %242, %207, %205, %194, %192, %173, %169, %167, %161, %157, %155, %149, %145, %143, %137, %133, %131, %125, %121, %119, %115, %113, %99, %97, %93, %91, %88, %.critedge.thread46.i, %.critedge.i, %75, %74, %65, %58, %proto_item_set_generated.exit.i111, %40, %35, %proto_item_set_generated.exit.i, %17, %13, %62, %63, %102, %178, %197, %215, %251, %210, %220, %9
@@ -4892,7 +4892,7 @@ proto_item_set_hidden.exit287:                    ; preds = %227, %224, %217, %.
   %243 = load i32, ptr @hf_sccp_called_pc_member, align 4
   %244 = load i32, ptr @hf_sccp_calling_pc_member, align 4
   %245 = select i1 %.not, i32 %244, i32 %243
-  call void @dissect_mtp3_3byte_pc(ptr noundef %0, i32 noundef %.2, ptr noundef %14, i32 noundef %236, i32 noundef %.0.i295, i32 noundef %239, i32 noundef %242, i32 noundef %245, i32 noundef 0, i32 noundef 0) #9
+  call void @dissect_mtp3_3byte_pc(ptr noundef %0, i32 noundef range(i32 1, 3) %.2, ptr noundef %14, i32 noundef %236, i32 noundef %.0.i295, i32 noundef %239, i32 noundef %242, i32 noundef %245, i32 noundef 0, i32 noundef 0) #9
   %246 = add nuw nsw i32 %.2, 3
   br label %247
 

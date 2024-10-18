@@ -468,7 +468,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy23compute_eden_space_sizeEmmmmb(ptr
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 1, ptr %42, align 4
-  %43 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_decrementEm(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %3) #7
+  %43 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_decrementEm(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %3) #7
   %44 = getelementptr inbounds i8, ptr %0, i64 280
   %45 = load i64, ptr %44, align 8
   %46 = sub i64 0, %45
@@ -764,7 +764,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy26compute_old_gen_free_spaceEmmmb(p
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 2, ptr %55, align 8
-  %56 = tail call noundef i64 @_ZN18AdaptiveSizePolicy15promo_decrementEm(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %13) #7
+  %56 = tail call noundef i64 @_ZN18AdaptiveSizePolicy15promo_decrementEm(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %13) #7
   %57 = getelementptr inbounds i8, ptr %0, i64 280
   %58 = load i64, ptr %57, align 8
   %59 = sub i64 0, %58
@@ -1022,7 +1022,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm(ptr
   %17 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 1, ptr %17, align 4
   %18 = load i64, ptr %1, align 8
-  %19 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_decrementEm(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %18) #7
+  %19 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_decrementEm(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %18) #7
   %20 = getelementptr inbounds i8, ptr %0, i64 280
   %21 = load i64, ptr %20, align 8
   %22 = sub i64 0, %21
@@ -1061,7 +1061,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeE
   %7 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 1, ptr %7, align 4
   %8 = load i64, ptr %1, align 8
-  %9 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_decrementEm(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %8) #7
+  %9 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_decrementEm(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %8) #7
   %10 = getelementptr inbounds i8, ptr %0, i64 280
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 0, %11
@@ -1138,7 +1138,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy26adjust_eden_for_throughputEbPm(pt
   %48 = getelementptr inbounds i8, ptr %0, i64 304
   %49 = load i32, ptr %48, align 8
   %50 = add i32 %49, %47
-  %51 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEmj(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %46, i32 noundef %50) #7
+  %51 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEmj(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %46, i32 noundef %50) #7
   %52 = getelementptr inbounds i8, ptr %0, i64 280
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %51, -1
@@ -1187,7 +1187,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy26adjust_eden_for_throughputEbPm(pt
   %86 = getelementptr inbounds i8, ptr %0, i64 304
   %87 = load i32, ptr %86, align 8
   %88 = add i32 %87, %85
-  %89 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEmj(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %84, i32 noundef %88) #7
+  %89 = tail call noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEmj(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %84, i32 noundef %88) #7
   %90 = getelementptr inbounds i8, ptr %0, i64 280
   %91 = load i64, ptr %90, align 8
   %92 = add i64 %89, -1
@@ -1319,7 +1319,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm(pt
   %17 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 2, ptr %17, align 8
   %18 = load i64, ptr %1, align 8
-  %19 = tail call noundef i64 @_ZN18AdaptiveSizePolicy15promo_decrementEm(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %18) #7
+  %19 = tail call noundef i64 @_ZN18AdaptiveSizePolicy15promo_decrementEm(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %18) #7
   %20 = getelementptr inbounds i8, ptr %0, i64 280
   %21 = load i64, ptr %20, align 8
   %22 = sub i64 0, %21
@@ -1417,7 +1417,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy27adjust_promo_for_throughputEbPm(p
   %49 = getelementptr inbounds i8, ptr %0, i64 308
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, %48
-  %52 = tail call noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEmj(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %47, i32 noundef %51) #7
+  %52 = tail call noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEmj(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %47, i32 noundef %51) #7
   %53 = getelementptr inbounds i8, ptr %0, i64 280
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %52, -1
@@ -1466,7 +1466,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy27adjust_promo_for_throughputEbPm(p
   %87 = getelementptr inbounds i8, ptr %0, i64 308
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, %86
-  %90 = tail call noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEmj(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %85, i32 noundef %89) #7
+  %90 = tail call noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEmj(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %85, i32 noundef %89) #7
   %91 = getelementptr inbounds i8, ptr %0, i64 280
   %92 = load i64, ptr %91, align 8
   %93 = add i64 %90, -1

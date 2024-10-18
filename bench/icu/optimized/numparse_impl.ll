@@ -1184,7 +1184,7 @@ invoke.cont200:                                   ; preds = %invoke.cont195
 invoke.cont208:                                   ; preds = %invoke.cont200
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %ref.tmp199, align 8
   %fLocaleName.i = getelementptr inbounds i8, ptr %ref.tmp199, i64 792
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i) #17
   %beforeSuffixInsert.i = getelementptr inbounds i8, ptr %ref.tmp199, i64 728
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert.i) #17
   %afterPrefixInsert.i = getelementptr inbounds i8, ptr %ref.tmp199, i64 664
@@ -1221,13 +1221,13 @@ _ZN6icu_7512LocalPointerINS_8numparse4impl16NumberParserImplEED2Ev.exit: ; preds
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i1.i) #17
   %pattern.i = getelementptr inbounds i8, ptr %patternInfo, i64 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern.i) #17
-  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo) #17
+  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %patternInfo) #17
   %fIntlCurrencySymbol.i = getelementptr inbounds i8, ptr %currencySymbols, i64 168
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fIntlCurrencySymbol.i) #17
   %fCurrencySymbol.i = getelementptr inbounds i8, ptr %currencySymbols, i64 104
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i) #17
   %fLocaleName.i95 = getelementptr inbounds i8, ptr %currencySymbols, i64 40
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i95) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i95) #17
   %fCurrency.i96 = getelementptr inbounds i8, ptr %currencySymbols, i64 8
   call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i96) #17
   call void @_ZN6icu_7520DecimalFormatSymbolsD1Ev(ptr noundef nonnull align 8 dereferenceable(2883) %dfs) #17
@@ -1575,7 +1575,7 @@ _ZN6icu_7510MemoryPoolINS_8numparse4impl16CodePointMatcherELi8EED2Ev.exit: ; pre
   %fCurrency = getelementptr inbounds i8, ptr %this, i64 344
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %fCurrency, align 8
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 1136
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i) #17
   %beforeSuffixInsert.i = getelementptr inbounds i8, ptr %this, i64 1072
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert.i) #17
   %afterPrefixInsert.i = getelementptr inbounds i8, ptr %this, i64 1008
@@ -1906,7 +1906,7 @@ define linkonce_odr void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherD2Ev(
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %this, align 8
   %fLocaleName = getelementptr inbounds i8, ptr %this, i64 792
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #17
   %beforeSuffixInsert = getelementptr inbounds i8, ptr %this, i64 728
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert) #17
   %afterPrefixInsert = getelementptr inbounds i8, ptr %this, i64 664
@@ -1962,7 +1962,7 @@ entry:
   %fCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol) #17
   %fLocaleName = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #17
   %fCurrency = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency) #17
   ret void
@@ -2336,7 +2336,7 @@ invoke.cont115:                                   ; preds = %if.then111
 invoke.cont124:                                   ; preds = %invoke.cont115
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %ref.tmp114, align 8
   %fLocaleName.i = getelementptr inbounds i8, ptr %ref.tmp114, i64 792
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i) #17
   %beforeSuffixInsert.i = getelementptr inbounds i8, ptr %ref.tmp114, i64 728
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert.i) #17
   %afterPrefixInsert.i = getelementptr inbounds i8, ptr %ref.tmp114, i64 664
@@ -2946,7 +2946,7 @@ cleanup:                                          ; preds = %invoke.cont12, %_ZN
   %fCurrencySymbol.i = getelementptr inbounds i8, ptr %currencySymbols, i64 104
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i) #17
   %fLocaleName.i173 = getelementptr inbounds i8, ptr %currencySymbols, i64 40
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i173) #17
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i173) #17
   %fCurrency.i174 = getelementptr inbounds i8, ptr %currencySymbols, i64 8
   call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i174) #17
   call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %currency) #17
@@ -3040,7 +3040,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i
   br i1 %cmp.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  invoke void @_ZN6icu_756number4impl30PropertiesAffixPatternProvider5setToERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(267) %this, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZN6icu_756number4impl30PropertiesAffixPatternProvider5setToERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2464) %this, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %if.then.i
@@ -3107,12 +3107,12 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posSuffix.i.i) #17
   %posPrefix.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr.i, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posPrefix.i.i) #17
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.ptr.i) #17
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %arraydestroy.element.ptr.i) #17
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 8
   br i1 %arraydestroy.done.i, label %_ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit, label %arraydestroy.body.i
 
 _ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit: ; preds = %arraydestroy.body.i
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencyPluralInfoAPP) #17
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(2185) %currencyPluralInfoAPP) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %this, align 8
   %negSuffix.i = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i) #17
@@ -3122,7 +3122,7 @@ _ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit: ; preds = %arr
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posSuffix.i) #17
   %posPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posPrefix.i) #17
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %this) #17
   ret void
 }
 
@@ -3289,7 +3289,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
 arrayctor.loop4.i:                                ; preds = %arrayctor.loop.i, %invoke.cont.i
   %arrayctor.cur5.idx.i = phi i64 [ %arrayctor.cur5.add.i, %invoke.cont.i ], [ 576, %arrayctor.loop.i ]
   %arrayctor.cur5.ptr.ptr.i = getelementptr inbounds i8, ptr %affixMatcherWarehouse, i64 %arrayctor.cur5.idx.i
-  invoke void @_ZN6icu_758numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %arrayctor.cur5.ptr.ptr.i)
+  invoke void @_ZN6icu_758numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur5.ptr.ptr.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop4.i
@@ -3426,7 +3426,7 @@ _ZN6icu_758numparse4impl21AffixMatcherWarehouseD2Ev.exit: ; preds = %_ZN6icu_758
   %currency = getelementptr inbounds i8, ptr %this, i64 1336
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %currency, align 8
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 2128
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i) #17
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i) #17
   %beforeSuffixInsert.i = getelementptr inbounds i8, ptr %this, i64 2064
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert.i) #17
   %afterPrefixInsert.i = getelementptr inbounds i8, ptr %this, i64 2000
@@ -3823,7 +3823,7 @@ entry:
   br i1 %or.cond, label %cleanup.cont, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  call void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %initial, ptr noundef nonnull align 8 dereferenceable(66) %result)
+  call void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(216) %initial, ptr noundef nonnull align 8 dereferenceable(216) %result)
   %charEnd.i = getelementptr inbounds i8, ptr %initial, i64 72
   %charEnd3.i = getelementptr inbounds i8, ptr %result, i64 72
   %0 = load i64, ptr %charEnd3.i, align 8
@@ -3856,7 +3856,7 @@ common.resume:                                    ; preds = %ehcleanup, %ehclean
 
 ehcleanup.i:                                      ; preds = %lpad6.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad6.i ], [ %1, %lpad.i ]
-  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %initial) #17
+  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %initial) #17
   br label %common.resume
 
 _ZN6icu_758numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %invoke.cont.i
@@ -3942,7 +3942,7 @@ invoke.cont20:                                    ; preds = %for.body19
   %cmp22 = icmp ult i32 %call21, 65536
   %cond = select i1 %cmp22, i32 1, i32 2
   %add = add nuw nsw i32 %cond, %charsToConsume.0
-  %call.i33 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %candidate, ptr noundef nonnull align 8 dereferenceable(66) %initial)
+  %call.i33 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(216) %candidate, ptr noundef nonnull align 8 dereferenceable(216) %initial)
           to label %call.i.noexc unwind label %lpad5.loopexit
 
 call.i.noexc:                                     ; preds = %invoke.cont20
@@ -4003,7 +4003,7 @@ invoke.cont46:                                    ; preds = %if.end45
   br i1 %call47, label %if.then48, label %if.end52
 
 if.then48:                                        ; preds = %invoke.cont46
-  %call.i47 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %result, ptr noundef nonnull align 8 dereferenceable(66) %candidate)
+  %call.i47 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(216) %result, ptr noundef nonnull align 8 dereferenceable(216) %candidate)
           to label %call.i.noexc46 unwind label %lpad5.loopexit
 
 call.i.noexc46:                                   ; preds = %if.then48
@@ -4040,10 +4040,10 @@ cleanup:                                          ; preds = %for.inc, %invoke.co
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %suffix.i52) #17
   %prefix.i53 = getelementptr inbounds i8, ptr %candidate, i64 80
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix.i53) #17
-  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %candidate) #17
+  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %candidate) #17
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %suffix.i) #17
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix.i) #17
-  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %initial) #17
+  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %initial) #17
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %entry, %cleanup
@@ -4562,7 +4562,7 @@ arraydestroy.body:                                ; preds = %arraydestroy.body, 
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posSuffix.i) #17
   %posPrefix.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posPrefix.i) #17
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.ptr) #17
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %arraydestroy.element.ptr) #17
   %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 8
   br i1 %arraydestroy.done, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -4636,7 +4636,7 @@ invoke.cont10:                                    ; preds = %invoke.cont5
   %fUnion2.i9 = getelementptr inbounds i8, ptr %this, i64 736
   store i16 2, ptr %fUnion2.i9, align 8
   %fLocaleName = getelementptr inbounds i8, ptr %this, i64 792
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont10

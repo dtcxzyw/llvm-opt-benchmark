@@ -930,7 +930,7 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
 121:                                              ; preds = %113
   tail call void @consume_skb(ptr noundef %2) #12
   %122 = getelementptr inbounds i8, ptr %0, i64 408
-  %123 = tail call i32 @llvm.bswap.i32(i32 %99)
+  %123 = tail call i32 @llvm.bswap.i32(i32 range(i32 0, 65536) %99)
   br label %124
 
 124:                                              ; preds = %ip_fragment.exit, %121
@@ -1036,7 +1036,7 @@ ip_fragment.exit:                                 ; preds = %138, %150, %154
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr i8, ptr %193, i64 168
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %194, ptr elementtype(i64) %194) #12, !srcloc !12
-  %195 = tail call i32 @llvm.bswap.i32(i32 %99)
+  %195 = tail call i32 @llvm.bswap.i32(i32 range(i32 0, 65536) %99)
   %196 = getelementptr inbounds i8, ptr %2, i64 44
   tail call void @__icmp_send(ptr noundef %2, i32 noundef 3, i32 noundef 4, i32 noundef %195, ptr noundef %196) #12
   tail call void @kfree_skb_reason(ptr noundef %2, i32 noundef 2) #12

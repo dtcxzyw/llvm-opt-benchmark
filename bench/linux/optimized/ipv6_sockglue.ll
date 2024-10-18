@@ -1320,11 +1320,11 @@ thread-pre-split:                                 ; preds = %35
   br i1 %528, label %copy_from_sockptr.exit, label %copy_from_sockptr.exit.thread
 
 copy_from_sockptr.exit.thread:                    ; preds = %523
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %526, ptr noundef align 1 %3, i64 %519, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %526, ptr noundef align 1 %3, i64 range(i64 1, 65537) %519, i1 false)
   br label %532
 
 copy_from_sockptr.exit:                           ; preds = %523
-  %529 = call i64 @_copy_from_user(ptr noundef %526, ptr noundef %3, i64 noundef %519) #13
+  %529 = call i64 @_copy_from_user(ptr noundef %526, ptr noundef %3, i64 noundef range(i64 1, 65537) %519) #13
   %530 = and i64 %529, 4294967295
   %531 = icmp eq i64 %530, 0
   br i1 %531, label %532, label %.thread25

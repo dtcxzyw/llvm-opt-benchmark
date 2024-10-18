@@ -17,7 +17,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h130
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2.i.i.i": ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1.i.i3.i.i.i = load ptr, ptr %3, align 8, !alias.scope !19, !nonnull !20, !noundef !20
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3.i.i.i, i64 noundef %.val.i.i1.i.i.i, i64 noundef 1) #5, !noalias !19
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3.i.i.i, i64 noundef %.val.i.i1.i.i.i, i64 noundef range(i64 0, -9223372036854775807) 1) #5, !noalias !19
   br label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h3c5885f288e91045E.llvm.18162065724549059738.exit"
 
 "_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h3c5885f288e91045E.llvm.18162065724549059738.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2.i.i.i"
@@ -39,7 +39,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8e
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2.i.i.i.i": ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1.i.i3.i.i.i.i = load ptr, ptr %3, align 8, !alias.scope !39, !nonnull !20, !noundef !20
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3.i.i.i.i, i64 noundef %.val.i.i1.i.i.i.i, i64 noundef 1) #5, !noalias !39
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3.i.i.i.i, i64 noundef %.val.i.i1.i.i.i.i, i64 noundef range(i64 0, -9223372036854775807) 1) #5, !noalias !39
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h130f8f476473915dE.exit"
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h130f8f476473915dE.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2.i.i.i.i"
@@ -57,7 +57,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2": ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1.i.i3 = load ptr, ptr %3, align 8, !alias.scope !46, !nonnull !20, !noundef !20
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3, i64 noundef %.val.i.i1, i64 noundef 1) #5, !noalias !46
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3, i64 noundef %.val.i.i1, i64 noundef range(i64 0, -9223372036854775807) 1) #5, !noalias !46
   br label %"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h9f52fac5a9c17049E.llvm.18162065724549059738.exit4"
 
 "_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h9f52fac5a9c17049E.llvm.18162065724549059738.exit4": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2"
@@ -77,7 +77,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$G
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2.i.i": ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1.i.i3.i.i = load ptr, ptr %3, align 8, !alias.scope !59, !nonnull !20, !noundef !20
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3.i.i, i64 noundef %.val.i.i1.i.i, i64 noundef 1) #5, !noalias !59
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3.i.i, i64 noundef %.val.i.i1.i.i, i64 noundef range(i64 0, -9223372036854775807) 1) #5, !noalias !59
   br label %"_ZN4core3ptr49drop_in_place$LT$std..sys..os_str..bytes..Buf$GT$17h40fd7e359427896dE.llvm.18162065724549059738.exit"
 
 "_ZN4core3ptr49drop_in_place$LT$std..sys..os_str..bytes..Buf$GT$17h40fd7e359427896dE.llvm.18162065724549059738.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2.i.i"
@@ -96,7 +96,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$std..sys..os_str..bytes..Buf
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2.i": ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1.i.i3.i = load ptr, ptr %3, align 8, !alias.scope !69, !nonnull !20, !noundef !20
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3.i, i64 noundef %.val.i.i1.i, i64 noundef 1) #5, !noalias !69
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i3.i, i64 noundef %.val.i.i1.i, i64 noundef range(i64 0, -9223372036854775807) 1) #5, !noalias !69
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h628df4764a230faeE.llvm.18162065724549059738.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h628df4764a230faeE.llvm.18162065724549059738.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i2.i"
@@ -113,7 +113,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i": ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1.i = load ptr, ptr %3, align 8, !alias.scope !70, !nonnull !20, !noundef !20
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i, i64 noundef %.val.i, i64 noundef 1) #5, !noalias !70
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i, i64 noundef %.val.i, i64 noundef range(i64 0, -9223372036854775807) 1) #5, !noalias !70
   br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738.exit"
 
 "_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i"
@@ -134,7 +134,7 @@ define hidden void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$co
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit": ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load ptr, ptr %3, align 8, !nonnull !20, !noundef !20
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val1, i64 noundef %.val, i64 noundef 1) #5
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val1, i64 noundef %.val, i64 noundef range(i64 0, -9223372036854775807) 1) #5
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8da80eb9ddb9a39fE.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8da80eb9ddb9a39fE.exit.thread": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit"

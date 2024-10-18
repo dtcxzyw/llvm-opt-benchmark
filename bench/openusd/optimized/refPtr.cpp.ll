@@ -169,7 +169,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_Uniq
 define void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %5, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef %1)

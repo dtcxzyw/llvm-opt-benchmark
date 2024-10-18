@@ -78,7 +78,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE_
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc22 unwind label %35
 
 .noexc22:                                         ; preds = %.noexc
@@ -95,7 +95,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE_
 23:                                               ; preds = %25, %21
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   br label %.body
 
 25:                                               ; preds = %.noexc22

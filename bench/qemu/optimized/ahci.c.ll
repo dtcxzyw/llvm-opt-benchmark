@@ -184,7 +184,7 @@ entry:
   %1 = load i64, ptr %hba_bar.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
-  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef %mul.i1.i) #16
+  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %cmp = icmp eq i32 %call.i.i.i, -351010559
   ret i1 %cmp
 }
@@ -514,16 +514,16 @@ do.end:                                           ; preds = %entry
   %1 = load i64, ptr %hba_bar.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
-  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef 4) #16
+  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) 4) #16
   %or.i = or i32 %call.i.i.i, -2147483648
   %4 = load ptr, ptr %dev.i.i.i, align 8
   %5 = load i64, ptr %hba_bar.i.i.i, align 8
   %6 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %6, i64 noundef 4, i32 noundef %or.i) #16
+  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %6, i64 noundef range(i64 4, 32953) 4, i32 noundef %or.i) #16
   %7 = load ptr, ptr %dev.i.i.i, align 8
   %8 = load i64, ptr %hba_bar.i.i.i, align 8
   %9 = load i8, ptr %2, align 8
-  %call.i.i = tail call i32 @qpci_io_readl(ptr noundef %7, i64 %8, i8 %9, i64 noundef 4) #16
+  %call.i.i = tail call i32 @qpci_io_readl(ptr noundef %7, i64 %8, i8 %9, i64 noundef range(i64 0, 32953) 4) #16
   %cmp2.not = icmp sgt i32 %call.i.i, -1
   br i1 %cmp2.not, label %if.else5, label %do.end9
 
@@ -535,13 +535,13 @@ do.end9:                                          ; preds = %if.else5, %do.end
   %10 = load ptr, ptr %dev.i.i.i, align 8
   %11 = load i64, ptr %hba_bar.i.i.i, align 8
   %12 = load i8, ptr %2, align 8
-  %call.i.i128 = tail call i32 @qpci_io_readl(ptr noundef %10, i64 %11, i8 %12, i64 noundef 0) #16
+  %call.i.i128 = tail call i32 @qpci_io_readl(ptr noundef %10, i64 %11, i8 %12, i64 noundef range(i64 0, 32953) 0) #16
   %cap = getelementptr inbounds i8, ptr %ahci, i64 44
   store i32 %call.i.i128, ptr %cap, align 4
   %13 = load ptr, ptr %dev.i.i.i, align 8
   %14 = load i64, ptr %hba_bar.i.i.i, align 8
   %15 = load i8, ptr %2, align 8
-  %call.i.i131 = tail call i32 @qpci_io_readl(ptr noundef %13, i64 %14, i8 %15, i64 noundef 36) #16
+  %call.i.i131 = tail call i32 @qpci_io_readl(ptr noundef %13, i64 %14, i8 %15, i64 noundef range(i64 0, 32953) 36) #16
   %cap2 = getelementptr inbounds i8, ptr %ahci, i64 48
   store i32 %call.i.i131, ptr %cap2, align 8
   %16 = load i32, ptr %cap, align 4
@@ -552,7 +552,7 @@ do.end9:                                          ; preds = %if.else5, %do.end
   %18 = load ptr, ptr %dev.i.i.i, align 8
   %19 = load i64, ptr %hba_bar.i.i.i, align 8
   %20 = load i8, ptr %2, align 8
-  %call.i.i134 = tail call i32 @qpci_io_readl(ptr noundef %18, i64 %19, i8 %20, i64 noundef 12) #16
+  %call.i.i134 = tail call i32 @qpci_io_readl(ptr noundef %18, i64 %19, i8 %20, i64 noundef range(i64 0, 32953) 12) #16
   %tobool.not326 = icmp eq i32 %call.i.i134, 0
   br i1 %tobool.not326, label %for.end, label %for.body.lr.ph
 
@@ -580,7 +580,7 @@ if.end21:                                         ; preds = %for.body
   %23 = load ptr, ptr %dev.i.i.i, align 8
   %24 = load i64, ptr %hba_bar.i.i.i, align 8
   %25 = load i8, ptr %2, align 8
-  %call.i.i.i137 = tail call i32 @qpci_io_readl(ptr noundef %23, i64 %24, i8 %25, i64 noundef %conv.i2.i) #16
+  %call.i.i.i137 = tail call i32 @qpci_io_readl(ptr noundef %23, i64 %24, i8 %25, i64 noundef range(i64 0, 32953) %conv.i2.i) #16
   %and25 = and i32 %call.i.i.i137, 49169
   %cmp26 = icmp eq i32 %and25, 0
   br i1 %cmp26, label %do.body1.i, label %if.else29
@@ -592,17 +592,17 @@ if.else29:                                        ; preds = %if.end21
   %28 = load ptr, ptr %dev.i.i.i, align 8
   %29 = load i64, ptr %hba_bar.i.i.i, align 8
   %30 = load i8, ptr %2, align 8
-  %call.i.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %28, i64 %29, i8 %30, i64 noundef %27) #16
+  %call.i.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %28, i64 %29, i8 %30, i64 noundef range(i64 0, 32953) %27) #16
   %and.i = and i32 %call.i.i.i.i, -18
   %31 = load ptr, ptr %dev.i.i.i, align 8
   %32 = load i64, ptr %hba_bar.i.i.i, align 8
   %33 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %31, i64 %32, i8 %33, i64 noundef %27, i32 noundef %and.i) #16
+  tail call void @qpci_io_writel(ptr noundef %31, i64 %32, i8 %33, i64 noundef range(i64 4, 32953) %27, i32 noundef %and.i) #16
   %call31 = tail call i32 @usleep(i32 noundef 500000) #16
   %34 = load ptr, ptr %dev.i.i.i, align 8
   %35 = load i64, ptr %hba_bar.i.i.i, align 8
   %36 = load i8, ptr %2, align 8
-  %call.i.i.i146 = tail call i32 @qpci_io_readl(ptr noundef %34, i64 %35, i8 %36, i64 noundef %conv.i2.i) #16
+  %call.i.i.i146 = tail call i32 @qpci_io_readl(ptr noundef %34, i64 %35, i8 %36, i64 noundef range(i64 0, 32953) %conv.i2.i) #16
   %and36 = and i32 %call.i.i.i146, 32768
   %cmp39 = icmp eq i32 %and36, 0
   br i1 %cmp39, label %do.body47, label %if.else42
@@ -650,12 +650,12 @@ ahci_alloc.exit:                                  ; preds = %do.body1.i
   %42 = load ptr, ptr %dev.i.i.i, align 8
   %43 = load i64, ptr %hba_bar.i.i.i, align 8
   %44 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %42, i64 %43, i8 %44, i64 noundef %conv.i2.i153, i32 noundef %conv80) #16
+  tail call void @qpci_io_writel(ptr noundef %42, i64 %43, i8 %44, i64 noundef range(i64 4, 32953) %conv.i2.i153, i32 noundef %conv80) #16
   %45 = load i64, ptr %clb, align 8
   %46 = load ptr, ptr %dev.i.i.i, align 8
   %47 = load i64, ptr %hba_bar.i.i.i, align 8
   %48 = load i8, ptr %2, align 8
-  %call.i.i.i164 = tail call i32 @qpci_io_readl(ptr noundef %46, i64 %47, i8 %48, i64 noundef %conv.i2.i153) #16
+  %call.i.i.i164 = tail call i32 @qpci_io_readl(ptr noundef %46, i64 %47, i8 %48, i64 noundef range(i64 0, 32953) %conv.i2.i153) #16
   %conv90 = zext i32 %call.i.i.i164 to i64
   %cmp91 = icmp eq i64 %45, %conv90
   br i1 %cmp91, label %do.body1.i166, label %if.else94
@@ -691,12 +691,12 @@ ahci_alloc.exit172:                               ; preds = %do.body1.i166
   %54 = load ptr, ptr %dev.i.i.i, align 8
   %55 = load i64, ptr %hba_bar.i.i.i, align 8
   %56 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %54, i64 %55, i8 %56, i64 noundef %conv.i2.i178, i32 noundef %conv118) #16
+  tail call void @qpci_io_writel(ptr noundef %54, i64 %55, i8 %56, i64 noundef range(i64 4, 32953) %conv.i2.i178, i32 noundef %conv118) #16
   %57 = load i64, ptr %arrayidx, align 8
   %58 = load ptr, ptr %dev.i.i.i, align 8
   %59 = load i64, ptr %hba_bar.i.i.i, align 8
   %60 = load i8, ptr %2, align 8
-  %call.i.i.i189 = tail call i32 @qpci_io_readl(ptr noundef %58, i64 %59, i8 %60, i64 noundef %conv.i2.i178) #16
+  %call.i.i.i189 = tail call i32 @qpci_io_readl(ptr noundef %58, i64 %59, i8 %60, i64 noundef range(i64 0, 32953) %conv.i2.i178) #16
   %conv128 = zext i32 %call.i.i.i189 to i64
   %cmp129 = icmp eq i64 %57, %conv128
   br i1 %cmp129, label %do.end136, label %if.else132
@@ -713,22 +713,22 @@ do.end136:                                        ; preds = %if.else132, %ahci_a
   %61 = load ptr, ptr %dev.i.i.i, align 8
   %62 = load i64, ptr %hba_bar.i.i.i, align 8
   %63 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %61, i64 %62, i8 %63, i64 noundef %conv.i2.i195, i32 noundef -1) #16
+  tail call void @qpci_io_writel(ptr noundef %61, i64 %62, i8 %63, i64 noundef range(i64 4, 32953) %conv.i2.i195, i32 noundef -1) #16
   %mul.i1.i202 = or disjoint i32 %add1.i.i, 16
   %conv.i2.i203 = zext nneg i32 %mul.i1.i202 to i64
   %64 = load ptr, ptr %dev.i.i.i, align 8
   %65 = load i64, ptr %hba_bar.i.i.i, align 8
   %66 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %64, i64 %65, i8 %66, i64 noundef %conv.i2.i203, i32 noundef -1) #16
+  tail call void @qpci_io_writel(ptr noundef %64, i64 %65, i8 %66, i64 noundef range(i64 4, 32953) %conv.i2.i203, i32 noundef -1) #16
   %shl = shl nuw i32 1, %21
   %67 = load ptr, ptr %dev.i.i.i, align 8
   %68 = load i64, ptr %hba_bar.i.i.i, align 8
   %69 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %67, i64 %68, i8 %69, i64 noundef 8, i32 noundef %shl) #16
+  tail call void @qpci_io_writel(ptr noundef %67, i64 %68, i8 %69, i64 noundef range(i64 4, 32953) 8, i32 noundef %shl) #16
   %70 = load ptr, ptr %dev.i.i.i, align 8
   %71 = load i64, ptr %hba_bar.i.i.i, align 8
   %72 = load i8, ptr %2, align 8
-  %call.i.i.i216 = tail call i32 @qpci_io_readl(ptr noundef %70, i64 %71, i8 %72, i64 noundef %conv.i2.i195) #16
+  %call.i.i.i216 = tail call i32 @qpci_io_readl(ptr noundef %70, i64 %71, i8 %72, i64 noundef range(i64 0, 32953) %conv.i2.i195) #16
   %cmp146 = icmp eq i32 %call.i.i.i216, 0
   br i1 %cmp146, label %do.end153, label %if.else149
 
@@ -741,7 +741,7 @@ do.end153:                                        ; preds = %if.else149, %do.end
   %73 = load ptr, ptr %dev.i.i.i, align 8
   %74 = load i64, ptr %hba_bar.i.i.i, align 8
   %75 = load i8, ptr %2, align 8
-  %call.i.i.i225 = tail call i32 @qpci_io_readl(ptr noundef %73, i64 %74, i8 %75, i64 noundef %conv.i2.i203) #16
+  %call.i.i.i225 = tail call i32 @qpci_io_readl(ptr noundef %73, i64 %74, i8 %75, i64 noundef range(i64 0, 32953) %conv.i2.i203) #16
   %cmp160 = icmp eq i32 %call.i.i.i225, 0
   br i1 %cmp160, label %do.end167, label %if.else163
 
@@ -754,7 +754,7 @@ do.end167:                                        ; preds = %if.else163, %do.end
   %76 = load ptr, ptr %dev.i.i.i, align 8
   %77 = load i64, ptr %hba_bar.i.i.i, align 8
   %78 = load i8, ptr %2, align 8
-  %call.i.i228 = tail call i32 @qpci_io_readl(ptr noundef %76, i64 %77, i8 %78, i64 noundef 8) #16
+  %call.i.i228 = tail call i32 @qpci_io_readl(ptr noundef %76, i64 %77, i8 %78, i64 noundef range(i64 0, 32953) 8) #16
   %and173 = and i32 %call.i.i228, %shl
   %cmp176 = icmp eq i32 %and173, 0
   br i1 %cmp176, label %do.end183, label %if.else179
@@ -770,11 +770,11 @@ do.end183:                                        ; preds = %if.else179, %do.end
   %79 = load ptr, ptr %dev.i.i.i, align 8
   %80 = load i64, ptr %hba_bar.i.i.i, align 8
   %81 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %79, i64 %80, i8 %81, i64 noundef %conv.i2.i234, i32 noundef -1) #16
+  tail call void @qpci_io_writel(ptr noundef %79, i64 %80, i8 %81, i64 noundef range(i64 4, 32953) %conv.i2.i234, i32 noundef -1) #16
   %82 = load ptr, ptr %dev.i.i.i, align 8
   %83 = load i64, ptr %hba_bar.i.i.i, align 8
   %84 = load i8, ptr %2, align 8
-  %call.i.i.i245 = tail call i32 @qpci_io_readl(ptr noundef %82, i64 %83, i8 %84, i64 noundef %conv.i2.i234) #16
+  %call.i.i.i245 = tail call i32 @qpci_io_readl(ptr noundef %82, i64 %83, i8 %84, i64 noundef range(i64 0, 32953) %conv.i2.i234) #16
   %cmp191 = icmp eq i32 %call.i.i.i245, -37748481
   br i1 %cmp191, label %do.end198, label %if.else194
 
@@ -787,16 +787,16 @@ do.end198:                                        ; preds = %if.else194, %do.end
   %85 = load ptr, ptr %dev.i.i.i, align 8
   %86 = load i64, ptr %hba_bar.i.i.i, align 8
   %87 = load i8, ptr %2, align 8
-  %call.i.i.i.i251 = tail call i32 @qpci_io_readl(ptr noundef %85, i64 %86, i8 %87, i64 noundef %conv.i2.i) #16
+  %call.i.i.i.i251 = tail call i32 @qpci_io_readl(ptr noundef %85, i64 %86, i8 %87, i64 noundef range(i64 0, 32953) %conv.i2.i) #16
   %or.i252 = or i32 %call.i.i.i.i251, 16
   %88 = load ptr, ptr %dev.i.i.i, align 8
   %89 = load i64, ptr %hba_bar.i.i.i, align 8
   %90 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %88, i64 %89, i8 %90, i64 noundef %conv.i2.i, i32 noundef %or.i252) #16
+  tail call void @qpci_io_writel(ptr noundef %88, i64 %89, i8 %90, i64 noundef range(i64 4, 32953) %conv.i2.i, i32 noundef %or.i252) #16
   %91 = load ptr, ptr %dev.i.i.i, align 8
   %92 = load i64, ptr %hba_bar.i.i.i, align 8
   %93 = load i8, ptr %2, align 8
-  %call.i.i.i261 = tail call i32 @qpci_io_readl(ptr noundef %91, i64 %92, i8 %93, i64 noundef %conv.i2.i) #16
+  %call.i.i.i261 = tail call i32 @qpci_io_readl(ptr noundef %91, i64 %92, i8 %93, i64 noundef range(i64 0, 32953) %conv.i2.i) #16
   %and204 = and i32 %call.i.i.i261, 16384
   %cmp207.not = icmp eq i32 %and204, 0
   br i1 %cmp207.not, label %if.else210, label %do.end214
@@ -809,7 +809,7 @@ do.end214:                                        ; preds = %if.else210, %do.end
   %94 = load ptr, ptr %dev.i.i.i, align 8
   %95 = load i64, ptr %hba_bar.i.i.i, align 8
   %96 = load i8, ptr %2, align 8
-  %call.i.i.i270 = tail call i32 @qpci_io_readl(ptr noundef %94, i64 %95, i8 %96, i64 noundef %conv.i2.i195) #16
+  %call.i.i.i270 = tail call i32 @qpci_io_readl(ptr noundef %94, i64 %95, i8 %96, i64 noundef range(i64 0, 32953) %conv.i2.i195) #16
   %and217 = and i32 %call.i.i.i270, 67108864
   %cmp218.not = icmp eq i32 %and217, 0
   br i1 %cmp218.not, label %if.end222, label %if.then220
@@ -818,12 +818,12 @@ if.then220:                                       ; preds = %do.end214
   %97 = load ptr, ptr %dev.i.i.i, align 8
   %98 = load i64, ptr %hba_bar.i.i.i, align 8
   %99 = load i8, ptr %2, align 8
-  %call.i.i.i.i279 = tail call i32 @qpci_io_readl(ptr noundef %97, i64 %98, i8 %99, i64 noundef %conv.i2.i195) #16
+  %call.i.i.i.i279 = tail call i32 @qpci_io_readl(ptr noundef %97, i64 %98, i8 %99, i64 noundef range(i64 0, 32953) %conv.i2.i195) #16
   %or.i280 = or i32 %call.i.i.i.i279, 67108864
   %100 = load ptr, ptr %dev.i.i.i, align 8
   %101 = load i64, ptr %hba_bar.i.i.i, align 8
   %102 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %100, i64 %101, i8 %102, i64 noundef %conv.i2.i195, i32 noundef %or.i280) #16
+  tail call void @qpci_io_writel(ptr noundef %100, i64 %101, i8 %102, i64 noundef range(i64 4, 32953) %conv.i2.i195, i32 noundef %or.i280) #16
   br label %if.end222
 
 if.end222:                                        ; preds = %if.then220, %do.end214
@@ -832,7 +832,7 @@ if.end222:                                        ; preds = %if.then220, %do.end
   %103 = load ptr, ptr %dev.i.i.i, align 8
   %104 = load i64, ptr %hba_bar.i.i.i, align 8
   %105 = load i8, ptr %2, align 8
-  %call.i.i.i289 = tail call i32 @qpci_io_readl(ptr noundef %103, i64 %104, i8 %105, i64 noundef %conv.i2.i286) #16
+  %call.i.i.i289 = tail call i32 @qpci_io_readl(ptr noundef %103, i64 %104, i8 %105, i64 noundef range(i64 0, 32953) %conv.i2.i286) #16
   %and225 = and i32 %call.i.i.i289, 136
   %cmp226 = icmp eq i32 %and225, 0
   br i1 %cmp226, label %if.then228, label %for.inc
@@ -843,7 +843,7 @@ if.then228:                                       ; preds = %if.end222
   %106 = load ptr, ptr %dev.i.i.i, align 8
   %107 = load i64, ptr %hba_bar.i.i.i, align 8
   %108 = load i8, ptr %2, align 8
-  %call.i.i.i298 = tail call i32 @qpci_io_readl(ptr noundef %106, i64 %107, i8 %108, i64 noundef %conv.i2.i295) #16
+  %call.i.i.i298 = tail call i32 @qpci_io_readl(ptr noundef %106, i64 %107, i8 %108, i64 noundef range(i64 0, 32953) %conv.i2.i295) #16
   %and231 = and i32 %call.i.i.i298, 15
   switch i32 %and231, label %do.body256 [
     i32 3, label %if.then234
@@ -854,16 +854,16 @@ if.then234:                                       ; preds = %if.then228
   %109 = load ptr, ptr %dev.i.i.i, align 8
   %110 = load i64, ptr %hba_bar.i.i.i, align 8
   %111 = load i8, ptr %2, align 8
-  %call.i.i.i.i307 = tail call i32 @qpci_io_readl(ptr noundef %109, i64 %110, i8 %111, i64 noundef %conv.i2.i) #16
+  %call.i.i.i.i307 = tail call i32 @qpci_io_readl(ptr noundef %109, i64 %110, i8 %111, i64 noundef range(i64 0, 32953) %conv.i2.i) #16
   %or.i308 = or i32 %call.i.i.i.i307, 1
   %112 = load ptr, ptr %dev.i.i.i, align 8
   %113 = load i64, ptr %hba_bar.i.i.i, align 8
   %114 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %112, i64 %113, i8 %114, i64 noundef %conv.i2.i, i32 noundef %or.i308) #16
+  tail call void @qpci_io_writel(ptr noundef %112, i64 %113, i8 %114, i64 noundef range(i64 4, 32953) %conv.i2.i, i32 noundef %or.i308) #16
   %115 = load ptr, ptr %dev.i.i.i, align 8
   %116 = load i64, ptr %hba_bar.i.i.i, align 8
   %117 = load i8, ptr %2, align 8
-  %call.i.i.i317 = tail call i32 @qpci_io_readl(ptr noundef %115, i64 %116, i8 %117, i64 noundef %conv.i2.i) #16
+  %call.i.i.i317 = tail call i32 @qpci_io_readl(ptr noundef %115, i64 %116, i8 %117, i64 noundef range(i64 0, 32953) %conv.i2.i) #16
   %and240 = and i32 %call.i.i.i317, 32768
   %cmp243.not = icmp eq i32 %and240, 0
   br i1 %cmp243.not, label %if.else246, label %do.end250
@@ -890,16 +890,16 @@ for.end:                                          ; preds = %for.inc, %do.end9
   %118 = load ptr, ptr %dev.i.i.i, align 8
   %119 = load i64, ptr %hba_bar.i.i.i, align 8
   %120 = load i8, ptr %2, align 8
-  %call.i.i.i320 = tail call i32 @qpci_io_readl(ptr noundef %118, i64 %119, i8 %120, i64 noundef 4) #16
+  %call.i.i.i320 = tail call i32 @qpci_io_readl(ptr noundef %118, i64 %119, i8 %120, i64 noundef range(i64 0, 32953) 4) #16
   %or.i321 = or i32 %call.i.i.i320, 2
   %121 = load ptr, ptr %dev.i.i.i, align 8
   %122 = load i64, ptr %hba_bar.i.i.i, align 8
   %123 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %121, i64 %122, i8 %123, i64 noundef 4, i32 noundef %or.i321) #16
+  tail call void @qpci_io_writel(ptr noundef %121, i64 %122, i8 %123, i64 noundef range(i64 4, 32953) 4, i32 noundef %or.i321) #16
   %124 = load ptr, ptr %dev.i.i.i, align 8
   %125 = load i64, ptr %hba_bar.i.i.i, align 8
   %126 = load i8, ptr %2, align 8
-  %call.i.i324 = tail call i32 @qpci_io_readl(ptr noundef %124, i64 %125, i8 %126, i64 noundef 4) #16
+  %call.i.i324 = tail call i32 @qpci_io_readl(ptr noundef %124, i64 %125, i8 %126, i64 noundef range(i64 0, 32953) 4) #16
   %and265 = and i32 %call.i.i324, 2
   %cmp268.not = icmp eq i32 %and265, 0
   br i1 %cmp268.not, label %if.else271, label %do.end275
@@ -929,7 +929,7 @@ entry:
   %1 = load i64, ptr %hba_bar.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
-  %call.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef 12) #16
+  %call.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) 12) #16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -948,7 +948,7 @@ if.end3:                                          ; preds = %for.body
   %4 = load ptr, ptr %dev.i.i, align 8
   %5 = load i64, ptr %hba_bar.i.i, align 8
   %6 = load i8, ptr %2, align 8
-  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %4, i64 %5, i8 %6, i64 noundef %conv.i2.i) #16
+  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %4, i64 %5, i8 %6, i64 noundef range(i64 0, 32953) %conv.i2.i) #16
   %and5 = and i32 %call.i.i.i, 1
   %cmp6.not = icmp eq i32 %and5, 0
   br i1 %cmp6.not, label %for.inc, label %do.end
@@ -979,15 +979,15 @@ entry:
   %1 = load i64, ptr %hba_bar.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
-  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef %mul.i1.i) #16
+  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %4 = load ptr, ptr %dev.i.i.i, align 8
   %5 = load i64, ptr %hba_bar.i.i.i, align 8
   %6 = load i8, ptr %2, align 8
-  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %6, i64 noundef %mul.i1.i, i32 noundef %call.i.i.i) #16
+  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %6, i64 noundef range(i64 4, 32953) %mul.i1.i, i32 noundef %call.i.i.i) #16
   %7 = load ptr, ptr %dev.i.i.i, align 8
   %8 = load i64, ptr %hba_bar.i.i.i, align 8
   %9 = load i8, ptr %2, align 8
-  %call.i.i.i26 = tail call i32 @qpci_io_readl(ptr noundef %7, i64 %8, i8 %9, i64 noundef %mul.i1.i) #16
+  %call.i.i.i26 = tail call i32 @qpci_io_readl(ptr noundef %7, i64 %8, i8 %9, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %cmp = icmp eq i32 %call.i.i.i26, 0
   br i1 %cmp, label %do.end, label %if.else
 
@@ -1023,7 +1023,7 @@ entry:
   %3 = load i64, ptr %hba_bar.i.i.i62, align 8
   %4 = getelementptr inbounds i8, ptr %ahci, i64 24
   %5 = load i8, ptr %4, align 8
-  %call.i.i.i63 = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %5, i64 noundef %mul.i1.i59) #16
+  %call.i.i.i63 = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %5, i64 noundef range(i64 0, 32953) %mul.i1.i59) #16
   br i1 %tobool.not, label %if.else6, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1061,7 +1061,7 @@ if.end21:                                         ; preds = %if.else6, %if.else1
   %8 = load i64, ptr %hba_bar.i.i.i71, align 8
   %9 = getelementptr inbounds i8, ptr %ahci, i64 24
   %10 = load i8, ptr %9, align 8
-  %call.i.i.i72 = tail call i32 @qpci_io_readl(ptr noundef %7, i64 %8, i8 %10, i64 noundef %conv.i2.i69) #16
+  %call.i.i.i72 = tail call i32 @qpci_io_readl(ptr noundef %7, i64 %8, i8 %10, i64 noundef range(i64 0, 32953) %conv.i2.i69) #16
   %cmp27 = icmp eq i32 %call.i.i.i72, 0
   br i1 %cmp27, label %do.end34, label %if.else30
 
@@ -1087,19 +1087,19 @@ if.then37:                                        ; preds = %do.end34
   %12 = load ptr, ptr %dev.i.i.i70, align 8
   %13 = load i64, ptr %hba_bar.i.i.i71, align 8
   %14 = load i8, ptr %9, align 8
-  %call.i.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %12, i64 %13, i8 %14, i64 noundef %mul.i1.i.i) #16
+  %call.i.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %12, i64 %13, i8 %14, i64 noundef range(i64 0, 32953) %mul.i1.i.i) #16
   %and.i = and i32 %call.i.i.i.i, -2
   %15 = load ptr, ptr %dev.i.i.i70, align 8
   %16 = load i64, ptr %hba_bar.i.i.i71, align 8
   %17 = load i8, ptr %9, align 8
-  tail call void @qpci_io_writel(ptr noundef %15, i64 %16, i8 %17, i64 noundef %mul.i1.i.i, i32 noundef %and.i) #16
+  tail call void @qpci_io_writel(ptr noundef %15, i64 %16, i8 %17, i64 noundef range(i64 4, 32953) %mul.i1.i.i, i32 noundef %and.i) #16
   %call38 = tail call i32 @usleep(i32 noundef 500000) #16
   %mul.i1.i77 = or disjoint i32 %add1.i.i67, 24
   %conv.i2.i78 = zext nneg i32 %mul.i1.i77 to i64
   %18 = load ptr, ptr %dev.i.i.i70, align 8
   %19 = load i64, ptr %hba_bar.i.i.i71, align 8
   %20 = load i8, ptr %9, align 8
-  %call.i.i.i81 = tail call i32 @qpci_io_readl(ptr noundef %18, i64 %19, i8 %20, i64 noundef %conv.i2.i78) #16
+  %call.i.i.i81 = tail call i32 @qpci_io_readl(ptr noundef %18, i64 %19, i8 %20, i64 noundef range(i64 0, 32953) %conv.i2.i78) #16
   %and42 = and i32 %call.i.i.i81, 32768
   %cmp45 = icmp eq i32 %and42, 0
   br i1 %cmp45, label %do.end52, label %if.else48
@@ -1115,17 +1115,17 @@ do.end52:                                         ; preds = %if.else48, %if.then
   %21 = load ptr, ptr %dev.i.i.i70, align 8
   %22 = load i64, ptr %hba_bar.i.i.i71, align 8
   %23 = load i8, ptr %9, align 8
-  %call.i.i.i90 = tail call i32 @qpci_io_readl(ptr noundef %21, i64 %22, i8 %23, i64 noundef %conv.i2.i87) #16
+  %call.i.i.i90 = tail call i32 @qpci_io_readl(ptr noundef %21, i64 %22, i8 %23, i64 noundef range(i64 0, 32953) %conv.i2.i87) #16
   %24 = load ptr, ptr %dev.i.i.i70, align 8
   %25 = load i64, ptr %hba_bar.i.i.i71, align 8
   %26 = load i8, ptr %9, align 8
-  tail call void @qpci_io_writel(ptr noundef %24, i64 %25, i8 %26, i64 noundef %conv.i2.i87, i32 noundef %call.i.i.i90) #16
+  tail call void @qpci_io_writel(ptr noundef %24, i64 %25, i8 %26, i64 noundef range(i64 4, 32953) %conv.i2.i87, i32 noundef %call.i.i.i90) #16
   %mul.i1.i103 = or disjoint i32 %add1.i.i67, 32
   %conv.i2.i104 = zext nneg i32 %mul.i1.i103 to i64
   %27 = load ptr, ptr %dev.i.i.i70, align 8
   %28 = load i64, ptr %hba_bar.i.i.i71, align 8
   %29 = load i8, ptr %9, align 8
-  %call.i.i.i107 = tail call i32 @qpci_io_readl(ptr noundef %27, i64 %28, i8 %29, i64 noundef %conv.i2.i104) #16
+  %call.i.i.i107 = tail call i32 @qpci_io_readl(ptr noundef %27, i64 %28, i8 %29, i64 noundef range(i64 0, 32953) %conv.i2.i104) #16
   %and57 = and i32 %call.i.i.i107, 136
   %cmp60 = icmp eq i32 %and57, 0
   br i1 %cmp60, label %do.end67, label %if.else63
@@ -1139,12 +1139,12 @@ do.end67:                                         ; preds = %if.else63, %do.end5
   %30 = load ptr, ptr %dev.i.i.i70, align 8
   %31 = load i64, ptr %hba_bar.i.i.i71, align 8
   %32 = load i8, ptr %9, align 8
-  %call.i.i.i.i113 = tail call i32 @qpci_io_readl(ptr noundef %30, i64 %31, i8 %32, i64 noundef %conv.i2.i78) #16
+  %call.i.i.i.i113 = tail call i32 @qpci_io_readl(ptr noundef %30, i64 %31, i8 %32, i64 noundef range(i64 0, 32953) %conv.i2.i78) #16
   %or.i = or i32 %call.i.i.i.i113, 1
   %33 = load ptr, ptr %dev.i.i.i70, align 8
   %34 = load i64, ptr %hba_bar.i.i.i71, align 8
   %35 = load i8, ptr %9, align 8
-  tail call void @qpci_io_writel(ptr noundef %33, i64 %34, i8 %35, i64 noundef %conv.i2.i78, i32 noundef %or.i) #16
+  tail call void @qpci_io_writel(ptr noundef %33, i64 %34, i8 %35, i64 noundef range(i64 4, 32953) %conv.i2.i78, i32 noundef %or.i) #16
   br label %if.end68
 
 if.end68:                                         ; preds = %do.end34.if.end68_crit_edge, %do.end67
@@ -1152,7 +1152,7 @@ if.end68:                                         ; preds = %do.end34.if.end68_c
   %36 = load ptr, ptr %dev.i.i.i70, align 8
   %37 = load i64, ptr %hba_bar.i.i.i71, align 8
   %38 = load i8, ptr %9, align 8
-  %call.i.i.i122 = tail call i32 @qpci_io_readl(ptr noundef %36, i64 %37, i8 %38, i64 noundef %conv.i2.i119.pre-phi) #16
+  %call.i.i.i122 = tail call i32 @qpci_io_readl(ptr noundef %36, i64 %37, i8 %38, i64 noundef range(i64 0, 32953) %conv.i2.i119.pre-phi) #16
   %39 = load i8, ptr %errors, align 1
   %tobool71.not = icmp eq i8 %39, 0
   %and75 = and i32 %call.i.i.i122, 1
@@ -1227,7 +1227,7 @@ if.end:                                           ; preds = %entry
   %3 = load i64, ptr %hba_bar.i.i.i, align 8
   %4 = getelementptr inbounds i8, ptr %ahci, i64 24
   %5 = load i8, ptr %4, align 8
-  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %5, i64 noundef %mul.i1.i) #16
+  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %5, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %interrupts = getelementptr inbounds i8, ptr %cmd, i64 4
   %6 = load i32, ptr %interrupts, align 4
   %and = and i32 %6, %call.i.i.i
@@ -1246,11 +1246,11 @@ do.end:                                           ; preds = %if.else, %if.end
   %8 = load ptr, ptr %dev.i.i.i, align 8
   %9 = load i64, ptr %hba_bar.i.i.i, align 8
   %10 = load i8, ptr %4, align 8
-  tail call void @qpci_io_writel(ptr noundef %8, i64 %9, i8 %10, i64 noundef %mul.i1.i, i32 noundef %7) #16
+  tail call void @qpci_io_writel(ptr noundef %8, i64 %9, i8 %10, i64 noundef range(i64 4, 32953) %mul.i1.i, i32 noundef %7) #16
   %11 = load ptr, ptr %dev.i.i.i, align 8
   %12 = load i64, ptr %hba_bar.i.i.i, align 8
   %13 = load i8, ptr %4, align 8
-  %call.i.i.i29 = tail call i32 @qpci_io_readl(ptr noundef %11, i64 %12, i8 %13, i64 noundef %mul.i1.i) #16
+  %call.i.i.i29 = tail call i32 @qpci_io_readl(ptr noundef %11, i64 %12, i8 %13, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %cmp15 = icmp eq i32 %call.i.i.i29, 0
   br i1 %cmp15, label %do.end22, label %if.else18
 
@@ -1281,7 +1281,7 @@ entry:
   %3 = load i64, ptr %hba_bar.i.i.i, align 8
   %4 = getelementptr inbounds i8, ptr %ahci, i64 24
   %5 = load i8, ptr %4, align 8
-  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %5, i64 noundef %conv.i2.i) #16
+  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %5, i64 noundef range(i64 0, 32953) %conv.i2.i) #16
   %props = getelementptr inbounds i8, ptr %cmd, i64 32
   %6 = load ptr, ptr %props, align 8
   %ncq = getelementptr inbounds i8, ptr %6, i64 9
@@ -1328,7 +1328,7 @@ if.end29:                                         ; preds = %do.body14, %if.else
   %9 = load ptr, ptr %dev.i.i.i, align 8
   %10 = load i64, ptr %hba_bar.i.i.i, align 8
   %11 = load i8, ptr %4, align 8
-  %call.i.i.i41 = tail call i32 @qpci_io_readl(ptr noundef %9, i64 %10, i8 %11, i64 noundef %conv.i2.i38) #16
+  %call.i.i.i41 = tail call i32 @qpci_io_readl(ptr noundef %9, i64 %10, i8 %11, i64 noundef range(i64 0, 32953) %conv.i2.i38) #16
   %12 = load ptr, ptr %props, align 8
   %ncq32 = getelementptr inbounds i8, ptr %12, i64 9
   %13 = load i8, ptr %ncq32, align 1
@@ -1377,7 +1377,7 @@ if.end77:                                         ; preds = %if.else57, %if.else
   %15 = load ptr, ptr %dev.i.i.i, align 8
   %16 = load i64, ptr %hba_bar.i.i.i, align 8
   %17 = load i8, ptr %4, align 8
-  %call.i.i.i50 = tail call i32 @qpci_io_readl(ptr noundef %15, i64 %16, i8 %17, i64 noundef %conv.i2.i47) #16
+  %call.i.i.i50 = tail call i32 @qpci_io_readl(ptr noundef %15, i64 %16, i8 %17, i64 noundef range(i64 0, 32953) %conv.i2.i47) #16
   %and81 = and i32 %call.i.i.i50, 128
   %cmp84 = icmp eq i32 %and81, 0
   br i1 %cmp84, label %do.body92, label %if.else87
@@ -1431,7 +1431,7 @@ do.end:                                           ; preds = %if.else, %entry
   %5 = load i64, ptr %hba_bar.i.i.i, align 8
   %6 = getelementptr inbounds i8, ptr %ahci, i64 24
   %7 = load i8, ptr %6, align 8
-  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %4, i64 %5, i8 %7, i64 noundef %mul.i1.i) #16
+  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %4, i64 %5, i8 %7, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %and = lshr i32 %call.i.i.i, 8
   %error = getelementptr inbounds i8, ptr %call, i64 3
   %8 = load i8, ptr %error, align 1
@@ -1676,7 +1676,7 @@ entry:
   %1 = load i64, ptr %hba_bar.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
-  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef %mul.i1.i) #16
+  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %next.idx = mul nuw nsw i64 %conv.i.i, 344
   %4 = getelementptr i8, ptr %ahci, i64 392
   %next = getelementptr i8, ptr %4, i64 %next.idx
@@ -1917,7 +1917,7 @@ if.then.i66:                                      ; preds = %if.end41
   %27 = load i64, ptr %hba_bar.i.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %ahci, i64 24
   %29 = load i8, ptr %28, align 8
-  tail call void @qpci_io_writel(ptr noundef %26, i64 %27, i8 %29, i64 noundef %mul.i1.i.i, i32 noundef %shl.i) #16
+  tail call void @qpci_io_writel(ptr noundef %26, i64 %27, i8 %29, i64 noundef range(i64 4, 32953) %mul.i1.i.i, i32 noundef %shl.i) #16
   br label %ahci_command_issue_async.exit
 
 ahci_command_issue_async.exit:                    ; preds = %if.end41, %if.then.i66
@@ -1936,7 +1936,7 @@ ahci_command_issue_async.exit:                    ; preds = %if.end41, %if.then.
   %33 = load i64, ptr %hba_bar.i.i.i13.i, align 8
   %34 = getelementptr inbounds i8, ptr %ahci, i64 24
   %35 = load i8, ptr %34, align 8
-  tail call void @qpci_io_writel(ptr noundef %32, i64 %33, i8 %35, i64 noundef %mul.i1.i10.i, i32 noundef %shl4.i) #16
+  tail call void @qpci_io_writel(ptr noundef %32, i64 %33, i8 %35, i64 noundef range(i64 4, 32953) %mul.i1.i10.i, i32 noundef %shl4.i) #16
   %error = getelementptr inbounds i8, ptr %call.i, i64 42
   %36 = load i8, ptr %error, align 2
   %tobool42 = trunc i8 %36 to i1
@@ -2345,7 +2345,7 @@ entry:
   %1 = load i64, ptr %hba_bar.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
-  %call.i.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef %mul.i1.i.i) #16
+  %call.i.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) %mul.i1.i.i) #16
   %next.idx.i = mul nuw nsw i64 %conv.i.i.i, 344
   %4 = getelementptr i8, ptr %ahci, i64 392
   %next.i = getelementptr i8, ptr %4, i64 %next.idx.i
@@ -2601,7 +2601,7 @@ if.then:                                          ; preds = %entry
   %5 = load i64, ptr %hba_bar.i.i.i, align 8
   %6 = getelementptr inbounds i8, ptr %ahci, i64 24
   %7 = load i8, ptr %6, align 8
-  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef %mul.i1.i, i32 noundef %shl) #16
+  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef range(i64 4, 32953) %mul.i1.i, i32 noundef %shl) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2620,7 +2620,7 @@ if.end:                                           ; preds = %if.then, %entry
   %11 = load i64, ptr %hba_bar.i.i.i13, align 8
   %12 = getelementptr inbounds i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
-  tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef %mul.i1.i10, i32 noundef %shl4) #16
+  tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef range(i64 4, 32953) %mul.i1.i10, i32 noundef %shl4) #16
   ret void
 }
 
@@ -2642,7 +2642,7 @@ entry:
   %2 = load ptr, ptr %dev.i.i.i, align 8
   %3 = load i64, ptr %hba_bar.i.i.i, align 8
   %4 = load i8, ptr %0, align 8
-  %call.i.i.i42 = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %4, i64 noundef %mul.i1.i41) #16
+  %call.i.i.i42 = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %4, i64 noundef range(i64 0, 32953) %mul.i1.i41) #16
   %and43 = and i32 %call.i.i.i42, 1
   %cmp.not44 = icmp eq i32 %and43, 0
   br i1 %cmp.not44, label %land.rhs.lr.ph, label %while.end
@@ -2660,7 +2660,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %6 = load ptr, ptr %dev.i.i.i, align 8
   %7 = load i64, ptr %hba_bar.i.i.i, align 8
   %8 = load i8, ptr %0, align 8
-  %call.i.i.i20 = tail call i32 @qpci_io_readl(ptr noundef %6, i64 %7, i8 %8, i64 noundef %mul.i1.i16) #16
+  %call.i.i.i20 = tail call i32 @qpci_io_readl(ptr noundef %6, i64 %7, i8 %8, i64 noundef range(i64 0, 32953) %mul.i1.i16) #16
   %and3 = and i32 %call.i.i.i20, 128
   %cmp4.not = icmp eq i32 %and3, 0
   br i1 %cmp4.not, label %lor.lhs.false, label %while.body
@@ -2673,7 +2673,7 @@ lor.lhs.false:                                    ; preds = %land.rhs
   %10 = load ptr, ptr %dev.i.i.i, align 8
   %11 = load i64, ptr %hba_bar.i.i.i, align 8
   %12 = load i8, ptr %0, align 8
-  %call.i.i.i29 = tail call i32 @qpci_io_readl(ptr noundef %10, i64 %11, i8 %12, i64 noundef %mul.i1.i25) #16
+  %call.i.i.i29 = tail call i32 @qpci_io_readl(ptr noundef %10, i64 %11, i8 %12, i64 noundef range(i64 0, 32953) %mul.i1.i25) #16
   %13 = load i8, ptr %slot, align 2
   %conv = zext nneg i8 %13 to i32
   %shl = shl nuw i32 1, %conv
@@ -2696,7 +2696,7 @@ land.rhs14:                                       ; preds = %lor.rhs
   %17 = load ptr, ptr %dev.i.i.i, align 8
   %18 = load i64, ptr %hba_bar.i.i.i, align 8
   %19 = load i8, ptr %0, align 8
-  %call.i.i.i38 = tail call i32 @qpci_io_readl(ptr noundef %17, i64 %18, i8 %19, i64 noundef %mul.i1.i34) #16
+  %call.i.i.i38 = tail call i32 @qpci_io_readl(ptr noundef %17, i64 %18, i8 %19, i64 noundef range(i64 0, 32953) %mul.i1.i34) #16
   %20 = load i8, ptr %slot, align 2
   %conv18 = zext nneg i8 %20 to i32
   %shl19 = shl nuw i32 1, %conv18
@@ -2713,7 +2713,7 @@ while.body:                                       ; preds = %lor.lhs.false, %lan
   %22 = load ptr, ptr %dev.i.i.i, align 8
   %23 = load i64, ptr %hba_bar.i.i.i, align 8
   %24 = load i8, ptr %0, align 8
-  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %22, i64 %23, i8 %24, i64 noundef %mul.i1.i) #16
+  %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %22, i64 %23, i8 %24, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %and = and i32 %call.i.i.i, 1
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %land.rhs, label %while.end, !llvm.loop !13
@@ -2840,7 +2840,7 @@ if.then.i:                                        ; preds = %entry
   %5 = load i64, ptr %hba_bar.i.i.i.i, align 8
   %6 = getelementptr inbounds i8, ptr %ahci, i64 24
   %7 = load i8, ptr %6, align 8
-  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef %mul.i1.i.i, i32 noundef %shl.i) #16
+  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef range(i64 4, 32953) %mul.i1.i.i, i32 noundef %shl.i) #16
   br label %ahci_command_issue_async.exit
 
 ahci_command_issue_async.exit:                    ; preds = %entry, %if.then.i
@@ -2851,7 +2851,7 @@ ahci_command_issue_async.exit:                    ; preds = %entry, %if.then.i
   %9 = load i64, ptr %hba_bar.i.i.i13.i, align 8
   %10 = getelementptr inbounds i8, ptr %ahci, i64 24
   %11 = load i8, ptr %10, align 8
-  tail call void @qpci_io_writel(ptr noundef %8, i64 %9, i8 %11, i64 noundef %mul.i1.i10.i, i32 noundef %shl.i) #16
+  tail call void @qpci_io_writel(ptr noundef %8, i64 %9, i8 %11, i64 noundef range(i64 4, 32953) %mul.i1.i10.i, i32 noundef %shl.i) #16
   %12 = load ptr, ptr %ahci, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void @qtest_qmp_eventwait(ptr noundef %13, ptr noundef nonnull @.str.51) #16
@@ -2920,7 +2920,7 @@ if.then.i.i:                                      ; preds = %if.end
   %6 = load i64, ptr %hba_bar.i.i.i.i.i, align 8
   %7 = getelementptr inbounds i8, ptr %ahci, i64 24
   %8 = load i8, ptr %7, align 8
-  tail call void @qpci_io_writel(ptr noundef %5, i64 %6, i8 %8, i64 noundef %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
+  tail call void @qpci_io_writel(ptr noundef %5, i64 %6, i8 %8, i64 noundef range(i64 4, 32953) %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
   br label %ahci_command_issue.exit
 
 ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.i
@@ -2931,7 +2931,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
   %10 = load i64, ptr %hba_bar.i.i.i13.i.i, align 8
   %11 = getelementptr inbounds i8, ptr %ahci, i64 24
   %12 = load i8, ptr %11, align 8
-  tail call void @qpci_io_writel(ptr noundef %9, i64 %10, i8 %12, i64 noundef %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
+  tail call void @qpci_io_writel(ptr noundef %9, i64 %10, i8 %12, i64 noundef range(i64 4, 32953) %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
   tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call)
   %atapi_cmd.i = getelementptr inbounds i8, ptr %call, i64 96
@@ -3147,7 +3147,7 @@ if.then.i:                                        ; preds = %entry
   %5 = load i64, ptr %hba_bar.i.i.i.i, align 8
   %6 = getelementptr inbounds i8, ptr %ahci, i64 24
   %7 = load i8, ptr %6, align 8
-  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef %mul.i1.i.i, i32 noundef %shl.i) #16
+  tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef range(i64 4, 32953) %mul.i1.i.i, i32 noundef %shl.i) #16
   br label %ahci_command_issue_async.exit
 
 ahci_command_issue_async.exit:                    ; preds = %entry, %if.then.i
@@ -3166,7 +3166,7 @@ ahci_command_issue_async.exit:                    ; preds = %entry, %if.then.i
   %11 = load i64, ptr %hba_bar.i.i.i13.i, align 8
   %12 = getelementptr inbounds i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
-  tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef %mul.i1.i10.i, i32 noundef %shl4.i) #16
+  tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef range(i64 4, 32953) %mul.i1.i10.i, i32 noundef %shl4.i) #16
   tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %cmd)
   ret void
 }
@@ -3364,7 +3364,7 @@ if.then.i.i:                                      ; preds = %if.end
   %8 = load i64, ptr %hba_bar.i.i.i.i.i, align 8
   %9 = getelementptr inbounds i8, ptr %ahci, i64 24
   %10 = load i8, ptr %9, align 8
-  tail call void @qpci_io_writel(ptr noundef %7, i64 %8, i8 %10, i64 noundef %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
+  tail call void @qpci_io_writel(ptr noundef %7, i64 %8, i8 %10, i64 noundef range(i64 4, 32953) %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
   br label %ahci_command_issue.exit
 
 ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.i
@@ -3375,7 +3375,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
   %12 = load i64, ptr %hba_bar.i.i.i13.i.i, align 8
   %13 = getelementptr inbounds i8, ptr %ahci, i64 24
   %14 = load i8, ptr %13, align 8
-  tail call void @qpci_io_writel(ptr noundef %11, i64 %12, i8 %14, i64 noundef %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
+  tail call void @qpci_io_writel(ptr noundef %11, i64 %12, i8 %14, i64 noundef range(i64 4, 32953) %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
   tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call.i)
   %15 = load ptr, ptr %atapi_cmd.i, align 8
@@ -3461,7 +3461,7 @@ if.then.i.i:                                      ; preds = %entry
   %7 = load i64, ptr %hba_bar.i.i.i.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %ahci, i64 24
   %9 = load i8, ptr %8, align 8
-  tail call void @qpci_io_writel(ptr noundef %6, i64 %7, i8 %9, i64 noundef %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
+  tail call void @qpci_io_writel(ptr noundef %6, i64 %7, i8 %9, i64 noundef range(i64 4, 32953) %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
   br label %ahci_command_issue.exit
 
 ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
@@ -3472,7 +3472,7 @@ ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
   %11 = load i64, ptr %hba_bar.i.i.i13.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
-  tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
+  tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef range(i64 4, 32953) %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
   tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call.i)
   %14 = load ptr, ptr %atapi_cmd.i, align 8
@@ -3522,7 +3522,7 @@ if.then.i.i:                                      ; preds = %entry
   %7 = load i64, ptr %hba_bar.i.i.i.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %ahci, i64 24
   %9 = load i8, ptr %8, align 8
-  tail call void @qpci_io_writel(ptr noundef %6, i64 %7, i8 %9, i64 noundef %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
+  tail call void @qpci_io_writel(ptr noundef %6, i64 %7, i8 %9, i64 noundef range(i64 4, 32953) %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
   br label %ahci_command_issue.exit
 
 ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
@@ -3533,7 +3533,7 @@ ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
   %11 = load i64, ptr %hba_bar.i.i.i13.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
-  tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
+  tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef range(i64 4, 32953) %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
   tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call.i)
   %14 = load ptr, ptr %atapi_cmd.i, align 8

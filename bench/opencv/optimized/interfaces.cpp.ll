@@ -210,7 +210,7 @@ define void @_ZN2cv7optflow24createOptFlow_SimpleFlowEv(ptr dead_on_unwind noali
   store i32 1, ptr %4, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow21OpticalFlowSimpleFlowESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5)
           to label %_ZN2cv3PtrINS_7optflow21OpticalFlowSimpleFlowEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow21OpticalFlowSimpleFlowESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !4
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow21OpticalFlowSimpleFlowESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %1
@@ -312,7 +312,7 @@ define void @_ZN2cv7optflow23createOptFlow_FarnebackEv(ptr dead_on_unwind noalia
   store i32 1, ptr %4, align 4, !noalias !9
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow20OpticalFlowFarnebackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !9
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %5)
           to label %_ZN2cv3PtrINS_7optflow20OpticalFlowFarnebackEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow20OpticalFlowFarnebackESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !9
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow20OpticalFlowFarnebackESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %1
@@ -400,7 +400,7 @@ define void @_ZN2cv7optflow27createOptFlow_SparseToDenseEv(ptr dead_on_unwind no
   store i32 1, ptr %4, align 4, !noalias !14
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow24OpticalFlowSparseToDenseESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !14
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN2cv3PtrINS_7optflow24OpticalFlowSparseToDenseEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow24OpticalFlowSparseToDenseESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !14
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow24OpticalFlowSparseToDenseESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i: ; preds = %1
@@ -437,7 +437,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow21OpticalFlowSimpleFlowD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow21OpticalFlowSimpleFlowD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #10
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #9
   ret void
 }
@@ -474,7 +474,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow20OpticalFlowFarnebackD2Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow20OpticalFlowFarnebackD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #10
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #9
   ret void
 }
@@ -487,7 +487,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow24OpticalFlowSparseToDenseD2Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow24OpticalFlowSparseToDenseD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #10
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #9
   ret void
 }

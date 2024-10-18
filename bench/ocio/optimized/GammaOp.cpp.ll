@@ -1173,7 +1173,7 @@ invoke.cont15:                                    ; preds = %if.then13
   %31 = load ptr, ptr %expTransform, align 8, !nonnull !21, !noundef !21
   %32 = call ptr @__dynamic_cast(ptr nonnull %31, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev27ExponentWithLinearTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplE, i64 0) #15
   %m_data.i38 = getelementptr inbounds i8, ptr %32, i64 8
-  %call.i40 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i38, ptr noundef nonnull align 8 dereferenceable(168) %29)
+  %call.i40 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i38, ptr noundef nonnull align 8 dereferenceable(272) %29)
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
@@ -1386,7 +1386,7 @@ invoke.cont24:                                    ; preds = %if.else
   %63 = load ptr, ptr %expTransform23, align 8, !nonnull !21, !noundef !21
   %64 = call ptr @__dynamic_cast(ptr nonnull %63, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev17ExponentTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev21ExponentTransformImplE, i64 0) #15
   %m_data.i114 = getelementptr inbounds i8, ptr %64, i64 8
-  %call.i126 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i114, ptr noundef nonnull align 8 dereferenceable(168) %29)
+  %call.i126 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i114, ptr noundef nonnull align 8 dereferenceable(272) %29)
           to label %call.i.noexc125 unwind label %lpad32
 
 call.i.noexc125:                                  ; preds = %invoke.cont24
@@ -2243,7 +2243,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !22
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14ExponentOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !22
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
-  invoke void @_ZN19OpenColorIO_v2_4dev14ExponentOpDataC1EPKd(ptr noundef nonnull align 8 dereferenceable(200) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull %vec4)
+  invoke void @_ZN19OpenColorIO_v2_4dev14ExponentOpDataC1EPKd(ptr noundef nonnull align 8 dereferenceable(200) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %vec4)
           to label %_ZSt11make_sharedIN19OpenColorIO_v2_4dev14ExponentOpDataEJRA4_dEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14ExponentOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !22
 
 common.resume:                                    ; preds = %lpad, %lpad18, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14ExponentOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i

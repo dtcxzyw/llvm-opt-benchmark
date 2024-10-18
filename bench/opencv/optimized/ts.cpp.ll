@@ -2205,7 +2205,7 @@ _ZN7testing7MessagelsIiEERS0_RKT_.exit:           ; preds = %_ZN7testing7Message
 _ZN7testing7MessagelsIA9_cEERS0_RKT_.exit:        ; preds = %_ZN7testing7MessagelsIiEERS0_RKT_.exit
   %97 = load ptr, ptr %10, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 16
-  %99 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull %4)
+  %99 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 1 dereferenceable(32) %4)
           to label %_ZN7testing7MessagelsIA32_cEERS0_RKT_.exit unwind label %121
 
 _ZN7testing7MessagelsIA32_cEERS0_RKT_.exit:       ; preds = %_ZN7testing7MessagelsIA9_cEERS0_RKT_.exit
@@ -4125,7 +4125,7 @@ define hidden void @_ZN6cvtest18parseCustomOptionsEiPPc(i32 noundef %0, ptr noun
 
 124:                                              ; preds = %123
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #36
-  invoke void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %33, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %32)
+  invoke void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %33, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %32)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit unwind label %.body
 
 .body:                                            ; preds = %124
@@ -5179,7 +5179,7 @@ _ZN6cvtest2TS3ptrEv.exit133:                      ; preds = %._crit_edge, %80, %
           to label %278 unwind label %.thread146
 
 278:                                              ; preds = %275
-  invoke void @_ZN6cvtest7details21SkipTestExceptionBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(148) %276, ptr noundef nonnull align 8 dereferenceable(32) %33, i1 noundef zeroext false)
+  invoke void @_ZN6cvtest7details21SkipTestExceptionBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(152) %276, ptr noundef nonnull align 8 dereferenceable(32) %33, i1 noundef zeroext false)
           to label %280 unwind label %.thread150
 
 .thread150:                                       ; preds = %278
@@ -6226,7 +6226,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6cvtest17SkipTestExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN2cv9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) #36
+  tail call void @_ZN2cv9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #36
   tail call void @_ZdlPv(ptr noundef nonnull %0) #39
   ret void
 }
@@ -6577,7 +6577,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN7
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %1)
+  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(12) %1)
           to label %_ZN7testing7MessagelsIA12_cEERS0_RKT_.exit unwind label %21
 
 _ZN7testing7MessagelsIA12_cEERS0_RKT_.exit:       ; preds = %2
@@ -6688,7 +6688,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN7
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %1)
+  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(3) %1)
           to label %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit unwind label %21
 
 _ZN7testing7MessagelsIA3_cEERS0_RKT_.exit:        ; preds = %2
@@ -6796,7 +6796,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN7
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %1)
+  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(5) %1)
           to label %_ZN7testing7MessagelsIA5_cEERS0_RKT_.exit unwind label %21
 
 _ZN7testing7MessagelsIA5_cEERS0_RKT_.exit:        ; preds = %2

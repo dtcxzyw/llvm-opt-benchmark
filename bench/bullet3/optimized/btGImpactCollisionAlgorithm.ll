@@ -369,7 +369,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i, %if.
 _ZN27btGImpactCollisionAlgorithmD2Ev.exit:        ; preds = %_ZN27btGImpactCollisionAlgorithm23destroyContactManifoldsEv.exit.i.i, %.noexc1.i
   %m_triface0.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_triface0.i.i, i8 -1, i64 16, i1 false)
-  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
+  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
@@ -1122,13 +1122,13 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm21collide_gjk_trianglesEP
 entry:
   %tri0 = alloca %class.btTriangleShapeEx, align 8
   %tri1 = alloca %class.btTriangleShapeEx, align 8
-  call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri0)
+  call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri0)
   %m_vertices1.ptr.i.i = getelementptr inbounds i8, ptr %tri0, i64 80
   %m_shapeType.i.i = getelementptr inbounds i8, ptr %tri0, i64 8
   store i32 1, ptr %m_shapeType.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_vertices1.ptr.i.i, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17btTriangleShapeEx, i64 16), ptr %tri0, align 8
-  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri1)
+  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1211,7 +1211,7 @@ lpad2.loopexit.split-lp:                          ; preds = %invoke.cont, %invok
 
 lpad2:                                            ; preds = %lpad2.loopexit.split-lp, %lpad2.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri1) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri1) #15
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %invoke.cont16
@@ -1233,13 +1233,13 @@ invoke.cont20:                                    ; preds = %while.end
           to label %invoke.cont23 unwind label %lpad2.loopexit.split-lp
 
 invoke.cont23:                                    ; preds = %invoke.cont20
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri1) #15
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri0) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri1) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri0) #15
   ret void
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad2 ], [ %7, %lpad ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri0) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri0) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -1248,7 +1248,7 @@ declare noundef zeroext i1 @_ZN17btTriangleShapeEx25overlap_test_conservativeERK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17btTriangleShapeExD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #15
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #15
   ret void
 }
 
@@ -1740,7 +1740,7 @@ while.body16:                                     ; preds = %while.body16.lr.ph,
 if.end20:                                         ; preds = %if.end
   %m_worldTransform.i = getelementptr inbounds i8, ptr %body0Wrap, i64 24
   %8 = load ptr, ptr %m_worldTransform.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %orgtrans0, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %orgtrans0, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %orgtrans0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -1752,7 +1752,7 @@ if.end20:                                         ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, i64 16, i1 false)
   %m_worldTransform.i46 = getelementptr inbounds i8, ptr %body1Wrap, i64 24
   %9 = load ptr, ptr %m_worldTransform.i46, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %orgtrans1, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %orgtrans1, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 16, i1 false)
   %arrayidx6.i.i47 = getelementptr inbounds i8, ptr %9, i64 16
   %arrayidx8.i.i48 = getelementptr inbounds i8, ptr %orgtrans1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i48, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i47, i64 16, i1 false)
@@ -1882,7 +1882,7 @@ invoke.cont47:                                    ; preds = %if.end44
 
 invoke.cont50:                                    ; preds = %invoke.cont47
   %m_trishape.i = getelementptr inbounds i8, ptr %retriever0, i64 8
-  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i)
+  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont50
@@ -1928,7 +1928,7 @@ lpad.i54:                                         ; preds = %.noexc
 lpad3.i:                                          ; preds = %if.else.i, %invoke.cont.i
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_tetrashape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i) #15
   br label %ehcleanup.i
 
 if.else.i:                                        ; preds = %invoke.cont4.i
@@ -1953,7 +1953,7 @@ if.else14.i:                                      ; preds = %invoke.cont9.i
 
 ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i54
   %.pn.i = phi { ptr, i32 } [ %27, %lpad3.i ], [ %26, %lpad.i54 ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i) #15
   br label %ehcleanup126
 
 invoke.cont51:                                    ; preds = %if.else14.i, %if.then11.i, %if.then.i
@@ -1961,7 +1961,7 @@ invoke.cont51:                                    ; preds = %if.else14.i, %if.th
   %m_parent.i = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %retriever0, ptr %m_parent.i, align 8
   %m_trishape.i55 = getelementptr inbounds i8, ptr %retriever1, i64 8
-  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i55)
+  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i55)
           to label %.noexc83 unwind label %lpad52
 
 .noexc83:                                         ; preds = %invoke.cont51
@@ -2007,7 +2007,7 @@ lpad.i59:                                         ; preds = %.noexc83
 lpad3.i70:                                        ; preds = %if.else.i72, %invoke.cont.i62
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_tetrashape.i58) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i58) #15
   br label %ehcleanup.i60
 
 if.else.i72:                                      ; preds = %invoke.cont4.i71
@@ -2032,7 +2032,7 @@ if.else14.i78:                                    ; preds = %invoke.cont9.i76
 
 ehcleanup.i60:                                    ; preds = %lpad3.i70, %lpad.i59
   %.pn.i61 = phi { ptr, i32 } [ %33, %lpad3.i70 ], [ %32, %lpad.i59 ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i55) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i55) #15
   br label %ehcleanup
 
 invoke.cont53:                                    ; preds = %if.else14.i78, %if.then11.i80, %if.then.i81
@@ -2171,7 +2171,7 @@ invoke.cont74:                                    ; preds = %while.body69
 
 invoke.cont84:                                    ; preds = %invoke.cont74
   %50 = load ptr, ptr %m_worldTransform.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tr0, ptr noundef nonnull align 4 dereferenceable(16) %50, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %tr0, ptr noundef nonnull align 4 dereferenceable(64) %50, i64 16, i1 false)
   %arrayidx6.i.i98 = getelementptr inbounds i8, ptr %50, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i99, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i98, i64 16, i1 false)
   %arrayidx10.i.i100 = getelementptr inbounds i8, ptr %50, i64 32
@@ -2179,7 +2179,7 @@ invoke.cont84:                                    ; preds = %invoke.cont74
   %m_origin3.i103 = getelementptr inbounds i8, ptr %50, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i102, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i103, i64 16, i1 false)
   %51 = load ptr, ptr %m_worldTransform.i46, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tr1, ptr noundef nonnull align 4 dereferenceable(16) %51, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %tr1, ptr noundef nonnull align 4 dereferenceable(64) %51, i64 16, i1 false)
   %arrayidx6.i.i105 = getelementptr inbounds i8, ptr %51, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i106, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i105, i64 16, i1 false)
   %arrayidx10.i.i107 = getelementptr inbounds i8, ptr %51, i64 32
@@ -2296,8 +2296,8 @@ lpad56.loopexit.split-lp:                         ; preds = %invoke.cont53, %inv
 
 lpad56:                                           ; preds = %lpad56.loopexit.split-lp, %lpad56.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad56.loopexit ], [ %lpad.loopexit.split-lp, %lpad56.loopexit.split-lp ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_tetrashape.i58) #15
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i55) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i58) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i55) #15
   br label %ehcleanup
 
 if.end95:                                         ; preds = %invoke.cont92, %invoke.cont84
@@ -2433,10 +2433,10 @@ invoke.cont122:                                   ; preds = %while.end119
           to label %invoke.cont125 unwind label %lpad56.loopexit.split-lp
 
 invoke.cont125:                                   ; preds = %invoke.cont122
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_tetrashape.i58) #15
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i55) #15
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_tetrashape.i) #15
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i58) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i55) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i) #15
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then38, %invoke.cont, %invoke.cont125
@@ -2465,8 +2465,8 @@ cleanup.cont:                                     ; preds = %while.body16, %whil
 
 ehcleanup:                                        ; preds = %lpad52, %ehcleanup.i60, %lpad56
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad56 ], [ %102, %lpad52 ], [ %.pn.i61, %ehcleanup.i60 ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_tetrashape.i) #15
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i) #15
   br label %ehcleanup126
 
 ehcleanup126:                                     ; preds = %lpad, %ehcleanup.i, %ehcleanup
@@ -2590,7 +2590,7 @@ if.then19:                                        ; preds = %if.else
 if.end22:                                         ; preds = %if.else
   %m_worldTransform.i = getelementptr inbounds i8, ptr %body0Wrap, i64 24
   %8 = load ptr, ptr %m_worldTransform.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %orgtrans0, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %orgtrans0, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %orgtrans0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -2602,7 +2602,7 @@ if.end22:                                         ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, i64 16, i1 false)
   %m_worldTransform.i53 = getelementptr inbounds i8, ptr %body1Wrap, i64 24
   %9 = load ptr, ptr %m_worldTransform.i53, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %orgtrans1, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %orgtrans1, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 16, i1 false)
   %arrayidx6.i.i54 = getelementptr inbounds i8, ptr %9, i64 16
   %arrayidx8.i.i55 = getelementptr inbounds i8, ptr %orgtrans1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i55, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i54, i64 16, i1 false)
@@ -2642,7 +2642,7 @@ if.end29:                                         ; preds = %invoke.cont
 
 invoke.cont32:                                    ; preds = %if.end29
   %m_trishape.i = getelementptr inbounds i8, ptr %retriever0, i64 8
-  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i)
+  invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont32
@@ -2688,7 +2688,7 @@ lpad.i:                                           ; preds = %.noexc
 lpad3.i:                                          ; preds = %if.else.i, %invoke.cont.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_tetrashape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i) #15
   br label %ehcleanup.i
 
 if.else.i:                                        ; preds = %invoke.cont4.i
@@ -2713,7 +2713,7 @@ if.else14.i:                                      ; preds = %invoke.cont9.i
 
 ehcleanup.i:                                      ; preds = %lpad3.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %15, %lpad3.i ], [ %14, %lpad.i ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i) #15
   br label %ehcleanup
 
 invoke.cont33:                                    ; preds = %if.else14.i, %if.then11.i, %if.then.i
@@ -2773,8 +2773,8 @@ lpad36.loopexit.split-lp:                         ; preds = %invoke.cont33, %whi
 
 lpad36:                                           ; preds = %lpad36.loopexit.split-lp, %lpad36.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad36.loopexit ], [ %lpad.loopexit.split-lp, %lpad36.loopexit.split-lp ]
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_tetrashape.i) #15
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i) #15
   br label %ehcleanup
 
 if.else50:                                        ; preds = %while.body45
@@ -2864,8 +2864,8 @@ while.end115:                                     ; preds = %if.end114, %invoke.
           to label %invoke.cont118 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont118:                                   ; preds = %while.end115
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_tetrashape.i) #15
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_trishape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %m_tetrashape.i) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_trishape.i) #15
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont, %invoke.cont118
@@ -2908,7 +2908,7 @@ entry:
   %ref.tmp24 = alloca %class.btVector3, align 8
   %m_worldTransform.i = getelementptr inbounds i8, ptr %body0Wrap, i64 24
   %0 = load ptr, ptr %m_worldTransform.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %orgtrans0, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %orgtrans0, ptr noundef nonnull align 4 dereferenceable(64) %0, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %orgtrans0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -3665,13 +3665,13 @@ invoke.cont20:                                    ; preds = %invoke.cont14
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont20
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tricallback) #15
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %tricallback) #15
   ret void
 
 lpad:                                             ; preds = %invoke.cont20, %invoke.cont14, %entry
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tricallback) #15
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %tricallback) #15
   resume { ptr, i32 } %59
 }
 
@@ -4000,7 +4000,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17btTriangleShapeExD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #15
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #15
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN15btTriangleShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -4807,7 +4807,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btTetrahedronShapeExD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #15
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #15
   ret void
 }
 
@@ -4816,7 +4816,7 @@ declare void @_ZN16btBU_Simplex1to4C2Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btTetrahedronShapeExD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #15
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #15
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN16btBU_Simplex1to4dlEPv.exit unwind label %terminate.lpad.i
 
@@ -4947,7 +4947,7 @@ declare float @llvm.fabs.f32(float) #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25btGImpactTriangleCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
@@ -4959,7 +4959,7 @@ entry:
   %ob1Wrap = alloca %struct.btCollisionObjectWrapper, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %triangle, i64 16
   %arrayidx3 = getelementptr inbounds i8, ptr %triangle, i64 32
-  call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri1)
+  call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri1)
   %m_vertices1.ptr.i.i = getelementptr inbounds i8, ptr %tri1, i64 80
   %m_shapeType.i.i = getelementptr inbounds i8, ptr %tri1, i64 8
   store i32 1, ptr %m_shapeType.i.i, align 8
@@ -5018,7 +5018,7 @@ entry:
 lpad:                                             ; preds = %if.end36
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri1) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri1) #15
   resume { ptr, i32 } %11
 
 if.then20:                                        ; preds = %entry
@@ -5065,7 +5065,7 @@ if.else52:                                        ; preds = %invoke.cont40
   br label %if.end56
 
 if.end56:                                         ; preds = %if.else52, %if.then48
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tri1) #15
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %tri1) #15
   ret void
 }
 
@@ -5089,7 +5089,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 64)
-  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
+  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(64) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
   store ptr getelementptr inbounds (i8, ptr @_ZTV27btGImpactCollisionAlgorithm, i64 16), ptr %call, align 8
   %m_convex_algorithm.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_convex_algorithm.i, i8 0, i64 16, i1 false)

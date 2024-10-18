@@ -397,7 +397,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   %.0195. = call i64 @llvm.umin.i64(i64 %.0195, i64 %193)
   %194 = and i64 %.0195., 4294967295
   %195 = load ptr, ptr %28, align 8
-  %196 = call ptr %195(ptr noundef %8, i64 noundef %.0196, i64 noundef %194, i32 noundef 0) #7
+  %196 = call ptr %195(ptr noundef %8, i64 noundef %.0196, i64 noundef range(i64 0, 4294967296) %194, i32 noundef 0) #7
   %.not241 = icmp eq ptr %196, null
   br i1 %.not241, label %.loopexit, label %197
 

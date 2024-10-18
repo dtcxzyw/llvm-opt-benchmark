@@ -392,7 +392,7 @@ entry:
   %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_cacheIDMutex = getelementptr inbounds i8, ptr %0, i64 176
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i.i
 
@@ -414,7 +414,7 @@ invoke.cont5:                                     ; preds = %invoke.cont2
   %2 = load ptr, ptr %m_impl.i, align 8
   %m_cacheID = getelementptr inbounds i8, ptr %2, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_cacheID) #20
-  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i, %invoke.cont2
@@ -461,7 +461,7 @@ entry:
   %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_cacheIDMutex = getelementptr inbounds i8, ptr %0, i64 176
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i.i
 
@@ -513,7 +513,7 @@ _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev21GpuShaderClassWrapperESt14default_dele
   %9 = load ptr, ptr %m_impl.i, align 8
   %m_cacheID = getelementptr inbounds i8, ptr %9, i64 144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_cacheID) #20
-  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i, %invoke.cont2
@@ -549,7 +549,7 @@ entry:
   %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_cacheIDMutex = getelementptr inbounds i8, ptr %0, i64 176
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i.i
 
@@ -593,7 +593,7 @@ invoke.cont12:                                    ; preds = %invoke.cont11
   %2 = load ptr, ptr %m_impl.i, align 8
   %m_cacheID = getelementptr inbounds i8, ptr %2, i64 144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_cacheID) #20
-  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i, %invoke.cont11, %invoke.cont8, %invoke.cont5, %invoke.cont2
@@ -672,7 +672,7 @@ entry:
   %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_cacheIDMutex = getelementptr inbounds i8, ptr %0, i64 176
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i.i
 
@@ -716,7 +716,7 @@ invoke.cont12:                                    ; preds = %invoke.cont11
   %2 = load ptr, ptr %m_impl.i, align 8
   %m_cacheID = getelementptr inbounds i8, ptr %2, i64 144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_cacheID) #20
-  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i, %invoke.cont11, %invoke.cont8, %invoke.cont5, %invoke.cont2
@@ -750,7 +750,7 @@ entry:
   %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_cacheIDMutex = getelementptr inbounds i8, ptr %0, i64 176
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i.i
 
@@ -794,7 +794,7 @@ invoke.cont12:                                    ; preds = %invoke.cont11
   %2 = load ptr, ptr %m_impl.i, align 8
   %m_cacheID = getelementptr inbounds i8, ptr %2, i64 144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_cacheID) #20
-  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i, %invoke.cont11, %invoke.cont8, %invoke.cont5, %invoke.cont2
@@ -1348,7 +1348,7 @@ entry:
   %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_cacheIDMutex = getelementptr inbounds i8, ptr %0, i64 176
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i.i
 
@@ -1447,7 +1447,7 @@ if.end:                                           ; preds = %invoke.cont43, %inv
   %11 = load ptr, ptr %m_impl.i, align 8
   %m_cacheID50 = getelementptr inbounds i8, ptr %11, i64 144
   %call51 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_cacheID50) #20
-  %call1.i.i.i10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   ret ptr %call51
 
 terminate.lpad:                                   ; preds = %if.then.i.i, %invoke.cont41, %invoke.cont37, %invoke.cont35, %invoke.cont31, %invoke.cont29, %invoke.cont25, %invoke.cont23, %invoke.cont19, %invoke.cont17, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont6, %if.then
@@ -1603,7 +1603,7 @@ entry:
   %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl.i, align 8
   %m_cacheIDMutex = getelementptr inbounds i8, ptr %0, i64 176
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1717,13 +1717,13 @@ invoke.cont65:                                    ; preds = %invoke.cont55
   %15 = load ptr, ptr %m_impl.i, align 8
   %m_cacheID = getelementptr inbounds i8, ptr %15, i64 144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_cacheID) #20
-  %call1.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   ret void
 
 lpad:                                             ; preds = %invoke.cont55, %cond.end50, %cond.end38, %cond.end26, %cond.end14, %cond.end
   %16 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_cacheIDMutex) #20
+  %call1.i.i.i26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_cacheIDMutex) #20
   resume { ptr, i32 } %16
 }
 

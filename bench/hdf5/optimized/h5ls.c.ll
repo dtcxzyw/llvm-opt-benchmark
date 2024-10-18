@@ -3410,7 +3410,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 26:                                               ; preds = %25
   %27 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8
-  %28 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %27) #21
+  %28 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %27) #21
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %30, label %32
 
@@ -3420,7 +3420,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 32:                                               ; preds = %26
   %33 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8
-  %34 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %33) #21
+  %34 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %33) #21
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %36, label %38
 
@@ -3430,7 +3430,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 38:                                               ; preds = %32
   %39 = load i64, ptr @H5T_NATIVE_INT_g, align 8
-  %40 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %39) #21
+  %40 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %39) #21
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %44
 
@@ -3440,7 +3440,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 44:                                               ; preds = %38
   %45 = load i64, ptr @H5T_NATIVE_UINT_g, align 8
-  %46 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %45) #21
+  %46 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %45) #21
   %47 = icmp eq i32 %46, 1
   br i1 %47, label %48, label %50
 
@@ -3450,7 +3450,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 50:                                               ; preds = %44
   %51 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8
-  %52 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %51) #21
+  %52 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %51) #21
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %54, label %56
 
@@ -3460,7 +3460,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 56:                                               ; preds = %50
   %57 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8
-  %58 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %57) #21
+  %58 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %57) #21
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %62
 
@@ -3470,7 +3470,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 62:                                               ; preds = %56
   %63 = load i64, ptr @H5T_NATIVE_LONG_g, align 8
-  %64 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %63) #21
+  %64 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %63) #21
   %65 = icmp eq i32 %64, 1
   br i1 %65, label %66, label %68
 
@@ -3480,7 +3480,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 68:                                               ; preds = %62
   %69 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8
-  %70 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %69) #21
+  %70 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %69) #21
   %71 = icmp eq i32 %70, 1
   br i1 %71, label %72, label %74
 
@@ -3490,7 +3490,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 74:                                               ; preds = %68
   %75 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8
-  %76 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %75) #21
+  %76 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %75) #21
   %77 = icmp eq i32 %76, 1
   br i1 %77, label %78, label %80
 
@@ -3500,7 +3500,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 80:                                               ; preds = %74
   %81 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8
-  %82 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %81) #21
+  %82 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %81) #21
   %83 = icmp eq i32 %82, 1
   br i1 %83, label %84, label %86
 
@@ -3510,7 +3510,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 86:                                               ; preds = %80
   %87 = load i64, ptr @H5T_NATIVE_FLOAT16_g, align 8
-  %88 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %87) #21
+  %88 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %87) #21
   %89 = icmp eq i32 %88, 1
   br i1 %89, label %90, label %92
 
@@ -3520,7 +3520,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 92:                                               ; preds = %86
   %93 = load i64, ptr @H5T_NATIVE_FLOAT_g, align 8
-  %94 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %93) #21
+  %94 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %93) #21
   %95 = icmp eq i32 %94, 1
   br i1 %95, label %96, label %98
 
@@ -3530,7 +3530,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 98:                                               ; preds = %92
   %99 = load i64, ptr @H5T_NATIVE_DOUBLE_g, align 8
-  %100 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %99) #21
+  %100 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %99) #21
   %101 = icmp eq i32 %100, 1
   br i1 %101, label %102, label %104
 
@@ -3540,7 +3540,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 104:                                              ; preds = %98
   %105 = load i64, ptr @H5T_NATIVE_INT8_g, align 8
-  %106 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %105) #21
+  %106 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %105) #21
   %107 = icmp eq i32 %106, 1
   br i1 %107, label %108, label %110
 
@@ -3550,7 +3550,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 110:                                              ; preds = %104
   %111 = load i64, ptr @H5T_NATIVE_UINT8_g, align 8
-  %112 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %111) #21
+  %112 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %111) #21
   %113 = icmp eq i32 %112, 1
   br i1 %113, label %114, label %116
 
@@ -3560,7 +3560,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 116:                                              ; preds = %110
   %117 = load i64, ptr @H5T_NATIVE_INT16_g, align 8
-  %118 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %117) #21
+  %118 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %117) #21
   %119 = icmp eq i32 %118, 1
   br i1 %119, label %120, label %122
 
@@ -3570,7 +3570,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 122:                                              ; preds = %116
   %123 = load i64, ptr @H5T_NATIVE_UINT16_g, align 8
-  %124 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %123) #21
+  %124 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %123) #21
   %125 = icmp eq i32 %124, 1
   br i1 %125, label %126, label %128
 
@@ -3580,7 +3580,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 128:                                              ; preds = %122
   %129 = load i64, ptr @H5T_NATIVE_INT32_g, align 8
-  %130 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %129) #21
+  %130 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %129) #21
   %131 = icmp eq i32 %130, 1
   br i1 %131, label %132, label %134
 
@@ -3590,7 +3590,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 134:                                              ; preds = %128
   %135 = load i64, ptr @H5T_NATIVE_UINT32_g, align 8
-  %136 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %135) #21
+  %136 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %135) #21
   %137 = icmp eq i32 %136, 1
   br i1 %137, label %138, label %140
 
@@ -3600,7 +3600,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 140:                                              ; preds = %134
   %141 = load i64, ptr @H5T_NATIVE_INT64_g, align 8
-  %142 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %141) #21
+  %142 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %141) #21
   %143 = icmp eq i32 %142, 1
   br i1 %143, label %144, label %146
 
@@ -3610,7 +3610,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 146:                                              ; preds = %140
   %147 = load i64, ptr @H5T_NATIVE_UINT64_g, align 8
-  %148 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %147) #21
+  %148 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %147) #21
   %149 = icmp eq i32 %148, 1
   br i1 %149, label %150, label %152
 
@@ -3620,7 +3620,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 152:                                              ; preds = %146
   %153 = load i64, ptr @H5T_NATIVE_INT_LEAST8_g, align 8
-  %154 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %153) #21
+  %154 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %153) #21
   %155 = icmp eq i32 %154, 1
   br i1 %155, label %156, label %158
 
@@ -3630,7 +3630,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 158:                                              ; preds = %152
   %159 = load i64, ptr @H5T_NATIVE_UINT_LEAST8_g, align 8
-  %160 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %159) #21
+  %160 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %159) #21
   %161 = icmp eq i32 %160, 1
   br i1 %161, label %162, label %164
 
@@ -3640,7 +3640,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 164:                                              ; preds = %158
   %165 = load i64, ptr @H5T_NATIVE_INT_LEAST16_g, align 8
-  %166 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %165) #21
+  %166 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %165) #21
   %167 = icmp eq i32 %166, 1
   br i1 %167, label %168, label %170
 
@@ -3650,7 +3650,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 170:                                              ; preds = %164
   %171 = load i64, ptr @H5T_NATIVE_UINT_LEAST16_g, align 8
-  %172 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %171) #21
+  %172 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %171) #21
   %173 = icmp eq i32 %172, 1
   br i1 %173, label %174, label %176
 
@@ -3660,7 +3660,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 176:                                              ; preds = %170
   %177 = load i64, ptr @H5T_NATIVE_INT_LEAST32_g, align 8
-  %178 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %177) #21
+  %178 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %177) #21
   %179 = icmp eq i32 %178, 1
   br i1 %179, label %180, label %182
 
@@ -3670,7 +3670,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 182:                                              ; preds = %176
   %183 = load i64, ptr @H5T_NATIVE_UINT_LEAST32_g, align 8
-  %184 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %183) #21
+  %184 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %183) #21
   %185 = icmp eq i32 %184, 1
   br i1 %185, label %186, label %188
 
@@ -3680,7 +3680,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 188:                                              ; preds = %182
   %189 = load i64, ptr @H5T_NATIVE_INT_LEAST64_g, align 8
-  %190 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %189) #21
+  %190 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %189) #21
   %191 = icmp eq i32 %190, 1
   br i1 %191, label %192, label %194
 
@@ -3690,7 +3690,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 194:                                              ; preds = %188
   %195 = load i64, ptr @H5T_NATIVE_UINT_LEAST64_g, align 8
-  %196 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %195) #21
+  %196 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %195) #21
   %197 = icmp eq i32 %196, 1
   br i1 %197, label %198, label %200
 
@@ -3700,7 +3700,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 200:                                              ; preds = %194
   %201 = load i64, ptr @H5T_NATIVE_INT_FAST8_g, align 8
-  %202 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %201) #21
+  %202 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %201) #21
   %203 = icmp eq i32 %202, 1
   br i1 %203, label %204, label %206
 
@@ -3710,7 +3710,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 206:                                              ; preds = %200
   %207 = load i64, ptr @H5T_NATIVE_UINT_FAST8_g, align 8
-  %208 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %207) #21
+  %208 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %207) #21
   %209 = icmp eq i32 %208, 1
   br i1 %209, label %210, label %212
 
@@ -3720,7 +3720,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 212:                                              ; preds = %206
   %213 = load i64, ptr @H5T_NATIVE_INT_FAST16_g, align 8
-  %214 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %213) #21
+  %214 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %213) #21
   %215 = icmp eq i32 %214, 1
   br i1 %215, label %216, label %218
 
@@ -3730,7 +3730,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 218:                                              ; preds = %212
   %219 = load i64, ptr @H5T_NATIVE_UINT_FAST16_g, align 8
-  %220 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %219) #21
+  %220 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %219) #21
   %221 = icmp eq i32 %220, 1
   br i1 %221, label %222, label %224
 
@@ -3740,7 +3740,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 224:                                              ; preds = %218
   %225 = load i64, ptr @H5T_NATIVE_INT_FAST32_g, align 8
-  %226 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %225) #21
+  %226 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %225) #21
   %227 = icmp eq i32 %226, 1
   br i1 %227, label %228, label %230
 
@@ -3750,7 +3750,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 230:                                              ; preds = %224
   %231 = load i64, ptr @H5T_NATIVE_UINT_FAST32_g, align 8
-  %232 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %231) #21
+  %232 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %231) #21
   %233 = icmp eq i32 %232, 1
   br i1 %233, label %234, label %236
 
@@ -3760,7 +3760,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 236:                                              ; preds = %230
   %237 = load i64, ptr @H5T_NATIVE_INT_FAST64_g, align 8
-  %238 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %237) #21
+  %238 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %237) #21
   %239 = icmp eq i32 %238, 1
   br i1 %239, label %240, label %242
 
@@ -3770,7 +3770,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 242:                                              ; preds = %236
   %243 = load i64, ptr @H5T_NATIVE_UINT_FAST64_g, align 8
-  %244 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %243) #21
+  %244 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %243) #21
   %245 = icmp eq i32 %244, 1
   br i1 %245, label %246, label %248
 
@@ -3780,7 +3780,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 248:                                              ; preds = %242
   %249 = load i64, ptr @H5T_NATIVE_B8_g, align 8
-  %250 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %249) #21
+  %250 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %249) #21
   %251 = icmp eq i32 %250, 1
   br i1 %251, label %252, label %254
 
@@ -3790,7 +3790,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 254:                                              ; preds = %248
   %255 = load i64, ptr @H5T_NATIVE_B16_g, align 8
-  %256 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %255) #21
+  %256 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %255) #21
   %257 = icmp eq i32 %256, 1
   br i1 %257, label %258, label %260
 
@@ -3800,7 +3800,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 260:                                              ; preds = %254
   %261 = load i64, ptr @H5T_NATIVE_B32_g, align 8
-  %262 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %261) #21
+  %262 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %261) #21
   %263 = icmp eq i32 %262, 1
   br i1 %263, label %264, label %266
 
@@ -3810,7 +3810,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 266:                                              ; preds = %260
   %267 = load i64, ptr @H5T_NATIVE_B64_g, align 8
-  %268 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %267) #21
+  %268 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %267) #21
   %269 = icmp eq i32 %268, 1
   br i1 %269, label %270, label %272
 
@@ -3820,7 +3820,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 272:                                              ; preds = %266
   %273 = load i64, ptr @H5T_NATIVE_HSIZE_g, align 8
-  %274 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %273) #21
+  %274 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %273) #21
   %275 = icmp eq i32 %274, 1
   br i1 %275, label %276, label %278
 
@@ -3830,7 +3830,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 278:                                              ; preds = %272
   %279 = load i64, ptr @H5T_NATIVE_HSSIZE_g, align 8
-  %280 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %279) #21
+  %280 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %279) #21
   %281 = icmp eq i32 %280, 1
   br i1 %281, label %282, label %284
 
@@ -3840,7 +3840,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 284:                                              ; preds = %278
   %285 = load i64, ptr @H5T_NATIVE_HERR_g, align 8
-  %286 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %285) #21
+  %286 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %285) #21
   %287 = icmp eq i32 %286, 1
   br i1 %287, label %288, label %290
 
@@ -3850,7 +3850,7 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
 
 290:                                              ; preds = %284
   %291 = load i64, ptr @H5T_NATIVE_HBOOL_g, align 8
-  %292 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %291) #21
+  %292 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %291) #21
   %293 = icmp eq i32 %292, 1
   br i1 %293, label %294, label %print_native_type.exit
 
@@ -3859,16 +3859,16 @@ define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, 
   br label %print_native_type.exit.thread
 
 296:                                              ; preds = %25
-  %297 = call fastcc zeroext i1 @print_int_type(ptr noundef %0, i64 noundef %1, i32 noundef %2)
+  %297 = call fastcc zeroext i1 @print_int_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2)
   br i1 %297, label %print_native_type.exit.thread, label %299
 
 print_native_type.exit:                           ; preds = %290
-  %298 = call fastcc zeroext i1 @print_int_type(ptr noundef %0, i64 noundef %1, i32 noundef %2)
+  %298 = call fastcc zeroext i1 @print_int_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2)
   br i1 %298, label %print_native_type.exit.thread, label %299
 
 299:                                              ; preds = %296, %print_native_type.exit
   %300 = load i64, ptr @H5T_IEEE_F16BE_g, align 8
-  %301 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %300) #21
+  %301 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %300) #21
   %302 = icmp eq i32 %301, 1
   br i1 %302, label %303, label %305
 
@@ -3878,7 +3878,7 @@ print_native_type.exit:                           ; preds = %290
 
 305:                                              ; preds = %299
   %306 = load i64, ptr @H5T_IEEE_F16LE_g, align 8
-  %307 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %306) #21
+  %307 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %306) #21
   %308 = icmp eq i32 %307, 1
   br i1 %308, label %309, label %311
 
@@ -3888,7 +3888,7 @@ print_native_type.exit:                           ; preds = %290
 
 311:                                              ; preds = %305
   %312 = load i64, ptr @H5T_IEEE_F32BE_g, align 8
-  %313 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %312) #21
+  %313 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %312) #21
   %314 = icmp eq i32 %313, 1
   br i1 %314, label %315, label %317
 
@@ -3898,7 +3898,7 @@ print_native_type.exit:                           ; preds = %290
 
 317:                                              ; preds = %311
   %318 = load i64, ptr @H5T_IEEE_F32LE_g, align 8
-  %319 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %318) #21
+  %319 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %318) #21
   %320 = icmp eq i32 %319, 1
   br i1 %320, label %321, label %323
 
@@ -3908,7 +3908,7 @@ print_native_type.exit:                           ; preds = %290
 
 323:                                              ; preds = %317
   %324 = load i64, ptr @H5T_IEEE_F64BE_g, align 8
-  %325 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %324) #21
+  %325 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %324) #21
   %326 = icmp eq i32 %325, 1
   br i1 %326, label %327, label %329
 
@@ -3918,7 +3918,7 @@ print_native_type.exit:                           ; preds = %290
 
 329:                                              ; preds = %323
   %330 = load i64, ptr @H5T_IEEE_F64LE_g, align 8
-  %331 = call i32 @H5Tequal(i64 noundef %1, i64 noundef %330) #21
+  %331 = call i32 @H5Tequal(i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef %330) #21
   %332 = icmp eq i32 %331, 1
   br i1 %332, label %333, label %print_ieee_type.exit
 
@@ -3927,16 +3927,16 @@ print_native_type.exit:                           ; preds = %290
   br label %print_native_type.exit.thread
 
 print_ieee_type.exit:                             ; preds = %329
-  %335 = call fastcc zeroext i1 @print_float_type(ptr noundef %0, i64 noundef %1, i32 noundef %2)
+  %335 = call fastcc zeroext i1 @print_float_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2)
   br i1 %335, label %print_native_type.exit.thread, label %336
 
 336:                                              ; preds = %print_ieee_type.exit
-  %337 = call i32 @H5Tget_class(i64 noundef %1) #21
+  %337 = call i32 @H5Tget_class(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %.not.i = icmp eq i32 %337, 6
   br i1 %.not.i, label %338, label %360
 
 338:                                              ; preds = %336
-  %339 = call i32 @H5Tget_nmembers(i64 noundef %1) #21
+  %339 = call i32 @H5Tget_nmembers(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %340 = icmp slt i32 %339, 0
   br i1 %340, label %360, label %341
 
@@ -3951,54 +3951,54 @@ print_ieee_type.exit:                             ; preds = %329
 
 344:                                              ; preds = %.lr.ph, %344
   %.0.i4151 = phi i32 [ 0, %.lr.ph ], [ %355, %344 ]
-  %345 = call ptr @H5Tget_member_name(i64 noundef %1, i32 noundef %.0.i4151) #21
+  %345 = call ptr @H5Tget_member_name(i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %.0.i4151) #21
   %346 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.186, i32 noundef %343, ptr noundef nonnull @.str.46) #21
   %347 = call fastcc i32 @print_string(ptr noundef nonnull %0, ptr noundef %345, i1 noundef zeroext false)
   %348 = sub nsw i32 16, %347
   %349 = call i32 @llvm.smax.i32(i32 %348, i32 0)
-  %350 = call i64 @H5Tget_member_offset(i64 noundef %1, i32 noundef %.0.i4151) #21
+  %350 = call i64 @H5Tget_member_offset(i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %.0.i4151) #21
   %351 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.187, i32 noundef %349, ptr noundef nonnull @.str.46, i64 noundef %350) #21
   %352 = call i32 @H5free_memory(ptr noundef %345) #21
-  %353 = call i64 @H5Tget_member_type(i64 noundef %1, i32 noundef %.0.i4151) #21
-  call fastcc void @print_type(ptr noundef %0, i64 noundef %353, i32 noundef %343)
+  %353 = call i64 @H5Tget_member_type(i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %.0.i4151) #21
+  call fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %353, i32 noundef %343)
   %354 = call i32 @H5Tclose(i64 noundef %353) #21
   %355 = add nuw i32 %.0.i4151, 1
   %exitcond.not = icmp eq i32 %355, %339
   br i1 %exitcond.not, label %print_cmpd_type.exit, label %344
 
 print_cmpd_type.exit:                             ; preds = %344, %341
-  %356 = call i64 @H5Tget_size(i64 noundef %1) #21
+  %356 = call i64 @H5Tget_size(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %357 = icmp eq i64 %356, 1
   %358 = select i1 %357, ptr @.str.46, ptr @.str.58
   %359 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.188, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %356, ptr noundef nonnull %358) #21
   br label %print_native_type.exit.thread
 
 360:                                              ; preds = %336, %338
-  %361 = call i32 @H5Tget_class(i64 noundef %1) #21
+  %361 = call i32 @H5Tget_class(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %.not.i42 = icmp eq i32 %361, 8
   br i1 %.not.i42, label %362, label %448
 
 362:                                              ; preds = %360
-  %363 = call i32 @H5Tget_nmembers(i64 noundef %1) #21
+  %363 = call i32 @H5Tget_nmembers(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %364 = icmp slt i32 %363, 0
   br i1 %364, label %448, label %365
 
 365:                                              ; preds = %362
-  %366 = call i64 @H5Tget_super(i64 noundef %1) #21
+  %366 = call i64 @H5Tget_super(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %367 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.189) #21
   %368 = add nsw i32 %2, 4
-  call fastcc void @print_type(ptr noundef %0, i64 noundef %366, i32 noundef %368)
+  call fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %366, i32 noundef %368)
   %369 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #21
   %.not93.i = icmp eq i32 %363, 0
   br i1 %.not93.i, label %444, label %370
 
 370:                                              ; preds = %365
-  %371 = call i64 @H5Tget_size(i64 noundef %1) #21
+  %371 = call i64 @H5Tget_size(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %372 = icmp ult i64 %371, 9
   br i1 %372, label %373, label %380
 
 373:                                              ; preds = %370
-  %374 = call i32 @H5Tget_sign(i64 noundef %1) #21
+  %374 = call i32 @H5Tget_sign(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %376, label %378
 
@@ -4011,7 +4011,7 @@ print_cmpd_type.exit:                             ; preds = %344, %341
   br label %382
 
 380:                                              ; preds = %370
-  %381 = call i64 @H5Tget_size(i64 noundef %1) #21
+  %381 = call i64 @H5Tget_size(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   br label %382
 
 382:                                              ; preds = %380, %378, %376
@@ -4020,12 +4020,12 @@ print_cmpd_type.exit:                             ; preds = %344, %341
   %.088.i.fr = freeze i64 %.088.i
   %383 = zext nneg i32 %363 to i64
   %384 = call noalias ptr @calloc(i64 noundef %383, i64 noundef 8) #27
-  %385 = call i64 @H5Tget_size(i64 noundef %1) #21
+  %385 = call i64 @H5Tget_size(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %386 = icmp ugt i64 %385, %.090.i
   br i1 %386, label %387, label %389
 
 387:                                              ; preds = %382
-  %388 = call i64 @H5Tget_size(i64 noundef %1) #21
+  %388 = call i64 @H5Tget_size(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   br label %389
 
 389:                                              ; preds = %387, %382
@@ -4037,13 +4037,13 @@ print_cmpd_type.exit:                             ; preds = %344, %341
 392:                                              ; preds = %389, %392
   %indvars.iv = phi i64 [ 0, %389 ], [ %indvars.iv.next, %392 ]
   %393 = trunc nuw nsw i64 %indvars.iv to i32
-  %394 = call ptr @H5Tget_member_name(i64 noundef %1, i32 noundef %393) #21
+  %394 = call ptr @H5Tget_member_name(i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %393) #21
   %395 = getelementptr inbounds ptr, ptr %384, i64 %indvars.iv
   store ptr %394, ptr %395, align 8
-  %396 = call i64 @H5Tget_size(i64 noundef %1) #21
+  %396 = call i64 @H5Tget_size(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %397 = mul i64 %396, %indvars.iv
   %398 = getelementptr inbounds i8, ptr %391, i64 %397
-  %399 = call i32 @H5Tget_member_value(i64 noundef %1, i32 noundef %393, ptr noundef %398) #21
+  %399 = call i32 @H5Tget_member_value(i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %393, ptr noundef %398) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond62.not, label %400, label %392
@@ -4159,12 +4159,12 @@ print_enum_type.exit:                             ; preds = %443, %444
   br label %print_native_type.exit.thread
 
 448:                                              ; preds = %408, %360, %362
-  %449 = call i32 @H5Tget_class(i64 noundef %1) #21
+  %449 = call i32 @H5Tget_class(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %.not.i44 = icmp eq i32 %449, 3
   br i1 %.not.i44, label %450, label %print_string_type.exit
 
 450:                                              ; preds = %448
-  %451 = call i32 @H5Tget_strpad(i64 noundef %1) #21
+  %451 = call i32 @H5Tget_strpad(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %switch.tableidx = add i32 %451, 1
   %452 = icmp ult i32 %switch.tableidx, 17
   br i1 %452, label %switch.lookup, label %454
@@ -4177,7 +4177,7 @@ switch.lookup:                                    ; preds = %450
 
 454:                                              ; preds = %switch.lookup, %450
   %.013.i = phi ptr [ null, %450 ], [ %switch.load, %switch.lookup ]
-  %455 = call i32 @H5Tget_cset(i64 noundef %1) #21
+  %455 = call i32 @H5Tget_cset(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %switch.tableidx91 = add i32 %455, 1
   %456 = icmp ult i32 %switch.tableidx91, 17
   br i1 %456, label %switch.lookup90, label %458
@@ -4190,7 +4190,7 @@ switch.lookup90:                                  ; preds = %454
 
 458:                                              ; preds = %switch.lookup90, %454
   %.0.i45 = phi ptr [ null, %454 ], [ %switch.load93, %switch.lookup90 ]
-  %459 = call i32 @H5Tis_variable_str(i64 noundef %1) #21
+  %459 = call i32 @H5Tis_variable_str(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %.not14.i = icmp eq i32 %459, 0
   br i1 %.not14.i, label %462, label %460
 
@@ -4199,7 +4199,7 @@ switch.lookup90:                                  ; preds = %454
   br label %print_string_type.exit.thread
 
 462:                                              ; preds = %458
-  %463 = call i64 @H5Tget_size(i64 noundef %1) #21
+  %463 = call i64 @H5Tget_size(i64 noundef range(i64 0, -9223372036854775808) %1) #21
   %464 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.206, i64 noundef %463) #21
   br label %print_string_type.exit.thread
 
@@ -5152,8 +5152,8 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr nocap
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %10)
   store i64 0, ptr %7, align 8
-  %51 = call i64 @H5Aget_type(i64 noundef %20) #21
-  %52 = call i64 @H5Aget_space(i64 noundef %20) #21
+  %51 = call i64 @H5Aget_type(i64 noundef range(i64 0, -9223372036854775808) %20) #21
+  %52 = call i64 @H5Aget_space(i64 noundef range(i64 0, -9223372036854775808) %20) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %9, i8 0, i64 1120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %10, ptr noundef nonnull align 8 dereferenceable(424) @ls_dataformat, i64 424, i1 false)
@@ -5338,7 +5338,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr nocap
 
 139:                                              ; preds = %128
   %140 = load i64, ptr @H5T_STD_REF_g, align 8
-  %141 = call i32 @H5Aread(i64 noundef %20, i64 noundef %140, ptr noundef nonnull %138) #21
+  %141 = call i32 @H5Aread(i64 noundef range(i64 0, -9223372036854775808) %20, i64 noundef %140, ptr noundef nonnull %138) #21
   %142 = icmp slt i32 %141, 0
   br i1 %142, label %143, label %159
 
@@ -5374,7 +5374,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr nocap
   %161 = add i32 %160, 1
   store i32 %161, ptr %107, align 8
   %162 = load ptr, ptr @rawoutstream, align 8
-  call void @h5tools_dump_reference(ptr noundef %162, ptr noundef nonnull %10, ptr noundef nonnull %9, i64 noundef %20, ptr noundef nonnull %138, i32 noundef %130) #21
+  call void @h5tools_dump_reference(ptr noundef %162, ptr noundef nonnull %10, ptr noundef nonnull %9, i64 noundef range(i64 0, -9223372036854775808) %20, ptr noundef nonnull %138, i32 noundef %130) #21
   %163 = load ptr, ptr @rawoutstream, align 8
   %.not48.i = icmp eq ptr %163, null
   br i1 %.not48.i, label %165, label %164
@@ -5395,7 +5395,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr nocap
   %170 = add i32 %169, 1
   store i32 %170, ptr %107, align 8
   %171 = load ptr, ptr @rawoutstream, align 8
-  %172 = call i32 @h5tools_dump_mem(ptr noundef %171, ptr noundef nonnull %10, ptr noundef nonnull %9, i64 noundef %20) #21
+  %172 = call i32 @h5tools_dump_mem(ptr noundef %171, ptr noundef nonnull %10, ptr noundef nonnull %9, i64 noundef range(i64 0, -9223372036854775808) %20) #21
   %173 = icmp slt i32 %172, 0
   br i1 %173, label %174, label %181
 

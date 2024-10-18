@@ -344,7 +344,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   %conv = zext i32 %out_num to i64
   %mul = shl nuw nsw i64 %conv, 4
-  %call.i11 = tail call ptr @g_memdup2(ptr noundef %out_sg, i64 noundef %mul) #20
+  %call.i11 = tail call ptr @g_memdup2(ptr noundef %out_sg, i64 noundef range(i64 0, 68719476721) %mul) #20
   store ptr %call.i11, ptr %iov, align 8
   %tobool.i.not = icmp eq i32 %out_num, 0
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
@@ -1369,7 +1369,7 @@ if.end9:                                          ; preds = %iov_to_buf.exit.if.
   store i16 %spec.select, ptr %indirections_len, align 8
   %conv24 = zext i16 %spec.select to i64
   %tobool.not.i = icmp ne i16 %spec.select, 0
-  %7 = call range(i64 1, 17) i64 @llvm.ctpop.i64(i64 %conv24)
+  %7 = call range(i64 1, 17) i64 @llvm.ctpop.i64(i64 range(i64 0, 65536) %conv24)
   %tobool1.not.i = icmp samesign ult i64 %7, 2
   %or.cond = select i1 %tobool.not.i, i1 %tobool1.not.i, i1 false
   br i1 %or.cond, label %if.end30, label %if.then26
@@ -1475,7 +1475,7 @@ iov_to_buf.exit115:                               ; preds = %if.end128
   %key = getelementptr inbounds i8, ptr %n, i64 9168
   %conv147 = zext nneg i8 %12 to i64
   %add145 = add nuw nsw i64 %mul, 11
-  %call.i105 = call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %iov_cnt, i64 noundef %add145, ptr noundef nonnull %key, i64 noundef %conv147) #19
+  %call.i105 = call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %iov_cnt, i64 noundef range(i64 0, 131082) %add145, ptr noundef nonnull %key, i64 noundef %conv147) #19
   %cmp150.not = icmp eq i64 %call.i105, %conv147
   br i1 %cmp150.not, label %if.end154, label %if.then152
 
@@ -2130,7 +2130,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv2 = zext i16 %3 to i32
   %cmp3 = icmp samesign ult i32 %i.028, %conv2
   %4 = load ptr, ptr %nic, align 8
-  %call.i = tail call ptr @qemu_get_subqueue(ptr noundef %4, i32 noundef %i.028) #19
+  %call.i = tail call ptr @qemu_get_subqueue(ptr noundef %4, i32 noundef range(i32 -2147483648, 65535) %i.028) #19
   %peer.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %5 = load ptr, ptr %peer.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
@@ -4522,7 +4522,7 @@ if.then:                                          ; preds = %land.lhs.true
   %5 = load ptr, ptr %vqs, align 8
   %arrayidx15 = getelementptr %struct.VirtIONetQueue, ptr %5, i64 %idxprom
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #24
-  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @virtio_net_tx_timer, ptr noundef %arrayidx15) #19
+  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef range(i32 1, 3) 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @virtio_net_tx_timer, ptr noundef %arrayidx15) #19
   %6 = load ptr, ptr %vqs, align 8
   %tx_timer = getelementptr %struct.VirtIONetQueue, ptr %6, i64 %idxprom, i32 2
   store ptr %call.i.i.i, ptr %tx_timer, align 8
@@ -5468,7 +5468,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %7 = getelementptr inbounds i8, ptr %call.i.i, i64 26
   store i8 %spec.select5.i.i, ptr %7, align 2
   %call.i.i.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #24
-  tail call void @timer_init_full(ptr noundef %call.i.i.i.i.i, ptr noundef null, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @virtio_net_rsc_purge, ptr noundef nonnull %call.i.i) #19
+  tail call void @timer_init_full(ptr noundef %call.i.i.i.i.i, ptr noundef null, i32 noundef range(i32 1, 3) 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @virtio_net_rsc_purge, ptr noundef nonnull %call.i.i) #19
   %drain_timer.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %call.i.i.i.i.i, ptr %drain_timer.i.i, align 8
   %stat.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
@@ -5680,11 +5680,11 @@ if.then18.i.i:                                    ; preds = %if.then16.i.i.i, %i
   %37 = trunc i64 %12 to i16
   %conv22.i.i = add i16 %37, 26
   %conv26.i.i = add i16 %37, 34
-  %call27.i.i = tail call fastcc i64 @virtio_net_rsc_drain_flow(ptr noundef %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, i16 noundef zeroext %conv22.i.i, i16 noundef zeroext 8, i16 noundef zeroext %conv26.i.i)
+  %call27.i.i = tail call fastcc i64 @virtio_net_rsc_drain_flow(ptr noundef nonnull %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, i16 noundef zeroext %conv22.i.i, i16 noundef zeroext 8, i16 noundef zeroext %conv26.i.i)
   br label %virtio_net_rsc_receive4.exit.i
 
 if.end29.i.i:                                     ; preds = %if.end13.i.i.i
-  %call30.i.i = call fastcc i64 @virtio_net_rsc_do_coalesce(ptr noundef %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, ptr noundef %unit.i.i)
+  %call30.i.i = call fastcc i64 @virtio_net_rsc_do_coalesce(ptr noundef nonnull %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, ptr noundef %unit.i.i)
   br label %virtio_net_rsc_receive4.exit.i
 
 virtio_net_rsc_receive4.exit.i:                   ; preds = %if.end29.i.i, %if.then18.i.i, %if.then14.i.i, %if.then8.i.i, %if.then.i.i
@@ -5829,11 +5829,11 @@ if.then18.i65.i:                                  ; preds = %if.then16.i.i73.i, 
   %56 = trunc i64 %40 to i16
   %conv22.i66.i = add i16 %56, 22
   %conv26.i67.i = add i16 %56, 54
-  %call27.i68.i = tail call fastcc i64 @virtio_net_rsc_drain_flow(ptr noundef %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, i16 noundef zeroext %conv22.i66.i, i16 noundef zeroext 32, i16 noundef zeroext %conv26.i67.i)
+  %call27.i68.i = tail call fastcc i64 @virtio_net_rsc_drain_flow(ptr noundef nonnull %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, i16 noundef zeroext %conv22.i66.i, i16 noundef zeroext 32, i16 noundef zeroext %conv26.i67.i)
   br label %virtio_net_rsc_receive6.exit.i
 
 if.end29.i71.i:                                   ; preds = %if.end13.i.i69.i
-  %call30.i72.i = call fastcc i64 @virtio_net_rsc_do_coalesce(ptr noundef %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, ptr noundef %unit.i26.i)
+  %call30.i72.i = call fastcc i64 @virtio_net_rsc_do_coalesce(ptr noundef nonnull %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, ptr noundef %unit.i26.i)
   br label %virtio_net_rsc_receive6.exit.i
 
 virtio_net_rsc_receive6.exit.i:                   ; preds = %if.end29.i71.i, %if.then18.i65.i, %if.then14.i57.i, %if.then8.i43.i, %if.then.i79.i
@@ -6565,7 +6565,7 @@ if.then.i:                                        ; preds = %lor.lhs.false15.i, 
   br label %if.end8
 
 if.end.i:                                         ; preds = %lor.lhs.false15.i
-  %call.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef %chain, ptr noundef %seg.0, ptr noundef readonly %unit)
+  %call.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef nonnull %chain, ptr noundef nonnull %seg.0, ptr noundef nonnull readonly %unit)
   br label %if.end8
 
 if.else:                                          ; preds = %land.rhs
@@ -6606,7 +6606,7 @@ if.then.i35:                                      ; preds = %lor.lhs.false14.i, 
   br label %if.end8
 
 if.end.i45:                                       ; preds = %lor.lhs.false14.i
-  %call23.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef %chain, ptr noundef %seg.0, ptr noundef readonly %unit)
+  %call23.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef nonnull %chain, ptr noundef nonnull %seg.0, ptr noundef nonnull readonly %unit)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end.i45, %if.then.i35, %if.end.i, %if.then.i

@@ -889,7 +889,7 @@ if.else.i79.i:                                    ; preds = %lor.lhs.false32.i.i
   br i1 %cmp11.not.i.i, label %if.end56.i.i, label %if.then54.i.i
 
 if.then54.i.i:                                    ; preds = %if.else.i79.i
-  %call55.i.i = call fastcc i32 @dtls1_reassemble_fragment(ptr noundef nonnull %s, ptr noundef readonly %msg_hdr.i)
+  %call55.i.i = call fastcc i32 @dtls1_reassemble_fragment(ptr noundef nonnull %s, ptr noundef nonnull readonly %msg_hdr.i)
   br label %dtls1_process_out_of_seq_message.exit.i
 
 if.end56.i.i:                                     ; preds = %if.else.i79.i

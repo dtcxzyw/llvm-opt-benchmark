@@ -100,7 +100,7 @@ define hidden void @_ZN20NMTPreInitAllocation7do_freeEPS_(ptr nocapture noundef 
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #13
-  tail call void @free(ptr noundef %0) #13
+  tail call void @free(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -222,7 +222,7 @@ define hidden void @_ZN10NMTPreInit12create_tableEv() local_unnamed_addr #0 alig
 _ZN25NMTPreInitAllocationTablenwEm.exit:          ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 65528
   store i32 -1, ptr %4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65528) %1, i8 0, i64 65528, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65532) %1, i8 0, i64 65528, i1 false)
   store ptr %1, ptr @_ZN10NMTPreInit6_tableE, align 8
   ret void
 }
@@ -264,7 +264,7 @@ define hidden void @_ZN10NMTPreInit11pre_to_postEb(i1 noundef zeroext %0) local_
   br i1 %exitcond.not.i, label %_ZN25NMTPreInitAllocationTableD2Ev.exit, label %.preheader, !llvm.loop !8
 
 _ZN25NMTPreInitAllocationTableD2Ev.exit:          ; preds = %._crit_edge.i
-  tail call void @free(ptr noundef %3) #13
+  tail call void @free(ptr noundef nonnull %3) #13
   br label %8
 
 8:                                                ; preds = %_ZN25NMTPreInitAllocationTableD2Ev.exit, %2

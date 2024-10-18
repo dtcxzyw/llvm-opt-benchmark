@@ -729,7 +729,7 @@ i_get_exception_base.exit236:                     ; preds = %57, %61
   br i1 %82, label %83, label %zend_observer_error_notify.exit
 
 83:                                               ; preds = %75
-  call void @_zend_observer_error_notify(i32 noundef %79, ptr noundef %58, i32 noundef %80, ptr noundef %35) #15
+  call void @_zend_observer_error_notify(i32 noundef range(i32 32768, 3) %79, ptr noundef %58, i32 noundef %80, ptr noundef %35) #15
   br label %zend_observer_error_notify.exit
 
 zend_observer_error_notify.exit:                  ; preds = %75, %83
@@ -1288,7 +1288,7 @@ zend_throw_exception_zstr.exit:
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 35, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %8, ptr noundef nonnull readonly align 1 dereferenceable(35) @.str.2, i64 35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %8, ptr noundef nonnull align 1 dereferenceable(35) @.str.2, i64 35, i1 false)
   %9 = getelementptr inbounds i8, ptr %4, i64 59
   store i8 0, ptr %9, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -5550,7 +5550,7 @@ define internal void @zend_error_va(i32 noundef range(i32 32768, 3) %0, ptr noun
   br i1 %8, label %9, label %zend_observer_error_notify.exit
 
 9:                                                ; preds = %4
-  call void @_zend_observer_error_notify(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6) #15
+  call void @_zend_observer_error_notify(i32 noundef range(i32 32768, 3) %0, ptr noundef %1, i32 noundef %2, ptr noundef %6) #15
   br label %zend_observer_error_notify.exit
 
 zend_observer_error_notify.exit:                  ; preds = %4, %9

@@ -1998,7 +1998,7 @@ dissect_wisun_vpie.exit:                          ; preds = %77
   %201 = load i32, ptr @hf_wisun_pomie_phy_mode_id, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %202 = call zeroext i8 @tvb_get_guint8(ptr noundef %116, i32 noundef %indvars.iv.i) #3
+  %202 = call zeroext i8 @tvb_get_guint8(ptr noundef %116, i32 noundef range(i32 0, 256) %indvars.iv.i) #3
   store ptr @hf_wisun_pomie_phy_type, ptr %5, align 16
   store ptr @hf_wisun_pomie_phy_mode_fsk, ptr %14, align 8
   store ptr null, ptr %15, align 16
@@ -2008,7 +2008,7 @@ dissect_wisun_vpie.exit:                          ; preds = %77
   %203 = icmp ult i8 %202, 32
   %204 = load i32, ptr @ett_wisun_phy_mode_id, align 4
   %..i.i = select i1 %203, ptr %5, ptr %6
-  %205 = call ptr @proto_tree_add_bitmask(ptr noundef %190, ptr noundef %116, i32 noundef %indvars.iv.i, i32 noundef %201, i32 noundef %204, ptr noundef nonnull %..i.i, i32 noundef 0) #3
+  %205 = call ptr @proto_tree_add_bitmask(ptr noundef %190, ptr noundef %116, i32 noundef range(i32 0, 256) %indvars.iv.i, i32 noundef %201, i32 noundef %204, ptr noundef nonnull %..i.i, i32 noundef 0) #3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1

@@ -76,7 +76,7 @@ define dso_local void @_ZN21cmStringReplaceHelperC2ERKNSt7__cxx1112basic_stringI
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 616
   store i32 0, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %7, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %7, i8 0, i64 522, i1 false)
   %11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   %12 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %7, ptr noundef %11)
           to label %_ZN5cmsys17RegularExpressionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %20
@@ -304,7 +304,7 @@ _ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE12emplace_backIJ
   br i1 %.not.i37, label %80, label %77
 
 77:                                               ; preds = %74
-  call void @_ZN21cmStringReplaceHelper16RegexReplacementC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull @.str.6)
+  call void @_ZN21cmStringReplaceHelper16RegexReplacementC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 1 dereferenceable(2) @.str.6)
   %78 = load ptr, ptr %12, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 40
   store ptr %79, ptr %12, align 8
@@ -327,7 +327,7 @@ _ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE12emplace_backIJ
   br i1 %.not.i39, label %91, label %88
 
 88:                                               ; preds = %85
-  call void @_ZN21cmStringReplaceHelper16RegexReplacementC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull @.str.7)
+  call void @_ZN21cmStringReplaceHelper16RegexReplacementC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
   %89 = load ptr, ptr %12, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 40
   store ptr %90, ptr %12, align 8
@@ -449,7 +449,7 @@ define dso_local noundef zeroext i1 @_ZN21cmStringReplaceHelper7ReplaceERKNSt7__
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  %13 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %11, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(520) %11)
+  %13 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %11, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(556) %11)
   br i1 %13, label %.lr.ph74, label %._crit_edge75
 
 .lr.ph74:                                         ; preds = %3
@@ -631,7 +631,7 @@ define dso_local noundef zeroext i1 @_ZN21cmStringReplaceHelper7ReplaceERKNSt7__
   %99 = add i64 %98, %30
   %100 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   %101 = getelementptr inbounds i8, ptr %100, i64 %99
-  %102 = call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %11, ptr noundef %101, ptr noundef nonnull align 8 dereferenceable(520) %11)
+  %102 = call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %11, ptr noundef %101, ptr noundef nonnull align 8 dereferenceable(556) %11)
   br i1 %102, label %19, label %._crit_edge75, !llvm.loop !8
 
 ._crit_edge75:                                    ; preds = %._crit_edge, %3
@@ -972,7 +972,7 @@ _ZNKSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE12_M_check_lenE
 _ZNSt12_Vector_baseIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.cmStringReplaceHelper::RegexReplacement", ptr %23, i64 %19
-  invoke void @_ZN21cmStringReplaceHelper16RegexReplacementC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull %2)
+  invoke void @_ZN21cmStringReplaceHelper16RegexReplacementC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 1 dereferenceable(2) %2)
           to label %_ZNSt16allocator_traitsISaIN21cmStringReplaceHelper16RegexReplacementEEE9constructIS1_JRA2_KcEEEvRS2_PT_DpOT0_.exit unwind label %39
 
 _ZNSt16allocator_traitsISaIN21cmStringReplaceHelper16RegexReplacementEEE9constructIS1_JRA2_KcEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE11_M_allocateEm.exit
@@ -1085,7 +1085,7 @@ define linkonce_odr dso_local void @_ZN21cmStringReplaceHelper16RegexReplacement
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -1102,7 +1102,7 @@ define linkonce_odr dso_local void @_ZN21cmStringReplaceHelper16RegexReplacement
 9:                                                ; preds = %11, %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br label %.body
 
 11:                                               ; preds = %.noexc3

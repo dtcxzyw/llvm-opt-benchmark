@@ -3096,7 +3096,7 @@ H5MF__close_fstype.exit:                          ; preds = %10
   %34 = getelementptr inbounds [13 x i32], ptr %33, i64 0, i64 %7
   store i32 2, ptr %34, align 4
   %35 = load ptr, ptr %4, align 8
-  %36 = tail call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %35, i32 noundef %1)
+  %36 = tail call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %35, i32 noundef range(i32 -2147483648, 13) %1)
   %..i = select i1 %36, i32 3, i32 2
   call void @H5AC_set_ring(i32 noundef %..i, ptr noundef nonnull %3) #7
   %37 = call i32 @H5FS_delete(ptr noundef nonnull %0, i64 noundef %30) #7

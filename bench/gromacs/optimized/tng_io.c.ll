@@ -7666,7 +7666,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
   %15 = getelementptr inbounds %struct.tng_molecule, ptr %14, i64 %.01417.us.i
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(17) @.str.15, ptr noundef nonnull dereferenceable(1) %17) #25
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(17) @.str.15, ptr noundef nonnull dereferenceable(1) %17) #25
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.lr.ph.i42, label %20
 
@@ -7788,7 +7788,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
 
 tng_molecule_add.exit:                            ; preds = %79, %80
   %.0.i46 = phi i64 [ %86, %80 ], [ 1, %79 ]
-  %87 = call range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.15, i64 noundef %.0.i46, ptr noundef nonnull %3)
+  %87 = call range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i64 noundef %.0.i46, ptr noundef nonnull %3)
   %.not38 = icmp eq i32 %87, 0
   br i1 %.not38, label %88, label %tng_molecule_cnt_set.exit
 
@@ -7810,7 +7810,7 @@ tng_molecule_add.exit:                            ; preds = %79, %80
 
 tng_molecule_chain_add.exit:                      ; preds = %88, %92
   %.0.i48 = phi i64 [ %98, %92 ], [ 1, %88 ]
-  %99 = call range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nonnull readnone poison, ptr noundef nonnull %89, ptr noundef nonnull readonly @.str.20, i64 noundef %.0.i48, ptr noundef nonnull %4)
+  %99 = call range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nonnull readnone poison, ptr noundef nonnull %89, ptr noundef nonnull @.str.20, i64 noundef %.0.i48, ptr noundef nonnull %4)
   %.not39 = icmp eq i32 %99, 0
   br i1 %.not39, label %100, label %tng_molecule_cnt_set.exit
 
@@ -7832,7 +7832,7 @@ tng_molecule_chain_add.exit:                      ; preds = %88, %92
 
 tng_chain_residue_add.exit:                       ; preds = %100, %104
   %.0.i50 = phi i64 [ %110, %104 ], [ 0, %100 ]
-  %111 = call range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr nonnull readnone poison, ptr noundef nonnull %101, ptr noundef nonnull readonly @.str.20, i64 noundef %.0.i50, ptr noundef nonnull %5)
+  %111 = call range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr nonnull readnone poison, ptr noundef nonnull %101, ptr noundef nonnull @.str.20, i64 noundef %.0.i50, ptr noundef nonnull %5)
   %.not40 = icmp eq i32 %111, 0
   br i1 %.not40, label %112, label %tng_molecule_cnt_set.exit
 

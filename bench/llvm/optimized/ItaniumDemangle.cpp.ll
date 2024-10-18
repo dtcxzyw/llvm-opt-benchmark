@@ -1323,7 +1323,7 @@ define dso_local noundef ptr @_ZN4llvm15itaniumDemangleESt17basic_string_viewIcS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %scevgep.i.i, i8 0, i64 12, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 816
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4912
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %29, i8 0, i64 16, i1 false)
   store ptr %29, ptr %30, align 16
   %31 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E5parseEb(ptr noundef nonnull align 16 dereferenceable(4928) %4, i1 noundef zeroext %2)
   %.not = icmp eq ptr %31, null
@@ -1331,7 +1331,7 @@ define dso_local noundef ptr @_ZN4llvm15itaniumDemangleESt17basic_string_viewIcS
 
 32:                                               ; preds = %7
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 0, i64 24, i1 false)
   store i32 -1, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 -1, ptr %34, align 4
@@ -1668,7 +1668,7 @@ define internal fastcc void @_ZN4llvm16itanium_demangle14ManglingParserIN12_GLOB
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %8, %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %2, i8 0, i64 16, i1 false)
   store ptr %2, ptr %3, align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 16
@@ -1786,7 +1786,7 @@ define dso_local void @_ZN4llvm23ItaniumPartialDemanglerC2Ev(ptr nocapture nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %scevgep.i.i, i8 0, i64 12, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 816
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 4912
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %23, i8 0, i64 16, i1 false)
   store ptr %23, ptr %24, align 16
   store ptr %3, ptr %2, align 8
   ret void
@@ -1894,7 +1894,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23ItaniumPartialDemangler15partialD
   br i1 %.not.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E5resetEPKcS8_.exit, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E5resetEPKcS8_.exit: ; preds = %27, %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %21, i8 0, i64 16, i1 false)
   store ptr %21, ptr %22, align 16
   %29 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E5parseEb(ptr noundef nonnull align 16 dereferenceable(4928) %4, i1 noundef zeroext true)
   store ptr %29, ptr %0, align 8
@@ -3352,7 +3352,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %254, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %255
 
 255:                                              ; preds = %250
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %.val14.val, ptr noundef nonnull readonly dereferenceable(13) @.str.11, i64 13)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %.val14.val, ptr noundef nonnull dereferenceable(13) @.str.11, i64 13)
   %256 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %256, label %257, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
@@ -3796,7 +3796,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -48
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(34) %1) #20
   %25 = getelementptr inbounds i8, ptr %22, i64 -40
   store i8 21, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 -39
@@ -6377,7 +6377,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E14parseLocalNameEPNS6_9NameStateE.exit
 
 222:                                              ; preds = %214, %212
-  call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef %0)
+  call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 16 dereferenceable(4928) %0)
   %223 = load ptr, ptr %0, align 16
   %224 = load ptr, ptr %5, align 8
   %.not.i76 = icmp eq ptr %223, %224
@@ -11119,7 +11119,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %1) #20
   %25 = getelementptr inbounds i8, ptr %22, i64 -24
   store i8 8, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 -23
@@ -11742,7 +11742,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br i1 %206, label %.split378, label %207
 
 207:                                              ; preds = %200
-  %bcmp.i.i.i482 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %201, ptr noundef nonnull readonly dereferenceable(2) @.str.33, i64 2)
+  %bcmp.i.i.i482 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %201, ptr noundef nonnull dereferenceable(2) @.str.33, i64 2)
   %208 = icmp eq i32 %bcmp.i.i.i482, 0
   br i1 %208, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit483, label %.split378
 
@@ -12729,7 +12729,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br i1 %691, label %.thread, label %692
 
 692:                                              ; preds = %688
-  %bcmp.i.i.i485 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.35, i64 2)
+  %bcmp.i.i.i485 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
   %693 = icmp eq i32 %bcmp.i.i.i485, 0
   br i1 %693, label %694, label %697
 
@@ -12740,7 +12740,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 697:                                              ; preds = %692
-  %bcmp.i.i.i490 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.36, i64 2)
+  %bcmp.i.i.i490 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.36, i64 2)
   %698 = icmp eq i32 %bcmp.i.i.i490, 0
   br i1 %698, label %699, label %.thread
 
@@ -12780,7 +12780,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %691, label %.thread615, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit216.thread.thread
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit216.thread.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit219, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit216.thread
-  %bcmp.i.i.i495 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.38, i64 2)
+  %bcmp.i.i.i495 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.38, i64 2)
   %709 = icmp eq i32 %bcmp.i.i.i495, 0
   br i1 %709, label %710, label %713
 
@@ -12791,7 +12791,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 713:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit216.thread.thread
-  %bcmp.i.i.i500 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.39, i64 2)
+  %bcmp.i.i.i500 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.39, i64 2)
   %714 = icmp eq i32 %bcmp.i.i.i500, 0
   br i1 %714, label %715, label %721
 
@@ -12807,7 +12807,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 721:                                              ; preds = %713
-  %bcmp.i.i.i505 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.40, i64 2)
+  %bcmp.i.i.i505 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.40, i64 2)
   %722 = icmp eq i32 %bcmp.i.i.i505, 0
   br i1 %722, label %723, label %736
 
@@ -12841,7 +12841,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 736:                                              ; preds = %721
-  %bcmp.i.i.i510 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.42, i64 2)
+  %bcmp.i.i.i510 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.42, i64 2)
   %737 = icmp eq i32 %bcmp.i.i.i510, 0
   br i1 %737, label %738, label %793
 
@@ -12950,7 +12950,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 793:                                              ; preds = %736
-  %bcmp.i.i.i515 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.43, i64 2)
+  %bcmp.i.i.i515 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.43, i64 2)
   %794 = icmp eq i32 %bcmp.i.i.i515, 0
   br i1 %794, label %795, label %824
 
@@ -13003,7 +13003,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 824:                                              ; preds = %793
-  %bcmp.i.i.i520 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.44, i64 2)
+  %bcmp.i.i.i520 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.44, i64 2)
   %825 = icmp eq i32 %bcmp.i.i.i520, 0
   br i1 %825, label %826, label %829
 
@@ -13014,7 +13014,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 829:                                              ; preds = %824
-  %bcmp.i.i.i525 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.46, i64 2)
+  %bcmp.i.i.i525 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.46, i64 2)
   %830 = icmp eq i32 %bcmp.i.i.i525, 0
   br i1 %830, label %831, label %.thread615
 
@@ -13772,7 +13772,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %18
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
 24:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %bcmp.i.i.i130 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %10, ptr noundef nonnull readonly dereferenceable(3) @.str.115, i64 3)
+  %bcmp.i.i.i130 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %10, ptr noundef nonnull dereferenceable(3) @.str.115, i64 3)
   %25 = icmp eq i32 %bcmp.i.i.i130, 0
   br i1 %25, label %26, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
@@ -16346,7 +16346,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %1) #20
   %25 = getelementptr inbounds i8, ptr %22, i64 -24
   store i8 8, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 -23
@@ -19651,7 +19651,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %1) #20
   %25 = getelementptr inbounds i8, ptr %22, i64 -24
   store i8 8, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 -23
@@ -29683,7 +29683,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(15) %1) #20
   %25 = getelementptr inbounds i8, ptr %22, i64 -24
   store i8 8, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 -23
@@ -32831,7 +32831,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %1) #20
   %25 = getelementptr inbounds i8, ptr %22, i64 -24
   store i8 8, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 -23
@@ -32885,7 +32885,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %1) #20
   %25 = getelementptr inbounds i8, ptr %22, i64 -24
   store i8 8, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 -23
@@ -32939,7 +32939,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %1) #20
   %25 = getelementptr inbounds i8, ptr %22, i64 -24
   store i8 8, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 -23

@@ -164,7 +164,7 @@ _ZN14MethodLiveness13init_gen_killEv.exit:        ; preds = %_ZN14MethodLiveness
   %52 = getelementptr inbounds i8, ptr %50, i64 160
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %41, align 8
-  call void @_ZN14MethodLiveness10BasicBlock9propagateEPS_(ptr noundef nonnull align 8 dereferenceable(169) %50, ptr noundef nonnull %0)
+  call void @_ZN14MethodLiveness10BasicBlock9propagateEPS_(ptr noundef nonnull align 8 dereferenceable(169) %50, ptr noundef nonnull align 8 dereferenceable(80) %0)
   %54 = load ptr, ptr %41, align 8
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %_ZN14MethodLiveness18propagate_livenessEv.exit, label %.lr.ph11.i, !llvm.loop !9
@@ -2226,7 +2226,7 @@ define hidden void @_ZN14MethodLiveness15get_liveness_atEi(ptr dead_on_unwind no
   %4 = alloca %class.MethodLivenessResult, align 8
   %5 = icmp eq i32 %2, -1
   %spec.select = select i1 %5, i32 0, i32 %2
-  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 0, i1 noundef zeroext true) #12
+  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(17) %0, i64 noundef 0, i1 noundef zeroext true) #12
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 32
@@ -2295,7 +2295,7 @@ define hidden void @_ZN14MethodLiveness10BasicBlock15get_liveness_atEP8ciMethodi
   %7 = getelementptr inbounds i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %9, i1 noundef zeroext true) #12
+  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(17) %0, i64 noundef %9, i1 noundef zeroext true) #12
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8

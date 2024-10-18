@@ -2654,7 +2654,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d19ed162db755ffE.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #14
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d19ed162db755ffE.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #14
           to label %.body unwind label %16
 
 16:                                               ; preds = %14
@@ -2664,7 +2664,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   unreachable
 
 "_ZN4core3ptr281drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h3f5e0bfe0b508dd0E.exit.i": ; preds = %10
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d19ed162db755ffE.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d19ed162db755ffE.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN4core3ptr309drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17hbe205dd593d12bfdE.llvm.1027335340449655538.exit" unwind label %18
 
 18:                                               ; preds = %"_ZN4core3ptr281drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h3f5e0bfe0b508dd0E.exit.i"
@@ -3130,7 +3130,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 201
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 1
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !249
-  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !249
+  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !249
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0eac72d859e5eef6E.exit"
 
@@ -3144,7 +3144,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr321drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7e20af422370308aE"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr321drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7e20af422370308aE"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %12
 
 12:                                               ; preds = %10
@@ -3176,7 +3176,7 @@ common.resume:                                    ; preds = %21, %10
   %.sroa.615.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %14, ptr %.sroa.615.0..sroa_idx, align 8
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !252
-  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #10, !noalias !252
+  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 64, i64 noundef 8) #10, !noalias !252
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0735ff118571a90fE.exit"
 
@@ -3229,7 +3229,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 201
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 1
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !255
-  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !255
+  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !255
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h766ebc4904045e85E.exit"
 
@@ -3243,7 +3243,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr323drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbb9d488748b93aabE"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr323drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbb9d488748b93aabE"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %12
 
 12:                                               ; preds = %10
@@ -3275,7 +3275,7 @@ common.resume:                                    ; preds = %21, %10
   %.sroa.615.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %14, ptr %.sroa.615.0..sroa_idx, align 8
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !258
-  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #10, !noalias !258
+  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 64, i64 noundef 8) #10, !noalias !258
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3135ac779cf1c1a6E.exit"
 
@@ -3328,7 +3328,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 201
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 1
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !261
-  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !261
+  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !261
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1b47e8b9d58767a2E.exit"
 
@@ -3342,7 +3342,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr385drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..boxed..Box$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hccaf9ca0a40fdd43E"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr385drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..boxed..Box$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hccaf9ca0a40fdd43E"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %12
 
 12:                                               ; preds = %10
@@ -3374,7 +3374,7 @@ common.resume:                                    ; preds = %21, %10
   %.sroa.615.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %14, ptr %.sroa.615.0..sroa_idx, align 8
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !264
-  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #10, !noalias !264
+  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 64, i64 noundef 8) #10, !noalias !264
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7da28ff58a3734cfE.exit"
 
@@ -3427,7 +3427,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 201
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 1
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !267
-  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !267
+  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !267
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6fc83bd45dd06e48E.exit"
 
@@ -3441,7 +3441,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr316drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17haec3ce100e372803E"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr316drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17haec3ce100e372803E"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %12
 
 12:                                               ; preds = %10
@@ -3473,7 +3473,7 @@ common.resume:                                    ; preds = %21, %10
   %.sroa.615.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %14, ptr %.sroa.615.0..sroa_idx, align 8
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !270
-  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #10, !noalias !270
+  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 64, i64 noundef 8) #10, !noalias !270
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2fa8bc4efa5de725E.exit"
 
@@ -3526,7 +3526,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 201
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 1
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !273
-  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !273
+  %7 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !273
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h46f930638335f005E.exit"
 
@@ -3540,7 +3540,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr322drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h55e3d109c9465bc8E"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr322drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h55e3d109c9465bc8E"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %12
 
 12:                                               ; preds = %10
@@ -3572,7 +3572,7 @@ common.resume:                                    ; preds = %21, %10
   %.sroa.615.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %14, ptr %.sroa.615.0..sroa_idx, align 8
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !276
-  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #10, !noalias !276
+  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 64, i64 noundef 8) #10, !noalias !276
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hcd2550a15f8a834aE.exit"
 
@@ -3625,7 +3625,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 81
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 1
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !279
-  %7 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef 88, i64 noundef 8) #10, !noalias !279
+  %7 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 88, i64 noundef 8) #10, !noalias !279
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc2e48c667f53f2fcE.exit"
 
@@ -3671,7 +3671,7 @@ common.resume:                                    ; preds = %21, %10
   %.sroa.615.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %14, ptr %.sroa.615.0..sroa_idx, align 8
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !282
-  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #10, !noalias !282
+  %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 64, i64 noundef 8) #10, !noalias !282
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h8520f4f037720904E.exit"
 
@@ -3796,7 +3796,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, i64 6, i1 false)
   %26 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !288
-  %27 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef 88, i64 noundef 8) #10, !noalias !288
+  %27 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 88, i64 noundef 8) #10, !noalias !288
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %34
 
@@ -3984,7 +3984,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, i64 6, i1 false)
   %29 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !294
-  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !294
+  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !294
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %37
 
@@ -3998,7 +3998,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr321drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7e20af422370308aE"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr321drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h7e20af422370308aE"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %35
 
 35:                                               ; preds = %33
@@ -4172,7 +4172,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, i64 6, i1 false)
   %29 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !300
-  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !300
+  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !300
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %37
 
@@ -4186,7 +4186,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr316drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17haec3ce100e372803E"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr316drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17haec3ce100e372803E"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %35
 
 35:                                               ; preds = %33
@@ -4360,7 +4360,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, i64 6, i1 false)
   %29 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !306
-  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !306
+  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !306
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %37
 
@@ -4374,7 +4374,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr322drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h55e3d109c9465bc8E"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr322drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h55e3d109c9465bc8E"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %35
 
 35:                                               ; preds = %33
@@ -4548,7 +4548,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, i64 6, i1 false)
   %29 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !312
-  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !312
+  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !312
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %37
 
@@ -4562,7 +4562,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr385drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..boxed..Box$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hccaf9ca0a40fdd43E"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr385drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..boxed..Box$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hccaf9ca0a40fdd43E"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %35
 
 35:                                               ; preds = %33
@@ -4736,7 +4736,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, i64 6, i1 false)
   %29 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !318
-  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef 208, i64 noundef 8) #10, !noalias !318
+  %30 = tail call noundef align 8 dereferenceable_or_null(208) ptr @__rust_alloc(i64 noundef range(i64 64, 209) 208, i64 noundef 8) #10, !noalias !318
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %37
 
@@ -4750,7 +4750,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr323drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbb9d488748b93aabE"(ptr noundef nonnull align 8 %3) #14
+  invoke void @"_ZN4core3ptr323drop_in_place$LT$alloc..sync..ArcInner$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbb9d488748b93aabE"(ptr noundef nonnull align 8 dereferenceable(208) %3) #14
           to label %common.resume unwind label %35
 
 35:                                               ; preds = %33
@@ -5269,7 +5269,7 @@ define hidden void @"_ZN4core3ptr309drop_in_place$LT$core..option..Option$LT$fut
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d19ed162db755ffE.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #14
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d19ed162db755ffE.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #14
           to label %13 unwind label %11
 
 11:                                               ; preds = %9
@@ -5282,7 +5282,7 @@ define hidden void @"_ZN4core3ptr309drop_in_place$LT$core..option..Option$LT$fut
   resume { ptr, i32 } %10
 
 "_ZN4core3ptr281drop_in_place$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h3f5e0bfe0b508dd0E.exit": ; preds = %5
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d19ed162db755ffE.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d19ed162db755ffE.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %4
 }
 

@@ -228,7 +228,7 @@ entry:
   store ptr %5, ptr %pn.i3, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %diffProcess, i8 0, i64 16, i1 false)
   %sequenceGen_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %sequenceGen_, ptr noundef nonnull align 8 dereferenceable(5008) %sequenceGen, i64 5008, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5064) %sequenceGen_, ptr noundef nonnull align 8 dereferenceable(5064) %sequenceGen, i64 5008, i1 false)
   %sequence_.i = getelementptr inbounds nuw i8, ptr %this, i64 5064
   %sequence_3.i = getelementptr inbounds nuw i8, ptr %sequenceGen, i64 5008
   %6 = load ptr, ptr %sequence_3.i, align 8, !tbaa !24
@@ -241,7 +241,7 @@ entry:
   %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %sequenceGen, i64 5024
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8, !tbaa !27
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sequence_3.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sequence_3.i, i8 0, i64 24, i1 false)
   %weight.i.i = getelementptr inbounds nuw i8, ptr %this, i64 5088
   %weight3.i.i = getelementptr inbounds nuw i8, ptr %sequenceGen, i64 5032
   %9 = load double, ptr %weight3.i.i, align 8, !tbaa !28

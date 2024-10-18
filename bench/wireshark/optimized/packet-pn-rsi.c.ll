@@ -403,7 +403,7 @@ define hidden i32 @dissect_PNIO_RSI(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 97:                                               ; preds = %80
   call void @col_append_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.107) #3
-  %98 = call fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext %62, i32 noundef %95, i32 noundef 0)
+  %98 = call fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef %95, i32 noundef 0)
   br label %dissect_FREQ_RTA_block.exit
 
 99:                                               ; preds = %80
@@ -414,42 +414,42 @@ define hidden i32 @dissect_PNIO_RSI(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 102:                                              ; preds = %80
   call void @col_append_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.108) #3
-  %103 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext %62, i32 noundef %95, i32 noundef 2)
+  %103 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef %95, i32 noundef 2)
   br label %dissect_FREQ_RTA_block.exit
 
 104:                                              ; preds = %80
   call void @col_append_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.109) #3
-  %105 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext %62, i32 noundef %95, i32 noundef 3)
+  %105 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef %95, i32 noundef 3)
   br label %dissect_FREQ_RTA_block.exit
 
 106:                                              ; preds = %80
   call void @col_append_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.110) #3
-  %107 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext %62, i32 noundef %95, i32 noundef 4)
+  %107 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef %95, i32 noundef 4)
   br label %dissect_FREQ_RTA_block.exit
 
 108:                                              ; preds = %80
   call void @col_append_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.111) #3
-  %109 = call fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext %62, i32 noundef %95, i32 noundef 5)
+  %109 = call fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef %95, i32 noundef 5)
   br label %dissect_FREQ_RTA_block.exit
 
 110:                                              ; preds = %80
   call void @col_append_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.112) #3
-  %111 = call fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext %62, i32 noundef %95, i32 noundef 6)
+  %111 = call fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef %95, i32 noundef 6)
   br label %dissect_FREQ_RTA_block.exit
 
 112:                                              ; preds = %80
   call void @col_append_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.113) #3
-  %113 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext %62, i32 noundef %95, i32 noundef 7)
+  %113 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef %95, i32 noundef 7)
   br label %dissect_FREQ_RTA_block.exit
 
 114:                                              ; preds = %80
   call void @col_append_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.114) #3
-  %115 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext %62, i32 noundef %95, i32 noundef 8)
+  %115 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef %95, i32 noundef 8)
   br label %dissect_FREQ_RTA_block.exit
 
 116:                                              ; preds = %80
   call void @col_append_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.115) #3
-  %117 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext %62, i32 noundef %95, i32 noundef 9)
+  %117 = call fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %91, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i16 noundef zeroext %81, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef %95, i32 noundef 9)
   br label %dissect_FREQ_RTA_block.exit
 
 118:                                              ; preds = %80
@@ -517,7 +517,7 @@ switch.lookup:                                    ; preds = %121
 
 151:                                              ; preds = %149
   %152 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0.i.i) #3
-  %153 = call fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i32 noundef %152, i8 noundef zeroext %62, i32 noundef %135, i32 noundef 6)
+  %153 = call fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %4, i32 noundef %152, i8 noundef zeroext range(i8 0, 2) %62, i32 noundef range(i32 0, 32) %135, i32 noundef 6)
   br label %dissect_FRSP_RTA_block.exit
 
 dissect_FRSP_RTA_block.exit:                      ; preds = %149, %151

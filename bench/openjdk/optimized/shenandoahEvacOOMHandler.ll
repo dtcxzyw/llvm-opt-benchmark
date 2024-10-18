@@ -283,7 +283,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler15register_threadEP6Thread(ptr 
 
 21:                                               ; preds = %20
   %22 = add nuw nsw i32 %.07.i, 1
-  %23 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, i32 %.07.i, ptr nonnull %18) #8, !srcloc !9
+  %23 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, i32 %.07.i, ptr nonnull align 4 dereferenceable(64) %18) #8, !srcloc !9
   %24 = icmp eq i32 %23, %.07.i
   br i1 %24, label %_ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit.thread, label %20, !llvm.loop !12
 
@@ -350,7 +350,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(pt
   %20 = sext i32 %19 to i64
   %21 = and i64 %15, %20
   %22 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %17, i64 %21
-  %23 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %22) #8, !srcloc !6
+  %23 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull align 4 dereferenceable(64) %22) #8, !srcloc !6
   br label %25
 
 24:                                               ; preds = %2
@@ -397,14 +397,14 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler38handle_out_of_memory_during_e
   %.0.us.i = phi i32 [ %27, %.split.us.i ], [ %24, %.lr.ph ]
   %25 = add i32 %.0.us.i, 2147483647
   %26 = or i32 %25, -2147483648
-  %27 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %26, i32 %.0.us.i, ptr nonnull %22) #8, !srcloc !9
+  %27 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %26, i32 %.0.us.i, ptr nonnull align 4 dereferenceable(64) %22) #8, !srcloc !9
   %28 = icmp eq i32 %27, %.0.us.i
   br i1 %28, label %_ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit, label %.split.us.i, !llvm.loop !10
 
 .split.i:                                         ; preds = %.lr.ph, %.split.i
   %.0.i = phi i32 [ %30, %.split.i ], [ %24, %.lr.ph ]
   %29 = or i32 %.0.i, -2147483648
-  %30 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %29, i32 %.0.i, ptr nonnull %22) #8, !srcloc !9
+  %30 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %29, i32 %.0.i, ptr nonnull align 4 dereferenceable(64) %22) #8, !srcloc !9
   %31 = icmp eq i32 %30, %.0.i
   br i1 %31, label %_ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit, label %.split.i, !llvm.loop !10
 
@@ -463,7 +463,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler5clearEv(ptr nocapture noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %6, i64 %indvars.iv
-  %8 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull %7) #8, !srcloc !7
+  %8 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull align 4 dereferenceable(64) %7) #8, !srcloc !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %0, align 8
   %10 = sext i32 %9 to i64

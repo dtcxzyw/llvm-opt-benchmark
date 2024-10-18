@@ -180,7 +180,7 @@ entry:
   %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 440
   %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(2140) %4, ptr noundef nonnull %0)
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(2140) %4, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN3net22QuicClientPromisedInfo5ResetENS_22QuicRstStreamErrorCodeE.exit, label %if.then.i
 
@@ -298,7 +298,7 @@ entry:
   store ptr %0, ptr %key.i, align 8
   %3 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i64 %2, ptr %3, align 8
-  %call.i.i.i = call ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %headers, ptr noundef nonnull align 8 dereferenceable(16) %key.i)
+  %call.i.i.i = call ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(88) %headers, ptr noundef nonnull align 8 dereferenceable(16) %key.i)
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -336,7 +336,7 @@ if.then:                                          ; preds = %lor.rhs
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 440
   %9 = load ptr, ptr %vfn.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(2140) %8, ptr noundef nonnull %this)
+  call void %9(ptr noundef nonnull align 8 dereferenceable(2140) %8, ptr noundef nonnull align 8 dereferenceable(96) %this)
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %return, label %if.then.i
 
@@ -363,7 +363,7 @@ if.then9:                                         ; preds = %if.end
   %vtable.i9 = load ptr, ptr %14, align 8
   %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 440
   %15 = load ptr, ptr %vfn.i10, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(2140) %14, ptr noundef nonnull %this)
+  call void %15(ptr noundef nonnull align 8 dereferenceable(2140) %14, ptr noundef nonnull align 8 dereferenceable(96) %this)
   %tobool.not.i11 = icmp eq ptr %11, null
   br i1 %tobool.not.i11, label %return, label %if.then.i12
 
@@ -399,7 +399,7 @@ if.then14:                                        ; preds = %invoke.cont
   %vtable.i19 = load ptr, ptr %22, align 8
   %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 440
   %23 = load ptr, ptr %vfn.i20, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(2140) %22, ptr noundef nonnull %this)
+  call void %23(ptr noundef nonnull align 8 dereferenceable(2140) %22, ptr noundef nonnull align 8 dereferenceable(96) %this)
   %tobool.not.i21 = icmp eq ptr %19, null
   br i1 %tobool.not.i21, label %return, label %if.then.i22
 
@@ -525,7 +525,7 @@ if.then:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 440
   %9 = load ptr, ptr %vfn.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(2140) %8, ptr noundef nonnull %this)
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(2140) %8, ptr noundef nonnull align 8 dereferenceable(96) %this)
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %return, label %if.then.i
 
@@ -681,7 +681,7 @@ _ZN3net22QuicClientPromisedInfo5ResetENS_22QuicRstStreamErrorCodeE.exit:
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 440
   %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(2140) %2, ptr noundef nonnull %this)
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(2140) %2, ptr noundef nonnull align 8 dereferenceable(96) %this)
   ret void
 }
 
@@ -721,7 +721,7 @@ for.cond:                                         ; preds = %for.body, %if.then
 
 for.body:                                         ; preds = %for.cond
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.0, i64 8
-  %call.i.i = tail call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
+  %call.i.i = tail call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr)
   br i1 %call.i.i, label %return, label %for.cond, !llvm.loop !5
 
 if.end15:                                         ; preds = %entry
@@ -768,7 +768,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
 
 _ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.i.i: ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__p.0.i.i, i64 8
-  %call.i.i.i.i.i = tail call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i)
+  %call.i.i.i.i.i = tail call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i)
   br i1 %call.i.i.i.i.i, label %if.then.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.i.i, %for.cond.i.i

@@ -913,7 +913,7 @@ define hidden { ptr, i64 } @"_ZN6uu_env14native_int_str9NativeStr12strip_prefix2
   br i1 %.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12strip_prefix17he1da702e58b2d0e9E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i"
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %7, ptr nonnull readonly %.sroa.0.0.i, i64 %.sroa.5.0.i), !alias.scope !84
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %7, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i), !alias.scope !84
   %bcmp.i.fr.i = freeze i32 %bcmp.i.i
   %14 = icmp eq i32 %bcmp.i.fr.i, 0
   %spec.select.i = select i1 %14, ptr %.sroa.5.0.copyload.i, ptr null
@@ -975,7 +975,7 @@ define hidden void @"_ZN6uu_env14native_int_str9NativeStr12strip_prefix28_$u7b$$
   br i1 %.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i", label %.thread
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i"
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %11, ptr nonnull readonly %.sroa.0.0.i, i64 %.sroa.5.0.i), !alias.scope !102
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i), !alias.scope !102
   %bcmp.i.fr.i = freeze i32 %bcmp.i.i
   %18 = icmp eq i32 %bcmp.i.fr.i, 0
   br i1 %18, label %19, label %.thread
@@ -1050,7 +1050,7 @@ define hidden { ptr, i64 } @"_ZN6uu_env14native_int_str9NativeStr19strip_prefix_
   br i1 %.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12strip_prefix17he1da702e58b2d0e9E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i"
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %7, ptr nonnull readonly %.sroa.0.0.i, i64 %.sroa.5.0.i), !alias.scope !120
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %7, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i), !alias.scope !120
   %bcmp.i.fr.i = freeze i32 %bcmp.i.i
   %14 = icmp eq i32 %bcmp.i.fr.i, 0
   %spec.select.i = select i1 %14, ptr %.sroa.5.0.copyload.i, ptr null
@@ -1112,7 +1112,7 @@ define hidden void @"_ZN6uu_env14native_int_str9NativeStr19strip_prefix_native28
   br i1 %.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i", label %.thread
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i"
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %11, ptr nonnull readonly %.sroa.0.0.i, i64 %.sroa.5.0.i), !alias.scope !138
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.5.0.i), !alias.scope !138
   %bcmp.i.fr.i = freeze i32 %bcmp.i.i
   %18 = icmp eq i32 %bcmp.i.fr.i, 0
   br i1 %18, label %19, label %.thread
@@ -1199,7 +1199,7 @@ define hidden void @_ZN6uu_env14native_int_str9NativeStr9match_cow17h16681b1a981
   br i1 %.not.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i.i", label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h131f95a60dbd8d76E.llvm.1439132921006970162.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i"
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %17, ptr nonnull readonly %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i), !alias.scope !162, !noalias !143
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %17, ptr nonnull readonly align 1 %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i), !alias.scope !162, !noalias !143
   %bcmp.i.fr.i.i = freeze i32 %bcmp.i.i.i
   %24 = icmp eq i32 %bcmp.i.fr.i.i, 0
   br i1 %24, label %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h131f95a60dbd8d76E.llvm.1439132921006970162.exit"
@@ -1262,7 +1262,7 @@ define hidden void @_ZN6uu_env14native_int_str9NativeStr9match_cow17h16681b1a981
   br i1 %.not.i.i.i15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i.i16", label %46
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i.i16": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i8"
-  %bcmp.i.i.i17 = tail call i32 @bcmp(ptr nonnull readonly %31, ptr nonnull readonly %.sroa.0.0.i.i4, i64 %.sroa.5.0.i.i6), !alias.scope !193, !noalias !197
+  %bcmp.i.i.i17 = tail call i32 @bcmp(ptr nonnull readonly align 1 %31, ptr nonnull readonly align 1 %.sroa.0.0.i.i4, i64 %.sroa.5.0.i.i6), !alias.scope !193, !noalias !197
   %bcmp.i.fr.i.i18 = freeze i32 %bcmp.i.i.i17
   %38 = icmp eq i32 %bcmp.i.fr.i.i18, 0
   br i1 %38, label %39, label %46
@@ -1466,7 +1466,7 @@ define hidden void @_ZN6uu_env14native_int_str9NativeStr16match_cow_native17hfab
   br i1 %.not.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i.i", label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd805f8c148e1d469E.llvm.1439132921006970162.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i"
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %17, ptr nonnull readonly %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i), !alias.scope !270, !noalias !251
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %17, ptr nonnull readonly align 1 %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i), !alias.scope !270, !noalias !251
   %bcmp.i.fr.i.i = freeze i32 %bcmp.i.i.i
   %24 = icmp eq i32 %bcmp.i.fr.i.i, 0
   br i1 %24, label %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd805f8c148e1d469E.llvm.1439132921006970162.exit"
@@ -1529,7 +1529,7 @@ define hidden void @_ZN6uu_env14native_int_str9NativeStr16match_cow_native17hfab
   br i1 %.not.i.i.i15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i.i16", label %46
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i.i16": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i8"
-  %bcmp.i.i.i17 = tail call i32 @bcmp(ptr nonnull readonly %31, ptr nonnull readonly %.sroa.0.0.i.i4, i64 %.sroa.5.0.i.i6), !alias.scope !301, !noalias !305
+  %bcmp.i.i.i17 = tail call i32 @bcmp(ptr nonnull readonly align 1 %31, ptr nonnull readonly align 1 %.sroa.0.0.i.i4, i64 %.sroa.5.0.i.i6), !alias.scope !301, !noalias !305
   %bcmp.i.fr.i.i18 = freeze i32 %bcmp.i.i.i17
   %38 = icmp eq i32 %bcmp.i.fr.i.i18, 0
   br i1 %38, label %39, label %46

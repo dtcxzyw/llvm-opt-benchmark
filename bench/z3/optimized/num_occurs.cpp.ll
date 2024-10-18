@@ -71,7 +71,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   store ptr %t, ptr %temp.i.i.i, align 8
   %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %temp.i.i.i, i64 8
   store i32 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i, align 8
-  %call.i.i.i11 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(20) %m_num_occurs, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
+  %call.i.i.i11 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_num_occurs, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
           to label %invoke.cont2 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont2:                                     ; preds = %if.then
@@ -708,7 +708,7 @@ if.then61:                                        ; preds = %lor.lhs.false57, %i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i109)
   store ptr %65, ptr %temp.i.i.i109, align 8
   store i32 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i111, align 8
-  %call.i.i.i113 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(20) %m_num_occurs62, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i109, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i110)
+  %call.i.i.i113 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_num_occurs62, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i109, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i110)
           to label %invoke.cont64 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont64:                                    ; preds = %if.then61
@@ -1315,7 +1315,7 @@ return.sink.split.sink.split:                     ; preds = %if.then41, %if.then
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.then41, %if.then17
   %new_entry42.0.sink76 = phi ptr [ %curr.055, %if.then17 ], [ %curr.158, %if.then41 ], [ %new_entry42.0.sink76.ph, %return.sink.split.sink.split ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %new_entry42.0.sink76, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_entry42.0.sink76, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
   %12 = load i32, ptr %m_size, align 4
   %inc50 = add i32 %12, 1
   store i32 %inc50, ptr %m_size, align 4

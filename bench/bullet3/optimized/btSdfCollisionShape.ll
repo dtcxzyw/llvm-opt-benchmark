@@ -156,7 +156,7 @@ terminate.lpad.i.i:                               ; preds = %delete.notnull.i
   unreachable
 
 _ZN19btSdfCollisionShapeD2Ev.exit:                ; preds = %entry, %delete.notnull.i
-  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #16
+  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #16
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN14btConcaveShapedlEPv.exit unwind label %terminate.lpad.i
 

@@ -711,7 +711,7 @@ json_find_attr.exit.i.i:                          ; preds = %.lr.ph.i.tail.i.i
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = getelementptr i8, ptr %11, i64 %82
-  %84 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %83, ptr noundef nonnull readonly dereferenceable(7) @.str.11) #19
+  %84 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %83, ptr noundef nonnull dereferenceable(7) @.str.11) #19
   %.not.i164.i.i = icmp eq i32 %84, 0
   br i1 %.not.i164.i.i, label %json_find_attr.exit167.i.i, label %85
 
@@ -1152,7 +1152,7 @@ json_prep.exit.thread.i:                          ; preds = %json_find_attr.exit
   %269 = load i32, ptr %268, align 4
   %270 = sext i32 %269 to i64
   %271 = getelementptr i8, ptr %11, i64 %270
-  %272 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %271, ptr noundef nonnull readonly dereferenceable(7) @.str.11) #19
+  %272 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %271, ptr noundef nonnull dereferenceable(7) @.str.11) #19
   %.not.i86.i = icmp eq i32 %272, 0
   br i1 %.not.i86.i, label %json_find_attr.exit.i, label %273
 
@@ -1182,7 +1182,7 @@ json_find_attr.exit.thread.i:                     ; preds = %273, %json_find_att
   br i1 %.not66.i, label %283, label %284
 
 283:                                              ; preds = %281
-  call fastcc void @sharkd_session_process_load(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_load(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 284:                                              ; preds = %281
@@ -1596,7 +1596,7 @@ sharkd_session_process_info.exit.i:               ; preds = %382, %sharkd_sessio
   %393 = load i32, ptr %392, align 4
   %394 = sext i32 %393 to i64
   %395 = getelementptr i8, ptr %11, i64 %394
-  %396 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %395, ptr noundef nonnull readonly dereferenceable(7) @.str.34) #19
+  %396 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %395, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.i.i105.i = icmp eq i32 %396, 0
   br i1 %.not.i.i105.i, label %397, label %403
 
@@ -1626,7 +1626,7 @@ sharkd_session_process_info.exit.i:               ; preds = %382, %sharkd_sessio
   %406 = load i32, ptr %405, align 4
   %407 = sext i32 %406 to i64
   %408 = getelementptr i8, ptr %11, i64 %407
-  %409 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %408, ptr noundef nonnull readonly dereferenceable(6) @.str.33) #19
+  %409 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %408, ptr noundef nonnull dereferenceable(6) @.str.33) #19
   %.not.i23.i.i = icmp eq i32 %409, 0
   br i1 %.not.i23.i.i, label %json_find_attr.exit26.i.i, label %410
 
@@ -1737,7 +1737,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not71.i, label %446, label %447
 
 446:                                              ; preds = %444
-  call fastcc void @sharkd_session_process_complete(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_complete(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 447:                                              ; preds = %444
@@ -1746,7 +1746,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not72.i, label %449, label %450
 
 449:                                              ; preds = %447
-  call fastcc void @sharkd_session_process_frames(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_frames(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 450:                                              ; preds = %447
@@ -1755,7 +1755,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not73.i, label %452, label %453
 
 452:                                              ; preds = %450
-  call fastcc void @sharkd_session_process_tap(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_tap(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 453:                                              ; preds = %450
@@ -1764,7 +1764,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not74.i, label %455, label %456
 
 455:                                              ; preds = %453
-  call fastcc void @sharkd_session_process_follow(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_follow(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 456:                                              ; preds = %453
@@ -1773,7 +1773,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not75.i, label %458, label %459
 
 458:                                              ; preds = %456
-  call fastcc void @sharkd_session_process_iograph(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_iograph(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 459:                                              ; preds = %456
@@ -1782,7 +1782,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not76.i, label %461, label %462
 
 461:                                              ; preds = %459
-  call fastcc void @sharkd_session_process_intervals(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_intervals(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 462:                                              ; preds = %459
@@ -1791,7 +1791,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not77.i, label %464, label %465
 
 464:                                              ; preds = %462
-  call fastcc void @sharkd_session_process_frame(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_frame(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 465:                                              ; preds = %462
@@ -1800,7 +1800,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not78.i, label %467, label %468
 
 467:                                              ; preds = %465
-  call fastcc void @sharkd_session_process_setcomment(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_setcomment(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 468:                                              ; preds = %465
@@ -1809,7 +1809,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not79.i, label %470, label %471
 
 470:                                              ; preds = %468
-  call fastcc void @sharkd_session_process_setconf(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_setconf(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 471:                                              ; preds = %468
@@ -1818,7 +1818,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not80.i, label %473, label %474
 
 473:                                              ; preds = %471
-  call fastcc void @sharkd_session_process_dumpconf(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_dumpconf(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 474:                                              ; preds = %471
@@ -1827,7 +1827,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %442, 
   br i1 %.not81.i, label %476, label %477
 
 476:                                              ; preds = %474
-  call fastcc void @sharkd_session_process_download(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_download(ptr noundef nonnull %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 477:                                              ; preds = %474
@@ -1976,7 +1976,7 @@ define internal fastcc void @sharkd_session_process_load(ptr noundef nonnull %0,
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %0, i64 %12
-  %14 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(5) @.str.69) #19
+  %14 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.69) #19
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %json_find_attr.exit, label %15
 
@@ -2137,7 +2137,7 @@ define internal fastcc void @sharkd_session_process_complete(ptr noundef nonnull
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %0, i64 %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(6) @.str.33) #19
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(6) @.str.33) #19
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %20
 
@@ -2165,7 +2165,7 @@ define internal fastcc void @sharkd_session_process_complete(ptr noundef nonnull
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr i8, ptr %0, i64 %24
-  %26 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(5) @.str.35) #19
+  %26 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.35) #19
   %.not.i69 = icmp eq i32 %26, 0
   br i1 %.not.i69, label %27, label %34
 
@@ -2420,7 +2420,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef nonnull %
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr i8, ptr %0, i64 %21
-  %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(7) @.str.34) #19
+  %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %24, label %31
 
@@ -2448,7 +2448,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef nonnull %
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %0, i64 %35
-  %37 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(8) @.str.172) #19
+  %37 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %36, ptr noundef nonnull dereferenceable(8) @.str.172) #19
   %.not.i91 = icmp eq i32 %37, 0
   br i1 %.not.i91, label %38, label %46
 
@@ -2477,7 +2477,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef nonnull %
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr i8, ptr %0, i64 %50
-  %52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(5) @.str.45) #19
+  %52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull dereferenceable(5) @.str.45) #19
   %.not.i99 = icmp eq i32 %52, 0
   br i1 %.not.i99, label %53, label %60
 
@@ -2505,7 +2505,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef nonnull %
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
   %65 = getelementptr i8, ptr %0, i64 %64
-  %66 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(6) @.str.46) #19
+  %66 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(6) @.str.46) #19
   %.not.i107 = icmp eq i32 %66, 0
   br i1 %.not.i107, label %67, label %74
 
@@ -2533,7 +2533,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef nonnull %
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
   %79 = getelementptr i8, ptr %0, i64 %78
-  %80 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(5) @.str.47) #19
+  %80 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %79, ptr noundef nonnull dereferenceable(5) @.str.47) #19
   %.not.i115 = icmp eq i32 %80, 0
   br i1 %.not.i115, label %81, label %88
 
@@ -2986,7 +2986,7 @@ json_find_attr.exit.thread:                       ; preds = %3
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %0, i64 %22
-  %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(7) @.str.34) #19
+  %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %25, label %32
 
@@ -3775,7 +3775,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef nonnull %
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %0, i64 %7
-  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(7) @.str.21) #19
+  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.21) #19
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %17
 
@@ -3803,7 +3803,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef nonnull %
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr i8, ptr %0, i64 %21
-  %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(7) @.str.34) #19
+  %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.i53 = icmp eq i32 %23, 0
   br i1 %.not.i53, label %24, label %31
 
@@ -3967,7 +3967,7 @@ define internal fastcc void @sharkd_session_process_iograph(ptr noundef nonnull 
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %0, i64 %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(9) @.str.48) #19
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(9) @.str.48) #19
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %json_find_attr.exit, label %13
 
@@ -4302,7 +4302,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef nonnul
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %0, i64 %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(9) @.str.48) #19
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(9) @.str.48) #19
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %19
 
@@ -4330,7 +4330,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef nonnul
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %0, i64 %23
-  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(7) @.str.34) #19
+  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull dereferenceable(7) @.str.34) #19
   %.not.i66 = icmp eq i32 %25, 0
   br i1 %.not.i66, label %26, label %33
 
@@ -4614,7 +4614,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef nonnull %0
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %0, i64 %15
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(6) @.str.24) #19
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.24) #19
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %25
 
@@ -4642,7 +4642,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef nonnull %0
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %0, i64 %29
-  %31 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(10) @.str.38) #19
+  %31 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %30, ptr noundef nonnull dereferenceable(10) @.str.38) #19
   %.not.i49 = icmp eq i32 %31, 0
   br i1 %.not.i49, label %32, label %39
 
@@ -4670,7 +4670,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef nonnull %0
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr i8, ptr %0, i64 %43
-  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(11) @.str.39) #19
+  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull dereferenceable(11) @.str.39) #19
   %.not.i57 = icmp eq i32 %45, 0
   br i1 %.not.i57, label %46, label %53
 
@@ -4744,7 +4744,7 @@ json_find_attr.exit60:                            ; preds = %53, %3, %46
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
   %79 = getelementptr i8, ptr %0, i64 %78
-  %80 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(6) @.str.37) #19
+  %80 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %79, ptr noundef nonnull dereferenceable(6) @.str.37) #19
   %.not.i65 = icmp eq i32 %80, 0
   br i1 %.not.i65, label %81, label %90
 
@@ -4774,7 +4774,7 @@ json_find_attr.exit60:                            ; preds = %53, %3, %46
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %93 to i64
   %95 = getelementptr i8, ptr %0, i64 %94
-  %96 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %95, ptr noundef nonnull readonly dereferenceable(6) @.str.42) #19
+  %96 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %95, ptr noundef nonnull dereferenceable(6) @.str.42) #19
   %.not.i73 = icmp eq i32 %96, 0
   br i1 %.not.i73, label %97, label %106
 
@@ -4805,7 +4805,7 @@ json_find_attr.exit76:                            ; preds = %106, %97
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
   %111 = getelementptr i8, ptr %0, i64 %110
-  %112 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %111, ptr noundef nonnull readonly dereferenceable(8) @.str.40) #19
+  %112 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %111, ptr noundef nonnull dereferenceable(8) @.str.40) #19
   %.not.i81 = icmp eq i32 %112, 0
   br i1 %.not.i81, label %json_find_attr.exit84, label %113
 
@@ -4840,7 +4840,7 @@ json_find_attr.exit84:                            ; preds = %.lr.ph.i79
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
   %129 = getelementptr i8, ptr %0, i64 %128
-  %130 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %129, ptr noundef nonnull readonly dereferenceable(6) @.str.41) #19
+  %130 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %129, ptr noundef nonnull dereferenceable(6) @.str.41) #19
   %.not.i89 = icmp eq i32 %130, 0
   br i1 %.not.i89, label %json_find_attr.exit92, label %131
 
@@ -4953,7 +4953,7 @@ define internal fastcc void @sharkd_session_process_setcomment(ptr noundef nonnu
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %0, i64 %8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(6) @.str.24) #19
+  %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(6) @.str.24) #19
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %18
 
@@ -4981,7 +4981,7 @@ define internal fastcc void @sharkd_session_process_setcomment(ptr noundef nonnu
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %0, i64 %22
-  %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(8) @.str.70) #19
+  %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.70) #19
   %.not.i25 = icmp eq i32 %24, 0
   br i1 %.not.i25, label %25, label %32
 
@@ -5065,7 +5065,7 @@ define internal fastcc void @sharkd_session_process_setconf(ptr noundef nonnull 
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %0, i64 %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(5) @.str.71) #19
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(5) @.str.71) #19
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %19
 
@@ -5093,7 +5093,7 @@ define internal fastcc void @sharkd_session_process_setconf(ptr noundef nonnull 
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %0, i64 %23
-  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(6) @.str.72) #19
+  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull dereferenceable(6) @.str.72) #19
   %.not.i17 = icmp eq i32 %25, 0
   br i1 %.not.i17, label %26, label %33
 
@@ -5189,7 +5189,7 @@ define internal fastcc void @sharkd_session_process_dumpconf(ptr noundef nonnull
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %0, i64 %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(5) @.str.35) #19
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(5) @.str.35) #19
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %json_find_attr.exit, label %13
 
@@ -5329,7 +5329,7 @@ define internal fastcc void @sharkd_session_process_download(ptr noundef nonnull
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %0, i64 %12
-  %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(6) @.str.36) #19
+  %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.36) #19
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %json_find_attr.exit, label %15
 

@@ -199,7 +199,7 @@ entry:
   %0 = load ptr, ptr %transform, align 8, !nonnull !4, !noundef !4
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev18LogAffineTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev22LogAffineTransformImplE, i64 0) #18
   %m_data.i1 = getelementptr inbounds i8, ptr %1, i64 8
-  %call.i2 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i1, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
+  %call.i2 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(252) %m_data.i1, ptr noundef nonnull align 8 dereferenceable(252) %m_data.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry

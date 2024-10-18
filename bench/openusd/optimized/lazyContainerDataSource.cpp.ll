@@ -55,7 +55,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25HdLazyContainerDataSourceC2E
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEvEEC2ERKS5_.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %10 unwind label %14
 
 10:                                               ; preds = %8
@@ -74,7 +74,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25HdLazyContainerDataSourceC2E
   br i1 %.not.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %.body unwind label %19
 
 19:                                               ; preds = %17
@@ -180,7 +180,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
 
 40:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 3)
+  %42 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEvEED2Ev.exit unwind label %43
 
 43:                                               ; preds = %40
@@ -398,7 +398,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25HdLazyContainerDataSource7_G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3), !noalias !13
-  call void @_ZNSt10_Sp_lockerC1EPKv(ptr noundef nonnull align 1 dereferenceable(2) %3, ptr noundef nonnull %4) #11, !noalias !14
+  call void @_ZNSt10_Sp_lockerC1EPKv(ptr noundef nonnull align 1 dereferenceable(2) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #11, !noalias !14
   %5 = load ptr, ptr %4, align 8, !noalias !14
   store ptr %5, ptr %0, align 8, !alias.scope !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -519,7 +519,7 @@ _ZNKSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainer
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %60 = load ptr, ptr %59, align 8, !noalias !15
-  call void %60(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %58)
+  call void %60(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %58)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource11AtomicStoreERSt10shared_ptrIS0_ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit unwind label %61
 

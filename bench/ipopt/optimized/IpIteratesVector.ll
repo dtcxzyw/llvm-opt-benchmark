@@ -228,7 +228,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define void @_ZThn16_N5Ipopt14IteratesVectorD0Ev(ptr noundef %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5Ipopt14IteratesVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(280) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #11
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(280) %2) #11
   ret void
 }
 
@@ -322,7 +322,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i7: ; preds = %_ZNK5Ipopt
   %32 = load i32, ptr %31, align 8, !noalias !24
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 8, !noalias !24
-  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %8, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i8)
+  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(280) %8, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i8)
           to label %_ZN5Ipopt14IteratesVector5Set_xERKNS_6VectorE.exit unwind label %41
 
 _ZN5Ipopt14IteratesVector5Set_xERKNS_6VectorE.exit: ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i7
@@ -399,7 +399,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i28: ; preds = %_ZNK5Ipop
   %68 = load i32, ptr %67, align 8, !noalias !40
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %67, align 8, !noalias !40
-  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %62, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i29)
+  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(280) %62, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i29)
           to label %_ZN5Ipopt14IteratesVector5Set_sERKNS_6VectorE.exit unwind label %77
 
 _ZN5Ipopt14IteratesVector5Set_sERKNS_6VectorE.exit: ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i28
@@ -476,7 +476,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i49: ; preds = %_ZNK5Ipop
   %104 = load i32, ptr %103, align 8, !noalias !56
   %105 = add nsw i32 %104, 1
   store i32 %105, ptr %103, align 8, !noalias !56
-  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %98, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i50)
+  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(280) %98, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i50)
           to label %_ZN5Ipopt14IteratesVector7Set_y_cERKNS_6VectorE.exit unwind label %113
 
 _ZN5Ipopt14IteratesVector7Set_y_cERKNS_6VectorE.exit: ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i49
@@ -553,7 +553,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i70: ; preds = %_ZNK5Ipop
   %140 = load i32, ptr %139, align 8, !noalias !72
   %141 = add nsw i32 %140, 1
   store i32 %141, ptr %139, align 8, !noalias !72
-  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %134, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i71)
+  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(280) %134, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i71)
           to label %_ZN5Ipopt14IteratesVector7Set_y_dERKNS_6VectorE.exit unwind label %149
 
 _ZN5Ipopt14IteratesVector7Set_y_dERKNS_6VectorE.exit: ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i70
@@ -630,7 +630,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i91: ; preds = %_ZNK5Ipop
   %176 = load i32, ptr %175, align 8, !noalias !88
   %177 = add nsw i32 %176, 1
   store i32 %177, ptr %175, align 8, !noalias !88
-  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %170, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i92)
+  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(280) %170, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i92)
           to label %_ZN5Ipopt14IteratesVector7Set_z_LERKNS_6VectorE.exit unwind label %185
 
 _ZN5Ipopt14IteratesVector7Set_z_LERKNS_6VectorE.exit: ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i91
@@ -707,7 +707,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i112: ; preds = %_ZNK5Ipo
   %212 = load i32, ptr %211, align 8, !noalias !104
   %213 = add nsw i32 %212, 1
   store i32 %213, ptr %211, align 8, !noalias !104
-  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %206, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i113)
+  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(280) %206, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i113)
           to label %_ZN5Ipopt14IteratesVector7Set_z_UERKNS_6VectorE.exit unwind label %221
 
 _ZN5Ipopt14IteratesVector7Set_z_UERKNS_6VectorE.exit: ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i112
@@ -784,7 +784,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i133: ; preds = %_ZNK5Ipo
   %248 = load i32, ptr %247, align 8, !noalias !120
   %249 = add nsw i32 %248, 1
   store i32 %249, ptr %247, align 8, !noalias !120
-  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %242, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i134)
+  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(280) %242, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i134)
           to label %_ZN5Ipopt14IteratesVector7Set_v_LERKNS_6VectorE.exit unwind label %257
 
 _ZN5Ipopt14IteratesVector7Set_v_LERKNS_6VectorE.exit: ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i133
@@ -861,7 +861,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i154: ; preds = %_ZNK5Ipo
   %284 = load i32, ptr %283, align 8, !noalias !136
   %285 = add nsw i32 %284, 1
   store i32 %285, ptr %283, align 8, !noalias !136
-  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %278, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i155)
+  invoke void @_ZN5Ipopt14CompoundVector7SetCompEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(280) %278, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i155)
           to label %_ZN5Ipopt14IteratesVector7Set_v_UERKNS_6VectorE.exit unwind label %293
 
 _ZN5Ipopt14IteratesVector7Set_v_UERKNS_6VectorE.exit: ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i154
@@ -1893,7 +1893,7 @@ define linkonce_odr void @_ZN5Ipopt6VectorD2Ev(ptr noundef nonnull align 8 deref
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i ], [ %15, %._crit_edge.thread.i ]
   %16 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #11
   %.not.i.i.i.i = icmp eq ptr %16, %.lcssa13.i
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !141
 
@@ -1991,7 +1991,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED2Ev(ptr noundef nonnull al
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.thread, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %13, %._crit_edge.thread ]
   %14 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #11
   %.not.i.i.i = icmp eq ptr %14, %.lcssa13
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !141
 
@@ -2055,7 +2055,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED0Ev(ptr noundef nonnull al
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %13, %._crit_edge.thread.i ]
   %14 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #11
   %.not.i.i.i.i = icmp eq ptr %14, %.lcssa13.i
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !141
 

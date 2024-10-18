@@ -5024,7 +5024,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %size_alloc_.i.i = getelementptr inbounds i8, ptr %mb, i64 256
   store i64 %mul, ptr %size_alloc_.i.i, align 8
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %size_alloc_.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %size_alloc_.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %0 = load i64, ptr %size_alloc_.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %0, 257
   br i1 %cmp.i.i.i.i, label %invoke.cont, label %if.else.i.i.i
@@ -5047,7 +5047,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %if.else.i.i
 lpad.i.i:                                         ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i, %if.end.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %size_alloc_.i.i) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %size_alloc_.i.i) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   br label %eh.resume
 
@@ -5285,7 +5285,7 @@ invoke.cont10.i.i:                                ; preds = %cleanup
   br label %_ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEED2Ev.exit
 
 _ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEED2Ev.exit: ; preds = %cleanup, %invoke.cont10.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %size_alloc_.i.i) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %size_alloc_.i.i) #14
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad1, %lpad.i.i
@@ -6021,7 +6021,7 @@ invoke.cont10.i:                                  ; preds = %entry
   br label %_ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEE7StorageD2Ev.exit
 
 _ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEE7StorageD2Ev.exit: ; preds = %entry, %invoke.cont10.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %size_alloc_.i.i) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %size_alloc_.i.i) #14
   ret void
 }
 

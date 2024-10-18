@@ -1316,7 +1316,7 @@ BufferGetPage.exit59:                             ; preds = %80, %86
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %155
-  %162 = call i64 @getmissingattr(ptr noundef %143, i32 noundef %153, ptr noundef nonnull %5) #11
+  %162 = call i64 @getmissingattr(ptr noundef %143, i32 noundef range(i32 -32768, 32768) %153, ptr noundef nonnull %5) #11
   br label %heap_getattr.exit
 
 163:                                              ; preds = %155
@@ -1381,7 +1381,7 @@ BufferGetPage.exit59:                             ; preds = %80, %86
   %199 = sext i16 %186 to i32
   %200 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %200)
-  %201 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %199) #11
+  %201 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef range(i32 -32768, 32768) %199) #11
   call void @errfinish(ptr noundef nonnull @.str.27, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
@@ -1390,7 +1390,7 @@ BufferGetPage.exit59:                             ; preds = %80, %86
   br label %heap_getattr.exit
 
 204:                                              ; preds = %168
-  %205 = call i64 @nocachegetattr(ptr noundef nonnull %6, i32 noundef %153, ptr noundef nonnull %143) #11
+  %205 = call i64 @nocachegetattr(ptr noundef nonnull %6, i32 noundef range(i32 1, 2048) %153, ptr noundef nonnull %143) #11
   br label %heap_getattr.exit
 
 206:                                              ; preds = %163
@@ -1411,11 +1411,11 @@ BufferGetPage.exit59:                             ; preds = %80, %86
   br label %heap_getattr.exit
 
 217:                                              ; preds = %206
-  %218 = call i64 @nocachegetattr(ptr noundef nonnull %6, i32 noundef %153, ptr noundef %143) #11
+  %218 = call i64 @nocachegetattr(ptr noundef nonnull %6, i32 noundef range(i32 1, 2048) %153, ptr noundef %143) #11
   br label %heap_getattr.exit
 
 219:                                              ; preds = %150
-  %220 = call i64 @heap_getsysattr(ptr noundef nonnull %6, i32 noundef %153, ptr noundef %143, ptr noundef nonnull %5) #11
+  %220 = call i64 @heap_getsysattr(ptr noundef nonnull %6, i32 noundef range(i32 -32768, 32768) %153, ptr noundef %143, ptr noundef nonnull %5) #11
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %161, %187, %190, %193, %196, %202, %204, %216, %217, %219
@@ -1925,7 +1925,7 @@ HeapKeyTest.exit.loopexit73.split.us:             ; preds = %158
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %206
-  %213 = call i64 @getmissingattr(ptr noundef %194, i32 noundef %204, ptr noundef nonnull %5) #11
+  %213 = call i64 @getmissingattr(ptr noundef %194, i32 noundef range(i32 -32768, 32768) %204, ptr noundef nonnull %5) #11
   br label %heap_getattr.exit
 
 214:                                              ; preds = %206
@@ -1990,7 +1990,7 @@ HeapKeyTest.exit.loopexit73.split.us:             ; preds = %158
   %250 = sext i16 %237 to i32
   %251 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %251)
-  %252 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %250) #11
+  %252 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef range(i32 -32768, 32768) %250) #11
   call void @errfinish(ptr noundef nonnull @.str.27, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
@@ -1999,7 +1999,7 @@ HeapKeyTest.exit.loopexit73.split.us:             ; preds = %158
   br label %heap_getattr.exit
 
 255:                                              ; preds = %219
-  %256 = call i64 @nocachegetattr(ptr noundef nonnull %6, i32 noundef %204, ptr noundef nonnull %194) #11
+  %256 = call i64 @nocachegetattr(ptr noundef nonnull %6, i32 noundef range(i32 1, 2048) %204, ptr noundef nonnull %194) #11
   br label %heap_getattr.exit
 
 257:                                              ; preds = %214
@@ -2020,11 +2020,11 @@ HeapKeyTest.exit.loopexit73.split.us:             ; preds = %158
   br label %heap_getattr.exit
 
 268:                                              ; preds = %257
-  %269 = call i64 @nocachegetattr(ptr noundef nonnull %6, i32 noundef %204, ptr noundef %194) #11
+  %269 = call i64 @nocachegetattr(ptr noundef nonnull %6, i32 noundef range(i32 1, 2048) %204, ptr noundef %194) #11
   br label %heap_getattr.exit
 
 270:                                              ; preds = %201
-  %271 = call i64 @heap_getsysattr(ptr noundef nonnull %6, i32 noundef %204, ptr noundef %194, ptr noundef nonnull %5) #11
+  %271 = call i64 @heap_getsysattr(ptr noundef nonnull %6, i32 noundef range(i32 -32768, 32768) %204, ptr noundef %194, ptr noundef nonnull %5) #11
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %212, %238, %241, %244, %247, %253, %255, %267, %268, %270
@@ -6239,7 +6239,7 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %.outer.backedge.i, 
 
 heap_acquire_tuplock.exit:                        ; preds = %176, %174, %171
   %.3387 = phi i8 [ %.0384, %171 ], [ %.0384, %174 ], [ 1, %176 ]
-  %181 = call fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %163, i32 noundef %.0283, i16 noundef zeroext %165, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %88, i32 noundef 1, ptr noundef nonnull %30)
+  %181 = call fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %163, i32 noundef range(i32 0, 6) %.0283, i16 noundef zeroext %165, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %88, i32 noundef 1, ptr noundef nonnull %30)
   %182 = load i32, ptr %30, align 4
   call void @LockBuffer(i32 noundef %56, i32 noundef 2) #11
   %183 = load ptr, ptr %85, align 8
@@ -8281,11 +8281,11 @@ get_mxact_status_for_lock.exit:                   ; preds = %heap_acquire_tuploc
   ]
 
 233:                                              ; preds = %get_mxact_status_for_lock.exit
-  %234 = call fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %83, i32 noundef %.0.i293, i16 noundef zeroext %85, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %17, i32 noundef 3, ptr noundef null)
+  %234 = call fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %83, i32 noundef range(i32 0, 6) %.0.i293, i16 noundef zeroext %85, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %17, i32 noundef 3, ptr noundef null)
   br label %263
 
 235:                                              ; preds = %get_mxact_status_for_lock.exit
-  %236 = call fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %83, i32 noundef %.0.i293, i16 noundef zeroext %85, i1 noundef zeroext true, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef null)
+  %236 = call fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %83, i32 noundef range(i32 0, 4) %.0.i293, i16 noundef zeroext %85, i1 noundef zeroext true, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef null)
   br i1 %236, label %263, label %237
 
 237:                                              ; preds = %235
@@ -8294,7 +8294,7 @@ get_mxact_status_for_lock.exit:                   ; preds = %heap_acquire_tuploc
   br label %.critedge.thread
 
 239:                                              ; preds = %get_mxact_status_for_lock.exit
-  %240 = call fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %83, i32 noundef %.0.i293, i16 noundef zeroext %85, i1 noundef zeroext true, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef null)
+  %240 = call fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %83, i32 noundef range(i32 0, 4) %.0.i293, i16 noundef zeroext %85, i1 noundef zeroext true, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef null)
   br i1 %240, label %263, label %241
 
 241:                                              ; preds = %239
@@ -11414,9 +11414,9 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
 
 97:                                               ; preds = %.lr.ph78.i
   %98 = zext nneg i16 %95 to i32
-  %99 = tail call range(i32 1, 16) i32 @llvm.ctpop.i32(i32 %98)
+  %99 = tail call range(i32 1, 16) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %98)
   %100 = icmp samesign ult i32 %99, 2
-  %101 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %98, i1 true)
+  %101 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 -32768, 32768) %98, i1 true)
   %102 = xor i32 %101, 31
   %103 = shl nuw nsw i32 2, %102
   %.0.i.i = select i1 %100, i32 %98, i32 %103
@@ -15175,7 +15175,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   %54 = sext i16 %40 to i32
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %54) #11
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef range(i32 -32768, 32768) %54) #11
   tail call void @errfinish(ptr noundef nonnull @.str.27, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
@@ -15184,7 +15184,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   br label %fastgetattr.exit
 
 59:                                               ; preds = %21
-  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #11
+  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #11
   br label %fastgetattr.exit
 
 61:                                               ; preds = %16
@@ -15206,7 +15206,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   br label %fastgetattr.exit
 
 73:                                               ; preds = %61
-  %74 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #11
+  %74 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #11
   br label %fastgetattr.exit
 
 75:                                               ; preds = %4
@@ -15644,16 +15644,16 @@ define internal range(i32 -1, 2) i32 @bottomup_sort_and_shrink_cmp(ptr nocapture
 
 13:                                               ; preds = %8
   %14 = sext i16 %10 to i32
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %14)
   %16 = icmp samesign ult i32 %15, 2
-  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 -32768, 32768) %14, i1 true)
   %18 = xor i32 %17, 31
   %19 = shl nuw i32 2, %18
   %.0.i = select i1 %16, i32 %14, i32 %19
   %20 = sext i16 %12 to i32
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %20)
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %20)
   %22 = icmp samesign ult i32 %21, 2
-  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
+  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 -32768, 32768) %20, i1 true)
   %24 = xor i32 %23, 31
   %25 = shl nuw i32 2, %24
   %.0.i25 = select i1 %22, i32 %20, i32 %25

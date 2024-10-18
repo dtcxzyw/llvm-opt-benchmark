@@ -89,7 +89,7 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsW
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVechEECseG2FYMysgNb_3wax.exit.i.i unwind label %8
 
 8:                                                ; preds = %6
@@ -102,7 +102,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %7
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax.exit: ; preds = %5
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %4
 }
 
@@ -170,7 +170,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
 6:                                                ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i
   %7 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.0.val, i64 0, i64 %.sroa.0.0.i.i
   %8 = add nuw nsw i64 %.sroa.0.0.i.i, 1
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i unwind label %10
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i: ; preds = %12, %10
@@ -186,7 +186,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
 12:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
   %13 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.0.val, i64 0, i64 %.sroa.0.1.i.i
   %14 = add i64 %.sroa.0.1.i.i, 1
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i unwind label %16
 
 15:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
@@ -216,12 +216,12 @@ define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtN
 5:                                                ; preds = %4
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #35
           to label %19 unwind label %17
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !26
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !range !25, !noalias !26, !noundef !7
   %10 = icmp eq i64 %9, 0
@@ -311,7 +311,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
 4:                                                ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit
   %5 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %0, i64 0, i64 %.sroa.0.0
   %6 = add i64 %.sroa.0.0, 1
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(48) %5)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit unwind label %9
 
 7:                                                ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit
@@ -330,7 +330,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
 11:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7
   %12 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %0, i64 0, i64 %.sroa.0.1
   %13 = add i64 %.sroa.0.1, 1
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(48) %12)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7 unwind label %15
 
 14:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7
@@ -357,13 +357,13 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtNtCseG2FYM
   br i1 %7, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEBM_.exit, label %8
 
 8:                                                ; preds = %.lr.ph
-  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax.exit.i.i unwind label %9
 
 9:                                                ; preds = %8
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
           to label %.body unwind label %11
 
 11:                                               ; preds = %9
@@ -373,7 +373,7 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtNtCseG2FYM
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax.exit.i.i: ; preds = %8
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEBM_.exit unwind label %16
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEBM_.exit: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax.exit.i.i, %.lr.ph
@@ -429,12 +429,12 @@ define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTRINtN
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #35
           to label %20 unwind label %18
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !43
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !range !25, !noalias !43, !noundef !7
   %11 = icmp eq i64 %10, 0
@@ -484,12 +484,12 @@ define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTRNtNt
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #35
           to label %20 unwind label %18
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !55
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !range !25, !noalias !55, !noundef !7
   %11 = icmp eq i64 %10, 0
@@ -831,7 +831,7 @@ define { ptr, ptr } @_RINvXs3_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB6_8IntoI
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %20 = load i64, ptr %13, align 8, !alias.scope !129, !noalias !132, !noundef !7
   %21 = load i64, ptr %14, align 8, !alias.scope !129, !noalias !132, !noundef !7
-  invoke void @_RNvMsa_NtCseG2FYMysgNb_3wax5tokenINtB5_9TokenKindTjjEE10into_ownedB7_(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %12)
+  invoke void @_RNvMsa_NtCseG2FYMysgNb_3wax5tokenINtB5_9TokenKindTjjEE10into_ownedB7_(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %12)
           to label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map12map_try_foldNtNtCseG2FYMysgNb_3wax5token5TokenBZ_INtNtNtCs68wO5nsWeTG_5alloc3vec13in_place_drop11InPlaceDropBZ_EINtNtBa_6result6ResultB1A_zENvMs1_B11_BZ_10into_ownedNCINvNtB1F_16in_place_collect24write_in_place_with_dropBZ_E0E0B13_.exit unwind label %23
 
 22:                                               ; preds = %23
@@ -1345,7 +1345,7 @@ define noundef zeroext i1 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6copie
   unreachable
 
 16:                                               ; preds = %8
-  %17 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i), !noalias !212
+  %17 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.val.i), !noalias !212
   br i1 %17, label %_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1p_8adapters6copied13copy_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowuENCINvNtB2f_3map12map_try_foldBJ_NtNtBM_8variance11BoundednessuB2U_NvYBJ_NtB49_9UnitDepth10unit_depthNCINvNvB1j_3any5checkB47_NCNvXs2_B49_INtB2d_6CopiedB3_ENtB49_14CompositeDepth15composite_depth0E0E0E0B2U_EBO_.llvm.15969390215716056838.exit, label %.backedge.i
 
 18:                                               ; preds = %8
@@ -1832,7 +1832,7 @@ define hidden noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4It
   unreachable
 
 16:                                               ; preds = %8
-  %17 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val)
+  %17 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.val)
   br i1 %17, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBU_.llvm.15969390215716056838.exit, label %.backedge
 
 18:                                               ; preds = %8
@@ -2265,7 +2265,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
 11:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i
   %12 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %2, i64 0, i64 %.sroa.0.0.i
   %13 = add nuw nsw i64 %.sroa.0.0.i, 1
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(48) %12)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i unwind label %15
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i: ; preds = %17, %15
@@ -2281,7 +2281,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
 17:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i
   %18 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %2, i64 0, i64 %.sroa.0.1.i
   %19 = add i64 %.sroa.0.1.i, 1
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(48) %18)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %18)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i unwind label %21
 
 20:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i
@@ -2976,7 +2976,7 @@ define void @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCNvXsR_NtCseG
   %8 = load i64, ptr %7, align 8, !alias.scope !631, !noalias !633, !noundef !7
   %9 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %6, i64 %8
   %10 = load ptr, ptr %1, align 8, !alias.scope !629, !noalias !634, !nonnull !7, !align !23, !noundef !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !635
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !635
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %6, ptr %11, align 8, !alias.scope !626, !noalias !635
   %12 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2997,7 +2997,7 @@ define void @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCNvXsR_NtCseG
   %8 = load i64, ptr %7, align 8, !alias.scope !641, !noalias !643, !noundef !7
   %9 = getelementptr inbounds { { i64, [5 x i64] }, {} }, ptr %6, i64 %8
   %10 = load ptr, ptr %1, align 8, !alias.scope !639, !noalias !644, !nonnull !7, !align !23, !noundef !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !645
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !645
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %6, ptr %11, align 8, !alias.scope !636, !noalias !645
   %12 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3372,7 +3372,7 @@ define hidden void @_RNvXs7_NtCslyFhtC9DD08_9itertools8adaptorsINtB5_8BatchingIN
 _RINvYINtNtCslyFhtC9DD08_9itertools18peeking_take_while16PeekingTakeWhileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEENCNCNvMsO_B29_B26_8starting00ENtNtNtB1f_6traits8iterator8Iterator4folduNCINvNvB3e_8for_each4callTNtB29_8PositionRNtB29_5TokenEINvNtB1h_3mem4dropB4i_EE0EB2b_.exit.i: ; preds = %.lr.ph.i.i, %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !695
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !694
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !692
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !692
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !689, !noalias !692
   br label %_RNCNvMsO_NtCseG2FYMysgNb_3wax5tokenINtB7_4WalkTjjEE8starting0B9_.llvm.15969390215716056838.exit
@@ -4060,7 +4060,7 @@ define noundef zeroext i1 @_RNvXs2_NtNtCseG2FYMysgNb_3wax5token8varianceINtNtNtN
   unreachable
 
 15:                                               ; preds = %7
-  %16 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val.i.i), !noalias !872
+  %16 = call noundef zeroext i1 @_RNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.val.i.i), !noalias !872
   br i1 %16, label %.loopexit, label %.backedge.i.i
 
 17:                                               ; preds = %7
@@ -4410,13 +4410,13 @@ _RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cm
 40:                                               ; preds = %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1n_5TokenEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1n_5TokenEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx) #35
           to label %common.resume unwind label %52
 
 42:                                               ; preds = %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !957
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !958
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0..sroa_idx)
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load i64, ptr %43, align 8, !range !25, !noalias !958, !noundef !7
   %45 = icmp eq i64 %44, 0
@@ -4582,13 +4582,13 @@ _RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cm
 19:                                               ; preds = %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1n_5TokenEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1n_5TokenEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #35
           to label %common.resume unwind label %31
 
 21:                                               ; preds = %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.15969390215716056838.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !996
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !997
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load i64, ptr %22, align 8, !range !25, !noalias !997, !noundef !7
   %24 = icmp eq i64 %23, 0
@@ -4814,7 +4814,7 @@ define void @_RNvXs9_NtCseG2FYMysgNb_3wax5tokenRINtB5_5TokenuEINtNtB5_8variance1
   br label %_RNvXsh_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindINtNtB5_8variance12UnitVarianceNtBO_13InvariantTextE13unit_varianceB7_.exit
 
 29:                                               ; preds = %2
-  tail call void @_RNvXsI_NtCseG2FYMysgNb_3wax5tokenRNtB5_9SeparatorINtNtB5_8variance12UnitVarianceNtBO_13InvariantTextE13unit_variance(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1)
+  tail call void @_RNvXsI_NtCseG2FYMysgNb_3wax5tokenRNtB5_9SeparatorINtNtB5_8variance12UnitVarianceNtBO_13InvariantTextE13unit_variance(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
   br label %_RNvXsh_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindINtNtB5_8variance12UnitVarianceNtBO_13InvariantTextE13unit_varianceB7_.exit
 
 30:                                               ; preds = %2
@@ -4987,7 +4987,7 @@ _RNvXsA_NtCseG2FYMysgNb_3wax5tokenRNtB5_7LiteralINtNtB5_8variance12UnitVarianceN
   br label %_RNvXsh_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEEINtNtB5_8variance12UnitVarianceNtBU_13InvariantSizeE13unit_varianceB7_.exit
 
 54:                                               ; preds = %2
-  tail call void @_RNvXsJ_NtCseG2FYMysgNb_3wax5tokenRNtB5_9SeparatorINtNtB5_8variance12UnitVarianceNtBO_13InvariantSizeE13unit_variance(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1)
+  tail call void @_RNvXsJ_NtCseG2FYMysgNb_3wax5tokenRNtB5_9SeparatorINtNtB5_8variance12UnitVarianceNtBO_13InvariantSizeE13unit_variance(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
   br label %_RNvXsh_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEEINtNtB5_8variance12UnitVarianceNtBU_13InvariantSizeE13unit_varianceB7_.exit
 
 55:                                               ; preds = %2
@@ -5063,7 +5063,7 @@ define void @_RNvXs9_NtCseG2FYMysgNb_3wax5tokenRNtB5_5TokenINtNtB5_8variance12Un
   br label %_RNvXsh_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEEINtNtB5_8variance12UnitVarianceNtBU_13InvariantTextE13unit_varianceB7_.exit
 
 29:                                               ; preds = %2
-  tail call void @_RNvXsI_NtCseG2FYMysgNb_3wax5tokenRNtB5_9SeparatorINtNtB5_8variance12UnitVarianceNtBO_13InvariantTextE13unit_variance(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1)
+  tail call void @_RNvXsI_NtCseG2FYMysgNb_3wax5tokenRNtB5_9SeparatorINtNtB5_8variance12UnitVarianceNtBO_13InvariantTextE13unit_variance(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
   br label %_RNvXsh_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEEINtNtB5_8variance12UnitVarianceNtBU_13InvariantTextE13unit_varianceB7_.exit
 
 30:                                               ; preds = %2
@@ -6271,13 +6271,13 @@ _RNCNvXsD_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEENtNtB7_8variance9Uni
 26:                                               ; preds = %.loopexit7
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1n_5TokenEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1n_5TokenEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #35
           to label %common.resume unwind label %38
 
 28:                                               ; preds = %.loopexit7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1329
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1330
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
   %29 = getelementptr inbounds i8, ptr %4, i64 8
   %30 = load i64, ptr %29, align 8, !range !25, !noalias !1330, !noundef !7
   %31 = icmp eq i64 %30, 0
@@ -6321,13 +6321,13 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4WalkT
 42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1n_5TokenEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1n_5TokenEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #35
           to label %common.resume unwind label %54
 
 44:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1344
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1345
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
   %45 = getelementptr inbounds i8, ptr %2, i64 8
   %46 = load i64, ptr %45, align 8, !range !25, !noalias !1345, !noundef !7
   %47 = icmp eq i64 %46, 0
@@ -6471,13 +6471,13 @@ _RNCNvXsD_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionNtNtB7_8variance9UnitDepth
 26:                                               ; preds = %.loopexit7
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1n_5TokenuEEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1n_5TokenuEEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #35
           to label %common.resume unwind label %38
 
 28:                                               ; preds = %.loopexit7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1373
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1374
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRINtBP_5TokenuEEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRINtBP_5TokenuEEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
   %29 = getelementptr inbounds i8, ptr %4, i64 8
   %30 = load i64, ptr %29, align 8, !range !25, !noalias !1374, !noundef !7
   %31 = icmp eq i64 %30, 0
@@ -6521,13 +6521,13 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4Walku
 42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1n_5TokenuEEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1n_5TokenuEEEEB1p_(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #35
           to label %common.resume unwind label %54
 
 44:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1388
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1389
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRINtBP_5TokenuEEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRINtBP_5TokenuEEE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
   %45 = getelementptr inbounds i8, ptr %2, i64 8
   %46 = load i64, ptr %45, align 8, !range !25, !noalias !1389, !noundef !7
   %47 = icmp eq i64 %46, 0
@@ -7138,12 +7138,12 @@ define hidden void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEE
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(16) %33) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(32) %33) #35
           to label %.body.i unwind label %47
 
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1511
-  invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33)
+  invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33)
           to label %.noexc.i unwind label %49
 
 .noexc.i:                                         ; preds = %37
@@ -7198,12 +7198,12 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTRINtNtCseG2FYMysgNb_3wax5token9Tok
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx) #35
           to label %common.resume unwind label %65
 
 55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1527
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.4.0..sroa_idx)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.4.0..sroa_idx)
   %56 = getelementptr inbounds i8, ptr %5, i64 8
   %57 = load i64, ptr %56, align 8, !range !25, !noalias !1527, !noundef !7
   %58 = icmp eq i64 %57, 0
@@ -7346,12 +7346,12 @@ define hidden void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(16) %33) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(32) %33) #35
           to label %.body.i unwind label %47
 
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1546
-  invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33)
+  invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33)
           to label %.noexc.i unwind label %49
 
 .noexc.i:                                         ; preds = %37
@@ -7406,12 +7406,12 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTRNtNtCseG2FYMysgNb_3wax5token9Toke
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx) #35
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEEB1q_(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx) #35
           to label %common.resume unwind label %65
 
 55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1562
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.4.0..sroa_idx)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14current_memoryBS_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.4.0..sroa_idx)
   %56 = getelementptr inbounds i8, ptr %5, i64 8
   %57 = load i64, ptr %56, align 8, !range !25, !noalias !1562, !noundef !7
   %58 = icmp eq i64 %57, 0
@@ -7772,7 +7772,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
   br label %_RNvXs_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extendINtB6_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1m_5TokenEEINtB4_10SpecExtendB1j_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB2F_5slice4iter4IterB1W_ENCNvXsR_B1m_INtB1m_4WalkTjjEENtNtNtB2D_6traits8iterator8Iterator4nexts_0EE11spec_extendB1o_.exit
 
 49:                                               ; preds = %45
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1q_5TokenENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %14, i64 noundef %37), !noalias !1612
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1q_5TokenENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %14, i64 noundef %37), !noalias !1612
   br label %48
 
 _RNvXs_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extendINtB6_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1m_5TokenEEINtB4_10SpecExtendB1j_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB2F_5slice4iter4IterB1W_ENCNvXsR_B1m_INtB1m_4WalkTjjEENtNtNtB2D_6traits8iterator8Iterator4nexts_0EE11spec_extendB1o_.exit: ; preds = %41, %48
@@ -7909,7 +7909,7 @@ _RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2
   br label %_RNvXs_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extendINtB6_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1m_5TokenuEEEINtB4_10SpecExtendB1j_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB2I_5slice4iter4IterB1W_ENCNvXsR_B1m_INtB1m_4WalkuENtNtNtB2G_6traits8iterator8Iterator4nexts_0EE11spec_extendB1o_.exit
 
 49:                                               ; preds = %45
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1q_5TokenuEENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %14, i64 noundef %37), !noalias !1626
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1q_5TokenuEENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %14, i64 noundef %37), !noalias !1626
   br label %48
 
 _RNvXs_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extendINtB6_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1m_5TokenuEEEINtB4_10SpecExtendB1j_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtB2I_5slice4iter4IterB1W_ENCNvXsR_B1m_INtB1m_4WalkuENtNtNtB2G_6traits8iterator8Iterator4nexts_0EE11spec_extendB1o_.exit: ; preds = %41, %48
@@ -8306,7 +8306,7 @@ _RNvMsT_NtCseG2FYMysgNb_3wax5tokenINtB5_9ComponentTjjEE7literalB7_.exit.thread: 
 _RNvXNtNtCs68wO5nsWeTG_5alloc3vec14spec_from_iterINtB4_3VecTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtBY_15LiteralSequenceEEINtB2_12SpecFromIterBU_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters7flatten7FlattenINtNtB2t_10filter_map9FilterMapINtNtNtB2x_5slice4iter4IterRNtBY_5TokenENCNCINvBY_8literalsB1y_RIBL_B4h_EE00EEE9from_iterB10_.exit: ; preds = %_RNvMsT_NtCseG2FYMysgNb_3wax5tokenINtB5_9ComponentTjjEE7literalB7_.exit.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1655
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecRNtNtCseG2FYMysgNb_3wax5token5TokenE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecRNtNtCseG2FYMysgNb_3wax5token5TokenE14current_memoryBR_(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %49 = getelementptr inbounds i8, ptr %4, i64 8
   %50 = load i64, ptr %49, align 8, !range !25, !noalias !1655, !noundef !7
   %51 = icmp eq i64 %50, 0

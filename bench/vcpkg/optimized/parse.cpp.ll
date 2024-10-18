@@ -740,7 +740,7 @@ define dso_local { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noun
 _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i.i: ; preds = %15, %10
   %.sink.i.ph.i.i = phi i32 [ %14, %10 ], [ %17, %15 ]
   store i32 %.sink.i.ph.i.i, ptr %5, align 4
-  %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   br label %23
 
 19:                                               ; preds = %8
@@ -748,8 +748,8 @@ _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i.i: ; preds = %15, %10
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %6, align 8
   store i32 1, ptr %5, align 4
-  %22 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  %22 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(168) %0, i64 32, i1 false)
   br label %23
 
 23:                                               ; preds = %19, %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i.i
@@ -759,7 +759,7 @@ _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i.i: ; preds = %15, %10
   br i1 %26, label %27, label %_ZN5vcpkg10ParserBase4nextEv.exit.i
 
 27:                                               ; preds = %23
-  %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN5vcpkg10ParserBase4nextEv.exit.i
 
@@ -812,14 +812,14 @@ _ZN5vcpkg10ParserBase4nextEv.exit.i:              ; preds = %_ZN5vcpkg10ParserBa
 _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i.i: ; preds = %12, %7
   %.sink.i.ph.i.i = phi i32 [ %11, %7 ], [ %14, %12 ]
   store i32 %.sink.i.ph.i.i, ptr %5, align 4
-  %15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %16 = load i32, ptr %0, align 8
   %17 = and i32 %16, -2048
   %18 = icmp eq i32 %17, 55296
   br i1 %18, label %19, label %_ZN5vcpkg10ParserBase4nextEv.exit.i.backedge
 
 19:                                               ; preds = %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i.i
-  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN5vcpkg10ParserBase4nextEv.exit.i.backedge
 
@@ -857,14 +857,14 @@ define dso_local void @_ZN5vcpkg10ParserBase12skip_newlineEv(ptr noundef nonnull
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %5, align 4
-  %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %9 = load i32, ptr %0, align 8
   %10 = and i32 %9, -2048
   %11 = icmp eq i32 %10, 55296
   br i1 %11, label %12, label %_ZN5vcpkg10ParserBase4nextEv.exit
 
 12:                                               ; preds = %4
-  %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %.pr = load i32, ptr %0, align 8
   br label %_ZN5vcpkg10ParserBase4nextEv.exit
 
@@ -880,16 +880,16 @@ _ZN5vcpkg10ParserBase4nextEv.exit:                ; preds = %12, %4, %1
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 8
   store i32 1, ptr %17, align 4
-  %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %22 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(168) %0, i64 32, i1 false)
   %23 = load i32, ptr %0, align 8
   %24 = and i32 %23, -2048
   %25 = icmp eq i32 %24, 55296
   br i1 %25, label %26, label %_ZN5vcpkg10ParserBase4nextEv.exit7
 
 26:                                               ; preds = %16
-  %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   br label %_ZN5vcpkg10ParserBase4nextEv.exit7
 
 _ZN5vcpkg10ParserBase4nextEv.exit7:               ; preds = %26, %16, %_ZN5vcpkg10ParserBase4nextEv.exit
@@ -989,14 +989,14 @@ define dso_local void @_ZN5vcpkg10ParserBase9skip_lineEv(ptr noundef nonnull ali
 _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i.i: ; preds = %13, %8
   %.sink.i.ph.i.i = phi i32 [ %12, %8 ], [ %15, %13 ]
   store i32 %.sink.i.ph.i.i, ptr %3, align 4
-  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %17 = load i32, ptr %0, align 8
   %18 = and i32 %17, -2048
   %19 = icmp eq i32 %18, 55296
   br i1 %19, label %20, label %_ZN5vcpkg10ParserBase4nextEv.exit.i1
 
 20:                                               ; preds = %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i.i
-  %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN5vcpkg10ParserBase4nextEv.exit.i1
 
@@ -1009,14 +1009,14 @@ _ZN5vcpkg10ParserBase4nextEv.exit.i1:             ; preds = %20, %_ZN5vcpkgL14ad
   %23 = load i32, ptr %3, align 4
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %3, align 4
-  %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %26 = load i32, ptr %0, align 8
   %27 = and i32 %26, -2048
   %28 = icmp eq i32 %27, 55296
   br i1 %28, label %29, label %_ZN5vcpkg10ParserBase4nextEv.exit.i
 
 29:                                               ; preds = %22
-  %30 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %30 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %.pr.i = load i32, ptr %0, align 8
   br label %_ZN5vcpkg10ParserBase4nextEv.exit.i
 
@@ -1030,15 +1030,15 @@ _ZN5vcpkg10ParserBase4nextEv.exit.i:              ; preds = %6, %29, %22
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %4, align 8
   store i32 1, ptr %3, align 4
-  %36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  %36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(168) %0, i64 32, i1 false)
   %37 = load i32, ptr %0, align 8
   %38 = and i32 %37, -2048
   %39 = icmp eq i32 %38, 55296
   br i1 %39, label %40, label %_ZN5vcpkg10ParserBase12skip_newlineEv.exit
 
 40:                                               ; preds = %33
-  %41 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %41 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   br label %_ZN5vcpkg10ParserBase12skip_newlineEv.exit
 
 _ZN5vcpkg10ParserBase12skip_newlineEv.exit:       ; preds = %_ZN5vcpkg10ParserBase4nextEv.exit.i1, %1, %_ZN5vcpkg10ParserBase4nextEv.exit.i, %33, %40
@@ -1081,7 +1081,7 @@ _ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit.i:       ; preds = %9
 _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i: ; preds = %17, %12
   %.sink.i.ph.i = phi i32 [ %16, %12 ], [ %19, %17 ]
   store i32 %.sink.i.ph.i, ptr %11, align 4
-  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   br label %27
 
 21:                                               ; preds = %_ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit.i
@@ -1090,9 +1090,9 @@ _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i: ; preds = %17, %12
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 8
   store i32 1, ptr %11, align 4
-  %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderppEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   %26 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(168) %0, i64 32, i1 false)
   br label %27
 
 27:                                               ; preds = %21, %_ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i
@@ -1102,7 +1102,7 @@ _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i: ; preds = %17, %12
   br i1 %30, label %31, label %_ZN5vcpkg10ParserBase4nextEv.exit
 
 31:                                               ; preds = %27
-  %32 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %32 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   br label %_ZN5vcpkg10ParserBase4nextEv.exit
 
 33:                                               ; preds = %2
@@ -1123,7 +1123,7 @@ _ZN5vcpkgL14advance_rowcolEDiRiS0_.exit.thread.i: ; preds = %17, %12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !17
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(168) %0, i64 32, i1 false)
   %38 = getelementptr inbounds i8, ptr %3, i64 32
   %39 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false)
@@ -1157,7 +1157,7 @@ _ZN5vcpkg10ParserBase4nextEv.exit:                ; preds = %31, %27, %9, %46
 define dso_local void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.vcpkg::SourceLoc", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(168) %0, i64 32, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -1289,7 +1289,7 @@ _ZN5vcpkg7details15OptionalStorageINS_15LocalizedStringELb1EE7emplaceIJEEERS2_Dp
   br label %33
 
 33:                                               ; preds = %30, %3
-  %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull align 8 dereferenceable(168) %0) #17
   ret void
 }
 
@@ -1321,7 +1321,7 @@ define dso_local void @_ZN5vcpkg10ParserBase11add_warningEONS_15LocalizedStringE
   br i1 %.not.i.i.i, label %18, label %14
 
 14:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 72, i1 false)
   %15 = getelementptr inbounds i8, ptr %11, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   %16 = load ptr, ptr %10, align 8
@@ -1360,7 +1360,7 @@ define dso_local void @_ZN5vcpkg10ParserBase11add_warningEONS_15LocalizedStringE
   br i1 %.not.i.i, label %14, label %10
 
 10:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 72, i1 false)
   %11 = getelementptr inbounds i8, ptr %7, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %12 = load ptr, ptr %6, align 8
@@ -4592,7 +4592,7 @@ _ZNKSt6vectorIN5vcpkg12ParseMessageESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = 
 _ZNSt12_Vector_baseIN5vcpkg12ParseMessageESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5vcpkg12ParseMessageESaIS1_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN5vcpkg12ParseMessageESaIS1_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.vcpkg::ParseMessage", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 72, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 72
   %26 = getelementptr inbounds i8, ptr %2, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26) #17
@@ -4602,7 +4602,7 @@ _ZNSt12_Vector_baseIN5vcpkg12ParseMessageESaIS1_EE11_M_allocateEm.exit: ; preds 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseIN5vcpkg12ParseMessageESaIS1_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN5vcpkg12ParseMessageESaIS1_EE11_M_allocateEm.exit ]
   %.0911.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN5vcpkg12ParseMessageESaIS1_EE11_M_allocateEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i, i64 72, i1 false), !alias.scope !89
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i, i64 72, i1 false), !alias.scope !89
   %27 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
   %28 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28) #17
@@ -4621,7 +4621,7 @@ _ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %35, %.lr.ph.i.i.i17 ], [ %31, %_ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i19 = phi ptr [ %34, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i19, i64 72, i1 false), !alias.scope !94
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i19, i64 72, i1 false), !alias.scope !94
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 72
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %33) #17

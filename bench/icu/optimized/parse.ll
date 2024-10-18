@@ -2629,7 +2629,7 @@ if.then9:                                         ; preds = %invoke.cont6
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %invoke.cont6
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fullname)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fullname)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.end12
@@ -2762,12 +2762,12 @@ terminate.lpad.i37:                               ; preds = %cleanup
 
 cleanup59:                                        ; preds = %cleanup, %invoke.cont26, %invoke.cont39
   %retval.1 = phi ptr [ null, %invoke.cont39 ], [ null, %invoke.cont26 ], [ %retval.2, %cleanup ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fullname) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fullname) #20
   br label %cleanup60
 
 ehcleanup:                                        ; preds = %lpad44, %lpad17
   %.pn = phi { ptr, i32 } [ %15, %lpad17 ], [ %22, %lpad44 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fullname) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fullname) #20
   br label %ehcleanup61
 
 cleanup60:                                        ; preds = %call.i.i.noexc, %invoke.cont, %entry, %cleanup59
@@ -4296,12 +4296,12 @@ ehcleanup293:                                     ; preds = %delete.notnull.i126
 
 cleanup294:                                       ; preds = %invoke.cont121, %_ZN6icu_7512LocalPointerINS_18CollationTailoringEED2Ev.exit
   %retval.1 = phi ptr [ %retval.2, %_ZN6icu_7512LocalPointerINS_18CollationTailoringEED2Ev.exit ], [ null, %invoke.cont121 ]
-  call void @_ZN6icu_7519CollationRuleParser8ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %importer) #20
+  call void @_ZN6icu_7519CollationRuleParser8ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %importer) #20
   br label %cleanup296
 
 ehcleanup295:                                     ; preds = %ehcleanup293, %lpad113
   %.pn93 = phi { ptr, i32 } [ %21, %lpad113 ], [ %.pn.pn, %ehcleanup293 ]
-  call void @_ZN6icu_7519CollationRuleParser8ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %importer) #20
+  call void @_ZN6icu_7519CollationRuleParser8ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %importer) #20
   br label %ehcleanup297
 
 cleanup296:                                       ; preds = %if.then20.invoke, %invoke.cont103, %if.then106, %invoke.cont93, %if.then96, %for.end, %if.then9, %if.else, %cleanup294
@@ -4604,7 +4604,7 @@ if.then:                                          ; preds = %entry.tail
 
 if.end:                                           ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %jamo.i)
-  %call.i = tail call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.76, ptr noundef nonnull %status)
+  %call.i = tail call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.76, ptr noundef nonnull %status)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -4674,7 +4674,7 @@ _ZL22writeCollationJamoTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode.exit
 
 if.end12:                                         ; preds = %_ZL22writeCollationJamoTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lastPrimaries.i)
-  %call.i79 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.79, ptr noundef nonnull %status)
+  %call.i79 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.79, ptr noundef nonnull %status)
   %tobool.not.i80 = icmp eq ptr %call.i79, null
   br i1 %tobool.not.i80, label %_ZL34writeCollationSpecialPrimariesTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode.exit, label %for.body.i
 
@@ -4786,7 +4786,7 @@ if.end45:                                         ; preds = %for.inc, %if.else, 
   br i1 %cmp.i144.not, label %if.end53, label %if.then48
 
 if.then48:                                        ; preds = %if.end45
-  %call.i146 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.83, ptr noundef %status)
+  %call.i146 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.83, ptr noundef %status)
   %tobool.not.i147 = icmp eq ptr %call.i146, null
   br i1 %tobool.not.i147, label %_ZL28writeCollationReorderingTOMLPKcS0_S0_PKN6icu_7517CollationSettingsEP10UErrorCode.exit, label %if.end.i
 
@@ -4819,7 +4819,7 @@ if.then58:                                        ; preds = %if.end53
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %tailoringSet.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %builder.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %utrie.i)
-  %call.i152 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.87, ptr noundef %status)
+  %call.i152 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.87, ptr noundef %status)
   %tobool.not.i153 = icmp eq ptr %call.i152, null
   br i1 %tobool.not.i153, label %_ZL22writeCollationDataTOMLPKcS0_S0_PKN6icu_7513CollationDataEaiP10UErrorCode.exit, label %if.end.i154
 
@@ -5109,7 +5109,7 @@ sw.default:                                       ; preds = %if.end74
 
 sw.epilog:                                        ; preds = %if.end74, %sw.bb103, %sw.bb100
   %metadataBits.6 = phi i32 [ %or104, %sw.bb103 ], [ %or102, %sw.bb100 ], [ %metadataBits.5, %if.end74 ]
-  %call.i185 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.93, ptr noundef %status)
+  %call.i185 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.93, ptr noundef %status)
   %tobool.not.i186 = icmp eq ptr %call.i185, null
   br i1 %tobool.not.i186, label %return, label %if.end.i187
 
@@ -5147,7 +5147,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_113GenrbImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7519CollationRuleParser8ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN6icu_7519CollationRuleParser8ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #20
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #20
   ret void
 }
@@ -5169,7 +5169,7 @@ entry:
   %1 = load ptr, ptr %agg.tmp, align 8
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %3 = load i32, ptr %2, align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %filename)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %filename)
   %len.i = getelementptr inbounds i8, ptr %filename, i64 56
   store i32 0, ptr %len.i, align 8
   %4 = load ptr, ptr %filename, align 8
@@ -5184,7 +5184,7 @@ for.cond.preheader:                               ; preds = %entry
 
 common.resume:                                    ; preds = %lpad, %ehcleanup141, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %6, %lpad.i ], [ %.pn.pn.pn, %ehcleanup141 ], [ %10, %lpad ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %filename) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %filename) #20
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -5235,7 +5235,7 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   br i1 %cmp.i, label %if.end13, label %cleanup142
 
 if.end13:                                         ; preds = %invoke.cont9
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %inputDirBuf)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %inputDirBuf)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.end13
@@ -5243,7 +5243,7 @@ invoke.cont14:                                    ; preds = %if.end13
   store i32 0, ptr %len.i31, align 8
   %17 = load ptr, ptr %inputDirBuf, align 8
   store i8 0, ptr %17, align 1
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %openFileName)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %openFileName)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -5427,7 +5427,7 @@ while.body.i:                                     ; preds = %if.end6.i, %while.b
   %48 = load i32, ptr %fKey.i, align 4
   %idx.ext.i = sext i32 %48 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %47, i64 %idx.ext.i
-  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(11) @.str.39) #23
+  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(11) @.str.39) #23
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then120, label %if.end6.i
 
@@ -5530,12 +5530,12 @@ terminate.lpad.i:                                 ; preds = %if.then.i79
   unreachable
 
 cleanup138:                                       ; preds = %if.then.i79, %cleanup137, %invoke.cont68
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %openFileName) #20
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %inputDirBuf) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %openFileName) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %inputDirBuf) #20
   br label %cleanup142
 
 cleanup142:                                       ; preds = %invoke.cont9, %cleanup138
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %filename) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %filename) #20
   ret void
 
 ehcleanup:                                        ; preds = %lpad114, %lpad83
@@ -5545,12 +5545,12 @@ ehcleanup:                                        ; preds = %lpad114, %lpad83
 
 ehcleanup139:                                     ; preds = %ehcleanup, %lpad19
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %24, %lpad19 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %openFileName) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %openFileName) #20
   br label %ehcleanup141
 
 ehcleanup141:                                     ; preds = %ehcleanup139, %lpad15
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup139 ], [ %23, %lpad15 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %inputDirBuf) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %inputDirBuf) #20
   br label %common.resume
 }
 
@@ -5814,7 +5814,7 @@ entry:
   %outFileName = alloca %"class.icu_75::CharString", align 8
   %agg.tmp20 = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp29 = alloca %"class.icu_75::StringPiece", align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %baseName)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %baseName)
   %len.i = getelementptr inbounds i8, ptr %baseName, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %baseName, align 8
@@ -5874,7 +5874,7 @@ invoke.cont15:                                    ; preds = %invoke.cont12
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFileName)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %outFileName)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -5913,7 +5913,7 @@ lpad:                                             ; preds = %invoke.cont16, %inv
 lpad21:                                           ; preds = %invoke.cont30, %if.end, %invoke.cont22, %if.end42, %invoke.cont27, %invoke.cont23, %if.then
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFileName) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %outFileName) #20
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont23, %land.lhs.true, %invoke.cont18
@@ -5955,13 +5955,13 @@ if.end42:                                         ; preds = %if.end36
 
 cleanup:                                          ; preds = %if.end42, %invoke.cont31, %if.then41
   %retval.0 = phi ptr [ null, %if.then41 ], [ null, %invoke.cont31 ], [ %call39, %if.end42 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFileName) #20
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %baseName) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %outFileName) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %baseName) #20
   ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %lpad21, %lpad
   %.pn = phi { ptr, i32 } [ %22, %lpad21 ], [ %21, %lpad ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %baseName) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %baseName) #20
   resume { ptr, i32 } %.pn
 }
 

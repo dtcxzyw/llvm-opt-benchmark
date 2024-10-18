@@ -349,7 +349,7 @@ define dso_local void @_ZN4llvm3pdb21NativeTypeFunctionSigD2Ev(ptr noundef nonnu
   br label %_ZN4llvm8codeview13ArgListRecordD2Ev.exit
 
 _ZN4llvm8codeview13ArgListRecordD2Ev.exit:        ; preds = %1, %4
-  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
   ret void
 }
 
@@ -395,7 +395,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %3, %8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %12, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(184) %4) #14
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 106
@@ -404,7 +404,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %3, %8
   store i8 0, ptr %20, align 2
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %22 = getelementptr inbounds i8, ptr %4, i64 128
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %22, i64 noundef 2) #14
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull %22, i64 noundef 2) #14
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %17, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -426,7 +426,7 @@ _ZN4llvm5ErrorD2Ev.exit21:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 
 .critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit21, %_ZN4llvm5ErrorD2Ev.exit, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %18, align 8
-  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #14
+  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %21) #14
   %28 = load ptr, ptr %21, align 8
   %29 = icmp eq ptr %28, %22
   br i1 %29, label %_ZN4llvm8codeview17TypeRecordMappingD2Ev.exit.i, label %30
@@ -1530,7 +1530,7 @@ _ZNK12_GLOBAL__N_122NativeEnumFunctionArgs4wrapESt10unique_ptrIN4llvm3pdb9PDBSym
   %15 = load ptr, ptr %14, align 8, !noalias !9
   %16 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16, !noalias !12
   store ptr null, ptr %5, align 8, !noalias !12
-  call void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(584) %15, i32 noundef 20, i32 noundef 0) #14, !noalias !12
+  call void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(584) %15, i32 noundef 20, i32 noundef 0) #14, !noalias !12
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN12_GLOBAL__N_121NativeTypeFunctionArgE, i64 16), ptr %16, align 8, !noalias !12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 %13, ptr %17, align 8, !noalias !12
@@ -1592,7 +1592,7 @@ _ZNK12_GLOBAL__N_122NativeEnumFunctionArgs4wrapESt10unique_ptrIN4llvm3pdb9PDBSym
   %14 = load ptr, ptr %13, align 8, !noalias !15
   %15 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16, !noalias !18
   store ptr null, ptr %4, align 8, !noalias !18
-  call void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(584) %14, i32 noundef 20, i32 noundef 0) #14, !noalias !18
+  call void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(584) %14, i32 noundef 20, i32 noundef 0) #14, !noalias !18
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN12_GLOBAL__N_121NativeTypeFunctionArgE, i64 16), ptr %15, align 8, !noalias !18
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %12, ptr %16, align 8, !noalias !18
@@ -1660,7 +1660,7 @@ _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i: ; preds = %1
 
 _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
   ret void
 }
 
@@ -1681,7 +1681,7 @@ _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i: ; preds = %1
 
 _ZN12_GLOBAL__N_121NativeTypeFunctionArgD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #15
   ret void
 }

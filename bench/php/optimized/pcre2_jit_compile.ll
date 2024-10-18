@@ -263,7 +263,7 @@ sljit_remove_free_block.exit:                     ; preds = %25, %23, %10
 ._crit_edge:                                      ; preds = %30, %1
   %32 = add i64 %3, 65551
   %33 = and i64 %32, -65536
-  %34 = tail call ptr @mmap(ptr noundef null, i64 noundef %33, i32 noundef 7, i32 noundef 34, i32 noundef -1, i64 noundef 0) #18
+  %34 = tail call ptr @mmap(ptr noundef null, i64 noundef range(i64 0, -65535) %33, i32 noundef 7, i32 noundef 34, i32 noundef -1, i64 noundef 0) #18
   %magicptr = ptrtoint ptr %34 to i64
   switch i64 %magicptr, label %37 [
     i64 -1, label %35
@@ -1075,7 +1075,7 @@ bracketend.exit111.i:                             ; preds = %.preheader.i
   br label %322
 
 319:                                              ; preds = %134
-  %320 = call fastcc ptr @next_opcode(ptr noundef %8, ptr noundef nonnull %.0103115.i)
+  %320 = call fastcc ptr @next_opcode(ptr noundef nonnull %8, ptr noundef nonnull %.0103115.i)
   %321 = icmp eq ptr %320, null
   br i1 %321, label %324, label %322
 
@@ -1949,7 +1949,7 @@ find_vreverse.exit.i:                             ; preds = %639
   br label %get_class_iterator_size.exit.i
 
 770:                                              ; preds = %597
-  %771 = call fastcc ptr @next_opcode(ptr noundef readonly %8, ptr noundef nonnull %.0110226.i)
+  %771 = call fastcc ptr @next_opcode(ptr noundef nonnull readonly %8, ptr noundef nonnull %.0110226.i)
   br label %.thread192.i
 
 get_class_iterator_size.exit.i:                   ; preds = %760, %757, %746, %734, %734, %724, %721, %710, %707, %707, %706, %703, %700, %699, %698, %697, %597, %597, %597, %597, %597, %597, %597, %597, %597, %597, %597, %597, %597, %597, %597, %597
@@ -2440,7 +2440,7 @@ sljit_emit_op2.exit.i:                            ; preds = %960, %962, %emit_mo
   %976 = add nsw i32 %974, %975
   %977 = sext i32 %976 to i64
   store i32 0, ptr %967, align 8
-  %978 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %954, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %977)
+  %978 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %954, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %977)
   %.not73.i.i = icmp eq ptr %978, null
   br i1 %.not73.i.i, label %sljit_emit_op1.exit.i, label %emit_mov.exit.thread.i
 
@@ -2688,7 +2688,7 @@ reset_ovector.exit:                               ; preds = %sljit_emit_op1.exit
   %1082 = sext i32 %1079 to i64
   %1083 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %1083, align 8
-  %1084 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %1082)
+  %1084 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1082)
   %.not73.i1616 = icmp eq ptr %1084, null
   br i1 %.not73.i1616, label %emit_mov.exit1618, label %emit_mov.exit1618.thread
 
@@ -2968,7 +2968,7 @@ sljit_emit_op1.exit811:                           ; preds = %emit_mov.exit1618, 
   %1177 = sext i32 %1166 to i64
   %1178 = getelementptr inbounds i8, ptr %1171, i64 152
   store i32 0, ptr %1178, align 8
-  %1179 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1171, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %1177)
+  %1179 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1171, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1177)
   %.not71.i.i = icmp eq ptr %1179, null
   br i1 %.not71.i.i, label %reset_early_fail.exit, label %emit_mov.exit.thread.i825
 
@@ -3026,7 +3026,7 @@ sljit_emit_op1.exit49.us.i:                       ; preds = %.lr.ph.i820, %sljit
 .thread.i.i824:                                   ; preds = %.lr.ph.split.i
   %1196 = sext i32 %.036113.i to i64
   store i32 0, ptr %1189, align 8
-  %1197 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1171, i64 noundef 1, i32 noundef 3, i64 noundef 0, i32 noundef 142, i64 noundef %1196)
+  %1197 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1171, i64 noundef 1, i32 noundef 3, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1196)
   %.not73.i1660 = icmp eq ptr %1197, null
   br i1 %.not73.i1660, label %emit_mov.exit1662, label %1198
 
@@ -3206,7 +3206,7 @@ reset_early_fail.exit:                            ; preds = %sljit_emit_op1.exit
   %1252 = sext i32 %1251 to i64
   %1253 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %1253, align 8
-  %1254 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef -1, i32 noundef 142, i64 noundef %1252)
+  %1254 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef -1, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1252)
   %.not71.i = icmp eq ptr %1254, null
   br i1 %.not71.i, label %sljit_emit_op1.exit831, label %emit_mov.exit1665.thread
 
@@ -3229,7 +3229,7 @@ sljit_emit_op1.exit831:                           ; preds = %1249, %1247, %emit_
   %1260 = sext i32 %1256 to i64
   %1261 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %1261, align 8
-  %1262 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %1260)
+  %1262 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1260)
   %.not71.i1668 = icmp eq ptr %1262, null
   br i1 %.not71.i1668, label %sljit_emit_op1.exit837, label %emit_mov.exit1670.thread
 
@@ -3251,7 +3251,7 @@ sljit_emit_op1.exit837:                           ; preds = %1259, %1257, %emit_
   %1267 = sext i32 %1263 to i64
   %1268 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %1268, align 8
-  %1269 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %1267)
+  %1269 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1267)
   %.not71.i1673 = icmp eq ptr %1269, null
   br i1 %.not71.i1673, label %sljit_emit_op1.exit843, label %emit_mov.exit1675.thread
 
@@ -3488,7 +3488,7 @@ sljit_set_label.exit143.i:                        ; preds = %1360, %sljit_set_la
 
 .thread.i.i858:                                   ; preds = %1370
   store i8 -115, ptr %1372, align 1
-  %1373 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1273, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %1368)
+  %1373 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1273, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %1368)
   %.not73.i.i.i = icmp eq ptr %1373, null
   br i1 %.not73.i.i.i, label %emit_lea_binary.exit.i860, label %emit_lea_binary.exit.thread.i859
 
@@ -3502,7 +3502,7 @@ emit_lea_binary.exit.i860:                        ; preds = %.thread.i.i858, %13
   br i1 %.not167.i.i, label %1374, label %sljit_emit_op2.exit146.i
 
 1374:                                             ; preds = %emit_lea_binary.exit.i860
-  %1375 = call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %1273, i32 noundef 757803304, i32 noundef 142, i64 noundef %1368, i32 noundef 2, i64 noundef 0, i32 noundef 127, i64 noundef 1)
+  %1375 = call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %1273, i32 noundef 757803304, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %1368, i32 noundef 2, i64 noundef 0, i32 noundef 127, i64 noundef 1)
   br label %sljit_emit_op2.exit146thread-pre-split.i
 
 1376:                                             ; preds = %1318, %sljit_emit_op1.exit.i847
@@ -3518,7 +3518,7 @@ emit_lea_binary.exit.i860:                        ; preds = %.thread.i.i858, %13
   %1383 = sext i32 %1382 to i64
   %1384 = getelementptr inbounds i8, ptr %1273, i64 152
   store i32 0, ptr %1384, align 8
-  %1385 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1273, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %1383)
+  %1385 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1273, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1383)
   %.not73.i318.i = icmp eq ptr %1385, null
   br i1 %.not73.i318.i, label %sljit_emit_op1.exit151.i, label %emit_mov.exit320.thread.i
 
@@ -3529,9 +3529,9 @@ emit_mov.exit320.thread.i:                        ; preds = %1381
 sljit_emit_op1.exit151.i:                         ; preds = %emit_mov.exit320.thread.i, %1381, %1376
   %1386 = load i32, ptr %70, align 4
   %1387 = load i32, ptr %69, align 8
-  call fastcc void @read_char(ptr noundef %8, i32 noundef %1386, i32 noundef %1387, ptr noundef null, i32 noundef 3)
+  call fastcc void @read_char(ptr noundef nonnull %8, i32 noundef %1386, i32 noundef %1387, ptr noundef null, i32 noundef 3)
   %1388 = load i32, ptr %53, align 4
-  call fastcc void @check_newlinechar(ptr noundef %8, i32 noundef %1388, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @check_newlinechar(ptr noundef nonnull %8, i32 noundef %1388, ptr noundef nonnull %5, i32 noundef 1)
   %1389 = call fastcc ptr @sljit_emit_cmp(ptr noundef nonnull %1273, i32 noundef 2, i32 noundef 2, i64 noundef 0, i32 noundef 13, i64 noundef 0)
   %.not.i152.i = icmp eq ptr %1389, null
   %.not7.i153.i = icmp eq ptr %1378, null
@@ -3575,7 +3575,7 @@ sljit_set_label.exit159.i:                        ; preds = %1397, %sljit_set_la
   %1406 = sext i32 %1405 to i64
   %1407 = getelementptr inbounds i8, ptr %1273, i64 152
   store i32 0, ptr %1407, align 8
-  %1408 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1273, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %1406)
+  %1408 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1273, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1406)
   %.not73.i321.i = icmp eq ptr %1408, null
   br i1 %.not73.i321.i, label %sljit_emit_op1.exit164.i, label %emit_mov.exit323.thread.i
 
@@ -3981,7 +3981,7 @@ sljit_set_label.exit208.i:                        ; preds = %1555, %add_jump.exi
   %1565 = sext i32 %1564 to i64
   %1566 = getelementptr inbounds i8, ptr %1273, i64 152
   store i32 0, ptr %1566, align 8
-  %1567 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1273, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %1565)
+  %1567 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1273, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1565)
   %.not73.i344.i = icmp eq ptr %1567, null
   br i1 %.not73.i344.i, label %emit_mov.exit346.i, label %emit_mov.exit346.thread.i
 
@@ -5154,7 +5154,7 @@ sljit_emit_op1.exit97.i.i:                        ; preds = %2040, %2032
   %sext.i.i = mul nuw i64 %2053, 72340172821233664
   %2054 = ashr exact i64 %sext.i.i, 32
   store i32 1, ptr %2001, align 8
-  %2055 = call fastcc i32 @emit_mov(ptr noundef nonnull %.val.i877, i32 noundef 15, i64 noundef 0, i32 noundef 127, i64 noundef %2054)
+  %2055 = call fastcc i32 @emit_mov(ptr noundef nonnull %.val.i877, i32 noundef 15, i64 noundef 0, i32 noundef 127, i64 noundef range(i64 -2147483648, 2147483648) %2054)
   %.not277.i.i.i = icmp eq i32 %2055, 0
   br i1 %.not277.i.i.i, label %2056, label %sljit_emit_simd_lane_mov.exit.ithread-pre-split.i
 
@@ -5245,7 +5245,7 @@ sljit_emit_simd_lane_mov.exit.i.i:                ; preds = %sljit_emit_simd_lan
   %2093 = sext i32 %2092 to i64
   %2094 = getelementptr inbounds i8, ptr %.val.i877, i64 152
   store i32 1, ptr %2094, align 8
-  %2095 = call fastcc i32 @emit_mov(ptr noundef nonnull %.val.i877, i32 noundef 15, i64 noundef 0, i32 noundef 127, i64 noundef %2093)
+  %2095 = call fastcc i32 @emit_mov(ptr noundef nonnull %.val.i877, i32 noundef 15, i64 noundef 0, i32 noundef 127, i64 noundef range(i64 -2147483648, 2147483648) %2093)
   %.not277.i103.i.i = icmp eq i32 %2095, 0
   br i1 %.not277.i103.i.i, label %2096, label %sljit_emit_simd_lane_mov.exit105.i.i
 
@@ -6562,7 +6562,7 @@ fast_requested_char_simd.exit.i:                  ; preds = %2670, %2668, %sljit
   %2679 = sext i32 %2678 to i64
   %2680 = getelementptr inbounds i8, ptr %1862, i64 152
   store i32 0, ptr %2680, align 8
-  %2681 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1862, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %2679)
+  %2681 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1862, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2679)
   %.not73.i163.i = icmp eq ptr %2681, null
   br i1 %.not73.i163.i, label %sljit_emit_op1.exit107.i, label %emit_mov.exit165.thread.i
 
@@ -6615,7 +6615,7 @@ search_requested_char.exit:                       ; preds = %2690, %sljit_set_la
   %2699 = sext i32 %2698 to i64
   %2700 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %2700, align 8
-  %2701 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %2699)
+  %2701 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2699)
   %.not73.i1676 = icmp eq ptr %2701, null
   br i1 %.not73.i1676, label %emit_mov.exit1678, label %sljit_emit_op1.exit914
 
@@ -6654,7 +6654,7 @@ sljit_emit_op1.exit920:                           ; preds = %emit_mov.exit1678, 
   %2709 = sext i32 %2705 to i64
   %2710 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %2710, align 8
-  %2711 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %2709)
+  %2711 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2709)
   %.not71.i1684 = icmp eq ptr %2711, null
   br i1 %.not71.i1684, label %sljit_emit_op1.exit926, label %emit_mov.exit1686.thread
 
@@ -6686,7 +6686,7 @@ sljit_emit_op1.exit926:                           ; preds = %2708, %2706, %emit_
   %2726 = sext i32 %2725 to i64
   %2727 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %2727, align 8
-  %2728 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %2726)
+  %2728 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2726)
   %.not73.i1687 = icmp eq ptr %2728, null
   br i1 %.not73.i1687, label %sljit_emit_op1.exit932, label %emit_mov.exit1689.thread
 
@@ -6709,7 +6709,7 @@ sljit_emit_op1.exit932:                           ; preds = %2716, %2714, %emit_
   %2734 = sext i32 %2729 to i64
   %2735 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %2735, align 8
-  %2736 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %2734)
+  %2736 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2734)
   %.not73.i1690 = icmp eq ptr %2736, null
   br i1 %.not73.i1690, label %sljit_emit_op1.exit938, label %emit_mov.exit1692.thread
 
@@ -6735,7 +6735,7 @@ sljit_emit_op1.exit938:                           ; preds = %2733, %2731, %emit_
   %2746 = sext i32 %2745 to i64
   %2747 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %2747, align 8
-  %2748 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %2746)
+  %2748 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2746)
   %.not73.i1693 = icmp eq ptr %2748, null
   br i1 %.not73.i1693, label %sljit_emit_op1.exit944, label %emit_mov.exit1695.thread
 
@@ -6775,7 +6775,7 @@ sljit_emit_op1.exit944:                           ; preds = %2743, %emit_mov.exi
   %2763 = sext i32 %2762 to i64
   %2764 = getelementptr inbounds i8, ptr %833, i64 152
   store i32 0, ptr %2764, align 8
-  %2765 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %2763)
+  %2765 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2763)
   %.not73.i1696 = icmp eq ptr %2765, null
   br i1 %.not73.i1696, label %sljit_set_label.exit, label %emit_mov.exit1698.thread
 
@@ -6958,7 +6958,7 @@ sljit_emit_op1.exit.thread.i:                     ; preds = %sljit_emit_op1.exit
   %.in.i = add nsw i32 %.in.in.i, 8
   %2826 = sext i32 %.in.i to i64
   store i32 0, ptr %2822, align 8
-  %2827 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2816, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %2826)
+  %2827 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2816, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2826)
   %.not73.i.i993 = icmp eq ptr %2827, null
   br i1 %.not73.i.i993, label %emit_mov.exit187.i, label %sljit_emit_op1.exit66.i994
 
@@ -8109,7 +8109,7 @@ sljit_emit_op1.exit1074:                          ; preds = %3263
   %.in = phi i32 [ %3270, %sljit_emit_op1.exit1074.thread ], [ %3273, %sljit_emit_op1.exit1074 ]
   %3275 = sext i32 %.in to i64
   store i32 0, ptr %3266, align 8
-  %3276 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef -1, i32 noundef 142, i64 noundef %3275)
+  %3276 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 127, i64 noundef -1, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %3275)
   %.not71.i1704 = icmp eq ptr %3276, null
   br i1 %.not71.i1704, label %emit_mov.exit1706, label %sljit_emit_op1.exit1080
 
@@ -8133,7 +8133,7 @@ sljit_emit_op1.exit1080:                          ; preds = %3274
   %.in1984 = phi i32 [ %3278, %sljit_emit_op1.exit1080.thread ], [ %3280, %sljit_emit_op1.exit1080 ]
   %3282 = sext i32 %.in1984 to i64
   store i32 0, ptr %3266, align 8
-  %3283 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %3282)
+  %3283 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %833, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %3282)
   %.not73.i1707 = icmp eq ptr %3283, null
   br i1 %.not73.i1707, label %sljit_emit_op1.exit1086, label %emit_mov.exit1709.thread
 
@@ -9570,7 +9570,7 @@ recurse_check_bit.exit332.thread.i.i:             ; preds = %get_class_iterator_
   br label %4020
 
 4018:                                             ; preds = %.lr.ph.i.i1256
-  %4019 = call fastcc ptr @next_opcode(ptr noundef readonly %8, ptr noundef nonnull %.0183371.i.i)
+  %4019 = call fastcc ptr @next_opcode(ptr noundef nonnull readonly %8, ptr noundef nonnull %.0183371.i.i)
   br label %4020
 
 4020:                                             ; preds = %4018, %4015, %4012, %4005, %4002, %3993, %recurse_check_bit.exit332.thread.i.i, %3930, %3908, %3886, %3859, %3855, %3852, %3825, %3821, %3818, %3791, %3787, %3784, %3762, %3729, %3653, %3591, %3570, %3538, %3517
@@ -9721,11 +9721,11 @@ set_jumps.exit.i:                                 ; preds = %sljit_set_label.exi
   br label %sljit_emit_op_dst.exit.i
 
 sljit_emit_op_dst.exit.i:                         ; preds = %4083, %4082, %set_jumps.exit.i
-  call fastcc void @count_match(ptr noundef %8)
+  call fastcc void @count_match(ptr noundef nonnull %8)
   %4088 = icmp ne i32 %.0.i195.i, 0
   %4089 = select i1 %4088, i32 2, i32 1
   %4090 = add nsw i32 %4089, %.22.i.i
-  call fastcc void @allocate_stack(ptr noundef %8, i32 noundef %4090)
+  call fastcc void @allocate_stack(ptr noundef nonnull %8, i32 noundef %4090)
   %4091 = shl nuw nsw i32 %4089, 3
   %4092 = add nsw i32 %4091, -8
   %4093 = zext nneg i32 %4092 to i64
@@ -9736,7 +9736,7 @@ sljit_emit_op_dst.exit.i:                         ; preds = %4083, %4082, %set_j
 4095:                                             ; preds = %sljit_emit_op_dst.exit.i
   %4096 = getelementptr inbounds i8, ptr %3489, i64 152
   store i32 0, ptr %4096, align 8
-  %4097 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef %4093)
+  %4097 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %4093)
   %.not73.i.i1248 = icmp eq ptr %4097, null
   br i1 %.not73.i.i1248, label %sljit_emit_op1.exit.i1211, label %emit_mov.exit.thread.i1249
 
@@ -9745,7 +9745,7 @@ emit_mov.exit.thread.i1249:                       ; preds = %4095
   br label %sljit_emit_op1.exit.i1211
 
 sljit_emit_op1.exit.i1211:                        ; preds = %emit_mov.exit.thread.i1249, %4095, %sljit_emit_op_dst.exit.i
-  call fastcc void @copy_recurse_data(ptr noundef %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 0, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 0, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
   %4098 = load i32, ptr %3489, align 8
   %.not.i203.i = icmp eq i32 %4098, 0
   br i1 %.not.i203.i, label %4099, label %sljit_emit_op1.exit207.i
@@ -9755,7 +9755,7 @@ sljit_emit_op1.exit.i1211:                        ; preds = %emit_mov.exit.threa
   %4101 = sext i32 %4100 to i64
   %4102 = getelementptr inbounds i8, ptr %3489, i64 152
   store i32 0, ptr %4102, align 8
-  %4103 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef %4101)
+  %4103 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %4101)
   %.not73.i442.i = icmp eq ptr %4103, null
   br i1 %.not73.i442.i, label %sljit_emit_op1.exit207.i, label %emit_mov.exit444.thread.i
 
@@ -9778,7 +9778,7 @@ sljit_emit_op1.exit207.i:                         ; preds = %emit_mov.exit444.th
   %4109 = sext i32 %4108 to i64
   %4110 = getelementptr inbounds i8, ptr %3489, i64 152
   store i32 0, ptr %4110, align 8
-  %4111 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %4109)
+  %4111 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %4109)
   %.not71.i.i1247 = icmp eq ptr %4111, null
   br i1 %.not71.i.i1247, label %sljit_emit_op1.exit212.i, label %emit_mov.exit446.thread.i
 
@@ -9866,13 +9866,13 @@ emit_mov.exit451.thread.i:                        ; preds = %4143
 
 sljit_emit_op1.exit222.i:                         ; preds = %emit_mov.exit451.thread.i, %4143, %4141, %4139
   %4145 = load ptr, ptr %3484, align 8
-  call fastcc void @compile_matchingpath(ptr noundef %8, ptr noundef %4145, ptr noundef nonnull %.0167.i, ptr noundef nonnull %3)
+  call fastcc void @compile_matchingpath(ptr noundef nonnull %8, ptr noundef %4145, ptr noundef nonnull %.0167.i, ptr noundef nonnull %3)
   %.val187.i = load i32, ptr %3489, align 8
   %.not178.i = icmp eq i32 %.val187.i, 0
   br i1 %.not178.i, label %4146, label %compile_recurse.exit
 
 4146:                                             ; preds = %sljit_emit_op1.exit222.i
-  call fastcc void @allocate_stack(ptr noundef %8, i32 noundef %4129)
+  call fastcc void @allocate_stack(ptr noundef nonnull %8, i32 noundef %4129)
   %4147 = load i32, ptr %3489, align 8
   %.not.i223.i = icmp eq i32 %4147, 0
   br i1 %.not.i223.i, label %4148, label %sljit_emit_op1.exit227.i
@@ -10198,7 +10198,7 @@ sljit_emit_op1.exit261.i:                         ; preds = %4271
 
 sljit_emit_op1.exit261.thread.i:                  ; preds = %sljit_emit_op1.exit261.i, %emit_mov.exit457.i
   store i32 0, ptr %4125, align 8
-  %4275 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 132, i64 noundef %4093)
+  %4275 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 132, i64 noundef range(i64 -2147483648, 2147483664) %4093)
   %.not73.i458.i = icmp eq ptr %4275, null
   br i1 %.not73.i458.i, label %sljit_emit_op1.exit266.i, label %emit_mov.exit460.thread.i
 
@@ -10207,7 +10207,7 @@ emit_mov.exit460.thread.i:                        ; preds = %sljit_emit_op1.exit
   br label %sljit_emit_op1.exit266.i
 
 sljit_emit_op1.exit266.i:                         ; preds = %emit_mov.exit460.thread.i, %sljit_emit_op1.exit261.thread.i, %sljit_emit_op1.exit261.i, %emit_mov.exit457.i, %4269
-  call fastcc void @copy_recurse_data(ptr noundef %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 4, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 4, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
   br i1 %4088, label %4276, label %4340
 
 4276:                                             ; preds = %sljit_emit_op1.exit266.i
@@ -10412,7 +10412,7 @@ sljit_set_put_label.exit.i:                       ; preds = %4357, %sljit_set_la
   %.2.i1221 = phi ptr [ %.1169.i, %4338 ], [ %.0168.i, %4357 ], [ %.0168.i, %sljit_set_label.exit.i1220 ], [ %.1169.i, %sljit_emit_ijump.exit.i ], [ %.1169.i, %4336 ], [ %.1169.i, %4340 ], [ %.1169.i, %4342 ], [ %.0168.i, %4346 ], [ %.0168.i, %4347 ]
   %indvars.iv.next.i1222 = add nuw nsw i64 %indvars.iv.i1213, 1
   %4359 = load ptr, ptr %3485, align 8
-  call fastcc void @compile_backtrackingpath(ptr noundef %8, ptr noundef %4359)
+  call fastcc void @compile_backtrackingpath(ptr noundef nonnull %8, ptr noundef %4359)
   %.val.i1223 = load i32, ptr %3489, align 8
   %.not182.i = icmp eq i32 %.val.i1223, 0
   br i1 %.not182.i, label %4360, label %compile_recurse.exit
@@ -10477,7 +10477,7 @@ set_jumps.exit293.i:                              ; preds = %sljit_set_label.exi
 
 4386:                                             ; preds = %set_jumps.exit293.i
   %4387 = call fastcc ptr @sljit_emit_label(ptr noundef %3489)
-  call fastcc void @copy_recurse_data(ptr noundef %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 1, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 1, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
   %4388 = load i32, ptr %3489, align 8
   %.not.i294.i = icmp eq i32 %4388, 0
   br i1 %.not.i294.i, label %4389, label %sljit_emit_op1.exit298.i
@@ -10633,7 +10633,7 @@ emit_mov.exit484.thread.i:                        ; preds = %4438
   br label %sljit_emit_op1.exit328.i
 
 sljit_emit_op1.exit328.i:                         ; preds = %emit_mov.exit484.thread.i, %4438, %set_jumps.exit323.i
-  call fastcc void @copy_recurse_data(ptr noundef %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 2, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 2, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
   %4442 = load i32, ptr %3489, align 8
   %.not.i329.i = icmp eq i32 %4442, 0
   br i1 %.not.i329.i, label %4443, label %sljit_set_label.exit345.i
@@ -10838,7 +10838,7 @@ free_stack.exit351.i:                             ; preds = %4521, %4520, %sljit
 
 4530:                                             ; preds = %free_stack.exit351.i
   store i32 0, ptr %4125, align 8
-  %4531 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %4093)
+  %4531 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3489, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %4093)
   %.not73.i488.i = icmp eq ptr %4531, null
   br i1 %.not73.i488.i, label %sljit_emit_op1.exit356.i, label %emit_mov.exit490.thread.i
 
@@ -10847,7 +10847,7 @@ emit_mov.exit490.thread.i:                        ; preds = %4530
   br label %sljit_emit_op1.exit356.i
 
 sljit_emit_op1.exit356.i:                         ; preds = %emit_mov.exit490.thread.i, %4530, %free_stack.exit351.i
-  call fastcc void @copy_recurse_data(ptr noundef %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 3, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 3, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
   %4532 = load i32, ptr %3489, align 8
   %.not.i357.i = icmp eq i32 %4532, 0
   br i1 %.not.i357.i, label %4533, label %sljit_emit_op1.exit361.i
@@ -11061,7 +11061,7 @@ emit_mov.exit507.i:                               ; preds = %4596
   br label %sljit_emit_op1.exit399.i
 
 sljit_emit_op1.exit399.i:                         ; preds = %emit_mov.exit507.i, %emit_mov.exit507.thread.i, %sljit_emit_op1.exit394.i, %emit_mov.exit504.i, %set_jumps.exit389.i
-  call fastcc void @allocate_stack(ptr noundef %8, i32 noundef 2)
+  call fastcc void @allocate_stack(ptr noundef nonnull %8, i32 noundef 2)
   %4609 = load i32, ptr %3489, align 8
   %.not.i400.i = icmp eq i32 %4609, 0
   br i1 %.not.i400.i, label %4610, label %sljit_emit_op1.exit404.i
@@ -11130,7 +11130,7 @@ emit_mov.exit514.thread.i:                        ; preds = %4625
   br label %sljit_emit_op1.exit422.i
 
 sljit_emit_op1.exit422.i:                         ; preds = %emit_mov.exit514.thread.i, %4625, %set_jumps.exit417.i
-  call fastcc void @copy_recurse_data(ptr noundef %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 4, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %8, ptr noundef nonnull %3511, ptr noundef nonnull %3505, i32 noundef 4, i32 noundef %4089, i32 noundef %.0.lcssa382.i.i)
   %4627 = load i32, ptr %3489, align 8
   %.not.i423.i = icmp eq i32 %4627, 0
   br i1 %.not.i423.i, label %4628, label %compile_recurse.exit
@@ -12416,7 +12416,7 @@ set_jumps.exit1596:                               ; preds = %sljit_set_label.exi
   br i1 %5054, label %5055, label %5058
 
 5055:                                             ; preds = %5052
-  call fastcc void @sljit_free_exec(ptr noundef %5043)
+  call fastcc void @sljit_free_exec(ptr noundef nonnull %5043)
   %5056 = load ptr, ptr %28, align 8
   %.not6.i1605 = icmp eq ptr %5056, null
   br i1 %.not6.i1605, label %_pcre2_jit_free_rodata_8.exit, label %.lr.ph.i1606
@@ -12672,7 +12672,7 @@ define hidden void @_pcre2_jit_free_8(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call fastcc void @sljit_free_exec(ptr noundef %8)
+  tail call fastcc void @sljit_free_exec(ptr noundef nonnull %8)
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -14016,7 +14016,7 @@ define internal fastcc i32 @sljit_emit_op2(ptr nocapture noundef %0, i32 noundef
   br i1 %or.cond.i, label %56, label %60
 
 56:                                               ; preds = %51
-  %57 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 2, i32 noundef %4, i64 noundef 0, i32 noundef %6, i64 noundef %7)
+  %57 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 2, i32 noundef %4, i64 noundef 0, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
   %.not.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i, label %emit_groupf.exit.i, label %emit_groupf.exit.thread.i
 
@@ -14038,7 +14038,7 @@ emit_groupf.exit.i:                               ; preds = %56
   br i1 %or.cond3.i, label %63, label %67
 
 63:                                               ; preds = %60
-  %64 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 2, i32 noundef %6, i64 noundef 0, i32 noundef %4, i64 noundef %5)
+  %64 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 2, i32 noundef range(i32 1, 143) %6, i64 noundef 0, i32 noundef %4, i64 noundef %5)
   %.not.i175.i = icmp eq ptr %64, null
   br i1 %.not.i175.i, label %emit_groupf.exit177.i, label %emit_groupf.exit177.thread.i
 
@@ -14325,7 +14325,7 @@ emit_groupf.exit184.i:                            ; preds = %172
   br label %emit_mul.exit
 
 182:                                              ; preds = %176
-  %183 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 2, i32 noundef %.0.i, i64 noundef 0, i32 noundef %6, i64 noundef %7)
+  %183 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 2, i32 noundef %.0.i, i64 noundef 0, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
   %.not.i185.i = icmp eq ptr %183, null
   br i1 %.not.i185.i, label %emit_groupf.exit187.i, label %emit_groupf.exit187.thread.i
 
@@ -14345,7 +14345,7 @@ emit_groupf.exit187.i:                            ; preds = %182
   br i1 %.not173.i, label %emit_mul.exit, label %187
 
 187:                                              ; preds = %186
-  %188 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef %3)
+  %188 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3)
   %.not73.i.i = icmp eq ptr %188, null
   br i1 %.not73.i.i, label %emit_mov.exit.i, label %emit_mov.exit.thread.i
 
@@ -14421,15 +14421,15 @@ emit_mov.exit.i:                                  ; preds = %187
   br i1 %.not56.i, label %224, label %222
 
 222:                                              ; preds = %219
-  %223 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef 127, i64 noundef %221)
+  %223 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef 127, i64 noundef %221)
   br label %emit_mul.exit
 
 224:                                              ; preds = %219
-  %225 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5)
+  %225 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5)
   br label %emit_mul.exit
 
 226:                                              ; preds = %217
-  %227 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
+  %227 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
   br label %emit_mul.exit
 
 228:                                              ; preds = %10
@@ -14444,15 +14444,15 @@ emit_mov.exit.i:                                  ; preds = %187
   br i1 %.not56.i175, label %235, label %233
 
 233:                                              ; preds = %230
-  %234 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 8, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef 127, i64 noundef %232)
+  %234 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 8, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef 127, i64 noundef %232)
   br label %emit_mul.exit
 
 235:                                              ; preds = %230
-  %236 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5)
+  %236 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5)
   br label %emit_mul.exit
 
 237:                                              ; preds = %228
-  %238 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 8, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7)
+  %238 = tail call fastcc i32 @emit_shift(ptr noundef nonnull %0, i8 noundef zeroext 8, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7)
   br label %emit_mul.exit
 
 emit_mul.exit:                                    ; preds = %237, %235, %233, %226, %224, %222, %emit_mov.exit.i, %emit_mov.exit.thread.i, %186, %emit_groupf.exit187.i, %180, %emit_groupf.exit184.i, %170, %166, %155, %151, %145, %140, %emit_groupf.exit181.i, %129, %125, %114, %110, %105, %79, %73, %emit_groupf.exit177.i, %emit_groupf.exit.i, %10, %8, %214, %211, %208, %206, %204, %199, %192, %190, %49, %47, %45, %43, %36, %27, %22, %20, %18
@@ -14844,7 +14844,7 @@ check_fast_forward_char_pair_simd.exit:           ; preds = %._crit_edge.i
   %117 = load i8, ptr %116, align 1
   %118 = getelementptr inbounds i8, ptr %116, i64 1
   %119 = load i8, ptr %118, align 1
-  call fastcc void @fast_forward_char_pair_simd(ptr noundef %0, i32 noundef %.3.i, i8 noundef zeroext %112, i8 noundef zeroext %114, i32 noundef %.357.i, i8 noundef zeroext %117, i8 noundef zeroext %119)
+  call fastcc void @fast_forward_char_pair_simd(ptr noundef nonnull %0, i32 noundef %.3.i, i8 noundef zeroext %112, i8 noundef zeroext %114, i32 noundef %.357.i, i8 noundef zeroext %117, i8 noundef zeroext %119)
   br label %sljit_emit_op1.exit302
 
 .lr.ph.preheader:                                 ; preds = %sljit_has_cpu_feature.exit, %._crit_edge.i
@@ -18750,7 +18750,7 @@ sljit_alloc_memory.exit.i:                        ; preds = %42, %33
   %52 = sub i64 %17, %51
   %53 = getelementptr inbounds i8, ptr %.0.i.ph.i, i64 48
   store i64 %52, ptr %53, align 8
-  %54 = call fastcc i32 @get_framesize(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %8)
+  %54 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %8)
   %55 = getelementptr inbounds i8, ptr %.0.i.ph.i, i64 64
   store i32 %54, ptr %55, align 8
   %56 = tail call i32 @llvm.smax.i32(i32 %54, i32 0)
@@ -18774,7 +18774,7 @@ emit_mov.exit.thread.i:                           ; preds = %60
   br label %sljit_emit_op1.exit.i
 
 sljit_emit_op1.exit.i:                            ; preds = %emit_mov.exit.thread.i, %60, %46
-  tail call fastcc void @allocate_stack(ptr noundef %0, i32 noundef %57)
+  tail call fastcc void @allocate_stack(ptr noundef nonnull %0, i32 noundef %57)
   %.not45.i = icmp slt i32 %54, 1
   br i1 %.not45.i, label %77, label %65
 
@@ -18800,7 +18800,7 @@ sljit_emit_op1.exit.i:                            ; preds = %emit_mov.exit.threa
 
 .thread.i.i:                                      ; preds = %73
   store i8 -115, ptr %74, align 1
-  %75 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %67)
+  %75 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %67)
   %.not73.i.i.i = icmp eq ptr %75, null
   br i1 %.not73.i.i.i, label %emit_lea_binary.exit.i, label %emit_lea_binary.exit.thread85.i
 
@@ -18814,7 +18814,7 @@ emit_lea_binary.exit.i:                           ; preds = %.thread.i.i, %73
   br i1 %.not170.i.i, label %emit_lea_binary.exit.thread.i, label %sljit_emit_op2.exit.i
 
 emit_lea_binary.exit.thread.i:                    ; preds = %emit_lea_binary.exit.i, %71
-  %76 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %9, i32 noundef 84082944, i32 noundef 142, i64 noundef %67, i32 noundef 12, i64 noundef 0, i32 noundef 127, i64 noundef %69)
+  %76 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %9, i32 noundef 84082944, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %67, i32 noundef 12, i64 noundef 0, i32 noundef 127, i64 noundef %69)
   br label %sljit_emit_op2.exitthread-pre-split.i
 
 77:                                               ; preds = %sljit_emit_op1.exit.i
@@ -18827,7 +18827,7 @@ emit_lea_binary.exit.thread.i:                    ; preds = %emit_lea_binary.exi
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %9, i64 152
   store i32 0, ptr %82, align 8
-  %83 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef %81)
+  %83 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %81)
   %.not73.i.i = icmp eq ptr %83, null
   br i1 %.not73.i.i, label %emit_mov.exit71.i, label %emit_mov.exit71.thread.i
 
@@ -18856,7 +18856,7 @@ sljit_emit_op1.exit58.i:                          ; preds = %emit_mov.exit71.i, 
   %88 = load i64, ptr %53, align 8
   %89 = getelementptr inbounds i8, ptr %9, i64 152
   store i32 0, ptr %89, align 8
-  %90 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %9, i32 noundef 140, i64 noundef %87, i32 noundef 127, i64 noundef %88)
+  %90 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %9, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %87, i32 noundef 127, i64 noundef %88)
   %.pre.i = load i32, ptr %9, align 8
   %91 = icmp eq i32 %.pre.i, 0
   br i1 %91, label %92, label %sljit_emit_op1.exit68.i
@@ -18865,7 +18865,7 @@ sljit_emit_op1.exit58.i:                          ; preds = %emit_mov.exit71.i, 
   %93 = add i32 %86, 8
   %94 = sext i32 %93 to i64
   store i32 0, ptr %89, align 8
-  %95 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 127, i64 noundef 1, i32 noundef 140, i64 noundef %94)
+  %95 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 127, i64 noundef 1, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %94)
   %.not71.i.i = icmp eq ptr %95, null
   br i1 %.not71.i.i, label %emit_mov.exit74.i, label %sljit_emit_op1.exit63.i
 
@@ -18883,7 +18883,7 @@ sljit_emit_op1.exit63.i:                          ; preds = %92
 sljit_emit_op1.exit63.thread.i:                   ; preds = %sljit_emit_op1.exit63.i, %emit_mov.exit74.i
   %98 = zext i32 %86 to i64
   store i32 0, ptr %89, align 8
-  %99 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef %98)
+  %99 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %98)
   %.not73.i75.i = icmp eq ptr %99, null
   br i1 %.not73.i75.i, label %sljit_emit_op1.exit68.i, label %emit_mov.exit77.thread.i
 
@@ -18898,7 +18898,7 @@ sljit_emit_op1.exit68.i:                          ; preds = %emit_mov.exit77.thr
 
 102:                                              ; preds = %sljit_emit_op1.exit68.i
   %103 = add nsw i32 %100, -1
-  tail call fastcc void @init_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %103)
+  tail call fastcc void @init_frame(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %103)
   br label %compile_then_trap_matchingpath.exit
 
 compile_then_trap_matchingpath.exit:              ; preds = %22, %41, %sljit_alloc_memory.exit.i, %sljit_emit_op1.exit68.i, %102
@@ -19699,7 +19699,7 @@ sljit_emit_op1.exit289.i:                         ; preds = %emit_mov_byte.exit.
 407:                                              ; preds = %404
   %408 = getelementptr inbounds i8, ptr %148, i64 152
   store i32 0, ptr %408, align 8
-  %409 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %148, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 13, i64 noundef 0)
+  %409 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %148, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef range(i32 1, 143) 13, i64 noundef 0)
   %.not109.i.i.i = icmp eq ptr %409, null
   br i1 %.not109.i.i.i, label %sljit_emit_op2u.exit.i, label %410
 
@@ -19717,7 +19717,7 @@ sljit_emit_op2u.exit.i:                           ; preds = %410, %407, %404
   tail call fastcc void @sljit_emit_op_flags(ptr noundef nonnull %148, i32 noundef 582, i32 noundef 4, i32 noundef 1)
   %416 = tail call fastcc ptr @sljit_emit_jump(ptr noundef nonnull %148, i32 noundef 1)
   tail call fastcc void @add_jump(ptr noundef nonnull %148, ptr noundef nonnull %147, ptr noundef %416)
-  tail call fastcc void @check_partial(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @check_partial(ptr noundef nonnull %0, i32 noundef 1)
   %417 = tail call fastcc ptr @sljit_emit_jump(ptr noundef nonnull %148, i32 noundef 36)
   tail call fastcc void @add_jump(ptr noundef nonnull %148, ptr noundef nonnull %147, ptr noundef %417)
   %418 = tail call fastcc ptr @sljit_emit_label(ptr noundef nonnull %148)
@@ -19964,7 +19964,7 @@ sljit_emit_op2.exit326.i:                         ; preds = %sljit_emit_op2.exit
 
 515:                                              ; preds = %sljit_emit_op2.exit326.i
   store i32 0, ptr %509, align 8
-  %516 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %148, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 13, i64 noundef 0)
+  %516 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %148, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef range(i32 1, 143) 13, i64 noundef 0)
   %.not109.i.i329.i = icmp eq ptr %516, null
   br i1 %.not109.i.i329.i, label %sljit_emit_op2u.exit330.i, label %517
 
@@ -20574,7 +20574,7 @@ emit_mov.exit644.thread.i:                        ; preds = %777
 sljit_emit_op1.exit397.i:                         ; preds = %emit_mov.exit644.thread.i, %777, %776
   %780 = load i32, ptr %137, align 4
   %781 = load i32, ptr %136, align 8
-  tail call fastcc void @read_char(ptr noundef %0, i32 noundef %780, i32 noundef %781, ptr noundef nonnull %147, i32 noundef 1)
+  tail call fastcc void @read_char(ptr noundef nonnull %0, i32 noundef %780, i32 noundef %781, ptr noundef nonnull %147, i32 noundef 1)
   %782 = tail call fastcc ptr @sljit_emit_cmp(ptr noundef nonnull %148, i32 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 13, i64 noundef 0)
   %783 = load i32, ptr %148, align 8
   %.not.i.i542 = icmp eq i32 %783, 0
@@ -21006,7 +21006,7 @@ sljit_set_label.exit414.i:                        ; preds = %962, %add_jump.exit
   br i1 %.not235.i, label %compile_simple_assertion_matchingpath.exit, label %969
 
 969:                                              ; preds = %sljit_set_label.exit414.i
-  tail call fastcc void @check_partial(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @check_partial(ptr noundef nonnull %0, i32 noundef 1)
   br label %compile_simple_assertion_matchingpath.exit
 
 970:                                              ; preds = %tailrecurse.i
@@ -21068,7 +21068,7 @@ add_jump.exit421.i:                               ; preds = %sljit_alloc_memory.
   br i1 %.not234.i, label %compile_simple_assertion_matchingpath.exit, label %996
 
 996:                                              ; preds = %add_jump.exit421.i
-  tail call fastcc void @check_partial(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @check_partial(ptr noundef nonnull %0, i32 noundef 1)
   br label %compile_simple_assertion_matchingpath.exit
 
 997:                                              ; preds = %tailrecurse.i
@@ -21306,7 +21306,7 @@ sljit_alloc_memory.exit.i449.i:                   ; preds = %1096, %1087
   br label %add_jump.exit451.i
 
 add_jump.exit451.i:                               ; preds = %sljit_alloc_memory.exit.i449.i, %1095, %1077
-  tail call fastcc void @check_partial(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @check_partial(ptr noundef nonnull %0, i32 noundef 0)
   br label %compile_simple_assertion_matchingpath.exit
 
 1102:                                             ; preds = %tailrecurse.i
@@ -21487,7 +21487,7 @@ sljit_alloc_memory.exit.i473.i:                   ; preds = %1176, %1167
   br label %add_jump.exit475.i
 
 add_jump.exit475.i:                               ; preds = %sljit_alloc_memory.exit.i473.i, %1175, %sljit_emit_jump.exit468.i, %1158, %1129, %sljit_emit_op2u.exit455.i, %1102
-  tail call fastcc void @check_partial(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @check_partial(ptr noundef nonnull %0, i32 noundef 0)
   %1182 = load i32, ptr %148, align 8
   %.not.i476.i = icmp eq i32 %1182, 0
   br i1 %.not.i476.i, label %1183, label %sljit_emit_jump.exit488.i
@@ -21664,7 +21664,7 @@ sljit_emit_op1.exit497.i:                         ; preds = %emit_mov_byte.exit6
   %1262 = zext nneg i32 %1261 to i64
   %1263 = tail call fastcc ptr @sljit_emit_cmp(ptr noundef nonnull %148, i32 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 127, i64 noundef %1262)
   tail call fastcc void @add_jump(ptr noundef nonnull %148, ptr noundef nonnull %147, ptr noundef %1263)
-  tail call fastcc void @check_partial(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @check_partial(ptr noundef nonnull %0, i32 noundef 1)
   %1264 = tail call fastcc ptr @sljit_emit_jump(ptr noundef nonnull %148, i32 noundef 36)
   tail call fastcc void @add_jump(ptr noundef nonnull %148, ptr noundef nonnull %147, ptr noundef %1264)
   %1265 = tail call fastcc ptr @sljit_emit_label(ptr noundef nonnull %148)
@@ -21717,9 +21717,9 @@ sljit_emit_op1.exit506.i:                         ; preds = %emit_mov_byte.exit6
 
 1286:                                             ; preds = %1243, %sljit_set_label.exit492.i
   %1287 = load i32, ptr %136, align 8
-  tail call fastcc void @peek_char(ptr noundef %0, i32 noundef %1287, i32 noundef 3, i64 noundef 0, ptr noundef null)
+  tail call fastcc void @peek_char(ptr noundef nonnull %0, i32 noundef %1287, i32 noundef 3, i64 noundef 0, ptr noundef null)
   %1288 = load i32, ptr %134, align 4
-  tail call fastcc void @check_newlinechar(ptr noundef %0, i32 noundef %1288, ptr noundef nonnull %147, i32 noundef 0)
+  tail call fastcc void @check_newlinechar(ptr noundef nonnull %0, i32 noundef %1288, ptr noundef nonnull %147, i32 noundef 0)
   br label %1289
 
 1289:                                             ; preds = %1286, %sljit_emit_op1.exit506.i
@@ -22420,9 +22420,9 @@ sljit_emit_op1.exit609.i:                         ; preds = %emit_mov_byte.exit6
 
 1591:                                             ; preds = %1567, %add_jump.exit599.i
   %1592 = load i32, ptr %136, align 8
-  tail call fastcc void @peek_char_back(ptr noundef %0, i32 noundef %1592, ptr noundef nonnull %147)
+  tail call fastcc void @peek_char_back(ptr noundef nonnull %0, i32 noundef %1592, ptr noundef nonnull %147)
   %1593 = load i32, ptr %134, align 4
-  tail call fastcc void @check_newlinechar(ptr noundef %0, i32 noundef %1593, ptr noundef nonnull %147, i32 noundef 0)
+  tail call fastcc void @check_newlinechar(ptr noundef nonnull %0, i32 noundef %1593, ptr noundef nonnull %147, i32 noundef 0)
   br label %1594
 
 1594:                                             ; preds = %1591, %sljit_emit_op1.exit609.i
@@ -22531,7 +22531,7 @@ sljit_emit_op1.exit:                              ; preds = %1632, %emit_mov.exi
   %1638 = load i32, ptr %108, align 4
   %1639 = sext i32 %1638 to i64
   store i32 0, ptr %118, align 8
-  %1640 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %1639)
+  %1640 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1639)
   %.not73.i = icmp eq ptr %1640, null
   br i1 %.not73.i, label %emit_mov.exit568, label %sljit_emit_op1.exit292
 
@@ -22611,7 +22611,7 @@ sljit_emit_op1.exit297:                           ; preds = %emit_mov.exit568, %
   %1671 = load i32, ptr %129, align 8
   %.not46.i = icmp eq i32 %1671, 0
   %1672 = getelementptr inbounds i8, ptr %.041.i, i64 1
-  %1673 = tail call fastcc i32 @char_has_othercase(ptr noundef %0, ptr noundef nonnull %1672)
+  %1673 = tail call fastcc i32 @char_has_othercase(ptr noundef nonnull %0, ptr noundef nonnull %1672)
   %.not47.i = icmp eq i32 %1673, 0
   br i1 %.not46.i, label %1688, label %1674
 
@@ -22619,7 +22619,7 @@ sljit_emit_op1.exit297:                           ; preds = %emit_mov.exit568, %
   br i1 %.not47.i, label %1678, label %1675
 
 1675:                                             ; preds = %1674
-  %1676 = tail call fastcc i32 @char_get_othercase_bit(ptr noundef %0, ptr noundef nonnull %1672)
+  %1676 = tail call fastcc i32 @char_get_othercase_bit(ptr noundef nonnull %0, ptr noundef nonnull %1672)
   %1677 = icmp eq i32 %1676, 0
   br i1 %1677, label %thread-pre-split.i, label %1678
 
@@ -22641,7 +22641,7 @@ sljit_emit_op1.exit297:                           ; preds = %emit_mov.exit568, %
   br i1 %.not47.i, label %1692, label %1689
 
 1689:                                             ; preds = %1688
-  %1690 = tail call fastcc i32 @char_get_othercase_bit(ptr noundef %0, ptr noundef nonnull %1672)
+  %1690 = tail call fastcc i32 @char_get_othercase_bit(ptr noundef nonnull %0, ptr noundef nonnull %1672)
   %1691 = icmp ne i32 %1690, 0
   %spec.select.i = zext i1 %1691 to i32
   br label %1692
@@ -22739,7 +22739,7 @@ add_jump.exit.i:                                  ; preds = %sljit_alloc_memory.
   %1734 = icmp eq i8 %1733, 30
   %1735 = zext i1 %1734 to i32
   %1736 = getelementptr inbounds i8, ptr %.1.i, i64 1
-  %1737 = call fastcc ptr @byte_sequence_compare(ptr noundef %0, i32 noundef %1735, ptr noundef nonnull %1736, ptr noundef %7, ptr noundef nonnull %1651)
+  %1737 = call fastcc ptr @byte_sequence_compare(ptr noundef nonnull %0, i32 noundef %1735, ptr noundef nonnull %1736, ptr noundef %7, ptr noundef nonnull %1651)
   %1738 = load i32, ptr %7, align 4
   %1739 = icmp sgt i32 %1738, 0
   br i1 %1739, label %1732, label %compile_charn_matchingpath.exit
@@ -22747,7 +22747,7 @@ add_jump.exit.i:                                  ; preds = %sljit_alloc_memory.
 1740:                                             ; preds = %thread-pre-split.i
   %1741 = load i8, ptr %.0226, align 1
   %1742 = getelementptr inbounds i8, ptr %.0226, i64 1
-  %1743 = tail call fastcc ptr @compile_char1_matchingpath(ptr noundef %0, i8 noundef zeroext %1741, ptr noundef nonnull %1742, ptr noundef nonnull %1651, i32 noundef 1)
+  %1743 = tail call fastcc ptr @compile_char1_matchingpath(ptr noundef nonnull %0, i8 noundef zeroext %1741, ptr noundef nonnull %1742, ptr noundef nonnull %1651, i32 noundef 1)
   br label %compile_charn_matchingpath.exit
 
 compile_charn_matchingpath.exit:                  ; preds = %1732, %1740
@@ -22812,9 +22812,9 @@ compile_charn_matchingpath.exit:                  ; preds = %1732, %1740
   %.not255 = icmp eq ptr %1779, null
   %1780 = getelementptr inbounds i8, ptr %1779, i64 8
   %1781 = select i1 %.not255, ptr %127, ptr %1780
-  tail call fastcc void @detect_partial_match(ptr noundef %0, ptr noundef nonnull %1781)
+  tail call fastcc void @detect_partial_match(ptr noundef nonnull %0, ptr noundef nonnull %1781)
   %1782 = getelementptr inbounds i8, ptr %.0226, i64 3
-  tail call fastcc void @compile_xclass_matchingpath(ptr noundef %0, ptr noundef nonnull %1782, ptr noundef nonnull %1781)
+  tail call fastcc void @compile_xclass_matchingpath(ptr noundef nonnull %0, ptr noundef nonnull %1782, ptr noundef nonnull %1781)
   %1783 = load i8, ptr %1765, align 1
   %1784 = zext i8 %1783 to i64
   %1785 = shl nuw nsw i64 %1784, 8
@@ -22937,7 +22937,7 @@ sljit_alloc_memory.exit581:                       ; preds = %1833, %1842
   store ptr %.0.i577.ph, ptr %109, align 8
   %1849 = load ptr, ptr %122, align 8
   %1850 = getelementptr inbounds i8, ptr %1849, i64 %1824
-  %1851 = call fastcc i32 @get_framesize(ptr noundef %0, ptr noundef %1850, ptr noundef null, i32 noundef 1, ptr noundef %6)
+  %1851 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef %1850, ptr noundef null, i32 noundef 1, ptr noundef %6)
   %1852 = icmp eq i32 %1851, -2
   br i1 %1852, label %1853, label %.preheader
 
@@ -22946,7 +22946,7 @@ sljit_alloc_memory.exit581:                       ; preds = %1833, %1842
   br i1 %cond.i1478, label %._crit_edge1481, label %.lr.ph1480
 
 1853:                                             ; preds = %1846
-  %1854 = tail call fastcc ptr @next_opcode(ptr noundef %0, ptr noundef %1850)
+  %1854 = tail call fastcc ptr @next_opcode(ptr noundef nonnull %0, ptr noundef %1850)
   br label %1855
 
 1855:                                             ; preds = %1855, %1853
@@ -22965,7 +22965,7 @@ sljit_alloc_memory.exit581:                       ; preds = %1833, %1842
   br i1 %1866, label %1855, label %bracketend.exit575
 
 bracketend.exit575:                               ; preds = %1855
-  tail call fastcc void @compile_matchingpath(ptr noundef %0, ptr noundef %1854, ptr noundef nonnull %1864, ptr noundef nonnull %.0.i577.ph)
+  tail call fastcc void @compile_matchingpath(ptr noundef nonnull %0, ptr noundef %1854, ptr noundef nonnull %1864, ptr noundef nonnull %.0.i577.ph)
   %1867 = getelementptr inbounds i8, ptr %.0.i577.ph, i64 56
   store i32 1, ptr %1867, align 8
   %1868 = getelementptr inbounds i8, ptr %.0226, i64 3
@@ -23138,7 +23138,7 @@ sljit_alloc_memory.exit.i315:                     ; preds = %1937, %1928
   store ptr %.0.i.ph.i316, ptr %109, align 8
   %1946 = add nuw nsw i32 %1943, 135
   %1947 = lshr i32 %1946, 3
-  tail call fastcc void @allocate_stack(ptr noundef %0, i32 noundef %1947)
+  tail call fastcc void @allocate_stack(ptr noundef nonnull %0, i32 noundef %1947)
   %1948 = load i32, ptr %1901, align 8
   %.not.i79.i = icmp eq i32 %1948, 0
   br i1 %.not.i79.i, label %1949, label %sljit_emit_op1.exit85.i
@@ -24391,7 +24391,7 @@ sljit_alloc_memory.exit932:                       ; preds = %2441, %2450
   %.0246.i = phi i64 [ 0, %2454 ], [ %2483, %2469 ], [ 0, %2467 ]
   %.0238.i = phi i32 [ 0, %2454 ], [ %2481, %2469 ], [ 0, %2467 ]
   %.0235.i = phi ptr [ null, %2454 ], [ %2482, %2469 ], [ %2468, %2467 ]
-  %2485 = call fastcc i32 @get_framesize(ptr noundef %0, ptr noundef nonnull %spec.select.i377, ptr noundef null, i32 noundef 0, ptr noundef %5)
+  %2485 = call fastcc i32 @get_framesize(ptr noundef nonnull %0, ptr noundef nonnull %spec.select.i377, ptr noundef null, i32 noundef 0, ptr noundef %5)
   %2486 = getelementptr inbounds i8, ptr %.0.i928.ph, i64 44
   store i32 %2485, ptr %2486, align 4
   %2487 = icmp slt i32 %2485, 0
@@ -24418,7 +24418,7 @@ sljit_alloc_memory.exit932:                       ; preds = %2441, %2450
   %.2241.i = add nuw nsw i32 %spec.select286.i, %2493
   %2495 = getelementptr inbounds i8, ptr %.0.i928.ph, i64 48
   store i32 %.2241.i, ptr %2495, align 8
-  tail call fastcc void @allocate_stack(ptr noundef %0, i32 noundef %.2241.i)
+  tail call fastcc void @allocate_stack(ptr noundef nonnull %0, i32 noundef %.2241.i)
   %2496 = icmp eq i32 %2485, -1
   br i1 %2496, label %2497, label %sljit_emit_op1.exit926
 
@@ -24431,7 +24431,7 @@ sljit_alloc_memory.exit932:                       ; preds = %2441, %2450
   %2500 = sext i32 %2465 to i64
   %2501 = getelementptr inbounds i8, ptr %2432, i64 152
   store i32 0, ptr %2501, align 8
-  %2502 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef %2500)
+  %2502 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2500)
   %.not73.i1116 = icmp eq ptr %2502, null
   br i1 %.not73.i1116, label %sljit_emit_op1.exit926, label %emit_mov.exit1118.thread
 
@@ -24653,7 +24653,7 @@ sljit_emit_op1.exit884:                           ; preds = %sljit_emit_op1.exit
   %2564 = zext nneg i32 %2563 to i64
   %2565 = getelementptr inbounds i8, ptr %2432, i64 152
   store i32 0, ptr %2565, align 8
-  %2566 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 127, i64 noundef 1, i32 noundef 140, i64 noundef %2564)
+  %2566 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 127, i64 noundef 1, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %2564)
   %.not71.i1086 = icmp eq ptr %2566, null
   br i1 %.not71.i1086, label %sljit_emit_op1.exit866, label %emit_mov.exit1088.thread
 
@@ -24674,7 +24674,7 @@ sljit_emit_op1.exit866:                           ; preds = %2562, %2560, %emit_
   %2571 = zext nneg i32 %2570 to i64
   %2572 = getelementptr inbounds i8, ptr %2432, i64 152
   store i32 0, ptr %2572, align 8
-  %2573 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef %2571)
+  %2573 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %2571)
   %.not73.i1081 = icmp eq ptr %2573, null
   br i1 %.not73.i1081, label %sljit_emit_op1.exit860, label %emit_mov.exit1083.thread
 
@@ -24694,7 +24694,7 @@ emit_mov.exit1083.thread:                         ; preds = %2569
   %.6.i = add nuw nsw i32 %.5244.i, %2576
   %2579 = getelementptr inbounds i8, ptr %.0.i928.ph, i64 48
   store i32 %.6.i, ptr %2579, align 8
-  tail call fastcc void @allocate_stack(ptr noundef %0, i32 noundef %.6.i)
+  tail call fastcc void @allocate_stack(ptr noundef nonnull %0, i32 noundef %.6.i)
   %2580 = sext i32 %2465 to i64
   %2581 = load i32, ptr %2432, align 8
   %.not.i849 = icmp eq i32 %2581, 0
@@ -24762,7 +24762,7 @@ sljit_emit_op1.exit848.thread:                    ; preds = %emit_mov.exit1077, 
 
 .thread.i1072:                                    ; preds = %2595
   store i8 -115, ptr %2596, align 1
-  %2597 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %2580)
+  %2597 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %2580)
   %.not73.i.i1073 = icmp eq ptr %2597, null
   br i1 %.not73.i.i1073, label %emit_lea_binary.exit1074, label %emit_lea_binary.exit1074.thread1229
 
@@ -24776,7 +24776,7 @@ emit_lea_binary.exit1074:                         ; preds = %.thread.i1072, %259
   br i1 %.not170.i841, label %emit_lea_binary.exit1074.thread, label %sljit_emit_op2.exit842
 
 emit_lea_binary.exit1074.thread:                  ; preds = %sljit_emit_op1.exit848.thread, %emit_lea_binary.exit1074
-  %2598 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %2432, i32 noundef 84082944, i32 noundef 142, i64 noundef %2580, i32 noundef 12, i64 noundef 0, i32 noundef 127, i64 noundef %2593)
+  %2598 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %2432, i32 noundef 84082944, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %2580, i32 noundef 12, i64 noundef 0, i32 noundef 127, i64 noundef %2593)
   br label %sljit_emit_op2.exit842
 
 sljit_emit_op2.exit842:                           ; preds = %emit_mov.exit1077, %emit_lea_binary.exit1074, %emit_lea_binary.exit1074.thread1229, %2585, %sljit_emit_op1.exit848, %emit_lea_binary.exit1074.thread
@@ -24817,7 +24817,7 @@ sljit_emit_op1.exit838:                           ; preds = %sljit_emit_op1.exit
   %2607 = zext nneg i32 %2606 to i64
   %2608 = getelementptr inbounds i8, ptr %2432, i64 152
   store i32 0, ptr %2608, align 8
-  %2609 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef %2607)
+  %2609 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %2607)
   %.not73.i1057 = icmp eq ptr %2609, null
   br i1 %.not73.i1057, label %sljit_emit_op1.exit832, label %emit_mov.exit1059.thread
 
@@ -24844,7 +24844,7 @@ sljit_emit_op1.exit832:                           ; preds = %2605, %emit_mov.exi
   %2615 = zext nneg i32 %2614 to i64
   %2616 = getelementptr inbounds i8, ptr %2432, i64 152
   store i32 0, ptr %2616, align 8
-  %2617 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef %2615)
+  %2617 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %2615)
   %.not73.i1054 = icmp eq ptr %2617, null
   br i1 %.not73.i1054, label %sljit_emit_op1.exit826, label %emit_mov.exit1056.thread
 
@@ -24869,7 +24869,7 @@ sljit_emit_op1.exit826:                           ; preds = %2613, %emit_mov.exi
   %2623 = zext nneg i32 %2622 to i64
   %2624 = getelementptr inbounds i8, ptr %2432, i64 152
   store i32 0, ptr %2624, align 8
-  %2625 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %2623)
+  %2625 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %2623)
   %.not73.i1051 = icmp eq ptr %2625, null
   br i1 %.not73.i1051, label %sljit_emit_op1.exit820, label %emit_mov.exit1053.thread
 
@@ -24879,7 +24879,7 @@ emit_mov.exit1053.thread:                         ; preds = %2621
 
 sljit_emit_op1.exit820:                           ; preds = %2621, %emit_mov.exit1053.thread, %2619
   %2626 = add nsw i32 %.6.i, -1
-  tail call fastcc void @init_frame(ptr noundef %0, ptr noundef nonnull %spec.select.i377, ptr noundef null, i32 noundef %2626)
+  tail call fastcc void @init_frame(ptr noundef nonnull %0, ptr noundef nonnull %spec.select.i377, ptr noundef null, i32 noundef %2626)
   %2627 = add nsw i32 %.5.i, %.neg.i
   br label %sljit_emit_op1.exit860
 
@@ -24897,7 +24897,7 @@ sljit_emit_op1.exit860:                           ; preds = %2569, %2567, %emit_
 2630:                                             ; preds = %2628
   %2631 = getelementptr inbounds i8, ptr %2432, i64 152
   store i32 0, ptr %2631, align 8
-  %2632 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %.0246.i)
+  %2632 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %.0246.i)
   %.not73.i1048 = icmp eq ptr %2632, null
   br i1 %.not73.i1048, label %sljit_emit_op1.exit814, label %emit_mov.exit1050.thread
 
@@ -24953,7 +24953,7 @@ sljit_emit_op1.exit814:                           ; preds = %2630, %2628, %emit_
   %2668 = zext i8 %2667 to i64
   %2669 = or disjoint i64 %2665, %2668
   %2670 = getelementptr inbounds i8, ptr %spec.select.i377, i64 %2669
-  tail call fastcc void @compile_matchingpath(ptr noundef %0, ptr noundef %.0235.i, ptr noundef nonnull %2670, ptr noundef nonnull %.0.i928.ph)
+  tail call fastcc void @compile_matchingpath(ptr noundef nonnull %0, ptr noundef %.0235.i, ptr noundef nonnull %2670, ptr noundef nonnull %.0.i928.ph)
   %.val289.i1702 = load i32, ptr %2432, align 8
   %.not275.i1703 = icmp eq i32 %.val289.i1702, 0
   br i1 %.not275.i1703, label %.lr.ph1705, label %compile_bracketpos_matchingpath.exit
@@ -25009,7 +25009,7 @@ sljit_emit_op1.exit802.thread:                    ; preds = %emit_mov.exit1044, 
   %.in1431 = add nsw i32 %.pn1560, %2642
   %2679 = sext i32 %.in1431 to i64
   store i32 0, ptr %2640, align 8
-  %2680 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %2679)
+  %2680 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2679)
   %.not73.i1039 = icmp eq ptr %2680, null
   br i1 %.not73.i1039, label %emit_mov.exit1041, label %sljit_emit_op1.exit796
 
@@ -25026,7 +25026,7 @@ sljit_emit_op1.exit796:                           ; preds = %sljit_emit_op1.exit
 
 sljit_emit_op1.exit796.thread:                    ; preds = %emit_mov.exit1041, %sljit_emit_op1.exit796
   store i32 0, ptr %2640, align 8
-  %2683 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %.0246.i)
+  %2683 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %.0246.i)
   %.not73.i1036 = icmp eq ptr %2683, null
   br i1 %.not73.i1036, label %sljit_emit_op1.exit790thread-pre-split, label %emit_mov.exit1038.thread
 
@@ -25051,7 +25051,7 @@ sljit_emit_op1.exit790:                           ; preds = %sljit_emit_op1.exit
 2686:                                             ; preds = %2685
   %2687 = sext i32 %2684 to i64
   store i32 0, ptr %2640, align 8
-  %2688 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %2432, i32 noundef 142, i64 noundef %2687, i32 noundef 127, i64 noundef %2644)
+  %2688 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %2432, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2687, i32 noundef 127, i64 noundef %2644)
   %.pre1548 = load i32, ptr %2432, align 8
   br label %sljit_emit_op1.exit784
 
@@ -25065,7 +25065,7 @@ sljit_emit_op1.exit784:                           ; preds = %2686, %sljit_emit_o
   %2692 = add nsw i32 %2691, %2641
   %2693 = sext i32 %2692 to i64
   store i32 0, ptr %2640, align 8
-  %2694 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %2693)
+  %2694 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2693)
   %.not73.i1033 = icmp eq ptr %2694, null
   br i1 %.not73.i1033, label %sljit_emit_op1.exit778, label %sljit_emit_op1.exit778.sink.split
 
@@ -25131,7 +25131,7 @@ sljit_emit_op1.exit778:                           ; preds = %sljit_emit_op1.exit
 
 2708:                                             ; preds = %2706
   store i8 -117, ptr %2707, align 1
-  %2709 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %2704)
+  %2709 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2704)
   %.not65.i1024 = icmp eq ptr %2709, null
   br i1 %.not65.i1024, label %sljit_emit_op1.exit760, label %emit_mov.exit1026.thread
 
@@ -25207,7 +25207,7 @@ add_jump.exit754.thread:                          ; preds = %2722
 
 2732:                                             ; preds = %2731
   store i32 0, ptr %2640, align 8
-  %2733 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef %2657)
+  %2733 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %2657)
   %.not71.i1020 = icmp eq ptr %2733, null
   br i1 %.not71.i1020, label %emit_mov.exit1022, label %sljit_emit_op1.exit747.sink.split
 
@@ -25248,7 +25248,7 @@ sljit_emit_op1.exit736.thread:                    ; preds = %emit_mov.exit1015, 
   %.in1428 = add nsw i32 %.pn, %2642
   %2742 = sext i32 %.in1428 to i64
   store i32 0, ptr %2640, align 8
-  %2743 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %2742)
+  %2743 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2742)
   %.not73.i1010 = icmp eq ptr %2743, null
   br i1 %.not73.i1010, label %emit_mov.exit1012, label %sljit_emit_op1.exit730
 
@@ -25265,7 +25265,7 @@ sljit_emit_op1.exit730:                           ; preds = %sljit_emit_op1.exit
 
 sljit_emit_op1.exit730.thread:                    ; preds = %emit_mov.exit1012, %sljit_emit_op1.exit730
   store i32 0, ptr %2640, align 8
-  %2746 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %.0246.i)
+  %2746 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %.0246.i)
   %.not73.i1007 = icmp eq ptr %2746, null
   br i1 %.not73.i1007, label %sljit_emit_op1.exit724thread-pre-split, label %emit_mov.exit1009.thread
 
@@ -25290,7 +25290,7 @@ sljit_emit_op1.exit724:                           ; preds = %sljit_emit_op1.exit
 2749:                                             ; preds = %2748
   %2750 = sext i32 %2747 to i64
   store i32 0, ptr %2640, align 8
-  %2751 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %2432, i32 noundef 142, i64 noundef %2750, i32 noundef 127, i64 noundef %2644)
+  %2751 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %2432, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2750, i32 noundef 127, i64 noundef %2644)
   %.pre1541 = load i32, ptr %2432, align 8
   br label %sljit_emit_op1.exit718
 
@@ -25304,7 +25304,7 @@ sljit_emit_op1.exit718:                           ; preds = %2749, %sljit_emit_o
   %2755 = add nsw i32 %2754, %2641
   %2756 = sext i32 %2755 to i64
   store i32 0, ptr %2640, align 8
-  %2757 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %2756)
+  %2757 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2756)
   %.not73.i1004 = icmp eq ptr %2757, null
   br i1 %.not73.i1004, label %sljit_emit_op1.exit712, label %sljit_emit_op1.exit712.sink.split
 
@@ -25381,7 +25381,7 @@ sljit_emit_op1.exit697:                           ; preds = %emit_mov.exit993.th
 
 sljit_emit_op1.exit697.thread:                    ; preds = %emit_mov.exit993, %sljit_emit_op1.exit697
   store i32 0, ptr %2640, align 8
-  %2771 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 132, i64 noundef %2649)
+  %2771 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 132, i64 noundef range(i64 -2147483648, 2147483664) %2649)
   %.not73.i988 = icmp eq ptr %2771, null
   br i1 %.not73.i988, label %sljit_emit_op1.exit712, label %sljit_emit_op1.exit712.sink.split
 
@@ -25410,7 +25410,7 @@ sljit_emit_op1.exit712:                           ; preds = %sljit_emit_op1.exit
 
 2779:                                             ; preds = %2777
   store i8 -117, ptr %2778, align 1
-  %2780 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %2775)
+  %2780 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2432, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2775)
   %.not65.i = icmp eq ptr %2780, null
   br i1 %.not65.i, label %sljit_emit_op1.exit685, label %emit_mov.exit987.thread
 
@@ -25620,9 +25620,9 @@ sljit_emit_jump.exit666:                          ; preds = %2835, %2842
 
 sljit_set_label.exit653:                          ; preds = %add_jump.exit679.thread, %add_jump.exit754.thread, %emit_mov.exit1022, %emit_mov.exit984, %2731, %2802, %sljit_emit_op1.exit747, %2846, %2822, %sljit_emit_jump.exit666, %2848
   %.213231336 = phi ptr [ %.21324, %sljit_emit_jump.exit666 ], [ %.21324, %2848 ], [ %.2.ph, %sljit_emit_op1.exit747 ], [ %.21324, %2846 ], [ %.21324, %2822 ], [ %.11122, %2802 ], [ %.4, %2731 ], [ %.11122, %emit_mov.exit984 ], [ %.4, %emit_mov.exit1022 ], [ %.0112114721704, %add_jump.exit754.thread ], [ %.0112114721704, %add_jump.exit679.thread ]
-  tail call fastcc void @flush_stubs(ptr noundef %0)
+  tail call fastcc void @flush_stubs(ptr noundef nonnull %0)
   %2853 = load ptr, ptr %2635, align 8
-  tail call fastcc void @compile_backtrackingpath(ptr noundef %0, ptr noundef %2853)
+  tail call fastcc void @compile_backtrackingpath(ptr noundef nonnull %0, ptr noundef %2853)
   %.val.i378 = load i32, ptr %2432, align 8
   %.not282.i = icmp eq i32 %.val.i378, 0
   br i1 %.not282.i, label %2854, label %compile_bracketpos_matchingpath.exit
@@ -25782,7 +25782,7 @@ sljit_emit_op1.exit637:                           ; preds = %sljit_emit_op1.exit
   %2902 = zext i8 %2901 to i64
   %2903 = or disjoint i64 %2899, %2902
   %2904 = getelementptr inbounds i8, ptr %2671, i64 %2903
-  tail call fastcc void @compile_matchingpath(ptr noundef %0, ptr noundef nonnull %2895, ptr noundef nonnull %2904, ptr noundef nonnull %.0.i928.ph)
+  tail call fastcc void @compile_matchingpath(ptr noundef nonnull %0, ptr noundef nonnull %2895, ptr noundef nonnull %2904, ptr noundef nonnull %.0.i928.ph)
   %.val289.i = load i32, ptr %2432, align 8
   %.not275.i = icmp eq i32 %.val289.i, 0
   br i1 %.not275.i, label %.lr.ph1705, label %compile_bracketpos_matchingpath.exit
@@ -25907,7 +25907,7 @@ sljit_set_label.exit.i593:                        ; preds = %2941, %.lr.ph.split
   br i1 %.not.i594, label %set_jumps.exit, label %.lr.ph.split.i
 
 set_jumps.exit:                                   ; preds = %sljit_set_label.exit.i593, %sljit_set_label.exit.us.i, %add_jump.exit601
-  tail call fastcc void @count_match(ptr noundef %0)
+  tail call fastcc void @count_match(ptr noundef nonnull %0)
   %2949 = getelementptr inbounds i8, ptr %.2249.i1607, i64 3
   br label %compile_bracketpos_matchingpath.exit
 
@@ -26005,7 +26005,7 @@ sljit_emit_op1.exit401.thread:                    ; preds = %sljit_emit_op1.exit
   %.not246 = icmp eq i32 %2984, 0
   %2985 = select i1 %.not246, i64 0, i64 32
   store i32 0, ptr %118, align 8
-  %2986 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef %2985)
+  %2986 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %2985)
   %.not73.i936 = icmp eq ptr %2986, null
   br i1 %.not73.i936, label %emit_mov.exit938, label %sljit_emit_op1.exit396
 
@@ -26036,7 +26036,7 @@ sljit_emit_op1.exit401:                           ; preds = %emit_mov.exit938, %
   %2997 = load i32, ptr %115, align 8
   %2998 = sext i32 %2997 to i64
   store i32 0, ptr %118, align 8
-  %2999 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %2998)
+  %2999 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2998)
   %.not73.i939 = icmp eq ptr %2999, null
   br i1 %.not73.i939, label %emit_mov.exit941, label %sljit_emit_op1.exit406
 
@@ -26095,7 +26095,7 @@ sljit_emit_op1.exit416.thread:                    ; preds = %emit_mov.exit947, %
   %.in = load i32, ptr %120, align 4
   %3013 = sext i32 %.in to i64
   store i32 0, ptr %118, align 8
-  %3014 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef %3013)
+  %3014 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %3013)
   %.not73.i948 = icmp eq ptr %3014, null
   br i1 %.not73.i948, label %emit_mov.exit950, label %sljit_emit_op1.exit421
 
@@ -26251,7 +26251,7 @@ sljit_alloc_memory.exit.i448:                     ; preds = %3058, %3049
   ]
 
 3065:                                             ; preds = %3062
-  tail call fastcc void @allocate_stack(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @allocate_stack(ptr noundef nonnull %0, i32 noundef 1)
   %3066 = load i32, ptr %3033, align 8
   %.not.i46.i454 = icmp eq i32 %3066, 0
   br i1 %.not.i46.i454, label %3067, label %compile_simple_assertion_matchingpath.exit
@@ -26286,7 +26286,7 @@ sljit_emit_op1.exit52.i:                          ; preds = %3070
   %3078 = load i32, ptr %115, align 8
   %3079 = sext i32 %3078 to i64
   store i32 0, ptr %3074, align 8
-  %3080 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3033, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %3079)
+  %3080 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3033, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %3079)
   %.not73.i64.i = icmp eq ptr %3080, null
   br i1 %.not73.i64.i, label %emit_mov.exit66.i, label %sljit_emit_op1.exit57.i
 
@@ -27457,7 +27457,7 @@ sljit_emit_op1.exit.i493:                         ; preds = %emit_mov.exit.threa
   %3590 = sext i32 %.in.i494 to i64
   %3591 = getelementptr inbounds i8, ptr %3555, i64 152
   store i32 0, ptr %3591, align 8
-  %3592 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3555, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %3590)
+  %3592 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3555, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %3590)
   %.not73.i.i495 = icmp eq ptr %3592, null
   br i1 %.not73.i.i495, label %sljit_emit_op1.exit25.i, label %emit_mov.exit33.thread.i
 
@@ -27480,7 +27480,7 @@ sljit_emit_op1.exit25.i:                          ; preds = %emit_mov.exit33.thr
   %3598 = sext i32 %3597 to i64
   %3599 = getelementptr inbounds i8, ptr %3555, i64 152
   store i32 0, ptr %3599, align 8
-  %3600 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3555, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %3598)
+  %3600 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3555, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %3598)
   %.not73.i34.i = icmp eq ptr %3600, null
   br i1 %.not73.i34.i, label %compile_close_matchingpath.exit, label %emit_mov.exit36.thread.i
 
@@ -28504,7 +28504,7 @@ free_stack.exit:                                  ; preds = %81, %80, %sljit_emi
   %91 = load i32, ptr %33, align 4
   %92 = sext i32 %91 to i64
   store i32 0, ptr %17, align 8
-  %93 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %10, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %92)
+  %93 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %10, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %92)
   %.not73.i = icmp eq ptr %93, null
   br i1 %.not73.i, label %sljit_emit_op1.exit74, label %emit_mov.exit315.thread
 
@@ -28532,7 +28532,7 @@ emit_mov.exit315.thread:                          ; preds = %90
   %103 = icmp eq i32 %102, 0
   %104 = select i1 %103, i32 140, i32 142
   %105 = add nsw i32 %102, 8
-  %106 = call fastcc ptr @get_iterator_parameters(ptr noundef %0, ptr noundef nonnull %53, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %9)
+  %106 = call fastcc ptr @get_iterator_parameters(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %9)
   %107 = load i8, ptr %4, align 1
   switch i8 %107, label %sljit_set_label.exit.i75 [
     i8 33, label %108
@@ -28802,7 +28802,7 @@ sljit_emit_op1.exit160.i:                         ; preds = %211
 
 sljit_emit_op1.exit160.thread.i:                  ; preds = %sljit_emit_op1.exit160.i, %emit_mov_byte.exit.i
   store i32 0, ptr %212, align 8
-  %217 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %104, i64 noundef %173)
+  %217 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %104, i64 noundef range(i64 -2147483648, 2147483664) %173)
   %.not73.i.i = icmp eq ptr %217, null
   br i1 %.not73.i.i, label %sljit_emit_op1.exit166.i, label %emit_mov.exit458.thread.i
 
@@ -28850,7 +28850,7 @@ sljit_emit_op2.exit169.i:                         ; preds = %221, %219, %sljit_e
   br label %sljit_set_label.exit173.i
 
 sljit_set_label.exit173.i:                        ; preds = %231, %sljit_emit_op2.exit169.i
-  call fastcc void @move_back(ptr noundef %0, ptr noundef null, i32 noundef 1)
+  call fastcc void @move_back(ptr noundef nonnull %0, ptr noundef null, i32 noundef 1)
   %237 = call fastcc ptr @sljit_emit_cmp(ptr noundef nonnull %95, i32 noundef 4, i32 noundef 2, i64 noundef 0, i32 noundef 4, i64 noundef 0)
   %.not.i174.i = icmp eq ptr %237, null
   %.not7.i175.i = icmp eq ptr %209, null
@@ -28882,7 +28882,7 @@ sljit_set_label.exit173.i:                        ; preds = %231, %sljit_emit_op
 sljit_emit_op1.exit183.i:                         ; preds = %247, %244
   %250 = sext i32 %105 to i64
   %251 = call fastcc ptr @sljit_emit_cmp(ptr noundef nonnull %95, i32 noundef 5, i32 noundef 2, i64 noundef 0, i32 noundef %104, i64 noundef %250)
-  call fastcc void @move_back(ptr noundef %0, ptr noundef null, i32 noundef 1)
+  call fastcc void @move_back(ptr noundef nonnull %0, ptr noundef null, i32 noundef 1)
   %252 = load i32, ptr %95, align 8
   %.not.i184.i = icmp eq i32 %252, 0
   br i1 %.not.i184.i, label %253, label %sljit_set_label.exit177.i
@@ -28890,7 +28890,7 @@ sljit_emit_op1.exit183.i:                         ; preds = %247, %244
 253:                                              ; preds = %sljit_emit_op1.exit183.i
   %254 = getelementptr inbounds i8, ptr %95, i64 152
   store i32 0, ptr %254, align 8
-  %255 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %104, i64 noundef %245)
+  %255 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %104, i64 noundef range(i64 -2147483648, 2147483664) %245)
   %.not73.i459.i = icmp eq ptr %255, null
   br i1 %.not73.i459.i, label %emit_mov.exit461.i, label %sljit_emit_op1.exit189.i
 
@@ -29122,7 +29122,7 @@ ensure_buf.exit.i:                                ; preds = %334
 
 sljit_emit_op1.exit208.i:                         ; preds = %354, %351
   %357 = load i8, ptr %5, align 1
-  %358 = call fastcc ptr @compile_char1_matchingpath(ptr noundef %0, i8 noundef zeroext %357, ptr noundef nonnull %106, ptr noundef nonnull %8, i32 noundef 1)
+  %358 = call fastcc ptr @compile_char1_matchingpath(ptr noundef nonnull %0, i8 noundef zeroext %357, ptr noundef nonnull %106, ptr noundef nonnull %8, i32 noundef 1)
   %359 = load i32, ptr %95, align 8
   %.not.i209.i = icmp eq i32 %359, 0
   br i1 %.not.i209.i, label %360, label %sljit_set_label.exit231.i
@@ -29130,7 +29130,7 @@ sljit_emit_op1.exit208.i:                         ; preds = %354, %351
 360:                                              ; preds = %sljit_emit_op1.exit208.i
   %361 = getelementptr inbounds i8, ptr %95, i64 152
   store i32 0, ptr %361, align 8
-  %362 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %104, i64 noundef %352)
+  %362 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %104, i64 noundef range(i64 -2147483648, 2147483664) %352)
   %.not73.i465.i = icmp eq ptr %362, null
   br i1 %.not73.i465.i, label %emit_mov.exit467.i, label %sljit_emit_op1.exit214.i
 
@@ -29610,7 +29610,7 @@ add_jump.exit.i:                                  ; preds = %566, %557
 
 572:                                              ; preds = %add_jump.exit.i
   store i32 0, ptr %469, align 8
-  %573 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef %104, i64 noundef %466)
+  %573 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef %104, i64 noundef range(i64 -2147483648, 2147483664) %466)
   %.not73.i474.i = icmp eq ptr %573, null
   br i1 %.not73.i474.i, label %sljit_emit_op1.exit280.i, label %emit_mov.exit476.thread.i
 
@@ -29621,7 +29621,7 @@ emit_mov.exit476.thread.i:                        ; preds = %572
 sljit_emit_op1.exit280.i:                         ; preds = %emit_mov.exit476.thread.i, %572, %add_jump.exit.i, %565, %sljit_emit_jump.exit273.i, %548, %521, %sljit_emit_op2.exit260thread-pre-split.i, %sljit_emit_jump.exit273.critedge.i, %sljit_emit_op1.exit257.i, %sljit_emit_op1.exit251.i, %sljit_emit_jump.exit273.thread655.i
   %574 = phi i64 [ %472, %add_jump.exit.i ], [ %472, %emit_mov.exit476.thread.i ], [ %468, %sljit_emit_jump.exit273.thread655.i ], [ %472, %565 ], [ %472, %sljit_emit_jump.exit273.i ], [ %472, %548 ], [ %472, %521 ], [ %472, %572 ], [ %472, %sljit_emit_op2.exit260thread-pre-split.i ], [ %472, %sljit_emit_jump.exit273.critedge.i ], [ %472, %sljit_emit_op1.exit257.i ], [ %472, %sljit_emit_op1.exit251.i ]
   %575 = load i8, ptr %5, align 1
-  %576 = call fastcc ptr @compile_char1_matchingpath(ptr noundef %0, i8 noundef zeroext %575, ptr noundef nonnull %106, ptr noundef nonnull %8, i32 noundef 1)
+  %576 = call fastcc ptr @compile_char1_matchingpath(ptr noundef nonnull %0, i8 noundef zeroext %575, ptr noundef nonnull %106, ptr noundef nonnull %8, i32 noundef 1)
   %577 = load i32, ptr %95, align 8
   %.not.i281.i = icmp eq i32 %577, 0
   br i1 %.not.i281.i, label %578, label %sljit_set_label.exit303.i
@@ -29629,7 +29629,7 @@ sljit_emit_op1.exit280.i:                         ; preds = %emit_mov.exit476.th
 578:                                              ; preds = %sljit_emit_op1.exit280.i
   %579 = getelementptr inbounds i8, ptr %95, i64 152
   store i32 0, ptr %579, align 8
-  %580 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %104, i64 noundef %574)
+  %580 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %104, i64 noundef range(i64 -2147483648, 2147483664) %574)
   %.not73.i477.i = icmp eq ptr %580, null
   br i1 %.not73.i477.i, label %emit_mov.exit479.i, label %sljit_emit_op1.exit286.i
 
@@ -29884,7 +29884,7 @@ sljit_emit_op1.exit323.i:                         ; preds = %683
 
 689:                                              ; preds = %sljit_emit_op1.exit323.i
   store i32 0, ptr %686, align 8
-  %690 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef %104, i64 noundef %684)
+  %690 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef %104, i64 noundef range(i64 -2147483648, 2147483664) %684)
   %.not71.i.i = icmp eq ptr %690, null
   br i1 %.not71.i.i, label %sljit_emit_op1.exit329.i, label %emit_mov.exit484.thread.i
 
@@ -30079,7 +30079,7 @@ sljit_emit_op1.exit364.i:                         ; preds = %set_jumps.exit358.i
 
 770:                                              ; preds = %sljit_emit_op1.exit364.i
   store i32 0, ptr %767, align 8
-  %771 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef %104, i64 noundef %684)
+  %771 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef %104, i64 noundef range(i64 -2147483648, 2147483664) %684)
   %.not71.i486.i = icmp eq ptr %771, null
   br i1 %.not71.i486.i, label %emit_mov.exit488.i, label %sljit_emit_op1.exit370.i
 
@@ -30311,7 +30311,7 @@ sljit_emit_op1.exit399.i:                         ; preds = %867
 
 873:                                              ; preds = %sljit_emit_op1.exit399.i
   store i32 0, ptr %870, align 8
-  %874 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef %104, i64 noundef %868)
+  %874 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %95, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef %104, i64 noundef range(i64 -2147483648, 2147483664) %868)
   %.not71.i493.i = icmp eq ptr %874, null
   br i1 %.not71.i493.i, label %sljit_emit_op1.exit405.i, label %emit_mov.exit495.thread.i
 
@@ -30322,7 +30322,7 @@ emit_mov.exit495.thread.i:                        ; preds = %873
 sljit_emit_op1.exit405.i:                         ; preds = %emit_mov.exit495.thread.i, %873, %sljit_emit_op1.exit399.i, %867
   %875 = call fastcc ptr @sljit_emit_cmp(ptr noundef nonnull %95, i32 noundef 0, i32 noundef 2, i64 noundef 0, i32 noundef 127, i64 noundef 0)
   %876 = load i8, ptr %5, align 1
-  %877 = call fastcc ptr @compile_char1_matchingpath(ptr noundef %0, i8 noundef zeroext %876, ptr noundef nonnull %106, ptr noundef nonnull %8, i32 noundef 1)
+  %877 = call fastcc ptr @compile_char1_matchingpath(ptr noundef nonnull %0, i8 noundef zeroext %876, ptr noundef nonnull %106, ptr noundef nonnull %8, i32 noundef 1)
   %878 = load i32, ptr %95, align 8
   %.not.i406.i = icmp eq i32 %878, 0
   br i1 %.not.i406.i, label %879, label %sljit_set_label.exit422.i
@@ -31175,7 +31175,7 @@ add_jump.exit374:                                 ; preds = %1184, %1234, %1205,
 1251:                                             ; preds = %1100
   %1252 = getelementptr inbounds i8, ptr %.0515, i64 16
   %1253 = load ptr, ptr %1252, align 8
-  call fastcc void @compile_backtrackingpath(ptr noundef %0, ptr noundef %1253)
+  call fastcc void @compile_backtrackingpath(ptr noundef nonnull %0, ptr noundef %1253)
   br label %compile_recurse_backtrackingpath.exit
 
 compile_recurse_backtrackingpath.exit:            ; preds = %1245, %add_jump.exit374, %1251
@@ -31328,7 +31328,7 @@ sljit_emit_op1.exit52.i:                          ; preds = %sljit_emit_op1.exit
   %1312 = phi i32 [ %1304, %sljit_emit_op1.exit52.thread.i ], [ %1309, %sljit_emit_op1.exit52.i ]
   %1313 = sext i32 %.in.i to i64
   store i32 0, ptr %1297, align 8
-  %1314 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1277, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %1313)
+  %1314 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1277, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1313)
   %.not73.i.i142 = icmp eq ptr %1314, null
   br i1 %.not73.i.i142, label %sljit_emit_op1.exit57thread-pre-split.i, label %emit_mov.exit123.thread.i
 
@@ -31388,7 +31388,7 @@ sljit_emit_op1.exit62.i:                          ; preds = %emit_mov.exit126.th
   %1330 = sext i32 %.in191.i to i64
   %1331 = getelementptr inbounds i8, ptr %1277, i64 152
   store i32 0, ptr %1331, align 8
-  %1332 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1277, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %1330)
+  %1332 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1277, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1330)
   %.not73.i127.i = icmp eq ptr %1332, null
   br i1 %.not73.i127.i, label %sljit_emit_op1.exit67.i, label %emit_mov.exit129.thread.i
 
@@ -31410,7 +31410,7 @@ sljit_emit_op1.exit67.i:                          ; preds = %emit_mov.exit129.th
   %1335 = sext i32 %.pr183.i to i64
   %1336 = getelementptr inbounds i8, ptr %1277, i64 152
   store i32 0, ptr %1336, align 8
-  %1337 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1277, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %1335)
+  %1337 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1277, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1335)
   %.not73.i130.i = icmp eq ptr %1337, null
   br i1 %.not73.i130.i, label %sljit_emit_op1.exit72.i, label %emit_mov.exit132.thread.i
 
@@ -31885,7 +31885,7 @@ sljit_set_label.exit.i109:                        ; preds = %1526, %free_stack.e
 
 1542:                                             ; preds = %1535
   store i8 -117, ptr %1541, align 1
-  %1543 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1277, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %1533)
+  %1543 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %1277, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1533)
   %.not65.i.i = icmp eq ptr %1543, null
   br i1 %.not65.i.i, label %sljit_emit_op1.exit74, label %emit_mov.exit138.thread.i
 
@@ -31903,9 +31903,9 @@ emit_mov.exit138.thread.i:                        ; preds = %1542
 
 1548:                                             ; preds = %1544
   %1549 = getelementptr inbounds i8, ptr %.0515, i64 16
-  %1550 = call fastcc ptr @compile_bracket_matchingpath(ptr noundef %0, ptr noundef nonnull %53, ptr noundef nonnull %.0515)
+  %1550 = call fastcc ptr @compile_bracket_matchingpath(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %.0515)
   %1551 = load ptr, ptr %1549, align 8
-  call fastcc void @compile_bracket_backtrackingpath(ptr noundef %0, ptr noundef %1551)
+  call fastcc void @compile_bracket_backtrackingpath(ptr noundef nonnull %0, ptr noundef %1551)
   br label %compile_braminzero_backtrackingpath.exit
 
 1552:                                             ; preds = %1544
@@ -31914,7 +31914,7 @@ emit_mov.exit138.thread.i:                        ; preds = %1542
   %1553 = getelementptr inbounds i8, ptr %.0515, i64 40
   %1554 = load ptr, ptr %1553, align 8
   store ptr %1554, ptr %32, align 8
-  %1555 = call fastcc ptr @compile_assert_matchingpath(ptr noundef %0, ptr noundef nonnull %53, ptr noundef nonnull %3, i32 noundef 0)
+  %1555 = call fastcc ptr @compile_assert_matchingpath(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %3, i32 noundef 0)
   br label %compile_braminzero_backtrackingpath.exit
 
 compile_braminzero_backtrackingpath.exit:         ; preds = %1548, %1552
@@ -31987,7 +31987,7 @@ free_stack.exit155:                               ; preds = %sljit_emit_op1.exit
   %1575 = load i32, ptr %30, align 8
   %1576 = sext i32 %1575 to i64
   store i32 0, ptr %17, align 8
-  %1577 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %10, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %1576)
+  %1577 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %10, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1576)
   %.not73.i394 = icmp eq ptr %1577, null
   br i1 %.not73.i394, label %sljit_emit_op1.exit160, label %emit_mov.exit396.thread
 
@@ -32009,7 +32009,7 @@ sljit_emit_op1.exit160:                           ; preds = %1574, %emit_mov.exi
   %1582 = load i32, ptr %14, align 4
   %1583 = sext i32 %1582 to i64
   store i32 0, ptr %17, align 8
-  %1584 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %10, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %1583)
+  %1584 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %10, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1583)
   %.not73.i397 = icmp eq ptr %1584, null
   br i1 %.not73.i397, label %sljit_emit_op1.exit74, label %emit_mov.exit399.thread
 
@@ -34385,7 +34385,7 @@ sljit_set_label.exit.i288:                        ; preds = %2605, %free_stack.e
   %2614 = sext i32 %2613 to i64
   %2615 = getelementptr inbounds i8, ptr %2403, i64 152
   store i32 0, ptr %2615, align 8
-  %2616 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2403, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %2614)
+  %2616 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2403, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %2614)
   %.not73.i.i289 = icmp eq ptr %2616, null
   br i1 %.not73.i.i289, label %sljit_emit_op1.exit74, label %emit_mov.exit65.thread.i
 
@@ -34926,7 +34926,7 @@ emit_do_imm32.exit.thread.i:                      ; preds = %50, %44
   br label %emit_cmp_binary.exit
 
 109:                                              ; preds = %57
-  %110 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef %2, i64 noundef 0, i32 noundef %4, i64 noundef %5)
+  %110 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef %2, i64 noundef 0, i32 noundef range(i32 1, 143) %4, i64 noundef %5)
   %.not109.i = icmp eq ptr %110, null
   br i1 %.not109.i, label %111, label %113
 
@@ -34945,7 +34945,7 @@ emit_do_imm32.exit.thread.i:                      ; preds = %50, %44
   br i1 %or.cond9.i, label %117, label %122
 
 117:                                              ; preds = %114
-  %118 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef %4, i64 noundef 0, i32 noundef %2, i64 noundef %3)
+  %118 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef range(i32 1, 143) %4, i64 noundef 0, i32 noundef %2, i64 noundef %3)
   %.not108.i = icmp eq ptr %118, null
   br i1 %.not108.i, label %119, label %121
 
@@ -35035,7 +35035,7 @@ emit_do_imm32.exit.thread.i:                      ; preds = %50, %44
   br label %emit_cmp_binary.exit
 
 156:                                              ; preds = %152
-  %157 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %4, i64 noundef %5)
+  %157 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef range(i32 1, 143) %4, i64 noundef %5)
   %.not102.i = icmp eq ptr %157, null
   br i1 %.not102.i, label %158, label %160
 
@@ -35297,7 +35297,7 @@ emit_do_imm32.exit160.thread.i:                   ; preds = %230, %224
   br i1 %276, label %277, label %298
 
 277:                                              ; preds = %275
-  %278 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef %2, i64 noundef 0, i32 noundef %4, i64 noundef %5)
+  %278 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef %2, i64 noundef 0, i32 noundef range(i32 1, 143) %4, i64 noundef %5)
   %.not140.i = icmp eq ptr %278, null
   br i1 %.not140.i, label %279, label %281
 
@@ -35320,7 +35320,7 @@ emit_do_imm32.exit160.thread.i:                   ; preds = %230, %224
   br i1 %or.cond47, label %.thread195.i.thread, label %285
 
 285:                                              ; preds = %283
-  %286 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 127, i64 noundef %3, i32 noundef %4, i64 noundef %5)
+  %286 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 127, i64 noundef %3, i32 noundef range(i32 1, 143) %4, i64 noundef %5)
   %.not139.i = icmp eq ptr %286, null
   br i1 %.not139.i, label %287, label %289
 
@@ -35342,7 +35342,7 @@ emit_do_imm32.exit160.thread.i:                   ; preds = %230, %224
   br label %emit_cmp_binary.exit
 
 293:                                              ; preds = %.thread195.i.thread
-  %294 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %4, i64 noundef %5)
+  %294 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef range(i32 1, 143) %4, i64 noundef %5)
   %.not138.i = icmp eq ptr %294, null
   br i1 %.not138.i, label %295, label %297
 
@@ -35359,7 +35359,7 @@ emit_do_imm32.exit160.thread.i:                   ; preds = %230, %224
   br i1 %299, label %300, label %.thread185.i
 
 300:                                              ; preds = %298
-  %301 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef %4, i64 noundef 0, i32 noundef %2, i64 noundef %3)
+  %301 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef range(i32 1, 143) %4, i64 noundef 0, i32 noundef %2, i64 noundef %3)
   %.not135.i = icmp eq ptr %301, null
   br i1 %.not135.i, label %302, label %304
 
@@ -35489,7 +35489,7 @@ emit_do_imm32.exit160.thread.i:                   ; preds = %230, %224
   br label %emit_cmp_binary.exit
 
 .thread188.i:                                     ; preds = %.thread185.i
-  %357 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %4, i64 noundef %5)
+  %357 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef range(i32 1, 143) %4, i64 noundef %5)
   %.not130.i = icmp eq ptr %357, null
   br i1 %.not130.i, label %358, label %360
 
@@ -35632,7 +35632,7 @@ define internal fastcc void @sljit_emit_op_dst(ptr nocapture noundef %0, i32 nou
 67:                                               ; preds = %4
   %68 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 1, ptr %68, align 8
-  %69 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 0, i64 noundef 0, i32 noundef %1, i64 noundef 0)
+  %69 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 0, i64 noundef 0, i32 noundef range(i32 1, 143) %1, i64 noundef 0)
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %emit_fast_enter.exit, label %70
 
@@ -37021,7 +37021,7 @@ define internal fastcc void @check_wordboundary(ptr nocapture noundef nonnull %0
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %6, i64 152
   store i32 1, ptr %9, align 8
-  %10 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %6, i64 noundef 1, i32 noundef 0, i64 noundef 0, i32 noundef 142, i64 noundef 0)
+  %10 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %6, i64 noundef 1, i32 noundef 0, i64 noundef 0, i32 noundef range(i32 1, 143) 142, i64 noundef 0)
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %sljit_emit_op_dst.exit, label %11
 
@@ -41518,7 +41518,7 @@ define internal fastcc void @do_casefulcmp(ptr %.0.val) unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 152
   store i32 1, ptr %3, align 8
-  %4 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %.0.val, i64 noundef 1, i32 noundef 0, i64 noundef 0, i32 noundef 142, i64 noundef 0)
+  %4 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %.0.val, i64 noundef 1, i32 noundef 0, i64 noundef 0, i32 noundef range(i32 1, 143) 142, i64 noundef 0)
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %sljit_emit_op_dst.exit, label %5
 
@@ -41927,7 +41927,7 @@ define internal fastcc void @do_caselesscmp(ptr nocapture noundef nonnull readon
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 152
   store i32 1, ptr %4, align 8
-  %5 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2, i64 noundef 1, i32 noundef 0, i64 noundef 0, i32 noundef 142, i64 noundef 0)
+  %5 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2, i64 noundef 1, i32 noundef 0, i64 noundef 0, i32 noundef range(i32 1, 143) 142, i64 noundef 0)
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %sljit_emit_op_dst.exit, label %6
 
@@ -42461,7 +42461,7 @@ sljit_emit_op1.exit:                              ; preds = %7, %5, %emit_mov.ex
   %23 = add nsw i32 %21, %22
   %24 = sext i32 %23 to i64
   store i32 0, ptr %16, align 8
-  %25 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %24)
+  %25 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %24)
   %.not73.i = icmp eq ptr %25, null
   br i1 %.not73.i, label %sljit_emit_op1.exit49, label %emit_mov.exit122.thread
 
@@ -42728,7 +42728,7 @@ sljit_emit_op1.exit99:                            ; preds = %sljit_emit_op2.exit
   %136 = sext i32 %132 to i64
   %137 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %137, align 8
-  %138 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %136)
+  %138 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %136)
   %.not71.i = icmp eq ptr %138, null
   br i1 %.not71.i, label %sljit_emit_op1.exit104thread-pre-split, label %emit_mov.exit135.thread
 
@@ -42755,7 +42755,7 @@ sljit_emit_op1.exit104:                           ; preds = %sljit_emit_op1.exit
   %143 = sext i32 %140 to i64
   %144 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %144, align 8
-  %145 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %143)
+  %145 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %143)
   %.not71.i137 = icmp eq ptr %145, null
   br i1 %.not71.i137, label %emit_mov.exit139, label %emit_mov.exit139.thread
 
@@ -54893,7 +54893,7 @@ define internal fastcc i32 @emit_lea_binary(ptr nocapture noundef %0, i32 nounde
   br i1 %50, label %51, label %emit_mov.exit
 
 51:                                               ; preds = %.thread
-  %52 = tail call fastcc ptr @emit_x86_instruction(ptr noundef %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %1, i64 noundef %2)
+  %52 = tail call fastcc ptr @emit_x86_instruction(ptr noundef %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %1, i64 noundef range(i64 -2147483648, 2147483664) %2)
   %.not73.i = icmp eq ptr %52, null
   br i1 %.not73.i, label %53, label %55
 
@@ -55875,7 +55875,7 @@ emit_do_imm32.exit285.thread:                     ; preds = %166, %172
   br label %294
 
 294:                                              ; preds = %293, %275, %288
-  %295 = tail call fastcc ptr @emit_x86_instruction(ptr noundef %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef %3)
+  %295 = tail call fastcc ptr @emit_x86_instruction(ptr noundef %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3)
   %.not73.i = icmp eq ptr %295, null
   br i1 %.not73.i, label %emit_mov.exit, label %emit_mov.exit.thread
 
@@ -56020,7 +56020,7 @@ define internal fastcc i32 @emit_unary(ptr nocapture noundef %0, i8 noundef zero
   store i8 -9, ptr %.1198.i, align 1
   %68 = or i8 %1, -62
   store i8 %68, ptr %67, align 1
-  %69 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef %3)
+  %69 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3)
   %.not73.i = icmp eq ptr %69, null
   br i1 %.not73.i, label %emit_mov.exit, label %emit_mov.exit.thread
 
@@ -56453,7 +56453,7 @@ emit_do_imm32.exit.thread:                        ; preds = %47, %53
   br label %205
 
 205:                                              ; preds = %204, %186, %199
-  %206 = tail call fastcc ptr @emit_x86_instruction(ptr noundef %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef %3)
+  %206 = tail call fastcc ptr @emit_x86_instruction(ptr noundef %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3)
   %.not73.i = icmp eq ptr %206, null
   br i1 %.not73.i, label %emit_mov.exit, label %emit_mov.exit.thread
 
@@ -56864,7 +56864,7 @@ emit_mov.exit:                                    ; preds = %71
   %112 = load i8, ptr %111, align 1
   %113 = or i8 %112, %1
   store i8 %113, ptr %111, align 1
-  %114 = tail call fastcc ptr @emit_x86_instruction(ptr noundef %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef %3)
+  %114 = tail call fastcc ptr @emit_x86_instruction(ptr noundef %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3)
   %.not73.i172 = icmp eq ptr %114, null
   br i1 %.not73.i172, label %emit_mov.exit174, label %emit_mov.exit174.thread
 
@@ -57170,7 +57170,7 @@ emit_mov.exit200:                                 ; preds = %235
   br i1 %.not157, label %emit_mov.exit188, label %242
 
 242:                                              ; preds = %241
-  %243 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef %3)
+  %243 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3)
   %.not73.i201 = icmp eq ptr %243, null
   br i1 %.not73.i201, label %244, label %246
 
@@ -61888,7 +61888,7 @@ switch.lookup1:                                   ; preds = %68, %60
   %switch.masked5 = trunc i64 %switch.downshift4 to i8
   store i8 %switch.masked5, ptr %72, align 1
   %78 = load i64, ptr %73, align 8
-  %79 = call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef %2, i64 noundef 0, i32 noundef %.152, i64 noundef %.2)
+  %79 = call fastcc i32 @emit_mov(ptr noundef nonnull %0, i32 noundef range(i32 1, 14) %2, i64 noundef 0, i32 noundef %.152, i64 noundef %.2)
   %.not16.i = icmp eq i32 %79, 0
   br i1 %.not16.i, label %emit_cmov_generic.exit.thread, label %emit_groupf.exit
 
@@ -62947,7 +62947,7 @@ sljit_emit_simd_mov.exit:                         ; preds = %emit_mov.exit535, %
 367:                                              ; preds = %sljit_emit_simd_mov.exit
   %368 = getelementptr inbounds i8, ptr %8, i64 152
   store i32 1, ptr %368, align 8
-  %369 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %8, i64 noundef 28674, i32 noundef 2, i64 noundef 0, i32 noundef 130, i64 noundef %365)
+  %369 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %8, i64 noundef 28674, i32 noundef 2, i64 noundef 0, i32 noundef 130, i64 noundef range(i64 -4294967295, 1) %365)
   %.not.i50.i315 = icmp eq ptr %369, null
   br i1 %.not.i50.i315, label %sljit_emit_simd_mov.exit316, label %370
 
@@ -63631,7 +63631,7 @@ sljit_emit_simd_mov.exit379:                      ; preds = %661, %658
 663:                                              ; preds = %sljit_emit_simd_mov.exit379
   %664 = getelementptr inbounds i8, ptr %8, i64 152
   store i32 1, ptr %664, align 8
-  %665 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %8, i64 noundef 28674, i32 noundef 2, i64 noundef 0, i32 noundef 130, i64 noundef %365)
+  %665 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %8, i64 noundef 28674, i32 noundef 2, i64 noundef 0, i32 noundef 130, i64 noundef range(i64 -4294967295, 1) %365)
   %.not.i50.i384 = icmp eq ptr %665, null
   br i1 %.not.i50.i384, label %sljit_emit_simd_mov.exit385.preheader, label %666
 
@@ -64317,7 +64317,7 @@ define internal fastcc void @sljit_emit_simd_lane_replicate(ptr nocapture nounde
   br i1 %.not263, label %19, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 90371, i32 noundef %1, i64 noundef 0, i32 noundef %2, i64 noundef 0)
+  %10 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 90371, i32 noundef range(i32 1, 7) %1, i64 noundef 0, i32 noundef range(i32 2, 131) %2, i64 noundef 0)
   %.not64.i = icmp eq ptr %10, null
   br i1 %.not64.i, label %emit_vex_instruction.exit, label %11
 
@@ -64906,7 +64906,7 @@ add_jump.exit:                                    ; preds = %sljit_alloc_memory.
   %46 = ashr exact i64 %sext, 32
   %47 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 1, ptr %47, align 8
-  %48 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 15, i64 noundef 0, i32 noundef 127, i64 noundef %46)
+  %48 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 15, i64 noundef 0, i32 noundef 127, i64 noundef range(i64 -2147483648, 2147483648) %46)
   %.not277.i = icmp eq i32 %48, 0
   br i1 %.not277.i, label %49, label %sljit_emit_simd_lane_mov.exit
 
@@ -64994,7 +64994,7 @@ sljit_emit_simd_lane_mov.exit:                    ; preds = %42, %17, %35, %add_
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 1, ptr %89, align 8
-  %90 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 15, i64 noundef 0, i32 noundef 127, i64 noundef %88)
+  %90 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 15, i64 noundef 0, i32 noundef 127, i64 noundef range(i64 -2147483648, 2147483648) %88)
   %.not277.i123 = icmp eq i32 %90, 0
   br i1 %.not277.i123, label %91, label %sljit_emit_simd_lane_mov.exit125
 
@@ -70782,7 +70782,7 @@ sljit_emit_op2.exit740:                           ; preds = %sljit_emit_op1.exit
 1352:                                             ; preds = %sljit_emit_op2.exit740
   %1353 = getelementptr inbounds i8, ptr %9, i64 152
   store i32 0, ptr %1353, align 8
-  %1354 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 4, i64 noundef 0)
+  %1354 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %9, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef range(i32 1, 143) 4, i64 noundef 0)
   %.not140.i.i = icmp eq ptr %1354, null
   br i1 %.not140.i.i, label %sljit_emit_op2u.exit743, label %1355
 
@@ -71279,7 +71279,7 @@ switch.early.test:                                ; preds = %99
 109:                                              ; preds = %103
   %110 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %110, align 8
-  %111 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef %104)
+  %111 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482, i32 noundef 127, i64 noundef %104)
   br label %sljit_emit_op1.exit
 
 sljit_emit_op1.exit:                              ; preds = %109, %103
@@ -71311,7 +71311,7 @@ sljit_emit_op1.exit:                              ; preds = %109, %103
   %125 = zext i32 %93 to i64
   %126 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %126, align 8
-  %127 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef %125)
+  %127 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482, i32 noundef 127, i64 noundef %125)
   br label %sljit_emit_op1.exit494
 
 sljit_emit_op1.exit494:                           ; preds = %124, %122
@@ -71325,7 +71325,7 @@ sljit_emit_op1.exit494:                           ; preds = %124, %122
 sljit_emit_op2.exit:                              ; preds = %sljit_emit_op1.exit494
   %132 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %132, align 8
-  %133 = tail call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %11, i32 noundef 757803304, i32 noundef %., i64 noundef %.482, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef 1)
+  %133 = tail call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %11, i32 noundef 757803304, i32 noundef range(i32 1, 143) %., i64 noundef range(i64 -2147483648, 2147483648) %.482, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef 1)
   %.pr = load i32, ptr %11, align 8
   %.not.i497 = icmp eq i32 %.pr, 0
   br i1 %.not.i497, label %134, label %sljit_set_label.exit
@@ -71690,7 +71690,7 @@ add_jump.exit528:                                 ; preds = %279, %288
 294:                                              ; preds = %add_jump.exit528
   %295 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %295, align 8
-  %296 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %195)
+  %296 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %195)
   %.not73.i = icmp eq ptr %296, null
   br i1 %.not73.i, label %emit_mov.exit961, label %sljit_emit_op1.exit533
 
@@ -71708,7 +71708,7 @@ sljit_emit_op1.exit533:                           ; preds = %294
 sljit_emit_op1.exit533.thread:                    ; preds = %emit_mov.exit961, %sljit_emit_op1.exit533
   %299 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %299, align 8
-  %300 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %269)
+  %300 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %269)
   %.not73.i962 = icmp eq ptr %300, null
   br i1 %.not73.i962, label %sljit_emit_op1.exit538, label %emit_mov.exit964.thread
 
@@ -72039,7 +72039,7 @@ sljit_set_label.exit592:                          ; preds = %400, %398, %sljit_s
   %418 = sext i32 %25 to i64
   %419 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %419, align 8
-  %420 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 13, i64 noundef 0, i32 noundef %27, i64 noundef %418)
+  %420 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 13, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %418)
   %.not73.i981 = icmp eq ptr %420, null
   br i1 %.not73.i981, label %emit_mov.exit983, label %sljit_emit_op1.exit598
 
@@ -72057,7 +72057,7 @@ sljit_emit_op1.exit598:                           ; preds = %417
 sljit_emit_op1.exit598.thread:                    ; preds = %emit_mov.exit983, %sljit_emit_op1.exit598
   %423 = sext i32 %28 to i64
   store i32 0, ptr %419, align 8
-  %424 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %423)
+  %424 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %423)
   %.not73.i984 = icmp eq ptr %424, null
   br i1 %.not73.i984, label %emit_mov.exit986, label %sljit_emit_op1.exit604
 
@@ -72096,7 +72096,7 @@ sljit_emit_op1.exit609:                           ; preds = %emit_mov.exit983, %
   %431 = sext i32 %.04441122 to i64
   %432 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %432, align 8
-  %433 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 13, i64 noundef 0, i32 noundef 142, i64 noundef %431)
+  %433 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 13, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %431)
   %.not73.i990 = icmp eq ptr %433, null
   br i1 %.not73.i990, label %sljit_emit_op1.exit614, label %emit_mov.exit992.thread
 
@@ -72132,7 +72132,7 @@ sljit_emit_op1.exit614:                           ; preds = %430, %428, %emit_mo
   %444 = sext i32 %28 to i64
   %445 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %445, align 8
-  %446 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %444)
+  %446 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %444)
   %.not73.i993 = icmp eq ptr %446, null
   br i1 %.not73.i993, label %sljit_emit_op1.exit620, label %emit_mov.exit995.thread
 
@@ -72157,7 +72157,7 @@ sljit_emit_op1.exit620:                           ; preds = %443, %emit_mov.exit
 455:                                              ; preds = %453
   %456 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %456, align 8
-  %457 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 13, i64 noundef 0)
+  %457 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef range(i32 1, 143) 13, i64 noundef 0)
   %.not109.i.i = icmp eq ptr %457, null
   br i1 %.not109.i.i, label %sljit_emit_op2u.exit, label %458
 
@@ -72197,7 +72197,7 @@ sljit_set_label.exit626:                          ; preds = %462, %459, %sljit_e
   %470 = sext i32 %25 to i64
   %471 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %471, align 8
-  %472 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %470)
+  %472 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %470)
   %.not73.i996 = icmp eq ptr %472, null
   br i1 %.not73.i996, label %sljit_emit_op1.exit632, label %emit_mov.exit998.thread
 
@@ -72218,7 +72218,7 @@ sljit_emit_op1.exit632:                           ; preds = %469, %emit_mov.exit
   %476 = sext i32 %.04441122 to i64
   %477 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %477, align 8
-  %478 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %476)
+  %478 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %476)
   %.not73.i999 = icmp eq ptr %478, null
   br i1 %.not73.i999, label %sljit_emit_op1.exit637, label %emit_mov.exit1001.thread
 
@@ -72300,7 +72300,7 @@ sljit_emit_op1.exit637:                           ; preds = %475, %473, %emit_mo
   %513 = zext i32 %512 to i64
   %514 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %514, align 8
-  %515 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef %513)
+  %515 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482, i32 noundef 127, i64 noundef %513)
   br label %sljit_emit_op1.exit643
 
 sljit_emit_op1.exit643:                           ; preds = %510, %508, %.thread1211
@@ -72330,7 +72330,7 @@ sljit_emit_op1.exit643:                           ; preds = %510, %508, %.thread
   %528 = sext i32 %.04441122 to i64
   %529 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %529, align 8
-  %530 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %528)
+  %530 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %528)
   %.not73.i1002 = icmp eq ptr %530, null
   br i1 %.not73.i1002, label %sljit_emit_op1.exit648, label %emit_mov.exit1004.thread
 
@@ -72423,7 +72423,7 @@ sljit_set_label.exit663:                          ; preds = %sljit_emit_op2.exit
 560:                                              ; preds = %557
   %561 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %561, align 8
-  %562 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %558)
+  %562 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %558)
   %.not73.i1006 = icmp eq ptr %562, null
   br i1 %.not73.i1006, label %emit_mov.exit1008, label %sljit_emit_op1.exit669
 
@@ -72441,7 +72441,7 @@ sljit_emit_op1.exit669:                           ; preds = %560
 sljit_emit_op1.exit669.thread:                    ; preds = %emit_mov.exit1008, %sljit_emit_op1.exit669
   %565 = sext i32 %28 to i64
   store i32 0, ptr %561, align 8
-  %566 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %565)
+  %566 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %565)
   %.not73.i1009 = icmp eq ptr %566, null
   br i1 %.not73.i1009, label %sljit_emit_op1.exit675, label %emit_mov.exit1011.thread
 
@@ -72472,7 +72472,7 @@ sljit_emit_op1.exit675:                           ; preds = %emit_mov.exit1008, 
   %576 = sext i32 %.04441122 to i64
   %577 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %577, align 8
-  %578 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %576)
+  %578 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %576)
   %.not73.i1012 = icmp eq ptr %578, null
   br i1 %.not73.i1012, label %sljit_emit_op1.exit680, label %emit_mov.exit1014.thread
 
@@ -72543,7 +72543,7 @@ sljit_set_label.exit692:                          ; preds = %592, %593
 600:                                              ; preds = %sljit_set_label.exit692
   %601 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %601, align 8
-  %602 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %558)
+  %602 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %558)
   %.not73.i1021 = icmp eq ptr %602, null
   br i1 %.not73.i1021, label %sljit_emit_op1.exit698, label %emit_mov.exit1023.thread
 
@@ -72565,7 +72565,7 @@ sljit_emit_op1.exit698:                           ; preds = %600, %emit_mov.exit
 606:                                              ; preds = %604
   %607 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %607, align 8
-  %608 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %558)
+  %608 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %558)
   %.not73.i1024 = icmp eq ptr %608, null
   br i1 %.not73.i1024, label %sljit_emit_op1.exit708, label %emit_mov.exit1026.thread
 
@@ -72621,7 +72621,7 @@ sljit_set_label.exit702:                          ; preds = %sljit_set_label.exi
 627:                                              ; preds = %sljit_set_label.exit702
   %628 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %628, align 8
-  %629 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %558)
+  %629 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %558)
   %.not73.i1027 = icmp eq ptr %629, null
   br i1 %.not73.i1027, label %sljit_emit_op1.exit722, label %sljit_emit_op1.exit722.sink.split
 
@@ -72641,7 +72641,7 @@ sljit_set_label.exit702:                          ; preds = %sljit_set_label.exi
   %634 = sext i32 %28 to i64
   %635 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %635, align 8
-  %636 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %634)
+  %636 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %634)
   %.not73.i1030 = icmp eq ptr %636, null
   br i1 %.not73.i1030, label %sljit_emit_op1.exit728, label %emit_mov.exit1032.thread
 
@@ -72667,7 +72667,7 @@ sljit_emit_op1.exit728:                           ; preds = %633, %emit_mov.exit
   %645 = select i1 %637, i32 3, i32 %27
   %646 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %646, align 8
-  %647 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %645, i64 noundef %644)
+  %647 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %645, i64 noundef range(i64 -2147483648, 2147483664) %644)
   %.not73.i1033 = icmp eq ptr %647, null
   br i1 %.not73.i1033, label %sljit_emit_op1.exit734, label %emit_mov.exit1035.thread
 
@@ -72689,7 +72689,7 @@ sljit_emit_op1.exit734:                           ; preds = %642, %640, %emit_mo
   %653 = zext i32 %652 to i64
   %654 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %654, align 8
-  %655 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef %653)
+  %655 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482, i32 noundef 127, i64 noundef %653)
   br label %sljit_emit_op1.exit740
 
 sljit_emit_op1.exit740:                           ; preds = %651, %649, %sljit_emit_op1.exit734
@@ -72711,7 +72711,7 @@ sljit_emit_op1.exit740:                           ; preds = %651, %649, %sljit_e
   %664 = select i1 %637, i32 3, i32 %27
   %665 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %665, align 8
-  %666 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %664, i64 noundef %663)
+  %666 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %664, i64 noundef range(i64 -2147483648, 2147483664) %663)
   %.not73.i1036 = icmp eq ptr %666, null
   br i1 %.not73.i1036, label %sljit_emit_op1.exit746, label %emit_mov.exit1038.thread
 
@@ -72770,7 +72770,7 @@ sljit_emit_op1.exit751:                           ; preds = %680
 sljit_emit_op1.exit751.thread:                    ; preds = %emit_mov.exit1041, %sljit_emit_op1.exit751
   %685 = sext i32 %25 to i64
   store i32 0, ptr %681, align 8
-  %686 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 3, i64 noundef 0, i32 noundef %27, i64 noundef %685)
+  %686 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 3, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %685)
   %.not73.i1042 = icmp eq ptr %686, null
   br i1 %.not73.i1042, label %sljit_emit_op1.exit757, label %emit_mov.exit1044.thread
 
@@ -72796,7 +72796,7 @@ emit_mov.exit1044.thread:                         ; preds = %sljit_emit_op1.exit
   %695 = sext i32 %25 to i64
   %696 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %696, align 8
-  %697 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %695)
+  %697 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %695)
   %.not73.i1045 = icmp eq ptr %697, null
   br i1 %.not73.i1045, label %sljit_emit_op1.exit757, label %emit_mov.exit1047.thread
 
@@ -72817,7 +72817,7 @@ sljit_emit_op1.exit757:                           ; preds = %emit_mov.exit1041, 
   %701 = sext i32 %.04441122 to i64
   %702 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %702, align 8
-  %703 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %701)
+  %703 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %701)
   %.not73.i1048 = icmp eq ptr %703, null
   br i1 %.not73.i1048, label %sljit_emit_op1.exit722, label %sljit_emit_op1.exit722.sink.split
 
@@ -72848,7 +72848,7 @@ sljit_emit_op1.exit722:                           ; preds = %sljit_emit_op1.exit
   %711 = sext i32 %25 to i64
   %712 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %712, align 8
-  %713 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %711)
+  %713 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %711)
   %.not73.i1051 = icmp eq ptr %713, null
   br i1 %.not73.i1051, label %sljit_emit_op1.exit774, label %emit_mov.exit1053.thread
 
@@ -72872,7 +72872,7 @@ sljit_emit_op1.exit774:                           ; preds = %710, %emit_mov.exit
   %719 = sext i32 %.04441122 to i64
   %720 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %720, align 8
-  %721 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %719)
+  %721 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %719)
   %.not73.i1054 = icmp eq ptr %721, null
   br i1 %.not73.i1054, label %sljit_emit_op1.exit779, label %emit_mov.exit1056.thread
 
@@ -72896,7 +72896,7 @@ emit_mov.exit1056.thread:                         ; preds = %718
   %727 = sext i32 %25 to i64
   %728 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %728, align 8
-  %729 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %727)
+  %729 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %727)
   %.not73.i1057 = icmp eq ptr %729, null
   br i1 %.not73.i1057, label %emit_mov.exit1059, label %sljit_emit_op1.exit785
 
@@ -72917,7 +72917,7 @@ sljit_emit_op1.exit785.thread:                    ; preds = %emit_mov.exit1059, 
   %.in1314 = add i32 %.in1314.in, 1
   %733 = zext i32 %.in1314 to i64
   store i32 0, ptr %728, align 8
-  %734 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %27, i64 noundef %732, i32 noundef 127, i64 noundef %733)
+  %734 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %732, i32 noundef 127, i64 noundef %733)
   br label %sljit_emit_op1.exit791
 
 sljit_emit_op1.exit791:                           ; preds = %emit_mov.exit1059, %sljit_emit_op1.exit785.thread, %724, %sljit_emit_op1.exit785
@@ -72942,7 +72942,7 @@ sljit_emit_op1.exit791:                           ; preds = %emit_mov.exit1059, 
   %742 = sext i32 %25 to i64
   %743 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %743, align 8
-  %744 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef %742)
+  %744 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %27, i64 noundef range(i64 -2147483648, 2147483664) %742)
   %.not73.i1060 = icmp eq ptr %744, null
   br i1 %.not73.i1060, label %sljit_emit_op1.exit797, label %emit_mov.exit1062.thread
 
@@ -73007,7 +73007,7 @@ sljit_emit_op1.exit802:                           ; preds = %758, %emit_mov.exit
   %764 = sext i32 %.04441122 to i64
   %765 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %765, align 8
-  %766 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 13, i64 noundef 0, i32 noundef 142, i64 noundef %764)
+  %766 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 13, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %764)
   %.not73.i1066 = icmp eq ptr %766, null
   br i1 %.not73.i1066, label %sljit_emit_op1.exit779, label %emit_mov.exit1068.thread
 
@@ -73029,7 +73029,7 @@ emit_mov.exit1068.thread:                         ; preds = %763
 771:                                              ; preds = %769
   %772 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %772, align 8
-  %773 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %., i64 noundef %.482)
+  %773 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482)
   %.not73.i1069 = icmp eq ptr %773, null
   br i1 %.not73.i1069, label %sljit_emit_op1.exit813, label %emit_mov.exit1071.thread
 
@@ -73048,7 +73048,7 @@ sljit_emit_op1.exit813:                           ; preds = %771, %emit_mov.exit
 777:                                              ; preds = %sljit_emit_op1.exit813
   %778 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %778, align 8
-  %779 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %., i64 noundef %.482)
+  %779 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482)
   %.not73.i1072 = icmp eq ptr %779, null
   br i1 %.not73.i1072, label %sljit_emit_op1.exit819, label %emit_mov.exit1074.thread
 
@@ -73075,7 +73075,7 @@ sljit_emit_op1.exit819:                           ; preds = %777, %emit_mov.exit
   br label %detect_partial_match_to.exit
 
 detect_partial_match_to.exit:                     ; preds = %sljit_emit_op1.exit819, %782
-  call fastcc void @process_partial_match(ptr noundef %0)
+  call fastcc void @process_partial_match(ptr noundef nonnull %0)
   %788 = load ptr, ptr %9, align 8
   %789 = call fastcc ptr @sljit_emit_label(ptr noundef nonnull %11)
   %.not4.i = icmp eq ptr %788, null
@@ -73141,7 +73141,7 @@ sljit_emit_op1.exit829:                           ; preds = %802, %set_jumps.exi
   %809 = sext i32 %.04441122 to i64
   %810 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %810, align 8
-  %811 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 3, i64 noundef 0, i32 noundef 142, i64 noundef %809)
+  %811 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 3, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %809)
   %.not73.i1075 = icmp eq ptr %811, null
   br i1 %.not73.i1075, label %sljit_emit_op1.exit779, label %emit_mov.exit1077.thread
 
@@ -73156,7 +73156,7 @@ emit_mov.exit1077.thread:                         ; preds = %808
   %814 = sext i32 %.04441122 to i64
   %815 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %815, align 8
-  %816 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %814)
+  %816 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %814)
   %.not73.i1078 = icmp eq ptr %816, null
   br i1 %.not73.i1078, label %sljit_emit_op1.exit779, label %emit_mov.exit1080.thread
 
@@ -73189,7 +73189,7 @@ emit_mov.exit1080.thread:                         ; preds = %813
   %829 = sext i32 %.04441122 to i64
   %830 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %830, align 8
-  %831 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %829)
+  %831 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %829)
   %.not73.i1081 = icmp eq ptr %831, null
   br i1 %.not73.i1081, label %sljit_emit_op1.exit779, label %emit_mov.exit1083.thread
 
@@ -73230,7 +73230,7 @@ sljit_emit_op1.exit849.thread:                    ; preds = %emit_mov.exit1086, 
   %.in = load i32, ptr %6, align 4
   %842 = zext i32 %.in to i64
   store i32 0, ptr %838, align 8
-  %843 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef %842)
+  %843 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482, i32 noundef 127, i64 noundef %842)
   br label %sljit_emit_op1.exit855
 
 sljit_emit_op1.exit855:                           ; preds = %emit_mov.exit1086, %sljit_emit_op1.exit849.thread, %835, %sljit_emit_op1.exit849
@@ -73261,7 +73261,7 @@ sljit_emit_op1.exit860:                           ; preds = %847
 
 sljit_emit_op2.exit864:                           ; preds = %sljit_emit_op1.exit860, %emit_mov.exit1089
   store i32 0, ptr %848, align 8
-  %852 = call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %11, i32 noundef 757803304, i32 noundef %., i64 noundef %.482, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef 1)
+  %852 = call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %11, i32 noundef 757803304, i32 noundef range(i32 1, 143) %., i64 noundef range(i64 -2147483648, 2147483648) %.482, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef 1)
   %.pr1302.pre = load i32, ptr %11, align 8
   %853 = icmp eq i32 %.pr1302.pre, 0
   br i1 %853, label %854, label %add_jump.exit884
@@ -73439,7 +73439,7 @@ add_jump.exit884:                                 ; preds = %emit_mov.exit1089, 
   br label %detect_partial_match_to.exit889
 
 detect_partial_match_to.exit889:                  ; preds = %add_jump.exit884, %926
-  call fastcc void @process_partial_match(ptr noundef %0)
+  call fastcc void @process_partial_match(ptr noundef nonnull %0)
   %932 = load ptr, ptr %9, align 8
   %933 = call fastcc ptr @sljit_emit_label(ptr noundef nonnull %11)
   %.not4.i890 = icmp eq ptr %932, null
@@ -73515,7 +73515,7 @@ emit_mov.exit1092.thread:                         ; preds = %946
 960:                                              ; preds = %958
   %961 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %961, align 8
-  %962 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 13, i64 noundef 0)
+  %962 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef range(i32 1, 143) 13, i64 noundef 0)
   %.not109.i.i909 = icmp eq ptr %962, null
   br i1 %.not109.i.i909, label %sljit_emit_op2u.exit910, label %963
 
@@ -73556,7 +73556,7 @@ sljit_emit_op2u.exit910:                          ; preds = %960, %958, %963
   %977 = zext i32 %976 to i64
   %978 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %978, align 8
-  %979 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef %.482, i32 noundef 127, i64 noundef %977)
+  %979 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %11, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482, i32 noundef 127, i64 noundef %977)
   br label %sljit_emit_op1.exit920
 
 sljit_emit_op1.exit920:                           ; preds = %975, %973
@@ -73585,7 +73585,7 @@ sljit_emit_op1.exit920:                           ; preds = %975, %973
 992:                                              ; preds = %990
   %993 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %993, align 8
-  %994 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %., i64 noundef %.482)
+  %994 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482)
   %.not73.i1093 = icmp eq ptr %994, null
   br i1 %.not73.i1093, label %sljit_emit_op1.exit926, label %emit_mov.exit1095.thread
 
@@ -73602,7 +73602,7 @@ sljit_emit_op1.exit926:                           ; preds = %992, %emit_mov.exit
 997:                                              ; preds = %sljit_emit_op1.exit926
   %998 = getelementptr inbounds i8, ptr %11, i64 152
   store i32 0, ptr %998, align 8
-  %999 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %., i64 noundef %.482)
+  %999 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %11, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %., i64 noundef range(i64 -2147483648, 2147483664) %.482)
   %.not73.i1096 = icmp eq ptr %999, null
   br i1 %.not73.i1096, label %sljit_emit_op1.exit932, label %emit_mov.exit1098.thread
 
@@ -75396,7 +75396,7 @@ add_jump.exit215:                                 ; preds = %sljit_alloc_memory.
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %117, align 8
-  %118 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 10, i64 noundef 0, i32 noundef 142, i64 noundef %116)
+  %118 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 10, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %116)
   %.not73.i = icmp eq ptr %118, null
   br i1 %.not73.i, label %emit_mov.exit630, label %sljit_emit_op1.exit220
 
@@ -75417,7 +75417,7 @@ sljit_emit_op1.exit220.thread:                    ; preds = %emit_mov.exit630, %
   %121 = add nsw i64 %.in, 8
   %122 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %122, align 8
-  %123 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 9, i64 noundef 0, i32 noundef 142, i64 noundef %121)
+  %123 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 9, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %121)
   %.not73.i631 = icmp eq ptr %123, null
   br i1 %.not73.i631, label %emit_mov.exit633, label %sljit_emit_op1.exit225
 
@@ -75438,7 +75438,7 @@ sljit_emit_op1.exit225.thread:                    ; preds = %emit_mov.exit633, %
   %126 = add nsw i64 %.in1132, 16
   %127 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %127, align 8
-  %128 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 11, i64 noundef 0, i32 noundef 142, i64 noundef %126)
+  %128 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 11, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %126)
   %.not73.i634 = icmp eq ptr %128, null
   br i1 %.not73.i634, label %emit_mov.exit636, label %sljit_emit_op1.exit230
 
@@ -79090,7 +79090,7 @@ assert_needs_str_ptr_saving.exit:                 ; preds = %112, %assert_needs_
   %136 = sext i32 %37 to i64
   %137 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %137, align 8
-  %138 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef %136)
+  %138 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %136)
   %.not73.i = icmp eq ptr %138, null
   br i1 %.not73.i, label %sljit_emit_op1.exit488, label %emit_mov.exit1048.thread
 
@@ -79161,7 +79161,7 @@ sljit_emit_op1.exit498:                           ; preds = %151, %149, %emit_mo
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %160, align 8
-  %161 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %159)
+  %161 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %159)
   %.not71.i = icmp eq ptr %161, null
   br i1 %.not71.i, label %emit_mov.exit1057, label %sljit_emit_op1.exit503
 
@@ -79181,7 +79181,7 @@ sljit_emit_op1.exit503.thread:                    ; preds = %emit_mov.exit1057, 
   %.in1584 = add nuw nsw i32 %.in1584.in, 8
   %164 = zext nneg i32 %.in1584 to i64
   store i32 0, ptr %160, align 8
-  %165 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %164)
+  %165 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %164)
   %.not73.i1058 = icmp eq ptr %165, null
   br i1 %.not73.i1058, label %sljit_emit_op1.exit508, label %emit_mov.exit1060.thread
 
@@ -79281,7 +79281,7 @@ sljit_emit_op1.exit518:                           ; preds = %200
 
 sljit_emit_op1.exit518.thread:                    ; preds = %emit_mov.exit1066, %sljit_emit_op1.exit518
   store i32 0, ptr %201, align 8
-  %205 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %198)
+  %205 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %198)
   %.not73.i1067 = icmp eq ptr %205, null
   br i1 %.not73.i1067, label %sljit_emit_op1.exit523thread-pre-split, label %emit_mov.exit1069.thread
 
@@ -79351,7 +79351,7 @@ sljit_emit_op1.exit533:                           ; preds = %sljit_emit_op1.exit
   %222 = zext nneg i32 %221 to i64
   %223 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %223, align 8
-  %224 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %222)
+  %224 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %222)
   %.not73.i1076 = icmp eq ptr %224, null
   br i1 %.not73.i1076, label %emit_mov.exit1078, label %sljit_emit_op1.exit538
 
@@ -79371,7 +79371,7 @@ sljit_emit_op1.exit538.thread:                    ; preds = %emit_mov.exit1078, 
   %227 = zext nneg i32 %.in to i64
   %228 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %228, align 8
-  %229 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef %227)
+  %229 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %227)
   %.not73.i1079 = icmp eq ptr %229, null
   br i1 %.not73.i1079, label %emit_mov.exit1081, label %sljit_emit_op1.exit543
 
@@ -79392,7 +79392,7 @@ sljit_emit_op1.exit543.thread:                    ; preds = %emit_mov.exit1081, 
   %232 = sext i32 %.in1583 to i64
   %233 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %233, align 8
-  %234 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %232)
+  %234 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %232)
   %.not71.i1084 = icmp eq ptr %234, null
   br i1 %.not71.i1084, label %sljit_emit_op1.exit548, label %emit_mov.exit1086.thread
 
@@ -79410,7 +79410,7 @@ emit_mov.exit1086.thread:                         ; preds = %sljit_emit_op1.exit
   %239 = zext nneg i32 %238 to i64
   %240 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %240, align 8
-  %241 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %239)
+  %241 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %239)
   %.not73.i1087 = icmp eq ptr %241, null
   br i1 %.not73.i1087, label %sljit_emit_op1.exit548, label %emit_mov.exit1089.thread
 
@@ -79812,7 +79812,7 @@ sljit_emit_op1.exit584:                           ; preds = %388, %386, %emit_mo
 
 397:                                              ; preds = %395
   store i8 -117, ptr %396, align 1
-  %398 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %393)
+  %398 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %393)
   %.not65.i = icmp eq ptr %398, null
   br i1 %.not65.i, label %sljit_emit_op1.exit589, label %emit_mov.exit1107.thread
 
@@ -79871,7 +79871,7 @@ sljit_emit_op1.exit595:                           ; preds = %406, %404, %emit_mo
 
 415:                                              ; preds = %413
   store i8 -117, ptr %414, align 1
-  %416 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %411)
+  %416 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %411)
   %.not65.i1112 = icmp eq ptr %416, null
   br i1 %.not65.i1112, label %sljit_emit_op1.exit589, label %emit_mov.exit1114.thread
 
@@ -79930,7 +79930,7 @@ sljit_emit_op1.exit610:                           ; preds = %422, %420, %emit_mo
 
 431:                                              ; preds = %429
   store i8 -117, ptr %430, align 1
-  %432 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %427)
+  %432 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %427)
   %.not65.i1122 = icmp eq ptr %432, null
   br i1 %.not65.i1122, label %sljit_emit_op1.exit615, label %emit_mov.exit1124.thread
 
@@ -80200,7 +80200,7 @@ sljit_emit_op1.exit648:                           ; preds = %sljit_emit_op1.exit
 
 sljit_emit_op1.exit648.thread:                    ; preds = %emit_mov.exit1136, %sljit_emit_op1.exit648
   store i32 0, ptr %280, align 8
-  %526 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %285)
+  %526 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %285)
   %.not73.i1137 = icmp eq ptr %526, null
   br i1 %.not73.i1137, label %emit_mov.exit1139, label %emit_mov.exit1139.thread
 
@@ -80304,7 +80304,7 @@ emit_mov.exit1145:                                ; preds = %551
 
 559:                                              ; preds = %557
   store i8 -117, ptr %558, align 1
-  %560 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %285)
+  %560 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %285)
   %.not65.i1147 = icmp eq ptr %560, null
   br i1 %.not65.i1147, label %sljit_emit_op1.exit633, label %emit_mov.exit1149.thread
 
@@ -80980,7 +80980,7 @@ sljit_emit_op1.exit763:                           ; preds = %805, %803, %emit_mo
 
 816:                                              ; preds = %811
   store i8 -117, ptr %815, align 1
-  %817 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %809)
+  %817 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %809)
   %.not65.i1157 = icmp eq ptr %817, null
   br i1 %.not65.i1157, label %sljit_emit_op1.exit768, label %emit_mov.exit1159.thread
 
@@ -81144,7 +81144,7 @@ sljit_emit_op1.exit794:                           ; preds = %861, %860, %emit_mo
 
 sljit_emit_op1.exit794.thread:                    ; preds = %emit_mov.exit1175, %sljit_emit_op1.exit794
   store i32 0, ptr %280, align 8
-  %865 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %285)
+  %865 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %285)
   %.not73.i1176 = icmp eq ptr %865, null
   br i1 %.not73.i1176, label %emit_mov.exit1178, label %emit_mov.exit1178.thread
 
@@ -81932,7 +81932,7 @@ sljit_emit_op2.exit953:                           ; preds = %sljit_emit_op1.exit
 
 1148:                                             ; preds = %sljit_emit_op2.exit953
   store i32 0, ptr %280, align 8
-  %1149 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %285)
+  %1149 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %285)
   %.not73.i1216 = icmp eq ptr %1149, null
   br i1 %.not73.i1216, label %sljit_emit_op1.exit959, label %emit_mov.exit1218.thread
 
@@ -82127,7 +82127,7 @@ sljit_emit_op1.exit1003:                          ; preds = %1196, %1195, %emit_
 
 sljit_emit_op1.exit1003.thread:                   ; preds = %emit_mov.exit1237, %sljit_emit_op1.exit1003
   store i32 0, ptr %280, align 8
-  %1200 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %285)
+  %1200 = call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %285)
   %.not73.i1238 = icmp eq ptr %1200, null
   br i1 %.not73.i1238, label %sljit_emit_op1.exit983, label %emit_mov.exit1240.thread
 
@@ -82898,7 +82898,7 @@ sljit_emit_op1.exit:                              ; preds = %161, %159, %emit_mo
 166:                                              ; preds = %164
   %167 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %167, align 8
-  %168 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef %.2625)
+  %168 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %.2625)
   %.not73.i = icmp eq ptr %168, null
   br i1 %.not73.i, label %sljit_set_label.exit732, label %emit_mov.exit1103.thread
 
@@ -83249,7 +83249,7 @@ sljit_set_label.exit732:                          ; preds = %166, %emit_mov.exit
 311:                                              ; preds = %309
   %312 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %312, align 8
-  %313 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 142, i64 noundef %.0622, i32 noundef 127, i64 noundef %.0619)
+  %313 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %.0622, i32 noundef 127, i64 noundef %.0619)
   br label %sljit_emit_op1.exit746
 
 sljit_emit_op1.exit746:                           ; preds = %311, %309
@@ -83365,7 +83365,7 @@ emit_mov.exit1121.thread:                         ; preds = %348
   %357 = sext i32 %.1632 to i64
   %358 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %358, align 8
-  %359 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef %357)
+  %359 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 12, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %357)
   %.not73.i1122 = icmp eq ptr %359, null
   br i1 %.not73.i1122, label %sljit_emit_op1.exit761, label %emit_mov.exit1124.thread
 
@@ -83442,7 +83442,7 @@ sljit_emit_op1.exit771.thread:                    ; preds = %emit_mov.exit1130, 
   %.5139513991406 = phi i32 [ %.513951399.ph, %sljit_emit_op1.exit771 ], [ 8, %emit_mov.exit1130 ]
   %377 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %377, align 8
-  %378 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef %376)
+  %378 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %376)
   %.not73.i1131 = icmp eq ptr %378, null
   br i1 %.not73.i1131, label %sljit_emit_op1.exit776, label %emit_mov.exit1133.thread
 
@@ -83472,7 +83472,7 @@ sljit_emit_op1.exit776:                           ; preds = %emit_mov.exit1130, 
   %389 = zext nneg i32 %388 to i64
   %390 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %390, align 8
-  %391 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef %389)
+  %391 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %389)
   %.not73.i1134 = icmp eq ptr %391, null
   br i1 %.not73.i1134, label %sljit_emit_op1.exit781.thread, label %emit_mov.exit1136.thread
 
@@ -83494,7 +83494,7 @@ sljit_emit_op1.exit766.thread.thread:             ; preds = %sljit_emit_op1.exit
 395:                                              ; preds = %393
   %396 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %396, align 8
-  %397 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef %.51396)
+  %397 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %.51396)
   %.not73.i1137 = icmp eq ptr %397, null
   br i1 %.not73.i1137, label %sljit_emit_op1.exit781.thread, label %emit_mov.exit1139.thread
 
@@ -83607,7 +83607,7 @@ sljit_emit_op1.exit807.thread1443:                ; preds = %424
   %428 = select i1 %.not658.not, i64 8, i64 0
   %429 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %429, align 8
-  %430 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef %428)
+  %430 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %428)
   %.not73.i1147 = icmp eq ptr %430, null
   br i1 %.not73.i1147, label %emit_mov.exit1149, label %sljit_emit_op1.exit802
 
@@ -83624,7 +83624,7 @@ sljit_emit_op1.exit802:                           ; preds = %427
 
 sljit_emit_op1.exit802.thread:                    ; preds = %emit_mov.exit1149, %sljit_emit_op1.exit802
   store i32 0, ptr %429, align 8
-  %433 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %423)
+  %433 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %423)
   %.not73.i1150 = icmp eq ptr %433, null
   br i1 %.not73.i1150, label %emit_mov.exit1152, label %sljit_emit_op1.exit807
 
@@ -83653,7 +83653,7 @@ sljit_emit_op1.exit807:                           ; preds = %sljit_emit_op1.exit
   %.in1655 = shl nuw nsw i32 %440, 3
   %441 = zext nneg i32 %.in1655 to i64
   store i32 0, ptr %429, align 8
-  %442 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %441)
+  %442 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %441)
   %.not73.i1153 = icmp eq ptr %442, null
   br i1 %.not73.i1153, label %sljit_emit_op1.exit812, label %emit_mov.exit1155.thread
 
@@ -83670,7 +83670,7 @@ emit_mov.exit1155.thread:                         ; preds = %439
 446:                                              ; preds = %443
   %447 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %447, align 8
-  %448 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %423)
+  %448 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %423)
   %.not73.i1156 = icmp eq ptr %448, null
   br i1 %.not73.i1156, label %emit_mov.exit1158, label %sljit_emit_op1.exit817
 
@@ -83693,7 +83693,7 @@ sljit_emit_op1.exit817:                           ; preds = %446
 453:                                              ; preds = %sljit_emit_op1.exit817.thread, %sljit_emit_op1.exit817
   %454 = phi i64 [ %450, %sljit_emit_op1.exit817.thread ], [ %452, %sljit_emit_op1.exit817 ]
   store i32 0, ptr %447, align 8
-  %455 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %454)
+  %455 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %454)
   %.not73.i1159 = icmp eq ptr %455, null
   br i1 %.not73.i1159, label %sljit_emit_op1.exit812, label %emit_mov.exit1161.thread
 
@@ -83775,7 +83775,7 @@ sljit_emit_op1.exit832:                           ; preds = %sljit_emit_op1.exit
 
 sljit_emit_op1.exit832.thread:                    ; preds = %emit_mov.exit1167, %sljit_emit_op1.exit832
   store i32 0, ptr %470, align 8
-  %478 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %467)
+  %478 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %467)
   %.not73.i1168 = icmp eq ptr %478, null
   br i1 %.not73.i1168, label %emit_mov.exit1170, label %sljit_emit_op1.exit837
 
@@ -83843,7 +83843,7 @@ sljit_emit_op1.exit852:                           ; preds = %488, %emit_mov.exit
 492:                                              ; preds = %sljit_emit_op1.exit852
   %493 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %493, align 8
-  %494 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %486)
+  %494 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %486)
   %.not73.i1180 = icmp eq ptr %494, null
   br i1 %.not73.i1180, label %emit_mov.exit1182, label %sljit_emit_op1.exit857
 
@@ -83925,7 +83925,7 @@ sljit_emit_op1.exit872:                           ; preds = %516
 
 sljit_emit_op1.exit872.thread:                    ; preds = %emit_mov.exit1191, %sljit_emit_op1.exit872
   store i32 0, ptr %517, align 8
-  %521 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %509)
+  %521 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %509)
   %.not73.i1192 = icmp eq ptr %521, null
   br i1 %.not73.i1192, label %emit_mov.exit1194, label %sljit_emit_op1.exit877
 
@@ -83942,7 +83942,7 @@ sljit_emit_op1.exit877:                           ; preds = %sljit_emit_op1.exit
 
 sljit_emit_op1.exit877.thread:                    ; preds = %emit_mov.exit1194, %sljit_emit_op1.exit877
   store i32 0, ptr %517, align 8
-  %524 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 13, i64 noundef 0, i32 noundef 142, i64 noundef %514)
+  %524 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 13, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %514)
   %.not73.i1195 = icmp eq ptr %524, null
   br i1 %.not73.i1195, label %emit_mov.exit1197, label %sljit_emit_op1.exit882
 
@@ -84039,7 +84039,7 @@ sljit_emit_op1.exit902:                           ; preds = %543, %emit_mov.exit
 547:                                              ; preds = %sljit_emit_op1.exit902
   %548 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %548, align 8
-  %549 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %541)
+  %549 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %541)
   %.not73.i1210 = icmp eq ptr %549, null
   br i1 %.not73.i1210, label %emit_mov.exit1212, label %sljit_emit_op1.exit907
 
@@ -85112,7 +85112,7 @@ sljit_emit_op1.exit985:                           ; preds = %1035, %1033, %emit_
 
 .thread.i1248:                                    ; preds = %1061
   store i8 -115, ptr %1063, align 1
-  %1064 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 140, i64 noundef 0)
+  %1064 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) 0)
   %.not73.i.i = icmp eq ptr %1064, null
   br i1 %.not73.i.i, label %emit_lea_binary.exit1249, label %emit_lea_binary.exit1249.thread
 
@@ -85146,7 +85146,7 @@ sljit_emit_op2.exit988:                           ; preds = %emit_lea_binary.exi
   %1072 = zext nneg i32 %1071 to i64
   %1073 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %1073, align 8
-  %1074 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef %1072)
+  %1074 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %1072)
   %.not73.i1250 = icmp eq ptr %1074, null
   br i1 %.not73.i1250, label %sljit_emit_op1.exit993, label %emit_mov.exit1252.thread
 
@@ -85162,7 +85162,7 @@ emit_mov.exit1252.thread:                         ; preds = %1070
   %1078 = zext nneg i32 %1077 to i64
   %1079 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %1079, align 8
-  %1080 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef %1078)
+  %1080 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %1078)
   %.not71.i1255 = icmp eq ptr %1080, null
   br i1 %.not71.i1255, label %sljit_emit_op1.exit993, label %emit_mov.exit1257.thread
 
@@ -85230,7 +85230,7 @@ sljit_emit_op1.exit993:                           ; preds = %1076, %1070, %1075,
   %1107 = zext nneg i32 %1106 to i64
   %1108 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %1108, align 8
-  %1109 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef %1107)
+  %1109 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %1107)
   %.not71.i1260 = icmp eq ptr %1109, null
   br i1 %.not71.i1260, label %sljit_emit_op1.exit1003, label %emit_mov.exit1262.thread
 
@@ -85282,7 +85282,7 @@ sljit_emit_op1.exit1003:                          ; preds = %1105, %1103, %emit_
   %1134 = sext i32 %1133 to i64
   %1135 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %1135, align 8
-  %1136 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %1134)
+  %1136 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1134)
   %.not73.i1263 = icmp eq ptr %1136, null
   br i1 %.not73.i1263, label %sljit_emit_op1.exit1008, label %emit_mov.exit1265.thread
 
@@ -85313,7 +85313,7 @@ sljit_emit_op1.exit1008:                          ; preds = %1128, %1126, %emit_
 sljit_emit_op2.exit1012:                          ; preds = %1142
   %1144 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %1144, align 8
-  %1145 = tail call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %5, i32 noundef 757803304, i32 noundef 142, i64 noundef %.0622, i32 noundef 142, i64 noundef %.0622, i32 noundef 127, i64 noundef 1)
+  %1145 = tail call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %5, i32 noundef 757803304, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %.0622, i32 noundef 142, i64 noundef %.0622, i32 noundef 127, i64 noundef 1)
   %.pr1620 = load i32, ptr %5, align 8
   %.not.i1013 = icmp eq i32 %.pr1620, 0
   br i1 %.not.i1013, label %1146, label %sljit_set_label.exit1029
@@ -85547,7 +85547,7 @@ free_stack.exit1031:                              ; preds = %1202, %1232, %1230,
 sljit_emit_op2.exit1047:                          ; preds = %1241
   %1243 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %1243, align 8
-  %1244 = tail call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %5, i32 noundef 757803304, i32 noundef 142, i64 noundef %.0622, i32 noundef 142, i64 noundef %.0622, i32 noundef 127, i64 noundef 1)
+  %1244 = tail call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %5, i32 noundef 757803304, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %.0622, i32 noundef 142, i64 noundef %.0622, i32 noundef 127, i64 noundef 1)
   %.pr1626 = load i32, ptr %5, align 8
   %.not.i1048 = icmp eq i32 %.pr1626, 0
   br i1 %.not.i1048, label %1245, label %sljit_set_label.exit1064
@@ -86289,7 +86289,7 @@ sljit_emit_op1.exit138:                           ; preds = %sljit_emit_op1.exit
   %.in389 = sub nsw i32 0, %.pn390
   %41 = sext i32 %.in389 to i64
   store i32 0, ptr %25, align 8
-  %42 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef %40, i32 noundef 127, i64 noundef %41)
+  %42 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %40, i32 noundef 127, i64 noundef %41)
   %.pre415 = load i32, ptr %5, align 8
   %43 = icmp eq i32 %.pre415, 0
   br i1 %43, label %44, label %sljit_emit_op1.exit143
@@ -86298,7 +86298,7 @@ sljit_emit_op1.exit138:                           ; preds = %sljit_emit_op1.exit
   %45 = add nsw i32 %.0121391, -8
   %46 = sext i32 %45 to i64
   store i32 0, ptr %25, align 8
-  %47 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %46)
+  %47 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %46)
   %.not73.i = icmp eq ptr %47, null
   br i1 %.not73.i, label %sljit_emit_op1.exit143, label %emit_mov.exit251.thread
 
@@ -86349,7 +86349,7 @@ sljit_emit_op1.exit153:                           ; preds = %sljit_emit_op1.exit
   %.in387 = sub nsw i32 0, %.pn388
   %61 = sext i32 %.in387 to i64
   store i32 0, ptr %25, align 8
-  %62 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef %60, i32 noundef 127, i64 noundef %61)
+  %62 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %60, i32 noundef 127, i64 noundef %61)
   %.pre413 = load i32, ptr %5, align 8
   %63 = icmp eq i32 %.pre413, 0
   br i1 %63, label %64, label %sljit_emit_op1.exit158
@@ -86358,7 +86358,7 @@ sljit_emit_op1.exit153:                           ; preds = %sljit_emit_op1.exit
   %65 = add nsw i32 %.0121391, -8
   %66 = sext i32 %65 to i64
   store i32 0, ptr %25, align 8
-  %67 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %66)
+  %67 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %66)
   %.not73.i255 = icmp eq ptr %67, null
   br i1 %.not73.i255, label %sljit_emit_op1.exit158, label %emit_mov.exit257.thread
 
@@ -86416,7 +86416,7 @@ sljit_emit_op1.exit168:                           ; preds = %sljit_emit_op1.exit
   %.in381 = sub nsw i32 0, %.pn382
   %88 = sext i32 %.in381 to i64
   store i32 0, ptr %25, align 8
-  %89 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef %87, i32 noundef 127, i64 noundef %88)
+  %89 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %87, i32 noundef 127, i64 noundef %88)
   %.pre407 = load i32, ptr %5, align 8
   %90 = icmp eq i32 %.pre407, 0
   br i1 %90, label %91, label %sljit_emit_op1.exit173
@@ -86425,7 +86425,7 @@ sljit_emit_op1.exit168:                           ; preds = %sljit_emit_op1.exit
   %92 = add nsw i32 %.0121391, -8
   %93 = sext i32 %92 to i64
   store i32 0, ptr %25, align 8
-  %94 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %93)
+  %94 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %93)
   %.not73.i261 = icmp eq ptr %94, null
   br i1 %.not73.i261, label %sljit_emit_op1.exit173, label %emit_mov.exit263.thread
 
@@ -86475,7 +86475,7 @@ sljit_emit_op1.exit183:                           ; preds = %sljit_emit_op1.exit
   %.in383 = sub nsw i32 0, %.pn384
   %108 = sext i32 %.in383 to i64
   store i32 0, ptr %25, align 8
-  %109 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef %107, i32 noundef 127, i64 noundef %108)
+  %109 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %107, i32 noundef 127, i64 noundef %108)
   %.pre409 = load i32, ptr %5, align 8
   %110 = icmp eq i32 %.pre409, 0
   br i1 %110, label %111, label %sljit_emit_op1.exit188
@@ -86484,7 +86484,7 @@ sljit_emit_op1.exit183:                           ; preds = %sljit_emit_op1.exit
   %112 = add nsw i32 %.4, -8
   %113 = sext i32 %112 to i64
   store i32 0, ptr %25, align 8
-  %114 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %113)
+  %114 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %113)
   %.not73.i267 = icmp eq ptr %114, null
   br i1 %.not73.i267, label %sljit_emit_op1.exit188, label %emit_mov.exit269.thread
 
@@ -86534,7 +86534,7 @@ sljit_emit_op1.exit198:                           ; preds = %sljit_emit_op1.exit
   %.in385 = sub nsw i32 0, %.pn386
   %128 = sext i32 %.in385 to i64
   store i32 0, ptr %25, align 8
-  %129 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef %127, i32 noundef 127, i64 noundef %128)
+  %129 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %127, i32 noundef 127, i64 noundef %128)
   %.pre411 = load i32, ptr %5, align 8
   %130 = icmp eq i32 %.pre411, 0
   br i1 %130, label %131, label %sljit_emit_op1.exit203
@@ -86543,7 +86543,7 @@ sljit_emit_op1.exit198:                           ; preds = %sljit_emit_op1.exit
   %132 = add nsw i32 %.5, -8
   %133 = sext i32 %132 to i64
   store i32 0, ptr %25, align 8
-  %134 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %133)
+  %134 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %133)
   %.not73.i273 = icmp eq ptr %134, null
   br i1 %.not73.i273, label %sljit_emit_op1.exit203, label %emit_mov.exit275.thread
 
@@ -86597,7 +86597,7 @@ sljit_emit_op1.exit213:                           ; preds = %sljit_emit_op1.exit
   %.in = sub nsw i32 0, %.pn
   %149 = sext i32 %.in to i64
   store i32 0, ptr %25, align 8
-  %150 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef %148, i32 noundef 127, i64 noundef %149)
+  %150 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %148, i32 noundef 127, i64 noundef %149)
   %.pre400 = load i32, ptr %5, align 8
   %151 = icmp eq i32 %.pre400, 0
   br i1 %151, label %152, label %sljit_emit_op1.exit218
@@ -86606,7 +86606,7 @@ sljit_emit_op1.exit213:                           ; preds = %sljit_emit_op1.exit
   %153 = add nsw i32 %.0121391, -8
   %154 = sext i32 %153 to i64
   store i32 0, ptr %25, align 8
-  %155 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %154)
+  %155 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %154)
   %.not73.i279 = icmp eq ptr %155, null
   br i1 %.not73.i279, label %sljit_emit_op1.exit218, label %emit_mov.exit281.thread
 
@@ -86641,7 +86641,7 @@ sljit_emit_op1.exit223:                           ; preds = %157
   %170 = sext i32 %169 to i64
   %171 = sext i32 %.7 to i64
   store i32 0, ptr %25, align 8
-  %172 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef %171, i32 noundef 127, i64 noundef %170)
+  %172 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %171, i32 noundef 127, i64 noundef %170)
   %173 = load i32, ptr %5, align 8
   %174 = add nsw i32 %.7, -8
   %.not.i224 = icmp eq i32 %173, 0
@@ -86698,7 +86698,7 @@ sljit_emit_op1.exit233:                           ; preds = %188
 sljit_emit_op1.exit233.thread:                    ; preds = %emit_mov.exit287, %sljit_emit_op1.exit233
   %193 = sext i32 %174 to i64
   store i32 0, ptr %25, align 8
-  %194 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %193)
+  %194 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %193)
   %.not73.i288 = icmp eq ptr %194, null
   br i1 %.not73.i288, label %emit_mov.exit290, label %sljit_emit_op1.exit238
 
@@ -86717,7 +86717,7 @@ sljit_emit_op1.exit238.thread:                    ; preds = %emit_mov.exit290, %
   %.in380 = add nsw i32 %.7, -16
   %197 = sext i32 %.in380 to i64
   store i32 0, ptr %25, align 8
-  %198 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef %197)
+  %198 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %197)
   %.not73.i291 = icmp eq ptr %198, null
   br i1 %.not73.i291, label %sljit_emit_op1.exit243, label %emit_mov.exit293.thread
 
@@ -86753,7 +86753,7 @@ sljit_emit_op1.exit243:                           ; preds = %emit_mov.exit284, %
   %207 = sext i32 %.0121.lcssa to i64
   %208 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %208, align 8
-  %209 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef %207)
+  %209 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %207)
   %.not71.i = icmp eq ptr %209, null
   br i1 %.not71.i, label %sljit_emit_op1.exit248, label %emit_mov.exit295.thread
 
@@ -86818,7 +86818,7 @@ define internal fastcc void @check_partial(ptr nocapture noundef nonnull %0, i32
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %32, align 8
-  %33 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %31)
+  %33 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %31)
   %.not71.i = icmp eq ptr %33, null
   br i1 %.not71.i, label %sljit_emit_op1.exit, label %emit_mov.exit.thread
 
@@ -87180,7 +87180,7 @@ sljit_emit_op2.exit.thread:                       ; preds = %16
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %6, i64 152
   store i32 0, ptr %21, align 8
-  %22 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %6, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %2, i64 noundef %3)
+  %22 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %6, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3)
   %.not73.i = icmp eq ptr %22, null
   br i1 %.not73.i, label %emit_mov.exit, label %sljit_emit_op1.exit29
 
@@ -88093,7 +88093,7 @@ add_jump.exit37:                                  ; preds = %sljit_alloc_memory.
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %102, align 8
-  %103 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %101)
+  %103 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %101)
   %.not71.i = icmp eq ptr %103, null
   br i1 %.not71.i, label %emit_mov.exit, label %sljit_emit_op1.exit
 
@@ -90049,7 +90049,7 @@ add_jump.exit34:                                  ; preds = %49, %58
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %68, align 8
-  %69 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %67)
+  %69 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %67)
   %.not71.i = icmp eq ptr %69, null
   br i1 %.not71.i, label %emit_mov.exit, label %sljit_emit_op1.exit
 
@@ -91263,7 +91263,7 @@ define internal fastcc void @compile_xclass_matchingpath(ptr nocapture noundef n
   br i1 %.not455.i, label %380, label %379
 
 379:                                              ; preds = %376
-  tail call fastcc void @read_char(ptr noundef %0, i32 noundef 0, i32 noundef 2147483647, ptr noundef %2, i32 noundef 1)
+  tail call fastcc void @read_char(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2147483647, ptr noundef %2, i32 noundef 1)
   br label %compile_char1_matchingpath.exit
 
 380:                                              ; preds = %376, %375
@@ -91456,7 +91456,7 @@ sljit_alloc_memory.exit.i:                        ; preds = %449, %440
   br i1 %.not455.i1384, label %462, label %461
 
 461:                                              ; preds = %458
-  tail call fastcc void @read_char(ptr noundef %0, i32 noundef 0, i32 noundef 2147483647, ptr noundef %2, i32 noundef 1)
+  tail call fastcc void @read_char(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2147483647, ptr noundef %2, i32 noundef 1)
   br label %compile_char1_matchingpath.exit1388
 
 462:                                              ; preds = %458, %457
@@ -91725,7 +91725,7 @@ sljit_emit_op2.exit1417:                          ; preds = %sljit_emit_op1.exit
 
 575:                                              ; preds = %sljit_emit_op2.exit1417
   store i32 0, ptr %558, align 8
-  %576 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 4, i64 noundef 0)
+  %576 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef range(i32 1, 143) 4, i64 noundef 0)
   %.not140.i.i = icmp eq ptr %576, null
   br i1 %.not140.i.i, label %sljit_emit_op2u.exit, label %577
 
@@ -92294,7 +92294,7 @@ sljit_emit_op2.exit1488:                          ; preds = %sljit_emit_op1.exit
 
 820:                                              ; preds = %sljit_emit_op2.exit1488
   store i32 0, ptr %803, align 8
-  %821 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 4, i64 noundef 0)
+  %821 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef range(i32 1, 143) 4, i64 noundef 0)
   %.not140.i.i1491 = icmp eq ptr %821, null
   br i1 %.not140.i.i1491, label %sljit_emit_op2u.exit1492, label %822
 
@@ -95108,7 +95108,7 @@ sljit_emit_op1.exit1710:                          ; preds = %2105
 
 sljit_emit_op1.exit1710.thread:                   ; preds = %emit_mov_byte.exit2491, %sljit_emit_op1.exit1710
   store i32 0, ptr %2106, align 8
-  %2111 = call fastcc i32 @emit_shift(ptr noundef nonnull %5, i8 noundef zeroext 32, i32 noundef %spec.select1377, i64 noundef 0, i32 noundef 127, i64 noundef 1, i32 noundef 4, i64 noundef 0)
+  %2111 = call fastcc i32 @emit_shift(ptr noundef nonnull %5, i8 noundef zeroext 32, i32 noundef range(i32 1, 143) %spec.select1377, i64 noundef 0, i32 noundef 127, i64 noundef 1, i32 noundef 4, i64 noundef 0)
   br label %sljit_emit_op2.exit1713
 
 sljit_emit_op2.exit1713:                          ; preds = %emit_mov_byte.exit2491, %2103, %sljit_emit_op1.exit1710, %sljit_emit_op1.exit1710.thread
@@ -102651,7 +102651,7 @@ sljit_emit_op1.exit127:                           ; preds = %sljit_emit_op1.exit
 141:                                              ; preds = %139
   %142 = sext i32 %138 to i64
   store i32 0, ptr %64, align 8
-  %143 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %6, i32 noundef 218827016, i32 noundef %136, i64 noundef 0, i32 noundef %136, i64 noundef 0, i32 noundef 127, i64 noundef %142)
+  %143 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %6, i32 noundef 218827016, i32 noundef range(i32 1, 143) %136, i64 noundef 0, i32 noundef %136, i64 noundef 0, i32 noundef 127, i64 noundef %142)
   %.pre203 = load i32, ptr %16, align 4
   %.pre204 = load i32, ptr %62, align 4
   br label %sljit_emit_op2.exit
@@ -102725,7 +102725,7 @@ sljit_alloc_memory.exit.i:                        ; preds = %165, %157
 175:                                              ; preds = %173
   %176 = zext i16 %172 to i64
   store i32 0, ptr %64, align 8
-  %177 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %6, i32 noundef 218827016, i32 noundef %136, i64 noundef 0, i32 noundef %136, i64 noundef 0, i32 noundef 127, i64 noundef %176)
+  %177 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %6, i32 noundef 218827016, i32 noundef range(i32 1, 143) %136, i64 noundef 0, i32 noundef %136, i64 noundef 0, i32 noundef 127, i64 noundef %176)
   %.pre201 = load i32, ptr %16, align 4
   %.pre202 = load i16, ptr %62, align 4
   br label %sljit_emit_op2.exit141
@@ -102799,7 +102799,7 @@ sljit_alloc_memory.exit.i146:                     ; preds = %199, %191
 209:                                              ; preds = %207
   %210 = zext i8 %206 to i64
   store i32 0, ptr %64, align 8
-  %211 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %6, i32 noundef 218827016, i32 noundef %136, i64 noundef 0, i32 noundef %136, i64 noundef 0, i32 noundef 127, i64 noundef %210)
+  %211 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %6, i32 noundef 218827016, i32 noundef range(i32 1, 143) %136, i64 noundef 0, i32 noundef %136, i64 noundef 0, i32 noundef 127, i64 noundef %210)
   %.pre = load i32, ptr %16, align 4
   %.pre200 = load i8, ptr %62, align 4
   br label %sljit_emit_op2.exit151
@@ -103171,7 +103171,7 @@ define internal fastcc void @process_partial_match(ptr nocapture noundef nonnull
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %2, i64 152
   store i32 0, ptr %15, align 8
-  %16 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef %14)
+  %16 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %14)
   %.not71.i = icmp eq ptr %16, null
   br i1 %.not71.i, label %sljit_emit_op1.exit, label %emit_mov.exit.thread
 
@@ -104261,7 +104261,7 @@ sljit_emit_op2.exit:                              ; preds = %5, %8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %2, i64 152
   store i32 0, ptr %18, align 8
-  %19 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %17)
+  %19 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %17)
   %.not73.i = icmp eq ptr %19, null
   br i1 %.not73.i, label %sljit_emit_op1.exit, label %emit_mov.exit.thread
 
@@ -104290,7 +104290,7 @@ sljit_emit_op1.exit:                              ; preds = %15, %emit_mov.exit.
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %2, i64 152
   store i32 0, ptr %30, align 8
-  %31 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %29)
+  %31 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %2, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %29)
   %.not73.i28 = icmp eq ptr %31, null
   br i1 %.not73.i28, label %sljit_emit_op1.exit22, label %emit_mov.exit30.thread
 
@@ -104433,7 +104433,7 @@ emit_mov.exit77.thread:                           ; preds = %40
 
 49:                                               ; preds = %46
   store i8 -117, ptr %48, align 1
-  %50 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %44)
+  %50 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %44)
   %.not65.i = icmp eq ptr %50, null
   br i1 %.not65.i, label %sljit_emit_op1.exit49, label %emit_mov.exit80.thread
 
@@ -104515,7 +104515,7 @@ sljit_emit_op1.exit49:                            ; preds = %72, %46, %49, %40, 
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr %7, i64 152
   store i32 0, ptr %81, align 8
-  %82 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %80)
+  %82 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %80)
   %.not73.i = icmp eq ptr %82, null
   br i1 %.not73.i, label %sljit_emit_op1.exit70, label %emit_mov.exit88.thread
 
@@ -104712,7 +104712,7 @@ sljit_emit_op1.exit36:                            ; preds = %sljit_emit_op1.exit
   %.in = lshr i32 %2, 1
   %17 = zext nneg i32 %.in to i64
   store i32 0, ptr %12, align 8
-  %18 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 142, i64 noundef %16, i32 noundef 127, i64 noundef %17)
+  %18 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %5, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %16, i32 noundef 127, i64 noundef %17)
   %.pre151 = load i32, ptr %5, align 8
   %19 = icmp eq i32 %.pre151, 0
   br i1 %19, label %20, label %sljit_emit_op1.exit41
@@ -104721,7 +104721,7 @@ sljit_emit_op1.exit36:                            ; preds = %sljit_emit_op1.exit
   %21 = shl nuw nsw i32 %1, 3
   %22 = zext nneg i32 %21 to i64
   store i32 0, ptr %12, align 8
-  %23 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %22)
+  %23 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %22)
   %.not73.i = icmp eq ptr %23, null
   br i1 %.not73.i, label %sljit_emit_op1.exit41, label %emit_mov.exit79.thread
 
@@ -104805,7 +104805,7 @@ sljit_emit_op1.exit51.thread:                     ; preds = %emit_mov.exit85, %s
   %57 = shl nuw nsw i32 %.0, 3
   %58 = zext nneg i32 %57 to i64
   store i32 0, ptr %41, align 8
-  %59 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef %58)
+  %59 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %58)
   %.not73.i86 = icmp eq ptr %59, null
   br i1 %.not73.i86, label %emit_mov.exit88, label %sljit_emit_op1.exit56
 
@@ -104844,7 +104844,7 @@ sljit_emit_op1.exit61.thread:                     ; preds = %emit_mov.exit91, %s
   %67 = zext nneg i32 %.in148 to i64
   %68 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %68, align 8
-  %69 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef %67)
+  %69 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %67)
   %.not73.i92 = icmp eq ptr %69, null
   br i1 %.not73.i92, label %emit_mov.exit94, label %sljit_emit_op1.exit66
 
@@ -104865,7 +104865,7 @@ sljit_emit_op1.exit66.thread:                     ; preds = %emit_mov.exit94, %s
   %72 = sext i32 %.in149 to i64
   %73 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %73, align 8
-  %74 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %72)
+  %74 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %72)
   %.not73.i95 = icmp eq ptr %74, null
   br i1 %.not73.i95, label %emit_mov.exit97, label %sljit_emit_op1.exit71
 
@@ -104886,7 +104886,7 @@ sljit_emit_op1.exit71.thread:                     ; preds = %emit_mov.exit97, %s
   %77 = sext i32 %.in150 to i64
   %78 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %78, align 8
-  %79 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %77)
+  %79 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %77)
   %.not73.i98 = icmp eq ptr %79, null
   br i1 %.not73.i98, label %sljit_emit_op1.exit76, label %emit_mov.exit100.thread
 
@@ -105024,7 +105024,7 @@ emit_load_imm64.exit:                             ; preds = %43
   %57 = getelementptr inbounds i8, ptr %.0.i.ph.i, i64 3
   store i64 0, ptr %57, align 1
   %58 = load i64, ptr %24, align 8
-  %59 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 140, i64 noundef %1)
+  %59 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %1)
   %.not73.i = icmp eq ptr %59, null
   br i1 %.not73.i, label %emit_mov.exit, label %emit_mov.exit.thread
 
@@ -105685,7 +105685,7 @@ sljit_emit_op2.exit:                              ; preds = %sljit_emit_op1.exit
   %250 = load i32, ptr %160, align 4
   %251 = sext i32 %250 to i64
   store i32 0, ptr %165, align 8
-  %252 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %251)
+  %252 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %251)
   %.not73.i = icmp eq ptr %252, null
   br i1 %.not73.i, label %sljit_emit_op1.exit92, label %emit_mov.exit167.thread
 
@@ -106237,7 +106237,7 @@ free_stack.exit:                                  ; preds = %141, %140, %sljit_e
 
 .thread.i:                                        ; preds = %152
   store i8 -115, ptr %154, align 1
-  %155 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %.0474)
+  %155 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %.0474)
   %.not73.i.i1134 = icmp eq ptr %155, null
   br i1 %.not73.i.i1134, label %emit_lea_binary.exit, label %emit_lea_binary.exit.thread
 
@@ -106375,7 +106375,7 @@ emit_mov.exit1371:                                ; preds = %168
   store i8 -62, ptr %213, align 1
   %214 = getelementptr inbounds i8, ptr %.1198.i1963, i64 2
   store i8 1, ptr %214, align 1
-  %215 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %.0474)
+  %215 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %.0474)
   %.not73.i.i = icmp eq ptr %215, null
   br i1 %.not73.i.i, label %sljit_emit_op2.exit, label %emit_mov.exit.thread.i
 
@@ -106389,7 +106389,7 @@ emit_mov.exit.thread.i:                           ; preds = %212
 217:                                              ; preds = %216
   %218 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %218, align 8
-  %219 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %.0474)
+  %219 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %.0474)
   %.not73.i = icmp eq ptr %219, null
   br i1 %.not73.i, label %sljit_emit_op2.exit, label %emit_mov.exit1136.thread
 
@@ -106776,7 +106776,7 @@ free_stack.exit587:                               ; preds = %261
 385:                                              ; preds = %382
   %386 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %386, align 8
-  %387 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %3, i32 noundef 84082944, i32 noundef 142, i64 noundef %.0474, i32 noundef 142, i64 noundef %.0474, i32 noundef 127, i64 noundef 1)
+  %387 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %3, i32 noundef 84082944, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483648) %.0474, i32 noundef 142, i64 noundef %.0474, i32 noundef 127, i64 noundef 1)
   br label %sljit_emit_op2.exit611
 
 388:                                              ; preds = %259
@@ -106878,7 +106878,7 @@ free_stack.exit618:                               ; preds = %417, %416, %sljit_e
 430:                                              ; preds = %428
   %431 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %431, align 8
-  %432 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 1, i32 noundef 142, i64 noundef %.0474)
+  %432 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 1, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %.0474)
   %.not71.i = icmp eq ptr %432, null
   br i1 %.not71.i, label %sljit_emit_op1.exit623, label %emit_mov.exit1162.thread
 
@@ -106947,7 +106947,7 @@ sljit_emit_op1.exit633.thread:                    ; preds = %emit_mov.exit1168, 
   %.in = load i32, ptr %436, align 8
   %448 = sext i32 %.in to i64
   store i32 0, ptr %441, align 8
-  %449 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %448)
+  %449 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %448)
   %.not73.i1169 = icmp eq ptr %449, null
   br i1 %.not73.i1169, label %emit_mov.exit1171, label %sljit_emit_op1.exit638
 
@@ -107048,7 +107048,7 @@ free_stack.exit645:                               ; preds = %475, %474, %sljit_e
   %489 = sext i32 %488 to i64
   %490 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %490, align 8
-  %491 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %489)
+  %491 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %489)
   %.not73.i1178 = icmp eq ptr %491, null
   br i1 %.not73.i1178, label %emit_mov.exit1180, label %sljit_emit_op1.exit650
 
@@ -107076,7 +107076,7 @@ sljit_emit_op1.exit650:                           ; preds = %486
   %.in1843 = phi i32 [ %495, %sljit_emit_op1.exit650.thread ], [ %499, %sljit_emit_op1.exit650 ]
   %501 = sext i32 %.in1843 to i64
   store i32 0, ptr %490, align 8
-  %502 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %501)
+  %502 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %501)
   %.not73.i1181 = icmp eq ptr %502, null
   br i1 %.not73.i1181, label %sljit_emit_op1.exit655, label %sljit_emit_op1.exit655.sink.split
 
@@ -107199,7 +107199,7 @@ free_stack.exit667:                               ; preds = %541, %540, %sljit_e
   %555 = sext i32 %554 to i64
   %556 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %556, align 8
-  %557 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %555)
+  %557 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %555)
   %.not73.i1193 = icmp eq ptr %557, null
   br i1 %.not73.i1193, label %emit_mov.exit1195, label %sljit_emit_op1.exit672
 
@@ -107227,7 +107227,7 @@ sljit_emit_op1.exit672:                           ; preds = %552
   %.in1844 = phi i32 [ %561, %sljit_emit_op1.exit672.thread ], [ %565, %sljit_emit_op1.exit672 ]
   %567 = sext i32 %.in1844 to i64
   store i32 0, ptr %556, align 8
-  %568 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %567)
+  %568 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %567)
   %.not73.i1196 = icmp eq ptr %568, null
   br i1 %.not73.i1196, label %sljit_emit_op1.exit655, label %sljit_emit_op1.exit655.sink.split
 
@@ -108059,7 +108059,7 @@ sljit_emit_op2.exit767:                           ; preds = %sljit_emit_op1.exit
   %918 = load i32, ptr %829, align 4
   %919 = sext i32 %918 to i64
   store i32 0, ptr %834, align 8
-  %920 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %919)
+  %920 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %919)
   %.not73.i1224 = icmp eq ptr %920, null
   br i1 %.not73.i1224, label %emit_mov.exit1226, label %emit_mov.exit1226.thread
 
@@ -108711,7 +108711,7 @@ sljit_emit_op1.exit864:                           ; preds = %1165, %1163, %emit_
 
 .thread.i1256:                                    ; preds = %1180
   store i8 -115, ptr %1181, align 1
-  %1182 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 140, i64 noundef 0)
+  %1182 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) 0)
   %.not73.i.i1257 = icmp eq ptr %1182, null
   br i1 %.not73.i.i1257, label %emit_lea_binary.exit1258, label %emit_lea_binary.exit1258.thread
 
@@ -108845,7 +108845,7 @@ emit_mov.exit1465:                                ; preds = %1194
   %1238 = getelementptr inbounds i8, ptr %.1198.i, i64 2
   store i8 1, ptr %1238, align 1
   store i8 -22, ptr %1237, align 1
-  %1239 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 140, i64 noundef 0)
+  %1239 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) 0)
   %.not73.i.i1249 = icmp eq ptr %1239, null
   br i1 %.not73.i.i1249, label %sljit_emit_op2.exit867, label %emit_mov.exit.thread.i1250
 
@@ -108869,7 +108869,7 @@ sljit_emit_op2.exit867:                           ; preds = %1236, %emit_lea_bin
   %1244 = shl nuw nsw i32 %.5, 3
   %1245 = zext nneg i32 %1244 to i64
   store i32 0, ptr %1059, align 8
-  %1246 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef %1245)
+  %1246 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %1245)
   %.not73.i1259 = icmp eq ptr %1246, null
   br i1 %.not73.i1259, label %sljit_emit_op1.exit872, label %emit_mov.exit1261.thread
 
@@ -108884,7 +108884,7 @@ emit_mov.exit1261.thread:                         ; preds = %1243
   %1249 = shl nuw nsw i32 %.5, 3
   %1250 = zext nneg i32 %1249 to i64
   store i32 0, ptr %1059, align 8
-  %1251 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef %1250)
+  %1251 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 127, i64 noundef 0, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %1250)
   %.not71.i1264 = icmp eq ptr %1251, null
   br i1 %.not71.i1264, label %sljit_emit_op1.exit872, label %emit_mov.exit1266.thread
 
@@ -108921,7 +108921,7 @@ sljit_emit_op1.exit872:                           ; preds = %1248, %1243, %1247,
   %1262 = shl nuw nsw i32 %.7, 3
   %1263 = zext nneg i32 %1262 to i64
   store i32 0, ptr %1059, align 8
-  %1264 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %3, i32 noundef 140, i64 noundef %1263, i32 noundef 127, i64 noundef %1261)
+  %1264 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %3, i32 noundef 140, i64 noundef range(i64 -2147483648, 2147483664) %1263, i32 noundef 127, i64 noundef %1261)
   br label %sljit_emit_op1.exit882
 
 1265:                                             ; preds = %1257
@@ -108951,7 +108951,7 @@ sljit_emit_op1.exit882:                           ; preds = %1260, %1258, %1265,
   %1277 = add nsw i32 %1081, %1276
   %1278 = sext i32 %1277 to i64
   store i32 0, ptr %1059, align 8
-  %1279 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef %1278)
+  %1279 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1278)
   %.not73.i1267 = icmp eq ptr %1279, null
   br i1 %.not73.i1267, label %emit_mov.exit1269, label %emit_mov.exit1269.thread
 
@@ -109400,7 +109400,7 @@ sljit_emit_op2.exit956:                           ; preds = %sljit_emit_op1.exit
   %1452 = load i32, ptr %1372, align 4
   %1453 = sext i32 %1452 to i64
   store i32 0, ptr %1059, align 8
-  %1454 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %1453)
+  %1454 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1453)
   %.not73.i1278 = icmp eq ptr %1454, null
   br i1 %.not73.i1278, label %sljit_emit_op1.exit961, label %emit_mov.exit1280.thread
 
@@ -109560,7 +109560,7 @@ free_stack.exit979:                               ; preds = %1504, %1503, %sljit
   %1518 = sext i32 %1517 to i64
   %1519 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %1519, align 8
-  %1520 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %1518)
+  %1520 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1518)
   %.not73.i1293 = icmp eq ptr %1520, null
   br i1 %.not73.i1293, label %emit_mov.exit1295, label %sljit_emit_op1.exit984
 
@@ -109588,7 +109588,7 @@ sljit_emit_op1.exit984:                           ; preds = %1515
   %.in1852 = phi i32 [ %1524, %sljit_emit_op1.exit984.thread ], [ %1528, %sljit_emit_op1.exit984 ]
   %1530 = sext i32 %.in1852 to i64
   store i32 0, ptr %1519, align 8
-  %1531 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %1530)
+  %1531 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1530)
   %.not73.i1296 = icmp eq ptr %1531, null
   br i1 %.not73.i1296, label %sljit_emit_op1.exit989, label %emit_mov.exit1298.thread
 
@@ -109682,7 +109682,7 @@ free_stack.exit996:                               ; preds = %1558, %1557, %sljit
   %1568 = sext i32 %5 to i64
   %1569 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %1569, align 8
-  %1570 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %1568)
+  %1570 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1568)
   %.not73.i1305 = icmp eq ptr %1570, null
   br i1 %.not73.i1305, label %sljit_emit_op1.exit989, label %emit_mov.exit1307.thread
 
@@ -109773,7 +109773,7 @@ sljit_emit_op1.exit1016:                          ; preds = %sljit_emit_op1.exit
 
 sljit_emit_op1.exit1016.thread:                   ; preds = %emit_mov.exit1316, %sljit_emit_op1.exit1016
   store i32 0, ptr %1585, align 8
-  %1597 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %1592)
+  %1597 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1592)
   %.not73.i1317 = icmp eq ptr %1597, null
   br i1 %.not73.i1317, label %emit_mov.exit1319, label %sljit_emit_op1.exit1021
 
@@ -109790,7 +109790,7 @@ sljit_emit_op1.exit1021:                          ; preds = %sljit_emit_op1.exit
 
 sljit_emit_op1.exit1021.thread:                   ; preds = %emit_mov.exit1319, %sljit_emit_op1.exit1021
   store i32 0, ptr %1585, align 8
-  %1600 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef %1593)
+  %1600 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 4, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1593)
   %.not73.i1320 = icmp eq ptr %1600, null
   br i1 %.not73.i1320, label %sljit_emit_op1.exit1026, label %emit_mov.exit1322.thread
 
@@ -109818,7 +109818,7 @@ sljit_emit_op1.exit1026:                          ; preds = %emit_mov.exit1310, 
 
 1607:                                             ; preds = %1604
   store i8 -117, ptr %1606, align 1
-  %1608 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef %1602)
+  %1608 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 15, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1602)
   %.not65.i = icmp eq ptr %1608, null
   br i1 %.not65.i, label %sljit_emit_op1.exit1031, label %emit_mov.exit1325.thread
 
@@ -109979,7 +109979,7 @@ sljit_set_label.exit1037:                         ; preds = %1669, %1671
   %1685 = sext i32 %5 to i64
   %1686 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %1686, align 8
-  %1687 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %3, i32 noundef 142, i64 noundef %1685, i32 noundef 140, i64 noundef %1684)
+  %1687 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %3, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1685, i32 noundef 140, i64 noundef %1684)
   br label %sljit_emit_op1.exit989
 
 1688:                                             ; preds = %sljit_set_label.exit1037
@@ -110013,7 +110013,7 @@ sljit_emit_op1.exit1047:                          ; preds = %1692, %emit_mov.exi
   %1697 = sext i32 %5 to i64
   %1698 = getelementptr inbounds i8, ptr %3, i64 152
   store i32 0, ptr %1698, align 8
-  %1699 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %1697)
+  %1699 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %1697)
   %.not73.i1332 = icmp eq ptr %1699, null
   br i1 %.not73.i1332, label %sljit_emit_op1.exit989, label %emit_mov.exit1334.thread
 
@@ -110117,7 +110117,7 @@ emit_x86_instruction.exit1977:                    ; preds = %1727, %1733
 
 1738:                                             ; preds = %emit_x86_instruction.exit1977
   store i32 0, ptr %1704, align 8
-  %1739 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef %.0474)
+  %1739 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 1, i64 noundef 0, i32 noundef 142, i64 noundef range(i64 -2147483648, 2147483664) %.0474)
   %.not73.i1340 = icmp eq ptr %1739, null
   br i1 %.not73.i1340, label %sljit_emit_op1.exit1061, label %emit_mov.exit1342.thread
 
@@ -111908,7 +111908,7 @@ recurse_check_bit.exit442.thread:                 ; preds = %628, %639
   br i1 %or.cond.i.i445, label %sljit_emit_op1.exit.thread.i450, label %.thread.i.i446
 
 .thread.i.i446:                                   ; preds = %665
-  %669 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %652, i32 noundef %661, i64 noundef %664, i32 noundef %656, i64 noundef 0)
+  %669 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %652, i32 noundef %661, i64 noundef range(i64 -2147483648, 2147483664) %664, i32 noundef %656, i64 noundef 0)
   %.pre.i447 = load i32, ptr %652, align 8
   br label %sljit_emit_op1.exit.i448
 
@@ -111963,7 +111963,7 @@ sljit_emit_op1.exit.thread.i450:                  ; preds = %sljit_emit_op1.exit
   br i1 %or.cond.i.i454, label %sljit_emit_op1.exit.thread.i459.thread, label %.thread.i.i455
 
 .thread.i.i455:                                   ; preds = %692
-  %696 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %680, i32 noundef %688, i64 noundef %691, i32 noundef %683, i64 noundef 0)
+  %696 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %680, i32 noundef %688, i64 noundef range(i64 -2147483648, 2147483664) %691, i32 noundef %683, i64 noundef 0)
   %.pre.i456 = load i32, ptr %680, align 8
   br label %sljit_emit_op1.exit.i457
 
@@ -112080,7 +112080,7 @@ delayed_mem_copy_move.exit460:                    ; preds = %sljit_emit_op1.exit
   br i1 %or.cond.i.i463, label %sljit_emit_op1.exit.thread.i468, label %.thread.i.i464
 
 .thread.i.i464:                                   ; preds = %733
-  %737 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %720, i32 noundef %729, i64 noundef %732, i32 noundef %724, i64 noundef 0)
+  %737 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %720, i32 noundef %729, i64 noundef range(i64 -2147483648, 2147483664) %732, i32 noundef %724, i64 noundef 0)
   %.pre.i465 = load i32, ptr %720, align 8
   br label %sljit_emit_op1.exit.i466
 
@@ -112135,7 +112135,7 @@ sljit_emit_op1.exit.thread.i468:                  ; preds = %sljit_emit_op1.exit
   br i1 %or.cond.i.i472, label %sljit_emit_op1.exit.thread.i477.thread, label %.thread.i.i473
 
 .thread.i.i473:                                   ; preds = %760
-  %764 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %748, i32 noundef %756, i64 noundef %759, i32 noundef %751, i64 noundef 0)
+  %764 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %748, i32 noundef %756, i64 noundef range(i64 -2147483648, 2147483664) %759, i32 noundef %751, i64 noundef 0)
   %.pre.i474 = load i32, ptr %748, align 8
   br label %sljit_emit_op1.exit.i475
 
@@ -112243,7 +112243,7 @@ delayed_mem_copy_move.exit478:                    ; preds = %sljit_emit_op1.exit
   br i1 %or.cond.i.i490.us, label %sljit_emit_op1.exit.thread.i495.thread.us, label %.thread.i.i491.us
 
 .thread.i.i491.us:                                ; preds = %799
-  %803 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %787, i32 noundef %795, i64 noundef %798, i32 noundef %790, i64 noundef 0)
+  %803 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %787, i32 noundef %795, i64 noundef range(i64 -2147483648, 2147483664) %798, i32 noundef %790, i64 noundef 0)
   %.pre.i492.us = load i32, ptr %787, align 8
   br label %sljit_emit_op1.exit.i493.us
 
@@ -112328,7 +112328,7 @@ delayed_mem_copy_move.exit496.us:                 ; preds = %813, %sljit_emit_op
   br i1 %or.cond.i.i481, label %sljit_emit_op1.exit.thread.i486, label %.thread.i.i482
 
 .thread.i.i482:                                   ; preds = %832
-  %836 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %820, i32 noundef %828, i64 noundef %831, i32 noundef %823, i64 noundef 0)
+  %836 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %820, i32 noundef %828, i64 noundef range(i64 -2147483648, 2147483664) %831, i32 noundef %823, i64 noundef 0)
   %.pre.i483 = load i32, ptr %820, align 8
   br label %sljit_emit_op1.exit.i484
 
@@ -112402,7 +112402,7 @@ delayed_mem_copy_move.exit487:                    ; preds = %827, %sljit_emit_op
   br i1 %or.cond.i.i500, label %sljit_emit_op1.exit.i499, label %.thread.i.i501
 
 .thread.i.i501:                                   ; preds = %864
-  %867 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %847, i32 noundef %859, i64 noundef %862, i32 noundef %858, i64 noundef 0)
+  %867 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %847, i32 noundef %859, i64 noundef range(i64 -2147483648, 2147483664) %862, i32 noundef %858, i64 noundef 0)
   br label %sljit_emit_op1.exit.i499
 
 sljit_emit_op1.exit.i499:                         ; preds = %.thread.i.i501, %864, %856, %852

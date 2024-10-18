@@ -281,7 +281,7 @@ define internal void @_ZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_4Ev() #2 personality 
           to label %.noexc.i unwind label %23
 
 .noexc.i:                                         ; preds = %15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc12.i unwind label %23
 
 .noexc12.i:                                       ; preds = %.noexc.i
@@ -291,7 +291,7 @@ define internal void @_ZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_4Ev() #2 personality 
 17:                                               ; preds = %.noexc12.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc12.i
@@ -361,7 +361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_3D2Ev.exit: ; preds = %29, %32
   %38 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %38) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 39:                                               ; preds = %.noexc, %0
@@ -392,7 +392,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail8TestCaseD2Ev(ptr noundef 
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
   ret void
 }
 
@@ -451,7 +451,7 @@ define internal void @_ZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_7Ev() #2 personality 
           to label %.noexc.i unwind label %20
 
 .noexc.i:                                         ; preds = %14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc10.i unwind label %20
 
 .noexc10.i:                                       ; preds = %.noexc.i
@@ -461,7 +461,7 @@ define internal void @_ZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_7Ev() #2 personality 
 16:                                               ; preds = %.noexc10.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc10.i
@@ -519,7 +519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_6D2Ev.exit: ; preds = %25, %28
   %34 = getelementptr inbounds i8, ptr %5, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %34) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %5) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %5) #17
   ret void
 
 35:                                               ; preds = %.noexc, %0
@@ -585,7 +585,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_10Ev() #2 personality
           to label %.noexc.i unwind label %20
 
 .noexc.i:                                         ; preds = %14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc12.i unwind label %20
 
 .noexc12.i:                                       ; preds = %.noexc.i
@@ -595,7 +595,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_10Ev() #2 personality
 16:                                               ; preds = %.noexc12.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc12.i
@@ -653,7 +653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_9D2Ev.exit: ; preds = %25, %28
   %34 = getelementptr inbounds i8, ptr %5, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %34) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %5) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %5) #17
   ret void
 
 35:                                               ; preds = %.noexc, %0
@@ -739,7 +739,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_13Ev() #2 personality
           to label %.noexc.i unwind label %31
 
 .noexc.i:                                         ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc19.i unwind label %31
 
 .noexc19.i:                                       ; preds = %.noexc.i
@@ -749,7 +749,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_13Ev() #2 personality
 25:                                               ; preds = %.noexc19.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc19.i
@@ -819,7 +819,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_12D2Ev.exit: ; preds = %37, %40
   %46 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %46) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 47:                                               ; preds = %.noexc, %0
@@ -889,7 +889,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_16Ev() #2 personality
           to label %.noexc.i unwind label %21
 
 .noexc.i:                                         ; preds = %15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc20.i unwind label %21
 
 .noexc20.i:                                       ; preds = %.noexc.i
@@ -899,7 +899,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_16Ev() #2 personality
 17:                                               ; preds = %.noexc20.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc20.i
@@ -957,7 +957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_15D2Ev.exit: ; preds = %26, %29
   %35 = getelementptr inbounds i8, ptr %5, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %35) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %5) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %5) #17
   ret void
 
 36:                                               ; preds = %.noexc, %0
@@ -1012,7 +1012,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_19Ev() #2 personality
           to label %.noexc.i unwind label %9
 
 .noexc.i:                                         ; preds = %.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc5.i unwind label %9
 
 .noexc5.i:                                        ; preds = %.noexc.i
@@ -1022,7 +1022,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_19Ev() #2 personality
 7:                                                ; preds = %.noexc5.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc5.i
@@ -1068,7 +1068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_18D2Ev.exit: ; preds = %13, %16
   %22 = getelementptr inbounds i8, ptr %4, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %22) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %4) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %4) #17
   ret void
 
 23:                                               ; preds = %.noexc4, %.noexc3, %.noexc2, %.noexc1, %.noexc, %0
@@ -1160,7 +1160,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_22Ev() #2 personality
           to label %.noexc.i unwind label %37
 
 .noexc.i:                                         ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc20.i unwind label %37
 
 .noexc20.i:                                       ; preds = %.noexc.i
@@ -1170,7 +1170,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_22Ev() #2 personality
 27:                                               ; preds = %.noexc20.i
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc20.i
@@ -1264,7 +1264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_21D2Ev.exit: ; preds = %45, %48
   %54 = getelementptr inbounds i8, ptr %8, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %54) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %8) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %8) #17
   ret void
 
 55:                                               ; preds = %.noexc, %0
@@ -1342,7 +1342,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_25Ev() #2 personality
           to label %.noexc.i unwind label %27
 
 .noexc.i:                                         ; preds = %19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc22.i unwind label %27
 
 .noexc22.i:                                       ; preds = %.noexc.i
@@ -1352,7 +1352,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_25Ev() #2 personality
 21:                                               ; preds = %.noexc22.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc22.i
@@ -1422,7 +1422,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_24D2Ev.exit: ; preds = %33, %36
   %42 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %42) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 43:                                               ; preds = %.noexc, %0
@@ -1514,7 +1514,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_28Ev() #2 personality
           to label %.noexc.i unwind label %37
 
 .noexc.i:                                         ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc20.i unwind label %37
 
 .noexc20.i:                                       ; preds = %.noexc.i
@@ -1524,7 +1524,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_28Ev() #2 personality
 27:                                               ; preds = %.noexc20.i
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc20.i
@@ -1618,7 +1618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_27D2Ev.exit: ; preds = %45, %48
   %54 = getelementptr inbounds i8, ptr %8, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %54) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %8) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %8) #17
   ret void
 
 55:                                               ; preds = %.noexc, %0
@@ -1710,7 +1710,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_31Ev() #2 personality
           to label %.noexc.i unwind label %37
 
 .noexc.i:                                         ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc20.i unwind label %37
 
 .noexc20.i:                                       ; preds = %.noexc.i
@@ -1720,7 +1720,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_31Ev() #2 personality
 27:                                               ; preds = %.noexc20.i
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc20.i
@@ -1814,7 +1814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_30D2Ev.exit: ; preds = %45, %48
   %54 = getelementptr inbounds i8, ptr %8, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %54) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %8) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %8) #17
   ret void
 
 55:                                               ; preds = %.noexc, %0
@@ -1878,7 +1878,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_34Ev() #2 personality
           to label %.noexc.i unwind label %23
 
 .noexc.i:                                         ; preds = %15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc12.i unwind label %23
 
 .noexc12.i:                                       ; preds = %.noexc.i
@@ -1888,7 +1888,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_34Ev() #2 personality
 17:                                               ; preds = %.noexc12.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc12.i
@@ -1958,7 +1958,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_33D2Ev.exit: ; preds = %29, %32
   %38 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %38) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 39:                                               ; preds = %.noexc, %0
@@ -2050,7 +2050,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_37Ev() #2 personality
           to label %.noexc.i unwind label %37
 
 .noexc.i:                                         ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc20.i unwind label %37
 
 .noexc20.i:                                       ; preds = %.noexc.i
@@ -2060,7 +2060,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_37Ev() #2 personality
 27:                                               ; preds = %.noexc20.i
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc20.i
@@ -2154,7 +2154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_36D2Ev.exit: ; preds = %45, %48
   %54 = getelementptr inbounds i8, ptr %8, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %54) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %8) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %8) #17
   ret void
 
 55:                                               ; preds = %.noexc, %0
@@ -2240,7 +2240,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_40Ev() #2 personality
           to label %.noexc.i unwind label %31
 
 .noexc.i:                                         ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc26.i unwind label %31
 
 .noexc26.i:                                       ; preds = %.noexc.i
@@ -2250,7 +2250,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_40Ev() #2 personality
 25:                                               ; preds = %.noexc26.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc26.i
@@ -2320,7 +2320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_39D2Ev.exit: ; preds = %37, %40
   %46 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %46) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 47:                                               ; preds = %.noexc, %0
@@ -2406,7 +2406,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_43Ev() #2 personality
           to label %.noexc.i unwind label %31
 
 .noexc.i:                                         ; preds = %23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc26.i unwind label %31
 
 .noexc26.i:                                       ; preds = %.noexc.i
@@ -2416,7 +2416,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_43Ev() #2 personality
 25:                                               ; preds = %.noexc26.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc26.i
@@ -2486,7 +2486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_42D2Ev.exit: ; preds = %37, %40
   %46 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %46) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 47:                                               ; preds = %.noexc, %0
@@ -2576,7 +2576,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_46Ev() #2 personality
           to label %.noexc.i unwind label %33
 
 .noexc.i:                                         ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc37.i unwind label %33
 
 .noexc37.i:                                       ; preds = %.noexc.i
@@ -2586,7 +2586,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_46Ev() #2 personality
 27:                                               ; preds = %.noexc37.i
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc37.i
@@ -2656,7 +2656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_45D2Ev.exit: ; preds = %39, %42
   %48 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %48) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 49:                                               ; preds = %.noexc, %0
@@ -2773,7 +2773,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_49Ev() #2 personality
           to label %.noexc.i unwind label %45
 
 .noexc.i:                                         ; preds = %35
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc59.i unwind label %45
 
 .noexc59.i:                                       ; preds = %.noexc.i
@@ -2783,7 +2783,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_49Ev() #2 personality
 37:                                               ; preds = %.noexc59.i
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc59.i
@@ -2865,7 +2865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_48D2Ev.exit: ; preds = %52, %55
   %61 = getelementptr inbounds i8, ptr %7, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %61) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %7) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %7) #17
   ret void
 
 62:                                               ; preds = %.noexc, %0
@@ -2927,7 +2927,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_52Ev() #2 personality
           to label %.noexc.i unwind label %19
 
 .noexc.i:                                         ; preds = %13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc15.i unwind label %19
 
 .noexc15.i:                                       ; preds = %.noexc.i
@@ -2937,7 +2937,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_52Ev() #2 personality
 15:                                               ; preds = %.noexc15.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc15.i
@@ -2995,7 +2995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_51D2Ev.exit: ; preds = %24, %27
   %33 = getelementptr inbounds i8, ptr %5, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %33) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %5) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %5) #17
   ret void
 
 34:                                               ; preds = %.noexc, %0
@@ -3062,7 +3062,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %.noexc.i unwind label %24
 
 .noexc.i:                                         ; preds = %16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc12.i unwind label %24
 
 .noexc12.i:                                       ; preds = %.noexc.i
@@ -3072,7 +3072,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
 18:                                               ; preds = %.noexc12.i
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc12.i
@@ -3142,7 +3142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_54D2Ev.exit: ; preds = %30, %33
   %39 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %39) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 40:                                               ; preds = %.noexc, %0
@@ -3204,7 +3204,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_58Ev() #2 personality
           to label %.noexc.i unwind label %19
 
 .noexc.i:                                         ; preds = %13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc9.i unwind label %19
 
 .noexc9.i:                                        ; preds = %.noexc.i
@@ -3214,7 +3214,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_58Ev() #2 personality
 15:                                               ; preds = %.noexc9.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc9.i
@@ -3272,7 +3272,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_57D2Ev.exit: ; preds = %24, %27
   %33 = getelementptr inbounds i8, ptr %5, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %33) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %5) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %5) #17
   ret void
 
 34:                                               ; preds = %.noexc, %0
@@ -3424,7 +3424,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_
           to label %.noexc.i unwind label %42
 
 .noexc.i:                                         ; preds = %.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc11.i unwind label %42
 
 .noexc11.i:                                       ; preds = %.noexc.i
@@ -3434,7 +3434,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_
 40:                                               ; preds = %.noexc11.i
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc11.i
@@ -3481,7 +3481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_60D2Ev.exit: ; preds = %46, %49
   %55 = getelementptr inbounds i8, ptr %4, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %55) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %4) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %4) #17
   ret void
 
 56:                                               ; preds = %.noexc4, %.noexc3, %_ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i, %27, %21, %0
@@ -3633,7 +3633,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_
           to label %.noexc.i unwind label %42
 
 .noexc.i:                                         ; preds = %.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc11.i unwind label %42
 
 .noexc11.i:                                       ; preds = %.noexc.i
@@ -3643,7 +3643,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_
 40:                                               ; preds = %.noexc11.i
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc11.i
@@ -3690,7 +3690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_63D2Ev.exit: ; preds = %46, %49
   %55 = getelementptr inbounds i8, ptr %4, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %55) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %4) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %4) #17
   ret void
 
 56:                                               ; preds = %.noexc4, %.noexc3, %_ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i, %27, %21, %0
@@ -3842,7 +3842,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_
           to label %.noexc.i unwind label %42
 
 .noexc.i:                                         ; preds = %.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc10.i unwind label %42
 
 .noexc10.i:                                       ; preds = %.noexc.i
@@ -3852,7 +3852,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_
 40:                                               ; preds = %.noexc10.i
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc10.i
@@ -3899,7 +3899,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_66D2Ev.exit: ; preds = %46, %49
   %55 = getelementptr inbounds i8, ptr %4, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %55) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %4) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %4) #17
   ret void
 
 56:                                               ; preds = %.noexc4, %.noexc3, %_ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i, %27, %21, %0
@@ -4065,7 +4065,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_
           to label %.noexc.i unwind label %50
 
 .noexc.i:                                         ; preds = %44
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc13.i unwind label %50
 
 .noexc13.i:                                       ; preds = %.noexc.i
@@ -4075,7 +4075,7 @@ _ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_
 46:                                               ; preds = %.noexc13.i
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc13.i
@@ -4134,7 +4134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_69D2Ev.exit: ; preds = %55, %58
   %64 = getelementptr inbounds i8, ptr %5, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %64) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %5) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %5) #17
   ret void
 
 65:                                               ; preds = %.noexc3, %_ZNSt6vectorIN4Luau7CodeGen6IrInstESaIS2_EE9push_backERKS2_.exit.i, %28, %22, %0
@@ -4216,7 +4216,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_73Ev() #2 personality
           to label %.noexc.i unwind label %30
 
 .noexc.i:                                         ; preds = %22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc22.i unwind label %30
 
 .noexc22.i:                                       ; preds = %.noexc.i
@@ -4226,7 +4226,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_73Ev() #2 personality
 24:                                               ; preds = %.noexc22.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc22.i
@@ -4296,7 +4296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_72D2Ev.exit: ; preds = %36, %39
   %45 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %45) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 46:                                               ; preds = %.noexc, %0
@@ -4351,7 +4351,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_76Ev() #2 personality
           to label %.noexc.i unwind label %9
 
 .noexc.i:                                         ; preds = %.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc7.i unwind label %9
 
 .noexc7.i:                                        ; preds = %.noexc.i
@@ -4361,7 +4361,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_76Ev() #2 personality
 7:                                                ; preds = %.noexc7.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc7.i
@@ -4407,7 +4407,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_75D2Ev.exit: ; preds = %13, %16
   %22 = getelementptr inbounds i8, ptr %4, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %22) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %4) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %4) #17
   ret void
 
 23:                                               ; preds = %.noexc4, %.noexc3, %.noexc2, %.noexc1, %.noexc, %0
@@ -4485,7 +4485,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_79Ev() #2 personality
           to label %.noexc.i unwind label %29
 
 .noexc.i:                                         ; preds = %21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc13.i unwind label %29
 
 .noexc13.i:                                       ; preds = %.noexc.i
@@ -4495,7 +4495,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_79Ev() #2 personality
 23:                                               ; preds = %.noexc13.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc13.i
@@ -4565,7 +4565,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_78D2Ev.exit: ; preds = %35, %38
   %44 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %44) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 45:                                               ; preds = %.noexc, %0
@@ -4602,7 +4602,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_82Ev() #2 personality
           to label %.noexc1 unwind label %46
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull align 8 dereferenceable(252) %6, i32 noundef -1)
+  invoke void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C1ERNS1_13IrRegAllocX64ERNS1_18AssemblyBuilderX64Ej(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull align 8 dereferenceable(1368) %6, i32 noundef -1)
           to label %9 unwind label %29
 
 9:                                                ; preds = %.noexc1
@@ -4633,7 +4633,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_82Ev() #2 personality
   %.sroa.324.0.insert.ext.i = zext i8 %15 to i64
   %.sroa.324.0.insert.shift.i = shl nuw nsw i64 %.sroa.324.0.insert.ext.i, 16
   %.sroa.223.0.insert.insert.i = or disjoint i64 %.sroa.324.0.insert.shift.i, 268468224
-  invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %6, i64 %.sroa.223.0.insert.insert.i, i64 43226529794)
+  invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(1368) %6, i64 %.sroa.223.0.insert.insert.i, i64 43226529794)
           to label %17 unwind label %29
 
 17:                                               ; preds = %16
@@ -4663,7 +4663,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_82Ev() #2 personality
           to label %.noexc.i unwind label %31
 
 .noexc.i:                                         ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc15.i unwind label %31
 
 .noexc15.i:                                       ; preds = %.noexc.i
@@ -4673,7 +4673,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_82Ev() #2 personality
 27:                                               ; preds = %.noexc15.i
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc15.i
@@ -4732,7 +4732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_81D2Ev.exit: ; preds = %36, %39
   %45 = getelementptr inbounds i8, ptr %6, i64 256
   call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %45) #17
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %6) #17
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %6) #17
   ret void
 
 46:                                               ; preds = %.noexc, %0
@@ -4765,7 +4765,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_3D2Ev(ptr nou
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -4774,8 +4774,8 @@ define linkonce_odr dso_local void @_ZN23IrCallWrapperX64FixtureC2EN4Luau7CodeGe
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64C1EbNS1_6ABIX64E(ptr noundef nonnull align 8 dereferenceable(252) %0, i1 noundef zeroext true, i32 noundef %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = getelementptr inbounds i8, ptr %0, i64 568
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(298) %4, i8 0, i64 298, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(305) %3, i8 0, i64 305, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %4, i8 0, i64 298, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %3, i8 0, i64 305, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 872
   invoke void @_ZN4Luau7CodeGen3X6413IrRegAllocX64C1ERNS1_18AssemblyBuilderX64ERNS0_10IrFunctionEPNS0_13LoweringStatsE(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 8 dereferenceable(616) %3, ptr noundef null)
           to label %6 unwind label %9
@@ -5235,7 +5235,7 @@ define linkonce_odr dso_local void @_ZN23IrCallWrapperX64Fixture10checkMatchENSt
 14:                                               ; preds = %12
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %15 = load i32, ptr %7, align 4, !noalias !23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   %16 = getelementptr inbounds i8, ptr %6, i64 32
   store i32 %15, ptr %16, align 8, !alias.scope !23
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRS7_EEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISC_EEtlNS0_6ResultEEESD_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -5248,7 +5248,7 @@ define linkonce_odr dso_local void @_ZN23IrCallWrapperX64Fixture10checkMatchENSt
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   br label %33
 
@@ -5277,7 +5277,7 @@ define linkonce_odr dso_local void @_ZN23IrCallWrapperX64Fixture10checkMatchENSt
 
 29:                                               ; preds = %26, %24
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   br label %30
 
@@ -5320,7 +5320,7 @@ define linkonce_odr dso_local void @_ZN23IrCallWrapperX64Fixture10checkMatchENSt
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %43) #17
   %44 = getelementptr inbounds i8, ptr %3, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
   %45 = getelementptr inbounds i8, ptr %3, i64 48
@@ -5492,7 +5492,7 @@ declare void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
+  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -5762,7 +5762,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_6D2Ev(ptr nou
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5789,7 +5789,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_9D2Ev(ptr nou
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5812,7 +5812,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_12D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5835,7 +5835,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_15D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5858,7 +5858,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_18D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5881,7 +5881,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_21D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5904,7 +5904,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_24D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5927,7 +5927,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_27D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5950,7 +5950,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_30D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5973,7 +5973,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_33D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -5996,7 +5996,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_36D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6019,7 +6019,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_39D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6042,7 +6042,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_42D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6065,7 +6065,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_45D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6088,7 +6088,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_48D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6111,7 +6111,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_51D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6134,7 +6134,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_54D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6157,7 +6157,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_57D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6180,7 +6180,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_60D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6209,7 +6209,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_63D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6232,7 +6232,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_66D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6255,7 +6255,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_69D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6278,7 +6278,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_72D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6301,7 +6301,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_75D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6324,7 +6324,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_78D2Ev(ptr no
 _ZN23IrCallWrapperX64FixtureD2Ev.exit:            ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6347,7 +6347,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_81D2Ev(ptr no
 _ZN30IrCallWrapperX64FixtureSystemVD2Ev.exit:     ; preds = %1, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @_ZN4Luau7CodeGen10IrFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %10) #17
-  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) #17
+  tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %0) #17
   ret void
 }
 
@@ -6461,7 +6461,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %65
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %71) #17
   %72 = getelementptr inbounds i8, ptr %54, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %54) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55)
@@ -6496,7 +6496,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %76
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #17
   %83 = getelementptr inbounds i8, ptr %52, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %83) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %52) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %52)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
@@ -6531,7 +6531,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %87
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %93) #17
   %94 = getelementptr inbounds i8, ptr %50, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %94) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %50) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %51)
@@ -6566,7 +6566,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %98
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %104) #17
   %105 = getelementptr inbounds i8, ptr %48, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %48) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
@@ -6601,7 +6601,7 @@ __cxx_global_var_init.12.exit:                    ; preds = %109
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %115) #17
   %116 = getelementptr inbounds i8, ptr %46, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %116) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %46) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
@@ -6636,7 +6636,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %126) #17
   %127 = getelementptr inbounds i8, ptr %44, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %127) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %44) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
@@ -6671,7 +6671,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %131
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %137) #17
   %138 = getelementptr inbounds i8, ptr %42, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %138) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %42) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
@@ -6706,7 +6706,7 @@ __cxx_global_var_init.18.exit:                    ; preds = %142
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %148) #17
   %149 = getelementptr inbounds i8, ptr %40, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %149) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %40) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
@@ -6741,7 +6741,7 @@ __cxx_global_var_init.20.exit:                    ; preds = %153
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #17
   %160 = getelementptr inbounds i8, ptr %38, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %38) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39)
@@ -6776,7 +6776,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %164
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %170) #17
   %171 = getelementptr inbounds i8, ptr %36, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %171) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %36) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
@@ -6811,7 +6811,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %175
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %181) #17
   %182 = getelementptr inbounds i8, ptr %34, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %182) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %34) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
@@ -6846,7 +6846,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %186
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %192) #17
   %193 = getelementptr inbounds i8, ptr %32, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %193) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %32) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
@@ -6881,7 +6881,7 @@ __cxx_global_var_init.28.exit:                    ; preds = %197
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %203) #17
   %204 = getelementptr inbounds i8, ptr %30, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %204) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %30) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
@@ -6916,7 +6916,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %208
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %214) #17
   %215 = getelementptr inbounds i8, ptr %28, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %28) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
@@ -6951,7 +6951,7 @@ __cxx_global_var_init.32.exit:                    ; preds = %219
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #17
   %226 = getelementptr inbounds i8, ptr %26, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %226) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %26) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
@@ -6986,7 +6986,7 @@ __cxx_global_var_init.34.exit:                    ; preds = %230
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %236) #17
   %237 = getelementptr inbounds i8, ptr %24, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %237) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %24) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
@@ -7021,7 +7021,7 @@ __cxx_global_var_init.36.exit:                    ; preds = %241
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %247) #17
   %248 = getelementptr inbounds i8, ptr %22, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %248) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %22) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
@@ -7056,7 +7056,7 @@ __cxx_global_var_init.38.exit:                    ; preds = %252
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %258) #17
   %259 = getelementptr inbounds i8, ptr %20, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %259) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %20) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
@@ -7091,7 +7091,7 @@ __cxx_global_var_init.40.exit:                    ; preds = %263
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %269) #17
   %270 = getelementptr inbounds i8, ptr %18, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %270) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %18) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
@@ -7126,7 +7126,7 @@ __cxx_global_var_init.42.exit:                    ; preds = %274
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %280) #17
   %281 = getelementptr inbounds i8, ptr %16, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %281) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %16) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
@@ -7161,7 +7161,7 @@ __cxx_global_var_init.44.exit:                    ; preds = %285
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %291) #17
   %292 = getelementptr inbounds i8, ptr %14, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %292) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %14) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
@@ -7196,7 +7196,7 @@ __cxx_global_var_init.46.exit:                    ; preds = %296
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %302) #17
   %303 = getelementptr inbounds i8, ptr %12, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %303) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %12) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -7231,7 +7231,7 @@ __cxx_global_var_init.48.exit:                    ; preds = %307
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %313) #17
   %314 = getelementptr inbounds i8, ptr %10, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %314) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %10) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -7266,7 +7266,7 @@ __cxx_global_var_init.50.exit:                    ; preds = %318
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %324) #17
   %325 = getelementptr inbounds i8, ptr %8, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %325) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %8) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -7301,7 +7301,7 @@ __cxx_global_var_init.52.exit:                    ; preds = %329
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %335) #17
   %336 = getelementptr inbounds i8, ptr %6, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %336) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %6) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -7336,7 +7336,7 @@ __cxx_global_var_init.54.exit:                    ; preds = %340
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %346) #17
   %347 = getelementptr inbounds i8, ptr %4, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %347) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -7371,7 +7371,7 @@ __cxx_global_var_init.56.exit:                    ; preds = %351
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %357) #17
   %358 = getelementptr inbounds i8, ptr %2, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %358) #17
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)

@@ -2096,7 +2096,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a9e9c8f9e422b9aE.llvm.3231017819854299114.exit"
 
 7:                                                ; preds = %2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h215b1cb2a2ec48f6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h215b1cb2a2ec48f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %4)
           to label %._crit_edge.i unwind label %8, !noalias !48
 
 ._crit_edge.i:                                    ; preds = %7
@@ -2177,7 +2177,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h37a7310898be7598E.llvm.3231017819854299114.exit"
 
 7:                                                ; preds = %2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbb94ab0628c0f749E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbb94ab0628c0f749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %4)
           to label %._crit_edge.i unwind label %8, !noalias !56
 
 ._crit_edge.i:                                    ; preds = %7
@@ -2755,7 +2755,7 @@ define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureCon
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %.lr.ph.split.us.split.i
-  %21 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %20, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5)
+  %21 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %20, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5)
           to label %.noexc6 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc6:                                          ; preds = %.noexc
@@ -2767,7 +2767,7 @@ define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureCon
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17heac3532f410f0fbfE.exit.thread.i.us.i"
-  %23 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %24)
+  %23 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %24)
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %.noexc7
@@ -2788,7 +2788,7 @@ define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureCon
           to label %.noexc9 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc9:                                          ; preds = %.lr.ph.split.split.us.i
-  %27 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15, i64 noundef %26, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5)
+  %27 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15, i64 noundef %26, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5)
           to label %.noexc10 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc10:                                         ; preds = %.noexc9
@@ -2800,7 +2800,7 @@ define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureCon
           to label %.noexc11 unwind label %.loopexit.split-lp.loopexit
 
 .noexc11:                                         ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17heac3532f410f0fbfE.exit.i.us.i"
-  %29 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15, i64 noundef %28, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30)
+  %29 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15, i64 noundef %28, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30)
           to label %.noexc12 unwind label %.loopexit.split-lp.loopexit
 
 .noexc12:                                         ; preds = %.noexc11
@@ -2820,7 +2820,7 @@ define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureCon
           to label %.noexc13 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc13:                                         ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17heac3532f410f0fbfE.exit.i.i"
-  %35 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15, i64 noundef %34, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %32)
+  %35 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15, i64 noundef %34, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %32)
           to label %.noexc14 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc14:                                         ; preds = %.noexc13
@@ -2832,7 +2832,7 @@ define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureCon
           to label %.noexc15 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc15:                                         ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17heac3532f410f0fbfE.exit.thread.i.i"
-  %37 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %36, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %32)
+  %37 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, i64 noundef %36, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %32)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc16:                                         ; preds = %.noexc15
@@ -2871,7 +2871,7 @@ define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureCon
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hdb1c940fdf08aaf1E.exit": ; preds = %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.i", %.noexc16, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us13.i", %.noexc12, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us.i", %.noexc8, %.noexc10, %.noexc6, %.lr.ph.split.us.i, %1
   %.lcssa.i = phi i1 [ true, %1 ], [ false, %.noexc10 ], [ false, %.noexc6 ], [ false, %.lr.ph.split.us.i ], [ %25, %.noexc8 ], [ %25, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us.i" ], [ %31, %.noexc12 ], [ %31, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us13.i" ], [ false, %.noexc16 ], [ true, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.i" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !100
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   %39 = getelementptr inbounds i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !range !107, !noalias !100, !noundef !4
   %.not.i.i.i = icmp eq i64 %40, 0
@@ -2950,7 +2950,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
           to label %.noexc unwind label %.thread209.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %40
-  %43 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %36, i64 noundef %42, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.014cf6e08a16d8eb4de17facb328ce71.25)
+  %43 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %36, i64 noundef %42, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.014cf6e08a16d8eb4de17facb328ce71.25)
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17heac3532f410f0fbfE.exit" unwind label %.thread209.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .thread209.loopexit:                              ; preds = %214
@@ -3087,7 +3087,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !161
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !127
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, i64 32, i1 false), !noalias !127
   %83 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !162, !noalias !127, !noundef !4
   %84 = shl i64 %83, 56
   %85 = load i64, ptr %52, align 8, !alias.scope !162, !noalias !127, !noundef !4
@@ -3118,7 +3118,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   %99 = xor i64 %97, %98
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !161
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !127
-  %100 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %36, i64 noundef %99, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %68)
+  %100 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %36, i64 noundef %99, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %68)
           to label %.noexc6.i unwind label %101
 
 .noexc6.i:                                        ; preds = %.noexc.i
@@ -3134,7 +3134,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h223133e3e53606a5E.exit.i": ; preds = %.noexc6.i, %.split.i.i, %.split.us.i.i
   %.us-phi.i.i = phi i1 [ %67, %.split.us.i.i ], [ %69, %.split.i.i ], [ %69, %.noexc6.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !163
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %.noexc73 unwind label %.thread209.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc73:                                         ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h223133e3e53606a5E.exit.i"
@@ -3201,7 +3201,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
           to label %.noexc.i76 unwind label %.loopexit.split-lp.i
 
 .noexc.i76:                                       ; preds = %.lr.ph.split.i.i
-  %127 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %36, i64 noundef %126, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %121)
+  %127 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %36, i64 noundef %126, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %121)
           to label %.noexc6.i77 unwind label %.loopexit.split-lp.i
 
 .noexc6.i77:                                      ; preds = %.noexc.i76
@@ -3213,7 +3213,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
           to label %.noexc7.i unwind label %.loopexit.i
 
 .noexc7.i:                                        ; preds = %128
-  %130 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %36, i64 noundef %129, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %131)
+  %130 = invoke noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h239ef48243ee6daeE.llvm.9972430846367955046"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %36, i64 noundef %129, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %131)
           to label %.noexc8.i unwind label %.loopexit.i
 
 .noexc8.i:                                        ; preds = %.noexc7.i
@@ -3244,7 +3244,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h58a4e1551b3f9390E.exit.i": ; preds = %"_ZN15deltalake_azure6config17AzureConfigHelper14has_any_config28_$u7b$$u7b$closure$u7d$$u7d$17h6706bcfb9e9cdab1E.exit.backedge.i.i", %.noexc8.i, %.noexc6.i77, %.noexc80
   %.lcssa.i.i = phi i1 [ false, %.noexc80 ], [ true, %.noexc6.i77 ], [ %.not13.not.i.not.i.not.not, %.noexc8.i ], [ %.not13.not.i.not.i.not.not, %"_ZN15deltalake_azure6config17AzureConfigHelper14has_any_config28_$u7b$$u7b$closure$u7d$$u7d$17h6706bcfb9e9cdab1E.exit.backedge.i.i" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !173
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
           to label %.noexc81 unwind label %.thread209.loopexit.split-lp.loopexit
 
 .noexc81:                                         ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h58a4e1551b3f9390E.exit.i"
@@ -3795,7 +3795,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   br label %317
 
 317:                                              ; preds = %.lr.ph307, %415
-  %318 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17ha5cd57b41a303ad0E.llvm.13299765037273942663"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26)
+  %318 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17ha5cd57b41a303ad0E.llvm.13299765037273942663"(ptr noalias noundef nonnull align 8 dereferenceable(40) %26)
           to label %319 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 319:                                              ; preds = %317
@@ -3813,7 +3813,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %324, ptr noundef nonnull align 8 dereferenceable(48) %36, i64 48, i1 false)
   store i64 17, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !261
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
           to label %.noexc116 unwind label %44
 
 .noexc116:                                        ; preds = %.thread249
@@ -3913,12 +3913,12 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
   br i1 %359, label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit", label %360
 
 360:                                              ; preds = %357
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h5c832344fd37199bE.llvm.13299765037273942663(ptr noalias noundef nonnull align 8 dereferenceable(32) %298)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h5c832344fd37199bE.llvm.13299765037273942663(ptr noalias noundef nonnull align 8 dereferenceable(48) %298)
           to label %.noexc121 unwind label %362
 
 .noexc121:                                        ; preds = %360
   %361 = getelementptr inbounds i8, ptr %1, i64 104
-  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17hb8de3c4459444222E.llvm.13299765037273942663(ptr noalias noundef nonnull align 8 dereferenceable(32) %298, ptr noalias noundef nonnull readonly align 1 %361, i64 noundef 32, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17hb8de3c4459444222E.llvm.13299765037273942663(ptr noalias noundef nonnull align 8 dereferenceable(48) %298, ptr noalias noundef nonnull readonly align 1 %361, i64 noundef 32, i64 noundef 16)
           to label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit" unwind label %362
 
 362:                                              ; preds = %.noexc121, %360
@@ -3929,7 +3929,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
 
 "_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit": ; preds = %357, %.noexc121
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !313
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1baad222a112057cE.llvm.2651239618181311204"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %364 = getelementptr inbounds i8, ptr %8, i64 8
   %365 = load i64, ptr %364, align 8, !range !107, !noalias !313, !noundef !4
   %.not.i.i.i123 = icmp eq i64 %365, 0

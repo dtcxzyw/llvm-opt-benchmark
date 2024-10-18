@@ -93,7 +93,7 @@ entry:
   br i1 %cmp.i, label %_ZL17TestSocketConnectv.exit.thread, label %if.end.i
 
 _ZL17TestSocketConnectv.exit.thread:              ; preds = %entry
-  tail call void @perror(ptr noundef nonnull readonly @.str.1) #18
+  tail call void @perror(ptr noundef nonnull @.str.1) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sin.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sockaddr_len.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %hostname.i)
@@ -110,7 +110,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  call void @perror(ptr noundef nonnull readonly @.str.3) #18
+  call void @perror(ptr noundef nonnull @.str.3) #18
   br label %cleanup64.i
 
 lpad.i:                                           ; preds = %invoke.cont22.i, %if.end19.i
@@ -124,7 +124,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  call void @perror(ptr noundef nonnull readonly @.str.4) #18
+  call void @perror(ptr noundef nonnull @.str.4) #18
   br label %cleanup64.i
 
 if.end8.i:                                        ; preds = %if.end3.i
@@ -133,7 +133,7 @@ if.end8.i:                                        ; preds = %if.end3.i
   br i1 %tobool10.not.i, label %if.end13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end8.i
-  call void @perror(ptr noundef nonnull readonly @.str.5) #18
+  call void @perror(ptr noundef nonnull @.str.5) #18
   br label %cleanup64.i
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -146,7 +146,7 @@ if.end13.i:                                       ; preds = %if.end8.i
   br i1 %or.cond.i, label %if.then17.i, label %if.end19.i
 
 if.then17.i:                                      ; preds = %if.end13.i
-  call void @perror(ptr noundef nonnull readonly @.str.6) #18
+  call void @perror(ptr noundef nonnull @.str.6) #18
   br label %cleanup64.i
 
 if.end19.i:                                       ; preds = %if.end13.i
@@ -195,7 +195,7 @@ invoke.cont43.i:                                  ; preds = %if.end42.i
   br i1 %cmp45.i, label %if.then46.i, label %if.end48.i
 
 if.then46.i:                                      ; preds = %invoke.cont43.i
-  call void @perror(ptr noundef nonnull readonly @.str.10) #18
+  call void @perror(ptr noundef nonnull @.str.10) #18
   br label %if.then.i.i
 
 if.end48.i:                                       ; preds = %invoke.cont43.i
@@ -207,7 +207,7 @@ invoke.cont52.i:                                  ; preds = %if.end48.i
   br i1 %cmp54.not.i, label %if.end57.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %invoke.cont52.i
-  call void @perror(ptr noundef nonnull readonly @.str.11) #18
+  call void @perror(ptr noundef nonnull @.str.11) #18
   br label %cleanup.i
 
 lpad51.i:                                         ; preds = %if.end48.i

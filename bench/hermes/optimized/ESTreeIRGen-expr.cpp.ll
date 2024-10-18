@@ -838,7 +838,7 @@ if.end13.i.i:                                     ; preds = %for.end
 
 if.end28.i.i:                                     ; preds = %if.end13.i.i
   %conv.i.i.i = zext i32 %.pre47 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, ptr noundef nonnull %add.ptr.i.i.i.i.i29, i64 noundef %conv.i.i.i, i64 noundef 16) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp33, ptr noundef nonnull %add.ptr.i.i.i.i.i29, i64 noundef %conv.i.i.i, i64 noundef 16) #16
   %.pre.i34 = load i32, ptr %Size.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre.i34, 0
   br i1 %cmp.not.i.i.i, label %return.sink.split.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge
@@ -963,7 +963,7 @@ if.then.i2.i:                                     ; preds = %if.then, %_ZN4llvh2
   %6 = phi ptr [ %13, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree24AssignmentExpressionNodeELb1EE9push_backERKS4_.exit14.i ], [ %3, %if.then ]
   %_operator.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %_operator.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPKN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull %ref.tmp5, ptr noundef nonnull %ref.tmp5.sroa.gep, ptr nonnull %7)
+  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPKN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull %ref.tmp5, ptr noundef nonnull %ref.tmp5.sroa.gep, ptr nonnull align 8 dereferenceable(16) %7)
   %cmp.not.i4.i = icmp eq ptr %call.i.i.i.i, %ref.tmp5.sroa.gep
   %.pre.pre = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br i1 %cmp.not.i4.i, label %_ZN6hermes6ESTreeL14linearizeRightINS0_24AssignmentExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit, label %while.body.i
@@ -1973,10 +1973,10 @@ entry:
   %ref.tmp265 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp266 = alloca %"class.std::__cxx11::basic_string", align 8
   %ItemSize.i.i = getelementptr inbounds i8, ptr %propMap, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %propMap, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %propMap, i8 0, i64 20, i1 false)
   store i32 40, ptr %ItemSize.i.i, align 4
   %ItemSize.i.i101 = getelementptr inbounds i8, ptr %firstLocMap, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %firstLocMap, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %firstLocMap, i8 0, i64 20, i1 false)
   store i32 24, ptr %ItemSize.i.i101, align 4
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %stringStorage, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %stringStorage, align 8
@@ -2722,7 +2722,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   ]
 
 if.then4.i:                                       ; preds = %for.body.i
-  call void @free(ptr noundef nonnull %82) #16
+  call void @free(ptr noundef nonnull align 8 dereferenceable(24) %82) #16
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then4.i, %for.body.i, %for.body.i
@@ -2759,7 +2759,7 @@ for.body.i322:                                    ; preds = %for.inc.i326, %for.
   ]
 
 if.then4.i329:                                    ; preds = %for.body.i322
-  call void @free(ptr noundef nonnull %88) #16
+  call void @free(ptr noundef nonnull align 8 dereferenceable(40) %88) #16
   br label %for.inc.i326
 
 for.inc.i326:                                     ; preds = %if.then4.i329, %for.body.i322, %for.body.i322
@@ -2912,7 +2912,7 @@ if.then.i2.i:                                     ; preds = %if.then, %_ZN4llvh2
   %4 = phi ptr [ %11, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree20BinaryExpressionNodeELb1EE9push_backERKS4_.exit14.i ], [ %2, %if.then ]
   %_operator.i.i = getelementptr inbounds i8, ptr %4, i64 64
   %5 = load ptr, ptr %_operator.i.i, align 8
-  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPKN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull %ref.tmp10, ptr noundef nonnull %ref.tmp10.sroa.gep, ptr nonnull %5)
+  %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPKN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull %ref.tmp10, ptr noundef nonnull %ref.tmp10.sroa.gep, ptr nonnull align 8 dereferenceable(16) %5)
   %cmp.not.i4.i = icmp eq ptr %call.i.i.i.i, %ref.tmp10.sroa.gep
   %.pre23.pre.i = load i32, ptr %Size.i.i.i.i.i.i, align 8, !alias.scope !50
   br i1 %cmp.not.i4.i, label %while.end.loopexit.i, label %while.body.i
@@ -4157,7 +4157,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %tobool.not.i.i.i.i.i, label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_16genYieldStarExprEPNS_6ESTree19YieldExpressionNodeEE3$_0ZNS1_16genYieldStarExprES5_E3$_1ZNS1_16genYieldStarExprES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i
-  %call.i.i.i6.i.i = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer4.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer4.i.i.i, i32 noundef 3) #16
+  %call.i.i.i6.i.i = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %genFinalizer4.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %genFinalizer4.i.i.i, i32 noundef 3) #16
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_16genYieldStarExprEPNS_6ESTree19YieldExpressionNodeEE3$_0ZNS1_16genYieldStarExprES5_E3$_1ZNS1_16genYieldStarExprES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
 
 "_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_16genYieldStarExprEPNS_6ESTree19YieldExpressionNodeEE3$_0ZNS1_16genYieldStarExprES5_E3$_1ZNS1_16genYieldStarExprES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit": ; preds = %if.end.i, %if.then.i.i.i.i.i
@@ -4551,7 +4551,7 @@ if.end13.i.i:                                     ; preds = %if.then50
 
 if.end28.i.i:                                     ; preds = %if.end13.i.i
   %conv.i.i.i = zext i32 %9 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp52, ptr noundef nonnull %add.ptr.i.i.i.i.i41, i64 noundef %conv.i.i.i, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp52, ptr noundef nonnull %add.ptr.i.i.i.i.i41, i64 noundef %conv.i.i.i, i64 noundef 8) #16
   %.pre.i = load i32, ptr %Size.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp.not.i.i.i, label %return.sink.split.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge
@@ -4718,7 +4718,7 @@ if.end13.i.i56:                                   ; preds = %if.then117
 
 if.end28.i.i62:                                   ; preds = %if.end13.i.i56
   %conv.i.i.i63 = zext i32 %27 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp119, ptr noundef nonnull %add.ptr.i.i.i.i.i51, i64 noundef %conv.i.i.i63, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp119, ptr noundef nonnull %add.ptr.i.i.i.i.i51, i64 noundef %conv.i.i.i63, i64 noundef 8) #16
   %.pre.i64 = load i32, ptr %Size.i.i.i.i.i, align 8
   %cmp.not.i.i.i65 = icmp eq i32 %.pre.i64, 0
   br i1 %cmp.not.i.i.i65, label %return.sink.split.i.i61, label %if.end28.i.i62.if.then.i.i.i58_crit_edge
@@ -5224,7 +5224,7 @@ for.end26:                                        ; preds = %_ZN4llvh23SmallVect
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %textifiedCallee.i, ptr %OS.i.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %sourceRange_.i.i = getelementptr inbounds i8, ptr %call28, i64 24
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call28, i64 32
@@ -5554,7 +5554,7 @@ while.end37.i:                                    ; preds = %_ZN4llvh11raw_ostre
   %41 = load i32, ptr %Size.i.i.i, align 8
   %conv.i.i.i = zext i32 %41 to i64
   %call40.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr %40, i64 %conv.i.i.i) #16
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %OS.i) #16
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i) #16
   %42 = load ptr, ptr %textifiedCallee.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %42, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN6hermes5irgenL20getTextifiedCallExprERNS_9IRBuilderEPNS_6ESTree4NodeE.exit, label %if.then.i.i157.i
@@ -5620,7 +5620,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder20createDirectEvalInstEPNS_5ValueEPNS_1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvh9StringMapIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueNS_15MallocAllocatorEEixENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr %Key.coerce0, i64 %Key.coerce1) unnamed_addr #0 align 2 {
 entry:
-  %call.i = tail call noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %Key.coerce0, i64 %Key.coerce1) #16
+  %call.i = tail call noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr %Key.coerce0, i64 %Key.coerce1) #16
   %0 = load ptr, ptr %this, align 8
   %idxprom.i = zext i32 %call.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i
@@ -5682,7 +5682,7 @@ _ZN4llvh14StringMapEntryIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTre
   %4 = load i32, ptr %NumItems.i, align 4
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %NumItems.i, align 4
-  %call12.i = tail call noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %call.i) #16
+  %call12.i = tail call noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %call.i) #16
   %5 = load ptr, ptr %this, align 8
   %idx.ext15.i = zext i32 %call12.i to i64
   %add.ptr16.i = getelementptr inbounds ptr, ptr %5, i64 %idx.ext15.i

@@ -377,7 +377,7 @@ define void @_ZThn16_N3zmq13zmtp_engine_tD0Ev(ptr noundef %this) unnamed_addr #8
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN3zmq13zmtp_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1976) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1976) %0) #21
   ret void
 }
 
@@ -418,9 +418,9 @@ entry:
   store i8 127, ptr %arrayidx12, align 1
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %7 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %7)
+  tail call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %7)
   %8 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
+  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %8)
   tail call void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1689) %this)
   ret void
 }
@@ -467,7 +467,7 @@ while.body.i:                                     ; preds = %while.cond.backedge
   %conv5.i = phi i64 [ %conv3.i.pre-phi, %while.body.lr.ph.i ], [ %conv.i, %while.cond.backedge.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %_greeting_recv.i, i64 %conv5.i
   %sub.i = sub nuw i64 %5, %conv5.i
-  %call.i = tail call noundef i32 @_ZN3zmq20stream_engine_base_t4readEPvm(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i)
+  %call.i = tail call noundef i32 @_ZN3zmq20stream_engine_base_t4readEPvm(ptr noundef nonnull align 8 dereferenceable(1976) %this, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i)
   %cmp6.i = icmp eq i32 %call.i, -1
   br i1 %cmp6.i, label %if.then.i, label %if.end10.i
 
@@ -478,7 +478,7 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %cmp8.not.i, label %return, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then.i
-  tail call void @_ZN3zmq20stream_engine_base_t5errorENS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(1689) %this, i32 noundef 1)
+  tail call void @_ZN3zmq20stream_engine_base_t5errorENS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(1976) %this, i32 noundef 1)
   br label %return
 
 if.end10.i:                                       ; preds = %while.body.i
@@ -547,7 +547,7 @@ if.end14:                                         ; preds = %memptr.end
 if.then16:                                        ; preds = %if.end14
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %17 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %17)
+  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %17)
   br label %return
 
 return:                                           ; preds = %if.then9.i, %if.then.i, %if.end14, %if.then16, %memptr.end
@@ -678,7 +678,7 @@ if.then:                                          ; preds = %entry
 if.then5:                                         ; preds = %if.then
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %2 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %2)
+  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %2)
   %.pre = load ptr, ptr %_outpos, align 8
   %.pre4 = load i64, ptr %_outsize, align 8
   br label %if.end
@@ -713,7 +713,7 @@ if.then19:                                        ; preds = %if.then10
 if.then22:                                        ; preds = %if.then19
   %_handle.i3 = getelementptr inbounds i8, ptr %this, i64 1584
   %8 = load ptr, ptr %_handle.i3, align 8
-  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
+  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %8)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.then19

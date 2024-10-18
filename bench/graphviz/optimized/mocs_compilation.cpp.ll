@@ -1035,7 +1035,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %1
   br label %_ZN12CFrmSettingsD2Ev.exit
 
 _ZN12CFrmSettingsD2Ev.exit:                       ; preds = %1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %6
-  tail call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
+  tail call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
@@ -1165,7 +1165,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %1
   br label %_ZN12CFrmSettingsD2Ev.exit
 
 _ZN12CFrmSettingsD2Ev.exit:                       ; preds = %1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %6
-  tail call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
+  tail call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #13
   ret void
 }
 
@@ -1190,8 +1190,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i:  ; preds = %1
   br label %_ZN12CFrmSettingsD0Ev.exit
 
 _ZN12CFrmSettingsD0Ev.exit:                       ; preds = %1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i, %6
-  tail call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #13
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(152) %2) #14
   ret void
 }
 
@@ -1215,7 +1215,7 @@ define linkonce_odr void @_ZN11ImageViewerD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11ImageViewerD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
+  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
@@ -1245,15 +1245,15 @@ declare noundef ptr @_ZN11QMainWindow15createPopupMenuEv(ptr noundef nonnull ali
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N11ImageViewerD1Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
+  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N11ImageViewerD0Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #13
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(160) %2) #14
   ret void
 }
 
@@ -1265,7 +1265,7 @@ define linkonce_odr void @_ZN11CMainWindowD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11CMainWindowD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
+  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
@@ -1275,15 +1275,15 @@ declare void @_ZN11CMainWindow10closeEventEP11QCloseEvent(ptr noundef nonnull al
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N11CMainWindowD1Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
+  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N11CMainWindowD0Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2) #13
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(288) %2) #14
   ret void
 }
 
@@ -1450,7 +1450,7 @@ define linkonce_odr void @_ZThn16_N8MdiChildD1Ev(ptr noundef %0) unnamed_addr #5
 define linkonce_odr void @_ZThn16_N8MdiChildD0Ev(ptr noundef %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN8MdiChildD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %2) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(153) %2) #14
   ret void
 }
 

@@ -67,7 +67,7 @@ define dso_local noundef zeroext i1 @_ZN29cmCTestReadCustomFilesCommand11Initial
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc11 unwind label %17
 
 .noexc11:                                         ; preds = %.noexc
@@ -77,7 +77,7 @@ define dso_local noundef zeroext i1 @_ZN29cmCTestReadCustomFilesCommand11Initial
 14:                                               ; preds = %.noexc11
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11

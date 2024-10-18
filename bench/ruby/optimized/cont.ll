@@ -2280,7 +2280,7 @@ fiber_transfer_kw.exit.i:                         ; preds = %12
   br label %fiber_raise.exit
 
 18:                                               ; preds = %fiber_ptr.exit
-  %19 = call fastcc i64 @fiber_resume_kw(ptr noundef %6, i32 noundef -1, ptr noundef nonnull %4, i32 noundef 0)
+  %19 = call fastcc i64 @fiber_resume_kw(ptr noundef nonnull %6, i32 noundef -1, ptr noundef nonnull %4, i32 noundef 0)
   br label %fiber_raise.exit
 
 fiber_raise.exit:                                 ; preds = %fiber_transfer_kw.exit.i, %18
@@ -3091,7 +3091,7 @@ fiber_transfer_kw.exit.i:                         ; preds = %59
   br label %fiber_raise.exit
 
 65:                                               ; preds = %fiber_ptr.exit15
-  %66 = call fastcc i64 @fiber_resume_kw(ptr noundef %53, i32 noundef -1, ptr noundef nonnull %2, i32 noundef 0)
+  %66 = call fastcc i64 @fiber_resume_kw(ptr noundef nonnull %53, i32 noundef -1, ptr noundef nonnull %2, i32 noundef 0)
   br label %fiber_raise.exit
 
 fiber_raise.exit:                                 ; preds = %fiber_transfer_kw.exit.i, %65

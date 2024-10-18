@@ -11275,7 +11275,7 @@ define ptr @Gia_ManDupMiterCones(ptr noundef %0, ptr nocapture noundef readonly 
   %10 = add nsw i32 %9, %.val71
   %11 = tail call ptr @Gia_ManStart(i32 noundef %10) #29
   %12 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %12, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str, i64 6, i1 false) #29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %12, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false) #29
   store ptr %12, ptr %11, align 8
   tail call void @Gia_ManHashAlloc(ptr noundef nonnull %11) #29
   tail call void @Gia_ManFillValue(ptr noundef %0) #29
@@ -19313,7 +19313,7 @@ define ptr @Gia_ManMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %45 = add nsw i32 %.val226, %.val227
   %46 = tail call ptr @Gia_ManStart(i32 noundef %45) #29
   %47 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %47, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str, i64 6, i1 false) #29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %47, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false) #29
   store ptr %47, ptr %46, align 8
   tail call void @Gia_ManFillValue(ptr noundef nonnull %0) #29
   tail call void @Gia_ManFillValue(ptr noundef nonnull %1) #29
@@ -20032,7 +20032,7 @@ define ptr @Gia_ManMiterInverse(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %20 = add nsw i32 %.val138, %.val139
   %21 = tail call ptr @Gia_ManStart(i32 noundef %20) #29
   %22 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %22, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str, i64 6, i1 false) #29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %22, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false) #29
   store ptr %22, ptr %21, align 8
   tail call void @Gia_ManFillValue(ptr noundef nonnull %0) #29
   tail call void @Gia_ManFillValue(ptr noundef nonnull %1) #29
@@ -26201,7 +26201,7 @@ define noundef ptr @Gia_ManOneHot(i32 noundef %0, i32 noundef %1) local_unnamed_
   %12 = add i32 %11, %10
   %13 = tail call ptr @Gia_ManStart(i32 noundef %12) #29
   %14 = tail call noalias dereferenceable_or_null(7) ptr @malloc(i64 noundef 7) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %14, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.16, i64 7, i1 false) #29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %14, ptr noundef nonnull align 1 dereferenceable(7) @.str.16, i64 7, i1 false) #29
   store ptr %14, ptr %13, align 8
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %.preheader
@@ -37329,10 +37329,10 @@ Vec_IntAlloc.exit135:                             ; preds = %Vec_IntAlloc.exit13
   %51 = tail call ptr @Gia_ManStart(i32 noundef 1000) #29
   tail call void @Gia_ManHashAlloc(ptr noundef %51) #29
   %52 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %52, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.34, i64 5, i1 false) #29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %52, ptr noundef nonnull align 1 dereferenceable(5) @.str.34, i64 5, i1 false) #29
   store ptr %52, ptr %50, align 8
   %53 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %53, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.35, i64 5, i1 false) #29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %53, ptr noundef nonnull align 1 dereferenceable(5) @.str.35, i64 5, i1 false) #29
   store ptr %53, ptr %51, align 8
   %54 = icmp slt i32 %0, 1
   br i1 %54, label %.preheader194, label %.lr.ph

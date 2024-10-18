@@ -204,7 +204,7 @@ define dso_local void @_ZNK4llvm19ValueLatticeElement9intersectERKS0_(ptr dead_o
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i15
 
 27:                                               ; preds = %18
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %19, ptr noundef nonnull align 8 dereferenceable(12) %20) #7
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20) #7
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i15
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i15:                ; preds = %27, %25
@@ -272,7 +272,7 @@ _ZN4llvm13ConstantRangeC2ERKS0_.exit.i16:         ; preds = %36, %34
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i19
 
 58:                                               ; preds = %49
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %51) #7
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %51) #7
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i19
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i19:                ; preds = %58, %56
@@ -357,7 +357,7 @@ _ZN4llvmL14hasSingleValueERKNS_19ValueLatticeElementE.exit.thread: ; preds = %79
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i23
 
 94:                                               ; preds = %85
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %86, ptr noundef nonnull align 8 dereferenceable(12) %87) #7
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %87) #7
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i23
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i23:                ; preds = %94, %92
@@ -500,7 +500,7 @@ define linkonce_odr hidden void @_ZN4llvm19ValueLatticeElementC2ERKS0_(ptr nound
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 15:                                               ; preds = %6
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8) #7
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #7
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %15, %13
@@ -1087,7 +1087,7 @@ _ZN4llvm19ValueLatticeElement7destroyEv.exit.i:   ; preds = %26, %23, %_ZN4llvm5
   br i1 %47, label %49, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %37
-  %48 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 8 dereferenceable(12) %1) #9
+  %48 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %1) #9
   br i1 %48, label %49, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.thread
 
 49:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i, %44

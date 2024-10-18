@@ -801,7 +801,7 @@ _ZNSt3__122__safe_nanosecond_castB8ne190000IxNS_5ratioILl1ELl1000000EEETnNS_9ena
   %26 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 854775807, ptr %26, align 8
   %27 = load ptr, ptr %1, align 8
-  %28 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %0, ptr noundef %27, i32 noundef 1, ptr noundef nonnull %5)
+  %28 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %27, i32 noundef 1, ptr noundef nonnull %5)
           to label %29 unwind label %32
 
 29:                                               ; preds = %25
@@ -845,7 +845,7 @@ _ZNSt3__118condition_variable15__do_timed_waitB8ne190000ERNS_11unique_lockINS_5m
   %42 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %41, ptr %42, align 8
   %43 = load ptr, ptr %1, align 8
-  %44 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %0, ptr noundef %43, i32 noundef 1, ptr noundef nonnull %4)
+  %44 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %43, i32 noundef 1, ptr noundef nonnull %4)
           to label %45 unwind label %48
 
 45:                                               ; preds = %38
@@ -988,7 +988,7 @@ define internal fastcc void @"_ZNSt3__116allocator_traitsINS_9allocatorINS_6thre
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   store ptr %7, ptr %4, align 8
-  %10 = tail call noundef i32 @pthread_create(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN3tev10ThreadPool12startThreadsEmE3$_0EEEEEPvSB_", ptr noundef nonnull %7) #15
+  %10 = tail call noundef i32 @pthread_create(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef null, ptr noundef nonnull @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN3tev10ThreadPool12startThreadsEmE3$_0EEEEEPvSB_", ptr noundef nonnull %7) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %"_ZNSt3__114__construct_atB8ne190000INS_6threadEJZN3tev10ThreadPool12startThreadsEmE3$_0EPS1_EEPT_S7_DpOT0_.exit", label %18
 
@@ -1114,7 +1114,7 @@ define internal noundef ptr @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_
   %45 = load ptr, ptr %39, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
-  invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull %4)
+  invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 16 dereferenceable(48) %4)
           to label %_ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i.i unwind label %35
 
 48:                                               ; preds = %41
@@ -1529,7 +1529,7 @@ define linkonce_odr hidden void @_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAl
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
-  invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %9)
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 16 dereferenceable(48) %9)
           to label %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit unwind label %24
 
 23:                                               ; preds = %15
@@ -1619,7 +1619,7 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i.i: ; preds =
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
-  invoke void %62(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull %43)
+  invoke void %62(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 16 dereferenceable(48) %43)
           to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i unwind label %64
 
 63:                                               ; preds = %56
@@ -1683,7 +1683,7 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i: ; preds = %
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 24
   %88 = load ptr, ptr %87, align 8
-  invoke void %88(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull %44)
+  invoke void %88(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull align 16 dereferenceable(48) %44)
           to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit unwind label %90
 
 89:                                               ; preds = %82
@@ -1761,7 +1761,7 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i11: ; preds =
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8
-  invoke void %120(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull %44)
+  invoke void %120(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull align 16 dereferenceable(48) %44)
           to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit12 unwind label %121
 
 121:                                              ; preds = %116
@@ -1818,7 +1818,7 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i16: ; preds =
   %139 = load ptr, ptr %133, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 24
   %141 = load ptr, ptr %140, align 8
-  invoke void %141(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull %103)
+  invoke void %141(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull align 16 dereferenceable(48) %103)
           to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit17 unwind label %143
 
 142:                                              ; preds = %136
@@ -1903,7 +1903,7 @@ define linkonce_odr hidden void @_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgP
   %27 = load ptr, ptr %18, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %16)
+  invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 16 dereferenceable(48) %16)
           to label %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit unwind label %31
 
 30:                                               ; preds = %22
@@ -1968,7 +1968,7 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i: ; preds = %
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
-  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %36)
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 16 dereferenceable(48) %36)
           to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit unwind label %57
 
 56:                                               ; preds = %49
@@ -2034,7 +2034,7 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13: ; preds =
   %80 = load ptr, ptr %75, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 24
   %82 = load ptr, ptr %81, align 8
-  invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull %37)
+  invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 16 dereferenceable(48) %37)
           to label %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit14 unwind label %83
 
 83:                                               ; preds = %79

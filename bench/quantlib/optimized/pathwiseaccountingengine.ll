@@ -420,7 +420,7 @@ _ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaI
   br i1 %cmp.not.i.i.i.i63, label %_ZNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i: ; preds = %_ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cashFlowsGenerated_, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cashFlowsGenerated_, i8 0, i64 16, i1 false)
   br label %invoke.cont40
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
@@ -1548,7 +1548,7 @@ for.body.i.i.i.i326:                              ; preds = %call5.i.i.i.i.noexc
   %__first.addr.06.i.i.i.i328 = phi ptr [ %incdec.ptr.i.i.i.i329, %for.body.i.i.i.i326 ], [ %175, %call5.i.i.i.i.noexc342 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i327, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i328, i64 32, i1 false), !alias.scope !103
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.07.i.i.i.i327, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.06.i.i.i.i328, i64 32, i1 false), !alias.scope !103
   %taus_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i327, i64 32
   %taus_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i328, i64 32
   %177 = load ptr, ptr %taus_3.i.i.i.i.i.i.i.i, align 8, !tbaa !60, !alias.scope !101, !noalias !98
@@ -4049,7 +4049,7 @@ _ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaI
   br i1 %cmp.not.i.i.i.i94, label %_ZNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i: ; preds = %_ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cashFlowsGenerated_, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cashFlowsGenerated_, i8 0, i64 16, i1 false)
   br label %invoke.cont41
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
@@ -4935,7 +4935,7 @@ invoke.cont221:                                   ; preds = %invoke.cont217
   br i1 %cmp.not.i248, label %if.else.i251, label %if.then.i249
 
 if.then.i249:                                     ; preds = %invoke.cont221
-  invoke void @_ZNSt15__new_allocatorIN8QuantLib22RatePseudoRootJacobianEE9constructIS1_JRKNS0_6MatrixERKmRmRKSt6vectorIdSaIdEERKSA_IS4_SaIS4_EESE_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %jacobianComputers_, ptr noundef %139, ptr noundef nonnull align 8 dereferenceable(24) %call207, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i239, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i240, ptr noundef nonnull align 8 dereferenceable(24) %call214, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i241, ptr noundef nonnull align 8 dereferenceable(24) %call222)
+  invoke void @_ZNSt15__new_allocatorIN8QuantLib22RatePseudoRootJacobianEE9constructIS1_JRKNS0_6MatrixERKmRmRKSt6vectorIdSaIdEERKSA_IS4_SaIS4_EESE_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %jacobianComputers_, ptr noundef %139, ptr noundef nonnull align 8 dereferenceable(24) %call207, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i239, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i240, ptr noundef nonnull align 8 dereferenceable(24) %call214, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i241, ptr noundef nonnull align 8 dereferenceable(24) %call222)
           to label %.noexc253 unwind label %lpad201
 
 .noexc253:                                        ; preds = %if.then.i249
@@ -5941,7 +5941,7 @@ for.body.i.i.i.i524:                              ; preds = %call5.i.i.i.i.noexc
   %__first.addr.06.i.i.i.i526 = phi ptr [ %incdec.ptr.i.i.i.i527, %for.body.i.i.i.i524 ], [ %285, %call5.i.i.i.i.noexc540 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !169)
   call void @llvm.experimental.noalias.scope.decl(metadata !172)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i525, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i526, i64 32, i1 false), !alias.scope !174
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.07.i.i.i.i525, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.06.i.i.i.i526, i64 32, i1 false), !alias.scope !174
   %taus_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i525, i64 32
   %taus_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i526, i64 32
   %287 = load ptr, ptr %taus_3.i.i.i.i.i.i.i.i, align 8, !tbaa !60, !alias.scope !172, !noalias !169
@@ -8502,7 +8502,7 @@ _ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaI
   br i1 %cmp.not.i.i.i.i101, label %_ZNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i: ; preds = %_ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cashFlowsGenerated_, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cashFlowsGenerated_, i8 0, i64 16, i1 false)
   br label %invoke.cont43
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
@@ -8620,7 +8620,7 @@ _ZNSt6vectorIS_IN8QuantLib6MatrixESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exi
   br i1 %cmp.not.i.i.i.i131, label %_ZNSt12_Vector_baseISt6vectorIN8QuantLib6MatrixESaIS2_EESaIS4_EEC2EmRKS5_.exit.thread.i, label %for.body.preheader.i.i.i.i.i132
 
 _ZNSt12_Vector_baseISt6vectorIN8QuantLib6MatrixESaIS2_EESaIS4_EEC2EmRKS5_.exit.thread.i: ; preds = %_ZNSt6vectorIS_IN8QuantLib6MatrixESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %elementary_vegas_ThisPath_, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %elementary_vegas_ThisPath_, i8 0, i64 16, i1 false)
   br label %invoke.cont74
 
 for.body.preheader.i.i.i.i.i132:                  ; preds = %_ZNSt6vectorIS_IN8QuantLib6MatrixESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
@@ -9313,7 +9313,7 @@ invoke.cont195:                                   ; preds = %invoke.cont191
   br i1 %cmp.not.i254, label %if.else.i258, label %if.then.i255
 
 if.then.i255:                                     ; preds = %invoke.cont195
-  invoke void @_ZNSt15__new_allocatorIN8QuantLib33RatePseudoRootJacobianAllElementsEE9constructIS1_JRKNS0_6MatrixERKmRmRKSt6vectorIdSaIdEESE_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %jacobianComputers_, ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(24) %call182, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i245, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i246, ptr noundef nonnull align 8 dereferenceable(24) %call189, ptr noundef nonnull align 8 dereferenceable(24) %call196)
+  invoke void @_ZNSt15__new_allocatorIN8QuantLib33RatePseudoRootJacobianAllElementsEE9constructIS1_JRKNS0_6MatrixERKmRmRKSt6vectorIdSaIdEESE_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %jacobianComputers_, ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(24) %call182, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i245, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i246, ptr noundef nonnull align 8 dereferenceable(24) %call189, ptr noundef nonnull align 8 dereferenceable(24) %call196)
           to label %.noexc260 unwind label %lpad176
 
 .noexc260:                                        ; preds = %if.then.i255
@@ -10258,7 +10258,7 @@ for.body.i.i.i.i519:                              ; preds = %call5.i.i.i.i.noexc
   %__first.addr.06.i.i.i.i521 = phi ptr [ %incdec.ptr.i.i.i.i522, %for.body.i.i.i.i519 ], [ %267, %call5.i.i.i.i.noexc535 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !238)
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i520, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i521, i64 32, i1 false), !alias.scope !243
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.07.i.i.i.i520, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.06.i.i.i.i521, i64 32, i1 false), !alias.scope !243
   %taus_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i520, i64 32
   %taus_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i521, i64 32
   %269 = load ptr, ptr %taus_3.i.i.i.i.i.i.i.i, align 8, !tbaa !60, !alias.scope !241, !noalias !238
@@ -13903,7 +13903,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !315)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i, i64 32, i1 false), !alias.scope !317
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.06.i.i.i, i64 32, i1 false), !alias.scope !317
   %taus_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %taus_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %4 = load ptr, ptr %taus_3.i.i.i.i.i.i.i, align 8, !tbaa !60, !alias.scope !315, !noalias !312
@@ -13933,7 +13933,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8Quan
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i28, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN8QuantLib29MarketModelPathwiseDiscounterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21, i64 32, i1 false), !alias.scope !323
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.06.i.i.i21, i64 32, i1 false), !alias.scope !323
   %taus_.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 32
   %taus_3.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 32
   %7 = load ptr, ptr %taus_3.i.i.i.i.i.i.i23, align 8, !tbaa !60, !alias.scope !321, !noalias !318

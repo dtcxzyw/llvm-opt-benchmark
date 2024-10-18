@@ -1424,7 +1424,7 @@ define linkonce_odr hidden void @_ZN2cv14TrackerVitImplD2Ev(ptr noundef nonnull 
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(108) %4) #19
   tail call void @_ZN2cv7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   ret void
 }
@@ -1437,8 +1437,8 @@ define linkonce_odr hidden void @_ZN2cv14TrackerVitImplD0Ev(ptr noundef nonnull 
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
-  tail call void @_ZN2cv7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(108) %4) #19
+  tail call void @_ZN2cv7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -1584,7 +1584,7 @@ define linkonce_odr hidden void @_ZN2cv14TrackerVitImplC2ERKNS_10TrackerVit6Para
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(108) %11, ptr noundef nonnull align 8 dereferenceable(108) %1)
           to label %.noexc unwind label %94
 
 .noexc:                                           ; preds = %2
@@ -1932,7 +1932,7 @@ _ZN2cv3dnn14dnn4_v202405213NetaSERKS2_.exit:      ; preds = %_ZNSt16_Sp_counted_
 
 167:                                              ; preds = %166, %96
   %.pn14.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn, %166 ], [ %97, %96 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(108) %11) #19
   br label %168
 
 168:                                              ; preds = %167, %94

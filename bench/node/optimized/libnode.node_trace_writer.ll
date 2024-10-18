@@ -86,7 +86,7 @@ entry:
   %tracing_loop_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %tracing_loop_, align 8
   %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %stream_mutex_) #12
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %stream_mutex_) #12
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -97,7 +97,7 @@ do.body5.i:                                       ; preds = %entry
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
   %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
-  %call.i.i1 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %request_mutex_) #12
+  %call.i.i1 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_) #12
   %cmp.not.i2 = icmp eq i32 %call.i.i1, 0
   br i1 %cmp.not.i2, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit4, label %do.body5.i3
 
@@ -108,7 +108,7 @@ do.body5.i3:                                      ; preds = %_ZN4node9MutexBaseI
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit4: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit
   %request_cond_ = getelementptr inbounds i8, ptr %this, i64 352
-  %call.i.i5 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %request_cond_) #12
+  %call.i.i5 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %request_cond_) #12
   %cmp.not.i6 = icmp eq i32 %call.i.i5, 0
   br i1 %cmp.not.i6, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i7
 
@@ -119,7 +119,7 @@ do.body5.i7:                                      ; preds = %_ZN4node9MutexBaseI
 
 _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit4
   %exit_cond_ = getelementptr inbounds i8, ptr %this, i64 400
-  %call.i.i8 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %exit_cond_) #12
+  %call.i.i8 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_) #12
   %cmp.not.i9 = icmp eq i32 %call.i.i8, 0
   br i1 %cmp.not.i9, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit11, label %do.body5.i10
 
@@ -238,7 +238,7 @@ entry:
 define dso_local void @_ZN4node7tracing15NodeTraceWriter11WriteSuffixEv(ptr noundef nonnull align 8 dereferenceable(1409) %this) local_unnamed_addr #0 align 2 {
 entry:
   %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
-  tail call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %stream_mutex_) #12
   %total_traces_ = getelementptr inbounds i8, ptr %this, i64 984
   %0 = load i32, ptr %total_traces_, align 8
   %cmp = icmp sgt i32 %0, 0
@@ -267,7 +267,7 @@ entry:
   %req = alloca %struct.uv_fs_s, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i64 16), ptr %this, align 8
   %stream_mutex_.i = getelementptr inbounds i8, ptr %this, i64 272
-  tail call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_.i) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %stream_mutex_.i) #12
   %total_traces_.i = getelementptr inbounds i8, ptr %this, i64 984
   %0 = load i32, ptr %total_traces_.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
@@ -310,7 +310,7 @@ if.end10:                                         ; preds = %do.end9, %_ZN4node7
   %exit_signal_ = getelementptr inbounds i8, ptr %this, i64 144
   %call11 = call i32 @uv_async_send(ptr noundef nonnull %exit_signal_) #12
   %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
-  call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_) #12
   %exited_ = getelementptr inbounds i8, ptr %this, i64 1408
   %3 = load i8, ptr %exited_, align 8
   %tobool2 = trunc i8 %3 to i1
@@ -321,7 +321,7 @@ while.body.lr.ph:                                 ; preds = %if.end10
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  call void @uv_cond_wait(ptr noundef nonnull %exit_cond_, ptr noundef nonnull %request_mutex_) #12
+  call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_, ptr noundef nonnull %request_mutex_) #12
   %4 = load i8, ptr %exited_, align 8
   %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %while.end, label %while.body, !llvm.loop !5
@@ -349,11 +349,11 @@ _ZNSt10unique_ptrIN2v88platform7tracing11TraceWriterESt14default_deleteIS3_EED2E
   %write_req_queue_ = getelementptr inbounds i8, ptr %this, i64 896
   call void @_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %write_req_queue_) #12
   %exit_cond_13 = getelementptr inbounds i8, ptr %this, i64 400
-  call void @uv_cond_destroy(ptr noundef nonnull %exit_cond_13) #12
+  call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_13) #12
   %request_cond_ = getelementptr inbounds i8, ptr %this, i64 352
-  call void @uv_cond_destroy(ptr noundef nonnull %request_cond_) #12
-  call void @uv_mutex_destroy(ptr noundef nonnull %request_mutex_) #12
-  call void @uv_mutex_destroy(ptr noundef nonnull %stream_mutex_.i) #12
+  call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %request_cond_) #12
+  call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_) #12
+  call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %stream_mutex_.i) #12
   ret void
 }
 
@@ -428,7 +428,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern_) #12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 6))
   %call = call i32 @uv_os_getpid() #12
   call void @_ZNSt7__cxx119to_stringEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, i32 noundef %call) #12
@@ -452,7 +452,7 @@ _ZN4node7tracing17replace_substringEPNSt7__cxx1112basic_stringIcSt11char_traitsI
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
   %call.i2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 11))
   %1 = load i32, ptr %file_num_, align 4
   call void @_ZNSt7__cxx119to_stringEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, i32 noundef %1) #12
@@ -566,7 +566,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry,
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv3, i8 noundef signext 45) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %conv5 = zext nneg i32 %__val.lobit to i64
@@ -650,7 +650,7 @@ declare ptr @uv_strerror(i32 noundef) local_unnamed_addr #1
 define dso_local void @_ZN4node7tracing15NodeTraceWriter16AppendTraceEventEPN2v88platform7tracing11TraceObjectE(ptr noundef nonnull align 8 dereferenceable(1409) %this, ptr noundef %trace_event) unnamed_addr #0 align 2 {
 entry:
   %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
-  tail call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %stream_mutex_) #12
   %total_traces_ = getelementptr inbounds i8, ptr %this, i64 984
   %0 = load i32, ptr %total_traces_, align 8
   %cmp = icmp eq i32 %0, 0
@@ -698,7 +698,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::allocator.0", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str) #12
   %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
-  call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_) #12
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %stream_mutex_) #12
   %total_traces_ = getelementptr inbounds i8, ptr %this, i64 984
   %0 = load i32, ptr %total_traces_, align 8
   %cmp = icmp sgt i32 %0, 524287
@@ -726,7 +726,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.15)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strERKNS_12basic_stringIcS2_S3_EE(ptr noundef nonnull align 8 dereferenceable(112) %stream_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #12
@@ -738,7 +738,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 0) #12
   call void @uv_mutex_unlock(ptr noundef nonnull %stream_mutex_) #12
   %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
-  call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_) #12
   %num_write_requests_ = getelementptr inbounds i8, ptr %this, i64 976
   %3 = load i32, ptr %num_write_requests_, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %request_mutex_) #12
@@ -772,7 +772,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #12
   %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
-  tail call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %str) #12
   %highest_request_id3 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i32 %highest_request_id, ptr %highest_request_id3, align 8
@@ -785,7 +785,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp) #12
   %highest_request_id.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i32, ptr %highest_request_id3, align 8
   store i32 %3, ptr %highest_request_id.i.i.i.i.i, align 8
@@ -801,7 +801,7 @@ if.else.i.i:                                      ; preds = %if.end
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 952
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp) #12
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 912
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %5 = load ptr, ptr %_M_node.i.i.i, align 8
@@ -881,9 +881,9 @@ if.end24:                                         ; preds = %entry, %_ZN4node7tr
 define dso_local void @_ZN4node7tracing15NodeTraceWriter5FlushEb(ptr noundef nonnull align 8 dereferenceable(1409) %this, i1 noundef zeroext %blocking) unnamed_addr #0 align 2 {
 entry:
   %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
-  tail call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_) #12
   %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
-  tail call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %stream_mutex_) #12
   %json_trace_writer_ = getelementptr inbounds i8, ptr %this, i64 1400
   %0 = load ptr, ptr %json_trace_writer_, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -917,7 +917,7 @@ while.body.preheader:                             ; preds = %do.end9
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  tail call void @uv_cond_wait(ptr noundef nonnull %request_cond_, ptr noundef nonnull %request_mutex_) #12
+  tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %request_cond_, ptr noundef nonnull %request_mutex_) #12
   %.old = load i32, ptr %highest_request_id_completed_, align 4
   %cmp11.not.old = icmp slt i32 %1, %.old
   br i1 %cmp11.not.old, label %cleanup13, label %while.body
@@ -981,7 +981,7 @@ do.end5:                                          ; preds = %entry
   tail call void @uv_fs_req_cleanup(ptr noundef nonnull %write_req_) #12
   %call = tail call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #12
   %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 312
-  tail call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_) #12
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 912
   %1 = load ptr, ptr %_M_start.i.i.i, align 8
   %highest_request_id8 = getelementptr inbounds i8, ptr %1, i64 32
@@ -990,7 +990,7 @@ do.end5:                                          ; preds = %entry
   %3 = load ptr, ptr %_M_last.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -40
   %cmp.not.i.i = icmp eq ptr %1, %add.ptr.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #12
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.end5
@@ -1018,7 +1018,7 @@ _ZNSt5queueIN4node7tracing15NodeTraceWriter12WriteRequestESt5dequeIS3_SaIS3_EEE3
   %highest_request_id_completed_ = getelementptr inbounds i8, ptr %this, i64 980
   store i32 %2, ptr %highest_request_id_completed_, align 4
   %request_cond_ = getelementptr inbounds i8, ptr %this, i64 352
-  tail call void @uv_cond_broadcast(ptr noundef nonnull %request_cond_) #12
+  tail call void @uv_cond_broadcast(ptr noundef nonnull align 8 dereferenceable(48) %request_cond_) #12
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 944
   %8 = load ptr, ptr %_M_finish.i.i, align 8
   %9 = load ptr, ptr %_M_start.i.i.i, align 8
@@ -1111,7 +1111,7 @@ for.body.i.i:                                     ; preds = %entry, %_ZSt8_Destr
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i
   %__first.addr.04.i.i.i.idx.i.i = phi i64 [ %__first.addr.04.i.i.i.add.i.i, %for.body.i.i.i.i.i ], [ 0, %for.body.i.i ]
   %__first.addr.04.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %__first.addr.04.i.i.i.idx.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.ptr.i.i) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.04.i.i.i.ptr.i.i) #12
   %__first.addr.04.i.i.i.add.i.i = add nuw nsw i64 %__first.addr.04.i.i.i.idx.i.i, 40
   %cmp.not.i.i.i.i.i = icmp eq i64 %__first.addr.04.i.i.i.add.i.i, 480
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !22
@@ -1131,7 +1131,7 @@ if.then.i.i:                                      ; preds = %for.end.i.i
 
 for.body.i.i.i4.i.i:                              ; preds = %if.then.i.i, %for.body.i.i.i4.i.i
   %__first.addr.04.i.i.i5.i.i = phi ptr [ %incdec.ptr.i.i.i6.i.i, %for.body.i.i.i4.i.i ], [ %0, %if.then.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i5.i.i) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.04.i.i.i5.i.i) #12
   %incdec.ptr.i.i.i6.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5.i.i, i64 40
   %cmp.not.i.i.i7.i.i = icmp eq ptr %incdec.ptr.i.i.i6.i.i, %1
   br i1 %cmp.not.i.i.i7.i.i, label %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i, label %for.body.i.i.i4.i.i, !llvm.loop !22
@@ -1142,7 +1142,7 @@ _ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.
 
 for.body.i.i.i10.i.i:                             ; preds = %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i, %for.body.i.i.i10.i.i
   %__first.addr.04.i.i.i11.i.i = phi ptr [ %incdec.ptr.i.i.i12.i.i, %for.body.i.i.i10.i.i ], [ %4, %_ZSt8_DestroyIPN4node7tracing15NodeTraceWriter12WriteRequestES3_EvT_S5_RSaIT0_E.exit8.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i11.i.i) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.04.i.i.i11.i.i) #12
   %incdec.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i11.i.i, i64 40
   %cmp.not.i.i.i13.i.i = icmp eq ptr %incdec.ptr.i.i.i12.i.i, %3
   br i1 %cmp.not.i.i.i13.i.i, label %_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i10.i.i, !llvm.loop !22
@@ -1153,7 +1153,7 @@ if.else.i.i:                                      ; preds = %for.end.i.i
 
 for.body.i.i.i16.i.i:                             ; preds = %if.else.i.i, %for.body.i.i.i16.i.i
   %__first.addr.04.i.i.i17.i.i = phi ptr [ %incdec.ptr.i.i.i18.i.i, %for.body.i.i.i16.i.i ], [ %0, %if.else.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i17.i.i) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.04.i.i.i17.i.i) #12
   %incdec.ptr.i.i.i18.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i17.i.i, i64 40
   %cmp.not.i.i.i19.i.i = icmp eq ptr %incdec.ptr.i.i.i18.i.i, %3
   br i1 %cmp.not.i.i.i19.i.i, label %_ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_.exit, label %for.body.i.i.i16.i.i, !llvm.loop !22
@@ -1261,7 +1261,7 @@ _ZNSt5dequeIN4node7tracing15NodeTraceWriter12WriteRequestESaIS3_EE22_M_reserve_m
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %__args) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 8 dereferenceable(36) %__args) #12
   %highest_request_id.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   %highest_request_id3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   %10 = load i32, ptr %highest_request_id3.i.i.i, align 8
@@ -1439,11 +1439,11 @@ entry:
   %sub.i.i.i = add i64 %0, -144
   %1 = inttoptr i64 %sub.i.i.i to ptr
   %request_mutex_.i = getelementptr inbounds i8, ptr %1, i64 312
-  tail call void @uv_mutex_lock(ptr noundef nonnull %request_mutex_.i) #12
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_.i) #12
   %exited_.i = getelementptr inbounds i8, ptr %1, i64 1408
   store i8 1, ptr %exited_.i, align 8
   %exit_cond_.i = getelementptr inbounds i8, ptr %1, i64 400
-  tail call void @uv_cond_signal(ptr noundef nonnull %exit_cond_.i) #12
+  tail call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_.i) #12
   tail call void @uv_mutex_unlock(ptr noundef nonnull %request_mutex_.i) #12
   ret void
 }

@@ -184,7 +184,7 @@ _ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %entry, %if.then.i
   %d_nonbasicDirection = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %retval.0.i, ptr %d_nonbasicDirection, align 4
   %d_nonbasicDelta = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   %d_foundConflict = getelementptr inbounds i8, ptr %this, i64 80
@@ -233,7 +233,7 @@ _ZN4cvc58internal6theory5arith6linear10UpdateInfoC2EbjRKNS0_13DeltaRationalERKNS
   %d_nonbasicDirection.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %retval.0.i.i, ptr %d_nonbasicDirection.i, align 4
   %d_nonbasicDelta.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %d_nonbasicDelta.i, ptr noundef nonnull align 8 dereferenceable(64) %delta)
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta.i, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 72
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %d_foundConflict.i = getelementptr inbounds i8, ptr %agg.result, i64 80
@@ -271,14 +271,14 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, label %if.end.i3.i.i
 
 if.end.i3.i.i:                                    ; preds = %if.then.i
-  tail call void @__gmpq_set(ptr noundef nonnull %d_nonbasicDelta, ptr noundef nonnull %delta)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   %k.i.i = getelementptr inbounds i8, ptr %delta, i64 32
   %k3.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @__gmpq_set(ptr noundef nonnull %k3.i.i, ptr noundef nonnull %k.i.i)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %k3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %k.i.i)
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   store i8 1, ptr %_M_engaged.i.i, align 8
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
@@ -348,14 +348,14 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, label %if.end.i3.i.i
 
 if.end.i3.i.i:                                    ; preds = %if.then.i
-  tail call void @__gmpq_set(ptr noundef nonnull %d_nonbasicDelta, ptr noundef nonnull %delta)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   %k.i.i = getelementptr inbounds i8, ptr %delta, i64 32
   %k3.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @__gmpq_set(ptr noundef nonnull %k3.i.i, ptr noundef nonnull %k.i.i)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %k3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %k.i.i)
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   store i8 1, ptr %_M_engaged.i.i, align 8
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
@@ -426,14 +426,14 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, label %if.end.i3.i.i
 
 if.end.i3.i.i:                                    ; preds = %if.then.i
-  tail call void @__gmpq_set(ptr noundef nonnull %d_nonbasicDelta, ptr noundef nonnull %delta)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   %k.i.i = getelementptr inbounds i8, ptr %delta, i64 32
   %k3.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @__gmpq_set(ptr noundef nonnull %k3.i.i, ptr noundef nonnull %k.i.i)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %k3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %k.i.i)
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   store i8 1, ptr %_M_engaged.i.i, align 8
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
@@ -519,14 +519,14 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, label %if.end.i3.i.i
 
 if.end.i3.i.i:                                    ; preds = %if.then.i
-  tail call void @__gmpq_set(ptr noundef nonnull %d_nonbasicDelta, ptr noundef nonnull %delta)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   %k.i.i = getelementptr inbounds i8, ptr %delta, i64 32
   %k3.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @__gmpq_set(ptr noundef nonnull %k3.i.i, ptr noundef nonnull %k.i.i)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %k3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %k.i.i)
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   store i8 1, ptr %_M_engaged.i.i, align 8
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
@@ -603,14 +603,14 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, label %if.end.i3.i.i
 
 if.end.i3.i.i:                                    ; preds = %if.then.i
-  tail call void @__gmpq_set(ptr noundef nonnull %d_nonbasicDelta, ptr noundef nonnull %delta)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   %k.i.i = getelementptr inbounds i8, ptr %delta, i64 32
   %k3.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @__gmpq_set(ptr noundef nonnull %k3.i.i, ptr noundef nonnull %k.i.i)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %k3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %k.i.i)
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   store i8 1, ptr %_M_engaged.i.i, align 8
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
@@ -680,14 +680,14 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, label %if.end.i3.i.i
 
 if.end.i3.i.i:                                    ; preds = %if.then.i
-  tail call void @__gmpq_set(ptr noundef nonnull %d_nonbasicDelta, ptr noundef nonnull %delta)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   %k.i.i = getelementptr inbounds i8, ptr %delta, i64 32
   %k3.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @__gmpq_set(ptr noundef nonnull %k3.i.i, ptr noundef nonnull %k.i.i)
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %k3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %k.i.i)
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta, ptr noundef nonnull align 8 dereferenceable(64) %delta)
   store i8 1, ptr %_M_engaged.i.i, align 8
   br label %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit
 
@@ -775,7 +775,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %d_nonbasicDelta = getelementptr inbounds i8, ptr %this, i64 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull @.str.21)
-  %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull align 8 dereferenceable(64) %d_nonbasicDelta)
+  %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull align 8 dereferenceable(72) %d_nonbasicDelta)
   br label %_ZN4cvc58internallsINS0_13DeltaRationalEEERSoS3_RKSt8optionalIT_E.exit
 
 if.else.i:                                        ; preds = %entry
@@ -944,17 +944,17 @@ init.end:                                         ; preds = %_ZN4cvc58internal4e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @__gmpz_init_set(ptr noundef nonnull %this, ptr noundef nonnull %0)
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %_mp_den.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_mp_den10.i.i = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %this)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %_ZN4cvc58internal8RationalC2ERKS1_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %this)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %lpad.i
@@ -971,7 +971,7 @@ common.resume:                                    ; preds = %lpad.body, %lpad.i
 _ZN4cvc58internal8RationalC2ERKS1_.exit:          ; preds = %entry
   %k = getelementptr inbounds i8, ptr %this, i64 32
   %k3 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke void @__gmpz_init_set(ptr noundef nonnull %k, ptr noundef nonnull %k3)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 8 dereferenceable(32) %k3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN4cvc58internal8RationalC2ERKS1_.exit
@@ -981,13 +981,13 @@ _ZN4cvc58internal8RationalC2ERKS1_.exit:          ; preds = %entry
           to label %.noexc7 unwind label %lpad
 
 .noexc7:                                          ; preds = %.noexc
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %k)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %k)
           to label %invoke.cont unwind label %lpad.i4
 
 lpad.i4:                                          ; preds = %.noexc7
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %k)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %k)
           to label %lpad.body unwind label %terminate.lpad.i.i5
 
 terminate.lpad.i.i5:                              ; preds = %lpad.i4
@@ -1007,7 +1007,7 @@ lpad:                                             ; preds = %.noexc, %_ZN4cvc58i
 
 lpad.body:                                        ; preds = %lpad.i4, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %4, %lpad.i4 ]
-  invoke void @__gmpq_clear(ptr noundef nonnull %this)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %common.resume unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %lpad.body

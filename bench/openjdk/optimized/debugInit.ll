@@ -2549,8 +2549,8 @@ define hidden void @debugInit_exit(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %45
 
 45:                                               ; preds = %44, %39, %33
-  %46 = call ptr @jvmtiErrorText(i32 noundef %0) #17
-  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 512, ptr noundef nonnull @.str.108, ptr noundef nonnull %spec.store.select.i, ptr noundef %46, i32 noundef %0) #17
+  %46 = call ptr @jvmtiErrorText(i32 noundef range(i32 1, 0) %0) #17
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 512, ptr noundef nonnull @.str.108, ptr noundef nonnull %spec.store.select.i, ptr noundef %46, i32 noundef range(i32 1, 0) %0) #17
   %48 = load ptr, ptr %3, align 8
   %.not13.i = icmp eq ptr %48, null
   br i1 %.not13.i, label %53, label %49

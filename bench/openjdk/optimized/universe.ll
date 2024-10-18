@@ -2116,7 +2116,7 @@ define hidden void @_ZN8Universe13fixup_mirrorsEP10JavaThread(ptr noundef %0) lo
 
 27:                                               ; preds = %._crit_edge.thread
   store i32 0, ptr %23, align 4
-  call void @_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
+  call void @_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %23)
   br label %_ZN13GrowableArrayIP5KlassED2Ev.exit
 
 _ZN13GrowableArrayIP5KlassED2Ev.exit:             ; preds = %._crit_edge.thread, %27
@@ -2246,7 +2246,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit:
   %..i = select i1 %4, i64 20, i64 24
   %7 = select i1 %6, i64 16, i64 %..i
   %8 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %9 = tail call noundef ptr %8(ptr noundef nonnull %2, i64 noundef %7) #16
+  %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %7) #16
   %10 = tail call noundef ptr @_ZN8Universe23gen_out_of_memory_errorEP7oopDesc(ptr noundef %9)
   ret ptr %10
 }
@@ -2295,7 +2295,7 @@ define hidden noundef ptr @_ZN8Universe23gen_out_of_memory_errorEP7oopDesc(ptr n
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 29:                                               ; preds = %17
-  %30 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %19, i64 noundef 8, i32 noundef 0) #16
+  %30 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %19, i64 noundef 8, i32 noundef 0) #16
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %29, %27
@@ -2319,7 +2319,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %13, %_ZN10HandleAre
   %40 = shl nuw nsw i64 %38, %.7.i
   %41 = add nuw nsw i64 %39, %40
   %42 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %43 = tail call noundef ptr %42(ptr noundef nonnull %33, i64 noundef %41) #16
+  %43 = tail call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(16) %33, i64 noundef %41) #16
   %44 = icmp eq ptr %43, null
   br i1 %44, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit13, label %45
 
@@ -2342,7 +2342,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %13, %_ZN10HandleAre
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i10
 
 57:                                               ; preds = %45
-  %58 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %47, i64 noundef 8, i32 noundef 0) #16
+  %58 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %47, i64 noundef 8, i32 noundef 0) #16
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i10
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i10: ; preds = %57, %55
@@ -2365,7 +2365,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit13:            ; preds = %_ZN6HandleC2EP6Thre
   %67 = shl nuw nsw i64 %38, %.8.i
   %68 = add nuw nsw i64 %66, %67
   %69 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %69(ptr noundef nonnull %61, i64 noundef %68, ptr noundef null) #16
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(16) %61, i64 noundef %68, ptr noundef null) #16
   %70 = icmp eq ptr %storemerge.i, null
   br i1 %70, label %_ZNK6HandleclEv.exit, label %71
 
@@ -2409,7 +2409,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit:
   %..i = select i1 %4, i64 20, i64 24
   %7 = select i1 %6, i64 16, i64 %..i
   %8 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %9 = tail call noundef ptr %8(ptr noundef nonnull %2, i64 noundef %7) #16
+  %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %7) #16
   ret ptr %9
 }
 
@@ -2428,7 +2428,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit:
   %8 = select i1 %4, i64 4, i64 8
   %9 = add nuw nsw i64 %7, %8
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull %2, i64 noundef %9) #16
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %9) #16
   %12 = tail call noundef ptr @_ZN8Universe23gen_out_of_memory_errorEP7oopDesc(ptr noundef %11)
   ret ptr %12
 }
@@ -2448,7 +2448,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit:
   %8 = select i1 %4, i64 8, i64 16
   %9 = add nuw nsw i64 %7, %8
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull %2, i64 noundef %9) #16
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %9) #16
   %12 = tail call noundef ptr @_ZN8Universe23gen_out_of_memory_errorEP7oopDesc(ptr noundef %11)
   ret ptr %12
 }
@@ -2468,7 +2468,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit:
   %8 = select i1 %4, i64 12, i64 24
   %9 = add nuw nsw i64 %7, %8
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull %2, i64 noundef %9) #16
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %9) #16
   %12 = tail call noundef ptr @_ZN8Universe23gen_out_of_memory_errorEP7oopDesc(ptr noundef %11)
   ret ptr %12
 }
@@ -2488,7 +2488,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit:
   %8 = select i1 %4, i64 16, i64 32
   %9 = add nuw nsw i64 %7, %8
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull %2, i64 noundef %9) #16
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %9) #16
   %12 = tail call noundef ptr @_ZN8Universe23gen_out_of_memory_errorEP7oopDesc(ptr noundef %11)
   ret ptr %12
 }
@@ -2508,7 +2508,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit:
   %8 = select i1 %4, i64 20, i64 40
   %9 = add nuw nsw i64 %7, %8
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull %2, i64 noundef %9) #16
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %9) #16
   %12 = tail call noundef ptr @_ZN8Universe23gen_out_of_memory_errorEP7oopDesc(ptr noundef %11)
   ret ptr %12
 }
@@ -2528,7 +2528,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit:
   %8 = select i1 %4, i64 24, i64 48
   %9 = add nuw nsw i64 %7, %8
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull %2, i64 noundef %9) #16
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %9) #16
   %12 = tail call noundef ptr @_ZN8Universe23gen_out_of_memory_errorEP7oopDesc(ptr noundef %11)
   ret ptr %12
 }
@@ -2546,7 +2546,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit:
   %..i = select i1 %4, i64 20, i64 24
   %7 = select i1 %6, i64 16, i64 %..i
   %8 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %9 = tail call noundef ptr %8(ptr noundef nonnull %2, i64 noundef %7) #16
+  %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %7) #16
   ret ptr %9
 }
 
@@ -2606,7 +2606,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit.split.us: ; preds = %_ZN8Universe20out
   %..i.us9 = select i1 %10, i64 20, i64 24
   %13 = select i1 %12, i64 16, i64 %..i.us9
   %14 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull %7, i64 noundef %13) #16
+  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %13) #16
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.split.us, label %.lr.ph11
 
@@ -2621,7 +2621,7 @@ _ZNK6HandleclEv.exit.us:                          ; preds = %.lr.ph11
   %22 = shl nuw nsw i64 %indvars.iv17, %.7.i.us
   %23 = add nuw nsw i64 %21, %22
   %24 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %25 = tail call noundef ptr %24(ptr noundef nonnull %7, i64 noundef %23) #16
+  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %23) #16
   %26 = icmp eq ptr %25, null
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   br i1 %26, label %.split.us, label %.lr.ph11, !llvm.loop !18
@@ -2640,7 +2640,7 @@ _ZN8Universe20out_of_memory_errorsEv.exit.split:  ; preds = %_ZN8Universe20out_o
   %..i6 = select i1 %29, i64 20, i64 24
   %32 = select i1 %31, i64 16, i64 %..i6
   %33 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %34 = tail call noundef ptr %33(ptr noundef nonnull %7, i64 noundef %32) #16
+  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %32) #16
   %35 = icmp eq ptr %27, %34
   br i1 %35, label %.split.us, label %.lr.ph
 
@@ -2661,7 +2661,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %.lr.ph
   %42 = shl nuw nsw i64 %indvars.iv, %.7.i
   %43 = add nuw nsw i64 %41, %42
   %44 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %45 = tail call noundef ptr %44(ptr noundef nonnull %7, i64 noundef %43) #16
+  %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %43) #16
   %46 = icmp eq ptr %36, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %46, label %.split.us, label %.lr.ph, !llvm.loop !18
@@ -2695,7 +2695,7 @@ define linkonce_odr hidden void @_ZN6HandleC2EP6ThreadP7oopDesc(ptr noundef nonn
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 17:                                               ; preds = %5
-  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef 8, i32 noundef 0) #16
+  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef 8, i32 noundef 0) #16
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit:  ; preds = %15, %17
@@ -2787,7 +2787,7 @@ define hidden void @_ZN8Universe40create_preallocated_out_of_memory_errorsEP10Ja
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 24:                                               ; preds = %12
-  %25 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef 8, i32 noundef 0) #16
+  %25 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %14, i64 noundef 8, i32 noundef 0) #16
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %24, %22
@@ -2818,7 +2818,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %10, %_ZN10Hand
   %36 = shl nuw nsw i64 %indvars.iv, %.8.i
   %37 = add nuw nsw i64 %35, %36
   %38 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %38(ptr noundef nonnull %30, i64 noundef %37, ptr noundef %27) #16
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %37, ptr noundef %27) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %_ZNK14objArrayHandleclEv.exit, label %26, !llvm.loop !19
@@ -2852,7 +2852,7 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit:      ; preds = %_ZNK14objArrayHandl
   %..i52 = select i1 %50, i64 20, i64 24
   %53 = select i1 %52, i64 16, i64 %..i52
   %54 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %55 = tail call noundef ptr %54(ptr noundef nonnull %48, i64 noundef %53) #16
+  %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %53) #16
   %56 = icmp eq ptr %45, null
   br i1 %56, label %_ZNK6HandleclEv.exit, label %57
 
@@ -2879,7 +2879,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %47, %57
   %69 = select i1 %65, i64 4, i64 8
   %70 = add nuw nsw i64 %68, %69
   %71 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %72 = tail call noundef ptr %71(ptr noundef nonnull %63, i64 noundef %70) #16
+  %72 = tail call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(16) %63, i64 noundef %70) #16
   %73 = icmp eq ptr %60, null
   br i1 %73, label %_ZNK6HandleclEv.exit55, label %74
 
@@ -2928,7 +2928,7 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit57:    ; preds = %_ZNK6HandleclEv.exi
   %95 = select i1 %91, i64 8, i64 16
   %96 = add nuw nsw i64 %94, %95
   %97 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %98 = tail call noundef ptr %97(ptr noundef nonnull %89, i64 noundef %96) #16
+  %98 = tail call noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(16) %89, i64 noundef %96) #16
   br i1 %81, label %_ZNK6HandleclEv.exit60, label %99
 
 99:                                               ; preds = %_ZN9OopHandleC2EP10OopStorageP7oopDesc.exit57
@@ -2967,7 +2967,7 @@ _ZNK6HandleclEv.exit61:                           ; preds = %104, %107
   %117 = select i1 %113, i64 12, i64 24
   %118 = add nuw nsw i64 %116, %117
   %119 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %120 = call noundef ptr %119(ptr noundef nonnull %111, i64 noundef %118) #16
+  %120 = call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(16) %111, i64 noundef %118) #16
   br i1 %106, label %_ZNK6HandleclEv.exit64, label %121
 
 121:                                              ; preds = %_ZNK6HandleclEv.exit61
@@ -2993,7 +2993,7 @@ _ZNK6HandleclEv.exit64:                           ; preds = %_ZNK6HandleclEv.exi
   %133 = select i1 %129, i64 16, i64 32
   %134 = add nuw nsw i64 %132, %133
   %135 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %136 = call noundef ptr %135(ptr noundef nonnull %127, i64 noundef %134) #16
+  %136 = call noundef ptr %135(ptr noundef nonnull align 8 dereferenceable(16) %127, i64 noundef %134) #16
   %137 = icmp eq ptr %124, null
   br i1 %137, label %_ZNK6HandleclEv.exit67, label %138
 
@@ -3020,7 +3020,7 @@ _ZNK6HandleclEv.exit67:                           ; preds = %126, %138
   %150 = select i1 %146, i64 20, i64 40
   %151 = add nuw nsw i64 %149, %150
   %152 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %153 = call noundef ptr %152(ptr noundef nonnull %144, i64 noundef %151) #16
+  %153 = call noundef ptr %152(ptr noundef nonnull align 8 dereferenceable(16) %144, i64 noundef %151) #16
   %154 = icmp eq ptr %141, null
   br i1 %154, label %_ZNK6HandleclEv.exit70, label %155
 
@@ -3047,7 +3047,7 @@ _ZNK6HandleclEv.exit70:                           ; preds = %143, %155
   %167 = select i1 %163, i64 24, i64 48
   %168 = add nuw nsw i64 %166, %167
   %169 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %170 = call noundef ptr %169(ptr noundef nonnull %161, i64 noundef %168) #16
+  %170 = call noundef ptr %169(ptr noundef nonnull align 8 dereferenceable(16) %161, i64 noundef %168) #16
   %171 = icmp eq ptr %158, null
   br i1 %171, label %_ZNK6HandleclEv.exit73, label %172
 
@@ -3112,7 +3112,7 @@ _ZNK6HandleclEv.exit74:                           ; preds = %187, %192
   %200 = shl nuw nsw i64 %indvars.iv112, %.8.i76
   %201 = add nuw nsw i64 %199, %200
   %202 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %202(ptr noundef nonnull %189, i64 noundef %201, ptr noundef %194) #16
+  call void %202(ptr noundef nonnull align 8 dereferenceable(16) %189, i64 noundef %201, ptr noundef %194) #16
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, 4
   br i1 %exitcond115.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -3151,7 +3151,7 @@ define linkonce_odr hidden void @_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDes
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 17:                                               ; preds = %5
-  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef 8, i32 noundef 0) #16
+  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef 8, i32 noundef 0) #16
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %17, %15

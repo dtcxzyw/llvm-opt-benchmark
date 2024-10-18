@@ -52,7 +52,7 @@ define linkonce_odr void @_ZN3gmx17AnalysisDataProxyD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17AnalysisDataProxyD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #10
+  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }
@@ -294,15 +294,15 @@ define void @_ZN3gmx17AnalysisDataProxy12dataFinishedEv(ptr noundef nonnull alig
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N3gmx17AnalysisDataProxyD1Ev(ptr noundef %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
+  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %2) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N3gmx17AnalysisDataProxyD0Ev(ptr noundef %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #11
+  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %2) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(41) %2) #11
   ret void
 }
 
@@ -331,7 +331,7 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy12frameStartedERKNS_23AnalysisDataF
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
-  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(41) %3)
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %2
@@ -372,7 +372,7 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPo
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
-  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
+  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(41) %18)
   br i1 %21, label %23, label %24
 
 23:                                               ; preds = %17
@@ -394,7 +394,7 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisData
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
-  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(41) %3)
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %2
@@ -421,7 +421,7 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy19frameFinishedSerialEi(ptr noundef
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 -16
   call void @_ZN3gmx23AnalysisDataFrameHeaderC1Eiff(ptr noundef nonnull align 4 dereferenceable(12) %3, i32 noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(41) %8)
   call void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(12) %3)
   br label %_ZN3gmx17AnalysisDataProxy19frameFinishedSerialEi.exit
 
@@ -433,7 +433,7 @@ _ZN3gmx17AnalysisDataProxy19frameFinishedSerialEi.exit: ; preds = %2, %7
 ; Function Attrs: uwtable
 define void @_ZThn16_N3gmx17AnalysisDataProxy12dataFinishedEv(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(41) %2)
   tail call void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }

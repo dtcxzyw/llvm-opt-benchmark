@@ -777,13 +777,13 @@ define internal fastcc void @dissect_client_transport_info(ptr noundef %0, ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %53 = getelementptr inbounds i8, ptr %1, i64 20
   %54 = load i32, ptr %53, align 4
-  %55 = call ptr @find_conversation(i32 noundef %54, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %46, i32 noundef 0, i32 noundef 196608) #6
+  %55 = call ptr @find_conversation(i32 noundef %54, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef range(i32 1, 4) %.032, i32 noundef %46, i32 noundef 0, i32 noundef 196608) #6
   %.not11.i = icmp eq ptr %55, null
   br i1 %.not11.i, label %56, label %59
 
 56:                                               ; preds = %52
   %57 = load i32, ptr %53, align 4
-  %58 = call nonnull ptr @conversation_new(i32 noundef %57, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %46, i32 noundef 0, i32 noundef 3) #6
+  %58 = call nonnull ptr @conversation_new(i32 noundef %57, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef range(i32 1, 4) %.032, i32 noundef %46, i32 noundef 0, i32 noundef 3) #6
   br label %59
 
 59:                                               ; preds = %56, %52

@@ -295,7 +295,7 @@ _ZNK4llvm18DbgAssignIntrinsic10getAddressEv.exit.i: ; preds = %30, %17
   br i1 %.not6.i, label %33, label %"_ZZN4llvm20DbgVariableIntrinsic25replaceVariableLocationOpEPNS_5ValueES2_bENK3$_0clEv.exit"
 
 33:                                               ; preds = %_ZNK4llvm18DbgAssignIntrinsic10getAddressEv.exit.i
-  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #17
   %35 = tail call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %2) #17
   %36 = tail call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %35) #17
   %37 = load i32, ptr %18, align 4
@@ -499,7 +499,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i:   ; preds = %135, %131
 
 138:                                              ; preds = %101
   %139 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %139, i64 noundef 4) #17
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %139, i64 noundef 4) #17
   %140 = load i8, ptr %2, align 8
   %141 = icmp eq i8 %140, 24
   br i1 %141, label %142, label %147
@@ -656,7 +656,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i21: ; preds = %218, %214
   br label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit22
 
 _ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit22: ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i18, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i21
-  %221 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
+  %221 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   %222 = load ptr, ptr %5, align 8
   %223 = icmp eq ptr %222, %139
   br i1 %223, label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit, label %224
@@ -757,7 +757,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i:   ; preds = %39, %35
 
 42:                                               ; preds = %3
   %43 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %43, i64 noundef 4) #17
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %43, i64 noundef 4) #17
   %44 = load i8, ptr %2, align 8
   %45 = icmp eq i8 %44, 24
   br i1 %45, label %46, label %51
@@ -940,7 +940,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i16: ; preds = %137, %133
   br label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17
 
 _ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17: ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i16
-  %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
   %141 = load ptr, ptr %4, align 8
   %142 = icmp eq ptr %141, %43
   br i1 %142, label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit, label %143
@@ -1010,7 +1010,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i:   ; preds = %28, %24
 
 _ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit: ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i
   %31 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %31, i64 noundef 4) #17
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %31, i64 noundef 4) #17
   %32 = load i32, ptr %8, align 4, !noalias !26
   %33 = and i32 %32, 134217727
   %34 = zext nneg i32 %33 to i64
@@ -1220,7 +1220,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i23: ; preds = %137, %133
   br label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit24
 
 _ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit24: ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i20, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i23
-  %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
+  %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   %141 = load ptr, ptr %5, align 8
   %142 = icmp eq ptr %141, %31
   br i1 %142, label %_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit, label %143
@@ -1466,7 +1466,7 @@ _ZNK4llvm18DbgAssignIntrinsic10getAddressEv.exit: ; preds = %_ZNK4llvm18DbgAssig
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr @_ZN4llvm10UndefValue3getEPNS_4TypeE(ptr noundef %19) #17
-  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #17
   %22 = tail call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %20) #17
   %23 = tail call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %22) #17
   %24 = load i32, ptr %2, align 4
@@ -4286,7 +4286,7 @@ _ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit: ; preds = %_ZNK4llvm11VPInt
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %41, i64 -64
   %49 = load ptr, ptr %48, align 8
-  %50 = call noundef zeroext i1 @_ZN4llvm12PatternMatch15VScaleVal_match5matchINS_5ValueEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %49)
+  %50 = call noundef zeroext i1 @_ZN4llvm12PatternMatch15VScaleVal_match5matchINS_5ValueEEEbPT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %49)
   br i1 %50, label %51, label %69
 
 51:                                               ; preds = %47
@@ -4971,14 +4971,14 @@ _ZNK4llvm16GCProjectionInst13getStatepointEv.exit: ; preds = %1, %11, %12, %16, 
   br i1 %38, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i: ; preds = %35
-  %39 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i) #17, !noalias !39
+  %39 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !39
   %40 = extractvalue { ptr, i64 } %39, 0
   %.pr.i.i = load i32, ptr %36, align 4, !noalias !39
   %41 = icmp slt i32 %.pr.i.i, 0
   br i1 %41, label %42, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 42:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i
-  %43 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i) #17, !noalias !39
+  %43 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !39
   %44 = extractvalue { ptr, i64 } %43, 0
   %45 = extractvalue { ptr, i64 } %43, 1
   %46 = getelementptr inbounds i8, ptr %44, i64 %45
@@ -5009,7 +5009,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %42, %_ZNK4llvm8Cal
   %54 = load i32, ptr %36, align 4, !noalias !43
   %55 = icmp slt i32 %54, 0
   tail call void @llvm.assume(i1 %55)
-  %56 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i) #17, !noalias !43
+  %56 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !43
   %57 = extractvalue { ptr, i64 } %56, 0
   %58 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !noalias !46
@@ -5142,14 +5142,14 @@ _ZNK4llvm16GCProjectionInst13getStatepointEv.exit: ; preds = %1, %11, %12, %16, 
   br i1 %38, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i: ; preds = %35
-  %39 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i) #17, !noalias !50
+  %39 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !50
   %40 = extractvalue { ptr, i64 } %39, 0
   %.pr.i.i = load i32, ptr %36, align 4, !noalias !50
   %41 = icmp slt i32 %.pr.i.i, 0
   br i1 %41, label %42, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 42:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i
-  %43 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i) #17, !noalias !50
+  %43 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !50
   %44 = extractvalue { ptr, i64 } %43, 0
   %45 = extractvalue { ptr, i64 } %43, 1
   %46 = getelementptr inbounds i8, ptr %44, i64 %45
@@ -5180,7 +5180,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %42, %_ZNK4llvm8Cal
   %54 = load i32, ptr %36, align 4, !noalias !53
   %55 = icmp slt i32 %54, 0
   tail call void @llvm.assume(i1 %55)
-  %56 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i) #17, !noalias !53
+  %56 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !53
   %57 = extractvalue { ptr, i64 } %56, 0
   %58 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !noalias !56
@@ -5287,14 +5287,14 @@ _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
   br i1 %10, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i: ; preds = %_ZN4llvm8CallBase17data_operands_endEv.exit
-  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #17
   %12 = extractvalue { ptr, i64 } %11, 0
   %.pr.i.i.i = load i32, ptr %8, align 4
   %13 = icmp slt i32 %.pr.i.i.i, 0
   br i1 %13, label %14, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i
 
 14:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i
-  %15 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+  %15 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #17
   %16 = extractvalue { ptr, i64 } %15, 0
   %17 = extractvalue { ptr, i64 } %15, 1
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
@@ -5314,14 +5314,14 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   %24 = load i32, ptr %8, align 4
   %25 = icmp slt i32 %24, 0
   tail call void @llvm.assume(i1 %25)
-  %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+  %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #17
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = load i32, ptr %8, align 4
   %31 = icmp slt i32 %30, 0
   tail call void @llvm.assume(i1 %31)
-  %32 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+  %32 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #17
   %33 = extractvalue { ptr, i64 } %32, 0
   %34 = extractvalue { ptr, i64 } %32, 1
   %35 = getelementptr inbounds i8, ptr %33, i64 %34

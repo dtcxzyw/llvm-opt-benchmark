@@ -1031,7 +1031,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
   br label %rb_long2num_inline.exit
 
 22:                                               ; preds = %17
-  %23 = tail call i64 @rb_int2big(i64 noundef %10) #13
+  %23 = tail call i64 @rb_int2big(i64 noundef range(i64 0, -1) %10) #13
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %22, %19, %12
@@ -1076,7 +1076,7 @@ rb_num2int_inline.exit:                           ; preds = %6, %8
 18:                                               ; preds = %14
   %19 = add i64 %12, 7
   %20 = lshr i64 %19, 3
-  %21 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %12, i64 noundef %20) #16
+  %21 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef range(i64 1024, 0) %12, i64 noundef %20) #16
   br label %22
 
 22:                                               ; preds = %18, %16
@@ -1167,7 +1167,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
   br label %rb_long2num_inline.exit
 
 23:                                               ; preds = %18
-  %24 = tail call i64 @rb_int2big(i64 noundef %11) #13
+  %24 = tail call i64 @rb_int2big(i64 noundef range(i64 0, -1) %11) #13
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %23, %20, %13
@@ -1261,7 +1261,7 @@ etc_nprocessors_affin.exit:                       ; preds = %18
   br label %rb_long2num_inline.exit
 
 37:                                               ; preds = %32
-  %38 = call i64 @rb_int2big(i64 noundef %29) #13
+  %38 = call i64 @rb_int2big(i64 noundef range(i64 0, -1) %29) #13
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %37, %34, %23

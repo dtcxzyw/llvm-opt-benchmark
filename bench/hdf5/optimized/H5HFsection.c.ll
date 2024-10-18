@@ -1608,13 +1608,13 @@ define internal noundef i32 @H5HF__sect_row_debug(ptr nocapture noundef readonly
   %23 = add nsw i32 %22, -3
   %24 = getelementptr inbounds i8, ptr %20, i64 32
   %25 = load i32, ptr %24, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %21, ptr noundef nonnull @.str.51, i32 noundef %23, ptr noundef nonnull @.str.52, i32 noundef %25) #14
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef range(i32 -2147483645, -2147483648) %21, ptr noundef nonnull @.str.51, i32 noundef range(i32 -2147483648, 2147483645) %23, ptr noundef nonnull @.str.52, i32 noundef %25) #14
   %27 = getelementptr inbounds i8, ptr %20, i64 36
   %28 = load i32, ptr %27, align 4
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %21, ptr noundef nonnull @.str.51, i32 noundef %23, ptr noundef nonnull @.str.53, i32 noundef %28) #14
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef range(i32 -2147483645, -2147483648) %21, ptr noundef nonnull @.str.51, i32 noundef range(i32 -2147483648, 2147483645) %23, ptr noundef nonnull @.str.53, i32 noundef %28) #14
   %30 = getelementptr inbounds i8, ptr %20, i64 40
   %31 = load i32, ptr %30, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %21, ptr noundef nonnull @.str.51, i32 noundef %23, ptr noundef nonnull @.str.54, i32 noundef %31) #14
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef range(i32 -2147483645, -2147483648) %21, ptr noundef nonnull @.str.51, i32 noundef range(i32 -2147483648, 2147483645) %23, ptr noundef nonnull @.str.54, i32 noundef %31) #14
   br label %33
 
 33:                                               ; preds = %17, %4

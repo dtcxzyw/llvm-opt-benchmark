@@ -134,7 +134,7 @@ define hidden noundef zeroext i1 @_ZN14PosixSemaphore9timedwaitEl(ptr noundef no
   br label %6
 
 6:                                                ; preds = %9, %2
-  %7 = call i32 @sem_timedwait(ptr noundef nonnull %0, ptr noundef nonnull %3) #6
+  %7 = call i32 @sem_timedwait(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3) #6
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN14PosixSemaphore9timedwaitE8timespec.exit, label %9
 

@@ -1335,7 +1335,7 @@ _ZN2cv9SparseMataSERKS0_.exit:                    ; preds = %_ZN2cv9SparseMat7re
   br label %68
 
 68:                                               ; preds = %55, %64
-  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %0)
+  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(16) %0)
   %69 = load ptr, ptr %22, align 8
   %.not.i57 = icmp eq ptr %69, null
   br i1 %.not.i57, label %_ZNK2cv9SparseMat7nzcountEv.exit, label %70
@@ -2244,7 +2244,7 @@ _ZN2cv9SparseMat7releaseEv.exit:                  ; preds = %10, %11, %14, %_ZN2
   %28 = load i32, ptr %0, align 8
   %29 = and i32 %28, 4095
   tail call void @_ZN2cv9SparseMat6createEiPKii(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %26, ptr noundef nonnull %27, i32 noundef %29)
-  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %0)
+  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(16) %0)
   %30 = load ptr, ptr %4, align 8
   %.not.i12 = icmp eq ptr %30, null
   br i1 %.not.i12, label %_ZNK2cv9SparseMat7nzcountEv.exit, label %31
@@ -2433,7 +2433,7 @@ _ZNK2cv9SparseMat4dimsEv.exit:                    ; preds = %2
   tail call void @_ZN2cv3Mat6createEiPKii(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %18, ptr noundef nonnull %19, i32 noundef %21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %22 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %0)
+  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(16) %0)
   %23 = load ptr, ptr %7, align 8
   %.not.i17 = icmp eq ptr %23, null
   br i1 %.not.i17, label %_ZNK2cv9SparseMat7nzcountEv.exit, label %24
@@ -2729,7 +2729,7 @@ _ZNK2cv9SparseMat4dimsEv.exit:                    ; preds = %5
   %35 = getelementptr inbounds i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %36 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %0)
+  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(16) %0)
   %37 = load ptr, ptr %20, align 8
   %.not.i38 = icmp eq ptr %37, null
   br i1 %.not.i38, label %_ZNK2cv9SparseMat7nzcountEv.exit, label %38
@@ -4322,7 +4322,7 @@ define noundef double @_ZN2cv4normERKNS_9SparseMatEi(ptr noundef nonnull align 8
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
   %20 = alloca %"class.std::allocator.5", align 1
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv4normERKNS_9SparseMatEiE25__cv_trace_location_fn707)
-  invoke void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %0)
+  invoke void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZNK2cv9SparseMat5beginEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNK2cv9SparseMat5beginEv.exit:                   ; preds = %2
@@ -4822,7 +4822,7 @@ define void @_ZN2cv9minMaxLocERKNS_9SparseMatEPdS3_PiS4_(ptr noundef nonnull ali
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.5", align 1
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv9minMaxLocERKNS_9SparseMatEPdS3_PiS4_E25__cv_trace_location_fn772)
-  invoke void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %0)
+  invoke void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZNK2cv9SparseMat5beginEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZNK2cv9SparseMat5beginEv.exit:                   ; preds = %5
@@ -5316,7 +5316,7 @@ define noundef ptr @_Z17cvCreateSparseMatRKN2cv9SparseMatE(ptr noundef nonnull a
   %11 = load i32, ptr %0, align 8
   %12 = and i32 %11, 4095
   %13 = tail call ptr @cvCreateSparseMat(i32 noundef %7, ptr noundef nonnull %10, i32 noundef %12)
-  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %0)
+  call void @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %0)
   %14 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZNK2cv9SparseMat7nzcountEv.exit, label %15

@@ -756,7 +756,7 @@ cleanup:                                          ; preds = %if.end4, %invoke.co
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i1.i) #15
   %pattern.i = getelementptr inbounds i8, ptr %patternInfo, i64 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern.i) #15
-  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo) #15
+  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %patternInfo) #15
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %cleanup, %if.then
@@ -4124,7 +4124,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i
   br i1 %cmp.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  invoke void @_ZN6icu_756number4impl30PropertiesAffixPatternProvider5setToERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(267) %this, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZN6icu_756number4impl30PropertiesAffixPatternProvider5setToERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2464) %this, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %if.then.i
@@ -4365,12 +4365,12 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posSuffix.i.i) #15
   %posPrefix.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr.i, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posPrefix.i.i) #15
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.ptr.i) #15
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %arraydestroy.element.ptr.i) #15
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 8
   br i1 %arraydestroy.done.i, label %_ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit, label %arraydestroy.body.i
 
 _ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit: ; preds = %arraydestroy.body.i
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencyPluralInfoAPP) #15
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(2185) %currencyPluralInfoAPP) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %this, align 8
   %negSuffix.i = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i) #15
@@ -4380,7 +4380,7 @@ _ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit: ; preds = %arr
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posSuffix.i) #15
   %posPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posPrefix.i) #15
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %this) #15
   ret void
 }
 
@@ -5498,7 +5498,7 @@ entry:
   tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i1.i) #15
   %pattern.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern.i) #15
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) #15
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #15
   ret void
 }
@@ -5532,7 +5532,7 @@ arraydestroy.body:                                ; preds = %arraydestroy.body, 
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posSuffix.i) #15
   %posPrefix.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posPrefix.i) #15
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.ptr) #15
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %arraydestroy.element.ptr) #15
   %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 8
   br i1 %arraydestroy.done, label %arraydestroy.done2, label %arraydestroy.body
 

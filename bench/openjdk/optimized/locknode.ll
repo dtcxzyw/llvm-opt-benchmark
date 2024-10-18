@@ -74,7 +74,7 @@ define hidden void @_ZN11BoxLockNodeC2Ei(ptr noundef nonnull align 8 dereference
   %11 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 %1, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, i8 0, i64 88, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 10, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 148
@@ -335,7 +335,7 @@ _ZN11BoxLockNode8box_nodeEP4Node.exit:            ; preds = %.lr.ph.i, %1
 
 25:                                               ; preds = %.lr.ph.i1
   %26 = shl i32 %.0712.i, 6
-  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %24, i1 true)
+  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %24, i1 true)
   %28 = trunc nuw nsw i64 %27 to i32
   %29 = or disjoint i32 %26, %28
   br label %_ZNK7RegMask15find_first_elemEv.exit

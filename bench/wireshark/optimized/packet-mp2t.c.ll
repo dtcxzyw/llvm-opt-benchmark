@@ -701,7 +701,7 @@ proto_item_set_generated.exit.i:                  ; preds = %161, %158, %153
 
 169:                                              ; preds = %proto_item_set_generated.exit.i
   %170 = load ptr, ptr %83, align 8
-  %171 = call ptr @wmem_tree_lookup32(ptr noundef %170, i32 noundef %91) #9
+  %171 = call ptr @wmem_tree_lookup32(ptr noundef %170, i32 noundef range(i32 0, 8192) %91) #9
   %.not.i.i.i = icmp eq ptr %171, null
   br i1 %.not.i.i.i, label %172, label %get_pid_analysis.exit.i.i
 
@@ -721,7 +721,7 @@ proto_item_set_generated.exit.i:                  ; preds = %161, %158, %153
   %182 = getelementptr inbounds i8, ptr %174, i64 28
   store i32 %181, ptr %182, align 4
   %183 = load ptr, ptr %83, align 8
-  call void @wmem_tree_insert32(ptr noundef %183, i32 noundef %91, ptr noundef nonnull %174) #9
+  call void @wmem_tree_insert32(ptr noundef %183, i32 noundef range(i32 0, 8192) %91, ptr noundef nonnull %174) #9
   br label %get_pid_analysis.exit.i.i
 
 get_pid_analysis.exit.i.i:                        ; preds = %172, %169
@@ -1340,13 +1340,13 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %411, %408, %276, %d
   %.5230.i.i = phi i32 [ %531, %529 ], [ %.2227307.i.i, %524 ]
   %.4223.i.i = phi i32 [ %530, %529 ], [ %.2221308.i.i, %524 ]
   %533 = load i32, ptr %131, align 4
-  %534 = call fastcc i32 @mp2t_get_packet_length(ptr noundef %0, i32 noundef %.4223.i.i, ptr noundef %1, i32 noundef %.4309.i.i, i32 noundef %533)
+  %534 = call fastcc i32 @mp2t_get_packet_length(ptr noundef %0, i32 noundef %.4223.i.i, ptr noundef nonnull %1, i32 noundef %.4309.i.i, i32 noundef %533)
   %535 = add nsw i32 %534, -1
   %or.cond3.i.i = icmp ult i32 %535, -2
   br i1 %or.cond3.i.i, label %537, label %536
 
 536:                                              ; preds = %532
-  call fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %.4223.i.i, ptr noundef %1, ptr noundef %2, i32 noundef %.4309.i.i, i32 noundef 0, i32 noundef %.5230.i.i, i32 noundef 0, ptr noundef nonnull %.0.i.i)
+  call fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %.4223.i.i, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.4309.i.i, i32 noundef 0, i32 noundef %.5230.i.i, i32 noundef 0, ptr noundef nonnull %.0.i.i)
   br label %.loopexit.i.i
 
 537:                                              ; preds = %532
@@ -1355,7 +1355,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %411, %408, %276, %d
 
 538:                                              ; preds = %537
   %539 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.4223.i.i, i32 noundef %534) #9
-  call fastcc void @mp2t_dissect_packet(ptr noundef %539, ptr noundef nonnull %.0.i.i, ptr noundef %1, ptr noundef %2)
+  call fastcc void @mp2t_dissect_packet(ptr noundef %539, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %1, ptr noundef %2)
   %540 = sub nuw i32 %.5230.i.i, %534
   %541 = add i32 %534, %.4223.i.i
   %542 = add i32 %.4309.i.i, 1
@@ -1387,7 +1387,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %411, %408, %276, %d
 548:                                              ; preds = %.thread276.i.i
   %549 = sub nuw i32 %546, %.2209293.i.i
   %550 = sub i32 %.1226283.i.i, %549
-  call fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %.1220286.i.i, ptr noundef %1, ptr noundef %2, i32 noundef %.1294.i.i, i32 noundef %.1213289.i.i, i32 noundef %550, i32 noundef 1, ptr noundef nonnull %.0.i.i)
+  call fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %.1220286.i.i, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.1294.i.i, i32 noundef %.1213289.i.i, i32 noundef %550, i32 noundef 1, ptr noundef nonnull %.0.i.i)
   %551 = add i32 %550, %.1220286.i.i
   %552 = add i32 %.1294.i.i, 1
   %553 = load i32, ptr @ett_stuff, align 4
@@ -1401,7 +1401,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %411, %408, %276, %d
   br i1 %558, label %559, label %.critedge.i.i
 
 559:                                              ; preds = %557
-  call fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %.1220286.i.i, ptr noundef %1, ptr noundef %2, i32 noundef %.1294.i.i, i32 noundef %.1213289.i.i, i32 noundef %.1226283.i.i, i32 noundef 1, ptr noundef nonnull %.0.i.i)
+  call fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %.1220286.i.i, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.1294.i.i, i32 noundef %.1213289.i.i, i32 noundef %.1226283.i.i, i32 noundef 1, ptr noundef nonnull %.0.i.i)
   %560 = add i32 %.1294.i.i, 1
   br label %.loopexit.i.i
 
@@ -1412,7 +1412,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %411, %408, %276, %d
   %.1213291.i.i = phi i32 [ %.0212.i.i, %..critedge_crit_edge.i.i ], [ %.1213289.i.i, %557 ]
   %.1220288.i.i = phi i32 [ %.0219.i.i, %..critedge_crit_edge.i.i ], [ %.1220286.i.i, %557 ]
   %.1226285.i.i = phi i32 [ %.0225.i.i, %..critedge_crit_edge.i.i ], [ %.1226283.i.i, %557 ]
-  call fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %.1220288.i.i, ptr noundef %1, ptr noundef %2, i32 noundef %.1296.i.i, i32 noundef %.1213291.i.i, i32 noundef %.1226285.i.i, i32 noundef 0, ptr noundef nonnull %.0.i.i)
+  call fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %.1220288.i.i, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.1296.i.i, i32 noundef %.1213291.i.i, i32 noundef %.1226285.i.i, i32 noundef 0, ptr noundef nonnull %.0.i.i)
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %538, %.thread265.i.i, %.critedge.i.i, %559, %548, %543, %536, %512

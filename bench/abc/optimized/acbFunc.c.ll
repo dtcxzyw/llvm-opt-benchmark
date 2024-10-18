@@ -262,7 +262,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %.val = load ptr, ptr %5, align 8
   %37 = tail call ptr @Mio_LibraryReadBuffer(ptr noundef %.val, i32 noundef 0, ptr noundef null, i32 noundef 0) #31
   %38 = tail call noalias dereferenceable_or_null(15) ptr @malloc(i64 noundef 15) #29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %38, ptr noundef nonnull readonly align 1 dereferenceable(15) @.str.2, i64 15, i1 false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %38, ptr noundef nonnull align 1 dereferenceable(15) @.str.2, i64 15, i1 false) #31
   tail call void @Mio_LibrarySetName(ptr noundef %37, ptr noundef %38) #31
   tail call void @Mio_UpdateGenlib(ptr noundef %37) #31
   %.not.i = icmp eq ptr %.val, null
@@ -15273,7 +15273,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %1
 define void @Acb_GenerateFile2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @Acb_GenerateInstance2(ptr noundef %1, ptr noundef %2)
   %8 = tail call ptr @Acb_GeneratePatch2(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %9 = tail call noalias ptr @fopen(ptr noundef nonnull readonly @.str.98, ptr noundef nonnull @.str.17)
+  %9 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.17)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %Acb_GenerateFilePatch.exit, label %10
 
@@ -17574,7 +17574,7 @@ Vec_PtrReverseOrder.exit:                         ; preds = %373, %403, %393, %V
   br i1 %428, label %429, label %Acb_GenerateFilePatch.exit
 
 429:                                              ; preds = %Vec_PtrReverseOrder.exit
-  %430 = call noalias ptr @fopen(ptr noundef nonnull readonly @.str.98, ptr noundef nonnull @.str.17)
+  %430 = call noalias ptr @fopen(ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.17)
   %.not.i233 = icmp eq ptr %430, null
   br i1 %.not.i233, label %Acb_GenerateFilePatch.exit, label %431
 

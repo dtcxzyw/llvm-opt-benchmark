@@ -454,7 +454,7 @@ define hidden void @_ZN15ast_translation7cleanupEv(ptr noundef nonnull align 8 d
 entry:
   tail call void @_ZN15ast_translation11reset_cacheEv(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %m_cache = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8finalizeEv(ptr noundef nonnull align 8 dereferenceable(20) %m_cache)
+  tail call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8finalizeEv(ptr noundef nonnull align 8 dereferenceable(24) %m_cache)
   %m_result_stack = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_result_stack, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -522,7 +522,7 @@ _ZN11ast_manager7inc_refEP3ast.exit7:             ; preds = %_ZN11ast_manager7in
   store ptr %s, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %t, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_insert_count = getelementptr inbounds i8, ptr %this, i64 76
   %2 = load i32, ptr %m_insert_count, align 4
@@ -1470,7 +1470,7 @@ land.rhs.i:                                       ; preds = %invoke.cont13
 
 invoke.cont17:                                    ; preds = %land.rhs.i, %invoke.cont13
   %11 = phi i1 [ false, %invoke.cont13 ], [ %tobool.i.i, %land.rhs.i ]
-  invoke void @_ZN9decl_infoC2EiijPK9parameterb(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp, i32 noundef %4, i32 noundef %5, i32 noundef %retval.0.i.i, ptr noundef %8, i1 noundef zeroext %11)
+  invoke void @_ZN9decl_infoC2EiijPK9parameterb(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, i32 noundef %4, i32 noundef %5, i32 noundef %retval.0.i.i, ptr noundef %8, i1 noundef zeroext %11)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -1485,7 +1485,7 @@ if.then.i:                                        ; preds = %invoke.cont19
           to label %invoke.cont21 unwind label %lpad20
 
 if.else.i:                                        ; preds = %invoke.cont19
-  %call3.i18 = invoke noundef ptr @_ZN11ast_manager7mk_sortERK6symbolP9sort_info(ptr noundef nonnull align 8 dereferenceable(976) %3, ptr noundef nonnull align 8 dereferenceable(8) %m_name.i14, ptr noundef nonnull %ref.tmp)
+  %call3.i18 = invoke noundef ptr @_ZN11ast_manager7mk_sortERK6symbolP9sort_info(ptr noundef nonnull align 8 dereferenceable(976) %3, ptr noundef nonnull align 8 dereferenceable(8) %m_name.i14, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %if.then.i, %if.else.i
@@ -1659,7 +1659,7 @@ _ZN11ast_manager7inc_refEP3ast.exit7.i:           ; preds = %if.then.i4.i, %_ZN1
   store ptr %s, ptr %ref.tmp.i.i, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr %new_s.0, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %m_insert_count.i = getelementptr inbounds i8, ptr %this, i64 76
   %37 = load i32, ptr %m_insert_count.i, align 4
@@ -2296,7 +2296,7 @@ _ZN11ast_manager7inc_refEP3ast.exit7.i:           ; preds = %if.then.i4.i, %_ZN1
   store ptr %f, ptr %ref.tmp.i.i, align 8
   %m_value.i.i.i172 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr %new_f.0, ptr %m_value.i.i.i172, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %m_insert_count.i = getelementptr inbounds i8, ptr %this, i64 76
   %80 = load i32, ptr %m_insert_count.i, align 4
@@ -2760,7 +2760,7 @@ _ZN11ast_manager7inc_refEP3ast.exit7.i:           ; preds = %if.then.i4.i, %_ZN1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store ptr %9, ptr %ref.tmp.i.i, align 8
   store ptr %call39, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %54 = load i32, ptr %m_insert_count.i268, align 4
   %inc.i108 = add i32 %54, 1
@@ -2988,7 +2988,7 @@ _ZN11ast_manager7inc_refEP3ast.exit7.i149:        ; preds = %if.then.i4.i146, %_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i140)
   store ptr %9, ptr %ref.tmp.i.i140, align 8
   store ptr %call77, ptr %m_value.i.i.i151, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i140)
+  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i140)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i140)
   %95 = load i32, ptr %m_insert_count.i268, align 4
   %inc.i153 = add i32 %95, 1
@@ -3272,7 +3272,7 @@ _ZN11ast_manager7inc_refEP3ast.exit7.i265:        ; preds = %if.then.i4.i262, %_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i256)
   store ptr %9, ptr %ref.tmp.i.i256, align 8
   store ptr %call146, ptr %m_value.i.i.i267, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i256)
+  call void @_ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i256)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i256)
   %144 = load i32, ptr %m_insert_count.i268, align 4
   %inc.i269 = add i32 %144, 1
@@ -4212,7 +4212,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

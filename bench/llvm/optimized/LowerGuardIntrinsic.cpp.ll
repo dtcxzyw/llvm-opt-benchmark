@@ -44,7 +44,7 @@ define dso_local void @_ZN4llvm23LowerGuardIntrinsicPass3runERNS_8FunctionERNS_1
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %18, i64 noundef 8) #5
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %18, i64 noundef 8) #5
   %.sroa.036.044.i = load ptr, ptr %14, align 8
   %.not4145.i = icmp eq ptr %.sroa.036.044.i, null
   br i1 %.not4145.i, label %._crit_edge.i, label %.lr.ph.i
@@ -127,13 +127,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
   br i1 %.not29.i, label %.loopexit.i, label %.lr.ph50.i
 
 .loopexit.i:                                      ; preds = %.lr.ph50.i
-  %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
+  %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #5
   %61 = load ptr, ptr %5, align 8
   %62 = icmp eq ptr %61, %18
   br i1 %62, label %_ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit, label %_ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit.sink.split
 
 .loopexit.i.thread3:                              ; preds = %._crit_edge.i
-  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
+  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #5
   %64 = load ptr, ptr %5, align 8
   %65 = icmp eq ptr %64, %18
   br i1 %65, label %.sink.split6, label %.thread
@@ -143,7 +143,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
   br label %.sink.split6
 
 .loopexit.i.thread:                               ; preds = %39
-  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
+  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #5
   %67 = load ptr, ptr %5, align 8
   %68 = icmp eq ptr %67, %18
   br i1 %68, label %_ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit, label %_ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit.sink.split

@@ -1339,7 +1339,7 @@ define { i32, i16 } @_ZN14cranelift_wasm5table9TableData18prepare_table_addr17h9
   store ptr %84, ptr %12, align 8, !noalias !209
   %107 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %85, ptr %107, align 8, !noalias !209
-  %108 = call noundef i64 @"_ZN91_$LT$cranelift_codegen..ir..immediates..Imm64$u20$as$u20$core..convert..From$LT$i64$GT$$GT$4from17hca4d59e1f6b46bc4E"(i64 noundef %106)
+  %108 = call noundef i64 @"_ZN91_$LT$cranelift_codegen..ir..immediates..Imm64$u20$as$u20$core..convert..From$LT$i64$GT$$GT$4from17hca4d59e1f6b46bc4E"(i64 noundef range(i64 0, 33) %106)
   %109 = call noundef align 8 dereferenceable(416) ptr @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$15data_flow_graph17h837c0f80df8160fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
   %110 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %109, i32 noundef %.0)
   %111 = load ptr, ptr %12, align 8, !noalias !209, !nonnull !14, !align !15, !noundef !14
@@ -1374,7 +1374,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder8ishl_imm17h7065eead7bc5f088E.exit
   store ptr %84, ptr %10, align 8, !noalias !218
   %122 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %85, ptr %122, align 8, !noalias !218
-  %123 = call noundef i64 @"_ZN91_$LT$cranelift_codegen..ir..immediates..Imm64$u20$as$u20$core..convert..From$LT$i64$GT$$GT$4from17hca4d59e1f6b46bc4E"(i64 noundef %121)
+  %123 = call noundef i64 @"_ZN91_$LT$cranelift_codegen..ir..immediates..Imm64$u20$as$u20$core..convert..From$LT$i64$GT$$GT$4from17hca4d59e1f6b46bc4E"(i64 noundef range(i64 0, 4294967296) %121)
   %124 = call noundef align 8 dereferenceable(416) ptr @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$15data_flow_graph17h837c0f80df8160fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
   %125 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %124, i32 noundef %.0)
   %126 = load ptr, ptr %10, align 8, !noalias !218, !nonnull !14, !align !15, !noundef !14

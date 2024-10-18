@@ -798,7 +798,7 @@ define range(i32 -999, 3) i32 @KINSol(ptr noundef %0, ptr noundef %1, i32 nounde
   %70 = load ptr, ptr %50, align 8
   %71 = load ptr, ptr %14, align 8
   %72 = trunc i64 %.056.i304 to i32
-  tail call fastcc void @AndersenAcc(ptr noundef %0, ptr noundef %69, ptr noundef %44, ptr noundef %70, ptr noundef %71, i32 noundef %72, ptr noundef %40, ptr noundef %42)
+  tail call fastcc void @AndersenAcc(ptr noundef nonnull %0, ptr noundef %69, ptr noundef %44, ptr noundef %70, ptr noundef %71, i32 noundef %72, ptr noundef %40, ptr noundef %42)
   br label %73
 
 73:                                               ; preds = %67, %65
@@ -1102,7 +1102,7 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
 220:                                              ; preds = %218
   %221 = load ptr, ptr %209, align 8
   %222 = load ptr, ptr %16, align 8
-  %223 = tail call fastcc double @KINScFNorm(ptr noundef %0, ptr noundef %221, ptr noundef %222)
+  %223 = tail call fastcc double @KINScFNorm(ptr noundef nonnull %0, ptr noundef %221, ptr noundef %222)
   %224 = getelementptr inbounds i8, ptr %0, i64 24
   %225 = load double, ptr %224, align 8
   %226 = fmul double %225, 1.000000e-02
@@ -1393,7 +1393,7 @@ KINSolInit.exit:                                  ; preds = %254, %243
   %393 = load ptr, ptr %308, align 8
   %394 = load ptr, ptr %14, align 8
   %395 = trunc i64 %.07992.i to i32
-  tail call fastcc void @AndersenAcc(ptr noundef %0, ptr noundef %310, ptr noundef %322, ptr noundef %393, ptr noundef %394, i32 noundef %395, ptr noundef %318, ptr noundef %320)
+  tail call fastcc void @AndersenAcc(ptr noundef nonnull %0, ptr noundef %310, ptr noundef %322, ptr noundef %393, ptr noundef %394, i32 noundef %395, ptr noundef %318, ptr noundef %320)
   br label %396
 
 396:                                              ; preds = %390, %388
@@ -1463,7 +1463,7 @@ KINSolInit.exit:                                  ; preds = %254, %243
   br i1 %.not89.i, label %435, label %434
 
 434:                                              ; preds = %430
-  tail call fastcc void @KINForcingTerm(ptr noundef %0, double noundef %408)
+  tail call fastcc void @KINForcingTerm(ptr noundef nonnull %0, double noundef %408)
   br label %435
 
 435:                                              ; preds = %434, %430
@@ -1629,7 +1629,7 @@ KINLinSolDrv.exit:                                ; preds = %469
   br label %516
 
 497:                                              ; preds = %495
-  %498 = tail call fastcc i32 @KINConstraint(ptr noundef %0)
+  %498 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
   %499 = icmp eq i32 %498, -996
   br i1 %499, label %500, label %.preheader512
 
@@ -1819,7 +1819,7 @@ KINLinSolDrv.exit173:                             ; preds = %566
   br label %609
 
 590:                                              ; preds = %588
-  %591 = tail call fastcc i32 @KINConstraint(ptr noundef %0)
+  %591 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
   %592 = icmp eq i32 %591, -996
   br i1 %592, label %593, label %.preheader516
 

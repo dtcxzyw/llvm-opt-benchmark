@@ -122,7 +122,7 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 60:                                               ; preds = %38
   %61 = add nsw i64 %39, -16383
   %62 = lshr i64 %58, 1
-  %63 = call i64 @llvm.fshl.i64(i64 %58, i64 %54, i64 63)
+  %63 = call i64 @llvm.fshl.i64(i64 range(i64 562949953421312, 0) %58, i64 %54, i64 63)
   %64 = shl i64 %54, 63
   %65 = icmp ne i64 %49, 0
   %66 = zext i1 %65 to i64

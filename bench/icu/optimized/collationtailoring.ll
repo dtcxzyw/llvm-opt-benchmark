@@ -287,7 +287,7 @@ if.end7:                                          ; preds = %if.then2
 
 new.cont:                                         ; preds = %if.end7
   %nfcImpl.i = getelementptr inbounds i8, ptr %call8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call8, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %call8, i8 0, i64 48, i1 false)
   store ptr %call3, ptr %nfcImpl.i, align 8
   %numericPrimary.i = getelementptr inbounds i8, ptr %call8, i64 56
   store i32 301989888, ptr %numericPrimary.i, align 8

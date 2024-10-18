@@ -1399,7 +1399,7 @@ if.end.i:                                         ; preds = %_ZN8QuantLib5ArrayC
   %f_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !59, !noalias !55
-  invoke void %8(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Matrix") align 8 %pseudoRoot, ptr noundef nonnull align 8 dereferenceable(16) %f_, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i)
+  invoke void %8(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Matrix") align 8 %pseudoRoot, ptr noundef nonnull align 8 dereferenceable(32) %f_, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i
@@ -2189,7 +2189,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %f_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %f_, ptr noundef nonnull align 8 dereferenceable(16) %f_, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %f_, ptr noundef nonnull align 8 dereferenceable(32) %f_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -2225,7 +2225,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %f_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %f_.i, ptr noundef nonnull align 8 dereferenceable(16) %f_.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %f_.i, ptr noundef nonnull align 8 dereferenceable(32) %f_.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i

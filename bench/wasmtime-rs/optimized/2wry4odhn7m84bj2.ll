@@ -617,7 +617,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = 
 109:                                              ; preds = %101, %100
   %110 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h4e1507b10849e047E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h4e1507b10849e047E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(144) %9)
           to label %.thread83 unwind label %113, !noalias !22
 
 111:                                              ; preds = %100
@@ -625,7 +625,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = 
 
 112:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !25
-  invoke void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h4e1507b10849e047E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h4e1507b10849e047E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(144) %9)
           to label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$10run_inline17h3938738d861c8416E.exit" unwind label %.loopexit.split-lp
 
 113:                                              ; preds = %109
@@ -1074,7 +1074,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = 
 106:                                              ; preds = %98, %97
   %107 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr146drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hca8f5064588e043cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #57
+  invoke void @"_ZN4core3ptr146drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hca8f5064588e043cE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %8) #57
           to label %.thread106 unwind label %121, !noalias !84
 
 108:                                              ; preds = %97
@@ -1207,7 +1207,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 142:                                              ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i.i.i.i.i"
   %143 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %138, i64 0, i64 %.0.i.i.i.i.i.i.i.i
   %144 = add i64 %.0.i.i.i.i.i.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %143)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %143)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i.i.i.i.i" unwind label %146, !noalias !133
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i": ; preds = %148, %146
@@ -1223,7 +1223,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 148:                                              ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i"
   %149 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %138, i64 0, i64 %.1.i.i.i.i.i.i.i.i
   %150 = add i64 %.1.i.i.i.i.i.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %149)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %149)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i" unwind label %151, !noalias !133
 
 151:                                              ; preds = %148
@@ -1648,7 +1648,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 135:                                              ; preds = %132, %131
   %136 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr1520drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc09aa2878a576d23E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7) #57
+  invoke void @"_ZN4core3ptr1520drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc09aa2878a576d23E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %7) #57
           to label %.body47 unwind label %167, !noalias !176
 
 137:                                              ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
@@ -2153,7 +2153,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 135:                                              ; preds = %132, %131
   %136 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr1318drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h41b788b994f68cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7) #57
+  invoke void @"_ZN4core3ptr1318drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h41b788b994f68cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %7) #57
           to label %.body47 unwind label %157, !noalias !249
 
 137:                                              ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
@@ -2184,7 +2184,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 146:                                              ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i.i.i.i.i"
   %147 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %142, i64 0, i64 %.0.i.i.i.i.i.i.i.i
   %148 = add i64 %.0.i.i.i.i.i.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %147)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %147)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i.i.i.i.i" unwind label %150, !noalias !272
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i": ; preds = %152, %150
@@ -2200,7 +2200,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 152:                                              ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i"
   %153 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %142, i64 0, i64 %.1.i.i.i.i.i.i.i.i
   %154 = add i64 %.1.i.i.i.i.i.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %153)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %153)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i" unwind label %155, !noalias !272
 
 155:                                              ; preds = %152
@@ -2633,7 +2633,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 135:                                              ; preds = %132, %131
   %136 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr1523drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cd41c82e57d925eE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7) #57
+  invoke void @"_ZN4core3ptr1523drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cd41c82e57d925eE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %7) #57
           to label %.body47 unwind label %167, !noalias !315
 
 137:                                              ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
@@ -3030,7 +3030,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = 
 109:                                              ; preds = %101, %100
   %110 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h4e1507b10849e047E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h4e1507b10849e047E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(144) %9)
           to label %.thread83 unwind label %113, !noalias !363
 
 111:                                              ; preds = %100
@@ -3038,7 +3038,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = 
 
 112:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !366
-  invoke void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h4e1507b10849e047E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h4e1507b10849e047E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(144) %9)
           to label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$10run_inline17h43ae51310a28a954E.exit" unwind label %.loopexit.split-lp
 
 113:                                              ; preds = %109
@@ -3670,7 +3670,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
 40:                                               ; preds = %10
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr2889drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5eef9dee7bb5da3fE.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7)
+  invoke void @"_ZN4core3ptr2889drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5eef9dee7bb5da3fE.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %7)
           to label %.body.thread.i unwind label %42, !noalias !455
 
 42:                                               ; preds = %40
@@ -3680,7 +3680,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
   unreachable
 
 44:                                               ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i
-  call void @"_ZN4core3ptr2889drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5eef9dee7bb5da3fE.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7), !noalias !455
+  call void @"_ZN4core3ptr2889drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5eef9dee7bb5da3fE.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %7), !noalias !455
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.6.llvm.17514045976136648023, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.227.llvm.17514045976136648023, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.8.llvm.17514045976136648023) #56, !noalias !456
   unreachable
@@ -3826,7 +3826,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
 40:                                               ; preds = %10
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr2829drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2401261c74e19e41E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %7)
+  invoke void @"_ZN4core3ptr2829drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2401261c74e19e41E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %7)
           to label %.body.thread.i unwind label %42, !noalias !491
 
 42:                                               ; preds = %40
@@ -3836,7 +3836,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
   unreachable
 
 44:                                               ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i
-  call void @"_ZN4core3ptr2829drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2401261c74e19e41E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %7), !noalias !491
+  call void @"_ZN4core3ptr2829drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2401261c74e19e41E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %7), !noalias !491
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.6.llvm.17514045976136648023, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.227.llvm.17514045976136648023, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.8.llvm.17514045976136648023) #56, !noalias !492
   unreachable
@@ -3982,7 +3982,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
 40:                                               ; preds = %10
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10a4729ec12fc87E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7)
+  invoke void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10a4729ec12fc87E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %7)
           to label %.body.thread.i unwind label %42, !noalias !527
 
 42:                                               ; preds = %40
@@ -3992,7 +3992,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
   unreachable
 
 44:                                               ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i
-  call void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10a4729ec12fc87E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7), !noalias !527
+  call void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10a4729ec12fc87E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %7), !noalias !527
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.6.llvm.17514045976136648023, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.227.llvm.17514045976136648023, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.8.llvm.17514045976136648023) #56, !noalias !528
   unreachable
@@ -4138,7 +4138,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
 40:                                               ; preds = %10
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc803735ee91a8f40E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %7)
+  invoke void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc803735ee91a8f40E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %7)
           to label %.body.thread.i unwind label %42, !noalias !563
 
 42:                                               ; preds = %40
@@ -4148,7 +4148,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
   unreachable
 
 44:                                               ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i
-  call void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc803735ee91a8f40E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %7), !noalias !563
+  call void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc803735ee91a8f40E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %7), !noalias !563
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.6.llvm.17514045976136648023, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.227.llvm.17514045976136648023, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.8.llvm.17514045976136648023) #56, !noalias !564
   unreachable
@@ -4294,7 +4294,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
 40:                                               ; preds = %10
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr2823drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he6b28c8a5f71f095E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %7)
+  invoke void @"_ZN4core3ptr2823drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he6b28c8a5f71f095E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %7)
           to label %.body.thread.i unwind label %42, !noalias !599
 
 42:                                               ; preds = %40
@@ -4304,7 +4304,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
   unreachable
 
 44:                                               ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i
-  call void @"_ZN4core3ptr2823drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he6b28c8a5f71f095E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %7), !noalias !599
+  call void @"_ZN4core3ptr2823drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he6b28c8a5f71f095E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %7), !noalias !599
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.6.llvm.17514045976136648023, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.227.llvm.17514045976136648023, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.8.llvm.17514045976136648023) #56, !noalias !600
   unreachable
@@ -4450,7 +4450,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
 40:                                               ; preds = %10
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr2883drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfadd208dec24634E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7)
+  invoke void @"_ZN4core3ptr2883drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfadd208dec24634E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %7)
           to label %.body.thread.i unwind label %42, !noalias !635
 
 42:                                               ; preds = %40
@@ -4460,7 +4460,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %17
   unreachable
 
 44:                                               ; preds = %_ZN10rayon_core8registry8Registry14in_worker_cold10LOCK_LATCH7__getit17hc231e822cd844f28E.exit.i
-  call void @"_ZN4core3ptr2883drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfadd208dec24634E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7), !noalias !635
+  call void @"_ZN4core3ptr2883drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfadd208dec24634E.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %7), !noalias !635
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.6.llvm.17514045976136648023, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.227.llvm.17514045976136648023, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.8.llvm.17514045976136648023) #56, !noalias !636
   unreachable
@@ -4558,7 +4558,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %24, label %.body.thread, label %25
 
 25:                                               ; preds = %21
-  invoke void @"_ZN4core3ptr2889drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5eef9dee7bb5da3fE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(152) %5)
+  invoke void @"_ZN4core3ptr2889drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5eef9dee7bb5da3fE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(240) %5)
           to label %.body.thread unwind label %31, !noalias !642
 
 26:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
@@ -4573,7 +4573,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %29, label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17h67a838553c41c02cE.exit", label %30
 
 30:                                               ; preds = %26
-  call void @"_ZN4core3ptr2889drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5eef9dee7bb5da3fE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(152) %5)
+  call void @"_ZN4core3ptr2889drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5eef9dee7bb5da3fE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(240) %5)
   br label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17h67a838553c41c02cE.exit"
 
 31:                                               ; preds = %25
@@ -4681,7 +4681,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %24, label %.body.thread, label %25
 
 25:                                               ; preds = %21
-  invoke void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10a4729ec12fc87E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(152) %5)
+  invoke void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10a4729ec12fc87E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(240) %5)
           to label %.body.thread unwind label %31, !noalias !662
 
 26:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
@@ -4696,7 +4696,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %29, label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17h952b0001b491e02bE.exit", label %30
 
 30:                                               ; preds = %26
-  call void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10a4729ec12fc87E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(152) %5)
+  call void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf10a4729ec12fc87E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(240) %5)
   br label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17h952b0001b491e02bE.exit"
 
 31:                                               ; preds = %25
@@ -4804,7 +4804,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %24, label %.body.thread, label %25
 
 25:                                               ; preds = %21
-  invoke void @"_ZN4core3ptr2829drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2401261c74e19e41E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
+  invoke void @"_ZN4core3ptr2829drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2401261c74e19e41E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(208) %5)
           to label %.body.thread unwind label %31, !noalias !682
 
 26:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
@@ -4819,7 +4819,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %29, label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17he096e7a170a3f5c5E.exit", label %30
 
 30:                                               ; preds = %26
-  call void @"_ZN4core3ptr2829drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2401261c74e19e41E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
+  call void @"_ZN4core3ptr2829drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2401261c74e19e41E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(208) %5)
   br label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17he096e7a170a3f5c5E.exit"
 
 31:                                               ; preds = %25
@@ -4927,7 +4927,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %24, label %.body.thread, label %25
 
 25:                                               ; preds = %21
-  invoke void @"_ZN4core3ptr2883drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfadd208dec24634E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(152) %5)
+  invoke void @"_ZN4core3ptr2883drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfadd208dec24634E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(240) %5)
           to label %.body.thread unwind label %31, !noalias !702
 
 26:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
@@ -4942,7 +4942,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %29, label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17hacc688986e2a781bE.exit", label %30
 
 30:                                               ; preds = %26
-  call void @"_ZN4core3ptr2883drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfadd208dec24634E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(152) %5)
+  call void @"_ZN4core3ptr2883drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfadd208dec24634E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(240) %5)
   br label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17hacc688986e2a781bE.exit"
 
 31:                                               ; preds = %25
@@ -5050,7 +5050,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %24, label %.body.thread, label %25
 
 25:                                               ; preds = %21
-  invoke void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc803735ee91a8f40E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
+  invoke void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc803735ee91a8f40E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(208) %5)
           to label %.body.thread unwind label %31, !noalias !722
 
 26:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
@@ -5065,7 +5065,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %29, label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17hbb13af6ea0db99c0E.exit", label %30
 
 30:                                               ; preds = %26
-  call void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc803735ee91a8f40E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
+  call void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc803735ee91a8f40E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(208) %5)
   br label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17hbb13af6ea0db99c0E.exit"
 
 31:                                               ; preds = %25
@@ -5173,7 +5173,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %24, label %.body.thread, label %25
 
 25:                                               ; preds = %21
-  invoke void @"_ZN4core3ptr2823drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he6b28c8a5f71f095E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
+  invoke void @"_ZN4core3ptr2823drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he6b28c8a5f71f095E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(208) %5)
           to label %.body.thread unwind label %31, !noalias !742
 
 26:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
@@ -5188,7 +5188,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   br i1 %29, label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17hba15276332d95043E.exit", label %30
 
 30:                                               ; preds = %26
-  call void @"_ZN4core3ptr2823drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he6b28c8a5f71f095E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
+  call void @"_ZN4core3ptr2823drop_in_place$LT$rayon_core..join..join_context$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he6b28c8a5f71f095E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(208) %5)
   br label %"_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17hba15276332d95043E.exit"
 
 31:                                               ; preds = %25
@@ -5415,7 +5415,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h213af561c1da111cE(ptr n
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h5b5a2e5760d94348E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h5b5a2e5760d94348E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h3d5638fd2b4e6b9aE.llvm.17514045976136648023.exit
 
 12:                                               ; preds = %7
@@ -5429,7 +5429,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h213af561c1da111cE(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h3d5638fd2b4e6b9aE.llvm.17514045976136648023.exit
 
 16:                                               ; preds = %12
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h893ea991cf04c1e2E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h893ea991cf04c1e2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h3d5638fd2b4e6b9aE.llvm.17514045976136648023.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17h3d5638fd2b4e6b9aE.llvm.17514045976136648023.exit: ; preds = %11, %15, %16, %6
@@ -5473,7 +5473,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h577b5ef7d4a94094E(ptr n
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h1ae09fe55d56a1f0E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h1ae09fe55d56a1f0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h9e403e64de1fc9d0E.llvm.17514045976136648023.exit
 
 12:                                               ; preds = %7
@@ -5487,7 +5487,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h577b5ef7d4a94094E(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h9e403e64de1fc9d0E.llvm.17514045976136648023.exit
 
 16:                                               ; preds = %12
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h09f4a43361730385E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h09f4a43361730385E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h9e403e64de1fc9d0E.llvm.17514045976136648023.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17h9e403e64de1fc9d0E.llvm.17514045976136648023.exit: ; preds = %11, %15, %16, %6
@@ -5531,7 +5531,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h72d649e2daf81d79E(ptr n
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hab505ace9f8bfd0bE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17hab505ace9f8bfd0bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h6335f3ccee412369E.llvm.17514045976136648023.exit
 
 12:                                               ; preds = %7
@@ -5545,7 +5545,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h72d649e2daf81d79E(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h6335f3ccee412369E.llvm.17514045976136648023.exit
 
 16:                                               ; preds = %12
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h2f9765c2abb330faE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h2f9765c2abb330faE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h6335f3ccee412369E.llvm.17514045976136648023.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17h6335f3ccee412369E.llvm.17514045976136648023.exit: ; preds = %11, %15, %16, %6
@@ -5589,7 +5589,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h738889322aff6fc2E(ptr n
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h4bf7e43db8f7e8f1E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h4bf7e43db8f7e8f1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h5315212054a8d1aaE.llvm.17514045976136648023.exit
 
 12:                                               ; preds = %7
@@ -5603,7 +5603,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h738889322aff6fc2E(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h5315212054a8d1aaE.llvm.17514045976136648023.exit
 
 16:                                               ; preds = %12
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h2b543c3f5f01762aE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h2b543c3f5f01762aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h5315212054a8d1aaE.llvm.17514045976136648023.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17h5315212054a8d1aaE.llvm.17514045976136648023.exit: ; preds = %11, %15, %16, %6
@@ -5647,7 +5647,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h8bcd5c27ede45edbE(ptr n
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h4e245d4261ebad5aE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h4e245d4261ebad5aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h752edd194ca0562fE.llvm.17514045976136648023.exit
 
 12:                                               ; preds = %7
@@ -5661,7 +5661,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h8bcd5c27ede45edbE(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17h752edd194ca0562fE.llvm.17514045976136648023.exit
 
 16:                                               ; preds = %12
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h1f6db71dd314a91eE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17h1f6db71dd314a91eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(152) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17h752edd194ca0562fE.llvm.17514045976136648023.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17h752edd194ca0562fE.llvm.17514045976136648023.exit: ; preds = %11, %15, %16, %6
@@ -5705,7 +5705,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17ha5abe251e5035cffE(ptr n
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h876a081fe35386f3E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry14in_worker_cold17h876a081fe35386f3E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hfa4b3dcfa479b678E.llvm.17514045976136648023.exit
 
 12:                                               ; preds = %7
@@ -5719,7 +5719,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17ha5abe251e5035cffE(ptr n
   br label %_ZN10rayon_core8registry8Registry9in_worker17hfa4b3dcfa479b678E.llvm.17514045976136648023.exit
 
 16:                                               ; preds = %12
-  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf83b286631348d0aE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1)
+  tail call fastcc void @_ZN10rayon_core8registry8Registry15in_worker_cross17hf83b286631348d0aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 128 %9, ptr noundef nonnull align 128 %.0.val.i.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %_ZN10rayon_core8registry8Registry9in_worker17hfa4b3dcfa479b678E.llvm.17514045976136648023.exit
 
 _ZN10rayon_core8registry8Registry9in_worker17hfa4b3dcfa479b678E.llvm.17514045976136648023.exit: ; preds = %11, %15, %16, %6
@@ -6483,7 +6483,7 @@ define hidden void @"_ZN112_$LT$object..read..xcoff..symbol..XcoffSymbol$LT$Xcof
 30:                                               ; preds = %26
   %31 = load atomic i64, ptr @_ZN6memchr6memchr3x866memchr2FN17hb6fe46f54b2e976bE monotonic, align 8, !noalias !1005
   %.0.i.i.i = inttoptr i64 %31 to ptr
-  %32 = tail call { i64, i64 } %.0.i.i.i(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef 8), !noalias !1002
+  %32 = tail call { i64, i64 } %.0.i.i.i(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(18) %23, i64 noundef 8), !noalias !1002
   %33 = extractvalue { i64, i64 } %32, 0
   %switch.i.i = icmp eq i64 %33, 0
   br i1 %switch.i.i, label %_ZN6object4read5xcoff6symbol7FileAux5fname17he818a31aa4797d36E.exit.i.thread, label %34
@@ -6602,7 +6602,7 @@ define hidden void @"_ZN112_$LT$object..read..xcoff..symbol..XcoffSymbol$LT$Xcof
 20:                                               ; preds = %13
   %21 = load atomic i64, ptr @_ZN6memchr6memchr3x866memchr2FN17hb6fe46f54b2e976bE monotonic, align 8, !noalias !1033
   %.0.i.i.i = inttoptr i64 %21 to ptr
-  %22 = tail call { i64, i64 } %.0.i.i.i(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 8), !noalias !1029
+  %22 = tail call { i64, i64 } %.0.i.i.i(i8 noundef 0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %7, i64 noundef 8), !noalias !1029
   %23 = extractvalue { i64, i64 } %22, 0
   %switch.i.i = icmp eq i64 %23, 0
   br i1 %switch.i.i, label %"_ZN112_$LT$object..read..xcoff..symbol..XcoffSymbol$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$10name_bytes17hcf444c0b63b661abE.exit.thread28", label %24
@@ -6646,7 +6646,7 @@ define hidden void @"_ZN112_$LT$object..read..xcoff..symbol..XcoffSymbol$LT$Xcof
 43:                                               ; preds = %39
   %44 = load atomic i64, ptr @_ZN6memchr6memchr3x866memchr2FN17hb6fe46f54b2e976bE monotonic, align 8, !noalias !1047
   %.0.i.i6.i = inttoptr i64 %44 to ptr
-  %45 = tail call { i64, i64 } %.0.i.i6.i(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef 8), !noalias !1044
+  %45 = tail call { i64, i64 } %.0.i.i6.i(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(18) %38, i64 noundef 8), !noalias !1044
   %46 = extractvalue { i64, i64 } %45, 0
   %switch.i7.i = icmp eq i64 %46, 0
   br i1 %switch.i7.i, label %_ZN6object4read5xcoff6symbol7FileAux5fname17h893ed6f4adcee27cE.exit.i.thread, label %47
@@ -7378,7 +7378,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.i.i: ; 
 104:                                              ; preds = %71
   %105 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17haeee4e45bab1850eE"(ptr noalias noundef align 8 dereferenceable(32) %18) #57
+  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17haeee4e45bab1850eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #57
           to label %.body unwind label %106, !noalias !1130
 
 106:                                              ; preds = %104
@@ -7663,7 +7663,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.i.i: ; 
 
 .body.thread.i.i:                                 ; preds = %.body.thread26.i.i, %.thread73.i.i.i, %171
   %eh.lpad-body24.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.body.thread26.i.i ], [ %lpad.phi.i.i.i, %.thread73.i.i.i ], [ %lpad.phi.i.i.i, %171 ]
-  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17haeee4e45bab1850eE"(ptr noalias noundef align 8 dereferenceable(32) %17) #57
+  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17haeee4e45bab1850eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #57
           to label %.body unwind label %182, !noalias !1150
 
 182:                                              ; preds = %.body.thread.i.i
@@ -7709,7 +7709,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.i.i: ; 
   br i1 %.sroa.18.0.in.i.i.i13.i, label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit.i.i, label %188
 
 188:                                              ; preds = %186
-  invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex14lock_contended17hf70df39e402d52e1E(ptr noundef nonnull align 4 %.val11)
+  invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex14lock_contended17hf70df39e402d52e1E(ptr noundef nonnull align 8 %.val11)
           to label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit.i.i unwind label %189, !noalias !1172
 
 .body.i.i:                                        ; preds = %231
@@ -7816,7 +7816,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
   br i1 %226, label %227, label %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h31674b45c73d45fbE.llvm.17514045976136648023.exit.i.i"
 
 227:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i.i.i
-  invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %.val11)
+  invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 8 %.val11)
           to label %"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h31674b45c73d45fbE.llvm.17514045976136648023.exit.i.i" unwind label %231, !noalias !1172
 
 228:                                              ; preds = %214
@@ -7859,7 +7859,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
 
 239:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1197
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %238)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %238)
           to label %.noexc33.i.i unwind label %231, !noalias !1172
 
 .noexc33.i.i:                                     ; preds = %239
@@ -7885,7 +7885,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
 
 248:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !1215
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %238)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %238)
           to label %.noexc34.i.i unwind label %231, !noalias !1172
 
 .noexc34.i.i:                                     ; preds = %248
@@ -8040,7 +8040,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
   br i1 %291, label %292, label %.noexc43.i.i
 
 292:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i41.i.i
-  invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %.val11)
+  invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 8 %.val11)
           to label %.noexc43.i.i unwind label %280, !noalias !1172
 
 293:                                              ; preds = %.noexc43.i.i
@@ -8122,7 +8122,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
 
 .thread.i.i:                                      ; preds = %212, %203, %189, %.body.i.i
   %.pn2764.i.i = phi { ptr, i32 } [ %232, %.body.i.i ], [ %213, %212 ], [ %204, %203 ], [ %lpad.thr_comm.split-lp.i.i, %189 ]
-  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17haeee4e45bab1850eE"(ptr noalias noundef align 8 dereferenceable(32) %16) #57
+  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17haeee4e45bab1850eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #57
           to label %.body unwind label %278, !noalias !1192
 
 "_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$8try_send17ha0472cb61c105cf0E.exit.i": ; preds = %.noexc22, %293, %.noexc43.i.i, %.thread77.i.i
@@ -8202,7 +8202,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
 
 336:                                              ; preds = %332
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1350
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %335)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %335)
   %337 = getelementptr inbounds i8, ptr %4, i64 8
   %338 = load i64, ptr %337, align 8, !range !1214, !noalias !1350, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %338, 0
@@ -8225,7 +8225,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
 
 345:                                              ; preds = %332
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1363
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %335)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %335)
   %346 = getelementptr inbounds i8, ptr %3, i64 8
   %347 = load i64, ptr %346, align 8, !range !1214, !noalias !1363, !noundef !4
   %.not.i.i.i.i.i.i1.i = icmp eq i64 %347, 0
@@ -8613,7 +8613,7 @@ define hidden void @"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17ha1730
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1401
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2301d525f96a3f5E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2301d525f96a3f5E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !range !1214, !noalias !1401, !noundef !4
   %.not.i.i.i = icmp eq i64 %9, 0
@@ -9980,7 +9980,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   br i1 %33, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i, %26
-  invoke fastcc void @_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E(ptr noalias noundef align 8 dereferenceable(48) %27)
+  invoke fastcc void @_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E(ptr noalias noundef nonnull align 8 dereferenceable(48) %27)
           to label %_ZN3std4sync4mpmc5waker5Waker10disconnect17hb7d793ca29eab969E.llvm.17514045976136648023.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .lr.ph.i:                                         ; preds = %26, %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i
@@ -10042,7 +10042,7 @@ _ZN3std4sync4mpmc5waker5Waker10disconnect17hb7d793ca29eab969E.llvm.1751404597613
   br i1 %54, label %._crit_edge.i7, label %.lr.ph.i2
 
 ._crit_edge.i7:                                   ; preds = %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i6, %_ZN3std4sync4mpmc5waker5Waker10disconnect17hb7d793ca29eab969E.llvm.17514045976136648023.exit
-  invoke fastcc void @_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E(ptr noalias noundef align 8 dereferenceable(48) %48)
+  invoke fastcc void @_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E(ptr noalias noundef nonnull align 8 dereferenceable(48) %48)
           to label %._crit_edge.i7._ZN3std4sync4mpmc5waker5Waker10disconnect17hb7d793ca29eab969E.llvm.17514045976136648023.exit9_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp
 
 ._crit_edge.i7._ZN3std4sync4mpmc5waker5Waker10disconnect17hb7d793ca29eab969E.llvm.17514045976136648023.exit9_crit_edge: ; preds = %._crit_edge.i7
@@ -10576,7 +10576,7 @@ common.resume:                                    ; preds = %42, %16
   br i1 %28, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haeb64e04f0a90b59E.exit"
-  invoke fastcc void @_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E(ptr noalias noundef align 8 dereferenceable(48) %22)
+  invoke fastcc void @_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08ab59E(ptr noalias noundef nonnull align 8 dereferenceable(48) %22)
           to label %_ZN3std4sync4mpmc5waker5Waker10disconnect17hb7d793ca29eab969E.llvm.17514045976136648023.exit unwind label %.loopexit.split-lp
 
 .lr.ph.i:                                         ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haeb64e04f0a90b59E.exit", %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i
@@ -11418,7 +11418,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1772
   %9 = getelementptr inbounds i8, ptr %5, i64 56
   store ptr %9, ptr %3, align 8, !noalias !1772
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17h62cf7c27c5cd257bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.249, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.250, i64 noundef 6, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.251, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.252, i64 noundef 27, ptr noundef nonnull readonly align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.253, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.254, i64 noundef 7, ptr noundef nonnull readonly align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.251, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.255, i64 noundef 28, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.256), !noalias !1767
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17h62cf7c27c5cd257bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.249, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.250, i64 noundef 6, ptr noundef nonnull readonly align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.251, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.252, i64 noundef 27, ptr noundef nonnull readonly align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.253, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.254, i64 noundef 7, ptr noundef nonnull readonly align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.251, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.255, i64 noundef 28, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.256), !noalias !1767
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1772
   ret i1 %10
 }
@@ -11681,7 +11681,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1842
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %.noexc.i.i unwind label %18, !noalias !1835
 
 .noexc.i.i:                                       ; preds = %9
@@ -11753,7 +11753,7 @@ define hidden void @"_ZN4core3ptr1100drop_in_place$LT$rayon..iter..plumbing..bri
 7:                                                ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i"
   %8 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.0.i.i.i
   %9 = add i64 %.0.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i" unwind label %11, !noalias !1864
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i": ; preds = %13, %11
@@ -11769,7 +11769,7 @@ define hidden void @"_ZN4core3ptr1100drop_in_place$LT$rayon..iter..plumbing..bri
 13:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i"
   %14 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.1.i.i.i
   %15 = add i64 %.1.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i" unwind label %17, !noalias !1864
 
 16:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i"
@@ -11803,7 +11803,7 @@ define hidden void @"_ZN4core3ptr1100drop_in_place$LT$rayon..iter..plumbing..bri
 7:                                                ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i"
   %8 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.0.i.i.i
   %9 = add i64 %.0.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i" unwind label %11, !noalias !1871
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i": ; preds = %13, %11
@@ -11819,7 +11819,7 @@ define hidden void @"_ZN4core3ptr1100drop_in_place$LT$rayon..iter..plumbing..bri
 13:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i"
   %14 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.1.i.i.i
   %15 = add i64 %.1.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i" unwind label %17, !noalias !1871
 
 16:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i"
@@ -11853,7 +11853,7 @@ define hidden void @"_ZN4core3ptr1127drop_in_place$LT$rayon..iter..plumbing..bri
 7:                                                ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i"
   %8 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.0.i.i.i
   %9 = add i64 %.0.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i" unwind label %11, !noalias !1878
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i": ; preds = %13, %11
@@ -11869,7 +11869,7 @@ define hidden void @"_ZN4core3ptr1127drop_in_place$LT$rayon..iter..plumbing..bri
 13:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i"
   %14 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.1.i.i.i
   %15 = add i64 %.1.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i" unwind label %17, !noalias !1878
 
 16:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i"
@@ -11903,7 +11903,7 @@ define hidden void @"_ZN4core3ptr1127drop_in_place$LT$rayon..iter..plumbing..bri
 7:                                                ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i"
   %8 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.0.i.i.i
   %9 = add i64 %.0.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i" unwind label %11, !noalias !1885
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i": ; preds = %13, %11
@@ -11919,7 +11919,7 @@ define hidden void @"_ZN4core3ptr1127drop_in_place$LT$rayon..iter..plumbing..bri
 13:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i"
   %14 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.1.i.i.i
   %15 = add i64 %.1.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i" unwind label %17, !noalias !1885
 
 16:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i"
@@ -12298,7 +12298,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..result..Resu
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1952
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8, !range !1214, !noalias !1952, !noundef !4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
@@ -12321,7 +12321,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..result..Resu
 
 24:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1965
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   %25 = getelementptr inbounds i8, ptr %4, i64 8
   %26 = load i64, ptr %25, align 8, !range !1214, !noalias !1965, !noundef !4
   %.not.i.i.i.i.i.i1.i.i = icmp eq i64 %26, 0
@@ -12350,7 +12350,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..result..Resu
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1982
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   %37 = getelementptr inbounds i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8, !range !1214, !noalias !1982, !noundef !4
   %.not.i.i.i.i.i.i.i3.i = icmp eq i64 %38, 0
@@ -12373,7 +12373,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..result..Resu
 
 45:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1995
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   %46 = getelementptr inbounds i8, ptr %2, i64 8
   %47 = load i64, ptr %46, align 8, !range !1214, !noalias !1995, !noundef !4
   %.not.i.i.i.i.i.i1.i1.i = icmp eq i64 %47, 0
@@ -12726,7 +12726,7 @@ define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..J
   br i1 %16, label %common.resume, label %17
 
 17:                                               ; preds = %9
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %12, i64 noundef %14) #45, !noalias !2068
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 1, -9223372036854775807) %14) #45, !noalias !2068
   br label %common.resume
 
 18:                                               ; preds = %3
@@ -12740,7 +12740,7 @@ define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$rayon_core..job..J
   br i1 %24, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit", label %25
 
 25:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %20, i64 noundef %22) #45, !noalias !2072
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #45, !noalias !2072
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit"
 
 common.resume:                                    ; preds = %36, %9, %17
@@ -12896,7 +12896,7 @@ define hidden void @"_ZN4core3ptr172drop_in_place$LT$wasmtime_fiber..RunResult$L
   br i1 %16, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b21777bd45783aeE.llvm.17514045976136648023.exit.i", label %17
 
 17:                                               ; preds = %9
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %12, i64 noundef %14) #45, !noalias !2091
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 1, -9223372036854775807) %14) #45, !noalias !2091
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b21777bd45783aeE.llvm.17514045976136648023.exit.i"
 
 18:                                               ; preds = %3
@@ -12910,7 +12910,7 @@ define hidden void @"_ZN4core3ptr172drop_in_place$LT$wasmtime_fiber..RunResult$L
   br i1 %24, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit", label %25
 
 25:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %20, i64 noundef %22) #45, !noalias !2094
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #45, !noalias !2094
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b21777bd45783aeE.llvm.17514045976136648023.exit.i": ; preds = %17, %9
@@ -12971,7 +12971,7 @@ define internal fastcc void @"_ZN4core3ptr230drop_in_place$LT$rayon_core..job..J
   br i1 %16, label %common.resume, label %17
 
 17:                                               ; preds = %9
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %12, i64 noundef %14) #45, !noalias !2106
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 1, -9223372036854775807) %14) #45, !noalias !2106
   br label %common.resume
 
 18:                                               ; preds = %3
@@ -12985,7 +12985,7 @@ define internal fastcc void @"_ZN4core3ptr230drop_in_place$LT$rayon_core..job..J
   br i1 %24, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit", label %25
 
 25:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %20, i64 noundef %22) #45, !noalias !2109
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #45, !noalias !2109
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit"
 
 common.resume:                                    ; preds = %28, %9, %17
@@ -12997,7 +12997,7 @@ common.resume:                                    ; preds = %28, %9, %17
 
 26:                                               ; preds = %1
   %27 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f71faee4b75d4f0E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  invoke void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f71faee4b75d4f0E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(48) %27)
           to label %"_ZN4core3ptr196drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$RP$$GT$17hc34575a88c2d8252E.exit" unwind label %28
 
 28:                                               ; preds = %26
@@ -13050,7 +13050,7 @@ define internal fastcc void @"_ZN4core3ptr236drop_in_place$LT$rayon_core..job..J
   br i1 %16, label %common.resume, label %17
 
 17:                                               ; preds = %9
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %12, i64 noundef %14) #45, !noalias !2115
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 1, -9223372036854775807) %14) #45, !noalias !2115
   br label %common.resume
 
 18:                                               ; preds = %3
@@ -13064,7 +13064,7 @@ define internal fastcc void @"_ZN4core3ptr236drop_in_place$LT$rayon_core..job..J
   br i1 %24, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit", label %25
 
 25:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %20, i64 noundef %22) #45, !noalias !2118
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #45, !noalias !2118
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit"
 
 common.resume:                                    ; preds = %55, %.body.i, %9, %17
@@ -13190,7 +13190,7 @@ define hidden void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_con
 7:                                                ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i"
   %8 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.0.i.i.i.i
   %9 = add i64 %.0.i.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i" unwind label %11, !noalias !2147
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i": ; preds = %13, %11
@@ -13206,7 +13206,7 @@ define hidden void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_con
 13:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i"
   %14 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.1.i.i.i.i
   %15 = add i64 %.1.i.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i" unwind label %16, !noalias !2147
 
 16:                                               ; preds = %13
@@ -13238,7 +13238,7 @@ define hidden void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_con
 24:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i1"
   %25 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %20, i64 0, i64 %.0.i.i.i.i2
   %26 = add i64 %.0.i.i.i.i2, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %25)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i1" unwind label %28, !noalias !2157
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i3": ; preds = %30, %28
@@ -13254,7 +13254,7 @@ define hidden void @"_ZN4core3ptr2419drop_in_place$LT$rayon_core..join..join_con
 30:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i3"
   %31 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %20, i64 0, i64 %.1.i.i.i.i4
   %32 = add i64 %.1.i.i.i.i4, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %31)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i3" unwind label %33, !noalias !2157
 
 common.resume:                                    ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i3", %.body
@@ -13296,7 +13296,7 @@ define hidden void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_con
 7:                                                ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i"
   %8 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.0.i.i.i.i
   %9 = add i64 %.0.i.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i" unwind label %11, !noalias !2167
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i": ; preds = %13, %11
@@ -13312,7 +13312,7 @@ define hidden void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_con
 13:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i"
   %14 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %3, i64 0, i64 %.1.i.i.i.i
   %15 = add i64 %.1.i.i.i.i, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %14)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i" unwind label %16, !noalias !2167
 
 16:                                               ; preds = %13
@@ -13344,7 +13344,7 @@ define hidden void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_con
 24:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i1"
   %25 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %20, i64 0, i64 %.0.i.i.i.i2
   %26 = add i64 %.0.i.i.i.i2, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %25)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i.i1" unwind label %28, !noalias !2177
 
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i3": ; preds = %30, %28
@@ -13360,7 +13360,7 @@ define hidden void @"_ZN4core3ptr2431drop_in_place$LT$rayon_core..join..join_con
 30:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i3"
   %31 = getelementptr inbounds [0 x { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }], ptr %20, i64 0, i64 %.1.i.i.i.i4
   %32 = add i64 %.1.i.i.i.i4, 1
-  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
+  invoke void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9780a23846a6bb3E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(64) %31)
           to label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i3" unwind label %33, !noalias !2177
 
 common.resume:                                    ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i3", %.body
@@ -13439,7 +13439,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.545668473
   br i1 %26, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5456684732158232753.exit.i.i.i.i, label %27
 
 27:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5456684732158232753.exit.i.i.i.i.i
-  tail call void @_ZN4core4sync6atomic12atomic_store17hb38a6acb4621df75E.llvm.5456684732158232753(ptr noundef nonnull %20, i8 noundef 1, i8 noundef 0), !noalias !2182
+  tail call void @_ZN4core4sync6atomic12atomic_store17hb38a6acb4621df75E.llvm.5456684732158232753(ptr noundef nonnull align 1 %20, i8 noundef 1, i8 noundef 0), !noalias !2182
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5456684732158232753.exit.i.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5456684732158232753.exit.i.i.i.i: ; preds = %27, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5456684732158232753.exit.i.i.i.i.i, %22, %18
@@ -13496,7 +13496,7 @@ define internal fastcc void @"_ZN4core3ptr278drop_in_place$LT$rayon_core..job..J
   br i1 %16, label %common.resume, label %17
 
 17:                                               ; preds = %9
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %12, i64 noundef %14) #45, !noalias !2195
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 1, -9223372036854775807) %14) #45, !noalias !2195
   br label %common.resume
 
 18:                                               ; preds = %3
@@ -13510,7 +13510,7 @@ define internal fastcc void @"_ZN4core3ptr278drop_in_place$LT$rayon_core..job..J
   br i1 %24, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit", label %25
 
 25:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %20, i64 noundef %22) #45, !noalias !2198
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #45, !noalias !2198
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h910266c3aa2e11dbE.llvm.17514045976136648023.exit"
 
 common.resume:                                    ; preds = %28, %9, %17
@@ -13522,7 +13522,7 @@ common.resume:                                    ; preds = %28, %9, %17
 
 26:                                               ; preds = %1
   %27 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3616301421c3d571E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  invoke void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3616301421c3d571E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(48) %27)
           to label %"_ZN4core3ptr244drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$RP$$GT$17he0b625eb88949e5eE.exit" unwind label %28
 
 28:                                               ; preds = %26
@@ -14234,7 +14234,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.545668473
   br i1 %26, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5456684732158232753.exit.i.i.i.i, label %27
 
 27:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5456684732158232753.exit.i.i.i.i.i
-  tail call void @_ZN4core4sync6atomic12atomic_store17hb38a6acb4621df75E.llvm.5456684732158232753(ptr noundef nonnull %20, i8 noundef 1, i8 noundef 0), !noalias !2340
+  tail call void @_ZN4core4sync6atomic12atomic_store17hb38a6acb4621df75E.llvm.5456684732158232753(ptr noundef nonnull align 1 %20, i8 noundef 1, i8 noundef 0), !noalias !2340
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5456684732158232753.exit.i.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5456684732158232753.exit.i.i.i.i: ; preds = %27, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.5456684732158232753.exit.i.i.i.i.i, %22, %18
@@ -14325,7 +14325,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..wor
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2350
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !range !1214, !noalias !2350, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %9, 0
@@ -14348,7 +14348,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..wor
 
 16:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2363
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !1214, !noalias !2363, !noundef !4
   %.not.i.i.i.i.i.i1 = icmp eq i64 %18, 0
@@ -14512,7 +14512,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2397
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !1214, !noalias !2397, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -14676,7 +14676,7 @@ define internal void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
 4:                                                ; preds = %1
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = mul nsw i64 %.val1, 12
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %5, i64 noundef 4) #45
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, 0) %5, i64 noundef 4) #45
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4c0997d0992f4119E.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4c0997d0992f4119E.exit": ; preds = %1, %4
@@ -14808,7 +14808,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b21777bd45783aeE.llvm.17514045976136648023.exit", label %14
 
 14:                                               ; preds = %6
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %9, i64 noundef %11) #45, !noalias !2463
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %9, i64 noundef range(i64 1, -9223372036854775807) %11) #45, !noalias !2463
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b21777bd45783aeE.llvm.17514045976136648023.exit"
 
 15:                                               ; preds = %1
@@ -14822,7 +14822,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b21777bd45783aeE.llvm.17514045976136648023.exit1", label %22
 
 22:                                               ; preds = %15
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %17, i64 noundef %19) #45, !noalias !2466
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #45, !noalias !2466
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b21777bd45783aeE.llvm.17514045976136648023.exit1"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b21777bd45783aeE.llvm.17514045976136648023.exit1": ; preds = %15, %22
@@ -14845,7 +14845,7 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$wasm
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2469
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %.noexc.i.i unwind label %16, !noalias !2484
 
 .noexc.i.i:                                       ; preds = %6
@@ -14921,7 +14921,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp.
   br i1 %.not.i, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit"
 
 5:                                                ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %1), !alias.scope !2498
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %2, i64 %1), !alias.scope !2498
   %6 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit"
 
@@ -15780,7 +15780,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..
   br i1 %.not.i, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit"
 
 5:                                                ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %1), !alias.scope !2507
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %2, i64 %1), !alias.scope !2507
   %6 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit"
 
@@ -15979,8 +15979,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1611f5144a7e80e9E.exit: ; preds
 
 71:                                               ; preds = %68
   %72 = add i64 %.0105, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i68, i64 1)
   %73 = icmp ugt i64 %.0105, -11
   br i1 %73, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0e03a665f344ed2dE.exit.i"
 
@@ -16627,8 +16627,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17he586dc5dd80571a7E.exit: ; preds
 
 71:                                               ; preds = %68
   %72 = add i64 %.0105, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i68, i64 1)
   %73 = icmp ugt i64 %.0105, -11
   br i1 %73, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h8c6b6446d4fac2c4E.exit.i"
 
@@ -17276,8 +17276,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h64e83587ce732ff6E.exit: ; preds
 
 72:                                               ; preds = %69
   %73 = add i64 %.0105, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %73, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %73, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i68, i64 1)
   %74 = icmp ugt i64 %.0105, -11
   br i1 %74, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h95f6f70bbd258799E.exit.i"
 
@@ -17936,8 +17936,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h96e22d3dd52baa80E.exit: ; preds
 
 71:                                               ; preds = %68
   %72 = add i64 %.0105, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i68, i64 1)
   %73 = icmp ugt i64 %.0105, -11
   br i1 %73, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h225447b520e0357cE.exit.i"
 
@@ -18593,8 +18593,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf854b9062398a48fE.exit: ; preds
 
 84:                                               ; preds = %81
   %85 = add i64 %.0114, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %85, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i74, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %85, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i74, i64 1)
   %86 = icmp ugt i64 %.0114, -11
   br i1 %86, label %.invoke175, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5ceabfc7d9c712a1E.exit.i"
 
@@ -19316,8 +19316,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h4a87cac47bef5a2eE.exit: ; preds
 
 71:                                               ; preds = %68
   %72 = add i64 %.0105, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i68, i64 1)
   %73 = icmp ugt i64 %.0105, -11
   br i1 %73, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h07246b9827375f12E.exit.i"
 
@@ -19803,11 +19803,11 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h4b846a4c04d73
   br i1 %23, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7819b3c648082ab9E.exit", label %25, !prof !2898
 
 24:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.190) #56, !noalias !2895
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.190) #56, !noalias !2895
   unreachable
 
 25:                                               ; preds = %22
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %spec.select, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.190) #56, !noalias !2895
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %spec.select, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.190) #56, !noalias !2895
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7819b3c648082ab9E.exit": ; preds = %22
@@ -19905,11 +19905,11 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   br i1 %15, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7819b3c648082ab9E.exit", label %29, !prof !2898
 
 28:                                               ; preds = %24
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %25, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.199) #56, !noalias !2901
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %25, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.199) #56, !noalias !2901
   unreachable
 
 29:                                               ; preds = %27
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.123.lcssa, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.199) #56, !noalias !2901
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.123.lcssa, i64 noundef range(i64 1, 0) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.199) #56, !noalias !2901
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7819b3c648082ab9E.exit": ; preds = %27
@@ -20294,7 +20294,7 @@ _ZN4core5slice4sort12choose_pivot17h1947c20e6d2997aaE.exit: ; preds = %"_ZN4core
   br i1 %109, label %.lr.ph.preheader.i, label %110, !prof !2898
 
 110:                                              ; preds = %108
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.0.0.i, i64 noundef %.sroa.14.0111.lcssa130, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.220) #56, !noalias !2954
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.0.0.i, i64 noundef range(i64 21, 0) %.sroa.14.0111.lcssa130, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.220) #56, !noalias !2954
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %108
@@ -20578,7 +20578,7 @@ _ZN4core5slice4sort12choose_pivot17h1947c20e6d2997aaE.exit: ; preds = %"_ZN4core
   br i1 %218, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17he2b53d08c945de7eE.exit", label %219, !prof !2898
 
 219:                                              ; preds = %.loopexit.i
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %217, i64 noundef %.sroa.14.0111.lcssa130, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.224) #56, !noalias !2961
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %217, i64 noundef range(i64 21, 0) %.sroa.14.0111.lcssa130, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.224) #56, !noalias !2961
   unreachable
 
 220:                                              ; preds = %122
@@ -21131,7 +21131,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %0, align 8, !alias.scope !3088, !noalias !3089, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %11, ptr nonnull readonly %9, i64 %4), !alias.scope !3090, !noalias !3097
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %9, i64 %4), !alias.scope !3090, !noalias !3097
   %12 = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3dc5b07bbc980b47E.llvm.17514045976136648023.exit"
 
@@ -21246,7 +21246,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h264d2874cff25bdaE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
-  %49 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %44, i64 noundef %42), !noalias !3112
+  %49 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %44, i64 noundef %42), !noalias !3112
   %50 = extractvalue { i64, i64 } %49, 0
   %51 = extractvalue { i64, i64 } %49, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.3632051872395191628(i64 noundef %50, i64 %51), !noalias !3112
@@ -21274,7 +21274,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br i1 %62, label %63, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h35aeff5df3cc1681E.exit.i"
 
 63:                                               ; preds = %.critedge.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h105993bec5bb04b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %60)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h105993bec5bb04b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %60)
   %.pre.i.i = load i64, ptr %59, align 8, !alias.scope !3117
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h35aeff5df3cc1681E.exit.i"
 
@@ -21303,7 +21303,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h264d2874cff25bdaE.exit"
 
 9:                                                ; preds = %3
-  %10 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %2), !noalias !3125
+  %10 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %2), !noalias !3125
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.3632051872395191628(i64 noundef %11, i64 %12), !noalias !3125
@@ -21490,7 +21490,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %16,
   br i1 %33, label %34, label %48
 
 34:                                               ; preds = %.split.us.i.i
-  %35 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %30, i64 noundef %29)
+  %35 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %30, i64 noundef %29)
           to label %.noexc16 unwind label %6
 
 .noexc16:                                         ; preds = %34
@@ -21513,7 +21513,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %16,
   br i1 %43, label %44, label %55
 
 44:                                               ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h5d6813dece3ce842E.exit"
-  %45 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %40, i64 noundef %39)
+  %45 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %40, i64 noundef %39)
           to label %.noexc19 unwind label %.loopexit.split-lp
 
 .noexc19:                                         ; preds = %44
@@ -21552,7 +21552,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %16,
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %55
-  %64 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %60, i64 noundef 1)
+  %64 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0187f7f21c1054baE.llvm.3632051872395191628"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %60, i64 noundef 1)
           to label %.noexc23 unwind label %.loopexit.split-lp
 
 .noexc23:                                         ; preds = %63
@@ -21795,7 +21795,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h22105415fd2704
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3210
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h54f3f552b4d8a481E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h54f3f552b4d8a481E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !range !1214, !noalias !3210, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %7, 0
@@ -21990,12 +21990,12 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h64475e1d812dea
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmtime..runtime..component..instance..RuntimeImport$GT$$GT$17h827b195da24cde4fE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #57
+  invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmtime..runtime..component..instance..RuntimeImport$GT$$GT$17h827b195da24cde4fE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #57
           to label %22 unwind label %20
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1c8ba4e2d6d1c63aE.llvm.5456684732158232753.exit.i.i": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3251
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h054e3741125893ceE.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h054e3741125893ceE.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !range !1214, !noalias !3251, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -22109,12 +22109,12 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7443e73d50fd97
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr102drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ComponentInstanceType$GT$$GT$17hf736b0bc00f9d973E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #57
+  invoke void @"_ZN4core3ptr102drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ComponentInstanceType$GT$$GT$17hf736b0bc00f9d973E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #57
           to label %22 unwind label %20
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8d49f977e392b138E.llvm.5456684732158232753.exit.i.i": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3266
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1b04f31bba753dc8E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1b04f31bba753dc8E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !range !1214, !noalias !3266, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -22170,12 +22170,12 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h798a66d84805fe
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ModuleType$GT$$GT$17hfdd3566f5c83489cE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #57
+  invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ModuleType$GT$$GT$17hfdd3566f5c83489cE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #57
           to label %22 unwind label %20
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2d2e044fd6faa97bE.llvm.5456684732158232753.exit.i.i": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3281
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha362e6417d57f5e3E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha362e6417d57f5e3E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !range !1214, !noalias !3281, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -22264,7 +22264,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h80e358395c2d9f
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3286
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd19213a8539c0e45E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd19213a8539c0e45E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !range !1214, !noalias !3286, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %7, 0
@@ -22337,12 +22337,12 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8aa1e61ddc7587
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..raw_vec..RawVec$LT$fxprof_processed_profile..library_info..Symbol$GT$$GT$17h3a11f4374cc115edE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #57
+  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..raw_vec..RawVec$LT$fxprof_processed_profile..library_info..Symbol$GT$$GT$17h3a11f4374cc115edE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #57
           to label %22 unwind label %20
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha5a38802758117acE.llvm.5456684732158232753.exit.i.i": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3305
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8c392c2faf417111E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8c392c2faf417111E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !range !1214, !noalias !3305, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -22516,7 +22516,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hadd803ed4aad06
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3332
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbafcb378e81a8416E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbafcb378e81a8416E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !range !1214, !noalias !3332, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %7, 0
@@ -22610,7 +22610,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2e696d8d28666
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3341
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2090cbfb6dc2f434E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2090cbfb6dc2f434E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !range !1214, !noalias !3341, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %7, 0
@@ -22756,12 +22756,12 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hd101078704f822
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ComponentType$GT$$GT$17h6634381457e6581eE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #57
+  invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ComponentType$GT$$GT$17h6634381457e6581eE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #57
           to label %22 unwind label %20
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd726b53234324ff1E.llvm.5456684732158232753.exit.i.i": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3409
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd106cdf9fed5c1b0E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd106cdf9fed5c1b0E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !range !1214, !noalias !3409, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -22937,12 +22937,12 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he3ddfb8190b063
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..InstanceType$GT$$GT$17hd5a23299e3c1428fE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #57
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..InstanceType$GT$$GT$17hd5a23299e3c1428fE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #57
           to label %22 unwind label %20
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c3cc65248bee8e7E.llvm.5456684732158232753.exit.i.i": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3494
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0457bb4728ce0e7bE.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0457bb4728ce0e7bE.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !range !1214, !noalias !3494, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -22998,12 +22998,12 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he44c4e59c6dac3
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ComponentFuncType$GT$$GT$17h7931b2ddfff9f6b4E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #57
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ComponentFuncType$GT$$GT$17h7931b2ddfff9f6b4E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #57
           to label %22 unwind label %20
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2934f6759e3bd102E.llvm.5456684732158232753.exit.i.i": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3509
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he0ad1ccd9cf7240dE.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he0ad1ccd9cf7240dE.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !range !1214, !noalias !3509, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -23048,7 +23048,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he566846b2da364
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3514
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf04e35b893f02d04E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf04e35b893f02d04E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !range !1214, !noalias !3514, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %7, 0
@@ -23111,12 +23111,12 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he71bb7c1339df2
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..readers..core..types..SubType$GT$$GT$17ha2dac6f00d416d73E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #57
+  invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..readers..core..types..SubType$GT$$GT$17ha2dac6f00d416d73E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #57
           to label %22 unwind label %20
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdf724eea515fb853E.llvm.5456684732158232753.exit.i.i": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3533
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1a62402e6a6ef4b7E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1a62402e6a6ef4b7E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !range !1214, !noalias !3533, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -23187,7 +23187,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf2ad74093cfef2
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3538)
-  invoke void @"_ZN81_$LT$wasmtime_runtime..sys..unix..mmap..Mmap$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0f8e4684838cc331E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN81_$LT$wasmtime_runtime..sys..unix..mmap..Mmap$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0f8e4684838cc331E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_runtime..sys..unix..mmap..Mmap$GT$17h981961c7fd259345E.llvm.5456684732158232753.exit.i" unwind label %6
 
 6:                                                ; preds = %1
@@ -23327,12 +23327,12 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hff86c6103cb279
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ComponentDefinedType$GT$$GT$17heaa8a34a4a572a66E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #57
+  invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..raw_vec..RawVec$LT$wasmparser..validator..types..ComponentDefinedType$GT$$GT$17heaa8a34a4a572a66E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #57
           to label %22 unwind label %20
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3762cb854c26f46aE.llvm.5456684732158232753.exit.i.i": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3584
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h97b17891af8d6a08E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h97b17891af8d6a08E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !range !1214, !noalias !3584, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -24321,7 +24321,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
   %58 = load ptr, ptr %5, align 8, !alias.scope !3681, !noundef !4
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3682
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %59)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59)
           to label %.noexc.i.i unwind label %68, !noalias !3681
 
 .noexc.i.i:                                       ; preds = %57
@@ -24381,7 +24381,7 @@ define hidden noundef zeroext i1 @"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$a
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !3699
   %8 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr %8, ptr %3, align 8, !noalias !3699
-  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17h62cf7c27c5cd257bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.249, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.250, i64 noundef 6, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.251, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.252, i64 noundef 27, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.253, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.254, i64 noundef 7, ptr noundef nonnull readonly align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.251, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.255, i64 noundef 28, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.256)
+  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17h62cf7c27c5cd257bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.249, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.250, i64 noundef 6, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.251, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.252, i64 noundef 27, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.253, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.254, i64 noundef 7, ptr noundef nonnull readonly align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.251, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.255, i64 noundef 28, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.256)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !3699
   ret i1 %9
 }
@@ -24833,7 +24833,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$a
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %0, align 8, !alias.scope !3746, !noalias !3749, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %11, ptr nonnull readonly %9, i64 %4), !alias.scope !3751, !noalias !3758
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %9, i64 %4), !alias.scope !3751, !noalias !3758
   %12 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$alloc..sync..ArcEqIdent$LT$T$C$A$GT$$GT$2eq17h1dedc45a6e79f041E.llvm.17514045976136648023.exit"
 
@@ -25176,7 +25176,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %1
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef %8) #45
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %6, i64 noundef range(i64 1, -9223372036854775807) %8) #45
   br label %12
 
 12:                                               ; preds = %1, %11
@@ -26675,7 +26675,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %46, label %.body, label %47
 
 47:                                               ; preds = %39
-  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %42, i64 noundef %44) #45, !noalias !3967
+  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef range(i64 1, 0) %42, i64 noundef range(i64 1, -9223372036854775807) %44) #45, !noalias !3967
   br label %.body
 
 48:                                               ; preds = %33
@@ -26689,7 +26689,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %54, label %"_ZN4core3ptr188drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h116fd63ad362ae7aE.exit", label %55
 
 55:                                               ; preds = %48
-  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %50, i64 noundef %52) #45, !noalias !3970
+  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef range(i64 1, 0) %50, i64 noundef range(i64 1, -9223372036854775807) %52) #45, !noalias !3970
   br label %"_ZN4core3ptr188drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h116fd63ad362ae7aE.exit"
 
 .body:                                            ; preds = %39, %47
@@ -27919,7 +27919,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %48, label %.body, label %49
 
 49:                                               ; preds = %41
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %44, i64 noundef %46) #45, !noalias !4150
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) %44, i64 noundef range(i64 1, -9223372036854775807) %46) #45, !noalias !4150
   br label %.body
 
 50:                                               ; preds = %35
@@ -27933,7 +27933,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %56, label %"_ZN4core3ptr116drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$$GT$17hccafae1ac83de109E.exit", label %57
 
 57:                                               ; preds = %50
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %52, i64 noundef %54) #45, !noalias !4153
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) %52, i64 noundef range(i64 1, -9223372036854775807) %54) #45, !noalias !4153
   br label %"_ZN4core3ptr116drop_in_place$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$$GT$17hccafae1ac83de109E.exit"
 
 .body:                                            ; preds = %41, %49
@@ -28349,7 +28349,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %46, label %.body, label %47
 
 47:                                               ; preds = %39
-  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %42, i64 noundef %44) #45, !noalias !4218
+  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef range(i64 1, 0) %42, i64 noundef range(i64 1, -9223372036854775807) %44) #45, !noalias !4218
   br label %.body
 
 48:                                               ; preds = %33
@@ -28363,7 +28363,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %54, label %"_ZN4core3ptr188drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h116fd63ad362ae7aE.exit", label %55
 
 55:                                               ; preds = %48
-  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %50, i64 noundef %52) #45, !noalias !4221
+  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef range(i64 1, 0) %50, i64 noundef range(i64 1, -9223372036854775807) %52) #45, !noalias !4221
   br label %"_ZN4core3ptr188drop_in_place$LT$rayon_core..job..JobResult$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h116fd63ad362ae7aE.exit"
 
 .body:                                            ; preds = %39, %47
@@ -28529,7 +28529,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %48, label %.body, label %49
 
 49:                                               ; preds = %41
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %44, i64 noundef %46) #45, !noalias !4251
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) %44, i64 noundef range(i64 1, -9223372036854775807) %46) #45, !noalias !4251
   br label %.body
 
 50:                                               ; preds = %35
@@ -28543,7 +28543,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %56, label %"_ZN4core3ptr137drop_in_place$LT$rayon_core..job..JobResult$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h42843ca2cd64ce14E.exit", label %57
 
 57:                                               ; preds = %50
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %52, i64 noundef %54) #45, !noalias !4254
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) %52, i64 noundef range(i64 1, -9223372036854775807) %54) #45, !noalias !4254
   br label %"_ZN4core3ptr137drop_in_place$LT$rayon_core..job..JobResult$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h42843ca2cd64ce14E.exit"
 
 58:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h50bbacc8508bcdcdE.exit"
@@ -29037,7 +29037,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %48, label %.body, label %49
 
 49:                                               ; preds = %41
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %44, i64 noundef %46) #45, !noalias !4328
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) %44, i64 noundef range(i64 1, -9223372036854775807) %46) #45, !noalias !4328
   br label %.body
 
 50:                                               ; preds = %35
@@ -29051,7 +29051,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %56, label %"_ZN4core3ptr161drop_in_place$LT$rayon_core..job..JobResult$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$$GT$17h1b619d2affa2f37bE.exit", label %57
 
 57:                                               ; preds = %50
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %52, i64 noundef %54) #45, !noalias !4331
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) %52, i64 noundef range(i64 1, -9223372036854775807) %54) #45, !noalias !4331
   br label %"_ZN4core3ptr161drop_in_place$LT$rayon_core..job..JobResult$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$$GT$17h1b619d2affa2f37bE.exit"
 
 58:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h32808b3af1ef134cE.exit"
@@ -29308,7 +29308,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %48, label %.body, label %49
 
 49:                                               ; preds = %41
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %44, i64 noundef %46) #45, !noalias !4372
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) %44, i64 noundef range(i64 1, -9223372036854775807) %46) #45, !noalias !4372
   br label %.body
 
 50:                                               ; preds = %35
@@ -29322,7 +29322,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br i1 %56, label %"_ZN4core3ptr161drop_in_place$LT$rayon_core..job..JobResult$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$$GT$17h1b619d2affa2f37bE.exit", label %57
 
 57:                                               ; preds = %50
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %52, i64 noundef %54) #45, !noalias !4375
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) %52, i64 noundef range(i64 1, -9223372036854775807) %54) #45, !noalias !4375
   br label %"_ZN4core3ptr161drop_in_place$LT$rayon_core..job..JobResult$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$$GT$17h1b619d2affa2f37bE.exit"
 
 58:                                               ; preds = %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17hdb67e02a7e45453aE.exit"
@@ -29464,7 +29464,7 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$a
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %11, ptr nonnull readonly %9, i64 %4), !alias.scope !4389
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %9, i64 %4), !alias.scope !4389
   %12 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.17514045976136648023.exit"
 
@@ -29749,12 +29749,12 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
 22:                                               ; preds = %17
   %23 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr137drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$$GT$17h327fb7b2c18289feE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #57
+  invoke void @"_ZN4core3ptr137drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$$GT$17h327fb7b2c18289feE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #57
           to label %.body unwind label %32
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbab64e4d806120f0E.llvm.5456684732158232753.exit.i.i.i.i.i": ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4421
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3be15fc95a85a4ebE.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3be15fc95a85a4ebE.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
           to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbab64e4d806120f0E.llvm.5456684732158232753.exit.i.i.i.i.i"
@@ -29897,7 +29897,7 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4443
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %10
@@ -31027,7 +31027,7 @@ switch.lookup35:                                  ; preds = %38
   br i1 %169, label %170, label %.backedge.i.i
 
 170:                                              ; preds = %168
-  %171 = tail call noundef zeroext i1 @"_ZN80_$LT$wasmtime_types..EngineOrModuleTypeIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h378e47290d7f9aebE.llvm.15361297093319246575"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %147, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %148), !noalias !4668
+  %171 = tail call noundef zeroext i1 @"_ZN80_$LT$wasmtime_types..EngineOrModuleTypeIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h378e47290d7f9aebE.llvm.15361297093319246575"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %147, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %148), !noalias !4668
   br i1 %171, label %.backedge.i.i, label %"_ZN69_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3f587a21214608d8E.exit.thread"
 
 .backedge.i.i:                                    ; preds = %170, %168, %154
@@ -31107,7 +31107,7 @@ switch.lookup35:                                  ; preds = %38
   br i1 %209, label %210, label %.backedge.i10.i
 
 210:                                              ; preds = %208
-  %211 = tail call noundef zeroext i1 @"_ZN80_$LT$wasmtime_types..EngineOrModuleTypeIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h378e47290d7f9aebE.llvm.15361297093319246575"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %187, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %188), !noalias !4668
+  %211 = tail call noundef zeroext i1 @"_ZN80_$LT$wasmtime_types..EngineOrModuleTypeIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h378e47290d7f9aebE.llvm.15361297093319246575"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %187, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %188), !noalias !4668
   br i1 %211, label %.backedge.i10.i, label %"_ZN69_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3f587a21214608d8E.exit.thread"
 
 .backedge.i10.i:                                  ; preds = %210, %208, %194
@@ -31227,7 +31227,7 @@ define internal fastcc noundef nonnull ptr @_ZN8wasmtime7runtime5types8matching1
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !4694
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !4706
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %.noexc12 unwind label %32
 
 .noexc12:                                         ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
@@ -31257,7 +31257,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4706
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4715
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %.noexc14 unwind label %44
 
 .noexc14:                                         ; preds = %34
@@ -31423,7 +31423,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %42
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !4724
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !4736
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.noexc23 unwind label %25
 
 .noexc23:                                         ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
@@ -31447,7 +31447,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4736
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4745
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   %55 = getelementptr inbounds i8, ptr %3, i64 8
   %56 = load i64, ptr %55, align 8, !range !1214, !noalias !4745, !noundef !4
   %.not.i.i.i.i24 = icmp eq i64 %56, 0
@@ -31543,7 +31543,7 @@ define internal fastcc noundef ptr @_ZN8wasmtime7runtime5types8matching9global_t
   br i1 %or.cond.i, label %36, label %34
 
 34:                                               ; preds = %29
-  %35 = call fastcc noundef ptr @_ZN8wasmtime7runtime5types8matching8equal_ty17hf2a7024d57820060E(ptr noalias nocapture noundef align 4 dereferenceable(12) %16, ptr noalias nocapture noundef align 4 dereferenceable(12) %15, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.330, i64 noundef 6)
+  %35 = call fastcc noundef ptr @_ZN8wasmtime7runtime5types8matching8equal_ty17hf2a7024d57820060E(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %16, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %15, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.330, i64 noundef 6)
   br label %_ZN8wasmtime7runtime5types8matching8match_ty17hc461b14cd3fb1512E.exit
 
 36:                                               ; preds = %29
@@ -32289,7 +32289,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !4777
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !4789
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
           to label %.noexc85 unwind label %45
 
 .noexc85:                                         ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
@@ -32319,7 +32319,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !4789
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !4798
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %.noexc87 unwind label %57
 
 .noexc87:                                         ; preds = %47
@@ -32489,7 +32489,7 @@ common.resume:                                    ; preds = %48, %62, %67, %27
 .noexc:                                           ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !4812
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   %40 = getelementptr inbounds i8, ptr %8, i64 8
   %41 = load i64, ptr %40, align 8, !range !1214, !noalias !4812, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %41, 0
@@ -32542,7 +32542,7 @@ common.resume:                                    ; preds = %48, %62, %67, %27
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %50
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !4821
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !4833
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %.noexc16 unwind label %62
 
 .noexc16:                                         ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
@@ -32754,7 +32754,7 @@ define void @_ZN8wasmtime7runtime9component4func7options11LiftContext23guest_res
   store ptr %8, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4856, !noalias !4858
   %16 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %15, ptr %16, align 8, !alias.scope !4860, !noalias !4861
-  call void @_ZN16wasmtime_runtime9component9resources14ResourceTables17resource_lift_own17h097c5633fe55d861E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1, i32 %2, i32 noundef %3)
+  call void @_ZN16wasmtime_runtime9component9resources14ResourceTables17resource_lift_own17h097c5633fe55d861E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i32 %2, i32 noundef %3)
   %17 = load i32, ptr %6, align 8, !range !425, !noundef !4
   %trunc = trunc nuw i32 %17 to i1
   %18 = getelementptr inbounds i8, ptr %6, i64 8
@@ -32807,7 +32807,7 @@ define void @_ZN8wasmtime7runtime9component4func7options11LiftContext26guest_res
   store ptr %7, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4870, !noalias !4872
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %14, ptr %15, align 8, !alias.scope !4874, !noalias !4875
-  call void @_ZN16wasmtime_runtime9component9resources14ResourceTables20resource_lift_borrow17h0b958aa6a8650a28E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1, i32 %2, i32 noundef %3)
+  call void @_ZN16wasmtime_runtime9component9resources14ResourceTables20resource_lift_borrow17h0b958aa6a8650a28E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i32 %2, i32 noundef %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
 }
@@ -32838,7 +32838,7 @@ define void @_ZN8wasmtime7runtime9component4func7options11LiftContext23host_reso
   store ptr %16, ptr %17, align 8, !alias.scope !4888, !noalias !4889
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4890)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4893
-  call void @_ZN16wasmtime_runtime9component9resources14ResourceTables18resource_lower_own17h33681dbc5875b0deE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 0, i32 undef, i32 noundef %2), !noalias !4890
+  call void @_ZN16wasmtime_runtime9component9resources14ResourceTables18resource_lower_own17h33681dbc5875b0deE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 0, i32 undef, i32 noundef %2), !noalias !4890
   %18 = load i32, ptr %6, align 8, !range !425, !noalias !4893, !noundef !4
   %trunc.i = trunc nuw i32 %18 to i1
   %19 = getelementptr inbounds i8, ptr %6, i64 8
@@ -32892,7 +32892,7 @@ define void @_ZN8wasmtime7runtime9component4func7options11LiftContext26host_reso
   store ptr %14, ptr %15, align 8, !alias.scope !4908, !noalias !4909
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4910)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4913
-  call void @_ZN16wasmtime_runtime9component9resources14ResourceTables21resource_lower_borrow17h3364eacf093ba7e9E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 0, i32 undef, i32 noundef %2), !noalias !4910
+  call void @_ZN16wasmtime_runtime9component9resources14ResourceTables21resource_lower_borrow17h3364eacf093ba7e9E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0, i32 undef, i32 noundef %2), !noalias !4910
   %16 = load i32, ptr %4, align 8, !range !425, !noalias !4913, !noundef !4
   %trunc.i = trunc nuw i32 %16 to i1
   %17 = getelementptr inbounds i8, ptr %4, i64 8
@@ -33884,7 +33884,7 @@ common.resume:                                    ; preds = %140, %131, %.body, 
 
 50:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !5102
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %.noexc.i unwind label %59
 
 .noexc.i:                                         ; preds = %50
@@ -33958,7 +33958,7 @@ common.resume:                                    ; preds = %140, %131, %.body, 
 
 79:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !5117
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %.noexc18 unwind label %99
 
 .noexc18:                                         ; preds = %79
@@ -33988,7 +33988,7 @@ common.resume:                                    ; preds = %140, %131, %.body, 
 88:                                               ; preds = %77, %73
   %.0.i = phi ptr [ %76, %77 ], [ %72, %73 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !5126
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h94a57ea85edebb10E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %.noexc19 unwind label %99
 
 .noexc19:                                         ; preds = %88

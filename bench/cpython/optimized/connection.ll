@@ -4667,7 +4667,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %setconfig_impl.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %call7.i = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef nonnull %8, i32 noundef %call2, i32 noundef %enable.0, ptr noundef nonnull %actual.i) #6
+  %call7.i = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef nonnull %8, i32 noundef %call2, i32 noundef range(i32 0, -2147483648) %enable.0, ptr noundef nonnull %actual.i) #6
   %cmp.not.i = icmp eq i32 %call7.i, 0
   br i1 %cmp.not.i, label %if.end11.i, label %if.then8.i
 

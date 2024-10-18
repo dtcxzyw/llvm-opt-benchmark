@@ -967,7 +967,7 @@ define linkonce_odr void @_ZN5faiss15IndexRefineFlatD2Ev(ptr noundef nonnull ali
   br label %_ZN5faiss11IndexRefineD2Ev.exit
 
 _ZN5faiss11IndexRefineD2Ev.exit:                  ; preds = %13, %17, %21
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #12
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #12
   ret void
 }
 
@@ -1012,7 +1012,7 @@ define linkonce_odr void @_ZN5faiss15IndexRefineFlatD0Ev(ptr noundef nonnull ali
   br label %_ZN5faiss15IndexRefineFlatD2Ev.exit
 
 _ZN5faiss15IndexRefineFlatD2Ev.exit:              ; preds = %13, %17, %21
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #12
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -2005,7 +2005,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #12
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3

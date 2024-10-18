@@ -130,7 +130,7 @@ cond.true:                                        ; preds = %if.end12
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7513CollationRoot12loadFromFileEPKcR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %cond.true
-  %call1.i17 = invoke signext i8 @uprv_mapFile_75(ptr noundef nonnull %dataMemory.i, ptr noundef nonnull %ucadataPath, ptr noundef nonnull %errorCode)
+  %call1.i17 = invoke signext i8 @uprv_mapFile_75(ptr noundef nonnull %dataMemory.i, ptr noundef nonnull %ucadataPath, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call1.i.noexc unwind label %ehcleanup.thread57
 
 call1.i.noexc:                                    ; preds = %if.end.i
@@ -161,7 +161,7 @@ call10.i.noexc:                                   ; preds = %land.lhs.true8.i
   br i1 %tobool11.not.i, label %if.end22.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %call10.i.noexc
-  %call13.i19 = invoke ptr @UDataMemory_createNewInstance_75(ptr noundef nonnull %errorCode)
+  %call13.i19 = invoke ptr @UDataMemory_createNewInstance_75(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call13.i.noexc unwind label %ehcleanup.thread57
 
 call13.i.noexc:                                   ; preds = %if.then12.i

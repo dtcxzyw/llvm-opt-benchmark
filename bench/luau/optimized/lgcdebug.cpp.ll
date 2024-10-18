@@ -1154,7 +1154,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nocapt
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %2, i64 2
   %16 = load i8, ptr %15, align 2
-  tail call void %.val17.i(ptr noundef %.val.i, ptr noundef nonnull %2, i8 noundef zeroext 5, i8 noundef zeroext %16, i64 noundef %14, ptr noundef null)
+  tail call void %.val17.i(ptr noundef %.val.i, ptr noundef nonnull %2, i8 noundef zeroext 5, i8 noundef zeroext %16, i64 noundef range(i64 -130996502352, 130996502644) %14, ptr noundef null)
   br label %_ZL7enumobjP11EnumContextP8GCObject.exit
 
 17:                                               ; preds = %3
@@ -1195,7 +1195,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nocapt
   %.val67.i.i = load ptr, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %2, i64 2
   %46 = load i8, ptr %45, align 2
-  tail call void %.val67.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %2, i8 noundef zeroext 6, i8 noundef zeroext %46, i64 noundef %35, ptr noundef %42)
+  tail call void %.val67.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %2, i8 noundef zeroext 6, i8 noundef zeroext %46, i64 noundef range(i64 -130996502352, 130996502644) %35, ptr noundef %42)
   %47 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %47, @luaH_dummynode
   br i1 %.not.i.i, label %.loopexit.i.i, label %48
@@ -1483,7 +1483,7 @@ _ZL9enumtableP11EnumContextP5Table.exit.i:        ; preds = %180, %_ZL9enumedges
   %.val44.i.i = load ptr, ptr %200, align 8
   %201 = getelementptr inbounds i8, ptr %2, i64 2
   %202 = load i8, ptr %201, align 2
-  tail call void %.val44.i.i(ptr noundef %.val.i22.i, ptr noundef nonnull %2, i8 noundef zeroext 7, i8 noundef zeroext %202, i64 noundef %196, ptr noundef %198)
+  tail call void %.val44.i.i(ptr noundef %.val.i22.i, ptr noundef nonnull %2, i8 noundef zeroext 7, i8 noundef zeroext %202, i64 noundef range(i64 -130996502352, 130996502644) %196, ptr noundef %198)
   br label %231
 
 203:                                              ; preds = %188
@@ -1526,7 +1526,7 @@ _ZL9enumtableP11EnumContextP5Table.exit.i:        ; preds = %180, %_ZL9enumedges
   %228 = getelementptr inbounds i8, ptr %2, i64 %.idx.i.i51.i.i
   %229 = getelementptr inbounds i8, ptr %2, i64 2
   %230 = load i8, ptr %229, align 2
-  call void %.val46.i.i(ptr noundef %.val45.i.i, ptr noundef nonnull %228, i8 noundef zeroext %226, i8 noundef zeroext %230, i64 noundef %223, ptr noundef nonnull %5)
+  call void %.val46.i.i(ptr noundef %.val45.i.i, ptr noundef nonnull %228, i8 noundef zeroext %226, i8 noundef zeroext %230, i64 noundef range(i64 -130996502352, 130996502644) %223, ptr noundef nonnull %5)
   br label %231
 
 231:                                              ; preds = %218, %191
@@ -1715,7 +1715,7 @@ _ZL11enumclosureP11EnumContextP7Closure.exit.i:   ; preds = %261, %289, %263, %2
   %326 = getelementptr inbounds i8, ptr %2, i64 16
   %327 = getelementptr inbounds i8, ptr %2, i64 2
   %328 = load i8, ptr %327, align 2
-  tail call void %.val24.i.i(ptr noundef %.val.i39.i, ptr noundef nonnull %326, i8 noundef zeroext 8, i8 noundef zeroext %328, i64 noundef %323, ptr noundef %.0.i38.i)
+  tail call void %.val24.i.i(ptr noundef %.val.i39.i, ptr noundef nonnull %326, i8 noundef zeroext 8, i8 noundef zeroext %328, i64 noundef range(i64 -130996502352, 130996502644) %323, ptr noundef %.0.i38.i)
   %329 = load ptr, ptr %292, align 8
   %.not23.i.i = icmp eq ptr %329, null
   br i1 %.not23.i.i, label %_ZL7enumobjP11EnumContextP8GCObject.exit, label %330
@@ -1807,7 +1807,7 @@ _ZL11enumclosureP11EnumContextP7Closure.exit.i:   ; preds = %261, %289, %263, %2
   %382 = getelementptr inbounds i8, ptr %2, i64 %.idx.i.i.i63.i
   %383 = getelementptr inbounds i8, ptr %2, i64 2
   %384 = load i8, ptr %383, align 2
-  call void %.val44.i62.i(ptr noundef %.val.i61.i, ptr noundef nonnull %382, i8 noundef zeroext %380, i8 noundef zeroext %384, i64 noundef %348, ptr noundef nonnull %4)
+  call void %.val44.i62.i(ptr noundef %.val.i61.i, ptr noundef nonnull %382, i8 noundef zeroext %380, i8 noundef zeroext %384, i64 noundef range(i64 -130996502352, 130996502644) %348, ptr noundef nonnull %4)
   br label %389
 
 .thread.i44.i:                                    ; preds = %353, %365, %362, %360, %338
@@ -1817,7 +1817,7 @@ _ZL11enumclosureP11EnumContextP7Closure.exit.i:   ; preds = %261, %289, %263, %2
   %.val46.i46.i = load ptr, ptr %386, align 8
   %387 = getelementptr inbounds i8, ptr %2, i64 2
   %388 = load i8, ptr %387, align 2
-  tail call void %.val46.i46.i(ptr noundef %.val45.i45.i, ptr noundef nonnull %2, i8 noundef zeroext 9, i8 noundef zeroext %388, i64 noundef %348, ptr noundef null)
+  tail call void %.val46.i46.i(ptr noundef %.val45.i45.i, ptr noundef nonnull %2, i8 noundef zeroext 9, i8 noundef zeroext %388, i64 noundef range(i64 -130996502352, 130996502644) %348, ptr noundef null)
   br label %389
 
 389:                                              ; preds = %.thread.i44.i, %370
@@ -1895,7 +1895,7 @@ _ZL10enumthreadP11EnumContextP9lua_State.exit.i:  ; preds = %422, %389
   %432 = select i1 %429, i64 16, i64 %431
   %433 = getelementptr inbounds i8, ptr %2, i64 2
   %434 = load i8, ptr %433, align 2
-  tail call void %.val19.i(ptr noundef %.val18.i, ptr noundef nonnull %2, i8 noundef zeroext 10, i8 noundef zeroext %434, i64 noundef %432, ptr noundef null)
+  tail call void %.val19.i(ptr noundef %.val18.i, ptr noundef nonnull %2, i8 noundef zeroext 10, i8 noundef zeroext %434, i64 noundef range(i64 -130996502352, 130996502644) %432, ptr noundef null)
   br label %_ZL7enumobjP11EnumContextP8GCObject.exit
 
 435:                                              ; preds = %3
@@ -1989,7 +1989,7 @@ _ZL10enumthreadP11EnumContextP9lua_State.exit.i:  ; preds = %422, %389
   %497 = getelementptr inbounds i8, ptr %2, i64 %495
   %498 = getelementptr inbounds i8, ptr %2, i64 2
   %499 = load i8, ptr %498, align 2
-  tail call void %.val42.i103.i(ptr noundef %.val.i68102.i, ptr noundef nonnull %497, i8 noundef zeroext %494, i8 noundef zeroext %499, i64 noundef %461, ptr noundef %spec.select.i67101.i)
+  tail call void %.val42.i103.i(ptr noundef %.val.i68102.i, ptr noundef nonnull %497, i8 noundef zeroext %494, i8 noundef zeroext %499, i64 noundef range(i64 -130996502352, 130996502644) %461, ptr noundef %spec.select.i67101.i)
   %500 = load i32, ptr %443, align 8
   %.not41.i70.i = icmp eq i32 %500, 0
   br i1 %.not41.i70.i, label %_ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i74.i, label %.lr.ph.i.i71.i

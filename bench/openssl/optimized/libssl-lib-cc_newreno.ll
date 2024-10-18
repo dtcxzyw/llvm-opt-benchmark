@@ -1107,7 +1107,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i17.i, label %safe_muldiv_u64.exit.thread37.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 %conv.i)
+  %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 range(i64 0, 4294967296) %conv.i)
   %9 = extractvalue { i64, i1 } %8, 1
   br i1 %9, label %if.end4.i.i, label %safe_muldiv_u64.exit.thread26.i
 
@@ -1117,11 +1117,11 @@ safe_muldiv_u64.exit.thread26.i:                  ; preds = %if.end.i.i
   br label %safe_muldiv_u64.exit.thread37.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i, i64 %5)
-  %spec.select20.i.i = tail call i64 @llvm.umax.i64(i64 %conv.i, i64 %5)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %conv.i, i64 %5)
+  %spec.select20.i.i = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %conv.i, i64 %5)
   %div9.i.i = udiv i64 %spec.select20.i.i, %conv4.i
   %rem.i.i = urem i64 %spec.select20.i.i, %conv4.i
-  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %div9.i.i, i64 %spec.select.i.i)
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %div9.i.i, i64 range(i64 0, 4294967296) %spec.select.i.i)
   %12 = extractvalue { i64, i1 } %11, 1
   br i1 %12, label %safe_muldiv_u64.exit.thread37.i, label %safe_mul_u64.exit32.i.i
 

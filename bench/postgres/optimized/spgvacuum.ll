@@ -343,7 +343,7 @@ vacuumLeafRoot.exit.i:                            ; preds = %163, %._crit_edge.i
   br label %173
 
 .thread.i:                                        ; preds = %72
-  call fastcc void @vacuumLeafPage(ptr noundef %0, ptr noundef %42, i32 noundef %46, i1 noundef zeroext false)
+  call fastcc void @vacuumLeafPage(ptr noundef nonnull %0, ptr noundef %42, i32 noundef %46, i1 noundef zeroext false)
   %166 = load ptr, ptr %0, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
@@ -480,7 +480,7 @@ BufferGetPage.exit.i36:                           ; preds = %210, %204
   unreachable
 
 236:                                              ; preds = %228
-  call fastcc void @vacuumLeafPage(ptr noundef %0, ptr noundef %189, i32 noundef %202, i1 noundef zeroext true)
+  call fastcc void @vacuumLeafPage(ptr noundef nonnull %0, ptr noundef %189, i32 noundef %202, i1 noundef zeroext true)
   %237 = load ptr, ptr %0, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8

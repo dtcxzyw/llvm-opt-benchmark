@@ -1494,7 +1494,7 @@ _ZN7QStringD2Ev.exit95:                           ; preds = %_ZNK8QVariant5value
           to label %239 unwind label %.loopexit
 
 239:                                              ; preds = %233
-  %240 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK11QStringListRK7QStringN2Qt15CaseSensitivityE(ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef 1)
+  %240 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK11QStringListRK7QStringN2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef 1)
           to label %_ZNK11QStringList8containsERK7QStringN2Qt15CaseSensitivityE.exit unwind label %260
 
 _ZNK11QStringList8containsERK7QStringN2Qt15CaseSensitivityE.exit: ; preds = %239
@@ -4054,7 +4054,7 @@ _ZN7QStringD2Ev.exit93:                           ; preds = %_ZN9QtPrivate8RefCo
   %431 = load ptr, ptr %.09.i.i.i207, align 8
   %432 = getelementptr inbounds i8, ptr %.09.i.i.i207, i64 16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %432) #22
-  call void @_ZdlPv(ptr noundef %.09.i.i.i207) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i207) #21
   %.not.i.i.i208 = icmp eq ptr %431, %9
   br i1 %.not.i.i.i208, label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit209, label %.lr.ph.i.i.i206, !llvm.loop !32
 
@@ -10771,7 +10771,7 @@ _ZN7QStringD2Ev.exit57:                           ; preds = %203, %_ZN9QtPrivate
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge118, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %231, %.lr.ph.i.i.i ], [ %230, %._crit_edge118 ]
   %231 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #21
   %.not.i.i.i58 = icmp eq ptr %231, %12
   br i1 %.not.i.i.i58, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !90
 
@@ -10935,7 +10935,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %_ZN9QtPrivate8RefCo
 .lr.ph.i.i.i65:                                   ; preds = %284, %.lr.ph.i.i.i65
   %.09.i.i.i66 = phi ptr [ %286, %.lr.ph.i.i.i65 ], [ %285, %284 ]
   %286 = load ptr, ptr %.09.i.i.i66, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i66) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i66) #21
   %.not.i.i.i67 = icmp eq ptr %286, %12
   br i1 %.not.i.i.i67, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit68, label %.lr.ph.i.i.i65, !llvm.loop !90
 
@@ -12718,7 +12718,7 @@ define void @_ZN10MainWindowD0Ev(ptr noundef nonnull align 8 dereferenceable(137
 define void @_ZThn16_N10MainWindowD0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN10MainWindowD1Ev(ptr noundef nonnull align 8 dereferenceable(1376) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1376) %2) #21
   ret void
 }
 
@@ -12902,7 +12902,7 @@ define void @_ZN10MainWindow12fillEditMenuEv(ptr noundef nonnull align 8 derefer
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %29, %._crit_edge ]
   %30 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #21
   %.not.i.i.i = icmp eq ptr %30, %5
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !90
 
@@ -12972,7 +12972,7 @@ _ZN19ConstPluginIteratorI10EditPluginEppEv.exit:  ; preds = %38, %42, %35
 .lr.ph.i.i.i10:                                   ; preds = %54, %.lr.ph.i.i.i10
   %.09.i.i.i11 = phi ptr [ %57, %.lr.ph.i.i.i10 ], [ %56, %54 ]
   %57 = load ptr, ptr %.09.i.i.i11, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i11) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i11) #21
   %.not.i.i.i12 = icmp eq ptr %57, %5
   br i1 %.not.i.i.i12, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit13, label %.lr.ph.i.i.i10, !llvm.loop !90
 
@@ -13712,7 +13712,7 @@ _ZN7QStringD2Ev.exit286:                          ; preds = %208, %_ZN9QtPrivate
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %243, %.lr.ph.i.i.i ], [ %242, %._crit_edge ]
   %243 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #21
   %.not.i.i.i = icmp eq ptr %243, %24
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !90
 
@@ -14213,7 +14213,7 @@ _ZN7QStringD2Ev.exit294:                          ; preds = %383, %_ZN9QtPrivate
 .lr.ph.i.i.i296:                                  ; preds = %393, %.lr.ph.i.i.i296
   %.09.i.i.i297 = phi ptr [ %395, %.lr.ph.i.i.i296 ], [ %394, %393 ]
   %395 = load ptr, ptr %.09.i.i.i297, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i297) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i297) #21
   %.not.i.i.i298 = icmp eq ptr %395, %24
   br i1 %.not.i.i.i298, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit299, label %.lr.ph.i.i.i296, !llvm.loop !90
 
@@ -15297,7 +15297,7 @@ define void @_ZN10MainWindow16initSearchEngineEv(ptr nocapture noundef nonnull r
 .lr.ph.i.i.i:                                     ; preds = %35, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %36, %35 ]
   %37 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #21
   %.not.i.i.i = icmp eq ptr %37, %5
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !90
 
@@ -15360,7 +15360,7 @@ _ZN19ConstPluginIteratorI12FilterPluginEppEv.exit: ; preds = %45, %49, %42
 .lr.ph.i.i.i32:                                   ; preds = %64, %.lr.ph.i.i.i32
   %.09.i.i.i33 = phi ptr [ %67, %.lr.ph.i.i.i32 ], [ %66, %64 ]
   %67 = load ptr, ptr %.09.i.i.i33, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i33) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i33) #21
   %.not.i.i.i34 = icmp eq ptr %67, %5
   br i1 %.not.i.i.i34, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit35, label %.lr.ph.i.i.i32, !llvm.loop !90
 
@@ -15408,7 +15408,7 @@ _ZN19ConstPluginIteratorI12FilterPluginEppEv.exit: ; preds = %45, %49, %42
 .lr.ph.i.i.i37:                                   ; preds = %85, %.lr.ph.i.i.i37
   %.09.i.i.i38 = phi ptr [ %87, %.lr.ph.i.i.i37 ], [ %86, %85 ]
   %87 = load ptr, ptr %.09.i.i.i38, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i38) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i38) #21
   %.not.i.i.i39 = icmp eq ptr %87, %9
   br i1 %.not.i.i.i39, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit40, label %.lr.ph.i.i.i37, !llvm.loop !90
 
@@ -15467,7 +15467,7 @@ _ZN19ConstPluginIteratorI10EditPluginEppEv.exit:  ; preds = %95, %99, %92
 .lr.ph.i.i.i45:                                   ; preds = %110, %.lr.ph.i.i.i45
   %.09.i.i.i46 = phi ptr [ %113, %.lr.ph.i.i.i45 ], [ %112, %110 ]
   %113 = load ptr, ptr %.09.i.i.i46, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i46) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i46) #21
   %.not.i.i.i47 = icmp eq ptr %113, %9
   br i1 %.not.i.i.i47, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit35, label %.lr.ph.i.i.i45, !llvm.loop !90
 
@@ -16004,7 +16004,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN10MainWindow28longestActionWidt
   %4 = tail call noundef ptr @_ZNK11QMainWindow7menuBarEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
   store ptr @_ZN9QListData11shared_nullE, ptr %2, align 8, !alias.scope !133
-  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(48) @_ZN5QMenu16staticMetaObjectE, ptr noundef nonnull %2, i32 1)
+  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(48) @_ZN5QMenu16staticMetaObjectE, ptr noundef nonnull align 8 %2, i32 1)
           to label %_ZNK7QObject12findChildrenIP5QMenuEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %.body
 
 .body:                                            ; preds = %1
@@ -16164,7 +16164,7 @@ _ZN5QListIP5QMenuE3endEv.exit:                    ; preds = %_ZN9QtPrivate8RefCo
   %.034 = phi i32 [ %.sroa.speculated, %_ZN10MainWindow24longestActionWidthInMenuEP5QMenu.exit ], [ 0, %_ZN5QListIP5QMenuE3endEv.exit ]
   %.sroa.024.033 = phi ptr [ %73, %_ZN10MainWindow24longestActionWidthInMenuEP5QMenu.exit ], [ %43, %_ZN5QListIP5QMenuE3endEv.exit ]
   %71 = load ptr, ptr %.sroa.024.033, align 8
-  %72 = invoke noundef i32 @_ZN10MainWindow24longestActionWidthInMenuEP5QMenui(ptr noundef nonnull readnone align 8 dereferenceable(1376) %0, ptr noundef %71, i32 noundef 0)
+  %72 = invoke noundef i32 @_ZN10MainWindow24longestActionWidthInMenuEP5QMenui(ptr noundef nonnull readnone align 8 dereferenceable(1376) %0, ptr noundef nonnull %71, i32 noundef 0)
           to label %_ZN10MainWindow24longestActionWidthInMenuEP5QMenu.exit unwind label %.loopexit
 
 _ZN10MainWindow24longestActionWidthInMenuEP5QMenu.exit: ; preds = %.lr.ph
@@ -17122,7 +17122,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %4
 11:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %7, i64 4
   %13 = load i32, ptr %12, align 4, !noalias !153
-  %14 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %13)
+  %14 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %13)
   %15 = load ptr, ptr %5, align 8, !alias.scope !153
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = getelementptr inbounds i8, ptr %15, i64 8
@@ -17605,7 +17605,7 @@ _ZN19ConstPluginIteratorI14DecoratePluginEppEv.exit: ; preds = %.preheader.i, %1
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge76, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %164, %.lr.ph.i.i.i ], [ %163, %._crit_edge76 ]
   %164 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #21
   %.not.i.i.i35 = icmp eq ptr %164, %8
   br i1 %.not.i.i.i35, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !90
 
@@ -17763,7 +17763,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %_ZN9QtPrivate8RefCo
 .lr.ph.i.i.i42:                                   ; preds = %215, %.lr.ph.i.i.i42
   %.09.i.i.i43 = phi ptr [ %217, %.lr.ph.i.i.i42 ], [ %216, %215 ]
   %217 = load ptr, ptr %.09.i.i.i43, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i43) #21
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i43) #21
   %.not.i.i.i44 = icmp eq ptr %217, %8
   br i1 %.not.i.i.i44, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit45, label %.lr.ph.i.i.i42, !llvm.loop !90
 
@@ -24588,7 +24588,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %3
 10:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4, !noalias !268
-  %13 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %12)
+  %13 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %12)
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %10

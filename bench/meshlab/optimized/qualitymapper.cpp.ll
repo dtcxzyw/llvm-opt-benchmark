@@ -634,7 +634,7 @@ define void @_ZN19QualityMapperPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSha
   br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null)
+  %8 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef null, ptr noundef null, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
@@ -662,7 +662,7 @@ define void @_ZThn16_N19QualityMapperPlugin7endEditER9MeshModelP6GLAreaP26MLScen
   br i1 %.not.i, label %_ZN19QualityMapperPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null)
+  %8 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef null, ptr noundef null, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11

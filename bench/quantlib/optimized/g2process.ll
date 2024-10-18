@@ -1576,7 +1576,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %15 = phi ptr [ %14, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull %this)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -2619,7 +2619,7 @@ terminate.lpad.i.i9.i:                            ; preds = %if.then.i.i.i.i13.i
   unreachable
 
 _ZN8QuantLib9G2ProcessD2Ev.exit:                  ; preds = %_ZN5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEED2Ev.exit.i, %if.then.i.i3.i, %.noexc.i.i10.i, %if.then.i.i.i.i13.i
-  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #27
+  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 216) #31
   ret void
 }
@@ -2712,7 +2712,7 @@ terminate.lpad.i.i9.i:                            ; preds = %if.then.i.i.i.i13.i
   unreachable
 
 _ZN8QuantLib9G2ProcessD2Ev.exit:                  ; preds = %_ZN5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEED2Ev.exit.i, %if.then.i.i3.i, %.noexc.i.i10.i, %if.then.i.i.i.i13.i
-  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #27
+  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #27
   ret void
 }
 
@@ -2800,8 +2800,8 @@ terminate.lpad.i.i9.i.i:                          ; preds = %if.then.i.i.i.i13.i
   unreachable
 
 _ZN8QuantLib9G2ProcessD0Ev.exit:                  ; preds = %_ZN5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEED2Ev.exit.i.i, %if.then.i.i3.i.i, %.noexc.i.i10.i.i, %if.then.i.i.i.i13.i.i
-  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #31
+  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef 216) #31
   ret void
 }
 
@@ -2977,7 +2977,7 @@ terminate.lpad.i.i9.i:                            ; preds = %if.then.i.i.i.i13.i
   unreachable
 
 _ZN8QuantLib16G2ForwardProcessD2Ev.exit:          ; preds = %_ZN5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEED2Ev.exit.i, %if.then.i.i3.i, %.noexc.i.i10.i, %if.then.i.i.i.i13.i
-  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #27
+  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 224) #31
   ret void
 }
@@ -3068,7 +3068,7 @@ terminate.lpad.i.i9.i:                            ; preds = %if.then.i.i.i.i13.i
   unreachable
 
 _ZN8QuantLib16G2ForwardProcessD2Ev.exit:          ; preds = %_ZN5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEED2Ev.exit.i, %if.then.i.i3.i, %.noexc.i.i10.i, %if.then.i.i.i.i13.i
-  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #27
+  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #27
   ret void
 }
 
@@ -3156,8 +3156,8 @@ terminate.lpad.i.i9.i.i:                          ; preds = %if.then.i.i.i.i13.i
   unreachable
 
 _ZN8QuantLib16G2ForwardProcessD0Ev.exit:          ; preds = %_ZN5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEED2Ev.exit.i.i, %if.then.i.i3.i.i, %.noexc.i.i10.i.i, %if.then.i.i.i.i13.i.i
-  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 224) #31
+  tail call void @_ZN8QuantLib17StochasticProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 224) #31
   ret void
 }
 

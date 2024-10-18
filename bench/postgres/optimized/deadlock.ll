@@ -120,7 +120,7 @@ define dso_local range(i32 1, 5) i32 @DeadLockCheck(ptr noundef %0) local_unname
   store i32 0, ptr @nVisitedProcs, align 4
   store i32 0, ptr @nDeadlockDetails, align 4
   store i32 0, ptr %2, align 4
-  %8 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, i32 noundef 0, ptr noundef %7, ptr noundef %2)
+  %8 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, i32 noundef 0, ptr noundef %7, ptr noundef nonnull %2)
   br i1 %8, label %39, label %9
 
 9:                                                ; preds = %6
@@ -897,7 +897,7 @@ ExpandConstraints.exit:                           ; preds = %.outer.i, %46
   store i32 0, ptr @nVisitedProcs, align 4
   store i32 0, ptr @nDeadlockDetails, align 4
   store i32 0, ptr %2, align 4
-  %198 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %197, i32 noundef 0, ptr noundef %6, ptr noundef %2)
+  %198 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %197, i32 noundef 0, ptr noundef %6, ptr noundef nonnull %2)
   br i1 %198, label %199, label %202
 
 199:                                              ; preds = %.lr.ph
@@ -913,7 +913,7 @@ ExpandConstraints.exit:                           ; preds = %.outer.i, %46
   store i32 0, ptr @nVisitedProcs, align 4
   store i32 0, ptr @nDeadlockDetails, align 4
   store i32 0, ptr %2, align 4
-  %206 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %205, i32 noundef 0, ptr noundef %6, ptr noundef %2)
+  %206 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %205, i32 noundef 0, ptr noundef %6, ptr noundef nonnull %2)
   br i1 %206, label %207, label %210
 
 207:                                              ; preds = %202
@@ -934,7 +934,7 @@ ExpandConstraints.exit:                           ; preds = %.outer.i, %46
   store i32 0, ptr @nVisitedProcs, align 4
   store i32 0, ptr @nDeadlockDetails, align 4
   store i32 0, ptr %2, align 4
-  %214 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef %2)
+  %214 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef nonnull %2)
   br i1 %214, label %215, label %ExpandConstraints.exit.thread
 
 215:                                              ; preds = %._crit_edge

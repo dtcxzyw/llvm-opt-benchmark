@@ -367,10 +367,10 @@ define hidden void @jSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
 
 add_huff_table.exit.i:                            ; preds = %26, %21
   %28 = phi ptr [ %27, %26 ], [ %24, %21 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %28, ptr noundef nonnull readonly align 16 dereferenceable(17) @std_huff_tables.bits_dc_luminance, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %28, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_dc_luminance, i64 17, i1 false)
   %.pre.i = load ptr, ptr %23, align 8
   %29 = getelementptr inbounds i8, ptr %.pre.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %29, ptr noundef nonnull readonly align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %29, ptr noundef nonnull align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
   %30 = load ptr, ptr %23, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 276
   store i32 0, ptr %31, align 4
@@ -386,10 +386,10 @@ add_huff_table.exit.i:                            ; preds = %26, %21
 
 add_huff_table.exit13.i:                          ; preds = %35, %add_huff_table.exit.i
   %37 = phi ptr [ %36, %35 ], [ %33, %add_huff_table.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %37, ptr noundef nonnull readonly align 16 dereferenceable(17) @std_huff_tables.bits_ac_luminance, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %37, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_ac_luminance, i64 17, i1 false)
   %.pre32.i = load ptr, ptr %32, align 8
   %38 = getelementptr inbounds i8, ptr %.pre32.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %38, ptr noundef nonnull readonly align 16 dereferenceable(162) @std_huff_tables.val_ac_luminance, i64 162, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %38, ptr noundef nonnull align 16 dereferenceable(162) @std_huff_tables.val_ac_luminance, i64 162, i1 false)
   %39 = load ptr, ptr %32, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 276
   store i32 0, ptr %40, align 4
@@ -405,10 +405,10 @@ add_huff_table.exit13.i:                          ; preds = %35, %add_huff_table
 
 add_huff_table.exit19.i:                          ; preds = %44, %add_huff_table.exit13.i
   %46 = phi ptr [ %45, %44 ], [ %42, %add_huff_table.exit13.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %46, ptr noundef nonnull readonly align 16 dereferenceable(17) @std_huff_tables.bits_dc_chrominance, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %46, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_dc_chrominance, i64 17, i1 false)
   %.pre33.i = load ptr, ptr %41, align 8
   %47 = getelementptr inbounds i8, ptr %.pre33.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %47, ptr noundef nonnull readonly align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %47, ptr noundef nonnull align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
   %48 = load ptr, ptr %41, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 276
   store i32 0, ptr %49, align 4
@@ -424,10 +424,10 @@ add_huff_table.exit19.i:                          ; preds = %44, %add_huff_table
 
 std_huff_tables.exit:                             ; preds = %add_huff_table.exit19.i, %53
   %55 = phi ptr [ %54, %53 ], [ %51, %add_huff_table.exit19.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %55, ptr noundef nonnull readonly align 16 dereferenceable(17) @std_huff_tables.bits_ac_chrominance, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %55, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_ac_chrominance, i64 17, i1 false)
   %.pre34.i = load ptr, ptr %50, align 8
   %56 = getelementptr inbounds i8, ptr %.pre34.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %56, ptr noundef nonnull readonly align 16 dereferenceable(162) @std_huff_tables.val_ac_chrominance, i64 162, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %56, ptr noundef nonnull align 16 dereferenceable(162) @std_huff_tables.val_ac_chrominance, i64 162, i1 false)
   %57 = load ptr, ptr %50, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 276
   store i32 0, ptr %58, align 4

@@ -1321,7 +1321,7 @@ do.body.i:                                        ; preds = %sw.bb40
   br i1 %cmp.i.not.i, label %if.end48, label %if.then.i31
 
 if.then.i31:                                      ; preds = %do.body.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %conv42) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef range(i32 0, 256) %conv42) #13
   br label %if.end48
 
 sw.bb44:                                          ; preds = %if.else, %if.else
@@ -1362,11 +1362,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %29 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %30 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i32 noundef %conv, i32 noundef %val.0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i32 noundef %conv, i32 noundef range(i32 0, -127) %val.0) #13
   br label %trace_vga_cirrus_read_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %conv, i32 noundef %val.0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %conv, i32 noundef range(i32 0, -127) %val.0) #13
   br label %trace_vga_cirrus_read_io.exit
 
 trace_vga_cirrus_read_io.exit:                    ; preds = %if.end48, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -47420,11 +47420,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %36 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %37 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, i32 noundef %address, i32 noundef %value.0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, i32 noundef %address, i32 noundef range(i32 0, 256) %value.0) #13
   br label %trace_vga_cirrus_write_blt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %address, i32 noundef %value.0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %address, i32 noundef range(i32 0, 256) %value.0) #13
   br label %trace_vga_cirrus_write_blt.exit
 
 trace_vga_cirrus_write_blt.exit:                  ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -47754,11 +47754,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %address, i32 noundef %conv) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %address, i32 noundef range(i32 0, 256) %conv) #13
   br label %trace_vga_cirrus_write_blt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %address, i32 noundef %conv) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %address, i32 noundef range(i32 0, 256) %conv) #13
   br label %trace_vga_cirrus_write_blt.exit
 
 trace_vga_cirrus_write_blt.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

@@ -283,7 +283,7 @@ if.then.i:                                        ; preds = %if.else39
   br i1 %mul.ov.i.i, label %if.then.i.i, label %st_mult.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef 24, i64 noundef %conv.i) #15
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef 24, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #15
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then.i
@@ -944,7 +944,7 @@ if.end40.i:                                       ; preds = %for.body34.i
   %130 = load ptr, ptr %two48.i, align 8
   %path49.i = getelementptr inbounds i8, ptr %130, i64 40
   %131 = load ptr, ptr %path49.i, align 8
-  call fastcc void @update_dir_rename_counts(ptr noundef %info, ptr noundef %dirs_removed, ptr noundef %129, ptr noundef %131)
+  call fastcc void @update_dir_rename_counts(ptr noundef nonnull %info, ptr noundef %dirs_removed, ptr noundef %129, ptr noundef %131)
   br label %for.inc50.i
 
 for.inc50.i:                                      ; preds = %if.end40.i, %if.then36.i
@@ -970,7 +970,7 @@ for.body57.i:                                     ; preds = %for.end51.i, %for.i
 if.end61.i:                                       ; preds = %for.body57.i
   %key58.i = getelementptr inbounds i8, ptr %entry1.156.i, i64 16
   %135 = load ptr, ptr %key58.i, align 8
-  call fastcc void @update_dir_rename_counts(ptr noundef %info, ptr noundef %dirs_removed, ptr noundef %135, ptr noundef nonnull %134)
+  call fastcc void @update_dir_rename_counts(ptr noundef nonnull %info, ptr noundef %dirs_removed, ptr noundef %135, ptr noundef nonnull %134)
   br label %for.inc62.i
 
 for.inc62.i:                                      ; preds = %if.end61.i, %for.body57.i
@@ -1318,7 +1318,7 @@ record_rename_pair.exit.i:                        ; preds = %if.else.i.i, %if.th
   %201 = load ptr, ptr %path99.i, align 8
   %path100.i = getelementptr inbounds i8, ptr %183, i64 40
   %202 = load ptr, ptr %path100.i, align 8
-  call fastcc void @update_dir_rename_counts(ptr noundef %info, ptr noundef %dirs_removed, ptr noundef %201, ptr noundef %202)
+  call fastcc void @update_dir_rename_counts(ptr noundef nonnull %info, ptr noundef %dirs_removed, ptr noundef %201, ptr noundef %202)
   call void @diff_free_filespec_blob(ptr noundef %181) #14
   call void @diff_free_filespec_blob(ptr noundef %183) #14
   br label %for.inc102.i
@@ -1752,12 +1752,12 @@ if.end136:                                        ; preds = %if.end130
 land.lhs.true.i.i258:                             ; preds = %if.end136
   %conv.i256 = sext i32 %sub131 to i64
   %conv2.i = sext i32 %257 to i64
-  %mul6.i.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv.i256, i64 %conv2.i)
+  %mul6.i.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %conv.i256, i64 range(i64 -2147483648, 2147483648) %conv2.i)
   %mul.ov.i.i259 = extractvalue { i64, i1 } %mul6.i.i, 1
   br i1 %mul.ov.i.i259, label %if.then.i.i270, label %st_mult.exit23.i
 
 if.then.i.i270:                                   ; preds = %land.lhs.true.i.i258
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef %conv.i256, i64 noundef %conv2.i) #15
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef range(i64 -2147483648, 2147483648) %conv.i256, i64 noundef range(i64 -2147483648, 2147483648) %conv2.i) #15
   unreachable
 
 st_mult.exit23.i:                                 ; preds = %land.lhs.true.i.i258
@@ -1803,12 +1803,12 @@ for.end.loopexit.i:                               ; preds = %for.body.i264
 
 land.lhs.true.i25.i:                              ; preds = %for.cond.preheader.i262, %for.end.loopexit.i
   %limited_sources.0.lcssa.i = phi i64 [ 0, %for.cond.preheader.i262 ], [ %262, %for.end.loopexit.i ]
-  %mul6.i26.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv.i256, i64 %limited_sources.0.lcssa.i)
+  %mul6.i26.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %conv.i256, i64 range(i64 -2147483648, 2147483648) %limited_sources.0.lcssa.i)
   %mul.ov.i27.i = extractvalue { i64, i1 } %mul6.i26.i, 1
   br i1 %mul.ov.i27.i, label %if.then.i29.i, label %st_mult.exit37.i
 
 if.then.i29.i:                                    ; preds = %land.lhs.true.i25.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef %conv.i256, i64 noundef %limited_sources.0.lcssa.i) #15
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef range(i64 -2147483648, 2147483648) %conv.i256, i64 noundef range(i64 -2147483648, 2147483648) %limited_sources.0.lcssa.i) #15
   unreachable
 
 st_mult.exit37.i:                                 ; preds = %land.lhs.true.i25.i
@@ -1874,7 +1874,7 @@ if.end156:                                        ; preds = %if.then155, %land.l
   br i1 %mul.ov.i, label %if.then.i277, label %st_mult.exit
 
 if.then.i277:                                     ; preds = %if.end156
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef 4, i64 noundef %conv157) #15
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef 4, i64 noundef range(i64 -2147483648, 2147483648) %conv157) #15
   unreachable
 
 st_mult.exit:                                     ; preds = %if.end156
@@ -2605,7 +2605,7 @@ if.then5:                                         ; preds = %do.body
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then5
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef 16, i64 noundef %conv16) #15
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %conv16) #15
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then5

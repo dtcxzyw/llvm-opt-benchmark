@@ -3613,7 +3613,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %53
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pr.i.i = load i32, ptr %12, align 8
   %.pre87.i = load i32, ptr %13, align 4
   br label %56
@@ -3631,7 +3631,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %56
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pr148.i.i = load i32, ptr %12, align 8
   %.pre.i.i = load i32, ptr %13, align 4
   br label %65
@@ -3649,7 +3649,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   br i1 %72, label %73, label %.preheader152.preheader.i.i
 
 73:                                               ; preds = %65
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre163.i.i = load i32, ptr %13, align 4
   %.pre164.i.i = load i32, ptr %12, align 8
   br label %.preheader152.preheader.i.i
@@ -3866,7 +3866,7 @@ _ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %161, %89, %.prehead
   br i1 %.not146.i.i, label %188, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i
 
 188:                                              ; preds = %186
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre167.i.i = load i32, ptr %13, align 4
   br label %189
 
@@ -3972,7 +3972,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   br i1 %246, label %247, label %248
 
 247:                                              ; preds = %245
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre170.i.i = load i32, ptr %13, align 4
   %.pre171.i.i = load i32, ptr %12, align 8
   br label %248
@@ -4001,7 +4001,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   br i1 %262, label %263, label %264
 
 263:                                              ; preds = %261
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre168.i.i = load i32, ptr %13, align 4
   %.pre169.i.i = load i32, ptr %12, align 8
   br label %264
@@ -4022,7 +4022,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   br i1 %272, label %273, label %274
 
 273:                                              ; preds = %271
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre172.i.i = load i32, ptr %13, align 4
   %.pre173.i.i = load i32, ptr %12, align 8
   br label %274
@@ -4103,7 +4103,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   br i1 %.not.i58.i, label %306, label %_ZL10decompressPci.exit
 
 306:                                              ; preds = %304
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   br label %307
 
 307:                                              ; preds = %306, %301
@@ -4216,7 +4216,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i47.i: ; preds = %346, %313
   br i1 %371, label %372, label %373
 
 372:                                              ; preds = %370
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre.i52.i = load i32, ptr %13, align 4
   %.pre137.i.i = load i32, ptr %12, align 8
   br label %373
@@ -4247,7 +4247,7 @@ thread-pre-split.i.i:                             ; preds = %373, %362
   br i1 %.not109.i.i, label %386, label %_ZL10decompressPci.exit
 
 386:                                              ; preds = %384
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre138.i.i = load i32, ptr %13, align 4
   br label %387
 
@@ -4341,7 +4341,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
   br i1 %442, label %443, label %444
 
 443:                                              ; preds = %441
-  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
+  call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef nonnull %4)
   %.pre139.i.i = load i32, ptr %13, align 4
   %.pre140.i.i = load i32, ptr %12, align 8
   br label %444

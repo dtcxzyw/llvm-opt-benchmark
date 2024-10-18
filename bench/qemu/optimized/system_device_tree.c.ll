@@ -689,7 +689,7 @@ findnode_nofail.exit:                             ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i)
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %val)
   store i32 %rev.i.i.i, ptr %tmp.i.i, align 4
-  %call1.i.i = call i32 @fdt_setprop(ptr noundef %fdt, i32 noundef %call.i, ptr noundef %property, ptr noundef nonnull %tmp.i.i, i32 noundef 4) #12
+  %call1.i.i = call i32 @fdt_setprop(ptr noundef %fdt, i32 noundef range(i32 0, -2147483648) %call.i, ptr noundef %property, ptr noundef nonnull %tmp.i.i, i32 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
   %cmp = icmp slt i32 %call1.i.i, 0
   br i1 %cmp, label %if.then, label %if.end

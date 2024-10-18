@@ -1760,7 +1760,7 @@ define void @_ZNK8UatModel4dataERK11QModelIndexi(ptr dead_on_unwind noalias writ
   br i1 %or.cond103, label %30, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %29, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -1871,7 +1871,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i45:    ; preds = %75
   br label %_ZN7QStringD2Ev.exit47
 
 81:                                               ; preds = %46, %46
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %82 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %82, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -1985,7 +1985,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57:    ; preds = %100
 
 128:                                              ; preds = %106
   store ptr %44, ptr %13, align 8
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %13)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %13)
   br label %_ZN7QStringD2Ev.exit
 
 129:                                              ; preds = %106
@@ -2050,7 +2050,7 @@ _ZNK4QMapIi7QStringE8containsERKi.exit:           ; preds = %_ZNKSt8_Rb_treeIiSt
   br label %_ZN7QStringD2Ev.exit47
 
 _ZNK4QMapIi7QStringE8containsERKi.exit.thread:    ; preds = %135, %_ZNKSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %133, %_ZNK4QMapIi7QStringE8containsERKi.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %150 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %150, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -2235,13 +2235,13 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90:    ; preds = %209
   br label %_ZN7QStringD2Ev.exit47
 
 _ZNK4QMapIi7QStringE8containsERKi.exit83.thread:  ; preds = %176, %_ZNKSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i78, %174, %_ZNK4QMapIi7QStringE8containsERKi.exit83
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %215 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %215, align 8
   br label %_ZN7QStringD2Ev.exit
 
 .thread:                                          ; preds = %107, %151, %129
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %216 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %216, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -2401,7 +2401,7 @@ define void @_ZNK8UatModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_unwind n
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %7, align 8
   br label %28
@@ -2439,7 +2439,7 @@ define void @_ZNK8UatModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_unwind n
   br label %28
 
 26:                                               ; preds = %9, %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %27, align 8
   br label %28
@@ -6915,7 +6915,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit30.thread: ; preds = %38, 
   %.010.i33 = phi ptr [ %58, %.lr.ph.i31 ], [ %66, %63 ]
   %65 = getelementptr %class.QVariant, ptr %31, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %.010.i33, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.010.i33, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.010.i33, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.010.i33, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %66 = getelementptr i8, ptr %.010.i33, i64 32
@@ -9046,7 +9046,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIi7QStringSt4lessIiESaISt4pair
   br label %46
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIi7QStringSt4lessIiESaISt4pairIKiS4_EEEE21copyIfNotEquivalentToERKSB_RS8_EUlRKT_E_EclISt23_Rb_tree_const_iteratorIS9_EEEbSG_.exit: ; preds = %9
-  %17 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.3.07, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %17 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.3.07, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
   %.not.i.i.i.i = icmp eq ptr %19, null

@@ -1227,7 +1227,7 @@ Abc_TtStretch6.exit130:                           ; preds = %Abc_TtStretch6.exit
 
 165:                                              ; preds = %163
   %166 = trunc nuw nsw i64 %indvars.iv.next.i134 to i32
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef %57, i32 noundef %.pre-phi180, i32 noundef %.017.i, i32 noundef %166)
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef %57, i32 noundef range(i32 0, 256) %.pre-phi180, i32 noundef %.017.i, i32 noundef %166)
   br label %167
 
 167:                                              ; preds = %165, %163
@@ -1283,7 +1283,7 @@ Abc_TtExpand.exit:                                ; preds = %Abc_TtExpand.exit.l
 
 191:                                              ; preds = %189
   %192 = trunc nuw nsw i64 %indvars.iv.next.i139 to i32
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef %59, i32 noundef %.pre-phi184, i32 noundef %.017.i138, i32 noundef %192)
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef %59, i32 noundef range(i32 0, 256) %.pre-phi184, i32 noundef %.017.i138, i32 noundef %192)
   br label %193
 
 193:                                              ; preds = %191, %189

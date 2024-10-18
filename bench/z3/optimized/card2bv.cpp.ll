@@ -332,7 +332,7 @@ lpad47:                                           ; preds = %invoke.cont44
 
 for.inc:                                          ; preds = %invoke.cont32, %invoke.cont48
   %26 = load ptr, ptr %m, align 8
-  %call2.i.i39 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %26)
+  %call2.i.i39 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %26)
           to label %call2.i.i.noexc unwind label %lpad13.loopexit
 
 call2.i.i.noexc:                                  ; preds = %for.inc
@@ -733,7 +733,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %0 = load ptr, ptr %this, align 8
   %m_decl.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 16, i1 false)
   store ptr %f, ptr %m_decl.i, align 8
   %m_manager.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %0, ptr %m_manager.i.i, align 8
@@ -802,7 +802,7 @@ lor.lhs.false.i.i2:                               ; preds = %_ZN17scoped_ptr_vec
   br i1 %cmp5.i.i5, label %if.then.i.i10, label %invoke.cont
 
 if.then.i.i10:                                    ; preds = %lor.lhs.false.i.i2, %_ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE9push_backEPS1_.exit
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %9)
   %.pre.i.i11 = load ptr, ptr %9, align 8
   %arrayidx8.phi.trans.insert.i.i12 = getelementptr inbounds i8, ptr %.pre.i.i11, i64 -4
   %.pre1.i.i13 = load i32, ptr %arrayidx8.phi.trans.insert.i.i12, align 4
@@ -1395,7 +1395,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -426,7 +426,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN3sat16clause_allocatorD2Ev.exit:               ; preds = %_ZN10ptr_vectorIN3sat6clauseEED2Ev.exit, %if.then.i.i.i.i.i
-  tail call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %m_alloc6) #21
+  tail call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %m_alloc6) #21
   %m_children.i = getelementptr inbounds i8, ptr %this, i64 64
   %51 = load ptr, ptr %m_children.i, align 8
   %tobool.not.i.i.i.i44 = icmp eq ptr %51, null
@@ -3515,7 +3515,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

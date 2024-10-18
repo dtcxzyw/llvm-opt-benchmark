@@ -148,7 +148,7 @@ land.rhs.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.then32, %land.rhs.i
   %fn.07.i54 = phi ptr [ %incdec.ptr.i, %land.rhs.i ], [ %5, %if.then32 ]
   %9 = load ptr, ptr %fn.07.i54, align 8
-  %call.i = call fastcc i32 @parse_credential_file(ptr noundef %9, ptr noundef %c, ptr noundef nonnull @print_entry, ptr noundef null, i32 noundef 0)
+  %call.i = call fastcc i32 @parse_credential_file(ptr noundef %9, ptr noundef nonnull %c, ptr noundef nonnull @print_entry, ptr noundef null, i32 noundef 0)
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.rhs.i, label %if.end44
 
@@ -190,7 +190,7 @@ for.body.i10:                                     ; preds = %if.then36, %for.inc
 
 if.then9.i:                                       ; preds = %for.body.i10
   %17 = load ptr, ptr %fn.012.i51, align 8
-  call fastcc void @rewrite_credential_file(ptr noundef %17, ptr noundef %c, ptr noundef null, i32 noundef 1)
+  call fastcc void @rewrite_credential_file(ptr noundef %17, ptr noundef nonnull %c, ptr noundef null, i32 noundef 1)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then9.i, %for.body.i10
@@ -380,7 +380,7 @@ strbuf_addch.exit37.i:                            ; preds = %if.then.i33.i, %str
   br label %store_credential_file.exit
 
 store_credential_file.exit:                       ; preds = %if.end.i36, %strbuf_addch.exit37.i
-  call fastcc void @rewrite_credential_file(ptr noundef %31, ptr noundef %c, ptr noundef nonnull %buf.i, i32 noundef 0)
+  call fastcc void @rewrite_credential_file(ptr noundef %31, ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i32 noundef 0)
   call void @strbuf_release(ptr noundef nonnull %buf.i) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br label %if.end44
@@ -627,7 +627,7 @@ entry:
   %call = call i32 @git_config_get_int(ptr noundef nonnull @.str.15, ptr noundef nonnull %timeout_ms) #12
   %0 = load i32, ptr %timeout_ms, align 4
   %conv = sext i32 %0 to i64
-  %call.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull @credential_lock, ptr noundef %fn, i32 noundef 0, i64 noundef %conv, i32 noundef 438) #12
+  %call.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull @credential_lock, ptr noundef %fn, i32 noundef 0, i64 noundef range(i64 -2147483648, 2147483648) %conv, i32 noundef 438) #12
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end
 

@@ -57,7 +57,7 @@ define dso_local noundef zeroext i1 @_Z14cmUnsetCommandRKSt6vectorINSt7__cxx1112
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc31 unwind label %22
 
 .noexc31:                                         ; preds = %.noexc
@@ -67,7 +67,7 @@ define dso_local noundef zeroext i1 @_Z14cmUnsetCommandRKSt6vectorINSt7__cxx1112
 18:                                               ; preds = %.noexc31
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc31
@@ -194,7 +194,7 @@ _Z18cmHasLiteralPrefixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
           to label %.noexc33 unwind label %74
 
 .noexc33:                                         ; preds = %68
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %69, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %69, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc34 unwind label %74
 
 .noexc34:                                         ; preds = %.noexc33
@@ -204,7 +204,7 @@ _Z18cmHasLiteralPrefixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
 70:                                               ; preds = %.noexc34
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   br label %.body35
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; preds = %.noexc34

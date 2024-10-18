@@ -401,7 +401,7 @@ land.rhs:                                         ; preds = %_ZN6vectorIPN7datal
   %it.074 = phi ptr [ %incdec.ptr, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit ], [ %5, %_ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE3endEv.exit ]
   %12 = load ptr, ptr %this, align 8
   %13 = load ptr, ptr %12, align 8
-  %call2.i.i15 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
+  %call2.i.i15 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %13)
           to label %call2.i.i.noexc unwind label %lpad.loopexit
 
 call2.i.i.noexc:                                  ; preds = %land.rhs
@@ -2288,7 +2288,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -1925,7 +1925,7 @@ if.end.i.i.i:                                     ; preds = %while.cond.i.i.i
   br label %while.cond.i.i.i, !llvm.loop !13
 
 end_of_authority.exit.i.i:                        ; preds = %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i
-  %call4.i.i = call fastcc i32 @parse_authority(ptr noundef %call.i151.i, ptr noundef %call449.i, ptr noundef %cp.addr.0.i.i.i, ptr noundef %call.i151.i)
+  %call4.i.i = call fastcc i32 @parse_authority(ptr noundef %call.i151.i, ptr noundef nonnull %call449.i, ptr noundef %cp.addr.0.i.i.i, ptr noundef %call.i151.i)
   %cmp5.i.i = icmp slt i32 %call4.i.i, 0
   br i1 %cmp5.i.i, label %if.then13.i.i, label %if.end7.i.i
 
@@ -11229,7 +11229,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  %call.i = call fastcc i32 @evhttp_find_alias(ptr noundef nonnull %arg, ptr noundef nonnull %http, ptr noundef %call8)
+  %call.i = call fastcc i32 @evhttp_find_alias(ptr noundef nonnull %arg, ptr noundef nonnull %http, ptr noundef nonnull %call8)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %do.body.i, label %if.then10.if.end12_crit_edge
 
@@ -11251,7 +11251,7 @@ for.cond.i:                                       ; preds = %for.body.i, %do.bod
 for.body.i:                                       ; preds = %for.cond.i
   %vhost_pattern.i = getelementptr inbounds i8, ptr %vhost.0.i, i64 120
   %7 = load ptr, ptr %vhost_pattern.i, align 8
-  %call1.i = call fastcc i32 @prefix_suffix_match(ptr noundef %7, ptr noundef %call8)
+  %call1.i = call fastcc i32 @prefix_suffix_match(ptr noundef %7, ptr noundef nonnull %call8)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %for.cond.i, label %do.cond.i, !llvm.loop !45
 

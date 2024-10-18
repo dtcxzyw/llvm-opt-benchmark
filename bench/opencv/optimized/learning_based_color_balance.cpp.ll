@@ -2902,7 +2902,7 @@ define linkonce_odr hidden void @_ZN2cv6xphoto19LearningBasedWBImplD0Ev(ptr noun
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(460) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }

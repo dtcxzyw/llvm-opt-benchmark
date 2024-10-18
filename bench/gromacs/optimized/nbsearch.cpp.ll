@@ -538,7 +538,7 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13getPairSearchEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(624) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 560
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #33
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #33
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -707,12 +707,12 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPa
   br label %.body
 
 _ZNSt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEC2ERKS3_.exit: ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %66, %21, %20
-  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #33
+  %71 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #33
   ret void
 
 .body:                                            ; preds = %67, %46, %69
   %.pn = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ], [ %47, %46 ]
-  %72 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #33
+  %72 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #33
   resume { ptr, i32 } %.pn
 }
 
@@ -2728,7 +2728,7 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
   %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #33
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.5, ptr noundef %30)
   %31 = call ptr @__cxa_allocate_exception(i64 24) #33
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %32 unwind label %.thread
 
 32:                                               ; preds = %27
@@ -2768,7 +2768,7 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
   %.048 = phi i1 [ false, %36 ], [ true, %34 ]
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #33
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #33
   call void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #33
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #33
   br i1 %.048, label %41, label %42
@@ -2840,7 +2840,7 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
   %.045 = phi i1 [ false, %61 ], [ true, %59 ]
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #33
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #33
   call void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #33
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #33
   br i1 %.045, label %66, label %258
@@ -3344,7 +3344,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx8APIErrorD2Ev.exit
 
 _ZN3gmx8APIErrorD2Ev.exit:                        ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #33
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #33
   ret void
 }
 
@@ -3412,7 +3412,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -3429,7 +3429,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #33
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -3554,7 +3554,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #33
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
   ret void
 }
@@ -3901,7 +3901,7 @@ define void @_ZNK3gmx8internal34AnalysisNeighborhoodPairSearchImpl13initFoundPai
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx20AnalysisNeighborhood4Impl9getSearchEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(85) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #33
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #33
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
 
@@ -4057,12 +4057,12 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSe
   br label %.body
 
 _ZNSt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEC2ERKS3_.exit: ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %57, %20, %19
-  %64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #33
+  %64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #33
   ret void
 
 .body:                                            ; preds = %58, %34, %62, %60
   %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %35, %34 ]
-  %65 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #33
+  %65 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #33
   resume { ptr, i32 } %.pn
 }
 
@@ -4317,7 +4317,7 @@ define void @_ZN3gmx20AnalysisNeighborhoodC2Ev(ptr nocapture noundef nonnull wri
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 84
   store i8 0, ptr %5, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %2, i8 0, i64 68, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(85) %2, i8 0, i64 68, i1 false)
   store ptr %2, ptr %0, align 8
   ret void
 }

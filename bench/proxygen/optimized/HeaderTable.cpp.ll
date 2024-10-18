@@ -447,7 +447,7 @@ if.then28:                                        ; preds = %if.end25
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   %37 = load i32, ptr %head_, align 4
   store i32 %37, ptr %_M_storage.i.i.i.i, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %second.i) #29
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %second.i) #29
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %second.i, i64 16
   %38 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %38, 1
@@ -1445,7 +1445,7 @@ if.else.i:                                        ; preds = %land.rhs.i.i.i.i, %
   %sub.i.i.i = add i64 %26, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #29
-  tail call void @_ZdlPv(ptr noundef %25) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %25) #30
   %27 = load ptr, ptr %second, align 8
   %cmp.i75 = icmp eq ptr %27, %second
   br i1 %cmp.i75, label %if.then36, label %if.end39
@@ -2049,7 +2049,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %entry
   %shr.i.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i.i, 12
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %shr.i.i.i.i.i.i.i.i, 1
   %mul.i.i.i.i.i.i.i.i = mul i64 %add.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
-  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(8) %names_, i64 noundef %shr.i.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i.i.i.i.i.i)
+  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(24) %names_, i64 noundef %shr.i.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i.i.i.i.i.i)
           to label %if.end7.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
@@ -2153,7 +2153,7 @@ for.body:                                         ; preds = %entry, %_ZNSt16allo
 while.body.i.i.i.i.i.i:                           ; preds = %for.body, %while.body.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i.i.i ], [ %1, %for.body ]
   %2 = load ptr, ptr %__cur.05.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i) #30
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, %second.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !32
 
@@ -2457,7 +2457,7 @@ for.body:                                         ; preds = %if.then13, %for.bod
   %ci.030 = phi i64 [ 0, %if.then13 ], [ %inc, %for.body ]
   %4 = load ptr, ptr %chunks_, align 8
   %arrayidx20 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %4, i64 %ci.030
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx20, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx20, i8 0, i64 16, i1 false)
   %inc = add nuw i64 %ci.030, 1
   %5 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %sh_prom.i.i.i14 = and i64 %5, 255
@@ -3000,7 +3000,7 @@ _ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i.i: ; preds
   br i1 %cmp.not.i, label %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i.i
-  tail call void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKS4_S8_EEPSE_SH_m(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %1, ptr noundef nonnull %add.ptr.i, i64 noundef %origSize)
+  tail call void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKS4_S8_EEPSE_SH_m(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %1, ptr noundef nonnull %add.ptr.i, i64 noundef %origSize)
   br label %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit
 
 _ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit: ; preds = %_ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i.i, %if.then.i
@@ -3012,7 +3012,7 @@ _ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cx
 for.body.i:                                       ; preds = %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit, %for.body.i
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit ]
   %arrayidx.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i2.i.i7.i, i64 %i.06.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx.i, i8 0, i64 16, i1 false)
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %newChunkCount
   br i1 %exitcond.not.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.exit, label %for.body.i, !llvm.loop !48
@@ -3459,7 +3459,7 @@ _ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114list
 while.body.i.i.i.i.i.i:                           ; preds = %_ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEEEE9constructIS8_JS0_IOS2_OS7_EEEEvRS9_PT_DpOT0_.exit, %while.body.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i = phi ptr [ %6, %while.body.i.i.i.i.i.i ], [ %.pre, %_ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEEEE9constructIS8_JS0_IOS2_OS7_EEEEvRS9_PT_DpOT0_.exit ]
   %6 = load ptr, ptr %__cur.05.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i) #30
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %6, %second.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !32
 
@@ -3579,7 +3579,7 @@ if.then.i:                                        ; preds = %if.end3
 
 if.then.i.i:                                      ; preds = %if.then.i
   %28 = load ptr, ptr %1, align 8
-  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKS4_S8_EEPSE_SH_m(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %28, ptr noundef %24, i64 noundef %27)
+  invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKS4_S8_EEPSE_SH_m(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %28, ptr noundef %24, i64 noundef %27)
           to label %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE17afterFailedRehashEPSt4pairIKS4_S8_Em.exit.i unwind label %terminate.lpad
 
 _ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE17afterFailedRehashEPSt4pairIKS4_S8_Em.exit.i: ; preds = %if.then.i.i, %if.then.i
@@ -3713,7 +3713,7 @@ entry:
 while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i = phi ptr [ %3, %while.body.i.i.i.i.i.i ], [ %2, %entry ]
   %3 = load ptr, ptr %__cur.05.i.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i) #30
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i) #30
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, %second.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !32
 

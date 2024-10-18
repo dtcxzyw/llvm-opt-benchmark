@@ -4342,7 +4342,7 @@ do.end2.i:                                        ; preds = %if.end
   store ptr @vnc_zlib_zalloc, ptr %zalloc.i, align 8
   %zfree.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
   store ptr @vnc_zlib_zfree, ptr %zfree.i, align 8
-  %call.i = tail call i32 @deflateInit2_(ptr noundef %arrayidx, i32 noundef %level, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef %strategy, ptr noundef nonnull @.str.2, i32 noundef 112) #14
+  %call.i = tail call i32 @deflateInit2_(ptr noundef %arrayidx, i32 noundef %level, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef range(i32 0, 2) %strategy, ptr noundef nonnull @.str.2, i32 noundef 112) #14
   %cmp3.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.not.i, label %if.end.i, label %if.then4.i
 
@@ -4369,7 +4369,7 @@ if.end10.i:                                       ; preds = %if.end.i, %if.end
   br i1 %cmp15.not.i, label %if.end6, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end10.i
-  %call17.i = tail call i32 @deflateParams(ptr noundef %arrayidx, i32 noundef %level, i32 noundef %strategy) #14
+  %call17.i = tail call i32 @deflateParams(ptr noundef %arrayidx, i32 noundef %level, i32 noundef range(i32 0, 2) %strategy) #14
   %cmp18.not.i = icmp eq i32 %call17.i, 0
   br i1 %cmp18.not.i, label %if.end20.i, label %return
 

@@ -33,7 +33,7 @@ _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6st
   %2 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !10
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.7163babbdb6ac538066eca50e5ee6ad7.4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !11
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.7163babbdb6ac538066eca50e5ee6ad7.4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !6
   ret i1 %3
 }
@@ -113,7 +113,7 @@ _ZN4core4char7methods15encode_utf8_raw17h29cdc5573eb60f23E.exit.i: ; preds = %20
   br i1 %41, label %42, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCslOtZNRIhnDi_7pidlock.exit.i
 
 42:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h29cdc5573eb60f23E.exit.i
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %38, i64 noundef %33)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %38, i64 noundef %33)
   %.pre.i.i = load i64, ptr %37, align 8, !alias.scope !18
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCslOtZNRIhnDi_7pidlock.exit.i
 
@@ -138,7 +138,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCslOtZNRIhnDi_7pid
   br i1 %54, label %55, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCslOtZNRIhnDi_7pidlock.exit.i
 
 55:                                               ; preds = %49
-  tail call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCslOtZNRIhnDi_7pidlock.exit.i
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCslOtZNRIhnDi_7pidlock.exit.i: ; preds = %55, %49
@@ -164,7 +164,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br i1 %8, label %9, label %_ZN5alloc6string6String8push_str17h394e518918c1ef53E.exit
 
 9:                                                ; preds = %3
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %2), !noalias !29
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %2), !noalias !29
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !24, !noalias !29
   br label %_ZN5alloc6string6String8push_str17h394e518918c1ef53E.exit
 

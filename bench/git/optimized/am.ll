@@ -1565,12 +1565,12 @@ if.end.i59.i:                                     ; preds = %if.then.i.i, %if.en
 
 sw.bb.i.i:                                        ; preds = %if.end.i59.i
   %54 = load i32, ptr %keep_cr.addr.i.i, align 4
-  %call1.i.i = call fastcc i32 @split_mail_mbox(ptr noundef %state, ptr noundef %31, i32 noundef %54, i32 noundef 0)
+  %call1.i.i = call fastcc i32 @split_mail_mbox(ptr noundef nonnull %state, ptr noundef %31, i32 noundef %54, i32 noundef 0)
   br label %split_mail.exit.i
 
 sw.bb2.i.i:                                       ; preds = %if.end.i59.i
   %55 = load i32, ptr %keep_cr.addr.i.i, align 4
-  %call3.i61.i = call fastcc i32 @split_mail_conv(ptr noundef nonnull @stgit_patch_to_mail, ptr noundef %state, ptr noundef %31, i32 noundef %55)
+  %call3.i61.i = call fastcc i32 @split_mail_conv(ptr noundef nonnull @stgit_patch_to_mail, ptr noundef nonnull %state, ptr noundef %31, i32 noundef %55)
   br label %split_mail.exit.i
 
 sw.bb4.i.i:                                       ; preds = %if.end.i59.i
@@ -1656,7 +1656,7 @@ while.end.i.i.i:                                  ; preds = %while.cond.backedge
   call void @strbuf_release(ptr noundef nonnull %sb.i.i.i) #21
   call void @free(ptr noundef %call5.i.i.i) #21
   %65 = load ptr, ptr %patches.i.i.i, align 8
-  %call23.i.i.i = call fastcc i32 @split_mail_conv(ptr noundef nonnull @stgit_patch_to_mail, ptr noundef %state, ptr noundef %65, i32 noundef %56)
+  %call23.i.i.i = call fastcc i32 @split_mail_conv(ptr noundef nonnull @stgit_patch_to_mail, ptr noundef nonnull %state, ptr noundef %65, i32 noundef %56)
   call void @strvec_clear(ptr noundef nonnull %patches.i.i.i) #21
   br label %split_mail_stgit_series.exit.i.i
 
@@ -1668,12 +1668,12 @@ split_mail_stgit_series.exit.i.i:                 ; preds = %while.end.i.i.i, %_
 
 sw.bb6.i.i:                                       ; preds = %if.end.i59.i
   %66 = load i32, ptr %keep_cr.addr.i.i, align 4
-  %call7.i.i = call fastcc i32 @split_mail_conv(ptr noundef nonnull @hg_patch_to_mail, ptr noundef %state, ptr noundef %31, i32 noundef %66)
+  %call7.i.i = call fastcc i32 @split_mail_conv(ptr noundef nonnull @hg_patch_to_mail, ptr noundef nonnull %state, ptr noundef %31, i32 noundef %66)
   br label %split_mail.exit.i
 
 sw.bb8.i.i:                                       ; preds = %if.end.i59.i
   %67 = load i32, ptr %keep_cr.addr.i.i, align 4
-  %call9.i.i = call fastcc i32 @split_mail_mbox(ptr noundef %state, ptr noundef %31, i32 noundef %67, i32 noundef 1)
+  %call9.i.i = call fastcc i32 @split_mail_mbox(ptr noundef nonnull %state, ptr noundef %31, i32 noundef %67, i32 noundef 1)
   br label %split_mail.exit.i
 
 sw.default.i.i:                                   ; preds = %if.end.i59.i
@@ -1933,7 +1933,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %valid
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %100 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i50 = trunc i64 %sub.ptr.sub.i.i to i32
-  call void (ptr, ptr, ptr, ...) @say(ptr noundef %state, ptr noundef %98, ptr noundef %retval.0.i.i, i32 noundef %conv.i.i50, ptr noundef %100)
+  call void (ptr, ptr, ptr, ...) @say(ptr noundef nonnull %state, ptr noundef %98, ptr noundef %retval.0.i.i, i32 noundef %conv.i.i50, ptr noundef %100)
   %101 = load ptr, ptr @the_repository, align 8
   %call3.i51 = call i32 @repo_index_has_changes(ptr noundef %101, ptr noundef null, ptr noundef null) #21
   %tobool.not.i52 = icmp eq i32 %call3.i51, 0
@@ -1966,7 +1966,7 @@ _.exit20.i:                                       ; preds = %if.end3.i17.i, %if.
 if.else.i:                                        ; preds = %land.lhs.true.i67, %if.then.i65
   %call11.i69 = call fastcc ptr @_(ptr noundef nonnull @.str.261)
   %call12.i = call i32 (ptr, ...) @printf_ln(ptr noundef %call11.i69) #21
-  call fastcc void @die_user_resolve(ptr noundef %state) #24
+  call fastcc void @die_user_resolve(ptr noundef nonnull %state) #24
   unreachable
 
 if.end13.i53:                                     ; preds = %_.exit20.i, %_.exit.i
@@ -1977,7 +1977,7 @@ if.end13.i53:                                     ; preds = %_.exit20.i, %_.exit
 if.then16.i:                                      ; preds = %if.end13.i53
   %call17.i = call fastcc ptr @_(ptr noundef nonnull @.str.262)
   %call18.i55 = call i32 (ptr, ...) @printf_ln(ptr noundef %call17.i) #21
-  call fastcc void @die_user_resolve(ptr noundef %state) #24
+  call fastcc void @die_user_resolve(ptr noundef nonnull %state) #24
   unreachable
 
 if.end19.i56:                                     ; preds = %if.end13.i53
@@ -2038,20 +2038,20 @@ write_index_patch.exit.i:                         ; preds = %if.else.i.i, %if.th
   call void @release_revisions(ptr noundef nonnull %rev_info.i.i) #21
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %head.i.i)
   call void @llvm.lifetime.end.p0(i64 3024, ptr nonnull %rev_info.i.i)
-  %call22.i = call fastcc i32 @do_interactive(ptr noundef %state)
+  %call22.i = call fastcc i32 @do_interactive(ptr noundef nonnull %state)
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %if.end26.i, label %am_resolve.exit
 
 if.end26.i:                                       ; preds = %write_index_patch.exit.i, %if.end19.i56
   %110 = load ptr, ptr @the_repository, align 8
   %call27.i = call i32 @repo_rerere(ptr noundef %110, i32 noundef 0) #21
-  call fastcc void @do_commit(ptr noundef %state)
+  call fastcc void @do_commit(ptr noundef nonnull %state)
   br label %am_resolve.exit
 
 am_resolve.exit:                                  ; preds = %write_index_patch.exit.i, %if.end26.i
-  call fastcc void @am_next(ptr noundef %state)
-  call fastcc void @am_load(ptr noundef %state)
-  call fastcc void @am_run(ptr noundef %state, i32 noundef 0)
+  call fastcc void @am_next(ptr noundef nonnull %state)
+  call fastcc void @am_load(ptr noundef nonnull %state)
+  call fastcc void @am_run(ptr noundef nonnull %state, i32 noundef 0)
   br label %return
 
 sw.bb572:                                         ; preds = %if.end568
@@ -2110,9 +2110,9 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %am_skip.exit
 
 am_skip.exit:                                     ; preds = %if.end5.i, %if.then7.i
-  call fastcc void @am_next(ptr noundef %state)
-  call fastcc void @am_load(ptr noundef %state)
-  call fastcc void @am_run(ptr noundef %state, i32 noundef 0)
+  call fastcc void @am_next(ptr noundef nonnull %state)
+  call fastcc void @am_load(ptr noundef nonnull %state)
+  call fastcc void @am_run(ptr noundef nonnull %state, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %head.i)
   br label %return
 
@@ -2130,7 +2130,7 @@ sw.bb573:                                         ; preds = %if.end568
   br i1 %tobool.not.i.i88, label %if.end.i.i91, label %if.then.i89
 
 if.end.i.i91:                                     ; preds = %sw.bb573
-  %call2.i.i92 = call fastcc i32 @read_state_file(ptr noundef %sb.i.i, ptr noundef readonly %state, ptr noundef nonnull @.str.137, i32 noundef 1)
+  %call2.i.i92 = call fastcc i32 @read_state_file(ptr noundef %sb.i.i, ptr noundef nonnull readonly %state, ptr noundef nonnull @.str.137, i32 noundef 1)
   %cmp.i.i93 = icmp sgt i32 %call2.i.i92, 0
   br i1 %cmp.i.i93, label %if.then3.i.i, label %if.else.i.i94
 
@@ -2815,7 +2815,7 @@ if.then13:                                        ; preds = %if.end6
 if.end15:                                         ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.show_patch.sb, i64 24, i1 false)
-  %call.i = call fastcc i32 @read_state_file(ptr noundef %sb.i, ptr noundef %state, ptr noundef nonnull @.str.124, i32 noundef 0)
+  %call.i = call fastcc i32 @read_state_file(ptr noundef %sb.i, ptr noundef nonnull %state, ptr noundef nonnull @.str.124, i32 noundef 0)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -4002,7 +4002,7 @@ do.body.i:                                        ; preds = %if.end.i112, %if.en
   store ptr null, ptr %msg43.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i.i104)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i.i104, ptr noundef nonnull align 8 dereferenceable(24) @__const.show_patch.sb, i64 24, i1 false)
-  %call.i8.i107 = call fastcc i32 @read_state_file(ptr noundef %sb.i.i104, ptr noundef %state, ptr noundef nonnull @.str.124, i32 noundef 0)
+  %call.i8.i107 = call fastcc i32 @read_state_file(ptr noundef %sb.i.i104, ptr noundef nonnull %state, ptr noundef nonnull @.str.124, i32 noundef 0)
   %cmp.i.i108 = icmp slt i32 %call.i8.i107, 0
   br i1 %cmp.i.i108, label %if.then6.i, label %if.end55
 
@@ -4128,7 +4128,7 @@ if.end3.i17.i:                                    ; preds = %if.end14.i
 
 _.exit20.i:                                       ; preds = %if.end3.i17.i, %if.end14.i
   %retval.0.i19.i = phi ptr [ %call.i18.i, %if.end3.i17.i ], [ @.str.237, %if.end14.i ]
-  call void (ptr, ptr, ptr, ...) @say(ptr noundef readonly %state, ptr noundef %100, ptr noundef %retval.0.i19.i)
+  call void (ptr, ptr, ptr, ...) @say(ptr noundef nonnull readonly %state, ptr noundef %100, ptr noundef %retval.0.i19.i)
   %102 = load i32, ptr %quiet.i, align 4
   %tobool16.not.i = icmp eq i32 %102, 0
   br i1 %tobool16.not.i, label %if.then17.i, label %if.end25.i
@@ -4152,7 +4152,7 @@ if.then17.i:                                      ; preds = %_.exit20.i
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then17.i, %_.exit20.i
-  %call26.i = call fastcc i32 @run_apply(ptr noundef readonly %state, ptr noundef %92)
+  %call26.i = call fastcc i32 @run_apply(ptr noundef nonnull readonly %state, ptr noundef %92)
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %if.end32.i, label %if.then28.i
 
@@ -4178,7 +4178,7 @@ if.end3.i27.i:                                    ; preds = %if.end38.i
 
 _.exit30.i:                                       ; preds = %if.end3.i27.i, %if.end38.i
   %retval.0.i29.i = phi ptr [ %call.i28.i, %if.end3.i27.i ], [ @.str.240, %if.end38.i ]
-  call void (ptr, ptr, ptr, ...) @say(ptr noundef readonly %state, ptr noundef %107, ptr noundef %retval.0.i29.i)
+  call void (ptr, ptr, ptr, ...) @say(ptr noundef nonnull readonly %state, ptr noundef %107, ptr noundef %retval.0.i29.i)
   call void @discard_index(ptr noundef nonnull @the_index) #21
   %109 = load ptr, ptr @the_repository, align 8
   %call40.i = call i32 @repo_read_index(ptr noundef %109) #21

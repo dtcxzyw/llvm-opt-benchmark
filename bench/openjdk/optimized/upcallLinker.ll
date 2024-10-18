@@ -597,7 +597,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %44, %48, %52
   br label %70
 
 67:                                               ; preds = %55
-  %68 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %57, i64 noundef 8, i32 noundef 0) #1
+  %68 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %57, i64 noundef 8, i32 noundef 0) #1
   br label %70
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit.thread:       ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
@@ -885,7 +885,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 1720
   %32 = load ptr, ptr %31, align 8
-  %33 = call noundef i32 %32(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @_ZL10UL_methods, i32 noundef 1) #1
+  %33 = call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @_ZL10UL_methods, i32 noundef 1) #1
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %40
 
@@ -893,7 +893,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 120
   %38 = load ptr, ptr %37, align 8
-  %39 = call noundef ptr %38(ptr noundef nonnull %0) #1
+  %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %0) #1
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %42, label %40
 

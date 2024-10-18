@@ -27,7 +27,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i = tail call i64 @pthread_self() #9
   store i64 %call.i, ptr %ref.tmp1, align 8
-  %call.i.i1.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %ref.tmp1, i64 noundef 8, i64 noundef 3339675911)
+  %call.i.i1.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1, i64 noundef 8, i64 noundef 3339675911)
           to label %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then

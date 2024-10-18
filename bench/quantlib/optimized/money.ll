@@ -5146,7 +5146,7 @@ _ZN8QuantLib12ExchangeRateD2Ev.exit:              ; preds = %_ZN8QuantLib8Curren
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIlSt4pairIKlNSt7__cxx114listIN8QuantLib19ExchangeRateManager5EntryESaIS6_EEEESt10_Select1stIS9_ESt4lessIlESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, label %while.body.i.i.i.i.i.i.i, !llvm.loop !46
 
 _ZNSt8_Rb_treeIlSt4pairIKlNSt7__cxx114listIN8QuantLib19ExchangeRateManager5EntryESaIS6_EEEESt10_Select1stIS9_ESt4lessIlESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %_ZN8QuantLib12ExchangeRateD2Ev.exit, %while.body
-  tail call void @_ZdlPvm(ptr noundef %__x.addr.05, i64 noundef 64) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %__x.addr.05, i64 noundef 64) #24
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !48
 

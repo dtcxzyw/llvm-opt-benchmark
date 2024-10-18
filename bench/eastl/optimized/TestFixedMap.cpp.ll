@@ -1139,17 +1139,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9al
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1168,17 +1168,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9al
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1197,17 +1197,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9al
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1226,17 +1226,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9al
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1266,7 +1266,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -1333,17 +1333,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9al
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1373,7 +1373,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -1419,17 +1419,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9al
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1459,7 +1459,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -1506,17 +1506,17 @@ entry:
   %tmp.i = alloca %"struct.eastl::pair.90", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1577,7 +1577,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl3mapIifNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEEEaSERKS6_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -1665,7 +1665,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl3mapIifNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEEEaSERKS6_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -1718,7 +1718,7 @@ entry:
   store i64 0, ptr %mnSize.i, align 8
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 40
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 79, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 79, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
@@ -1755,17 +1755,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1784,17 +1784,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1813,17 +1813,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1842,17 +1842,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1882,7 +1882,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -1947,17 +1947,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -1987,7 +1987,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -2033,17 +2033,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -2073,7 +2073,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -2119,17 +2119,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -2211,7 +2211,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZN5eastl6rbtreeIfN
 _ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i
   %pRangeEnd.0.lcssa.i8.i.i = phi ptr [ %pCurrent.07.i.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %pCurrent.07.i.i.i, %lor.lhs.false2.i.i.i ], [ %this, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
   %side.0.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %spec.select.i.i.i, %lor.lhs.false2.i.i.i ], [ 0, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i
@@ -2256,7 +2256,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl8multimapIfiNS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEEEaSERKS6_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -2374,7 +2374,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZN5eastl6rbtreeIfN
 _ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i
   %pRangeEnd.0.lcssa.i8.i.i = phi ptr [ %pCurrent.07.i.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %pCurrent.07.i.i.i, %lor.lhs.false2.i.i.i ], [ %this, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
   %side.0.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %spec.select.i.i.i, %lor.lhs.false2.i.i.i ], [ 0, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i.i), !noalias !20
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i.i), !noalias !20
   %10 = load i64, ptr %mnSize.i.i, align 8, !noalias !20
   %inc.i.i.i = add i64 %10, 1
   store i64 %inc.i.i.i, ptr %mnSize.i.i, align 8, !noalias !20
@@ -2410,7 +2410,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl8multimapIfiNS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEEEaSERKS6_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -2463,7 +2463,7 @@ entry:
   store i64 0, ptr %mnSize.i, align 8
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 40
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 79, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 79, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
@@ -2500,17 +2500,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -2529,17 +2529,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -2558,17 +2558,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -2587,17 +2587,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -2627,7 +2627,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -2692,17 +2692,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -2732,7 +2732,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -2778,17 +2778,17 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -2818,7 +2818,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -2865,17 +2865,17 @@ entry:
   %tmp.i = alloca %"struct.eastl::pair", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -2936,7 +2936,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl3mapIi10TestObjectNS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEEEaSERKS7_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -3024,7 +3024,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl3mapIi10TestObjectNS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEEEaSERKS7_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -3077,7 +3077,7 @@ entry:
   store i64 0, ptr %mnSize.i, align 8
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 40
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 127, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 127, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
@@ -3114,17 +3114,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3143,17 +3143,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3172,17 +3172,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3201,17 +3201,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3241,7 +3241,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -3306,17 +3306,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3346,7 +3346,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -3392,17 +3392,17 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3432,7 +3432,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -3479,17 +3479,17 @@ entry:
   %tmp.i = alloca %"struct.eastl::rbtree_iterator.97", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.9", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3550,7 +3550,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl8multimapI10TestObjectiNS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEEEaSERKS7_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -3638,7 +3638,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl8multimapI10TestObjectiNS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEEEaSERKS7_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -3691,7 +3691,7 @@ entry:
   store i64 0, ptr %mnSize.i, align 8
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 40
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 127, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 127, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
@@ -3728,18 +3728,18 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEE15Mall
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -3750,7 +3750,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3770,7 +3770,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -3781,16 +3781,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -3799,7 +3799,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3818,18 +3818,18 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEE15Mall
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -3840,7 +3840,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3859,18 +3859,18 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEE15Mall
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -3881,7 +3881,7 @@ invoke.cont:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -3920,7 +3920,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -3985,18 +3985,18 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEE15Mall
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4007,7 +4007,7 @@ invoke.cont:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -4046,7 +4046,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -4093,7 +4093,7 @@ invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -4104,16 +4104,16 @@ invoke.cont:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4122,7 +4122,7 @@ invoke.cont:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -4161,7 +4161,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -4209,7 +4209,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -4220,16 +4220,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4238,7 +4238,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -4299,7 +4299,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl3mapIifNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEEEaSERKS6_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(96) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -4387,7 +4387,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl3mapIifNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEEEaSERKS6_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(96) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -4440,7 +4440,7 @@ entry:
   store i64 0, ptr %mnSize.i, align 8
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 40
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 79, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 79, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
@@ -4488,18 +4488,18 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4510,7 +4510,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -4530,7 +4530,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -4541,16 +4541,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4559,7 +4559,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -4578,18 +4578,18 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4600,7 +4600,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -4619,18 +4619,18 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4641,7 +4641,7 @@ invoke.cont:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -4680,7 +4680,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -4745,18 +4745,18 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4767,7 +4767,7 @@ invoke.cont:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -4806,7 +4806,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -4853,7 +4853,7 @@ invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -4864,16 +4864,16 @@ invoke.cont:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4882,7 +4882,7 @@ invoke.cont:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -4921,7 +4921,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -4968,7 +4968,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.24", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -4979,16 +4979,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -4997,7 +4997,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 40, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -5079,7 +5079,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZN5eastl6rbtreeIfN
 _ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i
   %pRangeEnd.0.lcssa.i8.i.i = phi ptr [ %pCurrent.07.i.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %pCurrent.07.i.i.i, %lor.lhs.false2.i.i.i ], [ %this, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
   %side.0.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %spec.select.i.i.i, %lor.lhs.false2.i.i.i ], [ 0, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %side.0.i.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i
@@ -5124,7 +5124,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl8multimapIfiNS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEEEaSERKS6_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(96) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -5243,7 +5243,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZN5eastl6rbtreeIfN
 _ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i
   %pRangeEnd.0.lcssa.i8.i.i = phi ptr [ %pCurrent.07.i.i.i, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %pCurrent.07.i.i.i, %lor.lhs.false2.i.i.i ], [ %this, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
   %side.0.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %spec.select.i.i.i, %lor.lhs.false2.i.i.i ], [ 0, %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i.i), !noalias !37
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %side.0.i.i.i), !noalias !37
   %10 = load i64, ptr %mnSize.i.i, align 8, !noalias !37
   %inc.i.i.i = add i64 %10, 1
   store i64 %inc.i.i.i, ptr %mnSize.i.i, align 8, !noalias !37
@@ -5279,7 +5279,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl8multimapIfiNS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEEEaSERKS6_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(96) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -5332,7 +5332,7 @@ entry:
   store i64 0, ptr %mnSize.i, align 8
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 40
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 79, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 79, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
@@ -5380,18 +5380,18 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -5402,7 +5402,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -5422,7 +5422,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -5433,16 +5433,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -5451,7 +5451,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -5470,18 +5470,18 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -5492,7 +5492,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -5511,18 +5511,18 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -5533,7 +5533,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -5572,7 +5572,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -5637,18 +5637,18 @@ define weak_odr dso_local void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4les
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -5659,7 +5659,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -5698,7 +5698,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -5745,7 +5745,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -5756,16 +5756,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -5774,7 +5774,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -5813,7 +5813,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -5861,7 +5861,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -5872,16 +5872,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -5890,7 +5890,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -5951,7 +5951,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl3mapIi10TestObjectNS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEEEaSERKS7_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(96) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -6039,7 +6039,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl3mapIi10TestObjectNS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEEEaSERKS7_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(96) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -6092,7 +6092,7 @@ entry:
   store i64 0, ptr %mnSize.i, align 8
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 40
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 127, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 127, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
@@ -6140,18 +6140,18 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -6162,7 +6162,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -6182,7 +6182,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -6193,16 +6193,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -6211,7 +6211,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -6230,18 +6230,18 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -6252,7 +6252,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -6271,18 +6271,18 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -6293,7 +6293,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -6332,7 +6332,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -6397,18 +6397,18 @@ define weak_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1EN
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -6419,7 +6419,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %0, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -6458,7 +6458,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -6505,7 +6505,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -6516,16 +6516,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -6534,7 +6534,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -6573,7 +6573,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -6621,7 +6621,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.36", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -6632,16 +6632,16 @@ entry:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -6650,7 +6650,7 @@ entry:
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i.i, ptr noundef %3, i64 noundef 64, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -6711,7 +6711,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl8multimapI10TestObjectiNS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEEEaSERKS7_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(96) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -6799,7 +6799,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5eastl8multimapI10TestObjectiNS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEEEaSERKS7_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(96) %this)
   store ptr %call7.i.i, ptr %mpNodeParent.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -6852,7 +6852,7 @@ entry:
   store i64 0, ptr %mnSize.i, align 8
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 40
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 127, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mAllocator.i, ptr noundef nonnull %mBuffer, i64 noundef 127, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
@@ -6955,17 +6955,17 @@ entry:
   store i32 %add30, ptr %nErrorCount, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %vm1, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %vm1, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %vm1, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %vm1, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %vm1, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %vm1, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i, align 8
   store ptr %vm1, ptr %vm1, align 8
@@ -6979,8 +6979,8 @@ entry:
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i9)
   %mBuffer.i10 = getelementptr inbounds i8, ptr %vmm1, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i9, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i9, ptr noundef nonnull %mBuffer.i10, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i9, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i9, ptr noundef nonnull %mBuffer.i10, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -6988,10 +6988,10 @@ entry:
   store ptr %mBuffer.i10, ptr %mpPoolBegin.i.i.i11, align 8
   %mAllocator.i.i.i13 = getelementptr inbounds i8, ptr %vmm1, i64 40
   %mpNext.i.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %vmm1, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %vmm1, i8 0, i64 40, i1 false)
   %1 = load ptr, ptr %mpNext.i.i.i.i14, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i13, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i13, ptr noundef %1, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i13, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i13, ptr noundef %1, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -7016,7 +7016,7 @@ invoke.cont34:                                    ; preds = %invoke.cont
 
 invoke.cont39:                                    ; preds = %invoke.cont34
   %2 = load ptr, ptr %mpNodeParent.i.i.i.i17, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %vmm1, ptr noundef %2)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %vmm1, ptr noundef %2)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont39
@@ -7028,7 +7028,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont39
 
 _ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit: ; preds = %invoke.cont39
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %vm1, ptr noundef %5)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %vm1, ptr noundef %5)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i21
 
 terminate.lpad.i.i.i21:                           ; preds = %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit
@@ -7047,7 +7047,7 @@ _ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit: ; preds =
   %mnSize.i.i.i24 = getelementptr inbounds i8, ptr %fixedMap, i64 32
   %mAllocator.i.i.i25 = getelementptr inbounds i8, ptr %fixedMap, i64 40
   %mpNext.i.i.i.i26 = getelementptr inbounds i8, ptr %ref.tmp.i22, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fixedMap, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2503) %fixedMap, i8 0, i64 40, i1 false)
   %8 = load ptr, ptr %mpNext.i.i.i.i26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i25, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i25, ptr noundef %8, i64 noundef 2368, i64 noundef 64, i64 noundef 8, i64 noundef 0)
@@ -7184,7 +7184,7 @@ invoke.cont57:                                    ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont59:                                    ; preds = %invoke.cont57
   %31 = load ptr, ptr %mpNodeParent.i.i.i.i28, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm37ELm8ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(72) %fixedMap, ptr noundef %31)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm37ELm8ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(2503) %fixedMap, ptr noundef %31)
           to label %_ZN5eastl9fixed_mapIi10TestObjectLm37ELb0ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i56
 
 terminate.lpad.i.i.i56:                           ; preds = %invoke.cont59
@@ -7197,17 +7197,17 @@ terminate.lpad.i.i.i56:                           ; preds = %invoke.cont59
 _ZN5eastl9fixed_mapIi10TestObjectLm37ELb0ENS_4lessIiEENS_9allocatorEED2Ev.exit: ; preds = %invoke.cont59
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i57)
   %mBuffer.i58 = getelementptr inbounds i8, ptr %fm, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i57, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i57, ptr noundef nonnull %mBuffer.i58, i64 noundef 192, i64 noundef 192, i64 noundef 64, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i57, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i57, ptr noundef nonnull %mBuffer.i58, i64 noundef 192, i64 noundef 192, i64 noundef 64, i64 noundef 0)
   %mpPoolBegin.i.i.i59 = getelementptr inbounds i8, ptr %ref.tmp.i57, i64 40
   store ptr %mBuffer.i58, ptr %mpPoolBegin.i.i.i59, align 8
   %mnSize.i.i.i60 = getelementptr inbounds i8, ptr %fm, i64 32
   %mAllocator.i.i.i61 = getelementptr inbounds i8, ptr %fm, i64 40
   %mpNext.i.i.i.i62 = getelementptr inbounds i8, ptr %ref.tmp.i57, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fm, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(471) %fm, i8 0, i64 40, i1 false)
   %34 = load ptr, ptr %mpNext.i.i.i.i62, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i61, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i61, ptr noundef %34, i64 noundef 192, i64 noundef 192, i64 noundef 64, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i61, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i61, ptr noundef %34, i64 noundef 192, i64 noundef 192, i64 noundef 64, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i63 = getelementptr inbounds i8, ptr %fm, i64 80
   store ptr %34, ptr %mpPoolBegin.i.i.i.i.i63, align 8
   store ptr %fm, ptr %fm, align 8
@@ -7221,8 +7221,8 @@ _ZN5eastl9fixed_mapIi10TestObjectLm37ELb0ENS_4lessIiEENS_9allocatorEED2Ev.exit: 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i57)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i67)
   %mBuffer.i68 = getelementptr inbounds i8, ptr %fmm, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i67, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i67, ptr noundef nonnull %mBuffer.i68, i64 noundef 192, i64 noundef 192, i64 noundef 64, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i67, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i67, ptr noundef nonnull %mBuffer.i68, i64 noundef 192, i64 noundef 192, i64 noundef 64, i64 noundef 0)
           to label %.noexc77 unwind label %lpad62
 
 .noexc77:                                         ; preds = %_ZN5eastl9fixed_mapIi10TestObjectLm37ELb0ENS_4lessIiEENS_9allocatorEED2Ev.exit
@@ -7231,10 +7231,10 @@ _ZN5eastl9fixed_mapIi10TestObjectLm37ELb0ENS_4lessIiEENS_9allocatorEED2Ev.exit: 
   %mnSize.i.i.i70 = getelementptr inbounds i8, ptr %fmm, i64 32
   %mAllocator.i.i.i71 = getelementptr inbounds i8, ptr %fmm, i64 40
   %mpNext.i.i.i.i72 = getelementptr inbounds i8, ptr %ref.tmp.i67, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fmm, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(471) %fmm, i8 0, i64 40, i1 false)
   %35 = load ptr, ptr %mpNext.i.i.i.i72, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i71, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i71, ptr noundef %35, i64 noundef 192, i64 noundef 192, i64 noundef 64, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i71, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i71, ptr noundef %35, i64 noundef 192, i64 noundef 192, i64 noundef 64, i64 noundef 0)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %.noexc77
@@ -7383,10 +7383,10 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.else.i.i9.i.i.i.
 _ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then4.i.i14.i.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i = phi ptr [ %40, %if.then.i.i7.i.i.i.i.i.i ], [ %42, %if.then4.i.i14.i.i.i.i.i.i ], [ %call.i6.i.i.i.i.i.i.i.i.i91, %if.else.i.i.i.i.i.i.i.i.i ]
   %mValue.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %a64, i64 64, i1 false), !noalias !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(68) %mValue.i.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %a64, i64 64, i1 false), !noalias !52
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 128
   store i32 0, ptr %second.i.i.i.i.i, align 64, !noalias !52
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i, ptr noundef nonnull %fmm, i32 noundef %side.0.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %fmm, i32 noundef %side.0.i.i.i)
           to label %invoke.cont102 unwind label %lpad65.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont102:                                   ; preds = %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i
@@ -7455,10 +7455,10 @@ if.else.i.i.i.i.i.i.i.i.i129:                     ; preds = %if.else.i.i9.i.i.i.
 _ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i116: ; preds = %if.else.i.i.i.i.i.i.i.i.i129, %if.then4.i.i14.i.i.i.i.i.i127, %if.then.i.i7.i.i.i.i.i.i115
   %result.0.i.i.i.i.i.i117 = phi ptr [ %48, %if.then.i.i7.i.i.i.i.i.i115 ], [ %50, %if.then4.i.i14.i.i.i.i.i.i127 ], [ %call.i6.i.i.i.i.i.i.i.i.i131, %if.else.i.i.i.i.i.i.i.i.i129 ]
   %mValue.i.i.i.i118 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i117, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i.i118, ptr noundef nonnull align 64 dereferenceable(64) %b, i64 64, i1 false), !noalias !60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(68) %mValue.i.i.i.i118, ptr noundef nonnull align 64 dereferenceable(64) %b, i64 64, i1 false), !noalias !60
   %second.i.i.i.i.i119 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i117, i64 128
   store i32 0, ptr %second.i.i.i.i.i119, align 64, !noalias !60
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i117, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i111, ptr noundef nonnull %fmm, i32 noundef %side.0.i.i.i112)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i117, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i111, ptr noundef nonnull align 8 dereferenceable(88) %fmm, i32 noundef %side.0.i.i.i112)
           to label %invoke.cont104 unwind label %lpad65.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont104:                                   ; preds = %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i116
@@ -7527,10 +7527,10 @@ if.else.i.i.i.i.i.i.i.i.i170:                     ; preds = %if.else.i.i9.i.i.i.
 _ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i157: ; preds = %if.else.i.i.i.i.i.i.i.i.i170, %if.then4.i.i14.i.i.i.i.i.i168, %if.then.i.i7.i.i.i.i.i.i156
   %result.0.i.i.i.i.i.i158 = phi ptr [ %56, %if.then.i.i7.i.i.i.i.i.i156 ], [ %58, %if.then4.i.i14.i.i.i.i.i.i168 ], [ %call.i6.i.i.i.i.i.i.i.i.i172, %if.else.i.i.i.i.i.i.i.i.i170 ]
   %mValue.i.i.i.i159 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i158, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i.i159, ptr noundef nonnull align 64 dereferenceable(64) %c, i64 64, i1 false), !noalias !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(68) %mValue.i.i.i.i159, ptr noundef nonnull align 64 dereferenceable(64) %c, i64 64, i1 false), !noalias !68
   %second.i.i.i.i.i160 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i158, i64 128
   store i32 0, ptr %second.i.i.i.i.i160, align 64, !noalias !68
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i158, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i152, ptr noundef nonnull %fmm, i32 noundef %side.0.i.i.i153)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i158, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i152, ptr noundef nonnull align 8 dereferenceable(88) %fmm, i32 noundef %side.0.i.i.i153)
           to label %invoke.cont106 unwind label %lpad65.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont106:                                   ; preds = %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i157
@@ -7599,10 +7599,10 @@ if.else.i.i.i.i.i.i.i.i.i211:                     ; preds = %if.else.i.i9.i.i.i.
 _ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i198: ; preds = %if.else.i.i.i.i.i.i.i.i.i211, %if.then4.i.i14.i.i.i.i.i.i209, %if.then.i.i7.i.i.i.i.i.i197
   %result.0.i.i.i.i.i.i199 = phi ptr [ %64, %if.then.i.i7.i.i.i.i.i.i197 ], [ %66, %if.then4.i.i14.i.i.i.i.i.i209 ], [ %call.i6.i.i.i.i.i.i.i.i.i213, %if.else.i.i.i.i.i.i.i.i.i211 ]
   %mValue.i.i.i.i200 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i199, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i.i200, ptr noundef nonnull align 64 dereferenceable(64) %d, i64 64, i1 false), !noalias !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(68) %mValue.i.i.i.i200, ptr noundef nonnull align 64 dereferenceable(64) %d, i64 64, i1 false), !noalias !76
   %second.i.i.i.i.i201 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i199, i64 128
   store i32 0, ptr %second.i.i.i.i.i201, align 64, !noalias !76
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i199, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i193, ptr noundef nonnull %fmm, i32 noundef %side.0.i.i.i194)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i199, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i193, ptr noundef nonnull align 8 dereferenceable(88) %fmm, i32 noundef %side.0.i.i.i194)
           to label %invoke.cont108 unwind label %lpad65.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont108:                                   ; preds = %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i198
@@ -7671,10 +7671,10 @@ if.else.i.i.i.i.i.i.i.i.i252:                     ; preds = %if.else.i.i9.i.i.i.
 _ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i239: ; preds = %if.else.i.i.i.i.i.i.i.i.i252, %if.then4.i.i14.i.i.i.i.i.i250, %if.then.i.i7.i.i.i.i.i.i238
   %result.0.i.i.i.i.i.i240 = phi ptr [ %72, %if.then.i.i7.i.i.i.i.i.i238 ], [ %74, %if.then4.i.i14.i.i.i.i.i.i250 ], [ %call.i6.i.i.i.i.i.i.i.i.i254, %if.else.i.i.i.i.i.i.i.i.i252 ]
   %mValue.i.i.i.i241 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i240, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i.i241, ptr noundef nonnull align 64 dereferenceable(64) %e, i64 64, i1 false), !noalias !84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(68) %mValue.i.i.i.i241, ptr noundef nonnull align 64 dereferenceable(64) %e, i64 64, i1 false), !noalias !84
   %second.i.i.i.i.i242 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i240, i64 128
   store i32 0, ptr %second.i.i.i.i.i242, align 64, !noalias !84
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i240, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i234, ptr noundef nonnull %fmm, i32 noundef %side.0.i.i.i235)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i240, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i234, ptr noundef nonnull align 8 dereferenceable(88) %fmm, i32 noundef %side.0.i.i.i235)
           to label %invoke.cont110 unwind label %lpad65.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont110:                                   ; preds = %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS3_.exit.i239
@@ -7699,7 +7699,7 @@ for.inc127:                                       ; preds = %for.body118
 
 for.end130:                                       ; preds = %for.cond114
   %79 = load ptr, ptr %mpNodeParent.i.i.i.i75, align 8
-  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %fmm, ptr noundef %79)
+  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(471) %fmm, ptr noundef %79)
           to label %_ZN5eastl14fixed_multimapI7Align64iLm1ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i263
 
 terminate.lpad.i.i.i263:                          ; preds = %for.end130
@@ -7711,7 +7711,7 @@ terminate.lpad.i.i.i263:                          ; preds = %for.end130
 
 _ZN5eastl14fixed_multimapI7Align64iLm1ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit: ; preds = %for.end130
   %82 = load ptr, ptr %mpNodeParent.i.i.i.i65, align 8
-  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %fm, ptr noundef %82)
+  invoke void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(471) %fm, ptr noundef %82)
           to label %_ZN5eastl9fixed_mapI7Align64iLm1ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i265
 
 terminate.lpad.i.i.i265:                          ; preds = %_ZN5eastl14fixed_multimapI7Align64iLm1ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit
@@ -7806,8 +7806,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(40128) ptr @_Znwm(i64 noundef 40128) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -7816,10 +7816,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -7871,8 +7871,8 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 invoke.cont17:                                    ; preds = %invoke.cont15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i109)
   %mBuffer.i110 = getelementptr inbounds i8, ptr %call18, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i109, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i109, ptr noundef nonnull %mBuffer.i110, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i109, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i109, ptr noundef nonnull %mBuffer.i110, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc119 unwind label %lpad19
 
 .noexc119:                                        ; preds = %invoke.cont17
@@ -7881,10 +7881,10 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   %mnSize.i.i.i112 = getelementptr inbounds i8, ptr %call18, i64 32
   %mAllocator.i.i.i113 = getelementptr inbounds i8, ptr %call18, i64 40
   %mpNext.i.i.i.i114 = getelementptr inbounds i8, ptr %ref.tmp.i109, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call18, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call18, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i.i114, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i113, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i113, ptr noundef %3, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i113, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i113, ptr noundef %3, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %.noexc119
@@ -7928,8 +7928,8 @@ invoke.cont33:                                    ; preds = %invoke.cont23
 invoke.cont36:                                    ; preds = %invoke.cont33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i126)
   %mBuffer.i127 = getelementptr inbounds i8, ptr %call37, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i126, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i126, ptr noundef nonnull %mBuffer.i127, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i126, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i126, ptr noundef nonnull %mBuffer.i127, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc136 unwind label %lpad38
 
 .noexc136:                                        ; preds = %invoke.cont36
@@ -7937,10 +7937,10 @@ invoke.cont36:                                    ; preds = %invoke.cont33
   store ptr %mBuffer.i127, ptr %mpPoolBegin.i.i.i128, align 8
   %mAllocator.i.i.i130 = getelementptr inbounds i8, ptr %call37, i64 40
   %mpNext.i.i.i.i131 = getelementptr inbounds i8, ptr %ref.tmp.i126, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call37, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call37, i8 0, i64 40, i1 false)
   %6 = load ptr, ptr %mpNext.i.i.i.i131, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i130, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i130, ptr noundef %6, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i130, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i130, ptr noundef %6, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %.noexc136
@@ -8129,8 +8129,8 @@ for.end:                                          ; preds = %invoke.cont66
 invoke.cont69:                                    ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i147)
   %mBuffer.i148 = getelementptr inbounds i8, ptr %call70, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i147, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i147, ptr noundef nonnull %mBuffer.i148, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i147, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i147, ptr noundef nonnull %mBuffer.i148, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc157 unwind label %lpad71
 
 .noexc157:                                        ; preds = %invoke.cont69
@@ -8139,10 +8139,10 @@ invoke.cont69:                                    ; preds = %for.end
   %mnSize.i.i.i150 = getelementptr inbounds i8, ptr %call70, i64 32
   %mAllocator.i.i.i151 = getelementptr inbounds i8, ptr %call70, i64 40
   %mpNext.i.i.i.i152 = getelementptr inbounds i8, ptr %ref.tmp.i147, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call70, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call70, i8 0, i64 40, i1 false)
   %25 = load ptr, ptr %mpNext.i.i.i.i152, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i151, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i151, ptr noundef %25, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i151, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i151, ptr noundef %25, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %.noexc157
@@ -8300,7 +8300,7 @@ invoke.cont144:                                   ; preds = %invoke.cont140
 if.then.i.i.i171:                                 ; preds = %invoke.cont144
   %mpNodeParent.i.i.i.i172 = getelementptr inbounds i8, ptr %call89, i64 16
   %37 = load ptr, ptr %mpNodeParent.i.i.i.i172, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call89, ptr noundef %37)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call89, ptr noundef %37)
           to label %.noexc175 unwind label %lpad133
 
 .noexc175:                                        ; preds = %if.then.i.i.i171
@@ -8317,7 +8317,7 @@ if.then.i.i.i171:                                 ; preds = %invoke.cont144
   br i1 %tobool.not.i.i.i, label %invoke.cont147, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc175
-  %call7.i.i.i176 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call89, ptr noundef nonnull %38, ptr noundef nonnull %call89)
+  %call7.i.i.i176 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call89, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(40127) %call89)
           to label %call7.i.i.i.noexc unwind label %lpad133
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -8372,8 +8372,8 @@ invoke.cont158:                                   ; preds = %invoke.cont153
 invoke.cont161:                                   ; preds = %invoke.cont158
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i178)
   %mBuffer.i179 = getelementptr inbounds i8, ptr %call162, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i178, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i178, ptr noundef nonnull %mBuffer.i179, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i178, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i178, ptr noundef nonnull %mBuffer.i179, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc188 unwind label %lpad163
 
 .noexc188:                                        ; preds = %invoke.cont161
@@ -8381,10 +8381,10 @@ invoke.cont161:                                   ; preds = %invoke.cont158
   store ptr %mBuffer.i179, ptr %mpPoolBegin.i.i.i180, align 8
   %mAllocator.i.i.i182 = getelementptr inbounds i8, ptr %call162, i64 40
   %mpNext.i.i.i.i183 = getelementptr inbounds i8, ptr %ref.tmp.i178, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call162, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call162, i8 0, i64 40, i1 false)
   %44 = load ptr, ptr %mpNext.i.i.i.i183, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i182, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i182, ptr noundef %44, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i182, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i182, ptr noundef %44, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont164 unwind label %lpad163
 
 invoke.cont164:                                   ; preds = %.noexc188
@@ -8407,8 +8407,8 @@ invoke.cont164:                                   ; preds = %.noexc188
 invoke.cont167:                                   ; preds = %invoke.cont164
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i191)
   %mBuffer.i192 = getelementptr inbounds i8, ptr %call168, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i191, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i191, ptr noundef nonnull %mBuffer.i192, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i191, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i191, ptr noundef nonnull %mBuffer.i192, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc201 unwind label %lpad169
 
 .noexc201:                                        ; preds = %invoke.cont167
@@ -8417,10 +8417,10 @@ invoke.cont167:                                   ; preds = %invoke.cont164
   %mnSize.i.i.i194 = getelementptr inbounds i8, ptr %call168, i64 32
   %mAllocator.i.i.i195 = getelementptr inbounds i8, ptr %call168, i64 40
   %mpNext.i.i.i.i196 = getelementptr inbounds i8, ptr %ref.tmp.i191, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call168, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call168, i8 0, i64 40, i1 false)
   %45 = load ptr, ptr %mpNext.i.i.i.i196, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i195, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i195, ptr noundef %45, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i195, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i195, ptr noundef %45, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont170 unwind label %lpad169
 
 invoke.cont170:                                   ; preds = %.noexc201
@@ -8483,7 +8483,7 @@ invoke.cont200:                                   ; preds = %invoke.cont198
 
 if.then.i.i.i222:                                 ; preds = %invoke.cont200
   %46 = load ptr, ptr %mpNodeParent.i.i.i.i199, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call168, ptr noundef %46)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call168, ptr noundef %46)
           to label %.noexc240 unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc240:                                        ; preds = %if.then.i.i.i222
@@ -8497,7 +8497,7 @@ if.then.i.i.i222:                                 ; preds = %invoke.cont200
   br i1 %tobool.not.i.i.i228, label %land.end, label %if.then3.i.i.i229
 
 if.then3.i.i.i229:                                ; preds = %.noexc240
-  %call7.i.i.i242 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call168, ptr noundef nonnull %47, ptr noundef nonnull %call168)
+  %call7.i.i.i242 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call168, ptr noundef nonnull %47, ptr noundef nonnull align 8 dereferenceable(40127) %call168)
           to label %call7.i.i.i.noexc241 unwind label %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call7.i.i.i.noexc241:                             ; preds = %if.then3.i.i.i229
@@ -9574,7 +9574,7 @@ invoke.cont364:                                   ; preds = %invoke.cont361
 delete.notnull.i.i:                               ; preds = %invoke.cont364
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %172, i64 16
   %173 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %172, ptr noundef %173)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %172, ptr noundef %173)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i
@@ -9596,7 +9596,7 @@ _ZN5eastl10scoped_ptrINS_9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEENS_
 delete.notnull.i.i637:                            ; preds = %_ZN5eastl10scoped_ptrINS_9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEENS_17smart_ptr_deleterIS5_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i638 = getelementptr inbounds i8, ptr %176, i64 16
   %177 = load ptr, ptr %mpNodeParent.i.i.i.i.i638, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %176, ptr noundef %177)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %176, ptr noundef %177)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i640 unwind label %terminate.lpad.i.i.i.i.i639
 
 terminate.lpad.i.i.i.i.i639:                      ; preds = %delete.notnull.i.i637
@@ -9640,7 +9640,7 @@ _ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleter
 delete.notnull.i.i645:                            ; preds = %_ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i646 = getelementptr inbounds i8, ptr %184, i64 16
   %185 = load ptr, ptr %mpNodeParent.i.i.i.i.i646, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %184, ptr noundef %185)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %184, ptr noundef %185)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i648 unwind label %terminate.lpad.i.i.i.i.i647
 
 terminate.lpad.i.i.i.i.i647:                      ; preds = %delete.notnull.i.i645
@@ -9684,7 +9684,7 @@ _ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleter
 delete.notnull.i.i657:                            ; preds = %_ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit655
   %mpNodeParent.i.i.i.i.i658 = getelementptr inbounds i8, ptr %192, i64 16
   %193 = load ptr, ptr %mpNodeParent.i.i.i.i.i658, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %192, ptr noundef %193)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %192, ptr noundef %193)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i660 unwind label %terminate.lpad.i.i.i.i.i659
 
 terminate.lpad.i.i.i.i.i659:                      ; preds = %delete.notnull.i.i657
@@ -9728,7 +9728,7 @@ _ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleter
 delete.notnull.i.i669:                            ; preds = %_ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit667
   %mpNodeParent.i.i.i.i.i670 = getelementptr inbounds i8, ptr %200, i64 16
   %201 = load ptr, ptr %mpNodeParent.i.i.i.i.i670, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %200, ptr noundef %201)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %200, ptr noundef %201)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i672 unwind label %terminate.lpad.i.i.i.i.i671
 
 terminate.lpad.i.i.i.i.i671:                      ; preds = %delete.notnull.i.i669
@@ -9772,7 +9772,7 @@ _ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleter
 delete.notnull.i.i681:                            ; preds = %_ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit679
   %mpNodeParent.i.i.i.i.i682 = getelementptr inbounds i8, ptr %208, i64 16
   %209 = load ptr, ptr %mpNodeParent.i.i.i.i.i682, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %208, ptr noundef %209)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %208, ptr noundef %209)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i684 unwind label %terminate.lpad.i.i.i.i.i683
 
 terminate.lpad.i.i.i.i.i683:                      ; preds = %delete.notnull.i.i681
@@ -9816,7 +9816,7 @@ _ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleter
 delete.notnull.i.i693:                            ; preds = %_ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit691
   %mpNodeParent.i.i.i.i.i694 = getelementptr inbounds i8, ptr %216, i64 16
   %217 = load ptr, ptr %mpNodeParent.i.i.i.i.i694, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %216, ptr noundef %217)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %216, ptr noundef %217)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i696 unwind label %terminate.lpad.i.i.i.i.i695
 
 terminate.lpad.i.i.i.i.i695:                      ; preds = %delete.notnull.i.i693
@@ -9860,7 +9860,7 @@ _ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleter
 delete.notnull.i.i705:                            ; preds = %_ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit703
   %mpNodeParent.i.i.i.i.i706 = getelementptr inbounds i8, ptr %224, i64 16
   %225 = load ptr, ptr %mpNodeParent.i.i.i.i.i706, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %224, ptr noundef %225)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %224, ptr noundef %225)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i708 unwind label %terminate.lpad.i.i.i.i.i707
 
 terminate.lpad.i.i.i.i.i707:                      ; preds = %delete.notnull.i.i705
@@ -10196,8 +10196,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(80168) ptr @_Znwm(i64 noundef 80168) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -10206,10 +10206,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -10261,8 +10261,8 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 invoke.cont17:                                    ; preds = %invoke.cont15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i136)
   %mBuffer.i137 = getelementptr inbounds i8, ptr %call18, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i136, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i136, ptr noundef nonnull %mBuffer.i137, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i136, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i136, ptr noundef nonnull %mBuffer.i137, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc146 unwind label %lpad19
 
 .noexc146:                                        ; preds = %invoke.cont17
@@ -10271,10 +10271,10 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   %mnSize.i.i.i139 = getelementptr inbounds i8, ptr %call18, i64 32
   %mAllocator.i.i.i140 = getelementptr inbounds i8, ptr %call18, i64 40
   %mpNext.i.i.i.i141 = getelementptr inbounds i8, ptr %ref.tmp.i136, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call18, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call18, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i.i141, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i140, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i140, ptr noundef %3, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i140, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i140, ptr noundef %3, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %.noexc146
@@ -10318,8 +10318,8 @@ invoke.cont33:                                    ; preds = %invoke.cont23
 invoke.cont36:                                    ; preds = %invoke.cont33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i153)
   %mBuffer.i154 = getelementptr inbounds i8, ptr %call37, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i153, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i153, ptr noundef nonnull %mBuffer.i154, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i153, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i153, ptr noundef nonnull %mBuffer.i154, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc163 unwind label %lpad38
 
 .noexc163:                                        ; preds = %invoke.cont36
@@ -10327,10 +10327,10 @@ invoke.cont36:                                    ; preds = %invoke.cont33
   store ptr %mBuffer.i154, ptr %mpPoolBegin.i.i.i155, align 8
   %mAllocator.i.i.i157 = getelementptr inbounds i8, ptr %call37, i64 40
   %mpNext.i.i.i.i158 = getelementptr inbounds i8, ptr %ref.tmp.i153, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call37, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call37, i8 0, i64 40, i1 false)
   %6 = load ptr, ptr %mpNext.i.i.i.i158, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i157, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i157, ptr noundef %6, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i157, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i157, ptr noundef %6, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %.noexc163
@@ -10589,8 +10589,8 @@ for.end:                                          ; preds = %invoke.cont80
 invoke.cont83:                                    ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i274)
   %mBuffer.i275 = getelementptr inbounds i8, ptr %call84, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i274, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i274, ptr noundef nonnull %mBuffer.i275, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i274, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i274, ptr noundef nonnull %mBuffer.i275, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc284 unwind label %lpad85
 
 .noexc284:                                        ; preds = %invoke.cont83
@@ -10599,10 +10599,10 @@ invoke.cont83:                                    ; preds = %for.end
   %mnSize.i.i.i277 = getelementptr inbounds i8, ptr %call84, i64 32
   %mAllocator.i.i.i278 = getelementptr inbounds i8, ptr %call84, i64 40
   %mpNext.i.i.i.i279 = getelementptr inbounds i8, ptr %ref.tmp.i274, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call84, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call84, i8 0, i64 40, i1 false)
   %42 = load ptr, ptr %mpNext.i.i.i.i279, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i278, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i278, ptr noundef %42, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i278, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i278, ptr noundef %42, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %.noexc284
@@ -10736,7 +10736,7 @@ invoke.cont139:                                   ; preds = %invoke.cont135
   %52 = load ptr, ptr %_M_left.i.i.i.i.i167, align 8
   %53 = getelementptr inbounds i8, ptr %call140, i64 8
   %_M_left.i.i.i.i.i298 = getelementptr inbounds i8, ptr %call140, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call140, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call140, i8 0, i64 24, i1 false)
   store ptr %53, ptr %_M_left.i.i.i.i.i298, align 8
   %_M_right.i.i.i.i.i299 = getelementptr inbounds i8, ptr %call140, i64 32
   store ptr %53, ptr %_M_right.i.i.i.i.i299, align 8
@@ -10794,7 +10794,7 @@ invoke.cont163:                                   ; preds = %invoke.cont159
 if.then.i.i.i:                                    ; preds = %invoke.cont163
   %mpNodeParent.i.i.i.i301 = getelementptr inbounds i8, ptr %call104, i64 16
   %57 = load ptr, ptr %mpNodeParent.i.i.i.i301, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call104, ptr noundef %57)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call104, ptr noundef %57)
           to label %.noexc304 unwind label %lpad152
 
 .noexc304:                                        ; preds = %if.then.i.i.i
@@ -10811,7 +10811,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont163
   br i1 %tobool.not.i.i.i, label %invoke.cont166, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc304
-  %call7.i.i.i305 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call104, ptr noundef nonnull %58, ptr noundef nonnull %call104)
+  %call7.i.i.i305 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call104, ptr noundef nonnull %58, ptr noundef nonnull align 8 dereferenceable(80167) %call104)
           to label %call7.i.i.i.noexc unwind label %lpad152
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -10866,8 +10866,8 @@ invoke.cont177:                                   ; preds = %invoke.cont172
 invoke.cont180:                                   ; preds = %invoke.cont177
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i307)
   %mBuffer.i308 = getelementptr inbounds i8, ptr %call181, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i307, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i307, ptr noundef nonnull %mBuffer.i308, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i307, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i307, ptr noundef nonnull %mBuffer.i308, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc317 unwind label %lpad182
 
 .noexc317:                                        ; preds = %invoke.cont180
@@ -10875,10 +10875,10 @@ invoke.cont180:                                   ; preds = %invoke.cont177
   store ptr %mBuffer.i308, ptr %mpPoolBegin.i.i.i309, align 8
   %mAllocator.i.i.i311 = getelementptr inbounds i8, ptr %call181, i64 40
   %mpNext.i.i.i.i312 = getelementptr inbounds i8, ptr %ref.tmp.i307, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call181, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call181, i8 0, i64 40, i1 false)
   %64 = load ptr, ptr %mpNext.i.i.i.i312, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i311, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i311, ptr noundef %64, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i311, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i311, ptr noundef %64, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont183 unwind label %lpad182
 
 invoke.cont183:                                   ; preds = %.noexc317
@@ -10901,8 +10901,8 @@ invoke.cont183:                                   ; preds = %.noexc317
 invoke.cont187:                                   ; preds = %invoke.cont183
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i320)
   %mBuffer.i321 = getelementptr inbounds i8, ptr %call188, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i320, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i320, ptr noundef nonnull %mBuffer.i321, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i320, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i320, ptr noundef nonnull %mBuffer.i321, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc330 unwind label %lpad189
 
 .noexc330:                                        ; preds = %invoke.cont187
@@ -10911,10 +10911,10 @@ invoke.cont187:                                   ; preds = %invoke.cont183
   %mnSize.i.i.i323 = getelementptr inbounds i8, ptr %call188, i64 32
   %mAllocator.i.i.i324 = getelementptr inbounds i8, ptr %call188, i64 40
   %mpNext.i.i.i.i325 = getelementptr inbounds i8, ptr %ref.tmp.i320, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call188, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call188, i8 0, i64 40, i1 false)
   %65 = load ptr, ptr %mpNext.i.i.i.i325, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i324, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i324, ptr noundef %65, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i324, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i324, ptr noundef %65, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %_ZN10TestObjectD2Ev.exit560 unwind label %lpad189
 
 _ZN10TestObjectD2Ev.exit560:                      ; preds = %.noexc330
@@ -11078,7 +11078,7 @@ invoke.cont257:                                   ; preds = %invoke.cont255
 
 if.then.i.i.i573:                                 ; preds = %invoke.cont257
   %72 = load ptr, ptr %mpNodeParent.i.i.i.i328, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call188, ptr noundef %72)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call188, ptr noundef %72)
           to label %.noexc591 unwind label %lpad246.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc591:                                        ; preds = %if.then.i.i.i573
@@ -11092,7 +11092,7 @@ if.then.i.i.i573:                                 ; preds = %invoke.cont257
   br i1 %tobool.not.i.i.i579, label %land.end, label %if.then3.i.i.i580
 
 if.then3.i.i.i580:                                ; preds = %.noexc591
-  %call7.i.i.i593 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call188, ptr noundef nonnull %73, ptr noundef nonnull %call188)
+  %call7.i.i.i593 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call188, ptr noundef nonnull %73, ptr noundef nonnull align 8 dereferenceable(80167) %call188)
           to label %call7.i.i.i.noexc592 unwind label %lpad246.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call7.i.i.i.noexc592:                             ; preds = %if.then3.i.i.i580
@@ -12755,7 +12755,7 @@ _ZN10TestObjectD2Ev.exit1551:                     ; preds = %_ZN10TestObjectD2Ev
 delete.notnull.i.i:                               ; preds = %_ZN10TestObjectD2Ev.exit1551
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %298, i64 16
   %299 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %298, ptr noundef %299)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %298, ptr noundef %299)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i
@@ -12777,7 +12777,7 @@ _ZN5eastl10scoped_ptrINS_9fixed_mapI10TestObjectS2_Lm1000ELb1ENS_4lessIS2_EENS_9
 delete.notnull.i.i1553:                           ; preds = %_ZN5eastl10scoped_ptrINS_9fixed_mapI10TestObjectS2_Lm1000ELb1ENS_4lessIS2_EENS_9allocatorEEENS_17smart_ptr_deleterIS6_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i1554 = getelementptr inbounds i8, ptr %302, i64 16
   %303 = load ptr, ptr %mpNodeParent.i.i.i.i.i1554, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %302, ptr noundef %303)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %302, ptr noundef %303)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1556 unwind label %terminate.lpad.i.i.i.i.i1555
 
 terminate.lpad.i.i.i.i.i1555:                     ; preds = %delete.notnull.i.i1553
@@ -12821,7 +12821,7 @@ _ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_
 delete.notnull.i.i1561:                           ; preds = %_ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i1562 = getelementptr inbounds i8, ptr %310, i64 16
   %311 = load ptr, ptr %mpNodeParent.i.i.i.i.i1562, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %310, ptr noundef %311)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %310, ptr noundef %311)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1564 unwind label %terminate.lpad.i.i.i.i.i1563
 
 terminate.lpad.i.i.i.i.i1563:                     ; preds = %delete.notnull.i.i1561
@@ -12865,7 +12865,7 @@ _ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_
 delete.notnull.i.i1573:                           ; preds = %_ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1571
   %mpNodeParent.i.i.i.i.i1574 = getelementptr inbounds i8, ptr %318, i64 16
   %319 = load ptr, ptr %mpNodeParent.i.i.i.i.i1574, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %318, ptr noundef %319)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %318, ptr noundef %319)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1576 unwind label %terminate.lpad.i.i.i.i.i1575
 
 terminate.lpad.i.i.i.i.i1575:                     ; preds = %delete.notnull.i.i1573
@@ -12909,7 +12909,7 @@ _ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_
 delete.notnull.i.i1585:                           ; preds = %_ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1583
   %mpNodeParent.i.i.i.i.i1586 = getelementptr inbounds i8, ptr %326, i64 16
   %327 = load ptr, ptr %mpNodeParent.i.i.i.i.i1586, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %326, ptr noundef %327)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %326, ptr noundef %327)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1588 unwind label %terminate.lpad.i.i.i.i.i1587
 
 terminate.lpad.i.i.i.i.i1587:                     ; preds = %delete.notnull.i.i1585
@@ -12953,7 +12953,7 @@ _ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_
 delete.notnull.i.i1597:                           ; preds = %_ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1595
   %mpNodeParent.i.i.i.i.i1598 = getelementptr inbounds i8, ptr %334, i64 16
   %335 = load ptr, ptr %mpNodeParent.i.i.i.i.i1598, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %334, ptr noundef %335)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %334, ptr noundef %335)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1600 unwind label %terminate.lpad.i.i.i.i.i1599
 
 terminate.lpad.i.i.i.i.i1599:                     ; preds = %delete.notnull.i.i1597
@@ -12997,7 +12997,7 @@ _ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_
 delete.notnull.i.i1609:                           ; preds = %_ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1607
   %mpNodeParent.i.i.i.i.i1610 = getelementptr inbounds i8, ptr %342, i64 16
   %343 = load ptr, ptr %mpNodeParent.i.i.i.i.i1610, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %342, ptr noundef %343)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %342, ptr noundef %343)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1612 unwind label %terminate.lpad.i.i.i.i.i1611
 
 terminate.lpad.i.i.i.i.i1611:                     ; preds = %delete.notnull.i.i1609
@@ -13041,7 +13041,7 @@ _ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_
 delete.notnull.i.i1621:                           ; preds = %_ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1619
   %mpNodeParent.i.i.i.i.i1622 = getelementptr inbounds i8, ptr %350, i64 16
   %351 = load ptr, ptr %mpNodeParent.i.i.i.i.i1622, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %350, ptr noundef %351)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %350, ptr noundef %351)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1624 unwind label %terminate.lpad.i.i.i.i.i1623
 
 terminate.lpad.i.i.i.i.i1623:                     ; preds = %delete.notnull.i.i1621
@@ -13449,8 +13449,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(40128) ptr @_Znwm(i64 noundef 40128) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -13459,10 +13459,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -13514,8 +13514,8 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 invoke.cont17:                                    ; preds = %invoke.cont15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i109)
   %mBuffer.i110 = getelementptr inbounds i8, ptr %call18, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i109, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i109, ptr noundef nonnull %mBuffer.i110, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i109, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i109, ptr noundef nonnull %mBuffer.i110, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc119 unwind label %lpad19
 
 .noexc119:                                        ; preds = %invoke.cont17
@@ -13524,10 +13524,10 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   %mnSize.i.i.i112 = getelementptr inbounds i8, ptr %call18, i64 32
   %mAllocator.i.i.i113 = getelementptr inbounds i8, ptr %call18, i64 40
   %mpNext.i.i.i.i114 = getelementptr inbounds i8, ptr %ref.tmp.i109, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call18, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call18, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i.i114, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i113, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i113, ptr noundef %3, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i113, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i113, ptr noundef %3, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %.noexc119
@@ -13571,8 +13571,8 @@ invoke.cont33:                                    ; preds = %invoke.cont23
 invoke.cont36:                                    ; preds = %invoke.cont33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i126)
   %mBuffer.i127 = getelementptr inbounds i8, ptr %call37, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i126, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i126, ptr noundef nonnull %mBuffer.i127, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i126, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i126, ptr noundef nonnull %mBuffer.i127, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc136 unwind label %lpad38
 
 .noexc136:                                        ; preds = %invoke.cont36
@@ -13581,10 +13581,10 @@ invoke.cont36:                                    ; preds = %invoke.cont33
   %mnSize.i.i.i129 = getelementptr inbounds i8, ptr %call37, i64 32
   %mAllocator.i.i.i130 = getelementptr inbounds i8, ptr %call37, i64 40
   %mpNext.i.i.i.i131 = getelementptr inbounds i8, ptr %ref.tmp.i126, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call37, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call37, i8 0, i64 40, i1 false)
   %6 = load ptr, ptr %mpNext.i.i.i.i131, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i130, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i130, ptr noundef %6, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i130, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i130, ptr noundef %6, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %.noexc136
@@ -13683,7 +13683,7 @@ lor.lhs.false2.i.i.i.i.i:                         ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i
   %side.0.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i ], [ %spec.select.i.i.i.i.i, %lor.lhs.false2.i.i.i.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i, ptr noundef nonnull %call37, i32 noundef %side.0.i.i.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call37, i32 noundef %side.0.i.i.i.i.i)
           to label %invoke.cont53 unwind label %lpad45.loopexit
 
 invoke.cont53:                                    ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i
@@ -13803,8 +13803,8 @@ for.end:                                          ; preds = %invoke.cont66
 invoke.cont69:                                    ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i149)
   %mBuffer.i150 = getelementptr inbounds i8, ptr %call70, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i149, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i149, ptr noundef nonnull %mBuffer.i150, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i149, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i149, ptr noundef nonnull %mBuffer.i150, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc159 unwind label %lpad71
 
 .noexc159:                                        ; preds = %invoke.cont69
@@ -13813,10 +13813,10 @@ invoke.cont69:                                    ; preds = %for.end
   %mnSize.i.i.i152 = getelementptr inbounds i8, ptr %call70, i64 32
   %mAllocator.i.i.i153 = getelementptr inbounds i8, ptr %call70, i64 40
   %mpNext.i.i.i.i154 = getelementptr inbounds i8, ptr %ref.tmp.i149, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call70, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call70, i8 0, i64 40, i1 false)
   %31 = load ptr, ptr %mpNext.i.i.i.i154, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i153, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i153, ptr noundef %31, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i153, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i153, ptr noundef %31, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %.noexc159
@@ -13939,8 +13939,8 @@ invoke.cont113:                                   ; preds = %invoke.cont110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i)
   %mBuffer.i172 = getelementptr inbounds i8, ptr %call114, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i171, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i171, ptr noundef nonnull %mBuffer.i172, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i171, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i171, ptr noundef nonnull %mBuffer.i172, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc181 unwind label %lpad117
 
 .noexc181:                                        ; preds = %invoke.cont113
@@ -13948,10 +13948,10 @@ invoke.cont113:                                   ; preds = %invoke.cont110
   store ptr %mBuffer.i172, ptr %mpPoolBegin.i.i.i173, align 8
   %mAllocator.i.i.i175 = getelementptr inbounds i8, ptr %call114, i64 40
   %mpNext.i.i.i.i176 = getelementptr inbounds i8, ptr %ref.tmp.i171, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call114, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call114, i8 0, i64 40, i1 false)
   %41 = load ptr, ptr %mpNext.i.i.i.i176, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i175, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i175, ptr noundef %41, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i175, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i175, ptr noundef %41, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc182 unwind label %lpad117
 
 .noexc182:                                        ; preds = %.noexc181
@@ -13968,13 +13968,13 @@ invoke.cont113:                                   ; preds = %invoke.cont110
   store i64 0, ptr %mnSize.i.i.i174, align 8
   store ptr %40, ptr %agg.tmp.i, align 8
   store ptr %call37, ptr %agg.tmp2.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE6insertINS_15rbtree_iteratorIS3_PS3_RS3_EEEEvT_SH_(ptr noundef nonnull align 8 dereferenceable(88) %call114, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE6insertINS_15rbtree_iteratorIS3_PS3_RS3_EEEEvT_SH_(ptr noundef nonnull align 8 dereferenceable(40127) %call114, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
           to label %invoke.cont118 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc182
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl8multimapIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %call114) #15
+  call void @_ZN5eastl8multimapIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40127) %call114) #15
   br label %lpad117.body
 
 invoke.cont118:                                   ; preds = %.noexc182
@@ -13989,7 +13989,7 @@ invoke.cont121:                                   ; preds = %invoke.cont118
   %43 = load ptr, ptr %_M_left.i.i.i.i.i140, align 8
   %44 = getelementptr inbounds i8, ptr %call122, i64 8
   %_M_left.i.i.i.i.i183 = getelementptr inbounds i8, ptr %call122, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call122, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call122, i8 0, i64 24, i1 false)
   store ptr %44, ptr %_M_left.i.i.i.i.i183, align 8
   %_M_right.i.i.i.i.i184 = getelementptr inbounds i8, ptr %call122, i64 32
   store ptr %44, ptr %_M_right.i.i.i.i.i184, align 8
@@ -14047,7 +14047,7 @@ invoke.cont145:                                   ; preds = %invoke.cont141
 if.then.i.i.i:                                    ; preds = %invoke.cont145
   %mpNodeParent.i.i.i.i189 = getelementptr inbounds i8, ptr %call89, i64 16
   %48 = load ptr, ptr %mpNodeParent.i.i.i.i189, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call89, ptr noundef %48)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call89, ptr noundef %48)
           to label %.noexc194 unwind label %lpad134
 
 .noexc194:                                        ; preds = %if.then.i.i.i
@@ -14064,7 +14064,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont145
   br i1 %tobool.not.i.i.i, label %invoke.cont148, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc194
-  %call7.i.i.i195 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call89, ptr noundef nonnull %49, ptr noundef nonnull %call89)
+  %call7.i.i.i195 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call89, ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(40127) %call89)
           to label %call7.i.i.i.noexc unwind label %lpad134
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -14119,8 +14119,8 @@ invoke.cont159:                                   ; preds = %invoke.cont154
 invoke.cont162:                                   ; preds = %invoke.cont159
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i197)
   %mBuffer.i198 = getelementptr inbounds i8, ptr %call163, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i197, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i197, ptr noundef nonnull %mBuffer.i198, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i197, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i197, ptr noundef nonnull %mBuffer.i198, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc207 unwind label %lpad164
 
 .noexc207:                                        ; preds = %invoke.cont162
@@ -14128,10 +14128,10 @@ invoke.cont162:                                   ; preds = %invoke.cont159
   store ptr %mBuffer.i198, ptr %mpPoolBegin.i.i.i199, align 8
   %mAllocator.i.i.i201 = getelementptr inbounds i8, ptr %call163, i64 40
   %mpNext.i.i.i.i202 = getelementptr inbounds i8, ptr %ref.tmp.i197, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call163, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call163, i8 0, i64 40, i1 false)
   %55 = load ptr, ptr %mpNext.i.i.i.i202, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i201, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i201, ptr noundef %55, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i201, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i201, ptr noundef %55, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont165 unwind label %lpad164
 
 invoke.cont165:                                   ; preds = %.noexc207
@@ -14154,8 +14154,8 @@ invoke.cont165:                                   ; preds = %.noexc207
 invoke.cont168:                                   ; preds = %invoke.cont165
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i210)
   %mBuffer.i211 = getelementptr inbounds i8, ptr %call169, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i210, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i210, ptr noundef nonnull %mBuffer.i211, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i210, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i210, ptr noundef nonnull %mBuffer.i211, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc220 unwind label %lpad170
 
 .noexc220:                                        ; preds = %invoke.cont168
@@ -14164,10 +14164,10 @@ invoke.cont168:                                   ; preds = %invoke.cont165
   %mnSize.i.i.i213 = getelementptr inbounds i8, ptr %call169, i64 32
   %mAllocator.i.i.i214 = getelementptr inbounds i8, ptr %call169, i64 40
   %mpNext.i.i.i.i215 = getelementptr inbounds i8, ptr %ref.tmp.i210, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call169, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call169, i8 0, i64 40, i1 false)
   %56 = load ptr, ptr %mpNext.i.i.i.i215, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i214, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i214, ptr noundef %56, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i214, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i214, ptr noundef %56, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont171 unwind label %lpad170
 
 invoke.cont171:                                   ; preds = %.noexc220
@@ -14242,7 +14242,7 @@ lor.lhs.false2.i.i.i.i:                           ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i240, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i
   %pRangeEnd.0.lcssa.i8.i.i.i = phi ptr [ %pCurrent.07.i.i.i.i234, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i240 ], [ %pCurrent.07.i.i.i.i234, %lor.lhs.false2.i.i.i.i ], [ %call163, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i ]
   %side.0.i.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i240 ], [ %spec.select.i.i.i.i, %lor.lhs.false2.i.i.i.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i, ptr noundef nonnull %call163, i32 noundef %side.0.i.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call163, i32 noundef %side.0.i.i.i.i)
           to label %invoke.cont191 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont191:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i
@@ -14308,7 +14308,7 @@ lor.lhs.false2.i.i.i.i263:                        ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i266: ; preds = %lor.lhs.false2.i.i.i.i263, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i261, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i247
   %pRangeEnd.0.lcssa.i8.i.i.i267 = phi ptr [ %pCurrent.07.i.i.i.i254, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i261 ], [ %pCurrent.07.i.i.i.i254, %lor.lhs.false2.i.i.i.i263 ], [ %call163, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i247 ]
   %side.0.i.i.i.i268 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i261 ], [ %spec.select.i.i.i.i265, %lor.lhs.false2.i.i.i.i263 ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i247 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i248, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i267, ptr noundef nonnull %call163, i32 noundef %side.0.i.i.i.i268)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i248, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i267, ptr noundef nonnull align 8 dereferenceable(88) %call163, i32 noundef %side.0.i.i.i.i268)
           to label %invoke.cont193 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont193:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i266
@@ -14374,7 +14374,7 @@ lor.lhs.false2.i.i.i.i302:                        ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i305: ; preds = %lor.lhs.false2.i.i.i.i302, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i300, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i286
   %pRangeEnd.0.lcssa.i8.i.i.i306 = phi ptr [ %pCurrent.07.i.i.i.i293, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i300 ], [ %pCurrent.07.i.i.i.i293, %lor.lhs.false2.i.i.i.i302 ], [ %call163, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i286 ]
   %side.0.i.i.i.i307 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i300 ], [ %spec.select.i.i.i.i304, %lor.lhs.false2.i.i.i.i302 ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i286 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i287, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i306, ptr noundef nonnull %call163, i32 noundef %side.0.i.i.i.i307)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i287, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i306, ptr noundef nonnull align 8 dereferenceable(88) %call163, i32 noundef %side.0.i.i.i.i307)
           to label %invoke.cont195 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont195:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i305
@@ -14440,7 +14440,7 @@ lor.lhs.false2.i.i.i.i341:                        ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i344: ; preds = %lor.lhs.false2.i.i.i.i341, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i339, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i325
   %pRangeEnd.0.lcssa.i8.i.i.i345 = phi ptr [ %pCurrent.07.i.i.i.i332, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i339 ], [ %pCurrent.07.i.i.i.i332, %lor.lhs.false2.i.i.i.i341 ], [ %call169, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i325 ]
   %side.0.i.i.i.i346 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i339 ], [ %spec.select.i.i.i.i343, %lor.lhs.false2.i.i.i.i341 ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i325 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i326, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i345, ptr noundef nonnull %call169, i32 noundef %side.0.i.i.i.i346)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i326, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i345, ptr noundef nonnull align 8 dereferenceable(88) %call169, i32 noundef %side.0.i.i.i.i346)
           to label %invoke.cont197 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont197:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i344
@@ -14506,7 +14506,7 @@ lor.lhs.false2.i.i.i.i380:                        ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i383: ; preds = %lor.lhs.false2.i.i.i.i380, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i378, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i364
   %pRangeEnd.0.lcssa.i8.i.i.i384 = phi ptr [ %pCurrent.07.i.i.i.i371, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i378 ], [ %pCurrent.07.i.i.i.i371, %lor.lhs.false2.i.i.i.i380 ], [ %call169, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i364 ]
   %side.0.i.i.i.i385 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i378 ], [ %spec.select.i.i.i.i382, %lor.lhs.false2.i.i.i.i380 ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i364 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i365, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i384, ptr noundef nonnull %call169, i32 noundef %side.0.i.i.i.i385)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i365, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i384, ptr noundef nonnull align 8 dereferenceable(88) %call169, i32 noundef %side.0.i.i.i.i385)
           to label %invoke.cont199 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont199:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i383
@@ -14572,7 +14572,7 @@ lor.lhs.false2.i.i.i.i419:                        ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i422: ; preds = %lor.lhs.false2.i.i.i.i419, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i417, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i403
   %pRangeEnd.0.lcssa.i8.i.i.i423 = phi ptr [ %pCurrent.07.i.i.i.i410, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i417 ], [ %pCurrent.07.i.i.i.i410, %lor.lhs.false2.i.i.i.i419 ], [ %call169, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i403 ]
   %side.0.i.i.i.i424 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i.i417 ], [ %spec.select.i.i.i.i421, %lor.lhs.false2.i.i.i.i419 ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i.i403 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i404, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i423, ptr noundef nonnull %call169, i32 noundef %side.0.i.i.i.i424)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i.i404, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i.i423, ptr noundef nonnull align 8 dereferenceable(88) %call169, i32 noundef %side.0.i.i.i.i424)
           to label %invoke.cont201 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont201:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EEDpOT_.exit.i422
@@ -14584,7 +14584,7 @@ invoke.cont201:                                   ; preds = %_ZN5eastl6rbtreeIiN
 
 if.then.i.i.i440:                                 ; preds = %invoke.cont201
   %99 = load ptr, ptr %mpNodeParent.i.i.i.i218, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call169, ptr noundef %99)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call169, ptr noundef %99)
           to label %.noexc458 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc458:                                        ; preds = %if.then.i.i.i440
@@ -14598,7 +14598,7 @@ if.then.i.i.i440:                                 ; preds = %invoke.cont201
   br i1 %tobool.not.i.i.i446, label %land.end, label %if.then3.i.i.i447
 
 if.then3.i.i.i447:                                ; preds = %.noexc458
-  %call7.i.i.i460 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call169, ptr noundef nonnull %100, ptr noundef nonnull %call169)
+  %call7.i.i.i460 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call169, ptr noundef nonnull %100, ptr noundef nonnull align 8 dereferenceable(40127) %call169)
           to label %call7.i.i.i.noexc459 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call7.i.i.i.noexc459:                             ; preds = %if.then3.i.i.i447
@@ -14989,7 +14989,7 @@ lor.lhs.false2.i.i.i.i.i564:                      ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i568: ; preds = %lor.lhs.false2.i.i.i.i.i564, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i560
   %side.0.i.i.i.i.i569 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i560 ], [ %spec.select.i.i.i.i.i567, %lor.lhs.false2.i.i.i.i.i564 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i561, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i556, ptr noundef nonnull %call, i32 noundef %side.0.i.i.i.i.i569)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i561, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i556, ptr noundef nonnull align 8 dereferenceable(88) %call, i32 noundef %side.0.i.i.i.i.i569)
           to label %invoke.cont268 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont268:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i568
@@ -15057,7 +15057,7 @@ lor.lhs.false2.i.i.i.i.i605:                      ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i609: ; preds = %lor.lhs.false2.i.i.i.i.i605, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i601
   %side.0.i.i.i.i.i610 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i601 ], [ %spec.select.i.i.i.i.i608, %lor.lhs.false2.i.i.i.i.i605 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i602, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i597, ptr noundef nonnull %call, i32 noundef %side.0.i.i.i.i.i610)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i602, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i597, ptr noundef nonnull align 8 dereferenceable(88) %call, i32 noundef %side.0.i.i.i.i.i610)
           to label %invoke.cont274 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont274:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i609
@@ -15125,7 +15125,7 @@ lor.lhs.false2.i.i.i.i.i646:                      ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i650: ; preds = %lor.lhs.false2.i.i.i.i.i646, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i642
   %side.0.i.i.i.i.i651 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i642 ], [ %spec.select.i.i.i.i.i649, %lor.lhs.false2.i.i.i.i.i646 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i643, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i638, ptr noundef nonnull %call, i32 noundef %side.0.i.i.i.i.i651)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i643, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i638, ptr noundef nonnull align 8 dereferenceable(88) %call, i32 noundef %side.0.i.i.i.i.i651)
           to label %invoke.cont280 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont280:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i650
@@ -15193,7 +15193,7 @@ lor.lhs.false2.i.i.i.i.i687:                      ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i691: ; preds = %lor.lhs.false2.i.i.i.i.i687, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i683
   %side.0.i.i.i.i.i692 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i683 ], [ %spec.select.i.i.i.i.i690, %lor.lhs.false2.i.i.i.i.i687 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i684, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i679, ptr noundef nonnull %call18, i32 noundef %side.0.i.i.i.i.i692)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i684, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i679, ptr noundef nonnull align 8 dereferenceable(88) %call18, i32 noundef %side.0.i.i.i.i.i692)
           to label %invoke.cont286 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont286:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i691
@@ -15261,7 +15261,7 @@ lor.lhs.false2.i.i.i.i.i728:                      ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i732: ; preds = %lor.lhs.false2.i.i.i.i.i728, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i724
   %side.0.i.i.i.i.i733 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i724 ], [ %spec.select.i.i.i.i.i731, %lor.lhs.false2.i.i.i.i.i728 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i725, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i720, ptr noundef nonnull %call18, i32 noundef %side.0.i.i.i.i.i733)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i725, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i720, ptr noundef nonnull align 8 dereferenceable(88) %call18, i32 noundef %side.0.i.i.i.i.i733)
           to label %invoke.cont292 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont292:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i732
@@ -15329,7 +15329,7 @@ lor.lhs.false2.i.i.i.i.i769:                      ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i773: ; preds = %lor.lhs.false2.i.i.i.i.i769, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i765
   %side.0.i.i.i.i.i774 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i765 ], [ %spec.select.i.i.i.i.i772, %lor.lhs.false2.i.i.i.i.i769 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i766, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i761, ptr noundef nonnull %call18, i32 noundef %side.0.i.i.i.i.i774)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i766, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i761, ptr noundef nonnull align 8 dereferenceable(88) %call18, i32 noundef %side.0.i.i.i.i.i774)
           to label %invoke.cont298 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont298:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i773
@@ -15736,7 +15736,7 @@ lor.lhs.false2.i.i.i.i.i910:                      ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i914: ; preds = %lor.lhs.false2.i.i.i.i.i910, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i906
   %side.0.i.i.i.i.i915 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i906 ], [ %spec.select.i.i.i.i.i913, %lor.lhs.false2.i.i.i.i.i910 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i907, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i902, ptr noundef nonnull %call, i32 noundef %side.0.i.i.i.i.i915)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i907, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i902, ptr noundef nonnull align 8 dereferenceable(88) %call, i32 noundef %side.0.i.i.i.i.i915)
           to label %invoke.cont330 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont330:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i914
@@ -15804,7 +15804,7 @@ lor.lhs.false2.i.i.i.i.i951:                      ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i955: ; preds = %lor.lhs.false2.i.i.i.i.i951, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i947
   %side.0.i.i.i.i.i956 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i947 ], [ %spec.select.i.i.i.i.i954, %lor.lhs.false2.i.i.i.i.i951 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i948, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i943, ptr noundef nonnull %call18, i32 noundef %side.0.i.i.i.i.i956)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i948, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i943, ptr noundef nonnull align 8 dereferenceable(88) %call18, i32 noundef %side.0.i.i.i.i.i956)
           to label %invoke.cont336 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont336:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i955
@@ -16157,7 +16157,7 @@ invoke.cont362:                                   ; preds = %invoke.cont359
 delete.notnull.i.i:                               ; preds = %invoke.cont362
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %287, i64 16
   %288 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %287, ptr noundef %288)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %287, ptr noundef %288)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i
@@ -16179,7 +16179,7 @@ _ZN5eastl10scoped_ptrINS_14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocator
 delete.notnull.i.i1162:                           ; preds = %_ZN5eastl10scoped_ptrINS_14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEENS_17smart_ptr_deleterIS5_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i1163 = getelementptr inbounds i8, ptr %291, i64 16
   %292 = load ptr, ptr %mpNodeParent.i.i.i.i.i1163, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %291, ptr noundef %292)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %291, ptr noundef %292)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i1165 unwind label %terminate.lpad.i.i.i.i.i1164
 
 terminate.lpad.i.i.i.i.i1164:                     ; preds = %delete.notnull.i.i1162
@@ -16223,7 +16223,7 @@ _ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_de
 delete.notnull.i.i1170:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i1171 = getelementptr inbounds i8, ptr %299, i64 16
   %300 = load ptr, ptr %mpNodeParent.i.i.i.i.i1171, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %299, ptr noundef %300)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %299, ptr noundef %300)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i1173 unwind label %terminate.lpad.i.i.i.i.i1172
 
 terminate.lpad.i.i.i.i.i1172:                     ; preds = %delete.notnull.i.i1170
@@ -16267,7 +16267,7 @@ _ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_de
 delete.notnull.i.i1182:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit1180
   %mpNodeParent.i.i.i.i.i1183 = getelementptr inbounds i8, ptr %307, i64 16
   %308 = load ptr, ptr %mpNodeParent.i.i.i.i.i1183, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %307, ptr noundef %308)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %307, ptr noundef %308)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i1185 unwind label %terminate.lpad.i.i.i.i.i1184
 
 terminate.lpad.i.i.i.i.i1184:                     ; preds = %delete.notnull.i.i1182
@@ -16311,7 +16311,7 @@ _ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_de
 delete.notnull.i.i1194:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit1192
   %mpNodeParent.i.i.i.i.i1195 = getelementptr inbounds i8, ptr %315, i64 16
   %316 = load ptr, ptr %mpNodeParent.i.i.i.i.i1195, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %315, ptr noundef %316)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %315, ptr noundef %316)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i1197 unwind label %terminate.lpad.i.i.i.i.i1196
 
 terminate.lpad.i.i.i.i.i1196:                     ; preds = %delete.notnull.i.i1194
@@ -16355,7 +16355,7 @@ _ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_de
 delete.notnull.i.i1206:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit1204
   %mpNodeParent.i.i.i.i.i1207 = getelementptr inbounds i8, ptr %323, i64 16
   %324 = load ptr, ptr %mpNodeParent.i.i.i.i.i1207, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %323, ptr noundef %324)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %323, ptr noundef %324)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i1209 unwind label %terminate.lpad.i.i.i.i.i1208
 
 terminate.lpad.i.i.i.i.i1208:                     ; preds = %delete.notnull.i.i1206
@@ -16399,7 +16399,7 @@ _ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_de
 delete.notnull.i.i1218:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit1216
   %mpNodeParent.i.i.i.i.i1219 = getelementptr inbounds i8, ptr %331, i64 16
   %332 = load ptr, ptr %mpNodeParent.i.i.i.i.i1219, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %331, ptr noundef %332)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %331, ptr noundef %332)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i1221 unwind label %terminate.lpad.i.i.i.i.i1220
 
 terminate.lpad.i.i.i.i.i1220:                     ; preds = %delete.notnull.i.i1218
@@ -16443,7 +16443,7 @@ _ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_de
 delete.notnull.i.i1230:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit1228
   %mpNodeParent.i.i.i.i.i1231 = getelementptr inbounds i8, ptr %339, i64 16
   %340 = load ptr, ptr %mpNodeParent.i.i.i.i.i1231, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %339, ptr noundef %340)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %339, ptr noundef %340)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i1233 unwind label %terminate.lpad.i.i.i.i.i1232
 
 terminate.lpad.i.i.i.i.i1232:                     ; preds = %delete.notnull.i.i1230
@@ -16777,8 +16777,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(80168) ptr @_Znwm(i64 noundef 80168) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -16787,10 +16787,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -16842,8 +16842,8 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 invoke.cont17:                                    ; preds = %invoke.cont15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i136)
   %mBuffer.i137 = getelementptr inbounds i8, ptr %call18, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i136, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i136, ptr noundef nonnull %mBuffer.i137, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i136, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i136, ptr noundef nonnull %mBuffer.i137, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc146 unwind label %lpad19
 
 .noexc146:                                        ; preds = %invoke.cont17
@@ -16852,10 +16852,10 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   %mnSize.i.i.i139 = getelementptr inbounds i8, ptr %call18, i64 32
   %mAllocator.i.i.i140 = getelementptr inbounds i8, ptr %call18, i64 40
   %mpNext.i.i.i.i141 = getelementptr inbounds i8, ptr %ref.tmp.i136, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call18, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call18, i8 0, i64 40, i1 false)
   %3 = load ptr, ptr %mpNext.i.i.i.i141, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i140, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i140, ptr noundef %3, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i140, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i140, ptr noundef %3, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %.noexc146
@@ -16899,8 +16899,8 @@ invoke.cont33:                                    ; preds = %invoke.cont23
 invoke.cont36:                                    ; preds = %invoke.cont33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i153)
   %mBuffer.i154 = getelementptr inbounds i8, ptr %call37, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i153, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i153, ptr noundef nonnull %mBuffer.i154, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i153, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i153, ptr noundef nonnull %mBuffer.i154, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc163 unwind label %lpad38
 
 .noexc163:                                        ; preds = %invoke.cont36
@@ -16908,10 +16908,10 @@ invoke.cont36:                                    ; preds = %invoke.cont33
   store ptr %mBuffer.i154, ptr %mpPoolBegin.i.i.i155, align 8
   %mAllocator.i.i.i157 = getelementptr inbounds i8, ptr %call37, i64 40
   %mpNext.i.i.i.i158 = getelementptr inbounds i8, ptr %ref.tmp.i153, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call37, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call37, i8 0, i64 40, i1 false)
   %6 = load ptr, ptr %mpNext.i.i.i.i158, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i157, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i157, ptr noundef %6, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i157, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i157, ptr noundef %6, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %.noexc163
@@ -17224,8 +17224,8 @@ for.end:                                          ; preds = %invoke.cont80
 invoke.cont83:                                    ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i274)
   %mBuffer.i275 = getelementptr inbounds i8, ptr %call84, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i274, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i274, ptr noundef nonnull %mBuffer.i275, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i274, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i274, ptr noundef nonnull %mBuffer.i275, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc284 unwind label %lpad85
 
 .noexc284:                                        ; preds = %invoke.cont83
@@ -17234,10 +17234,10 @@ invoke.cont83:                                    ; preds = %for.end
   %mnSize.i.i.i277 = getelementptr inbounds i8, ptr %call84, i64 32
   %mAllocator.i.i.i278 = getelementptr inbounds i8, ptr %call84, i64 40
   %mpNext.i.i.i.i279 = getelementptr inbounds i8, ptr %ref.tmp.i274, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call84, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call84, i8 0, i64 40, i1 false)
   %46 = load ptr, ptr %mpNext.i.i.i.i279, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i278, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i278, ptr noundef %46, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i278, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i278, ptr noundef %46, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %.noexc284
@@ -17371,7 +17371,7 @@ invoke.cont139:                                   ; preds = %invoke.cont135
   %56 = load ptr, ptr %_M_left.i.i.i.i.i167, align 8
   %57 = getelementptr inbounds i8, ptr %call140, i64 8
   %_M_left.i.i.i.i.i298 = getelementptr inbounds i8, ptr %call140, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call140, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call140, i8 0, i64 24, i1 false)
   store ptr %57, ptr %_M_left.i.i.i.i.i298, align 8
   %_M_right.i.i.i.i.i299 = getelementptr inbounds i8, ptr %call140, i64 32
   store ptr %57, ptr %_M_right.i.i.i.i.i299, align 8
@@ -17429,7 +17429,7 @@ invoke.cont164:                                   ; preds = %invoke.cont160
 if.then.i.i.i:                                    ; preds = %invoke.cont164
   %mpNodeParent.i.i.i.i301 = getelementptr inbounds i8, ptr %call104, i64 16
   %61 = load ptr, ptr %mpNodeParent.i.i.i.i301, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call104, ptr noundef %61)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call104, ptr noundef %61)
           to label %.noexc304 unwind label %lpad153
 
 .noexc304:                                        ; preds = %if.then.i.i.i
@@ -17446,7 +17446,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont164
   br i1 %tobool.not.i.i.i, label %invoke.cont167, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc304
-  %call7.i.i.i305 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call104, ptr noundef nonnull %62, ptr noundef nonnull %call104)
+  %call7.i.i.i305 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call104, ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(80167) %call104)
           to label %call7.i.i.i.noexc unwind label %lpad153
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -17501,8 +17501,8 @@ invoke.cont178:                                   ; preds = %invoke.cont173
 invoke.cont181:                                   ; preds = %invoke.cont178
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i307)
   %mBuffer.i308 = getelementptr inbounds i8, ptr %call182, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i307, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i307, ptr noundef nonnull %mBuffer.i308, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i307, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i307, ptr noundef nonnull %mBuffer.i308, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc317 unwind label %lpad183
 
 .noexc317:                                        ; preds = %invoke.cont181
@@ -17510,10 +17510,10 @@ invoke.cont181:                                   ; preds = %invoke.cont178
   store ptr %mBuffer.i308, ptr %mpPoolBegin.i.i.i309, align 8
   %mAllocator.i.i.i311 = getelementptr inbounds i8, ptr %call182, i64 40
   %mpNext.i.i.i.i312 = getelementptr inbounds i8, ptr %ref.tmp.i307, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call182, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call182, i8 0, i64 40, i1 false)
   %68 = load ptr, ptr %mpNext.i.i.i.i312, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i311, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i311, ptr noundef %68, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i311, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i311, ptr noundef %68, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont184 unwind label %lpad183
 
 invoke.cont184:                                   ; preds = %.noexc317
@@ -17536,8 +17536,8 @@ invoke.cont184:                                   ; preds = %.noexc317
 invoke.cont188:                                   ; preds = %invoke.cont184
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i320)
   %mBuffer.i321 = getelementptr inbounds i8, ptr %call189, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i320, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i320, ptr noundef nonnull %mBuffer.i321, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i320, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i320, ptr noundef nonnull %mBuffer.i321, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc330 unwind label %lpad190
 
 .noexc330:                                        ; preds = %invoke.cont188
@@ -17546,10 +17546,10 @@ invoke.cont188:                                   ; preds = %invoke.cont184
   %mnSize.i.i.i323 = getelementptr inbounds i8, ptr %call189, i64 32
   %mAllocator.i.i.i324 = getelementptr inbounds i8, ptr %call189, i64 40
   %mpNext.i.i.i.i325 = getelementptr inbounds i8, ptr %ref.tmp.i320, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call189, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call189, i8 0, i64 40, i1 false)
   %69 = load ptr, ptr %mpNext.i.i.i.i325, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i324, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i324, ptr noundef %69, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i324, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i324, ptr noundef %69, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %_ZN10TestObjectD2Ev.exit560 unwind label %lpad190
 
 _ZN10TestObjectD2Ev.exit560:                      ; preds = %.noexc330
@@ -17713,7 +17713,7 @@ invoke.cont258:                                   ; preds = %invoke.cont256
 
 if.then.i.i.i573:                                 ; preds = %invoke.cont258
   %76 = load ptr, ptr %mpNodeParent.i.i.i.i328, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call189, ptr noundef %76)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call189, ptr noundef %76)
           to label %.noexc591 unwind label %lpad247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc591:                                        ; preds = %if.then.i.i.i573
@@ -17727,7 +17727,7 @@ if.then.i.i.i573:                                 ; preds = %invoke.cont258
   br i1 %tobool.not.i.i.i579, label %land.end, label %if.then3.i.i.i580
 
 if.then3.i.i.i580:                                ; preds = %.noexc591
-  %call7.i.i.i593 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call189, ptr noundef nonnull %77, ptr noundef nonnull %call189)
+  %call7.i.i.i593 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call189, ptr noundef nonnull %77, ptr noundef nonnull align 8 dereferenceable(80167) %call189)
           to label %call7.i.i.i.noexc592 unwind label %lpad247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call7.i.i.i.noexc592:                             ; preds = %if.then3.i.i.i580
@@ -19390,7 +19390,7 @@ _ZN10TestObjectD2Ev.exit1551:                     ; preds = %_ZN10TestObjectD2Ev
 delete.notnull.i.i:                               ; preds = %_ZN10TestObjectD2Ev.exit1551
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %302, i64 16
   %303 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %302, ptr noundef %303)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %302, ptr noundef %303)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i
@@ -19412,7 +19412,7 @@ _ZN5eastl10scoped_ptrINS_14fixed_multimapI10TestObjectS2_Lm1000ELb1ENS_4lessIS2_
 delete.notnull.i.i1553:                           ; preds = %_ZN5eastl10scoped_ptrINS_14fixed_multimapI10TestObjectS2_Lm1000ELb1ENS_4lessIS2_EENS_9allocatorEEENS_17smart_ptr_deleterIS6_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i1554 = getelementptr inbounds i8, ptr %306, i64 16
   %307 = load ptr, ptr %mpNodeParent.i.i.i.i.i1554, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %306, ptr noundef %307)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %306, ptr noundef %307)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1556 unwind label %terminate.lpad.i.i.i.i.i1555
 
 terminate.lpad.i.i.i.i.i1555:                     ; preds = %delete.notnull.i.i1553
@@ -19456,7 +19456,7 @@ _ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_E
 delete.notnull.i.i1561:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i1562 = getelementptr inbounds i8, ptr %314, i64 16
   %315 = load ptr, ptr %mpNodeParent.i.i.i.i.i1562, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %314, ptr noundef %315)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %314, ptr noundef %315)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1564 unwind label %terminate.lpad.i.i.i.i.i1563
 
 terminate.lpad.i.i.i.i.i1563:                     ; preds = %delete.notnull.i.i1561
@@ -19500,7 +19500,7 @@ _ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_E
 delete.notnull.i.i1573:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1571
   %mpNodeParent.i.i.i.i.i1574 = getelementptr inbounds i8, ptr %322, i64 16
   %323 = load ptr, ptr %mpNodeParent.i.i.i.i.i1574, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %322, ptr noundef %323)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %322, ptr noundef %323)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1576 unwind label %terminate.lpad.i.i.i.i.i1575
 
 terminate.lpad.i.i.i.i.i1575:                     ; preds = %delete.notnull.i.i1573
@@ -19544,7 +19544,7 @@ _ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_E
 delete.notnull.i.i1585:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1583
   %mpNodeParent.i.i.i.i.i1586 = getelementptr inbounds i8, ptr %330, i64 16
   %331 = load ptr, ptr %mpNodeParent.i.i.i.i.i1586, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %330, ptr noundef %331)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %330, ptr noundef %331)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1588 unwind label %terminate.lpad.i.i.i.i.i1587
 
 terminate.lpad.i.i.i.i.i1587:                     ; preds = %delete.notnull.i.i1585
@@ -19588,7 +19588,7 @@ _ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_E
 delete.notnull.i.i1597:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1595
   %mpNodeParent.i.i.i.i.i1598 = getelementptr inbounds i8, ptr %338, i64 16
   %339 = load ptr, ptr %mpNodeParent.i.i.i.i.i1598, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %338, ptr noundef %339)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %338, ptr noundef %339)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1600 unwind label %terminate.lpad.i.i.i.i.i1599
 
 terminate.lpad.i.i.i.i.i1599:                     ; preds = %delete.notnull.i.i1597
@@ -19632,7 +19632,7 @@ _ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_E
 delete.notnull.i.i1609:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1607
   %mpNodeParent.i.i.i.i.i1610 = getelementptr inbounds i8, ptr %346, i64 16
   %347 = load ptr, ptr %mpNodeParent.i.i.i.i.i1610, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %346, ptr noundef %347)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %346, ptr noundef %347)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1612 unwind label %terminate.lpad.i.i.i.i.i1611
 
 terminate.lpad.i.i.i.i.i1611:                     ; preds = %delete.notnull.i.i1609
@@ -19676,7 +19676,7 @@ _ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_E
 delete.notnull.i.i1621:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit1619
   %mpNodeParent.i.i.i.i.i1622 = getelementptr inbounds i8, ptr %354, i64 16
   %355 = load ptr, ptr %mpNodeParent.i.i.i.i.i1622, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %354, ptr noundef %355)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %354, ptr noundef %355)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i1624 unwind label %terminate.lpad.i.i.i.i.i1623
 
 terminate.lpad.i.i.i.i.i1623:                     ; preds = %delete.notnull.i.i1621
@@ -20088,8 +20088,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(40128) ptr @_Znwm(i64 noundef 40128) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -20098,10 +20098,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -20515,7 +20515,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE12DoCreateNodeEOS3_.exit.i.i
   %side.0.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE12DoCreateNodeEOS3_.exit.i.i ], [ %spec.select.i.i.i, %lor.lhs.false2.i.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i, ptr noundef nonnull %retval.0.i10.i, ptr noundef nonnull %call, i32 noundef %side.0.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i, ptr noundef nonnull %retval.0.i10.i, ptr noundef nonnull align 8 dereferenceable(88) %call, i32 noundef %side.0.i.i.i)
           to label %.noexc1368 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1368:                                       ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit.i
@@ -20834,7 +20834,7 @@ if.then.i199:                                     ; preds = %land.rhs.i.i
           to label %call.i.i.i.noexc unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i199
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i, ptr noundef nonnull %call)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call)
           to label %.noexc204 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc204:                                        ; preds = %call.i.i.i.noexc
@@ -21437,7 +21437,7 @@ lor.lhs.false2.i.i.i1421:                         ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit.i1425: ; preds = %lor.lhs.false2.i.i.i1421, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE12DoCreateNodeEOS3_.exit.i.i1417
   %side.0.i.i.i1426 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE12DoCreateNodeEOS3_.exit.i.i1417 ], [ %spec.select.i.i.i1424, %lor.lhs.false2.i.i.i1421 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i1418, ptr noundef nonnull %retval.0.i10.i1413, ptr noundef nonnull %call, i32 noundef %side.0.i.i.i1426)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i1418, ptr noundef nonnull %retval.0.i10.i1413, ptr noundef nonnull align 8 dereferenceable(88) %call, i32 noundef %side.0.i.i.i1426)
           to label %.noexc1448 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1448:                                       ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit.i1425
@@ -21731,7 +21731,7 @@ if.then.i493:                                     ; preds = %land.rhs.i.i490
           to label %call.i.i.i.noexc505 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc505:                              ; preds = %if.then.i493
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i485, ptr noundef nonnull %call)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i485, ptr noundef nonnull align 8 dereferenceable(88) %call)
           to label %.noexc507 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc507:                                        ; preds = %call.i.i.i.noexc505
@@ -22086,7 +22086,7 @@ _ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleter
 delete.notnull.i.i600:                            ; preds = %_ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %208, i64 16
   %209 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %208, ptr noundef %209)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %208, ptr noundef %209)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i600
@@ -22132,8 +22132,8 @@ _ZN10TestObject7IsClearEv.exit606:                ; preds = %_ZN5eastl10scoped_p
   %call192 = call noalias noundef nonnull dereferenceable(40128) ptr @_Znwm(i64 noundef 40128) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i607)
   %mBuffer.i608 = getelementptr inbounds i8, ptr %call192, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i607, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i607, ptr noundef nonnull %mBuffer.i608, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i607, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i607, ptr noundef nonnull %mBuffer.i608, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc617 unwind label %lpad193
 
 .noexc617:                                        ; preds = %_ZN10TestObject7IsClearEv.exit606
@@ -22142,10 +22142,10 @@ _ZN10TestObject7IsClearEv.exit606:                ; preds = %_ZN5eastl10scoped_p
   %mnSize.i.i.i610 = getelementptr inbounds i8, ptr %call192, i64 32
   %mAllocator.i.i.i611 = getelementptr inbounds i8, ptr %call192, i64 40
   %mpNext.i.i.i.i612 = getelementptr inbounds i8, ptr %ref.tmp.i607, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call192, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call192, i8 0, i64 40, i1 false)
   %217 = load ptr, ptr %mpNext.i.i.i.i612, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i611, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i611, ptr noundef %217, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i611, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i611, ptr noundef %217, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont194 unwind label %lpad193
 
 invoke.cont194:                                   ; preds = %.noexc617
@@ -22691,7 +22691,7 @@ invoke.cont301:                                   ; preds = %lor.lhs.false.i.i, 
   store i32 1, ptr %ref.tmp304, align 8
   %second.i839 = getelementptr inbounds i8, ptr %ref.tmp304, i64 4
   store i32 1, ptr %second.i839, align 4
-  %call3.i.i.i843 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %call199, ptr %retval.sroa.0.0.i.i838, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp304)
+  %call3.i.i.i843 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %call199, ptr %retval.sroa.0.0.i.i838, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp304)
           to label %call3.i.i.i.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call3.i.i.i.noexc:                                ; preds = %invoke.cont301
@@ -22772,7 +22772,7 @@ invoke.cont341:                                   ; preds = %invoke.cont329
   store i32 5, ptr %ref.tmp349, align 8
   %second.i850 = getelementptr inbounds i8, ptr %ref.tmp349, i64 4
   store i32 5, ptr %second.i850, align 4
-  %call3.i.i.i866 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %call199, ptr nonnull %218, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp349)
+  %call3.i.i.i866 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %call199, ptr nonnull %218, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp349)
           to label %call3.i.i.i.noexc865 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call3.i.i.i.noexc865:                             ; preds = %invoke.cont341
@@ -22880,7 +22880,7 @@ invoke.cont380:                                   ; preds = %if.end16.i892, %lan
           to label %call.i.i895.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i895.noexc:                                ; preds = %invoke.cont380
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i891, ptr noundef nonnull %call192)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i891, ptr noundef nonnull align 8 dereferenceable(88) %call192)
           to label %.noexc900 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc900:                                        ; preds = %call.i.i895.noexc
@@ -23016,7 +23016,7 @@ invoke.cont413:                                   ; preds = %lor.lhs.false.i.i96
   store i32 1, ptr %ref.tmp416, align 8
   %second.i972 = getelementptr inbounds i8, ptr %ref.tmp416, i64 4
   store i32 1, ptr %second.i972, align 4
-  %call3.i.i.i988 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %call199, ptr %retval.sroa.0.0.i.i970, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp416)
+  %call3.i.i.i988 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %call199, ptr %retval.sroa.0.0.i.i970, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp416)
           to label %call3.i.i.i.noexc987 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call3.i.i.i.noexc987:                             ; preds = %invoke.cont413
@@ -23124,7 +23124,7 @@ invoke.cont447:                                   ; preds = %if.end16.i1014, %la
           to label %call.i.i1018.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1018.noexc:                               ; preds = %invoke.cont447
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1013, ptr noundef nonnull %call192)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1013, ptr noundef nonnull align 8 dereferenceable(88) %call192)
           to label %.noexc1030 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1030:                                       ; preds = %call.i.i1018.noexc
@@ -23197,7 +23197,7 @@ invoke.cont471:                                   ; preds = %invoke.cont458
   store i32 5, ptr %ref.tmp479, align 8
   %second.i1063 = getelementptr inbounds i8, ptr %ref.tmp479, i64 4
   store i32 5, ptr %second.i1063, align 4
-  %call3.i.i.i1079 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %call199, ptr nonnull %218, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp479)
+  %call3.i.i.i1079 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %call199, ptr nonnull %218, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp479)
           to label %call3.i.i.i.noexc1078 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call3.i.i.i.noexc1078:                            ; preds = %invoke.cont471
@@ -23347,7 +23347,7 @@ while.body.i1139:                                 ; preds = %while.cond.preheade
           to label %call.i.i.i1141.noexc unwind label %lpad211.loopexit
 
 call.i.i.i1141.noexc:                             ; preds = %while.body.i1139
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i, ptr noundef nonnull %call192)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i, ptr noundef nonnull align 8 dereferenceable(88) %call192)
           to label %.noexc1149 unwind label %lpad211.loopexit
 
 .noexc1149:                                       ; preds = %call.i.i.i1141.noexc
@@ -23542,7 +23542,7 @@ invoke.cont547:                                   ; preds = %if.end16.i1227, %la
           to label %call.i.i1231.noexc unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1231.noexc:                               ; preds = %invoke.cont547
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1226, ptr noundef nonnull %call192)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1226, ptr noundef nonnull align 8 dereferenceable(88) %call192)
           to label %.noexc1243 unwind label %lpad211.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1243:                                       ; preds = %call.i.i1231.noexc
@@ -23663,7 +23663,7 @@ _ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleter
 delete.notnull.i.i1284:                           ; preds = %_ZN5eastl10scoped_ptrISt3mapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit1282
   %mpNodeParent.i.i.i.i.i1285 = getelementptr inbounds i8, ptr %345, i64 16
   %346 = load ptr, ptr %mpNodeParent.i.i.i.i.i1285, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %345, ptr noundef %346)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %345, ptr noundef %346)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i1287 unwind label %terminate.lpad.i.i.i.i.i1286
 
 terminate.lpad.i.i.i.i.i1286:                     ; preds = %delete.notnull.i.i1284
@@ -23687,17 +23687,17 @@ _ZN5eastl10scoped_ptrINS_9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEENS_
   store i32 1, ptr %second.i1290, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1291)
   %mBuffer.i1292 = getelementptr inbounds i8, ptr %myMap, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1291, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1291, ptr noundef nonnull %mBuffer.i1292, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1291, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1291, ptr noundef nonnull %mBuffer.i1292, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i1293 = getelementptr inbounds i8, ptr %ref.tmp.i1291, i64 40
   store ptr %mBuffer.i1292, ptr %mpPoolBegin.i.i.i1293, align 8
   %mnSize.i.i.i1294 = getelementptr inbounds i8, ptr %myMap, i64 32
   %mAllocator.i.i.i1295 = getelementptr inbounds i8, ptr %myMap, i64 40
   %mpNext.i.i.i.i1296 = getelementptr inbounds i8, ptr %ref.tmp.i1291, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %myMap, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %myMap, i8 0, i64 40, i1 false)
   %349 = load ptr, ptr %mpNext.i.i.i.i1296, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i1295, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i1295, ptr noundef %349, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i1295, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i1295, ptr noundef %349, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i1297 = getelementptr inbounds i8, ptr %myMap, i64 80
   store ptr %349, ptr %mpPoolBegin.i.i.i.i.i1297, align 8
   store ptr %myMap, ptr %myMap, align 8
@@ -23714,7 +23714,7 @@ _ZN5eastl10scoped_ptrINS_9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEENS_
 for.body.i.i1302:                                 ; preds = %.noexc.i, %_ZN5eastl10scoped_ptrINS_9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEENS_17smart_ptr_deleterIS5_EEED2Ev.exit1288
   %first.addr.04.i.i.idx = phi i64 [ %first.addr.04.i.i.add, %.noexc.i ], [ 0, %_ZN5eastl10scoped_ptrINS_9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEENS_17smart_ptr_deleterIS5_EEED2Ev.exit1288 ]
   %first.addr.04.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp576, i64 %first.addr.04.i.i.idx
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoInsertValueIJRKS3_EEENS1_INS_15rbtree_iteratorIS3_PS3_RS3_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.102") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef nonnull align 4 dereferenceable(8) %first.addr.04.i.i.ptr)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoInsertValueIJRKS3_EEENS1_INS_15rbtree_iteratorIS3_PS3_RS3_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.102") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(40127) %myMap, ptr noundef nonnull align 4 dereferenceable(8) %first.addr.04.i.i.ptr)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %for.body.i.i1302
@@ -23729,7 +23729,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup188
 lpad.i:                                           ; preds = %for.body.i.i1302
   %350 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl3mapIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %myMap) #15
+  call void @_ZN5eastl3mapIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40127) %myMap) #15
   br label %common.resume
 
 _ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEC2ESt16initializer_listINS_4pairIKiiEEERKS3_.exit: ; preds = %.noexc.i
@@ -23768,7 +23768,7 @@ invoke.cont602:                                   ; preds = %invoke.cont596
   %second.i1311 = getelementptr inbounds i8, ptr %ref.tmp605, i64 12
   store i32 1, ptr %second.i1311, align 4
   %355 = load ptr, ptr %mpNodeParent.i.i.i.i1299, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef %355)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %myMap, ptr noundef %355)
           to label %.noexc1321 unwind label %lpad584.loopexit.split-lp.loopexit.split-lp
 
 .noexc1321:                                       ; preds = %invoke.cont602
@@ -23783,7 +23783,7 @@ invoke.cont602:                                   ; preds = %invoke.cont596
 for.body.i.i1317:                                 ; preds = %.noexc1322, %.noexc1321
   %first.addr.04.i.i1318.idx = phi i64 [ %first.addr.04.i.i1318.add, %.noexc1322 ], [ 0, %.noexc1321 ]
   %first.addr.04.i.i1318.ptr = getelementptr inbounds i8, ptr %ref.tmp605, i64 %first.addr.04.i.i1318.idx
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoInsertValueIJRKS3_EEENS1_INS_15rbtree_iteratorIS3_PS3_RS3_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.102") align 8 %tmp.i.i1312, ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef nonnull align 4 dereferenceable(8) %first.addr.04.i.i1318.ptr)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoInsertValueIJRKS3_EEENS1_INS_15rbtree_iteratorIS3_PS3_RS3_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.102") align 8 %tmp.i.i1312, ptr noundef nonnull align 8 dereferenceable(40127) %myMap, ptr noundef nonnull align 4 dereferenceable(8) %first.addr.04.i.i1318.ptr)
           to label %.noexc1322 unwind label %lpad584.loopexit.split-lp.loopexit
 
 .noexc1322:                                       ; preds = %for.body.i.i1317
@@ -23859,7 +23859,7 @@ invoke.cont666:                                   ; preds = %invoke.cont663
 
 invoke.cont672:                                   ; preds = %invoke.cont666
   %362 = load ptr, ptr %mpNodeParent.i.i.i.i1299, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef %362)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %myMap, ptr noundef %362)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont672
@@ -24016,8 +24016,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(80168) ptr @_Znwm(i64 noundef 80168) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -24026,10 +24026,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -25111,7 +25111,7 @@ if.then.i342:                                     ; preds = %land.rhs.i.i
           to label %call.i.i.i.noexc unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i342
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i, ptr noundef nonnull %call)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call)
           to label %.noexc347 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc347:                                        ; preds = %call.i.i.i.noexc
@@ -26285,7 +26285,7 @@ if.then.i682:                                     ; preds = %land.rhs.i.i679
           to label %call.i.i.i.noexc706 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc706:                              ; preds = %if.then.i682
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i674, ptr noundef nonnull %call)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i674, ptr noundef nonnull align 8 dereferenceable(88) %call)
           to label %.noexc708 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc708:                                        ; preds = %call.i.i.i.noexc706
@@ -26755,7 +26755,7 @@ _ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_
 delete.notnull.i.i871:                            ; preds = %_ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %382, i64 16
   %383 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %382, ptr noundef %383)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %382, ptr noundef %383)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i871
@@ -26801,8 +26801,8 @@ _ZN10TestObject7IsClearEv.exit877:                ; preds = %_ZN5eastl10scoped_p
   %call211 = call noalias noundef nonnull dereferenceable(80168) ptr @_Znwm(i64 noundef 80168) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i878)
   %mBuffer.i879 = getelementptr inbounds i8, ptr %call211, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i878, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i878, ptr noundef nonnull %mBuffer.i879, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i878, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i878, ptr noundef nonnull %mBuffer.i879, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc888 unwind label %lpad212
 
 .noexc888:                                        ; preds = %_ZN10TestObject7IsClearEv.exit877
@@ -26811,10 +26811,10 @@ _ZN10TestObject7IsClearEv.exit877:                ; preds = %_ZN5eastl10scoped_p
   %mnSize.i.i.i881 = getelementptr inbounds i8, ptr %call211, i64 32
   %mAllocator.i.i.i882 = getelementptr inbounds i8, ptr %call211, i64 40
   %mpNext.i.i.i.i883 = getelementptr inbounds i8, ptr %ref.tmp.i878, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call211, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call211, i8 0, i64 40, i1 false)
   %391 = load ptr, ptr %mpNext.i.i.i.i883, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i882, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i882, ptr noundef %391, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i882, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i882, ptr noundef %391, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont213 unwind label %lpad212
 
 invoke.cont213:                                   ; preds = %.noexc888
@@ -28161,7 +28161,7 @@ invoke.cont506:                                   ; preds = %if.end16.i1871, %la
           to label %call.i.i1875.noexc unwind label %_ZN10TestObjectD2Ev.exit3352
 
 call.i.i1875.noexc:                               ; preds = %invoke.cont506
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1870, ptr noundef nonnull %call211)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1870, ptr noundef nonnull align 8 dereferenceable(88) %call211)
           to label %.noexc1881 unwind label %_ZN10TestObjectD2Ev.exit3352
 
 .noexc1881:                                       ; preds = %call.i.i1875.noexc
@@ -28595,7 +28595,7 @@ invoke.cont609:                                   ; preds = %if.end16.i2182, %la
           to label %call.i.i2186.noexc unwind label %_ZN10TestObjectD2Ev.exit3432
 
 call.i.i2186.noexc:                               ; preds = %invoke.cont609
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2181, ptr noundef nonnull %call211)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2181, ptr noundef nonnull align 8 dereferenceable(88) %call211)
           to label %.noexc2208 unwind label %_ZN10TestObjectD2Ev.exit3432
 
 .noexc2208:                                       ; preds = %call.i.i2186.noexc
@@ -29138,7 +29138,7 @@ invoke.cont751:                                   ; preds = %if.end16.i2600, %la
           to label %call.i.i2604.noexc unwind label %_ZN10TestObjectD2Ev.exit3528
 
 call.i.i2604.noexc:                               ; preds = %invoke.cont751
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2599, ptr noundef nonnull %call211)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2599, ptr noundef nonnull align 8 dereferenceable(88) %call211)
           to label %.noexc2626 unwind label %_ZN10TestObjectD2Ev.exit3528
 
 .noexc2626:                                       ; preds = %call.i.i2604.noexc
@@ -29442,7 +29442,7 @@ _ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_
 delete.notnull.i.i2751:                           ; preds = %_ZN5eastl10scoped_ptrISt3mapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit2749
   %mpNodeParent.i.i.i.i.i2752 = getelementptr inbounds i8, ptr %775, i64 16
   %776 = load ptr, ptr %mpNodeParent.i.i.i.i.i2752, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %775, ptr noundef %776)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %775, ptr noundef %776)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i2754 unwind label %terminate.lpad.i.i.i.i.i2753
 
 terminate.lpad.i.i.i.i.i2753:                     ; preds = %delete.notnull.i.i2751
@@ -29505,8 +29505,8 @@ invoke.cont799:                                   ; preds = %_ZN5eastl10scoped_p
   store i64 %inc5.i7.i2815, ptr %mId.i9.i2817, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i2818)
   %mBuffer.i2819 = getelementptr inbounds i8, ptr %myMap, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2818, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2818, ptr noundef nonnull %mBuffer.i2819, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i2818, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i2818, ptr noundef nonnull %mBuffer.i2819, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc2833 unwind label %lpad801
 
 .noexc2833:                                       ; preds = %invoke.cont799
@@ -29515,10 +29515,10 @@ invoke.cont799:                                   ; preds = %_ZN5eastl10scoped_p
   %mnSize.i.i.i2821 = getelementptr inbounds i8, ptr %myMap, i64 32
   %mAllocator.i.i.i2822 = getelementptr inbounds i8, ptr %myMap, i64 40
   %mpNext.i.i.i.i2823 = getelementptr inbounds i8, ptr %ref.tmp.i2818, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %myMap, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %myMap, i8 0, i64 40, i1 false)
   %783 = load ptr, ptr %mpNext.i.i.i.i2823, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i2822, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i2822, ptr noundef %783, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i2822, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i2822, ptr noundef %783, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc2834 unwind label %lpad801
 
 .noexc2834:                                       ; preds = %.noexc2833
@@ -29539,7 +29539,7 @@ invoke.cont799:                                   ; preds = %_ZN5eastl10scoped_p
 for.body.i.i2829:                                 ; preds = %.noexc.i, %.noexc2834
   %first.addr.04.i.i.idx = phi i64 [ %first.addr.04.i.i.add, %.noexc.i ], [ 0, %.noexc2834 ]
   %first.addr.04.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp784, i64 %first.addr.04.i.i.idx
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoInsertValueIJRKS4_EEENS2_INS_15rbtree_iteratorIS4_PS4_RS4_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.129") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef nonnull align 8 dereferenceable(48) %first.addr.04.i.i.ptr)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoInsertValueIJRKS4_EEENS2_INS_15rbtree_iteratorIS4_PS4_RS4_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.129") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(80167) %myMap, ptr noundef nonnull align 8 dereferenceable(48) %first.addr.04.i.i.ptr)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %for.body.i.i2829
@@ -29550,7 +29550,7 @@ for.body.i.i2829:                                 ; preds = %.noexc.i, %.noexc28
 lpad.i:                                           ; preds = %for.body.i.i2829
   %784 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl3mapI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %myMap) #15
+  call void @_ZN5eastl3mapI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80167) %myMap) #15
   br label %lpad801.body
 
 invoke.cont803:                                   ; preds = %.noexc.i
@@ -29698,7 +29698,7 @@ invoke.cont871:                                   ; preds = %invoke.cont840
   %mId.i9.i2976 = getelementptr inbounds i8, ptr %ref.tmp853, i64 80
   store i64 %inc5.i7.i2974, ptr %mId.i9.i2976, align 8
   %804 = load ptr, ptr %mpNodeParent.i.i.i.i2826, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef %804)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %myMap, ptr noundef %804)
           to label %.noexc2985 unwind label %lpad876.loopexit.split-lp
 
 .noexc2985:                                       ; preds = %invoke.cont871
@@ -29714,7 +29714,7 @@ invoke.cont871:                                   ; preds = %invoke.cont840
 for.body.i.i2981:                                 ; preds = %.noexc2986, %.noexc2985
   %first.addr.04.i.i2982.idx = phi i64 [ %first.addr.04.i.i2982.add, %.noexc2986 ], [ 0, %.noexc2985 ]
   %first.addr.04.i.i2982.ptr = getelementptr inbounds i8, ptr %ref.tmp853, i64 %first.addr.04.i.i2982.idx
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoInsertValueIJRKS4_EEENS2_INS_15rbtree_iteratorIS4_PS4_RS4_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.129") align 8 %tmp.i.i2977, ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef nonnull align 8 dereferenceable(48) %first.addr.04.i.i2982.ptr)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoInsertValueIJRKS4_EEENS2_INS_15rbtree_iteratorIS4_PS4_RS4_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr nonnull sret(%"struct.eastl::pair.129") align 8 %tmp.i.i2977, ptr noundef nonnull align 8 dereferenceable(80167) %myMap, ptr noundef nonnull align 8 dereferenceable(48) %first.addr.04.i.i2982.ptr)
           to label %.noexc2986 unwind label %lpad876.loopexit
 
 .noexc2986:                                       ; preds = %for.body.i.i2981
@@ -29958,7 +29958,7 @@ _ZN10TestObjectD2Ev.exit3201:                     ; preds = %invoke.cont1000
   %inc3.i3200 = add nsw i64 %832, 1
   store i64 %inc3.i3200, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %833 = load ptr, ptr %mpNodeParent.i.i.i.i2826, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef %833)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %myMap, ptr noundef %833)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN10TestObjectD2Ev.exit3201
@@ -30457,8 +30457,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(40128) ptr @_Znwm(i64 noundef 40128) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -30467,10 +30467,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -30880,7 +30880,7 @@ lor.lhs.false2.i.i.i.i.i:                         ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i
   %side.0.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i ], [ %spec.select.i.i.i.i.i, %lor.lhs.false2.i.i.i.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i, ptr noundef nonnull %call, i32 noundef %side.0.i.i.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call, i32 noundef %side.0.i.i.i.i.i)
           to label %invoke.cont38 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont38:                                    ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i
@@ -31209,7 +31209,7 @@ while.body.i.i:                                   ; preds = %_ZN5eastl8distanceI
           to label %call.i.i.i3.i.noexc unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i3.i.noexc:                              ; preds = %while.body.i.i
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i.i, ptr noundef nonnull %call)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call)
           to label %.noexc208 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc208:                                        ; preds = %call.i.i.i3.i.noexc
@@ -31810,7 +31810,7 @@ lor.lhs.false2.i.i.i.i.i366:                      ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i370: ; preds = %lor.lhs.false2.i.i.i.i.i366, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i362
   %side.0.i.i.i.i.i371 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i362 ], [ %spec.select.i.i.i.i.i369, %lor.lhs.false2.i.i.i.i.i366 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i363, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i358, ptr noundef nonnull %call, i32 noundef %side.0.i.i.i.i.i371)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i363, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i358, ptr noundef nonnull align 8 dereferenceable(88) %call, i32 noundef %side.0.i.i.i.i.i371)
           to label %invoke.cont130 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont130:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i370
@@ -32112,7 +32112,7 @@ while.body.i.i546:                                ; preds = %_ZN5eastl8distanceI
           to label %call.i.i.i3.i.noexc567 unwind label %lpad9.loopexit.split-lp.loopexit
 
 call.i.i.i3.i.noexc567:                           ; preds = %while.body.i.i546
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i.i547, ptr noundef nonnull %call)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i.i547, ptr noundef nonnull align 8 dereferenceable(88) %call)
           to label %.noexc569 unwind label %lpad9.loopexit.split-lp.loopexit
 
 .noexc569:                                        ; preds = %call.i.i.i3.i.noexc567
@@ -32488,7 +32488,7 @@ _ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_de
 delete.notnull.i.i663:                            ; preds = %_ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %212, i64 16
   %213 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %212, ptr noundef %213)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %212, ptr noundef %213)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i663
@@ -32534,8 +32534,8 @@ _ZN10TestObject7IsClearEv.exit669:                ; preds = %_ZN5eastl10scoped_p
   %call188 = call noalias noundef nonnull dereferenceable(40128) ptr @_Znwm(i64 noundef 40128) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i670)
   %mBuffer.i671 = getelementptr inbounds i8, ptr %call188, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i670, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i670, ptr noundef nonnull %mBuffer.i671, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i670, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i670, ptr noundef nonnull %mBuffer.i671, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc680 unwind label %lpad189
 
 .noexc680:                                        ; preds = %_ZN10TestObject7IsClearEv.exit669
@@ -32544,10 +32544,10 @@ _ZN10TestObject7IsClearEv.exit669:                ; preds = %_ZN5eastl10scoped_p
   %mnSize.i.i.i673 = getelementptr inbounds i8, ptr %call188, i64 32
   %mAllocator.i.i.i674 = getelementptr inbounds i8, ptr %call188, i64 40
   %mpNext.i.i.i.i675 = getelementptr inbounds i8, ptr %ref.tmp.i670, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call188, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call188, i8 0, i64 40, i1 false)
   %221 = load ptr, ptr %mpNext.i.i.i.i675, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i674, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i674, ptr noundef %221, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i674, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i674, ptr noundef %221, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont190 unwind label %lpad189
 
 invoke.cont190:                                   ; preds = %.noexc680
@@ -32966,7 +32966,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRNS1_IiiEEEEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRNS1_IiiEEEEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i
   %pRangeEnd.0.lcssa.i8.i.i = phi ptr [ %pCurrent.07.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %pCurrent.07.i.i.i, %lor.lhs.false2.i.i.i ], [ %call188, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRNS1_IiiEEEEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i ]
   %side.0.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %spec.select.i.i.i, %lor.lhs.false2.i.i.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRNS1_IiiEEEEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull %call188, i32 noundef %side.0.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call188, i32 noundef %side.0.i.i.i)
           to label %.noexc850 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc850:                                        ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRNS1_IiiEEEEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i
@@ -33102,7 +33102,7 @@ _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm100
   store i32 8888, ptr %mValue.i.i.i.i878, align 4, !noalias !631
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i, i64 36
   store i32 0, ptr %second.i.i.i.i.i, align 4, !noalias !631
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i, ptr noundef nonnull %call188, i32 noundef %side.0.i.i.i877)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call188, i32 noundef %side.0.i.i.i877)
           to label %invoke.cont267 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont267:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE11DoInsertKeyENS_17integral_constantIbLb0EEERS2_.exit.i
@@ -33354,7 +33354,7 @@ invoke.cont375:                                   ; preds = %if.end16.i958, %lan
           to label %call.i.i961.noexc unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i961.noexc:                                ; preds = %invoke.cont375
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i957, ptr noundef nonnull %call188)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i957, ptr noundef nonnull align 8 dereferenceable(88) %call188)
           to label %.noexc964 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc964:                                        ; preds = %call.i.i961.noexc
@@ -33566,7 +33566,7 @@ invoke.cont440:                                   ; preds = %if.end16.i1064, %la
           to label %call.i.i1068.noexc unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1068.noexc:                               ; preds = %invoke.cont440
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1063, ptr noundef nonnull %call188)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1063, ptr noundef nonnull align 8 dereferenceable(88) %call188)
           to label %.noexc1080 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1080:                                       ; preds = %call.i.i1068.noexc
@@ -33757,7 +33757,7 @@ while.body.i1171:                                 ; preds = %while.cond.preheade
           to label %call.i.i.i1172.noexc unwind label %lpad207.loopexit
 
 call.i.i.i1172.noexc:                             ; preds = %while.body.i1171
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i, ptr noundef nonnull %call188)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i, ptr noundef nonnull align 8 dereferenceable(88) %call188)
           to label %.noexc1176 unwind label %lpad207.loopexit
 
 .noexc1176:                                       ; preds = %call.i.i.i1172.noexc
@@ -33952,7 +33952,7 @@ invoke.cont538:                                   ; preds = %if.end16.i1251, %la
           to label %call.i.i1255.noexc unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i1255.noexc:                               ; preds = %invoke.cont538
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1250, ptr noundef nonnull %call188)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1250, ptr noundef nonnull align 8 dereferenceable(88) %call188)
           to label %.noexc1267 unwind label %lpad207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1267:                                       ; preds = %call.i.i1255.noexc
@@ -34073,7 +34073,7 @@ _ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_de
 delete.notnull.i.i1308:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapIiiSt4lessIiESaISt4pairIKiiEEENS_17smart_ptr_deleterIS8_EEED2Ev.exit1306
   %mpNodeParent.i.i.i.i.i1309 = getelementptr inbounds i8, ptr %339, i64 16
   %340 = load ptr, ptr %mpNodeParent.i.i.i.i.i1309, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %339, ptr noundef %340)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %339, ptr noundef %340)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i1311 unwind label %terminate.lpad.i.i.i.i.i1310
 
 terminate.lpad.i.i.i.i.i1310:                     ; preds = %delete.notnull.i.i1308
@@ -34234,7 +34234,7 @@ lor.lhs.false2.i.i.i1355:                         ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i1355, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i1353, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJKS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i
   %pRangeEnd.0.lcssa.i8.i.i1358 = phi ptr [ %pCurrent.07.i.i.i1346, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i1353 ], [ %pCurrent.07.i.i.i1346, %lor.lhs.false2.i.i.i1355 ], [ %myMap, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJKS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i ]
   %side.0.i.i.i1359 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i1353 ], [ %spec.select.i.i.i1357, %lor.lhs.false2.i.i.i1355 ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJKS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i1341, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i1358, ptr noundef nonnull %myMap, i32 noundef %side.0.i.i.i1359)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i1341, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i1358, ptr noundef nonnull align 8 dereferenceable(88) %myMap, i32 noundef %side.0.i.i.i1359)
           to label %.noexc1371 unwind label %lpad575.loopexit
 
 .noexc1371:                                       ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i
@@ -34263,7 +34263,7 @@ invoke.cont651:                                   ; preds = %invoke.cont649
 
 invoke.cont656:                                   ; preds = %invoke.cont651
   %361 = load ptr, ptr %mpNodeParent.i.i.i1336, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef %361)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %myMap, ptr noundef %361)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont656
@@ -34419,8 +34419,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(80168) ptr @_Znwm(i64 noundef 80168) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -34429,10 +34429,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -35509,7 +35509,7 @@ while.body.i3700:                                 ; preds = %while.cond.preheade
           to label %call.i.i.i3702.noexc unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i3702.noexc:                             ; preds = %while.body.i3700
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i, ptr noundef nonnull %call)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i, ptr noundef nonnull align 8 dereferenceable(88) %call)
           to label %.noexc3707 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc3707:                                       ; preds = %call.i.i.i3702.noexc
@@ -36671,7 +36671,7 @@ while.body.i3818:                                 ; preds = %while.cond.preheade
           to label %call.i.i.i3821.noexc unwind label %lpad9.loopexit.split-lp.loopexit
 
 call.i.i.i3821.noexc:                             ; preds = %while.body.i3818
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i3819, ptr noundef nonnull %call)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i3819, ptr noundef nonnull align 8 dereferenceable(88) %call)
           to label %.noexc3842 unwind label %lpad9.loopexit.split-lp.loopexit
 
 .noexc3842:                                       ; preds = %call.i.i.i3821.noexc
@@ -37158,7 +37158,7 @@ _ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_E
 delete.notnull.i.i859:                            ; preds = %_ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %378, i64 16
   %379 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %378, ptr noundef %379)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %378, ptr noundef %379)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i859
@@ -37204,8 +37204,8 @@ _ZN10TestObject7IsClearEv.exit865:                ; preds = %_ZN5eastl10scoped_p
   %call207 = call noalias noundef nonnull dereferenceable(80168) ptr @_Znwm(i64 noundef 80168) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i866)
   %mBuffer.i867 = getelementptr inbounds i8, ptr %call207, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i866, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i866, ptr noundef nonnull %mBuffer.i867, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i866, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i866, ptr noundef nonnull %mBuffer.i867, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc876 unwind label %lpad208
 
 .noexc876:                                        ; preds = %_ZN10TestObject7IsClearEv.exit865
@@ -37214,10 +37214,10 @@ _ZN10TestObject7IsClearEv.exit865:                ; preds = %_ZN5eastl10scoped_p
   %mnSize.i.i.i869 = getelementptr inbounds i8, ptr %call207, i64 32
   %mAllocator.i.i.i870 = getelementptr inbounds i8, ptr %call207, i64 40
   %mpNext.i.i.i.i871 = getelementptr inbounds i8, ptr %ref.tmp.i866, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call207, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call207, i8 0, i64 40, i1 false)
   %387 = load ptr, ptr %mpNext.i.i.i.i871, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i870, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i870, ptr noundef %387, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i870, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i870, ptr noundef %387, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont209 unwind label %lpad208
 
 invoke.cont209:                                   ; preds = %.noexc876
@@ -38575,7 +38575,7 @@ invoke.cont501:                                   ; preds = %if.end16.i1864, %la
           to label %call.i.i1868.noexc unwind label %_ZN10TestObjectD2Ev.exit3340
 
 call.i.i1868.noexc:                               ; preds = %invoke.cont501
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1863, ptr noundef nonnull %call207)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i1863, ptr noundef nonnull align 8 dereferenceable(88) %call207)
           to label %.noexc1872 unwind label %_ZN10TestObjectD2Ev.exit3340
 
 .noexc1872:                                       ; preds = %call.i.i1868.noexc
@@ -39009,7 +39009,7 @@ invoke.cont602:                                   ; preds = %if.end16.i2173, %la
           to label %call.i.i2177.noexc unwind label %_ZN10TestObjectD2Ev.exit3420
 
 call.i.i2177.noexc:                               ; preds = %invoke.cont602
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2172, ptr noundef nonnull %call207)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2172, ptr noundef nonnull align 8 dereferenceable(88) %call207)
           to label %.noexc2199 unwind label %_ZN10TestObjectD2Ev.exit3420
 
 .noexc2199:                                       ; preds = %call.i.i2177.noexc
@@ -39552,7 +39552,7 @@ invoke.cont742:                                   ; preds = %if.end16.i2591, %la
           to label %call.i.i2595.noexc unwind label %_ZN10TestObjectD2Ev.exit3516
 
 call.i.i2595.noexc:                               ; preds = %invoke.cont742
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2590, ptr noundef nonnull %call207)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %storemerge.i2590, ptr noundef nonnull align 8 dereferenceable(88) %call207)
           to label %.noexc2617 unwind label %_ZN10TestObjectD2Ev.exit3516
 
 .noexc2617:                                       ; preds = %call.i.i2595.noexc
@@ -39856,7 +39856,7 @@ _ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_E
 delete.notnull.i.i2742:                           ; preds = %_ZN5eastl10scoped_ptrISt8multimapI10TestObjectS2_St4lessIS2_ESaISt4pairIKS2_S2_EEENS_17smart_ptr_deleterIS9_EEED2Ev.exit2740
   %mpNodeParent.i.i.i.i.i2743 = getelementptr inbounds i8, ptr %772, i64 16
   %773 = load ptr, ptr %mpNodeParent.i.i.i.i.i2743, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %772, ptr noundef %773)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %772, ptr noundef %773)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i2745 unwind label %terminate.lpad.i.i.i.i.i2744
 
 terminate.lpad.i.i.i.i.i2744:                     ; preds = %delete.notnull.i.i2742
@@ -39919,8 +39919,8 @@ invoke.cont790:                                   ; preds = %_ZN5eastl10scoped_p
   store i64 %inc5.i7.i2806, ptr %mId.i9.i2808, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i2809)
   %mBuffer.i2810 = getelementptr inbounds i8, ptr %myMap, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2809, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2809, ptr noundef nonnull %mBuffer.i2810, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i2809, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i2809, ptr noundef nonnull %mBuffer.i2810, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc2822 unwind label %lpad792
 
 .noexc2822:                                       ; preds = %invoke.cont790
@@ -39929,10 +39929,10 @@ invoke.cont790:                                   ; preds = %_ZN5eastl10scoped_p
   %mnSize.i.i.i2812 = getelementptr inbounds i8, ptr %myMap, i64 32
   %mAllocator.i.i.i2813 = getelementptr inbounds i8, ptr %myMap, i64 40
   %mpNext.i.i.i.i2814 = getelementptr inbounds i8, ptr %ref.tmp.i2809, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %myMap, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %myMap, i8 0, i64 40, i1 false)
   %780 = load ptr, ptr %mpNext.i.i.i.i2814, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i2813, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i2813, ptr noundef %780, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i2813, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i2813, ptr noundef %780, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc2823 unwind label %lpad792
 
 .noexc2823:                                       ; preds = %.noexc2822
@@ -39953,7 +39953,7 @@ invoke.cont790:                                   ; preds = %_ZN5eastl10scoped_p
 for.body.i.i:                                     ; preds = %.noexc.i, %.noexc2823
   %first.addr.04.i.i.idx = phi i64 [ %first.addr.04.i.i.add, %.noexc.i ], [ 0, %.noexc2823 ]
   %first.addr.04.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp775, i64 %first.addr.04.i.i.idx
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoInsertValueIJRKS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EENS_17integral_constantIbLb0EEEDpOT_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.130") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef nonnull align 8 dereferenceable(48) %first.addr.04.i.i.ptr)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoInsertValueIJRKS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EENS_17integral_constantIbLb0EEEDpOT_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.130") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(80167) %myMap, ptr noundef nonnull align 8 dereferenceable(48) %first.addr.04.i.i.ptr)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %for.body.i.i
@@ -39964,7 +39964,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %.noexc28
 lpad.i:                                           ; preds = %for.body.i.i
   %781 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl8multimapI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %myMap) #15
+  call void @_ZN5eastl8multimapI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80167) %myMap) #15
   br label %lpad792.body
 
 invoke.cont794:                                   ; preds = %.noexc.i
@@ -40112,7 +40112,7 @@ invoke.cont860:                                   ; preds = %invoke.cont830
   %mId.i9.i2965 = getelementptr inbounds i8, ptr %ref.tmp842, i64 80
   store i64 %inc5.i7.i2963, ptr %mId.i9.i2965, align 8
   %801 = load ptr, ptr %mpNodeParent.i.i.i.i2817, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef %801)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %myMap, ptr noundef %801)
           to label %.noexc2973 unwind label %lpad865.loopexit.split-lp
 
 .noexc2973:                                       ; preds = %invoke.cont860
@@ -40128,7 +40128,7 @@ invoke.cont860:                                   ; preds = %invoke.cont830
 for.body.i.i2969:                                 ; preds = %.noexc2974, %.noexc2973
   %first.addr.04.i.i2970.idx = phi i64 [ %first.addr.04.i.i2970.add, %.noexc2974 ], [ 0, %.noexc2973 ]
   %first.addr.04.i.i2970.ptr = getelementptr inbounds i8, ptr %ref.tmp842, i64 %first.addr.04.i.i2970.idx
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoInsertValueIJRKS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EENS_17integral_constantIbLb0EEEDpOT_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.130") align 8 %tmp.i.i2966, ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef nonnull align 8 dereferenceable(48) %first.addr.04.i.i2970.ptr)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoInsertValueIJRKS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EENS_17integral_constantIbLb0EEEDpOT_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.130") align 8 %tmp.i.i2966, ptr noundef nonnull align 8 dereferenceable(80167) %myMap, ptr noundef nonnull align 8 dereferenceable(48) %first.addr.04.i.i2970.ptr)
           to label %.noexc2974 unwind label %lpad865.loopexit
 
 .noexc2974:                                       ; preds = %for.body.i.i2969
@@ -40372,7 +40372,7 @@ _ZN10TestObjectD2Ev.exit3189:                     ; preds = %invoke.cont985
   %inc3.i3188 = add nsw i64 %829, 1
   store i64 %inc3.i3188, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %830 = load ptr, ptr %mpNodeParent.i.i.i.i2817, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %myMap, ptr noundef %830)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %myMap, ptr noundef %830)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN10TestObjectD2Ev.exit3189
@@ -40848,8 +40848,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(40128) ptr @_Znwm(i64 noundef 40128) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -40858,10 +40858,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -41450,7 +41450,7 @@ if.then.i250:                                     ; preds = %land.rhs.i.i
           to label %call.i.i.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i250
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i, ptr noundef nonnull %call)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call)
           to label %.noexc254 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc254:                                        ; preds = %call.i.i.i.noexc
@@ -41910,7 +41910,7 @@ _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit497:    ; preds = %invoke.cont273, %_Z
 delete.notnull.i.i:                               ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit497
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %64, i64 16
   %65 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %64, ptr noundef %65)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %64, ptr noundef %65)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i
@@ -41991,8 +41991,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(80168) ptr @_Znwm(i64 noundef 80168) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -42000,10 +42000,10 @@ entry:
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -43518,7 +43518,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %invoke.cont.i
 
 delete.notnull.i.i:                               ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %invoke.cont.i
   %208 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef %208)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call, ptr noundef %208)
           to label %_ZN5eastl10scoped_ptrINS_9fixed_mapI10TestObjectS2_Lm1000ELb1ENS_4lessIS2_EENS_9allocatorEEENS_17smart_ptr_deleterIS6_EEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i
@@ -43726,8 +43726,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(40128) ptr @_Znwm(i64 noundef 40128) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -43736,10 +43736,10 @@ entry:
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40127) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -43990,7 +43990,7 @@ lor.lhs.false2.i.i.i.i.i:                         ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i
   %side.0.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i.i.i ], [ %spec.select.i.i.i.i.i, %lor.lhs.false2.i.i.i.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i, ptr noundef nonnull %call, i32 noundef %side.0.i.i.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %call, i32 noundef %side.0.i.i.i.i.i)
           to label %invoke.cont20 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont20:                                    ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE7emplaceIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEDpOT_.exit.i
@@ -44860,7 +44860,7 @@ _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit532:    ; preds = %invoke.cont258, %_Z
 delete.notnull.i.i:                               ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit532
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %70, i64 16
   %71 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %70, ptr noundef %71)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %70, ptr noundef %71)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i
@@ -44941,8 +44941,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(80168) ptr @_Znwm(i64 noundef 80168) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -44950,10 +44950,10 @@ entry:
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80167) %call, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
@@ -46535,7 +46535,7 @@ _ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev.exit: ; preds = %invoke.cont.i,
 delete.notnull.i.i:                               ; preds = %_ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev.exit
   %mpNodeParent.i.i.i.i.i = getelementptr inbounds i8, ptr %205, i64 16
   %206 = load ptr, ptr %mpNodeParent.i.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %205, ptr noundef %206)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %205, ptr noundef %206)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i
@@ -46839,17 +46839,17 @@ invoke.cont6:
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %toMap, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %toMap, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2199) %toMap, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i, align 8
   store ptr %toMap, ptr %toMap, align 8
@@ -47404,7 +47404,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i: ; preds = %lor.lhs.false2.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i
   %side.0.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i ], [ %spec.select.i.i, %lor.lhs.false2.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i)
           to label %.noexc unwind label %lpad139
 
 .noexc:                                           ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i
@@ -47648,7 +47648,7 @@ lor.lhs.false2.i.i2694:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2698: ; preds = %lor.lhs.false2.i.i2694, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i2678
   %side.0.i.i2699 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i2678 ], [ %spec.select.i.i2697, %lor.lhs.false2.i.i2694 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2679, ptr noundef nonnull %retval.0.i.i.i335, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i2699)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2679, ptr noundef nonnull %retval.0.i.i.i335, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i2699)
           to label %.noexc347 unwind label %lpad172
 
 .noexc347:                                        ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2698
@@ -48693,7 +48693,7 @@ lor.lhs.false2.i.i2733:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2737: ; preds = %lor.lhs.false2.i.i2733, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i2717
   %side.0.i.i2738 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i2717 ], [ %spec.select.i.i2736, %lor.lhs.false2.i.i2733 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2718, ptr noundef nonnull %retval.0.i.i.i896, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i2738)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2718, ptr noundef nonnull %retval.0.i.i.i896, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i2738)
           to label %.noexc908 unwind label %lpad451
 
 .noexc908:                                        ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2737
@@ -48937,7 +48937,7 @@ lor.lhs.false2.i.i2772:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2776: ; preds = %lor.lhs.false2.i.i2772, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i2756
   %side.0.i.i2777 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i2756 ], [ %spec.select.i.i2775, %lor.lhs.false2.i.i2772 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2757, ptr noundef nonnull %retval.0.i.i.i989, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i2777)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2757, ptr noundef nonnull %retval.0.i.i.i989, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i2777)
           to label %.noexc1001 unwind label %lpad485
 
 .noexc1001:                                       ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2776
@@ -51276,7 +51276,7 @@ _ZN10TestObjectD2Ev.exit2299:                     ; preds = %if.then.i.i2274, %_
   %inc3.i2298 = add nsw i64 %443, 37
   store i64 %inc3.i2298, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %490 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %toMap, ptr noundef %490)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(2199) %toMap, ptr noundef %490)
           to label %_ZN5eastl9fixed_mapIi10TestObjectLm32ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN10TestObjectD2Ev.exit2299
@@ -52253,17 +52253,17 @@ _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocator
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %toMap, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %toMap, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2199) %toMap, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i, align 8
   store ptr %toMap, ptr %toMap, align 8
@@ -52341,7 +52341,7 @@ _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocator
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !1491
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 48
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8, !noalias !1491
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %toMap, ptr noundef nonnull %toMap, i32 noundef 0)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %toMap, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef 0)
           to label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit unwind label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit2409
 
 _ZN5eastl4pairIKi10TestObjectED2Ev.exit:          ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i
@@ -52453,7 +52453,7 @@ lor.lhs.false2.i.i2803:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2807: ; preds = %lor.lhs.false2.i.i2803, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2788
   %side.0.i.i2808 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2788 ], [ %spec.select.i.i2806, %lor.lhs.false2.i.i2803 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2789, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i73, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i2808)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2789, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i73, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i2808)
           to label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit81 unwind label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit2416
 
 _ZN5eastl4pairIKi10TestObjectED2Ev.exit81:        ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2807
@@ -52604,7 +52604,7 @@ lor.lhs.false2.i.i2841:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2845: ; preds = %lor.lhs.false2.i.i2841, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2826
   %side.0.i.i2846 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2826 ], [ %spec.select.i.i2844, %lor.lhs.false2.i.i2841 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2827, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i113, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i2846)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2827, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i113, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i2846)
           to label %invoke.cont42 unwind label %lpad31
 
 invoke.cont42:                                    ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2845
@@ -52758,7 +52758,7 @@ lor.lhs.false2.i.i2879:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2883: ; preds = %lor.lhs.false2.i.i2879, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2864
   %side.0.i.i2884 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2864 ], [ %spec.select.i.i2882, %lor.lhs.false2.i.i2879 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2865, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i172, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i2884)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2865, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i172, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i2884)
           to label %invoke.cont69 unwind label %lpad68.loopexit.split-lp
 
 invoke.cont69:                                    ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2883
@@ -52960,7 +52960,7 @@ lor.lhs.false2.i.i2917:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2921: ; preds = %lor.lhs.false2.i.i2917, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2902
   %side.0.i.i2922 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2902 ], [ %spec.select.i.i2920, %lor.lhs.false2.i.i2917 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2903, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i231, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i2922)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2903, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i231, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i2922)
           to label %invoke.cont102 unwind label %lpad94
 
 invoke.cont102:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2921
@@ -53358,7 +53358,7 @@ lor.lhs.false2.i.i2955:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2959: ; preds = %lor.lhs.false2.i.i2955, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2940
   %side.0.i.i2960 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2940 ], [ %spec.select.i.i2958, %lor.lhs.false2.i.i2955 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2941, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i434, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i2960)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2941, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i434, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i2960)
           to label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit442 unwind label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit2437
 
 _ZN5eastl4pairIKi10TestObjectED2Ev.exit442:       ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2959
@@ -53507,7 +53507,7 @@ lor.lhs.false2.i.i2993:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2997: ; preds = %lor.lhs.false2.i.i2993, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2978
   %side.0.i.i2998 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i2978 ], [ %spec.select.i.i2996, %lor.lhs.false2.i.i2993 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2979, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i490, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i2998)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i2979, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i490, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i2998)
           to label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit498 unwind label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit2444
 
 _ZN5eastl4pairIKi10TestObjectED2Ev.exit498:       ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i2997
@@ -54020,7 +54020,7 @@ lor.lhs.false2.i.i3031:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i3035: ; preds = %lor.lhs.false2.i.i3031, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i3016
   %side.0.i.i3036 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i3016 ], [ %spec.select.i.i3034, %lor.lhs.false2.i.i3031 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i3017, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i3036)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i3017, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i3036)
           to label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit767 unwind label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit2458
 
 _ZN5eastl4pairIKi10TestObjectED2Ev.exit767:       ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i3035
@@ -54169,7 +54169,7 @@ lor.lhs.false2.i.i3069:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i3073: ; preds = %lor.lhs.false2.i.i3069, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i3054
   %side.0.i.i3074 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i3054 ], [ %spec.select.i.i3072, %lor.lhs.false2.i.i3069 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i3055, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i815, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i3074)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i3055, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i.i815, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i3074)
           to label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit823 unwind label %_ZN5eastl4pairIKi10TestObjectED2Ev.exit2465
 
 _ZN5eastl4pairIKi10TestObjectED2Ev.exit823:       ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i3073
@@ -54354,7 +54354,7 @@ lor.lhs.false2.i.i3107:                           ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i3111: ; preds = %lor.lhs.false2.i.i3107, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i3092
   %side.0.i.i3112 = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit.i3092 ], [ %spec.select.i.i3110, %lor.lhs.false2.i.i3107 ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i3093, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i900, ptr noundef nonnull %toMap, i32 noundef %side.0.i.i3112)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i3093, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i.i900, ptr noundef nonnull align 8 dereferenceable(88) %toMap, i32 noundef %side.0.i.i3112)
           to label %invoke.cont371 unwind label %lpad363
 
 invoke.cont371:                                   ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i3111
@@ -56897,7 +56897,7 @@ _ZN10TestObjectD2Ev.exit2401:                     ; preds = %if.then.i.i2348, %_
   %inc3.i2400 = add nsw i64 %454, 37
   store i64 %inc3.i2400, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %493 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %toMap, ptr noundef %493)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(2199) %toMap, ptr noundef %493)
           to label %_ZN5eastl14fixed_multimapIi10TestObjectLm32ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN10TestObjectD2Ev.exit2401
@@ -57747,17 +57747,17 @@ if.then.i:
   store i32 0, ptr %nErrorCount, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %ncMap, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 1280, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 1280, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %ncMap, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %ncMap, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ncMap, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1407) %ncMap, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 1280, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 1280, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %ncMap, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i, align 8
   store ptr %ncMap, ptr %ncMap, align 8
@@ -57830,7 +57830,7 @@ invoke.cont2:                                     ; preds = %.noexc25, %lor.rhs.
 invoke.cont5:                                     ; preds = %invoke.cont2
   %6 = load i32, ptr %nErrorCount, align 4
   %7 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi11NonCopyableEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm32ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %ncMap, ptr noundef %7)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi11NonCopyableEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm32ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(1407) %ncMap, ptr noundef %7)
           to label %_ZN5eastl9fixed_mapIi11NonCopyableLm32ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont5
@@ -57907,17 +57907,17 @@ entry:
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %toMap, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 32
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 40
   %mpNext.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %toMap, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2199) %toMap, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i, ptr noundef %0, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %toMap, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i, align 8
   store ptr %toMap, ptr %toMap, align 8
@@ -58385,7 +58385,7 @@ invoke.cont147:                                   ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont151:                                   ; preds = %invoke.cont147
   %87 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %toMap, ptr noundef %87)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(2199) %toMap, ptr noundef %87)
           to label %_ZN5eastl9fixed_mapIi10TestObjectLm32ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont151
@@ -58398,17 +58398,17 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont151
 _ZN5eastl9fixed_mapIi10TestObjectLm32ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit: ; preds = %invoke.cont151
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i166)
   %mBuffer.i167 = getelementptr inbounds i8, ptr %toMap153, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i166, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i166, ptr noundef nonnull %mBuffer.i167, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i166, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i166, ptr noundef nonnull %mBuffer.i167, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i168 = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 40
   store ptr %mBuffer.i167, ptr %mpPoolBegin.i.i.i168, align 8
   %mnSize.i.i.i169 = getelementptr inbounds i8, ptr %toMap153, i64 32
   %mAllocator.i.i.i170 = getelementptr inbounds i8, ptr %toMap153, i64 40
   %mpNext.i.i.i.i171 = getelementptr inbounds i8, ptr %ref.tmp.i166, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %toMap153, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2199) %toMap153, i8 0, i64 40, i1 false)
   %90 = load ptr, ptr %mpNext.i.i.i.i171, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i170, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i.i170, ptr noundef %90, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i170, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i.i170, ptr noundef %90, i64 noundef 2048, i64 noundef 64, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i172 = getelementptr inbounds i8, ptr %toMap153, i64 80
   store ptr %90, ptr %mpPoolBegin.i.i.i.i.i172, align 8
   store ptr %toMap153, ptr %toMap153, align 8
@@ -58916,7 +58916,7 @@ _ZN10TestObjectD2Ev.exit362:                      ; preds = %_ZN10TestObjectD2Ev
   %inc3.i361 = add nsw i64 %170, 4
   store i64 %inc3.i361, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %177 = load ptr, ptr %mpNodeParent.i.i.i.i174, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %toMap153, ptr noundef %177)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(2199) %toMap153, ptr noundef %177)
           to label %_ZN5eastl9fixed_mapIi10TestObjectLm32ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit365 unwind label %terminate.lpad.i.i.i364
 
 terminate.lpad.i.i.i364:                          ; preds = %_ZN10TestObjectD2Ev.exit362
@@ -60306,7 +60306,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS3_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1892
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1892
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !1892
   %inc.i = add i64 %13, 1
@@ -60357,7 +60357,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef %0)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %a, ptr noundef %0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -60375,7 +60375,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc
-  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(167) %a)
           to label %call7.i.i.i.noexc unwind label %lpad
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -60413,7 +60413,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl17RBTreeGe
 if.then.i.i.i5:                                   ; preds = %invoke.cont
   %mpNodeParent.i.i.i.i6 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i6, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef %5)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %b, ptr noundef %5)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then.i.i.i5
@@ -60431,7 +60431,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i11, label %invoke.cont4, label %if.then3.i.i.i12
 
 if.then3.i.i.i12:                                 ; preds = %.noexc23
-  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(167) %b)
           to label %call7.i.i.i.noexc24 unwind label %lpad
 
 call7.i.i.i.noexc24:                              ; preds = %if.then3.i.i.i12
@@ -60465,7 +60465,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21: ; preds = %w
 invoke.cont4:                                     ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21, %.noexc23, %invoke.cont
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %temp, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %temp, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef %10)
           to label %_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
@@ -60643,7 +60643,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef %0)
+  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %a, ptr noundef %0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -60661,7 +60661,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc
-  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(167) %a)
           to label %call7.i.i.i.noexc unwind label %lpad
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -60699,7 +60699,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl17RBTreeGe
 if.then.i.i.i5:                                   ; preds = %invoke.cont
   %mpNodeParent.i.i.i.i6 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i6, align 8
-  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef %5)
+  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %b, ptr noundef %5)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then.i.i.i5
@@ -60717,7 +60717,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i11, label %invoke.cont4, label %if.then3.i.i.i12
 
 if.then3.i.i.i12:                                 ; preds = %.noexc23
-  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(167) %b)
           to label %call7.i.i.i.noexc24 unwind label %lpad
 
 call7.i.i.i.noexc24:                              ; preds = %if.then3.i.i.i12
@@ -60751,7 +60751,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21: ; preds = %w
 invoke.cont4:                                     ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21, %.noexc23, %invoke.cont
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %temp, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %temp, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef %10)
           to label %_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
@@ -61083,7 +61083,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1898
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1898
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load i64, ptr %mnSize.i, align 8, !noalias !1898
   %inc.i = add i64 %18, 1
@@ -61148,7 +61148,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef %0)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %a, ptr noundef %0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -61166,7 +61166,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc
-  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(215) %a)
           to label %call7.i.i.i.noexc unwind label %lpad
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -61204,7 +61204,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl17RBTreeGe
 if.then.i.i.i5:                                   ; preds = %invoke.cont
   %mpNodeParent.i.i.i.i6 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i6, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef %5)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %b, ptr noundef %5)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then.i.i.i5
@@ -61222,7 +61222,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i11, label %invoke.cont4, label %if.then3.i.i.i12
 
 if.then3.i.i.i12:                                 ; preds = %.noexc23
-  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(215) %b)
           to label %call7.i.i.i.noexc24 unwind label %lpad
 
 call7.i.i.i.noexc24:                              ; preds = %if.then3.i.i.i12
@@ -61256,7 +61256,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21: ; preds = %w
 invoke.cont4:                                     ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21, %.noexc23, %invoke.cont
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %temp, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %temp, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %temp, ptr noundef %10)
           to label %_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
@@ -61561,7 +61561,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeI10
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeERKS4_.exit, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeERKS4_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeERKS4_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1903
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1903
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !1903
   %inc.i = add i64 %13, 1
@@ -61581,7 +61581,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef %0)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %a, ptr noundef %0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -61599,7 +61599,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc
-  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(215) %a)
           to label %call7.i.i.i.noexc unwind label %lpad
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -61637,7 +61637,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl17RBTreeGe
 if.then.i.i.i5:                                   ; preds = %invoke.cont
   %mpNodeParent.i.i.i.i6 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i6, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef %5)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %b, ptr noundef %5)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then.i.i.i5
@@ -61655,7 +61655,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i11, label %invoke.cont4, label %if.then3.i.i.i12
 
 if.then3.i.i.i12:                                 ; preds = %.noexc23
-  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(215) %b)
           to label %call7.i.i.i.noexc24 unwind label %lpad
 
 call7.i.i.i.noexc24:                              ; preds = %if.then3.i.i.i12
@@ -61689,7 +61689,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21: ; preds = %w
 invoke.cont4:                                     ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21, %.noexc23, %invoke.cont
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %temp, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %temp, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(215) %temp, ptr noundef %10)
           to label %_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
@@ -61959,7 +61959,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS3_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1908
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %side.0.i), !noalias !1908
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %mnSize.i, align 8, !noalias !1908
   %inc.i = add i64 %14, 1
@@ -62009,7 +62009,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %a, ptr noundef %0)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef %0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -62027,7 +62027,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc
-  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(175) %a)
           to label %call7.i.i.i.noexc unwind label %lpad
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -62065,7 +62065,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl17RBTreeGe
 if.then.i.i.i5:                                   ; preds = %invoke.cont
   %mpNodeParent.i.i.i.i6 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i6, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %b, ptr noundef %5)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %b, ptr noundef %5)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then.i.i.i5
@@ -62083,7 +62083,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i11, label %invoke.cont4, label %if.then3.i.i.i12
 
 if.then3.i.i.i12:                                 ; preds = %.noexc23
-  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(175) %b)
           to label %call7.i.i.i.noexc24 unwind label %lpad
 
 call7.i.i.i.noexc24:                              ; preds = %if.then3.i.i.i12
@@ -62117,7 +62117,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21: ; preds = %w
 invoke.cont4:                                     ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21, %.noexc23, %invoke.cont
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %temp, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %temp, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef %10)
           to label %_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEE15MallocAllocatorED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
@@ -62299,7 +62299,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %a, ptr noundef %0)
+  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef %0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -62317,7 +62317,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc
-  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(175) %a)
           to label %call7.i.i.i.noexc unwind label %lpad
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -62355,7 +62355,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl17RBTreeGe
 if.then.i.i.i5:                                   ; preds = %invoke.cont
   %mpNodeParent.i.i.i.i6 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i6, align 8
-  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %b, ptr noundef %5)
+  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %b, ptr noundef %5)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then.i.i.i5
@@ -62373,7 +62373,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i11, label %invoke.cont4, label %if.then3.i.i.i12
 
 if.then3.i.i.i12:                                 ; preds = %.noexc23
-  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(175) %b)
           to label %call7.i.i.i.noexc24 unwind label %lpad
 
 call7.i.i.i.noexc24:                              ; preds = %if.then3.i.i.i12
@@ -62407,7 +62407,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21: ; preds = %w
 invoke.cont4:                                     ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21, %.noexc23, %invoke.cont
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %temp, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %temp, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef %10)
           to label %_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE15MallocAllocatorED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
@@ -62746,7 +62746,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1914
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %side.0.i), !noalias !1914
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load i64, ptr %mnSize.i, align 8, !noalias !1914
   %inc.i = add i64 %19, 1
@@ -62814,7 +62814,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %a, ptr noundef %0)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %a, ptr noundef %0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -62832,7 +62832,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc
-  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(223) %a)
           to label %call7.i.i.i.noexc unwind label %lpad
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -62870,7 +62870,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl17RBTreeGe
 if.then.i.i.i5:                                   ; preds = %invoke.cont
   %mpNodeParent.i.i.i.i6 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i6, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %b, ptr noundef %5)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %b, ptr noundef %5)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then.i.i.i5
@@ -62888,7 +62888,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i11, label %invoke.cont4, label %if.then3.i.i.i12
 
 if.then3.i.i.i12:                                 ; preds = %.noexc23
-  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(223) %b)
           to label %call7.i.i.i.noexc24 unwind label %lpad
 
 call7.i.i.i.noexc24:                              ; preds = %if.then3.i.i.i12
@@ -62922,7 +62922,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21: ; preds = %w
 invoke.cont4:                                     ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21, %.noexc23, %invoke.cont
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %temp, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %temp, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %temp, ptr noundef %10)
           to label %_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4lessIiEE15MallocAllocatorED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
@@ -63234,7 +63234,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeI10
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeERKS4_.exit, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeERKS4_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeERKS4_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1919
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %side.0.i), !noalias !1919
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %mnSize.i, align 8, !noalias !1919
   %inc.i = add i64 %14, 1
@@ -63254,7 +63254,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %a, ptr noundef %0)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %a, ptr noundef %0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -63272,7 +63272,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %.noexc
-  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i3 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(223) %a)
           to label %call7.i.i.i.noexc unwind label %lpad
 
 call7.i.i.i.noexc:                                ; preds = %if.then3.i.i.i
@@ -63310,7 +63310,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl17RBTreeGe
 if.then.i.i.i5:                                   ; preds = %invoke.cont
   %mpNodeParent.i.i.i.i6 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i6, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %b, ptr noundef %5)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %b, ptr noundef %5)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then.i.i.i5
@@ -63328,7 +63328,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i11, label %invoke.cont4, label %if.then3.i.i.i12
 
 if.then3.i.i.i12:                                 ; preds = %.noexc23
-  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i25 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(223) %b)
           to label %call7.i.i.i.noexc24 unwind label %lpad
 
 call7.i.i.i.noexc24:                              ; preds = %if.then3.i.i.i12
@@ -63362,7 +63362,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21: ; preds = %w
 invoke.cont4:                                     ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i21, %.noexc23, %invoke.cont
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %temp, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(96) %temp, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(223) %temp, ptr noundef %10)
           to label %_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1ENS_4lessIS1_EE15MallocAllocatorED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
@@ -63647,17 +63647,17 @@ define linkonce_odr dso_local void @_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiE
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.47", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -63687,7 +63687,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -63734,17 +63734,17 @@ entry:
   %tmp.i = alloca %"struct.eastl::pair.102", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.47", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -63912,7 +63912,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %0, ptr noundef %1)
           to label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
@@ -64058,7 +64058,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE12DoCreateNodeEOS3_.exit.i, %lor.lhs.false2.i.i
   %side.0.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE12DoCreateNodeEOS3_.exit.i ], [ %spec.select.i.i, %lor.lhs.false2.i.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull %this, i32 noundef %side.0.i.i), !noalias !1928
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i), !noalias !1928
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load i64, ptr %mnSize.i.i, align 8, !noalias !1928
   %inc.i.i = add i64 %11, 1
@@ -64444,7 +64444,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS3_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1934
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1934
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !1934
   %inc.i = add i64 %13, 1
@@ -65081,7 +65081,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  tail call void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef %0)
+  tail call void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %a, ptr noundef %0)
   store ptr %a, ptr %a, align 8
   %mpNodeLeft.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %a, ptr %mpNodeLeft.i.i.i.i.i, align 8
@@ -65096,7 +65096,7 @@ if.then.i.i.i:                                    ; preds = %if.then
   br i1 %tobool.not.i.i.i, label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call7.i.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40127) %a)
   store ptr %call7.i.i.i, ptr %mpNodeParent.i.i.i.i, align 8
   br label %while.cond.i.i.i.i
 
@@ -65131,7 +65131,7 @@ _ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit: ; pred
 if.then.i.i.i7:                                   ; preds = %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit
   %mpNodeParent.i.i.i.i8 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i8, align 8
-  tail call void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef %5)
+  tail call void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %b, ptr noundef %5)
   store ptr %b, ptr %b, align 8
   %mpNodeLeft.i.i.i.i.i9 = getelementptr inbounds i8, ptr %b, i64 8
   store ptr %b, ptr %mpNodeLeft.i.i.i.i.i9, align 8
@@ -65146,7 +65146,7 @@ if.then.i.i.i7:                                   ; preds = %_ZN5eastl9fixed_map
   br i1 %tobool.not.i.i.i13, label %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit26, label %if.then3.i.i.i14
 
 if.then3.i.i.i14:                                 ; preds = %if.then.i.i.i7
-  %call7.i.i.i15 = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i15 = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(40127) %b)
   store ptr %call7.i.i.i15, ptr %mpNodeParent.i.i.i.i8, align 8
   br label %while.cond.i.i.i.i16
 
@@ -65177,7 +65177,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i24: ; preds = %w
 _ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit26: ; preds = %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit, %if.then.i.i.i7, %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i24
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %call.i, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call.i, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call.i, ptr noundef %10)
           to label %_ZN5eastl9allocator10deallocateEPvm.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit26
@@ -65202,17 +65202,17 @@ define linkonce_odr dso_local void @_ZN5eastl9fixed_mapIiiLm1000ELb1ENS_4lessIiE
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.47", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -65242,7 +65242,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -65599,17 +65599,17 @@ define linkonce_odr dso_local void @_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.116", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -65639,7 +65639,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -65686,17 +65686,17 @@ entry:
   %tmp.i = alloca %"struct.eastl::pair.129", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.116", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -65748,7 +65748,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %0, ptr noundef %1)
           to label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
@@ -66014,7 +66014,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeI10
 
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef %pNodeParent, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1941
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef %pNodeParent, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1941
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %17 = load i64, ptr %mnSize.i, align 8, !noalias !1941
   %inc.i = add i64 %17, 1
@@ -66801,7 +66801,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1948
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1948
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load i64, ptr %mnSize.i, align 8, !noalias !1948
   %inc.i = add i64 %20, 1
@@ -67593,7 +67593,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  tail call void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef %0)
+  tail call void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %a, ptr noundef %0)
   store ptr %a, ptr %a, align 8
   %mpNodeLeft.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %a, ptr %mpNodeLeft.i.i.i.i.i, align 8
@@ -67608,7 +67608,7 @@ if.then.i.i.i:                                    ; preds = %if.then
   br i1 %tobool.not.i.i.i, label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call7.i.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80167) %a)
   store ptr %call7.i.i.i, ptr %mpNodeParent.i.i.i.i, align 8
   br label %while.cond.i.i.i.i
 
@@ -67643,7 +67643,7 @@ _ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS
 if.then.i.i.i7:                                   ; preds = %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit
   %mpNodeParent.i.i.i.i8 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i8, align 8
-  tail call void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef %5)
+  tail call void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %b, ptr noundef %5)
   store ptr %b, ptr %b, align 8
   %mpNodeLeft.i.i.i.i.i9 = getelementptr inbounds i8, ptr %b, i64 8
   store ptr %b, ptr %mpNodeLeft.i.i.i.i.i9, align 8
@@ -67658,7 +67658,7 @@ if.then.i.i.i7:                                   ; preds = %_ZN5eastl9fixed_map
   br i1 %tobool.not.i.i.i13, label %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit26, label %if.then3.i.i.i14
 
 if.then3.i.i.i14:                                 ; preds = %if.then.i.i.i7
-  %call7.i.i.i15 = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i15 = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(80167) %b)
   store ptr %call7.i.i.i15, ptr %mpNodeParent.i.i.i.i8, align 8
   br label %while.cond.i.i.i.i16
 
@@ -67689,7 +67689,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i24: ; preds = %w
 _ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit26: ; preds = %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit, %if.then.i.i.i7, %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i24
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %call.i, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call.i, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call.i, ptr noundef %10)
           to label %_ZN5eastl9allocator10deallocateEPvm.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit26
@@ -67712,17 +67712,17 @@ define linkonce_odr dso_local void @_ZN5eastl9fixed_mapI10TestObjectS1_Lm1000ELb
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.116", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -67752,7 +67752,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -68052,17 +68052,17 @@ define linkonce_odr dso_local void @_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4l
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.47", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -68092,7 +68092,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -68143,7 +68143,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %0, ptr noundef %1)
           to label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
@@ -68395,7 +68395,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRS3_EEENS_15rbtree_iteratorIS3_PS3_SD_EENS_17integral_constantIbLb0EEEDpOT_.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i, %lor.lhs.false2.i.i
   %pRangeEnd.0.lcssa.i8.i = phi ptr [ %pCurrent.07.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i ], [ %pCurrent.07.i.i, %lor.lhs.false2.i.i ], [ %this, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i ]
   %side.0.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i ], [ %spec.select.i.i, %lor.lhs.false2.i.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeIJRS3_EEEPNS_11rbtree_nodeIS3_EEDpOT_.exit.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i), !noalias !1958
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i), !noalias !1958
   %11 = load i64, ptr %mnSize.i.i, align 8, !noalias !1958
   %inc.i.i = add i64 %11, 1
   store i64 %inc.i.i, ptr %mnSize.i.i, align 8, !noalias !1958
@@ -68622,7 +68622,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  tail call void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef %0)
+  tail call void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %a, ptr noundef %0)
   store ptr %a, ptr %a, align 8
   %mpNodeLeft.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %a, ptr %mpNodeLeft.i.i.i.i.i, align 8
@@ -68637,7 +68637,7 @@ if.then.i.i.i:                                    ; preds = %if.then
   br i1 %tobool.not.i.i.i, label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call7.i.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40127) %a)
   store ptr %call7.i.i.i, ptr %mpNodeParent.i.i.i.i, align 8
   br label %while.cond.i.i.i.i
 
@@ -68672,7 +68672,7 @@ _ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit: 
 if.then.i.i.i7:                                   ; preds = %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit
   %mpNodeParent.i.i.i.i8 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i8, align 8
-  tail call void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef %5)
+  tail call void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %b, ptr noundef %5)
   store ptr %b, ptr %b, align 8
   %mpNodeLeft.i.i.i.i.i9 = getelementptr inbounds i8, ptr %b, i64 8
   store ptr %b, ptr %mpNodeLeft.i.i.i.i.i9, align 8
@@ -68687,7 +68687,7 @@ if.then.i.i.i7:                                   ; preds = %_ZN5eastl14fixed_mu
   br i1 %tobool.not.i.i.i13, label %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit26, label %if.then3.i.i.i14
 
 if.then3.i.i.i14:                                 ; preds = %if.then.i.i.i7
-  %call7.i.i.i15 = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i15 = tail call noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(40127) %b)
   store ptr %call7.i.i.i15, ptr %mpNodeParent.i.i.i.i8, align 8
   br label %while.cond.i.i.i.i16
 
@@ -68718,7 +68718,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i24: ; preds = %w
 _ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit26: ; preds = %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit, %if.then.i.i.i7, %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i24
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %call.i, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call.i, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(40127) %call.i, ptr noundef %10)
           to label %_ZN5eastl9allocator10deallocateEPvm.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4lessIiEENS_9allocatorEEaSEOS4_.exit26
@@ -68741,17 +68741,17 @@ define linkonce_odr dso_local void @_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4l
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.47", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -68781,7 +68781,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS3_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -69062,17 +69062,17 @@ define linkonce_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.116", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -69102,7 +69102,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -69149,17 +69149,17 @@ entry:
   %tmp.i = alloca %"struct.eastl::rbtree_iterator.130", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.116", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -69211,7 +69211,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %0, ptr noundef %1)
           to label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
@@ -69439,7 +69439,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeI10
 
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef %pNodeParent, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1965
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef %pNodeParent, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1965
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %17 = load i64, ptr %mnSize.i, align 8, !noalias !1965
   %inc.i = add i64 %17, 1
@@ -69844,7 +69844,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeI10
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1970
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1970
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load i64, ptr %mnSize.i, align 8, !noalias !1970
   %inc.i = add i64 %15, 1
@@ -70147,7 +70147,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   %mpNodeParent.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
-  tail call void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef %0)
+  tail call void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %a, ptr noundef %0)
   store ptr %a, ptr %a, align 8
   %mpNodeLeft.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %a, ptr %mpNodeLeft.i.i.i.i.i, align 8
@@ -70162,7 +70162,7 @@ if.then.i.i.i:                                    ; preds = %if.then
   br i1 %tobool.not.i.i.i, label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call7.i.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef nonnull %1, ptr noundef nonnull %a)
+  %call7.i.i.i = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %a, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80167) %a)
   store ptr %call7.i.i.i, ptr %mpNodeParent.i.i.i.i, align 8
   br label %while.cond.i.i.i.i
 
@@ -70197,7 +70197,7 @@ _ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorE
 if.then.i.i.i7:                                   ; preds = %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit
   %mpNodeParent.i.i.i.i8 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load ptr, ptr %mpNodeParent.i.i.i.i8, align 8
-  tail call void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef %5)
+  tail call void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %b, ptr noundef %5)
   store ptr %b, ptr %b, align 8
   %mpNodeLeft.i.i.i.i.i9 = getelementptr inbounds i8, ptr %b, i64 8
   store ptr %b, ptr %mpNodeLeft.i.i.i.i.i9, align 8
@@ -70212,7 +70212,7 @@ if.then.i.i.i7:                                   ; preds = %_ZN5eastl14fixed_mu
   br i1 %tobool.not.i.i.i13, label %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit26, label %if.then3.i.i.i14
 
 if.then3.i.i.i14:                                 ; preds = %if.then.i.i.i7
-  %call7.i.i.i15 = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %b, ptr noundef nonnull %6, ptr noundef nonnull %b)
+  %call7.i.i.i15 = tail call noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %b, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(80167) %b)
   store ptr %call7.i.i.i15, ptr %mpNodeParent.i.i.i.i8, align 8
   br label %while.cond.i.i.i.i16
 
@@ -70243,7 +70243,7 @@ _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i24: ; preds = %w
 _ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit26: ; preds = %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit, %if.then.i.i.i7, %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit.i.i.i24
   %mpNodeParent.i.i.i27 = getelementptr inbounds i8, ptr %call.i, i64 16
   %10 = load ptr, ptr %mpNodeParent.i.i.i27, align 8
-  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %call.i, ptr noundef %10)
+  invoke void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(80167) %call.i, ptr noundef %10)
           to label %_ZN5eastl9allocator10deallocateEPvm.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1000ELb1ENS_4lessIS1_EENS_9allocatorEEaSEOS5_.exit26
@@ -70266,17 +70266,17 @@ define linkonce_odr dso_local void @_ZN5eastl14fixed_multimapI10TestObjectS1_Lm1
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.116", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 80000, i64 noundef 80, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -70306,7 +70306,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %.noexc
-  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull %this)
+  %call7.i.i6 = invoke noundef ptr @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE13DoCopySubtreeEPKNS_11rbtree_nodeIS4_EEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(88) %this)
           to label %call7.i.i.noexc unwind label %lpad
 
 call7.i.i.noexc:                                  ; preds = %if.then3.i.i
@@ -70471,7 +70471,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS3_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1974
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1974
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !1974
   %inc.i = add i64 %13, 1
@@ -70689,7 +70689,7 @@ _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm100
   store i32 %12, ptr %mValue.i.i, align 4, !noalias !1977
   %second.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 36
   store i32 0, ptr %second.i.i.i, align 4, !noalias !1977
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1977
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1977
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !1977
   %inc.i = add i64 %13, 1
@@ -70797,7 +70797,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE12DoCreateNodeEOS3_.exit.i, %lor.lhs.false2.i.i
   %side.0.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE12DoCreateNodeEOS3_.exit.i ], [ %spec.select.i.i, %lor.lhs.false2.i.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i), !noalias !1983
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i), !noalias !1983
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %mnSize.i.i, align 8, !noalias !1983
   %inc.i.i = add i64 %14, 1
@@ -70911,7 +70911,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS3_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1986
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1986
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !1986
   %inc.i = add i64 %13, 1
@@ -71041,7 +71041,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS3_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !1989
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !1989
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !1989
   %inc.i = add i64 %13, 1
@@ -71223,7 +71223,7 @@ if.then:                                          ; preds = %land.rhs.i
   %dec.i = add i64 %3, -1
   store i64 %dec.i, ptr %mnSize.i, align 8, !noalias !1996
   %call.i.i = tail call noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %pRangeEnd.1.i), !noalias !1996
-  tail call void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i, ptr noundef nonnull %this), !noalias !1996
+  tail call void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %pRangeEnd.1.i, ptr noundef nonnull align 8 dereferenceable(88) %this), !noalias !1996
   %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %pRangeEnd.1.i, i64 72
   %4 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !1996
   %cmp.not.i.i.i.i.i = icmp eq i32 %4, 32623592
@@ -71442,7 +71442,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %dec.i = add i64 %2, -1
   store i64 %dec.i, ptr %mnSize.i, align 8, !noalias !1999
   %call.i.i = tail call noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %first.sroa.0.03), !noalias !1999
-  tail call void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03, ptr noundef nonnull %this), !noalias !1999
+  tail call void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03, ptr noundef nonnull align 8 dereferenceable(88) %this), !noalias !1999
   %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.03, i64 72
   %3 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !1999
   %cmp.not.i.i.i.i.i = icmp eq i32 %3, 32623592
@@ -72692,7 +72692,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2009
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2009
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load i64, ptr %mnSize.i, align 8, !noalias !2009
   %inc.i = add i64 %20, 1
@@ -73327,7 +73327,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2012
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2012
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load i64, ptr %mnSize.i, align 8, !noalias !2012
   %inc.i = add i64 %20, 1
@@ -73522,7 +73522,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2015
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2015
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load i64, ptr %mnSize.i, align 8, !noalias !2015
   %inc.i = add i64 %20, 1
@@ -73679,7 +73679,7 @@ while.body.i:                                     ; preds = %_ZN5eastl6rbtreeIiN
   %dec.i.i = add i64 %9, -1
   store i64 %dec.i.i, ptr %mnSize.i.i, align 8, !noalias !2032
   %call.i.i.i3 = tail call noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %first.sroa.0.03.i), !noalias !2032
-  tail call void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i, ptr noundef nonnull %this), !noalias !2032
+  tail call void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03.i, ptr noundef nonnull align 8 dereferenceable(88) %this), !noalias !2032
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8, !noalias !2032
   %cmp.not.i.i.i.i.i = icmp uge ptr %first.sroa.0.03.i, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8, !noalias !2032
@@ -73729,17 +73729,17 @@ define linkonce_odr dso_local void @_ZN5eastl14fixed_multimapIiiLm1000ELb1ENS_4l
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.47", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mpNext.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 40, i1 false)
   %0 = load ptr, ptr %mpNext.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mAllocator.i.i, ptr noundef %0, i64 noundef 40000, i64 noundef 40, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   store ptr %this, ptr %this, align 8
@@ -73820,7 +73820,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i
   %pRangeEnd.0.lcssa.i8.i.i = phi ptr [ %pCurrent.07.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %pCurrent.07.i.i.i, %lor.lhs.false2.i.i.i ], [ %this, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
   %side.0.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %spec.select.i.i.i, %lor.lhs.false2.i.i.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i
@@ -73926,7 +73926,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueIJRKS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EENS_17integral_constantIbLb0EEEDpOT_.exit.i: ; preds = %lor.lhs.false2.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i
   %pRangeEnd.0.lcssa.i8.i.i = phi ptr [ %pCurrent.07.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %pCurrent.07.i.i.i, %lor.lhs.false2.i.i.i ], [ %this, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
   %side.0.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit.i.i ], [ %spec.select.i.i.i, %lor.lhs.false2.i.i.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeERKS3_.exit.i.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i.i), !noalias !2045
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8.i.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i.i), !noalias !2045
   %9 = load i64, ptr %mnSize.i.i, align 8, !noalias !2045
   %inc.i.i.i = add i64 %9, 1
   store i64 %inc.i.i.i, ptr %mnSize.i.i, align 8, !noalias !2045
@@ -74029,7 +74029,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i, %lor.lhs.false2.i.i
   %side.0.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i ], [ %spec.select.i.i, %lor.lhs.false2.i.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i), !noalias !2051
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i), !noalias !2051
   br label %return
 
 if.else:                                          ; preds = %if.end20.i, %land.lhs.true22.i, %land.lhs.true9.i, %if.then.i
@@ -74098,7 +74098,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueENS_17integral_constantIbLb0EEEOS3_.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i, %lor.lhs.false2.i.i.i
   %side.0.i.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE12DoCreateNodeEOS3_.exit.i.i ], [ %spec.select.i.i.i, %lor.lhs.false2.i.i.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i.i), !noalias !2060
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i.i), !noalias !2060
   br label %return
 
 return:                                           ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE13DoInsertValueENS_17integral_constantIbLb0EEEOS3_.exit, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit
@@ -74217,7 +74217,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %dec.i = add i64 %2, -1
   store i64 %dec.i, ptr %mnSize.i, align 8, !noalias !2064
   %call.i.i = tail call noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef %first.sroa.0.03), !noalias !2064
-  tail call void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03, ptr noundef nonnull %this), !noalias !2064
+  tail call void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %first.sroa.0.03, ptr noundef nonnull align 8 dereferenceable(88) %this), !noalias !2064
   %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.03, i64 72
   %3 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !2064
   %cmp.not.i.i.i.i.i = icmp eq i32 %3, 32623592
@@ -74392,7 +74392,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeI10
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRNS2_IS1_S1_EEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRNS2_IS1_S1_EEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRNS2_IS1_S1_EEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2067
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2067
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load i64, ptr %mnSize.i, align 8, !noalias !2067
   %inc.i = add i64 %15, 1
@@ -74976,7 +74976,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeI10
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeERKS4_.exit, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeERKS4_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeERKS4_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2072
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2072
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load i64, ptr %mnSize.i, align 8, !noalias !2072
   %inc.i = add i64 %15, 1
@@ -75087,7 +75087,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeI10
 _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJKS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJKS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_20fixed_node_allocatorILm80ELm1000ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJKS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2075
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2075
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load i64, ptr %mnSize.i, align 8, !noalias !2075
   %inc.i = add i64 %15, 1
@@ -75331,7 +75331,7 @@ _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm100
   store i32 %15, ptr %mValue.i.i9, align 4, !noalias !2087
   %second.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 36
   store i32 0, ptr %second.i.i.i, align 4, !noalias !2087
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i19, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2087
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i19, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2087
   %mnSize.i10 = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load i64, ptr %mnSize.i10, align 8, !noalias !2087
   %inc.i = add i64 %16, 1
@@ -76309,7 +76309,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplIJS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i, %lor.lhs.false2.i.i
   %side.0.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i ], [ %spec.select.i.i, %lor.lhs.false2.i.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull %this, i32 noundef %side.0.i.i), !noalias !2138
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i), !noalias !2138
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %17 = load i64, ptr %mnSize.i.i, align 8, !noalias !2138
   %inc.i.i = add i64 %17, 1
@@ -76442,7 +76442,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2141
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2141
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load i64, ptr %mnSize.i, align 8, !noalias !2141
   %inc.i = add i64 %18, 1
@@ -76691,7 +76691,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end9
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then15.i, %if.end9, %lor.lhs.false2.i
   %pPosition.029 = phi ptr [ %pPosition.0, %if.end9 ], [ %pPosition.0, %lor.lhs.false2.i ], [ %call.i.i, %if.then15.i ]
   %side.0.i = phi i32 [ 0, %if.end9 ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then15.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.029, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2144
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.029, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2144
   %mnSize.i16 = getelementptr inbounds i8, ptr %this, i64 32
   %33 = load i64, ptr %mnSize.i16, align 8, !noalias !2144
   %inc.i = add i64 %33, 1
@@ -76820,7 +76820,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2147
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2147
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load i64, ptr %mnSize.i, align 8, !noalias !2147
   %inc.i = add i64 %18, 1
@@ -76995,7 +76995,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2150
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2150
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load i64, ptr %mnSize.i, align 8, !noalias !2150
   %inc.i = add i64 %19, 1
@@ -77166,7 +77166,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i15, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2153
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i15, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2153
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load i64, ptr %mnSize.i, align 8, !noalias !2153
   %inc.i = add i64 %18, 1
@@ -77414,7 +77414,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end12
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then15.i, %if.end12, %lor.lhs.false2.i
   %pPosition.029 = phi ptr [ %pPosition.0, %if.end12 ], [ %pPosition.0, %lor.lhs.false2.i ], [ %call.i.i, %if.then15.i ]
   %side.0.i = phi i32 [ 0, %if.end12 ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then15.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.029, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2156
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.029, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2156
   %mnSize.i16 = getelementptr inbounds i8, ptr %this, i64 32
   %33 = load i64, ptr %mnSize.i16, align 8, !noalias !2156
   %inc.i = add i64 %33, 1
@@ -77626,7 +77626,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end12
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then15.i, %if.end12, %lor.lhs.false2.i
   %pPosition.029 = phi ptr [ %pPosition.0, %if.end12 ], [ %pPosition.0, %lor.lhs.false2.i ], [ %call.i.i, %if.then15.i ]
   %side.0.i = phi i32 [ 0, %if.end12 ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then15.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.029, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2159
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.029, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2159
   %mnSize.i16 = getelementptr inbounds i8, ptr %this, i64 32
   %34 = load i64, ptr %mnSize.i16, align 8, !noalias !2159
   %inc.i = add i64 %34, 1
@@ -77834,7 +77834,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end15
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then15.i, %if.end15, %lor.lhs.false2.i
   %pPosition.031 = phi ptr [ %pPosition.0, %if.end15 ], [ %pPosition.0, %lor.lhs.false2.i ], [ %call.i.i, %if.then15.i ]
   %side.0.i = phi i32 [ 0, %if.end15 ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then15.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.031, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2162
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.031, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2162
   %mnSize.i18 = getelementptr inbounds i8, ptr %this, i64 32
   %33 = load i64, ptr %mnSize.i18, align 8, !noalias !2162
   %inc.i = add i64 %33, 1
@@ -78042,7 +78042,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end9
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then15.i, %if.end9, %lor.lhs.false2.i
   %pPosition.029 = phi ptr [ %pPosition.0, %if.end9 ], [ %pPosition.0, %lor.lhs.false2.i ], [ %call.i.i, %if.then15.i ]
   %side.0.i = phi i32 [ 0, %if.end9 ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then15.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.029, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2165
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.029, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2165
   %mnSize.i16 = getelementptr inbounds i8, ptr %this, i64 32
   %33 = load i64, ptr %mnSize.i16, align 8, !noalias !2165
   %inc.i = add i64 %33, 1
@@ -78172,7 +78172,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2168
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2168
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load i64, ptr %mnSize.i, align 8, !noalias !2168
   %inc.i = add i64 %18, 1
@@ -78384,7 +78384,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeEOS4_.exit ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef %pNodeParent, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2172
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef %pNodeParent, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2172
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %mnSize.i, align 8, !noalias !2172
   %inc.i = add i64 %14, 1
@@ -78563,7 +78563,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2178
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2178
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !2178
   %inc.i = add i64 %13, 1
@@ -78704,7 +78704,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2181
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2181
   %mnSize.i14 = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load i64, ptr %mnSize.i14, align 8, !noalias !2181
   %inc.i = add i64 %23, 1
@@ -78802,7 +78802,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJiRS3_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJiRS3_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJiRS3_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2184
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2184
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !2184
   %inc.i = add i64 %13, 1
@@ -78905,7 +78905,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJiS3_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJiS3_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJiS3_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2187
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2187
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %mnSize.i, align 8, !noalias !2187
   %inc.i = add i64 %14, 1
@@ -79004,7 +79004,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJiEEENSH_IJiiiEEEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJiEEENSH_IJiiiEEEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJiEEENSH_IJiiiEEEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2190
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2190
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !2190
   %inc.i = add i64 %13, 1
@@ -79144,7 +79144,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2193
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2193
   %mnSize.i14 = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load i64, ptr %mnSize.i14, align 8, !noalias !2193
   %inc.i = add i64 %23, 1
@@ -79289,7 +79289,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2196
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2196
   %mnSize.i14 = getelementptr inbounds i8, ptr %this, i64 32
   %24 = load i64, ptr %mnSize.i14, align 8, !noalias !2196
   %inc.i = add i64 %24, 1
@@ -79430,7 +79430,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2199
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2199
   %mnSize.i14 = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load i64, ptr %mnSize.i14, align 8, !noalias !2199
   %inc.i = add i64 %23, 1
@@ -79571,7 +79571,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2202
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2202
   %mnSize.i14 = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load i64, ptr %mnSize.i14, align 8, !noalias !2202
   %inc.i = add i64 %23, 1
@@ -79670,7 +79670,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJKS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit, %lor.lhs.false2.i
   %pRangeEnd.0.lcssa.i8 = phi ptr [ %pCurrent.07.i, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %pCurrent.07.i, %lor.lhs.false2.i ], [ %this, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJKS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS2_.exit ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE12DoCreateNodeIJKS4_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2205
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i, ptr noundef nonnull %pRangeEnd.0.lcssa.i8, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2205
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !2205
   %inc.i = add i64 %13, 1
@@ -79853,7 +79853,7 @@ _ZN5eastl6rbtreeIiNS_4pairIKi11NonCopyableEENS_4lessIiEENS_20fixed_node_allocato
   store i32 %15, ptr %mValue.i.i9, align 4, !noalias !2209
   %second.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 36
   store i32 0, ptr %second.i.i.i, align 4, !noalias !2209
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i19, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2209
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i19, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2209
   %mnSize.i10 = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load i64, ptr %mnSize.i10, align 8, !noalias !2209
   %inc.i = add i64 %16, 1
@@ -79970,7 +79970,7 @@ _ZN5eastl6rbtreeIiNS_4pairIKi11NonCopyableEENS_4lessIiEENS_20fixed_node_allocato
   store i32 %12, ptr %mValue.i.i, align 4, !noalias !2213
   %second.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 36
   store i32 0, ptr %second.i.i.i, align 4, !noalias !2213
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2213
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2213
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %mnSize.i, align 8, !noalias !2213
   %inc.i = add i64 %13, 1
@@ -80473,7 +80473,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i: ; preds = %lor.lhs.false2.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i
   %side.0.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i ], [ %spec.select.i.i, %lor.lhs.false2.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i
@@ -80734,7 +80734,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i: ; preds = %lor.lhs.false2.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i
   %side.0.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i ], [ %spec.select.i.i, %lor.lhs.false2.i.i ]
-  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull %this, i32 noundef %side.0.i.i)
+  invoke void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit.i
@@ -80949,7 +80949,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEESJ_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEESJ_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef nonnull %retval.0.i12, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2253
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef nonnull %retval.0.i12, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2253
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load i64, ptr %mnSize.i, align 8, !noalias !2253
   %inc.i = add i64 %16, 1
@@ -81086,7 +81086,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEENSH_IJOS3_EEEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEENSH_IJOS3_EEEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef nonnull %retval.0.i12, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2256
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef nonnull %retval.0.i12, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2256
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load i64, ptr %mnSize.i, align 8, !noalias !2256
   %inc.i = add i64 %19, 1
@@ -81218,7 +81218,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEESJ_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEESJ_EEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2259
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef nonnull %retval.0.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2259
   %mnSize.i12 = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load i64, ptr %mnSize.i12, align 8, !noalias !2259
   %inc.i = add i64 %20, 1
@@ -81354,7 +81354,7 @@ lor.lhs.false2.i:                                 ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEENSH_IJOS3_EEEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEENSH_IJOS3_EEEEEEPNS_11rbtree_nodeIS4_EEDpOT_.exit ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2262
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i, ptr noundef nonnull %retval.0.i, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2262
   %mnSize.i12 = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load i64, ptr %mnSize.i12, align 8, !noalias !2262
   %inc.i = add i64 %23, 1
@@ -81477,7 +81477,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZN5eastl6rbtreeIiN
 
 _ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm37ELm8ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplIJS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit: ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm37ELm8ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i, %lor.lhs.false2.i.i
   %side.0.i.i = phi i32 [ 0, %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm37ELm8ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE12DoCreateNodeEOS4_.exit.i ], [ %spec.select.i.i, %lor.lhs.false2.i.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull %this, i32 noundef %side.0.i.i), !noalias !2269
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %side.0.i.i), !noalias !2269
   %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %17 = load i64, ptr %mnSize.i.i, align 8, !noalias !2269
   %inc.i.i = add i64 %17, 1
@@ -81588,10 +81588,10 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.else.i.i9.i.i.i.
 _ZN5eastl6rbtreeI7Align64NS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm192ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE15DoInsertKeyImplEPNS_16rbtree_node_baseEbRS3_.exit: ; preds = %if.then.i.i7.i.i.i.i, %if.then4.i.i14.i.i.i.i, %if.else.i.i.i.i.i.i.i
   %result.0.i.i.i.i = phi ptr [ %7, %if.then.i.i7.i.i.i.i ], [ %9, %if.then4.i.i14.i.i.i.i ], [ %call.i6.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ]
   %mValue.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i, ptr noundef nonnull align 64 dereferenceable(64) %key, i64 64, i1 false), !noalias !2273
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(68) %mValue.i.i, ptr noundef nonnull align 64 dereferenceable(64) %key, i64 64, i1 false), !noalias !2273
   %second.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 128
   store i32 0, ptr %second.i.i.i, align 64, !noalias !2273
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !2273
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %result.0.i.i.i.i, ptr noundef nonnull %retval.0.i10, ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %side.0.i), !noalias !2273
   %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load i64, ptr %mnSize.i, align 8, !noalias !2273
   %inc.i = add i64 %12, 1

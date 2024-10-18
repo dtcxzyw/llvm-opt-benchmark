@@ -271,7 +271,7 @@ add_part_relids.exit:                             ; preds = %.split.i, %._crit_e
 
 gen_partprune_steps.exit.i:                       ; preds = %133, %130, %125
   %.0.i.i = phi ptr [ %134, %133 ], [ %.0116.i, %130 ], [ %.0116.i, %125 ]
-  %135 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %6, ptr noundef %.0.i.i)
+  %135 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %6, ptr noundef %.0.i.i)
   %136 = load i8, ptr %22, align 1
   %137 = trunc i8 %136 to i1
   br i1 %137, label %make_partitionedrel_pruneinfo.exit.thread, label %138
@@ -318,7 +318,7 @@ gen_partprune_steps.exit.i:                       ; preds = %133, %130, %125
 
 gen_partprune_steps.exit134.i:                    ; preds = %156, %153, %149
   %.0.i133.i = phi ptr [ %157, %156 ], [ %.0116.i, %153 ], [ %.0116.i, %149 ]
-  %158 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %6, ptr noundef %.0.i133.i)
+  %158 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %6, ptr noundef %.0.i133.i)
   %159 = load i8, ptr %22, align 1
   %160 = trunc i8 %159 to i1
   br i1 %160, label %make_partitionedrel_pruneinfo.exit.thread, label %161
@@ -724,7 +724,7 @@ define dso_local ptr @prune_append_rel_partitions(ptr noundef %0) local_unnamed_
 
 gen_partprune_steps.exit:                         ; preds = %16, %22, %25
   %.0.i = phi ptr [ %26, %25 ], [ %5, %22 ], [ %5, %16 ]
-  %27 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %2, ptr noundef %.0.i)
+  %27 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %2, ptr noundef %.0.i)
   %28 = getelementptr inbounds i8, ptr %2, i64 27
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
@@ -2483,7 +2483,7 @@ is_notclause.exit.thread.thread.i:                ; preds = %178, %is_notclause.
   %200 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %189, ptr nonnull %194) #6
   %201 = call ptr @makeBoolExpr(i32 noundef 1, ptr noundef %200, i32 noundef -1) #6
   %202 = call ptr @list_make1_impl(i32 noundef 1, ptr %201) #6
-  %203 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %0, ptr noundef %202)
+  %203 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %0, ptr noundef %202)
   %204 = load i8, ptr %37, align 1
   %205 = trunc i8 %204 to i1
   br i1 %205, label %match_clause_to_partition_key.exit.thread230, label %206
@@ -3008,7 +3008,7 @@ list_length.exit160:                              ; preds = %459
 
 list_length.exit160.thread:                       ; preds = %459, %463, %list_length.exit160, %._crit_edge483
   %.1212.i = phi ptr [ %465, %463 ], [ %.0211.i.lcssa, %list_length.exit160 ], [ %.0211.i.lcssa, %._crit_edge483 ], [ null, %459 ]
-  %466 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %0, ptr noundef %.1212.i)
+  %466 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %0, ptr noundef %.1212.i)
   %467 = load i8, ptr %37, align 1
   %468 = trunc i8 %467 to i1
   br i1 %468, label %match_clause_to_partition_key.exit.thread230, label %469
@@ -3795,7 +3795,7 @@ list_head.exit215.i:                              ; preds = %657, %list_head.exi
 list_head.exit.i.i:                               ; preds = %.thread260.i
   %765 = getelementptr inbounds i8, ptr %.5503.i, i64 16
   %766 = load ptr, ptr %765, align 8
-  %767 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef %0, i16 noundef zeroext %619, i1 noundef zeroext %740, ptr noundef %742, i32 noundef %744, ptr noundef null, ptr noundef readonly %.5503.i, ptr noundef %766, ptr noundef null, ptr noundef null)
+  %767 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext %619, i1 noundef zeroext %740, ptr noundef %742, i32 noundef %744, ptr noundef null, ptr noundef readonly %.5503.i, ptr noundef %766, ptr noundef null, ptr noundef null)
   br label %get_steps_using_prefix.exit.i
 
 get_steps_using_prefix.exit.i:                    ; preds = %list_head.exit.i.i, %746, %627
@@ -3924,7 +3924,7 @@ list_head.exit.i236.i:                            ; preds = %.lr.ph312.i, %list_
   %830 = getelementptr inbounds i8, ptr %827, i64 24
   %831 = load i32, ptr %830, align 8
   %832 = load ptr, ptr %798, align 8
-  %833 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef %0, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef %829, i32 noundef %831, ptr noundef %.0118506.lcssa1250, ptr noundef readonly %792, ptr noundef %832, ptr noundef null, ptr noundef null)
+  %833 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef %829, i32 noundef %831, ptr noundef %.0118506.lcssa1250, ptr noundef readonly %792, ptr noundef %832, ptr noundef null, ptr noundef null)
   %834 = call ptr @list_concat(ptr noundef %.4310.i, ptr noundef %833) #6
   %indvars.iv.next480.i = add nuw nsw i64 %indvars.iv479.i, 1
   %835 = load i32, ptr %776, align 4

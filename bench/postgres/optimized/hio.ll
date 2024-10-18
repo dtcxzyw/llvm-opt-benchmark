@@ -229,7 +229,7 @@ define dso_local i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %1, 
   br i1 %.not178, label %77, label %79
 
 77:                                               ; preds = %76
-  %78 = call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef 0, i32 noundef %.4239, i32 noundef 0, ptr noundef null) #7
+  %78 = call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 0, -1) %.4239, i32 noundef 0, ptr noundef null) #7
   br label %ReadBufferBI.exit
 
 79:                                               ; preds = %76
@@ -255,7 +255,7 @@ define dso_local i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %1, 
 
 88:                                               ; preds = %87, %79
   %89 = load ptr, ptr %4, align 8
-  %90 = call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef 0, i32 noundef %.4239, i32 noundef 0, ptr noundef %89) #7
+  %90 = call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 0, -1) %.4239, i32 noundef 0, ptr noundef %89) #7
   call void @IncrBufferRefCount(i32 noundef %90) #7
   store i32 %90, ptr %65, align 8
   br label %ReadBufferBI.exit

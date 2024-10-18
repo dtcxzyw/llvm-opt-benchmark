@@ -1300,7 +1300,7 @@ entry:
   %mRand.i = getelementptr inbounds i8, ptr %tracer, i64 8
   store ptr null, ptr %mRand.i, align 8
   %mInter.i = getelementptr inbounds i8, ptr %tracer, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mInter.i, ptr noundef nonnull align 8 dereferenceable(88) %inter, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %mInter.i, ptr noundef nonnull align 8 dereferenceable(304) %inter, i64 88, i1 false)
   %mStencil.i.i.i = getelementptr inbounds i8, ptr %tracer, i64 104
   %mStencil3.i.i.i = getelementptr inbounds i8, ptr %inter, i64 88
   call void @_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(140) %mStencil.i.i.i, ptr noundef nonnull align 8 dereferenceable(140) %mStencil3.i.i.i)
@@ -1465,7 +1465,7 @@ entry:
   %mRand.i = getelementptr inbounds i8, ptr %tracer, i64 8
   store ptr null, ptr %mRand.i, align 8
   %mInter.i = getelementptr inbounds i8, ptr %tracer, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mInter.i, ptr noundef nonnull align 8 dereferenceable(88) %inter, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %mInter.i, ptr noundef nonnull align 8 dereferenceable(320) %inter, i64 88, i1 false)
   %mStencil.i.i.i = getelementptr inbounds i8, ptr %tracer, i64 104
   %mStencil3.i.i.i = getelementptr inbounds i8, ptr %inter, i64 88
   call void @_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(140) %mStencil.i.i.i, ptr noundef nonnull align 8 dereferenceable(140) %mStencil3.i.i.i)
@@ -1643,7 +1643,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !4
   %mConstAccessorRegistry.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 656
   store ptr %this, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4
-  %call.i3.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, ptr noundef null, ptr noundef nonnull %a.i.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
+  %call.i3.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %a.i.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -1989,7 +1989,7 @@ if.then.i.i:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i.i.i, i8 0, i64 16, i1 false)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds i8, ptr %0, i64 656
   store ptr %this, ptr %ref.tmp.i.i.i, align 8
-  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
+  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i
@@ -2569,7 +2569,7 @@ _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i: ; preds = %if.else.i.i.i.i.i
   %vtable.i.i308 = load ptr, ptr %43, align 8, !noalias !23
   %vfn.i.i309 = getelementptr inbounds i8, ptr %vtable.i.i308, i64 64
   %44 = load ptr, ptr %vfn.i.i309, align 8, !noalias !23
-  invoke void %44(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(24) %pRay)
+  invoke void %44(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(88) %pRay)
           to label %.noexc.i unwind label %lpad.i, !noalias !16
 
 .noexc.i:                                         ; preds = %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i
@@ -2947,7 +2947,7 @@ for.body44:                                       ; preds = %for.body39, %for.in
   %mul.i.i.i.i69 = fmul double %pT.0596, %ref.tmp.sroa.0.0.copyload.i.i
   %mul4.i.i.i.i = fmul double %pT.0596, %ref.tmp.sroa.4.0.copyload.i.i
   %mul7.i.i.i.i = fmul double %pT.0596, %ref.tmp.sroa.7.0.copyload.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i66, ptr noundef nonnull align 8 dereferenceable(24) %mRay.i68, i64 24, i1 false), !noalias !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i66, ptr noundef nonnull align 8 dereferenceable(88) %mRay.i68, i64 24, i1 false), !noalias !32
   %95 = load double, ptr %ref.tmp.i66, align 8, !alias.scope !39, !noalias !32
   %add.i.i.i.i = fadd double %mul.i.i.i.i69, %95
   store double %add.i.i.i.i, ptr %ref.tmp.i66, align 8, !alias.scope !39, !noalias !32
@@ -3060,7 +3060,7 @@ invoke.cont57:                                    ; preds = %invoke.cont48
   %call.i.i = call double @exp(double noundef %mul.i.i82) #14, !noalias !51
   %call6.i.i = call double @exp(double noundef %mul4.i.i84) #14, !noalias !51
   %call11.i.i = call double @exp(double noundef %mul7.i.i86) #14, !noalias !51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sRay, ptr noundef nonnull align 8 dereferenceable(24) %pPos, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %sRay, ptr noundef nonnull align 8 dereferenceable(24) %pPos, i64 24, i1 false)
   %117 = load ptr, ptr %mShadow, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i91.sroa.0)
   %mGrid.i92 = getelementptr inbounds i8, ptr %117, i64 16
@@ -3101,7 +3101,7 @@ _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i337: ; preds = %if.else.i.i.i.
   %vtable.i.i338 = load ptr, ptr %125, align 8, !noalias !61
   %vfn.i.i339 = getelementptr inbounds i8, ptr %vtable.i.i338, i64 64
   %126 = load ptr, ptr %vfn.i.i339, align 8, !noalias !61
-  invoke void %126(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i325, ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull align 8 dereferenceable(24) %sRay)
+  invoke void %126(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i325, ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull align 8 dereferenceable(88) %sRay)
           to label %.noexc.i341 unwind label %lpad.i340, !noalias !54
 
 .noexc.i341:                                      ; preds = %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i337
@@ -3424,7 +3424,7 @@ for.body81:                                       ; preds = %for.body72, %for.in
   %mul.i.i.i.i150 = fmul double %sT.0574, %ref.tmp.sroa.0.0.copyload.i.i145
   %mul4.i.i.i.i151 = fmul double %sT.0574, %ref.tmp.sroa.4.0.copyload.i.i147
   %mul7.i.i.i.i152 = fmul double %sT.0574, %ref.tmp.sroa.7.0.copyload.i.i149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i141, ptr noundef nonnull align 8 dereferenceable(24) %mRay.i143, i64 24, i1 false), !noalias !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i141, ptr noundef nonnull align 8 dereferenceable(88) %mRay.i143, i64 24, i1 false), !noalias !68
   %175 = load double, ptr %ref.tmp.i141, align 8, !alias.scope !75, !noalias !68
   %add.i.i.i.i153 = fadd double %mul.i.i.i.i150, %175
   store double %add.i.i.i.i153, ptr %ref.tmp.i141, align 8, !alias.scope !75, !noalias !68
@@ -4098,7 +4098,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !97
   %mConstAccessorRegistry.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 656
   store ptr %this, ptr %ref.tmp.i.i.i.i, align 8, !noalias !97
-  %call.i3.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, ptr noundef null, ptr noundef nonnull %a.i.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
+  %call.i3.i.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %a.i.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -4444,7 +4444,7 @@ if.then.i.i:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i.i.i, i8 0, i64 16, i1 false)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds i8, ptr %0, i64 656
   store ptr %this, ptr %ref.tmp.i.i.i, align 8
-  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
+  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i
@@ -5021,7 +5021,7 @@ _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i: ; preds = %if.else.i.i.i.i.i
   %vtable.i.i294 = load ptr, ptr %43, align 8, !noalias !113
   %vfn.i.i295 = getelementptr inbounds i8, ptr %vtable.i.i294, i64 64
   %44 = load ptr, ptr %vfn.i.i295, align 8, !noalias !113
-  invoke void %44(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(24) %pRay)
+  invoke void %44(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(88) %pRay)
           to label %.noexc.i unwind label %lpad.i, !noalias !106
 
 .noexc.i:                                         ; preds = %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i
@@ -5399,7 +5399,7 @@ for.body44:                                       ; preds = %for.body39, %for.in
   %mul.i.i.i.i69 = fmul double %pT.0582, %ref.tmp.sroa.0.0.copyload.i.i
   %mul4.i.i.i.i = fmul double %pT.0582, %ref.tmp.sroa.4.0.copyload.i.i
   %mul7.i.i.i.i = fmul double %pT.0582, %ref.tmp.sroa.7.0.copyload.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i66, ptr noundef nonnull align 8 dereferenceable(24) %mRay.i68, i64 24, i1 false), !noalias !120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i66, ptr noundef nonnull align 8 dereferenceable(88) %mRay.i68, i64 24, i1 false), !noalias !120
   %95 = load double, ptr %ref.tmp.i66, align 8, !alias.scope !127, !noalias !120
   %add.i.i.i.i = fadd double %mul.i.i.i.i69, %95
   store double %add.i.i.i.i, ptr %ref.tmp.i66, align 8, !alias.scope !127, !noalias !120
@@ -5497,7 +5497,7 @@ invoke.cont57:                                    ; preds = %invoke.cont48
   %call.i.i = call double @exp(double noundef %mul.i.i82) #14, !noalias !139
   %call6.i.i = call double @exp(double noundef %mul4.i.i84) #14, !noalias !139
   %call11.i.i = call double @exp(double noundef %mul7.i.i86) #14, !noalias !139
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sRay, ptr noundef nonnull align 8 dereferenceable(24) %pPos, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %sRay, ptr noundef nonnull align 8 dereferenceable(24) %pPos, i64 24, i1 false)
   %117 = load ptr, ptr %mShadow, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i91.sroa.0)
   %mGrid.i92 = getelementptr inbounds i8, ptr %117, i64 16
@@ -5538,7 +5538,7 @@ _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i323: ; preds = %if.else.i.i.i.
   %vtable.i.i324 = load ptr, ptr %125, align 8, !noalias !149
   %vfn.i.i325 = getelementptr inbounds i8, ptr %vtable.i.i324, i64 64
   %126 = load ptr, ptr %vfn.i.i325, align 8, !noalias !149
-  invoke void %126(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i311, ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull align 8 dereferenceable(24) %sRay)
+  invoke void %126(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i311, ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull align 8 dereferenceable(88) %sRay)
           to label %.noexc.i327 unwind label %lpad.i326, !noalias !142
 
 .noexc.i327:                                      ; preds = %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i323
@@ -5861,7 +5861,7 @@ for.body81:                                       ; preds = %for.body72, %for.in
   %mul.i.i.i.i150 = fmul double %sT.0560, %ref.tmp.sroa.0.0.copyload.i.i145
   %mul4.i.i.i.i151 = fmul double %sT.0560, %ref.tmp.sroa.4.0.copyload.i.i147
   %mul7.i.i.i.i152 = fmul double %sT.0560, %ref.tmp.sroa.7.0.copyload.i.i149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i141, ptr noundef nonnull align 8 dereferenceable(24) %mRay.i143, i64 24, i1 false), !noalias !156
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i141, ptr noundef nonnull align 8 dereferenceable(88) %mRay.i143, i64 24, i1 false), !noalias !156
   %175 = load double, ptr %ref.tmp.i141, align 8, !alias.scope !163, !noalias !156
   %add.i.i.i.i153 = fadd double %mul.i.i.i.i150, %175
   store double %add.i.i.i.i153, ptr %ref.tmp.i141, align 8, !alias.scope !163, !noalias !156
@@ -6518,7 +6518,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #14
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   ret void
 }
 
@@ -6596,7 +6596,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #14
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
@@ -6673,7 +6673,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #14
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
@@ -7937,7 +7937,7 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %tobool5.not, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %call2.i23 = invoke noundef ptr %allocate_node(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef %t)
+  %call2.i23 = invoke noundef ptr %allocate_node(ptr noundef nonnull align 8 dereferenceable(570) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef %t)
           to label %if.end unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %if.end.i
@@ -9364,7 +9364,7 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %tobool5.not, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %call2.i23 = invoke noundef ptr %allocate_node(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef %t)
+  %call2.i23 = invoke noundef ptr %allocate_node(ptr noundef nonnull align 8 dereferenceable(570) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef %t)
           to label %if.end unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %if.end.i
@@ -9920,7 +9920,7 @@ catch:                                            ; preds = %lpad4, %lpad2
 
 try.cont:                                         ; preds = %catch, %invoke.cont7
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.48, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.48, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #28
           to label %unreachable unwind label %lpad9
@@ -9978,7 +9978,7 @@ catch24:                                          ; preds = %lpad18, %lpad16
 
 try.cont28:                                       ; preds = %catch24, %invoke.cont22
   %exception29 = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception29, ptr noundef nonnull @.str.48, ptr noundef nonnull %_openvdb_throw_msg14) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception29, ptr noundef nonnull @.str.48, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg14) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception29, align 8
   invoke void @__cxa_throw(ptr nonnull %exception29, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #28
           to label %unreachable unwind label %lpad26
@@ -10050,7 +10050,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #28
           to label %unreachable unwind label %lpad6
@@ -10433,7 +10433,7 @@ catch:                                            ; preds = %lpad18, %lpad16
 
 try.cont:                                         ; preds = %catch, %invoke.cont22
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.48, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.48, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #28
           to label %unreachable unwind label %lpad24
@@ -10495,7 +10495,7 @@ catch44:                                          ; preds = %lpad38, %lpad36
 
 try.cont48:                                       ; preds = %catch44, %invoke.cont42
   %exception49 = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception49, ptr noundef nonnull @.str.46, ptr noundef nonnull %_openvdb_throw_msg34) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception49, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg34) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception49, align 8
   invoke void @__cxa_throw(ptr nonnull %exception49, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #28
           to label %unreachable unwind label %lpad46
@@ -10591,7 +10591,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #14
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   ret void
 }
 
@@ -10646,7 +10646,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #14
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   ret void
 }
 
@@ -10714,7 +10714,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i.i.i, i8 0, i64 16, i1 false)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds i8, ptr %0, i64 656
   store ptr %mAcc, ptr %ref.tmp.i.i.i, align 8
-  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
+  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -10867,7 +10867,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #14
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
@@ -11463,7 +11463,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #28
           to label %unreachable unwind label %lpad6
@@ -11702,7 +11702,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #28
           to label %unreachable unwind label %lpad6
@@ -11729,7 +11729,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #14
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
@@ -12036,7 +12036,7 @@ _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i: ; preds = %if.else.i.i.i.i.i
   %vtable.i.i = load ptr, ptr %32, align 8, !noalias !265
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 64
   %33 = load ptr, ptr %vfn.i.i, align 8, !noalias !265
-  invoke void %33(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(24) %ray)
+  invoke void %33(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(88) %ray)
           to label %.noexc.i unwind label %lpad.i, !noalias !258
 
 .noexc.i:                                         ; preds = %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i
@@ -12218,7 +12218,7 @@ if.end.i:                                         ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i335 = fmul double %div.i.i.i.i, %t0.1.i.i.i
   %mul4.i.i.i.i = fmul double %div4.i.i.i.i, %t0.1.i.i.i
   %mul7.i.i.i.i = fmul double %div7.i.i.i.i, %t0.1.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i333, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i333, ptr noundef nonnull align 8 dereferenceable(304) %mInter, i64 24, i1 false)
   %64 = load double, ptr %ref.tmp.i333, align 8, !alias.scope !268
   %add.i.i.i.i336 = fadd double %mul.i.i.i.i335, %64
   store double %add.i.i.i.i336, ptr %ref.tmp.i333, align 8, !alias.scope !268
@@ -12470,7 +12470,7 @@ if.then.i:                                        ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i1439 = fmul double %79, %ref.tmp.sroa.0.0.copyload.i.i1434
   %mul4.i.i.i.i1440 = fmul double %79, %ref.tmp.sroa.4.0.copyload.i.i1436
   %mul7.i.i.i.i1441 = fmul double %79, %ref.tmp.sroa.7.0.copyload.i.i1438
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1431, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1431, ptr noundef nonnull align 8 dereferenceable(304) %mInter, i64 24, i1 false)
   %105 = load double, ptr %ref.tmp.i1431, align 8, !alias.scope !278
   %add.i.i.i.i1442 = fadd double %mul.i.i.i.i1439, %105
   store double %add.i.i.i.i1442, ptr %ref.tmp.i1431, align 8, !alias.scope !278
@@ -12815,7 +12815,7 @@ if.then.i282:                                     ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i3313 = fmul double %120, %ref.tmp.sroa.0.0.copyload.i.i3308
   %mul4.i.i.i.i3314 = fmul double %120, %ref.tmp.sroa.4.0.copyload.i.i3310
   %mul7.i.i.i.i3315 = fmul double %120, %ref.tmp.sroa.7.0.copyload.i.i3312
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i3305, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i3305, ptr noundef nonnull align 8 dereferenceable(304) %mInter, i64 24, i1 false)
   %158 = load double, ptr %ref.tmp.i3305, align 8, !alias.scope !285
   %add.i.i.i.i3316 = fadd double %mul.i.i.i.i3313, %158
   store double %add.i.i.i.i3316, ptr %ref.tmp.i3305, align 8, !alias.scope !285
@@ -13498,7 +13498,7 @@ if.then.i1365:                                    ; preds = %if.then.i1365.sink.
   %mul.i.i.i.i5782 = fmul double %241, %ref.tmp.sroa.0.0.copyload.i.i5777
   %mul4.i.i.i.i5783 = fmul double %241, %ref.tmp.sroa.4.0.copyload.i.i5779
   %mul7.i.i.i.i5784 = fmul double %241, %ref.tmp.sroa.7.0.copyload.i.i5781
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5774, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5774, ptr noundef nonnull align 8 dereferenceable(304) %mInter, i64 24, i1 false)
   %249 = load double, ptr %ref.tmp.i5774, align 8, !alias.scope !290
   %add.i.i.i.i5785 = fadd double %mul.i.i.i.i5782, %249
   store double %add.i.i.i.i5785, ptr %ref.tmp.i5774, align 8, !alias.scope !290
@@ -13782,7 +13782,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i9529: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i9531, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i9533, label %if.then.i.i.i.i.i.i.i9532
 
 if.then.i.i.i.i.i.i.i9532:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i9529
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %289)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %289)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i9533
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i9533: ; preds = %if.then.i.i.i.i.i.i.i9532, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i9529
@@ -13971,7 +13971,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i9449: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i9451, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i9453, label %if.then.i.i.i.i.i.i.i9452
 
 if.then.i.i.i.i.i.i.i9452:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i9449
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %313)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %313)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i9453
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i9453: ; preds = %if.then.i.i.i.i.i.i.i9452, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i9449
@@ -14250,7 +14250,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15109: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15111, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15113, label %if.then.i.i.i.i.i.i.i15112
 
 if.then.i.i.i.i.i.i.i15112:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15109
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %346)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %346)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15113
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15113: ; preds = %if.then.i.i.i.i.i.i.i15112, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15109
@@ -14449,7 +14449,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15029: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15031, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15033, label %if.then.i.i.i.i.i.i.i15032
 
 if.then.i.i.i.i.i.i.i15032:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15029
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %373)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %373)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15033
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15033: ; preds = %if.then.i.i.i.i.i.i.i15032, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15029
@@ -14632,7 +14632,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14949: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14951, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14953, label %if.then.i.i.i.i.i.i.i14952
 
 if.then.i.i.i.i.i.i.i14952:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14949
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %397)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %397)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14953
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14953: ; preds = %if.then.i.i.i.i.i.i.i14952, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14949
@@ -14899,7 +14899,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20029: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20031, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20033, label %if.then.i.i.i.i.i.i.i20032
 
 if.then.i.i.i.i.i.i.i20032:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20029
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %430)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %430)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20033
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20033: ; preds = %if.then.i.i.i.i.i.i.i20032, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20029
@@ -15100,7 +15100,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14769: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14771, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14773, label %if.then.i.i.i.i.i.i.i14772
 
 if.then.i.i.i.i.i.i.i14772:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14769
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %458)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %458)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14773
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14773: ; preds = %if.then.i.i.i.i.i.i.i14772, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14769
@@ -15289,7 +15289,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14689: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14691, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14693, label %if.then.i.i.i.i.i.i.i14692
 
 if.then.i.i.i.i.i.i.i14692:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14689
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %482)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %482)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14693
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14693: ; preds = %if.then.i.i.i.i.i.i.i14692, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14689
@@ -15568,7 +15568,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19949: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19951, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19953, label %if.then.i.i.i.i.i.i.i19952
 
 if.then.i.i.i.i.i.i.i19952:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19949
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %515)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %515)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19953
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19953: ; preds = %if.then.i.i.i.i.i.i.i19952, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19949
@@ -15768,7 +15768,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14509: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14511, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14513, label %if.then.i.i.i.i.i.i.i14512
 
 if.then.i.i.i.i.i.i.i14512:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14509
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %543)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %543)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14513
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14513: ; preds = %if.then.i.i.i.i.i.i.i14512, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14509
@@ -15957,7 +15957,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14429: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14431, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14433, label %if.then.i.i.i.i.i.i.i14432
 
 if.then.i.i.i.i.i.i.i14432:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14429
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %567)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %567)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14433
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14433: ; preds = %if.then.i.i.i.i.i.i.i14432, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14429
@@ -16236,7 +16236,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19869: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19871, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19873, label %if.then.i.i.i.i.i.i.i19872
 
 if.then.i.i.i.i.i.i.i19872:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19869
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %600)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %600)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19873
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19873: ; preds = %if.then.i.i.i.i.i.i.i19872, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19869
@@ -16436,7 +16436,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14249: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14251, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14253, label %if.then.i.i.i.i.i.i.i14252
 
 if.then.i.i.i.i.i.i.i14252:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14249
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %628)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %628)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14253
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14253: ; preds = %if.then.i.i.i.i.i.i.i14252, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14249
@@ -16625,7 +16625,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14169: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14171, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14173, label %if.then.i.i.i.i.i.i.i14172
 
 if.then.i.i.i.i.i.i.i14172:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14169
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %652)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %652)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14173
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i14173: ; preds = %if.then.i.i.i.i.i.i.i14172, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i14169
@@ -16904,7 +16904,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19789: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19791, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19793, label %if.then.i.i.i.i.i.i.i19792
 
 if.then.i.i.i.i.i.i.i19792:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19789
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %685)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %685)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19793
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19793: ; preds = %if.then.i.i.i.i.i.i.i19792, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19789
@@ -17105,7 +17105,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13989: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13991, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13993, label %if.then.i.i.i.i.i.i.i13992
 
 if.then.i.i.i.i.i.i.i13992:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13989
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %713)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %713)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13993
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13993: ; preds = %if.then.i.i.i.i.i.i.i13992, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13989
@@ -17294,7 +17294,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13909: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13911, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13913, label %if.then.i.i.i.i.i.i.i13912
 
 if.then.i.i.i.i.i.i.i13912:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13909
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %737)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %737)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13913
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13913: ; preds = %if.then.i.i.i.i.i.i.i13912, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13909
@@ -17573,7 +17573,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19709: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19711, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19713, label %if.then.i.i.i.i.i.i.i19712
 
 if.then.i.i.i.i.i.i.i19712:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19709
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %770)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %770)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19713
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19713: ; preds = %if.then.i.i.i.i.i.i.i19712, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19709
@@ -17775,7 +17775,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13729: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13731, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13733, label %if.then.i.i.i.i.i.i.i13732
 
 if.then.i.i.i.i.i.i.i13732:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13729
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %798)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %798)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13733
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13733: ; preds = %if.then.i.i.i.i.i.i.i13732, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13729
@@ -17964,7 +17964,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13649: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13651, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13653, label %if.then.i.i.i.i.i.i.i13652
 
 if.then.i.i.i.i.i.i.i13652:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13649
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %822)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %822)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13653
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13653: ; preds = %if.then.i.i.i.i.i.i.i13652, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13649
@@ -18243,7 +18243,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19629: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19631, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19633, label %if.then.i.i.i.i.i.i.i19632
 
 if.then.i.i.i.i.i.i.i19632:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19629
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %855)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %855)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19633
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19633: ; preds = %if.then.i.i.i.i.i.i.i19632, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19629
@@ -18444,7 +18444,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13469: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13471, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13473, label %if.then.i.i.i.i.i.i.i13472
 
 if.then.i.i.i.i.i.i.i13472:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13469
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %883)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %883)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13473
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13473: ; preds = %if.then.i.i.i.i.i.i.i13472, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13469
@@ -18633,7 +18633,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13389: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13391, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13393, label %if.then.i.i.i.i.i.i.i13392
 
 if.then.i.i.i.i.i.i.i13392:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13389
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %907)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %907)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13393
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13393: ; preds = %if.then.i.i.i.i.i.i.i13392, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13389
@@ -18912,7 +18912,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19549: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19551, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19553, label %if.then.i.i.i.i.i.i.i19552
 
 if.then.i.i.i.i.i.i.i19552:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19549
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %940)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %940)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19553
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19553: ; preds = %if.then.i.i.i.i.i.i.i19552, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19549
@@ -19226,7 +19226,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i8640: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i8642, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i8644, label %if.then.i.i.i.i.i.i.i8643
 
 if.then.i.i.i.i.i.i.i8643:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i8640
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1001)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1001)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i8644
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i8644: ; preds = %if.then.i.i.i.i.i.i.i8643, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i8640
@@ -19415,7 +19415,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i8560: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i8562, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i8564, label %if.then.i.i.i.i.i.i.i8563
 
 if.then.i.i.i.i.i.i.i8563:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i8560
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1025)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1025)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i8564
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i8564: ; preds = %if.then.i.i.i.i.i.i.i8563, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i8560
@@ -19694,7 +19694,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13209: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13211, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13213, label %if.then.i.i.i.i.i.i.i13212
 
 if.then.i.i.i.i.i.i.i13212:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13209
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1058)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1058)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13213
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13213: ; preds = %if.then.i.i.i.i.i.i.i13212, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13209
@@ -19893,7 +19893,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13129: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13131, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13133, label %if.then.i.i.i.i.i.i.i13132
 
 if.then.i.i.i.i.i.i.i13132:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13129
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1085)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1085)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13133
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13133: ; preds = %if.then.i.i.i.i.i.i.i13132, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13129
@@ -20076,7 +20076,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13049: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13051, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13053, label %if.then.i.i.i.i.i.i.i13052
 
 if.then.i.i.i.i.i.i.i13052:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13049
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1109)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1109)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13053
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i13053: ; preds = %if.then.i.i.i.i.i.i.i13052, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i13049
@@ -20343,7 +20343,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19469: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19471, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19473, label %if.then.i.i.i.i.i.i.i19472
 
 if.then.i.i.i.i.i.i.i19472:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19469
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1142)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1142)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19473
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19473: ; preds = %if.then.i.i.i.i.i.i.i19472, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19469
@@ -20544,7 +20544,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12869: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12871, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12873, label %if.then.i.i.i.i.i.i.i12872
 
 if.then.i.i.i.i.i.i.i12872:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12869
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1170)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1170)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12873
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12873: ; preds = %if.then.i.i.i.i.i.i.i12872, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12869
@@ -20733,7 +20733,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12789: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12791, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12793, label %if.then.i.i.i.i.i.i.i12792
 
 if.then.i.i.i.i.i.i.i12792:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12789
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1194)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1194)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12793
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12793: ; preds = %if.then.i.i.i.i.i.i.i12792, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12789
@@ -21012,7 +21012,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19389: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19391, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19393, label %if.then.i.i.i.i.i.i.i19392
 
 if.then.i.i.i.i.i.i.i19392:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19389
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1227)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1227)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19393
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19393: ; preds = %if.then.i.i.i.i.i.i.i19392, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19389
@@ -21212,7 +21212,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12609: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12611, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12613, label %if.then.i.i.i.i.i.i.i12612
 
 if.then.i.i.i.i.i.i.i12612:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12609
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1255)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1255)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12613
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12613: ; preds = %if.then.i.i.i.i.i.i.i12612, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12609
@@ -21401,7 +21401,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12529: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12531, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12533, label %if.then.i.i.i.i.i.i.i12532
 
 if.then.i.i.i.i.i.i.i12532:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12529
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1279)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1279)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12533
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12533: ; preds = %if.then.i.i.i.i.i.i.i12532, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12529
@@ -21680,7 +21680,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19309: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19311, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19313, label %if.then.i.i.i.i.i.i.i19312
 
 if.then.i.i.i.i.i.i.i19312:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19309
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1312)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1312)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19313
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19313: ; preds = %if.then.i.i.i.i.i.i.i19312, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19309
@@ -21880,7 +21880,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12349: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12351, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12353, label %if.then.i.i.i.i.i.i.i12352
 
 if.then.i.i.i.i.i.i.i12352:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12349
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1340)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1340)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12353
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12353: ; preds = %if.then.i.i.i.i.i.i.i12352, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12349
@@ -22069,7 +22069,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12269: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12271, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12273, label %if.then.i.i.i.i.i.i.i12272
 
 if.then.i.i.i.i.i.i.i12272:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12269
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1364)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1364)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12273
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12273: ; preds = %if.then.i.i.i.i.i.i.i12272, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12269
@@ -22348,7 +22348,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19229: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19231, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19233, label %if.then.i.i.i.i.i.i.i19232
 
 if.then.i.i.i.i.i.i.i19232:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19229
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1397)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1397)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19233
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19233: ; preds = %if.then.i.i.i.i.i.i.i19232, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19229
@@ -22549,7 +22549,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12089: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12091, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12093, label %if.then.i.i.i.i.i.i.i12092
 
 if.then.i.i.i.i.i.i.i12092:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12089
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1425)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1425)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12093
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12093: ; preds = %if.then.i.i.i.i.i.i.i12092, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12089
@@ -22738,7 +22738,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12009: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12011, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12013, label %if.then.i.i.i.i.i.i.i12012
 
 if.then.i.i.i.i.i.i.i12012:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12009
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1449)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1449)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12013
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i12013: ; preds = %if.then.i.i.i.i.i.i.i12012, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i12009
@@ -23017,7 +23017,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19149: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19151, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19153, label %if.then.i.i.i.i.i.i.i19152
 
 if.then.i.i.i.i.i.i.i19152:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19149
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1482)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1482)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19153
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19153: ; preds = %if.then.i.i.i.i.i.i.i19152, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19149
@@ -23219,7 +23219,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11829: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11831, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11833, label %if.then.i.i.i.i.i.i.i11832
 
 if.then.i.i.i.i.i.i.i11832:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11829
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1510)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1510)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11833
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11833: ; preds = %if.then.i.i.i.i.i.i.i11832, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11829
@@ -23408,7 +23408,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11749: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11751, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11753, label %if.then.i.i.i.i.i.i.i11752
 
 if.then.i.i.i.i.i.i.i11752:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11749
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1534)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1534)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11753
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11753: ; preds = %if.then.i.i.i.i.i.i.i11752, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11749
@@ -23687,7 +23687,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19069: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19071, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19073, label %if.then.i.i.i.i.i.i.i19072
 
 if.then.i.i.i.i.i.i.i19072:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19069
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1567)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1567)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19073
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i19073: ; preds = %if.then.i.i.i.i.i.i.i19072, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i19069
@@ -23888,7 +23888,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11569: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11571, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11573, label %if.then.i.i.i.i.i.i.i11572
 
 if.then.i.i.i.i.i.i.i11572:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11569
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1595)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1595)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11573
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11573: ; preds = %if.then.i.i.i.i.i.i.i11572, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11569
@@ -24077,7 +24077,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11489: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11491, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11493, label %if.then.i.i.i.i.i.i.i11492
 
 if.then.i.i.i.i.i.i.i11492:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11489
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1619)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1619)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11493
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11493: ; preds = %if.then.i.i.i.i.i.i.i11492, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11489
@@ -24356,7 +24356,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18989: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18991, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18993, label %if.then.i.i.i.i.i.i.i18992
 
 if.then.i.i.i.i.i.i.i18992:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18989
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1652)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1652)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18993
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18993: ; preds = %if.then.i.i.i.i.i.i.i18992, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18989
@@ -27019,7 +27019,7 @@ _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i197: ; preds = %if.else.i.i.i.
   %vtable.i.i198 = load ptr, ptr %2056, align 8, !noalias !319
   %vfn.i.i199 = getelementptr inbounds i8, ptr %vtable.i.i198, i64 64
   %2061 = load ptr, ptr %vfn.i.i199, align 8, !noalias !319
-  invoke void %2061(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i185, ptr noundef nonnull align 8 dereferenceable(8) %2056, ptr noundef nonnull align 8 dereferenceable(24) %ray)
+  invoke void %2061(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i185, ptr noundef nonnull align 8 dereferenceable(8) %2056, ptr noundef nonnull align 8 dereferenceable(88) %ray)
           to label %.noexc.i201 unwind label %lpad.i200, !noalias !313
 
 .noexc.i201:                                      ; preds = %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i197
@@ -27261,7 +27261,7 @@ if.end.i52:                                       ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i627 = fmul double %div.i.i.i.i210, %t0.1.i.i.i42
   %mul4.i.i.i.i628 = fmul double %div4.i.i.i.i211, %t0.1.i.i.i42
   %mul7.i.i.i.i629 = fmul double %div7.i.i.i.i212, %t0.1.i.i.i42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i619, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i619, ptr noundef nonnull align 8 dereferenceable(304) %mInter, i64 24, i1 false)
   %2101 = load double, ptr %ref.tmp.i619, align 8, !alias.scope !322
   %add.i.i.i.i630 = fadd double %mul.i.i.i.i627, %2101
   store double %add.i.i.i.i630, ptr %ref.tmp.i619, align 8, !alias.scope !322
@@ -27513,7 +27513,7 @@ if.then.i158:                                     ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i2450 = fmul double %2116, %ref.tmp.sroa.0.0.copyload.i.i2445
   %mul4.i.i.i.i2451 = fmul double %2116, %ref.tmp.sroa.4.0.copyload.i.i2447
   %mul7.i.i.i.i2452 = fmul double %2116, %ref.tmp.sroa.7.0.copyload.i.i2449
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i2442, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i2442, ptr noundef nonnull align 8 dereferenceable(304) %mInter, i64 24, i1 false)
   %2142 = load double, ptr %ref.tmp.i2442, align 8, !alias.scope !330
   %add.i.i.i.i2453 = fadd double %mul.i.i.i.i2450, %2142
   store double %add.i.i.i.i2453, ptr %ref.tmp.i2442, align 8, !alias.scope !330
@@ -27858,7 +27858,7 @@ if.then.i512:                                     ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i5511 = fmul double %2157, %ref.tmp.sroa.0.0.copyload.i.i5506
   %mul4.i.i.i.i5512 = fmul double %2157, %ref.tmp.sroa.4.0.copyload.i.i5508
   %mul7.i.i.i.i5513 = fmul double %2157, %ref.tmp.sroa.7.0.copyload.i.i5510
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5503, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5503, ptr noundef nonnull align 8 dereferenceable(304) %mInter, i64 24, i1 false)
   %2195 = load double, ptr %ref.tmp.i5503, align 8, !alias.scope !336
   %add.i.i.i.i5514 = fadd double %mul.i.i.i.i5511, %2195
   store double %add.i.i.i.i5514, ptr %ref.tmp.i5503, align 8, !alias.scope !336
@@ -28541,7 +28541,7 @@ if.then.i2353:                                    ; preds = %if.then.i2353.sink.
   %mul.i.i.i.i6763 = fmul double %2278, %ref.tmp.sroa.0.0.copyload.i.i6758
   %mul4.i.i.i.i6764 = fmul double %2278, %ref.tmp.sroa.4.0.copyload.i.i6760
   %mul7.i.i.i.i6765 = fmul double %2278, %ref.tmp.sroa.7.0.copyload.i.i6762
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i6755, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i6755, ptr noundef nonnull align 8 dereferenceable(304) %mInter, i64 24, i1 false)
   %2286 = load double, ptr %ref.tmp.i6755, align 8, !alias.scope !339
   %add.i.i.i.i6766 = fadd double %mul.i.i.i.i6763, %2286
   store double %add.i.i.i.i6766, ptr %ref.tmp.i6755, align 8, !alias.scope !339
@@ -28825,7 +28825,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11309: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11311, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11313, label %if.then.i.i.i.i.i.i.i11312
 
 if.then.i.i.i.i.i.i.i11312:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11309
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2326)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2326)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11313
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11313: ; preds = %if.then.i.i.i.i.i.i.i11312, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11309
@@ -29014,7 +29014,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11229: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11231, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11233, label %if.then.i.i.i.i.i.i.i11232
 
 if.then.i.i.i.i.i.i.i11232:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11229
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2350)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2350)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11233
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i11233: ; preds = %if.then.i.i.i.i.i.i.i11232, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i11229
@@ -29293,7 +29293,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18909: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18911, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18913, label %if.then.i.i.i.i.i.i.i18912
 
 if.then.i.i.i.i.i.i.i18912:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18909
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2383)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2383)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18913
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18913: ; preds = %if.then.i.i.i.i.i.i.i18912, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18909
@@ -29492,7 +29492,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18829: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18831, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18833, label %if.then.i.i.i.i.i.i.i18832
 
 if.then.i.i.i.i.i.i.i18832:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18829
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2410)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2410)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18833
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18833: ; preds = %if.then.i.i.i.i.i.i.i18832, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18829
@@ -29675,7 +29675,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18749: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18751, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18753, label %if.then.i.i.i.i.i.i.i18752
 
 if.then.i.i.i.i.i.i.i18752:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18749
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2434)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2434)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18753
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18753: ; preds = %if.then.i.i.i.i.i.i.i18752, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18749
@@ -29942,7 +29942,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i21149: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i21151, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i21153, label %if.then.i.i.i.i.i.i.i21152
 
 if.then.i.i.i.i.i.i.i21152:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i21149
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2467)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2467)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i21153
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i21153: ; preds = %if.then.i.i.i.i.i.i.i21152, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i21149
@@ -30143,7 +30143,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18569: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18571, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18573, label %if.then.i.i.i.i.i.i.i18572
 
 if.then.i.i.i.i.i.i.i18572:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18569
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2495)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2495)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18573
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18573: ; preds = %if.then.i.i.i.i.i.i.i18572, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18569
@@ -30332,7 +30332,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18489: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18491, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18493, label %if.then.i.i.i.i.i.i.i18492
 
 if.then.i.i.i.i.i.i.i18492:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18489
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2519)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2519)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18493
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18493: ; preds = %if.then.i.i.i.i.i.i.i18492, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18489
@@ -30611,7 +30611,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i21069: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i21071, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i21073, label %if.then.i.i.i.i.i.i.i21072
 
 if.then.i.i.i.i.i.i.i21072:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i21069
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2552)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2552)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i21073
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i21073: ; preds = %if.then.i.i.i.i.i.i.i21072, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i21069
@@ -30811,7 +30811,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18309: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18311, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18313, label %if.then.i.i.i.i.i.i.i18312
 
 if.then.i.i.i.i.i.i.i18312:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18309
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2580)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2580)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18313
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18313: ; preds = %if.then.i.i.i.i.i.i.i18312, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18309
@@ -31000,7 +31000,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18229: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18231, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18233, label %if.then.i.i.i.i.i.i.i18232
 
 if.then.i.i.i.i.i.i.i18232:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18229
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2604)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2604)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18233
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18233: ; preds = %if.then.i.i.i.i.i.i.i18232, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18229
@@ -31279,7 +31279,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20989: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20991, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20993, label %if.then.i.i.i.i.i.i.i20992
 
 if.then.i.i.i.i.i.i.i20992:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20989
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2637)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2637)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20993
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20993: ; preds = %if.then.i.i.i.i.i.i.i20992, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20989
@@ -31479,7 +31479,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18049: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18051, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18053, label %if.then.i.i.i.i.i.i.i18052
 
 if.then.i.i.i.i.i.i.i18052:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18049
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2665)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2665)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18053
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i18053: ; preds = %if.then.i.i.i.i.i.i.i18052, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i18049
@@ -31668,7 +31668,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17969: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17971, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17973, label %if.then.i.i.i.i.i.i.i17972
 
 if.then.i.i.i.i.i.i.i17972:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17969
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2689)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2689)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17973
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17973: ; preds = %if.then.i.i.i.i.i.i.i17972, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17969
@@ -31947,7 +31947,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20909: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20911, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20913, label %if.then.i.i.i.i.i.i.i20912
 
 if.then.i.i.i.i.i.i.i20912:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20909
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2722)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2722)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20913
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20913: ; preds = %if.then.i.i.i.i.i.i.i20912, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20909
@@ -32148,7 +32148,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17789: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17791, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17793, label %if.then.i.i.i.i.i.i.i17792
 
 if.then.i.i.i.i.i.i.i17792:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17789
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2750)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2750)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17793
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17793: ; preds = %if.then.i.i.i.i.i.i.i17792, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17789
@@ -32337,7 +32337,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17709: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17711, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17713, label %if.then.i.i.i.i.i.i.i17712
 
 if.then.i.i.i.i.i.i.i17712:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17709
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2774)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2774)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17713
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17713: ; preds = %if.then.i.i.i.i.i.i.i17712, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17709
@@ -32616,7 +32616,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20829: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20831, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20833, label %if.then.i.i.i.i.i.i.i20832
 
 if.then.i.i.i.i.i.i.i20832:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20829
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2807)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2807)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20833
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20833: ; preds = %if.then.i.i.i.i.i.i.i20832, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20829
@@ -32818,7 +32818,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17529: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17531, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17533, label %if.then.i.i.i.i.i.i.i17532
 
 if.then.i.i.i.i.i.i.i17532:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17529
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2835)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2835)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17533
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17533: ; preds = %if.then.i.i.i.i.i.i.i17532, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17529
@@ -33007,7 +33007,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17449: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17451, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17453, label %if.then.i.i.i.i.i.i.i17452
 
 if.then.i.i.i.i.i.i.i17452:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17449
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2859)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2859)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17453
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17453: ; preds = %if.then.i.i.i.i.i.i.i17452, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17449
@@ -33286,7 +33286,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20749: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20751, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20753, label %if.then.i.i.i.i.i.i.i20752
 
 if.then.i.i.i.i.i.i.i20752:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20749
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2892)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2892)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20753
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20753: ; preds = %if.then.i.i.i.i.i.i.i20752, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20749
@@ -33487,7 +33487,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17269: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17271, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17273, label %if.then.i.i.i.i.i.i.i17272
 
 if.then.i.i.i.i.i.i.i17272:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17269
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2920)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2920)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17273
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17273: ; preds = %if.then.i.i.i.i.i.i.i17272, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17269
@@ -33676,7 +33676,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17189: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17191, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17193, label %if.then.i.i.i.i.i.i.i17192
 
 if.then.i.i.i.i.i.i.i17192:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17189
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2944)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2944)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17193
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17193: ; preds = %if.then.i.i.i.i.i.i.i17192, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17189
@@ -33955,7 +33955,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20669: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20671, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20673, label %if.then.i.i.i.i.i.i.i20672
 
 if.then.i.i.i.i.i.i.i20672:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20669
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2977)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2977)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20673
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20673: ; preds = %if.then.i.i.i.i.i.i.i20672, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20669
@@ -34269,7 +34269,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i10419: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i10421, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i10423, label %if.then.i.i.i.i.i.i.i10422
 
 if.then.i.i.i.i.i.i.i10422:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i10419
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3038)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3038)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i10423
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i10423: ; preds = %if.then.i.i.i.i.i.i.i10422, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i10419
@@ -34458,7 +34458,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i10339: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i10341, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i10343, label %if.then.i.i.i.i.i.i.i10342
 
 if.then.i.i.i.i.i.i.i10342:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i10339
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3062)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3062)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i10343
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i10343: ; preds = %if.then.i.i.i.i.i.i.i10342, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i10339
@@ -34737,7 +34737,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17009: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17011, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17013, label %if.then.i.i.i.i.i.i.i17012
 
 if.then.i.i.i.i.i.i.i17012:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17009
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3095)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3095)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17013
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i17013: ; preds = %if.then.i.i.i.i.i.i.i17012, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i17009
@@ -34936,7 +34936,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16929: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16931, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16933, label %if.then.i.i.i.i.i.i.i16932
 
 if.then.i.i.i.i.i.i.i16932:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16929
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3122)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3122)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16933
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16933: ; preds = %if.then.i.i.i.i.i.i.i16932, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16929
@@ -35119,7 +35119,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16849: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16851, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16853, label %if.then.i.i.i.i.i.i.i16852
 
 if.then.i.i.i.i.i.i.i16852:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16849
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3146)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3146)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16853
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16853: ; preds = %if.then.i.i.i.i.i.i.i16852, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16849
@@ -35386,7 +35386,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20589: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20591, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20593, label %if.then.i.i.i.i.i.i.i20592
 
 if.then.i.i.i.i.i.i.i20592:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20589
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3179)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3179)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20593
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20593: ; preds = %if.then.i.i.i.i.i.i.i20592, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20589
@@ -35587,7 +35587,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16669: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16671, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16673, label %if.then.i.i.i.i.i.i.i16672
 
 if.then.i.i.i.i.i.i.i16672:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16669
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3207)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3207)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16673
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16673: ; preds = %if.then.i.i.i.i.i.i.i16672, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16669
@@ -35776,7 +35776,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16589: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16591, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16593, label %if.then.i.i.i.i.i.i.i16592
 
 if.then.i.i.i.i.i.i.i16592:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16589
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3231)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3231)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16593
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16593: ; preds = %if.then.i.i.i.i.i.i.i16592, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16589
@@ -36055,7 +36055,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20509: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20511, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20513, label %if.then.i.i.i.i.i.i.i20512
 
 if.then.i.i.i.i.i.i.i20512:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20509
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3264)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3264)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20513
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20513: ; preds = %if.then.i.i.i.i.i.i.i20512, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20509
@@ -36255,7 +36255,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16409: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16411, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16413, label %if.then.i.i.i.i.i.i.i16412
 
 if.then.i.i.i.i.i.i.i16412:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16409
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3292)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3292)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16413
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16413: ; preds = %if.then.i.i.i.i.i.i.i16412, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16409
@@ -36444,7 +36444,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16329: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16331, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16333, label %if.then.i.i.i.i.i.i.i16332
 
 if.then.i.i.i.i.i.i.i16332:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16329
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3316)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3316)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16333
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16333: ; preds = %if.then.i.i.i.i.i.i.i16332, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16329
@@ -36723,7 +36723,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20429: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20431, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20433, label %if.then.i.i.i.i.i.i.i20432
 
 if.then.i.i.i.i.i.i.i20432:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20429
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3349)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3349)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20433
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20433: ; preds = %if.then.i.i.i.i.i.i.i20432, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20429
@@ -36923,7 +36923,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16149: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16151, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16153, label %if.then.i.i.i.i.i.i.i16152
 
 if.then.i.i.i.i.i.i.i16152:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16149
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3377)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3377)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16153
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16153: ; preds = %if.then.i.i.i.i.i.i.i16152, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16149
@@ -37112,7 +37112,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16069: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16071, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16073, label %if.then.i.i.i.i.i.i.i16072
 
 if.then.i.i.i.i.i.i.i16072:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16069
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3401)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3401)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16073
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i16073: ; preds = %if.then.i.i.i.i.i.i.i16072, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i16069
@@ -37391,7 +37391,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20349: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20351, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20353, label %if.then.i.i.i.i.i.i.i20352
 
 if.then.i.i.i.i.i.i.i20352:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20349
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3434)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3434)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20353
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20353: ; preds = %if.then.i.i.i.i.i.i.i20352, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20349
@@ -37592,7 +37592,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15889: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15891, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15893, label %if.then.i.i.i.i.i.i.i15892
 
 if.then.i.i.i.i.i.i.i15892:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15889
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3462)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3462)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15893
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15893: ; preds = %if.then.i.i.i.i.i.i.i15892, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15889
@@ -37781,7 +37781,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15809: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15811, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15813, label %if.then.i.i.i.i.i.i.i15812
 
 if.then.i.i.i.i.i.i.i15812:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15809
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3486)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3486)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15813
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15813: ; preds = %if.then.i.i.i.i.i.i.i15812, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15809
@@ -38060,7 +38060,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20269: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20271, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20273, label %if.then.i.i.i.i.i.i.i20272
 
 if.then.i.i.i.i.i.i.i20272:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20269
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3519)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3519)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20273
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20273: ; preds = %if.then.i.i.i.i.i.i.i20272, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20269
@@ -38262,7 +38262,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15629: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15631, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15633, label %if.then.i.i.i.i.i.i.i15632
 
 if.then.i.i.i.i.i.i.i15632:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15629
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3547)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3547)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15633
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15633: ; preds = %if.then.i.i.i.i.i.i.i15632, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15629
@@ -38451,7 +38451,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15549: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15551, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15553, label %if.then.i.i.i.i.i.i.i15552
 
 if.then.i.i.i.i.i.i.i15552:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15549
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3571)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3571)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15553
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15553: ; preds = %if.then.i.i.i.i.i.i.i15552, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15549
@@ -38730,7 +38730,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20189: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20191, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20193, label %if.then.i.i.i.i.i.i.i20192
 
 if.then.i.i.i.i.i.i.i20192:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20189
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3604)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3604)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20193
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20193: ; preds = %if.then.i.i.i.i.i.i.i20192, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20189
@@ -38931,7 +38931,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15369: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15371, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15373, label %if.then.i.i.i.i.i.i.i15372
 
 if.then.i.i.i.i.i.i.i15372:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15369
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3632)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3632)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15373
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15373: ; preds = %if.then.i.i.i.i.i.i.i15372, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15369
@@ -39120,7 +39120,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15289: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15291, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15293, label %if.then.i.i.i.i.i.i.i15292
 
 if.then.i.i.i.i.i.i.i15292:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15289
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3656)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3656)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15293
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i15293: ; preds = %if.then.i.i.i.i.i.i.i15292, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i15289
@@ -39399,7 +39399,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20109: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20111, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20113, label %if.then.i.i.i.i.i.i.i20112
 
 if.then.i.i.i.i.i.i.i20112:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20109
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3689)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3689)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20113
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i20113: ; preds = %if.then.i.i.i.i.i.i.i20112, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i20109
@@ -39877,7 +39877,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i2295: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i2297, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i2299, label %if.then.i.i.i.i.i.i.i2298
 
 if.then.i.i.i.i.i.i.i2298:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i2295
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3773)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3773)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i2299
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i2299: ; preds = %if.then.i.i.i.i.i.i.i2298, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i2295
@@ -40066,7 +40066,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i: ; preds = %_ZN3tbb6det
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i, label %if.then.i.i.i.i.i.i.i2244
 
 if.then.i.i.i.i.i.i.i2244:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3797)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3797)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i2244, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i
@@ -40345,7 +40345,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i5312: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i5314, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i5316, label %if.then.i.i.i.i.i.i.i5315
 
 if.then.i.i.i.i.i.i.i5315:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i5312
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3830)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3830)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i5316
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i5316: ; preds = %if.then.i.i.i.i.i.i.i5315, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i5312
@@ -40544,7 +40544,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i5232: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i5234, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i5236, label %if.then.i.i.i.i.i.i.i5235
 
 if.then.i.i.i.i.i.i.i5235:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i5232
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3857)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3857)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i5236
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i5236: ; preds = %if.then.i.i.i.i.i.i.i5235, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i5232
@@ -40727,7 +40727,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i5152: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i5154, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i5156, label %if.then.i.i.i.i.i.i.i5155
 
 if.then.i.i.i.i.i.i.i5155:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i5152
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3881)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3881)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i5156
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i5156: ; preds = %if.then.i.i.i.i.i.i.i5155, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i5152
@@ -40994,7 +40994,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6565: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6567, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6569, label %if.then.i.i.i.i.i.i.i6568
 
 if.then.i.i.i.i.i.i.i6568:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6565
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3914)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3914)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6569
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6569: ; preds = %if.then.i.i.i.i.i.i.i6568, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6565
@@ -41195,7 +41195,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4972: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4974, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4976, label %if.then.i.i.i.i.i.i.i4975
 
 if.then.i.i.i.i.i.i.i4975:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4972
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3942)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3942)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4976
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4976: ; preds = %if.then.i.i.i.i.i.i.i4975, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4972
@@ -41384,7 +41384,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4892: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4894, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4896, label %if.then.i.i.i.i.i.i.i4895
 
 if.then.i.i.i.i.i.i.i4895:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4892
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3966)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3966)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4896
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4896: ; preds = %if.then.i.i.i.i.i.i.i4895, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4892
@@ -41663,7 +41663,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6485: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6487, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6489, label %if.then.i.i.i.i.i.i.i6488
 
 if.then.i.i.i.i.i.i.i6488:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6485
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3999)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3999)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6489
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6489: ; preds = %if.then.i.i.i.i.i.i.i6488, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6485
@@ -41863,7 +41863,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4712: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4714, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4716, label %if.then.i.i.i.i.i.i.i4715
 
 if.then.i.i.i.i.i.i.i4715:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4712
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4027)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4027)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4716
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4716: ; preds = %if.then.i.i.i.i.i.i.i4715, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4712
@@ -42052,7 +42052,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4632: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4634, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4636, label %if.then.i.i.i.i.i.i.i4635
 
 if.then.i.i.i.i.i.i.i4635:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4632
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4051)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4051)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4636
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4636: ; preds = %if.then.i.i.i.i.i.i.i4635, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4632
@@ -42331,7 +42331,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6405: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6407, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6409, label %if.then.i.i.i.i.i.i.i6408
 
 if.then.i.i.i.i.i.i.i6408:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6405
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4084)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4084)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6409
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6409: ; preds = %if.then.i.i.i.i.i.i.i6408, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6405
@@ -42531,7 +42531,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4452: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4454, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4456, label %if.then.i.i.i.i.i.i.i4455
 
 if.then.i.i.i.i.i.i.i4455:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4452
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4112)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4112)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4456
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4456: ; preds = %if.then.i.i.i.i.i.i.i4455, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4452
@@ -42720,7 +42720,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4372: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4374, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4376, label %if.then.i.i.i.i.i.i.i4375
 
 if.then.i.i.i.i.i.i.i4375:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4372
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4136)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4136)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4376
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4376: ; preds = %if.then.i.i.i.i.i.i.i4375, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4372
@@ -42999,7 +42999,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6325: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6327, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6329, label %if.then.i.i.i.i.i.i.i6328
 
 if.then.i.i.i.i.i.i.i6328:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6325
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4169)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4169)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6329
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6329: ; preds = %if.then.i.i.i.i.i.i.i6328, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6325
@@ -43200,7 +43200,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4192: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4194, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4196, label %if.then.i.i.i.i.i.i.i4195
 
 if.then.i.i.i.i.i.i.i4195:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4192
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4197)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4197)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4196
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4196: ; preds = %if.then.i.i.i.i.i.i.i4195, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4192
@@ -43389,7 +43389,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4112: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4114, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4116, label %if.then.i.i.i.i.i.i.i4115
 
 if.then.i.i.i.i.i.i.i4115:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4112
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4221)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4221)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4116
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i4116: ; preds = %if.then.i.i.i.i.i.i.i4115, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i4112
@@ -43668,7 +43668,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6245: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6247, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6249, label %if.then.i.i.i.i.i.i.i6248
 
 if.then.i.i.i.i.i.i.i6248:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6245
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4254)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4254)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6249
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6249: ; preds = %if.then.i.i.i.i.i.i.i6248, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6245
@@ -43870,7 +43870,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3932: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i3934, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3936, label %if.then.i.i.i.i.i.i.i3935
 
 if.then.i.i.i.i.i.i.i3935:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3932
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4282)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4282)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3936
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3936: ; preds = %if.then.i.i.i.i.i.i.i3935, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3932
@@ -44059,7 +44059,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3852: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i3854, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3856, label %if.then.i.i.i.i.i.i.i3855
 
 if.then.i.i.i.i.i.i.i3855:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3852
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4306)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4306)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3856
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3856: ; preds = %if.then.i.i.i.i.i.i.i3855, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3852
@@ -44338,7 +44338,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6165: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6167, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6169, label %if.then.i.i.i.i.i.i.i6168
 
 if.then.i.i.i.i.i.i.i6168:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6165
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4339)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4339)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6169
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6169: ; preds = %if.then.i.i.i.i.i.i.i6168, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6165
@@ -44539,7 +44539,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3672: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i3674, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3676, label %if.then.i.i.i.i.i.i.i3675
 
 if.then.i.i.i.i.i.i.i3675:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3672
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4367)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4367)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3676
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3676: ; preds = %if.then.i.i.i.i.i.i.i3675, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3672
@@ -44728,7 +44728,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3593: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i3595, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3597, label %if.then.i.i.i.i.i.i.i3596
 
 if.then.i.i.i.i.i.i.i3596:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3593
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4391)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4391)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3597
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i3597: ; preds = %if.then.i.i.i.i.i.i.i3596, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i3593
@@ -45007,7 +45007,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6085: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6087, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6089, label %if.then.i.i.i.i.i.i.i6088
 
 if.then.i.i.i.i.i.i.i6088:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6085
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4424)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4424)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6089
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i6089: ; preds = %if.then.i.i.i.i.i.i.i6088, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit.i6085
@@ -45261,7 +45261,7 @@ entry:
   store ptr %1, ptr %mRand.i.i, align 8
   %mInter.i.i = getelementptr inbounds i8, ptr %call, i64 104
   %mInter3.i.i = getelementptr inbounds i8, ptr %args1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mInter.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mInter3.i.i, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %mInter.i.i, ptr noundef nonnull align 8 dereferenceable(304) %mInter3.i.i, i64 88, i1 false)
   %mStencil.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 192
   %mStencil3.i.i.i.i = getelementptr inbounds i8, ptr %args1, i64 104
   tail call void @_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(140) %mStencil.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(140) %mStencil3.i.i.i.i)
@@ -45482,12 +45482,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -45498,7 +45498,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 8
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -45570,7 +45570,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINSC_4GridINSC_4tree4TreeINSG_8RootNodeINSG_12InternalNodeINSJ_INSG_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENSD_22LevelSetRayIntersectorISQ_NSD_16LinearSearchImplISQ_Li0EdEELi2ENSC_4math3RayIdEEEEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 512, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(464) %this, i64 noundef 512, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -45621,7 +45621,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 512, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(464) %this, i64 noundef 512, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -45651,7 +45651,7 @@ if.then.i.i:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i.i.i, i8 0, i64 16, i1 false)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds i8, ptr %2, i64 656
   store ptr %mAcc, ptr %ref.tmp.i.i.i, align 8
-  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
+  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i
@@ -45843,7 +45843,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 432
   store ptr %call.i.i.i, ptr %my_parent6.i.i, align 16
   %7 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i, ptr noundef nonnull align 8 dereferenceable(128) %7)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(464) %call.i.i, ptr noundef nonnull align 8 dereferenceable(128) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %8 = load i64, ptr %my_grainsize.i, align 8
   %9 = load i64, ptr %range, align 8
@@ -46121,7 +46121,7 @@ entry:
   store ptr %4, ptr %mRand.i.i, align 8
   %mInter.i.i = getelementptr inbounds i8, ptr %call, i64 104
   %mInter3.i.i = getelementptr inbounds i8, ptr %args, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mInter.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mInter3.i.i, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %mInter.i.i, ptr noundef nonnull align 8 dereferenceable(304) %mInter3.i.i, i64 88, i1 false)
   %mStencil.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 192
   %mStencil3.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 192
   tail call void @_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(140) %mStencil.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(140) %mStencil3.i.i.i.i)
@@ -46195,7 +46195,7 @@ entry:
   store ptr %2, ptr %mRand.i.i.i, align 8
   %mInter.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %mInter3.i.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mInter.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mInter3.i.i.i, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %mInter.i.i.i, ptr noundef nonnull align 8 dereferenceable(304) %mInter3.i.i.i, i64 88, i1 false)
   %mStencil.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
   %mStencil3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 192
   call void @_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(140) %mStencil.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(140) %mStencil3.i.i.i.i.i)
@@ -46258,7 +46258,7 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forINS1_13block
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 432
   store ptr %call.i4, ptr %my_parent8, align 16
   %13 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %13)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(464) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %13)
   ret void
 }
 
@@ -46369,7 +46369,7 @@ entry:
   %mul.i.i.i = fmul double %startTime, %ref.tmp.sroa.0.0.copyload.i
   %mul4.i.i.i = fmul double %startTime, %ref.tmp.sroa.4.0.copyload.i
   %mul7.i.i.i = fmul double %startTime, %ref.tmp.sroa.7.0.copyload.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ray, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(88) %ray, i64 24, i1 false)
   %0 = load double, ptr %ref.tmp, align 8, !alias.scope !366
   %add.i.i.i = fadd double %mul.i.i.i, %0
   store double %add.i.i.i, ptr %ref.tmp, align 8, !alias.scope !366
@@ -46489,7 +46489,7 @@ entry:
   %mul.i.i.i = fmul double %startTime, %ref.tmp.sroa.0.0.copyload.i
   %mul4.i.i.i = fmul double %startTime, %ref.tmp.sroa.4.0.copyload.i
   %mul7.i.i.i = fmul double %startTime, %ref.tmp.sroa.7.0.copyload.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ray, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(88) %ray, i64 24, i1 false)
   %0 = load double, ptr %ref.tmp, align 8, !alias.scope !372
   %add.i.i.i = fadd double %mul.i.i.i, %0
   store double %add.i.i.i, ptr %ref.tmp, align 8, !alias.scope !372
@@ -46606,7 +46606,7 @@ entry:
   %mul.i.i.i = fmul double %startTime, %ref.tmp.sroa.0.0.copyload.i
   %mul4.i.i.i = fmul double %startTime, %ref.tmp.sroa.4.0.copyload.i
   %mul7.i.i.i = fmul double %startTime, %ref.tmp.sroa.7.0.copyload.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ray, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(88) %ray, i64 24, i1 false)
   %0 = load double, ptr %ref.tmp, align 8, !alias.scope !378
   %add.i.i.i = fadd double %mul.i.i.i, %0
   store double %add.i.i.i, ptr %ref.tmp, align 8, !alias.scope !378
@@ -46795,7 +46795,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -47012,7 +47012,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -47022,7 +47022,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #14
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -47214,7 +47214,7 @@ lpad112:                                          ; preds = %if.else115, %if.the
   br label %ehcleanup189
 
 if.else115:                                       ; preds = %if.then107
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end118 unwind label %lpad112
 
 if.end118:                                        ; preds = %invoke.cont98.thread157, %invoke.cont98.thread155, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
@@ -48147,7 +48147,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -48157,7 +48157,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -48473,7 +48473,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit: ; preds = %_ZNK7openvdb5
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %15)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %15)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit: ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit, %if.then.i.i.i.i.i.i
@@ -48806,7 +48806,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit: ; preds = %_ZNK7openvdb5
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE18probeValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEEbRKNS0_4math5CoordERfRT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %15)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %15)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE18probeValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEEbRKNS0_4math5CoordERfRT_.exit
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE18probeValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEEbRKNS0_4math5CoordERfRT_.exit: ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE4dataEv.exit, %if.then.i.i.i.i.i.i
@@ -49322,7 +49322,7 @@ catch:                                            ; preds = %lpad4, %lpad2
 
 try.cont:                                         ; preds = %catch, %invoke.cont7
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.48, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.48, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #28
           to label %unreachable unwind label %lpad9
@@ -49380,7 +49380,7 @@ catch24:                                          ; preds = %lpad18, %lpad16
 
 try.cont28:                                       ; preds = %catch24, %invoke.cont22
   %exception29 = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception29, ptr noundef nonnull @.str.48, ptr noundef nonnull %_openvdb_throw_msg14) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception29, ptr noundef nonnull @.str.48, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg14) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception29, align 8
   invoke void @__cxa_throw(ptr nonnull %exception29, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #28
           to label %unreachable unwind label %lpad26
@@ -49452,7 +49452,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #28
           to label %unreachable unwind label %lpad6
@@ -49831,7 +49831,7 @@ catch:                                            ; preds = %lpad16, %lpad14
 
 try.cont:                                         ; preds = %catch, %invoke.cont20
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.48, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.48, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #28
           to label %unreachable unwind label %lpad22
@@ -49893,7 +49893,7 @@ catch42:                                          ; preds = %lpad36, %lpad34
 
 try.cont46:                                       ; preds = %catch42, %invoke.cont40
   %exception47 = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception47, ptr noundef nonnull @.str.46, ptr noundef nonnull %_openvdb_throw_msg32) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception47, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception47, align 8
   invoke void @__cxa_throw(ptr nonnull %exception47, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #28
           to label %unreachable unwind label %lpad44
@@ -50090,7 +50090,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i.i.i, i8 0, i64 16, i1 false)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds i8, ptr %0, i64 656
   store ptr %mAcc, ptr %ref.tmp.i.i.i, align 8
-  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
+  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -50819,7 +50819,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #28
           to label %unreachable unwind label %lpad6
@@ -51058,7 +51058,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.46, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #28
           to label %unreachable unwind label %lpad6
@@ -51365,7 +51365,7 @@ _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i: ; preds = %if.else.i.i.i.i.i
   %vtable.i.i = load ptr, ptr %32, align 8, !noalias !444
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 64
   %33 = load ptr, ptr %vfn.i.i, align 8, !noalias !444
-  invoke void %33(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(24) %ray)
+  invoke void %33(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(88) %ray)
           to label %.noexc.i unwind label %lpad.i, !noalias !437
 
 .noexc.i:                                         ; preds = %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i
@@ -51547,7 +51547,7 @@ if.end.i:                                         ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i321 = fmul double %div.i.i.i.i, %t0.1.i.i.i
   %mul4.i.i.i.i = fmul double %div4.i.i.i.i, %t0.1.i.i.i
   %mul7.i.i.i.i = fmul double %div7.i.i.i.i, %t0.1.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i319, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i319, ptr noundef nonnull align 8 dereferenceable(320) %mInter, i64 24, i1 false)
   %64 = load double, ptr %ref.tmp.i319, align 8, !alias.scope !447
   %add.i.i.i.i322 = fadd double %mul.i.i.i.i321, %64
   store double %add.i.i.i.i322, ptr %ref.tmp.i319, align 8, !alias.scope !447
@@ -51799,7 +51799,7 @@ if.then.i:                                        ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i1425 = fmul double %79, %ref.tmp.sroa.0.0.copyload.i.i1420
   %mul4.i.i.i.i1426 = fmul double %79, %ref.tmp.sroa.4.0.copyload.i.i1422
   %mul7.i.i.i.i1427 = fmul double %79, %ref.tmp.sroa.7.0.copyload.i.i1424
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1417, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1417, ptr noundef nonnull align 8 dereferenceable(320) %mInter, i64 24, i1 false)
   %105 = load double, ptr %ref.tmp.i1417, align 8, !alias.scope !456
   %add.i.i.i.i1428 = fadd double %mul.i.i.i.i1425, %105
   store double %add.i.i.i.i1428, ptr %ref.tmp.i1417, align 8, !alias.scope !456
@@ -52144,7 +52144,7 @@ if.then.i268:                                     ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i3298 = fmul double %120, %ref.tmp.sroa.0.0.copyload.i.i3293
   %mul4.i.i.i.i3299 = fmul double %120, %ref.tmp.sroa.4.0.copyload.i.i3295
   %mul7.i.i.i.i3300 = fmul double %120, %ref.tmp.sroa.7.0.copyload.i.i3297
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i3290, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i3290, ptr noundef nonnull align 8 dereferenceable(320) %mInter, i64 24, i1 false)
   %158 = load double, ptr %ref.tmp.i3290, align 8, !alias.scope !462
   %add.i.i.i.i3301 = fadd double %mul.i.i.i.i3298, %158
   store double %add.i.i.i.i3301, ptr %ref.tmp.i3290, align 8, !alias.scope !462
@@ -52827,7 +52827,7 @@ if.then.i1351:                                    ; preds = %if.then.i1351.sink.
   %mul.i.i.i.i5756 = fmul double %241, %ref.tmp.sroa.0.0.copyload.i.i5751
   %mul4.i.i.i.i5757 = fmul double %241, %ref.tmp.sroa.4.0.copyload.i.i5753
   %mul7.i.i.i.i5758 = fmul double %241, %ref.tmp.sroa.7.0.copyload.i.i5755
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5748, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5748, ptr noundef nonnull align 8 dereferenceable(320) %mInter, i64 24, i1 false)
   %249 = load double, ptr %ref.tmp.i5748, align 8, !alias.scope !465
   %add.i.i.i.i5759 = fadd double %mul.i.i.i.i5756, %249
   store double %add.i.i.i.i5759, ptr %ref.tmp.i5748, align 8, !alias.scope !465
@@ -53111,7 +53111,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i9495: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i9497, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i9499, label %if.then.i.i.i.i.i.i.i9498
 
 if.then.i.i.i.i.i.i.i9498:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i9495
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %289)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %289)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i9499
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i9499: ; preds = %if.then.i.i.i.i.i.i.i9498, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i9495
@@ -53300,7 +53300,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i9415: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i9417, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i9419, label %if.then.i.i.i.i.i.i.i9418
 
 if.then.i.i.i.i.i.i.i9418:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i9415
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %313)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %313)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i9419
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i9419: ; preds = %if.then.i.i.i.i.i.i.i9418, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i9415
@@ -53579,7 +53579,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15075: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15077, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15079, label %if.then.i.i.i.i.i.i.i15078
 
 if.then.i.i.i.i.i.i.i15078:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15075
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %346)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %346)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15079
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15079: ; preds = %if.then.i.i.i.i.i.i.i15078, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15075
@@ -53778,7 +53778,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14995: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14997, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14999, label %if.then.i.i.i.i.i.i.i14998
 
 if.then.i.i.i.i.i.i.i14998:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14995
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %373)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %373)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14999
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14999: ; preds = %if.then.i.i.i.i.i.i.i14998, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14995
@@ -53961,7 +53961,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14915: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14917, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14919, label %if.then.i.i.i.i.i.i.i14918
 
 if.then.i.i.i.i.i.i.i14918:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14915
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %397)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %397)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14919
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14919: ; preds = %if.then.i.i.i.i.i.i.i14918, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14915
@@ -54228,7 +54228,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19995: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19997, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19999, label %if.then.i.i.i.i.i.i.i19998
 
 if.then.i.i.i.i.i.i.i19998:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19995
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %430)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %430)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19999
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19999: ; preds = %if.then.i.i.i.i.i.i.i19998, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19995
@@ -54429,7 +54429,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14735: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14737, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14739, label %if.then.i.i.i.i.i.i.i14738
 
 if.then.i.i.i.i.i.i.i14738:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14735
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %458)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %458)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14739
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14739: ; preds = %if.then.i.i.i.i.i.i.i14738, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14735
@@ -54618,7 +54618,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14655: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14657, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14659, label %if.then.i.i.i.i.i.i.i14658
 
 if.then.i.i.i.i.i.i.i14658:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14655
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %482)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %482)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14659
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14659: ; preds = %if.then.i.i.i.i.i.i.i14658, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14655
@@ -54897,7 +54897,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19915: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19917, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19919, label %if.then.i.i.i.i.i.i.i19918
 
 if.then.i.i.i.i.i.i.i19918:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19915
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %515)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %515)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19919
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19919: ; preds = %if.then.i.i.i.i.i.i.i19918, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19915
@@ -55097,7 +55097,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14475: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14477, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14479, label %if.then.i.i.i.i.i.i.i14478
 
 if.then.i.i.i.i.i.i.i14478:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14475
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %543)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %543)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14479
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14479: ; preds = %if.then.i.i.i.i.i.i.i14478, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14475
@@ -55286,7 +55286,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14395: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14397, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14399, label %if.then.i.i.i.i.i.i.i14398
 
 if.then.i.i.i.i.i.i.i14398:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14395
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %567)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %567)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14399
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14399: ; preds = %if.then.i.i.i.i.i.i.i14398, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14395
@@ -55565,7 +55565,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19835: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19837, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19839, label %if.then.i.i.i.i.i.i.i19838
 
 if.then.i.i.i.i.i.i.i19838:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19835
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %600)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %600)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19839
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19839: ; preds = %if.then.i.i.i.i.i.i.i19838, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19835
@@ -55765,7 +55765,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14215: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14217, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14219, label %if.then.i.i.i.i.i.i.i14218
 
 if.then.i.i.i.i.i.i.i14218:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14215
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %628)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %628)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14219
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14219: ; preds = %if.then.i.i.i.i.i.i.i14218, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14215
@@ -55954,7 +55954,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14135: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i14137, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14139, label %if.then.i.i.i.i.i.i.i14138
 
 if.then.i.i.i.i.i.i.i14138:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14135
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %652)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %652)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14139
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i14139: ; preds = %if.then.i.i.i.i.i.i.i14138, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i14135
@@ -56233,7 +56233,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19755: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19757, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19759, label %if.then.i.i.i.i.i.i.i19758
 
 if.then.i.i.i.i.i.i.i19758:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19755
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %685)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %685)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19759
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19759: ; preds = %if.then.i.i.i.i.i.i.i19758, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19755
@@ -56434,7 +56434,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13955: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13957, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13959, label %if.then.i.i.i.i.i.i.i13958
 
 if.then.i.i.i.i.i.i.i13958:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13955
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %713)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %713)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13959
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13959: ; preds = %if.then.i.i.i.i.i.i.i13958, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13955
@@ -56623,7 +56623,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13875: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13877, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13879, label %if.then.i.i.i.i.i.i.i13878
 
 if.then.i.i.i.i.i.i.i13878:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13875
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %737)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %737)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13879
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13879: ; preds = %if.then.i.i.i.i.i.i.i13878, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13875
@@ -56902,7 +56902,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19675: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19677, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19679, label %if.then.i.i.i.i.i.i.i19678
 
 if.then.i.i.i.i.i.i.i19678:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19675
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %770)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %770)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19679
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19679: ; preds = %if.then.i.i.i.i.i.i.i19678, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19675
@@ -57104,7 +57104,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13695: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13697, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13699, label %if.then.i.i.i.i.i.i.i13698
 
 if.then.i.i.i.i.i.i.i13698:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13695
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %798)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %798)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13699
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13699: ; preds = %if.then.i.i.i.i.i.i.i13698, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13695
@@ -57293,7 +57293,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13615: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13617, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13619, label %if.then.i.i.i.i.i.i.i13618
 
 if.then.i.i.i.i.i.i.i13618:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13615
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %822)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %822)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13619
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13619: ; preds = %if.then.i.i.i.i.i.i.i13618, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13615
@@ -57572,7 +57572,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19595: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19597, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19599, label %if.then.i.i.i.i.i.i.i19598
 
 if.then.i.i.i.i.i.i.i19598:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19595
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %855)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %855)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19599
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19599: ; preds = %if.then.i.i.i.i.i.i.i19598, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19595
@@ -57773,7 +57773,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13435: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13437, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13439, label %if.then.i.i.i.i.i.i.i13438
 
 if.then.i.i.i.i.i.i.i13438:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13435
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %883)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %883)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13439
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13439: ; preds = %if.then.i.i.i.i.i.i.i13438, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13435
@@ -57962,7 +57962,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13355: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13357, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13359, label %if.then.i.i.i.i.i.i.i13358
 
 if.then.i.i.i.i.i.i.i13358:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13355
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %907)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %907)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13359
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13359: ; preds = %if.then.i.i.i.i.i.i.i13358, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13355
@@ -58241,7 +58241,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19515: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19517, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19519, label %if.then.i.i.i.i.i.i.i19518
 
 if.then.i.i.i.i.i.i.i19518:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19515
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %940)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %940)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19519
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19519: ; preds = %if.then.i.i.i.i.i.i.i19518, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19515
@@ -58551,7 +58551,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i8606: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i8608, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i8610, label %if.then.i.i.i.i.i.i.i8609
 
 if.then.i.i.i.i.i.i.i8609:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i8606
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1001)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1001)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i8610
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i8610: ; preds = %if.then.i.i.i.i.i.i.i8609, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i8606
@@ -58740,7 +58740,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i8526: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i8528, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i8530, label %if.then.i.i.i.i.i.i.i8529
 
 if.then.i.i.i.i.i.i.i8529:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i8526
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1025)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1025)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i8530
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i8530: ; preds = %if.then.i.i.i.i.i.i.i8529, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i8526
@@ -59019,7 +59019,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13175: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13177, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13179, label %if.then.i.i.i.i.i.i.i13178
 
 if.then.i.i.i.i.i.i.i13178:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13175
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1058)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1058)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13179
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13179: ; preds = %if.then.i.i.i.i.i.i.i13178, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13175
@@ -59218,7 +59218,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13095: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13097, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13099, label %if.then.i.i.i.i.i.i.i13098
 
 if.then.i.i.i.i.i.i.i13098:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13095
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1085)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1085)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13099
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13099: ; preds = %if.then.i.i.i.i.i.i.i13098, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13095
@@ -59401,7 +59401,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13015: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i13017, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13019, label %if.then.i.i.i.i.i.i.i13018
 
 if.then.i.i.i.i.i.i.i13018:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13015
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1109)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1109)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13019
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i13019: ; preds = %if.then.i.i.i.i.i.i.i13018, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i13015
@@ -59668,7 +59668,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19435: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19437, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19439, label %if.then.i.i.i.i.i.i.i19438
 
 if.then.i.i.i.i.i.i.i19438:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19435
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1142)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1142)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19439
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19439: ; preds = %if.then.i.i.i.i.i.i.i19438, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19435
@@ -59869,7 +59869,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12835: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12837, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12839, label %if.then.i.i.i.i.i.i.i12838
 
 if.then.i.i.i.i.i.i.i12838:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12835
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1170)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1170)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12839
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12839: ; preds = %if.then.i.i.i.i.i.i.i12838, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12835
@@ -60058,7 +60058,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12755: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12757, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12759, label %if.then.i.i.i.i.i.i.i12758
 
 if.then.i.i.i.i.i.i.i12758:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12755
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1194)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1194)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12759
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12759: ; preds = %if.then.i.i.i.i.i.i.i12758, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12755
@@ -60337,7 +60337,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19355: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19357, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19359, label %if.then.i.i.i.i.i.i.i19358
 
 if.then.i.i.i.i.i.i.i19358:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19355
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1227)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1227)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19359
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19359: ; preds = %if.then.i.i.i.i.i.i.i19358, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19355
@@ -60537,7 +60537,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12575: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12577, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12579, label %if.then.i.i.i.i.i.i.i12578
 
 if.then.i.i.i.i.i.i.i12578:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12575
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1255)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1255)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12579
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12579: ; preds = %if.then.i.i.i.i.i.i.i12578, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12575
@@ -60726,7 +60726,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12495: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12497, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12499, label %if.then.i.i.i.i.i.i.i12498
 
 if.then.i.i.i.i.i.i.i12498:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12495
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1279)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1279)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12499
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12499: ; preds = %if.then.i.i.i.i.i.i.i12498, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12495
@@ -61005,7 +61005,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19275: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19277, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19279, label %if.then.i.i.i.i.i.i.i19278
 
 if.then.i.i.i.i.i.i.i19278:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19275
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1312)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1312)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19279
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19279: ; preds = %if.then.i.i.i.i.i.i.i19278, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19275
@@ -61205,7 +61205,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12315: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12317, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12319, label %if.then.i.i.i.i.i.i.i12318
 
 if.then.i.i.i.i.i.i.i12318:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12315
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1340)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1340)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12319
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12319: ; preds = %if.then.i.i.i.i.i.i.i12318, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12315
@@ -61394,7 +61394,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12235: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12237, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12239, label %if.then.i.i.i.i.i.i.i12238
 
 if.then.i.i.i.i.i.i.i12238:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12235
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1364)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1364)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12239
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12239: ; preds = %if.then.i.i.i.i.i.i.i12238, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12235
@@ -61673,7 +61673,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19195: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19197, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19199, label %if.then.i.i.i.i.i.i.i19198
 
 if.then.i.i.i.i.i.i.i19198:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19195
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1397)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1397)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19199
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19199: ; preds = %if.then.i.i.i.i.i.i.i19198, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19195
@@ -61874,7 +61874,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12055: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i12057, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12059, label %if.then.i.i.i.i.i.i.i12058
 
 if.then.i.i.i.i.i.i.i12058:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12055
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1425)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1425)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12059
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i12059: ; preds = %if.then.i.i.i.i.i.i.i12058, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i12055
@@ -62063,7 +62063,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11975: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11977, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11979, label %if.then.i.i.i.i.i.i.i11978
 
 if.then.i.i.i.i.i.i.i11978:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11975
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1449)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1449)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11979
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11979: ; preds = %if.then.i.i.i.i.i.i.i11978, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11975
@@ -62342,7 +62342,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19115: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19117, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19119, label %if.then.i.i.i.i.i.i.i19118
 
 if.then.i.i.i.i.i.i.i19118:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19115
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1482)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1482)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19119
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19119: ; preds = %if.then.i.i.i.i.i.i.i19118, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19115
@@ -62544,7 +62544,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11795: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11797, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11799, label %if.then.i.i.i.i.i.i.i11798
 
 if.then.i.i.i.i.i.i.i11798:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11795
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1510)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1510)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11799
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11799: ; preds = %if.then.i.i.i.i.i.i.i11798, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11795
@@ -62733,7 +62733,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11715: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11717, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11719, label %if.then.i.i.i.i.i.i.i11718
 
 if.then.i.i.i.i.i.i.i11718:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11715
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1534)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1534)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11719
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11719: ; preds = %if.then.i.i.i.i.i.i.i11718, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11715
@@ -63012,7 +63012,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19035: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i19037, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19039, label %if.then.i.i.i.i.i.i.i19038
 
 if.then.i.i.i.i.i.i.i19038:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19035
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1567)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1567)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19039
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i19039: ; preds = %if.then.i.i.i.i.i.i.i19038, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i19035
@@ -63213,7 +63213,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11535: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11537, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11539, label %if.then.i.i.i.i.i.i.i11538
 
 if.then.i.i.i.i.i.i.i11538:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11535
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1595)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1595)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11539
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11539: ; preds = %if.then.i.i.i.i.i.i.i11538, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11535
@@ -63402,7 +63402,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11455: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11457, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11459, label %if.then.i.i.i.i.i.i.i11458
 
 if.then.i.i.i.i.i.i.i11458:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11455
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1619)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1619)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11459
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11459: ; preds = %if.then.i.i.i.i.i.i.i11458, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11455
@@ -63681,7 +63681,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18955: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18957, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18959, label %if.then.i.i.i.i.i.i.i18958
 
 if.then.i.i.i.i.i.i.i18958:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18955
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %1652)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %1652)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18959
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18959: ; preds = %if.then.i.i.i.i.i.i.i18958, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18955
@@ -66321,7 +66321,7 @@ _ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i183: ; preds = %if.else.i.i.i.
   %vtable.i.i184 = load ptr, ptr %2056, align 8, !noalias !492
   %vfn.i.i185 = getelementptr inbounds i8, ptr %vtable.i.i184, i64 64
   %2061 = load ptr, ptr %vfn.i.i185, align 8, !noalias !492
-  invoke void %2061(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i171, ptr noundef nonnull align 8 dereferenceable(8) %2056, ptr noundef nonnull align 8 dereferenceable(24) %ray)
+  invoke void %2061(ptr nonnull sret(%"class.openvdb::v11_0::math::Vec3") align 8 %eye.i.i171, ptr noundef nonnull align 8 dereferenceable(8) %2056, ptr noundef nonnull align 8 dereferenceable(88) %ray)
           to label %.noexc.i187 unwind label %lpad.i186, !noalias !486
 
 .noexc.i187:                                      ; preds = %_ZNK7openvdb5v11_04math9Transform7baseMapEv.exit.i183
@@ -66563,7 +66563,7 @@ if.end.i52:                                       ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i613 = fmul double %div.i.i.i.i196, %t0.1.i.i.i42
   %mul4.i.i.i.i614 = fmul double %div4.i.i.i.i197, %t0.1.i.i.i42
   %mul7.i.i.i.i615 = fmul double %div7.i.i.i.i198, %t0.1.i.i.i42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i605, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i605, ptr noundef nonnull align 8 dereferenceable(320) %mInter, i64 24, i1 false)
   %2101 = load double, ptr %ref.tmp.i605, align 8, !alias.scope !495
   %add.i.i.i.i616 = fadd double %mul.i.i.i.i613, %2101
   store double %add.i.i.i.i616, ptr %ref.tmp.i605, align 8, !alias.scope !495
@@ -66815,7 +66815,7 @@ if.then.i144:                                     ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i2436 = fmul double %2116, %ref.tmp.sroa.0.0.copyload.i.i2431
   %mul4.i.i.i.i2437 = fmul double %2116, %ref.tmp.sroa.4.0.copyload.i.i2433
   %mul7.i.i.i.i2438 = fmul double %2116, %ref.tmp.sroa.7.0.copyload.i.i2435
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i2428, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i2428, ptr noundef nonnull align 8 dereferenceable(320) %mInter, i64 24, i1 false)
   %2142 = load double, ptr %ref.tmp.i2428, align 8, !alias.scope !503
   %add.i.i.i.i2439 = fadd double %mul.i.i.i.i2436, %2142
   store double %add.i.i.i.i2439, ptr %ref.tmp.i2428, align 8, !alias.scope !503
@@ -67160,7 +67160,7 @@ if.then.i498:                                     ; preds = %_ZNK7openvdb5v11_04
   %mul.i.i.i.i5492 = fmul double %2157, %ref.tmp.sroa.0.0.copyload.i.i5487
   %mul4.i.i.i.i5493 = fmul double %2157, %ref.tmp.sroa.4.0.copyload.i.i5489
   %mul7.i.i.i.i5494 = fmul double %2157, %ref.tmp.sroa.7.0.copyload.i.i5491
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5484, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i5484, ptr noundef nonnull align 8 dereferenceable(320) %mInter, i64 24, i1 false)
   %2195 = load double, ptr %ref.tmp.i5484, align 8, !alias.scope !509
   %add.i.i.i.i5495 = fadd double %mul.i.i.i.i5492, %2195
   store double %add.i.i.i.i5495, ptr %ref.tmp.i5484, align 8, !alias.scope !509
@@ -67843,7 +67843,7 @@ if.then.i2339:                                    ; preds = %if.then.i2339.sink.
   %mul.i.i.i.i6729 = fmul double %2278, %ref.tmp.sroa.0.0.copyload.i.i6724
   %mul4.i.i.i.i6730 = fmul double %2278, %ref.tmp.sroa.4.0.copyload.i.i6726
   %mul7.i.i.i.i6731 = fmul double %2278, %ref.tmp.sroa.7.0.copyload.i.i6728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i6721, ptr noundef nonnull align 8 dereferenceable(24) %mInter, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i6721, ptr noundef nonnull align 8 dereferenceable(320) %mInter, i64 24, i1 false)
   %2286 = load double, ptr %ref.tmp.i6721, align 8, !alias.scope !512
   %add.i.i.i.i6732 = fadd double %mul.i.i.i.i6729, %2286
   store double %add.i.i.i.i6732, ptr %ref.tmp.i6721, align 8, !alias.scope !512
@@ -68127,7 +68127,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11275: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11277, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11279, label %if.then.i.i.i.i.i.i.i11278
 
 if.then.i.i.i.i.i.i.i11278:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11275
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2326)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2326)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11279
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11279: ; preds = %if.then.i.i.i.i.i.i.i11278, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11275
@@ -68316,7 +68316,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11195: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i11197, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11199, label %if.then.i.i.i.i.i.i.i11198
 
 if.then.i.i.i.i.i.i.i11198:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11195
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2350)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2350)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11199
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i11199: ; preds = %if.then.i.i.i.i.i.i.i11198, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i11195
@@ -68595,7 +68595,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18875: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18877, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18879, label %if.then.i.i.i.i.i.i.i18878
 
 if.then.i.i.i.i.i.i.i18878:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18875
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2383)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2383)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18879
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18879: ; preds = %if.then.i.i.i.i.i.i.i18878, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18875
@@ -68794,7 +68794,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18795: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18797, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18799, label %if.then.i.i.i.i.i.i.i18798
 
 if.then.i.i.i.i.i.i.i18798:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18795
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2410)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2410)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18799
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18799: ; preds = %if.then.i.i.i.i.i.i.i18798, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18795
@@ -68977,7 +68977,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18715: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18717, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18719, label %if.then.i.i.i.i.i.i.i18718
 
 if.then.i.i.i.i.i.i.i18718:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18715
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2434)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2434)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18719
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18719: ; preds = %if.then.i.i.i.i.i.i.i18718, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18715
@@ -69244,7 +69244,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i21115: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i21117, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i21119, label %if.then.i.i.i.i.i.i.i21118
 
 if.then.i.i.i.i.i.i.i21118:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i21115
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2467)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2467)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i21119
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i21119: ; preds = %if.then.i.i.i.i.i.i.i21118, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i21115
@@ -69445,7 +69445,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18535: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18537, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18539, label %if.then.i.i.i.i.i.i.i18538
 
 if.then.i.i.i.i.i.i.i18538:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18535
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2495)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2495)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18539
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18539: ; preds = %if.then.i.i.i.i.i.i.i18538, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18535
@@ -69634,7 +69634,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18455: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18457, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18459, label %if.then.i.i.i.i.i.i.i18458
 
 if.then.i.i.i.i.i.i.i18458:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18455
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2519)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2519)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18459
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18459: ; preds = %if.then.i.i.i.i.i.i.i18458, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18455
@@ -69913,7 +69913,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i21035: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i21037, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i21039, label %if.then.i.i.i.i.i.i.i21038
 
 if.then.i.i.i.i.i.i.i21038:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i21035
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2552)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2552)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i21039
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i21039: ; preds = %if.then.i.i.i.i.i.i.i21038, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i21035
@@ -70113,7 +70113,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18275: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18277, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18279, label %if.then.i.i.i.i.i.i.i18278
 
 if.then.i.i.i.i.i.i.i18278:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18275
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2580)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2580)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18279
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18279: ; preds = %if.then.i.i.i.i.i.i.i18278, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18275
@@ -70302,7 +70302,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18195: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18197, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18199, label %if.then.i.i.i.i.i.i.i18198
 
 if.then.i.i.i.i.i.i.i18198:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18195
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2604)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2604)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18199
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18199: ; preds = %if.then.i.i.i.i.i.i.i18198, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18195
@@ -70581,7 +70581,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20955: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20957, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20959, label %if.then.i.i.i.i.i.i.i20958
 
 if.then.i.i.i.i.i.i.i20958:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20955
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2637)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2637)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20959
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20959: ; preds = %if.then.i.i.i.i.i.i.i20958, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20955
@@ -70781,7 +70781,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18015: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i18017, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18019, label %if.then.i.i.i.i.i.i.i18018
 
 if.then.i.i.i.i.i.i.i18018:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18015
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2665)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2665)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18019
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i18019: ; preds = %if.then.i.i.i.i.i.i.i18018, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i18015
@@ -70970,7 +70970,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17935: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17937, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17939, label %if.then.i.i.i.i.i.i.i17938
 
 if.then.i.i.i.i.i.i.i17938:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17935
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2689)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2689)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17939
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17939: ; preds = %if.then.i.i.i.i.i.i.i17938, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17935
@@ -71249,7 +71249,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20875: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20877, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20879, label %if.then.i.i.i.i.i.i.i20878
 
 if.then.i.i.i.i.i.i.i20878:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20875
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2722)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2722)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20879
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20879: ; preds = %if.then.i.i.i.i.i.i.i20878, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20875
@@ -71450,7 +71450,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17755: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17757, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17759, label %if.then.i.i.i.i.i.i.i17758
 
 if.then.i.i.i.i.i.i.i17758:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17755
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2750)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2750)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17759
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17759: ; preds = %if.then.i.i.i.i.i.i.i17758, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17755
@@ -71639,7 +71639,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17675: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17677, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17679, label %if.then.i.i.i.i.i.i.i17678
 
 if.then.i.i.i.i.i.i.i17678:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17675
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2774)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2774)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17679
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17679: ; preds = %if.then.i.i.i.i.i.i.i17678, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17675
@@ -71918,7 +71918,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20795: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20797, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20799, label %if.then.i.i.i.i.i.i.i20798
 
 if.then.i.i.i.i.i.i.i20798:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20795
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2807)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2807)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20799
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20799: ; preds = %if.then.i.i.i.i.i.i.i20798, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20795
@@ -72120,7 +72120,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17495: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17497, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17499, label %if.then.i.i.i.i.i.i.i17498
 
 if.then.i.i.i.i.i.i.i17498:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17495
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2835)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2835)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17499
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17499: ; preds = %if.then.i.i.i.i.i.i.i17498, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17495
@@ -72309,7 +72309,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17415: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17417, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17419, label %if.then.i.i.i.i.i.i.i17418
 
 if.then.i.i.i.i.i.i.i17418:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17415
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2859)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2859)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17419
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17419: ; preds = %if.then.i.i.i.i.i.i.i17418, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17415
@@ -72588,7 +72588,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20715: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20717, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20719, label %if.then.i.i.i.i.i.i.i20718
 
 if.then.i.i.i.i.i.i.i20718:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20715
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2892)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2892)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20719
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20719: ; preds = %if.then.i.i.i.i.i.i.i20718, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20715
@@ -72789,7 +72789,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17235: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17237, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17239, label %if.then.i.i.i.i.i.i.i17238
 
 if.then.i.i.i.i.i.i.i17238:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17235
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2920)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2920)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17239
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17239: ; preds = %if.then.i.i.i.i.i.i.i17238, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17235
@@ -72978,7 +72978,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17155: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i17157, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17159, label %if.then.i.i.i.i.i.i.i17158
 
 if.then.i.i.i.i.i.i.i17158:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17155
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2944)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2944)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17159
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i17159: ; preds = %if.then.i.i.i.i.i.i.i17158, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i17155
@@ -73257,7 +73257,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20635: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20637, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20639, label %if.then.i.i.i.i.i.i.i20638
 
 if.then.i.i.i.i.i.i.i20638:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20635
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %2977)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %2977)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20639
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20639: ; preds = %if.then.i.i.i.i.i.i.i20638, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20635
@@ -73567,7 +73567,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i10385: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i10387, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i10389, label %if.then.i.i.i.i.i.i.i10388
 
 if.then.i.i.i.i.i.i.i10388:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i10385
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3038)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3038)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i10389
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i10389: ; preds = %if.then.i.i.i.i.i.i.i10388, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i10385
@@ -73756,7 +73756,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i10305: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i10307, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i10309, label %if.then.i.i.i.i.i.i.i10308
 
 if.then.i.i.i.i.i.i.i10308:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i10305
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3062)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3062)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i10309
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i10309: ; preds = %if.then.i.i.i.i.i.i.i10308, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i10305
@@ -74035,7 +74035,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16975: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16977, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16979, label %if.then.i.i.i.i.i.i.i16978
 
 if.then.i.i.i.i.i.i.i16978:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16975
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3095)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3095)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16979
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16979: ; preds = %if.then.i.i.i.i.i.i.i16978, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16975
@@ -74234,7 +74234,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16895: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16897, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16899, label %if.then.i.i.i.i.i.i.i16898
 
 if.then.i.i.i.i.i.i.i16898:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16895
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3122)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3122)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16899
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16899: ; preds = %if.then.i.i.i.i.i.i.i16898, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16895
@@ -74417,7 +74417,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16815: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16817, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16819, label %if.then.i.i.i.i.i.i.i16818
 
 if.then.i.i.i.i.i.i.i16818:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16815
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3146)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3146)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16819
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16819: ; preds = %if.then.i.i.i.i.i.i.i16818, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16815
@@ -74684,7 +74684,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20555: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20557, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20559, label %if.then.i.i.i.i.i.i.i20558
 
 if.then.i.i.i.i.i.i.i20558:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20555
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3179)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3179)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20559
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20559: ; preds = %if.then.i.i.i.i.i.i.i20558, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20555
@@ -74885,7 +74885,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16635: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16637, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16639, label %if.then.i.i.i.i.i.i.i16638
 
 if.then.i.i.i.i.i.i.i16638:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16635
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3207)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3207)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16639
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16639: ; preds = %if.then.i.i.i.i.i.i.i16638, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16635
@@ -75074,7 +75074,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16555: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16557, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16559, label %if.then.i.i.i.i.i.i.i16558
 
 if.then.i.i.i.i.i.i.i16558:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16555
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3231)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3231)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16559
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16559: ; preds = %if.then.i.i.i.i.i.i.i16558, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16555
@@ -75353,7 +75353,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20475: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20477, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20479, label %if.then.i.i.i.i.i.i.i20478
 
 if.then.i.i.i.i.i.i.i20478:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20475
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3264)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3264)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20479
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20479: ; preds = %if.then.i.i.i.i.i.i.i20478, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20475
@@ -75553,7 +75553,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16375: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16377, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16379, label %if.then.i.i.i.i.i.i.i16378
 
 if.then.i.i.i.i.i.i.i16378:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16375
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3292)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3292)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16379
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16379: ; preds = %if.then.i.i.i.i.i.i.i16378, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16375
@@ -75742,7 +75742,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16295: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16297, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16299, label %if.then.i.i.i.i.i.i.i16298
 
 if.then.i.i.i.i.i.i.i16298:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16295
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3316)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3316)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16299
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16299: ; preds = %if.then.i.i.i.i.i.i.i16298, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16295
@@ -76021,7 +76021,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20395: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20397, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20399, label %if.then.i.i.i.i.i.i.i20398
 
 if.then.i.i.i.i.i.i.i20398:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20395
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3349)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3349)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20399
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20399: ; preds = %if.then.i.i.i.i.i.i.i20398, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20395
@@ -76221,7 +76221,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16115: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16117, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16119, label %if.then.i.i.i.i.i.i.i16118
 
 if.then.i.i.i.i.i.i.i16118:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16115
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3377)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3377)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16119
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16119: ; preds = %if.then.i.i.i.i.i.i.i16118, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16115
@@ -76410,7 +76410,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16035: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i16037, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16039, label %if.then.i.i.i.i.i.i.i16038
 
 if.then.i.i.i.i.i.i.i16038:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16035
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3401)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3401)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16039
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i16039: ; preds = %if.then.i.i.i.i.i.i.i16038, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i16035
@@ -76689,7 +76689,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20315: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20317, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20319, label %if.then.i.i.i.i.i.i.i20318
 
 if.then.i.i.i.i.i.i.i20318:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20315
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3434)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3434)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20319
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20319: ; preds = %if.then.i.i.i.i.i.i.i20318, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20315
@@ -76890,7 +76890,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15855: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15857, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15859, label %if.then.i.i.i.i.i.i.i15858
 
 if.then.i.i.i.i.i.i.i15858:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15855
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3462)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3462)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15859
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15859: ; preds = %if.then.i.i.i.i.i.i.i15858, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15855
@@ -77079,7 +77079,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15775: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15777, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15779, label %if.then.i.i.i.i.i.i.i15778
 
 if.then.i.i.i.i.i.i.i15778:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15775
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3486)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3486)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15779
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15779: ; preds = %if.then.i.i.i.i.i.i.i15778, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15775
@@ -77358,7 +77358,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20235: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20237, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20239, label %if.then.i.i.i.i.i.i.i20238
 
 if.then.i.i.i.i.i.i.i20238:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20235
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3519)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3519)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20239
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20239: ; preds = %if.then.i.i.i.i.i.i.i20238, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20235
@@ -77560,7 +77560,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15595: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15597, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15599, label %if.then.i.i.i.i.i.i.i15598
 
 if.then.i.i.i.i.i.i.i15598:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15595
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3547)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3547)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15599
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15599: ; preds = %if.then.i.i.i.i.i.i.i15598, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15595
@@ -77749,7 +77749,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15515: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15517, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15519, label %if.then.i.i.i.i.i.i.i15518
 
 if.then.i.i.i.i.i.i.i15518:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15515
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3571)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3571)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15519
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15519: ; preds = %if.then.i.i.i.i.i.i.i15518, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15515
@@ -78028,7 +78028,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20155: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20157, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20159, label %if.then.i.i.i.i.i.i.i20158
 
 if.then.i.i.i.i.i.i.i20158:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20155
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3604)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3604)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20159
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20159: ; preds = %if.then.i.i.i.i.i.i.i20158, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20155
@@ -78229,7 +78229,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15335: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15337, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15339, label %if.then.i.i.i.i.i.i.i15338
 
 if.then.i.i.i.i.i.i.i15338:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15335
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3632)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3632)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15339
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15339: ; preds = %if.then.i.i.i.i.i.i.i15338, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15335
@@ -78418,7 +78418,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15255: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i15257, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15259, label %if.then.i.i.i.i.i.i.i15258
 
 if.then.i.i.i.i.i.i.i15258:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15255
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3656)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3656)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15259
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i15259: ; preds = %if.then.i.i.i.i.i.i.i15258, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i15255
@@ -78697,7 +78697,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20075: ; preds = %_ZN3tb
   br i1 %tobool.i.not.i.i.i.i.i.i.i20077, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20079, label %if.then.i.i.i.i.i.i.i20078
 
 if.then.i.i.i.i.i.i.i20078:                       ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20075
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3689)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3689)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20079
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i20079: ; preds = %if.then.i.i.i.i.i.i.i20078, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i20075
@@ -79170,7 +79170,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i2281: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i2283, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i2285, label %if.then.i.i.i.i.i.i.i2284
 
 if.then.i.i.i.i.i.i.i2284:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i2281
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3773)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3773)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i2285
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i2285: ; preds = %if.then.i.i.i.i.i.i.i2284, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i2281
@@ -79359,7 +79359,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i: ; preds = %_ZN3tbb6det
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i, label %if.then.i.i.i.i.i.i.i2230
 
 if.then.i.i.i.i.i.i.i2230:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3797)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3797)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i2230, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i
@@ -79638,7 +79638,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i5297: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i5299, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i5301, label %if.then.i.i.i.i.i.i.i5300
 
 if.then.i.i.i.i.i.i.i5300:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i5297
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3830)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3830)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i5301
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i5301: ; preds = %if.then.i.i.i.i.i.i.i5300, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i5297
@@ -79837,7 +79837,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i5217: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i5219, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i5221, label %if.then.i.i.i.i.i.i.i5220
 
 if.then.i.i.i.i.i.i.i5220:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i5217
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3857)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3857)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i5221
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i5221: ; preds = %if.then.i.i.i.i.i.i.i5220, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i5217
@@ -80020,7 +80020,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i5137: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i5139, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i5141, label %if.then.i.i.i.i.i.i.i5140
 
 if.then.i.i.i.i.i.i.i5140:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i5137
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3881)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3881)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i5141
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i5141: ; preds = %if.then.i.i.i.i.i.i.i5140, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i5137
@@ -80287,7 +80287,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6539: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6541, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6543, label %if.then.i.i.i.i.i.i.i6542
 
 if.then.i.i.i.i.i.i.i6542:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6539
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3914)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3914)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6543
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6543: ; preds = %if.then.i.i.i.i.i.i.i6542, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6539
@@ -80488,7 +80488,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4957: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4959, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4961, label %if.then.i.i.i.i.i.i.i4960
 
 if.then.i.i.i.i.i.i.i4960:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4957
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3942)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3942)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4961
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4961: ; preds = %if.then.i.i.i.i.i.i.i4960, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4957
@@ -80677,7 +80677,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4877: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4879, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4881, label %if.then.i.i.i.i.i.i.i4880
 
 if.then.i.i.i.i.i.i.i4880:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4877
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3966)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3966)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4881
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4881: ; preds = %if.then.i.i.i.i.i.i.i4880, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4877
@@ -80956,7 +80956,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6459: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6461, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6463, label %if.then.i.i.i.i.i.i.i6462
 
 if.then.i.i.i.i.i.i.i6462:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6459
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %3999)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %3999)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6463
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6463: ; preds = %if.then.i.i.i.i.i.i.i6462, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6459
@@ -81156,7 +81156,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4697: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4699, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4701, label %if.then.i.i.i.i.i.i.i4700
 
 if.then.i.i.i.i.i.i.i4700:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4697
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4027)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4027)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4701
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4701: ; preds = %if.then.i.i.i.i.i.i.i4700, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4697
@@ -81345,7 +81345,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4617: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4619, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4621, label %if.then.i.i.i.i.i.i.i4620
 
 if.then.i.i.i.i.i.i.i4620:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4617
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4051)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4051)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4621
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4621: ; preds = %if.then.i.i.i.i.i.i.i4620, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4617
@@ -81624,7 +81624,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6379: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6381, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6383, label %if.then.i.i.i.i.i.i.i6382
 
 if.then.i.i.i.i.i.i.i6382:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6379
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4084)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4084)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6383
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6383: ; preds = %if.then.i.i.i.i.i.i.i6382, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6379
@@ -81824,7 +81824,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4437: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4439, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4441, label %if.then.i.i.i.i.i.i.i4440
 
 if.then.i.i.i.i.i.i.i4440:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4437
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4112)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4112)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4441
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4441: ; preds = %if.then.i.i.i.i.i.i.i4440, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4437
@@ -82013,7 +82013,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4357: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4359, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4361, label %if.then.i.i.i.i.i.i.i4360
 
 if.then.i.i.i.i.i.i.i4360:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4357
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4136)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4136)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4361
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4361: ; preds = %if.then.i.i.i.i.i.i.i4360, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4357
@@ -82292,7 +82292,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6299: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6301, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6303, label %if.then.i.i.i.i.i.i.i6302
 
 if.then.i.i.i.i.i.i.i6302:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6299
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4169)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4169)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6303
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6303: ; preds = %if.then.i.i.i.i.i.i.i6302, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6299
@@ -82493,7 +82493,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4177: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4179, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4181, label %if.then.i.i.i.i.i.i.i4180
 
 if.then.i.i.i.i.i.i.i4180:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4177
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4197)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4197)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4181
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4181: ; preds = %if.then.i.i.i.i.i.i.i4180, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4177
@@ -82682,7 +82682,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4097: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i4099, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4101, label %if.then.i.i.i.i.i.i.i4100
 
 if.then.i.i.i.i.i.i.i4100:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4097
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4221)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4221)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4101
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i4101: ; preds = %if.then.i.i.i.i.i.i.i4100, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i4097
@@ -82961,7 +82961,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6219: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6221, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6223, label %if.then.i.i.i.i.i.i.i6222
 
 if.then.i.i.i.i.i.i.i6222:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6219
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4254)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4254)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6223
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6223: ; preds = %if.then.i.i.i.i.i.i.i6222, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6219
@@ -83163,7 +83163,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3917: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i3919, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3921, label %if.then.i.i.i.i.i.i.i3920
 
 if.then.i.i.i.i.i.i.i3920:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3917
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4282)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4282)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3921
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3921: ; preds = %if.then.i.i.i.i.i.i.i3920, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3917
@@ -83352,7 +83352,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3837: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i3839, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3841, label %if.then.i.i.i.i.i.i.i3840
 
 if.then.i.i.i.i.i.i.i3840:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3837
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4306)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4306)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3841
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3841: ; preds = %if.then.i.i.i.i.i.i.i3840, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3837
@@ -83631,7 +83631,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6139: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6141, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6143, label %if.then.i.i.i.i.i.i.i6142
 
 if.then.i.i.i.i.i.i.i6142:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6139
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4339)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4339)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6143
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6143: ; preds = %if.then.i.i.i.i.i.i.i6142, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6139
@@ -83832,7 +83832,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3657: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i3659, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3661, label %if.then.i.i.i.i.i.i.i3660
 
 if.then.i.i.i.i.i.i.i3660:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3657
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4367)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4367)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3661
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3661: ; preds = %if.then.i.i.i.i.i.i.i3660, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3657
@@ -84021,7 +84021,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3578: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i3580, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3582, label %if.then.i.i.i.i.i.i.i3581
 
 if.then.i.i.i.i.i.i.i3581:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3578
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4391)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4391)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3582
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i3582: ; preds = %if.then.i.i.i.i.i.i.i3581, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i3578
@@ -84300,7 +84300,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6059: ; preds = %_ZN3tbb
   br i1 %tobool.i.not.i.i.i.i.i.i.i6061, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6063, label %if.then.i.i.i.i.i.i.i6062
 
 if.then.i.i.i.i.i.i.i6062:                        ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6059
-  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %4424)
+  call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %4424)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6063
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i6063: ; preds = %if.then.i.i.i.i.i.i.i6062, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit.i6059
@@ -84511,7 +84511,7 @@ entry:
   store ptr %1, ptr %mRand.i.i, align 8
   %mInter.i.i = getelementptr inbounds i8, ptr %call, i64 104
   %mInter3.i.i = getelementptr inbounds i8, ptr %args1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mInter.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mInter3.i.i, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %mInter.i.i, ptr noundef nonnull align 8 dereferenceable(320) %mInter3.i.i, i64 88, i1 false)
   %mStencil.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 192
   %mStencil3.i.i.i.i = getelementptr inbounds i8, ptr %args1, i64 104
   tail call void @_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(140) %mStencil.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(140) %mStencil3.i.i.i.i)
@@ -84730,12 +84730,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -84746,7 +84746,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 8
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -84818,7 +84818,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINSC_4GridINSC_4tree4TreeINSG_8RootNodeINSG_12InternalNodeINSJ_INSG_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENSD_22LevelSetRayIntersectorISQ_NSD_16LinearSearchImplISQ_Li0EdEELi2ENSC_4math3RayIdEEEEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 512, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(480) %this, i64 noundef 512, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -84869,7 +84869,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools17LevelSetRayTracerINS6_4GridINS6_4tree4TreeINSA_8RootNodeINSA_12InternalNodeINSD_INSA_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS7_22LevelSetRayIntersectorISK_NS7_16LinearSearchImplISK_Li0EdEELi2ENS6_4math3RayIdEEEEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 512, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(480) %this, i64 noundef 512, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -84899,7 +84899,7 @@ if.then.i.i:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_node.i.i.i.i.i, i8 0, i64 16, i1 false)
   %mConstAccessorRegistry.i.i.i = getelementptr inbounds i8, ptr %2, i64 656
   store ptr %mAcc, ptr %ref.tmp.i.i.i, align 8
-  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
+  %call.i3.i.i.i = invoke noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE6lookupILb1ESI_PFPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERSO_PKbEEEbRKT0_S13_PNSR_14const_accessorEbT1_SU_(ptr noundef nonnull align 8 dereferenceable(570) %mConstAccessorRegistry.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %a.i.i.i, i1 noundef zeroext true, ptr noundef nonnull @_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE31allocate_node_default_constructISI_EEPNSR_4nodeERNSM_INS1_13hash_map_baseISQ_NSJ_13spin_rw_mutexEE6bucketEEERKT_PKb, ptr noundef null)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i
@@ -85083,7 +85083,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 448
   store ptr %call.i.i.i, ptr %my_parent6.i.i, align 64
   %7 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i, ptr noundef nonnull align 8 dereferenceable(128) %7)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(480) %call.i.i, ptr noundef nonnull align 8 dereferenceable(128) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %8 = load i64, ptr %my_grainsize.i, align 8
   %9 = load i64, ptr %range, align 8
@@ -85359,7 +85359,7 @@ entry:
   store ptr %4, ptr %mRand.i.i, align 8
   %mInter.i.i = getelementptr inbounds i8, ptr %call, i64 104
   %mInter3.i.i = getelementptr inbounds i8, ptr %args, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mInter.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mInter3.i.i, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %mInter.i.i, ptr noundef nonnull align 8 dereferenceable(320) %mInter3.i.i, i64 88, i1 false)
   %mStencil.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 192
   %mStencil3.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 192
   tail call void @_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(140) %mStencil.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(140) %mStencil3.i.i.i.i)
@@ -85429,7 +85429,7 @@ entry:
   store ptr %2, ptr %mRand.i.i.i, align 8
   %mInter.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %mInter3.i.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mInter.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mInter3.i.i.i, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %mInter.i.i.i, ptr noundef nonnull align 8 dereferenceable(320) %mInter3.i.i.i, i64 88, i1 false)
   %mStencil.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
   %mStencil3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 192
   call void @_ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELb1EEESF_Lb1EEC2ERKSH_(ptr noundef nonnull align 8 dereferenceable(140) %mStencil.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(140) %mStencil3.i.i.i.i.i)
@@ -85492,7 +85492,7 @@ _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forINS1_13block
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 448
   store ptr %call.i4, ptr %my_parent8, align 64
   %13 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %13)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(480) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %13)
   ret void
 }
 
@@ -85585,7 +85585,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -85794,7 +85794,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -85804,7 +85804,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #14
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -85996,7 +85996,7 @@ lpad112:                                          ; preds = %if.else115, %if.the
   br label %ehcleanup187
 
 if.else115:                                       ; preds = %if.then107
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end118 unwind label %lpad112
 
 if.end118:                                        ; preds = %invoke.cont98.thread157, %invoke.cont98.thread155, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
@@ -86806,7 +86806,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit: ; preds = %_ZNK7openvdb5
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %15)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %15)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit: ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit, %if.then.i.i.i.i.i.i
@@ -87136,7 +87136,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit: ; preds = %_ZNK7openvdb5
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE18probeValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEEbRKNS0_4math5CoordERdRT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %15)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %15)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE18probeValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEEbRKNS0_4math5CoordERdRT_.exit
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE18probeValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEEbRKNS0_4math5CoordERdRT_.exit: ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE4dataEv.exit, %if.then.i.i.i.i.i.i
@@ -87710,7 +87710,7 @@ catch:                                            ; preds = %lpad3, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont7
   %exception = call ptr @__cxa_allocate_exception(i64 40) #14
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.11, ptr noundef nonnull %_openvdb_throw_msg) #14
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_015ArithmeticErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_015ArithmeticErrorE, ptr nonnull @_ZN7openvdb5v11_015ArithmeticErrorD2Ev) #28
           to label %unreachable unwind label %lpad9
@@ -87858,12 +87858,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -87874,7 +87874,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 8
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -87946,7 +87946,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINS7_20VolumeRayIntersectorINS6_4GridINS6_4tree4TreeINSB_8RootNodeINSB_12InternalNodeINSE_INSB_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS6_4math3RayIdEEEENS7_10BoxSamplerEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINSD_20VolumeRayIntersectorINSC_4GridINSC_4tree4TreeINSH_8RootNodeINSH_12InternalNodeINSK_INSH_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENSC_4math3RayIdEEEENSD_10BoxSamplerEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(368) %this, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -87997,7 +87997,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINS7_20VolumeRayIntersectorINS6_4GridINS6_4tree4TreeINSB_8RootNodeINSB_12InternalNodeINSE_INSB_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS6_4math3RayIdEEEENS7_10BoxSamplerEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(368) %this, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -88095,7 +88095,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 336
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 16
   %14 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %14)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(368) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %15 = load i64, ptr %my_grainsize.i, align 8
   %16 = load i64, ptr %range, align 8
@@ -88315,7 +88315,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %my_parent8.i.i = getelementptr inbounds i8, ptr %call.i.i.i18, i64 336
   store ptr %call.i4.i.i19, ptr %my_parent8.i.i, align 16
   %27 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i18, ptr noundef nonnull align 8 dereferenceable(128) %27)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(368) %call.i.i.i18, ptr noundef nonnull align 8 dereferenceable(128) %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %28 = load i8, ptr %my_size.i, align 2
   %dec.i = add i8 %28, -1
@@ -90514,12 +90514,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -90530,7 +90530,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 8
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -90602,7 +90602,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINS7_20VolumeRayIntersectorINS6_4GridINS6_4tree4TreeINSB_8RootNodeINSB_12InternalNodeINSE_INSB_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS6_4math3RayIdEEEENS7_10BoxSamplerEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINSD_20VolumeRayIntersectorINSC_4GridINSC_4tree4TreeINSH_8RootNodeINSH_12InternalNodeINSK_INSH_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENSC_4math3RayIdEEEENSD_10BoxSamplerEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(368) %this, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -90653,7 +90653,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_05tools12VolumeRenderINS7_20VolumeRayIntersectorINS6_4GridINS6_4tree4TreeINSB_8RootNodeINSB_12InternalNodeINSE_INSB_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS6_4math3RayIdEEEENS7_10BoxSamplerEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(368) %this, i64 noundef 384, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -90751,7 +90751,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 336
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 16
   %14 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %14)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(368) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %15 = load i64, ptr %my_grainsize.i, align 8
   %16 = load i64, ptr %range, align 8
@@ -90971,7 +90971,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %my_parent8.i.i = getelementptr inbounds i8, ptr %call.i.i.i18, i64 336
   store ptr %call.i4.i.i19, ptr %my_parent8.i.i, align 16
   %27 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i18, ptr noundef nonnull align 8 dereferenceable(128) %27)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(368) %call.i.i.i18, ptr noundef nonnull align 8 dereferenceable(128) %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %28 = load i8, ptr %my_size.i, align 2
   %dec.i = add i8 %28, -1

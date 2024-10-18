@@ -2471,7 +2471,7 @@ define i32 @prte_rmaps_base_get_ncpus(ptr nocapture noundef readonly %0, ptr nou
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit
 
 38:                                               ; preds = %30
-  %39 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %34, i32 noundef %36, i32 noundef 0) #15
+  %39 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %34, i32 noundef range(i32 0, -2) %36, i32 noundef 0) #15
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit, label %.preheader.i.i
 

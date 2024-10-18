@@ -6600,7 +6600,7 @@ define void @_ZN12ShaderDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(4
 define void @_ZThn16_N12ShaderDialogD0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN12ShaderDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %2) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(408) %2) #22
   ret void
 }
 

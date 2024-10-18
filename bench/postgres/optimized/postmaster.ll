@@ -3181,7 +3181,7 @@ StartChildProcess.exit155:                        ; preds = %532, %534, %.thread
 
 544:                                              ; preds = %540
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
-  %545 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %280, ptr noundef nonnull %2, i32 noundef 1024) #25
+  %545 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef range(i32 1, -2147483648) %280, ptr noundef nonnull %2, i32 noundef 1024) #25
   %546 = and i32 %542, 127
   %547 = icmp eq i32 %546, 0
   br i1 %547, label %.thread.i147, label %553
@@ -3193,7 +3193,7 @@ StartChildProcess.exit155:                        ; preds = %532, %534, %.thread
 549:                                              ; preds = %.thread.i147
   %550 = lshr i32 %542, 8
   %551 = and i32 %550, 255
-  %552 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.99, i32 noundef %280, i32 noundef %551) #25
+  %552 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.99, i32 noundef range(i32 1, -2147483648) %280, i32 noundef %551) #25
   %.not51.i149 = icmp eq ptr %545, null
   br i1 %.not51.i149, label %.sink.split.i144, label %.sink.split.sink.split.i141
 
@@ -3209,7 +3209,7 @@ StartChildProcess.exit155:                        ; preds = %532, %534, %.thread
 
 558:                                              ; preds = %557
   %559 = call ptr @pg_strsignal(i32 noundef %546) #25
-  %560 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.99, i32 noundef %280, i32 noundef %546, ptr noundef %559) #25
+  %560 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.99, i32 noundef range(i32 1, -2147483648) %280, i32 noundef %546, ptr noundef %559) #25
   %.not50.i146 = icmp eq ptr %545, null
   br i1 %.not50.i146, label %.sink.split.i144, label %.sink.split.sink.split.i141
 
@@ -3217,7 +3217,7 @@ StartChildProcess.exit155:                        ; preds = %532, %534, %.thread
   br i1 %556, label %562, label %LogChildExit.exit150
 
 562:                                              ; preds = %561
-  %563 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.99, i32 noundef %280, i32 noundef %542) #25
+  %563 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.99, i32 noundef range(i32 1, -2147483648) %280, i32 noundef %542) #25
   %.not.i140 = icmp eq ptr %545, null
   br i1 %.not.i140, label %.sink.split.i144, label %.sink.split.sink.split.i141
 
@@ -3295,7 +3295,7 @@ LogChildExit.exit150:                             ; preds = %.thread.i147, %557,
   br i1 %or.cond.i69.i, label %590, label %589
 
 589:                                              ; preds = %585
-  call fastcc void @HandleChildCrash(i32 noundef %280, i32 noundef %574, ptr noundef nonnull %5)
+  call fastcc void @HandleChildCrash(i32 noundef range(i32 1, -2147483648) %280, i32 noundef %574, ptr noundef nonnull %5)
   br label %635
 
 590:                                              ; preds = %585, %.thread.i.i
@@ -3305,7 +3305,7 @@ LogChildExit.exit150:                             ; preds = %.thread.i147, %557,
   br i1 %593, label %595, label %594
 
 594:                                              ; preds = %590
-  call fastcc void @HandleChildCrash(i32 noundef %280, i32 noundef %574, ptr noundef nonnull %5)
+  call fastcc void @HandleChildCrash(i32 noundef range(i32 1, -2147483648) %280, i32 noundef %574, ptr noundef nonnull %5)
   br label %635
 
 595:                                              ; preds = %590
@@ -3341,20 +3341,20 @@ LogChildExit.exit150:                             ; preds = %.thread.i147, %557,
   br i1 %582, label %.thread.i138, label %613
 
 613:                                              ; preds = %610
-  %614 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %280, ptr noundef nonnull %3, i32 noundef 1024) #25
+  %614 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef range(i32 1, -2147483648) %280, ptr noundef nonnull %3, i32 noundef 1024) #25
   %615 = and i32 %574, 127
   %616 = icmp eq i32 %615, 0
   br i1 %616, label %.thread.i138, label %622
 
 .thread.i138:                                     ; preds = %613, %610
   %.053.i = phi ptr [ %614, %613 ], [ null, %610 ]
-  %617 = call zeroext i1 @errstart(i32 noundef %612, ptr noundef null) #25
+  %617 = call zeroext i1 @errstart(i32 noundef range(i32 13, 16) %612, ptr noundef null) #25
   br i1 %617, label %618, label %LogChildExit.exit
 
 618:                                              ; preds = %.thread.i138
   %619 = lshr i32 %574, 8
   %620 = and i32 %619, 255
-  %621 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.101, ptr noundef nonnull %5, i32 noundef %280, i32 noundef %620) #25
+  %621 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.101, ptr noundef nonnull %5, i32 noundef range(i32 1, -2147483648) %280, i32 noundef %620) #25
   %.not51.i = icmp eq ptr %.053.i, null
   br i1 %.not51.i, label %.sink.split.i136, label %.sink.split.sink.split.i
 
@@ -3362,7 +3362,7 @@ LogChildExit.exit150:                             ; preds = %.thread.i147, %557,
   %623 = shl nuw nsw i32 %615, 24
   %sext.i = add nuw i32 %623, 16777216
   %624 = icmp sgt i32 %sext.i, 33554431
-  %625 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #25
+  %625 = call zeroext i1 @errstart(i32 noundef range(i32 13, 16) 15, ptr noundef null) #25
   br i1 %624, label %626, label %630
 
 626:                                              ; preds = %622
@@ -3370,7 +3370,7 @@ LogChildExit.exit150:                             ; preds = %.thread.i147, %557,
 
 627:                                              ; preds = %626
   %628 = call ptr @pg_strsignal(i32 noundef %615) #25
-  %629 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103, ptr noundef nonnull %5, i32 noundef %280, i32 noundef %615, ptr noundef %628) #25
+  %629 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103, ptr noundef nonnull %5, i32 noundef range(i32 1, -2147483648) %280, i32 noundef %615, ptr noundef %628) #25
   %.not50.i = icmp eq ptr %614, null
   br i1 %.not50.i, label %.sink.split.i136, label %.sink.split.sink.split.i
 
@@ -3378,7 +3378,7 @@ LogChildExit.exit150:                             ; preds = %.thread.i147, %557,
   br i1 %625, label %631, label %LogChildExit.exit
 
 631:                                              ; preds = %630
-  %632 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104, ptr noundef nonnull %5, i32 noundef %280, i32 noundef %574) #25
+  %632 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104, ptr noundef nonnull %5, i32 noundef range(i32 1, -2147483648) %280, i32 noundef %574) #25
   %.not.i135 = icmp eq ptr %614, null
   br i1 %.not.i135, label %.sink.split.i136, label %.sink.split.sink.split.i
 
@@ -3417,7 +3417,7 @@ LogChildExit.exit:                                ; preds = %.thread.i138, %626,
   br i1 %636, label %.thread.i209, label %637
 
 637:                                              ; preds = %.loopexit.i
-  %638 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %280, ptr noundef nonnull %1, i32 noundef 1024) #25
+  %638 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef range(i32 1, -2147483648) %280, ptr noundef nonnull %1, i32 noundef 1024) #25
   %639 = and i32 %574, 127
   %640 = icmp eq i32 %639, 0
   br i1 %640, label %.thread.i209, label %646
@@ -3430,7 +3430,7 @@ LogChildExit.exit:                                ; preds = %.thread.i138, %626,
 642:                                              ; preds = %.thread.i209
   %643 = lshr i32 %574, 8
   %644 = and i32 %643, 255
-  %645 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.109, i32 noundef %280, i32 noundef %644) #25
+  %645 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.109, i32 noundef range(i32 1, -2147483648) %280, i32 noundef %644) #25
   %.not51.i211 = icmp eq ptr %.053.i210, null
   br i1 %.not51.i211, label %.sink.split.i206, label %.sink.split.sink.split.i203
 
@@ -3446,7 +3446,7 @@ LogChildExit.exit:                                ; preds = %.thread.i138, %626,
 
 651:                                              ; preds = %650
   %652 = call ptr @pg_strsignal(i32 noundef %639) #25
-  %653 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.109, i32 noundef %280, i32 noundef %639, ptr noundef %652) #25
+  %653 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.109, i32 noundef range(i32 1, -2147483648) %280, i32 noundef %639, ptr noundef %652) #25
   %.not50.i208 = icmp eq ptr %638, null
   br i1 %.not50.i208, label %.sink.split.i206, label %.sink.split.sink.split.i203
 
@@ -3454,7 +3454,7 @@ LogChildExit.exit:                                ; preds = %.thread.i138, %626,
   br i1 %649, label %655, label %LogChildExit.exit212
 
 655:                                              ; preds = %654
-  %656 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.109, i32 noundef %280, i32 noundef %574) #25
+  %656 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.109, i32 noundef range(i32 1, -2147483648) %280, i32 noundef %574) #25
   %.not.i202 = icmp eq ptr %638, null
   br i1 %.not.i202, label %.sink.split.i206, label %.sink.split.sink.split.i203
 
@@ -3477,7 +3477,7 @@ LogChildExit.exit212:                             ; preds = %.thread.i209, %650,
   br i1 %or.cond26.i, label %select.unfold.preheader.i, label %659
 
 659:                                              ; preds = %LogChildExit.exit212
-  call fastcc void @HandleChildCrash(i32 noundef %280, i32 noundef %574, ptr noundef nonnull @.str.109)
+  call fastcc void @HandleChildCrash(i32 noundef range(i32 1, -2147483648) %280, i32 noundef %574, ptr noundef nonnull @.str.109)
   br label %.backedge.i
 
 select.unfold.preheader.i:                        ; preds = %LogChildExit.exit212
@@ -3514,7 +3514,7 @@ select.unfold.i:                                  ; preds = %select.unfold.prehe
   br i1 %673, label %675, label %674
 
 674:                                              ; preds = %670
-  call fastcc void @HandleChildCrash(i32 noundef %280, i32 noundef %574, ptr noundef nonnull @.str.109)
+  call fastcc void @HandleChildCrash(i32 noundef range(i32 1, -2147483648) %280, i32 noundef %574, ptr noundef nonnull @.str.109)
   br label %.backedge.i
 
 675:                                              ; preds = %670, %665
@@ -4125,8 +4125,8 @@ CountChildren.exit.i.i:                           ; preds = %.lr.ph.split.us.i.i
 937:                                              ; preds = %931
   call void @InitPostmasterChild() #25
   call void @ClosePostmasterPorts(i1 noundef zeroext false)
-  call fastcc void @BackendInitialize(ptr noundef %869)
-  call fastcc void @BackendRun(ptr noundef %869) #28
+  call fastcc void @BackendInitialize(ptr noundef nonnull %869)
+  call fastcc void @BackendRun(ptr noundef nonnull %869) #28
   unreachable
 
 938:                                              ; preds = %931
@@ -4995,13 +4995,13 @@ define internal fastcc void @TerminateChildren(i32 noundef range(i32 3, 16) %0) 
 
 9:                                                ; preds = %7
   %10 = load i32, ptr %3, align 8
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.81, i32 noundef %0, i32 noundef %10) #25
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.81, i32 noundef range(i32 1, 16) %0, i32 noundef %10) #25
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 4041, ptr noundef nonnull @__func__.SignalSomeChildren) #25
   br label %12
 
 12:                                               ; preds = %9, %7
   %13 = load i32, ptr %3, align 8
-  tail call fastcc void @signal_child(i32 noundef %13, i32 noundef %0)
+  tail call fastcc void @signal_child(i32 noundef %13, i32 noundef range(i32 1, 16) %0)
   br label %select.unfold.us.i
 
 select.unfold.us.i:                               ; preds = %12, %.lr.ph.split.us.i

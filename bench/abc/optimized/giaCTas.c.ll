@@ -820,7 +820,7 @@ Tas_ManPropagateWatch.exit.thread.i:              ; preds = %226, %Tas_ManPropag
   br i1 %or.cond3.i, label %263, label %265
 
 263:                                              ; preds = %261
-  %264 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef %0, i32 noundef %1, ptr noundef %27, ptr noundef %237, ptr noundef null)
+  %264 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %27, ptr noundef %237, ptr noundef null)
   br label %Tas_ManPropagateOne.exit
 
 265:                                              ; preds = %261
@@ -829,11 +829,11 @@ Tas_ManPropagateWatch.exit.thread.i:              ; preds = %226, %Tas_ManPropag
   br i1 %or.cond5.i, label %267, label %269
 
 267:                                              ; preds = %265
-  %268 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef %0, i32 noundef %1, ptr noundef %27, ptr noundef %249, ptr noundef null)
+  %268 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %27, ptr noundef %249, ptr noundef null)
   br label %Tas_ManPropagateOne.exit
 
 269:                                              ; preds = %265
-  %270 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef %0, i32 noundef %1, ptr noundef %27, ptr noundef %237, ptr noundef nonnull %249)
+  %270 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %27, ptr noundef %237, ptr noundef nonnull %249)
   br label %Tas_ManPropagateOne.exit
 
 271:                                              ; preds = %260
@@ -875,7 +875,7 @@ Tas_ManPropagateWatch.exit.thread.i:              ; preds = %226, %Tas_ManPropag
   br i1 %or.cond9.i, label %294, label %296
 
 294:                                              ; preds = %291
-  %295 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef %0, i32 noundef %1, ptr noundef %27, ptr noundef %237, ptr noundef nonnull %249)
+  %295 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %27, ptr noundef %237, ptr noundef nonnull %249)
   br label %Tas_ManPropagateOne.exit
 
 296:                                              ; preds = %291
@@ -1107,7 +1107,7 @@ Tas_VarIsJust.exit.thread:                        ; preds = %.lr.ph132, %359, %T
   br label %Tas_ManPropagateTwo.exit.thread
 
 Tas_ManPropagateTwo.exit:                         ; preds = %395
-  %422 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %354, ptr noundef %373, ptr noundef nonnull %385)
+  %422 = tail call fastcc i32 @Tas_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %354, ptr noundef %373, ptr noundef nonnull %385)
   %.not42 = icmp eq i32 %422, 0
   br i1 %.not42, label %Tas_ManPropagateTwo.exit.thread, label %Tas_ManPropagateOne.exit.thread58
 

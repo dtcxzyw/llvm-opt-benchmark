@@ -58,8 +58,8 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilderC2ERKNS0_11HostIrHooksE(ptr noc
   store i32 -1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = getelementptr inbounds i8, ptr %0, i64 336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(298) %9, i8 0, i64 298, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(305) %8, i8 0, i64 305, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %9, i8 0, i64 298, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %8, i8 0, i64 305, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 640
   store i32 -1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 648
@@ -3273,7 +3273,7 @@ _ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jE
 
 ._crit_edge:                                      ; preds = %.lr.ph19, %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE14rehash_if_fullERS7_.exit
   %.lcssa = phi ptr [ %88, %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE14rehash_if_fullERS7_.exit ], [ %105, %.lr.ph19 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %98 = load i64, ptr %3, align 8
   %99 = add i64 %98, 1
   store i64 %99, ptr %3, align 8
@@ -3813,7 +3813,7 @@ _ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jE
 
 ._crit_edge:                                      ; preds = %.lr.ph44, %27
   %.lcssa = phi ptr [ %47, %27 ], [ %62, %.lr.ph44 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   br label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit
 
 .lr.ph:                                           ; preds = %.lr.ph44
@@ -3841,7 +3841,7 @@ _ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jE
 
 _ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE13insert_unsafeERS7_.exit: ; preds = %.lr.ph, %.lr.ph.preheader, %._crit_edge
   %69 = phi ptr [ %.lcssa, %._crit_edge ], [ %47, %.lr.ph.preheader ], [ %62, %.lr.ph ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %69, ptr noundef nonnull align 8 dereferenceable(20) %18, i64 16, i1 false)
   %70 = getelementptr inbounds i8, ptr %18, i64 16
   %71 = load i32, ptr %70, align 4
   %72 = getelementptr inbounds i8, ptr %69, i64 16

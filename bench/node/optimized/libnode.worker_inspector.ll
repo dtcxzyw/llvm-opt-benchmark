@@ -303,7 +303,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit: ; preds = %
 cond.true.i.i:                                    ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i.i) #12, !noalias !5
   %call.i4.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i) #12, !noalias !5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3.i.i, ptr noundef %call.i4.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i.i) #12, !noalias !5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i, ptr noundef %call.i4.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i.i) #12, !noalias !5
   %call.i.i10.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i) #12, !noalias !5
   %call4.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i) #12, !noalias !5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #12, !noalias !5
@@ -386,7 +386,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.i
 
 _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %info_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %info_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #12
   %url.i.i = getelementptr inbounds i8, ptr %call, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url.i.i, ptr noundef nonnull align 8 dereferenceable(32) %url_) #12
   %worker_thread2.i.i = getelementptr inbounds i8, ptr %call, i64 80
@@ -475,7 +475,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.then.i.i.i3
 
 _ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequestC2EmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_16MainThreadHandleEEbSA_.exit: ; preds = %_ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequest16BuildWorkerTitleEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %info_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %info_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #12
   %url.i.c.i = getelementptr inbounds i8, ptr %call, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url.i.c.i, ptr noundef nonnull align 8 dereferenceable(32) %url_) #12
   %worker_thread2.i.c.i = getelementptr inbounds i8, ptr %call, i64 80
@@ -945,7 +945,7 @@ entry:
   store i32 %inc, ptr %next_delegate_id_, align 8
   store i32 %inc, ptr %id, align 4
   %delegates_ = getelementptr inbounds i8, ptr %this, i64 88
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector14WorkerDelegateESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %delegates_, ptr noundef nonnull align 4 dereferenceable(4) %id)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector14WorkerDelegateESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %delegates_, ptr noundef nonnull align 4 dereferenceable(4) %id)
   %1 = load ptr, ptr %attach_delegate, align 8
   store ptr null, ptr %attach_delegate, align 8
   %2 = load ptr, ptr %call.i, align 8
@@ -961,7 +961,7 @@ _ZNKSt14default_deleteIN4node9inspector14WorkerDelegateEEclEPS2_.exit.i.i.i.i: ;
   br label %_ZNSt10unique_ptrIN4node9inspector14WorkerDelegateESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN4node9inspector14WorkerDelegateESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector14WorkerDelegateEEclEPS2_.exit.i.i.i.i
-  %call.i2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector14WorkerDelegateESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %delegates_, ptr noundef nonnull align 4 dereferenceable(4) %id)
+  %call.i2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector14WorkerDelegateESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %delegates_, ptr noundef nonnull align 4 dereferenceable(4) %id)
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %__begin2.sroa.0.018 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i.not19 = icmp eq ptr %__begin2.sroa.0.018, null
@@ -1553,7 +1553,7 @@ _ZN4node9inspector10WorkerInfoD2Ev.exit:          ; preds = %entry, %_ZN9__gnu_c
   %info_ = getelementptr inbounds i8, ptr %this, i64 16
   %url.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url.i) #12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %info_) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %info_) #12
   ret void
 }
 
@@ -1638,7 +1638,7 @@ _ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequestD2Ev.exit: ; preds = %entr
   %info_.i = getelementptr inbounds i8, ptr %this, i64 16
   %url.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url.i.i) #12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %info_.i) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %info_.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
@@ -1690,7 +1690,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry,
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv3, i8 noundef signext 45) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   %conv5 = zext nneg i32 %__val.lobit to i64
@@ -1970,7 +1970,7 @@ _ZNSt10_HashtableImSt4pairIKmN4node9inspector10WorkerInfoEESaIS5_ENSt8__detail10
   %__n.041 = phi ptr [ %__n.04251, %cond.end.i ], [ %__n.04252, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
   %30 = load ptr, ptr %__n.041, align 8
   store ptr %30, ptr %__prev_n.044, align 8
-  tail call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN4node9inspector10WorkerInfoEELb0EEEEE18_M_deallocate_nodeEPS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %__n.041)
+  tail call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN4node9inspector10WorkerInfoEELb0EEEEE18_M_deallocate_nodeEPS8_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %__n.041)
   %31 = load i64, ptr %_M_element_count.i, align 8
   %dec.i = add i64 %31, -1
   store i64 %dec.i, ptr %_M_element_count.i, align 8
@@ -2061,7 +2061,7 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmN4node9inspector10
   %second.i.i.i = getelementptr inbounds i8, ptr %__n, i64 16
   %url.i.i.i.i = getelementptr inbounds i8, ptr %__n, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url.i.i.i.i) #12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %second.i.i.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %__n) #15
   ret void
 }
@@ -2075,7 +2075,7 @@ entry:
   %0 = load i64, ptr %__args, align 8
   store i64 %0, ptr %add.ptr.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__args1) #12
   %url.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 48
   %url3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %url.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %url3.i.i.i.i.i.i) #12

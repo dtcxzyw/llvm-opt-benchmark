@@ -6737,7 +6737,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv15highgui_ba
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv15highgui_backend20StaticBackendFactoryEEEvRS0_PT_.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -6828,7 +6828,7 @@ define linkonce_odr hidden void @_ZN2cv15highgui_backend20StaticBackendFactoryD2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN2cv15highgui_backend9UIBackendEEvEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -6851,7 +6851,7 @@ define linkonce_odr hidden void @_ZN2cv15highgui_backend20StaticBackendFactoryD0
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN2cv15highgui_backend20StaticBackendFactoryD2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -6881,7 +6881,7 @@ _ZNKSt8functionIFSt10shared_ptrIN2cv15highgui_backend9UIBackendEEvEEclEv.exit: ;
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !noalias !51
-  tail call void %8(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  tail call void %8(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret void
 }
 
@@ -10566,7 +10566,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv4impl15PluginUIBackendE
   store i32 1, ptr %7, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl15PluginUIBackendESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds i8, ptr %5, i64 32
   %10 = load ptr, ptr %2, align 8
   store ptr %10, ptr %9, align 8
@@ -10603,7 +10603,7 @@ _ZNSt10shared_ptrIN2cv6plugin4impl10DynamicLibEEC2ERKS4_.exit.i.i.i.i.i: ; preds
   %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10shared_ptrIN2cv6plugin4impl10DynamicLibEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #26
-  tail call void @_ZNSt23enable_shared_from_thisIN2cv4impl15PluginUIBackendEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
+  tail call void @_ZNSt23enable_shared_from_thisIN2cv4impl15PluginUIBackendEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #26
   tail call void @_ZdlPv(ptr noundef nonnull %5) #28
   resume { ptr, i32 } %23
 
@@ -11989,7 +11989,7 @@ define linkonce_odr hidden void @_ZN2cv4impl22PluginUIBackendFactory11initBacken
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getWindowMutexEv()
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #26
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %6
 
@@ -12092,7 +12092,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1
 
 46:                                               ; preds = %45, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %10
   store i8 1, ptr %7, align 8
-  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #26
+  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
   ret void
 
 48:                                               ; preds = %45
@@ -12107,7 +12107,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1
 
 51:                                               ; preds = %50, %48
   %.pn15 = phi { ptr, i32 } [ %49, %48 ], [ %.pn.pn, %50 ]
-  %52 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #26
+  %52 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
   resume { ptr, i32 } %.pn15
 
 53:                                               ; preds = %50

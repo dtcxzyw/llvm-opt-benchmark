@@ -447,7 +447,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemo
   %indvars.iv20.i.i = phi i64 [ %23, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
   %33 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %16, i64 %indvars.iv20.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %33, i8 -1, i64 16, i1 false)
   store i8 0, ptr %34, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %35 = load i32, ptr %5, align 4

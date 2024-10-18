@@ -166,7 +166,7 @@ Bbr_CreateParts.exit:                             ; preds = %.lr.ph.i108, %30
   br i1 %exitcond.not.i118, label %._crit_edge.i112, label %.lr.ph.i115, !llvm.loop !8
 
 ._crit_edge.i112:                                 ; preds = %.lr.ph.i115, %Bbr_CreateParts.exit
-  %74 = tail call ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef %67, i32 noundef %31) #10
+  %74 = tail call ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef %67, i32 noundef range(i32 -2147483647, -2147483648) %31) #10
   tail call void @Cudd_Ref(ptr noundef %74) #10
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %76, label %75

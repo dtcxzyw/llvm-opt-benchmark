@@ -66,7 +66,7 @@ define dso_local void @_ZN26cmCPackPropertiesGeneratorC2EP16cmLocalGeneratorRK15
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc9 unwind label %22
 
 .noexc9:                                          ; preds = %.noexc
@@ -76,7 +76,7 @@ define dso_local void @_ZN26cmCPackPropertiesGeneratorC2EP16cmLocalGeneratorRK15
 9:                                                ; preds = %.noexc9
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc9
@@ -486,7 +486,7 @@ define linkonce_odr dso_local void @_ZN26cmCPackPropertiesGeneratorD2Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN26cmCPackPropertiesGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN17cmScriptGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) #13
+  tail call void @_ZN17cmScriptGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }

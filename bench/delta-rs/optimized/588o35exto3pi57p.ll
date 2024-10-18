@@ -662,7 +662,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h83a7fdc5829607
   %2 = alloca { ptr, ptr }, align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @"_ZN4core3ptr299drop_in_place$LT$alloc..boxed..Box$LT$$u5b$lock_api..rwlock..RwLock$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$u5d$$GT$$GT$17h2d8425ca776ac451E.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  tail call void @"_ZN4core3ptr299drop_in_place$LT$alloc..boxed..Box$LT$$u5b$lock_api..rwlock..RwLock$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$u5d$$GT$$GT$17h2d8425ca776ac451E.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %2, align 8
@@ -685,7 +685,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9d2b22fc2af824
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9aeddfaf3de66a4aE.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9aeddfaf3de66a4aE.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hab924c2d4b37c704E.exit.i" unwind label %8
 
 8:                                                ; preds = %6
@@ -698,7 +698,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9d2b22fc2af824
   resume { ptr, i32 } %7
 
 "_ZN4core3ptr58drop_in_place$LT$std..sys..pal..unix..fs..InnerReadDir$GT$17h99f233fc940c5352E.exit": ; preds = %1
-  tail call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9aeddfaf3de66a4aE.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  tail call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9aeddfaf3de66a4aE.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %2, align 8
@@ -872,7 +872,7 @@ define hidden void @"_ZN99_$LT$dashmap..iter..Iter$LT$K$C$V$C$S$C$M$GT$$u20$as$u
   %47 = icmp ult i64 %31, %.val21
   call void @llvm.assume(i1 %47)
   %48 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %46, i64 %31
-  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h6f1e7a0917245b19E.llvm.7530649560028716548(ptr noundef nonnull %48, i8 noundef 0), !noalias !47
+  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h6f1e7a0917245b19E.llvm.7530649560028716548(ptr noundef nonnull align 8 %48, i8 noundef 0), !noalias !47
   %50 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %49, i64 4)
   %51 = extractvalue { i64, i1 } %50, 1
   %52 = icmp ugt i64 %49, -9
@@ -881,7 +881,7 @@ define hidden void @"_ZN99_$LT$dashmap..iter..Iter$LT$K$C$V$C$S$C$M$GT$$u20$as$u
 
 _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.7530649560028716548.exit.i: ; preds = %45
   %53 = extractvalue { i64, i1 } %50, 0
-  %54 = call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h3018af7ee7555d4aE.llvm.7530649560028716548(ptr noundef nonnull %48, i64 noundef %49, i64 noundef %53, i8 noundef 2, i8 noundef 0), !noalias !47
+  %54 = call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h3018af7ee7555d4aE.llvm.7530649560028716548(ptr noundef nonnull align 8 %48, i64 noundef %49, i64 noundef %53, i8 noundef 2, i8 noundef 0), !noalias !47
   %55 = extractvalue { i64, i64 } %54, 0
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %58, label %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.7530649560028716548.exit.thread.i

@@ -708,7 +708,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %175
 
 175:                                              ; preds = %174, %170
-  %176 = call i64 @H5Fget_free_sections(i64 noundef %102, i32 noundef 0, i64 noundef 0, ptr noundef null) #15
+  %176 = call i64 @H5Fget_free_sections(i64 noundef range(i64 0, -9223372036854775808) %102, i32 noundef 0, i64 noundef 0, ptr noundef null) #15
   %177 = icmp slt i64 %176, 0
   br i1 %177, label %224, label %178
 
@@ -722,7 +722,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %181, label %224, label %182
 
 182:                                              ; preds = %179
-  %183 = call i64 @H5Fget_free_sections(i64 noundef %102, i32 noundef 0, i64 noundef %176, ptr noundef nonnull %180) #15
+  %183 = call i64 @H5Fget_free_sections(i64 noundef range(i64 0, -9223372036854775808) %102, i32 noundef 0, i64 noundef %176, ptr noundef nonnull %180) #15
   %.not47.i = icmp eq i64 %183, 0
   br i1 %.not47.i, label %._crit_edge46.thread57.i, label %.lr.ph45.i
 

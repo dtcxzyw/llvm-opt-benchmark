@@ -246,7 +246,7 @@ delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %while.body.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #17
   %cmp.not.i.i = icmp eq ptr %1, %this
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIN3net18ReliableQuicStream11PendingDataESaIS3_EED2Ev.exit, label %while.body.i.i, !llvm.loop !5
@@ -291,7 +291,7 @@ delete.notnull.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %while.body.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #17
   %cmp.not.i.i.i = icmp eq ptr %1, %queued_data_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !5
@@ -398,7 +398,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %call.i.noexc unwind label %lpad20
 
 call.i.noexc:                                     ; preds = %if.then17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
           to label %.noexc unwind label %lpad20
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -408,7 +408,7 @@ call.i.noexc:                                     ; preds = %if.then17
 lpad.i:                                           ; preds = %.noexc
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #16
   br label %ehcleanup
 
 invoke.cont21:                                    ; preds = %.noexc
@@ -873,7 +873,7 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %if.then58
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i) #16
   %offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 48
   store i64 0, ptr %offset.i.i.i.i.i.i, align 8
   %ack_listener.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 56
@@ -891,7 +891,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %call5.i.i.i.i.i.i.n
 invoke.cont65:                                    ; preds = %if.then.i.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i8, ptr noundef nonnull %queued_data_) #16
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i8, ptr noundef nonnull align 8 dereferenceable(24) %queued_data_) #16
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %18 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %18, 1
@@ -1257,7 +1257,7 @@ delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit: ; preds = %if.then49, %if.then.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i.i
   %_M_storage.i.i.i18 = getelementptr inbounds i8, ptr %16, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i18) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i18) #16
   call void @_ZdlPv(ptr noundef nonnull %16) #17
   %21 = load ptr, ptr %queued_data_, align 8
   %cmp.i = icmp eq ptr %21, %queued_data_

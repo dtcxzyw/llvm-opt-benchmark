@@ -156,15 +156,15 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %0 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(224) %this)
   %vtable4.i = load ptr, ptr %this, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 96
   %1 = load ptr, ptr %vfn5.i, align 8
-  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(224) %this)
   %vtable8.i = load ptr, ptr %this, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 96
   %2 = load ptr, ptr %vfn9.i, align 8
-  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(224) %this)
   %retval.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
   %add.i.i = fadd float %retval.sroa.0.0.vec.extract.i, %call2.i
   %retval.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 1
@@ -206,7 +206,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12btBox2dShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #8
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN12btBox2dShapedlEPv.exit unwind label %terminate.lpad.i
 

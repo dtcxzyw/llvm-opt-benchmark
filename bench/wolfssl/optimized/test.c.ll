@@ -13326,7 +13326,7 @@ do.body32.i:                                      ; preds = %if.end26.i
   br label %ecc_test_curve_size.exit
 
 if.end44.i:                                       ; preds = %if.end26.i
-  %call46.i = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %userA.i, i32 noundef 0) #19
+  %call46.i = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %rng, i32 noundef range(i32 28, 67) %keySize, ptr noundef nonnull %userA.i, i32 noundef 0) #19
   switch i32 %call46.i, label %do.body54.i [
     i32 -172, label %ecc_test_curve_size.exit
     i32 0, label %do.end68.i
@@ -13368,7 +13368,7 @@ do.body90.i:                                      ; preds = %if.end84.i
   br label %ecc_test_curve_size.exit
 
 do.end104.i:                                      ; preds = %if.end84.i
-  %call106.i = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %userB.i, i32 noundef 0) #19
+  %call106.i = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %rng, i32 noundef range(i32 28, 67) %keySize, ptr noundef nonnull %userB.i, i32 noundef 0) #19
   %cmp107.not.i = icmp eq i32 %call106.i, 0
   br i1 %cmp107.not.i, label %land.lhs.true129.i, label %do.body110.i
 
@@ -13881,7 +13881,7 @@ if.end11:                                         ; preds = %if.end5, %if.end5, 
   br i1 %cmp.not.i23, label %if.end.i25, label %ecc_test_key_decode.exit
 
 if.end.i25:                                       ; preds = %if.end11
-  %call2.i = call i32 @wc_ecc_make_key(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %eccKey.i) #19
+  %call2.i = call i32 @wc_ecc_make_key(ptr noundef nonnull %rng, i32 noundef range(i32 28, 67) %keySize, ptr noundef nonnull %eccKey.i) #19
   %cmp3.not.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %ecc_test_key_decode.exit
 
@@ -13940,7 +13940,7 @@ do.body.i32:                                      ; preds = %if.end21
   br label %ecc_test_key_gen.exit
 
 if.end.i35:                                       ; preds = %if.end21
-  %call7.i = call i32 @wc_ecc_make_key(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %userA.i29) #19
+  %call7.i = call i32 @wc_ecc_make_key(ptr noundef nonnull %rng, i32 noundef range(i32 28, 67) %keySize, ptr noundef nonnull %userA.i29) #19
   %cmp8.not.i = icmp eq i32 %call7.i, 0
   br i1 %cmp8.not.i, label %do.end25.i, label %do.body11.i
 
@@ -13975,7 +13975,7 @@ do.body52.i:                                      ; preds = %do.end45.i
   br label %ecc_test_key_gen.exit
 
 if.end63.i:                                       ; preds = %do.end45.i
-  %call.i.i36 = call noalias ptr @fopen(ptr noundef nonnull readonly @.str.278, ptr noundef nonnull @.str.277)
+  %call.i.i36 = call noalias ptr @fopen(ptr noundef nonnull @.str.278, ptr noundef nonnull @.str.277)
   %tobool.not.i.i = icmp eq ptr %call.i.i36, null
   br i1 %tobool.not.i.i, label %ecc_test_key_gen.exit, label %if.end.i.i37
 

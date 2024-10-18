@@ -283,7 +283,7 @@ onas_send_stream.exit:                            ; preds = %60, %65, %.loopexit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store i8 0, ptr %10, align 1
   store i64 23438582706947706, ptr %14, align 8
-  %115 = call i32 @sendln(i32 noundef %22, ptr noundef nonnull %14, i32 noundef 8) #14
+  %115 = call i32 @sendln(i32 noundef range(i32 0, -1) %22, ptr noundef nonnull %14, i32 noundef 8) #14
   %.not.i.i = icmp eq i32 %115, 0
   br i1 %.not.i.i, label %116, label %132
 
@@ -307,7 +307,7 @@ onas_send_stream.exit:                            ; preds = %60, %65, %.loopexit
   store i32 1, ptr %123, align 4
   %124 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 %.013.i, ptr %124, align 16
-  %125 = call i64 @sendmsg(i32 noundef %22, ptr noundef nonnull %12, i32 noundef 0) #14
+  %125 = call i64 @sendmsg(i32 noundef range(i32 0, -1) %22, ptr noundef nonnull %12, i32 noundef 0) #14
   %126 = icmp eq i64 %125, -1
   br i1 %126, label %127, label %onas_send_fdpass.exit.i
 

@@ -265,8 +265,8 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call.i = tail call noundef ptr @_ZNK3zmq9ip_addr_t11as_sockaddrEv(ptr noundef nonnull align 4 dereferenceable(28) %this)
-  %call.i5 = tail call noundef i32 @_ZNK3zmq9ip_addr_t12sockaddr_lenEv(ptr noundef nonnull align 4 dereferenceable(28) %this)
+  %call.i = tail call noundef ptr @_ZNK3zmq9ip_addr_t11as_sockaddrEv(ptr noundef nonnull align 4 dereferenceable(57) %this)
+  %call.i5 = tail call noundef i32 @_ZNK3zmq9ip_addr_t12sockaddr_lenEv(ptr noundef nonnull align 4 dereferenceable(57) %this)
   %call7 = call i32 @getnameinfo(ptr noundef %call.i, i32 noundef %call.i5, ptr noundef nonnull %hbuf, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1)
   %cmp8.not = icmp eq i32 %call7, 0
   br i1 %cmp8.not, label %if.end10, label %if.then9
@@ -339,7 +339,7 @@ _ZL19make_address_stringILm8ELm3EENSt7__cxx1112basic_stringIcSt11char_traitsIcES
 if.else:                                          ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 1039, ptr nonnull %buf.i7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %buf.i7, ptr noundef nonnull readonly align 1 dereferenceable(6) @__const._ZNK3zmq13tcp_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ipv4_prefix, i64 6, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %buf.i7, ptr noundef nonnull readonly align 1 dereferenceable(7) @__const._ZNK3zmq13tcp_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ipv4_prefix, i64 6, i1 false), !noalias !7
   %add.ptr.i9 = getelementptr inbounds i8, ptr %buf.i7, i64 6
   %call.i10 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hbuf) #15, !noalias !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr.i9, ptr nonnull readonly align 16 %hbuf, i64 %call.i10, i1 false), !noalias !7

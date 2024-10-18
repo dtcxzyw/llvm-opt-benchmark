@@ -635,7 +635,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN3sat16clause_allocatorD2Ev.exit:               ; preds = %_ZN7svectorISt4pairIRN3sat6clauseENS1_6statusEEjED2Ev.exit, %if.then.i.i.i.i.i
-  tail call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %m_alloc25) #21
+  tail call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %m_alloc25) #21
   %m_watched_clauses = getelementptr inbounds i8, ptr %this, i64 8
   %31 = load ptr, ptr %m_watched_clauses, align 8
   %tobool.not.i.i.i20 = icmp eq ptr %31, null
@@ -6552,7 +6552,7 @@ entry:
   %ref.tmp1 = alloca %"struct.sat::status_pp", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %th, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %th, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %th, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %th, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF6symboliEZN3satlsERSoRKNS2_6statusEE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIF6symboliEZN3satlsERSoRKNS2_6statusEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   store ptr %st, ptr %ref.tmp1, align 8
@@ -6567,7 +6567,7 @@ invoke.cont2:                                     ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZNSt8functionIF6symboliEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont2
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %th, ptr noundef nonnull align 8 dereferenceable(16) %th, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %th, ptr noundef nonnull align 8 dereferenceable(32) %th, i32 noundef 3)
           to label %_ZNSt8functionIF6symboliEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -6588,7 +6588,7 @@ lpad:                                             ; preds = %entry
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIF6symboliEED2Ev.exit7, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %lpad
-  %call.i.i5 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %th, ptr noundef nonnull align 8 dereferenceable(16) %th, i32 noundef 3)
+  %call.i.i5 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %th, ptr noundef nonnull align 8 dereferenceable(32) %th, i32 noundef 3)
           to label %_ZNSt8functionIF6symboliEED2Ev.exit7 unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
@@ -6658,7 +6658,7 @@ if.then.i:                                        ; preds = %if.then19
 _ZNKSt8functionIF6symboliEEclEi.exit:             ; preds = %if.then19
   %_M_invoker.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i = call ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i)
+  %call2.i = call ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   %6 = ptrtoint ptr %call2.i to i64
   %and.i = and i64 %6, 7
@@ -6920,7 +6920,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

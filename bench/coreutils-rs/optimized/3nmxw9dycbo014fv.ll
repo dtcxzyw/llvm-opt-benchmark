@@ -64,7 +64,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg11value_names17hbf5440136f7
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h2bd9000ea3677394E.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 344
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !8
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2ffb38cb08a81e8cE.llvm.12264918056830672218"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2ffb38cb08a81e8cE.llvm.12264918056830672218"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h2bd9000ea3677394E.exit"
@@ -663,7 +663,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$crossterm..cursor..MoveTo$u20$as$u2
   store ptr %5, ptr %17, align 8, !alias.scope !93, !noalias !96
   %18 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !93, !noalias !96
-  %19 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %19 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
@@ -689,7 +689,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$crossterm..cursor..MoveUp$u20$as$u2
   store ptr %3, ptr %8, align 8, !alias.scope !99, !noalias !102
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 1, ptr %9, align 8, !alias.scope !99, !noalias !102
-  %10 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %10

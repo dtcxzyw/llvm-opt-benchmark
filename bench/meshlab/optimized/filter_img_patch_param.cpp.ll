@@ -1508,13 +1508,13 @@ define void @_ZN25FilterImgPatchParamPluginC2Ev(ptr noundef nonnull align 8 dere
   %55 = add i64 %54, -1
   store i64 %55, ptr %26, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.07.i.i.i.i) #29
-  tail call void @_ZdlPv(ptr noundef %.sroa.05.07.i.i.i.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.05.07.i.i.i.i) #28
   %.not.i.i.i.i = icmp eq ptr %53, %24
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 ._crit_edge.i.i.i.thread:                         ; preds = %2, %._crit_edge.i.i.i
   %.0.lcssa.i.i.i27 = phi ptr [ %.ptr, %._crit_edge.i.i.i ], [ %3, %2 ]
-  %56 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr nonnull %24, ptr noundef nonnull %.0.lcssa.i.i.i27, ptr noundef nonnull %45)
+  %56 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull %.0.lcssa.i.i.i27, ptr noundef nonnull %45)
           to label %_ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit unwind label %62
 
 _ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %.lr.ph.i.i.i.i, %52, %._crit_edge.i.i.i.thread
@@ -1541,7 +1541,7 @@ _ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i15:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i15
   %.09.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i15 ], [ %60, %._crit_edge ]
   %61 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #28
   %.not.i.i.i = icmp eq ptr %61, %4
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i15, !llvm.loop !12
 
@@ -1584,7 +1584,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i15, %._
 75:                                               ; preds = %73
   %76 = getelementptr inbounds i8, ptr %74, i64 16
   store ptr %66, ptr %76, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull %21) #29
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(24) %21) #29
   %77 = load i64, ptr %23, align 8
   %78 = add i64 %77, 1
   store i64 %78, ptr %23, align 8
@@ -1644,7 +1644,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %75, %_ZN9QtPrivate8
 .lr.ph.i.i.i18:                                   ; preds = %89, %.lr.ph.i.i.i18
   %.09.i.i.i19 = phi ptr [ %91, %.lr.ph.i.i.i18 ], [ %90, %89 ]
   %91 = load ptr, ptr %.09.i.i.i19, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i19) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i19) #28
   %.not.i.i.i20 = icmp eq ptr %91, %4
   br i1 %.not.i.i.i20, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit21, label %.lr.ph.i.i.i18, !llvm.loop !12
 
@@ -1711,7 +1711,7 @@ define linkonce_odr void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dere
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %16, %2 ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #28
   %.not.i.i.i = icmp eq ptr %17, %15
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !12
 
@@ -1724,7 +1724,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i, %2
 .lr.ph.i.i.i3:                                    ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, %.lr.ph.i.i.i3
   %.09.i.i.i4 = phi ptr [ %20, %.lr.ph.i.i.i3 ], [ %19, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit ]
   %20 = load ptr, ptr %.09.i.i.i4, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i4) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4) #28
   %.not.i.i.i5 = icmp eq ptr %20, %18
   br i1 %.not.i.i.i5, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i3, !llvm.loop !13
 
@@ -1755,7 +1755,7 @@ define linkonce_odr ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_itera
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load i32, ptr %.06.i.i, align 4
   store i32 %10, ptr %9, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %5) #29
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #29
   %11 = load i64, ptr %7, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %7, align 8
@@ -1773,7 +1773,7 @@ define linkonce_odr ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_itera
 .lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %16, %14 ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #28
   %.not.i.i.i = icmp eq ptr %17, %5
   br i1 %.not.i.i.i, label %.body, label %.lr.ph.i.i.i, !llvm.loop !12
 
@@ -1783,7 +1783,7 @@ _ZNSt7__cxx114listIiSaIiEEC2IPKivEET_S6_RKS1_.exit: ; preds = %.noexc.i
   br i1 %18, label %23, label %_ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit
 
 _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds = %_ZNSt7__cxx114listIiSaIiEEC2IPKivEET_S6_RKS1_.exit
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.pre, ptr noundef nonnull %5) #29
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.pre, ptr noundef nonnull align 8 dereferenceable(24) %5) #29
   %19 = load i64, ptr %7, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
@@ -1805,7 +1805,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
 .lr.ph.i.i.i6:                                    ; preds = %23, %.lr.ph.i.i.i6
   %.09.i.i.i7 = phi ptr [ %25, %.lr.ph.i.i.i6 ], [ %24, %23 ]
   %25 = load ptr, ptr %.09.i.i.i7, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i7) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i7) #28
   %.not.i.i.i8 = icmp eq ptr %25, %5
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !12
 
@@ -1888,7 +1888,7 @@ define void @_ZN25FilterImgPatchParamPluginC1Ev(ptr noundef nonnull align 8 dere
   %31 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 3, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %2, i64 16
-  %33 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr nonnull %25, ptr noundef nonnull %2, ptr noundef nonnull %32)
+  %33 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull %2, ptr noundef nonnull %32)
           to label %_ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit unwind label %42
 
 _ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %._crit_edge.i.i.i.thread
@@ -1915,7 +1915,7 @@ _ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %._crit_edg
 .lr.ph.i.i.i18:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i18
   %.09.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i18 ], [ %36, %._crit_edge ]
   %37 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #28
   %.not.i.i.i = icmp eq ptr %37, %3
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i18, !llvm.loop !12
 
@@ -1968,7 +1968,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i18, %._
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %54, i64 16
   store ptr %46, ptr %56, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull %22) #29
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(24) %22) #29
   %57 = load i64, ptr %24, align 8
   %58 = add i64 %57, 1
   store i64 %58, ptr %24, align 8
@@ -2028,7 +2028,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %55, %_ZN9QtPrivate8
 .lr.ph.i.i.i21:                                   ; preds = %69, %.lr.ph.i.i.i21
   %.09.i.i.i22 = phi ptr [ %71, %.lr.ph.i.i.i21 ], [ %70, %69 ]
   %71 = load ptr, ptr %.09.i.i.i22, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i22) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i22) #28
   %.not.i.i.i23 = icmp eq ptr %71, %3
   br i1 %.not.i.i.i23, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit24, label %.lr.ph.i.i.i21, !llvm.loop !12
 
@@ -2138,7 +2138,7 @@ define void @_ZN25FilterImgPatchParamPluginD2Ev(ptr noundef nonnull align 8 dere
 .lr.ph.i.i.i.i:                                   ; preds = %25, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %40, %25 ]
   %41 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #28
   %.not.i.i.i.i = icmp eq ptr %41, %39
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
@@ -2151,7 +2151,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i:            ; preds = %.lr.ph.i.i.i.i, %25
 .lr.ph.i.i.i3.i:                                  ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i, %.lr.ph.i.i.i3.i
   %.09.i.i.i4.i = phi ptr [ %44, %.lr.ph.i.i.i3.i ], [ %43, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i ]
   %44 = load ptr, ptr %.09.i.i.i4.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i4.i) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4.i) #28
   %.not.i.i.i5.i = icmp eq ptr %44, %42
   br i1 %.not.i.i.i5.i, label %_ZN12FilterPluginD2Ev.exit, label %.lr.ph.i.i.i3.i, !llvm.loop !13
 
@@ -2214,7 +2214,7 @@ define void @_ZThn16_N25FilterImgPatchParamPluginD0Ev(ptr noundef %0) unnamed_ad
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %2) #28
   ret void
 }
 
@@ -2229,7 +2229,7 @@ define void @_ZTv0_n24_N25FilterImgPatchParamPluginD0Ev(ptr noundef %0) unnamed_
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 104
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #29
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %5) #28
   ret void
 }
 
@@ -4553,7 +4553,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader: ; preds = %_ZN12Mes
 110:                                              ; preds = %107
   %111 = getelementptr inbounds i8, ptr %109, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %111, ptr noundef nonnull align 4 dereferenceable(132) %108, i64 132, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull %13) #29
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(24) %13) #29
   %112 = load i64, ptr %99, align 8
   %113 = add i64 %112, 1
   store i64 %113, ptr %99, align 8
@@ -4577,7 +4577,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader: ; preds = %_ZN12Mes
 _ZNSt7__cxx114listIP11RasterModelSaIS2_EE9push_backEOS2_.exit: ; preds = %119
   %121 = getelementptr inbounds i8, ptr %120, i64 16
   store ptr %108, ptr %121, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull %14) #29
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(24) %14) #29
   %122 = load i64, ptr %101, align 8
   %123 = add i64 %122, 1
   store i64 %123, ptr %101, align 8
@@ -4905,7 +4905,7 @@ _ZN5PatchD2Ev.exit.i.i.i:                         ; preds = %233, %_ZNSt6vectorI
   br i1 %.not.i.i.i, label %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
 _ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i: ; preds = %_ZN5PatchD2Ev.exit.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %216, i64 noundef 168, i64 noundef 8) #29
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %216, i64 noundef 168, i64 noundef 8) #29
   br label %_ZN7QVectorI5PatchED2Ev.exit
 
 _ZN7QVectorI5PatchED2Ev.exit:                     ; preds = %212, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i
@@ -5510,7 +5510,7 @@ _ZN5PatchD2Ev.exit.i.i.i215:                      ; preds = %432, %_ZNSt6vectorI
   br i1 %.not.i.i.i216, label %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i217, label %.lr.ph.i.i.i208, !llvm.loop !27
 
 _ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i217: ; preds = %_ZN5PatchD2Ev.exit.i.i.i215, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i206
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %415, i64 noundef 168, i64 noundef 8) #29
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %415, i64 noundef 168, i64 noundef 8) #29
   br label %_ZN7QVectorI5PatchED2Ev.exit222
 
 _ZN7QVectorI5PatchED2Ev.exit222:                  ; preds = %411, %_ZN9QtPrivate8RefCount5derefEv.exit.i218, %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i217
@@ -6045,7 +6045,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit254: ; preds = %_ZN12MeshDocume
   %667 = add i64 %666, -1
   store i64 %667, ptr %99, align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %664) #29
-  call void @_ZdlPv(ptr noundef %664) #28
+  call void @_ZdlPv(ptr noundef nonnull %664) #28
   %668 = load ptr, ptr %.sroa.0276.0426, align 8
   %.not381 = icmp eq ptr %668, %662
   br i1 %.not381, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit254._crit_edge, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit254
@@ -6095,7 +6095,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit254._crit_edge: ; preds = %_ZN1
 .lr.ph.i.i.i255:                                  ; preds = %682, %.lr.ph.i.i.i255
   %.09.i.i.i = phi ptr [ %688, %.lr.ph.i.i.i255 ], [ %687, %682 ]
   %688 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #28
   %.not.i.i.i256 = icmp eq ptr %688, %14
   br i1 %.not.i.i.i256, label %_ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i255, !llvm.loop !34
 
@@ -6107,7 +6107,7 @@ _ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i255, 
 .lr.ph.i.i.i258:                                  ; preds = %_ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit, %.lr.ph.i.i.i258
   %.09.i.i.i259 = phi ptr [ %690, %.lr.ph.i.i.i258 ], [ %689, %_ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit ]
   %690 = load ptr, ptr %.09.i.i.i259, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i259) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i259) #28
   %.not.i.i.i260 = icmp eq ptr %690, %13
   br i1 %.not.i.i.i260, label %_ZNSt7__cxx114listIN3vcg4ShotIfNS1_8Matrix44IfEEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i.i258, !llvm.loop !35
 
@@ -6123,7 +6123,7 @@ _ZNSt7__cxx114listIN3vcg4ShotIfNS1_8Matrix44IfEEEESaIS5_EED2Ev.exit: ; preds = %
 .lr.ph.i.i.i262:                                  ; preds = %.body, %.lr.ph.i.i.i262
   %.09.i.i.i263 = phi ptr [ %692, %.lr.ph.i.i.i262 ], [ %691, %.body ]
   %692 = load ptr, ptr %.09.i.i.i263, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i263) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i263) #28
   %.not.i.i.i264 = icmp eq ptr %692, %14
   br i1 %.not.i.i.i264, label %_ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit265, label %.lr.ph.i.i.i262, !llvm.loop !34
 
@@ -6135,7 +6135,7 @@ _ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit265: ; preds = %.lr.ph.i.i.i26
 .lr.ph.i.i.i267:                                  ; preds = %_ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit265, %.lr.ph.i.i.i267
   %.09.i.i.i268 = phi ptr [ %694, %.lr.ph.i.i.i267 ], [ %693, %_ZNSt7__cxx114listIP11RasterModelSaIS2_EED2Ev.exit265 ]
   %694 = load ptr, ptr %.09.i.i.i268, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i268) #28
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i268) #28
   %.not.i.i.i269 = icmp eq ptr %694, %13
   br i1 %.not.i.i.i269, label %_ZNSt7__cxx114listIN3vcg4ShotIfNS1_8Matrix44IfEEEESaIS5_EED2Ev.exit270, label %.lr.ph.i.i.i267, !llvm.loop !35
 
@@ -6544,7 +6544,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %88
   %91 = getelementptr inbounds i8, ptr %3, i64 52
   store float 0.000000e+00, ptr %91, align 4
   store float 0.000000e+00, ptr %89, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %5, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false)
   ret void
 }
 
@@ -8992,7 +8992,7 @@ _ZN5PatchD2Ev.exit.i.i:                           ; preds = %22, %_ZNSt6vectorIP
   br i1 %.not.i.i, label %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit, label %.lr.ph.i.i, !llvm.loop !27
 
 _ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit: ; preds = %_ZN5PatchD2Ev.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %5, i64 noundef 168, i64 noundef 8) #29
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %5, i64 noundef 168, i64 noundef 8) #29
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -9266,7 +9266,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %5
@@ -9300,7 +9300,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i3: ; pre
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i4
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i4: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i3, %22
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %16) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i2
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i2: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i4, %18
@@ -9334,7 +9334,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i8: ; pre
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i9
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i9: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i8, %35
-  tail call void @_ZdlPv(ptr noundef nonnull %29) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %29) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i7
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i7: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i9, %31
@@ -9368,7 +9368,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i13: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i14
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i14: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i13, %48
-  tail call void @_ZdlPv(ptr noundef nonnull %42) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %42) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i12
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i12: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i14, %44
@@ -9402,7 +9402,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i18: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i19
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i19: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i18, %61
-  tail call void @_ZdlPv(ptr noundef nonnull %55) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %55) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i17
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i17: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i19, %57
@@ -9436,7 +9436,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %74
-  tail call void @_ZdlPv(ptr noundef nonnull %68) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %68) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %70
@@ -9618,7 +9618,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN11MLExceptionD2Ev.exit
 
 _ZN11MLExceptionD2Ev.exit:                        ; preds = %_ZN10QByteArrayD2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   ret void
 }
@@ -9924,7 +9924,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -9957,7 +9957,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_17BoundVertexBufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_11BoundBufferEED2Ev.exit
@@ -10004,7 +10004,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10037,7 +10037,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_16BoundIndexBufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_11BoundBufferEED2Ev.exit
@@ -10084,7 +10084,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10117,7 +10117,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_20BoundPixelPackBufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_11BoundBufferEED2Ev.exit
@@ -10164,7 +10164,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10197,7 +10197,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_22BoundPixelUnpackBufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_11BoundBufferEED2Ev.exit
@@ -10244,7 +10244,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pre
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %8
@@ -10277,7 +10277,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_17BoundRenderbufferENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit
@@ -10324,7 +10324,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10357,7 +10357,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeVertexShaderENS0_14DefaultDeleterINS_10SafeObjectEEENS_10SafeShaderEED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_16SafeVertexShaderENS0_14DefaultDeleterINS_10SafeObjectEEENS_10SafeShaderEED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_17BoundVertexShaderENS0_14DefaultDeleterINS_11BoundObjectEEENS_11BoundShaderEED2Ev.exit
@@ -10404,7 +10404,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10437,7 +10437,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_18SafeGeometryShaderENS0_14DefaultDeleterINS_10SafeObjectEEENS_10SafeShaderEED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_18SafeGeometryShaderENS0_14DefaultDeleterINS_10SafeObjectEEENS_10SafeShaderEED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_19BoundGeometryShaderENS0_14DefaultDeleterINS_11BoundObjectEEENS_11BoundShaderEED2Ev.exit
@@ -10484,7 +10484,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10517,7 +10517,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_18SafeFragmentShaderENS0_14DefaultDeleterINS_10SafeObjectEEENS_10SafeShaderEED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_18SafeFragmentShaderENS0_14DefaultDeleterINS_10SafeObjectEEENS_10SafeShaderEED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_19BoundFragmentShaderENS0_14DefaultDeleterINS_11BoundObjectEEENS_11BoundShaderEED2Ev.exit
@@ -10564,7 +10564,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pre
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %8
@@ -10597,7 +10597,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_11SafeProgramENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_11SafeProgramENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_12BoundProgramENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit
@@ -10644,7 +10644,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10677,7 +10677,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_20BoundReadFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit
@@ -10724,7 +10724,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10757,7 +10757,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_20BoundDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit
@@ -10804,7 +10804,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10837,7 +10837,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit
@@ -10884,7 +10884,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10917,7 +10917,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_18BoundUniformBufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_11BoundBufferEED2Ev.exit
@@ -10964,7 +10964,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; p
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %8
@@ -10997,7 +10997,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_10SafeBufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_19BoundFeedbackBufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_11BoundBufferEED2Ev.exit
@@ -11044,7 +11044,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pre
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %8
@@ -11077,7 +11077,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_14BoundTexture2DENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit
@@ -11124,7 +11124,7 @@ _ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pre
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i, %12
-  call void @_ZdlPv(ptr noundef nonnull %6) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %6) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %8
@@ -11157,7 +11157,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %24
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %18) #28
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeTextureCubeENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_15SafeTextureCubeENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEED2Ev.exit: ; preds = %20, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %_ZN3glw6detail19ObjectSharedPointerINS_16BoundTextureCubeENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit
@@ -11280,7 +11280,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -11365,7 +11365,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i: ; preds 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %2) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i, %4
@@ -11405,7 +11405,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -11445,7 +11445,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw17BoundVertexBufferD2Ev.exit
 
 _ZN3glw17BoundVertexBufferD2Ev.exit:              ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -11508,7 +11508,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i: ; preds 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i, %5
@@ -11635,7 +11635,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -11722,7 +11722,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -11762,7 +11762,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw16BoundIndexBufferD2Ev.exit
 
 _ZN3glw16BoundIndexBufferD2Ev.exit:               ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -11880,7 +11880,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -11967,7 +11967,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -12007,7 +12007,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw20BoundPixelPackBufferD2Ev.exit
 
 _ZN3glw20BoundPixelPackBufferD2Ev.exit:           ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -12125,7 +12125,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -12212,7 +12212,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -12252,7 +12252,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw22BoundPixelUnpackBufferD2Ev.exit
 
 _ZN3glw22BoundPixelUnpackBufferD2Ev.exit:         ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -12370,7 +12370,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -12455,7 +12455,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %2) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %4
@@ -12495,7 +12495,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -12535,7 +12535,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw17BoundRenderbufferD2Ev.exit
 
 _ZN3glw17BoundRenderbufferD2Ev.exit:              ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -12679,7 +12679,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -12757,7 +12757,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %2) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %4
@@ -12797,7 +12797,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -12837,7 +12837,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw17BoundVertexShaderD2Ev.exit
 
 _ZN3glw17BoundVertexShaderD2Ev.exit:              ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -12965,7 +12965,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -13043,7 +13043,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %2) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %4
@@ -13083,7 +13083,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -13123,7 +13123,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw19BoundGeometryShaderD2Ev.exit
 
 _ZN3glw19BoundGeometryShaderD2Ev.exit:            ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -13241,7 +13241,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -13319,7 +13319,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %2) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %4
@@ -13359,7 +13359,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -13399,7 +13399,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw19BoundFragmentShaderD2Ev.exit
 
 _ZN3glw19BoundFragmentShaderD2Ev.exit:            ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -13517,7 +13517,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -13602,7 +13602,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i: ; preds 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %2) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i, %4
@@ -13642,7 +13642,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; pred
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %5
@@ -13682,7 +13682,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw12BoundProgramD2Ev.exit
 
 _ZN3glw12BoundProgramD2Ev.exit:                   ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %1
@@ -13822,7 +13822,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -13907,7 +13907,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i: ; preds 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %2) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i, %4
@@ -13947,7 +13947,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -13987,7 +13987,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw20BoundReadFramebufferD2Ev.exit
 
 _ZN3glw20BoundReadFramebufferD2Ev.exit:           ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -14131,7 +14131,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -14218,7 +14218,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -14258,7 +14258,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw20BoundDrawFramebufferD2Ev.exit
 
 _ZN3glw20BoundDrawFramebufferD2Ev.exit:           ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -14376,7 +14376,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -14463,7 +14463,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -14503,7 +14503,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw24BoundReadDrawFramebufferD2Ev.exit
 
 _ZN3glw24BoundReadDrawFramebufferD2Ev.exit:       ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -14621,7 +14621,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -14708,7 +14708,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -14748,7 +14748,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw18BoundUniformBufferD2Ev.exit
 
 _ZN3glw18BoundUniformBufferD2Ev.exit:             ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -14900,7 +14900,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -14987,7 +14987,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %5
@@ -15027,7 +15027,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw19BoundFeedbackBufferD2Ev.exit
 
 _ZN3glw19BoundFeedbackBufferD2Ev.exit:            ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %1
@@ -15179,7 +15179,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -15269,7 +15269,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %2) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %4
@@ -15309,7 +15309,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %5
@@ -15349,7 +15349,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i: 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw14BoundTexture2DD2Ev.exit
 
 _ZN3glw14BoundTexture2DD2Ev.exit:                 ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i, %1
@@ -15503,7 +15503,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
   br i1 %.not.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %31) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit
 
 _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE7setNullEb.exit, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i
@@ -15593,7 +15593,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; pr
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %2) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %4
@@ -15633,7 +15633,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %5
@@ -15673,7 +15673,7 @@ _ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i: 
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i
 
 _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(13) %3) #28
   br label %_ZN3glw16BoundTextureCubeD2Ev.exit
 
 _ZN3glw16BoundTextureCubeD2Ev.exit:               ; preds = %5, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i, %1
@@ -18362,7 +18362,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypeP
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.013.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i ], [ %1, %3 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.013.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %.013.i.i.i, i8 0, i64 24, i1 false)
   %19 = add i64 %.01012.i.i.i, -1
   %20 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %19, 0
@@ -18392,7 +18392,7 @@ _ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_le
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
   %.013.i.i.i31 = phi ptr [ %30, %.lr.ph.i.i.i30 ], [ %28, %_ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %29, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.013.i.i.i31, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %.013.i.i.i31, i8 0, i64 24, i1 false)
   %29 = add i64 %.01012.i.i.i32, -1
   %30 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %29, 0
@@ -23310,7 +23310,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i unwind label %.loopexit.split-lp474.loopexit.split-lp.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i:   ; preds = %319, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %316)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %316)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i unwind label %.loopexit.split-lp474.loopexit.split-lp.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i:     ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i274, %312
@@ -23418,7 +23418,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i283: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i285 unwind label %.loopexit.split-lp474.loopexit.split-lp.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i285: ; preds = %355, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i283
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %352)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %352)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i282 unwind label %.loopexit.split-lp474.loopexit.split-lp.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i282:  ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i285, %_ZN9QtPrivate8RefCount5derefEv.exit.i286, %348
@@ -23497,7 +23497,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i315: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i317 unwind label %.loopexit.split-lp474.loopexit.split-lp.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i317: ; preds = %383, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i315
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %380)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %380)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i314 unwind label %.loopexit.split-lp474.loopexit.split-lp.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i314:  ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i317, %_ZN9QtPrivate8RefCount5derefEv.exit.i318, %376
@@ -23600,7 +23600,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i299: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i301 unwind label %.loopexit.split-lp474.loopexit.split-lp.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i301: ; preds = %417, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i299
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %414)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %414)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i298 unwind label %.loopexit.split-lp474.loopexit.split-lp.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i298:  ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i301, %_ZN9QtPrivate8RefCount5derefEv.exit.i302, %410
@@ -23805,7 +23805,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i331: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i333 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i333: ; preds = %476, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i331
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %473)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %473)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i330 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i330:  ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i333, %_ZN9QtPrivate8RefCount5derefEv.exit.i334, %469
@@ -24053,7 +24053,7 @@ _ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit: ; preds = %._crit_edge
   %.sroa.10.3 = phi ptr [ %.sroa.10.1, %480 ], [ %.sroa.10.1, %.loopexit ], [ %562, %_ZNSt6vectorIP11RasterModelSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %541, %540 ], [ %.sroa.10.1, %._crit_edge.i.i.i.i165 ]
   %.sroa.19.2 = phi ptr [ %.sroa.19.1, %480 ], [ %.sroa.19.1, %.loopexit ], [ %564, %_ZNSt6vectorIP11RasterModelSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.19.1, %540 ], [ %.sroa.19.1, %._crit_edge.i.i.i.i165 ]
   %.164 = phi i32 [ %.063, %480 ], [ %.063, %.loopexit ], [ %482, %_ZNSt6vectorIP11RasterModelSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %482, %540 ], [ %.063, %._crit_edge.i.i.i.i165 ]
-  %565 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0386.0)
+  %565 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0386.0)
           to label %_ZN4QMapIP11RasterModeliE8iteratorppEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 566:                                              ; preds = %477
@@ -24338,7 +24338,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i347: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i349 unwind label %.loopexit.split-lp474.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i349: ; preds = %681, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i347
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %678)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %678)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i346 unwind label %.loopexit.split-lp474.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i346:  ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i349, %_ZN9QtPrivate8RefCount5derefEv.exit.i350, %674
@@ -24485,7 +24485,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread.i346:  ; preds = %_ZN8QMapDataIP11Ras
 .thread444:                                       ; preds = %.loopexit462, %._crit_edge.i.i.i.i216, %685
   %.161 = phi ptr [ %.060, %685 ], [ %.060, %._crit_edge.i.i.i.i216 ], [ %spec.select, %.loopexit462 ]
   %.159 = phi i32 [ %.058, %685 ], [ %.058, %._crit_edge.i.i.i.i216 ], [ %spec.select448, %.loopexit462 ]
-  %745 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0367.0)
+  %745 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0367.0)
           to label %_ZN4QMapIP11RasterModeliE8iteratorppEv.exit237 unwind label %.loopexit.split-lp474.loopexit
 
 746:                                              ; preds = %682
@@ -24630,7 +24630,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i unwind label %802
 
 .noexc.i:                                         ; preds = %801, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %798)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %798)
           to label %_ZN4QMapIP11RasterModeliED2Ev.exit unwind label %802
 
 802:                                              ; preds = %.noexc.i, %801
@@ -24730,7 +24730,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3:      ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %5)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit unwind label %9
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit:     ; preds = %1, %.noexc, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -24815,7 +24815,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit:     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -25039,7 +25039,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i109: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i111 unwind label %.loopexit.split-lp.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i111: ; preds = %68, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i109
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %65)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %65)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i108 unwind label %.loopexit.split-lp.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i108:  ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i111, %_ZN9QtPrivate8RefCount5derefEv.exit.i112, %61
@@ -25149,7 +25149,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i unwind label %.loopexit.split-lp.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i:   ; preds = %102, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %99)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %99)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i unwind label %.loopexit.split-lp.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i:     ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i100, %95
@@ -25291,7 +25291,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i141: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i143 unwind label %.loopexit.split-lp.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i143: ; preds = %137, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i141
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %134)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %134)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i140 unwind label %.loopexit.split-lp.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i140:  ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i143, %_ZN9QtPrivate8RefCount5derefEv.exit.i144, %130
@@ -25395,7 +25395,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i125: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i127 unwind label %.loopexit.split-lp.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i127: ; preds = %170, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i125
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %167)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %167)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i124 unwind label %.loopexit.split-lp.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i124:  ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i127, %_ZN9QtPrivate8RefCount5derefEv.exit.i128, %163
@@ -25599,7 +25599,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i157: ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i159 unwind label %.loopexit
 
 _ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i159: ; preds = %237, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i157
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %234)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %234)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i156 unwind label %.loopexit
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i156:  ; preds = %_ZN8QMapDataIP11RasterModeliE7destroyEv.exit.i159, %_ZN9QtPrivate8RefCount5derefEv.exit.i160, %230
@@ -25631,7 +25631,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread.i156:  ; preds = %_ZN8QMapDataIP11Ras
 248:                                              ; preds = %241, %245
   %.116 = phi ptr [ %247, %245 ], [ %.015, %241 ]
   %.1 = phi i32 [ %243, %245 ], [ %.0, %241 ]
-  %249 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0170.0)
+  %249 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0170.0)
           to label %_ZN4QMapIP11RasterModeliE8iteratorppEv.exit unwind label %.loopexit
 
 250:                                              ; preds = %238
@@ -25684,7 +25684,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i unwind label %269
 
 .noexc.i:                                         ; preds = %268, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %265)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %265)
           to label %_ZN4QMapIP11RasterModeliED2Ev.exit unwind label %269
 
 269:                                              ; preds = %.noexc.i, %268
@@ -25857,7 +25857,7 @@ _ZN5PatchD2Ev.exit.i.i.i:                         ; preds = %56, %_ZNSt6vectorIP
   br i1 %.not.i.i.i, label %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
 _ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i: ; preds = %_ZN5PatchD2Ev.exit.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %39, i64 noundef 168, i64 noundef 8) #29
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %39, i64 noundef 168, i64 noundef 8) #29
   br label %_ZN7QVectorI5PatchED2Ev.exit
 
 _ZN7QVectorI5PatchED2Ev.exit:                     ; preds = %_ZN7QVectorI5PatchEaSEOS1_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i
@@ -26632,7 +26632,7 @@ _ZN5PatchD2Ev.exit.i.i.i:                         ; preds = %102, %_ZNSt6vectorI
   br i1 %.not.i.i.i, label %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
 _ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit.i: ; preds = %_ZN5PatchD2Ev.exit.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %85, i64 noundef 168, i64 noundef 8) #29
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %85, i64 noundef 168, i64 noundef 8) #29
   br label %_ZN7QVectorI5PatchED2Ev.exit
 
 103:                                              ; preds = %.noexc, %_ZN9QHashData8willGrowEv.exit
@@ -27684,7 +27684,7 @@ _ZN5PatchD2Ev.exit.i.i:                           ; preds = %103, %_ZNSt6vectorI
   br i1 %.not.i.i, label %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit, label %.lr.ph.i.i, !llvm.loop !27
 
 _ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit: ; preds = %_ZN5PatchD2Ev.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread29
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %86, i64 noundef 168, i64 noundef 8) #29
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %86, i64 noundef 168, i64 noundef 8) #29
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %.loopexit, %_ZN7QVectorI5PatchE8freeDataEP15QTypedArrayDataIS0_E.exit, %_ZN9QtPrivate8RefCount5derefEv.exit

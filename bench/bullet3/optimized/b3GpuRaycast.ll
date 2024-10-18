@@ -1658,7 +1658,7 @@ if.end.i:                                         ; preds = %_ZN20b3AlignedObjec
   %94 = load i32, ptr %m_idx3.i, align 8
   %inc.i = add nsw i32 %94, 1
   store i32 %inc.i, ptr %m_idx3.i, align 8
-  %call.i82 = invoke i32 %92(ptr noundef %93, i32 noundef %94, i64 noundef 4, ptr noundef nonnull %numRayRigidPairs)
+  %call.i82 = invoke i32 %92(ptr noundef %93, i32 noundef %94, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %numRayRigidPairs)
           to label %invoke.cont111 unwind label %lpad109
 
 invoke.cont111:                                   ; preds = %if.end.i
@@ -1931,7 +1931,7 @@ if.end.i109:                                      ; preds = %_ZN20b3AlignedObjec
   %139 = load i32, ptr %m_idx3.i111, align 8
   %inc.i112 = add nsw i32 %139, 1
   store i32 %inc.i112, ptr %m_idx3.i111, align 8
-  %call.i136 = invoke i32 %137(ptr noundef %138, i32 noundef %139, i64 noundef 4, ptr noundef nonnull %numRays)
+  %call.i136 = invoke i32 %137(ptr noundef %138, i32 noundef %139, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %numRays)
           to label %invoke.cont175 unwind label %lpad173
 
 invoke.cont175:                                   ; preds = %if.end.i109
@@ -2236,7 +2236,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -2357,7 +2357,7 @@ if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI
   %16 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -2434,7 +2434,7 @@ if.then.i:                                        ; preds = %if.then
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %m_clBuffer.i, align 8
   %mul2.i = mul i64 %4, 48
-  %call3.i = tail call i32 %7(ptr noundef %8, ptr noundef %9, i32 noundef 0, i64 noundef 0, i64 noundef %mul2.i, ptr noundef %6, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %call3.i = tail call i32 %7(ptr noundef %8, ptr noundef %9, i32 noundef 0, i64 noundef 0, i64 noundef %mul2.i, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i

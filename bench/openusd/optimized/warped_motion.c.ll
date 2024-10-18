@@ -25,7 +25,7 @@ define hidden range(i32 0, 2) i32 @av1_get_shear_params(ptr nocapture noundef %0
   %10 = tail call i32 @llvm.smin.i32(i32 %9, i32 32767)
   %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 -32768)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val, i1 true)
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, -2147483648) %.val, i1 true)
   %14 = xor i32 %13, 31
   %.neg.i = shl nsw i32 -1, %14
   %15 = add nsw i32 %.neg.i, %.val
@@ -358,7 +358,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr nocapture noundef readonly %0, 
   %113 = add nsw i64 %indvars.iv256, %109
   %114 = icmp slt i64 %113, 0
   %115 = trunc nsw i64 %113 to i32
-  %116 = tail call i32 @llvm.smin.i32(i32 %115, i32 %61)
+  %116 = tail call i32 @llvm.smin.i32(i32 %115, i32 range(i32 -2147483648, 2147483647) %61)
   %117 = select i1 %114, i32 0, i32 %116
   %118 = mul nsw i32 %117, %4
   %119 = shl i64 %indvars.iv256, 3
@@ -402,7 +402,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr nocapture noundef readonly %0, 
   %140 = add nsw i64 %132, %indvars.iv
   %141 = icmp slt i64 %140, 0
   %142 = trunc nsw i64 %140 to i32
-  %143 = tail call i32 @llvm.smin.i32(i32 %142, i32 %63)
+  %143 = tail call i32 @llvm.smin.i32(i32 %142, i32 range(i32 -2147483648, 2147483647) %63)
   %144 = select i1 %141, i32 0, i32 %143
   %145 = add nsw i32 %144, %118
   %146 = sext i32 %145 to i64
@@ -685,7 +685,7 @@ define hidden i64 @av1_calc_highbd_frame_error(ptr nocapture noundef readonly %0
   %20 = load i16, ptr %gep32, align 2
   %21 = zext i16 %20 to i32
   %22 = sub nsw i32 %19, %21
-  %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
+  %23 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %22, i1 true)
   %24 = lshr i32 %23, %10
   %25 = and i32 %23, %12
   %26 = add nuw nsw i32 %24, 255
@@ -837,7 +837,7 @@ define hidden void @av1_warp_affine_c(ptr nocapture noundef readonly %0, ptr noc
   %102 = add nsw i64 %indvars.iv232, %98
   %103 = icmp slt i64 %102, 0
   %104 = trunc nsw i64 %102 to i32
-  %105 = tail call i32 @llvm.smin.i32(i32 %104, i32 %53)
+  %105 = tail call i32 @llvm.smin.i32(i32 %104, i32 range(i32 -2147483648, 2147483647) %53)
   %106 = select i1 %103, i32 0, i32 %105
   %107 = mul nsw i32 %106, %4
   %108 = shl i64 %indvars.iv232, 3
@@ -881,7 +881,7 @@ define hidden void @av1_warp_affine_c(ptr nocapture noundef readonly %0, ptr noc
   %129 = add nsw i64 %121, %indvars.iv
   %130 = icmp slt i64 %129, 0
   %131 = trunc nsw i64 %129 to i32
-  %132 = tail call i32 @llvm.smin.i32(i32 %131, i32 %54)
+  %132 = tail call i32 @llvm.smin.i32(i32 %131, i32 range(i32 -2147483648, 2147483647) %54)
   %133 = select i1 %130, i32 0, i32 %132
   %134 = add nsw i32 %133, %107
   %135 = sext i32 %134 to i64
@@ -1188,7 +1188,7 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %28 = load i16, ptr %gep32.i, align 2
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %27, %29
-  %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
+  %31 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %30, i1 true)
   %32 = lshr i32 %31, %18
   %33 = and i32 %31, %20
   %34 = add nuw nsw i32 %32, 255
@@ -1364,7 +1364,7 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
   %50 = load i16, ptr %gep32.i.us.us.i, align 2
   %51 = zext i16 %50 to i32
   %52 = sub nsw i32 %49, %51
-  %53 = tail call i32 @llvm.abs.i32(i32 %52, i1 true)
+  %53 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %52, i1 true)
   %54 = lshr i32 %53, %20
   %55 = and i32 %53, %22
   %56 = add nuw nsw i32 %54, 255
@@ -1832,7 +1832,7 @@ resolve_divisor_64.exit.i:                        ; preds = %133, %123
 
 get_mult_shift_diag.exit.i:                       ; preds = %171, %167
   %174 = phi i64 [ %170, %167 ], [ %173, %171 ]
-  %175 = tail call i64 @llvm.smin.i64(i64 %174, i64 73727)
+  %175 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775807, -9223372036854775808) %174, i64 73727)
   %176 = tail call i64 @llvm.smax.i64(i64 %175, i64 57345)
   %177 = trunc nuw nsw i64 %176 to i32
   %178 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1854,7 +1854,7 @@ get_mult_shift_diag.exit.i:                       ; preds = %171, %167
 
 get_mult_shift_ndiag.exit.i:                      ; preds = %185, %181
   %188 = phi i64 [ %184, %181 ], [ %187, %185 ]
-  %189 = tail call i64 @llvm.smin.i64(i64 %188, i64 8191)
+  %189 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775807, -9223372036854775808) %188, i64 8191)
   %190 = tail call i64 @llvm.smax.i64(i64 %189, i64 -8191)
   %191 = trunc nsw i64 %190 to i32
   %192 = getelementptr inbounds i8, ptr %6, i64 12
@@ -1876,7 +1876,7 @@ get_mult_shift_ndiag.exit.i:                      ; preds = %185, %181
 
 get_mult_shift_ndiag.exit131.i:                   ; preds = %199, %195
   %202 = phi i64 [ %198, %195 ], [ %201, %199 ]
-  %203 = tail call i64 @llvm.smin.i64(i64 %202, i64 8191)
+  %203 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775807, -9223372036854775808) %202, i64 8191)
   %204 = tail call i64 @llvm.smax.i64(i64 %203, i64 -8191)
   %205 = trunc nsw i64 %204 to i32
   %206 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1898,7 +1898,7 @@ get_mult_shift_ndiag.exit131.i:                   ; preds = %199, %195
 
 216:                                              ; preds = %209, %213
   %217 = phi i64 [ %212, %209 ], [ %215, %213 ]
-  %218 = tail call i64 @llvm.smin.i64(i64 %217, i64 73727)
+  %218 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775807, -9223372036854775808) %217, i64 73727)
   %219 = tail call i64 @llvm.smax.i64(i64 %218, i64 57345)
   %220 = trunc nuw nsw i64 %219 to i32
   %221 = getelementptr inbounds i8, ptr %6, i64 20

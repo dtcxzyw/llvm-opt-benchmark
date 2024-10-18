@@ -49,7 +49,7 @@ define dso_local void @_ZN5clang12ObjCNoReturnC2ERNS_10ASTContextE(ptr nocapture
   %scevgep = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %14, i64 noundef 3) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %14, i64 noundef 3) #7
   %15 = load ptr, ptr %5, align 8
   %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr nonnull @.str, i64 5)
   %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
@@ -126,7 +126,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.
   %60 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %56, i32 noundef %58, ptr noundef nonnull %59) #7
   %61 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %60, ptr %61, align 8
-  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
+  %62 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #7
   %63 = load ptr, ptr %4, align 8
   %64 = icmp eq ptr %63, %14
   br i1 %64, label %_ZN4llvm11SmallVectorIPKN5clang14IdentifierInfoELj3EED2Ev.exit, label %65

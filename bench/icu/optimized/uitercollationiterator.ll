@@ -680,7 +680,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FCDUIterCollationIteratorE, i64 16), ptr %this, align 8
   %normalized = getelementptr inbounds i8, ptr %this, i64 424
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #9
-  tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(389) %this) #9
+  tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) #9
   ret void
 }
 
@@ -698,7 +698,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7525FCDUIterCollationIterator13resetToOffsetEi(ptr noundef nonnull align 8 dereferenceable(488) %this, i32 noundef %newOffset) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN6icu_7517CollationIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(389) %this)
+  tail call void @_ZN6icu_7517CollationIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(400) %this)
   %iter.i = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load ptr, ptr %iter.i, align 8
   %move.i = getelementptr inbounds i8, ptr %0, i64 40

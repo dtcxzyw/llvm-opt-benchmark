@@ -1208,7 +1208,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -1241,7 +1241,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -1260,7 +1260,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -1285,14 +1285,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -1314,7 +1314,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -1330,7 +1330,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5Val
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE4BindIS3_St8optionalINS3_13VerbosityEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE4BindIS3_St8optionalINS3_13VerbosityEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -1356,7 +1356,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptio
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -1373,7 +1373,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5Val
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -1527,7 +1527,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13O
 
 34:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberESaIS6_EEC2ERKS8_.exit
   %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %37 unwind label %41
 
 37:                                               ; preds = %34
@@ -1546,7 +1546,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13O
   br i1 %.not.i.i, label %.body, label %44
 
 44:                                               ; preds = %41
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %.body unwind label %46
 
 46:                                               ; preds = %44
@@ -1578,7 +1578,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -1604,7 +1604,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEvPT_.exit.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -1644,7 +1644,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -1731,7 +1731,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
 
 34:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberESaIS7_EEC2ERKS9_.exit
   %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %37 unwind label %41
 
 37:                                               ; preds = %34
@@ -1750,7 +1750,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
   br i1 %.not.i.i, label %.body, label %44
 
 44:                                               ; preds = %41
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %.body unwind label %46
 
 46:                                               ; preds = %44
@@ -1782,7 +1782,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -1808,7 +1808,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEvPT_.exit.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -1848,7 +1848,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -1914,7 +1914,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_142TestPresetOptionalFilterI
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS3_DpT_EERS3_E4typeEDpOS7_.exit: ; preds = %18, %22, %26
   %27 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 80, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
   store i8 1, ptr %19, align 8
   call void @_ZNK4Json5Value8asStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %1)
@@ -2022,7 +2022,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
 
 34:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberESaIS6_EEC2ERKS8_.exit
   %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %37 unwind label %41
 
 37:                                               ; preds = %34
@@ -2041,7 +2041,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
   br i1 %.not.i.i, label %.body, label %44
 
 44:                                               ; preds = %41
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %.body unwind label %46
 
 46:                                               ; preds = %44
@@ -2073,7 +2073,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -2099,7 +2099,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEvPT_.exit.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -2139,7 +2139,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -2224,7 +2224,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
 
 34:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberESaIS7_EEC2ERKS9_.exit
   %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %37 unwind label %41
 
 37:                                               ; preds = %34
@@ -2243,7 +2243,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
   br i1 %.not.i.i, label %.body, label %44
 
 44:                                               ; preds = %41
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %.body unwind label %46
 
 46:                                               ; preds = %44
@@ -2275,7 +2275,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -2301,7 +2301,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEvPT_.exit.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -2341,7 +2341,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -2368,7 +2368,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -2387,7 +2387,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -2412,14 +2412,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -2441,7 +2441,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -2457,7 +2457,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5Va
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE4BindIS3_St8optionalINS3_15FixturesOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE4BindIS3_St8optionalINS3_15FixturesOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -2483,7 +2483,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOpti
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -2500,7 +2500,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5Va
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -2582,7 +2582,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
 
 34:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberESaIS6_EEC2ERKS8_.exit
   %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %37 unwind label %41
 
 37:                                               ; preds = %34
@@ -2601,7 +2601,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
   br i1 %.not.i.i, label %.body, label %44
 
 44:                                               ; preds = %41
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %.body unwind label %46
 
 46:                                               ; preds = %44
@@ -2633,7 +2633,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -2659,7 +2659,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEvPT_.exit.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -2699,7 +2699,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -2767,7 +2767,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -2912,7 +2912,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
 
 34:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberESaIS7_EEC2ERKS9_.exit
   %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %37 unwind label %41
 
 37:                                               ; preds = %34
@@ -2931,7 +2931,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
   br i1 %.not.i.i, label %.body, label %44
 
 44:                                               ; preds = %41
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %.body unwind label %46
 
 46:                                               ; preds = %44
@@ -2963,7 +2963,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -2989,7 +2989,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEvPT_.exit.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -3029,7 +3029,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -3113,7 +3113,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -3140,7 +3140,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -3159,7 +3159,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -3184,14 +3184,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -3213,7 +3213,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -3229,7 +3229,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_12ShowOnlyEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_12ShowOnlyEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -3255,7 +3255,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOp
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -3272,7 +3272,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -3296,7 +3296,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -3315,7 +3315,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -3340,14 +3340,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -3369,7 +3369,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -3385,7 +3385,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_13RepeatOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_13RepeatOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -3411,7 +3411,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOp
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -3428,7 +3428,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -3452,7 +3452,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -3471,7 +3471,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -3496,14 +3496,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -3525,7 +3525,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -3541,7 +3541,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_17NoTestsActionEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_17NoTestsActionEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -3567,7 +3567,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOp
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -3584,7 +3584,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -3666,7 +3666,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
 
 34:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberESaIS6_EEC2ERKS8_.exit
   %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %37 unwind label %41
 
 37:                                               ; preds = %34
@@ -3685,7 +3685,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
   br i1 %.not.i.i, label %.body, label %44
 
 44:                                               ; preds = %41
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %.body unwind label %46
 
 46:                                               ; preds = %44
@@ -3717,7 +3717,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -3743,7 +3743,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEvPT_.exit.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -3783,7 +3783,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -3810,7 +3810,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -3829,7 +3829,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -3854,14 +3854,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -3883,7 +3883,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -3899,7 +3899,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5Val
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS3_St8optionalINS2_14IncludeOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS3_St8optionalINS2_14IncludeOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -3925,7 +3925,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptio
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -3942,7 +3942,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5Val
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -3966,7 +3966,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -3985,7 +3985,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -4010,14 +4010,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -4039,7 +4039,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -4055,7 +4055,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5Val
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS3_St8optionalINS2_14ExcludeOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS3_St8optionalINS2_14ExcludeOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -4081,7 +4081,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptio
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -4098,7 +4098,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5Val
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -4180,7 +4180,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13F
 
 34:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberESaIS6_EEC2ERKS8_.exit
   %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %37 unwind label %41
 
 37:                                               ; preds = %34
@@ -4199,7 +4199,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13F
   br i1 %.not.i.i, label %.body, label %44
 
 44:                                               ; preds = %41
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %.body unwind label %46
 
 46:                                               ; preds = %44
@@ -4231,7 +4231,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -4257,7 +4257,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEvPT_.exit.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -4297,7 +4297,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt8optionalIN19cmCMakePres
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -4332,7 +4332,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -4351,7 +4351,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -4374,14 +4374,14 @@ _ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit: ; preds = %5, 
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit
   %29 = getelementptr inbounds i8, ptr %28, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 24, i1 false)
   store ptr %27, ptr %29, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %32, label %30
 
 30:                                               ; preds = %.noexc
   %31 = getelementptr inbounds i8, ptr %28, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
   store ptr %26, ptr %31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %32
@@ -4401,7 +4401,7 @@ _ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEC2ERKS8_.exit: ; preds = %5, 
   br i1 %.not.i.i6, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %40
 
 40:                                               ; preds = %38
@@ -4417,7 +4417,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONSta
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIDnSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEDnT0_bENUlRS2_SA_SC_E_D2Ev.exit, label %44
 
 44:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIDnSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEDnT0_bENUlRS2_SA_SC_E_D2Ev.exit unwind label %46
 
 46:                                               ; preds = %44
@@ -4443,7 +4443,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIDnSt8
   br i1 %.not.i.i8, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit10, label %54
 
 54:                                               ; preds = %51
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit10 unwind label %56
 
 56:                                               ; preds = %54
@@ -4460,7 +4460,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONSta
   br i1 %.not.i.i.i11, label %common.resume, label %60
 
 60:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit10
-  %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %62
 
 62:                                               ; preds = %60
@@ -4492,7 +4492,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -4511,7 +4511,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -4536,14 +4536,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsE
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -4565,7 +4565,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsE
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -4581,7 +4581,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONSta
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_13OutputOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_13OutputOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -4607,7 +4607,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -4624,7 +4624,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONSta
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -4648,7 +4648,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -4667,7 +4667,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -4692,14 +4692,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsE
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -4721,7 +4721,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsE
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -4737,7 +4737,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONSta
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_13FilterOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_13FilterOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -4763,7 +4763,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -4780,7 +4780,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONSta
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -4804,7 +4804,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -4823,7 +4823,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -4848,14 +4848,14 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
 
 .noexc:                                           ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit
   %30 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %33, label %31
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 16, i1 false)
   store ptr %26, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %33
@@ -4877,7 +4877,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i7, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -4893,7 +4893,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONSta
   br i1 %.not.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_16ExecutionOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_16ExecutionOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -4919,7 +4919,7 @@ _ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St
   br i1 %.not.i.i9, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11, label %56
 
 56:                                               ; preds = %53
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11 unwind label %58
 
 58:                                               ; preds = %56
@@ -4936,7 +4936,7 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONSta
   br i1 %.not.i.i.i12, label %common.resume, label %62
 
 62:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit11
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3)
           to label %common.resume unwind label %64
 
 64:                                               ; preds = %62
@@ -5020,7 +5020,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6
 
 34:                                               ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberESaIS5_EEC2ERKS7_.exit
   %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2)
+  %36 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %37 unwind label %41
 
 37:                                               ; preds = %34
@@ -5039,7 +5039,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6
   br i1 %.not.i.i, label %.body, label %44
 
 44:                                               ; preds = %41
-  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %45 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %.body unwind label %46
 
 46:                                               ; preds = %44
@@ -5071,7 +5071,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -5097,7 +5097,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEvPT_.exit.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -5166,7 +5166,7 @@ define dso_local noundef zeroext i1 @_ZN27cmCMakePresetsGraphInternal17TestPrese
   br i1 %.not.i.i, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %21
 
 21:                                               ; preds = %19
@@ -5217,7 +5217,7 @@ _ZNKSt8functionIFbRSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS2_EEPKN4Json
 33:                                               ; preds = %.thread, %31
   %.pn11 = phi { ptr, i32 } [ %30, %.thread ], [ %32, %31 ]
   %34 = phi ptr [ @_ZNSt17_Function_handlerIFvPKN4Json5ValueEP11cmJSONStateEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, %.thread ], [ %.pre, %31 ]
-  %35 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit8 unwind label %36
 
 36:                                               ; preds = %33
@@ -5251,7 +5251,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder6VectorIN19cmCMakePr
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %4, i64 32
-  %10 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %11
 
 11:                                               ; preds = %8
@@ -5277,7 +5277,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 19:                                               ; preds = %.lr.ph.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %21 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 3)
+  %21 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %22
 
 22:                                               ; preds = %19
@@ -5325,7 +5325,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFbRSt6vectorIN19cmCMakePreset
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -5387,7 +5387,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEvPT_.exit.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -5433,7 +5433,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %24
   %.015 = phi ptr [ %30, %24 ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %29, %24 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.015, ptr noundef nonnull align 8 dereferenceable(49) %.sroa.08.014, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.015, i64 16
   %5 = getelementptr inbounds i8, ptr %.015, i64 32
   %6 = getelementptr inbounds i8, ptr %.015, i64 40
@@ -5445,7 +5445,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
@@ -5464,7 +5464,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %21
 
 21:                                               ; preds = %19
@@ -5533,7 +5533,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN19cmJSONHelperBuilder6Object
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEvPT_.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -5582,7 +5582,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEvPT_.exit.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -5622,7 +5622,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %24
   %.015 = phi ptr [ %30, %24 ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %29, %24 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.015, ptr noundef nonnull align 8 dereferenceable(49) %.sroa.08.014, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.015, i64 16
   %5 = getelementptr inbounds i8, ptr %.015, i64 32
   %6 = getelementptr inbounds i8, ptr %.015, i64 40
@@ -5634,7 +5634,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
@@ -5653,7 +5653,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %21
 
 21:                                               ; preds = %19
@@ -5722,7 +5722,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN19cmJSONHelperBuilder6Object
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEvPT_.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -5769,7 +5769,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEvPT_.exit.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -5809,7 +5809,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %24
   %.015 = phi ptr [ %30, %24 ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %29, %24 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.015, ptr noundef nonnull align 8 dereferenceable(49) %.sroa.08.014, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.015, i64 16
   %5 = getelementptr inbounds i8, ptr %.015, i64 32
   %6 = getelementptr inbounds i8, ptr %.015, i64 40
@@ -5821,7 +5821,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
@@ -5840,7 +5840,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %21
 
 21:                                               ; preds = %19
@@ -5909,7 +5909,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN19cmJSONHelperBuilder6Object
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEvPT_.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -5945,7 +5945,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEvPT_.exit.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -5985,7 +5985,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %24
   %.015 = phi ptr [ %30, %24 ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %29, %24 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.015, ptr noundef nonnull align 8 dereferenceable(49) %.sroa.08.014, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.015, i64 16
   %5 = getelementptr inbounds i8, ptr %.015, i64 32
   %6 = getelementptr inbounds i8, ptr %.015, i64 40
@@ -5997,7 +5997,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
@@ -6016,7 +6016,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %21
 
 21:                                               ; preds = %19
@@ -6085,7 +6085,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN19cmJSONHelperBuilder6Object
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEvPT_.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -6121,7 +6121,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEvPT_.exit.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -6161,7 +6161,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %24
   %.015 = phi ptr [ %30, %24 ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %29, %24 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.015, ptr noundef nonnull align 8 dereferenceable(49) %.sroa.08.014, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.015, i64 16
   %5 = getelementptr inbounds i8, ptr %.015, i64 32
   %6 = getelementptr inbounds i8, ptr %.015, i64 40
@@ -6173,7 +6173,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
@@ -6192,7 +6192,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %21
 
 21:                                               ; preds = %19
@@ -6261,7 +6261,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN19cmJSONHelperBuilder6Object
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEvPT_.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -6297,7 +6297,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEvPT_.exit.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -6337,7 +6337,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %24
   %.015 = phi ptr [ %30, %24 ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %29, %24 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.015, ptr noundef nonnull align 8 dereferenceable(49) %.sroa.08.014, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.015, i64 16
   %5 = getelementptr inbounds i8, ptr %.015, i64 32
   %6 = getelementptr inbounds i8, ptr %.015, i64 40
@@ -6349,7 +6349,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
@@ -6368,7 +6368,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %21
 
 21:                                               ; preds = %19
@@ -6437,7 +6437,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN19cmJSONHelperBuilder6Object
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEvPT_.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -6473,7 +6473,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEvPT_.exit.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -6513,7 +6513,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %24
   %.015 = phi ptr [ %30, %24 ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %29, %24 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.015, ptr noundef nonnull align 8 dereferenceable(49) %.sroa.08.014, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.015, i64 16
   %5 = getelementptr inbounds i8, ptr %.015, i64 32
   %6 = getelementptr inbounds i8, ptr %.015, i64 40
@@ -6525,7 +6525,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
@@ -6544,7 +6544,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %21
 
 21:                                               ; preds = %19
@@ -6613,7 +6613,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN19cmJSONHelperBuilder6Object
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEvPT_.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -6649,7 +6649,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEvPT_.exit.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -6689,7 +6689,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %24
   %.015 = phi ptr [ %30, %24 ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %29, %24 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.015, ptr noundef nonnull align 8 dereferenceable(49) %.sroa.08.014, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.015, i64 16
   %5 = getelementptr inbounds i8, ptr %.015, i64 32
   %6 = getelementptr inbounds i8, ptr %.015, i64 40
@@ -6701,7 +6701,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
@@ -6720,7 +6720,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %21
 
 21:                                               ; preds = %19
@@ -6789,7 +6789,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN19cmJSONHelperBuilder6Object
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEvPT_.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -6825,7 +6825,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEvPT_.exit.i.i.i unwind label %10
 
 10:                                               ; preds = %7
@@ -6865,7 +6865,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %24
   %.015 = phi ptr [ %30, %24 ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %29, %24 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.015, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.015, ptr noundef nonnull align 8 dereferenceable(49) %.sroa.08.014, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.015, i64 16
   %5 = getelementptr inbounds i8, ptr %.015, i64 32
   %6 = getelementptr inbounds i8, ptr %.015, i64 40
@@ -6877,7 +6877,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %9
@@ -6896,7 +6896,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   br i1 %.not.i.i.i.i, label %.body, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %21
 
 21:                                               ; preds = %19
@@ -6965,7 +6965,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPN19cmJSONHelperBuilder6Object
 
 5:                                                ; preds = %.lr.ph.i
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEvPT_.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -7038,7 +7038,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRSt
   store i32 0, ptr %1, align 4
   store i8 1, ptr %6, align 4
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %5, ptr noundef %12)
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %5, ptr noundef %12)
   br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEPFbRS5_PKN4Json5ValueEP11cmJSONStateEEESt8functionIFbRSt8optionalIT_ESA_SC_EET0_EUlRSG_IS5_ESA_SC_E_JSO_SA_SC_EENSt9enable_ifIX16is_invocable_r_vISH_SM_DpT1_EESH_E4typeEOSM_DpOSS_.exit
 
 _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEPFbRS5_PKN4Json5ValueEP11cmJSONStateEEESt8functionIFbRSt8optionalIT_ESA_SC_EET0_EUlRSG_IS5_ESA_SC_E_JSO_SA_SC_EENSt9enable_ifIX16is_invocable_r_vISH_SM_DpT1_EESH_E4typeEOSM_DpOSS_.exit: ; preds = %7, %10, %11
@@ -7120,12 +7120,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
 
 _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit: ; preds = %13, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 40
@@ -7142,16 +7142,16 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5Val
   br i1 %.not.i.i, label %26, label %18
 
 18:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13OutputOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.pre, ptr noundef nonnull align 8 dereferenceable(49) %6, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %.pre, i64 16
   %20 = getelementptr inbounds i8, ptr %.pre, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store ptr %10, ptr %20, align 8
   br i1 %.not.i.i.not.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.pre, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   store ptr %12, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i
@@ -7184,7 +7184,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13O
   br i1 %.not.i.i.i6, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberD2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberD2Ev.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -7203,7 +7203,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOption
   br i1 %.not.i.i.i7, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberD2Ev.exit8, label %39
 
 39:                                               ; preds = %37
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberD2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
@@ -7253,11 +7253,11 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::OutputOptions>::Member", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %24, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
@@ -7268,7 +7268,7 @@ _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
 31:                                               ; preds = %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit
@@ -7287,11 +7287,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
   %.0911.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i, i64 16, i1 false), !alias.scope !35
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !30, !noalias !33
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false), !alias.scope !30, !noalias !33
   %41 = load ptr, ptr %40, align 8, !alias.scope !33, !noalias !30
   store ptr %41, ptr %39, align 8, !alias.scope !30, !noalias !33
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -7302,7 +7302,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !alias.scope !35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !alias.scope !35
   store ptr %43, ptr %45, align 8, !alias.scope !30, !noalias !33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !33, !noalias !30
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i
@@ -7329,11 +7329,11 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13O
   %.0911.i.i.i19 = phi ptr [ %59, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !42
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !42
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !37, !noalias !40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 24, i1 false), !alias.scope !37, !noalias !40
   %53 = load ptr, ptr %52, align 8, !alias.scope !40, !noalias !37
   store ptr %53, ptr %51, align 8, !alias.scope !37, !noalias !40
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
@@ -7344,7 +7344,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13O
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !42
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !alias.scope !42
   store ptr %55, ptr %57, align 8, !alias.scope !37, !noalias !40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !40, !noalias !37
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -7443,7 +7443,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -7497,13 +7497,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE4BindIS5_St8optionalINS5_13VerbosityEnumEESt8functionIFbRSA_PKN4Json5ValueEP11cmJSONStateEEEERS6_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS5_SG_SI_E_E15_M_init_functorIRKSX_EEvRSt9_Any_dataOSS_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -7522,7 +7522,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -7556,7 +7556,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE4BindIS3_St8optionalINS3_13VerbosityEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE4BindIS3_St8optionalINS3_13VerbosityEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -7691,7 +7691,7 @@ define linkonce_odr dso_local void @_ZZN19cmJSONHelperBuilder8OptionalIN19cmCMak
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -7717,7 +7717,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -7814,7 +7814,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN19cmJSONHelperBuilder8Opti
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit: ; preds = %12, %13
   %16 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %1, i8 0, i64 128, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
   %17 = getelementptr inbounds i8, ptr %1, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
@@ -7887,7 +7887,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !noalias !43
-  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %40 unwind label %54
 
 40:                                               ; preds = %36
@@ -7911,7 +7911,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 24
   %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %47 unwind label %56
 
 47:                                               ; preds = %44
@@ -7922,7 +7922,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i54, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -7945,7 +7945,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i55, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %59
 
 59:                                               ; preds = %56
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %61
 
 61:                                               ; preds = %59
@@ -7974,7 +7974,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !noalias !46
-  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %73 unwind label %54
 
 73:                                               ; preds = %69
@@ -7998,7 +7998,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %23, i64 24
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %80 unwind label %87
 
 80:                                               ; preds = %77
@@ -8009,7 +8009,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i65, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %84
 
 84:                                               ; preds = %82
@@ -8027,7 +8027,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %92
 
 92:                                               ; preds = %90
@@ -8165,7 +8165,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %137 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %138 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %136
@@ -8174,7 +8174,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %spec.select = select i1 %140, i1 %.036134, i1 false
   %142 = load ptr, ptr %21, align 8
   %143 = load ptr, ptr %116, align 8
-  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull %25)
+  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull align 8 dereferenceable(32) %25)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 145:                                              ; preds = %122
@@ -8254,7 +8254,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %175 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %176 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %177 = load ptr, ptr %176, align 8
-  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit
 
 179:                                              ; preds = %174
@@ -8272,7 +8272,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %119, align 8, !noalias !51
-  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -8294,7 +8294,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %121, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %189 unwind label %.loopexit117
 
 189:                                              ; preds = %187
@@ -8305,7 +8305,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i86, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87, label %191
 
 191:                                              ; preds = %189
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87 unwind label %193
 
 193:                                              ; preds = %191
@@ -8332,7 +8332,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i88, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89, label %198
 
 198:                                              ; preds = %196
-  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89 unwind label %200
 
 200:                                              ; preds = %198
@@ -8391,7 +8391,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   %217 = getelementptr inbounds i8, ptr %0, i64 32
   %218 = getelementptr inbounds i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8, !noalias !54
-  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %220 unwind label %54
 
 220:                                              ; preds = %216
@@ -8415,7 +8415,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %28, i64 24
   %226 = load ptr, ptr %225, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %227 unwind label %234
 
 227:                                              ; preds = %224
@@ -8426,7 +8426,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i98, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %229
 
 229:                                              ; preds = %227
-  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %231
 
 231:                                              ; preds = %229
@@ -8444,7 +8444,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i100, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %237
 
 237:                                              ; preds = %234
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %239
 
 239:                                              ; preds = %237
@@ -8747,7 +8747,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(65) %9, ptr noundef nonnull align 8 dereferenceable(65) %8)
+  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8)
           to label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsENS1_6ObjectIS5_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS9_IS5_ESG_SI_E_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOSA_.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -8773,7 +8773,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMake
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %13, i64 32
-  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i.i unwind label %21
 
 21:                                               ; preds = %18
@@ -8799,7 +8799,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
-  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i.i unwind label %32
 
 32:                                               ; preds = %29
@@ -8852,12 +8852,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit
 
 _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit: ; preds = %13, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 40
@@ -8874,16 +8874,16 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptio
   br i1 %.not.i.i, label %26, label %18
 
 18:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.pre, ptr noundef nonnull align 8 dereferenceable(49) %6, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %.pre, i64 16
   %20 = getelementptr inbounds i8, ptr %.pre, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store ptr %10, ptr %20, align 8
   br i1 %.not.i.i.not.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.pre, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   store ptr %12, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i
@@ -8916,7 +8916,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
   br i1 %.not.i.i.i6, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberD2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberD2Ev.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -8935,7 +8935,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptio
   br i1 %.not.i.i.i7, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberD2Ev.exit8, label %39
 
 39:                                               ; preds = %37
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberD2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
@@ -8985,11 +8985,11 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberESaIS7_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberESaIS7_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberESaIS7_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::IncludeOptions::IndexOptions>::Member", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %24, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
@@ -9000,7 +9000,7 @@ _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
 31:                                               ; preds = %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberESaIS7_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit
@@ -9019,11 +9019,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
   %.0911.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i, i64 16, i1 false), !alias.scope !63
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !58, !noalias !61
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false), !alias.scope !58, !noalias !61
   %41 = load ptr, ptr %40, align 8, !alias.scope !61, !noalias !58
   store ptr %41, ptr %39, align 8, !alias.scope !58, !noalias !61
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -9034,7 +9034,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !alias.scope !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !alias.scope !63
   store ptr %43, ptr %45, align 8, !alias.scope !58, !noalias !61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !61, !noalias !58
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i
@@ -9061,11 +9061,11 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
   %.0911.i.i.i19 = phi ptr [ %59, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !70
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !70
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !65, !noalias !68
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 24, i1 false), !alias.scope !65, !noalias !68
   %53 = load ptr, ptr %52, align 8, !alias.scope !68, !noalias !65
   store ptr %53, ptr %51, align 8, !alias.scope !65, !noalias !68
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
@@ -9076,7 +9076,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !70
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !alias.scope !70
   store ptr %55, ptr %57, align 8, !alias.scope !65, !noalias !68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !68, !noalias !65
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -9191,7 +9191,7 @@ define linkonce_odr dso_local void @_ZZN19cmJSONHelperBuilder8OptionalIN19cmCMak
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -9217,7 +9217,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -9324,7 +9324,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN19cmJSONHelperBuilder8Opti
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS3_DpT_EERS3_E4typeEDpOS7_.exit: ; preds = %14, %15, %19
   %20 = getelementptr inbounds i8, ptr %1, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 80, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #18
   store i8 1, ptr %5, align 8
   %21 = tail call noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEclERS4_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull %2, ptr noundef %3)
@@ -9383,7 +9383,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !noalias !71
-  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %40 unwind label %54
 
 40:                                               ; preds = %36
@@ -9407,7 +9407,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 24
   %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %47 unwind label %56
 
 47:                                               ; preds = %44
@@ -9418,7 +9418,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i54, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -9441,7 +9441,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i55, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %59
 
 59:                                               ; preds = %56
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %61
 
 61:                                               ; preds = %59
@@ -9470,7 +9470,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !noalias !74
-  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %73 unwind label %54
 
 73:                                               ; preds = %69
@@ -9494,7 +9494,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %23, i64 24
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %80 unwind label %87
 
 80:                                               ; preds = %77
@@ -9505,7 +9505,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i65, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %84
 
 84:                                               ; preds = %82
@@ -9523,7 +9523,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %92
 
 92:                                               ; preds = %90
@@ -9661,7 +9661,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %137 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %138 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %136
@@ -9670,7 +9670,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %spec.select = select i1 %140, i1 %.036134, i1 false
   %142 = load ptr, ptr %21, align 8
   %143 = load ptr, ptr %116, align 8
-  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull %25)
+  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull align 8 dereferenceable(32) %25)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 145:                                              ; preds = %122
@@ -9750,7 +9750,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %175 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %176 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %177 = load ptr, ptr %176, align 8
-  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit
 
 179:                                              ; preds = %174
@@ -9768,7 +9768,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %119, align 8, !noalias !77
-  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -9790,7 +9790,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %121, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %189 unwind label %.loopexit117
 
 189:                                              ; preds = %187
@@ -9801,7 +9801,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i86, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87, label %191
 
 191:                                              ; preds = %189
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87 unwind label %193
 
 193:                                              ; preds = %191
@@ -9828,7 +9828,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i88, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89, label %198
 
 198:                                              ; preds = %196
-  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89 unwind label %200
 
 200:                                              ; preds = %198
@@ -9887,7 +9887,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   %217 = getelementptr inbounds i8, ptr %0, i64 32
   %218 = getelementptr inbounds i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8, !noalias !80
-  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %220 unwind label %54
 
 220:                                              ; preds = %216
@@ -9911,7 +9911,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %28, i64 24
   %226 = load ptr, ptr %225, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %227 unwind label %234
 
 227:                                              ; preds = %224
@@ -9922,7 +9922,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i98, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %229
 
 229:                                              ; preds = %227
-  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %231
 
 231:                                              ; preds = %229
@@ -9940,7 +9940,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i100, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %237
 
 237:                                              ; preds = %234
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %239
 
 239:                                              ; preds = %237
@@ -10008,7 +10008,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(65) %9, ptr noundef nonnull align 8 dereferenceable(65) %8)
+  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8)
           to label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsENS1_6ObjectIS6_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRSA_IS6_ESH_SJ_E_E15_M_init_functorIRKSP_EEvRSt9_Any_dataOSB_.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -10034,7 +10034,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMake
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %13, i64 32
-  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i.i unwind label %21
 
 21:                                               ; preds = %18
@@ -10060,7 +10060,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
-  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i.i unwind label %32
 
 32:                                               ; preds = %29
@@ -10113,12 +10113,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
 
 _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit: ; preds = %13, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 40
@@ -10135,16 +10135,16 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEPKN4Json5Va
   br i1 %.not.i.i, label %26, label %18
 
 18:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.pre, ptr noundef nonnull align 8 dereferenceable(49) %6, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %.pre, i64 16
   %20 = getelementptr inbounds i8, ptr %.pre, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store ptr %10, ptr %20, align 8
   br i1 %.not.i.i.not.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.pre, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   store ptr %12, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i
@@ -10177,7 +10177,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
   br i1 %.not.i.i.i6, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberD2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberD2Ev.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -10196,7 +10196,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptio
   br i1 %.not.i.i.i7, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberD2Ev.exit8, label %39
 
 39:                                               ; preds = %37
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberD2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
@@ -10246,11 +10246,11 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::IncludeOptions>::Member", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %24, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
@@ -10261,7 +10261,7 @@ _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
 31:                                               ; preds = %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit
@@ -10280,11 +10280,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
   %.0911.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i, i64 16, i1 false), !alias.scope !88
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !83, !noalias !86
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false), !alias.scope !83, !noalias !86
   %41 = load ptr, ptr %40, align 8, !alias.scope !86, !noalias !83
   store ptr %41, ptr %39, align 8, !alias.scope !83, !noalias !86
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -10295,7 +10295,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !alias.scope !88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !alias.scope !88
   store ptr %43, ptr %45, align 8, !alias.scope !83, !noalias !86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !86, !noalias !83
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i
@@ -10322,11 +10322,11 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
   %.0911.i.i.i19 = phi ptr [ %59, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !95
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !95
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !90, !noalias !93
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 24, i1 false), !alias.scope !90, !noalias !93
   %53 = load ptr, ptr %52, align 8, !alias.scope !93, !noalias !90
   store ptr %53, ptr %51, align 8, !alias.scope !90, !noalias !93
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
@@ -10337,7 +10337,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !95
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !alias.scope !95
   store ptr %55, ptr %57, align 8, !alias.scope !90, !noalias !93
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !93, !noalias !90
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -10488,7 +10488,7 @@ define linkonce_odr dso_local void @_ZZN19cmJSONHelperBuilder8OptionalIN19cmCMak
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -10514,7 +10514,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -10613,7 +10613,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN19cmJSONHelperBuilder8Opti
 _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE10_M_destroyEv.exit.i.i.i: ; preds = %17, %13, %9
   %18 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(168) %1) #18
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE5resetEv.exit
 
 19:                                               ; preds = %4
@@ -10642,12 +10642,12 @@ _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions
 _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE10_M_destroyEv.exit.i.i.i9: ; preds = %28, %24, %20
   %29 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(168) %1) #18
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit: ; preds = %19, %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE10_M_destroyEv.exit.i.i.i9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %1, i8 0, i64 160, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %1, i8 0, i64 160, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %1) #18
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #18
   %31 = getelementptr inbounds i8, ptr %1, i64 144
@@ -10711,7 +10711,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !noalias !96
-  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %40 unwind label %54
 
 40:                                               ; preds = %36
@@ -10735,7 +10735,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 24
   %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %47 unwind label %56
 
 47:                                               ; preds = %44
@@ -10746,7 +10746,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i54, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -10769,7 +10769,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i55, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %59
 
 59:                                               ; preds = %56
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %61
 
 61:                                               ; preds = %59
@@ -10798,7 +10798,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !noalias !99
-  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %73 unwind label %54
 
 73:                                               ; preds = %69
@@ -10822,7 +10822,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %23, i64 24
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %80 unwind label %87
 
 80:                                               ; preds = %77
@@ -10833,7 +10833,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i65, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %84
 
 84:                                               ; preds = %82
@@ -10851,7 +10851,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %92
 
 92:                                               ; preds = %90
@@ -10989,7 +10989,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %137 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %138 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(154) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(154) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %136
@@ -10998,7 +10998,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %spec.select = select i1 %140, i1 %.036134, i1 false
   %142 = load ptr, ptr %21, align 8
   %143 = load ptr, ptr %116, align 8
-  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull %25)
+  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull align 8 dereferenceable(32) %25)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 145:                                              ; preds = %122
@@ -11078,7 +11078,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %175 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %176 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %177 = load ptr, ptr %176, align 8
-  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(154) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(154) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit
 
 179:                                              ; preds = %174
@@ -11096,7 +11096,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %119, align 8, !noalias !102
-  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -11118,7 +11118,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %121, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %189 unwind label %.loopexit117
 
 189:                                              ; preds = %187
@@ -11129,7 +11129,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i86, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87, label %191
 
 191:                                              ; preds = %189
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87 unwind label %193
 
 193:                                              ; preds = %191
@@ -11156,7 +11156,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i88, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89, label %198
 
 198:                                              ; preds = %196
-  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89 unwind label %200
 
 200:                                              ; preds = %198
@@ -11215,7 +11215,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   %217 = getelementptr inbounds i8, ptr %0, i64 32
   %218 = getelementptr inbounds i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8, !noalias !105
-  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %220 unwind label %54
 
 220:                                              ; preds = %216
@@ -11239,7 +11239,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %28, i64 24
   %226 = load ptr, ptr %225, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %227 unwind label %234
 
 227:                                              ; preds = %224
@@ -11250,7 +11250,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i98, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %229
 
 229:                                              ; preds = %227
-  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %231
 
 231:                                              ; preds = %229
@@ -11268,7 +11268,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i100, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %237
 
 237:                                              ; preds = %234
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %239
 
 239:                                              ; preds = %237
@@ -11336,7 +11336,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(65) %9, ptr noundef nonnull align 8 dereferenceable(65) %8)
+  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8)
           to label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsENS1_6ObjectIS5_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS9_IS5_ESG_SI_E_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOSA_.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -11362,7 +11362,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMake
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %13, i64 32
-  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i.i unwind label %21
 
 21:                                               ; preds = %18
@@ -11388,7 +11388,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
-  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i.i unwind label %32
 
 32:                                               ; preds = %29
@@ -11441,12 +11441,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit
 
 _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit: ; preds = %13, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 40
@@ -11463,16 +11463,16 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOp
   br i1 %.not.i.i, label %26, label %18
 
 18:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.pre, ptr noundef nonnull align 8 dereferenceable(49) %6, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %.pre, i64 16
   %20 = getelementptr inbounds i8, ptr %.pre, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store ptr %10, ptr %20, align 8
   br i1 %.not.i.i.not.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.pre, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   store ptr %12, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i
@@ -11505,7 +11505,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
   br i1 %.not.i.i.i6, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberD2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberD2Ev.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -11524,7 +11524,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptio
   br i1 %.not.i.i.i7, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberD2Ev.exit8, label %39
 
 39:                                               ; preds = %37
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberD2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
@@ -11574,11 +11574,11 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberESaIS7_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberESaIS7_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberESaIS7_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExcludeOptions::FixturesOptions>::Member", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %24, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
@@ -11589,7 +11589,7 @@ _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
 31:                                               ; preds = %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberESaIS7_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit
@@ -11608,11 +11608,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
   %.0911.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !113
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i, i64 16, i1 false), !alias.scope !113
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !108, !noalias !111
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false), !alias.scope !108, !noalias !111
   %41 = load ptr, ptr %40, align 8, !alias.scope !111, !noalias !108
   store ptr %41, ptr %39, align 8, !alias.scope !108, !noalias !111
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -11623,7 +11623,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !alias.scope !113
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !alias.scope !113
   store ptr %43, ptr %45, align 8, !alias.scope !108, !noalias !111
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !111, !noalias !108
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i
@@ -11650,11 +11650,11 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
   %.0911.i.i.i19 = phi ptr [ %59, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !120
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !115, !noalias !118
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 24, i1 false), !alias.scope !115, !noalias !118
   %53 = load ptr, ptr %52, align 8, !alias.scope !118, !noalias !115
   store ptr %53, ptr %51, align 8, !alias.scope !115, !noalias !118
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
@@ -11665,7 +11665,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !alias.scope !120
   store ptr %55, ptr %57, align 8, !alias.scope !115, !noalias !118
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !118, !noalias !115
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -11744,7 +11744,7 @@ define linkonce_odr dso_local void @_ZZN19cmJSONHelperBuilder8OptionalIN19cmCMak
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -11770,7 +11770,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -11852,7 +11852,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN19cmJSONHelperBuilder8Opti
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %1) #18
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE5resetEv.exit
 
 12:                                               ; preds = %4
@@ -11864,12 +11864,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN19cmJSONHelperBuilder8Opti
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   %15 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %1) #18
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS3_DpT_EERS3_E4typeEDpOS7_.exit
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS3_DpT_EERS3_E4typeEDpOS7_.exit: ; preds = %12, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, i8 0, i64 96, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, i8 0, i64 96, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %1) #18
   %16 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
   %17 = getelementptr inbounds i8, ptr %1, i64 64
@@ -11931,7 +11931,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !noalias !121
-  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %40 unwind label %54
 
 40:                                               ; preds = %36
@@ -11955,7 +11955,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 24
   %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %47 unwind label %56
 
 47:                                               ; preds = %44
@@ -11966,7 +11966,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i54, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -11989,7 +11989,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i55, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %59
 
 59:                                               ; preds = %56
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %61
 
 61:                                               ; preds = %59
@@ -12018,7 +12018,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !noalias !124
-  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %73 unwind label %54
 
 73:                                               ; preds = %69
@@ -12042,7 +12042,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %23, i64 24
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %80 unwind label %87
 
 80:                                               ; preds = %77
@@ -12053,7 +12053,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i65, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %84
 
 84:                                               ; preds = %82
@@ -12071,7 +12071,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %92
 
 92:                                               ; preds = %90
@@ -12209,7 +12209,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %137 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %138 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %136
@@ -12218,7 +12218,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %spec.select = select i1 %140, i1 %.036134, i1 false
   %142 = load ptr, ptr %21, align 8
   %143 = load ptr, ptr %116, align 8
-  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull %25)
+  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull align 8 dereferenceable(32) %25)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 145:                                              ; preds = %122
@@ -12298,7 +12298,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %175 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %176 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %177 = load ptr, ptr %176, align 8
-  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit
 
 179:                                              ; preds = %174
@@ -12316,7 +12316,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %119, align 8, !noalias !127
-  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -12338,7 +12338,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %121, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %189 unwind label %.loopexit117
 
 189:                                              ; preds = %187
@@ -12349,7 +12349,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i86, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87, label %191
 
 191:                                              ; preds = %189
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87 unwind label %193
 
 193:                                              ; preds = %191
@@ -12376,7 +12376,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i88, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89, label %198
 
 198:                                              ; preds = %196
-  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89 unwind label %200
 
 200:                                              ; preds = %198
@@ -12435,7 +12435,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   %217 = getelementptr inbounds i8, ptr %0, i64 32
   %218 = getelementptr inbounds i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8, !noalias !130
-  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %220 unwind label %54
 
 220:                                              ; preds = %216
@@ -12459,7 +12459,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %28, i64 24
   %226 = load ptr, ptr %225, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %227 unwind label %234
 
 227:                                              ; preds = %224
@@ -12470,7 +12470,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i98, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %229
 
 229:                                              ; preds = %227
-  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %231
 
 231:                                              ; preds = %229
@@ -12488,7 +12488,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i100, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %237
 
 237:                                              ; preds = %234
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %239
 
 239:                                              ; preds = %237
@@ -12556,7 +12556,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(65) %9, ptr noundef nonnull align 8 dereferenceable(65) %8)
+  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8)
           to label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsENS1_6ObjectIS6_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRSA_IS6_ESH_SJ_E_E15_M_init_functorIRKSP_EEvRSt9_Any_dataOSB_.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -12582,7 +12582,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMake
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %13, i64 32
-  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i.i unwind label %21
 
 21:                                               ; preds = %18
@@ -12608,7 +12608,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
-  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i.i unwind label %32
 
 32:                                               ; preds = %29
@@ -12661,12 +12661,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
 
 _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit: ; preds = %13, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 40
@@ -12683,16 +12683,16 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5Va
   br i1 %.not.i.i, label %26, label %18
 
 18:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.pre, ptr noundef nonnull align 8 dereferenceable(49) %6, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %.pre, i64 16
   %20 = getelementptr inbounds i8, ptr %.pre, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store ptr %10, ptr %20, align 8
   br i1 %.not.i.i.not.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.pre, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   store ptr %12, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i
@@ -12725,7 +12725,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
   br i1 %.not.i.i.i6, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberD2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberD2Ev.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -12744,7 +12744,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptio
   br i1 %.not.i.i.i7, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberD2Ev.exit8, label %39
 
 39:                                               ; preds = %37
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberD2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
@@ -12794,11 +12794,11 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExcludeOptions>::Member", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %24, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
@@ -12809,7 +12809,7 @@ _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
 31:                                               ; preds = %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit
@@ -12828,11 +12828,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
   %.0911.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !138
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i, i64 16, i1 false), !alias.scope !138
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !133, !noalias !136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false), !alias.scope !133, !noalias !136
   %41 = load ptr, ptr %40, align 8, !alias.scope !136, !noalias !133
   store ptr %41, ptr %39, align 8, !alias.scope !133, !noalias !136
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -12843,7 +12843,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !alias.scope !138
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !alias.scope !138
   store ptr %43, ptr %45, align 8, !alias.scope !133, !noalias !136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !136, !noalias !133
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i
@@ -12870,11 +12870,11 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
   %.0911.i.i.i19 = phi ptr [ %59, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !145
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !145
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !140, !noalias !143
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 24, i1 false), !alias.scope !140, !noalias !143
   %53 = load ptr, ptr %52, align 8, !alias.scope !143, !noalias !140
   store ptr %53, ptr %51, align 8, !alias.scope !140, !noalias !143
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
@@ -12885,7 +12885,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !145
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !alias.scope !145
   store ptr %55, ptr %57, align 8, !alias.scope !140, !noalias !143
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !143, !noalias !140
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -12981,7 +12981,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -13035,13 +13035,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE4BindIS5_St8optionalINS5_15FixturesOptionsEESt8functionIFbRSA_PKN4Json5ValueEP11cmJSONStateEEEERS6_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS5_SG_SI_E_E15_M_init_functorIRKSX_EEvRSt9_Any_dataOSS_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -13060,7 +13060,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -13094,7 +13094,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE4BindIS3_St8optionalINS3_15FixturesOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE4BindIS3_St8optionalINS3_15FixturesOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -13121,7 +13121,7 @@ define linkonce_odr dso_local void @_ZZN19cmJSONHelperBuilder8OptionalIN19cmCMak
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -13147,7 +13147,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -13237,13 +13237,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN19cmJSONHelperBuilder8Opti
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
   %16 = getelementptr inbounds i8, ptr %1, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %14) #18
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE10_M_destroyEv.exit.i.i.i
 
 _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE10_M_destroyEv.exit.i.i.i: ; preds = %13, %9
   %17 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(176) %1) #18
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE5resetEv.exit
 
 18:                                               ; preds = %4
@@ -13277,18 +13277,18 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(168) ptr @
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   %12 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %10) #18
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE10_M_destroyEv.exit.i.i
 
 _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE10_M_destroyEv.exit.i.i: ; preds = %9, %5
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(169) %0) #18
   br label %_ZNSt19_Optional_base_implIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsESt14_Optional_baseIS2_Lb0ELb0EEE8_M_resetEv.exit
 
 _ZNSt19_Optional_base_implIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsESt14_Optional_baseIS2_Lb0ELb0EEE8_M_resetEv.exit: ; preds = %1, %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE10_M_destroyEv.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 0, i64 168, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(169) %0, i8 0, i64 168, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(169) %0) #18
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   %15 = getelementptr inbounds i8, ptr %0, i64 160
@@ -13345,7 +13345,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !noalias !146
-  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %40 unwind label %54
 
 40:                                               ; preds = %36
@@ -13369,7 +13369,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 24
   %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %47 unwind label %56
 
 47:                                               ; preds = %44
@@ -13380,7 +13380,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i54, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -13403,7 +13403,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i55, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %59
 
 59:                                               ; preds = %56
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %61
 
 61:                                               ; preds = %59
@@ -13432,7 +13432,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !noalias !149
-  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %73 unwind label %54
 
 73:                                               ; preds = %69
@@ -13456,7 +13456,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %23, i64 24
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %80 unwind label %87
 
 80:                                               ; preds = %77
@@ -13467,7 +13467,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i65, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %84
 
 84:                                               ; preds = %82
@@ -13485,7 +13485,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %92
 
 92:                                               ; preds = %90
@@ -13623,7 +13623,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %137 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %138 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %136
@@ -13632,7 +13632,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %spec.select = select i1 %140, i1 %.036134, i1 false
   %142 = load ptr, ptr %21, align 8
   %143 = load ptr, ptr %116, align 8
-  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull %25)
+  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull align 8 dereferenceable(32) %25)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 145:                                              ; preds = %122
@@ -13712,7 +13712,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %175 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %176 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %177 = load ptr, ptr %176, align 8
-  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit
 
 179:                                              ; preds = %174
@@ -13730,7 +13730,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %119, align 8, !noalias !152
-  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -13752,7 +13752,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %121, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %189 unwind label %.loopexit117
 
 189:                                              ; preds = %187
@@ -13763,7 +13763,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i86, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87, label %191
 
 191:                                              ; preds = %189
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87 unwind label %193
 
 193:                                              ; preds = %191
@@ -13790,7 +13790,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i88, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89, label %198
 
 198:                                              ; preds = %196
-  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89 unwind label %200
 
 200:                                              ; preds = %198
@@ -13849,7 +13849,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   %217 = getelementptr inbounds i8, ptr %0, i64 32
   %218 = getelementptr inbounds i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8, !noalias !155
-  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %220 unwind label %54
 
 220:                                              ; preds = %216
@@ -13873,7 +13873,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %28, i64 24
   %226 = load ptr, ptr %225, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %227 unwind label %234
 
 227:                                              ; preds = %224
@@ -13884,7 +13884,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i98, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %229
 
 229:                                              ; preds = %227
-  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %231
 
 231:                                              ; preds = %229
@@ -13902,7 +13902,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i100, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %237
 
 237:                                              ; preds = %234
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %239
 
 239:                                              ; preds = %237
@@ -13970,7 +13970,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(65) %9, ptr noundef nonnull align 8 dereferenceable(65) %8)
+  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8)
           to label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsENS1_6ObjectIS5_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS9_IS5_ESG_SI_E_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOSA_.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -13996,7 +13996,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMake
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %13, i64 32
-  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i.i unwind label %21
 
 21:                                               ; preds = %18
@@ -14022,7 +14022,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
-  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i.i unwind label %32
 
 32:                                               ; preds = %29
@@ -14079,7 +14079,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRSt
   store i32 0, ptr %1, align 4
   store i8 1, ptr %6, align 4
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %5, ptr noundef %12)
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %5, ptr noundef %12)
   br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEPFbRS5_PKN4Json5ValueEP11cmJSONStateEEESt8functionIFbRSt8optionalIT_ESA_SC_EET0_EUlRSG_IS5_ESA_SC_E_JSO_SA_SC_EENSt9enable_ifIX16is_invocable_r_vISH_SM_DpT1_EESH_E4typeEOSM_DpOSS_.exit
 
 _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEPFbRS5_PKN4Json5ValueEP11cmJSONStateEEESt8functionIFbRSt8optionalIT_ESA_SC_EET0_EUlRSG_IS5_ESA_SC_E_JSO_SA_SC_EENSt9enable_ifIX16is_invocable_r_vISH_SM_DpT1_EESH_E4typeEOSM_DpOSS_.exit: ; preds = %7, %10, %11
@@ -14129,12 +14129,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit
 
 _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit: ; preds = %13, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 40
@@ -14151,16 +14151,16 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOp
   br i1 %.not.i.i, label %26, label %18
 
 18:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSC_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.pre, ptr noundef nonnull align 8 dereferenceable(49) %6, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %.pre, i64 16
   %20 = getelementptr inbounds i8, ptr %.pre, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store ptr %10, ptr %20, align 8
   br i1 %.not.i.i.not.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.pre, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   store ptr %12, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i
@@ -14193,7 +14193,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
   br i1 %.not.i.i.i6, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberD2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberD2Ev.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -14212,7 +14212,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i.i7, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberD2Ev.exit8, label %39
 
 39:                                               ; preds = %37
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberD2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
@@ -14262,11 +14262,11 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberESaIS7_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberESaIS7_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberESaIS7_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExecutionOptions::RepeatOptions>::Member", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %24, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
@@ -14277,7 +14277,7 @@ _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
 31:                                               ; preds = %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberESaIS7_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit
@@ -14296,11 +14296,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
   %.0911.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i, i64 16, i1 false), !alias.scope !163
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !158, !noalias !161
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false), !alias.scope !158, !noalias !161
   %41 = load ptr, ptr %40, align 8, !alias.scope !161, !noalias !158
   store ptr %41, ptr %39, align 8, !alias.scope !158, !noalias !161
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -14311,7 +14311,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !alias.scope !163
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !alias.scope !163
   store ptr %43, ptr %45, align 8, !alias.scope !158, !noalias !161
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !161, !noalias !158
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i
@@ -14338,11 +14338,11 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
   %.0911.i.i.i19 = phi ptr [ %59, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !170
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !170
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !165, !noalias !168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 24, i1 false), !alias.scope !165, !noalias !168
   %53 = load ptr, ptr %52, align 8, !alias.scope !168, !noalias !165
   store ptr %53, ptr %51, align 8, !alias.scope !165, !noalias !168
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
@@ -14353,7 +14353,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !170
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !alias.scope !170
   store ptr %55, ptr %57, align 8, !alias.scope !165, !noalias !168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !168, !noalias !165
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -14468,7 +14468,7 @@ define linkonce_odr dso_local void @_ZZN19cmJSONHelperBuilder8OptionalIN19cmCMak
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -14494,7 +14494,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -14547,7 +14547,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRSt
   %13 = load ptr, ptr %3, align 8
   store i64 0, ptr %1, align 4
   store i8 1, ptr %6, align 4
-  %14 = tail call noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEclERS4_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(65) %12, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %5, ptr noundef %13)
+  %14 = tail call noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEclERS4_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull %5, ptr noundef %13)
   br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsENS0_6ObjectIS5_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS9_IS5_ESG_SI_E_JSN_SG_SI_EENSt9enable_ifIX16is_invocable_r_vISA_SL_DpT1_EESA_E4typeEOSL_DpOSR_.exit
 
 _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsENS0_6ObjectIS5_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS9_IS5_ESG_SI_E_JSN_SG_SI_EENSt9enable_ifIX16is_invocable_r_vISA_SL_DpT1_EESA_E4typeEOSL_DpOSR_.exit: ; preds = %7, %10, %11
@@ -14627,7 +14627,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !noalias !171
-  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %40 unwind label %54
 
 40:                                               ; preds = %36
@@ -14651,7 +14651,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 24
   %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %47 unwind label %56
 
 47:                                               ; preds = %44
@@ -14662,7 +14662,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i54, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -14685,7 +14685,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i55, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %59
 
 59:                                               ; preds = %56
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %61
 
 61:                                               ; preds = %59
@@ -14714,7 +14714,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !noalias !174
-  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %73 unwind label %54
 
 73:                                               ; preds = %69
@@ -14738,7 +14738,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %23, i64 24
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %80 unwind label %87
 
 80:                                               ; preds = %77
@@ -14749,7 +14749,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i65, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %84
 
 84:                                               ; preds = %82
@@ -14767,7 +14767,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %92
 
 92:                                               ; preds = %90
@@ -14905,7 +14905,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %137 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %138 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %136
@@ -14914,7 +14914,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %spec.select = select i1 %140, i1 %.036134, i1 false
   %142 = load ptr, ptr %21, align 8
   %143 = load ptr, ptr %116, align 8
-  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull %25)
+  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull align 8 dereferenceable(32) %25)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 145:                                              ; preds = %122
@@ -14994,7 +14994,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %175 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %176 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %177 = load ptr, ptr %176, align 8
-  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit
 
 179:                                              ; preds = %174
@@ -15012,7 +15012,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %119, align 8, !noalias !177
-  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -15034,7 +15034,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %121, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %189 unwind label %.loopexit117
 
 189:                                              ; preds = %187
@@ -15045,7 +15045,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i86, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87, label %191
 
 191:                                              ; preds = %189
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87 unwind label %193
 
 193:                                              ; preds = %191
@@ -15072,7 +15072,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i88, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89, label %198
 
 198:                                              ; preds = %196
-  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89 unwind label %200
 
 200:                                              ; preds = %198
@@ -15131,7 +15131,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   %217 = getelementptr inbounds i8, ptr %0, i64 32
   %218 = getelementptr inbounds i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8, !noalias !180
-  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %220 unwind label %54
 
 220:                                              ; preds = %216
@@ -15155,7 +15155,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %28, i64 24
   %226 = load ptr, ptr %225, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %227 unwind label %234
 
 227:                                              ; preds = %224
@@ -15166,7 +15166,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i98, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %229
 
 229:                                              ; preds = %227
-  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %231
 
 231:                                              ; preds = %229
@@ -15184,7 +15184,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i100, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %237
 
 237:                                              ; preds = %234
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %239
 
 239:                                              ; preds = %237
@@ -15252,7 +15252,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(65) %9, ptr noundef nonnull align 8 dereferenceable(65) %8)
+  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8)
           to label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsENS1_6ObjectIS6_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRSA_IS6_ESH_SJ_E_E15_M_init_functorIRKSP_EEvRSt9_Any_dataOSB_.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -15278,7 +15278,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMake
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %13, i64 32
-  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i.i unwind label %21
 
 21:                                               ; preds = %18
@@ -15304,7 +15304,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
-  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i.i unwind label %32
 
 32:                                               ; preds = %29
@@ -15361,7 +15361,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRSt
   store i32 0, ptr %1, align 4
   store i8 1, ptr %6, align 4
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %5, ptr noundef %12)
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %5, ptr noundef %12)
   br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEPFbRS5_PKN4Json5ValueEP11cmJSONStateEEESt8functionIFbRSt8optionalIT_ESA_SC_EET0_EUlRSG_IS5_ESA_SC_E_JSO_SA_SC_EENSt9enable_ifIX16is_invocable_r_vISH_SM_DpT1_EESH_E4typeEOSM_DpOSS_.exit
 
 _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEPFbRS5_PKN4Json5ValueEP11cmJSONStateEEESt8functionIFbRSt8optionalIT_ESA_SC_EET0_EUlRSG_IS5_ESA_SC_E_JSO_SA_SC_EENSt9enable_ifIX16is_invocable_r_vISH_SM_DpT1_EESH_E4typeEOSM_DpOSS_.exit: ; preds = %7, %10, %11
@@ -15411,12 +15411,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
 
 _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit: ; preds = %13, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 40
@@ -15433,16 +15433,16 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5
   br i1 %.not.i.i, label %26, label %18
 
 18:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.pre, ptr noundef nonnull align 8 dereferenceable(49) %6, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %.pre, i64 16
   %20 = getelementptr inbounds i8, ptr %.pre, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store ptr %10, ptr %20, align 8
   br i1 %.not.i.i.not.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.pre, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   store ptr %12, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i
@@ -15475,7 +15475,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
   br i1 %.not.i.i.i6, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberD2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberD2Ev.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -15494,7 +15494,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i.i7, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberD2Ev.exit8, label %39
 
 39:                                               ; preds = %37
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberD2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
@@ -15544,11 +15544,11 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExecutionOptions>::Member", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %24, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
@@ -15559,7 +15559,7 @@ _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
 31:                                               ; preds = %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit
@@ -15578,11 +15578,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
   %.0911.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !188
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i, i64 16, i1 false), !alias.scope !188
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !183, !noalias !186
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false), !alias.scope !183, !noalias !186
   %41 = load ptr, ptr %40, align 8, !alias.scope !186, !noalias !183
   store ptr %41, ptr %39, align 8, !alias.scope !183, !noalias !186
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -15593,7 +15593,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !alias.scope !188
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !alias.scope !188
   store ptr %43, ptr %45, align 8, !alias.scope !183, !noalias !186
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !186, !noalias !183
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i
@@ -15620,11 +15620,11 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
   %.0911.i.i.i19 = phi ptr [ %59, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !195
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !195
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !190, !noalias !193
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 24, i1 false), !alias.scope !190, !noalias !193
   %53 = load ptr, ptr %52, align 8, !alias.scope !193, !noalias !190
   store ptr %53, ptr %51, align 8, !alias.scope !190, !noalias !193
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
@@ -15635,7 +15635,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !195
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !alias.scope !195
   store ptr %55, ptr %57, align 8, !alias.scope !190, !noalias !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !193, !noalias !190
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -15803,7 +15803,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -15857,13 +15857,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS5_St8optionalINS5_12ShowOnlyEnumEESt8functionIFbRSA_PKN4Json5ValueEP11cmJSONStateEEEERS6_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS5_SG_SI_E_E15_M_init_functorIRKSX_EEvRSt9_Any_dataOSS_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -15882,7 +15882,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -15916,7 +15916,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_12ShowOnlyEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_12ShowOnlyEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -15960,7 +15960,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -16014,13 +16014,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS5_St8optionalINS5_13RepeatOptionsEESt8functionIFbRSA_PKN4Json5ValueEP11cmJSONStateEEEERS6_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS5_SG_SI_E_E15_M_init_functorIRKSX_EEvRSt9_Any_dataOSS_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -16039,7 +16039,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -16073,7 +16073,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_13RepeatOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_13RepeatOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -16117,7 +16117,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -16171,13 +16171,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS5_St8optionalINS5_17NoTestsActionEnumEESt8functionIFbRSA_PKN4Json5ValueEP11cmJSONStateEEEERS6_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS5_SG_SI_E_E15_M_init_functorIRKSX_EEvRSt9_Any_dataOSS_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -16196,7 +16196,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -16230,7 +16230,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_17NoTestsActionEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE4BindIS3_St8optionalINS3_17NoTestsActionEnumEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -16257,7 +16257,7 @@ define linkonce_odr dso_local void @_ZZN19cmJSONHelperBuilder8OptionalIN19cmCMak
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -16283,7 +16283,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -16346,7 +16346,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRSt
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit.i.i.i: ; preds = %15, %14
   %17 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, i8 0, i64 96, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
   %18 = getelementptr inbounds i8, ptr %1, i64 52
   store i8 0, ptr %18, align 4
@@ -16363,7 +16363,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE7emplaceIJE
   %24 = getelementptr inbounds i8, ptr %1, i64 92
   store i8 0, ptr %24, align 4
   store i8 1, ptr %8, align 8
-  %25 = tail call noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEclERS3_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(65) %5, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %6, ptr noundef %7)
+  %25 = tail call noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEclERS3_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull %6, ptr noundef %7)
   br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsENS0_6ObjectIS4_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS8_IS4_ESF_SH_E_JSM_SF_SH_EENSt9enable_ifIX16is_invocable_r_vIS9_SK_DpT1_EES9_E4typeEOSK_DpOSQ_.exit
 
 _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsENS0_6ObjectIS4_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS8_IS4_ESF_SH_E_JSM_SF_SH_EENSt9enable_ifIX16is_invocable_r_vIS9_SK_DpT1_EES9_E4typeEOSK_DpOSQ_.exit: ; preds = %11, %12, %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit.i.i.i
@@ -16443,7 +16443,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !noalias !196
-  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %40 unwind label %54
 
 40:                                               ; preds = %36
@@ -16467,7 +16467,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 24
   %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %47 unwind label %56
 
 47:                                               ; preds = %44
@@ -16478,7 +16478,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i54, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -16501,7 +16501,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i55, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %59
 
 59:                                               ; preds = %56
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %61
 
 61:                                               ; preds = %59
@@ -16530,7 +16530,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !noalias !199
-  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %73 unwind label %54
 
 73:                                               ; preds = %69
@@ -16554,7 +16554,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %23, i64 24
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %80 unwind label %87
 
 80:                                               ; preds = %77
@@ -16565,7 +16565,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i65, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %84
 
 84:                                               ; preds = %82
@@ -16583,7 +16583,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %92
 
 92:                                               ; preds = %90
@@ -16721,7 +16721,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %137 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %138 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %136
@@ -16730,7 +16730,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %spec.select = select i1 %140, i1 %.036134, i1 false
   %142 = load ptr, ptr %21, align 8
   %143 = load ptr, ptr %116, align 8
-  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull %25)
+  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull align 8 dereferenceable(32) %25)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 145:                                              ; preds = %122
@@ -16810,7 +16810,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %175 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %176 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %177 = load ptr, ptr %176, align 8
-  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit
 
 179:                                              ; preds = %174
@@ -16828,7 +16828,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %119, align 8, !noalias !202
-  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -16850,7 +16850,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %121, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %189 unwind label %.loopexit117
 
 189:                                              ; preds = %187
@@ -16861,7 +16861,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i86, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87, label %191
 
 191:                                              ; preds = %189
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87 unwind label %193
 
 193:                                              ; preds = %191
@@ -16888,7 +16888,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i88, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89, label %198
 
 198:                                              ; preds = %196
-  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89 unwind label %200
 
 200:                                              ; preds = %198
@@ -16947,7 +16947,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   %217 = getelementptr inbounds i8, ptr %0, i64 32
   %218 = getelementptr inbounds i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8, !noalias !205
-  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %220 unwind label %54
 
 220:                                              ; preds = %216
@@ -16971,7 +16971,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %28, i64 24
   %226 = load ptr, ptr %225, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %227 unwind label %234
 
 227:                                              ; preds = %224
@@ -16982,7 +16982,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i98, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %229
 
 229:                                              ; preds = %227
-  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %231
 
 231:                                              ; preds = %229
@@ -17000,7 +17000,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i100, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %237
 
 237:                                              ; preds = %234
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %239
 
 239:                                              ; preds = %237
@@ -17068,7 +17068,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(65) %9, ptr noundef nonnull align 8 dereferenceable(65) %8)
+  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8)
           to label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsENS1_6ObjectIS5_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS9_IS5_ESG_SI_E_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOSA_.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -17094,7 +17094,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMake
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %13, i64 32
-  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i.i unwind label %21
 
 21:                                               ; preds = %18
@@ -17120,7 +17120,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
-  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i.i unwind label %32
 
 32:                                               ; preds = %29
@@ -17173,12 +17173,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
 
 _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit: ; preds = %13, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 40
@@ -17195,16 +17195,16 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5Val
   br i1 %.not.i.i, label %26, label %18
 
 18:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPreset13FilterOptionsEPKN4Json5ValueEP11cmJSONStateEEaSEOSB_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.pre, ptr noundef nonnull align 8 dereferenceable(49) %6, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %.pre, i64 16
   %20 = getelementptr inbounds i8, ptr %.pre, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store ptr %10, ptr %20, align 8
   br i1 %.not.i.i.not.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.pre, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   store ptr %12, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i
@@ -17237,7 +17237,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13F
   br i1 %.not.i.i.i6, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberD2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberD2Ev.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -17256,7 +17256,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOption
   br i1 %.not.i.i.i7, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberD2Ev.exit8, label %39
 
 39:                                               ; preds = %37
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberD2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
@@ -17306,11 +17306,11 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberESaIS6_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::FilterOptions>::Member", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %24, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
@@ -17321,7 +17321,7 @@ _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
 31:                                               ; preds = %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberESaIS6_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit
@@ -17340,11 +17340,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
   %.0911.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !213
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i, i64 16, i1 false), !alias.scope !213
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !208, !noalias !211
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false), !alias.scope !208, !noalias !211
   %41 = load ptr, ptr %40, align 8, !alias.scope !211, !noalias !208
   store ptr %41, ptr %39, align 8, !alias.scope !208, !noalias !211
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -17355,7 +17355,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !alias.scope !213
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !alias.scope !213
   store ptr %43, ptr %45, align 8, !alias.scope !208, !noalias !211
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !211, !noalias !208
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i
@@ -17382,11 +17382,11 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13F
   %.0911.i.i.i19 = phi ptr [ %59, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !220
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !220
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !215, !noalias !218
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 24, i1 false), !alias.scope !215, !noalias !218
   %53 = load ptr, ptr %52, align 8, !alias.scope !218, !noalias !215
   store ptr %53, ptr %51, align 8, !alias.scope !215, !noalias !218
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
@@ -17397,7 +17397,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13F
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEE9constructIS6_JS6_EEEvRS7_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !220
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !alias.scope !220
   store ptr %55, ptr %57, align 8, !alias.scope !215, !noalias !218
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !218, !noalias !215
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -17457,7 +17457,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(168) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(168) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -17511,13 +17511,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS5_St8optionalINS4_14IncludeOptionsEESt8functionIFbRSA_PKN4Json5ValueEP11cmJSONStateEEEERS6_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS5_SG_SI_E_E15_M_init_functorIRKSX_EEvRSt9_Any_dataOSS_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -17536,7 +17536,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -17570,7 +17570,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS3_St8optionalINS2_14IncludeOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS3_St8optionalINS2_14IncludeOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -17614,7 +17614,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(176) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(176) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -17668,13 +17668,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS5_St8optionalINS4_14ExcludeOptionsEESt8functionIFbRSA_PKN4Json5ValueEP11cmJSONStateEEEERS6_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS5_SG_SI_E_E15_M_init_functorIRKSX_EEvRSt9_Any_dataOSS_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -17693,7 +17693,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -17727,7 +17727,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS3_St8optionalINS2_14ExcludeOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE4BindIS3_St8optionalINS2_14ExcludeOptionsEESt8functionIFbRS8_PKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS3_SE_SG_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -17754,7 +17754,7 @@ define linkonce_odr dso_local void @_ZZN19cmJSONHelperBuilder8OptionalIN19cmCMak
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -17780,7 +17780,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %15
@@ -17828,7 +17828,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRSt
 
 12:                                               ; preds = %11
   store i8 0, ptr %8, align 8
-  tail call void @_ZN19cmCMakePresetsGraph10TestPreset13FilterOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %1) #18
+  tail call void @_ZN19cmCMakePresetsGraph10TestPreset13FilterOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %1) #18
   br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsENS0_6ObjectIS4_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS8_IS4_ESF_SH_E_JSM_SF_SH_EENSt9enable_ifIX16is_invocable_r_vIS9_SK_DpT1_EES9_E4typeEOSK_DpOSQ_.exit
 
 13:                                               ; preds = %4
@@ -17836,13 +17836,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRSt
 
 14:                                               ; preds = %13
   store i8 0, ptr %8, align 8
-  tail call void @_ZN19cmCMakePresetsGraph10TestPreset13FilterOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %1) #18
+  tail call void @_ZN19cmCMakePresetsGraph10TestPreset13FilterOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %1) #18
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit.i.i.i
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit.i.i.i: ; preds = %14, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %1, i8 0, i64 344, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %1, i8 0, i64 344, i1 false)
   store i8 1, ptr %8, align 8
-  %15 = tail call noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEclERS3_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(65) %5, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull %6, ptr noundef %7)
+  %15 = tail call noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEclERS3_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull %6, ptr noundef %7)
   br label %_ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsENS0_6ObjectIS4_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS8_IS4_ESF_SH_E_JSM_SF_SH_EENSt9enable_ifIX16is_invocable_r_vIS9_SK_DpT1_EES9_E4typeEOSK_DpOSQ_.exit
 
 _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsENS0_6ObjectIS4_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS8_IS4_ESF_SH_E_JSM_SF_SH_EENSt9enable_ifIX16is_invocable_r_vIS9_SK_DpT1_EES9_E4typeEOSK_DpOSQ_.exit: ; preds = %11, %12, %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit.i.i.i
@@ -17922,7 +17922,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !noalias !221
-  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %40 unwind label %54
 
 40:                                               ; preds = %36
@@ -17946,7 +17946,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 24
   %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %47 unwind label %56
 
 47:                                               ; preds = %44
@@ -17957,7 +17957,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i54, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -17980,7 +17980,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i55, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %59
 
 59:                                               ; preds = %56
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %61
 
 61:                                               ; preds = %59
@@ -18009,7 +18009,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !noalias !224
-  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %73 unwind label %54
 
 73:                                               ; preds = %69
@@ -18033,7 +18033,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %23, i64 24
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %80 unwind label %87
 
 80:                                               ; preds = %77
@@ -18044,7 +18044,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i65, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %84
 
 84:                                               ; preds = %82
@@ -18062,7 +18062,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %92
 
 92:                                               ; preds = %90
@@ -18200,7 +18200,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %137 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %138 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %136
@@ -18209,7 +18209,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %spec.select = select i1 %140, i1 %.036134, i1 false
   %142 = load ptr, ptr %21, align 8
   %143 = load ptr, ptr %116, align 8
-  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull %25)
+  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull align 8 dereferenceable(32) %25)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 145:                                              ; preds = %122
@@ -18289,7 +18289,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %175 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %176 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %177 = load ptr, ptr %176, align 8
-  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit
 
 179:                                              ; preds = %174
@@ -18307,7 +18307,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %119, align 8, !noalias !227
-  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -18329,7 +18329,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %121, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %189 unwind label %.loopexit117
 
 189:                                              ; preds = %187
@@ -18340,7 +18340,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i86, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87, label %191
 
 191:                                              ; preds = %189
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87 unwind label %193
 
 193:                                              ; preds = %191
@@ -18367,7 +18367,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i88, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89, label %198
 
 198:                                              ; preds = %196
-  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89 unwind label %200
 
 200:                                              ; preds = %198
@@ -18426,7 +18426,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   %217 = getelementptr inbounds i8, ptr %0, i64 32
   %218 = getelementptr inbounds i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8, !noalias !230
-  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %220 unwind label %54
 
 220:                                              ; preds = %216
@@ -18450,7 +18450,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %28, i64 24
   %226 = load ptr, ptr %225, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %227 unwind label %234
 
 227:                                              ; preds = %224
@@ -18461,7 +18461,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i98, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %229
 
 229:                                              ; preds = %227
-  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %231
 
 231:                                              ; preds = %229
@@ -18479,7 +18479,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i100, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %237
 
 237:                                              ; preds = %234
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %239
 
 239:                                              ; preds = %237
@@ -18548,13 +18548,13 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPreset13Filter
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   %13 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %11) #18
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE10_M_destroyEv.exit.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE10_M_destroyEv.exit.i.i.i.i: ; preds = %10, %6
   %14 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #18
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEED2Ev.exit
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEED2Ev.exit: ; preds = %1, %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE10_M_destroyEv.exit.i.i.i.i
@@ -18586,7 +18586,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEED2Ev.exit: ; 
 _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE10_M_destroyEv.exit.i.i.i.i: ; preds = %26, %22, %18
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #18
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEED2Ev.exit
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEED2Ev.exit: ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEED2Ev.exit, %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE10_M_destroyEv.exit.i.i.i.i
@@ -18614,7 +18614,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(65) %9, ptr noundef nonnull align 8 dereferenceable(65) %8)
+  invoke void @_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8)
           to label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsENS1_6ObjectIS5_EEEESt8functionIFbRSt8optionalIT_EPKN4Json5ValueEP11cmJSONStateEET0_EUlRS9_IS5_ESG_SI_E_E15_M_init_functorIRKSO_EEvRSt9_Any_dataOSA_.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -18640,7 +18640,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder8OptionalIN19cmCMake
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %13, i64 32
-  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i.i unwind label %21
 
 21:                                               ; preds = %18
@@ -18666,7 +18666,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
-  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i.i unwind label %32
 
 32:                                               ; preds = %29
@@ -18719,12 +18719,12 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(65) ptr @_
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEEaSEOSA_.exit, label %13
 
 13:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEEaSEOSA_.exit
 
 _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEEaSEOSA_.exit: ; preds = %13, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 40
@@ -18741,16 +18741,16 @@ _ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONSta
   br i1 %.not.i.i, label %26, label %18
 
 18:                                               ; preds = %_ZNSt8functionIFbRN19cmCMakePresetsGraph10TestPresetEPKN4Json5ValueEP11cmJSONStateEEaSEOSA_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.pre, ptr noundef nonnull align 8 dereferenceable(49) %6, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %.pre, i64 16
   %20 = getelementptr inbounds i8, ptr %.pre, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store ptr %10, ptr %20, align 8
   br i1 %.not.i.i.not.i.i, label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.pre, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   store ptr %12, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i
@@ -18783,7 +18783,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6
   br i1 %.not.i.i.i6, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberD2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberD2Ev.exit unwind label %34
 
 34:                                               ; preds = %32
@@ -18802,7 +18802,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberD2Ev.
   br i1 %.not.i.i.i7, label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberD2Ev.exit8, label %39
 
 39:                                               ; preds = %37
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberD2Ev.exit8 unwind label %41
 
 41:                                               ; preds = %39
@@ -18852,11 +18852,11 @@ _ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberESaIS5_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset>::Member", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %24, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = getelementptr inbounds i8, ptr %24, i64 40
   %27 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 32
@@ -18867,7 +18867,7 @@ _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
 31:                                               ; preds = %_ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberESaIS5_EE11_M_allocateEm.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 16, i1 false)
   store ptr %30, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit
@@ -18886,11 +18886,11 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
   %.0911.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !238
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i, i64 16, i1 false), !alias.scope !238
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !233, !noalias !236
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false), !alias.scope !233, !noalias !236
   %41 = load ptr, ptr %40, align 8, !alias.scope !236, !noalias !233
   store ptr %41, ptr %39, align 8, !alias.scope !233, !noalias !236
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
@@ -18901,7 +18901,7 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph1
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !alias.scope !238
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false), !alias.scope !238
   store ptr %43, ptr %45, align 8, !alias.scope !233, !noalias !236
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !alias.scope !236, !noalias !233
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
@@ -18928,11 +18928,11 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6
   %.0911.i.i.i19 = phi ptr [ %59, %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !245
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(49) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !245
   %50 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
   %51 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !240, !noalias !243
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 24, i1 false), !alias.scope !240, !noalias !243
   %53 = load ptr, ptr %52, align 8, !alias.scope !243, !noalias !240
   store ptr %53, ptr %51, align 8, !alias.scope !240, !noalias !243
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
@@ -18943,7 +18943,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6
 _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !245
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 16, i1 false), !alias.scope !245
   store ptr %55, ptr %57, align 8, !alias.scope !240, !noalias !243
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !243, !noalias !240
   br label %_ZSt19__relocate_object_aIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -19110,7 +19110,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN1
 _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIDnSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEEERS4_RKSt17basic_string_viewIcSt11char_traitsIcEEDnT0_bEUlRS3_SB_SD_E_JSO_SB_SD_EENSt9enable_ifIX16is_invocable_r_vIT_SN_DpT1_EESS_E4typeEOSN_DpOST_.exit: ; preds = %4
   %14 = getelementptr inbounds i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -19171,7 +19171,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIDnSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEDnT0_bEUlRS4_SC_SE_E_E15_M_init_functorIRKSQ_EEvRSt9_Any_dataOT_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -19190,7 +19190,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -19220,7 +19220,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIDnSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEDnT0_bENUlRS2_SA_SC_E_D2Ev.exit.i, label %34
 
 34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIDnSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEDnT0_bENUlRS2_SA_SC_E_D2Ev.exit.i unwind label %36
 
 36:                                               ; preds = %34
@@ -19408,7 +19408,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(136) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(136) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -19462,13 +19462,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS4_St8optionalINS4_13OutputOptionsEESt8functionIFbRS9_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SF_SH_E_E15_M_init_functorIRKSW_EEvRSt9_Any_dataOSR_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -19487,7 +19487,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -19521,7 +19521,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_13OutputOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_13OutputOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -19565,7 +19565,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -19619,13 +19619,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS4_St8optionalINS4_13FilterOptionsEESt8functionIFbRS9_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SF_SH_E_E15_M_init_functorIRKSW_EEvRSt9_Any_dataOSR_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -19644,7 +19644,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -19678,7 +19678,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_13FilterOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_13FilterOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -19722,7 +19722,7 @@ _ZSt10__invoke_rIbRZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPr
   %15 = getelementptr inbounds i8, ptr %1, i64 %11
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %18
@@ -19776,13 +19776,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS4_St8optionalINS4_16ExecutionOptionsEESt8functionIFbRS9_PKN4Json5ValueEP11cmJSONStateEEEERS5_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bEUlRS4_SF_SH_E_E15_M_init_functorIRKSW_EEvRSt9_Any_dataOSR_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -19801,7 +19801,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -19835,7 +19835,7 @@ _ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder6ObjectIN19cmCMakePr
   br i1 %.not.i.i.i.i, label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_16ExecutionOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3)
           to label %_ZZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE4BindIS2_St8optionalINS2_16ExecutionOptionsEESt8functionIFbRS7_PKN4Json5ValueEP11cmJSONStateEEEERS3_RKSt17basic_string_viewIcSt11char_traitsIcEEMT_T0_T1_bENUlRS2_SD_SF_E_D2Ev.exit.i unwind label %39
 
 39:                                               ; preds = %37
@@ -19901,7 +19901,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder12VectorFilterIN19cm
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %11 unwind label %15
 
 11:                                               ; preds = %9
@@ -19920,7 +19920,7 @@ define linkonce_odr dso_local void @_ZN19cmJSONHelperBuilder12VectorFilterIN19cm
   br i1 %.not.i.i, label %common.resume, label %18
 
 18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %20
 
 20:                                               ; preds = %18
@@ -19942,7 +19942,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit: ; preds = %3, %11
 24:                                               ; preds = %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  invoke void @_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder12VectorFilterIN19cmCMakePresetsGraph10TestPresetENS1_6ObjectIS4_EEZNS1_6VectorIS4_S6_EESt8functionIFbRSt6vectorIT_SaISA_EEPKN4Json5ValueEP11cmJSONStateEES8_IFvSH_SJ_EET0_EUlRKS4_E_EESL_RKSN_SO_T1_EUlRS9_IS4_SaIS4_EESH_SJ_E_E9_M_createISY_EEvRSt9_Any_dataOSA_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(105) %4)
+  invoke void @_ZNSt14_Function_base13_Base_managerIZN19cmJSONHelperBuilder12VectorFilterIN19cmCMakePresetsGraph10TestPresetENS1_6ObjectIS4_EEZNS1_6VectorIS4_S6_EESt8functionIFbRSt6vectorIT_SaISA_EEPKN4Json5ValueEP11cmJSONStateEES8_IFvSH_SJ_EET0_EUlRKS4_E_EESL_RKSN_SO_T1_EUlRS9_IS4_SaIS4_EESH_SJ_E_E9_M_createISY_EEvRSt9_Any_dataOSA_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(105) %4)
           to label %34 unwind label %26
 
 26:                                               ; preds = %24
@@ -19953,7 +19953,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit: ; preds = %3, %11
   br i1 %.not.i.i4, label %.body, label %29
 
 29:                                               ; preds = %26
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3)
           to label %.body unwind label %31
 
 31:                                               ; preds = %29
@@ -19978,7 +19978,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit: ; preds = %3, %11
   br i1 %.not.i.i6, label %common.resume, label %39
 
 39:                                               ; preds = %36
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %41
 
 41:                                               ; preds = %39
@@ -20003,7 +20003,7 @@ define linkonce_odr dso_local void @_ZZN19cmJSONHelperBuilder12VectorFilterIN19c
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i unwind label %8
 
 8:                                                ; preds = %5
@@ -20029,7 +20029,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 16:                                               ; preds = %.lr.ph.i.i.i.i.i
   %17 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %18 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEvPT_.exit.i.i.i.i.i unwind label %19
 
 19:                                               ; preds = %16
@@ -20064,7 +20064,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEED2Ev.exit: ;
   br i1 %.not.i.i, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %27
 
 27:                                               ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEED2Ev.exit
-  %28 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %28 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %29
 
 29:                                               ; preds = %27
@@ -20130,13 +20130,13 @@ define linkonce_odr dso_local void @_ZNSt14_Function_base13_Base_managerIZN19cmJ
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %3, i8 0, i64 32, i1 false)
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i, label %8
 
 8:                                                ; preds = %2
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(105) %3, ptr noundef nonnull align 8 dereferenceable(105) %1, i32 noundef 2)
           to label %10 unwind label %14
 
 10:                                               ; preds = %8
@@ -20155,7 +20155,7 @@ define linkonce_odr dso_local void @_ZNSt14_Function_base13_Base_managerIZN19cmJ
   br i1 %.not.i.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(105) %3, ptr noundef nonnull align 8 dereferenceable(105) %3, i32 noundef 3)
           to label %.body unwind label %19
 
 19:                                               ; preds = %17
@@ -20178,7 +20178,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i: ; preds = %10, 
   %29 = getelementptr inbounds i8, ptr %1, i64 48
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %28, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %23, i8 0, i64 24, i1 false)
   %31 = getelementptr inbounds i8, ptr %3, i64 56
   %32 = getelementptr inbounds i8, ptr %1, i64 56
   %33 = load i8, ptr %32, align 8
@@ -20187,7 +20187,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i: ; preds = %10, 
   %35 = getelementptr inbounds i8, ptr %3, i64 64
   %36 = getelementptr inbounds i8, ptr %3, i64 88
   %37 = getelementptr inbounds i8, ptr %1, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 24, i1 false)
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %36, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 80
@@ -20198,7 +20198,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i: ; preds = %10, 
 41:                                               ; preds = %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i
   %42 = getelementptr inbounds i8, ptr %1, i64 64
   %43 = getelementptr inbounds i8, ptr %3, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 16, i1 false)
   store ptr %40, ptr %43, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   br label %44
@@ -20271,7 +20271,7 @@ _ZSt8_DestroyIPN19cmCMakePresetsGraph10TestPresetES1_EvT_S3_RSaIT0_E.exit.i.i: ;
 _ZNKSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEclES3_S5_.exit: ; preds = %22
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  call void %27(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %_ZNSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS1_EE5clearEv.exit
@@ -20511,7 +20511,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8, !noalias !257
-  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %39(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %40 unwind label %54
 
 40:                                               ; preds = %36
@@ -20535,7 +20535,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 24
   %46 = load ptr, ptr %45, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %47 unwind label %56
 
 47:                                               ; preds = %44
@@ -20546,7 +20546,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i54, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -20569,7 +20569,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i55, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %59
 
 59:                                               ; preds = %56
-  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %61
 
 61:                                               ; preds = %59
@@ -20598,7 +20598,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8, !noalias !260
-  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %72(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %73 unwind label %54
 
 73:                                               ; preds = %69
@@ -20622,7 +20622,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %23, i64 24
   %79 = load ptr, ptr %78, align 8
-  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %80 unwind label %87
 
 80:                                               ; preds = %77
@@ -20633,7 +20633,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i65, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %84
 
 84:                                               ; preds = %82
@@ -20651,7 +20651,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6Obje
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %90
 
 90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %91 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %92
 
 92:                                               ; preds = %90
@@ -20789,7 +20789,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %137 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %138 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %140 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %136
@@ -20798,7 +20798,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %spec.select = select i1 %140, i1 %.036134, i1 false
   %142 = load ptr, ptr %21, align 8
   %143 = load ptr, ptr %116, align 8
-  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull %25)
+  %144 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %142, ptr %143, ptr nonnull align 8 dereferenceable(32) %25)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 145:                                              ; preds = %122
@@ -20878,7 +20878,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %175 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 16
   %176 = getelementptr inbounds i8, ptr %.sroa.0113.0133, i64 40
   %177 = load ptr, ptr %176, align 8
-  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %178 = invoke noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %179 unwind label %.loopexit
 
 179:                                              ; preds = %174
@@ -20896,7 +20896,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %119, align 8, !noalias !263
-  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %183(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %184 unwind label %.loopexit
 
 184:                                              ; preds = %182
@@ -20918,7 +20918,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %121, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %189 unwind label %.loopexit117
 
 189:                                              ; preds = %187
@@ -20929,7 +20929,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i86, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87, label %191
 
 191:                                              ; preds = %189
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit87 unwind label %193
 
 193:                                              ; preds = %191
@@ -20956,7 +20956,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br i1 %.not.i.i88, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89, label %198
 
 198:                                              ; preds = %196
-  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89 unwind label %200
 
 200:                                              ; preds = %198
@@ -21015,7 +21015,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   %217 = getelementptr inbounds i8, ptr %0, i64 32
   %218 = getelementptr inbounds i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8, !noalias !266
-  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  invoke void %219(ptr dead_on_unwind nonnull writable sret(%"class.std::function.4") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %220 unwind label %54
 
 220:                                              ; preds = %216
@@ -21039,7 +21039,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %28, i64 24
   %226 = load ptr, ptr %225, align 8
-  invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %226(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %227 unwind label %234
 
 227:                                              ; preds = %224
@@ -21050,7 +21050,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i98, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %229
 
 229:                                              ; preds = %227
-  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %230 = invoke noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit unwind label %231
 
 231:                                              ; preds = %229
@@ -21068,7 +21068,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit89: ; preds = %.loopexi
   br i1 %.not.i.i100, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56, label %237
 
 237:                                              ; preds = %234
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56 unwind label %239
 
 239:                                              ; preds = %237
@@ -21138,7 +21138,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEED2Ev.exit: 
 10:                                               ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEED2Ev.exit
   %11 = getelementptr inbounds i8, ptr %0, i64 448
   store i8 0, ptr %7, align 8
-  tail call void @_ZN19cmCMakePresetsGraph10TestPreset13FilterOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %11) #18
+  tail call void @_ZN19cmCMakePresetsGraph10TestPreset13FilterOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %11) #18
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEED2Ev.exit
 
 _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEED2Ev.exit: ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEED2Ev.exit, %10
@@ -21369,12 +21369,12 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %.07, i64 64
   store i8 0, ptr %7, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8optionalIS5_EESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8optionalIS5_EESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %.lr.ph, %10
   %12 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #18
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !269
@@ -21508,7 +21508,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetC2EOS0_(
 23:                                               ; preds = %2
   %24 = getelementptr inbounds i8, ptr %0, i64 312
   %25 = getelementptr inbounds i8, ptr %1, i64 312
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %24, ptr noundef nonnull align 8 dereferenceable(18) %25, i64 18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %24, ptr noundef nonnull align 8 dereferenceable(136) %25, i64 18, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 336
   %27 = getelementptr inbounds i8, ptr %1, i64 336
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27) #18
@@ -21532,7 +21532,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEC2EOS3_.exit: 
 36:                                               ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEC2EOS3_.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 448
   %38 = getelementptr inbounds i8, ptr %1, i64 448
-  tail call void @_ZN19cmCMakePresetsGraph10TestPreset13FilterOptionsC2EOS1_(ptr noundef nonnull align 8 dereferenceable(344) %37, ptr noundef nonnull align 8 dereferenceable(344) %38) #18
+  tail call void @_ZN19cmCMakePresetsGraph10TestPreset13FilterOptionsC2EOS1_(ptr noundef nonnull align 8 dereferenceable(352) %37, ptr noundef nonnull align 8 dereferenceable(352) %38) #18
   store i8 1, ptr %33, align 8
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEC2EOS3_.exit
 
@@ -21547,7 +21547,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEC2EOS3_.exit: 
 43:                                               ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEC2EOS3_.exit
   %44 = getelementptr inbounds i8, ptr %0, i64 800
   %45 = getelementptr inbounds i8, ptr %1, i64 800
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %45, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %44, ptr noundef nonnull align 8 dereferenceable(104) %45, i64 12, i1 false)
   %46 = getelementptr inbounds i8, ptr %0, i64 816
   %47 = getelementptr inbounds i8, ptr %1, i64 816
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %47) #18
@@ -21667,7 +21667,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPreset13Filter
   br i1 %6, label %7, label %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEC2EOS3_.exit
 
 7:                                                ; preds = %2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) #18
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
@@ -21681,7 +21681,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPreset13Filter
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   %16 = getelementptr inbounds i8, ptr %1, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 24, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 88
   %18 = getelementptr inbounds i8, ptr %1, i64 88
   %19 = load ptr, ptr %18, align 8
@@ -21720,7 +21720,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEC2EOS3_.exit:
 35:                                               ; preds = %_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEC2EOS3_.exit
   %36 = getelementptr inbounds i8, ptr %1, i64 168
   %37 = getelementptr inbounds i8, ptr %0, i64 168
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %36) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(176) %37, ptr noundef nonnull align 8 dereferenceable(176) %36) #18
   %38 = getelementptr inbounds i8, ptr %0, i64 200
   %39 = getelementptr inbounds i8, ptr %1, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39) #18
@@ -21734,7 +21734,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEC2EOS3_.exit:
 44:                                               ; preds = %35
   %45 = getelementptr inbounds i8, ptr %0, i64 232
   %46 = getelementptr inbounds i8, ptr %1, i64 232
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %46) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(104) %45, ptr noundef nonnull align 8 dereferenceable(104) %46) #18
   %47 = getelementptr inbounds i8, ptr %0, i64 264
   %48 = getelementptr inbounds i8, ptr %1, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %48) #18
@@ -21760,13 +21760,13 @@ define linkonce_odr dso_local void @_ZNSt14_Function_base13_Base_managerIZN19cmJ
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %3, i8 0, i64 32, i1 false)
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i, label %8
 
 8:                                                ; preds = %2
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(105) %3, ptr noundef nonnull align 8 dereferenceable(105) %1, i32 noundef 2)
           to label %10 unwind label %14
 
 10:                                               ; preds = %8
@@ -21785,7 +21785,7 @@ define linkonce_odr dso_local void @_ZNSt14_Function_base13_Base_managerIZN19cmJ
   br i1 %.not.i.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(105) %3, ptr noundef nonnull align 8 dereferenceable(105) %3, i32 noundef 3)
           to label %.body unwind label %19
 
 19:                                               ; preds = %17
@@ -21809,7 +21809,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit.i: ; preds = %10, 
   br i1 %.not.i.i4.i, label %.body, label %27
 
 27:                                               ; preds = %24
-  %28 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %28 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(105) %3, ptr noundef nonnull align 8 dereferenceable(105) %3, i32 noundef 3)
           to label %.body unwind label %29
 
 29:                                               ; preds = %27
@@ -22012,10 +22012,10 @@ define internal void @_GLOBAL__sub_I_cmCMakePresetsGraphReadJSONTestPresets.cxx(
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %135, align 8
   %155 = getelementptr inbounds i8, ptr %134, i64 32
   %156 = getelementptr inbounds i8, ptr %134, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %134, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %134, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %134, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 8 dereferenceable(16) %135, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef nonnull align 8 dereferenceable(32) %135, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %157, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false)
   %158 = getelementptr inbounds i8, ptr %134, i64 64
@@ -22040,7 +22040,7 @@ define internal void @_GLOBAL__sub_I_cmCMakePresetsGraphReadJSONTestPresets.cxx(
   br i1 %.not.i.i.i.i, label %178, label %165
 
 165:                                              ; preds = %163
-  %166 = invoke noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %132, i32 noundef 3)
+  %166 = invoke noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 3)
           to label %178 unwind label %167
 
 167:                                              ; preds = %165
@@ -22058,7 +22058,7 @@ define internal void @_GLOBAL__sub_I_cmCMakePresetsGraphReadJSONTestPresets.cxx(
   br i1 %.not.i.i6.i.i, label %.body.i, label %173
 
 173:                                              ; preds = %170
-  %174 = invoke noundef zeroext i1 %172(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %132, i32 noundef 3)
+  %174 = invoke noundef zeroext i1 %172(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 3)
           to label %.body.i unwind label %175
 
 175:                                              ; preds = %173
@@ -22081,7 +22081,7 @@ define internal void @_GLOBAL__sub_I_cmCMakePresetsGraphReadJSONTestPresets.cxx(
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %183
 
 183:                                              ; preds = %178
-  %184 = invoke noundef zeroext i1 %182(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i32 noundef 2)
+  %184 = invoke noundef zeroext i1 %182(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_139TestPresetOptionalOutputVerbosityHelperE, i32 noundef 2)
           to label %185 unwind label %188
 
 185:                                              ; preds = %183
@@ -22099,7 +22099,7 @@ define internal void @_GLOBAL__sub_I_cmCMakePresetsGraphReadJSONTestPresets.cxx(
   br i1 %.not.i.i.i, label %.body.i, label %191
 
 191:                                              ; preds = %188
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %138, i32 noundef 3)
+  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %138, i32 noundef 3)
           to label %.body.i unwind label %193
 
 193:                                              ; preds = %191
@@ -22134,7 +22134,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i10.i, label %217, label %204
 
 204:                                              ; preds = %202
-  %205 = invoke noundef zeroext i1 %203(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 8 dereferenceable(16) %131, i32 noundef 3)
+  %205 = invoke noundef zeroext i1 %203(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull align 8 dereferenceable(32) %131, i32 noundef 3)
           to label %217 unwind label %206
 
 206:                                              ; preds = %204
@@ -22152,7 +22152,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i8.i, label %.body11.i, label %212
 
 212:                                              ; preds = %209
-  %213 = invoke noundef zeroext i1 %211(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 8 dereferenceable(16) %131, i32 noundef 3)
+  %213 = invoke noundef zeroext i1 %211(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull align 8 dereferenceable(32) %131, i32 noundef 3)
           to label %.body11.i unwind label %214
 
 214:                                              ; preds = %212
@@ -22184,7 +22184,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i17.i, label %237, label %224
 
 224:                                              ; preds = %222
-  %225 = invoke noundef zeroext i1 %223(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %130, i32 noundef 3)
+  %225 = invoke noundef zeroext i1 %223(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(32) %130, i32 noundef 3)
           to label %237 unwind label %226
 
 226:                                              ; preds = %224
@@ -22202,7 +22202,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i15.i, label %.body11.i, label %232
 
 232:                                              ; preds = %229
-  %233 = invoke noundef zeroext i1 %231(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %130, i32 noundef 3)
+  %233 = invoke noundef zeroext i1 %231(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(32) %130, i32 noundef 3)
           to label %.body11.i unwind label %234
 
 234:                                              ; preds = %232
@@ -22234,7 +22234,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i24.i, label %257, label %244
 
 244:                                              ; preds = %242
-  %245 = invoke noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 8 dereferenceable(16) %129, i32 noundef 3)
+  %245 = invoke noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %129, i32 noundef 3)
           to label %257 unwind label %246
 
 246:                                              ; preds = %244
@@ -22252,7 +22252,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i22.i, label %.body11.i, label %252
 
 252:                                              ; preds = %249
-  %253 = invoke noundef zeroext i1 %251(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 8 dereferenceable(16) %129, i32 noundef 3)
+  %253 = invoke noundef zeroext i1 %251(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %129, i32 noundef 3)
           to label %.body11.i unwind label %254
 
 254:                                              ; preds = %252
@@ -22284,7 +22284,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i31.i, label %277, label %264
 
 264:                                              ; preds = %262
-  %265 = invoke noundef zeroext i1 %263(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %128, i32 noundef 3)
+  %265 = invoke noundef zeroext i1 %263(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %128, i32 noundef 3)
           to label %277 unwind label %266
 
 266:                                              ; preds = %264
@@ -22302,7 +22302,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i29.i, label %.body11.i, label %272
 
 272:                                              ; preds = %269
-  %273 = invoke noundef zeroext i1 %271(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %128, i32 noundef 3)
+  %273 = invoke noundef zeroext i1 %271(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %128, i32 noundef 3)
           to label %.body11.i unwind label %274
 
 274:                                              ; preds = %272
@@ -22334,7 +22334,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i37.i, label %297, label %284
 
 284:                                              ; preds = %282
-  %285 = invoke noundef zeroext i1 %283(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %127, i32 noundef 3)
+  %285 = invoke noundef zeroext i1 %283(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(32) %127, i32 noundef 3)
           to label %297 unwind label %286
 
 286:                                              ; preds = %284
@@ -22352,7 +22352,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i35.i, label %.body11.i, label %292
 
 292:                                              ; preds = %289
-  %293 = invoke noundef zeroext i1 %291(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %127, i32 noundef 3)
+  %293 = invoke noundef zeroext i1 %291(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(32) %127, i32 noundef 3)
           to label %.body11.i unwind label %294
 
 294:                                              ; preds = %292
@@ -22384,7 +22384,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i44.i, label %317, label %304
 
 304:                                              ; preds = %302
-  %305 = invoke noundef zeroext i1 %303(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %126, i32 noundef 3)
+  %305 = invoke noundef zeroext i1 %303(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(32) %126, i32 noundef 3)
           to label %317 unwind label %306
 
 306:                                              ; preds = %304
@@ -22402,7 +22402,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i42.i, label %.body11.i, label %312
 
 312:                                              ; preds = %309
-  %313 = invoke noundef zeroext i1 %311(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %126, i32 noundef 3)
+  %313 = invoke noundef zeroext i1 %311(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(32) %126, i32 noundef 3)
           to label %.body11.i unwind label %314
 
 314:                                              ; preds = %312
@@ -22434,7 +22434,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i51.i, label %337, label %324
 
 324:                                              ; preds = %322
-  %325 = invoke noundef zeroext i1 %323(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(16) %125, i32 noundef 3)
+  %325 = invoke noundef zeroext i1 %323(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %125, i32 noundef 3)
           to label %337 unwind label %326
 
 326:                                              ; preds = %324
@@ -22452,7 +22452,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i49.i, label %.body11.i, label %332
 
 332:                                              ; preds = %329
-  %333 = invoke noundef zeroext i1 %331(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(16) %125, i32 noundef 3)
+  %333 = invoke noundef zeroext i1 %331(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %125, i32 noundef 3)
           to label %.body11.i unwind label %334
 
 334:                                              ; preds = %332
@@ -22484,7 +22484,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i58.i, label %357, label %344
 
 344:                                              ; preds = %342
-  %345 = invoke noundef zeroext i1 %343(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %124, i32 noundef 3)
+  %345 = invoke noundef zeroext i1 %343(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %124, i32 noundef 3)
           to label %357 unwind label %346
 
 346:                                              ; preds = %344
@@ -22502,7 +22502,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i56.i, label %.body11.i, label %352
 
 352:                                              ; preds = %349
-  %353 = invoke noundef zeroext i1 %351(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %124, i32 noundef 3)
+  %353 = invoke noundef zeroext i1 %351(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %124, i32 noundef 3)
           to label %.body11.i unwind label %354
 
 354:                                              ; preds = %352
@@ -22534,7 +22534,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i64.i, label %377, label %364
 
 364:                                              ; preds = %362
-  %365 = invoke noundef zeroext i1 %363(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %123, i32 noundef 3)
+  %365 = invoke noundef zeroext i1 %363(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %123, i32 noundef 3)
           to label %377 unwind label %366
 
 366:                                              ; preds = %364
@@ -22552,7 +22552,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i62.i, label %.body11.i, label %372
 
 372:                                              ; preds = %369
-  %373 = invoke noundef zeroext i1 %371(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %123, i32 noundef 3)
+  %373 = invoke noundef zeroext i1 %371(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %123, i32 noundef 3)
           to label %.body11.i unwind label %374
 
 374:                                              ; preds = %372
@@ -22584,7 +22584,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i71.i, label %397, label %384
 
 384:                                              ; preds = %382
-  %385 = invoke noundef zeroext i1 %383(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %122, i32 noundef 3)
+  %385 = invoke noundef zeroext i1 %383(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %122, i32 noundef 3)
           to label %397 unwind label %386
 
 386:                                              ; preds = %384
@@ -22602,7 +22602,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i69.i, label %.body11.i, label %392
 
 392:                                              ; preds = %389
-  %393 = invoke noundef zeroext i1 %391(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %122, i32 noundef 3)
+  %393 = invoke noundef zeroext i1 %391(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %122, i32 noundef 3)
           to label %.body11.i unwind label %394
 
 394:                                              ; preds = %392
@@ -22634,7 +22634,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i77.i, label %417, label %404
 
 404:                                              ; preds = %402
-  %405 = invoke noundef zeroext i1 %403(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %121, i32 noundef 3)
+  %405 = invoke noundef zeroext i1 %403(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %121, i32 noundef 3)
           to label %417 unwind label %406
 
 406:                                              ; preds = %404
@@ -22652,7 +22652,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i6.i75.i, label %.body11.i, label %412
 
 412:                                              ; preds = %409
-  %413 = invoke noundef zeroext i1 %411(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %121, i32 noundef 3)
+  %413 = invoke noundef zeroext i1 %411(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %121, i32 noundef 3)
           to label %.body11.i unwind label %414
 
 414:                                              ; preds = %412
@@ -22697,7 +22697,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   %431 = getelementptr inbounds i8, ptr %419, i64 32
   %432 = getelementptr inbounds i8, ptr %419, i64 56
   %433 = getelementptr inbounds i8, ptr %120, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %431, i8 0, i64 24, i1 false), !noalias !284
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %431, i8 0, i64 24, i1 false), !noalias !284
   %434 = load ptr, ptr %433, align 8, !noalias !284
   store ptr %434, ptr %432, align 8, !noalias !284
   %435 = getelementptr inbounds i8, ptr %120, i64 48
@@ -22708,7 +22708,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
 437:                                              ; preds = %.noexc.i.i
   %438 = getelementptr inbounds i8, ptr %120, i64 32
   %439 = getelementptr inbounds i8, ptr %419, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %431, ptr noundef nonnull align 8 dereferenceable(16) %438, i64 16, i1 false), !noalias !284
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %431, ptr noundef nonnull align 8 dereferenceable(32) %438, i64 16, i1 false), !noalias !284
   store ptr %436, ptr %439, align 8, !noalias !284
   br label %442
 
@@ -22735,7 +22735,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
 
 449:                                              ; preds = %442
   %450 = getelementptr inbounds i8, ptr %133, i64 32
-  %451 = invoke noundef zeroext i1 %448(ptr noundef nonnull align 8 dereferenceable(16) %450, ptr noundef nonnull align 8 dereferenceable(16) %450, i32 noundef 3)
+  %451 = invoke noundef zeroext i1 %448(ptr noundef nonnull align 8 dereferenceable(32) %450, ptr noundef nonnull align 8 dereferenceable(32) %450, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i unwind label %452
 
 452:                                              ; preds = %449
@@ -22761,7 +22761,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 460:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %461 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 16
-  %462 = invoke noundef zeroext i1 %459(ptr noundef nonnull align 8 dereferenceable(16) %461, ptr noundef nonnull align 8 dereferenceable(16) %461, i32 noundef 3)
+  %462 = invoke noundef zeroext i1 %459(ptr noundef nonnull align 8 dereferenceable(32) %461, ptr noundef nonnull align 8 dereferenceable(32) %461, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i unwind label %463
 
 463:                                              ; preds = %460
@@ -22795,7 +22795,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOption
   br i1 %.not.i.i84.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %470
 
 470:                                              ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEED2Ev.exit.i
-  %471 = invoke noundef zeroext i1 %469(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %138, i32 noundef 3)
+  %471 = invoke noundef zeroext i1 %469(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %138, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %472
 
 472:                                              ; preds = %470
@@ -22811,7 +22811,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions1
   br i1 %.not.i.i.i86.i, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i87.i, label %476
 
 476:                                              ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptions13VerbosityEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %477 = invoke noundef zeroext i1 %475(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 8 dereferenceable(16) %155, i32 noundef 3)
+  %477 = invoke noundef zeroext i1 %475(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef nonnull align 8 dereferenceable(32) %155, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i87.i unwind label %478
 
 478:                                              ; preds = %476
@@ -22837,7 +22837,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 486:                                              ; preds = %.lr.ph.i.i.i.i.i89.i
   %487 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i90.i, i64 16
-  %488 = invoke noundef zeroext i1 %485(ptr noundef nonnull align 8 dereferenceable(16) %487, ptr noundef nonnull align 8 dereferenceable(16) %487, i32 noundef 3)
+  %488 = invoke noundef zeroext i1 %485(ptr noundef nonnull align 8 dereferenceable(32) %487, ptr noundef nonnull align 8 dereferenceable(32) %487, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberEEvPT_.exit.i.i.i.i.i92.i unwind label %489
 
 489:                                              ; preds = %486
@@ -22871,7 +22871,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOption
   br i1 %.not.i.i99.i, label %__cxx_global_var_init.3.exit, label %496
 
 496:                                              ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEED2Ev.exit98.i
-  %497 = invoke noundef zeroext i1 %495(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull align 8 dereferenceable(16) %135, i32 noundef 3)
+  %497 = invoke noundef zeroext i1 %495(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %135, i32 noundef 3)
           to label %__cxx_global_var_init.3.exit unwind label %498
 
 498:                                              ; preds = %496
@@ -22903,7 +22903,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOption
   br i1 %.not.i.i101.i, label %.body.i, label %506
 
 506:                                              ; preds = %.body11.i
-  %507 = invoke noundef zeroext i1 %505(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %138, i32 noundef 3)
+  %507 = invoke noundef zeroext i1 %505(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %138, i32 noundef 3)
           to label %.body.i unwind label %508
 
 508:                                              ; preds = %506
@@ -22921,7 +22921,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOption
   br i1 %.not.i.i104.i, label %common.resume, label %512
 
 512:                                              ; preds = %.body.i
-  %513 = invoke noundef zeroext i1 %511(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull align 8 dereferenceable(16) %135, i32 noundef 3)
+  %513 = invoke noundef zeroext i1 %511(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %135, i32 noundef 3)
           to label %common.resume unwind label %514
 
 514:                                              ; preds = %512
@@ -22967,10 +22967,10 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %115, align 8
   %520 = getelementptr inbounds i8, ptr %114, i64 32
   %521 = getelementptr inbounds i8, ptr %114, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %114, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %114, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %521, align 8
   %522 = getelementptr inbounds i8, ptr %114, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %520, ptr noundef nonnull align 8 dereferenceable(16) %115, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %520, ptr noundef nonnull align 8 dereferenceable(32) %115, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %522, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %518, i8 0, i64 16, i1 false)
   %523 = getelementptr inbounds i8, ptr %114, i64 64
@@ -22995,7 +22995,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i.i5, label %543, label %530
 
 530:                                              ; preds = %528
-  %531 = invoke noundef zeroext i1 %529(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %112, i32 noundef 3)
+  %531 = invoke noundef zeroext i1 %529(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %112, i32 noundef 3)
           to label %543 unwind label %532
 
 532:                                              ; preds = %530
@@ -23013,7 +23013,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i.i2, label %.body.i3, label %538
 
 538:                                              ; preds = %535
-  %539 = invoke noundef zeroext i1 %537(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %112, i32 noundef 3)
+  %539 = invoke noundef zeroext i1 %537(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %112, i32 noundef 3)
           to label %.body.i3 unwind label %540
 
 540:                                              ; preds = %538
@@ -23045,7 +23045,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i6.i, label %563, label %550
 
 550:                                              ; preds = %548
-  %551 = invoke noundef zeroext i1 %549(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %111, i32 noundef 3)
+  %551 = invoke noundef zeroext i1 %549(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %111, i32 noundef 3)
           to label %563 unwind label %552
 
 552:                                              ; preds = %550
@@ -23063,7 +23063,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i4.i, label %.body.i3, label %558
 
 558:                                              ; preds = %555
-  %559 = invoke noundef zeroext i1 %557(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %111, i32 noundef 3)
+  %559 = invoke noundef zeroext i1 %557(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %111, i32 noundef 3)
           to label %.body.i3 unwind label %560
 
 560:                                              ; preds = %558
@@ -23095,7 +23095,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i13.i, label %583, label %570
 
 570:                                              ; preds = %568
-  %571 = invoke noundef zeroext i1 %569(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %110, i32 noundef 3)
+  %571 = invoke noundef zeroext i1 %569(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %110, i32 noundef 3)
           to label %583 unwind label %572
 
 572:                                              ; preds = %570
@@ -23113,7 +23113,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i11.i, label %.body.i3, label %578
 
 578:                                              ; preds = %575
-  %579 = invoke noundef zeroext i1 %577(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %110, i32 noundef 3)
+  %579 = invoke noundef zeroext i1 %577(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %110, i32 noundef 3)
           to label %.body.i3 unwind label %580
 
 580:                                              ; preds = %578
@@ -23145,7 +23145,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i20.i, label %603, label %590
 
 590:                                              ; preds = %588
-  %591 = invoke noundef zeroext i1 %589(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %109, i32 noundef 3)
+  %591 = invoke noundef zeroext i1 %589(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %109, i32 noundef 3)
           to label %603 unwind label %592
 
 592:                                              ; preds = %590
@@ -23163,7 +23163,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i18.i, label %.body.i3, label %598
 
 598:                                              ; preds = %595
-  %599 = invoke noundef zeroext i1 %597(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %109, i32 noundef 3)
+  %599 = invoke noundef zeroext i1 %597(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %109, i32 noundef 3)
           to label %.body.i3 unwind label %600
 
 600:                                              ; preds = %598
@@ -23208,7 +23208,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
   %617 = getelementptr inbounds i8, ptr %605, i64 32
   %618 = getelementptr inbounds i8, ptr %605, i64 56
   %619 = getelementptr inbounds i8, ptr %108, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %617, i8 0, i64 24, i1 false), !noalias !287
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %617, i8 0, i64 24, i1 false), !noalias !287
   %620 = load ptr, ptr %619, align 8, !noalias !287
   store ptr %620, ptr %618, align 8, !noalias !287
   %621 = getelementptr inbounds i8, ptr %108, i64 48
@@ -23219,7 +23219,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
 623:                                              ; preds = %.noexc.i.i7
   %624 = getelementptr inbounds i8, ptr %108, i64 32
   %625 = getelementptr inbounds i8, ptr %605, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %617, ptr noundef nonnull align 8 dereferenceable(16) %624, i64 16, i1 false), !noalias !287
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %617, ptr noundef nonnull align 8 dereferenceable(32) %624, i64 16, i1 false), !noalias !287
   store ptr %622, ptr %625, align 8, !noalias !287
   br label %628
 
@@ -23246,7 +23246,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN19cmJSONHelperBu
 
 635:                                              ; preds = %628
   %636 = getelementptr inbounds i8, ptr %113, i64 32
-  %637 = invoke noundef zeroext i1 %634(ptr noundef nonnull align 8 dereferenceable(16) %636, ptr noundef nonnull align 8 dereferenceable(16) %636, i32 noundef 3)
+  %637 = invoke noundef zeroext i1 %634(ptr noundef nonnull align 8 dereferenceable(32) %636, ptr noundef nonnull align 8 dereferenceable(32) %636, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i9 unwind label %638
 
 638:                                              ; preds = %635
@@ -23272,7 +23272,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 646:                                              ; preds = %.lr.ph.i.i.i.i.i.i11
   %647 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i12, i64 16
-  %648 = invoke noundef zeroext i1 %645(ptr noundef nonnull align 8 dereferenceable(16) %647, ptr noundef nonnull align 8 dereferenceable(16) %647, i32 noundef 3)
+  %648 = invoke noundef zeroext i1 %645(ptr noundef nonnull align 8 dereferenceable(32) %647, ptr noundef nonnull align 8 dereferenceable(32) %647, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i unwind label %649
 
 649:                                              ; preds = %646
@@ -23306,7 +23306,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptio
   br i1 %.not.i.i.i26.i, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i27.i, label %656
 
 656:                                              ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEED2Ev.exit.i
-  %657 = invoke noundef zeroext i1 %655(ptr noundef nonnull align 8 dereferenceable(16) %520, ptr noundef nonnull align 8 dereferenceable(16) %520, i32 noundef 3)
+  %657 = invoke noundef zeroext i1 %655(ptr noundef nonnull align 8 dereferenceable(32) %520, ptr noundef nonnull align 8 dereferenceable(32) %520, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i27.i unwind label %658
 
 658:                                              ; preds = %656
@@ -23332,7 +23332,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 666:                                              ; preds = %.lr.ph.i.i.i.i.i29.i
   %667 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i30.i, i64 16
-  %668 = invoke noundef zeroext i1 %665(ptr noundef nonnull align 8 dereferenceable(16) %667, ptr noundef nonnull align 8 dereferenceable(16) %667, i32 noundef 3)
+  %668 = invoke noundef zeroext i1 %665(ptr noundef nonnull align 8 dereferenceable(32) %667, ptr noundef nonnull align 8 dereferenceable(32) %667, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberEEvPT_.exit.i.i.i.i.i32.i unwind label %669
 
 669:                                              ; preds = %666
@@ -23366,7 +23366,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptio
   br i1 %.not.i.i.i17, label %__cxx_global_var_init.16.exit, label %676
 
 676:                                              ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEED2Ev.exit38.i
-  %677 = invoke noundef zeroext i1 %675(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull align 8 dereferenceable(16) %115, i32 noundef 3)
+  %677 = invoke noundef zeroext i1 %675(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(32) %115, i32 noundef 3)
           to label %__cxx_global_var_init.16.exit unwind label %678
 
 678:                                              ; preds = %676
@@ -23399,7 +23399,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptio
   br i1 %.not.i.i39.i, label %common.resume, label %686
 
 686:                                              ; preds = %.body.i3
-  %687 = invoke noundef zeroext i1 %685(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull align 8 dereferenceable(16) %115, i32 noundef 3)
+  %687 = invoke noundef zeroext i1 %685(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(32) %115, i32 noundef 3)
           to label %common.resume unwind label %688
 
 688:                                              ; preds = %686
@@ -23431,10 +23431,10 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %103, align 8
   %694 = getelementptr inbounds i8, ptr %102, i64 32
   %695 = getelementptr inbounds i8, ptr %102, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %102, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %102, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %695, align 8
   %696 = getelementptr inbounds i8, ptr %102, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %694, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %694, ptr noundef nonnull align 8 dereferenceable(32) %103, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %696, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %692, i8 0, i64 16, i1 false)
   %697 = getelementptr inbounds i8, ptr %102, i64 64
@@ -23459,7 +23459,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i.i22, label %717, label %704
 
 704:                                              ; preds = %702
-  %705 = invoke noundef zeroext i1 %703(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %100, i32 noundef 3)
+  %705 = invoke noundef zeroext i1 %703(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %100, i32 noundef 3)
           to label %717 unwind label %706
 
 706:                                              ; preds = %704
@@ -23477,7 +23477,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i.i19, label %.body.i20, label %712
 
 712:                                              ; preds = %709
-  %713 = invoke noundef zeroext i1 %711(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %100, i32 noundef 3)
+  %713 = invoke noundef zeroext i1 %711(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %100, i32 noundef 3)
           to label %.body.i20 unwind label %714
 
 714:                                              ; preds = %712
@@ -23509,7 +23509,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i6.i25, label %737, label %724
 
 724:                                              ; preds = %722
-  %725 = invoke noundef zeroext i1 %723(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %99, i32 noundef 3)
+  %725 = invoke noundef zeroext i1 %723(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef 3)
           to label %737 unwind label %726
 
 726:                                              ; preds = %724
@@ -23527,7 +23527,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i4.i24, label %.body.i20, label %732
 
 732:                                              ; preds = %729
-  %733 = invoke noundef zeroext i1 %731(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %99, i32 noundef 3)
+  %733 = invoke noundef zeroext i1 %731(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef 3)
           to label %.body.i20 unwind label %734
 
 734:                                              ; preds = %732
@@ -23559,7 +23559,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i13.i28, label %757, label %744
 
 744:                                              ; preds = %742
-  %745 = invoke noundef zeroext i1 %743(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %98, i32 noundef 3)
+  %745 = invoke noundef zeroext i1 %743(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %98, i32 noundef 3)
           to label %757 unwind label %746
 
 746:                                              ; preds = %744
@@ -23577,7 +23577,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i11.i27, label %.body.i20, label %752
 
 752:                                              ; preds = %749
-  %753 = invoke noundef zeroext i1 %751(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %98, i32 noundef 3)
+  %753 = invoke noundef zeroext i1 %751(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %98, i32 noundef 3)
           to label %.body.i20 unwind label %754
 
 754:                                              ; preds = %752
@@ -23609,7 +23609,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i19.i, label %777, label %764
 
 764:                                              ; preds = %762
-  %765 = invoke noundef zeroext i1 %763(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %97, i32 noundef 3)
+  %765 = invoke noundef zeroext i1 %763(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %97, i32 noundef 3)
           to label %777 unwind label %766
 
 766:                                              ; preds = %764
@@ -23627,7 +23627,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i17.i, label %.body.i20, label %772
 
 772:                                              ; preds = %769
-  %773 = invoke noundef zeroext i1 %771(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %97, i32 noundef 3)
+  %773 = invoke noundef zeroext i1 %771(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %97, i32 noundef 3)
           to label %.body.i20 unwind label %774
 
 774:                                              ; preds = %772
@@ -23672,7 +23672,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
   %791 = getelementptr inbounds i8, ptr %779, i64 32
   %792 = getelementptr inbounds i8, ptr %779, i64 56
   %793 = getelementptr inbounds i8, ptr %96, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %791, i8 0, i64 24, i1 false), !noalias !290
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %791, i8 0, i64 24, i1 false), !noalias !290
   %794 = load ptr, ptr %793, align 8, !noalias !290
   store ptr %794, ptr %792, align 8, !noalias !290
   %795 = getelementptr inbounds i8, ptr %96, i64 48
@@ -23683,7 +23683,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
 797:                                              ; preds = %.noexc.i.i30
   %798 = getelementptr inbounds i8, ptr %96, i64 32
   %799 = getelementptr inbounds i8, ptr %779, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %791, ptr noundef nonnull align 8 dereferenceable(16) %798, i64 16, i1 false), !noalias !290
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %791, ptr noundef nonnull align 8 dereferenceable(32) %798, i64 16, i1 false), !noalias !290
   store ptr %796, ptr %799, align 8, !noalias !290
   br label %802
 
@@ -23710,7 +23710,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZN19cmJSONHelperBu
 
 809:                                              ; preds = %802
   %810 = getelementptr inbounds i8, ptr %101, i64 32
-  %811 = invoke noundef zeroext i1 %808(ptr noundef nonnull align 8 dereferenceable(16) %810, ptr noundef nonnull align 8 dereferenceable(16) %810, i32 noundef 3)
+  %811 = invoke noundef zeroext i1 %808(ptr noundef nonnull align 8 dereferenceable(32) %810, ptr noundef nonnull align 8 dereferenceable(32) %810, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i33 unwind label %812
 
 812:                                              ; preds = %809
@@ -23736,7 +23736,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 820:                                              ; preds = %.lr.ph.i.i.i.i.i.i35
   %821 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i36, i64 16
-  %822 = invoke noundef zeroext i1 %819(ptr noundef nonnull align 8 dereferenceable(16) %821, ptr noundef nonnull align 8 dereferenceable(16) %821, i32 noundef 3)
+  %822 = invoke noundef zeroext i1 %819(ptr noundef nonnull align 8 dereferenceable(32) %821, ptr noundef nonnull align 8 dereferenceable(32) %821, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i unwind label %823
 
 823:                                              ; preds = %820
@@ -23770,7 +23770,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptio
   br i1 %.not.i.i.i25.i41, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i26.i, label %830
 
 830:                                              ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEED2Ev.exit.i
-  %831 = invoke noundef zeroext i1 %829(ptr noundef nonnull align 8 dereferenceable(16) %694, ptr noundef nonnull align 8 dereferenceable(16) %694, i32 noundef 3)
+  %831 = invoke noundef zeroext i1 %829(ptr noundef nonnull align 8 dereferenceable(32) %694, ptr noundef nonnull align 8 dereferenceable(32) %694, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i26.i unwind label %832
 
 832:                                              ; preds = %830
@@ -23796,7 +23796,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 840:                                              ; preds = %.lr.ph.i.i.i.i.i28.i
   %841 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i29.i, i64 16
-  %842 = invoke noundef zeroext i1 %839(ptr noundef nonnull align 8 dereferenceable(16) %841, ptr noundef nonnull align 8 dereferenceable(16) %841, i32 noundef 3)
+  %842 = invoke noundef zeroext i1 %839(ptr noundef nonnull align 8 dereferenceable(32) %841, ptr noundef nonnull align 8 dereferenceable(32) %841, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberEEvPT_.exit.i.i.i.i.i31.i unwind label %843
 
 843:                                              ; preds = %840
@@ -23830,7 +23830,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptio
   br i1 %.not.i.i.i42, label %__cxx_global_var_init.21.exit, label %850
 
 850:                                              ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEED2Ev.exit37.i
-  %851 = invoke noundef zeroext i1 %849(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %103, i32 noundef 3)
+  %851 = invoke noundef zeroext i1 %849(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %103, i32 noundef 3)
           to label %__cxx_global_var_init.21.exit unwind label %852
 
 852:                                              ; preds = %850
@@ -23863,7 +23863,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptio
   br i1 %.not.i.i38.i, label %common.resume, label %860
 
 860:                                              ; preds = %.body.i20
-  %861 = invoke noundef zeroext i1 %859(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %103, i32 noundef 3)
+  %861 = invoke noundef zeroext i1 %859(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %103, i32 noundef 3)
           to label %common.resume unwind label %862
 
 862:                                              ; preds = %860
@@ -23894,10 +23894,10 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %92, align 8
   %868 = getelementptr inbounds i8, ptr %91, i64 32
   %869 = getelementptr inbounds i8, ptr %91, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %91, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %91, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %869, align 8
   %870 = getelementptr inbounds i8, ptr %91, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %868, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %868, ptr noundef nonnull align 8 dereferenceable(32) %92, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %870, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %866, i8 0, i64 16, i1 false)
   %871 = getelementptr inbounds i8, ptr %91, i64 64
@@ -23922,7 +23922,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i.i47, label %891, label %878
 
 878:                                              ; preds = %876
-  %879 = invoke noundef zeroext i1 %877(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %89, i32 noundef 3)
+  %879 = invoke noundef zeroext i1 %877(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %89, i32 noundef 3)
           to label %891 unwind label %880
 
 880:                                              ; preds = %878
@@ -23940,7 +23940,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i.i44, label %.body.i45, label %886
 
 886:                                              ; preds = %883
-  %887 = invoke noundef zeroext i1 %885(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %89, i32 noundef 3)
+  %887 = invoke noundef zeroext i1 %885(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %89, i32 noundef 3)
           to label %.body.i45 unwind label %888
 
 888:                                              ; preds = %886
@@ -23972,7 +23972,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i6.i50, label %911, label %898
 
 898:                                              ; preds = %896
-  %899 = invoke noundef zeroext i1 %897(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %88, i32 noundef 3)
+  %899 = invoke noundef zeroext i1 %897(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %88, i32 noundef 3)
           to label %911 unwind label %900
 
 900:                                              ; preds = %898
@@ -23990,7 +23990,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i4.i49, label %.body.i45, label %906
 
 906:                                              ; preds = %903
-  %907 = invoke noundef zeroext i1 %905(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %88, i32 noundef 3)
+  %907 = invoke noundef zeroext i1 %905(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %88, i32 noundef 3)
           to label %.body.i45 unwind label %908
 
 908:                                              ; preds = %906
@@ -24022,7 +24022,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i13.i53, label %931, label %918
 
 918:                                              ; preds = %916
-  %919 = invoke noundef zeroext i1 %917(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %87, i32 noundef 3)
+  %919 = invoke noundef zeroext i1 %917(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %87, i32 noundef 3)
           to label %931 unwind label %920
 
 920:                                              ; preds = %918
@@ -24040,7 +24040,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i11.i52, label %.body.i45, label %926
 
 926:                                              ; preds = %923
-  %927 = invoke noundef zeroext i1 %925(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %87, i32 noundef 3)
+  %927 = invoke noundef zeroext i1 %925(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %87, i32 noundef 3)
           to label %.body.i45 unwind label %928
 
 928:                                              ; preds = %926
@@ -24085,7 +24085,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
   %945 = getelementptr inbounds i8, ptr %933, i64 32
   %946 = getelementptr inbounds i8, ptr %933, i64 56
   %947 = getelementptr inbounds i8, ptr %86, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %945, i8 0, i64 24, i1 false), !noalias !293
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %945, i8 0, i64 24, i1 false), !noalias !293
   %948 = load ptr, ptr %947, align 8, !noalias !293
   store ptr %948, ptr %946, align 8, !noalias !293
   %949 = getelementptr inbounds i8, ptr %86, i64 48
@@ -24096,7 +24096,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
 951:                                              ; preds = %.noexc.i.i55
   %952 = getelementptr inbounds i8, ptr %86, i64 32
   %953 = getelementptr inbounds i8, ptr %933, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %945, ptr noundef nonnull align 8 dereferenceable(16) %952, i64 16, i1 false), !noalias !293
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %945, ptr noundef nonnull align 8 dereferenceable(32) %952, i64 16, i1 false), !noalias !293
   store ptr %950, ptr %953, align 8, !noalias !293
   br label %956
 
@@ -24123,7 +24123,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZN19cmJSONHelperBu
 
 963:                                              ; preds = %956
   %964 = getelementptr inbounds i8, ptr %90, i64 32
-  %965 = invoke noundef zeroext i1 %962(ptr noundef nonnull align 8 dereferenceable(16) %964, ptr noundef nonnull align 8 dereferenceable(16) %964, i32 noundef 3)
+  %965 = invoke noundef zeroext i1 %962(ptr noundef nonnull align 8 dereferenceable(32) %964, ptr noundef nonnull align 8 dereferenceable(32) %964, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i58 unwind label %966
 
 966:                                              ; preds = %963
@@ -24149,7 +24149,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 974:                                              ; preds = %.lr.ph.i.i.i.i.i.i60
   %975 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i61, i64 16
-  %976 = invoke noundef zeroext i1 %973(ptr noundef nonnull align 8 dereferenceable(16) %975, ptr noundef nonnull align 8 dereferenceable(16) %975, i32 noundef 3)
+  %976 = invoke noundef zeroext i1 %973(ptr noundef nonnull align 8 dereferenceable(32) %975, ptr noundef nonnull align 8 dereferenceable(32) %975, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i unwind label %977
 
 977:                                              ; preds = %974
@@ -24183,7 +24183,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptio
   br i1 %.not.i.i.i20.i66, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i21.i, label %984
 
 984:                                              ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEED2Ev.exit.i
-  %985 = invoke noundef zeroext i1 %983(ptr noundef nonnull align 8 dereferenceable(16) %868, ptr noundef nonnull align 8 dereferenceable(16) %868, i32 noundef 3)
+  %985 = invoke noundef zeroext i1 %983(ptr noundef nonnull align 8 dereferenceable(32) %868, ptr noundef nonnull align 8 dereferenceable(32) %868, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i21.i unwind label %986
 
 986:                                              ; preds = %984
@@ -24209,7 +24209,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 994:                                              ; preds = %.lr.ph.i.i.i.i.i23.i
   %995 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i24.i, i64 16
-  %996 = invoke noundef zeroext i1 %993(ptr noundef nonnull align 8 dereferenceable(16) %995, ptr noundef nonnull align 8 dereferenceable(16) %995, i32 noundef 3)
+  %996 = invoke noundef zeroext i1 %993(ptr noundef nonnull align 8 dereferenceable(32) %995, ptr noundef nonnull align 8 dereferenceable(32) %995, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberEEvPT_.exit.i.i.i.i.i26.i unwind label %997
 
 997:                                              ; preds = %994
@@ -24243,7 +24243,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptio
   br i1 %.not.i.i.i67, label %__cxx_global_var_init.26.exit, label %1004
 
 1004:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEED2Ev.exit32.i
-  %1005 = invoke noundef zeroext i1 %1003(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %92, i32 noundef 3)
+  %1005 = invoke noundef zeroext i1 %1003(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %92, i32 noundef 3)
           to label %__cxx_global_var_init.26.exit unwind label %1006
 
 1006:                                             ; preds = %1004
@@ -24276,7 +24276,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptio
   br i1 %.not.i.i33.i, label %common.resume, label %1014
 
 1014:                                             ; preds = %.body.i45
-  %1015 = invoke noundef zeroext i1 %1013(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %92, i32 noundef 3)
+  %1015 = invoke noundef zeroext i1 %1013(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %92, i32 noundef 3)
           to label %common.resume unwind label %1016
 
 1016:                                             ; preds = %1014
@@ -24307,10 +24307,10 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %81, align 8
   %1022 = getelementptr inbounds i8, ptr %80, i64 32
   %1023 = getelementptr inbounds i8, ptr %80, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %80, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %80, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %1023, align 8
   %1024 = getelementptr inbounds i8, ptr %80, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1022, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1022, ptr noundef nonnull align 8 dereferenceable(32) %81, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %1024, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1020, i8 0, i64 16, i1 false)
   %1025 = getelementptr inbounds i8, ptr %80, i64 64
@@ -24335,7 +24335,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i.i73, label %1045, label %1032
 
 1032:                                             ; preds = %1030
-  %1033 = invoke noundef zeroext i1 %1031(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %78, i32 noundef 3)
+  %1033 = invoke noundef zeroext i1 %1031(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %78, i32 noundef 3)
           to label %1045 unwind label %1034
 
 1034:                                             ; preds = %1032
@@ -24353,7 +24353,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i.i69, label %.body.i70, label %1040
 
 1040:                                             ; preds = %1037
-  %1041 = invoke noundef zeroext i1 %1039(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %78, i32 noundef 3)
+  %1041 = invoke noundef zeroext i1 %1039(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %78, i32 noundef 3)
           to label %.body.i70 unwind label %1042
 
 1042:                                             ; preds = %1040
@@ -24385,7 +24385,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i8.i, label %1065, label %1052
 
 1052:                                             ; preds = %1050
-  %1053 = invoke noundef zeroext i1 %1051(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %77, i32 noundef 3)
+  %1053 = invoke noundef zeroext i1 %1051(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %77, i32 noundef 3)
           to label %1065 unwind label %1054
 
 1054:                                             ; preds = %1052
@@ -24403,7 +24403,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i6.i, label %.body.i70, label %1060
 
 1060:                                             ; preds = %1057
-  %1061 = invoke noundef zeroext i1 %1059(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %77, i32 noundef 3)
+  %1061 = invoke noundef zeroext i1 %1059(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %77, i32 noundef 3)
           to label %.body.i70 unwind label %1062
 
 1062:                                             ; preds = %1060
@@ -24426,7 +24426,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.not.i.i74, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %1070
 
 1070:                                             ; preds = %1065
-  %1071 = invoke noundef zeroext i1 %1069(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i32 noundef 2)
+  %1071 = invoke noundef zeroext i1 %1069(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_145TestPresetOptionalFilterExcludeFixturesHelperE, i32 noundef 2)
           to label %1072 unwind label %1075
 
 1072:                                             ; preds = %1070
@@ -24444,7 +24444,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i75, label %.body.i70, label %1078
 
 1078:                                             ; preds = %1075
-  %1079 = invoke noundef zeroext i1 %1077(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %85, i32 noundef 3)
+  %1079 = invoke noundef zeroext i1 %1077(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 3)
           to label %.body.i70 unwind label %1080
 
 1080:                                             ; preds = %1078
@@ -24492,7 +24492,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
   %1098 = getelementptr inbounds i8, ptr %1086, i64 32
   %1099 = getelementptr inbounds i8, ptr %1086, i64 56
   %1100 = getelementptr inbounds i8, ptr %76, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1098, i8 0, i64 24, i1 false), !noalias !296
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1098, i8 0, i64 24, i1 false), !noalias !296
   %1101 = load ptr, ptr %1100, align 8, !noalias !296
   store ptr %1101, ptr %1099, align 8, !noalias !296
   %1102 = getelementptr inbounds i8, ptr %76, i64 48
@@ -24503,7 +24503,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
 1104:                                             ; preds = %.noexc.i.i78
   %1105 = getelementptr inbounds i8, ptr %76, i64 32
   %1106 = getelementptr inbounds i8, ptr %1086, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1098, ptr noundef nonnull align 8 dereferenceable(16) %1105, i64 16, i1 false), !noalias !296
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1098, ptr noundef nonnull align 8 dereferenceable(32) %1105, i64 16, i1 false), !noalias !296
   store ptr %1103, ptr %1106, align 8, !noalias !296
   br label %1109
 
@@ -24530,7 +24530,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
 
 1116:                                             ; preds = %1109
   %1117 = getelementptr inbounds i8, ptr %79, i64 32
-  %1118 = invoke noundef zeroext i1 %1115(ptr noundef nonnull align 8 dereferenceable(16) %1117, ptr noundef nonnull align 8 dereferenceable(16) %1117, i32 noundef 3)
+  %1118 = invoke noundef zeroext i1 %1115(ptr noundef nonnull align 8 dereferenceable(32) %1117, ptr noundef nonnull align 8 dereferenceable(32) %1117, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i80 unwind label %1119
 
 1119:                                             ; preds = %1116
@@ -24556,7 +24556,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 1127:                                             ; preds = %.lr.ph.i.i.i.i.i.i82
   %1128 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i83, i64 16
-  %1129 = invoke noundef zeroext i1 %1126(ptr noundef nonnull align 8 dereferenceable(16) %1128, ptr noundef nonnull align 8 dereferenceable(16) %1128, i32 noundef 3)
+  %1129 = invoke noundef zeroext i1 %1126(ptr noundef nonnull align 8 dereferenceable(32) %1128, ptr noundef nonnull align 8 dereferenceable(32) %1128, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i unwind label %1130
 
 1130:                                             ; preds = %1127
@@ -24590,7 +24590,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptio
   br i1 %.not.i.i17.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %1137
 
 1137:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEED2Ev.exit.i
-  %1138 = invoke noundef zeroext i1 %1136(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %85, i32 noundef 3)
+  %1138 = invoke noundef zeroext i1 %1136(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %1139
 
 1139:                                             ; preds = %1137
@@ -24606,7 +24606,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
   br i1 %.not.i.i.i19.i88, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i20.i, label %1143
 
 1143:                                             ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %1144 = invoke noundef zeroext i1 %1142(ptr noundef nonnull align 8 dereferenceable(16) %1022, ptr noundef nonnull align 8 dereferenceable(16) %1022, i32 noundef 3)
+  %1144 = invoke noundef zeroext i1 %1142(ptr noundef nonnull align 8 dereferenceable(32) %1022, ptr noundef nonnull align 8 dereferenceable(32) %1022, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i20.i unwind label %1145
 
 1145:                                             ; preds = %1143
@@ -24632,7 +24632,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 1153:                                             ; preds = %.lr.ph.i.i.i.i.i22.i
   %1154 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i23.i, i64 16
-  %1155 = invoke noundef zeroext i1 %1152(ptr noundef nonnull align 8 dereferenceable(16) %1154, ptr noundef nonnull align 8 dereferenceable(16) %1154, i32 noundef 3)
+  %1155 = invoke noundef zeroext i1 %1152(ptr noundef nonnull align 8 dereferenceable(32) %1154, ptr noundef nonnull align 8 dereferenceable(32) %1154, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberEEvPT_.exit.i.i.i.i.i25.i unwind label %1156
 
 1156:                                             ; preds = %1153
@@ -24666,7 +24666,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptio
   br i1 %.not.i.i32.i, label %__cxx_global_var_init.30.exit, label %1163
 
 1163:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEED2Ev.exit31.i
-  %1164 = invoke noundef zeroext i1 %1162(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %81, i32 noundef 3)
+  %1164 = invoke noundef zeroext i1 %1162(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %81, i32 noundef 3)
           to label %__cxx_global_var_init.30.exit unwind label %1165
 
 1165:                                             ; preds = %1163
@@ -24698,7 +24698,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptio
   br i1 %.not.i.i34.i, label %.body.i70, label %1174
 
 1174:                                             ; preds = %1172
-  %1175 = invoke noundef zeroext i1 %1173(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %85, i32 noundef 3)
+  %1175 = invoke noundef zeroext i1 %1173(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 3)
           to label %.body.i70 unwind label %1176
 
 1176:                                             ; preds = %1174
@@ -24716,7 +24716,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptio
   br i1 %.not.i.i37.i, label %common.resume, label %1180
 
 1180:                                             ; preds = %.body.i70
-  %1181 = invoke noundef zeroext i1 %1179(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %81, i32 noundef 3)
+  %1181 = invoke noundef zeroext i1 %1179(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %81, i32 noundef 3)
           to label %common.resume unwind label %1182
 
 1182:                                             ; preds = %1180
@@ -24751,10 +24751,10 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %73, align 8
   %1189 = getelementptr inbounds i8, ptr %72, i64 32
   %1190 = getelementptr inbounds i8, ptr %72, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %72, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %72, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %1190, align 8
   %1191 = getelementptr inbounds i8, ptr %72, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1189, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1189, ptr noundef nonnull align 8 dereferenceable(32) %73, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %1191, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1187, i8 0, i64 16, i1 false)
   %1192 = getelementptr inbounds i8, ptr %72, i64 64
@@ -24779,7 +24779,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i.i93, label %1212, label %1199
 
 1199:                                             ; preds = %1197
-  %1200 = invoke noundef zeroext i1 %1198(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef 3)
+  %1200 = invoke noundef zeroext i1 %1198(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %70, i32 noundef 3)
           to label %1212 unwind label %1201
 
 1201:                                             ; preds = %1199
@@ -24797,7 +24797,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i.i90, label %.body.i91, label %1207
 
 1207:                                             ; preds = %1204
-  %1208 = invoke noundef zeroext i1 %1206(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef 3)
+  %1208 = invoke noundef zeroext i1 %1206(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %70, i32 noundef 3)
           to label %.body.i91 unwind label %1209
 
 1209:                                             ; preds = %1207
@@ -24829,7 +24829,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i6.i96, label %1232, label %1219
 
 1219:                                             ; preds = %1217
-  %1220 = invoke noundef zeroext i1 %1218(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %69, i32 noundef 3)
+  %1220 = invoke noundef zeroext i1 %1218(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %69, i32 noundef 3)
           to label %1232 unwind label %1221
 
 1221:                                             ; preds = %1219
@@ -24847,7 +24847,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i4.i95, label %.body.i91, label %1227
 
 1227:                                             ; preds = %1224
-  %1228 = invoke noundef zeroext i1 %1226(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %69, i32 noundef 3)
+  %1228 = invoke noundef zeroext i1 %1226(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %69, i32 noundef 3)
           to label %.body.i91 unwind label %1229
 
 1229:                                             ; preds = %1227
@@ -24892,7 +24892,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
   %1246 = getelementptr inbounds i8, ptr %1234, i64 32
   %1247 = getelementptr inbounds i8, ptr %1234, i64 56
   %1248 = getelementptr inbounds i8, ptr %68, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1246, i8 0, i64 24, i1 false), !noalias !302
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1246, i8 0, i64 24, i1 false), !noalias !302
   %1249 = load ptr, ptr %1248, align 8, !noalias !302
   store ptr %1249, ptr %1247, align 8, !noalias !302
   %1250 = getelementptr inbounds i8, ptr %68, i64 48
@@ -24903,7 +24903,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
 1252:                                             ; preds = %.noexc.i.i98
   %1253 = getelementptr inbounds i8, ptr %68, i64 32
   %1254 = getelementptr inbounds i8, ptr %1234, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1246, ptr noundef nonnull align 8 dereferenceable(16) %1253, i64 16, i1 false), !noalias !302
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1246, ptr noundef nonnull align 8 dereferenceable(32) %1253, i64 16, i1 false), !noalias !302
   store ptr %1251, ptr %1254, align 8, !noalias !302
   br label %1257
 
@@ -24930,7 +24930,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZN19cmJSONHelperBu
 
 1264:                                             ; preds = %1257
   %1265 = getelementptr inbounds i8, ptr %71, i64 32
-  %1266 = invoke noundef zeroext i1 %1263(ptr noundef nonnull align 8 dereferenceable(16) %1265, ptr noundef nonnull align 8 dereferenceable(16) %1265, i32 noundef 3)
+  %1266 = invoke noundef zeroext i1 %1263(ptr noundef nonnull align 8 dereferenceable(32) %1265, ptr noundef nonnull align 8 dereferenceable(32) %1265, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i100 unwind label %1267
 
 1267:                                             ; preds = %1264
@@ -24956,7 +24956,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 1275:                                             ; preds = %.lr.ph.i.i.i.i.i.i102
   %1276 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i103, i64 16
-  %1277 = invoke noundef zeroext i1 %1274(ptr noundef nonnull align 8 dereferenceable(16) %1276, ptr noundef nonnull align 8 dereferenceable(16) %1276, i32 noundef 3)
+  %1277 = invoke noundef zeroext i1 %1274(ptr noundef nonnull align 8 dereferenceable(32) %1276, ptr noundef nonnull align 8 dereferenceable(32) %1276, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i unwind label %1278
 
 1278:                                             ; preds = %1275
@@ -24990,7 +24990,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i.i12.i, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i13.i, label %1285
 
 1285:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEED2Ev.exit.i
-  %1286 = invoke noundef zeroext i1 %1284(ptr noundef nonnull align 8 dereferenceable(16) %1189, ptr noundef nonnull align 8 dereferenceable(16) %1189, i32 noundef 3)
+  %1286 = invoke noundef zeroext i1 %1284(ptr noundef nonnull align 8 dereferenceable(32) %1189, ptr noundef nonnull align 8 dereferenceable(32) %1189, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i13.i unwind label %1287
 
 1287:                                             ; preds = %1285
@@ -25016,7 +25016,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 1295:                                             ; preds = %.lr.ph.i.i.i.i.i15.i
   %1296 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i16.i, i64 16
-  %1297 = invoke noundef zeroext i1 %1294(ptr noundef nonnull align 8 dereferenceable(16) %1296, ptr noundef nonnull align 8 dereferenceable(16) %1296, i32 noundef 3)
+  %1297 = invoke noundef zeroext i1 %1294(ptr noundef nonnull align 8 dereferenceable(32) %1296, ptr noundef nonnull align 8 dereferenceable(32) %1296, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberEEvPT_.exit.i.i.i.i.i18.i unwind label %1298
 
 1298:                                             ; preds = %1295
@@ -25050,7 +25050,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i.i108, label %__cxx_global_var_init.33.exit, label %1305
 
 1305:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEED2Ev.exit24.i
-  %1306 = invoke noundef zeroext i1 %1304(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %73, i32 noundef 3)
+  %1306 = invoke noundef zeroext i1 %1304(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %73, i32 noundef 3)
           to label %__cxx_global_var_init.33.exit unwind label %1307
 
 1307:                                             ; preds = %1305
@@ -25083,7 +25083,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i25.i, label %common.resume, label %1315
 
 1315:                                             ; preds = %.body.i91
-  %1316 = invoke noundef zeroext i1 %1314(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %73, i32 noundef 3)
+  %1316 = invoke noundef zeroext i1 %1314(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %73, i32 noundef 3)
           to label %common.resume unwind label %1317
 
 1317:                                             ; preds = %1315
@@ -25128,10 +25128,10 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %53, align 8
   %1324 = getelementptr inbounds i8, ptr %52, i64 32
   %1325 = getelementptr inbounds i8, ptr %52, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %52, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %52, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %1325, align 8
   %1326 = getelementptr inbounds i8, ptr %52, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1324, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1324, ptr noundef nonnull align 8 dereferenceable(32) %53, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %1326, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1322, i8 0, i64 16, i1 false)
   %1327 = getelementptr inbounds i8, ptr %52, i64 64
@@ -25156,7 +25156,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i.i113, label %1347, label %1334
 
 1334:                                             ; preds = %1332
-  %1335 = invoke noundef zeroext i1 %1333(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 3)
+  %1335 = invoke noundef zeroext i1 %1333(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 3)
           to label %1347 unwind label %1336
 
 1336:                                             ; preds = %1334
@@ -25174,7 +25174,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i.i110, label %.body.i111, label %1342
 
 1342:                                             ; preds = %1339
-  %1343 = invoke noundef zeroext i1 %1341(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 3)
+  %1343 = invoke noundef zeroext i1 %1341(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 3)
           to label %.body.i111 unwind label %1344
 
 1344:                                             ; preds = %1342
@@ -25206,7 +25206,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i12.i114, label %1367, label %1354
 
 1354:                                             ; preds = %1352
-  %1355 = invoke noundef zeroext i1 %1353(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %49, i32 noundef 3)
+  %1355 = invoke noundef zeroext i1 %1353(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3)
           to label %1367 unwind label %1356
 
 1356:                                             ; preds = %1354
@@ -25224,7 +25224,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i10.i, label %.body.i111, label %1362
 
 1362:                                             ; preds = %1359
-  %1363 = invoke noundef zeroext i1 %1361(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %49, i32 noundef 3)
+  %1363 = invoke noundef zeroext i1 %1361(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3)
           to label %.body.i111 unwind label %1364
 
 1364:                                             ; preds = %1362
@@ -25256,7 +25256,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i19.i117, label %1387, label %1374
 
 1374:                                             ; preds = %1372
-  %1375 = invoke noundef zeroext i1 %1373(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %48, i32 noundef 3)
+  %1375 = invoke noundef zeroext i1 %1373(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 3)
           to label %1387 unwind label %1376
 
 1376:                                             ; preds = %1374
@@ -25274,7 +25274,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i17.i116, label %.body.i111, label %1382
 
 1382:                                             ; preds = %1379
-  %1383 = invoke noundef zeroext i1 %1381(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %48, i32 noundef 3)
+  %1383 = invoke noundef zeroext i1 %1381(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 3)
           to label %.body.i111 unwind label %1384
 
 1384:                                             ; preds = %1382
@@ -25306,7 +25306,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i25.i118, label %1407, label %1394
 
 1394:                                             ; preds = %1392
-  %1395 = invoke noundef zeroext i1 %1393(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %47, i32 noundef 3)
+  %1395 = invoke noundef zeroext i1 %1393(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef 3)
           to label %1407 unwind label %1396
 
 1396:                                             ; preds = %1394
@@ -25324,7 +25324,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i23.i, label %.body.i111, label %1402
 
 1402:                                             ; preds = %1399
-  %1403 = invoke noundef zeroext i1 %1401(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %47, i32 noundef 3)
+  %1403 = invoke noundef zeroext i1 %1401(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef 3)
           to label %.body.i111 unwind label %1404
 
 1404:                                             ; preds = %1402
@@ -25356,7 +25356,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i31.i121, label %1427, label %1414
 
 1414:                                             ; preds = %1412
-  %1415 = invoke noundef zeroext i1 %1413(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef 3)
+  %1415 = invoke noundef zeroext i1 %1413(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3)
           to label %1427 unwind label %1416
 
 1416:                                             ; preds = %1414
@@ -25374,7 +25374,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i29.i120, label %.body.i111, label %1422
 
 1422:                                             ; preds = %1419
-  %1423 = invoke noundef zeroext i1 %1421(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef 3)
+  %1423 = invoke noundef zeroext i1 %1421(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3)
           to label %.body.i111 unwind label %1424
 
 1424:                                             ; preds = %1422
@@ -25397,7 +25397,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.not.i.i122, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %1432
 
 1432:                                             ; preds = %1427
-  %1433 = invoke noundef zeroext i1 %1431(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i32 noundef 2)
+  %1433 = invoke noundef zeroext i1 %1431(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_141TestPresetOptionalExecutionShowOnlyHelperE, i32 noundef 2)
           to label %1434 unwind label %1437
 
 1434:                                             ; preds = %1432
@@ -25415,7 +25415,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i123, label %.body.i111, label %1440
 
 1440:                                             ; preds = %1437
-  %1441 = invoke noundef zeroext i1 %1439(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef 3)
+  %1441 = invoke noundef zeroext i1 %1439(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 3)
           to label %.body.i111 unwind label %1442
 
 1442:                                             ; preds = %1440
@@ -25441,7 +25441,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i.not.i37.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %1451
 
 1451:                                             ; preds = %1446
-  %1452 = invoke noundef zeroext i1 %1450(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i32 noundef 2)
+  %1452 = invoke noundef zeroext i1 %1450(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_139TestPresetOptionalExecutionRepeatHelperE, i32 noundef 2)
           to label %1453 unwind label %1456
 
 1453:                                             ; preds = %1451
@@ -25459,7 +25459,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i38.i124, label %.body40.i, label %1459
 
 1459:                                             ; preds = %1456
-  %1460 = invoke noundef zeroext i1 %1458(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef 3)
+  %1460 = invoke noundef zeroext i1 %1458(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %62, i32 noundef 3)
           to label %.body40.i unwind label %1461
 
 1461:                                             ; preds = %1459
@@ -25494,7 +25494,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i.i45.i, label %1485, label %1472
 
 1472:                                             ; preds = %1470
-  %1473 = invoke noundef zeroext i1 %1471(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %45, i32 noundef 3)
+  %1473 = invoke noundef zeroext i1 %1471(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef 3)
           to label %1485 unwind label %1474
 
 1474:                                             ; preds = %1472
@@ -25512,7 +25512,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i6.i43.i, label %.body46.i, label %1480
 
 1480:                                             ; preds = %1477
-  %1481 = invoke noundef zeroext i1 %1479(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %45, i32 noundef 3)
+  %1481 = invoke noundef zeroext i1 %1479(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef 3)
           to label %.body46.i unwind label %1482
 
 1482:                                             ; preds = %1480
@@ -25544,7 +25544,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i.i52.i, label %1505, label %1492
 
 1492:                                             ; preds = %1490
-  %1493 = invoke noundef zeroext i1 %1491(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %44, i32 noundef 3)
+  %1493 = invoke noundef zeroext i1 %1491(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef 3)
           to label %1505 unwind label %1494
 
 1494:                                             ; preds = %1492
@@ -25562,7 +25562,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i6.i50.i, label %.body46.i, label %1500
 
 1500:                                             ; preds = %1497
-  %1501 = invoke noundef zeroext i1 %1499(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %44, i32 noundef 3)
+  %1501 = invoke noundef zeroext i1 %1499(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef 3)
           to label %.body46.i unwind label %1502
 
 1502:                                             ; preds = %1500
@@ -25594,7 +25594,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i.i59.i, label %1525, label %1512
 
 1512:                                             ; preds = %1510
-  %1513 = invoke noundef zeroext i1 %1511(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef 3)
+  %1513 = invoke noundef zeroext i1 %1511(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef 3)
           to label %1525 unwind label %1514
 
 1514:                                             ; preds = %1512
@@ -25612,7 +25612,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i6.i57.i, label %.body46.i, label %1520
 
 1520:                                             ; preds = %1517
-  %1521 = invoke noundef zeroext i1 %1519(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef 3)
+  %1521 = invoke noundef zeroext i1 %1519(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef 3)
           to label %.body46.i unwind label %1522
 
 1522:                                             ; preds = %1520
@@ -25635,7 +25635,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i.not.i63.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSE_.exit.i, label %1530
 
 1530:                                             ; preds = %1525
-  %1531 = invoke noundef zeroext i1 %1529(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i32 noundef 2)
+  %1531 = invoke noundef zeroext i1 %1529(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_146TestPresetOptionalExecutionNoTestsActionHelperE, i32 noundef 2)
           to label %1532 unwind label %1535
 
 1532:                                             ; preds = %1530
@@ -25653,7 +25653,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i64.i, label %.body46.i, label %1538
 
 1538:                                             ; preds = %1535
-  %1539 = invoke noundef zeroext i1 %1537(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %67, i32 noundef 3)
+  %1539 = invoke noundef zeroext i1 %1537(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 3)
           to label %.body46.i unwind label %1540
 
 1540:                                             ; preds = %1538
@@ -25701,7 +25701,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   %1558 = getelementptr inbounds i8, ptr %1546, i64 32
   %1559 = getelementptr inbounds i8, ptr %1546, i64 56
   %1560 = getelementptr inbounds i8, ptr %42, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1558, i8 0, i64 24, i1 false), !noalias !308
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1558, i8 0, i64 24, i1 false), !noalias !308
   %1561 = load ptr, ptr %1560, align 8, !noalias !308
   store ptr %1561, ptr %1559, align 8, !noalias !308
   %1562 = getelementptr inbounds i8, ptr %42, i64 48
@@ -25712,7 +25712,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
 1564:                                             ; preds = %.noexc.i.i128
   %1565 = getelementptr inbounds i8, ptr %42, i64 32
   %1566 = getelementptr inbounds i8, ptr %1546, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1558, ptr noundef nonnull align 8 dereferenceable(16) %1565, i64 16, i1 false), !noalias !308
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1558, ptr noundef nonnull align 8 dereferenceable(32) %1565, i64 16, i1 false), !noalias !308
   store ptr %1563, ptr %1566, align 8, !noalias !308
   br label %1569
 
@@ -25739,7 +25739,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
 
 1576:                                             ; preds = %1569
   %1577 = getelementptr inbounds i8, ptr %51, i64 32
-  %1578 = invoke noundef zeroext i1 %1575(ptr noundef nonnull align 8 dereferenceable(16) %1577, ptr noundef nonnull align 8 dereferenceable(16) %1577, i32 noundef 3)
+  %1578 = invoke noundef zeroext i1 %1575(ptr noundef nonnull align 8 dereferenceable(32) %1577, ptr noundef nonnull align 8 dereferenceable(32) %1577, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i130 unwind label %1579
 
 1579:                                             ; preds = %1576
@@ -25765,7 +25765,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 1587:                                             ; preds = %.lr.ph.i.i.i.i.i.i132
   %1588 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i133, i64 16
-  %1589 = invoke noundef zeroext i1 %1586(ptr noundef nonnull align 8 dereferenceable(16) %1588, ptr noundef nonnull align 8 dereferenceable(16) %1588, i32 noundef 3)
+  %1589 = invoke noundef zeroext i1 %1586(ptr noundef nonnull align 8 dereferenceable(32) %1588, ptr noundef nonnull align 8 dereferenceable(32) %1588, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i unwind label %1590
 
 1590:                                             ; preds = %1587
@@ -25799,7 +25799,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i71.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %1597
 
 1597:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEED2Ev.exit.i
-  %1598 = invoke noundef zeroext i1 %1596(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %67, i32 noundef 3)
+  %1598 = invoke noundef zeroext i1 %1596(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %1599
 
 1599:                                             ; preds = %1597
@@ -25815,7 +25815,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i73.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %1603
 
 1603:                                             ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %1604 = invoke noundef zeroext i1 %1602(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef 3)
+  %1604 = invoke noundef zeroext i1 %1602(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %62, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %1605
 
 1605:                                             ; preds = %1603
@@ -25831,7 +25831,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i75.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %1609
 
 1609:                                             ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %1610 = invoke noundef zeroext i1 %1608(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef 3)
+  %1610 = invoke noundef zeroext i1 %1608(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %1611
 
 1611:                                             ; preds = %1609
@@ -25847,7 +25847,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i.i77.i138, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i78.i, label %1615
 
 1615:                                             ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %1616 = invoke noundef zeroext i1 %1614(ptr noundef nonnull align 8 dereferenceable(16) %1324, ptr noundef nonnull align 8 dereferenceable(16) %1324, i32 noundef 3)
+  %1616 = invoke noundef zeroext i1 %1614(ptr noundef nonnull align 8 dereferenceable(32) %1324, ptr noundef nonnull align 8 dereferenceable(32) %1324, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i78.i unwind label %1617
 
 1617:                                             ; preds = %1615
@@ -25873,7 +25873,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 1625:                                             ; preds = %.lr.ph.i.i.i.i.i80.i
   %1626 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i81.i, i64 16
-  %1627 = invoke noundef zeroext i1 %1624(ptr noundef nonnull align 8 dereferenceable(16) %1626, ptr noundef nonnull align 8 dereferenceable(16) %1626, i32 noundef 3)
+  %1627 = invoke noundef zeroext i1 %1624(ptr noundef nonnull align 8 dereferenceable(32) %1626, ptr noundef nonnull align 8 dereferenceable(32) %1626, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberEEvPT_.exit.i.i.i.i.i83.i unwind label %1628
 
 1628:                                             ; preds = %1625
@@ -25907,7 +25907,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i90.i, label %__cxx_global_var_init.37.exit, label %1635
 
 1635:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEED2Ev.exit89.i
-  %1636 = invoke noundef zeroext i1 %1634(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %53, i32 noundef 3)
+  %1636 = invoke noundef zeroext i1 %1634(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %53, i32 noundef 3)
           to label %__cxx_global_var_init.37.exit unwind label %1637
 
 1637:                                             ; preds = %1635
@@ -25949,7 +25949,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i92.i, label %.body46.i, label %1650
 
 1650:                                             ; preds = %1648
-  %1651 = invoke noundef zeroext i1 %1649(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %67, i32 noundef 3)
+  %1651 = invoke noundef zeroext i1 %1649(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 3)
           to label %.body46.i unwind label %1652
 
 1652:                                             ; preds = %1650
@@ -25966,7 +25966,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i95.i, label %.body40.i, label %1656
 
 1656:                                             ; preds = %.body46.i
-  %1657 = invoke noundef zeroext i1 %1655(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef 3)
+  %1657 = invoke noundef zeroext i1 %1655(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %62, i32 noundef 3)
           to label %.body40.i unwind label %1658
 
 1658:                                             ; preds = %1656
@@ -25983,7 +25983,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i98.i, label %.body.i111, label %1662
 
 1662:                                             ; preds = %.body40.i
-  %1663 = invoke noundef zeroext i1 %1661(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef 3)
+  %1663 = invoke noundef zeroext i1 %1661(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 3)
           to label %.body.i111 unwind label %1664
 
 1664:                                             ; preds = %1662
@@ -26001,7 +26001,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOpt
   br i1 %.not.i.i101.i112, label %common.resume, label %1668
 
 1668:                                             ; preds = %.body.i111
-  %1669 = invoke noundef zeroext i1 %1667(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %53, i32 noundef 3)
+  %1669 = invoke noundef zeroext i1 %1667(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %53, i32 noundef 3)
           to label %common.resume unwind label %1670
 
 1670:                                             ; preds = %1668
@@ -26043,10 +26043,10 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @_ZN10JsonErrors14INVALID_OBJECTENS_11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr %37, align 8
   %1676 = getelementptr inbounds i8, ptr %36, i64 32
   %1677 = getelementptr inbounds i8, ptr %36, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %36, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %36, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %1677, align 8
   %1678 = getelementptr inbounds i8, ptr %36, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1676, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1676, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %1678, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1674, i8 0, i64 16, i1 false)
   %1679 = getelementptr inbounds i8, ptr %36, i64 64
@@ -26062,7 +26062,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.not.i.i139, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %1684
 
 1684:                                             ; preds = %__cxx_global_var_init.37.exit
-  %1685 = invoke noundef zeroext i1 %1683(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i32 noundef 2)
+  %1685 = invoke noundef zeroext i1 %1683(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_137TestPresetOptionalFilterIncludeHelperE, i32 noundef 2)
           to label %1686 unwind label %1689
 
 1686:                                             ; preds = %1684
@@ -26080,7 +26080,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i140, label %.body.i141, label %1692
 
 1692:                                             ; preds = %1689
-  %1693 = invoke noundef zeroext i1 %1691(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef 3)
+  %1693 = invoke noundef zeroext i1 %1691(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 3)
           to label %.body.i141 unwind label %1694
 
 1694:                                             ; preds = %1692
@@ -26106,7 +26106,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions
   br i1 %.not.i.i.not.i7.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %1703
 
 1703:                                             ; preds = %1698
-  %1704 = invoke noundef zeroext i1 %1702(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i32 noundef 2)
+  %1704 = invoke noundef zeroext i1 %1702(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_137TestPresetOptionalFilterExcludeHelperE, i32 noundef 2)
           to label %1705 unwind label %1708
 
 1705:                                             ; preds = %1703
@@ -26124,7 +26124,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions
   br i1 %.not.i.i8.i, label %.body10.i, label %1711
 
 1711:                                             ; preds = %1708
-  %1712 = invoke noundef zeroext i1 %1710(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 3)
+  %1712 = invoke noundef zeroext i1 %1710(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 3)
           to label %.body10.i unwind label %1713
 
 1713:                                             ; preds = %1711
@@ -26172,7 +26172,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
   %1731 = getelementptr inbounds i8, ptr %1719, i64 32
   %1732 = getelementptr inbounds i8, ptr %1719, i64 56
   %1733 = getelementptr inbounds i8, ptr %34, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1731, i8 0, i64 24, i1 false), !noalias !311
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1731, i8 0, i64 24, i1 false), !noalias !311
   %1734 = load ptr, ptr %1733, align 8, !noalias !311
   store ptr %1734, ptr %1732, align 8, !noalias !311
   %1735 = getelementptr inbounds i8, ptr %34, i64 48
@@ -26183,7 +26183,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
 1737:                                             ; preds = %.noexc.i.i148
   %1738 = getelementptr inbounds i8, ptr %34, i64 32
   %1739 = getelementptr inbounds i8, ptr %1719, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1731, ptr noundef nonnull align 8 dereferenceable(16) %1738, i64 16, i1 false), !noalias !311
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1731, ptr noundef nonnull align 8 dereferenceable(32) %1738, i64 16, i1 false), !noalias !311
   store ptr %1736, ptr %1739, align 8, !noalias !311
   br label %1742
 
@@ -26210,7 +26210,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
 
 1749:                                             ; preds = %1742
   %1750 = getelementptr inbounds i8, ptr %35, i64 32
-  %1751 = invoke noundef zeroext i1 %1748(ptr noundef nonnull align 8 dereferenceable(16) %1750, ptr noundef nonnull align 8 dereferenceable(16) %1750, i32 noundef 3)
+  %1751 = invoke noundef zeroext i1 %1748(ptr noundef nonnull align 8 dereferenceable(32) %1750, ptr noundef nonnull align 8 dereferenceable(32) %1750, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i151 unwind label %1752
 
 1752:                                             ; preds = %1749
@@ -26236,7 +26236,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 1760:                                             ; preds = %.lr.ph.i.i.i.i.i.i153
   %1761 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i154, i64 16
-  %1762 = invoke noundef zeroext i1 %1759(ptr noundef nonnull align 8 dereferenceable(16) %1761, ptr noundef nonnull align 8 dereferenceable(16) %1761, i32 noundef 3)
+  %1762 = invoke noundef zeroext i1 %1759(ptr noundef nonnull align 8 dereferenceable(32) %1761, ptr noundef nonnull align 8 dereferenceable(32) %1761, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEvPT_.exit.i.i.i.i.i.i unwind label %1763
 
 1763:                                             ; preds = %1760
@@ -26270,7 +26270,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOption
   br i1 %.not.i.i14.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %1770
 
 1770:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEED2Ev.exit.i
-  %1771 = invoke noundef zeroext i1 %1769(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 3)
+  %1771 = invoke noundef zeroext i1 %1769(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %1772
 
 1772:                                             ; preds = %1770
@@ -26286,7 +26286,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions
   br i1 %.not.i.i16.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %1776
 
 1776:                                             ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %1777 = invoke noundef zeroext i1 %1775(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef 3)
+  %1777 = invoke noundef zeroext i1 %1775(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %1778
 
 1778:                                             ; preds = %1776
@@ -26302,7 +26302,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptions
   br i1 %.not.i.i.i18.i, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i19.i, label %1782
 
 1782:                                             ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %1783 = invoke noundef zeroext i1 %1781(ptr noundef nonnull align 8 dereferenceable(16) %1676, ptr noundef nonnull align 8 dereferenceable(16) %1676, i32 noundef 3)
+  %1783 = invoke noundef zeroext i1 %1781(ptr noundef nonnull align 8 dereferenceable(32) %1676, ptr noundef nonnull align 8 dereferenceable(32) %1676, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i19.i unwind label %1784
 
 1784:                                             ; preds = %1782
@@ -26328,7 +26328,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 1792:                                             ; preds = %.lr.ph.i.i.i.i.i21.i
   %1793 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i22.i, i64 16
-  %1794 = invoke noundef zeroext i1 %1791(ptr noundef nonnull align 8 dereferenceable(16) %1793, ptr noundef nonnull align 8 dereferenceable(16) %1793, i32 noundef 3)
+  %1794 = invoke noundef zeroext i1 %1791(ptr noundef nonnull align 8 dereferenceable(32) %1793, ptr noundef nonnull align 8 dereferenceable(32) %1793, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberEEvPT_.exit.i.i.i.i.i24.i unwind label %1795
 
 1795:                                             ; preds = %1792
@@ -26362,7 +26362,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOption
   br i1 %.not.i.i31.i, label %__cxx_global_var_init.49.exit, label %1802
 
 1802:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEED2Ev.exit30.i
-  %1803 = invoke noundef zeroext i1 %1801(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef 3)
+  %1803 = invoke noundef zeroext i1 %1801(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3)
           to label %__cxx_global_var_init.49.exit unwind label %1804
 
 1804:                                             ; preds = %1802
@@ -26399,7 +26399,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOption
   br i1 %.not.i.i33.i146, label %.body10.i, label %1815
 
 1815:                                             ; preds = %1813
-  %1816 = invoke noundef zeroext i1 %1814(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 3)
+  %1816 = invoke noundef zeroext i1 %1814(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 3)
           to label %.body10.i unwind label %1817
 
 1817:                                             ; preds = %1815
@@ -26416,7 +26416,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOption
   br i1 %.not.i.i36.i, label %.body.i141, label %1821
 
 1821:                                             ; preds = %.body10.i
-  %1822 = invoke noundef zeroext i1 %1820(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef 3)
+  %1822 = invoke noundef zeroext i1 %1820(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 3)
           to label %.body.i141 unwind label %1823
 
 1823:                                             ; preds = %1821
@@ -26434,7 +26434,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOption
   br i1 %.not.i.i39.i143, label %common.resume, label %1827
 
 1827:                                             ; preds = %.body.i141
-  %1828 = invoke noundef zeroext i1 %1826(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef 3)
+  %1828 = invoke noundef zeroext i1 %1826(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3)
           to label %common.resume unwind label %1829
 
 1829:                                             ; preds = %1827
@@ -26481,10 +26481,10 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   store ptr @_ZN20cmCMakePresetsErrors21INVALID_PRESET_OBJECTEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE, ptr %13, align 8
   %1835 = getelementptr inbounds i8, ptr %12, i64 32
   %1836 = getelementptr inbounds i8, ptr %12, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %12, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %12, i8 0, i64 25, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E9_M_invokeERKSt9_Any_dataOSA_SL_, ptr %1836, align 8
   %1837 = getelementptr inbounds i8, ptr %12, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1835, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1835, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEPSM_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %1837, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1833, i8 0, i64 16, i1 false)
   %1838 = getelementptr inbounds i8, ptr %12, i64 64
@@ -26509,7 +26509,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i.i162, label %1858, label %1845
 
 1845:                                             ; preds = %1843
-  %1846 = invoke noundef zeroext i1 %1844(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %1846 = invoke noundef zeroext i1 %1844(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %1858 unwind label %1847
 
 1847:                                             ; preds = %1845
@@ -26527,7 +26527,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i.i160, label %.body.i161, label %1853
 
 1853:                                             ; preds = %1850
-  %1854 = invoke noundef zeroext i1 %1852(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %1854 = invoke noundef zeroext i1 %1852(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %.body.i161 unwind label %1855
 
 1855:                                             ; preds = %1853
@@ -26559,7 +26559,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i14.i, label %1878, label %1865
 
 1865:                                             ; preds = %1863
-  %1866 = invoke noundef zeroext i1 %1864(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %1866 = invoke noundef zeroext i1 %1864(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %1878 unwind label %1867
 
 1867:                                             ; preds = %1865
@@ -26577,7 +26577,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i12.i, label %.body.i161, label %1873
 
 1873:                                             ; preds = %1870
-  %1874 = invoke noundef zeroext i1 %1872(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %1874 = invoke noundef zeroext i1 %1872(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %.body.i161 unwind label %1875
 
 1875:                                             ; preds = %1873
@@ -26609,7 +26609,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i20.i165, label %1898, label %1885
 
 1885:                                             ; preds = %1883
-  %1886 = invoke noundef zeroext i1 %1884(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %1886 = invoke noundef zeroext i1 %1884(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %1898 unwind label %1887
 
 1887:                                             ; preds = %1885
@@ -26627,7 +26627,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i18.i164, label %.body.i161, label %1893
 
 1893:                                             ; preds = %1890
-  %1894 = invoke noundef zeroext i1 %1892(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %1894 = invoke noundef zeroext i1 %1892(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body.i161 unwind label %1895
 
 1895:                                             ; preds = %1893
@@ -26677,7 +26677,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i26.i168, label %1925, label %1912
 
 1912:                                             ; preds = %1910
-  %1913 = invoke noundef zeroext i1 %1911(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %1913 = invoke noundef zeroext i1 %1911(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %1925 unwind label %1914
 
 1914:                                             ; preds = %1912
@@ -26695,7 +26695,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i24.i, label %.body27.i, label %1920
 
 1920:                                             ; preds = %1917
-  %1921 = invoke noundef zeroext i1 %1919(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %1921 = invoke noundef zeroext i1 %1919(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body27.i unwind label %1922
 
 1922:                                             ; preds = %1920
@@ -26727,7 +26727,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i33.i, label %1945, label %1932
 
 1932:                                             ; preds = %1930
-  %1933 = invoke noundef zeroext i1 %1931(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %1933 = invoke noundef zeroext i1 %1931(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %1945 unwind label %1934
 
 1934:                                             ; preds = %1932
@@ -26745,7 +26745,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i31.i, label %.body27.i, label %1940
 
 1940:                                             ; preds = %1937
-  %1941 = invoke noundef zeroext i1 %1939(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %1941 = invoke noundef zeroext i1 %1939(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %.body27.i unwind label %1942
 
 1942:                                             ; preds = %1940
@@ -26777,7 +26777,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i40.i, label %1965, label %1952
 
 1952:                                             ; preds = %1950
-  %1953 = invoke noundef zeroext i1 %1951(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %1953 = invoke noundef zeroext i1 %1951(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %1965 unwind label %1954
 
 1954:                                             ; preds = %1952
@@ -26795,7 +26795,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i38.i, label %.body27.i, label %1960
 
 1960:                                             ; preds = %1957
-  %1961 = invoke noundef zeroext i1 %1959(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %1961 = invoke noundef zeroext i1 %1959(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %.body27.i unwind label %1962
 
 1962:                                             ; preds = %1960
@@ -26827,7 +26827,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i46.i, label %1985, label %1972
 
 1972:                                             ; preds = %1970
-  %1973 = invoke noundef zeroext i1 %1971(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %1973 = invoke noundef zeroext i1 %1971(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %1985 unwind label %1974
 
 1974:                                             ; preds = %1972
@@ -26845,7 +26845,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i44.i, label %.body27.i, label %1980
 
 1980:                                             ; preds = %1977
-  %1981 = invoke noundef zeroext i1 %1979(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %1981 = invoke noundef zeroext i1 %1979(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %.body27.i unwind label %1982
 
 1982:                                             ; preds = %1980
@@ -26877,7 +26877,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i52.i171, label %2005, label %1992
 
 1992:                                             ; preds = %1990
-  %1993 = invoke noundef zeroext i1 %1991(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %1993 = invoke noundef zeroext i1 %1991(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %2005 unwind label %1994
 
 1994:                                             ; preds = %1992
@@ -26895,7 +26895,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i50.i170, label %.body27.i, label %2000
 
 2000:                                             ; preds = %1997
-  %2001 = invoke noundef zeroext i1 %1999(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %2001 = invoke noundef zeroext i1 %1999(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body27.i unwind label %2002
 
 2002:                                             ; preds = %2000
@@ -26927,7 +26927,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i58.i174, label %2025, label %2012
 
 2012:                                             ; preds = %2010
-  %2013 = invoke noundef zeroext i1 %2011(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %2013 = invoke noundef zeroext i1 %2011(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %2025 unwind label %2014
 
 2014:                                             ; preds = %2012
@@ -26945,7 +26945,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i56.i173, label %.body27.i, label %2020
 
 2020:                                             ; preds = %2017
-  %2021 = invoke noundef zeroext i1 %2019(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %2021 = invoke noundef zeroext i1 %2019(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %.body27.i unwind label %2022
 
 2022:                                             ; preds = %2020
@@ -26977,7 +26977,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i65.i, label %2045, label %2032
 
 2032:                                             ; preds = %2030
-  %2033 = invoke noundef zeroext i1 %2031(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %2033 = invoke noundef zeroext i1 %2031(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %2045 unwind label %2034
 
 2034:                                             ; preds = %2032
@@ -26995,7 +26995,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i6.i63.i, label %.body27.i, label %2040
 
 2040:                                             ; preds = %2037
-  %2041 = invoke noundef zeroext i1 %2039(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %2041 = invoke noundef zeroext i1 %2039(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %.body27.i unwind label %2042
 
 2042:                                             ; preds = %2040
@@ -27018,7 +27018,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.not.i.i175, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %2050
 
 2050:                                             ; preds = %2045
-  %2051 = invoke noundef zeroext i1 %2049(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i32 noundef 2)
+  %2051 = invoke noundef zeroext i1 %2049(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_130TestPresetOptionalOutputHelperE, i32 noundef 2)
           to label %2052 unwind label %2055
 
 2052:                                             ; preds = %2050
@@ -27036,7 +27036,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZN19cmJSONHelperBu
   br i1 %.not.i.i.i176, label %.body27.i, label %2058
 
 2058:                                             ; preds = %2055
-  %2059 = invoke noundef zeroext i1 %2057(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %2059 = invoke noundef zeroext i1 %2057(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %.body27.i unwind label %2060
 
 2060:                                             ; preds = %2058
@@ -27062,7 +27062,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsE
   br i1 %.not.i.i.not.i70.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %2069
 
 2069:                                             ; preds = %2064
-  %2070 = invoke noundef zeroext i1 %2068(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i32 noundef 2)
+  %2070 = invoke noundef zeroext i1 %2068(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_122TestPresetFilterHelperE, i32 noundef 2)
           to label %2071 unwind label %2074
 
 2071:                                             ; preds = %2069
@@ -27080,7 +27080,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsE
   br i1 %.not.i.i71.i178, label %.body73.i, label %2077
 
 2077:                                             ; preds = %2074
-  %2078 = invoke noundef zeroext i1 %2076(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %2078 = invoke noundef zeroext i1 %2076(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %.body73.i unwind label %2079
 
 2079:                                             ; preds = %2077
@@ -27106,7 +27106,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsE
   br i1 %.not.i.i.not.i75.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i, label %2088
 
 2088:                                             ; preds = %2083
-  %2089 = invoke noundef zeroext i1 %2087(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i32 noundef 2)
+  %2089 = invoke noundef zeroext i1 %2087(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_125TestPresetExecutionHelperE, i32 noundef 2)
           to label %2090 unwind label %2093
 
 2090:                                             ; preds = %2088
@@ -27124,7 +27124,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsE
   br i1 %.not.i.i76.i, label %.body78.i, label %2096
 
 2096:                                             ; preds = %2093
-  %2097 = invoke noundef zeroext i1 %2095(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %2097 = invoke noundef zeroext i1 %2095(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 3)
           to label %.body78.i unwind label %2098
 
 2098:                                             ; preds = %2096
@@ -27159,7 +27159,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i.i83.i181, label %2122, label %2109
 
 2109:                                             ; preds = %2107
-  %2110 = invoke noundef zeroext i1 %2108(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %2110 = invoke noundef zeroext i1 %2108(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %2122 unwind label %2111
 
 2111:                                             ; preds = %2109
@@ -27177,7 +27177,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i6.i81.i, label %.body84.i, label %2117
 
 2117:                                             ; preds = %2114
-  %2118 = invoke noundef zeroext i1 %2116(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %2118 = invoke noundef zeroext i1 %2116(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %.body84.i unwind label %2119
 
 2119:                                             ; preds = %2117
@@ -27198,7 +27198,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i86.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %2125
 
 2125:                                             ; preds = %2123
-  %2126 = invoke noundef zeroext i1 %2124(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %2126 = invoke noundef zeroext i1 %2124(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %2127
 
 2127:                                             ; preds = %2125
@@ -27214,7 +27214,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   br i1 %.not.i.i88.i, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %2131
 
 2131:                                             ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %2132 = invoke noundef zeroext i1 %2130(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %2132 = invoke noundef zeroext i1 %2130(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %2133
 
 2133:                                             ; preds = %2131
@@ -27230,7 +27230,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsE
   br i1 %.not.i.i90.i182, label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %2137
 
 2137:                                             ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %2138 = invoke noundef zeroext i1 %2136(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %2138 = invoke noundef zeroext i1 %2136(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %2139
 
 2139:                                             ; preds = %2137
@@ -27247,7 +27247,7 @@ _ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsE
   br i1 %.not.i.i92.i183, label %_ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %2144
 
 2144:                                             ; preds = %_ZNSt8functionIFbRSt8optionalIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEEPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %2145 = invoke noundef zeroext i1 %2143(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 3)
+  %2145 = invoke noundef zeroext i1 %2143(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3)
           to label %_ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %2146
 
 2146:                                             ; preds = %2144
@@ -27263,7 +27263,7 @@ _ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i: ; preds = %2144,
   br i1 %.not.i.i94.i, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %2150
 
 2150:                                             ; preds = %_ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %2151 = invoke noundef zeroext i1 %2149(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %2151 = invoke noundef zeroext i1 %2149(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i unwind label %2152
 
 2152:                                             ; preds = %2150
@@ -27279,7 +27279,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i: ; preds = %2150, %_
   br i1 %.not.i.i.i96.i, label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i184, label %2156
 
 2156:                                             ; preds = %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i
-  %2157 = invoke noundef zeroext i1 %2155(ptr noundef nonnull align 8 dereferenceable(16) %1835, ptr noundef nonnull align 8 dereferenceable(16) %1835, i32 noundef 3)
+  %2157 = invoke noundef zeroext i1 %2155(ptr noundef nonnull align 8 dereferenceable(32) %1835, ptr noundef nonnull align 8 dereferenceable(32) %1835, i32 noundef 3)
           to label %_ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEED2Ev.exit.i.i184 unwind label %2158
 
 2158:                                             ; preds = %2156
@@ -27305,7 +27305,7 @@ _ZNSt8functionIFS_IFvPKN4Json5ValueEP11cmJSONStateEEN10JsonErrors11ObjectErrorER
 
 2166:                                             ; preds = %.lr.ph.i.i.i.i.i.i186
   %2167 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i187, i64 16
-  %2168 = invoke noundef zeroext i1 %2165(ptr noundef nonnull align 8 dereferenceable(16) %2167, ptr noundef nonnull align 8 dereferenceable(16) %2167, i32 noundef 3)
+  %2168 = invoke noundef zeroext i1 %2165(ptr noundef nonnull align 8 dereferenceable(32) %2167, ptr noundef nonnull align 8 dereferenceable(32) %2167, i32 noundef 3)
           to label %_ZSt8_DestroyIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberEEvPT_.exit.i.i.i.i.i.i unwind label %2169
 
 2169:                                             ; preds = %2166
@@ -27339,7 +27339,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEED2Ev.exit.i:
   br i1 %.not.i.i97.i, label %__cxx_global_var_init.52.exit, label %2176
 
 2176:                                             ; preds = %_ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEED2Ev.exit.i
-  %2177 = invoke noundef zeroext i1 %2175(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %2177 = invoke noundef zeroext i1 %2175(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %__cxx_global_var_init.52.exit unwind label %2178
 
 2178:                                             ; preds = %2176
@@ -27381,7 +27381,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEED2Ev.exit.i:
   br i1 %.not.i.i99.i180, label %.body78.i, label %2192
 
 2192:                                             ; preds = %.body84.i
-  %2193 = invoke noundef zeroext i1 %2191(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef 3)
+  %2193 = invoke noundef zeroext i1 %2191(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 3)
           to label %.body78.i unwind label %2194
 
 2194:                                             ; preds = %2192
@@ -27398,7 +27398,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEED2Ev.exit.i:
   br i1 %.not.i.i102.i, label %.body73.i, label %2198
 
 2198:                                             ; preds = %.body78.i
-  %2199 = invoke noundef zeroext i1 %2197(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3)
+  %2199 = invoke noundef zeroext i1 %2197(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3)
           to label %.body73.i unwind label %2200
 
 2200:                                             ; preds = %2198
@@ -27415,7 +27415,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEED2Ev.exit.i:
   br i1 %.not.i.i105.i, label %.body27.i, label %2204
 
 2204:                                             ; preds = %.body73.i
-  %2205 = invoke noundef zeroext i1 %2203(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+  %2205 = invoke noundef zeroext i1 %2203(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %.body27.i unwind label %2206
 
 2206:                                             ; preds = %2204
@@ -27433,7 +27433,7 @@ _ZN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEED2Ev.exit.i:
   br i1 %.not.i.i108.i, label %_ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit110.i, label %2211
 
 2211:                                             ; preds = %.body27.i
-  %2212 = invoke noundef zeroext i1 %2210(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 3)
+  %2212 = invoke noundef zeroext i1 %2210(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3)
           to label %_ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit110.i unwind label %2213
 
 2213:                                             ; preds = %2211
@@ -27450,7 +27450,7 @@ _ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit110.i: ; preds = %22
   br i1 %.not.i.i111.i, label %.body.i161, label %2217
 
 2217:                                             ; preds = %_ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit110.i
-  %2218 = invoke noundef zeroext i1 %2216(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %2218 = invoke noundef zeroext i1 %2216(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %.body.i161 unwind label %2219
 
 2219:                                             ; preds = %2217
@@ -27468,7 +27468,7 @@ _ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit110.i: ; preds = %22
   br i1 %.not.i.i114.i, label %common.resume, label %2223
 
 2223:                                             ; preds = %.body.i161
-  %2224 = invoke noundef zeroext i1 %2222(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %2224 = invoke noundef zeroext i1 %2222(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %common.resume unwind label %2225
 
 2225:                                             ; preds = %2223

@@ -98,7 +98,7 @@ if.then.i17:                                      ; preds = %strbuf_addch.exit
 
 if.end.i:                                         ; preds = %strbuf_addch.exit
   %conv = sext i32 %command_count to i64
-  %call.i15 = tail call ptr @ngettext(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef %conv) #10
+  %call.i15 = tail call ptr @ngettext(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef range(i64 -2147483648, 2147483648) %conv) #10
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %if.then.i17, %if.end.i

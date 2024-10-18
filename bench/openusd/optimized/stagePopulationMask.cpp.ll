@@ -111,7 +111,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdStagePopulationMaskC2EOSt
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %22, %2
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath21RemoveDescendentPathsEPSt6vectorIS0_SaIS0_EE(ptr noundef nonnull %0)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath21RemoveDescendentPathsEPSt6vectorIS0_SaIS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %24 unwind label %.loopexit.split-lp
 
 24:                                               ; preds = %.noexc4, %._crit_edge.i

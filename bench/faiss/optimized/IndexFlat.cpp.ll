@@ -116,7 +116,7 @@ define linkonce_odr void @_ZN5faiss9IndexFlatD2Ev(ptr noundef nonnull align 8 de
   br label %_ZN5faiss14IndexFlatCodesD2Ev.exit
 
 _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #20
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #20
   ret void
 }
 
@@ -133,7 +133,7 @@ define linkonce_odr void @_ZN5faiss9IndexFlatD0Ev(ptr noundef nonnull align 8 de
   br label %_ZN5faiss9IndexFlatD2Ev.exit
 
 _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #20
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -608,7 +608,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZN5faiss9IndexFlatD2Ev.exit
 
 _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %7
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #20
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #20
   ret void
 }
 
@@ -636,7 +636,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %4, %1
   br label %_ZN5faiss11IndexFlatL2D2Ev.exit
 
 _ZN5faiss11IndexFlatL2D2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %7
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #20
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -732,7 +732,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %7, %_ZNSt6vectorIlS
   br label %_ZN5faiss11IndexFlatL2D2Ev.exit
 
 _ZN5faiss11IndexFlatL2D2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %10
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #20
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #20
   ret void
 }
 
@@ -771,7 +771,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %7, %_ZNSt6vectorIlS
   br label %_ZN5faiss11IndexFlat1DD2Ev.exit
 
 _ZN5faiss11IndexFlat1DD2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %10
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #20
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -1109,7 +1109,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -1947,7 +1947,7 @@ declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss11IndexFlat1DC2Eb(ptr noundef nonnull align 8 dereferenceable(128) %0, i1 noundef zeroext %1) unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
-  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef 4, i64 noundef 1, i32 noundef 1)
+  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef 4, i64 noundef 1, i32 noundef 1)
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexFlat1DE, i64 16), ptr %0, align 8

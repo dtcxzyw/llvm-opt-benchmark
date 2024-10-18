@@ -3298,7 +3298,7 @@ define void @_ZN15TimeShiftDialogD0Ev(ptr noundef nonnull align 8 dereferenceabl
 define void @_ZThn16_N15TimeShiftDialogD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15TimeShiftDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %2) #16
   ret void
 }
 

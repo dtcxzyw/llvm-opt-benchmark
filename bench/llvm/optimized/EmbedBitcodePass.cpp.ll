@@ -83,7 +83,7 @@ define dso_local void @_ZN4llvm16EmbedBitcodePass3runERNS_6ModuleERNS_15Analysis
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %7, ptr %28, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #6
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #6
   %29 = load i8, ptr %1, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %43
@@ -179,9 +179,9 @@ _ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm17Preserved
   store i32 0, ptr %73, align 8, !alias.scope !4
   store i32 1, ptr %66, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %63, align 8, !alias.scope !4, !noalias !7
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #6
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #6
   ret void
 }
 

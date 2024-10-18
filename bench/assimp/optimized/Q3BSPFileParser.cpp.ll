@@ -32,7 +32,7 @@ define hidden void @_ZN6Assimp15Q3BSPFileParserC2ERKNSt7__cxx1112basic_stringIcS
 entry:
   %m_Data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_Data) #13
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_Data) #13
   %m_pModel = getelementptr inbounds i8, ptr %this, i64 32
   %m_pZipArchive = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_Data, i8 0, i64 32, i1 false)
@@ -55,8 +55,8 @@ if.end:                                           ; preds = %invoke.cont
 
 invoke.cont2:                                     ; preds = %if.end
   %m_EntityData.i = getelementptr inbounds i8, ptr %call3, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %call3, i8 0, i64 168, i1 false)
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_EntityData.i) #13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %call3, i8 0, i64 168, i1 false)
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_EntityData.i) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_EntityData.i, i8 0, i64 24, i1 false)
   %m_ModelName.i = getelementptr inbounds i8, ptr %call3, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_ModelName.i) #13
@@ -749,7 +749,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIPN6Ass
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN6Assimp5Q3BSP14sQ3BSPLightmapESaIS3_EE5clearEv.exit, %if.then.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_EntityData) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_EntityData) #13
   %45 = load ptr, ptr %m_Lightmaps, align 8
   %tobool.not.i.i.i51 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i51, label %_ZNSt6vectorIPN6Assimp5Q3BSP14sQ3BSPLightmapESaIS3_EED2Ev.exit, label %if.then.i.i.i52
@@ -832,7 +832,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #13
   ret void
 }
 
@@ -860,7 +860,7 @@ if.then.i.i.i:                                    ; preds = %delete.end
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %delete.end, %if.then.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_Data) #13
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_Data) #13
   ret void
 }
 

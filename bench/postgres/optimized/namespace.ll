@@ -7099,7 +7099,7 @@ define internal fastcc i32 @spcachekey_hash(ptr %0, i32 %1) unnamed_addr #13 {
   %.0.copyload.i23.in.i.i = phi i64 [ %15, %14 ], [ %30, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi ptr [ %0, %14 ], [ %29, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i64 [ %19, %14 ], [ %34, %.lr.ph.i.i ]
-  %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa.i.i, i1 true)
+  %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %.lcssa.i.i, i1 true)
   %36 = lshr i64 %35, 3
   switch i64 %36, label %default.unreachable [
     i64 0, label %fasthash_accum_cstring_aligned.exit.i

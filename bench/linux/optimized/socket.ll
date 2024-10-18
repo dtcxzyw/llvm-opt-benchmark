@@ -647,7 +647,7 @@ define internal fastcc i32 @__sock_sendmsg(ptr noundef %0, ptr noundef %1) unnam
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %46, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 @__SCT__tp_func_sock_send_length(ptr noundef %50, ptr noundef %38, i32 noundef %32, i32 noundef 0) #20
+  %51 = tail call i32 @__SCT__tp_func_sock_send_length(ptr noundef %50, ptr noundef %38, i32 noundef range(i32 -528, -529) %32, i32 noundef 0) #20
   br label %52
 
 52:                                               ; preds = %48, %45
@@ -8564,7 +8564,7 @@ define internal fastcc range(i32 -528, -529) i32 @sock_sendmsg_nosec(ptr noundef
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %43, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 @__SCT__tp_func_sock_send_length(ptr noundef %47, ptr noundef %35, i32 noundef %29, i32 noundef 0) #20
+  %48 = tail call i32 @__SCT__tp_func_sock_send_length(ptr noundef %47, ptr noundef %35, i32 noundef range(i32 -528, -529) %29, i32 noundef 0) #20
   br label %49
 
 49:                                               ; preds = %45, %42

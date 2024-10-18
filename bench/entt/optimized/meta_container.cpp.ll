@@ -112560,7 +112560,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br i1 %tobool.not.i.i.i, label %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.then.i.i
-  %call.i.i.i = invoke noundef ptr %15(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(33) %ref.tmp, ptr noundef null)
+  %call.i.i.i = invoke noundef ptr %15(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(168) %ref.tmp, ptr noundef null)
           to label %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %cond.true.i.i.i
@@ -112572,7 +112572,7 @@ terminate.lpad.i.i.i:                             ; preds = %cond.true.i.i.i
 
 _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i:   ; preds = %cond.true.i.i.i, %if.then.i.i
   %cond.i.i.i = phi ptr [ %call.i.i.i, %cond.true.i.i.i ], [ null, %if.then.i.i ]
-  %call5.i.i = invoke noundef ptr %10(i8 noundef zeroext 5, ptr noundef nonnull align 8 dereferenceable(33) %lhs, ptr noundef %cond.i.i.i)
+  %call5.i.i = invoke noundef ptr %10(i8 noundef zeroext 5, ptr noundef nonnull align 8 dereferenceable(168) %lhs, ptr noundef %cond.i.i.i)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i

@@ -383,7 +383,7 @@ entry:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(132) %1, i64 132, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %1, i64 132, i1 false)
   %args_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 168
   %args_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 136
   invoke void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %args_.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %args_3.i.i.i.i.i.i.i.i)

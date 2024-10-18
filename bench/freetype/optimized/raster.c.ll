@@ -859,7 +859,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 nounde
   %116 = sub nsw i64 %115, %111
   %spec.select.i.i = select i1 %.not.i.i, i64 %112, i64 %116
   %spec.select200.i.i = select i1 %.not.i.i, i64 %116, i64 %112
-  %117 = tail call fastcc signext i8 @Line_To(ptr noundef %0, i64 noundef %spec.select.i.i, i64 noundef %spec.select200.i.i)
+  %117 = tail call fastcc signext i8 @Line_To(ptr noundef nonnull %0, i64 noundef %spec.select.i.i, i64 noundef %spec.select200.i.i)
   %.not195.i.i = icmp eq i8 %117, 0
   br i1 %.not195.i.i, label %.backedge.i.i, label %.loopexit
 
@@ -917,7 +917,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 nounde
   %150 = sdiv i64 %149, 2
   %151 = add nsw i64 %147, %.sroa.9.1.us.i.i
   %152 = sdiv i64 %151, 2
-  %153 = tail call fastcc signext i8 @Conic_To(ptr noundef %0, i64 noundef %.sroa.095.1.us.i.i, i64 noundef %.sroa.9.1.us.i.i, i64 noundef %150, i64 noundef %152)
+  %153 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.sroa.095.1.us.i.i, i64 noundef %.sroa.9.1.us.i.i, i64 noundef %150, i64 noundef %152)
   %.not193.us.i.i = icmp eq i8 %153, 0
   br i1 %.not193.us.i.i, label %.split.us.i.i, label %.loopexit
 
@@ -957,7 +957,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 nounde
   %.us-phi233.i.i = phi i64 [ %147, %132 ], [ %166, %155 ]
   %.us-phi234.i.i = phi i64 [ %.sroa.095.1.us.i.i, %132 ], [ %.sroa.095.1.i.i, %155 ]
   %.us-phi235.i.i = phi i64 [ %.sroa.9.1.us.i.i, %132 ], [ %.sroa.9.1.i.i, %155 ]
-  %171 = tail call fastcc signext i8 @Conic_To(ptr noundef %0, i64 noundef %.us-phi234.i.i, i64 noundef %.us-phi235.i.i, i64 noundef %.us-phi232.i.i, i64 noundef %.us-phi233.i.i)
+  %171 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.us-phi234.i.i, i64 noundef %.us-phi235.i.i, i64 noundef %.us-phi232.i.i, i64 noundef %.us-phi233.i.i)
   %.not194.i.i = icmp eq i8 %171, 0
   br i1 %.not194.i.i, label %.backedge.i.i, label %.loopexit
 
@@ -966,14 +966,14 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 nounde
   %174 = sdiv i64 %173, 2
   %175 = add nsw i64 %166, %.sroa.9.1.i.i
   %176 = sdiv i64 %175, 2
-  %177 = tail call fastcc signext i8 @Conic_To(ptr noundef %0, i64 noundef %.sroa.095.1.i.i, i64 noundef %.sroa.9.1.i.i, i64 noundef %174, i64 noundef %176)
+  %177 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.sroa.095.1.i.i, i64 noundef %.sroa.9.1.i.i, i64 noundef %174, i64 noundef %176)
   %.not193.i.i = icmp eq i8 %177, 0
   br i1 %.not193.i.i, label %.split.i.i, label %.loopexit
 
 .split226.us.i.i:                                 ; preds = %.split.i.i, %.split.us.i.i
   %.us-phi.i.i = phi i64 [ %.sroa.095.1.us.i.i, %.split.us.i.i ], [ %.sroa.095.1.i.i, %.split.i.i ]
   %.us-phi227.i.i = phi i64 [ %.sroa.9.1.us.i.i, %.split.us.i.i ], [ %.sroa.9.1.i.i, %.split.i.i ]
-  %178 = tail call fastcc signext i8 @Conic_To(ptr noundef %0, i64 noundef %.us-phi.i.i, i64 noundef %.us-phi227.i.i, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
+  %178 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.us-phi.i.i, i64 noundef %.us-phi227.i.i, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
   %.not191.i.i = icmp eq i8 %178, 0
   br i1 %.not191.i.i, label %221, label %.loopexit
 
@@ -1033,17 +1033,17 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 nounde
   %216 = sub nsw i64 %215, %194
   %spec.select205.i.i = select i1 %.not.i.i, i64 %212, i64 %216
   %spec.select206.i.i = select i1 %.not.i.i, i64 %216, i64 %212
-  %217 = tail call fastcc signext i8 @Cubic_To(ptr noundef %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %spec.select205.i.i, i64 noundef %spec.select206.i.i)
+  %217 = tail call fastcc signext i8 @Cubic_To(ptr noundef nonnull %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %spec.select205.i.i, i64 noundef %spec.select206.i.i)
   %.not199.i.i = icmp eq i8 %217, 0
   br i1 %.not199.i.i, label %.backedge.i.i, label %.loopexit
 
 218:                                              ; preds = %208
-  %219 = tail call fastcc signext i8 @Cubic_To(ptr noundef %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
+  %219 = tail call fastcc signext i8 @Cubic_To(ptr noundef nonnull %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
   %.not198.i.i = icmp eq i8 %219, 0
   br i1 %.not198.i.i, label %221, label %.loopexit
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %99
-  %220 = tail call fastcc signext i8 @Line_To(ptr noundef %0, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
+  %220 = tail call fastcc signext i8 @Line_To(ptr noundef nonnull %0, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
   %.not190.i.i = icmp eq i8 %220, 0
   br i1 %.not190.i.i, label %221, label %.loopexit
 
@@ -1093,7 +1093,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 nounde
   br label %246
 
 246:                                              ; preds = %243, %234, %232, %230, %223
-  %247 = tail call fastcc signext i8 @End_Profile(ptr noundef %0)
+  %247 = tail call fastcc signext i8 @End_Profile(ptr noundef nonnull %0)
   %.not44.i = icmp eq i8 %247, 0
   br i1 %.not44.i, label %248, label %.loopexit
 
@@ -2071,7 +2071,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_To(ptr nocapture noundef 
   %29 = sub nsw i64 0, %2
   %30 = sub nsw i64 0, %24
   %31 = sub nsw i64 0, %22
-  %32 = tail call fastcc signext range(i8 0, 2) i8 @Line_Up(ptr noundef %0, i64 noundef %19, i64 noundef %28, i64 noundef %1, i64 noundef %29, i64 noundef %30, i64 noundef %31)
+  %32 = tail call fastcc signext range(i8 0, 2) i8 @Line_Up(ptr noundef nonnull %0, i64 noundef %19, i64 noundef %28, i64 noundef %1, i64 noundef %29, i64 noundef %30, i64 noundef %31)
   %.not36 = icmp eq i8 %32, 0
   br i1 %.not36, label %33, label %35
 
@@ -2738,7 +2738,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr nocapture noundef
   store i64 %106, ptr %26, align 8
   %107 = sub nsw i64 0, %95
   %108 = sub nsw i64 0, %94
-  %109 = call fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef %0, i32 noundef 3, ptr noundef %.0, ptr noundef nonnull readonly @Split_Cubic, i64 noundef %107, i64 noundef %108)
+  %109 = call fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %.0, ptr noundef nonnull @Split_Cubic, i64 noundef %107, i64 noundef %108)
   %110 = load i64, ptr %32, align 8
   %111 = sub nsw i64 0, %110
   store i64 %111, ptr %32, align 8

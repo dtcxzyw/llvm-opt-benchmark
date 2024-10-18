@@ -435,7 +435,7 @@ nc_socket.exit.thread:                            ; preds = %11, %19, %29
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = tail call i32 @connect(i32 noundef %9, ptr %38, i32 noundef %40) #13
+  %41 = tail call i32 @connect(i32 noundef range(i32 0, -1) %9, ptr %38, i32 noundef %40) #13
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %84, label %42
 
@@ -503,7 +503,7 @@ nc_socket.exit.thread:                            ; preds = %11, %19, %29
   br label %nc_connect.exit
 
 ._crit_edge:                                      ; preds = %69, %48
-  %77 = call i32 @getsockopt(i32 noundef %9, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
+  %77 = call i32 @getsockopt(i32 noundef range(i32 0, -1) %9, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
   %78 = icmp ne i32 %77, 0
   %79 = load i32, ptr %5, align 4
   %80 = icmp ne i32 %79, 0
@@ -515,7 +515,7 @@ nc_socket.exit.thread:                            ; preds = %11, %19, %29
   br label %nc_connect.exit
 
 nc_connect.exit:                                  ; preds = %45, %75, %81
-  %83 = call i32 @close(i32 noundef %9) #13
+  %83 = call i32 @close(i32 noundef range(i32 0, -1) %9) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)

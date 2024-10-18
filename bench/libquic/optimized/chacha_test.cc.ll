@@ -21,12 +21,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %len.015 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %len.015) #8
-  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %call.i, ptr noundef nonnull @_ZL6kInput, i64 noundef %len.015, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
+  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef range(i64 0, 1025) %len.015) #8
+  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %call.i, ptr noundef nonnull @_ZL6kInput, i64 noundef range(i64 0, 1025) %len.015, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
           to label %invoke.cont.i unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.i
 
 invoke.cont.i:                                    ; preds = %for.body
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %call.i, ptr nonnull @_ZL7kOutput, i64 %len.015)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %call.i, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %len.015)
   %cmp.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.not.i, label %for.body.i, label %if.then.i
 
@@ -70,12 +70,12 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %for.body.i
   tail call void @_ZdaPv(ptr noundef nonnull %buf.sroa.0.229.i) #10
   %add.ptr.i = getelementptr inbounds i8, ptr %call8.i, i64 %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 @_ZL6kInput, i64 %len.015, i1 false)
-  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %call8.i, ptr noundef nonnull %add.ptr.i, i64 noundef %len.015, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 @_ZL6kInput, i64 range(i64 0, 1025) %len.015, i1 false)
+  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %call8.i, ptr noundef nonnull %add.ptr.i, i64 noundef range(i64 0, 1025) %len.015, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
           to label %invoke.cont13.i unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.i
 
 invoke.cont13.i:                                  ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i
-  %bcmp14.i = tail call i32 @bcmp(ptr nonnull %call8.i, ptr nonnull @_ZL7kOutput, i64 %len.015)
+  %bcmp14.i = tail call i32 @bcmp(ptr nonnull %call8.i, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %len.015)
   %cmp16.not.i = icmp eq i32 %bcmp14.i, 0
   br i1 %cmp16.not.i, label %for.cond.i, label %if.then17.i
 

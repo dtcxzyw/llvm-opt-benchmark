@@ -2106,7 +2106,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.then36, %if.then
   br label %finish.sink.split
 
 if.else:                                          ; preds = %if.end25
-  %call.i45 = call ptr @OPENSSL_sk_delete(ptr noundef nonnull %call.i40, i32 noundef %curr.064) #11
+  %call.i45 = call ptr @OPENSSL_sk_delete(ptr noundef nonnull %call.i40, i32 noundef range(i32 0, 2147483647) %curr.064) #11
   %dec = add nsw i32 %max.062, -1
   br label %if.end43
 

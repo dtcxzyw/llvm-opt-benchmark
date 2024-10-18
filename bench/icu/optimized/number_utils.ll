@@ -600,7 +600,7 @@ entry:
   %agg.tmp2 = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp6 = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp10 = alloca %"class.icu_75::StringPiece", align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %key)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %key)
   %len.i = getelementptr inbounds i8, ptr %key, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %key, align 8
@@ -656,7 +656,7 @@ invoke.cont12:                                    ; preds = %invoke.cont11
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont7, %invoke.cont3, %invoke.cont, %if.end, %invoke.cont8, %invoke.cont4, %invoke.cont1, %entry
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %key) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %key) #11
   resume { ptr, i32 } %14
 
 if.end:                                           ; preds = %invoke.cont12
@@ -666,7 +666,7 @@ if.end:                                           ; preds = %invoke.cont12
 
 cleanup:                                          ; preds = %if.end, %invoke.cont12
   %retval.0 = phi ptr [ @.str.5, %invoke.cont12 ], [ %call18, %if.end ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %key) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %key) #11
   ret ptr %retval.0
 }
 
@@ -826,7 +826,7 @@ do.end30:                                         ; preds = %do.body, %if.then8
 define void @_ZN6icu_756number4impl6DecNum5setToENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr %str.coerce0, i32 %str.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cstr = alloca %"class.icu_75::CharString", align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cstr)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %cstr)
   %len.i = getelementptr inbounds i8, ptr %cstr, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %cstr, align 8
@@ -836,7 +836,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %3, %lpad ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cstr) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %cstr) #11
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -917,7 +917,7 @@ if.end18.sink.split.i:                            ; preds = %if.else12.i, %call7
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18.sink.split.i, %if.else12.i, %_ZN6icu_7510CharStringC2ENS_11StringPieceER10UErrorCode.exit
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cstr) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %cstr) #11
   ret void
 }
 

@@ -905,7 +905,7 @@ define internal fastcc i32 @ccm_auth_decrypt(ptr noundef %0, i32 noundef range(i
   %12 = alloca i64, align 8
   %13 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %14 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr noundef readonly %3, i64 noundef %4)
+  %14 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef range(i32 0, 4) %1, ptr noundef readonly %3, i64 noundef %4)
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %ccm_auth_crypt.exit.thread
 
@@ -1084,7 +1084,7 @@ mbedtls_ccm_encrypt_and_tag.exit:                 ; preds = %37
 
 44:                                               ; preds = %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %45 = call fastcc i32 @ccm_auth_decrypt(ptr noundef nonnull %3, i32 noundef 0, i64 noundef %24, ptr noundef nonnull readonly @iv_test_data, i64 noundef %26, ptr noundef nonnull readonly @ad_test_data, i64 noundef %28, ptr noundef nonnull readonly %5, ptr noundef nonnull %4, ptr noundef nonnull readonly %29, i64 noundef %31)
+  %45 = call fastcc i32 @ccm_auth_decrypt(ptr noundef nonnull %3, i32 noundef 0, i64 noundef %24, ptr noundef nonnull @iv_test_data, i64 noundef %26, ptr noundef nonnull @ad_test_data, i64 noundef %28, ptr noundef nonnull readonly %5, ptr noundef nonnull %4, ptr noundef nonnull readonly %29, i64 noundef %31)
   %.not32 = icmp eq i32 %45, 0
   br i1 %.not32, label %46, label %47
 

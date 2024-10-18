@@ -150,7 +150,7 @@ _ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_del
 
 53:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread50
   %54 = getelementptr inbounds nuw i8, ptr %29, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %29, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, i8 0, i64 44, i1 false)
   store i32 65535, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
@@ -244,7 +244,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i: ;
   call void @_ZN4llvm3sys2fs8TempFileC1EOS2_(ptr noundef nonnull align 8 dereferenceable(44) %20, ptr noundef nonnull align 8 dereferenceable(44) %18) #15, !noalias !7
   %91 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %92 = load i32, ptr %91, align 8, !noalias !7
-  %93 = call { i32, ptr } @_ZN4llvm3sys2fs11resize_fileEim(i32 noundef %92, i64 noundef %3) #15, !noalias !7
+  %93 = call { i32, ptr } @_ZN4llvm3sys2fs11resize_fileEim(i32 noundef %92, i64 noundef range(i64 1, 0) %3) #15, !noalias !7
   %94 = extractvalue { i32, ptr } %93, 0
   %95 = extractvalue { i32, ptr } %93, 1
   %.not.i34 = icmp eq i32 %94, 0
@@ -306,7 +306,7 @@ _ZN4llvm5ErrorD2Ev.exit10.i:                      ; preds = %107, %_ZN4llvm12con
   %117 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #16
   store ptr %117, ptr %116, align 8, !noalias !7
   %118 = load i32, ptr %91, align 8, !noalias !7
-  call void @_ZN4llvm3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_code(ptr noundef nonnull align 8 dereferenceable(20) %24, i32 noundef %118, i32 noundef 1, i64 noundef %3, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %23) #15, !noalias !7
+  call void @_ZN4llvm3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_code(ptr noundef nonnull align 8 dereferenceable(20) %24, i32 noundef %118, i32 noundef 1, i64 noundef range(i64 1, 0) %3, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %23) #15, !noalias !7
   %119 = load i32, ptr %23, align 8, !noalias !7
   %.not23.i = icmp eq i32 %119, 0
   br i1 %.not23.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_112OnDiskBufferESt14default_deleteIS1_EED2Ev.exit.i, label %120
@@ -350,7 +350,7 @@ _ZN4llvm12consumeErrorENS_5ErrorE.exit12.i:       ; preds = %125, %120
   br label %_ZN4llvm5ErrorD2Ev.exit13.i
 
 _ZN4llvm5ErrorD2Ev.exit13.i:                      ; preds = %131, %_ZN4llvm12consumeErrorENS_5ErrorE.exit12.i
-  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias writable align 8 %26, ptr %1, i64 %2, i64 noundef %3, i32 noundef %spec.select), !noalias !7
+  call fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias writable align 8 %26, ptr %1, i64 %2, i64 noundef range(i64 1, 0) %3, i32 noundef %spec.select), !noalias !7
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %136 = load i8, ptr %135, align 8, !noalias !7
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -443,7 +443,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112OnDiskBufferESt14default_deleteIS1_EED2Ev.exi
   br i1 %172, label %174, label %173
 
 173:                                              ; preds = %170
-  call void @_ZN4llvm3sys2fs8TempFileD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %18) #15, !noalias !7
+  call void @_ZN4llvm3sys2fs8TempFileD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %18) #15, !noalias !7
   br label %_ZL18createOnDiskBufferN4llvm9StringRefEmj.exit
 
 174:                                              ; preds = %170
@@ -721,7 +721,7 @@ define internal void @_ZN12_GLOBAL__N_114InMemoryBufferD2Ev(ptr noundef nonnull 
   br i1 %.not.i, label %_ZN4llvm3sys17OwningMemoryBlockD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call { i32, ptr } @_ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE(ptr noundef nonnull align 8 dereferenceable(20) %2) #15
+  %5 = tail call { i32, ptr } @_ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE(ptr noundef nonnull align 8 dereferenceable(24) %2) #15
   br label %_ZN4llvm3sys17OwningMemoryBlockD2Ev.exit
 
 _ZN4llvm3sys17OwningMemoryBlockD2Ev.exit:         ; preds = %1, %4
@@ -740,7 +740,7 @@ define internal void @_ZN12_GLOBAL__N_114InMemoryBufferD0Ev(ptr noundef nonnull 
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_114InMemoryBufferD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call { i32, ptr } @_ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE(ptr noundef nonnull align 8 dereferenceable(20) %2) #15
+  %5 = tail call { i32, ptr } @_ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE(ptr noundef nonnull align 8 dereferenceable(24) %2) #15
   br label %_ZN12_GLOBAL__N_114InMemoryBufferD2Ev.exit
 
 _ZN12_GLOBAL__N_114InMemoryBufferD2Ev.exit:       ; preds = %1, %4

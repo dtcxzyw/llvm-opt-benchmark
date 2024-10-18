@@ -1157,7 +1157,7 @@ dissect_lbtrm_nak.exit:                           ; preds = %241, %dissect_lbtrm
   br i1 %.not.i.i373, label %309, label %306
 
 306:                                              ; preds = %.lr.ph.i.i371
-  %307 = tail call ptr @val_to_str(i32 noundef %284, ptr noundef nonnull @lbtrm_ncf_reason, ptr noundef nonnull @.str.205) #6
+  %307 = tail call ptr @val_to_str(i32 noundef range(i32 0, 16) %284, ptr noundef nonnull @lbtrm_ncf_reason, ptr noundef nonnull @.str.205) #6
   %308 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %304, ptr noundef nonnull @ei_lbtrm_analysis_ncf_ncf, ptr noundef nonnull @.str.221, i32 noundef %302, ptr noundef %307) #6
   br label %309
 
@@ -1239,7 +1239,7 @@ dissect_lbtrm_ncf.exit:                           ; preds = %._crit_edge.i, %dis
 
 337:                                              ; preds = %332
   %338 = load ptr, ptr %335, align 8
-  %339 = tail call ptr @lbm_transport_frame_add(ptr noundef %338, i8 noundef zeroext %17, i32 noundef %334, i32 noundef %.1454, i32 noundef %.0452) #6
+  %339 = tail call ptr @lbm_transport_frame_add(ptr noundef %338, i8 noundef zeroext range(i8 0, 16) %17, i32 noundef %334, i32 noundef %.1454, i32 noundef %.0452) #6
   %340 = getelementptr inbounds i8, ptr %.0309461, i64 80
   %341 = load ptr, ptr %340, align 8
   %.not111.i = icmp eq ptr %341, null

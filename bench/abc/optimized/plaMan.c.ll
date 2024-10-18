@@ -1790,7 +1790,7 @@ define i32 @Pla_ManDist1Num(ptr nocapture noundef readonly %0) local_unnamed_add
   %21 = lshr i64 %20, 1
   %22 = or i64 %21, %20
   %23 = and i64 %22, 6148914691236517205
-  %24 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %23)
+  %24 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 range(i64 0, 6148914691236517206) %23)
   %or.cond.not.i.us.us = icmp eq i64 %24, 1
   br i1 %or.cond.not.i.us.us, label %25, label %Pla_CubesAreDistance1.exit.loopexit.us.us
 
@@ -1894,7 +1894,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %29 = lshr i64 %28, 1
   %30 = or i64 %29, %28
   %31 = and i64 %30, 6148914691236517205
-  %32 = call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %31)
+  %32 = call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 range(i64 0, 6148914691236517206) %31)
   %or.cond.not.i.us.us.i = icmp eq i64 %32, 1
   br i1 %or.cond.not.i.us.us.i, label %33, label %Pla_CubesAreDistance1.exit.loopexit.us.us.i
 

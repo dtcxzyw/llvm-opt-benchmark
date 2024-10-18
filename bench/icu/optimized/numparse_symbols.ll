@@ -309,7 +309,7 @@ lpad2.i:                                          ; preds = %if.else.i, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #7
   resume { ptr, i32 } %0
 
@@ -378,7 +378,7 @@ lpad2.i:                                          ; preds = %if.else.i, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   resume { ptr, i32 } %0
 
 if.else.i:                                        ; preds = %invoke.cont5.i
@@ -443,7 +443,7 @@ lpad2.i:                                          ; preds = %if.else.i, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   resume { ptr, i32 } %0
 
 if.else.i:                                        ; preds = %invoke.cont5.i
@@ -518,7 +518,7 @@ lpad2.i:                                          ; preds = %if.else.i, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   resume { ptr, i32 } %0
 
 if.else.i:                                        ; preds = %invoke.cont5.i
@@ -577,7 +577,7 @@ lpad2.i:                                          ; preds = %if.else.i, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   resume { ptr, i32 } %0
 
 if.else.i:                                        ; preds = %invoke.cont5.i
@@ -637,7 +637,7 @@ lpad2.i:                                          ; preds = %if.else.i, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   resume { ptr, i32 } %0
 
 if.else.i:                                        ; preds = %invoke.cont5.i
@@ -700,7 +700,7 @@ lpad2.i:                                          ; preds = %if.else.i, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   resume { ptr, i32 } %0
 
 if.else.i:                                        ; preds = %invoke.cont5.i
@@ -763,7 +763,7 @@ lpad2.i:                                          ; preds = %if.else.i, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   resume { ptr, i32 } %0
 
 if.else.i:                                        ; preds = %invoke.cont5.i
@@ -839,7 +839,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
 }
 
@@ -849,7 +849,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
@@ -860,7 +860,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
 }
 
@@ -870,7 +870,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
@@ -881,7 +881,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
 }
 
@@ -891,7 +891,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
@@ -902,7 +902,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
 }
 
@@ -912,7 +912,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
@@ -923,7 +923,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
 }
 
@@ -933,7 +933,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
@@ -944,7 +944,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
 }
 
@@ -954,7 +954,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
@@ -965,7 +965,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
 }
 
@@ -975,7 +975,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
@@ -986,7 +986,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
 }
 
@@ -996,7 +996,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }

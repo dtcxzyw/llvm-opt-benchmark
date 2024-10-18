@@ -628,7 +628,7 @@ lua_rawseti.exit:                                 ; preds = %luaH_setnum.exit.i,
   store ptr %incdec.ptr.i28, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   %l_gt.i.i = getelementptr inbounds i8, ptr %retval.0.i6.i, i64 120
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %retval.0.i6.i, ptr noundef nonnull readonly @.str.1, i64 noundef 3)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %retval.0.i6.i, ptr noundef nonnull @.str.1, i64 noundef 3)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i31 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i31, align 8
@@ -1278,7 +1278,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 
 lua_pushlstring.exit:                             ; preds = %if.then, %luaC_step.exit.i
   %13 = phi ptr [ %L.val, %if.then ], [ %.pre, %luaC_step.exit.i ]
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.271, i64 noundef 6)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.271, i64 noundef 6)
   store ptr %call.i, ptr %13, align 8
   %tt.i = getelementptr inbounds i8, ptr %13, i64 8
   store i32 4, ptr %tt.i, align 8
@@ -13497,7 +13497,7 @@ entry:
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.94, i64 noundef 2)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.94, i64 noundef 2)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i15.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i15.i, align 8
@@ -13579,7 +13579,7 @@ luaC_step.exit.i.i:                               ; preds = %if.else27.i.i.i, %i
 
 lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i, %entry
   %17 = load ptr, ptr %top.i.i, align 8
-  %call.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.95, i64 noundef 7)
+  %call.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.95, i64 noundef 7)
   store ptr %call.i.i, ptr %17, align 8
   %tt.i19.i = getelementptr inbounds i8, ptr %17, i64 8
   store i32 4, ptr %tt.i19.i, align 8
@@ -13587,7 +13587,7 @@ lua_pushlstring.exit.i:                           ; preds = %luaC_step.exit.i.i,
   %incdec.ptr.i20.i = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %incdec.ptr.i20.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i21.i)
-  %call2.i24.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.96, i64 noundef 8)
+  %call2.i24.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.96, i64 noundef 8)
   store ptr %call2.i24.i, ptr %key.i21.i, align 8
   %tt.i25.i = getelementptr inbounds i8, ptr %key.i21.i, i64 8
   store i32 4, ptr %tt.i25.i, align 8
@@ -13786,7 +13786,7 @@ luaC_step.exit.i109.i:                            ; preds = %if.else27.i.i103.i,
 
 base_open.exit:                                   ; preds = %lua_createtable.exit.i, %luaC_step.exit.i109.i
   %54 = load ptr, ptr %top.i.i, align 8
-  %call.i112.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.99, i64 noundef 2)
+  %call.i112.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.99, i64 noundef 2)
   store ptr %call.i112.i, ptr %54, align 8
   %tt.i113.i = getelementptr inbounds i8, ptr %54, i64 8
   store i32 4, ptr %tt.i113.i, align 8
@@ -13795,7 +13795,7 @@ base_open.exit:                                   ; preds = %lua_createtable.exi
   store ptr %incdec.ptr.i114.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i122.i)
   %add.ptr8.i.i124.i = getelementptr inbounds i8, ptr %55, i64 -16
-  %call2.i126.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.49, i64 noundef 6)
+  %call2.i126.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.49, i64 noundef 6)
   store ptr %call2.i126.i, ptr %key.i122.i, align 8
   %tt.i127.i = getelementptr inbounds i8, ptr %key.i122.i, i64 8
   store i32 4, ptr %tt.i127.i, align 8
@@ -13808,7 +13808,7 @@ base_open.exit:                                   ; preds = %lua_createtable.exi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i122.i)
   tail call fastcc void @lua_pushcclosure(ptr noundef %L, ptr noundef nonnull @luaB_newproxy, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i131.i)
-  %call2.i134.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.100, i64 noundef 8)
+  %call2.i134.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.100, i64 noundef 8)
   store ptr %call2.i134.i, ptr %key.i131.i, align 8
   %tt.i135.i = getelementptr inbounds i8, ptr %key.i131.i, i64 8
   store i32 4, ptr %tt.i135.i, align 8
@@ -13841,7 +13841,7 @@ entry:
   %l_G.i.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G.i.i.i.i, align 8
   %l_registry.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 160
-  %call2.i.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i.i, ptr %key.i.i.i, align 8
   %tt.i.i.i = getelementptr inbounds i8, ptr %key.i.i.i, i64 8
   store i32 4, ptr %tt.i.i.i, align 8
@@ -13952,7 +13952,7 @@ lua_createtable.exit.i.i:                         ; preds = %luaC_step.exit.i.i.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i17.i.i)
   %20 = load ptr, ptr %l_G.i.i.i.i, align 8
   %l_registry.i.i19.i.i = getelementptr inbounds i8, ptr %20, i64 160
-  %call2.i21.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i21.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i21.i.i, ptr %key.i17.i.i, align 8
   %tt.i22.i.i = getelementptr inbounds i8, ptr %key.i17.i.i, i64 8
   store i32 4, ptr %tt.i22.i.i, align 8
@@ -13979,7 +13979,7 @@ luaL_newmetatable.exit.i:                         ; preds = %lua_createtable.exi
   store ptr %incdec.ptr.i.i, ptr %top.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   %add.ptr8.i.i5.i = getelementptr inbounds i8, ptr %26, i64 -16
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.46, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.46, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i6.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i6.i, align 8
@@ -14107,7 +14107,7 @@ lua_replace.exit:                                 ; preds = %if.then3.i, %land.l
   store ptr %add.ptr9.i, ptr %top.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   %add.ptr8.i.i = getelementptr i8, ptr %59, i64 -32
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.198, i64 noundef 5)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.198, i64 noundef 5)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i16 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i16, align 8
@@ -14359,7 +14359,7 @@ luaC_step.exit.i36.i:                             ; preds = %if.else27.i.i30.i, 
 
 createmetatable.exit:                             ; preds = %lua_createtable.exit.i, %luaC_step.exit.i36.i
   %24 = phi ptr [ %incdec.ptr.i.i, %lua_createtable.exit.i ], [ %.pre.i, %luaC_step.exit.i36.i ]
-  %call.i39.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.7, i64 noundef 0)
+  %call.i39.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.7, i64 noundef 0)
   store ptr %call.i39.i, ptr %24, align 8
   %tt.i40.i = getelementptr inbounds i8, ptr %24, i64 8
   store i32 4, ptr %tt.i40.i, align 8
@@ -14392,7 +14392,7 @@ createmetatable.exit:                             ; preds = %lua_createtable.exi
   store ptr %incdec.ptr.i57.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   %add.ptr8.i.i59.i = getelementptr inbounds i8, ptr %32, i64 -16
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.46, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.46, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i60.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i60.i, align 8
@@ -17931,7 +17931,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
   br label %lua_pushvfstring.exit
 
 lua_pushvfstring.exit:                            ; preds = %entry, %luaC_step.exit.i
-  %call.i = call fastcc ptr @luaO_pushvfstring(ptr noundef %L, ptr noundef %fmt, ptr noundef %argp)
+  %call.i = call fastcc ptr @luaO_pushvfstring(ptr noundef %L, ptr noundef %fmt, ptr noundef nonnull %argp)
   call void @llvm.va_end.p0(ptr nonnull %argp)
   %11 = load ptr, ptr %l_G.i, align 8
   %totalbytes.i6 = getelementptr inbounds i8, ptr %11, i64 120
@@ -18743,7 +18743,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 lua_pushlstring.exit:                             ; preds = %if.end5, %luaC_step.exit.i
   %top.i = getelementptr inbounds i8, ptr %L, i64 16
   %18 = load ptr, ptr %top.i, align 8
-  %call.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.7, i64 noundef 0)
+  %call.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.7, i64 noundef 0)
   store ptr %call.i, ptr %18, align 8
   %tt.i = getelementptr inbounds i8, ptr %18, i64 8
   store i32 4, ptr %tt.i, align 8
@@ -19741,7 +19741,7 @@ if.then.i.i:                                      ; preds = %luaX_setinput.exit.
 
 if.else.i.i:                                      ; preds = %luaX_setinput.exit.i
   %seminfo.i.i = getelementptr inbounds i8, ptr %lexstate.i, i64 24
-  %call.i.i = call fastcc i32 @llex(ptr noundef %lexstate.i, ptr noundef %seminfo.i.i)
+  %call.i.i = call fastcc i32 @llex(ptr noundef nonnull %lexstate.i, ptr noundef %seminfo.i.i)
   store i32 %call.i.i, ptr %t4.i.i, align 8
   br label %luaX_next.exit.i
 
@@ -20265,13 +20265,13 @@ if.then.i717:                                     ; preds = %sw.bb.i
   br label %luaX_next.exit722
 
 if.else.i719:                                     ; preds = %sw.bb.i
-  %call.i721 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i721 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i721, ptr %t, align 8
   br label %luaX_next.exit722
 
 luaX_next.exit722:                                ; preds = %if.then.i717, %if.else.i719
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i704)
-  %call.i.i705 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v.i704, i32 noundef 0)
+  %call.i.i705 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v.i704, i32 noundef 0)
   %6 = load i32, ptr %v.i704, align 8
   %cmp.i706 = icmp eq i32 %6, 1
   br i1 %cmp.i706, label %if.then.i710, label %cond.exit711
@@ -20309,7 +20309,7 @@ if.then.i3.i698:                                  ; preds = %check.exit.i693
   br label %checknext.exit703
 
 if.else.i.i700:                                   ; preds = %check.exit.i693
-  %call.i.i702 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i702 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i702, ptr %t, align 8
   br label %checknext.exit703
 
@@ -20326,7 +20326,7 @@ checknext.exit703:                                ; preds = %if.then.i3.i698, %i
   %16 = load ptr, ptr %bl3.i.i686, align 8
   store ptr %16, ptr %bl.i679, align 8
   store ptr %bl.i679, ptr %bl3.i.i686, align 8
-  call fastcc void @chunk(ptr noundef %ls)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
   call fastcc void @leaveblock(ptr noundef %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bl.i679)
   %jpc1.i.i359 = getelementptr inbounds i8, ptr %4, i64 56
@@ -20525,13 +20525,13 @@ if.then.i673:                                     ; preds = %luaK_patchtohere.ex
   br label %luaX_next.exit678
 
 if.else.i675:                                     ; preds = %luaK_patchtohere.exit.i400
-  %call.i677 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i677 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i677, ptr %t, align 8
   br label %luaX_next.exit678
 
 luaX_next.exit678:                                ; preds = %if.then.i673, %if.else.i675
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i662)
-  %call.i.i663 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v.i662, i32 noundef 0)
+  %call.i.i663 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v.i662, i32 noundef 0)
   %40 = load i32, ptr %v.i662, align 8
   %cmp.i664 = icmp eq i32 %40, 1
   br i1 %cmp.i664, label %if.then.i667, label %cond.exit
@@ -20569,7 +20569,7 @@ if.then.i3.i656:                                  ; preds = %check.exit.i651
   br label %checknext.exit661
 
 if.else.i.i658:                                   ; preds = %check.exit.i651
-  %call.i.i660 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i660 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i660, ptr %t, align 8
   br label %checknext.exit661
 
@@ -20586,7 +20586,7 @@ checknext.exit661:                                ; preds = %if.then.i3.i656, %i
   %50 = load ptr, ptr %bl3.i.i644, align 8
   store ptr %50, ptr %bl.i637, align 8
   store ptr %bl.i637, ptr %bl3.i.i644, align 8
-  call fastcc void @chunk(ptr noundef %ls)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
   call fastcc void @leaveblock(ptr noundef %48)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bl.i637)
   br label %while.cond.i, !llvm.loop !92
@@ -20772,7 +20772,7 @@ if.then.i.i354:                                   ; preds = %luaK_patchtohere.ex
   br label %luaX_next.exit.i355
 
 if.else.i151.i:                                   ; preds = %luaK_patchtohere.exit150.i
-  %call.i152.i = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i152.i = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i152.i, ptr %t, align 8
   br label %luaX_next.exit.i355
 
@@ -20789,7 +20789,7 @@ luaX_next.exit.i355:                              ; preds = %if.else.i151.i, %if
   %75 = load ptr, ptr %bl3.i636, align 8
   store ptr %75, ptr %bl.i.i344, align 8
   store ptr %bl.i.i344, ptr %bl3.i636, align 8
-  call fastcc void @chunk(ptr noundef %ls)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
   call fastcc void @leaveblock(ptr noundef %73)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bl.i.i344)
   br label %if.end.i357
@@ -20911,7 +20911,7 @@ fixjump.exit.i.i209.i:                            ; preds = %while.end.i.i205.i
   br label %ifstat.exit
 
 ifstat.exit:                                      ; preds = %if.end.i357, %if.then2.i.i218.i, %fixjump.exit.i.i209.i
-  call fastcc void @check_match(ptr noundef %ls, i32 noundef 262, i32 noundef 266, i32 noundef %3)
+  call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 262, i32 noundef 266, i32 noundef %3)
   br label %statement.exit
 
 sw.bb1.i:                                         ; preds = %while.body
@@ -20928,7 +20928,7 @@ if.then.i.i243:                                   ; preds = %sw.bb1.i
   br label %luaX_next.exit.i244
 
 if.else.i.i341:                                   ; preds = %sw.bb1.i
-  %call.i.i343 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i343 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i343, ptr %t, align 8
   br label %luaX_next.exit.i244
 
@@ -20938,7 +20938,7 @@ luaX_next.exit.i244:                              ; preds = %if.else.i.i341, %if
   %lasttarget.i.i246 = getelementptr inbounds i8, ptr %89, i64 52
   store i32 %91, ptr %lasttarget.i.i246, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i.i235)
-  %call.i630 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v.i.i235, i32 noundef 0)
+  %call.i630 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v.i.i235, i32 noundef 0)
   %92 = load i32, ptr %v.i.i235, align 8
   %cmp.i.i247 = icmp eq i32 %92, 1
   br i1 %cmp.i.i247, label %if.then.i11.i, label %cond.exit.i248
@@ -20986,7 +20986,7 @@ if.then.i3.i.i:                                   ; preds = %check.exit.i.i262
   br label %checknext.exit.i
 
 if.else.i.i.i338:                                 ; preds = %check.exit.i.i262
-  %call.i.i.i340 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i.i340 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i.i340, ptr %t, align 8
   br label %checknext.exit.i
 
@@ -21003,7 +21003,7 @@ checknext.exit.i:                                 ; preds = %if.else.i.i.i338, %
   %104 = load ptr, ptr %bl3.i, align 8
   store ptr %104, ptr %bl.i.i, align 8
   store ptr %bl.i.i, ptr %bl3.i, align 8
-  call fastcc void @chunk(ptr noundef %ls)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
   call fastcc void @leaveblock(ptr noundef %102)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bl.i.i)
   %jpc1.i.i267 = getelementptr inbounds i8, ptr %89, i64 56
@@ -21134,7 +21134,7 @@ if.else.i17.i:                                    ; preds = %luaK_jump.exit.i295
   br label %luaK_patchlist.exit.i297
 
 luaK_patchlist.exit.i297:                         ; preds = %if.else.i17.i, %fixjump.exit.i.i.i.i326, %if.then2.i.i.i.i335, %if.then.i18.i
-  call fastcc void @check_match(ptr noundef %ls, i32 noundef 262, i32 noundef 277, i32 noundef %3)
+  call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 262, i32 noundef 277, i32 noundef %3)
   call fastcc void @leaveblock(ptr noundef %89)
   %120 = load i32, ptr %pc.i.i245, align 8
   store i32 %120, ptr %lasttarget.i.i246, align 4
@@ -21210,7 +21210,7 @@ if.then.i229:                                     ; preds = %sw.bb2.i
   br label %luaX_next.exit234
 
 if.else.i231:                                     ; preds = %sw.bb2.i
-  %call.i233 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i233 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i233, ptr %t, align 8
   br label %luaX_next.exit234
 
@@ -21227,10 +21227,10 @@ luaX_next.exit234:                                ; preds = %if.then.i229, %if.e
   %130 = load ptr, ptr %bl3.i.i223, align 8
   store ptr %130, ptr %bl.i216, align 8
   store ptr %bl.i216, ptr %bl3.i.i223, align 8
-  call fastcc void @chunk(ptr noundef %ls)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
   call fastcc void @leaveblock(ptr noundef %128)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bl.i216)
-  call fastcc void @check_match(ptr noundef %ls, i32 noundef 262, i32 noundef 259, i32 noundef %3)
+  call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 262, i32 noundef 259, i32 noundef %3)
   br label %statement.exit
 
 sw.bb3.i:                                         ; preds = %while.body
@@ -21259,7 +21259,7 @@ if.then.i.i187:                                   ; preds = %sw.bb3.i
   br label %luaX_next.exit.i188
 
 if.else.i.i213:                                   ; preds = %sw.bb3.i
-  %call.i.i215 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i215 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i215, ptr %t, align 8
   br label %luaX_next.exit.i188
 
@@ -21290,7 +21290,7 @@ if.then.i4.i.i199:                                ; preds = %check.exit.i.i194
   br label %str_checkname.exit.i200
 
 if.else.i.i.i211:                                 ; preds = %check.exit.i.i194
-  %call.i.i.i212 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i.i212 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i.i212, ptr %t, align 8
   br label %str_checkname.exit.i200
 
@@ -21306,17 +21306,17 @@ sw.bb.i206:                                       ; preds = %str_checkname.exit.
   %143 = load ptr, ptr %fs1.i21, align 8
   %freereg.i.i207 = getelementptr inbounds i8, ptr %143, i64 60
   %144 = load i32, ptr %freereg.i.i207, align 4
-  %call.i12.i = call fastcc ptr @luaX_newstring(ptr noundef %ls, ptr noundef nonnull @.str.166, i64 noundef 11)
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %call.i12.i, i32 noundef 0)
-  %call2.i.i = call fastcc ptr @luaX_newstring(ptr noundef %ls, ptr noundef nonnull @.str.167, i64 noundef 11)
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %call2.i.i, i32 noundef 1)
-  %call3.i.i = call fastcc ptr @luaX_newstring(ptr noundef %ls, ptr noundef nonnull @.str.168, i64 noundef 10)
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %call3.i.i, i32 noundef 2)
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %139, i32 noundef 3)
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 61)
-  call fastcc void @exp1(ptr noundef %ls)
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 44)
-  call fastcc void @exp1(ptr noundef %ls)
+  %call.i12.i = call fastcc ptr @luaX_newstring(ptr noundef nonnull %ls, ptr noundef nonnull @.str.166, i64 noundef 11)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %call.i12.i, i32 noundef 0)
+  %call2.i.i = call fastcc ptr @luaX_newstring(ptr noundef nonnull %ls, ptr noundef nonnull @.str.167, i64 noundef 11)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %call2.i.i, i32 noundef 1)
+  %call3.i.i = call fastcc ptr @luaX_newstring(ptr noundef nonnull %ls, ptr noundef nonnull @.str.168, i64 noundef 10)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %call3.i.i, i32 noundef 2)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %139, i32 noundef 3)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 61)
+  call fastcc void @exp1(ptr noundef nonnull %ls)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 44)
+  call fastcc void @exp1(ptr noundef nonnull %ls)
   %145 = load i32, ptr %t, align 8
   %cmp.i616 = icmp eq i32 %145, 44
   br i1 %cmp.i616, label %if.then.i618, label %if.else.i14.i
@@ -21334,12 +21334,12 @@ if.then.i.i623:                                   ; preds = %if.then.i618
   br label %if.then.i13.i
 
 if.else.i.i624:                                   ; preds = %if.then.i618
-  %call.i.i626 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i626 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i626, ptr %t, align 8
   br label %if.then.i13.i
 
 if.then.i13.i:                                    ; preds = %if.then.i.i623, %if.else.i.i624
-  call fastcc void @exp1(ptr noundef %ls)
+  call fastcc void @exp1(ptr noundef nonnull %ls)
   br label %fornum.exit.i
 
 if.else.i14.i:                                    ; preds = %sw.bb.i206
@@ -21392,7 +21392,7 @@ luaK_reserveregs.exit:                            ; preds = %if.else.i14.i, %if.
   br label %fornum.exit.i
 
 fornum.exit.i:                                    ; preds = %luaK_reserveregs.exit, %if.then.i13.i
-  call fastcc void @forbody(ptr noundef %ls, i32 noundef %144, i32 noundef %3, i32 noundef 1, i32 noundef 1)
+  call fastcc void @forbody(ptr noundef nonnull %ls, i32 noundef %144, i32 noundef %3, i32 noundef 1, i32 noundef 1)
   br label %forstat.exit
 
 sw.bb2.i202:                                      ; preds = %str_checkname.exit.i200, %str_checkname.exit.i200
@@ -21400,13 +21400,13 @@ sw.bb2.i202:                                      ; preds = %str_checkname.exit.
   %156 = load ptr, ptr %fs1.i21, align 8
   %freereg.i16.i = getelementptr inbounds i8, ptr %156, i64 60
   %157 = load i32, ptr %freereg.i16.i, align 4
-  %call.i17.i = call fastcc ptr @luaX_newstring(ptr noundef %ls, ptr noundef nonnull @.str.169, i64 noundef 15)
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %call.i17.i, i32 noundef 0)
-  %call2.i18.i = call fastcc ptr @luaX_newstring(ptr noundef %ls, ptr noundef nonnull @.str.170, i64 noundef 11)
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %call2.i18.i, i32 noundef 1)
-  %call4.i19.i = call fastcc ptr @luaX_newstring(ptr noundef %ls, ptr noundef nonnull @.str.171, i64 noundef 13)
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %call4.i19.i, i32 noundef 2)
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %139, i32 noundef 3)
+  %call.i17.i = call fastcc ptr @luaX_newstring(ptr noundef nonnull %ls, ptr noundef nonnull @.str.169, i64 noundef 15)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %call.i17.i, i32 noundef 0)
+  %call2.i18.i = call fastcc ptr @luaX_newstring(ptr noundef nonnull %ls, ptr noundef nonnull @.str.170, i64 noundef 11)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %call2.i18.i, i32 noundef 1)
+  %call4.i19.i = call fastcc ptr @luaX_newstring(ptr noundef nonnull %ls, ptr noundef nonnull @.str.171, i64 noundef 13)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %call4.i19.i, i32 noundef 2)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %139, i32 noundef 3)
   %158 = load i32, ptr %t, align 8
   %cmp.i592874 = icmp eq i32 %158, 44
   br i1 %cmp.i592874, label %if.then.i594, label %forlist.exit.i
@@ -21426,7 +21426,7 @@ if.then.i.i599:                                   ; preds = %if.then.i594
   br label %while.body.i.i204
 
 if.else.i.i600:                                   ; preds = %if.then.i594
-  %call.i.i602 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i602 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i602, ptr %t, align 8
   br label %while.body.i.i204
 
@@ -21456,13 +21456,13 @@ if.then.i4.i:                                     ; preds = %check.exit.i583
   br label %str_checkname.exit
 
 if.else.i.i589:                                   ; preds = %check.exit.i583
-  %call.i.i590 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i590 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i590, ptr %t, align 8
   br label %str_checkname.exit
 
 str_checkname.exit:                               ; preds = %if.then.i4.i, %if.else.i.i589
   %inc9.i.i = add nuw nsw i32 %nvars.0.i.i875, 1
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %164, i32 noundef %nvars.0.i.i875)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %164, i32 noundef %nvars.0.i.i875)
   %167 = load i32, ptr %t, align 8
   %cmp.i592 = icmp eq i32 %167, 44
   br i1 %cmp.i592, label %if.then.i594, label %forlist.exit.i.loopexit, !llvm.loop !93
@@ -21497,14 +21497,14 @@ if.then.i3.i:                                     ; preds = %check.exit.i
   br label %checknext.exit
 
 if.else.i.i575:                                   ; preds = %check.exit.i
-  %call.i.i577 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i577 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i577, ptr %t, align 8
   %.pre969 = load i32, ptr %linenumber.i, align 4
   br label %checknext.exit
 
 checknext.exit:                                   ; preds = %if.then.i3.i, %if.else.i.i575
   %174 = phi i32 [ %172, %if.then.i3.i ], [ %.pre969, %if.else.i.i575 ]
-  %call.i.i519 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i.i, i32 noundef 0)
+  %call.i.i519 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i.i, i32 noundef 0)
   %175 = load i32, ptr %t, align 8
   %cmp.i.i522877 = icmp eq i32 %175, 44
   br i1 %cmp.i.i522877, label %if.then.i.i558, label %explist1.exit
@@ -21523,13 +21523,13 @@ if.then.i.i.i563:                                 ; preds = %if.then.i.i558
   br label %while.body.i526
 
 if.else.i.i.i564:                                 ; preds = %if.then.i.i558
-  %call.i.i.i566 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i.i566 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i.i566, ptr %t, align 8
   br label %while.body.i526
 
 while.body.i526:                                  ; preds = %if.then.i.i.i563, %if.else.i.i.i564
   %178 = load ptr, ptr %fs1.i21, align 8
-  call fastcc void @luaK_dischargevars(ptr noundef %178, ptr noundef %e.i.i)
+  call fastcc void @luaK_dischargevars(ptr noundef %178, ptr noundef nonnull %e.i.i)
   %179 = load i32, ptr %e.i.i, align 8
   %cmp.i.i.i528 = icmp eq i32 %179, 12
   br i1 %cmp.i.i.i528, label %if.then.i.i7.i, label %freeexp.exit.i.i529
@@ -21588,8 +21588,8 @@ luaK_exp2nextreg.exit.i541:                       ; preds = %if.end.i.i.i.i537, 
   %add.pre-phi.i.i.i542 = phi i32 [ %add.i.i.i.i531, %freeexp.exit.i.i529 ], [ %.pre3.i.i.i540, %if.end.i.i.i.i537 ]
   store i32 %add.pre-phi.i.i.i542, ptr %freereg.i.i7.i.i530, align 4
   %sub.i.i543 = add nsw i32 %add.pre-phi.i.i.i542, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %178, ptr noundef %e.i.i, i32 noundef %sub.i.i543)
-  %call.i8.i = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i.i, i32 noundef 0)
+  call fastcc void @exp2reg(ptr noundef nonnull %178, ptr noundef nonnull %e.i.i, i32 noundef %sub.i.i543)
+  %call.i8.i = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i.i, i32 noundef 0)
   %inc.i544 = add nuw nsw i32 %n.0.i878, 1
   %188 = load i32, ptr %t, align 8
   %cmp.i.i522 = icmp eq i32 %188, 44
@@ -21626,7 +21626,7 @@ if.end.i517:                                      ; preds = %if.then.i516
   br label %luaK_checkstack.exit
 
 luaK_checkstack.exit:                             ; preds = %explist1.exit, %if.end.i517
-  call fastcc void @forbody(ptr noundef %ls, i32 noundef %157, i32 noundef %174, i32 noundef %nvars.0.i.i.lcssa, i32 noundef 0)
+  call fastcc void @forbody(ptr noundef nonnull %ls, i32 noundef %157, i32 noundef %174, i32 noundef %nvars.0.i.i.lcssa, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i.i)
   br label %forstat.exit
 
@@ -21635,7 +21635,7 @@ sw.default.i209:                                  ; preds = %str_checkname.exit.
   unreachable
 
 forstat.exit:                                     ; preds = %fornum.exit.i, %luaK_checkstack.exit
-  call fastcc void @check_match(ptr noundef %ls, i32 noundef 262, i32 noundef 264, i32 noundef %3)
+  call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 262, i32 noundef 264, i32 noundef %3)
   call fastcc void @leaveblock(ptr noundef %131)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bl.i)
   br label %statement.exit
@@ -21675,15 +21675,15 @@ if.then.i.i153:                                   ; preds = %sw.bb4.i
   br label %luaX_next.exit.i154
 
 if.else.i.i172:                                   ; preds = %sw.bb4.i
-  %call.i.i174 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i174 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i174, ptr %t, align 8
   br label %luaX_next.exit.i154
 
 luaX_next.exit.i154:                              ; preds = %if.else.i.i172, %if.then.i.i153
-  call fastcc void @chunk(ptr noundef %ls)
-  call fastcc void @check_match(ptr noundef %ls, i32 noundef 276, i32 noundef 272, i32 noundef %3)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
+  call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 276, i32 noundef 272, i32 noundef %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i.i)
-  %call.i512 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v.i.i, i32 noundef 0)
+  %call.i512 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v.i.i, i32 noundef 0)
   %200 = load i32, ptr %v.i.i, align 8
   %cmp.i.i155 = icmp eq i32 %200, 1
   br i1 %cmp.i.i155, label %if.then.i23.i, label %cond.exit.i
@@ -21774,7 +21774,7 @@ if.else.i26.i:                                    ; preds = %if.then.i171
   br label %repeatstat.exit
 
 if.else.i159:                                     ; preds = %cond.exit.i
-  call fastcc void @breakstat(ptr noundef %ls)
+  call fastcc void @breakstat(ptr noundef nonnull %ls)
   %212 = load ptr, ptr %fs1.i21, align 8
   %pc.i.i.i = getelementptr inbounds i8, ptr %212, i64 48
   %213 = load i32, ptr %pc.i.i.i, align 8
@@ -21990,12 +21990,12 @@ if.then.i.i136:                                   ; preds = %sw.bb5.i
   br label %luaX_next.exit.i137
 
 if.else.i.i142:                                   ; preds = %sw.bb5.i
-  %call.i.i144 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i144 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i144, ptr %t, align 8
   br label %luaX_next.exit.i137
 
 luaX_next.exit.i137:                              ; preds = %if.else.i.i142, %if.then.i.i136
-  call fastcc void @singlevar(ptr noundef %ls, ptr noundef %v.i129)
+  call fastcc void @singlevar(ptr noundef nonnull %ls, ptr noundef nonnull %v.i129)
   br label %while.cond.i.i139
 
 while.cond.i.i139:                                ; preds = %while.body.i.i141, %luaX_next.exit.i137
@@ -22006,19 +22006,19 @@ while.cond.i.i139:                                ; preds = %while.body.i.i141, 
   ]
 
 while.body.i.i141:                                ; preds = %while.cond.i.i139
-  call fastcc void @field(ptr noundef %ls, ptr noundef %v.i129)
+  call fastcc void @field(ptr noundef nonnull %ls, ptr noundef nonnull %v.i129)
   br label %while.cond.i.i139, !llvm.loop !95
 
 if.then.i7.i:                                     ; preds = %while.cond.i.i139
-  call fastcc void @field(ptr noundef %ls, ptr noundef %v.i129)
+  call fastcc void @field(ptr noundef nonnull %ls, ptr noundef nonnull %v.i129)
   call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %new_fs.i)
-  call fastcc void @open_func(ptr noundef %ls, ptr noundef %new_fs.i)
+  call fastcc void @open_func(ptr noundef nonnull %ls, ptr noundef %new_fs.i)
   %238 = load ptr, ptr %new_fs.i, align 8
   %linedefined.i.c = getelementptr inbounds i8, ptr %238, i64 96
   store i32 %3, ptr %linedefined.i.c, align 8
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 40)
-  %call.i492 = call fastcc ptr @luaX_newstring(ptr noundef %ls, ptr noundef nonnull @.str.155, i64 noundef 4)
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %call.i492, i32 noundef 0)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 40)
+  %call.i492 = call fastcc ptr @luaX_newstring(ptr noundef nonnull %ls, ptr noundef nonnull @.str.155, i64 noundef 4)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %call.i492, i32 noundef 0)
   %ls.val.i493 = load ptr, ptr %fs1.i21, align 8
   %nactvar.i.i494 = getelementptr inbounds i8, ptr %ls.val.i493, i64 74
   %239 = load i8, ptr %nactvar.i.i494, align 2
@@ -22041,24 +22041,24 @@ if.then.i7.i:                                     ; preds = %while.cond.i.i139
 
 funcstat.exit:                                    ; preds = %while.cond.i.i139
   call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %new_fs.i)
-  call fastcc void @open_func(ptr noundef %ls, ptr noundef %new_fs.i)
+  call fastcc void @open_func(ptr noundef nonnull %ls, ptr noundef %new_fs.i)
   %243 = load ptr, ptr %new_fs.i, align 8
   %linedefined.i = getelementptr inbounds i8, ptr %243, i64 96
   store i32 %3, ptr %linedefined.i, align 8
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 40)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 40)
   br label %body.exit
 
 body.exit:                                        ; preds = %if.then.i7.i, %funcstat.exit
-  call fastcc void @parlist(ptr noundef %ls)
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 41)
-  call fastcc void @chunk(ptr noundef %ls)
+  call fastcc void @parlist(ptr noundef nonnull %ls)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 41)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
   %244 = load i32, ptr %linenumber.i, align 4
   %245 = load ptr, ptr %new_fs.i, align 8
   %lastlinedefined.i = getelementptr inbounds i8, ptr %245, i64 100
   store i32 %244, ptr %lastlinedefined.i, align 4
-  call fastcc void @check_match(ptr noundef %ls, i32 noundef 262, i32 noundef 265, i32 noundef %3)
-  call fastcc void @close_func(ptr noundef %ls)
-  call fastcc void @pushclosure(ptr noundef %ls, ptr noundef %new_fs.i, ptr noundef %b.i130)
+  call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 262, i32 noundef 265, i32 noundef %3)
+  call fastcc void @close_func(ptr noundef nonnull %ls)
+  call fastcc void @pushclosure(ptr noundef nonnull %ls, ptr noundef %new_fs.i, ptr noundef nonnull %b.i130)
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %new_fs.i)
   %246 = load ptr, ptr %fs1.i21, align 8
   call fastcc void @luaK_storevar(ptr noundef %246, ptr noundef %v.i129, ptr noundef %b.i130)
@@ -22089,7 +22089,7 @@ if.then.i124:                                     ; preds = %sw.bb6.i
   br label %luaX_next.exit128
 
 if.else.i126:                                     ; preds = %sw.bb6.i
-  %call.i = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i, ptr %t, align 8
   br label %luaX_next.exit128
 
@@ -22112,7 +22112,7 @@ if.then.i.i114:                                   ; preds = %if.then.i109
   br label %if.then.i8
 
 if.else.i.i115:                                   ; preds = %if.then.i109
-  %call.i.i117 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i117 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i117, ptr %t, align 8
   br label %if.then.i8
 
@@ -22145,12 +22145,12 @@ if.then.i4.i.i76:                                 ; preds = %check.exit.i.i70
   br label %str_checkname.exit.i77
 
 if.else.i.i.i104:                                 ; preds = %check.exit.i.i70
-  %call.i.i.i105 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i.i105 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i.i105, ptr %t, align 8
   br label %str_checkname.exit.i77
 
 str_checkname.exit.i77:                           ; preds = %if.else.i.i.i104, %if.then.i4.i.i76
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %260, i32 noundef 0)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %260, i32 noundef 0)
   %freereg.i = getelementptr inbounds i8, ptr %257, i64 60
   %263 = load i32, ptr %freereg.i, align 4
   store i32 -1, ptr %t.i.i78, align 8
@@ -22207,21 +22207,21 @@ luaK_reserveregs.exit.i:                          ; preds = %if.end.i.i.i, %str_
   store i32 %.pre.i13.i, ptr %startpc.i.i94, align 8
   %272 = load i32, ptr %linenumber.i, align 4
   call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %new_fs.i.i)
-  call fastcc void @open_func(ptr noundef %ls, ptr noundef %new_fs.i.i)
+  call fastcc void @open_func(ptr noundef nonnull %ls, ptr noundef %new_fs.i.i)
   %273 = load ptr, ptr %new_fs.i.i, align 8
   %linedefined.i.i = getelementptr inbounds i8, ptr %273, i64 96
   store i32 %272, ptr %linedefined.i.i, align 8
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 40)
-  call fastcc void @parlist(ptr noundef %ls)
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 41)
-  call fastcc void @chunk(ptr noundef %ls)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 40)
+  call fastcc void @parlist(ptr noundef nonnull %ls)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 41)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
   %274 = load i32, ptr %linenumber.i, align 4
   %275 = load ptr, ptr %new_fs.i.i, align 8
   %lastlinedefined.i.i = getelementptr inbounds i8, ptr %275, i64 100
   store i32 %274, ptr %lastlinedefined.i.i, align 4
-  call fastcc void @check_match(ptr noundef %ls, i32 noundef 262, i32 noundef 265, i32 noundef %272)
-  call fastcc void @close_func(ptr noundef %ls)
-  call fastcc void @pushclosure(ptr noundef %ls, ptr noundef %new_fs.i.i, ptr noundef %b.i)
+  call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 262, i32 noundef 265, i32 noundef %272)
+  call fastcc void @close_func(ptr noundef nonnull %ls)
+  call fastcc void @pushclosure(ptr noundef nonnull %ls, ptr noundef %new_fs.i.i, ptr noundef nonnull %b.i)
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %new_fs.i.i)
   call fastcc void @luaK_storevar(ptr noundef nonnull %257, ptr noundef %v.i63, ptr noundef %b.i)
   %pc.i = getelementptr inbounds i8, ptr %257, i64 48
@@ -22270,13 +22270,13 @@ if.then.i4.i.i:                                   ; preds = %check.exit.i.i
   br label %str_checkname.exit.i
 
 if.else.i.i.i:                                    ; preds = %check.exit.i.i
-  %call.i.i.i62 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i.i62 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i.i62, ptr %t, align 8
   br label %str_checkname.exit.i
 
 str_checkname.exit.i:                             ; preds = %if.else.i.i.i, %if.then.i4.i.i
   %inc.i44 = add nuw nsw i32 %nvars.0.i868, 1
-  call fastcc void @new_localvar(ptr noundef %ls, ptr noundef %283, i32 noundef %nvars.0.i868)
+  call fastcc void @new_localvar(ptr noundef nonnull %ls, ptr noundef %283, i32 noundef %nvars.0.i868)
   %286 = load i32, ptr %t, align 8
   switch i32 %286, label %if.else.i60 [
     i32 44, label %if.then.i.i61
@@ -22297,7 +22297,7 @@ if.then.i.i14.i:                                  ; preds = %if.then.i.i61
   br label %testnext.exit.i
 
 if.else.i.i15.i:                                  ; preds = %if.then.i.i61
-  %call.i.i16.i = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i16.i = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i16.i, ptr %t, align 8
   br label %testnext.exit.i
 
@@ -22319,12 +22319,12 @@ if.then.i.i25.i:                                  ; preds = %if.then.i20.i
   br label %if.then.i47
 
 if.else.i.i26.i:                                  ; preds = %if.then.i20.i
-  %call.i.i28.i = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i28.i = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i28.i, ptr %t, align 8
   br label %if.then.i47
 
 if.then.i47:                                      ; preds = %if.then.i.i25.i, %if.else.i.i26.i
-  %call.i489 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i40, i32 noundef 0)
+  %call.i489 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i40, i32 noundef 0)
   %292 = load i32, ptr %t, align 8
   %cmp.i477871 = icmp eq i32 %292, 44
   br i1 %cmp.i477871, label %if.then.i479, label %if.end.i56
@@ -22343,13 +22343,13 @@ if.then.i.i484:                                   ; preds = %if.then.i479
   br label %while.body.i.i52
 
 if.else.i.i485:                                   ; preds = %if.then.i479
-  %call.i.i487 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i487 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i487, ptr %t, align 8
   br label %while.body.i.i52
 
 while.body.i.i52:                                 ; preds = %if.then.i.i484, %if.else.i.i485
   %295 = load ptr, ptr %fs1.i21, align 8
-  call fastcc void @luaK_dischargevars(ptr noundef %295, ptr noundef %e.i40)
+  call fastcc void @luaK_dischargevars(ptr noundef %295, ptr noundef nonnull %e.i40)
   %296 = load i32, ptr %e.i40, align 8
   %cmp.i.i445 = icmp eq i32 %296, 12
   br i1 %cmp.i.i445, label %if.then.i.i464, label %freeexp.exit.i446
@@ -22408,8 +22408,8 @@ luaK_exp2nextreg.exit475:                         ; preds = %freeexp.exit.i446, 
   %add.pre-phi.i.i459 = phi i32 [ %add.i.i.i448, %freeexp.exit.i446 ], [ %.pre3.i.i457, %if.end.i.i.i454 ]
   store i32 %add.pre-phi.i.i459, ptr %freereg.i.i7.i447, align 4
   %sub.i460 = add nsw i32 %add.pre-phi.i.i459, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %295, ptr noundef %e.i40, i32 noundef %sub.i460)
-  %call.i444 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i40, i32 noundef 0)
+  call fastcc void @exp2reg(ptr noundef nonnull %295, ptr noundef nonnull %e.i40, i32 noundef %sub.i460)
+  %call.i444 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i40, i32 noundef 0)
   %inc.i.i54 = add nuw nsw i32 %n.0.i.i49872, 1
   %305 = load i32, ptr %t, align 8
   %cmp.i477 = icmp eq i32 %305, 44
@@ -22471,7 +22471,7 @@ if.then.i.i26:                                    ; preds = %sw.bb7.i
   br label %luaX_next.exit.i
 
 if.else.i.i37:                                    ; preds = %sw.bb7.i
-  %call.i.i39 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i39 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i39, ptr %t, align 8
   br label %luaX_next.exit.i
 
@@ -22487,7 +22487,7 @@ luaX_next.exit.i:                                 ; preds = %if.else.i.i37, %if.
   ]
 
 if.else.i30:                                      ; preds = %luaX_next.exit.i
-  %call.i443 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i, i32 noundef 0)
+  %call.i443 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i, i32 noundef 0)
   %315 = load i32, ptr %t, align 8
   %cmp.i431865 = icmp ne i32 %315, 44
   br i1 %cmp.i431865, label %explist1.exit.i.thread, label %if.then.i433
@@ -22506,13 +22506,13 @@ if.then.i.i438:                                   ; preds = %if.then.i433
   br label %while.body.i.i
 
 if.else.i.i439:                                   ; preds = %if.then.i433
-  %call.i.i441 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i441 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i441, ptr %t, align 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then.i.i438, %if.else.i.i439
   %318 = load ptr, ptr %fs1.i21, align 8
-  call fastcc void @luaK_dischargevars(ptr noundef %318, ptr noundef %e.i)
+  call fastcc void @luaK_dischargevars(ptr noundef %318, ptr noundef nonnull %e.i)
   %319 = load i32, ptr %e.i, align 8
   %cmp.i.i409 = icmp eq i32 %319, 12
   br i1 %cmp.i.i409, label %if.then.i.i423, label %freeexp.exit.i
@@ -22571,8 +22571,8 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %if
   %add.pre-phi.i.i418 = phi i32 [ %add.i.i.i410, %freeexp.exit.i ], [ %.pre3.i.i416, %if.end.i.i.i413 ]
   store i32 %add.pre-phi.i.i418, ptr %freereg.i.i7.i, align 4
   %sub.i419 = add nsw i32 %add.pre-phi.i.i418, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %318, ptr noundef %e.i, i32 noundef %sub.i419)
-  %call.i408 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i, i32 noundef 0)
+  call fastcc void @exp2reg(ptr noundef nonnull %318, ptr noundef nonnull %e.i, i32 noundef %sub.i419)
+  %call.i408 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i, i32 noundef 0)
   %inc.i.i = add nuw nsw i32 %n.0.i.i866, 1
   %328 = load i32, ptr %t, align 8
   %cmp.i431 = icmp eq i32 %328, 44
@@ -22687,7 +22687,7 @@ if.then23.i:                                      ; preds = %explist1.exit.i.thr
   br label %retstat.exit
 
 if.else25.i:                                      ; preds = %explist1.exit.i
-  call fastcc void @luaK_dischargevars(ptr noundef %312, ptr noundef %e.i)
+  call fastcc void @luaK_dischargevars(ptr noundef %312, ptr noundef nonnull %e.i)
   %354 = load i32, ptr %e.i, align 8
   %cmp.i.i.i = icmp eq i32 %354, 12
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %freeexp.exit.i.i
@@ -22746,7 +22746,7 @@ luaK_exp2nextreg.exit.i:                          ; preds = %if.end.i.i.i21.i, %
   %add.pre-phi.i.i26.i = phi i32 [ %add.i.i.i17.i, %freeexp.exit.i.i ], [ %.pre3.i.i24.i, %if.end.i.i.i21.i ]
   store i32 %add.pre-phi.i.i26.i, ptr %freereg.i.i7.i.i, align 4
   %sub.i.i = add nsw i32 %add.pre-phi.i.i26.i, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %312, ptr noundef %e.i, i32 noundef %sub.i.i)
+  call fastcc void @exp2reg(ptr noundef nonnull %312, ptr noundef nonnull %e.i, i32 noundef %sub.i.i)
   %nactvar26.i = getelementptr inbounds i8, ptr %312, i64 74
   %363 = load i8, ptr %nactvar26.i, align 2
   %conv27.i = zext i8 %363 to i32
@@ -22779,18 +22779,18 @@ if.then.i18:                                      ; preds = %sw.bb8.i
   br label %luaX_next.exit
 
 if.else.i19:                                      ; preds = %sw.bb8.i
-  %call.i20 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i20 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i20, ptr %t, align 8
   br label %luaX_next.exit
 
 luaX_next.exit:                                   ; preds = %if.then.i18, %if.else.i19
-  call fastcc void @breakstat(ptr noundef %ls)
+  call fastcc void @breakstat(ptr noundef nonnull %ls)
   br label %statement.exit
 
 sw.default.i9:                                    ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %v.i)
   %369 = load ptr, ptr %fs1.i21, align 8
-  call fastcc void @primaryexp(ptr noundef %ls, ptr noundef %v2.i)
+  call fastcc void @primaryexp(ptr noundef nonnull %ls, ptr noundef %v2.i)
   %370 = load i32, ptr %v2.i, align 8
   %cmp.i14 = icmp eq i32 %370, 13
   br i1 %cmp.i14, label %if.then.i16, label %if.else.i15
@@ -22810,7 +22810,7 @@ if.then.i16:                                      ; preds = %sw.default.i9
 
 if.else.i15:                                      ; preds = %sw.default.i9
   store ptr null, ptr %v.i, align 8
-  call fastcc void @assignment(ptr noundef %ls, ptr noundef %v.i, i32 noundef 1)
+  call fastcc void @assignment(ptr noundef nonnull %ls, ptr noundef %v.i, i32 noundef 1)
   br label %exprstat.exit
 
 exprstat.exit:                                    ; preds = %if.then.i16, %if.else.i15
@@ -22836,7 +22836,7 @@ if.then.i.i:                                      ; preds = %if.then.i13
   br label %testnext.exit
 
 if.else.i.i:                                      ; preds = %if.then.i13
-  %call.i.i = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i, ptr %t, align 8
   br label %testnext.exit
 
@@ -23347,7 +23347,7 @@ if.then.i192:                                     ; preds = %luaM_realloc_.exit1
   %add.ptr.i = getelementptr inbounds i8, ptr %96, i64 24
   %len.i = getelementptr inbounds i8, ptr %96, i64 16
   %97 = load i64, ptr %len.i, align 8
-  %call.i193 = tail call fastcc ptr @luaX_newstring(ptr noundef readonly %ls, ptr noundef nonnull %add.ptr.i, i64 noundef %97)
+  %call.i193 = tail call fastcc ptr @luaX_newstring(ptr noundef nonnull readonly %ls, ptr noundef nonnull %add.ptr.i, i64 noundef %97)
   br label %anchor_token.exit
 
 anchor_token.exit:                                ; preds = %luaM_realloc_.exit191, %if.then.i192
@@ -24140,7 +24140,7 @@ sw.bb33.i:                                        ; preds = %cond.end23.i
 
 sw.bb34.i:                                        ; preds = %cond.end23.i, %cond.end23.i
   call fastcc void @save(ptr noundef nonnull %ls, i32 noundef 10)
-  call fastcc void @inclinenumber(ptr noundef %ls)
+  call fastcc void @inclinenumber(ptr noundef nonnull %ls)
   br label %while.condthread-pre-split.i, !llvm.loop !101
 
 sw.default.i:                                     ; preds = %cond.end23.i
@@ -24461,7 +24461,7 @@ read_string.exit:                                 ; preds = %cond.true127.i, %lu
   %n139.i = getelementptr inbounds i8, ptr %173, i64 8
   %175 = load i64, ptr %n139.i, align 8
   %sub140.i = add i64 %175, -2
-  %call141.i = call fastcc ptr @luaX_newstring(ptr noundef %ls, ptr noundef nonnull %add.ptr.i, i64 noundef %sub140.i)
+  %call141.i = call fastcc ptr @luaX_newstring(ptr noundef nonnull %ls, ptr noundef nonnull %add.ptr.i, i64 noundef %sub140.i)
   store ptr %call141.i, ptr %seminfo, align 8
   br label %return
 
@@ -25663,11 +25663,11 @@ if.then.i11:                                      ; preds = %sw.default.i
   br i1 %tobool.not.i13, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then.i11
-  %call1.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.138, i32 noundef %token)
+  %call1.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.138, i32 noundef range(i32 1, 0) %token)
   br label %txtToken.exit
 
 cond.false.i:                                     ; preds = %if.then.i11
-  %call3.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.139, i32 noundef %token)
+  %call3.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.139, i32 noundef range(i32 1, 0) %token)
   br label %txtToken.exit
 
 if.else.i9:                                       ; preds = %sw.default.i
@@ -26404,7 +26404,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.else.i.i:                                      ; preds = %if.then.i
   %seminfo.i.i = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i.i)
+  %call.i.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i.i)
   store i32 %call.i.i, ptr %t.i, align 8
   br label %if.end5
 
@@ -26429,11 +26429,11 @@ if.then.i.i11:                                    ; preds = %if.then1
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then.i.i11
-  %call1.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.138, i32 noundef %what)
+  %call1.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.138, i32 noundef range(i32 40, 288) %what)
   br label %luaX_token2str.exit.i
 
 cond.false.i.i:                                   ; preds = %if.then.i.i11
-  %call3.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.139, i32 noundef %what)
+  %call3.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.139, i32 noundef range(i32 40, 288) %what)
   br label %luaX_token2str.exit.i
 
 if.else.i.i10:                                    ; preds = %if.then1
@@ -26464,11 +26464,11 @@ if.then.i15:                                      ; preds = %if.else
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then.i15
-  %call1.i16 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.138, i32 noundef %what)
+  %call1.i16 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.138, i32 noundef range(i32 1, 0) %what)
   br label %luaX_token2str.exit
 
 cond.false.i:                                     ; preds = %if.then.i15
-  %call3.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.139, i32 noundef %what)
+  %call3.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.139, i32 noundef range(i32 1, 0) %what)
   br label %luaX_token2str.exit
 
 if.else.i:                                        ; preds = %if.else
@@ -26495,11 +26495,11 @@ if.then.i23:                                      ; preds = %luaX_token2str.exit
   br i1 %tobool.not.i27, label %cond.false.i31, label %cond.true.i29
 
 cond.true.i29:                                    ; preds = %if.then.i23
-  %call1.i30 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %16, ptr noundef nonnull @.str.138, i32 noundef %who)
+  %call1.i30 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %16, ptr noundef nonnull @.str.138, i32 noundef range(i32 1, 0) %who)
   br label %luaX_token2str.exit33
 
 cond.false.i31:                                   ; preds = %if.then.i23
-  %call3.i32 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %16, ptr noundef nonnull @.str.139, i32 noundef %who)
+  %call3.i32 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %16, ptr noundef nonnull @.str.139, i32 noundef range(i32 1, 0) %who)
   br label %luaX_token2str.exit33
 
 if.else.i18:                                      ; preds = %luaX_token2str.exit
@@ -26716,11 +26716,11 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.then.i.i.i
-  %call1.i.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %1, ptr noundef nonnull @.str.138, i32 noundef %c)
+  %call1.i.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %1, ptr noundef nonnull @.str.138, i32 noundef range(i32 40, 288) %c)
   br label %luaX_token2str.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %if.then.i.i.i
-  %call3.i.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %1, ptr noundef nonnull @.str.139, i32 noundef %c)
+  %call3.i.i.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %1, ptr noundef nonnull @.str.139, i32 noundef range(i32 40, 288) %c)
   br label %luaX_token2str.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
@@ -26754,7 +26754,7 @@ if.then.i3:                                       ; preds = %check.exit
 
 if.else.i:                                        ; preds = %check.exit
   %seminfo.i = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i, ptr %t.i, align 8
   br label %luaX_next.exit
 
@@ -27004,7 +27004,7 @@ if.then.i22:                                      ; preds = %if.then
 
 if.else.i:                                        ; preds = %if.then
   %seminfo.i = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i, ptr %t, align 8
   br label %luaX_next.exit
 
@@ -27044,7 +27044,7 @@ isnumeral.exit.i:                                 ; preds = %land.lhs.true.i.i
   br i1 %cmp2.i.not.i, label %sw.epilog.sink.split.i, label %sw.epilog.sink.split.sink.split.i
 
 sw.bb2.i23:                                       ; preds = %luaX_next.exit
-  tail call fastcc void @luaK_dischargevars(ptr noundef %5, ptr noundef %v)
+  tail call fastcc void @luaK_dischargevars(ptr noundef %5, ptr noundef nonnull %v)
   %9 = load i32, ptr %v, align 8
   switch i32 %9, label %sw.epilog.i.i [
     i32 1, label %sw.bb.i.i
@@ -27135,7 +27135,7 @@ discharge2anyreg.exit.i.i:                        ; preds = %if.end.i.i.i.i.i, %
   %add.pre-phi.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %if.then.i.i.i ], [ %.pre3.i.i.i.i, %if.end.i.i.i.i.i ]
   store i32 %add.pre-phi.i.i.i.i, ptr %freereg.i.i.i.i.i, align 4
   %sub.i.i.i = add nsw i32 %add.pre-phi.i.i.i.i, -1
-  tail call fastcc void @discharge2reg(ptr noundef nonnull %5, ptr noundef %v, i32 noundef %sub.i.i.i)
+  tail call fastcc void @discharge2reg(ptr noundef nonnull %5, ptr noundef nonnull %v, i32 noundef %sub.i.i.i)
   %.pre.i.i = load i32, ptr %v, align 8
   %22 = icmp eq i32 %.pre.i.i, 12
   br i1 %22, label %if.then.i22.i.i, label %freeexp.exit.i.i
@@ -27314,12 +27314,12 @@ patchtestreg.exit.i48.i.i:                        ; preds = %if.end.i.i58.i.i, %
 
 sw.epilog.sink.split.sink.split.i:                ; preds = %isnumeral.exit.i, %land.lhs.true.i.i, %sw.bb.i, %luaX_next.exit
   %.sink.ph.i = phi i32 [ 18, %sw.bb.i ], [ 18, %land.lhs.true.i.i ], [ 18, %isnumeral.exit.i ], [ 20, %luaX_next.exit ]
-  %call1.i = tail call fastcc i32 @luaK_exp2anyreg(ptr noundef %5, ptr noundef %v)
+  %call1.i = tail call fastcc i32 @luaK_exp2anyreg(ptr noundef %5, ptr noundef nonnull %v)
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.split.sink.split.i, %isnumeral.exit.i
   %.sink.i = phi i32 [ 18, %isnumeral.exit.i ], [ %.sink.ph.i, %sw.epilog.sink.split.sink.split.i ]
-  call fastcc void @codearith(ptr noundef %5, i32 noundef %.sink.i, ptr noundef %v, ptr noundef %e2.i)
+  call fastcc void @codearith(ptr noundef %5, i32 noundef %.sink.i, ptr noundef nonnull %v, ptr noundef %e2.i)
   br label %luaK_prefix.exit
 
 default.unreachable249:                           ; preds = %luaX_next.exit
@@ -27423,7 +27423,7 @@ if.end.i:                                         ; preds = %sw.bb8.i
   br label %sw.epilog.i
 
 sw.bb13.i:                                        ; preds = %enterlevel.exit
-  tail call fastcc void @constructor(ptr noundef %ls, ptr noundef %v)
+  tail call fastcc void @constructor(ptr noundef nonnull %ls, ptr noundef nonnull %v)
   br label %if.endthread-pre-split
 
 sw.bb14.i:                                        ; preds = %enterlevel.exit
@@ -27443,7 +27443,7 @@ if.then.i173:                                     ; preds = %sw.bb14.i
 
 if.else.i175:                                     ; preds = %sw.bb14.i
   %seminfo.i176 = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i177 = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i176)
+  %call.i177 = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i176)
   store i32 %call.i177, ptr %t, align 8
   %.pre = load i32, ptr %linenumber.i168, align 4
   br label %luaX_next.exit178
@@ -27451,26 +27451,26 @@ if.else.i175:                                     ; preds = %sw.bb14.i
 luaX_next.exit178:                                ; preds = %if.then.i173, %if.else.i175
   %55 = phi i32 [ %53, %if.then.i173 ], [ %.pre, %if.else.i175 ]
   call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %new_fs.i)
-  call fastcc void @open_func(ptr noundef %ls, ptr noundef %new_fs.i)
+  call fastcc void @open_func(ptr noundef nonnull %ls, ptr noundef %new_fs.i)
   %56 = load ptr, ptr %new_fs.i, align 8
   %linedefined.i = getelementptr inbounds i8, ptr %56, i64 96
   store i32 %55, ptr %linedefined.i, align 8
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 40)
-  call fastcc void @parlist(ptr noundef %ls)
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 41)
-  call fastcc void @chunk(ptr noundef %ls)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 40)
+  call fastcc void @parlist(ptr noundef nonnull %ls)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 41)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
   %57 = load i32, ptr %linenumber.i168, align 4
   %58 = load ptr, ptr %new_fs.i, align 8
   %lastlinedefined.i = getelementptr inbounds i8, ptr %58, i64 100
   store i32 %57, ptr %lastlinedefined.i, align 4
-  call fastcc void @check_match(ptr noundef %ls, i32 noundef 262, i32 noundef 265, i32 noundef %55)
-  call fastcc void @close_func(ptr noundef %ls)
-  call fastcc void @pushclosure(ptr noundef %ls, ptr noundef %new_fs.i, ptr noundef %v)
+  call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 262, i32 noundef 265, i32 noundef %55)
+  call fastcc void @close_func(ptr noundef nonnull %ls)
+  call fastcc void @pushclosure(ptr noundef nonnull %ls, ptr noundef %new_fs.i, ptr noundef nonnull %v)
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %new_fs.i)
   br label %if.endthread-pre-split
 
 sw.default.i32:                                   ; preds = %enterlevel.exit
-  tail call fastcc void @primaryexp(ptr noundef %ls, ptr noundef %v)
+  tail call fastcc void @primaryexp(ptr noundef nonnull %ls, ptr noundef nonnull %v)
   br label %if.endthread-pre-split
 
 sw.epilog.i:                                      ; preds = %if.end.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb2.i28, %sw.bb.i29
@@ -27490,7 +27490,7 @@ if.then.i160:                                     ; preds = %sw.epilog.i
 
 if.else.i162:                                     ; preds = %sw.epilog.i
   %seminfo.i163 = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i164 = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i163)
+  %call.i164 = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i163)
   store i32 %call.i164, ptr %t, align 8
   br label %if.end
 
@@ -27597,7 +27597,7 @@ if.then.i48:                                      ; preds = %while.body
   br label %luaX_next.exit53
 
 if.else.i50:                                      ; preds = %while.body
-  %call.i52 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i51)
+  %call.i52 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i51)
   store i32 %call.i52, ptr %t, align 8
   br label %luaX_next.exit53
 
@@ -27616,7 +27616,7 @@ luaX_next.exit53:                                 ; preds = %if.then.i48, %if.el
   ]
 
 luaK_infix.exit.thread:                           ; preds = %luaX_next.exit53
-  call fastcc void @luaK_goiftrue(ptr noundef %66, ptr noundef %v)
+  call fastcc void @luaK_goiftrue(ptr noundef %66, ptr noundef nonnull %v)
   %right204 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %67 = load i8, ptr %right204, align 1
   %conv11205 = zext i8 %67 to i32
@@ -27625,7 +27625,7 @@ luaK_infix.exit.thread:                           ; preds = %luaX_next.exit53
   br label %sw.bb.i142
 
 sw.bb1.i75:                                       ; preds = %luaX_next.exit53
-  call fastcc void @luaK_dischargevars(ptr noundef %66, ptr noundef %v)
+  call fastcc void @luaK_dischargevars(ptr noundef %66, ptr noundef nonnull %v)
   %69 = load i32, ptr %v, align 8
   switch i32 %69, label %sw.default.i.i [
     i32 1, label %luaK_concat.exit.i.i
@@ -27638,7 +27638,7 @@ sw.bb1.i.i:                                       ; preds = %sw.bb1.i75
   br label %sw.epilog.i.i77
 
 sw.default.i.i:                                   ; preds = %sw.bb1.i75
-  %call.i.i = call fastcc i32 @jumponcond(ptr noundef %66, ptr noundef %v, i32 noundef 1)
+  %call.i.i = call fastcc i32 @jumponcond(ptr noundef %66, ptr noundef nonnull %v, i32 noundef 1)
   br label %sw.epilog.i.i77
 
 sw.epilog.i.i77:                                  ; preds = %sw.default.i.i, %sw.bb1.i.i
@@ -27767,7 +27767,7 @@ luaK_goiffalse.exit.i:                            ; preds = %fixjump.exit.i.i.i.
   br label %luaK_infix.exit
 
 sw.bb2.i62:                                       ; preds = %luaX_next.exit53
-  call fastcc void @luaK_dischargevars(ptr noundef %66, ptr noundef %v)
+  call fastcc void @luaK_dischargevars(ptr noundef %66, ptr noundef nonnull %v)
   %85 = load i32, ptr %v, align 8
   %cmp.i.i10.i = icmp eq i32 %85, 12
   br i1 %cmp.i.i10.i, label %if.then.i.i.i66, label %freeexp.exit.i.i63
@@ -27826,7 +27826,7 @@ luaK_infix.exit.thread209:                        ; preds = %freeexp.exit.i.i63,
   %add.pre-phi.i.i.i = phi i32 [ %add.i.i.i11.i, %freeexp.exit.i.i63 ], [ %.pre3.i.i.i, %if.end.i.i.i.i64 ]
   store i32 %add.pre-phi.i.i.i, ptr %freereg.i.i7.i.i, align 4
   %sub.i.i = add nsw i32 %add.pre-phi.i.i.i, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %66, ptr noundef %v, i32 noundef %sub.i.i)
+  call fastcc void @exp2reg(ptr noundef nonnull %66, ptr noundef nonnull %v, i32 noundef %sub.i.i)
   %right210 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   %94 = load i8, ptr %right210, align 1
   %conv11211 = zext i8 %94 to i32
@@ -27850,11 +27850,11 @@ isnumeral.exit.i60:                               ; preds = %land.lhs.true.i.i58
   br i1 %cmp2.i.not.i61, label %luaK_infix.exit, label %if.then.i56
 
 if.then.i56:                                      ; preds = %isnumeral.exit.i60, %land.lhs.true.i.i58, %sw.bb3.i54
-  %call4.i = call fastcc i32 @luaK_exp2RK(ptr noundef %66, ptr noundef %v)
+  %call4.i = call fastcc i32 @luaK_exp2RK(ptr noundef %66, ptr noundef nonnull %v)
   br label %luaK_infix.exit
 
 sw.default.i100:                                  ; preds = %luaX_next.exit53
-  %call5.i = call fastcc i32 @luaK_exp2RK(ptr noundef %66, ptr noundef %v)
+  %call5.i = call fastcc i32 @luaK_exp2RK(ptr noundef %66, ptr noundef nonnull %v)
   br label %luaK_infix.exit
 
 luaK_infix.exit:                                  ; preds = %luaK_goiffalse.exit.i, %isnumeral.exit.i60, %if.then.i56, %sw.default.i100
@@ -27884,7 +27884,7 @@ luaK_infix.exit:                                  ; preds = %luaK_goiffalse.exit
 sw.bb.i142:                                       ; preds = %luaK_infix.exit.thread, %luaK_infix.exit
   %101 = phi ptr [ %68, %luaK_infix.exit.thread ], [ %100, %luaK_infix.exit ]
   %call12207 = phi i32 [ %call12206, %luaK_infix.exit.thread ], [ %call12, %luaK_infix.exit ]
-  call fastcc void @luaK_dischargevars(ptr noundef %101, ptr noundef %v2)
+  call fastcc void @luaK_dischargevars(ptr noundef %101, ptr noundef nonnull %v2)
   %102 = load i32, ptr %f.i17.i, align 4
   %cmp.i.i144 = icmp eq i32 %102, -1
   br i1 %cmp.i.i144, label %luaK_concat.exit.i, label %if.else.i.i
@@ -27947,7 +27947,7 @@ luaK_concat.exit.i:                               ; preds = %fixjump.exit.i.i, %
   br label %luaK_posfix.exit
 
 sw.bb2.i140:                                      ; preds = %luaK_infix.exit
-  call fastcc void @luaK_dischargevars(ptr noundef %100, ptr noundef %v2)
+  call fastcc void @luaK_dischargevars(ptr noundef %100, ptr noundef nonnull %v2)
   %109 = load i32, ptr %t.i16.i, align 8
   %cmp.i68.i = icmp eq i32 %109, -1
   br i1 %cmp.i68.i, label %luaK_concat.exit99.i, label %if.else.i69.i
@@ -28018,11 +28018,11 @@ sw.bb4.i102:                                      ; preds = %luaK_infix.exit.thr
   br i1 %cmp.not.i.i, label %if.else.i100.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb4.i102
-  %call.i.i105 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %116, ptr noundef %v2)
+  %call.i.i105 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %116, ptr noundef nonnull %v2)
   br label %luaK_exp2val.exit.i
 
 if.else.i100.i:                                   ; preds = %sw.bb4.i102
-  call fastcc void @luaK_dischargevars(ptr noundef %116, ptr noundef %v2)
+  call fastcc void @luaK_dischargevars(ptr noundef %116, ptr noundef nonnull %v2)
   br label %luaK_exp2val.exit.i
 
 luaK_exp2val.exit.i:                              ; preds = %if.else.i100.i, %if.then.i.i
@@ -28084,7 +28084,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i104.i, %
   br label %luaK_posfix.exit
 
 if.else.i107:                                     ; preds = %land.lhs.true.i, %luaK_exp2val.exit.i
-  call fastcc void @luaK_dischargevars(ptr noundef %116, ptr noundef %v2)
+  call fastcc void @luaK_dischargevars(ptr noundef %116, ptr noundef nonnull %v2)
   %131 = load i32, ptr %v2, align 8
   %cmp.i.i105.i = icmp eq i32 %131, 12
   br i1 %cmp.i.i105.i, label %if.then.i.i106.i, label %freeexp.exit.i.i108
@@ -28143,37 +28143,37 @@ luaK_exp2nextreg.exit.i120:                       ; preds = %if.end.i.i.i.i116, 
   %add.pre-phi.i.i.i121 = phi i32 [ %add.i.i.i.i110, %freeexp.exit.i.i108 ], [ %.pre3.i.i.i119, %if.end.i.i.i.i116 ]
   store i32 %add.pre-phi.i.i.i121, ptr %freereg.i.i7.i.i109, align 4
   %sub.i.i122 = add nsw i32 %add.pre-phi.i.i.i121, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %116, ptr noundef %v2, i32 noundef %sub.i.i122)
-  call fastcc void @codearith(ptr noundef nonnull %116, i32 noundef 21, ptr noundef %v, ptr noundef %v2)
+  call fastcc void @exp2reg(ptr noundef nonnull %116, ptr noundef nonnull %v2, i32 noundef %sub.i.i122)
+  call fastcc void @codearith(ptr noundef nonnull %116, i32 noundef 21, ptr noundef nonnull %v, ptr noundef nonnull %v2)
   br label %luaK_posfix.exit
 
 sw.bb28.i:                                        ; preds = %luaK_infix.exit
-  call fastcc void @codearith(ptr noundef %100, i32 noundef 12, ptr noundef %v, ptr noundef %v2)
+  call fastcc void @codearith(ptr noundef %100, i32 noundef 12, ptr noundef nonnull %v, ptr noundef nonnull %v2)
   br label %luaK_posfix.exit
 
 sw.bb29.i:                                        ; preds = %luaK_infix.exit
-  call fastcc void @codearith(ptr noundef %100, i32 noundef 13, ptr noundef %v, ptr noundef %v2)
+  call fastcc void @codearith(ptr noundef %100, i32 noundef 13, ptr noundef nonnull %v, ptr noundef nonnull %v2)
   br label %luaK_posfix.exit
 
 sw.bb30.i:                                        ; preds = %luaK_infix.exit
-  call fastcc void @codearith(ptr noundef %100, i32 noundef 14, ptr noundef %v, ptr noundef %v2)
+  call fastcc void @codearith(ptr noundef %100, i32 noundef 14, ptr noundef nonnull %v, ptr noundef nonnull %v2)
   br label %luaK_posfix.exit
 
 sw.bb31.i:                                        ; preds = %luaK_infix.exit
-  call fastcc void @codearith(ptr noundef %100, i32 noundef 15, ptr noundef %v, ptr noundef %v2)
+  call fastcc void @codearith(ptr noundef %100, i32 noundef 15, ptr noundef nonnull %v, ptr noundef nonnull %v2)
   br label %luaK_posfix.exit
 
 sw.bb32.i:                                        ; preds = %luaK_infix.exit
-  call fastcc void @codearith(ptr noundef %100, i32 noundef 16, ptr noundef %v, ptr noundef %v2)
+  call fastcc void @codearith(ptr noundef %100, i32 noundef 16, ptr noundef nonnull %v, ptr noundef nonnull %v2)
   br label %luaK_posfix.exit
 
 sw.bb33.i:                                        ; preds = %luaK_infix.exit
-  call fastcc void @codearith(ptr noundef %100, i32 noundef 17, ptr noundef %v, ptr noundef %v2)
+  call fastcc void @codearith(ptr noundef %100, i32 noundef 17, ptr noundef nonnull %v, ptr noundef nonnull %v2)
   br label %luaK_posfix.exit
 
 sw.bb34.i:                                        ; preds = %luaK_infix.exit
-  %call.i107.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v)
-  %call1.i.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v2)
+  %call.i107.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v)
+  %call1.i.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v2)
   %140 = load i32, ptr %v2, align 8
   %cmp.i.i108.i = icmp eq i32 %140, 12
   br i1 %cmp.i.i108.i, label %if.then.i.i111.i, label %freeexp.exit.i109.i
@@ -28230,8 +28230,8 @@ codecomp.exit.i:                                  ; preds = %if.then.i.i22.i.i, 
   br label %luaK_posfix.exit
 
 sw.bb35.i:                                        ; preds = %luaK_infix.exit
-  %call.i122.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v)
-  %call1.i123.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v2)
+  %call.i122.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v)
+  %call1.i123.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v2)
   %148 = load i32, ptr %v2, align 8
   %cmp.i.i124.i = icmp eq i32 %148, 12
   br i1 %cmp.i.i124.i, label %if.then.i.i140.i, label %freeexp.exit.i125.i
@@ -28288,8 +28288,8 @@ codecomp.exit151.i:                               ; preds = %if.then.i.i22.i137.
   br label %luaK_posfix.exit
 
 sw.bb36.i:                                        ; preds = %luaK_infix.exit
-  %call.i152.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v)
-  %call1.i153.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v2)
+  %call.i152.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v)
+  %call1.i153.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v2)
   %156 = load i32, ptr %v2, align 8
   %cmp.i.i154.i = icmp eq i32 %156, 12
   br i1 %cmp.i.i154.i, label %if.then.i.i170.i, label %freeexp.exit.i155.i
@@ -28346,8 +28346,8 @@ codecomp.exit181.i:                               ; preds = %if.then.i.i22.i167.
   br label %luaK_posfix.exit
 
 sw.bb37.i:                                        ; preds = %luaK_infix.exit
-  %call.i182.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v)
-  %call1.i183.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v2)
+  %call.i182.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v)
+  %call1.i183.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v2)
   %164 = load i32, ptr %v2, align 8
   %cmp.i.i184.i = icmp eq i32 %164, 12
   br i1 %cmp.i.i184.i, label %if.then.i.i200.i, label %freeexp.exit.i185.i
@@ -28404,8 +28404,8 @@ codecomp.exit211.i:                               ; preds = %if.then.i.i22.i197.
   br label %luaK_posfix.exit
 
 sw.bb38.i:                                        ; preds = %luaK_infix.exit
-  %call.i212.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v)
-  %call1.i213.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v2)
+  %call.i212.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v)
+  %call1.i213.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v2)
   %172 = load i32, ptr %v2, align 8
   %cmp.i.i214.i = icmp eq i32 %172, 12
   br i1 %cmp.i.i214.i, label %if.then.i.i230.i, label %freeexp.exit.i215.i
@@ -28462,8 +28462,8 @@ codecomp.exit241.i:                               ; preds = %if.then.i.i22.i227.
   br label %luaK_posfix.exit
 
 sw.bb39.i:                                        ; preds = %luaK_infix.exit
-  %call.i242.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v)
-  %call1.i243.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef %v2)
+  %call.i242.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v)
+  %call1.i243.i = call fastcc i32 @luaK_exp2RK(ptr noundef %100, ptr noundef nonnull %v2)
   %180 = load i32, ptr %v2, align 8
   %cmp.i.i244.i = icmp eq i32 %180, 12
   br i1 %cmp.i.i244.i, label %if.then.i.i260.i, label %freeexp.exit.i245.i
@@ -28564,7 +28564,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end13:                                         ; preds = %if.end, %entry
-  tail call fastcc void @luaK_dischargevars(ptr noundef %fs, ptr noundef %e)
+  tail call fastcc void @luaK_dischargevars(ptr noundef %fs, ptr noundef nonnull %e)
   %5 = load i32, ptr %e, align 8
   %cmp.i.i = icmp eq i32 %5, 12
   br i1 %cmp.i.i, label %if.then.i.i, label %freeexp.exit.i
@@ -28624,7 +28624,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %if
   %add.pre-phi.i.i = phi i32 [ %add.i.i.i, %freeexp.exit.i ], [ %.pre3.i.i, %if.end.i.i.i ]
   store i32 %add.pre-phi.i.i, ptr %freereg.i.i7.i, align 4
   %sub.i = add nsw i32 %add.pre-phi.i.i, -1
-  tail call fastcc void @exp2reg(ptr noundef nonnull %fs, ptr noundef %e, i32 noundef %sub.i)
+  tail call fastcc void @exp2reg(ptr noundef nonnull %fs, ptr noundef nonnull %e, i32 noundef %sub.i)
   %u14 = getelementptr inbounds i8, ptr %e, i64 8
   br label %return
 
@@ -29964,11 +29964,11 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call fastcc i32 @luaK_exp2anyreg(ptr noundef %fs, ptr noundef %e)
+  %call.i = tail call fastcc i32 @luaK_exp2anyreg(ptr noundef %fs, ptr noundef nonnull %e)
   br label %luaK_exp2val.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call fastcc void @luaK_dischargevars(ptr noundef %fs, ptr noundef %e)
+  tail call fastcc void @luaK_dischargevars(ptr noundef %fs, ptr noundef nonnull %e)
   br label %luaK_exp2val.exit
 
 luaK_exp2val.exit:                                ; preds = %if.then.i, %if.else.i
@@ -30093,7 +30093,7 @@ entry:
   %u.i29 = getelementptr inbounds i8, ptr %cc, i64 8
   store i32 0, ptr %u.i29, align 8
   %4 = load ptr, ptr %fs1, align 8
-  tail call fastcc void @luaK_dischargevars(ptr noundef %4, ptr noundef %t)
+  tail call fastcc void @luaK_dischargevars(ptr noundef %4, ptr noundef nonnull %t)
   %5 = load i32, ptr %t, align 8
   %cmp.i.i = icmp eq i32 %5, 12
   br i1 %cmp.i.i, label %if.then.i.i, label %freeexp.exit.i
@@ -30152,7 +30152,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %if
   %add.pre-phi.i.i = phi i32 [ %add.i.i.i, %freeexp.exit.i ], [ %.pre3.i.i, %if.end.i.i.i ]
   store i32 %add.pre-phi.i.i, ptr %freereg.i.i7.i, align 4
   %sub.i = add nsw i32 %add.pre-phi.i.i, -1
-  tail call fastcc void @exp2reg(ptr noundef nonnull %4, ptr noundef %t, i32 noundef %sub.i)
+  tail call fastcc void @exp2reg(ptr noundef nonnull %4, ptr noundef nonnull %t, i32 noundef %sub.i)
   tail call fastcc void @checknext(ptr noundef %ls, i32 noundef 123)
   %t4 = getelementptr inbounds i8, ptr %ls, i64 16
   %14 = load i32, ptr %t4, align 8
@@ -30175,7 +30175,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %do.b
   br i1 %cmp.i, label %closelistfield.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  call fastcc void @luaK_dischargevars(ptr noundef %0, ptr noundef %cc)
+  call fastcc void @luaK_dischargevars(ptr noundef %0, ptr noundef nonnull %cc)
   %17 = load i32, ptr %cc, align 8
   %cmp.i.i.i = icmp eq i32 %17, 12
   br i1 %cmp.i.i.i, label %if.then.i.i.i34, label %freeexp.exit.i.i
@@ -30230,7 +30230,7 @@ luaK_exp2nextreg.exit.i:                          ; preds = %if.end.i.i.i.i, %fr
   %add.pre-phi.i.i.i = phi i32 [ %add.i.i.i.i, %freeexp.exit.i.i ], [ %.pre3.i.i.i, %if.end.i.i.i.i ]
   store i32 %add.pre-phi.i.i.i, ptr %freereg.i.i.i.i, align 4
   %sub.i.i = add nsw i32 %add.pre-phi.i.i.i, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef %cc, i32 noundef %sub.i.i)
+  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef nonnull %cc, i32 noundef %sub.i.i)
   store i32 0, ptr %cc, align 8
   %26 = load i32, ptr %tostore, align 8
   %cmp4.i = icmp eq i32 %26, 50
@@ -30285,13 +30285,13 @@ closelistfield.exit:                              ; preds = %closelistfield.exit
   ]
 
 sw.bb:                                            ; preds = %closelistfield.exit
-  %call.i35 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i35 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i35, ptr %lookahead.i, align 8
   %cmp8.not = icmp eq i32 %call.i35, 61
   br i1 %cmp8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %sw.bb
-  %call.i149 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %cc, i32 noundef 0)
+  %call.i149 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %cc, i32 noundef 0)
   %35 = load i32, ptr %na, align 4
   %cmp.i37 = icmp sgt i32 %35, 2147483645
   br i1 %cmp.i37, label %if.then.i, label %listfield.exit
@@ -30338,7 +30338,7 @@ sw.bb11:                                          ; preds = %closelistfield.exit
   br label %do.cond
 
 sw.default:                                       ; preds = %closelistfield.exit
-  %call.i161 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %cc, i32 noundef 0)
+  %call.i161 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %cc, i32 noundef 0)
   %42 = load i32, ptr %na, align 4
   %cmp.i41 = icmp sgt i32 %42, 2147483645
   br i1 %cmp.i41, label %if.then.i46, label %listfield.exit48
@@ -30391,7 +30391,7 @@ if.then.i51:                                      ; preds = %do.cond
   br i1 %cmp.not.i.i, label %if.else.i.i54, label %do.body.backedgethread-pre-split
 
 if.else.i.i54:                                    ; preds = %if.then.i51
-  %call.i.i = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i.i65)
+  %call.i.i = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i.i65)
   store i32 %call.i.i, ptr %t4, align 8
   br label %do.body.backedge
 
@@ -30414,7 +30414,7 @@ if.then.i58:                                      ; preds = %do.cond
   br i1 %cmp.not.i.i62, label %if.else.i.i64, label %do.body.backedgethread-pre-split
 
 if.else.i.i64:                                    ; preds = %if.then.i58
-  %call.i.i66 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i.i65)
+  %call.i.i66 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i.i65)
   store i32 %call.i.i66, ptr %t4, align 8
   br label %do.body.backedge
 
@@ -30541,7 +30541,7 @@ luaK_setlist.exit.i95:                            ; preds = %if.else.i.i90, %if.
   br label %lastlistfield.exit
 
 if.then11.i:                                      ; preds = %if.end.i70
-  call fastcc void @luaK_dischargevars(ptr noundef %0, ptr noundef %cc)
+  call fastcc void @luaK_dischargevars(ptr noundef %0, ptr noundef nonnull %cc)
   %82 = load i32, ptr %cc, align 8
   %cmp.i.i.i111 = icmp eq i32 %82, 12
   br i1 %cmp.i.i.i111, label %if.then.i.i.i117, label %freeexp.exit.i.i112
@@ -30599,7 +30599,7 @@ luaK_exp2nextreg.exit.i116:                       ; preds = %if.end.i.i.i21.i, %
   %add.pre-phi.i.i26.i = phi i32 [ %add.i.i.i17.i, %freeexp.exit.i.i112 ], [ %.pre3.i.i24.i, %if.end.i.i.i21.i ]
   store i32 %add.pre-phi.i.i26.i, ptr %freereg.i.i7.i.i113, align 4
   %sub.i27.i = add nsw i32 %add.pre-phi.i.i26.i, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef %cc, i32 noundef %sub.i27.i)
+  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef nonnull %cc, i32 noundef %sub.i27.i)
   %.pre.i = load i32, ptr %tostore, align 8
   br label %if.end13.i
 
@@ -30752,19 +30752,19 @@ if.then.i57:                                      ; preds = %sw.bb.i
 
 if.else.i58:                                      ; preds = %sw.bb.i
   %seminfo.i59 = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i60 = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i59)
+  %call.i60 = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i59)
   store i32 %call.i60, ptr %t.i, align 8
   br label %luaX_next.exit61
 
 luaX_next.exit61:                                 ; preds = %if.then.i57, %if.else.i58
-  %call.i51 = tail call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v, i32 noundef 0)
-  tail call fastcc void @check_match(ptr noundef %ls, i32 noundef 41, i32 noundef 40, i32 noundef %2)
+  %call.i51 = tail call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 0)
+  tail call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 41, i32 noundef 40, i32 noundef %2)
   %4 = load ptr, ptr %fs1, align 8
-  tail call fastcc void @luaK_dischargevars(ptr noundef %4, ptr noundef %v)
+  tail call fastcc void @luaK_dischargevars(ptr noundef %4, ptr noundef nonnull %v)
   br label %prefixexp.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  tail call fastcc void @singlevar(ptr noundef %ls, ptr noundef %v)
+  tail call fastcc void @singlevar(ptr noundef nonnull %ls, ptr noundef nonnull %v)
   br label %prefixexp.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -30818,12 +30818,12 @@ if.then.i73:                                      ; preds = %sw.bb2
   br label %luaX_next.exit77
 
 if.else.i74:                                      ; preds = %sw.bb2
-  %call.i76 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i76 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i76, ptr %t.i, align 8
   br label %luaX_next.exit77
 
 luaX_next.exit77:                                 ; preds = %if.then.i73, %if.else.i74
-  %call.i67 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %key, i32 noundef 0)
+  %call.i67 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %key, i32 noundef 0)
   %8 = load ptr, ptr %fs1, align 8
   %9 = load i32, ptr %t.i62, align 8
   %10 = load i32, ptr %f.i, align 4
@@ -30831,16 +30831,16 @@ luaX_next.exit77:                                 ; preds = %if.then.i73, %if.el
   br i1 %cmp.not.i63, label %if.else.i66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %luaX_next.exit77
-  %call.i65 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %8, ptr noundef %key)
+  %call.i65 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %8, ptr noundef nonnull %key)
   br label %luaK_exp2val.exit
 
 if.else.i66:                                      ; preds = %luaX_next.exit77
-  call fastcc void @luaK_dischargevars(ptr noundef %8, ptr noundef %key)
+  call fastcc void @luaK_dischargevars(ptr noundef %8, ptr noundef nonnull %key)
   br label %luaK_exp2val.exit
 
 luaK_exp2val.exit:                                ; preds = %if.then.i64, %if.else.i66
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 93)
-  %call.i = call fastcc i32 @luaK_exp2RK(ptr noundef %0, ptr noundef %key)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 93)
+  %call.i = call fastcc i32 @luaK_exp2RK(ptr noundef %0, ptr noundef nonnull %key)
   store i32 %call.i, ptr %aux.i80, align 4
   store i32 9, ptr %v, align 8
   br label %for.cond.backedge
@@ -30859,7 +30859,7 @@ if.then.i:                                        ; preds = %sw.bb3
   br label %luaX_next.exit
 
 if.else.i:                                        ; preds = %sw.bb3
-  %call.i21 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i21 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i21, ptr %t.i, align 8
   br label %luaX_next.exit
 
@@ -30890,7 +30890,7 @@ if.then.i4.i.i:                                   ; preds = %check.exit.i.i
   br label %checkname.exit
 
 if.else.i.i.i:                                    ; preds = %check.exit.i.i
-  %call.i.i.i = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i.i = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i.i, ptr %t.i, align 8
   br label %checkname.exit
 
@@ -30905,7 +30905,7 @@ checkname.exit:                                   ; preds = %if.then.i4.i.i, %if
   store i32 -1, ptr %f.i.i.i, align 4
   store i32 4, ptr %key4, align 8
   store i32 %call.i.i2.i, ptr %u.i.i.i, align 8
-  %call.i22 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef %v)
+  %call.i22 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef nonnull %v)
   %19 = load i32, ptr %v, align 8
   %cmp.i.i = icmp eq i32 %19, 12
   br i1 %cmp.i.i, label %if.then.i.i, label %freeexp.exit.i
@@ -30960,7 +30960,7 @@ luaK_reserveregs.exit.i:                          ; preds = %if.end.i.i.i, %free
   %add.pre-phi.i.i = phi i32 [ %add.i.i.i, %freeexp.exit.i ], [ %.pre3.i.i, %if.end.i.i.i ]
   store i32 %add.pre-phi.i.i, ptr %freereg.i.i, align 4
   %28 = load i32, ptr %u9.i.i, align 8
-  %call1.i = call fastcc i32 @luaK_exp2RK(ptr noundef nonnull %0, ptr noundef %key4)
+  %call1.i = call fastcc i32 @luaK_exp2RK(ptr noundef nonnull %0, ptr noundef nonnull %key4)
   %shl1.i.i = shl i32 %23, 6
   %shl2.i.i = shl i32 %28, 23
   %shl4.i.i = shl i32 %call1.i, 14
@@ -31169,7 +31169,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i26, %
   %add.pre-phi.i.i35 = phi i32 [ %add.i.i.i27, %freeexp.exit.i26 ], [ %.pre3.i.i33, %if.end.i.i.i30 ]
   store i32 %add.pre-phi.i.i35, ptr %freereg.i.i, align 4
   %sub.i = add nsw i32 %add.pre-phi.i.i35, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef %v, i32 noundef %sub.i)
+  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef nonnull %v, i32 noundef %sub.i)
   call fastcc void @funcargs(ptr noundef %ls, ptr noundef %v)
   br label %for.cond.backedge
 
@@ -31243,7 +31243,7 @@ if.then.i4.i.i:                                   ; preds = %check.exit.i.i
   br label %checkname.exit
 
 if.else.i.i.i:                                    ; preds = %check.exit.i.i
-  %call.i.i.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i.i)
+  %call.i.i.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i.i)
   store i32 %call.i.i.i, ptr %t, align 8
   %ls.val.i.pre = load ptr, ptr %fs1, align 8
   br label %checkname.exit
@@ -31282,12 +31282,12 @@ if.then.i20:                                      ; preds = %if.else
 
 if.else.i21:                                      ; preds = %if.else
   %seminfo.i = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i22 = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i22 = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i22, ptr %t, align 8
   br label %luaX_next.exit
 
 luaX_next.exit:                                   ; preds = %if.then.i20, %if.else.i21
-  %call.i17 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %key, i32 noundef 0)
+  %call.i17 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %key, i32 noundef 0)
   %13 = load ptr, ptr %fs1, align 8
   %t.i = getelementptr inbounds i8, ptr %key, i64 16
   %14 = load i32, ptr %t.i, align 8
@@ -31297,15 +31297,15 @@ luaX_next.exit:                                   ; preds = %if.then.i20, %if.el
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %luaX_next.exit
-  %call.i16 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %13, ptr noundef %key)
+  %call.i16 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %13, ptr noundef nonnull %key)
   br label %luaK_exp2val.exit
 
 if.else.i:                                        ; preds = %luaX_next.exit
-  call fastcc void @luaK_dischargevars(ptr noundef %13, ptr noundef %key)
+  call fastcc void @luaK_dischargevars(ptr noundef %13, ptr noundef nonnull %key)
   br label %luaK_exp2val.exit
 
 luaK_exp2val.exit:                                ; preds = %if.then.i, %if.else.i
-  call fastcc void @checknext(ptr noundef %ls, i32 noundef 93)
+  call fastcc void @checknext(ptr noundef nonnull %ls, i32 noundef 93)
   br label %if.end5
 
 if.end5:                                          ; preds = %luaK_exp2val.exit, %checkname.exit
@@ -31315,7 +31315,7 @@ if.end5:                                          ; preds = %luaK_exp2val.exit, 
   store i32 %inc, ptr %nh6, align 8
   call fastcc void @checknext(ptr noundef %ls, i32 noundef 61)
   %call = call fastcc i32 @luaK_exp2RK(ptr noundef nonnull %0, ptr noundef %key)
-  %call.i13 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %val, i32 noundef 0)
+  %call.i13 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %val, i32 noundef 0)
   %t7 = getelementptr inbounds i8, ptr %cc, i64 24
   %17 = load ptr, ptr %t7, align 8
   %u = getelementptr inbounds i8, ptr %17, i64 8
@@ -31506,7 +31506,7 @@ if.then.i4.i:                                     ; preds = %check.exit.i
   br label %str_checkname.exit
 
 if.else.i.i:                                      ; preds = %check.exit.i
-  %call.i.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i, ptr %t, align 8
   br label %str_checkname.exit
 
@@ -31530,7 +31530,7 @@ if.then.i:                                        ; preds = %sw.bb5
   br label %if.end
 
 if.else.i:                                        ; preds = %sw.bb5
-  %call.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i, ptr %t, align 8
   br label %if.end
 
@@ -31561,7 +31561,7 @@ do.body.backedge:                                 ; preds = %if.then.i.i24, %if.
   br label %do.body
 
 if.else.i.i25:                                    ; preds = %if.then.i19
-  %call.i.i26 = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i26 = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i26, ptr %t, align 8
   br label %do.body.backedge
 
@@ -31825,7 +31825,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %seminfo.i = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i, ptr %t4.i, align 8
   br label %luaX_next.exit
 
@@ -31857,7 +31857,7 @@ if.then.i4.i.i:                                   ; preds = %check.exit.i.i
   br label %checkname.exit
 
 if.else.i.i.i:                                    ; preds = %check.exit.i.i
-  %call.i.i.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i.i)
+  %call.i.i.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i.i)
   store i32 %call.i.i.i, ptr %t4.i, align 8
   br label %checkname.exit
 
@@ -31876,7 +31876,7 @@ checkname.exit:                                   ; preds = %if.then.i4.i.i, %if
   store i32 4, ptr %key, align 8
   %u.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   store i32 %call.i.i2.i, ptr %u.i.i.i, align 8
-  %call.i5 = call fastcc i32 @luaK_exp2RK(ptr noundef %0, ptr noundef %key)
+  %call.i5 = call fastcc i32 @luaK_exp2RK(ptr noundef %0, ptr noundef nonnull %key)
   %aux.i = getelementptr inbounds i8, ptr %v, i64 12
   store i32 %call.i5, ptr %aux.i, align 4
   store i32 9, ptr %v, align 8
@@ -31924,7 +31924,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.else.i:                                        ; preds = %if.end
   %seminfo.i = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i, ptr %t, align 8
   br label %luaX_next.exit
 
@@ -31938,7 +31938,7 @@ if.then5:                                         ; preds = %luaX_next.exit
   br label %if.end6
 
 if.else:                                          ; preds = %luaX_next.exit
-  %call.i96 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %args, i32 noundef 0)
+  %call.i96 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %args, i32 noundef 0)
   %6 = load i32, ptr %t, align 8
   %cmp.i99 = icmp eq i32 %6, 44
   br i1 %cmp.i99, label %if.then.i93.lr.ph, label %explist1.exit
@@ -31961,13 +31961,13 @@ if.then.i.i94:                                    ; preds = %if.then.i93
   br label %while.body.i
 
 if.else.i.i:                                      ; preds = %if.then.i93
-  %call.i.i95 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i.i)
+  %call.i.i95 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i.i)
   store i32 %call.i.i95, ptr %t, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.then.i.i94, %if.else.i.i
   %9 = load ptr, ptr %fs1, align 8
-  call fastcc void @luaK_dischargevars(ptr noundef %9, ptr noundef %args)
+  call fastcc void @luaK_dischargevars(ptr noundef %9, ptr noundef nonnull %args)
   %10 = load i32, ptr %args, align 8
   %cmp.i.i61 = icmp eq i32 %10, 12
   br i1 %cmp.i.i61, label %if.then.i.i80, label %freeexp.exit.i62
@@ -32026,8 +32026,8 @@ luaK_exp2nextreg.exit91:                          ; preds = %freeexp.exit.i62, %
   %add.pre-phi.i.i75 = phi i32 [ %add.i.i.i64, %freeexp.exit.i62 ], [ %.pre3.i.i73, %if.end.i.i.i70 ]
   store i32 %add.pre-phi.i.i75, ptr %freereg.i.i7.i63, align 4
   %sub.i76 = add nsw i32 %add.pre-phi.i.i75, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %9, ptr noundef %args, i32 noundef %sub.i76)
-  %call.i60 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %args, i32 noundef 0)
+  call fastcc void @exp2reg(ptr noundef nonnull %9, ptr noundef nonnull %args, i32 noundef %sub.i76)
+  %call.i60 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %args, i32 noundef 0)
   %19 = load i32, ptr %t, align 8
   %cmp.i = icmp eq i32 %19, 44
   br i1 %cmp.i, label %if.then.i93, label %explist1.exit, !llvm.loop !94
@@ -32148,7 +32148,7 @@ if.then.i32:                                      ; preds = %sw.bb8
   br label %sw.epilog
 
 if.else.i33:                                      ; preds = %sw.bb8
-  %call.i35 = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo)
+  %call.i35 = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo)
   store i32 %call.i35, ptr %t, align 8
   br label %sw.epilog
 
@@ -32169,7 +32169,7 @@ if.else15:                                        ; preds = %sw.epilog
   br i1 %cmp17.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.else15
-  call fastcc void @luaK_dischargevars(ptr noundef %0, ptr noundef %args)
+  call fastcc void @luaK_dischargevars(ptr noundef %0, ptr noundef nonnull %args)
   %45 = load i32, ptr %args, align 8
   %cmp.i.i = icmp eq i32 %45, 12
   br i1 %cmp.i.i, label %if.then.i.i, label %freeexp.exit.i
@@ -32229,7 +32229,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %if
   %add.pre-phi.i.i48 = phi i32 [ %add.i.i.i39, %freeexp.exit.i ], [ %.pre3.i.i46, %if.end.i.i.i43 ]
   store i32 %add.pre-phi.i.i48, ptr %freereg.i.i7.i, align 4
   %sub.i = add nsw i32 %add.pre-phi.i.i48, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef %args, i32 noundef %sub.i)
+  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef nonnull %args, i32 noundef %sub.i)
   br label %if.end19
 
 if.end19:                                         ; preds = %luaK_exp2nextreg.exit, %if.else15
@@ -32305,7 +32305,7 @@ if.then.i4.i:                                     ; preds = %check.exit.i
   br label %str_checkname.exit
 
 if.else.i.i:                                      ; preds = %check.exit.i
-  %call.i.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i)
+  %call.i.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i)
   store i32 %call.i.i, ptr %t.i.i, align 8
   br label %str_checkname.exit
 
@@ -32660,7 +32660,7 @@ discharge2anyreg.exit:                            ; preds = %if.then.i, %if.end.
   %add.pre-phi.i.i = phi i32 [ %add.i.i.i, %if.then.i ], [ %.pre3.i.i, %if.end.i.i.i ]
   store i32 %add.pre-phi.i.i, ptr %freereg.i.i.i, align 4
   %sub.i = add nsw i32 %add.pre-phi.i.i, -1
-  tail call fastcc void @discharge2reg(ptr noundef nonnull %fs, ptr noundef %e, i32 noundef %sub.i)
+  tail call fastcc void @discharge2reg(ptr noundef nonnull %fs, ptr noundef nonnull %e, i32 noundef %sub.i)
   %.pr = load i32, ptr %e, align 8
   %cmp.i = icmp eq i32 %.pr, 12
   br i1 %cmp.i, label %if.then.i12, label %freeexp.exit
@@ -32907,10 +32907,10 @@ luaK_patchtohere.exit:                            ; preds = %if.end, %if.then2.i
 define internal fastcc void @exp1(ptr noundef nonnull %ls) unnamed_addr #0 {
 entry:
   %e = alloca %struct.expdesc, align 8
-  %call.i = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e, i32 noundef 0)
+  %call.i = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e, i32 noundef 0)
   %fs = getelementptr inbounds i8, ptr %ls, i64 48
   %0 = load ptr, ptr %fs, align 8
-  call fastcc void @luaK_dischargevars(ptr noundef %0, ptr noundef %e)
+  call fastcc void @luaK_dischargevars(ptr noundef %0, ptr noundef nonnull %e)
   %1 = load i32, ptr %e, align 8
   %cmp.i.i = icmp eq i32 %1, 12
   br i1 %cmp.i.i, label %if.then.i.i, label %freeexp.exit.i
@@ -32970,7 +32970,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %if
   %add.pre-phi.i.i = phi i32 [ %add.i.i.i, %freeexp.exit.i ], [ %.pre3.i.i, %if.end.i.i.i ]
   store i32 %add.pre-phi.i.i, ptr %freereg.i.i7.i, align 4
   %sub.i = add nsw i32 %add.pre-phi.i.i, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef %e, i32 noundef %sub.i)
+  call fastcc void @exp2reg(ptr noundef nonnull %0, ptr noundef nonnull %e, i32 noundef %sub.i)
   ret void
 }
 
@@ -33039,7 +33039,7 @@ if.then.i3.i:                                     ; preds = %check.exit.i
 
 if.else.i.i:                                      ; preds = %check.exit.i
   %seminfo.i.i = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i.i)
+  %call.i.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i.i)
   store i32 %call.i.i, ptr %t.i.i, align 8
   br label %checknext.exit
 
@@ -33213,7 +33213,7 @@ luaK_reserveregs.exit:                            ; preds = %adjustlocalvars.exi
   %36 = load ptr, ptr %bl3.i133, align 8
   store ptr %36, ptr %bl.i, align 8
   store ptr %bl.i, ptr %bl3.i133, align 8
-  call fastcc void @chunk(ptr noundef %ls)
+  call fastcc void @chunk(ptr noundef nonnull %ls)
   call fastcc void @leaveblock(ptr noundef %34)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bl.i)
   call fastcc void @leaveblock(ptr noundef nonnull %0)
@@ -33571,7 +33571,7 @@ luaK_reserveregs.exit:                            ; preds = %if.then7, %if.end.i
   br label %if.end17
 
 if.then12:                                        ; preds = %entry
-  tail call fastcc void @luaK_dischargevars(ptr noundef %ls.48.val, ptr noundef %e)
+  tail call fastcc void @luaK_dischargevars(ptr noundef %ls.48.val, ptr noundef nonnull %e)
   %21 = load i32, ptr %e, align 8
   %cmp.i.i17 = icmp eq i32 %21, 12
   br i1 %cmp.i.i17, label %if.then.i.i31, label %freeexp.exit.i
@@ -33631,7 +33631,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %if
   %add.pre-phi.i.i27 = phi i32 [ %add.i.i.i18, %freeexp.exit.i ], [ %.pre3.i.i25, %if.end.i.i.i22 ]
   store i32 %add.pre-phi.i.i27, ptr %freereg.i.i7.i, align 4
   %sub.i = add nsw i32 %add.pre-phi.i.i27, -1
-  tail call fastcc void @exp2reg(ptr noundef nonnull %ls.48.val, ptr noundef %e, i32 noundef %sub.i)
+  tail call fastcc void @exp2reg(ptr noundef nonnull %ls.48.val, ptr noundef nonnull %e, i32 noundef %sub.i)
   br label %if.end13
 
 if.end13:                                         ; preds = %entry, %luaK_exp2nextreg.exit
@@ -33894,7 +33894,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.else.i.i:                                      ; preds = %if.then.i
   %seminfo.i.i = getelementptr inbounds i8, ptr %ls, i64 24
-  %call.i.i = tail call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i.i)
+  %call.i.i = tail call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i.i)
   store i32 %call.i.i, ptr %t.i30, align 8
   br label %if.then4
 
@@ -34032,11 +34032,11 @@ if.then14:                                        ; preds = %if.end11
   br i1 %cmp.i35, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then14
-  %call.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %29, ptr noundef nonnull @.str.153, i32 noundef %sub, ptr noundef nonnull @.str.174)
+  %call.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %29, ptr noundef nonnull @.str.153, i32 noundef range(i32 -65335, 2147483646) %sub, ptr noundef nonnull @.str.174)
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.then14
-  %call4.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %29, ptr noundef nonnull @.str.154, i32 noundef %28, i32 noundef %sub, ptr noundef nonnull @.str.174)
+  %call4.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %29, ptr noundef nonnull @.str.154, i32 noundef %28, i32 noundef range(i32 -65335, 2147483646) %sub, ptr noundef nonnull @.str.174)
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
@@ -34053,7 +34053,7 @@ if.end19:                                         ; preds = %if.end11
 
 if.else:                                          ; preds = %if.end
   tail call fastcc void @checknext(ptr noundef %ls, i32 noundef 61)
-  %call.i71 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e, i32 noundef 0)
+  %call.i71 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e, i32 noundef 0)
   %31 = load i32, ptr %t.i30, align 8
   %cmp.i5977 = icmp eq i32 %31, 44
   br i1 %cmp.i5977, label %if.then.i61.lr.ph, label %explist1.exit
@@ -34081,13 +34081,13 @@ if.then.i.i66:                                    ; preds = %if.then.i61
   br label %while.body.i
 
 if.else.i.i67:                                    ; preds = %if.then.i61
-  %call.i.i69 = call fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo.i.i68)
+  %call.i.i69 = call fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef %seminfo.i.i68)
   store i32 %call.i.i69, ptr %t.i30, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.then.i.i66, %if.else.i.i67
   %34 = load ptr, ptr %fs.i, align 8
-  call fastcc void @luaK_dischargevars(ptr noundef %34, ptr noundef %e)
+  call fastcc void @luaK_dischargevars(ptr noundef %34, ptr noundef nonnull %e)
   %35 = load i32, ptr %e, align 8
   %cmp.i.i = icmp eq i32 %35, 12
   br i1 %cmp.i.i, label %if.then.i.i55, label %freeexp.exit.i
@@ -34146,8 +34146,8 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %if
   %add.pre-phi.i.i52 = phi i32 [ %add.i.i.i43, %freeexp.exit.i ], [ %.pre3.i.i50, %if.end.i.i.i47 ]
   store i32 %add.pre-phi.i.i52, ptr %freereg.i.i7.i, align 4
   %sub.i = add nsw i32 %add.pre-phi.i.i52, -1
-  call fastcc void @exp2reg(ptr noundef nonnull %34, ptr noundef %e, i32 noundef %sub.i)
-  %call.i42 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e, i32 noundef 0)
+  call fastcc void @exp2reg(ptr noundef nonnull %34, ptr noundef nonnull %e, i32 noundef %sub.i)
+  %call.i42 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e, i32 noundef 0)
   %inc.i = add nuw nsw i32 %n.0.i78, 1
   %44 = load i32, ptr %t.i30, align 8
   %cmp.i59 = icmp eq i32 %44, 44
@@ -35366,7 +35366,7 @@ if.then:                                          ; preds = %luaL_addlstring.exi
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end
-  %call.i49 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i49 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %101 = load ptr, ptr %L1.i, align 8
   %102 = load i32, ptr %lvl.i, align 8
   call fastcc void @lua_concat(ptr noundef %101, i32 noundef %102)
@@ -36153,7 +36153,7 @@ if.then.i:                                        ; preds = %if.end
   br label %luaL_addvalue.exit
 
 if.else.i:                                        ; preds = %if.end
-  %call4.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call4.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then5.i
 
@@ -36192,7 +36192,7 @@ if.end.i:                                         ; preds = %lua_insert.exit.i, 
   %30 = load i32, ptr %lvl.i, align 8
   %inc.i = add nsw i32 %30, 1
   store i32 %inc.i, ptr %lvl.i, align 8
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %luaL_addvalue.exit
 
 luaL_addvalue.exit:                               ; preds = %if.then.i, %if.end.i
@@ -38049,7 +38049,7 @@ lua_createtable.exit:                             ; preds = %entry, %luaC_step.e
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   %13 = load ptr, ptr %top.i, align 8
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %13, i64 -32
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.206, i64 noundef 7)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.206, i64 noundef 7)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i3 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i3, align 8
@@ -38186,7 +38186,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 
 lua_pushlstring.exit:                             ; preds = %entry, %luaC_step.exit.i
   %13 = phi ptr [ %incdec.ptr.i, %entry ], [ %.pre, %luaC_step.exit.i ]
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.222, i64 noundef 26)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.222, i64 noundef 26)
   store ptr %call.i, ptr %13, align 8
   %tt.i3 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 4, ptr %tt.i3, align 8
@@ -38207,7 +38207,7 @@ entry:
   %l_G.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G.i.i.i, align 8
   %l_registry.i.i.i = getelementptr inbounds i8, ptr %0, i64 160
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i.i, align 8
@@ -38509,7 +38509,7 @@ aux_close.exit:                                   ; preds = %tofile.exit, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.206, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.206, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i4.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i4.i, align 8
@@ -38710,7 +38710,7 @@ aux_close.exit:                                   ; preds = %if.then, %sw.bb.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.206, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.206, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i4.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i4.i, align 8
@@ -38792,7 +38792,7 @@ if.then2:                                         ; preds = %sw.epilog.i
   %l_G.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %7 = load ptr, ptr %l_G.i.i, align 8
   %l_registry.i.i = getelementptr inbounds i8, ptr %7, i64 160
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i17 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i17, align 8
@@ -39041,7 +39041,7 @@ aux_close.exit:                                   ; preds = %lua_settop.exit, %s
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.206, i64 noundef 7)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.206, i64 noundef 7)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i4.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i4.i, align 8
@@ -39084,12 +39084,12 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %if.then10, %entry
-  %call.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %luaL_prepbuffer.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.cond
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %luaL_prepbuffer.exit
 
 luaL_prepbuffer.exit:                             ; preds = %for.cond, %if.then.i
@@ -39098,7 +39098,7 @@ luaL_prepbuffer.exit:                             ; preds = %for.cond, %if.then.
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %luaL_prepbuffer.exit
-  %call.i8 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i8 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %0 = load ptr, ptr %L1.i, align 8
   %1 = load i32, ptr %lvl.i, align 8
   call fastcc void @lua_concat(ptr noundef %0, i32 noundef %1)
@@ -39174,7 +39174,7 @@ if.else:                                          ; preds = %lor.lhs.false
   %13 = load ptr, ptr %b, align 8
   %add.ptr14 = getelementptr inbounds i8, ptr %13, i64 %sub
   store ptr %add.ptr14, ptr %b, align 8
-  %call.i10 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i10 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %14 = load ptr, ptr %L1.i, align 8
   %15 = load i32, ptr %lvl.i, align 8
   call fastcc void @lua_concat(ptr noundef %14, i32 noundef %15)
@@ -39375,7 +39375,7 @@ luaC_step.exit.i.i:                               ; preds = %if.else27.i.i.i, %i
 
 test_eof.exit:                                    ; preds = %cond.true, %luaC_step.exit.i.i
   %26 = load ptr, ptr %0, align 8
-  %call.i.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef readonly null, i64 noundef 0)
+  %call.i.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef null, i64 noundef 0)
   store ptr %call.i.i, ptr %26, align 8
   %tt.i.i = getelementptr inbounds i8, ptr %26, i64 8
   store i32 4, ptr %tt.i.i, align 8
@@ -39538,12 +39538,12 @@ entry:
 do.body:                                          ; preds = %luaL_prepbuffer.exit, %entry
   %rlen.0 = phi i64 [ 8192, %entry ], [ %spec.select, %luaL_prepbuffer.exit ]
   %n.addr.0 = phi i64 [ %n, %entry ], [ %sub, %luaL_prepbuffer.exit ]
-  %call.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %luaL_prepbuffer.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %luaL_prepbuffer.exit
 
 luaL_prepbuffer.exit:                             ; preds = %do.body, %if.then.i
@@ -39559,7 +39559,7 @@ luaL_prepbuffer.exit:                             ; preds = %do.body, %if.then.i
   br i1 %1, label %do.body, label %do.end, !llvm.loop !132
 
 do.end:                                           ; preds = %luaL_prepbuffer.exit
-  %call.i11 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i11 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %2 = load ptr, ptr %L1.i, align 8
   %3 = load i32, ptr %lvl.i, align 8
   call fastcc void @lua_concat(ptr noundef %2, i32 noundef %3)
@@ -39997,7 +39997,7 @@ luaL_checklstring.exit:                           ; preds = %if.else
   %l_G.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %20 = load ptr, ptr %l_G.i.i.i, align 8
   %l_registry.i.i.i = getelementptr inbounds i8, ptr %20, i64 160
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i15 = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i.i15, align 8
@@ -40168,7 +40168,7 @@ luaL_optlstring.exit:                             ; preds = %luaL_checklstring.e
   %l_G.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %3 = load ptr, ptr %l_G.i.i.i, align 8
   %l_registry.i.i.i = getelementptr inbounds i8, ptr %3, i64 160
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i8 = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i.i8, align 8
@@ -40346,7 +40346,7 @@ lua_touserdata.exit:                              ; preds = %lua_type.exit.i, %s
   %l_G.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %5 = load ptr, ptr %l_G.i.i, align 8
   %l_registry.i.i = getelementptr inbounds i8, ptr %5, i64 160
-  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i10 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 4, ptr %tt.i10, align 8
@@ -40522,7 +40522,7 @@ luaC_step.exit.i:                                 ; preds = %if.else27.i.i, %if.
 
 lua_pushlstring.exit:                             ; preds = %if.then6, %luaC_step.exit.i
   %36 = phi ptr [ %incdec.ptr.i18, %if.then6 ], [ %.pre87, %luaC_step.exit.i ]
-  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.220, i64 noundef 11)
+  %call.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.220, i64 noundef 11)
   store ptr %call.i, ptr %36, align 8
   br label %if.end8
 
@@ -40591,7 +40591,7 @@ luaC_step.exit.i61:                               ; preds = %if.else27.i.i55, %i
 
 lua_pushlstring.exit73:                           ; preds = %if.else7, %luaC_step.exit.i61
   %45 = phi ptr [ %incdec.ptr.i18, %if.else7 ], [ %.pre, %luaC_step.exit.i61 ]
-  %call.i64 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.221, i64 noundef 4)
+  %call.i64 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.221, i64 noundef 4)
   store ptr %call.i64, ptr %45, align 8
   br label %if.end8
 
@@ -40726,7 +40726,7 @@ if.then2:                                         ; preds = %if.then
   %l_G.i.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %3 = load ptr, ptr %l_G.i.i.i, align 8
   %l_registry.i.i.i = getelementptr inbounds i8, ptr %3, i64 160
-  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.199, i64 noundef 5)
+  %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.199, i64 noundef 5)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 4, ptr %tt.i.i, align 8
@@ -41324,12 +41324,12 @@ lor.end:                                          ; preds = %land.lhs.true.i, %l
   br i1 %cmp7, label %lor.end12, label %lor.rhs9
 
 lor.rhs9:                                         ; preds = %lor.end
-  %call.i10 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i10 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i11 = icmp eq i32 %call.i10, 0
   br i1 %tobool.not.i11, label %lor.end12, label %if.then.i12
 
 if.then.i12:                                      ; preds = %lor.rhs9
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end12
 
 lor.end12:                                        ; preds = %if.then.i12, %lor.rhs9, %lor.end
@@ -41342,7 +41342,7 @@ lor.end12:                                        ; preds = %if.then.i12, %lor.r
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !135
 
 for.end:                                          ; preds = %lor.end12, %entry
-  %call.i14 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i14 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %5 = load ptr, ptr %L1.i, align 8
   %6 = load i32, ptr %lvl.i, align 8
   call fastcc void @lua_concat(ptr noundef %5, i32 noundef %6)
@@ -41420,12 +41420,12 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp5, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then
-  %call.i31 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i31 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i32 = icmp eq i32 %call.i31, 0
   br i1 %tobool.not.i32, label %lor.end, label %if.then.i33
 
 if.then.i33:                                      ; preds = %lor.rhs
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end
 
 lor.end:                                          ; preds = %if.then.i33, %lor.rhs, %if.then
@@ -41449,12 +41449,12 @@ if.then14:                                        ; preds = %if.else
   br i1 %cmp19, label %lor.end24, label %lor.rhs21
 
 lor.rhs21:                                        ; preds = %if.then14
-  %call.i35 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i35 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i36 = icmp eq i32 %call.i35, 0
   br i1 %tobool.not.i36, label %lor.end24, label %if.then.i37
 
 if.then.i37:                                      ; preds = %lor.rhs21
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end24
 
 lor.end24:                                        ; preds = %if.then.i37, %lor.rhs21, %if.then14
@@ -41597,17 +41597,17 @@ scanformat.exit:                                  ; preds = %if.end49.i
   ]
 
 sw.bb:                                            ; preds = %scanformat.exit
-  %call.i45 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef %inc)
+  %call.i45 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc)
   %cmp.i = fcmp oeq double %call.i45, 0.000000e+00
   br i1 %cmp.i, label %land.lhs.true.i, label %luaL_checknumber.exit
 
 land.lhs.true.i:                                  ; preds = %sw.bb
-  %call1.i = call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef %inc)
+  %call1.i = call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc)
   %tobool.not.i47 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i47, label %if.then.i48, label %luaL_checknumber.exit
 
 if.then.i48:                                      ; preds = %land.lhs.true.i
-  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checknumber.exit:                            ; preds = %sw.bb, %land.lhs.true.i
@@ -41624,17 +41624,17 @@ sw.bb43:                                          ; preds = %scanformat.exit, %s
   store i8 %34, ptr %33, align 1
   %arrayidx7.i = getelementptr i8, ptr %33, i64 1
   store i8 0, ptr %arrayidx7.i, align 1
-  %call.i52 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef %inc)
+  %call.i52 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc)
   %cmp.i53 = fcmp oeq double %call.i52, 0.000000e+00
   br i1 %cmp.i53, label %land.lhs.true.i55, label %luaL_checknumber.exit60
 
 land.lhs.true.i55:                                ; preds = %sw.bb43
-  %call1.i56 = call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef %inc)
+  %call1.i56 = call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc)
   %tobool.not.i57 = icmp eq i32 %call1.i56, 0
   br i1 %tobool.not.i57, label %if.then.i58, label %luaL_checknumber.exit60
 
 if.then.i58:                                      ; preds = %land.lhs.true.i55
-  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checknumber.exit60:                          ; preds = %sw.bb43, %land.lhs.true.i55
@@ -41651,17 +41651,17 @@ sw.bb50:                                          ; preds = %scanformat.exit, %s
   store i8 %36, ptr %35, align 1
   %arrayidx7.i63 = getelementptr i8, ptr %35, i64 1
   store i8 0, ptr %arrayidx7.i63, align 1
-  %call.i64 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef %inc)
+  %call.i64 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc)
   %cmp.i65 = fcmp oeq double %call.i64, 0.000000e+00
   br i1 %cmp.i65, label %land.lhs.true.i67, label %luaL_checknumber.exit72
 
 land.lhs.true.i67:                                ; preds = %sw.bb50
-  %call1.i68 = call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef %inc)
+  %call1.i68 = call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc)
   %tobool.not.i69 = icmp eq i32 %call1.i68, 0
   br i1 %tobool.not.i69, label %if.then.i70, label %luaL_checknumber.exit72
 
 if.then.i70:                                      ; preds = %land.lhs.true.i67
-  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checknumber.exit72:                          ; preds = %sw.bb50, %land.lhs.true.i67
@@ -41670,17 +41670,17 @@ luaL_checknumber.exit72:                          ; preds = %sw.bb50, %land.lhs.
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %scanformat.exit, %scanformat.exit, %scanformat.exit, %scanformat.exit, %scanformat.exit
-  %call.i73 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef %inc)
+  %call.i73 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc)
   %cmp.i74 = fcmp oeq double %call.i73, 0.000000e+00
   br i1 %cmp.i74, label %land.lhs.true.i76, label %luaL_checknumber.exit81
 
 land.lhs.true.i76:                                ; preds = %sw.bb57
-  %call1.i77 = call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef %inc)
+  %call1.i77 = call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc)
   %tobool.not.i78 = icmp eq i32 %call1.i77, 0
   br i1 %tobool.not.i78, label %if.then.i79, label %luaL_checknumber.exit81
 
 if.then.i79:                                      ; preds = %land.lhs.true.i76
-  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.24)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc, ptr noundef nonnull @.str.24)
   unreachable
 
 luaL_checknumber.exit81:                          ; preds = %sw.bb57, %land.lhs.true.i76
@@ -41689,12 +41689,12 @@ luaL_checknumber.exit81:                          ; preds = %sw.bb57, %land.lhs.
 
 sw.bb62:                                          ; preds = %scanformat.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l.i)
-  %call.i.i = call fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull %l.i)
+  %call.i.i = call fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc, ptr noundef nonnull %l.i)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %luaL_checklstring.exit.i
 
 if.then.i.i:                                      ; preds = %sw.bb62
-  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit.i:                         ; preds = %sw.bb62
@@ -41703,12 +41703,12 @@ luaL_checklstring.exit.i:                         ; preds = %sw.bb62
   br i1 %cmp.i83, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %luaL_checklstring.exit.i
-  %call.i25.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i25.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i26.i = icmp eq i32 %call.i25.i, 0
   br i1 %tobool.not.i26.i, label %lor.end.i, label %if.then.i27.i
 
 if.then.i27.i:                                    ; preds = %lor.rhs.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %if.then.i27.i, %lor.rhs.i, %luaL_checklstring.exit.i
@@ -41739,12 +41739,12 @@ sw.bb.i:                                          ; preds = %while.body.i85, %wh
   br i1 %cmp8.i, label %lor.end13.i, label %lor.rhs10.i
 
 lor.rhs10.i:                                      ; preds = %sw.bb.i
-  %call.i28.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i28.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i29.i = icmp eq i32 %call.i28.i, 0
   br i1 %tobool.not.i29.i, label %lor.end13.i, label %if.then.i30.i
 
 if.then.i30.i:                                    ; preds = %lor.rhs10.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end13.i
 
 lor.end13.i:                                      ; preds = %if.then.i30.i, %lor.rhs10.i, %sw.bb.i
@@ -41757,7 +41757,7 @@ lor.end13.i:                                      ; preds = %if.then.i30.i, %lor
   br i1 %cmp21.i, label %sw.epilog.sink.split.i, label %lor.rhs23.i
 
 lor.rhs23.i:                                      ; preds = %lor.end13.i
-  %call.i33.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i33.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i34.i = icmp eq i32 %call.i33.i, 0
   br i1 %tobool.not.i34.i, label %sw.epilog.sink.split.i, label %sw.epilog.sink.split.sink.split.i
 
@@ -41770,12 +41770,12 @@ while.body.i.i:                                   ; preds = %while.body.i85, %lo
   br i1 %cmp.i.i, label %lor.end.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
-  %call.i.i.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i.i.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %lor.end.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.rhs.i.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end.i.i
 
 lor.end.i.i:                                      ; preds = %if.then.i.i.i, %lor.rhs.i.i, %while.body.i.i
@@ -41797,12 +41797,12 @@ while.body.i40.i:                                 ; preds = %while.body.i85, %lo
   br i1 %cmp.i44.i, label %lor.end.i49.i, label %lor.rhs.i45.i
 
 lor.rhs.i45.i:                                    ; preds = %while.body.i40.i
-  %call.i.i46.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i.i46.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i.i47.i = icmp eq i32 %call.i.i46.i, 0
   br i1 %tobool.not.i.i47.i, label %lor.end.i49.i, label %if.then.i.i48.i
 
 if.then.i.i48.i:                                  ; preds = %lor.rhs.i45.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end.i49.i
 
 lor.end.i49.i:                                    ; preds = %if.then.i.i48.i, %lor.rhs.i45.i, %while.body.i40.i
@@ -41821,12 +41821,12 @@ sw.default.i:                                     ; preds = %while.body.i85
   br i1 %cmp36.i, label %sw.epilog.sink.split.i, label %lor.rhs38.i
 
 lor.rhs38.i:                                      ; preds = %sw.default.i
-  %call.i54.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i54.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i55.i = icmp eq i32 %call.i54.i, 0
   br i1 %tobool.not.i55.i, label %sw.epilog.sink.split.i, label %sw.epilog.sink.split.sink.split.i
 
 sw.epilog.sink.split.sink.split.i:                ; preds = %lor.rhs38.i, %lor.rhs23.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.epilog.sink.split.sink.split.i, %lor.rhs38.i, %sw.default.i, %lor.rhs23.i, %lor.end13.i
@@ -41851,12 +41851,12 @@ while.end.i86:                                    ; preds = %sw.epilog.i, %lor.e
   br i1 %cmp50.i, label %addquoted.exit, label %lor.rhs52.i
 
 lor.rhs52.i:                                      ; preds = %while.end.i86
-  %call.i59.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i59.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i60.i = icmp eq i32 %call.i59.i, 0
   br i1 %tobool.not.i60.i, label %addquoted.exit, label %if.then.i61.i
 
 if.then.i61.i:                                    ; preds = %lor.rhs52.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %addquoted.exit
 
 addquoted.exit:                                   ; preds = %while.end.i86, %lor.rhs52.i, %if.then.i61.i
@@ -41989,7 +41989,7 @@ if.then.i102:                                     ; preds = %lua_pushvalue.exit
   br label %luaL_addvalue.exit
 
 if.else.i:                                        ; preds = %lua_pushvalue.exit
-  %call4.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call4.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i105 = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i105, label %if.end.i108, label %if.then5.i
 
@@ -42027,7 +42027,7 @@ if.end.i108:                                      ; preds = %lua_insert.exit.i, 
   %86 = load i32, ptr %lvl.i, align 8
   %inc.i = add nsw i32 %86, 1
   store i32 %inc.i, ptr %lvl.i, align 8
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %luaL_addvalue.exit
 
 luaL_addvalue.exit:                               ; preds = %if.then.i102, %if.end.i108
@@ -42142,7 +42142,7 @@ if.then.i.i116:                                   ; preds = %luaC_step.exit.i.i,
   %102 = load i32, ptr %lvl.i, align 8
   %inc.i138 = add nsw i32 %102, 1
   store i32 %inc.i138, ptr %lvl.i, align 8
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   %.pre = load ptr, ptr %b, align 8
   br label %lor.end.i117
 
@@ -42157,7 +42157,7 @@ lor.end.i117:                                     ; preds = %if.then.i.i116, %wh
   br i1 %tobool.not.i119, label %while.cond.backedge, label %while.body.i111, !llvm.loop !124
 
 while.end:                                        ; preds = %while.cond.backedge, %luaL_checklstring.exit
-  %call.i121 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i121 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %105 = load ptr, ptr %L1.i, align 8
   %106 = load i32, ptr %lvl.i, align 8
   call fastcc void @lua_concat(ptr noundef %105, i32 noundef %106)
@@ -42491,12 +42491,12 @@ if.then.i.i58:                                    ; preds = %for.body.i.i
   br i1 %cmp3.i.i, label %lor.end.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i.i58
-  %call.i.i.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i.i.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %lor.end.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.rhs.i.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end.i.i
 
 lor.end.i.i:                                      ; preds = %if.then.i.i.i, %lor.rhs.i.i, %if.then.i.i58
@@ -42526,12 +42526,12 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
   br i1 %cmp19.i.i, label %lor.end24.i.i, label %lor.rhs21.i.i
 
 lor.rhs21.i.i:                                    ; preds = %if.then14.i.i
-  %call.i27.i.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i27.i.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i28.i.i = icmp eq i32 %call.i27.i.i, 0
   br i1 %tobool.not.i28.i.i, label %lor.end24.i.i, label %if.then.i29.i.i
 
 if.then.i29.i.i:                                  ; preds = %lor.rhs21.i.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end24.i.i
 
 lor.end24.i.i:                                    ; preds = %if.then.i29.i.i, %lor.rhs21.i.i, %if.then14.i.i
@@ -42558,12 +42558,12 @@ while.body.i.i.i:                                 ; preds = %if.then34.i.i, %lor
   br i1 %cmp.i.i.i, label %lor.end.i.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %while.body.i.i.i
-  %call.i.i.i.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i.i.i.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %lor.end.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end.i.i.i
 
 lor.end.i.i.i:                                    ; preds = %if.then.i.i.i.i, %lor.rhs.i.i.i, %while.body.i.i.i
@@ -42579,7 +42579,7 @@ lor.end.i.i.i:                                    ; preds = %if.then.i.i.i.i, %l
 if.else35.i.i:                                    ; preds = %if.else29.i.i
   %conv31.i.i = sext i8 %35 to i32
   %sub.i.i = add nsw i32 %conv31.i.i, -49
-  call fastcc void @push_onecapture(ptr noundef readonly %ms, i32 noundef %sub.i.i, ptr noundef %src.0, ptr noundef nonnull %call20)
+  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %sub.i.i, ptr noundef %src.0, ptr noundef nonnull %call20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vl.i.i.i)
   %44 = load ptr, ptr %L1.i, align 8
   %call.i33.i.i = call fastcc ptr @lua_tolstring(ptr noundef %44, i32 noundef -1, ptr noundef nonnull %vl.i.i.i)
@@ -42603,7 +42603,7 @@ if.then.i35.i.i:                                  ; preds = %if.else35.i.i
   br label %luaL_addvalue.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.else35.i.i
-  %call4.i.i.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call4.i.i.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i37.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %tobool.not.i37.i.i, label %if.end.i.i.i, label %if.then5.i.i.i
 
@@ -42641,7 +42641,7 @@ if.end.i.i.i:                                     ; preds = %lua_insert.exit.i.i
   %55 = load i32, ptr %lvl.i, align 8
   %inc.i.i.i = add nsw i32 %55, 1
   store i32 %inc.i.i.i, ptr %lvl.i, align 8
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %luaL_addvalue.exit.i.i
 
 luaL_addvalue.exit.i.i:                           ; preds = %if.end.i.i.i, %if.then.i35.i.i
@@ -42668,7 +42668,7 @@ sw.bb2.i:                                         ; preds = %lua_type.exit.i47
   %59 = load ptr, ptr %top.i.i.i43, align 8
   %incdec.ptr.i30.i = getelementptr inbounds i8, ptr %59, i64 16
   store ptr %incdec.ptr.i30.i, ptr %top.i.i.i43, align 8
-  %call3.i51 = call fastcc i32 @push_captures(ptr noundef readonly %ms, ptr noundef %src.0, ptr noundef nonnull %call20)
+  %call3.i51 = call fastcc i32 @push_captures(ptr noundef nonnull readonly %ms, ptr noundef %src.0, ptr noundef nonnull %call20)
   %60 = load ptr, ptr %top.i.i.i43, align 8
   %narrow.i.i = xor i32 %call3.i51, -1
   %idx.neg.i.i = sext i32 %narrow.i.i to i64
@@ -42677,7 +42677,7 @@ sw.bb2.i:                                         ; preds = %lua_type.exit.i47
   br label %sw.epilog.i
 
 sw.bb4.i:                                         ; preds = %lua_type.exit.i47
-  call fastcc void @push_onecapture(ptr noundef readonly %ms, i32 noundef 0, ptr noundef %src.0, ptr noundef nonnull %call20)
+  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef 0, ptr noundef %src.0, ptr noundef nonnull %call20)
   %61 = load ptr, ptr %base.i.i.i41, align 8
   %add.ptr.i.i34.i = getelementptr i8, ptr %61, i64 32
   %62 = load ptr, ptr %top.i.i.i43, align 8
@@ -42835,7 +42835,7 @@ if.then.i75.i:                                    ; preds = %if.end12.i
   br label %luaL_addvalue.exit.i
 
 if.else.i78.i:                                    ; preds = %if.end12.i
-  %call4.i.i = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call4.i.i = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i.i49 = icmp eq i32 %call4.i.i, 0
   br i1 %tobool.not.i.i49, label %if.end.i.i, label %if.then5.i.i
 
@@ -42873,7 +42873,7 @@ if.end.i.i:                                       ; preds = %lua_insert.exit.i.i
   %93 = load i32, ptr %lvl.i, align 8
   %inc.i83.i = add nsw i32 %93, 1
   store i32 %inc.i83.i, ptr %lvl.i, align 8
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %luaL_addvalue.exit.i
 
 luaL_addvalue.exit.i:                             ; preds = %if.end.i.i, %if.then.i75.i
@@ -42896,12 +42896,12 @@ if.then29:                                        ; preds = %if.else
   br i1 %cmp32, label %lor.end37, label %lor.rhs34
 
 lor.rhs34:                                        ; preds = %if.then29
-  %call.i59 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i59 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i60 = icmp eq i32 %call.i59, 0
   br i1 %tobool.not.i60, label %lor.end37, label %if.then.i61
 
 if.then.i61:                                      ; preds = %lor.rhs34
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end37
 
 lor.end37:                                        ; preds = %if.then.i61, %lor.rhs34, %if.then29
@@ -42937,12 +42937,12 @@ while.body.i:                                     ; preds = %while.end, %lor.end
   br i1 %cmp.i64, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %while.body.i
-  %call.i.i65 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i.i65 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i.i66 = icmp eq i32 %call.i.i65, 0
   br i1 %tobool.not.i.i66, label %lor.end.i, label %if.then.i.i67
 
 if.then.i.i67:                                    ; preds = %lor.rhs.i
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %if.then.i.i67, %lor.rhs.i, %while.body.i
@@ -42956,7 +42956,7 @@ lor.end.i:                                        ; preds = %if.then.i.i67, %lor
   br i1 %tobool.not.i68, label %luaL_addlstring.exit, label %while.body.i, !llvm.loop !124
 
 luaL_addlstring.exit:                             ; preds = %lor.end.i, %while.end
-  %call.i69 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i69 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %102 = load ptr, ptr %L1.i, align 8
   %103 = load i32, ptr %lvl.i, align 8
   call fastcc void @lua_concat(ptr noundef %102, i32 noundef %103)
@@ -43006,12 +43006,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %lo
   br i1 %cmp1, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %for.body
-  %call.i4 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i4 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i5 = icmp eq i32 %call.i4, 0
   br i1 %tobool.not.i5, label %lor.end, label %if.then.i6
 
 if.then.i6:                                       ; preds = %lor.rhs
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end
 
 lor.end:                                          ; preds = %if.then.i6, %lor.rhs, %for.body
@@ -43030,7 +43030,7 @@ lor.end:                                          ; preds = %if.then.i6, %lor.rh
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !141
 
 for.end:                                          ; preds = %lor.end, %luaL_checklstring.exit
-  %call.i8 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i8 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %5 = load ptr, ptr %L1.i, align 8
   %6 = load i32, ptr %lvl.i, align 8
   call fastcc void @lua_concat(ptr noundef %5, i32 noundef %6)
@@ -43564,7 +43564,7 @@ luaL_addlstring.exit:                             ; preds = %lor.end.i, %while.b
 while.end:                                        ; preds = %luaL_addlstring.exit, %while.body.lr.ph, %luaL_checkinteger.exit.thread, %luaL_checkinteger.exit
   %lvl.i87 = phi ptr [ %lvl.i84, %luaL_checkinteger.exit.thread ], [ %lvl.i, %luaL_checkinteger.exit ], [ %lvl.i, %while.body.lr.ph ], [ %lvl.i, %luaL_addlstring.exit ]
   %L1.i86 = phi ptr [ %L1.i82, %luaL_checkinteger.exit.thread ], [ %L1.i, %luaL_checkinteger.exit ], [ %L1.i, %while.body.lr.ph ], [ %L1.i, %luaL_addlstring.exit ]
-  %call.i9 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i9 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %82 = load ptr, ptr %L1.i86, align 8
   %83 = load i32, ptr %lvl.i87, align 8
   call fastcc void @lua_concat(ptr noundef %82, i32 noundef %83)
@@ -43941,7 +43941,7 @@ luaC_step.exit.i55:                               ; preds = %if.else27.i.i49, %i
 
 lua_pushlstring.exit67:                           ; preds = %if.else, %luaC_step.exit.i55
   %53 = load ptr, ptr %top.i.i.i, align 8
-  %call.i58 = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly @.str.7, i64 noundef 0)
+  %call.i58 = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.7, i64 noundef 0)
   store ptr %call.i58, ptr %53, align 8
   br label %if.end11
 
@@ -43990,12 +43990,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %lo
   br i1 %cmp1, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %for.body
-  %call.i4 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i4 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %tobool.not.i5 = icmp eq i32 %call.i4, 0
   br i1 %tobool.not.i5, label %lor.end, label %if.then.i6
 
 if.then.i6:                                       ; preds = %lor.rhs
-  call fastcc void @adjuststack(ptr noundef %b)
+  call fastcc void @adjuststack(ptr noundef nonnull %b)
   br label %lor.end
 
 lor.end:                                          ; preds = %if.then.i6, %lor.rhs, %for.body
@@ -44014,7 +44014,7 @@ lor.end:                                          ; preds = %if.then.i6, %lor.rh
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !144
 
 for.end:                                          ; preds = %lor.end, %luaL_checklstring.exit
-  %call.i8 = call fastcc i32 @emptybuffer(ptr noundef %b)
+  %call.i8 = call fastcc i32 @emptybuffer(ptr noundef nonnull %b)
   %5 = load ptr, ptr %L1.i, align 8
   %6 = load i32, ptr %lvl.i, align 8
   call fastcc void @lua_concat(ptr noundef %5, i32 noundef %6)
@@ -44401,7 +44401,7 @@ if.end.i:                                         ; preds = %if.then
   store i64 -2, ptr %len.i, align 8
   %add.i = add nsw i32 %4, 1
   store i32 %add.i, ptr %level.i.i, align 8
-  %call6.i = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef %s.addr.0, ptr noundef nonnull %add.ptr3)
+  %call6.i = tail call fastcc ptr @match(ptr noundef nonnull %ms, ptr noundef %s.addr.0, ptr noundef nonnull %add.ptr3)
   %cmp7.i = icmp eq ptr %call6.i, null
   br i1 %cmp7.i, label %if.then9.i, label %return
 
@@ -44428,7 +44428,7 @@ if.end.i68:                                       ; preds = %if.else
   store i64 -1, ptr %len.i72, align 8
   %add.i73 = add nsw i32 %4, 1
   store i32 %add.i73, ptr %level.i.i, align 8
-  %call6.i74 = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef %s.addr.0, ptr noundef nonnull %add.ptr)
+  %call6.i74 = tail call fastcc ptr @match(ptr noundef nonnull %ms, ptr noundef %s.addr.0, ptr noundef nonnull %add.ptr)
   %cmp7.i75 = icmp eq ptr %call6.i74, null
   br i1 %cmp7.i75, label %if.then9.i76, label %return
 
@@ -44473,7 +44473,7 @@ capture_to_close.exit:                            ; preds = %for.body.i
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %len.i86 = getelementptr inbounds i8, ptr %arrayidx.i85, i64 8
   store i64 %sub.ptr.sub.i, ptr %len.i86, align 8
-  %call4.i = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef %s.addr.0, ptr noundef nonnull %add.ptr7)
+  %call4.i = tail call fastcc ptr @match(ptr noundef nonnull %ms, ptr noundef %s.addr.0, ptr noundef nonnull %add.ptr7)
   %cmp.i87 = icmp eq ptr %call4.i, null
   br i1 %cmp.i87, label %if.then.i89, label %return
 
@@ -44634,7 +44634,7 @@ while.body.i110:                                  ; preds = %if.end39.i, %while.
 
 if.then8.i:                                       ; preds = %while.body.i110
   %conv10.i = zext i8 %35 to i32
-  %call.i116 = tail call fastcc i32 @match_class(i32 noundef %cond, i32 noundef %conv10.i)
+  %call.i116 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %cond, i32 noundef %conv10.i)
   %tobool.not.i = icmp eq i32 %call.i116, 0
   br i1 %tobool.not.i, label %if.end39.i, label %matchbracketclass.exit
 
@@ -44688,7 +44688,7 @@ while.body.i126:                                  ; preds = %lor.lhs.false, %if.
 
 if.then8.i148:                                    ; preds = %while.body.i126
   %conv10.i149 = zext i8 %39 to i32
-  %call.i150 = tail call fastcc i32 @match_class(i32 noundef %conv36, i32 noundef %conv10.i149)
+  %call.i150 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv36, i32 noundef %conv10.i149)
   %tobool.not.i151 = icmp eq i32 %call.i150, 0
   br i1 %tobool.not.i151, label %if.end39.i136, label %matchbracketclass.exit152
 
@@ -44878,7 +44878,7 @@ land.rhs:                                         ; preds = %classend.exit196
 sw.bb1.i:                                         ; preds = %land.rhs
   %59 = load i8, ptr %incdec.ptr.i164413, align 1
   %conv2.i = zext i8 %59 to i32
-  %call.i203 = tail call fastcc i32 @match_class(i32 noundef %conv77, i32 noundef %conv2.i)
+  %call.i203 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv77, i32 noundef %conv2.i)
   %60 = icmp ne i32 %call.i203, 0
   br label %land.end
 
@@ -44903,7 +44903,7 @@ while.body.i.i:                                   ; preds = %sw.bb3.i197, %if.en
 
 if.then8.i.i:                                     ; preds = %while.body.i.i
   %conv10.i.i = zext i8 %63 to i32
-  %call.i.i201 = tail call fastcc i32 @match_class(i32 noundef %conv77, i32 noundef %conv10.i.i)
+  %call.i.i201 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv77, i32 noundef %conv10.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i201, 0
   br i1 %tobool.not.i.i, label %if.end39.i.i, label %land.end
 
@@ -44951,7 +44951,7 @@ land.end:                                         ; preds = %if.end39.i.i, %if.e
 
 for.cond.i.preheader:                             ; preds = %land.end
   %add.ptr.i240 = getelementptr inbounds i8, ptr %retval.0.i181, i64 1
-  %call.i241493 = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef %s.addr.0, ptr noundef nonnull %add.ptr.i240)
+  %call.i241493 = tail call fastcc ptr @match(ptr noundef nonnull %ms, ptr noundef %s.addr.0, ptr noundef nonnull %add.ptr.i240)
   %cmp.not.i242494 = icmp eq ptr %call.i241493, null
   br i1 %cmp.not.i242494, label %if.else.i244.lr.ph, label %return
 
@@ -44996,7 +44996,7 @@ land.rhs.i:                                       ; preds = %land.rhs.i.lr.ph, %
 sw.bb1.i295:                                      ; preds = %land.rhs.i
   %69 = load i8, ptr %incdec.ptr.i164413, align 1
   %conv2.i297 = zext i8 %69 to i32
-  %call.i298 = tail call fastcc i32 @match_class(i32 noundef %conv.i, i32 noundef %conv2.i297)
+  %call.i298 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i, i32 noundef %conv2.i297)
   br label %singlematch.exit303
 
 sw.bb3.i256:                                      ; preds = %land.rhs.i
@@ -45019,7 +45019,7 @@ while.body.i.i269:                                ; preds = %sw.bb3.i256, %if.en
 
 if.then8.i.i291:                                  ; preds = %while.body.i.i269
   %conv10.i.i292 = zext i8 %72 to i32
-  %call.i.i293 = tail call fastcc i32 @match_class(i32 noundef %conv.i, i32 noundef %conv10.i.i292)
+  %call.i.i293 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i, i32 noundef %conv10.i.i292)
   %tobool.not.i.i294 = icmp eq i32 %call.i.i293, 0
   br i1 %tobool.not.i.i294, label %if.end39.i.i279, label %matchbracketclass.exit.i264
 
@@ -45090,7 +45090,7 @@ while.cond2.i:                                    ; preds = %while.body5.i
 while.body5.i:                                    ; preds = %while.body5.i.lr.ph, %while.cond2.i
   %i.1.i513 = phi i64 [ %i.0.i.lcssa598, %while.body5.i.lr.ph ], [ %dec.i211, %while.cond2.i ]
   %add.ptr6.i = getelementptr inbounds i8, ptr %s.addr.0, i64 %i.1.i513
-  %call8.i = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef %add.ptr6.i, ptr noundef nonnull %add.ptr7.i)
+  %call8.i = tail call fastcc ptr @match(ptr noundef nonnull %ms, ptr noundef %add.ptr6.i, ptr noundef nonnull %add.ptr7.i)
   %tobool9.not.i = icmp eq ptr %call8.i, null
   br i1 %tobool9.not.i, label %while.cond2.i, label %return
 
@@ -45120,7 +45120,7 @@ land.rhs.i233:                                    ; preds = %land.rhs.i233.lr.ph
 sw.bb1.i343:                                      ; preds = %land.rhs.i233
   %75 = load i8, ptr %incdec.ptr.i164413, align 1
   %conv2.i345 = zext i8 %75 to i32
-  %call.i346 = tail call fastcc i32 @match_class(i32 noundef %conv.i234, i32 noundef %conv2.i345)
+  %call.i346 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i234, i32 noundef %conv2.i345)
   br label %singlematch.exit351
 
 sw.bb3.i304:                                      ; preds = %land.rhs.i233
@@ -45143,7 +45143,7 @@ while.body.i.i317:                                ; preds = %sw.bb3.i304, %if.en
 
 if.then8.i.i339:                                  ; preds = %while.body.i.i317
   %conv10.i.i340 = zext i8 %78 to i32
-  %call.i.i341 = tail call fastcc i32 @match_class(i32 noundef %conv.i234, i32 noundef %conv10.i.i340)
+  %call.i.i341 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i234, i32 noundef %conv10.i.i340)
   %tobool.not.i.i342 = icmp eq i32 %call.i.i341, 0
   br i1 %tobool.not.i.i342, label %if.end39.i.i327, label %matchbracketclass.exit.i312
 
@@ -45214,7 +45214,7 @@ while.cond2.i222:                                 ; preds = %while.body5.i226
 while.body5.i226:                                 ; preds = %while.body5.i226.lr.ph, %while.cond2.i222
   %i.1.i223504 = phi i64 [ %i.0.i217.lcssa601, %while.body5.i226.lr.ph ], [ %dec.i232, %while.cond2.i222 ]
   %add.ptr6.i227 = getelementptr inbounds i8, ptr %add.ptr96, i64 %i.1.i223504
-  %call8.i229 = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef nonnull %add.ptr6.i227, ptr noundef nonnull %add.ptr7.i228)
+  %call8.i229 = tail call fastcc ptr @match(ptr noundef nonnull %ms, ptr noundef nonnull %add.ptr6.i227, ptr noundef nonnull %add.ptr7.i228)
   %tobool9.not.i230 = icmp eq ptr %call8.i229, null
   br i1 %tobool9.not.i230, label %while.cond2.i222, label %return
 
@@ -45237,7 +45237,7 @@ land.lhs.true.i246:                               ; preds = %if.else.i244
 sw.bb1.i391:                                      ; preds = %land.lhs.true.i246
   %83 = load i8, ptr %incdec.ptr.i164413, align 1
   %conv2.i393 = zext i8 %83 to i32
-  %call.i394 = tail call fastcc i32 @match_class(i32 noundef %conv.i247, i32 noundef %conv2.i393)
+  %call.i394 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i247, i32 noundef %conv2.i393)
   br label %singlematch.exit399
 
 sw.bb3.i352:                                      ; preds = %land.lhs.true.i246
@@ -45260,7 +45260,7 @@ while.body.i.i365:                                ; preds = %sw.bb3.i352, %if.en
 
 if.then8.i.i387:                                  ; preds = %while.body.i.i365
   %conv10.i.i388 = zext i8 %86 to i32
-  %call.i.i389 = tail call fastcc i32 @match_class(i32 noundef %conv.i247, i32 noundef %conv10.i.i388)
+  %call.i.i389 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i247, i32 noundef %conv10.i.i388)
   %tobool.not.i.i390 = icmp eq i32 %call.i.i389, 0
   br i1 %tobool.not.i.i390, label %if.end39.i.i375, label %matchbracketclass.exit.i360
 
@@ -45309,7 +45309,7 @@ singlematch.exit399:                              ; preds = %sw.bb1.i391, %match
 
 if.then3.i:                                       ; preds = %land.lhs.true.i246, %singlematch.exit399
   %incdec.ptr.i249 = getelementptr inbounds i8, ptr %s.addr.0.i495, i64 1
-  %call.i241 = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i249, ptr noundef nonnull %add.ptr.i240)
+  %call.i241 = tail call fastcc ptr @match(ptr noundef nonnull %ms, ptr noundef nonnull %incdec.ptr.i249, ptr noundef nonnull %add.ptr.i240)
   %cmp.not.i242 = icmp eq ptr %call.i241, null
   br i1 %cmp.not.i242, label %if.else.i244, label %return
 
@@ -46591,18 +46591,18 @@ barg.exit:                                        ; preds = %luaO_str2d.exit.thr
 for.body:                                         ; preds = %barg.exit, %barg.exit18
   %b.026 = phi i32 [ %and, %barg.exit18 ], [ %conv.i, %barg.exit ]
   %i.025 = phi i32 [ %dec, %barg.exit18 ], [ %conv.i8, %barg.exit ]
-  %call.i9 = tail call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef %i.025)
+  %call.i9 = tail call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef range(i32 1, -2147483648) %i.025)
   %add.i10 = fadd double %call.i9, 0x4338000000000000
   %cmp.i11 = fcmp oeq double %add.i10, 0.000000e+00
   br i1 %cmp.i11, label %land.lhs.true.i13, label %barg.exit18
 
 land.lhs.true.i13:                                ; preds = %for.body
-  %call1.i14 = tail call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef %i.025)
+  %call1.i14 = tail call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef range(i32 1, -2147483648) %i.025)
   %tobool.not.i15 = icmp eq i32 %call1.i14, 0
   br i1 %tobool.not.i15, label %if.then.i16, label %barg.exit18
 
 if.then.i16:                                      ; preds = %land.lhs.true.i13
-  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %i.025, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef range(i32 1, -2147483648) %i.025, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit18:                                      ; preds = %for.body, %land.lhs.true.i13
@@ -46732,18 +46732,18 @@ barg.exit:                                        ; preds = %luaO_str2d.exit.thr
 for.body:                                         ; preds = %barg.exit, %barg.exit18
   %b.026 = phi i32 [ %or, %barg.exit18 ], [ %conv.i, %barg.exit ]
   %i.025 = phi i32 [ %dec, %barg.exit18 ], [ %conv.i8, %barg.exit ]
-  %call.i9 = tail call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef %i.025)
+  %call.i9 = tail call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef range(i32 1, -2147483648) %i.025)
   %add.i10 = fadd double %call.i9, 0x4338000000000000
   %cmp.i11 = fcmp oeq double %add.i10, 0.000000e+00
   br i1 %cmp.i11, label %land.lhs.true.i13, label %barg.exit18
 
 land.lhs.true.i13:                                ; preds = %for.body
-  %call1.i14 = tail call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef %i.025)
+  %call1.i14 = tail call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef range(i32 1, -2147483648) %i.025)
   %tobool.not.i15 = icmp eq i32 %call1.i14, 0
   br i1 %tobool.not.i15, label %if.then.i16, label %barg.exit18
 
 if.then.i16:                                      ; preds = %land.lhs.true.i13
-  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %i.025, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef range(i32 1, -2147483648) %i.025, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit18:                                      ; preds = %for.body, %land.lhs.true.i13
@@ -46873,18 +46873,18 @@ barg.exit:                                        ; preds = %luaO_str2d.exit.thr
 for.body:                                         ; preds = %barg.exit, %barg.exit18
   %b.026 = phi i32 [ %xor, %barg.exit18 ], [ %conv.i, %barg.exit ]
   %i.025 = phi i32 [ %dec, %barg.exit18 ], [ %conv.i8, %barg.exit ]
-  %call.i9 = tail call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef %i.025)
+  %call.i9 = tail call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef range(i32 1, -2147483648) %i.025)
   %add.i10 = fadd double %call.i9, 0x4338000000000000
   %cmp.i11 = fcmp oeq double %add.i10, 0.000000e+00
   br i1 %cmp.i11, label %land.lhs.true.i13, label %barg.exit18
 
 land.lhs.true.i13:                                ; preds = %for.body
-  %call1.i14 = tail call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef %i.025)
+  %call1.i14 = tail call fastcc i32 @lua_isnumber(ptr noundef %L, i32 noundef range(i32 1, -2147483648) %i.025)
   %tobool.not.i15 = icmp eq i32 %call1.i14, 0
   br i1 %tobool.not.i15, label %if.then.i16, label %barg.exit18
 
 if.then.i16:                                      ; preds = %land.lhs.true.i13
-  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %i.025, ptr noundef nonnull @.str.24)
+  tail call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef range(i32 1, -2147483648) %i.025, ptr noundef nonnull @.str.24)
   unreachable
 
 barg.exit18:                                      ; preds = %for.body, %land.lhs.true.i13

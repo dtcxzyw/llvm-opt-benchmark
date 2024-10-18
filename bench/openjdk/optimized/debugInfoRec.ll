@@ -1256,7 +1256,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i.i: ; preds = %._crit_edge.loope
   br i1 %.not.i.i.i64, label %139, label %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i.i
 
 139:                                              ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i.i
-  tail call void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 dereferenceable(16) %120) #12
+  tail call void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 dereferenceable(24) %120) #12
   %.pre.i.i.i = load i32, ptr %122, align 4
   br label %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i.i
 

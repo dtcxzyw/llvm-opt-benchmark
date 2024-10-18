@@ -609,7 +609,7 @@ invoke.cont.i76:                                  ; preds = %init.i74
   br label %init.end.i
 
 init.end.i:                                       ; preds = %invoke.cont.i76, %init.check.i72, %lor.rhs
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(6) @_ZZN4YAML3Exp7CommentEvE1e, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(6) @_ZZN4YAML3Exp7CommentEvE1e, i64 6, i1 false)
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4YAML3Exp7CommentEvE1e, i64 8))
           to label %invoke.cont42 unwind label %lpad6.loopexit.split-lp.loopexit
 
@@ -844,7 +844,7 @@ while.end72:                                      ; preds = %invoke.cont34, %inv
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %57, ptr noundef nonnull align 8 dereferenceable(20) %token, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %57, ptr noundef nonnull align 8 dereferenceable(84) %token, i64 20, i1 false)
   %value.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i)
           to label %.noexc157 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1173,7 +1173,7 @@ invoke.cont:                                      ; preds = %init
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, ptr noundef nonnull align 8 dereferenceable(6) @_ZZN4YAML3Exp7CommentEvE1e, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(6) @_ZZN4YAML3Exp7CommentEvE1e, i64 6, i1 false)
   %m_params.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4YAML3Exp7CommentEvE1e, i64 8))
   ret void
@@ -1319,7 +1319,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.i.i.thread
 
 invoke.cont.i.i.thread:                           ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp, i64 20, i1 false)
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i) #17
   %params.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
@@ -1421,7 +1421,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.i.i.thread
 
 invoke.cont.i.i.thread:                           ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp, i64 20, i1 false)
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i) #17
   %params.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
@@ -1551,7 +1551,7 @@ _ZNSt5stackIN4YAML7Scanner11FLOW_MARKERESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit: ;
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.i.i.thread
 
 invoke.cont.i.i.thread:                           ; preds = %_ZNSt5stackIN4YAML7Scanner11FLOW_MARKERESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %4, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp, i64 20, i1 false)
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i) #17
   %params.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
@@ -1733,7 +1733,7 @@ if.then14:                                        ; preds = %land.lhs.true
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.i.i.thread
 
 invoke.cont.i.i.thread:                           ; preds = %if.then14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp15, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %9, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp15, i64 20, i1 false)
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i) #17
   %params.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 56
@@ -1928,7 +1928,7 @@ _ZNSt5stackIN4YAML7Scanner11FLOW_MARKERESt5dequeIS2_SaIS2_EEE3popEv.exit: ; pred
   br i1 %cmp.not.i.i.i56, label %if.else.i.i.i69, label %invoke.cont.i.i81.thread
 
 invoke.cont.i.i81.thread:                         ; preds = %_ZNSt5stackIN4YAML7Scanner11FLOW_MARKERESt5dequeIS2_SaIS2_EEE3popEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp58, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %34, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp58, i64 20, i1 false)
   %value.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %34, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(32) %value.i51) #17
   %params.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %34, i64 56
@@ -2010,7 +2010,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN4YAML9Exception10build_whatERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(12) %mark_, ptr noundef nonnull align 8 dereferenceable(32) %msg_)
-  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -2031,7 +2031,7 @@ lpad.i:                                           ; preds = %entry
 lpad2.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
+  call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #17
   br label %eh.resume.i
 
 eh.resume.i:                                      ; preds = %lpad2.i, %lpad.i
@@ -2123,7 +2123,7 @@ if.then4:                                         ; preds = %land.lhs.true
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.i.i.thread
 
 invoke.cont.i.i.thread:                           ; preds = %if.then4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %7, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp, i64 20, i1 false)
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i) #17
   %params.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 56
@@ -2243,7 +2243,7 @@ if.end12:                                         ; preds = %_ZN4YAML5TokenD2Ev.
   br i1 %cmp.not.i.i.i31, label %if.else.i.i.i44, label %invoke.cont.i.i56.thread
 
 invoke.cont.i.i56.thread:                         ; preds = %if.end12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp18, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %22, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp18, i64 20, i1 false)
   %value.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %22, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %value.i26) #17
   %params.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %22, i64 56
@@ -2449,7 +2449,7 @@ if.end31:                                         ; preds = %if.end
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.i.i.thread
 
 invoke.cont.i.i.thread:                           ; preds = %if.end31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp40, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %8, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp40, i64 20, i1 false)
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i) #17
   %params.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
@@ -2625,7 +2625,7 @@ if.end14:                                         ; preds = %if.end, %entry
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.i.i.thread
 
 invoke.cont.i.i.thread:                           ; preds = %if.end14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp21, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %8, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp21, i64 20, i1 false)
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i) #17
   %params.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
@@ -2813,7 +2813,7 @@ if.end22:                                         ; preds = %if.end18, %if.then
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.i.i.thread
 
 invoke.cont.i.i.thread:                           ; preds = %if.end22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp27, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %8, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp27, i64 20, i1 false)
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i) #17
   %params.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
@@ -3172,7 +3172,7 @@ invoke.cont68:                                    ; preds = %if.end63
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(20) %token, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %18, ptr noundef nonnull align 8 dereferenceable(84) %token, i64 20, i1 false)
   %value.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i)
           to label %.noexc unwind label %lpad67
@@ -3595,7 +3595,7 @@ if.end53:                                         ; preds = %if.end34, %invoke.c
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %token, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %9, ptr noundef nonnull align 8 dereferenceable(84) %token, i64 20, i1 false)
   %value.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i)
           to label %.noexc3 unwind label %lpad
@@ -3779,7 +3779,7 @@ invoke.cont23:                                    ; preds = %invoke.cont19
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %token, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %5, ptr noundef nonnull align 8 dereferenceable(84) %token, i64 20, i1 false)
   %value.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i)
           to label %.noexc unwind label %lpad22
@@ -4169,7 +4169,7 @@ invoke.cont38:                                    ; preds = %invoke.cont34
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %token, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %10, ptr noundef nonnull align 8 dereferenceable(84) %token, i64 20, i1 false)
   %value.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i)
           to label %.noexc unwind label %lpad37
@@ -4675,7 +4675,7 @@ invoke.cont.i25:                                  ; preds = %init.i23
   br label %init.end.i
 
 init.end.i:                                       ; preds = %invoke.cont.i25, %init.check.i21, %while.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(6) @_ZZN4YAML3Exp7CommentEvE1e, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(6) @_ZZN4YAML3Exp7CommentEvE1e, i64 6, i1 false)
   %m_params.i.i = getelementptr inbounds i8, ptr %ref.tmp56, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZN4YAML3Exp7CommentEvE1e, i64 8))
           to label %invoke.cont57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4987,7 +4987,7 @@ invoke.cont122:                                   ; preds = %invoke.cont118
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %54, ptr noundef nonnull align 8 dereferenceable(20) %token, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %54, ptr noundef nonnull align 8 dereferenceable(84) %token, i64 20, i1 false)
   %value.i.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i)
           to label %.noexc unwind label %lpad121
@@ -5385,7 +5385,7 @@ invoke.cont:                                      ; preds = %_ZNSt16allocator_tr
 for.body.i:                                       ; preds = %invoke.cont, %_ZN4YAML5RegExC2ERKS0_.exit.i
   %__cur.0.i15 = phi ptr [ %incdec.ptr.i, %_ZN4YAML5RegExC2ERKS0_.exit.i ], [ %cond.i.i.i, %invoke.cont ]
   %__first.i.sroa.0.014 = phi ptr [ %incdec.ptr.i.i, %_ZN4YAML5RegExC2ERKS0_.exit.i ], [ %2, %invoke.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.0.i15, ptr noundef nonnull align 8 dereferenceable(6) %__first.i.sroa.0.014, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.0.i15, ptr noundef nonnull align 8 dereferenceable(32) %__first.i.sroa.0.014, i64 6, i1 false)
   %m_params.i.i = getelementptr inbounds i8, ptr %__cur.0.i15, i64 8
   %m_params3.i.i = getelementptr inbounds i8, ptr %__first.i.sroa.0.014, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i)
@@ -6626,7 +6626,7 @@ _ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %__args, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %9, ptr noundef nonnull align 8 dereferenceable(84) %__args, i64 20, i1 false)
   %value.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %value3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i)
@@ -6983,7 +6983,7 @@ _ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %__args, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %9, ptr noundef nonnull align 8 dereferenceable(84) %__args, i64 20, i1 false)
   %value.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %value3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i) #17

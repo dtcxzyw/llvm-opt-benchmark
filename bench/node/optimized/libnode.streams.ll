@@ -5089,7 +5089,7 @@ define dso_local void @_ZThn56_N4node4quic6StreamD0Ev(ptr noundef %this) unnamed
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node4quic6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(256) %0) #28
   ret void
 }
 
@@ -5516,7 +5516,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -5537,7 +5537,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %if.then
   %_M_invoker.i4 = getelementptr inbounds i8, ptr %next, i64 24
   %4 = load ptr, ptr %_M_invoker.i4, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
+  call void %4(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -5546,7 +5546,7 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %if.then
   br i1 %tobool.not.i.i6, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit
-  %call.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #26
+  %call.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #26
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -5558,7 +5558,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then4:                                         ; preds = %if.end
   %_M_manager.i.i7 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   %_M_invoker.i8 = getelementptr inbounds i8, ptr %agg.tmp5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_1E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i9)
@@ -5579,7 +5579,7 @@ if.then.i15:                                      ; preds = %if.then4
 _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit16: ; preds = %if.then4
   %_M_invoker.i14 = getelementptr inbounds i8, ptr %next, i64 24
   %8 = load ptr, ptr %_M_invoker.i14, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i9, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i10, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i11, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5) #26
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i9, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i10, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i11, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i11)
@@ -5588,13 +5588,13 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit16: ; preds = %if.th
   br i1 %tobool.not.i.i18, label %return, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit16
-  %call.i.i20 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, i32 noundef 3) #26
+  %call.i.i20 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5, i32 noundef 3) #26
   br label %return
 
 if.end7:                                          ; preds = %if.end
   %_M_invoker.i22 = getelementptr inbounds i8, ptr %agg.tmp10, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %10, ptr %_M_invoker.i22, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %next, i64 16
@@ -5604,7 +5604,7 @@ if.end7:                                          ; preds = %if.end
 
 if.then.i23:                                      ; preds = %if.end7
   %_M_manager.i.i24 = getelementptr inbounds i8, ptr %agg.tmp10, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %11, ptr %_M_manager.i.i24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit
@@ -5617,7 +5617,7 @@ _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit: ; preds = %if.end7, %if
   br i1 %tobool.not.i.i26, label %return, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit
-  %call.i.i28 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, i32 noundef 3) #26
+  %call.i.i28 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, i32 noundef 3) #26
   br label %return
 
 return:                                           ; preds = %if.then.i.i27, %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit, %if.then.i.i19, %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit16, %if.then.i.i, %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit
@@ -5686,7 +5686,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -5707,7 +5707,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %if.then
   %_M_invoker.i7 = getelementptr inbounds i8, ptr %next, i64 24
   %2 = load ptr, ptr %_M_invoker.i7, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
+  call void %2(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -5716,7 +5716,7 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %if.then
   br i1 %tobool.not.i.i9, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit
-  %call.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #26
+  %call.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #26
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -5728,7 +5728,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %_M_manager.i.i10 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
   %_M_invoker.i11 = getelementptr inbounds i8, ptr %agg.tmp4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE0_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i11, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i12)
@@ -5749,7 +5749,7 @@ if.then.i18:                                      ; preds = %if.then3
 _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit19: ; preds = %if.then3
   %_M_invoker.i17 = getelementptr inbounds i8, ptr %next, i64 24
   %6 = load ptr, ptr %_M_invoker.i17, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i12, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i13, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i14, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4) #26
+  call void %6(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i12, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i13, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i14, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i14)
@@ -5758,7 +5758,7 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit19: ; preds = %if.th
   br i1 %tobool.not.i.i21, label %return, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit19
-  %call.i.i23 = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, i32 noundef 3) #26
+  %call.i.i23 = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4, i32 noundef 3) #26
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -5776,7 +5776,7 @@ if.then8:                                         ; preds = %if.end6
 if.then9:                                         ; preds = %if.then8
   %_M_invoker.i25 = getelementptr inbounds i8, ptr %agg.tmp10, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %10, ptr %_M_invoker.i25, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %next, i64 16
@@ -5786,7 +5786,7 @@ if.then9:                                         ; preds = %if.then8
 
 if.then.i26:                                      ; preds = %if.then9
   %_M_manager.i.i27 = getelementptr inbounds i8, ptr %agg.tmp10, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %11, ptr %_M_manager.i.i27, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit
@@ -5799,13 +5799,13 @@ _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit: ; preds = %if.then9, %i
   br i1 %tobool.not.i.i29, label %return, label %if.then.i.i30
 
 if.then.i.i30:                                    ; preds = %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit
-  %call.i.i31 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, i32 noundef 3) #26
+  %call.i.i31 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, i32 noundef 3) #26
   br label %return
 
 if.end11:                                         ; preds = %if.then8
   %_M_manager.i.i32 = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   %_M_invoker.i33 = getelementptr inbounds i8, ptr %agg.tmp12, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE1_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i33, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i32, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i34)
@@ -5826,7 +5826,7 @@ if.then.i40:                                      ; preds = %if.end11
 _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit41: ; preds = %if.end11
   %_M_invoker.i39 = getelementptr inbounds i8, ptr %next, i64 24
   %14 = load ptr, ptr %_M_invoker.i39, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i34, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i35, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i36, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #26
+  call void %14(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i34, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i35, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i36, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i36)
@@ -5835,7 +5835,7 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit41: ; preds = %if.en
   br i1 %tobool.not.i.i43, label %return, label %if.then.i.i44
 
 if.then.i.i44:                                    ; preds = %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit41
-  %call.i.i45 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i32 noundef 3) #26
+  %call.i.i45 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, i32 noundef 3) #26
   br label %return
 
 if.end14:                                         ; preds = %if.end6
@@ -5845,7 +5845,7 @@ if.end14:                                         ; preds = %if.end6
 if.then17:                                        ; preds = %if.end14
   %_M_invoker.i47 = getelementptr inbounds i8, ptr %agg.tmp18, i64 24
   %_M_invoker2.i48 = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp18, i8 0, i64 24, i1 false)
   %16 = load ptr, ptr %_M_invoker2.i48, align 8
   store ptr %16, ptr %_M_invoker.i47, align 8
   %_M_manager.i.i.i49 = getelementptr inbounds i8, ptr %next, i64 16
@@ -5855,7 +5855,7 @@ if.then17:                                        ; preds = %if.end14
 
 if.then.i51:                                      ; preds = %if.then17
   %_M_manager.i.i52 = getelementptr inbounds i8, ptr %agg.tmp18, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %17, ptr %_M_manager.i.i52, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i49, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit53
@@ -5868,7 +5868,7 @@ _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit53: ; preds = %if.then17,
   br i1 %tobool.not.i.i55, label %return, label %if.then.i.i56
 
 if.then.i.i56:                                    ; preds = %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit53
-  %call.i.i57 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, i32 noundef 3) #26
+  %call.i.i57 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp18, i32 noundef 3) #26
   br label %return
 
 if.end19:                                         ; preds = %if.end14
@@ -5892,7 +5892,7 @@ if.end19:                                         ; preds = %if.end14
   br i1 %tobool.not.i.i62, label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit, label %if.then.i.i63
 
 if.then.i.i63:                                    ; preds = %if.end19
-  %call.i.i64 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, i32 noundef 3) #26
+  %call.i.i64 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20, i32 noundef 3) #26
   br label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit
 
 _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit: ; preds = %if.end19, %if.then.i.i63
@@ -5918,7 +5918,7 @@ _ZN4node4quic6Stream8Outbound11MarkErroredEv.exit: ; preds = %if.then24, %_ZNKSt
   call void @_ZN4node4quic6Stream8Outbound9MarkEndedEv(ptr noundef nonnull align 8 dereferenceable(104) %this)
   %_M_manager.i.i65 = getelementptr inbounds i8, ptr %agg.tmp25, i64 16
   %_M_invoker.i66 = getelementptr inbounds i8, ptr %agg.tmp25, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp25, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE2_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i66, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE2_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i65, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i67)
@@ -5939,7 +5939,7 @@ if.then.i73:                                      ; preds = %_ZN4node4quic6Strea
 _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit74: ; preds = %_ZN4node4quic6Stream8Outbound11MarkErroredEv.exit
   %_M_invoker.i72 = getelementptr inbounds i8, ptr %next, i64 24
   %26 = load ptr, ptr %_M_invoker.i72, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i67, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i69, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25) #26
+  call void %26(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i67, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i69, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i67)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i68)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i69)
@@ -5948,7 +5948,7 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit74: ; preds = %_ZN4n
   br i1 %tobool.not.i.i76, label %return, label %if.then.i.i77
 
 if.then.i.i77:                                    ; preds = %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit74
-  %call.i.i78 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp25, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp25, i32 noundef 3) #26
+  %call.i.i78 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25, i32 noundef 3) #26
   br label %return
 
 if.end27:                                         ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit
@@ -5967,7 +5967,7 @@ if.then29:                                        ; preds = %if.end27
 if.then32:                                        ; preds = %if.then29
   %_M_invoker.i80 = getelementptr inbounds i8, ptr %agg.tmp33, i64 24
   %_M_invoker2.i81 = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp33, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp33, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %_M_invoker2.i81, align 8
   store ptr %29, ptr %_M_invoker.i80, align 8
   %_M_manager.i.i.i82 = getelementptr inbounds i8, ptr %next, i64 16
@@ -5977,7 +5977,7 @@ if.then32:                                        ; preds = %if.then29
 
 if.then.i84:                                      ; preds = %if.then32
   %_M_manager.i.i85 = getelementptr inbounds i8, ptr %agg.tmp33, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %30, ptr %_M_manager.i.i85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i82, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit86
@@ -5990,13 +5990,13 @@ _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit86: ; preds = %if.then32,
   br i1 %tobool.not.i.i88, label %return, label %if.then.i.i89
 
 if.then.i.i89:                                    ; preds = %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit86
-  %call.i.i90 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, i32 noundef 3) #26
+  %call.i.i90 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp33, i32 noundef 3) #26
   br label %return
 
 if.end34:                                         ; preds = %if.then29
   %_M_manager.i.i92 = getelementptr inbounds i8, ptr %agg.tmp35, i64 16
   %_M_invoker.i93 = getelementptr inbounds i8, ptr %agg.tmp35, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp35, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE3_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i93, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE3_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i92, align 8
   call void @_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_(ptr noundef nonnull align 8 dereferenceable(32) %next, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %agg.tmp35)
@@ -6005,7 +6005,7 @@ if.end34:                                         ; preds = %if.then29
   br i1 %tobool.not.i.i95, label %return, label %if.then.i.i96
 
 if.then.i.i96:                                    ; preds = %if.end34
-  %call.i.i97 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35, i32 noundef 3) #26
+  %call.i.i97 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp35, i32 noundef 3) #26
   br label %return
 
 if.then39:                                        ; preds = %if.end27
@@ -6016,7 +6016,7 @@ if.then39:                                        ; preds = %if.end27
 if.then42:                                        ; preds = %if.then39
   %_M_invoker.i99 = getelementptr inbounds i8, ptr %agg.tmp43, i64 24
   %_M_invoker2.i100 = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp43, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43, i8 0, i64 24, i1 false)
   %34 = load ptr, ptr %_M_invoker2.i100, align 8
   store ptr %34, ptr %_M_invoker.i99, align 8
   %_M_manager.i.i.i101 = getelementptr inbounds i8, ptr %next, i64 16
@@ -6026,7 +6026,7 @@ if.then42:                                        ; preds = %if.then39
 
 if.then.i103:                                     ; preds = %if.then42
   %_M_manager.i.i104 = getelementptr inbounds i8, ptr %agg.tmp43, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %35, ptr %_M_manager.i.i104, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i101, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit105
@@ -6039,13 +6039,13 @@ _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit105: ; preds = %if.then42
   br i1 %tobool.not.i.i107, label %return, label %if.then.i.i108
 
 if.then.i.i108:                                   ; preds = %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit105
-  %call.i.i109 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, i32 noundef 3) #26
+  %call.i.i109 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43, i32 noundef 3) #26
   br label %return
 
 if.end44:                                         ; preds = %if.then39
   %_M_manager.i.i111 = getelementptr inbounds i8, ptr %agg.tmp45, i64 16
   %_M_invoker.i112 = getelementptr inbounds i8, ptr %agg.tmp45, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp45, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE4_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i112, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE4_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i111, align 8
   call void @_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_(ptr noundef nonnull align 8 dereferenceable(32) %next, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %agg.tmp45)
@@ -6054,14 +6054,14 @@ if.end44:                                         ; preds = %if.then39
   br i1 %tobool.not.i.i114, label %return, label %if.then.i.i115
 
 if.then.i.i115:                                   ; preds = %if.end44
-  %call.i.i116 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp45, i32 noundef 3) #26
+  %call.i.i116 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp45, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp45, i32 noundef 3) #26
   br label %return
 
 if.then49:                                        ; preds = %if.end27
   store i8 1, ptr %next_pending_, align 1
   %_M_manager.i.i118 = getelementptr inbounds i8, ptr %agg.tmp51, i64 16
   %_M_invoker.i119 = getelementptr inbounds i8, ptr %agg.tmp51, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp51, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE5_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i119, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEiPS6_mmEUliE5_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i118, align 8
   call void @_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_(ptr noundef nonnull align 8 dereferenceable(32) %next, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %agg.tmp51)
@@ -6070,13 +6070,13 @@ if.then49:                                        ; preds = %if.end27
   br i1 %tobool.not.i.i121, label %return, label %if.then.i.i122
 
 if.then.i.i122:                                   ; preds = %if.then49
-  %call.i.i123 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp51, i32 noundef 3) #26
+  %call.i.i123 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp51, i32 noundef 3) #26
   br label %return
 
 if.end53:                                         ; preds = %if.end27
   %_M_invoker.i125 = getelementptr inbounds i8, ptr %agg.tmp54, i64 24
   %_M_invoker2.i126 = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54, i8 0, i64 24, i1 false)
   %39 = load ptr, ptr %_M_invoker2.i126, align 8
   store ptr %39, ptr %_M_invoker.i125, align 8
   %_M_manager.i.i.i127 = getelementptr inbounds i8, ptr %next, i64 16
@@ -6086,7 +6086,7 @@ if.end53:                                         ; preds = %if.end27
 
 if.then.i129:                                     ; preds = %if.end53
   %_M_manager.i.i130 = getelementptr inbounds i8, ptr %agg.tmp54, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %40, ptr %_M_manager.i.i130, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i127, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit131
@@ -6099,7 +6099,7 @@ _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit131: ; preds = %if.end53,
   br i1 %tobool.not.i.i133, label %return, label %if.then.i.i134
 
 if.then.i.i134:                                   ; preds = %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit131
-  %call.i.i135 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, i32 noundef 3) #26
+  %call.i.i135 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54, i32 noundef 3) #26
   br label %return
 
 return:                                           ; preds = %if.then.i.i134, %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit131, %if.then.i.i122, %if.then49, %if.then.i.i115, %if.end44, %if.then.i.i108, %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit105, %if.then.i.i96, %if.end34, %if.then.i.i89, %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit86, %if.then.i.i77, %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit74, %if.then.i.i56, %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit53, %if.then.i.i44, %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit41, %if.then.i.i30, %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit, %if.then.i.i22, %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit19, %if.then.i.i, %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit
@@ -6971,7 +6971,7 @@ if.end:                                           ; preds = %_ZNK4node11Environm
   %6 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %6, i64 176
   %7 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %7) #26
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %7) #26
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #26
@@ -7013,7 +7013,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit: ; preds = %cleanup, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #26
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #26
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %lor.lhs.false, %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
@@ -7516,7 +7516,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   %8 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %8, i64 176
   %9 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %9) #26
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %9) #26
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #26
@@ -7558,7 +7558,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit: ; preds = %cleanup, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #26
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #26
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %lor.lhs.false, %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %lor.lhs.false4, %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
@@ -7603,7 +7603,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   %8 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %8, i64 176
   %9 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %9) #26
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %9) #26
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #26
@@ -7633,7 +7633,7 @@ if.then.i.i:                                      ; preds = %_ZN4node4quic13Call
   br label %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit: ; preds = %_ZN4node4quic13CallbackScopeINS0_6StreamEEC2EPS2_.exit, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #26
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #26
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %lor.lhs.false4, %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
@@ -7687,7 +7687,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   %8 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %8, i64 176
   %9 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %9) #26
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %9) #26
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #26
@@ -7752,7 +7752,7 @@ if.then.i.i9:                                     ; preds = %_ZNSt6vectorIN2v85L
   br label %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit: ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE5clearEv.exit, %if.then.i.i9
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #26
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #26
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %lor.lhs.false4, %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
@@ -7805,7 +7805,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   %8 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %8, i64 176
   %9 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %9) #26
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %9) #26
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #26
@@ -7835,7 +7835,7 @@ if.then.i.i:                                      ; preds = %_ZN4node4quic13Call
   br label %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit: ; preds = %_ZN4node4quic13CallbackScopeINS0_6StreamEEC2EPS2_.exit, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #26
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #26
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %lor.lhs.false4, %_ZN4node4quic13CallbackScopeINS0_6StreamEED2Ev.exit
@@ -8008,7 +8008,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node3bob10SourceImplI10ngtcp2_vecE4PullESt8functionIFviPKS4_mS6_IS0_EEEiPS4_mmEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node3bob10SourceImplI10ngtcp2_vecE4PullESt8functionIFviPKS4_mS6_IS0_EEEiPS4_mmEUlmE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -8029,7 +8029,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %if.then
   %_M_invoker.i5 = getelementptr inbounds i8, ptr %next, i64 24
   %2 = load ptr, ptr %_M_invoker.i5, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
+  call void %2(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -8038,13 +8038,13 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %if.then
   br i1 %tobool.not.i.i7, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit
-  %call.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #26
+  %call.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #26
   br label %return
 
 if.end:                                           ; preds = %entry
   %_M_invoker.i8 = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %4, ptr %_M_invoker.i8, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %next, i64 16
@@ -8054,7 +8054,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i9:                                       ; preds = %if.end
   %_M_manager.i.i10 = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %5, ptr %_M_manager.i.i10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit
@@ -8070,7 +8070,7 @@ _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit: ; preds = %if.end, %if.
   br i1 %tobool.not.i.i12, label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEED2Ev.exit, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit
-  %call.i.i14 = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i32 noundef 3) #26
+  %call.i.i14 = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i32 noundef 3) #26
   br label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEED2Ev.exit
 
 _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEED2Ev.exit: ; preds = %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEC2EOS6_.exit, %if.then.i.i13
@@ -8216,7 +8216,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %cmp.i = icmp eq ptr %format, null
   br i1 %cmp.i, label %if.then.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -8244,7 +8244,7 @@ do.body8:                                         ; preds = %do.body
 do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #26
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #26
   %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
@@ -8808,7 +8808,7 @@ while.end:                                        ; preds = %_ZN4node16MaybeStac
   %12 = load ptr, ptr %buf_.i, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound15PullUncommittedESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEEUliE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream8Outbound15PullUncommittedESt8functionIFviPK10ngtcp2_vecmS5_IS0_EEEEUliE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -8829,7 +8829,7 @@ if.then.i:                                        ; preds = %while.end
 _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %while.end
   %_M_invoker.i18 = getelementptr inbounds i8, ptr %next, i64 24
   %14 = load ptr, ptr %_M_invoker.i18, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
+  call void %14(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -8838,7 +8838,7 @@ _ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit: ; preds = %while.e
   br i1 %tobool.not.i.i20, label %_ZNSt8functionIFvmEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit
-  %call.i.i = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #26
+  %call.i.i = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #26
   br label %_ZNSt8functionIFvmEED2Ev.exit
 
 _ZNSt8functionIFvmEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEEclEiS2_mS4_.exit, %if.then.i.i
@@ -9181,7 +9181,7 @@ entry:
   %2 = load i64, ptr %__args3, align 8
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %__args5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i.i.i, align 8
   store ptr %3, ptr %_M_invoker.i.i.i, align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__args5, i64 16
@@ -9191,7 +9191,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args5, i64 16, i1 false)
   store ptr %4, ptr %_M_manager.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i
@@ -9204,7 +9204,7 @@ _ZNSt8functionIFvmEEC2EOS1_.exit.i.i:             ; preds = %if.then.i.i.i, %ent
   br i1 %tobool.not.i.i.i.i, label %_ZSt10__invoke_rIvRZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS4_IFvmEEEEiPS5_mmEUlT_T0_T1_T2_E_JiPKNS0_9DataQueue3VecEmS9_EENSt9enable_ifIX16is_invocable_r_vISD_SE_DpT1_EESD_E4typeEOSE_DpOSO_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i
-  %call.i.i.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i32 noundef 3) #26
+  %call.i.i.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i32 noundef 3) #26
   br label %_ZSt10__invoke_rIvRZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS4_IFvmEEEEiPS5_mmEUlT_T0_T1_T2_E_JiPKNS0_9DataQueue3VecEmS9_EENSt9enable_ifIX16is_invocable_r_vISD_SE_DpT1_EESD_E4typeEOSE_DpOSO_.exit
 
 _ZSt10__invoke_rIvRZN4node4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS4_IFvmEEEEiPS5_mmEUlT_T0_T1_T2_E_JiPKNS0_9DataQueue3VecEmS9_EENSt9enable_ifIX16is_invocable_r_vISD_SE_DpT1_EESD_E4typeEOSE_DpOSO_.exit: ; preds = %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i, %if.then.i.i.i.i
@@ -9297,7 +9297,7 @@ if.then10:                                        ; preds = %land.lhs.true
 if.end19:                                         ; preds = %if.end4
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp20, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %done, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp20, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %10, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %done, i64 16
@@ -9307,7 +9307,7 @@ if.end19:                                         ; preds = %if.end4
 
 if.then.i:                                        ; preds = %if.end19
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp20, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %done, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(32) %done, i64 16, i1 false)
   store ptr %11, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvmEEC2EOS1_.exit
@@ -9320,7 +9320,7 @@ _ZNSt8functionIFvmEEC2EOS1_.exit:                 ; preds = %if.end19, %if.then.
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvmEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt8functionIFvmEEC2EOS1_.exit
-  %call.i.i5 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, i32 noundef 3) #26
+  %call.i.i5 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20, i32 noundef 3) #26
   br label %_ZNSt8functionIFvmEED2Ev.exit
 
 _ZNSt8functionIFvmEED2Ev.exit:                    ; preds = %_ZNSt8functionIFvmEEC2EOS1_.exit, %if.then.i.i
@@ -9378,13 +9378,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZNSt8functionIFvmEEC2EOS1_.exit.thread.i.i.i.i.i.i.i, label %_ZN4node4quic6Stream8Outbound10OnCompleteC2ESt8functionIFvmEE.exit.i.i.i.i.i.i.i
 
 _ZNSt8functionIFvmEEC2EOS1_.exit.thread.i.i.i.i.i.i.i: ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !66
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !66
   br label %_ZSt11make_sharedIN4node4quic6Stream8Outbound10OnCompleteEJSt8functionIFvmEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.exit
 
 _ZN4node4quic6Stream8Outbound10OnCompleteC2ESt8functionIFvmEE.exit.i.i.i.i.i.i.i: ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !66
   %_M_manager.i.i.i1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %done, i64 16, i1 false), !noalias !66
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %done, i64 16, i1 false), !noalias !66
   store ptr %1, ptr %_M_manager.i.i.i1.i.i.i.i.i.i.i, align 8, !noalias !66
   br label %_ZSt11make_sharedIN4node4quic6Stream8Outbound10OnCompleteEJSt8functionIFvmEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.exit
 
@@ -9430,7 +9430,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZSt11make_uniqueIN4node4quic6Stream8Outbound5EntryEJRKNS0_9DataQueue3VecERSt10shared_ptrINS3_10OnCompleteEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %buf2.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false), !noalias !67
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call.i, i8 0, i64 16, i1 false), !noalias !67
   store ptr %4, ptr %buf2.i.i, align 8, !noalias !67
   %buf.sroa.2.0.buf2.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %3, ptr %buf.sroa.2.0.buf2.sroa_idx.i.i, align 8, !noalias !67
@@ -9607,14 +9607,14 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZNKSt8functionIFvmEEclEm.exit.i.i.i:             ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i) #26
+  call void %1(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i2.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i2.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN4node4quic6Stream8Outbound10OnCompleteEEEvRS0_PT_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNKSt8functionIFvmEEclEm.exit.i.i.i
-  %call.i.i.i.i.i = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i, i32 noundef 3) #26
+  %call.i.i.i.i.i = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i, i32 noundef 3) #26
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN4node4quic6Stream8Outbound10OnCompleteEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN4node4quic6Stream8Outbound10OnCompleteEEEvRS0_PT_.exit: ; preds = %_ZNKSt8functionIFvmEEclEm.exit.i.i.i, %if.then.i.i.i.i.i
@@ -10812,7 +10812,7 @@ _ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i: ; preds = %if.e
 
 _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
   store ptr %call9, ptr %call.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

@@ -188,7 +188,7 @@ invoke.cont5:                                     ; preds = %if.then.i.i.i.i.i.i
   %state_ = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %state_, align 8
   %endpoint_ = getelementptr inbounds i8, ptr %this, i64 88
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_, ptr noundef nonnull align 8 dereferenceable(32) %endpoint) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(49) %endpoint_, ptr noundef nonnull align 8 dereferenceable(49) %endpoint) #21
   %port_.i = getelementptr inbounds i8, ptr %this, i64 120
   %port_3.i = getelementptr inbounds i8, ptr %endpoint, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %port_.i, ptr noundef nonnull align 8 dereferenceable(17) %port_3.i, i64 17, i1 false)
@@ -375,7 +375,7 @@ cleanup.action44:                                 ; preds = %invoke.cont37
 
 cleanup.done45:                                   ; preds = %cleanup.done26
   %endpoint_ = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(49) %endpoint_) #21
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont37, %invoke.cont35, %cond.false31, %invoke.cont18, %invoke.cont16, %cond.false12, %invoke.cont4, %invoke.cont3, %cond.false
@@ -777,7 +777,7 @@ if.end11:                                         ; preds = %if.then2, %if.then6
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.end11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -787,7 +787,7 @@ call.i.noexc:                                     ; preds = %if.end11
 lpad.i:                                           ; preds = %.noexc
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -844,7 +844,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -1712,12 +1712,12 @@ if.then5:                                         ; preds = %dynamic_cast.notnul
   %4 = load ptr, ptr %vfn8, align 8
   %call9 = tail call i32 %4(ptr noundef nonnull align 8 dereferenceable(1113) %2)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call6, i32 noundef %call9)
-  call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %localAddr)
+  call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 8 dereferenceable(27) %localAddr)
   %port_.i = getelementptr inbounds i8, ptr %localAddr, i64 24
   store i16 0, ptr %port_.i, align 8
   %external_.i = getelementptr inbounds i8, ptr %localAddr, i64 26
   store i8 0, ptr %external_.i, align 2
-  invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %serverAddr)
+  invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 8 dereferenceable(27) %serverAddr)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then5

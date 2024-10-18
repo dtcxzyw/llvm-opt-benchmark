@@ -154,7 +154,7 @@ define range(i32 0, 575) i32 @cli_mbr_check2(ptr noundef readonly %0, i64 nounde
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %18, i64 66)
   %19 = getelementptr inbounds i8, ptr %6, i64 104
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr %20(ptr noundef nonnull %6, i64 noundef %16, i64 noundef %spec.select.i, i32 noundef 0) #6
+  %21 = tail call ptr %20(ptr noundef nonnull %6, i64 noundef %16, i64 noundef range(i64 0, 67) %spec.select.i, i32 noundef 0) #6
   %.not26.i = icmp eq ptr %21, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -267,7 +267,7 @@ define i32 @cli_scanmbr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %19, i64 66)
   %20 = getelementptr inbounds i8, ptr %7, i64 104
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr %21(ptr noundef nonnull %7, i64 noundef %17, i64 noundef %spec.select.i, i32 noundef 0) #6
+  %22 = tail call ptr %21(ptr noundef nonnull %7, i64 noundef %17, i64 noundef range(i64 0, 67) %spec.select.i, i32 noundef 0) #6
   %.not26.i = icmp eq ptr %22, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -434,7 +434,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %99, i64 66)
   %100 = getelementptr inbounds i8, ptr %95, i64 104
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call ptr %101(ptr noundef nonnull %95, i64 noundef %94, i64 noundef %spec.select.i.i, i32 noundef 0) #6
+  %102 = tail call ptr %101(ptr noundef nonnull %95, i64 noundef %94, i64 noundef range(i64 0, 67) %spec.select.i.i, i32 noundef 0) #6
   %.not26.i.i = icmp eq ptr %102, null
   br i1 %.not26.i.i, label %fmap_readn.exit.thread.i, label %fmap_readn.exit.i
 
@@ -771,7 +771,7 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnu
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %48, i64 66)
   %49 = getelementptr inbounds i8, ptr %44, i64 104
   %50 = load ptr, ptr %49, align 8
-  %51 = call ptr %50(ptr noundef nonnull %44, i64 noundef %43, i64 noundef %spec.select.i.i, i32 noundef 0) #6
+  %51 = call ptr %50(ptr noundef nonnull %44, i64 noundef %43, i64 noundef range(i64 0, 67) %spec.select.i.i, i32 noundef 0) #6
   %.not26.i.i = icmp eq ptr %51, null
   br i1 %.not26.i.i, label %fmap_readn.exit.thread.i, label %fmap_readn.exit.i
 

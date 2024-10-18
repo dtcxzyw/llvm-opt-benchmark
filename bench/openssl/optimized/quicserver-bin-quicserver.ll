@@ -137,7 +137,7 @@ if.end29:                                         ; preds = %while.end
   br i1 %cmp.not.i, label %if.end.i, label %create_dgram_bio.exit.thread
 
 if.end.i:                                         ; preds = %if.end29
-  %call1.i = call i32 @BIO_lookup_ex(ptr noundef %13, ptr noundef %14, i32 noundef 1, i32 noundef %ipv6.0.lcssa, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %res.i) #9
+  %call1.i = call i32 @BIO_lookup_ex(ptr noundef %13, ptr noundef %14, i32 noundef 1, i32 noundef range(i32 2, 11) %ipv6.0.lcssa, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %res.i) #9
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %create_dgram_bio.exit.thread, label %if.end3.i
 

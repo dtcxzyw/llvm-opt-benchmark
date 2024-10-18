@@ -398,7 +398,7 @@ _ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE6resizeEm.exit: ; preds = %17
 .preheader:                                       ; preds = %200, %.preheader
   %.idx.i = phi i64 [ %.add.i, %.preheader ], [ 4, %200 ]
   %.ptr.i = getelementptr inbounds i8, ptr %122, i64 %.idx.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.ptr.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.ptr.i, i8 0, i64 16, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 20
   %201 = icmp eq i64 %.add.i, 64
   br i1 %201, label %202, label %.preheader
@@ -3474,7 +3474,7 @@ _ZNKSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE12_M_check_lenEmPKc.exit: ; 
   %34 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %35 = load ptr, ptr %34, align 8, !alias.scope !31, !noalias !28
   store ptr %35, ptr %33, align 8, !alias.scope !28, !noalias !31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !31, !noalias !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !31, !noalias !28
   %36 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
   %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
   %38 = load ptr, ptr %37, align 8, !alias.scope !31, !noalias !28

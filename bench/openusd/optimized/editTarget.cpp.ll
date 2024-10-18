@@ -106,7 +106,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdEditTargetC2Ev(ptr nounde
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #14
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %8, null
@@ -168,7 +168,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit: ; p
 19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #14
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #14
   br label %.body
 
 _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit
@@ -183,7 +183,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2Ev.exit: ; preds = %_ZN32
           to label %25 unwind label %28
 
 25:                                               ; preds = %23
-  %26 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %24)
+  %26 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataaSERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %24)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit unwind label %28
 
 _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %25
@@ -194,7 +194,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %2
 28:                                               ; preds = %25, %32, %30, %23, %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2Ev.exit
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #14
   br label %.body
 
 30:                                               ; preds = %22
@@ -210,7 +210,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %2
   br i1 %.not.i.i, label %.loopexit, label %34
 
 34:                                               ; preds = %33
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #14
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %36 = load i32, ptr %35, align 8
   store i32 %36, ptr %16, align 8
@@ -267,7 +267,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %2
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %56, %41, %33
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #14
   br label %62
 
 62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit, %.loopexit
@@ -734,7 +734,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   br i1 %.not.i.i23, label %.loopexit34, label %157
 
 157:                                              ; preds = %156
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   %158 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %159 = load i32, ptr %158, align 8
   store i32 %159, ptr %17, align 8
@@ -791,8 +791,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 .loopexit34:                                      ; preds = %.lr.ph.i.i.i, %179, %164, %156
   %184 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %184, i64 16, i1 false)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #14
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
   %185 = load ptr, ptr %85, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %185)
           to label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEED2Ev.exit unwind label %186
@@ -823,7 +823,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 195:                                              ; preds = %155
   %196 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
   br label %197
 
 197:                                              ; preds = %195, %193, %191
@@ -883,7 +883,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaIS
   br i1 %.not.i.i26, label %.loopexit, label %214
 
 214:                                              ; preds = %213
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   %215 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %216 = load i32, ptr %215, align 8
   store i32 %216, ptr %17, align 8
@@ -940,14 +940,14 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaIS
 .loopexit:                                        ; preds = %.lr.ph.i.i.i28, %236, %221, %213
   %241 = getelementptr inbounds nuw i8, ptr %14, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %241, i64 16, i1 false)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #14
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #14
   br label %244
 
 242:                                              ; preds = %212
   %243 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #14
   br label %245
 
 244:                                              ; preds = %208, %.loopexit
@@ -955,7 +955,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaIS
 
 245:                                              ; preds = %242, %197, %189
   %.pn17.pn = phi { ptr, i32 } [ %243, %242 ], [ %190, %189 ], [ %.pn.pn, %197 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   resume { ptr, i32 } %.pn17.pn
 }
 
@@ -1070,7 +1070,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRe
 53:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit
   %54 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %49) #14
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #14
   br label %.body
 
 _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit
@@ -1085,7 +1085,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2Ev.exit: ; preds = %_ZN32
           to label %59 unwind label %62
 
 59:                                               ; preds = %57
-  %60 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %58)
+  %60 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataaSERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(56) %58)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit unwind label %62
 
 _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %59
@@ -1096,7 +1096,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %5
 62:                                               ; preds = %59, %66, %64, %57, %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2Ev.exit
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %49) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #14
   br label %.body
 
 64:                                               ; preds = %56
@@ -1112,7 +1112,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %5
   br i1 %.not.i.i, label %.loopexit, label %68
 
 68:                                               ; preds = %67
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %49) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #14
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %70 = load i32, ptr %69, align 8
   store i32 %70, ptr %50, align 8
@@ -1169,7 +1169,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %5
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %90, %75, %67
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #14
   br label %96
 
 96:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit, %.loopexit
@@ -1787,7 +1787,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
           to label %93 unwind label %102
 
 93:                                               ; preds = %92
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
   %94 = load ptr, ptr %22, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %94)
           to label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEED2Ev.exit unwind label %95
@@ -1813,7 +1813,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 102:                                              ; preds = %92
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
   br label %104
 
 104:                                              ; preds = %102, %100, %98
@@ -2654,13 +2654,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
           to label %16 unwind label %17
 
 16:                                               ; preds = %12
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
   ret void
 
 17:                                               ; preds = %12
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #14
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
   resume { ptr, i32 } %18
 }
 

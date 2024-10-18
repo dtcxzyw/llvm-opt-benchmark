@@ -3545,7 +3545,7 @@ Abc_ObjIsBarBuf.exit235.thread:                   ; preds = %382, %390, %392, %A
 Scl_LibHandleInputDriver.exit:                    ; preds = %420, %437
   %.sink.i = phi ptr [ %439, %437 ], [ null, %420 ]
   call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, ptr noundef readonly %10, ptr noundef %6, ptr noundef %9)
+  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, ptr noundef nonnull readonly %10, ptr noundef %6, ptr noundef nonnull %9)
   %440 = load float, ptr %39, align 4
   %441 = load float, ptr %40, align 4
   %442 = fsub float %440, %441

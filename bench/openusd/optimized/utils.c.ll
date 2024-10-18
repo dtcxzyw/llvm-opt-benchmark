@@ -190,12 +190,12 @@ define hidden void @avifFractionSimplify(ptr nocapture noundef %0) local_unnamed
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %3, i1 true)
+  %spec.select.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %3, i1 true)
   %.not16.i = icmp eq i32 %5, 0
   br i1 %.not16.i, label %calcGCD.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %1
-  %.010.i = tail call i64 @llvm.abs.i64(i64 %6, i1 true)
+  %.010.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %6, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -230,12 +230,12 @@ define hidden range(i32 0, 2) i32 @avifFractionCD(ptr nocapture noundef %0, ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %spec.select.i.i = tail call i64 @llvm.abs.i64(i64 %4, i1 true)
+  %spec.select.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %4, i1 true)
   %.not16.i.i = icmp eq i32 %6, 0
   br i1 %.not16.i.i, label %calcGCD.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %2
-  %.010.i.i = tail call i64 @llvm.abs.i64(i64 %7, i1 true)
+  %.010.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %7, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -266,12 +266,12 @@ avifFractionSimplify.exit:                        ; preds = %calcGCD.exit.i, %10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %spec.select.i.i32 = tail call i64 @llvm.abs.i64(i64 %17, i1 true)
+  %spec.select.i.i32 = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %17, i1 true)
   %.not16.i.i33 = icmp eq i32 %19, 0
   br i1 %.not16.i.i33, label %calcGCD.exit.i40, label %.lr.ph.preheader.i.i34
 
 .lr.ph.preheader.i.i34:                           ; preds = %avifFractionSimplify.exit
-  %.010.i.i35 = tail call i64 @llvm.abs.i64(i64 %20, i1 true)
+  %.010.i.i35 = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %20, i1 true)
   br label %.lr.ph.i.i36
 
 .lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36, %.lr.ph.preheader.i.i34
@@ -344,12 +344,12 @@ define hidden range(i32 0, 2) i32 @avifFractionAdd(i64 %0, i64 %1, ptr nocapture
   %sext = shl i64 %0, 32
   %4 = ashr exact i64 %sext, 32
   %5 = ashr i64 %0, 32
-  %spec.select.i.i.i = tail call i64 @llvm.abs.i64(i64 %4, i1 true)
+  %spec.select.i.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %4, i1 true)
   %.not16.i.i.i = icmp ult i64 %0, 4294967296
   br i1 %.not16.i.i.i, label %calcGCD.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %3
-  %.010.i.i.i = tail call i64 @llvm.abs.i64(i64 %5, i1 true)
+  %.010.i.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %5, i1 true)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
@@ -376,12 +376,12 @@ avifFractionSimplify.exit.i:                      ; preds = %8, %calcGCD.exit.i.
   %sext20 = shl i64 %1, 32
   %11 = ashr exact i64 %sext20, 32
   %12 = ashr i64 %1, 32
-  %spec.select.i.i32.i = tail call i64 @llvm.abs.i64(i64 %11, i1 true)
+  %spec.select.i.i32.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %11, i1 true)
   %.not16.i.i33.i = icmp ult i64 %1, 4294967296
   br i1 %.not16.i.i33.i, label %calcGCD.exit.i40.i, label %.lr.ph.preheader.i.i34.i
 
 .lr.ph.preheader.i.i34.i:                         ; preds = %avifFractionSimplify.exit.i
-  %.010.i.i35.i = tail call i64 @llvm.abs.i64(i64 %12, i1 true)
+  %.010.i.i35.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %12, i1 true)
   br label %.lr.ph.i.i36.i
 
 .lr.ph.i.i36.i:                                   ; preds = %.lr.ph.i.i36.i, %.lr.ph.preheader.i.i34.i
@@ -453,12 +453,12 @@ avifFractionSimplify.exit42.i:                    ; preds = %15, %calcGCD.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.sroa.6.1.ph, ptr %43, align 4
   %44 = sext i32 %.sroa.6.1.ph to i64
-  %spec.select.i.i = tail call i64 @llvm.abs.i64(i64 %38, i1 true)
+  %spec.select.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %38, i1 true)
   %.not16.i.i = icmp eq i32 %.sroa.6.1.ph, 0
   br i1 %.not16.i.i, label %calcGCD.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %41
-  %.010.i.i = tail call i64 @llvm.abs.i64(i64 %44, i1 true)
+  %.010.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %44, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -494,12 +494,12 @@ define hidden range(i32 0, 2) i32 @avifFractionSub(i64 %0, i64 %1, ptr nocapture
   %sext = shl i64 %0, 32
   %4 = ashr exact i64 %sext, 32
   %5 = ashr i64 %0, 32
-  %spec.select.i.i.i = tail call i64 @llvm.abs.i64(i64 %4, i1 true)
+  %spec.select.i.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %4, i1 true)
   %.not16.i.i.i = icmp ult i64 %0, 4294967296
   br i1 %.not16.i.i.i, label %calcGCD.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %3
-  %.010.i.i.i = tail call i64 @llvm.abs.i64(i64 %5, i1 true)
+  %.010.i.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %5, i1 true)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
@@ -526,12 +526,12 @@ avifFractionSimplify.exit.i:                      ; preds = %8, %calcGCD.exit.i.
   %sext20 = shl i64 %1, 32
   %11 = ashr exact i64 %sext20, 32
   %12 = ashr i64 %1, 32
-  %spec.select.i.i32.i = tail call i64 @llvm.abs.i64(i64 %11, i1 true)
+  %spec.select.i.i32.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %11, i1 true)
   %.not16.i.i33.i = icmp ult i64 %1, 4294967296
   br i1 %.not16.i.i33.i, label %calcGCD.exit.i40.i, label %.lr.ph.preheader.i.i34.i
 
 .lr.ph.preheader.i.i34.i:                         ; preds = %avifFractionSimplify.exit.i
-  %.010.i.i35.i = tail call i64 @llvm.abs.i64(i64 %12, i1 true)
+  %.010.i.i35.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %12, i1 true)
   br label %.lr.ph.i.i36.i
 
 .lr.ph.i.i36.i:                                   ; preds = %.lr.ph.i.i36.i, %.lr.ph.preheader.i.i34.i
@@ -603,12 +603,12 @@ avifFractionSimplify.exit42.i:                    ; preds = %15, %calcGCD.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.sroa.6.1.ph, ptr %43, align 4
   %44 = sext i32 %.sroa.6.1.ph to i64
-  %spec.select.i.i = tail call i64 @llvm.abs.i64(i64 %38, i1 true)
+  %spec.select.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %38, i1 true)
   %.not16.i.i = icmp eq i32 %.sroa.6.1.ph, 0
   br i1 %.not16.i.i, label %calcGCD.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %41
-  %.010.i.i = tail call i64 @llvm.abs.i64(i64 %44, i1 true)
+  %.010.i.i = tail call i64 @llvm.abs.i64(i64 range(i64 -2147483648, 2147483648) %44, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i

@@ -725,7 +725,7 @@ for.cond.i:                                       ; preds = %for.cond.i.backedge
   %bus_master_as.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i.i, i64 noundef %add.i.i.i.i.i, i32 1, ptr noundef nonnull %txd.i, i64 noundef %conv.i2.i.i.i.i, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i.i, i64 noundef %add.i.i.i.i.i, i32 1, ptr noundef nonnull %txd.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i2.i.i.i.i, i1 noundef zeroext false) #15
   %bf.load.i.i = load i32, ptr %3, align 8
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 14
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 1
@@ -746,7 +746,7 @@ if.then.i.i:                                      ; preds = %for.cond.i
   %conv.i2.i.i16.i.i = sext i32 %16 to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i.i18.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i.i, i64 noundef %add.i.i.i15.i.i, i32 1, ptr noundef nonnull %txd.i, i64 noundef %conv.i2.i.i16.i.i, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i.i18.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i.i, i64 noundef %add.i.i.i15.i.i, i32 1, ptr noundef nonnull %txd.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i2.i.i16.i.i, i1 noundef zeroext false) #15
   %arrayidx.val10.i.i = load i32, ptr %next.i.i.i.i.i, align 8
   %inc.i.i.i.i = add i32 %arrayidx.val10.i.i, 1
   store i32 %inc.i.i.i.i, ptr %next.i.i.i.i.i, align 8
@@ -981,7 +981,7 @@ vmxnet3_inc_tx_completion_counter.exit.i.i:       ; preds = %if.then.i.i.i40.i, 
   %arrayidx.i.i.i = getelementptr [25 x %struct.Vmxnet3IntState], ptr %interrupt_states.i.i.i, i64 0, i64 %idxprom.i10.i.i
   %is_pending.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 1
   store i8 1, ptr %is_pending.i.i.i, align 1
-  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %opaque, i32 noundef %conv15.i.i)
+  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %opaque, i32 noundef range(i32 0, 256) %conv15.i.i)
   %64 = load i8, ptr %msix_used.i.i.i, align 16
   %tobool.i.i.i = trunc i8 %64 to i1
   br i1 %tobool.i.i.i, label %land.lhs.true.i.i.i, label %if.end.i.i.i
@@ -1007,7 +1007,7 @@ land.lhs.true6.i.i.i:                             ; preds = %if.end.i.i.i
 
 do_automask.i.i.i:                                ; preds = %land.lhs.true6.i.i.i, %land.lhs.true3.i.i.i
   store i8 1, ptr %arrayidx.i.i.i, align 1
-  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %opaque, i32 noundef %conv15.i.i)
+  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %opaque, i32 noundef range(i32 0, 256) %conv15.i.i)
   br label %vmxnet3_complete_packet.exit.i
 
 vmxnet3_complete_packet.exit.i:                   ; preds = %do_automask.i.i.i, %land.lhs.true6.i.i.i, %if.end.i.i.i
@@ -1560,7 +1560,7 @@ if.end17.i.i:                                     ; preds = %if.end7.i.i.i
   %bus_master_as.i.i.i.i.i127.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i128.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i127.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef nonnull %gos.i.i.i, i64 noundef 4, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i128.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i127.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef nonnull %gos.i.i.i, i64 noundef range(i64 -2147483648, 2147483648) 4, i1 noundef zeroext false) #15
   %bf.load.i.i.i = load i32, ptr %gos.i.i.i, align 4
   %25 = and i32 %bf.load.i.i.i, 60
   %cmp.i129.i.i = icmp ne i32 %25, 8
@@ -1611,7 +1611,7 @@ if.end17.i.i:                                     ; preds = %if.end7.i.i.i
   %bus_master_as.i.i.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i7.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i6.i.i.i, i64 noundef %add.i5.i.i.i, i32 1, ptr noundef nonnull %vlan_table.i.i.i.i, i64 noundef 512, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i7.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i6.i.i.i, i64 noundef %add.i5.i.i.i, i32 1, ptr noundef nonnull %vlan_table.i.i.i.i, i64 noundef range(i64 -2147483648, 2147483648) 512, i1 noundef zeroext false) #15
   call fastcc void @vmxnet3_update_mcast_filters(ptr noundef nonnull %opaque)
   %32 = load i64, ptr %drv_shmem.i.i, align 8
   %add19.i.i = add i64 %32, 56
@@ -2022,7 +2022,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.
   br label %for.body.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end210.i.i
-  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef %conv.i249.i.i) #16
+  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef range(i32 0, 256) %conv.i249.i.i) #16
   unreachable
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
@@ -2049,7 +2049,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   br i1 %cmp.not.i14.i.i.i, label %for.cond.i.i.i, label %if.then.i15.i.i.i
 
 if.then.i15.i.i.i:                                ; preds = %for.body.i.i.i
-  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef %conv3.i.i.i) #16
+  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef range(i32 0, 256) %conv3.i.i.i) #16
   unreachable
 
 for.cond8.i.i.i:                                  ; preds = %for.body12.i.i.i
@@ -2067,7 +2067,7 @@ for.body12.i.i.i:                                 ; preds = %for.cond8.i.i.i, %f
   br i1 %cmp.not.i18.i.i.i, label %for.cond8.i.i.i, label %if.then.i19.i.i.i
 
 if.then.i19.i.i.i:                                ; preds = %for.body12.i.i.i
-  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef %conv17.i.i.i) #16
+  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef range(i32 0, 256) %conv17.i.i.i) #16
   unreachable
 
 vmxnet3_validate_interrupts.exit.i.i:             ; preds = %for.cond8.i.i.i, %for.cond8.preheader.i.i.i
@@ -2104,7 +2104,7 @@ do.end15.i:                                       ; preds = %do.end14
   %bus_master_as.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %call.i.i32.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i36.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i35.i, i64 noundef %add.i34.i, i32 1, ptr noundef nonnull %vlan_table.i.i, i64 noundef 512, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i36.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i35.i, i64 noundef %add.i34.i, i32 1, ptr noundef nonnull %vlan_table.i.i, i64 noundef range(i64 -2147483648, 2147483648) 512, i1 noundef zeroext false) #15
   br label %sw.epilog
 
 do.end18.i:                                       ; preds = %do.end14
@@ -2332,7 +2332,7 @@ if.else16:                                        ; preds = %entry
   %6 = load ptr, ptr %mcast_list, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %5, i32 1, ptr noundef %6, i64 noundef %conv, i1 noundef zeroext false) #15
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %5, i32 1, ptr noundef %6, i64 noundef range(i64 -2147483648, 2147483648) %conv, i1 noundef zeroext false) #15
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else16, %if.end
@@ -2776,7 +2776,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.preh
   %bus_master_as.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i.i.i, i64 noundef %add.i.i.i.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i.i.i.i, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i.i.i, i64 noundef %add.i.i.i.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i2.i.i.i.i.i, i1 noundef zeroext false) #15
   %68 = load i8, ptr %gen.i.i18.i.i, align 4
   %conv.i.i38.i = zext i8 %68 to i32
   %bf.load.i.i.i = load i32, ptr %52, align 8
@@ -2798,7 +2798,7 @@ if.end.i.i.i:                                     ; preds = %for.cond.i.i.i
   %bus_master_as.i.i.i.i.i.i17.i.i.i = getelementptr inbounds i8, ptr %call.i.i9.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i.i18.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i17.i.i.i, i64 noundef %add.i.i.i15.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i16.i.i.i, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i.i18.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i17.i.i.i, i64 noundef %add.i.i.i15.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i2.i.i16.i.i.i, i1 noundef zeroext false) #15
   %71 = load i32, ptr %51, align 8
   %inc.i.i.i.i.i = add i32 %71, 1
   store i32 %inc.i.i.i.i.i, ptr %51, align 8
@@ -2831,7 +2831,7 @@ if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
   %bus_master_as.i.i.i.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %call.i.i.i6.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i.i.i15.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i14.i.i, i64 noundef %add.i.i.i.i12.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i.i13.i.i, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i.i.i15.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i14.i.i, i64 noundef %add.i.i.i.i12.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i2.i.i.i13.i.i, i1 noundef zeroext false) #15
   %bf.load.i16.i.i = load i32, ptr %52, align 8
   %bf.lshr.i17.i.i = lshr i32 %bf.load.i16.i.i, 31
   %78 = load i8, ptr %gen.i.i18.i.i, align 4
@@ -2853,7 +2853,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i.i
   %bus_master_as.i.i.i.i.i.i28.i.i.i = getelementptr inbounds i8, ptr %call.i.i20.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i.i29.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i28.i.i.i, i64 noundef %add.i.i.i26.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i27.i.i.i, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i.i29.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i28.i.i.i, i64 noundef %add.i.i.i26.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i2.i.i27.i.i.i, i1 noundef zeroext false) #15
   %bf.load2.i20.i.i = load i32, ptr %52, align 8
   %81 = and i32 %bf.load2.i20.i.i, 16384
   %cmp4.not.i.i.i = icmp eq i32 %81, 0
@@ -2886,7 +2886,7 @@ if.end7.i.i.i:                                    ; preds = %if.then.i.i.i, %if.
   %bus_master_as.i.i.i.i.i.i39.i.i.i = getelementptr inbounds i8, ptr %call.i.i31.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i.i40.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i39.i.i.i, i64 noundef %add.i.i.i37.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i38.i.i.i, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i.i40.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i39.i.i.i, i64 noundef %add.i.i.i37.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i2.i.i38.i.i.i, i1 noundef zeroext false) #15
   %bf.load8.i.i.i = load i32, ptr %52, align 8
   %bf.lshr9.i.i.i = lshr i32 %bf.load8.i.i.i, 31
   %88 = load i8, ptr %gen.i42.i.i.i, align 4
@@ -2908,7 +2908,7 @@ if.then14.i.i.i:                                  ; preds = %if.end7.i.i.i
   %bus_master_as.i.i.i.i.i.i52.i.i.i = getelementptr inbounds i8, ptr %call.i.i43.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i.i53.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i52.i.i.i, i64 noundef %add.i.i.i50.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef %conv.i2.i.i51.i.i.i, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i.i53.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i52.i.i.i, i64 noundef %add.i.i.i50.i.i.i, i32 1, ptr noundef nonnull %rxd.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i2.i.i51.i.i.i, i1 noundef zeroext false) #15
   %bf.load15.i.i.i = load i32, ptr %52, align 8
   %91 = and i32 %bf.load15.i.i.i, 16384
   %cmp18.not.i.i.i = icmp eq i32 %91, 0
@@ -2990,7 +2990,7 @@ vmxnet3_pci_dma_writev.exit.i:                    ; preds = %if.end.i.i, %if.end
 if.then20.i:                                      ; preds = %vmxnet3_pci_dma_writev.exit.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i44.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i40.i, i64 noundef %ready_rxcd_pa.099.i62, i32 1, ptr noundef nonnull %rxcd.i, i64 noundef 16, i1 noundef zeroext true) #15
+  %call.i.i.i.i.i44.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i40.i, i64 noundef range(i64 1, 0) %ready_rxcd_pa.099.i62, i32 1, ptr noundef nonnull %rxcd.i, i64 noundef 16, i1 noundef zeroext true) #15
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then20.i, %vmxnet3_pci_dma_writev.exit.i
@@ -3121,7 +3121,7 @@ if.then54.i:                                      ; preds = %while.end.i
   store i32 %bf.set64.i, ptr %54, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i51.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i40.i, i64 noundef %ready_rxcd_pa.090.i, i32 1, ptr noundef nonnull %rxcd.i, i64 noundef 16, i1 noundef zeroext true) #15
+  %call.i.i.i.i.i51.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i40.i, i64 noundef range(i64 1, 0) %ready_rxcd_pa.090.i, i32 1, ptr noundef nonnull %rxcd.i, i64 noundef 16, i1 noundef zeroext true) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !27
   fence release
   br i1 %cmp66.not.i, label %if.end69.i, label %if.then68.i
@@ -3157,7 +3157,7 @@ if.end69.i:                                       ; preds = %while.body.lr.ph.i,
   %arrayidx.i.i39 = getelementptr [25 x %struct.Vmxnet3IntState], ptr %interrupt_states.i.i, i64 0, i64 %idxprom.i.i38
   %is_pending.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i39, i64 1
   store i8 1, ptr %is_pending.i.i, align 1
-  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %call, i32 noundef %conv70.i)
+  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %call, i32 noundef range(i32 0, 256) %conv70.i)
   %msix_used.i.i = getelementptr inbounds i8, ptr %call, i64 14144
   %117 = load i8, ptr %msix_used.i.i, align 16
   %tobool.i.i = trunc i8 %117 to i1
@@ -3186,7 +3186,7 @@ land.lhs.true6.i.i:                               ; preds = %if.end.i56.i
 
 do_automask.i.i:                                  ; preds = %land.lhs.true6.i.i, %land.lhs.true3.i.i
   store i8 1, ptr %arrayidx.i.i39, align 1
-  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %call, i32 noundef %conv70.i)
+  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %call, i32 noundef range(i32 0, 256) %conv70.i)
   br label %vmxnet3_trigger_interrupt.exit.i
 
 vmxnet3_trigger_interrupt.exit.i:                 ; preds = %do_automask.i.i, %land.lhs.true6.i.i, %if.end.i56.i
@@ -3323,7 +3323,7 @@ entry:
   %arrayidx.i = getelementptr [25 x %struct.Vmxnet3IntState], ptr %interrupt_states.i, i64 0, i64 %idxprom.i
   %is_pending.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
   store i8 1, ptr %is_pending.i, align 1
-  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %call, i32 noundef %conv)
+  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %call, i32 noundef range(i32 0, 256) %conv)
   %msix_used.i = getelementptr inbounds i8, ptr %call, i64 14144
   %6 = load i8, ptr %msix_used.i, align 16
   %tobool.i = trunc i8 %6 to i1
@@ -3352,7 +3352,7 @@ land.lhs.true6.i:                                 ; preds = %if.end.i
 
 do_automask.i:                                    ; preds = %land.lhs.true6.i, %land.lhs.true3.i
   store i8 1, ptr %arrayidx.i, align 1
-  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %call, i32 noundef %conv)
+  call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %call, i32 noundef range(i32 0, 256) %conv)
   br label %vmxnet3_trigger_interrupt.exit
 
 vmxnet3_trigger_interrupt.exit:                   ; preds = %if.end.i, %land.lhs.true6.i, %do_automask.i
@@ -3484,7 +3484,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i8
 
 if.then.i.i:                                      ; preds = %if.end2
-  tail call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef %conv.i) #16
+  tail call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef range(i32 0, 256) %conv.i) #16
   unreachable
 
 for.cond.i:                                       ; preds = %for.body.i8
@@ -3511,7 +3511,7 @@ for.body.i8:                                      ; preds = %for.cond.i, %for.bo
   br i1 %cmp.not.i14.i, label %for.cond.i, label %if.then.i15.i
 
 if.then.i15.i:                                    ; preds = %for.body.i8
-  tail call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef %conv3.i) #16
+  tail call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef range(i32 0, 256) %conv3.i) #16
   unreachable
 
 for.cond8.i:                                      ; preds = %for.body12.i
@@ -3529,7 +3529,7 @@ for.body12.i:                                     ; preds = %for.cond8.i, %for.b
   br i1 %cmp.not.i18.i, label %for.cond8.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %for.body12.i
-  tail call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef %conv17.i) #16
+  tail call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.31, i32 noundef range(i32 0, 256) %conv17.i) #16
   unreachable
 
 return:                                           ; preds = %for.cond8.i, %return.sink.split.i, %do.body12.i, %do.body.i, %for.cond8.preheader.i

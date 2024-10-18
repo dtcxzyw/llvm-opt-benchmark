@@ -506,7 +506,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeDecodersController35Tra
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc24 unwind label %45
 
 .noexc24:                                         ; preds = %.noexc
@@ -516,7 +516,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeDecodersController35Tra
 36:                                               ; preds = %.noexc24
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc24

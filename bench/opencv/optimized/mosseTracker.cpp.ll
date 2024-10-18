@@ -205,8 +205,8 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8tracking4im
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #20
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8tracking4impl9MosseImplE, i64 16)) #20
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8tracking4impl9MosseImplE, i64 16)) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %2) #20
   ret void
 }
 
@@ -336,7 +336,7 @@ define linkonce_odr hidden void @_ZN2cv8tracking4impl9MosseImplD1Ev(ptr noundef 
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8tracking4impl9MosseImplE, i64 16)) #20
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8tracking4impl9MosseImplE, i64 16)) #20
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   ret void
 }
@@ -353,8 +353,8 @@ define linkonce_odr hidden void @_ZN2cv8tracking4impl9MosseImplD0Ev(ptr noundef 
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8tracking4impl9MosseImplE, i64 16)) #20
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8tracking4impl9MosseImplE, i64 16)) #20
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -1716,7 +1716,7 @@ define linkonce_odr hidden void @_ZNK2cv8tracking4impl9MosseImpl8randWarpERKNS_3
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 2, i32 noundef 3, i32 noundef 5)
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %10)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %.noexc unwind label %145
 
 .noexc:                                           ; preds = %3
@@ -1893,7 +1893,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %_ZN2cv20MatCommaIni
   %81 = load i32, ptr %80, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull %12)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %.noexc61 unwind label %147
 
 .noexc61:                                         ; preds = %_ZN2cv4Mat_IfEC2Eii.exit

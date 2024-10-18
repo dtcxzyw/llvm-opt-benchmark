@@ -419,7 +419,7 @@ _ZNK2cv11_InputArray6getMatEi.exit93:             ; preds = %108, %111
 152:                                              ; preds = %148
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #16
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #16
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %29) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #16
   %153 = add nuw nsw i32 %.0102, 1
@@ -473,7 +473,7 @@ _ZNK2cv11_InputArray6getMatEi.exit93:             ; preds = %108, %111
 
 .body:                                            ; preds = %170, %150, %144
   %eh.lpad-body = phi { ptr, i32 } [ %145, %144 ], [ %171, %170 ], [ %151, %150 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #16
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %29) #16
   br label %172
 
 172:                                              ; preds = %168, %.body
@@ -593,7 +593,7 @@ declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc6ADBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

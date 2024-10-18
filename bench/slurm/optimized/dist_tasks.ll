@@ -1976,7 +1976,7 @@ _task_layout_display_masks.exit175:               ; preds = %561, %548
   br i1 %576, label %577, label %578
 
 577:                                              ; preds = %.loopexit.i180
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._lllp_generate_cpu_bind, i32 noundef %42, i64 noundef %.042.i, i32 noundef %574) #8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._lllp_generate_cpu_bind, i32 noundef range(i32 0, 65536) %42, i64 noundef %.042.i, i32 noundef %574) #8
   br label %578
 
 578:                                              ; preds = %577, %.loopexit.i180

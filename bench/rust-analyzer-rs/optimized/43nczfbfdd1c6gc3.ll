@@ -235,7 +235,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !41
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7e46df1fac127298E.llvm.10876350097188915343"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7e46df1fac127298E.llvm.10876350097188915343"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %1
@@ -263,7 +263,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !41
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !51
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7e46df1fac127298E.llvm.10876350097188915343"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7e46df1fac127298E.llvm.10876350097188915343"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   %17 = load i64, ptr %16, align 8, !range !50, !noalias !51, !noundef !35
   %.not.i.i.i.i2 = icmp eq i64 %17, 0
@@ -393,7 +393,7 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17he30434d3ea57c840
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !nonnull !35, !noundef !35
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %5, i64 noundef 8) #16
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef range(i64 1, -7) %5, i64 noundef 8) #16
   br label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$str$GT$$GT$$GT$17hba599e4cdbc2c829E.exit"
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$str$GT$$GT$$GT$17hba599e4cdbc2c829E.exit": ; preds = %1, %7

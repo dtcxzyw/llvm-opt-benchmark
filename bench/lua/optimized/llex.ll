@@ -233,11 +233,11 @@ if.then.i:                                        ; preds = %sw.default.i
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %call.i9 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef %token) #6
+  %call.i9 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef range(i32 1, 0) %token) #6
   br label %txtToken.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %call3.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef %token) #6
+  %call3.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef range(i32 1, 0) %token) #6
   br label %txtToken.exit
 
 if.else4.i:                                       ; preds = %sw.default.i

@@ -395,14 +395,14 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph:                                           ; preds = %27, %dissect_tiff_ifd.exit
   %38 = phi i32 [ %450, %dissect_tiff_ifd.exit ], [ %.pr, %27 ]
-  %39 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %38, i32 noundef %.024) #3
+  %39 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef range(i32 1, 0) %38, i32 noundef range(i32 -2147483648, 1) %.024) #3
   %40 = zext i16 %39 to i32
   %41 = mul nuw nsw i32 %40, 12
   %42 = add nuw nsw i32 %41, 6
   %43 = load i32, ptr @ett_ifd, align 4
-  %44 = call ptr @proto_tree_add_subtree(ptr noundef %31, ptr noundef %0, i32 noundef %38, i32 noundef %42, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.221) #3
+  %44 = call ptr @proto_tree_add_subtree(ptr noundef %31, ptr noundef %0, i32 noundef range(i32 1, 0) %38, i32 noundef %42, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.221) #3
   %45 = load i32, ptr @hf_tiff_ifd_count, align 4
-  %46 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef %.024) #3
+  %46 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %0, i32 noundef range(i32 1, 0) %38, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %.024) #3
   %47 = add i32 %38, 2
   %.not.i = icmp eq i16 %39, 0
   br i1 %.not.i, label %dissect_tiff_ifd.exit, label %.lr.ph.i
@@ -412,21 +412,21 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.02930.i = phi i32 [ %447, %dissect_tiff_entry.exit.i ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
-  %48 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.031.i, i32 noundef %.024) #3
+  %48 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.031.i, i32 noundef range(i32 -2147483648, 1) %.024) #3
   %49 = load i32, ptr @ett_ifd, align 4
   %50 = zext i16 %48 to i32
   %51 = call ptr @val_to_str_const(i32 noundef %50, ptr noundef nonnull @tiff_tag_names, ptr noundef nonnull @.str.223) #3
   %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %44, ptr noundef %0, i32 noundef %.031.i, i32 noundef 12, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.222, ptr noundef %51) #3
   %53 = load i32, ptr @hf_tiff_entry_tag, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.031.i, i32 noundef 2, i32 noundef %.024) #3
+  %54 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.031.i, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %.024) #3
   store i32 0, ptr %17, align 4
   store i32 0, ptr %18, align 4
   %55 = load i32, ptr @hf_tiff_entry_type, align 4
   %56 = add i32 %.031.i, 2
-  %57 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %55, ptr noundef %0, i32 noundef %56, i32 noundef 2, i32 noundef %.024, ptr noundef nonnull %17) #3
+  %57 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %55, ptr noundef %0, i32 noundef %56, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %17) #3
   %58 = load i32, ptr @hf_tiff_entry_count, align 4
   %59 = add i32 %.031.i, 4
-  %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %58, ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %18) #3
+  %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %58, ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %18) #3
   %61 = add i32 %.031.i, 8
   switch i16 %48, label %424 [
     i16 256, label %62
@@ -472,7 +472,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %64 = trunc i32 %63 to i16
   %65 = load i32, ptr %18, align 4
   %66 = load i32, ptr @hf_tiff_image_width, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %64, i32 noundef %65, i32 noundef %.024, i32 noundef %66)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %64, i32 noundef %65, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %66)
   br label %dissect_tiff_entry.exit.i
 
 67:                                               ; preds = %.lr.ph.i
@@ -480,7 +480,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %69 = trunc i32 %68 to i16
   %70 = load i32, ptr %18, align 4
   %71 = load i32, ptr @hf_tiff_image_length, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %69, i32 noundef %70, i32 noundef %.024, i32 noundef %71)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %69, i32 noundef %70, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %71)
   br label %dissect_tiff_entry.exit.i
 
 72:                                               ; preds = %.lr.ph.i
@@ -488,7 +488,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %74 = trunc i32 %73 to i16
   %75 = load i32, ptr %18, align 4
   %76 = load i32, ptr @hf_tiff_bits_per_sample, align 4
-  call fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %74, i32 noundef %75, i32 noundef %.024, i32 noundef %76)
+  call fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %74, i32 noundef %75, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %76)
   br label %dissect_tiff_entry.exit.i
 
 77:                                               ; preds = %.lr.ph.i
@@ -496,7 +496,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %79 = trunc i32 %78 to i16
   %80 = load i32, ptr %18, align 4
   %81 = load i32, ptr @hf_tiff_compression, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %79, i32 noundef %80, i32 noundef %.024, i32 noundef %81)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %79, i32 noundef %80, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %81)
   br label %dissect_tiff_entry.exit.i
 
 82:                                               ; preds = %.lr.ph.i
@@ -504,7 +504,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %84 = trunc i32 %83 to i16
   %85 = load i32, ptr %18, align 4
   %86 = load i32, ptr @hf_tiff_photometric_interp, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %84, i32 noundef %85, i32 noundef %.024, i32 noundef %86)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %84, i32 noundef %85, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %86)
   br label %dissect_tiff_entry.exit.i
 
 87:                                               ; preds = %.lr.ph.i
@@ -512,7 +512,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %89 = trunc i32 %88 to i16
   %90 = load i32, ptr %18, align 4
   %91 = load i32, ptr @hf_tiff_threshholding, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %89, i32 noundef %90, i32 noundef %.024, i32 noundef %91)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %89, i32 noundef %90, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %91)
   br label %dissect_tiff_entry.exit.i
 
 92:                                               ; preds = %.lr.ph.i
@@ -520,7 +520,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %94 = trunc i32 %93 to i16
   %95 = load i32, ptr %18, align 4
   %96 = load i32, ptr @hf_tiff_cell_width, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %94, i32 noundef %95, i32 noundef %.024, i32 noundef %96)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %94, i32 noundef %95, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %96)
   br label %dissect_tiff_entry.exit.i
 
 97:                                               ; preds = %.lr.ph.i
@@ -528,7 +528,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %99 = trunc i32 %98 to i16
   %100 = load i32, ptr %18, align 4
   %101 = load i32, ptr @hf_tiff_cell_length, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %99, i32 noundef %100, i32 noundef %.024, i32 noundef %101)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %99, i32 noundef %100, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %101)
   br label %dissect_tiff_entry.exit.i
 
 102:                                              ; preds = %.lr.ph.i
@@ -536,7 +536,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %104 = trunc i32 %103 to i16
   %105 = load i32, ptr %18, align 4
   %106 = load i32, ptr @hf_tiff_fill_order, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %104, i32 noundef %105, i32 noundef %.024, i32 noundef %106)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %104, i32 noundef %105, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %106)
   br label %dissect_tiff_entry.exit.i
 
 107:                                              ; preds = %.lr.ph.i
@@ -570,7 +570,7 @@ define internal i32 @dissect_tiff(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 121:                                              ; preds = %118
   %122 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %123 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %122, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %16) #3
+  %123 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %122, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %16) #3
   %.pre.i.i.i = load i32, ptr %16, align 4
   br label %124
 
@@ -614,7 +614,7 @@ dissect_tiff_single_string.exit.i.i:              ; preds = %124, %116, %112
 
 141:                                              ; preds = %138
   %142 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %143 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %142, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %15) #3
+  %143 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %142, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %15) #3
   %.pre.i205.i.i = load i32, ptr %15, align 4
   br label %144
 
@@ -658,7 +658,7 @@ dissect_tiff_single_string.exit206.i.i:           ; preds = %144, %136, %132
 
 161:                                              ; preds = %158
   %162 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %163 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %162, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %14) #3
+  %163 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %162, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %14) #3
   %.pre.i208.i.i = load i32, ptr %14, align 4
   br label %164
 
@@ -702,7 +702,7 @@ dissect_tiff_single_string.exit209.i.i:           ; preds = %164, %156, %152
 
 181:                                              ; preds = %178
   %182 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %183 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %182, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %13) #3
+  %183 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %182, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %13) #3
   %.pre.i211.i.i = load i32, ptr %13, align 4
   br label %184
 
@@ -720,7 +720,7 @@ dissect_tiff_single_string.exit212.i.i:           ; preds = %184, %176, %172
   %189 = trunc i32 %188 to i16
   %190 = load i32, ptr %18, align 4
   %191 = load i32, ptr @hf_tiff_strip_offset, align 4
-  call fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %189, i32 noundef %190, i32 noundef %.024, i32 noundef %191)
+  call fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %189, i32 noundef %190, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %191)
   br label %dissect_tiff_entry.exit.i
 
 192:                                              ; preds = %.lr.ph.i
@@ -728,7 +728,7 @@ dissect_tiff_single_string.exit212.i.i:           ; preds = %184, %176, %172
   %194 = trunc i32 %193 to i16
   %195 = load i32, ptr %18, align 4
   %196 = load i32, ptr @hf_tiff_orientation, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %194, i32 noundef %195, i32 noundef %.024, i32 noundef %196)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %194, i32 noundef %195, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %196)
   br label %dissect_tiff_entry.exit.i
 
 197:                                              ; preds = %.lr.ph.i
@@ -736,7 +736,7 @@ dissect_tiff_single_string.exit212.i.i:           ; preds = %184, %176, %172
   %199 = trunc i32 %198 to i16
   %200 = load i32, ptr %18, align 4
   %201 = load i32, ptr @hf_tiff_samples_per_pixel, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %199, i32 noundef %200, i32 noundef %.024, i32 noundef %201)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %199, i32 noundef %200, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %201)
   br label %dissect_tiff_entry.exit.i
 
 202:                                              ; preds = %.lr.ph.i
@@ -744,7 +744,7 @@ dissect_tiff_single_string.exit212.i.i:           ; preds = %184, %176, %172
   %204 = trunc i32 %203 to i16
   %205 = load i32, ptr %18, align 4
   %206 = load i32, ptr @hf_tiff_rows_per_strip, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %204, i32 noundef %205, i32 noundef %.024, i32 noundef %206)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %204, i32 noundef %205, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %206)
   br label %dissect_tiff_entry.exit.i
 
 207:                                              ; preds = %.lr.ph.i
@@ -752,7 +752,7 @@ dissect_tiff_single_string.exit212.i.i:           ; preds = %184, %176, %172
   %209 = trunc i32 %208 to i16
   %210 = load i32, ptr %18, align 4
   %211 = load i32, ptr @hf_tiff_strip_byte_count, align 4
-  call fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %209, i32 noundef %210, i32 noundef %.024, i32 noundef %211)
+  call fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %209, i32 noundef %210, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %211)
   br label %dissect_tiff_entry.exit.i
 
 212:                                              ; preds = %.lr.ph.i
@@ -762,7 +762,7 @@ dissect_tiff_single_string.exit212.i.i:           ; preds = %184, %176, %172
   %216 = load i32, ptr @hf_tiff_x_res_numer, align 4
   %217 = load i32, ptr @hf_tiff_x_res_denom, align 4
   %218 = load i32, ptr @hf_tiff_x_res_approx, align 4
-  call fastcc void @dissect_tiff_single_urational(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %214, i32 noundef %215, i32 noundef %.024, i32 noundef %216, i32 noundef %217, i32 noundef %218)
+  call fastcc void @dissect_tiff_single_urational(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %214, i32 noundef %215, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %216, i32 noundef %217, i32 noundef %218)
   br label %dissect_tiff_entry.exit.i
 
 219:                                              ; preds = %.lr.ph.i
@@ -772,7 +772,7 @@ dissect_tiff_single_string.exit212.i.i:           ; preds = %184, %176, %172
   %223 = load i32, ptr @hf_tiff_y_res_numer, align 4
   %224 = load i32, ptr @hf_tiff_y_res_denom, align 4
   %225 = load i32, ptr @hf_tiff_y_res_approx, align 4
-  call fastcc void @dissect_tiff_single_urational(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %221, i32 noundef %222, i32 noundef %.024, i32 noundef %223, i32 noundef %224, i32 noundef %225)
+  call fastcc void @dissect_tiff_single_urational(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %221, i32 noundef %222, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %223, i32 noundef %224, i32 noundef %225)
   br label %dissect_tiff_entry.exit.i
 
 226:                                              ; preds = %.lr.ph.i
@@ -780,7 +780,7 @@ dissect_tiff_single_string.exit212.i.i:           ; preds = %184, %176, %172
   %228 = trunc i32 %227 to i16
   %229 = load i32, ptr %18, align 4
   %230 = load i32, ptr @hf_tiff_planar_configuration, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %228, i32 noundef %229, i32 noundef %.024, i32 noundef %230)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %228, i32 noundef %229, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %230)
   br label %dissect_tiff_entry.exit.i
 
 231:                                              ; preds = %.lr.ph.i
@@ -814,7 +814,7 @@ dissect_tiff_single_string.exit212.i.i:           ; preds = %184, %176, %172
 
 245:                                              ; preds = %242
   %246 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %247 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %246, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %12) #3
+  %247 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %246, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %12) #3
   %.pre.i214.i.i = load i32, ptr %12, align 4
   br label %248
 
@@ -832,7 +832,7 @@ dissect_tiff_single_string.exit215.i.i:           ; preds = %248, %240, %236
   %253 = trunc i32 %252 to i16
   %254 = load i32, ptr %18, align 4
   %255 = load i32, ptr @hf_tiff_gray_response_unit, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %253, i32 noundef %254, i32 noundef %.024, i32 noundef %255)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %253, i32 noundef %254, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %255)
   br label %dissect_tiff_entry.exit.i
 
 256:                                              ; preds = %.lr.ph.i
@@ -856,13 +856,13 @@ dissect_tiff_single_string.exit215.i.i:           ; preds = %248, %240, %236
 
 265:                                              ; preds = %260
   %266 = load i32, ptr @hf_tiff_t6_options, align 4
-  %267 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %266, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024) #3
+  %267 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %266, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024) #3
   %268 = load i32, ptr @ett_t6, align 4
   %269 = call ptr @proto_item_add_subtree(ptr noundef %267, i32 noundef %268) #3
   %270 = load i32, ptr @hf_tiff_t6_unused, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %270, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024) #3
+  %271 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %270, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024) #3
   %272 = load i32, ptr @hf_tiff_t6_allow_uncompresed, align 4
-  %273 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %272, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024) #3
+  %273 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %272, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024) #3
   br label %dissect_tiff_entry.exit.i
 
 274:                                              ; preds = %.lr.ph.i
@@ -870,7 +870,7 @@ dissect_tiff_single_string.exit215.i.i:           ; preds = %248, %240, %236
   %276 = trunc i32 %275 to i16
   %277 = load i32, ptr %18, align 4
   %278 = load i32, ptr @hf_tiff_resolution_unit, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %276, i32 noundef %277, i32 noundef %.024, i32 noundef %278)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %276, i32 noundef %277, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %278)
   br label %dissect_tiff_entry.exit.i
 
 279:                                              ; preds = %.lr.ph.i
@@ -904,7 +904,7 @@ dissect_tiff_single_string.exit215.i.i:           ; preds = %248, %240, %236
 
 293:                                              ; preds = %290
   %294 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %295 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %294, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %11) #3
+  %295 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %294, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %11) #3
   %.pre.i218.i.i = load i32, ptr %11, align 4
   br label %296
 
@@ -948,7 +948,7 @@ dissect_tiff_single_string.exit219.i.i:           ; preds = %296, %288, %284
 
 313:                                              ; preds = %310
   %314 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %315 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %314, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %10) #3
+  %315 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %314, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %10) #3
   %.pre.i221.i.i = load i32, ptr %10, align 4
   br label %316
 
@@ -992,7 +992,7 @@ dissect_tiff_single_string.exit222.i.i:           ; preds = %316, %308, %304
 
 333:                                              ; preds = %330
   %334 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %335 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %334, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %9) #3
+  %335 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %334, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %9) #3
   %.pre.i224.i.i = load i32, ptr %9, align 4
   br label %336
 
@@ -1036,7 +1036,7 @@ dissect_tiff_single_string.exit225.i.i:           ; preds = %336, %328, %324
 
 353:                                              ; preds = %350
   %354 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %355 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %354, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %8) #3
+  %355 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %354, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %8) #3
   %.pre.i227.i.i = load i32, ptr %8, align 4
   br label %356
 
@@ -1054,7 +1054,7 @@ dissect_tiff_single_string.exit228.i.i:           ; preds = %356, %348, %344
   %361 = trunc i32 %360 to i16
   %362 = load i32, ptr %18, align 4
   %363 = load i32, ptr @hf_tiff_predictor, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %361, i32 noundef %362, i32 noundef %.024, i32 noundef %363)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %361, i32 noundef %362, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %363)
   br label %dissect_tiff_entry.exit.i
 
 364:                                              ; preds = %.lr.ph.i
@@ -1062,7 +1062,7 @@ dissect_tiff_single_string.exit228.i.i:           ; preds = %356, %348, %344
   %366 = trunc i32 %365 to i16
   %367 = load i32, ptr %18, align 4
   %368 = load i32, ptr @hf_tiff_tile_width, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %366, i32 noundef %367, i32 noundef %.024, i32 noundef %368)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %366, i32 noundef %367, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %368)
   br label %dissect_tiff_entry.exit.i
 
 369:                                              ; preds = %.lr.ph.i
@@ -1070,7 +1070,7 @@ dissect_tiff_single_string.exit228.i.i:           ; preds = %356, %348, %344
   %371 = trunc i32 %370 to i16
   %372 = load i32, ptr %18, align 4
   %373 = load i32, ptr @hf_tiff_tile_length, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %371, i32 noundef %372, i32 noundef %.024, i32 noundef %373)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %371, i32 noundef %372, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %373)
   br label %dissect_tiff_entry.exit.i
 
 374:                                              ; preds = %.lr.ph.i
@@ -1078,7 +1078,7 @@ dissect_tiff_single_string.exit228.i.i:           ; preds = %356, %348, %344
   %376 = trunc i32 %375 to i16
   %377 = load i32, ptr %18, align 4
   %378 = load i32, ptr @hf_tiff_ink_set, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %376, i32 noundef %377, i32 noundef %.024, i32 noundef %378)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %376, i32 noundef %377, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %378)
   br label %dissect_tiff_entry.exit.i
 
 379:                                              ; preds = %.lr.ph.i
@@ -1086,7 +1086,7 @@ dissect_tiff_single_string.exit228.i.i:           ; preds = %356, %348, %344
   %381 = trunc i32 %380 to i16
   %382 = load i32, ptr %18, align 4
   %383 = load i32, ptr @hf_tiff_number_of_inks, align 4
-  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %381, i32 noundef %382, i32 noundef %.024, i32 noundef %383)
+  call fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %61, i16 noundef zeroext %381, i32 noundef %382, i32 noundef range(i32 -2147483648, 1) %.024, i32 noundef %383)
   br label %dissect_tiff_entry.exit.i
 
 384:                                              ; preds = %.lr.ph.i
@@ -1120,7 +1120,7 @@ dissect_tiff_single_string.exit228.i.i:           ; preds = %356, %348, %344
 
 398:                                              ; preds = %395
   %399 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %400 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %399, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %7) #3
+  %400 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %399, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %7) #3
   %.pre.i230.i.i = load i32, ptr %7, align 4
   br label %401
 
@@ -1164,7 +1164,7 @@ dissect_tiff_single_string.exit231.i.i:           ; preds = %401, %393, %389
 
 418:                                              ; preds = %415
   %419 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %420 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %419, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %6) #3
+  %420 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %419, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %6) #3
   %.pre.i233.i.i = load i32, ptr %6, align 4
   br label %421
 
@@ -1213,14 +1213,14 @@ switch.lookup:                                    ; preds = %424
 
 439:                                              ; preds = %436
   %440 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %441 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %440, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.024, ptr noundef nonnull %5) #3
+  %441 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %440, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024, ptr noundef nonnull %5) #3
   %.pre.i235.i.i = load i32, ptr %5, align 4
   br label %442
 
 442:                                              ; preds = %439, %438
   %443 = phi i32 [ %61, %438 ], [ %.pre.i235.i.i, %439 ]
   %444 = load i32, ptr @hf_tiff_entry_unknown, align 4
-  %445 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %444, ptr noundef %0, i32 noundef %443, i32 noundef %431, i32 noundef %.024) #3
+  %445 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %444, ptr noundef %0, i32 noundef %443, i32 noundef %431, i32 noundef range(i32 -2147483648, 1) %.024) #3
   br label %dissect_tiff_tag_unknown.exit.i.i
 
 dissect_tiff_tag_unknown.exit.i.i:                ; preds = %442, %434
@@ -1238,8 +1238,8 @@ dissect_tiff_entry.exit.i:                        ; preds = %dissect_tiff_tag_un
 dissect_tiff_ifd.exit:                            ; preds = %dissect_tiff_entry.exit.i, %.lr.ph
   %.0.lcssa.i = phi i32 [ %47, %.lr.ph ], [ %446, %dissect_tiff_entry.exit.i ]
   %448 = load i32, ptr @hf_tiff_ifd_next, align 4
-  %449 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %448, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 4, i32 noundef %.024) #3
-  %450 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %.024) #3
+  %449 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %448, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.024) #3
+  %450 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef range(i32 -2147483648, 1) %.024) #3
   store i32 %450, ptr %19, align 4
   %.not27 = icmp eq i32 %450, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !6

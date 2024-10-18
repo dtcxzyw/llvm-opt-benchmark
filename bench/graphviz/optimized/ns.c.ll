@@ -486,7 +486,7 @@ init_graph.exit.thread:                           ; preds = %._crit_edge57.i, %i
   br i1 %235, label %236, label %252
 
 236:                                              ; preds = %.lr.ph74.i
-  %237 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #19
+  %237 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 25) 24) #19
   %238 = icmp eq ptr %237, null
   br i1 %238, label %239, label %gv_alloc.exit.i.i
 
@@ -531,7 +531,7 @@ find_tight_subtree.exit.thread.i:                 ; preds = %gv_alloc.exit.i.i
 
 ._crit_edge75.i:                                  ; preds = %252, %._crit_edge.i64
   %.val78.i = phi i32 [ 0, %._crit_edge.i64 ], [ %.1.i65, %252 ]
-  %255 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #19
+  %255 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 25) 16) #19
   %256 = icmp eq ptr %255, null
   br i1 %256, label %257, label %gv_alloc.exit.i42.i
 
@@ -870,7 +870,7 @@ STsetFind.exit48.i.i:                             ; preds = %STsetFind.exit48.i.
   br label %425
 
 425:                                              ; preds = %.sink.split.i.i, %422, %419
-  %426 = tail call fastcc i32 @add_tree_edge(ptr noundef %360)
+  %426 = tail call fastcc i32 @add_tree_edge(ptr noundef nonnull %360)
   %.not34.i.i = icmp eq i32 %426, 0
   br i1 %.not34.i.i, label %.preheader.i51.i, label %merge_trees.exit.thread.i
 
@@ -1983,12 +1983,12 @@ scan_and_normalize.exit.i:                        ; preds = %scan_and_normalize.
   br i1 %.not.i108, label %.loopexit.i109, label %1089
 
 1089:                                             ; preds = %scan_and_normalize.exit.i
-  %1090 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1088, ptr noundef nonnull readonly dereferenceable(4) @.str.16) #22
+  %1090 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1088, ptr noundef nonnull dereferenceable(4) @.str.16) #22
   %1091 = icmp eq i32 %1090, 0
   br i1 %1091, label %1095, label %1092
 
 1092:                                             ; preds = %1089
-  %1093 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1088, ptr noundef nonnull readonly dereferenceable(4) @.str.17) #22
+  %1093 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1088, ptr noundef nonnull dereferenceable(4) @.str.17) #22
   %1094 = icmp eq i32 %1093, 0
   br i1 %1094, label %1095, label %.loopexit.i109
 

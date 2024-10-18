@@ -114,7 +114,7 @@ for.cond.i.i:                                     ; preds = %if.end161.i.i, %if.
 if.then18.i.i:                                    ; preds = %for.cond.i.i
   %not.i.i = xor i32 %bitStream.i.0.i, -1
   %or.i.i = or i32 %not.i.i, -2147483648
-  %1 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or.i.i, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 -2147483648, 0) %or.i.i, i1 true)
   %cmp21.i.i11 = icmp samesign ugt i32 %1, 23
   br i1 %cmp21.i.i11, label %while.body.i.i, label %while.end.i.i
 
@@ -137,7 +137,7 @@ while.body.i.i:                                   ; preds = %if.then18.i.i, %whi
   %shr38.i.i = lshr i32 %memPtr.val.i7, %bitCount.i.3.i
   %not39.i.i = xor i32 %shr38.i.i, -1
   %or40.i.i = or i32 %not39.i.i, -2147483648
-  %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or40.i.i, i1 true)
+  %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 -2147483648, 0) %or40.i.i, i1 true)
   %cmp21.i.i = icmp samesign ugt i32 %2, 23
   br i1 %cmp21.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !4
 
@@ -374,7 +374,7 @@ for.cond.i:                                       ; preds = %if.end161.i, %if.en
 if.then18.i:                                      ; preds = %for.cond.i
   %not.i = xor i32 %bitStream.i.0, -1
   %or.i = or i32 %not.i, -2147483648
-  %1 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or.i, i1 true)
+  %1 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 -2147483648, 0) %or.i, i1 true)
   %cmp21.i113 = icmp samesign ugt i32 %1, 23
   br i1 %cmp21.i113, label %while.body.i, label %while.end.i
 
@@ -397,7 +397,7 @@ while.body.i:                                     ; preds = %if.then18.i, %while
   %shr38.i = lshr i32 %memPtr.val.i109, %bitCount.i.3
   %not39.i = xor i32 %shr38.i, -1
   %or40.i = or i32 %not39.i, -2147483648
-  %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or40.i, i1 true)
+  %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 -2147483648, 0) %or40.i, i1 true)
   %cmp21.i = icmp samesign ugt i32 %2, 23
   br i1 %cmp21.i, label %while.body.i, label %while.end.i, !llvm.loop !4
 

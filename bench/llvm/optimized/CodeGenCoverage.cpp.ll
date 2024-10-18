@@ -30,7 +30,7 @@ $_ZN4llvm15SmallVectorImplImE6resizeEmm = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15CodeGenCoverageC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %2, i64 noundef 6) #17
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %2, i64 noundef 6) #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %3, align 8
   ret void
@@ -56,7 +56,7 @@ define dso_local void @_ZN4llvm15CodeGenCoverage10setCoveredEm(ptr noundef nonnu
   %12 = shl nsw i64 -1, %11
   %13 = xor i64 %12, -1
   %14 = load ptr, ptr %0, align 8
-  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %0) #17
   %16 = getelementptr inbounds i64, ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8
@@ -69,7 +69,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %10, %6
   %20 = add i64 %1, 64
   %21 = lshr i64 %20, 6
   %22 = and i64 %21, 67108863
-  tail call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %22, i64 noundef 0)
+  tail call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(68) %0, i64 noundef %22, i64 noundef 0)
   %23 = load i32, ptr %3, align 8
   %24 = and i32 %23, 63
   %.not.i.i.i = icmp eq i32 %24, 0
@@ -80,7 +80,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %10, %6
   %27 = shl nsw i64 -1, %26
   %28 = xor i64 %27, -1
   %29 = load ptr, ptr %0, align 8
-  %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %0) #17
   %31 = getelementptr inbounds i64, ptr %29, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -8
   %33 = load i64, ptr %32, align 8
@@ -313,7 +313,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15CodeGenCoverage4emitENS_9StringR
   br i1 %18, label %129, label %19
 
 19:                                               ; preds = %15
-  %20 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_E11OutputMutex) #17
+  %20 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) @_ZZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_E11OutputMutex) #17
   %.not.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %21
 
@@ -336,10 +336,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %19
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8, !noalias !15
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %7, ptr %27, align 8, !noalias !15
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %28 = sext i32 %22 to i64
   %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %28) #17
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #17
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   store ptr %1, ptr %9, align 8, !alias.scope !18
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
@@ -517,15 +517,15 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %106
 126:                                              ; preds = %122
   %127 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i8 0, ptr %123, align 8
-  call void @_ZN4llvm14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %127) #17
+  call void @_ZN4llvm14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %127) #17
   br label %_ZNSt10unique_ptrIN4llvm14ToolOutputFileESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm14ToolOutputFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %122, %126
-  call void @_ZN4llvm16CleanupInstallerD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %35) #17
+  call void @_ZN4llvm16CleanupInstallerD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %35) #17
   call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef 152) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  %128 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_E11OutputMutex) #17
+  %128 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) @_ZZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_E11OutputMutex) #17
   br i1 %.not36, label %129, label %130
 
 129:                                              ; preds = %_ZNSt10unique_ptrIN4llvm14ToolOutputFileESt14default_deleteIS1_EED2Ev.exit, %15, %5
@@ -558,7 +558,7 @@ define dso_local void @_ZN4llvm15CodeGenCoverage5resetEv(ptr noundef nonnull ali
   %7 = shl nsw i64 -1, %6
   %8 = xor i64 %7, -1
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %0) #17
   %11 = getelementptr inbounds i64, ptr %9, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -568,7 +568,7 @@ define dso_local void @_ZN4llvm15CodeGenCoverage5resetEv(ptr noundef nonnull ali
 
 _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %5, %1
   store i32 0, ptr %2, align 8
-  tail call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 0, i64 noundef 0)
+  tail call void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noundef nonnull align 8 dereferenceable(68) %0, i64 noundef 0, i64 noundef 0)
   %15 = load i32, ptr %2, align 8
   %16 = and i32 %15, 63
   %.not.i.i.i = icmp eq i32 %16, 0
@@ -579,7 +579,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %5, %1
   %19 = shl nsw i64 -1, %18
   %20 = xor i64 %19, -1
   %21 = load ptr, ptr %0, align 8
-  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %0) #17
   %23 = getelementptr inbounds i64, ptr %21, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load i64, ptr %24, align 8

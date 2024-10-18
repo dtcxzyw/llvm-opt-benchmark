@@ -438,7 +438,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %9 = load i32, ptr %1, align 8, !range !73, !alias.scope !71, !noalias !74, !noundef !5
   %10 = getelementptr inbounds i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4, !alias.scope !71, !noalias !74, !noundef !5
-  %12 = tail call { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17ha3ccd8a8c5899790E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %9, i32 noundef %11), !noalias !68
+  %12 = tail call { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17ha3ccd8a8c5899790E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8, i32 noundef %9, i32 noundef %11), !noalias !68
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_ZN4gpui3app10entity_map9EntityMap5lease17h3f11f9291024b03bE.exit
@@ -510,7 +510,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h3f11f9291024b03bE.exit: ; preds = %2
   %43 = load i32, ptr %42, align 8, !range !73, !noalias !83, !noundef !5
   %44 = getelementptr inbounds i8, ptr %42, i64 4
   %45 = load i32, ptr %44, align 4, !noalias !83, !noundef !5
-  invoke void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %43, i32 noundef %45)
+  invoke void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %43, i32 noundef %45)
           to label %.noexc9 unwind label %38
 
 .noexc9:                                          ; preds = %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h1e8c50f6408c2c4fE.exit"
@@ -520,7 +520,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h3f11f9291024b03bE.exit: ; preds = %2
 47:                                               ; preds = %.noexc9
   %48 = icmp ne ptr %.val6, null
   call void @llvm.assume(i1 %48)
-  %49 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  %49 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
           to label %.noexc10 unwind label %38
 
 .noexc10:                                         ; preds = %47
@@ -614,7 +614,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %12 = load i32, ptr %2, align 8, !range !73, !alias.scope !93, !noalias !95, !noundef !5
   %13 = getelementptr inbounds i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4, !alias.scope !93, !noalias !95, !noundef !5
-  %15 = tail call { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17ha3ccd8a8c5899790E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %12, i32 noundef %14), !noalias !90
+  %15 = tail call { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17ha3ccd8a8c5899790E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11, i32 noundef %12, i32 noundef %14), !noalias !90
   %16 = extractvalue { ptr, ptr } %15, 0
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %_ZN4gpui3app10entity_map9EntityMap5lease17h7182b73c7f2cf639E.exit
@@ -704,7 +704,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h7182b73c7f2cf639E.exit: ; preds = %3
 46:                                               ; preds = %43
   %47 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca4c623c7abdb5c2E.llvm.13949071745391659084"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca4c623c7abdb5c2E.llvm.13949071745391659084"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %52 unwind label %49
 
 48:                                               ; preds = %43
@@ -803,7 +803,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !113
   store i64 2, ptr %5, align 8, !noalias !113
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4), !noalias !113
-  invoke void @_ZN2ui10components10keybinding10KeyBinding13for_action_in17h31c0c91f6c57cd2eE(ptr noalias nocapture noundef nonnull sret([200 x i8]) align 8 dereferenceable(200) %4, ptr noundef nonnull align 1 %.sroa.5.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.6.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.7.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
+  invoke void @_ZN2ui10components10keybinding10KeyBinding13for_action_in17h31c0c91f6c57cd2eE(ptr noalias nocapture noundef nonnull sret([200 x i8]) align 8 dereferenceable(200) %4, ptr noundef nonnull align 1 %.sroa.5.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.6.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.7.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %35 unwind label %31, !noalias !118
 
 31:                                               ; preds = %26
@@ -988,7 +988,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !120
   store i64 2, ptr %5, align 8, !noalias !120
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4), !noalias !120
-  invoke void @_ZN2ui10components10keybinding10KeyBinding10for_action17h802313956a710360E(ptr noalias nocapture noundef nonnull sret([200 x i8]) align 8 dereferenceable(200) %4, ptr noundef nonnull align 1 %.sroa.5.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.6.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
+  invoke void @_ZN2ui10components10keybinding10KeyBinding10for_action17h802313956a710360E(ptr noalias nocapture noundef nonnull sret([200 x i8]) align 8 dereferenceable(200) %4, ptr noundef nonnull align 1 %.sroa.5.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.6.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %35 unwind label %31, !noalias !125
 
 31:                                               ; preds = %26

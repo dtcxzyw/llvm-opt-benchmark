@@ -375,7 +375,7 @@ entry:
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime10makeAFixedINS0_8JSRegExpELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEEEEEPT_DpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %entry
-  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %pattern_.i.i.i.i.i.i, ptr noundef %call.i.i.i.i.i.i.i.i) #19
+  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %pattern_.i.i.i.i.i.i, ptr noundef %call.i.i.i.i.i.i.i.i) #19
   br label %_ZN6hermes2vm7Runtime10makeAFixedINS0_8JSRegExpELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEEEEEPT_DpOT2_.exit
 
 _ZN6hermes2vm7Runtime10makeAFixedINS0_8JSRegExpELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEEEEEPT_DpOT2_.exit: ; preds = %entry, %if.then.i.i.i.i.i.i.i.i.i.i
@@ -437,7 +437,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %4 = inttoptr i64 %and.i.i.i.i.i3 to ptr
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %pattern_, ptr noundef %4) #19
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %pattern_, ptr noundef %4) #19
   br label %_ZN6hermes2vm9GCPointerINS0_15StringPrimitiveEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm9GCPointerINS0_15StringPrimitiveEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit: ; preds = %entry, %if.then.i.i.i
@@ -645,7 +645,7 @@ if.then26:                                        ; preds = %_ZN6hermes2vm15Hand
 if.then.i.i.i.i:                                  ; preds = %if.then26
   %26 = inttoptr i64 %and.i.i.i.i.i3.i to ptr
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %pattern_.i15, ptr noundef %26) #19
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %pattern_.i15, ptr noundef %26) #19
   br label %_ZN6hermes2vm8JSRegExp10initializeENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEES7_N4llvh8ArrayRefIhEE.exit
 
 _ZN6hermes2vm8JSRegExp10initializeENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEES7_N4llvh8ArrayRefIhEE.exit: ; preds = %if.then26, %if.then.i.i.i.i
@@ -856,7 +856,7 @@ if.end:                                           ; preds = %entry
   store i8 %13, ptr %constraints.i, align 1, !noalias !9
   %add.ptr.i.i = getelementptr inbounds i8, ptr %header.i, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %bcs.i, i8 0, i64 25, i1 false), !noalias !9
-  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bcs.i, ptr null, ptr noundef nonnull %header.i, ptr noundef nonnull %add.ptr.i.i), !noalias !9
+  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(25) %bcs.i, ptr null, ptr noundef nonnull align 1 dereferenceable(6) %header.i, ptr noundef nonnull %add.ptr.i.i), !noalias !9
   %nodes_.i = getelementptr inbounds i8, ptr %regex, i64 144
   call void @_ZN6hermes5regex4Node7compileERKSt6vectorIPS1_SaIS3_EERNS0_19RegexBytecodeStreamE(ptr noundef nonnull align 8 dereferenceable(24) %nodes_.i, ptr noundef nonnull align 8 dereferenceable(25) %bcs.i), !noalias !9
   %14 = load ptr, ptr %bcs.i, align 8, !noalias !12
@@ -891,7 +891,7 @@ if.end21:                                         ; preds = %if.end
 if.then.i.i.i.i:                                  ; preds = %if.end21
   %20 = inttoptr i64 %and.i.i.i.i.i3.i to ptr
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %pattern_.i, ptr noundef %20) #19
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %pattern_.i, ptr noundef %20) #19
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.then.i.i.i.i, %if.end21
@@ -1283,7 +1283,7 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
 if.then.i.i.i:                                    ; preds = %for.end
   %27 = inttoptr i64 %and.i.i.i.i.i38 to ptr
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %groupNameMappings_, ptr noundef %27) #19
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %groupNameMappings_, ptr noundef %27) #19
   br label %_ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit: ; preds = %for.end, %if.then.i.i.i
@@ -1547,7 +1547,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %groupNameMappings_, ptr noundef %groupObj) #19
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %groupNameMappings_, ptr noundef %groupObj) #19
   br label %_ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit: ; preds = %entry, %if.then.i.i.i
@@ -1757,7 +1757,7 @@ if.end24.i258:                                    ; preds = %if.end12.i247
 
 if.then27.i276:                                   ; preds = %if.end24.i258
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i14, align 8
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i13, i64 noundef %conv.i30.i249, i64 noundef 12) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(72) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i13, i64 noundef %conv.i30.i249, i64 noundef 12) #19
   br label %if.end37.i265
 
 if.else.i261:                                     ; preds = %if.end24.i258
@@ -1824,7 +1824,7 @@ if.end24.i212:                                    ; preds = %if.then.i.i.i.i.i
 
 if.end37.i219:                                    ; preds = %if.end24.i212
   %conv.i30.i203 = zext i32 %26 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i13, i64 noundef %conv.i30.i203, i64 noundef 12) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(72) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i13, i64 noundef %conv.i30.i203, i64 noundef 12) #19
   %.pre428 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i222 = icmp eq i32 %.pre428, 0
   br i1 %cmp.not.i.i.i222, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i229, label %if.then.i.i.i223
@@ -2007,7 +2007,7 @@ if.end24.i350:                                    ; preds = %if.end12.i339
 
 if.then27.i368:                                   ; preds = %if.end24.i350
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i14, align 8
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i13, i64 noundef %conv.i30.i341, i64 noundef 12) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(72) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i13, i64 noundef %conv.i30.i341, i64 noundef 12) #19
   br label %if.end37.i357
 
 if.else.i353:                                     ; preds = %if.end24.i350
@@ -2074,7 +2074,7 @@ if.end24.i304:                                    ; preds = %if.then.i.i.i.i.i94
 
 if.end37.i311:                                    ; preds = %if.end24.i304
   %conv.i30.i295 = zext i32 %56 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i13, i64 noundef %conv.i30.i295, i64 noundef 12) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(72) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i13, i64 noundef %conv.i30.i295, i64 noundef 12) #19
   %.pre = load i32, ptr %Size.i.i.i.i.i.i92, align 8
   %cmp.not.i.i.i314 = icmp eq i32 %.pre, 0
   br i1 %cmp.not.i.i.i314, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i321, label %if.then.i.i.i315
@@ -2170,7 +2170,7 @@ if.end13.i.i:                                     ; preds = %if.end.i.i
 if.then16.i.i:                                    ; preds = %if.end13.i.i
   store i32 0, ptr %Size.i18.i.i, align 8
   %add.ptr.i.i.i.i.i114 = getelementptr inbounds i8, ptr %runtime, i64 760
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %regExpLastMatch, ptr noundef nonnull %add.ptr.i.i.i.i.i114, i64 noundef %conv.i.i.i, i64 noundef 12) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %regExpLastMatch, ptr noundef nonnull %add.ptr.i.i.i.i.i114, i64 noundef %conv.i.i.i, i64 noundef 12) #19
   br label %if.end28.i.i
 
 if.else19.i.i:                                    ; preds = %if.end13.i.i
@@ -2250,7 +2250,7 @@ if.end24.i396:                                    ; preds = %if.end.i372
 
 if.end37.i403:                                    ; preds = %if.end24.i396
   %conv.i30.i387 = zext i32 %77 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i117, i64 noundef %conv.i30.i387, i64 noundef 12) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i117, i64 noundef %conv.i30.i387, i64 noundef 12) #19
   %.pre430 = load i32, ptr %Size.i.i.i.i.i.i.i.i14, align 8
   %cmp.not.i.i.i406 = icmp eq i32 %.pre430, 0
   br i1 %cmp.not.i.i.i406, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i413, label %if.then.i.i.i407
@@ -2470,7 +2470,7 @@ if.end24.i72:                                     ; preds = %if.end.i48
 
 if.end37.i79:                                     ; preds = %if.end24.i72
   %conv.i30.i63 = zext i32 %15 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i29, i64 noundef %conv.i30.i63, i64 noundef 12) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i29, i64 noundef %conv.i30.i63, i64 noundef 12) #19
   %.pre95 = load i32, ptr %Size.i.i.i.i.i11, align 8
   %.pre96.pre98.pre = load ptr, ptr %match, align 8
   %cmp.not.i.i.i82 = icmp eq i32 %.pre95, 0
@@ -2694,7 +2694,7 @@ if.end24.i72:                                     ; preds = %if.end.i48
 
 if.end37.i79:                                     ; preds = %if.end24.i72
   %conv.i30.i63 = zext i32 %15 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i29, i64 noundef %conv.i30.i63, i64 noundef 12) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i29, i64 noundef %conv.i30.i63, i64 noundef 12) #19
   %.pre95 = load i32, ptr %Size.i.i.i.i.i11, align 8
   %.pre96.pre98.pre = load ptr, ptr %match, align 8
   %cmp.not.i.i.i82 = icmp eq i32 %.pre95, 0
@@ -3034,7 +3034,7 @@ sw.bb:                                            ; preds = %_ZNK6hermes2vm10Str
 
 if.then.i.i89:                                    ; preds = %sw.bb
   %add.i.i = add nuw nsw i64 %call.i, %conv.i5.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i, i64 noundef 2) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i, i64 noundef 2) #19
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre14.i.i = zext i32 %.pre.i.i to i64
   br label %if.end.i.i88
@@ -3077,7 +3077,7 @@ sw.bb13:                                          ; preds = %_ZNK6hermes2vm10Str
 
 if.then.i.i110:                                   ; preds = %sw.bb13
   %add.i.i111 = add nuw nsw i64 %call.i58, %conv.i5.i.i93
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i111, i64 noundef 2) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i111, i64 noundef 2) #19
   %.pre.i.i113 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre14.i.i114 = zext i32 %.pre.i.i113 to i64
   br label %if.end.i.i96
@@ -3120,7 +3120,7 @@ sw.bb18:                                          ; preds = %_ZNK6hermes2vm10Str
 
 if.then.i.i136:                                   ; preds = %sw.bb18
   %add.i.i137 = add nuw nsw i64 %call.i68, %conv.i5.i.i119
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i137, i64 noundef 2) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i137, i64 noundef 2) #19
   %.pre.i.i139 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre14.i.i140 = zext i32 %.pre.i.i139 to i64
   br label %if.end.i.i122
@@ -3163,7 +3163,7 @@ sw.bb23:                                          ; preds = %_ZNK6hermes2vm10Str
 
 if.then.i.i162:                                   ; preds = %sw.bb23
   %add.i.i163 = add nuw nsw i64 %call.i78, %conv.i5.i.i145
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i163, i64 noundef 2) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i163, i64 noundef 2) #19
   %.pre.i.i165 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre14.i.i166 = zext i32 %.pre.i.i165 to i64
   br label %if.end.i.i148
@@ -3206,7 +3206,7 @@ sw.bb28:                                          ; preds = %_ZNK6hermes2vm10Str
 
 if.then.i.i188:                                   ; preds = %sw.bb28
   %add.i.i189 = add nuw nsw i64 %call.i88, %conv.i5.i.i171
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i189, i64 noundef 2) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i189, i64 noundef 2) #19
   %.pre.i.i191 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre14.i.i192 = zext i32 %.pre.i.i191 to i64
   br label %if.end.i.i174
@@ -3243,7 +3243,7 @@ sw.default:                                       ; preds = %_ZNK6hermes2vm10Str
   br i1 %cmp.not.i.i, label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEDs.exit, label %if.then.i.i196
 
 if.then.i.i196:                                   ; preds = %sw.default
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 2) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 2) #19
   %.pre.i.i198 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEDs.exit
 
@@ -3288,7 +3288,7 @@ if.end24.i:                                       ; preds = %for.end
 
 if.end37.i:                                       ; preds = %if.end24.i
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 4, i64 noundef 2) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 4, i64 noundef 2) #19
   %.pre = load i32, ptr %Size.i.i.i.i.i.i206, align 8
   %.pre242.pre243.pre = load ptr, ptr %ref.tmp, align 8
   %57 = zext i32 %.pre to i64
@@ -4590,7 +4590,7 @@ if.end24.i:                                       ; preds = %if.then.i
 
 if.end37.i:                                       ; preds = %if.end24.i
   %conv.i30.i = zext i32 %13 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, ptr noundef nonnull %add.ptr.i.i.i.i.i29, i64 noundef %conv.i30.i, i64 noundef 4) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp22, ptr noundef nonnull %add.ptr.i.i.i.i.i29, i64 noundef %conv.i30.i, i64 noundef 4) #19
   %.pre = load i32, ptr %Size.i.i.i.i.i, align 8
   %cmp.not.i.i.i100 = icmp eq i32 %.pre, 0
   br i1 %cmp.not.i.i.i100, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i, label %if.then.i.i.i101
@@ -4649,7 +4649,7 @@ if.end24.i126:                                    ; preds = %if.then.i.i33
   br i1 %cmp26.i128, label %if.end37.i133, label %if.then.i.i.i137
 
 if.end37.i133:                                    ; preds = %if.end24.i126
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %chars_.i209, ptr noundef nonnull %add.ptr.i.i.i.i.i.i32210, i64 noundef %conv.i30.i117, i64 noundef 4) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(36) %chars_.i209, ptr noundef nonnull %add.ptr.i.i.i.i.i.i32210, i64 noundef %conv.i30.i117, i64 noundef 4) #19
   %.pre199 = load i32, ptr %Size.i.i.i.i.i30, align 8
   %.pre207 = zext i32 %.pre199 to i64
   %cmp.not.i.i.i136 = icmp eq i32 %.pre199, 0
@@ -5071,7 +5071,7 @@ entry:
   br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -5760,7 +5760,7 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %1, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %1, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_20MatchNCharICase8InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -5808,7 +5808,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp.i.i27, label %if.then.i.i36, label %if.then7.i.i28
 
 if.then.i.i36:                                    ; preds = %if.else
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %7, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i22)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %7, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i22)
   %.pre.i37 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15MatchNChar8InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -5957,7 +5957,7 @@ if.then28:                                        ; preds = %for.body24
   br i1 %cmp.i.i57, label %if.then.i.i66, label %if.then7.i.i58
 
 if.then.i.i66:                                    ; preds = %if.then28
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %22, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %22, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52)
   %.pre.i67 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_19MatchCharICase8InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -6005,7 +6005,7 @@ if.else34:                                        ; preds = %for.body24
   br i1 %cmp.i.i82, label %if.then.i.i91, label %if.then7.i.i83
 
 if.then.i.i91:                                    ; preds = %if.else34
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %28, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i77)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %28, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i77)
   %.pre.i92 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_14MatchChar8InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -6101,7 +6101,7 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp.i.i11, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %if.then4
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %4, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %4, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_23U16MatchCharICase32InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -6151,7 +6151,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i.i19, label %if.then.i.i28, label %if.then7.i.i20
 
 if.then.i.i28:                                    ; preds = %if.else
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %10, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i14)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %10, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i14)
   %.pre.i29 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_18U16MatchChar32InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -6207,7 +6207,7 @@ if.then15:                                        ; preds = %if.else12
   br i1 %cmp.i.i44, label %if.then.i.i53, label %if.then7.i.i45
 
 if.then.i.i53:                                    ; preds = %if.then15
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %17, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i39)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %17, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i39)
   %.pre.i54 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_20MatchCharICase16InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -6257,7 +6257,7 @@ if.else20:                                        ; preds = %if.else12
   br i1 %cmp.i.i69, label %if.then.i.i78, label %if.then7.i.i70
 
 if.then.i.i78:                                    ; preds = %if.else20
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %23, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i64)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %23, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i64)
   %.pre.i79 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15MatchChar16InsnEEENS1_18InstructionWrapperIT_EEv.exit
 

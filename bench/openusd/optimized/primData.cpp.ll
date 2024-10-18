@@ -724,7 +724,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexD2E
   br i1 %.not.i, label %_ZNSt10unique_ptrISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseEESaIS4_EESt14default_deleteIS6_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseEESaIS4_EEEclEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3)
+  tail call void @_ZNKSt14default_deleteISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseEESaIS4_EEEclEPS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3)
   br label %_ZNSt10unique_ptrISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseEESaIS4_EESt14default_deleteIS6_EED2Ev.exit
 
 _ZNSt10unique_ptrISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseEESaIS4_EESt14default_deleteIS6_EED2Ev.exit: ; preds = %1, %4
@@ -1036,7 +1036,7 @@ _ZNSt6bitsetILm15EE9referenceaSEb.exit36:         ; preds = %_ZNSt6bitsetILm15EE
 _ZNSt6bitsetILm15EE9referenceaSEb.exit37:         ; preds = %79, %83
   %storemerge137 = phi i64 [ %81, %79 ], [ %85, %83 ]
   store i64 %storemerge137, ptr %14, align 8
-  %86 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage13_GetSpecifierEPKNS_12Usd_PrimDataE(ptr noundef nonnull %0)
+  %86 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage13_GetSpecifierEPKNS_12Usd_PrimDataE(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %87 = load i64, ptr %39, align 8
   %88 = and i64 %87, 32
   %89 = icmp ne i64 %88, 0
@@ -1199,7 +1199,7 @@ declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage24_GetProtot
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimData22_ComposePrimChildNamesEPSt6vectorINS_7TfTokenESaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::robin_set", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 32, i1 false)
   %5 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashINS_7TfTokenENS0_9robin_setIS3_NS3_11HashFunctorESt8equal_toIS3_ESaIS3_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectEvS5_S7_S8_Lb0ESB_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_setINS_7TfTokenENS2_11HashFunctorESt8equal_toIS2_ESaIS2_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEEC2Ev.exit, !prof !4
@@ -1408,7 +1408,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Usd_DescribePrimDataB5cxx11E
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc38 unwind label %15
 
 .noexc38:                                         ; preds = %.noexc
@@ -1418,7 +1418,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Usd_DescribePrimDataB5cxx11E
 13:                                               ; preds = %.noexc38
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc38
@@ -1478,7 +1478,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Usd_PrimData11IsPrototypeEv.exit: ; pred
   br i1 %.not31, label %40, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage24_GetPrototypeForInstanceEPKNS_12Usd_PrimDataE(ptr noundef nonnull align 8 dereferenceable(1282) %36, ptr noundef nonnull %1)
+  %38 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage24_GetPrototypeForInstanceEPKNS_12Usd_PrimDataE(ptr noundef nonnull align 8 dereferenceable(1282) %36, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %39 = icmp eq ptr %38, null
   br label %40
 

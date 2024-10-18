@@ -87,12 +87,12 @@ define dso_local void @_ZN4llvm13RewriteBuffer10RemoveTextEjjb(ptr noundef nonnu
 _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %4
   %8 = shl i32 %1, 1
   %9 = or disjoint i32 %8, 1
-  %10 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %9) #5
+  %10 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %9) #5
   %11 = add i32 %10, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %11, i32 noundef %2) #5
+  tail call void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull align 8 dereferenceable(20) %12, i32 noundef %11, i32 noundef %2) #5
   %13 = sub i32 0, %2
-  tail call void @_ZN4llvm9DeltaTree8AddDeltaEji(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %9, i32 noundef %13) #5
+  tail call void @_ZN4llvm9DeltaTree8AddDeltaEji(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %9, i32 noundef %13) #5
   br i1 %3, label %14, label %.critedge2
 
 14:                                               ; preds = %_ZN4llvm11RewriteRope5eraseEjj.exit
@@ -248,14 +248,14 @@ _ZN4llvm22RopePieceBTreeIteratorppEv.exit22:      ; preds = %80, %81
   br i1 %89, label %_ZN4llvm11RewriteRope5eraseEjj.exit24, label %90
 
 90:                                               ; preds = %87
-  call void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %.019.lcssa, i32 noundef %88) #5
+  call void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull align 8 dereferenceable(20) %12, i32 noundef %.019.lcssa, i32 noundef %88) #5
   br label %_ZN4llvm11RewriteRope5eraseEjj.exit24
 
 _ZN4llvm11RewriteRope5eraseEjj.exit24:            ; preds = %87, %90
   %91 = xor i32 %.037, -1
   %92 = shl i32 %.019.lcssa, 1
   %93 = or disjoint i32 %92, 1
-  call void @_ZN4llvm9DeltaTree8AddDeltaEji(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %93, i32 noundef %91) #5
+  call void @_ZN4llvm9DeltaTree8AddDeltaEji(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %93, i32 noundef %91) #5
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit22, %.lr.ph39, %._crit_edge, %_ZN4llvm11RewriteRope5eraseEjj.exit24, %4, %_ZN4llvm11RewriteRope5eraseEjj.exit
@@ -275,13 +275,13 @@ define dso_local void @_ZN4llvm13RewriteBuffer10InsertTextEjNS_9StringRefEb(ptr 
   %9 = shl i32 %1, 1
   %10 = zext i1 %4 to i32
   %11 = or disjoint i32 %9, %10
-  %12 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %11) #5
+  %12 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %11) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %13 = getelementptr inbounds i8, ptr %2, i64 %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = add i32 %12, %1
   call void @_ZN4llvm11RewriteRope14MakeRopeStringEPKcS2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::RopePiece") align 8 %6, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef %2, ptr noundef nonnull %13) #5
-  call void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %6) #5
+  call void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr noundef nonnull align 8 dereferenceable(20) %14, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %6) #5
   %16 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm11RewriteRope6insertEjPKcS2_.exit, label %17
@@ -294,13 +294,13 @@ define dso_local void @_ZN4llvm13RewriteBuffer10InsertTextEjNS_9StringRefEb(ptr 
   br i1 %.not.i.i.i.i.i.i, label %20, label %_ZN4llvm11RewriteRope6insertEjPKcS2_.exit
 
 20:                                               ; preds = %17
-  call void @_ZdaPv(ptr noundef nonnull %16) #6
+  call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %16) #6
   br label %_ZN4llvm11RewriteRope6insertEjPKcS2_.exit
 
 _ZN4llvm11RewriteRope6insertEjPKcS2_.exit:        ; preds = %8, %17, %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %21 = trunc i64 %3 to i32
-  call void @_ZN4llvm9DeltaTree8AddDeltaEji(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %9, i32 noundef %21) #5
+  call void @_ZN4llvm9DeltaTree8AddDeltaEji(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %9, i32 noundef %21) #5
   br label %22
 
 22:                                               ; preds = %5, %_ZN4llvm11RewriteRope6insertEjPKcS2_.exit
@@ -312,14 +312,14 @@ define dso_local void @_ZN4llvm13RewriteBuffer11ReplaceTextEjjNS_9StringRefE(ptr
   %6 = alloca %"struct.llvm::RopePiece", align 8
   %7 = shl i32 %1, 1
   %8 = or disjoint i32 %7, 1
-  %9 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %8) #5
+  %9 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %8) #5
   %10 = add i32 %9, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = icmp eq i32 %2, 0
   br i1 %12, label %_ZN4llvm11RewriteRope5eraseEjj.exit, label %13
 
 13:                                               ; preds = %5
-  tail call void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %10, i32 noundef %2) #5
+  tail call void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull align 8 dereferenceable(20) %11, i32 noundef %10, i32 noundef %2) #5
   br label %_ZN4llvm11RewriteRope5eraseEjj.exit
 
 _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %5, %13
@@ -330,7 +330,7 @@ _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %5, %13
 15:                                               ; preds = %_ZN4llvm11RewriteRope5eraseEjj.exit
   %16 = getelementptr inbounds i8, ptr %3, i64 %4
   call void @_ZN4llvm11RewriteRope14MakeRopeStringEPKcS2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::RopePiece") align 8 %6, ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef %3, ptr noundef nonnull %16) #5
-  call void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %6) #5
+  call void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr noundef nonnull align 8 dereferenceable(20) %11, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %6) #5
   %17 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm11RewriteRope6insertEjPKcS2_.exit, label %18
@@ -343,7 +343,7 @@ _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %5, %13
   br i1 %.not.i.i.i.i.i.i, label %21, label %_ZN4llvm11RewriteRope6insertEjPKcS2_.exit
 
 21:                                               ; preds = %18
-  call void @_ZdaPv(ptr noundef nonnull %17) #6
+  call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %17) #6
   br label %_ZN4llvm11RewriteRope6insertEjPKcS2_.exit
 
 _ZN4llvm11RewriteRope6insertEjPKcS2_.exit:        ; preds = %_ZN4llvm11RewriteRope5eraseEjj.exit, %15, %18, %21
@@ -355,7 +355,7 @@ _ZN4llvm11RewriteRope6insertEjPKcS2_.exit:        ; preds = %_ZN4llvm11RewriteRo
 23:                                               ; preds = %_ZN4llvm11RewriteRope6insertEjPKcS2_.exit
   %24 = trunc i64 %4 to i32
   %25 = sub i32 %24, %2
-  call void @_ZN4llvm9DeltaTree8AddDeltaEji(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %8, i32 noundef %25) #5
+  call void @_ZN4llvm9DeltaTree8AddDeltaEji(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %8, i32 noundef %25) #5
   br label %26
 
 26:                                               ; preds = %23, %_ZN4llvm11RewriteRope6insertEjPKcS2_.exit

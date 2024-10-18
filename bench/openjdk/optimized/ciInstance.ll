@@ -413,7 +413,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 76:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %77 = sext i32 %2 to i64
   %78 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %79 = tail call noundef ptr %78(ptr noundef nonnull %23, i64 noundef %77) #5
+  %79 = tail call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %77) #5
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %_ZN5ciEnv10get_objectEP7oopDesc.exit
 

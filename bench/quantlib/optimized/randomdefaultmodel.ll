@@ -967,14 +967,14 @@ entry:
   br i1 %cmp.i.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(5008) %g, i64 5008, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5064) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(5064) %g, i64 5008, i1 false)
   %sequence_.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 5008
   %1 = load ptr, ptr %_M_finish.i.i.i.i13, align 8, !tbaa !3
   %2 = load ptr, ptr %sequence_3.i12, align 8, !tbaa !3
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sequence_.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sequence_.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
@@ -1078,7 +1078,7 @@ invoke.cont2:                                     ; preds = %_ZN8QuantLib6Sample
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !tbaa !87
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 5024
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sequence_.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sequence_.i, i8 0, i64 24, i1 false)
   %weight.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 5032
   store double %5, ptr %weight.i.i.i, align 8, !tbaa !88
   %int32Sequence_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 5040
@@ -1123,14 +1123,14 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i2.i.i.
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i129
 
 cond.false:                                       ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(5008) %g, i64 5008, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5064) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(5064) %g, i64 5008, i1 false)
   %sequence_.i11 = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 5008
   %14 = load ptr, ptr %_M_finish.i.i.i.i13, align 8, !tbaa !3
   %15 = load ptr, ptr %sequence_3.i12, align 8, !tbaa !3
   %sub.ptr.lhs.cast.i.i.i.i14 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i.i.i15 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i16 = sub i64 %sub.ptr.lhs.cast.i.i.i.i14, %sub.ptr.rhs.cast.i.i.i.i15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sequence_.i11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sequence_.i11, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i18 = icmp eq ptr %14, %15
   br i1 %cmp.not.i.i.i.i.i.i18, label %invoke.cont.i.i.i22.thread, label %cond.true.i.i.i.i.i.i19
 
@@ -1234,7 +1234,7 @@ invoke.cont6:                                     ; preds = %_ZN8QuantLib6Sample
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i33, ptr %_M_finish.i.i.i.i.i.i.i77, align 8, !tbaa !87
   %_M_end_of_storage.i.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %agg.result, i64 5024
   store ptr %add.ptr.i.i.i.i.i25176, ptr %_M_end_of_storage.i.i.i.i.i.i.i79, align 8, !tbaa !85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sequence_.i11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sequence_.i11, i8 0, i64 24, i1 false)
   %weight.i.i.i81 = getelementptr inbounds nuw i8, ptr %agg.result, i64 5032
   store double %17, ptr %weight.i.i.i81, align 8, !tbaa !88
   %int32Sequence_.i.i83 = getelementptr inbounds nuw i8, ptr %agg.result, i64 5040
@@ -1281,7 +1281,7 @@ if.end.i.i.i.i.i.i.i.i100:                        ; preds = %call5.i.i.i.i2.i.i.
 lpad.i95:                                         ; preds = %if.then.i.i.i.i.i.i93, %if.then.i.i.i107
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEED2Ev(ptr noundef nonnull align 8 dereferenceable(5064) %agg.result) #26
+  call void @_ZN8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEED2Ev(ptr noundef nonnull align 8 dereferenceable(5120) %agg.result) #26
   call void @_ZN8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEED2Ev(ptr noundef nonnull align 8 dereferenceable(5064) %agg.tmp5) #26
   br label %ehcleanup19
 
@@ -1367,7 +1367,7 @@ lpad1:                                            ; preds = %_ZNSt16allocator_tr
 cleanup.action17:                                 ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i.i
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEED2Ev(ptr noundef nonnull align 8 dereferenceable(5064) %agg.result) #26
+  call void @_ZN8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEED2Ev(ptr noundef nonnull align 8 dereferenceable(5120) %agg.result) #26
   call void @_ZN8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEED2Ev(ptr noundef nonnull align 8 dereferenceable(5064) %agg.tmp) #26
   br label %ehcleanup19
 
@@ -1544,7 +1544,7 @@ _ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit: ; preds = %entry, %cond.false
   %2 = load i64, ptr %seed_, align 8, !tbaa !64
   call void @_ZN8QuantLib19GenericPseudoRandomINS_25MersenneTwisterUniformRngENS_23InverseCumulativeNormalEE23make_sequence_generatorEmm(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::InverseCumulativeRsg") align 8 %ref.tmp, i64 noundef %add, i64 noundef %2)
   %rsg_ = getelementptr inbounds nuw i8, ptr %this, i64 184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %rsg_, ptr noundef nonnull align 8 dereferenceable(5008) %ref.tmp, i64 5008, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5120) %rsg_, ptr noundef nonnull align 8 dereferenceable(5120) %ref.tmp, i64 5008, i1 false)
   %sequence_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 5192
   %sequence_3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 5008
   %3 = load ptr, ptr %sequence_.i.i, align 8, !tbaa !86
@@ -1560,7 +1560,7 @@ _ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit: ; preds = %entry, %cond.false
   %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i, align 8, !tbaa !85
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !85
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sequence_3.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sequence_3.i.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEaSEOS4_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit
@@ -1620,7 +1620,7 @@ _ZN8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEEaSEOS2_.ex
   %19 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i7.i, align 8, !tbaa !85
   store ptr %19, ptr %_M_end_of_storage.i.i.i.i.i5.i, align 8, !tbaa !85
   %tobool.not.i.i.i.i.i.i8.i = icmp eq ptr %15, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %x_4.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %x_4.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i8.i, label %_ZN8QuantLib20InverseCumulativeRsgINS_23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEEENS_23InverseCumulativeNormalEEaSEOS5_.exit.thread, label %_ZN8QuantLib20InverseCumulativeRsgINS_23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEEENS_23InverseCumulativeNormalEEaSEOS5_.exit
 
 _ZN8QuantLib20InverseCumulativeRsgINS_23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEEENS_23InverseCumulativeNormalEEaSEOS5_.exit.thread: ; preds = %_ZN8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEEaSEOS2_.exit.i
@@ -1735,7 +1735,7 @@ _ZNK5boost10shared_ptrIN8QuantLib15OneFactorCopulaEEptEv.exit: ; preds = %entry,
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !28
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %1)
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(104) %1)
   %correlation_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %call.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %correlation_.i)
   %3 = load ptr, ptr %call.i, align 8, !tbaa !100
@@ -5602,7 +5602,7 @@ define linkonce_odr void @_ZThn56_N8QuantLib26GaussianRandomDefaultModelD0Ev(ptr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib26GaussianRandomDefaultModelD2Ev(ptr noundef nonnull align 8 dereferenceable(5304) %0) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 5304) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(5304) %0, i64 noundef 5304) #31
   ret void
 }
 
@@ -6237,7 +6237,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i3:                                   ; preds = %.noexc.i, %for.body.i
   %21 = phi ptr [ %20, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull %this)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont7.i unwind label %terminate.lpad.i4
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i3
@@ -6343,7 +6343,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.016, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %__cur.016, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %cond.true.i.i.i.i.i.i
 

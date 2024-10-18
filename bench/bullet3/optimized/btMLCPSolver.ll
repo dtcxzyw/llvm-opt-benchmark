@@ -98,7 +98,7 @@ invoke.cont35:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12btMLCPSolver, i64 16), ptr %this, align 8
   %m_A = getelementptr inbounds i8, ptr %this, i64 408
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 456
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_A, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_A, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   store ptr null, ptr %m_data.i.i.i, align 8
@@ -200,7 +200,7 @@ invoke.cont35:
   store i32 0, ptr %m_fallback, align 8
   %m_scratchJ3 = getelementptr inbounds i8, ptr %this, i64 832
   %m_ownsMemory.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 880
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_scratchJ3, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchJ3, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i54, align 8
   %m_data.i.i.i55 = getelementptr inbounds i8, ptr %this, i64 872
   store ptr null, ptr %m_data.i.i.i55, align 8
@@ -218,7 +218,7 @@ invoke.cont35:
   store i32 0, ptr %m_capacity.i.i4.i61, align 8
   %m_scratchJInvM3 = getelementptr inbounds i8, ptr %this, i64 920
   %m_ownsMemory.i.i.i62 = getelementptr inbounds i8, ptr %this, i64 968
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_scratchJInvM3, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchJInvM3, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i62, align 8
   %m_data.i.i.i63 = getelementptr inbounds i8, ptr %this, i64 960
   store ptr null, ptr %m_data.i.i.i63, align 8
@@ -244,7 +244,7 @@ invoke.cont35:
   store i32 0, ptr %m_capacity.i.i73, align 8
   %m_scratchMInv = getelementptr inbounds i8, ptr %this, i64 1040
   %m_ownsMemory.i.i.i74 = getelementptr inbounds i8, ptr %this, i64 1088
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_scratchMInv, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchMInv, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i74, align 8
   %m_data.i.i.i75 = getelementptr inbounds i8, ptr %this, i64 1080
   store ptr null, ptr %m_data.i.i.i75, align 8
@@ -262,7 +262,7 @@ invoke.cont35:
   store i32 0, ptr %m_capacity.i.i4.i81, align 8
   %m_scratchJ = getelementptr inbounds i8, ptr %this, i64 1128
   %m_ownsMemory.i.i.i82 = getelementptr inbounds i8, ptr %this, i64 1176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_scratchJ, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchJ, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i82, align 8
   %m_data.i.i.i83 = getelementptr inbounds i8, ptr %this, i64 1168
   store ptr null, ptr %m_data.i.i.i83, align 8
@@ -280,7 +280,7 @@ invoke.cont35:
   store i32 0, ptr %m_capacity.i.i4.i89, align 8
   %m_scratchJTranspose = getelementptr inbounds i8, ptr %this, i64 1216
   %m_ownsMemory.i.i.i90 = getelementptr inbounds i8, ptr %this, i64 1264
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_scratchJTranspose, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchJTranspose, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i90, align 8
   %m_data.i.i.i91 = getelementptr inbounds i8, ptr %this, i64 1256
   store ptr null, ptr %m_data.i.i.i91, align 8
@@ -298,7 +298,7 @@ invoke.cont35:
   store i32 0, ptr %m_capacity.i.i4.i97, align 8
   %m_scratchTmp = getelementptr inbounds i8, ptr %this, i64 1304
   %m_ownsMemory.i.i.i98 = getelementptr inbounds i8, ptr %this, i64 1352
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_scratchTmp, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchTmp, i8 0, i64 20, i1 false)
   store i8 1, ptr %m_ownsMemory.i.i.i98, align 8
   %m_data.i.i.i99 = getelementptr inbounds i8, ptr %this, i64 1344
   store ptr null, ptr %m_data.i.i.i99, align 8
@@ -2530,7 +2530,7 @@ _Z9btSetZeroIfEvPT_i.exit.i:                      ; preds = %invoke.cont2
   %21 = load ptr, ptr %m_data.i.i, align 8
   %conv.i.i = sext i32 %20 to i64
   %22 = shl nuw nsw i64 %conv.i.i, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %22, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %21, i8 0, i64 %22, i1 false)
   %.pr1273 = load i32, ptr %m_size.i.i.i221, align 4
   br label %invoke.cont4
 
@@ -2544,7 +2544,7 @@ _Z9btSetZeroIfEvPT_i.exit.i267:                   ; preds = %invoke.cont4
   %24 = load ptr, ptr %m_data.i.i268, align 8
   %conv.i.i269 = sext i32 %23 to i64
   %25 = shl nuw nsw i64 %conv.i.i269, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %25, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %24, i8 0, i64 %25, i1 false)
   br label %_ZN9btVectorXIfE7setZeroEv.exit270
 
 _ZN9btVectorXIfE7setZeroEv.exit270:               ; preds = %invoke.cont4, %_Z9btSetZeroIfEvPT_i.exit.i267
@@ -2872,7 +2872,7 @@ _Z9btSetZeroIfEvPT_i.exit.i408:                   ; preds = %.noexc412
   %65 = load ptr, ptr %m_data.i.i409, align 8
   %conv.i.i410 = sext i32 %64 to i64
   %66 = shl nuw nsw i64 %conv.i.i410, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %65, i8 0, i64 %66, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %65, i8 0, i64 %66, i1 false)
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %_Z9btSetZeroIfEvPT_i.exit.i408, %.noexc412
@@ -2893,7 +2893,7 @@ _Z9btSetZeroIfEvPT_i.exit.i416:                   ; preds = %.noexc420
   %68 = load ptr, ptr %m_data.i.i417, align 8
   %conv.i.i418 = sext i32 %67 to i64
   %69 = shl nuw nsw i64 %conv.i.i418, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %68, i8 0, i64 %69, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %68, i8 0, i64 %69, i1 false)
   br label %invoke.cont74
 
 invoke.cont74:                                    ; preds = %_Z9btSetZeroIfEvPT_i.exit.i416, %.noexc420
@@ -3691,7 +3691,7 @@ _Z9btSetZeroIfEvPT_i.exit.i834:                   ; preds = %.noexc838
   %251 = load ptr, ptr %m_data.i.i835, align 8
   %conv.i.i836 = sext i32 %250 to i64
   %252 = shl nuw nsw i64 %conv.i.i836, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %251, i8 0, i64 %252, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %251, i8 0, i64 %252, i1 false)
   br label %invoke.cont324
 
 invoke.cont324:                                   ; preds = %_Z9btSetZeroIfEvPT_i.exit.i834, %.noexc838
@@ -4583,7 +4583,7 @@ _Z9btSetZeroIfEvPT_i.exit.i1169:                  ; preds = %if.else575
   %426 = load ptr, ptr %m_data.i.i1170, align 8
   %conv.i.i1171 = sext i32 %425 to i64
   %427 = shl nuw nsw i64 %conv.i.i1171, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %426, i8 0, i64 %427, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %426, i8 0, i64 %427, i1 false)
   %.pre = load i32, ptr %m_size.i.i.i1113, align 4
   br label %invoke.cont577
 
@@ -4597,7 +4597,7 @@ _Z9btSetZeroIfEvPT_i.exit.i1176:                  ; preds = %invoke.cont577
   %429 = load ptr, ptr %m_data.i.i1177, align 8
   %conv.i.i1178 = sext i32 %428 to i64
   %430 = shl nuw nsw i64 %conv.i.i1178, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %429, i8 0, i64 %430, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %429, i8 0, i64 %430, i1 false)
   br label %if.end580
 
 if.end580:                                        ; preds = %for.body561, %for.cond556.preheader, %_Z9btSetZeroIfEvPT_i.exit.i1176, %invoke.cont577
@@ -4881,7 +4881,7 @@ _Z9btSetZeroIfEvPT_i.exit.i:                      ; preds = %if.end
   %21 = load ptr, ptr %m_data.i.i, align 8
   %conv.i.i = sext i32 %20 to i64
   %22 = shl nuw nsw i64 %conv.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %21, i8 0, i64 %22, i1 false)
   br label %_ZN9btVectorXIfE7setZeroEv.exit
 
 _ZN9btVectorXIfE7setZeroEv.exit:                  ; preds = %if.end, %_Z9btSetZeroIfEvPT_i.exit.i
@@ -4894,7 +4894,7 @@ _Z9btSetZeroIfEvPT_i.exit.i170:                   ; preds = %_ZN9btVectorXIfE7se
   %24 = load ptr, ptr %m_data.i.i171, align 8
   %conv.i.i172 = sext i32 %23 to i64
   %25 = shl nuw nsw i64 %conv.i.i172, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %24, i8 0, i64 %25, i1 false)
   br label %_ZN9btVectorXIfE7setZeroEv.exit173
 
 _ZN9btVectorXIfE7setZeroEv.exit173:               ; preds = %_ZN9btVectorXIfE7setZeroEv.exit, %_Z9btSetZeroIfEvPT_i.exit.i170
@@ -4964,7 +4964,7 @@ _Z9btSetZeroIfEvPT_i.exit.i192:                   ; preds = %for.end
   %38 = load ptr, ptr %m_data.i.i193, align 8
   %conv.i.i194 = sext i32 %37 to i64
   %39 = shl nuw nsw i64 %conv.i.i194, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %38, i8 0, i64 %39, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %38, i8 0, i64 %39, i1 false)
   br label %_ZN9btMatrixXIfE7setZeroEv.exit
 
 _ZN9btMatrixXIfE7setZeroEv.exit:                  ; preds = %for.end, %_Z9btSetZeroIfEvPT_i.exit.i192
@@ -5117,7 +5117,7 @@ _Z9btSetZeroIfEvPT_i.exit.i230:                   ; preds = %for.end79
   %75 = load ptr, ptr %m_data.i.i231, align 8
   %conv.i.i232 = sext i32 %74 to i64
   %76 = shl nuw nsw i64 %conv.i.i232, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %75, i8 0, i64 %76, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %75, i8 0, i64 %76, i1 false)
   br label %_ZN9btMatrixXIfE7setZeroEv.exit233
 
 _ZN9btMatrixXIfE7setZeroEv.exit233:               ; preds = %for.end79, %_Z9btSetZeroIfEvPT_i.exit.i230
@@ -5936,7 +5936,7 @@ _Z9btSetZeroIfEvPT_i.exit.i:                      ; preds = %.noexc
   %4 = load ptr, ptr %m_data.i.i.i, align 8
   %conv.i.i = sext i32 %3 to i64
   %5 = shl nuw nsw i64 %conv.i.i, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %5, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %4, i8 0, i64 %5, i1 false)
   br label %_ZN9btMatrixXIfE7setZeroEv.exit
 
 _ZN9btMatrixXIfE7setZeroEv.exit:                  ; preds = %.noexc, %_Z9btSetZeroIfEvPT_i.exit.i
@@ -6195,7 +6195,7 @@ _Z9btSetZeroIfEvPT_i.exit.i:                      ; preds = %.noexc
   %4 = load ptr, ptr %m_data.i.i.i, align 8
   %conv.i.i = sext i32 %3 to i64
   %5 = shl nuw nsw i64 %conv.i.i, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %5, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %4, i8 0, i64 %5, i1 false)
   br label %_ZN9btMatrixXIfE7setZeroEv.exit
 
 _ZN9btMatrixXIfE7setZeroEv.exit:                  ; preds = %.noexc, %_Z9btSetZeroIfEvPT_i.exit.i

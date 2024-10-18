@@ -294,11 +294,11 @@ _ZNO5vcpkg9ExpectedTINS_21DownloadManagerConfigENS_15LocalizedStringEE13value_or
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %_ZNO5vcpkg9ExpectedTINS_21DownloadManagerConfigENS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(201) %13) #16
   br label %_ZN5vcpkg9ExpectedTINS_21DownloadManagerConfigENS_15LocalizedStringEED2Ev.exit
 
 49:                                               ; preds = %_ZNO5vcpkg9ExpectedTINS_21DownloadManagerConfigENS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE.exit
-  call void @_ZN5vcpkg21DownloadManagerConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %13) #16
+  call void @_ZN5vcpkg21DownloadManagerConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(201) %13) #16
   br label %_ZN5vcpkg9ExpectedTINS_21DownloadManagerConfigENS_15LocalizedStringEED2Ev.exit
 
 _ZN5vcpkg9ExpectedTINS_21DownloadManagerConfigENS_15LocalizedStringEED2Ev.exit: ; preds = %48, %49
@@ -834,7 +834,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   store ptr @.str.1, ptr %200, align 8
   %201 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(33) %22, ptr noundef nonnull align 8 dereferenceable(16) %23)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %201) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %22) #16
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(32) %58) #16
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %21) #16
   %202 = load ptr, ptr %24, align 8
@@ -889,7 +889,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   br i1 %225, label %226, label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit
 
 226:                                              ; preds = %220
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %27) #16
   br label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit
 
 _ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit: ; preds = %220, %226

@@ -1249,17 +1249,17 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
           to label %188 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 188:                                              ; preds = %187
-  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.6)
+  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %6, ptr noundef nonnull @.str.6)
           to label %_ZN7logging6BufferlsIA16_cEERS0_RKT_.exit unwind label %202
 
 _ZN7logging6BufferlsIA16_cEERS0_RKT_.exit:        ; preds = %188
   %190 = getelementptr inbounds i8, ptr %1, i64 96
   %191 = load i32, ptr %190, align 8
-  %192 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %191)
+  %192 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(376) %6, i32 noundef %191)
           to label %_ZN7logging6BufferlsIiEERS0_RKT_.exit unwind label %202
 
 _ZN7logging6BufferlsIiEERS0_RKT_.exit:            ; preds = %_ZN7logging6BufferlsIA16_cEERS0_RKT_.exit
-  %193 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.7)
+  %193 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %6, ptr noundef nonnull @.str.7)
           to label %_ZN7logging6BufferlsIA7_cEERS0_RKT_.exit unwind label %202
 
 _ZN7logging6BufferlsIA7_cEERS0_RKT_.exit:         ; preds = %_ZN7logging6BufferlsIiEERS0_RKT_.exit
@@ -3008,7 +3008,7 @@ define linkonce_odr ptr @_ZN3vcg3tri9AllocatorI4MeshE11AddVerticesERS2_mRNS3_14P
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %2, i8 0, i64 32, i1 false)
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 40
   %13 = load ptr, ptr %12, align 8
@@ -3551,7 +3551,7 @@ _ZNSt12_Vector_baseI10MeshVertexSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = 
 define linkonce_odr ptr @_ZN3vcg3tri9AllocatorI4MeshE8AddFacesERS2_mRNS3_14PointerUpdaterIP8MeshFaceEE(ptr noundef nonnull align 8 dereferenceable(808) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(57) %2) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::PointerToAttribute", align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %2, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -5732,7 +5732,7 @@ define void @_ZNK9FaceGroup5UVBoxEv(ptr dead_on_unwind noalias nocapture writabl
 
 19:                                               ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   %.pre14 = load double, ptr %0, align 8
   %.pre15 = load double, ptr %3, align 8
   %.pre16 = load double, ptr %4, align 8
@@ -5790,7 +5790,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %19, %34, %37
 
 46:                                               ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
   %.pre18 = load double, ptr %0, align 8
   %.pre19 = load double, ptr %3, align 8
   %.pre20 = load double, ptr %4, align 8
@@ -5848,7 +5848,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit6:       ; preds = %46, %61, %64
 
 73:                                               ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
   %.pre = load double, ptr %0, align 8
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit7
 

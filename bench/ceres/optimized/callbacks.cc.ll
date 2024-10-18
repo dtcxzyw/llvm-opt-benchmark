@@ -77,7 +77,7 @@ declare void @_ZN5ceres17IterationCallbackD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ceres8internal21StateUpdatingCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZN5ceres17IterationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZN5ceres17IterationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
@@ -121,7 +121,7 @@ define hidden void @_ZN5ceres8internal42GradientProblemSolverStateUpdatingCallba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ceres8internal42GradientProblemSolverStateUpdatingCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZN5ceres17IterationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZN5ceres17IterationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
@@ -172,7 +172,7 @@ define hidden void @_ZN5ceres8internal15LoggingCallbackD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ceres8internal15LoggingCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZN5ceres17IterationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZN5ceres17IterationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }

@@ -211,7 +211,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 .noexc:                                           ; preds = %.split, %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !55
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h37902b4d2b19d35dE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h37902b4d2b19d35dE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   %21 = getelementptr inbounds i8, ptr %5, i64 8
   %22 = load i64, ptr %21, align 8, !range !64, !noalias !55, !noundef !8
   %23 = icmp eq i64 %22, 0
@@ -284,7 +284,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %50
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %52, i64 noundef %51)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %52, i64 noundef %51)
           to label %.noexc70 unwind label %.thread125.loopexit.split-lp
 
 .noexc70:                                         ; preds = %56
@@ -319,7 +319,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 
 67:                                               ; preds = %65
   %.val.i = load ptr, ptr %11, align 8, !alias.scope !71, !nonnull !8, !noundef !8
-  call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %.val1.i, i64 noundef 1) #14, !noalias !71
+  call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, 0) %.val1.i, i64 noundef 1) #14, !noalias !71
   br label %"_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h4fc7529744712d12E.exit"
 
 68:                                               ; preds = %.lr.ph, %134
@@ -442,7 +442,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %.thread209
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %122, i64 noundef %gepdiff153)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %122, i64 noundef %gepdiff153)
           to label %.noexc74 unwind label %.thread125.loopexit
 
 .noexc74:                                         ; preds = %126
@@ -536,7 +536,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %.thread210
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %169, i64 noundef %gepdiff152)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %169, i64 noundef %gepdiff152)
           to label %.noexc81 unwind label %.thread125.loopexit
 
 .noexc81:                                         ; preds = %173
@@ -594,7 +594,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 
 193:                                              ; preds = %191
   %.val.i85 = load ptr, ptr %19, align 8, !alias.scope !88, !nonnull !8, !noundef !8
-  call void @__rust_dealloc(ptr noundef nonnull %.val.i85, i64 noundef %.val1.i84, i64 noundef 1) #14, !noalias !88
+  call void @__rust_dealloc(ptr noundef nonnull %.val.i85, i64 noundef range(i64 1, 0) %.val1.i84, i64 noundef 1) #14, !noalias !88
   br label %.thread
 
 194:                                              ; preds = %184
@@ -658,7 +658,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %223, label %224, label %225
 
 224:                                              ; preds = %.thread211
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %220, i64 noundef %gepdiff151)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %220, i64 noundef %gepdiff151)
           to label %.noexc92 unwind label %.loopexit
 
 .noexc92:                                         ; preds = %224
@@ -688,7 +688,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %239, label %240, label %241
 
 240:                                              ; preds = %232
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %236, i64 noundef %234)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %236, i64 noundef %234)
           to label %.noexc95 unwind label %.loopexit
 
 .noexc95:                                         ; preds = %240
@@ -715,7 +715,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 
 250:                                              ; preds = %248
   %.val.i99 = load ptr, ptr %19, align 8, !alias.scope !100, !nonnull !8, !noundef !8
-  call void @__rust_dealloc(ptr noundef nonnull %.val.i99, i64 noundef %.val1.i98, i64 noundef 1) #14, !noalias !100
+  call void @__rust_dealloc(ptr noundef nonnull %.val.i99, i64 noundef range(i64 1, 0) %.val1.i98, i64 noundef 1) #14, !noalias !100
   br label %"_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h4fc7529744712d12E.exit100"
 
 "_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h4fc7529744712d12E.exit100": ; preds = %250, %248, %241
@@ -792,7 +792,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %284, label %285, label %286
 
 285:                                              ; preds = %.thread212
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %281, i64 noundef %gepdiff)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0385e6d250f39388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %281, i64 noundef %gepdiff)
           to label %.noexc106 unwind label %.thread125.loopexit
 
 .noexc106:                                        ; preds = %285
@@ -832,7 +832,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 
 297:                                              ; preds = %295
   %.val.i110 = load ptr, ptr %11, align 8, !alias.scope !109, !nonnull !8, !noundef !8
-  call void @__rust_dealloc(ptr noundef nonnull %.val.i110, i64 noundef %.val1.i109, i64 noundef 1) #14, !noalias !109
+  call void @__rust_dealloc(ptr noundef nonnull %.val.i110, i64 noundef range(i64 1, 0) %.val1.i109, i64 noundef 1) #14, !noalias !109
   br label %"_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h4fc7529744712d12E.exit111"
 }
 

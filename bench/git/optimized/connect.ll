@@ -2857,7 +2857,7 @@ if.end51.i.i.i:                                   ; preds = %ai_name.exit27.i.i.
   call void @freeaddrinfo(ptr noundef nonnull %18) #23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ka.i.i.i.i)
   store i32 1, ptr %ka.i.i.i.i, align 4
-  %call.i28.i.i.i = call i32 @setsockopt(i32 noundef %call30.i.i.i, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %ka.i.i.i.i, i32 noundef 4) #23
+  %call.i28.i.i.i = call i32 @setsockopt(i32 noundef range(i32 0, -2147483648) %call30.i.i.i, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %ka.i.i.i.i, i32 noundef 4) #23
   %cmp.i.i.i.i = icmp slt i32 %call.i28.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i29.i.i.i, label %enable_keepalive.exit.i.i.i
 

@@ -71,7 +71,7 @@ define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$$LP$ockam_executor
   br i1 %32, label %"_ZN4core3ptr154drop_in_place$LT$alloc..boxed..Box$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$$GT$17h1d0c30cd4b8838e1E.exit", label %33
 
 33:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17hc584f5c5e27b99b4E.exit.i"
-  tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %30, i64 noundef %26) #17
+  tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef range(i64 1, 0) %30, i64 noundef range(i64 1, -9223372036854775807) %26) #17
   br label %"_ZN4core3ptr154drop_in_place$LT$alloc..boxed..Box$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$$GT$17h1d0c30cd4b8838e1E.exit"
 
 "_ZN4core3ptr154drop_in_place$LT$alloc..boxed..Box$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$$GT$17h1d0c30cd4b8838e1E.exit": ; preds = %"_ZN4core3ptr129drop_in_place$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17hc584f5c5e27b99b4E.exit.i", %33
@@ -537,7 +537,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %0
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %15, i64 noundef %11) #17
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %15, i64 noundef range(i64 1, -9223372036854775807) %11) #17
   br label %19
 
 19:                                               ; preds = %0, %18

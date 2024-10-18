@@ -195,7 +195,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
 
 .lr.ph.i:                                         ; preds = %.noexc8, %.noexc12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
-  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %19, ptr align 8 %22)
+  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %19, ptr nonnull align 8 %22)
           to label %.noexc11 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc11:                                         ; preds = %.lr.ph.i
@@ -231,7 +231,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
 
 .lr.ph10.i:                                       ; preds = %.noexc10, %.noexc15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
-  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %16, ptr align 8 %22)
+  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %16, ptr nonnull align 8 %22)
           to label %.noexc14 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc14:                                         ; preds = %.lr.ph10.i
@@ -277,7 +277,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
           to label %.noexc18 unwind label %.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %.lr.ph.i.i
-  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %10, ptr align 8 %22)
+  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %10, ptr nonnull align 8 %22)
           to label %.noexc19 unwind label %.loopexit.split-lp.loopexit
 
 .noexc19:                                         ; preds = %.noexc18
@@ -325,7 +325,7 @@ _ZN22cranelift_codegen_meta9gen_types12emit_vectors17h72679626038016a6E.exit.i: 
           to label %.noexc23 unwind label %.loopexit
 
 .noexc23:                                         ; preds = %.lr.ph.i8.i
-  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %5, ptr align 8 %22)
+  invoke fastcc void @_ZN22cranelift_codegen_meta9gen_types9emit_type17ha5ea2814d648e98aE(ptr align 8 %5, ptr nonnull align 8 %22)
           to label %.noexc24 unwind label %.loopexit
 
 .noexc24:                                         ; preds = %.noexc23

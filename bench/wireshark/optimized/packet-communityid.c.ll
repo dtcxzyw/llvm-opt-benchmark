@@ -174,7 +174,7 @@ communityid_calc_wrapper.exit:                    ; preds = %52, %56
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %1, i64 192
   %63 = load ptr, ptr %62, align 8
-  %64 = call fastcc i32 @communityid_calc(i8 noundef zeroext 1, i8 noundef zeroext %.sink.i, ptr noundef %61, ptr noundef %63, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %5)
+  %64 = call fastcc i32 @communityid_calc(i8 noundef zeroext 1, i8 noundef zeroext %.sink.i, ptr noundef %61, ptr noundef %63, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %.not60 = icmp eq i32 %64, 0
   br i1 %.not60, label %.thread86, label %communityid_calc_wrapper.exit._crit_edge
 
@@ -232,7 +232,7 @@ communityid_calc_wrapper.exit76:                  ; preds = %84, %88
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %1, i64 192
   %95 = load ptr, ptr %94, align 8
-  %96 = call fastcc i32 @communityid_calc(i8 noundef zeroext 58, i8 noundef zeroext %.sink.i75, ptr noundef %93, ptr noundef %95, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %5)
+  %96 = call fastcc i32 @communityid_calc(i8 noundef zeroext 58, i8 noundef zeroext %.sink.i75, ptr noundef %93, ptr noundef %95, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %5)
   %.not62 = icmp eq i32 %96, 0
   br i1 %.not62, label %.thread86, label %communityid_calc_wrapper.exit76.thread-pre-split_crit_edge
 
@@ -292,7 +292,7 @@ communityid_calc_wrapper.exit80:                  ; preds = %108, %112
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %1, i64 192
   %119 = load ptr, ptr %118, align 8
-  %120 = call fastcc i32 @communityid_calc(i8 noundef zeroext %switch.masked, i8 noundef zeroext %.sink.i79, ptr noundef %117, ptr noundef %119, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %5)
+  %120 = call fastcc i32 @communityid_calc(i8 noundef zeroext %switch.masked, i8 noundef zeroext %.sink.i79, ptr noundef %117, ptr noundef %119, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %5)
   %.not66 = icmp eq i32 %120, 0
   br i1 %.not66, label %.thread86, label %121
 
@@ -363,7 +363,7 @@ communityid_calc_wrapper.exit84:                  ; preds = %142, %146
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %1, i64 192
   %153 = load ptr, ptr %152, align 8
-  %154 = call fastcc i32 @communityid_calc(i8 noundef zeroext %.2, i8 noundef zeroext %.sink.i83, ptr noundef %151, ptr noundef %153, ptr noundef null, ptr noundef null, ptr noundef %5)
+  %154 = call fastcc i32 @communityid_calc(i8 noundef zeroext %.2, i8 noundef zeroext %.sink.i83, ptr noundef %151, ptr noundef %153, ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
   %.not69 = icmp eq i32 %154, 0
   br i1 %.not69, label %.thread86, label %155
 

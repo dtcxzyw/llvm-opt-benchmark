@@ -1391,7 +1391,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i135:   ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN7QStringD2Ev.exit137
 
 233:                                              ; preds = %161
-  invoke void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull %17, i32 noundef 1)
+  invoke void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %17, i32 noundef 1)
           to label %_ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit unwind label %.loopexit.split-lp159
 
 _ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit: ; preds = %233

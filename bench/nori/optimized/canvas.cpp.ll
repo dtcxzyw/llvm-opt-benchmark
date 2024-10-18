@@ -641,7 +641,7 @@ define linkonce_odr hidden void @_ZN7nanogui6CanvasD0Ev(ptr noundef nonnull alig
   br label %_ZN7nanogui6CanvasD2Ev.exit
 
 _ZN7nanogui6CanvasD2Ev.exit:                      ; preds = %1, %4
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #15
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(173) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

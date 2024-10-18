@@ -612,7 +612,7 @@ define dso_local void @_ZN5vcpkg17get_user_mac_hashB5cxx11Ev(ptr dead_on_unwind 
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc25 unwind label %17
 
 .noexc25:                                         ; preds = %.noexc
@@ -622,7 +622,7 @@ define dso_local void @_ZN5vcpkg17get_user_mac_hashB5cxx11Ev(ptr dead_on_unwind 
 15:                                               ; preds = %.noexc25
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc25
@@ -776,7 +776,7 @@ _ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE.exit: ; preds = %51
           to label %.noexc26 unwind label %67
 
 .noexc26:                                         ; preds = %._crit_edge
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc27 unwind label %67
 
 .noexc27:                                         ; preds = %.noexc26
@@ -786,7 +786,7 @@ _ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE.exit: ; preds = %51
 65:                                               ; preds = %.noexc27
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %.body28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; preds = %.noexc27

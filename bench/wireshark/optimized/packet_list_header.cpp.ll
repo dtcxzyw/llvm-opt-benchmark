@@ -1460,7 +1460,7 @@ define void @_ZN16PacketListHeader16contextMenuEventEP17QContextMenuEvent(ptr no
 
 70:                                               ; preds = %67
   tail call void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40) %69, i32 noundef 55, i1 noundef zeroext true)
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull %23)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %23)
   %71 = invoke noundef zeroext i1 @_ZN7QObject11setPropertyEPKcRK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %72 unwind label %211
 
@@ -1472,7 +1472,7 @@ define void @_ZN16PacketListHeader16contextMenuEventEP17QContextMenuEvent(ptr no
 
 74:                                               ; preds = %72
   call void @_ZN12QActionGroup12setExclusiveEb(ptr noundef nonnull align 8 dereferenceable(16) %73, i1 noundef zeroext false)
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull %23)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %23)
   %75 = invoke noundef zeroext i1 @_ZN7QObject11setPropertyEPKcRK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %76 unwind label %215
 
@@ -1502,7 +1502,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %78, %_ZN17QArrayDat
   %83 = icmp eq i8 %68, 76
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %77, i1 noundef zeroext %83)
   store i8 76, ptr %28, align 1
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIcE8metaTypeE, ptr noundef nonnull %28)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIcE8metaTypeE, ptr noundef nonnull align 1 dereferenceable(1) %28)
   invoke void @_ZN7QAction7setDataERK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %84 unwind label %223
 
@@ -1532,7 +1532,7 @@ _ZN7QStringD2Ev.exit114:                          ; preds = %86, %_ZN17QArrayDat
   %91 = icmp eq i8 %68, 67
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %85, i1 noundef zeroext %91)
   store i8 67, ptr %31, align 1
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIcE8metaTypeE, ptr noundef nonnull %31)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIcE8metaTypeE, ptr noundef nonnull align 1 dereferenceable(1) %31)
   invoke void @_ZN7QAction7setDataERK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %92 unwind label %231
 
@@ -1562,7 +1562,7 @@ _ZN7QStringD2Ev.exit118:                          ; preds = %94, %_ZN17QArrayDat
   %99 = icmp eq i8 %68, 82
   call void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %93, i1 noundef zeroext %99)
   store i8 82, ptr %34, align 1
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIcE8metaTypeE, ptr noundef nonnull %34)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIcE8metaTypeE, ptr noundef nonnull align 1 dereferenceable(1) %34)
   invoke void @_ZN7QAction7setDataERK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %100 unwind label %239
 
@@ -2315,7 +2315,7 @@ _ZN7QStringD2Ev.exit229:                          ; preds = %312, %_ZN17QArrayDa
           to label %335 unwind label %279
 
 335:                                              ; preds = %333
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull %48)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %48)
           to label %_ZN8QVariant9fromValueIiEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit unwind label %279
 
 _ZN8QVariant9fromValueIiEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit: ; preds = %335

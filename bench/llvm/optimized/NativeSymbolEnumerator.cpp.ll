@@ -97,7 +97,7 @@ define dso_local void @_ZN4llvm3pdb22NativeSymbolEnumeratorD2Ev(ptr noundef nonn
   br label %_ZN4llvm8codeview16EnumeratorRecordD2Ev.exit
 
 _ZN4llvm8codeview16EnumeratorRecordD2Ev.exit:     ; preds = %1, %5, %9
-  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
+  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #7
   ret void
 }
 

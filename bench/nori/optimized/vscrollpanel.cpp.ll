@@ -872,7 +872,7 @@ define linkonce_odr hidden void @_ZN7nanogui12VScrollPanelD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui12VScrollPanelD0Ev(ptr noundef nonnull align 8 dereferenceable(149) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #11
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(149) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

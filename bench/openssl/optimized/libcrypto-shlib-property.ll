@@ -310,7 +310,7 @@ if.end30:                                         ; preds = %ossl_property_write
   %1 = getelementptr i8, ptr %store, i64 8
   %store.val.i = load ptr, ptr %1, align 8
   %conv.i.i = zext nneg i32 %nid to i64
-  %call.i.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val.i, i64 noundef %conv.i.i) #6
+  %call.i.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val.i, i64 noundef range(i64 1, 2147483648) %conv.i.i) #6
   %cmp.not.i55 = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.not.i55, label %ossl_method_cache_flush.exit, label %if.then.i
 
@@ -357,7 +357,7 @@ if.then48:                                        ; preds = %if.end43
 
 if.end52:                                         ; preds = %if.end43, %ossl_method_cache_flush.exit
   %store.val = load ptr, ptr %1, align 8
-  %call.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef %conv.i.i) #6
+  %call.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef range(i64 1, 2147483648) %conv.i.i) #6
   %cmp54 = icmp eq ptr %call.i.i, null
   br i1 %cmp54, label %if.then56, label %if.end75
 
@@ -562,7 +562,7 @@ if.end5:                                          ; preds = %ossl_property_write
   %1 = getelementptr i8, ptr %store, i64 8
   %store.val.i = load ptr, ptr %1, align 8
   %conv.i.i = zext nneg i32 %nid to i64
-  %call.i.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val.i, i64 noundef %conv.i.i) #6
+  %call.i.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val.i, i64 noundef range(i64 1, 2147483648) %conv.i.i) #6
   %cmp.not.i18 = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.not.i18, label %ossl_method_cache_flush.exit, label %if.then.i
 
@@ -582,7 +582,7 @@ if.then.i:                                        ; preds = %if.end5
 
 ossl_method_cache_flush.exit:                     ; preds = %if.end5, %if.then.i
   %store.val = load ptr, ptr %1, align 8
-  %call.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef %conv.i.i) #6
+  %call.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef range(i64 1, 2147483648) %conv.i.i) #6
   %cmp7 = icmp eq ptr %call.i.i, null
   br i1 %cmp7, label %return.sink.split, label %for.cond.preheader
 
@@ -816,7 +816,7 @@ if.end12:                                         ; preds = %if.end8
   %4 = getelementptr i8, ptr %store, i64 8
   %store.val = load ptr, ptr %4, align 8
   %conv.i = zext nneg i32 %nid to i64
-  %call.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef %conv.i) #6
+  %call.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef range(i64 1, 2147483648) %conv.i) #6
   %cmp14 = icmp eq ptr %call.i.i, null
   br i1 %cmp14, label %ossl_property_unlock.exit, label %if.end17
 
@@ -1149,7 +1149,7 @@ if.end5:                                          ; preds = %if.end
   %1 = getelementptr i8, ptr %store, i64 8
   %store.val = load ptr, ptr %1, align 8
   %conv.i = zext nneg i32 %nid to i64
-  %call.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef %conv.i) #6
+  %call.i.i = tail call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef range(i64 1, 2147483648) %conv.i) #6
   %cmp7 = icmp eq ptr %call.i.i, null
   br i1 %cmp7, label %ossl_property_unlock.exit, label %if.end9
 
@@ -1258,7 +1258,7 @@ if.end16:                                         ; preds = %ossl_method_cache_f
   %8 = getelementptr i8, ptr %store, i64 8
   %store.val = load ptr, ptr %8, align 8
   %conv.i = zext nneg i32 %nid to i64
-  %call.i.i = call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef %conv.i) #6
+  %call.i.i = call ptr @ossl_sa_get(ptr noundef %store.val, i64 noundef range(i64 1, 2147483648) %conv.i) #6
   %cmp18 = icmp eq ptr %call.i.i, null
   br i1 %cmp18, label %err, label %if.end21
 

@@ -90,7 +90,7 @@ call.i.noexc:                                     ; preds = %init
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc56parser9Smt2Lexer18s_extraSymbolCharsB5cxx11E) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4cvc56parser9Smt2Lexer18s_extraSymbolCharsB5cxx11E) #17
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -138,7 +138,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -197,7 +197,7 @@ call.i.noexc:                                     ; preds = %init
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc56parser9Smt2Lexer21s_printableAsciiCharsB5cxx11E) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4cvc56parser9Smt2Lexer21s_printableAsciiCharsB5cxx11E) #17
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -234,7 +234,7 @@ entry:
   tail call void @_ZN4cvc56parser5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(32892) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 16), ptr %this, align 8
   %d_token = getelementptr inbounds i8, ptr %this, i64 32896
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %d_token) #17
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_token) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_token, i8 0, i64 24, i1 false)
   %d_isStrict = getelementptr inbounds i8, ptr %this, i64 32920
   store i8 %frombool, ptr %d_isStrict, align 8
@@ -910,7 +910,7 @@ if.then91:                                        ; preds = %if.else
           to label %call.i.noexc unwind label %lpad94
 
 call.i.noexc:                                     ; preds = %if.then91
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp92, ptr noundef %call.i87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92, ptr noundef %call.i87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93)
           to label %.noexc unwind label %lpad94
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -920,7 +920,7 @@ call.i.noexc:                                     ; preds = %if.then91
 lpad.i:                                           ; preds = %.noexc
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp92) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92) #17
   br label %eh.resume
 
 invoke.cont95:                                    ; preds = %.noexc
@@ -1834,7 +1834,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %d_token) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_token) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser5LexerE, i64 16), ptr %this, align 8
   %d_peeked.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %d_peeked.i, align 8
@@ -1865,7 +1865,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %d_token.i) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_token.i) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser5LexerE, i64 16), ptr %this, align 8
   %d_peeked.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %d_peeked.i.i, align 8

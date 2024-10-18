@@ -519,8 +519,8 @@ define dso_local void @_ZNK4llvm16MachineFrameInfo15getPristineRegsERKNS_15Machi
   %14 = lshr i32 %13, 6
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %16, i64 noundef 6) #15
-  tail call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %15, i64 noundef 0)
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %16, i64 noundef 6) #15
+  tail call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(68) %0, i64 noundef %15, i64 noundef 0)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %12, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 120

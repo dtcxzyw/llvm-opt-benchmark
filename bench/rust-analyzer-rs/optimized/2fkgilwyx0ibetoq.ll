@@ -798,7 +798,7 @@ define noundef zeroext i1 @"_ZN51_$LT$cfg..CfgDiff$u20$as$u20$core..fmt..Display
   br i1 %62, label %63, label %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit"
 
 63:                                               ; preds = %59
-  %64 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.073.091, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %64 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.073.091, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %64, label %.loopexit, label %.backedge
 
 "_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit": ; preds = %59
@@ -836,7 +836,7 @@ define noundef zeroext i1 @"_ZN51_$LT$cfg..CfgDiff$u20$as$u20$core..fmt..Display
   br i1 %69, label %70, label %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit72"
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.089, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %71 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.089, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %71, label %.loopexit, label %.backedge86
 
 "_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit72": ; preds = %66
@@ -1035,7 +1035,7 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
   br i1 %83, label %84, label %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit"
 
 84:                                               ; preds = %80
-  %85 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.077.0101, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %85 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.077.0101, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %85, label %.loopexit, label %.backedge
 
 "_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit": ; preds = %80
@@ -1077,7 +1077,7 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
   br i1 %92, label %93, label %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit76"
 
 93:                                               ; preds = %89
-  %94 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.098, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %94 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.098, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %94, label %.loopexit, label %.backedge91
 
 "_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit76": ; preds = %89

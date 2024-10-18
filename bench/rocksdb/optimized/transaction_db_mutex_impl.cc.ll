@@ -192,7 +192,7 @@ _ZNSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEC2INS0_24TransactionDBCondVar
 define void @_ZN7rocksdb22TransactionDBMutexImpl4LockEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #12
+  %call1.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #12
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i, label %_ZNSt5mutex4lockEv.exit, label %if.then.i
 
@@ -203,7 +203,7 @@ if.then.i:                                        ; preds = %entry
 _ZNSt5mutex4lockEv.exit:                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
   ret void
 }
 
@@ -215,12 +215,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call1.i.i = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %mutex_) #12
+  %call1.i.i = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #12
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i, label %if.end4, label %if.then3
 
 if.else:                                          ; preds = %entry
-  %call1.i.i1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #12
+  %call1.i.i1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #12
   %tobool.not.i2 = icmp eq i32 %call1.i.i1, 0
   br i1 %tobool.not.i2, label %if.end4, label %if.then.i
 
@@ -241,7 +241,7 @@ if.then3:                                         ; preds = %if.then
 if.end4:                                          ; preds = %if.else, %if.then
   %state_.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i3, align 8, !alias.scope !10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then3
@@ -264,7 +264,7 @@ entry:
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
   ret void
 
 lpad:                                             ; preds = %entry
@@ -280,7 +280,7 @@ if.else.i.i5:                                     ; preds = %lpad
   br i1 %tobool2.not.i.i6, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9, label %if.then3.i.i7
 
 if.then3.i.i7:                                    ; preds = %if.else.i.i5
-  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #12
+  %call1.i.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %lpad, %if.else.i.i5, %if.then3.i.i7
@@ -296,7 +296,7 @@ entry:
   %lock = alloca %"class.std::unique_lock", align 8
   %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false)
   %0 = load ptr, ptr %mutex, align 8
   %mutex_ = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %mutex_, ptr %lock, align 8
@@ -323,7 +323,7 @@ if.else.i.i:                                      ; preds = %lpad
   br i1 %tobool2.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #12
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %if.then3.i.i, %if.else.i.i, %lpad
@@ -341,7 +341,7 @@ if.else:                                          ; preds = %entry
   store i64 %div.i.i.i.i.i.i, ptr %__ts.i.i.i, align 8
   %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
   store i64 %sub.i.i.i.i.i, ptr %tv_nsec.i.i.i, align 8
-  %call2.i.i.i.i3 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %cv_, ptr noundef nonnull %mutex_, i32 noundef 1, ptr noundef nonnull %__ts.i.i.i)
+  %call2.i.i.i.i3 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %cv_, ptr noundef nonnull align 8 dereferenceable(40) %mutex_, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %__ts.i.i.i)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.else
@@ -380,7 +380,7 @@ entry:
 define linkonce_odr void @_ZN7rocksdb22TransactionDBMutexImpl6UnLockEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call1.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #12
+  %call1.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #12
   ret void
 }
 

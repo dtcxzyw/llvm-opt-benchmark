@@ -331,7 +331,7 @@ terminate.lpad.i.i.i:                             ; preds = %terminate.lpad.loop
   unreachable
 
 _ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i:  ; preds = %.noexc1.i.i.i, %.noexc.i.i.i, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(36) %0) #12
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit: ; preds = %if.then, %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i
@@ -408,7 +408,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %terminate.lpad.loop
   unreachable
 
 _ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i: ; preds = %.noexc1.i.i.i.i, %.noexc.i.i.i.i, %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(36) %0) #12
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i: ; preds = %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, %if.then.i
@@ -519,7 +519,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %terminate.lpad.loop
   unreachable
 
 _ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i: ; preds = %.noexc1.i.i.i.i, %.noexc.i.i.i.i, %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(36) %0) #12
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i: ; preds = %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, %if.then.i
@@ -617,7 +617,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %terminate.lpad.loop
   unreachable
 
 _ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i: ; preds = %.noexc1.i.i.i.i, %.noexc.i.i.i.i, %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(36) %0) #12
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i: ; preds = %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, %if.then.i
@@ -697,7 +697,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %terminate.lpad.loop
   unreachable
 
 _ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i: ; preds = %.noexc1.i.i.i.i, %.noexc.i.i.i.i, %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(36) %0) #12
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i: ; preds = %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, %if.then.i
@@ -827,7 +827,7 @@ terminate.lpad.i.i.i:                             ; preds = %terminate.lpad.loop
   unreachable
 
 _ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i:  ; preds = %.noexc1.i.i.i, %.noexc.i.i.i, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %arg1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(36) %arg1) #12
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit: ; preds = %entry, %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i

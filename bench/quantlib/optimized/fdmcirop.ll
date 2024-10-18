@@ -4109,7 +4109,7 @@ terminate.lpad.i.i9.i:                            ; preds = %if.then.i.i.i.i13.i
 _ZN8QuantLib15FdmCIRMixedPartD2Ev.exit:           ; preds = %_ZN5boost10shared_ptrIN8QuantLib21BlackVolTermStructureEED2Ev.exit.i, %if.then.i.i3.i, %.noexc.i.i10.i, %if.then.i.i.i.i13.i
   %mapT_.i = getelementptr inbounds nuw i8, ptr %this, i64 656
   tail call void @_ZN8QuantLib17NinePointLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %mapT_.i) #23
-  tail call void @_ZN8QuantLib17NinePointLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %dzMap_) #23
+  tail call void @_ZN8QuantLib17NinePointLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %dzMap_) #23
   %pn.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 472
   %14 = load ptr, ptr %pn.i.i1, align 8, !tbaa !16
   %cmp.not.i.i.i2 = icmp eq ptr %14, null
@@ -4152,7 +4152,7 @@ _ZN8QuantLib15FdmCIRRatesPartD2Ev.exit:           ; preds = %_ZN8QuantLib15FdmCI
   %dyMap_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %mapT_.i6 = getelementptr inbounds nuw i8, ptr %this, i64 384
   tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %mapT_.i6) #23
-  tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %dyMap_) #23
+  tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %dyMap_) #23
   %dxMap_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN8QuantLib16FdmCIREquityPartD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %dxMap_) #23
   ret void

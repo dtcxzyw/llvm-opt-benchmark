@@ -11417,8 +11417,8 @@ if.end45.i.i.i.i.i37:                             ; preds = %while.end.i.i.i.i.i
 
 if.end.i:                                         ; preds = %if.end45.i.i.i.i.i37
   store i32 %idx.1.i.i.i.i.i39, ptr %srcIdx.i, align 4
-  %call2.i = tail call fastcc i32 @GetDate(ptr noundef %cert, i32 noundef 0, i32 noundef %verify, i32 noundef %add47.i.i.i.i.i40)
-  %call6.i = tail call fastcc i32 @GetDate(ptr noundef %cert, i32 noundef 1, i32 noundef %verify, i32 noundef %add47.i.i.i.i.i40)
+  %call2.i = tail call fastcc i32 @GetDate(ptr noundef nonnull %cert, i32 noundef 0, i32 noundef %verify, i32 noundef %add47.i.i.i.i.i40)
+  %call6.i = tail call fastcc i32 @GetDate(ptr noundef nonnull %cert, i32 noundef 1, i32 noundef %verify, i32 noundef %add47.i.i.i.i.i40)
   %cmp7.i = icmp slt i32 %call6.i, 0
   br i1 %cmp7.i, label %if.then19, label %if.end9.i
 
@@ -13827,7 +13827,7 @@ if.then55.i.i:                                    ; preds = %sw.bb47.i.i
   br i1 %tobool72.not.i.i, label %land.lhs.true.i.i, label %if.end80.i
 
 land.lhs.true.i.i:                                ; preds = %if.then55.i.i
-  %call79.i.i = call fastcc i32 @DecodeAuthInfo(ptr noundef %add.ptr.i, i32 noundef %length.1.i.i.i.i130.i, ptr noundef %cert)
+  %call79.i.i = call fastcc i32 @DecodeAuthInfo(ptr noundef nonnull %add.ptr.i, i32 noundef %length.1.i.i.i.i130.i, ptr noundef nonnull %cert)
   %cmp80.i.i = icmp slt i32 %call79.i.i, 0
   %spec.select85.i.i = select i1 %cmp80.i.i, i32 -140, i32 0
   br label %DecodeExtensionType.exit.i
@@ -15083,7 +15083,7 @@ if.then118.i.i:                                   ; preds = %sw.bb110.i.i
   br i1 %tobool135.not.i.i, label %land.lhs.true144.i.i, label %if.end80.i
 
 land.lhs.true144.i.i:                             ; preds = %if.then118.i.i
-  %call145.i.i = call fastcc i32 @DecodeAuthKeyId(ptr noundef %add.ptr.i, i32 noundef %length.1.i.i.i.i130.i, ptr noundef %cert)
+  %call145.i.i = call fastcc i32 @DecodeAuthKeyId(ptr noundef nonnull %add.ptr.i, i32 noundef %length.1.i.i.i.i130.i, ptr noundef nonnull %cert)
   %cmp146.i.i = icmp slt i32 %call145.i.i, 0
   %spec.select87.i.i = select i1 %cmp146.i.i, i32 -140, i32 0
   br label %DecodeExtensionType.exit.i
@@ -15105,7 +15105,7 @@ if.then158.i.i:                                   ; preds = %sw.bb150.i.i
   br i1 %tobool175.not.i.i, label %land.lhs.true184.i.i, label %if.end80.i
 
 land.lhs.true184.i.i:                             ; preds = %if.then158.i.i
-  %call185.i.i = call fastcc i32 @DecodeSubjKeyId(ptr noundef %add.ptr.i, i32 noundef %length.1.i.i.i.i130.i, ptr noundef %cert)
+  %call185.i.i = call fastcc i32 @DecodeSubjKeyId(ptr noundef nonnull %add.ptr.i, i32 noundef %length.1.i.i.i.i130.i, ptr noundef nonnull %cert)
   %cmp186.i.i = icmp slt i32 %call185.i.i, 0
   %spec.select89.i.i = select i1 %cmp186.i.i, i32 -140, i32 0
   br label %DecodeExtensionType.exit.i
@@ -16423,7 +16423,7 @@ if.else243:                                       ; preds = %if.then227
   %maxPathLen248 = getelementptr inbounds i8, ptr %cert, i64 837
   %201 = load i8, ptr %maxPathLen248, align 1
   %conv249 = zext i8 %201 to i32
-  %cond.i = call range(i32 0, 255) i32 @llvm.umin.i32(i32 %sub247, i32 %conv249)
+  %cond.i = call range(i32 0, 255) i32 @llvm.umin.i32(i32 range(i32 0, 255) %sub247, i32 range(i32 0, 256) %conv249)
   %conv251 = trunc nuw i32 %cond.i to i8
   store i8 %conv251, ptr %maxPathLen248, align 1
   br label %if.end256

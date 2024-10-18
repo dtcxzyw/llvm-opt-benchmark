@@ -553,7 +553,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %2 = load ptr, ptr @supported_modules, align 8
   %call.i7.us = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.013.us) #6
   %3 = load ptr, ptr @supported_modules, align 8
-  %call.i8.us = tail call ptr @OPENSSL_sk_delete(ptr noundef %3, i32 noundef %i.013.us) #6
+  %call.i8.us = tail call ptr @OPENSSL_sk_delete(ptr noundef %3, i32 noundef range(i32 0, 2147483647) %i.013.us) #6
   %4 = load ptr, ptr %call.i7.us, align 8
   %call.i9.us = tail call i32 @DSO_free(ptr noundef %4) #6
   %name.i.us = getelementptr inbounds i8, ptr %call.i7.us, i64 8
@@ -580,7 +580,7 @@ lor.lhs.false.us19:                               ; preds = %for.body.us14
 
 if.end11.us21:                                    ; preds = %lor.lhs.false.us19
   %9 = load ptr, ptr @supported_modules, align 8
-  %call.i8.us22 = tail call ptr @OPENSSL_sk_delete(ptr noundef %9, i32 noundef %i.013.us15) #6
+  %call.i8.us22 = tail call ptr @OPENSSL_sk_delete(ptr noundef %9, i32 noundef range(i32 0, 2147483647) %i.013.us15) #6
   %10 = load ptr, ptr %call.i7.us16, align 8
   %call.i9.us23 = tail call i32 @DSO_free(ptr noundef %10) #6
   %name.i.us24 = getelementptr inbounds i8, ptr %call.i7.us16, i64 8

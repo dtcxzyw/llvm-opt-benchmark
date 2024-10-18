@@ -547,7 +547,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %or.cond, label %55, label %59
 
 55:                                               ; preds = %26
-  %56 = tail call range(i32 -1073741824, 1073741824) i32 @llvm.smin.i32(i32 %49, i32 %50)
+  %56 = tail call range(i32 -1073741824, 1073741824) i32 @llvm.smin.i32(i32 range(i32 -1073741824, 1073741824) %49, i32 range(i32 -1073741824, 1073741824) %50)
   %57 = shl nsw i32 %56, 1
   %58 = or disjoint i32 %57, 1
   br label %common.ret.sink.split
@@ -570,7 +570,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %common.ret.sink.split
 
 66:                                               ; preds = %63
-  %67 = tail call range(i32 -1073741824, 1073741824) i32 @llvm.smax.i32(i32 %49, i32 %50)
+  %67 = tail call range(i32 -1073741824, 1073741824) i32 @llvm.smax.i32(i32 range(i32 -1073741824, 1073741824) %49, i32 range(i32 -1073741824, 1073741824) %50)
   %68 = shl nsw i32 %67, 1
   br label %common.ret.sink.split
 }

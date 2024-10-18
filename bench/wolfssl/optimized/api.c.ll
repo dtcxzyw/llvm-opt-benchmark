@@ -37519,7 +37519,7 @@ test_cm_load_ca_buffer_ex.exit.thread:            ; preds = %if.then
   br label %if.end19
 
 test_cm_load_ca_buffer_ex.exit:                   ; preds = %if.then
-  %call2.i = tail call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i, ptr noundef %.pre, i64 noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef %flags) #25
+  %call2.i = tail call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i, ptr noundef %.pre, i64 noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef range(i32 0, 3) %flags) #25
   tail call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i) #25
   %cmp2 = icmp eq i32 %call2.i, 1
   br i1 %cmp2, label %if.then3, label %if.end19
@@ -37543,7 +37543,7 @@ if.then.i13:                                      ; preds = %if.else
   br label %if.end19
 
 if.end9:                                          ; preds = %if.else
-  %call2.i11 = tail call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i8, ptr noundef nonnull %call4, i64 noundef %add, i32 noundef 1, i32 noundef 0, i32 noundef %flags) #25
+  %call2.i11 = tail call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i8, ptr noundef nonnull %call4, i64 noundef %add, i32 noundef 1, i32 noundef 0, i32 noundef range(i32 0, 3) %flags) #25
   tail call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i8) #25
   %cmp10 = icmp eq i32 %call2.i11, 1
   br i1 %cmp10, label %if.then11, label %if.end19
@@ -37571,7 +37571,7 @@ if.then.i20:                                      ; preds = %if.then15
 
 if.end.i17:                                       ; preds = %if.then15
   %conv = zext i32 %7 to i64
-  %call2.i18 = call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i15, ptr noundef %6, i64 noundef %conv, i32 noundef 2, i32 noundef 0, i32 noundef %flags) #25
+  %call2.i18 = call i32 @wolfSSL_CertManagerLoadCABuffer_ex(ptr noundef nonnull %call.i15, ptr noundef %6, i64 noundef %conv, i32 noundef 2, i32 noundef 0, i32 noundef range(i32 0, 3) %flags) #25
   call void @wolfSSL_CertManagerFree(ptr noundef nonnull %call.i15) #25
   br label %test_cm_load_ca_buffer_ex.exit21
 

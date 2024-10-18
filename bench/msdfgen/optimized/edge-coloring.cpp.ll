@@ -3836,7 +3836,7 @@ if.end18.i:                                       ; preds = %_ZN7msdfgenL20verte
   %172 = load i32, ptr %arrayidx23.i, align 4
   %arrayidx25.i = getelementptr inbounds i32, ptr %add.ptr.i888, i64 %idxprom1.i
   store i32 %172, ptr %arrayidx25.i, align 4
-  invoke fastcc void @_ZN7msdfgenL20uncolorSameNeighborsERSt5queueIiSt5dequeIiSaIiEEEPiPKPKiii(ptr noundef nonnull align 8 dereferenceable(80) %uncolored.i, ptr noundef %add.ptr.i888, ptr noundef readonly %call5.i.i.i.i2.i.i848, i32 noundef %rem451, i32 noundef %sub284)
+  invoke fastcc void @_ZN7msdfgenL20uncolorSameNeighborsERSt5queueIiSt5dequeIiSaIiEEEPiPKPKiii(ptr noundef nonnull align 8 dereferenceable(80) %uncolored.i, ptr noundef nonnull %add.ptr.i888, ptr noundef nonnull readonly %call5.i.i.i.i2.i.i848, i32 noundef range(i32 -2147483647, -2147483648) %rem451, i32 noundef range(i32 -2147483648, 2147483647) %sub284)
           to label %while.cond.outer.i unwind label %lpad.loopexit.split-lp.i
 
 while.cond.outer.i:                               ; preds = %.noexc913, %do.end.i
@@ -3957,7 +3957,7 @@ land.rhs50.i:                                     ; preds = %do.body.i
   br i1 %cmp55.i, label %do.body.i, label %do.end.i, !llvm.loop !44
 
 do.end.i:                                         ; preds = %land.rhs50.i, %do.body.i
-  invoke fastcc void @_ZN7msdfgenL20uncolorSameNeighborsERSt5queueIiSt5dequeIiSaIiEEEPiPKPKiii(ptr noundef nonnull align 8 dereferenceable(80) %uncolored.i, ptr noundef %add.ptr.i888, ptr noundef readonly %call5.i.i.i.i2.i.i848, i32 noundef %177, i32 noundef %sub284)
+  invoke fastcc void @_ZN7msdfgenL20uncolorSameNeighborsERSt5queueIiSt5dequeIiSaIiEEEPiPKPKiii(ptr noundef nonnull align 8 dereferenceable(80) %uncolored.i, ptr noundef nonnull %add.ptr.i888, ptr noundef nonnull readonly %call5.i.i.i.i2.i.i848, i32 noundef %177, i32 noundef range(i32 -2147483648, 2147483647) %sub284)
           to label %while.cond.outer.i unwind label %lpad.loopexit.i, !llvm.loop !43
 
 while.end.i:                                      ; preds = %while.cond.outer.i

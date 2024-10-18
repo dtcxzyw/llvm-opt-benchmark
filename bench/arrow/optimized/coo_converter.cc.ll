@@ -239,7 +239,7 @@ entry:
   %converter = alloca %"class.arrow::internal::(anonymous namespace)::SparseCOOTensorConverter", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %tensor_.i = getelementptr inbounds i8, ptr %converter, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %converter, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %converter, i8 0, i64 32, i1 false)
   store ptr %tensor, ptr %tensor_.i, align 8
   %index_value_type_.i = getelementptr inbounds i8, ptr %converter, i64 40
   store ptr %index_value_type, ptr %index_value_type_.i, align 8
@@ -1594,7 +1594,7 @@ invoke.cont347.i:                                 ; preds = %invoke.cont333.i
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !47
   store ptr %156, ptr %_M_refcount.i.i.i.i389.i, align 8, !alias.scope !48, !noalias !4
   store ptr null, ptr %storage_.i.i388.i, align 8, !noalias !47
-  %call348.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN5arrow14SparseCOOIndexEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %converter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp346.i) #20
+  %call348.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN5arrow14SparseCOOIndexEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(56) %converter, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp346.i) #20
   call void @_ZNSt10shared_ptrIN5arrow14SparseCOOIndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp346.i) #20
   %data.i = getelementptr inbounds i8, ptr %converter, i64 16
   %call350.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN5arrow6BufferEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_(ptr noundef nonnull align 8 dereferenceable(16) %data.i, ptr noundef nonnull align 8 dereferenceable(8) %values_buffer.i)
@@ -3411,7 +3411,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -3421,7 +3421,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #20
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc

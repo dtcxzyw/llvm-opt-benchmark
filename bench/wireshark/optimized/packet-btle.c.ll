@@ -1532,7 +1532,7 @@ switch.lookup:                                    ; preds = %73
   %.022852941 = phi i32 [ %.022852951, %168 ], [ %.02285, %167 ], [ 0, %162 ]
   %.022882939 = phi i1 [ %.022882950, %168 ], [ %.02288, %167 ], [ false, %162 ]
   %.022892937 = phi i1 [ %.022892949, %168 ], [ %.02289, %167 ], [ false, %162 ]
-  %171 = call ptr @val_to_str_ext_const(i32 noundef %151, ptr noundef nonnull @pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
+  %171 = call ptr @val_to_str_ext_const(i32 noundef range(i32 0, 16) %151, ptr noundef nonnull @pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
   br label %adv_pdu_type_str_get.exit
 
 172:                                              ; preds = %168
@@ -1554,7 +1554,7 @@ switch.lookup:                                    ; preds = %73
   br label %adv_pdu_type_str_get.exit
 
 183:                                              ; preds = %174, %172
-  %184 = call ptr @val_to_str_ext_const(i32 noundef %151, ptr noundef nonnull @aux_pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
+  %184 = call ptr @val_to_str_ext_const(i32 noundef range(i32 0, 16) %151, ptr noundef nonnull @aux_pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
   br label %adv_pdu_type_str_get.exit
 
 adv_pdu_type_str_get.exit:                        ; preds = %.thread2931, %178, %183
@@ -1575,7 +1575,7 @@ adv_pdu_type_str_get.exit:                        ; preds = %.thread2931, %178, 
   br i1 %190, label %193, label %191
 
 191:                                              ; preds = %187, %adv_pdu_type_str_get.exit
-  %192 = call ptr @val_to_str_ext_const(i32 noundef %151, ptr noundef nonnull @pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
+  %192 = call ptr @val_to_str_ext_const(i32 noundef range(i32 0, 16) %151, ptr noundef nonnull @pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
   br label %adv_pdu_type_str_get.exit2571
 
 193:                                              ; preds = %187
@@ -1597,7 +1597,7 @@ adv_pdu_type_str_get.exit:                        ; preds = %.thread2931, %178, 
   br label %adv_pdu_type_str_get.exit2571
 
 204:                                              ; preds = %195, %193
-  %205 = call ptr @val_to_str_ext_const(i32 noundef %151, ptr noundef nonnull @aux_pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
+  %205 = call ptr @val_to_str_ext_const(i32 noundef range(i32 0, 16) %151, ptr noundef nonnull @aux_pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
   br label %adv_pdu_type_str_get.exit2571
 
 adv_pdu_type_str_get.exit2571:                    ; preds = %191, %199, %204
@@ -1653,7 +1653,7 @@ adv_pdu_type_str_get.exit2571:                    ; preds = %191, %199, %204
   br i1 %230, label %233, label %231
 
 231:                                              ; preds = %227, %223
-  %232 = call ptr @val_to_str_ext_const(i32 noundef %151, ptr noundef nonnull @pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
+  %232 = call ptr @val_to_str_ext_const(i32 noundef range(i32 0, 16) %151, ptr noundef nonnull @pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
   br label %adv_pdu_type_str_get.exit2575
 
 233:                                              ; preds = %227
@@ -1675,7 +1675,7 @@ adv_pdu_type_str_get.exit2571:                    ; preds = %191, %199, %204
   br label %adv_pdu_type_str_get.exit2575
 
 244:                                              ; preds = %235, %233
-  %245 = call ptr @val_to_str_ext_const(i32 noundef %151, ptr noundef nonnull @aux_pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
+  %245 = call ptr @val_to_str_ext_const(i32 noundef range(i32 0, 16) %151, ptr noundef nonnull @aux_pdu_type_vals_ext, ptr noundef nonnull @.str.690) #9
   br label %adv_pdu_type_str_get.exit2575
 
 adv_pdu_type_str_get.exit2575:                    ; preds = %231, %239, %244
@@ -6038,7 +6038,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %1811, %1810,
 
 2491:                                             ; preds = %1562
   %2492 = load i32, ptr @hf_control_channel_classification, align 4
-  %2493 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %2492, ptr noundef %0, i32 noundef %1566, i32 noundef 10, i32 noundef 0) #9
+  %2493 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %2492, ptr noundef %0, i32 noundef range(i32 7, 10) %1566, i32 noundef 10, i32 noundef 0) #9
   %2494 = add nuw nsw i32 %.12, 11
   %.not2373 = icmp eq ptr %.12273, null
   br i1 %.not2373, label %proto_item_set_generated.exit2596, label %2495
@@ -6493,15 +6493,15 @@ proto_item_set_hidden.exit2605:                   ; preds = %2663, %2695, %2698
   br label %dissect_ctrl_pdu_without_data.exit
 
 2736:                                             ; preds = %2709
-  %2737 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2713) #9
+  %2737 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 7, 10) %2713) #9
   %2738 = icmp sgt i32 %2737, 3
   br i1 %2738, label %2739, label %dissect_ctrl_pdu_without_data.exit
 
 2739:                                             ; preds = %2736
-  %2740 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2713) #9
+  %2740 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 7, 10) %2713) #9
   %2741 = add i32 %2740, -3
-  %2742 = call ptr @proto_tree_add_expert(ptr noundef %69, ptr noundef nonnull %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef %2713, i32 noundef %2741) #9
-  %2743 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2713) #9
+  %2742 = call ptr @proto_tree_add_expert(ptr noundef %69, ptr noundef nonnull %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef range(i32 7, 10) %2713, i32 noundef %2741) #9
+  %2743 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 7, 10) %2713) #9
   %2744 = add i32 %2743, %.0
   br label %dissect_ctrl_pdu_without_data.exit
 

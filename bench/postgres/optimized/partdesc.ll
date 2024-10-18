@@ -215,7 +215,7 @@ list_length.exit.i:                               ; preds = %29
   %105 = sext i16 %92 to i32
   %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %106)
-  %107 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %105) #6
+  %107 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %105) #6
   call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #6
   unreachable
 

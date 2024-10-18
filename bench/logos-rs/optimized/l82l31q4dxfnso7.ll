@@ -165,7 +165,7 @@ define align 4 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6bo
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17ha0b57d104795f82eE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = tail call zeroext i1 @"_ZN69_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf2a0bc14b8b9cd6fE"(ptr align 4 %0, ptr align 4 %1)
+  %3 = tail call zeroext i1 @"_ZN69_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf2a0bc14b8b9cd6fE"(ptr align 8 %0, ptr align 8 %1)
   br i1 %3, label %4, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h02f0d94e9c0c1a7bE.exit"
 
 4:                                                ; preds = %2
@@ -440,7 +440,7 @@ tailrecurse:                                      ; preds = %116, %6
   br label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit"
 
 90:                                               ; preds = %80
-  %91 = call fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert17hfe42c297bebf179bE"(ptr align 8 %0, i32 %4, ptr align 8 %34)
+  %91 = call fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert17hfe42c297bebf179bE"(ptr align 8 %0, i32 %4, ptr nonnull align 8 %34)
   br label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit"
 
 "_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit": ; preds = %tailrecurse, %239, %174, %176, %269, %267, %90, %88, %220, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit111", %109
@@ -592,7 +592,7 @@ tailrecurse:                                      ; preds = %116, %6
           to label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit111" unwind label %.loopexit.split-lp
 
 153:                                              ; preds = %149
-  %154 = invoke fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert17hfe42c297bebf179bE"(ptr align 8 %0, i32 %4, ptr align 8 %26)
+  %154 = invoke fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert17hfe42c297bebf179bE"(ptr align 8 %0, i32 %4, ptr nonnull align 8 %26)
           to label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit111" unwind label %.loopexit.split-lp
 
 155:                                              ; preds = %130

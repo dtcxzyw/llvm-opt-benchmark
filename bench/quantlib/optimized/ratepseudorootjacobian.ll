@@ -6575,7 +6575,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   %__first.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %__first, %entry ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i, i64 40, i1 false), !alias.scope !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %__cur.07.i.i, ptr noundef nonnull align 8 dereferenceable(232) %__first.addr.06.i.i, i64 40, i1 false), !alias.scope !116
   %displacements_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i, i64 40
   %displacements_3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i, i64 40
   %0 = load ptr, ptr %displacements_3.i.i.i.i.i.i, align 8, !tbaa !33, !alias.scope !114, !noalias !111

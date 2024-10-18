@@ -123,7 +123,7 @@ define void @_ZThn1448_N3zmq5req_tD0Ev(ptr noundef %this) unnamed_addr #4 align 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq5req_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1960) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1960) %0) #10
   ret void
 }
 
@@ -132,7 +132,7 @@ define void @_ZThn1464_N3zmq5req_tD0Ev(ptr noundef %this) unnamed_addr #4 align 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq5req_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1960) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1960) %0) #10
   ret void
 }
 
@@ -141,7 +141,7 @@ define void @_ZThn1472_N3zmq5req_tD0Ev(ptr noundef %this) unnamed_addr #4 align 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
   tail call void @_ZN3zmq5req_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1960) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1960) %0) #10
   ret void
 }
 
@@ -378,7 +378,7 @@ if.then4:                                         ; preds = %while.body
 
 while.body.i:                                     ; preds = %if.end.i, %if.then4
   store ptr null, ptr %pipe.i, align 8
-  %call.i = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1929) %this, ptr noundef %msg_, ptr noundef nonnull %pipe.i)
+  %call.i = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %this, ptr noundef %msg_, ptr noundef nonnull %pipe.i)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit
 
@@ -425,7 +425,7 @@ while.body21:                                     ; preds = %if.then15, %do.end
 
 while.body.i22:                                   ; preds = %if.end.i25, %while.body21
   store ptr null, ptr %pipe.i20, align 8
-  %call.i23 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1929) %this, ptr noundef nonnull %msg_, ptr noundef nonnull %pipe.i20)
+  %call.i23 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %this, ptr noundef nonnull %msg_, ptr noundef nonnull %pipe.i20)
   %cmp.not.i24 = icmp eq i32 %call.i23, 0
   br i1 %cmp.not.i24, label %if.end.i25, label %if.then25
 
@@ -465,7 +465,7 @@ if.end32:                                         ; preds = %lor.rhs, %while.bod
 
 while.body.i32:                                   ; preds = %if.end.i35, %if.end32
   store ptr null, ptr %pipe.i30, align 8
-  %call.i33 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1929) %this, ptr noundef %msg_, ptr noundef nonnull %pipe.i30)
+  %call.i33 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %this, ptr noundef %msg_, ptr noundef nonnull %pipe.i30)
   %cmp.not.i34 = icmp eq i32 %call.i33, 0
   br i1 %cmp.not.i34, label %if.end.i35, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit39
 
@@ -505,7 +505,7 @@ while.body53:                                     ; preds = %if.then47, %do.end6
 
 while.body.i42:                                   ; preds = %if.end.i45, %while.body53
   store ptr null, ptr %pipe.i40, align 8
-  %call.i43 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1929) %this, ptr noundef nonnull %msg_, ptr noundef nonnull %pipe.i40)
+  %call.i43 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %this, ptr noundef nonnull %msg_, ptr noundef nonnull %pipe.i40)
   %cmp.not.i44 = icmp eq i32 %call.i43, 0
   br i1 %cmp.not.i44, label %if.end.i45, label %if.then59
 
@@ -555,7 +555,7 @@ while.end70:                                      ; preds = %while.cond.backedge
 
 while.body.i52:                                   ; preds = %if.end.i55, %while.end70
   store ptr null, ptr %pipe.i50, align 8
-  %call.i53 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1929) %this, ptr noundef %msg_, ptr noundef nonnull %pipe.i50)
+  %call.i53 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %this, ptr noundef %msg_, ptr noundef nonnull %pipe.i50)
   %cmp.not.i54 = icmp eq i32 %call.i53, 0
   br i1 %cmp.not.i54, label %if.end.i55, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59
 
@@ -787,7 +787,7 @@ define void @_ZThn1448_N3zmq13req_session_tD0Ev(ptr noundef %this) unnamed_addr 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq13req_session_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1632) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1632) %0) #10
   ret void
 }
 
@@ -796,7 +796,7 @@ define void @_ZThn1464_N3zmq13req_session_tD0Ev(ptr noundef %this) unnamed_addr 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq13req_session_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1632) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1632) %0) #10
   ret void
 }
 

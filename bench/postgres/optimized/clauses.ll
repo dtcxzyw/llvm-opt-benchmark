@@ -4121,7 +4121,7 @@ list_length.exit.thread.i:                        ; preds = %48
   br i1 %.not.i, label %reorder_function_arguments.exit, label %.lr.ph71.preheader.i
 
 .lr.ph71.preheader.i:                             ; preds = %.thread52.i
-  %smax.i = call i32 @llvm.smax.i32(i32 %.044, i32 1)
+  %smax.i = call i32 @llvm.smax.i32(i32 range(i32 -32768, -2147483648) %.044, i32 1)
   %wide.trip.count82.i = zext nneg i32 %smax.i to i64
   br label %.lr.ph71.i
 

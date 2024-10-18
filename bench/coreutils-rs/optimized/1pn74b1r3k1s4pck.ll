@@ -293,7 +293,7 @@ select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h6cbaed82083700daE(ptr noalias nocapture noundef writeonly sret({ i128, [4 x i64] }) align 16 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 {
-  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h2979ae53c4a61b41E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !113
+  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h2979ae53c4a61b41E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !113
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread15, label %7
 
@@ -362,7 +362,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h760df6f3a6840d96E(ptr noalias nocapture noundef writeonly sret({ i128, [4 x i64] }) align 16 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 {
-  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h2979ae53c4a61b41E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !128
+  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h2979ae53c4a61b41E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !128
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread15, label %7
 
@@ -431,7 +431,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hb9899f7e494dbfbdE(ptr noalias nocapture noundef writeonly sret({ i64, [9 x i64] }) align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 {
-  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h2979ae53c4a61b41E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !141
+  %5 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h2979ae53c4a61b41E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !141
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
 

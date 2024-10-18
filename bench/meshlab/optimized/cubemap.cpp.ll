@@ -165,7 +165,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %13
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %27
-  call void @glVertex3fv(ptr noundef nonnull %28)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %29, label %20, !llvm.loop !11
@@ -277,8 +277,8 @@ _ZN3vcg8glNormalERKNS_6Point3IfEE.exit:           ; preds = %19, %_ZN3vcg8glNorm
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %28, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %5, align 8
   store float %31, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @glNormal3fv(ptr noundef nonnull %5)
-  call void @glVertex3fv(ptr noundef nonnull %23)
+  call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %5)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %32, label %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit, !llvm.loop !16

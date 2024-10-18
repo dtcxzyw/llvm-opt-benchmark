@@ -507,7 +507,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h1eef327da8
 
 31:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1120cb26d970bd34E.llvm.3382553183864397122.exit"
   tail call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.8519985026491776260(i8 noundef 2), !noalias !76
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h969ac546f0d900cbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27), !noalias !73
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h969ac546f0d900cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27), !noalias !73
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hb8048026eb78c618E.llvm.3382553183864397122.exit"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hb8048026eb78c618E.llvm.3382553183864397122.exit": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1120cb26d970bd34E.llvm.3382553183864397122.exit", %31
@@ -579,7 +579,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17ha218137ff4
 
 31:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf23f01902929c6e9E.llvm.3382553183864397122.exit"
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3bdb0f10df944006E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27), !noalias !99
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3bdb0f10df944006E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27), !noalias !99
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h2b91132842967d59E.llvm.3382553183864397122.exit"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h2b91132842967d59E.llvm.3382553183864397122.exit": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf23f01902929c6e9E.llvm.3382553183864397122.exit", %31
@@ -655,7 +655,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h22cd07b
 
 38:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf23f01902929c6e9E.llvm.3382553183864397122.exit.i"
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3bdb0f10df944006E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !128
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3bdb0f10df944006E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34), !noalias !128
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h2b91132842967d59E.llvm.3382553183864397122.exit.i"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h2b91132842967d59E.llvm.3382553183864397122.exit.i": ; preds = %38, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf23f01902929c6e9E.llvm.3382553183864397122.exit.i"
@@ -776,7 +776,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9700f96
 
 38:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1120cb26d970bd34E.llvm.3382553183864397122.exit.i"
   tail call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.8519985026491776260(i8 noundef 2), !noalias !166
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h969ac546f0d900cbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !163
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h969ac546f0d900cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34), !noalias !163
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hb8048026eb78c618E.llvm.3382553183864397122.exit.i"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hb8048026eb78c618E.llvm.3382553183864397122.exit.i": ; preds = %38, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1120cb26d970bd34E.llvm.3382553183864397122.exit.i"
@@ -856,7 +856,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h2b91132842967d59E
 
 7:                                                ; preds = %1
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3bdb0f10df944006E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3bdb0f10df944006E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br label %"_ZN4core3ptr103drop_in_place$LT$$LP$alloc..sync..Arc$LT$str$GT$$C$regex_automata..util..primitives..SmallIndex$RP$$GT$17hbb18912c9be73178E.llvm.3382553183864397122.exit"
 
 "_ZN4core3ptr103drop_in_place$LT$$LP$alloc..sync..Arc$LT$str$GT$$C$regex_automata..util..primitives..SmallIndex$RP$$GT$17hbb18912c9be73178E.llvm.3382553183864397122.exit": ; preds = %1, %7
@@ -878,7 +878,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hb8048026eb78c618E
 
 7:                                                ; preds = %1
   tail call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.8519985026491776260(i8 noundef 2), !noalias !192
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h969ac546f0d900cbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h969ac546f0d900cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br label %"_ZN4core3ptr118drop_in_place$LT$$LP$regex_automata..util..determinize..state..State$C$regex_automata..hybrid..id..LazyStateID$RP$$GT$17h52d221fbdd2ebfffE.llvm.3382553183864397122.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$$LP$regex_automata..util..determinize..state..State$C$regex_automata..hybrid..id..LazyStateID$RP$$GT$17h52d221fbdd2ebfffE.llvm.3382553183864397122.exit": ; preds = %1, %7

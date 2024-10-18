@@ -1684,7 +1684,7 @@ define dso_local i32 @drm_mode_setplane(ptr noundef %0, ptr nocapture noundef re
 
 115:                                              ; preds = %109
   %.val.i = load i32, ptr %84, align 8
-  %116 = call fastcc i32 @__setplane_check(ptr noundef %18, i32 %.val.i, ptr noundef nonnull %45, i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61)
+  %116 = call fastcc i32 @__setplane_check(ptr noundef nonnull %18, i32 %.val.i, ptr noundef nonnull %45, i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61)
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %__setplane_atomic.exit
 
@@ -2062,7 +2062,7 @@ __setplane_atomic.exit.thread19:                  ; preds = %184
 
 190:                                              ; preds = %184
   %.val.i = load i32, ptr %47, align 8
-  %191 = call fastcc i32 @__setplane_check(ptr noundef %65, i32 %.val.i, ptr noundef nonnull %126, i32 noundef %133, i32 noundef %132, i32 noundef %143, i32 noundef %144, i32 noundef 0, i32 noundef 0, i32 noundef %145, i32 noundef %146)
+  %191 = call fastcc i32 @__setplane_check(ptr noundef nonnull %65, i32 %.val.i, ptr noundef nonnull %126, i32 noundef %133, i32 noundef %132, i32 noundef %143, i32 noundef %144, i32 noundef 0, i32 noundef 0, i32 noundef %145, i32 noundef %146)
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %193, label %__setplane_atomic.exit.thread
 

@@ -362,7 +362,7 @@ define dso_local ptr @AllocSetAlloc(ptr noundef %0, i64 noundef %1, i32 noundef 
   br i1 %or.cond.i.i, label %MemoryContextCheckSize.exit.i, label %14
 
 14:                                               ; preds = %10
-  tail call void @MemoryContextSizeFailure(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2) #16
+  tail call void @MemoryContextSizeFailure(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, i32 noundef %2) #16
   unreachable
 
 MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
@@ -374,7 +374,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %MemoryContextCheckSize.exit.i
-  %21 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2) #13
+  %21 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, i32 noundef %2) #13
   br label %AllocSetAllocLarge.exit
 
 22:                                               ; preds = %MemoryContextCheckSize.exit.i
@@ -553,7 +553,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   br i1 %.lcssa.i, label %.thread.i, label %125
 
 .thread.i:                                        ; preds = %.lr.ph89.i, %._crit_edge90.i
-  %124 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #13
+  %124 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2) #13
   br label %AllocSetAllocLarge.exit
 
 125:                                              ; preds = %._crit_edge90.i

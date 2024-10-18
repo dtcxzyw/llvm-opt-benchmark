@@ -1126,7 +1126,7 @@ sw.bb22:                                          ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %progress.i)
   %32 = load ptr, ptr %3, align 8
   %sasl.i = getelementptr inbounds i8, ptr %32, i64 1016
-  %call.i64 = call i32 @Curl_sasl_continue(ptr noundef nonnull %sasl.i, ptr noundef %data, i32 noundef %4, ptr noundef nonnull %progress.i) #7
+  %call.i64 = call i32 @Curl_sasl_continue(ptr noundef nonnull %sasl.i, ptr noundef %data, i32 noundef range(i32 1, 0) %4, ptr noundef nonnull %progress.i) #7
   %tobool.not.i65 = icmp eq i32 %call.i64, 0
   br i1 %tobool.not.i65, label %if.then.i67, label %pop3_state_auth_resp.exit
 
@@ -1199,7 +1199,7 @@ sw.bb25:                                          ; preds = %if.end12
   br i1 %cmp.not.i74, label %land.lhs.true.sink.split, label %if.then.i75
 
 if.then.i75:                                      ; preds = %sw.bb25
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.17, i32 noundef %4) #7
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.17, i32 noundef range(i32 1, 0) %4) #7
   br label %return
 
 sw.bb28:                                          ; preds = %if.end12
@@ -1207,7 +1207,7 @@ sw.bb28:                                          ; preds = %if.end12
   br i1 %cmp.not.i81, label %if.end.i82, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %sw.bb28
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.18, i32 noundef %4) #7
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.18, i32 noundef range(i32 1, 0) %4) #7
   br label %return
 
 if.end.i82:                                       ; preds = %sw.bb28
@@ -1226,7 +1226,7 @@ sw.bb31:                                          ; preds = %if.end12
   br i1 %cmp.not.i89, label %land.lhs.true.sink.split, label %if.then.i90
 
 if.then.i90:                                      ; preds = %sw.bb31
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.18, i32 noundef %4) #7
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.18, i32 noundef range(i32 1, 0) %4) #7
   br label %return
 
 sw.bb34:                                          ; preds = %if.end12

@@ -1292,7 +1292,7 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i, label %dissect_fcels_prli.exit, label %166
 
 166:                                              ; preds = %165
-  call fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext %.0281335, ptr noundef %.0278, i8 noundef zeroext 32)
+  call fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %.0281335, ptr noundef %.0278, i8 noundef zeroext 32)
   br label %dissect_fcels_prli.exit
 
 167:                                              ; preds = %157
@@ -1300,7 +1300,7 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i316, label %dissect_fcels_prli.exit, label %168
 
 168:                                              ; preds = %167
-  call fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext %.0281335, ptr noundef %.0278, i8 noundef zeroext 33)
+  call fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %.0281335, ptr noundef %.0278, i8 noundef zeroext 33)
   br label %dissect_fcels_prli.exit
 
 169:                                              ; preds = %157
@@ -1308,7 +1308,7 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i317, label %dissect_fcels_prli.exit, label %170
 
 170:                                              ; preds = %169
-  call fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext %.0281335, ptr noundef %.0278, i8 noundef zeroext 36)
+  call fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %.0281335, ptr noundef %.0278, i8 noundef zeroext 36)
   br label %dissect_fcels_prli.exit
 
 171:                                              ; preds = %157
@@ -2106,7 +2106,7 @@ define internal fastcc void @dissect_fcels_rpsc(ptr noundef %0, ptr noundef read
   %18 = load i32, ptr @ett_fcels_speedflags, align 4
   %19 = zext i16 %15 to i64
   %20 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %7, ptr noundef %0, i32 noundef %.02, i32 noundef %17, i32 noundef %18, ptr noundef nonnull @dissect_speed_flags.speed_flags, i64 noundef %19, i32 noundef 12) #3
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef nonnull @.str.591, i32 noundef %.0241, i32 noundef %16) #3
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef nonnull @.str.591, i32 noundef range(i32 -2147483648, 65535) %.0241, i32 noundef range(i32 0, 65536) %16) #3
   %21 = load i32, ptr @hf_fcels_rpsc_port_oper_speed, align 4
   %22 = or disjoint i32 %.02, 2
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef 2, i32 noundef 0) #3

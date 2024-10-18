@@ -11760,7 +11760,7 @@ do.end760:                                        ; preds = %do.body750
   %_M_string_length.i.i.i.i470 = getelementptr inbounds i8, ptr %sf761, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i470, align 8, !tbaa !34
   store i8 0, ptr %408, align 8, !tbaa !36
-  %call2.i.i.i4.i471 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %sf761, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %add.ptr.i4340, i64 noundef %sub.i)
+  %call2.i.i.i4.i471 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %sf761, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %add.ptr.i4340, i64 noundef %sub.i)
           to label %_ZN11BasicStrfndIcEC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit477 unwind label %lpad.i472
 
 lpad.i472:                                        ; preds = %do.end760

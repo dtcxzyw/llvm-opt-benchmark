@@ -224,7 +224,7 @@ cond.true89:                                      ; preds = %if.end62
 cond.end93:                                       ; preds = %if.end62, %cond.true89
   %cond94 = phi i32 [ %call91, %cond.true89 ], [ 0, %if.end62 ]
   %add.ptr95 = getelementptr i8, ptr %edid, i64 8
-  %20 = tail call i16 @llvm.bswap.i16(i16 %or86)
+  %20 = tail call i16 @llvm.bswap.i16(i16 range(i16 0, -32768) %or86)
   store i16 %20, ptr %add.ptr95, align 1
   %add.ptr96 = getelementptr i8, ptr %edid, i64 10
   store i16 4660, ptr %add.ptr96, align 1

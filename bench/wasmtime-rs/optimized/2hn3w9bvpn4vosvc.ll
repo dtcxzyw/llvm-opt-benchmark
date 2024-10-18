@@ -647,7 +647,7 @@ common.resume:                                    ; preds = %245, %201, %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull readonly align 8 %61, i64 %62, i1 false), !alias.scope !43, !noalias !42
   %63 = getelementptr inbounds { [2 x i64] }, ptr %8, i64 %52
   %64 = shl nuw nsw i64 %43, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull readonly align 8 %63, i64 %64, i1 false), !alias.scope !47, !noalias !42
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(280) %35, ptr nonnull readonly align 8 %63, i64 %64, i1 false), !alias.scope !47, !noalias !42
   %65 = trunc nuw nsw i64 %.0.i to i16
   store i16 %65, ptr %9, align 2, !noalias !40
   %.sroa.57.0.i = select i1 %switch.i, i64 %34, i64 0
@@ -880,7 +880,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hf0a65a4b54a7afc7E.exit.i.i: ; 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %171, ptr nonnull readonly align 8 %172, i64 %173, i1 false), !alias.scope !90, !noalias !89
   %174 = getelementptr inbounds { [2 x i64] }, ptr %90, i64 %160
   %175 = shl nuw nsw i64 %151, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %143, ptr nonnull readonly align 8 %174, i64 %175, i1 false), !alias.scope !94, !noalias !89
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(280) %143, ptr nonnull readonly align 8 %174, i64 %175, i1 false), !alias.scope !94, !noalias !89
   %176 = trunc nuw nsw i64 %.0.i54 to i16
   store i16 %176, ptr %98, align 2, !noalias !87
   %177 = zext i16 %99 to i64
@@ -895,7 +895,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hf0a65a4b54a7afc7E.exit.i.i: ; 
   br i1 %185, label %186, label %187
 
 186:                                              ; preds = %170
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %184, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7eafeb3a6816e2f021b2802fa4287565.25) #23
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 65537) %184, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7eafeb3a6816e2f021b2802fa4287565.25) #23
           to label %.noexc9.i.i unwind label %168, !noalias !80
 
 .noexc9.i.i:                                      ; preds = %186
@@ -1488,7 +1488,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h66e15bfb0d1b63f9E.exit.i.i: ; 
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %166
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %180, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7eafeb3a6816e2f021b2802fa4287565.25) #23
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 65537) %180, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7eafeb3a6816e2f021b2802fa4287565.25) #23
           to label %.noexc9.i.i unwind label %164, !noalias !195
 
 .noexc9.i.i:                                      ; preds = %182

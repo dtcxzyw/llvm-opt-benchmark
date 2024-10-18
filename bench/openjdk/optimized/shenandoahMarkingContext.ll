@@ -301,7 +301,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %7, %10
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %17, ptr noundef %19) #5
+  %20 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %17, ptr noundef %19) #5
   %21 = icmp eq ptr %20, %19
   br i1 %21, label %22, label %._crit_edge
 

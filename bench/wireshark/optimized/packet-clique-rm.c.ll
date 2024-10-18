@@ -188,9 +188,9 @@ define internal range(i32 0, 2) i32 @dissect_clique_rm(ptr noundef %0, ptr nocap
 
 39:                                               ; preds = %34
   %40 = load i32, ptr @ett_clique_rm_data, align 4
-  %41 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %21, ptr noundef %0, i32 noundef %38, i32 noundef -1, i32 noundef %40, ptr noundef null, ptr noundef nonnull @.str.49) #2
+  %41 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %21, ptr noundef %0, i32 noundef range(i32 17, 2058) %38, i32 noundef -1, i32 noundef %40, ptr noundef null, ptr noundef nonnull @.str.49) #2
   %42 = load i32, ptr @hf_clique_rm_data_flags, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #2
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef range(i32 17, 2058) %38, i32 noundef 1, i32 noundef 0) #2
   %44 = add nuw nsw i32 %37, 17
   %45 = load i32, ptr @hf_clique_rm_data_stream_id, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef 2, i32 noundef 0) #2
@@ -206,11 +206,11 @@ define internal range(i32 0, 2) i32 @dissect_clique_rm(ptr noundef %0, ptr nocap
   %54 = load i32, ptr @hf_clique_rm_failures, align 4
   %55 = load i32, ptr @ett_clique_rm_failures, align 4
   %56 = load i32, ptr @hf_clique_rm_failures_senders, align 4
-  %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #2
+  %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 17, 2058) %38) #2
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 2
   %60 = or disjoint i32 %59, 1
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %21, i32 noundef %54, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #2
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %21, i32 noundef %54, ptr noundef %0, i32 noundef range(i32 17, 2058) %38, i32 noundef 1, i32 noundef 0) #2
   tail call void @proto_item_set_len(ptr noundef %61, i32 noundef %60) #2
   %62 = tail call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %55) #2
   %.not.i.i = icmp eq i8 %57, 0
@@ -233,11 +233,11 @@ define internal range(i32 0, 2) i32 @dissect_clique_rm(ptr noundef %0, ptr nocap
   %68 = load i32, ptr @hf_clique_rm_attempt_join, align 4
   %69 = load i32, ptr @ett_clique_rm_attempt_join, align 4
   %70 = load i32, ptr @hf_clique_rm_attempt_join_senders, align 4
-  %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #2
+  %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 17, 2058) %38) #2
   %72 = zext i8 %71 to i32
   %73 = shl nuw nsw i32 %72, 2
   %74 = or disjoint i32 %73, 1
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %21, i32 noundef %68, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #2
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %21, i32 noundef %68, ptr noundef %0, i32 noundef range(i32 17, 2058) %38, i32 noundef 1, i32 noundef 0) #2
   tail call void @proto_item_set_len(ptr noundef %75, i32 noundef %74) #2
   %76 = tail call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %69) #2
   %.not.i21.i = icmp eq i8 %71, 0
@@ -260,11 +260,11 @@ define internal range(i32 0, 2) i32 @dissect_clique_rm(ptr noundef %0, ptr nocap
   %82 = load i32, ptr @hf_clique_rm_join_failures, align 4
   %83 = load i32, ptr @ett_clique_rm_join_failures, align 4
   %84 = load i32, ptr @hf_clique_rm_join_failures_senders, align 4
-  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #2
+  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 17, 2058) %38) #2
   %86 = zext i8 %85 to i32
   %87 = shl nuw nsw i32 %86, 2
   %88 = or disjoint i32 %87, 1
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %21, i32 noundef %82, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #2
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %21, i32 noundef %82, ptr noundef %0, i32 noundef range(i32 17, 2058) %38, i32 noundef 1, i32 noundef 0) #2
   tail call void @proto_item_set_len(ptr noundef %89, i32 noundef %88) #2
   %90 = tail call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %83) #2
   %.not.i28.i = icmp eq i8 %85, 0

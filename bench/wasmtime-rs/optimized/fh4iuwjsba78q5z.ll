@@ -780,7 +780,7 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %68
   %.sroa.8144.sroa.7.sroa.8.0..sroa.8144.sroa.7.0..sroa.8144.0..sroa_idx145.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %.sroa.5181.sroa.4.sroa.4.0.copyload, ptr %.sroa.8144.sroa.7.sroa.8.0..sroa.8144.sroa.7.0..sroa.8144.0..sroa_idx145.sroa_idx.sroa_idx, align 8, !noalias !105
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !106
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5f0d75409cf4d5dbE.llvm.17805371244922180311"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4), !noalias !118
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5f0d75409cf4d5dbE.llvm.17805371244922180311"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4), !noalias !118
   %75 = getelementptr inbounds i8, ptr %3, i64 8
   %76 = load i64, ptr %75, align 8, !range !119, !noalias !106, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %76, 0

@@ -96,7 +96,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !7
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !6, !noalias !7, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -133,7 +133,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$indicatif..state..TabExpande
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !19
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8, !range !6, !noalias !19, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %13, 0
@@ -160,7 +160,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$indicatif..state..TabExpande
 
 23:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !31
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %23
@@ -192,7 +192,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$indicatif..state..TabExpande
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0c1f7621d2f8238bE.llvm.4081870161146358760.exit4": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i2", %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !40
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %33 = getelementptr inbounds i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8, !range !6, !noalias !40, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %34, 0
@@ -1003,7 +1003,7 @@ define hidden void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i, 3
   br i1 %12, label %13, label %15
 
@@ -1478,7 +1478,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.4081
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha3ac769937de9be1E.exit.i": ; preds = %.noexc5, %.noexc4
   %.0.i.i.i.i = phi i8 [ %17, %.noexc5 ], [ 0, %.noexc4 ]
   %18 = getelementptr inbounds i8, ptr %7, i64 20
-  %19 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17hf23a18c74a6f7cffE.llvm.10365180485683109762(ptr noundef nonnull %18, i8 noundef 0)
+  %19 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17hf23a18c74a6f7cffE.llvm.10365180485683109762(ptr noundef nonnull align 1 %18, i8 noundef 0)
           to label %.noexc6 unwind label %.thread16
 
 .noexc6:                                          ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha3ac769937de9be1E.exit.i"
@@ -1635,7 +1635,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.4081
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha3ac769937de9be1E.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.4081870161146358760.exit, %10
   %.0.i.i.i = phi i8 [ %13, %10 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.4081870161146358760.exit ]
   %14 = getelementptr inbounds i8, ptr %3, i64 20
-  %15 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17hf23a18c74a6f7cffE.llvm.10365180485683109762(ptr noundef nonnull %14, i8 noundef 0), !noalias !179
+  %15 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17hf23a18c74a6f7cffE.llvm.10365180485683109762(ptr noundef nonnull align 1 %14, i8 noundef 0), !noalias !179
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb36124ccf4a53597E.llvm.4081870161146358760.exit", label %16
 

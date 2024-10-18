@@ -3504,11 +3504,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %8 = load i64, ptr %_now.i.i, align 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.25, ptr noundef nonnull %idstr, i32 noundef %3, i64 noundef %sub) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.25, ptr noundef nonnull %idstr, i32 noundef %3, i64 noundef range(i64 -18446744073709550, 18446744073709551) %sub) #18
   br label %trace_vmstate_downtime_save.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.25, ptr noundef nonnull %idstr, i32 noundef %3, i64 noundef %sub) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.25, ptr noundef nonnull %idstr, i32 noundef %3, i64 noundef range(i64 -18446744073709550, 18446744073709551) %sub) #18
   br label %trace_vmstate_downtime_save.exit
 
 trace_vmstate_downtime_save.exit:                 ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3879,11 +3879,11 @@ if.then8.i.i55.i:                                 ; preds = %if.then.i.i52.i
   %call10.i.i57.i = call i32 @qemu_get_thread_id() #18
   %39 = load i64, ptr %_now.i.i45.i, align 8
   %40 = load i64, ptr %tv_usec.i.i58.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139, i32 noundef %call10.i.i57.i, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.145, ptr noundef nonnull %idstr.i, i32 noundef %34, i64 noundef %sub.i) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139, i32 noundef %call10.i.i57.i, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.145, ptr noundef nonnull %idstr.i, i32 noundef %34, i64 noundef range(i64 -18446744073709550, 18446744073709551) %sub.i) #18
   br label %trace_vmstate_downtime_save.exit.i
 
 if.else.i.i54.i:                                  ; preds = %if.then.i.i52.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.145, ptr noundef nonnull %idstr.i, i32 noundef %34, i64 noundef %sub.i) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.145, ptr noundef nonnull %idstr.i, i32 noundef %34, i64 noundef range(i64 -18446744073709550, 18446744073709551) %sub.i) #18
   br label %trace_vmstate_downtime_save.exit.i
 
 trace_vmstate_downtime_save.exit.i:               ; preds = %if.else.i.i54.i, %if.then8.i.i55.i, %land.lhs.true5.i.i49.i, %if.end30.i
@@ -4375,11 +4375,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @qemu_get_thread_id() #18
   %5 = load i64, ptr %_now.i.i, align 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.151, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv2) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.151, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 256) %conv2) #18
   br label %trace_qemu_loadvm_state_section.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, i32 noundef %conv2) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, i32 noundef range(i32 0, 256) %conv2) #18
   br label %trace_qemu_loadvm_state_section.exit
 
 trace_qemu_loadvm_state_section.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -6400,11 +6400,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.280, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %dec) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.280, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, -1) %dec) #18
   br label %trace_loadvm_approve_switchover.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.281, i32 noundef %dec) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.281, i32 noundef range(i32 0, -1) %dec) #18
   br label %trace_loadvm_approve_switchover.exit
 
 trace_loadvm_approve_switchover.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

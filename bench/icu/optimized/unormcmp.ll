@@ -597,7 +597,7 @@ if.end147.i:                                      ; preds = %if.then140.i, %land
   br i1 %or.cond147.i, label %if.end205.i, label %land.lhs.true152.i
 
 land.lhs.true152.i:                               ; preds = %if.end147.i
-  %call153.i99 = invoke i32 @ucase_toFullFolding_75(i32 noundef %cp1.0.i, ptr noundef nonnull %p.i, i32 noundef %or)
+  %call153.i99 = invoke i32 @ucase_toFullFolding_75(i32 noundef %cp1.0.i, ptr noundef nonnull %p.i, i32 noundef range(i32 524288, 0) %or)
           to label %call153.i.noexc unwind label %lpad16.loopexit
 
 call153.i.noexc:                                  ; preds = %land.lhs.true152.i
@@ -680,7 +680,7 @@ if.end205.i:                                      ; preds = %call153.i.noexc, %i
   br i1 %or.cond148.i, label %if.end268.i, label %land.lhs.true210.i
 
 land.lhs.true210.i:                               ; preds = %if.end205.i
-  %call211.i101 = invoke i32 @ucase_toFullFolding_75(i32 noundef %cp2.0.i, ptr noundef nonnull %p.i, i32 noundef %or)
+  %call211.i101 = invoke i32 @ucase_toFullFolding_75(i32 noundef %cp2.0.i, ptr noundef nonnull %p.i, i32 noundef range(i32 524288, 0) %or)
           to label %call211.i.noexc unwind label %lpad16.loopexit
 
 call211.i.noexc:                                  ; preds = %land.lhs.true210.i

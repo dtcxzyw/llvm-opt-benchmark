@@ -98,7 +98,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17hc
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17he0d2bbf9bab5a721E.llvm.4699293284790641138.exit"
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(640) %2)
           to label %"_ZN4core3ptr163drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$$GT$$GT$17h37890944057f7609E.llvm.4699293284790641138.exit" unwind label %22, !noalias !14
 
 22:                                               ; preds = %21
@@ -144,7 +144,7 @@ define hidden void @"_ZN17crossbeam_channel7counter15Sender$LT$C$GT$7release17hf
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h39db9ce3d78379bbE.llvm.4699293284790641138.exit"
-  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5170986a1d6e8782E.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(384) %2)
+  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5170986a1d6e8782E.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
           to label %"_ZN4core3ptr94drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$lsp_server..msg..Message$GT$$GT$17hc4a465252978fa2eE.llvm.12355220772335189349.exit.i.i" unwind label %18, !noalias !23
 
 18:                                               ; preds = %17
@@ -217,7 +217,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %"_ZN87_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h865cb2265ef09464E.llvm.4699293284790641138.exit"
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(640) %2)
           to label %"_ZN4core3ptr163drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$$GT$$GT$17h37890944057f7609E.llvm.4699293284790641138.exit" unwind label %22, !noalias !32
 
 22:                                               ; preds = %21
@@ -298,7 +298,7 @@ define hidden void @"_ZN17crossbeam_channel7counter17Receiver$LT$C$GT$7release17
   br i1 %15, label %26, label %16
 
 16:                                               ; preds = %"_ZN87_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h50fe7222e5be80a6E.llvm.4699293284790641138.exit"
-  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5170986a1d6e8782E.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(384) %2)
+  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5170986a1d6e8782E.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
           to label %"_ZN4core3ptr94drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$lsp_server..msg..Message$GT$$GT$17hc4a465252978fa2eE.llvm.12355220772335189349.exit.i.i" unwind label %17, !noalias !50
 
 17:                                               ; preds = %16
@@ -363,7 +363,7 @@ define hidden { ptr, ptr } @_ZN17crossbeam_channel7counter3new17h6932e4dc3345e16
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(640) %2)
           to label %"_ZN4core3ptr138drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$$GT$17hf72e213beb734faaE.exit" unwind label %12
 
 12:                                               ; preds = %10
@@ -2714,7 +2714,7 @@ __rust_try.llvm.4699293284790641138.exit:         ; preds = %14
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hc89b4b26ca618cf9E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke fastcc void @"_ZN4core3ptr210drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h54df83fe7462fb8cE"(ptr noalias noundef align 8 dereferenceable(24) %0)
+  invoke fastcc void @"_ZN4core3ptr210drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h54df83fe7462fb8cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %11 unwind label %.body
 
 .body:                                            ; preds = %1
@@ -2801,7 +2801,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h86dad4dc2138ececE.llvm.46992
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17h8e3a1d1bf1459a52E.llvm.4699293284790641138(ptr nocapture noundef readonly %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !440, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr210drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h54df83fe7462fb8cE"(ptr noalias noundef align 8 dereferenceable(24) %2)
+  invoke fastcc void @"_ZN4core3ptr210drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h54df83fe7462fb8cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h08879a68a3a5e390E.exit" unwind label %3
 
 3:                                                ; preds = %1
@@ -2959,7 +2959,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %5 = alloca { { { i64, [1 x i64] } }, i32, [1 x i32] }, align 8
   %6 = alloca ptr, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
-  %7 = invoke { ptr, i64 } @_ZN3std6thread6Thread5cname17he20514bdf4375245E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %7 = invoke { ptr, i64 } @_ZN3std6thread6Thread5cname17he20514bdf4375245E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
           to label %10 unwind label %.thread.i
 
 8:                                                ; preds = %50
@@ -3117,7 +3117,7 @@ _ZN3std9panicking3try17h6bf0af116839412fE.exit.i: ; preds = %36, %35
   %.pn.pn44.i = phi { ptr, i32 } [ %9, %.thread.i ], [ %lpad.thr_comm.i, %8 ]
   %.142.i = phi i1 [ %.0.i, %.thread.i ], [ false, %8 ]
   %.02138.i = phi i1 [ true, %.thread.i ], [ false, %8 ]
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h09838a13c0190a88E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #25
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h09838a13c0190a88E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #25
           to label %53 unwind label %51
 
 55:                                               ; preds = %53
@@ -3180,7 +3180,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %5 = alloca { { { i64, [1 x i64] } }, i32, [1 x i32] }, align 8
   %6 = alloca ptr, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !521)
-  %7 = invoke { ptr, i64 } @_ZN3std6thread6Thread5cname17he20514bdf4375245E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %7 = invoke { ptr, i64 } @_ZN3std6thread6Thread5cname17he20514bdf4375245E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
           to label %10 unwind label %.thread.i
 
 8:                                                ; preds = %50
@@ -3338,7 +3338,7 @@ _ZN3std9panicking3try17h6e205fbfaa58aabcE.exit.i: ; preds = %36, %35
   %.pn.pn44.i = phi { ptr, i32 } [ %9, %.thread.i ], [ %lpad.thr_comm.i, %8 ]
   %.142.i = phi i1 [ %.0.i, %.thread.i ], [ false, %8 ]
   %.02138.i = phi i1 [ true, %.thread.i ], [ false, %8 ]
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h09838a13c0190a88E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #25
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h09838a13c0190a88E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #25
           to label %53 unwind label %51
 
 55:                                               ; preds = %53
@@ -3400,7 +3400,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %4 = alloca { { { i64, [1 x i64] } } }, align 8
   %5 = alloca ptr, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !563)
-  %6 = invoke { ptr, i64 } @_ZN3std6thread6Thread5cname17he20514bdf4375245E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %6 = invoke { ptr, i64 } @_ZN3std6thread6Thread5cname17he20514bdf4375245E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
           to label %8 unwind label %.thread.i
 
 "_ZN4core3ptr84drop_in_place$LT$lsp_server..stdio..stdio_transport..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbd31020de2f39046E.exit.i": ; preds = %51
@@ -3465,7 +3465,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 29:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !563
-  %30 = invoke noundef ptr @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h7c3b0707028685b6E(i64 noundef %23, ptr %25)
+  %30 = invoke noundef ptr @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h7c3b0707028685b6E(i64 noundef range(i64 0, 6) %23, ptr %25)
           to label %_ZN3std9panicking3try17h62fa64b54d88db68E.exit.i unwind label %31, !noalias !573
 
 31:                                               ; preds = %29
@@ -3548,7 +3548,7 @@ _ZN3std9panicking3try17h62fa64b54d88db68E.exit.i: ; preds = %37, %29
   %.pn.pn47.i = phi { ptr, i32 } [ %7, %.thread.i ], [ %lpad.thr_comm.i, %"_ZN4core3ptr84drop_in_place$LT$lsp_server..stdio..stdio_transport..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbd31020de2f39046E.exit.i" ]
   %.145.i = phi i1 [ %.0.i, %.thread.i ], [ false, %"_ZN4core3ptr84drop_in_place$LT$lsp_server..stdio..stdio_transport..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbd31020de2f39046E.exit.i" ]
   %.01643.i = phi i1 [ true, %.thread.i ], [ false, %"_ZN4core3ptr84drop_in_place$LT$lsp_server..stdio..stdio_transport..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbd31020de2f39046E.exit.i" ]
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h09838a13c0190a88E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #25
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h09838a13c0190a88E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #25
           to label %54 unwind label %52
 
 56:                                               ; preds = %54
@@ -3610,7 +3610,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %4 = alloca { { { i64, [1 x i64] } } }, align 8
   %5 = alloca ptr, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !598)
-  %6 = invoke { ptr, i64 } @_ZN3std6thread6Thread5cname17he20514bdf4375245E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %6 = invoke { ptr, i64 } @_ZN3std6thread6Thread5cname17he20514bdf4375245E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
           to label %8 unwind label %.thread.i
 
 "_ZN4core3ptr84drop_in_place$LT$lsp_server..stdio..stdio_transport..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6dd1175c15cdecf8E.exit.i": ; preds = %51
@@ -3675,7 +3675,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 29:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !598
-  %30 = invoke noundef ptr @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h96b08c0fc6ed5b39E(i64 noundef %23, ptr noundef %25)
+  %30 = invoke noundef ptr @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h96b08c0fc6ed5b39E(i64 noundef range(i64 0, 3) %23, ptr noundef %25)
           to label %_ZN3std9panicking3try17ha414e02162ab5b43E.exit.i unwind label %31, !noalias !608
 
 31:                                               ; preds = %29
@@ -3758,7 +3758,7 @@ _ZN3std9panicking3try17ha414e02162ab5b43E.exit.i: ; preds = %37, %29
   %.pn.pn47.i = phi { ptr, i32 } [ %7, %.thread.i ], [ %lpad.thr_comm.i, %"_ZN4core3ptr84drop_in_place$LT$lsp_server..stdio..stdio_transport..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6dd1175c15cdecf8E.exit.i" ]
   %.145.i = phi i1 [ %.0.i, %.thread.i ], [ false, %"_ZN4core3ptr84drop_in_place$LT$lsp_server..stdio..stdio_transport..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6dd1175c15cdecf8E.exit.i" ]
   %.01643.i = phi i1 [ true, %.thread.i ], [ false, %"_ZN4core3ptr84drop_in_place$LT$lsp_server..stdio..stdio_transport..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6dd1175c15cdecf8E.exit.i" ]
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h09838a13c0190a88E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #25
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h09838a13c0190a88E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #25
           to label %54 unwind label %52
 
 56:                                               ; preds = %54
@@ -3833,7 +3833,7 @@ define hidden void @"_ZN4core3ptr132drop_in_place$LT$alloc..sync..Arc$LT$std..th
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr162drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..list..Channel$LT$lsp_server..msg..Message$GT$$GT$$GT$$GT$17hff3fad8f1dc2e1ceE.llvm.4699293284790641138"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5170986a1d6e8782E.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(384) %2)
+  invoke void @"_ZN92_$LT$crossbeam_channel..flavors..list..Channel$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5170986a1d6e8782E.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
           to label %"_ZN4core3ptr94drop_in_place$LT$crossbeam_channel..flavors..list..Channel$LT$lsp_server..msg..Message$GT$$GT$17hc4a465252978fa2eE.llvm.12355220772335189349.exit.i" unwind label %3
 
 3:                                                ; preds = %1
@@ -3890,7 +3890,7 @@ define hidden void @"_ZN4core3ptr162drop_in_place$LT$alloc..boxed..Box$LT$crossb
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr163drop_in_place$LT$alloc..boxed..Box$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$$GT$$GT$17h37890944057f7609E.llvm.4699293284790641138"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(512) %2)
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(640) %2)
           to label %"_ZN4core3ptr138drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$$GT$17hf72e213beb734faaE.exit" unwind label %3
 
 "_ZN4core3ptr138drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$$GT$17hf72e213beb734faaE.exit": ; preds = %1
@@ -4051,7 +4051,7 @@ define internal void @"_ZN4core3ptr218drop_in_place$LT$std..thread..Builder..spa
 
 "_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h7e914946c559ef20E.exit7": ; preds = %18, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h09838a13c0190a88E.exit", %21
   %25 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke void @"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$lsp_server..msg..Message$GT$$GT$17h223c478f5b49bbb3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
+  invoke void @"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$lsp_server..msg..Message$GT$$GT$17h223c478f5b49bbb3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
           to label %"_ZN104_$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9d322a8e9b67c84E.llvm.12355220772335189349.exit.i" unwind label %26
 
 26:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h7e914946c559ef20E.exit7"
@@ -4200,7 +4200,7 @@ define internal void @"_ZN4core3ptr219drop_in_place$LT$std..thread..Builder..spa
 29:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h7e914946c559ef20E.exit7"
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45a5ba60c0e5b69cE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
+  invoke void @"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45a5ba60c0e5b69cE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
           to label %.body unwind label %31
 
 31:                                               ; preds = %29
@@ -4210,7 +4210,7 @@ define internal void @"_ZN4core3ptr219drop_in_place$LT$std..thread..Builder..spa
   unreachable
 
 "_ZN104_$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h46ff8a335107c640E.llvm.12355220772335189349.exit.i": ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h7e914946c559ef20E.exit7"
-  invoke void @"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45a5ba60c0e5b69cE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
+  invoke void @"_ZN85_$LT$crossbeam_channel..channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45a5ba60c0e5b69cE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
           to label %"_ZN4core3ptr142drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$lsp_server..socket..make_reader..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h60cb9705328083a1E.exit" unwind label %38
 
 .body:                                            ; preds = %38, %29, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h7e914946c559ef20E.exit"
@@ -4518,7 +4518,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !897
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88223068117532dcE.llvm.12355220772335189349"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h88223068117532dcE.llvm.12355220772335189349"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !141, !noalias !897, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -4850,7 +4850,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5alloc5boxed12Box$LT$T$
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(512) %0)
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$17h62725aabccbf4c1fE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 128 dereferenceable(640) %0)
           to label %"_ZN4core3ptr138drop_in_place$LT$crossbeam_channel..counter..Counter$LT$crossbeam_channel..flavors..array..Channel$LT$lsp_server..msg..Message$GT$$GT$$GT$17hf72e213beb734faaE.exit" unwind label %8
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.4699293284790641138.exit: ; preds = %1

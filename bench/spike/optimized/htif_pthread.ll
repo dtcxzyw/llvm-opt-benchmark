@@ -77,7 +77,7 @@ define void @_ZN14htif_pthread_tC2EiPPc(ptr noundef nonnull align 8 dereferencea
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 736
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIcSaIcEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %6, i64 noundef 0)
           to label %_ZNSt5dequeIcSaIcEEC2Ev.exit unwind label %7
@@ -85,12 +85,12 @@ define void @_ZN14htif_pthread_tC2EiPPc(ptr noundef nonnull align 8 dereferencea
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #17
   br label %.body
 
 _ZNSt5dequeIcSaIcEEC2Ev.exit:                     ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 816
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIcSaIcEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %9, i64 noundef 0)
           to label %_ZNSt5dequeIcSaIcEEC2Ev.exit12 unwind label %10
@@ -98,7 +98,7 @@ _ZNSt5dequeIcSaIcEEC2Ev.exit:                     ; preds = %5
 10:                                               ; preds = %_ZNSt5dequeIcSaIcEEC2Ev.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #17
   br label %.body10
 
 _ZNSt5dequeIcSaIcEEC2Ev.exit12:                   ; preds = %_ZNSt5dequeIcSaIcEEC2Ev.exit
@@ -184,7 +184,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i: ; preds = %_ZNSt11_D
   br label %_ZNSt11_Deque_baseIcSaIcEED2Ev.exit
 
 _ZNSt11_Deque_baseIcSaIcEED2Ev.exit:              ; preds = %1, %_ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
   ret void
 }
 
@@ -229,7 +229,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i.i: ; preds = %_ZNSt11
   br label %_ZNSt5dequeIcSaIcEED2Ev.exit
 
 _ZNSt5dequeIcSaIcEED2Ev.exit:                     ; preds = %1, %_ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #17
   %15 = getelementptr inbounds i8, ptr %0, i64 736
   %16 = load ptr, ptr %15, align 8
   %.not.i.i1 = icmp eq ptr %16, null
@@ -262,7 +262,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i.i2: ; preds = %_ZNSt1
   br label %_ZNSt5dequeIcSaIcEED2Ev.exit7
 
 _ZNSt5dequeIcSaIcEED2Ev.exit7:                    ; preds = %_ZNSt5dequeIcSaIcEED2Ev.exit, %_ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit.i.i2
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #17
   %28 = getelementptr inbounds i8, ptr %0, i64 696
   tail call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #17
   tail call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) #17

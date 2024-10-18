@@ -1617,7 +1617,7 @@ define internal fastcc noundef zeroext i1 @isCurrentGroup(ptr nocapture noundef 
   br i1 %23, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %17
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %21) #8
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef range(i32 -32767, 32768) %21) #8
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %17, %slot_getsomeattrs.exit.i
@@ -1634,7 +1634,7 @@ slot_getattr.exit:                                ; preds = %17, %slot_getsomeat
   br i1 %33, label %slot_getsomeattrs.exit.i23, label %slot_getattr.exit24
 
 slot_getsomeattrs.exit.i23:                       ; preds = %slot_getattr.exit
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef %21) #8
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef range(i32 -32767, 32768) %21) #8
   br label %slot_getattr.exit24
 
 slot_getattr.exit24:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i23

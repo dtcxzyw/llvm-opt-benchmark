@@ -32,7 +32,7 @@ $_ZTSN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerE = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE5_PushEPKS1_(ptr noundef nonnull %0)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE5_PushEPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0)
   ret void
 }
 
@@ -47,7 +47,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerD2Ev(ptr no
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 25, i1 false)
   %6 = ptrtoint ptr %5 to i64
   %7 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_17SdfCleanupEnablerELb0EE5valueE, i64 0, i64 %6 seq_cst seq_cst, align 8
   %8 = extractvalue { i64, i1 } %7, 1
@@ -102,7 +102,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25
           to label %32 unwind label %36
 
 32:                                               ; preds = %31, %_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE8GetStackEv.exit
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE4_PopEPKS1_(ptr noundef nonnull %0)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE4_PopEPKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEED2Ev.exit unwind label %33
 
 33:                                               ; preds = %32
@@ -149,7 +149,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnab
 
 3:                                                ; preds = %0
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %4, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 25, i1 false)
   %5 = ptrtoint ptr %4 to i64
   %6 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_17SdfCleanupEnablerELb0EE5valueE, i64 0, i64 %5 seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 1
@@ -201,7 +201,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17S
 
 4:                                                ; preds = %1
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 25, i1 false)
   %6 = ptrtoint ptr %5 to i64
   %7 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_17SdfCleanupEnablerELb0EE5valueE, i64 0, i64 %6 seq_cst seq_cst, align 8
   %8 = extractvalue { i64, i1 } %7, 1
@@ -333,7 +333,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17S
 
 6:                                                ; preds = %1
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %7, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 25, i1 false)
   %8 = ptrtoint ptr %7 to i64
   %9 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_17SdfCleanupEnablerELb0EE5valueE, i64 0, i64 %8 seq_cst seq_cst, align 8
   %10 = extractvalue { i64, i1 } %9, 1
@@ -393,7 +393,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25
 
 36:                                               ; preds = %33
   %37 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %37, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 25, i1 false)
   %38 = ptrtoint ptr %37 to i64
   %39 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_17SdfCleanupEnablerELb0EE5valueE, i64 0, i64 %38 seq_cst seq_cst, align 8
   %40 = extractvalue { i64, i1 } %39, 1

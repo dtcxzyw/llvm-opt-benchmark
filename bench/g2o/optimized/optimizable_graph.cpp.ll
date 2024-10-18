@@ -1410,7 +1410,7 @@ define noundef zeroext i1 @_ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexEPNS_
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %5)
+  %8 = tail call noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %5)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %17
 
@@ -1460,7 +1460,7 @@ define noundef zeroext i1 @_ZN3g2o16OptimizableGraph9addVertexEPNS_10HyperGraph6
   br i1 %10, label %_ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexEPNS_10HyperGraph4DataE.exit, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %9)
+  %12 = tail call noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %9)
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %_ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexEPNS_10HyperGraph4DataE.exit
 
@@ -1483,7 +1483,7 @@ define noundef zeroext i1 @_ZN3g2o16OptimizableGraph9addVertexEPNS_10HyperGraph6
 
 19:                                               ; preds = %17, %16
   store ptr %0, ptr %14, align 8
-  %20 = tail call noundef zeroext i1 @_ZN3g2o10HyperGraph9addVertexEPNS0_6VertexE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %6)
+  %20 = tail call noundef zeroext i1 @_ZN3g2o10HyperGraph9addVertexEPNS0_6VertexE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %6)
   br label %_ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexEPNS_10HyperGraph4DataE.exit
 
 _ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexEPNS_10HyperGraph4DataE.exit: ; preds = %3, %19, %13, %11, %7, %5
@@ -1590,7 +1590,7 @@ _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.i:    ; preds = %11
   br i1 %or.cond.i, label %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit, label %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i
 
 _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i: ; preds = %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.i, %11, %6
-  %17 = tail call noundef zeroext i1 @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %5)
+  %17 = tail call noundef zeroext i1 @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %5)
   br i1 %17, label %18, label %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit
 
 18:                                               ; preds = %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i
@@ -1696,7 +1696,7 @@ define void @_ZN3g2o16OptimizableGraph4pushEv(ptr nocapture noundef nonnull read
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_4pushEvE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_4pushEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1729,7 +1729,7 @@ thread-pre-split:                                 ; preds = %.noexc2
 _ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i: ; preds = %.lr.ph.i.preheader, %thread-pre-split
   %.sroa.02.07.i7 = phi ptr [ %.sroa.02.05.i, %.lr.ph.i.preheader ], [ %.sroa.02.0.i, %thread-pre-split ]
   %12 = load ptr, ptr %5, align 8
-  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %.noexc2 unwind label %.loopexit
 
 .noexc2:                                          ; preds = %_ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i
@@ -1745,7 +1745,7 @@ _ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit: ; p
 
 _ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit.thread: ; preds = %1, %_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit
   %13 = phi ptr [ %.pr5, %_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit ], [ @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_4pushEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %1 ]
-  %14 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit unwind label %15
 
 15:                                               ; preds = %_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit.thread
@@ -1775,7 +1775,7 @@ _ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit: ; preds = %_ZN3g2o
   br i1 %.not.i.i3, label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit4, label %20
 
 20:                                               ; preds = %18
-  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit4 unwind label %22
 
 22:                                               ; preds = %20
@@ -1818,7 +1818,7 @@ define void @_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6Vertex
 
 _ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit: ; preds = %7
   %12 = load ptr, ptr %6, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.sroa.02.0 = load ptr, ptr %.sroa.02.07, align 8
   %.not = icmp eq ptr %.sroa.02.0, null
@@ -1834,7 +1834,7 @@ define void @_ZN3g2o16OptimizableGraph3popEv(ptr nocapture noundef nonnull reado
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_3popEvE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_3popEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1867,7 +1867,7 @@ thread-pre-split:                                 ; preds = %.noexc2
 _ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i: ; preds = %.lr.ph.i.preheader, %thread-pre-split
   %.sroa.02.07.i7 = phi ptr [ %.sroa.02.05.i, %.lr.ph.i.preheader ], [ %.sroa.02.0.i, %thread-pre-split ]
   %12 = load ptr, ptr %5, align 8
-  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %.noexc2 unwind label %.loopexit
 
 .noexc2:                                          ; preds = %_ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i
@@ -1883,7 +1883,7 @@ _ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit: ; p
 
 _ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit.thread: ; preds = %1, %_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit
   %13 = phi ptr [ %.pr5, %_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit ], [ @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_3popEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %1 ]
-  %14 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit unwind label %15
 
 15:                                               ; preds = %_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit.thread
@@ -1913,7 +1913,7 @@ _ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit: ; preds = %_ZN3g2o
   br i1 %.not.i.i3, label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit4, label %20
 
 20:                                               ; preds = %18
-  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit4 unwind label %22
 
 22:                                               ; preds = %20
@@ -1933,7 +1933,7 @@ define void @_ZN3g2o16OptimizableGraph10discardTopEv(ptr nocapture noundef nonnu
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_10discardTopEvE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_10discardTopEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1966,7 +1966,7 @@ thread-pre-split:                                 ; preds = %.noexc2
 _ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i: ; preds = %.lr.ph.i.preheader, %thread-pre-split
   %.sroa.02.07.i7 = phi ptr [ %.sroa.02.05.i, %.lr.ph.i.preheader ], [ %.sroa.02.0.i, %thread-pre-split ]
   %12 = load ptr, ptr %5, align 8
-  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %.noexc2 unwind label %.loopexit
 
 .noexc2:                                          ; preds = %_ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i
@@ -1982,7 +1982,7 @@ _ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit: ; p
 
 _ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit.thread: ; preds = %1, %_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit
   %13 = phi ptr [ %.pr5, %_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit ], [ @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_10discardTopEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %1 ]
-  %14 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit unwind label %15
 
 15:                                               ; preds = %_ZN3g2o16OptimizableGraph13forEachVertexESt8functionIFvPNS0_6VertexEEE.exit.thread
@@ -2012,7 +2012,7 @@ _ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit: ; preds = %_ZN3g2o
   br i1 %.not.i.i3, label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit4, label %20
 
 20:                                               ; preds = %18
-  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit4 unwind label %22
 
 22:                                               ; preds = %20
@@ -2032,7 +2032,7 @@ define void @_ZN3g2o16OptimizableGraph4pushERSt3setIPNS_10HyperGraph6VertexESt4l
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_4pushERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_4pushERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2060,7 +2060,7 @@ define void @_ZN3g2o16OptimizableGraph4pushERSt3setIPNS_10HyperGraph6VertexESt4l
 
 _ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i: ; preds = %.lr.ph.i
   %14 = load ptr, ptr %6, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc3 unwind label %.loopexit
 
 .noexc3:                                          ; preds = %_ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i
@@ -2076,7 +2076,7 @@ _ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4less
 
 _ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit.thread: ; preds = %2, %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit
   %16 = phi ptr [ %.pr, %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit ], [ @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_4pushERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", %2 ]
-  %17 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit unwind label %18
 
 18:                                               ; preds = %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit.thread
@@ -2106,7 +2106,7 @@ _ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit: ; preds = %_ZN3g2o
   br i1 %.not.i.i4, label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit5, label %23
 
 23:                                               ; preds = %21
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit5 unwind label %25
 
 25:                                               ; preds = %23
@@ -2150,7 +2150,7 @@ define void @_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6V
 
 _ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit: ; preds = %10
   %15 = load ptr, ptr %9, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void %15(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %16 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.07) #40
   %.not = icmp eq ptr %16, %7
@@ -2166,7 +2166,7 @@ define void @_ZN3g2o16OptimizableGraph3popERSt3setIPNS_10HyperGraph6VertexESt4le
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_3popERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_3popERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2194,7 +2194,7 @@ define void @_ZN3g2o16OptimizableGraph3popERSt3setIPNS_10HyperGraph6VertexESt4le
 
 _ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i: ; preds = %.lr.ph.i
   %14 = load ptr, ptr %6, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc3 unwind label %.loopexit
 
 .noexc3:                                          ; preds = %_ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i
@@ -2210,7 +2210,7 @@ _ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4less
 
 _ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit.thread: ; preds = %2, %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit
   %16 = phi ptr [ %.pr, %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit ], [ @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_3popERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", %2 ]
-  %17 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit unwind label %18
 
 18:                                               ; preds = %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit.thread
@@ -2240,7 +2240,7 @@ _ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit: ; preds = %_ZN3g2o
   br i1 %.not.i.i4, label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit5, label %23
 
 23:                                               ; preds = %21
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit5 unwind label %25
 
 25:                                               ; preds = %23
@@ -2260,7 +2260,7 @@ define void @_ZN3g2o16OptimizableGraph10discardTopERSt3setIPNS_10HyperGraph6Vert
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_10discardTopERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_10discardTopERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2288,7 +2288,7 @@ define void @_ZN3g2o16OptimizableGraph10discardTopERSt3setIPNS_10HyperGraph6Vert
 
 _ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i: ; preds = %.lr.ph.i
   %14 = load ptr, ptr %6, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc3 unwind label %.loopexit
 
 .noexc3:                                          ; preds = %_ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i
@@ -2304,7 +2304,7 @@ _ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4less
 
 _ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit.thread: ; preds = %2, %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit
   %16 = phi ptr [ %.pr, %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit ], [ @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_10discardTopERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", %2 ]
-  %17 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit unwind label %18
 
 18:                                               ; preds = %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit.thread
@@ -2334,7 +2334,7 @@ _ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit: ; preds = %_ZN3g2o
   br i1 %.not.i.i4, label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit5, label %23
 
 23:                                               ; preds = %21
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit5 unwind label %25
 
 25:                                               ; preds = %23
@@ -2355,7 +2355,7 @@ define void @_ZN3g2o16OptimizableGraph8setFixedERSt3setIPNS_10HyperGraph6VertexE
   %6 = zext i1 %2 to i8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
   store i8 %6, ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_8setFixedERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEbE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_8setFixedERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEbE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %7, align 8
@@ -2384,7 +2384,7 @@ define void @_ZN3g2o16OptimizableGraph8setFixedERSt3setIPNS_10HyperGraph6VertexE
 
 _ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i: ; preds = %.lr.ph.i
   %16 = load ptr, ptr %8, align 8
-  invoke void %16(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc4 unwind label %.loopexit
 
 .noexc4:                                          ; preds = %_ZNKSt8functionIFvPN3g2o16OptimizableGraph6VertexEEEclES3_.exit.i
@@ -2400,7 +2400,7 @@ _ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4less
 
 _ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit.thread: ; preds = %3, %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit
   %18 = phi ptr [ %.pr, %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit ], [ @"_ZNSt17_Function_handlerIFvPN3g2o16OptimizableGraph6VertexEEZNS1_8setFixedERSt3setIPNS0_10HyperGraph6VertexESt4lessIS8_ESaIS8_EEbE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", %3 ]
-  %19 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit unwind label %20
 
 20:                                               ; preds = %_ZN3g2o16OptimizableGraph13forEachVertexERSt3setIPNS_10HyperGraph6VertexESt4lessIS4_ESaIS4_EESt8functionIFvPNS0_6VertexEEE.exit.thread
@@ -2430,7 +2430,7 @@ _ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit: ; preds = %_ZN3g2o
   br i1 %.not.i.i5, label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit6, label %25
 
 25:                                               ; preds = %23
-  %26 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %26 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvPN3g2o16OptimizableGraph6VertexEEED2Ev.exit6 unwind label %27
 
 27:                                               ; preds = %25
@@ -2572,7 +2572,7 @@ define noundef zeroext i1 @_ZN3g2o16OptimizableGraph4loadERSi(ptr noundef nonnul
 
 58:                                               ; preds = %57
   %59 = load i32, ptr %8, align 4
-  %60 = invoke noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %59)
+  %60 = invoke noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %59)
           to label %_ZN3g2o16OptimizableGraph6vertexEi.exit unwind label %.loopexit
 
 _ZN3g2o16OptimizableGraph6vertexEi.exit:          ; preds = %58
@@ -2780,7 +2780,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
   br i1 %143, label %_ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexE.exit.thread, label %144
 
 144:                                              ; preds = %140
-  %145 = invoke noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %142)
+  %145 = invoke noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %142)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp
 
 .noexc:                                           ; preds = %144
@@ -2797,7 +2797,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 
 149:                                              ; preds = %146
   store ptr %0, ptr %147, align 8
-  %150 = invoke noundef zeroext i1 @_ZN3g2o10HyperGraph9addVertexEPNS0_6VertexE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %122)
+  %150 = invoke noundef zeroext i1 @_ZN3g2o10HyperGraph9addVertexEPNS0_6VertexE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %122)
           to label %_ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexE.exit unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp
 
 _ZN3g2o16OptimizableGraph9addVertexEPNS0_6VertexE.exit: ; preds = %149
@@ -3028,7 +3028,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not100, label %242, label %237
 
 237:                                              ; preds = %.lr.ph195
-  %238 = invoke noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %236)
+  %238 = invoke noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %236)
           to label %_ZN3g2o16OptimizableGraph6vertexEi.exit134 unwind label %.loopexit161
 
 _ZN3g2o16OptimizableGraph6vertexEi.exit134:       ; preds = %237
@@ -3084,7 +3084,7 @@ _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.i:    ; preds = %258
   br i1 %or.cond.i, label %_ZN3g2o16OptimizableGraph7addEdgeEPNS0_4EdgeE.exit.sink.split, label %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i
 
 _ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i: ; preds = %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.i, %258, %255
-  %264 = invoke noundef zeroext i1 @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %122)
+  %264 = invoke noundef zeroext i1 @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %122)
           to label %.noexc136 unwind label %.loopexit.split-lp162.loopexit.split-lp
 
 .noexc136:                                        ; preds = %_ZN3g2o16OptimizableGraph4Edge5graphEv.exit.thread.i
@@ -4324,7 +4324,7 @@ define void @_ZN3g2o16OptimizableGraph25setRenamedTypesFromStringERKNSt7__cxx111
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc22 unwind label %34
 
 .noexc22:                                         ; preds = %.noexc
@@ -4334,7 +4334,7 @@ define void @_ZN3g2o16OptimizableGraph25setRenamedTypesFromStringERKNSt7__cxx111
 13:                                               ; preds = %.noexc22
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #38
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #38
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc22
@@ -4365,7 +4365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc23 unwind label %38
 
 .noexc23:                                         ; preds = %22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %25, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %25, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc24 unwind label %38
 
 .noexc24:                                         ; preds = %.noexc23
@@ -4375,7 +4375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 26:                                               ; preds = %.noexc24
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #38
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #38
   br label %.body25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit27: ; preds = %.noexc24
@@ -5051,11 +5051,11 @@ define void @_ZN3g2o16OptimizableGraph14performActionsEiRSt3setIPNS_16HyperGraph
 19:                                               ; preds = %.lr.ph
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #38
+  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #38
   resume { ptr, i32 } %20
 
 ._crit_edge:                                      ; preds = %17, %7
-  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #38
+  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #38
   br label %21
 
 21:                                               ; preds = %._crit_edge, %3
@@ -5090,7 +5090,7 @@ define void @_ZN3g2o16OptimizableGraph12preIterationEi(ptr noundef nonnull align
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = invoke noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %17 = invoke noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %3)
           to label %18 unwind label %20
 
 18:                                               ; preds = %.lr.ph.i
@@ -5101,11 +5101,11 @@ define void @_ZN3g2o16OptimizableGraph12preIterationEi(ptr noundef nonnull align
 20:                                               ; preds = %.lr.ph.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #38
+  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #38
   resume { ptr, i32 } %21
 
 ._crit_edge.i:                                    ; preds = %18, %8
-  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #38
+  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #38
   br label %_ZN3g2o16OptimizableGraph14performActionsEiRSt3setIPNS_16HyperGraphActionESt4lessIS3_ESaIS3_EE.exit
 
 _ZN3g2o16OptimizableGraph14performActionsEiRSt3setIPNS_16HyperGraphActionESt4lessIS3_ESaIS3_EE.exit: ; preds = %2, %._crit_edge.i
@@ -5139,7 +5139,7 @@ define void @_ZN3g2o16OptimizableGraph13postIterationEi(ptr noundef nonnull alig
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = invoke noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %17 = invoke noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %3)
           to label %18 unwind label %20
 
 18:                                               ; preds = %.lr.ph.i
@@ -5150,11 +5150,11 @@ define void @_ZN3g2o16OptimizableGraph13postIterationEi(ptr noundef nonnull alig
 20:                                               ; preds = %.lr.ph.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #38
+  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #38
   resume { ptr, i32 } %21
 
 ._crit_edge.i:                                    ; preds = %18, %8
-  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #38
+  call void @_ZN3g2o16HyperGraphAction10ParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #38
   br label %_ZN3g2o16OptimizableGraph14performActionsEiRSt3setIPNS_16HyperGraphActionESt4lessIS3_ESaIS3_EE.exit
 
 _ZN3g2o16OptimizableGraph14performActionsEiRSt3setIPNS_16HyperGraphActionESt4lessIS3_ESaIS3_EE.exit: ; preds = %2, %._crit_edge.i
@@ -5475,7 +5475,7 @@ define noundef zeroext i1 @_ZNK3g2o16OptimizableGraph25verifyInformationMatrices
   %3 = alloca %"class.Eigen::SelfAdjointEigenSolver", align 8
   %4 = alloca %"class.Eigen::Map", align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(78) %3, i8 0, i64 72, i1 false)
   store i32 3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i8 0, ptr %6, align 4
@@ -5814,7 +5814,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setOnesEll.ex
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEmLERKd.exit
 
 29:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(26) %1, i64 24, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6294,7 +6294,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #38
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #38
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #38
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 96) #37
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
@@ -8073,7 +8073,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #38
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #38
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #38
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 96) #37
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_Auto_nodeD2Ev.exit
 
@@ -8410,7 +8410,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #38
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #38
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #38
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 96) #37
   br label %7
 
@@ -8424,7 +8424,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i64, ptr %2, align 8
   %8 = inttoptr i64 %7 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESJ_IJEEEEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit unwind label %9
 
 9:                                                ; preds = %4
@@ -9689,7 +9689,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 _ZN5Eigen7NoAliasINS_5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEENS_10MatrixBaseEEaSINS_7ProductINS_15SelfAdjointViewINS1_INS2_IdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELj1EEENS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINSE_18scalar_constant_opIdEEKS3_EEKNS1_INS1_ISA_Lin1ELi1ELb1EEELin1ELi1ELb0EEEEELi0EEEEERS4_RKNS5_IT_EE.exit: ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i
   store double 1.000000e+00, ptr %3, align 8
-  call void @_ZN5Eigen8internal24selfadjoint_product_implINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELi17ELb0ENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS3_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS2_INS2_IS4_Lin1ELi1ELb1EEELin1ELi1ELb0EEEEELi0ELb1EE3runINS2_ISC_Lin1ELi1ELb0EEEEEvRT_RKS5_RKSJ_RKd(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(137) %31, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN5Eigen8internal24selfadjoint_product_implINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELi17ELb0ENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS3_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS2_INS2_IS4_Lin1ELi1ELb1EEELin1ELi1ELb0EEEEELi0ELb1EE3runINS2_ISC_Lin1ELi1ELb0EEEEEvRT_RKS5_RKSJ_RKd(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(200) %8, ptr noundef nonnull align 8 dereferenceable(137) %31, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %95 = load double, ptr %6, align 8
   %96 = fmul double %95, -5.000000e-01
@@ -11452,10 +11452,10 @@ define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1E
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i64 %51, ptr %52, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(104) %12, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull align 8 dereferenceable(104) %12, i64 104, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %53, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS2_IKS4_Lin1ELi1ELb0EEENS0_20generic_product_implIS6_S8_NS_10DenseShapeESA_Li7EEEE6evalToINS_3MapINS3_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS6_RKS8_(ptr noundef nonnull align 8 dereferenceable(19) %11, ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(56) %53)
+  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS2_IKS4_Lin1ELi1ELb0EEENS0_20generic_product_implIS6_S8_NS_10DenseShapeESA_Li7EEEE6evalToINS_3MapINS3_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS6_RKS8_(ptr noundef nonnull align 8 dereferenceable(19) %11, ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull align 8 dereferenceable(56) %53)
   %54 = load ptr, ptr %0, align 8, !noalias !200
   %55 = load ptr, ptr %11, align 8
   %56 = load i64, ptr %35, align 8
@@ -11613,7 +11613,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1E
   store double %129, ptr %133, align 8, !alias.scope !216
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @_ZN5Eigen8internal26outer_product_selector_runINS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS3_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS_3MapISD_Li0ENS_6StrideILi0ELi0EEEEEEENS_9TransposeIKNS2_IKS4_Lin1ELi1ELb0EEEEENS0_20generic_product_implISM_SR_NS_10DenseShapeEST_Li5EE3subEEEvRT_RKT0_RKT1_RKT2_RKNS0_10false_typeE(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(57) %14, ptr noundef nonnull align 8 dereferenceable(56) %131, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call void @_ZN5Eigen8internal26outer_product_selector_runINS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS3_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS_3MapISD_Li0ENS_6StrideILi0ELi0EEEEEEENS_9TransposeIKNS2_IKS4_Lin1ELi1ELb0EEEEENS0_20generic_product_implISM_SR_NS_10DenseShapeEST_Li5EE3subEEEvRT_RKT0_RKT1_RKT2_RKNS0_10false_typeE(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(120) %14, ptr noundef nonnull align 8 dereferenceable(56) %131, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %134
@@ -11703,7 +11703,7 @@ define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %50, ptr noundef nonnull align 8 dereferenceable(104) %12, i64 104, i1 false)
-  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %11, ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(104) %50)
+  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %11, ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull align 8 dereferenceable(104) %50)
   %51 = load ptr, ptr %0, align 8, !noalias !7
   %.sroa.421.24.copyload = load ptr, ptr %39, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.421.24.copyload, i64 8
@@ -11772,10 +11772,10 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1E
   %82 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store double %77, ptr %82, align 8, !alias.scope !227
   %83 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %83, ptr noundef nonnull align 8 dereferenceable(26) %11, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @_ZN5Eigen8internal26outer_product_selector_runINS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS3_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS2_IKS4_Lin1ELi1ELb0EEEEENS_3MapINS3_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEENS0_20generic_product_implISK_SP_NS_10DenseShapeESR_Li5EE3subEEEvRT_RKT0_RKT1_RKT2_RKNS0_10false_typeE(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(89) %14, ptr noundef nonnull align 8 dereferenceable(26) %83, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call void @_ZN5Eigen8internal26outer_product_selector_runINS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS3_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS2_IKS4_Lin1ELi1ELb0EEEEENS_3MapINS3_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEENS0_20generic_product_implISK_SP_NS_10DenseShapeESR_Li5EE3subEEEvRT_RKT0_RKT1_RKT2_RKNS0_10false_typeE(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull align 8 dereferenceable(26) %83, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %84
@@ -13061,7 +13061,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeIKNS1_IKNS_6MatrixIdLin1ELin1ELi0
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(26) %0, i64 24, i1 false)
   call void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1ELb1EE3runINS_9TransposeIKNS_5BlockINS5_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEEEENS4_IKNS4_IKNS5_IKS7_Lin1ELi1ELb0EEEEEEENS4_INS_3MapINS6_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEEEvRKT_RKT0_RT1_RKNSU_6ScalarE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
@@ -14211,7 +14211,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_7ProductINS_14TriangularViewIKN
   store ptr %13, ptr %66, align 8, !alias.scope !303
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store double -1.000000e+00, ptr %5, align 8
-  invoke void @_ZN5Eigen8internal23triangular_product_implILi5ELb1EKNS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELb0ES4_Lb0EE3runIS5_EEvRT_RS6_RKS4_RKNS9_6ScalarE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN5Eigen8internal23triangular_product_implILi5ELb1EKNS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELb0ES4_Lb0EE3runIS5_EEvRT_RS6_RKS4_RKNS9_6ScalarE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %67 unwind label %54
 
 67:                                               ; preds = %65
@@ -15864,7 +15864,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_product_implILi6ELb1EKN
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.speculated39, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -19166,7 +19166,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_product_implILi2ELb1ENS
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.speculated, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -19781,7 +19781,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_product_implILi1ELb1EKN
   %15 = load i64, ptr %14, align 8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %11, i64 %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %11, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -20555,7 +20555,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_product_implILi5ELb1EKN
   %14 = load i64, ptr %13, align 8
   %.sroa.speculated41 = tail call i64 @llvm.smin.i64(i64 %10, i64 %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %10, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24

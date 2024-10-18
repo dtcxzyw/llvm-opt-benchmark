@@ -2092,7 +2092,7 @@ define void @_ZN27ExtcapArgumentFileSelection15setDefaultValueEv(ptr noundef non
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN9QLineEdit5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  tail call void @_ZN14ExtcapArgument12valueChangedEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
+  tail call void @_ZN14ExtcapArgument12valueChangedEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   ret void
 }
 

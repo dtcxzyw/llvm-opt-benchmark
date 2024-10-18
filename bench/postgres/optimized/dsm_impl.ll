@@ -238,7 +238,7 @@ errcode_for_dynamic_shared_memory.exit109.i:      ; preds = %81, %79
   br label %94
 
 94:                                               ; preds = %94, %92
-  %95 = call i32 @posix_fallocate(i32 noundef %51, i64 noundef 0, i64 noundef %2) #11
+  %95 = call i32 @posix_fallocate(i32 noundef range(i32 0, -1) %51, i64 noundef 0, i64 noundef %2) #11
   %96 = icmp eq i32 %95, 4
   br i1 %96, label %94, label %97, !llvm.loop !5
 

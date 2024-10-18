@@ -1090,7 +1090,7 @@ Kf_SetFilterOrder.exit:                           ; preds = %select.unfold._crit
   %253 = load i16, ptr %252, align 2
   %254 = zext i16 %253 to i32
   %255 = add nsw i32 %254, -1
-  %256 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %251, i32 %255)
+  %256 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %251, i32 range(i32 -1, 65535) %255)
   %257 = sext i32 %256 to i64
   %258 = getelementptr inbounds i8, ptr %0, i64 106952
   %259 = load i64, ptr %258, align 8
@@ -3414,7 +3414,7 @@ Kf_SetMerge.exit:                                 ; preds = %select.unfold._crit
   %267 = load i16, ptr %83, align 2
   %268 = zext i16 %267 to i32
   %269 = add nsw i32 %268, -1
-  %270 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %266, i32 %269)
+  %270 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %266, i32 range(i32 -1, 65535) %269)
   %271 = sext i32 %270 to i64
   %272 = load i64, ptr %84, align 8
   %273 = add i64 %272, %271
@@ -3923,7 +3923,7 @@ Kf_SetMergeSimple.exit:                           ; preds = %select.unfold._crit
   %506 = load i16, ptr %83, align 2
   %507 = zext i16 %506 to i32
   %508 = add nsw i32 %507, -1
-  %509 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %505, i32 %508)
+  %509 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %505, i32 range(i32 -1, 65535) %508)
   %510 = sext i32 %509 to i64
   %511 = load i64, ptr %84, align 8
   %512 = add i64 %511, %510
@@ -5555,7 +5555,7 @@ Kf_CutCompare.exit.us.i.us.us:                    ; preds = %40, %38, %31
 
 Kf_CutCompare.exit.thread.i.us.us:                ; preds = %.lr.ph.split.us.i.us.us, %33, %40, %Kf_CutCompare.exit.us.i.us.us, %.preheader.i.us.us
   %45 = add nsw i32 %.159.us.us, 1
-  %46 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %45, i32 %15)
+  %46 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %45, i32 range(i32 -1, 65535) %15)
   br label %Kf_SetStoreAddOne.exit.us.us
 
 Kf_SetStoreAddOne.exit.us.us:                     ; preds = %Kf_CutCompare.exit.thread.i.us.us, %.lr.ph.us
@@ -5640,7 +5640,7 @@ Kf_CutCompare.exit.i:                             ; preds = %79, %77, %70
 
 Kf_CutCompare.exit.thread.i:                      ; preds = %Kf_CutCompare.exit.i, %79, %72, %.lr.ph.split.i, %.preheader.i
   %85 = add nsw i32 %.159, 1
-  %86 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %85, i32 %55)
+  %86 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %85, i32 range(i32 -1, 65535) %55)
   br label %Kf_SetStoreAddOne.exit
 
 Kf_SetStoreAddOne.exit:                           ; preds = %.lr.ph, %Kf_CutCompare.exit.thread.i

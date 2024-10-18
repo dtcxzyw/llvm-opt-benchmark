@@ -3538,7 +3538,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %92
   br i1 %.not199.i, label %138, label %139
 
 138:                                              ; preds = %135, %128
-  call fastcc void @af_loader_embolden_glyph_in_slot(ptr noundef %12, ptr noundef nonnull %20, ptr noundef nonnull %.0.i215231.i)
+  call fastcc void @af_loader_embolden_glyph_in_slot(ptr noundef nonnull %12, ptr noundef nonnull %20, ptr noundef nonnull %.0.i215231.i)
   br label %139
 
 139:                                              ; preds = %138, %135, %133, %125
@@ -6828,7 +6828,7 @@ define internal fastcc i32 @af_cjk_hints_detect_features(ptr noundef %0, i32 nou
   %10 = load i32, ptr %6, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %struct.AF_SegmentRec_, ptr %8, i64 %11
-  %13 = tail call fastcc i32 @af_latin_hints_compute_segments(ptr noundef nonnull %0, i32 noundef %1)
+  %13 = tail call fastcc i32 @af_latin_hints_compute_segments(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1)
   %.not35.i = icmp eq i32 %13, 0
   br i1 %.not35.i, label %.preheader.i, label %af_cjk_hints_compute_segments.exit.thread22
 
@@ -6880,7 +6880,7 @@ define internal fastcc i32 @af_cjk_hints_detect_features(ptr noundef %0, i32 nou
   br i1 %32, label %.lr.ph42.i, label %af_cjk_hints_compute_segments.exit.thread, !llvm.loop !86
 
 af_cjk_hints_compute_segments.exit:               ; preds = %2
-  %33 = tail call fastcc i32 @af_latin_hints_compute_segments(ptr noundef nonnull %0, i32 noundef %1)
+  %33 = tail call fastcc i32 @af_latin_hints_compute_segments(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1)
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %af_cjk_hints_compute_segments.exit.thread, label %af_cjk_hints_compute_segments.exit.thread22
 
@@ -7802,7 +7802,7 @@ define internal fastcc void @af_cjk_hint_edges(ptr nocapture noundef readonly %0
   %51 = sub nsw i64 %48, %50
   %52 = getelementptr inbounds i8, ptr %.0186262, i64 24
   %53 = load i8, ptr %52, align 8
-  %54 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %.val, ptr readonly %.val241, i32 noundef %1, i64 noundef %51)
+  %54 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %.val, ptr readonly %.val241, i32 noundef range(i32 0, 2) %1, i64 noundef %51)
   %55 = add nsw i64 %54, %43
   %56 = getelementptr inbounds i8, ptr %.0186262, i64 16
   store i64 %55, ptr %56, align 8
@@ -7879,7 +7879,7 @@ define internal fastcc void @af_cjk_hint_edges(ptr nocapture noundef readonly %0
   %88 = getelementptr inbounds i8, ptr %67, i64 8
   %89 = load i64, ptr %88, align 8
   %90 = sub nsw i64 %87, %89
-  %91 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %.val242, ptr readonly %.val243, i32 noundef %1, i64 noundef %90)
+  %91 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %.val242, ptr readonly %.val243, i32 noundef range(i32 0, 2) %1, i64 noundef %90)
   %92 = getelementptr inbounds i8, ptr %67, i64 16
   %93 = load i64, ptr %92, align 8
   %94 = add nsw i64 %93, %91
@@ -7901,7 +7901,7 @@ define internal fastcc void @af_cjk_hint_edges(ptr nocapture noundef readonly %0
   %102 = getelementptr inbounds i8, ptr %67, i64 8
   %103 = load i64, ptr %102, align 8
   %104 = sub nsw i64 %101, %103
-  %105 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %.val244, ptr readonly %.val245, i32 noundef %1, i64 noundef %104)
+  %105 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %.val244, ptr readonly %.val245, i32 noundef range(i32 0, 2) %1, i64 noundef %104)
   %106 = getelementptr inbounds i8, ptr %67, i64 16
   %107 = load i64, ptr %106, align 8
   %108 = add nsw i64 %107, %105
@@ -10389,7 +10389,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %119 = getelementptr inbounds i8, ptr %104, i64 24
   %120 = load i8, ptr %119, align 8
   %121 = zext i8 %120 to i32
-  %122 = tail call fastcc i64 @af_latin_compute_stem_width(i32 %.val452, ptr readonly %.val453, i32 noundef %1, i64 noundef %115, i64 noundef %118, i32 noundef %121, i32 noundef %100)
+  %122 = tail call fastcc i64 @af_latin_compute_stem_width(i32 %.val452, ptr readonly %.val453, i32 noundef range(i32 0, 2) %1, i64 noundef %115, i64 noundef %118, i32 noundef %121, i32 noundef %100)
   %123 = add nsw i64 %122, %117
   %124 = getelementptr inbounds i8, ptr %.1495, i64 16
   store i64 %123, ptr %124, align 8
@@ -10465,7 +10465,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %165 = zext i8 %161 to i32
   %166 = load i8, ptr %133, align 8
   %167 = zext i8 %166 to i32
-  %168 = tail call fastcc i64 @af_latin_compute_stem_width(i32 %.val454, ptr readonly %.val455, i32 noundef %1, i64 noundef %163, i64 noundef %164, i32 noundef %165, i32 noundef %167)
+  %168 = tail call fastcc i64 @af_latin_compute_stem_width(i32 %.val454, ptr readonly %.val455, i32 noundef range(i32 0, 2) %1, i64 noundef %163, i64 noundef %164, i32 noundef %165, i32 noundef %167)
   %169 = add nsw i64 %168, %158
   %170 = getelementptr inbounds i8, ptr %104, i64 16
   store i64 %169, ptr %170, align 8

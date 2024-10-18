@@ -479,7 +479,7 @@ define void @_ZN10ParametersC2EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEE
 define void @_ZN10Parameters9initScaleER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1196) %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Shot", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %0, i8 0, i64 56, i1 false)
   br label %6
 
 6:                                                ; preds = %6, %3
@@ -566,7 +566,7 @@ define void @_ZN10ParametersC2EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEE
 define void @_ZN10Parameters9initScaleEv(ptr nocapture noundef nonnull align 8 dereferenceable(288) %0) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.vcg::Shot", align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %0, i8 0, i64 56, i1 false)
   br label %4
 
 4:                                                ; preds = %4, %1
@@ -960,7 +960,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   br i1 %226, label %.noexc9, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit54.i
 
 .noexc9:                                          ; preds = %219
-  %227 = call <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(56) %2, <2 x float> %.sroa.06.4.vec.insert13.i.i46.i)
+  %227 = call <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(132) %2, <2 x float> %.sroa.06.4.vec.insert13.i.i46.i)
   %.pre.i = load double, ptr %26, align 8
   %.pre78.i = fptrunc double %.pre.i to float
   br label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit54.i
@@ -1447,7 +1447,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit61:              ; preds = %136
   %137 = fadd float %110, %111
   %138 = fmul float %137, 5.000000e-01
   %139 = fmul float %121, 5.000000e-01
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %77, ptr noundef nonnull align 4 dereferenceable(64) %11, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %77, ptr noundef nonnull align 4 dereferenceable(64) %11, i64 64, i1 false)
   %140 = load float, ptr %7, align 4
   %141 = load float, ptr %16, align 4
   %142 = getelementptr inbounds i8, ptr %7, i64 4
@@ -1868,7 +1868,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   br i1 %45, label %46, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit
 
 46:                                               ; preds = %37
-  %47 = tail call <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(56) %5, <2 x float> %.sroa.06.4.vec.insert13.i.i)
+  %47 = tail call <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(132) %5, <2 x float> %.sroa.06.4.vec.insert13.i.i)
   br label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit
 
 _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i, %37, %46
@@ -2006,7 +2006,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   br i1 %117, label %118, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit54
 
 118:                                              ; preds = %109
-  %119 = tail call <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(56) %1, <2 x float> %.sroa.06.4.vec.insert13.i.i46)
+  %119 = tail call <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(132) %1, <2 x float> %.sroa.06.4.vec.insert13.i.i46)
   %.pre = load double, ptr %60, align 8
   %.pre78 = fptrunc double %.pre to float
   br label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit54

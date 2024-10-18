@@ -1247,7 +1247,7 @@ entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %env)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop16ProofPostprocessE, i64 16), ptr %this, align 8
   %d_cb = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %d_cb, ptr noundef nonnull align 1 %env)
+  tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(80) %d_cb, ptr noundef nonnull align 1 %env)
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4cvc58internal24ProofNodeUpdaterCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop24ProofPostprocessCallbackE, i64 16), ptr %d_cb, align 8
@@ -1681,7 +1681,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
 
 _ZN4cvc58internal4prop24ProofPostprocessCallbackD0Ev.exit: ; preds = %entry
   tail call void @_ZN4cvc58internal24ProofNodeUpdaterCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   ret void
 }
 

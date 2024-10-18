@@ -193,7 +193,7 @@ define internal void @mpich_finalize() #0 {
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %22 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
-  tail call void %28(ptr noundef %5) #12
+  tail call void %28(ptr noundef nonnull %5) #12
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null

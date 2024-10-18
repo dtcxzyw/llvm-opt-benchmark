@@ -230,7 +230,7 @@ define dso_local i64 @jsonpath_out(ptr nocapture noundef readonly %0) local_unna
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @initStringInfo(ptr noundef nonnull %2) #12
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %9) #12
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef range(i32 0, 1073741824) %9) #12
   %10 = getelementptr inbounds i8, ptr %7, i64 4
   %11 = load i32, ptr %10, align 4
   %.not10.i = icmp sgt i32 %11, -1
@@ -264,7 +264,7 @@ define dso_local i64 @jsonpath_send(ptr nocapture noundef readonly %0) local_unn
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %10) #12
+  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef range(i32 0, 1073741824) %10) #12
   %11 = getelementptr inbounds i8, ptr %8, i64 4
   %12 = load i32, ptr %11, align 4
   %.not10.i = icmp sgt i32 %12, -1

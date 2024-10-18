@@ -425,7 +425,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   %41 = getelementptr inbounds i8, ptr %35, i64 %40
   store i8 32, ptr %41, align 1
   %42 = getelementptr inbounds i8, ptr %41, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull readonly align 1 dereferenceable(1) %.05476, i64 %.05775, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull readonly align 1 dereferenceable(1) %.05476, i64 range(i64 1, 0) %.05775, i1 false)
   %43 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 %21, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8

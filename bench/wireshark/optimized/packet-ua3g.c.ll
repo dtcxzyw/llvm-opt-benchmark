@@ -1946,7 +1946,7 @@ define internal i32 @dissect_ua3g(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 72:                                               ; preds = %32
   %73 = load i32, ptr @hf_ua3g_debug_in_line, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %73, ptr noundef %0, i32 noundef 3, i32 noundef %26, i32 noundef 0) #9
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %73, ptr noundef %0, i32 noundef 3, i32 noundef range(i32 -1, 65535) %26, i32 noundef 0) #9
   br label %decode_with_one_parameter.exitthread-pre-split
 
 75:                                               ; preds = %32
@@ -2116,7 +2116,7 @@ decode_with_one_parameter.exit:                   ; preds = %decode_with_one_par
 
 116:                                              ; preds = %108
   %117 = load i32, ptr @hf_ua3g_debug_in_line, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %117, ptr noundef %0, i32 noundef 3, i32 noundef %26, i32 noundef 0) #9
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %117, ptr noundef %0, i32 noundef 3, i32 noundef range(i32 -1, 65535) %26, i32 noundef 0) #9
   br label %decode_key_number.exit
 
 119:                                              ; preds = %108, %108, %108, %108

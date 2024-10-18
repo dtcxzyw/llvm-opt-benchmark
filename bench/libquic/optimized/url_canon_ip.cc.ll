@@ -22,7 +22,7 @@ for.body:                                         ; preds = %entry, %for.inc10
   %arrayidx = getelementptr inbounds i8, ptr %address, i64 %indvars.iv36
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
-  %call.i = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %conv, ptr noundef nonnull %str, i64 noundef 16, i32 noundef 10)
+  %call.i = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %conv, ptr noundef nonnull align 1 dereferenceable(16) %str, i64 noundef 16, i32 noundef 10)
   %1 = load i8, ptr %str, align 16
   %cmp5.not33 = icmp eq i8 %1, 0
   br i1 %cmp5.not33, label %for.end, label %for.body6.preheader
@@ -277,7 +277,7 @@ if.else:                                          ; preds = %for.body
   %conv7 = zext i8 %11 to i32
   %or = or disjoint i32 %shl, %conv7
   %add8 = add nsw i32 %i.0100, 2
-  %call.i = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %or, ptr noundef nonnull %str, i64 noundef 5, i32 noundef 16)
+  %call.i = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %or, ptr noundef nonnull align 1 dereferenceable(5) %str, i64 noundef 5, i32 noundef 16)
   %12 = load i8, ptr %str, align 1
   %cmp14.not98 = icmp eq i8 %12, 0
   br i1 %cmp14.not98, label %for.end, label %for.body15.preheader

@@ -952,7 +952,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %96 = load i64, ptr %m_size.i.i.i.i.i.i.i.i, align 8, !noalias !31
   %add.ptr.i.i.i.i.i.i.i17.i = getelementptr inbounds i32, ptr %95, i64 %96
   store ptr %add.ptr.i.i.i.i.i.i.i17.i, ptr %agg.tmp4.i.i.i.i.i.i.i, align 8, !alias.scope !31
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS0_12vec_iteratorIPjLb1EEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef nonnull %agg.tmp3.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp4.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS0_12vec_iteratorIPjLb1EEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %reports.i, ptr noundef nonnull %agg.tmp3.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp4.i.i.i.i.i.i.i, ptr noundef null)
           to label %_ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit.i unwind label %lpad5.i.i.i.i.i.i.i
 
 lpad5.i.i.i.i.i.i.i:                              ; preds = %_ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit.i
@@ -1131,7 +1131,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then38.i
   %m_size.i.i.i.i.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload.i, i64 56
   %112 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i35.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %111, i64 %112
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef %111, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %reports.i, ptr noundef %111, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %if.then.i.i.i.i.i.i.i.do.end51_crit_edge.i unwind label %lpad.i93
 
 if.then.i.i.i.i.i.i.i.do.end51_crit_edge.i:       ; preds = %if.then.i.i.i.i.i.i.i.i
@@ -1613,7 +1613,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %12 = load i64, ptr %m_size.i.i.i.i.i.i.i, align 8, !noalias !52
   %add.ptr.i.i.i.i.i.i.i17 = getelementptr inbounds i32, ptr %11, i64 %12
   store ptr %add.ptr.i.i.i.i.i.i.i17, ptr %agg.tmp4.i.i.i.i.i.i, align 8, !alias.scope !52
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS0_12vec_iteratorIPjLb1EEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %reports, ptr noundef nonnull %agg.tmp3.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp4.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS0_12vec_iteratorIPjLb1EEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %reports, ptr noundef nonnull %agg.tmp3.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp4.i.i.i.i.i.i, ptr noundef null)
           to label %_ZN3ue28flat_setIjSt4lessIjESaIjEEC2ERKS4_.exit unwind label %lpad5.i.i.i.i.i.i
 
 lpad5.i.i.i.i.i.i:                                ; preds = %_ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit
@@ -1805,7 +1805,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then38
   %m_size.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 56
   %29 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i35, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %28, i64 %29
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %reports, ptr noundef %28, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %reports, ptr noundef %28, ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %if.then.i.i.i.i.i.i.i.do.end53_crit_edge unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.do.end53_crit_edge:         ; preds = %if.then.i.i.i.i.i.i.i

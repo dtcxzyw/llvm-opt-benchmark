@@ -8466,7 +8466,7 @@ while.cond.i.backedge:                            ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i, !llvm.loop !345
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i, i32 noundef 2147483647, i32 noundef -1)
           to label %cleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i
@@ -12655,7 +12655,7 @@ while.cond.i.backedge:                            ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i, !llvm.loop !345
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %arrayidx.i.i5, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i5, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ESt6atomicE5Entry7putItemIS2_EEvOT_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i
@@ -13042,7 +13042,7 @@ invoke.cont.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThreadPoolExecutor7CPUTaskENS_11LifoSemImplISt6atomicNS_19SaturatingSemaphoreILb1ES4_EEEEE7dequeueEv.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %invoke.cont.i
-  %call.i.i.i.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %obj.i, ptr noundef nonnull %agg.result) #25
+  %call.i.i.i.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %obj.i, ptr noundef nonnull align 16 %agg.result) #25
   br label %_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThreadPoolExecutor7CPUTaskENS_11LifoSemImplISt6atomicNS_19SaturatingSemaphoreILb1ES4_EEEEE7dequeueEv.exit
 
 cleanup.cont.i:                                   ; preds = %entry
@@ -13124,7 +13124,7 @@ invoke.cont.i:                                    ; preds = %if.end
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThreadPoolExecutor7CPUTaskENS_11LifoSemImplISt6atomicNS_19SaturatingSemaphoreILb1ES4_EEEEE7dequeueEv.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %invoke.cont.i
-  %call.i.i.i.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %obj.i, ptr noundef nonnull %ref.tmp) #25
+  %call.i.i.i.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %obj.i, ptr noundef nonnull align 16 %ref.tmp) #25
   br label %_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThreadPoolExecutor7CPUTaskENS_11LifoSemImplISt6atomicNS_19SaturatingSemaphoreILb1ES4_EEEEE7dequeueEv.exit
 
 cleanup.cont.i:                                   ; preds = %if.end
@@ -16546,7 +16546,7 @@ while.end.i:                                      ; preds = %_ZN5folly16Throttle
 
 if.then11.i:                                      ; preds = %while.end.i
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 136
-  %call.i = tail call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem21maybeStartWakingChainEvEUlvE_EENS_13invoke_detail6traitsIRKT_E6resultIEESA_(ptr noundef nonnull align 8 dereferenceable(8) %mutex_.i, ptr nonnull %sem_)
+  %call.i = tail call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem21maybeStartWakingChainEvEUlvE_EENS_13invoke_detail6traitsIRKT_E6resultIEESA_(ptr noundef nonnull align 8 dereferenceable(8) %mutex_.i, ptr nonnull align 64 dereferenceable(136) %sem_)
   %tobool.not.i8 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i8, label %_ZN5folly16ThrottledLifoSem4postEj.exit, label %if.then.i9
 
@@ -16598,7 +16598,7 @@ while.cond.i.i.backedge:                          ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i.i, !llvm.loop !345
 
 if.then30.i.i:                                    ; preds = %while.end27.i.i
-  %call.i38.i.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %call.i, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %call.i, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly16ThrottledLifoSem4postEj.exit unwind label %terminate.lpad.i.i11
 
 terminate.lpad.i.i11:                             ; preds = %if.then30.i.i
@@ -18327,7 +18327,7 @@ while.cond.i1.backedge:                           ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i1, !llvm.loop !345
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %call129, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %call129, i32 noundef 2147483647, i32 noundef -1)
           to label %cleanup147 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i
@@ -20085,7 +20085,7 @@ while.cond.i.backedge:                            ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i, !llvm.loop !345
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %arrayidx.i.i5, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i5, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ESt6atomicE5Entry7putItemIS2_EEvOT_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i
@@ -20451,7 +20451,7 @@ while.end.i:                                      ; preds = %_ZN5folly16Throttle
 
 if.then11.i:                                      ; preds = %while.end.i
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 136
-  %call.i = tail call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem21maybeStartWakingChainEvEUlvE_EENS_13invoke_detail6traitsIRKT_E6resultIEESA_(ptr noundef nonnull align 8 dereferenceable(8) %mutex_.i, ptr nonnull %sem_)
+  %call.i = tail call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem21maybeStartWakingChainEvEUlvE_EENS_13invoke_detail6traitsIRKT_E6resultIEESA_(ptr noundef nonnull align 8 dereferenceable(8) %mutex_.i, ptr nonnull align 64 dereferenceable(136) %sem_)
   %tobool.not.i9 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i9, label %_ZN5folly16ThrottledLifoSem4postEj.exit, label %if.then.i10
 
@@ -20503,7 +20503,7 @@ while.cond.i.i.backedge:                          ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i.i, !llvm.loop !345
 
 if.then30.i.i:                                    ; preds = %while.end27.i.i
-  %call.i38.i.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %call.i, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %call.i, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly16ThrottledLifoSem4postEj.exit unwind label %terminate.lpad.i.i13
 
 terminate.lpad.i.i13:                             ; preds = %if.then30.i.i
@@ -20644,7 +20644,7 @@ invoke.cont.i:                                    ; preds = %_ZN5folly16Throttle
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThreadPoolExecutor7CPUTaskENS_16ThrottledLifoSemEE7dequeueEv.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %invoke.cont.i
-  %call.i.i.i.i.i = call noundef i64 %10(i32 noundef 0, ptr noundef nonnull %obj.i, ptr noundef nonnull %agg.result) #25
+  %call.i.i.i.i.i = call noundef i64 %10(i32 noundef 0, ptr noundef nonnull %obj.i, ptr noundef nonnull align 16 %agg.result) #25
   br label %_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThreadPoolExecutor7CPUTaskENS_16ThrottledLifoSemEE7dequeueEv.exit
 
 cleanup.cont.i:                                   ; preds = %_ZN5folly16ThrottledLifoSem4waitERKNS_11WaitOptionsE.exit
@@ -20727,7 +20727,7 @@ invoke.cont.i:                                    ; preds = %if.end
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThreadPoolExecutor7CPUTaskENS_16ThrottledLifoSemEE7dequeueEv.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %invoke.cont.i
-  %call.i.i.i.i.i = call noundef i64 %3(i32 noundef 0, ptr noundef nonnull %obj.i, ptr noundef nonnull %ref.tmp2) #25
+  %call.i.i.i.i.i = call noundef i64 %3(i32 noundef 0, ptr noundef nonnull %obj.i, ptr noundef nonnull align 16 %ref.tmp2) #25
   br label %_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThreadPoolExecutor7CPUTaskENS_16ThrottledLifoSemEE7dequeueEv.exit
 
 cleanup.cont.i:                                   ; preds = %if.end

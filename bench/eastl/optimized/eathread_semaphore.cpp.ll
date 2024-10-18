@@ -51,7 +51,7 @@ entry:
   %0 = atomicrmw xchg ptr %mnCount.i, i32 0 seq_cst, align 4
   %mnMaxCount.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 2147483647, ptr %mnMaxCount.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %this, i8 0, i64 32, i1 false)
   %tobool.not = icmp eq ptr %pSemaphoreParameters, null
   br i1 %tobool.not, label %land.lhs.true, label %if.then.i
 
@@ -77,7 +77,7 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   store i8 %frombool.i, ptr %mbIntraProcess12.i, align 8
   %cond.i = zext nneg i8 %frombool.i to i32
   %5 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call20.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef %cond.i, i32 noundef %5) #13
+  %call20.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %cond.i, i32 noundef %5) #13
   %cmp21.i = icmp eq i32 %call20.i, -1
   br i1 %cmp21.i, label %land.lhs.true.i, label %if.end
 
@@ -88,12 +88,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
   %7 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %7) #13
+  %call31.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef 0, i32 noundef %7) #13
   %cmp32.i = icmp eq i32 %call31.i, -1
   br i1 %cmp32.i, label %if.then33.i, label %if.else.i
 
 if.then33.i:                                      ; preds = %if.then25.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 32, i1 false)
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then25.i
@@ -118,7 +118,7 @@ if.end.i15:                                       ; preds = %if.then6.i30, %if.t
   %mbIntraProcess12.i17 = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %mbIntraProcess12.i17, align 8
   %9 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call20.i20 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 1, i32 noundef %9) #13
+  %call20.i20 = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef 1, i32 noundef %9) #13
   %cmp21.i21 = icmp eq i32 %call20.i20, -1
   br i1 %cmp21.i21, label %land.lhs.true.i23, label %if.end
 
@@ -129,12 +129,12 @@ land.lhs.true.i23:                                ; preds = %if.end.i15
 
 if.then25.i25:                                    ; preds = %land.lhs.true.i23
   %11 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call31.i26 = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %11) #13
+  %call31.i26 = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef 0, i32 noundef %11) #13
   %cmp32.i27 = icmp eq i32 %call31.i26, -1
   br i1 %cmp32.i27, label %if.then33.i29, label %if.else.i28
 
 if.then33.i29:                                    ; preds = %if.then25.i25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 32, i1 false)
   br label %if.end
 
 if.else.i28:                                      ; preds = %if.then25.i25
@@ -210,7 +210,7 @@ entry:
   %0 = atomicrmw xchg ptr %mnCount.i, i32 0 seq_cst, align 4
   %mnMaxCount.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 2147483647, ptr %mnMaxCount.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %this, i8 0, i64 32, i1 false)
   store atomic i32 %initialCount, ptr %mnCount.i seq_cst, align 8
   store i32 2147483647, ptr %mnMaxCount.i, align 4
   %1 = load atomic i32, ptr %mnCount.i seq_cst, align 8
@@ -225,7 +225,7 @@ if.end.i:                                         ; preds = %if.then6.i, %entry
   %mbIntraProcess12.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %mbIntraProcess12.i, align 8
   %2 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call20.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 1, i32 noundef %2) #13
+  %call20.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef 1, i32 noundef %2) #13
   %cmp21.i = icmp eq i32 %call20.i, -1
   br i1 %cmp21.i, label %land.lhs.true.i, label %_ZN2EA6Thread9Semaphore4InitEPKNS0_19SemaphoreParametersE.exit
 
@@ -236,12 +236,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
   %4 = load atomic i32, ptr %mnCount.i seq_cst, align 8
-  %call31.i = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef %4) #13
+  %call31.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef 0, i32 noundef %4) #13
   %cmp32.i = icmp eq i32 %call31.i, -1
   br i1 %cmp32.i, label %if.then33.i, label %if.else.i
 
 if.then33.i:                                      ; preds = %if.then25.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 32, i1 false)
   br label %_ZN2EA6Thread9Semaphore4InitEPKNS0_19SemaphoreParametersE.exit
 
 if.else.i:                                        ; preds = %if.then25.i
@@ -445,7 +445,7 @@ if.then:                                          ; preds = %entry
   %2 = atomicrmw xchg ptr %mnCount.i.i, i32 0 seq_cst, align 4
   %mnMaxCount.i.i = getelementptr inbounds i8, ptr %call, i64 36
   store i32 2147483647, ptr %mnMaxCount.i.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 32, i1 false)
   store atomic i32 0, ptr %mnCount.i.i seq_cst, align 4
   store i32 2147483647, ptr %mnMaxCount.i.i, align 4
   %3 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
@@ -460,7 +460,7 @@ if.end.i15.i:                                     ; preds = %if.then6.i30.i, %if
   %mbIntraProcess12.i17.i = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %mbIntraProcess12.i17.i, align 8
   %4 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 1, i32 noundef %4) #13
+  %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %call, i32 noundef 1, i32 noundef %4) #13
   %cmp21.i21.i = icmp eq i32 %call20.i20.i, -1
   br i1 %cmp21.i21.i, label %land.lhs.true.i23.i, label %return
 
@@ -471,12 +471,12 @@ land.lhs.true.i23.i:                              ; preds = %if.end.i15.i
 
 if.then25.i25.i:                                  ; preds = %land.lhs.true.i23.i
   %6 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call31.i26.i = tail call i32 @sem_init(ptr noundef nonnull %call, i32 noundef 0, i32 noundef %6) #13
+  %call31.i26.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %call, i32 noundef 0, i32 noundef %6) #13
   %cmp32.i27.i = icmp eq i32 %call31.i26.i, -1
   br i1 %cmp32.i27.i, label %if.then33.i29.i, label %if.else.i28.i
 
 if.then33.i29.i:                                  ; preds = %if.then25.i25.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 32, i1 false)
   br label %return
 
 if.else.i28.i:                                    ; preds = %if.then25.i25.i
@@ -489,7 +489,7 @@ if.else:                                          ; preds = %entry
   %7 = atomicrmw xchg ptr %mnCount.i.i1, i32 0 seq_cst, align 4
   %mnMaxCount.i.i2 = getelementptr inbounds i8, ptr %call1, i64 36
   store i32 2147483647, ptr %mnMaxCount.i.i2, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call1, i8 0, i64 32, i1 false)
   store atomic i32 0, ptr %mnCount.i.i1 seq_cst, align 4
   store i32 2147483647, ptr %mnMaxCount.i.i2, align 4
   %8 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
@@ -504,7 +504,7 @@ if.end.i15.i4:                                    ; preds = %if.then6.i30.i15, %
   %mbIntraProcess12.i17.i5 = getelementptr inbounds i8, ptr %call1, i64 40
   store i8 1, ptr %mbIntraProcess12.i17.i5, align 8
   %9 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
-  %call20.i20.i6 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 1, i32 noundef %9) #13
+  %call20.i20.i6 = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %call1, i32 noundef 1, i32 noundef %9) #13
   %cmp21.i21.i7 = icmp eq i32 %call20.i20.i6, -1
   br i1 %cmp21.i21.i7, label %land.lhs.true.i23.i8, label %return
 
@@ -515,12 +515,12 @@ land.lhs.true.i23.i8:                             ; preds = %if.end.i15.i4
 
 if.then25.i25.i10:                                ; preds = %land.lhs.true.i23.i8
   %11 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
-  %call31.i26.i11 = tail call i32 @sem_init(ptr noundef nonnull %call1, i32 noundef 0, i32 noundef %11) #13
+  %call31.i26.i11 = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %call1, i32 noundef 0, i32 noundef %11) #13
   %cmp32.i27.i12 = icmp eq i32 %call31.i26.i11, -1
   br i1 %cmp32.i27.i12, label %if.then33.i29.i14, label %if.else.i28.i13
 
 if.then33.i29.i14:                                ; preds = %if.then25.i25.i10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call1, i8 0, i64 32, i1 false)
   br label %return
 
 if.else.i28.i13:                                  ; preds = %if.then25.i25.i10
@@ -546,7 +546,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %for.cond.i
 
 for.cond.i:                                       ; preds = %entry, %if.then.i
-  %call.i = tail call i32 @sem_destroy(ptr noundef nonnull %pSemaphore) #13
+  %call.i = tail call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(48) %pSemaphore) #13
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN2EA6Thread9SemaphoreD2Ev.exit
 
@@ -580,7 +580,7 @@ if.else:                                          ; preds = %entry
   br i1 %isnull, label %if.end, label %for.cond.i3
 
 for.cond.i3:                                      ; preds = %if.else, %if.then.i9
-  %call.i4 = tail call i32 @sem_destroy(ptr noundef nonnull %pSemaphore) #13
+  %call.i4 = tail call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(48) %pSemaphore) #13
   %cmp.i5 = icmp eq i32 %call.i4, -1
   br i1 %cmp.i5, label %land.lhs.true.i6, label %_ZN2EA6Thread9SemaphoreD2Ev.exit11
 
@@ -622,7 +622,7 @@ entry:
   %0 = atomicrmw xchg ptr %mnCount.i.i, i32 0 seq_cst, align 4
   %mnMaxCount.i.i = getelementptr inbounds i8, ptr %pMemory, i64 36
   store i32 2147483647, ptr %mnMaxCount.i.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pMemory, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i8 0, i64 32, i1 false)
   store atomic i32 0, ptr %mnCount.i.i seq_cst, align 4
   store i32 2147483647, ptr %mnMaxCount.i.i, align 4
   %1 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
@@ -637,7 +637,7 @@ if.end.i15.i:                                     ; preds = %if.then6.i30.i, %en
   %mbIntraProcess12.i17.i = getelementptr inbounds i8, ptr %pMemory, i64 40
   store i8 1, ptr %mbIntraProcess12.i17.i, align 8
   %2 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 1, i32 noundef %2) #13
+  %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i32 noundef 1, i32 noundef %2) #13
   %cmp21.i21.i = icmp eq i32 %call20.i20.i, -1
   br i1 %cmp21.i21.i, label %land.lhs.true.i23.i, label %_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit
 
@@ -648,12 +648,12 @@ land.lhs.true.i23.i:                              ; preds = %if.end.i15.i
 
 if.then25.i25.i:                                  ; preds = %land.lhs.true.i23.i
   %4 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
-  %call31.i26.i = tail call i32 @sem_init(ptr noundef nonnull %pMemory, i32 noundef 0, i32 noundef %4) #13
+  %call31.i26.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i32 noundef 0, i32 noundef %4) #13
   %cmp32.i27.i = icmp eq i32 %call31.i26.i, -1
   br i1 %cmp32.i27.i, label %if.then33.i29.i, label %if.else.i28.i
 
 if.then33.i29.i:                                  ; preds = %if.then25.i25.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pMemory, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i8 0, i64 32, i1 false)
   br label %_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb.exit
 
 if.else.i28.i:                                    ; preds = %if.then25.i25.i
@@ -670,7 +670,7 @@ entry:
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.then.i, %entry
-  %call.i = tail call i32 @sem_destroy(ptr noundef nonnull %pSemaphore) #13
+  %call.i = tail call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(48) %pSemaphore) #13
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN2EA6Thread9SemaphoreD2Ev.exit
 

@@ -17212,7 +17212,7 @@ invoke.cont118:                                   ; preds = %invoke.cont115
   %57 = load ptr, ptr %_M_left.i.i.i.i.i115, align 8
   %58 = getelementptr inbounds i8, ptr %call119, i64 8
   %_M_left.i.i.i.i.i170 = getelementptr inbounds i8, ptr %call119, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call119, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call119, i8 0, i64 24, i1 false)
   store ptr %58, ptr %_M_left.i.i.i.i.i170, align 8
   %_M_right.i.i.i.i.i171 = getelementptr inbounds i8, ptr %call119, i64 32
   store ptr %58, ptr %_M_right.i.i.i.i.i171, align 8
@@ -20467,7 +20467,7 @@ invoke.cont114:                                   ; preds = %invoke.cont111
   %83 = load ptr, ptr %_M_left.i.i.i.i.i153, align 8
   %84 = getelementptr inbounds i8, ptr %call115, i64 8
   %_M_left.i.i.i.i.i262 = getelementptr inbounds i8, ptr %call115, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call115, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call115, i8 0, i64 24, i1 false)
   store ptr %84, ptr %_M_left.i.i.i.i.i262, align 8
   %_M_right.i.i.i.i.i263 = getelementptr inbounds i8, ptr %call115, i64 32
   store ptr %84, ptr %_M_right.i.i.i.i.i263, align 8
@@ -23693,7 +23693,7 @@ invoke.cont113:                                   ; preds = %invoke.cont110
   %51 = load ptr, ptr %_M_left.i.i.i.i.i114, align 8
   %52 = getelementptr inbounds i8, ptr %call114, i64 8
   %_M_left.i.i.i.i.i161 = getelementptr inbounds i8, ptr %call114, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call114, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call114, i8 0, i64 24, i1 false)
   store ptr %52, ptr %_M_left.i.i.i.i.i161, align 8
   %_M_right.i.i.i.i.i162 = getelementptr inbounds i8, ptr %call114, i64 32
   store ptr %52, ptr %_M_right.i.i.i.i.i162, align 8
@@ -26435,7 +26435,7 @@ invoke.cont110:                                   ; preds = %invoke.cont107
   %85 = load ptr, ptr %_M_left.i.i.i.i.i152, align 8
   %86 = getelementptr inbounds i8, ptr %call111, i64 8
   %_M_left.i.i.i.i.i240 = getelementptr inbounds i8, ptr %call111, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call111, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call111, i8 0, i64 24, i1 false)
   store ptr %86, ptr %_M_left.i.i.i.i.i240, align 8
   %_M_right.i.i.i.i.i241 = getelementptr inbounds i8, ptr %call111, i64 32
   store ptr %86, ptr %_M_right.i.i.i.i.i241, align 8
@@ -31043,7 +31043,7 @@ invoke.cont117:                                   ; preds = %invoke.cont114
   %54 = load ptr, ptr %_M_left.i.i.i.i.i115, align 8
   %55 = getelementptr inbounds i8, ptr %call118, i64 8
   %_M_left.i.i.i.i.i170 = getelementptr inbounds i8, ptr %call118, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call118, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call118, i8 0, i64 24, i1 false)
   store ptr %55, ptr %_M_left.i.i.i.i.i170, align 8
   %_M_right.i.i.i.i.i171 = getelementptr inbounds i8, ptr %call118, i64 32
   store ptr %55, ptr %_M_right.i.i.i.i.i171, align 8
@@ -34332,7 +34332,7 @@ invoke.cont114:                                   ; preds = %invoke.cont111
   %81 = load ptr, ptr %_M_left.i.i.i.i.i153, align 8
   %82 = getelementptr inbounds i8, ptr %call115, i64 8
   %_M_left.i.i.i.i.i264 = getelementptr inbounds i8, ptr %call115, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call115, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call115, i8 0, i64 24, i1 false)
   store ptr %82, ptr %_M_left.i.i.i.i.i264, align 8
   %_M_right.i.i.i.i.i265 = getelementptr inbounds i8, ptr %call115, i64 32
   store ptr %82, ptr %_M_right.i.i.i.i.i265, align 8
@@ -136538,7 +136538,7 @@ while.end:                                        ; preds = %if.end17, %entry
   store ptr %i.sroa.12.1161.lcssa, ptr %agg.tmp.sroa.2.0.first.sroa_idx, align 8
   store ptr %i.sroa.16.1164.lcssa, ptr %agg.tmp.sroa.3.0.first.sroa_idx, align 8
   store ptr %i.sroa.20.1167.lcssa, ptr %agg.tmp.sroa.4.0.first.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %first, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %first, i64 32, i1 false)
   %second.i126 = getelementptr inbounds i8, ptr %agg.result, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %second.i126, ptr noundef nonnull align 8 dereferenceable(32) %first, i64 32, i1 false)
   br label %return
@@ -137787,7 +137787,7 @@ while.end:                                        ; preds = %if.end17, %entry
   store ptr %i.sroa.12.1160.lcssa, ptr %agg.tmp.sroa.2.0.first.sroa_idx, align 8
   store ptr %i.sroa.16.1163.lcssa, ptr %agg.tmp.sroa.3.0.first.sroa_idx, align 8
   store ptr %i.sroa.20.1166.lcssa, ptr %agg.tmp.sroa.4.0.first.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %first, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %first, i64 32, i1 false)
   %second.i125 = getelementptr inbounds i8, ptr %agg.result, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %second.i125, ptr noundef nonnull align 8 dereferenceable(32) %first, i64 32, i1 false)
   br label %return

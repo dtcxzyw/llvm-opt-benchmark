@@ -144,7 +144,7 @@ define linkonce_odr void @_ZNSt6threadC2IRSt8functionIFvvEEJEvEEOT_DpOT0_(ptr no
   br i1 %.not.i.i.not.i.i.i.i.i.i, label %_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEC2IJRS5_EEEDpOT_.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %10
@@ -163,7 +163,7 @@ define linkonce_odr void @_ZNSt6threadC2IRSt8functionIFvvEEJEvEEOT_DpOT0_(ptr no
   br i1 %.not.i.i.i.i.i.i.i, label %.body.i, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %.body.i unwind label %21
 
 21:                                               ; preds = %19
@@ -174,7 +174,7 @@ define linkonce_odr void @_ZNSt6threadC2IRSt8functionIFvvEEJEvEEOT_DpOT0_(ptr no
   unreachable
 
 .body.i:                                          ; preds = %19, %16
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 40) #12
   br label %_ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit7
 
@@ -232,7 +232,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8fu
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt6thread8_InvokerISt5tupleIJSt8functionIFvvEEEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -257,7 +257,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8fu
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -268,7 +268,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8fu
   unreachable
 
 _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #12
   ret void
 }
@@ -288,7 +288,7 @@ _ZNSt6thread8_InvokerISt5tupleIJSt8functionIFvvEEEEEclEv.exit: ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %5)
   ret void
 }
 

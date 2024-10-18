@@ -373,7 +373,7 @@ define dso_local void @_ZN5clang6format14TokenAnnotator8annotateERNS0_13Annotate
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %19 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %19, i64 noundef 8) #17
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(1524) %4, ptr noundef nonnull %19, i64 noundef 8) #17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 464
   store ptr %16, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 472
@@ -425,7 +425,7 @@ define dso_local void @_ZN5clang6format14TokenAnnotator8annotateERNS0_13Annotate
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i32 0, ptr %47, align 4
   store i64 0, ptr %46, align 1
-  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(1524) %4, ptr noundef nonnull align 8 dereferenceable(56) %3)
   call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser18resetTokenMetadataEv(ptr noundef nonnull align 8 dereferenceable(1524) %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   %48 = call fastcc noundef i32 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser9parseLineEv(ptr noundef nonnull align 8 dereferenceable(1524) %4)
@@ -974,7 +974,7 @@ _ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit81.thr
 
 _ZN4llvm11SmallPtrSetIPN5clang6format11FormatTokenELj16EED2Ev.exit.i: ; preds = %273, %269
   call void @_ZN5clang11LangOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(841) %31) #17
-  %274 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %274 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %4) #17
   %275 = load ptr, ptr %4, align 8
   %276 = icmp eq ptr %275, %19
   br i1 %276, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParserD2Ev.exit, label %277
@@ -1165,7 +1165,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit76:     ; preds = %._ZNK5clang5Token17
 
 76:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit76, %_ZNK5clang5Token17getIdentifierInfoEv.exit76
   %.val.i.i74 = load ptr, ptr %0, align 8
-  %77 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %77 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %78 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i74, i64 %77
   %79 = getelementptr inbounds i8, ptr %78, i64 -48
   store i8 1, ptr %79, align 8
@@ -2144,7 +2144,7 @@ common.ret1279:                                   ; preds = %74, %_ZN5clang6form
 78:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %79 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %79, i64 noundef 2) #17
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %79, i64 noundef 2) #17
   %80 = load ptr, ptr %4, align 8
   %.not.i106479 = icmp eq ptr %80, null
   br i1 %.not.i106479, label %.critedge.i107, label %.lr.ph480.preheader
@@ -2230,7 +2230,7 @@ _ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit232: ; preds = %.lr.
 .critedge.i107:                                   ; preds = %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit232, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit, %96, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i229, %.lr.ph480.preheader, %.critedge.sink.split.i231, %78
   call fastcc void @_ZN5clang6format12_GLOBAL__N_116ExpressionParser5parseEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 17)
   %113 = load ptr, ptr %3, align 8, !noalias !38
-  %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17, !noalias !38
+  %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17, !noalias !38
   %115 = getelementptr inbounds ptr, ptr %113, i64 %114
   %116 = load ptr, ptr %3, align 8, !noalias !49
   %.not410482 = icmp eq ptr %115, %116
@@ -2245,7 +2245,7 @@ _ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit232: ; preds = %.lr.
   br i1 %.not410, label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser18parseUnaryOperatorEv.exit, label %.lr.ph484
 
 _ZN5clang6format12_GLOBAL__N_116ExpressionParser18parseUnaryOperatorEv.exit: ; preds = %.lr.ph484, %.critedge.i107
-  %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   %120 = load ptr, ptr %3, align 8
   %121 = icmp eq ptr %120, %79
   br i1 %121, label %_ZN4llvm11SmallVectorIPN5clang6format11FormatTokenELj2EED2Ev.exit, label %122
@@ -19733,7 +19733,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i.i: ; preds = %36, %.p
 
 42:                                               ; preds = %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i.i
   %.val.i.i.i.i = load ptr, ptr %0, align 8
-  %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %44 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i.i.i, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -56
   %46 = load i16, ptr %45, align 8
@@ -19945,7 +19945,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatT
 
 _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.thread81.i: ; preds = %57, %_ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.i, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEPNS_14IdentifierInfoES4_EEEbDpT_.exit.thread3.i.i, %48
   %.val.i.i.i = load ptr, ptr %0, align 8
-  %118 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %118 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %119 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i.i, i64 %118
   %120 = getelementptr inbounds i8, ptr %119, i64 -48
   store i8 1, ptr %120, align 8
@@ -20129,7 +20129,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatT
 
 186:                                              ; preds = %183, %180
   %.val.i.i62.i = load ptr, ptr %0, align 8
-  %187 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %187 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %188 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i62.i, i64 %187
   %189 = getelementptr inbounds i8, ptr %188, i64 -48
   store i8 1, ptr %189, align 8
@@ -20137,7 +20137,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatT
 
 190:                                              ; preds = %_ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.thread.i, %_ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.thread.i
   %.val.i.i64.i = load ptr, ptr %0, align 8
-  %191 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %191 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %192 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i64.i, i64 %191
   %193 = getelementptr inbounds i8, ptr %192, i64 -48
   store i8 1, ptr %193, align 8
@@ -20151,7 +20151,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatT
 
 198:                                              ; preds = %194
   %.val.i.i65.i = load ptr, ptr %0, align 8
-  %199 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %199 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %200 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i65.i, i64 %199
   %201 = getelementptr inbounds i8, ptr %200, i64 -48
   store i8 0, ptr %201, align 8
@@ -20200,7 +20200,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_
   %216 = load i8, ptr %215, align 2
   %217 = icmp eq i8 %216, 3
   %.val.i.i67.i = load ptr, ptr %0, align 8
-  %218 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %218 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %219 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i67.i, i64 %218
   %220 = getelementptr inbounds i8, ptr %219, i64 -48
   %221 = zext i1 %217 to i8
@@ -20223,12 +20223,12 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_
 
 227:                                              ; preds = %224
   %.val.i.i68.i = load ptr, ptr %0, align 8
-  %228 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %228 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %229 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i68.i, i64 %228
   %230 = getelementptr inbounds i8, ptr %229, i64 -48
   store i8 1, ptr %230, align 8
   %.val.i.i69.i = load ptr, ptr %0, align 8
-  %231 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %231 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %232 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i69.i, i64 %231
   %233 = getelementptr inbounds i8, ptr %232, i64 -4
   store i32 1, ptr %233, align 4
@@ -20236,7 +20236,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_
 
 234:                                              ; preds = %224
   %.val.i.i70.i = load ptr, ptr %0, align 8
-  %235 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %235 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %236 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i70.i, i64 %235
   %237 = getelementptr inbounds i8, ptr %236, i64 -4
   store i32 3, ptr %237, align 4
@@ -20301,7 +20301,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit75.i: ; preds = %247, 
   br i1 %.not51.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenE.exit, label %258
 
 258:                                              ; preds = %255
-  %259 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %259 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %260 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val57.i, i64 %259
   %261 = getelementptr inbounds i8, ptr %260, i64 -48
   store i8 0, ptr %261, align 8
@@ -20309,7 +20309,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit75.i: ; preds = %247, 
 
 262:                                              ; preds = %.thread.i
   %.val.i.i77.i = load ptr, ptr %0, align 8
-  %263 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %263 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %264 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i77.i, i64 %263
   %265 = getelementptr inbounds i8, ptr %264, i64 -16
   store i8 0, ptr %265, align 8
@@ -20326,7 +20326,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit75.i: ; preds = %247, 
 
 270:                                              ; preds = %267, %.thread.i
   %.val.i.i78.i = load ptr, ptr %0, align 8
-  %271 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %271 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %272 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i78.i, i64 %271
   %273 = getelementptr inbounds i8, ptr %272, i64 -48
   store i8 1, ptr %273, align 8
@@ -20893,7 +20893,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit65.preheader.i.i: ; 
 
 457:                                              ; preds = %455
   %.val.i.i.i.i10 = load ptr, ptr %0, align 8
-  %458 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %458 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %459 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i.i.i10, i64 %458
   %460 = getelementptr inbounds i8, ptr %459, i64 -56
   %461 = load i16, ptr %460, align 8
@@ -21017,7 +21017,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser13isStartOfNameERKNS0_11FormatTo
 
 514:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13isStartOfNameERKNS0_11FormatTokenE.exit.thread348.i
   %.val.i.i.i8 = load ptr, ptr %0, align 8
-  %515 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %515 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %516 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i.i8, i64 %515
   %517 = getelementptr inbounds i8, ptr %516, i64 -24
   store ptr %274, ptr %517, align 8
@@ -21049,7 +21049,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser13isStartOfNameERKNS0_11FormatTo
 
 526:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13isStartOfNameERKNS0_11FormatTokenE.exit.thread.i
   %.val.i.i189.i = load ptr, ptr %0, align 8
-  %527 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %527 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %528 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i189.i, i64 %527
   %529 = getelementptr inbounds i8, ptr %528, i64 -24
   store ptr null, ptr %529, align 8
@@ -21364,7 +21364,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11Format
 
 673:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11FormatTokenE.exit.thread, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11FormatTokenE.exit.thread, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11FormatTokenE.exit.thread
   %.val.i.i202.i = load ptr, ptr %0, align 8
-  %674 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %674 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %675 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i202.i, i64 %674
   %676 = getelementptr inbounds i8, ptr %675, i64 -16
   %677 = load i8, ptr %676, align 8
@@ -21373,7 +21373,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11Format
 
 679:                                              ; preds = %673
   %.val.i.i203.i = load ptr, ptr %0, align 8
-  %680 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %680 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %681 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i203.i, i64 %680
   %682 = getelementptr inbounds i8, ptr %681, i64 -48
   %683 = load i8, ptr %682, align 8
@@ -21383,7 +21383,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11Format
 685:                                              ; preds = %679, %673
   %686 = phi i1 [ false, %673 ], [ %684, %679 ]
   %.val.i.i204.i = load ptr, ptr %0, align 8
-  %687 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %687 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %688 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i204.i, i64 %687
   %689 = getelementptr inbounds i8, ptr %688, i64 -4
   %690 = load i32, ptr %689, align 4
@@ -21439,7 +21439,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit209.i: ; preds = %_ZN5
 
 717:                                              ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit209.i
   %.val.i.i210.i = load ptr, ptr %0, align 8
-  %718 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %718 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %719 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i210.i, i64 %718
   %720 = getelementptr inbounds i8, ptr %719, i64 -15
   store i8 1, ptr %720, align 1
@@ -21530,7 +21530,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser23determineIncrementUsageERKNS0_
 
 754:                                              ; preds = %748
   %.val.i.i223.i = load ptr, ptr %0, align 8
-  %755 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %755 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %756 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i223.i, i64 %755
   %757 = getelementptr inbounds i8, ptr %756, i64 -48
   %758 = load i8, ptr %757, align 8
@@ -21636,13 +21636,13 @@ _ZNK5clang6format11FormatToken16isBinaryOperatorEv.exit.i: ; preds = %790, %786
   br i1 %805, label %806, label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit.i
 
 806:                                              ; preds = %804
-  %807 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %807 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %808 = icmp eq i64 %807, 1
   br i1 %808, label %809, label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit.i
 
 809:                                              ; preds = %806
   %.val.i.i232.i = load ptr, ptr %0, align 8
-  %810 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %810 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %811 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i232.i, i64 %810
   %812 = getelementptr inbounds i8, ptr %811, i64 -12
   %813 = load i8, ptr %812, align 4
@@ -21685,7 +21685,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %827, %_ZN5cla
 
 831:                                              ; preds = %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i
   %.val.i.i236.i = load ptr, ptr %0, align 8
-  %832 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %832 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %833 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i236.i, i64 %832
   %834 = getelementptr inbounds i8, ptr %833, i64 -12
   store i8 1, ptr %834, align 4
@@ -21777,7 +21777,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread354.i: ; preds = %_ZNK4llvm9Stri
 
 872:                                              ; preds = %867
   %.val.i.i246.i = load ptr, ptr %0, align 8
-  %873 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %873 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %874 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i246.i, i64 %873
   %875 = getelementptr inbounds i8, ptr %874, i64 -11
   %876 = load i8, ptr %875, align 1
@@ -22278,7 +22278,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_E
   br i1 %1079, label %1080, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_EEEbT_T0_DpT1_.exit.thread.i
 
 1080:                                             ; preds = %1074
-  %1081 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %1081 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %1082 = icmp eq i64 %1081, 1
   br i1 %1082, label %1083, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_EEEbT_T0_DpT1_.exit.thread.i
 
@@ -25624,13 +25624,13 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit: ; preds = %9, %10
   store i16 %17, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %.val.i.i.i = load ptr, ptr %0, align 8
-  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %20 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i.i, i64 %19
   %21 = getelementptr inbounds i8, ptr %20, i64 -52
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   %.val.i.i6.i = load ptr, ptr %0, align 8
-  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %25 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i6.i, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -48
   %27 = load i8, ptr %26, align 8
@@ -25650,7 +25650,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit: ; preds = %9, %10
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i32 0, ptr %35, align 4
   store i64 0, ptr %34, align 1
-  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull align 8 dereferenceable(56) %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   %36 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   %37 = icmp eq i64 %36, 2
@@ -25701,7 +25701,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit: ; preds = %9, %10
   br i1 %64, label %74, label %65
 
 65:                                               ; preds = %.thread
-  %66 = call noundef zeroext i1 @_ZNK5clang5Token15isObjCAtKeywordENS_3tok15ObjCKeywordKindE(ptr noundef nonnull align 8 dereferenceable(20) %48, i32 noundef 12) #17
+  %66 = call noundef zeroext i1 @_ZNK5clang5Token15isObjCAtKeywordENS_3tok15ObjCKeywordKindE(ptr noundef nonnull align 8 dereferenceable(305) %48, i32 noundef 12) #17
   br i1 %66, label %67, label %74
 
 67:                                               ; preds = %65
@@ -28246,7 +28246,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser32isTableGenDAGArgBreakingOperat
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %40 = load ptr, ptr %14, align 8
   %41 = load ptr, ptr %16, align 8
-  %42 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %40, ptr %41, ptr nonnull %4)
+  %42 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %40, ptr %41, ptr nonnull align 8 dereferenceable(32) %4)
   %43 = load ptr, ptr %16, align 8
   %.not40 = icmp eq ptr %42, %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
@@ -28721,13 +28721,13 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit27..thread_crit_edge: 
 94:                                               ; preds = %.thread
   tail call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
   %.val.i.i25 = load ptr, ptr %0, align 8
-  %95 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %95 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %96 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i25, i64 %95
   %97 = getelementptr inbounds i8, ptr %96, i64 -9
   store i8 1, ptr %97, align 1
   %98 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser11parseParensEb(ptr noundef nonnull align 8 dereferenceable(1524) %0, i1 noundef zeroext false)
   %.val.i.i = load ptr, ptr %0, align 8
-  %99 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %99 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %100 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -9
   store i8 0, ptr %101, align 1
@@ -29026,13 +29026,13 @@ thread-pre-split:                                 ; preds = %12, %3
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6format18CommaSeparatedListE, i64 16), ptr %25, align 8
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %30 = getelementptr inbounds i8, ptr %25, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull %30, i64 noundef 8) #17
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %29, ptr noundef nonnull %30, i64 noundef 8) #17
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %32 = getelementptr inbounds i8, ptr %25, i64 112
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %32, i64 noundef 8) #17
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %32, i64 noundef 8) #17
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 144
   %34 = getelementptr inbounds i8, ptr %25, i64 160
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %34, i64 noundef 4) #17
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %33, ptr noundef nonnull %34, i64 noundef 4) #17
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 416
   store i8 0, ptr %35, align 8
   %36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
@@ -30115,13 +30115,13 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %310, %303
   %.0106 = phi i32 [ 1, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit160 ], [ 1, %194 ], [ 1, %192 ], [ 1, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit175 ], [ 1, %279 ], [ 1, %281 ], [ 1, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_EEEbT_T0_DpT1_.exit.thread ], [ 1, %152 ], [ 1, %159 ], [ 1, %166 ], [ 1, %173 ], [ 1, %175 ], [ 1, %182 ], [ 1, %212 ], [ 1, %219 ], [ 1, %232 ], [ 1, %239 ], [ 1, %241 ], [ 1, %248 ], [ 1, %258 ], [ 1, %265 ], [ 10, %283 ], [ 10, %288 ], [ 1, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindES5_S5_S5_S5_S5_S5_S5_EEEbT_T0_DpT1_.exit.thread ], [ 1, %302 ], [ 10, %303 ], [ 10, %310 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %.val.i.i.i = load ptr, ptr %0, align 8
-  %312 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %312 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %313 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i.i, i64 %312
   %314 = getelementptr inbounds i8, ptr %313, i64 -52
   %315 = load i32, ptr %314, align 4
   %316 = add i32 %315, %.0106
   %.val.i.i6.i = load ptr, ptr %0, align 8
-  %317 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %317 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %318 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i6.i, i64 %317
   %319 = getelementptr inbounds i8, ptr %318, i64 -48
   %320 = load i8, ptr %319, align 8
@@ -30141,7 +30141,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %310, %303
   %328 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 0, ptr %328, align 4
   store i64 0, ptr %327, align 1
-  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   %.val.i.i183 = load ptr, ptr %0, align 8
   %329 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -30833,13 +30833,13 @@ _ZN5clang6format11FormatToken18overwriteFixedTypeENS0_9TokenTypeE.exit: ; preds 
   store i8 0, ptr %32, align 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %.val.i.i.i = load ptr, ptr %0, align 8
-  %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %34 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i.i, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -52
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, 1
   %.val.i.i6.i = load ptr, ptr %0, align 8
-  %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %39 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i6.i, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -48
   %41 = load i8, ptr %40, align 8
@@ -30859,7 +30859,7 @@ _ZN5clang6format11FormatToken18overwriteFixedTypeENS0_9TokenTypeE.exit: ; preds 
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 0, ptr %49, align 4
   store i64 0, ptr %48, align 1
-  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   %.val.i.i38 = load ptr, ptr %0, align 8
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -31045,17 +31045,17 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %
   br i1 %130, label %131, label %_ZNK5clang6format12_GLOBAL__N_116AnnotatingParser31couldBeInStructArrayInitializerEv.exit.thread
 
 131:                                              ; preds = %128
-  %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %133 = icmp ult i64 %132, 2
   br i1 %133, label %_ZNK5clang6format12_GLOBAL__N_116AnnotatingParser31couldBeInStructArrayInitializerEv.exit.thread, label %134
 
 134:                                              ; preds = %131
   %.val.i.i.i48 = load ptr, ptr %0, align 8, !noalias !109
-  %135 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17, !noalias !109
+  %135 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17, !noalias !109
   %136 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i.i48, i64 %135
   %137 = getelementptr inbounds i8, ptr %136, i64 -112
   %.val.i.i7.i = load ptr, ptr %0, align 8, !noalias !112
-  %138 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17, !noalias !112
+  %138 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17, !noalias !112
   %139 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i7.i, i64 %138
   %.not10.i = icmp eq ptr %139, %137
   br i1 %.not10.i, label %_ZNK5clang6format12_GLOBAL__N_116AnnotatingParser31couldBeInStructArrayInitializerEv.exit.thread, label %.lr.ph.i
@@ -31496,13 +31496,13 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE5countEPKS3_.exit: ; pr
   store i16 %74, ptr %75, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %.val.i.i.i = load ptr, ptr %0, align 8
-  %76 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %76 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %77 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i.i, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -52
   %79 = load i32, ptr %78, align 4
   %80 = add i32 %79, 12
   %.val.i.i6.i = load ptr, ptr %0, align 8
-  %81 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  %81 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1524) %0) #17
   %82 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i6.i, i64 %81
   %83 = getelementptr inbounds i8, ptr %82, i64 -48
   %84 = load i8, ptr %83, align 8
@@ -31522,7 +31522,7 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE5countEPKS3_.exit: ; pr
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 0, ptr %92, align 4
   store i64 0, ptr %91, align 1
-  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116AnnotatingParser7ContextELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   %.val.i.i60 = load ptr, ptr %0, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -35322,7 +35322,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.05.i.i.i.i3 = phi ptr [ %22, %.lr.ph.i.i.i.i2 ], [ %19, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i.i3) #17
   %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 56
   %.not.i.i.i.i4 = icmp eq ptr %22, %21
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN4llvm6TripleES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !132
@@ -35640,7 +35640,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 96) #20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133

@@ -192,7 +192,7 @@ if.then8:                                         ; preds = %if.then3
   br i1 %cmp.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then8
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef 8, i64 noundef %conv) #12
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.36, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv) #12
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then8
@@ -334,9 +334,9 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then1.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i.i)
-  %call.i.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i.i, i64 noundef 40, ptr noundef nonnull @.str.12, i64 noundef %4) #10
+  %call.i.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i.i, i64 noundef 40, ptr noundef nonnull @.str.12, i64 noundef range(i64 8589934592, 0) %4) #10
   %conv.i.i = sext i32 %call.i.i to i64
-  call fastcc void @strbuf_append_ext_header(ptr noundef %ext_header.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i.i, i64 noundef %conv.i.i)
+  call fastcc void @strbuf_append_ext_header(ptr noundef nonnull %ext_header.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i.i, i64 noundef %conv.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i.i)
   store i64 8589934591, ptr %git_time.i, align 8
   br label %if.end4.i
@@ -681,9 +681,9 @@ if.end58:                                         ; preds = %if.end45
 
 if.then63:                                        ; preds = %if.end58
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i)
-  %call.i43 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i, i64 noundef 40, ptr noundef nonnull @.str.12, i64 noundef %size) #10
+  %call.i43 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i, i64 noundef 40, ptr noundef nonnull @.str.12, i64 noundef range(i64 8589934592, 0) %size) #10
   %conv.i = sext i32 %call.i43 to i64
-  call fastcc void @strbuf_append_ext_header(ptr noundef %ext_header, ptr noundef nonnull @.str.23, ptr noundef nonnull %buf.i, i64 noundef %conv.i)
+  call fastcc void @strbuf_append_ext_header(ptr noundef nonnull %ext_header, ptr noundef nonnull @.str.23, ptr noundef nonnull %buf.i, i64 noundef %conv.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
   br label %if.end64
 
@@ -705,7 +705,7 @@ if.then66:                                        ; preds = %if.end64
   store i8 120, ptr %typeflag.i, align 1
   %call.i44 = call ptr @oid_to_hex(ptr noundef %oid) #10
   %call2.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %header.i, i64 noundef 100, ptr noundef nonnull @.str.25, ptr noundef %call.i44) #10
-  call fastcc void @prepare_header(ptr noundef readonly %args, ptr noundef %header.i, i32 noundef 33206, i64 noundef %8)
+  call fastcc void @prepare_header(ptr noundef readonly %args, ptr noundef %header.i, i32 noundef 33206, i64 noundef range(i64 1, 0) %8)
   %10 = load i64, ptr @offset, align 8
   %tobool.not.i.i.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i.i, label %if.then9.i.i.i, label %if.then.i.i.i
@@ -766,7 +766,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i2.i.i, %do
 
 if.then.i.i3.i:                                   ; preds = %if.end.i.i.i
   %sub.i.i4.i = sub i64 10240, %.pr.i
-  %spec.select.i.i5.i = call i64 @llvm.umin.i64(i64 %8, i64 %sub.i.i4.i)
+  %spec.select.i.i5.i = call i64 @llvm.umin.i64(i64 range(i64 1, 0) %8, i64 %sub.i.i4.i)
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr @block, i64 %.pr.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i6.i, ptr align 1 %9, i64 %spec.select.i.i5.i, i1 false)
   %sub2.i.i7.i = sub i64 %8, %spec.select.i.i5.i

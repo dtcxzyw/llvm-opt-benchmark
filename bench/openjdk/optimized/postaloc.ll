@@ -1255,7 +1255,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %98, %86, %79
   br label %_ZN4Node7set_reqEjPS_.exit
 
 _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS_.exit.i, %103, %114
-  %120 = tail call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef %70, ptr noundef %70, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %120 = tail call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %70, ptr noundef nonnull %70, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %121 = getelementptr inbounds i8, ptr %.03352, i64 -8
   %122 = getelementptr inbounds i8, ptr %.04451, i64 -8
   br label %123
@@ -1571,7 +1571,7 @@ _ZN4NodenwEm.exit:                                ; preds = %64, %66
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef i32 @_ZNK5Block9find_nodeEPK4Node(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %73) #9
   %75 = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %75, i32 noundef %74, ptr noundef %.0.i.i.i) #9
+  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %75, i32 noundef %74, ptr noundef %.0.i.i.i) #9
   %76 = getelementptr inbounds i8, ptr %3, i64 40
   %77 = load i32, ptr %76, align 8
   %78 = add i32 %77, 1
@@ -1798,7 +1798,7 @@ declare void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13MachMergeNodeC2EP4Node(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 0) #9
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0) #9
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   store i8 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 54
@@ -2053,7 +2053,7 @@ _ZNK5Block8get_nodeEj.exit387:                    ; preds = %100, %104
   br i1 %.not139.i, label %156, label %_ZN12PhaseChaitin10elide_copyEP4NodeiP5BlockP9Node_ListS5_b.exit
 
 156:                                              ; preds = %143
-  %157 = call noundef i32 @_ZN12PhaseChaitin18use_prior_registerEP4NodejS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %108, i32 noundef %99, ptr noundef nonnull %140, ptr noundef %59, ptr noundef %112, ptr noundef %114)
+  %157 = call noundef i32 @_ZN12PhaseChaitin18use_prior_registerEP4NodejS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %108, i32 noundef %99, ptr noundef nonnull %140, ptr noundef nonnull %59, ptr noundef %112, ptr noundef %114)
   %158 = load ptr, ptr %115, align 8
   %159 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv761
   %160 = load ptr, ptr %159, align 8
@@ -2422,7 +2422,7 @@ _ZN9Node_ListC2Ej.exit394:                        ; preds = %288, %290
   br i1 %354, label %355, label %356
 
 355:                                              ; preds = %329
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %304, i32 noundef %351) #9
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %304, i32 noundef %351) #9
   br label %356
 
 356:                                              ; preds = %355, %329
@@ -2470,7 +2470,7 @@ _ZN9Node_List4copyERKS_.exit:                     ; preds = %.lr.ph.i.i, %356
   br i1 %382, label %383, label %384
 
 383:                                              ; preds = %_ZN9Node_List4copyERKS_.exit
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %303, i32 noundef %379) #9
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %303, i32 noundef %379) #9
   br label %384
 
 384:                                              ; preds = %383, %_ZN9Node_List4copyERKS_.exit
@@ -2738,7 +2738,7 @@ _ZNK5Block8get_nodeEj.exit410:                    ; preds = %489, %492
 ._crit_edge689.thread:                            ; preds = %_ZNK5Block8get_nodeEj.exit410, %519, %._crit_edge689
   %.0343.lcssa804 = phi ptr [ inttoptr (i64 -1 to ptr), %519 ], [ %.1344, %._crit_edge689 ], [ null, %_ZNK5Block8get_nodeEj.exit410 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %497, ptr noundef %.0343.lcssa804) #9
-  %523 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %497, ptr noundef nonnull %497, ptr noundef %59, ptr noundef %304, ptr noundef %303)
+  %523 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %497, ptr noundef nonnull %497, ptr noundef nonnull %59, ptr noundef %304, ptr noundef %303)
   %524 = sub i32 %.2694, %523
   %525 = add i32 %.1331693, -1
   br label %.loopexit621
@@ -3450,7 +3450,7 @@ _ZN4Node7del_outEPS_.exit.i.i:                    ; preds = %887, %875, %868
   br label %_ZN4Node7set_reqEjPS_.exit.i
 
 _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %903, %892, %_ZN4Node7del_outEPS_.exit.i.i
-  %909 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef %859, ptr noundef %859, ptr noundef %59, ptr noundef nonnull %304, ptr noundef nonnull %303)
+  %909 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %859, ptr noundef nonnull %859, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
   %910 = getelementptr inbounds i8, ptr %.03352.i, i64 -8
   %911 = getelementptr inbounds i8, ptr %.04451.i, i64 -8
   br label %912
@@ -3479,7 +3479,7 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %903, %892, %_ZN4Nod
 _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit: ; preds = %.loopexit617, %919
   %923 = phi ptr [ %922, %919 ], [ null, %.loopexit617 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %568, ptr noundef %923) #9
-  %924 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef %59, ptr noundef nonnull %304, ptr noundef nonnull %303)
+  %924 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
   %925 = sub i32 %.6.lcssa, %924
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
@@ -3614,7 +3614,7 @@ _ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread606: ; preds = %936,
 _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit458: ; preds = %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread606, %991
   %996 = phi ptr [ %995, %991 ], [ null, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread606 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %568, ptr noundef %996) #9
-  %997 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef %59, ptr noundef nonnull %304, ptr noundef nonnull %303)
+  %997 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
   %998 = sub i32 %.6.lcssa, %997
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
@@ -3740,7 +3740,7 @@ _ZN10Node_Array3mapEjP4Node.exit471:              ; preds = %_ZN10Node_Array3map
 _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit473: ; preds = %1035, %1038
   %1043 = phi ptr [ %1042, %1038 ], [ null, %1035 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %568, ptr noundef %1043) #9
-  %1044 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef %59, ptr noundef nonnull %304, ptr noundef nonnull %303)
+  %1044 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
   %1045 = sub i32 %.6.lcssa, %1044
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
@@ -3792,7 +3792,7 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit473
 
 1077:                                             ; preds = %.lr.ph.i474
   %1078 = shl i32 %.0712.i, 6
-  %1079 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1076, i1 true)
+  %1079 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1076, i1 true)
   %1080 = trunc nuw nsw i64 %1079 to i32
   %1081 = or disjoint i32 %1078, %1080
   br label %_ZNK7RegMask15find_first_elemEv.exit
@@ -4022,7 +4022,7 @@ _ZN4Node7del_outEPS_.exit.i.i499:                 ; preds = %1183, %1171, %1164
   br label %_ZN4Node7set_reqEjPS_.exit.i501
 
 _ZN4Node7set_reqEjPS_.exit.i501:                  ; preds = %1199, %1188, %_ZN4Node7del_outEPS_.exit.i.i499
-  %1205 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef %1155, ptr noundef %1155, ptr noundef %59, ptr noundef nonnull %304, ptr noundef nonnull %303)
+  %1205 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull readonly align 8 dereferenceable(364) %0, ptr noundef nonnull %1155, ptr noundef nonnull %1155, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
   %1206 = getelementptr inbounds i8, ptr %.03352.i491, i64 -8
   %1207 = getelementptr inbounds i8, ptr %.04451.i492, i64 -8
   br label %1208
@@ -4051,7 +4051,7 @@ _ZN4Node7set_reqEjPS_.exit.i501:                  ; preds = %1199, %1188, %_ZN4N
 _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit506: ; preds = %.loopexit620, %1215
   %1219 = phi ptr [ %1218, %1215 ], [ null, %.loopexit620 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %568, ptr noundef %1219) #9
-  %1220 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef %59, ptr noundef nonnull %304, ptr noundef nonnull %303)
+  %1220 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
   %1221 = sub i32 %.6.lcssa, %1220
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
@@ -4127,7 +4127,7 @@ _ZN10Node_Array3mapEjP4Node.exit514:              ; preds = %_ZN10Node_Array3map
 _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit516: ; preds = %1243, %1246
   %1251 = phi ptr [ %1250, %1246 ], [ null, %1243 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %568, ptr noundef %1251) #9
-  %1252 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef %59, ptr noundef nonnull %304, ptr noundef nonnull %303)
+  %1252 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %568, ptr noundef nonnull %568, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(28) %304, ptr noundef nonnull align 8 dereferenceable(28) %303)
   %1253 = sub i32 %.6.lcssa, %1252
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
@@ -4161,7 +4161,7 @@ _ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread: ; preds = %_ZN10No
   br i1 %.not11.i.i, label %1264, label %_ZN15RegMaskIteratorC2ERK7RegMask.exit, !llvm.loop !39
 
 _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %1265
-  %1270 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1269, i1 true)
+  %1270 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1269, i1 true)
   %1271 = trunc nuw nsw i64 %1270 to i32
   %1272 = shl i32 %1266, 6
   %1273 = add i32 %1272, -64
@@ -4186,7 +4186,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %1265
   br label %.preheader.i518
 
 1278:                                             ; preds = %.lr.ph717
-  %1279 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.0.0716, i1 true)
+  %1279 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.sroa.0.0716, i1 true)
   %1280 = trunc nuw nsw i64 %1279 to i32
   %1281 = lshr i64 %.sroa.0.0716, %1279
   %1282 = add i64 %1281, -1
@@ -4207,7 +4207,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %1265
   br i1 %.not11.i519, label %.preheader.i518, label %1289, !llvm.loop !39
 
 1289:                                             ; preds = %1284
-  %1290 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1288, i1 true)
+  %1290 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1288, i1 true)
   %1291 = trunc nuw nsw i64 %1290 to i32
   %1292 = lshr i64 %1288, %1290
   %1293 = add i64 %1292, -1

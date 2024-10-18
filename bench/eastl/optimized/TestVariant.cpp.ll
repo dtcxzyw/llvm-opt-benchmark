@@ -308,7 +308,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i, label %invoke.cont15, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont11
-  invoke void %0(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %0(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %mStorage.i, ptr noundef null)
           to label %invoke.cont15 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -333,7 +333,7 @@ invoke.cont19:                                    ; preds = %invoke.cont15
   br i1 %tobool.not.i.i.i9, label %invoke.cont25, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %invoke.cont19
-  invoke void %3(i32 noundef 1, ptr noundef nonnull %mStorage.i5, ptr noundef null)
+  invoke void %3(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %mStorage.i5, ptr noundef null)
           to label %invoke.cont25 unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %if.then.i.i.i10
@@ -360,7 +360,7 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   br i1 %tobool.not.i.i.i18, label %invoke.cont34, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %invoke.cont29
-  invoke void %7(i32 noundef 1, ptr noundef nonnull %mStorage.i14, ptr noundef null)
+  invoke void %7(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %mStorage.i14, ptr noundef null)
           to label %invoke.cont34 unwind label %terminate.lpad.i.i21
 
 terminate.lpad.i.i21:                             ; preds = %if.then.i.i.i19
@@ -385,7 +385,7 @@ invoke.cont38:                                    ; preds = %invoke.cont34
   br i1 %tobool.not.i.i.i27, label %invoke.cont48, label %if.then.i.i.i28
 
 if.then.i.i.i28:                                  ; preds = %invoke.cont38
-  invoke void %10(i32 noundef 1, ptr noundef nonnull %mStorage.i23, ptr noundef null)
+  invoke void %10(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %mStorage.i23, ptr noundef null)
           to label %invoke.cont48 unwind label %terminate.lpad.i.i30
 
 terminate.lpad.i.i30:                             ; preds = %if.then.i.i.i28
@@ -437,7 +437,7 @@ invoke.cont51:                                    ; preds = %invoke.cont48
 if.then10.i.i.i:                                  ; preds = %invoke.cont51
   %mStorage.i39 = getelementptr inbounds i8, ptr %vCopy, i64 8
   store ptr %19, ptr %mpHandler.i.i38, align 8
-  invoke void %19(i32 noundef 2, ptr noundef nonnull %mStorage.i39, ptr noundef nonnull %mStorage.i32)
+  invoke void %19(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i39, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i32)
           to label %invoke.cont55 unwind label %lpad47
 
 invoke.cont55:                                    ; preds = %if.then10.i.i.i, %invoke.cont51
@@ -453,7 +453,7 @@ invoke.cont59:                                    ; preds = %invoke.cont55
   br i1 %tobool.not.i.i.i42, label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit, label %if.then.i.i.i43
 
 if.then.i.i.i43:                                  ; preds = %invoke.cont59
-  invoke void %21(i32 noundef 1, ptr noundef nonnull %mStorage.i.i40, ptr noundef null)
+  invoke void %21(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i.i40, ptr noundef null)
           to label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit unwind label %terminate.lpad.i.i45
 
 terminate.lpad.i.i45:                             ; preds = %if.then.i.i.i43
@@ -469,7 +469,7 @@ _ZN5eastl7variantIJ10TestObjectEED2Ev.exit:       ; preds = %invoke.cont59, %if.
   br i1 %tobool.not.i.i.i47, label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit51, label %if.then.i.i.i48
 
 if.then.i.i.i48:                                  ; preds = %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit
-  invoke void %24(i32 noundef 1, ptr noundef nonnull %mStorage.i32, ptr noundef null)
+  invoke void %24(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i32, ptr noundef null)
           to label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit51 unwind label %terminate.lpad.i.i50
 
 terminate.lpad.i.i50:                             ; preds = %if.then.i.i.i48
@@ -649,7 +649,7 @@ invoke.cont90:                                    ; preds = %_ZN5eastleqIcNS_9al
   br i1 %tobool.not.i.i.i115, label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i.i116
 
 if.then.i.i.i116:                                 ; preds = %invoke.cont90
-  invoke void %54(i32 noundef 1, ptr noundef nonnull %mStorage.i52, ptr noundef null)
+  invoke void %54(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i52, ptr noundef null)
           to label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i118
 
 terminate.lpad.i.i118:                            ; preds = %if.then.i.i.i116
@@ -671,7 +671,7 @@ lpad:                                             ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i120, label %eh.resume, label %if.then.i.i.i121
 
 if.then.i.i.i121:                                 ; preds = %lpad
-  invoke void %59(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %59(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %mStorage.i, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i123
 
 terminate.lpad.i.i123:                            ; preds = %if.then.i.i.i121
@@ -689,7 +689,7 @@ lpad14:                                           ; preds = %invoke.cont15
   br i1 %tobool.not.i.i.i126, label %eh.resume, label %if.then.i.i.i127
 
 if.then.i.i.i127:                                 ; preds = %lpad14
-  invoke void %63(i32 noundef 1, ptr noundef nonnull %mStorage.i5, ptr noundef null)
+  invoke void %63(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %mStorage.i5, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i129
 
 terminate.lpad.i.i129:                            ; preds = %if.then.i.i.i127
@@ -707,7 +707,7 @@ lpad24:                                           ; preds = %invoke.cont25
   br i1 %tobool.not.i.i.i132, label %eh.resume, label %if.then.i.i.i133
 
 if.then.i.i.i133:                                 ; preds = %lpad24
-  invoke void %67(i32 noundef 1, ptr noundef nonnull %mStorage.i14, ptr noundef null)
+  invoke void %67(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %mStorage.i14, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i135
 
 terminate.lpad.i.i135:                            ; preds = %if.then.i.i.i133
@@ -725,7 +725,7 @@ lpad33:                                           ; preds = %invoke.cont34
   br i1 %tobool.not.i.i.i138, label %eh.resume, label %if.then.i.i.i139
 
 if.then.i.i.i139:                                 ; preds = %lpad33
-  invoke void %71(i32 noundef 1, ptr noundef nonnull %mStorage.i23, ptr noundef null)
+  invoke void %71(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %mStorage.i23, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i141
 
 terminate.lpad.i.i141:                            ; preds = %if.then.i.i.i139
@@ -748,7 +748,7 @@ lpad54:                                           ; preds = %invoke.cont55
   br i1 %tobool.not.i.i.i151, label %ehcleanup, label %if.then.i.i.i152
 
 if.then.i.i.i152:                                 ; preds = %lpad54
-  invoke void %76(i32 noundef 1, ptr noundef nonnull %mStorage.i.i40, ptr noundef null)
+  invoke void %76(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i.i40, ptr noundef null)
           to label %ehcleanup unwind label %terminate.lpad.i.i154
 
 terminate.lpad.i.i154:                            ; preds = %if.then.i.i.i152
@@ -765,7 +765,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i152, %
   br i1 %tobool.not.i.i.i157, label %eh.resume, label %if.then.i.i.i158
 
 if.then.i.i.i158:                                 ; preds = %ehcleanup
-  invoke void %79(i32 noundef 1, ptr noundef nonnull %mStorage.i32, ptr noundef null)
+  invoke void %79(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i32, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i160
 
 terminate.lpad.i.i160:                            ; preds = %if.then.i.i.i158
@@ -783,7 +783,7 @@ lpad65:                                           ; preds = %if.then.i.i.i.i, %_
   br i1 %tobool.not.i.i.i163, label %eh.resume, label %if.then.i.i.i164
 
 if.then.i.i.i164:                                 ; preds = %lpad65
-  invoke void %83(i32 noundef 1, ptr noundef nonnull %mStorage.i52, ptr noundef null)
+  invoke void %83(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i52, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i166
 
 terminate.lpad.i.i166:                            ; preds = %if.then.i.i.i164
@@ -850,7 +850,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
   br i1 %tobool.not.i.i.i6, label %invoke.cont20, label %if.then.i.i.i7
 
 if.then.i.i.i7:                                   ; preds = %invoke.cont16
-  invoke void %4(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %4(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %invoke.cont20 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i7
@@ -963,7 +963,7 @@ invoke.cont49:                                    ; preds = %_ZN5eastleqIcNS_9al
   br i1 %tobool.not.i.i.i66, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSIiiLl0EvEERS4_OT_.exit80, label %if.then.i.i.i67
 
 if.then.i.i.i67:                                  ; preds = %invoke.cont49
-  invoke void %22(i32 noundef 1, ptr noundef nonnull %mStorage.i9, ptr noundef null)
+  invoke void %22(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i9, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSIiiLl0EvEERS4_OT_.exit80 unwind label %terminate.lpad.i.i69
 
 terminate.lpad.i.i69:                             ; preds = %if.then.i.i.i67
@@ -1012,7 +1012,7 @@ invoke.cont73:                                    ; preds = %invoke.cont69
   br i1 %tobool.not.i.i.i86, label %invoke.cont77, label %if.then.i.i.i87
 
 if.then.i.i.i87:                                  ; preds = %invoke.cont73
-  invoke void %29(i32 noundef 1, ptr noundef nonnull %mStorage.i71, ptr noundef null)
+  invoke void %29(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i71, ptr noundef null)
           to label %invoke.cont77 unwind label %terminate.lpad.i.i89
 
 terminate.lpad.i.i89:                             ; preds = %if.then.i.i.i87
@@ -1082,7 +1082,7 @@ invoke.cont99:                                    ; preds = %invoke.cont96
   br i1 %tobool.not.i.i.i175, label %invoke.cont103, label %if.then.i.i.i176
 
 if.then.i.i.i176:                                 ; preds = %invoke.cont99
-  invoke void %38(i32 noundef 1, ptr noundef nonnull %mStorage.i91, ptr noundef null)
+  invoke void %38(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i91, ptr noundef null)
           to label %invoke.cont103 unwind label %terminate.lpad.i.i178
 
 terminate.lpad.i.i178:                            ; preds = %if.then.i.i.i176
@@ -1123,7 +1123,7 @@ invoke.cont116:                                   ; preds = %invoke.cont112
   br i1 %tobool.not.i.i.i244, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit248, label %if.then.i.i.i245
 
 if.then.i.i.i245:                                 ; preds = %invoke.cont116
-  invoke void %42(i32 noundef 1, ptr noundef nonnull %mStorage.i180, ptr noundef null)
+  invoke void %42(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i180, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit248 unwind label %terminate.lpad.i.i247
 
 terminate.lpad.i.i247:                            ; preds = %if.then.i.i.i245
@@ -1147,7 +1147,7 @@ lpad:                                             ; preds = %invoke.cont13, %inv
   br i1 %tobool.not.i.i.i250, label %eh.resume, label %if.then.i.i.i251
 
 if.then.i.i.i251:                                 ; preds = %lpad
-  invoke void %47(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %47(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i253
 
 terminate.lpad.i.i253:                            ; preds = %if.then.i.i.i251
@@ -1165,7 +1165,7 @@ lpad19:                                           ; preds = %_ZN5eastleqIcNS_9al
   br i1 %tobool.not.i.i.i256, label %eh.resume, label %if.then.i.i.i257
 
 if.then.i.i.i257:                                 ; preds = %lpad19
-  invoke void %51(i32 noundef 1, ptr noundef nonnull %mStorage.i9, ptr noundef null)
+  invoke void %51(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i9, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i259
 
 terminate.lpad.i.i259:                            ; preds = %if.then.i.i.i257
@@ -1183,7 +1183,7 @@ lpad56:                                           ; preds = %invoke.cont69, %inv
   br i1 %tobool.not.i.i.i262, label %eh.resume, label %if.then.i.i.i263
 
 if.then.i.i.i263:                                 ; preds = %lpad56
-  invoke void %55(i32 noundef 1, ptr noundef nonnull %mStorage.i71, ptr noundef null)
+  invoke void %55(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i71, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i265
 
 terminate.lpad.i.i265:                            ; preds = %if.then.i.i.i263
@@ -1201,7 +1201,7 @@ lpad76:                                           ; preds = %invoke.cont96, %inv
   br i1 %tobool.not.i.i.i268, label %eh.resume, label %if.then.i.i.i269
 
 if.then.i.i.i269:                                 ; preds = %lpad76
-  invoke void %59(i32 noundef 1, ptr noundef nonnull %mStorage.i91, ptr noundef null)
+  invoke void %59(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i91, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i271
 
 terminate.lpad.i.i271:                            ; preds = %if.then.i.i.i269
@@ -1219,7 +1219,7 @@ lpad102:                                          ; preds = %invoke.cont112, %_Z
   br i1 %tobool.not.i.i.i274, label %eh.resume, label %if.then.i.i.i275
 
 if.then.i.i.i275:                                 ; preds = %lpad102
-  invoke void %63(i32 noundef 1, ptr noundef nonnull %mStorage.i180, ptr noundef null)
+  invoke void %63(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i180, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i277
 
 terminate.lpad.i.i277:                            ; preds = %if.then.i.i.i275
@@ -1388,7 +1388,7 @@ invoke.cont69:                                    ; preds = %if.then.i.i.i.i36
   br i1 %tobool.not.i.i.i.i42, label %invoke.cont76, label %if.then.i.i.i.i43
 
 if.then.i.i.i.i43:                                ; preds = %invoke.cont69
-  invoke void %12(i32 noundef 1, ptr noundef nonnull %mStorage.i28, ptr noundef null)
+  invoke void %12(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i28, ptr noundef null)
           to label %invoke.cont76 unwind label %lpad54
 
 invoke.cont76:                                    ; preds = %if.then.i.i.i.i43, %invoke.cont69
@@ -1416,7 +1416,7 @@ invoke.cont80:                                    ; preds = %invoke.cont76
   br i1 %tobool.not.i.i.i53, label %_ZN5eastl7variantIJi10TestObjectEED2Ev.exit, label %if.then.i.i.i54
 
 if.then.i.i.i54:                                  ; preds = %invoke.cont80
-  invoke void %16(i32 noundef 1, ptr noundef nonnull %mStorage.i28, ptr noundef null)
+  invoke void %16(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i28, ptr noundef null)
           to label %_ZN5eastl7variantIJi10TestObjectEED2Ev.exit unwind label %terminate.lpad.i.i56
 
 terminate.lpad.i.i56:                             ; preds = %if.then.i.i.i54
@@ -1487,7 +1487,7 @@ lpad54:                                           ; preds = %if.then.i.i.i.i43, 
   br i1 %tobool.not.i.i.i79, label %eh.resume, label %if.then.i.i.i80
 
 if.then.i.i.i80:                                  ; preds = %lpad54
-  invoke void %29(i32 noundef 1, ptr noundef nonnull %mStorage.i28, ptr noundef null)
+  invoke void %29(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i28, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i82
 
 terminate.lpad.i.i82:                             ; preds = %if.then.i.i.i80
@@ -1518,7 +1518,7 @@ invoke.cont15:
   store i64 0, ptr %v112, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %v112, i64 31
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %mStorage.i10, ptr noundef nonnull align 1 dereferenceable(5) @.str.64, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %mStorage.i10, ptr noundef nonnull align 1 dereferenceable(6) @.str.64, i64 5, i1 false)
   %mnSize.i.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %v112, i64 16
   %add.ptr.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %v112, i64 13
   store i8 0, ptr %add.ptr.i1.i.i.i.i.i.i, align 1
@@ -1528,7 +1528,7 @@ invoke.cont15:
   store i64 0, ptr %v213, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %v213, i64 31
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i13, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %mStorage.i11, ptr noundef nonnull align 1 dereferenceable(5) @.str.65, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %mStorage.i11, ptr noundef nonnull align 1 dereferenceable(6) @.str.65, i64 5, i1 false)
   %mnSize.i.i6.i.i.i.i.i26 = getelementptr inbounds i8, ptr %v213, i64 16
   %add.ptr.i1.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %v213, i64 13
   store i8 0, ptr %add.ptr.i1.i.i.i.i.i.i30, align 1
@@ -1637,7 +1637,7 @@ invoke.cont38:                                    ; preds = %_ZN5eastleqIcNS_9al
   br i1 %tobool.not.i.i.i108, label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i.i109
 
 if.then.i.i.i109:                                 ; preds = %invoke.cont38
-  invoke void %18(i32 noundef 1, ptr noundef nonnull %mStorage.i11, ptr noundef null)
+  invoke void %18(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i11, ptr noundef null)
           to label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i111
 
 terminate.lpad.i.i111:                            ; preds = %if.then.i.i.i109
@@ -1653,7 +1653,7 @@ _ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %in
   br i1 %tobool.not.i.i.i114, label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit119, label %if.then.i.i.i115
 
 if.then.i.i.i115:                                 ; preds = %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit
-  invoke void %21(i32 noundef 1, ptr noundef nonnull %mStorage.i10, ptr noundef null)
+  invoke void %21(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i10, ptr noundef null)
           to label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit119 unwind label %terminate.lpad.i.i117
 
 terminate.lpad.i.i117:                            ; preds = %if.then.i.i.i115
@@ -1675,7 +1675,7 @@ lpad14:                                           ; preds = %invoke.cont25, %_ZN
   br i1 %tobool.not.i.i.i121, label %ehcleanup, label %if.then.i.i.i122
 
 if.then.i.i.i122:                                 ; preds = %lpad14
-  invoke void %26(i32 noundef 1, ptr noundef nonnull %mStorage.i11, ptr noundef null)
+  invoke void %26(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i11, ptr noundef null)
           to label %ehcleanup unwind label %terminate.lpad.i.i124
 
 terminate.lpad.i.i124:                            ; preds = %if.then.i.i.i122
@@ -1691,7 +1691,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i122, %
   br i1 %tobool.not.i.i.i128, label %common.resume, label %if.then.i.i.i129
 
 if.then.i.i.i129:                                 ; preds = %ehcleanup
-  invoke void %29(i32 noundef 1, ptr noundef nonnull %mStorage.i10, ptr noundef null)
+  invoke void %29(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i10, ptr noundef null)
           to label %common.resume unwind label %terminate.lpad.i.i131
 
 terminate.lpad.i.i131:                            ; preds = %if.then.i.i.i129
@@ -1797,7 +1797,7 @@ if.then10.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i.
   %mStorage3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.06.i.i.i.i.i.i.ptr, i64 8
   %mStorage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i.i.i, i64 8
   store ptr %1, ptr %mpHandler.i.i.i.i.i.i.i.i, align 8
-  invoke void %1(i32 noundef 2, ptr noundef nonnull %mStorage.i.i.i.i.i.i.i, ptr noundef nonnull %mStorage3.i.i.i.i.i.i.i)
+  invoke void %1(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage3.i.i.i.i.i.i.i)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2ERKS4_.exit.i.i.i.i.i.i unwind label %lpad.i
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2ERKS4_.exit.i.i.i.i.i.i: ; preds = %if.then10.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -1832,7 +1832,7 @@ arraydestroy.body:                                ; preds = %_ZN5eastl7variantIJ
 
 if.then.i.i.i:                                    ; preds = %arraydestroy.body
   %mStorage.i35 = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
-  invoke void %2(i32 noundef 1, ptr noundef nonnull %mStorage.i35, ptr noundef null)
+  invoke void %2(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i35, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -1941,7 +1941,7 @@ for.body.i.i.i45:                                 ; preds = %invoke.cont43, %_ZN
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i45
   %mStorage.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i.i, i64 8
-  invoke void %14(i32 noundef 1, ptr noundef nonnull %mStorage.i.i.i.i, ptr noundef null)
+  invoke void %14(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i.i.i.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
@@ -1987,7 +1987,7 @@ arraydestroy.body30:                              ; preds = %_ZN5eastl7variantIJ
 
 if.then.i.i.i51:                                  ; preds = %arraydestroy.body30
   %mStorage.i52 = getelementptr inbounds i8, ptr %arraydestroy.elementPast31, i64 -32
-  invoke void %19(i32 noundef 1, ptr noundef nonnull %mStorage.i52, ptr noundef null)
+  invoke void %19(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i52, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit54 unwind label %terminate.lpad.i.i53
 
 terminate.lpad.i.i53:                             ; preds = %if.then.i.i.i51
@@ -2039,7 +2039,7 @@ for.body.i.i:                                     ; preds = %entry, %_ZN5eastl7v
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
   %mStorage.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i, i64 8
-  invoke void %2(i32 noundef 1, ptr noundef nonnull %mStorage.i.i.i, ptr noundef null)
+  invoke void %2(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i.i.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
@@ -2100,7 +2100,7 @@ invoke.cont21:                                    ; preds = %invoke.cont17
   br i1 %tobool.not.i.i.i, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2IS3_JRA6_KcES3_EERFNS_12in_place_tagENS_8Internal17in_place_type_tagIT_EEEDpOT0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont21
-  invoke void %0(i32 noundef 1, ptr noundef nonnull %mStorage.i.i, ptr noundef null)
+  invoke void %0(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2IS3_JRA6_KcES3_EERFNS_12in_place_tagENS_8Internal17in_place_type_tagIT_EEEDpOT0_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -2120,7 +2120,7 @@ _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2IS3_JRA6_KcES3_EERFNS
   %mpHandler.i.i.i8 = getelementptr inbounds i8, ptr %v23, i64 32
   %mRemainingSizeField.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %v23, i64 31
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %mStorage.i.i7, ptr noundef nonnull align 1 dereferenceable(5) @.str.77, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %mStorage.i.i7, ptr noundef nonnull align 1 dereferenceable(6) @.str.77, i64 5, i1 false)
   %add.ptr.i1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %v23, i64 13
   store i8 0, ptr %add.ptr.i1.i.i.i.i.i.i.i, align 1
   store ptr @_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE8DoOpImplIS3_EEvNS4_9StorageOpEPT_S8_, ptr %mpHandler.i.i.i8, align 8
@@ -2141,7 +2141,7 @@ invoke.cont33:                                    ; preds = %invoke.cont29
   br i1 %tobool.not.i.i.i11, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit15, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %invoke.cont33
-  invoke void %4(i32 noundef 1, ptr noundef nonnull %mStorage.i.i7, ptr noundef null)
+  invoke void %4(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i.i7, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit15 unwind label %terminate.lpad.i.i14
 
 terminate.lpad.i.i14:                             ; preds = %if.then.i.i.i12
@@ -2163,7 +2163,7 @@ lpad:                                             ; preds = %invoke.cont17, %ent
   br i1 %tobool.not.i.i.i17, label %common.resume, label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %lpad
-  invoke void %9(i32 noundef 1, ptr noundef nonnull %mStorage.i.i, ptr noundef null)
+  invoke void %9(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i.i, ptr noundef null)
           to label %common.resume unwind label %terminate.lpad.i.i20
 
 terminate.lpad.i.i20:                             ; preds = %if.then.i.i.i18
@@ -2181,7 +2181,7 @@ lpad24:                                           ; preds = %invoke.cont29, %_ZN
   br i1 %tobool.not.i.i.i23, label %common.resume, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %lpad24
-  invoke void %13(i32 noundef 1, ptr noundef nonnull %mStorage.i.i7, ptr noundef null)
+  invoke void %13(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i.i7, ptr noundef null)
           to label %common.resume unwind label %terminate.lpad.i.i26
 
 terminate.lpad.i.i26:                             ; preds = %if.then.i.i.i24
@@ -2347,7 +2347,7 @@ lpad13:                                           ; preds = %lpad13.loopexit.spl
   br i1 %tobool.not.i.i.i22, label %arraydestroy.body74.preheader, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %lpad13
-  invoke void %6(i32 noundef 1, ptr noundef nonnull %mStorage.i14, ptr noundef null)
+  invoke void %6(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i14, ptr noundef null)
           to label %arraydestroy.body74.preheader unwind label %terminate.lpad.i.i25
 
 arraydestroy.body74.preheader:                    ; preds = %lpad13, %if.then.i.i.i23
@@ -2436,7 +2436,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
   br i1 %tobool.not.i.i.i32, label %arraydestroy.body68.preheader, label %if.then.i.i.i33
 
 if.then.i.i.i33:                                  ; preds = %invoke.cont66
-  invoke void %25(i32 noundef 1, ptr noundef nonnull %mStorage.i14, ptr noundef null)
+  invoke void %25(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i14, ptr noundef null)
           to label %arraydestroy.body68.preheader unwind label %terminate.lpad.i.i35
 
 arraydestroy.body68.preheader:                    ; preds = %invoke.cont66, %if.then.i.i.i33
@@ -2459,7 +2459,7 @@ arraydestroy.body68:                              ; preds = %arraydestroy.body68
 
 if.then.i.i.i40:                                  ; preds = %arraydestroy.body68
   %mStorage.i41 = getelementptr inbounds i8, ptr %arraydestroy.elementPast69, i64 -32
-  invoke void %28(i32 noundef 1, ptr noundef nonnull %mStorage.i41, ptr noundef null)
+  invoke void %28(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i41, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit44 unwind label %terminate.lpad.i.i42
 
 terminate.lpad.i.i42:                             ; preds = %if.then.i.i.i40
@@ -2486,7 +2486,7 @@ arraydestroy.body74:                              ; preds = %arraydestroy.body74
 
 if.then.i.i.i47:                                  ; preds = %arraydestroy.body74
   %mStorage.i48 = getelementptr inbounds i8, ptr %arraydestroy.elementPast75, i64 -32
-  invoke void %31(i32 noundef 1, ptr noundef nonnull %mStorage.i48, ptr noundef null)
+  invoke void %31(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i48, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit51 unwind label %terminate.lpad.i.i49
 
 terminate.lpad.i.i49:                             ; preds = %if.then.i.i.i47
@@ -2544,7 +2544,7 @@ invoke.cont:
   store i64 1, ptr %arrayinit.element, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arr, i64 71
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %mStorage.i29, ptr noundef nonnull align 1 dereferenceable(5) @.str.77, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %mStorage.i29, ptr noundef nonnull align 1 dereferenceable(6) @.str.77, i64 5, i1 false)
   %add.ptr.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arr, i64 53
   store i8 0, ptr %add.ptr.i1.i.i.i.i.i.i, align 1
   store ptr @_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEdlEE8DoOpImplIS3_EEvNS4_9StorageOpEPT_S8_, ptr %mpHandler.i.i30, align 8
@@ -2639,7 +2639,7 @@ arraydestroy.body31:                              ; preds = %for.end26, %_ZN5eas
 
 if.then.i.i.i42:                                  ; preds = %arraydestroy.body31
   %mStorage.i43 = getelementptr inbounds i8, ptr %arraydestroy.elementPast32, i64 -32
-  invoke void %6(i32 noundef 1, ptr noundef nonnull %mStorage.i43, ptr noundef null)
+  invoke void %6(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i43, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit46 unwind label %terminate.lpad.i.i44
 
 terminate.lpad.i.i44:                             ; preds = %if.then.i.i.i42
@@ -2672,7 +2672,7 @@ invoke.cont51:                                    ; preds = %invoke.cont46
   br i1 %tobool.not.i.i.i52, label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i, label %if.then.i.i.i53
 
 if.then.i.i.i53:                                  ; preds = %invoke.cont51
-  invoke void %9(i32 noundef 1, ptr noundef nonnull %mStorage.i47, ptr noundef null)
+  invoke void %9(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i47, ptr noundef null)
           to label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i unwind label %terminate.lpad.i.i55
 
 terminate.lpad.i.i55:                             ; preds = %if.then.i.i.i53
@@ -2770,7 +2770,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i: ; preds = %invoke.c
   store i64 1, ptr %s, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i146 = getelementptr inbounds i8, ptr %s, i64 31
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i146, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %mStorage.i144, ptr noundef nonnull align 1 dereferenceable(5) @.str.77, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %mStorage.i144, ptr noundef nonnull align 1 dereferenceable(6) @.str.77, i64 5, i1 false)
   %add.ptr.i1.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %s, i64 13
   store i8 0, ptr %add.ptr.i1.i.i.i.i.i.i163, align 1
   store ptr @_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE8DoOpImplIS3_EEvNS4_9StorageOpEPT_S8_, ptr %mpHandler.i.i145, align 8
@@ -2793,7 +2793,7 @@ invoke.cont159:                                   ; preds = %invoke.cont156
   br i1 %tobool.not.i.i.i182, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i.i183
 
 if.then.i.i.i183:                                 ; preds = %invoke.cont159
-  invoke void %15(i32 noundef 1, ptr noundef nonnull %mStorage.i144, ptr noundef null)
+  invoke void %15(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i144, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i185
 
 terminate.lpad.i.i185:                            ; preds = %if.then.i.i.i183
@@ -2809,7 +2809,7 @@ _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %i
   br i1 %tobool.not.i.i.i188, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit193, label %if.then.i.i.i189
 
 if.then.i.i.i189:                                 ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit
-  invoke void %18(i32 noundef 1, ptr noundef nonnull %mStorage.i142, ptr noundef null)
+  invoke void %18(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i142, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit193 unwind label %terminate.lpad.i.i191
 
 terminate.lpad.i.i191:                            ; preds = %if.then.i.i.i189
@@ -2837,7 +2837,7 @@ arraydestroy.body37:                              ; preds = %_ZN5eastl7variantIJ
 
 if.then.i.i.i223:                                 ; preds = %arraydestroy.body37
   %mStorage.i224 = getelementptr inbounds i8, ptr %arraydestroy.elementPast38, i64 -32
-  invoke void %22(i32 noundef 1, ptr noundef nonnull %mStorage.i224, ptr noundef null)
+  invoke void %22(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i224, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit227 unwind label %terminate.lpad.i.i225
 
 terminate.lpad.i.i225:                            ; preds = %if.then.i.i.i223
@@ -2859,7 +2859,7 @@ lpad44:                                           ; preds = %invoke.cont46, %arr
   br i1 %tobool.not.i.i.i229, label %eh.resume, label %if.then.i.i.i230
 
 if.then.i.i.i230:                                 ; preds = %lpad44
-  invoke void %26(i32 noundef 1, ptr noundef nonnull %mStorage.i47, ptr noundef null)
+  invoke void %26(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i47, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i232
 
 terminate.lpad.i.i232:                            ; preds = %if.then.i.i.i230
@@ -2877,7 +2877,7 @@ lpad148:                                          ; preds = %invoke.cont152, %in
   br i1 %tobool.not.i.i.i235, label %ehcleanup, label %if.then.i.i.i236
 
 if.then.i.i.i236:                                 ; preds = %lpad148
-  invoke void %30(i32 noundef 1, ptr noundef nonnull %mStorage.i144, ptr noundef null)
+  invoke void %30(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i144, ptr noundef null)
           to label %ehcleanup unwind label %terminate.lpad.i.i238
 
 terminate.lpad.i.i238:                            ; preds = %if.then.i.i.i236
@@ -2893,7 +2893,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i236, %
   br i1 %tobool.not.i.i.i242, label %eh.resume, label %if.then.i.i.i243
 
 if.then.i.i.i243:                                 ; preds = %ehcleanup
-  invoke void %33(i32 noundef 1, ptr noundef nonnull %mStorage.i142, ptr noundef null)
+  invoke void %33(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i142, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i245
 
 terminate.lpad.i.i245:                            ; preds = %if.then.i.i.i243
@@ -3000,7 +3000,7 @@ invoke.cont14:                                    ; preds = %invoke.cont11
   br i1 %tobool.not.i.i.i9, label %_ZN5eastl7variantIJi10TestObjectEED2Ev.exit, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %invoke.cont14
-  invoke void %6(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %6(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJi10TestObjectEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i10
@@ -3022,7 +3022,7 @@ lpad1:                                            ; preds = %invoke.cont11, %if.
   br i1 %tobool.not.i.i.i20, label %eh.resume, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %lpad1
-  invoke void %11(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %11(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i23
 
 terminate.lpad.i.i23:                             ; preds = %if.then.i.i.i21
@@ -3129,7 +3129,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %_ZN5eastl15variant_storageILb0EJ10TestObjectEE4DoOpENS2_9StorageOpE.exit.i.i.i
 
 _ZN5eastl15variant_storageILb0EJ10TestObjectEE4DoOpENS2_9StorageOpE.exit.i.i.i: ; preds = %invoke.cont14
-  invoke void %11(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %11(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %if.end.i.i.i unwind label %lpad9
 
 if.end.i.i.i:                                     ; preds = %_ZN5eastl15variant_storageILb0EJ10TestObjectEE4DoOpENS2_9StorageOpE.exit.i.i.i, %invoke.cont14
@@ -3148,7 +3148,7 @@ if.end7.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i, %if.end7.thread.i.i.i
   %13 = phi ptr [ %12, %if.end7.thread.i.i.i ], [ %.pr.i.i.i, %if.end7.i.i.i ]
-  invoke void %13(i32 noundef 2, ptr noundef nonnull %mStorage.i, ptr noundef nonnull %mStorage.i16)
+  invoke void %13(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i16)
           to label %invoke.cont18 unwind label %lpad9
 
 invoke.cont18:                                    ; preds = %if.then10.i.i.i, %if.end7.i.i.i
@@ -3169,7 +3169,7 @@ invoke.cont28:                                    ; preds = %invoke.cont24
   br i1 %tobool.not.i.i.i40, label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont28
-  invoke void %16(i32 noundef 1, ptr noundef nonnull %mStorage.i16, ptr noundef null)
+  invoke void %16(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i16, ptr noundef null)
           to label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -3185,7 +3185,7 @@ _ZN5eastl7variantIJ10TestObjectEED2Ev.exit:       ; preds = %invoke.cont28, %if.
   br i1 %tobool.not.i.i.i43, label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit47, label %if.then.i.i.i44
 
 if.then.i.i.i44:                                  ; preds = %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit
-  invoke void %19(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %19(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit47 unwind label %terminate.lpad.i.i46
 
 terminate.lpad.i.i46:                             ; preds = %if.then.i.i.i44
@@ -3276,7 +3276,7 @@ invoke.cont55:                                    ; preds = %invoke.cont51
   br i1 %tobool.not.i.i.i102, label %if.end.i.i.i104, label %_ZN5eastl15variant_storageILb0EJ10TestObjectEE4DoOpENS2_9StorageOpE.exit.i.i.i103
 
 _ZN5eastl15variant_storageILb0EJ10TestObjectEE4DoOpENS2_9StorageOpE.exit.i.i.i103: ; preds = %invoke.cont55
-  invoke void %33(i32 noundef 1, ptr noundef nonnull %mStorage.i54, ptr noundef null)
+  invoke void %33(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i54, ptr noundef null)
           to label %if.end.i.i.i104 unwind label %lpad50
 
 if.end.i.i.i104:                                  ; preds = %_ZN5eastl15variant_storageILb0EJ10TestObjectEE4DoOpENS2_9StorageOpE.exit.i.i.i103, %invoke.cont55
@@ -3295,7 +3295,7 @@ if.end7.i.i.i109:                                 ; preds = %if.end.i.i.i104
 
 if.then10.i.i.i108:                               ; preds = %if.end7.i.i.i109, %if.end7.thread.i.i.i107
   %35 = phi ptr [ %34, %if.end7.thread.i.i.i107 ], [ %.pr.i.i.i110, %if.end7.i.i.i109 ]
-  invoke void %35(i32 noundef 3, ptr noundef nonnull %mStorage.i54, ptr noundef nonnull %mStorage.i79)
+  invoke void %35(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i54, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i79)
           to label %invoke.cont60 unwind label %lpad50
 
 invoke.cont60:                                    ; preds = %if.then10.i.i.i108, %if.end7.i.i.i109
@@ -3310,7 +3310,7 @@ invoke.cont64:                                    ; preds = %invoke.cont60
   br i1 %tobool.not.i.i.i116, label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit120, label %if.then.i.i.i117
 
 if.then.i.i.i117:                                 ; preds = %invoke.cont64
-  invoke void %37(i32 noundef 1, ptr noundef nonnull %mStorage.i79, ptr noundef null)
+  invoke void %37(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i79, ptr noundef null)
           to label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit120 unwind label %terminate.lpad.i.i119
 
 terminate.lpad.i.i119:                            ; preds = %if.then.i.i.i117
@@ -3326,7 +3326,7 @@ _ZN5eastl7variantIJ10TestObjectEED2Ev.exit120:    ; preds = %invoke.cont64, %if.
   br i1 %tobool.not.i.i.i122, label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit126, label %if.then.i.i.i123
 
 if.then.i.i.i123:                                 ; preds = %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit120
-  invoke void %40(i32 noundef 1, ptr noundef nonnull %mStorage.i54, ptr noundef null)
+  invoke void %40(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i54, ptr noundef null)
           to label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit126 unwind label %terminate.lpad.i.i125
 
 terminate.lpad.i.i125:                            ; preds = %if.then.i.i.i123
@@ -3407,7 +3407,7 @@ invoke.cont91:                                    ; preds = %invoke.cont87
   br i1 %tobool.not.i.i.i190, label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit194, label %if.then.i.i.i191
 
 if.then.i.i.i191:                                 ; preds = %invoke.cont91
-  invoke void %52(i32 noundef 1, ptr noundef nonnull %mStorage.i139, ptr noundef null)
+  invoke void %52(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i139, ptr noundef null)
           to label %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit194 unwind label %terminate.lpad.i.i193
 
 terminate.lpad.i.i193:                            ; preds = %if.then.i.i.i191
@@ -3462,7 +3462,7 @@ lpad9:                                            ; preds = %if.then10.i.i.i, %_
   br i1 %tobool.not.i.i.i216, label %ehcleanup, label %if.then.i.i.i217
 
 if.then.i.i.i217:                                 ; preds = %lpad9
-  invoke void %63(i32 noundef 1, ptr noundef nonnull %mStorage.i16, ptr noundef null)
+  invoke void %63(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i16, ptr noundef null)
           to label %ehcleanup unwind label %terminate.lpad.i.i219
 
 terminate.lpad.i.i219:                            ; preds = %if.then.i.i.i217
@@ -3479,7 +3479,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i217, %
   br i1 %tobool.not.i.i.i222, label %eh.resume, label %if.then.i.i.i223
 
 if.then.i.i.i223:                                 ; preds = %ehcleanup
-  invoke void %66(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %66(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i225
 
 terminate.lpad.i.i225:                            ; preds = %if.then.i.i.i223
@@ -3502,7 +3502,7 @@ lpad50:                                           ; preds = %if.then10.i.i.i108,
   br i1 %tobool.not.i.i.i242, label %ehcleanup67, label %if.then.i.i.i243
 
 if.then.i.i.i243:                                 ; preds = %lpad50
-  invoke void %71(i32 noundef 1, ptr noundef nonnull %mStorage.i79, ptr noundef null)
+  invoke void %71(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i79, ptr noundef null)
           to label %ehcleanup67 unwind label %terminate.lpad.i.i245
 
 terminate.lpad.i.i245:                            ; preds = %if.then.i.i.i243
@@ -3519,7 +3519,7 @@ ehcleanup67:                                      ; preds = %if.then.i.i.i243, %
   br i1 %tobool.not.i.i.i248, label %eh.resume, label %if.then.i.i.i249
 
 if.then.i.i.i249:                                 ; preds = %ehcleanup67
-  invoke void %74(i32 noundef 1, ptr noundef nonnull %mStorage.i54, ptr noundef null)
+  invoke void %74(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i54, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i251
 
 terminate.lpad.i.i251:                            ; preds = %if.then.i.i.i249
@@ -3537,7 +3537,7 @@ lpad75:                                           ; preds = %invoke.cont87, %inv
   br i1 %tobool.not.i.i.i267, label %eh.resume, label %if.then.i.i.i268
 
 if.then.i.i.i268:                                 ; preds = %lpad75
-  invoke void %78(i32 noundef 1, ptr noundef nonnull %mStorage.i139, ptr noundef null)
+  invoke void %78(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i139, ptr noundef null)
           to label %eh.resume unwind label %terminate.lpad.i.i270
 
 terminate.lpad.i.i270:                            ; preds = %if.then.i.i.i268
@@ -5456,13 +5456,13 @@ entry:
 
 _ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEEC2EOS4_.exit: ; preds = %entry
   store ptr %0, ptr %mpHandler.i, align 8
-  call void %0(i32 noundef 3, ptr noundef nonnull %temp, ptr noundef nonnull %a)
+  call void %0(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef nonnull align 8 dereferenceable(32) %a)
   %.pr = load ptr, ptr %mpHandler2.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i
 
 _ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i: ; preds = %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEEC2EOS4_.exit
-  invoke void %.pr(i32 noundef 1, ptr noundef nonnull %a, ptr noundef null)
+  invoke void %.pr(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef null)
           to label %if.end.i.i unwind label %lpad
 
 if.end.i.i:                                       ; preds = %entry, %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i, %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEEC2EOS4_.exit
@@ -5482,7 +5482,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
 
 if.then10.i.i5:                                   ; preds = %if.end7.i.i, %if.end7.thread.i.i
   %2 = phi ptr [ %1, %if.end7.thread.i.i ], [ %.pr.i.i, %if.end7.i.i ]
-  invoke void %2(i32 noundef 3, ptr noundef nonnull %a, ptr noundef nonnull %b)
+  invoke void %2(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(32) %b)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then10.i.i5
@@ -5491,7 +5491,7 @@ invoke.cont:                                      ; preds = %if.then10.i.i5
   br i1 %tobool.not.i.i8, label %if.end.i.i10, label %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i9
 
 _ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i9: ; preds = %invoke.cont
-  invoke void %.pr29(i32 noundef 1, ptr noundef nonnull %b, ptr noundef null)
+  invoke void %.pr29(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef null)
           to label %if.end.i.i10 unwind label %lpad
 
 if.end.i.i10:                                     ; preds = %if.end7.i.i, %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i9, %invoke.cont
@@ -5510,7 +5510,7 @@ if.end7.i.i15:                                    ; preds = %if.end.i.i10
 
 if.then10.i.i14:                                  ; preds = %if.end7.i.i15, %if.end7.thread.i.i13
   %4 = phi ptr [ %3, %if.end7.thread.i.i13 ], [ %.pr.i.i16, %if.end7.i.i15 ]
-  invoke void %4(i32 noundef 3, ptr noundef nonnull %b, ptr noundef nonnull %temp)
+  invoke void %4(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %temp)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.then10.i.i14
@@ -5519,7 +5519,7 @@ invoke.cont4:                                     ; preds = %if.then10.i.i14
   br i1 %tobool.not.i.i22, label %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4
-  invoke void %.pr31(i32 noundef 1, ptr noundef nonnull %temp, ptr noundef null)
+  invoke void %.pr31(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef null)
           to label %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
@@ -5540,7 +5540,7 @@ lpad:                                             ; preds = %if.then10.i.i14, %_
   br i1 %tobool.not.i.i24, label %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit27, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %lpad
-  invoke void %8(i32 noundef 1, ptr noundef nonnull %temp, ptr noundef null)
+  invoke void %8(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef null)
           to label %_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit27 unwind label %terminate.lpad.i26
 
 terminate.lpad.i26:                               ; preds = %if.then.i.i25
@@ -5584,7 +5584,7 @@ if.end.i.i.i:                                     ; preds = %for.body
 if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
   %mStorage4.i = getelementptr inbounds i8, ptr %current.062, i64 8
   store ptr %1, ptr %mpHandler.i.i, align 8
-  invoke void %1(i32 noundef 3, ptr noundef nonnull %mStorage.i, ptr noundef nonnull %mStorage4.i)
+  invoke void %1(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i)
           to label %for.cond1.preheader unwind label %terminate.lpad.i
 
 for.cond1.preheader:                              ; preds = %for.body, %if.end.i.i.i, %if.then10.i.i.i
@@ -5629,7 +5629,7 @@ if.then.i:                                        ; preds = %invoke.cont, %for.c
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i14, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i: ; preds = %if.then.i
-  invoke void %8(i32 noundef 1, ptr noundef nonnull %mStorage4.i13, ptr noundef null)
+  invoke void %8(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i13, ptr noundef null)
           to label %if.end.i.i.i14 unwind label %lpad.loopexit
 
 if.end.i.i.i14:                                   ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i, %if.then.i
@@ -5652,7 +5652,7 @@ for.cond1.backedge:                               ; preds = %if.end7.i.i.i, %if.
 
 if.then10.i.i.i17:                                ; preds = %if.end7.i.i.i, %if.end7.thread.i.i.i
   %10 = phi ptr [ %9, %if.end7.thread.i.i.i ], [ %.pr.i.i.i, %if.end7.i.i.i ]
-  invoke void %10(i32 noundef 3, ptr noundef nonnull %mStorage4.i13, ptr noundef nonnull %mStorage.i12)
+  invoke void %10(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i13, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i12)
           to label %for.cond1.backedge unwind label %lpad.loopexit
 
 lpad.loopexit:                                    ; preds = %if.end12.i, %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i, %if.then10.i.i.i17
@@ -5672,7 +5672,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i20, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  invoke void %11(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %11(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -5699,7 +5699,7 @@ if.then.i23:                                      ; preds = %for.end
   br i1 %tobool.not.i.i.i27, label %if.end.i.i.i29, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i28
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i28: ; preds = %if.then.i23
-  invoke void %15(i32 noundef 1, ptr noundef nonnull %mStorage4.i25, ptr noundef null)
+  invoke void %15(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i25, ptr noundef null)
           to label %if.end.i.i.i29 unwind label %lpad.loopexit.split-lp
 
 if.end.i.i.i29:                                   ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i28, %if.then.i23
@@ -5718,7 +5718,7 @@ if.end7.i.i.i34:                                  ; preds = %if.end.i.i.i29
 
 if.then10.i.i.i33:                                ; preds = %if.end7.i.i.i34, %if.end7.thread.i.i.i32
   %17 = phi ptr [ %16, %if.end7.thread.i.i.i32 ], [ %.pr.i.i.i35, %if.end7.i.i.i34 ]
-  invoke void %17(i32 noundef 3, ptr noundef nonnull %mStorage4.i25, ptr noundef nonnull %mStorage.i)
+  invoke void %17(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i25, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %for.end, %if.then10.i.i.i33
@@ -5727,7 +5727,7 @@ invoke.cont10:                                    ; preds = %for.end, %if.then10
   br i1 %tobool.not.i.i.i41, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit45, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %invoke.cont10
-  invoke void %.pr(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %.pr(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit45 unwind label %terminate.lpad.i.i44
 
 terminate.lpad.i.i44:                             ; preds = %if.then.i.i.i42
@@ -5920,7 +5920,7 @@ if.then10.i.i.i:                                  ; preds = %entry
   %mStorage3.i = getelementptr inbounds i8, ptr %pivotValue, i64 8
   %mStorage.i = getelementptr inbounds i8, ptr %pivotCopy, i64 8
   store ptr %1, ptr %mpHandler.i.i, align 8
-  call void %1(i32 noundef 2, ptr noundef nonnull %mStorage.i, ptr noundef nonnull %mStorage3.i)
+  call void %1(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage3.i)
   br label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %entry, %if.then10.i.i.i
@@ -6007,7 +6007,7 @@ invoke.cont:                                      ; preds = %while.end6.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
   %mStorage.i3 = getelementptr inbounds i8, ptr %pivotCopy, i64 8
-  invoke void %10(i32 noundef 1, ptr noundef nonnull %mStorage.i3, ptr noundef null)
+  invoke void %10(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i3, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -6043,7 +6043,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 if.then.i.i.i6:                                   ; preds = %lpad
   %mStorage.i7 = getelementptr inbounds i8, ptr %pivotCopy, i64 8
-  invoke void %13(i32 noundef 1, ptr noundef nonnull %mStorage.i7, ptr noundef null)
+  invoke void %13(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i7, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit9 unwind label %terminate.lpad.i.i8
 
 terminate.lpad.i.i8:                              ; preds = %if.then.i.i.i6
@@ -6138,13 +6138,13 @@ entry:
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEEC2EOS4_.exit: ; preds = %entry
   store ptr %0, ptr %mpHandler.i, align 8
-  call void %0(i32 noundef 3, ptr noundef nonnull %temp, ptr noundef nonnull %a)
+  call void %0(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef nonnull align 8 dereferenceable(32) %a)
   %.pr = load ptr, ptr %mpHandler2.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i: ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEEC2EOS4_.exit
-  invoke void %.pr(i32 noundef 1, ptr noundef nonnull %a, ptr noundef null)
+  invoke void %.pr(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef null)
           to label %if.end.i.i unwind label %lpad
 
 if.end.i.i:                                       ; preds = %entry, %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i, %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEEC2EOS4_.exit
@@ -6164,7 +6164,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
 
 if.then10.i.i5:                                   ; preds = %if.end7.i.i, %if.end7.thread.i.i
   %2 = phi ptr [ %1, %if.end7.thread.i.i ], [ %.pr.i.i, %if.end7.i.i ]
-  invoke void %2(i32 noundef 3, ptr noundef nonnull %a, ptr noundef nonnull %b)
+  invoke void %2(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(32) %b)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then10.i.i5
@@ -6173,7 +6173,7 @@ invoke.cont:                                      ; preds = %if.then10.i.i5
   br i1 %tobool.not.i.i8, label %if.end.i.i10, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i9
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i9: ; preds = %invoke.cont
-  invoke void %.pr29(i32 noundef 1, ptr noundef nonnull %b, ptr noundef null)
+  invoke void %.pr29(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef null)
           to label %if.end.i.i10 unwind label %lpad
 
 if.end.i.i10:                                     ; preds = %if.end7.i.i, %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i9, %invoke.cont
@@ -6192,7 +6192,7 @@ if.end7.i.i15:                                    ; preds = %if.end.i.i10
 
 if.then10.i.i14:                                  ; preds = %if.end7.i.i15, %if.end7.thread.i.i13
   %4 = phi ptr [ %3, %if.end7.thread.i.i13 ], [ %.pr.i.i16, %if.end7.i.i15 ]
-  invoke void %4(i32 noundef 3, ptr noundef nonnull %b, ptr noundef nonnull %temp)
+  invoke void %4(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %temp)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.then10.i.i14
@@ -6201,7 +6201,7 @@ invoke.cont4:                                     ; preds = %if.then10.i.i14
   br i1 %tobool.not.i.i22, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4
-  invoke void %.pr31(i32 noundef 1, ptr noundef nonnull %temp, ptr noundef null)
+  invoke void %.pr31(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef null)
           to label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
@@ -6222,7 +6222,7 @@ lpad:                                             ; preds = %if.then10.i.i14, %_
   br i1 %tobool.not.i.i24, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit27, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %lpad
-  invoke void %8(i32 noundef 1, ptr noundef nonnull %temp, ptr noundef null)
+  invoke void %8(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef null)
           to label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit27 unwind label %terminate.lpad.i26
 
 terminate.lpad.i26:                               ; preds = %if.then.i.i25
@@ -6275,7 +6275,7 @@ if.end.i.i.i:                                     ; preds = %do.body
 if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
   %mStorage4.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %1, ptr %mpHandler.i.i, align 8
-  invoke void %1(i32 noundef 3, ptr noundef nonnull %mStorage.i, ptr noundef nonnull %mStorage4.i)
+  invoke void %1(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2ILb1EvEEOS4_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then10.i.i.i
@@ -6295,7 +6295,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl7variantIJ
   br i1 %tobool.not.i.i.i, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  invoke void %4(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %4(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -6317,7 +6317,7 @@ lpad:                                             ; preds = %_ZN5eastl7variantIJ
   br i1 %tobool.not.i.i.i11, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit15, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %lpad
-  invoke void %8(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %8(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit15 unwind label %terminate.lpad.i.i14
 
 terminate.lpad.i.i14:                             ; preds = %if.then.i.i.i12
@@ -6385,7 +6385,7 @@ if.then.i:                                        ; preds = %_ZN5eastlltIJiNS_12
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i: ; preds = %if.then.i
-  tail call void %5(i32 noundef 1, ptr noundef nonnull %mStorage4.i, ptr noundef null)
+  tail call void %5(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i, ptr noundef null)
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i, %if.then.i
@@ -6405,7 +6405,7 @@ if.end7.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i, %if.end7.thread.i.i.i
   %7 = phi ptr [ %6, %if.end7.thread.i.i.i ], [ %.pr.i.i.i, %if.end7.i.i.i ]
-  tail call void %7(i32 noundef 3, ptr noundef nonnull %mStorage4.i, ptr noundef nonnull %mStorage.i)
+  tail call void %7(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i)
   br label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread37, %if.end7.i.i.i, %if.then10.i.i.i
@@ -6439,7 +6439,7 @@ if.then.i21:                                      ; preds = %if.then9
   br i1 %tobool.not.i.i.i25, label %if.end.i.i.i27, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i26
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i26: ; preds = %if.then.i21
-  tail call void %9(i32 noundef 1, ptr noundef nonnull %mStorage4.i23, ptr noundef null)
+  tail call void %9(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i23, ptr noundef null)
   br label %if.end.i.i.i27
 
 if.end.i.i.i27:                                   ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i26, %if.then.i21
@@ -6459,7 +6459,7 @@ if.end7.i.i.i32:                                  ; preds = %if.end.i.i.i27
 
 if.then10.i.i.i31:                                ; preds = %if.end7.i.i.i32, %if.end7.thread.i.i.i30
   %11 = phi ptr [ %10, %if.end7.thread.i.i.i30 ], [ %.pr.i.i.i33, %if.end7.i.i.i32 ]
-  tail call void %11(i32 noundef 3, ptr noundef nonnull %mStorage4.i23, ptr noundef nonnull %mStorage.i22)
+  tail call void %11(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i23, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i22)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then10.i.i.i31, %if.end7.i.i.i32, %if.then9, %for.end
@@ -6510,7 +6510,7 @@ if.then.i:                                        ; preds = %for.body
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i: ; preds = %if.then.i
-  tail call void %4(i32 noundef 1, ptr noundef nonnull %mStorage4.i, ptr noundef null)
+  tail call void %4(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i, ptr noundef null)
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i, %if.then.i
@@ -6530,7 +6530,7 @@ if.end7.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i, %if.end7.thread.i.i.i
   %6 = phi ptr [ %5, %if.end7.thread.i.i.i ], [ %.pr.i.i.i, %if.end7.i.i.i ]
-  tail call void %6(i32 noundef 3, ptr noundef nonnull %mStorage4.i, ptr noundef nonnull %mStorage.i)
+  tail call void %6(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i)
   br label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit: ; preds = %for.body, %if.end7.i.i.i, %if.then10.i.i.i
@@ -6554,7 +6554,7 @@ if.then.i12:                                      ; preds = %for.end
   br i1 %tobool.not.i.i.i16, label %if.end.i.i.i18, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i17
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i17: ; preds = %if.then.i12
-  tail call void %8(i32 noundef 1, ptr noundef nonnull %mStorage4.i14, ptr noundef null)
+  tail call void %8(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i14, ptr noundef null)
   br label %if.end.i.i.i18
 
 if.end.i.i.i18:                                   ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i17, %if.then.i12
@@ -6574,7 +6574,7 @@ if.end7.i.i.i23:                                  ; preds = %if.end.i.i.i18
 
 if.then10.i.i.i22:                                ; preds = %if.end7.i.i.i23, %if.end7.thread.i.i.i21
   %10 = phi ptr [ %9, %if.end7.thread.i.i.i21 ], [ %.pr.i.i.i24, %if.end7.i.i.i23 ]
-  tail call void %10(i32 noundef 3, ptr noundef nonnull %mStorage4.i14, ptr noundef nonnull %mStorage.i13)
+  tail call void %10(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i14, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i13)
   br label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit26
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit26: ; preds = %for.end, %if.end7.i.i.i23, %if.then10.i.i.i22
@@ -6604,7 +6604,7 @@ if.end.i.i.i:                                     ; preds = %entry
 if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
   %mStorage4.i = getelementptr inbounds i8, ptr %last, i64 -32
   store ptr %1, ptr %mpHandler.i.i, align 8
-  invoke void %1(i32 noundef 3, ptr noundef nonnull %mStorage.i, ptr noundef nonnull %mStorage4.i)
+  invoke void %1(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2ILb1EvEEOS4_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then10.i.i.i
@@ -6629,7 +6629,7 @@ if.then.i:                                        ; preds = %_ZN5eastl7variantIJ
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i8, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i: ; preds = %if.then.i
-  invoke void %5(i32 noundef 1, ptr noundef nonnull %mStorage4.i7, ptr noundef null)
+  invoke void %5(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i7, ptr noundef null)
           to label %if.end.i.i.i8 unwind label %lpad
 
 if.end.i.i.i8:                                    ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i, %if.then.i
@@ -6649,7 +6649,7 @@ if.end7.i.i.i:                                    ; preds = %if.end.i.i.i8
 
 if.then10.i.i.i11:                                ; preds = %if.end7.i.i.i, %if.end7.thread.i.i.i
   %7 = phi ptr [ %6, %if.end7.thread.i.i.i ], [ %.pr.i.i.i, %if.end7.i.i.i ]
-  invoke void %7(i32 noundef 3, ptr noundef nonnull %mStorage4.i7, ptr noundef nonnull %mStorage.i6)
+  invoke void %7(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i7, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end7.i.i.i, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEC2ILb1EvEEOS4_.exit, %if.then10.i.i.i11
@@ -6658,7 +6658,7 @@ invoke.cont:                                      ; preds = %if.end7.i.i.i, %_ZN
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 40
   %sub = add nsw i64 %sub.ptr.div, -1
-  invoke void @_ZN5eastl16adjust_heap_implIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEElOS5_S5_EEvT_T0_S9_S9_T1_(ptr noundef %first, i64 noundef 0, i64 noundef %sub, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %tempBottom)
+  invoke void @_ZN5eastl16adjust_heap_implIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEElOS5_S5_EEvT_T0_S9_S9_T1_(ptr noundef nonnull %first, i64 noundef 0, i64 noundef %sub, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %tempBottom)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -6667,7 +6667,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i15, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont5
-  invoke void %8(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %8(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -6688,7 +6688,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   br i1 %tobool.not.i.i.i18, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit22, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %lpad
-  invoke void %12(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %12(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit22 unwind label %terminate.lpad.i.i21
 
 terminate.lpad.i.i21:                             ; preds = %if.then.i.i.i19
@@ -6738,7 +6738,7 @@ if.end.i.i.i:                                     ; preds = %for.body
 if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
   %mStorage4.i = getelementptr inbounds i8, ptr %first.pn68, i64 48
   store ptr %1, ptr %mpHandler.i.i, align 8
-  invoke void %1(i32 noundef 3, ptr noundef nonnull %mStorage.i, ptr noundef nonnull %mStorage4.i)
+  invoke void %1(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i)
           to label %land.rhs.preheader unwind label %terminate.lpad.i
 
 land.rhs.preheader:                               ; preds = %for.body, %if.end.i.i.i, %if.then10.i.i.i
@@ -6783,7 +6783,7 @@ if.then.i:                                        ; preds = %land.end, %land.rhs
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i17, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i: ; preds = %if.then.i
-  invoke void %8(i32 noundef 1, ptr noundef nonnull %mStorage4.i16, ptr noundef null)
+  invoke void %8(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i16, ptr noundef null)
           to label %if.end.i.i.i17 unwind label %lpad.loopexit
 
 if.end.i.i.i17:                                   ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i, %if.then.i
@@ -6803,7 +6803,7 @@ if.end7.i.i.i:                                    ; preds = %if.end.i.i.i17
 
 if.then10.i.i.i20:                                ; preds = %if.end7.i.i.i, %if.end7.thread.i.i.i
   %10 = phi ptr [ %9, %if.end7.thread.i.i.i ], [ %.pr.i.i.i, %if.end7.i.i.i ]
-  invoke void %10(i32 noundef 3, ptr noundef nonnull %mStorage4.i16, ptr noundef nonnull %mStorage.i15)
+  invoke void %10(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i16, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i15)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %if.end7.i.i.i, %if.then10.i.i.i20
@@ -6827,7 +6827,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i23, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  invoke void %11(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %11(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
@@ -6855,7 +6855,7 @@ if.then.i26:                                      ; preds = %for.end
   br i1 %tobool.not.i.i.i30, label %if.end.i.i.i32, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i31
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i31: ; preds = %if.then.i26
-  invoke void %15(i32 noundef 1, ptr noundef nonnull %mStorage4.i28, ptr noundef null)
+  invoke void %15(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i28, ptr noundef null)
           to label %if.end.i.i.i32 unwind label %lpad.loopexit.split-lp
 
 if.end.i.i.i32:                                   ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i31, %if.then.i26
@@ -6874,7 +6874,7 @@ if.end7.i.i.i37:                                  ; preds = %if.end.i.i.i32
 
 if.then10.i.i.i36:                                ; preds = %if.end7.i.i.i37, %if.end7.thread.i.i.i35
   %17 = phi ptr [ %16, %if.end7.thread.i.i.i35 ], [ %.pr.i.i.i38, %if.end7.i.i.i37 ]
-  invoke void %17(i32 noundef 3, ptr noundef nonnull %mStorage4.i28, ptr noundef nonnull %mStorage.i)
+  invoke void %17(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i28, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i)
           to label %invoke.cont12 unwind label %lpad.loopexit.split-lp
 
 invoke.cont12:                                    ; preds = %for.end, %if.then10.i.i.i36
@@ -6883,7 +6883,7 @@ invoke.cont12:                                    ; preds = %for.end, %if.then10
   br i1 %tobool.not.i.i.i44, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit48, label %if.then.i.i.i45
 
 if.then.i.i.i45:                                  ; preds = %invoke.cont12
-  invoke void %.pr(i32 noundef 1, ptr noundef nonnull %mStorage.i, ptr noundef null)
+  invoke void %.pr(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i, ptr noundef null)
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit48 unwind label %terminate.lpad.i.i47
 
 terminate.lpad.i.i47:                             ; preds = %if.then.i.i.i45

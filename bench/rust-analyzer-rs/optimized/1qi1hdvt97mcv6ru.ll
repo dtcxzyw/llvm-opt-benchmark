@@ -485,7 +485,7 @@ define hidden void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4
   ]
 
 18:                                               ; preds = %8
-  call void @"_ZN54_$LT$std..path..Prefix$u20$as$u20$core..hash..Hash$GT$4hash17h2a0b6e83864de369E.llvm.14517926847443944930"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  call void @"_ZN54_$LT$std..path..Prefix$u20$as$u20$core..hash..Hash$GT$4hash17h2a0b6e83864de369E.llvm.14517926847443944930"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   br label %"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash$GT$4hash17heabcb037ec937f5bE.llvm.14517926847443944930.exit"
 
 19:                                               ; preds = %8

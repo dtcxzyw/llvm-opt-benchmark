@@ -222,7 +222,7 @@ if.else:                                          ; preds = %entry
 
 if.end.i:                                         ; preds = %if.else
   %mul = shl nsw i32 %elementsLength, 1
-  %call2.i = tail call ptr @uhash_openSize_75(ptr noundef nonnull @_ZL18hashStringTrieNode8UElement, ptr noundef nonnull @_ZL20equalStringTrieNodes8UElementS_, ptr noundef null, i32 noundef %mul, ptr noundef nonnull %errorCode)
+  %call2.i = tail call ptr @uhash_openSize_75(ptr noundef nonnull @_ZL18hashStringTrieNode8UElement, ptr noundef nonnull @_ZL20equalStringTrieNodes8UElementS_, ptr noundef null, i32 noundef %mul, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %nodes.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call2.i, ptr %nodes.i, align 8
   %1 = load i32, ptr %errorCode, align 4
@@ -507,7 +507,7 @@ delete.notnull8.i:                                ; preds = %if.end3.i
 
 if.end12.i:                                       ; preds = %if.end3.i
   %13 = load ptr, ptr %nodes.i, align 8
-  %call14.i = tail call i32 @uhash_puti_75(ptr noundef %13, ptr noundef nonnull %call35, i32 noundef 1, ptr noundef nonnull %errorCode)
+  %call14.i = tail call i32 @uhash_puti_75(ptr noundef %13, ptr noundef nonnull %call35, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %14 = load i32, ptr %errorCode, align 4
   %cmp.i11.i = icmp slt i32 %14, 1
   br i1 %cmp.i11.i, label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit, label %delete.notnull19.i
@@ -626,7 +626,7 @@ call4.i58.noexc:                                  ; preds = %if.end3.i56
 
 if.end12.i64:                                     ; preds = %call4.i58.noexc
   %25 = load ptr, ptr %nodes.i57, align 8
-  %call14.i6572 = invoke i32 @uhash_puti_75(ptr noundef %25, ptr noundef nonnull %node.0, i32 noundef 1, ptr noundef nonnull %errorCode)
+  %call14.i6572 = invoke i32 @uhash_puti_75(ptr noundef %25, ptr noundef nonnull %node.0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call14.i65.noexc unwind label %lpad61
 
 call14.i65.noexc:                                 ; preds = %if.end12.i64
@@ -724,7 +724,7 @@ delete.notnull8.i94:                              ; preds = %if.end3.i90
 
 if.end12.i98:                                     ; preds = %if.end3.i90
   %39 = load ptr, ptr %nodes.i91, align 8
-  %call14.i99 = tail call i32 @uhash_puti_75(ptr noundef %39, ptr noundef nonnull %node.1, i32 noundef 1, ptr noundef nonnull %errorCode)
+  %call14.i99 = tail call i32 @uhash_puti_75(ptr noundef %39, ptr noundef nonnull %node.1, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %40 = load i32, ptr %errorCode, align 4
   %cmp.i11.i100 = icmp slt i32 %40, 1
   br i1 %cmp.i11.i100, label %return, label %delete.notnull19.i101
@@ -989,7 +989,7 @@ if.then3:                                         ; preds = %invoke.cont
 lpad:                                             ; preds = %if.end11, %if.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #14
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %key) #14
   resume { ptr, i32 } %3
 
 if.end5:                                          ; preds = %invoke.cont
@@ -1027,7 +1027,7 @@ delete.notnull:                                   ; preds = %invoke.cont13
 
 cleanup:                                          ; preds = %invoke.cont13, %delete.notnull, %if.then10, %if.then3
   %retval.1 = phi ptr [ %2, %if.then3 ], [ null, %if.then10 ], [ null, %delete.notnull ], [ %call6, %invoke.cont13 ]
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #14
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %key) #14
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
@@ -1382,7 +1382,7 @@ delete.notnull8.i:                                ; preds = %if.end3.i
 
 if.end12.i:                                       ; preds = %if.end3.i
   %41 = load ptr, ptr %nodes.i, align 8
-  %call14.i = tail call i32 @uhash_puti_75(ptr noundef %41, ptr noundef nonnull %call18, i32 noundef 1, ptr noundef nonnull %errorCode)
+  %call14.i = tail call i32 @uhash_puti_75(ptr noundef %41, ptr noundef nonnull %call18, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %42 = load i32, ptr %errorCode, align 4
   %cmp.i11.i = icmp slt i32 %42, 1
   br i1 %cmp.i11.i, label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit, label %delete.notnull19.i
@@ -1491,7 +1491,7 @@ delete.notnull8.i138:                             ; preds = %if.end3.i134
 
 if.end12.i142:                                    ; preds = %if.end3.i134
   %56 = load ptr, ptr %nodes.i135, align 8
-  %call14.i143 = tail call i32 @uhash_puti_75(ptr noundef %56, ptr noundef nonnull %call73, i32 noundef 1, ptr noundef nonnull %errorCode)
+  %call14.i143 = tail call i32 @uhash_puti_75(ptr noundef %56, ptr noundef nonnull %call73, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %57 = load i32, ptr %errorCode, align 4
   %cmp.i11.i144 = icmp slt i32 %57, 1
   br i1 %cmp.i11.i144, label %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149, label %delete.notnull19.i145
@@ -1526,7 +1526,7 @@ declare i32 @uhash_puti_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14FinalValueNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   ret void
 }
 
@@ -2592,7 +2592,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14FinalValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #14
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }
@@ -2600,7 +2600,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder9ValueNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   ret void
 }
 
@@ -2614,14 +2614,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder21IntermediateValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #14
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }
@@ -2629,7 +2629,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder15LinearMatchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
   ret void
 }
 
@@ -2643,14 +2643,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14ListBranchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14ListBranchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(98) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %this) #14
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }
@@ -2658,14 +2658,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder15SplitBranchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder15SplitBranchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }
@@ -2673,14 +2673,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14BranchHeadNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7517StringTrieBuilder14BranchHeadNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #14
   ret void
 }

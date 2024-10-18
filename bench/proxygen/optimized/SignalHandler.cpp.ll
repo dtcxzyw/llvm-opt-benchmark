@@ -116,7 +116,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen13SignalHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN5folly18AsyncSignalHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #10
+  tail call void @_ZN5folly18AsyncSignalHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }

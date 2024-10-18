@@ -1738,7 +1738,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
 250:                                              ; preds = %243
   %251 = getelementptr i8, ptr %0, i64 3448
   %252 = load ptr, ptr %251, align 8
-  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %252, ptr noundef nonnull @.str.5, i32 noundef %227, i32 noundef %245, i32 noundef %246) #19
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %252, ptr noundef nonnull @.str.5, i32 noundef range(i32 68, 0) %227, i32 noundef %245, i32 noundef %246) #19
   br label %reg_pattern_test.exit
 
 reg_pattern_test.exit:                            ; preds = %243, %250

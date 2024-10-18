@@ -677,7 +677,7 @@ _ZN4NodenwEm.exit61:                              ; preds = %178, %180
 
 183:                                              ; preds = %_ZN4NodenwEm.exit61
   %184 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i60, i32 noundef 3) #5
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i60, i32 noundef 3) #5
   %185 = getelementptr inbounds i8, ptr %.0.i.i.i60, i64 56
   store ptr %184, ptr %185, align 8
   %186 = getelementptr inbounds i8, ptr %.0.i.i.i60, i64 44
@@ -1031,7 +1031,7 @@ _ZN4NodenwEm.exit76:                              ; preds = %409, %411
 
 414:                                              ; preds = %_ZN4NodenwEm.exit76
   %415 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i75, i32 noundef 3) #5
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i75, i32 noundef 3) #5
   %416 = getelementptr inbounds i8, ptr %.0.i.i.i75, i64 56
   store ptr %415, ptr %416, align 8
   %417 = getelementptr inbounds i8, ptr %.0.i.i.i75, i64 44

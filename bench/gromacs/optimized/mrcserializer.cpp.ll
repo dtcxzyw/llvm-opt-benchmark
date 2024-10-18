@@ -26,7 +26,7 @@ $_ZNSt6vectorIhSaIhEE6resizeEm = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx28serializeMrcDensityMapHeaderEPNS_11ISerializerERKNS_19MrcDensityMapHeaderE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.gmx::MrcDensityMapHeader", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %3, ptr noundef nonnull align 8 dereferenceable(1016) %1, i64 1016, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %3, ptr noundef nonnull align 8 dereferenceable(1040) %1, i64 1016, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 1016
   %5 = getelementptr inbounds i8, ptr %1, i64 1016
   %6 = getelementptr inbounds i8, ptr %1, i64 1024

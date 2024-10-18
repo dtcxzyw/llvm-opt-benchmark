@@ -70,7 +70,7 @@ define void @_Z11eigensolverPfiiiS_S_(ptr noundef %0, i32 noundef %1, i32 nounde
   %.str..str.1 = select i1 %.not12, ptr @.str.1, ptr @.str
   %23 = shl nsw i32 %1, 1
   %24 = sext i32 %23 to i64
-  %25 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 73, i64 noundef %24, i64 noundef 4)
+  %25 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 73, i64 noundef range(i64 -2147483648, 2147483648) %24, i64 noundef 4)
   store float 0.000000e+00, ptr %18, align 4
   store float 0.000000e+00, ptr %17, align 4
   store i32 -1, ptr %10, align 4
@@ -106,10 +106,10 @@ define void @_Z11eigensolverPfiiiS_S_(ptr noundef %0, i32 noundef %1, i32 nounde
   %36 = load i32, ptr %13, align 4
   store i32 %36, ptr %11, align 4
   %37 = sext i32 %35 to i64
-  %38 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 145, i64 noundef %37, i64 noundef 4)
+  %38 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 145, i64 noundef range(i64 -2147483648, 2147483648) %37, i64 noundef 4)
   %39 = load i32, ptr %11, align 4
   %40 = sext i32 %39 to i64
-  %41 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3, i32 noundef 146, i64 noundef %40, i64 noundef 4)
+  %41 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3, i32 noundef 146, i64 noundef range(i64 -2147483648, 2147483648) %40, i64 noundef 4)
   store float 0.000000e+00, ptr %16, align 4
   call void @ssyevr_(ptr noundef nonnull %.str..str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, ptr noundef %25, ptr noundef %38, ptr noundef nonnull %10, ptr noundef %41, ptr noundef nonnull %11, ptr noundef nonnull %14)
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 198, ptr noundef %25)
@@ -151,7 +151,7 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA135_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(135) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(135) %1) #13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #13
@@ -197,7 +197,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA135_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #13
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #13
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -224,7 +224,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #13
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #13
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
@@ -269,18 +269,18 @@ define void @_Z18sparse_eigensolverP16gmx_sparsematrixiPfS1_i(ptr noundef %0, i3
   %25 = mul nsw i32 %24, %storemerge20
   store i32 %25, ptr %13, align 4
   %26 = sext i32 %20 to i64
-  %27 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.3, i32 noundef 416, i64 noundef %26, i64 noundef 4)
+  %27 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.3, i32 noundef 416, i64 noundef range(i64 -2147483648, 2147483648) %26, i64 noundef 4)
   %28 = mul nsw i32 %20, 3
   %29 = add nsw i32 %28, 4
   %30 = sext i32 %29 to i64
-  %31 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3, i32 noundef 417, i64 noundef %30, i64 noundef 4)
+  %31 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3, i32 noundef 417, i64 noundef range(i64 -2147483648, 2147483648) %30, i64 noundef 4)
   %32 = sext i32 %25 to i64
-  %33 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 418, i64 noundef %32, i64 noundef 4)
+  %33 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 418, i64 noundef range(i64 -2147483648, 2147483648) %32, i64 noundef 4)
   %34 = sext i32 %storemerge20 to i64
-  %35 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.3, i32 noundef 419, i64 noundef %34, i64 noundef 4)
+  %35 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.3, i32 noundef 419, i64 noundef range(i64 -2147483648, 2147483648) %34, i64 noundef 4)
   %36 = mul nsw i32 %storemerge20, %20
   %37 = sext i32 %36 to i64
-  %38 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3, i32 noundef 420, i64 noundef %37, i64 noundef 4)
+  %38 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3, i32 noundef 420, i64 noundef range(i64 -2147483648, 2147483648) %37, i64 noundef 4)
   store float 0.000000e+00, ptr %16, align 4
   store i32 0, ptr %12, align 4
   store i32 0, ptr %11, align 4

@@ -591,7 +591,7 @@ define noundef ptr @_ZN13sentencepiece31SentencePieceText_SentencePiece14_Intern
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %17
-  %30 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %22, i32 noundef %14)
+  %30 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %2, i32 noundef %22, i32 noundef %14)
   %31 = extractvalue { ptr, i8 } %30, 0
   %32 = extractvalue { ptr, i8 } %30, 1
   %33 = trunc i8 %32 to i1
@@ -1879,7 +1879,7 @@ define void @_ZNK13sentencepiece31SentencePieceText_SentencePiece11GetTypeNameB5
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -1889,7 +1889,7 @@ define void @_ZNK13sentencepiece31SentencePieceText_SentencePiece11GetTypeNameB5
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -2376,7 +2376,7 @@ define noundef ptr @_ZN13sentencepiece17SentencePieceText14_InternalParseEPKcPN6
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %21
-  %34 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %26, i32 noundef %18)
+  %34 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %2, i32 noundef %26, i32 noundef %18)
   %35 = extractvalue { ptr, i8 } %34, 0
   %36 = extractvalue { ptr, i8 } %34, 1
   %37 = trunc i8 %36 to i1
@@ -2554,7 +2554,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN13sentencepiece
   br i1 %125, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %126
 
 126:                                              ; preds = %112
-  %127 = tail call noundef ptr @_ZN13sentencepiece31SentencePieceText_SentencePiece14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i, ptr noundef nonnull %storemerge.i12.i, ptr noundef nonnull %2)
+  %127 = tail call noundef ptr @_ZN13sentencepiece31SentencePieceText_SentencePiece14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i, ptr noundef nonnull %storemerge.i12.i, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %128 = icmp eq ptr %127, null
   br i1 %128, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %129
 
@@ -3410,7 +3410,7 @@ define void @_ZNK13sentencepiece17SentencePieceText11GetTypeNameB5cxx11Ev(ptr de
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -3420,7 +3420,7 @@ define void @_ZNK13sentencepiece17SentencePieceText11GetTypeNameB5cxx11Ev(ptr de
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -3848,7 +3848,7 @@ define noundef ptr @_ZN13sentencepiece22NBestSentencePieceText14_InternalParseEP
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
-  %31 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %23, i32 noundef %15)
+  %31 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %2, i32 noundef %23, i32 noundef %15)
   %32 = extractvalue { ptr, i8 } %31, 0
   %33 = extractvalue { ptr, i8 } %31, 1
   %34 = trunc i8 %33 to i1
@@ -3989,7 +3989,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN13sentencepiece
   br i1 %104, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %105
 
 105:                                              ; preds = %91
-  %106 = tail call noundef ptr @_ZN13sentencepiece17SentencePieceText14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i, ptr noundef nonnull %storemerge.i12.i, ptr noundef nonnull %2)
+  %106 = tail call noundef ptr @_ZN13sentencepiece17SentencePieceText14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i, ptr noundef nonnull %storemerge.i12.i, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %107 = icmp eq ptr %106, null
   br i1 %107, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %108
 
@@ -4607,7 +4607,7 @@ define void @_ZNK13sentencepiece22NBestSentencePieceText11GetTypeNameB5cxx11Ev(p
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -4617,7 +4617,7 @@ define void @_ZNK13sentencepiece22NBestSentencePieceText11GetTypeNameB5cxx11Ev(p
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1

@@ -382,11 +382,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call, i32 noundef %conv) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call, i32 noundef range(i32 0, 2) %conv) #13
   br label %trace_qcow2_cache_flush.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %call, i32 noundef %conv) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %call, i32 noundef range(i32 0, 2) %conv) #13
   br label %trace_qcow2_cache_flush.exit
 
 trace_qcow2_cache_flush.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -466,11 +466,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %call, i32 noundef %conv, i32 noundef %i) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %call, i32 noundef range(i32 0, 2) %conv, i32 noundef %i) #13
   br label %trace_qcow2_cache_entry_flush.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %call, i32 noundef %conv, i32 noundef %i) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %call, i32 noundef range(i32 0, 2) %conv, i32 noundef %i) #13
   br label %trace_qcow2_cache_entry_flush.exit
 
 trace_qcow2_cache_entry_flush.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -851,12 +851,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %read_from_disk to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call, i32 noundef %conv, i64 noundef %offset, i32 noundef %conv12.i.i) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call, i32 noundef range(i32 0, 2) %conv, i64 noundef range(i64 1, 0) %offset, i32 noundef %conv12.i.i) #13
   br label %trace_qcow2_cache_get.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv14.i.i = zext i1 %read_from_disk to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, ptr noundef %call, i32 noundef %conv, i64 noundef %offset, i32 noundef %conv14.i.i) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, ptr noundef %call, i32 noundef range(i32 0, 2) %conv, i64 noundef range(i64 1, 0) %offset, i32 noundef %conv14.i.i) #13
   br label %trace_qcow2_cache_get.exit
 
 trace_qcow2_cache_get.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -967,11 +967,11 @@ if.then8.i.i70:                                   ; preds = %if.then.i.i67
   %21 = load i64, ptr %_now.i.i60, align 8
   %tv_usec.i.i73 = getelementptr inbounds i8, ptr %_now.i.i60, i64 8
   %22 = load i64, ptr %tv_usec.i.i73, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i72, i64 noundef %21, i64 noundef %22, ptr noundef %call36, i32 noundef %conv39, i32 noundef %min_lru_index.1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i72, i64 noundef %21, i64 noundef %22, ptr noundef %call36, i32 noundef range(i32 0, 2) %conv39, i32 noundef range(i32 0, -1) %min_lru_index.1) #13
   br label %trace_qcow2_cache_get_replace_entry.exit
 
 if.else.i.i69:                                    ; preds = %if.then.i.i67
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef %call36, i32 noundef %conv39, i32 noundef %min_lru_index.1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef %call36, i32 noundef range(i32 0, 2) %conv39, i32 noundef range(i32 0, -1) %min_lru_index.1) #13
   br label %trace_qcow2_cache_get_replace_entry.exit
 
 trace_qcow2_cache_get_replace_entry.exit:         ; preds = %if.end35, %land.lhs.true5.i.i64, %if.then8.i.i70, %if.else.i.i69
@@ -1010,11 +1010,11 @@ if.then8.i.i84:                                   ; preds = %if.then.i.i81
   %28 = load i64, ptr %_now.i.i74, align 8
   %tv_usec.i.i87 = getelementptr inbounds i8, ptr %_now.i.i74, i64 8
   %29 = load i64, ptr %tv_usec.i.i87, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i86, i64 noundef %28, i64 noundef %29, ptr noundef %call45, i32 noundef %conv48, i32 noundef %min_lru_index.1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i86, i64 noundef %28, i64 noundef %29, ptr noundef %call45, i32 noundef range(i32 0, 2) %conv48, i32 noundef range(i32 0, -1) %min_lru_index.1) #13
   br label %trace_qcow2_cache_get_read.exit
 
 if.else.i.i83:                                    ; preds = %if.then.i.i81
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef %call45, i32 noundef %conv48, i32 noundef %min_lru_index.1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef %call45, i32 noundef range(i32 0, 2) %conv48, i32 noundef range(i32 0, -1) %min_lru_index.1) #13
   br label %trace_qcow2_cache_get_read.exit
 
 trace_qcow2_cache_get_read.exit:                  ; preds = %if.end44, %land.lhs.true5.i.i78, %if.then8.i.i84, %if.else.i.i83
@@ -1105,11 +1105,11 @@ if.then8.i.i102:                                  ; preds = %if.then.i.i99
   %46 = load i64, ptr %_now.i.i92, align 8
   %tv_usec.i.i105 = getelementptr inbounds i8, ptr %_now.i.i92, i64 8
   %47 = load i64, ptr %tv_usec.i.i105, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i104, i64 noundef %46, i64 noundef %47, ptr noundef %call88, i32 noundef %conv91, i32 noundef %i.1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i104, i64 noundef %46, i64 noundef %47, ptr noundef %call88, i32 noundef range(i32 0, 2) %conv91, i32 noundef %i.1) #13
   br label %trace_qcow2_cache_get_done.exit
 
 if.else.i.i101:                                   ; preds = %if.then.i.i99
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef %call88, i32 noundef %conv91, i32 noundef %i.1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef %call88, i32 noundef range(i32 0, 2) %conv91, i32 noundef %i.1) #13
   br label %trace_qcow2_cache_get_done.exit
 
 trace_qcow2_cache_get_done.exit:                  ; preds = %found, %land.lhs.true5.i.i96, %if.then8.i.i102, %if.else.i.i101

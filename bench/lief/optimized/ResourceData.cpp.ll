@@ -68,7 +68,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(116) ptr @_ZN4LIEF2PE12ResourceDataaSES1_(ptr noundef nonnull returned align 8 dereferenceable(116) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN4LIEF2PE12ResourceNode4swapERS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(76) %1)
+  tail call void @_ZN4LIEF2PE12ResourceNode4swapERS1_(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull align 8 dereferenceable(116) %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %3, align 8

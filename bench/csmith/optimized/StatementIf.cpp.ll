@@ -437,7 +437,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
           to label %159 unwind label %165
 
 159:                                              ; preds = %157
-  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %156, i32 noundef 3, ptr noundef %158)
+  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(56) %156, i32 noundef 3, ptr noundef %158)
           to label %160 unwind label %165
 
 160:                                              ; preds = %159
@@ -789,7 +789,7 @@ define dso_local void @_ZN11StatementIfD0Ev(ptr noundef nonnull align 8 derefere
   br label %_ZN11StatementIfD2Ev.exit
 
 _ZN11StatementIfD2Ev.exit:                        ; preds = %17, %21
-  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
+  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }

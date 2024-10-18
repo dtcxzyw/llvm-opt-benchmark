@@ -1885,7 +1885,7 @@ if.end127.i:                                      ; preds = %if.then115.i
   %div134.i = fdiv double %conv129.i, %rx_time.035.i
   %div135.i = fmul double %div134.i, 0x3F50000000000000
   %div136.i = fmul double %div135.i, 0x3F50000000000000
-  %call137.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.200, i64 noundef %throughput.012082599, double noundef %mul.i, double noundef %mul128.i, double noundef %div131.i, double noundef %mul132.i, double noundef %div136.i)
+  %call137.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.200, i64 noundef range(i64 1, 0) %throughput.012082599, double noundef %mul.i, double noundef %mul128.i, double noundef %div131.i, double noundef %mul132.i, double noundef %div136.i)
   br label %ClientBenchmarkThroughput.exit
 
 ClientBenchmarkThroughput.exit:                   ; preds = %if.then115.i, %if.end127.i
@@ -2510,7 +2510,7 @@ if.then677:                                       ; preds = %if.end673
   br label %do.body.i382
 
 do.body.i382:                                     ; preds = %do.cond.i392, %if.then677
-  %call.i383 = call i32 @wolfSSL_write(ptr noundef nonnull %call472, ptr noundef nonnull %msg, i32 noundef %msgSz.0) #23
+  %call.i383 = call i32 @wolfSSL_write(ptr noundef nonnull %call472, ptr noundef nonnull %msg, i32 noundef range(i32 14, 29) %msgSz.0) #23
   %cmp.i384 = icmp slt i32 %call.i383, 1
   br i1 %cmp.i384, label %do.cond.i392, label %do.end.i385
 
@@ -4032,7 +4032,7 @@ do.body:                                          ; preds = %tcp_select.exit, %e
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %do.body
-  %call.i = call i32 @wolfSSL_write(ptr noundef nonnull %ssl, ptr noundef nonnull %msg, i32 noundef %msgSz) #23
+  %call.i = call i32 @wolfSSL_write(ptr noundef nonnull %ssl, ptr noundef nonnull %msg, i32 noundef range(i32 14, 29) %msgSz) #23
   %cmp.i = icmp slt i32 %call.i, 1
   br i1 %cmp.i, label %do.cond.i, label %do.end.i.thread
 

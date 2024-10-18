@@ -141,7 +141,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   store i64 8, ptr %41, align 8
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %40, i32 noundef 0, ptr nonnull %3, i64 1, i64 4294967299, i64 0) #14
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 160
-  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %42, ptr noundef nonnull %36, ptr nonnull @.str.2, i64 42, ptr nonnull @.str.3, i64 8, i1 noundef zeroext false)
+  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %42, ptr noundef nonnull align 8 dereferenceable(276) %36, ptr nonnull @.str.2, i64 42, ptr nonnull @.str.3, i64 8, i1 noundef zeroext false)
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 264
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 268
@@ -694,7 +694,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN5clang4ento15CallDescriptionD2Ev.exit9
 
 _ZN5clang4ento15CallDescriptionD2Ev.exit9:        ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i7, %23
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   ret void
 }
 

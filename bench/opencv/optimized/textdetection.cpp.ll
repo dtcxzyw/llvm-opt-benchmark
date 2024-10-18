@@ -1701,7 +1701,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv4text6ERStatD2Ev.exit ], [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit ]
   %65 = phi ptr [ %134, %_ZN2cv4text6ERStatD2Ev.exit ], [ %58, %_ZNK2cv7MatExprcvNS_3MatEEv.exit ]
   %66 = getelementptr inbounds %"struct.cv::text::ERStat", ptr %65, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %66, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(184) %66, i64 80, i1 false)
   %67 = getelementptr inbounds i8, ptr %66, i64 80
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %27, align 8

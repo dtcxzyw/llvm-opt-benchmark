@@ -390,11 +390,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %17 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %call1.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, i32 noundef range(i32 -2147483648, 0) %call1.i) #9
   br label %trace_pvscsi_init_msi_fail.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call1.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef range(i32 -2147483648, 0) %call1.i) #9
   br label %trace_pvscsi_init_msi_fail.exit.i
 
 trace_pvscsi_init_msi_fail.exit.i:                ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then.i
@@ -1603,11 +1603,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @qemu_get_thread_id() #9
   %13 = load i64, ptr %_now.i.i, align 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i64 noundef %add42.i) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i64 noundef range(i64 1, 0) %add42.i) #9
   br label %trace_pvscsi_process_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i64 noundef %add42.i) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i64 noundef range(i64 1, 0) %add42.i) #9
   br label %trace_pvscsi_process_io.exit
 
 trace_pvscsi_process_io.exit:                     ; preds = %while.body, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1661,7 +1661,7 @@ lor.lhs.false20.i.i.i:                            ; preds = %trace_pvscsi_proces
 pvscsi_device_find.exit.i.i:                      ; preds = %lor.lhs.false20.i.i.i
   %26 = load i8, ptr %arrayidx26.i.i.i, align 2
   %conv27.i.i.i = zext i8 %26 to i32
-  %call.i.i.i = call ptr @scsi_device_find(ptr noundef nonnull %bus.i.i.i, i32 noundef %conv.i.i, i32 noundef %conv10.i.i, i32 noundef %conv27.i.i.i) #9
+  %call.i.i.i = call ptr @scsi_device_find(ptr noundef nonnull %bus.i.i.i, i32 noundef range(i32 0, 256) %conv.i.i, i32 noundef %conv10.i.i, i32 noundef %conv27.i.i.i) #9
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i, label %pvscsi_queue_pending_descriptor.exit.i, label %if.then.i.i8
 
@@ -2821,11 +2821,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %9, i32 noundef %target_lun.0, ptr noundef %retval.0.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %9, i32 noundef range(i32 0, 256) %target_lun.0, ptr noundef %retval.0.i) #9
   br label %trace_pvscsi_on_cmd_reset_dev.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %9, i32 noundef %target_lun.0, ptr noundef %retval.0.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %9, i32 noundef range(i32 0, 256) %target_lun.0, ptr noundef %retval.0.i) #9
   br label %trace_pvscsi_on_cmd_reset_dev.exit
 
 trace_pvscsi_on_cmd_reset_dev.exit:               ; preds = %pvscsi_device_find.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3575,7 +3575,7 @@ trace_pvscsi_command_complete_sense_len.exit:     ; preds = %if.then9, %land.lhs
   %senseAddr.i = getelementptr inbounds i8, ptr %0, i64 112
   %27 = load i64, ptr %senseAddr.i, align 8
   %conv8.i = zext i32 %cond.i to i64
-  call void @cpu_physical_memory_rw(i64 noundef %27, ptr noundef nonnull %sense, i64 noundef %conv8.i, i1 noundef zeroext true) #9
+  call void @cpu_physical_memory_rw(i64 noundef %27, ptr noundef nonnull %sense, i64 noundef range(i64 0, 4294967296) %conv8.i, i1 noundef zeroext true) #9
   br label %if.end11
 
 if.end11:                                         ; preds = %trace_pvscsi_command_complete_sense_len.exit, %if.end3

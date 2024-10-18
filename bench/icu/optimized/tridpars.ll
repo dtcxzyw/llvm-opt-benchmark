@@ -1858,7 +1858,7 @@ if.end3:                                          ; preds = %_ZN6icu_7513umtx_in
   %8 = load ptr, ptr @_ZN6icu_75L16SPECIAL_INVERSESE, align 8
   %target = getelementptr inbounds i8, ptr %specs, i64 72
   %9 = load ptr, ptr %8, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %9, ptr noundef nonnull %target)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(64) %target)
   tail call void @umtx_unlock_75(ptr noundef nonnull @_ZN6icu_75L4LOCKE)
   %cmp5.not = icmp eq ptr %call.i, null
   br i1 %cmp5.not, label %return, label %invoke.cont8
@@ -3239,7 +3239,7 @@ new.notnull.i:                                    ; preds = %if.end8
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %if.end8
-  %call2.i1617 = invoke noundef ptr @uhash_put_75(ptr noundef %16, ptr noundef %call.i, ptr noundef nonnull %call5, ptr noundef nonnull %status)
+  %call2.i1617 = invoke noundef ptr @uhash_put_75(ptr noundef %16, ptr noundef %call.i, ptr noundef nonnull %call5, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont10 unwind label %lpad9
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -3283,7 +3283,7 @@ new.notnull.i20:                                  ; preds = %if.end27
           to label %new.cont.i22 unwind label %lpad.i21
 
 new.cont.i22:                                     ; preds = %new.notnull.i20, %if.end27
-  %call2.i2324 = invoke noundef ptr @uhash_put_75(ptr noundef %21, ptr noundef %call.i18, ptr noundef nonnull %call14, ptr noundef nonnull %status)
+  %call2.i2324 = invoke noundef ptr @uhash_put_75(ptr noundef %21, ptr noundef %call.i18, ptr noundef nonnull %call14, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup unwind label %lpad9
 
 lpad.i21:                                         ; preds = %new.notnull.i20
@@ -3342,7 +3342,7 @@ new.notnull:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %new.notnull
   %hashObj.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %call2.i.i2 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i2 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i

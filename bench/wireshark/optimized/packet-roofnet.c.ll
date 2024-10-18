@@ -224,7 +224,7 @@ define internal i32 @dissect_roofnet(ptr noundef %0, ptr noundef %1, ptr noundef
   %59 = load i32, ptr @ett_roofnet_link, align 4
   %60 = tail call ptr @get_hostname(i32 noundef %56) #2
   %61 = tail call ptr @get_hostname(i32 noundef %58) #2
-  %62 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.03942, i32 noundef 24, i32 noundef %59, ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef %indvars.iv, ptr noundef %60, ptr noundef %61) #2
+  %62 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.03942, i32 noundef 24, i32 noundef %59, ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef range(i32 0, 256) %indvars.iv, ptr noundef %60, ptr noundef %61) #2
   %63 = load i32, ptr @hf_roofnet_link_src, align 4
   %64 = tail call ptr @proto_tree_add_ipv4(ptr noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %.03942, i32 noundef 4, i32 noundef %56) #2
   %65 = add i32 %.03942, 4

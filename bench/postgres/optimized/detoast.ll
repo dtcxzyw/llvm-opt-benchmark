@@ -169,7 +169,7 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr nocapture noundef read
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 320
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef %23, i32 noundef %.sroa.4.0.copyload, i32 noundef %13, i32 noundef 0, i32 noundef %13, ptr noundef nonnull %16) #6
+  tail call void %27(ptr noundef %23, i32 noundef %.sroa.4.0.copyload, i32 noundef range(i32 0, 1073741824) %13, i32 noundef 0, i32 noundef range(i32 -1073741822, -2147483648) %13, ptr noundef nonnull %16) #6
   tail call void @table_close(ptr noundef %23, i32 noundef 1) #6
   br label %28
 
@@ -411,7 +411,7 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %.lr.ph.split
-  %10 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %1, i32 %.tr8496)
+  %10 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 range(i32 0, -2147483648) %1, i32 range(i32 0, -2147483648) %.tr8496)
   %11 = extractvalue { i32, i1 } %10, 1
   %12 = extractvalue { i32, i1 } %10, 0
   %spec.select81 = select i1 %11, i32 -1, i32 %12
@@ -529,11 +529,11 @@ tailrecurse:                                      ; preds = %16
   ]
 
 59:                                               ; preds = %58
-  %60 = tail call ptr @pglz_decompress_datum_slice(ptr noundef nonnull %.061, i32 noundef %.079) #6
+  %60 = tail call ptr @pglz_decompress_datum_slice(ptr noundef nonnull %.061, i32 noundef range(i32 0, -2147483648) %.079) #6
   br label %toast_decompress_datum_slice.exit
 
 61:                                               ; preds = %58
-  %62 = tail call ptr @lz4_decompress_datum_slice(ptr noundef nonnull %.061, i32 noundef %.079) #6
+  %62 = tail call ptr @lz4_decompress_datum_slice(ptr noundef nonnull %.061, i32 noundef range(i32 0, -2147483648) %.079) #6
   br label %toast_decompress_datum_slice.exit
 
 63:                                               ; preds = %58
@@ -700,7 +700,7 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr nocapture nounde
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 320
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef %30, i32 noundef %.sroa.6.0.copyload, i32 noundef %15, i32 noundef %spec.select36, i32 noundef %.2, ptr noundef nonnull %25) #6
+  tail call void %34(ptr noundef %30, i32 noundef %.sroa.6.0.copyload, i32 noundef range(i32 0, 1073741824) %15, i32 noundef range(i32 0, 1073741823) %spec.select36, i32 noundef range(i32 -1073741822, -2147483648) %.2, ptr noundef nonnull %25) #6
   tail call void @table_close(ptr noundef %30, i32 noundef 1) #6
   br label %35
 

@@ -14463,7 +14463,7 @@ _check_for_part_assocs.exit.i:                    ; preds = %173
   br label %.thread309.i
 
 390:                                              ; preds = %382, %.thread305.i, %379
-  %391 = call fastcc i32 @_copy_job_desc_to_job_record(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %14, ptr noundef %15)
+  %391 = call fastcc i32 @_copy_job_desc_to_job_record(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef %14, ptr noundef %15)
   %.not274.i = icmp eq i32 %391, 0
   %392 = load ptr, ptr %27, align 8
   br i1 %.not274.i, label %393, label %530
@@ -20766,7 +20766,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %1, align 4
-  %15 = call i64 @read(i32 noundef %12, ptr noundef nonnull %4, i64 noundef 4) #28
+  %15 = call i64 @read(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %4, i64 noundef 4) #28
   %16 = and i64 %15, 4294967292
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %26
@@ -20805,7 +20805,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
 33:                                               ; preds = %31
   %34 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16385, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.39, i32 noundef 8258, ptr noundef nonnull @__func__._read_data_array_from_file) #28
   store ptr %34, ptr %3, align 8
-  %35 = tail call i64 @read(i32 noundef %12, ptr noundef %34, i64 noundef 16384) #28
+  %35 = tail call i64 @read(i32 noundef range(i32 0, -2147483648) %12, ptr noundef %34, i64 noundef 16384) #28
   %36 = trunc i64 %35 to i32
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %._crit_edge.i, label %.lr.ph.i
@@ -20834,7 +20834,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   %49 = call ptr @slurm_xrecalloc(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.39, i32 noundef 8271, ptr noundef nonnull @__func__._read_data_array_from_file) #28
   %50 = load ptr, ptr %3, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 %42
-  %52 = call i64 @read(i32 noundef %12, ptr noundef nonnull %51, i64 noundef 16384) #28
+  %52 = call i64 @read(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %51, i64 noundef 16384) #28
   %53 = trunc i64 %52 to i32
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %._crit_edge.i, label %.lr.ph.i
@@ -34122,7 +34122,7 @@ find_job_record.exit241.thread:                   ; preds = %173, %164, %198, %2
   store i32 %34, ptr %259, align 8
   store i32 %268, ptr %260, align 4
   store ptr null, ptr %261, align 8
-  call fastcc void @_resp_array_add(ptr noundef %9, ptr noundef %3, i32 noundef 2017, ptr noundef null)
+  call fastcc void @_resp_array_add(ptr noundef nonnull %9, ptr noundef %3, i32 noundef 2017, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 1120, ptr nonnull %3)
   br label %285
 
@@ -36912,7 +36912,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   store i32 %37, ptr %101, align 8
   store i32 %109, ptr %102, align 4
   store ptr null, ptr %103, align 8
-  call fastcc void @_resp_array_add(ptr noundef %12, ptr noundef %6, i32 noundef 2017, ptr noundef null)
+  call fastcc void @_resp_array_add(ptr noundef nonnull %12, ptr noundef %6, i32 noundef 2017, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 1120, ptr nonnull %6)
   br label %121
 
@@ -37342,7 +37342,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   store i32 %81, ptr %101, align 8
   store i32 %108, ptr %102, align 4
   store ptr null, ptr %103, align 8
-  call fastcc void @_resp_array_add(ptr noundef %9, ptr noundef %5, i32 noundef 2017, ptr noundef null)
+  call fastcc void @_resp_array_add(ptr noundef nonnull %9, ptr noundef %5, i32 noundef 2017, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 1120, ptr nonnull %5)
   br label %119
 

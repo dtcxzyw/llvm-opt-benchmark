@@ -126,7 +126,7 @@ _ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_9JSWeakRefEEENS0_12PseudoHa
 define hidden void @_ZN6hermes2vm9JSWeakRef9setTargetERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %target.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %weakRefMutex_.i = getelementptr inbounds i8, ptr %runtime, i64 1288
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %weakRefMutex_.i) #4
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #4
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -143,11 +143,11 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %sub.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i, %0
   %conv.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i
-  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i, i32 %retval.sroa.0.0.i.i.i.i.i) #4
+  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 %retval.sroa.0.0.i.i.i.i.i) #4
   %ref_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = ptrtoint ptr %call5.i.i to i64
   store i64 %1, ptr %ref_, align 8
-  %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %weakRefMutex_.i) #4
+  %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #4
   ret void
 }
 

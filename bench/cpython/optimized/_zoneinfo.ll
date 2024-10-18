@@ -3653,11 +3653,11 @@ if.end.i68:                                       ; preds = %if.then20
   %start1.i.i = getelementptr inbounds i8, ptr %obj_self, i64 168
   %16 = load ptr, ptr %start1.i.i, align 8
   %17 = load ptr, ptr %16, align 8
-  %call.i.i = tail call i64 %17(ptr noundef nonnull %16, i32 noundef %or) #9
+  %call.i.i = tail call i64 %17(ptr noundef nonnull %16, i32 noundef range(i32 0, 65536) %or) #9
   %end3.i.i = getelementptr inbounds i8, ptr %obj_self, i64 176
   %18 = load ptr, ptr %end3.i.i, align 8
   %19 = load ptr, ptr %18, align 8
-  %call6.i.i = tail call i64 %19(ptr noundef nonnull %18, i32 noundef %or) #9
+  %call6.i.i = tail call i64 %19(ptr noundef nonnull %18, i32 noundef range(i32 0, 65536) %or) #9
   %utcoff_seconds.i = getelementptr inbounds i8, ptr %obj_self, i64 120
   %20 = load i64, ptr %utcoff_seconds.i, align 8
   %sub.i = sub i64 %call.i.i, %20
@@ -5967,7 +5967,7 @@ if.end68.i:                                       ; preds = %if.end62.i
 
 if.then.i75.i:                                    ; preds = %if.end68.i
   %89 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %89, ptr noundef nonnull @.str.50, i32 noundef %julian.0.i, i32 noundef %day42.195.i) #9
+  %call.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %89, ptr noundef nonnull @.str.50, i32 noundef range(i32 0, 2) %julian.0.i, i32 noundef %day42.195.i) #9
   br label %if.then47.sink.split
 
 if.end.i73.i:                                     ; preds = %if.end68.i
@@ -6717,11 +6717,11 @@ if.end.i:                                         ; preds = %if.then15
   %start1.i.i = getelementptr inbounds i8, ptr %self, i64 168
   %11 = load ptr, ptr %start1.i.i, align 8
   %12 = load ptr, ptr %11, align 8
-  %call.i.i = tail call i64 %12(ptr noundef nonnull %11, i32 noundef %or) #9
+  %call.i.i = tail call i64 %12(ptr noundef nonnull %11, i32 noundef range(i32 0, 65536) %or) #9
   %end3.i.i = getelementptr inbounds i8, ptr %self, i64 176
   %13 = load ptr, ptr %end3.i.i, align 8
   %14 = load ptr, ptr %13, align 8
-  %call6.i.i = tail call i64 %14(ptr noundef nonnull %13, i32 noundef %or) #9
+  %call6.i.i = tail call i64 %14(ptr noundef nonnull %13, i32 noundef range(i32 0, 65536) %or) #9
   %dst_diff.i = getelementptr inbounds i8, ptr %self, i64 160
   %15 = load i32, ptr %dst_diff.i, align 8
   %cmp.i = icmp sgt i32 %15, -1

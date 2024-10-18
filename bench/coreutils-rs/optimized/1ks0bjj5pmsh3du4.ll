@@ -126,7 +126,7 @@ define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopegu
 31:                                               ; preds = %6
   %32 = sub nsw i64 0, %19
   %33 = getelementptr inbounds i8, ptr %.val2.i, i64 %32
-  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %22, i64 noundef %.val1.i) #13, !noalias !8
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %22, i64 noundef range(i64 0, -9223372036854775807) %.val1.i) #13, !noalias !8
   br label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ccf94eb672cbb48E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ccf94eb672cbb48E.exit": ; preds = %1, %6, %31
@@ -174,7 +174,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 33:                                               ; preds = %25
   %34 = add nuw i64 %.0.i, 1
-  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %19, i64 %34)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %19, i64 range(i64 1, -2305843009213693957) %34)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14), !noalias !19
   %35 = icmp ult i64 %.0.sroa.speculated.i, 8
@@ -402,7 +402,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !95
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull readonly align 8 dereferenceable(72) %13, i64 32, i1 false), !noalias !71
   %118 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, align 8, !alias.scope !96, !noalias !71, !noundef !7
   %119 = shl i64 %118, 56
   %120 = load i64, ptr %78, align 8, !alias.scope !96, !noalias !71, !noundef !7
@@ -450,7 +450,7 @@ _ZN4core3ptr19swap_nonoverlapping17hcb7292d07a5d57dbE.exit: ; preds = %112
 140:                                              ; preds = %129
   %141 = sub nuw nsw i64 -32, %130
   %142 = getelementptr inbounds i8, ptr %.val2.i.i, i64 %141
-  call void @__rust_dealloc(ptr noundef nonnull %142, i64 noundef %134, i64 noundef 16) #13, !noalias !103
+  call void @__rust_dealloc(ptr noundef nonnull %142, i64 noundef %134, i64 noundef range(i64 0, -9223372036854775807) 16) #13, !noalias !103
   br label %"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3698d4e1070cb8abE.exit"
 
 "_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3698d4e1070cb8abE.exit": ; preds = %_ZN4core3ptr19swap_nonoverlapping17hcb7292d07a5d57dbE.exit, %129, %140
@@ -662,7 +662,7 @@ _ZN4core3ptr19swap_nonoverlapping17he04c57dfea707dcbE.exit.i: ; preds = %_ZN4cor
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !137
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %8, i64 32, i1 false), !noalias !137
   %230 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !165, !noalias !137, !noundef !7
   %231 = shl i64 %230, 56
   %232 = load i64, ptr %203, align 8, !alias.scope !165, !noalias !137, !noundef !7

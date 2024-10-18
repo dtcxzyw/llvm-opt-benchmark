@@ -84,7 +84,7 @@ if.end19:                                         ; preds = %lor.lhs.false
   br i1 %cmp.i, label %pem_read_bio_key_decoder.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end19
-  %call2.i = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %pkey.i, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef null, i32 noundef %selection, ptr noundef %libctx, ptr noundef %propq) #6
+  %call2.i = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %pkey.i, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef null, i32 noundef range(i32 132, 136) %selection, ptr noundef %libctx, ptr noundef %propq) #6
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %pem_read_bio_key_decoder.exit.thread, label %if.end6.i
 
@@ -799,7 +799,7 @@ if.then.i:                                        ; preds = %entry
   br label %PEM_write_PrivateKey_ex.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @PEM_write_bio_PrivateKey_ex(ptr noundef nonnull %call.i, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u, ptr readnone poison, ptr noundef null)
+  %call1.i = tail call i32 @PEM_write_bio_PrivateKey_ex(ptr noundef nonnull %call.i, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u, ptr poison, ptr noundef null)
   %call2.i = tail call i32 @BIO_free(ptr noundef nonnull %call.i) #6
   br label %PEM_write_PrivateKey_ex.exit
 

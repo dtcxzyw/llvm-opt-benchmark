@@ -453,13 +453,13 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont65, %if.
   br i1 %cmp.i.i.i.i.i79, label %if.then.i.i.i80, label %cleanup
 
 if.then.i.i.i80:                                  ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %invoke.cont67 unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i80
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %status) #19
   br label %ehcleanup
 

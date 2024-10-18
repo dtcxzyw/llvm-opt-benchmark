@@ -177,7 +177,7 @@ dsa_minimum_size.exit:                            ; preds = %6
   br label %61
 
 61:                                               ; preds = %58, %51
-  %62 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
+  %62 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %27, i1 true)
   %63 = sub nuw nsw i64 64, %62
   %64 = tail call i64 @llvm.umin.i64(i64 %63, i64 15)
   %65 = select i1 %.not73, i64 0, i64 %64
@@ -761,7 +761,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
 
 .lr.ph:                                           ; preds = %.critedge.i, %65
   %.1.i46 = phi i64 [ %25, %65 ], [ %22, %.critedge.i ]
-  %23 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %.1.i46)
+  %23 = tail call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %.1.i46)
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 44
@@ -775,7 +775,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
   br i1 %.not108.i, label %35, label %33
 
 33:                                               ; preds = %.lr.ph
-  %34 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %25)
+  %34 = tail call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %25)
   br label %35
 
 35:                                               ; preds = %33, %.lr.ph
@@ -802,7 +802,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
 43:                                               ; preds = %37
   %44 = getelementptr inbounds i8, ptr %23, i64 8
   %45 = load i64, ptr %44, align 8
-  %46 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %45)
+  %46 = tail call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %45)
   %47 = load i64, ptr %24, align 8
   %48 = getelementptr inbounds i8, ptr %46, i64 16
   store i64 %47, ptr %48, align 8
@@ -830,7 +830,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
   br i1 %.not111.i, label %62, label %59
 
 59:                                               ; preds = %53
-  %60 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %58)
+  %60 = tail call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %58)
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   store i64 %.1.i46, ptr %61, align 8
   br label %62
@@ -855,7 +855,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
   br i1 %.not.i37.not, label %.critedge113.i, label %68
 
 68:                                               ; preds = %67
-  %69 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %.pr)
+  %69 = tail call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %.pr)
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8
   store i64 %71, ptr %21, align 8
@@ -863,7 +863,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
   br i1 %.not28.i38, label %75, label %72
 
 72:                                               ; preds = %68
-  %73 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %71)
+  %73 = tail call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %71)
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   store i64 0, ptr %74, align 8
   br label %75
@@ -882,7 +882,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
   br i1 %.not.i33.not, label %transfer_first_span.exit36, label %79
 
 79:                                               ; preds = %.critedge113.i
-  %80 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %78)
+  %80 = tail call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %78)
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   %82 = load i64, ptr %81, align 8
   store i64 %82, ptr %20, align 8
@@ -890,7 +890,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
   br i1 %.not28.i34, label %86, label %83
 
 83:                                               ; preds = %79
-  %84 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %82)
+  %84 = tail call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %82)
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   store i64 0, ptr %85, align 8
   br label %86
@@ -907,7 +907,7 @@ transfer_first_span.exit36:                       ; preds = %.critedge113.i
   br i1 %14, label %91, label %89
 
 89:                                               ; preds = %transfer_first_span.exit36
-  %90 = tail call fastcc i64 @alloc_object(ptr noundef %0, i32 noundef 0)
+  %90 = tail call fastcc i64 @alloc_object(ptr noundef nonnull %0, i32 noundef 0)
   %.not105.i = icmp eq i64 %90, 0
   br i1 %.not105.i, label %ensure_active_superblock.exit, label %91
 
@@ -1044,7 +1044,7 @@ ensure_active_superblock.exit.thread.sink.split.sink.split: ; preds = %86, %75
   %.sink55 = phi i64 [ %77, %75 ], [ %88, %86 ]
   %.sink = phi i64 [ %.pr, %75 ], [ %78, %86 ]
   %.sink52.ph = phi ptr [ %69, %75 ], [ %80, %86 ]
-  %159 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %.sink55)
+  %159 = tail call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %.sink55)
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   store i64 %.sink, ptr %160, align 8
   br label %ensure_active_superblock.exit.thread.sink.split
@@ -1111,7 +1111,7 @@ ensure_active_superblock.exit:                    ; preds = %89, %100
   br i1 %.not.i31.not, label %transfer_first_span.exit, label %192
 
 192:                                              ; preds = %190
-  %193 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %191)
+  %193 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %191)
   %194 = getelementptr inbounds i8, ptr %193, i64 16
   %195 = load i64, ptr %194, align 8
   store i64 %195, ptr %9, align 8
@@ -1119,7 +1119,7 @@ ensure_active_superblock.exit:                    ; preds = %89, %100
   br i1 %.not28.i, label %199, label %196
 
 196:                                              ; preds = %192
-  %197 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %195)
+  %197 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %195)
   %198 = getelementptr inbounds i8, ptr %197, i64 8
   store i64 0, ptr %198, align 8
   br label %199
@@ -1134,7 +1134,7 @@ ensure_active_superblock.exit:                    ; preds = %89, %100
   br i1 %.not29.i, label %206, label %203
 
 203:                                              ; preds = %199
-  %204 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %202)
+  %204 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %202)
   %205 = getelementptr inbounds i8, ptr %204, i64 8
   store i64 %191, ptr %205, align 8
   br label %206
@@ -1204,7 +1204,7 @@ define internal fastcc ptr @get_best_segment(ptr noundef %0, i64 noundef range(i
 
 check_for_freed_segments_locked.exit:             ; preds = %2, %25
   %26 = icmp eq i64 %1, 0
-  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %1, i1 true)
   %28 = sub nuw nsw i64 64, %27
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 15)
   %30 = select i1 %26, i64 0, i64 %29
@@ -1405,7 +1405,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
   %87 = getelementptr inbounds i8, ptr %86, i64 16
   store i64 %.098, ptr %87, align 8
   %88 = icmp eq i64 %.099, 0
-  %89 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.099, i1 true)
+  %89 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.099, i1 true)
   %90 = sub nuw nsw i64 64, %89
   %91 = tail call i64 @llvm.umin.i64(i64 %90, i64 15)
   %92 = select i1 %88, i64 0, i64 %91
@@ -1905,7 +1905,7 @@ define internal fastcc void @rebin_segment(ptr noundef %0, ptr noundef %1) unnam
   %5 = getelementptr inbounds i8, ptr %4, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %6, i1 true)
   %9 = sub nuw nsw i64 64, %8
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 15)
   %11 = select i1 %7, i64 0, i64 %10

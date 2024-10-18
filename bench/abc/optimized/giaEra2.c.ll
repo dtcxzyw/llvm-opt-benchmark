@@ -2104,7 +2104,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr nocaptur
   br i1 %83, label %95, label %84
 
 84:                                               ; preds = %.lr.ph.i70
-  %85 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %82)
+  %85 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 range(i32 1, 1431655766) %82)
   %86 = icmp samesign ugt i32 %85, 1
   %87 = icmp sgt i32 %.021.i, -1
   %or.cond.i = select i1 %86, i1 true, i1 %87
@@ -3367,7 +3367,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %105, label %117, label %106
 
 106:                                              ; preds = %.lr.ph.i110
-  %107 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %104)
+  %107 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 range(i32 1, 1431655766) %104)
   %108 = icmp samesign ugt i32 %107, 1
   %109 = icmp sgt i32 %.021.i, -1
   %or.cond.i = select i1 %108, i1 true, i1 %109
@@ -3583,7 +3583,7 @@ Gia_StaAreDisjoint.exit:                          ; preds = %48, %106, %Gia_StaA
   br i1 %216, label %228, label %217
 
 217:                                              ; preds = %.lr.ph.i143
-  %218 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %215)
+  %218 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 range(i32 1, 1431655766) %215)
   %219 = icmp samesign ugt i32 %218, 1
   %220 = icmp sgt i32 %.021.i146, -1
   %or.cond.i147 = select i1 %219, i1 true, i1 %220

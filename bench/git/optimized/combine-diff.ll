@@ -753,12 +753,12 @@ st_add.exit173:                                   ; preds = %for.end233, %land.l
   %size254 = getelementptr inbounds i8, ptr %result_file, i64 8
   store i64 %64, ptr %size254, align 8
   %conv256 = sext i32 %num_parent to i64
-  %mul6.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %add.i, i64 %conv256)
+  %mul6.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %add.i, i64 range(i64 -2147483648, 2147483648) %conv256)
   %mul.ov.i = extractvalue { i64, i1 } %mul6.i, 1
   br i1 %mul.ov.i, label %if.then.i175, label %st_mult.exit
 
 if.then.i175:                                     ; preds = %st_add.exit173
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.46, i64 noundef %add.i, i64 noundef %conv256) #14
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.46, i64 noundef %add.i, i64 noundef range(i64 -2147483648, 2147483648) %conv256) #14
   unreachable
 
 st_mult.exit:                                     ; preds = %st_add.exit173
@@ -3296,7 +3296,7 @@ entry:
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.46, i64 noundef 8, i64 noundef %conv1) #14
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.46, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv1) #14
   unreachable
 
 st_mult.exit:                                     ; preds = %entry

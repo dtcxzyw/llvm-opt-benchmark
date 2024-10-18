@@ -4126,7 +4126,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   store ptr %call, ptr %agg.result, align 8, !tbaa !72
   %pn.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !70
-  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib7ProblemES3_EEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull %agg.result, ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(8) %pn.i)
+  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib7ProblemES3_EEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(8) %pn.i)
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont4

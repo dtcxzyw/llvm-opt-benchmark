@@ -791,7 +791,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #6 {
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichEnum, i64 0) #10
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichEnum, i64 0) #10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -800,7 +800,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI14RichPercentage, i64 0) #10
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI14RichPercentage, i64 0) #10
   %.not15 = icmp eq ptr %7, null
   br i1 %.not15, label %10, label %8
 
@@ -809,7 +809,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI16RichDynamicFloat, i64 0) #10
+  %11 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI16RichDynamicFloat, i64 0) #10
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %14, label %12
 
@@ -818,7 +818,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 14:                                               ; preds = %10
-  %15 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichBool, i64 0) #10
+  %15 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichBool, i64 0) #10
   %.not17 = icmp eq ptr %15, null
   br i1 %.not17, label %18, label %16
 
@@ -827,7 +827,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 18:                                               ; preds = %14
-  %19 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI7RichInt, i64 0) #10
+  %19 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI7RichInt, i64 0) #10
   %.not18 = icmp eq ptr %19, null
   br i1 %.not18, label %22, label %20
 
@@ -836,7 +836,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 22:                                               ; preds = %18
-  %23 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI9RichFloat, i64 0) #10
+  %23 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI9RichFloat, i64 0) #10
   %.not19 = icmp eq ptr %23, null
   br i1 %.not19, label %26, label %24
 
@@ -845,7 +845,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 26:                                               ; preds = %22
-  %27 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI10RichString, i64 0) #10
+  %27 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI10RichString, i64 0) #10
   %.not20 = icmp eq ptr %27, null
   br i1 %.not20, label %30, label %28
 
@@ -854,7 +854,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 30:                                               ; preds = %26
-  %31 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichMatrix44, i64 0) #10
+  %31 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichMatrix44, i64 0) #10
   %.not21 = icmp eq ptr %31, null
   br i1 %.not21, label %34, label %32
 
@@ -863,7 +863,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 34:                                               ; preds = %30
-  %35 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichPosition, i64 0) #10
+  %35 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichPosition, i64 0) #10
   %.not22 = icmp eq ptr %35, null
   br i1 %.not22, label %38, label %36
 
@@ -872,7 +872,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 38:                                               ; preds = %34
-  %39 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI13RichDirection, i64 0) #10
+  %39 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI13RichDirection, i64 0) #10
   %.not23 = icmp eq ptr %39, null
   br i1 %.not23, label %42, label %40
 
@@ -881,7 +881,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichShot, i64 0) #10
+  %43 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichShot, i64 0) #10
   %.not24 = icmp eq ptr %43, null
   br i1 %.not24, label %46, label %44
 
@@ -890,7 +890,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 46:                                               ; preds = %42
-  %47 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI9RichColor, i64 0) #10
+  %47 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI9RichColor, i64 0) #10
   %.not25 = icmp eq ptr %47, null
   br i1 %.not25, label %50, label %48
 
@@ -899,7 +899,7 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 50:                                               ; preds = %46
-  %51 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichMesh, i64 0) #10
+  %51 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichMesh, i64 0) #10
   %.not26 = icmp eq ptr %51, null
   br i1 %.not26, label %54, label %52
 
@@ -908,12 +908,12 @@ define void @_ZN9pymeshlab23computePythonTypeStringERK13RichParameter(ptr dead_o
   br label %62
 
 54:                                               ; preds = %50
-  %55 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileSave, i64 0) #10
+  %55 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileSave, i64 0) #10
   %.not27 = icmp eq ptr %55, null
   br i1 %.not27, label %56, label %58
 
 56:                                               ; preds = %54
-  %57 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileOpen, i64 0) #10
+  %57 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileOpen, i64 0) #10
   %.not28 = icmp eq ptr %57, null
   br i1 %.not28, label %60, label %58
 

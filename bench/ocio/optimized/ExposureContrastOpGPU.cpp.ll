@@ -3325,7 +3325,7 @@ invoke.cont18.i:                                  ; preds = %invoke.cont13.i
   br i1 %tobool.not.i.i.i, label %invoke.cont17, label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %invoke.cont18.i
-  %call.i.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %getDouble.i, ptr noundef nonnull align 8 dereferenceable(16) %getDouble.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %getDouble.i, ptr noundef nonnull align 8 dereferenceable(32) %getDouble.i, i32 noundef 3)
           to label %invoke.cont17 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i20
@@ -3366,7 +3366,7 @@ ehcleanup19.i:                                    ; preds = %ehcleanup.i, %lpad.
   br i1 %tobool.not.i.i10.i, label %lpad16.body, label %if.then.i.i11.i
 
 if.then.i.i11.i:                                  ; preds = %ehcleanup19.i
-  %call.i.i12.i = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %getDouble.i, ptr noundef nonnull align 8 dereferenceable(16) %getDouble.i, i32 noundef 3)
+  %call.i.i12.i = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %getDouble.i, ptr noundef nonnull align 8 dereferenceable(32) %getDouble.i, i32 noundef 3)
           to label %lpad16.body unwind label %terminate.lpad.i.i13.i
 
 terminate.lpad.i.i13.i:                           ; preds = %if.then.i.i11.i

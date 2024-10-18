@@ -652,7 +652,7 @@ if.then14.i.i:                                    ; preds = %if.then.i.i
   br label %sw.epilog197.i
 
 if.then25.i.i:                                    ; preds = %if.then.i.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, i32 noundef %conv47.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, i32 noundef range(i32 -2147483648, 256) %conv47.i) #10
   br label %sw.epilog197.i
 
 sw.bb67.i:                                        ; preds = %while.body.i
@@ -682,7 +682,7 @@ if.then67.i.i:                                    ; preds = %if.end54.i.i, %if.e
   br label %printoption.exit124.i
 
 if.then81.i.i:                                    ; preds = %if.else49.i.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.14, i32 noundef %conv68.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.14, i32 noundef range(i32 -2147483648, 256) %conv68.i) #10
   br label %printoption.exit124.i
 
 printoption.exit124.i:                            ; preds = %if.then81.i.i, %if.then67.i.i, %sw.bb67.i
@@ -749,7 +749,7 @@ if.then67.i.i.i:                                  ; preds = %if.end54.i.i.i, %if
   br label %printoption.exit.i.i
 
 if.then81.i.i.i:                                  ; preds = %if.else49.i.i.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.16, i32 noundef %conv68.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.16, i32 noundef range(i32 0, 256) %conv68.i) #10
   br label %printoption.exit.i.i
 
 printoption.exit.i.i:                             ; preds = %if.then81.i.i.i, %if.then67.i.i.i, %send_negotiation.exit.i.i
@@ -799,7 +799,7 @@ if.then67.i58.i.i:                                ; preds = %if.end54.i60.i.i, %
   br label %printoption.exit63.i.i
 
 if.then81.i57.i.i:                                ; preds = %if.else49.i55.i.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.17, i32 noundef %conv68.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.17, i32 noundef range(i32 0, 256) %conv68.i) #10
   br label %printoption.exit63.i.i
 
 printoption.exit63.i.i:                           ; preds = %if.then81.i57.i.i, %if.then67.i58.i.i, %send_negotiation.exit37.i.i
@@ -882,7 +882,7 @@ if.then67.i72.i.i:                                ; preds = %if.end54.i74.i.i, %
   br label %printoption.exit77.i.i
 
 if.then81.i71.i.i:                                ; preds = %if.else49.i69.i.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.17, i32 noundef %conv68.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.17, i32 noundef range(i32 0, 256) %conv68.i) #10
   br label %printoption.exit77.i.i
 
 printoption.exit77.i.i:                           ; preds = %if.then81.i71.i.i, %if.then67.i72.i.i, %send_negotiation.exit48.i.i
@@ -920,7 +920,7 @@ if.then67.i136.i:                                 ; preds = %if.end54.i138.i, %i
   br label %printoption.exit141.i
 
 if.then81.i135.i:                                 ; preds = %if.else49.i133.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.15, i32 noundef %conv72.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.15, i32 noundef range(i32 -2147483648, 256) %conv72.i) #10
   br label %printoption.exit141.i
 
 printoption.exit141.i:                            ; preds = %if.then81.i135.i, %if.then67.i136.i, %sw.bb71.i
@@ -980,7 +980,7 @@ if.then67.i.i163.i:                               ; preds = %if.end54.i.i165.i, 
   br label %printoption.exit.i162.i
 
 if.then81.i.i161.i:                               ; preds = %if.else49.i.i159.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.17, i32 noundef %conv72.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.17, i32 noundef range(i32 0, 256) %conv72.i) #10
   br label %printoption.exit.i162.i
 
 printoption.exit.i162.i:                          ; preds = %if.then81.i.i161.i, %if.then67.i.i163.i, %send_negotiation.exit.i154.i
@@ -1045,7 +1045,7 @@ if.then67.i43.i.i:                                ; preds = %if.end54.i45.i.i, %
   br label %printoption.exit48.i.i
 
 if.then81.i42.i.i:                                ; preds = %if.else49.i40.i.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.16, i32 noundef %conv72.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.16, i32 noundef range(i32 0, 256) %conv72.i) #10
   br label %printoption.exit48.i.i
 
 printoption.exit48.i.i:                           ; preds = %if.then81.i42.i.i, %if.then67.i43.i.i, %send_negotiation.exit33.i.i
@@ -1101,7 +1101,7 @@ if.then67.i177.i:                                 ; preds = %if.end54.i179.i, %i
   br label %printoption.exit182.i
 
 if.then81.i176.i:                                 ; preds = %if.else49.i174.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.16, i32 noundef %conv77.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.16, i32 noundef range(i32 -2147483648, 256) %conv77.i) #10
   br label %printoption.exit182.i
 
 printoption.exit182.i:                            ; preds = %if.then81.i176.i, %if.then67.i177.i, %sw.bb76.i
@@ -1168,7 +1168,7 @@ if.then67.i.i213.i:                               ; preds = %if.end54.i.i215.i, 
   br label %printoption.exit.i211.i
 
 if.then81.i.i210.i:                               ; preds = %if.else49.i.i208.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.14, i32 noundef %conv77.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.14, i32 noundef range(i32 0, 256) %conv77.i) #10
   br label %printoption.exit.i211.i
 
 printoption.exit.i211.i:                          ; preds = %if.then81.i.i210.i, %if.then67.i.i213.i, %send_negotiation.exit.i203.i
@@ -1180,7 +1180,7 @@ printoption.exit.i211.i:                          ; preds = %if.then81.i.i210.i,
   br i1 %cmp8.i.i, label %if.then9.i.i, label %rec_do.exit.i
 
 if.then9.i.i:                                     ; preds = %printoption.exit.i211.i
-  call fastcc void @sendsuboption(ptr noundef nonnull %data, i32 noundef %conv77.i)
+  call fastcc void @sendsuboption(ptr noundef nonnull %data, i32 noundef range(i32 0, 256) %conv77.i)
   br label %rec_do.exit.i
 
 if.else.i194.i:                                   ; preds = %sw.bb.i191.i
@@ -1234,12 +1234,12 @@ if.then67.i85.i.i:                                ; preds = %if.end54.i87.i.i, %
   br label %printoption.exit90.i.i
 
 if.then81.i84.i.i:                                ; preds = %if.else49.i82.i.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.14, i32 noundef %conv77.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.14, i32 noundef range(i32 0, 256) %conv77.i) #10
   br label %printoption.exit90.i.i
 
 printoption.exit90.i.i:                           ; preds = %if.then81.i84.i.i, %if.then67.i85.i.i, %send_negotiation.exit53.i.i
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %buf.i43.i.i)
-  call fastcc void @sendsuboption(ptr noundef nonnull %data, i32 noundef %conv77.i)
+  call fastcc void @sendsuboption(ptr noundef nonnull %data, i32 noundef range(i32 0, 256) %conv77.i)
   br label %rec_do.exit.i
 
 if.else18.i.i:                                    ; preds = %if.else.i194.i
@@ -1285,7 +1285,7 @@ if.then67.i99.i.i:                                ; preds = %if.end54.i101.i.i, 
   br label %printoption.exit104.i.i
 
 if.then81.i98.i.i:                                ; preds = %if.else49.i96.i.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.15, i32 noundef %conv77.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.15, i32 noundef range(i32 0, 256) %conv77.i) #10
   br label %printoption.exit104.i.i
 
 printoption.exit104.i.i:                          ; preds = %if.then81.i98.i.i, %if.then67.i99.i.i, %send_negotiation.exit64.i.i
@@ -1328,7 +1328,7 @@ sw.bb40.i.i:                                      ; preds = %sw.bb36.i.i
   br i1 %cmp47.i.i, label %if.then48.i.i, label %rec_do.exit.i
 
 if.then48.i.i:                                    ; preds = %sw.bb40.i.i
-  call fastcc void @sendsuboption(ptr noundef nonnull %data, i32 noundef %conv77.i)
+  call fastcc void @sendsuboption(ptr noundef nonnull %data, i32 noundef range(i32 0, 256) %conv77.i)
   br label %rec_do.exit.i
 
 sw.bb50.i.i:                                      ; preds = %sw.bb36.i.i
@@ -1378,7 +1378,7 @@ if.then67.i113.i.i:                               ; preds = %if.end54.i115.i.i, 
   br label %printoption.exit118.i.i
 
 if.then81.i112.i.i:                               ; preds = %if.else49.i110.i.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.15, i32 noundef %conv77.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.15, i32 noundef range(i32 0, 256) %conv77.i) #10
   br label %printoption.exit118.i.i
 
 printoption.exit118.i.i:                          ; preds = %if.then81.i112.i.i, %if.then67.i113.i.i, %send_negotiation.exit75.i.i
@@ -1416,7 +1416,7 @@ if.then67.i227.i:                                 ; preds = %if.end54.i229.i, %i
   br label %printoption.exit232.i
 
 if.then81.i226.i:                                 ; preds = %if.else49.i224.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.17, i32 noundef %conv82.i59) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.17, i32 noundef range(i32 -2147483648, 256) %conv82.i59) #10
   br label %printoption.exit232.i
 
 printoption.exit232.i:                            ; preds = %if.then81.i226.i, %if.then67.i227.i, %sw.bb81.i
@@ -1476,7 +1476,7 @@ if.then67.i.i283.i:                               ; preds = %if.end54.i.i285.i, 
   br label %printoption.exit.i282.i
 
 if.then81.i.i281.i:                               ; preds = %if.else49.i.i279.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.15, i32 noundef %conv82.i59) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.15, i32 noundef range(i32 0, 256) %conv82.i59) #10
   br label %printoption.exit.i282.i
 
 printoption.exit.i282.i:                          ; preds = %if.then81.i.i281.i, %if.then67.i.i283.i, %send_negotiation.exit.i273.i
@@ -1541,7 +1541,7 @@ if.then67.i43.i259.i:                             ; preds = %if.end54.i45.i261.i
   br label %printoption.exit48.i258.i
 
 if.then81.i42.i257.i:                             ; preds = %if.else49.i40.i255.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.14, i32 noundef %conv82.i59) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.14, i32 noundef range(i32 0, 256) %conv82.i59) #10
   br label %printoption.exit48.i258.i
 
 printoption.exit48.i258.i:                        ; preds = %if.then81.i42.i257.i, %if.then67.i43.i259.i, %send_negotiation.exit33.i249.i
@@ -1643,7 +1643,7 @@ if.then14.i299.i:                                 ; preds = %if.then.i296.i
   br label %printoption.exit302.i
 
 if.then25.i298.i:                                 ; preds = %if.then.i296.i
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i32 noundef %conv105.i) #10
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i32 noundef range(i32 -2147483648, 256) %conv105.i) #10
   br label %printoption.exit302.i
 
 printoption.exit302.i:                            ; preds = %if.then25.i298.i, %if.then14.i299.i, %do.end136.i

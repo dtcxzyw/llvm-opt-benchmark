@@ -760,7 +760,7 @@ sw.bb10.i.i:                                      ; preds = %sw.bb.i.i, %while.e
 
 if.then.i75.i.i:                                  ; preds = %sw.bb10.i.i
   %98 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call fastcc void @write_object(i32 noundef %98, i32 noundef %conv1.i.i, ptr noundef %call.i73.i.i, i64 noundef %size.0.lcssa.i.i)
+  call fastcc void @write_object(i32 noundef %98, i32 noundef range(i32 0, 8) %conv1.i.i, ptr noundef %call.i73.i.i, i64 noundef %size.0.lcssa.i.i)
   br label %unpack_one.exit.i
 
 sw.bb11.i.i:                                      ; preds = %while.end.i.i, %while.end.i.i
@@ -1235,7 +1235,7 @@ if.then.i123.i.i.i:                               ; preds = %if.end98.i.i.i
   unreachable
 
 resolve_delta.exit.i.i.i:                         ; preds = %if.end98.i.i.i
-  call void @free(ptr noundef %delta_data.0.i.i.i) #13
+  call void @free(ptr noundef nonnull %delta_data.0.i.i.i) #13
   %162 = load i64, ptr %result_size.i.i.i.i, align 8
   call fastcc void @write_object(i32 noundef %.pre-phi.i, i32 noundef %160, ptr noundef %call.i120.i.i.i, i64 noundef %162)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_size.i.i.i.i)

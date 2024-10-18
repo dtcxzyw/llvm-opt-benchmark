@@ -206,14 +206,14 @@ gistBuffersGetFreeBlock.exit.i:                   ; preds = %26, %20
   %29 = load ptr, ptr %9, align 8
   %30 = and i64 %.0.i.i, 4294967295
   %31 = load ptr, ptr %15, align 8
-  %32 = tail call i32 @BufFileSeekBlock(ptr noundef %29, i64 noundef %30) #5
+  %32 = tail call i32 @BufFileSeekBlock(ptr noundef %29, i64 noundef range(i64 0, 4294967296) %30) #5
   %.not.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i, label %WriteTempFileBlock.exit.i, label %33
 
 33:                                               ; preds = %gistBuffersGetFreeBlock.exit.i
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef %30) #5
+  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %30) #5
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 765, ptr noundef nonnull @__func__.WriteTempFileBlock) #5
   unreachable
 
@@ -352,14 +352,14 @@ gistBuffersGetFreeBlock.exit:                     ; preds = %52, %59
   %64 = load ptr, ptr %63, align 8
   %65 = and i64 %.0.i, 4294967295
   %66 = load ptr, ptr %35, align 8
-  %67 = tail call i32 @BufFileSeekBlock(ptr noundef %64, i64 noundef %65) #5
+  %67 = tail call i32 @BufFileSeekBlock(ptr noundef %64, i64 noundef range(i64 0, 4294967296) %65) #5
   %.not.i29 = icmp eq i32 %67, 0
   br i1 %.not.i29, label %WriteTempFileBlock.exit, label %68
 
 68:                                               ; preds = %gistBuffersGetFreeBlock.exit
   %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %69)
-  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef %65) #5
+  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %65) #5
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 765, ptr noundef nonnull @__func__.WriteTempFileBlock) #5
   unreachable
 
@@ -448,14 +448,14 @@ define internal fastcc void @gistLoadNodeBuffer(ptr nocapture noundef %0, ptr no
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = tail call i32 @BufFileSeekBlock(ptr noundef %13, i64 noundef %16) #5
+  %17 = tail call i32 @BufFileSeekBlock(ptr noundef %13, i64 noundef range(i64 0, 4294967296) %16) #5
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %ReadTempFileBlock.exit, label %18
 
 18:                                               ; preds = %9
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef %16) #5
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %16) #5
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 757, ptr noundef nonnull @__func__.ReadTempFileBlock) #5
   unreachable
 
@@ -600,14 +600,14 @@ define dso_local noundef zeroext i1 @gistPopItupFromNodeBuffer(ptr nocapture nou
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %34 to i64
-  %39 = tail call i32 @BufFileSeekBlock(ptr noundef %37, i64 noundef %38) #5
+  %39 = tail call i32 @BufFileSeekBlock(ptr noundef %37, i64 noundef range(i64 0, 4294967296) %38) #5
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %ReadTempFileBlock.exit, label %40
 
 40:                                               ; preds = %35
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef %38) #5
+  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %38) #5
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 757, ptr noundef nonnull @__func__.ReadTempFileBlock) #5
   unreachable
 

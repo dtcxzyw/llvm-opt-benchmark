@@ -1843,7 +1843,7 @@ fetch_att.exit.us:                                ; preds = %93, %91, %89, %88
 .split.us:                                        ; preds = %.lr.ph189.split.us
   %169 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %169)
-  %170 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %28) #12
+  %170 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef range(i32 -32768, 32768) %28) #12
   tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 
@@ -3213,7 +3213,7 @@ store_att_byval.exit.us:                          ; preds = %85, %83, %81, %80
 .split.us:                                        ; preds = %.lr.ph118.split.us
   %123 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %123)
-  %124 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %12) #12
+  %124 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef range(i32 -32768, 32768) %12) #12
   tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 202, ptr noundef nonnull @__func__.store_att_byval) #12
   unreachable
 

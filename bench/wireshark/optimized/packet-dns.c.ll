@@ -4642,10 +4642,10 @@ thread-pre-split.thread:                          ; preds = %46, %thread-pre-spl
 233:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %234 = load i32, ptr @hf_dns_dso, align 4
-  %235 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %234, ptr noundef %0, i32 noundef %225, i32 noundef -1, i32 noundef 0) #10
+  %235 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %234, ptr noundef %0, i32 noundef range(i32 12, 15) %225, i32 noundef -1, i32 noundef 0) #10
   %236 = load i32, ptr @ett_dns_dso, align 4
   %237 = call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %236) #10
-  %238 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %225) #10
+  %238 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 12, 15) %225) #10
   %239 = icmp sgt i32 %238, 3
   br i1 %239, label %.lr.ph.i, label %dissect_dso_data.exit
 
@@ -4744,7 +4744,7 @@ dissect_dso_data.exit:                            ; preds = %277, %233
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %289 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %.021.i, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %289 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %.021.i, i32 noundef 0, i32 noundef range(i32 0, 3) %25, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %290 = add i32 %289, %.021.i
   %291 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %290) #10
   %292 = add i32 %290, 2
@@ -4914,7 +4914,7 @@ dissect_query_records.exit:                       ; preds = %dissect_dns_query.e
   %.019.i = phi i32 [ %.1, %366 ], [ %373, %370 ]
   %.01718.i = phi i32 [ %213, %366 ], [ %371, %370 ]
   %371 = add nsw i32 %.01718.i, -1
-  %372 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.019.i, i32 noundef %25, ptr noundef %369, ptr noundef %1, i32 noundef %4)
+  %372 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.019.i, i32 noundef range(i32 0, 3) %25, ptr noundef %369, ptr noundef %1, i32 noundef range(i32 0, 2) %4)
   %373 = add i32 %372, %.019.i
   %374 = icmp ugt i32 %.01718.i, 1
   br i1 %374, label %370, label %dissect_answer_records.exit, !llvm.loop !13
@@ -4944,7 +4944,7 @@ dissect_answer_records.exit:                      ; preds = %370
   %.019.i458 = phi i32 [ %.2, %378 ], [ %385, %382 ]
   %.01718.i459 = phi i32 [ %218, %378 ], [ %383, %382 ]
   %383 = add nsw i32 %.01718.i459, -1
-  %384 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.019.i458, i32 noundef %25, ptr noundef %381, ptr noundef %1, i32 noundef %4)
+  %384 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.019.i458, i32 noundef range(i32 0, 3) %25, ptr noundef %381, ptr noundef %1, i32 noundef range(i32 0, 2) %4)
   %385 = add i32 %384, %.019.i458
   %386 = icmp ugt i32 %.01718.i459, 1
   br i1 %386, label %382, label %dissect_answer_records.exit460, !llvm.loop !13
@@ -4973,7 +4973,7 @@ dissect_answer_records.exit460:                   ; preds = %382
   %.019.i461 = phi i32 [ %.3, %390 ], [ %396, %393 ]
   %.01718.i462 = phi i32 [ %223, %390 ], [ %394, %393 ]
   %394 = add nsw i32 %.01718.i462, -1
-  %395 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.019.i461, i32 noundef %25, ptr noundef %392, ptr noundef %1, i32 noundef %4)
+  %395 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.019.i461, i32 noundef range(i32 0, 3) %25, ptr noundef %392, ptr noundef %1, i32 noundef range(i32 0, 2) %4)
   %396 = add i32 %395, %.019.i461
   %397 = icmp ugt i32 %.01718.i462, 1
   br i1 %397, label %393, label %dissect_answer_records.exit463, !llvm.loop !13
@@ -5276,7 +5276,7 @@ proto_item_set_hidden.exit:                       ; preds = %532, %529, %proto_i
   br i1 %227, label %558, label %548
 
 548:                                              ; preds = %541
-  %549 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %225, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %549 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %225, i32 noundef 0, i32 noundef range(i32 0, 3) %25, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %550 = add i32 %549, %225
   %551 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %550) #10
   %552 = add i32 %550, 2
@@ -5626,7 +5626,7 @@ define internal fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %1, i
   %105 = alloca i32, align 4
   %106 = alloca i32, align 4
   store ptr null, ptr %13, align 8
-  %107 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %107 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %108 = add i32 %107, %1
   %109 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %108) #10
   %110 = add i32 %108, 2
@@ -5748,7 +5748,7 @@ define internal fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %1, i
 185:                                              ; preds = %.sink.split.i, %172, %166, %153
   %186 = load i32, ptr @hf_dns_rr_type, align 4
   %187 = call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %186, ptr noundef %0, i32 noundef %108, i32 noundef 2, i32 noundef 0) #10
-  %188 = call ptr @val_to_str_ext(i32 noundef %116, ptr noundef nonnull @dns_types_description_vals_ext, ptr noundef nonnull @.str.1177) #10
+  %188 = call ptr @val_to_str_ext(i32 noundef range(i32 0, 65536) %116, ptr noundef nonnull @dns_types_description_vals_ext, ptr noundef nonnull @.str.1177) #10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %187, ptr noundef nonnull @.str.1150, ptr noundef %188) #10
   br i1 %.not, label %189, label %192
 

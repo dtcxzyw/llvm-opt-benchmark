@@ -14,7 +14,7 @@ define hidden double @getNativeScaleFactor() local_unnamed_addr #0 {
   br i1 %2, label %3, label %10
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @getenv(ptr noundef nonnull readonly @.str) #3
+  %4 = tail call ptr @getenv(ptr noundef nonnull @.str) #3
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %getScale.exit, label %5
 
@@ -42,7 +42,7 @@ getScale.exit:                                    ; preds = %3, %5, %8
   br label %getScale.exit4
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #3
+  %16 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #3
   %.not.i2 = icmp eq ptr %16, null
   br i1 %.not.i2, label %getScale.exit4, label %17
 

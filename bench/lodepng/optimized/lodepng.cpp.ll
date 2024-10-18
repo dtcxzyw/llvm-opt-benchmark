@@ -213,7 +213,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not.i10, label %return, label %if.end.i11
 
 if.end.i11:                                       ; preds = %if.end4
-  %call1.i12 = tail call i64 @fread(ptr noundef %call.i8, i64 noundef 1, i64 noundef %call5.i, ptr noundef nonnull %call.i9)
+  %call1.i12 = tail call i64 @fread(ptr noundef %call.i8, i64 noundef 1, i64 noundef range(i64 0, -9223372036854775808) %call5.i, ptr noundef nonnull %call.i9)
   %call2.i = tail call i32 @fclose(ptr noundef nonnull %call.i9)
   %cmp.not.i13 = icmp eq i64 %call1.i12, %call5.i
   %..i = select i1 %cmp.not.i13, i32 0, i32 78
@@ -340,11 +340,11 @@ for.cond7.loopexit.i:                             ; preds = %for.inc.i, %for.bod
 for.body9.i:                                      ; preds = %for.cond7.loopexit.i, %for.body.i
   %indvars.iv.i = phi i64 [ %mul16.i, %for.body.i ], [ %indvars.iv.next.i, %for.cond7.loopexit.i ]
   %p.047.i = phi i64 [ 0, %for.body.i ], [ %add17.i, %for.cond7.loopexit.i ]
-  %umin.i = tail call i64 @llvm.umin.i64(i64 %numpresent.1, i64 %indvars.iv.i)
+  %umin.i = tail call i64 @llvm.umin.i64(i64 range(i64 2, 0) %numpresent.1, i64 %indvars.iv.i)
   %add.i = add i64 %p.047.i, %width.049.i
-  %cond15.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 %numpresent.1)
+  %cond15.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 range(i64 2, 0) %numpresent.1)
   %add17.i = add i64 %p.047.i, %mul16.i
-  %num.add17.i = tail call i64 @llvm.umin.i64(i64 %add17.i, i64 %numpresent.1)
+  %num.add17.i = tail call i64 @llvm.umin.i64(i64 %add17.i, i64 range(i64 2, 0) %numpresent.1)
   %cmp2642.i = icmp ult i64 %p.047.i, %num.add17.i
   br i1 %cmp2642.i, label %for.body27.i, label %for.cond7.loopexit.i
 
@@ -655,7 +655,7 @@ if.end133:                                        ; preds = %for.inc131, %for.en
 
 if.end139:                                        ; preds = %if.then22, %if.end133, %if.then18
   %error.0 = phi i32 [ 0, %if.then18 ], [ 0, %if.then22 ], [ %spec.select, %if.end133 ]
-  tail call void @free(ptr noundef %call.i) #31
+  tail call void @free(ptr noundef nonnull %call.i) #31
   br label %return
 
 return:                                           ; preds = %if.end3, %entry, %if.end139
@@ -1152,7 +1152,7 @@ if.end.i32:                                       ; preds = %if.then3.i.i, %if.e
   br i1 %cmp.i33, label %if.then1.i, label %if.else.i34
 
 if.then1.i:                                       ; preds = %if.end.i32
-  %call.i.i = call fastcc noundef i32 @_ZL23generateFixedLitLenTreeP11HuffmanTree(ptr noundef %tree_ll.i)
+  %call.i.i = call fastcc noundef i32 @_ZL23generateFixedLitLenTreeP11HuffmanTree(ptr noundef nonnull %tree_ll.i)
   %tobool.not.i65.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i65.i, label %if.end.i.i, label %if.end4.thread.i
 
@@ -1179,7 +1179,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %for.end.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %call.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(128) %call.i.i.i.i46, i64 128, i1 false)
   store i32 32, ptr %numcodes6.i.i.i.i, align 4
   store i32 15, ptr %maxbitlen7.i.i.i.i, align 8
-  %call8.i.i.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef %tree_d.i)
+  %call8.i.i.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %tree_d.i)
   br label %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.i.i.i
 
 _ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.i.i.i: ; preds = %for.body.i.i.i.preheader.i, %for.end.i.i.i
@@ -1335,7 +1335,7 @@ for.body.i.preheader.i.i:                         ; preds = %for.end28.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %call.i.i.i73.i, ptr noundef nonnull align 4 dereferenceable(76) %call.i.i70.i, i64 76, i1 false)
   store i32 19, ptr %numcodes6.i.i.i, align 4
   store i32 7, ptr %maxbitlen7.i.i.i, align 8
-  %call8.i.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef %tree_cl.i.i)
+  %call8.i.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %tree_cl.i.i)
   %tobool30.not.i.i = icmp eq i32 %call8.i.i.i, 0
   br i1 %tobool30.not.i.i, label %if.end32.i.i, label %for.body.i.preheader.while.end169_crit_edge.i.i
 
@@ -1652,12 +1652,12 @@ if.end159.i.i:                                    ; preds = %while.end.i.i
   br i1 %cmp161.i.i, label %while.end169.i.i, label %if.end163.i.i
 
 if.end163.i.i:                                    ; preds = %if.end159.i.i
-  %call164.i.i = call fastcc noundef i32 @_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj(ptr noundef %tree_ll.i, ptr noundef %call.i134.i.i, i64 noundef 288, i32 noundef 15)
+  %call164.i.i = call fastcc noundef i32 @_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj(ptr noundef nonnull %tree_ll.i, ptr noundef %call.i134.i.i, i64 noundef 288, i32 noundef 15)
   %tobool165.not.i.i = icmp eq i32 %call164.i.i, 0
   br i1 %tobool165.not.i.i, label %if.end167.i.i, label %while.end169.i.i
 
 if.end167.i.i:                                    ; preds = %if.end163.i.i
-  %call168.i.i = call fastcc noundef i32 @_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj(ptr noundef %tree_d.i, ptr noundef %call.i135.i.i, i64 noundef 32, i32 noundef 15)
+  %call168.i.i = call fastcc noundef i32 @_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj(ptr noundef nonnull %tree_d.i, ptr noundef %call.i135.i.i, i64 noundef 32, i32 noundef 15)
   br label %while.end169.i.i
 
 while.end169.i.i:                                 ; preds = %if.end151.i.i, %if.then57.i.i, %if.else55.i.i, %if.end167.i.i, %if.end163.i.i, %if.end159.i.i, %while.end.i.i, %if.end32.i.i, %for.body.i.preheader.while.end169_crit_edge.i.i, %for.end28.i.i, %if.end7.i.i
@@ -1667,7 +1667,7 @@ while.end169.i.i:                                 ; preds = %if.end151.i.i, %if.
   %error.0.i.i = phi i32 [ 83, %for.end28.i.i ], [ 64, %if.end159.i.i ], [ %call168.i.i, %if.end167.i.i ], [ %call164.i.i, %if.end163.i.i ], [ %error.1.i.i, %while.end.i.i ], [ 83, %if.end32.i.i ], [ %call8.i.i.i, %for.body.i.preheader.while.end169_crit_edge.i.i ], [ 50, %if.end7.i.i ], [ 50, %if.end151.i.i ], [ 54, %if.then57.i.i ], [ 16, %if.else55.i.i ]
   %bitlen_ll.0.i.i = phi ptr [ null, %for.end28.i.i ], [ %call.i134.i.i, %if.end159.i.i ], [ %call.i134.i.i, %if.end167.i.i ], [ %call.i134.i.i, %if.end163.i.i ], [ %call.i134.i.i, %while.end.i.i ], [ %call.i134.i.i, %if.end32.i.i ], [ null, %for.body.i.preheader.while.end169_crit_edge.i.i ], [ null, %if.end7.i.i ], [ %call.i134.i.i, %if.else55.i.i ], [ %call.i134.i.i, %if.then57.i.i ], [ %call.i134.i.i, %if.end151.i.i ]
   %bitlen_d.0.i.i = phi ptr [ null, %for.end28.i.i ], [ %call.i135.i.i, %if.end159.i.i ], [ %call.i135.i.i, %if.end167.i.i ], [ %call.i135.i.i, %if.end163.i.i ], [ %call.i135.i.i, %while.end.i.i ], [ %call.i135.i.i, %if.end32.i.i ], [ null, %for.body.i.preheader.while.end169_crit_edge.i.i ], [ null, %if.end7.i.i ], [ %call.i135.i.i, %if.else55.i.i ], [ %call.i135.i.i, %if.then57.i.i ], [ %call.i135.i.i, %if.end151.i.i ]
-  tail call void @free(ptr noundef %call.i.i70.i) #31
+  tail call void @free(ptr noundef nonnull %call.i.i70.i) #31
   tail call void @free(ptr noundef %bitlen_ll.0.i.i) #31
   tail call void @free(ptr noundef %bitlen_d.0.i.i) #31
   %60 = load ptr, ptr %tree_cl.i.i, align 8
@@ -2585,7 +2585,7 @@ for.body.i.i.preheader.i.i:                       ; preds = %for.end.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %call.i.i.i.i42.i, ptr noundef nonnull align 4 dereferenceable(128) %call.i.i.i.i, i64 128, i1 false)
   store i32 32, ptr %numcodes6.i.i.i.i, align 4
   store i32 15, ptr %maxbitlen7.i.i.i.i, align 8
-  %call8.i.i.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef %tree_d.i.i)
+  %call8.i.i.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %tree_d.i.i)
   call void @free(ptr noundef nonnull %call.i.i.i.i) #31
   %tobool2.not.i.i = icmp eq i32 %call8.i.i.i.i, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
@@ -2763,12 +2763,12 @@ if.then5.i.i:                                     ; preds = %_ZL9writeBitsP16Lod
   %49 = load i32, ptr %minmatch.i64.i, align 4
   %50 = load i32, ptr %nicematch.i65.i, align 8
   %51 = load i32, ptr %lazymatching.i66.i, align 4
-  %call6.i.i = call fastcc noundef i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr noundef %lz77_encoded.i.i, ptr noundef readonly %hash.i, ptr noundef %in, i64 noundef %mul.i, i64 noundef %spec.select.i, i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %51)
+  %call6.i.i = call fastcc noundef i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr noundef %lz77_encoded.i.i, ptr noundef nonnull readonly %hash.i, ptr noundef %in, i64 noundef %mul.i, i64 noundef %spec.select.i, i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %51)
   %tobool7.not.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool7.not.i.i, label %if.then8.i.i, label %if.end23.critedge.i.i
 
 if.then8.i.i:                                     ; preds = %if.then5.i.i
-  call fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr noundef %writer.i, ptr noundef %lz77_encoded.i.i, ptr noundef %tree_ll.i.i, ptr noundef %tree_d.i.i)
+  call fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr noundef nonnull %writer.i, ptr noundef %lz77_encoded.i.i, ptr noundef %tree_ll.i.i, ptr noundef %tree_d.i.i)
   %52 = load ptr, ptr %lz77_encoded.i.i, align 8
   call void @free(ptr noundef %52) #31
   %.pre152.i.i = load ptr, ptr %tree_ll.i.i, align 8
@@ -3007,7 +3007,7 @@ if.then8.i62.i:                                   ; preds = %while.body.i.i
   %103 = load i32, ptr %minmatch.i64.i, align 4
   %104 = load i32, ptr %nicematch.i65.i, align 8
   %105 = load i32, ptr %lazymatching.i66.i, align 4
-  %call9.i.i = call fastcc noundef i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr noundef %lz77_encoded.i51.i, ptr noundef readonly %hash.i, ptr noundef %in, i64 noundef %mul.i, i64 noundef %spec.select.i, i32 noundef %102, i32 noundef %103, i32 noundef %104, i32 noundef %105)
+  %call9.i.i = call fastcc noundef i32 @_ZL10encodeLZ77P8uivectorP4HashPKhmmjjjj(ptr noundef %lz77_encoded.i51.i, ptr noundef nonnull readonly %hash.i, ptr noundef %in, i64 noundef %mul.i, i64 noundef %spec.select.i, i32 noundef %102, i32 noundef %103, i32 noundef %104, i32 noundef %105)
   %tobool10.not.i.i = icmp eq i32 %call9.i.i, 0
   br i1 %tobool10.not.i.i, label %if.then8.if.end20_crit_edge.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
@@ -3118,7 +3118,7 @@ if.end.i.i71.i:                                   ; preds = %while.end.i.i.i
   br i1 %tobool7.not.i.i.i, label %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i: ; preds = %if.end.i.i71.i
-  %call9.i.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef %tree_ll.i52.i)
+  %call9.i.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %tree_ll.i52.i)
   %tobool42.not.i.i = icmp eq i32 %call9.i.i.i, 0
   br i1 %tobool42.not.i.i, label %if.end44.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
@@ -3152,7 +3152,7 @@ if.end.i181.i.i:                                  ; preds = %while.end.i176.i.i
   br i1 %tobool7.not.i186.i.i, label %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit190.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit190.i.i: ; preds = %if.end.i181.i.i
-  %call9.i189.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef %tree_d.i53.i)
+  %call9.i189.i.i = call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %tree_d.i53.i)
   %tobool46.not.i.i = icmp eq i32 %call9.i189.i.i, 0
   br i1 %tobool46.not.i.i, label %if.end48.i.i, label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
@@ -3371,16 +3371,16 @@ land.rhs187.i.i:                                  ; preds = %while.cond185.i.i
 
 for.body205.lr.ph.i.i:                            ; preds = %land.rhs187.i.i, %while.cond185.i.i
   %numcodes_cl.0.lcssa.i.i = phi i64 [ 4, %while.cond185.i.i ], [ %numcodes_cl.0.i.i, %land.rhs187.i.i ]
-  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef %writer.i, i32 noundef %conv.i, i64 noundef 1)
-  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef %writer.i, i32 noundef 0, i64 noundef 1)
-  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef %writer.i, i32 noundef 1, i64 noundef 1)
+  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef range(i32 0, 2) %conv.i, i64 noundef 1)
+  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef 0, i64 noundef 1)
+  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef 1, i64 noundef 1)
   %sub197.i.i = add nsw i32 %cond.i.i, -257
   %sub199.i.i = add nsw i32 %cond58.i.i, -1
   %132 = trunc i64 %numcodes_cl.0.lcssa.i.i to i32
   %conv202.i.i = add i32 %132, -4
-  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef %writer.i, i32 noundef %sub197.i.i, i64 noundef 5)
-  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef %writer.i, i32 noundef %sub199.i.i, i64 noundef 5)
-  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef %writer.i, i32 noundef %conv202.i.i, i64 noundef 4)
+  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef %sub197.i.i, i64 noundef 5)
+  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef %sub199.i.i, i64 noundef 5)
+  call fastcc void @_ZL9writeBitsP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef %conv202.i.i, i64 noundef 4)
   %133 = load ptr, ptr %writer.i, align 8
   %size30.i.i.i = getelementptr inbounds i8, ptr %133, i64 8
   %allocsize.i.i23.i.i.i = getelementptr inbounds i8, ptr %133, i64 16
@@ -3745,7 +3745,7 @@ for.end246.i.loopexit.i:                          ; preds = %for.inc244.i.i
   br label %for.end246.i.i
 
 for.end246.i.i:                                   ; preds = %for.end246.i.loopexit.i, %for.cond213.preheader.i.i
-  call fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr noundef %writer.i, ptr noundef %lz77_encoded.i51.i, ptr noundef %tree_ll.i52.i, ptr noundef %tree_d.i53.i)
+  call fastcc void @_ZL13writeLZ77dataP16LodePNGBitWriterPK8uivectorPK11HuffmanTreeS6_(ptr noundef nonnull %writer.i, ptr noundef %lz77_encoded.i51.i, ptr noundef %tree_ll.i52.i, ptr noundef %tree_d.i53.i)
   %209 = load ptr, ptr %lengths.i.i70.i, align 8
   %arrayidx248.i.i = getelementptr inbounds i8, ptr %209, i64 1024
   %210 = load i32, ptr %arrayidx248.i.i, align 4
@@ -3757,7 +3757,7 @@ if.end251.i.i:                                    ; preds = %for.end246.i.i
   %arrayidx253.i.i = getelementptr inbounds i8, ptr %211, i64 1024
   %212 = load i32, ptr %arrayidx253.i.i, align 4
   %conv256.i.i = zext i32 %210 to i64
-  call fastcc void @_ZL17writeBitsReversedP16LodePNGBitWriterjm(ptr noundef %writer.i, i32 noundef %212, i64 noundef %conv256.i.i)
+  call fastcc void @_ZL17writeBitsReversedP16LodePNGBitWriterjm(ptr noundef nonnull %writer.i, i32 noundef %212, i64 noundef %conv256.i.i)
   br label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i: ; preds = %if.end251.i.i, %for.end246.i.i, %for.end180.i.i, %if.end48.i.i, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit190.i.i, %if.end.i181.i.i, %while.end.i176.i.i, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i, %if.end.i.i71.i, %while.end.i.i.i, %if.then.i.i110.i, %if.then8.i62.i, %if.then39.i
@@ -3890,7 +3890,7 @@ if.end21:                                         ; preds = %if.end18
 
 if.then.i:                                        ; preds = %if.end21
   %size.i = getelementptr inbounds i8, ptr %out, i64 8
-  %call.i = tail call noundef i32 %3(ptr noundef nonnull %out, ptr noundef nonnull %size.i, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %settings)
+  %call.i = tail call noundef i32 %3(ptr noundef nonnull %out, ptr noundef nonnull %size.i, ptr noundef nonnull %add.ptr, i64 noundef range(i64 0, -2) %sub, ptr noundef nonnull %settings)
   %4 = load i64, ptr %size.i, align 8
   %allocsize.i = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %4, ptr %allocsize.i, align 8
@@ -3909,7 +3909,7 @@ land.lhs.true.i:                                  ; preds = %if.then4.i
   br label %return
 
 _ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit: ; preds = %if.end21
-  %call10.i = tail call fastcc noundef i32 @_ZL16lodepng_inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef %out, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %settings)
+  %call10.i = tail call fastcc noundef i32 @_ZL16lodepng_inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef nonnull %out, ptr noundef nonnull %add.ptr, i64 noundef range(i64 0, -2) %sub, ptr noundef nonnull %settings)
   %tobool.not = icmp eq i32 %call10.i, 0
   br i1 %tobool.not, label %if.end23, label %return
 
@@ -12241,7 +12241,7 @@ _ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i: ; preds = %cond.end
   %mul5.i404.i.i = mul nuw nsw i64 %conv.i.i, %conv11.i.i
   %add.i.i.i = add nuw nsw i64 %mul5.i404.i.i, 5
   %add.i45.i.i = add nuw nsw i64 %add.i.i.i, %div178.i.i
-  %mul5.i48.i.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %add.i45.i.i, i64 %conv5.i.i)
+  %mul5.i48.i.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %add.i45.i.i, i64 range(i64 0, 4294967296) %conv5.i.i)
   %mul.ov.i50.i.i = extractvalue { i64, i1 } %mul5.i48.i.i, 1
   br i1 %mul.ov.i50.i.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split, label %if.end6.i
 
@@ -13109,7 +13109,7 @@ if.end374.i:                                      ; preds = %if.end11.i.i, %if.t
 
 if.end381.thread.i:                               ; preds = %if.end374.i
   store i32 91, ptr %error.i, align 8
-  call void @free(ptr noundef %call.i.i) #31
+  call void @free(ptr noundef nonnull %call.i.i) #31
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 if.end381.thread579.i.sink.split:                 ; preds = %if.end31.i, %if.then46.i, %if.then180.i, %if.then204.i, %if.then281.i, %if.else238.i, %if.then35.i, %if.then15.i, %if.end.i103, %if.then.i102, %if.then16.i, %if.then24.i, %land.lhs.true299.i, %if.then3.i.i
@@ -13118,11 +13118,11 @@ if.end381.thread579.i.sink.split:                 ; preds = %if.end31.i, %if.the
   br label %if.end381.thread579.i
 
 if.end381.thread579.i:                            ; preds = %if.then248.i, %if.then229.i, %if.then216.i, %if.then192.i, %if.then168.i, %if.then156.i, %if.then142.i, %if.then124.i, %if.then107.i, %if.then79.i, %if.then66.i, %if.end381.thread579.i.sink.split
-  call void @free(ptr noundef %call.i.i) #31
+  call void @free(ptr noundef nonnull %call.i.i) #31
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 if.end381.i:                                      ; preds = %if.end374.i
-  call void @free(ptr noundef %call.i.i) #31
+  call void @free(ptr noundef nonnull %call.i.i) #31
   %tobool383.not.i = icmp eq i32 %error.0.i.i, 0
   br i1 %tobool383.not.i, label %if.then384.i, label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
@@ -19094,7 +19094,7 @@ cond.false:                                       ; preds = %if.end
   br i1 %tobool.not.i7, label %return, label %if.end.i8
 
 if.end.i8:                                        ; preds = %cond.false
-  %call1.i9 = tail call i64 @fread(ptr noundef %0, i64 noundef 1, i64 noundef %call5.i, ptr noundef nonnull %call.i6)
+  %call1.i9 = tail call i64 @fread(ptr noundef nonnull %0, i64 noundef 1, i64 noundef range(i64 0, -9223372036854775808) %call5.i, ptr noundef nonnull %call.i6)
   %call2.i = tail call i32 @fclose(ptr noundef nonnull %call.i6)
   %cmp.not.i10 = icmp eq i64 %call1.i9, %call5.i
   %..i = select i1 %cmp.not.i10, i32 0, i32 78
@@ -19471,13 +19471,13 @@ entry:
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = call noundef i32 %2(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef %spec.select, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %settings)
+  %call.i.i = call noundef i32 %2(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef %spec.select, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull align 8 dereferenceable(48) %settings)
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   %cond.i.i = select i1 %tobool2.not.i.i, i32 0, i32 111
   br label %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.i
 
 if.else.i.i:                                      ; preds = %entry
-  %call3.i.i = call noundef i32 @_Z21lodepng_zlib_compressPPhPmPKhmPK23LodePNGCompressSettings(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef %spec.select, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %settings)
+  %call3.i.i = call noundef i32 @_Z21lodepng_zlib_compressPPhPmPKhmPK23LodePNGCompressSettings(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef %spec.select, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull align 8 dereferenceable(48) %settings)
   br label %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.i
 
 _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.i: ; preds = %if.else.i.i, %if.then.i.i
@@ -20145,7 +20145,7 @@ if.end:                                           ; preds = %_Z20lodepng_get_raw
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffersize.i)
-  %call.i = call noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef %spec.select, i32 noundef %w, i32 noundef %h, ptr noundef nonnull %state)
+  %call.i = call noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef nonnull %buffer.i, ptr noundef nonnull %buffersize.i, ptr noundef %spec.select, i32 noundef %w, i32 noundef %h, ptr noundef nonnull align 8 dereferenceable(544) %state)
   %4 = load ptr, ptr %buffer.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN7lodepng6encodeERSt6vectorIhSaIhEEPKhjjRNS_5StateE.exit, label %if.then.i
@@ -20392,7 +20392,7 @@ for.end.i:                                        ; preds = %for.body.i
   store i32 288, ptr %numcodes6.i, align 4
   %maxbitlen7.i = getelementptr inbounds i8, ptr %tree, i64 16
   store i32 15, ptr %maxbitlen7.i, align 8
-  %call8.i = tail call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef %tree)
+  %call8.i = tail call fastcc noundef i32 @_ZL28HuffmanTree_makeFromLengths2P11HuffmanTree(ptr noundef nonnull %tree)
   br label %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit
 
 _ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit: ; preds = %for.end24, %for.end.i

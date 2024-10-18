@@ -652,7 +652,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then7, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call2)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %call2)
           to label %new.cont unwind label %lpad3
 
 new.cont:                                         ; preds = %new.notnull
@@ -700,7 +700,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #16
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #16
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #16
   br label %delete.end
 
@@ -1570,7 +1570,7 @@ invoke.cont:                                      ; preds = %_ZN6icu_7517StringT
 lpad:                                             ; preds = %_ZN6icu_7517StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   resume { ptr, i32 } %2
 }
 
@@ -2452,14 +2452,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7516BytesTrieBuilder17BTLinearMatchNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7516BytesTrieBuilder17BTLinearMatchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #16
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #16
   ret void
 }

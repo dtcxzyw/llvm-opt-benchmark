@@ -468,7 +468,7 @@ entry:
   %pp = alloca %"struct.dimacs::drat_pp", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %fn, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fn, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fn, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF6symboliEZN6dimacslsERSoRKNS2_11drat_recordEE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIF6symboliEZN6dimacslsERSoRKNS2_11drat_recordEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   store ptr %r, ptr %pp, align 8
@@ -483,7 +483,7 @@ invoke.cont1:                                     ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZNSt8functionIF6symboliEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont1
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %fn, ptr noundef nonnull align 8 dereferenceable(16) %fn, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %fn, ptr noundef nonnull align 8 dereferenceable(32) %fn, i32 noundef 3)
           to label %_ZNSt8functionIF6symboliEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -504,7 +504,7 @@ lpad:                                             ; preds = %entry
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIF6symboliEED2Ev.exit7, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %lpad
-  %call.i.i5 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %fn, ptr noundef nonnull align 8 dereferenceable(16) %fn, i32 noundef 3)
+  %call.i.i5 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %fn, ptr noundef nonnull align 8 dereferenceable(32) %fn, i32 noundef 3)
           to label %_ZNSt8functionIF6symboliEED2Ev.exit7 unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
@@ -1147,7 +1147,7 @@ if.then.i:                                        ; preds = %if.end
 _ZNKSt8functionIFiPKcEEclES1_.exit:               ; preds = %if.end
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i = call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %m_read_theory_id, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i = call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(32) %m_read_theory_id, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   br label %return
 
@@ -2188,7 +2188,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

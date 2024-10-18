@@ -1061,7 +1061,7 @@ for.inc.us.i.i.i:                                 ; preds = %invoke.cont9.i.i.i.
   br i1 %exitcond.not.i.i.i, label %_ZN5boost7numeric5ublas9swap_rowsINS1_18permutation_matrixImNS1_15unbounded_arrayImSaImEEEEENS1_6matrixIdNS1_15basic_row_majorImlEENS4_IdSaIdEEEEEEEvRKT_RT0_.exit.i, label %for.body.us.i.i.i, !llvm.loop !42
 
 _ZN5boost7numeric5ublas9swap_rowsINS1_18permutation_matrixImNS1_15unbounded_arrayImSaImEEEEENS1_6matrixIdNS1_15basic_row_majorImlEENS4_IdSaIdEEEEEEEvRKT_RT0_.exit.i: ; preds = %for.inc.us.i.i.i, %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEE5clearEv.exit.i.i.i, %for.body.lr.ph.i.i.i, %invoke.cont196
-  invoke void @_ZN5boost7numeric5ublas13lu_substituteINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKT_RNS1_17matrix_expressionIT0_EE(ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 1 dereferenceable(1) %inverse)
+  invoke void @_ZN5boost7numeric5ublas13lu_substituteINS1_6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEEES9_EEvRKT_RNS1_17matrix_expressionIT0_EE(ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %inverse)
           to label %try.cont257 unwind label %lpad199
 
 lpad195:                                          ; preds = %for.body.i.i.i.preheader.i.i.i.i, %if.end.i.i.i162, %if.then3.i.i.i163

@@ -288,7 +288,7 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i:   ; preds = %if.then
   br i1 %cmp.i.i.i1.i.i, label %if.then.i.i.i, label %return
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(56) %agg.result)
           to label %return unwind label %lpad.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i
@@ -298,7 +298,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #20
+  tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.result) #20
   br label %common.resume
 
 invoke.cont4:                                     ; preds = %entry
@@ -610,7 +610,7 @@ if.then13.i.i.i.i:                                ; preds = %if.end9.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNR4absl12lts_202308028StatusOrISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEEdeEv.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then13.i.i.i.i
-  tail call void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  tail call void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   unreachable
 
 _ZNR4absl12lts_202308028StatusOrISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEEdeEv.exit.i.i.i.i: ; preds = %if.then13.i.i.i.i

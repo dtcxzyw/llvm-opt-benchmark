@@ -89,7 +89,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure8do_
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #10
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #10
   ret void
 }
 
@@ -504,7 +504,7 @@ define linkonce_odr hidden void @_ZN24ShenandoahStackWatermarkD2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24ShenandoahStackWatermarkD0Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN14StackWatermarkD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #10
+  tail call void @_ZN14StackWatermarkD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #10
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #10
   ret void
 }

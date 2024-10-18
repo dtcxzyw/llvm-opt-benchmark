@@ -3156,7 +3156,7 @@ if.end.i:                                         ; preds = %if.end.loopexit.i, 
   %22 = inttoptr i64 %21 to ptr
   %23 = load i64, ptr %args3, align 8
   %24 = inttoptr i64 %23 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i.i, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %second.i.i.i.i.i.i.i.i.i, align 8

@@ -466,7 +466,7 @@ terminate.lpad.i.i.i.i46:                         ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN3sat16clause_allocatorD2Ev.exit:               ; preds = %_ZN7svectorIN3sat4ddfw11clause_infoEjED2Ev.exit, %if.then.i.i.i.i.i
-  tail call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %m_alloc6) #22
+  tail call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %m_alloc6) #22
   %m_children.i = getelementptr inbounds i8, ptr %this, i64 72
   %54 = load ptr, ptr %m_children.i, align 8
   %tobool.not.i.i.i.i47 = icmp eq ptr %54, null
@@ -1018,12 +1018,12 @@ if.else21:                                        ; preds = %if.else15
   br i1 %39, label %if.then23, label %if.else24
 
 if.then23:                                        ; preds = %if.else21
-  %call.i12 = tail call noundef zeroext i1 @_ZN3sat8parallel11from_solverERNS_14i_local_searchE(ptr noundef nonnull align 8 dereferenceable(176) %36, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %call.i12 = tail call noundef zeroext i1 @_ZN3sat8parallel11from_solverERNS_14i_local_searchE(ptr noundef nonnull align 8 dereferenceable(176) %36, ptr noundef nonnull align 8 dereferenceable(920) %this)
   br i1 %call.i12, label %if.then.i16, label %_ZN3sat4ddfw16do_parallel_syncEv.exit
 
 if.then.i16:                                      ; preds = %if.then23
   %40 = load ptr, ptr %m_par.i, align 8
-  tail call void @_ZN3sat8parallel9to_solverERNS_14i_local_searchE(ptr noundef nonnull align 8 dereferenceable(176) %40, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  tail call void @_ZN3sat8parallel9to_solverERNS_14i_local_searchE(ptr noundef nonnull align 8 dereferenceable(176) %40, ptr noundef nonnull align 8 dereferenceable(920) %this)
   br label %_ZN3sat4ddfw16do_parallel_syncEv.exit
 
 _ZN3sat4ddfw16do_parallel_syncEv.exit:            ; preds = %if.then23, %if.then.i16
@@ -1294,12 +1294,12 @@ if.else8:                                         ; preds = %if.else5
   br i1 %38, label %if.then10, label %if.else11
 
 if.then10:                                        ; preds = %if.else8
-  %call.i14 = call noundef zeroext i1 @_ZN3sat8parallel11from_solverERNS_14i_local_searchE(ptr noundef nonnull align 8 dereferenceable(176) %36, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  %call.i14 = call noundef zeroext i1 @_ZN3sat8parallel11from_solverERNS_14i_local_searchE(ptr noundef nonnull align 8 dereferenceable(176) %36, ptr noundef nonnull align 8 dereferenceable(920) %this)
   br i1 %call.i14, label %if.then.i18, label %_ZN3sat4ddfw16do_parallel_syncEv.exit
 
 if.then.i18:                                      ; preds = %if.then10
   %39 = load ptr, ptr %m_par.i, align 8
-  call void @_ZN3sat8parallel9to_solverERNS_14i_local_searchE(ptr noundef nonnull align 8 dereferenceable(176) %39, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  call void @_ZN3sat8parallel9to_solverERNS_14i_local_searchE(ptr noundef nonnull align 8 dereferenceable(176) %39, ptr noundef nonnull align 8 dereferenceable(920) %this)
   br label %_ZN3sat4ddfw16do_parallel_syncEv.exit
 
 _ZN3sat4ddfw16do_parallel_syncEv.exit:            ; preds = %if.then10, %if.then.i18
@@ -5082,7 +5082,7 @@ _ZNK9table2mapI17default_map_entryIjjE6u_hash4u_eqE5beginEv.exit: ; preds = %lan
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   %41 = load i32, ptr %m_data.i.i.i, align 4
   store i32 %41, ptr %ref.tmp.i.i, align 4
-  call void @_ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE6removeERK9_key_dataIjjE(ptr noundef nonnull align 8 dereferenceable(20) %m_models26, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE6removeERK9_key_dataIjjE(ptr noundef nonnull align 8 dereferenceable(24) %m_models26, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   br label %if.end50
 
@@ -5093,7 +5093,7 @@ if.end50:                                         ; preds = %_ZNK9table2mapI17de
   store i32 %s1.0.lcssa.i, ptr %ref.tmp.i, align 4
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
   store i32 %add53, ptr %m_value.i.i, align 4
-  call void @_ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE6insertEO9_key_dataIjjE(ptr noundef nonnull align 8 dereferenceable(20) %m_models26, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i)
+  call void @_ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE6insertEO9_key_dataIjjE(ptr noundef nonnull align 8 dereferenceable(24) %m_models26, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %cmp54 = icmp ugt i32 %occs.036, 100
   br i1 %cmp54, label %if.then55, label %if.end57
@@ -5105,7 +5105,7 @@ if.then55:                                        ; preds = %if.end50
   store i64 %42, ptr %m_restart_next, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i30)
   store i32 %s1.0.lcssa.i, ptr %ref.tmp.i.i30, align 4
-  call void @_ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE6removeERK9_key_dataIjjE(ptr noundef nonnull align 8 dereferenceable(20) %m_models26, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i30)
+  call void @_ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE6removeERK9_key_dataIjjE(ptr noundef nonnull align 8 dereferenceable(24) %m_models26, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i30)
   br label %if.end57
 
@@ -6031,7 +6031,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -864,7 +864,7 @@ _ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread: ; preds = %tailrecurs
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 0, 10) i32 @_ZNK5clang4Expr14ClassifyLValueERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call fastcc noundef i32 @_ZL16ClassifyInternalRN5clang10ASTContextEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull %0)
+  %3 = tail call fastcc noundef i32 @_ZL16ClassifyInternalRN5clang10ASTContextEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2112
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
@@ -938,7 +938,7 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK5clang4Expr18isModifiableLval
   %4 = alloca %"class.clang::SourceLocation", align 4
   %.not = icmp eq ptr %2, null
   %5 = select i1 %.not, ptr %4, ptr %2
-  %6 = call i32 @_ZNK5clang4Expr12ClassifyImplERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull %5)
+  %6 = call i32 @_ZNK5clang4Expr12ClassifyImplERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %.sroa.2.0.extract.shift = lshr i32 %6, 16
   %trunc = trunc i32 %6 to i16
   switch i16 %trunc, label %switch.lookup [
@@ -1718,7 +1718,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang18DesignatedInitExpr7getInitEv
   %3 = alloca %"struct.clang::StmtIterator", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %0) #8, !noalias !6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8

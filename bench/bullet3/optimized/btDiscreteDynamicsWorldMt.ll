@@ -836,7 +836,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN25btDiscreteDynamicsWorldMtD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN23btDiscreteDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(508) %this) #10
+  tail call void @_ZN23btDiscreteDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) #10
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN25btDiscreteDynamicsWorldMtdlEPv.exit unwind label %terminate.lpad.i
 

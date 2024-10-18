@@ -4464,12 +4464,12 @@ define noundef i32 @slurm_send_recv_controller_msg(ptr noundef %0, ptr noundef %
 
 slurm_send_recv_msg.exit.i.us:                    ; preds = %41, %38
   %.0.i.i.us = phi i32 [ %42, %41 ], [ -1, %38 ]
-  %43 = tail call i32 @close(i32 noundef %28) #21
+  %43 = tail call i32 @close(i32 noundef range(i32 0, -2147483648) %28) #21
   %.not.i.us = icmp eq i32 %43, 0
   br i1 %.not.i.us, label %_send_and_recv_msg.exit.us, label %44
 
 44:                                               ; preds = %slurm_send_recv_msg.exit.i.us
-  %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef %28) #21
+  %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef range(i32 0, -2147483648) %28) #21
   br label %_send_and_recv_msg.exit.us
 
 _send_and_recv_msg.exit.us:                       ; preds = %44, %slurm_send_recv_msg.exit.i.us
@@ -4509,12 +4509,12 @@ _send_and_recv_msg.exit.us:                       ; preds = %44, %slurm_send_rec
 
 slurm_send_recv_msg.exit.i.us81:                  ; preds = %56, %53
   %.0.i.i.us82 = phi i32 [ %57, %56 ], [ -1, %53 ]
-  %58 = tail call i32 @close(i32 noundef %48) #21
+  %58 = tail call i32 @close(i32 noundef range(i32 0, -2147483648) %48) #21
   %.not.i.us83 = icmp eq i32 %58, 0
   br i1 %.not.i.us83, label %_send_and_recv_msg.exit.us84, label %59
 
 59:                                               ; preds = %slurm_send_recv_msg.exit.i.us81
-  %60 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef %48) #21
+  %60 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef range(i32 0, -2147483648) %48) #21
   br label %_send_and_recv_msg.exit.us84
 
 _send_and_recv_msg.exit.us84:                     ; preds = %59, %slurm_send_recv_msg.exit.i.us81
@@ -4609,12 +4609,12 @@ _send_and_recv_msg.exit.us84:                     ; preds = %59, %slurm_send_rec
 
 slurm_send_recv_msg.exit.i:                       ; preds = %100, %97
   %.0.i.i = phi i32 [ %101, %100 ], [ -1, %97 ]
-  %102 = tail call i32 @close(i32 noundef %28) #21
+  %102 = tail call i32 @close(i32 noundef range(i32 0, -2147483648) %28) #21
   %.not.i = icmp eq i32 %102, 0
   br i1 %.not.i, label %_send_and_recv_msg.exit, label %103
 
 103:                                              ; preds = %slurm_send_recv_msg.exit.i
-  %104 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef %28) #21
+  %104 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef range(i32 0, -2147483648) %28) #21
   br label %_send_and_recv_msg.exit
 
 _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg.exit.i, %103
@@ -4991,12 +4991,12 @@ define noundef i32 @slurm_send_recv_node_msg(ptr noundef %0, ptr noundef %1, i32
 
 slurm_send_recv_msg.exit.i:                       ; preds = %24, %21
   %.0.i.i = phi i32 [ %25, %24 ], [ -1, %21 ]
-  %26 = tail call i32 @close(i32 noundef %5) #21
+  %26 = tail call i32 @close(i32 noundef range(i32 0, -2147483648) %5) #21
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_send_and_recv_msg.exit, label %27
 
 27:                                               ; preds = %slurm_send_recv_msg.exit.i
-  %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef %5) #21
+  %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef range(i32 0, -2147483648) %5) #21
   br label %_send_and_recv_msg.exit
 
 _send_and_recv_msg.exit:                          ; preds = %27, %slurm_send_recv_msg.exit.i, %13, %10, %7
@@ -5541,12 +5541,12 @@ define ptr @slurm_send_addr_recv_msgs(ptr noundef %0, ptr noundef %1, i32 nounde
 
 73:                                               ; preds = %69, %64
   %.023.i = phi i32 [ %2, %64 ], [ %.124.i, %69 ]
-  %74 = tail call i32 @slurm_send_node_msg(i32 noundef %21, ptr noundef nonnull %0)
+  %74 = tail call i32 @slurm_send_node_msg(i32 noundef range(i32 0, -2147483648) %21, ptr noundef nonnull %0)
   %75 = icmp sgt i32 %74, -1
   br i1 %75, label %77, label %_send_and_recv_msgs.exit.thread
 
 _send_and_recv_msgs.exit.thread:                  ; preds = %73
-  %76 = tail call i32 @close(i32 noundef %21) #21
+  %76 = tail call i32 @close(i32 noundef range(i32 0, -2147483648) %21) #21
   store ptr null, ptr %4, align 8
   br label %106
 
@@ -5601,8 +5601,8 @@ _send_and_recv_msgs.exit.thread:                  ; preds = %73
 _send_and_recv_msgs.exit:                         ; preds = %77, %98
   %.2.i = phi i32 [ %103, %98 ], [ %.023.i, %77 ]
   %.0.i = phi i32 [ %100, %98 ], [ 0, %77 ]
-  %104 = tail call ptr @slurm_receive_msgs(i32 noundef %21, i32 noundef %.0.i, i32 noundef %.2.i)
-  %105 = tail call i32 @close(i32 noundef %21) #21
+  %104 = tail call ptr @slurm_receive_msgs(i32 noundef range(i32 0, -2147483648) %21, i32 noundef %.0.i, i32 noundef %.2.i)
+  %105 = tail call i32 @close(i32 noundef range(i32 0, -2147483648) %21) #21
   store ptr %104, ptr %4, align 8
   %.not43 = icmp eq ptr %104, null
   br i1 %.not43, label %106, label %109
@@ -5716,12 +5716,12 @@ define range(i32 -1, 1) i32 @slurm_send_recv_rc_msg_only_one(ptr noundef %0, ptr
 
 slurm_send_recv_msg.exit.i:                       ; preds = %27, %24
   %.0.i.i = phi i1 [ %29, %27 ], [ false, %24 ]
-  %30 = call i32 @close(i32 noundef %8) #21
+  %30 = call i32 @close(i32 noundef range(i32 0, -2147483648) %8) #21
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %_send_and_recv_msg.exit, label %31
 
 31:                                               ; preds = %slurm_send_recv_msg.exit.i
-  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef %8) #21
+  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._send_and_recv_msg, i32 noundef range(i32 0, -2147483648) %8) #21
   br label %_send_and_recv_msg.exit
 
 _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg.exit.i, %31

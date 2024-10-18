@@ -252,7 +252,7 @@ define dso_local { ptr, ptr } @_ZN4llvm10offloading29getOffloadingEntryInitializ
   store ptr %47, ptr %45, align 16
   %48 = call noundef ptr @_ZN4llvm10offloading10getEntryTyERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(857) %0)
   %49 = call noundef ptr @_ZN4llvm14ConstantStruct3getEPNS_10StructTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %48, ptr nonnull %11, i64 5) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #15
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %49, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %27, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -348,7 +348,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
 
 42:                                               ; preds = %41, %31
   call void @_ZN4llvm12GlobalObject12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #15
   ret void
 }
 
@@ -488,7 +488,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit:
 69:                                               ; preds = %56, %48
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %28, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %37, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
@@ -690,7 +690,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i21: ;
 67:                                               ; preds = %65
   call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE11notes_beginERKNS0_13Elf_Shdr_ImplIS4_EERNS_5ErrorE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::object::Elf_Note_Iterator_Impl") align 8 %23, ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 1 dereferenceable(64) %.01765, ptr noundef nonnull align 8 dereferenceable(8) %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false), !alias.scope !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 32, i1 false)
   %68 = load ptr, ptr %24, align 8
   %.not5263 = icmp eq ptr %68, null
   br i1 %.not5263, label %.loopexit, label %.lr.ph
@@ -754,7 +754,7 @@ _ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescE
   %.sroa.0.0.i10.i = phi ptr [ %82, %78 ], [ null, %_ZN4llvmneENS_9StringRefES0_.exit.thread18.i ]
   %.sroa.4.0.i11.i = phi i64 [ %83, %78 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread18.i ]
   store i8 0, ptr %44, align 8, !noalias !39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !noalias !39
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(273) %15, i8 0, i64 72, i1 false), !noalias !39
   store ptr %45, ptr %43, align 8, !noalias !39
   br label %84
 
@@ -1136,7 +1136,7 @@ _ZN4llvm5ErrorD2Ev.exit23.thread49:               ; preds = %200, %_ZN4llvm7msgp
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12), !noalias !47
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #15, !noalias !59
   %206 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #15, !noalias !59
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %206, ptr noundef nonnull align 1 dereferenceable(1) %12) #15, !noalias !59
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %206, ptr noundef nonnull align 1 dereferenceable(1) %12) #15, !noalias !59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !44
   store i64 33, ptr %4, align 8, !noalias !59
   %207 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #15, !noalias !59
@@ -1375,7 +1375,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %34 = load i8, ptr %33, align 8
   %35 = and i8 %34, -2
   store i8 %35, ptr %33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 16, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %30, align 8
   store ptr %37, ptr %36, align 8
@@ -2345,7 +2345,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %35, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 3, ptr nonnull %36) #15, !noalias !210
   store ptr %35, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   store ptr %3, ptr %37, align 8
   br label %66
 
@@ -2393,7 +2393,7 @@ _ZN4llvm5ErrorD2Ev.exit105:                       ; preds = %42
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %49, ptr noundef nonnull align 8 dereferenceable(34) %14, i32 3, ptr nonnull %50) #15, !noalias !227
   store ptr %49, ptr %3, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   store ptr %3, ptr %51, align 8
   br label %66
 

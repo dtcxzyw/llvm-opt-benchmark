@@ -9648,7 +9648,7 @@ define hidden void @zif_chunk_split(ptr noundef %0, ptr nocapture noundef writeo
 .lr.ph.i:                                         ; preds = %68, %.lr.ph.i
   %.069.i = phi ptr [ %84, %.lr.ph.i ], [ %80, %68 ]
   %.06568.i = phi ptr [ %85, %.lr.ph.i ], [ %.ptr, %68 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.069.i, ptr noundef nonnull align 1 dereferenceable(1) %.06568.i, i64 noundef %41, i1 false) #28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.069.i, ptr noundef nonnull align 1 dereferenceable(1) %.06568.i, i64 noundef range(i64 1, -9223372036854775808) %41, i1 false) #28
   %83 = getelementptr inbounds i8, ptr %.069.i, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %83, ptr noundef nonnull readonly align 1 %.0179223, i64 noundef %.0180222, i1 false) #28
   %84 = getelementptr inbounds i8, ptr %83, i64 %.0180222

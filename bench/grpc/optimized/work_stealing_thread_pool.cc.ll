@@ -448,13 +448,13 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %cmp.not = icmp ne ptr %1, null
   %work_signal_.i = getelementptr inbounds i8, ptr %this, i64 248
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i)
   %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i)
           to label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal9SignalAllEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont.i
@@ -467,7 +467,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit2.i unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -644,7 +644,7 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %manager_.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
-  call void %0(i1 noundef zeroext false, ptr noundef nonnull %callback, ptr noundef nonnull %agg.tmp) #25
+  call void %0(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %callback, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #25
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %1, ptr %manager_5.i.i.i, align 16
@@ -659,7 +659,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void %1(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp.i) #25
+  call void %1(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp.i) #25
   %3 = load ptr, ptr %manager_5.i.i.i, align 16
   %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store ptr %3, ptr %manager_5.i.i.i.i, align 16
@@ -670,7 +670,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %invoker_6.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental19SelfDeletingClosureE, i64 16), ptr %call.i1, align 16
   %cb_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
-  call void %3(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %cb_.i.i) #25
+  call void %3(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 16 dereferenceable(32) %cb_.i.i) #25
   %5 = load ptr, ptr %manager_5.i.i.i.i, align 16
   %manager_5.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 32
   store ptr %5, ptr %manager_5.i.i.i.i.i, align 16
@@ -689,14 +689,14 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %8 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %8(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #25
+  call void %8(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #25
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %10(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #25
+  call void %10(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #25
   resume { ptr, i32 } %9
 }
 
@@ -740,13 +740,13 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 
 if.end:                                           ; preds = %if.else, %if.then
   %work_signal_ = getelementptr inbounds i8, ptr %this, i64 248
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_)
   %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_)
           to label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal6SignalEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont.i
@@ -759,7 +759,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %if.end
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit2.i unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -1146,13 +1146,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit: ; preds = %entry
   %work_signal_ = getelementptr inbounds i8, ptr %this, i64 248
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_)
   %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_)
           to label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal9SignalAllEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont.i
@@ -1165,7 +1165,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl10SetForkingEb.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit2.i unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -1297,7 +1297,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %busy_thread_count_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %busy_thread_count_, i8 0, i64 24, i1 false)
   %max.val.i.i = tail call i32 @llvm.umin.i32(i32 %call.i6, i32 64)
   %retval.0.i.i = tail call i32 @llvm.umax.i32(i32 %max.val.i.i, i32 2)
   %conv.i = zext nneg i32 %retval.0.i.i to i64
@@ -1362,7 +1362,7 @@ lpad10:                                           ; preds = %invoke.cont9
           cleanup
   %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i) #25
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_) #25
   tail call void @_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %queue_) #25
   br label %ehcleanup12
 
@@ -1371,7 +1371,7 @@ ehcleanup12:                                      ; preds = %lpad10, %lpad6
   tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %theft_registry_) #25
   %cv_.i8 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i8) #25
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_) #25
   %4 = load ptr, ptr %busy_thread_count_, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %ehcleanup15, label %if.then.i.i.i.i
@@ -1899,13 +1899,13 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %work_signal_ = getelementptr inbounds i8, ptr %this, i64 248
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_)
   %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %do.end
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_)
           to label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal9SignalAllEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont.i
@@ -1918,7 +1918,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %do.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit2.i unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -1983,7 +1983,7 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkS
 entry:
   %lifeguard_should_shut_down_ = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load ptr, ptr %lifeguard_should_shut_down_, align 8
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
   %notified_.i = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %notified_.i, align 8
   %cv_.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -1991,7 +1991,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
           to label %while.cond.preheader unwind label %terminate.lpad.i.i
 
 while.cond.preheader:                             ; preds = %invoke.cont.i
@@ -2009,7 +2009,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
           to label %common.resume unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -2044,7 +2044,7 @@ if.then:                                          ; preds = %do.body
 
 do.end:                                           ; preds = %do.body, %if.then
   %10 = load ptr, ptr %lifeguard_is_shut_down_, align 8
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(17) %10)
   %notified_.i6 = getelementptr inbounds i8, ptr %10, i64 16
   %cv_.i7 = getelementptr inbounds i8, ptr %10, i64 8
   br label %while.cond.i
@@ -2055,13 +2055,13 @@ while.cond.i:                                     ; preds = %while.body.i, %do.e
   br i1 %tobool.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  invoke void @_ZN4absl12lts_202308027CondVar4WaitEPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i7, ptr noundef nonnull %10)
+  invoke void @_ZN4absl12lts_202308027CondVar4WaitEPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i7, ptr noundef nonnull align 8 dereferenceable(17) %10)
           to label %while.cond.i unwind label %lpad.i8, !llvm.loop !29
 
 lpad.i8:                                          ; preds = %while.body.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %10)
           to label %common.resume unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %lpad.i8
@@ -2072,7 +2072,7 @@ terminate.lpad.i.i9:                              ; preds = %lpad.i8
   unreachable
 
 while.end.i:                                      ; preds = %while.cond.i
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %10)
           to label %while.cond unwind label %terminate.lpad.i1.i10, !llvm.loop !30
 
 terminate.lpad.i1.i10:                            ; preds = %while.end.i
@@ -2084,7 +2084,7 @@ terminate.lpad.i1.i10:                            ; preds = %while.end.i
 
 while.end:                                        ; preds = %while.cond
   %17 = load ptr, ptr %lifeguard_is_shut_down_, align 8
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(17) %17)
   %notified_.i12 = getelementptr inbounds i8, ptr %17, i64 16
   %cv_.i13 = getelementptr inbounds i8, ptr %17, i64 8
   br label %while.cond.i14
@@ -2095,13 +2095,13 @@ while.cond.i14:                                   ; preds = %while.body.i16, %wh
   br i1 %tobool.i15, label %while.end.i20, label %while.body.i16
 
 while.body.i16:                                   ; preds = %while.cond.i14
-  invoke void @_ZN4absl12lts_202308027CondVar4WaitEPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i13, ptr noundef nonnull %17)
+  invoke void @_ZN4absl12lts_202308027CondVar4WaitEPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i13, ptr noundef nonnull align 8 dereferenceable(17) %17)
           to label %while.cond.i14 unwind label %lpad.i17, !llvm.loop !29
 
 lpad.i17:                                         ; preds = %while.body.i16
   %19 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %17)
           to label %common.resume unwind label %terminate.lpad.i.i18
 
 terminate.lpad.i.i18:                             ; preds = %lpad.i17
@@ -2112,7 +2112,7 @@ terminate.lpad.i.i18:                             ; preds = %lpad.i17
   unreachable
 
 while.end.i20:                                    ; preds = %while.cond.i14
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %17)
           to label %_ZN9grpc_core12Notification19WaitForNotificationEv.exit23 unwind label %terminate.lpad.i1.i21
 
 terminate.lpad.i1.i21:                            ; preds = %while.end.i20
@@ -2135,7 +2135,7 @@ _ZN9grpc_core12Notification19WaitForNotificationEv.exit23: ; preds = %while.end.
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i.i.i: ; preds = %_ZN9grpc_core12Notification19WaitForNotificationEv.exit23
   %cv_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i.i.i) #25
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %24) #25
   tail call void @_ZdlPv(ptr noundef nonnull %24) #24
   br label %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit
 
@@ -2150,7 +2150,7 @@ _ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit: ;
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i.i.i28: ; preds = %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit
   %cv_.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %25, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i.i.i29) #25
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %25) #25
   tail call void @_ZdlPv(ptr noundef nonnull %25) #24
   br label %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit34
 
@@ -2257,7 +2257,7 @@ entry:
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit: ; preds = %entry
   %cv_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i) #25
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %if.end
 
@@ -2366,7 +2366,7 @@ while.end:                                        ; preds = %if.end22, %if.then4
   store atomic i8 0, ptr %lifeguard_running_ monotonic, align 8
   %lifeguard_is_shut_down_ = getelementptr inbounds i8, ptr %this, i64 352
   %13 = load ptr, ptr %lifeguard_is_shut_down_, align 8
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(17) %13)
   %notified_.i = getelementptr inbounds i8, ptr %13, i64 16
   store i8 1, ptr %notified_.i, align 8
   %cv_.i = getelementptr inbounds i8, ptr %13, i64 8
@@ -2374,7 +2374,7 @@ while.end:                                        ; preds = %if.end22, %if.then4
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %while.end
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %13)
           to label %_ZN9grpc_core12Notification6NotifyEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont.i
@@ -2387,7 +2387,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %while.end
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %13)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit2.i unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -2527,10 +2527,10 @@ entry:
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
   %living_thread_count_.i = getelementptr inbounds i8, ptr %2, i64 56
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_.i)
   %living_count_.i.i = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load i64, ptr %living_count_.i.i, align 8
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_.i)
           to label %_ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end
@@ -2576,13 +2576,13 @@ if.then8:                                         ; preds = %_ZN17grpc_event_eng
 if.then11:                                        ; preds = %if.then8
   %12 = load ptr, ptr %this, align 8
   %work_signal_.i = getelementptr inbounds i8, ptr %12, i64 248
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i)
   %cv_.i = getelementptr inbounds i8, ptr %12, i64 256
   invoke void @_ZN4absl12lts_202308027CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then11
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i)
           to label %return.sink.split unwind label %terminate.lpad.i.i2
 
 terminate.lpad.i.i2:                              ; preds = %invoke.cont.i
@@ -2595,7 +2595,7 @@ terminate.lpad.i.i2:                              ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %if.then11
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit2.i unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -2704,7 +2704,7 @@ entry:
   %living_thread_count_.i = getelementptr inbounds i8, ptr %2, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   store ptr %living_thread_count_.i, ptr %auto_thread_counter_, align 8, !alias.scope !46
-  invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -2717,7 +2717,7 @@ entry:
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i, !noalias !46
 
 invoke.cont.i.i.i:                                ; preds = %.noexc
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_.i)
           to label %invoke.cont4 unwind label %terminate.lpad.i.i.i.i, !noalias !46
 
 terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i.i.i
@@ -2730,7 +2730,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i.i.i
 lpad.i.i.i:                                       ; preds = %.noexc
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_.i)
           to label %ehcleanup unwind label %terminate.lpad.i1.i.i.i, !noalias !46
 
 terminate.lpad.i1.i.i.i:                          ; preds = %lpad.i.i.i
@@ -2794,7 +2794,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then
@@ -2807,7 +2807,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont.i
@@ -2820,7 +2820,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %.noexc
   %4 = landingpad { ptr, i32 }
           catch ptr null
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %terminate.lpad.body unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -3177,7 +3177,7 @@ if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %if.end.i.i, %if.then.i.i.i, %if.else.i.i.i, %if.end7.i.i.i
   %retval.0.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %if.end.i.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ 9223372036854775807, %if.then.i.i.i ], [ -9223372036854775808, %if.else.i.i.i ]
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i)
   %div.i.i.i = sdiv i64 %retval.0.i.i, 1000
   %rem.i.i.i = srem i64 %retval.0.i.i, 1000
   %mul2.i.i.i = mul nsw i64 %rem.i.i.i, 4000000
@@ -3188,11 +3188,11 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %_ZN9grpc_core9Times
   %sub.pn.i.i.i.i = add nsw i64 %ticks.lobit.i.i.i.i, %div.i.i.i
   %conv.i.pn.i.i.i.i = select i1 %cmp.i.i.i.i, i32 %conv.i.i.i.i.i, i32 %23
   %cv_.i = getelementptr inbounds i8, ptr %.pre61.pre, i64 256
-  %call6.i = invoke noundef zeroext i1 @_ZN4absl12lts_202308027CondVar15WaitWithTimeoutEPNS0_5MutexENS0_8DurationE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i, ptr noundef nonnull %work_signal_.i, i64 %sub.pn.i.i.i.i, i32 %conv.i.pn.i.i.i.i)
+  %call6.i = invoke noundef zeroext i1 @_ZN4absl12lts_202308027CondVar15WaitWithTimeoutEPNS0_5MutexENS0_8DurationE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i, ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i, i64 %sub.pn.i.i.i.i, i32 %conv.i.pn.i.i.i.i)
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i)
           to label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool10WorkSignal15WaitWithTimeoutEN9grpc_core8DurationE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont5.i
@@ -3205,7 +3205,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont5.i
 lpad.i:                                           ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit
   %26 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_.i)
           to label %common.resume unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -3243,10 +3243,10 @@ if.end59:                                         ; preds = %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.end59
   %living_thread_count_.i = getelementptr inbounds i8, ptr %30, i64 56
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_.i)
   %living_count_.i.i = getelementptr inbounds i8, ptr %30, i64 72
   %33 = load i64, ptr %living_count_.i.i, align 8
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_.i)
           to label %_ZN17grpc_event_engine12experimental17LivingThreadCount5countEv.exit unwind label %terminate.lpad.i.i21
 
 terminate.lpad.i.i21:                             ; preds = %land.lhs.true
@@ -3529,17 +3529,17 @@ entry:
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  invoke void %0(ptr noundef nonnull %dest_cb_)
+  invoke void %0(ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
   %manager_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %manager_.i.i.i, align 16
-  tail call void %1(i1 noundef zeroext true, ptr noundef nonnull %dest_cb_, ptr noundef nonnull %dest_cb_) #25
+  tail call void %1(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_, ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_) #25
   %cb_ = getelementptr inbounds i8, ptr %this, i64 16
   %manager_.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %manager_.i.i.i2, align 16
-  tail call void %2(i1 noundef zeroext true, ptr noundef nonnull %cb_, ptr noundef nonnull %cb_) #25
+  tail call void %2(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %cb_, ptr noundef nonnull align 16 dereferenceable(32) %cb_) #25
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
@@ -3561,7 +3561,7 @@ entry:
   br i1 %cmp.i.i.not.i, label %_ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  invoke void %0(ptr noundef nonnull %dest_cb_.i)
+  invoke void %0(ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_.i)
           to label %_ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -3574,11 +3574,11 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev.exit: ; preds = %entry, %if.then.i
   %manager_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %manager_.i.i.i.i, align 16
-  tail call void %3(i1 noundef zeroext true, ptr noundef nonnull %dest_cb_.i, ptr noundef nonnull %dest_cb_.i) #25
+  tail call void %3(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_.i, ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_.i) #25
   %cb_.i = getelementptr inbounds i8, ptr %this, i64 16
   %manager_.i.i.i2.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %manager_.i.i.i2.i, align 16
-  tail call void %4(i1 noundef zeroext true, ptr noundef nonnull %cb_.i, ptr noundef nonnull %cb_.i) #25
+  tail call void %4(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %cb_.i, ptr noundef nonnull align 16 dereferenceable(32) %cb_.i) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
@@ -3589,7 +3589,7 @@ entry:
   %cb_ = getelementptr inbounds i8, ptr %this, i64 16
   %invoker_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %invoker_.i.i, align 8
-  tail call void %0(ptr noundef nonnull %cb_)
+  tail call void %0(ptr noundef nonnull align 16 dereferenceable(32) %cb_)
   %vtable = load ptr, ptr %this, align 16
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
@@ -3793,7 +3793,7 @@ entry:
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i.i: ; preds = %entry
   %cv_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i) #25
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit.i
 
@@ -3807,7 +3807,7 @@ _ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit.i:
 _ZNKSt14default_deleteIN9grpc_core12NotificationEEclEPS1_.exit.i2.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core12NotificationESt14default_deleteIS1_EED2Ev.exit.i
   %cv_.i.i.i3.i = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i3.i) #25
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %1) #25
   tail call void @_ZdlPv(ptr noundef nonnull %1) #24
   br label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardD2Ev.exit
 
@@ -3816,7 +3816,7 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThread
   %work_signal_ = getelementptr inbounds i8, ptr %this, i64 248
   %cv_.i = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i) #25
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %work_signal_) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %work_signal_) #25
   %queue_ = getelementptr inbounds i8, ptr %this, i64 120
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental14BasicWorkQueueE, i64 16), ptr %queue_, align 8
   %q_.i = getelementptr inbounds i8, ptr %this, i64 136
@@ -3867,11 +3867,11 @@ invoke.cont15.i.i.i:                              ; preds = %_ZN17grpc_event_eng
   br label %_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev.exit
 
 _ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev.exit: ; preds = %_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit, %invoke.cont15.i.i.i
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %theft_registry_) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %theft_registry_) #25
   %living_thread_count_ = getelementptr inbounds i8, ptr %this, i64 56
   %cv_.i2 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i2) #25
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %living_thread_count_) #25
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %living_thread_count_) #25
   %busy_thread_count_ = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %busy_thread_count_, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %9, null

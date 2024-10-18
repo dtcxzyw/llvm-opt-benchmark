@@ -4704,7 +4704,7 @@ find_mark.exit.i:                                 ; preds = %if.end12.i.i
   br label %if.end15.i
 
 if.else.i:                                        ; preds = %if.else
-  %call5.i = call fastcc i32 @parse_mapped_oid_hex(ptr noundef nonnull %p, ptr noundef %oid.i, ptr noundef %p.addr)
+  %call5.i = call fastcc i32 @parse_mapped_oid_hex(ptr noundef nonnull %p, ptr noundef %oid.i, ptr noundef nonnull %p.addr)
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end8.i, label %if.then7.i
 
@@ -5836,7 +5836,7 @@ if.then9.i:                                       ; preds = %lor.lhs.false.i, %i
   unreachable
 
 if.end12.i:                                       ; preds = %lor.lhs.false.i
-  tail call fastcc void @for_each_mark(ptr noundef nonnull readonly %28, i64 noundef 0, ptr noundef nonnull @insert_mapped_mark, ptr noundef %30)
+  tail call fastcc void @for_each_mark(ptr noundef nonnull readonly %28, i64 noundef 0, ptr noundef nonnull @insert_mapped_mark, ptr noundef nonnull %30)
   %incdec.ptr.i22 = getelementptr inbounds i8, ptr %fromp.04.i60, i64 16
   %32 = load ptr, ptr @sub_marks_from, align 8
   %33 = load i64, ptr getelementptr inbounds (i8, ptr @sub_marks_from, i64 8), align 8
@@ -9768,7 +9768,7 @@ oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %algop.0.val.i.i.i = load i64, ptr %8, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
   %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp6, i64 %..i.i.i.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp6, i64 %..i.i.i.i)
   %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %while.end.i, label %while.body.i
 
@@ -11051,7 +11051,7 @@ if.end.sink.split:                                ; preds = %entry
   %tecmp0.tecmp1 = select i1 %tobool.not, ptr @tecmp0, ptr @tecmp1
   %conv4 = zext i32 %0 to i64
   %entries1 = getelementptr inbounds i8, ptr %t, i64 16
-  tail call void @qsort(ptr noundef nonnull %entries1, i64 noundef %conv4, i64 noundef 8, ptr noundef nonnull %tecmp0.tecmp1) #24
+  tail call void @qsort(ptr noundef nonnull %entries1, i64 noundef range(i64 0, 4294967296) %conv4, i64 noundef 8, ptr noundef nonnull %tecmp0.tecmp1) #24
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.end.sink.split
@@ -12613,7 +12613,7 @@ oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %algop.0.val.i.i.i = load i64, ptr %58, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
   %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp1, i64 %..i.i.i.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp1, i64 %..i.i.i.i)
   %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %if.then55.loopexit.i, label %while.body.i9
 

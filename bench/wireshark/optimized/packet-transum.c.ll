@@ -1118,7 +1118,7 @@ find_temp_rsp_rrpd.exit.i.i:                      ; preds = %411
   br i1 %.not48.i.i, label %update_rrpd_rte_data.exit, label %424
 
 424:                                              ; preds = %find_temp_rsp_rrpd.exit.i.i
-  call fastcc void @update_rrpd_list_entry(ptr noundef %423, ptr noundef nonnull %406)
+  call fastcc void @update_rrpd_list_entry(ptr noundef nonnull %423, ptr noundef nonnull %406)
   %425 = load ptr, ptr @temp_rsp_rrpd_list, align 8
   call void @wmem_list_remove(ptr noundef %425, ptr noundef nonnull %406) #6
   br label %update_rrpd_rte_data.exit

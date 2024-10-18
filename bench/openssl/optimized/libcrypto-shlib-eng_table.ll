@@ -282,7 +282,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %call.i10 = phi i32 [ %call.i8, %while.body.lr.ph ], [ %call.i, %while.body ]
   %1 = load ptr, ptr %sk, align 8
-  %call.i7 = tail call ptr @OPENSSL_sk_delete(ptr noundef %1, i32 noundef %call.i10) #5
+  %call.i7 = tail call ptr @OPENSSL_sk_delete(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %call.i10) #5
   store i32 0, ptr %uptodate, align 8
   %2 = load ptr, ptr %sk, align 8
   %call.i = tail call i32 @OPENSSL_sk_find(ptr noundef %2, ptr noundef %e) #5

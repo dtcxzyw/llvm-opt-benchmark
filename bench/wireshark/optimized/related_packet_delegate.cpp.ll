@@ -1326,7 +1326,7 @@ _ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %478, %_ZN17QArrayDa
   call void @_ZN7QLocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %486) #16
   %487 = getelementptr inbounds i8, ptr %27, i64 88
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %487) #16
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %27) #16
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %27) #16
   br label %488
 
 488:                                              ; preds = %_ZN20QStyleOptionViewItemD2Ev.exit, %47
@@ -1387,7 +1387,7 @@ define linkonce_odr void @_ZN20QStyleOptionViewItemC2ERKS_(ptr noundef nonnull a
           to label %18 unwind label %43
 
 18:                                               ; preds = %11
-  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1)
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %18
@@ -2750,7 +2750,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEEC2Em.exit, label %27
@@ -2911,7 +2911,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38
@@ -3157,7 +3157,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit31, label %30

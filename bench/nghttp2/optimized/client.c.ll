@@ -392,7 +392,7 @@ if.then10.i:                                      ; preds = %if.end7.i
   unreachable
 
 if.end13.i:                                       ; preds = %if.end7.i
-  %call.i21.i = call i32 @SSL_set_fd(ptr noundef nonnull %call8.i, i32 noundef %call7.i.i) #17
+  %call.i21.i = call i32 @SSL_set_fd(ptr noundef nonnull %call8.i, i32 noundef range(i32 0, -1) %call7.i.i) #17
   %cmp.i.i = icmp eq i32 %call.i21.i, 0
   br i1 %cmp.i.i, label %if.then.i24.i, label %if.end.i.i
 
@@ -421,7 +421,7 @@ ssl_handshake.exit.i:                             ; preds = %if.end.i.i
   br label %while.cond.i27.i
 
 while.cond.i27.i:                                 ; preds = %land.rhs.i32.i, %ssl_handshake.exit.i
-  %call.i28.i = call i32 (i32, i32, ...) @fcntl(i32 noundef %call7.i.i, i32 noundef 3, i32 noundef 0) #17
+  %call.i28.i = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %call7.i.i, i32 noundef 3, i32 noundef 0) #17
   %cmp.i29.i = icmp eq i32 %call.i28.i, -1
   br i1 %cmp.i29.i, label %land.rhs.i32.i, label %while.cond6.preheader.i.i
 
@@ -441,7 +441,7 @@ if.then.i34.i:                                    ; preds = %land.rhs.i32.i
   unreachable
 
 while.cond6.i.i:                                  ; preds = %land.rhs9.i.i, %while.cond6.preheader.i.i
-  %call7.i30.i = call i32 (i32, i32, ...) @fcntl(i32 noundef %call7.i.i, i32 noundef 4, i32 noundef %or.i.i) #17
+  %call7.i30.i = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %call7.i.i, i32 noundef 4, i32 noundef %or.i.i) #17
   %cmp8.i31.i = icmp eq i32 %call7.i30.i, -1
   br i1 %cmp8.i31.i, label %land.rhs9.i.i, label %make_non_block.exit.i
 
@@ -459,7 +459,7 @@ if.then16.i.i:                                    ; preds = %land.rhs9.i.i
 make_non_block.exit.i:                            ; preds = %while.cond6.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i)
   store i32 1, ptr %val.i.i, align 4
-  %call.i35.i = call i32 @setsockopt(i32 noundef %call7.i.i, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %val.i.i, i32 noundef 4) #17
+  %call.i35.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %call7.i.i, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %val.i.i, i32 noundef 4) #17
   %cmp.i36.i = icmp eq i32 %call.i35.i, -1
   br i1 %cmp.i36.i, label %if.then.i38.i, label %set_tcp_nodelay.exit.i
 

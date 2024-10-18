@@ -1413,7 +1413,7 @@ define hidden void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$cor
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i, 3
   br i1 %12, label %13, label %15
 
@@ -5442,7 +5442,7 @@ define hidden void @_ZN12typst_syntax6parser10code_exprs17h231f84ab083b937fE(ptr
   br i1 %15, label %16, label %_ZN12typst_syntax6parser6Parser18enter_newline_mode17h3237cfda4d8d35c1E.exit
 
 16:                                               ; preds = %12
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd757a38016fa9f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %13)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd757a38016fa9f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %13)
   %.pre.i.i = load i64, ptr %6, align 8, !alias.scope !940
   br label %_ZN12typst_syntax6parser6Parser18enter_newline_mode17h3237cfda4d8d35c1E.exit
 
@@ -5609,7 +5609,7 @@ define hidden void @_ZN12typst_syntax6parser10code_exprs17h609faefca7ef5bc7E.llv
   br i1 %22, label %23, label %_ZN12typst_syntax6parser6Parser18enter_newline_mode17h3237cfda4d8d35c1E.exit
 
 23:                                               ; preds = %19
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd757a38016fa9f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %20)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd757a38016fa9f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %20)
   %.pre.i.i = load i64, ptr %6, align 8, !alias.scope !973
   br label %_ZN12typst_syntax6parser6Parser18enter_newline_mode17h3237cfda4d8d35c1E.exit
 

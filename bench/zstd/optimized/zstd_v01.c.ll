@@ -328,7 +328,7 @@ if.end39.i.i.i.i:                                 ; preds = %if.else34.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %FSE_decompress.exit.thread.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end39.i.i.i.i
-  %call.i.i.i.i.i = call fastcc i64 @FSE_readNCount(ptr noundef %counting.i.i.i.i.i, ptr noundef %maxSymbolValue.i.i.i.i.i, ptr noundef %tableLog.i.i.i.i.i, ptr noundef nonnull %add.ptr41.i.i.i.i, i64 noundef %conv.i.i.i.i)
+  %call.i.i.i.i.i = call fastcc i64 @FSE_readNCount(ptr noundef %counting.i.i.i.i.i, ptr noundef %maxSymbolValue.i.i.i.i.i, ptr noundef %tableLog.i.i.i.i.i, ptr noundef nonnull %add.ptr41.i.i.i.i, i64 noundef range(i64 0, 128) %conv.i.i.i.i)
   %cmp.i.i.i.i.i.i = icmp ult i64 %call.i.i.i.i.i, -7
   %cmp4.not.i.i.i.i.i = icmp ult i64 %call.i.i.i.i.i, %conv.i.i.i.i
   %or.cond.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp4.not.i.i.i.i.i

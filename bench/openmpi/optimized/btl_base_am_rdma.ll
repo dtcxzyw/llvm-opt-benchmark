@@ -2774,12 +2774,12 @@ am_rdma_operation_size.exit:                      ; preds = %39
   %64 = getelementptr inbounds i8, ptr %6, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, -48
-  %67 = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %66)
+  %67 = tail call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %40, i64 %66)
   br label %am_rdma_operation_size.exit.thread60
 
 am_rdma_operation_size.exit.thread:               ; preds = %am_rdma_operation_size.exit.thread64, %58, %51
   %.sink = phi i64 [ %63, %am_rdma_operation_size.exit.thread64 ], [ %60, %58 ], [ %53, %51 ]
-  %68 = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %.sink)
+  %68 = tail call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %40, i64 %.sink)
   %69 = getelementptr inbounds i8, ptr %45, i64 16
   store i64 %68, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %2, i64 80

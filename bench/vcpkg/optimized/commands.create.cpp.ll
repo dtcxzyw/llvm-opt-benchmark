@@ -517,7 +517,7 @@ _ZSt8_DestroyIPN5vcpkg13CMakeVariableEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.
   br i1 %.not.i, label %147, label %144
 
 144:                                              ; preds = %141
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr nonnull @.str.10, i64 8, ptr noundef nonnull align 8 dereferenceable(32) %133)
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr nonnull align 1 dereferenceable(9) @.str.10, i64 8, ptr noundef nonnull align 8 dereferenceable(32) %133)
           to label %.noexc45 unwind label %169
 
 .noexc45:                                         ; preds = %144
@@ -4286,8 +4286,8 @@ _ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit, %21
   %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds %"struct.vcpkg::CMakeVariable", ptr %24, i64 %20
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %26 = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %2) #22
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull align 1 dereferenceable(9) %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA9_KcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS2_PT_DpOT0_.exit unwind label %35
 
 _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA9_KcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit

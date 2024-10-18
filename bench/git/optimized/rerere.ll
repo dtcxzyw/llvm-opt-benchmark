@@ -1182,7 +1182,7 @@ update_paths.exit.i:                              ; preds = %for.end.i38.i
   br label %do_plain_rerere.exit
 
 do_plain_rerere.exit:                             ; preds = %for.end29.i, %update_paths.exit.i
-  call fastcc void @write_rr(ptr noundef %merge_rr, i32 noundef %call)
+  call fastcc void @write_rr(ptr noundef nonnull %merge_rr, i32 noundef range(i32 0, -2147483648) %call)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %conflict.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %update.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hash.i)
@@ -1985,7 +1985,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %call280.i = phi ptr [ %call2.i, %if.end20.i ], [ %call278.i, %while.cond.preheader.i ]
   %d_name.i = getelementptr inbounds i8, ptr %call280.i, i64 19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ep.i.i)
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull readonly dereferenceable(10) @.str.22) #17
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull dereferenceable(10) @.str.22) #17
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %is_rr_file.exit.thread63.i, label %do.body.i.i.preheader.i
 
@@ -2085,7 +2085,7 @@ fit_variant.exit.i:                               ; preds = %if.then16.i.i, %do.
 
 if.else.i:                                        ; preds = %is_rr_file.exit.i, %is_rr_file.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ep.i11.i)
-  %call.i12.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull readonly dereferenceable(9) @.str.23) #17
+  %call.i12.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name.i, ptr noundef nonnull dereferenceable(9) @.str.23) #17
   %tobool.not.i13.i = icmp eq i32 %call.i12.i, 0
   br i1 %tobool.not.i13.i, label %is_rr_file.exit35.thread71.i, label %do.body.i.i14.preheader.i
 

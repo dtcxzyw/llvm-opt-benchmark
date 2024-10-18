@@ -661,8 +661,8 @@ define internal fastcc noalias noundef ptr @Lit_Alloc(ptr noundef %0, i32 nounde
   %12 = icmp eq i8 %3, 43
   %13 = tail call noalias ptr @malloc(i64 noundef %10) #14
   %14 = tail call noalias ptr @malloc(i64 noundef %10) #14
-  tail call void @Kit_TruthCofactor0New(ptr noundef %13, ptr noundef %0, i32 noundef %1, i32 noundef %2) #15
-  tail call void @Kit_TruthCofactor1New(ptr noundef %14, ptr noundef %0, i32 noundef %1, i32 noundef %2) #15
+  tail call void @Kit_TruthCofactor0New(ptr noundef %13, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483647) %2) #15
+  tail call void @Kit_TruthCofactor1New(ptr noundef %14, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483647) %2) #15
   %15 = tail call noalias ptr @malloc(i64 noundef %10) #14
   %16 = icmp sgt i32 %8, 0
   br i1 %12, label %17, label %34

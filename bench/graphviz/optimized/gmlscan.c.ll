@@ -1198,7 +1198,7 @@ gv_strdup.exit100:                                ; preds = %693
 
 717:                                              ; preds = %704, %701
   store i32 3, ptr @yy_start, align 4
-  %718 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str.7) #28
+  %718 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str.7) #28
   %719 = icmp eq ptr %718, null
   br i1 %719, label %720, label %beginstr.exit
 

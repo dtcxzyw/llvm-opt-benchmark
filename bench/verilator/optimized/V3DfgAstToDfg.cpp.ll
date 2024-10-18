@@ -4554,7 +4554,7 @@ _ZNSt6vectorIN15AstToDfgVisitor6DriverESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt
 _ZNKSt8functionIFvR7DfgEdgemEEclES1_m.exit.i:     ; preds = %.lr.ph.i
   %83 = getelementptr inbounds %class.DfgEdge, ptr %79, i64 %.06.i
   %84 = load ptr, ptr %21, align 8
-  invoke void %84(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %84(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc118 unwind label %.loopexit290
 
 .noexc118:                                        ; preds = %_ZNKSt8functionIFvR7DfgEdgemEEclES1_m.exit.i
@@ -4569,7 +4569,7 @@ _ZN9DfgVertex17forEachSourceEdgeESt8functionIFvR7DfgEdgemEE.exit: ; preds = %.no
   br i1 %.not.i.i, label %_ZNSt8functionIFvR7DfgEdgemEED2Ev.exit, label %87
 
 87:                                               ; preds = %_ZN9DfgVertex17forEachSourceEdgeESt8functionIFvR7DfgEdgemEE.exit
-  %88 = invoke noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %88 = invoke noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvR7DfgEdgemEED2Ev.exit unwind label %89
 
 89:                                               ; preds = %87
@@ -4675,7 +4675,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6v
   br i1 %.not.i.i120, label %_ZNSt8functionIFvR7DfgEdgemEED2Ev.exit121, label %122
 
 122:                                              ; preds = %.loopexit.split-lp291
-  %123 = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %123 = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvR7DfgEdgemEED2Ev.exit121 unwind label %124
 
 124:                                              ; preds = %122
@@ -5266,7 +5266,7 @@ _ZN9DfgVertex13dtypeForWidthEj.exit:              ; preds = %362
   %371 = load ptr, ptr %129, align 8
   %372 = getelementptr inbounds i8, ptr %371, i64 32
   %373 = load ptr, ptr %372, align 8
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %368, ptr noundef nonnull align 8 dereferenceable(104) %370, i16 141, ptr noundef %373, ptr noundef %367)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(112) %368, ptr noundef nonnull align 8 dereferenceable(104) %370, i16 141, ptr noundef %373, ptr noundef %367)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit.i unwind label %398
 
 _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit.i: ; preds = %369
@@ -5422,7 +5422,7 @@ _ZN9DfgVertex13dtypeForWidthEj.exit146:           ; preds = %418
 430:                                              ; preds = %_ZN9DfgVertex13dtypeForWidthEj.exit146
   %431 = load ptr, ptr %27, align 8
   %432 = load ptr, ptr %403, align 8
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %429, ptr noundef nonnull align 8 dereferenceable(104) %431, i16 10, ptr noundef %432, ptr noundef %428)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %429, ptr noundef nonnull align 8 dereferenceable(104) %431, i16 10, ptr noundef %432, ptr noundef %428)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit.i unwind label %448
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit.i: ; preds = %430
@@ -5854,7 +5854,7 @@ _ZN12DfgVarPacked9addDriverEP8FileLinejP9DfgVertex.exit: ; preds = %_ZN17DfgVert
 
 _ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i:     ; preds = %590
   %593 = load ptr, ptr %30, align 8
-  invoke void %593(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(72) %589)
+  invoke void %593(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(72) %589)
           to label %.noexc179 unwind label %.loopexit268
 
 .noexc179:                                        ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i, %.lr.ph.i173
@@ -5868,7 +5868,7 @@ _ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit: ; preds = %.noexc179, %.n
   br i1 %.not.i.i180, label %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit, label %596
 
 596:                                              ; preds = %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit
-  %597 = invoke noundef zeroext i1 %595(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %597 = invoke noundef zeroext i1 %595(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit unwind label %598
 
 598:                                              ; preds = %596
@@ -5909,7 +5909,7 @@ _ZNSt8functionIFvR9DfgVertexEED2Ev.exit..backedge_crit_edge: ; preds = %_ZNSt8fu
   br i1 %.not.i.i181, label %.body, label %603
 
 603:                                              ; preds = %.loopexit.split-lp269
-  %604 = invoke noundef zeroext i1 %602(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %604 = invoke noundef zeroext i1 %602(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %.body unwind label %605
 
 605:                                              ; preds = %603
@@ -6018,7 +6018,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstNode(ptr nou
   store i8 1, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -6099,7 +6099,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -6133,7 +6133,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 96, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 96, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -6308,7 +6308,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -6342,7 +6342,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 97, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 97, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -6519,7 +6519,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -6549,7 +6549,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -6583,7 +6583,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 1, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 1, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -6618,7 +6618,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -6783,7 +6783,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -6813,7 +6813,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -6847,7 +6847,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 2, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 2, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -6882,7 +6882,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -7016,7 +7016,7 @@ _ZNK16AstNodeProcedure17isJustOneBodyStmtEv.exit: ; preds = %12
 _ZNK16AstNodeProcedure17isJustOneBodyStmtEv.exit.thread: ; preds = %17, %12, %_ZNK16AstNodeProcedure17isJustOneBodyStmtEv.exit, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %0, ptr %8, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %111
 
@@ -7043,7 +7043,7 @@ _ZN7AstNode11privateCastI9AstAssignKPS_EEPT_S2_.exit: ; preds = %17, %17
 27:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %28 = load ptr, ptr %20, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 112
@@ -7107,13 +7107,13 @@ _ZN7AstNode11privateCastI9AstAssignPS_EEPT_S2_.exit69: ; preds = %_ZN7AstNode11p
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %48, i64 32
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 @_ZN7AstNode12sameTreeIterEPKS_S1_bb(ptr noundef nonnull %60, ptr noundef %62, i1 noundef zeroext true, i1 noundef zeroext false)
+  %63 = tail call noundef zeroext i1 @_ZN7AstNode12sameTreeIterEPKS_S1_bb(ptr noundef nonnull align 8 dereferenceable(152) %60, ptr noundef %62, i1 noundef zeroext true, i1 noundef zeroext false)
   br i1 %63, label %64, label %_ZN7AstNode11privateCastI9AstAssignPS_EEPT_S2_.exit69.thread
 
 _ZN7AstNode11privateCastI9AstAssignPS_EEPT_S2_.exit69.thread: ; preds = %_ZN7AstNode11privateCastI9AstAssignPS_EEPT_S2_.exit, %58, %55, %52, %_ZN7AstNode11privateCastI9AstAssignPS_EEPT_S2_.exit69
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %111
 
@@ -7138,7 +7138,7 @@ _ZN7AstNode11privateCastI9AstAssignPS_EEPT_S2_.exit69.thread: ; preds = %_ZN7Ast
 75:                                               ; preds = %72, %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %76 = load ptr, ptr %65, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 112
@@ -7182,12 +7182,12 @@ _ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit71: ; preds = %_ZN11AstNodeExpr
 97:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %81, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %81, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %98 = getelementptr inbounds i8, ptr %81, i64 24
   %99 = load ptr, ptr %98, align 8
   %100 = call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %99, ptr noundef null)
-  call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef %100)
+  call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(160) %14, ptr noundef %100)
   %101 = getelementptr inbounds i8, ptr %81, i64 32
   %102 = load ptr, ptr %101, align 8
   %103 = call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %102, ptr noundef null)
@@ -7211,7 +7211,7 @@ _ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit71: ; preds = %_ZN11AstNodeExpr
 110:                                              ; preds = %_ZN7AstNode11privateCastI9AstAssignKPS_EEPT_S2_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %111
 
@@ -7298,7 +7298,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -7328,7 +7328,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -7362,7 +7362,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 3, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 3, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -7397,7 +7397,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -7564,7 +7564,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -7594,7 +7594,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -7628,7 +7628,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 4, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 4, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -7663,7 +7663,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -7828,7 +7828,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -7862,7 +7862,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 98, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 98, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -8037,7 +8037,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -8071,7 +8071,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 99, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 99, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -8212,7 +8212,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP10AstAssignW(ptr
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 112
@@ -8306,7 +8306,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -8336,7 +8336,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -8370,7 +8370,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 5, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 5, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -8405,7 +8405,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -8570,7 +8570,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -8600,7 +8600,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -8634,7 +8634,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 6, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 6, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -8669,7 +8669,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -8834,7 +8834,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -8868,7 +8868,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 100, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 100, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -9043,7 +9043,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -9077,7 +9077,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 101, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 101, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -9252,7 +9252,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %66, label %48
@@ -9367,7 +9367,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -9401,7 +9401,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 103, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 103, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -9582,7 +9582,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -9612,7 +9612,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -9646,7 +9646,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 7, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 7, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -9681,7 +9681,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -9846,7 +9846,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -9880,7 +9880,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 104, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 104, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -10057,7 +10057,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %66, label %48
@@ -10174,7 +10174,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -10208,7 +10208,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 106, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 106, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -10403,7 +10403,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -10433,7 +10433,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -10467,7 +10467,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 8, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 8, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -10502,7 +10502,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -10671,7 +10671,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -10705,7 +10705,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 107, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 107, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -10880,7 +10880,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -10914,7 +10914,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 108, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 108, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -11025,7 +11025,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP7AstCell(ptr nou
   %3 = alloca %class.anon.229, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -11121,7 +11121,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %86, label %48
@@ -11151,7 +11151,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %86, label %68
@@ -11258,7 +11258,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -11288,7 +11288,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -11322,7 +11322,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 10, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 10, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -11357,7 +11357,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -11522,7 +11522,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -11552,7 +11552,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -11586,7 +11586,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 11, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 11, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -11621,7 +11621,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -11786,7 +11786,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -11816,7 +11816,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -11846,7 +11846,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -11880,7 +11880,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 84, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 84, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -11915,7 +11915,7 @@ _ZN12_GLOBAL__N_110makeVertexI7DfgCond7AstCondEEPT_PKT0_R8DfgGraph.exit: ; preds
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI7DfgCond7AstCondEEPT_PKT0_R8DfgGraph.exit
@@ -11938,7 +11938,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -11962,7 +11962,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -12127,7 +12127,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -12157,7 +12157,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -12187,7 +12187,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -12221,7 +12221,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 85, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 85, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -12256,7 +12256,7 @@ _ZN12_GLOBAL__N_110makeVertexI12DfgCondBound12AstCondBoundEEPT_PKT0_R8DfgGraph.e
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI12DfgCondBound12AstCondBoundEEPT_PKT0_R8DfgGraph.exit
@@ -12279,7 +12279,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -12303,7 +12303,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -12490,19 +12490,19 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %.noexc unwind label %93
 
 .noexc:                                           ; preds = %40
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef nonnull align 8 dereferenceable(104) %43, i16 0, ptr noundef %45, ptr noundef %52)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(128) %41, ptr noundef nonnull align 8 dereferenceable(104) %43, i16 0, ptr noundef %45, ptr noundef %52)
           to label %.noexc8 unwind label %93
 
 .noexc8:                                          ; preds = %.noexc
   store ptr getelementptr inbounds (i8, ptr @_ZTV8DfgConst, i64 16), ptr %41, align 8
   %53 = getelementptr inbounds i8, ptr %41, i64 72
-  invoke void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %46)
+  invoke void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %53, ptr noundef nonnull align 8 dereferenceable(56) %46)
           to label %56 unwind label %54
 
 54:                                               ; preds = %.noexc8
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %41) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %41) #23
   br label %.body
 
 56:                                               ; preds = %.noexc8
@@ -12691,7 +12691,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -12725,7 +12725,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 109, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 109, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -12900,7 +12900,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -12934,7 +12934,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 110, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 110, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -13111,7 +13111,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -13145,7 +13145,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 111, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 111, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -13330,7 +13330,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -13364,7 +13364,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 112, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 112, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -13557,7 +13557,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -13587,7 +13587,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -13621,7 +13621,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 12, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 12, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -13656,7 +13656,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -13821,7 +13821,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -13851,7 +13851,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -13881,7 +13881,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -13915,7 +13915,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 86, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 86, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -13950,7 +13950,7 @@ _ZN12_GLOBAL__N_110makeVertexI13DfgDistErlang13AstDistErlangEEPT_PKT0_R8DfgGraph
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI13DfgDistErlang13AstDistErlangEEPT_PKT0_R8DfgGraph.exit
@@ -13973,7 +13973,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -13997,7 +13997,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -14162,7 +14162,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -14192,7 +14192,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -14226,7 +14226,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 13, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 13, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -14261,7 +14261,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -14428,7 +14428,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -14458,7 +14458,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -14488,7 +14488,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -14522,7 +14522,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 87, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 87, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -14557,7 +14557,7 @@ _ZN12_GLOBAL__N_110makeVertexI13DfgDistNormal13AstDistNormalEEPT_PKT0_R8DfgGraph
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI13DfgDistNormal13AstDistNormalEEPT_PKT0_R8DfgGraph.exit
@@ -14580,7 +14580,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -14604,7 +14604,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -14769,7 +14769,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -14799,7 +14799,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -14833,7 +14833,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 14, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 14, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -14868,7 +14868,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -15033,7 +15033,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -15063,7 +15063,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -15097,7 +15097,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 15, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 15, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -15132,7 +15132,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -15297,7 +15297,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -15327,7 +15327,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -15357,7 +15357,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -15391,7 +15391,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 88, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 88, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -15426,7 +15426,7 @@ _ZN12_GLOBAL__N_110makeVertexI14DfgDistUniform14AstDistUniformEEPT_PKT0_R8DfgGra
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI14DfgDistUniform14AstDistUniformEEPT_PKT0_R8DfgGraph.exit
@@ -15449,7 +15449,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -15473,7 +15473,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -15638,7 +15638,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -15668,7 +15668,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -15702,7 +15702,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 16, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 16, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -15737,7 +15737,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -15902,7 +15902,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -15932,7 +15932,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -15966,7 +15966,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 17, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 17, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -16001,7 +16001,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -16166,7 +16166,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -16196,7 +16196,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -16230,7 +16230,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 18, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 18, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -16265,7 +16265,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -16454,7 +16454,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -16484,7 +16484,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -16518,7 +16518,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 19, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 19, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -16553,7 +16553,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -16718,7 +16718,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -16748,7 +16748,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -16782,7 +16782,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 20, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 20, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -16817,7 +16817,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -16982,7 +16982,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -17012,7 +17012,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -17046,7 +17046,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 21, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 21, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -17081,7 +17081,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -17246,7 +17246,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -17276,7 +17276,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -17310,7 +17310,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 22, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 22, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -17345,7 +17345,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -17510,7 +17510,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -17540,7 +17540,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -17574,7 +17574,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 23, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 23, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -17609,7 +17609,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -17774,7 +17774,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -17804,7 +17804,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -17838,7 +17838,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 24, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 24, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -17873,7 +17873,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -18042,7 +18042,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -18076,7 +18076,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 113, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 113, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -18253,7 +18253,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -18287,7 +18287,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 114, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 114, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -18462,7 +18462,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -18496,7 +18496,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 115, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 115, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -18673,7 +18673,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -18707,7 +18707,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 116, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 116, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -18886,7 +18886,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -18920,7 +18920,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 117, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 117, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -19095,7 +19095,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -19125,7 +19125,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -19159,7 +19159,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 25, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 25, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -19194,7 +19194,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -19373,7 +19373,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -19403,7 +19403,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -19437,7 +19437,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 26, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 26, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -19472,7 +19472,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -19645,7 +19645,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -19679,7 +19679,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 118, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 118, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -19870,7 +19870,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -19900,7 +19900,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -19934,7 +19934,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 27, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 27, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -19969,7 +19969,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -20134,7 +20134,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -20164,7 +20164,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -20198,7 +20198,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 28, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 28, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -20233,7 +20233,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -20398,7 +20398,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -20428,7 +20428,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -20462,7 +20462,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 29, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 29, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -20497,7 +20497,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -20662,7 +20662,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -20692,7 +20692,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -20726,7 +20726,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 30, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 30, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -20761,7 +20761,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -20926,7 +20926,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -20956,7 +20956,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -20990,7 +20990,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 31, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 31, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -21025,7 +21025,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -21190,7 +21190,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -21220,7 +21220,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -21254,7 +21254,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 32, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 32, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -21289,7 +21289,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -21454,7 +21454,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -21484,7 +21484,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -21518,7 +21518,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 33, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 33, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -21553,7 +21553,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -21718,7 +21718,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -21748,7 +21748,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -21782,7 +21782,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 34, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 34, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -21817,7 +21817,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -21982,7 +21982,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -22012,7 +22012,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -22046,7 +22046,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 35, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 35, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -22081,7 +22081,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -22246,7 +22246,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -22276,7 +22276,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -22310,7 +22310,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 36, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 36, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -22345,7 +22345,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -22510,7 +22510,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -22540,7 +22540,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -22574,7 +22574,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 37, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 37, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -22609,7 +22609,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -22774,7 +22774,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -22808,7 +22808,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 119, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 119, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -22983,7 +22983,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -23017,7 +23017,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 120, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 120, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -23218,7 +23218,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -23252,7 +23252,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 121, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 121, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -23427,7 +23427,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -23461,7 +23461,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 122, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 122, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -23644,7 +23644,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -23678,7 +23678,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 123, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 123, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -23855,7 +23855,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -23889,7 +23889,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 124, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 124, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -24064,7 +24064,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -24094,7 +24094,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -24128,7 +24128,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 38, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 38, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -24163,7 +24163,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -24328,7 +24328,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -24362,7 +24362,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 125, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 125, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -24537,7 +24537,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -24567,7 +24567,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -24601,7 +24601,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 39, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 39, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -24636,7 +24636,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -24801,7 +24801,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -24831,7 +24831,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -24865,7 +24865,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 40, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 40, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -24900,7 +24900,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -25065,7 +25065,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -25099,7 +25099,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 126, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 126, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -25274,7 +25274,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -25304,7 +25304,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -25338,7 +25338,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 41, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 41, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -25373,7 +25373,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -25538,7 +25538,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -25568,7 +25568,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -25602,7 +25602,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 42, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 42, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -25637,7 +25637,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -25802,7 +25802,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -25832,7 +25832,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -25866,7 +25866,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 43, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 43, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -25901,7 +25901,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -26066,7 +26066,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -26096,7 +26096,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -26130,7 +26130,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 44, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 44, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -26165,7 +26165,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -26330,7 +26330,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -26360,7 +26360,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -26394,7 +26394,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 45, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 45, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -26429,7 +26429,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -26594,7 +26594,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -26624,7 +26624,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -26658,7 +26658,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 46, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 46, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -26693,7 +26693,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -26858,7 +26858,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -26888,7 +26888,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -26922,7 +26922,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 47, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 47, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -26957,7 +26957,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -27122,7 +27122,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -27152,7 +27152,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -27186,7 +27186,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 48, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 48, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -27221,7 +27221,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -27386,7 +27386,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -27416,7 +27416,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -27450,7 +27450,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 49, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 49, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -27485,7 +27485,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -27658,7 +27658,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -27688,7 +27688,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -27722,7 +27722,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 50, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 50, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -27757,7 +27757,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -27922,7 +27922,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -27952,7 +27952,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -27986,7 +27986,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 51, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 51, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -28021,7 +28021,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -28196,7 +28196,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -28226,7 +28226,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -28260,7 +28260,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 52, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 52, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -28295,7 +28295,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -28460,7 +28460,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -28490,7 +28490,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -28524,7 +28524,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 53, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 53, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -28559,7 +28559,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -28724,7 +28724,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -28754,7 +28754,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -28788,7 +28788,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 54, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 54, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -28823,7 +28823,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -28988,7 +28988,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -29022,7 +29022,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 127, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 127, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -29197,7 +29197,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -29231,7 +29231,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 128, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 128, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -29406,7 +29406,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -29440,7 +29440,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 129, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 129, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -29615,7 +29615,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -29645,7 +29645,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -29679,7 +29679,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 56, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 56, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -29714,7 +29714,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -29879,7 +29879,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -29909,7 +29909,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -29943,7 +29943,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 57, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 57, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -29978,7 +29978,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -30143,7 +30143,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -30173,7 +30173,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -30207,7 +30207,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 58, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 58, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -30242,7 +30242,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -30407,7 +30407,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -30437,7 +30437,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -30471,7 +30471,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 59, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 59, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -30506,7 +30506,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -30671,7 +30671,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -30701,7 +30701,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -30735,7 +30735,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 60, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 60, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -30770,7 +30770,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -30935,7 +30935,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -30965,7 +30965,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -30999,7 +30999,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 61, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 61, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -31034,7 +31034,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -31187,7 +31187,7 @@ define linkonce_odr dso_local void @_ZN15AstToDfgVisitor5visitEP16AstNodeProcedu
   %3 = alloca %class.anon.229, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -31291,7 +31291,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -31325,7 +31325,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 130, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 130, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -31502,7 +31502,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -31536,7 +31536,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 131, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 131, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -31711,7 +31711,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -31745,7 +31745,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 132, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 132, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -31920,7 +31920,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -31954,7 +31954,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 133, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 133, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -32129,7 +32129,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -32159,7 +32159,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -32193,7 +32193,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 62, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 62, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -32228,7 +32228,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -32419,7 +32419,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -32449,7 +32449,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -32479,7 +32479,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -32513,7 +32513,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 89, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 89, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -32548,7 +32548,7 @@ _ZN12_GLOBAL__N_110makeVertexI10DfgPostAdd10AstPostAddEEPT_PKT0_R8DfgGraph.exit:
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI10DfgPostAdd10AstPostAddEEPT_PKT0_R8DfgGraph.exit
@@ -32571,7 +32571,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -32595,7 +32595,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -32760,7 +32760,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -32790,7 +32790,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -32820,7 +32820,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -32854,7 +32854,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 90, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 90, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -32889,7 +32889,7 @@ _ZN12_GLOBAL__N_110makeVertexI10DfgPostSub10AstPostSubEEPT_PKT0_R8DfgGraph.exit:
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI10DfgPostSub10AstPostSubEEPT_PKT0_R8DfgGraph.exit
@@ -32912,7 +32912,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -32936,7 +32936,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -33101,7 +33101,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -33131,7 +33131,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -33165,7 +33165,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 63, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 63, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -33200,7 +33200,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -33365,7 +33365,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -33395,7 +33395,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -33429,7 +33429,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 64, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 64, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -33464,7 +33464,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -33629,7 +33629,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -33659,7 +33659,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -33693,7 +33693,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 65, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 65, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -33728,7 +33728,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -33893,7 +33893,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -33923,7 +33923,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -33957,7 +33957,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 66, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 66, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -33992,7 +33992,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -34157,7 +34157,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -34187,7 +34187,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -34221,7 +34221,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 67, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 67, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -34256,7 +34256,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -34423,7 +34423,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -34453,7 +34453,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -34483,7 +34483,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -34517,7 +34517,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 91, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 91, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -34552,7 +34552,7 @@ _ZN12_GLOBAL__N_110makeVertexI9DfgPreAdd9AstPreAddEEPT_PKT0_R8DfgGraph.exit: ; p
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI9DfgPreAdd9AstPreAddEEPT_PKT0_R8DfgGraph.exit
@@ -34575,7 +34575,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -34599,7 +34599,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -34764,7 +34764,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -34794,7 +34794,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -34824,7 +34824,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -34858,7 +34858,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 92, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 92, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -34893,7 +34893,7 @@ _ZN12_GLOBAL__N_110makeVertexI9DfgPreSub9AstPreSubEEPT_PKT0_R8DfgGraph.exit: ; p
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI9DfgPreSub9AstPreSubEEPT_PKT0_R8DfgGraph.exit
@@ -34916,7 +34916,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -34940,7 +34940,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -35115,7 +35115,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -35145,7 +35145,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -35175,7 +35175,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -35209,7 +35209,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 93, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 93, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -35244,7 +35244,7 @@ _ZN12_GLOBAL__N_110makeVertexI8DfgPutcN8AstPutcNEEPT_PKT0_R8DfgGraph.exit: ; pre
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI8DfgPutcN8AstPutcNEEPT_PKT0_R8DfgGraph.exit
@@ -35267,7 +35267,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -35291,7 +35291,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -35458,7 +35458,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -35492,7 +35492,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 134, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 134, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -35667,7 +35667,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -35701,7 +35701,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 135, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 135, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -35886,7 +35886,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -35920,7 +35920,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 136, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 136, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -36095,7 +36095,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -36129,7 +36129,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 137, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 137, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -36304,7 +36304,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -36338,7 +36338,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 138, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 138, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -36513,7 +36513,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -36547,7 +36547,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 139, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 139, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -36728,7 +36728,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -36758,7 +36758,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -36792,7 +36792,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 68, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 68, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -36827,7 +36827,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -36992,7 +36992,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -37022,7 +37022,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -37056,7 +37056,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 69, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 69, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -37091,7 +37091,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -37256,7 +37256,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -37290,7 +37290,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 140, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 140, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -37519,7 +37519,7 @@ _ZN7AstNode9privateIsI8AstConstP11AstNodeExprEEbPKS_.exit.thread: ; preds = %40,
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 288
   %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(152) %52, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(152) %52, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %56 = load i8, ptr %14, align 8
   %57 = trunc i8 %56 to i1
   br i1 %57, label %159, label %58
@@ -37546,7 +37546,7 @@ _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit: ; preds = %63
           to label %70 unwind label %84
 
 70:                                               ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(104) %68, i16 141, ptr noundef %60, ptr noundef %69)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(112) %66, ptr noundef nonnull align 8 dereferenceable(104) %68, i16 141, ptr noundef %60, ptr noundef %69)
           to label %_ZN6DfgSel5frompEP9DfgVertex.exit unwind label %84
 
 _ZN6DfgSel5frompEP9DfgVertex.exit:                ; preds = %70
@@ -37581,7 +37581,7 @@ _ZN6DfgSel5frompEP9DfgVertex.exit:                ; preds = %70
   %87 = load ptr, ptr %62, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 288
   %89 = load ptr, ptr %88, align 8
-  tail call void %89(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %90 = load i8, ptr %14, align 8
   %91 = trunc i8 %90 to i1
   br i1 %91, label %159, label %92
@@ -37594,7 +37594,7 @@ _ZN6DfgSel5frompEP9DfgVertex.exit:                ; preds = %70
           to label %97 unwind label %123
 
 97:                                               ; preds = %92
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %93, ptr noundef nonnull align 8 dereferenceable(104) %95, i16 55, ptr noundef %60, ptr noundef %96)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %93, ptr noundef nonnull align 8 dereferenceable(104) %95, i16 55, ptr noundef %60, ptr noundef %96)
           to label %_ZN6DfgMux5frompEP9DfgVertex.exit unwind label %123
 
 _ZN6DfgMux5frompEP9DfgVertex.exit:                ; preds = %97
@@ -37623,7 +37623,7 @@ _ZN6DfgMux5frompEP9DfgVertex.exit:                ; preds = %97
   %111 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %112 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %113 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %93, ptr noundef nonnull align 8 dereferenceable(112) %113) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %93, ptr noundef nonnull align 8 dereferenceable(112) %113) #25
   unreachable
 
 _ZN6DfgMux4lsbpEP9DfgVertex.exit:                 ; preds = %_ZN6DfgMux5frompEP9DfgVertex.exit
@@ -37821,7 +37821,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -37851,7 +37851,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -37885,7 +37885,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 70, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 70, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -37920,7 +37920,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -38085,7 +38085,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -38115,7 +38115,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -38149,7 +38149,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 71, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 71, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -38184,7 +38184,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -38349,7 +38349,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -38379,7 +38379,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -38413,7 +38413,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 72, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 72, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -38448,7 +38448,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -38613,7 +38613,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -38643,7 +38643,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -38677,7 +38677,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 73, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 73, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -38712,7 +38712,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -38877,7 +38877,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -38907,7 +38907,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -38941,7 +38941,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 74, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 74, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -38976,7 +38976,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -39141,7 +39141,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -39171,7 +39171,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -39205,7 +39205,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 75, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 75, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -39240,7 +39240,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -39405,7 +39405,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -39439,7 +39439,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 142, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 142, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -39614,7 +39614,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -39648,7 +39648,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 143, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 143, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -39823,7 +39823,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -39857,7 +39857,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 144, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 144, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -40032,7 +40032,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %106, label %48
@@ -40062,7 +40062,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %106, label %68
@@ -40092,7 +40092,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %106, label %88
@@ -40201,7 +40201,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -40235,7 +40235,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 145, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 145, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -40422,7 +40422,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -40452,7 +40452,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -40486,7 +40486,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 76, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 76, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -40521,7 +40521,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -40686,7 +40686,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -40716,7 +40716,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -40750,7 +40750,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 77, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 77, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -40785,7 +40785,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -40956,7 +40956,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -40986,7 +40986,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -41020,7 +41020,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 78, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 78, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -41055,7 +41055,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -41220,7 +41220,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -41250,7 +41250,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -41284,7 +41284,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 79, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 79, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -41319,7 +41319,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -41484,7 +41484,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %191, label %48
@@ -41514,7 +41514,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %191, label %68
@@ -41544,7 +41544,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 288
   %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(152) %82, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %86 = load i8, ptr %14, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %191, label %88
@@ -41578,7 +41578,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %107 unwind label %112
 
 107:                                              ; preds = %100
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 95, ptr noundef %105, ptr noundef %106)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(104) %102, i16 95, ptr noundef %105, ptr noundef %106)
           to label %.noexc.i unwind label %112
 
 .noexc.i:                                         ; preds = %107
@@ -41613,7 +41613,7 @@ _ZN12_GLOBAL__N_110makeVertexI10DfgSubstrN10AstSubstrNEEPT_PKT0_R8DfgGraph.exit:
   %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %119) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %_ZN12_GLOBAL__N_110makeVertexI10DfgSubstrN10AstSubstrNEEPT_PKT0_R8DfgGraph.exit
@@ -41636,7 +41636,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %131 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %132 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %133) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -41660,7 +41660,7 @@ _ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %
   %146 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %147 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %103, ptr noundef nonnull align 8 dereferenceable(112) %148) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm3EE12relinkSourceILm2EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm3EE12relinkSourceILm1EEEvP9DfgVertex.exit
@@ -41833,7 +41833,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -41867,7 +41867,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 146, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 146, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -42042,7 +42042,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -42076,7 +42076,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 147, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 147, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -42269,7 +42269,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -42303,7 +42303,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 148, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 148, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -42482,7 +42482,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -42516,7 +42516,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 149, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 149, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -42691,7 +42691,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -42725,7 +42725,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 150, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 150, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -42920,7 +42920,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -42950,7 +42950,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -42984,7 +42984,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 80, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 80, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -43019,7 +43019,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -43196,7 +43196,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %113, label %48
@@ -43230,7 +43230,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %67 unwind label %68
 
 67:                                               ; preds = %60
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 151, ptr noundef %65, ptr noundef %66)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(104) %63, ptr noundef nonnull align 8 dereferenceable(104) %62, i16 151, ptr noundef %65, ptr noundef %66)
           to label %_ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %68
 
 68:                                               ; preds = %67, %60
@@ -43485,7 +43485,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %14, %29, %33
 .critedge:                                        ; preds = %49, %44, %41, %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store i8 1, ptr %15, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 48
@@ -43610,7 +43610,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -43640,7 +43640,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -43674,7 +43674,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 81, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 81, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -43709,7 +43709,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -43878,7 +43878,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -43908,7 +43908,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -43942,7 +43942,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 82, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 82, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -43977,7 +43977,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -44144,7 +44144,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 288
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %46 = load i8, ptr %14, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %148, label %48
@@ -44174,7 +44174,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 288
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %66 = load i8, ptr %14, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %148, label %68
@@ -44208,7 +44208,7 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %13, %28, %32
           to label %87 unwind label %88
 
 87:                                               ; preds = %80
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 83, ptr noundef %85, ptr noundef %86)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(104) %82, i16 83, ptr noundef %85, ptr noundef %86)
           to label %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit unwind label %88
 
 88:                                               ; preds = %87, %80
@@ -44243,7 +44243,7 @@ _ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %
   %103 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %104 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %83, ptr noundef nonnull align 8 dereferenceable(112) %105) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm2EE12relinkSourceILm1EEEvP9DfgVertex.exit: ; preds = %_ZN18DfgVertexWithArityILm2EE12relinkSourceILm0EEEvP9DfgVertex.exit
@@ -44995,7 +44995,7 @@ define linkonce_odr dso_local void @_ZN9DfgVertex17forEachSourceEdgeESt8function
 _ZNKSt8functionIFvR7DfgEdgemEEclES1_m.exit:       ; preds = %12
   %15 = getelementptr inbounds %class.DfgEdge, ptr %8, i64 %.06
   %16 = load ptr, ptr %11, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %16(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %17 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %17, %9
@@ -45226,7 +45226,7 @@ define linkonce_odr dso_local void @_ZN6DfgSel5frompEP9DfgVertex(ptr noundef non
   %6 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.27, i32 noundef 475, i1 noundef zeroext true)
   %7 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.28)
-  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(112) %8) #25
+  tail call void @_ZNK9DfgVertex15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(112) %8) #25
   unreachable
 
 _ZN18DfgVertexWithArityILm1EE12relinkSourceILm0EEEvP9DfgVertex.exit: ; preds = %2
@@ -45244,7 +45244,7 @@ define linkonce_odr dso_local void @_ZN8FileLine15v3errorEndFatalERNSt7__cxx1119
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc5 unwind label %9
 
 .noexc5:                                          ; preds = %.noexc
@@ -45254,7 +45254,7 @@ define linkonce_odr dso_local void @_ZN8FileLine15v3errorEndFatalERNSt7__cxx1119
 6:                                                ; preds = %.noexc5
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -45423,7 +45423,7 @@ define linkonce_odr dso_local void @_ZN9DfgVertex13forEachSourceESt8functionIFvR
 
 _ZNKSt8functionIFvR9DfgVertexEEclES1_.exit:       ; preds = %14
   %17 = load ptr, ptr %10, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(72) %13)
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %13)
   br label %18
 
 18:                                               ; preds = %11, %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
@@ -46237,8 +46237,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEU
 27:                                               ; preds = %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESE_EEbT_T0_.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.tr80, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.tr80, ptr noundef nonnull align 8 dereferenceable(20) %.tr7281, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.tr7281, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.tr80, ptr noundef nonnull align 8 dereferenceable(24) %.tr7281, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.tr7281, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %.loopexit
 
@@ -46391,8 +46391,8 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt
   %.sroa.04.07.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i ], [ %.sroa.067.0, %86 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.07.i.i.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.04.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.08.i.i.i, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %8, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.08.i.i.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %8, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %96 = getelementptr inbounds i8, ptr %.sroa.04.07.i.i.i, i64 24
   %97 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i, i64 24
@@ -46426,8 +46426,8 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt
   %.sroa.020.156.i.i = phi ptr [ %107, %.lr.ph60.i.i ], [ %.sroa.020.0.i.i, %.lr.ph60.preheader.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.020.156.i.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.020.156.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.019.057.i.i, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.019.057.i.i, ptr noundef nonnull align 8 dereferenceable(20) %7, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.020.156.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.019.057.i.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.019.057.i.i, ptr noundef nonnull align 8 dereferenceable(20) %7, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %107 = getelementptr inbounds i8, ptr %.sroa.020.156.i.i, i64 24
   %108 = getelementptr inbounds i8, ptr %.sroa.019.057.i.i, i64 24
@@ -46460,8 +46460,8 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt
   %120 = getelementptr inbounds i8, ptr %.sroa.0.054.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %119, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %119, ptr noundef nonnull align 8 dereferenceable(20) %120, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %120, ptr noundef nonnull align 8 dereferenceable(20) %6, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %120, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(20) %6, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %121 = add nuw nsw i64 %.01555.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %121, %.049.i.i
@@ -47702,8 +47702,8 @@ _ZSt13move_backwardIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2
   %.sroa.04.07.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i ], [ %0, %41 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.07.i.i.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.04.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.08.i.i.i, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %10, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.08.i.i.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %10, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %51 = getelementptr inbounds i8, ptr %.sroa.04.07.i.i.i, i64 24
   %52 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i, i64 24
@@ -47737,8 +47737,8 @@ _ZSt13move_backwardIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2
   %.sroa.020.156.i.i = phi ptr [ %62, %.lr.ph60.i.i ], [ %.sroa.020.0.i.i, %.lr.ph60.preheader.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.020.156.i.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.020.156.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.019.057.i.i, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.019.057.i.i, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.020.156.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.019.057.i.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.019.057.i.i, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %62 = getelementptr inbounds i8, ptr %.sroa.020.156.i.i, i64 24
   %63 = getelementptr inbounds i8, ptr %.sroa.019.057.i.i, i64 24
@@ -47771,8 +47771,8 @@ _ZSt13move_backwardIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2
   %75 = getelementptr inbounds i8, ptr %.sroa.0.054.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %74, ptr noundef nonnull align 8 dereferenceable(20) %75, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %75, ptr noundef nonnull align 8 dereferenceable(20) %8, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(20) %8, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %76 = add nuw nsw i64 %.01555.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %76, %.049.i.i
@@ -48470,7 +48470,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIKNSt7__cxx1112basic_stringIcS
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(34) %7) #23
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #26
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
@@ -48825,13 +48825,13 @@ declare void @_ZN7DfgEdge12relinkSourceEP9DfgVertex(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgConcatD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgConcatD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -48871,7 +48871,7 @@ define linkonce_odr dso_local void @_ZNK9DfgConcat7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -48888,7 +48888,7 @@ define linkonce_odr dso_local void @_ZNK9DfgConcat7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -50064,7 +50064,7 @@ _ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_.exit.thread: ;
           to label %.noexc unwind label %106
 
 .noexc:                                           ; preds = %_ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_.exit.thread
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %56, ptr noundef nonnull align 8 dereferenceable(104) %58, i16 153, ptr noundef %60, ptr noundef %61)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(128) %56, ptr noundef nonnull align 8 dereferenceable(104) %58, i16 153, ptr noundef %60, ptr noundef %61)
           to label %.noexc14 unwind label %106
 
 .noexc14:                                         ; preds = %.noexc
@@ -50075,7 +50075,7 @@ _ZN7AstNode9privateIsI19AstUnpackArrayDTypeP12AstNodeDTypeEEbPKS_.exit.thread: ;
 63:                                               ; preds = %.noexc14
   %64 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %56) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %56) #23
   br label %.body
 
 65:                                               ; preds = %.noexc14
@@ -50341,7 +50341,7 @@ define linkonce_odr dso_local void @_ZN11DfgVarArrayC2ER8DfgGraphP6AstVar(ptr no
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZN9DfgVertex8dtypeForEPK7AstNode(ptr noundef nonnull %2)
-  tail call void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i16 152, ptr noundef %5, ptr noundef %6)
+  tail call void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(99) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i16 152, ptr noundef %5, ptr noundef %6)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17DfgVertexVariadic, i64 16), ptr %0, align 8
   %7 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znam(i64 noundef 128) #24
           to label %.noexc.i.i unwind label %10
@@ -50365,7 +50365,7 @@ common.resume:                                    ; preds = %_ZNSt6vectorISt4pai
 10:                                               ; preds = %3
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %0) #23
   br label %common.resume
 
 _ZN12DfgVertexVarC2ER8DfgGraph8VDfgTypeP6AstVarj.exit: ; preds = %.lr.ph.i.i.i
@@ -50505,7 +50505,7 @@ define linkonce_odr dso_local void @_ZN12DfgVertexVarD2Ev(ptr noundef nonnull al
   br label %_ZN17DfgVertexVariadicD2Ev.exit
 
 _ZN17DfgVertexVariadicD2Ev.exit:                  ; preds = %1, %5
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   ret void
 }
 
@@ -50532,7 +50532,7 @@ _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit: ; preds = %1, %4
   br label %_ZN12DfgVertexVarD2Ev.exit
 
 _ZN12DfgVertexVarD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit, %8
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %0) #23
   ret void
 }
 
@@ -50559,7 +50559,7 @@ _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit.i: ; preds = %4, %1
   br label %_ZN11DfgVarArrayD2Ev.exit
 
 _ZN11DfgVarArrayD2Ev.exit:                        ; preds = %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit.i, %8
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -50667,7 +50667,7 @@ define linkonce_odr dso_local noundef ptr @_ZN9DfgVertex8dtypeForEPK7AstNode(ptr
           to label %_ZN8AstRange9cloneTreeEb.exit unwind label %50
 
 _ZN8AstRange9cloneTreeEb.exit:                    ; preds = %22
-  invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %8, i16 75, ptr noundef %10)
+  invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(184) %8, i16 75, ptr noundef %10)
           to label %.noexc unwind label %50
 
 .noexc:                                           ; preds = %_ZN8AstRange9cloneTreeEb.exit
@@ -50682,7 +50682,7 @@ _ZN8AstRange9cloneTreeEb.exit:                    ; preds = %22
   br i1 %.not.i.i.i, label %_ZN19AstUnpackArrayDType6rangepEP8AstRange.exit.i, label %29
 
 29:                                               ; preds = %.noexc
-  invoke void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull %25)
+  invoke void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(184) %8, ptr noundef nonnull %25)
           to label %_ZN19AstUnpackArrayDType6rangepEP8AstRange.exit.i unwind label %50
 
 _ZN19AstUnpackArrayDType6rangepEP8AstRange.exit.i: ; preds = %29, %.noexc
@@ -50718,7 +50718,7 @@ _ZN19AstUnpackArrayDType6rangepEP8AstRange.exit.i: ; preds = %29, %.noexc
   %47 = load ptr, ptr @v3Global, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 160
   %49 = load ptr, ptr %48, align 8
-  tail call void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %49, ptr noundef nonnull %8)
+  tail call void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(448) %49, ptr noundef nonnull %8)
   br label %60
 
 50:                                               ; preds = %29, %_ZN8AstRange9cloneTreeEb.exit, %22, %7
@@ -50892,7 +50892,7 @@ _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit: ; preds = %1, %4
   br label %_ZN12DfgVertexVarD2Ev.exit
 
 _ZN12DfgVertexVarD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit, %8
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %0) #23
   ret void
 }
 
@@ -50919,7 +50919,7 @@ _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit.i: ; preds = %4, %1
   br label %_ZN12DfgVarPackedD2Ev.exit
 
 _ZN12DfgVarPackedD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EED2Ev.exit.i, %8
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -50940,7 +50940,7 @@ define linkonce_odr dso_local void @_ZNK12DfgVarPacked7srcNameB5cxx11Em(ptr dead
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call { ptr, i64 } %8(ptr noundef nonnull align 8 dereferenceable(72) %1)
+  %9 = tail call { ptr, i64 } %8(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %10 = extractvalue { ptr, i64 } %9, 1
   %11 = icmp eq i64 %10, 1
   br i1 %11, label %12, label %_ZNK12DfgVarPacked18isDrivenFullyByDfgEv.exit.thread
@@ -50972,7 +50972,7 @@ _ZNK12DfgVarPacked18isDrivenFullyByDfgEv.exit:    ; preds = %12
           to label %.noexc unwind label %.body.thread14
 
 .noexc:                                           ; preds = %27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc5 unwind label %.body.thread14
 
 .noexc5:                                          ; preds = %.noexc
@@ -50982,7 +50982,7 @@ _ZNK12DfgVarPacked18isDrivenFullyByDfgEv.exit:    ; preds = %12
 .body.thread:                                     ; preds = %.noexc5
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %39
 
 _ZNK12DfgVarPacked18isDrivenFullyByDfgEv.exit.thread: ; preds = %3, %12, %_ZNK12DfgVarPacked18isDrivenFullyByDfgEv.exit
@@ -51040,13 +51040,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK6VNUser2toIP9DfgVertexEENSt9enabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgAcosDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgAcosDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -51070,7 +51070,7 @@ define linkonce_odr dso_local void @_ZNK8DfgAcosD7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -51087,7 +51087,7 @@ define linkonce_odr dso_local void @_ZNK8DfgAcosD7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -51113,13 +51113,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgAcoshDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgAcoshDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -51143,7 +51143,7 @@ define linkonce_odr dso_local void @_ZNK9DfgAcoshD7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -51160,7 +51160,7 @@ define linkonce_odr dso_local void @_ZNK9DfgAcoshD7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -51186,13 +51186,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgAddD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgAddD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -51216,7 +51216,7 @@ define linkonce_odr dso_local void @_ZNK6DfgAdd7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -51233,7 +51233,7 @@ define linkonce_odr dso_local void @_ZNK6DfgAdd7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -51259,13 +51259,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgAddDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgAddDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -51289,7 +51289,7 @@ define linkonce_odr dso_local void @_ZNK7DfgAddD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -51306,7 +51306,7 @@ define linkonce_odr dso_local void @_ZNK7DfgAddD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -51511,7 +51511,7 @@ _ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit28: ; preds = %61
 _ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread: ; preds = %_ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i20, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57, %61, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %19, %38, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit28, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %0, ptr %9, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %9, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %66 = getelementptr inbounds i8, ptr %0, i64 48
   %67 = load ptr, ptr %66, align 8
@@ -51550,7 +51550,7 @@ _ZNK7AstNode5widthEv.exit30:                      ; preds = %_ZNK7AstNode5widthE
 81:                                               ; preds = %_ZNK7AstNode5widthEv.exit30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %0, ptr %8, align 8
-  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %82 = getelementptr inbounds i8, ptr %0, i64 48
   %83 = load ptr, ptr %82, align 8
@@ -51570,7 +51570,7 @@ _ZNK7AstNode5widthEv.exit30:                      ; preds = %_ZNK7AstNode5widthE
   %92 = load ptr, ptr %4, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 288
   %94 = load ptr, ptr %93, align 8
-  invoke void %94(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %94(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZN9VNVisitor7iterateEP7AstNode.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN9VNVisitor7iterateEP7AstNode.exit:             ; preds = %87
@@ -51613,7 +51613,7 @@ _ZN9VNVisitor7iterateEP7AstNode.exit:             ; preds = %87
 _ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit: ; preds = %105, %._crit_edge.i, %97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  invoke void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext false)
+  invoke void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext false)
           to label %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit: ; preds = %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit
@@ -51713,7 +51713,7 @@ _ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit: ; preds = %_ZN15AstToDfgVis
 _ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit48: ; preds = %129, %._crit_edge.i43, %123
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  invoke void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
+  invoke void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
           to label %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit50 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit50: ; preds = %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit48
@@ -52078,7 +52078,7 @@ _ZN7AstNode11privateCastI9AstConcatPS_EEPT_S2_.exit: ; preds = %6
           to label %108 unwind label %119
 
 108:                                              ; preds = %_ZN7AstNode11privateCastI9AstConcatPS_EEPT_S2_.exit
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %105, ptr noundef nonnull align 8 dereferenceable(104) %106, i16 141, ptr noundef %104, ptr noundef %107)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(112) %105, ptr noundef nonnull align 8 dereferenceable(104) %106, i16 141, ptr noundef %104, ptr noundef %107)
           to label %_ZN6DfgSel5frompEP9DfgVertex.exit unwind label %119
 
 _ZN6DfgSel5frompEP9DfgVertex.exit:                ; preds = %108
@@ -52120,7 +52120,7 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %_ZN6DfgSel5frompEP9
           to label %127 unwind label %131
 
 127:                                              ; preds = %121
-  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(72) %124, ptr noundef nonnull align 8 dereferenceable(104) %125, i16 141, ptr noundef %123, ptr noundef %126)
+  invoke void @_ZN9DfgVertexC2ER8DfgGraph8VDfgTypeP8FileLineP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(112) %124, ptr noundef nonnull align 8 dereferenceable(104) %125, i16 141, ptr noundef %123, ptr noundef %126)
           to label %tailrecurse unwind label %131
 
 tailrecurse:                                      ; preds = %127
@@ -52522,13 +52522,13 @@ define linkonce_odr dso_local void @_ZNK9DfgVertex8typeNameB5cxx11Ev(ptr dead_on
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %14
 
 10:                                               ; preds = %.noexc2
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 .noexc2:                                          ; preds = %.noexc
@@ -52582,13 +52582,13 @@ declare void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgAndD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgAndD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -52612,7 +52612,7 @@ define linkonce_odr dso_local void @_ZNK6DfgAnd7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -52629,7 +52629,7 @@ define linkonce_odr dso_local void @_ZNK6DfgAnd7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -52655,13 +52655,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgArraySelD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgArraySelD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -52685,7 +52685,7 @@ define linkonce_odr dso_local void @_ZNK11DfgArraySel7srcNameB5cxx11Em(ptr dead_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -52702,7 +52702,7 @@ define linkonce_odr dso_local void @_ZNK11DfgArraySel7srcNameB5cxx11Em(ptr dead_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -52728,13 +52728,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgAsinDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgAsinDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -52758,7 +52758,7 @@ define linkonce_odr dso_local void @_ZNK8DfgAsinD7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -52775,7 +52775,7 @@ define linkonce_odr dso_local void @_ZNK8DfgAsinD7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -52801,13 +52801,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgAsinhDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgAsinhDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -52831,7 +52831,7 @@ define linkonce_odr dso_local void @_ZNK9DfgAsinhD7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -52848,7 +52848,7 @@ define linkonce_odr dso_local void @_ZNK9DfgAsinhD7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -52895,13 +52895,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK10AstAssignW4rhspEv(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgAssocSelD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgAssocSelD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -52925,7 +52925,7 @@ define linkonce_odr dso_local void @_ZNK11DfgAssocSel7srcNameB5cxx11Em(ptr dead_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -52942,7 +52942,7 @@ define linkonce_odr dso_local void @_ZNK11DfgAssocSel7srcNameB5cxx11Em(ptr dead_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -52968,13 +52968,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgAtan2DD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgAtan2DD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -52998,7 +52998,7 @@ define linkonce_odr dso_local void @_ZNK9DfgAtan2D7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53015,7 +53015,7 @@ define linkonce_odr dso_local void @_ZNK9DfgAtan2D7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53041,13 +53041,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgAtanDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgAtanDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53071,7 +53071,7 @@ define linkonce_odr dso_local void @_ZNK8DfgAtanD7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53088,7 +53088,7 @@ define linkonce_odr dso_local void @_ZNK8DfgAtanD7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53114,13 +53114,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgAtanhDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgAtanhDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53144,7 +53144,7 @@ define linkonce_odr dso_local void @_ZNK9DfgAtanhD7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53161,7 +53161,7 @@ define linkonce_odr dso_local void @_ZNK9DfgAtanhD7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53187,13 +53187,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgBitsToRealDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgBitsToRealDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53217,7 +53217,7 @@ define linkonce_odr dso_local void @_ZNK14DfgBitsToRealD7srcNameB5cxx11Em(ptr de
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53234,7 +53234,7 @@ define linkonce_odr dso_local void @_ZNK14DfgBitsToRealD7srcNameB5cxx11Em(ptr de
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53260,13 +53260,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgBufIf1D2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgBufIf1D0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53290,7 +53290,7 @@ define linkonce_odr dso_local void @_ZNK9DfgBufIf17srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53307,7 +53307,7 @@ define linkonce_odr dso_local void @_ZNK9DfgBufIf17srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53333,13 +53333,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgCAwaitD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgCAwaitD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53363,7 +53363,7 @@ define linkonce_odr dso_local void @_ZNK9DfgCAwait7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53380,7 +53380,7 @@ define linkonce_odr dso_local void @_ZNK9DfgCAwait7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53406,13 +53406,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgCLog2D2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgCLog2D0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53436,7 +53436,7 @@ define linkonce_odr dso_local void @_ZNK8DfgCLog27srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53453,7 +53453,7 @@ define linkonce_odr dso_local void @_ZNK8DfgCLog27srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53479,13 +53479,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgCastDynamicD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgCastDynamicD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53509,7 +53509,7 @@ define linkonce_odr dso_local void @_ZNK14DfgCastDynamic7srcNameB5cxx11Em(ptr de
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53526,7 +53526,7 @@ define linkonce_odr dso_local void @_ZNK14DfgCastDynamic7srcNameB5cxx11Em(ptr de
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53552,13 +53552,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgCastWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgCastWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53582,7 +53582,7 @@ define linkonce_odr dso_local void @_ZNK11DfgCastWrap7srcNameB5cxx11Em(ptr dead_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53599,7 +53599,7 @@ define linkonce_odr dso_local void @_ZNK11DfgCastWrap7srcNameB5cxx11Em(ptr dead_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53625,13 +53625,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgCeilDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgCeilDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53655,7 +53655,7 @@ define linkonce_odr dso_local void @_ZNK8DfgCeilD7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53672,7 +53672,7 @@ define linkonce_odr dso_local void @_ZNK8DfgCeilD7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53698,13 +53698,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgConcatND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgConcatND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53728,7 +53728,7 @@ define linkonce_odr dso_local void @_ZNK10DfgConcatN7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53745,7 +53745,7 @@ define linkonce_odr dso_local void @_ZNK10DfgConcatN7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53771,13 +53771,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgCondD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgCondD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53817,7 +53817,7 @@ define linkonce_odr dso_local void @_ZNK7DfgCond7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53834,7 +53834,7 @@ define linkonce_odr dso_local void @_ZNK7DfgCond7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53860,13 +53860,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgCondBoundD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgCondBoundD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -53890,7 +53890,7 @@ define linkonce_odr dso_local void @_ZNK12DfgCondBound7srcNameB5cxx11Em(ptr dead
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -53907,7 +53907,7 @@ define linkonce_odr dso_local void @_ZNK12DfgCondBound7srcNameB5cxx11Em(ptr dead
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -53997,7 +53997,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   br label %67
 
 37:                                               ; preds = %2
@@ -54014,7 +54014,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %43, %44
   br i1 %.not.i.i.i.i.i, label %52, label %49
 
@@ -54060,7 +54060,7 @@ _ZN12V3NumberData17initDynamicNumberIJRKSt6vectorINS_9ValueAndXESaIS2_EEEEEvDpOT
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %67
 
 67:                                               ; preds = %_ZN12V3NumberData17initDynamicNumberIJRKSt6vectorINS_9ValueAndXESaIS2_EEEEEvDpOT_.exit, %66, %64, %36
@@ -54102,13 +54102,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3NumberData8isStringEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgCosDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgCosDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54132,7 +54132,7 @@ define linkonce_odr dso_local void @_ZNK7DfgCosD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54149,7 +54149,7 @@ define linkonce_odr dso_local void @_ZNK7DfgCosD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54175,13 +54175,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgCoshDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgCoshDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54205,7 +54205,7 @@ define linkonce_odr dso_local void @_ZNK8DfgCoshD7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54222,7 +54222,7 @@ define linkonce_odr dso_local void @_ZNK8DfgCoshD7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54248,13 +54248,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgCountOnesD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgCountOnesD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54278,7 +54278,7 @@ define linkonce_odr dso_local void @_ZNK12DfgCountOnes7srcNameB5cxx11Em(ptr dead
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54295,7 +54295,7 @@ define linkonce_odr dso_local void @_ZNK12DfgCountOnes7srcNameB5cxx11Em(ptr dead
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54321,13 +54321,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16DfgCvtPackStringD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16DfgCvtPackStringD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54351,7 +54351,7 @@ define linkonce_odr dso_local void @_ZNK16DfgCvtPackString7srcNameB5cxx11Em(ptr 
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54368,7 +54368,7 @@ define linkonce_odr dso_local void @_ZNK16DfgCvtPackString7srcNameB5cxx11Em(ptr 
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54394,13 +54394,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16DfgDistChiSquareD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16DfgDistChiSquareD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54424,7 +54424,7 @@ define linkonce_odr dso_local void @_ZNK16DfgDistChiSquare7srcNameB5cxx11Em(ptr 
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54441,7 +54441,7 @@ define linkonce_odr dso_local void @_ZNK16DfgDistChiSquare7srcNameB5cxx11Em(ptr 
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54467,13 +54467,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgDistErlangD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgDistErlangD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54497,7 +54497,7 @@ define linkonce_odr dso_local void @_ZNK13DfgDistErlang7srcNameB5cxx11Em(ptr dea
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54514,7 +54514,7 @@ define linkonce_odr dso_local void @_ZNK13DfgDistErlang7srcNameB5cxx11Em(ptr dea
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54540,13 +54540,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18DfgDistExponentialD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18DfgDistExponentialD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54570,7 +54570,7 @@ define linkonce_odr dso_local void @_ZNK18DfgDistExponential7srcNameB5cxx11Em(pt
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54587,7 +54587,7 @@ define linkonce_odr dso_local void @_ZNK18DfgDistExponential7srcNameB5cxx11Em(pt
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54613,13 +54613,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgDistNormalD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgDistNormalD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54643,7 +54643,7 @@ define linkonce_odr dso_local void @_ZNK13DfgDistNormal7srcNameB5cxx11Em(ptr dea
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54660,7 +54660,7 @@ define linkonce_odr dso_local void @_ZNK13DfgDistNormal7srcNameB5cxx11Em(ptr dea
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54686,13 +54686,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgDistPoissonD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgDistPoissonD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54716,7 +54716,7 @@ define linkonce_odr dso_local void @_ZNK14DfgDistPoisson7srcNameB5cxx11Em(ptr de
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54733,7 +54733,7 @@ define linkonce_odr dso_local void @_ZNK14DfgDistPoisson7srcNameB5cxx11Em(ptr de
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54759,13 +54759,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgDistTD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgDistTD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54789,7 +54789,7 @@ define linkonce_odr dso_local void @_ZNK8DfgDistT7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54806,7 +54806,7 @@ define linkonce_odr dso_local void @_ZNK8DfgDistT7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54832,13 +54832,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgDistUniformD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgDistUniformD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54862,7 +54862,7 @@ define linkonce_odr dso_local void @_ZNK14DfgDistUniform7srcNameB5cxx11Em(ptr de
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54879,7 +54879,7 @@ define linkonce_odr dso_local void @_ZNK14DfgDistUniform7srcNameB5cxx11Em(ptr de
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54905,13 +54905,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgDivD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgDivD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -54935,7 +54935,7 @@ define linkonce_odr dso_local void @_ZNK6DfgDiv7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -54952,7 +54952,7 @@ define linkonce_odr dso_local void @_ZNK6DfgDiv7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -54978,13 +54978,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgDivDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgDivDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55008,7 +55008,7 @@ define linkonce_odr dso_local void @_ZNK7DfgDivD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55025,7 +55025,7 @@ define linkonce_odr dso_local void @_ZNK7DfgDivD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55051,13 +55051,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgDivSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgDivSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55081,7 +55081,7 @@ define linkonce_odr dso_local void @_ZNK7DfgDivS7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55098,7 +55098,7 @@ define linkonce_odr dso_local void @_ZNK7DfgDivS7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55124,13 +55124,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5DfgEqD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5DfgEqD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55154,7 +55154,7 @@ define linkonce_odr dso_local void @_ZNK5DfgEq7srcNameB5cxx11Em(ptr dead_on_unwi
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55171,7 +55171,7 @@ define linkonce_odr dso_local void @_ZNK5DfgEq7srcNameB5cxx11Em(ptr dead_on_unwi
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55197,13 +55197,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgEqCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgEqCaseD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55227,7 +55227,7 @@ define linkonce_odr dso_local void @_ZNK9DfgEqCase7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55244,7 +55244,7 @@ define linkonce_odr dso_local void @_ZNK9DfgEqCase7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55270,13 +55270,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgEqDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgEqDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55300,7 +55300,7 @@ define linkonce_odr dso_local void @_ZNK6DfgEqD7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55317,7 +55317,7 @@ define linkonce_odr dso_local void @_ZNK6DfgEqD7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55343,13 +55343,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgEqND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgEqND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55373,7 +55373,7 @@ define linkonce_odr dso_local void @_ZNK6DfgEqN7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55390,7 +55390,7 @@ define linkonce_odr dso_local void @_ZNK6DfgEqN7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55416,13 +55416,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgEqTD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgEqTD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55446,7 +55446,7 @@ define linkonce_odr dso_local void @_ZNK6DfgEqT7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55463,7 +55463,7 @@ define linkonce_odr dso_local void @_ZNK6DfgEqT7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55489,13 +55489,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgEqWildD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgEqWildD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55519,7 +55519,7 @@ define linkonce_odr dso_local void @_ZNK9DfgEqWild7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55536,7 +55536,7 @@ define linkonce_odr dso_local void @_ZNK9DfgEqWild7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55562,13 +55562,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgExpDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgExpDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55592,7 +55592,7 @@ define linkonce_odr dso_local void @_ZNK7DfgExpD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55609,7 +55609,7 @@ define linkonce_odr dso_local void @_ZNK7DfgExpD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55635,13 +55635,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgExtendD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgExtendD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55665,7 +55665,7 @@ define linkonce_odr dso_local void @_ZNK9DfgExtend7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55682,7 +55682,7 @@ define linkonce_odr dso_local void @_ZNK9DfgExtend7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55708,13 +55708,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgExtendSD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgExtendSD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55738,7 +55738,7 @@ define linkonce_odr dso_local void @_ZNK10DfgExtendS7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55755,7 +55755,7 @@ define linkonce_odr dso_local void @_ZNK10DfgExtendS7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55781,13 +55781,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgFEofD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgFEofD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55811,7 +55811,7 @@ define linkonce_odr dso_local void @_ZNK7DfgFEof7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55828,7 +55828,7 @@ define linkonce_odr dso_local void @_ZNK7DfgFEof7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55854,13 +55854,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgFGetCD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgFGetCD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55884,7 +55884,7 @@ define linkonce_odr dso_local void @_ZNK8DfgFGetC7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55901,7 +55901,7 @@ define linkonce_odr dso_local void @_ZNK8DfgFGetC7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -55927,13 +55927,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgFGetSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgFGetSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -55957,7 +55957,7 @@ define linkonce_odr dso_local void @_ZNK8DfgFGetS7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -55974,7 +55974,7 @@ define linkonce_odr dso_local void @_ZNK8DfgFGetS7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56000,13 +56000,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgFUngetCD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgFUngetCD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56030,7 +56030,7 @@ define linkonce_odr dso_local void @_ZNK10DfgFUngetC7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56047,7 +56047,7 @@ define linkonce_odr dso_local void @_ZNK10DfgFUngetC7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56073,13 +56073,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgFloorDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgFloorDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56103,7 +56103,7 @@ define linkonce_odr dso_local void @_ZNK9DfgFloorD7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56120,7 +56120,7 @@ define linkonce_odr dso_local void @_ZNK9DfgFloorD7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56146,13 +56146,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgGetcND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgGetcND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56176,7 +56176,7 @@ define linkonce_odr dso_local void @_ZNK8DfgGetcN7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56193,7 +56193,7 @@ define linkonce_odr dso_local void @_ZNK8DfgGetcN7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56219,13 +56219,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgGetcRefND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgGetcRefND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56249,7 +56249,7 @@ define linkonce_odr dso_local void @_ZNK11DfgGetcRefN7srcNameB5cxx11Em(ptr dead_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56266,7 +56266,7 @@ define linkonce_odr dso_local void @_ZNK11DfgGetcRefN7srcNameB5cxx11Em(ptr dead_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56292,13 +56292,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5DfgGtD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5DfgGtD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56322,7 +56322,7 @@ define linkonce_odr dso_local void @_ZNK5DfgGt7srcNameB5cxx11Em(ptr dead_on_unwi
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56339,7 +56339,7 @@ define linkonce_odr dso_local void @_ZNK5DfgGt7srcNameB5cxx11Em(ptr dead_on_unwi
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56365,13 +56365,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgGtDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgGtDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56395,7 +56395,7 @@ define linkonce_odr dso_local void @_ZNK6DfgGtD7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56412,7 +56412,7 @@ define linkonce_odr dso_local void @_ZNK6DfgGtD7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56438,13 +56438,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgGtND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgGtND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56468,7 +56468,7 @@ define linkonce_odr dso_local void @_ZNK6DfgGtN7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56485,7 +56485,7 @@ define linkonce_odr dso_local void @_ZNK6DfgGtN7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56511,13 +56511,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgGtSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgGtSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56541,7 +56541,7 @@ define linkonce_odr dso_local void @_ZNK6DfgGtS7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56558,7 +56558,7 @@ define linkonce_odr dso_local void @_ZNK6DfgGtS7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56584,13 +56584,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgGteD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgGteD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56614,7 +56614,7 @@ define linkonce_odr dso_local void @_ZNK6DfgGte7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56631,7 +56631,7 @@ define linkonce_odr dso_local void @_ZNK6DfgGte7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56657,13 +56657,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgGteDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgGteDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56687,7 +56687,7 @@ define linkonce_odr dso_local void @_ZNK7DfgGteD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56704,7 +56704,7 @@ define linkonce_odr dso_local void @_ZNK7DfgGteD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56730,13 +56730,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgGteND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgGteND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56760,7 +56760,7 @@ define linkonce_odr dso_local void @_ZNK7DfgGteN7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56777,7 +56777,7 @@ define linkonce_odr dso_local void @_ZNK7DfgGteN7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56803,13 +56803,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgGteSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgGteSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56833,7 +56833,7 @@ define linkonce_odr dso_local void @_ZNK7DfgGteS7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56850,7 +56850,7 @@ define linkonce_odr dso_local void @_ZNK7DfgGteS7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56876,13 +56876,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgHypotDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgHypotDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56906,7 +56906,7 @@ define linkonce_odr dso_local void @_ZNK9DfgHypotD7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56923,7 +56923,7 @@ define linkonce_odr dso_local void @_ZNK9DfgHypotD7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -56949,13 +56949,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgISToRDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgISToRDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -56979,7 +56979,7 @@ define linkonce_odr dso_local void @_ZNK9DfgISToRD7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -56996,7 +56996,7 @@ define linkonce_odr dso_local void @_ZNK9DfgISToRD7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57022,13 +57022,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgIToRDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgIToRDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57052,7 +57052,7 @@ define linkonce_odr dso_local void @_ZNK8DfgIToRD7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57069,7 +57069,7 @@ define linkonce_odr dso_local void @_ZNK8DfgIToRD7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57095,13 +57095,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgIsUnboundedD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgIsUnboundedD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57125,7 +57125,7 @@ define linkonce_odr dso_local void @_ZNK14DfgIsUnbounded7srcNameB5cxx11Em(ptr de
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57142,7 +57142,7 @@ define linkonce_odr dso_local void @_ZNK14DfgIsUnbounded7srcNameB5cxx11Em(ptr de
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57168,13 +57168,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgIsUnknownD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgIsUnknownD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57198,7 +57198,7 @@ define linkonce_odr dso_local void @_ZNK12DfgIsUnknown7srcNameB5cxx11Em(ptr dead
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57215,7 +57215,7 @@ define linkonce_odr dso_local void @_ZNK12DfgIsUnknown7srcNameB5cxx11Em(ptr dead
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57241,13 +57241,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLenND2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLenND0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57271,7 +57271,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLenN7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57288,7 +57288,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLenN7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57314,13 +57314,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgLog10DD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgLog10DD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57344,7 +57344,7 @@ define linkonce_odr dso_local void @_ZNK9DfgLog10D7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57361,7 +57361,7 @@ define linkonce_odr dso_local void @_ZNK9DfgLog10D7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57387,13 +57387,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgLogAndD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgLogAndD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57417,7 +57417,7 @@ define linkonce_odr dso_local void @_ZNK9DfgLogAnd7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57434,7 +57434,7 @@ define linkonce_odr dso_local void @_ZNK9DfgLogAnd7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57460,13 +57460,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLogDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLogDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57490,7 +57490,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLogD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57507,7 +57507,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLogD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57533,13 +57533,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgLogEqD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgLogEqD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57563,7 +57563,7 @@ define linkonce_odr dso_local void @_ZNK8DfgLogEq7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57580,7 +57580,7 @@ define linkonce_odr dso_local void @_ZNK8DfgLogEq7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57606,13 +57606,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgLogIfD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgLogIfD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57636,7 +57636,7 @@ define linkonce_odr dso_local void @_ZNK8DfgLogIf7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57653,7 +57653,7 @@ define linkonce_odr dso_local void @_ZNK8DfgLogIf7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57679,13 +57679,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgLogNotD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgLogNotD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57709,7 +57709,7 @@ define linkonce_odr dso_local void @_ZNK9DfgLogNot7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57726,7 +57726,7 @@ define linkonce_odr dso_local void @_ZNK9DfgLogNot7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57752,13 +57752,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgLogOrD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgLogOrD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57782,7 +57782,7 @@ define linkonce_odr dso_local void @_ZNK8DfgLogOr7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57799,7 +57799,7 @@ define linkonce_odr dso_local void @_ZNK8DfgLogOr7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57825,13 +57825,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5DfgLtD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5DfgLtD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57855,7 +57855,7 @@ define linkonce_odr dso_local void @_ZNK5DfgLt7srcNameB5cxx11Em(ptr dead_on_unwi
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57872,7 +57872,7 @@ define linkonce_odr dso_local void @_ZNK5DfgLt7srcNameB5cxx11Em(ptr dead_on_unwi
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57898,13 +57898,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgLtDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgLtDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -57928,7 +57928,7 @@ define linkonce_odr dso_local void @_ZNK6DfgLtD7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -57945,7 +57945,7 @@ define linkonce_odr dso_local void @_ZNK6DfgLtD7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -57971,13 +57971,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgLtND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgLtND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58001,7 +58001,7 @@ define linkonce_odr dso_local void @_ZNK6DfgLtN7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58018,7 +58018,7 @@ define linkonce_odr dso_local void @_ZNK6DfgLtN7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58044,13 +58044,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgLtSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgLtSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58074,7 +58074,7 @@ define linkonce_odr dso_local void @_ZNK6DfgLtS7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58091,7 +58091,7 @@ define linkonce_odr dso_local void @_ZNK6DfgLtS7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58117,13 +58117,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgLteD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgLteD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58147,7 +58147,7 @@ define linkonce_odr dso_local void @_ZNK6DfgLte7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58164,7 +58164,7 @@ define linkonce_odr dso_local void @_ZNK6DfgLte7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58190,13 +58190,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLteDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLteDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58220,7 +58220,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLteD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58237,7 +58237,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLteD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58263,13 +58263,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLteND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLteND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58293,7 +58293,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLteN7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58310,7 +58310,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLteN7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58336,13 +58336,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLteSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgLteSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58366,7 +58366,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLteS7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58383,7 +58383,7 @@ define linkonce_odr dso_local void @_ZNK7DfgLteS7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58409,13 +58409,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgModDivD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgModDivD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58439,7 +58439,7 @@ define linkonce_odr dso_local void @_ZNK9DfgModDiv7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58456,7 +58456,7 @@ define linkonce_odr dso_local void @_ZNK9DfgModDiv7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58482,13 +58482,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgModDivSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgModDivSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58512,7 +58512,7 @@ define linkonce_odr dso_local void @_ZNK10DfgModDivS7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58529,7 +58529,7 @@ define linkonce_odr dso_local void @_ZNK10DfgModDivS7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58555,13 +58555,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgMulD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgMulD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58585,7 +58585,7 @@ define linkonce_odr dso_local void @_ZNK6DfgMul7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58602,7 +58602,7 @@ define linkonce_odr dso_local void @_ZNK6DfgMul7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58628,13 +58628,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgMulDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgMulDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58658,7 +58658,7 @@ define linkonce_odr dso_local void @_ZNK7DfgMulD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58675,7 +58675,7 @@ define linkonce_odr dso_local void @_ZNK7DfgMulD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58701,13 +58701,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgMulSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgMulSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58731,7 +58731,7 @@ define linkonce_odr dso_local void @_ZNK7DfgMulS7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58748,7 +58748,7 @@ define linkonce_odr dso_local void @_ZNK7DfgMulS7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58774,13 +58774,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgNToID2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgNToID0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58804,7 +58804,7 @@ define linkonce_odr dso_local void @_ZNK7DfgNToI7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58821,7 +58821,7 @@ define linkonce_odr dso_local void @_ZNK7DfgNToI7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58847,13 +58847,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgNegateD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgNegateD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58877,7 +58877,7 @@ define linkonce_odr dso_local void @_ZNK9DfgNegate7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58894,7 +58894,7 @@ define linkonce_odr dso_local void @_ZNK9DfgNegate7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58920,13 +58920,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgNegateDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgNegateDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -58950,7 +58950,7 @@ define linkonce_odr dso_local void @_ZNK10DfgNegateD7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -58967,7 +58967,7 @@ define linkonce_odr dso_local void @_ZNK10DfgNegateD7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -58993,13 +58993,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgNeqD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgNeqD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59023,7 +59023,7 @@ define linkonce_odr dso_local void @_ZNK6DfgNeq7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59040,7 +59040,7 @@ define linkonce_odr dso_local void @_ZNK6DfgNeq7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59066,13 +59066,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgNeqCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgNeqCaseD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59096,7 +59096,7 @@ define linkonce_odr dso_local void @_ZNK10DfgNeqCase7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59113,7 +59113,7 @@ define linkonce_odr dso_local void @_ZNK10DfgNeqCase7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59139,13 +59139,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgNeqDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgNeqDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59169,7 +59169,7 @@ define linkonce_odr dso_local void @_ZNK7DfgNeqD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59186,7 +59186,7 @@ define linkonce_odr dso_local void @_ZNK7DfgNeqD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59212,13 +59212,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgNeqND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgNeqND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59242,7 +59242,7 @@ define linkonce_odr dso_local void @_ZNK7DfgNeqN7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59259,7 +59259,7 @@ define linkonce_odr dso_local void @_ZNK7DfgNeqN7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59285,13 +59285,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgNeqTD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgNeqTD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59315,7 +59315,7 @@ define linkonce_odr dso_local void @_ZNK7DfgNeqT7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59332,7 +59332,7 @@ define linkonce_odr dso_local void @_ZNK7DfgNeqT7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59358,13 +59358,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgNeqWildD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgNeqWildD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59388,7 +59388,7 @@ define linkonce_odr dso_local void @_ZNK10DfgNeqWild7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59405,7 +59405,7 @@ define linkonce_odr dso_local void @_ZNK10DfgNeqWild7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59431,13 +59431,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgNotD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgNotD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59461,7 +59461,7 @@ define linkonce_odr dso_local void @_ZNK6DfgNot7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59478,7 +59478,7 @@ define linkonce_odr dso_local void @_ZNK6DfgNot7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59504,13 +59504,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgNullCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgNullCheckD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59534,7 +59534,7 @@ define linkonce_odr dso_local void @_ZNK12DfgNullCheck7srcNameB5cxx11Em(ptr dead
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59551,7 +59551,7 @@ define linkonce_odr dso_local void @_ZNK12DfgNullCheck7srcNameB5cxx11Em(ptr dead
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59577,13 +59577,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgOneHotD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgOneHotD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59607,7 +59607,7 @@ define linkonce_odr dso_local void @_ZNK9DfgOneHot7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59624,7 +59624,7 @@ define linkonce_odr dso_local void @_ZNK9DfgOneHot7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59650,13 +59650,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgOneHot0D2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgOneHot0D0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59680,7 +59680,7 @@ define linkonce_odr dso_local void @_ZNK10DfgOneHot07srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59697,7 +59697,7 @@ define linkonce_odr dso_local void @_ZNK10DfgOneHot07srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59723,13 +59723,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5DfgOrD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5DfgOrD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59753,7 +59753,7 @@ define linkonce_odr dso_local void @_ZNK5DfgOr7srcNameB5cxx11Em(ptr dead_on_unwi
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59770,7 +59770,7 @@ define linkonce_odr dso_local void @_ZNK5DfgOr7srcNameB5cxx11Em(ptr dead_on_unwi
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59796,13 +59796,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgPostAddD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgPostAddD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59826,7 +59826,7 @@ define linkonce_odr dso_local void @_ZNK10DfgPostAdd7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59843,7 +59843,7 @@ define linkonce_odr dso_local void @_ZNK10DfgPostAdd7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59869,13 +59869,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgPostSubD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgPostSubD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59899,7 +59899,7 @@ define linkonce_odr dso_local void @_ZNK10DfgPostSub7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59916,7 +59916,7 @@ define linkonce_odr dso_local void @_ZNK10DfgPostSub7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -59942,13 +59942,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgPowD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgPowD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -59972,7 +59972,7 @@ define linkonce_odr dso_local void @_ZNK6DfgPow7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -59989,7 +59989,7 @@ define linkonce_odr dso_local void @_ZNK6DfgPow7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60015,13 +60015,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgPowDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgPowDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60045,7 +60045,7 @@ define linkonce_odr dso_local void @_ZNK7DfgPowD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60062,7 +60062,7 @@ define linkonce_odr dso_local void @_ZNK7DfgPowD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60088,13 +60088,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgPowSSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgPowSSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60118,7 +60118,7 @@ define linkonce_odr dso_local void @_ZNK8DfgPowSS7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60135,7 +60135,7 @@ define linkonce_odr dso_local void @_ZNK8DfgPowSS7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60161,13 +60161,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgPowSUD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgPowSUD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60191,7 +60191,7 @@ define linkonce_odr dso_local void @_ZNK8DfgPowSU7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60208,7 +60208,7 @@ define linkonce_odr dso_local void @_ZNK8DfgPowSU7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60234,13 +60234,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgPowUSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgPowUSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60264,7 +60264,7 @@ define linkonce_odr dso_local void @_ZNK8DfgPowUS7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60281,7 +60281,7 @@ define linkonce_odr dso_local void @_ZNK8DfgPowUS7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60307,13 +60307,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgPreAddD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgPreAddD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60337,7 +60337,7 @@ define linkonce_odr dso_local void @_ZNK9DfgPreAdd7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60354,7 +60354,7 @@ define linkonce_odr dso_local void @_ZNK9DfgPreAdd7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60380,13 +60380,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgPreSubD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgPreSubD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60410,7 +60410,7 @@ define linkonce_odr dso_local void @_ZNK9DfgPreSub7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60427,7 +60427,7 @@ define linkonce_odr dso_local void @_ZNK9DfgPreSub7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60453,13 +60453,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgPutcND2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgPutcND0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60483,7 +60483,7 @@ define linkonce_odr dso_local void @_ZNK8DfgPutcN7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60500,7 +60500,7 @@ define linkonce_odr dso_local void @_ZNK8DfgPutcN7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60526,13 +60526,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgRToIRoundSD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgRToIRoundSD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60556,7 +60556,7 @@ define linkonce_odr dso_local void @_ZNK13DfgRToIRoundS7srcNameB5cxx11Em(ptr dea
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60573,7 +60573,7 @@ define linkonce_odr dso_local void @_ZNK13DfgRToIRoundS7srcNameB5cxx11Em(ptr dea
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60599,13 +60599,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgRToISD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgRToISD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60629,7 +60629,7 @@ define linkonce_odr dso_local void @_ZNK8DfgRToIS7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60646,7 +60646,7 @@ define linkonce_odr dso_local void @_ZNK8DfgRToIS7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60672,13 +60672,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgRealToBitsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgRealToBitsD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60702,7 +60702,7 @@ define linkonce_odr dso_local void @_ZNK13DfgRealToBits7srcNameB5cxx11Em(ptr dea
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60719,7 +60719,7 @@ define linkonce_odr dso_local void @_ZNK13DfgRealToBits7srcNameB5cxx11Em(ptr dea
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60745,13 +60745,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgRedAndD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgRedAndD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60775,7 +60775,7 @@ define linkonce_odr dso_local void @_ZNK9DfgRedAnd7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60792,7 +60792,7 @@ define linkonce_odr dso_local void @_ZNK9DfgRedAnd7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60818,13 +60818,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgRedOrD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgRedOrD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60848,7 +60848,7 @@ define linkonce_odr dso_local void @_ZNK8DfgRedOr7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60865,7 +60865,7 @@ define linkonce_odr dso_local void @_ZNK8DfgRedOr7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60891,13 +60891,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgRedXorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgRedXorD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60921,7 +60921,7 @@ define linkonce_odr dso_local void @_ZNK9DfgRedXor7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -60938,7 +60938,7 @@ define linkonce_odr dso_local void @_ZNK9DfgRedXor7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -60964,13 +60964,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgReplicateD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgReplicateD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -60994,7 +60994,7 @@ define linkonce_odr dso_local void @_ZNK12DfgReplicate7srcNameB5cxx11Em(ptr dead
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61011,7 +61011,7 @@ define linkonce_odr dso_local void @_ZNK12DfgReplicate7srcNameB5cxx11Em(ptr dead
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61037,13 +61037,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgReplicateND2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgReplicateND0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61067,7 +61067,7 @@ define linkonce_odr dso_local void @_ZNK13DfgReplicateN7srcNameB5cxx11Em(ptr dea
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61084,7 +61084,7 @@ define linkonce_odr dso_local void @_ZNK13DfgReplicateN7srcNameB5cxx11Em(ptr dea
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61110,13 +61110,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15DfgResizeLValueD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15DfgResizeLValueD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61140,7 +61140,7 @@ define linkonce_odr dso_local void @_ZNK15DfgResizeLValue7srcNameB5cxx11Em(ptr d
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61157,7 +61157,7 @@ define linkonce_odr dso_local void @_ZNK15DfgResizeLValue7srcNameB5cxx11Em(ptr d
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61183,13 +61183,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgMuxD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgMuxD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61213,7 +61213,7 @@ define linkonce_odr dso_local void @_ZNK6DfgMux7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %11
 
 .noexc2:                                          ; preds = %.noexc
@@ -61225,7 +61225,7 @@ define linkonce_odr dso_local void @_ZNK6DfgMux7srcNameB5cxx11Em(ptr dead_on_unw
 9:                                                ; preds = %.noexc2
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -61245,13 +61245,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgShiftLD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgShiftLD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61275,7 +61275,7 @@ define linkonce_odr dso_local void @_ZNK9DfgShiftL7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61292,7 +61292,7 @@ define linkonce_odr dso_local void @_ZNK9DfgShiftL7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61318,13 +61318,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgShiftLOvrD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgShiftLOvrD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61348,7 +61348,7 @@ define linkonce_odr dso_local void @_ZNK12DfgShiftLOvr7srcNameB5cxx11Em(ptr dead
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61365,7 +61365,7 @@ define linkonce_odr dso_local void @_ZNK12DfgShiftLOvr7srcNameB5cxx11Em(ptr dead
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61391,13 +61391,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgShiftRD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgShiftRD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61421,7 +61421,7 @@ define linkonce_odr dso_local void @_ZNK9DfgShiftR7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61438,7 +61438,7 @@ define linkonce_odr dso_local void @_ZNK9DfgShiftR7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61464,13 +61464,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgShiftROvrD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DfgShiftROvrD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61494,7 +61494,7 @@ define linkonce_odr dso_local void @_ZNK12DfgShiftROvr7srcNameB5cxx11Em(ptr dead
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61511,7 +61511,7 @@ define linkonce_odr dso_local void @_ZNK12DfgShiftROvr7srcNameB5cxx11Em(ptr dead
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61537,13 +61537,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgShiftRSD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgShiftRSD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61567,7 +61567,7 @@ define linkonce_odr dso_local void @_ZNK10DfgShiftRS7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61584,7 +61584,7 @@ define linkonce_odr dso_local void @_ZNK10DfgShiftRS7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61610,13 +61610,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgShiftRSOvrD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgShiftRSOvrD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61640,7 +61640,7 @@ define linkonce_odr dso_local void @_ZNK13DfgShiftRSOvr7srcNameB5cxx11Em(ptr dea
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61657,7 +61657,7 @@ define linkonce_odr dso_local void @_ZNK13DfgShiftRSOvr7srcNameB5cxx11Em(ptr dea
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61683,13 +61683,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgSignedD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9DfgSignedD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61713,7 +61713,7 @@ define linkonce_odr dso_local void @_ZNK9DfgSigned7srcNameB5cxx11Em(ptr dead_on_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61730,7 +61730,7 @@ define linkonce_odr dso_local void @_ZNK9DfgSigned7srcNameB5cxx11Em(ptr dead_on_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61756,13 +61756,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgSinDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgSinDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61786,7 +61786,7 @@ define linkonce_odr dso_local void @_ZNK7DfgSinD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61803,7 +61803,7 @@ define linkonce_odr dso_local void @_ZNK7DfgSinD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61829,13 +61829,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgSinhDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgSinhDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61859,7 +61859,7 @@ define linkonce_odr dso_local void @_ZNK8DfgSinhD7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61876,7 +61876,7 @@ define linkonce_odr dso_local void @_ZNK8DfgSinhD7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61902,13 +61902,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgSqrtDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgSqrtDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -61932,7 +61932,7 @@ define linkonce_odr dso_local void @_ZNK8DfgSqrtD7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -61949,7 +61949,7 @@ define linkonce_odr dso_local void @_ZNK8DfgSqrtD7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -61975,13 +61975,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgStreamLD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgStreamLD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62005,7 +62005,7 @@ define linkonce_odr dso_local void @_ZNK10DfgStreamL7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62022,7 +62022,7 @@ define linkonce_odr dso_local void @_ZNK10DfgStreamL7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62048,13 +62048,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgStreamRD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgStreamRD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62078,7 +62078,7 @@ define linkonce_odr dso_local void @_ZNK10DfgStreamR7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62095,7 +62095,7 @@ define linkonce_odr dso_local void @_ZNK10DfgStreamR7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62121,13 +62121,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgSubD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgSubD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62151,7 +62151,7 @@ define linkonce_odr dso_local void @_ZNK6DfgSub7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62168,7 +62168,7 @@ define linkonce_odr dso_local void @_ZNK6DfgSub7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62194,13 +62194,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgSubDD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgSubDD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62224,7 +62224,7 @@ define linkonce_odr dso_local void @_ZNK7DfgSubD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62241,7 +62241,7 @@ define linkonce_odr dso_local void @_ZNK7DfgSubD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62267,13 +62267,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgSubstrND2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgSubstrND0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62297,7 +62297,7 @@ define linkonce_odr dso_local void @_ZNK10DfgSubstrN7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62314,7 +62314,7 @@ define linkonce_odr dso_local void @_ZNK10DfgSubstrN7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62340,13 +62340,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgTanDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7DfgTanDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62370,7 +62370,7 @@ define linkonce_odr dso_local void @_ZNK7DfgTanD7srcNameB5cxx11Em(ptr dead_on_un
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62387,7 +62387,7 @@ define linkonce_odr dso_local void @_ZNK7DfgTanD7srcNameB5cxx11Em(ptr dead_on_un
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62413,13 +62413,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgTanhDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8DfgTanhDD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62443,7 +62443,7 @@ define linkonce_odr dso_local void @_ZNK8DfgTanhD7srcNameB5cxx11Em(ptr dead_on_u
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62460,7 +62460,7 @@ define linkonce_odr dso_local void @_ZNK8DfgTanhD7srcNameB5cxx11Em(ptr dead_on_u
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62486,13 +62486,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgTimeImportD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13DfgTimeImportD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62516,7 +62516,7 @@ define linkonce_odr dso_local void @_ZNK13DfgTimeImport7srcNameB5cxx11Em(ptr dea
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62533,7 +62533,7 @@ define linkonce_odr dso_local void @_ZNK13DfgTimeImport7srcNameB5cxx11Em(ptr dea
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62559,13 +62559,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgToLowerND2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgToLowerND0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62589,7 +62589,7 @@ define linkonce_odr dso_local void @_ZNK11DfgToLowerN7srcNameB5cxx11Em(ptr dead_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62606,7 +62606,7 @@ define linkonce_odr dso_local void @_ZNK11DfgToLowerN7srcNameB5cxx11Em(ptr dead_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62632,13 +62632,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgToUpperND2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgToUpperND0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62662,7 +62662,7 @@ define linkonce_odr dso_local void @_ZNK11DfgToUpperN7srcNameB5cxx11Em(ptr dead_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62679,7 +62679,7 @@ define linkonce_odr dso_local void @_ZNK11DfgToUpperN7srcNameB5cxx11Em(ptr dead_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62705,13 +62705,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15DfgURandomRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15DfgURandomRangeD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62735,7 +62735,7 @@ define linkonce_odr dso_local void @_ZNK15DfgURandomRange7srcNameB5cxx11Em(ptr d
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62752,7 +62752,7 @@ define linkonce_odr dso_local void @_ZNK15DfgURandomRange7srcNameB5cxx11Em(ptr d
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62778,13 +62778,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgUnsignedD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11DfgUnsignedD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62808,7 +62808,7 @@ define linkonce_odr dso_local void @_ZNK11DfgUnsigned7srcNameB5cxx11Em(ptr dead_
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62825,7 +62825,7 @@ define linkonce_odr dso_local void @_ZNK11DfgUnsigned7srcNameB5cxx11Em(ptr dead_
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62913,13 +62913,13 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI8AstDela
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgWildcardSelD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14DfgWildcardSelD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -62943,7 +62943,7 @@ define linkonce_odr dso_local void @_ZNK14DfgWildcardSel7srcNameB5cxx11Em(ptr de
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -62960,7 +62960,7 @@ define linkonce_odr dso_local void @_ZNK14DfgWildcardSel7srcNameB5cxx11Em(ptr de
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -62986,13 +62986,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgWordSelD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DfgWordSelD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -63016,7 +63016,7 @@ define linkonce_odr dso_local void @_ZNK10DfgWordSel7srcNameB5cxx11Em(ptr dead_o
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -63033,7 +63033,7 @@ define linkonce_odr dso_local void @_ZNK10DfgWordSel7srcNameB5cxx11Em(ptr dead_o
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2
@@ -63059,13 +63059,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgXorD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6DfgXorD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
+  tail call void @_ZN9DfgVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -63089,7 +63089,7 @@ define linkonce_odr dso_local void @_ZNK6DfgXor7srcNameB5cxx11Em(ptr dead_on_unw
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -63106,7 +63106,7 @@ define linkonce_odr dso_local void @_ZNK6DfgXor7srcNameB5cxx11Em(ptr dead_on_unw
 11:                                               ; preds = %13, %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 13:                                               ; preds = %.noexc2

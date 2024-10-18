@@ -789,7 +789,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev13ViewTransformELN9__gnu_cxx12_Lock_po
 define void @_ZN19OpenColorIO_v2_4dev13ViewTransformC2ENS_18ReferenceSpaceTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i32 noundef %referenceSpace) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #19
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %call) #20
   %m_family.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_family.i) #20
   %m_description.i = getelementptr inbounds i8, ptr %call, i64 64

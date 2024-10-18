@@ -202,7 +202,7 @@ _ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12bas
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 48
   store ptr %.sroa.616.0.copyload.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !8
   %17 = getelementptr inbounds i8, ptr %15, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, i8 0, i64 24, i1 false), !noalias !8
   %18 = getelementptr inbounds i8, ptr %15, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false), !noalias !8
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i
@@ -226,7 +226,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br i1 %.not.i.i.i13, label %32, label %27
 
 27:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %25)
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(72) %17, i64 noundef %25)
           to label %.noexc.i.i.i unwind label %28, !noalias !8
 
 .noexc.i.i.i:                                     ; preds = %27
@@ -295,7 +295,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   %.sroa.8.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %36, i64 48
   store ptr %.sroa.616.0.copyload.i31, ptr %.sroa.8.0..sroa_idx.i36, align 8, !noalias !13
   %38 = getelementptr inbounds i8, ptr %36, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !noalias !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, i8 0, i64 24, i1 false), !noalias !13
   %39 = getelementptr inbounds i8, ptr %36, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, i8 0, i64 40, i1 false), !noalias !13
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37
@@ -319,7 +319,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br i1 %.not.i.i.i42, label %53, label %48
 
 48:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %46)
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(72) %38, i64 noundef %46)
           to label %.noexc.i.i.i45 unwind label %49, !noalias !13
 
 .noexc.i.i.i45:                                   ; preds = %48
@@ -398,7 +398,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   %.0 = phi i1 [ false, %61 ], [ true, %59 ]
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   call void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
   br i1 %.0, label %66, label %.body
@@ -514,7 +514,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -531,7 +531,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -634,7 +634,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx8APIErrorD2Ev.exit
 
 _ZN3gmx8APIErrorD2Ev.exit:                        ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   ret void
 }
 
@@ -726,7 +726,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_129DensitySimilarityInnerProduc
   %.sroa.0.sroa.314.0.copyload = load i64, ptr %.sroa.0.sroa.314.0..sroa_idx, align 8
   %.sroa.0.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.0.sroa.415.0.copyload = load i64, ptr %.sroa.0.sroa.415.0..sroa_idx, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
@@ -750,7 +750,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br i1 %.not.i, label %20, label %15
 
 15:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %13)
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(72) %4, i64 noundef %13)
           to label %.noexc.i unwind label %16
 
 .noexc.i:                                         ; preds = %15
@@ -979,7 +979,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   %.0 = phi i1 [ false, %38 ], [ true, %36 ]
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   call void @_ZN3gmx10RangeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
   br i1 %.0, label %43, label %50
@@ -1106,7 +1106,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   %.06 = phi i1 [ false, %37 ], [ true, %35 ]
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @_ZN3gmx10RangeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   br i1 %.06, label %42, label %58
@@ -1420,7 +1420,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
 
 _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   ret void
 }
 
@@ -1428,7 +1428,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }
@@ -1567,7 +1567,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   %.06 = phi i1 [ false, %38 ], [ true, %36 ]
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   call void @_ZN3gmx10RangeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
   br i1 %.06, label %43, label %72
@@ -1746,7 +1746,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   %.0 = phi i1 [ false, %37 ], [ true, %35 ]
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @_ZN3gmx10RangeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   br i1 %.0, label %42, label %70
@@ -1856,7 +1856,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropy5cl
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
   store ptr %.sroa.616.0.copyload.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !31
   %6 = getelementptr inbounds i8, ptr %4, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 24, i1 false), !noalias !31
   %7 = getelementptr inbounds i8, ptr %4, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !noalias !31
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i
@@ -1880,7 +1880,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropyESt14default_deleteIS2_EED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %14)
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(72) %6, i64 noundef %14)
           to label %.noexc.i.i.i unwind label %17, !noalias !31
 
 .noexc.i.i.i:                                     ; preds = %16
@@ -2049,7 +2049,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   %.06 = phi i1 [ false, %38 ], [ true, %36 ]
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   call void @_ZN3gmx10RangeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
   br i1 %.06, label %43, label %115
@@ -2293,7 +2293,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   %.010 = phi i1 [ false, %37 ], [ true, %35 ]
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @_ZN3gmx10RangeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   br i1 %.010, label %42, label %95
@@ -2426,7 +2426,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelation5c
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
   store ptr %.sroa.616.0.copyload.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !44
   %6 = getelementptr inbounds i8, ptr %4, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 24, i1 false), !noalias !44
   %7 = getelementptr inbounds i8, ptr %4, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !noalias !44
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i
@@ -2450,7 +2450,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelationESt14default_deleteIS2_EED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %14)
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(72) %6, i64 noundef %14)
           to label %.noexc.i.i.i unwind label %17, !noalias !44
 
 .noexc.i.i.i:                                     ; preds = %16

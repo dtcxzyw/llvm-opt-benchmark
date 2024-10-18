@@ -311,7 +311,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
   store i32 1, ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %19 unwind label %52
 
 19:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdStageEEntEv.exit.thread
@@ -381,7 +381,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i: ; preds = %44, %31, 
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdStageEEptEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdStageEEntEv.exit
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetPrimAtPathERKNS_7SdfPathE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 %6, ptr noundef nonnull align 8 dereferenceable(1282) %12, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %54 unwind label %88
 
 54:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdStageEEptEv.exit
@@ -2241,7 +2241,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11UsdPropertyD2Ev.exit: ; preds = %_ZN32pxr
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPI15ConnectToSourceERKNS_12UsdAttributeERKS0_RKNS_7TfTokenENS_21UsdShadeAttributeTypeENS_16SdfValueTypeNameE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, i32 noundef %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::UsdShadeConnectionSourceInfo", align 8
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdAPISchemaBaseE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2314,7 +2314,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoC2ERKNS_22Usd
   br label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit: ; preds = %37, %41
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #19
   ret i1 %36
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoC2ERKNS_22UsdShadeConnectableAPIERKNS_7TfTokenENS_21UsdShadeAttributeTypeENS_16SdfValueTypeNameE.exit
@@ -2333,7 +2333,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit8
 
 _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit8: ; preds = %45, %50
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #19
   resume { ptr, i32 } %46
 }
 
@@ -2364,7 +2364,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnec
   br label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit: ; preds = %7, %12
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #19
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i.i = icmp eq ptr %17, null
@@ -2408,7 +2408,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit: ; preds
   br label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit7
 
 _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit7: ; preds = %27, %33
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #19
   br label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit7, %25
@@ -2445,7 +2445,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnec
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %8 unwind label %55
 
 8:                                                ; preds = %2
@@ -2591,7 +2591,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnec
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %8 unwind label %55
 
 8:                                                ; preds = %2
@@ -3710,7 +3710,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit: ; preds = %.inv
   %115 = icmp ult i32 %114, 2
   %116 = load ptr, ptr %8, align 8
   %spec.select.i.i.i = select i1 %115, ptr %8, ptr %116
-  %117 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i)
+  %117 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i)
           to label %.noexc27 unwind label %37
 
 .noexc27:                                         ; preds = %112
@@ -3840,7 +3840,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i: ; preds = %
   br label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i.i: ; preds = %175, %.lr.ph.i.i
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.08.i.i) #19
   %179 = getelementptr inbounds i8, ptr %.08.i.i, i64 56
   %.not.i.i30 = icmp eq ptr %179, %170
   br i1 %.not.i.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_28UsdShadeConnectionSourceInfoELj1EE9_DestructEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !39
@@ -4005,7 +4005,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   br label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i.i.i: ; preds = %65, %.lr.ph.i.i.i
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.08.i.i.i) #19
   %69 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %69, %60
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_28UsdShadeConnectionSourceInfoELj1EE9_DestructEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !39
@@ -4276,7 +4276,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constr
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPrimEv.exit unwind label %178
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPrimEv.exit: ; preds = %180
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %181 unwind label %253
 
 181:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPrimEv.exit
@@ -4635,7 +4635,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIN
   br label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i: ; preds = %14, %.lr.ph.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.08.i) #19
   %18 = getelementptr inbounds i8, ptr %.08.i, i64 56
   %.not.i = icmp eq ptr %18, %9
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_28UsdShadeConnectionSourceInfoELj1EE9_DestructEv.exit.loopexit, label %.lr.ph.i, !llvm.loop !39
@@ -4713,7 +4713,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIN
   br label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i.i: ; preds = %31, %.lr.ph.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.08.i.i) #19
   %35 = getelementptr inbounds i8, ptr %.08.i.i, i64 56
   %.not.i.i = icmp eq ptr %35, %26
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_28UsdShadeConnectionSourceInfoELj1EE9_DestructEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !39
@@ -4749,7 +4749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_28UsdShadeConnectionSour
   %47 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdShadeConnectionSourceInfo", ptr %spec.select.i.i, i64 %46
   %48 = load i32, ptr %3, align 4
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdAPISchemaBaseE, i64 16), ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4861,7 +4861,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnec
   br label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoD2Ev.exit.i.i: ; preds = %16, %.lr.ph.i.i
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.08.i.i) #19
   %20 = getelementptr inbounds i8, ptr %.08.i.i, i64 56
   %.not.i.i = icmp eq ptr %20, %11
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_28UsdShadeConnectionSourceInfoELj1EE9_DestructEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !39
@@ -8689,7 +8689,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfo
   store i32 1, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %61
 
 12:                                               ; preds = %3
@@ -8871,7 +8871,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_21UsdShadeAttributeTy
           to label %92 unwind label %165
 
 92:                                               ; preds = %91
-  %93 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %93 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc unwind label %167
 
 .noexc:                                           ; preds = %92
@@ -9967,7 +9967,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN32px
 .lr.ph:                                           ; preds = %3, %18
   %.015 = phi ptr [ %25, %18 ], [ %2, %3 ]
   %.sroa.09.014 = phi ptr [ %24, %18 ], [ %0, %3 ]
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %.015, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.09.014)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.015, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.09.014)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %.lr.ph
@@ -10035,7 +10035,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN32px
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoEEvPT_.exit.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoEEvPT_.exit.i.i: ; preds = %34, %.lr.ph.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i) #19
   %38 = getelementptr inbounds i8, ptr %.05.i.i, i64 56
   %.not.i.i = icmp eq ptr %38, %.015
   br i1 %.not.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__28UsdShadeConnectionSourceInfoEEvT_S3_.exit, label %.lr.ph.i.i, !llvm.loop !85

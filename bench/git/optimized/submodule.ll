@@ -2034,7 +2034,7 @@ if.end13:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   %call.i = call ptr @null_oid() #14
-  %call1.i = call fastcc i32 @submodule_has_commits(ptr noundef %r, ptr noundef %path.0, ptr noundef %call.i, ptr noundef nonnull %new_commits)
+  %call1.i = call fastcc i32 @submodule_has_commits(ptr noundef %r, ptr noundef nonnull %path.0, ptr noundef %call.i, ptr noundef nonnull %new_commits)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %submodule_needs_pushing.exit.thread, label %if.end.i
 
@@ -2699,7 +2699,7 @@ if.end.i:                                         ; preds = %repo_has_absorbed_s
   %call4.i = call i32 @oid_array_for_each_unique(ptr noundef nonnull @ref_tips_after_fetch, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %argv.i) #14
   %call5.i = call ptr @strvec_push(ptr noundef nonnull %argv.i, ptr noundef nonnull @.str.45) #14
   %call6.i = call i32 @oid_array_for_each_unique(ptr noundef nonnull @ref_tips_before_fetch, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %argv.i) #14
-  call fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef %changed_submodule_names, ptr noundef %argv.i)
+  call fastcc void @collect_changed_submodules(ptr noundef %r, ptr noundef nonnull %changed_submodule_names, ptr noundef %argv.i)
   %7 = load ptr, ptr %changed_submodule_names, align 8
   %tobool7.not22.i = icmp eq ptr %7, null
   br i1 %tobool7.not22.i, label %for.end.i, label %land.rhs.lr.ph.i
@@ -3366,7 +3366,7 @@ if.then19:                                        ; preds = %if.then16
   br i1 %cmp.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then19
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.148, i64 noundef 8, i64 noundef %conv) #16
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.148, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv) #16
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then19

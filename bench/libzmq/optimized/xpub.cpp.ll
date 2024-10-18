@@ -727,7 +727,7 @@ define void @_ZThn1448_N3zmq6xpub_tD0Ev(ptr noundef %this) unnamed_addr #8 align
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq6xpub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2360) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2360) %0) #23
   ret void
 }
 
@@ -736,7 +736,7 @@ define void @_ZThn1464_N3zmq6xpub_tD0Ev(ptr noundef %this) unnamed_addr #8 align
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq6xpub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2360) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2360) %0) #23
   ret void
 }
 
@@ -745,7 +745,7 @@ define void @_ZThn1472_N3zmq6xpub_tD0Ev(ptr noundef %this) unnamed_addr #8 align
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
   tail call void @_ZN3zmq6xpub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2360) %0) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2360) %0) #23
   ret void
 }
 
@@ -1567,7 +1567,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store ptr %this, ptr %_M_storage.i.i.i.i, align 8
   %it.sroa.43.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %it.sroa.43.0._M_storage.i.i.i.i.sroa_idx, i8 0, i64 29, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i15, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %0 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i = add i64 %0, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
@@ -1605,7 +1605,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98, ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98.0._M_storage.i.i.i.sroa_idx, i64 3, i1 false)
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
-  call void @_ZdlPv(ptr noundef %3) #23
+  call void @_ZdlPv(ptr noundef nonnull %3) #23
   %tobool = trunc i8 %it.sroa.93.0.copyload to i1
   br i1 %tobool, label %if.else, label %if.then
 
@@ -1660,7 +1660,7 @@ lpad:                                             ; preds = %lpad.loopexit.loope
 while.body.i.i.i:                                 ; preds = %lpad, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %8, %while.body.i.i.i ], [ %7, %lpad ]
   %8 = load ptr, ptr %__cur.05.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #23
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #23
   %cmp.not.i.i.i = icmp eq ptr %8, %stack
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !23
 
@@ -1747,7 +1747,7 @@ invoke.cont48:                                    ; preds = %sw.bb44
   store i8 1, ptr %it.sroa.93.0._M_storage.i.i.i.i20.sroa_idx, align 4
   %it.sroa.98.0._M_storage.i.i.i.i20.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i23, i64 53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98.0._M_storage.i.i.i.i20.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98, i64 3, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i23, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %17 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i22 = add i64 %17, 1
   store i64 %add.i.i.i22, ptr %_M_size.i.i.i.i.i, align 8
@@ -1766,7 +1766,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store i64 %inc, ptr %next.sroa.4.0._M_storage.i.i.i.i25.sroa_idx, align 8
   %next.sroa.5.0._M_storage.i.i.i.i25.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i28, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %next.sroa.5.0._M_storage.i.i.i.i25.sroa_idx, i8 0, i64 5, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i28, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %19 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i27 = add i64 %19, 1
   store i64 %add.i.i.i27, ptr %_M_size.i.i.i.i.i, align 8
@@ -1807,7 +1807,7 @@ invoke.cont87:                                    ; preds = %sw.default
   store i8 1, ptr %it.sroa.93.0._M_storage.i.i.i.i30.sroa_idx, align 4
   %it.sroa.98.0._M_storage.i.i.i.i30.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i33, i64 53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98.0._M_storage.i.i.i.i30.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98, i64 3, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i33, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %21 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i32 = add i64 %21, 1
   store i64 %add.i.i.i32, ptr %_M_size.i.i.i.i.i, align 8
@@ -1833,7 +1833,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store i64 %add105, ptr %next94.sroa.4.0._M_storage.i.i.i.i35.sroa_idx, align 8
   %next94.sroa.5.0._M_storage.i.i.i.i35.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i38, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %next94.sroa.5.0._M_storage.i.i.i.i35.sroa_idx, i8 0, i64 5, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i38, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i38, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %24 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i37 = add i64 %24, 1
   store i64 %add.i.i.i37, ptr %_M_size.i.i.i.i.i, align 8
@@ -1990,7 +1990,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store i8 0, ptr %it.sroa.93.0._M_storage.i.i.i.i40.sroa_idx, align 4
   %it.sroa.98.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98.0._M_storage.i.i.i.i40.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98, i64 3, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i43, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %42 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i42 = add i64 %42, 1
   store i64 %add.i.i.i42, ptr %_M_size.i.i.i.i.i, align 8
@@ -2278,7 +2278,7 @@ while.end:                                        ; preds = %if.end550, %_ZNSt7_
 while.body.i.i.i46:                               ; preds = %while.end, %while.body.i.i.i46
   %__cur.05.i.i.i47 = phi ptr [ %87, %while.body.i.i.i46 ], [ %86, %while.end ]
   %87 = load ptr, ptr %__cur.05.i.i.i47, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i47) #23
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i47) #23
   %cmp.not.i.i.i48 = icmp eq ptr %87, %stack
   br i1 %cmp.not.i.i.i48, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit49, label %while.body.i.i.i46, !llvm.loop !23
 
@@ -2478,7 +2478,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store ptr %this, ptr %_M_storage.i.i.i.i, align 8
   %it.sroa.43.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %it.sroa.43.0._M_storage.i.i.i.i.sroa_idx, i8 0, i64 29, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i15, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %0 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i = add i64 %0, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
@@ -2516,7 +2516,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98, ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98.0._M_storage.i.i.i.sroa_idx, i64 3, i1 false)
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
-  call void @_ZdlPv(ptr noundef %3) #23
+  call void @_ZdlPv(ptr noundef nonnull %3) #23
   %tobool = trunc i8 %it.sroa.93.0.copyload to i1
   br i1 %tobool, label %if.else, label %if.then
 
@@ -2571,7 +2571,7 @@ lpad:                                             ; preds = %lpad.loopexit.loope
 while.body.i.i.i:                                 ; preds = %lpad, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %8, %while.body.i.i.i ], [ %7, %lpad ]
   %8 = load ptr, ptr %__cur.05.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #23
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #23
   %cmp.not.i.i.i = icmp eq ptr %8, %stack
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !23
 
@@ -2658,7 +2658,7 @@ invoke.cont48:                                    ; preds = %sw.bb44
   store i8 1, ptr %it.sroa.93.0._M_storage.i.i.i.i20.sroa_idx, align 4
   %it.sroa.98.0._M_storage.i.i.i.i20.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i23, i64 53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98.0._M_storage.i.i.i.i20.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98, i64 3, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i23, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %17 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i22 = add i64 %17, 1
   store i64 %add.i.i.i22, ptr %_M_size.i.i.i.i.i, align 8
@@ -2677,7 +2677,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store i64 %inc, ptr %next.sroa.4.0._M_storage.i.i.i.i25.sroa_idx, align 8
   %next.sroa.5.0._M_storage.i.i.i.i25.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i28, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %next.sroa.5.0._M_storage.i.i.i.i25.sroa_idx, i8 0, i64 5, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i28, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %19 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i27 = add i64 %19, 1
   store i64 %add.i.i.i27, ptr %_M_size.i.i.i.i.i, align 8
@@ -2718,7 +2718,7 @@ invoke.cont87:                                    ; preds = %sw.default
   store i8 1, ptr %it.sroa.93.0._M_storage.i.i.i.i30.sroa_idx, align 4
   %it.sroa.98.0._M_storage.i.i.i.i30.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i33, i64 53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98.0._M_storage.i.i.i.i30.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98, i64 3, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i33, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %21 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i32 = add i64 %21, 1
   store i64 %add.i.i.i32, ptr %_M_size.i.i.i.i.i, align 8
@@ -2744,7 +2744,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store i64 %add105, ptr %next94.sroa.4.0._M_storage.i.i.i.i35.sroa_idx, align 8
   %next94.sroa.5.0._M_storage.i.i.i.i35.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i38, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %next94.sroa.5.0._M_storage.i.i.i.i35.sroa_idx, i8 0, i64 5, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i38, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i38, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %24 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i37 = add i64 %24, 1
   store i64 %add.i.i.i37, ptr %_M_size.i.i.i.i.i, align 8
@@ -2901,7 +2901,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store i8 0, ptr %it.sroa.93.0._M_storage.i.i.i.i40.sroa_idx, align 4
   %it.sroa.98.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98.0._M_storage.i.i.i.i40.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.98, i64 3, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i43, ptr noundef nonnull %stack) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(24) %stack) #22
   %42 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i42 = add i64 %42, 1
   store i64 %add.i.i.i42, ptr %_M_size.i.i.i.i.i, align 8
@@ -3189,7 +3189,7 @@ while.end:                                        ; preds = %if.end550, %_ZNSt7_
 while.body.i.i.i46:                               ; preds = %while.end, %while.body.i.i.i46
   %__cur.05.i.i.i47 = phi ptr [ %87, %while.body.i.i.i46 ], [ %86, %while.end ]
   %87 = load ptr, ptr %__cur.05.i.i.i47, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i47) #23
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i47) #23
   %cmp.not.i.i.i48 = icmp eq ptr %87, %stack
   br i1 %cmp.not.i.i.i48, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit49, label %while.body.i.i.i46, !llvm.loop !23
 
@@ -4354,7 +4354,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #22
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #23
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !42

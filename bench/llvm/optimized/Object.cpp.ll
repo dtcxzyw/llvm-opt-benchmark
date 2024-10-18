@@ -506,7 +506,7 @@ define dso_local void @LLVMMoveToNextSection(ptr noundef %0) local_unnamed_addr 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   ret void
 }
 
@@ -655,7 +655,7 @@ define dso_local void @LLVMMoveToNextSymbol(ptr noundef %0) local_unnamed_addr #
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   ret void
 }
 
@@ -813,7 +813,7 @@ define dso_local void @LLVMMoveToNextRelocation(ptr noundef %0) local_unnamed_ad
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 296
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   ret void
 }
 

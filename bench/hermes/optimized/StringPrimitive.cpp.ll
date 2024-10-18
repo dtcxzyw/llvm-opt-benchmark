@@ -353,7 +353,7 @@ entry:
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 117440512
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %0 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %1 = ptrtoint ptr %call.i.i.i.i to i64
   %or.i.i.i = or i64 %1, -844424930131968
@@ -515,7 +515,7 @@ entry:
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 134217728
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %0 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %1 = ptrtoint ptr %call.i.i.i.i to i64
   %or.i.i.i = or i64 %1, -844424930131968
@@ -676,7 +676,7 @@ entry:
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 50331648
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %0 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %1 = ptrtoint ptr %call.i.i.i.i to i64
   %or.i.i.i = or i64 %1, -844424930131968
@@ -834,7 +834,7 @@ entry:
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 67108864
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %0 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %1 = ptrtoint ptr %call.i.i.i.i to i64
   %or.i.i.i = or i64 %1, -844424930131968
@@ -1094,7 +1094,7 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_23ExternalStringPrimitiveIDsEELNS0_12Ha
   store i16 0, ptr %3, align 8
   store i32 150994992, ptr %call.i.i.i.i, align 4
   %14 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #15
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %14) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %15 = load ptr, ptr %contents_.i.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %15, %9
@@ -1530,7 +1530,7 @@ if.end9:                                          ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %str) #15
   store i32 167772208, ptr %call.i.i.i.i, align 4
   %2 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #15
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i.i) #15
   %conv13 = trunc i64 %call.i to i32
@@ -1595,7 +1595,7 @@ if.end8:                                          ; preds = %if.end
   %conv = zext nneg i32 %length to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #15
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i64 noundef %conv, i8 noundef signext 0) #15
   %call12 = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIcE6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
   %2 = extractvalue { i32, i64 } %call12, 0
@@ -1730,7 +1730,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %concatBufferHV_, i64 %or.i.i.i) #15
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %concatBufferHV_, i64 %or.i.i.i) #15
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit: ; preds = %entry, %if.then.i.i
@@ -2221,7 +2221,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %concatBufferHV_, i64 %or.i.i.i) #15
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %concatBufferHV_, i64 %or.i.i.i) #15
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit: ; preds = %entry, %if.then.i.i
@@ -3083,7 +3083,7 @@ _ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1
 if.end8:                                          ; preds = %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit.thread, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit
   %16 = load ptr, ptr %out, align 8
   %17 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %call3.i = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive19createEfficientImplIDsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEN4llvh8ArrayRefIT_EEPNSt7__cxx1112basic_stringISC_St11char_traitsISC_ESaISC_EEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %16, i64 %17, ptr noundef nonnull %out)
+  %call3.i = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive19createEfficientImplIDsEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEN4llvh8ArrayRefIT_EEPNSt7__cxx1112basic_stringISC_St11char_traitsISC_ESaISC_EEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %16, i64 %17, ptr noundef nonnull align 8 dereferenceable(32) %out)
   %18 = extractvalue { i32, i64 } %call3.i, 0
   %19 = extractvalue { i32, i64 } %call3.i, 1
   br label %cleanup

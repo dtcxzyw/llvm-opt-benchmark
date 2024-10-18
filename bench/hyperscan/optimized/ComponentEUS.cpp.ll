@@ -62,7 +62,7 @@ declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue212ComponentEUSD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
+  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) #7
   tail call void @_ZdlPv(ptr noundef nonnull %this) #8
   ret void
 }

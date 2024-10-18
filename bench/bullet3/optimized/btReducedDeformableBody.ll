@@ -1370,7 +1370,7 @@ entry:
   %m_origin.i = getelementptr inbounds i8, ptr %this, i64 2528
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 8 dereferenceable(16) %m_initialCoM, i64 16, i1 false)
   %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolationWorldTransform, ptr noundef nonnull align 8 dereferenceable(16) %m_rigidTransformWorld, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_interpolationWorldTransform, ptr noundef nonnull align 8 dereferenceable(64) %m_rigidTransformWorld, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 2496
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -1467,7 +1467,7 @@ entry:
   tail call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
   %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
   %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(48) %m_invInertiaTensorWorld, i64 16, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 2608
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 2656
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
@@ -3495,7 +3495,7 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %mul36 = fmul float %mul35, 5.000000e-01
   %call.i43 = tail call noundef float @cosf(float noundef %mul36) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -3614,7 +3614,7 @@ if.then47:                                        ; preds = %_ZN12btQuaternion13
   br label %if.end50
 
 if.else48:                                        ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %predictedTransform, ptr noundef nonnull align 4 dereferenceable(16) %curTrans, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %predictedTransform, ptr noundef nonnull align 4 dereferenceable(48) %curTrans, i64 16, i1 false)
   %arrayidx5.i.i58 = getelementptr inbounds i8, ptr %curTrans, i64 16
   %arrayidx7.i.i59 = getelementptr inbounds i8, ptr %predictedTransform, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i59, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i58, i64 16, i1 false)
@@ -4353,7 +4353,7 @@ entry:
   %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %m_rigidTransformWorld, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity, float noundef %dt, ptr noundef nonnull align 4 dereferenceable(64) %m_interpolationWorldTransform)
   tail call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rigidTransformWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_interpolationWorldTransform, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_rigidTransformWorld, ptr noundef nonnull align 8 dereferenceable(64) %m_interpolationWorldTransform, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 2496
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -4365,7 +4365,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
   %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_invInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(48) %m_interpolateInvInertiaTensorWorld, i64 16, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 2656
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 2608
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
@@ -4764,7 +4764,7 @@ _ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3.exit: ; pred
   call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
   %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
   %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(48) %m_invInertiaTensorWorld, i64 16, i1 false)
   %arrayidx5.i116 = getelementptr inbounds i8, ptr %this, i64 2608
   %arrayidx7.i117 = getelementptr inbounds i8, ptr %this, i64 2656
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i117, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i116, i64 16, i1 false)
@@ -4789,7 +4789,7 @@ _ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3.exit: ; pred
   store <2 x float> %retval.sroa.0.4.vec.insert.i128, ptr %m_origin.i, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i129, ptr %CoM.sroa.9.0.m_origin.i.sroa_idx, align 8
   %m_interpolationWorldTransform = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolationWorldTransform, ptr noundef nonnull align 8 dereferenceable(16) %m_rigidTransformWorld, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_interpolationWorldTransform, ptr noundef nonnull align 8 dereferenceable(64) %m_rigidTransformWorld, i64 16, i1 false)
   %arrayidx5.i.i133 = getelementptr inbounds i8, ptr %this, i64 2496
   %arrayidx7.i.i134 = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i134, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i133, i64 16, i1 false)
@@ -5116,7 +5116,7 @@ for.end:                                          ; preds = %for.body, %entry
   call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
   %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
   %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(48) %m_invInertiaTensorWorld, i64 16, i1 false)
   %arrayidx5.i63 = getelementptr inbounds i8, ptr %this, i64 2608
   %arrayidx7.i64 = getelementptr inbounds i8, ptr %this, i64 2656
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i64, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i63, i64 16, i1 false)
@@ -5252,7 +5252,7 @@ for.end:                                          ; preds = %for.body, %entry
   tail call void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 dereferenceable(3176) %this)
   %m_invInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2592
   %m_interpolateInvInertiaTensorWorld = getelementptr inbounds i8, ptr %this, i64 2640
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(16) %m_invInertiaTensorWorld, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_interpolateInvInertiaTensorWorld, ptr noundef nonnull align 8 dereferenceable(48) %m_invInertiaTensorWorld, i64 16, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 2608
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 2656
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)

@@ -136,7 +136,7 @@ define { <2 x float>, float } @_ZNK11Point3Value9getPoint3Ev(ptr nocapture nound
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK5Value7getShotEv(ptr dead_on_unwind noalias writable sret(%"class.vcg::Shot") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %0, i8 0, i64 56, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 56, i1 false)

@@ -90,7 +90,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIdLb0ENS0_6parserIdEEED2Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #14
+  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #14
   br label %_ZNSt8functionIFvRKdEED2Ev.exit
 
 _ZNSt8functionIFvRKdEED2Ev.exit:                  ; preds = %1, %4
@@ -108,7 +108,7 @@ _ZNSt8functionIFvRKdEED2Ev.exit:                  ; preds = %1, %4
 
 _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNSt8functionIFvRKdEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #14
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
@@ -660,7 +660,7 @@ _ZNKSt8functionIFvRKdEEclES1_.exit:               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %20 = load ptr, ptr %19, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+  call void %20(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(8) %7) #14
   br label %21
 
 21:                                               ; preds = %6, %_ZNKSt8functionIFvRKdEEclES1_.exit
@@ -684,7 +684,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIdLb0ENS0_6parserIdEEED0Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #14
+  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #14
   br label %_ZNSt8functionIFvRKdEED2Ev.exit.i
 
 _ZNSt8functionIFvRKdEED2Ev.exit.i:                ; preds = %4, %1
@@ -702,7 +702,7 @@ _ZNSt8functionIFvRKdEED2Ev.exit.i:                ; preds = %4, %1
 
 _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i.i: ; preds = %12, %_ZNSt8functionIFvRKdEED2Ev.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #14
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
@@ -853,7 +853,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef 1) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8
@@ -935,7 +935,7 @@ declare void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dere
 define internal noundef double @"_ZN4llvm12function_refIFdRKNS_17MachineBasicBlockEEE11callback_fnIZNS_22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoEE3$_0EEdlS3_"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %1) #0 align 2 {
   %3 = inttoptr i64 %0 to ptr
   %.val = load ptr, ptr %3, align 8
-  %4 = tail call i64 @_ZNK4llvm25MachineBlockFrequencyInfo12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull %1) #14
+  %4 = tail call i64 @_ZNK4llvm25MachineBlockFrequencyInfo12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(288) %1) #14
   %5 = uitofp i64 %4 to double
   %6 = tail call i64 @_ZNK4llvm25MachineBlockFrequencyInfo12getEntryFreqEv(ptr noundef nonnull align 8 dereferenceable(8) %.val) #14
   %7 = uitofp i64 %6 to double
@@ -995,10 +995,10 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIdLb0ENS0_6parserIdEEEE, i64 16), ptr @CopyWeight, align 8
   tail call void @_ZN4llvm2cl12basic_parserIdEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @CopyWeight, i64 160), ptr noundef nonnull align 8 dereferenceable(128) @CopyWeight) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIdEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @CopyWeight, i64 160), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CopyWeight, i64 168), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @CopyWeight, i64 168), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @CopyWeight, i64 192), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @CopyWeight, i64 184), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @CopyWeight, ptr nonnull @.str, i64 20) #14
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(200) @CopyWeight, ptr nonnull align 1 dereferenceable(21) @.str, i64 20) #14
   store double 2.000000e-01, ptr getelementptr inbounds (i8, ptr @CopyWeight, i64 128), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @CopyWeight, i64 152), align 8
   store double 2.000000e-01, ptr getelementptr inbounds (i8, ptr @CopyWeight, i64 144), align 8
@@ -1006,7 +1006,7 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   %2 = and i16 %1, -97
   %3 = or disjoint i16 %2, 32
   store i16 %3, ptr getelementptr inbounds nuw (i8, ptr @CopyWeight, i64 10), align 2
-  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(128) @CopyWeight) #14
+  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(200) @CopyWeight) #14
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIdLb0ENS0_6parserIdEEED2Ev, ptr nonnull @CopyWeight, ptr nonnull @__dso_handle) #14
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @LoadWeight, i32 noundef 0, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @LoadWeight, i64 128), i8 0, i64 32, i1 false)
@@ -1014,10 +1014,10 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIdLb0ENS0_6parserIdEEEE, i64 16), ptr @LoadWeight, align 8
   tail call void @_ZN4llvm2cl12basic_parserIdEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @LoadWeight, i64 160), ptr noundef nonnull align 8 dereferenceable(128) @LoadWeight) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIdEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @LoadWeight, i64 160), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @LoadWeight, i64 168), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @LoadWeight, i64 168), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @LoadWeight, i64 192), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @LoadWeight, i64 184), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @LoadWeight, ptr nonnull @.str.2, i64 20) #14
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(200) @LoadWeight, ptr nonnull align 1 dereferenceable(21) @.str.2, i64 20) #14
   store double 4.000000e+00, ptr getelementptr inbounds (i8, ptr @LoadWeight, i64 128), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @LoadWeight, i64 152), align 8
   store double 4.000000e+00, ptr getelementptr inbounds (i8, ptr @LoadWeight, i64 144), align 8
@@ -1025,7 +1025,7 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   %6 = and i16 %5, -97
   %7 = or disjoint i16 %6, 32
   store i16 %7, ptr getelementptr inbounds nuw (i8, ptr @LoadWeight, i64 10), align 2
-  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(128) @LoadWeight) #14
+  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(200) @LoadWeight) #14
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIdLb0ENS0_6parserIdEEED2Ev, ptr nonnull @LoadWeight, ptr nonnull @__dso_handle) #14
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @StoreWeight, i32 noundef 0, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @StoreWeight, i64 128), i8 0, i64 32, i1 false)
@@ -1033,10 +1033,10 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIdLb0ENS0_6parserIdEEEE, i64 16), ptr @StoreWeight, align 8
   tail call void @_ZN4llvm2cl12basic_parserIdEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @StoreWeight, i64 160), ptr noundef nonnull align 8 dereferenceable(128) @StoreWeight) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIdEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @StoreWeight, i64 160), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @StoreWeight, i64 168), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @StoreWeight, i64 168), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @StoreWeight, i64 192), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @StoreWeight, i64 184), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @StoreWeight, ptr nonnull @.str.4, i64 21) #14
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(200) @StoreWeight, ptr nonnull align 1 dereferenceable(22) @.str.4, i64 21) #14
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @StoreWeight, i64 128), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @StoreWeight, i64 152), align 8
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @StoreWeight, i64 144), align 8
@@ -1044,7 +1044,7 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   %10 = and i16 %9, -97
   %11 = or disjoint i16 %10, 32
   store i16 %11, ptr getelementptr inbounds nuw (i8, ptr @StoreWeight, i64 10), align 2
-  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(128) @StoreWeight) #14
+  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(200) @StoreWeight) #14
   %12 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIdLb0ENS0_6parserIdEEED2Ev, ptr nonnull @StoreWeight, ptr nonnull @__dso_handle) #14
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @CheapRematWeight, i32 noundef 0, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @CheapRematWeight, i64 128), i8 0, i64 32, i1 false)
@@ -1052,10 +1052,10 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIdLb0ENS0_6parserIdEEEE, i64 16), ptr @CheapRematWeight, align 8
   tail call void @_ZN4llvm2cl12basic_parserIdEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @CheapRematWeight, i64 160), ptr noundef nonnull align 8 dereferenceable(128) @CheapRematWeight) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIdEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @CheapRematWeight, i64 160), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @CheapRematWeight, i64 168), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @CheapRematWeight, i64 168), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @CheapRematWeight, i64 192), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @CheapRematWeight, i64 184), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @CheapRematWeight, ptr nonnull @.str.6, i64 27) #14
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(200) @CheapRematWeight, ptr nonnull align 1 dereferenceable(28) @.str.6, i64 27) #14
   store double 2.000000e-01, ptr getelementptr inbounds (i8, ptr @CheapRematWeight, i64 128), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @CheapRematWeight, i64 152), align 8
   store double 2.000000e-01, ptr getelementptr inbounds (i8, ptr @CheapRematWeight, i64 144), align 8
@@ -1063,7 +1063,7 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   %14 = and i16 %13, -97
   %15 = or disjoint i16 %14, 32
   store i16 %15, ptr getelementptr inbounds nuw (i8, ptr @CheapRematWeight, i64 10), align 2
-  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(128) @CheapRematWeight) #14
+  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(200) @CheapRematWeight) #14
   %16 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIdLb0ENS0_6parserIdEEED2Ev, ptr nonnull @CheapRematWeight, ptr nonnull @__dso_handle) #14
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @ExpensiveRematWeight, i32 noundef 0, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @ExpensiveRematWeight, i64 128), i8 0, i64 32, i1 false)
@@ -1071,10 +1071,10 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIdLb0ENS0_6parserIdEEEE, i64 16), ptr @ExpensiveRematWeight, align 8
   tail call void @_ZN4llvm2cl12basic_parserIdEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @ExpensiveRematWeight, i64 160), ptr noundef nonnull align 8 dereferenceable(128) @ExpensiveRematWeight) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIdEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @ExpensiveRematWeight, i64 160), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @ExpensiveRematWeight, i64 168), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @ExpensiveRematWeight, i64 168), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @ExpensiveRematWeight, i64 192), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKdEN4llvm2cl3optIdLb0ENS4_6parserIdEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @ExpensiveRematWeight, i64 184), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @ExpensiveRematWeight, ptr nonnull @.str.8, i64 31) #14
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(200) @ExpensiveRematWeight, ptr nonnull align 1 dereferenceable(32) @.str.8, i64 31) #14
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @ExpensiveRematWeight, i64 128), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @ExpensiveRematWeight, i64 152), align 8
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @ExpensiveRematWeight, i64 144), align 8
@@ -1082,7 +1082,7 @@ define internal void @_GLOBAL__sub_I_RegAllocScore.cpp() #12 section ".text.star
   %18 = and i16 %17, -97
   %19 = or disjoint i16 %18, 32
   store i16 %19, ptr getelementptr inbounds nuw (i8, ptr @ExpensiveRematWeight, i64 10), align 2
-  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(128) @ExpensiveRematWeight) #14
+  tail call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(200) @ExpensiveRematWeight) #14
   %20 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIdLb0ENS0_6parserIdEEED2Ev, ptr nonnull @ExpensiveRematWeight, ptr nonnull @__dso_handle) #14
   ret void
 }

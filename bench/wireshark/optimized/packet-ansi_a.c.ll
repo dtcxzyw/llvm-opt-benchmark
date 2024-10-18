@@ -5075,7 +5075,7 @@ define internal zeroext i8 @elem_is2000_scr(ptr noundef %0, ptr noundef %1, ptr 
   %46 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %45) #5
   %47 = zext i16 %46 to i32
   %48 = load i32, ptr @hf_ansi_a_is2000_scr_socr_so, align 4
-  %49 = tail call ptr @try_val_to_str_ext(i32 noundef %47, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
+  %49 = tail call ptr @try_val_to_str_ext(i32 noundef range(i32 0, 65536) %47, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
   %50 = icmp eq ptr %49, null
   %51 = add nsw i32 %47, -4105
   %or.cond.i = icmp ult i32 %51, 28663
@@ -6215,7 +6215,7 @@ define internal noundef zeroext i8 @elem_so(ptr noundef %0, ptr nocapture nounde
   %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #5
   %14 = load i32, ptr @hf_ansi_a_so, align 4
   %15 = zext i16 %13 to i32
-  %16 = tail call ptr @try_val_to_str_ext(i32 noundef %15, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
+  %16 = tail call ptr @try_val_to_str_ext(i32 noundef range(i32 0, 65536) %15, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
   %17 = icmp eq ptr %16, null
   %18 = add nsw i32 %15, -4105
   %or.cond.i.i = icmp ult i32 %18, 28663
@@ -6224,7 +6224,7 @@ define internal noundef zeroext i8 @elem_so(ptr noundef %0, ptr nocapture nounde
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.1017, ptr noundef nonnull %.0.i.i) #5
   %20 = getelementptr inbounds i8, ptr %5, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @try_val_to_str_ext(i32 noundef %15, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
+  %22 = tail call ptr @try_val_to_str_ext(i32 noundef range(i32 0, 65536) %15, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
   %23 = icmp eq ptr %22, null
   %.0.i = select i1 %23, ptr %.str.1215..str.275.i.i, ptr %22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.1024, i32 noundef %15, ptr noundef nonnull %.0.i) #5
@@ -6325,7 +6325,7 @@ define internal zeroext i8 @elem_so_list(ptr noundef %0, ptr noundef %1, ptr nou
   %37 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %30) #5
   %38 = load i32, ptr @hf_ansi_a_so, align 4
   %39 = zext i16 %37 to i32
-  %40 = call ptr @try_val_to_str_ext(i32 noundef %39, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
+  %40 = call ptr @try_val_to_str_ext(i32 noundef range(i32 0, 65536) %39, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
   %41 = icmp eq ptr %40, null
   %42 = add nsw i32 %39, -4105
   %or.cond.i.i = icmp ult i32 %42, 28663
@@ -6334,7 +6334,7 @@ define internal zeroext i8 @elem_so_list(ptr noundef %0, ptr noundef %1, ptr nou
   %43 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %23, i32 noundef %38, ptr noundef %0, i32 noundef %30, i32 noundef 2, i32 noundef %39, ptr noundef nonnull @.str.1017, ptr noundef nonnull %.0.i.i) #5
   %44 = add i32 %.071, 3
   %45 = load ptr, ptr %7, align 8
-  %46 = call ptr @try_val_to_str_ext(i32 noundef %39, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
+  %46 = call ptr @try_val_to_str_ext(i32 noundef range(i32 0, 65536) %39, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
   %47 = icmp eq ptr %46, null
   %.0.i = select i1 %47, ptr %.str.1215..str.275.i.i, ptr %46
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.1024, i32 noundef %39, ptr noundef nonnull %.0.i) #5
@@ -6768,7 +6768,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   %126 = add i32 %.3235, 1
   %127 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %126) #5
   %128 = zext i16 %127 to i32
-  %129 = call ptr @try_val_to_str_ext(i32 noundef %128, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
+  %129 = call ptr @try_val_to_str_ext(i32 noundef range(i32 0, 65536) %128, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
   %130 = icmp eq ptr %129, null
   %131 = add nsw i32 %128, -4105
   %or.cond.i = icmp ult i32 %131, 28663

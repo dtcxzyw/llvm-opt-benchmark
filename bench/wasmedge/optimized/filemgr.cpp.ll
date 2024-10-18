@@ -122,7 +122,7 @@ define void @_ZN8WasmEdge7FileMgr7setPathERKNSt10filesystem7__cxx114pathE(ptr de
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 40
   store i8 0, ptr %6, align 8
-  tail call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #19
+  tail call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
 
 _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i:  ; preds = %9, %3
@@ -179,11 +179,11 @@ _ZN8WasmEdge7FileMgr5resetEv.exit:                ; preds = %_ZNSt8optionalIN8Wa
 
 36:                                               ; preds = %32
   store i8 0, ptr %6, align 8
-  call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #19
+  call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #19
   br label %_ZNSt8optionalIN8WasmEdge4MMapEE7emplaceIJRKNSt10filesystem7__cxx114pathEEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOSA_.exit
 
 _ZNSt8optionalIN8WasmEdge4MMapEE7emplaceIJRKNSt10filesystem7__cxx114pathEEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOSA_.exit: ; preds = %32, %36
-  call void @_ZN8WasmEdge4MMapC1ERKNSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(40) %2) #19
+  call void @_ZN8WasmEdge4MMapC1ERKNSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(40) %2) #19
   store i8 1, ptr %6, align 8
   %37 = call noundef ptr @_ZNK8WasmEdge4MMap7addressEv(ptr noundef nonnull align 8 dereferenceable(8) %33) #19
   %.not6 = icmp eq ptr %37, null
@@ -202,7 +202,7 @@ _ZNSt8optionalIN8WasmEdge4MMapEE7emplaceIJRKNSt10filesystem7__cxx114pathEEEENSt9
 
 43:                                               ; preds = %40
   store i8 0, ptr %6, align 8
-  call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #19
+  call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #19
   br label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit
 
 _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit:    ; preds = %43, %40, %38
@@ -246,7 +246,7 @@ define void @_ZN8WasmEdge7FileMgr7setCodeEN5cxx204spanIKhLm18446744073709551615E
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %1, i64 40
   store i8 0, ptr %6, align 8
-  tail call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #19
+  tail call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
 
 _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i:  ; preds = %9, %4
@@ -294,7 +294,7 @@ define void @_ZN8WasmEdge7FileMgr7setCodeESt6vectorIhSaIhEE(ptr dead_on_unwind n
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 40
   store i8 0, ptr %5, align 8
-  tail call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  tail call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   br label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
 
 _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i:  ; preds = %8, %3
@@ -1301,7 +1301,7 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
           to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %42
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc55 unwind label %63
 
 .noexc55:                                         ; preds = %.noexc
@@ -1311,7 +1311,7 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
 44:                                               ; preds = %.noexc55
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc55

@@ -2370,8 +2370,8 @@ define linkonce_odr hidden void @_ZN32ShenandoahReferenceProcessorTask4workEj(pt
   br i1 %9, label %10, label %36
 
 10:                                               ; preds = %2
-  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %1) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3, i8 0, i64 19, i1 false)
+  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 19, i1 false)
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1697), align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %_ZN33ShenandoahConcurrentWorkerSessionC2Ej.exit, label %13
@@ -2426,8 +2426,8 @@ _ZN28ShenandoahReferenceProcessor4workEv.exit:    ; preds = %33, %_ZN33Shenandoa
   br label %62
 
 36:                                               ; preds = %2
-  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef %1) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %5, i8 0, i64 19, i1 false)
+  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %1) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 19, i1 false)
   %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit, label %39

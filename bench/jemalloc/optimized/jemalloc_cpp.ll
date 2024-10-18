@@ -1325,7 +1325,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 while.body:                                       ; preds = %entry, %try.cont
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZL9handleOOMmbE3mtx) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1336,7 +1336,7 @@ if.then.i.i:                                      ; preds = %while.body
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %while.body
   %call = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef null) #18
   %call2 = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef %call) #18
-  %call1.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZL9handleOOMmbE3mtx) #18
+  %call1.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #18
   %cmp3 = icmp eq ptr %call, null
   br i1 %cmp3, label %while.end, label %if.end5
 

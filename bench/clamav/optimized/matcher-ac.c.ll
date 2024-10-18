@@ -3000,7 +3000,7 @@ define range(i32 0, 65536) i32 @cli_ac_scanbuff(ptr nocapture noundef readonly %
   br i1 %125, label %ac_findmatch.exit.thread, label %ac_findmatch.exit
 
 ac_findmatch.exit:                                ; preds = %121
-  %126 = call fastcc i32 @ac_forward_match_branch(ptr noundef readonly %0, i32 noundef %55, i32 noundef %67, i32 noundef %113, i32 noundef %1, ptr noundef nonnull readonly %58, i32 noundef %66, i16 noundef zeroext %115, ptr noundef %13, ptr noundef %14)
+  %126 = call fastcc i32 @ac_forward_match_branch(ptr noundef readonly %0, i32 noundef %55, i32 noundef %67, i32 noundef %113, i32 noundef %1, ptr noundef nonnull readonly %58, i32 noundef %66, i16 noundef zeroext %115, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i.not = icmp eq i32 %126, 0
   br i1 %.not.i.not, label %ac_findmatch.exit.thread, label %.preheader598
 

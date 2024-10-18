@@ -813,56 +813,56 @@ entry:
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.3) #9
   %peak.i = getelementptr inbounds i8, ptr %stats, i64 144
   %1 = load i64, ptr %peak.i, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.4) #9
   %peak.i68 = getelementptr inbounds i8, ptr %stats, i64 176
   %2 = load i64, ptr %peak.i68, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   %page_committed = getelementptr inbounds i8, ptr %stats, i64 192
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %page_committed, ptr noundef nonnull @.str.5, i64 noundef 1, ptr noundef %buffer, ptr noundef null) #10
-  call fastcc void @mi_stat_print_ex(ptr noundef readonly %stats, ptr noundef nonnull @.str.6, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %page_committed, ptr noundef nonnull @.str.5, i64 noundef 1, ptr noundef nonnull %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef readonly %stats, ptr noundef nonnull @.str.6, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %segments_abandoned = getelementptr inbounds i8, ptr %stats, i64 224
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %segments_cache = getelementptr inbounds i8, ptr %stats, i64 448
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_cache, ptr noundef nonnull @.str.8, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %segments_cache, ptr noundef nonnull @.str.8, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %pages = getelementptr inbounds i8, ptr %stats, i64 32
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages, ptr noundef nonnull @.str.9, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages, ptr noundef nonnull @.str.9, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %pages_abandoned = getelementptr inbounds i8, ptr %stats, i64 256
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %pages_abandoned, ptr noundef nonnull @.str.7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %pages_extended = getelementptr inbounds i8, ptr %stats, i64 480
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.10) #9
   %3 = load i64, ptr %pages_extended, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   %page_no_retire = getelementptr inbounds i8, ptr %stats, i64 560
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.11) #9
   %4 = load i64, ptr %page_no_retire, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %4, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_printf_amount(i64 noundef %4, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   %mmap_calls = getelementptr inbounds i8, ptr %stats, i64 496
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.12) #9
   %5 = load i64, ptr %mmap_calls, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %5, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_printf_amount(i64 noundef %5, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   %commit_calls = getelementptr inbounds i8, ptr %stats, i64 512
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.13) #9
   %6 = load i64, ptr %commit_calls, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   %reset_calls = getelementptr inbounds i8, ptr %stats, i64 528
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.14) #9
   %7 = load i64, ptr %reset_calls, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   %purge_calls = getelementptr inbounds i8, ptr %stats, i64 544
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.15) #9
   %8 = load i64, ptr %purge_calls, align 8
-  call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.26) #9
   %threads = getelementptr inbounds i8, ptr %stats, i64 288
-  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %threads, ptr noundef nonnull @.str.16, i64 noundef -1, ptr noundef %buffer, ptr noundef null) #10
+  call fastcc void @mi_stat_print_ex(ptr noundef nonnull readonly %threads, ptr noundef nonnull @.str.16, i64 noundef -1, ptr noundef nonnull %buffer, ptr noundef null) #10
   %count.i = getelementptr inbounds i8, ptr %stats, i64 584
   %9 = load i64, ptr %count.i, align 8
   %cmp.i = icmp eq i64 %9, 0
@@ -1178,15 +1178,15 @@ entry:
 if.then:                                          ; preds = %entry
   %peak = getelementptr inbounds i8, ptr %stat, i64 16
   %0 = load i64, ptr %peak, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null) #10
   %1 = load i64, ptr %stat, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %1, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null) #10
   %freed = getelementptr inbounds i8, ptr %stat, i64 8
   %2 = load i64, ptr %freed, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %2, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null) #10
   %current = getelementptr inbounds i8, ptr %stat, i64 24
   %3 = load i64, ptr %current, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %3, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i)
   store i8 0, ptr %buf.i, align 16
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %arg, ptr noundef nonnull @.str.43, ptr noundef nonnull %buf.i) #9
@@ -1216,15 +1216,15 @@ if.else7:                                         ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.else26
 
 if.then9:                                         ; preds = %if.else7
-  tail call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef null) #10
   %7 = load i64, ptr %stat, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef null) #10
   %freed12 = getelementptr inbounds i8, ptr %stat, i64 8
   %8 = load i64, ptr %freed12, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %8, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef null) #10
   %current13 = getelementptr inbounds i8, ptr %stat, i64 24
   %9 = load i64, ptr %current13, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %9, i64 noundef -1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %9, i64 noundef -1, ptr noundef nonnull %arg, ptr noundef null) #10
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %arg, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1) #9
   %10 = load i64, ptr %stat, align 8
   %11 = load i64, ptr %freed12, align 8
@@ -1240,13 +1240,13 @@ if.else24:                                        ; preds = %if.then9
   br label %if.end31
 
 if.else26:                                        ; preds = %if.else7
-  tail call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %6, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null) #10
   %12 = load i64, ptr %stat, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %12, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %12, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null) #10
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %arg, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42) #9
   %current29 = getelementptr inbounds i8, ptr %stat, i64 24
   %13 = load i64, ptr %current29, align 8
-  tail call fastcc void @mi_printf_amount(i64 noundef %13, i64 noundef 1, ptr noundef %arg, ptr noundef null) #10
+  tail call fastcc void @mi_printf_amount(i64 noundef %13, i64 noundef 1, ptr noundef nonnull %arg, ptr noundef null) #10
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %arg, ptr noundef nonnull @.str.26) #9
   br label %if.end31
 

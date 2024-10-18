@@ -611,12 +611,12 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %call.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef 0, i32 noundef 2) #14
+  %call.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef 0, i32 noundef 2) #14
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %fd_read_lines.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end5
-  %call1.i = tail call i64 @lseek64(i32 noundef %call, i64 noundef 0, i32 noundef 0) #14
+  %call1.i = tail call i64 @lseek64(i32 noundef range(i32 0, -2147483648) %call, i64 noundef 0, i32 noundef 0) #14
   %conv.i = trunc i64 %call1.i to i32
   %cmp2.i = icmp slt i32 %conv.i, 0
   br i1 %cmp2.i, label %fd_read_lines.exit, label %if.end5.i
@@ -624,7 +624,7 @@ if.end.i:                                         ; preds = %if.end5
 if.end5.i:                                        ; preds = %if.end.i
   %add.i = add nuw nsw i64 %call.i, 1
   %call6.i = tail call ptr @reftable_malloc(i64 noundef %add.i) #14
-  %call7.i = tail call i64 @read_in_full(i32 noundef %call, ptr noundef %call6.i, i64 noundef %call.i) #14
+  %call7.i = tail call i64 @read_in_full(i32 noundef range(i32 0, -2147483648) %call, ptr noundef %call6.i, i64 noundef %call.i) #14
   %cmp8.not.i = icmp eq i64 %call7.i, %call.i
   br i1 %cmp8.not.i, label %if.end11.i, label %fd_read_lines.exit
 
@@ -1112,7 +1112,7 @@ stack_table_sizes_for_compaction.exit:            ; preds = %stack_table_sizes_f
 
 if.then:                                          ; preds = %stack_table_sizes_for_compaction.exit
   %sub = add nsw i32 %seg.val4, -1
-  %call.i6 = tail call fastcc i32 @stack_compact_range(ptr noundef nonnull %st, i32 noundef %seg.val, i32 noundef %sub, ptr noundef null)
+  %call.i6 = tail call fastcc i32 @stack_compact_range(ptr noundef nonnull %st, i32 noundef %seg.val, i32 noundef range(i32 -2147483648, 2147483647) %sub, ptr noundef null)
   %cmp.i7 = icmp sgt i32 %call.i6, 0
   br i1 %cmp.i7, label %if.then.i, label %return
 

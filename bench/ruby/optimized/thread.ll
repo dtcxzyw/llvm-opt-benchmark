@@ -3678,7 +3678,7 @@ define internal i64 @rb_szqueue_pop(ptr nocapture readnone %0, i64 noundef %1, i
   br label %szqueue_ptr.exit.i
 
 szqueue_ptr.exit.i:                               ; preds = %14, %4
-  %20 = tail call fastcc i64 @queue_do_pop(i64 noundef %1, ptr noundef nonnull %7, i32 noundef %6, i64 noundef %3)
+  %20 = tail call fastcc i64 @queue_do_pop(i64 noundef %1, ptr noundef nonnull %7, i32 noundef range(i32 0, 2) %6, i64 noundef %3)
   %21 = getelementptr i8, ptr %7, i64 24
   %.val.i = load i64, ptr %21, align 1
   %22 = and i64 %.val.i, 7
@@ -4365,7 +4365,7 @@ terminate_all.exit:                               ; preds = %rb_threadptr_interr
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %92
-  call fastcc void @native_cond_sleep(ptr noundef nonnull %0, ptr noundef %6)
+  call fastcc void @native_cond_sleep(ptr noundef nonnull %0, ptr noundef nonnull %6)
   br label %native_sleep.exit
 
 96:                                               ; preds = %92
@@ -5189,7 +5189,7 @@ get_sysconf_page_size.exit.i.i.i:                 ; preds = %252, %nt_stack_chun
   %254 = phi i64 [ %253, %252 ], [ %250, %nt_stack_chunk_get_stack.exit29.i.i.i ]
   %sext.i.i.i = shl i64 %254, 32
   %255 = ashr exact i64 %sext.i.i.i, 32
-  %256 = call i32 @mprotect(ptr noundef %243, i64 noundef %255, i32 noundef 0) #19
+  %256 = call i32 @mprotect(ptr noundef %243, i64 noundef range(i64 -2147483648, 2147483648) %255, i32 noundef 0) #19
   %.not.i30.i.i.i = icmp eq i32 %256, -1
   br i1 %.not.i30.i.i.i, label %257, label %nt_guard_page.exit.i.i.i
 
@@ -5971,7 +5971,7 @@ vm_check_ints_blocking.exit:                      ; preds = %32, %43
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %51
-  call fastcc void @native_cond_sleep(ptr noundef nonnull %0, ptr noundef %6)
+  call fastcc void @native_cond_sleep(ptr noundef nonnull %0, ptr noundef nonnull %6)
   br label %native_sleep.exit
 
 55:                                               ; preds = %51
@@ -8912,7 +8912,7 @@ define hidden void @rb_fd_init_copy(ptr nocapture noundef writeonly %0, ptr noca
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull readonly align 1 dereferenceable(1) %10, i64 %spec.store.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull readonly align 1 dereferenceable(1) %10, i64 range(i64 -17179869184, 17179869177) %spec.store.select, i1 false)
   ret void
 }
 
@@ -8942,7 +8942,7 @@ define dso_local void @rb_fd_zero(ptr nocapture noundef nonnull readonly %0) loc
   br i1 %9, label %10, label %rbimpl_size_mul_or_raise.exit
 
 10:                                               ; preds = %4
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %8) #36
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %8) #36
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %4
@@ -9070,7 +9070,7 @@ define dso_local void @rb_fd_copy(ptr nocapture noundef %0, ptr nocapture nounde
   %9 = load ptr, ptr %8, align 8
   %10 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %9, i64 noundef %spec.store.select) #49
   store ptr %10, ptr %8, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %spec.store.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 -17179869184, 17179869177) %spec.store.select, i1 false)
   ret void
 }
 
@@ -9092,7 +9092,7 @@ define dso_local void @rb_fd_dup(ptr nocapture noundef %0, ptr nocapture noundef
   store ptr %9, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %spec.store.select, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 range(i64 -17179869184, 17179869177) %spec.store.select, i1 false)
   ret void
 }
 
@@ -9401,7 +9401,7 @@ rb_fd_resize.exit:                                ; preds = %81, %83
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %1, i64 8
   %93 = load ptr, ptr %92, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull readonly align 1 dereferenceable(1) %93, i64 %spec.store.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull readonly align 1 dereferenceable(1) %93, i64 range(i64 -17179869184, 17179869177) %spec.store.select.i, i1 false)
   %.pre = load ptr, ptr %38, align 8
   br label %97
 
@@ -9472,7 +9472,7 @@ rb_fd_resize.exit35:                              ; preds = %118, %120
   store ptr %128, ptr %129, align 8
   %130 = getelementptr inbounds i8, ptr %122, i64 8
   %131 = load ptr, ptr %130, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %128, ptr noundef nonnull readonly align 1 dereferenceable(1) %131, i64 %spec.store.select.i37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %128, ptr noundef nonnull readonly align 1 dereferenceable(1) %131, i64 range(i64 -17179869184, 17179869177) %spec.store.select.i37, i1 false)
   br label %135
 
 132:                                              ; preds = %97
@@ -9542,7 +9542,7 @@ rb_fd_resize.exit41:                              ; preds = %156, %158
   store ptr %166, ptr %167, align 8
   %168 = getelementptr inbounds i8, ptr %160, i64 8
   %169 = load ptr, ptr %168, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %166, ptr noundef nonnull readonly align 1 dereferenceable(1) %169, i64 %spec.store.select.i43, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %166, ptr noundef nonnull readonly align 1 dereferenceable(1) %169, i64 range(i64 -17179869184, 17179869177) %spec.store.select.i43, i1 false)
   br label %173
 
 170:                                              ; preds = %135
@@ -9762,7 +9762,7 @@ vm_check_ints_blocking.exit:                      ; preds = %82, %93
   %105 = call nonnull ptr @ruby_xrealloc(ptr noundef %104, i64 noundef %spec.store.select.i) #49
   store ptr %105, ptr %103, align 8
   %106 = load ptr, ptr %31, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %105, ptr noundef nonnull readonly align 1 dereferenceable(1) %106, i64 %spec.store.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %105, ptr noundef nonnull readonly align 1 dereferenceable(1) %106, i64 range(i64 -17179869184, 17179869177) %spec.store.select.i, i1 false)
   br label %107
 
 107:                                              ; preds = %96, %98
@@ -9783,7 +9783,7 @@ vm_check_ints_blocking.exit:                      ; preds = %82, %93
   %116 = call nonnull ptr @ruby_xrealloc(ptr noundef %115, i64 noundef %spec.store.select.i39) #49
   store ptr %116, ptr %114, align 8
   %117 = load ptr, ptr %33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %116, ptr noundef nonnull readonly align 1 dereferenceable(1) %117, i64 %spec.store.select.i39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %116, ptr noundef nonnull readonly align 1 dereferenceable(1) %117, i64 range(i64 -17179869184, 17179869177) %spec.store.select.i39, i1 false)
   br label %118
 
 118:                                              ; preds = %107, %109
@@ -9804,7 +9804,7 @@ vm_check_ints_blocking.exit:                      ; preds = %82, %93
   %127 = call nonnull ptr @ruby_xrealloc(ptr noundef %126, i64 noundef %spec.store.select.i41) #49
   store ptr %127, ptr %125, align 8
   %128 = load ptr, ptr %35, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %127, ptr noundef nonnull readonly align 1 dereferenceable(1) %128, i64 %spec.store.select.i41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %127, ptr noundef nonnull readonly align 1 dereferenceable(1) %128, i64 range(i64 -17179869184, 17179869177) %spec.store.select.i41, i1 false)
   br label %.backedge
 
 .backedge:                                        ; preds = %120, %118
@@ -15746,7 +15746,7 @@ rb_hrtime_now.exit.i.i:                           ; preds = %23, %18
   %.0.i.i.i.i.i = select i1 %26, i64 -1, i64 %27
   %.0.i2.i.i.i.i = call noundef i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i.i.i, i64 %.val1.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %.0.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %10, i64 %.0.i2.i.i.i.i)
+  %.0.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 range(i64 1, 0) %10, i64 %.0.i2.i.i.i.i)
   store i64 %.0.i.i.i, ptr %4, align 8
   %28 = load i8, ptr %19, align 8
   %29 = and i8 %28, -4
@@ -15823,7 +15823,7 @@ vm_check_ints_blocking.exit.i.i:                  ; preds = %55, %44
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %63
-  call fastcc void @native_cond_sleep(ptr noundef nonnull %.val.i8.i, ptr noundef %4)
+  call fastcc void @native_cond_sleep(ptr noundef nonnull %.val.i8.i, ptr noundef nonnull %4)
   br label %native_sleep.exit.i.i
 
 67:                                               ; preds = %63
@@ -18882,7 +18882,7 @@ vm_check_ints_blocking.exit:                      ; preds = %39, %50
   br i1 %61, label %62, label %rbimpl_size_mul_or_raise.exit
 
 62:                                               ; preds = %55
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %60) #36
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %60) #36
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %55
@@ -18985,7 +18985,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br i1 %111, label %112, label %rbimpl_size_mul_or_raise.exit52
 
 112:                                              ; preds = %110
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %.0.i.i) #36
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %.0.i.i) #36
   unreachable
 
 rbimpl_size_mul_or_raise.exit52:                  ; preds = %110
@@ -19009,7 +19009,7 @@ rbimpl_size_mul_or_raise.exit55:                  ; preds = %118, %116
   br i1 %.not.i56, label %ruby_nonempty_memcpy.exit, label %121
 
 121:                                              ; preds = %rbimpl_size_mul_or_raise.exit55
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %115, ptr readonly align 1 %.0.i54, i64 %114, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %115, ptr readonly align 1 %.0.i54, i64 range(i64 -17179869184, 17179869177) %114, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit55, %121
@@ -19735,7 +19735,7 @@ rb_hrtime_now.exit.i:                             ; preds = %108, %105
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %113
-  call fastcc void @native_cond_sleep(ptr noundef nonnull %9, ptr noundef %11)
+  call fastcc void @native_cond_sleep(ptr noundef nonnull %9, ptr noundef nonnull %11)
   br label %native_sleep.exit
 
 121:                                              ; preds = %113

@@ -240,7 +240,7 @@ eat.exit.i:                                       ; preds = %peek.exit.i.i
   br label %demangle_legacy_path.exit
 
 if.end.i:                                         ; preds = %peek.exit.i.i, %while.body.i
-  call fastcc void @parse_ident(ptr noalias align 8 %name.i, ptr noundef %rdm)
+  call fastcc void @parse_ident(ptr noalias align 8 %name.i, ptr noundef nonnull %rdm)
   %29 = load i8, ptr %verbose, align 2
   %tobool.i = trunc i8 %29 to i1
   br i1 %tobool.i, label %if.end8.i, label %land.lhs.true.i
@@ -1627,7 +1627,7 @@ while.end.i349:                                   ; preds = %peek.exit.i22.i329
 
 parse_integer_62.exit357:                         ; preds = %eat.exit.thread.i355, %do.body.i326, %while.end.i349
   %retval.0.i328 = phi i64 [ 0, %do.body.i326 ], [ %add41.i351, %while.end.i349 ], [ 0, %eat.exit.thread.i355 ]
-  tail call fastcc void @print_lifetime_from_index(ptr noundef %rdm, i64 noundef %retval.0.i328)
+  tail call fastcc void @print_lifetime_from_index(ptr noundef nonnull %rdm, i64 noundef %retval.0.i328)
   br label %demangle_generic_arg.exit
 
 peek.exit.i313:                                   ; preds = %peek.exit.i362
@@ -1640,11 +1640,11 @@ peek.exit.i313:                                   ; preds = %peek.exit.i362
 if.then3.i:                                       ; preds = %peek.exit.i313
   %inc.i317 = add nuw i64 %111, 1
   store i64 %inc.i317, ptr %next.i.i, align 8
-  tail call fastcc void @demangle_const(ptr noundef %rdm, i1 noundef zeroext false)
+  tail call fastcc void @demangle_const(ptr noundef nonnull %rdm, i1 noundef zeroext false)
   br label %demangle_generic_arg.exit
 
 if.else4.i:                                       ; preds = %if.end83, %peek.exit.i313
-  tail call fastcc void @demangle_type(ptr noundef %rdm)
+  tail call fastcc void @demangle_type(ptr noundef nonnull %rdm)
   br label %demangle_generic_arg.exit
 
 demangle_generic_arg.exit:                        ; preds = %parse_integer_62.exit357, %if.then3.i, %if.else4.i
@@ -3311,7 +3311,7 @@ do.body1.i400:                                    ; preds = %if.end122
   br label %demangle_dyn_trait.exit
 
 do.end3.i:                                        ; preds = %if.end122
-  %call.i = tail call fastcc zeroext i1 @demangle_path_maybe_open_generics(ptr noundef %rdm)
+  %call.i = tail call fastcc zeroext i1 @demangle_path_maybe_open_generics(ptr noundef nonnull %rdm)
   %146 = load i64, ptr %next.i.i, align 8
   %147 = load i64, ptr %sym_len.i.i, align 8
   %cmp.i.i458601 = icmp ult i64 %146, %147
@@ -3362,8 +3362,8 @@ if.then.i443:                                     ; preds = %land.lhs.true.i440
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then.i443, %land.lhs.true.i440, %if.else.i, %if.then.i452, %land.lhs.true.i449, %if.then6.i
-  call fastcc void @parse_ident(ptr noalias align 8 %name.i, ptr noundef %rdm)
-  tail call fastcc void @print_ident(ptr noundef %rdm, ptr noundef nonnull byval(%struct.rust_mangled_ident) align 8 %name.i)
+  call fastcc void @parse_ident(ptr noalias align 8 %name.i, ptr noundef nonnull %rdm)
+  tail call fastcc void @print_ident(ptr noundef nonnull %rdm, ptr noundef nonnull byval(%struct.rust_mangled_ident) align 8 %name.i)
   %158 = load i8, ptr %errored, align 8
   %tobool.i430 = trunc i8 %158 to i1
   br i1 %tobool.i430, label %print_str.exit437, label %land.lhs.true.i431
@@ -3380,7 +3380,7 @@ if.then.i434:                                     ; preds = %land.lhs.true.i431
   br label %print_str.exit437
 
 print_str.exit437:                                ; preds = %if.end7.i, %land.lhs.true.i431, %if.then.i434
-  tail call fastcc void @demangle_type(ptr noundef %rdm)
+  tail call fastcc void @demangle_type(ptr noundef nonnull %rdm)
   %162 = load i64, ptr %next.i.i, align 8
   %163 = load i64, ptr %sym_len.i.i, align 8
   %cmp.i.i458 = icmp ult i64 %162, %163
@@ -6020,7 +6020,7 @@ while.end.i93:                                    ; preds = %peek.exit.i22.i73
 
 parse_integer_62.exit101:                         ; preds = %eat.exit.thread.i99, %do.body.i70, %while.end.i93
   %retval.0.i72 = phi i64 [ 0, %do.body.i70 ], [ %add41.i95, %while.end.i93 ], [ 0, %eat.exit.thread.i99 ]
-  tail call fastcc void @print_lifetime_from_index(ptr noundef %rdm, i64 noundef %retval.0.i72)
+  tail call fastcc void @print_lifetime_from_index(ptr noundef nonnull %rdm, i64 noundef %retval.0.i72)
   br label %demangle_generic_arg.exit
 
 peek.exit.i57:                                    ; preds = %peek.exit.i106
@@ -6033,11 +6033,11 @@ peek.exit.i57:                                    ; preds = %peek.exit.i106
 if.then3.i:                                       ; preds = %peek.exit.i57
   %inc.i61 = add nuw i64 %29, 1
   store i64 %inc.i61, ptr %next.i.i, align 8
-  tail call fastcc void @demangle_const(ptr noundef %rdm, i1 noundef zeroext false)
+  tail call fastcc void @demangle_const(ptr noundef nonnull %rdm, i1 noundef zeroext false)
   br label %demangle_generic_arg.exit
 
 if.else4.i:                                       ; preds = %if.end19, %peek.exit.i57
-  tail call fastcc void @demangle_type(ptr noundef %rdm)
+  tail call fastcc void @demangle_type(ptr noundef nonnull %rdm)
   br label %demangle_generic_arg.exit
 
 demangle_generic_arg.exit:                        ; preds = %parse_integer_62.exit101, %if.then3.i, %if.else4.i

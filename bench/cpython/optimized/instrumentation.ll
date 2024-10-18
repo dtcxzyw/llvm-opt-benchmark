@@ -1389,7 +1389,7 @@ entry:
   %arrayinit.element3 = getelementptr inbounds i8, ptr %args, i64 32
   store ptr %arg1, ptr %arrayinit.element3, align 16
   %call.i = tail call ptr @_PyErr_GetRaisedException(ptr noundef %tstate) #9
-  %call1.i = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef readonly %frame, ptr noundef %instr, i64 noundef 4, ptr noundef %args)
+  %call1.i = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef readonly %frame, ptr noundef %instr, i64 noundef 4, ptr noundef nonnull %args)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
@@ -1887,7 +1887,7 @@ if.then.i:                                        ; preds = %_PyVectorcall_Funct
   br label %_PyObject_VectorcallTstate.exit
 
 if.end.i13:                                       ; preds = %_PyVectorcall_FunctionInline.exit.i
-  %call3.i = tail call ptr %ptr.0.copyload.i.i(ptr noundef nonnull %0, ptr noundef %args, i64 noundef %nargsf, ptr noundef null) #9
+  %call3.i = tail call ptr %ptr.0.copyload.i.i(ptr noundef nonnull %0, ptr noundef %args, i64 noundef range(i64 -9223372036854775808, -9223372036854775800) %nargsf, ptr noundef null) #9
   %call4.i = tail call ptr @_Py_CheckFunctionResult(ptr noundef nonnull %tstate, ptr noundef nonnull %0, ptr noundef %call3.i, ptr noundef null) #9
   br label %_PyObject_VectorcallTstate.exit
 
@@ -6076,7 +6076,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %conv = sext i32 %event to i64
   %cmp.not.i = icmp eq i32 %event, 0
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv, i1 true)
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -2147483648, 2147483648) %conv, i1 true)
   %cast.i = trunc nuw nsw i64 %3 to i32
   %sub.i = sub nuw nsw i32 64, %cast.i
   %retval.0.i10 = select i1 %cmp.not.i, i32 0, i32 %sub.i

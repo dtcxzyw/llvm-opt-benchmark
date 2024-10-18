@@ -1600,7 +1600,7 @@ _ZNK10ciTypeFlow5Block15copy_state_intoEPNS_11StateVectorE.exit: ; preds = %.lr.
   %151 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %150) #14
   %152 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %151, i32 noundef %146) #14
   %153 = load i32, ptr %152, align 4
-  %154 = tail call noundef ptr @_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %153, ptr noundef readonly %59, i32 noundef 0)
+  %154 = tail call noundef ptr @_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %153, ptr noundef nonnull readonly %59, i32 noundef 0)
   tail call void @_ZN10ciTypeFlow10flow_blockEPNS_5BlockEPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %154, ptr noundef nonnull %2, ptr noundef nonnull %59)
   br label %_ZN10ciTypeFlow14record_failureEPKc.exit
 
@@ -1975,7 +1975,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i:              ; preds = %122
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i, %122
   %135 = getelementptr inbounds i8, ptr %125, i64 56
   %136 = load ptr, ptr %135, align 8
-  %137 = call noundef zeroext i1 @_ZN10ciTypeFlow11StateVector14meet_exceptionEP15ciInstanceKlassPKS0_(ptr noundef nonnull align 8 dereferenceable(40) %136, ptr noundef nonnull %128, ptr noundef readonly %2)
+  %137 = call noundef zeroext i1 @_ZN10ciTypeFlow11StateVector14meet_exceptionEP15ciInstanceKlassPKS0_(ptr noundef nonnull align 8 dereferenceable(40) %136, ptr noundef nonnull %128, ptr noundef nonnull readonly %2)
   br i1 %137, label %138, label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i
 
 138:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i
@@ -2145,7 +2145,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i79:            ; preds = %196
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i64:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i79, %196
   %209 = getelementptr inbounds i8, ptr %199, i64 56
   %210 = load ptr, ptr %209, align 8
-  %211 = call noundef zeroext i1 @_ZN10ciTypeFlow11StateVector14meet_exceptionEP15ciInstanceKlassPKS0_(ptr noundef nonnull align 8 dereferenceable(40) %210, ptr noundef nonnull %202, ptr noundef readonly %2)
+  %211 = call noundef zeroext i1 @_ZN10ciTypeFlow11StateVector14meet_exceptionEP15ciInstanceKlassPKS0_(ptr noundef nonnull align 8 dereferenceable(40) %210, ptr noundef nonnull %202, ptr noundef nonnull readonly %2)
   br i1 %211, label %212, label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i65
 
 212:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i64
@@ -2499,7 +2499,7 @@ define hidden noundef zeroext i1 @_ZN10ciTypeFlow11StateVector4meetEPKS0_(ptr no
 
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %30, align 8
-  %47 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef %40, ptr noundef %43, ptr noundef %46)
+  %47 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef nonnull %40, ptr noundef %43, ptr noundef %46)
   %48 = icmp eq ptr %40, %47
   br i1 %48, label %52, label %49
 
@@ -2572,7 +2572,7 @@ define hidden noundef zeroext i1 @_ZN10ciTypeFlow11StateVector14meet_exceptionEP
 
 30:                                               ; preds = %.lr.ph
   %31 = load ptr, ptr %17, align 8
-  %32 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef %25, ptr noundef %28, ptr noundef %31)
+  %32 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef nonnull %25, ptr noundef %28, ptr noundef %31)
   %33 = icmp eq ptr %25, %32
   br i1 %33, label %37, label %34
 
@@ -2612,7 +2612,7 @@ define hidden noundef zeroext i1 @_ZN10ciTypeFlow11StateVector14meet_exceptionEP
   br i1 %47, label %63, label %48
 
 48:                                               ; preds = %._crit_edge
-  %49 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef %46, ptr noundef %1, ptr noundef nonnull %39)
+  %49 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef nonnull %46, ptr noundef %1, ptr noundef nonnull %39)
   %50 = icmp eq ptr %46, %49
   br i1 %50, label %63, label %51
 
@@ -5091,7 +5091,7 @@ define hidden noundef zeroext i1 @_ZN10ciTypeFlow11StateVector18apply_one_byteco
   %814 = load i32, ptr %813, align 8
   %815 = add nsw i32 %814, -1
   store i32 %815, ptr %813, align 8
-  tail call void @_ZN10ciTypeFlow11StateVector12do_getstaticEP16ciBytecodeStream(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
+  tail call void @_ZN10ciTypeFlow11StateVector12do_getstaticEP16ciBytecodeStream(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1)
   br label %_ZN10ciTypeFlow11StateVector14store_to_localEi.exit
 
 816:                                              ; preds = %2
@@ -8450,7 +8450,7 @@ define hidden void @_ZN10ciTypeFlow15flow_successorsEP13GrowableArrayIPNS_5Block
 
 56:                                               ; preds = %.lr.ph.i.i
   %57 = load ptr, ptr %41, align 8
-  %58 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef %51, ptr noundef %54, ptr noundef %57)
+  %58 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef nonnull %51, ptr noundef %54, ptr noundef %57)
   %59 = icmp eq ptr %51, %58
   br i1 %59, label %60, label %.thread
 
@@ -10222,7 +10222,7 @@ define hidden void @_ZN10ciTypeFlow15build_loop_treeEPNS_5BlockE(ptr nocapture n
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %19, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %19, i8 0, i64 24, i1 false)
   store ptr %12, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 32
   store ptr %1, ptr %23, align 8
@@ -10594,7 +10594,7 @@ define hidden void @_ZN10ciTypeFlow13df_flow_typesEPNS_5BlockEbPNS_11StateVector
 
 38:                                               ; preds = %29
   %39 = getelementptr inbounds i8, ptr %36, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %36, i8 0, i64 24, i1 false)
   store ptr %20, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 32
   store ptr %26, ptr %40, align 8
@@ -11080,7 +11080,7 @@ _ZN10ciTypeFlow11StateVectorC2EPS_.exit:          ; preds = %.lr.ph.i, %_ZN5Aren
   %57 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %56) #14
   %58 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %57, i32 noundef %55) #14
   %59 = load i32, ptr %58, align 4
-  %60 = tail call noundef ptr @_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %59, ptr noundef readonly %47, i32 noundef 0)
+  %60 = tail call noundef ptr @_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %59, ptr noundef nonnull readonly %47, i32 noundef 0)
   %61 = tail call noundef ptr @_ZN10ciTypeFlow15get_start_stateEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 88
@@ -11170,7 +11170,7 @@ _ZN10ciTypeFlow11StateVectorC2EPS_.exit:          ; preds = %.lr.ph.i, %_ZN5Aren
 
 115:                                              ; preds = %.lr.ph.i.i
   %116 = load ptr, ptr %100, align 8
-  %117 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef %110, ptr noundef %113, ptr noundef %116)
+  %117 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef nonnull %110, ptr noundef %113, ptr noundef %116)
   %118 = icmp eq ptr %110, %117
   br i1 %118, label %122, label %119
 

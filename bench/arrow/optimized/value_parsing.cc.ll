@@ -2966,9 +2966,9 @@ if.then7.i.i.i.i:                                 ; preds = %if.then7.i.i.i
   %length.i.i5.i.i.i = getelementptr inbounds i8, ptr %bigmant, i64 496
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %bigmant, i64 %div34.i.i.i
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i6.i.i.i.pre-phi, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %bigmant, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 dereferenceable(504) %bigmant, i64 %mul.i.i.i.i, i1 false)
   %6 = shl nuw nsw i64 %div34.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %bigmant, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(504) %bigmant, i8 0, i64 %6, i1 false)
   %7 = load i16, ptr %length.i.i5.i.i.i, align 8
   %8 = trunc nuw i64 %div34.i.i.i to i16
   %conv.i10.i.i.i.i = add i16 %7, %8
@@ -3216,9 +3216,9 @@ if.then7.i.i:                                     ; preds = %if.end5.i.i.if.then
 if.then7.i.i.i:                                   ; preds = %if.then7.i.i
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %theor_digits, i64 %div34.i.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i6.i.i.pre-phi, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i, ptr nonnull align 8 %theor_digits, i64 %mul.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i, ptr nonnull align 8 dereferenceable(504) %theor_digits, i64 %mul.i.i.i, i1 false)
   %8 = shl nuw nsw i64 %div34.i.i, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %theor_digits, i8 0, i64 %8, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(504) %theor_digits, i8 0, i64 %8, i1 false)
   %9 = load i16, ptr %length.i.i, align 8
   %10 = trunc nuw i64 %div34.i.i to i16
   %conv.i10.i.i.i = add i16 %9, %10
@@ -3302,9 +3302,9 @@ if.then7.i.i.i101:                                ; preds = %if.then7.i.i91
   %length.i.i5.i.i92 = getelementptr inbounds i8, ptr %bigmant, i64 496
   %add.ptr.i.i.i102 = getelementptr inbounds i64, ptr %bigmant, i64 %div34.i.i66
   %mul.i.i.i103 = shl nuw nsw i64 %conv.i.i6.i.i93.pre-phi, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i102, ptr nonnull align 8 %bigmant, i64 %mul.i.i.i103, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i102, ptr nonnull align 8 dereferenceable(504) %bigmant, i64 %mul.i.i.i103, i1 false)
   %17 = shl nuw nsw i64 %div34.i.i66, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %bigmant, i8 0, i64 %17, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(504) %bigmant, i8 0, i64 %17, i1 false)
   %18 = load i16, ptr %length.i.i5.i.i92, align 8
   %19 = trunc nuw i64 %div34.i.i66 to i16
   %conv.i10.i.i.i104 = add i16 %18, %19
@@ -3561,7 +3561,7 @@ if.then.i.i:                                      ; preds = %entry
 _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; preds = %if.then.i.i
   %1 = shl nuw nsw i16 %0, 3
   %add.ptr.idx.i.i.i.i.i = zext nneg i16 %1 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %z, ptr nonnull align 8 %x, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(498) %z, ptr nonnull align 8 %x, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   %z.496.z.496.z.496.length.i10.sroa_idx114 = getelementptr inbounds i8, ptr %z, i64 496
   %z.496.z.496.z.496..pre.i.i = load i16, ptr %z.496.z.496.z.496.length.i10.sroa_idx114, align 8
   br label %_ZN14arrow_vendored10fast_float8stackvecILt62EE16extend_uncheckedENS0_4spanImEE.exit.i.i
@@ -4082,9 +4082,9 @@ if.then7.i.i.i.i:                                 ; preds = %if.then7.i.i.i
   %length.i.i5.i.i.i = getelementptr inbounds i8, ptr %bigmant, i64 496
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %bigmant, i64 %div34.i.i.i
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i6.i.i.i.pre-phi, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %bigmant, i64 %mul.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 dereferenceable(504) %bigmant, i64 %mul.i.i.i.i, i1 false)
   %6 = shl nuw nsw i64 %div34.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %bigmant, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(504) %bigmant, i8 0, i64 %6, i1 false)
   %7 = load i16, ptr %length.i.i5.i.i.i, align 8
   %8 = trunc nuw i64 %div34.i.i.i to i16
   %conv.i10.i.i.i.i = add i16 %7, %8
@@ -4333,9 +4333,9 @@ if.then7.i.i:                                     ; preds = %if.end5.i.i.if.then
 if.then7.i.i.i:                                   ; preds = %if.then7.i.i
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %theor_digits, i64 %div34.i.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i6.i.i.pre-phi, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i, ptr nonnull align 8 %theor_digits, i64 %mul.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i, ptr nonnull align 8 dereferenceable(504) %theor_digits, i64 %mul.i.i.i, i1 false)
   %8 = shl nuw nsw i64 %div34.i.i, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %theor_digits, i8 0, i64 %8, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(504) %theor_digits, i8 0, i64 %8, i1 false)
   %9 = load i16, ptr %length.i.i, align 8
   %10 = trunc nuw i64 %div34.i.i to i16
   %conv.i10.i.i.i = add i16 %9, %10
@@ -4419,9 +4419,9 @@ if.then7.i.i.i101:                                ; preds = %if.then7.i.i91
   %length.i.i5.i.i92 = getelementptr inbounds i8, ptr %bigmant, i64 496
   %add.ptr.i.i.i102 = getelementptr inbounds i64, ptr %bigmant, i64 %div34.i.i66
   %mul.i.i.i103 = shl nuw nsw i64 %conv.i.i6.i.i93.pre-phi, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i102, ptr nonnull align 8 %bigmant, i64 %mul.i.i.i103, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i102, ptr nonnull align 8 dereferenceable(504) %bigmant, i64 %mul.i.i.i103, i1 false)
   %17 = shl nuw nsw i64 %div34.i.i66, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %bigmant, i8 0, i64 %17, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(504) %bigmant, i8 0, i64 %17, i1 false)
   %18 = load i16, ptr %length.i.i5.i.i92, align 8
   %19 = trunc nuw i64 %div34.i.i66 to i16
   %conv.i10.i.i.i104 = add i16 %18, %19

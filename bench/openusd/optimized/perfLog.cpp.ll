@@ -814,7 +814,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog11AddCacheHitERKNS_7
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %9) #19
+  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %9) #19
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %11
 
@@ -823,7 +823,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog11AddCacheHitERKNS_7
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %8
-  %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit unwind label %21
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -850,7 +850,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_Cach
 21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit8, %17, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit10, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #19
+  %23 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %9) #19
   resume { ptr, i32 } %22
 
 24:                                               ; preds = %19
@@ -886,7 +886,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %24, %2
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit8: ; preds = %34, %38
   %42 = phi ptr [ %41, %38 ], [ @.str.17, %34 ]
-  %43 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %43 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit10 unwind label %21
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit10: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit8
@@ -895,7 +895,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_Cach
           to label %45 unwind label %21
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit10, %19
-  %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #19
+  %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %9) #19
   br label %47
 
 47:                                               ; preds = %4, %45
@@ -915,7 +915,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog12AddCacheMissERKNS_
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %9) #19
+  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %9) #19
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %11
 
@@ -924,7 +924,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog12AddCacheMissERKNS_
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %8
-  %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -952,7 +952,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_Cach
 22:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit8, %18, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit10, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
   %23 = landingpad { ptr, i32 }
           cleanup
-  %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #19
+  %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %9) #19
   resume { ptr, i32 } %23
 
 25:                                               ; preds = %20
@@ -988,7 +988,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %25, %2
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit8: ; preds = %35, %39
   %43 = phi ptr [ %42, %39 ], [ @.str.17, %35 ]
-  %44 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %44 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit10 unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit10: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit8
@@ -998,7 +998,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_Cach
           to label %47 unwind label %22
 
 47:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit10, %20
-  %48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #19
+  %48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %9) #19
   br label %49
 
 49:                                               ; preds = %4, %47
@@ -1014,7 +1014,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog10ResetCacheERKNS_7T
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #19
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %9
 
@@ -1023,12 +1023,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog10ResetCacheERKNS_7T
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %6
-  %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_NS1_9HdPerfLog11_CacheEntryEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit unwind label %13
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #19
+  %11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   br label %12
 
 12:                                               ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit
@@ -1037,14 +1037,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_9HdPerfLog11_Cach
 13:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #19
+  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog16GetCacheHitRatioERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -1143,14 +1143,14 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrINS_9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEES2_EEPNT_11mapped_typeERSD_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %51, %12, %19, %.loopexit
   %.0 = phi double [ %62, %.loopexit ], [ 0.000000e+00, %19 ], [ 0.000000e+00, %12 ], [ 0.000000e+00, %51 ], [ 0.000000e+00, %.lr.ph.i.i.i.i.i ]
-  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   ret double %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog12GetCacheHitsERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -1243,14 +1243,14 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrINS_9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEES2_EEPNT_11mapped_typeERSD_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %51, %12, %19, %.loopexit
   %.0 = phi i64 [ %56, %.loopexit ], [ 0, %19 ], [ 0, %12 ], [ 0, %51 ], [ 0, %.lr.ph.i.i.i.i.i ]
-  %57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog14GetCacheMissesERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -1343,14 +1343,14 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrINS_9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEES2_EEPNT_11mapped_typeERSD_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %51, %12, %19, %.loopexit
   %.0 = phi i64 [ %56, %.loopexit ], [ 0, %19 ], [ 0, %12 ], [ 0, %51 ], [ 0, %.lr.ph.i.i.i.i.i ]
-  %57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog13GetCacheNamesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.26") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -1459,7 +1459,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashMapINS_7TfTokenENS_9
 39:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
-  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashMapINS_7TfTokenENS_9HdPerfLog11_CacheEntryENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEELb0EEppEv.exit
@@ -1497,7 +1497,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashMapINS_7TfTokenENS_9
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit unwind label %.loopexit.split-lp
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit: ; preds = %16, %._crit_edge, %.noexc10, %52
-  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   ret void
 }
 
@@ -1553,7 +1553,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog15GetCounterNamesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.26") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -1662,7 +1662,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashMapINS_7TfTokenEdNS2
 39:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
-  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashMapINS_7TfTokenEdNS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_dEEEELb0EEppEv.exit
@@ -1700,7 +1700,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashMapINS_7TfTokenEdNS2
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit unwind label %.loopexit.split-lp
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit: ; preds = %16, %._crit_edge, %.noexc10, %52
-  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   ret void
 }
 
@@ -1713,7 +1713,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog16IncrementCounterER
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #19
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %9
 
@@ -1742,7 +1742,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %6
 16:                                               ; preds = %34, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit, %12, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit8
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #19
+  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   resume { ptr, i32 } %17
 
 19:                                               ; preds = %14
@@ -1761,12 +1761,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %6
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %19, %23
   %27 = phi ptr [ %26, %23 ], [ @.str.17, %19 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit unwind label %16
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
   %30 = load double, ptr %29, align 8
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit8 unwind label %16
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit8: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit
@@ -1777,14 +1777,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorES
 
 34:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit8, %14
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10 unwind label %16
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10: ; preds = %34
   %37 = load double, ptr %36, align 8
   %38 = fadd double %37, 1.000000e+00
   store double %38, ptr %36, align 8
-  %39 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #19
+  %39 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   br label %40
 
 40:                                               ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10
@@ -1800,7 +1800,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog16DecrementCounterER
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #19
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %9
 
@@ -1829,7 +1829,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %6
 16:                                               ; preds = %34, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit, %12, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit8
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #19
+  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   resume { ptr, i32 } %17
 
 19:                                               ; preds = %14
@@ -1848,12 +1848,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %6
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %19, %23
   %27 = phi ptr [ %26, %23 ], [ @.str.17, %19 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit unwind label %16
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
   %30 = load double, ptr %29, align 8
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit8 unwind label %16
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit8: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit
@@ -1864,14 +1864,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorES
 
 34:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit8, %14
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10 unwind label %16
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10: ; preds = %34
   %37 = load double, ptr %36, align 8
   %38 = fadd double %37, -1.000000e+00
   store double %38, ptr %36, align 8
-  %39 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #19
+  %39 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   br label %40
 
 40:                                               ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10
@@ -1887,7 +1887,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog10SetCounterERKNS_7T
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %10
 
@@ -1916,7 +1916,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %7
 17:                                               ; preds = %32, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit, %13, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
+  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
   resume { ptr, i32 } %18
 
 20:                                               ; preds = %15
@@ -1935,7 +1935,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %7
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %20, %24
   %28 = phi ptr [ %27, %24 ], [ @.str.17, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit unwind label %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
@@ -1945,12 +1945,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorES
 
 32:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit, %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit9 unwind label %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit9: ; preds = %32
   store double %2, ptr %34, align 8
-  %35 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
+  %35 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
   br label %36
 
 36:                                               ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit9
@@ -1966,7 +1966,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog10AddCounterERKNS_7T
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %10
 
@@ -1995,7 +1995,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %7
 17:                                               ; preds = %35, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit, %13, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
+  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
   resume { ptr, i32 } %18
 
 20:                                               ; preds = %15
@@ -2014,12 +2014,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %7
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %20, %24
   %28 = phi ptr [ %27, %24 ], [ @.str.17, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit unwind label %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
   %31 = load double, ptr %30, align 8
-  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10 unwind label %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit
@@ -2030,14 +2030,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorES
 
 35:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10, %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit12 unwind label %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit12: ; preds = %35
   %38 = load double, ptr %37, align 8
   %39 = fadd double %2, %38
   store double %39, ptr %37, align 8
-  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
+  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
   br label %41
 
 41:                                               ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit12
@@ -2053,7 +2053,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog15SubtractCounterERK
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %10
 
@@ -2082,7 +2082,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %7
 17:                                               ; preds = %35, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit, %13, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
+  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
   resume { ptr, i32 } %18
 
 20:                                               ; preds = %15
@@ -2101,12 +2101,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %7
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %20, %24
   %28 = phi ptr [ %27, %24 ], [ @.str.17, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit unwind label %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
   %31 = load double, ptr %30, align 8
-  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10 unwind label %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit
@@ -2117,14 +2117,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorES
 
 35:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit10, %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit12 unwind label %17
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit12: ; preds = %35
   %38 = load double, ptr %37, align 8
   %39 = fsub double %38, %2
   store double %39, ptr %37, align 8
-  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #19
+  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #19
   br label %41
 
 41:                                               ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEEixERS6_.exit12
@@ -2134,7 +2134,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenEdNS1_11HashFunctorES
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog10GetCounterERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -2226,7 +2226,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFun
 
 _ZN32pxrInternal_v0_24__pxrReserved__18TfMapLookupByValueINS_9TfHashMapINS_7TfTokenEdNS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_dEEEES2_dEEKT1_RKT_RKT0_RSC_.exit: ; preds = %50, %.lr.ph.i.i.i.i.i, %12, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit.i, %19
   %.0.in.i.sroa.speculated = phi double [ %.0.in.i.sroa.speculate.load._ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit.i, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit.i ], [ 0.000000e+00, %19 ], [ 0.000000e+00, %12 ], [ 0.000000e+00, %.lr.ph.i.i.i.i.i ], [ 0.000000e+00, %50 ]
-  %55 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #19
+  %55 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   ret double %.0.in.i.sroa.speculated
 }
 
@@ -2239,7 +2239,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog13ResetCountersEv(pt
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %6) #19
+  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %9, label %8
 
@@ -2275,7 +2275,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog13ResetCountersEv(pt
 17:                                               ; preds = %13, %29
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #19
+  %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   resume { ptr, i32 } %18
 
 20:                                               ; preds = %15
@@ -2307,7 +2307,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashMapINS_7TfTokenEdNS2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashMapINS_7TfTokenEdNS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_dEEEELb0EEppEv.exit, %9
-  %34 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #19
+  %34 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %6) #19
   br label %35
 
 35:                                               ; preds = %1, %._crit_edge
@@ -2592,7 +2592,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3

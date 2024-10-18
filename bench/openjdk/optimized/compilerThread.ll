@@ -173,7 +173,7 @@ define hidden void @_ZN14CompilerThreadD0Ev(ptr noundef nonnull align 8 derefere
   br label %_ZN14CompilerThreadD2Ev.exit
 
 _ZN14CompilerThreadD2Ev.exit:                     ; preds = %6, %10
-  tail call void @_ZN10JavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1800) %0) #6
+  tail call void @_ZN10JavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1880) %0) #6
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #6
   ret void
 }

@@ -477,11 +477,11 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %16 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i.i.i, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %creds, i32 noundef %conv.i.i, ptr noundef nonnull %11) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i.i.i, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %creds, i32 noundef range(i32 0, 2) %conv.i.i, ptr noundef nonnull %11) #9
   br label %trace_qcrypto_tls_creds_x509_load_cert.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, ptr noundef nonnull %creds, i32 noundef %conv.i.i, ptr noundef nonnull %11) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, ptr noundef nonnull %creds, i32 noundef range(i32 0, 2) %conv.i.i, ptr noundef nonnull %11) #9
   br label %trace_qcrypto_tls_creds_x509_load_cert.exit.i.i
 
 trace_qcrypto_tls_creds_x509_load_cert.exit.i.i:  ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.then.i

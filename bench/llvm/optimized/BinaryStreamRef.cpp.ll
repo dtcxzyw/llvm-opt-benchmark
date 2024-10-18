@@ -76,7 +76,7 @@ $_ZTVN4llvm23MutableBinaryByteStreamE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15BinaryStreamRefC2ERNS_12BinaryStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -107,7 +107,7 @@ _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEEC2ERS2_.ex
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm15BinaryStreamRefC2ERNS_12BinaryStreamEmSt8optionalImE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2, i64 %3, i8 %4) unnamed_addr #1 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -462,7 +462,7 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm23WritableBinaryStreamRefC2ERNS_20WritableBinaryStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -493,7 +493,7 @@ _ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinarySt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm23WritableBinaryStreamRefC2ERNS_20WritableBinaryStreamEmSt8optionalImE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2, i64 %3, i8 %4) unnamed_addr #1 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -860,7 +860,7 @@ define internal void @_ZN12_GLOBAL__N_112ArrayRefImpl9readBytesEmmRN4llvm8ArrayR
   %7 = load ptr, ptr %6, align 8, !noalias !29
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8, !noalias !29
-  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !29
+  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(32) %6) #11, !noalias !29
   %11 = icmp ugt i64 %2, %10
   br i1 %11, label %19, label %12
 
@@ -868,7 +868,7 @@ define internal void @_ZN12_GLOBAL__N_112ArrayRefImpl9readBytesEmmRN4llvm8ArrayR
   %13 = load ptr, ptr %6, align 8, !noalias !29
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !29
-  %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !29
+  %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(32) %6) #11, !noalias !29
   %17 = add i64 %3, %2
   %18 = icmp ult i64 %16, %17
   br i1 %18, label %19, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i
@@ -901,7 +901,7 @@ define internal void @_ZN12_GLOBAL__N_112ArrayRefImpl26readLongestContiguousChun
   %6 = load ptr, ptr %5, align 8, !noalias !35
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8, !noalias !35
-  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %5) #11, !noalias !35
+  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(32) %5) #11, !noalias !35
   %10 = icmp ugt i64 %2, %9
   br i1 %10, label %18, label %11
 
@@ -909,7 +909,7 @@ define internal void @_ZN12_GLOBAL__N_112ArrayRefImpl26readLongestContiguousChun
   %12 = load ptr, ptr %5, align 8, !noalias !35
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !35
-  %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %5) #11, !noalias !35
+  %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(32) %5) #11, !noalias !35
   %16 = add i64 %2, 1
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %18, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i
@@ -1131,7 +1131,7 @@ define internal void @_ZN12_GLOBAL__N_119MutableArrayRefImpl9readBytesEmmRN4llvm
   %7 = load ptr, ptr %6, align 8, !noalias !50
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8, !noalias !50
-  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !50
+  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(32) %6) #11, !noalias !50
   %11 = icmp ugt i64 %2, %10
   br i1 %11, label %19, label %12
 
@@ -1139,7 +1139,7 @@ define internal void @_ZN12_GLOBAL__N_119MutableArrayRefImpl9readBytesEmmRN4llvm
   %13 = load ptr, ptr %6, align 8, !noalias !50
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !50
-  %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !50
+  %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(32) %6) #11, !noalias !50
   %17 = add i64 %3, %2
   %18 = icmp ult i64 %16, %17
   br i1 %18, label %19, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i.i
@@ -1173,7 +1173,7 @@ define internal void @_ZN12_GLOBAL__N_119MutableArrayRefImpl26readLongestContigu
   %6 = load ptr, ptr %5, align 8, !noalias !60
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8, !noalias !60
-  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %5) #11, !noalias !60
+  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(32) %5) #11, !noalias !60
   %10 = icmp ugt i64 %2, %9
   br i1 %10, label %18, label %11
 
@@ -1181,7 +1181,7 @@ define internal void @_ZN12_GLOBAL__N_119MutableArrayRefImpl26readLongestContigu
   %12 = load ptr, ptr %5, align 8, !noalias !60
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !60
-  %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %5) #11, !noalias !60
+  %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(32) %5) #11, !noalias !60
   %16 = add i64 %2, 1
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %18, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i.i
@@ -1233,13 +1233,13 @@ define internal void @_ZN12_GLOBAL__N_119MutableArrayRefImpl10writeBytesEmN4llvm
   %9 = load ptr, ptr %6, align 8, !noalias !67
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8, !noalias !67
-  %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !67
+  %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(56) %6) #11, !noalias !67
   %13 = and i32 %12, 2
   %.not.i.i = icmp eq i32 %13, 0
   %14 = load ptr, ptr %6, align 8, !noalias !67
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !67
-  %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !67
+  %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(56) %6) #11, !noalias !67
   %18 = icmp ugt i64 %2, %17
   br i1 %.not.i.i, label %19, label %27
 
@@ -1250,7 +1250,7 @@ define internal void @_ZN12_GLOBAL__N_119MutableArrayRefImpl10writeBytesEmN4llvm
   %21 = load ptr, ptr %6, align 8, !noalias !70
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8, !noalias !70
-  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !70
+  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(56) %6) #11, !noalias !70
   %25 = add i64 %4, %2
   %26 = icmp ult i64 %24, %25
   br i1 %26, label %28, label %_ZN4llvm12ErrorSuccessD2Ev.exit6.i
@@ -1308,7 +1308,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStream9readBytesEmmR
   %7 = load ptr, ptr %6, align 8, !noalias !79
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8, !noalias !79
-  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !79
+  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(32) %6) #11, !noalias !79
   %11 = icmp ugt i64 %2, %10
   br i1 %11, label %19, label %12
 
@@ -1316,7 +1316,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStream9readBytesEmmR
   %13 = load ptr, ptr %6, align 8, !noalias !79
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !79
-  %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !79
+  %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(32) %6) #11, !noalias !79
   %17 = add i64 %3, %2
   %18 = icmp ult i64 %16, %17
   br i1 %18, label %19, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i
@@ -1349,7 +1349,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStream26readLongestC
   %6 = load ptr, ptr %5, align 8, !noalias !85
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8, !noalias !85
-  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %5) #11, !noalias !85
+  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(32) %5) #11, !noalias !85
   %10 = icmp ugt i64 %2, %9
   br i1 %10, label %18, label %11
 
@@ -1357,7 +1357,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStream26readLongestC
   %12 = load ptr, ptr %5, align 8, !noalias !85
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !85
-  %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %5) #11, !noalias !85
+  %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(32) %5) #11, !noalias !85
   %16 = add i64 %2, 1
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %18, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i

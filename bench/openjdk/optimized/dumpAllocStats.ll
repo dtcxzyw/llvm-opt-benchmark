@@ -96,7 +96,7 @@ define hidden void @_ZN14DumpAllocStats11print_statsEii(ptr nocapture noundef no
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds i8, ptr %0, i64 292
   store i32 %28, ptr %29, align 4
-  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #4
+  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #4
   %30 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %4, i64 80
@@ -175,9 +175,9 @@ switch.lookup:                                    ; preds = %3, %switch.lookup
   %84 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str) #4
   %85 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %65, i32 noundef %66, double noundef %75, i32 noundef %67, i32 noundef %68, double noundef %79, i32 noundef %70, i32 noundef %71, double noundef %83) #4
   %86 = load ptr, ptr %30, align 8
-  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %86, ptr noundef nonnull align 8 dereferenceable(72) %4) #4
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %86, ptr noundef nonnull align 8 dereferenceable(81) %4) #4
   store i8 0, ptr %31, align 8
-  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %4) #4
+  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(81) %4) #4
   %87 = getelementptr inbounds i8, ptr %0, i64 412
   %88 = load i32, ptr %87, align 4
   %89 = getelementptr inbounds i8, ptr %0, i64 416
@@ -224,13 +224,13 @@ switch.lookup:                                    ; preds = %3, %switch.lookup
 
 125:                                              ; preds = %69
   %126 = load ptr, ptr %30, align 8
-  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %126, ptr noundef nonnull align 8 dereferenceable(72) %4) #4
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %126, ptr noundef nonnull align 8 dereferenceable(81) %4) #4
   store i8 0, ptr %31, align 8
-  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %4) #4
+  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(81) %4) #4
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
 _ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %69, %125
-  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #4
+  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #4
   ret void
 }
 

@@ -118,7 +118,7 @@ if.then3:                                         ; preds = %if.end
 SSL_use_certificate.exit:                         ; preds = %if.end
   %cert.i = getelementptr inbounds i8, ptr %ssl, i64 136
   %1 = load ptr, ptr %cert.i, align 8
-  %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef %call)
+  %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef nonnull %call)
   call void @X509_free(ptr noundef nonnull %call) #5
   br label %return
 
@@ -314,7 +314,7 @@ if.then3:                                         ; preds = %if.end
 SSL_use_PrivateKey.exit:                          ; preds = %if.end
   %cert.i = getelementptr inbounds i8, ptr %ssl, i64 136
   %1 = load ptr, ptr %cert.i, align 8
-  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef %call)
+  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef nonnull %call)
   call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
   br label %return
 
@@ -375,7 +375,7 @@ if.then3:                                         ; preds = %if.end
 SSL_CTX_use_certificate.exit:                     ; preds = %if.end
   %cert.i = getelementptr inbounds i8, ptr %ctx, i64 296
   %1 = load ptr, ptr %cert.i, align 8
-  %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef %call)
+  %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef nonnull %call)
   call void @X509_free(ptr noundef nonnull %call) #5
   br label %return
 
@@ -506,7 +506,7 @@ if.then3:                                         ; preds = %if.end
 SSL_CTX_use_PrivateKey.exit:                      ; preds = %if.end
   %cert.i = getelementptr inbounds i8, ptr %ctx, i64 296
   %1 = load ptr, ptr %cert.i, align 8
-  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef %call)
+  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef nonnull %call)
   call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
   br label %return
 

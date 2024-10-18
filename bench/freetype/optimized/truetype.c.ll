@@ -1144,7 +1144,7 @@ TT_New_Context.exit.i.i.i.i:                      ; preds = %394, %388, %383, %t
   %.not76.i.i.i.i = icmp eq ptr %445, null
   %spec.select.i.i.i.i = select i1 %.not76.i.i.i.i, ptr @TT_RunIns, ptr %445
   store ptr %spec.select.i.i.i.i, ptr %446, align 8
-  %447 = call fastcc i32 @tt_size_run_fpgm(ptr noundef %1, i8 noundef zeroext %320)
+  %447 = call fastcc i32 @tt_size_run_fpgm(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 2) %320)
   br label %tt_size_init_bytecode.exit.i.i.i
 
 448:                                              ; preds = %433, %428, %424, %419, %TT_New_Context.exit.i.i.i.i
@@ -1223,7 +1223,7 @@ tt_size_init_bytecode.exit.i.i.i:                 ; preds = %448, %438
 ._crit_edge.i.i.i:                                ; preds = %474, %.preheader.i.i.i
   %480 = getelementptr inbounds i8, ptr %1, i64 344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %480, ptr noundef nonnull align 8 dereferenceable(96) @tt_default_graphics_state, i64 96, i1 false)
-  %481 = call fastcc i32 @tt_size_run_prep(ptr noundef %1, i8 noundef zeroext %320)
+  %481 = call fastcc i32 @tt_size_run_prep(ptr noundef nonnull %1, i8 noundef zeroext range(i8 0, 2) %320)
   br label %tt_size_ready_bytecode.exit.i.i
 
 tt_size_ready_bytecode.exit.i.i:                  ; preds = %._crit_edge.i.i.i, %451
@@ -1271,7 +1271,7 @@ tt_size_ready_bytecode.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   %.0105.i.i = phi i8 [ %496, %494 ], [ 0, %487 ]
   %501 = getelementptr inbounds i8, ptr %486, i64 1098
   store i8 %.sink.i.i, ptr %501, align 2
-  %502 = call fastcc i32 @TT_Load_Context(ptr noundef nonnull %486, ptr noundef %314, ptr noundef %1)
+  %502 = call fastcc i32 @TT_Load_Context(ptr noundef nonnull %486, ptr noundef %314, ptr noundef nonnull %1)
   %.not121.i.i = icmp eq i32 %502, 0
   br i1 %.not121.i.i, label %503, label %TT_Load_Glyph.exit
 
@@ -1324,12 +1324,12 @@ tt_size_ready_bytecode.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   br i1 %.not122.i.i, label %.thread179.i, label %.thread144.i.i
 
 .thread144.i.i:                                   ; preds = %521, %.thread138.i.i, %.thread.i.i
-  %522 = call fastcc i32 @tt_size_run_prep(ptr noundef %1, i8 noundef zeroext %320)
+  %522 = call fastcc i32 @tt_size_run_prep(ptr noundef nonnull %1, i8 noundef zeroext %320)
   %.not126.i.i = icmp eq i32 %522, 0
   br i1 %.not126.i.i, label %523, label %TT_Load_Glyph.exit
 
 523:                                              ; preds = %.thread144.i.i
-  %524 = call fastcc i32 @TT_Load_Context(ptr noundef nonnull %486, ptr noundef %314, ptr noundef %1)
+  %524 = call fastcc i32 @TT_Load_Context(ptr noundef nonnull %486, ptr noundef %314, ptr noundef nonnull %1)
   %.not127.i.i = icmp eq i32 %524, 0
   br i1 %.not127.i.i, label %.thread179.i, label %TT_Load_Glyph.exit
 

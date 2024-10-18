@@ -392,7 +392,7 @@ if.end34:                                         ; preds = %lor.lhs.false
   br i1 %tobool.not, label %if.end43, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end34
-  %call.i47 = tail call i32 @ossl_pqueue_reserve(ptr noundef %call.i, i64 noundef %conv) #8
+  %call.i47 = tail call i32 @ossl_pqueue_reserve(ptr noundef %call.i, i64 noundef range(i64 -2147483648, 2147483648) %conv) #8
   %cmp38 = icmp ne i32 %call.i47, 0
   %conv39 = zext i1 %cmp38 to i32
   %call40 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 86, ptr noundef nonnull @.str.19, i32 noundef %conv39) #8

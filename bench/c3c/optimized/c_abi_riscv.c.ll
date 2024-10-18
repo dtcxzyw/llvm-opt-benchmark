@@ -110,7 +110,7 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   store i32 0, ptr %8, align 4
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %30 = call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %5, ptr noundef %7, ptr noundef %6, ptr noundef %8)
+  %30 = call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8)
   %31 = load ptr, ptr %5, align 8
   %.not23.i = icmp ne ptr %31, null
   %32 = load ptr, ptr %6, align 8

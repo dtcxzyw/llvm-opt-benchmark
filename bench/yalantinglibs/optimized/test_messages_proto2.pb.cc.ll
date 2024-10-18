@@ -4048,7 +4048,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i, %e
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseE, i64 16), ptr @_ZN22protobuf_test_messages6proto274_TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUse_default_instance_E, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN22protobuf_test_messages6proto218TestAllTypesProto261_i_give_permission_to_break_this_code_default_default_string_B5cxx11E, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN22protobuf_test_messages6proto218TestAllTypesProto261_i_give_permission_to_break_this_code_default_default_string_B5cxx11E, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto261_i_give_permission_to_break_this_code_default_default_string_B5cxx11E, i64 16), ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto261_i_give_permission_to_break_this_code_default_default_string_B5cxx11E, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto261_i_give_permission_to_break_this_code_default_default_string_B5cxx11E, i64 8), align 8
@@ -4057,7 +4057,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i, %e
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #28
   %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #28
   store ptr %2, ptr %ref.tmp, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %2, ptr noundef nonnull align 1 dereferenceable(7) @.str.45, i64 7, i1 false)
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -4099,12 +4099,12 @@ if.then.i.i:                                      ; preds = %_ZNSt7__cxx1112basi
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #28
   call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal13DestroyStringEPKv, ptr noundef nonnull @_ZN22protobuf_test_messages6proto218TestAllTypesProto261_i_give_permission_to_break_this_code_default_default_string_B5cxx11E)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i5) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN22protobuf_test_messages6proto218TestAllTypesProto260_i_give_permission_to_break_this_code_default_default_bytes_B5cxx11E, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i5) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN22protobuf_test_messages6proto218TestAllTypesProto260_i_give_permission_to_break_this_code_default_default_bytes_B5cxx11E, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i5) #28
   store ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto260_i_give_permission_to_break_this_code_default_default_bytes_B5cxx11E, i64 16), ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto260_i_give_permission_to_break_this_code_default_default_bytes_B5cxx11E, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i5) #28
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto260_i_give_permission_to_break_this_code_default_default_bytes_B5cxx11E, i64 8), align 8
@@ -4113,7 +4113,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i, %_ZNKS
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #28
   %10 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #28
   store ptr %10, ptr %ref.tmp7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, ptr noundef nonnull align 1 dereferenceable(6) @.str.46, i64 6, i1 false)
   %_M_string_length.i.i.i.i7 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
@@ -4155,7 +4155,7 @@ if.then.i.i34:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i35, %if.then.i.i34
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #28
   call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal13DestroyStringEPKv, ptr noundef nonnull @_ZN22protobuf_test_messages6proto218TestAllTypesProto260_i_give_permission_to_break_this_code_default_default_bytes_B5cxx11E)
   call void @_ZN22protobuf_test_messages6proto218TestAllTypesProto2C2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(3152) @_ZN22protobuf_test_messages6proto237_TestAllTypesProto2_default_instance_E, ptr noundef null)
@@ -5014,7 +5014,7 @@ do.end.i.i.i:                                     ; preds = %do.body.i.i.i
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN22protobuf_test_messages6proto220ForeignMessageProto2EE5ClearEv.exit, %if.then.i19, %do.end.i.i.i
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 512
   tail call void @_ZN6google8protobuf3MapIiiE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_)
   %map_int64_int64_ = getelementptr inbounds i8, ptr %this, i64 536
   %repeated_field_.i20 = getelementptr inbounds i8, ptr %this, i64 552
   %23 = load ptr, ptr %repeated_field_.i20, align 8
@@ -5053,7 +5053,7 @@ do.end.i.i.i37:                                   ; preds = %do.body.i.i.i30
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EE5ClearEv.exit, %if.then.i22, %do.end.i.i.i37
   %impl_.i25 = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZN6google8protobuf3MapIllE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i25)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_)
   %map_uint32_uint32_ = getelementptr inbounds i8, ptr %this, i64 632
   %repeated_field_.i38 = getelementptr inbounds i8, ptr %this, i64 648
   %28 = load ptr, ptr %repeated_field_.i38, align 8
@@ -5092,7 +5092,7 @@ do.end.i.i.i55:                                   ; preds = %do.body.i.i.i48
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EE5ClearEv.exit, %if.then.i40, %do.end.i.i.i55
   %impl_.i43 = getelementptr inbounds i8, ptr %this, i64 704
   tail call void @_ZN6google8protobuf3MapIjjE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i43)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_)
   %map_uint64_uint64_ = getelementptr inbounds i8, ptr %this, i64 728
   %repeated_field_.i56 = getelementptr inbounds i8, ptr %this, i64 744
   %33 = load ptr, ptr %repeated_field_.i56, align 8
@@ -5131,7 +5131,7 @@ do.end.i.i.i73:                                   ; preds = %do.body.i.i.i66
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EE5ClearEv.exit, %if.then.i58, %do.end.i.i.i73
   %impl_.i61 = getelementptr inbounds i8, ptr %this, i64 800
   tail call void @_ZN6google8protobuf3MapImmE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i61)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_)
   %map_sint32_sint32_ = getelementptr inbounds i8, ptr %this, i64 824
   %repeated_field_.i74 = getelementptr inbounds i8, ptr %this, i64 840
   %38 = load ptr, ptr %repeated_field_.i74, align 8
@@ -5170,7 +5170,7 @@ do.end.i.i.i91:                                   ; preds = %do.body.i.i.i84
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EE5ClearEv.exit, %if.then.i76, %do.end.i.i.i91
   %impl_.i79 = getelementptr inbounds i8, ptr %this, i64 896
   tail call void @_ZN6google8protobuf3MapIiiE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i79)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_)
   %map_sint64_sint64_ = getelementptr inbounds i8, ptr %this, i64 920
   %repeated_field_.i92 = getelementptr inbounds i8, ptr %this, i64 936
   %43 = load ptr, ptr %repeated_field_.i92, align 8
@@ -5209,7 +5209,7 @@ do.end.i.i.i109:                                  ; preds = %do.body.i.i.i102
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EE5ClearEv.exit, %if.then.i94, %do.end.i.i.i109
   %impl_.i97 = getelementptr inbounds i8, ptr %this, i64 992
   tail call void @_ZN6google8protobuf3MapIllE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i97)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_)
   %map_fixed32_fixed32_ = getelementptr inbounds i8, ptr %this, i64 1016
   %repeated_field_.i110 = getelementptr inbounds i8, ptr %this, i64 1032
   %48 = load ptr, ptr %repeated_field_.i110, align 8
@@ -5248,7 +5248,7 @@ do.end.i.i.i127:                                  ; preds = %do.body.i.i.i120
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EE5ClearEv.exit, %if.then.i112, %do.end.i.i.i127
   %impl_.i115 = getelementptr inbounds i8, ptr %this, i64 1088
   tail call void @_ZN6google8protobuf3MapIjjE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i115)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_)
   %map_fixed64_fixed64_ = getelementptr inbounds i8, ptr %this, i64 1112
   %repeated_field_.i128 = getelementptr inbounds i8, ptr %this, i64 1128
   %53 = load ptr, ptr %repeated_field_.i128, align 8
@@ -5287,7 +5287,7 @@ do.end.i.i.i145:                                  ; preds = %do.body.i.i.i138
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EE5ClearEv.exit, %if.then.i130, %do.end.i.i.i145
   %impl_.i133 = getelementptr inbounds i8, ptr %this, i64 1184
   tail call void @_ZN6google8protobuf3MapImmE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i133)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_)
   %map_sfixed32_sfixed32_ = getelementptr inbounds i8, ptr %this, i64 1208
   %repeated_field_.i146 = getelementptr inbounds i8, ptr %this, i64 1224
   %58 = load ptr, ptr %repeated_field_.i146, align 8
@@ -5326,7 +5326,7 @@ do.end.i.i.i163:                                  ; preds = %do.body.i.i.i156
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EE5ClearEv.exit, %if.then.i148, %do.end.i.i.i163
   %impl_.i151 = getelementptr inbounds i8, ptr %this, i64 1280
   tail call void @_ZN6google8protobuf3MapIiiE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i151)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_)
   %map_sfixed64_sfixed64_ = getelementptr inbounds i8, ptr %this, i64 1304
   %repeated_field_.i164 = getelementptr inbounds i8, ptr %this, i64 1320
   %63 = load ptr, ptr %repeated_field_.i164, align 8
@@ -5365,7 +5365,7 @@ do.end.i.i.i181:                                  ; preds = %do.body.i.i.i174
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EE5ClearEv.exit, %if.then.i166, %do.end.i.i.i181
   %impl_.i169 = getelementptr inbounds i8, ptr %this, i64 1376
   tail call void @_ZN6google8protobuf3MapIllE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i169)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_)
   %map_int32_float_ = getelementptr inbounds i8, ptr %this, i64 1400
   %repeated_field_.i182 = getelementptr inbounds i8, ptr %this, i64 1416
   %68 = load ptr, ptr %repeated_field_.i182, align 8
@@ -5404,7 +5404,7 @@ do.end.i.i.i199:                                  ; preds = %do.body.i.i.i192
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EE5ClearEv.exit, %if.then.i184, %do.end.i.i.i199
   %impl_.i187 = getelementptr inbounds i8, ptr %this, i64 1472
   tail call void @_ZN6google8protobuf3MapIifE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i187)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_)
   %map_int32_double_ = getelementptr inbounds i8, ptr %this, i64 1496
   %repeated_field_.i200 = getelementptr inbounds i8, ptr %this, i64 1512
   %73 = load ptr, ptr %repeated_field_.i200, align 8
@@ -5443,7 +5443,7 @@ do.end.i.i.i217:                                  ; preds = %do.body.i.i.i210
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EE5ClearEv.exit, %if.then.i202, %do.end.i.i.i217
   %impl_.i205 = getelementptr inbounds i8, ptr %this, i64 1568
   tail call void @_ZN6google8protobuf3MapIidE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i205)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_)
   %map_bool_bool_ = getelementptr inbounds i8, ptr %this, i64 1592
   %repeated_field_.i218 = getelementptr inbounds i8, ptr %this, i64 1608
   %78 = load ptr, ptr %repeated_field_.i218, align 8
@@ -5482,7 +5482,7 @@ do.end.i.i.i235:                                  ; preds = %do.body.i.i.i228
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EE5ClearEv.exit, %if.then.i220, %do.end.i.i.i235
   %impl_.i223 = getelementptr inbounds i8, ptr %this, i64 1664
   tail call void @_ZN6google8protobuf3MapIbbE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i223)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_)
   %map_string_string_ = getelementptr inbounds i8, ptr %this, i64 1688
   tail call void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EE5ClearEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_)
   %map_string_bytes_ = getelementptr inbounds i8, ptr %this, i64 1784
@@ -5525,7 +5525,7 @@ do.end.i.i.i253:                                  ; preds = %do.body.i.i.i246
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EE5ClearEv.exit, %if.then.i238, %do.end.i.i.i253
   %impl_.i241 = getelementptr inbounds i8, ptr %this, i64 1952
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i241)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_)
   %map_string_foreign_message_ = getelementptr inbounds i8, ptr %this, i64 1976
   %repeated_field_.i254 = getelementptr inbounds i8, ptr %this, i64 1992
   %88 = load ptr, ptr %repeated_field_.i254, align 8
@@ -5564,7 +5564,7 @@ do.end.i.i.i271:                                  ; preds = %do.body.i.i.i264
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EE5ClearEv.exit, %if.then.i256, %do.end.i.i.i271
   %impl_.i259 = getelementptr inbounds i8, ptr %this, i64 2048
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i259)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_)
   %map_string_nested_enum_ = getelementptr inbounds i8, ptr %this, i64 2072
   %repeated_field_.i272 = getelementptr inbounds i8, ptr %this, i64 2088
   %93 = load ptr, ptr %repeated_field_.i272, align 8
@@ -5603,7 +5603,7 @@ do.end.i.i.i289:                                  ; preds = %do.body.i.i.i282
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EE5ClearEv.exit, %if.then.i274, %do.end.i.i.i289
   %impl_.i277 = getelementptr inbounds i8, ptr %this, i64 2144
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i277)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_)
   %map_string_foreign_enum_ = getelementptr inbounds i8, ptr %this, i64 2168
   %repeated_field_.i290 = getelementptr inbounds i8, ptr %this, i64 2184
   %98 = load ptr, ptr %repeated_field_.i290, align 8
@@ -5642,7 +5642,7 @@ do.end.i.i.i307:                                  ; preds = %do.body.i.i.i300
 _ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE5ClearEv.exit: ; preds = %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE5ClearEv.exit, %if.then.i292, %do.end.i.i.i307
   %impl_.i295 = getelementptr inbounds i8, ptr %this, i64 2240
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i295)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_)
   %packed_int32_ = getelementptr inbounds i8, ptr %this, i64 2264
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %packed_int32_)
   %packed_int64_ = getelementptr inbounds i8, ptr %this, i64 2288
@@ -6075,7 +6075,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -6208,7 +6208,7 @@ if.end.i11:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i12, label %success, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i11
-  %call5.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(3152) %call26, ptr noundef nonnull %storemerge.i67, ptr noundef nonnull %ctx)
+  %call5.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(3152) %call26, ptr noundef nonnull %storemerge.i67, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %success, label %if.end8.i
 
@@ -7040,151 +7040,151 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %repeated_cord_, ptr noundef nonnull align 8 dereferenceable(24) %repeated_cord_29)
   %map_int32_int32_ = getelementptr inbounds i8, ptr %this, i64 440
   %map_int32_int32_30 = getelementptr inbounds i8, ptr %from, i64 440
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_30)
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 512
   %impl_2.i = getelementptr inbounds i8, ptr %from, i64 512
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_)
   %map_int64_int64_ = getelementptr inbounds i8, ptr %this, i64 536
   %map_int64_int64_31 = getelementptr inbounds i8, ptr %from, i64 536
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_31)
   %impl_.i208 = getelementptr inbounds i8, ptr %this, i64 608
   %impl_2.i209 = getelementptr inbounds i8, ptr %from, i64 608
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i208, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i209)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_)
   %map_uint32_uint32_ = getelementptr inbounds i8, ptr %this, i64 632
   %map_uint32_uint32_32 = getelementptr inbounds i8, ptr %from, i64 632
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_32)
   %impl_.i210 = getelementptr inbounds i8, ptr %this, i64 704
   %impl_2.i211 = getelementptr inbounds i8, ptr %from, i64 704
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i210, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i211)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_)
   %map_uint64_uint64_ = getelementptr inbounds i8, ptr %this, i64 728
   %map_uint64_uint64_33 = getelementptr inbounds i8, ptr %from, i64 728
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_33)
   %impl_.i212 = getelementptr inbounds i8, ptr %this, i64 800
   %impl_2.i213 = getelementptr inbounds i8, ptr %from, i64 800
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i212, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i213)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_)
   %map_sint32_sint32_ = getelementptr inbounds i8, ptr %this, i64 824
   %map_sint32_sint32_34 = getelementptr inbounds i8, ptr %from, i64 824
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_34)
   %impl_.i214 = getelementptr inbounds i8, ptr %this, i64 896
   %impl_2.i215 = getelementptr inbounds i8, ptr %from, i64 896
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i214, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i215)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_)
   %map_sint64_sint64_ = getelementptr inbounds i8, ptr %this, i64 920
   %map_sint64_sint64_35 = getelementptr inbounds i8, ptr %from, i64 920
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_35)
   %impl_.i216 = getelementptr inbounds i8, ptr %this, i64 992
   %impl_2.i217 = getelementptr inbounds i8, ptr %from, i64 992
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i216, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i217)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_)
   %map_fixed32_fixed32_ = getelementptr inbounds i8, ptr %this, i64 1016
   %map_fixed32_fixed32_36 = getelementptr inbounds i8, ptr %from, i64 1016
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_36)
   %impl_.i218 = getelementptr inbounds i8, ptr %this, i64 1088
   %impl_2.i219 = getelementptr inbounds i8, ptr %from, i64 1088
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i218, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i219)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_)
   %map_fixed64_fixed64_ = getelementptr inbounds i8, ptr %this, i64 1112
   %map_fixed64_fixed64_37 = getelementptr inbounds i8, ptr %from, i64 1112
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_37)
   %impl_.i220 = getelementptr inbounds i8, ptr %this, i64 1184
   %impl_2.i221 = getelementptr inbounds i8, ptr %from, i64 1184
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i220, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i221)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_)
   %map_sfixed32_sfixed32_ = getelementptr inbounds i8, ptr %this, i64 1208
   %map_sfixed32_sfixed32_38 = getelementptr inbounds i8, ptr %from, i64 1208
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_38)
   %impl_.i222 = getelementptr inbounds i8, ptr %this, i64 1280
   %impl_2.i223 = getelementptr inbounds i8, ptr %from, i64 1280
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i222, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i223)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_)
   %map_sfixed64_sfixed64_ = getelementptr inbounds i8, ptr %this, i64 1304
   %map_sfixed64_sfixed64_39 = getelementptr inbounds i8, ptr %from, i64 1304
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_39)
   %impl_.i224 = getelementptr inbounds i8, ptr %this, i64 1376
   %impl_2.i225 = getelementptr inbounds i8, ptr %from, i64 1376
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i224, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i225)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_)
   %map_int32_float_ = getelementptr inbounds i8, ptr %this, i64 1400
   %map_int32_float_40 = getelementptr inbounds i8, ptr %from, i64 1400
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_40)
   %impl_.i226 = getelementptr inbounds i8, ptr %this, i64 1472
   %impl_2.i227 = getelementptr inbounds i8, ptr %from, i64 1472
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i226, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i227)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_)
   %map_int32_double_ = getelementptr inbounds i8, ptr %this, i64 1496
   %map_int32_double_41 = getelementptr inbounds i8, ptr %from, i64 1496
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_41)
   %impl_.i228 = getelementptr inbounds i8, ptr %this, i64 1568
   %impl_2.i229 = getelementptr inbounds i8, ptr %from, i64 1568
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i228, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i229)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_)
   %map_bool_bool_ = getelementptr inbounds i8, ptr %this, i64 1592
   %map_bool_bool_42 = getelementptr inbounds i8, ptr %from, i64 1592
   tail call void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EE9MergeFromERKNS1_12MapFieldBaseE(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_, ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_42)
   %map_string_string_ = getelementptr inbounds i8, ptr %this, i64 1688
   %map_string_string_43 = getelementptr inbounds i8, ptr %from, i64 1688
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_43)
   %impl_.i230 = getelementptr inbounds i8, ptr %this, i64 1760
   %impl_2.i231 = getelementptr inbounds i8, ptr %from, i64 1760
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EE9MergeFromERKSE_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i230, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i231)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_)
   %map_string_bytes_ = getelementptr inbounds i8, ptr %this, i64 1784
   %map_string_bytes_44 = getelementptr inbounds i8, ptr %from, i64 1784
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_44)
   %impl_.i232 = getelementptr inbounds i8, ptr %this, i64 1856
   %impl_2.i233 = getelementptr inbounds i8, ptr %from, i64 1856
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EE9MergeFromERKSE_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i232, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i233)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_)
   %map_string_nested_message_ = getelementptr inbounds i8, ptr %this, i64 1880
   %map_string_nested_message_45 = getelementptr inbounds i8, ptr %from, i64 1880
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_45)
   %impl_.i234 = getelementptr inbounds i8, ptr %this, i64 1952
   %impl_2.i235 = getelementptr inbounds i8, ptr %from, i64 1952
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EE9MergeFromERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i234, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i235)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_)
   %map_string_foreign_message_ = getelementptr inbounds i8, ptr %this, i64 1976
   %map_string_foreign_message_46 = getelementptr inbounds i8, ptr %from, i64 1976
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_46)
   %impl_.i236 = getelementptr inbounds i8, ptr %this, i64 2048
   %impl_2.i237 = getelementptr inbounds i8, ptr %from, i64 2048
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EE9MergeFromERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i236, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i237)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_)
   %map_string_nested_enum_ = getelementptr inbounds i8, ptr %this, i64 2072
   %map_string_nested_enum_47 = getelementptr inbounds i8, ptr %from, i64 2072
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_47)
   %impl_.i238 = getelementptr inbounds i8, ptr %this, i64 2144
   %impl_2.i239 = getelementptr inbounds i8, ptr %from, i64 2144
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE9MergeFromERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i238, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i239)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_)
   %map_string_foreign_enum_ = getelementptr inbounds i8, ptr %this, i64 2168
   %map_string_foreign_enum_48 = getelementptr inbounds i8, ptr %from, i64 2168
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_48)
   %impl_.i240 = getelementptr inbounds i8, ptr %this, i64 2240
   %impl_2.i241 = getelementptr inbounds i8, ptr %from, i64 2240
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE9MergeFromERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i240, ptr noundef nonnull align 8 dereferenceable(24) %impl_2.i241)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_)
   %packed_int32_ = getelementptr inbounds i8, ptr %this, i64 2264
   %packed_int32_49 = getelementptr inbounds i8, ptr %from, i64 2264
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %packed_int32_, ptr noundef nonnull align 8 dereferenceable(16) %packed_int32_49)
@@ -8584,12 +8584,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit
 
 _ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit: ; preds = %if.end.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageE, i64 0) #28
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageE, i64 0) #28
   %cmp8.i = icmp eq ptr %7, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(40) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage5ClearEv.exit
@@ -11635,7 +11635,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -12243,12 +12243,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data5ClearEv.exit
 
 _ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data5ClearEv.exit: ; preds = %if.end.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto223TestAllTypesProto2_DataE, i64 0) #28
+  %6 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto223TestAllTypesProto2_DataE, i64 0) #28
   %cmp8.i = icmp eq ptr %6, null
   br i1 %cmp8.i, label %if.then.i3, label %if.else.i
 
 if.then.i3:                                       ; preds = %_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(32) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data5ClearEv.exit
@@ -12804,7 +12804,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -13078,12 +13078,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect5ClearEv.exit
 
 _ZN22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect5ClearEv.exit: ; preds = %if.end, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrectE, i64 0) #28
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrectE, i64 0) #28
   %cmp8.i = icmp eq ptr %5, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(48) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN22protobuf_test_messages6proto236TestAllTypesProto2_MessageSetCorrect5ClearEv.exit
@@ -13468,7 +13468,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   br label %invoke.cont
 
@@ -13638,7 +13638,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -14059,12 +14059,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension15ClearEv.exit
 
 _ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension15ClearEv.exit: ; preds = %if.end.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %8 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension1E, i64 0) #28
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension1E, i64 0) #28
   %cmp8.i = icmp eq ptr %8, null
   br i1 %cmp8.i, label %if.then.i3, label %if.else.i
 
 if.then.i3:                                       ; preds = %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension15ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(32) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension15ClearEv.exit
@@ -14565,7 +14565,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -15000,12 +15000,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension25ClearEv.exit
 
 _ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension25ClearEv.exit: ; preds = %if.end, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension2E, i64 0) #28
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension2E, i64 0) #28
   %cmp8.i = icmp eq ptr %5, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension25ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(32) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension25ClearEv.exit
@@ -15422,7 +15422,7 @@ if.then.i.i.i:                                    ; preds = %delete.notnull.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   br label %sw.epilog.sink.split
 
 sw.bb8:                                           ; preds = %entry
@@ -15470,7 +15470,7 @@ if.then.i.i.i22:                                  ; preds = %delete.notnull.i20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i23
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i23: ; preds = %if.then.i.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i24
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #28
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %delete.notnull, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i23
@@ -15609,7 +15609,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
 
 if.then.i.i.i:                                    ; preds = %invoke.cont44
   %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i unwind label %lpad45
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i, %invoke.cont44
@@ -15624,7 +15624,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i:
 lpad.i:                                           ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_) #28
   br label %ehcleanup188
 
 invoke.cont46:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i
@@ -15639,7 +15639,7 @@ invoke.cont46:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i142:                                 ; preds = %invoke.cont46
   %mutex_.i.i.i143 = getelementptr inbounds i8, ptr %this, i64 560
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i143, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i143, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i unwind label %lpad47
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i142, %invoke.cont46
@@ -15654,7 +15654,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i:
 lpad.i146:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_) #28
   br label %ehcleanup187
 
 invoke.cont48:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i
@@ -15669,7 +15669,7 @@ invoke.cont48:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i152:                                 ; preds = %invoke.cont48
   %mutex_.i.i.i153 = getelementptr inbounds i8, ptr %this, i64 656
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i153, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i153, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i unwind label %lpad49
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i152, %invoke.cont48
@@ -15684,7 +15684,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i:
 lpad.i156:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_) #28
   br label %ehcleanup186
 
 invoke.cont50:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i
@@ -15699,7 +15699,7 @@ invoke.cont50:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i162:                                 ; preds = %invoke.cont50
   %mutex_.i.i.i163 = getelementptr inbounds i8, ptr %this, i64 752
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i163, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i163, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i unwind label %lpad51
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i162, %invoke.cont50
@@ -15714,7 +15714,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i:
 lpad.i166:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_) #28
   br label %ehcleanup185
 
 invoke.cont52:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i
@@ -15729,7 +15729,7 @@ invoke.cont52:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i172:                                 ; preds = %invoke.cont52
   %mutex_.i.i.i173 = getelementptr inbounds i8, ptr %this, i64 848
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i173, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i173, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i174 unwind label %lpad53
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i174: ; preds = %if.then.i.i.i172, %invoke.cont52
@@ -15744,7 +15744,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i1
 lpad.i177:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i174
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_) #28
   br label %ehcleanup184
 
 invoke.cont54:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i174
@@ -15759,7 +15759,7 @@ invoke.cont54:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i183:                                 ; preds = %invoke.cont54
   %mutex_.i.i.i184 = getelementptr inbounds i8, ptr %this, i64 944
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i184, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i184, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i185 unwind label %lpad55
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i185: ; preds = %if.then.i.i.i183, %invoke.cont54
@@ -15774,7 +15774,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i1
 lpad.i188:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i185
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_) #28
   br label %ehcleanup183
 
 invoke.cont56:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i185
@@ -15789,7 +15789,7 @@ invoke.cont56:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i194:                                 ; preds = %invoke.cont56
   %mutex_.i.i.i195 = getelementptr inbounds i8, ptr %this, i64 1040
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i195, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i195, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i196 unwind label %lpad57
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i196: ; preds = %if.then.i.i.i194, %invoke.cont56
@@ -15804,7 +15804,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i1
 lpad.i199:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i196
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_) #28
   br label %ehcleanup182
 
 invoke.cont58:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i196
@@ -15819,7 +15819,7 @@ invoke.cont58:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i205:                                 ; preds = %invoke.cont58
   %mutex_.i.i.i206 = getelementptr inbounds i8, ptr %this, i64 1136
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i206, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i206, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i207 unwind label %lpad59
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i207: ; preds = %if.then.i.i.i205, %invoke.cont58
@@ -15834,7 +15834,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i2
 lpad.i210:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i207
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_) #28
   br label %ehcleanup181
 
 invoke.cont60:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i207
@@ -15849,7 +15849,7 @@ invoke.cont60:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i216:                                 ; preds = %invoke.cont60
   %mutex_.i.i.i217 = getelementptr inbounds i8, ptr %this, i64 1232
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i217, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i217, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i218 unwind label %lpad61
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i218: ; preds = %if.then.i.i.i216, %invoke.cont60
@@ -15864,7 +15864,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i2
 lpad.i221:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i218
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_) #28
   br label %ehcleanup180
 
 invoke.cont62:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i218
@@ -15879,7 +15879,7 @@ invoke.cont62:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i227:                                 ; preds = %invoke.cont62
   %mutex_.i.i.i228 = getelementptr inbounds i8, ptr %this, i64 1328
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i228, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i228, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i229 unwind label %lpad63
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i229: ; preds = %if.then.i.i.i227, %invoke.cont62
@@ -15894,7 +15894,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i2
 lpad.i232:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i229
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_) #28
   br label %ehcleanup179
 
 invoke.cont64:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i229
@@ -15909,7 +15909,7 @@ invoke.cont64:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i238:                                 ; preds = %invoke.cont64
   %mutex_.i.i.i239 = getelementptr inbounds i8, ptr %this, i64 1424
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i239, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i239, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIifEC2EPNS0_5ArenaE.exit.i unwind label %lpad65
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIifEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i238, %invoke.cont64
@@ -15924,7 +15924,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIifEC2EPNS0_5ArenaE.exit.i:
 lpad.i242:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIifEC2EPNS0_5ArenaE.exit.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_) #28
   br label %ehcleanup178
 
 invoke.cont66:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIifEC2EPNS0_5ArenaE.exit.i
@@ -15939,7 +15939,7 @@ invoke.cont66:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i248:                                 ; preds = %invoke.cont66
   %mutex_.i.i.i249 = getelementptr inbounds i8, ptr %this, i64 1520
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i249, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i249, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIidEC2EPNS0_5ArenaE.exit.i unwind label %lpad67
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIidEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i248, %invoke.cont66
@@ -15954,7 +15954,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIidEC2EPNS0_5ArenaE.exit.i:
 lpad.i252:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIidEC2EPNS0_5ArenaE.exit.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_) #28
   br label %ehcleanup177
 
 invoke.cont68:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIidEC2EPNS0_5ArenaE.exit.i
@@ -15969,7 +15969,7 @@ invoke.cont68:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i258:                                 ; preds = %invoke.cont68
   %mutex_.i.i.i259 = getelementptr inbounds i8, ptr %this, i64 1616
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i259, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i259, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIbbEC2EPNS0_5ArenaE.exit.i unwind label %lpad69
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIbbEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i258, %invoke.cont68
@@ -15984,7 +15984,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIbbEC2EPNS0_5ArenaE.exit.i:
 lpad.i262:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIbbEC2EPNS0_5ArenaE.exit.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_) #28
   br label %ehcleanup176
 
 invoke.cont70:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIbbEC2EPNS0_5ArenaE.exit.i
@@ -15999,7 +15999,7 @@ invoke.cont70:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i268:                                 ; preds = %invoke.cont70
   %mutex_.i.i.i269 = getelementptr inbounds i8, ptr %this, i64 1712
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i269, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i269, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i unwind label %lpad71
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i268, %invoke.cont70
@@ -16014,7 +16014,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringI
 lpad.i272:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_) #28
   br label %ehcleanup175
 
 invoke.cont72:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i
@@ -16029,7 +16029,7 @@ invoke.cont72:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i278:                                 ; preds = %invoke.cont72
   %mutex_.i.i.i279 = getelementptr inbounds i8, ptr %this, i64 1808
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i279, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i279, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i280 unwind label %lpad73
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i280: ; preds = %if.then.i.i.i278, %invoke.cont72
@@ -16044,7 +16044,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringI
 lpad.i283:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i280
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_) #28
   br label %ehcleanup174
 
 invoke.cont74:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i280
@@ -16059,7 +16059,7 @@ invoke.cont74:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i289:                                 ; preds = %invoke.cont74
   %mutex_.i.i.i290 = getelementptr inbounds i8, ptr %this, i64 1904
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i290, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i290, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEC2EPNS0_5ArenaE.exit.i unwind label %lpad75
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i289, %invoke.cont74
@@ -16074,7 +16074,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringI
 lpad.i293:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEC2EPNS0_5ArenaE.exit.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_) #28
   br label %ehcleanup173
 
 invoke.cont76:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEC2EPNS0_5ArenaE.exit.i
@@ -16089,7 +16089,7 @@ invoke.cont76:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i299:                                 ; preds = %invoke.cont76
   %mutex_.i.i.i300 = getelementptr inbounds i8, ptr %this, i64 2000
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i300, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i300, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEC2EPNS0_5ArenaE.exit.i unwind label %lpad77
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i299, %invoke.cont76
@@ -16104,7 +16104,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringI
 lpad.i303:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEC2EPNS0_5ArenaE.exit.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_) #28
   br label %ehcleanup172
 
 invoke.cont78:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEC2EPNS0_5ArenaE.exit.i
@@ -16119,7 +16119,7 @@ invoke.cont78:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i309:                                 ; preds = %invoke.cont78
   %mutex_.i.i.i310 = getelementptr inbounds i8, ptr %this, i64 2096
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i310, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i310, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEC2EPNS0_5ArenaE.exit.i unwind label %lpad79
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i309, %invoke.cont78
@@ -16134,7 +16134,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringI
 lpad.i313:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEC2EPNS0_5ArenaE.exit.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_) #28
   br label %ehcleanup171
 
 invoke.cont80:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEC2EPNS0_5ArenaE.exit.i
@@ -16149,7 +16149,7 @@ invoke.cont80:                                    ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i319:                                 ; preds = %invoke.cont80
   %mutex_.i.i.i320 = getelementptr inbounds i8, ptr %this, i64 2192
-  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %arena, ptr noundef nonnull %mutex_.i.i.i320, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
+  invoke void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %arena, ptr noundef nonnull %mutex_.i.i.i320, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_12WrappedMutexEEEvPv)
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EEC2EPNS0_5ArenaE.exit.i unwind label %lpad81
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i319, %invoke.cont80
@@ -16164,7 +16164,7 @@ _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringI
 lpad.i323:                                        ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EEC2EPNS0_5ArenaE.exit.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_) #28
   br label %ehcleanup170
 
 invoke.cont82:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EEC2EPNS0_5ArenaE.exit.i
@@ -16865,133 +16865,133 @@ ehcleanup169:                                     ; preds = %ehcleanup168, %lpad
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup168 ], [ %58, %lpad83 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 16), ptr %map_string_foreign_enum_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i321) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_) #28
   br label %ehcleanup170
 
 ehcleanup170:                                     ; preds = %lpad81, %lpad.i323, %ehcleanup169
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup169 ], [ %57, %lpad81 ], [ %18, %lpad.i323 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 16), ptr %map_string_nested_enum_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i311) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_) #28
   br label %ehcleanup171
 
 ehcleanup171:                                     ; preds = %lpad79, %lpad.i313, %ehcleanup170
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup170 ], [ %56, %lpad79 ], [ %17, %lpad.i313 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 16), ptr %map_string_foreign_message_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i301) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_) #28
   br label %ehcleanup172
 
 ehcleanup172:                                     ; preds = %lpad77, %lpad.i303, %ehcleanup171
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup171 ], [ %55, %lpad77 ], [ %16, %lpad.i303 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 16), ptr %map_string_nested_message_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i291) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_) #28
   br label %ehcleanup173
 
 ehcleanup173:                                     ; preds = %lpad75, %lpad.i293, %ehcleanup172
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup172 ], [ %54, %lpad75 ], [ %15, %lpad.i293 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 16), ptr %map_string_bytes_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i281) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_) #28
   br label %ehcleanup174
 
 ehcleanup174:                                     ; preds = %lpad73, %lpad.i283, %ehcleanup173
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup173 ], [ %53, %lpad73 ], [ %14, %lpad.i283 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 16), ptr %map_string_string_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i270) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_) #28
   br label %ehcleanup175
 
 ehcleanup175:                                     ; preds = %lpad71, %lpad.i272, %ehcleanup174
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup174 ], [ %52, %lpad71 ], [ %13, %lpad.i272 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 16), ptr %map_bool_bool_, align 8
   tail call void @_ZN6google8protobuf3MapIbbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i260) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_) #28
   br label %ehcleanup176
 
 ehcleanup176:                                     ; preds = %lpad69, %lpad.i262, %ehcleanup175
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup175 ], [ %51, %lpad69 ], [ %12, %lpad.i262 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 16), ptr %map_int32_double_, align 8
   tail call void @_ZN6google8protobuf3MapIidED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i250) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_) #28
   br label %ehcleanup177
 
 ehcleanup177:                                     ; preds = %lpad67, %lpad.i252, %ehcleanup176
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup176 ], [ %50, %lpad67 ], [ %11, %lpad.i252 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 16), ptr %map_int32_float_, align 8
   tail call void @_ZN6google8protobuf3MapIifED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i240) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_) #28
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %lpad65, %lpad.i242, %ehcleanup177
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup177 ], [ %49, %lpad65 ], [ %10, %lpad.i242 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 16), ptr %map_sfixed64_sfixed64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i230) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_) #28
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %lpad63, %lpad.i232, %ehcleanup178
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup178 ], [ %48, %lpad63 ], [ %9, %lpad.i232 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 16), ptr %map_sfixed32_sfixed32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i219) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_) #28
   br label %ehcleanup180
 
 ehcleanup180:                                     ; preds = %lpad61, %lpad.i221, %ehcleanup179
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup179 ], [ %47, %lpad61 ], [ %8, %lpad.i221 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 16), ptr %map_fixed64_fixed64_, align 8
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i208) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_) #28
   br label %ehcleanup181
 
 ehcleanup181:                                     ; preds = %lpad59, %lpad.i210, %ehcleanup180
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup180 ], [ %46, %lpad59 ], [ %7, %lpad.i210 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 16), ptr %map_fixed32_fixed32_, align 8
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i197) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_) #28
   br label %ehcleanup182
 
 ehcleanup182:                                     ; preds = %lpad57, %lpad.i199, %ehcleanup181
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup181 ], [ %45, %lpad57 ], [ %6, %lpad.i199 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 16), ptr %map_sint64_sint64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i186) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_) #28
   br label %ehcleanup183
 
 ehcleanup183:                                     ; preds = %lpad55, %lpad.i188, %ehcleanup182
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup182 ], [ %44, %lpad55 ], [ %5, %lpad.i188 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 16), ptr %map_sint32_sint32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i175) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_) #28
   br label %ehcleanup184
 
 ehcleanup184:                                     ; preds = %lpad53, %lpad.i177, %ehcleanup183
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup183 ], [ %43, %lpad53 ], [ %4, %lpad.i177 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 16), ptr %map_uint64_uint64_, align 8
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i164) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_) #28
   br label %ehcleanup185
 
 ehcleanup185:                                     ; preds = %lpad51, %lpad.i166, %ehcleanup184
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup184 ], [ %42, %lpad51 ], [ %3, %lpad.i166 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 16), ptr %map_uint32_uint32_, align 8
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i154) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_) #28
   br label %ehcleanup186
 
 ehcleanup186:                                     ; preds = %lpad49, %lpad.i156, %ehcleanup185
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup185 ], [ %41, %lpad49 ], [ %2, %lpad.i156 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 16), ptr %map_int64_int64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i144) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_) #28
   br label %ehcleanup187
 
 ehcleanup187:                                     ; preds = %lpad47, %lpad.i146, %ehcleanup186
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup186 ], [ %40, %lpad47 ], [ %1, %lpad.i146 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 16), ptr %map_int32_int32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_) #28
   br label %ehcleanup188
 
 ehcleanup188:                                     ; preds = %lpad45, %lpad.i, %ehcleanup187
@@ -18167,7 +18167,7 @@ invoke.cont191:                                   ; preds = %_ZN6google8protobuf
           to label %invoke.cont194 unwind label %lpad188
 
 invoke.cont194:                                   ; preds = %invoke.cont191
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_)
           to label %.noexc270 unwind label %lpad188
 
 .noexc270:                                        ; preds = %invoke.cont194
@@ -18181,11 +18181,11 @@ invoke.cont194:                                   ; preds = %invoke.cont191
           to label %.noexc272 unwind label %lpad188
 
 .noexc272:                                        ; preds = %.noexc271
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_)
           to label %invoke.cont197 unwind label %lpad188
 
 invoke.cont197:                                   ; preds = %.noexc272
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_)
           to label %.noexc276 unwind label %lpad188
 
 .noexc276:                                        ; preds = %invoke.cont197
@@ -18199,11 +18199,11 @@ invoke.cont197:                                   ; preds = %.noexc272
           to label %.noexc278 unwind label %lpad188
 
 .noexc278:                                        ; preds = %.noexc277
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_)
           to label %invoke.cont200 unwind label %lpad188
 
 invoke.cont200:                                   ; preds = %.noexc278
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_)
           to label %.noexc282 unwind label %lpad188
 
 .noexc282:                                        ; preds = %invoke.cont200
@@ -18217,11 +18217,11 @@ invoke.cont200:                                   ; preds = %.noexc278
           to label %.noexc284 unwind label %lpad188
 
 .noexc284:                                        ; preds = %.noexc283
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_)
           to label %invoke.cont203 unwind label %lpad188
 
 invoke.cont203:                                   ; preds = %.noexc284
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_)
           to label %.noexc288 unwind label %lpad188
 
 .noexc288:                                        ; preds = %invoke.cont203
@@ -18235,11 +18235,11 @@ invoke.cont203:                                   ; preds = %.noexc284
           to label %.noexc290 unwind label %lpad188
 
 .noexc290:                                        ; preds = %.noexc289
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_)
           to label %invoke.cont206 unwind label %lpad188
 
 invoke.cont206:                                   ; preds = %.noexc290
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_)
           to label %.noexc294 unwind label %lpad188
 
 .noexc294:                                        ; preds = %invoke.cont206
@@ -18253,11 +18253,11 @@ invoke.cont206:                                   ; preds = %.noexc290
           to label %.noexc296 unwind label %lpad188
 
 .noexc296:                                        ; preds = %.noexc295
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_)
           to label %invoke.cont209 unwind label %lpad188
 
 invoke.cont209:                                   ; preds = %.noexc296
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_)
           to label %.noexc300 unwind label %lpad188
 
 .noexc300:                                        ; preds = %invoke.cont209
@@ -18271,11 +18271,11 @@ invoke.cont209:                                   ; preds = %.noexc296
           to label %.noexc302 unwind label %lpad188
 
 .noexc302:                                        ; preds = %.noexc301
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_)
           to label %invoke.cont212 unwind label %lpad188
 
 invoke.cont212:                                   ; preds = %.noexc302
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_)
           to label %.noexc306 unwind label %lpad188
 
 .noexc306:                                        ; preds = %invoke.cont212
@@ -18289,11 +18289,11 @@ invoke.cont212:                                   ; preds = %.noexc302
           to label %.noexc308 unwind label %lpad188
 
 .noexc308:                                        ; preds = %.noexc307
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_)
           to label %invoke.cont215 unwind label %lpad188
 
 invoke.cont215:                                   ; preds = %.noexc308
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_)
           to label %.noexc312 unwind label %lpad188
 
 .noexc312:                                        ; preds = %invoke.cont215
@@ -18307,11 +18307,11 @@ invoke.cont215:                                   ; preds = %.noexc308
           to label %.noexc314 unwind label %lpad188
 
 .noexc314:                                        ; preds = %.noexc313
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_)
           to label %invoke.cont218 unwind label %lpad188
 
 invoke.cont218:                                   ; preds = %.noexc314
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_)
           to label %.noexc318 unwind label %lpad188
 
 .noexc318:                                        ; preds = %invoke.cont218
@@ -18325,11 +18325,11 @@ invoke.cont218:                                   ; preds = %.noexc314
           to label %.noexc320 unwind label %lpad188
 
 .noexc320:                                        ; preds = %.noexc319
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_)
           to label %invoke.cont221 unwind label %lpad188
 
 invoke.cont221:                                   ; preds = %.noexc320
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_)
           to label %.noexc324 unwind label %lpad188
 
 .noexc324:                                        ; preds = %invoke.cont221
@@ -18343,11 +18343,11 @@ invoke.cont221:                                   ; preds = %.noexc320
           to label %.noexc326 unwind label %lpad188
 
 .noexc326:                                        ; preds = %.noexc325
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_)
           to label %invoke.cont224 unwind label %lpad188
 
 invoke.cont224:                                   ; preds = %.noexc326
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_)
           to label %.noexc330 unwind label %lpad188
 
 .noexc330:                                        ; preds = %invoke.cont224
@@ -18361,11 +18361,11 @@ invoke.cont224:                                   ; preds = %.noexc326
           to label %.noexc332 unwind label %lpad188
 
 .noexc332:                                        ; preds = %.noexc331
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_)
           to label %invoke.cont227 unwind label %lpad188
 
 invoke.cont227:                                   ; preds = %.noexc332
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_)
           to label %.noexc336 unwind label %lpad188
 
 .noexc336:                                        ; preds = %invoke.cont227
@@ -18379,7 +18379,7 @@ invoke.cont227:                                   ; preds = %.noexc332
           to label %.noexc338 unwind label %lpad188
 
 .noexc338:                                        ; preds = %.noexc337
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_)
           to label %invoke.cont230 unwind label %lpad188
 
 invoke.cont230:                                   ; preds = %.noexc338
@@ -18388,7 +18388,7 @@ invoke.cont230:                                   ; preds = %.noexc338
           to label %invoke.cont233 unwind label %lpad188
 
 invoke.cont233:                                   ; preds = %invoke.cont230
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_)
           to label %.noexc342 unwind label %lpad188
 
 .noexc342:                                        ; preds = %invoke.cont233
@@ -18402,11 +18402,11 @@ invoke.cont233:                                   ; preds = %invoke.cont230
           to label %.noexc344 unwind label %lpad188
 
 .noexc344:                                        ; preds = %.noexc343
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_)
           to label %invoke.cont236 unwind label %lpad188
 
 invoke.cont236:                                   ; preds = %.noexc344
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_)
           to label %.noexc348 unwind label %lpad188
 
 .noexc348:                                        ; preds = %invoke.cont236
@@ -18420,11 +18420,11 @@ invoke.cont236:                                   ; preds = %.noexc344
           to label %.noexc350 unwind label %lpad188
 
 .noexc350:                                        ; preds = %.noexc349
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_)
           to label %invoke.cont239 unwind label %lpad188
 
 invoke.cont239:                                   ; preds = %.noexc350
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_)
           to label %.noexc354 unwind label %lpad188
 
 .noexc354:                                        ; preds = %invoke.cont239
@@ -18438,11 +18438,11 @@ invoke.cont239:                                   ; preds = %.noexc350
           to label %.noexc356 unwind label %lpad188
 
 .noexc356:                                        ; preds = %.noexc355
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_)
           to label %invoke.cont242 unwind label %lpad188
 
 invoke.cont242:                                   ; preds = %.noexc356
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_)
           to label %.noexc360 unwind label %lpad188
 
 .noexc360:                                        ; preds = %invoke.cont242
@@ -18456,11 +18456,11 @@ invoke.cont242:                                   ; preds = %.noexc356
           to label %.noexc362 unwind label %lpad188
 
 .noexc362:                                        ; preds = %.noexc361
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_)
           to label %invoke.cont245 unwind label %lpad188
 
 invoke.cont245:                                   ; preds = %.noexc362
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_)
           to label %.noexc366 unwind label %lpad188
 
 .noexc366:                                        ; preds = %invoke.cont245
@@ -18474,11 +18474,11 @@ invoke.cont245:                                   ; preds = %.noexc362
           to label %.noexc368 unwind label %lpad188
 
 .noexc368:                                        ; preds = %.noexc367
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_)
           to label %invoke.cont248 unwind label %lpad188
 
 invoke.cont248:                                   ; preds = %.noexc368
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_)
           to label %.noexc372 unwind label %lpad188
 
 .noexc372:                                        ; preds = %invoke.cont248
@@ -18492,7 +18492,7 @@ invoke.cont248:                                   ; preds = %.noexc368
           to label %.noexc374 unwind label %lpad188
 
 .noexc374:                                        ; preds = %.noexc373
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_)
           to label %invoke.cont255 unwind label %lpad188
 
 invoke.cont255:                                   ; preds = %.noexc374
@@ -19431,133 +19431,133 @@ ehcleanup458:                                     ; preds = %ehcleanup457, %lpad
 
 ehcleanup459:                                     ; preds = %lpad.i263, %ehcleanup458
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup458 ], [ %27, %lpad.i263 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 16), ptr %map_string_nested_enum_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i256) #28
   br label %ehcleanup460
 
 ehcleanup460:                                     ; preds = %lpad.i258, %ehcleanup459
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup459 ], [ %26, %lpad.i258 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 16), ptr %map_string_foreign_message_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i251) #28
   br label %ehcleanup461
 
 ehcleanup461:                                     ; preds = %lpad.i253, %ehcleanup460
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup460 ], [ %25, %lpad.i253 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 16), ptr %map_string_nested_message_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i246) #28
   br label %ehcleanup462
 
 ehcleanup462:                                     ; preds = %lpad.i248, %ehcleanup461
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup461 ], [ %24, %lpad.i248 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 16), ptr %map_string_bytes_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i241) #28
   br label %ehcleanup463
 
 ehcleanup463:                                     ; preds = %lpad.i243, %ehcleanup462
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup462 ], [ %23, %lpad.i243 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 16), ptr %map_string_string_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i236) #28
   br label %ehcleanup464
 
 ehcleanup464:                                     ; preds = %lpad.i238, %ehcleanup463
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup463 ], [ %22, %lpad.i238 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 16), ptr %map_bool_bool_, align 8
   tail call void @_ZN6google8protobuf3MapIbbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i231) #28
   br label %ehcleanup465
 
 ehcleanup465:                                     ; preds = %lpad.i233, %ehcleanup464
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup464 ], [ %21, %lpad.i233 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 16), ptr %map_int32_double_, align 8
   tail call void @_ZN6google8protobuf3MapIidED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i226) #28
   br label %ehcleanup466
 
 ehcleanup466:                                     ; preds = %lpad.i228, %ehcleanup465
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup465 ], [ %20, %lpad.i228 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 16), ptr %map_int32_float_, align 8
   tail call void @_ZN6google8protobuf3MapIifED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i221) #28
   br label %ehcleanup467
 
 ehcleanup467:                                     ; preds = %lpad.i223, %ehcleanup466
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup466 ], [ %19, %lpad.i223 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 16), ptr %map_sfixed64_sfixed64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i216) #28
   br label %ehcleanup468
 
 ehcleanup468:                                     ; preds = %lpad.i218, %ehcleanup467
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup467 ], [ %18, %lpad.i218 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 16), ptr %map_sfixed32_sfixed32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i211) #28
   br label %ehcleanup469
 
 ehcleanup469:                                     ; preds = %lpad.i213, %ehcleanup468
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup468 ], [ %17, %lpad.i213 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 16), ptr %map_fixed64_fixed64_, align 8
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i206) #28
   br label %ehcleanup470
 
 ehcleanup470:                                     ; preds = %lpad.i208, %ehcleanup469
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup469 ], [ %16, %lpad.i208 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 16), ptr %map_fixed32_fixed32_, align 8
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i201) #28
   br label %ehcleanup471
 
 ehcleanup471:                                     ; preds = %lpad.i203, %ehcleanup470
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup470 ], [ %15, %lpad.i203 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 16), ptr %map_sint64_sint64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i196) #28
   br label %ehcleanup472
 
 ehcleanup472:                                     ; preds = %lpad.i198, %ehcleanup471
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup471 ], [ %14, %lpad.i198 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 16), ptr %map_sint32_sint32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i191) #28
   br label %ehcleanup473
 
 ehcleanup473:                                     ; preds = %lpad.i193, %ehcleanup472
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup472 ], [ %13, %lpad.i193 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 16), ptr %map_uint64_uint64_, align 8
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i186) #28
   br label %ehcleanup474
 
 ehcleanup474:                                     ; preds = %lpad.i188, %ehcleanup473
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup473 ], [ %12, %lpad.i188 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 16), ptr %map_uint32_uint32_, align 8
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i181) #28
   br label %ehcleanup475
 
 ehcleanup475:                                     ; preds = %lpad.i183, %ehcleanup474
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup474 ], [ %11, %lpad.i183 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 16), ptr %map_int64_int64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i176) #28
   br label %ehcleanup476
 
 ehcleanup476:                                     ; preds = %lpad.i178, %ehcleanup475
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup475 ], [ %10, %lpad.i178 ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 16), ptr %map_int32_int32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
   br label %ehcleanup477
 
 ehcleanup477:                                     ; preds = %lpad.i, %ehcleanup476
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup476 ], [ %9, %lpad.i ]
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_) #28
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %repeated_cord_) #28
   br label %ehcleanup478
 
@@ -20183,97 +20183,97 @@ invoke.cont2:                                     ; preds = %_ZN6google8protobuf
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 16), ptr %map_string_foreign_enum_, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 2240
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_) #28
   %map_string_nested_enum_ = getelementptr inbounds i8, ptr %this, i64 2072
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 16), ptr %map_string_nested_enum_, align 8
   %impl_.i1 = getelementptr inbounds i8, ptr %this, i64 2144
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i1) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_) #28
   %map_string_foreign_message_ = getelementptr inbounds i8, ptr %this, i64 1976
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 16), ptr %map_string_foreign_message_, align 8
   %impl_.i2 = getelementptr inbounds i8, ptr %this, i64 2048
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i2) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_) #28
   %map_string_nested_message_ = getelementptr inbounds i8, ptr %this, i64 1880
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 16), ptr %map_string_nested_message_, align 8
   %impl_.i3 = getelementptr inbounds i8, ptr %this, i64 1952
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i3) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_) #28
   %map_string_bytes_ = getelementptr inbounds i8, ptr %this, i64 1784
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 16), ptr %map_string_bytes_, align 8
   %impl_.i4 = getelementptr inbounds i8, ptr %this, i64 1856
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i4) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_) #28
   %map_string_string_ = getelementptr inbounds i8, ptr %this, i64 1688
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 16), ptr %map_string_string_, align 8
   %impl_.i5 = getelementptr inbounds i8, ptr %this, i64 1760
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i5) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_) #28
   %map_bool_bool_ = getelementptr inbounds i8, ptr %this, i64 1592
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 16), ptr %map_bool_bool_, align 8
   %impl_.i6 = getelementptr inbounds i8, ptr %this, i64 1664
   tail call void @_ZN6google8protobuf3MapIbbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i6) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_) #28
   %map_int32_double_ = getelementptr inbounds i8, ptr %this, i64 1496
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 16), ptr %map_int32_double_, align 8
   %impl_.i7 = getelementptr inbounds i8, ptr %this, i64 1568
   tail call void @_ZN6google8protobuf3MapIidED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i7) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_) #28
   %map_int32_float_ = getelementptr inbounds i8, ptr %this, i64 1400
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 16), ptr %map_int32_float_, align 8
   %impl_.i8 = getelementptr inbounds i8, ptr %this, i64 1472
   tail call void @_ZN6google8protobuf3MapIifED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i8) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_) #28
   %map_sfixed64_sfixed64_ = getelementptr inbounds i8, ptr %this, i64 1304
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 16), ptr %map_sfixed64_sfixed64_, align 8
   %impl_.i9 = getelementptr inbounds i8, ptr %this, i64 1376
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i9) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_) #28
   %map_sfixed32_sfixed32_ = getelementptr inbounds i8, ptr %this, i64 1208
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 16), ptr %map_sfixed32_sfixed32_, align 8
   %impl_.i10 = getelementptr inbounds i8, ptr %this, i64 1280
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i10) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_) #28
   %map_fixed64_fixed64_ = getelementptr inbounds i8, ptr %this, i64 1112
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 16), ptr %map_fixed64_fixed64_, align 8
   %impl_.i11 = getelementptr inbounds i8, ptr %this, i64 1184
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i11) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_) #28
   %map_fixed32_fixed32_ = getelementptr inbounds i8, ptr %this, i64 1016
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 16), ptr %map_fixed32_fixed32_, align 8
   %impl_.i12 = getelementptr inbounds i8, ptr %this, i64 1088
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i12) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_) #28
   %map_sint64_sint64_ = getelementptr inbounds i8, ptr %this, i64 920
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 16), ptr %map_sint64_sint64_, align 8
   %impl_.i13 = getelementptr inbounds i8, ptr %this, i64 992
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i13) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_) #28
   %map_sint32_sint32_ = getelementptr inbounds i8, ptr %this, i64 824
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 16), ptr %map_sint32_sint32_, align 8
   %impl_.i14 = getelementptr inbounds i8, ptr %this, i64 896
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i14) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_) #28
   %map_uint64_uint64_ = getelementptr inbounds i8, ptr %this, i64 728
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 16), ptr %map_uint64_uint64_, align 8
   %impl_.i15 = getelementptr inbounds i8, ptr %this, i64 800
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i15) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_) #28
   %map_uint32_uint32_ = getelementptr inbounds i8, ptr %this, i64 632
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 16), ptr %map_uint32_uint32_, align 8
   %impl_.i16 = getelementptr inbounds i8, ptr %this, i64 704
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i16) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_) #28
   %map_int64_int64_ = getelementptr inbounds i8, ptr %this, i64 536
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 16), ptr %map_int64_int64_, align 8
   %impl_.i17 = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i17) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_) #28
   %map_int32_int32_ = getelementptr inbounds i8, ptr %this, i64 440
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 16), ptr %map_int32_int32_, align 8
   %impl_.i18 = getelementptr inbounds i8, ptr %this, i64 512
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i18) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_) #28
   %repeated_cord_ = getelementptr inbounds i8, ptr %this, i64 416
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %repeated_cord_) #28
   %repeated_string_piece_ = getelementptr inbounds i8, ptr %this, i64 392
@@ -20411,7 +20411,7 @@ if.then.i.i.i:                                    ; preds = %delete.notnull.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -20441,7 +20441,7 @@ if.then.i.i.i9:                                   ; preds = %delete.notnull.i7
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i10: ; preds = %if.then.i.i.i9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i11
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %4) #29
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit14
 
@@ -20471,7 +20471,7 @@ if.then.i.i.i20:                                  ; preds = %delete.notnull.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i21: ; preds = %if.then.i.i.i20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i22
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   tail call void @_ZdlPv(ptr noundef nonnull %8) #29
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25
 
@@ -20501,7 +20501,7 @@ if.then.i.i.i31:                                  ; preds = %delete.notnull.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i32
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i32: ; preds = %if.then.i.i.i31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i33
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #28
   tail call void @_ZdlPv(ptr noundef nonnull %12) #29
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36
 
@@ -20531,7 +20531,7 @@ if.then.i.i.i42:                                  ; preds = %delete.notnull.i40
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i43
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i43: ; preds = %if.then.i.i.i42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i44
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #28
   tail call void @_ZdlPv(ptr noundef nonnull %16) #29
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit47
 
@@ -20561,7 +20561,7 @@ if.then.i.i.i53:                                  ; preds = %delete.notnull.i51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i54
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i54: ; preds = %if.then.i.i.i53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i55
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #28
   tail call void @_ZdlPv(ptr noundef nonnull %20) #29
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit58
 
@@ -22028,7 +22028,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %13)
+  %call11.i.i = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %13)
   %17 = extractvalue { ptr, i8 } %call11.i.i, 0
   %18 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %18 to i1
@@ -22755,7 +22755,7 @@ if.end.i2666:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp.i2681, label %success, label %if.end4.i2682
 
 if.end4.i2682:                                    ; preds = %if.end.i2666
-  %call5.i2683 = call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %83, ptr noundef nonnull %storemerge.i16.i2668, ptr noundef nonnull %ctx)
+  %call5.i2683 = call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %83, ptr noundef nonnull %storemerge.i16.i2668, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i2684 = icmp eq ptr %call5.i2683, null
   br i1 %cmp6.i2684, label %success, label %if.end8.i2685
 
@@ -22882,7 +22882,7 @@ if.end.i326:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i337, label %success, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i326
-  %call5.i = call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull %ctx)
+  %call5.i = call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %success, label %if.end8.i
 
@@ -23120,7 +23120,7 @@ if.end.i2699:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp.i2715, label %success, label %if.end4.i2716
 
 if.end4.i2716:                                    ; preds = %if.end.i2699
-  %call5.i2717 = call noundef ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(3152) %call364, ptr noundef nonnull %storemerge.i16.i2701, ptr noundef nonnull %ctx)
+  %call5.i2717 = call noundef ptr @_ZN22protobuf_test_messages6proto218TestAllTypesProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(3152) %call364, ptr noundef nonnull %storemerge.i16.i2701, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i2718 = icmp eq ptr %call5.i2717, null
   br i1 %cmp6.i2718, label %success, label %if.end8.i2719
 
@@ -24012,7 +24012,7 @@ if.end.i2736:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp.i2752, label %success, label %if.end4.i2753
 
 if.end4.i2753:                                    ; preds = %if.end.i2736
-  %call5.i2754 = call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %retval.0.i.i.i, ptr noundef nonnull %storemerge.i16.i2738, ptr noundef nonnull %ctx)
+  %call5.i2754 = call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %retval.0.i.i.i, ptr noundef nonnull %storemerge.i16.i2738, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i2755 = icmp eq ptr %call5.i2754, null
   br i1 %cmp6.i2755, label %success, label %if.end8.i2756
 
@@ -24093,7 +24093,7 @@ if.end.i629:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i645, label %success, label %if.end4.i646
 
 if.end4.i646:                                     ; preds = %if.end.i629
-  %call5.i647 = call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i623, ptr noundef nonnull %storemerge.i16.i631, ptr noundef nonnull %ctx)
+  %call5.i647 = call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i623, ptr noundef nonnull %storemerge.i16.i631, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i648 = icmp eq ptr %call5.i647, null
   br i1 %cmp6.i648, label %success, label %if.end8.i649
 
@@ -24828,7 +24828,7 @@ if.end.i798:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i812, label %success, label %if.end4.i813
 
 if.end4.i813:                                     ; preds = %if.end.i798
-  %call.i3.i = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i, ptr noundef nonnull %storemerge.i17.i, ptr noundef nonnull %ctx)
+  %call.i3.i = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i, ptr noundef nonnull %storemerge.i17.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i814 = icmp eq ptr %call.i3.i, null
   br i1 %cmp6.i814, label %success, label %if.end8.i815
 
@@ -24908,7 +24908,7 @@ if.end.i830:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i846, label %success, label %if.end4.i847
 
 if.end4.i847:                                     ; preds = %if.end.i830
-  %call.i3.i849 = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i848, ptr noundef nonnull %storemerge.i17.i832, ptr noundef nonnull %ctx)
+  %call.i3.i849 = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i848, ptr noundef nonnull %storemerge.i17.i832, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i850 = icmp eq ptr %call.i3.i849, null
   br i1 %cmp6.i850, label %success, label %if.end8.i851
 
@@ -24993,7 +24993,7 @@ if.end4.i872:                                     ; preds = %if.end.i868
   store ptr %impl_.i, ptr %map_.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_.i2052, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %key_.i2052, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store ptr %6, ptr %key_.i2052, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store i64 0, ptr %_M_string_length.i.i.i.i2053, align 8
@@ -25001,7 +25001,7 @@ if.end4.i872:                                     ; preds = %if.end.i868
   store i8 0, ptr %321, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   store ptr null, ptr %entry_.i2054, align 8
-  %call.i.i2031 = invoke noundef ptr @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_11ELi0EEENS0_3MapISC_SD_EEE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(64) %parser.i.i, ptr noundef nonnull %storemerge.i2094, ptr noundef nonnull %ctx)
+  %call.i.i2031 = invoke noundef ptr @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_11ELi0EEENS0_3MapISC_SD_EEE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(64) %parser.i.i, ptr noundef nonnull %storemerge.i2094, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
           to label %_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EE14_InternalParseEPKcPNS1_12ParseContextE.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.end4.i872
@@ -25057,7 +25057,7 @@ if.then.i.i.i2051:                                ; preds = %if.end.i2049
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_11ELi0EEENS0_3MapISC_SD_EEED2Ev.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_11ELi0EEENS0_3MapISC_SD_EEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i2051
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_.i2052) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i2052) #28
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %parser.i.i)
   %cmp6.i874 = icmp eq ptr %call.i.i2031, null
   br i1 %cmp6.i874, label %success, label %if.end8.i875
@@ -25138,7 +25138,7 @@ if.end.i886:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i902, label %success, label %if.end4.i903
 
 if.end4.i903:                                     ; preds = %if.end.i886
-  %call.i3.i905 = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i904, ptr noundef nonnull %storemerge.i17.i888, ptr noundef nonnull %ctx)
+  %call.i3.i905 = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i904, ptr noundef nonnull %storemerge.i17.i888, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i906 = icmp eq ptr %call.i3.i905, null
   br i1 %cmp6.i906, label %success, label %if.end8.i907
 
@@ -25218,7 +25218,7 @@ if.end.i927:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i943, label %success, label %if.end4.i944
 
 if.end4.i944:                                     ; preds = %if.end.i927
-  %call.i.i.i945 = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE23ParseWithEnumValidationINS0_15UnknownFieldSetEEEPKcSJ_PNS1_12ParseContextEPFbiEjPNS1_16InternalMetadataE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i.i, ptr noundef nonnull %storemerge.i16.i929, ptr noundef nonnull %ctx, ptr noundef nonnull @_ZN22protobuf_test_messages6proto237TestAllTypesProto2_NestedEnum_IsValidEi, i32 noundef 73, ptr noundef nonnull %_internal_metadata_.i)
+  %call.i.i.i945 = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE23ParseWithEnumValidationINS0_15UnknownFieldSetEEEPKcSJ_PNS1_12ParseContextEPFbiEjPNS1_16InternalMetadataE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i.i, ptr noundef nonnull %storemerge.i16.i929, ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull @_ZN22protobuf_test_messages6proto237TestAllTypesProto2_NestedEnum_IsValidEi, i32 noundef 73, ptr noundef nonnull %_internal_metadata_.i)
   %cmp6.i946 = icmp eq ptr %call.i.i.i945, null
   br i1 %cmp6.i946, label %success, label %if.end8.i947
 
@@ -25298,7 +25298,7 @@ if.end.i970:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i986, label %success, label %if.end4.i987
 
 if.end4.i987:                                     ; preds = %if.end.i970
-  %call.i.i.i992 = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE23ParseWithEnumValidationINS0_15UnknownFieldSetEEEPKcSJ_PNS1_12ParseContextEPFbiEjPNS1_16InternalMetadataE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i.i991, ptr noundef nonnull %storemerge.i16.i972, ptr noundef nonnull %ctx, ptr noundef nonnull @_ZN22protobuf_test_messages6proto225ForeignEnumProto2_IsValidEi, i32 noundef 74, ptr noundef nonnull %_internal_metadata_.i)
+  %call.i.i.i992 = call noundef ptr @_ZN6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE23ParseWithEnumValidationINS0_15UnknownFieldSetEEEPKcSJ_PNS1_12ParseContextEPFbiEjPNS1_16InternalMetadataE(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i.i.i991, ptr noundef nonnull %storemerge.i16.i972, ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull @_ZN22protobuf_test_messages6proto225ForeignEnumProto2_IsValidEi, i32 noundef 74, ptr noundef nonnull %_internal_metadata_.i)
   %cmp6.i993 = icmp eq ptr %call.i.i.i992, null
   br i1 %cmp6.i993, label %success, label %if.end8.i994
 
@@ -26877,7 +26877,7 @@ if.end.i2924:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp.i2940, label %success, label %if.end4.i2941
 
 if.end4.i2941:                                    ; preds = %if.end.i2924
-  %call5.i2942 = call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %481, ptr noundef nonnull %storemerge.i16.i2926, ptr noundef nonnull %ctx)
+  %call5.i2942 = call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %481, ptr noundef nonnull %storemerge.i16.i2926, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i2943 = icmp eq ptr %call5.i2942, null
   br i1 %cmp6.i2943, label %success, label %if.end8.i2944
 
@@ -33238,7 +33238,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stri
 for.end413:                                       ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit, %for.end398
   %target.addr.42.lcssa = phi ptr [ %target.addr.41.lcssa, %for.end398 ], [ %retval.i3061.0, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %map_int32_int32_.i = getelementptr inbounds i8, ptr %this, i64 440
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   %elements_.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %143 = load ptr, ptr %elements_.i.i, align 8
   %144 = load i64, ptr %143, align 8
@@ -33252,21 +33252,21 @@ if.then416:                                       ; preds = %for.end413
   br i1 %tobool.i2623, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then416
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   %146 = load ptr, ptr %elements_.i.i, align 8
   %147 = load i64, ptr %146, align 8
   %cmp420 = icmp ugt i64 %147, 1
   br i1 %cmp420, label %if.then421, label %if.else
 
 if.then421:                                       ; preds = %land.lhs.true
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   %148 = load ptr, ptr %elements_.i.i, align 8
   %149 = load i64, ptr %148, align 8
   %150 = icmp ugt i64 %149, 1152921504606846975
   %151 = shl i64 %149, 4
   %152 = select i1 %150, i64 -1, i64 %151
   %call424 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %152) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
           to label %invoke.cont427 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont427:                                   ; preds = %if.then421
@@ -33322,7 +33322,7 @@ _ZNK6google8protobuf3MapIiiE5beginEv.exit:        ; preds = %for.inc.i.i.i.i, %i
 
 for.cond430:                                      ; preds = %_ZNK6google8protobuf3MapIiiE5beginEv.exit, %invoke.cont444
   %n425.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIiiE5beginEv.exit ], [ %inc446, %invoke.cont444 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
           to label %invoke.cont434 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont434:                                   ; preds = %for.cond430
@@ -33396,7 +33396,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt
   br label %if.end484
 
 if.else:                                          ; preds = %land.lhs.true, %if.then416
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   %166 = load ptr, ptr %elements_.i.i, align 8, !noalias !162
   %index_of_first_non_null_.i.i.i2656 = getelementptr inbounds i8, ptr %166, i64 24
@@ -33445,7 +33445,7 @@ _ZNK6google8protobuf3MapIiiE5beginEv.exit2679:    ; preds = %for.inc.i.i.i.i2676
   store ptr %166, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i2661, align 8, !alias.scope !168
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i2662 = getelementptr inbounds i8, ptr %it468, i64 16
   store i64 %ref.tmp2.sroa.4.1.i2659, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i2662, align 8, !alias.scope !168
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   %174 = load ptr, ptr %it468, align 8
   %cmp.i.i.i2682.not7479 = icmp eq ptr %174, null
   br i1 %cmp.i.i.i2682.not7479, label %if.end484, label %for.body474
@@ -33458,7 +33458,7 @@ for.body474:                                      ; preds = %_ZNK6google8protobu
   %second478 = getelementptr inbounds i8, ptr %176, i64 4
   %call479 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE5ELS4_5EE17InternalSerializeEiRKiS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 56, ptr noundef nonnull align 4 dereferenceable(4) %176, ptr noundef nonnull align 4 dereferenceable(4) %second478, ptr noundef %target.addr.457480, ptr noundef %stream)
   %call.i2684 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIiiE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it468)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   %177 = load ptr, ptr %it468, align 8
   %cmp.i.i.i2682.not = icmp eq ptr %177, null
   br i1 %cmp.i.i.i2682.not, label %if.end484, label %for.body474, !llvm.loop !171
@@ -33466,7 +33466,7 @@ for.body474:                                      ; preds = %_ZNK6google8protobu
 if.end484:                                        ; preds = %for.body474, %_ZNK6google8protobuf3MapIiiE5beginEv.exit2679, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit2652, %for.end413
   %target.addr.43 = phi ptr [ %target.addr.42.lcssa, %for.end413 ], [ %target.addr.44.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit2652 ], [ %target.addr.42.lcssa, %_ZNK6google8protobuf3MapIiiE5beginEv.exit2679 ], [ %call479, %for.body474 ]
   %map_int64_int64_.i = getelementptr inbounds i8, ptr %this, i64 536
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   %elements_.i.i2686 = getelementptr inbounds i8, ptr %this, i64 624
   %178 = load ptr, ptr %elements_.i.i2686, align 8
   %179 = load i64, ptr %178, align 8
@@ -33480,21 +33480,21 @@ if.then487:                                       ; preds = %if.end484
   br i1 %tobool.i2689, label %land.lhs.true489, label %if.else556
 
 land.lhs.true489:                                 ; preds = %if.then487
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   %181 = load ptr, ptr %elements_.i.i2686, align 8
   %182 = load i64, ptr %181, align 8
   %cmp492 = icmp ugt i64 %182, 1
   br i1 %cmp492, label %if.then493, label %if.else556
 
 if.then493:                                       ; preds = %land.lhs.true489
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   %183 = load ptr, ptr %elements_.i.i2686, align 8
   %184 = load i64, ptr %183, align 8
   %185 = icmp ugt i64 %184, 1152921504606846975
   %186 = shl i64 %184, 4
   %187 = select i1 %185, i64 -1, i64 %186
   %call497 = call noalias noundef nonnull ptr @_Znam(i64 noundef %187) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
           to label %invoke.cont511 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont511:                                   ; preds = %if.then493
@@ -33550,7 +33550,7 @@ _ZNK6google8protobuf3MapIllE5beginEv.exit:        ; preds = %for.inc.i.i.i.i2719
 
 for.cond514:                                      ; preds = %_ZNK6google8protobuf3MapIllE5beginEv.exit, %invoke.cont529
   %n508.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIllE5beginEv.exit ], [ %inc531, %invoke.cont529 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
           to label %invoke.cont519 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont519:                                   ; preds = %for.cond514
@@ -33624,7 +33624,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt
   br label %if.end573
 
 if.else556:                                       ; preds = %land.lhs.true489, %if.then487
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !184)
   %201 = load ptr, ptr %elements_.i.i2686, align 8, !noalias !184
   %index_of_first_non_null_.i.i.i2755 = getelementptr inbounds i8, ptr %201, i64 24
@@ -33673,7 +33673,7 @@ _ZNK6google8protobuf3MapIllE5beginEv.exit2778:    ; preds = %for.inc.i.i.i.i2775
   store ptr %201, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i2760, align 8, !alias.scope !190
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i2761 = getelementptr inbounds i8, ptr %it557, i64 16
   store i64 %ref.tmp2.sroa.4.1.i2758, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i2761, align 8, !alias.scope !190
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   %209 = load ptr, ptr %it557, align 8
   %cmp.i.i.i2781.not7486 = icmp eq ptr %209, null
   br i1 %cmp.i.i.i2781.not7486, label %if.end573, label %for.body563
@@ -33686,7 +33686,7 @@ for.body563:                                      ; preds = %_ZNK6google8protobu
   %second567 = getelementptr inbounds i8, ptr %211, i64 8
   %call568 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIllLNS1_14WireFormatLite9FieldTypeE3ELS4_3EE17InternalSerializeEiRKlS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 57, ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef nonnull align 8 dereferenceable(8) %second567, ptr noundef %target.addr.487487, ptr noundef %stream)
   %call.i2784 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIllE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it557)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   %212 = load ptr, ptr %it557, align 8
   %cmp.i.i.i2781.not = icmp eq ptr %212, null
   br i1 %cmp.i.i.i2781.not, label %if.end573, label %for.body563, !llvm.loop !193
@@ -33694,7 +33694,7 @@ for.body563:                                      ; preds = %_ZNK6google8protobu
 if.end573:                                        ; preds = %for.body563, %_ZNK6google8protobuf3MapIllE5beginEv.exit2778, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit2751, %if.end484
   %target.addr.46 = phi ptr [ %target.addr.43, %if.end484 ], [ %target.addr.47.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit2751 ], [ %target.addr.43, %_ZNK6google8protobuf3MapIllE5beginEv.exit2778 ], [ %call568, %for.body563 ]
   %map_uint32_uint32_.i = getelementptr inbounds i8, ptr %this, i64 632
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   %elements_.i.i2786 = getelementptr inbounds i8, ptr %this, i64 720
   %213 = load ptr, ptr %elements_.i.i2786, align 8
   %214 = load i64, ptr %213, align 8
@@ -33708,21 +33708,21 @@ if.then576:                                       ; preds = %if.end573
   br i1 %tobool.i2789, label %land.lhs.true578, label %if.else645
 
 land.lhs.true578:                                 ; preds = %if.then576
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   %216 = load ptr, ptr %elements_.i.i2786, align 8
   %217 = load i64, ptr %216, align 8
   %cmp581 = icmp ugt i64 %217, 1
   br i1 %cmp581, label %if.then582, label %if.else645
 
 if.then582:                                       ; preds = %land.lhs.true578
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   %218 = load ptr, ptr %elements_.i.i2786, align 8
   %219 = load i64, ptr %218, align 8
   %220 = icmp ugt i64 %219, 1152921504606846975
   %221 = shl i64 %219, 4
   %222 = select i1 %220, i64 -1, i64 %221
   %call586 = call noalias noundef nonnull ptr @_Znam(i64 noundef %222) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
           to label %invoke.cont600 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont600:                                   ; preds = %if.then582
@@ -33778,7 +33778,7 @@ _ZNK6google8protobuf3MapIjjE5beginEv.exit:        ; preds = %for.inc.i.i.i.i2819
 
 for.cond603:                                      ; preds = %_ZNK6google8protobuf3MapIjjE5beginEv.exit, %invoke.cont618
   %n597.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIjjE5beginEv.exit ], [ %inc620, %invoke.cont618 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
           to label %invoke.cont608 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont608:                                   ; preds = %for.cond603
@@ -33852,7 +33852,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt
   br label %if.end662
 
 if.else645:                                       ; preds = %land.lhs.true578, %if.then576
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %236 = load ptr, ptr %elements_.i.i2786, align 8, !noalias !206
   %index_of_first_non_null_.i.i.i2855 = getelementptr inbounds i8, ptr %236, i64 24
@@ -33901,7 +33901,7 @@ _ZNK6google8protobuf3MapIjjE5beginEv.exit2878:    ; preds = %for.inc.i.i.i.i2875
   store ptr %236, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i2860, align 8, !alias.scope !212
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i2861 = getelementptr inbounds i8, ptr %it646, i64 16
   store i64 %ref.tmp2.sroa.4.1.i2858, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i2861, align 8, !alias.scope !212
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   %244 = load ptr, ptr %it646, align 8
   %cmp.i.i.i2881.not7493 = icmp eq ptr %244, null
   br i1 %cmp.i.i.i2881.not7493, label %if.end662, label %for.body652
@@ -33914,7 +33914,7 @@ for.body652:                                      ; preds = %_ZNK6google8protobu
   %second656 = getelementptr inbounds i8, ptr %246, i64 4
   %call657 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIjjLNS1_14WireFormatLite9FieldTypeE13ELS4_13EE17InternalSerializeEiRKjS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 58, ptr noundef nonnull align 4 dereferenceable(4) %246, ptr noundef nonnull align 4 dereferenceable(4) %second656, ptr noundef %target.addr.517494, ptr noundef %stream)
   %call.i2884 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIjjE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it646)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   %247 = load ptr, ptr %it646, align 8
   %cmp.i.i.i2881.not = icmp eq ptr %247, null
   br i1 %cmp.i.i.i2881.not, label %if.end662, label %for.body652, !llvm.loop !215
@@ -33922,7 +33922,7 @@ for.body652:                                      ; preds = %_ZNK6google8protobu
 if.end662:                                        ; preds = %for.body652, %_ZNK6google8protobuf3MapIjjE5beginEv.exit2878, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit2851, %if.end573
   %target.addr.49 = phi ptr [ %target.addr.46, %if.end573 ], [ %target.addr.50.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit2851 ], [ %target.addr.46, %_ZNK6google8protobuf3MapIjjE5beginEv.exit2878 ], [ %call657, %for.body652 ]
   %map_uint64_uint64_.i = getelementptr inbounds i8, ptr %this, i64 728
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   %elements_.i.i2886 = getelementptr inbounds i8, ptr %this, i64 816
   %248 = load ptr, ptr %elements_.i.i2886, align 8
   %249 = load i64, ptr %248, align 8
@@ -33936,21 +33936,21 @@ if.then665:                                       ; preds = %if.end662
   br i1 %tobool.i2889, label %land.lhs.true667, label %if.else734
 
 land.lhs.true667:                                 ; preds = %if.then665
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   %251 = load ptr, ptr %elements_.i.i2886, align 8
   %252 = load i64, ptr %251, align 8
   %cmp670 = icmp ugt i64 %252, 1
   br i1 %cmp670, label %if.then671, label %if.else734
 
 if.then671:                                       ; preds = %land.lhs.true667
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   %253 = load ptr, ptr %elements_.i.i2886, align 8
   %254 = load i64, ptr %253, align 8
   %255 = icmp ugt i64 %254, 1152921504606846975
   %256 = shl i64 %254, 4
   %257 = select i1 %255, i64 -1, i64 %256
   %call675 = call noalias noundef nonnull ptr @_Znam(i64 noundef %257) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
           to label %invoke.cont689 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont689:                                   ; preds = %if.then671
@@ -34006,7 +34006,7 @@ _ZNK6google8protobuf3MapImmE5beginEv.exit:        ; preds = %for.inc.i.i.i.i2919
 
 for.cond692:                                      ; preds = %_ZNK6google8protobuf3MapImmE5beginEv.exit, %invoke.cont707
   %n686.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapImmE5beginEv.exit ], [ %inc709, %invoke.cont707 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
           to label %invoke.cont697 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont697:                                   ; preds = %for.cond692
@@ -34080,7 +34080,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt
   br label %if.end751
 
 if.else734:                                       ; preds = %land.lhs.true667, %if.then665
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %271 = load ptr, ptr %elements_.i.i2886, align 8, !noalias !228
   %index_of_first_non_null_.i.i.i2955 = getelementptr inbounds i8, ptr %271, i64 24
@@ -34129,7 +34129,7 @@ _ZNK6google8protobuf3MapImmE5beginEv.exit2978:    ; preds = %for.inc.i.i.i.i2975
   store ptr %271, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i2960, align 8, !alias.scope !234
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i2961 = getelementptr inbounds i8, ptr %it735, i64 16
   store i64 %ref.tmp2.sroa.4.1.i2958, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i2961, align 8, !alias.scope !234
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   %279 = load ptr, ptr %it735, align 8
   %cmp.i.i.i2981.not7500 = icmp eq ptr %279, null
   br i1 %cmp.i.i.i2981.not7500, label %if.end751, label %for.body741
@@ -34142,7 +34142,7 @@ for.body741:                                      ; preds = %_ZNK6google8protobu
   %second745 = getelementptr inbounds i8, ptr %281, i64 8
   %call746 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsImmLNS1_14WireFormatLite9FieldTypeE4ELS4_4EE17InternalSerializeEiRKmS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 59, ptr noundef nonnull align 8 dereferenceable(8) %281, ptr noundef nonnull align 8 dereferenceable(8) %second745, ptr noundef %target.addr.547501, ptr noundef %stream)
   %call.i2984 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapImmE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it735)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   %282 = load ptr, ptr %it735, align 8
   %cmp.i.i.i2981.not = icmp eq ptr %282, null
   br i1 %cmp.i.i.i2981.not, label %if.end751, label %for.body741, !llvm.loop !237
@@ -34150,7 +34150,7 @@ for.body741:                                      ; preds = %_ZNK6google8protobu
 if.end751:                                        ; preds = %for.body741, %_ZNK6google8protobuf3MapImmE5beginEv.exit2978, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit2951, %if.end662
   %target.addr.52 = phi ptr [ %target.addr.49, %if.end662 ], [ %target.addr.53.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit2951 ], [ %target.addr.49, %_ZNK6google8protobuf3MapImmE5beginEv.exit2978 ], [ %call746, %for.body741 ]
   %map_sint32_sint32_.i = getelementptr inbounds i8, ptr %this, i64 824
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   %elements_.i.i2986 = getelementptr inbounds i8, ptr %this, i64 912
   %283 = load ptr, ptr %elements_.i.i2986, align 8
   %284 = load i64, ptr %283, align 8
@@ -34164,21 +34164,21 @@ if.then754:                                       ; preds = %if.end751
   br i1 %tobool.i2989, label %land.lhs.true756, label %if.else823
 
 land.lhs.true756:                                 ; preds = %if.then754
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   %286 = load ptr, ptr %elements_.i.i2986, align 8
   %287 = load i64, ptr %286, align 8
   %cmp759 = icmp ugt i64 %287, 1
   br i1 %cmp759, label %if.then760, label %if.else823
 
 if.then760:                                       ; preds = %land.lhs.true756
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   %288 = load ptr, ptr %elements_.i.i2986, align 8
   %289 = load i64, ptr %288, align 8
   %290 = icmp ugt i64 %289, 1152921504606846975
   %291 = shl i64 %289, 4
   %292 = select i1 %290, i64 -1, i64 %291
   %call764 = call noalias noundef nonnull ptr @_Znam(i64 noundef %292) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
           to label %invoke.cont778 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3038.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont778:                                   ; preds = %if.then760
@@ -34234,7 +34234,7 @@ _ZNK6google8protobuf3MapIiiE5beginEv.exit3023:    ; preds = %for.inc.i.i.i.i3020
 
 for.cond781:                                      ; preds = %_ZNK6google8protobuf3MapIiiE5beginEv.exit3023, %invoke.cont796
   %n775.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIiiE5beginEv.exit3023 ], [ %inc798, %invoke.cont796 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
           to label %invoke.cont786 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3038.loopexit.split-lp.loopexit
 
 invoke.cont786:                                   ; preds = %for.cond781
@@ -34308,7 +34308,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt
   br label %if.end840
 
 if.else823:                                       ; preds = %land.lhs.true756, %if.then754
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %306 = load ptr, ptr %elements_.i.i2986, align 8, !noalias !249
   %index_of_first_non_null_.i.i.i3061 = getelementptr inbounds i8, ptr %306, i64 24
@@ -34357,7 +34357,7 @@ _ZNK6google8protobuf3MapIiiE5beginEv.exit3084:    ; preds = %for.inc.i.i.i.i3081
   store ptr %306, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i3066, align 8, !alias.scope !255
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3067 = getelementptr inbounds i8, ptr %it824, i64 16
   store i64 %ref.tmp2.sroa.4.1.i3064, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3067, align 8, !alias.scope !255
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   %314 = load ptr, ptr %it824, align 8
   %cmp.i.i.i3087.not7507 = icmp eq ptr %314, null
   br i1 %cmp.i.i.i3087.not7507, label %if.end840, label %for.body830
@@ -34370,7 +34370,7 @@ for.body830:                                      ; preds = %_ZNK6google8protobu
   %second834 = getelementptr inbounds i8, ptr %316, i64 4
   %call835 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE17ELS4_17EE17InternalSerializeEiRKiS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 60, ptr noundef nonnull align 4 dereferenceable(4) %316, ptr noundef nonnull align 4 dereferenceable(4) %second834, ptr noundef %target.addr.577508, ptr noundef %stream)
   %call.i3090 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIiiE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it824)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   %317 = load ptr, ptr %it824, align 8
   %cmp.i.i.i3087.not = icmp eq ptr %317, null
   br i1 %cmp.i.i.i3087.not, label %if.end840, label %for.body830, !llvm.loop !258
@@ -34378,7 +34378,7 @@ for.body830:                                      ; preds = %_ZNK6google8protobu
 if.end840:                                        ; preds = %for.body830, %_ZNK6google8protobuf3MapIiiE5beginEv.exit3084, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3057, %if.end751
   %target.addr.55 = phi ptr [ %target.addr.52, %if.end751 ], [ %target.addr.56.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3057 ], [ %target.addr.52, %_ZNK6google8protobuf3MapIiiE5beginEv.exit3084 ], [ %call835, %for.body830 ]
   %map_sint64_sint64_.i = getelementptr inbounds i8, ptr %this, i64 920
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   %elements_.i.i3092 = getelementptr inbounds i8, ptr %this, i64 1008
   %318 = load ptr, ptr %elements_.i.i3092, align 8
   %319 = load i64, ptr %318, align 8
@@ -34392,21 +34392,21 @@ if.then843:                                       ; preds = %if.end840
   br i1 %tobool.i3095, label %land.lhs.true845, label %if.else912
 
 land.lhs.true845:                                 ; preds = %if.then843
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   %321 = load ptr, ptr %elements_.i.i3092, align 8
   %322 = load i64, ptr %321, align 8
   %cmp848 = icmp ugt i64 %322, 1
   br i1 %cmp848, label %if.then849, label %if.else912
 
 if.then849:                                       ; preds = %land.lhs.true845
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   %323 = load ptr, ptr %elements_.i.i3092, align 8
   %324 = load i64, ptr %323, align 8
   %325 = icmp ugt i64 %324, 1152921504606846975
   %326 = shl i64 %324, 4
   %327 = select i1 %325, i64 -1, i64 %326
   %call853 = call noalias noundef nonnull ptr @_Znam(i64 noundef %327) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
           to label %invoke.cont867 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3144.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont867:                                   ; preds = %if.then849
@@ -34462,7 +34462,7 @@ _ZNK6google8protobuf3MapIllE5beginEv.exit3129:    ; preds = %for.inc.i.i.i.i3126
 
 for.cond870:                                      ; preds = %_ZNK6google8protobuf3MapIllE5beginEv.exit3129, %invoke.cont885
   %n864.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIllE5beginEv.exit3129 ], [ %inc887, %invoke.cont885 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
           to label %invoke.cont875 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3144.loopexit.split-lp.loopexit
 
 invoke.cont875:                                   ; preds = %for.cond870
@@ -34536,7 +34536,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt
   br label %if.end929
 
 if.else912:                                       ; preds = %land.lhs.true845, %if.then843
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %341 = load ptr, ptr %elements_.i.i3092, align 8, !noalias !270
   %index_of_first_non_null_.i.i.i3167 = getelementptr inbounds i8, ptr %341, i64 24
@@ -34585,7 +34585,7 @@ _ZNK6google8protobuf3MapIllE5beginEv.exit3190:    ; preds = %for.inc.i.i.i.i3187
   store ptr %341, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i3172, align 8, !alias.scope !276
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3173 = getelementptr inbounds i8, ptr %it913, i64 16
   store i64 %ref.tmp2.sroa.4.1.i3170, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3173, align 8, !alias.scope !276
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   %349 = load ptr, ptr %it913, align 8
   %cmp.i.i.i3193.not7514 = icmp eq ptr %349, null
   br i1 %cmp.i.i.i3193.not7514, label %if.end929, label %for.body919
@@ -34598,7 +34598,7 @@ for.body919:                                      ; preds = %_ZNK6google8protobu
   %second923 = getelementptr inbounds i8, ptr %351, i64 8
   %call924 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIllLNS1_14WireFormatLite9FieldTypeE18ELS4_18EE17InternalSerializeEiRKlS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 61, ptr noundef nonnull align 8 dereferenceable(8) %351, ptr noundef nonnull align 8 dereferenceable(8) %second923, ptr noundef %target.addr.607515, ptr noundef %stream)
   %call.i3196 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIllE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it913)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   %352 = load ptr, ptr %it913, align 8
   %cmp.i.i.i3193.not = icmp eq ptr %352, null
   br i1 %cmp.i.i.i3193.not, label %if.end929, label %for.body919, !llvm.loop !279
@@ -34606,7 +34606,7 @@ for.body919:                                      ; preds = %_ZNK6google8protobu
 if.end929:                                        ; preds = %for.body919, %_ZNK6google8protobuf3MapIllE5beginEv.exit3190, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3163, %if.end840
   %target.addr.58 = phi ptr [ %target.addr.55, %if.end840 ], [ %target.addr.59.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3163 ], [ %target.addr.55, %_ZNK6google8protobuf3MapIllE5beginEv.exit3190 ], [ %call924, %for.body919 ]
   %map_fixed32_fixed32_.i = getelementptr inbounds i8, ptr %this, i64 1016
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   %elements_.i.i3198 = getelementptr inbounds i8, ptr %this, i64 1104
   %353 = load ptr, ptr %elements_.i.i3198, align 8
   %354 = load i64, ptr %353, align 8
@@ -34620,21 +34620,21 @@ if.then932:                                       ; preds = %if.end929
   br i1 %tobool.i3201, label %land.lhs.true934, label %if.else1001
 
 land.lhs.true934:                                 ; preds = %if.then932
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   %356 = load ptr, ptr %elements_.i.i3198, align 8
   %357 = load i64, ptr %356, align 8
   %cmp937 = icmp ugt i64 %357, 1
   br i1 %cmp937, label %if.then938, label %if.else1001
 
 if.then938:                                       ; preds = %land.lhs.true934
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   %358 = load ptr, ptr %elements_.i.i3198, align 8
   %359 = load i64, ptr %358, align 8
   %360 = icmp ugt i64 %359, 1152921504606846975
   %361 = shl i64 %359, 4
   %362 = select i1 %360, i64 -1, i64 %361
   %call942 = call noalias noundef nonnull ptr @_Znam(i64 noundef %362) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
           to label %invoke.cont956 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit3250.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont956:                                   ; preds = %if.then938
@@ -34690,7 +34690,7 @@ _ZNK6google8protobuf3MapIjjE5beginEv.exit3235:    ; preds = %for.inc.i.i.i.i3232
 
 for.cond959:                                      ; preds = %_ZNK6google8protobuf3MapIjjE5beginEv.exit3235, %invoke.cont974
   %n953.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIjjE5beginEv.exit3235 ], [ %inc976, %invoke.cont974 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
           to label %invoke.cont964 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit3250.loopexit.split-lp.loopexit
 
 invoke.cont964:                                   ; preds = %for.cond959
@@ -34806,7 +34806,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt
   br label %if.end1018
 
 if.else1001:                                      ; preds = %land.lhs.true934, %if.then932
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !291)
   %381 = load ptr, ptr %elements_.i.i3198, align 8, !noalias !291
   %index_of_first_non_null_.i.i.i3286 = getelementptr inbounds i8, ptr %381, i64 24
@@ -34855,7 +34855,7 @@ _ZNK6google8protobuf3MapIjjE5beginEv.exit3309:    ; preds = %for.inc.i.i.i.i3306
   store ptr %381, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i3291, align 8, !alias.scope !297
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3292 = getelementptr inbounds i8, ptr %it1002, i64 16
   store i64 %ref.tmp2.sroa.4.1.i3289, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3292, align 8, !alias.scope !297
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   %389 = load ptr, ptr %it1002, align 8
   %cmp.i.i.i3312.not7521 = icmp eq ptr %389, null
   br i1 %cmp.i.i.i3312.not7521, label %if.end1018, label %for.body1008
@@ -34913,7 +34913,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIjjLNS1_14WireFormatLite9FieldTypeE7E
   store i32 %396, ptr %add.ptr.i.i.i19.i3334, align 1
   %add.ptr.i.i20.i3335 = getelementptr inbounds i8, ptr %retval.0.i.i18.i3333, i64 5
   %call.i3337 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIjjE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1002)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   %397 = load ptr, ptr %it1002, align 8
   %cmp.i.i.i3312.not = icmp eq ptr %397, null
   br i1 %cmp.i.i.i3312.not, label %if.end1018, label %for.body1008, !llvm.loop !300
@@ -34921,7 +34921,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIjjLNS1_14WireFormatLite9FieldTypeE7E
 if.end1018:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsIjjLNS1_14WireFormatLite9FieldTypeE7ELS4_7EE17InternalSerializeEiRKjS7_PhPNS0_2io19EpsCopyOutputStreamE.exit3336, %_ZNK6google8protobuf3MapIjjE5beginEv.exit3309, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit3282, %if.end929
   %target.addr.61 = phi ptr [ %target.addr.58, %if.end929 ], [ %target.addr.62.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit3282 ], [ %target.addr.58, %_ZNK6google8protobuf3MapIjjE5beginEv.exit3309 ], [ %add.ptr.i.i20.i3335, %_ZN6google8protobuf8internal13MapEntryFuncsIjjLNS1_14WireFormatLite9FieldTypeE7ELS4_7EE17InternalSerializeEiRKjS7_PhPNS0_2io19EpsCopyOutputStreamE.exit3336 ]
   %map_fixed64_fixed64_.i = getelementptr inbounds i8, ptr %this, i64 1112
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   %elements_.i.i3339 = getelementptr inbounds i8, ptr %this, i64 1200
   %398 = load ptr, ptr %elements_.i.i3339, align 8
   %399 = load i64, ptr %398, align 8
@@ -34935,21 +34935,21 @@ if.then1021:                                      ; preds = %if.end1018
   br i1 %tobool.i3342, label %land.lhs.true1023, label %if.else1090
 
 land.lhs.true1023:                                ; preds = %if.then1021
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   %401 = load ptr, ptr %elements_.i.i3339, align 8
   %402 = load i64, ptr %401, align 8
   %cmp1026 = icmp ugt i64 %402, 1
   br i1 %cmp1026, label %if.then1027, label %if.else1090
 
 if.then1027:                                      ; preds = %land.lhs.true1023
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   %403 = load ptr, ptr %elements_.i.i3339, align 8
   %404 = load i64, ptr %403, align 8
   %405 = icmp ugt i64 %404, 1152921504606846975
   %406 = shl i64 %404, 4
   %407 = select i1 %405, i64 -1, i64 %406
   %call1031 = call noalias noundef nonnull ptr @_Znam(i64 noundef %407) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
           to label %invoke.cont1045 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit3391.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1045:                                  ; preds = %if.then1027
@@ -35005,7 +35005,7 @@ _ZNK6google8protobuf3MapImmE5beginEv.exit3376:    ; preds = %for.inc.i.i.i.i3373
 
 for.cond1048:                                     ; preds = %_ZNK6google8protobuf3MapImmE5beginEv.exit3376, %invoke.cont1063
   %n1042.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapImmE5beginEv.exit3376 ], [ %inc1065, %invoke.cont1063 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
           to label %invoke.cont1053 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit3391.loopexit.split-lp.loopexit
 
 invoke.cont1053:                                  ; preds = %for.cond1048
@@ -35121,7 +35121,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt
   br label %if.end1107
 
 if.else1090:                                      ; preds = %land.lhs.true1023, %if.then1021
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !312)
   %426 = load ptr, ptr %elements_.i.i3339, align 8, !noalias !312
   %index_of_first_non_null_.i.i.i3440 = getelementptr inbounds i8, ptr %426, i64 24
@@ -35170,7 +35170,7 @@ _ZNK6google8protobuf3MapImmE5beginEv.exit3463:    ; preds = %for.inc.i.i.i.i3460
   store ptr %426, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i3445, align 8, !alias.scope !318
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3446 = getelementptr inbounds i8, ptr %it1091, i64 16
   store i64 %ref.tmp2.sroa.4.1.i3443, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3446, align 8, !alias.scope !318
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   %434 = load ptr, ptr %it1091, align 8
   %cmp.i.i.i3466.not7528 = icmp eq ptr %434, null
   br i1 %cmp.i.i.i3466.not7528, label %if.end1107, label %for.body1097
@@ -35228,7 +35228,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsImmLNS1_14WireFormatLite9FieldTypeE6E
   store i64 %441, ptr %add.ptr.i.i.i19.i3491, align 1
   %add.ptr.i.i20.i3492 = getelementptr inbounds i8, ptr %retval.0.i.i18.i3490, i64 9
   %call.i3494 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapImmE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1091)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   %442 = load ptr, ptr %it1091, align 8
   %cmp.i.i.i3466.not = icmp eq ptr %442, null
   br i1 %cmp.i.i.i3466.not, label %if.end1107, label %for.body1097, !llvm.loop !321
@@ -35236,7 +35236,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsImmLNS1_14WireFormatLite9FieldTypeE6E
 if.end1107:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsImmLNS1_14WireFormatLite9FieldTypeE6ELS4_6EE17InternalSerializeEiRKmS7_PhPNS0_2io19EpsCopyOutputStreamE.exit3493, %_ZNK6google8protobuf3MapImmE5beginEv.exit3463, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit3436, %if.end1018
   %target.addr.64 = phi ptr [ %target.addr.61, %if.end1018 ], [ %target.addr.65.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit3436 ], [ %target.addr.61, %_ZNK6google8protobuf3MapImmE5beginEv.exit3463 ], [ %add.ptr.i.i20.i3492, %_ZN6google8protobuf8internal13MapEntryFuncsImmLNS1_14WireFormatLite9FieldTypeE6ELS4_6EE17InternalSerializeEiRKmS7_PhPNS0_2io19EpsCopyOutputStreamE.exit3493 ]
   %map_sfixed32_sfixed32_.i = getelementptr inbounds i8, ptr %this, i64 1208
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   %elements_.i.i3496 = getelementptr inbounds i8, ptr %this, i64 1296
   %443 = load ptr, ptr %elements_.i.i3496, align 8
   %444 = load i64, ptr %443, align 8
@@ -35250,21 +35250,21 @@ if.then1110:                                      ; preds = %if.end1107
   br i1 %tobool.i3499, label %land.lhs.true1112, label %if.else1179
 
 land.lhs.true1112:                                ; preds = %if.then1110
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   %446 = load ptr, ptr %elements_.i.i3496, align 8
   %447 = load i64, ptr %446, align 8
   %cmp1115 = icmp ugt i64 %447, 1
   br i1 %cmp1115, label %if.then1116, label %if.else1179
 
 if.then1116:                                      ; preds = %land.lhs.true1112
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   %448 = load ptr, ptr %elements_.i.i3496, align 8
   %449 = load i64, ptr %448, align 8
   %450 = icmp ugt i64 %449, 1152921504606846975
   %451 = shl i64 %449, 4
   %452 = select i1 %450, i64 -1, i64 %451
   %call1120 = call noalias noundef nonnull ptr @_Znam(i64 noundef %452) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
           to label %invoke.cont1134 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3548.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1134:                                  ; preds = %if.then1116
@@ -35320,7 +35320,7 @@ _ZNK6google8protobuf3MapIiiE5beginEv.exit3533:    ; preds = %for.inc.i.i.i.i3530
 
 for.cond1137:                                     ; preds = %_ZNK6google8protobuf3MapIiiE5beginEv.exit3533, %invoke.cont1152
   %n1131.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIiiE5beginEv.exit3533 ], [ %inc1154, %invoke.cont1152 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
           to label %invoke.cont1142 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3548.loopexit.split-lp.loopexit
 
 invoke.cont1142:                                  ; preds = %for.cond1137
@@ -35436,7 +35436,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt
   br label %if.end1196
 
 if.else1179:                                      ; preds = %land.lhs.true1112, %if.then1110
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !333)
   %471 = load ptr, ptr %elements_.i.i3496, align 8, !noalias !333
   %index_of_first_non_null_.i.i.i3597 = getelementptr inbounds i8, ptr %471, i64 24
@@ -35485,7 +35485,7 @@ _ZNK6google8protobuf3MapIiiE5beginEv.exit3620:    ; preds = %for.inc.i.i.i.i3617
   store ptr %471, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i3602, align 8, !alias.scope !339
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3603 = getelementptr inbounds i8, ptr %it1180, i64 16
   store i64 %ref.tmp2.sroa.4.1.i3600, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3603, align 8, !alias.scope !339
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   %479 = load ptr, ptr %it1180, align 8
   %cmp.i.i.i3623.not7535 = icmp eq ptr %479, null
   br i1 %cmp.i.i.i3623.not7535, label %if.end1196, label %for.body1186
@@ -35543,7 +35543,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE15
   store i32 %486, ptr %add.ptr.i.i.i19.i3648, align 1
   %add.ptr.i.i20.i3649 = getelementptr inbounds i8, ptr %retval.0.i.i18.i3647, i64 5
   %call.i3651 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIiiE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1180)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   %487 = load ptr, ptr %it1180, align 8
   %cmp.i.i.i3623.not = icmp eq ptr %487, null
   br i1 %cmp.i.i.i3623.not, label %if.end1196, label %for.body1186, !llvm.loop !342
@@ -35551,7 +35551,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE15
 if.end1196:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE15ELS4_15EE17InternalSerializeEiRKiS7_PhPNS0_2io19EpsCopyOutputStreamE.exit3650, %_ZNK6google8protobuf3MapIiiE5beginEv.exit3620, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3593, %if.end1107
   %target.addr.67 = phi ptr [ %target.addr.64, %if.end1107 ], [ %target.addr.68.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3593 ], [ %target.addr.64, %_ZNK6google8protobuf3MapIiiE5beginEv.exit3620 ], [ %add.ptr.i.i20.i3649, %_ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE15ELS4_15EE17InternalSerializeEiRKiS7_PhPNS0_2io19EpsCopyOutputStreamE.exit3650 ]
   %map_sfixed64_sfixed64_.i = getelementptr inbounds i8, ptr %this, i64 1304
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   %elements_.i.i3653 = getelementptr inbounds i8, ptr %this, i64 1392
   %488 = load ptr, ptr %elements_.i.i3653, align 8
   %489 = load i64, ptr %488, align 8
@@ -35565,21 +35565,21 @@ if.then1199:                                      ; preds = %if.end1196
   br i1 %tobool.i3656, label %land.lhs.true1201, label %if.else1268
 
 land.lhs.true1201:                                ; preds = %if.then1199
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   %491 = load ptr, ptr %elements_.i.i3653, align 8
   %492 = load i64, ptr %491, align 8
   %cmp1204 = icmp ugt i64 %492, 1
   br i1 %cmp1204, label %if.then1205, label %if.else1268
 
 if.then1205:                                      ; preds = %land.lhs.true1201
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   %493 = load ptr, ptr %elements_.i.i3653, align 8
   %494 = load i64, ptr %493, align 8
   %495 = icmp ugt i64 %494, 1152921504606846975
   %496 = shl i64 %494, 4
   %497 = select i1 %495, i64 -1, i64 %496
   %call1209 = call noalias noundef nonnull ptr @_Znam(i64 noundef %497) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
           to label %invoke.cont1223 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3705.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1223:                                  ; preds = %if.then1205
@@ -35635,7 +35635,7 @@ _ZNK6google8protobuf3MapIllE5beginEv.exit3690:    ; preds = %for.inc.i.i.i.i3687
 
 for.cond1226:                                     ; preds = %_ZNK6google8protobuf3MapIllE5beginEv.exit3690, %invoke.cont1241
   %n1220.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIllE5beginEv.exit3690 ], [ %inc1243, %invoke.cont1241 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
           to label %invoke.cont1231 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3705.loopexit.split-lp.loopexit
 
 invoke.cont1231:                                  ; preds = %for.cond1226
@@ -35751,7 +35751,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt
   br label %if.end1285
 
 if.else1268:                                      ; preds = %land.lhs.true1201, %if.then1199
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !354)
   %516 = load ptr, ptr %elements_.i.i3653, align 8, !noalias !354
   %index_of_first_non_null_.i.i.i3754 = getelementptr inbounds i8, ptr %516, i64 24
@@ -35800,7 +35800,7 @@ _ZNK6google8protobuf3MapIllE5beginEv.exit3777:    ; preds = %for.inc.i.i.i.i3774
   store ptr %516, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i3759, align 8, !alias.scope !360
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3760 = getelementptr inbounds i8, ptr %it1269, i64 16
   store i64 %ref.tmp2.sroa.4.1.i3757, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3760, align 8, !alias.scope !360
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   %524 = load ptr, ptr %it1269, align 8
   %cmp.i.i.i3780.not7542 = icmp eq ptr %524, null
   br i1 %cmp.i.i.i3780.not7542, label %if.end1285, label %for.body1275
@@ -35858,7 +35858,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIllLNS1_14WireFormatLite9FieldTypeE16
   store i64 %531, ptr %add.ptr.i.i.i19.i3805, align 1
   %add.ptr.i.i20.i3806 = getelementptr inbounds i8, ptr %retval.0.i.i18.i3804, i64 9
   %call.i3809 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIllE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1269)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   %532 = load ptr, ptr %it1269, align 8
   %cmp.i.i.i3780.not = icmp eq ptr %532, null
   br i1 %cmp.i.i.i3780.not, label %if.end1285, label %for.body1275, !llvm.loop !363
@@ -35866,7 +35866,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIllLNS1_14WireFormatLite9FieldTypeE16
 if.end1285:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsIllLNS1_14WireFormatLite9FieldTypeE16ELS4_16EE17InternalSerializeEiRKlS7_PhPNS0_2io19EpsCopyOutputStreamE.exit3807, %_ZNK6google8protobuf3MapIllE5beginEv.exit3777, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3750, %if.end1196
   %target.addr.70 = phi ptr [ %target.addr.67, %if.end1196 ], [ %target.addr.71.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3750 ], [ %target.addr.67, %_ZNK6google8protobuf3MapIllE5beginEv.exit3777 ], [ %add.ptr.i.i20.i3806, %_ZN6google8protobuf8internal13MapEntryFuncsIllLNS1_14WireFormatLite9FieldTypeE16ELS4_16EE17InternalSerializeEiRKlS7_PhPNS0_2io19EpsCopyOutputStreamE.exit3807 ]
   %map_int32_float_.i = getelementptr inbounds i8, ptr %this, i64 1400
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   %elements_.i.i3811 = getelementptr inbounds i8, ptr %this, i64 1488
   %533 = load ptr, ptr %elements_.i.i3811, align 8
   %534 = load i64, ptr %533, align 8
@@ -35880,21 +35880,21 @@ if.then1288:                                      ; preds = %if.end1285
   br i1 %tobool.i3814, label %land.lhs.true1290, label %if.else1357
 
 land.lhs.true1290:                                ; preds = %if.then1288
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   %536 = load ptr, ptr %elements_.i.i3811, align 8
   %537 = load i64, ptr %536, align 8
   %cmp1293 = icmp ugt i64 %537, 1
   br i1 %cmp1293, label %if.then1294, label %if.else1357
 
 if.then1294:                                      ; preds = %land.lhs.true1290
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   %538 = load ptr, ptr %elements_.i.i3811, align 8
   %539 = load i64, ptr %538, align 8
   %540 = icmp ugt i64 %539, 1152921504606846975
   %541 = shl i64 %539, 4
   %542 = select i1 %540, i64 -1, i64 %541
   %call1298 = call noalias noundef nonnull ptr @_Znam(i64 noundef %542) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
           to label %invoke.cont1312 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1312:                                  ; preds = %if.then1294
@@ -35950,7 +35950,7 @@ _ZNK6google8protobuf3MapIifE5beginEv.exit:        ; preds = %for.inc.i.i.i.i3844
 
 for.cond1315:                                     ; preds = %_ZNK6google8protobuf3MapIifE5beginEv.exit, %invoke.cont1330
   %n1309.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIifE5beginEv.exit ], [ %inc1332, %invoke.cont1330 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
           to label %invoke.cont1320 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont1320:                                  ; preds = %for.cond1315
@@ -36024,7 +36024,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEESt
   br label %if.end1374
 
 if.else1357:                                      ; preds = %land.lhs.true1290, %if.then1288
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !376)
   %556 = load ptr, ptr %elements_.i.i3811, align 8, !noalias !376
   %index_of_first_non_null_.i.i.i3880 = getelementptr inbounds i8, ptr %556, i64 24
@@ -36073,7 +36073,7 @@ _ZNK6google8protobuf3MapIifE5beginEv.exit3903:    ; preds = %for.inc.i.i.i.i3900
   store ptr %556, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i3885, align 8, !alias.scope !382
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3886 = getelementptr inbounds i8, ptr %it1358, i64 16
   store i64 %ref.tmp2.sroa.4.1.i3883, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3886, align 8, !alias.scope !382
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   %564 = load ptr, ptr %it1358, align 8
   %cmp.i.i.i3906.not7549 = icmp eq ptr %564, null
   br i1 %cmp.i.i.i3906.not7549, label %if.end1374, label %for.body1364
@@ -36086,7 +36086,7 @@ for.body1364:                                     ; preds = %_ZNK6google8protobu
   %second1368 = getelementptr inbounds i8, ptr %566, i64 4
   %call1369 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIifLNS1_14WireFormatLite9FieldTypeE5ELS4_2EE17InternalSerializeEiRKiRKfPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 66, ptr noundef nonnull align 4 dereferenceable(4) %566, ptr noundef nonnull align 4 dereferenceable(4) %second1368, ptr noundef %target.addr.757550, ptr noundef %stream)
   %call.i3909 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIifE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1358)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   %567 = load ptr, ptr %it1358, align 8
   %cmp.i.i.i3906.not = icmp eq ptr %567, null
   br i1 %cmp.i.i.i3906.not, label %if.end1374, label %for.body1364, !llvm.loop !385
@@ -36094,7 +36094,7 @@ for.body1364:                                     ; preds = %_ZNK6google8protobu
 if.end1374:                                       ; preds = %for.body1364, %_ZNK6google8protobuf3MapIifE5beginEv.exit3903, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEESt14default_deleteIS9_EED2Ev.exit3876, %if.end1285
   %target.addr.73 = phi ptr [ %target.addr.70, %if.end1285 ], [ %target.addr.74.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEESt14default_deleteIS9_EED2Ev.exit3876 ], [ %target.addr.70, %_ZNK6google8protobuf3MapIifE5beginEv.exit3903 ], [ %call1369, %for.body1364 ]
   %map_int32_double_.i = getelementptr inbounds i8, ptr %this, i64 1496
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   %elements_.i.i3911 = getelementptr inbounds i8, ptr %this, i64 1584
   %568 = load ptr, ptr %elements_.i.i3911, align 8
   %569 = load i64, ptr %568, align 8
@@ -36108,21 +36108,21 @@ if.then1377:                                      ; preds = %if.end1374
   br i1 %tobool.i3914, label %land.lhs.true1379, label %if.else1446
 
 land.lhs.true1379:                                ; preds = %if.then1377
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   %571 = load ptr, ptr %elements_.i.i3911, align 8
   %572 = load i64, ptr %571, align 8
   %cmp1382 = icmp ugt i64 %572, 1
   br i1 %cmp1382, label %if.then1383, label %if.else1446
 
 if.then1383:                                      ; preds = %land.lhs.true1379
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   %573 = load ptr, ptr %elements_.i.i3911, align 8
   %574 = load i64, ptr %573, align 8
   %575 = icmp ugt i64 %574, 1152921504606846975
   %576 = shl i64 %574, 4
   %577 = select i1 %575, i64 -1, i64 %576
   %call1387 = call noalias noundef nonnull ptr @_Znam(i64 noundef %577) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
           to label %invoke.cont1401 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1401:                                  ; preds = %if.then1383
@@ -36178,7 +36178,7 @@ _ZNK6google8protobuf3MapIidE5beginEv.exit:        ; preds = %for.inc.i.i.i.i3944
 
 for.cond1404:                                     ; preds = %_ZNK6google8protobuf3MapIidE5beginEv.exit, %invoke.cont1419
   %n1398.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIidE5beginEv.exit ], [ %inc1421, %invoke.cont1419 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
           to label %invoke.cont1409 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont1409:                                  ; preds = %for.cond1404
@@ -36252,7 +36252,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEESt
   br label %if.end1463
 
 if.else1446:                                      ; preds = %land.lhs.true1379, %if.then1377
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !398)
   %591 = load ptr, ptr %elements_.i.i3911, align 8, !noalias !398
   %index_of_first_non_null_.i.i.i3980 = getelementptr inbounds i8, ptr %591, i64 24
@@ -36301,7 +36301,7 @@ _ZNK6google8protobuf3MapIidE5beginEv.exit4003:    ; preds = %for.inc.i.i.i.i4000
   store ptr %591, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i3985, align 8, !alias.scope !404
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3986 = getelementptr inbounds i8, ptr %it1447, i64 16
   store i64 %ref.tmp2.sroa.4.1.i3983, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i3986, align 8, !alias.scope !404
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   %599 = load ptr, ptr %it1447, align 8
   %cmp.i.i.i4006.not7556 = icmp eq ptr %599, null
   br i1 %cmp.i.i.i4006.not7556, label %if.end1463, label %for.body1453
@@ -36314,7 +36314,7 @@ for.body1453:                                     ; preds = %_ZNK6google8protobu
   %second1457 = getelementptr inbounds i8, ptr %601, i64 8
   %call1458 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIidLNS1_14WireFormatLite9FieldTypeE5ELS4_1EE17InternalSerializeEiRKiRKdPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 67, ptr noundef nonnull align 4 dereferenceable(4) %601, ptr noundef nonnull align 8 dereferenceable(8) %second1457, ptr noundef %target.addr.787557, ptr noundef %stream)
   %call.i4009 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIidE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1447)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   %602 = load ptr, ptr %it1447, align 8
   %cmp.i.i.i4006.not = icmp eq ptr %602, null
   br i1 %cmp.i.i.i4006.not, label %if.end1463, label %for.body1453, !llvm.loop !407
@@ -36322,7 +36322,7 @@ for.body1453:                                     ; preds = %_ZNK6google8protobu
 if.end1463:                                       ; preds = %for.body1453, %_ZNK6google8protobuf3MapIidE5beginEv.exit4003, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEESt14default_deleteIS9_EED2Ev.exit3976, %if.end1374
   %target.addr.76 = phi ptr [ %target.addr.73, %if.end1374 ], [ %target.addr.77.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEESt14default_deleteIS9_EED2Ev.exit3976 ], [ %target.addr.73, %_ZNK6google8protobuf3MapIidE5beginEv.exit4003 ], [ %call1458, %for.body1453 ]
   %map_bool_bool_.i = getelementptr inbounds i8, ptr %this, i64 1592
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   %elements_.i.i4011 = getelementptr inbounds i8, ptr %this, i64 1680
   %603 = load ptr, ptr %elements_.i.i4011, align 8
   %604 = load i64, ptr %603, align 8
@@ -36336,21 +36336,21 @@ if.then1466:                                      ; preds = %if.end1463
   br i1 %tobool.i4014, label %land.lhs.true1468, label %if.else1535
 
 land.lhs.true1468:                                ; preds = %if.then1466
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   %606 = load ptr, ptr %elements_.i.i4011, align 8
   %607 = load i64, ptr %606, align 8
   %cmp1471 = icmp ugt i64 %607, 1
   br i1 %cmp1471, label %if.then1472, label %if.else1535
 
 if.then1472:                                      ; preds = %land.lhs.true1468
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   %608 = load ptr, ptr %elements_.i.i4011, align 8
   %609 = load i64, ptr %608, align 8
   %610 = icmp ugt i64 %609, 1152921504606846975
   %611 = shl i64 %609, 4
   %612 = select i1 %610, i64 -1, i64 %611
   %call1476 = call noalias noundef nonnull ptr @_Znam(i64 noundef %612) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
           to label %invoke.cont1490 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1490:                                  ; preds = %if.then1472
@@ -36406,7 +36406,7 @@ _ZNK6google8protobuf3MapIbbE5beginEv.exit:        ; preds = %for.inc.i.i.i.i4044
 
 for.cond1493:                                     ; preds = %_ZNK6google8protobuf3MapIbbE5beginEv.exit, %invoke.cont1508
   %n1487.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapIbbE5beginEv.exit ], [ %inc1510, %invoke.cont1508 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
           to label %invoke.cont1498 unwind label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEESt14default_deleteIS9_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont1498:                                  ; preds = %for.cond1493
@@ -36525,7 +36525,7 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEESt
   br label %if.end1552
 
 if.else1535:                                      ; preds = %land.lhs.true1468, %if.then1466
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
   %633 = load ptr, ptr %elements_.i.i4011, align 8, !noalias !419
   %index_of_first_non_null_.i.i.i4099 = getelementptr inbounds i8, ptr %633, i64 24
@@ -36574,7 +36574,7 @@ _ZNK6google8protobuf3MapIbbE5beginEv.exit4122:    ; preds = %for.inc.i.i.i.i4119
   store ptr %633, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i4104, align 8, !alias.scope !425
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4105 = getelementptr inbounds i8, ptr %it1536, i64 16
   store i64 %ref.tmp2.sroa.4.1.i4102, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4105, align 8, !alias.scope !425
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   %641 = load ptr, ptr %it1536, align 8
   %cmp.i.i.i4125.not7563 = icmp eq ptr %641, null
   br i1 %cmp.i.i.i4125.not7563, label %if.end1552, label %for.body1542
@@ -36634,7 +36634,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIbbLNS1_14WireFormatLite9FieldTypeE8E
   store i8 %650, ptr %add.ptr.i.i.i18.i4149, align 1
   %add.ptr.i.i28.i19.i4150 = getelementptr inbounds i8, ptr %retval.0.i.i17.i4148, i64 2
   %call.i4152 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIbbE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1536)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   %651 = load ptr, ptr %it1536, align 8
   %cmp.i.i.i4125.not = icmp eq ptr %651, null
   br i1 %cmp.i.i.i4125.not, label %if.end1552, label %for.body1542, !llvm.loop !428
@@ -36642,7 +36642,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIbbLNS1_14WireFormatLite9FieldTypeE8E
 if.end1552:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsIbbLNS1_14WireFormatLite9FieldTypeE8ELS4_8EE17InternalSerializeEiRKbS7_PhPNS0_2io19EpsCopyOutputStreamE.exit4151, %_ZNK6google8protobuf3MapIbbE5beginEv.exit4122, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEESt14default_deleteIS9_EED2Ev.exit4095, %if.end1463
   %target.addr.79 = phi ptr [ %target.addr.76, %if.end1463 ], [ %target.addr.80.lcssa, %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEESt14default_deleteIS9_EED2Ev.exit4095 ], [ %target.addr.76, %_ZNK6google8protobuf3MapIbbE5beginEv.exit4122 ], [ %add.ptr.i.i28.i19.i4150, %_ZN6google8protobuf8internal13MapEntryFuncsIbbLNS1_14WireFormatLite9FieldTypeE8ELS4_8EE17InternalSerializeEiRKbS7_PhPNS0_2io19EpsCopyOutputStreamE.exit4151 ]
   %map_string_string_.i = getelementptr inbounds i8, ptr %this, i64 1688
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   %elements_.i.i4154 = getelementptr inbounds i8, ptr %this, i64 1776
   %652 = load ptr, ptr %elements_.i.i4154, align 8
   %653 = load i64, ptr %652, align 8
@@ -36656,21 +36656,21 @@ if.then1555:                                      ; preds = %if.end1552
   br i1 %tobool.i4157, label %land.lhs.true1557, label %if.else1613
 
 land.lhs.true1557:                                ; preds = %if.then1555
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   %655 = load ptr, ptr %elements_.i.i4154, align 8
   %656 = load i64, ptr %655, align 8
   %cmp1560 = icmp ugt i64 %656, 1
   br i1 %cmp1560, label %if.then1561, label %if.else1613
 
 if.then1561:                                      ; preds = %land.lhs.true1557
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   %657 = load ptr, ptr %elements_.i.i4154, align 8
   %658 = load i64, ptr %657, align 8
   %659 = icmp ugt i64 %658, 2305843009213693951
   %660 = shl i64 %658, 3
   %661 = select i1 %659, i64 -1, i64 %660
   %call1565 = call noalias noundef nonnull ptr @_Znam(i64 noundef %661) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
           to label %invoke.cont1569 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1569:                                  ; preds = %if.then1561
@@ -36726,7 +36726,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_
 
 for.cond1572:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit, %invoke.cont1585
   %n1566.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit ], [ %inc1587, %invoke.cont1585 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
           to label %invoke.cont1577 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont1577:                                  ; preds = %for.cond1572
@@ -36797,7 +36797,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %if.end1631
 
 if.else1613:                                      ; preds = %land.lhs.true1557, %if.then1555
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !440)
   %674 = load ptr, ptr %elements_.i.i4154, align 8, !noalias !440
   %index_of_first_non_null_.i.i.i4223 = getelementptr inbounds i8, ptr %674, i64 24
@@ -36846,7 +36846,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_
   store ptr %674, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i4228, align 8, !alias.scope !446
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4229 = getelementptr inbounds i8, ptr %it1614, i64 16
   store i64 %ref.tmp2.sroa.4.1.i4226, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4229, align 8, !alias.scope !446
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   %682 = load ptr, ptr %it1614, align 8
   %cmp.i.i.i4249.not7570 = icmp eq ptr %682, null
   br i1 %cmp.i.i.i4249.not7570, label %if.end1631, label %for.body1620
@@ -36859,7 +36859,7 @@ for.body1620:                                     ; preds = %_ZNK6google8protobu
   %second1624 = getelementptr inbounds i8, ptr %684, i64 32
   %call1625 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_LNS1_14WireFormatLite9FieldTypeE9ELSA_9EE17InternalSerializeEiRKS8_SD_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 69, ptr noundef nonnull align 8 dereferenceable(32) %684, ptr noundef nonnull align 8 dereferenceable(32) %second1624, ptr noundef %target.addr.847571, ptr noundef %stream)
   %call.i4254 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap13iterator_baseIKNS8_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1614)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   %685 = load ptr, ptr %it1614, align 8
   %cmp.i.i.i4249.not = icmp eq ptr %685, null
   br i1 %cmp.i.i.i4249.not, label %if.end1631, label %for.body1620, !llvm.loop !449
@@ -36867,7 +36867,7 @@ for.body1620:                                     ; preds = %_ZNK6google8protobu
 if.end1631:                                       ; preds = %for.body1620, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit4246, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4219, %if.end1552
   %target.addr.82 = phi ptr [ %target.addr.79, %if.end1552 ], [ %target.addr.83.lcssa, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4219 ], [ %target.addr.79, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit4246 ], [ %call1625, %for.body1620 ]
   %map_string_bytes_.i = getelementptr inbounds i8, ptr %this, i64 1784
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   %elements_.i.i4256 = getelementptr inbounds i8, ptr %this, i64 1872
   %686 = load ptr, ptr %elements_.i.i4256, align 8
   %687 = load i64, ptr %686, align 8
@@ -36881,21 +36881,21 @@ if.then1634:                                      ; preds = %if.end1631
   br i1 %tobool.i4259, label %land.lhs.true1636, label %if.else1692
 
 land.lhs.true1636:                                ; preds = %if.then1634
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   %689 = load ptr, ptr %elements_.i.i4256, align 8
   %690 = load i64, ptr %689, align 8
   %cmp1639 = icmp ugt i64 %690, 1
   br i1 %cmp1639, label %if.then1640, label %if.else1692
 
 if.then1640:                                      ; preds = %land.lhs.true1636
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   %691 = load ptr, ptr %elements_.i.i4256, align 8
   %692 = load i64, ptr %691, align 8
   %693 = icmp ugt i64 %692, 2305843009213693951
   %694 = shl i64 %692, 3
   %695 = select i1 %693, i64 -1, i64 %694
   %call1644 = call noalias noundef nonnull ptr @_Znam(i64 noundef %695) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
           to label %invoke.cont1648 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4307.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1648:                                  ; preds = %if.then1640
@@ -36951,7 +36951,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_
 
 for.cond1651:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit4293, %invoke.cont1664
   %n1645.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit4293 ], [ %inc1666, %invoke.cont1664 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
           to label %invoke.cont1656 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4307.loopexit.split-lp.loopexit
 
 invoke.cont1656:                                  ; preds = %for.cond1651
@@ -37022,7 +37022,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %if.end1710
 
 if.else1692:                                      ; preds = %land.lhs.true1636, %if.then1634
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !461)
   %708 = load ptr, ptr %elements_.i.i4256, align 8, !noalias !461
   %index_of_first_non_null_.i.i.i4331 = getelementptr inbounds i8, ptr %708, i64 24
@@ -37071,7 +37071,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_
   store ptr %708, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i4336, align 8, !alias.scope !467
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4337 = getelementptr inbounds i8, ptr %it1693, i64 16
   store i64 %ref.tmp2.sroa.4.1.i4334, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4337, align 8, !alias.scope !467
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   %716 = load ptr, ptr %it1693, align 8
   %cmp.i.i.i4357.not7577 = icmp eq ptr %716, null
   br i1 %cmp.i.i.i4357.not7577, label %if.end1710, label %for.body1699
@@ -37084,7 +37084,7 @@ for.body1699:                                     ; preds = %_ZNK6google8protobu
   %second1703 = getelementptr inbounds i8, ptr %718, i64 32
   %call1704 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_LNS1_14WireFormatLite9FieldTypeE9ELSA_12EE17InternalSerializeEiRKS8_SD_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 70, ptr noundef nonnull align 8 dereferenceable(32) %718, ptr noundef nonnull align 8 dereferenceable(32) %second1703, ptr noundef %target.addr.877578, ptr noundef %stream)
   %call.i4361 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap13iterator_baseIKNS8_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1693)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   %719 = load ptr, ptr %it1693, align 8
   %cmp.i.i.i4357.not = icmp eq ptr %719, null
   br i1 %cmp.i.i.i4357.not, label %if.end1710, label %for.body1699, !llvm.loop !470
@@ -37092,7 +37092,7 @@ for.body1699:                                     ; preds = %_ZNK6google8protobu
 if.end1710:                                       ; preds = %for.body1699, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit4354, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4327, %if.end1631
   %target.addr.85 = phi ptr [ %target.addr.82, %if.end1631 ], [ %target.addr.86.lcssa, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4327 ], [ %target.addr.82, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit4354 ], [ %call1704, %for.body1699 ]
   %map_string_nested_message_.i = getelementptr inbounds i8, ptr %this, i64 1880
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   %elements_.i.i4363 = getelementptr inbounds i8, ptr %this, i64 1968
   %720 = load ptr, ptr %elements_.i.i4363, align 8
   %721 = load i64, ptr %720, align 8
@@ -37106,21 +37106,21 @@ if.then1713:                                      ; preds = %if.end1710
   br i1 %tobool.i4366, label %land.lhs.true1715, label %if.else1771
 
 land.lhs.true1715:                                ; preds = %if.then1713
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   %723 = load ptr, ptr %elements_.i.i4363, align 8
   %724 = load i64, ptr %723, align 8
   %cmp1718 = icmp ugt i64 %724, 1
   br i1 %cmp1718, label %if.then1719, label %if.else1771
 
 if.then1719:                                      ; preds = %land.lhs.true1715
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   %725 = load ptr, ptr %elements_.i.i4363, align 8
   %726 = load i64, ptr %725, align 8
   %727 = icmp ugt i64 %726, 2305843009213693951
   %728 = shl i64 %726, 3
   %729 = select i1 %727, i64 -1, i64 %728
   %call1723 = call noalias noundef nonnull ptr @_Znam(i64 noundef %729) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
           to label %invoke.cont1727 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEESt14default_deleteISF_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1727:                                  ; preds = %if.then1719
@@ -37176,7 +37176,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
 
 for.cond1730:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit, %invoke.cont1743
   %n1724.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit ], [ %inc1745, %invoke.cont1743 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
           to label %invoke.cont1735 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEESt14default_deleteISF_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont1735:                                  ; preds = %for.cond1730
@@ -37427,7 +37427,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %if.end1789
 
 if.else1771:                                      ; preds = %land.lhs.true1715, %if.then1713
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !482)
   %755 = load ptr, ptr %elements_.i.i4363, align 8, !noalias !482
   %index_of_first_non_null_.i.i.i4442 = getelementptr inbounds i8, ptr %755, i64 24
@@ -37476,7 +37476,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   store ptr %755, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i4447, align 8, !alias.scope !488
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4448 = getelementptr inbounds i8, ptr %it1772, i64 16
   store i64 %ref.tmp2.sroa.4.1.i4445, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4448, align 8, !alias.scope !488
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   %763 = load ptr, ptr %it1772, align 8
   %cmp.i.i.i4468.not7584 = icmp eq ptr %763, null
   br i1 %cmp.i.i.i4468.not7584, label %if.end1789, label %for.body1778
@@ -37669,7 +37669,7 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11E
   %retval.i.0.i25.i6912 = phi ptr [ %add.ptr.i.i31.i6918, %if.then.i.i30.i6917 ], [ %add.ptr7.i.i29.i6916, %if.then4.i.i26.i6913 ], [ %incdec.ptr16.i.i24.i6910, %do.end.i.i22.i6908 ]
   %call3.i.i = call noundef ptr @_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(40) %second1782, ptr noundef nonnull %retval.i.0.i25.i6912, ptr noundef nonnull %stream)
   %call.i4477 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap13iterator_baseIKNSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1772)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   %779 = load ptr, ptr %it1772, align 8
   %cmp.i.i.i4468.not = icmp eq ptr %779, null
   br i1 %cmp.i.i.i4468.not, label %if.end1789, label %for.body1778, !llvm.loop !491
@@ -37677,7 +37677,7 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11E
 if.end1789:                                       ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5WriteEiRKS7_PhPNS0_2io19EpsCopyOutputStreamE.exit6919, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit4465, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEESt14default_deleteISF_EED2Ev.exit4438, %if.end1710
   %target.addr.88 = phi ptr [ %target.addr.85, %if.end1710 ], [ %target.addr.89.lcssa, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEESt14default_deleteISF_EED2Ev.exit4438 ], [ %target.addr.85, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit4465 ], [ %call3.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5WriteEiRKS7_PhPNS0_2io19EpsCopyOutputStreamE.exit6919 ]
   %map_string_foreign_message_.i = getelementptr inbounds i8, ptr %this, i64 1976
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   %elements_.i.i4479 = getelementptr inbounds i8, ptr %this, i64 2064
   %780 = load ptr, ptr %elements_.i.i4479, align 8
   %781 = load i64, ptr %780, align 8
@@ -37691,21 +37691,21 @@ if.then1792:                                      ; preds = %if.end1789
   br i1 %tobool.i4482, label %land.lhs.true1794, label %if.else1850
 
 land.lhs.true1794:                                ; preds = %if.then1792
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   %783 = load ptr, ptr %elements_.i.i4479, align 8
   %784 = load i64, ptr %783, align 8
   %cmp1797 = icmp ugt i64 %784, 1
   br i1 %cmp1797, label %if.then1798, label %if.else1850
 
 if.then1798:                                      ; preds = %land.lhs.true1794
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   %785 = load ptr, ptr %elements_.i.i4479, align 8
   %786 = load i64, ptr %785, align 8
   %787 = icmp ugt i64 %786, 2305843009213693951
   %788 = shl i64 %786, 3
   %789 = select i1 %787, i64 -1, i64 %788
   %call1802 = call noalias noundef nonnull ptr @_Znam(i64 noundef %789) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
           to label %invoke.cont1806 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEESt14default_deleteISF_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1806:                                  ; preds = %if.then1798
@@ -37761,7 +37761,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
 
 for.cond1809:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit, %invoke.cont1822
   %n1803.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit ], [ %inc1824, %invoke.cont1822 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
           to label %invoke.cont1814 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEESt14default_deleteISF_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont1814:                                  ; preds = %for.cond1809
@@ -37832,7 +37832,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %if.end1868
 
 if.else1850:                                      ; preds = %land.lhs.true1794, %if.then1792
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !504)
   %802 = load ptr, ptr %elements_.i.i4479, align 8, !noalias !504
   %index_of_first_non_null_.i.i.i4548 = getelementptr inbounds i8, ptr %802, i64 24
@@ -37881,7 +37881,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   store ptr %802, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i4553, align 8, !alias.scope !510
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4554 = getelementptr inbounds i8, ptr %it1851, i64 16
   store i64 %ref.tmp2.sroa.4.1.i4551, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4554, align 8, !alias.scope !510
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   %810 = load ptr, ptr %it1851, align 8
   %cmp.i.i.i4574.not7591 = icmp eq ptr %810, null
   br i1 %cmp.i.i.i4574.not7591, label %if.end1868, label %for.body1857
@@ -37894,7 +37894,7 @@ for.body1857:                                     ; preds = %_ZNK6google8protobu
   %second1861 = getelementptr inbounds i8, ptr %812, i64 32
   %call1862 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE17InternalSerializeEiRKS8_RKSB_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 72, ptr noundef nonnull align 8 dereferenceable(32) %812, ptr noundef nonnull align 8 dereferenceable(32) %second1861, ptr noundef %target.addr.937592, ptr noundef %stream)
   %call.i4578 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap13iterator_baseIKNSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1851)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   %813 = load ptr, ptr %it1851, align 8
   %cmp.i.i.i4574.not = icmp eq ptr %813, null
   br i1 %cmp.i.i.i4574.not, label %if.end1868, label %for.body1857, !llvm.loop !513
@@ -37902,7 +37902,7 @@ for.body1857:                                     ; preds = %_ZNK6google8protobu
 if.end1868:                                       ; preds = %for.body1857, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit4571, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEESt14default_deleteISF_EED2Ev.exit4544, %if.end1789
   %target.addr.91 = phi ptr [ %target.addr.88, %if.end1789 ], [ %target.addr.92.lcssa, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEESt14default_deleteISF_EED2Ev.exit4544 ], [ %target.addr.88, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit4571 ], [ %call1862, %for.body1857 ]
   %map_string_nested_enum_.i = getelementptr inbounds i8, ptr %this, i64 2072
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   %elements_.i.i4580 = getelementptr inbounds i8, ptr %this, i64 2160
   %814 = load ptr, ptr %elements_.i.i4580, align 8
   %815 = load i64, ptr %814, align 8
@@ -37916,21 +37916,21 @@ if.then1871:                                      ; preds = %if.end1868
   br i1 %tobool.i4583, label %land.lhs.true1873, label %if.else1929
 
 land.lhs.true1873:                                ; preds = %if.then1871
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   %817 = load ptr, ptr %elements_.i.i4580, align 8
   %818 = load i64, ptr %817, align 8
   %cmp1876 = icmp ugt i64 %818, 1
   br i1 %cmp1876, label %if.then1877, label %if.else1929
 
 if.then1877:                                      ; preds = %land.lhs.true1873
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   %819 = load ptr, ptr %elements_.i.i4580, align 8
   %820 = load i64, ptr %819, align 8
   %821 = icmp ugt i64 %820, 2305843009213693951
   %822 = shl i64 %820, 3
   %823 = select i1 %821, i64 -1, i64 %822
   %call1881 = call noalias noundef nonnull ptr @_Znam(i64 noundef %823) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
           to label %invoke.cont1885 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEESt14default_deleteISF_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1885:                                  ; preds = %if.then1877
@@ -37986,7 +37986,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
 
 for.cond1888:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit, %invoke.cont1901
   %n1882.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit ], [ %inc1903, %invoke.cont1901 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
           to label %invoke.cont1893 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEESt14default_deleteISF_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont1893:                                  ; preds = %for.cond1888
@@ -38057,7 +38057,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %if.end1947
 
 if.else1929:                                      ; preds = %land.lhs.true1873, %if.then1871
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !526)
   %836 = load ptr, ptr %elements_.i.i4580, align 8, !noalias !526
   %index_of_first_non_null_.i.i.i4649 = getelementptr inbounds i8, ptr %836, i64 24
@@ -38106,7 +38106,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   store ptr %836, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i4654, align 8, !alias.scope !532
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4655 = getelementptr inbounds i8, ptr %it1930, i64 16
   store i64 %ref.tmp2.sroa.4.1.i4652, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4655, align 8, !alias.scope !532
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   %844 = load ptr, ptr %it1930, align 8
   %cmp.i.i.i4675.not7598 = icmp eq ptr %844, null
   br i1 %cmp.i.i.i4675.not7598, label %if.end1947, label %for.body1936
@@ -38119,7 +38119,7 @@ for.body1936:                                     ; preds = %_ZNK6google8protobu
   %second1940 = getelementptr inbounds i8, ptr %846, i64 32
   %call1941 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSD_14EE17InternalSerializeEiRKS8_RKSB_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 73, ptr noundef nonnull align 8 dereferenceable(32) %846, ptr noundef nonnull align 4 dereferenceable(4) %second1940, ptr noundef %target.addr.967599, ptr noundef %stream)
   %call.i4679 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap13iterator_baseIKNSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it1930)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   %847 = load ptr, ptr %it1930, align 8
   %cmp.i.i.i4675.not = icmp eq ptr %847, null
   br i1 %cmp.i.i.i4675.not, label %if.end1947, label %for.body1936, !llvm.loop !535
@@ -38127,7 +38127,7 @@ for.body1936:                                     ; preds = %_ZNK6google8protobu
 if.end1947:                                       ; preds = %for.body1936, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit4672, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEESt14default_deleteISF_EED2Ev.exit4645, %if.end1868
   %target.addr.94 = phi ptr [ %target.addr.91, %if.end1868 ], [ %target.addr.95.lcssa, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEESt14default_deleteISF_EED2Ev.exit4645 ], [ %target.addr.91, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit4672 ], [ %call1941, %for.body1936 ]
   %map_string_foreign_enum_.i = getelementptr inbounds i8, ptr %this, i64 2168
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   %elements_.i.i4681 = getelementptr inbounds i8, ptr %this, i64 2256
   %848 = load ptr, ptr %elements_.i.i4681, align 8
   %849 = load i64, ptr %848, align 8
@@ -38141,21 +38141,21 @@ if.then1950:                                      ; preds = %if.end1947
   br i1 %tobool.i4684, label %land.lhs.true1952, label %if.else2008
 
 land.lhs.true1952:                                ; preds = %if.then1950
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   %851 = load ptr, ptr %elements_.i.i4681, align 8
   %852 = load i64, ptr %851, align 8
   %cmp1955 = icmp ugt i64 %852, 1
   br i1 %cmp1955, label %if.then1956, label %if.else2008
 
 if.then1956:                                      ; preds = %land.lhs.true1952
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   %853 = load ptr, ptr %elements_.i.i4681, align 8
   %854 = load i64, ptr %853, align 8
   %855 = icmp ugt i64 %854, 2305843009213693951
   %856 = shl i64 %854, 3
   %857 = select i1 %855, i64 -1, i64 %856
   %call1960 = call noalias noundef nonnull ptr @_Znam(i64 noundef %857) #30
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
           to label %invoke.cont1964 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EEESt14default_deleteISF_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1964:                                  ; preds = %if.then1956
@@ -38211,7 +38211,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
 
 for.cond1967:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit, %invoke.cont1980
   %n1961.0 = phi i64 [ 0, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5beginEv.exit ], [ %inc1982, %invoke.cont1980 ]
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
           to label %invoke.cont1972 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EEESt14default_deleteISF_EED2Ev.exit.loopexit.split-lp.loopexit
 
 invoke.cont1972:                                  ; preds = %for.cond1967
@@ -38282,7 +38282,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %if.end2026
 
 if.else2008:                                      ; preds = %land.lhs.true1952, %if.then1950
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !548)
   %870 = load ptr, ptr %elements_.i.i4681, align 8, !noalias !548
   %index_of_first_non_null_.i.i.i4750 = getelementptr inbounds i8, ptr %870, i64 24
@@ -38331,7 +38331,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   store ptr %870, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i4755, align 8, !alias.scope !554
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4756 = getelementptr inbounds i8, ptr %it2009, i64 16
   store i64 %ref.tmp2.sroa.4.1.i4753, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i4756, align 8, !alias.scope !554
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   %878 = load ptr, ptr %it2009, align 8
   %cmp.i.i.i4776.not7605 = icmp eq ptr %878, null
   br i1 %cmp.i.i.i4776.not7605, label %if.end2026, label %for.body2015
@@ -38344,7 +38344,7 @@ for.body2015:                                     ; preds = %_ZNK6google8protobu
   %second2019 = getelementptr inbounds i8, ptr %880, i64 32
   %call2020 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSD_14EE17InternalSerializeEiRKS8_RKSB_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 74, ptr noundef nonnull align 8 dereferenceable(32) %880, ptr noundef nonnull align 4 dereferenceable(4) %second2019, ptr noundef %target.addr.997606, ptr noundef %stream)
   %call.i4780 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap13iterator_baseIKNSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it2009)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   %881 = load ptr, ptr %it2009, align 8
   %cmp.i.i.i4776.not = icmp eq ptr %881, null
   br i1 %cmp.i.i.i4776.not, label %if.end2026, label %for.body2015, !llvm.loop !557
@@ -45946,14 +45946,14 @@ for.body237:                                      ; preds = %for.end226, %for.bo
 for.end244:                                       ; preds = %for.body237, %for.end226
   %total_size.5.lcssa = phi i64 [ %add230, %for.end226 ], [ %add241, %for.body237 ]
   %map_int32_int32_.i = getelementptr inbounds i8, ptr %this, i64 440
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   %elements_.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %34 = load ptr, ptr %elements_.i.i.i, align 8
   %35 = load i64, ptr %34, align 8
   %conv.i498 = shl i64 %35, 1
   %mul247 = and i64 %conv.i498, 8589934590
   %add248 = add i64 %mul247, %total_size.5.lcssa
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
   %36 = load ptr, ptr %elements_.i.i.i, align 8, !noalias !585
   %index_of_first_non_null_.i.i.i = getelementptr inbounds i8, ptr %36, i64 24
@@ -46002,7 +46002,7 @@ _ZNK6google8protobuf3MapIiiE5beginEv.exit:        ; preds = %for.inc.i.i.i.i, %f
   store ptr %36, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !591
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %it, i64 16
   store i64 %ref.tmp2.sroa.4.1.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !591
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   %44 = load ptr, ptr %it, align 8
   %cmp.i.i.i.not2359 = icmp eq ptr %44, null
   br i1 %cmp.i.i.i.not2359, label %for.end260, label %for.body253
@@ -46049,7 +46049,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE5E
   %add5.i = add i64 %total_size.62360, 1
   %add257 = add i64 %add5.i, %conv.i511
   %call.i512 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIiiE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_int32_.i)
   %52 = load ptr, ptr %it, align 8
   %cmp.i.i.i.not = icmp eq ptr %52, null
   br i1 %cmp.i.i.i.not, label %for.end260, label %for.body253, !llvm.loop !594
@@ -46057,14 +46057,14 @@ _ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE5E
 for.end260:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE5ELS4_5EE12ByteSizeLongERKiS7_.exit, %_ZNK6google8protobuf3MapIiiE5beginEv.exit
   %total_size.6.lcssa = phi i64 [ %add248, %_ZNK6google8protobuf3MapIiiE5beginEv.exit ], [ %add257, %_ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE5ELS4_5EE12ByteSizeLongERKiS7_.exit ]
   %map_int64_int64_.i = getelementptr inbounds i8, ptr %this, i64 536
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   %elements_.i.i.i513 = getelementptr inbounds i8, ptr %this, i64 624
   %53 = load ptr, ptr %elements_.i.i.i513, align 8
   %54 = load i64, ptr %53, align 8
   %conv.i515 = shl i64 %54, 1
   %mul263 = and i64 %conv.i515, 8589934590
   %add264 = add i64 %mul263, %total_size.6.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !595)
   %55 = load ptr, ptr %elements_.i.i.i513, align 8, !noalias !595
   %index_of_first_non_null_.i.i.i519 = getelementptr inbounds i8, ptr %55, i64 24
@@ -46113,7 +46113,7 @@ _ZNK6google8protobuf3MapIllE5beginEv.exit:        ; preds = %for.inc.i.i.i.i538,
   store ptr %55, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i524, align 8, !alias.scope !601
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i525 = getelementptr inbounds i8, ptr %it265, i64 16
   store i64 %ref.tmp2.sroa.4.1.i522, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i525, align 8, !alias.scope !601
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   %63 = load ptr, ptr %it265, align 8
   %cmp.i.i.i543.not2362 = icmp eq ptr %63, null
   br i1 %cmp.i.i.i543.not2362, label %for.end280, label %for.body271
@@ -46142,7 +46142,7 @@ for.body271:                                      ; preds = %_ZNK6google8protobu
   %add5.i547 = add i64 %add2.i546, %div1.i.i.i.i
   %add277 = add i64 %add5.i547, %div1.i.i.i6.i
   %call.i548 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIllE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it265)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int64_int64_.i)
   %70 = load ptr, ptr %it265, align 8
   %cmp.i.i.i543.not = icmp eq ptr %70, null
   br i1 %cmp.i.i.i543.not, label %for.end280, label %for.body271, !llvm.loop !604
@@ -46150,14 +46150,14 @@ for.body271:                                      ; preds = %_ZNK6google8protobu
 for.end280:                                       ; preds = %for.body271, %_ZNK6google8protobuf3MapIllE5beginEv.exit
   %total_size.7.lcssa = phi i64 [ %add264, %_ZNK6google8protobuf3MapIllE5beginEv.exit ], [ %add277, %for.body271 ]
   %map_uint32_uint32_.i = getelementptr inbounds i8, ptr %this, i64 632
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   %elements_.i.i.i549 = getelementptr inbounds i8, ptr %this, i64 720
   %71 = load ptr, ptr %elements_.i.i.i549, align 8
   %72 = load i64, ptr %71, align 8
   %conv.i551 = shl i64 %72, 1
   %mul283 = and i64 %conv.i551, 8589934590
   %add284 = add i64 %mul283, %total_size.7.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !605)
   %73 = load ptr, ptr %elements_.i.i.i549, align 8, !noalias !605
   %index_of_first_non_null_.i.i.i555 = getelementptr inbounds i8, ptr %73, i64 24
@@ -46206,7 +46206,7 @@ _ZNK6google8protobuf3MapIjjE5beginEv.exit:        ; preds = %for.inc.i.i.i.i574,
   store ptr %73, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i560, align 8, !alias.scope !611
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i561 = getelementptr inbounds i8, ptr %it285, i64 16
   store i64 %ref.tmp2.sroa.4.1.i558, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i561, align 8, !alias.scope !611
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   %81 = load ptr, ptr %it285, align 8
   %cmp.i.i.i579.not2365 = icmp eq ptr %81, null
   br i1 %cmp.i.i.i579.not2365, label %for.end300, label %for.body291
@@ -46236,7 +46236,7 @@ for.body291:                                      ; preds = %_ZNK6google8protobu
   %add5.i594 = zext nneg i32 %narrow.i to i64
   %add297 = add i64 %total_size.82366, %add5.i594
   %call.i595 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIjjE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it285)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint32_uint32_.i)
   %88 = load ptr, ptr %it285, align 8
   %cmp.i.i.i579.not = icmp eq ptr %88, null
   br i1 %cmp.i.i.i579.not, label %for.end300, label %for.body291, !llvm.loop !614
@@ -46244,14 +46244,14 @@ for.body291:                                      ; preds = %_ZNK6google8protobu
 for.end300:                                       ; preds = %for.body291, %_ZNK6google8protobuf3MapIjjE5beginEv.exit
   %total_size.8.lcssa = phi i64 [ %add284, %_ZNK6google8protobuf3MapIjjE5beginEv.exit ], [ %add297, %for.body291 ]
   %map_uint64_uint64_.i = getelementptr inbounds i8, ptr %this, i64 728
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   %elements_.i.i.i596 = getelementptr inbounds i8, ptr %this, i64 816
   %89 = load ptr, ptr %elements_.i.i.i596, align 8
   %90 = load i64, ptr %89, align 8
   %conv.i598 = shl i64 %90, 1
   %mul303 = and i64 %conv.i598, 8589934590
   %add304 = add i64 %mul303, %total_size.8.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !615)
   %91 = load ptr, ptr %elements_.i.i.i596, align 8, !noalias !615
   %index_of_first_non_null_.i.i.i602 = getelementptr inbounds i8, ptr %91, i64 24
@@ -46300,7 +46300,7 @@ _ZNK6google8protobuf3MapImmE5beginEv.exit:        ; preds = %for.inc.i.i.i.i621,
   store ptr %91, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i607, align 8, !alias.scope !621
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i608 = getelementptr inbounds i8, ptr %it305, i64 16
   store i64 %ref.tmp2.sroa.4.1.i605, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i608, align 8, !alias.scope !621
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   %99 = load ptr, ptr %it305, align 8
   %cmp.i.i.i626.not2368 = icmp eq ptr %99, null
   br i1 %cmp.i.i.i626.not2368, label %for.end320, label %for.body311
@@ -46329,7 +46329,7 @@ for.body311:                                      ; preds = %_ZNK6google8protobu
   %add5.i641 = add i64 %add2.i640, %div1.i.i.i.i633
   %add317 = add i64 %add5.i641, %div1.i.i.i6.i639
   %call.i642 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapImmE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it305)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_uint64_uint64_.i)
   %106 = load ptr, ptr %it305, align 8
   %cmp.i.i.i626.not = icmp eq ptr %106, null
   br i1 %cmp.i.i.i626.not, label %for.end320, label %for.body311, !llvm.loop !624
@@ -46337,14 +46337,14 @@ for.body311:                                      ; preds = %_ZNK6google8protobu
 for.end320:                                       ; preds = %for.body311, %_ZNK6google8protobuf3MapImmE5beginEv.exit
   %total_size.9.lcssa = phi i64 [ %add304, %_ZNK6google8protobuf3MapImmE5beginEv.exit ], [ %add317, %for.body311 ]
   %map_sint32_sint32_.i = getelementptr inbounds i8, ptr %this, i64 824
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   %elements_.i.i.i643 = getelementptr inbounds i8, ptr %this, i64 912
   %107 = load ptr, ptr %elements_.i.i.i643, align 8
   %108 = load i64, ptr %107, align 8
   %conv.i645 = shl i64 %108, 1
   %mul323 = and i64 %conv.i645, 8589934590
   %add324 = add i64 %mul323, %total_size.9.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !625)
   %109 = load ptr, ptr %elements_.i.i.i643, align 8, !noalias !625
   %index_of_first_non_null_.i.i.i649 = getelementptr inbounds i8, ptr %109, i64 24
@@ -46393,7 +46393,7 @@ _ZNK6google8protobuf3MapIiiE5beginEv.exit672:     ; preds = %for.inc.i.i.i.i669,
   store ptr %109, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i654, align 8, !alias.scope !631
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i655 = getelementptr inbounds i8, ptr %it325, i64 16
   store i64 %ref.tmp2.sroa.4.1.i652, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i655, align 8, !alias.scope !631
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   %117 = load ptr, ptr %it325, align 8
   %cmp.i.i.i675.not2371 = icmp eq ptr %117, null
   br i1 %cmp.i.i.i675.not2371, label %for.end340, label %for.body331
@@ -46429,7 +46429,7 @@ for.body331:                                      ; preds = %_ZNK6google8protobu
   %add5.i687 = zext nneg i32 %narrow.i686 to i64
   %add337 = add i64 %total_size.102372, %add5.i687
   %call.i688 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIiiE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it325)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint32_sint32_.i)
   %124 = load ptr, ptr %it325, align 8
   %cmp.i.i.i675.not = icmp eq ptr %124, null
   br i1 %cmp.i.i.i675.not, label %for.end340, label %for.body331, !llvm.loop !634
@@ -46437,14 +46437,14 @@ for.body331:                                      ; preds = %_ZNK6google8protobu
 for.end340:                                       ; preds = %for.body331, %_ZNK6google8protobuf3MapIiiE5beginEv.exit672
   %total_size.10.lcssa = phi i64 [ %add324, %_ZNK6google8protobuf3MapIiiE5beginEv.exit672 ], [ %add337, %for.body331 ]
   %map_sint64_sint64_.i = getelementptr inbounds i8, ptr %this, i64 920
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   %elements_.i.i.i689 = getelementptr inbounds i8, ptr %this, i64 1008
   %125 = load ptr, ptr %elements_.i.i.i689, align 8
   %126 = load i64, ptr %125, align 8
   %conv.i691 = shl i64 %126, 1
   %mul343 = and i64 %conv.i691, 8589934590
   %add344 = add i64 %mul343, %total_size.10.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !635)
   %127 = load ptr, ptr %elements_.i.i.i689, align 8, !noalias !635
   %index_of_first_non_null_.i.i.i695 = getelementptr inbounds i8, ptr %127, i64 24
@@ -46493,7 +46493,7 @@ _ZNK6google8protobuf3MapIllE5beginEv.exit718:     ; preds = %for.inc.i.i.i.i715,
   store ptr %127, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i700, align 8, !alias.scope !641
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i701 = getelementptr inbounds i8, ptr %it345, i64 16
   store i64 %ref.tmp2.sroa.4.1.i698, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i701, align 8, !alias.scope !641
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   %135 = load ptr, ptr %it345, align 8
   %cmp.i.i.i721.not2374 = icmp eq ptr %135, null
   br i1 %cmp.i.i.i721.not2374, label %for.end360, label %for.body351
@@ -46528,7 +46528,7 @@ for.body351:                                      ; preds = %_ZNK6google8protobu
   %add5.i742 = add i64 %add2.i741, %div1.i.i.i.i731
   %add357 = add i64 %add5.i742, %div1.i.i.i9.i740
   %call.i743 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIllE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it345)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sint64_sint64_.i)
   %142 = load ptr, ptr %it345, align 8
   %cmp.i.i.i721.not = icmp eq ptr %142, null
   br i1 %cmp.i.i.i721.not, label %for.end360, label %for.body351, !llvm.loop !644
@@ -46536,14 +46536,14 @@ for.body351:                                      ; preds = %_ZNK6google8protobu
 for.end360:                                       ; preds = %for.body351, %_ZNK6google8protobuf3MapIllE5beginEv.exit718
   %total_size.11.lcssa = phi i64 [ %add344, %_ZNK6google8protobuf3MapIllE5beginEv.exit718 ], [ %add357, %for.body351 ]
   %map_fixed32_fixed32_.i = getelementptr inbounds i8, ptr %this, i64 1016
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   %elements_.i.i.i744 = getelementptr inbounds i8, ptr %this, i64 1104
   %143 = load ptr, ptr %elements_.i.i.i744, align 8
   %144 = load i64, ptr %143, align 8
   %conv.i746 = shl i64 %144, 1
   %mul363 = and i64 %conv.i746, 8589934590
   %add364 = add i64 %mul363, %total_size.11.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !645)
   %145 = load ptr, ptr %elements_.i.i.i744, align 8, !noalias !645
   %index_of_first_non_null_.i.i.i750 = getelementptr inbounds i8, ptr %145, i64 24
@@ -46592,7 +46592,7 @@ _ZNK6google8protobuf3MapIjjE5beginEv.exit773:     ; preds = %for.inc.i.i.i.i770,
   store ptr %145, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i755, align 8, !alias.scope !651
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i756 = getelementptr inbounds i8, ptr %it365, i64 16
   store i64 %ref.tmp2.sroa.4.1.i753, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i756, align 8, !alias.scope !651
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   %153 = load ptr, ptr %it365, align 8
   %cmp.i.i.i776.not2377 = icmp eq ptr %153, null
   br i1 %cmp.i.i.i776.not2377, label %for.end380, label %for.body371
@@ -46601,7 +46601,7 @@ for.body371:                                      ; preds = %_ZNK6google8protobu
   %total_size.122378 = phi i64 [ %add377, %for.body371 ], [ %add364, %_ZNK6google8protobuf3MapIjjE5beginEv.exit773 ]
   %add377 = add i64 %total_size.122378, 11
   %call.i779 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIjjE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it365)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed32_fixed32_.i)
   %154 = load ptr, ptr %it365, align 8
   %cmp.i.i.i776.not = icmp eq ptr %154, null
   br i1 %cmp.i.i.i776.not, label %for.end380, label %for.body371, !llvm.loop !654
@@ -46609,14 +46609,14 @@ for.body371:                                      ; preds = %_ZNK6google8protobu
 for.end380:                                       ; preds = %for.body371, %_ZNK6google8protobuf3MapIjjE5beginEv.exit773
   %total_size.12.lcssa = phi i64 [ %add364, %_ZNK6google8protobuf3MapIjjE5beginEv.exit773 ], [ %add377, %for.body371 ]
   %map_fixed64_fixed64_.i = getelementptr inbounds i8, ptr %this, i64 1112
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   %elements_.i.i.i780 = getelementptr inbounds i8, ptr %this, i64 1200
   %155 = load ptr, ptr %elements_.i.i.i780, align 8
   %156 = load i64, ptr %155, align 8
   %conv.i782 = shl i64 %156, 1
   %mul383 = and i64 %conv.i782, 8589934590
   %add384 = add i64 %mul383, %total_size.12.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !655)
   %157 = load ptr, ptr %elements_.i.i.i780, align 8, !noalias !655
   %index_of_first_non_null_.i.i.i786 = getelementptr inbounds i8, ptr %157, i64 24
@@ -46665,7 +46665,7 @@ _ZNK6google8protobuf3MapImmE5beginEv.exit809:     ; preds = %for.inc.i.i.i.i806,
   store ptr %157, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i791, align 8, !alias.scope !661
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i792 = getelementptr inbounds i8, ptr %it385, i64 16
   store i64 %ref.tmp2.sroa.4.1.i789, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i792, align 8, !alias.scope !661
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   %165 = load ptr, ptr %it385, align 8
   %cmp.i.i.i812.not2380 = icmp eq ptr %165, null
   br i1 %cmp.i.i.i812.not2380, label %for.end400, label %for.body391
@@ -46674,7 +46674,7 @@ for.body391:                                      ; preds = %_ZNK6google8protobu
   %total_size.132381 = phi i64 [ %add397, %for.body391 ], [ %add384, %_ZNK6google8protobuf3MapImmE5beginEv.exit809 ]
   %add397 = add i64 %total_size.132381, 19
   %call.i815 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapImmE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it385)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_fixed64_fixed64_.i)
   %166 = load ptr, ptr %it385, align 8
   %cmp.i.i.i812.not = icmp eq ptr %166, null
   br i1 %cmp.i.i.i812.not, label %for.end400, label %for.body391, !llvm.loop !664
@@ -46682,14 +46682,14 @@ for.body391:                                      ; preds = %_ZNK6google8protobu
 for.end400:                                       ; preds = %for.body391, %_ZNK6google8protobuf3MapImmE5beginEv.exit809
   %total_size.13.lcssa = phi i64 [ %add384, %_ZNK6google8protobuf3MapImmE5beginEv.exit809 ], [ %add397, %for.body391 ]
   %map_sfixed32_sfixed32_.i = getelementptr inbounds i8, ptr %this, i64 1208
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   %elements_.i.i.i816 = getelementptr inbounds i8, ptr %this, i64 1296
   %167 = load ptr, ptr %elements_.i.i.i816, align 8
   %168 = load i64, ptr %167, align 8
   %conv.i818 = shl i64 %168, 1
   %mul403 = and i64 %conv.i818, 8589934590
   %add404 = add i64 %mul403, %total_size.13.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !665)
   %169 = load ptr, ptr %elements_.i.i.i816, align 8, !noalias !665
   %index_of_first_non_null_.i.i.i822 = getelementptr inbounds i8, ptr %169, i64 24
@@ -46738,7 +46738,7 @@ _ZNK6google8protobuf3MapIiiE5beginEv.exit845:     ; preds = %for.inc.i.i.i.i842,
   store ptr %169, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i827, align 8, !alias.scope !671
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i828 = getelementptr inbounds i8, ptr %it405, i64 16
   store i64 %ref.tmp2.sroa.4.1.i825, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i828, align 8, !alias.scope !671
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   %177 = load ptr, ptr %it405, align 8
   %cmp.i.i.i848.not2383 = icmp eq ptr %177, null
   br i1 %cmp.i.i.i848.not2383, label %for.end420, label %for.body411
@@ -46747,7 +46747,7 @@ for.body411:                                      ; preds = %_ZNK6google8protobu
   %total_size.142384 = phi i64 [ %add417, %for.body411 ], [ %add404, %_ZNK6google8protobuf3MapIiiE5beginEv.exit845 ]
   %add417 = add i64 %total_size.142384, 11
   %call.i851 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIiiE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it405)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed32_sfixed32_.i)
   %178 = load ptr, ptr %it405, align 8
   %cmp.i.i.i848.not = icmp eq ptr %178, null
   br i1 %cmp.i.i.i848.not, label %for.end420, label %for.body411, !llvm.loop !674
@@ -46755,14 +46755,14 @@ for.body411:                                      ; preds = %_ZNK6google8protobu
 for.end420:                                       ; preds = %for.body411, %_ZNK6google8protobuf3MapIiiE5beginEv.exit845
   %total_size.14.lcssa = phi i64 [ %add404, %_ZNK6google8protobuf3MapIiiE5beginEv.exit845 ], [ %add417, %for.body411 ]
   %map_sfixed64_sfixed64_.i = getelementptr inbounds i8, ptr %this, i64 1304
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   %elements_.i.i.i852 = getelementptr inbounds i8, ptr %this, i64 1392
   %179 = load ptr, ptr %elements_.i.i.i852, align 8
   %180 = load i64, ptr %179, align 8
   %conv.i854 = shl i64 %180, 1
   %mul423 = and i64 %conv.i854, 8589934590
   %add424 = add i64 %mul423, %total_size.14.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !675)
   %181 = load ptr, ptr %elements_.i.i.i852, align 8, !noalias !675
   %index_of_first_non_null_.i.i.i858 = getelementptr inbounds i8, ptr %181, i64 24
@@ -46811,7 +46811,7 @@ _ZNK6google8protobuf3MapIllE5beginEv.exit881:     ; preds = %for.inc.i.i.i.i878,
   store ptr %181, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i863, align 8, !alias.scope !681
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i864 = getelementptr inbounds i8, ptr %it425, i64 16
   store i64 %ref.tmp2.sroa.4.1.i861, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i864, align 8, !alias.scope !681
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   %189 = load ptr, ptr %it425, align 8
   %cmp.i.i.i884.not2386 = icmp eq ptr %189, null
   br i1 %cmp.i.i.i884.not2386, label %for.end440, label %for.body431
@@ -46820,7 +46820,7 @@ for.body431:                                      ; preds = %_ZNK6google8protobu
   %total_size.152387 = phi i64 [ %add437, %for.body431 ], [ %add424, %_ZNK6google8protobuf3MapIllE5beginEv.exit881 ]
   %add437 = add i64 %total_size.152387, 19
   %call.i887 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIllE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it425)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_sfixed64_sfixed64_.i)
   %190 = load ptr, ptr %it425, align 8
   %cmp.i.i.i884.not = icmp eq ptr %190, null
   br i1 %cmp.i.i.i884.not, label %for.end440, label %for.body431, !llvm.loop !684
@@ -46828,14 +46828,14 @@ for.body431:                                      ; preds = %_ZNK6google8protobu
 for.end440:                                       ; preds = %for.body431, %_ZNK6google8protobuf3MapIllE5beginEv.exit881
   %total_size.15.lcssa = phi i64 [ %add424, %_ZNK6google8protobuf3MapIllE5beginEv.exit881 ], [ %add437, %for.body431 ]
   %map_int32_float_.i = getelementptr inbounds i8, ptr %this, i64 1400
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   %elements_.i.i.i888 = getelementptr inbounds i8, ptr %this, i64 1488
   %191 = load ptr, ptr %elements_.i.i.i888, align 8
   %192 = load i64, ptr %191, align 8
   %conv.i890 = shl i64 %192, 1
   %mul443 = and i64 %conv.i890, 8589934590
   %add444 = add i64 %mul443, %total_size.15.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !685)
   %193 = load ptr, ptr %elements_.i.i.i888, align 8, !noalias !685
   %index_of_first_non_null_.i.i.i894 = getelementptr inbounds i8, ptr %193, i64 24
@@ -46884,7 +46884,7 @@ _ZNK6google8protobuf3MapIifE5beginEv.exit:        ; preds = %for.inc.i.i.i.i913,
   store ptr %193, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i899, align 8, !alias.scope !691
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i900 = getelementptr inbounds i8, ptr %it445, i64 16
   store i64 %ref.tmp2.sroa.4.1.i897, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i900, align 8, !alias.scope !691
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   %201 = load ptr, ptr %it445, align 8
   %cmp.i.i.i918.not2389 = icmp eq ptr %201, null
   br i1 %cmp.i.i.i918.not2389, label %for.end460, label %for.body451
@@ -46913,7 +46913,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIifLNS1_14WireFormatLite9FieldTypeE5E
   %retval.0.i.i.i.i930 = phi i64 [ %206, %if.else.i.i.i.i922 ], [ 17, %for.body451 ]
   %add457 = add i64 %retval.0.i.i.i.i930, %total_size.162390
   %call.i931 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIifE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it445)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_float_.i)
   %207 = load ptr, ptr %it445, align 8
   %cmp.i.i.i918.not = icmp eq ptr %207, null
   br i1 %cmp.i.i.i918.not, label %for.end460, label %for.body451, !llvm.loop !694
@@ -46921,14 +46921,14 @@ _ZN6google8protobuf8internal13MapEntryFuncsIifLNS1_14WireFormatLite9FieldTypeE5E
 for.end460:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsIifLNS1_14WireFormatLite9FieldTypeE5ELS4_2EE12ByteSizeLongERKiRKf.exit, %_ZNK6google8protobuf3MapIifE5beginEv.exit
   %total_size.16.lcssa = phi i64 [ %add444, %_ZNK6google8protobuf3MapIifE5beginEv.exit ], [ %add457, %_ZN6google8protobuf8internal13MapEntryFuncsIifLNS1_14WireFormatLite9FieldTypeE5ELS4_2EE12ByteSizeLongERKiRKf.exit ]
   %map_int32_double_.i = getelementptr inbounds i8, ptr %this, i64 1496
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   %elements_.i.i.i932 = getelementptr inbounds i8, ptr %this, i64 1584
   %208 = load ptr, ptr %elements_.i.i.i932, align 8
   %209 = load i64, ptr %208, align 8
   %conv.i934 = shl i64 %209, 1
   %mul463 = and i64 %conv.i934, 8589934590
   %add464 = add i64 %mul463, %total_size.16.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !695)
   %210 = load ptr, ptr %elements_.i.i.i932, align 8, !noalias !695
   %index_of_first_non_null_.i.i.i938 = getelementptr inbounds i8, ptr %210, i64 24
@@ -46977,7 +46977,7 @@ _ZNK6google8protobuf3MapIidE5beginEv.exit:        ; preds = %for.inc.i.i.i.i957,
   store ptr %210, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i943, align 8, !alias.scope !701
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i944 = getelementptr inbounds i8, ptr %it465, i64 16
   store i64 %ref.tmp2.sroa.4.1.i941, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i944, align 8, !alias.scope !701
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   %218 = load ptr, ptr %it465, align 8
   %cmp.i.i.i962.not2392 = icmp eq ptr %218, null
   br i1 %cmp.i.i.i962.not2392, label %for.end480, label %for.body471
@@ -47006,7 +47006,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsIidLNS1_14WireFormatLite9FieldTypeE5E
   %retval.0.i.i.i.i974 = phi i64 [ %223, %if.else.i.i.i.i966 ], [ 21, %for.body471 ]
   %add477 = add i64 %retval.0.i.i.i.i974, %total_size.172393
   %call.i975 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIidE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it465)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_int32_double_.i)
   %224 = load ptr, ptr %it465, align 8
   %cmp.i.i.i962.not = icmp eq ptr %224, null
   br i1 %cmp.i.i.i962.not, label %for.end480, label %for.body471, !llvm.loop !704
@@ -47014,14 +47014,14 @@ _ZN6google8protobuf8internal13MapEntryFuncsIidLNS1_14WireFormatLite9FieldTypeE5E
 for.end480:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsIidLNS1_14WireFormatLite9FieldTypeE5ELS4_1EE12ByteSizeLongERKiRKd.exit, %_ZNK6google8protobuf3MapIidE5beginEv.exit
   %total_size.17.lcssa = phi i64 [ %add464, %_ZNK6google8protobuf3MapIidE5beginEv.exit ], [ %add477, %_ZN6google8protobuf8internal13MapEntryFuncsIidLNS1_14WireFormatLite9FieldTypeE5ELS4_1EE12ByteSizeLongERKiRKd.exit ]
   %map_bool_bool_.i = getelementptr inbounds i8, ptr %this, i64 1592
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   %elements_.i.i.i976 = getelementptr inbounds i8, ptr %this, i64 1680
   %225 = load ptr, ptr %elements_.i.i.i976, align 8
   %226 = load i64, ptr %225, align 8
   %conv.i978 = shl i64 %226, 1
   %mul483 = and i64 %conv.i978, 8589934590
   %add484 = add i64 %mul483, %total_size.17.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !705)
   %227 = load ptr, ptr %elements_.i.i.i976, align 8, !noalias !705
   %index_of_first_non_null_.i.i.i982 = getelementptr inbounds i8, ptr %227, i64 24
@@ -47070,7 +47070,7 @@ _ZNK6google8protobuf3MapIbbE5beginEv.exit:        ; preds = %for.inc.i.i.i.i1001
   store ptr %227, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i987, align 8, !alias.scope !711
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i988 = getelementptr inbounds i8, ptr %it485, i64 16
   store i64 %ref.tmp2.sroa.4.1.i985, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i988, align 8, !alias.scope !711
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   %235 = load ptr, ptr %it485, align 8
   %cmp.i.i.i1006.not2395 = icmp eq ptr %235, null
   br i1 %cmp.i.i.i1006.not2395, label %for.end500, label %for.body491
@@ -47079,7 +47079,7 @@ for.body491:                                      ; preds = %_ZNK6google8protobu
   %total_size.182396 = phi i64 [ %add497, %for.body491 ], [ %add484, %_ZNK6google8protobuf3MapIbbE5beginEv.exit ]
   %add497 = add i64 %total_size.182396, 5
   %call.i1009 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapIbbE8InnerMap13iterator_baseIKNS2_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it485)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_bool_bool_.i)
   %236 = load ptr, ptr %it485, align 8
   %cmp.i.i.i1006.not = icmp eq ptr %236, null
   br i1 %cmp.i.i.i1006.not, label %for.end500, label %for.body491, !llvm.loop !714
@@ -47087,14 +47087,14 @@ for.body491:                                      ; preds = %_ZNK6google8protobu
 for.end500:                                       ; preds = %for.body491, %_ZNK6google8protobuf3MapIbbE5beginEv.exit
   %total_size.18.lcssa = phi i64 [ %add484, %_ZNK6google8protobuf3MapIbbE5beginEv.exit ], [ %add497, %for.body491 ]
   %map_string_string_.i = getelementptr inbounds i8, ptr %this, i64 1688
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   %elements_.i.i.i1010 = getelementptr inbounds i8, ptr %this, i64 1776
   %237 = load ptr, ptr %elements_.i.i.i1010, align 8
   %238 = load i64, ptr %237, align 8
   %conv.i1012 = shl i64 %238, 1
   %mul503 = and i64 %conv.i1012, 8589934590
   %add504 = add i64 %mul503, %total_size.18.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !715)
   %239 = load ptr, ptr %elements_.i.i.i1010, align 8, !noalias !715
   %index_of_first_non_null_.i.i.i1016 = getelementptr inbounds i8, ptr %239, i64 24
@@ -47143,7 +47143,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_
   store ptr %239, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i1021, align 8, !alias.scope !721
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1022 = getelementptr inbounds i8, ptr %it505, i64 16
   store i64 %ref.tmp2.sroa.4.1.i1019, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1022, align 8, !alias.scope !721
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   %247 = load ptr, ptr %it505, align 8
   %cmp.i.i.i1040.not2398 = icmp eq ptr %247, null
   br i1 %cmp.i.i.i1040.not2398, label %for.end520, label %for.body511
@@ -47186,7 +47186,7 @@ for.body511:                                      ; preds = %_ZNK6google8protobu
   %add5.i1058 = add i64 %total_size.192399, %conv.i1056
   %add517 = add i64 %add5.i1058, %conv.i10.i
   %call.i1059 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap13iterator_baseIKNS8_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it505)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_string_.i)
   %255 = load ptr, ptr %it505, align 8
   %cmp.i.i.i1040.not = icmp eq ptr %255, null
   br i1 %cmp.i.i.i1040.not, label %for.end520, label %for.body511, !llvm.loop !724
@@ -47194,14 +47194,14 @@ for.body511:                                      ; preds = %_ZNK6google8protobu
 for.end520:                                       ; preds = %for.body511, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit
   %total_size.19.lcssa = phi i64 [ %add504, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit ], [ %add517, %for.body511 ]
   %map_string_bytes_.i = getelementptr inbounds i8, ptr %this, i64 1784
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   %elements_.i.i.i1060 = getelementptr inbounds i8, ptr %this, i64 1872
   %256 = load ptr, ptr %elements_.i.i.i1060, align 8
   %257 = load i64, ptr %256, align 8
   %conv.i1062 = shl i64 %257, 1
   %mul523 = and i64 %conv.i1062, 8589934590
   %add524 = add i64 %mul523, %total_size.19.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !725)
   %258 = load ptr, ptr %elements_.i.i.i1060, align 8, !noalias !725
   %index_of_first_non_null_.i.i.i1066 = getelementptr inbounds i8, ptr %258, i64 24
@@ -47250,7 +47250,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_
   store ptr %258, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i1071, align 8, !alias.scope !731
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1072 = getelementptr inbounds i8, ptr %it525, i64 16
   store i64 %ref.tmp2.sroa.4.1.i1069, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1072, align 8, !alias.scope !731
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   %266 = load ptr, ptr %it525, align 8
   %cmp.i.i.i1092.not2401 = icmp eq ptr %266, null
   br i1 %cmp.i.i.i1092.not2401, label %for.end540, label %for.body531
@@ -47293,7 +47293,7 @@ for.body531:                                      ; preds = %_ZNK6google8protobu
   %add5.i1120 = add i64 %total_size.202402, %conv.i1113
   %add537 = add i64 %add5.i1120, %conv.i10.i1119
   %call.i1121 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap13iterator_baseIKNS8_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it525)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_bytes_.i)
   %274 = load ptr, ptr %it525, align 8
   %cmp.i.i.i1092.not = icmp eq ptr %274, null
   br i1 %cmp.i.i.i1092.not, label %for.end540, label %for.body531, !llvm.loop !734
@@ -47301,14 +47301,14 @@ for.body531:                                      ; preds = %_ZNK6google8protobu
 for.end540:                                       ; preds = %for.body531, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit1089
   %total_size.20.lcssa = phi i64 [ %add524, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5beginEv.exit1089 ], [ %add537, %for.body531 ]
   %map_string_nested_message_.i = getelementptr inbounds i8, ptr %this, i64 1880
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   %elements_.i.i.i1122 = getelementptr inbounds i8, ptr %this, i64 1968
   %275 = load ptr, ptr %elements_.i.i.i1122, align 8
   %276 = load i64, ptr %275, align 8
   %conv.i1124 = shl i64 %276, 1
   %mul543 = and i64 %conv.i1124, 8589934590
   %add544 = add i64 %mul543, %total_size.20.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !735)
   %277 = load ptr, ptr %elements_.i.i.i1122, align 8, !noalias !735
   %index_of_first_non_null_.i.i.i1128 = getelementptr inbounds i8, ptr %277, i64 24
@@ -47357,7 +47357,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   store ptr %277, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i1133, align 8, !alias.scope !741
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1134 = getelementptr inbounds i8, ptr %it545, i64 16
   store i64 %ref.tmp2.sroa.4.1.i1131, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1134, align 8, !alias.scope !741
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   %285 = load ptr, ptr %it545, align 8
   %cmp.i.i.i1152.not2404 = icmp eq ptr %285, null
   br i1 %cmp.i.i.i1152.not2404, label %for.end560, label %for.body551
@@ -47393,7 +47393,7 @@ for.body551:                                      ; preds = %_ZNK6google8protobu
   %add5.i1160 = add i64 %add2.i1159, %total_size.212405
   %add557 = add i64 %add5.i1160, %conv.i2060
   %call.i1161 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap13iterator_baseIKNSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it545)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_.i)
   %291 = load ptr, ptr %it545, align 8
   %cmp.i.i.i1152.not = icmp eq ptr %291, null
   br i1 %cmp.i.i.i1152.not, label %for.end560, label %for.body551, !llvm.loop !744
@@ -47401,14 +47401,14 @@ for.body551:                                      ; preds = %_ZNK6google8protobu
 for.end560:                                       ; preds = %for.body551, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit
   %total_size.21.lcssa = phi i64 [ %add544, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit ], [ %add557, %for.body551 ]
   %map_string_foreign_message_.i = getelementptr inbounds i8, ptr %this, i64 1976
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   %elements_.i.i.i1162 = getelementptr inbounds i8, ptr %this, i64 2064
   %292 = load ptr, ptr %elements_.i.i.i1162, align 8
   %293 = load i64, ptr %292, align 8
   %conv.i1164 = shl i64 %293, 1
   %mul563 = and i64 %conv.i1164, 8589934590
   %add564 = add i64 %mul563, %total_size.21.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !745)
   %294 = load ptr, ptr %elements_.i.i.i1162, align 8, !noalias !745
   %index_of_first_non_null_.i.i.i1168 = getelementptr inbounds i8, ptr %294, i64 24
@@ -47457,7 +47457,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   store ptr %294, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i1173, align 8, !alias.scope !751
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1174 = getelementptr inbounds i8, ptr %it565, i64 16
   store i64 %ref.tmp2.sroa.4.1.i1171, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1174, align 8, !alias.scope !751
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   %302 = load ptr, ptr %it565, align 8
   %cmp.i.i.i1192.not2407 = icmp eq ptr %302, null
   br i1 %cmp.i.i.i1192.not2407, label %for.end580, label %for.body571
@@ -47546,7 +47546,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_
   %add5.i1214 = add i64 %add2.i1207, %total_size.222408
   %add577 = add i64 %add5.i1214, %conv.i7.i
   %call.i1215 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap13iterator_baseIKNSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it565)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_message_.i)
   %315 = load ptr, ptr %it565, align 8
   %cmp.i.i.i1192.not = icmp eq ptr %315, null
   br i1 %cmp.i.i.i1192.not, label %for.end580, label %for.body571, !llvm.loop !754
@@ -47554,14 +47554,14 @@ _ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_
 for.end580:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE12ByteSizeLongERKS8_RKSB_.exit, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit
   %total_size.22.lcssa = phi i64 [ %add564, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5beginEv.exit ], [ %add577, %_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE12ByteSizeLongERKS8_RKSB_.exit ]
   %map_string_nested_enum_.i = getelementptr inbounds i8, ptr %this, i64 2072
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   %elements_.i.i.i1216 = getelementptr inbounds i8, ptr %this, i64 2160
   %316 = load ptr, ptr %elements_.i.i.i1216, align 8
   %317 = load i64, ptr %316, align 8
   %conv.i1218 = shl i64 %317, 1
   %mul583 = and i64 %conv.i1218, 8589934590
   %add584 = add i64 %mul583, %total_size.22.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !755)
   %318 = load ptr, ptr %elements_.i.i.i1216, align 8, !noalias !755
   %index_of_first_non_null_.i.i.i1222 = getelementptr inbounds i8, ptr %318, i64 24
@@ -47610,7 +47610,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   store ptr %318, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i1227, align 8, !alias.scope !761
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1228 = getelementptr inbounds i8, ptr %it585, i64 16
   store i64 %ref.tmp2.sroa.4.1.i1225, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1228, align 8, !alias.scope !761
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   %326 = load ptr, ptr %it585, align 8
   %cmp.i.i.i1246.not2410 = icmp eq ptr %326, null
   br i1 %cmp.i.i.i1246.not2410, label %for.end600, label %for.body591
@@ -47659,7 +47659,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_
   %add5.i1274 = add i64 %total_size.232411, %conv.i1267
   %add597 = add i64 %add5.i1274, %conv.i7.i1273
   %call.i1275 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap13iterator_baseIKNSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it585)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_.i)
   %334 = load ptr, ptr %it585, align 8
   %cmp.i.i.i1246.not = icmp eq ptr %334, null
   br i1 %cmp.i.i.i1246.not, label %for.end600, label %for.body591, !llvm.loop !764
@@ -47667,14 +47667,14 @@ _ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_
 for.end600:                                       ; preds = %_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSD_14EE12ByteSizeLongERKS8_RKSB_.exit, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit
   %total_size.23.lcssa = phi i64 [ %add584, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5beginEv.exit ], [ %add597, %_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSD_14EE12ByteSizeLongERKS8_RKSB_.exit ]
   %map_string_foreign_enum_.i = getelementptr inbounds i8, ptr %this, i64 2168
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   %elements_.i.i.i1276 = getelementptr inbounds i8, ptr %this, i64 2256
   %335 = load ptr, ptr %elements_.i.i.i1276, align 8
   %336 = load i64, ptr %335, align 8
   %conv.i1278 = shl i64 %336, 1
   %mul603 = and i64 %conv.i1278, 8589934590
   %add604 = add i64 %mul603, %total_size.23.lcssa
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !765)
   %337 = load ptr, ptr %elements_.i.i.i1276, align 8, !noalias !765
   %index_of_first_non_null_.i.i.i1282 = getelementptr inbounds i8, ptr %337, i64 24
@@ -47723,7 +47723,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22
   store ptr %337, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i1287, align 8, !alias.scope !771
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1288 = getelementptr inbounds i8, ptr %it605, i64 16
   store i64 %ref.tmp2.sroa.4.1.i1285, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i1288, align 8, !alias.scope !771
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   %345 = load ptr, ptr %it605, align 8
   %cmp.i.i.i1306.not2413 = icmp eq ptr %345, null
   br i1 %cmp.i.i.i1306.not2413, label %for.end620, label %for.body611
@@ -47772,7 +47772,7 @@ _ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_
   %add5.i1334 = add i64 %total_size.242414, %conv.i1327
   %add617 = add i64 %add5.i1334, %conv.i7.i1333
   %call.i1335 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap13iterator_baseIKNSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it605)
-  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_.i)
+  call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(96) %map_string_foreign_enum_.i)
   %353 = load ptr, ptr %it605, align 8
   %cmp.i.i.i1306.not = icmp eq ptr %353, null
   br i1 %cmp.i.i.i1306.not, label %for.end620, label %for.body611, !llvm.loop !774
@@ -50106,12 +50106,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN22protobuf_test_messages6proto218TestAllTypesProto25ClearEv(ptr noundef nonnull align 8 dereferenceable(3152) %this)
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto218TestAllTypesProto2E, i64 0) #28
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto218TestAllTypesProto2E, i64 0) #28
   %cmp8.i = icmp eq ptr %0, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(3152) %this)
   br label %return
 
 if.else.i:                                        ; preds = %if.end
@@ -51645,7 +51645,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -51993,12 +51993,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit
 
 _ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit: ; preds = %if.end, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto220ForeignMessageProto2E, i64 0) #28
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto220ForeignMessageProto2E, i64 0) #28
   %cmp8.i = icmp eq ptr %5, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(32) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN22protobuf_test_messages6proto220ForeignMessageProto25ClearEv.exit
@@ -52486,7 +52486,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -52921,12 +52921,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup5ClearEv.exit
 
 _ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup5ClearEv.exit: ; preds = %if.end, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroupE, i64 0) #28
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroupE, i64 0) #28
   %cmp8.i = icmp eq ptr %5, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(32) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup5ClearEv.exit
@@ -53555,7 +53555,7 @@ if.then.i.i.i:                                    ; preds = %delete.notnull.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -53896,7 +53896,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -54116,7 +54116,7 @@ if.end.i33:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i44, label %success, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i33
-  %call5.i = call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull %ctx)
+  %call5.i = call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %success, label %if.end8.i
 
@@ -55484,12 +55484,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN22protobuf_test_messages6proto221UnknownToTestAllTypes5ClearEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto221UnknownToTestAllTypesE, i64 0) #28
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto221UnknownToTestAllTypesE, i64 0) #28
   %cmp8.i = icmp eq ptr %0, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(72) %this)
   br label %return
 
 if.else.i:                                        ; preds = %if.end
@@ -55950,7 +55950,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -56783,7 +56783,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -57490,7 +57490,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   br label %invoke.cont
 
@@ -57660,7 +57660,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -58077,12 +58077,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto215OneStringProto25ClearEv.exit
 
 _ZN22protobuf_test_messages6proto215OneStringProto25ClearEv.exit: ; preds = %if.end.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %8 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto215OneStringProto2E, i64 0) #28
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto215OneStringProto2E, i64 0) #28
   %cmp8.i = icmp eq ptr %8, null
   br i1 %cmp8.i, label %if.then.i3, label %if.else.i
 
 if.then.i3:                                       ; preds = %_ZN22protobuf_test_messages6proto215OneStringProto25ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(32) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN22protobuf_test_messages6proto215OneStringProto25ClearEv.exit
@@ -58583,7 +58583,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -59018,12 +59018,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN22protobuf_test_messages6proto217ProtoWithKeywords5ClearEv.exit
 
 _ZN22protobuf_test_messages6proto217ProtoWithKeywords5ClearEv.exit: ; preds = %if.end, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto217ProtoWithKeywordsE, i64 0) #28
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN22protobuf_test_messages6proto217ProtoWithKeywordsE, i64 0) #28
   %cmp8.i = icmp eq ptr %5, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN22protobuf_test_messages6proto217ProtoWithKeywords5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(32) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN22protobuf_test_messages6proto217ProtoWithKeywords5ClearEv.exit
@@ -61694,7 +61694,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -62283,7 +62283,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -62876,7 +62876,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -63459,7 +63459,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -64064,7 +64064,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -64683,7 +64683,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -65260,7 +65260,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -65667,7 +65667,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -66080,7 +66080,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -66487,7 +66487,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -66923,7 +66923,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -67435,7 +67435,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -67926,7 +67926,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -68425,7 +68425,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -69018,7 +69018,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -69659,7 +69659,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -69828,7 +69828,7 @@ if.end.i56:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i64, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i56
-  %call5.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull %ctx)
+  %call5.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %return, label %if.end8.i
 
@@ -70378,7 +70378,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -70578,7 +70578,7 @@ if.end.i.i26:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.i28, label %return, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i26
-  %call5.i.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull %storemerge.i16.i.i, ptr noundef nonnull %ctx)
+  %call5.i.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull %storemerge.i16.i.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i.i = icmp eq ptr %call5.i.i, null
   br i1 %cmp6.i.i, label %return, label %if.end8.i.i
 
@@ -71068,7 +71068,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -71723,7 +71723,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -72049,7 +72049,7 @@ if.then.i:                                        ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #28
   ret void
 }
 
@@ -72101,7 +72101,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %__str) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
   store ptr %0, ptr %this, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
   %1 = load ptr, ptr %__str, align 8
@@ -72173,7 +72173,7 @@ invoke.cont7:                                     ; preds = %if.end.i.i.i3.i, %i
 lpad6:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, %if.end.i.i.i.i, %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #28
   resume { ptr, i32 } %6
 }
 
@@ -72204,7 +72204,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %object) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %object) #28
   ret void
 }
 
@@ -72370,7 +72370,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -72413,7 +72413,7 @@ if.then.i.i:                                      ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %cmp.i.i.i = icmp ne ptr %1, null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i.i
 
 lpad:                                             ; preds = %entry
@@ -72519,7 +72519,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i
 }
 
@@ -72558,7 +72558,7 @@ if.then.i.i:                                      ; preds = %invoke.cont2
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %tobool = icmp ne i64 %call3, 0
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %tobool
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -73218,7 +73218,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -73230,7 +73230,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -73323,7 +73323,7 @@ lpad.i:                                           ; preds = %if.end
   resume { ptr, i32 } %5
 
 _ZN6google8protobuf8internal9SetMapKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPNS0_6MapKeyERKT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %value_ = getelementptr inbounds i8, ptr %map_iter, i64 56
   %6 = load ptr, ptr %v_.i.i.i, align 8
@@ -73490,7 +73490,7 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
   br label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev.exit.i.i
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #28, !noalias !863
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #28, !noalias !863
   call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !863
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit.i
 
@@ -74614,7 +74614,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EEC2ERKS7_.exit unwind label %common.resume
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EEC2ERKS7_.exit: ; preds = %if.then
@@ -74642,7 +74642,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %_ZN6google
   %call11.i25 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 40)
   %3 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call11.i25, ptr noundef nonnull align 8 dereferenceable(32) %key)
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   %second = getelementptr inbounds i8, ptr %call11.i25, i64 32
   store i32 0, ptr %second, align 4
   br label %return
@@ -74723,7 +74723,7 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.302") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
   %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
@@ -74763,7 +74763,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap5AllocINSC_4NodeEEEPT_m.exit, %if.then
@@ -75911,7 +75911,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
   br label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev.exit.i
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28, !noalias !931
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #28, !noalias !931
   call void @_ZdlPv(ptr noundef nonnull %4) #29, !noalias !931
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseENSB_8iteratorE.exit
 
@@ -75994,7 +75994,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -76072,7 +76072,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i.i.i: ; preds = %if.then.i.i.
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %5 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %value)
+  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %6 = load ptr, ptr %_internal_metadata_.i.i.i.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %conv.i1.i6.i.i.i = and i64 %7, 1
@@ -76106,7 +76106,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %12 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(32) %value)
+  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %13 = load i32, ptr %call14.i.i.i, align 4
   store i32 %13, ptr %value_.i.i.i, align 4
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink.i.i.i, i64 28
@@ -76249,7 +76249,7 @@ if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %1, ptr %this, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -76360,7 +76360,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -76403,7 +76403,7 @@ if.then.i.i:                                      ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %cmp.i.i.i = icmp ne ptr %1, null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i.i
 
 lpad:                                             ; preds = %entry
@@ -76509,7 +76509,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i
 }
 
@@ -76548,7 +76548,7 @@ if.then.i.i:                                      ; preds = %invoke.cont2
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %tobool = icmp ne i64 %call3, 0
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %tobool
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -77208,7 +77208,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -77220,7 +77220,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -77313,7 +77313,7 @@ lpad.i:                                           ; preds = %if.end
   resume { ptr, i32 } %5
 
 _ZN6google8protobuf8internal9SetMapKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPNS0_6MapKeyERKT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %value_ = getelementptr inbounds i8, ptr %map_iter, i64 56
   %6 = load ptr, ptr %v_.i.i.i, align 8
@@ -77480,7 +77480,7 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
   br label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev.exit.i.i
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #28, !noalias !997
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #28, !noalias !997
   call void @_ZdlPv(ptr noundef nonnull %8) #29, !noalias !997
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit.i
 
@@ -78122,7 +78122,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEC2ERKS7_.exit unwind label %common.resume
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEC2ERKS7_.exit: ; preds = %if.then
@@ -78150,7 +78150,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %_ZN6google
   %call11.i25 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 40)
   %3 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call11.i25, ptr noundef nonnull align 8 dereferenceable(32) %key)
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   %second = getelementptr inbounds i8, ptr %call11.i25, i64 32
   store i32 0, ptr %second, align 4
   br label %return
@@ -78231,7 +78231,7 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.329") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
   %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
@@ -78271,7 +78271,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit, %if.then
@@ -79222,7 +79222,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
   br label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev.exit.i
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28, !noalias !1057
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #28, !noalias !1057
   call void @_ZdlPv(ptr noundef nonnull %4) #29, !noalias !1057
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseENSB_8iteratorE.exit
 
@@ -79249,7 +79249,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -79327,7 +79327,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i.i.i: ; preds = %if.then.i.i.
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %5 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %value)
+  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %6 = load ptr, ptr %_internal_metadata_.i.i.i.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %conv.i1.i6.i.i.i = and i64 %7, 1
@@ -79361,7 +79361,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %12 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(32) %value)
+  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %13 = load i32, ptr %call14.i.i.i, align 4
   store i32 %13, ptr %value_.i.i.i, align 4
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink.i.i.i, i64 28
@@ -79475,7 +79475,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -79518,7 +79518,7 @@ if.then.i.i:                                      ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %cmp.i.i.i = icmp ne ptr %1, null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i.i
 
 lpad:                                             ; preds = %entry
@@ -79619,7 +79619,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i
 }
 
@@ -79658,7 +79658,7 @@ if.then.i.i:                                      ; preds = %invoke.cont2
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %tobool = icmp ne i64 %call3, 0
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %tobool
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -79886,7 +79886,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add8 = add i64 %size.111, 32
   %20 = load ptr, ptr %v_.i.i.i, align 8
   %second = getelementptr inbounds i8, ptr %20, i64 32
-  %call.i = call noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(16) %second)
+  %call.i = call noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(32) %second)
   %add11 = add i64 %add8, %call.i
   %call.i7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %.pr = load ptr, ptr %it, align 8
@@ -80440,7 +80440,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -80452,7 +80452,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -80545,7 +80545,7 @@ lpad.i:                                           ; preds = %if.end
   resume { ptr, i32 } %5
 
 _ZN6google8protobuf8internal9SetMapKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPNS0_6MapKeyERKT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %value_ = getelementptr inbounds i8, ptr %map_iter, i64 56
   %6 = load ptr, ptr %v_.i.i.i, align 8
@@ -80954,7 +80954,7 @@ if.then.i.i:                                      ; preds = %_ZN22protobuf_test_
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #28
   ret void
 }
 
@@ -81447,7 +81447,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEC2ERKS7_.exit unwind label %common.resume
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEC2ERKS7_.exit: ; preds = %if.then
@@ -81477,7 +81477,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %_ZN6google
   %call11.i25 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 64)
   %3 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call11.i25, ptr noundef nonnull align 8 dereferenceable(32) %key)
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   %second = getelementptr inbounds i8, ptr %call11.i25, i64 32
   %4 = load ptr, ptr %this, align 8
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call11.i25, i64 40
@@ -81567,7 +81567,7 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.340") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
   %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
@@ -81607,7 +81607,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap5AllocINSC_4NodeEEEPT_m.exit, %if.then
@@ -82636,7 +82636,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -82678,7 +82678,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseE, i64 16), ptr %call.i.sink10.i.i.i, align 8
-  tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE17MergeFromInternalERKSG_(ptr noundef nonnull align 8 dereferenceable(36) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %value)
+  tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE17MergeFromInternalERKSG_(ptr noundef nonnull align 8 dereferenceable(48) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %value)
   br i1 %cmp2, label %delete.notnull.i, label %if.end5
 
 delete.notnull.i:                                 ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
@@ -82783,7 +82783,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -82826,7 +82826,7 @@ if.then.i.i:                                      ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %cmp.i.i.i = icmp ne ptr %1, null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i.i
 
 lpad:                                             ; preds = %entry
@@ -82927,7 +82927,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i
 }
 
@@ -82966,7 +82966,7 @@ if.then.i.i:                                      ; preds = %invoke.cont2
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %tobool = icmp ne i64 %call3, 0
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %tobool
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -83194,7 +83194,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add8 = add i64 %size.111, 32
   %20 = load ptr, ptr %v_.i.i.i, align 8
   %second = getelementptr inbounds i8, ptr %20, i64 32
-  %call.i = call noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(16) %second)
+  %call.i = call noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(40) %second)
   %add11 = add i64 %add8, %call.i
   %call.i7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %.pr = load ptr, ptr %it, align 8
@@ -83741,7 +83741,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -83753,7 +83753,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -83846,7 +83846,7 @@ lpad.i:                                           ; preds = %if.end
   resume { ptr, i32 } %5
 
 _ZN6google8protobuf8internal9SetMapKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPNS0_6MapKeyERKT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %value_ = getelementptr inbounds i8, ptr %map_iter, i64 56
   %6 = load ptr, ptr %v_.i.i.i, align 8
@@ -84366,7 +84366,7 @@ if.then.i.i:                                      ; preds = %_ZN22protobuf_test_
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #28
   ret void
 }
 
@@ -84859,7 +84859,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then
@@ -84882,7 +84882,7 @@ if.then.i.i.i.i.i:                                ; preds = %.noexc
 lpad.i9:                                          ; preds = %if.then.i.i.i.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call) #28
   br label %common.resume
 
 lpad:                                             ; preds = %if.then
@@ -84909,7 +84909,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %_ZN6google
   %call11.i25 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 72)
   %5 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call11.i25, ptr noundef nonnull align 8 dereferenceable(32) %key)
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   %second = getelementptr inbounds i8, ptr %call11.i25, i64 32
   %6 = load ptr, ptr %this, align 8
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call11.i25, i64 40
@@ -85005,7 +85005,7 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.351") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
   %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
@@ -85045,7 +85045,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap5AllocINSC_4NodeEEEPT_m.exit, %if.then
@@ -86043,7 +86043,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -86085,7 +86085,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseE, i64 16), ptr %call.i.sink10.i.i.i, align 8
-  tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE17MergeFromInternalERKSG_(ptr noundef nonnull align 8 dereferenceable(36) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %value)
+  tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE17MergeFromInternalERKSG_(ptr noundef nonnull align 8 dereferenceable(48) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %value)
   br i1 %cmp2, label %delete.notnull.i, label %if.end5
 
 delete.notnull.i:                                 ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
@@ -86190,7 +86190,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -86233,7 +86233,7 @@ if.then.i.i:                                      ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %cmp.i.i.i = icmp ne ptr %1, null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i.i
 
 lpad:                                             ; preds = %entry
@@ -86334,7 +86334,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i
 }
 
@@ -86405,7 +86405,7 @@ if.then.i.i:                                      ; preds = %invoke.cont2
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i.i
 
 lpad:                                             ; preds = %if.else.i, %invoke.cont, %entry
@@ -87149,7 +87149,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -87161,7 +87161,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -87254,7 +87254,7 @@ lpad.i:                                           ; preds = %if.end
   resume { ptr, i32 } %5
 
 _ZN6google8protobuf8internal9SetMapKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPNS0_6MapKeyERKT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %value_ = getelementptr inbounds i8, ptr %map_iter, i64 56
   %6 = load ptr, ptr %v_.i.i.i, align 8
@@ -87439,7 +87439,7 @@ if.then.i.i.i:                                    ; preds = %delete.notnull
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %second.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #28
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %cmp.i.i.i1.i = icmp eq ptr %7, %8
@@ -87457,7 +87457,7 @@ if.then.i.i2.i:                                   ; preds = %_ZNSt7__cxx1112basi
   br label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev.exit
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i, %if.then.i.i2.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %1) #28
   call void @_ZdlPv(ptr noundef nonnull %1) #29
   br label %if.end
 
@@ -88128,7 +88128,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %call, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EC2ERKS7_.exit unwind label %common.resume
 
 _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EC2ERKS7_.exit: ; preds = %if.then
@@ -88136,7 +88136,7 @@ _ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   %1 = getelementptr inbounds i8, ptr %call, i64 48
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %second.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store ptr %1, ptr %second.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -88166,13 +88166,13 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %_ZN6google
   %call11.i25 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 64)
   %5 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call11.i25, ptr noundef nonnull align 8 dereferenceable(32) %key)
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %call11.i25, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   %second = getelementptr inbounds i8, ptr %call11.i25, i64 32
   %6 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %7 = getelementptr inbounds i8, ptr %call11.i25, i64 48
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %second, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %second, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %7, ptr %second, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %call11.i25, i64 40
@@ -88180,7 +88180,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %_ZN6google
   %8 = load ptr, ptr %second, align 8
   store i8 0, ptr %8, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull %second, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull %second, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EC2ERKS7_.exit, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
@@ -88259,7 +88259,7 @@ if.then5:                                         ; preds = %while.end.i, %if.th
   %.sroa.speculated.sink.i = phi i64 [ %mul8.i, %if.then6.i ], [ %.sroa.speculated.i, %while.end.i ]
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %.sroa.speculated.sink.i)
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSC_E(ptr nonnull sret(%"struct.std::pair.362") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %kv, ptr noundef null)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, i64 24, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
   %6 = load i64, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %p, i64 24
@@ -88299,7 +88299,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E
   %10 = load i64, ptr %this, align 8
   %inc = add i64 %10, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap5AllocINS9_4NodeEEEPT_m.exit, %if.then
@@ -89266,7 +89266,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -89308,7 +89308,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseE, i64 16), ptr %call.i.sink10.i.i.i, align 8
-  tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_12ELi0EE17MergeFromInternalERKSF_(ptr noundef nonnull align 8 dereferenceable(36) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %value)
+  tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_12ELi0EE17MergeFromInternalERKSF_(ptr noundef nonnull align 8 dereferenceable(48) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %value)
   br i1 %cmp2, label %delete.notnull.i, label %if.end5
 
 delete.notnull.i:                                 ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
@@ -89413,7 +89413,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -89456,7 +89456,7 @@ if.then.i.i:                                      ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   %cmp.i.i.i = icmp ne ptr %1, null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i.i
 
 lpad:                                             ; preds = %entry
@@ -89557,7 +89557,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i
 }
 
@@ -89628,7 +89628,7 @@ if.then.i.i:                                      ; preds = %invoke.cont2
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   ret i1 %cmp.i.i.i
 
 lpad:                                             ; preds = %if.else.i, %invoke.cont, %entry
@@ -90284,7 +90284,7 @@ lpad.i:                                           ; preds = %if.end
   resume { ptr, i32 } %5
 
 _ZN6google8protobuf8internal9SetMapKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPNS0_6MapKeyERKT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %value_ = getelementptr inbounds i8, ptr %map_iter, i64 56
   %6 = load ptr, ptr %v_.i.i.i, align 8
@@ -90336,7 +90336,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -90378,7 +90378,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseE, i64 16), ptr %call.i.sink10.i.i.i, align 8
-  tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_9ELi0EE17MergeFromInternalERKSF_(ptr noundef nonnull align 8 dereferenceable(36) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %value)
+  tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_9ELi0EE17MergeFromInternalERKSF_(ptr noundef nonnull align 8 dereferenceable(48) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %value)
   br i1 %cmp2, label %delete.notnull.i, label %if.end5
 
 delete.notnull.i:                                 ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
@@ -90483,7 +90483,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto244TestAllTypesProto2_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIbbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -91343,7 +91343,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -91355,7 +91355,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -91444,7 +91444,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -92649,7 +92649,7 @@ _ZN6google8protobuf3MapIbbE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.
   %30 = load i64, ptr %this, align 8
   %inc = add i64 %30, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapIbbE8InnerMap5AllocINS3_4NodeEEEPT_m.exit, %if.then
@@ -93904,7 +93904,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -93960,7 +93960,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr %2(ptr noundef nonnull align 8 dereferenceable(24) %value)
+  %call5.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr %2(ptr noundef nonnull align 8 dereferenceable(32) %value)
   %3 = load i8, ptr %call5.i.i.i, align 1
   %frombool.i.i.i.i = and i8 %3, 1
   store i8 %frombool.i.i.i.i, ptr %key_.i.i.i.i.i.i, align 1
@@ -93980,7 +93980,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr %6(ptr noundef nonnull align 8 dereferenceable(24) %value)
+  %call14.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr %6(ptr noundef nonnull align 8 dereferenceable(32) %value)
   %7 = load i8, ptr %call14.i.i.i, align 1
   %frombool.i30.i.i.i = and i8 %7, 1
   store i8 %frombool.i30.i.i.i, ptr %value_.i.i.i.i.i.i, align 1
@@ -94094,7 +94094,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIidED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -94995,7 +94995,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -95007,7 +95007,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -95096,7 +95096,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -96283,7 +96283,7 @@ _ZN6google8protobuf3MapIidE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapIidE8InnerMap5AllocINS3_4NodeEEEPT_m.exit, %if.then
@@ -97504,7 +97504,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -97560,7 +97560,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %3 = load i32, ptr %call5.i.i.i, align 4
   store i32 %3, ptr %key_.i.i.i.i.i.i, align 4
   %4 = load i32, ptr %_has_bits_.i.i.i.i.i.i, align 8
@@ -97579,7 +97579,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load double, ptr %call14.i.i.i, align 8
   store double %7, ptr %value_.i.i.i.i.i.i, align 8
   %8 = load i32, ptr %_has_bits_.i.i.i.i.i.i, align 8
@@ -97692,7 +97692,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIifED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -98590,7 +98590,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -98602,7 +98602,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -98691,7 +98691,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -99642,7 +99642,7 @@ _ZN6google8protobuf3MapIifE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapIifE8InnerMap5AllocINS3_4NodeEEEPT_m.exit, %if.then
@@ -100752,7 +100752,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -100811,7 +100811,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %3 = load i32, ptr %call5.i.i.i, align 4
   store i32 %3, ptr %key_.i.i.i, align 4
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -100832,7 +100832,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load float, ptr %call14.i.i.i, align 4
   store float %7, ptr %value_.i.i.i, align 4
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -100946,7 +100946,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -101842,7 +101842,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -101854,7 +101854,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -101943,7 +101943,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -103125,7 +103125,7 @@ _ZN6google8protobuf3MapIllE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapIllE8InnerMap5AllocINS3_4NodeEEEPT_m.exit, %if.then
@@ -104343,7 +104343,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -104398,7 +104398,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %3 = load i64, ptr %call5.i.i.i, align 8
   store i64 %3, ptr %key_.i.i.i, align 8
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -104419,7 +104419,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -104533,7 +104533,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -105431,7 +105431,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -105443,7 +105443,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -105532,7 +105532,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -106483,7 +106483,7 @@ _ZN6google8protobuf3MapIiiE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapIiiE8InnerMap5AllocINS3_4NodeEEEPT_m.exit, %if.then
@@ -107593,7 +107593,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -107652,7 +107652,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %3 = load i32, ptr %call5.i.i.i, align 4
   store i32 %3, ptr %key_.i.i.i, align 4
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -107673,7 +107673,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -107787,7 +107787,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -108683,7 +108683,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -108695,7 +108695,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -108784,7 +108784,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -109966,7 +109966,7 @@ _ZN6google8protobuf3MapImmE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapImmE8InnerMap5AllocINS3_4NodeEEEPT_m.exit, %if.then
@@ -111184,7 +111184,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -111239,7 +111239,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %3 = load i64, ptr %call5.i.i.i, align 8
   store i64 %3, ptr %key_.i.i.i, align 8
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -111260,7 +111260,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -111374,7 +111374,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto250TestAllTypesProto2_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -112272,7 +112272,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i, %if.end.i
@@ -112284,7 +112284,7 @@ if.then9.i:                                       ; preds = %if.end5.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %6 = getelementptr inbounds i8, ptr %this_iter, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   store ptr %6, ptr %key_, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #28
   %_M_string_length.i.i.i.i2.i = getelementptr inbounds i8, ptr %this_iter, i64 24
@@ -112373,7 +112373,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -113558,7 +113558,7 @@ _ZN6google8protobuf3MapIjjE8InnerMap5AllocINS3_4NodeEEEPT_m.exit: ; preds = %if.
   %24 = load i64, ptr %this, align 8
   %inc = add i64 %24, 1
   store i64 %inc, ptr %this, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf3MapIjjE8InnerMap5AllocINS3_4NodeEEEPT_m.exit, %if.then
@@ -114779,7 +114779,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -114838,7 +114838,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %3 = load i32, ptr %call5.i.i.i, align 4
   store i32 %3, ptr %key_.i.i.i, align 4
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -114859,7 +114859,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -114973,7 +114973,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -115777,7 +115777,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -115809,7 +115809,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -115864,7 +115864,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %3 = load i64, ptr %call5.i.i.i, align 8
   store i64 %3, ptr %key_.i.i.i, align 8
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -115885,7 +115885,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -115999,7 +115999,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -116805,7 +116805,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -116837,7 +116837,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -116896,7 +116896,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %3 = load i32, ptr %call5.i.i.i, align 4
   store i32 %3, ptr %key_.i.i.i, align 4
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -116917,7 +116917,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -117031,7 +117031,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -117835,7 +117835,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -117867,7 +117867,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -117922,7 +117922,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %3 = load i64, ptr %call5.i.i.i, align 8
   store i64 %3, ptr %key_.i.i.i, align 8
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -117943,7 +117943,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -118057,7 +118057,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -118863,7 +118863,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -118895,7 +118895,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -118954,7 +118954,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %3 = load i32, ptr %call5.i.i.i, align 4
   store i32 %3, ptr %key_.i.i.i, align 4
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -118975,7 +118975,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -119089,7 +119089,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -119893,7 +119893,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -119925,7 +119925,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -119980,7 +119980,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %3 = load i64, ptr %call5.i.i.i, align 8
   store i64 %3, ptr %key_.i.i.i, align 8
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -120001,7 +120001,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(36) %value)
+  %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
@@ -120115,7 +120115,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto246TestAllTypesProto2_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 16), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #28
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #28
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
@@ -120921,7 +120921,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i.i.i
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #28
   br label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i.i.i, %if.end
@@ -120953,7 +120953,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(88) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
+  tail call void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(120) %my_arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINS0_7MessageEEEvPv)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
@@ -121012,7 +121012,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 160
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call5.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %2(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %3 = load i32, ptr %call5.i.i.i, align 4
   store i32 %3, ptr %key_.i.i.i, align 4
   %_has_bits_.i12.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -121033,7 +121033,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
   %vfn13.i.i.i = getelementptr inbounds i8, ptr %vtable12.i.i.i, i64 168
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
-  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(28) %value)
+  %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
   %_has_bits_.i30.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -131783,7 +131783,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %4) #29
   br label %invoke.cont2
 
@@ -131813,7 +131813,7 @@ if.then.i.i.i.i6:                                 ; preds = %delete.notnull.i.i4
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i7: ; preds = %if.then.i.i.i.i6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i8
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   tail call void @_ZdlPv(ptr noundef nonnull %8) #29
   br label %cleanup
 
@@ -131993,7 +131993,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %4) #29
   br label %invoke.cont2
 
@@ -132023,7 +132023,7 @@ if.then.i.i.i.i6:                                 ; preds = %delete.notnull.i.i4
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i7: ; preds = %if.then.i.i.i.i6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i8
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   tail call void @_ZdlPv(ptr noundef nonnull %8) #29
   br label %cleanup
 
@@ -132188,7 +132188,7 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #28
   tail call void @_ZdlPv(ptr noundef nonnull %22) #29
   br label %invoke.cont2.i
 
@@ -132262,7 +132262,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %4) #29
   br label %invoke.cont2
 
@@ -132453,7 +132453,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %4) #29
   br label %invoke.cont2
 
@@ -132679,7 +132679,7 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #28
   tail call void @_ZdlPv(ptr noundef nonnull %22) #29
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EED2Ev.exit
 
@@ -132742,7 +132742,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %4) #29
   br label %cleanup
 
@@ -132907,7 +132907,7 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #28
   tail call void @_ZdlPv(ptr noundef nonnull %22) #29
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EED2Ev.exit
 
@@ -132970,7 +132970,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   tail call void @_ZdlPv(ptr noundef nonnull %4) #29
   br label %cleanup
 
@@ -136775,7 +136775,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -136843,7 +136843,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
   %16 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %17 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %16, ptr %ptr.addr, align 8
@@ -137233,7 +137233,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -137309,7 +137309,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
   %16 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %17 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %16, ptr %ptr.addr, align 8
@@ -137689,7 +137689,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -137757,7 +137757,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
   %16 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %17 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %16, ptr %ptr.addr, align 8
@@ -138147,7 +138147,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -138223,7 +138223,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
   %16 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %17 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %16, ptr %ptr.addr, align 8
@@ -138603,7 +138603,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -138681,7 +138681,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
   %16 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %17 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %16, ptr %ptr.addr, align 8
@@ -139076,7 +139076,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -139153,7 +139153,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
   %16 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %17 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %16, ptr %ptr.addr, align 8
@@ -139535,7 +139535,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -139573,7 +139573,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %8)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %8)
   %12 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %13 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %12, ptr %ptr.addr, align 8
@@ -139916,7 +139916,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -139954,7 +139954,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %8)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %8)
   %12 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %13 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %12, ptr %ptr.addr, align 8
@@ -140285,7 +140285,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -140323,7 +140323,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %8)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %8)
   %12 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %13 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %12, ptr %ptr.addr, align 8
@@ -140666,7 +140666,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -140704,7 +140704,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %8)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %8)
   %12 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %13 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %12, ptr %ptr.addr, align 8
@@ -141035,7 +141035,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -141103,7 +141103,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
   %16 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %17 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %16, ptr %ptr.addr, align 8
@@ -141446,7 +141446,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -141514,7 +141514,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
   %16 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %17 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %16, ptr %ptr.addr, align 8
@@ -141853,7 +141853,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -141928,7 +141928,7 @@ if.end.i.i8:                                      ; preds = %if.end
   br i1 %cmp8.i.i15, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit20: ; preds = %if.end.i.i8
-  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
+  %call11.i.i17 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %12)
   %16 = extractvalue { ptr, i8 } %call11.i.i17, 0
   %17 = extractvalue { ptr, i8 } %call11.i.i17, 1
   store ptr %16, ptr %ptr.addr, align 8
@@ -142240,7 +142240,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   %0 = getelementptr inbounds i8, ptr %parser, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store ptr %0, ptr %key_.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %parser, i64 24
@@ -142300,7 +142300,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_9ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SC_LSE_9ELSE_9ELi0EEENS0_3MapISC_SC_EEED2Ev.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_9ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SC_LSE_9ELSE_9ELi0EEENS0_3MapISC_SC_EEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #28
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -142334,7 +142334,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -142412,7 +142412,7 @@ if.end.i.i14:                                     ; preds = %if.end
   br i1 %cmp8.i.i21, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit26
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit26: ; preds = %if.end.i.i14
-  %call11.i.i23 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %13)
+  %call11.i.i23 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %13)
   %17 = extractvalue { ptr, i8 } %call11.i.i23, 0
   %18 = extractvalue { ptr, i8 } %call11.i.i23, 1
   store ptr %17, ptr %ptr.addr, align 8
@@ -142756,7 +142756,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_) #28
   ret void
 }
 
@@ -143468,7 +143468,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   %0 = getelementptr inbounds i8, ptr %parser, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store ptr %0, ptr %key_.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %parser, i64 24
@@ -143528,7 +143528,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_12ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SC_LSE_9ELSE_12ELi0EEENS0_3MapISC_SC_EEED2Ev.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_12ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SC_LSE_9ELSE_12ELi0EEENS0_3MapISC_SC_EEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #28
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -143562,7 +143562,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -143640,7 +143640,7 @@ if.end.i.i14:                                     ; preds = %if.end
   br i1 %cmp8.i.i21, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit26
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit26: ; preds = %if.end.i.i14
-  %call11.i.i23 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %13)
+  %call11.i.i23 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %13)
   %17 = extractvalue { ptr, i8 } %call11.i.i23, 0
   %18 = extractvalue { ptr, i8 } %call11.i.i23, 1
   store ptr %17, ptr %ptr.addr, align 8
@@ -143984,7 +143984,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_) #28
   ret void
 }
 
@@ -144265,7 +144265,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -144340,7 +144340,7 @@ if.end.i.i14:                                     ; preds = %if.end
   br i1 %cmp8.i.i21, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit26
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit26: ; preds = %if.end.i.i14
-  %call11.i.i23 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %ptr.addr.0, i32 noundef %13)
+  %call11.i.i23 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %ptr.addr.0, i32 noundef %13)
   %17 = extractvalue { ptr, i8 } %call11.i.i23, 0
   %18 = extractvalue { ptr, i8 } %call11.i.i23, 1
   %tobool12.i.i24 = trunc i8 %18 to i1
@@ -144435,7 +144435,7 @@ if.end.i.i69:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.i74, label %if.then40, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i69
-  %call5.i.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %second7.i, ptr noundef nonnull %storemerge.i20.i, ptr noundef nonnull %ctx)
+  %call5.i.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %second7.i, ptr noundef nonnull %storemerge.i20.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i.i = icmp eq ptr %call5.i.i, null
   br i1 %cmp6.i.i, label %if.then40, label %if.end8.i.i
 
@@ -144475,7 +144475,7 @@ if.end.i.i80:                                     ; preds = %if.end44
   br i1 %cmp8.i.i87, label %return, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit91
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit91: ; preds = %if.end.i.i80
-  %call11.i.i88 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %call5.i.i, i32 noundef %42)
+  %call11.i.i88 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %call5.i.i, i32 noundef %42)
   %43 = extractvalue { ptr, i8 } %call11.i.i88, 0
   %44 = extractvalue { ptr, i8 } %call11.i.i88, 1
   %tobool12.i.i89 = trunc i8 %44 to i1
@@ -144779,7 +144779,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_) #28
   ret void
 }
 
@@ -144872,7 +144872,7 @@ if.then4.i:                                       ; preds = %_ZNK6google8protobu
   br label %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage4SwapEPS1_.exit
 
 if.else.i:                                        ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit10.i
-  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %dest, ptr noundef nonnull %src)
+  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef nonnull %src)
   br label %_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage4SwapEPS1_.exit
 
 _ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage4SwapEPS1_.exit: ; preds = %entry, %if.then4.i, %if.else.i
@@ -144998,7 +144998,7 @@ if.then4.i.i:                                     ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal10MoveHelperILb0ELb1ELb1EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE4MoveEPS5_S7_.exit
 
 if.else.i.i:                                      ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit10.i.i
-  call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %16, ptr noundef nonnull %15)
+  call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull %15)
   br label %_ZN6google8protobuf8internal10MoveHelperILb0ELb1ELb1EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE4MoveEPS5_S7_.exit
 
 _ZN6google8protobuf8internal10MoveHelperILb0ELb1ELb1EN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE4MoveEPS5_S7_.exit: ; preds = %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE13mutable_valueEv.exit, %if.then4.i.i, %if.else.i.i
@@ -145019,7 +145019,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   %0 = getelementptr inbounds i8, ptr %parser, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store ptr %0, ptr %key_.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %parser, i64 24
@@ -145079,7 +145079,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_11ELi0EEENS0_3MapISC_SD_EEED2Ev.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_11ELi0EEENS0_3MapISC_SD_EEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #28
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -145113,7 +145113,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.i.i, label %if.else69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   store ptr %4, ptr %ptr.addr, align 8
@@ -145191,7 +145191,7 @@ if.end.i.i14:                                     ; preds = %if.end
   br i1 %cmp8.i.i21, label %if.end64, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit26
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit26: ; preds = %if.end.i.i14
-  %call11.i.i23 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %.pr, i32 noundef %13)
+  %call11.i.i23 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef nonnull %.pr, i32 noundef %13)
   %17 = extractvalue { ptr, i8 } %call11.i.i23, 0
   %18 = extractvalue { ptr, i8 } %call11.i.i23, 1
   store ptr %17, ptr %ptr.addr, align 8
@@ -145535,7 +145535,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_) #28
   ret void
 }
 
@@ -145584,7 +145584,7 @@ if.end.i:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN22protobuf_test_messages6proto220ForeignMessageProto2EEEPKcPT_S8_.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call5.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull %ctx)
+  %call5.i = tail call noundef ptr @_ZN22protobuf_test_messages6proto220ForeignMessageProto214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN22protobuf_test_messages6proto220ForeignMessageProto2EEEPKcPT_S8_.exit, label %if.end8.i
 
@@ -145702,7 +145702,7 @@ if.then4.i:                                       ; preds = %_ZNK6google8protobu
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto24SwapEPS1_.exit
 
 if.else.i:                                        ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit10.i
-  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %dest, ptr noundef nonnull %src)
+  tail call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(32) %dest, ptr noundef nonnull %src)
   br label %_ZN22protobuf_test_messages6proto220ForeignMessageProto24SwapEPS1_.exit
 
 _ZN22protobuf_test_messages6proto220ForeignMessageProto24SwapEPS1_.exit: ; preds = %entry, %if.then4.i, %if.else.i
@@ -145859,7 +145859,7 @@ if.then4.i.i:                                     ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal10MoveHelperILb0ELb1ELb1EN22protobuf_test_messages6proto220ForeignMessageProto2EE4MoveEPS5_S7_.exit
 
 if.else.i.i:                                      ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit10.i.i
-  call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull %17, ptr noundef nonnull %16)
+  call void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %16)
   br label %_ZN6google8protobuf8internal10MoveHelperILb0ELb1ELb1EN22protobuf_test_messages6proto220ForeignMessageProto2EE4MoveEPS5_S7_.exit
 
 _ZN6google8protobuf8internal10MoveHelperILb0ELb1ELb1EN22protobuf_test_messages6proto220ForeignMessageProto2EE4MoveEPS5_S7_.exit: ; preds = %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto256TestAllTypesProto2_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_20ForeignMessageProto2ELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE13mutable_valueEv.exit, %if.then4.i.i, %if.else.i.i
@@ -145878,7 +145878,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   %0 = getelementptr inbounds i8, ptr %parser, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store ptr %0, ptr %key_.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %parser, i64 24
@@ -145938,7 +145938,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_14ELi0EEENS0_3MapISC_SD_EEED2Ev.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_14ELi0EEENS0_3MapISC_SD_EEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #28
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -146144,7 +146144,7 @@ if.then.i.i15:                                    ; preds = %invoke.cont9
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i15
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   br label %return
 
 lpad:                                             ; preds = %call.i12.noexc, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, %if.then.i9.i, %if.then.i15.i
@@ -146210,7 +146210,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_) #28
   ret void
 }
 
@@ -146230,7 +146230,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   %0 = getelementptr inbounds i8, ptr %parser, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %key_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   store ptr %0, ptr %key_.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #28
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %parser, i64 24
@@ -146290,7 +146290,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_14ELi0EEENS0_3MapISC_SD_EEED2Ev.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto253TestAllTypesProto2_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_17ForeignEnumProto2ELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_14ELi0EEENS0_3MapISC_SD_EEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_.i) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #28
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -146496,7 +146496,7 @@ if.then.i.i15:                                    ; preds = %invoke.cont9
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i15
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   br label %return
 
 lpad:                                             ; preds = %call.i12.noexc, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, %if.then.i9.i, %if.then.i15.i
@@ -146562,7 +146562,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %key_) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_) #28
   ret void
 }
 
@@ -154323,7 +154323,7 @@ declare void @_ZN6google8protobuf8internal12ExtensionSet17RegisterExtensionEPKNS
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) #28
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) #28
   store ptr %0, ptr %this, align 8
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
@@ -154338,7 +154338,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, %if.end.i.i.i.i, %if.then.i.i, %if.then
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #28
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry

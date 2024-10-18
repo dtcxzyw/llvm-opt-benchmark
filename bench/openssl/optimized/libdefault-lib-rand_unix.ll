@@ -214,7 +214,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %.not.i, label %if.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body
-  %call.i = tail call i32 @getentropy(ptr noundef %call2, i64 noundef %bytes_needed.089) #11
+  %call.i = tail call i32 @getentropy(ptr noundef %call2, i64 noundef range(i64 1, 0) %bytes_needed.089) #11
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %syscall_random.exit, label %if.end.i
 
@@ -225,7 +225,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.not.i, label %if.end6.i, label %land.lhs.true
 
 if.end6.i:                                        ; preds = %if.end.i, %while.body
-  %call7.i = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %call2, i64 noundef %bytes_needed.089, i32 noundef 0) #11
+  %call7.i = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %call2, i64 noundef range(i64 1, 0) %bytes_needed.089, i32 noundef 0) #11
   br label %syscall_random.exit
 
 syscall_random.exit:                              ; preds = %if.then.i, %if.end6.i

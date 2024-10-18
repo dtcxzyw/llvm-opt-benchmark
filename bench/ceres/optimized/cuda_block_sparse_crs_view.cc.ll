@@ -118,7 +118,7 @@ _ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteI
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, 1
   %24 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
   store ptr %2, ptr %24, align 8
   %25 = sext i32 %23 to i64
   invoke void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %25)
@@ -128,7 +128,7 @@ _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit: ; preds = %_ZNSt1
   %26 = getelementptr inbounds i8, ptr %1, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
   store ptr %2, ptr %28, align 8
   %29 = sext i32 %27 to i64
   invoke void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %29)
@@ -1587,7 +1587,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal18CudaStreamedBufferIdEC2EPNS
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = shl nsw i32 %13, 1
   %17 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false)
   store ptr %1, ptr %17, align 8
   %18 = sext i32 %16 to i64
   tail call void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18)
@@ -1672,7 +1672,7 @@ _ZN6google12Check_GEImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   %36 = load i32, ptr %0, align 8
   %37 = sext i32 %36 to i64
   %38 = shl nsw i64 %37, 4
-  %39 = invoke noundef i32 @cudaHostAlloc(ptr noundef nonnull %19, i64 noundef %38, i32 noundef 4)
+  %39 = invoke noundef i32 @cudaHostAlloc(ptr noundef nonnull %19, i64 noundef range(i64 -34359738368, 34359738353) %38, i32 noundef 4)
           to label %_ZL13cudaHostAllocIdE9cudaErrorPPT_mj.exit unwind label %.loopexit.split-lp
 
 _ZL13cudaHostAllocIdE9cudaErrorPPT_mj.exit:       ; preds = %35

@@ -105,7 +105,7 @@ define hidden noundef zeroext i1 @_ZN18JfrAdaptiveSampler10initializeEv(ptr noca
   br i1 %3, label %.thread, label %4
 
 4:                                                ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   store volatile i64 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 40
@@ -121,7 +121,7 @@ define hidden noundef zeroext i1 @_ZN18JfrAdaptiveSampler10initializeEv(ptr noca
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 32, i1 false)
   %13 = getelementptr inbounds i8, ptr %10, i64 32
   store volatile i64 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 40
@@ -824,7 +824,7 @@ define hidden noundef zeroext i1 @_ZN24JfrGTestFixedRateSampler10initializeEv(pt
   br i1 %3, label %_ZN18JfrAdaptiveSampler10initializeEv.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   store volatile i64 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 40
@@ -840,7 +840,7 @@ define hidden noundef zeroext i1 @_ZN24JfrGTestFixedRateSampler10initializeEv(pt
   br i1 %11, label %_ZN18JfrAdaptiveSampler10initializeEv.exit, label %12
 
 12:                                               ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 32, i1 false)
   %13 = getelementptr inbounds i8, ptr %10, i64 32
   store volatile i64 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 40

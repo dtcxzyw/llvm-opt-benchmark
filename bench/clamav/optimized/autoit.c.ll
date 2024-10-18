@@ -703,7 +703,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %84 = ptrtoint ptr %.val.i184.i to i64
   %85 = add i64 %.val4.i185.i, %84
   %86 = sub i64 %83, %85
-  %87 = call ptr %82(ptr noundef nonnull %32, i64 noundef %86, i64 noundef %79, i32 noundef 0) #14
+  %87 = call ptr %82(ptr noundef nonnull %32, i64 noundef %86, i64 noundef range(i64 0, 4294967296) %79, i32 noundef 0) #14
   %.not148.i = icmp eq ptr %87, null
   br i1 %.not148.i, label %.loopexit253.i, label %88
 
@@ -752,7 +752,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %112 = ptrtoint ptr %.val.i188.i to i64
   %113 = add i64 %.val4.i189.i, %112
   %114 = sub i64 %111, %113
-  %115 = call ptr %110(ptr noundef nonnull %32, i64 noundef %114, i64 noundef %107, i32 noundef 0) #14
+  %115 = call ptr %110(ptr noundef nonnull %32, i64 noundef %114, i64 noundef range(i64 0, 4294967296) %107, i32 noundef 0) #14
   %.not150.i = icmp eq ptr %115, null
   br i1 %.not150.i, label %.loopexit253.i, label %116
 
@@ -857,7 +857,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %167 = ptrtoint ptr %.val.i192.i to i64
   %168 = add i64 %.val4.i193.i, %167
   %169 = sub i64 %166, %168
-  %170 = call ptr %165(ptr noundef nonnull %32, i64 noundef %169, i64 noundef %164, i32 noundef 0) #14
+  %170 = call ptr %165(ptr noundef nonnull %32, i64 noundef %169, i64 noundef range(i64 0, 4294967296) %164, i32 noundef 0) #14
   %.not155.i = icmp eq ptr %170, null
   br i1 %.not155.i, label %171, label %172
 
@@ -1755,7 +1755,7 @@ ea05.exit:                                        ; preds = %552, %554, %559
   %613 = ptrtoint ptr %.val.i329.i to i64
   %614 = add i64 %.val4.i330.i, %613
   %615 = sub i64 %612, %614
-  %616 = call ptr %611(ptr noundef nonnull %571, i64 noundef %615, i64 noundef %610, i32 noundef 0) #14
+  %616 = call ptr %611(ptr noundef nonnull %571, i64 noundef %615, i64 noundef range(i64 0, 4294967296) %610, i32 noundef 0) #14
   %.not261.i = icmp eq ptr %616, null
   br i1 %.not261.i, label %ea06.exit, label %617
 
@@ -1892,7 +1892,7 @@ u2a.exit.i:                                       ; preds = %.lr.ph45.i.i, %._cr
   %676 = ptrtoint ptr %.val.i333.i to i64
   %677 = add i64 %.val4.i334.i, %676
   %678 = sub i64 %675, %677
-  %679 = call ptr %674(ptr noundef nonnull %571, i64 noundef %678, i64 noundef %672, i32 noundef 0) #14
+  %679 = call ptr %674(ptr noundef nonnull %571, i64 noundef %678, i64 noundef range(i64 0, 4294967296) %672, i32 noundef 0) #14
   %.not264.i = icmp eq ptr %679, null
   br i1 %.not264.i, label %ea06.exit, label %680
 
@@ -2078,7 +2078,7 @@ u2a.exit354.i:                                    ; preds = %.lr.ph45.i348.i, %.
   %766 = ptrtoint ptr %.val.i357.i to i64
   %767 = add i64 %.val4.i358.i, %766
   %768 = sub i64 %765, %767
-  %769 = call ptr %764(ptr noundef nonnull %571, i64 noundef %768, i64 noundef %763, i32 noundef 0) #14
+  %769 = call ptr %764(ptr noundef nonnull %571, i64 noundef %768, i64 noundef range(i64 0, 4294967296) %763, i32 noundef 0) #14
   %.not269.i = icmp eq ptr %769, null
   br i1 %.not269.i, label %770, label %772
 

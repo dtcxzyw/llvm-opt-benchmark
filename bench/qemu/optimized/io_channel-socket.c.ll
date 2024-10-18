@@ -403,11 +403,11 @@ if.then8.i.i36:                                   ; preds = %if.then.i.i33
   %16 = load i64, ptr %_now.i.i26, align 8
   %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i26, i64 8
   %17 = load i64, ptr %tv_usec.i.i39, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i38, i64 noundef %16, i64 noundef %17, ptr noundef %ioc, i32 noundef %call) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i38, i64 noundef %16, i64 noundef %17, ptr noundef %ioc, i32 noundef range(i32 0, -2147483648) %call) #9
   br label %trace_qio_channel_socket_connect_complete.exit
 
 if.else.i.i35:                                    ; preds = %if.then.i.i33
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %ioc, i32 noundef %call) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %ioc, i32 noundef range(i32 0, -2147483648) %call) #9
   br label %trace_qio_channel_socket_connect_complete.exit
 
 trace_qio_channel_socket_connect_complete.exit:   ; preds = %if.end, %land.lhs.true5.i.i30, %if.then8.i.i36, %if.else.i.i35
@@ -622,11 +622,11 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i32
   %16 = load i64, ptr %_now.i.i25, align 8
   %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %17 = load i64, ptr %tv_usec.i.i38, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i37, i64 noundef %16, i64 noundef %17, ptr noundef %ioc, i32 noundef %call) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i37, i64 noundef %16, i64 noundef %17, ptr noundef %ioc, i32 noundef range(i32 0, -2147483648) %call) #9
   br label %trace_qio_channel_socket_listen_complete.exit
 
 if.else.i.i34:                                    ; preds = %if.then.i.i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %ioc, i32 noundef %call) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %ioc, i32 noundef range(i32 0, -2147483648) %call) #9
   br label %trace_qio_channel_socket_listen_complete.exit
 
 trace_qio_channel_socket_listen_complete.exit:    ; preds = %if.end, %land.lhs.true5.i.i29, %if.then8.i.i35, %if.else.i.i34
@@ -834,11 +834,11 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i31
   %16 = load i64, ptr %_now.i.i24, align 8
   %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
   %17 = load i64, ptr %tv_usec.i.i37, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i36, i64 noundef %16, i64 noundef %17, ptr noundef %ioc, i32 noundef %call) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i36, i64 noundef %16, i64 noundef %17, ptr noundef %ioc, i32 noundef range(i32 0, -2147483648) %call) #9
   br label %trace_qio_channel_socket_dgram_complete.exit
 
 if.else.i.i33:                                    ; preds = %if.then.i.i31
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, ptr noundef %ioc, i32 noundef %call) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, ptr noundef %ioc, i32 noundef range(i32 0, -2147483648) %call) #9
   br label %trace_qio_channel_socket_dgram_complete.exit
 
 trace_qio_channel_socket_dgram_complete.exit:     ; preds = %if.end, %land.lhs.true5.i.i28, %if.then8.i.i34, %if.else.i.i33

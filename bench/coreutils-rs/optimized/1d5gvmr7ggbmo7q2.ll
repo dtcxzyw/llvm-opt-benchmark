@@ -110,7 +110,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 
 13:                                               ; preds = %.lr.ph
   %.val = load ptr, ptr %.sroa.0.025, align 8, !nonnull !20, !align !21, !noundef !20
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %1, i64 %2), !alias.scope !22
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %1, i64 %2), !alias.scope !22
   %14 = icmp eq i32 %bcmp.i.i, 0
   br i1 %14, label %16, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge"
 
@@ -373,7 +373,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
 
 15:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !55
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4a25323f3d643f7dE.llvm.2603348648179966163"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4), !noalias !54
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4a25323f3d643f7dE.llvm.2603348648179966163"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !54
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load i64, ptr %16, align 8, !range !41, !noalias !55, !noundef !20
   %.not.i.i.i.i.i.i = icmp eq i64 %17, 0
@@ -483,7 +483,7 @@ define hidden void @"_ZN73_$LT$P$u20$as$u20$clap_builder..builder..value_parser.
 
 16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !87
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4a25323f3d643f7dE.llvm.2603348648179966163"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4), !noalias !86
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4a25323f3d643f7dE.llvm.2603348648179966163"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !86
   %17 = getelementptr inbounds i8, ptr %8, i64 8
   %18 = load i64, ptr %17, align 8, !range !41, !noalias !87, !noundef !20
   %.not.i.i.i.i.i.i.i = icmp eq i64 %18, 0

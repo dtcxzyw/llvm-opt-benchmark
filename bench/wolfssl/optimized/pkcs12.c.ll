@@ -194,7 +194,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp5.i, label %wc_PKCS12_verify.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef readonly %pkcs12, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly %psw, i32 noundef %pswSz, ptr noundef %digest.i)
+  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly %pkcs12, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly %psw, i32 noundef %pswSz, ptr noundef %digest.i)
   %cmp8.i = icmp slt i32 %call.i, 0
   br i1 %cmp8.i, label %wc_PKCS12_verify.exit, label %if.end10.i
 
@@ -1214,7 +1214,7 @@ if.end.i:                                         ; preds = %if.then16
   br i1 %cmp5.i, label %wc_PKCS12_verify.exit.thread, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef readonly %pkcs12, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull readonly %psw, i32 noundef %conv, ptr noundef %digest.i)
+  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly %pkcs12, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull readonly %psw, i32 noundef %conv, ptr noundef %digest.i)
   %cmp8.i = icmp slt i32 %call.i, 0
   br i1 %cmp8.i, label %wc_PKCS12_verify.exit.thread, label %wc_PKCS12_verify.exit
 
@@ -1903,7 +1903,7 @@ if.end14:                                         ; preds = %if.end
 sw.epilog.i:                                      ; preds = %if.end14, %if.end14, %if.end14, %if.end14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i.i)
   store i32 0, ptr %length.i.i, align 4
-  %call.i.i = call fastcc i32 @wc_PKCS12_shroud_key(ptr noundef readonly %call.i, ptr noundef %rng, ptr noundef null, ptr noundef %length.i.i, ptr noundef %key, i32 noundef %keySz, i32 noundef %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select)
+  %call.i.i = call fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly %call.i, ptr noundef nonnull %rng, ptr noundef null, ptr noundef %length.i.i, ptr noundef %key, i32 noundef %keySz, i32 noundef range(i32 -1, 4) %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select)
   %cmp.i.i = icmp ne i32 %call.i.i, -202
   %cmp1.i.i = icmp slt i32 %call.i.i, 0
   %or.cond.i.i = and i1 %cmp.i.i, %cmp1.i.i
@@ -1926,7 +1926,7 @@ if.end14.i:                                       ; preds = %wc_PKCS12_create_ke
   %add.ptr.i = getelementptr inbounds i8, ptr %call8.i, i64 6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i51.i)
   store i32 0, ptr %length.i51.i, align 4
-  %call.i52.i = call fastcc i32 @wc_PKCS12_shroud_key(ptr noundef readonly %call.i, ptr noundef %rng, ptr noundef null, ptr noundef %length.i51.i, ptr noundef %key, i32 noundef %keySz, i32 noundef %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select)
+  %call.i52.i = call fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly %call.i, ptr noundef nonnull %rng, ptr noundef null, ptr noundef %length.i51.i, ptr noundef %key, i32 noundef %keySz, i32 noundef range(i32 -1, 4) %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select)
   %cmp.i53.i = icmp ne i32 %call.i52.i, -202
   %cmp1.i54.i = icmp slt i32 %call.i52.i, 0
   %or.cond.i55.i = and i1 %cmp.i53.i, %cmp1.i54.i
@@ -1977,7 +1977,7 @@ if.end45.i.i:                                     ; preds = %for.body35.i.i, %fo
   br i1 %cmp48.i.i, label %wc_PKCS12_create_key_bag.exit59.thread.i, label %if.end51.i.i
 
 if.end51.i.i:                                     ; preds = %if.end45.i.i
-  %call52.i.i = call fastcc i32 @wc_PKCS12_shroud_key(ptr noundef readonly %call.i, ptr noundef %rng, ptr noundef nonnull %call47.i.i, ptr noundef %length.i51.i, ptr noundef %key, i32 noundef %keySz, i32 noundef %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select)
+  %call52.i.i = call fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly %call.i, ptr noundef nonnull %rng, ptr noundef nonnull %call47.i.i, ptr noundef %length.i51.i, ptr noundef %key, i32 noundef %keySz, i32 noundef range(i32 -1, 4) %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select)
   %cmp53.i.i = icmp slt i32 %call52.i.i, 0
   br i1 %cmp53.i.i, label %if.then56.i.i, label %wc_PKCS12_create_key_bag.exit59.i
 
@@ -2040,7 +2040,7 @@ if.then47.i:                                      ; preds = %if.end39.i
 
 if.end49.i:                                       ; preds = %if.end39.i
   %pkcs12.val50.i = load ptr, ptr %call.i, align 8
-  %call50.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val50.i, ptr noundef %rng, ptr noundef nonnull %call41.i, ptr noundef %keyCiSz, ptr noundef nonnull %call8.i, i32 noundef %add28.i, i32 noundef %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef 651)
+  %call50.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val50.i, ptr noundef nonnull %rng, ptr noundef nonnull %call41.i, ptr noundef nonnull %keyCiSz, ptr noundef nonnull %call8.i, i32 noundef %add28.i, i32 noundef %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef 651)
   call void @wolfSSL_Free(ptr noundef nonnull %call8.i) #9
   %cmp55.i = icmp slt i32 %call50.i, 0
   br i1 %cmp55.i, label %if.then60.i, label %if.end22
@@ -2141,7 +2141,7 @@ if.end55.i:                                       ; preds = %if.end55.loopexit.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr59.i, ptr nonnull align 1 %add.ptr.i61, i64 %conv62.i, i1 false)
   %add64.i = add i32 %call57.i, %idx.0.i
   %pkcs12.val.i = load ptr, ptr %call.i, align 8
-  %call65.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val.i, ptr noundef %rng, ptr noundef null, ptr noundef %certCiSz, ptr noundef null, i32 noundef %add64.i, i32 noundef %nidCert, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef %switch.load)
+  %call65.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val.i, ptr noundef nonnull %rng, ptr noundef null, ptr noundef nonnull %certCiSz, ptr noundef null, i32 noundef %add64.i, i32 noundef %nidCert, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef %switch.load)
   %cmp66.not.i = icmp eq i32 %call65.i, -202
   br i1 %cmp66.not.i, label %if.end75.i, label %if.then26.sink.split
 
@@ -2154,7 +2154,7 @@ if.end75.i:                                       ; preds = %if.end55.i
 
 if.end85.i:                                       ; preds = %if.end75.i
   %pkcs12.val63.i = load ptr, ptr %call.i, align 8
-  %call86.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val63.i, ptr noundef %rng, ptr noundef nonnull %call77.i, ptr noundef %certCiSz, ptr noundef nonnull %call14.i, i32 noundef %add64.i, i32 noundef %nidCert, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef %switch.load)
+  %call86.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val63.i, ptr noundef nonnull %rng, ptr noundef nonnull %call77.i, ptr noundef nonnull %certCiSz, ptr noundef nonnull %call14.i, i32 noundef %add64.i, i32 noundef %nidCert, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef %switch.load)
   call void @wolfSSL_Free(ptr noundef nonnull %call14.i) #9
   %cmp91.i = icmp slt i32 %call86.i, 0
   br i1 %cmp91.i, label %if.then26.sink.split, label %if.end29
@@ -2212,7 +2212,7 @@ if.end20.i77:                                     ; preds = %if.end8.i
   %conv29.i = zext nneg i32 %call50.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr28.i, ptr nonnull readonly align 1 %call41.i, i64 %conv29.i, i1 false)
   %pkcs12.val37.i = load ptr, ptr %call.i, align 8
-  %call30.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val37.i, ptr noundef %rng, ptr noundef nonnull %call4.i, ptr noundef %safeDataSz.i, ptr noundef nonnull %call11.i, i32 noundef %add2.i, i32 noundef 0, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef 651)
+  %call30.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val37.i, ptr noundef nonnull %rng, ptr noundef nonnull %call4.i, ptr noundef %safeDataSz.i, ptr noundef nonnull %call11.i, i32 noundef %add2.i, i32 noundef 0, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef 651)
   call void @wolfSSL_Free(ptr noundef nonnull %call11.i) #9
   %cmp36.i = icmp slt i32 %call30.i, 0
   br i1 %cmp36.i, label %do.end42.critedge.sink.split, label %if.end46.i
@@ -2225,7 +2225,7 @@ if.end46.i:                                       ; preds = %if.end20.i77
   br i1 %cmp48.i, label %do.end42.critedge.sink.split, label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end46.i
-  %call59.i = call fastcc i32 @GetSafeContent(ptr noundef %call.i, ptr noundef %call4.i, ptr noundef %idx.i, i32 noundef %14)
+  %call59.i = call fastcc i32 @GetSafeContent(ptr noundef nonnull %call.i, ptr noundef %call4.i, ptr noundef %idx.i, i32 noundef %14)
   call void @wolfSSL_Free(ptr noundef nonnull %call4.i) #9
   %15 = icmp sgt i32 %call59.i, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length.i)

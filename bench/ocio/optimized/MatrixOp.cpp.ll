@@ -979,12 +979,12 @@ invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i3.i.i.i.
   %_M_refcount.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %mat.i.i.i.i.i.i.i.i, i64 8
   store ptr %call5.i.i.i3.i.i.i.i2.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
   store ptr %_M_impl.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %mat.i.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7setRGBAIdEEvPKT_(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %matrix)
+  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7setRGBAIdEEvPKT_(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %matrix)
           to label %invoke.cont3.i.i.i.i.i.i.i.i unwind label %lpad2.i.i.i.i.i.i.i.i, !noalias !7
 
 invoke.cont3.i.i.i.i.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i.i.i.i.i
   %m_offsets.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2.i.i.i.i.i.i.i.i, i64 232
-  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7Offsets7setRGBAIdEEvPKT_(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %offset)
+  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7Offsets7setRGBAIdEEvPKT_(ptr noundef nonnull align 8 dereferenceable(32) %m_offsets.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %offset)
           to label %invoke.cont5.i.i.i.i.i.i.i.i unwind label %lpad2.i.i.i.i.i.i.i.i, !noalias !7
 
 invoke.cont5.i.i.i.i.i.i.i.i:                     ; preds = %invoke.cont3.i.i.i.i.i.i.i.i
@@ -2266,7 +2266,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEED2Ev.exit: ; preds = %if.then.i.i17, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12MatrixOpDataEKNS_6OpDataEEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %31 = load ptr, ptr %matDataSrc, align 8
-  %call.i32 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i, ptr noundef nonnull align 8 dereferenceable(168) %31)
+  %call.i32 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(260) %m_data.i, ptr noundef nonnull align 8 dereferenceable(260) %31)
           to label %call.i.noexc unwind label %lpad11
 
 call.i.noexc:                                     ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEED2Ev.exit

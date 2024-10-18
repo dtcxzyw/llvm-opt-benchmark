@@ -1714,7 +1714,7 @@ proto_item_set_hidden.exit287:                    ; preds = %proto_item_set_hidd
 
 proto_item_set_generated.exit:                    ; preds = %.lr.ph, %157, %160
   %164 = add i32 %.1307, %143
-  %165 = call zeroext i16 @crc16_0x3D65_seed(ptr noundef %144, i32 noundef %143, i16 noundef zeroext 0) #6
+  %165 = call zeroext i16 @crc16_0x3D65_seed(ptr noundef %144, i32 noundef range(i32 1, 256) %143, i16 noundef zeroext 0) #6
   %166 = xor i16 %165, -1
   %167 = load i32, ptr @hf_dnp3_data_chunk_crc, align 4
   %168 = load i32, ptr @hf_dnp3_data_chunk_crc_status, align 4

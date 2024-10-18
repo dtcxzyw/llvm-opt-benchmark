@@ -73,7 +73,7 @@ define dso_local void @_ZN24cmInstallScriptGeneratorC2ENSt7__cxx1112basic_string
           to label %.noexc unwind label %71
 
 .noexc:                                           ; preds = %7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc13 unwind label %71
 
 .noexc13:                                         ; preds = %.noexc
@@ -83,7 +83,7 @@ define dso_local void @_ZN24cmInstallScriptGeneratorC2ENSt7__cxx1112basic_string
 15:                                               ; preds = %.noexc13
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #10
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc13
@@ -420,7 +420,7 @@ define dso_local void @_ZN24cmInstallScriptGeneratorD0Ev(ptr noundef nonnull ali
   store ptr getelementptr inbounds (i8, ptr @_ZTV24cmInstallScriptGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
-  tail call void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #10
+  tail call void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }
@@ -504,7 +504,7 @@ define dso_local void @_ZNK24cmInstallScriptGenerator9GetScriptERKNSt7__cxx1112b
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc9 unwind label %27
 
 .noexc9:                                          ; preds = %.noexc
@@ -514,7 +514,7 @@ define dso_local void @_ZNK24cmInstallScriptGenerator9GetScriptERKNSt7__cxx1112b
 19:                                               ; preds = %.noexc9
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc9

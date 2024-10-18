@@ -3586,7 +3586,7 @@ define void @_ZN8WasmEdge4Host10WasiModuleC2Ev(ptr noundef nonnull align 8 deref
   br i1 %.not.i.i, label %_ZNSt8functionIFvPvEED2Ev.exit, label %144
 
 144:                                              ; preds = %141
-  %145 = invoke noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %145 = invoke noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvPvEED2Ev.exit unwind label %146
 
 146:                                              ; preds = %144
@@ -3599,7 +3599,7 @@ define void @_ZN8WasmEdge4Host10WasiModuleC2Ev(ptr noundef nonnull align 8 deref
 _ZNSt8functionIFvPvEED2Ev.exit:                   ; preds = %141, %144
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge4Host10WasiModuleE, i64 16), ptr %0, align 8
   %149 = getelementptr inbounds i8, ptr %0, i64 920
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %149, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %149, i8 0, i64 40, i1 false)
   %150 = getelementptr inbounds i8, ptr %0, i64 960
   %151 = getelementptr inbounds i8, ptr %0, i64 1008
   store ptr %151, ptr %150, align 8
@@ -6187,7 +6187,7 @@ _ZNSt10unique_ptrIN8WasmEdge4Host19WasiSockGetAddrinfoESt14default_deleteIS2_EED
   br i1 %.not.i.i279, label %_ZNSt8functionIFvPvEED2Ev.exit280, label %926
 
 926:                                              ; preds = %922
-  %927 = invoke noundef zeroext i1 %925(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %927 = invoke noundef zeroext i1 %925(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFvPvEED2Ev.exit280 unwind label %928
 
 928:                                              ; preds = %926
@@ -8473,7 +8473,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceC2
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvPvEEC2ERKS2_.exit, label %78
 
 78:                                               ; preds = %17
-  %79 = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
+  %79 = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 2)
           to label %80 unwind label %84
 
 80:                                               ; preds = %78
@@ -8492,7 +8492,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceC2
   br i1 %.not.i.i, label %.body, label %87
 
 87:                                               ; preds = %84
-  %88 = invoke noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %73, i32 noundef 3)
+  %88 = invoke noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %73, i32 noundef 3)
           to label %.body unwind label %89
 
 89:                                               ; preds = %87
@@ -8683,7 +8683,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstance11
   %5 = alloca %class.anon, align 1
   %6 = alloca %"class.std::unique_ptr.855", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %7) #17
+  %8 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   %9 = icmp eq i32 %8, 35
   br i1 %9, label %10, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -8768,7 +8768,7 @@ _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.ex
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i, %39
   store ptr null, ptr %6, align 8
-  %49 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %7) #17
+  %49 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   ret void
 
 50:                                               ; preds = %13, %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
@@ -8784,7 +8784,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNKSt14default_del
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit9:   ; preds = %50, %52
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
-  %54 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %7) #17
+  %54 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -8802,7 +8802,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiArgsGetEJRNS1_4
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -8824,13 +8824,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -8856,7 +8856,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiArgsSizesGetEJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -8878,13 +8878,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -8910,7 +8910,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiEnvironGetEJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -8932,13 +8932,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -8964,7 +8964,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host19WasiEnvironSizesGet
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -8986,13 +8986,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9018,7 +9018,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host15WasiClockResGetEJRN
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9040,13 +9040,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9072,7 +9072,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiClockTimeGetEJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9094,13 +9094,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9126,7 +9126,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiFdAdviseEJRNS1_
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9148,13 +9148,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9180,7 +9180,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiFdAllocateEJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9202,13 +9202,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9234,7 +9234,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiFdCloseEJRNS1_4
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9256,13 +9256,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9288,7 +9288,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiFdDatasyncEJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9310,13 +9310,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9342,7 +9342,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host15WasiFdFdstatGetEJRN
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9364,13 +9364,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9396,7 +9396,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host20WasiFdFdstatSetFlag
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9418,13 +9418,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9450,7 +9450,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiFdFdstatSetRigh
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9472,13 +9472,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9504,7 +9504,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host17WasiFdFilestatGetEJ
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9526,13 +9526,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9558,7 +9558,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiFdFilestatSetSi
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9580,13 +9580,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9612,7 +9612,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host22WasiFdFilestatSetTi
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9634,13 +9634,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9666,7 +9666,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiFdPreadEJRNS1_4
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9688,13 +9688,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9720,7 +9720,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiFdPrestatGetEJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9742,13 +9742,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9774,7 +9774,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host20WasiFdPrestatDirNam
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9796,13 +9796,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9828,7 +9828,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiFdPwriteEJRNS1_
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9850,13 +9850,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9882,7 +9882,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdReadEJRNS1_4W
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9904,13 +9904,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9936,7 +9936,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host13WasiFdReadDirEJRNS1
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -9958,13 +9958,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -9990,7 +9990,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiFdRenumberEJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10012,13 +10012,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10044,7 +10044,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdSeekEJRNS1_4W
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10066,13 +10066,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10098,7 +10098,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdSyncEJRNS1_4W
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10120,13 +10120,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10152,7 +10152,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdTellEJRNS1_4W
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10174,13 +10174,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10206,7 +10206,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiFdWriteEJRNS1_4
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10228,13 +10228,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10260,7 +10260,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host23WasiPathCreateDirec
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10282,13 +10282,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10314,7 +10314,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host19WasiPathFilestatGet
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10336,13 +10336,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10368,7 +10368,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host24WasiPathFilestatSet
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10390,13 +10390,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10422,7 +10422,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiPathLinkEJRNS1_
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10444,13 +10444,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10476,7 +10476,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiPathOpenEJRNS1_
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10498,13 +10498,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10530,7 +10530,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiPathReadLinkEJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10552,13 +10552,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10584,7 +10584,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host23WasiPathRemoveDirec
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10606,13 +10606,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10638,7 +10638,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiPathRenameEJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10660,13 +10660,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10692,7 +10692,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host15WasiPathSymlinkEJRN
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10714,13 +10714,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10746,7 +10746,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host18WasiPathUnlinkFileE
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10768,13 +10768,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10800,7 +10800,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiPollOneoffILNS1
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10822,13 +10822,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10854,7 +10854,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiPollOneoffILNS1
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10876,13 +10876,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10908,7 +10908,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiProcExitEJRNS1_
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10930,13 +10930,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -10962,7 +10962,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host13WasiProcRaiseEJRNS1
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -10984,13 +10984,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11016,7 +11016,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSchedYieldEJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11038,13 +11038,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11070,7 +11070,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host13WasiRandomGetEJRNS1
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11092,13 +11092,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11124,7 +11124,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockOpenV1EJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11146,13 +11146,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11178,7 +11178,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockBindV1EJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11200,13 +11200,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11232,7 +11232,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host17WasiSockConnectV1EJ
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11254,13 +11254,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11286,7 +11286,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockListenV1EJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11308,13 +11308,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11340,7 +11340,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockAcceptV1EJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11362,13 +11362,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11394,7 +11394,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockRecvV1EJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11416,13 +11416,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11448,7 +11448,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host18WasiSockRecvFromV1E
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11470,13 +11470,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11502,7 +11502,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockSendV1EJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11524,13 +11524,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11556,7 +11556,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockSendToV1EJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11578,13 +11578,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11610,7 +11610,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockAcceptV2EJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11632,13 +11632,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11664,7 +11664,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockOpenV2EJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11686,13 +11686,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11718,7 +11718,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockBindV2EJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11740,13 +11740,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11772,7 +11772,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host17WasiSockConnectV2EJ
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11794,13 +11794,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11826,7 +11826,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockListenV2EJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11848,13 +11848,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11880,7 +11880,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockRecvV2EJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11902,13 +11902,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11934,7 +11934,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host18WasiSockRecvFromV2E
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -11956,13 +11956,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -11988,7 +11988,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockSendV2EJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12010,13 +12010,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12042,7 +12042,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockSendToV2EJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12064,13 +12064,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12096,7 +12096,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockShutdownEJR
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12118,13 +12118,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12150,7 +12150,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockGetOptEJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12172,13 +12172,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12204,7 +12204,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockSetOptEJRNS
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12226,13 +12226,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12258,7 +12258,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host22WasiSockGetLocalAdd
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12280,13 +12280,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12312,7 +12312,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiSockGetPeerAddr
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12334,13 +12334,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12366,7 +12366,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host22WasiSockGetLocalAdd
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12388,13 +12388,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12420,7 +12420,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiSockGetPeerAddr
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12442,13 +12442,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12474,7 +12474,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host19WasiSockGetAddrinfo
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 96, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %2
@@ -12496,13 +12496,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEEE, i64 16), ptr %4, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %4)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
 .body:                                            ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #17
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #17
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 168) #18
   resume { ptr, i32 } %16
 
@@ -12531,7 +12531,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiModuleD0Ev(ptr noundef n
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge4Host10WasiModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   tail call void @_ZN8WasmEdge4Host4WASI7EnvironD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %2) #17
-  tail call void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2Ev(ptr noundef nonnull align 8 dereferenceable(920) %0) #17
+  tail call void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1264) #18
   ret void
 }
@@ -13215,7 +13215,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIKN8WasmEdge3AST7Sub
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 18:                                               ; preds = %6
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %7) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %18, %12, %10
@@ -13297,7 +13297,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2
   %12 = getelementptr inbounds i8, ptr %.sroa.083.088, i64 40
   %13 = getelementptr inbounds i8, ptr %.sroa.083.088, i64 64
   %14 = load ptr, ptr %13, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %15 unwind label %.loopexit
 
 15:                                               ; preds = %.lr.ph
@@ -13321,7 +13321,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2
   store ptr %22, ptr %3, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 912
   %24 = load ptr, ptr %23, align 8
-  invoke void %24(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %25 unwind label %.loopexit.split-lp
 
 25:                                               ; preds = %20
@@ -13331,7 +13331,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2
   br i1 %.not.i.i12, label %_ZNSt8functionIFvPvEED2Ev.exit, label %26
 
 26:                                               ; preds = %25
-  %27 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %27 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %_ZNSt8functionIFvPvEED2Ev.exit unwind label %28
 
 28:                                               ; preds = %26
@@ -14113,7 +14113,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN8WasmEdge7Runtime12StoreManagerESt4pa
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.07, i64 40
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8_Rb_treeIPN8WasmEdge7Runtime12StoreManagerESt4pairIKS3_St8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit unwind label %12
 
 12:                                               ; preds = %9
@@ -14148,7 +14148,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -14170,7 +14170,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -14192,7 +14192,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
@@ -14214,7 +14214,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -14236,7 +14236,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -15064,7 +15064,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr %4, align 8
   %13 = inttoptr i64 %12 to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   %14 = getelementptr inbounds i8, ptr %8, i64 64
   %15 = load ptr, ptr %13, align 8
   store ptr %15, ptr %14, align 8
@@ -15117,7 +15117,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   resume { ptr, i32 } %35
 
 36:                                               ; preds = %17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 72) #18
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance16FunctionInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE10_Auto_nodeD2Ev.exit
 
@@ -15452,7 +15452,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #18
   br label %6
 
@@ -15501,7 +15501,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiArgsGetD2Ev(ptr noundef 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -15553,7 +15553,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiArgsGetD0Ev(ptr noundef 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -15828,7 +15828,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -15880,7 +15880,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -15933,7 +15933,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -16299,7 +16299,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiArgsSizesGetD2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -16351,7 +16351,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiArgsSizesGetD0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -16626,7 +16626,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -16678,7 +16678,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -16882,7 +16882,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiEnvironGetD2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -16934,7 +16934,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiEnvironGetD0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17209,7 +17209,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17261,7 +17261,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17465,7 +17465,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiEnvironSizesGetD2Ev(ptr 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17517,7 +17517,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiEnvironSizesGetD0Ev(ptr 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17792,7 +17792,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17844,7 +17844,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -18048,7 +18048,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiClockResGetD2Ev(ptr noun
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -18100,7 +18100,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiClockResGetD0Ev(ptr noun
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -18375,7 +18375,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -18427,7 +18427,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -18631,7 +18631,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiClockTimeGetD2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -18683,7 +18683,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiClockTimeGetD0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -18960,7 +18960,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -19012,7 +19012,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -19285,7 +19285,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiFdAdviseD2Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -19337,7 +19337,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiFdAdviseD0Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -19616,7 +19616,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -19668,7 +19668,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -20010,7 +20010,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdAllocateD2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -20062,7 +20062,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdAllocateD0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -20339,7 +20339,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -20391,7 +20391,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -20664,7 +20664,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdCloseD2Ev(ptr noundef 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -20716,7 +20716,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdCloseD0Ev(ptr noundef 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21062,7 +21062,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21114,7 +21114,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21169,7 +21169,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdDatasyncD2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21221,7 +21221,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdDatasyncD0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21567,7 +21567,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21619,7 +21619,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21674,7 +21674,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiFdFdstatGetD2Ev(ptr noun
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21726,7 +21726,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiFdFdstatGetD0Ev(ptr noun
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -22001,7 +22001,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -22053,7 +22053,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -22257,7 +22257,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlagsD2Ev(ptr
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -22309,7 +22309,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlagsD0Ev(ptr
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -22584,7 +22584,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -22636,7 +22636,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -22840,7 +22840,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiFdFdstatSetRightsD2Ev(pt
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -22892,7 +22892,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiFdFdstatSetRightsD0Ev(pt
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -23169,7 +23169,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -23221,7 +23221,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -23494,7 +23494,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiFdFilestatGetD2Ev(ptr no
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -23546,7 +23546,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiFdFilestatGetD0Ev(ptr no
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -23821,7 +23821,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -23873,7 +23873,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -24077,7 +24077,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiFdFilestatSetSizeD2Ev(pt
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -24129,7 +24129,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiFdFilestatSetSizeD0Ev(pt
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -24404,7 +24404,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -24456,7 +24456,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -24660,7 +24660,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimesD2Ev(p
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -24712,7 +24712,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimesD0Ev(p
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -24991,7 +24991,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -25043,7 +25043,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -25385,7 +25385,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdPreadD2Ev(ptr noundef 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -25437,7 +25437,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdPreadD0Ev(ptr noundef 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -25718,7 +25718,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -25770,7 +25770,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -26181,7 +26181,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiFdPrestatGetD2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -26233,7 +26233,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiFdPrestatGetD0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -26508,7 +26508,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -26560,7 +26560,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -26764,7 +26764,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host20WasiFdPrestatDirNameD2Ev(ptr
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -26816,7 +26816,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host20WasiFdPrestatDirNameD0Ev(ptr
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -27093,7 +27093,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -27145,7 +27145,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -27418,7 +27418,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiFdPwriteD2Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -27470,7 +27470,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiFdPwriteD0Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -27751,7 +27751,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -27803,7 +27803,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -28214,7 +28214,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdReadD2Ev(ptr noundef n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -28266,7 +28266,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdReadD0Ev(ptr noundef n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -28545,7 +28545,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -28597,7 +28597,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -28939,7 +28939,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiFdReadDirD2Ev(ptr nounde
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -28991,7 +28991,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiFdReadDirD0Ev(ptr nounde
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -29272,7 +29272,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -29324,7 +29324,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -29735,7 +29735,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdRenumberD2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -29787,7 +29787,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdRenumberD0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -30062,7 +30062,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -30114,7 +30114,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -30318,7 +30318,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdSeekD2Ev(ptr noundef n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -30370,7 +30370,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdSeekD0Ev(ptr noundef n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -30649,7 +30649,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -30701,7 +30701,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -31043,7 +31043,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdSyncD2Ev(ptr noundef n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -31095,7 +31095,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdSyncD0Ev(ptr noundef n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -31441,7 +31441,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -31493,7 +31493,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -31548,7 +31548,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdTellD2Ev(ptr noundef n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -31600,7 +31600,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdTellD0Ev(ptr noundef n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -31875,7 +31875,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -31927,7 +31927,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -32131,7 +32131,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdWriteD2Ev(ptr noundef 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -32183,7 +32183,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdWriteD0Ev(ptr noundef 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -32462,7 +32462,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -32514,7 +32514,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -32856,7 +32856,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host23WasiPathCreateDirectoryD2Ev(
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -32908,7 +32908,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host23WasiPathCreateDirectoryD0Ev(
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -33185,7 +33185,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -33237,7 +33237,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -33510,7 +33510,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiPathFilestatGetD2Ev(ptr 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -33562,7 +33562,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiPathFilestatGetD0Ev(ptr 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -33843,7 +33843,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -33895,7 +33895,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -34306,7 +34306,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimesD2Ev
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -34358,7 +34358,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimesD0Ev
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -34643,7 +34643,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -34695,7 +34695,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -35244,7 +35244,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiPathLinkD2Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -35296,7 +35296,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiPathLinkD0Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -35581,7 +35581,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -35633,7 +35633,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -36182,7 +36182,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiPathOpenD2Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -36234,7 +36234,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiPathOpenD0Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -36523,7 +36523,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -36575,7 +36575,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -37262,7 +37262,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiPathReadLinkD2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -37314,7 +37314,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiPathReadLinkD0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -37597,7 +37597,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -37649,7 +37649,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -38129,7 +38129,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host23WasiPathRemoveDirectoryD2Ev(
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -38181,7 +38181,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host23WasiPathRemoveDirectoryD0Ev(
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -38458,7 +38458,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -38510,7 +38510,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -38783,7 +38783,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPathRenameD2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -38835,7 +38835,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPathRenameD0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -39118,7 +39118,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -39170,7 +39170,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -39650,7 +39650,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiPathSymlinkD2Ev(ptr noun
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -39702,7 +39702,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiPathSymlinkD0Ev(ptr noun
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -39983,7 +39983,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -40035,7 +40035,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -40446,7 +40446,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiPathUnlinkFileD2Ev(ptr n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -40498,7 +40498,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiPathUnlinkFileD0Ev(ptr n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -40775,7 +40775,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -40827,7 +40827,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -41100,7 +41100,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11T
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -41152,7 +41152,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11T
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -41431,7 +41431,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -41483,7 +41483,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -41825,7 +41825,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11T
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -41877,7 +41877,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11T
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -42156,7 +42156,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -42208,7 +42208,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -42550,7 +42550,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiProcExitD2Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -42602,7 +42602,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiProcExitD0Ev(ptr noundef
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -42832,7 +42832,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -42884,7 +42884,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -42939,7 +42939,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiProcRaiseD2Ev(ptr nounde
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -42991,7 +42991,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiProcRaiseD0Ev(ptr nounde
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -43337,7 +43337,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -43389,7 +43389,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -43444,7 +43444,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSchedYieldD2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -43496,7 +43496,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSchedYieldD0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -43729,7 +43729,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -43781,7 +43781,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -43836,7 +43836,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiRandomGetD2Ev(ptr nounde
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -43888,7 +43888,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiRandomGetD0Ev(ptr nounde
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -44163,7 +44163,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -44215,7 +44215,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -44419,7 +44419,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockOpenV1D2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -44471,7 +44471,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockOpenV1D0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -44748,7 +44748,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -44800,7 +44800,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -45073,7 +45073,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockBindV1D2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -45125,7 +45125,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockBindV1D0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -45402,7 +45402,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -45454,7 +45454,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -45727,7 +45727,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiSockConnectV1D2Ev(ptr no
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -45779,7 +45779,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiSockConnectV1D0Ev(ptr no
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -46056,7 +46056,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -46108,7 +46108,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -46381,7 +46381,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockListenV1D2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -46433,7 +46433,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockListenV1D0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -46708,7 +46708,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -46760,7 +46760,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -46964,7 +46964,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockAcceptV1D2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -47016,7 +47016,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockAcceptV1D0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -47291,7 +47291,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -47343,7 +47343,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -47547,7 +47547,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockRecvV1D2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -47599,7 +47599,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockRecvV1D0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -47882,7 +47882,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -47934,7 +47934,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -48414,7 +48414,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiSockRecvFromV1D2Ev(ptr n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -48466,7 +48466,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiSockRecvFromV1D0Ev(ptr n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -48751,7 +48751,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -48803,7 +48803,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -49352,7 +49352,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSendV1D2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -49404,7 +49404,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSendV1D0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -49685,7 +49685,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -49737,7 +49737,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -50148,7 +50148,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockSendToV1D2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -50200,7 +50200,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockSendToV1D0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -50485,7 +50485,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -50537,7 +50537,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -51086,7 +51086,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockAcceptV2D2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -51138,7 +51138,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockAcceptV2D0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -51415,7 +51415,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -51467,7 +51467,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -51740,7 +51740,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockOpenV2D2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -51792,7 +51792,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockOpenV2D0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -52069,7 +52069,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -52121,7 +52121,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -52394,7 +52394,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockBindV2D2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -52446,7 +52446,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockBindV2D0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -52723,7 +52723,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -52775,7 +52775,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -53048,7 +53048,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiSockConnectV2D2Ev(ptr no
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -53100,7 +53100,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiSockConnectV2D0Ev(ptr no
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -53377,7 +53377,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -53429,7 +53429,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -53702,7 +53702,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockListenV2D2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -53754,7 +53754,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockListenV2D0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -54029,7 +54029,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -54081,7 +54081,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -54285,7 +54285,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockRecvV2D2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -54337,7 +54337,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockRecvV2D0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -54620,7 +54620,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -54672,7 +54672,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -55152,7 +55152,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiSockRecvFromV2D2Ev(ptr n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -55204,7 +55204,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiSockRecvFromV2D0Ev(ptr n
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -55491,7 +55491,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -55543,7 +55543,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -56161,7 +56161,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSendV2D2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -56213,7 +56213,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSendV2D0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -56494,7 +56494,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -56546,7 +56546,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -56957,7 +56957,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockSendToV2D2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -57009,7 +57009,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockSendToV2D0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -57294,7 +57294,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -57346,7 +57346,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -57895,7 +57895,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockShutdownD2Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -57947,7 +57947,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockShutdownD0Ev(ptr nou
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -58222,7 +58222,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -58274,7 +58274,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -58478,7 +58478,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockGetOptD2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -58530,7 +58530,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockGetOptD0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -58811,7 +58811,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -58863,7 +58863,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -59274,7 +59274,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSetOptD2Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -59326,7 +59326,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSetOptD0Ev(ptr nound
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -59607,7 +59607,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -59659,7 +59659,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -60070,7 +60070,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV1D2Ev(p
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -60122,7 +60122,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV1D0Ev(p
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -60401,7 +60401,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -60453,7 +60453,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -60795,7 +60795,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV1D2Ev(pt
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -60847,7 +60847,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV1D0Ev(pt
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -61126,7 +61126,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -61178,7 +61178,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -61520,7 +61520,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV2D2Ev(p
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -61572,7 +61572,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV2D0Ev(p
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -61849,7 +61849,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -61901,7 +61901,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -62174,7 +62174,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV2D2Ev(pt
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -62226,7 +62226,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV2D0Ev(pt
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -62503,7 +62503,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -62555,7 +62555,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -62828,7 +62828,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiSockGetAddrinfoD2Ev(ptr 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -62880,7 +62880,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiSockGetAddrinfoD0Ev(ptr 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -63167,7 +63167,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -63219,7 +63219,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #17
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5

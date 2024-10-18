@@ -592,7 +592,7 @@ define linkonce_odr hidden void @_ZN4llvm22MachineModuleInfoMachOD0Ev(ptr nounde
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %15, i64 noundef %19, i64 noundef 8) #17
-  tail call void @_ZN4llvm21MachineModuleInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN4llvm21MachineModuleInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 80) #19
   ret void
 }
@@ -635,7 +635,7 @@ define linkonce_odr hidden void @_ZN4llvm20MachineModuleInfoELFD0Ev(ptr noundef 
   %12 = zext i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %9, i64 noundef %13, i64 noundef 8) #17
-  tail call void @_ZN4llvm21MachineModuleInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN4llvm21MachineModuleInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #19
   ret void
 }
@@ -664,7 +664,7 @@ define linkonce_odr hidden void @_ZN4llvm21MachineModuleInfoCOFFD0Ev(ptr noundef
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %3, i64 noundef %7, i64 noundef 8) #17
-  tail call void @_ZN4llvm21MachineModuleInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN4llvm21MachineModuleInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #19
   ret void
 }
@@ -717,7 +717,7 @@ _ZN4llvm21MachineModuleInfoWasmD2Ev.exit:         ; preds = %1, %7
   %12 = zext i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %9, i64 noundef %13, i64 noundef 8) #17
-  tail call void @_ZN4llvm21MachineModuleInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN4llvm21MachineModuleInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #19
   ret void
 }

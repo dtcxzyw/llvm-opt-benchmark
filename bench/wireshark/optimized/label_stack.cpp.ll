@@ -155,7 +155,7 @@ define void @_ZN10LabelStack9fillLabelEv(ptr noundef nonnull align 8 dereference
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QColor, align 8
   %10 = alloca %class.QString, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, i64 29, ptr nonnull @.str)
@@ -207,7 +207,7 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.thread.i
 28:                                               ; preds = %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.i.i.i.i, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.thread.i.i.i.i
   %29 = getelementptr inbounds i8, ptr %0, i64 56
   %30 = load ptr, ptr %29, align 8
-  %31 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %30) #16
+  %31 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %30) #16
   %32 = getelementptr inbounds i8, ptr %30, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 24
@@ -659,7 +659,7 @@ define void @_ZN10LabelStack8pushTextERK7QStringi(ptr noundef nonnull align 8 de
   br label %11
 
 11:                                               ; preds = %8, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 24, i1 false)
   %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1) #16
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %2, ptr %13, align 8
@@ -1410,7 +1410,7 @@ _ZN10LabelStack10_StackItemC2ERKS0_.exit.i:       ; preds = %38, %28
   %55 = phi i64 [ %.pre.i20, %.lr.ph.i19 ], [ %71, %54 ]
   %.010.i21 = phi ptr [ %49, %.lr.ph.i19 ], [ %69, %54 ]
   %56 = getelementptr %"struct.LabelStack::_StackItem", ptr %8, i64 %55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %56, i8 0, i64 24, i1 false)
   %57 = load ptr, ptr %.010.i21, align 8
   store ptr %57, ptr %56, align 8
   store ptr null, ptr %.010.i21, align 8
@@ -2124,7 +2124,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10Labe
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %10 = phi ptr [ %24, %.lr.ph ], [ %2, %3 ]
   %11 = phi ptr [ %25, %.lr.ph ], [ %0, %3 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, i8 0, i64 24, i1 false)
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %10, align 8
   store ptr null, ptr %11, align 8
@@ -2282,7 +2282,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reve
   %15 = phi ptr [ %34, %.lr.ph ], [ %6, %3 ]
   %16 = getelementptr i8, ptr %15, i64 -32
   %17 = getelementptr i8, ptr %14, i64 -32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %16, i8 0, i64 24, i1 false)
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
   store ptr null, ptr %17, align 8

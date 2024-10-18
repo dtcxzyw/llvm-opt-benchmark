@@ -629,7 +629,7 @@ define void @_ZNK20AStringListListModel10headerDataEiN2Qt11OrientationEi(ptr dea
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %9, align 8
   br label %_ZN5QListI7QStringED2Ev.exit
@@ -682,7 +682,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i: ; preds = 
   %28 = getelementptr inbounds i8, ptr %6, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr %class.QString, ptr %29, i64 %16
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7QStringE8metaTypeE, ptr noundef nonnull %30)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7QStringE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(24) %30)
           to label %_ZN8QVariant9fromValueI7QStringEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit unwind label %31
 
 31:                                               ; preds = %27, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i, %_ZN5QListI7QStringE6detachEv.exit.i
@@ -692,7 +692,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i: ; preds = 
   resume { ptr, i32 } %32
 
 33:                                               ; preds = %15, %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %34, align 8
   br label %_ZN8QVariant9fromValueI7QStringEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit
@@ -829,7 +829,7 @@ _ZN5QListI7QStringEC2ERKS1_.exit:                 ; preds = %25, %38
   %50 = sext i32 %49 to i64
   %51 = load ptr, ptr %32, align 8
   %52 = getelementptr %class.QString, ptr %51, i64 %50
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7QStringE8metaTypeE, ptr noundef nonnull %52)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7QStringE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(24) %52)
           to label %_ZN8QVariant9fromValueI7QStringEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS3_.exit unwind label %53
 
 53:                                               ; preds = %48, %_ZN5QListI7QStringEC2ERKS1_.exit
@@ -954,7 +954,7 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %91, %_ZN17QArrayDat
   br i1 %83, label %.sink.split, label %97
 
 .sink.split:                                      ; preds = %_ZN5QListI7QStringED2Ev.exit, %24, %_ZN7QStringD2Ev.exit25, %17, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %96 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %96, align 8
   br label %97
@@ -1230,7 +1230,7 @@ define noundef zeroext i1 @_ZNK35AStringListListSortFilterProxyModel8lessThanERK
   br label %_ZNK11QModelIndex4dataEi.exit
 
 14:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !9
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %15, align 8, !alias.scope !9
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -1255,7 +1255,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %10, %14
           to label %_ZNK11QModelIndex4dataEi.exit15 unwind label %61
 
 23:                                               ; preds = %16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !alias.scope !12
   %24 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !12
   br label %_ZNK11QModelIndex4dataEi.exit15
@@ -1546,7 +1546,7 @@ _ZN9QtPrivate21qMakeForeachContainerIRK5QListIiEEENS_17QForeachContainerINSt5dec
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %31
 
 52:                                               ; preds = %46
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !alias.scope !19
   store i64 2, ptr %26, align 8, !alias.scope !19
   br label %_ZNK11QModelIndex4dataEi.exit
 
@@ -3321,7 +3321,7 @@ _ZNK8QVariant5valueI6QBrushEET_v.exit:            ; preds = %34
 
 .critedge:                                        ; preds = %20, %9, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %4, %_ZNK8QVariant10canConvertI6QBrushEEbv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %47
@@ -3395,7 +3395,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %1
   br label %_ZN28AStringListListUrlProxyModelD2Ev.exit
 
 _ZN28AStringListListUrlProxyModelD2Ev.exit:       ; preds = %1, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i, %5
-  tail call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }

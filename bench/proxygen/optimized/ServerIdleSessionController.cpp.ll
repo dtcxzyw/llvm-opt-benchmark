@@ -305,7 +305,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #21
+  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont3, label %if.then.i.i
 
@@ -335,7 +335,7 @@ if.then.i:                                        ; preds = %invoke.cont3
   %sub.i.i.i.i = add i64 %2, -1
   store i64 %sub.i.i.i.i, ptr %_M_size.i.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
-  call void @_ZdlPv(ptr noundef %1) #23
+  call void @_ZdlPv(ptr noundef nonnull %1) #23
   %sessionMap_.i = getelementptr inbounds i8, ptr %this, i64 64
   %call.i.i.i7 = invoke noundef i64 @_ZNSt10_HashtableIPKN8proxygen15HTTPSessionBaseESt4pairIKS3_St14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS5_(ptr noundef nonnull align 8 dereferenceable(56) %sessionMap_.i, ptr noundef nonnull align 8 dereferenceable(8) %ret.i)
           to label %invoke.cont5 unwind label %lpad4
@@ -376,11 +376,11 @@ lpad2:                                            ; preds = %invoke.cont22, %if.
 lpad4:                                            ; preds = %if.then, %if.then.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21
+  %call1.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   br label %ehcleanup
 
 cleanup:                                          ; preds = %lor.lhs.false7
-  %call1.i.i.i10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21
+  %call1.i.i.i10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   %9 = load ptr, ptr %evb_.i, align 8
   %loopThread_.i = getelementptr inbounds i8, ptr %9, i64 64
   %10 = load atomic i64, ptr %loopThread_.i monotonic, align 8
@@ -469,7 +469,7 @@ if.end26:                                         ; preds = %_ZNK5folly9EventBas
   br i1 %tobool.not.i.i25, label %cleanup30.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end26
-  %call.i.i26 = call noundef i64 %19(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #21
+  %call.i.i26 = call noundef i64 %19(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %agg.tmp, ptr noundef null) #21
   br label %cleanup30.thread
 
 cleanup30.thread:                                 ; preds = %if.end26, %if.end.i.i
@@ -500,7 +500,7 @@ cleanup30.critedge:                               ; preds = %if.then
   %23 = getelementptr inbounds i8, ptr %call.i.i1.i8, i64 144
   store ptr null, ptr %23, align 8, !noalias !17
   store ptr %call.i.i1.i8, ptr %agg.result, align 8, !alias.scope !17
-  %call1.i.i.i28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21
+  %call1.i.i.i28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   br label %cleanup30
 
 cleanup30:                                        ; preds = %_ZN5folly10makeFutureIPN8proxygen15HTTPSessionBaseEEENS_6FutureINSt5decayIT_E4typeEEEOS6_.exit22, %cleanup30.critedge
@@ -707,7 +707,7 @@ if.then:                                          ; preds = %entry
   %sub.i.i.i = add i64 %1, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  tail call void @_ZdlPv(ptr noundef %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   %sessionMap_ = getelementptr inbounds i8, ptr %this, i64 64
   %call.i.i = call noundef i64 @_ZNSt10_HashtableIPKN8proxygen15HTTPSessionBaseESt4pairIKS3_St14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS5_(ptr noundef nonnull align 8 dereferenceable(56) %sessionMap_, ptr noundef nonnull align 8 dereferenceable(8) %ret)
   %sessionPool = getelementptr inbounds i8, ptr %ret, i64 8
@@ -773,7 +773,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 define void @_ZN8proxygen27ServerIdleSessionController14addIdleSessionEPKNS_15HTTPSessionBaseEPNS_11SessionPoolE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %session, ptr noundef %sessionPool) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"class.google::LogMessage", align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #21
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -959,12 +959,12 @@ invoke.cont35:                                    ; preds = %for.cond.i.i.i.i19,
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %invoke.cont35, %invoke.cont18
-  %call1.i.i.i22 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21
+  %call1.i.i.i22 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   ret void
 
 ehcleanup:                                        ; preds = %lpad, %_ZNSt10_HashtableIPKN8proxygen15HTTPSessionBaseESt4pairIKS3_St14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i, %lpad11
   %.pn = phi { ptr, i32 } [ %12, %lpad11 ], [ %11, %lpad ], [ %25, %_ZNSt10_HashtableIPKN8proxygen15HTTPSessionBaseESt4pairIKS3_St14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i ]
-  %call1.i.i.i23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21
+  %call1.i.i.i23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -976,7 +976,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen27ServerIdleSessionController17removeIdleSessionEPKNS_15HTTPSessionBaseE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %session) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #21
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1053,7 +1053,7 @@ if.then:                                          ; preds = %for.cond.i.i.i.i, %
   %sub.i.i.i = add i64 %12, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
-  tail call void @_ZdlPv(ptr noundef %11) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
   %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %13 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %14 = load ptr, ptr %add.ptr.i, align 8
@@ -1137,14 +1137,14 @@ _ZNSt13unordered_mapIPKN8proxygen15HTTPSessionBaseESt14_List_iteratorINS0_27Serv
   br label %if.end
 
 if.end:                                           ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %_ZNSt13unordered_mapIPKN8proxygen15HTTPSessionBaseESt14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE5eraseENSt8__detail14_Node_iteratorISE_Lb0ELb0EEE.exit
-  %call1.i.i.i9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21
+  %call1.i.i.i9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen27ServerIdleSessionController12markForDeathEv(ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #21
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1183,7 +1183,7 @@ _ZNSt13unordered_mapIPKN8proxygen15HTTPSessionBaseESt14_List_iteratorINS0_27Serv
 while.body.i.i:                                   ; preds = %_ZNSt13unordered_mapIPKN8proxygen15HTTPSessionBaseESt14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE5clearEv.exit, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %5, %while.body.i.i ], [ %4, %_ZNSt13unordered_mapIPKN8proxygen15HTTPSessionBaseESt14_List_iteratorINS0_27ServerIdleSessionController15IdleSessionInfoEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE5clearEv.exit ]
   %5 = load ptr, ptr %__cur.05.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #23
   %cmp.not.i.i = icmp eq ptr %5, %sessionsByIdleAge_
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIN8proxygen27ServerIdleSessionController15IdleSessionInfoESaIS3_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !29
 
@@ -1193,7 +1193,7 @@ _ZNSt7__cxx114listIN8proxygen27ServerIdleSessionController15IdleSessionInfoESaIS
   store ptr %sessionsByIdleAge_, ptr %sessionsByIdleAge_, align 8
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %_M_size.i.i.i, align 8
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   ret void
 }
 
@@ -1217,7 +1217,7 @@ define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmall
 entry:
   %ref.tmp.i.i = alloca %"class.folly::Try", align 8
   %0 = load ptr, ptr %p, align 16
-  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #21
+  %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(128) %0) #21
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN8proxygen27ServerIdleSessionController16isMarkedForDeathEv.exit.i, label %if.then.i.i.i.i
 
@@ -1229,7 +1229,7 @@ _ZN8proxygen27ServerIdleSessionController16isMarkedForDeathEv.exit.i: ; preds = 
   %markedForDeath_.i.i = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load i8, ptr %markedForDeath_.i.i, align 8
   %tobool.i.i = trunc i8 %1 to i1
-  %call1.i.i.i1.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #21
+  %call1.i.i.i1.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(128) %0) #21
   br i1 %tobool.i.i, label %if.end.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZN8proxygen27ServerIdleSessionController16isMarkedForDeathEv.exit.i
@@ -1299,7 +1299,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull align 8 dereferenceable(32) %src, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %dst, i64 16
   %1 = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load i8, ptr %1, align 1
@@ -1440,7 +1440,7 @@ if.then6.i.i.i.i:                                 ; preds = %_ZNK5folly7PromiseI
   br label %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i
 
 _ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i: ; preds = %if.then6.i.i.i.i, %if.then.i.i.i.i, %_ZNK5folly7PromiseIPN8proxygen15HTTPSessionBaseEE16throwIfFulfilledEv.exit
-  invoke void @_ZN5folly7futures6detail8CoreBase10setResult_EONS_8Executor9KeepAliveIS3_EE(ptr noundef nonnull align 16 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
+  invoke void @_ZN5folly7futures6detail8CoreBase10setResult_EONS_8Executor9KeepAliveIS3_EE(ptr noundef nonnull align 16 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i
@@ -1503,7 +1503,7 @@ entry:
   %ref.tmp = alloca %"class.folly::PromiseInvalid", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
-  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly14PromiseInvalidC2Ev.exit unwind label %lpad.i.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i.i
@@ -1531,7 +1531,7 @@ invoke.cont:                                      ; preds = %_ZN5folly14PromiseI
 lpad:                                             ; preds = %_ZN5folly14PromiseInvalidC2Ev.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #21
   br label %common.resume
 }
 
@@ -1547,14 +1547,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14PromiseInvalidD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14PromiseInvalidC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 16), ptr %this, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -1567,7 +1567,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14PromiseInvalidD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -1602,7 +1602,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly21static_what_exceptionISt11logic_errorED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -1631,7 +1631,7 @@ entry:
   %ref.tmp = alloca %"class.folly::PromiseAlreadySatisfied", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
-  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly23PromiseAlreadySatisfiedC2Ev.exit unwind label %lpad.i.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i.i
@@ -1659,7 +1659,7 @@ invoke.cont:                                      ; preds = %_ZN5folly23PromiseA
 lpad:                                             ; preds = %_ZN5folly23PromiseAlreadySatisfiedC2Ev.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #21
   br label %common.resume
 }
 
@@ -1675,14 +1675,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly23PromiseAlreadySatisfiedD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly23PromiseAlreadySatisfiedC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 16), ptr %this, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -1695,7 +1695,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly23PromiseAlreadySatisfiedD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -1802,7 +1802,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZN5folly7futures6detail4CoreIPN8proxygen15HTTPSessionBaseEED2Ev.exit: ; preds = %entry, %sw.bb11.i, %if.then4.i.i.i, %if.then.i.i.i.i.i, %sw.bb12.i
-  tail call void @_ZN5folly7futures6detail8CoreBaseD2Ev(ptr noundef nonnull align 16 dereferenceable(136) %this) #21
+  tail call void @_ZN5folly7futures6detail8CoreBaseD2Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -1871,7 +1871,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
-  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i unwind label %lpad.i.i.i
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i.i.i
@@ -1891,21 +1891,21 @@ _ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i: ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %ref.tmp1, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1) #21
+  call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1) #21
   %msg_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %1 = load ptr, ptr %msg_.i.i.i, align 8
   store ptr %1, ptr %msg_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %agg.tmp.i.i, align 8
   %call.i.i.i = call ptr @__cxa_allocate_exception(i64 noundef 24) #21, !noalias !33
   %call1.i.i.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i, ptr noundef nonnull @_ZTIN5folly13BrokenPromiseE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN5folly13BrokenPromiseEEEvPv) #21, !noalias !33
-  call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #21, !noalias !33
+  call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #21, !noalias !33
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 16), ptr %call.i.i.i, align 8, !noalias !33
   %msg_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %2 = load ptr, ptr %msg_.i.i.i.i.i, align 8, !noalias !33
   store ptr %2, ptr %msg_.i.i.i.i.i.i, align 8, !noalias !33
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %call.i.i.i, align 8, !noalias !33
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull %call.i.i.i) #21
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #21
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   store i32 1, ptr %ref.tmp, align 8
   %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -1919,7 +1919,7 @@ _ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i: ; preds = %if.then
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   store i64 %4, ptr %5, align 16, !alias.scope !39
   store i64 0, ptr %3, align 8, !noalias !39
-  invoke void @_ZN5folly7futures6detail8CoreBase10setResult_EONS_8Executor9KeepAliveIS3_EE(ptr noundef nonnull align 16 dereferenceable(136) %core, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
+  invoke void @_ZN5folly7futures6detail8CoreBase10setResult_EONS_8Executor9KeepAliveIS3_EE(ptr noundef nonnull align 16 dereferenceable(160) %core, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i
@@ -1981,7 +1981,7 @@ if.then.i.i:                                      ; preds = %_ZN5folly3TryIPN8pr
   br label %_ZN5folly17exception_wrapperD2Ev.exit
 
 _ZN5folly17exception_wrapperD2Ev.exit:            ; preds = %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEED2Ev.exit, %if.then.i.i
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1) #21
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1) #21
   br label %if.end
 
 lpad3.body:                                       ; preds = %if.then.i.i3.i
@@ -2010,7 +2010,7 @@ if.then.i.i11:                                    ; preds = %_ZN5folly3TryIPN8pr
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i11, %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEED2Ev.exit9
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1) #21
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1) #21
   br label %common.resume
 
 if.end:                                           ; preds = %_ZN5folly17exception_wrapperD2Ev.exit, %entry
@@ -2021,14 +2021,14 @@ if.end:                                           ; preds = %_ZN5folly17exceptio
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13BrokenPromiseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13BrokenPromiseD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -2254,7 +2254,7 @@ entry:
   %ref.tmp = alloca %"class.folly::FutureAlreadyRetrieved", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
-  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly22FutureAlreadyRetrievedC2Ev.exit unwind label %lpad.i.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i.i
@@ -2282,7 +2282,7 @@ invoke.cont:                                      ; preds = %_ZN5folly22FutureAl
 lpad:                                             ; preds = %_ZN5folly22FutureAlreadyRetrievedC2Ev.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #21
   br label %common.resume
 }
 
@@ -2298,14 +2298,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly22FutureAlreadyRetrievedD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly22FutureAlreadyRetrievedC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 16), ptr %this, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -2318,7 +2318,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly22FutureAlreadyRetrievedD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -2338,7 +2338,7 @@ entry:
   %ref.tmp = alloca %"class.folly::FutureInvalid", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
-  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly13FutureInvalidC2Ev.exit unwind label %lpad.i.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i.i
@@ -2366,7 +2366,7 @@ invoke.cont:                                      ; preds = %_ZN5folly13FutureIn
 lpad:                                             ; preds = %_ZN5folly13FutureInvalidC2Ev.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #21
   br label %common.resume
 }
 
@@ -2382,14 +2382,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13FutureInvalidD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13FutureInvalidC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 16), ptr %this, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -2402,7 +2402,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13FutureInvalidD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -2417,7 +2417,7 @@ entry:
   %ref.tmp = alloca %"class.folly::FutureNoExecutor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
-  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
+  invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly16FutureNoExecutorC2Ev.exit unwind label %lpad.i.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i.i
@@ -2445,7 +2445,7 @@ invoke.cont:                                      ; preds = %_ZN5folly16FutureNo
 lpad:                                             ; preds = %_ZN5folly16FutureNoExecutorC2Ev.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #21
   br label %common.resume
 }
 
@@ -2461,14 +2461,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly16FutureNoExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly16FutureNoExecutorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 16), ptr %this, align 8
   %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -2481,7 +2481,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly16FutureNoExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -2535,7 +2535,7 @@ if.end6:                                          ; preds = %if.then4
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
-  invoke void @_ZN5folly7futures6detail13UniqueDeleterclEPNS1_16DeferredExecutorE(ptr noundef nonnull align 1 dereferenceable(1) %executor, ptr noundef nonnull %.pr)
+  invoke void @_ZN5folly7futures6detail13UniqueDeleterclEPNS1_16DeferredExecutorE(ptr noundef nonnull align 8 dereferenceable(8) %executor, ptr noundef nonnull %.pr)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i

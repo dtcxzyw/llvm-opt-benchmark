@@ -89,11 +89,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm39canTrackGlobalVariableInterproced
   br i1 %spec.select.i.i, label %10, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.thread
 
 10:                                               ; preds = %5
-  %11 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2
+  %11 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %0) #2
   br i1 %11, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2
+  %13 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef nonnull align 8 dereferenceable(81) %0) #2
   br i1 %13, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.thread, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit
 
 _ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit: ; preds = %12

@@ -255,7 +255,7 @@ define range(i32 0, 32) i32 @Ifn_NtkLutSizeMax(ptr nocapture noundef readonly %0
 13:                                               ; preds = %8
   %14 = lshr i32 %10, 3
   %15 = and i32 %14, 31
-  %16 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 %.011, i32 %15)
+  %16 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 range(i32 -225, 32) %.011, i32 range(i32 -225, 32) %15)
   br label %17
 
 17:                                               ; preds = %8, %13
@@ -384,7 +384,7 @@ Inf_ManOpenSymb.exit.thread:                      ; preds = %5, %5, %5, %5
 
 15:                                               ; preds = %13
   %16 = zext nneg i8 %14 to i32
-  %17 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 %.0, i32 %16)
+  %17 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 range(i32 -225, 32) %.0, i32 range(i32 -225, 32) %16)
   %18 = zext nneg i8 %7 to i64
   %19 = add nsw i64 %18, -97
   %20 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %19
@@ -727,7 +727,7 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck2(ptr noundef %0, ptr nocapture nound
   store i32 2, ptr %18, align 4
   %19 = zext nneg i8 %7 to i32
   %20 = add nsw i32 %19, -97
-  %21 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 %.0, i32 %20)
+  %21 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 range(i32 -225, 32) %.0, i32 range(i32 -225, 32) %20)
   br label %25
 
 22:                                               ; preds = %10
@@ -786,7 +786,7 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck2(ptr noundef %0, ptr nocapture nound
   store i32 1, ptr %37, align 4
   %40 = zext nneg i8 %27 to i32
   %41 = add nsw i32 %40, -97
-  %42 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 %.0109, i32 %41)
+  %42 = tail call range(i32 -225, 32) i32 @llvm.smax.i32(i32 range(i32 -225, 32) %.0109, i32 range(i32 -225, 32) %41)
   br label %46
 
 43:                                               ; preds = %30
@@ -1395,7 +1395,7 @@ define ptr @Ifn_ManStrFindModel(ptr nocapture noundef readonly %0) local_unnamed
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 -1, i64 %6, i1 false)
   %8 = tail call ptr @Gia_ManStart(i32 noundef 1000) #23
   %9 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.24, i64 6, i1 false) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, ptr noundef nonnull align 1 dereferenceable(6) @.str.24, i64 6, i1 false) #23
   store ptr %9, ptr %8, align 8
   tail call void @Gia_ManHashStart(ptr noundef nonnull %8) #23
   %10 = load i32, ptr %0, align 8

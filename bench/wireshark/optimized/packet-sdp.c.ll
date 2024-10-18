@@ -860,7 +860,7 @@ define internal fastcc void @call_sdp_subdissector(ptr noundef %0, ptr noundef %
   store i32 0, ptr %17, align 4
   %22 = load i32, ptr @ett_sdp_owner, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %22) #9
-  %24 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef %17, ptr noundef %18, i32 noundef 0)
+  %24 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 0)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %dissect_sdp_owner.exit, label %26
 
@@ -871,7 +871,7 @@ define internal fastcc void @call_sdp_subdissector(ptr noundef %0, ptr noundef %
   %30 = load i32, ptr %18, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %17, align 4
-  %32 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef %17, ptr noundef %18, i32 noundef 0)
+  %32 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 0)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %dissect_sdp_owner.exit, label %34
 
@@ -882,7 +882,7 @@ define internal fastcc void @call_sdp_subdissector(ptr noundef %0, ptr noundef %
   %38 = load i32, ptr %18, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %17, align 4
-  %40 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef %17, ptr noundef %18, i32 noundef 0)
+  %40 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 0)
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %dissect_sdp_owner.exit, label %42
 
@@ -893,7 +893,7 @@ define internal fastcc void @call_sdp_subdissector(ptr noundef %0, ptr noundef %
   %46 = load i32, ptr %18, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %17, align 4
-  %48 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef %17, ptr noundef %18, i32 noundef 0)
+  %48 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 0)
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %dissect_sdp_owner.exit, label %50
 
@@ -904,7 +904,7 @@ define internal fastcc void @call_sdp_subdissector(ptr noundef %0, ptr noundef %
   %54 = load i32, ptr %18, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %17, align 4
-  %56 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef %17, ptr noundef %18, i32 noundef 0)
+  %56 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 0)
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %dissect_sdp_owner.exit, label %58
 
@@ -935,7 +935,7 @@ dissect_sdp_owner.exit:                           ; preds = %21, %26, %34, %42, 
   store i32 0, ptr %14, align 4
   %70 = load i32, ptr @ett_sdp_connection_info, align 4
   %71 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %70) #9
-  %72 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %71, ptr noundef %14, ptr noundef %15, i32 noundef 0)
+  %72 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %71, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 0)
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %dissect_sdp_connection_info.exit, label %74
 
@@ -946,7 +946,7 @@ dissect_sdp_owner.exit:                           ; preds = %21, %26, %34, %42, 
   %78 = load i32, ptr %15, align 4
   %79 = add i32 %78, 1
   store i32 %79, ptr %14, align 4
-  %80 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %71, ptr noundef %14, ptr noundef %15, i32 noundef 0)
+  %80 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %71, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 0)
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %dissect_sdp_connection_info.exit, label %82
 
@@ -1110,7 +1110,7 @@ dissect_sdp_connection_info.exit:                 ; preds = %69, %74, %119, %122
   store i32 0, ptr %12, align 4
   %167 = load i32, ptr @ett_sdp_time, align 4
   %168 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %167) #9
-  %169 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %168, ptr noundef %12, ptr noundef %13, i32 noundef 0)
+  %169 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %168, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 0)
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %dissect_sdp_time.exit, label %171
 
@@ -1140,7 +1140,7 @@ dissect_sdp_time.exit:                            ; preds = %166, %171
   store i32 0, ptr %10, align 4
   %183 = load i32, ptr @ett_sdp_time, align 4
   %184 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %183) #9
-  %185 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %184, ptr noundef %10, ptr noundef %11, i32 noundef 0)
+  %185 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %184, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 0)
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %dissect_sdp_repeat_time.exit, label %187
 
@@ -1151,7 +1151,7 @@ dissect_sdp_time.exit:                            ; preds = %166, %171
   %191 = load i32, ptr %11, align 4
   %192 = add i32 %191, 1
   store i32 %192, ptr %10, align 4
-  %193 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %184, ptr noundef %10, ptr noundef %11, i32 noundef 0)
+  %193 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %184, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 0)
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %dissect_sdp_repeat_time.exit, label %195
 
@@ -2579,7 +2579,7 @@ define internal fastcc void @dissect_sdp_session_attribute(ptr noundef %0, ptr n
   br i1 %30, label %92, label %31
 
 31:                                               ; preds = %28
-  %32 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %11, ptr noundef %7, ptr noundef %8, i32 noundef 0)
+  %32 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %92, label %34
 
@@ -2617,7 +2617,7 @@ define internal fastcc void @dissect_sdp_session_attribute(ptr noundef %0, ptr n
   store i32 0, ptr %6, align 4
   %53 = load i32, ptr @ett_sdp_key_mgmt, align 4
   %54 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #9
-  %55 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %50, ptr noundef %54, ptr noundef %6, ptr noundef %5, i32 noundef 0)
+  %55 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %50, ptr noundef %54, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0)
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %dissect_key_mgmt.exit, label %57
 
@@ -2699,7 +2699,7 @@ define internal fastcc void @dissect_sdp_media(ptr noundef %0, ptr noundef %1, p
   store i32 0, ptr %5, align 4
   %11 = load i32, ptr @ett_sdp_media, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %11) #9
-  %13 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef %5, ptr noundef %6, i32 noundef 0)
+  %13 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit, label %15
 
@@ -2746,7 +2746,7 @@ define internal fastcc void @dissect_sdp_media(ptr noundef %0, ptr noundef %1, p
   %39 = load i32, ptr %6, align 4
   %40 = add i32 %39, 1
   store i32 %40, ptr %5, align 4
-  %41 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef %5, ptr noundef %6, i32 noundef 0)
+  %41 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0)
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %.loopexit, label %43
 
@@ -2813,7 +2813,7 @@ proto_item_set_hidden.exit:                       ; preds = %58, %59, %62
 77:                                               ; preds = %73, %74, %46
   %78 = add nuw i32 %45, 1
   store i32 %78, ptr %5, align 4
-  %79 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef %5, ptr noundef %6, i32 noundef 0)
+  %79 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0)
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %.loopexit, label %81
 
@@ -2824,7 +2824,7 @@ proto_item_set_hidden.exit:                       ; preds = %58, %59, %62
   br label %119
 
 85:                                               ; preds = %43
-  %86 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef %5, ptr noundef %6, i32 noundef 0)
+  %86 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0)
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %.loopexit, label %88
 
@@ -2886,7 +2886,7 @@ proto_item_set_hidden.exit104:                    ; preds = %100, %101, %104
   %storemerge.in = load i32, ptr %6, align 4
   %storemerge = add i32 %storemerge.in, 1
   store i32 %storemerge, ptr %5, align 4
-  %121 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef %5, ptr noundef %6, i32 noundef 0)
+  %121 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0)
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.loopexit, label %123
 
@@ -3506,7 +3506,7 @@ dissect_sdp_media_attribute_h248_item.exit:       ; preds = %256, %259, %ascii_b
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 %43, ptr %12, align 4
-  %271 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef %12, ptr noundef %13, i32 noundef 0)
+  %271 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 0)
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %dissect_sdp_media_attribute_crypto.exit, label %273
 
@@ -3528,7 +3528,7 @@ dissect_sdp_media_attribute_h248_item.exit:       ; preds = %256, %259, %ascii_b
   %284 = load i32, ptr %13, align 4
   %285 = add i32 %284, 1
   store i32 %285, ptr %12, align 4
-  %286 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef %12, ptr noundef %13, i32 noundef 0)
+  %286 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 0)
   %287 = icmp eq i32 %286, 0
   br i1 %287, label %dissect_sdp_media_attribute_crypto.exit, label %288
 
@@ -3714,7 +3714,7 @@ dissect_sdp_media_attribute_crypto.exit:          ; preds = %331, %.thread.i103,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i32 %43, ptr %9, align 4
-  %384 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef %9, ptr noundef %10, i32 noundef 0)
+  %384 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0)
   %385 = icmp eq i32 %384, 0
   br i1 %385, label %dissect_sdp_media_attribute_candidate.exit, label %386
 
@@ -3725,7 +3725,7 @@ dissect_sdp_media_attribute_crypto.exit:          ; preds = %331, %.thread.i103,
   %390 = load i32, ptr %10, align 4
   %391 = add i32 %390, 1
   store i32 %391, ptr %9, align 4
-  %392 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef %9, ptr noundef %10, i32 noundef 0)
+  %392 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0)
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %dissect_sdp_media_attribute_candidate.exit, label %394
 
@@ -3736,7 +3736,7 @@ dissect_sdp_media_attribute_crypto.exit:          ; preds = %331, %.thread.i103,
   %398 = load i32, ptr %10, align 4
   %399 = add i32 %398, 1
   store i32 %399, ptr %9, align 4
-  %400 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef %9, ptr noundef %10, i32 noundef 0)
+  %400 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0)
   %401 = icmp eq i32 %400, 0
   br i1 %401, label %dissect_sdp_media_attribute_candidate.exit, label %402
 
@@ -3747,7 +3747,7 @@ dissect_sdp_media_attribute_crypto.exit:          ; preds = %331, %.thread.i103,
   %406 = load i32, ptr %10, align 4
   %407 = add i32 %406, 1
   store i32 %407, ptr %9, align 4
-  %408 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef %9, ptr noundef %10, i32 noundef 0)
+  %408 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0)
   %409 = icmp eq i32 %408, 0
   br i1 %409, label %dissect_sdp_media_attribute_candidate.exit, label %410
 
@@ -3758,7 +3758,7 @@ dissect_sdp_media_attribute_crypto.exit:          ; preds = %331, %.thread.i103,
   %414 = load i32, ptr %10, align 4
   %415 = add i32 %414, 1
   store i32 %415, ptr %9, align 4
-  %416 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef %9, ptr noundef %10, i32 noundef 0)
+  %416 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0)
   %417 = icmp eq i32 %416, 0
   br i1 %417, label %dissect_sdp_media_attribute_candidate.exit, label %418
 
@@ -3769,7 +3769,7 @@ dissect_sdp_media_attribute_crypto.exit:          ; preds = %331, %.thread.i103,
   %422 = load i32, ptr %10, align 4
   %423 = add i32 %422, 1
   store i32 %423, ptr %9, align 4
-  %424 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef %9, ptr noundef %10, i32 noundef 0)
+  %424 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0)
   %425 = icmp eq i32 %424, 0
   br i1 %425, label %dissect_sdp_media_attribute_candidate.exit, label %426
 
@@ -3786,7 +3786,7 @@ dissect_sdp_media_attribute_crypto.exit:          ; preds = %331, %.thread.i103,
 433:                                              ; preds = %426
   %434 = add i32 %430, 5
   store i32 %434, ptr %9, align 4
-  %435 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef %9, ptr noundef %10, i32 noundef 0)
+  %435 = call fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0)
   %436 = icmp eq i32 %435, 0
   br i1 %436, label %dissect_sdp_media_attribute_candidate.exit, label %437
 

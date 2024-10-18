@@ -2155,7 +2155,7 @@ define internal void @dissect_pcep_open_obj(ptr noundef %0, ptr noundef %1, ptr 
   %29 = add i32 %3, 4
   %30 = add nsw i32 %4, -8
   %31 = load i32, ptr @ett_pcep_obj_open, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %29, i32 noundef %30, i32 noundef %31, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %29, i32 noundef range(i32 0, 2147483640) %30, i32 noundef %31, i16 noundef zeroext 0)
   br label %32
 
 32:                                               ; preds = %11, %9
@@ -2213,7 +2213,7 @@ define internal void @dissect_pcep_rp_obj(ptr noundef %0, ptr noundef %1, ptr no
   %50 = add i32 %3, 8
   %51 = add nsw i32 %4, -12
   %52 = load i32, ptr @ett_pcep_obj_request_parameters, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %50, i32 noundef %51, i32 noundef %52, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %50, i32 noundef range(i32 0, 2147483640) %51, i32 noundef %52, i16 noundef zeroext 0)
   br label %53
 
 53:                                               ; preds = %11, %9
@@ -2245,7 +2245,7 @@ define internal void @dissect_pcep_no_path_obj(ptr noundef %0, ptr noundef %1, p
   %24 = add i32 %3, 4
   %25 = add nsw i32 %4, -8
   %26 = load i32, ptr @ett_pcep_obj_no_path, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %24, i32 noundef %25, i32 noundef %26, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %24, i32 noundef range(i32 0, 2147483640) %25, i32 noundef %26, i16 noundef zeroext 0)
   br label %27
 
 27:                                               ; preds = %11, %9
@@ -2637,7 +2637,7 @@ define internal void @dissect_pcep_lspa_obj(ptr noundef %0, ptr noundef %1, ptr 
   %36 = add i32 %3, 16
   %37 = add nsw i32 %4, -20
   %38 = load i32, ptr @ett_pcep_obj_lspa, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %36, i32 noundef %37, i32 noundef %38, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %36, i32 noundef range(i32 0, 2147483640) %37, i32 noundef %38, i16 noundef zeroext 0)
   br label %39
 
 39:                                               ; preds = %11, %9
@@ -2715,13 +2715,13 @@ define internal void @dissect_pcep_iro_obj(ptr noundef %0, ptr noundef %1, ptr n
 35:                                               ; preds = %26
   %36 = load i32, ptr @ett_pcep_obj_iro, align 4
   %37 = load i32, ptr @hf_PCEPF_SUBOBJ_EXRS, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %37, ptr noundef %2, i32 noundef %.064, i32 noundef %16, i32 noundef 0) #2
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %37, ptr noundef %2, i32 noundef %.064, i32 noundef range(i32 2, 256) %16, i32 noundef 0) #2
   %39 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %36) #2
   %40 = icmp ult i8 %15, 4
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %35
-  %42 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %38, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef nonnull @.str.1119, i32 noundef %16) #2
+  %42 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %38, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef nonnull @.str.1119, i32 noundef range(i32 2, 256) %16) #2
   br label %dissect_subobj_exrs.exit
 
 43:                                               ; preds = %35
@@ -2892,7 +2892,7 @@ define internal void @dissect_pcep_notification_obj(ptr noundef %0, ptr noundef 
   %26 = add i32 %3, 4
   %27 = add nsw i32 %4, -8
   %28 = load i32, ptr @ett_pcep_obj_notification, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %26, i32 noundef %27, i32 noundef %28, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %26, i32 noundef range(i32 0, 2147483640) %27, i32 noundef %28, i16 noundef zeroext 0)
   br label %29
 
 29:                                               ; preds = %11, %9
@@ -3085,7 +3085,7 @@ define internal void @dissect_pcep_error_obj(ptr noundef %0, ptr noundef %1, ptr
   %101 = add i32 %3, 4
   %102 = add nsw i32 %4, -8
   %103 = load i32, ptr @ett_pcep_obj_error, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %101, i32 noundef %102, i32 noundef %103, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %101, i32 noundef range(i32 0, 2147483640) %102, i32 noundef %103, i16 noundef zeroext 0)
   br label %104
 
 104:                                              ; preds = %97, %9
@@ -3140,7 +3140,7 @@ define internal void @dissect_pcep_close_obj(ptr noundef %0, ptr noundef %1, ptr
   %20 = add i32 %3, 4
   %21 = add nsw i32 %4, -8
   %22 = load i32, ptr @ett_pcep_obj_load_balancing, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %20, i32 noundef %21, i32 noundef %22, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %20, i32 noundef range(i32 0, 2147483640) %21, i32 noundef %22, i16 noundef zeroext 0)
   br label %23
 
 23:                                               ; preds = %11, %9
@@ -3308,13 +3308,13 @@ define internal void @dissect_pcep_xro_obj(ptr noundef %0, ptr noundef %1, ptr n
 54:                                               ; preds = %41
   %55 = load i32, ptr @ett_pcep_obj_xro, align 4
   %56 = load i32, ptr @hf_PCEPF_SUBOBJ_PKSv6, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %56, ptr noundef %2, i32 noundef %.091100, i32 noundef %31, i32 noundef 0) #2
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %56, ptr noundef %2, i32 noundef %.091100, i32 noundef range(i32 2, 256) %31, i32 noundef 0) #2
   %58 = tail call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %55) #2
   %.not.i = icmp eq i8 %30, 20
   br i1 %.not.i, label %61, label %59
 
 59:                                               ; preds = %54
-  %60 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef nonnull @.str.1307, i32 noundef %31) #2
+  %60 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef nonnull @.str.1307, i32 noundef range(i32 2, 256) %31) #2
   br label %dissect_subobj_pksv6.exit
 
 61:                                               ; preds = %54
@@ -3387,7 +3387,7 @@ define internal void @dissect_pcep_obj_monitoring(ptr noundef %0, ptr noundef %1
   %34 = add i32 %3, 8
   %35 = add nsw i32 %4, -12
   %36 = load i32, ptr @ett_pcep_obj_monitoring, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %34, i32 noundef %35, i32 noundef %36, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %34, i32 noundef range(i32 0, 2147483640) %35, i32 noundef %36, i16 noundef zeroext 0)
   br label %37
 
 37:                                               ; preds = %11, %9
@@ -3451,7 +3451,7 @@ define internal void @dissect_pcep_of_obj(ptr noundef %0, ptr noundef %1, ptr no
   %14 = add i32 %3, 4
   %15 = add nsw i32 %4, -8
   %16 = load i32, ptr @ett_pcep_obj_open, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %15, i32 noundef %16, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef range(i32 0, 2147483640) %15, i32 noundef %16, i16 noundef zeroext 0)
   br label %17
 
 17:                                               ; preds = %11, %9
@@ -3722,7 +3722,7 @@ define internal void @dissect_pcep_obj_lsp(ptr noundef %0, ptr noundef %1, ptr n
   %33 = add i32 %3, 4
   %34 = add nsw i32 %4, -8
   %35 = load i32, ptr @ett_pcep_obj_lsp, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %33, i32 noundef %34, i32 noundef %35, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %33, i32 noundef range(i32 0, 2147483640) %34, i32 noundef %35, i16 noundef zeroext 0)
   br label %36
 
 36:                                               ; preds = %11, %9
@@ -3751,7 +3751,7 @@ define internal void @dissect_pcep_obj_srp(ptr noundef %0, ptr noundef %1, ptr n
   %21 = add i32 %3, 8
   %22 = add nsw i32 %4, -12
   %23 = load i32, ptr @ett_pcep_obj_srp, align 4
-  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %21, i32 noundef %22, i32 noundef %23, i16 noundef zeroext 0)
+  tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %21, i32 noundef range(i32 0, 2147483640) %22, i32 noundef %23, i16 noundef zeroext 0)
   br label %24
 
 24:                                               ; preds = %11, %9

@@ -2012,7 +2012,7 @@ if.then27.i175.i:                                 ; preds = %call4.i.noexc.i.i
   br label %cleanup.i.i
 
 if.end32.i.i:                                     ; preds = %call4.i.noexc.i.i, %if.end.i168.i
-  %call35.i179.i = invoke fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %tempObjectFile.i.i, ptr noundef null)
+  %call35.i179.i = invoke fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef nonnull %targetDir.i, i8 noundef signext %104, ptr noundef %tempObjectFile.i.i, ptr noundef null)
           to label %cleanup.i.i unwind label %lpad.i.i
 
 cleanup.i.i:                                      ; preds = %if.end32.i.i, %if.then27.i175.i, %if.then250.i
@@ -2257,7 +2257,7 @@ for.inc123.i.i:                                   ; preds = %if.then120.i.i, %if
   br i1 %exitcond.not.i211.i, label %if.then127.i.i, label %for.body.i191.i, !llvm.loop !25
 
 if.then127.i.i:                                   ; preds = %for.inc123.i.i, %for.cond.preheader.i190.i
-  %call128.i.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %call9.i.i, ptr noundef nonnull %call2.i187.i)
+  %call128.i.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef nonnull %targetDir.i, i8 noundef signext %104, ptr noundef %call9.i.i, ptr noundef nonnull %call2.i187.i)
   br label %if.end129.i.i
 
 if.end129.i.i:                                    ; preds = %if.then127.i.i, %if.then113.i.i
@@ -2965,7 +2965,7 @@ invoke.cont:
   %cmdBuf = alloca %"class.icu_75::CharString", align 8
   %status = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cmdBuf)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %cmdBuf)
   %len.i = getelementptr inbounds i8, ptr %cmdBuf, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %cmdBuf, align 8
@@ -2994,7 +2994,7 @@ if.then:                                          ; preds = %invoke.cont3
 _ZN20LocalPipeFilePointerD2Ev.exit:               ; preds = %invoke.cont, %invoke.cont2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cmdBuf) #19
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %cmdBuf) #19
   resume { ptr, i32 } %6
 
 invoke.cont12:                                    ; preds = %if.then, %invoke.cont3
@@ -3029,7 +3029,7 @@ _ZN20LocalPipeFilePointerD2Ev.exit11.critedge:    ; preds = %invoke.cont12
 
 _ZN20LocalPipeFilePointerD2Ev.exit11:             ; preds = %_ZN20LocalPipeFilePointerD2Ev.exit11.critedge, %if.then.i9
   %retval.07 = phi i8 [ %retval.06, %if.then.i9 ], [ 0, %_ZN20LocalPipeFilePointerD2Ev.exit11.critedge ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cmdBuf) #19
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %cmdBuf) #19
   ret i8 %retval.07
 }
 

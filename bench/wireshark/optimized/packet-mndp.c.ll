@@ -215,7 +215,7 @@ match_strextval_idx.exit.i.i:                     ; preds = %.lr.ph.i.i, %27
   br i1 %.not.i.i, label %32, label %extval_to_str_idx.exit.i
 
 32:                                               ; preds = %match_strextval_idx.exit.i.i
-  %33 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef nonnull @.str.41, i32 noundef %19) #3
+  %33 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef nonnull @.str.41, i32 noundef range(i32 0, 65536) %19) #3
   br label %extval_to_str_idx.exit.i
 
 extval_to_str_idx.exit.i:                         ; preds = %32, %match_strextval_idx.exit.i.i, %17
@@ -250,7 +250,7 @@ extval_to_str_idx.exit.i:                         ; preds = %32, %match_strextva
   br i1 %.not.i80.i, label %43, label %extval_to_str_idx.exit82.i
 
 43:                                               ; preds = %.sink.split.i.i.i
-  %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %37, ptr noundef nonnull @.str.41, i32 noundef %19) #3
+  %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %37, ptr noundef nonnull @.str.41, i32 noundef range(i32 0, 65536) %19) #3
   br label %extval_to_str_idx.exit82.i
 
 extval_to_str_idx.exit82.i:                       ; preds = %43, %.sink.split.i.i.i, %extval_to_str_idx.exit.i

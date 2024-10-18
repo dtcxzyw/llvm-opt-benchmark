@@ -131,7 +131,7 @@ _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i, %if.end.
   %cond.i = select i1 %tobool.i, ptr @.str.1, ptr @.str.40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i8) #13, !noalias !7
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i8) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i8) #13
   %call.i.i.i = select i1 %tobool.i, i64 2, i64 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i, i64 %call.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %cond.i, ptr noundef nonnull %add.ptr.i.i)
@@ -220,7 +220,7 @@ for.end:                                          ; preds = %for.inc, %_ZNK4llvh
   %cond.i12 = select i1 %tobool.i11, ptr @.str.1, ptr @.str.40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i9) #13, !noalias !12
   %call.i.i13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp34, ptr noundef %call.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i9) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef %call.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i9) #13
   %call.i.i.i14 = select i1 %tobool.i11, i64 2, i64 1
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %cond.i12, i64 %call.i.i.i14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef nonnull %cond.i12, ptr noundef nonnull %add.ptr.i.i15)
@@ -283,7 +283,7 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %tobool.i, ptr @.str.1, ptr @.str.40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13, !noalias !15
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13
   %call.i.i.i = select i1 %tobool.i, i64 2, i64 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i, i64 %call.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull %cond.i, ptr noundef nonnull %add.ptr.i.i)
@@ -336,7 +336,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %cond.i8 = select i1 %tobool.i7, ptr @.str.1, ptr @.str.40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #13, !noalias !24
   %call.i.i9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5, ptr noundef %call.i.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef %call.i.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #13
   %call.i.i.i10 = select i1 %tobool.i7, i64 2, i64 1
   %add.ptr.i.i11 = getelementptr inbounds i8, ptr %cond.i8, i64 %call.i.i.i10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull %cond.i8, ptr noundef nonnull %add.ptr.i.i11)
@@ -668,7 +668,7 @@ if.then4.i.i:                                     ; preds = %if.then
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %1, %if.then4.i.i ]
-  %call.i.i18 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %I, i32 noundef 0) #13
+  %call.i.i18 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %I, i32 noundef 0) #13
   %value.i.i.i = getelementptr inbounds i8, ptr %call.i.i18, i64 48
   %5 = load double, ptr %value.i.i.i, align 8
   %cmp.i.i.i = fcmp ule double %5, 0x41DFFFFFFFC00000
@@ -1359,7 +1359,7 @@ if.then.i.i51:                                    ; preds = %_ZNSt3mapIPN6hermes
 if.end.i.i53:                                     ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i
   %Counter.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %32 = load i32, ptr %Counter.i.i, align 8
-  %call8.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i)
+  %call8.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i)
   store i32 %32, ptr %call8.i.i, align 4
   %33 = load i32, ptr %Counter.i.i, align 8
   %inc.i.i = add i32 %33, 1
@@ -1534,7 +1534,7 @@ if.then.i.i:                                      ; preds = %_ZNSt3mapIPN6hermes
 if.end.i.i:                                       ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i
   %Counter.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %14 = load i32, ptr %Counter.i.i, align 8
-  %call8.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i)
+  %call8.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i)
   store i32 %14, ptr %call8.i.i, align 4
   %15 = load i32, ptr %Counter.i.i, align 8
   %inc.i.i = add i32 %15, 1
@@ -1740,7 +1740,7 @@ if.end31:                                         ; preds = %if.then, %if.then4.
   store i8 %frombool, ptr %printNewLine, align 1
   %scopeDesc_.i.i = getelementptr inbounds i8, ptr %F, i64 72
   %21 = load ptr, ptr %scopeDesc_.i.i, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr noundef %21, ptr nonnull %printNewLine, ptr nonnull %this)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull align 8 dereferenceable(304) %F, ptr noundef %21, ptr nonnull %printNewLine, ptr nonnull %this)
   ret void
 }
 
@@ -1815,7 +1815,7 @@ if.then.i:                                        ; preds = %_ZNSt3mapIPN6hermes
 if.end.i:                                         ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %Counter.i = getelementptr inbounds i8, ptr %this, i64 88
   %9 = load i32, ptr %Counter.i, align 8
-  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %InstNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
+  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %InstNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
   store i32 %9, ptr %call8.i, align 4
   %10 = load i32, ptr %Counter.i, align 8
   %inc.i = add i32 %10, 1
@@ -2409,7 +2409,7 @@ lor.lhs.false:                                    ; preds = %if.end75
   br i1 %tobool.not.i271, label %cleanup, label %if.end80
 
 if.end80:                                         ; preds = %lor.lhs.false
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %Visited, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Visited, i8 0, i64 20, i1 false)
   %89 = load ptr, ptr %os, align 8
   %call.i.i273 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix.1) #14
   %OutBufEnd.i5.i274 = getelementptr inbounds i8, ptr %89, i64 16
@@ -2581,7 +2581,7 @@ if.end13.i.i.i.i326:                              ; preds = %if.end9.i.i.i.i322
 
 if.end.i.i333:                                    ; preds = %if.then12.i.i.i.i, %if.end101
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %if.end101 ]
-  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %Visited, ptr noundef nonnull align 8 dereferenceable(8) %II, ptr noundef nonnull align 8 dereferenceable(8) %II, ptr noundef %cond.sink.i.i.i.i), !noalias !36
+  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %Visited, ptr noundef nonnull align 8 dereferenceable(8) %II, ptr noundef nonnull align 8 dereferenceable(8) %II, ptr noundef %cond.sink.i.i.i.i), !noalias !36
   %109 = load ptr, ptr %II, align 8, !noalias !36
   store ptr %109, ptr %call.i.i.i, align 8, !noalias !36
   br label %_ZN4llvh6detail12DenseSetImplIPN6hermes11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_.exit
@@ -2651,7 +2651,7 @@ if.then.i352:                                     ; preds = %_ZNSt3mapIPN6hermes
 
 if.end.i354:                                      ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit348
   %120 = load i32, ptr %Counter.i, align 8
-  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %InstNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
+  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %InstNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
   store i32 %120, ptr %call8.i, align 4
   %121 = load i32, ptr %Counter.i, align 8
   %inc.i = add i32 %121, 1
@@ -3469,7 +3469,7 @@ if.then.i.i:                                      ; preds = %_ZNSt3mapIPN6hermes
 if.end.i.i:                                       ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i
   %Counter.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %9 = load i32, ptr %Counter.i.i, align 8
-  %call8.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i)
+  %call8.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i)
   store i32 %9, ptr %call8.i.i, align 4
   %10 = load i32, ptr %Counter.i.i, align 8
   %inc.i.i = add i32 %10, 1
@@ -3553,7 +3553,7 @@ if.then.i:                                        ; preds = %_ZNSt3mapIPN6hermes
 if.end.i:                                         ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %Counter.i = getelementptr inbounds i8, ptr %this, i64 200
   %8 = load i32, ptr %Counter.i, align 8
-  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
+  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
   store i32 %8, ptr %call8.i, align 4
   %9 = load i32, ptr %Counter.i, align 8
   %inc.i = add i32 %9, 1
@@ -3645,7 +3645,7 @@ if.then.i.i:                                      ; preds = %_ZNSt3mapIPN6hermes
 if.end.i.i:                                       ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i
   %Counter.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %9 = load i32, ptr %Counter.i.i, align 8
-  %call8.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i)
+  %call8.i.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i)
   store i32 %9, ptr %call8.i.i, align 4
   %10 = load i32, ptr %Counter.i.i, align 8
   %inc.i.i = add i32 %10, 1
@@ -3722,7 +3722,7 @@ if.then.i.i33:                                    ; preds = %_ZNSt3mapIPN6hermes
 if.end.i.i38:                                     ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i.i30, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i.i28, %_ZN4llvh11raw_ostreamlsEPKc.exit.i12
   %Counter.i.i39 = getelementptr inbounds i8, ptr %this, i64 200
   %19 = load i32, ptr %Counter.i.i39, align 8
-  %call8.i.i40 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i14, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i5)
+  %call8.i.i40 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i14, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i.i5)
   store i32 %19, ptr %call8.i.i40, align 4
   %20 = load i32, ptr %Counter.i.i39, align 8
   %inc.i.i41 = add i32 %20, 1
@@ -3745,7 +3745,7 @@ entry:
   store i32 0, ptr %Counter.i, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer, ptr noundef %0)
+  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer, ptr noundef %0)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
@@ -3814,7 +3814,7 @@ _ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i: ; p
 if.end.i:                                         ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %entry
   %Counter.i = getelementptr inbounds i8, ptr %this, i64 200
   %3 = load i32, ptr %Counter.i, align 8
-  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
+  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
   store i32 %3, ptr %call8.i, align 4
   %4 = load i32, ptr %Counter.i, align 8
   %inc.i = add i32 %4, 1
@@ -4054,7 +4054,7 @@ sw.bb52:                                          ; preds = %entry
 
 sw.bb55:                                          ; preds = %entry
   %sub.ptr.i.i126 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i126)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(136) %sub.ptr.i.i126)
   br label %return
 
 sw.bb58:                                          ; preds = %entry
@@ -4089,7 +4089,7 @@ sw.bb73:                                          ; preds = %entry
 
 sw.bb76:                                          ; preds = %entry
   %sub.ptr.i.i133 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i133)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(136) %sub.ptr.i.i133)
   br label %return
 
 sw.bb79:                                          ; preds = %entry
@@ -4149,7 +4149,7 @@ sw.bb109:                                         ; preds = %entry
 
 sw.bb112:                                         ; preds = %entry
   %sub.ptr.i.i145 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i145)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(184) %sub.ptr.i.i145)
   br label %return
 
 sw.bb115:                                         ; preds = %entry
@@ -4304,7 +4304,7 @@ sw.bb202:                                         ; preds = %entry
 
 sw.bb205:                                         ; preds = %entry
   %sub.ptr.i.i176 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i176)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(136) %sub.ptr.i.i176)
   br label %return
 
 sw.bb208:                                         ; preds = %entry
@@ -4319,32 +4319,32 @@ sw.bb211:                                         ; preds = %entry
 
 sw.bb214:                                         ; preds = %entry
   %sub.ptr.i.i179 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i179)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(144) %sub.ptr.i.i179)
   br label %return
 
 sw.bb217:                                         ; preds = %entry
   %sub.ptr.i.i180 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i180)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(144) %sub.ptr.i.i180)
   br label %return
 
 sw.bb220:                                         ; preds = %entry
   %sub.ptr.i.i181 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i181)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(144) %sub.ptr.i.i181)
   br label %return
 
 sw.bb223:                                         ; preds = %entry
   %sub.ptr.i.i182 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i182)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(144) %sub.ptr.i.i182)
   br label %return
 
 sw.bb226:                                         ; preds = %entry
   %sub.ptr.i.i183 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i183)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(144) %sub.ptr.i.i183)
   br label %return
 
 sw.bb229:                                         ; preds = %entry
   %sub.ptr.i.i184 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i184)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(144) %sub.ptr.i.i184)
   br label %return
 
 sw.bb232:                                         ; preds = %entry
@@ -4394,7 +4394,7 @@ sw.bb256:                                         ; preds = %entry
 
 sw.bb259:                                         ; preds = %entry
   %sub.ptr.i.i194 = getelementptr inbounds i8, ptr %V, i64 -16
-  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i194)
+  tail call void @_ZN6hermes9IRPrinter16visitInstructionERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(134) %sub.ptr.i.i194)
   br label %return
 
 sw.bb307:                                         ; preds = %entry
@@ -4444,7 +4444,7 @@ entry:
   store i32 0, ptr %Counter.i, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %BBNamer, ptr noundef %2)
+  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %BBNamer, ptr noundef %2)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
@@ -4458,7 +4458,7 @@ entry:
   store i32 0, ptr %Counter.i9, align 8
   %_M_parent.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i10, align 8
-  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %InstNamer, ptr noundef %3)
+  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %InstNamer, ptr noundef %3)
   %add.ptr.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_parent.i.i.i.i.i10, align 8
   %_M_left.i.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 64
@@ -4550,7 +4550,7 @@ if.then.i130:                                     ; preds = %if.end.i.thread, %l
   store ptr %add.ptr, ptr %_M_storage.i.i.i.i.i4.i, align 8
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   store i32 0, ptr %second.i.i.i.i.i.i.i.i.i, align 8
-  %call7.i.i = tail call { ptr, ptr } @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %InstNamer, ptr %__y.addr.0.lcssa.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i4.i)
+  %call7.i.i = tail call { ptr, ptr } @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(52) %InstNamer, ptr %__y.addr.0.lcssa.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i4.i)
   %12 = extractvalue { ptr, ptr } %call7.i.i, 0
   %13 = extractvalue { ptr, ptr } %call7.i.i, 1
   %tobool.not.i.i131 = icmp eq ptr %13, null
@@ -4938,7 +4938,7 @@ if.then.i:                                        ; preds = %_ZNSt3mapIPN6hermes
 if.end.i:                                         ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %Counter.i = getelementptr inbounds i8, ptr %this, i64 144
   %10 = load i32, ptr %Counter.i, align 8
-  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %BBNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
+  %call8.i = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(52) %BBNamer, ptr noundef nonnull align 8 dereferenceable(8) %T.addr.i)
   store i32 %10, ptr %call8.i, align 4
   %11 = load i32, ptr %Counter.i, align 8
   %inc.i = add i32 %11, 1
@@ -5174,15 +5174,15 @@ entry:
   %ScopeNamer = getelementptr inbounds i8, ptr %this, i64 152
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer, ptr noundef %0)
+  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer, ptr noundef %0)
   %BBNamer = getelementptr inbounds i8, ptr %this, i64 96
   %_M_parent.i.i.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i1, align 8
-  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %BBNamer, ptr noundef %1)
+  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %BBNamer, ptr noundef %1)
   %InstNamer = getelementptr inbounds i8, ptr %this, i64 40
   %_M_parent.i.i.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i2, align 8
-  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %InstNamer, ptr noundef %2)
+  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %InstNamer, ptr noundef %2)
   ret void
 }
 
@@ -5193,15 +5193,15 @@ entry:
   %ScopeNamer.i = getelementptr inbounds i8, ptr %this, i64 152
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i, ptr noundef %0)
+  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef %0)
   %BBNamer.i = getelementptr inbounds i8, ptr %this, i64 96
   %_M_parent.i.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i1.i, align 8
-  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %BBNamer.i, ptr noundef %1)
+  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %BBNamer.i, ptr noundef %1)
   %InstNamer.i = getelementptr inbounds i8, ptr %this, i64 40
   %_M_parent.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i2.i, align 8
-  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %InstNamer.i, ptr noundef %2)
+  tail call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %InstNamer.i, ptr noundef %2)
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }

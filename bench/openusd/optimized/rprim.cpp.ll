@@ -77,7 +77,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7HdRprimC2ERKNS_7SdfPathE(ptr 
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__7HdRprimE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %4, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %5 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
           to label %.noexc unwind label %60
@@ -114,7 +114,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7HdRprimC2ERKNS_7SdfPathE(ptr 
 19:                                               ; preds = %.noexc.i, %.noexc
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__27HdBufferArrayRangeContainerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__27HdBufferArrayRangeContainerD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #16
   br label %.body
 
 21:                                               ; preds = %.noexc.i
@@ -378,7 +378,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br label %_ZSt8_DestroyISt4pairIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEESt6vectorINS1_7TfTokenESaIS5_EEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt4pairIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEESt6vectorINS1_7TfTokenESaIS5_EEEEvPT_.exit.i.i.i.i: ; preds = %19, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i) #16
   %25 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %25, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEESt6vectorINS1_7TfTokenESaIS5_EEES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7

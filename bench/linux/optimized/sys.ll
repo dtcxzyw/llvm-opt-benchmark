@@ -225,12 +225,12 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_setprior
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %39
-  %45 = tail call i32 @can_nice(ptr noundef nonnull %20, i32 noundef %14) #13
+  %45 = tail call i32 @can_nice(ptr noundef nonnull %20, i32 noundef range(i32 -20, 20) %14) #13
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %set_one_prio.exit, label %47
 
 47:                                               ; preds = %44, %39
-  %48 = tail call i32 @security_task_setnice(ptr noundef nonnull %20, i32 noundef %14) #13
+  %48 = tail call i32 @security_task_setnice(ptr noundef nonnull %20, i32 noundef range(i32 -20, 20) %14) #13
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %set_one_prio.exit
 
@@ -317,12 +317,12 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_setprior
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %99
-  %105 = tail call i32 @can_nice(ptr noundef %82, i32 noundef %14) #13
+  %105 = tail call i32 @can_nice(ptr noundef %82, i32 noundef range(i32 -20, 20) %14) #13
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %set_one_prio.exit10, label %107
 
 107:                                              ; preds = %104, %99
-  %108 = tail call i32 @security_task_setnice(ptr noundef %82, i32 noundef %14) #13
+  %108 = tail call i32 @security_task_setnice(ptr noundef %82, i32 noundef range(i32 -20, 20) %14) #13
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %set_one_prio.exit10
 
@@ -449,12 +449,12 @@ set_one_prio.exit10:                              ; preds = %95, %104, %107, %11
   br i1 %187, label %188, label %191
 
 188:                                              ; preds = %183
-  %189 = tail call i32 @can_nice(ptr noundef %158, i32 noundef %14) #13
+  %189 = tail call i32 @can_nice(ptr noundef %158, i32 noundef range(i32 -20, 20) %14) #13
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %set_one_prio.exit11, label %191
 
 191:                                              ; preds = %188, %183
-  %192 = tail call i32 @security_task_setnice(ptr noundef %158, i32 noundef %14) #13
+  %192 = tail call i32 @security_task_setnice(ptr noundef %158, i32 noundef range(i32 -20, 20) %14) #13
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %set_one_prio.exit11
 

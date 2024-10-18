@@ -734,13 +734,13 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119DefaultMethodFilterEPKN5c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120DirectIvarAssignmentD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120DirectIvarAssignmentD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #17
   ret void
 }
@@ -1175,135 +1175,135 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
   ]
 
 25:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 26:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 27:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 28:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 29:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 30:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 31:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 32:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 33:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 34:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 35:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 36:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 37:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 38:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 39:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 40:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 41:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 42:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 43:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 44:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 45:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 46:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 47:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 48:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 49:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 50:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 51:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 52:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 53:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 54:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 55:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 56:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 57:                                               ; preds = %21
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 58:                                               ; preds = %18
@@ -2105,11 +2105,11 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 195:                                              ; preds = %77
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 196:                                              ; preds = %77
-  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readonly %17)
+  call fastcc void @_ZN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull readonly %17)
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120DirectIvarAssignment13MethodCrawlerEvJEE5VisitEPKNS_4StmtE.exit
 
 197:                                              ; preds = %77

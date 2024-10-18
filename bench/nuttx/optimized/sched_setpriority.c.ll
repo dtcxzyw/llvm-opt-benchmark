@@ -67,7 +67,7 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
   br label %nxsched_running_setpriority.exit
 
 29:                                               ; preds = %14
-  %30 = call zeroext i1 @nxsched_reprioritize_rtr(ptr noundef nonnull %0, i32 noundef %1) #4
+  %30 = call zeroext i1 @nxsched_reprioritize_rtr(ptr noundef nonnull %0, i32 noundef range(i32 1, 256) %1) #4
   br i1 %30, label %31, label %nxsched_running_setpriority.exit
 
 31:                                               ; preds = %29
@@ -90,7 +90,7 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %36
-  %43 = call zeroext i1 @nxsched_reprioritize_rtr(ptr noundef nonnull %0, i32 noundef %1) #4
+  %43 = call zeroext i1 @nxsched_reprioritize_rtr(ptr noundef nonnull %0, i32 noundef range(i32 1, 256) %1) #4
   br i1 %43, label %44, label %nxsched_running_setpriority.exit
 
 44:                                               ; preds = %42

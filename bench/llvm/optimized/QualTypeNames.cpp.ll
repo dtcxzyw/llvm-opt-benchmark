@@ -549,7 +549,7 @@ define internal fastcc noundef ptr @_ZN5clang8TypeNameL29getFullyQualifiedTempla
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %13, i64 noundef 4) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull %13, i64 noundef 4) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
@@ -593,7 +593,7 @@ define internal fastcc noundef ptr @_ZN5clang8TypeNameL29getFullyQualifiedTempla
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge, %21
   %.040.lcssa83 = phi i1 [ true, %21 ], [ false, %._crit_edge ], [ false, %12 ]
   %.0 = phi ptr [ %29, %21 ], [ undef, %._crit_edge ], [ undef, %12 ]
-  %30 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
+  %30 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %4) #7
   %31 = load ptr, ptr %4, align 8
   %32 = icmp eq ptr %31, %13
   br i1 %32, label %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit, label %33
@@ -625,7 +625,7 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit: ; preds = %._cri
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 168
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %46, i64 noundef 4) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull %46, i64 noundef 4) #7
   %47 = load i32, ptr %45, align 8
   %.not5173 = icmp eq i32 %47, 0
   br i1 %.not5173, label %._crit_edge78.thread, label %.lr.ph77
@@ -667,7 +667,7 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit: ; preds = %._cri
 ._crit_edge78.thread:                             ; preds = %43, %._crit_edge78, %54
   %.043.lcssa85 = phi i1 [ true, %54 ], [ false, %._crit_edge78 ], [ false, %43 ]
   %.2 = phi ptr [ %62, %54 ], [ undef, %._crit_edge78 ], [ undef, %43 ]
-  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
+  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %6) #7
   %64 = load ptr, ptr %6, align 8
   %65 = icmp eq ptr %64, %46
   br i1 %65, label %_ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj4EED2Ev.exit60, label %66
@@ -784,7 +784,7 @@ _ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit: ; preds = 
   %47 = getelementptr inbounds i8, ptr %46, i64 104
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 96
-  %50 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull %48)
+  %50 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull %48)
   %51 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %50) #7
   br i1 %51, label %.lr.ph.i.i.i, label %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit
 
@@ -795,7 +795,7 @@ _ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit: ; preds = 
   %53 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
   %.not.i.i.i.i.i.i = icmp eq i64 %53, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
-  %54 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %.04.i.i.i)
+  %54 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(144) %.04.i.i.i)
   %55 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %54) #7
   br i1 %55, label %.lr.ph.i.i.i, label %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit, !llvm.loop !7
 

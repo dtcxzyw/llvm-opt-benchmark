@@ -353,7 +353,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
 
 98:                                               ; preds = %84
   store i32 0, ptr @pageIndex, align 4
-  %99 = tail call fastcc i32 @SubsetCountNodesAux(ptr noundef nonnull %1, ptr noundef %26, double noundef %ldexp.i108)
+  %99 = tail call fastcc i32 @SubsetCountNodesAux(ptr noundef nonnull %1, ptr noundef nonnull %26, double noundef %ldexp.i108)
   %.b.i109 = load i1, ptr @memOut, align 4
   br i1 %.b.i109, label %100, label %SubsetCountNodes.exit
 

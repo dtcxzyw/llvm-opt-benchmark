@@ -664,7 +664,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i
   br i1 %tobool.not.i.i.i.i.i, label %if.else8.i.i.i.i.i, label %virtio_lduw_phys_cached.exit.i.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i
 
 virtio_lduw_phys_cached.exit.i.i:                 ; preds = %if.else8.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -684,7 +684,7 @@ if.end.i.i.i12.i.i:                               ; preds = %virtio_lduw_phys_ca
   br i1 %tobool.not.i.i.i13.i.i, label %if.else8.i.i.i18.i.i, label %vring_packed_event_read.exit.i
 
 if.else8.i.i.i18.i.i:                             ; preds = %if.end.i.i.i12.i.i
-  %call10.i.i.i19.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i32 1, ptr noundef null) #23
+  %call10.i.i.i19.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef range(i64 -34359738354, 34359738367) 0, i32 1, ptr noundef null) #23
   br label %vring_packed_event_read.exit.i
 
 vring_packed_event_read.exit.i:                   ; preds = %if.else8.i.i.i18.i.i, %if.end.i.i.i12.i.i
@@ -725,7 +725,7 @@ if.then5.i.i.i.i15.i:                             ; preds = %if.end.i.i.i.i13.i
   br label %vring_packed_off_wrap_write.exit.i
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i13.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i16 noundef zeroext %or.i, i32 1, ptr noundef null) #23
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef range(i64 0, 34359738365) 0, i16 noundef zeroext %or.i, i32 1, ptr noundef null) #23
   br label %vring_packed_off_wrap_write.exit.i
 
 vring_packed_off_wrap_write.exit.i:               ; preds = %if.else7.i.i.i.i.i, %if.then5.i.i.i.i15.i
@@ -755,7 +755,7 @@ if.then5.i.i.i.i20.i:                             ; preds = %if.end.i.i.i.i18.i
   br label %vring_packed_flags_write.exit.i
 
 if.else7.i.i.i.i22.i:                             ; preds = %if.end.i.i.i.i18.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 2, i16 noundef zeroext %e.sroa.1.0.i, i32 1, ptr noundef null) #23
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef range(i64 0, 34359738365) 2, i16 noundef zeroext %e.sroa.1.0.i, i32 1, ptr noundef null) #23
   br label %vring_packed_flags_write.exit.i
 
 vring_packed_flags_write.exit.i:                  ; preds = %if.else7.i.i.i.i22.i, %if.then5.i.i.i.i20.i
@@ -846,7 +846,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i18
   br label %virtio_lduw_phys_cached.exit.i.i20
 
 if.else8.i.i.i.i.i34:                             ; preds = %if.end.i.i.i.i.i18
-  %call10.i.i.i.i.i35 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i35 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i20
 
 virtio_lduw_phys_cached.exit.i.i20:               ; preds = %if.else8.i.i.i.i.i34, %if.then5.i.i.i.i.i
@@ -897,7 +897,7 @@ if.then5.i.i.i.i12.i:                             ; preds = %if.end.i.i.i.i10.i
   br label %virtio_stw_phys_cached.exit.i.i
 
 if.else7.i.i.i.i.i33:                             ; preds = %if.end.i.i.i.i10.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %33, i16 noundef zeroext %retval.0.i.i, i32 1, ptr noundef null) #23
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef range(i64 0, 34359738365) %33, i16 noundef zeroext %retval.0.i.i, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i.i
 
 virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i33, %if.then5.i.i.i.i12.i
@@ -938,7 +938,7 @@ if.end.i.i.i13.thread.i.i:                        ; preds = %if.end.i.i.i.i21.i
   br label %if.then5.i.i.i15.i.i
 
 virtio_lduw_phys_cached.exit.i25.i:               ; preds = %if.end.i.i.i.i21.i
-  %call10.i.i.i.i26.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef 0, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i26.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef range(i64 -34359738354, 34359738367) 0, i32 1, ptr noundef null) #23
   %.pre.i.i = load i64, ptr %len.i.i.i.i18.i, align 16
   %41 = and i16 %call10.i.i.i.i26.i, -2
   %cmp2.i.i.i10.i.i = icmp ugt i64 %.pre.i.i, 1
@@ -960,7 +960,7 @@ if.then5.i.i.i15.i.i:                             ; preds = %if.end.i.i.i13.i.i,
   br label %virtio_stw_phys_cached.exit.i24.i
 
 if.else7.i.i.i.i27.i:                             ; preds = %if.end.i.i.i13.i.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef 0, i16 noundef zeroext %41, i32 1, ptr noundef null) #23
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef range(i64 0, 34359738365) 0, i16 noundef zeroext %41, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i24.i
 
 virtio_stw_phys_cached.exit.i24.i:                ; preds = %if.else7.i.i.i.i27.i, %if.then5.i.i.i15.i.i
@@ -993,7 +993,7 @@ if.end.i.i.i13.thread.i37.i:                      ; preds = %if.end.i.i.i.i35.i
   br label %if.then5.i.i.i15.i39.i
 
 virtio_lduw_phys_cached.exit.i41.i:               ; preds = %if.end.i.i.i.i35.i
-  %call10.i.i.i.i42.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef 0, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i42.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef range(i64 -34359738354, 34359738367) 0, i32 1, ptr noundef null) #23
   %.pre.i43.i = load i64, ptr %len.i.i.i.i32.i, align 16
   %48 = or i16 %call10.i.i.i.i42.i, 1
   %cmp2.i.i.i10.i44.i = icmp ugt i64 %.pre.i43.i, 1
@@ -1015,7 +1015,7 @@ if.then5.i.i.i15.i39.i:                           ; preds = %if.end.i.i.i13.i46.
   br label %virtio_stw_phys_cached.exit.i40.i
 
 if.else7.i.i.i.i49.i:                             ; preds = %if.end.i.i.i13.i46.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef 0, i16 noundef zeroext %48, i32 1, ptr noundef null) #23
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef range(i64 0, 34359738365) 0, i16 noundef zeroext %48, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i40.i
 
 virtio_stw_phys_cached.exit.i40.i:                ; preds = %if.else7.i.i.i.i49.i, %if.then5.i.i.i15.i39.i
@@ -1151,7 +1151,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %vring_packed_desc_read_flags.exit.i.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %desc8.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %desc8.i.i, i64 noundef range(i64 -34359738354, 34359738367) %add.i.i.i, i32 1, ptr noundef null) #23
   br label %vring_packed_desc_read_flags.exit.i.i
 
 vring_packed_desc_read_flags.exit.i.i:            ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i
@@ -1274,7 +1274,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i12
   br label %virtio_lduw_phys_cached.exit.i.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i12
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i
 
 virtio_lduw_phys_cached.exit.i.i:                 ; preds = %if.else8.i.i.i.i.i, %if.then5.i.i.i.i.i
@@ -1734,7 +1734,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %address_space_write_cached.exit.i.i
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %call.i.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %35, ptr noundef nonnull %uelem.i, i64 noundef 8) #23
+  %call.i.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef range(i64 -17179869180, 17179869181) %35, ptr noundef nonnull %uelem.i, i64 noundef 8) #23
   br label %address_space_write_cached.exit.i.i
 
 address_space_write_cached.exit.i.i:              ; preds = %if.else8.i.i.i, %if.then6.i.i.i
@@ -1932,7 +1932,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %virtio_stw_phys_cached.exit.i.i
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef 2, i16 noundef zeroext %conv5.i, i32 1, ptr noundef null) #23
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef range(i64 0, 34359738365) 2, i16 noundef zeroext %conv5.i, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i.i
 
 virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i, %if.then5.i.i.i.i.i
@@ -2258,7 +2258,7 @@ if.end47.us.i:                                    ; preds = %if.end32.us.i
   br i1 %cmp.i.us.i, label %if.then55.split.us.i, label %virtqueue_packed_read_next_desc.exit.us.i
 
 virtqueue_packed_read_next_desc.exit.us.i:        ; preds = %if.end47.us.i
-  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc_cache.0.i, i32 noundef %inc.i.us.i, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc_cache.0.i, i32 noundef %inc.i.us.i, i1 noundef zeroext false)
   %inc.us.i = add i32 %inc79.us.i, 1
   %cmp29.us.i = icmp ugt i32 %inc.us.i, %max.0.i
   br i1 %cmp29.us.i, label %if.then31.i, label %if.end32.us.i, !llvm.loop !17
@@ -2308,7 +2308,7 @@ if.else.i.i:                                      ; preds = %if.end.thread.i.i
 
 virtqueue_packed_read_next_desc.exit.i:           ; preds = %if.else.i.i, %if.end.thread.i.i
   %i.2.i = phi i32 [ %sub.i.i, %if.else.i.i ], [ %inc7.i.i, %if.end.thread.i.i ]
-  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc_cache.0.i, i32 noundef %i.2.i, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc_cache.0.i, i32 noundef %i.2.i, i1 noundef zeroext false)
   %inc.i = add i32 %inc79.i, 1
   %cmp29.i = icmp ugt i32 %inc.i, %max.0.i
   br i1 %cmp29.i, label %if.then31.i, label %if.end32.i, !llvm.loop !17
@@ -2438,7 +2438,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %virtio_lduw_phys_cached.exit.i.i.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i.i
 
 virtio_lduw_phys_cached.exit.i.i.i:               ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i
@@ -2506,7 +2506,7 @@ if.then5.i.i.i.i.i38.i:                           ; preds = %if.end.i.i.i.i.i36.
   br label %vring_avail_ring.exit.i.i
 
 if.else8.i.i.i.i.i45.i:                           ; preds = %if.end.i.i.i.i.i36.i
-  %call10.i.i.i.i.i46.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i33.i, i64 noundef %50, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i46.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i33.i, i64 noundef range(i64 -34359738354, 34359738367) %50, i32 1, ptr noundef null) #23
   br label %vring_avail_ring.exit.i.i
 
 vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i45.i, %if.then5.i.i.i.i.i38.i, %while.body.i
@@ -2546,7 +2546,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i48.i
   br label %vring_split_desc_read.exit.i
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i48.i
-  %call.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc.i29, i64 noundef %mul.i.i, ptr noundef nonnull %desc3.i, i64 noundef 16) #23
+  %call.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc.i29, i64 noundef range(i64 -34359738368, 34359738365) %mul.i.i, ptr noundef nonnull %desc3.i, i64 noundef 16) #23
   br label %vring_split_desc_read.exit.i
 
 vring_split_desc_read.exit.i:                     ; preds = %if.else8.i.i.i, %if.then6.i.i.i
@@ -2611,7 +2611,7 @@ if.then6.i.i57.i:                                 ; preds = %if.end.i.i55.i
   br label %if.end30.i
 
 if.else8.i.i59.i:                                 ; preds = %if.end.i.i55.i
-  %call.i.i60.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %indirect_desc_cache.i23, i64 noundef 0, ptr noundef nonnull %desc3.i, i64 noundef 16) #23
+  %call.i.i60.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %indirect_desc_cache.i23, i64 noundef range(i64 -34359738368, 34359738365) 0, ptr noundef nonnull %desc3.i, i64 noundef 16) #23
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.else8.i.i59.i, %if.then6.i.i57.i, %vring_split_desc_read.exit.i
@@ -2687,7 +2687,7 @@ if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %virtqueue_split_read_next_desc.exit.i
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i40, i64 noundef %mul.i.i.i, ptr noundef nonnull %desc3.i, i64 noundef 16) #23
+  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i40, i64 noundef range(i64 -34359738368, 34359738365) %mul.i.i.i, ptr noundef nonnull %desc3.i, i64 noundef 16) #23
   br label %virtqueue_split_read_next_desc.exit.i
 
 virtqueue_split_read_next_desc.exit.i:            ; preds = %if.else8.i.i.i.i, %if.then6.i.i.i.i
@@ -3016,7 +3016,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %virtio_queue_packed_empty_rcu.exit.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %desc8.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %desc8.i.i, i64 noundef range(i64 -34359738354, 34359738367) %add.i.i.i, i32 1, ptr noundef null) #23
   br label %virtio_queue_packed_empty_rcu.exit.i
 
 virtio_queue_packed_empty_rcu.exit.i:             ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i
@@ -3184,7 +3184,7 @@ if.else.i.i:                                      ; preds = %if.end.thread.i.i
 
 virtqueue_packed_read_next_desc.exit.i:           ; preds = %if.else.i.i, %if.end.thread.i.i, %if.end.i59.i
   %i.2.i = phi i32 [ %inc.i.i, %if.end.i59.i ], [ %sub.i.i, %if.else.i.i ], [ %inc7.i.i, %if.end.thread.i.i ]
-  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc_cache.0.i, i32 noundef %i.2.i, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc_cache.0.i, i32 noundef %i.2.i, i1 noundef zeroext false)
   br label %do.body.i, !llvm.loop !21
 
 do.end.i:                                         ; preds = %if.end.i59.i, %land.lhs.true.i.i
@@ -3438,7 +3438,7 @@ if.then5.i.i.i.i.i.i83:                           ; preds = %if.end.i.i.i.i.i.i8
   br label %virtio_lduw_phys_cached.exit.i.i.i
 
 if.else8.i.i.i.i.i.i87:                           ; preds = %if.end.i.i.i.i.i.i81
-  %call10.i.i.i.i.i.i88 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i.i88 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i.i
 
 virtio_lduw_phys_cached.exit.i.i.i:               ; preds = %if.else8.i.i.i.i.i.i87, %if.then5.i.i.i.i.i.i83
@@ -3508,7 +3508,7 @@ if.then5.i.i.i.i.i64.i:                           ; preds = %if.end.i.i.i.i.i62.
   br label %vring_avail_ring.exit.i.i
 
 if.else8.i.i.i.i.i70.i:                           ; preds = %if.end.i.i.i.i.i62.i
-  %call10.i.i.i.i.i71.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i59.i, i64 noundef %85, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i71.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i59.i, i64 noundef range(i64 -34359738354, 34359738367) %85, i32 1, ptr noundef null) #23
   br label %vring_avail_ring.exit.i.i
 
 vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i70.i, %if.then5.i.i.i.i.i64.i, %if.end6.i37
@@ -3572,7 +3572,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i79
   br label %virtio_stw_phys_cached.exit.i.i
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i79
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %96, i16 noundef zeroext %90, i32 1, ptr noundef null) #23
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef range(i64 0, 34359738365) %96, i16 noundef zeroext %90, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i.i
 
 virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i, %if.then5.i.i.i.i.i
@@ -3627,7 +3627,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i76.i
   br label %vring_split_desc_read.exit.i
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i76.i
-  %call.i.i78.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc18.i, i64 noundef %mul.i.i, ptr noundef nonnull %desc.i10, i64 noundef 16) #23
+  %call.i.i78.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc18.i, i64 noundef range(i64 -34359738368, 34359738365) %mul.i.i, ptr noundef nonnull %desc.i10, i64 noundef 16) #23
   br label %vring_split_desc_read.exit.i
 
 vring_split_desc_read.exit.i:                     ; preds = %if.else8.i.i.i, %if.then6.i.i.i
@@ -3765,7 +3765,7 @@ if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %do.body.i52.backedge
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i50, i64 noundef %mul.i.i.i58, ptr noundef nonnull %desc.i10, i64 noundef 16) #23
+  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i50, i64 noundef range(i64 -34359738368, 34359738365) %mul.i.i.i58, ptr noundef nonnull %desc.i10, i64 noundef 16) #23
   br label %do.body.i52.backedge
 
 do.body.i52.backedge:                             ; preds = %if.else8.i.i.i.i, %if.then6.i.i.i.i
@@ -3998,7 +3998,7 @@ if.end.thread.i.i:                                ; preds = %if.end9.i, %if.end.
   %inc7.i.i = add i32 %idx.025.i, 1
   %cmp8.i.i = icmp eq i32 %inc7.i.i, %18
   %spec.select.i = select i1 %cmp8.i.i, i32 0, i32 %inc7.i.i
-  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc3.i, i32 noundef %spec.select.i, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc3.i, i32 noundef %spec.select.i, i1 noundef zeroext false)
   %19 = load i32, ptr %ndescs.i, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %ndescs.i, align 8
@@ -4137,7 +4137,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %vring_avail_ring.exit.i.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef %40, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef range(i64 -34359738354, 34359738367) %40, i32 1, ptr noundef null) #23
   br label %vring_avail_ring.exit.i.i
 
 vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i, %while.body.i9
@@ -4203,7 +4203,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i18
   br label %virtio_stw_phys_cached.exit.i.i
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i18
-  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %52, i16 noundef zeroext %inc6.i, i32 1, ptr noundef null) #23
+  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef range(i64 0, 34359738365) %52, i16 noundef zeroext %inc6.i, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i.i
 
 virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i, %if.then5.i.i.i.i.i
@@ -4438,11 +4438,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %call, i64 noundef %sz, i32 noundef %in_num, i32 noundef %out_num) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %call, i64 noundef range(i64 56, 0) %sz, i32 noundef %in_num, i32 noundef %out_num) #23
   br label %trace_virtqueue_alloc_element.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, ptr noundef %call, i64 noundef %sz, i32 noundef %in_num, i32 noundef %out_num) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, ptr noundef %call, i64 noundef range(i64 56, 0) %sz, i32 noundef %in_num, i32 noundef %out_num) #23
   br label %trace_virtqueue_alloc_element.exit
 
 trace_virtqueue_alloc_element.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -5779,7 +5779,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %virtio_lduw_phys_cached.exit.i.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i
 
 virtio_lduw_phys_cached.exit.i.i:                 ; preds = %if.else8.i.i.i.i.i, %if.then5.i.i.i.i.i
@@ -5804,7 +5804,7 @@ if.then5.i.i.i14.i.i:                             ; preds = %if.end.i.i.i12.i.i
   br label %vring_packed_event_read.exit.i
 
 if.else8.i.i.i18.i.i:                             ; preds = %if.end.i.i.i12.i.i
-  %call10.i.i.i19.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef 0, i32 1, ptr noundef null) #23
+  %call10.i.i.i19.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef range(i64 -34359738354, 34359738367) 0, i32 1, ptr noundef null) #23
   br label %vring_packed_event_read.exit.i
 
 vring_packed_event_read.exit.i:                   ; preds = %if.else8.i.i.i18.i.i, %if.then5.i.i.i14.i.i
@@ -5912,7 +5912,7 @@ if.then5.i.i.i.i.i16:                             ; preds = %if.end.i.i.i.i.i14
   br label %vring_avail_flags.exit.i
 
 if.else8.i.i.i.i.i18:                             ; preds = %if.end.i.i.i.i.i14
-  %call10.i.i.i.i.i19 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 0, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i19 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef range(i64 -34359738354, 34359738367) 0, i32 1, ptr noundef null) #23
   br label %vring_avail_flags.exit.i
 
 vring_avail_flags.exit.i:                         ; preds = %if.else8.i.i.i.i.i18, %if.then5.i.i.i.i.i16, %if.then5.i
@@ -5970,7 +5970,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %vring_get_used_event.exit.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef %27, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef range(i64 -34359738354, 34359738367) %27, i32 1, ptr noundef null) #23
   br label %vring_get_used_event.exit.i
 
 vring_get_used_event.exit.i:                      ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i, %lor.rhs.i11
@@ -6979,7 +6979,7 @@ if.then5.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %virtio_lduw_phys_cached.exit.i
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i192, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i192, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i
 
 virtio_lduw_phys_cached.exit.i:                   ; preds = %if.else8.i.i.i.i, %if.then5.i.i.i.i
@@ -7030,7 +7030,7 @@ if.then5.i.i.i.i202:                              ; preds = %if.end.i.i.i.i200
   br label %virtio_lduw_phys_cached.exit.i205
 
 if.else8.i.i.i.i209:                              ; preds = %if.end.i.i.i.i200
-  %call10.i.i.i.i210 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i197, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i210 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i197, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i205
 
 virtio_lduw_phys_cached.exit.i205:                ; preds = %if.else8.i.i.i.i209, %if.then5.i.i.i.i202
@@ -7085,7 +7085,7 @@ if.then5.i.i.i.i221:                              ; preds = %if.end.i.i.i.i219
   br label %vring_used_idx.exit
 
 if.else8.i.i.i.i225:                              ; preds = %if.end.i.i.i.i219
-  %call10.i.i.i.i226 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i216, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i226 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i216, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %vring_used_idx.exit
 
 vring_used_idx.exit:                              ; preds = %if.end215, %if.then5.i.i.i.i221, %if.else8.i.i.i.i225
@@ -7124,7 +7124,7 @@ if.then5.i.i.i.i236:                              ; preds = %if.end.i.i.i.i234
   br label %virtio_lduw_phys_cached.exit.i239
 
 if.else8.i.i.i.i243:                              ; preds = %if.end.i.i.i.i234
-  %call10.i.i.i.i244 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i231, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i244 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i231, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i239
 
 virtio_lduw_phys_cached.exit.i239:                ; preds = %if.else8.i.i.i.i243, %if.then5.i.i.i.i236
@@ -7755,7 +7755,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %vring_used_idx.exit.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %vring_used_idx.exit.i
 
 vring_used_idx.exit.i:                            ; preds = %if.else8.i.i.i.i.i, %if.then5.i.i.i.i.i, %if.then.i
@@ -7872,7 +7872,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %vring_used_idx.exit.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %vring_used_idx.exit.i
 
 vring_used_idx.exit.i:                            ; preds = %if.else8.i.i.i.i.i, %if.then5.i.i.i.i.i, %if.then.i
@@ -8612,7 +8612,7 @@ if.then5.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %if.end26
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef %10, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef range(i64 -34359738354, 34359738367) %10, i32 1, ptr noundef null) #23
   br label %if.end26
 
 if.else19:                                        ; preds = %rcu_read_auto_lock.exit
@@ -8653,7 +8653,7 @@ if.then5.i.i.i.i68:                               ; preds = %if.end.i.i.i.i66
   br label %if.end26
 
 if.else8.i.i.i.i72:                               ; preds = %if.end.i.i.i.i66
-  %call10.i.i.i.i73 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i59, i64 noundef %16, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i73 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i59, i64 noundef range(i64 -34359738354, 34359738367) %16, i32 1, ptr noundef null) #23
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else8.i.i.i.i72, %if.then5.i.i.i.i68, %if.else19, %if.else8.i.i.i.i, %if.then5.i.i.i.i, %if.then13
@@ -8707,7 +8707,7 @@ if.then6.i.i:                                     ; preds = %if.end.i.i
   br label %vring_split_desc_read.exit
 
 if.else8.i.i:                                     ; preds = %if.end.i.i
-  %call.i.i76 = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc31, i64 noundef %mul.i, ptr noundef nonnull %desc, i64 noundef 16) #23
+  %call.i.i76 = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc31, i64 noundef range(i64 -34359738368, 34359738365) %mul.i, ptr noundef nonnull %desc, i64 noundef 16) #23
   br label %vring_split_desc_read.exit
 
 vring_split_desc_read.exit:                       ; preds = %if.then6.i.i, %if.else8.i.i
@@ -8782,7 +8782,7 @@ if.then5.i.i.i.i86:                               ; preds = %if.end.i.i.i.i84
   br label %vring_avail_flags.exit
 
 if.else8.i.i.i.i89:                               ; preds = %if.end.i.i.i.i84
-  %call10.i.i.i.i90 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i80, i64 noundef 0, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i90 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i80, i64 noundef range(i64 -34359738354, 34359738367) 0, i32 1, ptr noundef null) #23
   br label %vring_avail_flags.exit
 
 vring_avail_flags.exit:                           ; preds = %if.end54, %if.then5.i.i.i.i86, %if.else8.i.i.i.i89
@@ -8816,7 +8816,7 @@ if.then5.i.i.i.i98:                               ; preds = %if.end.i.i.i.i96
   br label %virtio_lduw_phys_cached.exit.i
 
 if.else8.i.i.i.i102:                              ; preds = %if.end.i.i.i.i96
-  %call10.i.i.i.i103 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i94, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i103 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i94, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i
 
 virtio_lduw_phys_cached.exit.i:                   ; preds = %if.else8.i.i.i.i102, %if.then5.i.i.i.i98
@@ -8858,7 +8858,7 @@ if.then5.i.i.i.i113:                              ; preds = %if.end.i.i.i.i111
   br label %vring_used_flags.exit
 
 if.else8.i.i.i.i116:                              ; preds = %if.end.i.i.i.i111
-  %call10.i.i.i.i117 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i117 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef range(i64 -34359738354, 34359738367) 0, i32 1, ptr noundef null) #23
   br label %vring_used_flags.exit
 
 vring_used_flags.exit:                            ; preds = %vring_avail_idx.exit, %if.then5.i.i.i.i113, %if.else8.i.i.i.i116
@@ -8892,7 +8892,7 @@ if.then5.i.i.i.i126:                              ; preds = %if.end.i.i.i.i124
   br label %vring_used_idx.exit
 
 if.else8.i.i.i.i130:                              ; preds = %if.end.i.i.i.i124
-  %call10.i.i.i.i131 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i121, i64 noundef 2, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i131 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i121, i64 noundef range(i64 -34359738354, 34359738367) 2, i32 1, ptr noundef null) #23
   br label %vring_used_idx.exit
 
 vring_used_idx.exit:                              ; preds = %vring_used_flags.exit, %if.then5.i.i.i.i126, %if.else8.i.i.i.i130
@@ -8996,7 +8996,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %virtqueue_split_read_next_desc.exit
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %call.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0, i64 noundef %mul.i.i, ptr noundef nonnull %desc, i64 noundef 16) #23
+  %call.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0, i64 noundef range(i64 -34359738368, 34359738365) %mul.i.i, ptr noundef nonnull %desc, i64 noundef 16) #23
   br label %virtqueue_split_read_next_desc.exit
 
 virtqueue_split_read_next_desc.exit:              ; preds = %if.then6.i.i.i, %if.else8.i.i.i
@@ -9079,7 +9079,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %address_space_read_cached.exit
 
 if.else8.i:                                       ; preds = %if.end.i
-  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %mul, ptr noundef nonnull %desc, i64 noundef 16) #23
+  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef range(i64 -34359738368, 34359738365) %mul, ptr noundef nonnull %desc, i64 noundef 16) #23
   br label %address_space_read_cached.exit
 
 address_space_read_cached.exit:                   ; preds = %if.then6.i, %if.else8.i
@@ -9190,7 +9190,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %address_space_write_cached.exit.i.i
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %call.i.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add.i.i, ptr noundef nonnull %id, i64 noundef 2) #23
+  %call.i.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %desc44, i64 noundef range(i64 -17179869180, 17179869181) %add.i.i, ptr noundef nonnull %id, i64 noundef 2) #23
   br label %address_space_write_cached.exit.i.i
 
 address_space_write_cached.exit.i.i:              ; preds = %if.else8.i.i.i, %if.then6.i.i.i
@@ -9218,7 +9218,7 @@ if.then6.i18.i.i:                                 ; preds = %if.end.i16.i.i
   br label %vring_packed_desc_write_data.exit.i
 
 if.else8.i21.i.i:                                 ; preds = %if.end.i16.i.i
-  %call.i22.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add3.i.i, ptr noundef nonnull %len, i64 noundef 4) #23
+  %call.i22.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %desc44, i64 noundef range(i64 -17179869180, 17179869181) %add3.i.i, ptr noundef nonnull %len, i64 noundef 4) #23
   br label %vring_packed_desc_write_data.exit.i
 
 vring_packed_desc_write_data.exit.i:              ; preds = %if.else8.i21.i.i, %if.then6.i18.i.i
@@ -9256,7 +9256,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %vring_packed_desc_write.exit
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add.i5.i, i16 noundef zeroext %desc.val.i, i32 1, ptr noundef null) #23
+  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %desc44, i64 noundef range(i64 0, 34359738365) %add.i5.i, i16 noundef zeroext %desc.val.i, i32 1, ptr noundef null) #23
   br label %vring_packed_desc_write.exit
 
 vring_packed_desc_write.exit:                     ; preds = %if.then5.i.i.i.i.i, %if.else7.i.i.i.i.i
@@ -9299,7 +9299,7 @@ if.then5.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %vring_packed_desc_read_flags.exit
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %cache, i64 noundef %add.i, i32 1, ptr noundef null) #23
+  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %cache, i64 noundef range(i64 -34359738354, 34359738367) %add.i, i32 1, ptr noundef null) #23
   br label %vring_packed_desc_read_flags.exit
 
 vring_packed_desc_read_flags.exit:                ; preds = %if.then5.i.i.i.i, %if.else8.i.i.i.i
@@ -9336,7 +9336,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %address_space_read_cached.exit
 
 if.else8.i:                                       ; preds = %if.end.i
-  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %mul.i, ptr noundef nonnull %desc, i64 noundef 8) #23
+  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef range(i64 -34359738368, 34359738365) %mul.i, ptr noundef nonnull %desc, i64 noundef 8) #23
   br label %address_space_read_cached.exit
 
 address_space_read_cached.exit:                   ; preds = %if.then6.i, %if.else8.i
@@ -9365,7 +9365,7 @@ if.then6.i23:                                     ; preds = %if.end.i21
   br label %address_space_read_cached.exit29
 
 if.else8.i26:                                     ; preds = %if.end.i21
-  %call.i27 = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %add1, ptr noundef nonnull %id, i64 noundef 2) #23
+  %call.i27 = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef range(i64 -34359738368, 34359738365) %add1, ptr noundef nonnull %id, i64 noundef 2) #23
   br label %address_space_read_cached.exit29
 
 address_space_read_cached.exit29:                 ; preds = %if.then6.i23, %if.else8.i26
@@ -9394,7 +9394,7 @@ if.then6.i37:                                     ; preds = %if.end.i35
   br label %address_space_read_cached.exit43
 
 if.else8.i40:                                     ; preds = %if.end.i35
-  %call.i41 = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %add3, ptr noundef nonnull %len, i64 noundef 4) #23
+  %call.i41 = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef range(i64 -34359738368, 34359738365) %add3, ptr noundef nonnull %len, i64 noundef 4) #23
   br label %address_space_read_cached.exit43
 
 address_space_read_cached.exit43:                 ; preds = %if.then6.i37, %if.else8.i40

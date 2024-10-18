@@ -246,7 +246,7 @@ _ZNK15CountedLoopNode8loopexitEv.exit:            ; preds = %77
   %94 = load ptr, ptr %73, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 232
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef zeroext i8 %96(ptr noundef nonnull align 8 dereferenceable(72) %73) #13
+  %97 = tail call noundef zeroext i8 %96(ptr noundef nonnull align 8 dereferenceable(92) %73) #13
   %.not.i.i.i10 = icmp eq i8 %93, %97
   %..i.i.i = select i1 %.not.i.i.i10, ptr %85, ptr null
   %98 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3533,7 +3533,7 @@ _ZN4NodenwEm.exit:                                ; preds = %49, %51
 
 54:                                               ; preds = %_ZN4NodenwEm.exit
   %55 = load ptr, ptr @_ZN8TypeLong3INTE, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 2) #13
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 2) #13
   %56 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
   store ptr %55, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
@@ -3644,7 +3644,7 @@ _ZN4NodenwEm.exit24:                              ; preds = %111, %113
 
 116:                                              ; preds = %_ZN4NodenwEm.exit24
   %117 = load ptr, ptr @_ZN8TypeLong3INTE, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i23, i32 noundef 2) #13
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i23, i32 noundef 2) #13
   %118 = getelementptr inbounds i8, ptr %.0.i.i.i23, i64 56
   store ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %.0.i.i.i23, i64 44

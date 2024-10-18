@@ -273,7 +273,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer21install_base_pointersEv(ptr nounde
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 528
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #13
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   %7 = getelementptr inbounds i8, ptr %0, i64 520
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 61440
@@ -288,7 +288,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer21install_base_pointersEv(ptr nounde
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %11, %4
   %12 = load i64, ptr @ZPointerStoreGoodMask, align 8
   store i64 %12, ptr %7, align 8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #13
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   br label %14
 
 14:                                               ; preds = %1, %_ZN7ZLockerI5ZLockED2Ev.exit
@@ -626,7 +626,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer12on_new_phaseEv(ptr noundef nonnull
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 528
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #13
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   %7 = getelementptr inbounds i8, ptr %0, i64 520
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 61440
@@ -641,7 +641,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer12on_new_phaseEv(ptr noundef nonnull
 _ZN19ZStoreBarrierBuffer21install_base_pointersEv.exit: ; preds = %4, %11
   %12 = load i64, ptr @ZPointerStoreGoodMask, align 8
   store i64 %12, ptr %7, align 8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #13
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   %14 = getelementptr inbounds i8, ptr %0, i64 824
   %15 = load i64, ptr %14, align 8
   %16 = lshr i64 %15, 4

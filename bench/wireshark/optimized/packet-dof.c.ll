@@ -2120,7 +2120,7 @@ proto_item_set_generated.exit82:                  ; preds = %proto_item_set_gene
 
 170:                                              ; preds = %163
   %171 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #20
-  %172 = tail call fastcc i32 @dof_dissect_dpp_common(ptr noundef %171, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %172 = tail call fastcc i32 @dof_dissect_dpp_common(ptr noundef %171, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   br label %dof_dissect_dnp_common.exit
 
 173:                                              ; preds = %proto_item_set_generated.exit82
@@ -4816,7 +4816,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @parseAttributes(ptr nocapture 
   br label %parseAttributeID.exit.thread
 
 parseAttributeID.exit:                            ; preds = %27
-  %41 = tail call fastcc zeroext i8 @parseHexField(ptr noundef %0)
+  %41 = tail call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %0)
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %parseAttributeID.exit.thread, label %.thread
 
@@ -4860,15 +4860,15 @@ parseAttributeID.exit.thread:                     ; preds = %.critedge26.i, %par
   ]
 
 64:                                               ; preds = %60
-  %65 = tail call fastcc zeroext i8 @parseFormatOID(ptr noundef %0)
+  %65 = tail call fastcc zeroext i8 @parseFormatOID(ptr noundef nonnull %0)
   br label %parseAttributeData.exit
 
 66:                                               ; preds = %60
-  %67 = tail call fastcc zeroext i8 @parseHexField(ptr noundef %0)
+  %67 = tail call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %0)
   br label %parseAttributeData.exit
 
 68:                                               ; preds = %60
-  %69 = tail call fastcc zeroext i8 @parseStringField(ptr noundef %0)
+  %69 = tail call fastcc zeroext i8 @parseStringField(ptr noundef nonnull %0)
   br label %parseAttributeData.exit
 
 parseAttributeData.exit:                          ; preds = %64, %66, %68

@@ -469,7 +469,7 @@ _ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_.exit: ; preds = %21
           to label %.noexc.i unwind label %61, !noalias !4
 
 .noexc.i:                                         ; preds = %_ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc8.i unwind label %61, !noalias !4
 
 .noexc8.i:                                        ; preds = %.noexc.i
@@ -499,7 +499,7 @@ _ZNSt10shared_ptrIN4absl8internal8FlagFuncEEC2IS2_vEEPT_.exit: ; preds = %21
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19, !noalias !4
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19, !noalias !4
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19, !noalias !4
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %37
@@ -514,7 +514,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %.noexc10.i unwind label %65, !noalias !4
 
 .noexc10.i:                                       ; preds = %40
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %.noexc11.i unwind label %65, !noalias !4
 
 .noexc11.i:                                       ; preds = %.noexc10.i
@@ -544,7 +544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19, !noalias !4
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19, !noalias !4
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19, !noalias !4
   br label %.body12.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit14.i: ; preds = %48
@@ -628,9 +628,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit14.i: 
   %79 = ptrtoint ptr %0 to i64
   store i64 %79, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %80 = getelementptr inbounds i8, ptr %74, i64 72
   %81 = load ptr, ptr %80, align 8
@@ -644,7 +644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit14.i: 
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIS5_EC1EPKcSF_SF_S7_EUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES9_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS7_EEEE5valueERS9_E4typeEOSJ_.exit, label %84
 
 84:                                               ; preds = %70
-  %85 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %85 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIS5_EC1EPKcSF_SF_S7_EUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES9_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS7_EEEE5valueERS9_E4typeEOSJ_.exit unwind label %86
 
 86:                                               ; preds = %84
@@ -661,7 +661,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
           to label %.noexc unwind label %147
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIS5_EC1EPKcSF_SF_S7_EUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES9_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS7_EEEE5valueERS9_E4typeEOSJ_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %89, ptr noundef nonnull align 1 dereferenceable(1) %16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %89, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %.noexc14 unwind label %147
 
 .noexc14:                                         ; preds = %.noexc
@@ -678,7 +678,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
 93:                                               ; preds = %95, %91
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
   br label %.body
 
 95:                                               ; preds = %.noexc14
@@ -1310,9 +1310,9 @@ define weak_odr void @_ZN4absl4FlagIiEC2EPKcS3_S3_RKi(ptr noundef nonnull align 
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %39 = getelementptr inbounds i8, ptr %33, i64 72
   %40 = load ptr, ptr %39, align 8
@@ -1326,7 +1326,7 @@ define weak_odr void @_ZN4absl4FlagIiEC2EPKcS3_S3_RKi(ptr noundef nonnull align 
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIiEC1EPKcSF_SF_RKiEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit, label %43
 
 43:                                               ; preds = %29
-  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIiEC1EPKcSF_SF_RKiEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -1343,7 +1343,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
           to label %.noexc12 unwind label %106
 
 .noexc12:                                         ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIiEC1EPKcSF_SF_RKiEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc13 unwind label %106
 
 .noexc13:                                         ; preds = %.noexc12
@@ -1360,7 +1360,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
 52:                                               ; preds = %54, %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body14
 
 54:                                               ; preds = %.noexc13
@@ -1724,9 +1724,9 @@ define weak_odr void @_ZN4absl4FlagIjEC2EPKcS3_S3_RKj(ptr noundef nonnull align 
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %39 = getelementptr inbounds i8, ptr %33, i64 72
   %40 = load ptr, ptr %39, align 8
@@ -1740,7 +1740,7 @@ define weak_odr void @_ZN4absl4FlagIjEC2EPKcS3_S3_RKj(ptr noundef nonnull align 
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIjEC1EPKcSF_SF_RKjEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit, label %43
 
 43:                                               ; preds = %29
-  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIjEC1EPKcSF_SF_RKjEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -1757,7 +1757,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
           to label %.noexc12 unwind label %106
 
 .noexc12:                                         ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIjEC1EPKcSF_SF_RKjEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc13 unwind label %106
 
 .noexc13:                                         ; preds = %.noexc12
@@ -1774,7 +1774,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
 52:                                               ; preds = %54, %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body14
 
 54:                                               ; preds = %.noexc13
@@ -2138,9 +2138,9 @@ define weak_odr void @_ZN4absl4FlagIdEC2EPKcS3_S3_RKd(ptr noundef nonnull align 
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %39 = getelementptr inbounds i8, ptr %33, i64 72
   %40 = load ptr, ptr %39, align 8
@@ -2154,7 +2154,7 @@ define weak_odr void @_ZN4absl4FlagIdEC2EPKcS3_S3_RKd(ptr noundef nonnull align 
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIdEC1EPKcSF_SF_RKdEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit, label %43
 
 43:                                               ; preds = %29
-  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIdEC1EPKcSF_SF_RKdEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -2171,7 +2171,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
           to label %.noexc12 unwind label %106
 
 .noexc12:                                         ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIdEC1EPKcSF_SF_RKdEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc13 unwind label %106
 
 .noexc13:                                         ; preds = %.noexc12
@@ -2188,7 +2188,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
 52:                                               ; preds = %54, %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body14
 
 54:                                               ; preds = %.noexc13
@@ -2552,9 +2552,9 @@ define weak_odr void @_ZN4absl4FlagIfEC2EPKcS3_S3_RKf(ptr noundef nonnull align 
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %39 = getelementptr inbounds i8, ptr %33, i64 72
   %40 = load ptr, ptr %39, align 8
@@ -2568,7 +2568,7 @@ define weak_odr void @_ZN4absl4FlagIfEC2EPKcS3_S3_RKf(ptr noundef nonnull align 
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIfEC1EPKcSF_SF_RKfEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit, label %43
 
 43:                                               ; preds = %29
-  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIfEC1EPKcSF_SF_RKfEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -2585,7 +2585,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
           to label %.noexc12 unwind label %106
 
 .noexc12:                                         ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIfEC1EPKcSF_SF_RKfEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc13 unwind label %106
 
 .noexc13:                                         ; preds = %.noexc12
@@ -2602,7 +2602,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
 52:                                               ; preds = %54, %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body14
 
 54:                                               ; preds = %.noexc13
@@ -2940,7 +2940,7 @@ define weak_odr void @_ZN4absl4FlagIbEC2EPKcS3_S3_RKb(ptr noundef nonnull align 
           to label %.noexc.i unwind label %32
 
 .noexc.i:                                         ; preds = %5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc2.i unwind label %32
 
 .noexc2.i:                                        ; preds = %.noexc.i
@@ -2952,7 +2952,7 @@ define weak_odr void @_ZN4absl4FlagIbEC2EPKcS3_S3_RKb(ptr noundef nonnull align 
 30:                                               ; preds = %.noexc2.i
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   br label %.body
 
 32:                                               ; preds = %.noexc.i, %5
@@ -2977,9 +2977,9 @@ define weak_odr void @_ZN4absl4FlagIbEC2EPKcS3_S3_RKb(ptr noundef nonnull align 
   %43 = ptrtoint ptr %0 to i64
   store i64 %43, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %44 = getelementptr inbounds i8, ptr %38, i64 72
   %45 = load ptr, ptr %44, align 8
@@ -2993,7 +2993,7 @@ define weak_odr void @_ZN4absl4FlagIbEC2EPKcS3_S3_RKb(ptr noundef nonnull align 
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIbEC1EPKcSF_SF_RKbEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit, label %48
 
 48:                                               ; preds = %34
-  %49 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIbEC1EPKcSF_SF_RKbEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -3010,7 +3010,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
           to label %.noexc unwind label %109
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIbEC1EPKcSF_SF_RKbEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc12 unwind label %109
 
 .noexc12:                                         ; preds = %.noexc
@@ -3027,7 +3027,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
 57:                                               ; preds = %59, %55
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body
 
 59:                                               ; preds = %.noexc12
@@ -3331,9 +3331,9 @@ define weak_odr void @_ZN4absl4FlagIlEC2EPKcS3_S3_RKl(ptr noundef nonnull align 
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %39 = getelementptr inbounds i8, ptr %33, i64 72
   %40 = load ptr, ptr %39, align 8
@@ -3347,7 +3347,7 @@ define weak_odr void @_ZN4absl4FlagIlEC2EPKcS3_S3_RKl(ptr noundef nonnull align 
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIlEC1EPKcSF_SF_RKlEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit, label %43
 
 43:                                               ; preds = %29
-  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIlEC1EPKcSF_SF_RKlEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -3364,7 +3364,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
           to label %.noexc12 unwind label %106
 
 .noexc12:                                         ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagIlEC1EPKcSF_SF_RKlEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc13 unwind label %106
 
 .noexc13:                                         ; preds = %.noexc12
@@ -3381,7 +3381,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
 52:                                               ; preds = %54, %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body14
 
 54:                                               ; preds = %.noexc13
@@ -3745,9 +3745,9 @@ define weak_odr void @_ZN4absl4FlagImEC2EPKcS3_S3_RKm(ptr noundef nonnull align 
   %38 = ptrtoint ptr %0 to i64
   store i64 %38, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %39 = getelementptr inbounds i8, ptr %33, i64 72
   %40 = load ptr, ptr %39, align 8
@@ -3761,7 +3761,7 @@ define weak_odr void @_ZN4absl4FlagImEC2EPKcS3_S3_RKm(ptr noundef nonnull align 
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagImEC1EPKcSF_SF_RKmEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit, label %43
 
 43:                                               ; preds = %29
-  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagImEC1EPKcSF_SF_RKmEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -3778,7 +3778,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
           to label %.noexc12 unwind label %106
 
 .noexc12:                                         ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4absl4FlagImEC1EPKcSF_SF_RKmEUlS7_E_EENSt9enable_ifIXsrNS9_9_CallableIT_NSJ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISL_E4typeEE4typeES9_EE5valueESt5decayISL_EE4type4typeESt15__invoke_resultIRSW_JS7_EEEE5valueERS9_E4typeEOSL_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc13 unwind label %106
 
 .noexc13:                                         ; preds = %.noexc12
@@ -3795,7 +3795,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIZN4a
 52:                                               ; preds = %54, %50
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body14
 
 54:                                               ; preds = %.noexc13
@@ -4275,7 +4275,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt12_Vector_base
           to label %.noexc.i unwind label %49
 
 .noexc.i:                                         ; preds = %30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc31.i unwind label %49
 
 .noexc31.i:                                       ; preds = %.noexc.i
@@ -4287,7 +4287,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt12_Vector_base
 38:                                               ; preds = %.noexc31.i
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc31.i
@@ -4538,7 +4538,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   %130 = getelementptr inbounds i8, ptr %126, i64 56
   %131 = getelementptr inbounds i8, ptr %126, i64 80
   %132 = load ptr, ptr %131, align 8
-  invoke void %132(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void %132(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit34 unwind label %.loopexit
 
 133:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN4absl8internal8FlagFuncEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN4absl8internal8FlagFuncEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZN4absl8internal12_GLOBAL__N_110GetFlagMapB5cxx11Ev.exit.i
@@ -5300,7 +5300,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN4absl8internal8FlagFuncEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit: ; preds = %.lr.ph, %25, %38, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
   %43 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
@@ -5674,7 +5674,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN4absl8internal8FlagFuncEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN4absl8internal8FlagFuncEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %62, %49, %30
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 80) #22
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN4absl8internal8FlagFuncEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE10_Auto_nodeD2Ev.exit
 
@@ -6083,7 +6083,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN4absl8internal8FlagFuncEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit: ; preds = %4, %23, %36, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 80) #22
   br label %42
 
@@ -6095,7 +6095,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN4absl8internal8FlagFuncEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_create_nodeIJRS7_RSC_EEEPSt13_Rb_tree_nodeISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #18
   %5 = getelementptr inbounds i8, ptr %4, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc.i unwind label %19
 
 .noexc.i:                                         ; preds = %3
@@ -6233,7 +6233,7 @@ define linkonce_odr void @_ZN4absl8internal8FlagFuncD2Ev(ptr noundef nonnull ali
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -6275,7 +6275,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN4absl8internal8FlagFuncELN9__
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %3, i64 56
-  %10 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZN4absl8internal8FlagFuncD2Ev.exit unwind label %11
 
 11:                                               ; preds = %8

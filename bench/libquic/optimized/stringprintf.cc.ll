@@ -108,7 +108,7 @@ invoke.cont29.i:                                  ; preds = %if.end20.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
   call void @llvm.va_copy.p0(ptr nonnull %ap_copy.i, ptr %ap)
   %3 = load ptr, ptr %mem_buf.i, align 8
-  %call.i.i17.i = call noundef i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef %conv21.i, ptr noundef readonly %format, ptr noundef nonnull %ap_copy.i) #12
+  %call.i.i17.i = call noundef i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef range(i64 1, 33554433) %conv21.i, ptr noundef readonly %format, ptr noundef nonnull %ap_copy.i) #12
   call void @llvm.va_end.p0(ptr nonnull %ap_copy.i)
   %cmp32.i = icmp sgt i32 %call.i.i17.i, -1
   %cmp34.i = icmp slt i32 %call.i.i17.i, %mem_length.1.i
@@ -142,7 +142,7 @@ if.then.i.i.i.i:                                  ; preds = %cleanup.i
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %cleanup.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %mem_buf.i) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mem_buf.i) #12
   br label %while.cond.i, !llvm.loop !5
 
 cleanup41.critedge.i:                             ; preds = %if.then35.i
@@ -155,7 +155,7 @@ if.then.i.i.i19.i:                                ; preds = %cleanup41.critedge.
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit20.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit20.i:                ; preds = %if.then.i.i.i19.i, %cleanup41.critedge.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %mem_buf.i) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mem_buf.i) #12
   br label %cleanup41thread-pre-split.i
 
 cleanup41thread-pre-split.i:                      ; preds = %if.end17.i, %_ZNSt6vectorIcSaIcEED2Ev.exit20.i, %if.then.i
@@ -262,7 +262,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) #12
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i = icmp eq i64 %__n, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -279,7 +279,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
 lpad.i:                                           ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #12
   resume { ptr, i32 } %0
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -321,7 +321,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #12
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #12
   ret void
 }
 

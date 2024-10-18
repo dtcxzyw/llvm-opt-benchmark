@@ -440,7 +440,7 @@ _ZN16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE
   br label %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E7destroyEPS1_.exit.i.i
 
 _ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E7destroyEPS1_.exit.i.i: ; preds = %147, %137
-  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %136) #9
+  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(312) %136) #9
   tail call void @free(ptr noundef nonnull %136) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit
 

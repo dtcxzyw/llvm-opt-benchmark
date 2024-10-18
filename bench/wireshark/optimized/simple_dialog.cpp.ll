@@ -875,7 +875,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %.split.i.i, %13
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #21
+  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #21
   %26 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
@@ -1862,7 +1862,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i:  ; preds = %_ZN5QListI7QStringE
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.not.i.i.i48 = icmp eq ptr %101, null
   %spec.select.i.i.i = select i1 %.not.i.i.i48, ptr @_ZN7QString6_emptyE, ptr %101
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull %8, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %103)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %103)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %122
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %98
@@ -2482,7 +2482,7 @@ _ZNSt4pairI7QStringS0_ED2Ev.exit:                 ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.not.i.i.i29 = icmp eq ptr %138, null
   %spec.select.i.i.i = select i1 %.not.i.i.i29, ptr @_ZN7QString6_emptyE, ptr %138
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, ptr noundef nonnull %4, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %140)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %140)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %166
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %135
@@ -4557,7 +4557,7 @@ _ZNSt4pairI7QStringS0_EC2ERKS1_.exit.i:           ; preds = %70, %_ZN7QStringC2E
   %84 = phi i64 [ %.pre.i32, %.lr.ph.i31 ], [ %108, %83 ]
   %.010.i33 = phi ptr [ %78, %.lr.ph.i31 ], [ %106, %83 ]
   %85 = getelementptr %"struct.std::pair", ptr %30, i64 %84
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, i8 0, i64 24, i1 false)
   %86 = load ptr, ptr %.010.i33, align 8
   store ptr %86, ptr %85, align 8
   store ptr null, ptr %.010.i33, align 8

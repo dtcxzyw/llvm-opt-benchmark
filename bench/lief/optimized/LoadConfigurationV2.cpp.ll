@@ -43,7 +43,7 @@ define weak_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2C2IjEERKNS0_7detail
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) #5
   resume { ptr, i32 } %7
 }
 
@@ -68,7 +68,7 @@ define weak_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2C2ImEERKNS0_7detail
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) #5
   resume { ptr, i32 } %7
 }
 
@@ -113,8 +113,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4LIEF6ObjectneERKS0_(ptr noun
 define linkonce_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2D2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #5
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #5
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) #5
   ret void
 }
 
@@ -122,8 +122,8 @@ define linkonce_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2D2Ev(ptr nounde
 define linkonce_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2D0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #5
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #5
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #5
   tail call void @_ZdlPv(ptr noundef nonnull %0) #6
   ret void
 }

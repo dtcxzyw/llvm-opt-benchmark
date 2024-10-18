@@ -253,7 +253,7 @@ define internal noundef i32 @_ZL34hb_font_get_nominal_glyphs_defaultP9hb_font_tP
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %17, %25
   %28 = phi ptr [ %27, %25 ], [ null, %17 ]
-  %29 = tail call noundef i32 %21(ptr noundef nonnull %0, ptr noundef %22, i32 noundef %18, ptr noundef nonnull %.02125, ptr noundef %28)
+  %29 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %22, i32 noundef %18, ptr noundef nonnull %.02125, ptr noundef %28)
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.loopexit, label %30
 
@@ -285,7 +285,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %17, %25
 
 _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %34, %45
   %48 = phi ptr [ %47, %45 ], [ null, %34 ]
-  %49 = tail call noundef i32 %40(ptr noundef nonnull %36, ptr noundef %42, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %48)
+  %49 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(192) %36, ptr noundef %42, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %48)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, %30, %.preheader, %_ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit
@@ -354,7 +354,7 @@ define internal void @_ZL36hb_font_get_glyph_h_advances_defaultP9hb_font_tPvjPKj
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %17, %25
   %28 = phi ptr [ %27, %25 ], [ null, %17 ]
-  %29 = tail call noundef i32 %21(ptr noundef nonnull %0, ptr noundef %22, i32 noundef %18, ptr noundef %28)
+  %29 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %22, i32 noundef %18, ptr noundef %28)
   store i32 %29, ptr %.02630, align 4
   %30 = getelementptr inbounds i8, ptr %.02531, i64 %15
   %31 = getelementptr inbounds i8, ptr %.02630, i64 %16
@@ -383,7 +383,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %17, %25
 
 _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit: ; preds = %33, %44
   %47 = phi ptr [ %46, %44 ], [ null, %33 ]
-  tail call void %39(ptr noundef nonnull %35, ptr noundef %41, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %47)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(192) %35, ptr noundef %41, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %47)
   %.not37 = icmp eq i32 %2, 0
   br i1 %.not37, label %.loopexit, label %.lr.ph35
 
@@ -469,7 +469,7 @@ define internal void @_ZL36hb_font_get_glyph_v_advances_defaultP9hb_font_tPvjPKj
 
 _ZN9hb_font_t19get_glyph_v_advanceEj.exit:        ; preds = %17, %25
   %28 = phi ptr [ %27, %25 ], [ null, %17 ]
-  %29 = tail call noundef i32 %21(ptr noundef nonnull %0, ptr noundef %22, i32 noundef %18, ptr noundef %28)
+  %29 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %22, i32 noundef %18, ptr noundef %28)
   store i32 %29, ptr %.02630, align 4
   %30 = getelementptr inbounds i8, ptr %.02531, i64 %15
   %31 = getelementptr inbounds i8, ptr %.02630, i64 %16
@@ -498,7 +498,7 @@ _ZN9hb_font_t19get_glyph_v_advanceEj.exit:        ; preds = %17, %25
 
 _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %33, %44
   %47 = phi ptr [ %46, %44 ], [ null, %33 ]
-  tail call void %39(ptr noundef nonnull %35, ptr noundef %41, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %47)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(192) %35, ptr noundef %41, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %47)
   %.not37 = icmp eq i32 %2, 0
   br i1 %.not37, label %.loopexit, label %.lr.ph35
 
@@ -684,8 +684,8 @@ define hidden void @hb_font_funcs_destroy(ptr noundef %0) local_unnamed_addr #1 
 10:                                               ; preds = %7
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #25
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(56) %11)
+  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %11) #25
   tail call void @free(ptr noundef nonnull %11) #25
   store atomic i64 0, ptr %8 monotonic, align 8
   br label %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit
@@ -1187,7 +1187,7 @@ define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef %0, p
   br i1 %.not20.i, label %_ZL23hb_object_set_user_dataI15hb_font_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %10, ptr noundef null) #25
+  %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null) #25
   %13 = getelementptr inbounds i8, ptr %10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = ptrtoint ptr %10 to i64
@@ -1196,8 +1196,8 @@ define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef %0, p
   br i1 %16, label %.split.loop.exit.i, label %17
 
 17:                                               ; preds = %11
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #25
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %10) #25
   tail call void @free(ptr noundef nonnull %10) #25
   %19 = load atomic i64, ptr %8 acquire, align 8
   %.not19.i = icmp eq i64 %19, 0
@@ -1237,7 +1237,7 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly %0, ptr noun
   br i1 %.not9.i, label %_ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #25
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
   %11 = getelementptr inbounds i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 44
@@ -1266,7 +1266,7 @@ define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly %0, ptr noun
 
 _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, %9
   %20 = phi ptr [ %.sroa.2.0.copyload.i.i, %18 ], [ null, %9 ], [ null, %17 ]
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #25
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
   br label %_ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -1440,7 +1440,7 @@ define internal noundef i32 @_ZL34hb_font_get_font_h_extents_defaultP9hb_font_tP
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit: ; preds = %4, %15
   %17 = phi ptr [ %16, %15 ], [ null, %4 ]
-  %18 = tail call noundef i32 %10(ptr noundef nonnull %6, ptr noundef %12, ptr noundef nonnull %2, ptr noundef %17)
+  %18 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef %12, ptr noundef nonnull %2, ptr noundef %17)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %64, label %19
 
@@ -1675,7 +1675,7 @@ define internal noundef i32 @_ZL34hb_font_get_font_v_extents_defaultP9hb_font_tP
 
 _ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit: ; preds = %4, %15
   %18 = phi ptr [ %17, %15 ], [ null, %4 ]
-  %19 = tail call noundef i32 %10(ptr noundef nonnull %6, ptr noundef %12, ptr noundef nonnull %2, ptr noundef %18)
+  %19 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef %12, ptr noundef nonnull %2, ptr noundef %18)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %65, label %20
 
@@ -1914,7 +1914,7 @@ define internal noundef i32 @_ZL33hb_font_get_nominal_glyph_defaultP9hb_font_tPv
 
 _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %12, %17
   %20 = phi ptr [ %19, %17 ], [ null, %12 ]
-  %21 = call noundef i32 %10(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %3, i32 noundef 0, ptr noundef %20)
+  %21 = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %3, i32 noundef 0, ptr noundef %20)
   br label %38
 
 22:                                               ; preds = %5
@@ -1939,7 +1939,7 @@ _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %12, %17
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %22, %33
   %36 = phi ptr [ %35, %33 ], [ null, %22 ]
-  %37 = tail call noundef i32 %28(ptr noundef nonnull %24, ptr noundef %30, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %36)
+  %37 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(192) %24, ptr noundef %30, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %36)
   br label %38
 
 38:                                               ; preds = %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, %_ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit
@@ -2218,7 +2218,7 @@ define internal noundef i32 @_ZL35hb_font_get_variation_glyph_defaultP9hb_font_t
 
 _ZN9hb_font_t19get_variation_glyphEjjPjj.exit:    ; preds = %6, %17
   %20 = phi ptr [ %19, %17 ], [ null, %6 ]
-  %21 = tail call noundef i32 %12(ptr noundef nonnull %8, ptr noundef %14, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %20)
+  %21 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef %14, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %20)
   ret i32 %21
 }
 
@@ -2374,7 +2374,7 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_h_advance_defaultP9hb_font_t
 
 _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit: ; preds = %12, %17
   %20 = phi ptr [ %19, %17 ], [ null, %12 ]
-  call void %10(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %20)
+  call void %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %20)
   %21 = load i32, ptr %6, align 4
   br label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit
 
@@ -2399,7 +2399,7 @@ _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit: ; preds = %12, %17
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %22, %33
   %36 = phi ptr [ %35, %33 ], [ null, %22 ]
-  %37 = tail call noundef i32 %28(ptr noundef nonnull %24, ptr noundef %30, i32 noundef %2, ptr noundef %36)
+  %37 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(192) %24, ptr noundef %30, i32 noundef %2, ptr noundef %36)
   %38 = load ptr, ptr %23, align 8
   %.not.i5 = icmp eq ptr %38, null
   br i1 %.not.i5, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, label %39
@@ -2578,7 +2578,7 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_v_advance_defaultP9hb_font_t
 
 _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %12, %17
   %20 = phi ptr [ %19, %17 ], [ null, %12 ]
-  call void %10(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %20)
+  call void %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 0, ptr noundef %20)
   %21 = load i32, ptr %6, align 4
   br label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit
 
@@ -2603,7 +2603,7 @@ _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %12, %17
 
 _ZN9hb_font_t19get_glyph_v_advanceEj.exit:        ; preds = %22, %33
   %36 = phi ptr [ %35, %33 ], [ null, %22 ]
-  %37 = tail call noundef i32 %28(ptr noundef nonnull %24, ptr noundef %30, i32 noundef %2, ptr noundef %36)
+  %37 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(192) %24, ptr noundef %30, i32 noundef %2, ptr noundef %36)
   %38 = load ptr, ptr %23, align 8
   %.not.i5 = icmp eq ptr %38, null
   br i1 %.not.i5, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, label %39
@@ -3026,7 +3026,7 @@ define internal noundef i32 @_ZL34hb_font_get_glyph_h_origin_defaultP9hb_font_tP
 
 _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %6, %17
   %20 = phi ptr [ %19, %17 ], [ null, %6 ]
-  %21 = tail call noundef i32 %12(ptr noundef nonnull %8, ptr noundef %14, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %20)
+  %21 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef %14, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %20)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %51, label %22
 
@@ -3235,7 +3235,7 @@ define internal noundef i32 @_ZL34hb_font_get_glyph_v_origin_defaultP9hb_font_tP
 
 _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %6, %17
   %20 = phi ptr [ %19, %17 ], [ null, %6 ]
-  %21 = tail call noundef i32 %12(ptr noundef nonnull %8, ptr noundef %14, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %20)
+  %21 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef %14, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %20)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %51, label %22
 
@@ -3442,7 +3442,7 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_h_kerning_defaultP9hb_font_t
 
 _ZN9hb_font_t19get_glyph_h_kerningEjj.exit:       ; preds = %5, %16
   %19 = phi ptr [ %18, %16 ], [ null, %5 ]
-  %20 = tail call noundef i32 %11(ptr noundef nonnull %7, ptr noundef %13, i32 noundef %2, i32 noundef %3, ptr noundef %19)
+  %20 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef %13, i32 noundef %2, i32 noundef %3, ptr noundef %19)
   %21 = load ptr, ptr %6, align 8
   %.not.i3 = icmp eq ptr %21, null
   br i1 %.not.i3, label %_ZN9hb_font_t23parent_scale_x_distanceEi.exit, label %22
@@ -3615,7 +3615,7 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_v_kerning_defaultP9hb_font_t
 
 _ZN9hb_font_t19get_glyph_v_kerningEjj.exit:       ; preds = %5, %16
   %19 = phi ptr [ %18, %16 ], [ null, %5 ]
-  %20 = tail call noundef i32 %11(ptr noundef nonnull %7, ptr noundef %13, i32 noundef %2, i32 noundef %3, ptr noundef %19)
+  %20 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef %13, i32 noundef %2, i32 noundef %3, ptr noundef %19)
   %21 = load ptr, ptr %6, align 8
   %.not.i3 = icmp eq ptr %21, null
   br i1 %.not.i3, label %_ZN9hb_font_t23parent_scale_y_distanceEi.exit, label %22
@@ -3789,7 +3789,7 @@ define internal noundef i32 @_ZL33hb_font_get_glyph_extents_defaultP9hb_font_tPv
 
 _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit: ; preds = %5, %16
   %19 = phi ptr [ %18, %16 ], [ null, %5 ]
-  %20 = tail call noundef i32 %11(ptr noundef nonnull %7, ptr noundef %13, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %19)
+  %20 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef %13, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %19)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %81, label %21
 
@@ -4051,7 +4051,7 @@ define internal noundef i32 @_ZL39hb_font_get_glyph_contour_point_defaultP9hb_fo
 
 _ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit: ; preds = %7, %18
   %21 = phi ptr [ %20, %18 ], [ null, %7 ]
-  %22 = tail call noundef i32 %13(ptr noundef nonnull %9, ptr noundef %15, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %21)
+  %22 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef %15, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %21)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %52, label %23
 
@@ -4266,7 +4266,7 @@ define internal noundef i32 @_ZL30hb_font_get_glyph_name_defaultP9hb_font_tPvjPc
 
 _ZN9hb_font_t14get_glyph_nameEjPcj.exit:          ; preds = %10, %19
   %22 = phi ptr [ %21, %19 ], [ null, %10 ]
-  %23 = tail call noundef i32 %14(ptr noundef nonnull %8, ptr noundef %16, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %22)
+  %23 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef %16, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %22)
   ret i32 %23
 }
 
@@ -4427,7 +4427,7 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_t
 
 _ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit:   ; preds = %13, %22
   %25 = phi ptr [ %24, %22 ], [ null, %13 ]
-  %26 = tail call noundef i32 %17(ptr noundef nonnull %8, ptr noundef %19, ptr noundef %2, i32 noundef %.0.i, ptr noundef nonnull %4, ptr noundef %25)
+  %26 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef %19, ptr noundef %2, i32 noundef %.0.i, ptr noundef nonnull %4, ptr noundef %25)
   ret i32 %26
 }
 
@@ -4628,7 +4628,7 @@ define internal void @_ZL26hb_font_draw_glyph_defaultP9hb_font_tPvjP15hb_draw_fu
 
 _ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit: ; preds = %.thread, %51
   %54 = phi ptr [ %53, %51 ], [ null, %.thread ]
-  call void %46(ptr noundef nonnull %11, ptr noundef %48, i32 noundef %2, ptr noundef nonnull @_ZL22_hb_draw_funcs_default, ptr noundef nonnull %7, ptr noundef %54)
+  call void %46(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef %48, i32 noundef %2, ptr noundef nonnull @_ZL22_hb_draw_funcs_default, ptr noundef nonnull %7, ptr noundef %54)
   ret void
 }
 
@@ -4814,7 +4814,7 @@ define internal void @_ZL27hb_font_paint_glyph_defaultP9hb_font_tPvjP16hb_paint_
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit: ; preds = %.thread, %45
   %47 = phi ptr [ %46, %45 ], [ null, %.thread ]
-  tail call void %42(ptr noundef nonnull %3, ptr noundef %4, float noundef %20, float noundef %39, float noundef 0.000000e+00, float noundef %40, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %47)
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, float noundef %20, float noundef %39, float noundef 0.000000e+00, float noundef %40, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %47)
   %48 = load ptr, ptr %9, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 144
   %50 = load ptr, ptr %49, align 8
@@ -4834,7 +4834,7 @@ _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit: ; preds = %.thread, %45
 
 _ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit: ; preds = %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit, %57
   %60 = phi ptr [ %59, %57 ], [ null, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit ]
-  tail call void %52(ptr noundef nonnull %48, ptr noundef %54, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %60)
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(192) %48, ptr noundef %54, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %60)
   %61 = getelementptr inbounds i8, ptr %3, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %43, align 8
@@ -4848,7 +4848,7 @@ _ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit: ; preds = %_ZN16hb_pai
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit, %64
   %67 = phi ptr [ %66, %64 ], [ null, %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit ]
-  tail call void %62(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %67)
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, ptr noundef %67)
   ret void
 }
 
@@ -4915,7 +4915,7 @@ define hidden noundef i32 @hb_font_get_h_extents(ptr noundef %0, ptr noundef %1)
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit: ; preds = %2, %11
   %13 = phi ptr [ %12, %11 ], [ null, %2 ]
-  %14 = tail call noundef i32 %6(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %1, ptr noundef %13)
+  %14 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %8, ptr noundef nonnull %1, ptr noundef %13)
   ret i32 %14
 }
 
@@ -4940,7 +4940,7 @@ define hidden noundef i32 @hb_font_get_v_extents(ptr noundef %0, ptr noundef %1)
 
 _ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit: ; preds = %2, %11
   %14 = phi ptr [ %13, %11 ], [ null, %2 ]
-  %15 = tail call noundef i32 %6(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %1, ptr noundef %14)
+  %15 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %8, ptr noundef nonnull %1, ptr noundef %14)
   ret i32 %15
 }
 
@@ -4969,7 +4969,7 @@ define hidden noundef i32 @hb_font_get_glyph(ptr noundef %0, i32 noundef %1, i32
 
 _ZN9hb_font_t19get_variation_glyphEjjPjj.exit:    ; preds = %11, %14
   %17 = phi ptr [ %16, %14 ], [ null, %11 ]
-  %18 = tail call noundef i32 %13(ptr noundef nonnull %0, ptr noundef %8, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %17)
+  %18 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %8, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %17)
   br label %27
 
 19:                                               ; preds = %4
@@ -4984,7 +4984,7 @@ _ZN9hb_font_t19get_variation_glyphEjjPjj.exit:    ; preds = %11, %14
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %19, %22
   %25 = phi ptr [ %24, %22 ], [ null, %19 ]
-  %26 = tail call noundef i32 %21(ptr noundef nonnull %0, ptr noundef %8, i32 noundef %1, ptr noundef nonnull %3, ptr noundef %25)
+  %26 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %8, i32 noundef %1, ptr noundef nonnull %3, ptr noundef %25)
   br label %27
 
 27:                                               ; preds = %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, %_ZN9hb_font_t19get_variation_glyphEjjPjj.exit
@@ -5013,7 +5013,7 @@ define hidden noundef i32 @hb_font_get_nominal_glyph(ptr noundef %0, i32 noundef
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %3, %12
   %15 = phi ptr [ %14, %12 ], [ null, %3 ]
-  %16 = tail call noundef i32 %7(ptr noundef nonnull %0, ptr noundef %9, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %15)
+  %16 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %9, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %15)
   ret i32 %16
 }
 
@@ -5037,7 +5037,7 @@ define hidden noundef i32 @hb_font_get_nominal_glyphs(ptr noundef %0, i32 nounde
 
 _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %6, %15
   %18 = phi ptr [ %17, %15 ], [ null, %6 ]
-  %19 = tail call noundef i32 %10(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %18)
+  %19 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %18)
   ret i32 %19
 }
 
@@ -5062,7 +5062,7 @@ define hidden noundef i32 @hb_font_get_variation_glyph(ptr noundef %0, i32 nound
 
 _ZN9hb_font_t19get_variation_glyphEjjPjj.exit:    ; preds = %4, %13
   %16 = phi ptr [ %15, %13 ], [ null, %4 ]
-  %17 = tail call noundef i32 %8(ptr noundef nonnull %0, ptr noundef %10, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %16)
+  %17 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %10, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %16)
   ret i32 %17
 }
 
@@ -5086,7 +5086,7 @@ define hidden noundef i32 @hb_font_get_glyph_h_advance(ptr noundef %0, i32 nound
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %2, %11
   %14 = phi ptr [ %13, %11 ], [ null, %2 ]
-  %15 = tail call noundef i32 %6(ptr noundef nonnull %0, ptr noundef %8, i32 noundef %1, ptr noundef %14)
+  %15 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %8, i32 noundef %1, ptr noundef %14)
   ret i32 %15
 }
 
@@ -5110,7 +5110,7 @@ define hidden noundef i32 @hb_font_get_glyph_v_advance(ptr noundef %0, i32 nound
 
 _ZN9hb_font_t19get_glyph_v_advanceEj.exit:        ; preds = %2, %11
   %14 = phi ptr [ %13, %11 ], [ null, %2 ]
-  %15 = tail call noundef i32 %6(ptr noundef nonnull %0, ptr noundef %8, i32 noundef %1, ptr noundef %14)
+  %15 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %8, i32 noundef %1, ptr noundef %14)
   ret i32 %15
 }
 
@@ -5134,7 +5134,7 @@ define hidden void @hb_font_get_glyph_h_advances(ptr noundef %0, i32 noundef %1,
 
 _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit: ; preds = %6, %15
   %18 = phi ptr [ %17, %15 ], [ null, %6 ]
-  tail call void %10(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %18)
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %18)
   ret void
 }
 
@@ -5158,7 +5158,7 @@ define hidden void @hb_font_get_glyph_v_advances(ptr noundef %0, i32 noundef %1,
 
 _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %6, %15
   %18 = phi ptr [ %17, %15 ], [ null, %6 ]
-  tail call void %10(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %18)
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %18)
   ret void
 }
 
@@ -5184,7 +5184,7 @@ define hidden noundef i32 @hb_font_get_glyph_h_origin(ptr noundef %0, i32 nounde
 
 _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %13
   %16 = phi ptr [ %15, %13 ], [ null, %4 ]
-  %17 = tail call noundef i32 %8(ptr noundef nonnull %0, ptr noundef %10, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %16)
+  %17 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %10, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %16)
   ret i32 %17
 }
 
@@ -5210,7 +5210,7 @@ define hidden noundef i32 @hb_font_get_glyph_v_origin(ptr noundef %0, i32 nounde
 
 _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %4, %13
   %16 = phi ptr [ %15, %13 ], [ null, %4 ]
-  %17 = tail call noundef i32 %8(ptr noundef nonnull %0, ptr noundef %10, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %16)
+  %17 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %10, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %16)
   ret i32 %17
 }
 
@@ -5234,7 +5234,7 @@ define hidden noundef i32 @hb_font_get_glyph_h_kerning(ptr noundef %0, i32 nound
 
 _ZN9hb_font_t19get_glyph_h_kerningEjj.exit:       ; preds = %3, %12
   %15 = phi ptr [ %14, %12 ], [ null, %3 ]
-  %16 = tail call noundef i32 %7(ptr noundef nonnull %0, ptr noundef %9, i32 noundef %1, i32 noundef %2, ptr noundef %15)
+  %16 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %9, i32 noundef %1, i32 noundef %2, ptr noundef %15)
   ret i32 %16
 }
 
@@ -5258,7 +5258,7 @@ define hidden noundef i32 @hb_font_get_glyph_v_kerning(ptr noundef %0, i32 nound
 
 _ZN9hb_font_t19get_glyph_v_kerningEjj.exit:       ; preds = %3, %12
   %15 = phi ptr [ %14, %12 ], [ null, %3 ]
-  %16 = tail call noundef i32 %7(ptr noundef nonnull %0, ptr noundef %9, i32 noundef %1, i32 noundef %2, ptr noundef %15)
+  %16 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %9, i32 noundef %1, i32 noundef %2, ptr noundef %15)
   ret i32 %16
 }
 
@@ -5283,7 +5283,7 @@ define hidden noundef i32 @hb_font_get_glyph_extents(ptr noundef %0, i32 noundef
 
 _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit: ; preds = %3, %12
   %15 = phi ptr [ %14, %12 ], [ null, %3 ]
-  %16 = tail call noundef i32 %7(ptr noundef nonnull %0, ptr noundef %9, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %15)
+  %16 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %9, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %15)
   ret i32 %16
 }
 
@@ -5309,7 +5309,7 @@ define hidden noundef i32 @hb_font_get_glyph_contour_point(ptr noundef %0, i32 n
 
 _ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit: ; preds = %5, %14
   %17 = phi ptr [ %16, %14 ], [ null, %5 ]
-  %18 = tail call noundef i32 %9(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %17)
+  %18 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %11, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %17)
   ret i32 %18
 }
 
@@ -5341,7 +5341,7 @@ define hidden noundef i32 @hb_font_get_glyph_name(ptr noundef %0, i32 noundef %1
 
 _ZN9hb_font_t14get_glyph_nameEjPcj.exit:          ; preds = %6, %15
   %18 = phi ptr [ %17, %15 ], [ null, %6 ]
-  %19 = tail call noundef i32 %10(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %18)
+  %19 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %18)
   ret i32 %19
 }
 
@@ -5376,7 +5376,7 @@ define hidden noundef i32 @hb_font_get_glyph_from_name(ptr noundef %0, ptr nound
 
 _ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit:   ; preds = %9, %18
   %21 = phi ptr [ %20, %18 ], [ null, %9 ]
-  %22 = tail call noundef i32 %13(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %1, i32 noundef %.0.i, ptr noundef nonnull %3, ptr noundef %21)
+  %22 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %15, ptr noundef %1, i32 noundef %.0.i, ptr noundef nonnull %3, ptr noundef %21)
   ret i32 %22
 }
 
@@ -5400,7 +5400,7 @@ define hidden void @hb_font_get_glyph_shape(ptr noundef %0, i32 noundef %1, ptr 
 
 hb_font_draw_glyph.exit:                          ; preds = %4, %13
   %16 = phi ptr [ %15, %13 ], [ null, %4 ]
-  tail call void %8(ptr noundef nonnull %0, ptr noundef %10, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %16)
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %10, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %16)
   ret void
 }
 
@@ -5424,7 +5424,7 @@ define hidden void @hb_font_draw_glyph(ptr noundef %0, i32 noundef %1, ptr nound
 
 _ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit: ; preds = %4, %13
   %16 = phi ptr [ %15, %13 ], [ null, %4 ]
-  tail call void %8(ptr noundef nonnull %0, ptr noundef %10, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %16)
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %10, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %16)
   ret void
 }
 
@@ -5448,7 +5448,7 @@ define hidden void @hb_font_paint_glyph(ptr noundef %0, i32 noundef %1, ptr noun
 
 _ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit: ; preds = %6, %15
   %18 = phi ptr [ %17, %15 ], [ null, %6 ]
-  tail call void %10(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %18)
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %18)
   ret void
 }
 
@@ -5477,7 +5477,7 @@ define hidden void @hb_font_get_extents_for_direction(ptr noundef %0, i32 nounde
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %15, %12
   %17 = phi ptr [ %16, %15 ], [ null, %12 ]
-  %18 = tail call noundef i32 %14(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %2, ptr noundef %17)
+  %18 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %9, ptr noundef nonnull %2, ptr noundef %17)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %_ZN9hb_font_t25get_extents_for_directionE14hb_direction_tP17hb_font_extents_t.exit
 
@@ -5504,7 +5504,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %15, 
 
 _ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %30, %27
   %33 = phi ptr [ %32, %30 ], [ null, %27 ]
-  %34 = tail call noundef i32 %29(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %2, ptr noundef %33)
+  %34 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %9, ptr noundef nonnull %2, ptr noundef %33)
   %.not.i4.i = icmp eq i32 %34, 0
   br i1 %.not.i4.i, label %35, label %_ZN9hb_font_t25get_extents_for_directionE14hb_direction_tP17hb_font_extents_t.exit
 
@@ -5556,7 +5556,7 @@ define hidden void @hb_font_get_glyph_advance_for_direction(ptr noundef %0, i32 
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %17, %14
   %20 = phi ptr [ %19, %17 ], [ null, %14 ]
-  %21 = tail call noundef i32 %16(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %1, ptr noundef %20)
+  %21 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %11, i32 noundef %1, ptr noundef %20)
   store i32 %21, ptr %3, align 4
   br label %_ZN9hb_font_t31get_glyph_advance_for_directionEj14hb_direction_tPiS1_.exit
 
@@ -5572,7 +5572,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %17, %14
 
 _ZN9hb_font_t19get_glyph_v_advanceEj.exit.i:      ; preds = %25, %22
   %28 = phi ptr [ %27, %25 ], [ null, %22 ]
-  %29 = tail call noundef i32 %24(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %1, ptr noundef %28)
+  %29 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %11, i32 noundef %1, ptr noundef %28)
   store i32 %29, ptr %4, align 4
   br label %_ZN9hb_font_t31get_glyph_advance_for_directionEj14hb_direction_tPiS1_.exit
 
@@ -5605,7 +5605,7 @@ define hidden void @hb_font_get_glyph_advances_for_direction(ptr noundef %0, i32
 
 _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit.i: ; preds = %19, %16
   %22 = phi ptr [ %21, %19 ], [ null, %16 ]
-  tail call void %18(ptr noundef nonnull %0, ptr noundef %13, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %22)
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %13, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %22)
   br label %_ZN9hb_font_t32get_glyph_advances_for_directionE14hb_direction_tjPKjjPij.exit
 
 23:                                               ; preds = %7
@@ -5620,7 +5620,7 @@ _ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit.i: ; preds = %19, %16
 
 _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit.i: ; preds = %26, %23
   %29 = phi ptr [ %28, %26 ], [ null, %23 ]
-  tail call void %25(ptr noundef nonnull %0, ptr noundef %13, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %29)
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %13, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %29)
   br label %_ZN9hb_font_t32get_glyph_advances_for_directionE14hb_direction_tjPKjjPij.exit
 
 _ZN9hb_font_t32get_glyph_advances_for_directionE14hb_direction_tjPKjjPij.exit: ; preds = %_ZN9hb_font_t20get_glyph_h_advancesEjPKjjPij.exit.i, %_ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit.i
@@ -5735,7 +5735,7 @@ define hidden void @hb_font_get_glyph_kerning_for_direction(ptr noundef %0, i32 
 
 _ZN9hb_font_t19get_glyph_h_kerningEjj.exit.i:     ; preds = %18, %11
   %21 = phi ptr [ %20, %18 ], [ null, %11 ]
-  %22 = tail call noundef i32 %14(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %1, i32 noundef %2, ptr noundef %21)
+  %22 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %15, i32 noundef %1, i32 noundef %2, ptr noundef %21)
   store i32 %22, ptr %4, align 4
   br label %_ZN9hb_font_t31get_glyph_kerning_for_directionEjj14hb_direction_tPiS1_.exit
 
@@ -5757,7 +5757,7 @@ _ZN9hb_font_t19get_glyph_h_kerningEjj.exit.i:     ; preds = %18, %11
 
 _ZN9hb_font_t19get_glyph_v_kerningEjj.exit.i:     ; preds = %30, %23
   %33 = phi ptr [ %32, %30 ], [ null, %23 ]
-  %34 = tail call noundef i32 %26(ptr noundef nonnull %0, ptr noundef %27, i32 noundef %1, i32 noundef %2, ptr noundef %33)
+  %34 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %27, i32 noundef %1, i32 noundef %2, ptr noundef %33)
   store i32 %34, ptr %5, align 4
   br label %_ZN9hb_font_t31get_glyph_kerning_for_directionEjj14hb_direction_tPiS1_.exit
 
@@ -5788,7 +5788,7 @@ define hidden noundef i32 @hb_font_get_glyph_extents_for_origin(ptr noundef %0, 
 
 _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i: ; preds = %15, %4
   %18 = phi ptr [ %17, %15 ], [ null, %4 ]
-  %19 = tail call noundef i32 %10(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %1, ptr noundef nonnull %3, ptr noundef %18)
+  %19 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %12, i32 noundef %1, ptr noundef nonnull %3, ptr noundef %18)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_ZN9hb_font_t28get_glyph_extents_for_originEj14hb_direction_tP18hb_glyph_extents_t.exit, label %20
 
@@ -5849,7 +5849,7 @@ define hidden noundef i32 @hb_font_get_glyph_contour_point_for_origin(ptr nounde
 
 _ZN9hb_font_t23get_glyph_contour_pointEjjPiS0_.exit.i: ; preds = %17, %6
   %20 = phi ptr [ %19, %17 ], [ null, %6 ]
-  %21 = tail call noundef i32 %12(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %20)
+  %21 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %14, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %20)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %_ZN9hb_font_t34get_glyph_contour_point_for_originEjj14hb_direction_tPiS1_.exit, label %22
 
@@ -5913,7 +5913,7 @@ define hidden void @hb_font_glyph_to_string(ptr noundef %0, i32 noundef %1, ptr 
 
 _ZN9hb_font_t14get_glyph_nameEjPcj.exit.i:        ; preds = %15, %6
   %18 = phi ptr [ %17, %15 ], [ null, %6 ]
-  %19 = tail call noundef i32 %10(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %18)
+  %19 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %12, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %18)
   %20 = icmp eq i32 %19, 0
   %21 = icmp ne i32 %3, 0
   %or.cond.i = and i1 %21, %20
@@ -5976,7 +5976,7 @@ define linkonce_odr hidden noundef i32 @_ZN9hb_font_t17glyph_from_stringEPKciPj(
 
 _ZN9hb_font_t19get_glyph_from_nameEPKciPj.exit:   ; preds = %15, %24
   %27 = phi ptr [ %26, %24 ], [ null, %15 ]
-  %28 = tail call noundef i32 %19(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %1, i32 noundef %.0.i, ptr noundef nonnull %3, ptr noundef %27)
+  %28 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %21, ptr noundef %1, i32 noundef %.0.i, ptr noundef nonnull %3, ptr noundef %27)
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %29, label %76
 
@@ -6104,7 +6104,7 @@ _ZL18hb_codepoint_parsePKcjiPj.exit28.thread:     ; preds = %58
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %63, %71
   %74 = phi ptr [ %73, %71 ], [ null, %63 ]
-  %75 = call noundef i32 %67(ptr noundef nonnull %0, ptr noundef %68, i32 noundef %64, ptr noundef nonnull %3, ptr noundef %74)
+  %75 = call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %68, i32 noundef %64, ptr noundef nonnull %3, ptr noundef %74)
   %.not23 = icmp eq i32 %75, 0
   br i1 %.not23, label %.tail38.thread, label %76
 
@@ -6334,10 +6334,10 @@ hb_font_reference.exit:                           ; preds = %7, %10
   %50 = getelementptr inbounds i8, ptr %spec.select, i64 128
   %51 = load ptr, ptr %50, align 8
   %52 = shl nuw nsw i64 %44, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull readonly align 1 dereferenceable(1) %51, i64 %52, i1 false), !alias.scope !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull readonly align 1 dereferenceable(1) %51, i64 range(i64 4, 17179869181) %52, i1 false), !alias.scope !13
   %53 = getelementptr inbounds i8, ptr %spec.select, i64 136
   %54 = load ptr, ptr %53, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 1 dereferenceable(1) %54, i64 %52, i1 false), !alias.scope !17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 1 dereferenceable(1) %54, i64 range(i64 4, 17179869181) %52, i1 false), !alias.scope !17
   %55 = getelementptr inbounds i8, ptr %4, i64 128
   %56 = load ptr, ptr %55, align 8
   tail call void @free(ptr noundef %56) #25
@@ -6522,8 +6522,8 @@ define hidden void @hb_font_destroy(ptr noundef %0) local_unnamed_addr #1 {
 10:                                               ; preds = %7
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #25
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(56) %11)
+  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %11) #25
   tail call void @free(ptr noundef nonnull %11) #25
   store atomic i64 0, ptr %8 monotonic, align 8
   br label %_ZL17hb_object_destroyI9hb_font_tEbPT_.exit
@@ -6620,7 +6620,7 @@ define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr nocapture noundef %
   br i1 %.not20.i, label %_ZL23hb_object_set_user_dataI9hb_font_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %16, ptr noundef null) #25
+  %18 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef null) #25
   %19 = getelementptr inbounds i8, ptr %16, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = ptrtoint ptr %16 to i64
@@ -6629,8 +6629,8 @@ define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr nocapture noundef %
   br i1 %22, label %.split.loop.exit.i, label %23
 
 23:                                               ; preds = %17
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(40) %16)
-  %24 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %16) #25
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(56) %16)
+  %24 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %16) #25
   tail call void @free(ptr noundef nonnull %16) #25
   %25 = load atomic i64, ptr %14 acquire, align 8
   %.not19.i = icmp eq i64 %25, 0
@@ -6670,7 +6670,7 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly %0, ptr noundef re
   br i1 %.not9.i, label %_ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #25
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
   %11 = getelementptr inbounds i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 44
@@ -6699,7 +6699,7 @@ define hidden ptr @hb_font_get_user_data(ptr noundef readonly %0, ptr noundef re
 
 _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, %9
   %20 = phi ptr [ %.sroa.2.0.copyload.i.i, %18 ], [ null, %9 ], [ null, %17 ]
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #25
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
   br label %_ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -7491,8 +7491,8 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
 
 .split43:                                         ; preds = %11
   %24 = shl nuw nsw i64 %12, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %24, i1 false), !alias.scope !24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %24, i1 false), !alias.scope !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %24, i1 false), !alias.scope !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %24, i1 false), !alias.scope !28
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 232
@@ -7816,7 +7816,7 @@ define hidden void @hb_font_set_var_coords_design(ptr noundef %0, ptr noundef %1
 
 18:                                               ; preds = %11
   %19 = shl nuw nsw i64 %12, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %19, i1 false), !alias.scope !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %19, i1 false), !alias.scope !37
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %18
@@ -8331,7 +8331,7 @@ _ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit: ; preds = %6, %2
   %23 = fmul float %4, %10
   %24 = fmul float %4, %12
   %25 = tail call float @llvm.fmuladd.f32(float %8, float %3, float %24)
-  tail call void %17(ptr noundef nonnull %13, ptr noundef %15, ptr noundef nonnull %2, float noundef %25, float noundef %23, ptr noundef %22)
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(48) %2, float noundef %25, float noundef %23, ptr noundef %22)
   ret void
 }
 
@@ -8372,7 +8372,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %6, %2
   %31 = fmul float %4, %10
   %32 = fmul float %4, %12
   %33 = tail call float @llvm.fmuladd.f32(float %8, float %3, float %32)
-  tail call void %24(ptr noundef nonnull %20, ptr noundef %22, ptr noundef nonnull %2, float noundef %33, float noundef %31, ptr noundef %30)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef %22, ptr noundef nonnull align 4 dereferenceable(48) %2, float noundef %33, float noundef %31, ptr noundef %30)
   ret void
 }
 
@@ -8416,7 +8416,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds =
   %36 = fmul float %4, %12
   %37 = fmul float %4, %14
   %38 = tail call float @llvm.fmuladd.f32(float %10, float %3, float %37)
-  tail call void %26(ptr noundef nonnull %22, ptr noundef %24, ptr noundef nonnull %2, float noundef %38, float noundef %36, float noundef %35, float noundef %33, ptr noundef %32)
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(48) %2, float noundef %38, float noundef %36, float noundef %35, float noundef %33, ptr noundef %32)
   ret void
 }
 
@@ -8463,7 +8463,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
   %41 = fmul float %4, %14
   %42 = fmul float %4, %16
   %43 = tail call float @llvm.fmuladd.f32(float %12, float %3, float %42)
-  tail call void %28(ptr noundef nonnull %24, ptr noundef %26, ptr noundef nonnull %2, float noundef %43, float noundef %41, float noundef %40, float noundef %38, float noundef %37, float noundef %35, ptr noundef %34)
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(48) %2, float noundef %43, float noundef %41, float noundef %40, float noundef %38, float noundef %37, float noundef %35, ptr noundef %34)
   ret void
 }
 
@@ -8486,7 +8486,7 @@ define internal void @_ZL26hb_draw_close_path_defaultP15hb_draw_funcs_tPvP15hb_d
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %4, %12
   %15 = phi ptr [ %14, %12 ], [ null, %4 ]
-  tail call void %9(ptr noundef nonnull %5, ptr noundef %7, ptr noundef nonnull %2, ptr noundef %15)
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef %15)
   ret void
 }
 
@@ -8519,7 +8519,7 @@ define linkonce_odr hidden void @_ZN9hb_font_t32get_glyph_h_origin_with_fallback
 
 _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %14
   %17 = phi ptr [ %16, %14 ], [ null, %4 ]
-  %18 = tail call noundef i32 %9(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
+  %18 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %64
 
@@ -8542,7 +8542,7 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %14
 
 _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %19, %26
   %29 = phi ptr [ %28, %26 ], [ null, %19 ]
-  %30 = tail call noundef i32 %22(ptr noundef nonnull %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
+  %30 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
   %.not9 = icmp eq i32 %30, 0
   br i1 %.not9, label %64, label %31
 
@@ -8564,7 +8564,7 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %19, %26
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
   %41 = phi ptr [ %40, %38 ], [ null, %31 ]
-  %42 = tail call noundef i32 %34(ptr noundef nonnull %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
+  %42 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
   %.neg = sdiv i32 %42, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %43 = load ptr, ptr %6, align 8
@@ -8582,7 +8582,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %49, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
   %51 = phi ptr [ %50, %49 ], [ null, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i ]
-  %52 = call noundef i32 %45(ptr noundef nonnull %0, ptr noundef %46, ptr noundef nonnull %5, ptr noundef %51)
+  %52 = call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %46, ptr noundef nonnull %5, ptr noundef %51)
   %.not.i3.i = icmp eq i32 %52, 0
   br i1 %.not.i3.i, label %53, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit_crit_edge.i
 
@@ -8636,7 +8636,7 @@ define linkonce_odr hidden void @_ZN9hb_font_t32get_glyph_v_origin_with_fallback
 
 _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %4, %14
   %17 = phi ptr [ %16, %14 ], [ null, %4 ]
-  %18 = tail call noundef i32 %9(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
+  %18 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %11, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %17)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %65
 
@@ -8659,7 +8659,7 @@ _ZN9hb_font_t18get_glyph_v_originEjPiS0_.exit:    ; preds = %4, %14
 
 _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %19, %26
   %29 = phi ptr [ %28, %26 ], [ null, %19 ]
-  %30 = tail call noundef i32 %22(ptr noundef nonnull %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
+  %30 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %23, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %29)
   %.not9 = icmp eq i32 %30, 0
   br i1 %.not9, label %65, label %31
 
@@ -8681,7 +8681,7 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %19, %26
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
   %41 = phi ptr [ %40, %38 ], [ null, %31 ]
-  %42 = tail call noundef i32 %34(ptr noundef nonnull %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
+  %42 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %35, i32 noundef %1, ptr noundef %41)
   %43 = sdiv i32 %42, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %44 = load ptr, ptr %6, align 8
@@ -8699,7 +8699,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %38, %31
 
 _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %50, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
   %52 = phi ptr [ %51, %50 ], [ null, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i ]
-  %53 = call noundef i32 %46(ptr noundef nonnull %0, ptr noundef %47, ptr noundef nonnull %5, ptr noundef %52)
+  %53 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %47, ptr noundef nonnull %5, ptr noundef %52)
   %.not.i3.i = icmp eq i32 %53, 0
   br i1 %.not.i3.i, label %54, label %_ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit_crit_edge.i
 
@@ -8975,7 +8975,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %28
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #25
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #25
   %12 = load i32, ptr %3, align 4
   %.not510 = icmp eq i32 %12, 0
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -8995,7 +8995,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !42
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #25
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #25
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -9004,7 +9004,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %20
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #25
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #25
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !45
@@ -9023,7 +9023,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9: ; preds = %._crit_edge, %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #25
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #25
   br label %28
 
 28:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -9056,7 +9056,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
   br i1 %or.cond, label %32, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #25
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 44
@@ -9098,7 +9098,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %27, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
-  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #25
+  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
   %.not.i7.i = icmp eq ptr %.sroa.2.0.copyload.i, null
   br i1 %.not.i7.i, label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit, label %30
 
@@ -9107,7 +9107,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i: ; preds = %20, %12
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #25
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 32:                                               ; preds = %9, %7
@@ -9131,7 +9131,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %3) local_unnamed_addr #1 comdat align 2 {
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #25
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #25
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
@@ -9167,7 +9167,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #25
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #25
   %.not.i = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %19
 
@@ -9176,7 +9176,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 20:                                               ; preds = %14
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #25
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #25
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread: ; preds = %13, %4
@@ -9248,7 +9248,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
   %.0.i = phi ptr [ %41, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i ], [ @_hb_CrapPool, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i ]
-  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #25
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #25
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
@@ -10234,7 +10234,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 133:                                              ; preds = %114
   %134 = zext i32 %131 to i64
   %135 = getelementptr inbounds i8, ptr %2, i64 %134
-  %136 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %135, ptr noundef nonnull %1)
+  %136 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %135, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %136, label %.thread25, label %137
 
 137:                                              ; preds = %133

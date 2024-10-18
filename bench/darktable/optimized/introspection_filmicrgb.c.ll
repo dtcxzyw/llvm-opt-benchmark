@@ -13297,7 +13297,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @filmic_v4_prepare_matrices(p
   store <8 x float> <float 0x3FFDB64C20000000, float 0xBFF4E00A80000000, float 0x3FD296DEE0000000, float 0.000000e+00, float 0x3FE3F41080000000, float 0x3FD8BDF8C0000000, float 0xBFA2E20800000000, float 0.000000e+00>, ptr %10, align 64, !tbaa !14
   store <4 x float> <float 0xBFBA5E6920000000, float 0x3FC3817380000000, float 0x3FF56C3B20000000, float 0.000000e+00>, ptr %17, align 32, !tbaa !14
   %105 = getelementptr inbounds i8, ptr %6, i64 640
-  call fastcc void @dt_colormatrix_mul(ptr noundef %1, ptr noundef nonnull readonly %105, ptr noundef nonnull %10)
+  call fastcc void @dt_colormatrix_mul(ptr noundef nonnull %1, ptr noundef nonnull readonly %105, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #21
   %106 = getelementptr inbounds i8, ptr %0, i64 32
   %107 = getelementptr inbounds i8, ptr %0, i64 48
@@ -13486,7 +13486,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @filmic_v4_prepare_matrices(p
   store <8 x float> <float 0x3FFDB64C20000000, float 0xBFF4E00A80000000, float 0x3FD296DEE0000000, float 0.000000e+00, float 0x3FE3F41080000000, float 0x3FD8BDF8C0000000, float 0xBFA2E20800000000, float 0.000000e+00>, ptr %9, align 64, !tbaa !14
   store <4 x float> <float 0xBFBA5E6920000000, float 0x3FC3817380000000, float 0x3FF56C3B20000000, float 0.000000e+00>, ptr %174, align 32, !tbaa !14
   %262 = getelementptr inbounds i8, ptr %7, i64 640
-  call fastcc void @dt_colormatrix_mul(ptr noundef %4, ptr noundef nonnull readonly %262, ptr noundef nonnull %9)
+  call fastcc void @dt_colormatrix_mul(ptr noundef nonnull %4, ptr noundef nonnull readonly %262, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #21
   %263 = getelementptr inbounds i8, ptr %3, i64 32
   %264 = getelementptr inbounds i8, ptr %3, i64 48

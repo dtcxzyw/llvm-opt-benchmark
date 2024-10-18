@@ -12182,7 +12182,7 @@ get_amqp_1_0_type_value_formatter.exit.i:         ; preds = %.lr.ph.i
   %116 = load i32, ptr %6, align 4
   %117 = load i32, ptr %7, align 4
   %118 = load ptr, ptr %8, align 8
-  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %.058, ptr noundef %1, i8 noundef zeroext %115, i32 noundef %114, i32 noundef %116, ptr noundef %112, i32 noundef %117, ptr noundef %118, ptr noundef %11, ptr noundef %77) #14
+  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %.058, ptr noundef %1, i8 noundef zeroext %115, i32 noundef %114, i32 noundef %116, ptr noundef %112, i32 noundef %117, ptr noundef %118, ptr noundef nonnull %11, ptr noundef %77) #14
   %119 = load i32, ptr %11, align 4
   %120 = add i32 %119, %113
   store i32 %120, ptr %11, align 4
@@ -12419,7 +12419,7 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   %67 = load i32, ptr %9, align 4
   %68 = load i32, ptr %10, align 4
   %69 = load ptr, ptr %11, align 8
-  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %66, i32 noundef %65, i32 noundef %67, ptr noundef %63, i32 noundef %68, ptr noundef %69, ptr noundef %14, ptr noundef %.078)
+  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %66, i32 noundef %65, i32 noundef %67, ptr noundef %63, i32 noundef %68, ptr noundef %69, ptr noundef nonnull %14, ptr noundef %.078)
   %70 = load i32, ptr %14, align 4
   %71 = add i32 %70, %64
   store i32 %71, ptr %14, align 4

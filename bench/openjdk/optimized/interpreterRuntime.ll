@@ -224,7 +224,7 @@ define hidden void @_ZN18InterpreterRuntime15set_bcp_and_mdpEPhP10JavaThread(ptr
   %3 = alloca %class.LastFrameAccessor, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i32 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24
@@ -266,7 +266,7 @@ define hidden void @_ZN18InterpreterRuntime3ldcEP10JavaThreadb(ptr noundef %0, i
   store volatile i32 6, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %4, i64 40
   %7 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 24
@@ -475,7 +475,7 @@ define hidden void @_ZN18InterpreterRuntime11resolve_ldcEP10JavaThreadN9Bytecode
   %18 = icmp eq i32 %17, 230
   %19 = getelementptr inbounds i8, ptr %3, i64 40
   %20 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i32 2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1099,7 +1099,7 @@ define hidden void @_ZN18InterpreterRuntime14multianewarrayEP10JavaThreadPi(ptr 
   store volatile i32 6, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   %8 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i32 2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 24
@@ -1409,7 +1409,7 @@ define hidden void @_ZN18InterpreterRuntime13quicken_io_ccEP10JavaThread(ptr nou
   store volatile i32 6, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   %6 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i32 2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1618,7 +1618,7 @@ define hidden void @_ZN18InterpreterRuntime9note_trapEP10JavaThreadi(ptr noundef
   %5 = alloca %class.methodHandle, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 40
   %7 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 24
@@ -1751,7 +1751,7 @@ _ZL28get_preinitialized_exceptionP5KlassP10JavaThread.exit.thread: ; preds = %1
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 22:                                               ; preds = %10
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 8, i32 noundef 0) #14
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %22, %20
@@ -1897,7 +1897,7 @@ _ZL28get_preinitialized_exceptionP5KlassP10JavaThread.exit.thread: ; preds = %1
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 22:                                               ; preds = %10
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 8, i32 noundef 0) #14
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %22, %20
@@ -2568,7 +2568,7 @@ define hidden noundef ptr @_ZN18InterpreterRuntime31exception_handler_for_except
   tail call void @_ZN17StackWatermarkSet12after_unwindEP10JavaThread(ptr noundef %0) #14
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   %10 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2600,7 +2600,7 @@ define hidden noundef ptr @_ZN18InterpreterRuntime31exception_handler_for_except
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 27:                                               ; preds = %15
-  %28 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef 8, i32 noundef 0) #14
+  %28 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %17, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %27, %25
@@ -2864,7 +2864,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %146, %156
   br label %173
 
 171:                                              ; preds = %160
-  %172 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %161, i64 noundef 8, i32 noundef 0) #14
+  %172 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %161, i64 noundef 8, i32 noundef 0) #14
   br label %173
 
 173:                                              ; preds = %171, %169
@@ -3003,7 +3003,7 @@ _ZNK6HandleclEv.exit78:                           ; preds = %_ZN12ResourceMarkD2
   br i1 %231, label %_ZN6Method19get_method_countersEP6Thread.exit.i, label %_ZN6Method19get_method_countersEP6Thread.exit.thread.i
 
 _ZN6Method19get_method_countersEP6Thread.exit.i:  ; preds = %226
-  %232 = call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef %0, ptr noundef nonnull %227) #14
+  %232 = call noundef ptr @_ZN6Method21build_method_countersEP6ThreadPS_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(88) %227) #14
   %.pre.i.i = load ptr, ptr %229, align 8
   %.not.i79 = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i79, label %_ZN6Method30interpreter_throwout_incrementEP6Thread.exit, label %_ZN6Method19get_method_countersEP6Thread.exit.thread.i
@@ -3865,7 +3865,7 @@ define hidden void @_ZN18InterpreterRuntime15resolve_get_putEP10JavaThreadN9Byte
   %5 = alloca %class.methodHandle, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 40
   %7 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 24
@@ -4233,7 +4233,7 @@ define hidden void @_ZN18InterpreterRuntime12monitorenterEP10JavaThreadP15BasicO
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 19:                                               ; preds = %7
-  %20 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef 8, i32 noundef 0) #14
+  %20 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %19, %17
@@ -4338,7 +4338,7 @@ define hidden void @_ZN18InterpreterRuntime16monitorenter_objEP10JavaThreadP7oop
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 17:                                               ; preds = %5
-  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef 8, i32 noundef 0) #14
+  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %17, %15
@@ -4552,7 +4552,7 @@ define hidden void @_ZN18InterpreterRuntime35new_illegal_monitor_state_exception
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 19:                                               ; preds = %7
-  %20 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef 8, i32 noundef 0) #14
+  %20 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %19, %17
@@ -4597,7 +4597,7 @@ _ZL28get_preinitialized_exceptionP5KlassP10JavaThread.exit.thread: ; preds = %_Z
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 39:                                               ; preds = %27
-  %40 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %29, i64 noundef 8, i32 noundef 0) #14
+  %40 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %29, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %39, %37
@@ -4939,7 +4939,7 @@ define hidden void @_ZN18InterpreterRuntime14resolve_invokeEP10JavaThreadN9Bytec
   %10 = alloca %class.methodHandle, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 40
   %12 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i32 2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 24
@@ -5051,7 +5051,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %_ZN12methodHandleC2
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 74:                                               ; preds = %62
-  %75 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %64, i64 noundef 8, i32 noundef 0) #14
+  %75 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %64, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %74, %72
@@ -5597,7 +5597,7 @@ define hidden void @_ZN18InterpreterRuntime20resolve_invokehandleEP10JavaThread(
   %4 = alloca %class.constantPoolHandle, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i32 2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 24
@@ -5726,7 +5726,7 @@ define hidden void @_ZN18InterpreterRuntime21resolve_invokedynamicEP10JavaThread
   %4 = alloca %class.constantPoolHandle, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i32 2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 24
@@ -5963,7 +5963,7 @@ define hidden noundef ptr @_ZN18InterpreterRuntime26frequency_counter_overflowEP
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 40
   %9 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store i32 2, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 24
@@ -5982,7 +5982,7 @@ define hidden noundef ptr @_ZN18InterpreterRuntime26frequency_counter_overflowEP
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %21, ptr noundef nonnull %13, i32 noundef %15, i32 noundef 0, i1 noundef zeroext false) #14
+  %22 = call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %21, ptr noundef nonnull align 8 dereferenceable(88) %13, i32 noundef %15, i32 noundef 0, i1 noundef zeroext false) #14
   %23 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
@@ -6025,7 +6025,7 @@ define hidden noundef ptr @_ZN18InterpreterRuntime32frequency_counter_overflow_i
   store i8 0, ptr %6, align 1
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   %10 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 24
@@ -6222,7 +6222,7 @@ define hidden void @_ZN18InterpreterRuntime18update_mdp_for_retEP10JavaThreadi(p
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 40
   %16 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 2, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 24
@@ -6452,7 +6452,7 @@ define hidden void @_ZN18InterpreterRuntime12at_safepointEP10JavaThread(ptr noun
   tail call void @_ZN17StackWatermarkSet13before_unwindEP10JavaThread(ptr noundef nonnull %0) #14
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i32 2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 24
@@ -6587,7 +6587,7 @@ define hidden void @_ZN18InterpreterRuntime17post_field_accessEP10JavaThreadP7oo
   br label %37
 
 30:                                               ; preds = %18
-  %31 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 noundef 8, i32 noundef 0) #14
+  %31 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %20, i64 noundef 8, i32 noundef 0) #14
   br label %37
 
 32:                                               ; preds = %16
@@ -6615,7 +6615,7 @@ _ZN18jfieldIDWorkaround11to_jfieldIDEP13InstanceKlassib.exit: ; preds = %32, %37
   %.0.i = phi ptr [ %36, %32 ], [ %44, %37 ]
   %46 = getelementptr inbounds i8, ptr %5, i64 40
   %47 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   store i32 2, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 24
@@ -6776,7 +6776,7 @@ _ZN18jfieldIDWorkaround11to_jfieldIDEP13InstanceKlassib.exit.thread: ; preds = %
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 47:                                               ; preds = %30
-  %48 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %37, i64 noundef 8, i32 noundef 0) #14
+  %48 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %37, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %45, %47
@@ -6789,7 +6789,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %45, %47
   %.sroa.023.0 = phi ptr [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN18jfieldIDWorkaround11to_jfieldIDEP13InstanceKlassib.exit.thread ]
   %50 = getelementptr inbounds i8, ptr %7, i64 40
   %51 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
   store i32 2, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %7, i64 24
@@ -6881,7 +6881,7 @@ define hidden void @_ZN18InterpreterRuntime17post_method_entryEP10JavaThread(ptr
   store volatile i32 6, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i32 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
@@ -6966,7 +6966,7 @@ define hidden void @_ZN18InterpreterRuntime16post_method_exitEP10JavaThread(ptr 
   %2 = alloca %class.LastFrameAccessor, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
@@ -7308,15 +7308,15 @@ _ZNK17GrowableArrayViewImE4findERKm.exit.thread:  ; preds = %42, %_ZN11MutexLock
   %67 = getelementptr inbounds i8, ptr %3, i64 8
   %68 = getelementptr inbounds i8, ptr %3, i64 76
   store i32 0, ptr %68, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %67, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %67, i8 0, i64 66, i1 false)
   %69 = getelementptr inbounds i8, ptr %3, i64 96
   %70 = getelementptr inbounds i8, ptr %3, i64 164
   store i32 0, ptr %70, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %69, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %69, i8 0, i64 66, i1 false)
   %71 = getelementptr inbounds i8, ptr %3, i64 184
   %72 = getelementptr inbounds i8, ptr %3, i64 252
   store i32 0, ptr %72, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %71, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %71, i8 0, i64 66, i1 false)
   %73 = getelementptr inbounds i8, ptr %3, i64 312
   call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %73, ptr noundef null, i1 noundef zeroext false) #14
   store ptr @.str.37, ptr %3, align 8
@@ -7903,7 +7903,7 @@ define hidden void @_ZN18InterpreterRuntime27popframe_move_outgoing_argsEP10Java
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 40
   %23 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store i32 2, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 24

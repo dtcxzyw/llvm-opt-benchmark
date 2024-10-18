@@ -427,7 +427,7 @@ if.end20:                                         ; preds = %if.then18, %if.end1
   br i1 %cmp, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.end20
-  call void @page_protect(i64 noundef %call2) #13
+  call void @page_protect(i64 noundef range(i64 0, -1) %call2) #13
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end20

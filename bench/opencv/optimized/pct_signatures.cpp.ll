@@ -522,7 +522,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
 
 common.resume:                                    ; preds = %36, %33
   %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %37, %36 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %26
@@ -535,7 +535,7 @@ _ZN2cv11xfeatures2d14pct_signatures26Parallel_computeSignaturesC2EPKNS0_13PCTSig
           to label %35 unwind label %36
 
 35:                                               ; preds = %_ZN2cv11xfeatures2d14pct_signatures26Parallel_computeSignaturesC2EPKNS0_13PCTSignaturesEPKSt6vectorINS_3MatESaIS7_EEPS9_.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   ret void
 
 36:                                               ; preds = %_ZN2cv11xfeatures2d14pct_signatures26Parallel_computeSignaturesC2EPKNS0_13PCTSignaturesEPKSt6vectorINS_3MatESaIS7_EEPS9_.exit
@@ -2121,7 +2121,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11xfeatures2d14pct_signatures26Parallel_computeSignaturesD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

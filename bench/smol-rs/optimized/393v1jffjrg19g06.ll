@@ -227,7 +227,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
-  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17hac3b860a52872237E)
+  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17hac3b860a52872237E)
   store i8 1, ptr %5, align 8
   br label %8
 
@@ -312,7 +312,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
-  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17hbe0e8f60d09d1955E)
+  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17hbe0e8f60d09d1955E)
   store i8 1, ptr %4, align 8
   br label %7
 
@@ -412,7 +412,7 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 9:                                                ; preds = %6
-  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17hbe0e8f60d09d1955E), !noalias !71
+  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17hbe0e8f60d09d1955E), !noalias !71
   store i8 1, ptr %7, align 8, !noalias !71
   br label %10
 
@@ -494,7 +494,7 @@ default.unreachable:                              ; preds = %7
   unreachable
 
 10:                                               ; preds = %7
-  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17hac3b860a52872237E), !noalias !88
+  tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys6common12thread_local10fast_local13destroy_value17hac3b860a52872237E), !noalias !88
   store i8 1, ptr %8, align 8, !noalias !88
   br label %11
 

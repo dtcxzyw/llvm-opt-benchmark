@@ -141,7 +141,7 @@ define dso_local noundef zeroext i1 @_ZN5clang14analyze_os_log24computeOSLogBuff
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_124OSLogFormatStringHandlerE, i64 16), ptr %21, align 8
   %59 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %60 = getelementptr inbounds i8, ptr %21, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull %60, i64 noundef 4) #9
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(400) %59, ptr noundef nonnull %60, i64 noundef 4) #9
   %61 = getelementptr inbounds nuw i8, ptr %21, i64 408
   store ptr %45, ptr %61, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 416
@@ -178,7 +178,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
-  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(240) %2) #9
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %72, align 8
   %.val.i = load ptr, ptr %59, align 8
@@ -200,7 +200,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   store i32 7, ptr %5, align 4
   store ptr null, ptr %6, align 8
   store i32 0, ptr %7, align 4
-  %80 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindEDnRNS1_9CharUnitsEiRKNS_9StringRefEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(16) %79)
+  %80 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindEDnRNS1_9CharUnitsEiRKNS_9StringRefEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(16) %79)
   br label %81
 
 81:                                               ; preds = %78, %.lr.ph.i
@@ -218,7 +218,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   store i64 %89, ptr %8, align 8
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  %90 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsEiEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %90 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsEiEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %10)
   br label %91
 
 91:                                               ; preds = %85, %81
@@ -236,7 +236,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   store i64 %99, ptr %11, align 8
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 4
-  %100 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsEiEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %100 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsEiEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %13)
   br label %101
 
 101:                                              ; preds = %95, %91
@@ -254,7 +254,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   store i64 %109, ptr %14, align 8
   store i32 1, ptr %15, align 4
   store i32 0, ptr %16, align 4
-  %110 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsEiEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %110 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsEiEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %16)
   br label %111
 
 111:                                              ; preds = %105, %101
@@ -269,7 +269,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   %118 = zext i32 %117 to i64
   store i64 %118, ptr %17, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.055.i, i64 72
-  %120 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJRNS1_10ASTContextENS1_9CharUnitsERKhEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %119)
+  %120 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJRNS1_10ASTContextENS1_9CharUnitsERKhEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %119)
   br label %121
 
 121:                                              ; preds = %115, %111
@@ -296,7 +296,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   %storemerge.i = phi i64 [ %132, %129 ], [ 0, %126 ]
   store i64 %storemerge.i, ptr %18, align 8
   %134 = getelementptr inbounds nuw i8, ptr %.055.i, i64 72
-  %135 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJRKNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsERKhEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %122, ptr noundef nonnull align 8 dereferenceable(8) %.055.i, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(1) %134)
+  %135 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJRKNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsERKhEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 4 dereferenceable(4) %122, ptr noundef nonnull align 8 dereferenceable(8) %.055.i, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(1) %134)
   br label %142
 
 136:                                              ; preds = %121
@@ -307,7 +307,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   store i64 %139, ptr %19, align 8
   store i32 0, ptr %20, align 4
   %140 = getelementptr inbounds nuw i8, ptr %.055.i, i64 72
-  %141 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsERKhEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %.055.i, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %140)
+  %141 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsERKhEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(8) %.055.i, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %140)
   br label %142
 
 142:                                              ; preds = %136, %133
@@ -334,7 +334,7 @@ _ZNK12_GLOBAL__N_124OSLogFormatStringHandler13computeLayoutERN5clang10ASTContext
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_124OSLogFormatStringHandlerE, i64 16), ptr %21, align 8
-  %144 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #9
+  %144 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %59) #9
   %145 = load ptr, ptr %59, align 8
   %146 = icmp eq ptr %145, %60
   br i1 %146, label %_ZN12_GLOBAL__N_124OSLogFormatStringHandlerD2Ev.exit, label %147
@@ -344,7 +344,7 @@ _ZNK12_GLOBAL__N_124OSLogFormatStringHandler13computeLayoutERN5clang10ASTContext
   br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandlerD2Ev.exit
 
 _ZN12_GLOBAL__N_124OSLogFormatStringHandlerD2Ev.exit: ; preds = %_ZNK12_GLOBAL__N_124OSLogFormatStringHandler13computeLayoutERN5clang10ASTContextERNS1_14analyze_os_log17OSLogBufferLayoutE.exit, %147
-  call void @_ZN5clang21analyze_format_string19FormatStringHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #9
+  call void @_ZN5clang21analyze_format_string19FormatStringHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %21) #9
   ret i1 true
 }
 
@@ -359,7 +359,7 @@ declare noundef zeroext i1 @_ZN5clang21analyze_format_string17ParsePrintfStringE
 define internal void @_ZN12_GLOBAL__N_124OSLogFormatStringHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_124OSLogFormatStringHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #9
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = icmp eq ptr %4, %5
@@ -381,7 +381,7 @@ declare noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull alig
 define internal void @_ZN12_GLOBAL__N_124OSLogFormatStringHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_124OSLogFormatStringHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #9
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #9
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = icmp eq ptr %4, %5
@@ -392,7 +392,7 @@ define internal void @_ZN12_GLOBAL__N_124OSLogFormatStringHandlerD0Ev(ptr nounde
   br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandlerD2Ev.exit
 
 _ZN12_GLOBAL__N_124OSLogFormatStringHandlerD2Ev.exit: ; preds = %1, %7
-  tail call void @_ZN5clang21analyze_format_string19FormatStringHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
+  tail call void @_ZN5clang21analyze_format_string19FormatStringHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #9
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 424) #11
   ret void
 }

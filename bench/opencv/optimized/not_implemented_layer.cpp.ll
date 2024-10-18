@@ -369,7 +369,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %2) #18
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #18
   ret void
 }
 
@@ -923,7 +923,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v202405216detail18NotImplement
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v202405216detail18NotImplementedImplD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #18
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }

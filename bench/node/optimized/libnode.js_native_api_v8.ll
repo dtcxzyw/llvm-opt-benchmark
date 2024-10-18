@@ -416,7 +416,7 @@ _ZN6v8impl16TrackedFinalizerD0Ev.exit:            ; preds = %if.end.i.i.i, %if.t
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(64) %0) #26
   ret void
 }
 
@@ -837,7 +837,7 @@ delete.notnull.i.i:                               ; preds = %if.end.i.i
   %vtable3.i.i = load ptr, ptr %0, align 8
   %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 8
   %9 = load ptr, ptr %vfn4.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %0) #24
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
   br label %_ZN6v8impl7RefBase8FinalizeEv.exit
 
 _ZN6v8impl7RefBase8FinalizeEv.exit:               ; preds = %if.end.i.i, %delete.notnull.i.i
@@ -1050,7 +1050,7 @@ _ZN6v8impl9ReferenceD0Ev.exit:                    ; preds = %if.end.i.i.i.i.i, %
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(189) %4, ptr noundef nonnull %this) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(81) %0) #26
   ret void
 }
 
@@ -1162,7 +1162,7 @@ if.then:                                          ; preds = %_ZN6v8impl12_GLOBAL
 
 if.then.i:                                        ; preds = %if.then.thread, %if.then
   %13 = phi ptr [ %11, %if.then.thread ], [ %12, %if.then ]
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %13, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
@@ -1236,7 +1236,7 @@ if.then5:                                         ; preds = %_ZN6v8impl7RefBase5
   br i1 %tobool.i, label %if.then.i, label %if.end.i.i
 
 if.then.i:                                        ; preds = %if.then5
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %0, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
   br label %return
 
 if.end.i.i:                                       ; preds = %if.then5
@@ -1365,7 +1365,7 @@ delete.notnull.i.i:                               ; preds = %if.end.i.i
   %vtable3.i.i = load ptr, ptr %this, align 8
   %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 8
   %9 = load ptr, ptr %vfn4.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(72) %this) #24
   br label %_ZN6v8impl7RefBase8FinalizeEv.exit
 
 _ZN6v8impl7RefBase8FinalizeEv.exit:               ; preds = %if.end.i.i, %delete.notnull.i.i
@@ -1440,7 +1440,7 @@ delete.notnull.i.i.i:                             ; preds = %if.end.i.i.i
   %vtable3.i.i.i = load ptr, ptr %0, align 8
   %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 8
   %10 = load ptr, ptr %vfn4.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(64) %0) #24
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(81) %0) #24
   br label %_ZN6v8impl9Reference8FinalizeEv.exit
 
 _ZN6v8impl9Reference8FinalizeEv.exit:             ; preds = %if.end.i.i.i, %delete.notnull.i.i.i
@@ -1614,7 +1614,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -1694,7 +1694,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 cleanup98:                                        ; preds = %cleanup, %if.then24, %if.then18
   %retval.1 = phi i32 [ %retval.2, %cleanup ], [ 1, %if.then24 ], [ 1, %if.then18 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup98
@@ -1702,7 +1702,7 @@ if.then.i45:                                      ; preds = %cleanup98
   %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
   %isolate.i47 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %isolate.i47, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %11 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -1723,7 +1723,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup98, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -1880,7 +1880,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -2143,7 +2143,7 @@ cleanup298:                                       ; preds = %if.then162, %do.bod
 
 cleanup299:                                       ; preds = %cleanup298, %if.then33, %if.then24, %if.then18
   %retval.1 = phi i32 [ %retval.2, %cleanup298 ], [ 1, %if.then33 ], [ 1, %if.then24 ], [ 1, %if.then18 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i94, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i94:                                      ; preds = %cleanup299
@@ -2151,7 +2151,7 @@ if.then.i94:                                      ; preds = %cleanup299
   %last_exception.i = getelementptr inbounds i8, ptr %24, i64 24
   %isolate.i96 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %isolate.i96, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %26 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -2172,7 +2172,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup299, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -2531,7 +2531,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp16 = icmp eq i64 %property_count, 0
@@ -2815,7 +2815,7 @@ cond.false:                                       ; preds = %for.end
 
 cleanup274:                                       ; preds = %if.then142, %do.body90, %do.body77, %cleanup194.thread, %cleanup.thread, %if.then33.i, %if.then14.i, %cond.false, %for.end, %if.then262, %if.then51, %if.then31, %if.then20
   %retval.1 = phi i32 [ 2, %if.then51 ], [ %cond264, %if.then262 ], [ 1, %if.then31 ], [ 1, %if.then20 ], [ 10, %cond.false ], [ 0, %for.end ], [ 9, %if.then14.i ], [ 4, %if.then33.i ], [ %cond136, %cleanup.thread ], [ %cond189, %cleanup194.thread ], [ %call148, %if.then142 ], [ %call94, %do.body90 ], [ %call80, %do.body77 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i96, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i96:                                      ; preds = %cleanup274
@@ -2823,7 +2823,7 @@ if.then.i96:                                      ; preds = %cleanup274
   %last_exception.i = getelementptr inbounds i8, ptr %29, i64 24
   %isolate.i98 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %isolate.i98, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %31 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i99 = icmp eq ptr %31, null
   br i1 %cmp.i.i.i99, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -2844,7 +2844,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup274, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -2920,7 +2920,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -2985,7 +2985,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i55, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i55:                                      ; preds = %cleanup
@@ -2993,7 +2993,7 @@ if.then.i55:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i57 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i57, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -3014,7 +3014,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3087,7 +3087,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3134,7 +3134,7 @@ cleanup.sink.split:                               ; preds = %do.end98, %do.end39
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end98
   %retval.1 = phi i32 [ 0, %do.end98 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i43:                                      ; preds = %cleanup
@@ -3142,7 +3142,7 @@ if.then.i43:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
   %isolate.i45 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i45, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -3163,7 +3163,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3234,7 +3234,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -3283,7 +3283,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %do.en
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
   %retval.1 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i43:                                      ; preds = %cleanup
@@ -3291,7 +3291,7 @@ if.then.i43:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
   %isolate.i45 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %isolate.i45, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %11 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -3312,7 +3312,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3383,7 +3383,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3429,7 +3429,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i43:                                      ; preds = %cleanup
@@ -3437,7 +3437,7 @@ if.then.i43:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i45 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i45, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -3458,7 +3458,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3529,7 +3529,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3583,7 +3583,7 @@ cleanup.sink.split:                               ; preds = %if.end87, %do.end36
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end87
   %retval.1 = phi i32 [ 0, %if.end87 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i39:                                      ; preds = %cleanup
@@ -3591,7 +3591,7 @@ if.then.i39:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
   %isolate.i41 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %isolate.i41, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %11 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -3612,7 +3612,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3683,7 +3683,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3736,7 +3736,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %_ZN2v
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
   %retval.1 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i47, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i47:                                      ; preds = %cleanup
@@ -3744,7 +3744,7 @@ if.then.i47:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
   %isolate.i49 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %isolate.i49, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %11 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -3765,7 +3765,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3838,7 +3838,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -3893,7 +3893,7 @@ cleanup.sink.split:                               ; preds = %do.end125, %do.end7
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end125
   %retval.1 = phi i32 [ 0, %do.end125 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i49:                                      ; preds = %cleanup
@@ -3901,7 +3901,7 @@ if.then.i49:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
   %isolate.i51 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i51, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -3922,7 +3922,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3991,7 +3991,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4048,7 +4048,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %do.en
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
   %retval.1 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i49:                                      ; preds = %cleanup
@@ -4056,7 +4056,7 @@ if.then.i49:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
   %isolate.i51 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %isolate.i51, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %12 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -4077,7 +4077,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4146,7 +4146,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4200,7 +4200,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i49:                                      ; preds = %cleanup
@@ -4208,7 +4208,7 @@ if.then.i49:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
   %isolate.i51 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i51, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -4229,7 +4229,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4298,7 +4298,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -4343,7 +4343,7 @@ cleanup.sink.split:                               ; preds = %do.end83, %do.end32
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end83
   %retval.1 = phi i32 [ 0, %do.end83 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -4351,7 +4351,7 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
   %isolate.i40 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -4372,7 +4372,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4443,7 +4443,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4490,7 +4490,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %do.en
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
   %retval.1 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -4498,7 +4498,7 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
   %isolate.i40 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %11 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -4519,7 +4519,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4590,7 +4590,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4634,7 +4634,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -4642,7 +4642,7 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i40 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -4663,7 +4663,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4734,7 +4734,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -4784,7 +4784,7 @@ cleanup.sink.split:                               ; preds = %if.end72, %do.end25
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end72
   %retval.1 = phi i32 [ 0, %if.end72 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i34, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i34:                                      ; preds = %cleanup
@@ -4792,7 +4792,7 @@ if.then.i34:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
   %isolate.i36 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %isolate.i36, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %11 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -4813,7 +4813,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4899,7 +4899,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -4940,7 +4940,7 @@ cleanup.sink.split:                               ; preds = %do.end68, %do.end25
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end68
   %retval.1 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i33:                                      ; preds = %cleanup
@@ -4948,7 +4948,7 @@ if.then.i33:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
   %isolate.i35 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i35, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -4969,7 +4969,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5040,7 +5040,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -5081,7 +5081,7 @@ cleanup.sink.split:                               ; preds = %do.end68, %do.end25
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end68
   %retval.1 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i33:                                      ; preds = %cleanup
@@ -5089,7 +5089,7 @@ if.then.i33:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
   %isolate.i35 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i35, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -5110,7 +5110,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5242,7 +5242,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -5272,7 +5272,7 @@ cleanup.sink.split:                               ; preds = %do.end39, %do.end28
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end39
   %retval.1 = phi i32 [ 0, %do.end39 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -5280,7 +5280,7 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i33 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -5301,7 +5301,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5372,7 +5372,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %lhs, null
@@ -5401,7 +5401,7 @@ cleanup.sink.split:                               ; preds = %do.end35, %do.end14
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end35
   %retval.1 = phi i32 [ 0, %do.end35 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i32:                                      ; preds = %cleanup
@@ -5409,7 +5409,7 @@ if.then.i32:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i34 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i34, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -5430,7 +5430,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5501,7 +5501,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -5534,7 +5534,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i33:                                      ; preds = %cleanup
@@ -5542,7 +5542,7 @@ if.then.i33:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i35 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i35, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -5563,7 +5563,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -6685,7 +6685,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp ne ptr %words, null
@@ -6725,7 +6725,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -6733,7 +6733,7 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i40 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -6754,7 +6754,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8017,7 +8017,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %recv, null
@@ -8106,7 +8106,7 @@ if.end98:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %if.end98, %if.then80, %if.then54, %if.then42, %if.then26, %if.then18
   %retval.1 = phi i32 [ %cond82, %if.then80 ], [ 0, %if.end98 ], [ 1, %if.then54 ], [ 1, %if.then42 ], [ 1, %if.then26 ], [ 1, %if.then18 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i42, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i42:                                      ; preds = %cleanup
@@ -8114,7 +8114,7 @@ if.then.i42:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i44 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i44, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -8135,7 +8135,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8257,7 +8257,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %error, null
@@ -8280,7 +8280,7 @@ do.end21:                                         ; preds = %do.end14
 
 cleanup:                                          ; preds = %do.end21, %if.then18
   %retval.1 = phi i32 [ 0, %do.end21 ], [ 1, %if.then18 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i21, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i21:                                      ; preds = %cleanup
@@ -8288,7 +8288,7 @@ if.then.i21:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
   %isolate.i23 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i23, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -8309,7 +8309,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8380,7 +8380,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %6 = load ptr, ptr %isolate.i, align 8
@@ -8453,7 +8453,7 @@ do.end62:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
   %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -8461,7 +8461,7 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
   %isolate.i33 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %12 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i34 = icmp eq ptr %12, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -8482,7 +8482,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8551,7 +8551,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %6 = load ptr, ptr %isolate.i, align 8
@@ -8624,7 +8624,7 @@ do.end62:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
   %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -8632,7 +8632,7 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
   %isolate.i33 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %12 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i34 = icmp eq ptr %12, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -8653,7 +8653,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8722,7 +8722,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %6 = load ptr, ptr %isolate.i, align 8
@@ -8795,7 +8795,7 @@ do.end62:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
   %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -8803,7 +8803,7 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
   %isolate.i33 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %12 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i34 = icmp eq ptr %12, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -8824,7 +8824,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8893,7 +8893,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %6 = load ptr, ptr %isolate.i, align 8
@@ -8966,7 +8966,7 @@ do.end62:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
   %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -8974,7 +8974,7 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
   %isolate.i33 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %12 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i34 = icmp eq ptr %12, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -8995,7 +8995,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -10238,7 +10238,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10265,7 +10265,7 @@ cleanup.sink.split:                               ; preds = %do.end28, %do.end14
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end28
   %retval.1 = phi i32 [ 0, %do.end28 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i28, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i28:                                      ; preds = %cleanup
@@ -10273,7 +10273,7 @@ if.then.i28:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
   %isolate.i30 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i30, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -10294,7 +10294,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -10365,7 +10365,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10397,7 +10397,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i35:                                      ; preds = %cleanup
@@ -10405,7 +10405,7 @@ if.then.i35:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i37 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i37, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -10426,7 +10426,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -10497,7 +10497,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10529,7 +10529,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i35:                                      ; preds = %cleanup
@@ -10537,7 +10537,7 @@ if.then.i35:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i37 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i37, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -10558,7 +10558,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -10627,7 +10627,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10659,7 +10659,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i35:                                      ; preds = %cleanup
@@ -10667,7 +10667,7 @@ if.then.i35:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i37 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i37, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -10688,7 +10688,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -10760,7 +10760,7 @@ do.end14.i:                                       ; preds = %do.body8.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   %isolate.i.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch.i, ptr noundef %5) #24
   %_env.i.i = getelementptr inbounds i8, ptr %try_catch.i, i64 48
   store ptr %env, ptr %_env.i.i, align 8
   %cmp17.not.i = icmp eq ptr %js_object, null
@@ -10871,7 +10871,7 @@ cleanup.sink.split.i:                             ; preds = %do.end140.i, %do.bo
 
 cleanup.i:                                        ; preds = %cleanup.sink.split.i, %do.end140.i
   %retval.1.i = phi i32 [ 0, %do.end140.i ], [ %.sink.i, %cleanup.sink.split.i ]
-  %call.i.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
+  %call.i.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch.i) #24
   br i1 %call.i.i, label %if.then.i50.i, label %_ZN6v8impl8TryCatchD2Ev.exit.i
 
 if.then.i50.i:                                    ; preds = %cleanup.i
@@ -10879,7 +10879,7 @@ if.then.i50.i:                                    ; preds = %cleanup.i
   %last_exception.i.i = getelementptr inbounds i8, ptr %23, i64 24
   %isolate.i52.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %isolate.i52.i, align 8
-  %call3.i.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
+  %call3.i.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch.i) #24
   %25 = load ptr, ptr %last_exception.i.i, align 8
   %cmp.i.i.i53.i = icmp eq ptr %25, null
   br i1 %cmp.i.i.i53.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i, label %if.end.i.i.i.i
@@ -10900,7 +10900,7 @@ if.end.i7.i.i:                                    ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit.i
 
 _ZN6v8impl8TryCatchD2Ev.exit.i:                   ; preds = %if.end.i7.i.i, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i, %cleanup.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch.i) #24
   br label %_ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit
 
 _ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit: ; preds = %entry, %if.then4.i, %if.then10.i, %_ZN6v8impl8TryCatchD2Ev.exit.i
@@ -10977,7 +10977,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %js_object, null
@@ -11085,7 +11085,7 @@ cleanup.sink.split:                               ; preds = %if.end134, %_ZN2v81
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end134
   %retval.1 = phi i32 [ 0, %if.end134 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup
@@ -11093,7 +11093,7 @@ if.then.i45:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %14, i64 24
   %isolate.i47 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %isolate.i47, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %16 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i48 = icmp eq ptr %16, null
   br i1 %cmp.i.i.i48, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -11114,7 +11114,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -11195,7 +11195,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -11243,7 +11243,7 @@ if.end35:                                         ; preds = %if.then29, %do.end2
 
 cleanup:                                          ; preds = %if.end35, %if.then18
   %retval.1 = phi i32 [ 0, %if.end35 ], [ 1, %if.then18 ]
-  %call.i24 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i24 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i24, label %if.then.i25, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i25:                                      ; preds = %cleanup
@@ -11251,7 +11251,7 @@ if.then.i25:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
   %isolate.i27 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i27, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -11272,7 +11272,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -11343,7 +11343,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -11464,7 +11464,7 @@ cleanup.sink.split:                               ; preds = %do.end160, %if.then
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end160
   %retval.1 = phi i32 [ 0, %do.end160 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i60, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i60:                                      ; preds = %cleanup
@@ -11472,7 +11472,7 @@ if.then.i60:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %20, i64 24
   %isolate.i62 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %isolate.i62, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %22 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i63 = icmp eq ptr %22, null
   br i1 %cmp.i.i.i63, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -11493,7 +11493,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -11605,7 +11605,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
@@ -11719,7 +11719,7 @@ cleanup.sink.split:                               ; preds = %cleanup.sink.split.
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end152
   %retval.1 = phi i32 [ 0, %if.end152 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i51, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i51:                                      ; preds = %cleanup
@@ -11727,7 +11727,7 @@ if.then.i51:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %19, i64 24
   %isolate.i53 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %isolate.i53, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %21 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -11748,7 +11748,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -12134,7 +12134,7 @@ if.then5.i:                                       ; preds = %_ZN6v8impl7RefBase5
   br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i.i
 
 if.then.i.i:                                      ; preds = %if.then5.i
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %3, ptr noundef nonnull %ref, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(81) %ref, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
   br label %_ZN6v8impl9Reference5UnrefEv.exit
 
 if.end.i.i.i:                                     ; preds = %if.then5.i
@@ -12384,7 +12384,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   %call8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %2 = load ptr, ptr %isolate, align 8
-  tail call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %2) #24
+  tail call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(33) %call8, ptr noundef %2) #24
   %escape_called_.i = getelementptr inbounds i8, ptr %call8, i64 32
   store i8 0, ptr %escape_called_.i, align 8
   store ptr %call8, ptr %result, align 8
@@ -12443,7 +12443,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %do.end7
-  tail call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
+  tail call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %scope) #24
   tail call void @_ZdlPv(ptr noundef nonnull %scope) #26
   %3 = load i32, ptr %open_handle_scopes, align 8
   %dec = add nsw i32 %3, -1
@@ -12526,7 +12526,7 @@ do.end19:                                         ; preds = %do.body14
 
 if.then22:                                        ; preds = %do.end19
   store i8 1, ptr %2, align 8
-  %call4.i.i = tail call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef nonnull %escapee) #24
+  %call4.i.i = tail call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(33) %scope, ptr noundef nonnull %escapee) #24
   store ptr %call4.i.i, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -12607,7 +12607,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %constructor, null
@@ -12650,7 +12650,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup
@@ -12658,7 +12658,7 @@ if.then.i45:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i47 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i47, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -12679,7 +12679,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -12750,7 +12750,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %object, null
@@ -12803,7 +12803,7 @@ cleanup.sink.split:                               ; preds = %_ZNKR2v85MaybeIbE8F
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZNKR2v85MaybeIbE8FromJustEv.exit
   %retval.1 = phi i32 [ 0, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i50, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i50:                                      ; preds = %cleanup
@@ -12811,7 +12811,7 @@ if.then.i50:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
   %isolate.i52 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i52, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -12832,7 +12832,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -13106,7 +13106,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -13140,7 +13140,7 @@ cleanup.sink.split:                               ; preds = %if.end30, %do.end14
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end30
   %retval.1 = phi i32 [ 0, %if.end30 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i24, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i24:                                      ; preds = %cleanup
@@ -13148,7 +13148,7 @@ if.then.i24:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
   %isolate.i26 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i26, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -13169,7 +13169,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -13612,7 +13612,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %arraybuffer, null
@@ -13891,7 +13891,7 @@ cleanup.sink.split:                               ; preds = %sw.epilog, %do.end3
 
 cleanup:                                          ; preds = %cleanup.sink.split, %sw.epilog
   %retval.1 = phi i32 [ 0, %sw.epilog ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i190, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i190:                                     ; preds = %cleanup
@@ -13899,7 +13899,7 @@ if.then.i190:                                     ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i192 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i192, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -13920,7 +13920,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -14039,7 +14039,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %arraybuffer, null
@@ -14079,7 +14079,7 @@ cleanup.sink.split:                               ; preds = %if.end50, %do.end28
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end50
   %retval.1 = phi i32 [ 0, %if.end50 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -14087,7 +14087,7 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i40 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -14108,7 +14108,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -14374,7 +14374,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %deferred, null
@@ -14413,7 +14413,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i39:                                      ; preds = %cleanup
@@ -14421,7 +14421,7 @@ if.then.i39:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
   %isolate.i41 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i41, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -14442,7 +14442,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -14522,7 +14522,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -14587,7 +14587,7 @@ cleanup.sink.split:                               ; preds = %do.end67, %_ZN2v86G
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end67
   %retval.1 = phi i32 [ 0, %do.end67 ], [ %.sink, %cleanup.sink.split ]
-  %call.i37 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i37 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i37, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i39:                                      ; preds = %cleanup
@@ -14595,7 +14595,7 @@ if.then.i39:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
   %isolate.i41 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i41, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -14616,7 +14616,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -14755,7 +14755,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -14785,7 +14785,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i28, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i28:                                      ; preds = %cleanup
@@ -14793,7 +14793,7 @@ if.then.i28:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i30 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i30, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -14814,7 +14814,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -14948,7 +14948,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -14978,7 +14978,7 @@ cleanup.sink.split:                               ; preds = %do.end39, %do.end28
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end39
   %retval.1 = phi i32 [ 0, %do.end39 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -14986,7 +14986,7 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %6, i64 24
   %isolate.i33 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %8 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -15007,7 +15007,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -15078,7 +15078,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %5) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(56) %try_catch, ptr noundef %5) #24
   %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %script, null
@@ -15131,7 +15131,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup
@@ -15139,7 +15139,7 @@ if.then.i45:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
   %isolate.i47 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i47, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
@@ -15160,7 +15160,7 @@ if.end.i7.i:                                      ; preds = %_ZN2v814PersistentB
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -15777,7 +15777,7 @@ _ZN6v8impl7RefBaseD0Ev.exit:                      ; preds = %if.end.i.i.i.i, %if
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %0) #26
   ret void
 }
 
@@ -15830,7 +15830,7 @@ entry:
   %7 = load i32, ptr %open_callback_scopes.i.i, align 4
   %last_error.i.i.i = getelementptr inbounds i8, ptr %4, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
-  %call.i3.i.i = call noundef ptr %5(ptr noundef nonnull %4, ptr noundef nonnull %cbwrapper) #24
+  %call.i3.i.i = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(189) %4, ptr noundef nonnull align 8 dereferenceable(48) %cbwrapper) #24
   %8 = load i32, ptr %open_handle_scopes.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %8, %6
   br i1 %cmp.not.i.i, label %do.body8.i.i, label %do.body6.i.i
@@ -15894,7 +15894,7 @@ if.then.i:                                        ; preds = %_ZN10napi_env__14Ca
   %vtable.i = load ptr, ptr %cbwrapper, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %17 = load ptr, ptr %vfn.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %cbwrapper, ptr noundef nonnull %call.i3.i.i) #24
+  call void %17(ptr noundef nonnull align 8 dereferenceable(48) %cbwrapper, ptr noundef nonnull %call.i3.i.i) #24
   br label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit
 
 _ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit: ; preds = %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i, %if.end.i.i.i, %_ZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_.exit.i, %if.then.i
@@ -16420,7 +16420,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
 
 _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %11) #26
   ret void
 }
 
@@ -16586,7 +16586,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
 
 _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   ret void
 }
 
@@ -16884,7 +16884,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD0Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(64) %0) #26
   ret void
 }
 
@@ -17171,7 +17171,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
 
 _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %11) #26
   ret void
 }
 
@@ -17305,7 +17305,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
 
 _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   ret void
 }
 

@@ -51,7 +51,7 @@ define range(i32 -18, 1) i32 @ompi_datatype_get_elements(ptr noundef %0, i64 nou
   br i1 %.not29, label %31, label %23
 
 23:                                               ; preds = %22
-  %24 = tail call i64 @opal_datatype_get_element_count(ptr noundef nonnull %0, i64 noundef %.recomposed) #2
+  %24 = tail call i64 @opal_datatype_get_element_count(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %.recomposed) #2
   %25 = and i64 %24, 4294967295
   %26 = icmp eq i64 %25, 4294967295
   br i1 %26, label %32, label %27

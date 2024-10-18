@@ -1148,7 +1148,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %0, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #9
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -1160,7 +1160,7 @@ entry:
   store ptr %3, ptr %1, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %handle_wrap_queue_.i.i, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %next_.i.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #9
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #9
   ret void
 }
 
@@ -1285,7 +1285,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i.i) #9
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %0, align 8
   %handle_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
@@ -1297,7 +1297,7 @@ entry:
   store ptr %3, ptr %1, align 8
   store ptr %handle_wrap_queue_.i.i.i, ptr %handle_wrap_queue_.i.i.i, align 8
   store ptr %handle_wrap_queue_.i.i.i, ptr %next_.i.i.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #9
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #9
   ret void
 }
 
@@ -1351,7 +1351,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %0, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #9
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -1363,7 +1363,7 @@ entry:
   store ptr %3, ptr %1, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %handle_wrap_queue_.i.i, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %next_.i.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #9
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #9
   ret void
 }
 
@@ -1381,7 +1381,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i.i) #9
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %0, align 8
   %handle_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
@@ -1393,7 +1393,7 @@ entry:
   store ptr %3, ptr %1, align 8
   store ptr %handle_wrap_queue_.i.i.i, ptr %handle_wrap_queue_.i.i.i, align 8
   store ptr %handle_wrap_queue_.i.i.i, ptr %next_.i.i.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #9
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) #9
   ret void
 }
 

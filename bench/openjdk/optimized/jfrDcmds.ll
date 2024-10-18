@@ -619,7 +619,7 @@ _ZL23construct_dcmd_instanceP16JfrJavaArgumentsP10JavaThread.exit: ; preds = %13
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 32:                                               ; preds = %20
-  %33 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %22, i64 noundef 8, i32 noundef 0) #14
+  %33 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %32, %30
@@ -994,8 +994,8 @@ _ZL24handle_pending_exceptionP12outputStreambP7oopDesc.exit: ; preds = %18, %21
   %45 = shl nuw nsw i64 %indvars.iv.i, %.7.i.i
   %46 = add nuw nsw i64 %44, %45
   %47 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %48 = tail call noundef ptr %47(ptr noundef nonnull %1, i64 noundef %46) #14
-  %49 = tail call noundef ptr @_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb(ptr noundef %48, ptr noundef %3, i1 noundef zeroext false) #14
+  %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %46) #14
+  %49 = tail call noundef ptr @_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb(ptr noundef %48, ptr noundef nonnull %3, i1 noundef zeroext false) #14
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZL13print_messageP12outputStreamP7oopDescP10JavaThread.exit, label %51
 
@@ -1182,15 +1182,15 @@ _ZN26GrowableArrayWithAllocatorIP16DCmdArgumentInfo13GrowableArrayIS1_EE6appendE
   %67 = shl nuw nsw i64 %indvars.iv, %.7.i
   %68 = add nuw nsw i64 %66, %67
   %69 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %70 = call noundef ptr %69(ptr noundef nonnull %53, i64 noundef %68) #14
+  %70 = call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(16) %53, i64 noundef %68) #14
   %71 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %72 = call fastcc noundef ptr @_ZL17read_string_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.106, ptr noundef %5)
-  %73 = call fastcc noundef ptr @_ZL17read_string_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.107, ptr noundef %5)
-  %74 = call fastcc noundef ptr @_ZL17read_string_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.108, ptr noundef %5)
-  %75 = call fastcc noundef ptr @_ZL17read_string_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.109, ptr noundef %5)
-  %76 = call fastcc noundef zeroext i1 @_ZL18read_boolean_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.110, ptr noundef %5)
-  %77 = call fastcc noundef zeroext i1 @_ZL18read_boolean_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.111, ptr noundef %5)
-  %78 = call fastcc noundef zeroext i1 @_ZL18read_boolean_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.112, ptr noundef %5)
+  %72 = call fastcc noundef ptr @_ZL17read_string_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.106, ptr noundef nonnull %5)
+  %73 = call fastcc noundef ptr @_ZL17read_string_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.107, ptr noundef nonnull %5)
+  %74 = call fastcc noundef ptr @_ZL17read_string_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.108, ptr noundef nonnull %5)
+  %75 = call fastcc noundef ptr @_ZL17read_string_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.109, ptr noundef nonnull %5)
+  %76 = call fastcc noundef zeroext i1 @_ZL18read_boolean_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.110, ptr noundef nonnull %5)
+  %77 = call fastcc noundef zeroext i1 @_ZL18read_boolean_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.111, ptr noundef nonnull %5)
+  %78 = call fastcc noundef zeroext i1 @_ZL18read_boolean_fieldP7oopDescPKcP10JavaThread(ptr noundef %70, ptr noundef nonnull @.str.112, ptr noundef nonnull %5)
   %79 = zext i1 %76 to i8
   %80 = zext i1 %77 to i8
   %81 = zext i1 %78 to i8
@@ -1655,7 +1655,7 @@ _ZL23construct_dcmd_instanceP16JfrJavaArgumentsP10JavaThread.exit: ; preds = %14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 33:                                               ; preds = %21
-  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 8, i32 noundef 0) #14
+  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %33, %31
@@ -2102,7 +2102,7 @@ declare void @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i32 nou
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL3logP7oopDescP10JavaThread(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %class.LogMessageTemplate, align 8
-  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #14
+  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(81) %3) #14
   %4 = getelementptr inbounds i8, ptr %3, i64 72
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_143ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 80
@@ -2136,7 +2136,7 @@ define internal fastcc void @_ZL3logP7oopDescP10JavaThread(ptr noundef %0, ptr n
   %17 = shl nuw nsw i64 %indvars.iv, %.7.i
   %18 = add nuw nsw i64 %16, %17
   %19 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %20 = call noundef ptr %19(ptr noundef nonnull %0, i64 noundef %18) #14
+  %20 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %18) #14
   %21 = call noundef ptr @_ZN14JfrJavaSupport5c_strEP7oopDescP6Threadb(ptr noundef %20, ptr noundef %1, i1 noundef zeroext false) #14
   %22 = icmp eq ptr %21, null
   br i1 %22, label %._crit_edge, label %23
@@ -2155,13 +2155,13 @@ define internal fastcc void @_ZL3logP7oopDescP10JavaThread(ptr noundef %0, ptr n
 
 26:                                               ; preds = %._crit_edge
   %27 = load ptr, ptr %4, align 8
-  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(72) %3) #14
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(81) %3) #14
   store i8 0, ptr %5, align 8
-  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %3) #14
+  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(81) %3) #14
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_143ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
 _ZN18LogMessageTemplateILN6LogTag4typeE64ELS1_143ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %._crit_edge.thread, %._crit_edge, %26
-  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #14
+  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %3) #14
   ret void
 }
 
@@ -2263,7 +2263,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %9, %19
   %24 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %25 = sext i32 %24 to i64
   %26 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %27 = call noundef ptr %26(ptr noundef nonnull %22, i64 noundef %25) #14
+  %27 = call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(16) %22, i64 noundef %25) #14
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %_ZL24get_as_dcmd_arena_stringP7oopDesc.exit, label %28
 

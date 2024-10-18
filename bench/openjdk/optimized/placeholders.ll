@@ -657,7 +657,7 @@ define linkonce_odr hidden void @_Z3logP6SymbolP16PlaceholderEntryPKcN16Placehol
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %11, i64 8
   %19 = load i64, ptr %18, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #12

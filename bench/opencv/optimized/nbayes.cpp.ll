@@ -191,7 +191,7 @@ define void @_ZN2cv2ml21NormalBayesClassifier6createEv(ptr dead_on_unwind noalia
   store i32 1, ptr %4, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml25NormalBayesClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(448) %5)
           to label %_ZN2cv3PtrINS_2ml25NormalBayesClassifierImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml25NormalBayesClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !4
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml25NormalBayesClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %1
@@ -318,7 +318,7 @@ define linkonce_odr hidden void @_ZN2cv9Algorithm4loadINS_2ml21NormalBayesClassi
   store i32 1, ptr %36, align 4, !noalias !12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml25NormalBayesClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !12
   %37 = getelementptr inbounds i8, ptr %34, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(448) %37)
           to label %39 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml25NormalBayesClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, !noalias !12
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml25NormalBayesClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc
@@ -3793,7 +3793,7 @@ _ZNK2cv11_InputArray6getMatEi.exit30:             ; preds = %88, %91
 112:                                              ; preds = %96
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %18) #19
   br label %.body
 
 114:                                              ; preds = %96
@@ -3810,7 +3810,7 @@ _ZNK2cv11_InputArray6getMatEi.exit30:             ; preds = %88, %91
           to label %121 unwind label %124
 
 121:                                              ; preds = %114
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %18) #19
   %122 = load i32, ptr %6, align 4
   %123 = sitofp i32 %122 to float
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
@@ -3821,7 +3821,7 @@ _ZNK2cv11_InputArray6getMatEi.exit30:             ; preds = %88, %91
 124:                                              ; preds = %114
   %125 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %18) #19
   br label %.body
 
 .body:                                            ; preds = %41, %112, %124, %94, %79, %74, %61, %47
@@ -4172,7 +4172,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv2ml25NormalBayesClassifierImpl13NBPredictBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(89) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

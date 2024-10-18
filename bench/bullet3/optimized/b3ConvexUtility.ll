@@ -391,7 +391,7 @@ entry:
   store i32 0, ptr %m_size.i.i8.i, align 4
   %m_capacity.i.i9.i = getelementptr inbounds i8, ptr %conv, i64 72
   store i32 0, ptr %m_capacity.i.i9.i, align 8
-  %call.i93 = invoke noundef float @_ZN20b3ConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(96) %conv, ptr noundef %orgVertices, i1 noundef zeroext false, i32 noundef 16, i32 noundef %numPoints, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %call.i93 = invoke noundef float @_ZN20b3ConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(96) %conv, ptr noundef nonnull %orgVertices, i1 noundef zeroext false, i32 noundef 16, i32 noundef %numPoints, float noundef 0.000000e+00, float noundef 0.000000e+00)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry
@@ -1803,7 +1803,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.thread.i.i.i: ; preds = %if.end.i
   br label %_ZN20b3AlignedObjectArrayI8b3MyFaceE9push_backERKS0_.exit
 
 for.body9.lr.ph.i.i.i.i:                          ; preds = %if.end.i
-  invoke void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %arrayidx.i413, i32 noundef %176)
+  invoke void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i413, i32 noundef %176)
           to label %.noexc425 unwind label %lpad292.loopexit.split-lp
 
 .noexc425:                                        ; preds = %for.body9.lr.ph.i.i.i.i
@@ -2515,7 +2515,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.thread.i.i: ; preds = %for.body9
   br label %_ZN8b3MyFaceC2ERKS_.exit
 
 for.body9.lr.ph.i.i.i:                            ; preds = %for.body9
-  tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %arrayidx12, i32 noundef %9)
+  tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx12, i32 noundef %9)
   %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
   br label %for.body9.i.i.i
 
@@ -4757,7 +4757,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.thread.i.i.i: ; preds = %for.body.
   br label %_ZN8b3MyFaceC2ERKS_.exit.i
 
 for.body9.lr.ph.i.i.i.i:                          ; preds = %for.body.i
-  tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %arrayidx.i, i32 noundef %3)
+  tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i, i32 noundef %3)
   %wide.trip.count.i.i.i.i = zext nneg i32 %3 to i64
   br label %for.body9.i.i.i.i
 

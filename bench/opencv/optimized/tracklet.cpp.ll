@@ -629,7 +629,7 @@ _ZNKSt14default_deleteIN3vas20KalmanFilterNoOpencvEEclEPS1_.exit.i.i: ; preds = 
 
 _ZN3vas2ot25ZeroTermImagelessTrackletD2Ev.exit:   ; preds = %1, %_ZNKSt14default_deleteIN3vas20KalmanFilterNoOpencvEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN3vas2ot8TrackletD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  tail call void @_ZN3vas2ot8TrackletD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -894,7 +894,7 @@ _ZNKSt14default_deleteIN3vas20KalmanFilterNoOpencvEEclEPS1_.exit.i.i: ; preds = 
 
 _ZN3vas2ot26ShortTermImagelessTrackletD2Ev.exit:  ; preds = %1, %_ZNKSt14default_deleteIN3vas20KalmanFilterNoOpencvEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN3vas2ot8TrackletD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
+  tail call void @_ZN3vas2ot8TrackletD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

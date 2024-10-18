@@ -632,7 +632,7 @@ define void @_ZN12ListedForcesC2EOS_(ptr nocapture noundef nonnull writeonly ali
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2736) %4, ptr noundef nonnull align 8 dereferenceable(2736) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -1647,7 +1647,7 @@ _ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit: ; preds = %68
   store ptr %20, ptr %35, align 8
   %207 = load i32, ptr %159, align 8
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %206, i32 %207)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 18, ptr nonnull @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcPA3_fP14gmx_enerdata_tP6t_nrnbN3gmx8ArrayRefIS4_EENSK_IfEESL_SL_NSK_IKbEENSK_IKtEEiP8t_fcdataRKNSJ_12StepWorkloadEPi.omp_outlined, ptr nonnull %26, ptr nonnull %30, ptr nonnull %31, ptr nonnull %40, ptr nonnull %59, ptr nonnull %27, ptr nonnull %28, ptr nonnull %29, ptr nonnull %32, ptr nonnull %41, ptr nonnull %39, ptr nonnull %38, ptr nonnull %37, ptr nonnull %36, ptr nonnull %33, ptr nonnull %34, ptr nonnull %21, ptr nonnull %35)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 18, ptr nonnull @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcPA3_fP14gmx_enerdata_tP6t_nrnbN3gmx8ArrayRefIS4_EENSK_IfEESL_SL_NSK_IKbEENSK_IKtEEiP8t_fcdataRKNSJ_12StepWorkloadEPi.omp_outlined, ptr nonnull %26, ptr nonnull %30, ptr nonnull %31, ptr nonnull align 8 %40, ptr nonnull align 8 dereferenceable(2736) %59, ptr nonnull %27, ptr nonnull %28, ptr nonnull %29, ptr nonnull %32, ptr nonnull align 8 %41, ptr nonnull align 8 %39, ptr nonnull align 8 %38, ptr nonnull align 8 %37, ptr nonnull align 8 %36, ptr nonnull %33, ptr nonnull %34, ptr nonnull align 1 dereferenceable(20) %21, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
@@ -2044,7 +2044,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -2061,7 +2061,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA137_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(137) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.246", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(137) %1) #14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #14
@@ -2107,7 +2107,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA137_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #14
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #14
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -2132,7 +2132,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #14
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #14
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4

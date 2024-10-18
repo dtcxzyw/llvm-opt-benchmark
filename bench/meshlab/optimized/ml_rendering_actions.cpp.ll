@@ -889,7 +889,7 @@ define linkonce_odr void @_ZN3vcg20GLMeshAttributesInfo9ExceptionD0Ev(ptr nounde
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -7769,7 +7769,7 @@ define void @_ZN40MLRenderingUserDefinedGeneralColorAction8setColorERK6QColor(pt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN33MLRenderingUserDefinedColorActionC2EN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
-  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef -1, ptr noundef %2)
+  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef -1, ptr noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV33MLRenderingUserDefinedColorAction, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %5, align 4
@@ -7819,14 +7819,14 @@ _ZN7QStringD2Ev.exit:                             ; preds = %8, %_ZN9QtPrivate8R
 
 17:                                               ; preds = %15, %13
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN33MLRenderingUserDefinedColorActionC2EN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEiP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
-  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %2, ptr noundef %3)
+  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %2, ptr noundef %3)
   store ptr getelementptr inbounds (i8, ptr @_ZTV33MLRenderingUserDefinedColorAction, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %6, align 4
@@ -7876,7 +7876,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %9, %_ZN9QtPrivate8R
 
 18:                                               ; preds = %16, %14
   %.pn = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -7906,7 +7906,7 @@ _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %7, ptr noundef %2)
+  call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %7, ptr noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV33MLRenderingUserDefinedColorAction, i64 16), ptr %0, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %10 unwind label %19
@@ -7957,7 +7957,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %11, %_ZN9QtPrivate8
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   br label %common.resume
 }
 
@@ -10641,7 +10641,7 @@ define void @_ZN33MLRenderingBBoxPerMeshColorAction8setColorERKN3vcg6Color4IhEE(
 ; Function Attrs: mustprogress uwtable
 define void @_ZN37MLRenderingBBoxUserDefinedColorActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
-  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef -1, ptr noundef %1)
+  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef -1, ptr noundef %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i64 16), ptr %0, align 8
   %4 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.33, i32 noundef 8)
           to label %5 unwind label %11
@@ -10689,14 +10689,14 @@ _ZN7QStringD2Ev.exit:                             ; preds = %6, %_ZN9QtPrivate8R
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN37MLRenderingBBoxUserDefinedColorActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
-  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2)
+  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i64 16), ptr %0, align 8
   %5 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.33, i32 noundef 8)
           to label %6 unwind label %12
@@ -10744,7 +10744,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %7, %_ZN9QtPrivate8R
 
 16:                                               ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -10774,7 +10774,7 @@ _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %7, ptr noundef %2)
+  call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %7, ptr noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i64 16), ptr %0, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %10 unwind label %19
@@ -10825,7 +10825,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %11, %_ZN9QtPrivate8
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   br label %common.resume
 }
 
@@ -14241,7 +14241,7 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %.noexc, %2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN27MLRenderingPointsSizeActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
-  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef -1, ptr noundef %1)
+  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef -1, ptr noundef %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV27MLRenderingPointsSizeAction, i64 16), ptr %0, align 8
   %4 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.47, i32 noundef 10)
           to label %5 unwind label %11
@@ -14289,7 +14289,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %6, %_ZN9QtPrivate8R
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -14303,7 +14303,7 @@ define void @_ZN22MLRenderingFloatActionC2EiP7QObject(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN27MLRenderingPointsSizeActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
-  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2)
+  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV27MLRenderingPointsSizeAction, i64 16), ptr %0, align 8
   %5 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.47, i32 noundef 10)
           to label %6 unwind label %12
@@ -14351,7 +14351,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %7, %_ZN9QtPrivate8R
 
 16:                                               ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -14381,7 +14381,7 @@ _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %7, ptr noundef %2)
+  call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %7, ptr noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV27MLRenderingPointsSizeAction, i64 16), ptr %0, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %10 unwind label %19
@@ -14432,7 +14432,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %11, %_ZN9QtPrivate8
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   br label %common.resume
 }
 
@@ -14738,7 +14738,7 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %.noexc, %2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLRenderingWireWidthActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
-  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef -1, ptr noundef %1)
+  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef -1, ptr noundef %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV26MLRenderingWireWidthAction, i64 16), ptr %0, align 8
   %4 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.48, i32 noundef 10)
           to label %5 unwind label %11
@@ -14786,14 +14786,14 @@ _ZN7QStringD2Ev.exit:                             ; preds = %6, %_ZN9QtPrivate8R
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLRenderingWireWidthActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
-  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2)
+  tail call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV26MLRenderingWireWidthAction, i64 16), ptr %0, align 8
   %5 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.48, i32 noundef 10)
           to label %6 unwind label %12
@@ -14841,7 +14841,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %7, %_ZN9QtPrivate8R
 
 16:                                               ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -14871,7 +14871,7 @@ _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %7, ptr noundef %2)
+  call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %7, ptr noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV26MLRenderingWireWidthAction, i64 16), ptr %0, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %10 unwind label %19
@@ -14922,7 +14922,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %11, %_ZN9QtPrivate8
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #24
   br label %common.resume
 }
 

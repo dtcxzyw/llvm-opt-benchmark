@@ -149,7 +149,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
-  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i

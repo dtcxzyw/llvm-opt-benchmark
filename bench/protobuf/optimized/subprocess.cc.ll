@@ -686,7 +686,7 @@ invoke.cont197:                                   ; preds = %if.then191
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %args.i.i, align 16, !noalias !7
   %26 = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i, ptr %26, align 8, !noalias !7
-  invoke void @_ZN4absl12lts_2023080219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EPKSA_m(ptr noundef nonnull %ref.tmp194, i64 34, ptr nonnull @.str.10, ptr noundef nonnull %args.i.i, i64 noundef 1)
+  invoke void @_ZN4absl12lts_2023080219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EPKSA_m(ptr noundef nonnull align 8 %ref.tmp194, i64 34, ptr nonnull @.str.10, ptr noundef nonnull %args.i.i, i64 noundef 1)
           to label %invoke.cont198 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont197
@@ -725,7 +725,7 @@ invoke.cont213:                                   ; preds = %if.then208
   store i64 %retval.sroa.0.0.copyload.i.i.i34, ptr %args.i.i33, align 16, !noalias !10
   %28 = getelementptr inbounds i8, ptr %args.i.i33, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i36, ptr %28, align 8, !noalias !10
-  invoke void @_ZN4absl12lts_2023080219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EPKSA_m(ptr noundef nonnull %ref.tmp210, i64 27, ptr nonnull @.str.11, ptr noundef nonnull %args.i.i33, i64 noundef 1)
+  invoke void @_ZN4absl12lts_2023080219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EPKSA_m(ptr noundef nonnull align 8 %ref.tmp210, i64 27, ptr nonnull @.str.11, ptr noundef nonnull %args.i.i33, i64 noundef 1)
           to label %invoke.cont214 unwind label %lpad.i37
 
 lpad.i37:                                         ; preds = %invoke.cont213

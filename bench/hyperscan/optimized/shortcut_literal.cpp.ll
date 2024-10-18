@@ -226,7 +226,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt5stackImSt5deq
 
 _ZN3ue211ue2_literalD2Ev.exit:                    ; preds = %_ZNSt5stackImSt5dequeImSaImEEED2Ev.exit, %if.then.i.i.i.i.i
   %lit = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lit) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %lit) #18
   tail call void @_ZN3ue221ConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   ret void
 }
@@ -298,8 +298,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt5stackImSt5deq
 
 _ZN3ue223ConstructLiteralVisitorD2Ev.exit:        ; preds = %_ZNSt5stackImSt5dequeImSaImEEED2Ev.exit.i, %if.then.i.i.i.i.i.i
   %lit.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lit.i) #18
-  tail call void @_ZN3ue221ConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %lit.i) #18
+  tail call void @_ZN3ue221ConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -341,7 +341,7 @@ if.end:                                           ; preds = %entry
 if.end10:                                         ; preds = %if.end
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 16), ptr %vis, align 8
   %lit.i = getelementptr inbounds i8, ptr %vis, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lit.i) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %lit.i) #18
   %nocase.i.i = getelementptr inbounds i8, ptr %vis, i64 40
   %repeat_stack.i = getelementptr inbounds i8, ptr %vis, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %nocase.i.i, i8 0, i64 112, i1 false)
@@ -356,7 +356,7 @@ lpad2.i:                                          ; preds = %if.end10
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue211ue2_literalD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %lit.i) #18
-  call void @_ZN3ue221ConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis) #18
+  call void @_ZN3ue221ConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %vis) #18
   br label %common.resume
 
 _ZN3ue223ConstructLiteralVisitorC2Ev.exit:        ; preds = %if.end10
@@ -389,7 +389,7 @@ lpad13:                                           ; preds = %do.end34, %catch
   br label %ehcleanup
 
 try.cont:                                         ; preds = %_ZN3ue223ConstructLiteralVisitorC2Ev.exit
-  %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %lit.i) #18
+  %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %lit.i) #18
   br i1 %call.i, label %cleanup, label %if.end22
 
 if.end22:                                         ; preds = %try.cont
@@ -399,7 +399,7 @@ if.end22:                                         ; preds = %try.cont
   br i1 %tobool23, label %land.lhs.true, label %do.end34
 
 land.lhs.true:                                    ; preds = %if.end22
-  %call.i19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %lit.i) #18
+  %call.i19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %lit.i) #18
   %cmp26 = icmp ult i64 %call.i19, 2
   br i1 %cmp26, label %cleanup, label %land.lhs.true.do.end34_crit_edge
 
@@ -464,8 +464,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt5stackImSt5deq
   br label %_ZN3ue223ConstructLiteralVisitorD2Ev.exit
 
 _ZN3ue223ConstructLiteralVisitorD2Ev.exit:        ; preds = %_ZNSt5stackImSt5dequeImSaImEEED2Ev.exit.i, %if.then.i.i.i.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lit.i) #18
-  call void @_ZN3ue221ConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %lit.i) #18
+  call void @_ZN3ue221ConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %vis) #18
   br label %return
 
 ehcleanup:                                        ; preds = %lpad13, %lpad
@@ -709,7 +709,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 
 if.end13:                                         ; preds = %if.end
   %lit = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %lit) #18
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %lit) #18
   store i64 %call.i, ptr %ref.tmp14, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -993,7 +993,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.end
   br label %_ZN3ue211ue2_literalD2Ev.exit
 
 _ZN3ue211ue2_literalD2Ev.exit:                    ; preds = %for.end, %if.then.i.i.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %suffix) #18
   ret void
 }
 
@@ -1204,7 +1204,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -313,7 +313,7 @@ define hidden void @_ZN14JvmtiFramePopsD2Ev(ptr nocapture noundef nonnull readon
 
 8:                                                ; preds = %4
   store i32 0, ptr %2, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN13GrowableArrayIiED2Ev.exit
 
 _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %4, %8
@@ -364,7 +364,7 @@ define hidden void @_ZN19JvmtiEnvThreadStateD2Ev(ptr noundef nonnull align 8 der
 
 12:                                               ; preds = %8
   store i32 0, ptr %6, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
   br label %_ZN13GrowableArrayIiED2Ev.exit.i
 
 _ZN13GrowableArrayIiED2Ev.exit.i:                 ; preds = %12, %8
@@ -658,7 +658,7 @@ define hidden void @_ZN19JvmtiEnvThreadState22reset_current_locationE10jvmtiEven
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 39:                                               ; preds = %27
-  %40 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %29, i64 noundef 8, i32 noundef 0) #14
+  %40 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %29, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %39, %37

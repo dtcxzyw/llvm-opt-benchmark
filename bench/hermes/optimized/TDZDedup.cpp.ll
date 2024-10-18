@@ -94,7 +94,7 @@ entry:
   call void @_ZN6hermes13DominanceInfoC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(72) %DT, ptr noundef %F) #10
   %Slabs.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 24
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %CCtx, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %CCtx, i8 0, i64 24, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %Slabs.i.i.i.i, align 8
   %Size.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 32
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
@@ -630,7 +630,7 @@ for.end30.i:                                      ; preds = %for.end30.i.loopexi
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nodesToProcess.i.i.i, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
-  %call.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(120) %CCtx, ptr noundef %call.i17.i)
+  %call.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(184) %CCtx, ptr noundef %call.i17.i)
   %44 = ptrtoint ptr %call.i.i.i to i64
   %45 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %46 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
@@ -952,7 +952,7 @@ if.end.i.i.i37.i.i.i:                             ; preds = %if.then12.i.i.i.i.i
 
 if.then.i105.i.i.i:                               ; preds = %if.end.i.i.i37.i.i.i
   %mul4.i.i.i.i = shl i32 %71, 1
-  call void @_ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_19ScopedHashTableNodeIS3_bEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %availableValues_.i.i.i.i, i32 noundef %mul4.i.i.i.i)
+  call void @_ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_19ScopedHashTableNodeIS3_bEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(32) %availableValues_.i.i.i.i, i32 noundef %mul4.i.i.i.i)
   %83 = load ptr, ptr %availableValues_.i.i.i.i, align 8
   %84 = load i32, ptr %NumBuckets.i.i.i.i.i71.i.i.i.i, align 8
   %cmp.i.i.i106.i.i.i = icmp eq i32 %84, 0
@@ -1011,7 +1011,7 @@ if.else.i114.i.i.i:                               ; preds = %if.end.i.i.i37.i.i.
   br i1 %cmp9.not.i.i.i.i, label %if.end12.i.i.i.i, label %if.then10.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %if.else.i114.i.i.i
-  call void @_ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_19ScopedHashTableNodeIS3_bEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %availableValues_.i.i.i.i, i32 noundef %71)
+  call void @_ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_19ScopedHashTableNodeIS3_bEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(32) %availableValues_.i.i.i.i, i32 noundef %71)
   %91 = load ptr, ptr %availableValues_.i.i.i.i, align 8
   %92 = load i32, ptr %NumBuckets.i.i.i.i.i71.i.i.i.i, align 8
   %cmp.i.i10.i.i.i.i = icmp eq i32 %92, 0
@@ -1140,7 +1140,7 @@ if.end64.i.i.i.i:                                 ; preds = %if.end61.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end64.i.i.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %destroyer.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
   %.pre.i.i.i.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i.i
 
@@ -1171,7 +1171,7 @@ if.then76.i.i.i.i:                                ; preds = %if.then72.i.i.i.i
   br i1 %cmp.not.i.i102.i.i.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit109.i.i.i.i, label %if.then.i.i103.i.i.i.i
 
 if.then.i.i103.i.i.i.i:                           ; preds = %if.then76.i.i.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %destroyer.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
   %.pre.i.i105.i.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit109.i.i.i.i
 
@@ -1205,7 +1205,7 @@ if.then87.i.i.i.i:                                ; preds = %if.then83.i.i.i.i
   br i1 %cmp.not.i.i116.i.i.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit123.i.i.i.i, label %if.then.i.i117.i.i.i.i
 
 if.then.i.i117.i.i.i.i:                           ; preds = %if.then87.i.i.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %destroyer.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
   %.pre.i.i119.i.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit123.i.i.i.i
 
@@ -1291,7 +1291,7 @@ _ZN6hermes10DomTreeDFS9StackNodeINS_12_GLOBAL__N_115TDZDedupContextEE9nextChildE
   br label %if.else14.i.i.i
 
 if.then11.i.i.i:                                  ; preds = %_ZN6hermes10DomTreeDFS9StackNodeINS_12_GLOBAL__N_115TDZDedupContextEE9nextChildEv.exit.i.i.i
-  %call13.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(120) %CCtx, ptr noundef nonnull %136)
+  %call13.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorINS_12_GLOBAL__N_115TDZDedupContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(184) %CCtx, ptr noundef nonnull %136)
   %137 = ptrtoint ptr %call13.i.i.i to i64
   %138 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %139 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
@@ -1395,7 +1395,7 @@ if.end.i.i.i99.i.i.i:                             ; preds = %if.then12.i.i.i.i.i
 
 if.then.i121.i.i.i:                               ; preds = %if.end.i.i.i99.i.i.i
   %mul4.i122.i.i.i = shl i32 %148, 1
-  call void @_ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_19ScopedHashTableNodeIS3_bEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %144, i32 noundef %mul4.i122.i.i.i)
+  call void @_ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_19ScopedHashTableNodeIS3_bEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(32) %144, i32 noundef %mul4.i122.i.i.i)
   %155 = load ptr, ptr %144, align 8
   %156 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i39.i.i.i, align 8
   %cmp.i.i.i123.i.i.i = icmp eq i32 %156, 0
@@ -1454,7 +1454,7 @@ if.else.i161.i.i.i:                               ; preds = %if.end.i.i.i99.i.i.
   br i1 %cmp9.not.i167.i.i.i, label %if.end12.i151.i.i.i, label %if.then10.i168.i.i.i
 
 if.then10.i168.i.i.i:                             ; preds = %if.else.i161.i.i.i
-  call void @_ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_19ScopedHashTableNodeIS3_bEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %144, i32 noundef %148)
+  call void @_ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_19ScopedHashTableNodeIS3_bEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(32) %144, i32 noundef %148)
   %163 = load ptr, ptr %144, align 8
   %164 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i39.i.i.i, align 8
   %cmp.i.i10.i169.i.i.i = icmp eq i32 %164, 0

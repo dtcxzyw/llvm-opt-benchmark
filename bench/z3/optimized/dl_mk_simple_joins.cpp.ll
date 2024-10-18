@@ -1821,7 +1821,7 @@ lpad.i.i:                                         ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_visited.i.i) #20
-  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %counter) #20
+  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %counter) #20
   br label %common.resume
 
 _ZN7datalog12rule_counterC2Ev.exit:               ; preds = %entry
@@ -2674,7 +2674,7 @@ if.then27:                                        ; preds = %_ZNK6vectorIPN7data
           to label %call.i.noexc unwind label %lpad31
 
 call.i.noexc:                                     ; preds = %if.then27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29, ptr noundef %call.i40, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29, ptr noundef %call.i40, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30)
           to label %.noexc unwind label %lpad31
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2684,7 +2684,7 @@ call.i.noexc:                                     ; preds = %if.then27
 lpad.i:                                           ; preds = %.noexc
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #20
   br label %ehcleanup44
 
 invoke.cont32:                                    ; preds = %.noexc
@@ -2936,7 +2936,7 @@ _ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit:     ; preds = %call3.i.i.i.noexc, 
 for.body89:                                       ; preds = %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit, %for.inc98
   %__begin280.0113 = phi ptr [ %incdec.ptr, %for.inc98 ], [ %incdec.ptr4.i.i.i, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit ]
   %72 = load ptr, ptr %__begin280.0113, align 8
-  %call.i.i.i74 = invoke noundef i32 @_ZNK7datalog14rule_hash_procclEPKNS_4ruleE(ptr noundef nonnull align 1 dereferenceable(1) %processed_rules, ptr noundef %72)
+  %call.i.i.i74 = invoke noundef i32 @_ZNK7datalog14rule_hash_procclEPKNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(20) %processed_rules, ptr noundef %72)
           to label %call.i.i.i.noexc unwind label %lpad81
 
 call.i.i.i.noexc:                                 ; preds = %for.body89
@@ -3578,7 +3578,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %et.i.i)
   %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %temp.i.i.i, i64 16
   store ptr null, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i, align 8
-  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryISt4pairIP3appS3_EPN7datalog12join_planner9pair_infoEEN9table2mapIS9_9pair_hashI12obj_ptr_hashIS2_ESD_E10default_eqIS4_EE15entry_hash_procENSH_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS4_S8_ERPS9_(ptr noundef nonnull align 8 dereferenceable(28) %m_costs, ptr noundef nonnull align 8 dereferenceable(24) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
+  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryISt4pairIP3appS3_EPN7datalog12join_planner9pair_infoEEN9table2mapIS9_9pair_hashI12obj_ptr_hashIS2_ESD_E10default_eqIS4_EE15entry_hash_procENSH_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS4_S8_ERPS9_(ptr noundef nonnull align 8 dereferenceable(32) %m_costs, ptr noundef nonnull align 8 dereferenceable(24) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.i.i.i)
   %2 = load ptr, ptr %et.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i)
@@ -4646,7 +4646,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -6733,7 +6733,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %m_consts.i = getelementptr inbounds i8, ptr %vi, i64 24
   %2 = ptrtoint ptr %1 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vi, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %vi, i8 0, i64 24, i1 false)
   store i64 %2, ptr %m_consts.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds i8, ptr %vi, i64 32
   store ptr null, ptr %m_nodes.i.i.i, align 8
@@ -8059,7 +8059,7 @@ lpad.i.i:                                         ; preds = %if.end
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_visited.i.i) #20
-  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %counter) #20
+  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %counter) #20
   br label %common.resume
 
 _ZN7datalog12rule_counterC2Ev.exit:               ; preds = %if.end
@@ -10249,7 +10249,7 @@ lpad.i78:                                         ; preds = %call.i.i.i.i.i.i.i.
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_visited.i) #20
-  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %counter) #20
+  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %counter) #20
   br label %ehcleanup113
 
 invoke.cont48:                                    ; preds = %call.i.i.i.i.i.i.i.i.noexc
@@ -11072,7 +11072,7 @@ if.end.i3:                                        ; preds = %if.end3.i, %_ZN7dat
   store ptr %key.coerce0, ptr %ref.tmp.i, align 8
   %key.sroa.3.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %key.coerce1, ptr %key.sroa.3.0.ref.tmp.i.sroa_idx, align 8
-  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP3appS3_EPN7datalog12join_planner9pair_infoEEN9table2mapIS9_9pair_hashI12obj_ptr_hashIS2_ESD_E10default_eqIS4_EE15entry_hash_procENSH_13entry_eq_procEE6removeERK9_key_dataIS4_S8_E(ptr noundef nonnull align 8 dereferenceable(28) %m_costs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
+  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP3appS3_EPN7datalog12join_planner9pair_infoEEN9table2mapIS9_9pair_hashI12obj_ptr_hashIS2_ESD_E10default_eqIS4_EE15entry_hash_procENSH_13entry_eq_procEE6removeERK9_key_dataIS4_S8_E(ptr noundef nonnull align 8 dereferenceable(32) %m_costs, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %26 = load ptr, ptr %m_rules.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %26, null
@@ -11557,7 +11557,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %e, align 8
-  %call.i = tail call noundef i32 @_ZNK7datalog14rule_hash_procclEPKNS_4ruleE(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %3)
+  %call.i = tail call noundef i32 @_ZNK7datalog14rule_hash_procclEPKNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %3)
   %4 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %4, -1
   %and = and i32 %sub, %call.i

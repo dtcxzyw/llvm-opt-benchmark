@@ -3262,7 +3262,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12interceptors7context35I
   br i1 %23, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4b0bcc4edcbfa5edE.llvm.17010984734500373274.exit", label %24
 
 24:                                               ; preds = %19
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17h013d0a6d089281b7E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %6)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17h013d0a6d089281b7E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %6)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4b0bcc4edcbfa5edE.llvm.17010984734500373274.exit" unwind label %.thread
 
 .thread:                                          ; preds = %24, %18
@@ -3416,7 +3416,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context5Err
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, i64 48, i1 false), !noalias !126
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx, i64 72, i1 false), !noalias !126
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !134
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !134
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   %9 = icmp eq i64 %.sroa.04.0.copyload, 11
@@ -3475,7 +3475,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context5Err
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, i64 48, i1 false), !noalias !146
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx, i64 72, i1 false), !noalias !146
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !154
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !154
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %9 = icmp eq i64 %.sroa.04.0.copyload, 6
@@ -3534,7 +3534,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context5Err
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, i64 48, i1 false), !noalias !166
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx, i64 72, i1 false), !noalias !166
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !174
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !174
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   %9 = icmp eq i64 %.sroa.04.0.copyload, 4
@@ -3593,7 +3593,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context5Err
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, i64 48, i1 false), !noalias !186
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx, i64 72, i1 false), !noalias !186
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !194
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !194
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
   %9 = icmp eq i64 %.sroa.04.0.copyload, 10
@@ -3652,7 +3652,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context5Err
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, i64 48, i1 false), !noalias !206
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx, i64 72, i1 false), !noalias !206
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !214
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !214
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
   %9 = icmp eq i64 %.sroa.04.0.copyload, 14
@@ -3802,7 +3802,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context6Out
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, i64 48, i1 false), !noalias !241
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(640) %.sroa.5.0..sroa_idx, i64 640, i1 false), !noalias !241
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 696, i64 noundef 8) #20, !noalias !249
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 696, i64 noundef 8) #20, !noalias !249
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %9 = icmp eq i64 %.sroa.04.0.copyload, 3
@@ -3861,7 +3861,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context6Out
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, i64 48, i1 false), !noalias !261
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5.0..sroa_idx, i64 160, i1 false), !noalias !261
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 216, i64 noundef 8) #20, !noalias !269
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 216, i64 noundef 8) #20, !noalias !269
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
   %9 = icmp eq i64 %.sroa.04.0.copyload, 5
@@ -3920,7 +3920,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context6Out
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, i64 48, i1 false), !noalias !281
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx, i64 56, i1 false), !noalias !281
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 112, i64 noundef 8) #20, !noalias !289
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 112, i64 noundef 8) #20, !noalias !289
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
   %9 = icmp eq i64 %.sroa.04.0.copyload, 2
@@ -3979,7 +3979,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context6Out
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !307, !noalias !303
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, i64 7, i1 false), !noalias !301
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 80, i64 noundef 8) #20, !noalias !309
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 80, i64 noundef 8) #20, !noalias !309
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
   %9 = icmp eq i8 %.sroa.4.0.copyload, 2
@@ -4038,7 +4038,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors7context6Out
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, i64 48, i1 false), !noalias !321
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.0..sroa_idx, i64 48, i1 false), !noalias !321
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 104, i64 noundef 8) #20, !noalias !329
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 104, i64 noundef 8) #20, !noalias !329
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   %9 = icmp eq i64 %.sroa.04.0.copyload, 12
@@ -4267,7 +4267,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h56c6e9d4091032cd
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(216) %8, i64 216, i1 false), !alias.scope !371
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 216, i64 noundef 8) #20, !noalias !373
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 216, i64 noundef 8) #20, !noalias !373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 216, i1 false)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %3)
   br label %11
@@ -4295,7 +4295,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h619cf779cb9885f9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !376)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false), !alias.scope !379
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !381
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !381
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   br label %11
@@ -4323,7 +4323,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6220e45077f236ff
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false), !alias.scope !387
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !389
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !389
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   br label %11
@@ -4351,7 +4351,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h77f0f427d11561c1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false), !alias.scope !395
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !397
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   br label %11
@@ -4379,7 +4379,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f0cd380ace2821e
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !400)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %8, i64 80, i1 false), !alias.scope !403
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 80, i64 noundef 8) #20, !noalias !405
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 80, i64 noundef 8) #20, !noalias !405
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   br label %11
@@ -4407,7 +4407,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h93a4723ba6098ce5
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false), !alias.scope !411
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !413
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !413
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   br label %11
@@ -4435,7 +4435,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h94c75200d0b980c2
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %8, i64 104, i1 false), !alias.scope !419
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 104, i64 noundef 8) #20, !noalias !421
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 104, i64 noundef 8) #20, !noalias !421
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3)
   br label %11
@@ -4463,7 +4463,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hcd29bc236b2e7db6
   call void @llvm.lifetime.start.p0(i64 696, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %3, ptr noundef nonnull align 8 dereferenceable(696) %8, i64 696, i1 false), !alias.scope !427
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 696, i64 noundef 8) #20, !noalias !429
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 696, i64 noundef 8) #20, !noalias !429
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef nonnull align 8 dereferenceable(696) %3, i64 696, i1 false)
   call void @llvm.lifetime.end.p0(i64 696, ptr nonnull %3)
   br label %11
@@ -4491,7 +4491,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hdc9401a522d66e03
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !432)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %8, i64 112, i1 false), !alias.scope !435
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 112, i64 noundef 8) #20, !noalias !437
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 112, i64 noundef 8) #20, !noalias !437
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %3, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
   br label %11
@@ -4519,7 +4519,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfa47c836289fe9d7
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false), !alias.scope !443
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 128, i64 noundef 8) #20, !noalias !445
+  tail call void @__rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #20, !noalias !445
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   br label %11
@@ -4599,7 +4599,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4b0bcc4edcbf
   br i1 %14, label %"_ZN4core3ptr133drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext..finalize..$u7b$$u7b$closure$u7d$$u7d$$GT$17h00b75bb88323a813E.llvm.17010984734500373274.exit", label %15
 
 15:                                               ; preds = %10
-  tail call void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17h013d0a6d089281b7E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %2)
+  tail call void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17h013d0a6d089281b7E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %2)
   br label %"_ZN4core3ptr133drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext..finalize..$u7b$$u7b$closure$u7d$$u7d$$GT$17h00b75bb88323a813E.llvm.17010984734500373274.exit"
 }
 

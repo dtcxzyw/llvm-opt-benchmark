@@ -2211,7 +2211,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
   br i1 %.not65, label %.thread72, label %116
 
 116:                                              ; preds = %115
-  %117 = call range(i32 1, 0) i32 @llvm.smin.i32(i32 %114, i32 %5)
+  %117 = call range(i32 1, 0) i32 @llvm.smin.i32(i32 range(i32 1, 0) %114, i32 range(i32 1, 0) %5)
   br label %.thread72
 
 .thread72:                                        ; preds = %115, %116, %111

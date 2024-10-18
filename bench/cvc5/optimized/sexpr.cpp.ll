@@ -61,7 +61,7 @@ invoke.cont:                                      ; preds = %if.end
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  invoke void @__gmpz_clear(ptr noundef nonnull %tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %tmp)
           to label %return unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont4
@@ -80,7 +80,7 @@ lpad3:                                            ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt16invalid_argument
-  invoke void @__gmpz_clear(ptr noundef nonnull %tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %tmp)
           to label %catch.dispatch unwind label %terminate.lpad.i.i18
 
 terminate.lpad.i.i18:                             ; preds = %lpad3
@@ -109,7 +109,7 @@ invoke.cont8:                                     ; preds = %catch
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  invoke void @__gmpq_clear(ptr noundef nonnull %tmp6)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %tmp6)
           to label %return unwind label %terminate.lpad.i.i20
 
 terminate.lpad.i.i20:                             ; preds = %invoke.cont10
@@ -128,7 +128,7 @@ lpad9:                                            ; preds = %invoke.cont8
   %11 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt16invalid_argument
-  invoke void @__gmpq_clear(ptr noundef nonnull %tmp6)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %tmp6)
           to label %catch.dispatch12 unwind label %terminate.lpad.i.i21
 
 terminate.lpad.i.i21:                             ; preds = %lpad9
@@ -175,7 +175,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 define linkonce_odr hidden void @_ZN4cvc58internal8RationalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %s, i32 noundef %base) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN10__gmp_exprIA1_12__mpq_structS1_EC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %s, i32 noundef %base)
-  invoke void @__gmpq_canonicalize(ptr noundef nonnull %this)
+  invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -184,7 +184,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpq_clear(ptr noundef nonnull %this)
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %_ZN10__gmp_exprIA1_12__mpq_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad

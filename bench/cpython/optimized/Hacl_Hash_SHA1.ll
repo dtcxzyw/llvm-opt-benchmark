@@ -235,7 +235,7 @@ legacy_pad.exit:                                  ; preds = %entry, %for.body.pr
   %idx.ext.i = zext nneg i32 %rem4 to i64
   %add.ptr10.i = getelementptr i8, ptr %add.ptr.i, i64 %idx.ext.i
   %shl.i = shl i64 %add, 3
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i)
   store i64 %or19.i.i, ptr %add.ptr10.i, align 1
   %div1214 = lshr i32 %add7, 6
   call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef %s, ptr noundef nonnull %tmp_twoblocks, i32 noundef %div1214)
@@ -297,7 +297,7 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %idx.ext.i.i = zext nneg i32 %rem4.i to i64
   %add.ptr10.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext.i.i
   %shl.i.i = shl nuw nsw i64 %add.i, 3
-  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
+  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i)
   store i64 %or19.i.i.i, ptr %add.ptr10.i.i, align 1
   %div1214.i = lshr i32 %add7.i, 6
   call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %s, ptr noundef nonnull %tmp_twoblocks.i, i32 noundef %div1214.i)
@@ -553,7 +553,7 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %idx.ext.i.i = zext nneg i32 %rem4.i to i64
   %add.ptr10.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext.i.i
   %shl.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
-  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
+  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i)
   store i64 %or19.i.i.i, ptr %add.ptr10.i.i, align 1
   %div1214.i = lshr i32 %add7.i, 6
   call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %tmp_block_state, ptr noundef nonnull %tmp_twoblocks.i, i32 noundef %div1214.i)

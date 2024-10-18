@@ -330,7 +330,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @hugetlb_acct_memory(ptr no
   br i1 %44, label %45, label %alloc_surplus_hugetlb_folio.exit.thread
 
 45:                                               ; preds = %41
-  %46 = call fastcc ptr @alloc_fresh_hugetlb_folio(ptr noundef %0, i32 noundef %39, i32 noundef -1, ptr noundef null)
+  %46 = call fastcc ptr @alloc_fresh_hugetlb_folio(ptr noundef %0, i32 noundef range(i32 1051842, 1059024) %39, i32 noundef -1, ptr noundef null)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %alloc_surplus_hugetlb_folio.exit.thread, label %48
 

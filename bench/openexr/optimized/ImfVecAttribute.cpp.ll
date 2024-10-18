@@ -331,7 +331,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEE16
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -358,12 +358,12 @@ define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEE4
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEEE, i64 16), ptr %call, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEEE, i64 0) #13
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEE13copyValueFromERKNS_9AttributeE.exit
 
@@ -407,7 +407,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEEE, i64 0) #13
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEE4castERKNS_9AttributeE.exit
 
@@ -644,7 +644,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEE16
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -663,12 +663,12 @@ define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEE4
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEEE, i64 16), ptr %call, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEEE, i64 0) #13
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE.exit
 
@@ -712,7 +712,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEEE, i64 0) #13
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEE4castERKNS_9AttributeE.exit
 
@@ -930,7 +930,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEE16
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -949,12 +949,12 @@ define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEE4
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEEE, i64 16), ptr %call, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEEE, i64 0) #13
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEE13copyValueFromERKNS_9AttributeE.exit
 
@@ -998,7 +998,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEEE, i64 0) #13
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEE4castERKNS_9AttributeE.exit
 
@@ -1220,7 +1220,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEE16
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1239,12 +1239,12 @@ define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEE4
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEEE, i64 16), ptr %call, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEEE, i64 0) #13
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEE13copyValueFromERKNS_9AttributeE.exit
 
@@ -1292,7 +1292,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEEE, i64 0) #13
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEE4castERKNS_9AttributeE.exit
 
@@ -1518,7 +1518,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEE16
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1537,12 +1537,12 @@ define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEE4
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEEE, i64 16), ptr %call, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEEE, i64 0) #13
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEE13copyValueFromERKNS_9AttributeE.exit
 
@@ -1590,7 +1590,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEEE, i64 0) #13
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEE4castERKNS_9AttributeE.exit
 
@@ -1816,7 +1816,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEE16
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1835,12 +1835,12 @@ define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEE4
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEEE, i64 16), ptr %call, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEEE, i64 0) #13
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEE13copyValueFromERKNS_9AttributeE.exit
 
@@ -1888,7 +1888,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEEE, i64 0) #13
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEEE, i64 0) #13
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEE4castERKNS_9AttributeE.exit
 

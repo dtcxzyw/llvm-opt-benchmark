@@ -337,7 +337,7 @@ set_winsize.exit:                                 ; preds = %41, %43, %48
   %54 = call zeroext i16 @htons(i16 noundef zeroext %.val8) #7
   store i16 %53, ptr %2, align 2
   store i16 %54, ptr %21, align 2
-  %55 = call i64 @slurm_write_stream(i32 noundef %9, ptr noundef nonnull %2, i64 noundef 4) #6
+  %55 = call i64 @slurm_write_stream(i32 noundef range(i32 0, -2147483648) %9, ptr noundef nonnull %2, i64 noundef 4) #6
   %56 = and i64 %55, 4294967292
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %58, label %_notify_winsize_change.exit

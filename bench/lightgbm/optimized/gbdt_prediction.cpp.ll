@@ -546,7 +546,7 @@ _ZNK8LightGBM4Tree7PredictEPKd.exit:              ; preds = %163, %137, %169, %_
 
 _ZNKSt8functionIFbPKdiEEclES1_i.exit:             ; preds = %291
   %294 = load ptr, ptr %20, align 8
-  %295 = call noundef zeroext i1 %294(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %295 = call noundef zeroext i1 %294(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br i1 %295, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge, label %296
@@ -991,7 +991,7 @@ _ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiES
 
 _ZNKSt8functionIFbPKdiEEclES1_i.exit:             ; preds = %135
   %138 = load ptr, ptr %23, align 8
-  %139 = call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %139 = call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br i1 %139, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge, label %140

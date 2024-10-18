@@ -1681,7 +1681,7 @@ define void @_ZN12PickedPoints8addPointE7QStringN3vcg6Point3IfEEb(ptr nocapture 
   %14 = zext i1 %4 to i8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 12
-  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6) #24
+  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %6) #24
   store <2 x float> %2, ptr %15, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 20
   store float %3, ptr %.sroa.22.0..sroa_idx.i, align 4

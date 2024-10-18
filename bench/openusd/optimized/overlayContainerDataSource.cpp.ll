@@ -2589,7 +2589,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__28HdOverlayContai
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdContainerDataSourceEELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #18
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #22
   ret void
 }
@@ -3417,7 +3417,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS0_7TfTokenEmNS
   %.07 = phi i64 [ %55, %.lr.ph ], [ 0, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS0_7TfTokenEmNS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_mEEEESt14default_deleteISA_EE5resetEPSA_.exit ]
   %52 = load ptr, ptr %2, align 8
   %53 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %51, i64 %.07
-  %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_mESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
+  %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_mESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
   store i64 %.07, ptr %54, align 8
   %55 = add nuw i64 %.07, 1
   %56 = load ptr, ptr %48, align 8

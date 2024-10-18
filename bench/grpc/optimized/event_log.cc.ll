@@ -89,7 +89,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %arraydestroy.body.i
   br label %_ZN9grpc_core8EventLog8FragmentD2Ev.exit.i.i.i
 
 _ZN9grpc_core8EventLog8FragmentD2Ev.exit.i.i.i:   ; preds = %if.then.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.i.i.i) #21
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i) #21
   %arraydestroy.done.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i, %1
   br i1 %arraydestroy.done.i.i.i, label %_ZNKSt14default_deleteIA_N9grpc_core8EventLog8FragmentEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %arraydestroy.body.i.i.i
 
@@ -233,7 +233,7 @@ invoke.cont4:                                     ; preds = %for.body
 for.body10:                                       ; preds = %invoke.cont4, %for.inc
   %__begin2.sroa.0.043 = phi ptr [ %incdec.ptr.i19, %for.inc ], [ %3, %invoke.cont4 ]
   %event = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 8
-  %call.i.i1213 = invoke noundef ptr @_ZSt9__find_ifIPKSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops16_Iter_equals_valIS4_EEET_SA_SA_T0_St26random_access_iterator_tag(ptr noundef %wanted_events.coerce0, ptr noundef %add.ptr.i11, ptr nonnull %event)
+  %call.i.i1213 = invoke noundef ptr @_ZSt9__find_ifIPKSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops16_Iter_equals_valIS4_EEET_SA_SA_T0_St26random_access_iterator_tag(ptr noundef %wanted_events.coerce0, ptr noundef %add.ptr.i11, ptr nonnull align 8 dereferenceable(16) %event)
           to label %invoke.cont16 unwind label %lpad15.loopexit
 
 invoke.cont16:                                    ; preds = %for.body10
@@ -801,7 +801,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont14
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont40
   %__begin1.sroa.0.046 = phi ptr [ %14, %for.body.lr.ph ], [ %incdec.ptr.i, %invoke.cont40 ]
   %event = getelementptr inbounds i8, ptr %__begin1.sroa.0.046, i64 8
-  %call.i.i1011 = invoke noundef ptr @_ZSt9__find_ifIPKSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops16_Iter_equals_valIS4_EEET_SA_SA_T0_St26random_access_iterator_tag(ptr noundef %columns.coerce0, ptr noundef %add.ptr.i, ptr nonnull %event)
+  %call.i.i1011 = invoke noundef ptr @_ZSt9__find_ifIPKSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops16_Iter_equals_valIS4_EEET_SA_SA_T0_St26random_access_iterator_tag(ptr noundef %columns.coerce0, ptr noundef %add.ptr.i, ptr nonnull align 8 dereferenceable(16) %event)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %for.body
@@ -846,7 +846,7 @@ call.i.i2.noexc.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   store i64 %sub.ptr.sub.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !23
   store ptr %digits_.i.i.i.i.i.i, ptr %_M_str.i.i.i.i.i.i.i, align 8, !noalias !23
-  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i.i.i)
+  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i.i.i)
           to label %invoke.cont6.i.i.i.i unwind label %lpad.i.i.i.i19
 
 invoke.cont6.i.i.i.i:                             ; preds = %call.i.i2.noexc.i.i.i.i

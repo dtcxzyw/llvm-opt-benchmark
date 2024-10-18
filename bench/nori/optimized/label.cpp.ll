@@ -315,7 +315,7 @@ define linkonce_odr hidden void @_ZN7nanogui5LabelD0Ev(ptr noundef nonnull align
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #10
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }

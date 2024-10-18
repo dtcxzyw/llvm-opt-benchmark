@@ -17157,7 +17157,7 @@ if.then.i:                                        ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %if.then.i.i.i8, label %if.end.i.i.i
 
 if.then.i.i.i8:                                   ; preds = %if.then.i
-  %call2.i12.i.i9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
+  %call2.i12.i.i9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
           to label %call2.i12.i.i.noexc unwind label %lpad2
 
 call2.i12.i.i.noexc:                              ; preds = %if.then.i.i.i8
@@ -18797,7 +18797,7 @@ call5.i.i.i.i.noexc:                              ; preds = %_ZN6duckdb18Catalog
   br i1 %cmp.i.i.i13, label %if.then.i.i.i21, label %if.end.i.i.i
 
 if.then.i.i.i21:                                  ; preds = %call5.i.i.i.i.noexc
-  %call2.i12.i.i22 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
+  %call2.i12.i.i22 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(64) %call5.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
           to label %call2.i12.i.i.noexc unwind label %lpad.i.i.i.i.i
 
 call2.i12.i.i.noexc:                              ; preds = %if.then.i.i.i21
@@ -20778,7 +20778,7 @@ invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i,
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %7
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !31, !noalias !389
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #37, !noalias !389
-  invoke void @_ZN6duckdb14InCatalogEntryC1ENS_11CatalogTypeERNS_7CatalogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %call.i, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %agg.tmp.i)
+  invoke void @_ZN6duckdb14InCatalogEntryC1ENS_11CatalogTypeERNS_7CatalogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %call.i, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont6.i unwind label %lpad5.i, !noalias !389
 
 invoke.cont6.i:                                   ; preds = %invoke.cont.i
@@ -24145,7 +24145,7 @@ invoke.cont.i22:                                  ; preds = %if.end.i.i.i.i.i.i3
   %arrayidx.i.i.i.i24 = getelementptr inbounds i8, ptr %58, i64 %57
   store i8 0, ptr %arrayidx.i.i.i.i24, align 1, !tbaa !31, !noalias !412
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i16) #37, !noalias !412
-  invoke void @_ZN6duckdb14InCatalogEntryC1ENS_11CatalogTypeERNS_7CatalogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %call.i1843, i8 noundef zeroext 52, ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull %agg.tmp.i17)
+  invoke void @_ZN6duckdb14InCatalogEntryC1ENS_11CatalogTypeERNS_7CatalogENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %call.i1843, i8 noundef zeroext 52, ptr noundef nonnull align 8 dereferenceable(72) %50, ptr noundef nonnull %agg.tmp.i17)
           to label %invoke.cont6.i32 unwind label %lpad5.i25, !noalias !412
 
 invoke.cont6.i32:                                 ; preds = %invoke.cont.i22

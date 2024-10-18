@@ -166,7 +166,7 @@ sw.bb44.i:                                        ; preds = %if.end42.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb44.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 137, ptr noundef nonnull @__func__.parallels_load_bitmap, ptr noundef nonnull @.str.9, i64 noundef %conv46.i, i64 noundef 32) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 137, ptr noundef nonnull @__func__.parallels_load_bitmap, ptr noundef nonnull @.str.9, i64 noundef range(i64 0, 4294967296) %conv46.i, i64 noundef 32) #8
   br label %parallels_load_bitmap.exit.thread.i
 
 if.end.i.i:                                       ; preds = %sw.bb44.i

@@ -3423,7 +3423,7 @@ define i32 @png_image_write_to_file(ptr noundef %0, ptr noundef readonly %1, i32
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %17
-  %21 = tail call fastcc i32 @png_image_write_init(ptr noundef %0)
+  %21 = tail call fastcc i32 @png_image_write_init(ptr noundef nonnull %0)
   %.not22.i = icmp eq i32 %21, 0
   br i1 %.not22.i, label %png_image_write_to_stdio.exit.thread, label %22
 

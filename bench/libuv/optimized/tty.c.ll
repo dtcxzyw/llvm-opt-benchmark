@@ -154,7 +154,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %call.i = call noundef i32 @fstat64(i32 noundef %file, ptr noundef nonnull %s) #8
+  %call.i = call noundef i32 @fstat64(i32 noundef range(i32 0, -2147483648) %file, ptr noundef nonnull %s) #8
   %tobool4.not = icmp eq i32 %call.i, 0
   br i1 %tobool4.not, label %if.end6, label %return
 

@@ -438,10 +438,10 @@ define dso_local void @_ZN4llvm24PseudoSourceValueManagerC2ERKNS_13TargetMachine
   tail call void @_ZN4llvm17PseudoSourceValueC1EjRKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(1232) %9) #16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 6) #16
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull %11, i64 noundef 6) #16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %12, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 20, i1 false)
   store i32 16, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -587,7 +587,7 @@ _ZNK4llvm8ValueMapIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSour
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS6_EENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %3, align 8, !alias.scope !9
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %9, align 8, !alias.scope !9
-  %10 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS8_EENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEESB_NS_12DenseMapInfoISH_vEENS_6detail12DenseMapPairISH_SB_EEEESH_SB_SJ_SM_E16FindAndConstructEOSH_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %10 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS8_EENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEESB_NS_12DenseMapInfoISH_vEENS_6detail12DenseMapPairISH_SB_EEEESH_SB_SJ_SM_E16FindAndConstructEOSH_(ptr noundef nonnull align 8 dereferenceable(57) %4, ptr noundef nonnull align 8 dereferenceable(40) %3)
   %11 = load ptr, ptr %7, align 8
   %magicptr.i.i.i.i = ptrtoint ptr %11 to i64
   switch i64 %magicptr.i.i.i.i, label %12 [
@@ -1108,7 +1108,7 @@ _ZSt9make_pairIN4llvm18ValueMapCallbackVHIPKNS0_11GlobalValueESt10unique_ptrIKNS
   %25 = load i64, ptr %14, align 8, !noalias !25
   store i64 %25, ptr %24, align 8, !alias.scope !25
   store ptr null, ptr %14, align 8, !noalias !25
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS8_EENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEESB_NS_12DenseMapInfoISH_vEENS_6detail12DenseMapPairISH_SB_EEEESH_SB_SJ_SM_E11try_emplaceIJSB_EEESt4pairINS_16DenseMapIteratorISH_SB_SJ_SM_Lb0EEEbEOSH_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.138") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS8_EENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEESB_NS_12DenseMapInfoISH_vEENS_6detail12DenseMapPairISH_SB_EEEESH_SB_SJ_SM_E11try_emplaceIJSB_EEESt4pairINS_16DenseMapIteratorISH_SB_SJ_SM_Lb0EEEbEOSH_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.138") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(8) %24)
   %26 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIKN4llvm28GlobalValuePseudoSourceValueESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIKN4llvm28GlobalValuePseudoSourceValueEEclEPS2_.exit.i.i

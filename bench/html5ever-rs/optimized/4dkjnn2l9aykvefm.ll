@@ -37,12 +37,12 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %15 = shl nuw i64 %7, 4
   %16 = icmp uge i64 %10, %15
   tail call void @llvm.assume(i1 %16)
-  %17 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val28.i, i64 noundef %15, i64 noundef 8, i64 noundef %10) #9, !noalias !8
+  %17 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val28.i, i64 noundef %15, i64 noundef range(i64 1, 9) 8, i64 noundef %10) #9, !noalias !8
   br label %_ZN5alloc7raw_vec11finish_grow17h0bdad1f3a15d88e8E.exit.i
 
 18:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hde3589cc48a99fb5E.exit.i"
   %19 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !8
-  %20 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %10, i64 noundef 8) #9, !noalias !8
+  %20 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %10, i64 noundef range(i64 1, 9) 8) #9, !noalias !8
   br label %_ZN5alloc7raw_vec11finish_grow17h0bdad1f3a15d88e8E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h0bdad1f3a15d88e8E.exit.i: ; preds = %18, %14

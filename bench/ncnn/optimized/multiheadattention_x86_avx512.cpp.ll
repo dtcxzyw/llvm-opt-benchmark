@@ -4980,7 +4980,7 @@ define linkonce_odr hidden void @_ZN4ncnn29MultiHeadAttention_x86_avx512D2Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn29MultiHeadAttention_x86_avx512D0Ev(ptr noundef nonnull align 8 dereferenceable(872) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %0) #14
+  tail call void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 872) #18
   ret void
 }

@@ -316,7 +316,7 @@ if.then18:                                        ; preds = %_ZN3mbp9mbp_dt_tg4i
   %34 = load ptr, ptr %m_seen.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i)
   store ptr %11, ptr %tmp.i.i.i, align 8
-  call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i)
+  call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i.i)
   call void @_ZN3mbp9mbp_dt_tg4impl9rm_selectEP4expr(ptr noundef nonnull align 8 dereferenceable(361) %this, ptr noundef nonnull %11)
   br label %for.inc
@@ -329,7 +329,7 @@ if.then21:                                        ; preds = %if.end19
   %35 = load ptr, ptr %m_seen.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i20)
   store ptr %11, ptr %tmp.i.i.i20, align 8
-  call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i20)
+  call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i.i20)
   %36 = load ptr, ptr %cons, align 8
   %37 = load ptr, ptr %rhs, align 8
@@ -380,7 +380,7 @@ if.then27:                                        ; preds = %land.lhs.true25
   %46 = load ptr, ptr %m_seen.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i28)
   store ptr %11, ptr %tmp.i.i.i28, align 8
-  call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %46, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i28)
+  call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i.i28)
   %47 = load ptr, ptr %cons, align 8
   %48 = load ptr, ptr %rhs, align 8
@@ -2095,7 +2095,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

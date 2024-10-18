@@ -124,7 +124,7 @@ invoke.cont4:                                     ; preds = %if.else.i23, %if.th
   %8 = getelementptr i8, ptr %6, i64 %.idx
   %arrayidx.i34 = getelementptr i8, ptr %8, i64 444
   store float 0x4005AE1480000000, ptr %arrayidx.i34, align 4
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #16
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   %_M_finish.i35 = getelementptr inbounds i8, ptr %buffer, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8
@@ -320,7 +320,7 @@ lpad.i:                                           ; preds = %_ZNSt12_Vector_base
 
 invoke.cont.i23:                                  ; preds = %for.body.i12.i, %for.body.i.i, %sw.bb.i, %sw.epilog.i.i
   %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ret.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ret.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i, align 8
   %26 = load ptr, ptr %buffer, align 8
   %27 = load ptr, ptr %_M_finish.i35, align 8
@@ -398,7 +398,7 @@ if.then.i.i.i.i.i.i.i66:                          ; preds = %_ZN11struct_pack11d
   %33 = load ptr, ptr %ret.i, align 8
   %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i, i64 8
   %34 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ret.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ret.i, i8 0, i64 24, i1 false)
   %cmp.not3.i.i.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %33, %34
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i68, label %invoke.cont.i.i.i.i.i.i.i.i76, label %for.body.i.i.i.i.i.i.i.i.i.i.i69
 
@@ -429,7 +429,7 @@ if.then.i.i.i82:                                  ; preds = %_ZN2tl8expectedISt6
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN2tl8expectedISt6vectorIN13my_name_space7array2DESaIS3_EEN11struct_pack4errcEED2Ev.exit79, %if.then.i.i.i82
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer) #16
   %37 = load ptr, ptr %ar, align 8
   %38 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %37, %38
@@ -526,7 +526,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #16
   ret void
 }
 

@@ -164,7 +164,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i
   unreachable
 
 _ZN29btSphereBoxCollisionAlgorithmD2Ev.exit:      ; preds = %entry, %if.then.i, %if.then3.i
-  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #13
+  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }

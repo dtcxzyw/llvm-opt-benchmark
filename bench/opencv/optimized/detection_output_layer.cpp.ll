@@ -1603,7 +1603,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24DetectionOutputLayerImplD2Ev(ptr no
 define linkonce_odr hidden void @_ZN2cv3dnn24DetectionOutputLayerImplD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #26
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -1752,7 +1752,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24DetectionOutputLayerImpl7forwardERK
 72:                                               ; preds = %66
   %73 = getelementptr inbounds i8, ptr %14, i64 20
   store float 0.000000e+00, ptr %73, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %14, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %14, i8 0, i64 17, i1 false)
   %74 = getelementptr inbounds i8, ptr %0, i64 174
   %75 = load i8, ptr %74, align 2
   %76 = trunc i8 %75 to i1
@@ -4312,7 +4312,7 @@ _ZNSt3mapIiSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS4_EESt4lessIiESaISt4pairI
   %.01012.i.i.i.i = phi i64 [ %188, %.lr.ph.i.i.i.i99 ], [ %177, %178 ]
   %187 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 20
   store float 0.000000e+00, ptr %187, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %.013.i.i.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.013.i.i.i.i, i8 0, i64 17, i1 false)
   %188 = add i64 %.01012.i.i.i.i, -1
   %189 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 24
   %.not.i.i.i.i100 = icmp eq i64 %188, 0
@@ -4343,7 +4343,7 @@ _ZNKSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE12_M_check_lenEmPKc.exit.i: 
   %.01012.i.i.i32.i = phi i64 [ %198, %.lr.ph.i.i.i30.i ], [ %177, %_ZNKSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE12_M_check_lenEmPKc.exit.i ]
   %197 = getelementptr inbounds i8, ptr %.013.i.i.i31.i, i64 20
   store float 0.000000e+00, ptr %197, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %.013.i.i.i31.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.013.i.i.i31.i, i8 0, i64 17, i1 false)
   %198 = add i64 %.01012.i.i.i32.i, -1
   %199 = getelementptr inbounds i8, ptr %.013.i.i.i31.i, i64 24
   %.not.i.i.i33.i = icmp eq i64 %198, 0
@@ -8444,7 +8444,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS
   %.01012.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 20
   store float 0.000000e+00, ptr %19, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %.013.i.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.013.i.i.i, i8 0, i64 17, i1 false)
   %20 = add i64 %.01012.i.i.i, -1
   %21 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 24
   %.not.i.i.i = icmp eq i64 %20, 0
@@ -8476,7 +8476,7 @@ _ZNKSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE12_M_check_lenEmPKc.exit: ; 
   %.01012.i.i.i32 = phi i64 [ %31, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN2cv3dnn4util14NormalizedBBoxESaIS3_EE12_M_check_lenEmPKc.exit ]
   %30 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 20
   store float 0.000000e+00, ptr %30, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %.013.i.i.i31, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.013.i.i.i31, i8 0, i64 17, i1 false)
   %31 = add i64 %.01012.i.i.i32, -1
   %32 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 24
   %.not.i.i.i33 = icmp eq i64 %31, 0
@@ -13985,7 +13985,7 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #26
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %1) #26
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %1) #26
   tail call void @_ZdlPv(ptr noundef nonnull %1) #25
   br label %15
 
@@ -14034,7 +14034,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv3dnn24DetectionOutp
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %3) #26
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #26
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %7
 

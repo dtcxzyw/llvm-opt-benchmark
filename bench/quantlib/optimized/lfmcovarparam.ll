@@ -889,7 +889,7 @@ invoke.cont49:                                    ; preds = %invoke.cont42
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont49
-  %call.i46 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp40, i32 noundef 3)
+  %call.i46 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -917,7 +917,7 @@ lpad46:                                           ; preds = %invoke.cont42
   br i1 %tobool.not.i48, label %ehcleanup53, label %if.then.i49
 
 if.then.i49:                                      ; preds = %lpad46
-  %call.i50 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp40, i32 noundef 3)
+  %call.i50 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, i32 noundef 3)
           to label %ehcleanup53 unwind label %terminate.lpad.i51
 
 terminate.lpad.i51:                               ; preds = %if.then.i49

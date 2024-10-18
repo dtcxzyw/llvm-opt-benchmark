@@ -7941,7 +7941,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i: ; 
   br label %_ZN2cv11xfeatures2d10FREAK_ImplD2Ev.exit
 
 _ZN2cv11xfeatures2d10FREAK_ImplD2Ev.exit:         ; preds = %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i, %7
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
   ret void
 }
@@ -7972,8 +7972,8 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i.i: 
   br label %_ZN2cv11xfeatures2d10FREAK_ImplD1Ev.exit
 
 _ZN2cv11xfeatures2d10FREAK_ImplD1Ev.exit:         ; preds = %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i.i, %11
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(1920) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(1920) %5) #22
   ret void
 }
 
@@ -7999,8 +7999,8 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i.i: 
   br label %_ZN2cv11xfeatures2d10FREAK_ImplD1Ev.exit
 
 _ZN2cv11xfeatures2d10FREAK_ImplD1Ev.exit:         ; preds = %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i.i, %7
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(1920) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -8034,9 +8034,9 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i.i.i
   br label %_ZN2cv11xfeatures2d10FREAK_ImplD0Ev.exit
 
 _ZN2cv11xfeatures2d10FREAK_ImplD0Ev.exit:         ; preds = %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i.i.i, %11
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #25
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(1920) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(1920) %5) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1920) %5) #25
   ret void
 }
 
@@ -10619,8 +10619,8 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv11xfeatures2d10FREAK_ImplEEEvRS0_PT_.exit: ; preds = %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EED2Ev.exit.i.i.i.i, %7
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(1920) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d10FREAK_ImplE, i64 16)) #22
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(1920) %8) #22
   ret void
 }
 

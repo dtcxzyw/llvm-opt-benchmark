@@ -190,7 +190,7 @@ if.then.i.i.i:                                    ; preds = %delete.notnull
   br label %_ZN13CompileResultD2Ev.exit
 
 _ZN13CompileResultD2Ev.exit:                      ; preds = %delete.notnull, %if.then.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %res) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %res) #15
   tail call void @_ZdlPv(ptr noundef nonnull %res) #16
   br label %delete.end
 
@@ -283,7 +283,7 @@ entry:
   %ref.tmp57 = alloca %"struct.std::array", align 1
   %call.i13 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17, !noalias !5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i13, i8 0, i64 48, i1 false), !noalias !5
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i13) #15, !noalias !5
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %call.i13) #15, !noalias !5
   %bytecode_.i.i = getelementptr inbounds i8, ptr %call.i13, i64 32
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i13, i64 48
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %bytecode_.i.i, align 8, !noalias !5
@@ -448,7 +448,7 @@ if.end51:                                         ; preds = %_ZNSt10unique_ptrIN
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %bcstream, align 8
   %OS.i = getelementptr inbounds i8, ptr %bcstream, i64 40
   store ptr %bytecode_, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %bcstream, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %bcstream, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
   store ptr %bcstream, ptr %BS, align 8
   %options_.i = getelementptr inbounds i8, ptr %BS, i64 16
   store i32 11, ptr %options_.i, align 8
@@ -481,7 +481,7 @@ if.end51:                                         ; preds = %_ZNSt10unique_ptrIN
   %10 = load ptr, ptr %module_.i, align 8
   call void @_ZN4llvh4SHA14hashENS_8ArrayRefIhEE(ptr nonnull sret(%"struct.std::array") align 1 %ref.tmp57, ptr nonnull %source, i64 %sub) #15
   call void @_ZN6hermes3hbc18BytecodeSerializer9serializeERNS0_14BytecodeModuleERKSt5arrayIhLm20EE(ptr noundef nonnull align 8 dereferenceable(176) %BS, ptr noundef nonnull align 8 dereferenceable(513) %10, ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp57) #15
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %bcstream) #15
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %bcstream) #15
   br label %cleanup63
 
 cleanup63:                                        ; preds = %if.then41, %if.else, %if.end51
@@ -526,7 +526,7 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
   br label %_ZNKSt14default_deleteI13CompileResultEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI13CompileResultEclEPS0_.exit.i: ; preds = %if.then.i.i.i.i.i, %delete.notnull.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compileRes.sroa.0.2) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %compileRes.sroa.0.2) #15
   call void @_ZdlPv(ptr noundef nonnull %compileRes.sroa.0.2) #16
   br label %_ZNSt10unique_ptrI13CompileResultSt14default_deleteIS0_EED2Ev.exit
 
@@ -719,7 +719,7 @@ _ZN4llvh14SmallBitVectorD2Ev.exit32:              ; preds = %_ZN4llvh14SmallBitV
   %stringsToIndex_.i = getelementptr inbounds i8, ptr %this, i64 272
   %18 = load ptr, ptr %stringsToIndex_.i, align 8
   tail call void @_ZdlPv(ptr noundef %18) #15
-  tail call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %virtualBufferNames_) #15
+  tail call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %virtualBufferNames_) #15
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %19 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %19, null
@@ -1076,7 +1076,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit107:              ; preds = %if.then.i.i105, %if
   br i1 %cmp.not.i.i, label %_ZN4llvh18raw_string_ostream3strB5cxx11Ev.exit, label %if.then.i.i109
 
 if.then.i.i109:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit107
-  call void @_ZN4llvh11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(36) %OS) #15
+  call void @_ZN4llvh11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %OS) #15
   br label %_ZN4llvh18raw_string_ostream3strB5cxx11Ev.exit
 
 _ZN4llvh18raw_string_ostream3strB5cxx11Ev.exit:   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit107, %if.then.i.i109
@@ -1171,7 +1171,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
   br label %_ZN13CompileResultD2Ev.exit.i
 
 _ZN13CompileResultD2Ev.exit.i:                    ; preds = %if.then.i.i.i.i, %delete.notnull.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %call) #15
   call void @_ZdlPv(ptr noundef nonnull %call) #16
   br label %hermesCompileResult_free.exit
 
@@ -1275,7 +1275,7 @@ if.then.i.i.i.i72:                                ; preds = %delete.notnull.i68
   br label %_ZN13CompileResultD2Ev.exit.i73
 
 _ZN13CompileResultD2Ev.exit.i73:                  ; preds = %if.then.i.i.i.i72, %delete.notnull.i68
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call7) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %call7) #15
   call void @_ZdlPv(ptr noundef nonnull %call7) #16
   br label %hermesCompileResult_free.exit74
 

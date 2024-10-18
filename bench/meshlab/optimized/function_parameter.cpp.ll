@@ -1031,7 +1031,7 @@ define void @_ZNK9pymeshlab17FunctionParameter17printDefaultValueERSo(ptr nocapt
   br label %_ZN7QStringD2Ev.exit
 
 26:                                               ; preds = %2
-  %27 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichBool, i64 0) #16
+  %27 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichBool, i64 0) #16
   %.not85 = icmp eq ptr %27, null
   br i1 %.not85, label %36, label %28
 
@@ -1046,7 +1046,7 @@ define void @_ZNK9pymeshlab17FunctionParameter17printDefaultValueERSo(ptr nocapt
   br label %_ZN7QStringD2Ev.exit
 
 36:                                               ; preds = %26
-  %37 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI7RichInt, i64 0) #16
+  %37 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI7RichInt, i64 0) #16
   %.not86 = icmp eq ptr %37, null
   br i1 %.not86, label %45, label %38
 
@@ -1060,7 +1060,7 @@ define void @_ZNK9pymeshlab17FunctionParameter17printDefaultValueERSo(ptr nocapt
   br label %_ZN7QStringD2Ev.exit
 
 45:                                               ; preds = %36
-  %46 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI9RichFloat, i64 0) #16
+  %46 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI9RichFloat, i64 0) #16
   %.not87 = icmp eq ptr %46, null
   br i1 %.not87, label %54, label %47
 
@@ -1074,7 +1074,7 @@ define void @_ZNK9pymeshlab17FunctionParameter17printDefaultValueERSo(ptr nocapt
   br label %_ZN7QStringD2Ev.exit
 
 54:                                               ; preds = %45
-  %55 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI10RichString, i64 0) #16
+  %55 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI10RichString, i64 0) #16
   %.not88 = icmp eq ptr %55, null
   br i1 %.not88, label %77, label %56
 
@@ -1222,7 +1222,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 137:                                              ; preds = %119
-  %138 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichMatrix44, i64 0) #16
+  %138 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichMatrix44, i64 0) #16
   %.not92 = icmp eq ptr %138, null
   br i1 %.not92, label %211, label %139
 
@@ -1302,12 +1302,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 211:                                              ; preds = %137
-  %212 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichPosition, i64 0) #16
+  %212 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichPosition, i64 0) #16
   %.not93 = icmp eq ptr %212, null
   br i1 %.not93, label %213, label %215
 
 213:                                              ; preds = %211
-  %214 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI13RichDirection, i64 0) #16
+  %214 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI13RichDirection, i64 0) #16
   %.not94 = icmp eq ptr %214, null
   br i1 %.not94, label %241, label %215
 
@@ -1345,7 +1345,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 241:                                              ; preds = %213
-  %242 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichShot, i64 0) #16
+  %242 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichShot, i64 0) #16
   %.not95 = icmp eq ptr %242, null
   br i1 %.not95, label %245, label %243
 
@@ -1354,7 +1354,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 245:                                              ; preds = %241
-  %246 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI9RichColor, i64 0) #16
+  %246 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI9RichColor, i64 0) #16
   %.not96 = icmp eq ptr %246, null
   br i1 %.not96, label %297, label %247
 
@@ -1531,12 +1531,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 306:                                              ; preds = %297
-  %307 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileSave, i64 0) #16
+  %307 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileSave, i64 0) #16
   %.not98 = icmp eq ptr %307, null
   br i1 %.not98, label %308, label %310
 
 308:                                              ; preds = %306
-  %309 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileOpen, i64 0) #16
+  %309 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %23, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileOpen, i64 0) #16
   %.not99 = icmp eq ptr %309, null
   br i1 %.not99, label %_ZN7QStringD2Ev.exit, label %310
 

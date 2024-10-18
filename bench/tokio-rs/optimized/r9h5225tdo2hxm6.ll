@@ -2223,7 +2223,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %3
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h10da9044cb2bfd39E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h10da9044cb2bfd39E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %8)
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %11
@@ -2309,7 +2309,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   br i1 %6, label %7, label %32
 
 7:                                                ; preds = %2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h6032129cf96e80d5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h6032129cf96e80d5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %4)
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %7
@@ -2395,7 +2395,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h178ae142328e5965E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h178ae142328e5965E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5)
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %8
@@ -2481,7 +2481,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hae45fc8d6b650963E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hae45fc8d6b650963E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5)
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %8
@@ -11477,7 +11477,7 @@ define void @"_ZN77_$LT$tokio..signal..registry..EventInfo$u20$as$u20$core..defa
 
 20:                                               ; preds = %16
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb108bbb3ceb8bdcdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb108bbb3ceb8bdcdE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
           to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..watch..Shared$LT$$LP$$RP$$GT$$GT$$GT$17h8f13b0daf0f8fff8E.llvm.700930863383756518.exit.i" unwind label %24
 
 "_ZN79_$LT$tokio..sync..watch..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfdbc240f6b91510bE.llvm.700930863383756518.exit.i": ; preds = %14, %1
@@ -11487,7 +11487,7 @@ define void @"_ZN77_$LT$tokio..signal..registry..EventInfo$u20$as$u20$core..defa
 
 23:                                               ; preds = %"_ZN79_$LT$tokio..sync..watch..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfdbc240f6b91510bE.llvm.700930863383756518.exit.i"
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb108bbb3ceb8bdcdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb108bbb3ceb8bdcdE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   br label %"_ZN4core3ptr65drop_in_place$LT$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$$GT$17h9d211a576f86ab4dE.exit"
 
 24:                                               ; preds = %20
@@ -11553,7 +11553,7 @@ define hidden { ptr, i64 } @"_ZN5tokio6signal8registry17Registry$LT$S$GT$17regis
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6d50f73fe2a1d02aE.llvm.5542961546488995764.exit.i": ; preds = %15
   store ptr %19, ptr %3, align 8, !noalias !1846
   %23 = getelementptr inbounds i8, ptr %19, i64 312
-  %24 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.7600499188078001995(ptr noundef nonnull %23, i8 noundef 2)
+  %24 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.7600499188078001995(ptr noundef nonnull align 8 %23, i8 noundef 2)
           to label %"_ZN5tokio4sync5watch15Sender$LT$T$GT$9subscribe17h8b806ce75e4a8cd3E.exit" unwind label %25, !noalias !1846
 
 .noexc.i:                                         ; preds = %29, %25
@@ -11829,7 +11829,7 @@ define void @"_ZN74_$LT$tokio..signal..unix..SignalInfo$u20$as$u20$core..default
 
 19:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb108bbb3ceb8bdcdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb108bbb3ceb8bdcdE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
           to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..watch..Shared$LT$$LP$$RP$$GT$$GT$$GT$17h8f13b0daf0f8fff8E.llvm.700930863383756518.exit.i.i" unwind label %23, !noalias !1875
 
 "_ZN79_$LT$tokio..sync..watch..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfdbc240f6b91510bE.llvm.700930863383756518.exit.i.i": ; preds = %13, %1
@@ -11839,7 +11839,7 @@ define void @"_ZN74_$LT$tokio..signal..unix..SignalInfo$u20$as$u20$core..default
 
 22:                                               ; preds = %"_ZN79_$LT$tokio..sync..watch..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfdbc240f6b91510bE.llvm.700930863383756518.exit.i.i"
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb108bbb3ceb8bdcdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !1875
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb108bbb3ceb8bdcdE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !1875
   br label %"_ZN77_$LT$tokio..signal..registry..EventInfo$u20$as$u20$core..default..Default$GT$7default17he2568b4a6092ffa5E.exit"
 
 23:                                               ; preds = %19
@@ -12243,7 +12243,7 @@ _ZN5tokio6signal4unix18signal_with_handle17hcb179da8475d0ca1E.exit: ; preds = %_
 51:                                               ; preds = %47
   %52 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$tokio..signal..make_future..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb572fe8dbdb91a50E.llvm.3285439092171202888"(ptr noundef nonnull align 8 %4) #28
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$tokio..signal..make_future..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb572fe8dbdb91a50E.llvm.3285439092171202888"(ptr noundef nonnull align 8 dereferenceable(160) %4) #28
           to label %.body unwind label %53
 
 53:                                               ; preds = %51

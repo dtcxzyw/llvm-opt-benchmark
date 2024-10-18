@@ -803,7 +803,7 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly %1, i32 no
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
-  %..i = tail call i32 @llvm.smin.i32(i32 %2, i32 %16)
+  %..i = tail call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %2, i32 %16)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %cbuf_reader.exit, label %18
 
@@ -904,7 +904,7 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly %1, i32 no
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
-  %..i = tail call i32 @llvm.smin.i32(i32 %2, i32 %16)
+  %..i = tail call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %2, i32 %16)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %cbuf_reader.exit.thread, label %18
 
@@ -2402,7 +2402,7 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
-  %..i = tail call i32 @llvm.smin.i32(i32 %.014, i32 %21)
+  %..i = tail call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %.014, i32 %21)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %cbuf_reader.exit, label %23
 
@@ -2527,7 +2527,7 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
-  %..i = tail call i32 @llvm.smin.i32(i32 %.017, i32 %21)
+  %..i = tail call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %.017, i32 %21)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %cbuf_reader.exit.thread, label %23
 

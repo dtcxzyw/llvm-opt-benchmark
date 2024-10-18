@@ -584,7 +584,7 @@ define internal fastcc void @Prs_ManWriteVerilogSignal(ptr nocapture noundef %0,
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %9, align 8
-  %10 = tail call ptr @Abc_NamStr(ptr noundef %.val, i32 noundef %4) #15
+  %10 = tail call ptr @Abc_NamStr(ptr noundef %.val, i32 noundef range(i32 -536870912, 536870912) %4) #15
   %fputs = tail call i32 @fputs(ptr %10, ptr %0)
   br label %57
 
@@ -1195,7 +1195,7 @@ Prs_ManWriteVerilogIos.exit.i:                    ; preds = %Prs_ObjGetName.exit
   %.val18.i.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %257 = getelementptr inbounds i32, ptr %.val18.i.i.i, i64 %indvars.iv.i.i.i
   %258 = load i32, ptr %257, align 4
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef nonnull %12, ptr noundef readonly %98, i32 noundef %258)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef nonnull %12, ptr noundef nonnull readonly %98, i32 noundef %258)
   %259 = lshr exact i64 %indvars.iv22.i.i.i, 1
   %260 = and i64 %259, 2147483647
   %261 = getelementptr inbounds [4 x ptr], ptr @__const.Prs_ManWriteVerilogMux.pStrs, i64 0, i64 %260
@@ -1269,7 +1269,7 @@ Cba_TypeIsUnary.exit.thread.i.i:                  ; preds = %Cba_TypeIsUnary.exi
   %Prs_BoxSignals.V.val92.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %287 = getelementptr inbounds i32, ptr %Prs_BoxSignals.V.val92.i.i, i64 %indvars.iv.i22.i
   %288 = load i32, ptr %287, align 4
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef nonnull %12, ptr noundef readonly %98, i32 noundef %288)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef nonnull %12, ptr noundef nonnull readonly %98, i32 noundef %288)
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i22.i, 2
   %Prs_BoxSignals.V.val.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %289 = trunc nuw i64 %indvars.iv.next.i23.i to i32
@@ -1532,7 +1532,7 @@ Prs_ObjGetName.exit.i.i:                          ; preds = %393, %.loopexit.i.i
   %.0.i.i.i = phi ptr [ %398, %.loopexit.i.i.i ], [ null, %.lr.ph.i108.i.i ], [ %373, %375 ], [ %373, %384 ], [ %373, %393 ]
   %fputs.i110.i.i = tail call i32 @fputs(ptr %.0.i.i.i, ptr nonnull %12)
   %fputc18.i.i.i = tail call i32 @fputc(i32 40, ptr nonnull %12)
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef nonnull %12, ptr noundef readonly %98, i32 noundef %372)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef nonnull %12, ptr noundef nonnull readonly %98, i32 noundef %372)
   %.val.i111.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %399 = add nsw i32 %.val.i111.i.i, -2
   %400 = zext i32 %399 to i64
@@ -1917,7 +1917,7 @@ Cba_FonRangeSize.exit:                            ; preds = %Cba_FonRange.exit.i
 
 Cba_FonRange.exit.i17:                            ; preds = %.critedge
   %25 = getelementptr inbounds i8, ptr %0, i64 280
-  %26 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %25, i32 noundef %1)
+  %26 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %25, i32 noundef range(i32 1, 0) %1)
   %.not.i.i = icmp ult i32 %26, 2
   br i1 %.not.i.i, label %Cba_FonRight.exit.thread, label %Cba_FonRight.exit
 
@@ -1945,7 +1945,7 @@ Cba_FonRight.exit:                                ; preds = %Cba_FonRange.exit.i
 
 Cba_FonSigned.exit:                               ; preds = %40
   %42 = getelementptr inbounds i8, ptr %0, i64 280
-  %43 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %42, i32 noundef %1)
+  %43 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %42, i32 noundef range(i32 1, 0) %1)
   %44 = and i32 %43, 1
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %Cba_FonSigned.exit.thread, label %46
@@ -1961,7 +1961,7 @@ Cba_FonSigned.exit.thread:                        ; preds = %46, %Cba_FonSigned.
 
 Cba_FonRange.exit.i22:                            ; preds = %Cba_FonSigned.exit.thread
   %49 = getelementptr inbounds i8, ptr %0, i64 280
-  %50 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %49, i32 noundef %1)
+  %50 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %49, i32 noundef range(i32 1, 0) %1)
   %.not.i.i23 = icmp ult i32 %50, 2
   br i1 %.not.i.i23, label %Cba_FonLeft.exit, label %51
 
@@ -1987,7 +1987,7 @@ Cba_FonLeft.exit:                                 ; preds = %Cba_FonRange.exit.i
   br i1 %63, label %Cba_FonRight.exit29, label %Cba_FonRange.exit.i26
 
 Cba_FonRange.exit.i26:                            ; preds = %Cba_FonLeft.exit
-  %64 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %49, i32 noundef %1)
+  %64 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %49, i32 noundef range(i32 1, 0) %1)
   %.not.i.i27 = icmp ult i32 %64, 2
   br i1 %.not.i.i27, label %Cba_FonRight.exit29, label %65
 
@@ -2027,7 +2027,7 @@ define internal fastcc i32 @Cba_FonRangeSize(ptr nocapture noundef %0, i32 nound
   %4 = getelementptr i8, ptr %.val, i64 24
   %.val.val = load ptr, ptr %4, align 8
   %5 = xor i32 %1, -1
-  %6 = tail call ptr @Abc_NamStr(ptr noundef %.val.val, i32 noundef %5) #15
+  %6 = tail call ptr @Abc_NamStr(ptr noundef %.val.val, i32 noundef range(i32 -2147483648, 2147483647) %5) #15
   %7 = tail call i32 @atoi(ptr nocapture noundef %6) #18
   br label %31
 
@@ -2137,7 +2137,7 @@ Cba_FonObj.exit43:                                ; preds = %Cba_FonObj.exit.thr
   %25 = getelementptr i8, ptr %.val.i44, i64 24
   %.val.val.i = load ptr, ptr %25, align 8
   %26 = xor i32 %1, -1
-  %27 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %26) #15
+  %27 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef range(i32 -2147483648, 2147483647) %26) #15
   %28 = tail call i32 @atoi(ptr nocapture noundef %27) #18
   br label %52
 
@@ -2259,7 +2259,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %.val = load ptr, ptr %0, align 8
   %87 = getelementptr i8, ptr %.val, i64 24
   %.val.val = load ptr, ptr %87, align 8
-  %88 = tail call ptr @Abc_NamStr(ptr noundef %.val.val, i32 noundef %86) #15
+  %88 = tail call ptr @Abc_NamStr(ptr noundef %.val.val, i32 noundef range(i32 -2147483648, 2147483647) %86) #15
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %6, ptr noundef %88)
   br i1 %or.cond60, label %91, label %125
 
@@ -2341,7 +2341,7 @@ Vec_StrPush.exit52:                               ; preds = %.Vec_StrGrow.exit10
   %.val.c = load ptr, ptr %0, align 8
   %123 = getelementptr i8, ptr %.val.c, i64 24
   %.val.val.c = load ptr, ptr %123, align 8
-  %124 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.c, i32 noundef %122) #15
+  %124 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.c, i32 noundef range(i32 -2147483648, 2147483647) %122) #15
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %6, ptr noundef %124)
   br label %125
 
@@ -4213,7 +4213,7 @@ Vec_StrPush.exit1057:                             ; preds = %.Vec_StrGrow.exit10
   %636 = getelementptr i8, ptr %.val.i1060, i64 24
   %.val.val.i1061 = load ptr, ptr %636, align 8
   %637 = xor i32 %632, -1
-  %638 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1061, i32 noundef %637) #15
+  %638 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1061, i32 noundef range(i32 -2147483648, 2147483647) %637) #15
   %639 = tail call i32 @atoi(ptr nocapture noundef %638) #18
   br label %Cba_FonRangeSize.exit
 
@@ -4261,7 +4261,7 @@ Cba_FonRangeSize.exit:                            ; preds = %635, %Cba_NtkRangeS
   %663 = getelementptr i8, ptr %.val.i1065, i64 24
   %.val.val.i1066 = load ptr, ptr %663, align 8
   %664 = xor i32 %634, -1
-  %665 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1066, i32 noundef %664) #15
+  %665 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1066, i32 noundef range(i32 -2147483648, 2147483647) %664) #15
   %666 = tail call i32 @atoi(ptr nocapture noundef %665) #18
   br label %Cba_FonRangeSize.exit1072
 
@@ -4413,7 +4413,7 @@ Cba_FonRangeSize.exit1072:                        ; preds = %662, %Cba_NtkRangeS
   %729 = getelementptr i8, ptr %.val.i1074, i64 24
   %.val.val.i1075 = load ptr, ptr %729, align 8
   %730 = xor i32 %716, -1
-  %731 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1075, i32 noundef %730) #15
+  %731 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1075, i32 noundef range(i32 -2147483648, 2147483647) %730) #15
   %732 = tail call i32 @atoi(ptr nocapture noundef %731) #18
   br label %Cba_FonRangeSize.exit1081
 
@@ -4592,7 +4592,7 @@ Cba_FonRangeSize.exit1081:                        ; preds = %728, %Cba_NtkRangeS
   %777 = getelementptr i8, ptr %.val.i1083, i64 24
   %.val.val.i1084 = load ptr, ptr %777, align 8
   %778 = xor i32 %774, -1
-  %779 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1084, i32 noundef %778) #15
+  %779 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1084, i32 noundef range(i32 -2147483648, 2147483647) %778) #15
   %780 = tail call i32 @atoi(ptr nocapture noundef %779) #18
   br label %Cba_FonRangeSize.exit1090
 

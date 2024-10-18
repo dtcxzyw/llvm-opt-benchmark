@@ -8508,7 +8508,7 @@ ppp_option_len_check.exit.thread:                 ; preds = %8
   %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef %10) #6
   %12 = icmp eq i32 %9, 1
   %13 = select i1 %12, ptr @.str.998, ptr @.str.999
-  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef %5) #6
+  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef range(i32 2, 11) %5) #6
   br label %24
 
 ppp_option_len_check.exit:                        ; preds = %8
@@ -8545,7 +8545,7 @@ ppp_option_len_check.exit.thread:                 ; preds = %8
   %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef %10) #6
   %12 = icmp eq i32 %9, 1
   %13 = select i1 %12, ptr @.str.998, ptr @.str.999
-  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef %5) #6
+  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef range(i32 2, 11) %5) #6
   br label %24
 
 ppp_option_len_check.exit:                        ; preds = %8
@@ -8598,7 +8598,7 @@ ppp_option_len_check.exit.thread:                 ; preds = %8
   %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef %10) #6
   %12 = icmp eq i32 %9, 1
   %13 = select i1 %12, ptr @.str.998, ptr @.str.999
-  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef %5) #6
+  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef range(i32 2, 11) %5) #6
   br label %24
 
 ppp_option_len_check.exit:                        ; preds = %8
@@ -8631,7 +8631,7 @@ ppp_option_len_check.exit.thread:                 ; preds = %8
   %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef %10) #6
   %12 = icmp eq i32 %9, 1
   %13 = select i1 %12, ptr @.str.998, ptr @.str.999
-  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef %5) #6
+  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef range(i32 2, 11) %5) #6
   br label %24
 
 ppp_option_len_check.exit:                        ; preds = %8
@@ -8668,7 +8668,7 @@ ppp_option_len_check.exit.thread:                 ; preds = %8
   %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef %10) #6
   %12 = icmp eq i32 %9, 1
   %13 = select i1 %12, ptr @.str.998, ptr @.str.999
-  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef %5) #6
+  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef range(i32 2, 11) %5) #6
   br label %24
 
 ppp_option_len_check.exit:                        ; preds = %8
@@ -8760,7 +8760,7 @@ ppp_option_len_check.exit.thread:                 ; preds = %8
   %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef %10) #6
   %12 = icmp eq i32 %9, 1
   %13 = select i1 %12, ptr @.str.998, ptr @.str.999
-  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef %5) #6
+  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef range(i32 2, 11) %5) #6
   br label %24
 
 ppp_option_len_check.exit:                        ; preds = %8
@@ -8841,7 +8841,7 @@ ppp_option_len_check.exit.thread:                 ; preds = %8
   %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef %10) #6
   %12 = icmp eq i32 %9, 1
   %13 = select i1 %12, ptr @.str.998, ptr @.str.999
-  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef %5) #6
+  %14 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ppp_opt_len_invalid, ptr noundef %0, i32 noundef 0, i32 noundef %9, ptr noundef nonnull @.str.1308, ptr noundef %11, i32 noundef %9, ptr noundef nonnull %13, i32 noundef range(i32 2, 11) %5) #6
   br label %24
 
 ppp_option_len_check.exit:                        ; preds = %8

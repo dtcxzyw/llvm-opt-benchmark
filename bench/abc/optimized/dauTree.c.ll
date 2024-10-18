@@ -6448,7 +6448,7 @@ Abc_Clock.exit50:                                 ; preds = %Abc_Clock.exit48, %
   %141 = load i64, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %142 = lshr i64 %141, 24
   %143 = and i64 %142, 248
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %132, ptr nonnull readonly align 16 @Dss_ManSharedMapDerive.Buffer, i64 %143, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %132, ptr nonnull align 16 @Dss_ManSharedMapDerive.Buffer, i64 %143, i1 false)
   %.val16.i = load i32, ptr %.04456, align 4
   %144 = lshr i32 %.val16.i, 26
   %145 = add nuw nsw i32 %144, 4

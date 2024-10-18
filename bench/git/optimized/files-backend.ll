@@ -724,7 +724,7 @@ if.then17.i:                                      ; preds = %if.end63.i.i, %if.e
   call void @delete_tempfile(ptr noundef nonnull %lk.i.i) #19
   %40 = load ptr, ptr %call.i74.i, align 8
   call void @free(ptr noundef %40) #19
-  call void @free(ptr noundef %call.i74.i) #19
+  call void @free(ptr noundef nonnull %call.i74.i) #19
   call void @strbuf_release(ptr noundef nonnull %ref_file.i.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref_file.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %failure_errno.i.i)
@@ -1143,7 +1143,7 @@ if.then25:                                        ; preds = %clear_loose_ref_cac
   tail call void @delete_tempfile(ptr noundef nonnull %lk.i69) #19
   %17 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %17) #19
-  tail call void @free(ptr noundef %7) #19
+  tail call void @free(ptr noundef nonnull %7) #19
   store ptr null, ptr %backend_data4.le, align 8
   br label %cleanup
 
@@ -3235,7 +3235,7 @@ return.sink.split:                                ; preds = %if.then2, %if.then7
   tail call void @delete_tempfile(ptr noundef nonnull %lk.sink) #19
   %8 = load ptr, ptr %lock, align 8
   tail call void @free(ptr noundef %8) #19
-  tail call void @free(ptr noundef %lock) #19
+  tail call void @free(ptr noundef nonnull %lock) #19
   br label %return
 
 return:                                           ; preds = %return.sink.split, %lor.lhs.false23
@@ -3408,7 +3408,7 @@ log_ref_write_fd.exit:                            ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i12.i, align 1
   %15 = load ptr, ptr %buf.i9.i, align 8
   %16 = load i64, ptr %len.i10.i, align 8
-  %call3.i = call i64 @write_in_full(i32 noundef %1, ptr noundef %15, i64 noundef %16) #19
+  %call3.i = call i64 @write_in_full(i32 noundef range(i32 0, -2147483648) %1, ptr noundef %15, i64 noundef %16) #19
   call void @strbuf_release(ptr noundef nonnull %sb.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   %tobool10.not = icmp sgt i64 %call3.i, -1

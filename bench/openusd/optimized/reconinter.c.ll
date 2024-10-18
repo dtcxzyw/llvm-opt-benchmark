@@ -476,7 +476,7 @@ define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr nocapture noundef 
   %35 = sdiv i32 %34, 16
   %36 = add nsw i32 %35, 38
   %37 = icmp slt i32 %34, -623
-  %38 = tail call i32 @llvm.umin.i32(i32 %36, i32 64)
+  %38 = tail call i32 @llvm.umin.i32(i32 range(i32 -67108826, -2147483648) %36, i32 64)
   %39 = trunc nuw nsw i32 %38 to i8
   %40 = select i1 %37, i8 0, i8 %39
   %gep35.i = getelementptr inbounds i8, ptr %invariant.gep34.i, i64 %indvars.iv15.i
@@ -925,7 +925,7 @@ shift_copy.exit.thread.i:                         ; preds = %1
 shift_copy.exit.i:                                ; preds = %1
   %12 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv51.i
   %13 = sub nsw i64 64, %indvars.iv51.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 16 @wedge_master_oblique_even, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 16 @wedge_master_oblique_even, i64 %13, i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 0, i64 %indvars.iv51.i, i1 false)
   %14 = or disjoint i64 %2, 64
   %15 = getelementptr inbounds [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 12288), i64 0, i64 %14
@@ -936,7 +936,7 @@ shift_copy.exit.i:                                ; preds = %1
   %indvars.iv.next52.i = add nsw i64 %indvars.iv51.i, -1
   %17 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv.next52.i
   %18 = sub nsw i64 65, %indvars.iv51.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 16 @wedge_master_oblique_odd, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 16 @wedge_master_oblique_odd, i64 %18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %15, i8 0, i64 %indvars.iv.next52.i, i1 false)
   br label %shift_copy.exit45.i
 
@@ -1533,7 +1533,7 @@ get_ref_frame_buf.exit73:                         ; preds = %get_ref_frame_buf.e
   %65 = and i32 %62, %61
   %66 = sub nsw i32 %64, %65
   %67 = tail call i32 @llvm.abs.i32(i32 %66, i1 true)
-  %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 31)
+  %68 = tail call i32 @llvm.umin.i32(i32 range(i32 -67108826, -2147483648) %67, i32 31)
   %69 = sub nsw i32 %47, %.0
   %70 = and i32 %63, %69
   %71 = and i32 %62, %69
@@ -1544,7 +1544,7 @@ get_relative_dist.exit77:                         ; preds = %55, %58
   %73 = phi i32 [ %68, %58 ], [ 0, %55 ]
   %.0.i76 = phi i32 [ %72, %58 ], [ 0, %55 ]
   %74 = tail call i32 @llvm.abs.i32(i32 %.0.i76, i1 true)
-  %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 31)
+  %75 = tail call i32 @llvm.umin.i32(i32 range(i32 -67108826, -2147483648) %74, i32 31)
   %76 = icmp samesign uge i32 %74, %73
   %77 = icmp eq i32 %73, 0
   %78 = icmp eq i32 %.0.i76, 0

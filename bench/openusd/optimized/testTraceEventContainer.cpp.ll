@@ -298,7 +298,7 @@ _ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__14TraceEventListEJEESt10sha
   %62 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %57, ptr %62, align 8, !alias.scope !14
   store ptr %60, ptr %29, align 8, !alias.scope !14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false), !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false), !noalias !8
   %63 = getelementptr inbounds nuw i8, ptr %24, i64 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull @.str.14)
           to label %.noexc.i unwind label %187, !noalias !8
@@ -358,7 +358,7 @@ _ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__14TraceEventListEJEESt10sha
   br i1 %95, label %96, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i
 
 96:                                               ; preds = %78
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %60)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %60)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i unwind label %189, !noalias !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i: ; preds = %96, %78
@@ -377,7 +377,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEv
 
 _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit.i: ; preds = %100, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i
   %104 = phi ptr [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i ], [ %.pre.i, %100 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false), !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false), !noalias !8
   %105 = getelementptr inbounds nuw i8, ptr %25, i64 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef nonnull @.str.15)
           to label %.noexc7.i unwind label %187, !noalias !8
@@ -435,7 +435,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit.i: ; preds = %10
   br i1 %136, label %137, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyEmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i
 
 137:                                              ; preds = %120
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %104)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %104)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyEmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i unwind label %198, !noalias !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyEmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i: ; preds = %137, %120
@@ -454,7 +454,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEv
 
 _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit14.i: ; preds = %141, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyEmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i
   %145 = phi ptr [ %104, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyEmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i ], [ %.pre40.i, %141 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false), !noalias !8
   %146 = getelementptr inbounds nuw i8, ptr %26, i64 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %146, ptr noundef nonnull @.str.16)
           to label %.noexc16.i unwind label %187, !noalias !8
@@ -514,7 +514,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit14.i: ; preds = %
   br i1 %178, label %179, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit22.i
 
 179:                                              ; preds = %161
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %145)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %145)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit22.i unwind label %207, !noalias !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit22.i: ; preds = %179, %161
@@ -672,7 +672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit26.i: ; preds = %
 
 246:                                              ; preds = %242
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %245) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false), !noalias !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 24, i1 false), !noalias !15
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %240, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %.noexc.i17 unwind label %290
 
@@ -731,7 +731,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit26.i: ; preds = %
   br i1 %277, label %278, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i20
 
 278:                                              ; preds = %260
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %243)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %243)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i20 unwind label %292
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i20: ; preds = %278, %260
@@ -897,7 +897,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit18.i: ; preds = %
 
 337:                                              ; preds = %333
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %336) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !noalias !20
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %326, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc.i28 unwind label %381
 
@@ -956,7 +956,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit18.i: ; preds = %
   br i1 %368, label %369, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i32
 
 369:                                              ; preds = %351
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %334)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %334)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i32 unwind label %383
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit.i32: ; preds = %369, %351
@@ -1037,7 +1037,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %_ZN32pxrInternal_v0
           to label %.noexc.i.i unwind label %401
 
 .noexc.i.i:                                       ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %396, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %396, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc11.i.i unwind label %401
 
 .noexc11.i.i:                                     ; preds = %.noexc.i.i
@@ -1047,7 +1047,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %_ZN32pxrInternal_v0
 397:                                              ; preds = %.noexc11.i.i
   %398 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   br label %.body.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i: ; preds = %.noexc11.i.i
@@ -1089,7 +1089,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i50.i: ; preds = %404
           to label %.noexc.i55.i unwind label %448
 
 .noexc.i55.i:                                     ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i50.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %410, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %410, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc11.i56.i unwind label %448
 
 .noexc11.i56.i:                                   ; preds = %.noexc.i55.i
@@ -1099,7 +1099,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i50.i: ; preds = %404
 411:                                              ; preds = %.noexc11.i56.i
   %412 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
   br label %.body.i53.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i57.i: ; preds = %.noexc11.i56.i
@@ -1197,7 +1197,7 @@ _ZNSt7__cxx119to_stringEi.exit65.i:               ; preds = %445, %435
 462:                                              ; preds = %460, %458
   %.sink.i.i = phi ptr [ %459, %458 ], [ %461, %460 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 24, i1 false), !noalias !20
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %328, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.noexc69.i unwind label %654
 
@@ -1315,7 +1315,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1
 .noexc82.i:                                       ; preds = %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit.thread.i.i
   store ptr null, ptr %530, align 8
   %531 = getelementptr inbounds i8, ptr %530, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %531, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %531, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 24, i1 false)
   %532 = getelementptr inbounds i8, ptr %530, i64 32
   store i64 %529, ptr %532, align 8
   %533 = and i64 %529, 7
@@ -1581,7 +1581,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_
   br i1 %637, label %638, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit75.i
 
 638:                                              ; preds = %.loopexit.i
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit75.i unwind label %656
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent11TimespanTagENS_8TraceKeyEmmNS_13TraceCategoryUt_EEEERKS2_DpOT_.exit75.i: ; preds = %638, %.loopexit.i
@@ -2401,7 +2401,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1
   %63 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   store ptr null, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 24, i1 false)
   %65 = getelementptr inbounds i8, ptr %63, i64 32
   store i64 %62, ptr %65, align 8
   %66 = and i64 %62, 7
@@ -2748,7 +2748,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc11 unwind label %62
 
 .noexc11:                                         ; preds = %.noexc
@@ -2758,7 +2758,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 24:                                               ; preds = %.noexc11
   %25 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc11

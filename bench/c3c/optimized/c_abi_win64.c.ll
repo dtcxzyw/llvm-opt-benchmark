@@ -117,7 +117,7 @@ define dso_local ptr @win64_classify(ptr nocapture noundef %0, ptr nocapture nou
 57:                                               ; preds = %53
   %58 = add i32 %54, -1
   %or.cond47 = icmp ult i32 %58, 8
-  %59 = call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %55)
+  %59 = call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 range(i64 0, 9) %55)
   %60 = icmp samesign ult i64 %59, 2
   %or.cond49 = select i1 %or.cond47, i1 %60, i1 false
   br i1 %or.cond49, label %62, label %is_power_of_two.exit.thread

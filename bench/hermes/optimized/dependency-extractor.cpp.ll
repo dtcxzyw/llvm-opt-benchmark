@@ -203,7 +203,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %Default.i, align 8
   %Value.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Value.i.i.i) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -242,7 +242,7 @@ entry:
   call void @_ZN4llvh3sys28PrintStackTraceOnErrorSignalENS_9StringRefEb(ptr nonnull @.str.1, i64 20, i1 noundef zeroext false) #15
   %0 = load i32, ptr %argc.addr, align 4
   %1 = load ptr, ptr %argv.addr, align 8
-  call void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %X) #15
+  call void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %X) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh23PrettyStackTraceProgramE, i64 16), ptr %X, align 8
   %ArgC.i = getelementptr inbounds i8, ptr %X, i64 16
   store i32 %0, ptr %ArgC.i, align 8
@@ -502,7 +502,7 @@ for.end:                                          ; preds = %_ZN4llvh11raw_ostre
 
 for.body.i.i.i.i:                                 ; preds = %for.end, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %.pre103, %for.end ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.04.i.i.i.i) #15
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre104
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN6hermes10DependencyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !14
@@ -611,7 +611,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; pr
 
 _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %cleanup41, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
   call void @_ZN4llvh13llvm_shutdownEv() #15
-  call void @_ZN4llvh21PrettyStackTraceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %X) #15
+  call void @_ZN4llvh21PrettyStackTraceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %X) #15
   call void @_ZN4llvh8InitLLVMD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %initLLVM) #15
   ret i32 %retval.0
 }
@@ -1897,7 +1897,7 @@ _ZN4llvh14SmallBitVectorD2Ev.exit32:              ; preds = %_ZN4llvh14SmallBitV
   %stringsToIndex_.i = getelementptr inbounds i8, ptr %this, i64 272
   %18 = load ptr, ptr %stringsToIndex_.i, align 8
   tail call void @_ZdlPv(ptr noundef %18) #15
-  tail call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %virtualBufferNames_) #15
+  tail call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %virtualBufferNames_) #15
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %19 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %19, null
@@ -2308,7 +2308,7 @@ entry:
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL13InputFilenameB5cxx11, i64 100), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL13InputFilenameB5cxx11, i64 104), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13InputFilenameB5cxx11, i64 144), align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL13InputFilenameB5cxx11, i64 184), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZL13InputFilenameB5cxx11, i64 192)) #15
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13InputFilenameB5cxx11, i64 224), align 8

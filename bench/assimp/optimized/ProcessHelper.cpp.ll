@@ -111,7 +111,7 @@ lpad.i.i.i.i:                                     ; preds = %while.end
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9_M_insertIJRPKcmEEEvSt14_List_iteratorIS5_EDpOT_.exit: ; preds = %while.end
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i, ptr noundef nonnull %out) #17
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %out) #17
   %5 = load i64, ptr %_M_size.i.i, align 8
   %add.i.i = add i64 %5, 1
   store i64 %add.i.i, ptr %_M_size.i.i, align 8
@@ -177,7 +177,7 @@ _ZN6Assimp12GetNextTokenB5cxx11ERPKc.exit:        ; preds = %while.end.i
 invoke.cont:                                      ; preds = %_ZN6Assimp12GetNextTokenB5cxx11ERPKc.exit
   %_M_storage.i.i.i.i2 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #17
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i3, ptr noundef nonnull %out) #17
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(24) %out) #17
   %9 = load i64, ptr %_M_size.i.i, align 8
   %add.i.i.i = add i64 %9, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i, align 8

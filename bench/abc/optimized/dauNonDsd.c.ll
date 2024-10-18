@@ -1080,7 +1080,7 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr nocapture nou
   %114 = and i64 %.227.i.i, 255
   %115 = mul nuw nsw i64 %114, 257
   %.328.i.i = select i1 %113, i64 %115, i64 %.051.lcssa.i
-  %.3.i.i = tail call i32 @llvm.umax.i32(i32 %2, i32 4)
+  %.3.i.i = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 6) %2, i32 4)
   %116 = icmp ult i32 %2, 5
   %117 = and i64 %.328.i.i, 65535
   %118 = mul nuw nsw i64 %117, 65537

@@ -80,7 +80,7 @@ invoke.cont:                                      ; preds = %if.then
 invoke.cont3:                                     ; preds = %invoke.cont
   %remote.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #11
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %if.then
@@ -88,7 +88,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
           cleanup
   %remote.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i2) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #11
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
@@ -403,7 +403,7 @@ invoke.cont81:                                    ; preds = %if.end76
 invoke.cont84:                                    ; preds = %invoke.cont81
   %remote.i = getelementptr inbounds i8, ptr %ref.tmp79, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp79) #11
   br label %cleanup
 
 lpad83:                                           ; preds = %invoke.cont81
@@ -411,7 +411,7 @@ lpad83:                                           ; preds = %invoke.cont81
           cleanup
   %remote.i6 = getelementptr inbounds i8, ptr %ref.tmp79, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i6) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp79) #11
   br label %ehcleanup
 
 error:                                            ; preds = %if.end69, %invoke.cont64
@@ -611,7 +611,7 @@ return:                                           ; preds = %if.end36, %invoke.c
   %ref.tmp38.sink10 = phi ptr [ %ref.tmp, %invoke.cont ], [ %ref.tmp38, %if.end36 ]
   %retval.0 = phi i32 [ -1, %invoke.cont ], [ 0, %if.end36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink10.sroa.phi) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink10) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp38.sink10) #11
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad40, %lpad
@@ -619,7 +619,7 @@ eh.resume:                                        ; preds = %lpad40, %lpad
   %ref.tmp38.sink12 = phi ptr [ %ref.tmp38, %lpad40 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %12, %lpad40 ], [ %10, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink12.sroa.phi) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink12) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp38.sink12) #11
   resume { ptr, i32 } %.pn
 }
 
@@ -860,7 +860,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_filename.i) #11
   %_tmp_socket_dirname.i = getelementptr inbounds i8, ptr %this, i64 1528
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_tmp_socket_dirname.i) #11
-  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) %this) #11
+  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1592) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
@@ -917,7 +917,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_filename.i) #11
   %_tmp_socket_dirname.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_tmp_socket_dirname.i) #11
-  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) %0) #11
+  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1592) %0) #11
   ret void
 }
 
@@ -929,8 +929,8 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_filename.i.i) #11
   %_tmp_socket_dirname.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_tmp_socket_dirname.i.i) #11
-  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) %0) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1592) %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1592) %0) #15
   ret void
 }
 

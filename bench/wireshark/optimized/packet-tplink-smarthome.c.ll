@@ -110,12 +110,12 @@ define internal i32 @dissect_tplink_smarthome_message(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %4, %8
   %.058 = phi i32 [ 4, %8 ], [ 0, %4 ]
-  %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.058) #2
+  %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 5) %.058) #2
   %11 = icmp slt i32 %10, 2
   br i1 %11, label %test_tplink_smarthome.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.058) #2
+  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 5) %.058) #2
   %.not.i = icmp eq i8 %13, -48
   br i1 %.not.i, label %test_tplink_smarthome.exit, label %test_tplink_smarthome.exit.thread
 

@@ -234,7 +234,7 @@ if.end13.i.i.i:                                   ; preds = %entry
 
 if.end28.i.i.i:                                   ; preds = %if.end13.i.i.i
   %conv.i.i.i.i = zext i32 %0 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #8
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %return.sink.split.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
@@ -514,7 +514,7 @@ if.then.i.i:                                      ; preds = %if.then7.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #8
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre30.i.i = load ptr, ptr %canonicalized, align 8
   %.pre31.i.i = zext i32 %.pre.i.i.i to i64
@@ -538,7 +538,7 @@ if.end.i.i:                                       ; preds = %if.then7.i.i.i
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i51.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i23.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %canonicalized, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #8
   %34 = load ptr, ptr %canonicalized, align 8
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %34, i64 %sub.ptr.sub.i.i
   %.pre.i.i11 = load i32, ptr %Size.i.i.i.i.i.i, align 8
@@ -674,7 +674,7 @@ if.end13.i.i.i21:                                 ; preds = %for.end
 
 if.end28.i.i.i27:                                 ; preds = %if.end13.i.i.i21
   %conv.i.i.i.i28 = zext i32 %49 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i14, i64 noundef %conv.i.i.i.i28, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i14, i64 noundef %conv.i.i.i.i28, i64 noundef 8) #8
   %.pre.i.i29 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i30 = icmp eq i32 %.pre.i.i29, 0
   br i1 %cmp.not.i.i.i.i30, label %return.sink.split.i.i.i26, label %if.end28.i.i.if.then.i.i.i_crit_edge.i31
@@ -937,7 +937,7 @@ if.then.i:                                        ; preds = %if.then7.i.i.i135
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i, label %if.then.i.i205
 
 if.then.i.i205:                                   ; preds = %if.then.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i14, i64 noundef 0, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i14, i64 noundef 0, i64 noundef 8) #8
   %.pre.i.i207 = load i32, ptr %Size.i.i.i.i.i.i15, align 8
   %.pre30.i = load ptr, ptr %agg.result, align 8
   %.pre31.i = zext i32 %.pre.i.i207 to i64
@@ -962,7 +962,7 @@ if.then6.i:                                       ; preds = %if.end.i199
   %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.sroa.0.0.i36.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %61 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i14, i64 noundef 0, i64 noundef 8) #8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i14, i64 noundef 0, i64 noundef 8) #8
   %89 = load ptr, ptr %agg.result, align 8
   %add.ptr9.i = getelementptr inbounds i8, ptr %89, i64 %sub.ptr.sub.i
   %.pre.i201 = load i32, ptr %Size.i.i.i.i.i.i15, align 8

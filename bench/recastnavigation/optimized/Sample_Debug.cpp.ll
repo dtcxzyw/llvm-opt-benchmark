@@ -238,7 +238,7 @@ define dso_local void @_ZN12Sample_DebugD0Ev(ptr noundef nonnull align 8 derefer
   unreachable
 
 _ZN12Sample_DebugD2Ev.exit:                       ; preds = %7
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #13
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

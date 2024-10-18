@@ -1160,7 +1160,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.end132, %if.then
   %19 = getelementptr inbounds i8, ptr %fp, i64 104
   %m_qi_new_gen.i.i = getelementptr inbounds i8, ptr %fp, i64 136
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen.i.i) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %19) #21
   ret void
 
 ehcleanup133:                                     ; preds = %ehcleanup, %cleanup.action, %lpad113, %lpad103, %lpad79, %lpad69, %lpad12
@@ -1174,7 +1174,7 @@ ehcleanup135:                                     ; preds = %ehcleanup133, %lpad
   %20 = getelementptr inbounds i8, ptr %fp, i64 104
   %m_qi_new_gen.i.i36 = getelementptr inbounds i8, ptr %fp, i64 136
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen.i.i36) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %20) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup135, %lpad
@@ -1607,7 +1607,7 @@ entry:
   %0 = load ptr, ptr %m, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %sub, align 8
   %m_cfg.i.i = getelementptr inbounds i8, ptr %sub, i64 536
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %sub, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(545) %sub, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %sub, align 8
   %m_std_order.i = getelementptr inbounds i8, ptr %sub, i64 544
   store i8 0, ptr %m_std_order.i, align 8
@@ -1711,7 +1711,7 @@ lpad3.loopexit.split-lp:                          ; preds = %_ZNK15ref_vector_co
 lpad3:                                            ; preds = %lpad3.loopexit.split-lp, %lpad3.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad3.loopexit ], [ %lpad.loopexit.split-lp, %lpad3.loopexit.split-lp ]
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %vars) #21
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
@@ -1792,7 +1792,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %invoke.cont18, %invoke.cont8.i.i, %if.then.i.i.i.i.i
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   ret void
 }
 
@@ -1953,14 +1953,14 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont15, %if.
   %16 = load ptr, ptr %m_fml, align 8
   %m_plugin.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !8
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %16)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %16)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %18 = load ptr, ptr %ref.tmp17, align 8
   %19 = load ptr, ptr %fml1, align 8
   %20 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !11
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %19)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %19)
           to label %invoke.cont28 unwind label %lpad22
 
 invoke.cont28:                                    ; preds = %invoke.cont21
@@ -2223,14 +2223,14 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont15, %if.
   %16 = load ptr, ptr %m_fml, align 8
   %m_plugin.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !14
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %16)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %16)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %18 = load ptr, ptr %ref.tmp17, align 8
   %19 = load ptr, ptr %fml1, align 8
   %20 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !17
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %19)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %19)
           to label %invoke.cont28 unwind label %lpad22
 
 invoke.cont28:                                    ; preds = %invoke.cont21
@@ -2418,7 +2418,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %m_plugin.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !20
-  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %3)
+  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %3)
   %6 = load ptr, ptr %ref.tmp, align 8
   %7 = load ptr, ptr %m_plugin.i.i.i, align 8
   invoke void @_ZN7datalog21check_relation_plugin11check_equivEPKcP4exprS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.2, ptr noundef %4, ptr noundef %6)
@@ -2485,7 +2485,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %m_plugin.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !23
-  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %3)
+  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %3)
   %6 = load ptr, ptr %ref.tmp, align 8
   %7 = load ptr, ptr %m_plugin.i.i.i, align 8
   invoke void @_ZN7datalog21check_relation_plugin11check_equivEPKcP4exprS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.3, ptr noundef %4, ptr noundef %6)
@@ -2629,13 +2629,13 @@ invoke.cont13:                                    ; preds = %invoke.cont11, %_ZN
 if.then:                                          ; preds = %invoke.cont13
   %m_plugin.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !26
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %3)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %3)
           to label %invoke.cont18 unwind label %lpad3
 
 invoke.cont18:                                    ; preds = %if.then
   %8 = load ptr, ptr %ref.tmp15, align 8
   %9 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !29
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %call.i7)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %call.i7)
           to label %invoke.cont25 unwind label %lpad19
 
 invoke.cont25:                                    ; preds = %invoke.cont18
@@ -2728,7 +2728,7 @@ if.else:                                          ; preds = %invoke.cont13
 if.then36:                                        ; preds = %if.else
   %m_plugin.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 8
   %28 = load ptr, ptr %m_plugin.i.i.i38, align 8, !noalias !32
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %call.i7)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %call.i7)
           to label %invoke.cont40 unwind label %lpad3
 
 invoke.cont40:                                    ; preds = %if.then36
@@ -2874,11 +2874,11 @@ _ZN7datalog21check_relation_plugin3getEPNS_13relation_baseE.exit: ; preds = %ent
 
 if.then:                                          ; preds = %_ZN7datalog21check_relation_plugin3getEPNS_13relation_baseE.exit
   %10 = load ptr, ptr %m_plugin.i.i, align 8, !noalias !35
-  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %8)
+  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %8)
   %11 = load ptr, ptr %ref.tmp, align 8
   %12 = load ptr, ptr %m_fml, align 8
   %13 = load ptr, ptr %m_plugin.i.i, align 8, !noalias !38
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %12)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %12)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %if.then
@@ -3038,14 +3038,14 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %invoke.cont18
 invoke.cont20:                                    ; preds = %invoke.cont18, %_ZN11ast_manager7inc_refEP3ast.exit.i
   store ptr %call.i8, ptr %fml, align 8
   %11 = load ptr, ptr %m_plugin.i.i, align 8, !noalias !41
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %call.i8)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %call.i8)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont20
   %12 = load ptr, ptr %ref.tmp, align 8
   %13 = load ptr, ptr %m_fml, align 8
   %14 = load ptr, ptr %m_plugin.i.i, align 8, !noalias !44
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %13)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %13)
           to label %invoke.cont32 unwind label %lpad25
 
 invoke.cont32:                                    ; preds = %invoke.cont24
@@ -3343,7 +3343,7 @@ entry:
 if.then:                                          ; preds = %entry
   %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %5 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !47
-  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(28) %call2, ptr noundef %2)
+  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(64) %call2, ptr noundef %2)
   %6 = load ptr, ptr %ref.tmp, align 8
   %7 = load ptr, ptr %m, align 8
   %m_false.i5 = getelementptr inbounds i8, ptr %7, i64 864
@@ -3413,7 +3413,7 @@ entry:
 if.then:                                          ; preds = %entry
   %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %5 = load ptr, ptr %m_plugin.i.i.i, align 8, !noalias !50
-  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(28) %call2, ptr noundef %2)
+  call void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(64) %call2, ptr noundef %2)
   %6 = load ptr, ptr %ref.tmp, align 8
   %7 = load ptr, ptr %m, align 8
   %m_true.i5 = getelementptr inbounds i8, ptr %7, i64 856
@@ -3462,7 +3462,7 @@ define hidden noundef ptr @_ZN7datalog21check_relation_plugin10mk_join_fnERKNS_1
 entry:
   %m_base = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_base, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -3471,7 +3471,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i7, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit8
 
@@ -3495,7 +3495,7 @@ cond.true:                                        ; preds = %_ZN7datalog21check_
   %call6 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
   %m_signature.i = getelementptr inbounds i8, ptr %t1, i64 16
   %m_signature.i10 = getelementptr inbounds i8, ptr %t2, i64 16
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE18convenient_join_fnC2ERKNS_18relation_signatureES6_jPKjS8_(ptr noundef nonnull align 8 dereferenceable(32) %call6, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i10, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2)
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE18convenient_join_fnC2ERKNS_18relation_signatureES6_jPKjS8_(ptr noundef nonnull align 8 dereferenceable(40) %call6, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i10, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog21check_relation_plugin7join_fnE, i64 16), ptr %call6, align 8
   %m_join.i = getelementptr inbounds i8, ptr %call6, i64 32
   store ptr %call5, ptr %m_join.i, align 8
@@ -3511,7 +3511,7 @@ define hidden noundef ptr @_ZN7datalog21check_relation_plugin18mk_join_project_f
 entry:
   %m_base = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_base, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -3520,7 +3520,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i9, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit10
 
@@ -3544,7 +3544,7 @@ cond.true:                                        ; preds = %_ZN7datalog21check_
   %call6 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %m_signature.i = getelementptr inbounds i8, ptr %t1, i64 16
   %m_signature.i12 = getelementptr inbounds i8, ptr %t2, i64 16
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnC2ERKNS_18relation_signatureES6_jPKjS8_jS8_(ptr noundef nonnull align 8 dereferenceable(40) %call6, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i12, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef %removed_col_cnt, ptr noundef %removed_cols)
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnC2ERKNS_18relation_signatureES6_jPKjS8_jS8_(ptr noundef nonnull align 8 dereferenceable(48) %call6, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i12, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef %removed_col_cnt, ptr noundef %removed_cols)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog21check_relation_plugin15join_project_fnE, i64 16), ptr %call6, align 8
   %m_join.i = getelementptr inbounds i8, ptr %call6, i64 40
   store ptr %call5, ptr %m_join.i, align 8
@@ -4210,7 +4210,7 @@ for.end:                                          ; preds = %_ZNK6vectorIP4sortL
   %50 = load ptr, ptr %m, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %sub, align 8
   %m_cfg.i.i = getelementptr inbounds i8, ptr %sub, i64 536
-  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %sub, ptr noundef nonnull align 8 dereferenceable(976) %50, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
+  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(545) %sub, ptr noundef nonnull align 8 dereferenceable(976) %50, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
           to label %invoke.cont48 unwind label %lpad7.loopexit.split-lp
 
 invoke.cont48:                                    ; preds = %for.end
@@ -4327,7 +4327,7 @@ if.then2.i.i.i95:                                 ; preds = %if.then.i.i.i90
 
 invoke.cont69:                                    ; preds = %if.then.i.i.i90, %if.end.i89, %if.then2.i.i.i95
   store ptr %call.i8788, ptr %agg.result, align 8
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   %73 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i98 = icmp eq ptr %73, null
   br i1 %cmp.i.i.i98, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
@@ -4429,7 +4429,7 @@ _ZN10ptr_vectorI4sortED2Ev.exit:                  ; preds = %_ZN7svectorI6symbol
 lpad50:                                           ; preds = %if.then2.i.i.i95, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit86, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   br label %ehcleanup72
 
 ehcleanup72:                                      ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad50, %ehcleanup
@@ -4915,7 +4915,7 @@ invoke.cont13:                                    ; preds = %entry
 invoke.cont16:                                    ; preds = %invoke.cont13
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %sub, align 8
   %m_cfg.i.i = getelementptr inbounds i8, ptr %sub, i64 536
-  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %sub, ptr noundef nonnull align 8 dereferenceable(976) %call.i, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
+  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(545) %sub, ptr noundef nonnull align 8 dereferenceable(976) %call.i, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
           to label %invoke.cont17 unwind label %lpad12
 
 invoke.cont17:                                    ; preds = %invoke.cont16
@@ -5035,7 +5035,7 @@ lpad20.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then2.i.i.i57, %
 lpad20:                                           ; preds = %lpad20.loopexit.split-lp.loopexit, %lpad20.loopexit.split-lp.loopexit.split-lp, %lpad20.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit160, %lpad20.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp161, %lpad20.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %vars) #21
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   br label %ehcleanup87
 
 for.end:                                          ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
@@ -5346,7 +5346,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %if.then.i.i.i.i.i._ZN10ref_vectorI4expr11ast_managerED2Ev.exit_crit_edge, %for.end86, %invoke.cont8.i.i
   %69 = phi ptr [ %.pre167, %if.then.i.i.i.i.i._ZN10ref_vectorI4expr11ast_managerED2Ev.exit_crit_edge ], [ %36, %for.end86 ], [ %36, %invoke.cont8.i.i ]
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   %tobool.not.i.i125 = icmp eq ptr %69, null
   br i1 %tobool.not.i.i125, label %_ZN7obj_refI3var11ast_managerED2Ev.exit, label %if.then.i.i.i126
 
@@ -5719,7 +5719,7 @@ lpad37.loopexit.split-lp:                         ; preds = %for.end53
 for.end53:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit50
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %subst, align 8
   %m_cfg.i.i = getelementptr inbounds i8, ptr %subst, i64 536
-  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %subst, ptr noundef nonnull align 8 dereferenceable(976) %25, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
+  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(545) %subst, ptr noundef nonnull align 8 dereferenceable(976) %25, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
           to label %invoke.cont55 unwind label %lpad37.loopexit.split-lp
 
 invoke.cont55:                                    ; preds = %for.end53
@@ -6115,7 +6115,7 @@ terminate.lpad.i166:                              ; preds = %if.then2.i.i.i165
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit167:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit158, %if.then.i.i.i160, %if.then2.i.i.i165
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %subst) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %subst) #21
   %107 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i169 = icmp eq ptr %107, null
   br i1 %cmp.i.i.i169, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit192, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i170
@@ -6201,7 +6201,7 @@ ehcleanup:                                        ; preds = %lpad79, %lpad62
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad79 ], [ %65, %lpad62 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %fml2) #21
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %fml1) #21
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %subst) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %subst) #21
   br label %ehcleanup121
 
 ehcleanup121:                                     ; preds = %lpad37.loopexit, %lpad37.loopexit.split-lp, %ehcleanup
@@ -6460,7 +6460,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6
   store ptr null, ptr %m_nodes.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %sub, align 8
   %m_cfg.i.i = getelementptr inbounds i8, ptr %sub, i64 536
-  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %sub, ptr noundef nonnull align 8 dereferenceable(976) %3, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
+  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(545) %sub, ptr noundef nonnull align 8 dereferenceable(976) %3, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
           to label %_ZN9var_substC2ER11ast_managerb.exit unwind label %lpad14
 
 _ZN9var_substC2ER11ast_managerb.exit:             ; preds = %invoke.cont12
@@ -6706,7 +6706,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit56:       ; preds = %if.then2.i.i.i.i45.
           to label %invoke.cont58 unwind label %lpad16.loopexit.split-lp
 
 invoke.cont58:                                    ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit56
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   %41 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i58 = icmp eq ptr %41, null
   br i1 %cmp.i.i.i58, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
@@ -6823,7 +6823,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit78:       ; preds = %_ZN7obj_refI4expr11
 
 ehcleanup59:                                      ; preds = %lpad16.loopexit, %lpad16.loopexit.split-lp, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit, %lpad16.loopexit ], [ %lpad.loopexit.split-lp, %lpad16.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %lpad14
@@ -6929,7 +6929,7 @@ entry:
   store i32 -1, ptr %m_pi_nopat_weight.i.i, align 8
   %m_pi_avoid_skolems.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i8 1, ptr %m_pi_avoid_skolems.i.i, align 4
-  invoke void @_ZN24pattern_inference_params11updt_paramsERK10params_ref(ptr noundef nonnull align 4 dereferenceable(38) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
+  invoke void @_ZN24pattern_inference_params11updt_paramsERK10params_ref(ptr noundef nonnull align 4 dereferenceable(67) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -7394,7 +7394,7 @@ ehcleanup:                                        ; preds = %lpad28, %lpad24, %l
   %.pn = phi { ptr, i32 } [ %15, %lpad9 ], [ %20, %lpad28 ], [ %19, %lpad24 ], [ %18, %lpad20 ], [ %17, %lpad16 ], [ %16, %lpad11 ]
   %m_qi_new_gen.i = getelementptr inbounds i8, ptr %this, i64 136
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen.i) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad6, %lpad3, %lpad.body
@@ -7440,7 +7440,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -7560,7 +7560,7 @@ invoke.cont17:                                    ; preds = %if.then2.i.i.i, %if
   store ptr null, ptr %m_nodes.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %sub, align 8
   %m_cfg.i.i = getelementptr inbounds i8, ptr %sub, i64 536
-  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %sub, ptr noundef nonnull align 8 dereferenceable(976) %9, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
+  invoke void @_ZN12rewriter_tplI16beta_reducer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(545) %sub, ptr noundef nonnull align 8 dereferenceable(976) %9, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %m_cfg.i.i)
           to label %_ZN9var_substC2ER11ast_managerb.exit unwind label %lpad19
 
 _ZN9var_substC2ER11ast_managerb.exit:             ; preds = %invoke.cont17
@@ -8286,7 +8286,7 @@ ehcleanup189:                                     ; preds = %lpad105, %lpad71
   br label %ehcleanup192
 
 if.end191:                                        ; preds = %if.then2.i.i.i277, %if.then.i.i.i272, %_ZN7obj_refI4expr11ast_managerED2Ev.exit270, %invoke.cont63
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   %113 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i281 = icmp eq ptr %113, null
   br i1 %cmp.i.i.i281, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
@@ -8403,7 +8403,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit301:      ; preds = %_ZN7obj_refI4expr11
 
 ehcleanup192:                                     ; preds = %lpad21.loopexit, %lpad21.loopexit.split-lp, %ehcleanup189, %ehcleanup
   %.pn11.pn = phi { ptr, i32 } [ %.pn11, %ehcleanup ], [ %.pn, %ehcleanup189 ], [ %lpad.loopexit, %lpad21.loopexit ], [ %lpad.loopexit.split-lp, %lpad21.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %sub) #21
+  call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %sub) #21
   br label %ehcleanup193
 
 ehcleanup193:                                     ; preds = %ehcleanup192, %lpad19
@@ -8425,7 +8425,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -8442,7 +8442,7 @@ cond.end:                                         ; preds = %entry, %_ZN7datalog
   %cond = phi ptr [ %2, %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit ], [ null, %entry ]
   %m_base = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %m_base, align 8
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %5 = icmp eq ptr %4, null
   br i1 %5, label %dynamic_cast.bad_cast.i3, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit4
 
@@ -8451,7 +8451,7 @@ dynamic_cast.bad_cast.i3:                         ; preds = %cond.end
   unreachable
 
 _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit4: ; preds = %cond.end
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %6 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %dynamic_cast.bad_cast.i6, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit7
 
@@ -8490,7 +8490,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -8507,7 +8507,7 @@ cond.end:                                         ; preds = %entry, %_ZN7datalog
   %cond = phi ptr [ %2, %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit ], [ null, %entry ]
   %m_base = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %m_base, align 8
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %5 = icmp eq ptr %4, null
   br i1 %5, label %dynamic_cast.bad_cast.i3, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit4
 
@@ -8516,7 +8516,7 @@ dynamic_cast.bad_cast.i3:                         ; preds = %cond.end
   unreachable
 
 _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit4: ; preds = %cond.end
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %6 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %dynamic_cast.bad_cast.i6, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit7
 
@@ -8551,7 +8551,7 @@ cond.end12:                                       ; preds = %_ZN7datalog21check_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog21check_relation_plugin22mk_filter_identical_fnERKNS_13relation_baseEjPKj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %t, i32 noundef %col_cnt, ptr noundef %identical_cols) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -8639,7 +8639,7 @@ cond.end:                                         ; preds = %_ZN7datalog21check_
 define hidden noundef ptr @_ZN7datalog21check_relation_plugin24mk_filter_interpreted_fnERKNS_13relation_baseEP3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %t, ptr noundef %condition) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cond = alloca %class.obj_ref.44, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -8763,7 +8763,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog21check_relation_plugin13mk_project_fnERKNS_13relation_baseEjPKj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(28) %t, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -8860,7 +8860,7 @@ lpad2.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %14, %lpad2.i.i ], [ %13, %lpad.i.i ]
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call4) #21
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call4) #21
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7datalog21check_relation_plugin10project_fnC2EPNS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnERKNS_13relation_baseEjPKj.exit: ; preds = %invoke.cont.i.i
@@ -8877,7 +8877,7 @@ cond.end:                                         ; preds = %_ZN7datalog21check_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog21check_relation_plugin12mk_rename_fnERKNS_13relation_baseEjPKj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(28) %r, i32 noundef %cycle_len, ptr noundef %permutation_cycle) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -8900,7 +8900,7 @@ _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %en
 cond.true:                                        ; preds = %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
   %call4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %m_signature.i.i = getelementptr inbounds i8, ptr %r, i64 16
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE20convenient_rename_fnC2ERKNS_18relation_signatureEjPKj(ptr noundef nonnull align 8 dereferenceable(24) %call4, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i.i, i32 noundef %cycle_len, ptr noundef %permutation_cycle)
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE20convenient_rename_fnC2ERKNS_18relation_signatureEjPKj(ptr noundef nonnull align 8 dereferenceable(32) %call4, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i.i, i32 noundef %cycle_len, ptr noundef %permutation_cycle)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog21check_relation_plugin9rename_fnE, i64 16), ptr %call4, align 8
   %m_permute.i = getelementptr inbounds i8, ptr %call4, i64 24
   store ptr %call3, ptr %m_permute.i, align 8
@@ -8914,7 +8914,7 @@ cond.end:                                         ; preds = %_ZN7datalog21check_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog21check_relation_plugin18mk_filter_equal_fnERKNS_13relation_baseERKP3appj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %t, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -8956,7 +8956,7 @@ define hidden noundef ptr @_ZN7datalog21check_relation_plugin24mk_filter_by_nega
 entry:
   %m_base = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_base, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %2 = icmp eq ptr %1, null
   br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -8965,7 +8965,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %neg, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %neg, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i5, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit6
 
@@ -9955,7 +9955,7 @@ ehcleanup123:                                     ; preds = %lpad7.loopexit, %lp
 define hidden noundef ptr @_ZN7datalog21check_relation_plugin36mk_filter_interpreted_and_project_fnERKNS_13relation_baseEP3appjPKj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(28) %t, ptr noundef %condition, i32 noundef %removed_col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cond = alloca %class.obj_ref.44, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -10117,7 +10117,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %9, %lpad2.i ], [ %8, %lpad.i ]
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #21
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #21
   resume { ptr, i32 } %.pn.i
 
 _ZN7datalog17tr_infrastructureINS_15relation_traitsEE21convenient_project_fnC2ERKNS_18relation_signatureEjPKj.exit: ; preds = %invoke.cont.i
@@ -10151,7 +10151,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(28) %this) #21
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %this)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(28) %this)
   ret void
 }
 
@@ -10439,7 +10439,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12beta_reducerD0Ev(ptr noundef nonnull align 8 dereferenceable(537) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #21
+  tail call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(537) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -10551,9 +10551,9 @@ terminate.lpad.i18:                               ; preds = %if.then2.i.i.i17
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit10, %if.then.i.i.i12, %if.then2.i.i.i17
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter) #21
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter) #21
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #21
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #21
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load ptr, ptr %m_bindings, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %18, null
@@ -10834,7 +10834,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog21check_relation_plugin7join_fnclERKNS_13relation_baseES4_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(28) %r1, ptr noundef nonnull align 8 dereferenceable(28) %r2) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -10843,7 +10843,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i7, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit8
 
@@ -11331,7 +11331,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN7datalog21check_relation_plugin15join_project_fnD2Ev.exit: ; preds = %entry, %if.end.i.i.i
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -11339,7 +11339,7 @@ _ZN7datalog21check_relation_plugin15join_project_fnD2Ev.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog21check_relation_plugin15join_project_fnclERKNS_13relation_baseES4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(28) %r1, ptr noundef nonnull align 8 dereferenceable(28) %r2) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -11348,7 +11348,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i7, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit8
 
@@ -11836,7 +11836,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -11846,7 +11846,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -11857,7 +11857,7 @@ invoke.cont:                                      ; preds = %.noexc
           to label %call.i.noexc7 unwind label %lpad3
 
 call.i.noexc7:                                    ; preds = %invoke.cont
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %m_qi_new_gen, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc9 unwind label %lpad3
 
 .noexc9:                                          ; preds = %call.i.noexc7
@@ -11867,7 +11867,7 @@ call.i.noexc7:                                    ; preds = %invoke.cont
 lpad.i6:                                          ; preds = %.noexc9
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_qi_new_gen) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen) #21
   br label %lpad3.body
 
 invoke.cont4:                                     ; preds = %.noexc9
@@ -12039,7 +12039,7 @@ define linkonce_odr hidden void @_ZN7datalog21check_relation_plugin8union_fnclER
 entry:
   %fml0 = alloca %class.obj_ref, align 8
   %delta0 = alloca %class.obj_ref, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERNS_13relation_baseE.exit
 
@@ -12048,7 +12048,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog21check_relation_plugin3getERNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i16, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -12314,7 +12314,7 @@ define linkonce_odr hidden void @_ZN7datalog21check_relation_plugin19filter_iden
 entry:
   %cond = alloca %class.obj_ref, align 8
   %conds = alloca %class.ref_vector, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %invoke.cont5
 
@@ -12728,7 +12728,7 @@ _ZN7datalog21check_relation_plugin21filter_interpreted_fnD2Ev.exit: ; preds = %_
 define linkonce_odr hidden void @_ZN7datalog21check_relation_plugin21filter_interpreted_fnclERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(28) %tb) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fml = alloca %class.obj_ref, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERNS_13relation_baseE.exit
 
@@ -12890,7 +12890,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog21check_relation_plugin10project_fnclERKNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(28) %tb) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -13254,7 +13254,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog21check_relation_plugin9rename_fnclERKNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(28) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -13394,7 +13394,7 @@ entry:
   %fml = alloca %class.obj_ref, align 8
   %ref.tmp = alloca %class.obj_ref, align 8
   %ref.tmp32 = alloca %class.obj_ref, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERNS_13relation_baseE.exit
 
@@ -13490,14 +13490,14 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 invoke.cont24:                                    ; preds = %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
   store ptr %call.i16, ptr %fml, align 8
   %18 = load ptr, ptr %m_plugin.i.i, align 8, !noalias !77
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull readonly align 8 dereferenceable(28) %0, ptr noundef %call.i16)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %call.i16)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont24
   %19 = load ptr, ptr %ref.tmp, align 8
   %20 = load ptr, ptr %m_fml, align 8
   %21 = load ptr, ptr %m_plugin.i.i, align 8, !noalias !80
-  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull readonly align 8 dereferenceable(28) %0, ptr noundef %20)
+  invoke void @_ZNK7datalog21check_relation_plugin6groundERKNS_13relation_baseEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %20)
           to label %invoke.cont36 unwind label %lpad29
 
 invoke.cont36:                                    ; preds = %invoke.cont28
@@ -13709,7 +13709,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog21check_relation_plugin18negation_filter_fnclERNS_13relation_baseERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(28) %tb, ptr noundef nonnull align 8 dereferenceable(28) %negb) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dst0 = alloca %class.obj_ref, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERNS_13relation_baseE.exit
 
@@ -13718,7 +13718,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog21check_relation_plugin3getERNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %negb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %negb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i8, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -13910,7 +13910,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog21check_relation_plugin14filter_proj_fnclERKNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(28) %tb) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %tb, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14check_relationE, i64 0) #21
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit
 

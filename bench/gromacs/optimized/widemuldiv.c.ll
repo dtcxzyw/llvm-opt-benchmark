@@ -59,7 +59,7 @@ define void @Ptngc_largeint_mul(i32 noundef %0, ptr nocapture noundef readonly %
   br label %largeint_add_gen.exit31
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 %10) #3, !srcloc !6
+  %12 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 range(i32 1, 0) %10) #3, !srcloc !6
   %13 = extractvalue { i32, i32 } %12, 0
   %14 = extractvalue { i32, i32 } %12, 1
   %15 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
@@ -129,7 +129,7 @@ largeint_add_gen.exit31:                          ; preds = %.lr.ph.i28, %.lr.ph
   br i1 %.not, label %largeint_add_gen.exit37, label %46
 
 46:                                               ; preds = %._crit_edge
-  %47 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 %45) #3, !srcloc !6
+  %47 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 range(i32 1, 0) %45) #3, !srcloc !6
   %48 = extractvalue { i32, i32 } %47, 0
   %49 = getelementptr inbounds i32, ptr %2, i64 %.0.lcssa
   %50 = load i32, ptr %49, align 4

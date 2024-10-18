@@ -300,7 +300,7 @@ define linkonce_odr void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonn
   br label %_ZN5faiss14IndexFlatCodesD2Ev.exit
 
 _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
   ret void
 }
 
@@ -317,7 +317,7 @@ define linkonce_odr void @_ZN5faiss22IndexAdditiveQuantizerD0Ev(ptr noundef nonn
   br label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit
 
 _ZN5faiss22IndexAdditiveQuantizerD2Ev.exit:       ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -507,13 +507,13 @@ define void @_ZNK5faiss22IndexAdditiveQuantizer6searchElPKflPfPlPKNS_16SearchPar
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %110
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE1EEENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.omp_outlined, ptr nonnull %78, ptr nonnull %0, ptr nonnull %70, ptr nonnull %72, ptr nonnull %74, ptr nonnull %71, ptr nonnull %73, ptr nonnull %77)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE1EEENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.omp_outlined, ptr nonnull align 8 dereferenceable(56) %78, ptr nonnull align 8 dereferenceable(80) %0, ptr nonnull %70, ptr nonnull %72, ptr nonnull %74, ptr nonnull %71, ptr nonnull %73, ptr nonnull align 8 dereferenceable(16) %77)
   br label %_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE1EEENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.exit
 
 131:                                              ; preds = %110
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %106)
   store i32 %106, ptr %75, align 4
-  call void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE1EEENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.omp_outlined(ptr nonnull %75, ptr nonnull poison, ptr %78, ptr %0, ptr %70, ptr %72, ptr %74, ptr %71, ptr %73, ptr %77) #16
+  call void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE1EEENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.omp_outlined(ptr nonnull %75, ptr nonnull poison, ptr nonnull align 8 dereferenceable(56) %78, ptr nonnull align 8 dereferenceable(80) %0, ptr %70, ptr %72, ptr %74, ptr %71, ptr %73, ptr nonnull align 8 dereferenceable(16) %77) #16
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %106)
   br label %_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE1EEENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.exit
 
@@ -568,13 +568,13 @@ _ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10Metric
   br i1 %151, label %152, label %153
 
 152:                                              ; preds = %132
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE0EEENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.omp_outlined, ptr nonnull %80, ptr nonnull %0, ptr nonnull %64, ptr nonnull %66, ptr nonnull %68, ptr nonnull %65, ptr nonnull %67, ptr nonnull %79)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE0EEENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.omp_outlined, ptr nonnull align 8 dereferenceable(56) %80, ptr nonnull align 8 dereferenceable(80) %0, ptr nonnull %64, ptr nonnull %66, ptr nonnull %68, ptr nonnull %65, ptr nonnull %67, ptr nonnull align 8 dereferenceable(16) %79)
   br label %_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE0EEENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.exit
 
 153:                                              ; preds = %132
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %106)
   store i32 %106, ptr %69, align 4
-  call void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE0EEENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.omp_outlined(ptr nonnull %69, ptr nonnull poison, ptr %80, ptr %0, ptr %64, ptr %66, ptr %68, ptr %65, ptr %67, ptr %79) #16
+  call void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE0EEENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.omp_outlined(ptr nonnull %69, ptr nonnull poison, ptr nonnull align 8 dereferenceable(56) %80, ptr nonnull align 8 dereferenceable(80) %0, ptr %64, ptr %66, ptr %68, ptr %65, ptr %67, ptr nonnull align 8 dereferenceable(16) %79) #16
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %106)
   br label %_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10MetricTypeE0EEENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT_RT0_.exit
 
@@ -654,12 +654,12 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %.noexc
 .thread.i:                                        ; preds = %181
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %106)
   store i32 %106, ptr %63, align 4
-  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1ENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %63, ptr nonnull poison, ptr %60, ptr %81, ptr %161, ptr %62, ptr poison, ptr poison, ptr %58, ptr %57, ptr %59) #16
+  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1ENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %63, ptr nonnull poison, ptr %60, ptr nonnull align 8 dereferenceable(56) %81, ptr %161, ptr %62, ptr poison, ptr poison, ptr %58, ptr %57, ptr %59) #16
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %106)
   br label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i
 
 184:                                              ; preds = %181
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1ENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %60, ptr nonnull %81, ptr nonnull %161, ptr nonnull %62, ptr nonnull %56, ptr nonnull %61, ptr nonnull %58, ptr nonnull %57, ptr nonnull %59)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1ENS_22HeapBlockResultHandlerINS_4CMinIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %60, ptr nonnull align 8 dereferenceable(56) %81, ptr nonnull %161, ptr nonnull %62, ptr nonnull %56, ptr nonnull %61, ptr nonnull %58, ptr nonnull %57, ptr nonnull %59)
   %.pre.i = load ptr, ptr %62, align 8
   %.not.i11.i = icmp eq ptr %.pre.i, null
   br i1 %.not.i11.i, label %186, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i
@@ -757,12 +757,12 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i40: ; preds = %.noexc45
 .thread.i41:                                      ; preds = %215
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %106)
   store i32 %106, ptr %55, align 4
-  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %55, ptr nonnull poison, ptr %52, ptr %82, ptr %193, ptr %54, ptr %48, ptr %53, ptr %50, ptr %49, ptr %51) #16
+  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %55, ptr nonnull poison, ptr %52, ptr nonnull align 8 dereferenceable(56) %82, ptr %193, ptr %54, ptr %48, ptr %53, ptr %50, ptr %49, ptr %51) #16
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %106)
   br label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i42
 
 218:                                              ; preds = %215
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %52, ptr nonnull %82, ptr nonnull %193, ptr nonnull %54, ptr nonnull %48, ptr nonnull %53, ptr nonnull %50, ptr nonnull %49, ptr nonnull %51)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %52, ptr nonnull align 8 dereferenceable(56) %82, ptr nonnull %193, ptr nonnull %54, ptr nonnull %48, ptr nonnull %53, ptr nonnull %50, ptr nonnull %49, ptr nonnull %51)
   %.pre.i43 = load ptr, ptr %54, align 8
   %.not.i11.i44 = icmp eq ptr %.pre.i43, null
   br i1 %.not.i11.i44, label %_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.exit, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i42
@@ -834,12 +834,12 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i48: ; preds = %.noexc53
 .thread.i49:                                      ; preds = %239
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %106)
   store i32 %106, ptr %47, align 4
-  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %47, ptr nonnull poison, ptr %44, ptr %82, ptr %193, ptr %46, ptr %40, ptr %45, ptr %42, ptr %41, ptr %43) #16
+  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %47, ptr nonnull poison, ptr %44, ptr nonnull align 8 dereferenceable(56) %82, ptr %193, ptr %46, ptr %40, ptr %45, ptr %42, ptr %41, ptr %43) #16
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %106)
   br label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i50
 
 242:                                              ; preds = %239
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %44, ptr nonnull %82, ptr nonnull %193, ptr nonnull %46, ptr nonnull %40, ptr nonnull %45, ptr nonnull %42, ptr nonnull %41, ptr nonnull %43)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %44, ptr nonnull align 8 dereferenceable(56) %82, ptr nonnull %193, ptr nonnull %46, ptr nonnull %40, ptr nonnull %45, ptr nonnull %42, ptr nonnull %41, ptr nonnull %43)
   %.pre.i51 = load ptr, ptr %46, align 8
   %.not.i11.i52 = icmp eq ptr %.pre.i51, null
   br i1 %.not.i11.i52, label %_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.exit, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i50
@@ -911,12 +911,12 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i56: ; preds = %.noexc61
 .thread.i57:                                      ; preds = %263
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %106)
   store i32 %106, ptr %39, align 4
-  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %39, ptr nonnull poison, ptr %36, ptr %82, ptr %193, ptr %38, ptr %32, ptr %37, ptr %34, ptr %33, ptr %35) #16
+  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %39, ptr nonnull poison, ptr %36, ptr nonnull align 8 dereferenceable(56) %82, ptr %193, ptr %38, ptr %32, ptr %37, ptr %34, ptr %33, ptr %35) #16
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %106)
   br label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i58
 
 266:                                              ; preds = %263
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %36, ptr nonnull %82, ptr nonnull %193, ptr nonnull %38, ptr nonnull %32, ptr nonnull %37, ptr nonnull %34, ptr nonnull %33, ptr nonnull %35)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %36, ptr nonnull align 8 dereferenceable(56) %82, ptr nonnull %193, ptr nonnull %38, ptr nonnull %32, ptr nonnull %37, ptr nonnull %34, ptr nonnull %33, ptr nonnull %35)
   %.pre.i59 = load ptr, ptr %38, align 8
   %.not.i11.i60 = icmp eq ptr %.pre.i59, null
   br i1 %.not.i11.i60, label %_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.exit, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i58
@@ -988,12 +988,12 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i64: ; preds = %.noexc69
 .thread.i65:                                      ; preds = %287
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %106)
   store i32 %106, ptr %31, align 4
-  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %31, ptr nonnull poison, ptr %28, ptr %82, ptr %193, ptr %30, ptr %24, ptr %29, ptr %26, ptr %25, ptr %27) #16
+  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %31, ptr nonnull poison, ptr %28, ptr nonnull align 8 dereferenceable(56) %82, ptr %193, ptr %30, ptr %24, ptr %29, ptr %26, ptr %25, ptr %27) #16
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %106)
   br label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i66
 
 290:                                              ; preds = %287
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %28, ptr nonnull %82, ptr nonnull %193, ptr nonnull %30, ptr nonnull %24, ptr nonnull %29, ptr nonnull %26, ptr nonnull %25, ptr nonnull %27)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %28, ptr nonnull align 8 dereferenceable(56) %82, ptr nonnull %193, ptr nonnull %30, ptr nonnull %24, ptr nonnull %29, ptr nonnull %26, ptr nonnull %25, ptr nonnull %27)
   %.pre.i67 = load ptr, ptr %30, align 8
   %.not.i11.i68 = icmp eq ptr %.pre.i67, null
   br i1 %.not.i11.i68, label %_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.exit, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i66
@@ -1065,12 +1065,12 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i72: ; preds = %.noexc77
 .thread.i73:                                      ; preds = %311
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %106)
   store i32 %106, ptr %23, align 4
-  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %23, ptr nonnull poison, ptr %20, ptr %82, ptr %193, ptr %22, ptr %16, ptr %21, ptr %18, ptr %17, ptr %19) #16
+  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %23, ptr nonnull poison, ptr %20, ptr nonnull align 8 dereferenceable(56) %82, ptr %193, ptr %22, ptr %16, ptr %21, ptr %18, ptr %17, ptr %19) #16
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %106)
   br label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i74
 
 314:                                              ; preds = %311
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %20, ptr nonnull %82, ptr nonnull %193, ptr nonnull %22, ptr nonnull %16, ptr nonnull %21, ptr nonnull %18, ptr nonnull %17, ptr nonnull %19)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %20, ptr nonnull align 8 dereferenceable(56) %82, ptr nonnull %193, ptr nonnull %22, ptr nonnull %16, ptr nonnull %21, ptr nonnull %18, ptr nonnull %17, ptr nonnull %19)
   %.pre.i75 = load ptr, ptr %22, align 8
   %.not.i11.i76 = icmp eq ptr %.pre.i75, null
   br i1 %.not.i11.i76, label %_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.exit, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i74
@@ -1142,12 +1142,12 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i80: ; preds = %.noexc85
 .thread.i81:                                      ; preds = %335
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %106)
   store i32 %106, ptr %15, align 4
-  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %15, ptr nonnull poison, ptr %12, ptr %82, ptr %193, ptr %14, ptr %8, ptr %13, ptr %10, ptr %9, ptr %11) #16
+  call void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined(ptr nonnull %15, ptr nonnull poison, ptr %12, ptr nonnull align 8 dereferenceable(56) %82, ptr %193, ptr %14, ptr %8, ptr %13, ptr %10, ptr %9, ptr %11) #16
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %106)
   br label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i82
 
 338:                                              ; preds = %335
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %12, ptr nonnull %82, ptr nonnull %193, ptr nonnull %14, ptr nonnull %8, ptr nonnull %13, ptr nonnull %10, ptr nonnull %9, ptr nonnull %11)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.omp_outlined, ptr nonnull %12, ptr nonnull align 8 dereferenceable(56) %82, ptr nonnull %193, ptr nonnull %14, ptr nonnull %8, ptr nonnull %13, ptr nonnull %10, ptr nonnull %9, ptr nonnull %11)
   %.pre.i83 = load ptr, ptr %14, align 8
   %.not.i11.i84 = icmp eq ptr %.pre.i83, null
   br i1 %.not.i11.i84, label %_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6ENS_22HeapBlockResultHandlerINS_4CMaxIflEEEEEEvRKNS_22IndexAdditiveQuantizerEPKfRT1_.exit, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i12.i82
@@ -2069,7 +2069,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %5, %1
   br label %_ZN5faiss17ResidualQuantizerD2Ev.exit
 
 _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %8
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %2) #16
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
@@ -2081,7 +2081,7 @@ _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit
 
 _ZN5faiss22IndexAdditiveQuantizerD2Ev.exit:       ; preds = %_ZN5faiss17ResidualQuantizerD2Ev.exit, %11
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   ret void
 }
 
@@ -2110,7 +2110,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %5, %1
   br label %_ZN5faiss17ResidualQuantizerD2Ev.exit.i
 
 _ZN5faiss17ResidualQuantizerD2Ev.exit.i:          ; preds = %8, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %2) #16
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
@@ -2122,7 +2122,7 @@ _ZN5faiss17ResidualQuantizerD2Ev.exit.i:          ; preds = %8, %_ZNSt6vectorIfS
   br label %_ZN5faiss22IndexResidualQuantizerD2Ev.exit
 
 _ZN5faiss22IndexResidualQuantizerD2Ev.exit:       ; preds = %_ZN5faiss17ResidualQuantizerD2Ev.exit.i, %11
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -2152,7 +2152,7 @@ define linkonce_odr void @_ZN5faiss25IndexLocalSearchQuantizerD2Ev(ptr noundef n
   br label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit
 
 _ZN5faiss22IndexAdditiveQuantizerD2Ev.exit:       ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   ret void
 }
 
@@ -2172,7 +2172,7 @@ define linkonce_odr void @_ZN5faiss25IndexLocalSearchQuantizerD0Ev(ptr noundef n
   br label %_ZN5faiss25IndexLocalSearchQuantizerD2Ev.exit
 
 _ZN5faiss25IndexLocalSearchQuantizerD2Ev.exit:    ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -2202,7 +2202,7 @@ define linkonce_odr void @_ZN5faiss29IndexProductResidualQuantizerD2Ev(ptr nound
   br label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit
 
 _ZN5faiss22IndexAdditiveQuantizerD2Ev.exit:       ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   ret void
 }
 
@@ -2222,7 +2222,7 @@ define linkonce_odr void @_ZN5faiss29IndexProductResidualQuantizerD0Ev(ptr nound
   br label %_ZN5faiss29IndexProductResidualQuantizerD2Ev.exit
 
 _ZN5faiss29IndexProductResidualQuantizerD2Ev.exit: ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -2252,7 +2252,7 @@ define linkonce_odr void @_ZN5faiss32IndexProductLocalSearchQuantizerD2Ev(ptr no
   br label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit
 
 _ZN5faiss22IndexAdditiveQuantizerD2Ev.exit:       ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   ret void
 }
 
@@ -2272,7 +2272,7 @@ define linkonce_odr void @_ZN5faiss32IndexProductLocalSearchQuantizerD0Ev(ptr no
   br label %_ZN5faiss32IndexProductLocalSearchQuantizerD2Ev.exit
 
 _ZN5faiss32IndexProductLocalSearchQuantizerD2Ev.exit: ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -2316,7 +2316,7 @@ define linkonce_odr void @_ZN5faiss23AdditiveCoarseQuantizerD0Ev(ptr noundef non
   br label %_ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit
 
 _ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit:      ; preds = %1, %4
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -2465,7 +2465,7 @@ define void @_ZN5faiss23AdditiveCoarseQuantizer3addElPKf(ptr nocapture nonnull r
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc5 unwind label %11
 
 .noexc5:                                          ; preds = %.noexc
@@ -2475,7 +2475,7 @@ define void @_ZN5faiss23AdditiveCoarseQuantizer3addElPKf(ptr nocapture nonnull r
 8:                                                ; preds = %.noexc5
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br label %.body.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -2649,7 +2649,7 @@ define void @_ZN5faiss23AdditiveCoarseQuantizer5resetEv(ptr nocapture nonnull re
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc5 unwind label %9
 
 .noexc5:                                          ; preds = %.noexc
@@ -2659,7 +2659,7 @@ define void @_ZN5faiss23AdditiveCoarseQuantizer5resetEv(ptr nocapture nonnull re
 6:                                                ; preds = %.noexc5
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   br label %.body.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -2750,7 +2750,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %5, %1
   br label %_ZN5faiss17ResidualQuantizerD2Ev.exit
 
 _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %8
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %2) #16
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23AdditiveCoarseQuantizerE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
@@ -2762,7 +2762,7 @@ _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit
 
 _ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit:      ; preds = %_ZN5faiss17ResidualQuantizerD2Ev.exit, %11
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
   ret void
 }
 
@@ -2791,7 +2791,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %5, %1
   br label %_ZN5faiss17ResidualQuantizerD2Ev.exit.i
 
 _ZN5faiss17ResidualQuantizerD2Ev.exit.i:          ; preds = %8, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %2) #16
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23AdditiveCoarseQuantizerE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
@@ -2803,7 +2803,7 @@ _ZN5faiss17ResidualQuantizerD2Ev.exit.i:          ; preds = %8, %_ZNSt6vectorIfS
   br label %_ZN5faiss23ResidualCoarseQuantizerD2Ev.exit
 
 _ZN5faiss23ResidualCoarseQuantizerD2Ev.exit:      ; preds = %_ZN5faiss17ResidualQuantizerD2Ev.exit.i, %11
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(508) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -3274,7 +3274,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -7827,7 +7827,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexResidualQuantizerE, i64 16), ptr %0, align 8
   %18 = sext i32 %1 to i64
   %19 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @_ZN5faiss22IndexAdditiveQuantizerC2ElPNS_17AdditiveQuantizerENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %18, ptr noundef nonnull %19, i32 noundef %4)
+  invoke void @_ZN5faiss22IndexAdditiveQuantizerC2ElPNS_17AdditiveQuantizerENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, i64 noundef %18, ptr noundef nonnull %19, i32 noundef %4)
           to label %.noexc9 unwind label %29
 
 .noexc9:                                          ; preds = %.loopexit
@@ -7838,7 +7838,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
 20:                                               ; preds = %.noexc9
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
+  call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %0) #16
   %.pre = load ptr, ptr %7, align 8
   br label %.body
 
@@ -7917,7 +7917,7 @@ define void @_ZN5faiss22IndexResidualQuantizerC2Ev(ptr noundef nonnull align 8 d
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
-  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
+  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexResidualQuantizerE, i64 16), ptr %0, align 8
@@ -7941,7 +7941,7 @@ define void @_ZN5faiss22IndexResidualQuantizerC2Ev(ptr noundef nonnull align 8 d
 .body.i:                                          ; preds = %.noexc9.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
+  call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %0) #16
   %.pre.i = load ptr, ptr %1, align 8
   %.not.i.i.i10.i = icmp eq ptr %.pre.i, null
   br i1 %.not.i.i.i10.i, label %_ZNSt6vectorImSaImEED2Ev.exit11.i, label %13
@@ -7994,7 +7994,7 @@ define void @_ZN5faiss25IndexLocalSearchQuantizerC2Ev(ptr noundef nonnull align 
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
-  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
+  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexLocalSearchQuantizerE, i64 16), ptr %0, align 8
@@ -8004,7 +8004,7 @@ define void @_ZN5faiss25IndexLocalSearchQuantizerC2Ev(ptr noundef nonnull align 
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
+  tail call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) #16
   resume { ptr, i32 } %7
 
 _ZN5faiss25IndexLocalSearchQuantizerC2EimmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE.exit: ; preds = %1
@@ -8052,7 +8052,7 @@ define void @_ZN5faiss29IndexProductResidualQuantizerC2Ev(ptr noundef nonnull al
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
-  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
+  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(424) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29IndexProductResidualQuantizerE, i64 16), ptr %0, align 8
@@ -8062,7 +8062,7 @@ define void @_ZN5faiss29IndexProductResidualQuantizerC2Ev(ptr noundef nonnull al
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
+  tail call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #16
   resume { ptr, i32 } %7
 
 _ZN5faiss29IndexProductResidualQuantizerC2EimmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE.exit: ; preds = %1
@@ -8110,7 +8110,7 @@ define void @_ZN5faiss32IndexProductLocalSearchQuantizerC2Ev(ptr noundef nonnull
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
-  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
+  tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(424) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexProductLocalSearchQuantizerE, i64 16), ptr %0, align 8
@@ -8120,7 +8120,7 @@ define void @_ZN5faiss32IndexProductLocalSearchQuantizerC2Ev(ptr noundef nonnull
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
+  tail call void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #16
   resume { ptr, i32 } %7
 
 _ZN5faiss32IndexProductLocalSearchQuantizerC2EimmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE.exit: ; preds = %1
@@ -8969,7 +8969,7 @@ define linkonce_odr void @_ZN5faiss26LocalSearchCoarseQuantizerD2Ev(ptr noundef 
   br label %_ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit
 
 _ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit:      ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
   ret void
 }
 
@@ -8989,7 +8989,7 @@ define linkonce_odr void @_ZN5faiss26LocalSearchCoarseQuantizerD0Ev(ptr noundef 
   br label %_ZN5faiss26LocalSearchCoarseQuantizerD2Ev.exit
 
 _ZN5faiss26LocalSearchCoarseQuantizerD2Ev.exit:   ; preds = %1, %5
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

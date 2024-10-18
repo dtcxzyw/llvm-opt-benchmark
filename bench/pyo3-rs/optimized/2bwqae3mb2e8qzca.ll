@@ -1905,7 +1905,7 @@ _ZN19pyo3_macros_backend12frompyobject9Container12build_struct17he1c6a9473cbaceb
 
 403:                                              ; preds = %395
   %404 = getelementptr inbounds { { i64, [13 x i64] } }, ptr %397, i64 %399
-  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h4b844e11130ee131E(ptr nonnull sret([56 x i8]) align 8 %27, ptr %397, ptr %404, ptr nonnull align 8 %28)
+  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h4b844e11130ee131E(ptr nonnull sret([56 x i8]) align 8 %27, ptr align 8 %397, ptr %404, ptr nonnull align 8 %28)
           to label %408 unwind label %406, !noalias !7
 
 405:                                              ; preds = %412, %406
@@ -5587,7 +5587,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
           to label %274 unwind label %.thread56.loopexit.split-lp.i, !noalias !16
 
 273:                                              ; preds = %269
-  invoke fastcc void @_ZN19pyo3_macros_backend12frompyobject9Container5build17hfdbaa857e12e7b5dE(ptr noalias align 8 %33, ptr nonnull align 8 %268, ptr align 8 %72)
+  invoke fastcc void @_ZN19pyo3_macros_backend12frompyobject9Container5build17hfdbaa857e12e7b5dE(ptr noalias align 8 %33, ptr nonnull align 8 %268, ptr nonnull align 8 %72)
           to label %388 unwind label %.thread56.loopexit.i, !noalias !16
 
 274:                                              ; preds = %271

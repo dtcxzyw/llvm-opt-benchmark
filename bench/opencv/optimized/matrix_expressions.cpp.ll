@@ -466,7 +466,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double %37, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %14, i64 320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %14, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %4, ptr noundef nonnull align 8 dereferenceable(352) %14, i64 12, i1 false)
   %47 = getelementptr inbounds i8, ptr %4, i64 16
   %48 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %47, ptr noundef nonnull align 8 dereferenceable(96) %40)
           to label %.noexc48 unwind label %79
@@ -668,7 +668,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit59: ; pred
   store double 1.000000e+00, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %22, i64 320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %114, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %22, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %4, ptr noundef nonnull align 8 dereferenceable(352) %22, i64 12, i1 false)
   %115 = getelementptr inbounds i8, ptr %4, i64 16
   %116 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %115, ptr noundef nonnull align 8 dereferenceable(96) %108)
           to label %.noexc60 unwind label %143
@@ -843,7 +843,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double %28, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %5, i64 12, i1 false)
   %38 = getelementptr inbounds i8, ptr %3, i64 16
   %39 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(96) %31)
           to label %.noexc37 unwind label %70
@@ -1013,7 +1013,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit47: ; pred
   store double 1.000000e+00, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %13, i64 320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %13, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %13, i64 12, i1 false)
   %106 = getelementptr inbounds i8, ptr %3, i64 16
   %107 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %106, ptr noundef nonnull align 8 dereferenceable(96) %99)
           to label %.noexc48 unwind label %134
@@ -1738,7 +1738,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double %4, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %7, i64 12, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %.noexc9 unwind label %43
@@ -2433,7 +2433,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double %10, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %6, i64 12, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 8 dereferenceable(96) %13)
           to label %.noexc9 unwind label %46
@@ -3007,7 +3007,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 12, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %.noexc6 unwind label %41
@@ -3279,7 +3279,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double %6, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %8, i64 320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %8, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %8, i64 12, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %.noexc unwind label %41
@@ -3399,7 +3399,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double 1.000000e+00, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 12, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %.noexc6 unwind label %41
@@ -5908,7 +5908,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double 1.000000e+00, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %5, i64 12, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %.noexc7 unwind label %41
@@ -6079,7 +6079,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double 1.000000e+00, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %5, i64 12, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %.noexc7 unwind label %42
@@ -7227,7 +7227,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double 0.000000e+00, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %5, i64 12, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %.noexc7 unwind label %43
@@ -9393,7 +9393,7 @@ declare double @llvm.fabs.f64(double) #11
 define hidden void @_ZNK2cv11MatOp_AddEx3addERKNS_7MatExprERKNS_7Scalar_IdEERS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv11MatOp_AddEx3addERKNS_7MatExprERKNS_7Scalar_IdEERS1_E26__cv_trace_location_fn1355)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %7)
@@ -9476,7 +9476,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %15, %43
 define hidden void @_ZNK2cv11MatOp_AddEx8subtractERKNS_7Scalar_IdEERKNS_7MatExprERS5_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv11MatOp_AddEx8subtractERKNS_7Scalar_IdEERKNS_7MatExprERS5_E26__cv_trace_location_fn1364)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %2, i64 12, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %7)
@@ -9566,7 +9566,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %15, %48
 define hidden void @_ZNK2cv11MatOp_AddEx8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv11MatOp_AddEx8multiplyERKNS_7MatExprEdRS1_E26__cv_trace_location_fn1374)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %7)
@@ -10562,7 +10562,7 @@ define hidden void @_ZNK2cv9MatOp_Bin8multiplyERKNS_7MatExprEdRS1_(ptr nocapture
   ]
 
 8:                                                ; preds = %4, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %10)
@@ -10914,7 +10914,7 @@ declare void @_ZN2cv9transposeERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr nound
 define hidden void @_ZNK2cv7MatOp_T8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv7MatOp_T8multiplyERKNS_7MatExprEdRS1_E26__cv_trace_location_fn1537)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %7)
@@ -11075,7 +11075,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double 1.000000e+00, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %3, i64 12, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %.noexc5 unwind label %40
@@ -11628,7 +11628,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %103, %106
 define hidden void @_ZNK2cv10MatOp_GEMM8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv10MatOp_GEMM8multiplyERKNS_7MatExprEdRS1_E26__cv_trace_location_fn1609)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %7)
@@ -11703,7 +11703,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %15, %37
 define hidden void @_ZNK2cv10MatOp_GEMM9transposeERKNS_7MatExprERS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv10MatOp_GEMM9transposeERKNS_7MatExprERS1_E26__cv_trace_location_fn1618)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6)
@@ -11929,7 +11929,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double 1.000000e+00, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %5, i64 12, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %.noexc7 unwind label %41
@@ -12212,7 +12212,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scal
 define hidden void @_ZNK2cv17MatOp_Initializer8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv17MatOp_Initializer8multiplyERKNS_7MatExprEdRS1_E26__cv_trace_location_fn1699)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %7)
@@ -12609,7 +12609,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double %4, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %6, i64 12, i1 false)
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(96) %22)
           to label %.noexc8 unwind label %55
@@ -12840,7 +12840,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
   store double %5, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %7, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %7, i64 12, i1 false)
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %29, ptr noundef nonnull align 8 dereferenceable(96) %23)
           to label %.noexc9 unwind label %56

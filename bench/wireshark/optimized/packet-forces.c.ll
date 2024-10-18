@@ -638,7 +638,7 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %140
   %.026.i.i = phi i32 [ %141, %140 ], [ %.024.i, %.lr.ph.i ]
   %144 = load i32, ptr @ett_forces_lfbselect_tlv_type_operation, align 4
-  %145 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %.026.i.i, i32 noundef %137, i32 noundef %144, ptr noundef nonnull %7, ptr noundef nonnull @.str.164) #4
+  %145 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %.026.i.i, i32 noundef range(i32 0, 65536) %137, i32 noundef %144, ptr noundef nonnull %7, ptr noundef nonnull @.str.164) #4
   %146 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.026.i.i) #4
   %147 = zext i16 %146 to i32
   %148 = load i32, ptr @hf_forces_lfbselect_tlv_type_operation_type, align 4

@@ -5218,7 +5218,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -11938,7 +11938,7 @@ for.end.i:                                        ; preds = %for.body.i, %_ZNK11
   br i1 %cmp5.not9.i, label %if.end29, label %for.body6.preheader.i
 
 for.body6.preheader.i:                            ; preds = %for.end.i
-  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %conv, i64 64)
+  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %conv, i64 64)
   br label %for.body6.i
 
 for.body6.i:                                      ; preds = %for.body6.i, %for.body6.preheader.i
@@ -15228,7 +15228,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %mul.i.i.i = shl i32 %2, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i, ptr noundef nonnull %1)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i, ptr noundef nonnull %1)
   %bf.load4.pre.i = load i8, ptr %m_owner.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i
 
@@ -15248,7 +15248,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit:    ; preds = %entry._ZN11mpz_mana
   %mul.i.i = shl i32 %spec.select, 2
   %add.i.i = add i32 %mul.i.i, 8
   %conv.i = zext i32 %add.i.i to i64
-  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i)
+  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i)
   %m_capacity.i11 = getelementptr inbounds i8, ptr %call2.i, i64 4
   store i32 %spec.select, ptr %m_capacity.i11, align 4
   store ptr %call2.i, ptr %m_ptr, align 8
@@ -15294,7 +15294,7 @@ if.then.i:                                        ; preds = %if.then
   %mul.i.i = shl i32 %2, 2
   %add.i.i = add i32 %mul.i.i, 8
   %conv.i = zext i32 %add.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i, ptr noundef nonnull %0)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i, ptr noundef nonnull %0)
   %bf.load4.pre = load i8, ptr %m_owner, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit
 
@@ -15367,7 +15367,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %3, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %2)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %2)
   %bf.load4.pre.i.i = load i8, ptr %m_kind.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -15385,7 +15385,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %if.then6, %_ZN11mpz
   %mul.i.i.i = shl i32 %spec.select, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i11.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %spec.select, ptr %m_capacity.i11.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i, align 8
@@ -15470,7 +15470,7 @@ if.then42:                                        ; preds = %if.else39
   %mul.i.i = shl i32 %spec.select, 2
   %add.i.i = add i32 %mul.i.i, 8
   %conv.i = zext i32 %add.i.i to i64
-  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i)
+  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i)
   %m_capacity.i = getelementptr inbounds i8, ptr %call2.i, i64 4
   store i32 %spec.select, ptr %m_capacity.i, align 4
   %19 = load ptr, ptr %m_ptr40, align 8
@@ -15513,7 +15513,7 @@ if.then.i.i42:                                    ; preds = %if.then.i
   %mul.i.i.i44 = shl i32 %25, 2
   %add.i.i.i45 = add i32 %mul.i.i.i44, 8
   %conv.i.i46 = zext i32 %add.i.i.i45 to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i46, ptr noundef nonnull %23)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i46, ptr noundef nonnull %23)
   %bf.load4.pre.i = load i8, ptr %m_kind.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i
 
@@ -15636,7 +15636,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %2, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %0)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %0)
   %bf.load4.pre.i.i = load i8, ptr %m_kind.i.phi.trans.insert.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -15674,7 +15674,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %mul.i.i.i = shl i32 %2, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i, ptr noundef nonnull %0)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i, ptr noundef nonnull %0)
   %bf.load4.pre.i = load i8, ptr %m_kind.i.phi.trans.insert, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i
 
@@ -15808,7 +15808,7 @@ if.then.i65:                                      ; preds = %if.else.i
   %mul.i.i.i66 = shl i32 %6, 2
   %add.i.i.i67 = add i32 %mul.i.i.i66, 8
   %conv.i.i68 = zext i32 %add.i.i.i67 to i64
-  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i68)
+  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i68)
   %m_capacity.i.i69 = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %6, ptr %m_capacity.i.i69, align 4
   store ptr %call2.i.i, ptr %m_ptr.i60, align 8
@@ -15851,7 +15851,7 @@ if.then9:                                         ; preds = %if.else7
   %mul.i.i = shl i32 %.sz.addr.0, 2
   %add.i.i = add i32 %mul.i.i, 8
   %conv.i44 = zext i32 %add.i.i to i64
-  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i44)
+  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i44)
   %m_capacity.i = getelementptr inbounds i8, ptr %call2.i, i64 4
   store i32 %.sz.addr.0, ptr %m_capacity.i, align 4
   store ptr %call2.i, ptr %m_ptr, align 8
@@ -15881,7 +15881,7 @@ if.then22:                                        ; preds = %if.else19
   %mul.i.i46 = shl i64 %indvars.iv, 2
   %add.i.i47 = add i64 %mul.i.i46, 8
   %conv.i48 = and i64 %add.i.i47, 4294967292
-  %call2.i49 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i48)
+  %call2.i49 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i48)
   %m_capacity.i50 = getelementptr inbounds i8, ptr %call2.i49, i64 4
   store i32 %3, ptr %m_capacity.i50, align 4
   %m_digits24 = getelementptr inbounds i8, ptr %call2.i49, i64 8
@@ -15907,7 +15907,7 @@ if.then.i.i:                                      ; preds = %if.then.i52
   %mul.i.i.i = shl i32 %18, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i, ptr noundef nonnull %16)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i, ptr noundef nonnull %16)
   %bf.load4.pre.i = load i8, ptr %m_kind32.phi.trans.insert, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i
 
@@ -15977,7 +15977,7 @@ if.then:                                          ; preds = %entry
   %mul.i.i = shl i32 %1, 2
   %add.i.i = add i32 %mul.i.i, 8
   %conv.i = zext i32 %add.i.i to i64
-  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i)
+  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i)
   %m_capacity.i = getelementptr inbounds i8, ptr %call2.i, i64 4
   store i32 %1, ptr %m_capacity.i, align 4
   store ptr %call2.i, ptr %m_ptr, align 8
@@ -16071,7 +16071,7 @@ if.then.i:                                        ; preds = %if.else
   %mul.i.i.i = shl i32 %2, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %2, ptr %m_capacity.i.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i, align 8
@@ -16135,7 +16135,7 @@ if.then:                                          ; preds = %entry
   %mul.i.i = shl i32 %1, 2
   %add.i.i = add i32 %mul.i.i, 8
   %conv.i = zext i32 %add.i.i to i64
-  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i)
+  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i)
   %m_capacity.i = getelementptr inbounds i8, ptr %call2.i, i64 4
   store i32 %1, ptr %m_capacity.i, align 4
   store ptr %call2.i, ptr %m_ptr, align 8
@@ -16410,7 +16410,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %lor.lhs.false.i
   %mul.i.i.i = shl i32 %spec.select.i, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i11.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %spec.select.i, ptr %m_capacity.i11.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i.i, align 8
@@ -16540,7 +16540,7 @@ if.then.i.i.i56:                                  ; preds = %if.then.i.i41
   %mul.i.i.i.i57 = shl i32 %29, 2
   %add.i.i.i.i58 = add i32 %mul.i.i.i.i57, 8
   %conv.i.i.i59 = zext i32 %add.i.i.i.i58 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i59, ptr noundef nonnull %26)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i59, ptr noundef nonnull %26)
   %bf.load4.pre.i.i60 = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i43
 
@@ -16558,7 +16558,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i46: ; preds = %_ZN11mpz_managerIL
   %mul.i.i.i51 = shl i32 %spec.select.i31, 2
   %add.i.i.i52 = add i32 %mul.i.i.i51, 8
   %conv.i.i53 = zext i32 %add.i.i.i52 to i64
-  %call2.i.i54 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i53)
+  %call2.i.i54 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i53)
   %m_capacity.i11.i55 = getelementptr inbounds i8, ptr %call2.i.i54, i64 4
   store i32 %spec.select.i31, ptr %m_capacity.i11.i55, align 4
   store ptr %call2.i.i54, ptr %m_ptr.i.i, align 8
@@ -16655,7 +16655,7 @@ if.then.i.i.i127:                                 ; preds = %if.then.i.i112
   %mul.i.i.i.i128 = shl i32 %44, 2
   %add.i.i.i.i129 = add i32 %mul.i.i.i.i128, 8
   %conv.i.i.i130 = zext i32 %add.i.i.i.i129 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i130, ptr noundef nonnull %26)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i130, ptr noundef nonnull %26)
   %bf.load4.pre.i.i131 = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i114
 
@@ -16673,7 +16673,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i117: ; preds = %_ZN11mpz_managerI
   %mul.i.i.i122 = shl i32 %spec.select.i102, 2
   %add.i.i.i123 = add i32 %mul.i.i.i122, 8
   %conv.i.i124 = zext i32 %add.i.i.i123 to i64
-  %call2.i.i125 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i124)
+  %call2.i.i125 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i124)
   %m_capacity.i11.i126 = getelementptr inbounds i8, ptr %call2.i.i125, i64 4
   store i32 %spec.select.i102, ptr %m_capacity.i11.i126, align 4
   store ptr %call2.i.i125, ptr %m_ptr.i.i, align 8
@@ -16762,7 +16762,7 @@ if.then.i.i.i178:                                 ; preds = %if.then.i.i173
   %mul.i.i.i.i179 = shl i32 %60, 2
   %add.i.i.i.i180 = add i32 %mul.i.i.i.i179, 8
   %conv.i.i.i181 = zext i32 %add.i.i.i.i180 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i181, ptr noundef nonnull %58)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i181, ptr noundef nonnull %58)
   br label %_ZN11mpz_managerILb0EE3delER3mpz.exit
 
 _ZN11mpz_managerILb0EE3delER3mpz.exit:            ; preds = %if.then.i.i173, %if.then.i.i.i178, %if.end78
@@ -16824,7 +16824,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %lor.lhs.false.i
   %mul.i.i.i = shl i32 %spec.select.i, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i11.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %spec.select.i, ptr %m_capacity.i11.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i.i, align 8
@@ -16954,7 +16954,7 @@ if.then.i.i.i56:                                  ; preds = %if.then.i.i41
   %mul.i.i.i.i57 = shl i32 %29, 2
   %add.i.i.i.i58 = add i32 %mul.i.i.i.i57, 8
   %conv.i.i.i59 = zext i32 %add.i.i.i.i58 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i59, ptr noundef nonnull %26)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i59, ptr noundef nonnull %26)
   %bf.load4.pre.i.i60 = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i43
 
@@ -16972,7 +16972,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i46: ; preds = %_ZN11mpz_managerIL
   %mul.i.i.i51 = shl i32 %spec.select.i31, 2
   %add.i.i.i52 = add i32 %mul.i.i.i51, 8
   %conv.i.i53 = zext i32 %add.i.i.i52 to i64
-  %call2.i.i54 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i53)
+  %call2.i.i54 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i53)
   %m_capacity.i11.i55 = getelementptr inbounds i8, ptr %call2.i.i54, i64 4
   store i32 %spec.select.i31, ptr %m_capacity.i11.i55, align 4
   store ptr %call2.i.i54, ptr %m_ptr.i.i, align 8
@@ -17069,7 +17069,7 @@ if.then.i.i.i120:                                 ; preds = %if.then.i.i105
   %mul.i.i.i.i121 = shl i32 %44, 2
   %add.i.i.i.i122 = add i32 %mul.i.i.i.i121, 8
   %conv.i.i.i123 = zext i32 %add.i.i.i.i122 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i123, ptr noundef nonnull %26)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i123, ptr noundef nonnull %26)
   %bf.load4.pre.i.i124 = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i107
 
@@ -17087,7 +17087,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i110: ; preds = %_ZN11mpz_managerI
   %mul.i.i.i115 = shl i32 %spec.select.i95, 2
   %add.i.i.i116 = add i32 %mul.i.i.i115, 8
   %conv.i.i117 = zext i32 %add.i.i.i116 to i64
-  %call2.i.i118 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i117)
+  %call2.i.i118 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i117)
   %m_capacity.i11.i119 = getelementptr inbounds i8, ptr %call2.i.i118, i64 4
   store i32 %spec.select.i95, ptr %m_capacity.i11.i119, align 4
   store ptr %call2.i.i118, ptr %m_ptr.i.i, align 8
@@ -17176,7 +17176,7 @@ if.then.i.i.i164:                                 ; preds = %if.then.i.i159
   %mul.i.i.i.i165 = shl i32 %60, 2
   %add.i.i.i.i166 = add i32 %mul.i.i.i.i165, 8
   %conv.i.i.i167 = zext i32 %add.i.i.i.i166 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i167, ptr noundef nonnull %58)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i167, ptr noundef nonnull %58)
   br label %_ZN11mpz_managerILb0EE3delER3mpz.exit
 
 _ZN11mpz_managerILb0EE3delER3mpz.exit:            ; preds = %if.then.i.i159, %if.then.i.i.i164, %if.end78
@@ -17233,7 +17233,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %6, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %5)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %5)
   %bf.load4.pre.i.i = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -17251,7 +17251,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %_ZN11mpz_managerILb
   %mul.i.i.i = shl i32 %spec.select.i, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i11.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %spec.select.i, ptr %m_capacity.i11.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i.i, align 8
@@ -17348,7 +17348,7 @@ if.then.i.i.i19:                                  ; preds = %if.then.i.i14
   %mul.i.i.i.i20 = shl i32 %24, 2
   %add.i.i.i.i21 = add i32 %mul.i.i.i.i20, 8
   %conv.i.i.i22 = zext i32 %add.i.i.i.i21 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i22, ptr noundef nonnull %22)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i22, ptr noundef nonnull %22)
   br label %_ZN11mpz_managerILb0EE3delER3mpz.exit
 
 _ZN11mpz_managerILb0EE3delER3mpz.exit:            ; preds = %if.then.i.i14, %if.then.i.i.i19, %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
@@ -17376,7 +17376,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %mul.i.i.i = shl i32 %2, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i, ptr noundef nonnull %0)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i, ptr noundef nonnull %0)
   %bf.load3.pre.i = load i8, ptr %m_owner.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i
 
@@ -17413,7 +17413,7 @@ if.then4:                                         ; preds = %if.end
   %mul.i.i = shl i32 %3, 2
   %add.i.i = add i32 %mul.i.i, 8
   %conv.i = zext i32 %add.i.i to i64
-  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i)
+  %call2.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i)
   %m_capacity.i35 = getelementptr inbounds i8, ptr %call2.i, i64 4
   store i32 %3, ptr %m_capacity.i35, align 4
   store ptr %call2.i, ptr %m_ptr, align 8
@@ -17461,7 +17461,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %mul.i.i.i = shl i32 %12, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i, ptr noundef nonnull %1)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i, ptr noundef nonnull %1)
   %bf.load4.pre.i = load i8, ptr %m_owner.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit
 
@@ -17476,7 +17476,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit:    ; preds = %if.then.i, %if.then
   %mul.i.i46 = shl i32 %17, 2
   %add.i.i47 = add i32 %mul.i.i46, 8
   %conv.i48 = zext i32 %add.i.i47 to i64
-  %call2.i49 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i48)
+  %call2.i49 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i48)
   %m_capacity.i50 = getelementptr inbounds i8, ptr %call2.i49, i64 4
   store i32 %17, ptr %m_capacity.i50, align 4
   store ptr %call2.i49, ptr %m_ptr, align 8
@@ -17622,7 +17622,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %7, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %6)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %6)
   %bf.load4.pre.i.i = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -17640,7 +17640,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %_ZN11mpz_managerILb
   %mul.i.i.i = shl i32 %spec.select.i, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i11.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %spec.select.i, ptr %m_capacity.i11.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i.i, align 8
@@ -17680,7 +17680,7 @@ if.then.i.i.i53:                                  ; preds = %if.then.i.i38
   %mul.i.i.i.i54 = shl i32 %12, 2
   %add.i.i.i.i55 = add i32 %mul.i.i.i.i54, 8
   %conv.i.i.i56 = zext i32 %add.i.i.i.i55 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i56, ptr noundef nonnull %11)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i56, ptr noundef nonnull %11)
   %bf.load4.pre.i.i57 = load i8, ptr %m_kind.i.i7, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i40
 
@@ -17698,7 +17698,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i43: ; preds = %_ZN11mpz_managerIL
   %mul.i.i.i48 = shl i32 %spec.select.i28, 2
   %add.i.i.i49 = add i32 %mul.i.i.i48, 8
   %conv.i.i50 = zext i32 %add.i.i.i49 to i64
-  %call2.i.i51 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i50)
+  %call2.i.i51 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i50)
   %m_capacity.i11.i52 = getelementptr inbounds i8, ptr %call2.i.i51, i64 4
   store i32 %spec.select.i28, ptr %m_capacity.i11.i52, align 4
   store ptr %call2.i.i51, ptr %m_ptr.i.i11, align 8
@@ -17846,7 +17846,7 @@ if.then.i.i.i105:                                 ; preds = %if.then.i.i100
   %mul.i.i.i.i106 = shl i32 %37, 2
   %add.i.i.i.i107 = add i32 %mul.i.i.i.i106, 8
   %conv.i.i.i108 = zext i32 %add.i.i.i.i107 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i108, ptr noundef nonnull %35)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i108, ptr noundef nonnull %35)
   %bf.load3.pre.i.i = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i104
 
@@ -17874,7 +17874,7 @@ if.then.i.i.i118:                                 ; preds = %if.then.i.i111
   %mul.i.i.i.i120 = shl i32 %40, 2
   %add.i.i.i.i121 = add i32 %mul.i.i.i.i120, 8
   %conv.i.i.i122 = zext i32 %add.i.i.i.i121 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i122, ptr noundef nonnull %38)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i122, ptr noundef nonnull %38)
   br label %return
 
 return:                                           ; preds = %if.then.i.i111, %if.then.i.i.i118, %_ZN11mpz_managerILb0EE3delER3mpz.exit, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit
@@ -17907,7 +17907,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %2, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %0)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %0)
   br label %_ZN11mpz_managerILb0EE3delER3mpz.exit
 
 _ZN11mpz_managerILb0EE3delER3mpz.exit:            ; preds = %if.then.i.i, %if.then.i.i.i, %entry
@@ -17986,7 +17986,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %6, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %5)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %5)
   %bf.load4.pre.i.i = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -18004,7 +18004,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %_ZN11mpz_managerILb
   %mul.i.i.i = shl i32 %spec.select.i, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i11.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %spec.select.i, ptr %m_capacity.i11.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i.i, align 8
@@ -18044,7 +18044,7 @@ if.then.i.i.i43:                                  ; preds = %if.then.i.i28
   %mul.i.i.i.i44 = shl i32 %11, 2
   %add.i.i.i.i45 = add i32 %mul.i.i.i.i44, 8
   %conv.i.i.i46 = zext i32 %add.i.i.i.i45 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i46, ptr noundef nonnull %10)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i46, ptr noundef nonnull %10)
   %bf.load4.pre.i.i47 = load i8, ptr %m_kind.i.i4, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i30
 
@@ -18062,7 +18062,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i33: ; preds = %_ZN11mpz_managerIL
   %mul.i.i.i38 = shl i32 %spec.select.i18, 2
   %add.i.i.i39 = add i32 %mul.i.i.i38, 8
   %conv.i.i40 = zext i32 %add.i.i.i39 to i64
-  %call2.i.i41 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i40)
+  %call2.i.i41 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i40)
   %m_capacity.i11.i42 = getelementptr inbounds i8, ptr %call2.i.i41, i64 4
   store i32 %spec.select.i18, ptr %m_capacity.i11.i42, align 4
   store ptr %call2.i.i41, ptr %m_ptr.i.i8, align 8
@@ -18160,7 +18160,7 @@ if.then.i.i.i68:                                  ; preds = %if.then.i.i63
   %mul.i.i.i.i69 = shl i32 %30, 2
   %add.i.i.i.i70 = add i32 %mul.i.i.i.i69, 8
   %conv.i.i.i71 = zext i32 %add.i.i.i.i70 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i71, ptr noundef nonnull %28)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i71, ptr noundef nonnull %28)
   %bf.load3.pre.i.i = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i67
 
@@ -18188,7 +18188,7 @@ if.then.i.i.i81:                                  ; preds = %if.then.i.i74
   %mul.i.i.i.i83 = shl i32 %33, 2
   %add.i.i.i.i84 = add i32 %mul.i.i.i.i83, 8
   %conv.i.i.i85 = zext i32 %add.i.i.i.i84 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i85, ptr noundef nonnull %31)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i85, ptr noundef nonnull %31)
   br label %return
 
 return:                                           ; preds = %if.then.i.i74, %if.then.i.i.i81, %_ZN11mpz_managerILb0EE3delER3mpz.exit, %if.then
@@ -18221,7 +18221,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %2, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %0)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %0)
   br label %_ZN11mpz_managerILb0EE3delER3mpz.exit
 
 _ZN11mpz_managerILb0EE3delER3mpz.exit:            ; preds = %if.then.i.i, %if.then.i.i.i, %entry
@@ -18312,7 +18312,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %7, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %6)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %6)
   %bf.load4.pre.i.i = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -18330,7 +18330,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %_ZN11mpz_managerILb
   %mul.i.i.i = shl i32 %spec.select.i, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i11.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %spec.select.i, ptr %m_capacity.i11.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i.i, align 8
@@ -18370,7 +18370,7 @@ if.then.i.i.i48:                                  ; preds = %if.then.i.i33
   %mul.i.i.i.i49 = shl i32 %12, 2
   %add.i.i.i.i50 = add i32 %mul.i.i.i.i49, 8
   %conv.i.i.i51 = zext i32 %add.i.i.i.i50 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i51, ptr noundef nonnull %11)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i51, ptr noundef nonnull %11)
   %bf.load4.pre.i.i52 = load i8, ptr %m_kind.i.i5, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i35
 
@@ -18388,7 +18388,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i38: ; preds = %_ZN11mpz_managerIL
   %mul.i.i.i43 = shl i32 %spec.select.i23, 2
   %add.i.i.i44 = add i32 %mul.i.i.i43, 8
   %conv.i.i45 = zext i32 %add.i.i.i44 to i64
-  %call2.i.i46 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i45)
+  %call2.i.i46 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i45)
   %m_capacity.i11.i47 = getelementptr inbounds i8, ptr %call2.i.i46, i64 4
   store i32 %spec.select.i23, ptr %m_capacity.i11.i47, align 4
   store ptr %call2.i.i46, ptr %m_ptr.i.i9, align 8
@@ -18481,7 +18481,7 @@ if.then.i.i.i74:                                  ; preds = %if.then.i.i69
   %mul.i.i.i.i75 = shl i32 %29, 2
   %add.i.i.i.i76 = add i32 %mul.i.i.i.i75, 8
   %conv.i.i.i77 = zext i32 %add.i.i.i.i76 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i77, ptr noundef nonnull %27)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i77, ptr noundef nonnull %27)
   %bf.load3.pre.i.i = load i8, ptr %m_kind.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i73
 
@@ -18509,7 +18509,7 @@ if.then.i.i.i87:                                  ; preds = %if.then.i.i80
   %mul.i.i.i.i89 = shl i32 %32, 2
   %add.i.i.i.i90 = add i32 %mul.i.i.i.i89, 8
   %conv.i.i.i91 = zext i32 %add.i.i.i.i90 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i91, ptr noundef nonnull %30)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i91, ptr noundef nonnull %30)
   br label %return
 
 return:                                           ; preds = %if.then.i.i80, %if.then.i.i.i87, %_ZN11mpz_managerILb0EE3delER3mpz.exit, %if.else.i, %if.then.i
@@ -18680,7 +18680,7 @@ if.then.i3.i:
   store ptr null, ptr %m_ptr.i4, align 8
   %m_init_cell_capacity = getelementptr inbounds i8, ptr %this, i64 564
   store i32 6, ptr %m_init_cell_capacity, align 4
-  %call2.i.i.i5 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef 32)
+  %call2.i.i.i5 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef 32)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.then.i3.i
@@ -18721,7 +18721,7 @@ if.then.i.i:                                      ; preds = %invoke.cont4
   %mul.i.i.i.i20 = shl i32 %4, 2
   %add.i.i.i.i21 = add i32 %mul.i.i.i.i20, 8
   %conv.i.i.i22 = zext i32 %add.i.i.i.i21 to i64
-  %call2.i.i.i26 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i22)
+  %call2.i.i.i26 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i22)
           to label %call2.i.i.i.noexc25 unwind label %lpad
 
 call2.i.i.i.noexc25:                              ; preds = %if.then.i.i
@@ -18795,7 +18795,7 @@ if.then.i3:                                       ; preds = %if.else.i
   %mul.i.i.i = shl i32 %2, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %2, ptr %m_capacity.i.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i, align 8
@@ -18872,7 +18872,7 @@ if.then.i:                                        ; preds = %if.else
   %mul.i.i.i = shl i32 %1, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %1, ptr %m_capacity.i.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i, align 8
@@ -18960,7 +18960,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   %mul.i.i.i.i = shl i32 %4, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %4, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i, align 8
@@ -19024,7 +19024,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %2, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %0)
+  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %0)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -19057,7 +19057,7 @@ if.then.i.i.i10:                                  ; preds = %if.then.i.i3
   %mul.i.i.i.i12 = shl i32 %5, 2
   %add.i.i.i.i13 = add i32 %mul.i.i.i.i12, 8
   %conv.i.i.i14 = zext i32 %add.i.i.i.i13 to i64
-  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i14, ptr noundef nonnull %3)
+  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i14, ptr noundef nonnull %3)
           to label %.noexc16 unwind label %terminate.lpad
 
 .noexc16:                                         ; preds = %if.then.i.i.i10
@@ -19117,7 +19117,7 @@ if.then.i:                                        ; preds = %if.then
   %mul.i.i = shl i32 %2, 2
   %add.i.i = add i32 %mul.i.i, 8
   %conv.i = zext i32 %add.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %m, i64 noundef %conv.i, ptr noundef nonnull %0)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %m, i64 noundef %conv.i, ptr noundef nonnull %0)
   %bf.load3.pre = load i8, ptr %m_owner, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit
 
@@ -19184,7 +19184,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   %mul.i.i.i.i = shl i32 %4, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %4, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i, align 8
@@ -19303,7 +19303,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   %mul.i.i.i.i = shl i32 %4, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %4, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i, align 8
@@ -19396,7 +19396,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %5, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %3)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %3)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then.i.i, %if.then.i.i.i, %if.else4, %if.then3, %if.then
@@ -19479,7 +19479,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %5, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %3)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %3)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then.i.i, %if.then.i.i.i, %if.else4, %if.then3, %if.then
@@ -19539,7 +19539,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   %mul.i.i.i.i = shl i32 %4, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %4, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i, align 8
@@ -19674,7 +19674,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   %mul.i.i.i.i = shl i32 %6, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %6, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i, align 8
@@ -19730,7 +19730,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %mul.i.i.i.i.i = shl i32 %13, 2
   %add.i.i.i.i.i = add i32 %mul.i.i.i.i.i, 8
   %conv.i.i.i.i = zext i32 %add.i.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %11)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %11)
   br label %_ZN11mpz_managerILb0EE7big_divERK3mpzS3_RS1_.exit
 
 _ZN11mpz_managerILb0EE7big_divERK3mpzS3_RS1_.exit: ; preds = %if.else, %if.then.i.i.i, %if.then.i.i.i.i
@@ -19803,7 +19803,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %mul.i.i.i.i.i = shl i32 %4, 2
   %add.i.i.i.i.i = add i32 %mul.i.i.i.i.i, 8
   %conv.i.i.i.i = zext i32 %add.i.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %2)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %2)
   br label %_ZN11mpz_managerILb0EE7big_remERK3mpzS3_RS1_.exit
 
 _ZN11mpz_managerILb0EE7big_remERK3mpzS3_RS1_.exit: ; preds = %if.else, %if.then.i.i.i, %if.then.i.i.i.i
@@ -19971,7 +19971,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %8, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %6)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %6)
   br label %if.end13
 
 if.else11:                                        ; preds = %if.else
@@ -20053,7 +20053,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %mul.i.i.i.i.i.i = shl i32 %4, 2
   %add.i.i.i.i.i.i = add i32 %mul.i.i.i.i.i.i, 8
   %conv.i.i.i.i.i = zext i32 %add.i.i.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i.i.i, ptr noundef nonnull %2)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i.i.i, ptr noundef nonnull %2)
   br label %_ZN11mpz_managerILb0EE7big_remERK3mpzS3_RS1_.exit.i
 
 _ZN11mpz_managerILb0EE7big_remERK3mpzS3_RS1_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i, %if.else.i
@@ -20115,7 +20115,7 @@ if.then.i:                                        ; preds = %if.then
   %mul.i.i.i = shl i32 %2, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %2, ptr %m_capacity.i.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i, align 8
@@ -20181,7 +20181,7 @@ if.then.i:                                        ; preds = %if.then5
   %mul.i.i.i = shl i32 %2, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %2, ptr %m_capacity.i.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i, align 8
@@ -20893,7 +20893,7 @@ if.then.i3.i.i:                                   ; preds = %if.else.i
   %mul.i.i.i.i.i = shl i32 %6, 2
   %add.i.i.i.i.i = add i32 %mul.i.i.i.i.i, 8
   %conv.i.i.i.i = zext i32 %add.i.i.i.i.i to i64
-  %call2.i.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i.i)
+  %call2.i.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i.i)
   %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i.i, i64 4
   store i32 %6, ptr %m_capacity.i.i.i.i, align 4
   store ptr %call2.i.i.i.i, ptr %m_ptr.i.i.i, align 8
@@ -20981,7 +20981,7 @@ if.then.i.i:                                      ; preds = %if.then5.i
   %mul.i.i.i.i = shl i32 %15, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %15, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i, align 8
@@ -21072,7 +21072,7 @@ if.then.i.i109:                                   ; preds = %if.then5.i98
   %mul.i.i.i.i111 = shl i32 %24, 2
   %add.i.i.i.i112 = add i32 %mul.i.i.i.i111, 8
   %conv.i.i.i113 = zext i32 %add.i.i.i.i112 to i64
-  %call2.i.i.i114 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i113)
+  %call2.i.i.i114 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i113)
   %m_capacity.i.i.i115 = getelementptr inbounds i8, ptr %call2.i.i.i114, i64 4
   store i32 %24, ptr %m_capacity.i.i.i115, align 4
   store ptr %call2.i.i.i114, ptr %m_ptr.i.i99, align 8
@@ -21191,7 +21191,7 @@ if.then.i.i181:                                   ; preds = %if.then5.i170
   %mul.i.i.i.i183 = shl i32 %33, 2
   %add.i.i.i.i184 = add i32 %mul.i.i.i.i183, 8
   %conv.i.i.i185 = zext i32 %add.i.i.i.i184 to i64
-  %call2.i.i.i186 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i185)
+  %call2.i.i.i186 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i185)
   %m_capacity.i.i.i187 = getelementptr inbounds i8, ptr %call2.i.i.i186, i64 4
   store i32 %33, ptr %m_capacity.i.i.i187, align 4
   store ptr %call2.i.i.i186, ptr %m_ptr.i, align 8
@@ -21253,7 +21253,7 @@ if.then.i.i213:                                   ; preds = %if.then5.i202
   %mul.i.i.i.i215 = shl i32 %40, 2
   %add.i.i.i.i216 = add i32 %mul.i.i.i.i215, 8
   %conv.i.i.i217 = zext i32 %add.i.i.i.i216 to i64
-  %call2.i.i.i218 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i217)
+  %call2.i.i.i218 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i217)
   %m_capacity.i.i.i219 = getelementptr inbounds i8, ptr %call2.i.i.i218, i64 4
   store i32 %40, ptr %m_capacity.i.i.i219, align 4
   store ptr %call2.i.i.i218, ptr %m_ptr.i124, align 8
@@ -21518,7 +21518,7 @@ if.then.i3.i.i289:                                ; preds = %if.else.i273
   %mul.i.i.i.i.i291 = shl i32 %64, 2
   %add.i.i.i.i.i292 = add i32 %mul.i.i.i.i.i291, 8
   %conv.i.i.i.i293 = zext i32 %add.i.i.i.i.i292 to i64
-  %call2.i.i.i.i294 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i.i293)
+  %call2.i.i.i.i294 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i.i293)
   %m_capacity.i.i.i.i295 = getelementptr inbounds i8, ptr %call2.i.i.i.i294, i64 4
   store i32 %64, ptr %m_capacity.i.i.i.i295, align 4
   store ptr %call2.i.i.i.i294, ptr %m_ptr.i.i.i274, align 8
@@ -21590,7 +21590,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %mul.i.i.i.i.i.i = shl i32 %73, 2
   %add.i.i.i.i.i.i = add i32 %mul.i.i.i.i.i.i, 8
   %conv.i.i.i.i.i = zext i32 %add.i.i.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i.i.i, ptr noundef nonnull %71)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i.i.i, ptr noundef nonnull %71)
   br label %_ZN11mpz_managerILb0EE7big_remERK3mpzS3_RS1_.exit.i
 
 _ZN11mpz_managerILb0EE7big_remERK3mpzS3_RS1_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i, %if.else.i309
@@ -21751,7 +21751,7 @@ if.then.i.i.i.i.i391:                             ; preds = %if.then.i.i.i.i386
   %mul.i.i.i.i.i.i393 = shl i32 %95, 2
   %add.i.i.i.i.i.i394 = add i32 %mul.i.i.i.i.i.i393, 8
   %conv.i.i.i.i.i395 = zext i32 %add.i.i.i.i.i.i394 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i.i.i395, ptr noundef nonnull %93)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i.i.i395, ptr noundef nonnull %93)
   br label %_ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit409
 
 _ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit409: ; preds = %if.else.i382, %if.then.i.i.i.i386, %if.then.i.i.i.i.i391
@@ -21812,7 +21812,7 @@ if.then.i3.i:                                     ; preds = %if.else.i.i
   %mul.i.i.i.i462 = shl i32 %107, 2
   %add.i.i.i.i463 = add i32 %mul.i.i.i.i462, 8
   %conv.i.i.i464 = zext i32 %add.i.i.i.i463 to i64
-  %call2.i.i.i465 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i464)
+  %call2.i.i.i465 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i464)
   %m_capacity.i.i.i466 = getelementptr inbounds i8, ptr %call2.i.i.i465, i64 4
   store i32 %107, ptr %m_capacity.i.i.i466, align 4
   store ptr %call2.i.i.i465, ptr %m_ptr.i136, align 8
@@ -21879,7 +21879,7 @@ if.then.i3.i497:                                  ; preds = %if.else.i.i473
   %mul.i.i.i.i499 = shl i32 %114, 2
   %add.i.i.i.i500 = add i32 %mul.i.i.i.i499, 8
   %conv.i.i.i501 = zext i32 %add.i.i.i.i500 to i64
-  %call2.i.i.i502 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i501)
+  %call2.i.i.i502 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i501)
   %m_capacity.i.i.i503 = getelementptr inbounds i8, ptr %call2.i.i.i502, i64 4
   store i32 %114, ptr %m_capacity.i.i.i503, align 4
   store ptr %call2.i.i.i502, ptr %m_ptr.i136, align 8
@@ -21946,7 +21946,7 @@ if.then.i3.i538:                                  ; preds = %if.else.i.i514
   %mul.i.i.i.i540 = shl i32 %121, 2
   %add.i.i.i.i541 = add i32 %mul.i.i.i.i540, 8
   %conv.i.i.i542 = zext i32 %add.i.i.i.i541 to i64
-  %call2.i.i.i543 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i542)
+  %call2.i.i.i543 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i542)
   %m_capacity.i.i.i544 = getelementptr inbounds i8, ptr %call2.i.i.i543, i64 4
   store i32 %121, ptr %m_capacity.i.i.i544, align 4
   store ptr %call2.i.i.i543, ptr %m_ptr.i136, align 8
@@ -22013,7 +22013,7 @@ if.then.i3.i579:                                  ; preds = %if.else.i.i555
   %mul.i.i.i.i581 = shl i32 %128, 2
   %add.i.i.i.i582 = add i32 %mul.i.i.i.i581, 8
   %conv.i.i.i583 = zext i32 %add.i.i.i.i582 to i64
-  %call2.i.i.i584 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i583)
+  %call2.i.i.i584 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i583)
   %m_capacity.i.i.i585 = getelementptr inbounds i8, ptr %call2.i.i.i584, i64 4
   store i32 %128, ptr %m_capacity.i.i.i585, align 4
   store ptr %call2.i.i.i584, ptr %m_ptr.i136, align 8
@@ -22118,7 +22118,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i638
   %mul.i.i.i.i644 = shl i32 %149, 2
   %add.i.i.i.i645 = add i32 %mul.i.i.i.i644, 8
   %conv.i.i.i646 = zext i32 %add.i.i.i.i645 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i646, ptr noundef nonnull %147)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i646, ptr noundef nonnull %147)
   %bf.load3.pre.i.i647 = load i8, ptr %m_kind.i119, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -22146,7 +22146,7 @@ if.then.i.i.i657:                                 ; preds = %if.then.i.i650
   %mul.i.i.i.i659 = shl i32 %152, 2
   %add.i.i.i.i660 = add i32 %mul.i.i.i.i659, 8
   %conv.i.i.i661 = zext i32 %add.i.i.i.i660 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i661, ptr noundef nonnull %150)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i661, ptr noundef nonnull %150)
   %bf.load3.pre.i.i662 = load i8, ptr %m_kind.i121, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i654
 
@@ -22174,7 +22174,7 @@ if.then.i.i.i673:                                 ; preds = %if.then.i.i666
   %mul.i.i.i.i675 = shl i32 %155, 2
   %add.i.i.i.i676 = add i32 %mul.i.i.i.i675, 8
   %conv.i.i.i677 = zext i32 %add.i.i.i.i676 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i677, ptr noundef nonnull %153)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i677, ptr noundef nonnull %153)
   %bf.load3.pre.i.i678 = load i8, ptr %m_kind.i129, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i670
 
@@ -22202,7 +22202,7 @@ if.then.i.i.i689:                                 ; preds = %if.then.i.i682
   %mul.i.i.i.i691 = shl i32 %158, 2
   %add.i.i.i.i692 = add i32 %mul.i.i.i.i691, 8
   %conv.i.i.i693 = zext i32 %add.i.i.i.i692 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i693, ptr noundef nonnull %156)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i693, ptr noundef nonnull %156)
   %bf.load3.pre.i.i694 = load i8, ptr %m_kind.i125, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i686
 
@@ -22230,7 +22230,7 @@ if.then.i.i.i705:                                 ; preds = %if.then.i.i698
   %mul.i.i.i.i707 = shl i32 %161, 2
   %add.i.i.i.i708 = add i32 %mul.i.i.i.i707, 8
   %conv.i.i.i709 = zext i32 %add.i.i.i.i708 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i709, ptr noundef nonnull %159)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i709, ptr noundef nonnull %159)
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then.i.i698, %if.then.i.i.i705, %_ZN11mpz_managerILb0EE3delER3mpz.exit695, %if.else9.i91, %if.else.i96, %_ZN11mpz_managerILb0EE11set_big_i64ER3mpzl.exit.i101, %if.then.i92, %if.else9.i, %if.else.i73, %_ZN11mpz_managerILb0EE11set_big_i64ER3mpzl.exit.i, %if.then.i70, %if.end.i.i.i, %if.then.i
@@ -22268,7 +22268,7 @@ if.then.i3.i:                                     ; preds = %if.else
   %mul.i.i.i.i = shl i32 %1, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %1, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i, align 8
@@ -22406,7 +22406,7 @@ if.then.i.i:                                      ; preds = %if.then5.i
   %mul.i.i.i.i = shl i32 %3, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %3, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i, align 8
@@ -22593,7 +22593,7 @@ if.then.i.i:                                      ; preds = %if.then5.i
   %mul.i.i.i.i = shl i32 %4, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %4, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i, align 8
@@ -22655,7 +22655,7 @@ if.then.i.i83:                                    ; preds = %if.then5.i72
   %mul.i.i.i.i85 = shl i32 %11, 2
   %add.i.i.i.i86 = add i32 %mul.i.i.i.i85, 8
   %conv.i.i.i87 = zext i32 %add.i.i.i.i86 to i64
-  %call2.i.i.i88 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i87)
+  %call2.i.i.i88 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i87)
   %m_capacity.i.i.i89 = getelementptr inbounds i8, ptr %call2.i.i.i88, i64 4
   store i32 %11, ptr %m_capacity.i.i.i89, align 4
   store ptr %call2.i.i.i88, ptr %m_ptr.i14, align 8
@@ -22927,7 +22927,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %mul.i.i.i.i.i.i = shl i32 %44, 2
   %add.i.i.i.i.i.i = add i32 %mul.i.i.i.i.i.i, 8
   %conv.i.i.i.i.i = zext i32 %add.i.i.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i.i.i, ptr noundef nonnull %42)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i.i.i, ptr noundef nonnull %42)
   br label %_ZN11mpz_managerILb0EE7big_remERK3mpzS3_RS1_.exit.i
 
 _ZN11mpz_managerILb0EE7big_remERK3mpzS3_RS1_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i, %if.else.i161
@@ -23059,7 +23059,7 @@ if.then.i.i232:                                   ; preds = %if.then.i222
   %mul.i.i.i.i234 = shl i32 %54, 2
   %add.i.i.i.i235 = add i32 %mul.i.i.i.i234, 8
   %conv.i.i.i236 = zext i32 %add.i.i.i.i235 to i64
-  %call2.i.i.i237 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i236)
+  %call2.i.i.i237 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i236)
   %m_capacity.i.i.i238 = getelementptr inbounds i8, ptr %call2.i.i.i237, i64 4
   store i32 %54, ptr %m_capacity.i.i.i238, align 4
   store ptr %call2.i.i.i237, ptr %m_ptr.i.i223, align 8
@@ -23117,7 +23117,7 @@ if.then.i.i261:                                   ; preds = %if.then.i250
   %mul.i.i.i.i263 = shl i32 %62, 2
   %add.i.i.i.i264 = add i32 %mul.i.i.i.i263, 8
   %conv.i.i.i265 = zext i32 %add.i.i.i.i264 to i64
-  %call2.i.i.i266 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i265)
+  %call2.i.i.i266 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i265)
   %m_capacity.i.i.i267 = getelementptr inbounds i8, ptr %call2.i.i.i266, i64 4
   store i32 %62, ptr %m_capacity.i.i.i267, align 4
   store ptr %call2.i.i.i266, ptr %m_ptr.i.i251, align 8
@@ -23185,7 +23185,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i283
   %mul.i.i.i.i288 = shl i32 %70, 2
   %add.i.i.i.i289 = add i32 %mul.i.i.i.i288, 8
   %conv.i.i.i290 = zext i32 %add.i.i.i.i289 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i290, ptr noundef nonnull %68)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i290, ptr noundef nonnull %68)
   %bf.load3.pre.i.i = load i8, ptr %m_kind.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -23213,7 +23213,7 @@ if.then.i.i.i300:                                 ; preds = %if.then.i.i293
   %mul.i.i.i.i302 = shl i32 %73, 2
   %add.i.i.i.i303 = add i32 %mul.i.i.i.i302, 8
   %conv.i.i.i304 = zext i32 %add.i.i.i.i303 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i304, ptr noundef nonnull %71)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i304, ptr noundef nonnull %71)
   %bf.load3.pre.i.i305 = load i8, ptr %m_kind.i11, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i297
 
@@ -23241,7 +23241,7 @@ if.then.i.i.i316:                                 ; preds = %if.then.i.i309
   %mul.i.i.i.i318 = shl i32 %76, 2
   %add.i.i.i.i319 = add i32 %mul.i.i.i.i318, 8
   %conv.i.i.i320 = zext i32 %add.i.i.i.i319 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i320, ptr noundef nonnull %74)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i320, ptr noundef nonnull %74)
   %bf.load3.pre.i.i321 = load i8, ptr %m_kind.i15, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i313
 
@@ -23269,7 +23269,7 @@ if.then.i.i.i332:                                 ; preds = %if.then.i.i325
   %mul.i.i.i.i334 = shl i32 %79, 2
   %add.i.i.i.i335 = add i32 %mul.i.i.i.i334, 8
   %conv.i.i.i336 = zext i32 %add.i.i.i.i335 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i336, ptr noundef nonnull %77)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i336, ptr noundef nonnull %77)
   %bf.load3.pre.i.i337 = load i8, ptr %m_kind.i19, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i329
 
@@ -23297,7 +23297,7 @@ if.then.i.i.i348:                                 ; preds = %if.then.i.i341
   %mul.i.i.i.i350 = shl i32 %82, 2
   %add.i.i.i.i351 = add i32 %mul.i.i.i.i350, 8
   %conv.i.i.i352 = zext i32 %add.i.i.i.i351 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i352, ptr noundef nonnull %80)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i352, ptr noundef nonnull %80)
   %bf.load3.pre.i.i353 = load i8, ptr %m_kind.i41, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i345
 
@@ -23325,7 +23325,7 @@ if.then.i.i.i364:                                 ; preds = %if.then.i.i357
   %mul.i.i.i.i366 = shl i32 %85, 2
   %add.i.i.i.i367 = add i32 %mul.i.i.i.i366, 8
   %conv.i.i.i368 = zext i32 %add.i.i.i.i367 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i368, ptr noundef nonnull %83)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i368, ptr noundef nonnull %83)
   br label %_ZN11mpz_managerILb0EE3delER3mpz.exit370
 
 _ZN11mpz_managerILb0EE3delER3mpz.exit370:         ; preds = %if.then.i.i357, %if.then.i.i.i364, %_ZN11mpz_managerILb0EE3delER3mpz.exit354
@@ -23674,7 +23674,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i139
   %mul.i.i.i.i = shl i32 %34, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %32)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %32)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then.i.i139, %if.then.i.i.i, %if.end12, %if.else.i37, %if.then.i38, %if.else.i, %if.then.i
@@ -23756,7 +23756,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %mul.i.i.i.i.i.i = shl i32 %6, 2
   %add.i.i.i.i.i.i = add i32 %mul.i.i.i.i.i.i, 8
   %conv.i.i.i.i.i = zext i32 %add.i.i.i.i.i.i to i64
-  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i.i.i, ptr noundef nonnull %4)
+  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i.i.i, ptr noundef nonnull %4)
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %.noexc, %if.then.i.i.i.i, %if.then.i.i.i.i.i
@@ -23779,7 +23779,7 @@ if.then.i.i.i.i10:                                ; preds = %if.then.i.i.i
   %mul.i.i.i.i.i = shl i32 %8, 2
   %add.i.i.i.i.i = add i32 %mul.i.i.i.i.i, 8
   %conv.i.i.i.i = zext i32 %add.i.i.i.i.i to i64
-  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %.pre11.pre, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %.pre12.pre)
+  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %.pre11.pre, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %.pre12.pre)
           to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i10
@@ -23817,7 +23817,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %3, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %0, i64 noundef %conv.i.i.i, ptr noundef nonnull %1)
+  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %0, i64 noundef %conv.i.i.i, ptr noundef nonnull %1)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -24051,7 +24051,7 @@ if.then.i.i88:                                    ; preds = %if.else.i81
   %mul.i.i.i.i = shl i32 %17, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %17, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i38, align 8
@@ -24123,7 +24123,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i99
   %mul.i.i.i.i105 = shl i32 %26, 2
   %add.i.i.i.i106 = add i32 %mul.i.i.i.i105, 8
   %conv.i.i.i107 = zext i32 %add.i.i.i.i106 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i107, ptr noundef nonnull %24)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i107, ptr noundef nonnull %24)
   %bf.load3.pre.i.i108 = load i8, ptr %m_kind.i17, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -24151,7 +24151,7 @@ if.then.i.i.i118:                                 ; preds = %if.then.i.i111
   %mul.i.i.i.i120 = shl i32 %29, 2
   %add.i.i.i.i121 = add i32 %mul.i.i.i.i120, 8
   %conv.i.i.i122 = zext i32 %add.i.i.i.i121 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i122, ptr noundef nonnull %27)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i122, ptr noundef nonnull %27)
   %bf.load3.pre.i.i123 = load i8, ptr %m_kind.i19, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i115
 
@@ -24179,7 +24179,7 @@ if.then.i.i.i134:                                 ; preds = %if.then.i.i127
   %mul.i.i.i.i136 = shl i32 %32, 2
   %add.i.i.i.i137 = add i32 %mul.i.i.i.i136, 8
   %conv.i.i.i138 = zext i32 %add.i.i.i.i137 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i138, ptr noundef nonnull %30)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i138, ptr noundef nonnull %30)
   %bf.load3.pre.i.i139 = load i8, ptr %m_kind.i23, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i131
 
@@ -24207,7 +24207,7 @@ if.then.i.i.i150:                                 ; preds = %if.then.i.i143
   %mul.i.i.i.i152 = shl i32 %35, 2
   %add.i.i.i.i153 = add i32 %mul.i.i.i.i152, 8
   %conv.i.i.i154 = zext i32 %add.i.i.i.i153 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i154, ptr noundef nonnull %33)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i154, ptr noundef nonnull %33)
   %bf.load3.pre.i.i155 = load i8, ptr %m_kind.i27, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i147
 
@@ -24235,7 +24235,7 @@ if.then.i.i.i166:                                 ; preds = %if.then.i.i159
   %mul.i.i.i.i168 = shl i32 %38, 2
   %add.i.i.i.i169 = add i32 %mul.i.i.i.i168, 8
   %conv.i.i.i170 = zext i32 %add.i.i.i.i169 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i170, ptr noundef nonnull %36)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i170, ptr noundef nonnull %36)
   %bf.load3.pre.i.i171 = load i8, ptr %m_kind.i31, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i163
 
@@ -24263,7 +24263,7 @@ if.then.i.i.i182:                                 ; preds = %if.then.i.i175
   %mul.i.i.i.i184 = shl i32 %41, 2
   %add.i.i.i.i185 = add i32 %mul.i.i.i.i184, 8
   %conv.i.i.i186 = zext i32 %add.i.i.i.i185 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i186, ptr noundef nonnull %39)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i186, ptr noundef nonnull %39)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then.i.i175, %if.then.i.i.i182, %_ZN11mpz_managerILb0EE3delER3mpz.exit172, %if.then
@@ -24508,7 +24508,7 @@ if.then.i.i84:                                    ; preds = %if.else.i77
   %mul.i.i.i.i = shl i32 %17, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %17, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i34, align 8
@@ -24568,7 +24568,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i93
   %mul.i.i.i.i99 = shl i32 %26, 2
   %add.i.i.i.i100 = add i32 %mul.i.i.i.i99, 8
   %conv.i.i.i101 = zext i32 %add.i.i.i.i100 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i101, ptr noundef nonnull %24)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i101, ptr noundef nonnull %24)
   %bf.load3.pre.i.i102 = load i8, ptr %m_kind.i13, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -24596,7 +24596,7 @@ if.then.i.i.i112:                                 ; preds = %if.then.i.i105
   %mul.i.i.i.i114 = shl i32 %29, 2
   %add.i.i.i.i115 = add i32 %mul.i.i.i.i114, 8
   %conv.i.i.i116 = zext i32 %add.i.i.i.i115 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i116, ptr noundef nonnull %27)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i116, ptr noundef nonnull %27)
   %bf.load3.pre.i.i117 = load i8, ptr %m_kind.i15, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i109
 
@@ -24624,7 +24624,7 @@ if.then.i.i.i128:                                 ; preds = %if.then.i.i121
   %mul.i.i.i.i130 = shl i32 %32, 2
   %add.i.i.i.i131 = add i32 %mul.i.i.i.i130, 8
   %conv.i.i.i132 = zext i32 %add.i.i.i.i131 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i132, ptr noundef nonnull %30)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i132, ptr noundef nonnull %30)
   %bf.load3.pre.i.i133 = load i8, ptr %m_kind.i19, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i125
 
@@ -24652,7 +24652,7 @@ if.then.i.i.i144:                                 ; preds = %if.then.i.i137
   %mul.i.i.i.i146 = shl i32 %35, 2
   %add.i.i.i.i147 = add i32 %mul.i.i.i.i146, 8
   %conv.i.i.i148 = zext i32 %add.i.i.i.i147 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i148, ptr noundef nonnull %33)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i148, ptr noundef nonnull %33)
   %bf.load3.pre.i.i149 = load i8, ptr %m_kind.i23, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i141
 
@@ -24680,7 +24680,7 @@ if.then.i.i.i160:                                 ; preds = %if.then.i.i153
   %mul.i.i.i.i162 = shl i32 %38, 2
   %add.i.i.i.i163 = add i32 %mul.i.i.i.i162, 8
   %conv.i.i.i164 = zext i32 %add.i.i.i.i163 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i164, ptr noundef nonnull %36)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i164, ptr noundef nonnull %36)
   %bf.load3.pre.i.i165 = load i8, ptr %m_kind.i27, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i157
 
@@ -24708,7 +24708,7 @@ if.then.i.i.i176:                                 ; preds = %if.then.i.i169
   %mul.i.i.i.i178 = shl i32 %41, 2
   %add.i.i.i.i179 = add i32 %mul.i.i.i.i178, 8
   %conv.i.i.i180 = zext i32 %add.i.i.i.i179 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i180, ptr noundef nonnull %39)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i180, ptr noundef nonnull %39)
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i169, %if.then.i.i.i176, %_ZN11mpz_managerILb0EE3delER3mpz.exit166, %if.then
@@ -24918,7 +24918,7 @@ if.then.i.i111:                                   ; preds = %if.else.i97
   %mul.i.i.i.i113 = shl i32 %17, 2
   %add.i.i.i.i114 = add i32 %mul.i.i.i.i113, 8
   %conv.i.i.i115 = zext i32 %add.i.i.i.i114 to i64
-  %call2.i.i.i116 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i115)
+  %call2.i.i.i116 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i115)
   %m_capacity.i.i.i117 = getelementptr inbounds i8, ptr %call2.i.i.i116, i64 4
   store i32 %17, ptr %m_capacity.i.i.i117, align 4
   store ptr %call2.i.i.i116, ptr %m_ptr.i42, align 8
@@ -24990,7 +24990,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i129
   %mul.i.i.i.i135 = shl i32 %26, 2
   %add.i.i.i.i136 = add i32 %mul.i.i.i.i135, 8
   %conv.i.i.i137 = zext i32 %add.i.i.i.i136 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i137, ptr noundef nonnull %24)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i137, ptr noundef nonnull %24)
   %bf.load3.pre.i.i138 = load i8, ptr %m_kind.i21, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -25018,7 +25018,7 @@ if.then.i.i.i148:                                 ; preds = %if.then.i.i141
   %mul.i.i.i.i150 = shl i32 %29, 2
   %add.i.i.i.i151 = add i32 %mul.i.i.i.i150, 8
   %conv.i.i.i152 = zext i32 %add.i.i.i.i151 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i152, ptr noundef nonnull %27)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i152, ptr noundef nonnull %27)
   %bf.load3.pre.i.i153 = load i8, ptr %m_kind.i23, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i145
 
@@ -25046,7 +25046,7 @@ if.then.i.i.i164:                                 ; preds = %if.then.i.i157
   %mul.i.i.i.i166 = shl i32 %32, 2
   %add.i.i.i.i167 = add i32 %mul.i.i.i.i166, 8
   %conv.i.i.i168 = zext i32 %add.i.i.i.i167 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i168, ptr noundef nonnull %30)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i168, ptr noundef nonnull %30)
   %bf.load3.pre.i.i169 = load i8, ptr %m_kind.i27, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i161
 
@@ -25074,7 +25074,7 @@ if.then.i.i.i180:                                 ; preds = %if.then.i.i173
   %mul.i.i.i.i182 = shl i32 %35, 2
   %add.i.i.i.i183 = add i32 %mul.i.i.i.i182, 8
   %conv.i.i.i184 = zext i32 %add.i.i.i.i183 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i184, ptr noundef nonnull %33)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i184, ptr noundef nonnull %33)
   %bf.load3.pre.i.i185 = load i8, ptr %m_kind.i31, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i177
 
@@ -25102,7 +25102,7 @@ if.then.i.i.i196:                                 ; preds = %if.then.i.i189
   %mul.i.i.i.i198 = shl i32 %38, 2
   %add.i.i.i.i199 = add i32 %mul.i.i.i.i198, 8
   %conv.i.i.i200 = zext i32 %add.i.i.i.i199 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i200, ptr noundef nonnull %36)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i200, ptr noundef nonnull %36)
   %bf.load3.pre.i.i201 = load i8, ptr %m_kind.i35, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i193
 
@@ -25130,7 +25130,7 @@ if.then.i.i.i212:                                 ; preds = %if.then.i.i205
   %mul.i.i.i.i214 = shl i32 %41, 2
   %add.i.i.i.i215 = add i32 %mul.i.i.i.i214, 8
   %conv.i.i.i216 = zext i32 %add.i.i.i.i215 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i216, ptr noundef nonnull %39)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i216, ptr noundef nonnull %39)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then.i.i205, %if.then.i.i.i212, %_ZN11mpz_managerILb0EE3delER3mpz.exit202, %if.then.i
@@ -25189,7 +25189,7 @@ if.then.i.i23:                                    ; preds = %if.else.i
   %mul.i.i.i.i = shl i32 %4, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %4, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i17, align 8
@@ -25331,7 +25331,7 @@ if.then.i.i96:                                    ; preds = %if.else.i77
   %mul.i.i.i.i98 = shl i32 %16, 2
   %add.i.i.i.i99 = add i32 %mul.i.i.i.i98, 8
   %conv.i.i.i100 = zext i32 %add.i.i.i.i99 to i64
-  %call2.i.i.i101 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i100)
+  %call2.i.i.i101 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i100)
   %m_capacity.i.i.i102 = getelementptr inbounds i8, ptr %call2.i.i.i101, i64 4
   store i32 %16, ptr %m_capacity.i.i.i102, align 4
   store ptr %call2.i.i.i101, ptr %m_ptr.i44, align 8
@@ -25387,7 +25387,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i113
   %mul.i.i.i.i119 = shl i32 %23, 2
   %add.i.i.i.i120 = add i32 %mul.i.i.i.i119, 8
   %conv.i.i.i121 = zext i32 %add.i.i.i.i120 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i121, ptr noundef nonnull %21)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i121, ptr noundef nonnull %21)
   %bf.load3.pre.i.i122 = load i8, ptr %m_kind.i31, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -25415,7 +25415,7 @@ if.then.i.i.i132:                                 ; preds = %if.then.i.i125
   %mul.i.i.i.i134 = shl i32 %26, 2
   %add.i.i.i.i135 = add i32 %mul.i.i.i.i134, 8
   %conv.i.i.i136 = zext i32 %add.i.i.i.i135 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i136, ptr noundef nonnull %24)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i136, ptr noundef nonnull %24)
   %bf.load3.pre.i.i137 = load i8, ptr %m_kind.i33, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i129
 
@@ -25443,7 +25443,7 @@ if.then.i.i.i148:                                 ; preds = %if.then.i.i141
   %mul.i.i.i.i150 = shl i32 %29, 2
   %add.i.i.i.i151 = add i32 %mul.i.i.i.i150, 8
   %conv.i.i.i152 = zext i32 %add.i.i.i.i151 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i152, ptr noundef nonnull %27)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i152, ptr noundef nonnull %27)
   %bf.load3.pre.i.i153 = load i8, ptr %m_kind.i37, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i145
 
@@ -25471,7 +25471,7 @@ if.then.i.i.i164:                                 ; preds = %if.then.i.i157
   %mul.i.i.i.i166 = shl i32 %32, 2
   %add.i.i.i.i167 = add i32 %mul.i.i.i.i166, 8
   %conv.i.i.i168 = zext i32 %add.i.i.i.i167 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i168, ptr noundef nonnull %30)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i168, ptr noundef nonnull %30)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then.i.i157, %if.then.i.i.i164, %_ZN11mpz_managerILb0EE3delER3mpz.exit154, %_ZN11mpz_managerILb0EE12set_big_ui64ER3mpzm.exit.i, %if.then.i26
@@ -25561,7 +25561,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %5, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %.pre)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %.pre)
   %bf.load3.pre.i.i = load i8, ptr %m_kind.i13, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -25596,7 +25596,7 @@ if.then.i.i24:                                    ; preds = %if.then.i
   %mul.i.i.i.i25 = shl i32 %8, 2
   %add.i.i.i.i26 = add i32 %mul.i.i.i.i25, 8
   %conv.i.i.i27 = zext i32 %add.i.i.i.i26 to i64
-  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i27)
+  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i27)
   %m_capacity.i.i.i28 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %8, ptr %m_capacity.i.i.i28, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i22, align 8
@@ -26290,7 +26290,7 @@ if.then.i.i:                                      ; preds = %if.then.i20
   %mul.i.i.i.i = shl i32 %3, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i22 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i22 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
           to label %call2.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.noexc:                                ; preds = %if.then.i.i
@@ -26368,7 +26368,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %mul.i.i.i.i.i = shl i32 %12, 2
   %add.i.i.i.i.i = add i32 %mul.i.i.i.i.i, 8
   %conv.i.i.i.i = zext i32 %add.i.i.i.i.i to i64
-  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %9, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %10)
+  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %9, i64 noundef %conv.i.i.i.i, ptr noundef nonnull %10)
           to label %if.end21 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i
@@ -26594,7 +26594,7 @@ for.end.i:                                        ; preds = %for.body.i, %_ZNK11
   br i1 %cmp5.not9.i, label %if.end29, label %for.body6.preheader.i
 
 for.body6.preheader.i:                            ; preds = %for.end.i
-  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %conv, i64 64)
+  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %conv, i64 64)
   br label %for.body6.i
 
 for.body6.i:                                      ; preds = %for.body6.i, %for.body6.preheader.i
@@ -26833,7 +26833,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %mul.i.i.i.i = shl i32 %4, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %3)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %3)
   %bf.load4.pre.i.i = load i8, ptr %m_owner.i.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -26852,7 +26852,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %_ZN11mpz_managerILb
   %mul.i.i.i = shl i32 %spec.select.i, 2
   %add.i.i.i = add i32 %mul.i.i.i, 8
   %conv.i.i = zext i32 %add.i.i.i to i64
-  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i)
+  %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i)
   %m_capacity.i11.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 %spec.select.i, ptr %m_capacity.i11.i, align 4
   store ptr %call2.i.i, ptr %m_ptr.i, align 8
@@ -26975,7 +26975,7 @@ if.then.i.i.i55:                                  ; preds = %if.then.i.i50
   %mul.i.i.i.i56 = shl i32 %11, 2
   %add.i.i.i.i57 = add i32 %mul.i.i.i.i56, 8
   %conv.i.i.i58 = zext i32 %add.i.i.i.i57 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i58, ptr noundef nonnull %9)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i58, ptr noundef nonnull %9)
   %bf.load3.pre.i.i = load i8, ptr %m_kind.i3864, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i54
 
@@ -27450,7 +27450,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   %mul.i.i.i.i = shl i32 %3, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %3, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i.i, align 8
@@ -28364,7 +28364,7 @@ if.then.i.i.i170:                                 ; preds = %if.then.i.i167
   %mul.i.i.i.i = shl i32 %37, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %35)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i, ptr noundef nonnull %35)
   %bf.load3.pre.i.i = load i8, ptr %m_kind.i17, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -28392,7 +28392,7 @@ if.then.i.i.i180:                                 ; preds = %if.then.i.i173
   %mul.i.i.i.i182 = shl i32 %40, 2
   %add.i.i.i.i183 = add i32 %mul.i.i.i.i182, 8
   %conv.i.i.i184 = zext i32 %add.i.i.i.i183 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i184, ptr noundef nonnull %38)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i184, ptr noundef nonnull %38)
   %bf.load3.pre.i.i185 = load i8, ptr %m_kind.i19, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i177
 
@@ -28420,7 +28420,7 @@ if.then.i.i.i196:                                 ; preds = %if.then.i.i189
   %mul.i.i.i.i198 = shl i32 %43, 2
   %add.i.i.i.i199 = add i32 %mul.i.i.i.i198, 8
   %conv.i.i.i200 = zext i32 %add.i.i.i.i199 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i200, ptr noundef nonnull %41)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i200, ptr noundef nonnull %41)
   %bf.load3.pre.i.i201 = load i8, ptr %m_kind.i23, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i193
 
@@ -28448,7 +28448,7 @@ if.then.i.i.i212:                                 ; preds = %if.then.i.i205
   %mul.i.i.i.i214 = shl i32 %46, 2
   %add.i.i.i.i215 = add i32 %mul.i.i.i.i214, 8
   %conv.i.i.i216 = zext i32 %add.i.i.i.i215 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i216, ptr noundef nonnull %44)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i216, ptr noundef nonnull %44)
   %bf.load3.pre.i.i217 = load i8, ptr %m_kind.i27, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i209
 
@@ -28476,7 +28476,7 @@ if.then.i.i.i228:                                 ; preds = %if.then.i.i221
   %mul.i.i.i.i230 = shl i32 %49, 2
   %add.i.i.i.i231 = add i32 %mul.i.i.i.i230, 8
   %conv.i.i.i232 = zext i32 %add.i.i.i.i231 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i232, ptr noundef nonnull %47)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i232, ptr noundef nonnull %47)
   %bf.load3.pre.i.i233 = load i8, ptr %m_kind.i31, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i225
 
@@ -28504,7 +28504,7 @@ if.then.i.i.i244:                                 ; preds = %if.then.i.i237
   %mul.i.i.i.i246 = shl i32 %52, 2
   %add.i.i.i.i247 = add i32 %mul.i.i.i.i246, 8
   %conv.i.i.i248 = zext i32 %add.i.i.i.i247 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i248, ptr noundef nonnull %50)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i248, ptr noundef nonnull %50)
   br label %return
 
 return:                                           ; preds = %if.then.i.i237, %if.then.i.i.i244, %_ZN11mpz_managerILb0EE3delER3mpz.exit234, %if.end, %entry, %if.then6
@@ -28819,7 +28819,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %mul.i.i.i.i = shl i32 %9, 2
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 8
   %conv.i.i.i = zext i32 %add.i.i.i.i to i64
-  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i)
+  %call2.i.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i)
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 4
   store i32 %9, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i, ptr %m_ptr.i, align 8
@@ -28871,7 +28871,7 @@ if.then.i.i97:                                    ; preds = %if.then.i86
   %mul.i.i.i.i99 = shl i32 %16, 2
   %add.i.i.i.i100 = add i32 %mul.i.i.i.i99, 8
   %conv.i.i.i101 = zext i32 %add.i.i.i.i100 to i64
-  %call2.i.i.i102 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i101)
+  %call2.i.i.i102 = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i101)
   %m_capacity.i.i.i103 = getelementptr inbounds i8, ptr %call2.i.i.i102, i64 4
   store i32 %16, ptr %m_capacity.i.i.i103, align 4
   store ptr %call2.i.i.i102, ptr %m_ptr.i18, align 8
@@ -29525,7 +29525,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i360
   %mul.i.i.i.i365 = shl i32 %105, 2
   %add.i.i.i.i366 = add i32 %mul.i.i.i.i365, 8
   %conv.i.i.i367 = zext i32 %add.i.i.i.i366 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i367, ptr noundef nonnull %103)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i367, ptr noundef nonnull %103)
   %bf.load3.pre.i.i = load i8, ptr %m_kind.i, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
 
@@ -29553,7 +29553,7 @@ if.then.i.i.i377:                                 ; preds = %if.then.i.i370
   %mul.i.i.i.i379 = shl i32 %108, 2
   %add.i.i.i.i380 = add i32 %mul.i.i.i.i379, 8
   %conv.i.i.i381 = zext i32 %add.i.i.i.i380 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i381, ptr noundef nonnull %106)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i381, ptr noundef nonnull %106)
   %bf.load3.pre.i.i382 = load i8, ptr %m_kind.i15, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i374
 
@@ -29581,7 +29581,7 @@ if.then.i.i.i393:                                 ; preds = %if.then.i.i386
   %mul.i.i.i.i395 = shl i32 %111, 2
   %add.i.i.i.i396 = add i32 %mul.i.i.i.i395, 8
   %conv.i.i.i397 = zext i32 %add.i.i.i.i396 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i397, ptr noundef nonnull %109)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i397, ptr noundef nonnull %109)
   %bf.load3.pre.i.i398 = load i8, ptr %m_kind.i19, align 4
   br label %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i390
 
@@ -29609,7 +29609,7 @@ if.then.i.i.i409:                                 ; preds = %if.then.i.i402
   %mul.i.i.i.i411 = shl i32 %114, 2
   %add.i.i.i.i412 = add i32 %mul.i.i.i.i411, 8
   %conv.i.i.i413 = zext i32 %add.i.i.i.i412 to i64
-  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %conv.i.i.i413, ptr noundef nonnull %112)
+  call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(600) %this, i64 noundef %conv.i.i.i413, ptr noundef nonnull %112)
   br label %return
 
 return:                                           ; preds = %if.then.i.i402, %if.then.i.i.i409, %_ZN11mpz_managerILb0EE3delER3mpz.exit399, %entry

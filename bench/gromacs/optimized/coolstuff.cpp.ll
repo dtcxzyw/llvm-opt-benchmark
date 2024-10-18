@@ -1575,7 +1575,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %40
 
 .noexc3:                                          ; preds = %.noexc
@@ -1592,7 +1592,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
 35:                                               ; preds = %37, %33
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
   br label %.body
 
 37:                                               ; preds = %.noexc3
@@ -1612,7 +1612,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
           to label %.noexc4 unwind label %46
 
 .noexc4:                                          ; preds = %42
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc5 unwind label %46
 
 .noexc5:                                          ; preds = %.noexc4
@@ -1622,7 +1622,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
 44:                                               ; preds = %.noexc5
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
   br label %.body
 
 46:                                               ; preds = %.noexc4, %42
@@ -1936,7 +1936,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5Quote
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %29
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %33
 
 .noexc1:                                          ; preds = %.noexc
@@ -1946,7 +1946,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5Quote
 31:                                               ; preds = %.noexc1
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1

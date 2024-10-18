@@ -604,10 +604,10 @@ entry:
   store i32 0, ptr %m_current, align 4
   %m_status = getelementptr inbounds i8, ptr %this, i64 456
   store i32 0, ptr %m_status, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %shapearg, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(144) %shapearg, i64 16, i1 false)
   %m_toshape1.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_toshape13.i = getelementptr inbounds i8, ptr %shapearg, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_toshape1.i, ptr noundef nonnull align 8 dereferenceable(16) %m_toshape13.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_toshape1.i, ptr noundef nonnull align 8 dereferenceable(48) %m_toshape13.i, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %shapearg, i64 32
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -616,7 +616,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
   %m_toshape0.i = getelementptr inbounds i8, ptr %this, i64 64
   %m_toshape04.i = getelementptr inbounds i8, ptr %shapearg, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_toshape0.i, ptr noundef nonnull align 8 dereferenceable(16) %m_toshape04.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_toshape0.i, ptr noundef nonnull align 8 dereferenceable(64) %m_toshape04.i, i64 16, i1 false)
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %shapearg, i64 80
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i.i, i64 16, i1 false)
@@ -705,7 +705,7 @@ memptr.nonvirtual.i.i.i:                          ; preds = %cond.end
 
 _ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i.i: ; preds = %memptr.nonvirtual.i.i.i, %memptr.virtual.i.i.i
   %12 = phi ptr [ %memptr.virtualfn.i.i.i, %memptr.virtual.i.i.i ], [ %memptr.nonvirtualfn.i.i.i, %memptr.nonvirtual.i.i.i ]
-  %call.i.i.i = tail call { <2 x float>, <2 x float> } %12(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12)
+  %call.i.i.i = tail call { <2 x float>, <2 x float> } %12(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(32) %arrayidx12)
   %13 = load float, ptr %arrayidx12, align 8
   %arrayidx3.i.i4.i = getelementptr inbounds i8, ptr %this, i64 380
   %14 = load float, ptr %arrayidx3.i.i4.i, align 4
@@ -922,7 +922,7 @@ memptr.nonvirtual.i.i.i219:                       ; preds = %if.end
 
 _ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i.i156: ; preds = %memptr.nonvirtual.i.i.i219, %memptr.virtual.i.i.i153
   %79 = phi ptr [ %memptr.virtualfn.i.i.i155, %memptr.virtual.i.i.i153 ], [ %memptr.nonvirtualfn.i.i.i220, %memptr.nonvirtual.i.i.i219 ]
-  %call.i.i.i157 = call { <2 x float>, <2 x float> } %79(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 4 dereferenceable(16) %73)
+  %call.i.i.i157 = call { <2 x float>, <2 x float> } %79(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 4 dereferenceable(32) %73)
   %80 = load float, ptr %73, align 4
   %arrayidx3.i.i4.i158 = getelementptr inbounds i8, ptr %73, i64 4
   %81 = load float, ptr %arrayidx3.i.i4.i158, align 4
@@ -2546,7 +2546,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont5, %invo
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit172, %lpad.loopexit ], [ %lpad.loopexit.split-lp173, %lpad.loopexit.split-lp ]
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %shape1) #11
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %shape1) #11
   resume { ptr, i32 } %lpad.phi
 
 invoke.cont71:                                    ; preds = %invoke.cont51, %for.cond.preheader
@@ -2724,7 +2724,7 @@ if.end:                                           ; preds = %invoke.cont114, %in
 
 cleanup:                                          ; preds = %invoke.cont97, %invoke.cont13, %if.end, %invoke.cont87
   %retval.0 = phi float [ %sub, %invoke.cont87 ], [ %fneg, %if.end ], [ 0x47EFFFFFE0000000, %invoke.cont13 ], [ 0x47EFFFFFE0000000, %invoke.cont97 ]
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %shape1) #11
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %shape1) #11
   ret float %retval.0
 }
 
@@ -3621,7 +3621,7 @@ memptr.nonvirtual.i.i.i:                          ; preds = %for.body
 
 _ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i.i: ; preds = %memptr.nonvirtual.i.i.i, %memptr.virtual.i.i.i
   %21 = phi ptr [ %memptr.virtualfn.i.i.i, %memptr.virtual.i.i.i ], [ %memptr.nonvirtualfn.i.i.i, %memptr.nonvirtual.i.i.i ]
-  %call.i.i.i = call { <2 x float>, <2 x float> } %21(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(16) %10)
+  %call.i.i.i = call { <2 x float>, <2 x float> } %21(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(32) %10)
   %22 = load float, ptr %10, align 4
   %arrayidx3.i.i4.i = getelementptr inbounds i8, ptr %10, i64 4
   %23 = load float, ptr %arrayidx3.i.i4.i, align 4
@@ -3794,7 +3794,7 @@ memptr.nonvirtual.i.i.i323:                       ; preds = %if.end
 
 _ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i.i260: ; preds = %memptr.nonvirtual.i.i.i323, %memptr.virtual.i.i.i257
   %84 = phi ptr [ %memptr.virtualfn.i.i.i259, %memptr.virtual.i.i.i257 ], [ %memptr.nonvirtualfn.i.i.i324, %memptr.nonvirtual.i.i.i323 ]
-  %call.i.i.i261 = call { <2 x float>, <2 x float> } %84(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 4 dereferenceable(16) %78)
+  %call.i.i.i261 = call { <2 x float>, <2 x float> } %84(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 4 dereferenceable(32) %78)
   %85 = load float, ptr %78, align 4
   %arrayidx3.i.i4.i262 = getelementptr inbounds i8, ptr %78, i64 4
   %86 = load float, ptr %arrayidx3.i.i4.i262, align 4
@@ -4045,7 +4045,7 @@ memptr.nonvirtual.i.i.i410:                       ; preds = %if.then38
 
 _ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i.i347: ; preds = %memptr.nonvirtual.i.i.i410, %memptr.virtual.i.i.i344
   %168 = phi ptr [ %memptr.virtualfn.i.i.i346, %memptr.virtual.i.i.i344 ], [ %memptr.nonvirtualfn.i.i.i411, %memptr.nonvirtual.i.i.i410 ]
-  %call.i.i.i348 = call { <2 x float>, <2 x float> } %168(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(16) %162)
+  %call.i.i.i348 = call { <2 x float>, <2 x float> } %168(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %162)
   %169 = load float, ptr %162, align 4
   %arrayidx3.i.i4.i349 = getelementptr inbounds i8, ptr %162, i64 4
   %170 = load float, ptr %arrayidx3.i.i4.i349, align 4
@@ -4218,7 +4218,7 @@ memptr.nonvirtual.i.i.i497:                       ; preds = %if.end42
 
 _ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i.i434: ; preds = %memptr.nonvirtual.i.i.i497, %memptr.virtual.i.i.i431
   %231 = phi ptr [ %memptr.virtualfn.i.i.i433, %memptr.virtual.i.i.i431 ], [ %memptr.nonvirtualfn.i.i.i498, %memptr.nonvirtual.i.i.i497 ]
-  %call.i.i.i435 = call { <2 x float>, <2 x float> } %231(ptr noundef nonnull align 8 dereferenceable(32) %227, ptr noundef nonnull align 4 dereferenceable(16) %225)
+  %call.i.i.i435 = call { <2 x float>, <2 x float> } %231(ptr noundef nonnull align 8 dereferenceable(32) %227, ptr noundef nonnull align 4 dereferenceable(32) %225)
   %232 = load float, ptr %225, align 4
   %arrayidx3.i.i4.i436 = getelementptr inbounds i8, ptr %225, i64 4
   %233 = load float, ptr %arrayidx3.i.i4.i436, align 4
@@ -4442,7 +4442,7 @@ memptr.nonvirtual.i.i.i584:                       ; preds = %if.then83
 
 _ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i.i521: ; preds = %memptr.nonvirtual.i.i.i584, %memptr.virtual.i.i.i518
   %312 = phi ptr [ %memptr.virtualfn.i.i.i520, %memptr.virtual.i.i.i518 ], [ %memptr.nonvirtualfn.i.i.i585, %memptr.nonvirtual.i.i.i584 ]
-  %call.i.i.i522 = tail call { <2 x float>, <2 x float> } %312(ptr noundef nonnull align 8 dereferenceable(32) %308, ptr noundef nonnull align 4 dereferenceable(16) %306)
+  %call.i.i.i522 = tail call { <2 x float>, <2 x float> } %312(ptr noundef nonnull align 8 dereferenceable(32) %308, ptr noundef nonnull align 4 dereferenceable(32) %306)
   %313 = load float, ptr %306, align 4
   %arrayidx3.i.i4.i523 = getelementptr inbounds i8, ptr %306, i64 4
   %314 = load float, ptr %arrayidx3.i.i4.i523, align 4
@@ -4638,7 +4638,7 @@ memptr.nonvirtual.i.i.i671:                       ; preds = %if.end87
 
 _ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i.i608: ; preds = %memptr.nonvirtual.i.i.i671, %memptr.virtual.i.i.i605
   %376 = phi ptr [ %memptr.virtualfn.i.i.i607, %memptr.virtual.i.i.i605 ], [ %memptr.nonvirtualfn.i.i.i672, %memptr.nonvirtual.i.i.i671 ]
-  %call.i.i.i609 = call { <2 x float>, <2 x float> } %376(ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef nonnull align 4 dereferenceable(16) %370)
+  %call.i.i.i609 = call { <2 x float>, <2 x float> } %376(ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef nonnull align 4 dereferenceable(32) %370)
   %377 = load float, ptr %370, align 4
   %arrayidx3.i.i4.i610 = getelementptr inbounds i8, ptr %370, i64 4
   %378 = load float, ptr %arrayidx3.i.i4.i610, align 4

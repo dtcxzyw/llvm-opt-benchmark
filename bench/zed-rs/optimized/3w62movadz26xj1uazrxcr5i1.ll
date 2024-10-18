@@ -352,7 +352,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3612cb462cdd12c3E.llvm.15282627734019538225"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #3 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false), !alias.scope !26
   ret void
 }
 
@@ -407,7 +407,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !42
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8, !alias.scope !39, !noalias !44, !nonnull !12, !align !45, !noundef !12
-  call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd837d2bb6d85e04dE"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %6), !noalias !44
+  call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd837d2bb6d85e04dE"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %6), !noalias !44
   %7 = load i64, ptr %4, align 8, !range !46, !noalias !39, !noundef !12
   %8 = icmp eq i64 %7, 4
   br i1 %8, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h90e8a7707e514280E.llvm.15282627734019538225.exit.thread", label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h90e8a7707e514280E.llvm.15282627734019538225.exit"
@@ -469,7 +469,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !66
   %17 = load ptr, ptr %10, align 8, !alias.scope !69, !noalias !70, !nonnull !12, !align !45, !noundef !12
   call void @"_ZN6editor6Editor11rewrap_impl28_$u7b$$u7b$closure$u7d$$u7d$17hb23293d2f022e615E.llvm.933925041898046037"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16), !noalias !71
-  call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75481ba5e76034e9E.llvm.933925041898046037"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3), !noalias !72
+  call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75481ba5e76034e9E.llvm.933925041898046037"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3), !noalias !72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !66
   %18 = load i64, ptr %4, align 8, !range !73, !alias.scope !74, !noalias !77, !noundef !12
   %trunc.i.i.i.i = trunc nuw i64 %18 to i1
@@ -511,7 +511,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !83
   %5 = getelementptr inbounds i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8, !alias.scope !80, !noalias !85, !nonnull !12, !align !45, !noundef !12
-  call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3c7f02e3208d3d7dE"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %6), !noalias !85
+  call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3c7f02e3208d3d7dE"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %6), !noalias !85
   %7 = load i64, ptr %4, align 8, !range !46, !noalias !80, !noundef !12
   %8 = icmp eq i64 %7, 4
   br i1 %8, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17ha2736ab3419c7720E.llvm.15282627734019538225.exit.thread", label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17ha2736ab3419c7720E.llvm.15282627734019538225.exit"
@@ -571,7 +571,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !102
   %17 = load ptr, ptr %10, align 8, !alias.scope !105, !noalias !106, !nonnull !12, !align !45, !noundef !12
   call void @"_ZN6editor6Editor11rewrap_impl28_$u7b$$u7b$closure$u7d$$u7d$17hb23293d2f022e615E.llvm.933925041898046037"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16), !noalias !107
-  call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75481ba5e76034e9E.llvm.933925041898046037"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3), !noalias !108
+  call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75481ba5e76034e9E.llvm.933925041898046037"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3), !noalias !108
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !102
   %18 = load i64, ptr %4, align 8, !range !73, !alias.scope !109, !noalias !112, !noundef !12
   %trunc.i.i.i = trunc nuw i64 %18 to i1
@@ -1174,7 +1174,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha930f18c9b1efa47E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -1292,7 +1292,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h28f96d0a914ecd53E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -1410,7 +1410,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2abd45c0b523d503E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -1528,7 +1528,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he2cb4ef1068dcdcfE.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -1762,7 +1762,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h861e2aa89e96297fE.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -2112,7 +2112,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc82c16a837d74540E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -2926,7 +2926,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h970be4891ed1f154E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -3044,7 +3044,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf0e95d9b72c5edf4E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -3278,7 +3278,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6e2c4536409f1f1aE.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -3807,7 +3807,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he02923cadaa46ab2E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -3925,7 +3925,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h3af07b228c0e72b3E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -4159,7 +4159,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7e414664c5e91565E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -5089,7 +5089,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb865e892f812d077E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -5323,7 +5323,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb8a40285fe0edd73E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -5557,7 +5557,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd17a9e66dd1a4b10E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -6139,7 +6139,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0a5a84a577277c71E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -6257,7 +6257,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5abce6538b29b0e2E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -6491,7 +6491,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1cc29995d947e99aE.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -6841,7 +6841,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h598322fa30906e95E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -6959,7 +6959,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h001911e2b0526479E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -7309,7 +7309,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf6de4730c81a1fd5E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -8123,7 +8123,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha0ac775605697424E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -8652,7 +8652,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h00ce5457f5cb1237E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -8770,7 +8770,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h542869a2c07c1125E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -9004,7 +9004,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hfee1e205b11cd7c4E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -9470,7 +9470,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha8015ee05063540fE.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -9588,7 +9588,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1caaf561c7dd8953E.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -9822,7 +9822,7 @@ common.resume:                                    ; preds = %44, %27
 
 43:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7098bc34436b7fdfE.exit" unwind label %44
 
 44:                                               ; preds = %43, %35
@@ -12020,7 +12020,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$11drop_f
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2925
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %.noexc.i unwind label %18
 
 .noexc.i:                                         ; preds = %7
@@ -12465,7 +12465,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$11drop_f
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3077
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val.val)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val.val)
           to label %.noexc.i.i.i.i unwind label %.body.i, !noalias !3072
 
 .noexc.i.i.i.i:                                   ; preds = %8
@@ -21124,7 +21124,7 @@ _ZN10async_task5utils14abort_on_panic17h584c7cbe9b78aceaE.exit: ; preds = %111, 
 
 169:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h861e2aa89e96297fE.exit.i" unwind label %170
 
 170:                                              ; preds = %169, %161
@@ -21331,7 +21331,7 @@ _ZN10async_task5utils14abort_on_panic17h3825bd1da8918cedE.exit: ; preds = %175
 
 242:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i136"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h861e2aa89e96297fE.exit.i137" unwind label %243
 
 243:                                              ; preds = %242, %234
@@ -21462,7 +21462,7 @@ _ZN10async_task5utils14abort_on_panic17h3825bd1da8918cedE.exit: ; preds = %175
 
 295:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i150"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h861e2aa89e96297fE.exit.i151" unwind label %296
 
 296:                                              ; preds = %295, %287
@@ -21592,7 +21592,7 @@ _ZN10async_task5utils14abort_on_panic17hfeb50ae7a1fbd2e1E.exit: ; preds = %301
 
 341:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i168"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h861e2aa89e96297fE.exit.i169" unwind label %342
 
 342:                                              ; preds = %341, %333
@@ -24814,7 +24814,7 @@ _ZN10async_task5utils14abort_on_panic17h7000c655fb7656b4E.exit: ; preds = %119, 
 
 174:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6e2c4536409f1f1aE.exit.i" unwind label %175
 
 175:                                              ; preds = %174, %166
@@ -25022,7 +25022,7 @@ _ZN10async_task5utils14abort_on_panic17hdf9c9f3b7f815058E.exit: ; preds = %180
 
 246:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i149"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6e2c4536409f1f1aE.exit.i150" unwind label %247
 
 247:                                              ; preds = %246, %238
@@ -25153,7 +25153,7 @@ _ZN10async_task5utils14abort_on_panic17hdf9c9f3b7f815058E.exit: ; preds = %180
 
 299:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i163"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6e2c4536409f1f1aE.exit.i164" unwind label %300
 
 300:                                              ; preds = %299, %291
@@ -25282,7 +25282,7 @@ _ZN10async_task5utils14abort_on_panic17h5bf5b30be6f86bbeE.exit: ; preds = %305
 
 344:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i181"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6e2c4536409f1f1aE.exit.i182" unwind label %345
 
 345:                                              ; preds = %344, %336
@@ -25652,7 +25652,7 @@ _ZN10async_task5utils14abort_on_panic17hdf16f534234928ceE.exit: ; preds = %26
 
 103:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h11306905fa85a964E"(ptr noalias noundef align 8 dereferenceable(24) %13)
+  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h11306905fa85a964E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h6f88ba6137b3c096E.exit unwind label %104
 
 104:                                              ; preds = %103
@@ -27499,7 +27499,7 @@ _ZN10async_task5utils14abort_on_panic17hf25945a53ae1387aE.exit: ; preds = %29, %
 
 118:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb2683d66cf372267E"(ptr noalias noundef align 8 dereferenceable(96) %11)
+  invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb2683d66cf372267E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %11)
           to label %_ZN10async_task5utils14abort_on_panic17h90c0b18fddad4f3dE.exit unwind label %119
 
 119:                                              ; preds = %118
@@ -27579,7 +27579,7 @@ _ZN10async_task5utils14abort_on_panic17h90c0b18fddad4f3dE.exit: ; preds = %118
 
 152:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he2cb4ef1068dcdcfE.exit.i" unwind label %153
 
 153:                                              ; preds = %152, %144
@@ -27793,7 +27793,7 @@ _ZN10async_task5utils14abort_on_panic17h3f6b2cf375fa4231E.exit: ; preds = %158
 
 225:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i145"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he2cb4ef1068dcdcfE.exit.i146" unwind label %226
 
 226:                                              ; preds = %225, %217
@@ -27924,7 +27924,7 @@ _ZN10async_task5utils14abort_on_panic17h3f6b2cf375fa4231E.exit: ; preds = %158
 
 278:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i159"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he2cb4ef1068dcdcfE.exit.i160" unwind label %279
 
 279:                                              ; preds = %278, %270
@@ -28053,7 +28053,7 @@ _ZN10async_task5utils14abort_on_panic17h512dc9fe824156b9E.exit: ; preds = %284
 
 323:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i177"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he2cb4ef1068dcdcfE.exit.i178" unwind label %324
 
 324:                                              ; preds = %323, %315
@@ -28570,7 +28570,7 @@ _ZN10async_task5utils14abort_on_panic17h0a61c6204ffbe899E.exit: ; preds = %120, 
 
 175:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0a5a84a577277c71E.exit.i" unwind label %176
 
 176:                                              ; preds = %175, %167
@@ -28784,7 +28784,7 @@ _ZN10async_task5utils14abort_on_panic17hc0d3cb71512efefbE.exit: ; preds = %181
 
 248:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i146"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0a5a84a577277c71E.exit.i147" unwind label %249
 
 249:                                              ; preds = %248, %240
@@ -28915,7 +28915,7 @@ _ZN10async_task5utils14abort_on_panic17hc0d3cb71512efefbE.exit: ; preds = %181
 
 301:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i160"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0a5a84a577277c71E.exit.i161" unwind label %302
 
 302:                                              ; preds = %301, %293
@@ -29044,7 +29044,7 @@ _ZN10async_task5utils14abort_on_panic17h8ced830e037b98d5E.exit: ; preds = %307
 
 346:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i178"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0a5a84a577277c71E.exit.i179" unwind label %347
 
 347:                                              ; preds = %346, %338
@@ -29524,7 +29524,7 @@ _ZN10async_task5utils14abort_on_panic17hda9eb524c1a94af9E.exit: ; preds = %114, 
 
 172:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7098bc34436b7fdfE.exit.i" unwind label %173
 
 173:                                              ; preds = %172, %164
@@ -29737,7 +29737,7 @@ _ZN10async_task5utils14abort_on_panic17h7d3a7e90d6119bc8E.exit: ; preds = %178
 
 246:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i132"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7098bc34436b7fdfE.exit.i133" unwind label %247
 
 247:                                              ; preds = %246, %238
@@ -29868,7 +29868,7 @@ _ZN10async_task5utils14abort_on_panic17h7d3a7e90d6119bc8E.exit: ; preds = %178
 
 299:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i146"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7098bc34436b7fdfE.exit.i147" unwind label %300
 
 300:                                              ; preds = %299, %291
@@ -29997,7 +29997,7 @@ _ZN10async_task5utils14abort_on_panic17had5c3da789670a57E.exit: ; preds = %305
 
 344:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i164"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7098bc34436b7fdfE.exit.i165" unwind label %345
 
 345:                                              ; preds = %344, %336
@@ -30382,7 +30382,7 @@ _ZN10async_task5utils14abort_on_panic17hfd9e523aa48d9188E.exit: ; preds = %28, %
 
 119:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3a85cb4b7d5fcdc9E"(ptr noalias noundef align 8 dereferenceable(144) %11)
+  invoke fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3a85cb4b7d5fcdc9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %11)
           to label %_ZN10async_task5utils14abort_on_panic17h0ceef559c280eef7E.exit unwind label %120
 
 120:                                              ; preds = %119
@@ -30462,7 +30462,7 @@ _ZN10async_task5utils14abort_on_panic17h0ceef559c280eef7E.exit: ; preds = %119
 
 153:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha8015ee05063540fE.exit.i" unwind label %154
 
 154:                                              ; preds = %153, %145
@@ -30670,7 +30670,7 @@ _ZN10async_task5utils14abort_on_panic17hf3f6872920689b0eE.exit: ; preds = %159
 
 225:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i154"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha8015ee05063540fE.exit.i155" unwind label %226
 
 226:                                              ; preds = %225, %217
@@ -30801,7 +30801,7 @@ _ZN10async_task5utils14abort_on_panic17hf3f6872920689b0eE.exit: ; preds = %159
 
 278:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i168"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha8015ee05063540fE.exit.i169" unwind label %279
 
 279:                                              ; preds = %278, %270
@@ -30930,7 +30930,7 @@ _ZN10async_task5utils14abort_on_panic17hf718669c3a81eaeaE.exit: ; preds = %284
 
 323:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i186"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha8015ee05063540fE.exit.i187" unwind label %324
 
 324:                                              ; preds = %323, %315
@@ -31309,7 +31309,7 @@ _ZN10async_task5utils14abort_on_panic17ha20fb7846741d46bE.exit: ; preds = %26
 
 115:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha316e52518d81a5eE"(ptr noalias noundef align 8 dereferenceable(88) %13)
+  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha316e52518d81a5eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h8e61cc6fe5a19982E.exit unwind label %116
 
 116:                                              ; preds = %115
@@ -34102,7 +34102,7 @@ _ZN10async_task5utils14abort_on_panic17h5982b27c33757e25E.exit: ; preds = %109, 
 
 166:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h00ce5457f5cb1237E.exit.i" unwind label %167
 
 167:                                              ; preds = %166, %158
@@ -34309,7 +34309,7 @@ _ZN10async_task5utils14abort_on_panic17hf68b6ede09c79383E.exit: ; preds = %172
 
 238:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i142"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h00ce5457f5cb1237E.exit.i143" unwind label %239
 
 239:                                              ; preds = %238, %230
@@ -34440,7 +34440,7 @@ _ZN10async_task5utils14abort_on_panic17hf68b6ede09c79383E.exit: ; preds = %172
 
 291:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i156"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h00ce5457f5cb1237E.exit.i157" unwind label %292
 
 292:                                              ; preds = %291, %283
@@ -34569,7 +34569,7 @@ _ZN10async_task5utils14abort_on_panic17h51ec27b8722fe63cE.exit: ; preds = %297
 
 336:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i174"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h00ce5457f5cb1237E.exit.i175" unwind label %337
 
 337:                                              ; preds = %336, %328
@@ -35076,7 +35076,7 @@ _ZN10async_task5utils14abort_on_panic17h62704fbffd4c1faaE.exit: ; preds = %119, 
 
 173:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc82c16a837d74540E.exit.i" unwind label %174
 
 174:                                              ; preds = %173, %165
@@ -35286,7 +35286,7 @@ _ZN10async_task5utils14abort_on_panic17h5db1904384dab91cE.exit: ; preds = %179
 
 245:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i154"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc82c16a837d74540E.exit.i155" unwind label %246
 
 246:                                              ; preds = %245, %237
@@ -35416,7 +35416,7 @@ _ZN10async_task5utils14abort_on_panic17h5db1904384dab91cE.exit: ; preds = %179
 
 298:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i168"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc82c16a837d74540E.exit.i169" unwind label %299
 
 299:                                              ; preds = %298, %290
@@ -35545,7 +35545,7 @@ _ZN10async_task5utils14abort_on_panic17h4c0adf4f575d0d8dE.exit: ; preds = %304
 
 343:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i186"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc82c16a837d74540E.exit.i187" unwind label %344
 
 344:                                              ; preds = %343, %335
@@ -36811,7 +36811,7 @@ thread-pre-split.thread:                          ; preds = %81
 
 98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr460drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4c057057f4aa27bcE"(ptr noalias noundef align 8 dereferenceable(32) %13)
+  invoke fastcc void @"_ZN4core3ptr460drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4c057057f4aa27bcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZN10async_task5utils14abort_on_panic17hb9ef86776b65515cE.exit unwind label %99
 
 99:                                               ; preds = %98
@@ -37717,7 +37717,7 @@ _ZN10async_task5utils14abort_on_panic17h4e633fddf13ab342E.exit: ; preds = %29, %
 
 120:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3a85cb4b7d5fcdc9E"(ptr noalias noundef align 8 dereferenceable(144) %11)
+  invoke fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3a85cb4b7d5fcdc9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %11)
           to label %_ZN10async_task5utils14abort_on_panic17ha633f2b75cec0af7E.exit unwind label %121
 
 121:                                              ; preds = %120
@@ -37797,7 +37797,7 @@ _ZN10async_task5utils14abort_on_panic17ha633f2b75cec0af7E.exit: ; preds = %120
 
 154:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf6de4730c81a1fd5E.exit.i" unwind label %155
 
 155:                                              ; preds = %154, %146
@@ -38011,7 +38011,7 @@ _ZN10async_task5utils14abort_on_panic17h7ef740e366e6749bE.exit: ; preds = %160
 
 227:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i152"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf6de4730c81a1fd5E.exit.i153" unwind label %228
 
 228:                                              ; preds = %227, %219
@@ -38142,7 +38142,7 @@ _ZN10async_task5utils14abort_on_panic17h7ef740e366e6749bE.exit: ; preds = %160
 
 280:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i166"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf6de4730c81a1fd5E.exit.i167" unwind label %281
 
 281:                                              ; preds = %280, %272
@@ -38271,7 +38271,7 @@ _ZN10async_task5utils14abort_on_panic17h62e26a95cd0fee47E.exit: ; preds = %286
 
 325:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i184"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf6de4730c81a1fd5E.exit.i185" unwind label %326
 
 326:                                              ; preds = %325, %317
@@ -38778,7 +38778,7 @@ _ZN10async_task5utils14abort_on_panic17h501d3028d41ee96dE.exit: ; preds = %111, 
 
 168:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7e414664c5e91565E.exit.i" unwind label %169
 
 169:                                              ; preds = %168, %160
@@ -38991,7 +38991,7 @@ _ZN10async_task5utils14abort_on_panic17h81cdf2da32a30e1cE.exit: ; preds = %174
 
 241:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i140"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7e414664c5e91565E.exit.i141" unwind label %242
 
 242:                                              ; preds = %241, %233
@@ -39122,7 +39122,7 @@ _ZN10async_task5utils14abort_on_panic17h81cdf2da32a30e1cE.exit: ; preds = %174
 
 294:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i154"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7e414664c5e91565E.exit.i155" unwind label %295
 
 295:                                              ; preds = %294, %286
@@ -39251,7 +39251,7 @@ _ZN10async_task5utils14abort_on_panic17h63a5a08816df536bE.exit: ; preds = %300
 
 339:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i172"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7e414664c5e91565E.exit.i173" unwind label %340
 
 340:                                              ; preds = %339, %331
@@ -39618,7 +39618,7 @@ _ZN10async_task5utils14abort_on_panic17h57d7148bbc3bd3a8E.exit: ; preds = %26
 
 103:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h063404c539bfcbf2E"(ptr noalias noundef align 8 dereferenceable(24) %13)
+  invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h063404c539bfcbf2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %_ZN10async_task5utils14abort_on_panic17ha226955a2b3f927eE.exit unwind label %104
 
 104:                                              ; preds = %103
@@ -40503,7 +40503,7 @@ _ZN10async_task5utils14abort_on_panic17hc390a7952b193515E.exit: ; preds = %28, %
 
 117:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb2683d66cf372267E"(ptr noalias noundef align 8 dereferenceable(96) %11)
+  invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb2683d66cf372267E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %11)
           to label %_ZN10async_task5utils14abort_on_panic17h04c54870ef29de67E.exit unwind label %118
 
 118:                                              ; preds = %117
@@ -40583,7 +40583,7 @@ _ZN10async_task5utils14abort_on_panic17h04c54870ef29de67E.exit: ; preds = %117
 
 151:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2abd45c0b523d503E.exit.i" unwind label %152
 
 152:                                              ; preds = %151, %143
@@ -40791,7 +40791,7 @@ _ZN10async_task5utils14abort_on_panic17hbb55bf2f6c0d5b8aE.exit: ; preds = %157
 
 223:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i147"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2abd45c0b523d503E.exit.i148" unwind label %224
 
 224:                                              ; preds = %223, %215
@@ -40922,7 +40922,7 @@ _ZN10async_task5utils14abort_on_panic17hbb55bf2f6c0d5b8aE.exit: ; preds = %157
 
 276:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i161"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2abd45c0b523d503E.exit.i162" unwind label %277
 
 277:                                              ; preds = %276, %268
@@ -41051,7 +41051,7 @@ _ZN10async_task5utils14abort_on_panic17had04926fc6cd6bbbE.exit: ; preds = %282
 
 321:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i179"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2abd45c0b523d503E.exit.i180" unwind label %322
 
 322:                                              ; preds = %321, %313
@@ -41430,7 +41430,7 @@ _ZN10async_task5utils14abort_on_panic17hd56272bfc3e5ac2cE.exit: ; preds = %26
 
 111:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcb01c9d7298fa392E"(ptr noalias noundef align 8 dereferenceable(40) %13)
+  invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcb01c9d7298fa392E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h9e7a522bd1724ffcE.exit unwind label %112
 
 112:                                              ; preds = %111
@@ -46014,7 +46014,7 @@ _ZN10async_task5utils14abort_on_panic17hc491f3bbee60e223E.exit: ; preds = %26
 
 106:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h11306905fa85a964E"(ptr noalias noundef align 8 dereferenceable(24) %13)
+  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h11306905fa85a964E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h1a70b9a08c477aeeE.exit unwind label %107
 
 107:                                              ; preds = %106
@@ -47966,7 +47966,7 @@ _ZN10async_task5utils14abort_on_panic17h017ce939f7cb4fb7E.exit: ; preds = %110, 
 
 168:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb8a40285fe0edd73E.exit.i" unwind label %169
 
 169:                                              ; preds = %168, %160
@@ -48175,7 +48175,7 @@ _ZN10async_task5utils14abort_on_panic17ha15db3e9f78f400bE.exit: ; preds = %174
 
 240:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i140"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb8a40285fe0edd73E.exit.i141" unwind label %241
 
 241:                                              ; preds = %240, %232
@@ -48305,7 +48305,7 @@ _ZN10async_task5utils14abort_on_panic17ha15db3e9f78f400bE.exit: ; preds = %174
 
 293:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i154"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb8a40285fe0edd73E.exit.i155" unwind label %294
 
 294:                                              ; preds = %293, %285
@@ -48434,7 +48434,7 @@ _ZN10async_task5utils14abort_on_panic17hbf3356c42ac8daf8E.exit: ; preds = %299
 
 338:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i172"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb8a40285fe0edd73E.exit.i173" unwind label %339
 
 339:                                              ; preds = %338, %330
@@ -48898,7 +48898,7 @@ _ZN10async_task5utils14abort_on_panic17h9a77fea43c7b360fE.exit: ; preds = %116, 
 
 174:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1caaf561c7dd8953E.exit.i" unwind label %175
 
 175:                                              ; preds = %174, %166
@@ -49105,7 +49105,7 @@ _ZN10async_task5utils14abort_on_panic17hf578b92b7f7b7e99E.exit: ; preds = %180
 
 247:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i134"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1caaf561c7dd8953E.exit.i135" unwind label %248
 
 248:                                              ; preds = %247, %239
@@ -49236,7 +49236,7 @@ _ZN10async_task5utils14abort_on_panic17hf578b92b7f7b7e99E.exit: ; preds = %180
 
 300:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i148"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1caaf561c7dd8953E.exit.i149" unwind label %301
 
 301:                                              ; preds = %300, %292
@@ -49366,7 +49366,7 @@ _ZN10async_task5utils14abort_on_panic17h08ee7f4c9c1099e2E.exit: ; preds = %306
 
 346:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i166"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1caaf561c7dd8953E.exit.i167" unwind label %347
 
 347:                                              ; preds = %346, %338
@@ -49753,7 +49753,7 @@ _ZN10async_task5utils14abort_on_panic17h40e412ab1ff89a8aE.exit: ; preds = %26
 
 113:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef align 8 dereferenceable(96) %13)
+  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h186786f502d75dc1E.exit unwind label %114
 
 114:                                              ; preds = %113
@@ -51614,7 +51614,7 @@ _ZN10async_task5utils14abort_on_panic17h508047ffc779e57bE.exit: ; preds = %118, 
 
 172:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha0ac775605697424E.exit.i" unwind label %173
 
 173:                                              ; preds = %172, %164
@@ -51829,7 +51829,7 @@ _ZN10async_task5utils14abort_on_panic17h3df8f5b23ffc882dE.exit: ; preds = %178
 
 246:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i132"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha0ac775605697424E.exit.i133" unwind label %247
 
 247:                                              ; preds = %246, %238
@@ -51960,7 +51960,7 @@ _ZN10async_task5utils14abort_on_panic17h3df8f5b23ffc882dE.exit: ; preds = %178
 
 299:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i146"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha0ac775605697424E.exit.i147" unwind label %300
 
 300:                                              ; preds = %299, %291
@@ -52090,7 +52090,7 @@ _ZN10async_task5utils14abort_on_panic17h82bd5d6838899bceE.exit: ; preds = %305
 
 345:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i164"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha0ac775605697424E.exit.i165" unwind label %346
 
 346:                                              ; preds = %345, %337
@@ -55246,7 +55246,7 @@ _ZN10async_task5utils14abort_on_panic17h0eff711a31b44920E.exit: ; preds = %26
 
 112:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha316e52518d81a5eE"(ptr noalias noundef align 8 dereferenceable(88) %13)
+  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha316e52518d81a5eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h21d6a639f6c32063E.exit unwind label %113
 
 113:                                              ; preds = %112
@@ -56234,7 +56234,7 @@ _ZN10async_task5utils14abort_on_panic17he132bdfd0660727fE.exit: ; preds = %118, 
 
 176:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha930f18c9b1efa47E.exit.i" unwind label %177
 
 177:                                              ; preds = %176, %168
@@ -56447,7 +56447,7 @@ _ZN10async_task5utils14abort_on_panic17h2fbdafbcad795cd1E.exit: ; preds = %182
 
 250:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i133"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha930f18c9b1efa47E.exit.i134" unwind label %251
 
 251:                                              ; preds = %250, %242
@@ -56578,7 +56578,7 @@ _ZN10async_task5utils14abort_on_panic17h2fbdafbcad795cd1E.exit: ; preds = %182
 
 303:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i147"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha930f18c9b1efa47E.exit.i148" unwind label %304
 
 304:                                              ; preds = %303, %295
@@ -56708,7 +56708,7 @@ _ZN10async_task5utils14abort_on_panic17hed320cd1da919e7dE.exit: ; preds = %309
 
 349:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i165"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha930f18c9b1efa47E.exit.i166" unwind label %350
 
 350:                                              ; preds = %349, %341
@@ -58032,7 +58032,7 @@ _ZN10async_task5utils14abort_on_panic17he4ee15722838298eE.exit: ; preds = %26
 
 106:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr216drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h093e7ad99034b6b9E"(ptr noalias noundef align 8 dereferenceable(24) %13)
+  invoke fastcc void @"_ZN4core3ptr216drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h093e7ad99034b6b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %_ZN10async_task5utils14abort_on_panic17hd333bed8e67f7dd3E.exit unwind label %107
 
 107:                                              ; preds = %106
@@ -58917,7 +58917,7 @@ _ZN10async_task5utils14abort_on_panic17h2cf12cb94e43acfaE.exit: ; preds = %26
 
 100:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h063404c539bfcbf2E"(ptr noalias noundef align 8 dereferenceable(24) %13)
+  invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h063404c539bfcbf2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %_ZN10async_task5utils14abort_on_panic17hd40292d20b3f9583E.exit unwind label %101
 
 101:                                              ; preds = %100
@@ -59815,7 +59815,7 @@ _ZN10async_task5utils14abort_on_panic17haf13e139b6c108d5E.exit: ; preds = %29, %
 
 118:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr384drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9fc0453b6fcdad2E"(ptr noalias noundef align 8 dereferenceable(48) %11)
+  invoke fastcc void @"_ZN4core3ptr384drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9fc0453b6fcdad2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
           to label %_ZN10async_task5utils14abort_on_panic17ha84d321a705b6a9aE.exit unwind label %119
 
 119:                                              ; preds = %118
@@ -59895,7 +59895,7 @@ _ZN10async_task5utils14abort_on_panic17ha84d321a705b6a9aE.exit: ; preds = %118
 
 152:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd17a9e66dd1a4b10E.exit.i" unwind label %153
 
 153:                                              ; preds = %152, %144
@@ -60109,7 +60109,7 @@ _ZN10async_task5utils14abort_on_panic17h94ba238aa496c732E.exit: ; preds = %158
 
 225:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i141"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd17a9e66dd1a4b10E.exit.i142" unwind label %226
 
 226:                                              ; preds = %225, %217
@@ -60240,7 +60240,7 @@ _ZN10async_task5utils14abort_on_panic17h94ba238aa496c732E.exit: ; preds = %158
 
 278:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i155"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd17a9e66dd1a4b10E.exit.i156" unwind label %279
 
 279:                                              ; preds = %278, %270
@@ -60369,7 +60369,7 @@ _ZN10async_task5utils14abort_on_panic17hd5cf99f3b08f251cE.exit: ; preds = %284
 
 323:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i173"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd17a9e66dd1a4b10E.exit.i174" unwind label %324
 
 324:                                              ; preds = %323, %315
@@ -60756,7 +60756,7 @@ _ZN10async_task5utils14abort_on_panic17h919f342787976a33E.exit: ; preds = %26
 
 108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcb01c9d7298fa392E"(ptr noalias noundef align 8 dereferenceable(40) %13)
+  invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcb01c9d7298fa392E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h056e8261c6838087E.exit unwind label %109
 
 109:                                              ; preds = %108
@@ -61758,7 +61758,7 @@ _ZN10async_task5utils14abort_on_panic17h4153879d0368c003E.exit: ; preds = %108, 
 
 166:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h970be4891ed1f154E.exit.i" unwind label %167
 
 167:                                              ; preds = %166, %158
@@ -61961,7 +61961,7 @@ _ZN10async_task5utils14abort_on_panic17h0e5c5dbd7269c9aeE.exit: ; preds = %172
 
 237:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i143"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h970be4891ed1f154E.exit.i144" unwind label %238
 
 238:                                              ; preds = %237, %229
@@ -62091,7 +62091,7 @@ _ZN10async_task5utils14abort_on_panic17h0e5c5dbd7269c9aeE.exit: ; preds = %172
 
 290:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i157"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h970be4891ed1f154E.exit.i158" unwind label %291
 
 291:                                              ; preds = %290, %282
@@ -62220,7 +62220,7 @@ _ZN10async_task5utils14abort_on_panic17hae09d9348aab0508E.exit: ; preds = %296
 
 335:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i175"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h970be4891ed1f154E.exit.i176" unwind label %336
 
 336:                                              ; preds = %335, %327
@@ -62586,7 +62586,7 @@ thread-pre-split.thread:                          ; preds = %83
 
 101:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr460drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4c057057f4aa27bcE"(ptr noalias noundef align 8 dereferenceable(32) %13)
+  invoke fastcc void @"_ZN4core3ptr460drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4c057057f4aa27bcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h1b228887736e9341E.exit unwind label %102
 
 102:                                              ; preds = %101
@@ -64114,7 +64114,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
 
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !14348
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val91.val)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val91.val)
           to label %.noexc.i.i.i.i unwind label %.body.i, !noalias !14343
 
 .noexc.i.i.i.i:                                   ; preds = %21
@@ -64218,7 +64218,7 @@ _ZN10async_task5utils14abort_on_panic17hfc6417e0481977afE.exit: ; preds = %17, %
 
 58:                                               ; preds = %._crit_edge320
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !14374
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val92.val)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val92.val)
           to label %.noexc.i.i.i.i102 unwind label %.body.i100, !noalias !14369
 
 .noexc.i.i.i.i102:                                ; preds = %58
@@ -67687,7 +67687,7 @@ _ZN10async_task5utils14abort_on_panic17hbe62ee4016fd5ef6E.exit: ; preds = %26
 
 103:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr216drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h093e7ad99034b6b9E"(ptr noalias noundef align 8 dereferenceable(24) %13)
+  invoke fastcc void @"_ZN4core3ptr216drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h093e7ad99034b6b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %_ZN10async_task5utils14abort_on_panic17hc037db88ddfbe595E.exit unwind label %104
 
 104:                                              ; preds = %103
@@ -68562,7 +68562,7 @@ _ZN10async_task5utils14abort_on_panic17h8664c858bf637c02E.exit: ; preds = %28, %
 
 108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h579399e77f85fb25E"(ptr noalias noundef readonly align 8 dereferenceable(24) %10)
+  invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h579399e77f85fb25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %_ZN10async_task5utils14abort_on_panic17h6d8dc3e3bf0de0e5E.exit unwind label %109
 
 109:                                              ; preds = %108
@@ -68642,7 +68642,7 @@ _ZN10async_task5utils14abort_on_panic17h6d8dc3e3bf0de0e5E.exit: ; preds = %108
 
 142:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf0e95d9b72c5edf4E.exit.i" unwind label %143
 
 143:                                              ; preds = %142, %134
@@ -68851,7 +68851,7 @@ _ZN10async_task5utils14abort_on_panic17h2ca58ac03b1863afE.exit: ; preds = %148
 
 214:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i139"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf0e95d9b72c5edf4E.exit.i140" unwind label %215
 
 215:                                              ; preds = %214, %206
@@ -68981,7 +68981,7 @@ _ZN10async_task5utils14abort_on_panic17h2ca58ac03b1863afE.exit: ; preds = %148
 
 267:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i153"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf0e95d9b72c5edf4E.exit.i154" unwind label %268
 
 268:                                              ; preds = %267, %259
@@ -69110,7 +69110,7 @@ _ZN10async_task5utils14abort_on_panic17h0f7258dc3771ff55E.exit: ; preds = %273
 
 312:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i171"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf0e95d9b72c5edf4E.exit.i172" unwind label %313
 
 313:                                              ; preds = %312, %304
@@ -69505,7 +69505,7 @@ _ZN10async_task5utils14abort_on_panic17h6cb9d12d253b898dE.exit: ; preds = %26
 
 110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef align 8 dereferenceable(96) %13)
+  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h8c951f817475bac9E.exit unwind label %111
 
 111:                                              ; preds = %110
@@ -71438,7 +71438,7 @@ _ZN10async_task5utils14abort_on_panic17h868a2b61000a390aE.exit: ; preds = %111, 
 
 175:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h001911e2b0526479E.exit.i" unwind label %176
 
 176:                                              ; preds = %175, %167
@@ -71651,7 +71651,7 @@ _ZN10async_task5utils14abort_on_panic17h0e626a045f89441bE.exit: ; preds = %181
 
 248:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i140"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h001911e2b0526479E.exit.i141" unwind label %249
 
 249:                                              ; preds = %248, %240
@@ -71782,7 +71782,7 @@ _ZN10async_task5utils14abort_on_panic17h0e626a045f89441bE.exit: ; preds = %181
 
 301:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i154"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h001911e2b0526479E.exit.i155" unwind label %302
 
 302:                                              ; preds = %301, %293
@@ -71911,7 +71911,7 @@ _ZN10async_task5utils14abort_on_panic17h9bbacfe5b2dfe69eE.exit: ; preds = %307
 
 346:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i172"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h001911e2b0526479E.exit.i173" unwind label %347
 
 347:                                              ; preds = %346, %338
@@ -72290,7 +72290,7 @@ _ZN10async_task5utils14abort_on_panic17h39514df88943264cE.exit: ; preds = %26
 
 111:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6161501f95c980a7E"(ptr noalias noundef align 8 dereferenceable(40) %13)
+  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6161501f95c980a7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h328a31067ff32a7dE.exit unwind label %112
 
 112:                                              ; preds = %111
@@ -75994,7 +75994,7 @@ _ZN10async_task5utils14abort_on_panic17h4027a92a42935dedE.exit: ; preds = %112, 
 
 170:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h542869a2c07c1125E.exit.i" unwind label %171
 
 171:                                              ; preds = %170, %162
@@ -76201,7 +76201,7 @@ _ZN10async_task5utils14abort_on_panic17h437802d051e71021E.exit: ; preds = %176
 
 242:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i135"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h542869a2c07c1125E.exit.i136" unwind label %243
 
 243:                                              ; preds = %242, %234
@@ -76332,7 +76332,7 @@ _ZN10async_task5utils14abort_on_panic17h437802d051e71021E.exit: ; preds = %176
 
 295:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i149"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h542869a2c07c1125E.exit.i150" unwind label %296
 
 296:                                              ; preds = %295, %287
@@ -76461,7 +76461,7 @@ _ZN10async_task5utils14abort_on_panic17h8974479686bb5845E.exit: ; preds = %301
 
 340:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i167"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h542869a2c07c1125E.exit.i168" unwind label %341
 
 341:                                              ; preds = %340, %332
@@ -76838,7 +76838,7 @@ _ZN10async_task5utils14abort_on_panic17h2746800cca31f2d6E.exit: ; preds = %28, %
 
 117:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr384drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9fc0453b6fcdad2E"(ptr noalias noundef align 8 dereferenceable(48) %11)
+  invoke fastcc void @"_ZN4core3ptr384drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9fc0453b6fcdad2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
           to label %_ZN10async_task5utils14abort_on_panic17h5c772adb4ab4fdc6E.exit unwind label %118
 
 118:                                              ; preds = %117
@@ -76918,7 +76918,7 @@ _ZN10async_task5utils14abort_on_panic17h5c772adb4ab4fdc6E.exit: ; preds = %117
 
 151:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5abce6538b29b0e2E.exit.i" unwind label %152
 
 152:                                              ; preds = %151, %143
@@ -77126,7 +77126,7 @@ _ZN10async_task5utils14abort_on_panic17h6235c85c4ca327e1E.exit: ; preds = %157
 
 223:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i143"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5abce6538b29b0e2E.exit.i144" unwind label %224
 
 224:                                              ; preds = %223, %215
@@ -77257,7 +77257,7 @@ _ZN10async_task5utils14abort_on_panic17h6235c85c4ca327e1E.exit: ; preds = %157
 
 276:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i157"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5abce6538b29b0e2E.exit.i158" unwind label %277
 
 277:                                              ; preds = %276, %268
@@ -77386,7 +77386,7 @@ _ZN10async_task5utils14abort_on_panic17h9705cd246d51ed40E.exit: ; preds = %282
 
 321:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i175"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5abce6538b29b0e2E.exit.i176" unwind label %322
 
 322:                                              ; preds = %321, %313
@@ -77895,7 +77895,7 @@ _ZN10async_task5utils14abort_on_panic17h3d812046f5de2b96E.exit: ; preds = %109, 
 
 173:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h28f96d0a914ecd53E.exit.i" unwind label %174
 
 174:                                              ; preds = %173, %165
@@ -78102,7 +78102,7 @@ _ZN10async_task5utils14abort_on_panic17hc4ce67d9106ee21fE.exit: ; preds = %179
 
 245:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i143"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h28f96d0a914ecd53E.exit.i144" unwind label %246
 
 246:                                              ; preds = %245, %237
@@ -78233,7 +78233,7 @@ _ZN10async_task5utils14abort_on_panic17hc4ce67d9106ee21fE.exit: ; preds = %179
 
 298:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i157"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h28f96d0a914ecd53E.exit.i158" unwind label %299
 
 299:                                              ; preds = %298, %290
@@ -78362,7 +78362,7 @@ _ZN10async_task5utils14abort_on_panic17ha77394ba902e1e20E.exit: ; preds = %304
 
 343:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i175"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h28f96d0a914ecd53E.exit.i176" unwind label %344
 
 344:                                              ; preds = %343, %335
@@ -79774,7 +79774,7 @@ _ZN10async_task5utils14abort_on_panic17hd0dfb4ef6f2a2c86E.exit: ; preds = %112, 
 
 170:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h598322fa30906e95E.exit.i" unwind label %171
 
 171:                                              ; preds = %170, %162
@@ -79987,7 +79987,7 @@ _ZN10async_task5utils14abort_on_panic17h461952dca434c987E.exit: ; preds = %176
 
 244:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i133"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h598322fa30906e95E.exit.i134" unwind label %245
 
 245:                                              ; preds = %244, %236
@@ -80118,7 +80118,7 @@ _ZN10async_task5utils14abort_on_panic17h461952dca434c987E.exit: ; preds = %176
 
 297:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i147"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h598322fa30906e95E.exit.i148" unwind label %298
 
 298:                                              ; preds = %297, %289
@@ -80248,7 +80248,7 @@ _ZN10async_task5utils14abort_on_panic17h0a65ea59f26dcbceE.exit: ; preds = %303
 
 343:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i165"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h598322fa30906e95E.exit.i166" unwind label %344
 
 344:                                              ; preds = %343, %335
@@ -80746,7 +80746,7 @@ _ZN10async_task5utils14abort_on_panic17h0a97c83132ff8330E.exit: ; preds = %118, 
 
 171:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1cc29995d947e99aE.exit.i" unwind label %172
 
 172:                                              ; preds = %171, %163
@@ -80950,7 +80950,7 @@ _ZN10async_task5utils14abort_on_panic17hed24084ad0fe29dcE.exit: ; preds = %177
 
 242:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i157"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1cc29995d947e99aE.exit.i158" unwind label %243
 
 243:                                              ; preds = %242, %234
@@ -81080,7 +81080,7 @@ _ZN10async_task5utils14abort_on_panic17hed24084ad0fe29dcE.exit: ; preds = %177
 
 295:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i171"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1cc29995d947e99aE.exit.i172" unwind label %296
 
 296:                                              ; preds = %295, %287
@@ -81209,7 +81209,7 @@ _ZN10async_task5utils14abort_on_panic17h336e3d8f9fa4052eE.exit: ; preds = %301
 
 340:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i189"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1cc29995d947e99aE.exit.i190" unwind label %341
 
 341:                                              ; preds = %340, %332
@@ -82537,7 +82537,7 @@ _ZN10async_task5utils14abort_on_panic17h9481365da7eeff9fE.exit: ; preds = %29, %
 
 120:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef align 8 dereferenceable(96) %11)
+  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %11)
           to label %_ZN10async_task5utils14abort_on_panic17h7a6ad5fcb07f3befE.exit unwind label %121
 
 121:                                              ; preds = %120
@@ -82617,7 +82617,7 @@ _ZN10async_task5utils14abort_on_panic17h7a6ad5fcb07f3befE.exit: ; preds = %120
 
 154:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he02923cadaa46ab2E.exit.i" unwind label %155
 
 155:                                              ; preds = %154, %146
@@ -82831,7 +82831,7 @@ _ZN10async_task5utils14abort_on_panic17hd5481619e1954fb5E.exit: ; preds = %160
 
 227:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i152"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he02923cadaa46ab2E.exit.i153" unwind label %228
 
 228:                                              ; preds = %227, %219
@@ -82962,7 +82962,7 @@ _ZN10async_task5utils14abort_on_panic17hd5481619e1954fb5E.exit: ; preds = %160
 
 280:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i166"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he02923cadaa46ab2E.exit.i167" unwind label %281
 
 281:                                              ; preds = %280, %272
@@ -83091,7 +83091,7 @@ _ZN10async_task5utils14abort_on_panic17h3d2b0ef4bd8d5223E.exit: ; preds = %286
 
 325:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i184"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he02923cadaa46ab2E.exit.i185" unwind label %326
 
 326:                                              ; preds = %325, %317
@@ -83184,7 +83184,7 @@ define internal noundef zeroext i1 @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C
 
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !18735
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %.noexc.i unwind label %31
 
 .noexc.i:                                         ; preds = %21
@@ -83284,7 +83284,7 @@ _ZN10async_task5utils14abort_on_panic17hacd3fb7f0f435922E.exit: ; preds = %17, %
 
 59:                                               ; preds = %._crit_edge317
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !18750
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %.noexc.i100 unwind label %69
 
 .noexc.i100:                                      ; preds = %59
@@ -84002,7 +84002,7 @@ _ZN10async_task5utils14abort_on_panic17hec22babe2db00404E.exit: ; preds = %26
 
 110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr212drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4eb56d29c877fc3eE"(ptr noalias noundef align 8 dereferenceable(96) %13)
+  invoke fastcc void @"_ZN4core3ptr212drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4eb56d29c877fc3eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13)
           to label %_ZN10async_task5utils14abort_on_panic17hc6355db1c84a6b59E.exit unwind label %111
 
 111:                                              ; preds = %110
@@ -84901,7 +84901,7 @@ _ZN10async_task5utils14abort_on_panic17h3d6b79dbb43899daE.exit: ; preds = %28, %
 
 119:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef align 8 dereferenceable(96) %11)
+  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %11)
           to label %_ZN10async_task5utils14abort_on_panic17h568187ca10dee84cE.exit unwind label %120
 
 120:                                              ; preds = %119
@@ -84981,7 +84981,7 @@ _ZN10async_task5utils14abort_on_panic17h568187ca10dee84cE.exit: ; preds = %119
 
 153:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb865e892f812d077E.exit.i" unwind label %154
 
 154:                                              ; preds = %153, %145
@@ -85189,7 +85189,7 @@ _ZN10async_task5utils14abort_on_panic17ha57324483cc5d861E.exit: ; preds = %159
 
 225:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i154"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb865e892f812d077E.exit.i155" unwind label %226
 
 226:                                              ; preds = %225, %217
@@ -85320,7 +85320,7 @@ _ZN10async_task5utils14abort_on_panic17ha57324483cc5d861E.exit: ; preds = %159
 
 278:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i168"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb865e892f812d077E.exit.i169" unwind label %279
 
 279:                                              ; preds = %278, %270
@@ -85449,7 +85449,7 @@ _ZN10async_task5utils14abort_on_panic17h3dd9ac4bae97358cE.exit: ; preds = %284
 
 323:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i186"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb865e892f812d077E.exit.i187" unwind label %324
 
 324:                                              ; preds = %323, %315
@@ -85909,7 +85909,7 @@ _ZN10async_task5utils14abort_on_panic17h94af1cb163881742E.exit: ; preds = %116, 
 
 170:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hfee1e205b11cd7c4E.exit.i" unwind label %171
 
 171:                                              ; preds = %170, %162
@@ -86118,7 +86118,7 @@ _ZN10async_task5utils14abort_on_panic17hca8ba1313de1d4faE.exit: ; preds = %176
 
 243:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i133"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hfee1e205b11cd7c4E.exit.i134" unwind label %244
 
 244:                                              ; preds = %243, %235
@@ -86249,7 +86249,7 @@ _ZN10async_task5utils14abort_on_panic17hca8ba1313de1d4faE.exit: ; preds = %176
 
 296:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i147"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hfee1e205b11cd7c4E.exit.i148" unwind label %297
 
 297:                                              ; preds = %296, %288
@@ -86379,7 +86379,7 @@ _ZN10async_task5utils14abort_on_panic17hb884c3cc9de27c8fE.exit: ; preds = %302
 
 342:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i165"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hfee1e205b11cd7c4E.exit.i166" unwind label %343
 
 343:                                              ; preds = %342, %334
@@ -89465,7 +89465,7 @@ _ZN10async_task5utils14abort_on_panic17h1cb0274c6760f1d5E.exit: ; preds = %27, %
 
 106:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h579399e77f85fb25E"(ptr noalias noundef readonly align 8 dereferenceable(24) %10)
+  invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h579399e77f85fb25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %_ZN10async_task5utils14abort_on_panic17h29ce48a1187ffd8eE.exit unwind label %107
 
 107:                                              ; preds = %106
@@ -89545,7 +89545,7 @@ _ZN10async_task5utils14abort_on_panic17h29ce48a1187ffd8eE.exit: ; preds = %106
 
 140:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h3af07b228c0e72b3E.exit.i" unwind label %141
 
 141:                                              ; preds = %140, %132
@@ -89748,7 +89748,7 @@ _ZN10async_task5utils14abort_on_panic17hb1bcfe8cc08fbe5dE.exit: ; preds = %146
 
 211:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i141"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h3af07b228c0e72b3E.exit.i142" unwind label %212
 
 212:                                              ; preds = %211, %203
@@ -89878,7 +89878,7 @@ _ZN10async_task5utils14abort_on_panic17hb1bcfe8cc08fbe5dE.exit: ; preds = %146
 
 264:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i155"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h3af07b228c0e72b3E.exit.i156" unwind label %265
 
 265:                                              ; preds = %264, %256
@@ -90007,7 +90007,7 @@ _ZN10async_task5utils14abort_on_panic17h7ab4efff58b083f1E.exit: ; preds = %270
 
 309:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i.i173"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h3af07b228c0e72b3E.exit.i174" unwind label %310
 
 310:                                              ; preds = %309, %301
@@ -91293,7 +91293,7 @@ _ZN10async_task5utils14abort_on_panic17hea1b5445be4bc19cE.exit: ; preds = %26
 
 108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6161501f95c980a7E"(ptr noalias noundef align 8 dereferenceable(40) %13)
+  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6161501f95c980a7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h3ce5bab0ec07071dE.exit unwind label %109
 
 109:                                              ; preds = %108
@@ -93095,7 +93095,7 @@ _ZN10async_task5utils14abort_on_panic17hd482a8c80a65c951E.exit: ; preds = %26
 
 113:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  invoke fastcc void @"_ZN4core3ptr212drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4eb56d29c877fc3eE"(ptr noalias noundef align 8 dereferenceable(96) %13)
+  invoke fastcc void @"_ZN4core3ptr212drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4eb56d29c877fc3eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13)
           to label %_ZN10async_task5utils14abort_on_panic17h31ea1e13196d5b4dE.exit unwind label %114
 
 114:                                              ; preds = %113
@@ -99632,7 +99632,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h6ff101da8e2873c9E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -99690,7 +99690,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17hb6cdb517e4701a88E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -99864,7 +99864,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17hfec2a1471b511149E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -100096,7 +100096,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h97512e409621cedeE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -100154,7 +100154,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h10a75e5e9db198d1E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -100386,7 +100386,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h53e331fc9abbf0a6E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -100444,7 +100444,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h2b8080c03b26e098E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -100618,7 +100618,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h83851f9febc48e0aE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -101024,7 +101024,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h3636649012ec6eebE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -101140,7 +101140,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17hf4fdeb49b8f7554dE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -101198,7 +101198,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17haee740766f053e5fE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -101662,7 +101662,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h31c4774089723d1eE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -101720,7 +101720,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17hf088e58a07e67ba2E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -101952,7 +101952,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h9d73069c1ef725dfE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -102068,7 +102068,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17hd9ac71ae541ae824E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -102126,7 +102126,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17hd06879da5fd8b8bfE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -102343,7 +102343,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h4ca798f58197b5d7E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -102517,7 +102517,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h13ab051107e4d379E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -102575,7 +102575,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h8fc05097f67309f0E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -102865,7 +102865,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h1b22024935913372E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -102923,7 +102923,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17hf1440519ec2631c8E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -103329,7 +103329,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17he9fd1a3695a7c508E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -103445,7 +103445,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17hef87fb083dfa4c07E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -103662,7 +103662,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h862aa5f6fb97042dE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -103720,7 +103720,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h18908afd11443337E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -103952,7 +103952,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h55415b28184cd189E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -104010,7 +104010,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17hb6c3c4ea60727178E.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -104126,7 +104126,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy
 
 15:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN10async_task5utils14abort_on_panic17h4cac651ccbc7cb0dE.exit unwind label %16
 
 16:                                               ; preds = %15, %7
@@ -104252,7 +104252,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -104340,7 +104340,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !23880, !noalias !23887
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !23883
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !23888
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !23891
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !23891
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -104775,7 +104775,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !23957
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !23950
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !23960
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !23960
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -104834,7 +104834,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -105007,7 +105007,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -105095,7 +105095,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !23999, !noalias !24006
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24002
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24007
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24010
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24010
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -105544,7 +105544,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -105632,7 +105632,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24079, !noalias !24086
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24082
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24087
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24090
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24090
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -105734,7 +105734,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24105
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24098
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24108
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24108
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -105793,7 +105793,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -105882,7 +105882,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24120, !noalias !24127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24123
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24128
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24131
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24131
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -105998,7 +105998,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -106308,7 +106308,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24183, !noalias !24190
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24186
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24191
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24194
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24194
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -106410,7 +106410,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24209
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24202
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24212
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24212
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -106469,7 +106469,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -106531,7 +106531,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -106619,7 +106619,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24234, !noalias !24241
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24237
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24242
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24245
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24245
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -106721,7 +106721,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24260
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24253
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24263
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24263
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -106780,7 +106780,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -106842,7 +106842,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -107125,7 +107125,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -107394,7 +107394,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24370
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24363
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24373
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24373
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -107453,7 +107453,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -107542,7 +107542,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24385, !noalias !24392
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24388
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24393
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24396
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24396
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -107728,7 +107728,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24404, !noalias !24411
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24407
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24412
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24415
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24415
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -107844,7 +107844,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -107932,7 +107932,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24433, !noalias !24440
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24436
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24441
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24444
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24444
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -108034,7 +108034,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24459
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24452
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24462
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24462
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -108093,7 +108093,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -108266,7 +108266,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -108313,7 +108313,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24508
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24501
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24511
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24511
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -108372,7 +108372,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -108461,7 +108461,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24523, !noalias !24530
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24526
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24531
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24534
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24534
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -108577,7 +108577,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -108665,7 +108665,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24552, !noalias !24559
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24555
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24560
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24563
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24563
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -108919,7 +108919,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24588, !noalias !24595
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24591
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24596
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24599
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24599
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -109062,7 +109062,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24607, !noalias !24614
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24610
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24615
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24618
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24618
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -109205,7 +109205,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24626, !noalias !24633
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24629
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24634
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24637
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24637
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -109459,7 +109459,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24662, !noalias !24669
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24665
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24670
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24673
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24673
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -109602,7 +109602,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24681, !noalias !24688
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24684
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24689
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24692
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24692
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -109718,7 +109718,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -109765,7 +109765,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24717
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24710
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24720
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24720
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -109824,7 +109824,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -110024,7 +110024,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24749, !noalias !24756
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24752
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24757
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24760
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24760
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -110126,7 +110126,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24775
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24768
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24778
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24778
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -110185,7 +110185,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -110229,7 +110229,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !24790
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24795
-  %12 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #30, !noalias !24795
+  %12 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 32, i64 noundef 8) #30, !noalias !24795
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %22
 
@@ -110243,7 +110243,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 15:                                               ; preds = %14
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr250drop_in_place$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4bd8bc911d0f8c4cE"(ptr noundef nonnull align 8 %4) #32
+  invoke fastcc void @"_ZN4core3ptr250drop_in_place$LT$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4bd8bc911d0f8c4cE"(ptr noundef nonnull align 8 dereferenceable(32) %4) #32
           to label %.body.i unwind label %17, !noalias !24800
 
 17:                                               ; preds = %15
@@ -110583,7 +110583,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24836, !noalias !24843
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24839
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24844
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24847
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24847
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -110837,7 +110837,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24872, !noalias !24879
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24875
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24880
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24883
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24883
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -110980,7 +110980,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24891, !noalias !24898
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24894
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24899
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24902
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24902
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -111082,7 +111082,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24917
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24910
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24920
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24920
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -111141,7 +111141,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -111189,7 +111189,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !24939
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24932
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !24942
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !24942
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -111248,7 +111248,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -111421,7 +111421,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -111509,7 +111509,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !24981, !noalias !24988
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !24984
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !24989
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !24992
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !24992
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -111652,7 +111652,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !25000, !noalias !25007
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !25003
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25008
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !25011
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !25011
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -111795,7 +111795,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !25019, !noalias !25026
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !25022
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25027
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !25030
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !25030
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -112049,7 +112049,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !25055, !noalias !25062
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !25058
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25063
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !25066
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !25066
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -112165,7 +112165,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -112226,7 +112226,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 20:                                               ; preds = %15
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %21
 
 21:                                               ; preds = %20, %.noexc
@@ -112384,7 +112384,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !25118
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25111
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !25121
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !25121
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -112443,7 +112443,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -112491,7 +112491,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !25140
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25133
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !25143
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !25143
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -112550,7 +112550,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -112750,7 +112750,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   store ptr %1, ptr %29, align 8, !alias.scope !25172, !noalias !25179
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !25175
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25180
-  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !25183
+  %31 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 24, i64 noundef 8) #30, !noalias !25183
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
 
@@ -112963,7 +112963,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %14, align 8, !noalias !25215
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25208
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #30, !noalias !25218
+  %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 16, 33) 16, i64 noundef 8) #30, !noalias !25218
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
 
@@ -113022,7 +113022,7 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 34:                                               ; preds = %29
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %35
 
 35:                                               ; preds = %34, %.noexc
@@ -113081,7 +113081,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7e414664c5e91565E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -113406,7 +113406,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h542869a2c07c1125E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -113678,7 +113678,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha0ac775605697424E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -113746,7 +113746,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h2abd45c0b523d503E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -113882,7 +113882,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he2cb4ef1068dcdcfE.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -114630,7 +114630,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h0a5a84a577277c71E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -114766,7 +114766,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hd17a9e66dd1a4b10E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -114970,7 +114970,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb865e892f812d077E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -115310,7 +115310,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf0e95d9b72c5edf4E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -115514,7 +115514,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hc82c16a837d74540E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -115718,7 +115718,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h001911e2b0526479E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -115922,7 +115922,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h6e2c4536409f1f1aE.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -115990,7 +115990,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha930f18c9b1efa47E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -116194,7 +116194,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1cc29995d947e99aE.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -116670,7 +116670,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h1caaf561c7dd8953E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -116738,7 +116738,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h3af07b228c0e72b3E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -116874,7 +116874,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17he02923cadaa46ab2E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -116942,7 +116942,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h7098bc34436b7fdfE.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -117078,7 +117078,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h28f96d0a914ecd53E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -117146,7 +117146,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h970be4891ed1f154E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -117214,7 +117214,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hf6de4730c81a1fd5E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -117282,7 +117282,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h00ce5457f5cb1237E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -117418,7 +117418,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hfee1e205b11cd7c4E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -117486,7 +117486,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17ha8015ee05063540fE.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -117622,7 +117622,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb8a40285fe0edd73E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -117690,7 +117690,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h598322fa30906e95E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -117894,7 +117894,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h861e2aa89e96297fE.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -118098,7 +118098,7 @@ define internal void @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_re
 
 19:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$async_task..header..Header$LT$$LP$$RP$$GT$$GT$17h7c417f30a5b3e9fbE.exit.i.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17h5abce6538b29b0e2E.exit" unwind label %20
 
 20:                                               ; preds = %19, %11
@@ -127381,7 +127381,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h1d3
   br i1 %11, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17ha2226a5286d28f0aE.exit", label %12
 
 12:                                               ; preds = %9
-  invoke fastcc void @"_ZN4core3ptr212drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4eb56d29c877fc3eE"(ptr noalias noundef align 8 dereferenceable(96) %4)
+  invoke fastcc void @"_ZN4core3ptr212drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4eb56d29c877fc3eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4)
           to label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17ha2226a5286d28f0aE.exit" unwind label %45
 
 .loopexit:                                        ; preds = %18
@@ -127427,7 +127427,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h1d3
   br i1 %25, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17ha2226a5286d28f0aE.exit31", label %26
 
 26:                                               ; preds = %23
-  invoke fastcc void @"_ZN4core3ptr212drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4eb56d29c877fc3eE"(ptr noalias noundef align 8 dereferenceable(96) %4)
+  invoke fastcc void @"_ZN4core3ptr212drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4eb56d29c877fc3eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4)
           to label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17ha2226a5286d28f0aE.exit31" unwind label %27
 
 27:                                               ; preds = %26
@@ -127510,7 +127510,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h1e3
   br i1 %11, label %"_ZN4core3ptr251drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hb911ff6c2dc3d8aaE.exit", label %12
 
 12:                                               ; preds = %9
-  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef align 8 dereferenceable(96) %4)
+  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4)
           to label %"_ZN4core3ptr251drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hb911ff6c2dc3d8aaE.exit" unwind label %45
 
 .loopexit:                                        ; preds = %18
@@ -127556,7 +127556,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h1e3
   br i1 %25, label %"_ZN4core3ptr251drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hb911ff6c2dc3d8aaE.exit31", label %26
 
 26:                                               ; preds = %23
-  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef align 8 dereferenceable(96) %4)
+  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17haeaff19482693615E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4)
           to label %"_ZN4core3ptr251drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hb911ff6c2dc3d8aaE.exit31" unwind label %27
 
 27:                                               ; preds = %26
@@ -127756,7 +127756,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h204
   br i1 %10, label %"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h47c5e8aa0519095fE.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h063404c539bfcbf2E"(ptr noalias noundef align 8 dereferenceable(24) %4)
+  invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h063404c539bfcbf2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h47c5e8aa0519095fE.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -127802,7 +127802,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h204
   br i1 %24, label %"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h47c5e8aa0519095fE.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h063404c539bfcbf2E"(ptr noalias noundef align 8 dereferenceable(24) %4)
+  invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h063404c539bfcbf2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h47c5e8aa0519095fE.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -128399,7 +128399,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h301
   ]
 
 26:                                               ; preds = %25
-  invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
           to label %"_ZN4core3ptr273drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$core..ops..range..Range$LT$text..anchor..Anchor$GT$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hd8b6544ec8779128E.exit" unwind label %46
 
 27:                                               ; preds = %25
@@ -128527,7 +128527,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h3aa
   br i1 %10, label %"_ZN4core3ptr488drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hed790041f077012fE.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr460drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4c057057f4aa27bcE"(ptr noalias noundef align 8 dereferenceable(32) %4)
+  invoke fastcc void @"_ZN4core3ptr460drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4c057057f4aa27bcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %"_ZN4core3ptr488drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hed790041f077012fE.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -128573,7 +128573,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h3aa
   br i1 %24, label %"_ZN4core3ptr488drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hed790041f077012fE.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr460drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4c057057f4aa27bcE"(ptr noalias noundef align 8 dereferenceable(32) %4)
+  invoke fastcc void @"_ZN4core3ptr460drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4c057057f4aa27bcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %"_ZN4core3ptr488drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$worktree..ProjectEntryId$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hed790041f077012fE.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -128999,7 +128999,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h4b7
   br i1 %10, label %"_ZN4core3ptr254drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h5e234e52a7df49f4E.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6161501f95c980a7E"(ptr noalias noundef align 8 dereferenceable(40) %4)
+  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6161501f95c980a7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
           to label %"_ZN4core3ptr254drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h5e234e52a7df49f4E.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -129045,7 +129045,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h4b7
   br i1 %24, label %"_ZN4core3ptr254drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h5e234e52a7df49f4E.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6161501f95c980a7E"(ptr noalias noundef align 8 dereferenceable(40) %4)
+  invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6161501f95c980a7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
           to label %"_ZN4core3ptr254drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h5e234e52a7df49f4E.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -129662,7 +129662,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h74b
   br i1 %11, label %"_ZN4core3ptr233drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h8427bd7f85b6a459E.exit", label %12
 
 12:                                               ; preds = %9
-  invoke fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3a85cb4b7d5fcdc9E"(ptr noalias noundef align 8 dereferenceable(144) %4)
+  invoke fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3a85cb4b7d5fcdc9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %4)
           to label %"_ZN4core3ptr233drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h8427bd7f85b6a459E.exit" unwind label %45
 
 .loopexit:                                        ; preds = %18
@@ -129708,7 +129708,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h74b
   br i1 %25, label %"_ZN4core3ptr233drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h8427bd7f85b6a459E.exit31", label %26
 
 26:                                               ; preds = %23
-  invoke fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3a85cb4b7d5fcdc9E"(ptr noalias noundef align 8 dereferenceable(144) %4)
+  invoke fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3a85cb4b7d5fcdc9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %4)
           to label %"_ZN4core3ptr233drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h8427bd7f85b6a459E.exit31" unwind label %27
 
 27:                                               ; preds = %26
@@ -130138,7 +130138,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h8ab
   br i1 %10, label %"_ZN4core3ptr412drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h7ed59e3778955ed7E.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr384drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9fc0453b6fcdad2E"(ptr noalias noundef align 8 dereferenceable(48) %4)
+  invoke fastcc void @"_ZN4core3ptr384drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9fc0453b6fcdad2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
           to label %"_ZN4core3ptr412drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h7ed59e3778955ed7E.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -130184,7 +130184,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h8ab
   br i1 %24, label %"_ZN4core3ptr412drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h7ed59e3778955ed7E.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr384drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9fc0453b6fcdad2E"(ptr noalias noundef align 8 dereferenceable(48) %4)
+  invoke fastcc void @"_ZN4core3ptr384drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9fc0453b6fcdad2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
           to label %"_ZN4core3ptr412drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h7ed59e3778955ed7E.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -130920,7 +130920,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hac1
   br i1 %10, label %"_ZN4core3ptr222drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h06c4b7ab86471809E.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb2683d66cf372267E"(ptr noalias noundef align 8 dereferenceable(96) %4)
+  invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb2683d66cf372267E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4)
           to label %"_ZN4core3ptr222drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h06c4b7ab86471809E.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -130966,7 +130966,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hac1
   br i1 %24, label %"_ZN4core3ptr222drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h06c4b7ab86471809E.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb2683d66cf372267E"(ptr noalias noundef align 8 dereferenceable(96) %4)
+  invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb2683d66cf372267E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4)
           to label %"_ZN4core3ptr222drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h06c4b7ab86471809E.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -131776,7 +131776,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hb95
   br i1 %10, label %"_ZN4core3ptr232drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h201a6afd152b2869E.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcb01c9d7298fa392E"(ptr noalias noundef align 8 dereferenceable(40) %4)
+  invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcb01c9d7298fa392E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
           to label %"_ZN4core3ptr232drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h201a6afd152b2869E.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -131822,7 +131822,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hb95
   br i1 %24, label %"_ZN4core3ptr232drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h201a6afd152b2869E.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcb01c9d7298fa392E"(ptr noalias noundef align 8 dereferenceable(40) %4)
+  invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcb01c9d7298fa392E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
           to label %"_ZN4core3ptr232drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$editor..Editor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h201a6afd152b2869E.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -131904,7 +131904,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hc1b
   br i1 %10, label %"_ZN4core3ptr210drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h1ff78e9d6536c4b5E.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h579399e77f85fb25E"(ptr noalias noundef readonly align 8 dereferenceable(24) %4)
+  invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h579399e77f85fb25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr210drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h1ff78e9d6536c4b5E.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -131950,7 +131950,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hc1b
   br i1 %24, label %"_ZN4core3ptr210drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h1ff78e9d6536c4b5E.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h579399e77f85fb25E"(ptr noalias noundef readonly align 8 dereferenceable(24) %4)
+  invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h579399e77f85fb25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr210drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h1ff78e9d6536c4b5E.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -132160,7 +132160,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hca4
   br i1 %10, label %"_ZN4core3ptr273drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hcfc9c8ec00e50115E.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha316e52518d81a5eE"(ptr noalias noundef align 8 dereferenceable(88) %4)
+  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha316e52518d81a5eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4)
           to label %"_ZN4core3ptr273drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hcfc9c8ec00e50115E.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -132206,7 +132206,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hca4
   br i1 %24, label %"_ZN4core3ptr273drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hcfc9c8ec00e50115E.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha316e52518d81a5eE"(ptr noalias noundef align 8 dereferenceable(88) %4)
+  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha316e52518d81a5eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4)
           to label %"_ZN4core3ptr273drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$project..lsp_command..signature_help..SignatureHelp$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hcfc9c8ec00e50115E.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -133966,7 +133966,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hfbf
   br i1 %10, label %"_ZN4core3ptr244drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h0ee1bb1fd83ae6eaE.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr216drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h093e7ad99034b6b9E"(ptr noalias noundef align 8 dereferenceable(24) %4)
+  invoke fastcc void @"_ZN4core3ptr216drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h093e7ad99034b6b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr244drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h0ee1bb1fd83ae6eaE.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -134012,7 +134012,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hfbf
   br i1 %24, label %"_ZN4core3ptr244drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h0ee1bb1fd83ae6eaE.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr216drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h093e7ad99034b6b9E"(ptr noalias noundef align 8 dereferenceable(24) %4)
+  invoke fastcc void @"_ZN4core3ptr216drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h093e7ad99034b6b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr244drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$project..lsp_ext_command..SwitchSourceHeaderResult$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h0ee1bb1fd83ae6eaE.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -134094,7 +134094,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hfc6
   br i1 %10, label %"_ZN4core3ptr235drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h35338fa776257e23E.exit", label %11
 
 11:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h11306905fa85a964E"(ptr noalias noundef align 8 dereferenceable(24) %4)
+  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h11306905fa85a964E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr235drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h35338fa776257e23E.exit" unwind label %44
 
 .loopexit:                                        ; preds = %17
@@ -134140,7 +134140,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hfc6
   br i1 %24, label %"_ZN4core3ptr235drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h35338fa776257e23E.exit31", label %25
 
 25:                                               ; preds = %22
-  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h11306905fa85a964E"(ptr noalias noundef align 8 dereferenceable(24) %4)
+  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h11306905fa85a964E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr235drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$language..Location$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h35338fa776257e23E.exit31" unwind label %26
 
 26:                                               ; preds = %25
@@ -146127,7 +146127,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31493
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146140,7 +146140,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr461drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb64e4b520ccf91bfE"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr461drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb64e4b520ccf91bfE"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h67ca4a496549103dE.llvm.15282627734019538225.exit": ; preds = %4
@@ -146199,7 +146199,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31510
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146212,7 +146212,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr483drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h536464456754faefE"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr483drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$$LP$editor..display_map..wrap_map..WrapSnapshot$C$text..patch..Patch$LT$u32$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h536464456754faefE"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h847f0eb49b491cb3E.llvm.15282627734019538225.exit": ; preds = %4
@@ -146263,7 +146263,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31527
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146276,7 +146276,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr519drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1fee41530fc6849eE"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr519drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1fee41530fc6849eE"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h6e565480bcff2d4dE.llvm.15282627734019538225.exit": ; preds = %4
@@ -146375,7 +146375,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31544
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146388,7 +146388,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr425drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$proto..Ack$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$proto..Ack$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h14e80cfb77ca0cacE"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr425drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$proto..Ack$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$proto..Ack$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h14e80cfb77ca0cacE"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h2628da330db685ffE.llvm.15282627734019538225.exit": ; preds = %4
@@ -146455,7 +146455,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31561
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146468,7 +146468,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr431drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$alloc..sync..Arc$LT$$u5b$gpui..window..PaintQuad$u5d$$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$alloc..sync..Arc$LT$$u5b$gpui..window..PaintQuad$u5d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e9b7f3bcdc25208E"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr431drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$alloc..sync..Arc$LT$$u5b$gpui..window..PaintQuad$u5d$$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$alloc..sync..Arc$LT$$u5b$gpui..window..PaintQuad$u5d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e9b7f3bcdc25208E"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17he6a664126602f592E.llvm.15282627734019538225.exit": ; preds = %4
@@ -146535,7 +146535,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31578
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146548,7 +146548,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr457drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$editor..indent_guides..ActiveIndentedRange$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..option..Option$LT$editor..indent_guides..ActiveIndentedRange$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha4de3ff93391e514E"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr457drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$editor..indent_guides..ActiveIndentedRange$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..option..Option$LT$editor..indent_guides..ActiveIndentedRange$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha4de3ff93391e514E"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h0008f29f4516ec5bE.llvm.15282627734019538225.exit": ; preds = %4
@@ -146599,7 +146599,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31595
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146612,7 +146612,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr439drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$gpui..shared_string..SharedString$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..option..Option$LT$gpui..shared_string..SharedString$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf01006f6aaada55cE"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr439drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$gpui..shared_string..SharedString$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..option..Option$LT$gpui..shared_string..SharedString$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf01006f6aaada55cE"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h366382ba801ecbcdE.llvm.15282627734019538225.exit": ; preds = %4
@@ -146671,7 +146671,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31612
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146684,7 +146684,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr437drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49135ed153321104E"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr437drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$alloc..vec..Vec$LT$language..task_context..RunnableRange$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49135ed153321104E"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h963f2857584a95e0E.llvm.15282627734019538225.exit": ; preds = %4
@@ -146775,7 +146775,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31629
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146788,7 +146788,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr841drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd2e41f283b70a41E"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr841drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd2e41f283b70a41E"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h5b9e64167d729220E.llvm.15282627734019538225.exit": ; preds = %4
@@ -146839,7 +146839,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31646
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146852,7 +146852,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr421drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc3466038b62d8d87E"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr421drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc3466038b62d8d87E"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17haa5c93938ad174d4E.llvm.15282627734019538225.exit": ; preds = %4
@@ -146919,7 +146919,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31663
 
 16:                                               ; preds = %.noexc.i, %15
@@ -146932,7 +146932,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr489drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..vec..Vec$LT$project..Completion$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$alloc..vec..Vec$LT$project..Completion$GT$$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7f51e535b40e279fE"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr489drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..vec..Vec$LT$project..Completion$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$core..result..Result$LT$alloc..vec..Vec$LT$project..Completion$GT$$C$anyhow..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7f51e535b40e279fE"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17he774dca4164b4684E.llvm.15282627734019538225.exit": ; preds = %4
@@ -146991,7 +146991,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr375drop_in_place$LT$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hda5bddc9a84c10c9E"(ptr noundef nonnull align 8 %1) #32
+  invoke fastcc void @"_ZN4core3ptr375drop_in_place$LT$blocking..Executor..spawn$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$blocking..unblock$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hda5bddc9a84c10c9E"(ptr noundef nonnull align 8 dereferenceable(32) %1) #32
           to label %8 unwind label %11
 
 11:                                               ; preds = %9
@@ -147060,7 +147060,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31683
 
 16:                                               ; preds = %.noexc.i, %15
@@ -147073,7 +147073,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr333drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6e1a610fb524436aE"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr333drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6e1a610fb524436aE"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17hd74879cd41d0d678E.llvm.15282627734019538225.exit": ; preds = %4
@@ -147132,7 +147132,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31700
 
 16:                                               ; preds = %.noexc.i, %15
@@ -147145,7 +147145,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr481drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h356d6f37cfada6ceE"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr481drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h356d6f37cfada6ceE"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h7a237ae2f42e4b4fE.llvm.15282627734019538225.exit": ; preds = %4
@@ -147196,7 +147196,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
 
 15:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc2f42c139d081c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i unwind label %16, !noalias !31717
 
 16:                                               ; preds = %.noexc.i, %15
@@ -147209,7 +147209,7 @@ define hidden { ptr, ptr } @"_ZN10async_task8runnable16Builder$LT$M$GT$15spawn_u
   resume { ptr, i32 } %11
 
 .noexc.i:                                         ; preds = %15, %10
-  invoke fastcc void @"_ZN4core3ptr351drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$task..TaskContext$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$task..TaskContext$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b683dc0558dc0c4E"(ptr nonnull %1, ptr nonnull readonly %2) #32
+  invoke fastcc void @"_ZN4core3ptr351drop_in_place$LT$async_task..runnable..spawn_unchecked$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$task..TaskContext$u2b$core..marker..Send$GT$$GT$$C$gpui..executor..BackgroundExecutor..spawn_internal$LT$task..TaskContext$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b683dc0558dc0c4E"(ptr nonnull align 1 %1, ptr nonnull readonly align 8 dereferenceable(32) %2) #32
           to label %.critedge.i unwind label %16
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h450a2fea174b12f1E.llvm.15282627734019538225.exit": ; preds = %4
@@ -147690,7 +147690,7 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   br i1 %11, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17hdab5b4965175bc7fE.exit", label %14
 
 "_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17hdab5b4965175bc7fE.exit": ; preds = %10
-  tail call void @_ZN3std3sys12thread_local11destructors10linux_like8register17h57cb638b734c6d95E(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3std3sys12thread_local6native4lazy7destroy17he1557da3197454a2E)
+  tail call void @_ZN3std3sys12thread_local11destructors10linux_like8register17h57cb638b734c6d95E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys12thread_local6native4lazy7destroy17he1557da3197454a2E)
   %12 = load i64, ptr %0, align 8, !range !4937, !noundef !12
   %13 = icmp eq i64 %12, 1
   tail call void @llvm.assume(i1 %13)
@@ -147914,7 +147914,7 @@ define internal fastcc void @"_ZN4core3ptr1063drop_in_place$LT$async_task..runna
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !31852
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !2940, !noalias !31852, !noundef !12
   %9 = icmp eq i64 %8, 0
@@ -148519,7 +148519,7 @@ define internal fastcc void @"_ZN4core3ptr1316drop_in_place$LT$async_task..runna
 define internal fastcc void @"_ZN4core3ptr133drop_in_place$LT$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h66046233bd97aa70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !31979
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !2940, !noalias !31979, !noundef !12
   %5 = icmp eq i64 %4, 0
@@ -150153,7 +150153,7 @@ define internal fastcc void @"_ZN4core3ptr180drop_in_place$LT$core..result..Resu
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN69_$LT$any_vec..mem..heap..HeapMem$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e0535ab62a5798dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @"_ZN69_$LT$any_vec..mem..heap..HeapMem$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e0535ab62a5798dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
           to label %common.resume unwind label %14
 
 14:                                               ; preds = %12
@@ -150167,7 +150167,7 @@ common.resume:                                    ; preds = %29, %"_ZN63_$LT$all
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr79drop_in_place$LT$any_vec..any_vec..AnyVec$LT$dyn$u20$core..marker..Send$GT$$GT$17h9f917faaab15e791E.exit": ; preds = %3, %9
-  tail call void @"_ZN69_$LT$any_vec..mem..heap..HeapMem$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e0535ab62a5798dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @"_ZN69_$LT$any_vec..mem..heap..HeapMem$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0e0535ab62a5798dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h920faa3f3b65143dE.llvm.15282627734019538225.exit"
 
 16:                                               ; preds = %1
@@ -150988,7 +150988,7 @@ define internal fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..result..Resu
 
 "_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$editor..InlayId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hab12784b250177c6E.exit2.i.i": ; preds = %10, %6
   %.pn.i.i = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$project..InlayHint$GT$$GT$17ha04b657032ec5312E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #32
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$project..InlayHint$GT$$GT$17ha04b657032ec5312E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) #32
           to label %common.resume unwind label %12
 
 10:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$editor..InlayId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hab12784b250177c6E.exit.i.i"
@@ -151007,7 +151007,7 @@ common.resume:                                    ; preds = %27, %"_ZN63_$LT$all
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr65drop_in_place$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$17h3a2232f035de0e43E.exit.i": ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$editor..InlayId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hab12784b250177c6E.exit.i.i"
-  tail call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$project..InlayHint$GT$$GT$17ha04b657032ec5312E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$project..InlayHint$GT$$GT$17ha04b657032ec5312E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$editor..inlay_hint_cache..ExcerptHintsUpdate$GT$$GT$17h403a5130db23c967E.exit"
 
 14:                                               ; preds = %1
@@ -151372,12 +151372,12 @@ define internal fastcc void @"_ZN4core3ptr199drop_in_place$LT$core..option..Opti
 
 15:                                               ; preds = %11
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9f0ae1c265085e27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9f0ae1c265085e27E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   br label %"_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$project..ResolvedPath$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h68b9540e57c77077E.exit"
 
 16:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !32614
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8, !range !2940, !noalias !32614, !noundef !12
   %19 = icmp eq i64 %18, 0
@@ -151793,7 +151793,7 @@ define internal fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Resu
 
 12:                                               ; preds = %7
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hedc9a6f91d8934acE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hedc9a6f91d8934acE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %0)
           to label %.body.i unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$editor..display_map..tab_map..TabSnapshot$GT$17h6743d2f87f61d0e0E.exit.i.i": ; preds = %5
@@ -151807,7 +151807,7 @@ define internal fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Resu
 
 16:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$editor..display_map..tab_map..TabSnapshot$GT$17h6743d2f87f61d0e0E.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hedc9a6f91d8934acE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hedc9a6f91d8934acE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %0)
           to label %"_ZN4core3ptr64drop_in_place$LT$editor..display_map..wrap_map..WrapSnapshot$GT$17h311a9800f56ceca5E.exit.i" unwind label %19
 
 17:                                               ; preds = %12
@@ -151828,7 +151828,7 @@ define internal fastcc void @"_ZN4core3ptr205drop_in_place$LT$core..result..Resu
 
 "_ZN4core3ptr64drop_in_place$LT$editor..display_map..wrap_map..WrapSnapshot$GT$17h311a9800f56ceca5E.exit.i": ; preds = %16, %"_ZN4core3ptr62drop_in_place$LT$editor..display_map..tab_map..TabSnapshot$GT$17h6743d2f87f61d0e0E.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !32746
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2746f0fd886f103bE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2746f0fd886f103bE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   %22 = load i64, ptr %21, align 8, !range !2940, !noalias !32746, !noundef !12
   %23 = icmp eq i64 %22, 0
@@ -152681,7 +152681,7 @@ define internal fastcc void @"_ZN4core3ptr212drop_in_place$LT$core..result..Resu
   ]
 
 4:                                                ; preds = %1
-  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
           to label %8 unwind label %5
 
 5:                                                ; preds = %4
@@ -152722,7 +152722,7 @@ common.resume:                                    ; preds = %33, %"_ZN63_$LT$all
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %1
-  tail call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
   br label %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$language..Location$GT$$C$anyhow..Error$GT$$GT$17hfb8014bca0ee46d5E.exit"
 
 21:                                               ; preds = %1
@@ -152860,7 +152860,7 @@ define internal fastcc void @"_ZN4core3ptr216drop_in_place$LT$core..result..Resu
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !32966
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !range !2940, !noalias !32966, !noundef !12
   %7 = icmp eq i64 %6, 0
@@ -153028,7 +153028,7 @@ define internal fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..result..Resu
   br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$GT$17hc52ce20d3c15f1e4E.exit"
 
 5:                                                ; preds = %4
-  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
           to label %9 unwind label %6
 
 6:                                                ; preds = %5
@@ -153069,7 +153069,7 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   resume { ptr, i32 } %common.resume.op
 
 21:                                               ; preds = %1
-  tail call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
   br label %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$editor..Editor..navigate_to_hover_links..TargetTaskResult$C$anyhow..Error$GT$$GT$17hc52ce20d3c15f1e4E.exit"
 
 22:                                               ; preds = %1
@@ -154177,7 +154177,7 @@ define internal fastcc void @"_ZN4core3ptr239drop_in_place$LT$core..option..Opti
 
 6:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !33232
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7af7855fe734a055E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7af7855fe734a055E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
           to label %.noexc.i.i.i.i unwind label %16
 
 .noexc.i.i.i.i:                                   ; preds = %6
@@ -154201,7 +154201,7 @@ define internal fastcc void @"_ZN4core3ptr239drop_in_place$LT$core..option..Opti
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h552c3679f715000fE.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
+  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h552c3679f715000fE.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(48) %18)
           to label %common.resume.i unwind label %19
 
 19:                                               ; preds = %16
@@ -154217,7 +154217,7 @@ common.resume.i:                                  ; preds = %"_ZN63_$LT$alloc..a
 "_ZN4core3ptr38drop_in_place$LT$text..Transaction$GT$17hc6b57c9b816ae79fE.exit.i.i.i": ; preds = %14, %10, %.noexc.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !33232
   %21 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h552c3679f715000fE.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(40) %21)
+  tail call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h552c3679f715000fE.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21)
   br label %"_ZN4core3ptr211drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$text..Transaction$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h8bee9e432412b8deE.exit"
 
 22:                                               ; preds = %5
@@ -154503,7 +154503,7 @@ define internal fastcc void @"_ZN4core3ptr250drop_in_place$LT$blocking..unblock$
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !33308
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !2940, !noalias !33308, !noundef !12
   %9 = icmp eq i64 %8, 0
@@ -154785,7 +154785,7 @@ define internal fastcc void @"_ZN4core3ptr273drop_in_place$LT$core..option..Opti
   ]
 
 6:                                                ; preds = %5
-  tail call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
   br label %"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$core..ops..range..Range$LT$text..anchor..Anchor$GT$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf262d0269bb56a7eE.exit"
 
 7:                                                ; preds = %5
@@ -155100,7 +155100,7 @@ define internal fastcc void @"_ZN4core3ptr375drop_in_place$LT$blocking..Executor
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !33453
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !2940, !noalias !33453, !noundef !12
   %9 = icmp eq i64 %8, 0
@@ -155145,7 +155145,7 @@ define internal fastcc void @"_ZN4core3ptr384drop_in_place$LT$core..result..Resu
 
 10:                                               ; preds = %7
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hef25dfd487640568E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hef25dfd487640568E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
           to label %"_ZN4core3ptr239drop_in_place$LT$$LP$sum_tree..SumTree$LT$editor..git..blame..GitBlameEntry$GT$$C$std..collections..hash..map..HashMap$LT$git..Oid$C$editor..git..blame..CommitDetails$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$RP$$GT$17h082d18e9c6654ee2E.exit.i" unwind label %11
 
 11:                                               ; preds = %10
@@ -155246,7 +155246,7 @@ define internal fastcc void @"_ZN4core3ptr414drop_in_place$LT$core..option..Opti
   br label %"_ZN4core3ptr386drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$gpui..window..WindowHandle$LT$workspace..Workspace$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdde41251892931f2E.exit"
 
 7:                                                ; preds = %5
-  tail call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   br label %"_ZN4core3ptr386drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$gpui..window..WindowHandle$LT$workspace..Workspace$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdde41251892931f2E.exit"
 
 8:                                                ; preds = %5
@@ -158671,7 +158671,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17h2237a10dcf33f414E"(ptr 
   br i1 %14, label %15, label %48
 
 15:                                               ; preds = %12
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17ha91fff1d9ba6680eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17ha91fff1d9ba6680eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %48 unwind label %16, !noalias !34246
 
 16:                                               ; preds = %15
@@ -158859,7 +158859,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17hdf6ae3169
   store i64 %.sroa.5.015.ph.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !34284
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %.sroa.8.017.ph.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !34284
-  invoke void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hdb8664ebf8845c9bE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  invoke void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hdb8664ebf8845c9bE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(40) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
           to label %27 unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %14
@@ -158990,7 +158990,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree8navigate35LeafRange$LT
   store i64 %.sroa.5.015.ph.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !34298
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %.sroa.8.017.ph.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !34298
-  invoke void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hdb8664ebf8845c9bE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
+  invoke void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17hdb8664ebf8845c9bE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(40) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZN5alloc11collections5btree3mem7replace17hdf6ae31699ecc67fE.llvm.15282627734019538225.exit unwind label %.loopexit.split-lp.i, !noalias !34288
 
 .loopexit.i:                                      ; preds = %26
@@ -162859,7 +162859,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
 10:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34445)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !34448
-  call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17ha5aa26fadacb7972E.llvm.15282627734019538225"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !34451
+  call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17ha5aa26fadacb7972E.llvm.15282627734019538225"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !34451
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = load i8, ptr %11, align 8, !range !7624, !noalias !34448, !noundef !12
   switch i8 %12, label %14 [
@@ -162873,7 +162873,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
 
 14:                                               ; preds = %10
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !34452
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !34452
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3.0..sroa_idx.i.i, i64 7, i1 false), !noalias !34452
   br label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hfa99aad172e256fbE.exit.i"
@@ -162891,7 +162891,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
 
 17:                                               ; preds = %8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.val, i64 25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.val, i64 24, i1 false), !alias.scope !34454, !noalias !34455
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.val, i64 24, i1 false), !alias.scope !34454, !noalias !34455
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.56.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i, i64 7, i1 false), !alias.scope !34454, !noalias !34455
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -163028,7 +163028,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
 11:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34501)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4), !noalias !34504
-  call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17hfbc283a3f22ef2efE.llvm.15282627734019538225"(ptr noalias nocapture noundef nonnull sret([144 x i8]) align 8 dereferenceable(144) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !34507
+  call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17hfbc283a3f22ef2efE.llvm.15282627734019538225"(ptr noalias nocapture noundef nonnull sret([144 x i8]) align 8 dereferenceable(144) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !34507
   %12 = getelementptr inbounds i8, ptr %4, i64 120
   %13 = load i64, ptr %12, align 8, !range !4755, !noalias !34504, !noundef !12
   switch i64 %13, label %15 [
@@ -163042,7 +163042,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
 
 15:                                               ; preds = %11
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false), !noalias !34508
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false), !noalias !34508
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx.i.i, i64 16, i1 false), !noalias !34508
   br label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0e5c6f9f530baf5bE.exit.i"
@@ -163060,7 +163060,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
 
 18:                                               ; preds = %9
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %5, i64 120, i1 false), !alias.scope !34510, !noalias !34511
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 120, i1 false), !alias.scope !34510, !noalias !34511
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.56.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i64 16, i1 false), !alias.scope !34510, !noalias !34511
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 120
@@ -164902,13 +164902,13 @@ default.unreachable1:                             ; preds = %1
 14:                                               ; preds = %7
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h66046233bd97aa70E"(ptr noalias noundef align 8 dereferenceable(24) %4) #32
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h66046233bd97aa70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #32
           to label %.body unwind label %26
 
 16:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !34661
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !34670
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1073104ce0021d2fE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %16

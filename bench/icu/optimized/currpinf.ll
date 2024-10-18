@@ -405,7 +405,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i32 -1, ptr %pos, align 4
   %0 = load ptr, ptr %hTable, align 8
-  %call.i3 = call noundef ptr @uhash_nextElement_75(ptr noundef %0, ptr noundef nonnull %pos)
+  %call.i3 = call noundef ptr @uhash_nextElement_75(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp2.not4 = icmp eq ptr %call.i3, null
   br i1 %cmp2.not4, label %delete.notnull5, label %while.body
 
@@ -425,7 +425,7 @@ delete.notnull:                                   ; preds = %while.body
 
 delete.end:                                       ; preds = %delete.notnull, %while.body
   %2 = load ptr, ptr %hTable, align 8
-  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %2, ptr noundef nonnull %pos)
+  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp2.not = icmp eq ptr %call.i, null
   br i1 %cmp2.not, label %delete.notnull5, label %while.body, !llvm.loop !4
 
@@ -474,7 +474,7 @@ new.notnull:                                      ; preds = %if.end
 
 if.end.i.i:                                       ; preds = %new.notnull
   %hashObj.i.i = getelementptr inbounds i8, ptr %call2, i64 8
-  %call2.i.i5 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i5 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -564,7 +564,7 @@ if.end:                                           ; preds = %entry
 
 while.cond:                                       ; preds = %if.end, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit
   %1 = load ptr, ptr %source, align 8
-  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %1, ptr noundef nonnull %pos)
+  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %if.end25, label %while.body
 
@@ -616,7 +616,7 @@ new.notnull.i:                                    ; preds = %invoke.cont14
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %invoke.cont14
-  %call2.i13 = invoke noundef ptr @uhash_put_75(ptr noundef %5, ptr noundef %call.i12, ptr noundef nonnull %call7, ptr noundef nonnull %status)
+  %call2.i13 = invoke noundef ptr @uhash_put_75(ptr noundef %5, ptr noundef %call.i12, ptr noundef nonnull %call7, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit unwind label %lpad15
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -835,7 +835,7 @@ entry:
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fPluralCountToCurrencyUnitPattern, align 8
   %1 = load ptr, ptr %0, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull %pluralCount)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %pluralCount)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %if.end16
 
@@ -864,7 +864,7 @@ if.then3:                                         ; preds = %invoke.cont
 
 invoke.cont7:                                     ; preds = %if.then3
   %6 = load ptr, ptr %5, align 8
-  %call.i1011 = invoke noundef ptr @uhash_get_75(ptr noundef %6, ptr noundef nonnull %ref.tmp)
+  %call.i1011 = invoke noundef ptr @uhash_get_75(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
           to label %if.end unwind label %lpad8
 
 lpad:                                             ; preds = %if.then
@@ -978,7 +978,7 @@ if.then:                                          ; preds = %entry
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPluralCountToCurrencyUnitPattern, align 8
   %2 = load ptr, ptr %1, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull %pluralCount)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %pluralCount)
   %isnull = icmp eq ptr %call.i, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
@@ -1024,7 +1024,7 @@ new.notnull.i:                                    ; preds = %if.then8
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %if.then8
-  %call2.i10 = tail call noundef ptr @uhash_put_75(ptr noundef %7, ptr noundef %call.i9, ptr noundef nonnull %call3, ptr noundef nonnull %status)
+  %call2.i10 = tail call noundef ptr @uhash_put_75(ptr noundef %7, ptr noundef %call.i9, ptr noundef nonnull %call3, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end14
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -1755,7 +1755,7 @@ new.notnull.i:                                    ; preds = %invoke.cont208
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %invoke.cont208
-  %call2.i130 = invoke noundef ptr @uhash_put_75(ptr noundef %93, ptr noundef %call.i, ptr noundef nonnull %call130, ptr noundef nonnull %status)
+  %call2.i130 = invoke noundef ptr @uhash_put_75(ptr noundef %93, ptr noundef %call.i, ptr noundef nonnull %call130, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont210 unwind label %lpad209
 
 lpad.i:                                           ; preds = %new.notnull.i

@@ -342,7 +342,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not.i138.i, label %_ZL9hb_memcpyPvPKvm.exit.i, label %136
 
 136:                                              ; preds = %134
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0107178.i, ptr nonnull readonly align 16 %13, i64 %135, i1 false), !alias.scope !6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0107178.i, ptr nonnull readonly align 16 %13, i64 range(i64 0, 4294967296) %135, i1 false), !alias.scope !6
   br label %_ZL9hb_memcpyPvPKvm.exit.i
 
 _ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %136, %134
@@ -615,7 +615,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   br i1 %.not.i139.i, label %_ZL9hb_memcpyPvPKvm.exit.i43, label %264
 
 264:                                              ; preds = %262
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0109180.i, ptr nonnull readonly align 16 %10, i64 %263, i1 false), !alias.scope !13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0109180.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %263, i1 false), !alias.scope !13
   br label %_ZL9hb_memcpyPvPKvm.exit.i43
 
 _ZL9hb_memcpyPvPKvm.exit.i43:                     ; preds = %264, %262
@@ -771,7 +771,7 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   br i1 %.not.i49.us.i, label %_ZL9hb_memcpyPvPKvm.exit.us.i, label %50
 
 50:                                               ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04159.us.i, ptr nonnull readonly align 16 %10, i64 %49, i1 false), !alias.scope !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04159.us.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %49, i1 false), !alias.scope !18
   br label %_ZL9hb_memcpyPvPKvm.exit.us.i
 
 _ZL9hb_memcpyPvPKvm.exit.us.i:                    ; preds = %50, %48
@@ -827,7 +827,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i.cont:               ; preds = %_ZL9hb_memcpyPvPKvm
   br i1 %.not.i49.i, label %_ZL9hb_memcpyPvPKvm.exit.i, label %69
 
 69:                                               ; preds = %67
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04159.i, ptr nonnull readonly align 16 %10, i64 %68, i1 false), !alias.scope !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04159.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %68, i1 false), !alias.scope !18
   br label %_ZL9hb_memcpyPvPKvm.exit.i
 
 _ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %69, %67
@@ -935,7 +935,7 @@ _ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize
   br i1 %.not.i52.us.i, label %_ZL9hb_memcpyPvPKvm.exit.us.i39, label %109
 
 109:                                              ; preds = %107
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04563.us.i, ptr nonnull readonly align 16 %9, i64 %108, i1 false), !alias.scope !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04563.us.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %108, i1 false), !alias.scope !23
   br label %_ZL9hb_memcpyPvPKvm.exit.us.i39
 
 _ZL9hb_memcpyPvPKvm.exit.us.i39:                  ; preds = %109, %107
@@ -995,7 +995,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i39.cont:             ; preds = %_ZL9hb_memcpyPvPKvm
   br i1 %.not.i52.i, label %_ZL9hb_memcpyPvPKvm.exit.i30, label %129
 
 129:                                              ; preds = %127
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04563.i, ptr nonnull readonly align 16 %9, i64 %128, i1 false), !alias.scope !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04563.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %128, i1 false), !alias.scope !23
   br label %_ZL9hb_memcpyPvPKvm.exit.i30
 
 _ZL9hb_memcpyPvPKvm.exit.i30:                     ; preds = %129, %127

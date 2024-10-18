@@ -4272,7 +4272,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   %14 = load i32, ptr %mMaxVertices, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tris_count.i)
   %m_Indices.i = getelementptr inbounds i8, ptr %hr, i64 24
-  %call.i68 = invoke noundef i32 @_ZN11HullLibrary8calchullEP9btVector3iR20btAlignedObjectArrayIjERii(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %1, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(25) %m_Indices.i, ptr noundef nonnull align 4 dereferenceable(4) %tris_count.i, i32 noundef %14)
+  %call.i68 = invoke noundef i32 @_ZN11HullLibrary8calchullEP9btVector3iR20btAlignedObjectArrayIjERii(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %1, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(25) %m_Indices.i, ptr noundef nonnull align 4 dereferenceable(4) %tris_count.i, i32 noundef %14)
           to label %call.i.noexc unwind label %lpad2
 
 call.i.noexc:                                     ; preds = %for.end

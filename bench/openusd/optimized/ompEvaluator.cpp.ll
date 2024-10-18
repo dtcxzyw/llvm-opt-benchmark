@@ -681,19 +681,19 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.threa
   br i1 %.not78189.i, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.thread.i
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef nonnull %4)
   br label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 189:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.i
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %4)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %5)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %6)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %5)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %6)
   br i1 %or.cond5.i.i, label %190, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 190:                                              ; preds = %189
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %7)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %8)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %9)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %7)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %8)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 191:                                              ; preds = %73
@@ -1189,19 +1189,19 @@ _ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.
   br i1 %.not190.i, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit, label %.thread191.i
 
 .thread191.i:                                     ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef nonnull %4)
   br label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 594:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.i
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %4)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %5)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %6)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %5)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %6)
   br i1 %or.cond5.i84.i, label %595, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 595:                                              ; preds = %594
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %7)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %8)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef %75, ptr noundef %9)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %7)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %8)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 596:                                              ; preds = %73

@@ -91,7 +91,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call) #9
+  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %call) #9
   tail call void @_ZdlPv(ptr noundef nonnull %call) #11
   resume { ptr, i32 } %2
 
@@ -160,7 +160,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentBackReferenceE, i64 16), ptr %this, align 8
   %name.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #9
-  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #9
+  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }

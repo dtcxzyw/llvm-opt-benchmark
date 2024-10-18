@@ -1291,7 +1291,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4node4quic5Store
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   call void @_ZN4node4quic7Session6ConfigC2ENS0_4SideERKNS0_8EndpointERKNS1_7OptionsEjRKNS_13SocketAddressESC_RKNS0_3CIDESF_St8optionalINS0_13SessionTicketEESF_(ptr noundef nonnull align 8 dereferenceable(1584) %this, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(1520) %endpoint, ptr noundef nonnull align 8 dereferenceable(768) %options, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(136) %local_address, ptr noundef nonnull align 8 dereferenceable(136) %remote_address, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ocid)
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  call void @_ZN4node4quic13SessionTicketD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp) #29
+  call void @_ZN4node4quic13SessionTicketD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp) #29
   br label %_ZNSt8optionalIN4node4quic13SessionTicketEED2Ev.exit
 
 _ZNSt8optionalIN4node4quic13SessionTicketEED2Ev.exit: ; preds = %_ZNSt8optionalIN4node4quic13SessionTicketEEC2ERKS3_.exit, %if.then.i.i.i.i
@@ -1404,7 +1404,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %_ZNKSt5stackIPN4nod
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %options, ptr noundef nonnull @.str)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %options, ptr noundef nonnull @.str)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %if.else.i.i
@@ -1508,7 +1508,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i40: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit58
 
 if.else.i.i26:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i22, %if.end3.i.i.i.i.i.i19, %for.cond.i.i.i.i51, %if.end15.i.i.i.i10
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %local_address, ptr noundef nonnull @.str.1)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %local_address, ptr noundef nonnull @.str.1)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit58
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit58: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i40, %if.else.i.i26
@@ -1612,7 +1612,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i91: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit109
 
 if.else.i.i77:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i73, %if.end3.i.i.i.i.i.i70, %for.cond.i.i.i.i102, %if.end15.i.i.i.i61
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %remote_address, ptr noundef nonnull @.str.2)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %remote_address, ptr noundef nonnull @.str.2)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit109
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit109: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i91, %if.else.i.i77
@@ -1716,7 +1716,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i142: ; preds = %_ZNKSt5stackIPN4
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit160
 
 if.else.i.i128:                                   ; preds = %lor.lhs.false.i.i.i.i.i.i124, %if.end3.i.i.i.i.i.i121, %for.cond.i.i.i.i153, %if.end15.i.i.i.i112
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %dcid, ptr noundef nonnull @.str.3)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %dcid, ptr noundef nonnull @.str.3)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit160
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit160: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i142, %if.else.i.i128
@@ -1820,7 +1820,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i193: ; preds = %_ZNKSt5stackIPN4
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit211
 
 if.else.i.i179:                                   ; preds = %lor.lhs.false.i.i.i.i.i.i175, %if.end3.i.i.i.i.i.i172, %for.cond.i.i.i.i204, %if.end15.i.i.i.i163
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %scid, ptr noundef nonnull @.str.4)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %scid, ptr noundef nonnull @.str.4)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit211
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit211: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i193, %if.else.i.i179
@@ -1924,7 +1924,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i244: ; preds = %_ZNKSt5stackIPN4
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit262
 
 if.else.i.i230:                                   ; preds = %lor.lhs.false.i.i.i.i.i.i226, %if.end3.i.i.i.i.i.i223, %for.cond.i.i.i.i255, %if.end15.i.i.i.i214
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %ocid, ptr noundef nonnull @.str.5)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %ocid, ptr noundef nonnull @.str.5)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit262
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit262: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i244, %if.else.i.i230
@@ -2028,7 +2028,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i295: ; preds = %_ZNKSt5stackIPN4
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit313
 
 if.else.i.i281:                                   ; preds = %lor.lhs.false.i.i.i.i.i.i277, %if.end3.i.i.i.i.i.i274, %for.cond.i.i.i.i306, %if.end15.i.i.i.i265
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %retry_scid, ptr noundef nonnull @.str.6)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %retry_scid, ptr noundef nonnull @.str.6)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit313
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit313: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i295, %if.else.i.i281
@@ -2138,7 +2138,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i348: ; preds = %_ZNKSt5stackIPN4
   br label %if.end
 
 if.else.i.i334:                                   ; preds = %lor.lhs.false.i.i.i.i.i.i330, %if.end3.i.i.i.i.i.i327, %for.cond.i.i.i.i359, %if.end15.i.i.i.i318
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %session_ticket, ptr noundef nonnull @.str.7)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %session_ticket, ptr noundef nonnull @.str.7)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i.i334, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i348, %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit313
@@ -2958,7 +2958,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %_ZNKSt5stackIPN4nod
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %transport_params, ptr noundef nonnull @.str.9)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %transport_params, ptr noundef nonnull @.str.9)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %if.else.i.i
@@ -3062,7 +3062,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i36: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit54
 
 if.else.i.i22:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i18, %if.end3.i.i.i.i.i.i15, %for.cond.i.i.i.i47, %if.end15.i.i.i.i6
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %tls_options, ptr noundef nonnull @.str.10)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %tls_options, ptr noundef nonnull @.str.10)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit54
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit54: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i36, %if.else.i.i22
@@ -3166,7 +3166,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i87: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit105
 
 if.else.i.i73:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i69, %if.end3.i.i.i.i.i.i66, %for.cond.i.i.i.i98, %if.end15.i.i.i.i57
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %application_options, ptr noundef nonnull @.str.11)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %application_options, ptr noundef nonnull @.str.11)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit105
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit105: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i87, %if.else.i.i73
@@ -5040,7 +5040,7 @@ _ZNSt10unique_ptrI11ngtcp2_connN4node15FunctionDeleterIS0_XadL_Z15ngtcp2_conn_de
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt10unique_ptrI11ngtcp2_connN4node15FunctionDeleterIS0_XadL_Z15ngtcp2_conn_delEEEEED2Ev.exit
   %session_ticket.i = getelementptr inbounds i8, ptr %this, i64 1488
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  tail call void @_ZN4node4quic13SessionTicketD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %session_ticket.i) #29
+  tail call void @_ZN4node4quic13SessionTicketD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %session_ticket.i) #29
   br label %_ZNSt8optionalIN4node4quic13SessionTicketEED2Ev.exit.i
 
 _ZNSt8optionalIN4node4quic13SessionTicketEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt10unique_ptrI11ngtcp2_connN4node15FunctionDeleterIS0_XadL_Z15ngtcp2_conn_delEEEEED2Ev.exit
@@ -5271,7 +5271,7 @@ entry:
 if.then.i.i.i.i:                                  ; preds = %entry
   %session_ticket = getelementptr inbounds i8, ptr %this, i64 1304
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
-  tail call void @_ZN4node4quic13SessionTicketD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %session_ticket) #29
+  tail call void @_ZN4node4quic13SessionTicketD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %session_ticket) #29
   br label %_ZNSt8optionalIN4node4quic13SessionTicketEED2Ev.exit
 
 _ZNSt8optionalIN4node4quic13SessionTicketEED2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
@@ -5438,7 +5438,7 @@ entry:
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #29
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 9))
   %0 = getelementptr inbounds i8, ptr %this, i64 192
   %get_type.val.val = load i32, ptr %0, align 8
@@ -5568,7 +5568,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry,
   %conv = zext i32 %retval.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv, i8 noundef signext 0) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
   %call1 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 0) #29
@@ -5678,7 +5678,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry,
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %conv3, i8 noundef signext 45) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
   %call6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %__val.lobit) #29
@@ -7373,7 +7373,7 @@ entry:
   %3 = load ptr, ptr %stream, align 8
   %call7 = tail call noundef i64 @_ZNK4node4quic6Stream2idEv(ptr noundef nonnull align 8 dereferenceable(256) %3) #29
   store i64 %call7, ptr %ref.tmp, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIlSt4pairIKlN4node17BaseObjectPtrImplINS3_4quic6StreamELb0EEEESaIS8_ENS_10_Select1stESt8equal_toIlESt4hashIlENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOl(ptr noundef nonnull align 1 dereferenceable(1) %streams_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIlSt4pairIKlN4node17BaseObjectPtrImplINS3_4quic6StreamELb0EEEESaIS8_ENS_10_Select1stESt8equal_toIlESt4hashIlENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOl(ptr noundef nonnull align 8 dereferenceable(56) %streams_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %4 = load ptr, ptr %stream, align 8
   %5 = load ptr, ptr %call.i, align 8
   %cmp.i = icmp eq ptr %4, %5
@@ -8029,7 +8029,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %_ZNKSt5stackIPN4nod
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %config_, ptr noundef nonnull @.str.25)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %config_, ptr noundef nonnull @.str.25)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %if.else.i.i
@@ -8244,7 +8244,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i93: ; preds = %_ZNKSt5stackIPN4n
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit111
 
 if.else.i.i79:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i75, %if.end3.i.i.i.i.i.i72, %for.cond.i.i.i.i104, %if.end15.i.i.i.i63
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %local_address_, ptr noundef nonnull @.str.1)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %local_address_, ptr noundef nonnull @.str.1)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit111
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit111: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i93, %if.else.i.i79
@@ -8348,7 +8348,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i144: ; preds = %_ZNKSt5stackIPN4
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit162
 
 if.else.i.i130:                                   ; preds = %lor.lhs.false.i.i.i.i.i.i126, %if.end3.i.i.i.i.i.i123, %for.cond.i.i.i.i155, %if.end15.i.i.i.i114
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %remote_address_, ptr noundef nonnull @.str.2)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %remote_address_, ptr noundef nonnull @.str.2)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit162
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit162: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i144, %if.else.i.i130
@@ -8561,7 +8561,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i247: ; preds = %_ZNKSt5stackIPN4
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit265
 
 if.else.i.i233:                                   ; preds = %lor.lhs.false.i.i.i.i.i.i229, %if.end3.i.i.i.i.i.i226, %for.cond.i.i.i.i258, %if.end15.i.i.i.i217
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %tls_context_, ptr noundef nonnull @.str.29)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %tls_context_, ptr noundef nonnull @.str.29)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit265
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit265: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i247, %if.else.i.i233
@@ -8665,7 +8665,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i298: ; preds = %_ZNKSt5stackIPN4
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit316
 
 if.else.i.i284:                                   ; preds = %lor.lhs.false.i.i.i.i.i.i280, %if.end3.i.i.i.i.i.i277, %for.cond.i.i.i.i309, %if.end15.i.i.i.i268
-  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull %timer_, ptr noundef nonnull @.str.30)
+  tail call void @_ZN4node13MemoryTracker5TrackEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %tracker, ptr noundef nonnull align 8 dereferenceable(8) %timer_, ptr noundef nonnull @.str.30)
   br label %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit316
 
 _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit316: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i298, %if.else.i.i284
@@ -9207,7 +9207,7 @@ if.end:                                           ; preds = %_ZNK4node11Environm
   %4 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %4, i64 176
   %5 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %5) #29
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %5) #29
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #29
@@ -9302,7 +9302,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %cleanup, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #29
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #29
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit, %if.then
@@ -9779,7 +9779,7 @@ if.end:                                           ; preds = %_ZNK4node11Environm
   %4 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %4, i64 176
   %5 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %5) #29
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %5) #29
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #29
@@ -9838,7 +9838,7 @@ if.then.i.i:                                      ; preds = %"_ZZN4node4quic7Ses
   br label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %"_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.exit", %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #29
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #29
   br label %return
 
 return:                                           ; preds = %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
@@ -10013,7 +10013,7 @@ if.end:                                           ; preds = %_ZNK4node11Environm
   %4 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %4, i64 176
   %5 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cbv_scope, ptr noundef %5) #29
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cbv_scope, ptr noundef %5) #29
   %ref.i = getelementptr inbounds i8, ptr %cbv_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #29
@@ -10057,7 +10057,7 @@ if.then.i.i:                                      ; preds = %_ZN4node4quic13Call
   br label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %_ZN4node4quic13CallbackScopeINS0_7SessionEEC2EPS2_.exit, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cbv_scope) #29
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cbv_scope) #29
   br label %return
 
 return:                                           ; preds = %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
@@ -10239,7 +10239,7 @@ if.end:                                           ; preds = %_ZNK4node11Environm
   %4 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %4, i64 176
   %5 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %5) #29
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %5) #29
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #29
@@ -10397,7 +10397,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %cleanup, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #29
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #29
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
@@ -10649,7 +10649,7 @@ if.end7:                                          ; preds = %if.end
   %7 = load ptr, ptr %env_.i.i7, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %7, i64 88
   %8 = load ptr, ptr %isolate_.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %7) #29
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %7) #29
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #29
@@ -10984,7 +10984,7 @@ if.then.i.i:                                      ; preds = %_ZNSt10shared_ptrIN
   br label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4node13SocketAddressEED2Ev.exit73, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #29
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #29
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %_ZNK4node11Environment16can_call_into_jsEv.exit, %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
@@ -11031,7 +11031,7 @@ if.end7:                                          ; preds = %if.end
   %6 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %6, i64 176
   %7 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %7) #29
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %7) #29
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #29
@@ -11180,7 +11180,7 @@ if.then.i.i:                                      ; preds = %_ZN4node4quic5Store
   br label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %_ZN4node4quic5StoreD2Ev.exit41, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #29
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #29
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %_ZNK4node11Environment16can_call_into_jsEv.exit, %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
@@ -11383,7 +11383,7 @@ if.end5:                                          ; preds = %_ZNK4node11Environm
   %6 = load ptr, ptr %realm_.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %6, i64 176
   %7 = load ptr, ptr %env_.i.i.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %7) #29
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %7) #29
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #29
@@ -11440,7 +11440,7 @@ if.then.i.i:                                      ; preds = %_ZNK4node10BaseObje
   br label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %_ZNK4node10BaseObject6objectEv.exit, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #29
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #29
   br label %return
 
 return:                                           ; preds = %if.end, %_ZNK4node11Environment16can_call_into_jsEv.exit, %entry, %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
@@ -11477,7 +11477,7 @@ if.end:                                           ; preds = %_ZNK4node11Environm
   %5 = load ptr, ptr %env_.i.i10, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load ptr, ptr %isolate_.i, align 8
-  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope, ptr noundef %5) #29
+  call void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope, ptr noundef %5) #29
   %ref.i = getelementptr inbounds i8, ptr %cb_scope, i64 64
   store ptr %this, ptr %ref.i, align 8
   %call3.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #29
@@ -11596,7 +11596,7 @@ if.then.i.i:                                      ; preds = %_ZN4node16MaybeStac
   br label %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
 
 _ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit: ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm5EED2Ev.exit, %if.then.i.i
-  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %cb_scope) #29
+  call void @_ZN4node4quic17CallbackScopeBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cb_scope) #29
   br label %return
 
 return:                                           ; preds = %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %_ZN4node4quic13CallbackScopeINS0_7SessionEED2Ev.exit
@@ -11653,7 +11653,7 @@ _ZN4node17BaseObjectPtrImplINS_4quic9LogStreamELb0EEC2ERKS3_.exit: ; preds = %_Z
   %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #29
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #29
   %cmp.i3 = icmp eq ptr %line, null
   br i1 %cmp.i3, label %if.then.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -14764,7 +14764,7 @@ entry:
 if.then.i.i.i.i.i:                                ; preds = %entry
   %session_ticket.i = getelementptr inbounds i8, ptr %this, i64 1304
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  tail call void @_ZN4node4quic13SessionTicketD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %session_ticket.i) #29
+  tail call void @_ZN4node4quic13SessionTicketD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %session_ticket.i) #29
   br label %_ZNSt8optionalIN4node4quic13SessionTicketEED2Ev.exit.i
 
 _ZNSt8optionalIN4node4quic13SessionTicketEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %entry
@@ -15634,7 +15634,7 @@ _ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i: ; preds = %if.e
 
 _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
   store ptr %call9, ptr %call.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -17378,7 +17378,7 @@ if.end:                                           ; preds = %entry
   %scid.i = getelementptr inbounds i8, ptr %user_data, i64 1296
   call void @_ZN4node4quic8Endpoint12AssociateCIDERKNS0_3CIDES4_(ptr noundef nonnull align 8 dereferenceable(1520) %7, ptr noundef nonnull align 8 dereferenceable(48) %cid_.i, ptr noundef nonnull align 8 dereferenceable(48) %scid.i) #29
   %8 = load ptr, ptr %endpoint_.i, align 8
-  call void @_ZN4node4quic8Endpoint28AssociateStatelessResetTokenERKNS0_19StatelessResetTokenEPNS0_7SessionE(ptr noundef nonnull align 8 dereferenceable(1520) %8, ptr noundef nonnull align 8 dereferenceable(32) %new_token.i, ptr noundef nonnull %user_data) #29
+  call void @_ZN4node4quic8Endpoint28AssociateStatelessResetTokenERKNS0_19StatelessResetTokenEPNS0_7SessionE(ptr noundef nonnull align 8 dereferenceable(1520) %8, ptr noundef nonnull align 8 dereferenceable(32) %new_token.i, ptr noundef nonnull align 8 dereferenceable(2616) %user_data) #29
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %cid_.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %new_token.i)
   call void @_ZN4node4quic19NgTcp2CallbackScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %scope) #29
@@ -17625,7 +17625,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end6, label %_ZNSt8optionalIN4node4quic19StatelessResetTokenEE7emplaceIJRPKhEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS9_.exit
 
 _ZNSt8optionalIN4node4quic19StatelessResetTokenEE7emplaceIJRPKhEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS9_.exit: ; preds = %if.end
-  call void @_ZN4node4quic19StatelessResetTokenC1EPKh(ptr noundef nonnull align 8 dereferenceable(32) %maybe_reset_token, ptr noundef nonnull %token) #29
+  call void @_ZN4node4quic19StatelessResetTokenC1EPKh(ptr noundef nonnull align 8 dereferenceable(40) %maybe_reset_token, ptr noundef nonnull %token) #29
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %if.end6
 
@@ -18215,7 +18215,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
   %cmp.i = icmp eq ptr %format, null
   br i1 %cmp.i, label %if.then.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -18243,7 +18243,7 @@ do.body8:                                         ; preds = %do.body
 do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #29
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #29
   %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
@@ -19841,7 +19841,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %fn_ = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %fn_, ptr noundef nonnull align 8 dereferenceable(16) %fn_, i32 noundef 3) #29
+  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %fn_, ptr noundef nonnull align 8 dereferenceable(32) %fn_, i32 noundef 3) #29
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
@@ -19858,7 +19858,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call.i.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %fn_.i, ptr noundef nonnull align 8 dereferenceable(16) %fn_.i, i32 noundef 3) #29
+  %call.i.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %fn_.i, ptr noundef nonnull align 8 dereferenceable(32) %fn_.i, i32 noundef 3) #29
   br label %_ZN4node9TimerWrapD2Ev.exit
 
 _ZN4node9TimerWrapD2Ev.exit:                      ; preds = %entry, %if.then.i.i.i
@@ -19997,7 +19997,7 @@ for.cond:                                         ; preds = %for.body, %if.then
 
 for.body:                                         ; preds = %for.cond
   %add.ptr16 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
-  %call4.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr16) #29
+  %call4.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr16) #29
   br i1 %call4.i, label %if.then.i23, label %for.cond, !llvm.loop !203
 
 if.end21:                                         ; preds = %for.cond, %entry
@@ -20031,7 +20031,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
 
 _ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i.i: ; preds = %for.cond.i.i
   %add.ptr.i.i8 = getelementptr inbounds i8, ptr %__p.0.i.i, i64 8
-  %call4.i.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i8) #29
+  %call4.i.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i8) #29
   br i1 %call4.i.i.i.i, label %_ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i.i, %for.cond.i.i

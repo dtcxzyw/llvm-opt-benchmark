@@ -110,7 +110,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent7GetDataEv(ptr de
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %28
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc10 unwind label %40
 
 .noexc10:                                         ; preds = %.noexc
@@ -127,7 +127,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent7GetDataEv(ptr de
 33:                                               ; preds = %35, %31
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
   br label %.body
 
 35:                                               ; preds = %.noexc10
@@ -137,7 +137,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent7GetDataEv(ptr de
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %33
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %35
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %38 unwind label %42
 
 38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit

@@ -754,7 +754,7 @@ _ZN4NodenwEm.exit41:                              ; preds = %124, %126
   br i1 %128, label %132, label %129
 
 129:                                              ; preds = %_ZN4NodenwEm.exit41
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i40, ptr noundef null, ptr noundef %108) #4
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.i.i40, ptr noundef null, ptr noundef %108) #4
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %.0.i.i.i40, align 8
   %130 = getelementptr inbounds i8, ptr %.0.i.i.i40, i64 52
   store i32 0, ptr %130, align 4

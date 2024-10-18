@@ -6571,7 +6571,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   br i1 %38, label %47, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %10, i32 1)
+  %40 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 range(i32 1, -2147483648) %10, i32 1)
   %41 = extractvalue { i32, i1 } %40, 1
   %42 = extractvalue { i32, i1 } %40, 0
   br i1 %41, label %43, label %103
@@ -6628,7 +6628,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   br i1 %71, label %80, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %10, i32 1)
+  %73 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 range(i32 1, -2147483648) %10, i32 1)
   %74 = extractvalue { i32, i1 } %73, 1
   %75 = extractvalue { i32, i1 } %73, 0
   br i1 %74, label %76, label %103

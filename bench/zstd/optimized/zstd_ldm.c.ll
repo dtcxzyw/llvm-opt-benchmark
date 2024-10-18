@@ -708,7 +708,7 @@ if.then.i.i.us.i:                                 ; preds = %if.end114.us.i
 
 if.then2.i.i.us.i:                                ; preds = %if.then.i.i.us.i
   %xor.i.i.us.i = xor i64 %pIn.val.i.i.us.i, %pMatch.val.i.i.us.i
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i.i.us.i, i1 true)
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %xor.i.i.us.i, i1 true)
   %shr.i.i.i.us.i = lshr i64 %33, 3
   br label %ZSTD_count.exit.i.us.i
 
@@ -784,7 +784,7 @@ while.body.i.i.us.i:                              ; preds = %while.cond.i.i.us.i
 
 if.end16.i.i.us.i:                                ; preds = %while.body.i.i.us.i
   %xor11.i.i.us.i = xor i64 %pIn.addr.1.val.i.i.us.i, %pMatch.addr.1.val.i.i.us.i
-  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i.i.us.i, i1 true)
+  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %xor11.i.i.us.i, i1 true)
   %shr.i35.i.i.us.i = lshr i64 %36, 3
   %add.ptr18.i.i.us.i = getelementptr inbounds i8, ptr %pIn.addr.1.i.i.us.i, i64 %shr.i35.i.i.us.i
   %sub.ptr.lhs.cast.i.i.us.i = ptrtoint ptr %add.ptr18.i.i.us.i to i64
@@ -810,7 +810,7 @@ if.then.i54.i.us.i:                               ; preds = %do.end14.i.us.i
 
 if.then2.i58.i.us.i:                              ; preds = %if.then.i54.i.us.i
   %xor.i59.i.us.i = xor i64 %pIn.val.i56.i.us.i, %pMatch.val.i55.i.us.i
-  %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i59.i.us.i, i1 true)
+  %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %xor.i59.i.us.i, i1 true)
   %shr.i.i60.i.us.i = lshr i64 %37, 3
   br label %ZSTD_count.exit78.i.us.i
 
@@ -885,7 +885,7 @@ while.body.i67.i.us.i:                            ; preds = %while.cond.i61.i.us
 
 if.end16.i71.i.us.i:                              ; preds = %while.body.i67.i.us.i
   %xor11.i72.i.us.i = xor i64 %pIn.addr.1.val.i69.i.us.i, %pMatch.addr.1.val.i68.i.us.i
-  %40 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i72.i.us.i, i1 true)
+  %40 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %xor11.i72.i.us.i, i1 true)
   %shr.i35.i73.i.us.i = lshr i64 %40, 3
   %add.ptr18.i74.i.us.i = getelementptr inbounds i8, ptr %pIn.addr.1.i64.i.us.i, i64 %shr.i35.i73.i.us.i
   %sub.ptr.lhs.cast.i75.i.us.i = ptrtoint ptr %add.ptr18.i74.i.us.i to i64
@@ -1012,7 +1012,7 @@ if.then.i.i:                                      ; preds = %if.end114.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
   %xor.i.i = xor i64 %pIn.val.i.i, %pMatch.val.i.i
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %xor.i.i, i1 true)
   %shr.i.i.i = lshr i64 %47, 3
   br label %ZSTD_count.exit.i
 
@@ -1032,7 +1032,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 
 if.end16.i.i:                                     ; preds = %while.body.i.i
   %xor11.i.i = xor i64 %pIn.addr.1.val.i.i, %pMatch.addr.1.val.i.i
-  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i.i, i1 true)
+  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %xor11.i.i, i1 true)
   %shr.i35.i.i = lshr i64 %48, 3
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %pIn.addr.1.i.i, i64 %shr.i35.i.i
   %sub.ptr.lhs.cast.i186.i = ptrtoint ptr %add.ptr18.i.i to i64

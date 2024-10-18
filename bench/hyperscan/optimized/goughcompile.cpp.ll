@@ -1160,7 +1160,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %vtable.i = load ptr, ptr %3, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %this)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %this)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05.i, i64 8
   %cmp.i.i.i.i.not.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN3ue211GoughSSAVar13clear_outputsEv.exit, label %for.body.i
@@ -1426,7 +1426,7 @@ if.then.thread:                                   ; preds = %lor.rhs
   br i1 %cmp.not.i.i.i13, label %if.then.i.i.i, label %if.then6.i.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.thread, %if.then
-  call void @_ZN5boost9container6vectorIPN3ue211GoughSSAVarENS0_22small_vector_allocatorIS4_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS7_PS4_EEEENS0_12vec_iteratorISC_Lb0EEERKSC_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.89") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull %value)
+  call void @_ZN5boost9container6vectorIPN3ue211GoughSSAVarENS0_22small_vector_allocatorIS4_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS7_PS4_EEEENS0_12vec_iteratorISC_Lb0EEERKSC_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.89") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull align 8 dereferenceable(8) %value)
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %return
 
@@ -1546,7 +1546,7 @@ if.then.thread:                                   ; preds = %lor.rhs
   br i1 %cmp.not.i.i.i13, label %if.then.i.i.i, label %if.then6.i.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.thread, %if.then
-  call void @_ZN5boost9container6vectorIPN3ue221GoughSSAVarWithInputsENS0_22small_vector_allocatorIS4_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS7_PS4_EEEENS0_12vec_iteratorISC_Lb0EEERKSC_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.83") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull %value)
+  call void @_ZN5boost9container6vectorIPN3ue221GoughSSAVarWithInputsENS0_22small_vector_allocatorIS4_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS7_PS4_EEEENS0_12vec_iteratorISC_Lb0EEERKSC_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.83") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull align 8 dereferenceable(8) %value)
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %return
 
@@ -2736,7 +2736,7 @@ if.then.thread:                                   ; preds = %lor.rhs
   br i1 %cmp.not.i.i.i13, label %if.then.i.i.i, label %if.then6.i.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.thread, %if.then
-  call void @_ZN5boost9container6vectorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEENS0_22small_vector_allocatorIS5_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS8_PS5_EEEENS0_12vec_iteratorISD_Lb0EEERKSD_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.151") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull %value)
+  call void @_ZN5boost9container6vectorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEENS0_22small_vector_allocatorIS5_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS8_PS5_EEEENS0_12vec_iteratorISD_Lb0EEERKSD_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.151") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull align 8 dereferenceable(24) %value)
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %return
 
@@ -3016,7 +3016,7 @@ do.end:                                           ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %do.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -3026,7 +3026,7 @@ call.i.noexc:                                     ; preds = %do.end
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #30
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #30
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -4450,7 +4450,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i158.i,
           to label %call.i.noexc80 unwind label %lpad14
 
 call.i.noexc80:                                   ; preds = %invoke.cont10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12, ptr noundef %call.i81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef %call.i81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
           to label %.noexc82 unwind label %lpad14
 
 .noexc82:                                         ; preds = %call.i.noexc80
@@ -4460,7 +4460,7 @@ call.i.noexc80:                                   ; preds = %invoke.cont10
 lpad.i79:                                         ; preds = %.noexc82
   %176 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #30
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #30
   br label %lpad14.body
 
 invoke.cont15:                                    ; preds = %.noexc82
@@ -4476,7 +4476,7 @@ invoke.cont23:                                    ; preds = %invoke.cont15
           to label %call.i.noexc89 unwind label %lpad28
 
 call.i.noexc89:                                   ; preds = %invoke.cont23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26, ptr noundef %call.i90, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef %call.i90, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
           to label %.noexc91 unwind label %lpad28
 
 .noexc91:                                         ; preds = %call.i.noexc89
@@ -4486,7 +4486,7 @@ call.i.noexc89:                                   ; preds = %invoke.cont23
 lpad.i88:                                         ; preds = %.noexc91
   %178 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #30
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #30
   br label %lpad28.body
 
 invoke.cont29:                                    ; preds = %.noexc91
@@ -4787,7 +4787,7 @@ if.then.i.i.i170:                                 ; preds = %lor.rhs.i.i.i, %_ZN
 
 call5.i.i.i.i.i.i.i.i.noexc.i:                    ; preds = %if.then.i.i.i170
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i67.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__begin3.sroa.0.012.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %_M_storage.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__begin3.sroa.0.012.i.i, i64 24, i1 false)
   %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i67.i, i64 56
   %218 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i67.i, i64 64
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i67.i, i64 80
@@ -5146,7 +5146,7 @@ call5.i.i.i.i.i.i.i.noexc.i:                      ; preds = %if.then.i.i30.i.i
   store ptr %252, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i69.i, i64 80
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %call8.i.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i, ptr %__y.addr.0.lcssa.i.i.i10.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i.i62.i)
+  %call8.i.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i, ptr %__y.addr.0.lcssa.i.i.i10.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i.i62.i)
           to label %invoke.cont7.i.i.i unwind label %if.then.i235.i
 
 invoke.cont7.i.i.i:                               ; preds = %call5.i.i.i.i.i.i.i.noexc.i
@@ -5632,7 +5632,7 @@ lpad.body.i:                                      ; preds = %lpad.loopexit.split
 if.end61.i:                                       ; preds = %_ZN3ue2L17highest_slot_usedERKSt6vectorI9gough_insSaIS1_EE.exit177.i, %_ZN3ue2L17highest_slot_usedERKSt6vectorI9gough_insSaIS1_EE.exit.i, %invoke.cont52.i
   %cur_base.0.i = phi i32 [ %call24, %invoke.cont52.i ], [ %add60.i, %_ZN3ue2L17highest_slot_usedERKSt6vectorI9gough_insSaIS1_EE.exit177.i ], [ %call24, %_ZN3ue2L17highest_slot_usedERKSt6vectorI9gough_insSaIS1_EE.exit.i ]
   %second.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0327.i, i64 56
-  invoke fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %second.i, ptr noundef %second.i139.i)
+  invoke fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %second.i, ptr noundef nonnull %second.i139.i)
           to label %.noexc.i131 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i130
 
 .noexc.i131:                                      ; preds = %if.end61.i
@@ -5811,7 +5811,7 @@ _ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit48.i.i: ; preds = %_ZNSt6vect
           to label %.noexc192.i unwind label %lpad.loopexit.split-lp.loopexit.i138
 
 .noexc192.i:                                      ; preds = %_ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit48.i.i
-  invoke fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %second.i, ptr noundef %second.i139.i)
+  invoke fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %second.i, ptr noundef nonnull %second.i139.i)
           to label %.noexc193.i unwind label %lpad.loopexit.split-lp.loopexit.i138
 
 .noexc193.i:                                      ; preds = %.noexc192.i
@@ -6195,7 +6195,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.loope
           to label %call.i.noexc217 unwind label %lpad45
 
 call.i.noexc217:                                  ; preds = %invoke.cont40
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp43, ptr noundef %call.i218, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43, ptr noundef %call.i218, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44)
           to label %.noexc219 unwind label %lpad45
 
 .noexc219:                                        ; preds = %call.i.noexc217
@@ -6205,7 +6205,7 @@ call.i.noexc217:                                  ; preds = %invoke.cont40
 lpad.i216:                                        ; preds = %.noexc219
   %355 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp43) #30
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #30
   br label %lpad45.body
 
 invoke.cont46:                                    ; preds = %.noexc219
@@ -6216,7 +6216,7 @@ invoke.cont46:                                    ; preds = %.noexc219
           to label %call.i.noexc226 unwind label %lpad54
 
 call.i.noexc226:                                  ; preds = %invoke.cont46
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp52, ptr noundef %call.i227, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef %call.i227, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53)
           to label %.noexc228 unwind label %lpad54
 
 .noexc228:                                        ; preds = %call.i.noexc226
@@ -6226,7 +6226,7 @@ call.i.noexc226:                                  ; preds = %invoke.cont46
 lpad.i225:                                        ; preds = %.noexc228
   %356 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52) #30
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #30
   br label %lpad54.body
 
 invoke.cont55:                                    ; preds = %.noexc228
@@ -6310,7 +6310,7 @@ invoke.cont.i.i.i:                                ; preds = %while.cond.i.i4.i.i
 lpad.i241:                                        ; preds = %if.then.i.i.i240
   %365 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gbs) #30
+  call void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %gbs) #30
   br label %ehcleanup205
 
 invoke.cont65:                                    ; preds = %invoke.cont.i.i.i, %invoke.cont63
@@ -7490,7 +7490,7 @@ terminate.lpad.i.i2.i:                            ; preds = %_ZNSt3mapIP11gough_
   unreachable
 
 _ZN3ue212_GLOBAL__N_117gough_build_stratD2Ev.exit: ; preds = %_ZNSt3mapIP11gough_acceltSt4lessIS1_ESaISt4pairIKS1_tEEED2Ev.exit.i
-  call void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gbs) #30
+  call void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %gbs) #30
   %503 = load ptr, ptr %_M_parent.i.i.i.i.i231, align 8
   invoke void @_ZNSt8_Rb_treeItSt4pairIKtN3ue222gough_accel_state_infoEESt10_Select1stIS4_ESt4lessItESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %accel_allowed, ptr noundef %503)
           to label %_ZNSt3mapItN3ue222gough_accel_state_infoESt4lessItESaISt4pairIKtS1_EEED2Ev.exit unwind label %terminate.lpad.i.i539
@@ -7637,7 +7637,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad.i.i:                                         ; preds = %call.i.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5boost17vec_adj_list_implINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSEN3ue216GoughVertexPropsENS4_14GoughEdgePropsENS4_15GoughGraphPropsENS_5listSEEENS_6detail12adj_list_genIS9_S2_S2_S3_S5_S6_S7_S8_E6configENS_40bidirectional_graph_helper_with_propertyISD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call.i50) #30, !noalias !353
+  tail call void @_ZN5boost17vec_adj_list_implINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSEN3ue216GoughVertexPropsENS4_14GoughEdgePropsENS4_15GoughGraphPropsENS_5listSEEENS_6detail12adj_list_genIS9_S2_S2_S3_S5_S6_S7_S8_E6configENS_40bidirectional_graph_helper_with_propertyISD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i50) #30, !noalias !353
   tail call void @_ZdlPv(ptr noundef nonnull %call.i50) #33, !noalias !353
   br label %ehcleanup196
 
@@ -8634,7 +8634,7 @@ invoke.cont.i.i.i563:                             ; preds = %_ZSt8_DestroyIN5boo
   br label %if.end.i555
 
 if.end.i555:                                      ; preds = %if.then.i.i564, %invoke.cont.i.i.i563, %if.then5.i.i, %if.else.i.i554, %if.then112
-  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS_5listSEEES4_S4_S5_S7_S8_S9_SA_E6configEEESt4pairINT_15edge_descriptorEbENSF_17vertex_descriptorESI_RKNSF_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISF_EE(ptr nonnull sret(%"struct.std::pair.343") align 8 %ref.tmp113, i64 noundef %59, i64 noundef %67, ptr noundef nonnull align 8 dereferenceable(64) %p.i, ptr noundef nonnull align 1 dereferenceable(1) %70)
+  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS_5listSEEES4_S4_S5_S7_S8_S9_SA_E6configEEESt4pairINT_15edge_descriptorEbENSF_17vertex_descriptorESI_RKNSF_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISF_EE(ptr nonnull sret(%"struct.std::pair.343") align 8 %ref.tmp113, i64 noundef %59, i64 noundef %67, ptr noundef nonnull align 8 dereferenceable(64) %p.i, ptr noundef nonnull align 8 dereferenceable(48) %70)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i555
@@ -10147,7 +10147,7 @@ invoke.cont.i.i.i757:                             ; preds = %_ZSt8_DestroyIN5boo
   br label %if.end.i741
 
 if.end.i741:                                      ; preds = %if.then.i.i758, %invoke.cont.i.i.i757, %if.then5.i.i742, %if.else.i.i739, %if.end143
-  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS_5listSEEES4_S4_S5_S7_S8_S9_SA_E6configEEESt4pairINT_15edge_descriptorEbENSF_17vertex_descriptorESI_RKNSF_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISF_EE(ptr nonnull sret(%"struct.std::pair.343") align 8 %ref.tmp145, i64 noundef %59, i64 noundef %228, ptr noundef nonnull align 8 dereferenceable(64) %p.i228, ptr noundef nonnull align 1 dereferenceable(1) %244)
+  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS_5listSEEES4_S4_S5_S7_S8_S9_SA_E6configEEESt4pairINT_15edge_descriptorEbENSF_17vertex_descriptorESI_RKNSF_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISF_EE(ptr nonnull sret(%"struct.std::pair.343") align 8 %ref.tmp145, i64 noundef %59, i64 noundef %228, ptr noundef nonnull align 8 dereferenceable(64) %p.i228, ptr noundef nonnull align 8 dereferenceable(48) %244)
           to label %invoke.cont.i231 unwind label %lpad.i230
 
 invoke.cont.i231:                                 ; preds = %if.end.i741
@@ -13001,7 +13001,7 @@ terminate.lpad.i.i2:                              ; preds = %_ZNSt3mapIP11gough_
   unreachable
 
 _ZNSt3mapItN3ue222gough_accel_state_infoESt4lessItESaISt4pairIKtS1_EEED2Ev.exit: ; preds = %_ZNSt3mapIP11gough_acceltSt4lessIS1_ESaISt4pairIKS1_tEEED2Ev.exit
-  tail call void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #30
+  tail call void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #30
   ret void
 }
 
@@ -13156,7 +13156,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZN3ue211raw_som_dfaD2Ev.exit
 
 _ZN3ue211raw_som_dfaD2Ev.exit:                    ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
-  tail call void @_ZN3ue27raw_dfaD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %this) #30
+  tail call void @_ZN3ue27raw_dfaD2Ev(ptr noundef nonnull align 8 dereferenceable(644) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }
@@ -13180,7 +13180,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %this)
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %this)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05.i, i64 8
   %cmp.i.i.i.i.not.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN3ue211GoughSSAVar13clear_outputsEv.exit, label %for.body.i
@@ -13657,7 +13657,7 @@ if.end:
   %ref.tmp = alloca %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", align 8
   %m_vertices = getelementptr inbounds i8, ptr %g_, i64 24
   %m_property.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp, i8 0, i64 48, i1 false)
   invoke void @_ZN3ue216GoughVertexPropsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %m_property.i.i, ptr noundef nonnull align 8 dereferenceable(80) %p)
           to label %_ZN5boost6detail12adj_list_genINS_14adjacency_listINS_4vecSES3_NS_14bidirectionalSEN3ue216GoughVertexPropsENS5_14GoughEdgePropsENS5_15GoughGraphPropsENS_5listSEEES3_S3_S4_S6_S7_S8_S9_E6config13stored_vertexC2ERKS6_.exit unwind label %lpad.i.i
 
@@ -13705,7 +13705,7 @@ if.then.i.i:                                      ; preds = %_ZN5boost6detail12a
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp, i8 0, i64 24, i1 false)
   %m_in_edges.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %m_in_edges3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %8 = load ptr, ptr %m_in_edges3.i.i.i.i.i.i, align 8
@@ -14643,7 +14643,7 @@ if.else.i.i.i.i.i:
   store i64 0, ptr %m_size.i.i.i.i.i.i.i, align 8
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  invoke void @_ZN5boost9container6vectorISt4pairIjPN3ue215GoughSSAVarJoinEENS0_22small_vector_allocatorIS6_SaIvEvEEvE6assignINS_13move_iteratorIPS6_EEEEvT_SF_PNS_11move_detail13disable_if_orIvNSG_7is_sameINSG_17integral_constantIjLj1EEENSJ_IjLj0EEEEENSG_14is_convertibleISF_mEENS0_3dtl17is_input_iteratorISF_Xsr21has_iterator_categoryISF_EE5valueEEENSG_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorISt4pairIjPN3ue215GoughSSAVarJoinEENS0_22small_vector_allocatorIS6_SaIvEvEEvE6assignINS_13move_iteratorIPS6_EEEEvT_SF_PNS_11move_detail13disable_if_orIvNSG_7is_sameINSG_17integral_constantIjLj1EEENSJ_IjLj0EEEEENSG_14is_convertibleISF_mEENS0_3dtl17is_input_iteratorISF_Xsr21has_iterator_categoryISF_EE5valueEEENSG_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
           to label %invoke.cont4 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %if.else.i.i.i.i.i
@@ -14899,7 +14899,7 @@ _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSE
   %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %__args, i8 0, i64 24, i1 false)
   %m_in_edges.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %m_in_edges3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %6 = load ptr, ptr %m_in_edges3.i.i.i.i, align 8
@@ -15014,7 +15014,7 @@ entry:
   %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 16
   %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__orig, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %__orig, i8 0, i64 24, i1 false)
   %m_in_edges.i.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 24
   %m_in_edges3.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 24
   %3 = load ptr, ptr %m_in_edges3.i.i.i.i, align 8
@@ -15506,7 +15506,7 @@ entry:
   %m_target.i.i = getelementptr inbounds i8, ptr %e, i64 8
   store i64 %v, ptr %m_target.i.i, align 8
   %m_property.i = getelementptr inbounds i8, ptr %e, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_property.i, ptr noundef nonnull align 8 dereferenceable(40) %p, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_property.i, ptr noundef nonnull align 8 dereferenceable(64) %p, i64 40, i1 false)
   %vars.i.i = getelementptr inbounds i8, ptr %e, i64 56
   %vars3.i.i = getelementptr inbounds i8, ptr %p, i64 40
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 48
@@ -15587,7 +15587,7 @@ _ZN5boost9list_edgeImN3ue214GoughEdgePropsEEC2EmmRKS2_.exit: ; preds = %_ZSt10_C
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %_ZN5boost9list_edgeImN3ue214GoughEdgePropsEEC2EmmRKS2_.exit
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i.i14, ptr noundef nonnull %g_) #30
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i.i14, ptr noundef nonnull align 8 dereferenceable(24) %g_) #30
   %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %g_, i64 16
   %7 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %7, 1
@@ -15903,7 +15903,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__cur.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %0, %if.then ]
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %m_property.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.08.i.i.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %__cur.08.i.i.i, i8 0, i64 48, i1 false)
   store i32 -1, ptr %m_property.i.i.i.i.i.i, align 8
   %vars.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %vars.i.i.i.i.i.i.i, i8 0, i64 72, i1 false)
@@ -15937,7 +15937,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN5boo
   %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i27, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS0_5listSEEES4_S4_S5_S7_S8_S9_SA_E6config13stored_vertexESaISE_EE12_M_check_lenEmPKc.exit ]
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i26, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS0_5listSEEES4_S4_S5_S7_S8_S9_SA_E6config13stored_vertexESaISE_EE12_M_check_lenEmPKc.exit ]
   %m_property.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.08.i.i.i22, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %__cur.08.i.i.i22, i8 0, i64 48, i1 false)
   store i32 -1, ptr %m_property.i.i.i.i.i.i24, align 8
   %vars.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %vars.i.i.i.i.i.i.i25, i8 0, i64 72, i1 false)
@@ -15984,10 +15984,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt7__cxx114listIN5boost9list_edgeImN3
 entry:
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #35
   %_M_storage.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(80) %__args, i64 16, i1 false)
   %m_property.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 32
   %m_property2.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_property.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %m_property2.i.i.i, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_property.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %m_property2.i.i.i, i64 40, i1 false)
   %vars.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 72
   %vars3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 56
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 64
@@ -17087,7 +17087,7 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8
@@ -19599,7 +19599,7 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit.i.i.i.i.i.i: ; preds = %while.b
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 56
   %_M_parent.i.i.i.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 72
   %5 = load ptr, ptr %_M_parent.i.i.i.i1.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i, ptr noundef %5)
+  invoke void @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i, ptr noundef %5)
           to label %_ZNSt8_Rb_treeIN5boost6detail14edge_desc_implINS0_17bidirectional_tagEmEESt4pairIKS4_N3ue212_GLOBAL__N_114edge_join_infoEESt10_Select1stISA_ESt4lessIS4_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %terminate.lpad.i.i2.i.i.i.i.i.i
 
 terminate.lpad.i.i2.i.i.i.i.i.i:                  ; preds = %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit.i.i.i.i.i.i
@@ -19650,7 +19650,7 @@ terminate.lpad.i.i2.i:                            ; preds = %_ZNSt3mapIP11gough_
   unreachable
 
 _ZN3ue212_GLOBAL__N_117gough_build_stratD2Ev.exit: ; preds = %_ZNSt3mapIP11gough_acceltSt4lessIS1_ESaISt4pairIKS1_tEEED2Ev.exit.i
-  tail call void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #30
+  tail call void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }
@@ -20431,7 +20431,7 @@ entry:
   %ref.tmp4 = alloca %"struct.ue2::AccelScheme", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @_ZN3ue211flat_detail9flat_baseISt4pairIhhESt4lessIS3_ESaIS3_EEC2ERKS5_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i)
+  call void @_ZN3ue211flat_detail9flat_baseISt4pairIhhESt4lessIS3_ESaIS3_EEC2ERKS5_RKS6_(ptr noundef nonnull align 8 dereferenceable(104) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i)
   %cr.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i, i8 -1, i64 32, i1 false), !alias.scope !681
   %double_cr.i = getelementptr inbounds i8, ptr %agg.result, i64 64
@@ -20518,14 +20518,14 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %9 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i, align 8
   %m_capacity4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %9, ptr %m_capacity4.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp4, i8 0, i64 24, i1 false)
   br label %invoke.cont7
 
 if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
   %m_size.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %10 = load i64, ptr %m_size.i8.i.i.i.i.i.i.i.i.i, align 8, !noalias !685
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.676", ptr %5, i64 %10
-  invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %5, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(104) %agg.result, ptr %5, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr noundef null)
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i.i.i.i
@@ -21286,7 +21286,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i.i.i.i.i.i.i.i.i.i.i)
   store ptr %_M_storage.i.i.i.i.i, ptr %__an.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %call3.i.i6.i.i.i.i.i.i.i2.i.i.i.i = invoke noundef ptr @_ZNSt8_Rb_treeIN3ue210som_reportES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE7_M_copyILb0ENS7_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESC_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i.i, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i.i.i.i.i.i.i.i.i.i)
+  %call3.i.i6.i.i.i.i.i.i.i2.i.i.i.i = invoke noundef ptr @_ZNSt8_Rb_treeIN3ue210som_reportES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE7_M_copyILb0ENS7_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESC_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(52) %_M_storage.i.i.i.i.i, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %while.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i
 
 while.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %while.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -21862,7 +21862,7 @@ cleanup.i:                                        ; preds = %_ZNK9__gnu_cxx5__op
 
 if.then.i5.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i115.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i109.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i33.i, %if.end.i.i.i.i.i.i.i.i.i.i.i27.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit41.i, %invoke.cont7.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i
   %retval.sroa.0.0.ph.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ %__y.addr.0.lcssa.i.i.i45, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i ], [ %__j.sroa.0.0.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit41.i ], [ %__j.sroa.0.0.i, %if.end.i.i.i.i.i.i.i.i.i.i.i27.i ], [ %__j.sroa.0.0.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i33.i ], [ %__y.addr.0.lcssa.i.i.i45, %if.end.i.i.i.i.i.i.i.i.i.i.i109.i.i ], [ %__y.addr.0.lcssa.i.i.i45, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i115.i.i ]
-  invoke void @_ZNSt8_Rb_treeIN3ue210som_reportES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i, ptr noundef %26)
+  invoke void @_ZNSt8_Rb_treeIN3ue210som_reportES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(52) %_M_storage.i.i.i.i, ptr noundef %26)
           to label %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_121raw_gough_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i5.i
@@ -22238,7 +22238,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZN3ue212_GLOBAL__N_126raw_gough_report_info_implD2Ev.exit
 
 _ZN3ue212_GLOBAL__N_126raw_gough_report_info_implD2Ev.exit: ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
-  tail call void @_ZN3ue215raw_report_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #30
+  tail call void @_ZN3ue215raw_report_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }
@@ -22740,7 +22740,7 @@ while.body:                                       ; preds = %entry, %_ZNSt8_Rb_t
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 32
   %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 48
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN3ue210som_reportES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i, ptr noundef %2)
+  invoke void @_ZNSt8_Rb_treeIN3ue210som_reportES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(52) %_M_storage.i.i.i, ptr noundef %2)
           to label %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_121raw_gough_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %while.body
@@ -22777,7 +22777,7 @@ if.else.i.i.i.i.i:
   store i64 0, ptr %m_size.i.i.i.i.i.i.i, align 8
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 4, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
           to label %invoke.cont4 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %if.else.i.i.i.i.i
@@ -24296,7 +24296,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_M_storage.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %cond.true.i.i.i.i.i.i.i.i
 
@@ -25646,7 +25646,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZN5boost17vec_adj_list_implINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSEN3ue216GoughVertexPropsENS4_14GoughEdgePropsENS4_15GoughGraphPropsENS_5listSEEENS_6detail12adj_list_genIS9_S2_S2_S3_S5_S6_S7_S8_E6configENS_40bidirectional_graph_helper_with_propertyISD_EEED2Ev.exit
 
 _ZN5boost17vec_adj_list_implINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSEN3ue216GoughVertexPropsENS4_14GoughEdgePropsENS4_15GoughGraphPropsENS_5listSEEENS_6detail12adj_list_genIS9_S2_S2_S3_S5_S6_S7_S8_E6configENS_40bidirectional_graph_helper_with_propertyISD_EEED2Ev.exit: ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
-  tail call void @_ZNSt7__cxx1110_List_baseIN5boost9list_edgeImN3ue214GoughEdgePropsEEESaIS5_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #30
+  tail call void @_ZNSt7__cxx1110_List_baseIN5boost9list_edgeImN3ue214GoughEdgePropsEEESaIS5_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #30
   ret void
 }
 
@@ -26522,7 +26522,7 @@ if.else.i.i.i.i.i:
   store i64 0, ptr %m_size.i.i.i.i.i.i.i, align 8
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  invoke void @_ZN5boost9container6vectorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
           to label %invoke.cont4 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %if.else.i.i.i.i.i

@@ -8383,7 +8383,7 @@ define internal void @_GLOBAL__sub_I_doc.cpp() #10 section ".text.startup" {
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.ptr.i, i64 96
   store ptr null, ptr %6, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %3, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %3, i8 0, i64 60, i1 false)
   %7 = getelementptr inbounds i8, ptr %.ptr.i, i64 104
   %8 = load i8, ptr %7, align 8
   %9 = or i8 %8, 3
@@ -8405,7 +8405,7 @@ __cxx_global_var_init.exit:                       ; preds = %1
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %.ptr.i2, i64 80
   store ptr null, ptr %15, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.ptr.i2, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.ptr.i2, i8 0, i64 60, i1 false)
   %.add.i3 = add nuw nsw i64 %.idx.i1, 88
   %16 = icmp eq i64 %.add.i3, 3520
   br i1 %16, label %__cxx_global_var_init.1096.exit, label %12
@@ -8423,7 +8423,7 @@ __cxx_global_var_init.1096.exit:                  ; preds = %12
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %.ptr.i5, i64 80
   store ptr null, ptr %21, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.ptr.i5, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.ptr.i5, i8 0, i64 60, i1 false)
   %.add.i6 = add nuw nsw i64 %.idx.i4, 88
   %22 = icmp eq i64 %.add.i6, 3960
   br i1 %22, label %__cxx_global_var_init.1098.exit, label %18

@@ -451,7 +451,7 @@ define hidden void @rb_iseq_free(ptr noundef %0) local_unnamed_addr #0 {
   store i64 %29, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 1360
   %37 = load ptr, ptr %36, align 8
-  %38 = call i32 @rb_id_table_lookup(ptr noundef %37, i64 noundef %33, ptr noundef nonnull %2) #20
+  %38 = call i32 @rb_id_table_lookup(ptr noundef %37, i64 noundef range(i64 1, 0) %33, ptr noundef nonnull %2) #20
   %.not.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i, label %remove_from_constant_cache.exit.i, label %39
 
@@ -466,7 +466,7 @@ define hidden void @rb_iseq_free(ptr noundef %0) local_unnamed_addr #0 {
 
 46:                                               ; preds = %39
   %47 = load ptr, ptr %36, align 8
-  %48 = call i32 @rb_id_table_delete(ptr noundef %47, i64 noundef %33) #20
+  %48 = call i32 @rb_id_table_delete(ptr noundef %47, i64 noundef range(i64 1, 0) %33) #20
   call void @rb_st_free_table(ptr noundef nonnull %41) #20
   br label %remove_from_constant_cache.exit.i
 
@@ -858,7 +858,7 @@ define hidden void @rb_iseq_mark_and_move(ptr noundef %0, i1 noundef zeroext %1)
 
 .lr.ph.split.us.i66.us.i:                         ; preds = %.lr.ph.split.us.i66.us.i, %.lr.ph.split.us.i66.us.preheader.i
   %.025.us.i67.us.i = phi i64 [ %82, %.lr.ph.split.us.i66.us.i ], [ %76, %.lr.ph.split.us.i66.us.preheader.i ]
-  %78 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.025.us.i67.us.i, i1 true)
+  %78 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.025.us.i67.us.i, i1 true)
   %79 = or disjoint i64 %78, %77
   %80 = getelementptr i64, ptr %21, i64 %79
   call void @rb_gc_mark_and_move(ptr noundef nonnull %80) #20
@@ -878,7 +878,7 @@ iseq_scan_bits.exit69.us.i:                       ; preds = %.lr.ph.split.us.i66
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
   %.025.us.i.i = phi i64 [ %86, %.lr.ph.split.us.i.i ], [ %68, %.lr.ph.i.i ]
-  %83 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.025.us.i.i, i1 true)
+  %83 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.025.us.i.i, i1 true)
   %84 = getelementptr i64, ptr %21, i64 %83
   call void @rb_gc_mark_and_move(ptr noundef nonnull %84) #20
   %85 = add i64 %.025.us.i.i, -1
@@ -888,7 +888,7 @@ iseq_scan_bits.exit69.us.i:                       ; preds = %.lr.ph.split.us.i66
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %93
   %.025.i.i = phi i64 [ %95, %93 ], [ %68, %.lr.ph.i.i ]
-  %87 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.025.i.i, i1 true)
+  %87 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.025.i.i, i1 true)
   %88 = getelementptr i64, ptr %21, i64 %87
   %89 = load i64, ptr %88, align 8
   call void @rb_gc_mark_and_move(ptr noundef nonnull %88) #20
@@ -921,7 +921,7 @@ iseq_scan_bits.exit69.us.i:                       ; preds = %.lr.ph.split.us.i66
 
 .lr.ph.split.i62.i:                               ; preds = %107, %.lr.ph.split.i62.preheader.i
   %.025.i63.i = phi i64 [ %109, %107 ], [ %98, %.lr.ph.split.i62.preheader.i ]
-  %100 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.025.i63.i, i1 true)
+  %100 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.025.i63.i, i1 true)
   %101 = or disjoint i64 %100, %99
   %102 = getelementptr i64, ptr %21, i64 %101
   %103 = load i64, ptr %102, align 8
@@ -10507,7 +10507,7 @@ define internal fastcc void @make_compile_option(ptr nocapture noundef nonnull %
 rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %17
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %17 ], [ %19, %.lr.ph.i.i ]
   %20 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i.i) #20
-  %21 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %20) #20
+  %21 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %20) #20
   switch i64 %21, label %28 [
     i64 20, label %22
     i64 0, label %25
@@ -10542,7 +10542,7 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %17
 rbimpl_intern_const.exit71.i:                     ; preds = %.lr.ph.i69.i, %28
   %.lcssa.i68.i = phi i64 [ %.pr.i66.i, %28 ], [ %29, %.lr.ph.i69.i ]
   %30 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i68.i) #20
-  %31 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %30) #20
+  %31 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %30) #20
   switch i64 %31, label %38 [
     i64 20, label %32
     i64 0, label %35
@@ -10577,7 +10577,7 @@ rbimpl_intern_const.exit71.i:                     ; preds = %.lr.ph.i69.i, %28
 rbimpl_intern_const.exit77.i:                     ; preds = %.lr.ph.i75.i, %38
   %.lcssa.i74.i = phi i64 [ %.pr.i72.i, %38 ], [ %39, %.lr.ph.i75.i ]
   %40 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i74.i) #20
-  %41 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %40) #20
+  %41 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %40) #20
   switch i64 %41, label %48 [
     i64 20, label %42
     i64 0, label %45
@@ -10612,7 +10612,7 @@ rbimpl_intern_const.exit77.i:                     ; preds = %.lr.ph.i75.i, %38
 rbimpl_intern_const.exit83.i:                     ; preds = %.lr.ph.i81.i, %48
   %.lcssa.i80.i = phi i64 [ %.pr.i78.i, %48 ], [ %49, %.lr.ph.i81.i ]
   %50 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i80.i) #20
-  %51 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %50) #20
+  %51 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %50) #20
   switch i64 %51, label %58 [
     i64 20, label %52
     i64 0, label %55
@@ -10647,7 +10647,7 @@ rbimpl_intern_const.exit83.i:                     ; preds = %.lr.ph.i81.i, %48
 rbimpl_intern_const.exit89.i:                     ; preds = %.lr.ph.i87.i, %58
   %.lcssa.i86.i = phi i64 [ %.pr.i84.i, %58 ], [ %59, %.lr.ph.i87.i ]
   %60 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i86.i) #20
-  %61 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %60) #20
+  %61 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %60) #20
   switch i64 %61, label %68 [
     i64 20, label %62
     i64 0, label %65
@@ -10682,7 +10682,7 @@ rbimpl_intern_const.exit89.i:                     ; preds = %.lr.ph.i87.i, %58
 rbimpl_intern_const.exit95.i:                     ; preds = %.lr.ph.i93.i, %68
   %.lcssa.i92.i = phi i64 [ %.pr.i90.i, %68 ], [ %69, %.lr.ph.i93.i ]
   %70 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i92.i) #20
-  %71 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %70) #20
+  %71 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %70) #20
   switch i64 %71, label %78 [
     i64 20, label %72
     i64 0, label %75
@@ -10717,7 +10717,7 @@ rbimpl_intern_const.exit95.i:                     ; preds = %.lr.ph.i93.i, %68
 rbimpl_intern_const.exit101.i:                    ; preds = %.lr.ph.i99.i, %78
   %.lcssa.i98.i = phi i64 [ %.pr.i96.i, %78 ], [ %79, %.lr.ph.i99.i ]
   %80 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i98.i) #20
-  %81 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %80) #20
+  %81 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %80) #20
   switch i64 %81, label %88 [
     i64 20, label %82
     i64 0, label %85
@@ -10752,7 +10752,7 @@ rbimpl_intern_const.exit101.i:                    ; preds = %.lr.ph.i99.i, %78
 rbimpl_intern_const.exit107.i:                    ; preds = %.lr.ph.i105.i, %88
   %.lcssa.i104.i = phi i64 [ %.pr.i102.i, %88 ], [ %89, %.lr.ph.i105.i ]
   %90 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i104.i) #20
-  %91 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %90) #20
+  %91 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %90) #20
   switch i64 %91, label %98 [
     i64 20, label %92
     i64 0, label %95
@@ -10787,7 +10787,7 @@ rbimpl_intern_const.exit107.i:                    ; preds = %.lr.ph.i105.i, %88
 rbimpl_intern_const.exit113.i:                    ; preds = %.lr.ph.i111.i, %98
   %.lcssa.i110.i = phi i64 [ %.pr.i108.i, %98 ], [ %99, %.lr.ph.i111.i ]
   %100 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i110.i) #20
-  %101 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %100) #20
+  %101 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %100) #20
   switch i64 %101, label %108 [
     i64 20, label %102
     i64 0, label %105
@@ -10822,7 +10822,7 @@ rbimpl_intern_const.exit113.i:                    ; preds = %.lr.ph.i111.i, %98
 rbimpl_intern_const.exit119.i:                    ; preds = %.lr.ph.i117.i, %108
   %.lcssa.i116.i = phi i64 [ %.pr.i114.i, %108 ], [ %109, %.lr.ph.i117.i ]
   %110 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i116.i) #20
-  %111 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %110) #20
+  %111 = tail call i64 @rb_hash_aref(i64 noundef range(i64 1, 0) %1, i64 noundef %110) #20
   %112 = icmp eq i64 %111, 4
   br i1 %112, label %set_compile_option_from_hash.exit, label %113
 

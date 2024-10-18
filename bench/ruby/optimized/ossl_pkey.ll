@@ -2951,7 +2951,7 @@ define internal i64 @pkey_gen_cb_yield(i64 noundef %0) #0 {
   br i1 %5, label %6, label %rbimpl_size_mul_or_raise.exit
 
 6:                                                ; preds = %1
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %4) #9
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %4) #9
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %1

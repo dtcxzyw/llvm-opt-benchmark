@@ -451,7 +451,7 @@ define internal i32 @dissect_papi(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 52:                                               ; preds = %50
   %53 = load i32, ptr @hf_papi_debug, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %53, ptr noundef %0, i32 noundef %.083, i32 noundef -1, i32 noundef 0) #2
+  %54 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %53, ptr noundef %0, i32 noundef range(i32 44, 77) %.083, i32 noundef -1, i32 noundef 0) #2
   %55 = load i32, ptr @ett_papi, align 4
   %56 = call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #2
   %57 = call i32 @tvb_reported_length(ptr noundef %0) #2

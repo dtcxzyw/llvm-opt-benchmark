@@ -1140,7 +1140,7 @@ _ZN17AstUser1AllocatorI11AstVarScope9OrderUserEC2Ev.exit: ; preds = %.noexc
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 288
   %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZN9VNVisitor7iterateEP7AstNode.exit unwind label %46
 
 _ZN9VNVisitor7iterateEP7AstNode.exit:             ; preds = %.lr.ph
@@ -1189,7 +1189,7 @@ _ZN9VNVisitor7iterateEP7AstNode.exit:             ; preds = %.lr.ph
   br i1 %.not.i.i, label %_ZNSt8functionIFbPK11AstVarScopeEED2Ev.exit, label %50
 
 50:                                               ; preds = %46
-  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt8functionIFbPK11AstVarScopeEED2Ev.exit unwind label %52
 
 52:                                               ; preds = %50
@@ -1242,7 +1242,7 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilderD2Ev(ptr noundef nonnu
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 176
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFbPK11AstVarScopeEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -1620,13 +1620,13 @@ _ZNKSt13unordered_mapIPK10AstSenItemPK10AstSenTreeSt4hashIS2_ESt8equal_toIS2_ESa
   %90 = load ptr, ptr %38, align 8
   store ptr %90, ptr %32, align 8
   tail call void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser3InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser3InUse10s_userBusyE)
-  call void @_ZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %79, ptr noundef nonnull align 1 dereferenceable(1) %5, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %79, ptr noundef nonnull align 1 dereferenceable(1) %5, i1 noundef zeroext false)
   %91 = getelementptr inbounds i8, ptr %0, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %92 = getelementptr inbounds i8, ptr %4, i64 16
   %93 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %91, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 16, i1 false)
   %94 = getelementptr inbounds i8, ptr %0, i64 192
   %95 = load ptr, ptr %94, align 8
   store ptr %95, ptr %92, align 8
@@ -1639,7 +1639,7 @@ _ZNKSt13unordered_mapIPK10AstSenItemPK10AstSenTreeSt4hashIS2_ESt8equal_toIS2_ESa
   br i1 %.not.i.i.i25, label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit, label %98
 
 98:                                               ; preds = %89
-  %99 = invoke noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %99 = invoke noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit unwind label %100
 
 100:                                              ; preds = %98
@@ -1658,8 +1658,8 @@ _ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %105 = getelementptr inbounds i8, ptr %3, i64 16
   %106 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %104, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, i8 0, i64 16, i1 false)
   %107 = getelementptr inbounds i8, ptr %0, i64 192
   %108 = load ptr, ptr %107, align 8
   store ptr %108, ptr %105, align 8
@@ -1672,7 +1672,7 @@ _ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS
   br i1 %.not.i.i.i26, label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit, label %111
 
 111:                                              ; preds = %103
-  %112 = invoke noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %112 = invoke noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit unwind label %113
 
 113:                                              ; preds = %111
@@ -2592,7 +2592,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 90:                                               ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit
   %91 = load ptr, ptr %88, align 8
   %92 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %92, ptr noundef %91)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %92, ptr noundef %91)
           to label %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i unwind label %95
 
 _ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i: ; preds = %90
@@ -2628,7 +2628,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit:
   br i1 %99, label %104, label %107
 
 104:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull %100, ptr noundef %101, ptr noundef nonnull %.018.i, i32 noundef 1, i1 noundef zeroext true)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef %101, ptr noundef nonnull %.018.i, i32 noundef 1, i1 noundef zeroext true)
           to label %_ZN10OrderGraph11addSoftEdgeEP16OrderLogicVertexP14OrderVarVertexi.exit unwind label %105
 
 105:                                              ; preds = %104
@@ -2638,7 +2638,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit:
   br label %common.resume
 
 107:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull %100, ptr noundef %101, ptr noundef nonnull %.018.i, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef %101, ptr noundef nonnull %.018.i, i32 noundef 32, i1 noundef zeroext false)
           to label %_ZN10OrderGraph11addSoftEdgeEP16OrderLogicVertexP14OrderVarVertexi.exit unwind label %108
 
 108:                                              ; preds = %107
@@ -2713,7 +2713,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 141:                                              ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit56
   %142 = load ptr, ptr %88, align 8
   %143 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %143, ptr noundef %142)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %143, ptr noundef %142)
           to label %_ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i unwind label %146
 
 _ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i: ; preds = %141
@@ -2739,7 +2739,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %151, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull %148, ptr noundef nonnull %.018.i132, ptr noundef %149, i32 noundef 2, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull align 8 dereferenceable(24) %148, ptr noundef nonnull %.018.i132, ptr noundef %149, i32 noundef 2, i1 noundef zeroext false)
           to label %.sink.split unwind label %152
 
 152:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit133
@@ -2823,7 +2823,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 194:                                              ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit64
   %195 = load ptr, ptr %191, align 8
   %196 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %196, ptr noundef %195)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %196, ptr noundef %195)
           to label %_ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i unwind label %199
 
 _ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i: ; preds = %194
@@ -2849,7 +2849,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %203, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %204, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %203, ptr noundef nonnull %201, ptr noundef %202, ptr noundef nonnull %.018.i135, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %203, ptr noundef nonnull align 8 dereferenceable(24) %201, ptr noundef %202, ptr noundef nonnull %.018.i135, i32 noundef 32, i1 noundef zeroext false)
           to label %_ZN10OrderGraph11addHardEdgeEP16OrderLogicVertexP14OrderVarVertexi.exit65 unwind label %205
 
 205:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit136
@@ -2923,7 +2923,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 237:                                              ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit73
   %238 = load ptr, ptr %191, align 8
   %239 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %239, ptr noundef %238)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %239, ptr noundef %238)
           to label %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i139 unwind label %242
 
 _ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i139: ; preds = %237
@@ -2949,7 +2949,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %246, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %247, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %246, ptr noundef nonnull %244, ptr noundef %245, ptr noundef nonnull %.018.i138, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %246, ptr noundef nonnull align 8 dereferenceable(24) %244, ptr noundef %245, ptr noundef nonnull %.018.i138, i32 noundef 32, i1 noundef zeroext false)
           to label %.sink.split unwind label %248
 
 248:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit140
@@ -3017,7 +3017,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 278:                                              ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit82
   %279 = load ptr, ptr %275, align 8
   %280 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %280, ptr noundef %279)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %280, ptr noundef %279)
           to label %_ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i143 unwind label %283
 
 _ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i143: ; preds = %278
@@ -3043,7 +3043,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %287, align 8
   %288 = getelementptr inbounds i8, ptr %287, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %288, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %287, ptr noundef nonnull %285, ptr noundef nonnull %.018.i142, ptr noundef %286, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %287, ptr noundef nonnull align 8 dereferenceable(24) %285, ptr noundef nonnull %.018.i142, ptr noundef %286, i32 noundef 32, i1 noundef zeroext false)
           to label %_ZN10OrderGraph11addHardEdgeEP14OrderVarVertexP16OrderLogicVertexi.exit83 unwind label %289
 
 289:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit144
@@ -3117,7 +3117,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 321:                                              ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit91
   %322 = load ptr, ptr %275, align 8
   %323 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %323, ptr noundef %322)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %323, ptr noundef %322)
           to label %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i147 unwind label %326
 
 _ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i147: ; preds = %321
@@ -3143,7 +3143,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %330, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %331, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %330, ptr noundef nonnull %328, ptr noundef %329, ptr noundef nonnull %.018.i146, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %330, ptr noundef nonnull align 8 dereferenceable(24) %328, ptr noundef %329, ptr noundef nonnull %.018.i146, i32 noundef 32, i1 noundef zeroext false)
           to label %.sink.split unwind label %332
 
 332:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit148
@@ -3197,7 +3197,7 @@ _ZNKSt8functionIFbPK11AstVarScopeEEclES2_.exit:   ; preds = %349
   %353 = getelementptr inbounds i8, ptr %0, i64 176
   %354 = getelementptr inbounds i8, ptr %0, i64 200
   %355 = load ptr, ptr %354, align 8
-  %356 = call noundef zeroext i1 %355(ptr noundef nonnull align 8 dereferenceable(16) %353, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %356 = call noundef zeroext i1 %355(ptr noundef nonnull align 8 dereferenceable(32) %353, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %356, label %357, label %543
 
@@ -3269,7 +3269,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 392:                                              ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit103
   %393 = load ptr, ptr %390, align 8
   %394 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %394, ptr noundef %393)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %394, ptr noundef %393)
           to label %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i151 unwind label %397
 
 _ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i151: ; preds = %392
@@ -3295,7 +3295,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %401, align 8
   %402 = getelementptr inbounds i8, ptr %401, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %402, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %401, ptr noundef nonnull %399, ptr noundef nonnull %.018.i150, ptr noundef %400, i32 noundef 8, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %401, ptr noundef nonnull align 8 dereferenceable(24) %399, ptr noundef nonnull %.018.i150, ptr noundef %400, i32 noundef 8, i1 noundef zeroext false)
           to label %.sink.split168 unwind label %403
 
 403:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit152
@@ -3379,7 +3379,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 445:                                              ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit112
   %446 = load ptr, ptr %442, align 8
   %447 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %447, ptr noundef %446)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %447, ptr noundef %446)
           to label %_ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i unwind label %450
 
 _ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i: ; preds = %445
@@ -3405,7 +3405,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %454, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %455, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %454, ptr noundef nonnull %452, ptr noundef nonnull %.018.i154, ptr noundef %453, i32 noundef 3, i1 noundef zeroext true)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %454, ptr noundef nonnull align 8 dereferenceable(24) %452, ptr noundef nonnull %.018.i154, ptr noundef %453, i32 noundef 3, i1 noundef zeroext true)
           to label %.sink.split168 unwind label %456
 
 456:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit155
@@ -3473,7 +3473,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 486:                                              ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit120
   %487 = load ptr, ptr %483, align 8
   %488 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %488, ptr noundef %487)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %488, ptr noundef %487)
           to label %_ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i158 unwind label %491
 
 _ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i158: ; preds = %486
@@ -3499,7 +3499,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %495, align 8
   %496 = getelementptr inbounds i8, ptr %495, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %496, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %495, ptr noundef nonnull %493, ptr noundef %494, ptr noundef nonnull %.018.i157, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %495, ptr noundef nonnull align 8 dereferenceable(24) %493, ptr noundef %494, ptr noundef nonnull %.018.i157, i32 noundef 32, i1 noundef zeroext false)
           to label %_ZN10OrderGraph11addHardEdgeEP16OrderLogicVertexP14OrderVarVertexi.exit121 unwind label %497
 
 497:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit159
@@ -3574,7 +3574,7 @@ _ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.e
 530:                                              ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit129
   %531 = load ptr, ptr %483, align 8
   %532 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %532, ptr noundef %531)
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %532, ptr noundef %531)
           to label %_ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i162 unwind label %535
 
 _ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i162: ; preds = %530
@@ -3600,7 +3600,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %539, align 8
   %540 = getelementptr inbounds i8, ptr %539, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %540, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef nonnull %537, ptr noundef %538, ptr noundef nonnull %.018.i161, i32 noundef 2, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef nonnull align 8 dereferenceable(24) %537, ptr noundef %538, ptr noundef nonnull %.018.i161, i32 noundef 2, i1 noundef zeroext false)
           to label %.sink.split168 unwind label %541
 
 541:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit163
@@ -4611,7 +4611,7 @@ define linkonce_odr dso_local void @_ZNK7V3Graph10dotRankDirB5cxx11Ev(ptr dead_o
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -4621,7 +4621,7 @@ define linkonce_odr dso_local void @_ZNK7V3Graph10dotRankDirB5cxx11Ev(ptr dead_o
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -5455,7 +5455,7 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder12iterateLogicEP7AstNo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN16OrderLogicVertexC2EP10OrderGraphP8AstScopeP10AstSenTreeS5_P7AstNode(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1)
+  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1)
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %3, ptr %7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV16OrderLogicVertex, i64 16), ptr %0, align 8
@@ -5692,7 +5692,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex8dotColorB5cxx11Ev(ptr de
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -5702,7 +5702,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex8dotColorB5cxx11Ev(ptr de
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -5743,7 +5743,7 @@ _ZN7AstNode9privateIsI9AstActiveKPS_EEbPKS_.exit.thread: ; preds = %_ZN7AstNode9
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %_ZN7AstNode9privateIsI9AstActiveKPS_EEbPKS_.exit.thread
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %14
 
 .noexc2:                                          ; preds = %.noexc
@@ -5755,7 +5755,7 @@ _ZN7AstNode9privateIsI9AstActiveKPS_EEbPKS_.exit.thread: ; preds = %_ZN7AstNode9
 12:                                               ; preds = %.noexc2
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -5781,7 +5781,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex8dotStyleB5cxx11Ev(ptr de
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -5791,7 +5791,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex8dotStyleB5cxx11Ev(ptr de
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -5817,7 +5817,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex7dotNameB5cxx11Ev(ptr dea
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -5827,7 +5827,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex7dotNameB5cxx11Ev(ptr dea
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -5853,7 +5853,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex7dotRankB5cxx11Ev(ptr dea
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -5863,7 +5863,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex7dotRankB5cxx11Ev(ptr dea
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -5957,7 +5957,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex4nameB5cxx11Ev(ptr dead_o
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -5967,7 +5967,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex4nameB5cxx11Ev(ptr dead_o
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -5993,7 +5993,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex8dotShapeB5cxx11Ev(ptr de
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -6003,7 +6003,7 @@ define linkonce_odr dso_local void @_ZNK13V3GraphVertex8dotShapeB5cxx11Ev(ptr de
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -6495,7 +6495,7 @@ _ZSt4copyIPP9OrderUserS2_ET0_T_S4_S3_.exit:       ; preds = %32, %31, %28, %27, 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1)
+  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -6506,7 +6506,7 @@ define linkonce_odr dso_local void @_ZN17OrderVarStdVertexC2EP10OrderGraphP11Ast
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1)
+  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -6517,7 +6517,7 @@ define linkonce_odr dso_local void @_ZN17OrderVarPreVertexC2EP10OrderGraphP11Ast
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1)
+  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -6528,7 +6528,7 @@ define linkonce_odr dso_local void @_ZN18OrderVarPordVertexC2EP10OrderGraphP11As
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1)
+  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -6539,7 +6539,7 @@ define linkonce_odr dso_local void @_ZN18OrderVarPostVertexC2EP10OrderGraphP11As
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN14OrderVarVertexC2EP10OrderGraphP11AstVarScope(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1)
+  tail call void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr null, ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV14OrderVarVertex, i64 16), ptr %0, align 8
@@ -6752,7 +6752,7 @@ define linkonce_odr dso_local void @_ZNK17OrderVarStdVertex8dotColorB5cxx11Ev(pt
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -6762,7 +6762,7 @@ define linkonce_odr dso_local void @_ZNK17OrderVarStdVertex8dotColorB5cxx11Ev(pt
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -6788,7 +6788,7 @@ define linkonce_odr dso_local void @_ZNK14OrderVarVertex8dotShapeB5cxx11Ev(ptr d
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -6798,7 +6798,7 @@ define linkonce_odr dso_local void @_ZNK14OrderVarVertex8dotShapeB5cxx11Ev(ptr d
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -6829,7 +6829,7 @@ define linkonce_odr dso_local void @_ZNK17OrderVarStdVertex10nameSuffixB5cxx11Ev
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -6839,7 +6839,7 @@ define linkonce_odr dso_local void @_ZNK17OrderVarStdVertex10nameSuffixB5cxx11Ev
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -7095,7 +7095,7 @@ define linkonce_odr dso_local void @_ZNK17OrderVarPreVertex8dotColorB5cxx11Ev(pt
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -7105,7 +7105,7 @@ define linkonce_odr dso_local void @_ZNK17OrderVarPreVertex8dotColorB5cxx11Ev(pt
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -7136,7 +7136,7 @@ define linkonce_odr dso_local void @_ZNK17OrderVarPreVertex10nameSuffixB5cxx11Ev
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -7146,7 +7146,7 @@ define linkonce_odr dso_local void @_ZNK17OrderVarPreVertex10nameSuffixB5cxx11Ev
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -7225,7 +7225,7 @@ define linkonce_odr dso_local void @_ZNK18OrderVarPordVertex8dotColorB5cxx11Ev(p
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -7235,7 +7235,7 @@ define linkonce_odr dso_local void @_ZNK18OrderVarPordVertex8dotColorB5cxx11Ev(p
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -7266,7 +7266,7 @@ define linkonce_odr dso_local void @_ZNK18OrderVarPordVertex10nameSuffixB5cxx11E
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -7276,7 +7276,7 @@ define linkonce_odr dso_local void @_ZNK18OrderVarPordVertex10nameSuffixB5cxx11E
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -7355,7 +7355,7 @@ define linkonce_odr dso_local void @_ZNK18OrderVarPostVertex8dotColorB5cxx11Ev(p
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -7365,7 +7365,7 @@ define linkonce_odr dso_local void @_ZNK18OrderVarPostVertex8dotColorB5cxx11Ev(p
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -7396,7 +7396,7 @@ define linkonce_odr dso_local void @_ZNK18OrderVarPostVertex10nameSuffixB5cxx11E
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -7406,7 +7406,7 @@ define linkonce_odr dso_local void @_ZNK18OrderVarPostVertex10nameSuffixB5cxx11E
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -7520,7 +7520,7 @@ define linkonce_odr dso_local void @_ZNK11V3GraphEdge8dotLabelB5cxx11Ev(ptr dead
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -7530,7 +7530,7 @@ define linkonce_odr dso_local void @_ZNK11V3GraphEdge8dotLabelB5cxx11Ev(ptr dead
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -7560,7 +7560,7 @@ define linkonce_odr dso_local void @_ZNK9OrderEdge8dotColorB5cxx11Ev(ptr dead_on
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %13
 
 .noexc2:                                          ; preds = %.noexc
@@ -7572,7 +7572,7 @@ define linkonce_odr dso_local void @_ZNK9OrderEdge8dotColorB5cxx11Ev(ptr dead_on
 11:                                               ; preds = %.noexc2
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -7602,7 +7602,7 @@ define linkonce_odr dso_local void @_ZNK11V3GraphEdge8dotStyleB5cxx11Ev(ptr dead
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %13
 
 .noexc2:                                          ; preds = %.noexc
@@ -7614,7 +7614,7 @@ define linkonce_odr dso_local void @_ZNK11V3GraphEdge8dotStyleB5cxx11Ev(ptr dead
 11:                                               ; preds = %.noexc2
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2

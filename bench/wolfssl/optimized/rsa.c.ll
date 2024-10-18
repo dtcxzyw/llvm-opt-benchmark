@@ -1296,7 +1296,7 @@ land.lhs.true.i:                                  ; preds = %if.end8.i
 
 if.end13.i:                                       ; preds = %land.lhs.true.i, %if.end8.i
   store i32 %call.i.i, ptr %outLen, align 4
-  %call14.i = tail call fastcc i32 @RsaFunctionSync(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef nonnull %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng)
+  %call14.i = tail call fastcc i32 @RsaFunctionSync(ptr noundef nonnull %in, i32 noundef range(i32 1, 0) %inLen, ptr noundef nonnull %out, ptr noundef nonnull %outLen, i32 noundef range(i32 0, -1) %type, ptr noundef nonnull %key, ptr noundef %rng)
   br label %wc_RsaFunctionSync.exit
 
 wc_RsaFunctionSync.exit:                          ; preds = %if.end20, %if.end.i, %if.end3.i, %land.lhs.true.i, %if.end13.i

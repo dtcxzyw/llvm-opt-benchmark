@@ -607,11 +607,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %or8.i, i32 noundef %7) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef range(i32 0, 16777216) %or8.i, i32 noundef %7) #10
   br label %trace_esp_transfer_data.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %or8.i, i32 noundef %7) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef range(i32 0, 16777216) %or8.i, i32 noundef %7) #10
   br label %trace_esp_transfer_data.exit
 
 trace_esp_transfer_data.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -839,11 +839,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %call2, i32 noundef %or8.i) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %call2, i32 noundef range(i32 0, 16777216) %or8.i) #10
   br label %trace_esp_do_dma.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call2, i32 noundef %or8.i) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call2, i32 noundef range(i32 0, 16777216) %or8.i) #10
   br label %trace_esp_do_dma.exit
 
 trace_esp_do_dma.exit:                            ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3855,11 +3855,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %22 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %23 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i, i64 noundef %22, i64 noundef %23, i32 noundef %dmalen.0, i32 noundef %and) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i, i64 noundef %22, i64 noundef %23, i32 noundef %dmalen.0, i32 noundef range(i32 0, 8) %and) #10
   br label %trace_esp_get_cmd.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef %dmalen.0, i32 noundef %and) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef %dmalen.0, i32 noundef range(i32 0, 8) %and) #10
   br label %trace_esp_get_cmd.exit
 
 trace_esp_get_cmd.exit:                           ; preds = %if.end57, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

@@ -206,7 +206,7 @@ define internal fastcc void @_ZN2cv12ppf_match_3dL8poseToRTERKNS_4MatxIdLi4ELi4E
   %30 = getelementptr inbounds i8, ptr %18, i64 80
   store ptr %30, ptr %29, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 4, i32 noundef 4, i32 noundef 6, ptr noundef nonnull %0, i64 noundef 0)
+  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 4, i32 noundef 4, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef 0)
   %31 = getelementptr inbounds i8, ptr %15, i64 8
   %32 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 0, ptr %32, align 8
@@ -308,7 +308,7 @@ _ZN2cv12ppf_match_3dL7poseToRERKNS_4MatxIdLi4ELi4EEERNS1_IdLi3ELi3EEE.exit: ; pr
   %54 = getelementptr inbounds i8, ptr %22, i64 80
   store ptr %54, ptr %53, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 4, i32 noundef 4, i32 noundef 6, ptr noundef nonnull %0, i64 noundef 0)
+  call void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 4, i32 noundef 4, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef 0)
   %55 = getelementptr inbounds i8, ptr %9, i64 8
   %56 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 0, ptr %56, align 8
@@ -1020,7 +1020,7 @@ define void @_ZN2cv12ppf_match_3d6Pose3D9printPoseEv(ptr noundef nonnull align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %24, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 4, i32 noundef 4, i32 noundef 6, ptr noundef nonnull %16, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 4, i32 noundef 4, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(128) %16, i64 noundef 0)
           to label %.noexc.i unwind label %119
 
 .noexc.i:                                         ; preds = %1

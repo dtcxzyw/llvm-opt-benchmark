@@ -248,7 +248,7 @@ if.then48:                                        ; preds = %if.end
 if.then54:                                        ; preds = %if.end
   %cmp.i67 = icmp eq i32 %idx, 0
   %spec.select.i68 = select i1 %cmp.i67, i32 2, i32 3
-  %call.i2.i69 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %spec.select.i68) #15
+  %call.i2.i69 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %spec.select.i68) #15
   %15 = icmp eq ptr %call.i2.i69, null
   %sub.ptr.i.i.i3.i70 = getelementptr inbounds i8, ptr %call.i2.i69, i64 -16
   %16 = select i1 %15, ptr null, ptr %sub.ptr.i.i.i3.i70
@@ -405,7 +405,7 @@ if.then45:                                        ; preds = %if.end.lr.ph
   %add.ptr.i78 = getelementptr inbounds i8, ptr %B, i64 16
   %spec.select.i79 = select i1 %8, ptr null, ptr %add.ptr.i78
   %add.i80 = add i32 %idx, 2
-  tail call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %spec.select.i79, i32 noundef %add.i80) #15
+  tail call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %spec.select.i79, i32 noundef %add.i80) #15
   br label %return
 
 if.then50:                                        ; preds = %if.end.lr.ph
@@ -853,7 +853,7 @@ declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes10SwitchInstC2EPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %blocks) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %this, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -966,7 +966,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes7PhiInstC2ERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %blocks) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %valueType.i.i = getelementptr inbounds i8, ptr %this, i64 18
   store i16 1023, ptr %valueType.i.i, align 2
@@ -1123,7 +1123,7 @@ while.end:                                        ; preds = %if.end, %if.then, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes13GetPNamesInstC2EPNS_10BasicBlockEPNS_5ValueES4_S4_S4_S2_S2_(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture readnone %parent, ptr noundef %iteratorAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %onEmpty, ptr noundef %onSome) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %this, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -1166,7 +1166,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes16GetNextPNameInstC2EPNS_10BasicBlockEPNS_5ValueES4_S4_S4_S4_S2_S2_(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture readnone %parent, ptr noundef %propertyAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %iteratorAddr, ptr noundef %onLast, ptr noundef %onSome) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %this, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2
@@ -1210,7 +1210,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes13SwitchImmInstC2EPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef %minValue, ptr noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %blocks) unnamed_addr #0 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %valueType.i.i.i = getelementptr inbounds i8, ptr %this, i64 18
   store i16 1023, ptr %valueType.i.i.i, align 2

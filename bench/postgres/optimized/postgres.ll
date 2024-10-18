@@ -694,24 +694,24 @@ define dso_local void @ProcessInterrupts() local_unnamed_addr #0 {
 
 130:                                              ; preds = %127
   tail call void @LockErrorCleanup() #26
-  tail call void @pgstat_report_recovery_conflict(i32 noundef %105) #26
+  tail call void @pgstat_report_recovery_conflict(i32 noundef range(i32 0, 14) %105) #26
   %131 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
   tail call void @llvm.assume(i1 %131)
   %132 = tail call i32 @errcode(i32 noundef 16777220) #26
   %133 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.105) #26
-  tail call fastcc void @errdetail_recovery_conflict(i32 noundef %105)
+  tail call fastcc void @errdetail_recovery_conflict(i32 noundef range(i32 0, 14) %105)
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3169, ptr noundef nonnull @__func__.ProcessRecoveryConflictInterrupt) #26
   unreachable
 
 134:                                              ; preds = %126, %122, %104
-  tail call void @pgstat_report_recovery_conflict(i32 noundef %105) #26
+  tail call void @pgstat_report_recovery_conflict(i32 noundef range(i32 0, 14) %105) #26
   %135 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #27
   tail call void @llvm.assume(i1 %135)
   %136 = icmp eq i64 %indvars.iv.i, 7
   %spec.select.i = select i1 %136, i32 67240389, i32 16777220
   %137 = tail call i32 @errcode(i32 noundef %spec.select.i) #26
   %138 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.106) #26
-  tail call fastcc void @errdetail_recovery_conflict(i32 noundef %105)
+  tail call fastcc void @errdetail_recovery_conflict(i32 noundef range(i32 0, 14) %105)
   %139 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.13) #26
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3192, ptr noundef nonnull @__func__.ProcessRecoveryConflictInterrupt) #26
   unreachable
@@ -719,7 +719,7 @@ define dso_local void @ProcessInterrupts() local_unnamed_addr #0 {
 140:                                              ; preds = %104
   %141 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #27
   tail call void @llvm.assume(i1 %141)
-  %142 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.107, i32 noundef %105) #26
+  %142 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.107, i32 noundef range(i32 0, 14) %105) #26
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3196, ptr noundef nonnull @__func__.ProcessRecoveryConflictInterrupt) #26
   unreachable
 

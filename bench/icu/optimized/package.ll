@@ -3040,7 +3040,7 @@ if.end23:                                         ; preds = %if.end14
 
 if.end25:                                         ; preds = %if.end23, %land.lhs.true, %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %errorCode.i)
-  call fastcc void @_ZL16makeFullFilenamePKcS0_Pci(ptr noundef %filesPath, ptr noundef %outName, ptr noundef %filename)
+  call fastcc void @_ZL16makeFullFilenamePKcS0_Pci(ptr noundef %filesPath, ptr noundef %outName, ptr noundef nonnull %filename)
   store i32 0, ptr %errorCode.i, align 4
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %filename)
   %strchr.i = getelementptr inbounds i8, ptr %filename, i64 %strlen.i

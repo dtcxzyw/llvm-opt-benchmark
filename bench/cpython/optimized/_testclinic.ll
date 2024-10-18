@@ -6120,7 +6120,7 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.then28,
   %b.029 = phi ptr [ %b.035, %if.end34 ], [ %b.035, %if.then28 ], [ %8, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
   %c.0 = phi ptr [ %c.1, %if.end34 ], [ %9, %if.then28 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
   %d.0 = phi ptr [ %10, %if.end34 ], [ @_Py_NoneStruct, %if.then28 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef %b.029, ptr noundef %c.0, ptr noundef %d.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 4, ptr noundef %7, ptr noundef nonnull %b.029, ptr noundef %c.0, ptr noundef %d.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_kwonly
@@ -6849,7 +6849,7 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.then29,
   %c.030 = phi ptr [ %c.036, %if.end35 ], [ %c.036, %if.then29 ], [ %9, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
   %d.0 = phi ptr [ %d.1, %if.end35 ], [ %10, %if.then29 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
   %e.0 = phi ptr [ %11, %if.end35 ], [ @_Py_NoneStruct, %if.then29 ], [ @_Py_NoneStruct, %skip_optional_pos ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 5, ptr noundef %7, ptr noundef %8, ptr noundef %c.030, ptr noundef %d.0, ptr noundef %e.0)
+  %call.i = call ptr (i32, ...) @pack_arguments_newref(i32 noundef 5, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %c.030, ptr noundef %d.0, ptr noundef %e.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end9, %skip_optional_kwonly

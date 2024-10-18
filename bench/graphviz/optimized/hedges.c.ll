@@ -51,13 +51,13 @@ define void @ELinitialize() local_unnamed_addr #0 {
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef %6, i64 noundef 8) #14
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
 10:                                               ; preds = %5
   %11 = icmp ne i32 %1, 0
-  %12 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
+  %12 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8) #16
   %13 = icmp eq ptr %12, null
   %or.cond3.i = and i1 %11, %13
   br i1 %or.cond3.i, label %14, label %gv_calloc.exit

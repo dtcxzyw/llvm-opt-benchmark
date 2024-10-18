@@ -38,7 +38,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS, align 8
   %OS.i = getelementptr inbounds i8, ptr %OS, i64 40
   store ptr %data, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %OS, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %call = call noundef i32 @_ZN4llvh13encodeSLEB128ElRNS_11raw_ostreamEj(i64 noundef %value, ptr noundef nonnull align 8 dereferenceable(36) %OS, i32 noundef 0)
   %0 = load i32, ptr %Size.i.i.i.i.i, align 8
   %cmp5 = icmp sgt i32 %0, 0
@@ -127,7 +127,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %if.then.i.i, %_ZNSt
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit, %entry
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %OS) #12
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS) #12
   %9 = load ptr, ptr %data, align 8
   %cmp.i.i.i = icmp eq ptr %9, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIcLj16EED2Ev.exit, label %if.then.i.i3

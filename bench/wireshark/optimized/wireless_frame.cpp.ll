@@ -737,7 +737,7 @@ _ZN7QStringD2Ev.exit95:                           ; preds = %201, %_ZN17QArrayDa
   %211 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %208, ptr %211, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false)
   %212 = getelementptr inbounds i8, ptr %22, i64 24
   store i64 2, ptr %212, align 8
   %213 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %208)
@@ -776,7 +776,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i97:    ; preds = %216
 _ZN7QStringD2Ev.exit99:                           ; preds = %216, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i97, %219
   %221 = load ptr, ptr %211, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false)
   %222 = getelementptr inbounds i8, ptr %24, i64 24
   store i64 2, ptr %222, align 8
   %223 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %221)
@@ -815,7 +815,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i105:   ; preds = %226
 _ZN7QStringD2Ev.exit107:                          ; preds = %226, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i105, %229
   %231 = load ptr, ptr %211, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false)
   %232 = getelementptr inbounds i8, ptr %26, i64 24
   store i64 2, ptr %232, align 8
   %233 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %231)
@@ -1653,7 +1653,7 @@ define void @_ZN13WirelessFrame19updateInterfaceListEv(ptr noundef nonnull align
   br i1 %.not.i, label %67, label %66
 
 66:                                               ; preds = %63
-  invoke void @_ZN7QObject9killTimerEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %65)
+  invoke void @_ZN7QObject9killTimerEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %65)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %66
@@ -1661,7 +1661,7 @@ define void @_ZN13WirelessFrame19updateInterfaceListEv(ptr noundef nonnull align
   br label %67
 
 67:                                               ; preds = %.noexc, %63
-  %68 = invoke noundef i32 @_ZN7QObject10startTimerEiN2Qt9TimerTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1500, i32 noundef 1)
+  %68 = invoke noundef i32 @_ZN7QObject10startTimerEiN2Qt9TimerTypeE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 1500, i32 noundef 1)
           to label %_ZN13WirelessFrame10startTimerEi.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN13WirelessFrame10startTimerEi.exit:            ; preds = %67
@@ -1864,7 +1864,7 @@ _ZN7QStringD2Ev.exit.i41:                         ; preds = %.split.i.i40, %128
   %141 = load i64, ptr %122, align 8
   store i64 %141, ptr %121, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   store i64 2, ptr %123, align 8
   %142 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %135)
           to label %.noexc45 unwind label %169
@@ -2063,12 +2063,12 @@ define void @_ZN13WirelessFrame20handleInterfaceEventEPKcii(ptr noundef nonnull 
   br i1 %.not.i, label %_ZN13WirelessFrame10startTimerEi.exit, label %8
 
 8:                                                ; preds = %5
-  tail call void @_ZN7QObject9killTimerEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %7)
+  tail call void @_ZN7QObject9killTimerEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %7)
   store i32 -1, ptr %6, align 4
   br label %_ZN13WirelessFrame10startTimerEi.exit
 
 _ZN13WirelessFrame10startTimerEi.exit:            ; preds = %5, %8
-  %9 = tail call noundef i32 @_ZN7QObject10startTimerEiN2Qt9TimerTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1500, i32 noundef 1)
+  %9 = tail call noundef i32 @_ZN7QObject10startTimerEiN2Qt9TimerTypeE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 1500, i32 noundef 1)
   store i32 %9, ptr %6, align 4
   br label %11
 
@@ -2153,7 +2153,7 @@ define void @_ZN13WirelessFrameD0Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZThn16_N13WirelessFrameD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN13WirelessFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(64) %2) #15
   ret void
 }
 

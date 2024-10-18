@@ -419,7 +419,7 @@ _ZNK7QWidget11fontMetricsEv.exit:                 ; preds = %_ZN7QStringD2Ev.exi
   %153 = load ptr, ptr %30, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 48
   %155 = load ptr, ptr %154, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %155, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %155, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.2, i32 noundef 0)
           to label %_ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit unwind label %121
 
 _ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit: ; preds = %152
@@ -2376,7 +2376,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %38
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #17
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #17
   ret void
 }
 
@@ -2398,7 +2398,7 @@ define void @_ZN16ExpertInfoDialogD0Ev(ptr noundef nonnull align 8 dereferenceab
 define void @_ZThn16_N16ExpertInfoDialogD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16ExpertInfoDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(224) %2) #18
   ret void
 }
 
@@ -3072,7 +3072,7 @@ _ZNK11QModelIndex7siblingEii.exit:                ; preds = %30, %31
   %41 = getelementptr inbounds i8, ptr %0, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !32
-  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(56) @_ZN5QMenu16staticMetaObjectE, ptr noundef nonnull %7, i32 1)
+  invoke void @_Z23qt_qFindChildren_helperPK7QObjectRK7QStringRK11QMetaObjectP5QListIPvE6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(56) @_ZN5QMenu16staticMetaObjectE, ptr noundef nonnull align 8 %7, i32 1)
           to label %_ZN5QListIP5QMenuED2Ev.exit unwind label %42
 
 42:                                               ; preds = %39

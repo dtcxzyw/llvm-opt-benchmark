@@ -1093,7 +1093,7 @@ define internal i32 @dissect_AuthenticatedSafe_OCTETSTRING_PDU(ptr noundef %0, p
   %21 = call ptr @create_dissector_handle(ptr noundef nonnull @dissect_SafeContents_OCTETSTRING_PDU, i32 noundef %20) #8
   call void @dissector_change_string(ptr noundef nonnull @.str.180, ptr noundef nonnull @.str.181, ptr noundef %21) #8
   %22 = load i32, ptr @ett_pkcs12_AuthenticatedSafe, align 4
-  %23 = call i32 @dissect_ber_sequence_of(i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef %2, ptr noundef %0, i32 noundef %..i, ptr noundef nonnull @AuthenticatedSafe_sequence_of, i32 noundef %19, i32 noundef %22) #8
+  %23 = call i32 @dissect_ber_sequence_of(i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef %2, ptr noundef %0, i32 noundef range(i32 1, -2147483648) %..i, ptr noundef nonnull @AuthenticatedSafe_sequence_of, i32 noundef %19, i32 noundef %22) #8
   call void @dissector_reset_string(ptr noundef nonnull @.str.180, ptr noundef nonnull @.str.181) #8
   br label %26
 

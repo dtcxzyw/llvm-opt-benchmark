@@ -216,7 +216,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cmp8 = phi i1 [ false, %entry ], [ true, %for.inc ]
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -251,14 +251,14 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i:           ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i:                                       ; preds = %for.body.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
   %i.04.i = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i ], [ %inc.i, %for.body.i ]
   store i64 32767, ptr %stdBitset15, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset15)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset15)
   %inc.i = add nuw nsw i32 %i.04.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 100000
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %4 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i34 = icmp eq i32 %4, 1
   br i1 %cmp.i.i.i34, label %if.then2.i.i.i51, label %if.else.i.i.i35
@@ -293,7 +293,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i42:         ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i44:                                     ; preds = %for.body.i44, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i42
   %i.04.i45 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i42 ], [ %inc.i46, %for.body.i44 ]
   store i64 32767, ptr %eaBitset15, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset15)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset15)
   %inc.i46 = add nuw nsw i32 %i.04.i45, 1
   %exitcond.not.i47 = icmp eq i32 %inc.i46, 100000
   br i1 %exitcond.not.i47, label %for.end.i48, label %for.body.i44, !llvm.loop !7
@@ -310,7 +310,7 @@ if.then:                                          ; preds = %for.end.i48
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end.i48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %9 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i56 = icmp eq i32 %9, 1
   br i1 %cmp.i.i.i56, label %if.then2.i.i.i73, label %if.else.i.i.i57
@@ -345,14 +345,14 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i64:         ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i66:                                     ; preds = %for.body.i66, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i64
   %i.04.i67 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i64 ], [ %inc.i68, %for.body.i66 ]
   store i64 34359738367, ptr %stdBitset35, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset35)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset35)
   %inc.i68 = add nuw nsw i32 %i.04.i67, 1
   %exitcond.not.i69 = icmp eq i32 %inc.i68, 100000
   br i1 %exitcond.not.i69, label %for.end.i70, label %for.body.i66, !llvm.loop !8
 
 for.end.i70:                                      ; preds = %for.body.i66
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %13 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i78 = icmp eq i32 %13, 1
   br i1 %cmp.i.i.i78, label %if.then2.i.i.i95, label %if.else.i.i.i79
@@ -387,7 +387,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i86:         ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i88:                                     ; preds = %for.body.i88, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i86
   %i.04.i89 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i86 ], [ %inc.i90, %for.body.i88 ]
   store i64 34359738367, ptr %eaBitset35, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset35)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset35)
   %inc.i90 = add nuw nsw i32 %i.04.i89, 1
   %exitcond.not.i91 = icmp eq i32 %inc.i90, 100000
   br i1 %exitcond.not.i91, label %for.end.i92, label %for.body.i88, !llvm.loop !9
@@ -404,7 +404,7 @@ if.then18:                                        ; preds = %for.end.i92
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then18, %for.end.i92
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %18 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i101 = icmp eq i32 %18, 1
   br i1 %cmp.i.i.i101, label %if.then2.i.i.i118, label %if.else.i.i.i102
@@ -440,14 +440,14 @@ for.body.i111:                                    ; preds = %for.body.i111, %_ZN
   %i.04.i112 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i109 ], [ %inc.i113, %for.body.i111 ]
   store i64 -1, ptr %stdBitset75, align 8
   store i64 2047, ptr %__i.05.i.i.i.sroa.gep, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset75)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %stdBitset75)
   %inc.i113 = add nuw nsw i32 %i.04.i112, 1
   %exitcond.not.i114 = icmp eq i32 %inc.i113, 100000
   br i1 %exitcond.not.i114, label %for.end.i115, label %for.body.i111, !llvm.loop !10
 
 for.end.i115:                                     ; preds = %for.body.i111
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %22 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i123 = icmp eq i32 %22, 1
   br i1 %cmp.i.i.i123, label %if.then2.i.i.i140, label %if.else.i.i.i124
@@ -483,7 +483,7 @@ for.body.i133:                                    ; preds = %for.body.i133, %_ZN
   %i.04.i134 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i131 ], [ %inc.i135, %for.body.i133 ]
   store i64 -1, ptr %eaBitset75, align 8
   store i64 2047, ptr %arrayidx.i.i, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset75)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %eaBitset75)
   %inc.i135 = add nuw nsw i32 %i.04.i134, 1
   %exitcond.not.i136 = icmp eq i32 %inc.i135, 100000
   br i1 %exitcond.not.i136, label %for.end.i137, label %for.body.i133, !llvm.loop !11
@@ -500,7 +500,7 @@ if.then30:                                        ; preds = %for.end.i137
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then30, %for.end.i137
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %27 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i146 = icmp eq i32 %27, 1
   br i1 %cmp.i.i.i146, label %if.then2.i.i.i164, label %if.else.i.i.i147
@@ -536,14 +536,14 @@ for.body.i157:                                    ; preds = %for.body.i157, %_ZN
   %i.04.i158 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i154 ], [ %inc.i159, %for.body.i157 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500, i8 -1, i64 184, i1 false)
   store i64 268435455, ptr %arrayidx.i.i.i.i156, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset1500)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500)
   %inc.i159 = add nuw nsw i32 %i.04.i158, 1
   %exitcond.not.i160 = icmp eq i32 %inc.i159, 100000
   br i1 %exitcond.not.i160, label %for.end.i161, label %for.body.i157, !llvm.loop !12
 
 for.end.i161:                                     ; preds = %for.body.i157
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %31 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i169 = icmp eq i32 %31, 1
   br i1 %cmp.i.i.i169, label %if.then2.i.i.i187, label %if.else.i.i.i170
@@ -579,7 +579,7 @@ for.body.i180:                                    ; preds = %for.body.i180, %_ZN
   %i.04.i181 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i177 ], [ %inc.i182, %for.body.i180 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500, i8 -1, i64 184, i1 false)
   store i64 268435455, ptr %arrayidx.i.i179, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset1500)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500)
   %inc.i182 = add nuw nsw i32 %i.04.i181, 1
   %exitcond.not.i183 = icmp eq i32 %inc.i182, 100000
   br i1 %exitcond.not.i183, label %for.end.i184, label %for.body.i180, !llvm.loop !13
@@ -596,7 +596,7 @@ if.then42:                                        ; preds = %for.end.i184
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then42, %for.end.i184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %36 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i193 = icmp eq i32 %36, 1
   br i1 %cmp.i.i.i193, label %if.then2.i.i.i210, label %if.else.i.i.i194
@@ -633,14 +633,14 @@ for.body.i203:                                    ; preds = %for.body.i203, %_ZN
   %40 = load i64, ptr %stdBitset15, align 8
   %or.i.i.i = or i64 %40, 8192
   store i64 %or.i.i.i, ptr %stdBitset15, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset15)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset15)
   %inc.i205 = add nuw nsw i32 %i.04.i204, 1
   %exitcond.not.i206 = icmp eq i32 %inc.i205, 100000
   br i1 %exitcond.not.i206, label %for.end.i207, label %for.body.i203, !llvm.loop !14
 
 for.end.i207:                                     ; preds = %for.body.i203
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %41 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i215 = icmp eq i32 %41, 1
   br i1 %cmp.i.i.i215, label %if.then2.i.i.i233, label %if.else.i.i.i216
@@ -677,7 +677,7 @@ for.body.i225:                                    ; preds = %for.body.i225, %_ZN
   %45 = load i64, ptr %eaBitset15, align 8
   %or.i.i.i227 = or i64 %45, 8192
   store i64 %or.i.i.i227, ptr %eaBitset15, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset15)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset15)
   %inc.i228 = add nuw nsw i32 %i.04.i226, 1
   %exitcond.not.i229 = icmp eq i32 %inc.i228, 100000
   br i1 %exitcond.not.i229, label %for.end.i230, label %for.body.i225, !llvm.loop !15
@@ -694,7 +694,7 @@ if.then54:                                        ; preds = %for.end.i230
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then54, %for.end.i230
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %47 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i239 = icmp eq i32 %47, 1
   br i1 %cmp.i.i.i239, label %if.then2.i.i.i257, label %if.else.i.i.i240
@@ -731,14 +731,14 @@ for.body.i249:                                    ; preds = %for.body.i249, %_ZN
   %51 = load i64, ptr %stdBitset35, align 8
   %or.i.i.i251 = or i64 %51, 8589934592
   store i64 %or.i.i.i251, ptr %stdBitset35, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset35)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset35)
   %inc.i252 = add nuw nsw i32 %i.04.i250, 1
   %exitcond.not.i253 = icmp eq i32 %inc.i252, 100000
   br i1 %exitcond.not.i253, label %for.end.i254, label %for.body.i249, !llvm.loop !16
 
 for.end.i254:                                     ; preds = %for.body.i249
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %52 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i262 = icmp eq i32 %52, 1
   br i1 %cmp.i.i.i262, label %if.then2.i.i.i280, label %if.else.i.i.i263
@@ -775,7 +775,7 @@ for.body.i272:                                    ; preds = %for.body.i272, %_ZN
   %56 = load i64, ptr %eaBitset35, align 8
   %or.i.i.i274 = or i64 %56, 8589934592
   store i64 %or.i.i.i274, ptr %eaBitset35, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset35)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset35)
   %inc.i275 = add nuw nsw i32 %i.04.i273, 1
   %exitcond.not.i276 = icmp eq i32 %inc.i275, 100000
   br i1 %exitcond.not.i276, label %for.end.i277, label %for.body.i272, !llvm.loop !17
@@ -792,7 +792,7 @@ if.then66:                                        ; preds = %for.end.i277
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then66, %for.end.i277
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %58 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i286 = icmp eq i32 %58, 1
   br i1 %cmp.i.i.i286, label %if.then2.i.i.i305, label %if.else.i.i.i287
@@ -829,14 +829,14 @@ for.body.i297:                                    ; preds = %for.body.i297, %_ZN
   %62 = load i64, ptr %__i.05.i.i.i.sroa.gep, align 8
   %or.i.i.i299 = or i64 %62, 512
   store i64 %or.i.i.i299, ptr %__i.05.i.i.i.sroa.gep, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset75)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %stdBitset75)
   %inc.i300 = add nuw nsw i32 %i.04.i298, 1
   %exitcond.not.i301 = icmp eq i32 %inc.i300, 100000
   br i1 %exitcond.not.i301, label %for.end.i302, label %for.body.i297, !llvm.loop !18
 
 for.end.i302:                                     ; preds = %for.body.i297
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %63 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i310 = icmp eq i32 %63, 1
   br i1 %cmp.i.i.i310, label %if.then2.i.i.i328, label %if.else.i.i.i311
@@ -873,7 +873,7 @@ for.body.i320:                                    ; preds = %for.body.i320, %_ZN
   %67 = load i64, ptr %arrayidx.i.i, align 8
   %or.i.i.i322 = or i64 %67, 512
   store i64 %or.i.i.i322, ptr %arrayidx.i.i, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset75)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %eaBitset75)
   %inc.i323 = add nuw nsw i32 %i.04.i321, 1
   %exitcond.not.i324 = icmp eq i32 %inc.i323, 100000
   br i1 %exitcond.not.i324, label %for.end.i325, label %for.body.i320, !llvm.loop !19
@@ -890,7 +890,7 @@ if.then78:                                        ; preds = %for.end.i325
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then78, %for.end.i325
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %69 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i334 = icmp eq i32 %69, 1
   br i1 %cmp.i.i.i334, label %if.then2.i.i.i353, label %if.else.i.i.i335
@@ -927,14 +927,14 @@ for.body.i345:                                    ; preds = %for.body.i345, %_ZN
   %73 = load i64, ptr %arrayidx.i.i.i.i344, align 8
   %or.i.i.i347 = or i64 %73, 67108864
   store i64 %or.i.i.i347, ptr %arrayidx.i.i.i.i344, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset1500)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500)
   %inc.i348 = add nuw nsw i32 %i.04.i346, 1
   %exitcond.not.i349 = icmp eq i32 %inc.i348, 100000
   br i1 %exitcond.not.i349, label %for.end.i350, label %for.body.i345, !llvm.loop !20
 
 for.end.i350:                                     ; preds = %for.body.i345
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %74 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i358 = icmp eq i32 %74, 1
   br i1 %cmp.i.i.i358, label %if.then2.i.i.i377, label %if.else.i.i.i359
@@ -971,7 +971,7 @@ for.body.i369:                                    ; preds = %for.body.i369, %_ZN
   %78 = load i64, ptr %arrayidx.i.i.i368, align 8
   %or.i.i.i371 = or i64 %78, 67108864
   store i64 %or.i.i.i371, ptr %arrayidx.i.i.i368, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset1500)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500)
   %inc.i372 = add nuw nsw i32 %i.04.i370, 1
   %exitcond.not.i373 = icmp eq i32 %inc.i372, 100000
   br i1 %exitcond.not.i373, label %for.end.i374, label %for.body.i369, !llvm.loop !21
@@ -988,7 +988,7 @@ if.then90:                                        ; preds = %for.end.i374
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then90, %for.end.i374
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %80 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i383 = icmp eq i32 %80, 1
   br i1 %cmp.i.i.i383, label %if.then2.i.i.i400, label %if.else.i.i.i384
@@ -1023,14 +1023,14 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i391:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i393:                                    ; preds = %for.body.i393, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i391
   %i.04.i394 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i391 ], [ %inc.i395, %for.body.i393 ]
   store i64 0, ptr %stdBitset15, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset15)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset15)
   %inc.i395 = add nuw nsw i32 %i.04.i394, 1
   %exitcond.not.i396 = icmp eq i32 %inc.i395, 100000
   br i1 %exitcond.not.i396, label %for.end.i397, label %for.body.i393, !llvm.loop !22
 
 for.end.i397:                                     ; preds = %for.body.i393
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %84 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i405 = icmp eq i32 %84, 1
   br i1 %cmp.i.i.i405, label %if.then2.i.i.i422, label %if.else.i.i.i406
@@ -1065,7 +1065,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i413:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i415:                                    ; preds = %for.body.i415, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i413
   %i.04.i416 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i413 ], [ %inc.i417, %for.body.i415 ]
   store i64 0, ptr %eaBitset15, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset15)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset15)
   %inc.i417 = add nuw nsw i32 %i.04.i416, 1
   %exitcond.not.i418 = icmp eq i32 %inc.i417, 100000
   br i1 %exitcond.not.i418, label %for.end.i419, label %for.body.i415, !llvm.loop !23
@@ -1082,7 +1082,7 @@ if.then102:                                       ; preds = %for.end.i419
   br label %if.end110
 
 if.end110:                                        ; preds = %if.then102, %for.end.i419
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %89 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i428 = icmp eq i32 %89, 1
   br i1 %cmp.i.i.i428, label %if.then2.i.i.i445, label %if.else.i.i.i429
@@ -1117,14 +1117,14 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i436:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i438:                                    ; preds = %for.body.i438, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i436
   %i.04.i439 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i436 ], [ %inc.i440, %for.body.i438 ]
   store i64 0, ptr %stdBitset35, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset35)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset35)
   %inc.i440 = add nuw nsw i32 %i.04.i439, 1
   %exitcond.not.i441 = icmp eq i32 %inc.i440, 100000
   br i1 %exitcond.not.i441, label %for.end.i442, label %for.body.i438, !llvm.loop !24
 
 for.end.i442:                                     ; preds = %for.body.i438
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %93 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i450 = icmp eq i32 %93, 1
   br i1 %cmp.i.i.i450, label %if.then2.i.i.i467, label %if.else.i.i.i451
@@ -1159,7 +1159,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i458:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i460:                                    ; preds = %for.body.i460, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i458
   %i.04.i461 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i458 ], [ %inc.i462, %for.body.i460 ]
   store i64 0, ptr %eaBitset35, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset35)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset35)
   %inc.i462 = add nuw nsw i32 %i.04.i461, 1
   %exitcond.not.i463 = icmp eq i32 %inc.i462, 100000
   br i1 %exitcond.not.i463, label %for.end.i464, label %for.body.i460, !llvm.loop !25
@@ -1176,7 +1176,7 @@ if.then114:                                       ; preds = %for.end.i464
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then114, %for.end.i464
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %98 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i473 = icmp eq i32 %98, 1
   br i1 %cmp.i.i.i473, label %if.then2.i.i.i490, label %if.else.i.i.i474
@@ -1211,14 +1211,14 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i481:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i483:                                    ; preds = %for.body.i483, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i481
   %i.04.i484 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i481 ], [ %inc.i485, %for.body.i483 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stdBitset75, i8 0, i64 16, i1 false)
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset75)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %stdBitset75)
   %inc.i485 = add nuw nsw i32 %i.04.i484, 1
   %exitcond.not.i486 = icmp eq i32 %inc.i485, 100000
   br i1 %exitcond.not.i486, label %for.end.i487, label %for.body.i483, !llvm.loop !26
 
 for.end.i487:                                     ; preds = %for.body.i483
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %102 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i495 = icmp eq i32 %102, 1
   br i1 %cmp.i.i.i495, label %if.then2.i.i.i512, label %if.else.i.i.i496
@@ -1253,7 +1253,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i503:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i505:                                    ; preds = %for.body.i505, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i503
   %i.04.i506 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i503 ], [ %inc.i507, %for.body.i505 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %eaBitset75, i8 0, i64 16, i1 false)
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset75)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %eaBitset75)
   %inc.i507 = add nuw nsw i32 %i.04.i506, 1
   %exitcond.not.i508 = icmp eq i32 %inc.i507, 100000
   br i1 %exitcond.not.i508, label %for.end.i509, label %for.body.i505, !llvm.loop !27
@@ -1270,7 +1270,7 @@ if.then126:                                       ; preds = %for.end.i509
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then126, %for.end.i509
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %107 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i518 = icmp eq i32 %107, 1
   br i1 %cmp.i.i.i518, label %if.then2.i.i.i535, label %if.else.i.i.i519
@@ -1305,14 +1305,14 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i526:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i528:                                    ; preds = %for.body.i528, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i526
   %i.04.i529 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i526 ], [ %inc.i530, %for.body.i528 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500, i8 0, i64 192, i1 false)
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset1500)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500)
   %inc.i530 = add nuw nsw i32 %i.04.i529, 1
   %exitcond.not.i531 = icmp eq i32 %inc.i530, 100000
   br i1 %exitcond.not.i531, label %for.end.i532, label %for.body.i528, !llvm.loop !28
 
 for.end.i532:                                     ; preds = %for.body.i528
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %111 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i540 = icmp eq i32 %111, 1
   br i1 %cmp.i.i.i540, label %if.then2.i.i.i557, label %if.else.i.i.i541
@@ -1347,7 +1347,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i548:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i550:                                    ; preds = %for.body.i550, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i548
   %i.04.i551 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i548 ], [ %inc.i552, %for.body.i550 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500, i8 0, i64 192, i1 false)
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset1500)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500)
   %inc.i552 = add nuw nsw i32 %i.04.i551, 1
   %exitcond.not.i553 = icmp eq i32 %inc.i552, 100000
   br i1 %exitcond.not.i553, label %for.end.i554, label %for.body.i550, !llvm.loop !29
@@ -1364,7 +1364,7 @@ if.then138:                                       ; preds = %for.end.i554
   br label %if.end146
 
 if.end146:                                        ; preds = %if.then138, %for.end.i554
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %116 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i563 = icmp eq i32 %116, 1
   br i1 %cmp.i.i.i563, label %if.then2.i.i.i580, label %if.else.i.i.i564
@@ -1402,14 +1402,14 @@ for.body.i573:                                    ; preds = %for.body.i573, %_ZN
   %not.i.i.i = and i64 %120, 32767
   %and.i.i.i.i = xor i64 %not.i.i.i, 32767
   store i64 %and.i.i.i.i, ptr %stdBitset15, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset15)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset15)
   %inc.i575 = add nuw nsw i32 %i.04.i574, 1
   %exitcond.not.i576 = icmp eq i32 %inc.i575, 100000
   br i1 %exitcond.not.i576, label %for.end.i577, label %for.body.i573, !llvm.loop !30
 
 for.end.i577:                                     ; preds = %for.body.i573
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %121 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i585 = icmp eq i32 %121, 1
   br i1 %cmp.i.i.i585, label %if.then2.i.i.i603, label %if.else.i.i.i586
@@ -1447,7 +1447,7 @@ for.body.i595:                                    ; preds = %for.body.i595, %_ZN
   %not.i.i.i597 = and i64 %125, 32767
   %and.i.i = xor i64 %not.i.i.i597, 32767
   store i64 %and.i.i, ptr %eaBitset15, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset15)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset15)
   %inc.i598 = add nuw nsw i32 %i.04.i596, 1
   %exitcond.not.i599 = icmp eq i32 %inc.i598, 100000
   br i1 %exitcond.not.i599, label %for.end.i600, label %for.body.i595, !llvm.loop !31
@@ -1464,7 +1464,7 @@ if.then150:                                       ; preds = %for.end.i600
   br label %if.end158
 
 if.end158:                                        ; preds = %if.then150, %for.end.i600
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %127 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i609 = icmp eq i32 %127, 1
   br i1 %cmp.i.i.i609, label %if.then2.i.i.i628, label %if.else.i.i.i610
@@ -1502,14 +1502,14 @@ for.body.i619:                                    ; preds = %for.body.i619, %_ZN
   %not.i.i.i621 = and i64 %131, 34359738367
   %and.i.i.i.i622 = xor i64 %not.i.i.i621, 34359738367
   store i64 %and.i.i.i.i622, ptr %stdBitset35, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset35)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset35)
   %inc.i623 = add nuw nsw i32 %i.04.i620, 1
   %exitcond.not.i624 = icmp eq i32 %inc.i623, 100000
   br i1 %exitcond.not.i624, label %for.end.i625, label %for.body.i619, !llvm.loop !32
 
 for.end.i625:                                     ; preds = %for.body.i619
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %132 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i633 = icmp eq i32 %132, 1
   br i1 %cmp.i.i.i633, label %if.then2.i.i.i652, label %if.else.i.i.i634
@@ -1547,7 +1547,7 @@ for.body.i643:                                    ; preds = %for.body.i643, %_ZN
   %not.i.i.i645 = and i64 %136, 34359738367
   %and.i.i646 = xor i64 %not.i.i.i645, 34359738367
   store i64 %and.i.i646, ptr %eaBitset35, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset35)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset35)
   %inc.i647 = add nuw nsw i32 %i.04.i644, 1
   %exitcond.not.i648 = icmp eq i32 %inc.i647, 100000
   br i1 %exitcond.not.i648, label %for.end.i649, label %for.body.i643, !llvm.loop !33
@@ -1564,7 +1564,7 @@ if.then162:                                       ; preds = %for.end.i649
   br label %if.end170
 
 if.end170:                                        ; preds = %if.then162, %for.end.i649
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %138 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i658 = icmp eq i32 %138, 1
   br i1 %cmp.i.i.i658, label %if.then2.i.i.i677, label %if.else.i.i.i659
@@ -1605,14 +1605,14 @@ for.body.i668:                                    ; preds = %for.body.i668, %_ZN
   %not.i.c.i.i = and i64 %143, 2047
   %and.i.i.i.i671 = xor i64 %not.i.c.i.i, 2047
   store i64 %and.i.i.i.i671, ptr %__i.05.i.i.i.sroa.gep, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset75)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %stdBitset75)
   %inc.i672 = add nuw nsw i32 %i.04.i669, 1
   %exitcond.not.i673 = icmp eq i32 %inc.i672, 100000
   br i1 %exitcond.not.i673, label %for.end.i674, label %for.body.i668, !llvm.loop !34
 
 for.end.i674:                                     ; preds = %for.body.i668
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %144 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i682 = icmp eq i32 %144, 1
   br i1 %cmp.i.i.i682, label %if.then2.i.i.i701, label %if.else.i.i.i683
@@ -1653,7 +1653,7 @@ for.body.i692:                                    ; preds = %for.body.i692, %_ZN
   %not6.i.i.i = and i64 %149, 2047
   %and.i.i695 = xor i64 %not6.i.i.i, 2047
   store i64 %and.i.i695, ptr %arrayidx.i.i, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset75)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %eaBitset75)
   %inc.i696 = add nuw nsw i32 %i.04.i693, 1
   %exitcond.not.i697 = icmp eq i32 %inc.i696, 100000
   br i1 %exitcond.not.i697, label %for.end.i698, label %for.body.i692, !llvm.loop !35
@@ -1670,7 +1670,7 @@ if.then174:                                       ; preds = %for.end.i698
   br label %if.end182
 
 if.end182:                                        ; preds = %if.then174, %for.end.i698
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %151 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i707 = icmp eq i32 %151, 1
   br i1 %cmp.i.i.i707, label %if.then2.i.i.i727, label %if.else.i.i.i708
@@ -1720,14 +1720,14 @@ _ZNSt6bitsetILm1500EE4flipEv.exit.i:              ; preds = %for.body.i.i.i
   %156 = load i64, ptr %arrayidx.i.i.i.i156, align 8
   %and.i.i.i.i721 = and i64 %156, 268435455
   store i64 %and.i.i.i.i721, ptr %arrayidx.i.i.i.i156, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset1500)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500)
   %inc.i722 = add nuw nsw i32 %i.04.i718, 1
   %exitcond.not.i723 = icmp eq i32 %inc.i722, 100000
   br i1 %exitcond.not.i723, label %for.end.i724, label %for.body.i.i.preheader.i, !llvm.loop !37
 
 for.end.i724:                                     ; preds = %_ZNSt6bitsetILm1500EE4flipEv.exit.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %157 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i732 = icmp eq i32 %157, 1
   br i1 %cmp.i.i.i732, label %if.then2.i.i.i756, label %if.else.i.i.i733
@@ -1777,7 +1777,7 @@ _ZN5eastl6bitsetILm1500EmE4flipEv.exit.i:         ; preds = %for.body.i.i.i745
   %162 = load i64, ptr %arrayidx.i.i179, align 8
   %and.i.i750 = and i64 %162, 268435455
   store i64 %and.i.i750, ptr %arrayidx.i.i179, align 8
-  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %eaBitset1500)
+  call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500)
   %inc.i751 = add nuw nsw i32 %i.04.i744, 1
   %exitcond.not.i752 = icmp eq i32 %inc.i751, 100000
   br i1 %exitcond.not.i752, label %for.end.i753, label %for.body.i.i.preheader.i743, !llvm.loop !39
@@ -1794,7 +1794,7 @@ if.then186:                                       ; preds = %for.end.i753
   br label %if.end194
 
 if.end194:                                        ; preds = %if.then186, %for.end.i753
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %164 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i762 = icmp eq i32 %164, 1
   br i1 %cmp.i.i.i762, label %if.then2.i.i.i778, label %if.else.i.i.i763
@@ -1841,7 +1841,7 @@ for.body.i772:                                    ; preds = %for.body.i772, %_ZN
 
 for.end.i775:                                     ; preds = %for.body.i772
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %171 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i783 = icmp eq i32 %171, 1
   br i1 %cmp.i.i.i783, label %if.then2.i.i.i803, label %if.else.i.i.i784
@@ -1898,7 +1898,7 @@ if.then198:                                       ; preds = %for.end.i800
   br label %if.end206
 
 if.end206:                                        ; preds = %if.then198, %for.end.i800
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %179 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i809 = icmp eq i32 %179, 1
   br i1 %cmp.i.i.i809, label %if.then2.i.i.i829, label %if.else.i.i.i810
@@ -1945,7 +1945,7 @@ for.body.i819:                                    ; preds = %for.body.i819, %_ZN
 
 for.end.i826:                                     ; preds = %for.body.i819
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %186 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i834 = icmp eq i32 %186, 1
   br i1 %cmp.i.i.i834, label %if.then2.i.i.i854, label %if.else.i.i.i835
@@ -2002,7 +2002,7 @@ if.then210:                                       ; preds = %for.end.i851
   br label %if.end218
 
 if.end218:                                        ; preds = %if.then210, %for.end.i851
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %194 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i860 = icmp eq i32 %194, 1
   br i1 %cmp.i.i.i860, label %if.then2.i.i.i880, label %if.else.i.i.i861
@@ -2049,7 +2049,7 @@ for.body.i870:                                    ; preds = %for.body.i870, %_ZN
 
 for.end.i877:                                     ; preds = %for.body.i870
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %201 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i885 = icmp eq i32 %201, 1
   br i1 %cmp.i.i.i885, label %if.then2.i.i.i905, label %if.else.i.i.i886
@@ -2106,7 +2106,7 @@ if.then222:                                       ; preds = %for.end.i902
   br label %if.end230
 
 if.end230:                                        ; preds = %if.then222, %for.end.i902
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %209 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i911 = icmp eq i32 %209, 1
   br i1 %cmp.i.i.i911, label %if.then2.i.i.i932, label %if.else.i.i.i912
@@ -2156,7 +2156,7 @@ for.body.i921:                                    ; preds = %for.body.i921, %_ZN
 
 for.end.i929:                                     ; preds = %for.body.i921
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %216 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i937 = icmp eq i32 %216, 1
   br i1 %cmp.i.i.i937, label %if.then2.i.i.i959, label %if.else.i.i.i938
@@ -2218,7 +2218,7 @@ if.then234:                                       ; preds = %for.end.i956
 if.end242:                                        ; preds = %if.then234, %for.end.i956
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i)
   store i64 0, ptr %temp.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %224 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i965 = icmp eq i32 %224, 1
   br i1 %cmp.i.i.i965, label %if.then2.i.i.i981, label %if.else.i.i.i966
@@ -2267,7 +2267,7 @@ for.end.i978:                                     ; preds = %for.body.i975
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i985)
   store i64 0, ptr %temp.i985, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %231 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i987 = icmp eq i32 %231, 1
   br i1 %cmp.i.i.i987, label %if.then2.i.i.i1005, label %if.else.i.i.i988
@@ -2326,7 +2326,7 @@ if.then246:                                       ; preds = %for.end.i1002
 if.end254:                                        ; preds = %if.then246, %for.end.i1002
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1010)
   store i64 0, ptr %temp.i1010, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %239 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1012 = icmp eq i32 %239, 1
   br i1 %cmp.i.i.i1012, label %if.then2.i.i.i1030, label %if.else.i.i.i1013
@@ -2375,7 +2375,7 @@ for.end.i1027:                                    ; preds = %for.body.i1022
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1010)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1034)
   store i64 0, ptr %temp.i1034, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %246 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i1036 = icmp eq i32 %246, 1
   br i1 %cmp.i.i.i1036, label %if.then2.i.i.i1054, label %if.else.i.i.i1037
@@ -2434,7 +2434,7 @@ if.then258:                                       ; preds = %for.end.i1051
 if.end266:                                        ; preds = %if.then258, %for.end.i1051
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1059)
   store i64 0, ptr %temp.i1059, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %254 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1061 = icmp eq i32 %254, 1
   br i1 %cmp.i.i.i1061, label %if.then2.i.i.i1081, label %if.else.i.i.i1062
@@ -2493,7 +2493,7 @@ for.end.i1078:                                    ; preds = %_ZNKSt6bitsetILm75E
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1059)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1085)
   store i64 0, ptr %temp.i1085, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %261 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i1087 = icmp eq i32 %261, 1
   br i1 %cmp.i.i.i1087, label %if.then2.i.i.i1105, label %if.else.i.i.i1088
@@ -2555,7 +2555,7 @@ if.then270:                                       ; preds = %for.end.i1102
 if.end278:                                        ; preds = %if.then270, %for.end.i1102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1110)
   store i64 0, ptr %temp.i1110, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %271 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1112 = icmp eq i32 %271, 1
   br i1 %cmp.i.i.i1112, label %if.then2.i.i.i1137, label %if.else.i.i.i1113
@@ -2616,7 +2616,7 @@ for.end.i1134:                                    ; preds = %_ZNKSt6bitsetILm150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1110)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1141)
   store i64 0, ptr %temp.i1141, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %278 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i1143 = icmp eq i32 %278, 1
   br i1 %cmp.i.i.i1143, label %if.then2.i.i.i1162, label %if.else.i.i.i1144
@@ -2687,7 +2687,7 @@ if.then282:                                       ; preds = %for.end.i1159
 if.end290:                                        ; preds = %if.then282, %for.end.i1159
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1167)
   store i64 0, ptr %temp.i1167, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %286 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1169 = icmp eq i32 %286, 1
   br i1 %cmp.i.i.i1169, label %if.then2.i.i.i1188, label %if.else.i.i.i1170
@@ -2735,7 +2735,7 @@ for.end.i1185:                                    ; preds = %for.body.i1179
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1167)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1192)
   store i64 0, ptr %temp.i1192, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %291 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i1194 = icmp eq i32 %291, 1
   br i1 %cmp.i.i.i1194, label %if.then2.i.i.i1212, label %if.else.i.i.i1195
@@ -2795,7 +2795,7 @@ if.then294:                                       ; preds = %for.end.i1209
 if.end305:                                        ; preds = %if.then294, %for.end.i1209
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1217)
   store i64 0, ptr %temp.i1217, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %297 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1219 = icmp eq i32 %297, 1
   br i1 %cmp.i.i.i1219, label %if.then2.i.i.i1238, label %if.else.i.i.i1220
@@ -2843,7 +2843,7 @@ for.end.i1235:                                    ; preds = %for.body.i1229
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1217)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1242)
   store i64 0, ptr %temp.i1242, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %302 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i1244 = icmp eq i32 %302, 1
   br i1 %cmp.i.i.i1244, label %if.then2.i.i.i1262, label %if.else.i.i.i1245
@@ -2903,7 +2903,7 @@ if.then309:                                       ; preds = %for.end.i1259
 if.end321:                                        ; preds = %if.then309, %for.end.i1259
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1267)
   store i64 0, ptr %temp.i1267, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %308 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1269 = icmp eq i32 %308, 1
   br i1 %cmp.i.i.i1269, label %if.then2.i.i.i1287, label %if.else.i.i.i1270
@@ -2954,7 +2954,7 @@ for.end.i1284:                                    ; preds = %for.body12.i.i.preh
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1267)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1291)
   store i64 0, ptr %temp.i1291, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %314 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i1293 = icmp eq i32 %314, 1
   br i1 %cmp.i.i.i1293, label %if.then2.i.i.i1312, label %if.else.i.i.i1294
@@ -3017,7 +3017,7 @@ if.then325:                                       ; preds = %for.end.i1309
 if.end337:                                        ; preds = %if.then325, %for.end.i1309
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1317)
   store i64 0, ptr %temp.i1317, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %320 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1319 = icmp eq i32 %320, 1
   br i1 %cmp.i.i.i1319, label %if.then2.i.i.i1341, label %if.else.i.i.i1320
@@ -3081,7 +3081,7 @@ for.end.i1338:                                    ; preds = %_ZNSt6bitsetILm1500
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i1317)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i1345)
   store i64 0, ptr %temp.i1345, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %327 = load i32, ptr %mnUnits.i.i.i33, align 8
   %cmp.i.i.i1347 = icmp eq i32 %327, 1
   br i1 %cmp.i.i.i1347, label %if.then2.i.i.i1366, label %if.else.i.i.i1348

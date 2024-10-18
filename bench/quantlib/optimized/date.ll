@@ -4449,7 +4449,7 @@ invoke.cont16:                                    ; preds = %_ZNKSt9basic_iosIcS
 lpad.i.i:                                         ; preds = %invoke.cont16
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6locale5facetD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %call17) #29
+  call void @_ZNSt6locale5facetD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call17) #29
   call void @_ZdlPvm(ptr noundef nonnull %call17, i64 noundef 24) #31
   br label %ehcleanup
 
@@ -5198,7 +5198,7 @@ invoke.cont24:                                    ; preds = %invoke.cont20
 
 invoke.cont29:                                    ; preds = %invoke.cont24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp30, i8 0, i64 24, i1 false)
-  %call.i.i.i.i1.i = invoke ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPA17_KcSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEET0_T_SI_SH_(ptr noundef nonnull @_ZN5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE27default_special_value_namesE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE27default_special_value_namesE, i64 51), ptr nonnull %agg.tmp30)
+  %call.i.i.i.i1.i = invoke ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPA17_KcSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEET0_T_SI_SH_(ptr noundef nonnull @_ZN5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE27default_special_value_namesE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE27default_special_value_namesE, i64 51), ptr nonnull align 8 dereferenceable(24) %agg.tmp30)
           to label %invoke.cont32 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont29
@@ -8128,7 +8128,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_9gregorian8bad_yearEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #31
   ret void
 }
 
@@ -8205,7 +8205,7 @@ _ZN5boost10wrapexceptINS_9gregorian8bad_yearEED0Ev.exit: ; preds = %entry, %call
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #31
   ret void
 }
 
@@ -8801,7 +8801,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_9gregorian9bad_monthEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #31
   ret void
 }
 
@@ -8875,7 +8875,7 @@ _ZN5boost10wrapexceptINS_9gregorian9bad_monthEED0Ev.exit: ; preds = %entry, %cal
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #31
   ret void
 }
 
@@ -9273,7 +9273,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #31
   ret void
 }
 
@@ -9347,7 +9347,7 @@ _ZN5boost10wrapexceptINS_9gregorian16bad_day_of_monthEED0Ev.exit: ; preds = %ent
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #31
   ret void
 }
 
@@ -14789,7 +14789,7 @@ invoke.cont9:                                     ; preds = %entry
 invoke.cont11:                                    ; preds = %invoke.cont9
   %m_special_values_formatter = getelementptr inbounds nuw i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_special_values_formatter, i8 0, i64 24, i1 false)
-  %call.i.i.i.i1.i = invoke ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPA17_KcSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEET0_T_SI_SH_(ptr noundef nonnull @_ZN5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE27default_special_value_namesE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE27default_special_value_namesE, i64 51), ptr nonnull %m_special_values_formatter)
+  %call.i.i.i.i1.i = invoke ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPA17_KcSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEET0_T_SI_SH_(ptr noundef nonnull @_ZN5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE27default_special_value_namesE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5boost9date_time24special_values_formatterIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE27default_special_value_namesE, i64 51), ptr nonnull align 8 dereferenceable(24) %m_special_values_formatter)
           to label %invoke.cont13 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont11
@@ -15418,7 +15418,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt12out_of_rangeED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #31
   ret void
 }
 
@@ -15492,7 +15492,7 @@ _ZN5boost10wrapexceptISt12out_of_rangeED0Ev.exit: ; preds = %entry, %call.i.noex
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #31
   ret void
 }
 
@@ -15959,7 +15959,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_9gregorian11bad_weekdayEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #31
   ret void
 }
 
@@ -16033,7 +16033,7 @@ _ZN5boost10wrapexceptINS_9gregorian11bad_weekdayEED0Ev.exit: ; preds = %entry, %
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #31
   ret void
 }
 
@@ -16434,7 +16434,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_9gregorian15bad_day_of_yearEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #31
   ret void
 }
 
@@ -16508,7 +16508,7 @@ _ZN5boost10wrapexceptINS_9gregorian15bad_day_of_yearEED0Ev.exit: ; preds = %entr
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #31
   ret void
 }
 

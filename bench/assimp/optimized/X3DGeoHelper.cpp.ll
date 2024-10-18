@@ -248,7 +248,7 @@ for.body:                                         ; preds = %if.end15, %for.body
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %_M_storage.i.i.i.i, align 4
   %ref.tmp.sroa.2.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   store float 0.000000e+00, ptr %ref.tmp.sroa.2.0._M_storage.i.i.i.i.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %7 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %7, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -266,7 +266,7 @@ if.then26:                                        ; preds = %for.end
   %call5.i.i.i.i.i.i18 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_M_storage.i.i.i.i19 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i18, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i19, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i, i64 12, i1 false)
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i18, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %9 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i21 = add i64 %9, 1
   store i64 %add.i.i.i21, ptr %_M_size.i.i.i, align 8
@@ -290,19 +290,19 @@ entry:
   %message.addr = alloca ptr, align 8
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
   store ptr %message, ptr %message.addr, align 8
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp)
   invoke void @_ZN15DeadlyErrorBaseC2IJEPKcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %message.addr)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #22
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #22
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #22
   resume { ptr, i32 } %0
 }
 
@@ -355,7 +355,7 @@ if.end:                                           ; preds = %entry
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i, i64 12, i1 false)
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %pLine) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %pLine) #22
   %_M_size.i.i.i6 = getelementptr inbounds i8, ptr %pLine, i64 16
   %5 = load i64, ptr %_M_size.i.i.i6, align 8
   %add.i.i.i = add i64 %5, 1
@@ -369,14 +369,14 @@ while.body:                                       ; preds = %if.end, %while.body
   %call5.i.i.i.i.i.i8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_M_storage.i.i.i.i9 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i9, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i7, i64 12, i1 false)
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i8, ptr noundef nonnull %pLine) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i8, ptr noundef nonnull align 8 dereferenceable(24) %pLine) #22
   %6 = load i64, ptr %_M_size.i.i.i6, align 8
   %add.i.i.i11 = add i64 %6, 1
   store i64 %add.i.i.i11, ptr %_M_size.i.i.i6, align 8
   %call5.i.i.i.i.i.i13 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_M_storage.i.i.i.i14 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i13, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i14, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i7, i64 12, i1 false)
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i13, ptr noundef nonnull %pLine) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %pLine) #22
   %7 = load i64, ptr %_M_size.i.i.i6, align 8
   %add.i.i.i16 = add i64 %7, 1
   store i64 %add.i.i.i16, ptr %_M_size.i.i.i6, align 8
@@ -390,7 +390,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %call5.i.i.i.i.i.i18 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %_M_storage.i.i.i.i19 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i18, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i19, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i17, i64 12, i1 false)
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i18, ptr noundef nonnull %pLine) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(24) %pLine) #22
   %9 = load i64, ptr %_M_size.i.i.i6, align 8
   %add.i.i.i21 = add i64 %9, 1
   store i64 %add.i.i.i21, ptr %_M_size.i.i.i6, align 8
@@ -416,7 +416,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   %2 = load i32, ptr %_M_storage.i.i, align 4
   store i32 %2, ptr %_M_storage.i.i.i.i, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %pLineCoordIdx) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %pLineCoordIdx) #22
   %storemerge.in32 = load i64, ptr %_M_size.i.i.i, align 8
   %storemerge33 = add i64 %storemerge.in32, 1
   store i64 %storemerge33, ptr %_M_size.i.i.i, align 8
@@ -435,14 +435,14 @@ while.body14:                                     ; preds = %while.body, %if.end
   %_M_storage.i.i.i.i11 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i10, i64 16
   %5 = load i32, ptr %_M_storage.i.i739, align 4
   store i32 %5, ptr %_M_storage.i.i.i.i11, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i10, ptr noundef nonnull %pLineCoordIdx) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i10, ptr noundef nonnull align 8 dereferenceable(24) %pLineCoordIdx) #22
   %6 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i13 = add i64 %6, 1
   store i64 %add.i.i.i13, ptr %_M_size.i.i.i, align 8
   %call5.i.i.i.i.i.i14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %_M_storage.i.i.i.i15 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 16
   store i32 -1, ptr %_M_storage.i.i.i.i15, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i14, ptr noundef nonnull %pLineCoordIdx) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i14, ptr noundef nonnull align 8 dereferenceable(24) %pLineCoordIdx) #22
   %7 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i17 = add i64 %7, 1
   store i64 %add.i.i.i17, ptr %_M_size.i.i.i, align 8
@@ -458,7 +458,7 @@ if.end:                                           ; preds = %while.body14
   %_M_storage.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i21, i64 16
   %9 = load i32, ptr %_M_storage.i.i739, align 4
   store i32 %9, ptr %_M_storage.i.i.i.i22, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i21, ptr noundef nonnull %pLineCoordIdx) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i21, ptr noundef nonnull align 8 dereferenceable(24) %pLineCoordIdx) #22
   %storemerge.in = load i64, ptr %_M_size.i.i.i, align 8
   %storemerge = add i64 %storemerge.in, 1
   store i64 %storemerge, ptr %_M_size.i.i.i, align 8
@@ -496,7 +496,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.23.36._M_storage.i.i.i.i.sroa_idx, align 4
   %vert_set.sroa.24.36._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   store float %fneg4, ptr %vert_set.sroa.24.36._M_storage.i.i.i.i.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %pVertices, i64 16
   %3 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %3, 1
@@ -508,7 +508,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.17.24._M_storage.i.i.i.i66.sroa_idx, align 4
   %vert_set.sroa.18.24._M_storage.i.i.i.i66.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i65, i64 24
   store float %fneg4, ptr %vert_set.sroa.18.24._M_storage.i.i.i.i66.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i65, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i65, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %4 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i68 = add i64 %4, 1
   store i64 %add.i.i.i68, ptr %_M_size.i.i.i, align 8
@@ -519,7 +519,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.11.12._M_storage.i.i.i.i70.sroa_idx, align 4
   %vert_set.sroa.12.12._M_storage.i.i.i.i70.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i69, i64 24
   store float %div3, ptr %vert_set.sroa.12.12._M_storage.i.i.i.i70.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i69, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %5 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i72 = add i64 %5, 1
   store i64 %add.i.i.i72, ptr %_M_size.i.i.i, align 8
@@ -530,7 +530,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.5.0._M_storage.i.i.i.i74.sroa_idx, align 4
   %vert_set.sroa.6.0._M_storage.i.i.i.i74.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i73, i64 24
   store float %div3, ptr %vert_set.sroa.6.0._M_storage.i.i.i.i74.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i73, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i73, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %6 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i76 = add i64 %6, 1
   store i64 %add.i.i.i76, ptr %_M_size.i.i.i, align 8
@@ -541,7 +541,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.41.72._M_storage.i.i.i.i78.sroa_idx, align 4
   %vert_set.sroa.42.72._M_storage.i.i.i.i78.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i77, i64 24
   store float %fneg4, ptr %vert_set.sroa.42.72._M_storage.i.i.i.i78.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i77, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %7 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i80 = add i64 %7, 1
   store i64 %add.i.i.i80, ptr %_M_size.i.i.i, align 8
@@ -552,7 +552,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.47.84._M_storage.i.i.i.i82.sroa_idx, align 4
   %vert_set.sroa.48.84._M_storage.i.i.i.i82.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i81, i64 24
   store float %fneg4, ptr %vert_set.sroa.48.84._M_storage.i.i.i.i82.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i81, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i81, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %8 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i84 = add i64 %8, 1
   store i64 %add.i.i.i84, ptr %_M_size.i.i.i, align 8
@@ -563,7 +563,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.29.48._M_storage.i.i.i.i86.sroa_idx, align 4
   %vert_set.sroa.30.48._M_storage.i.i.i.i86.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i85, i64 24
   store float %div3, ptr %vert_set.sroa.30.48._M_storage.i.i.i.i86.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i85, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i85, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %9 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i88 = add i64 %9, 1
   store i64 %add.i.i.i88, ptr %_M_size.i.i.i, align 8
@@ -574,7 +574,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.35.60._M_storage.i.i.i.i90.sroa_idx, align 4
   %vert_set.sroa.36.60._M_storage.i.i.i.i90.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 24
   store float %div3, ptr %vert_set.sroa.36.60._M_storage.i.i.i.i90.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i89, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i89, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %10 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i92 = add i64 %10, 1
   store i64 %add.i.i.i92, ptr %_M_size.i.i.i, align 8
@@ -585,7 +585,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.47.84._M_storage.i.i.i.i94.sroa_idx, align 4
   %vert_set.sroa.48.84._M_storage.i.i.i.i94.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i93, i64 24
   store float %fneg4, ptr %vert_set.sroa.48.84._M_storage.i.i.i.i94.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i93, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i93, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %11 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i96 = add i64 %11, 1
   store i64 %add.i.i.i96, ptr %_M_size.i.i.i, align 8
@@ -596,7 +596,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.23.36._M_storage.i.i.i.i98.sroa_idx, align 4
   %vert_set.sroa.24.36._M_storage.i.i.i.i98.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i97, i64 24
   store float %fneg4, ptr %vert_set.sroa.24.36._M_storage.i.i.i.i98.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i97, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i97, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %12 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i100 = add i64 %12, 1
   store i64 %add.i.i.i100, ptr %_M_size.i.i.i, align 8
@@ -607,7 +607,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.5.0._M_storage.i.i.i.i102.sroa_idx, align 4
   %vert_set.sroa.6.0._M_storage.i.i.i.i102.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i101, i64 24
   store float %div3, ptr %vert_set.sroa.6.0._M_storage.i.i.i.i102.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i101, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i101, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %13 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i104 = add i64 %13, 1
   store i64 %add.i.i.i104, ptr %_M_size.i.i.i, align 8
@@ -618,7 +618,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.29.48._M_storage.i.i.i.i106.sroa_idx, align 4
   %vert_set.sroa.30.48._M_storage.i.i.i.i106.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i105, i64 24
   store float %div3, ptr %vert_set.sroa.30.48._M_storage.i.i.i.i106.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i105, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i105, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %14 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i108 = add i64 %14, 1
   store i64 %add.i.i.i108, ptr %_M_size.i.i.i, align 8
@@ -629,7 +629,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.17.24._M_storage.i.i.i.i110.sroa_idx, align 4
   %vert_set.sroa.18.24._M_storage.i.i.i.i110.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i109, i64 24
   store float %fneg4, ptr %vert_set.sroa.18.24._M_storage.i.i.i.i110.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i109, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i109, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %15 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i112 = add i64 %15, 1
   store i64 %add.i.i.i112, ptr %_M_size.i.i.i, align 8
@@ -640,7 +640,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.41.72._M_storage.i.i.i.i114.sroa_idx, align 4
   %vert_set.sroa.42.72._M_storage.i.i.i.i114.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i113, i64 24
   store float %fneg4, ptr %vert_set.sroa.42.72._M_storage.i.i.i.i114.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i113, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i113, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %16 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i116 = add i64 %16, 1
   store i64 %add.i.i.i116, ptr %_M_size.i.i.i, align 8
@@ -651,7 +651,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.35.60._M_storage.i.i.i.i118.sroa_idx, align 4
   %vert_set.sroa.36.60._M_storage.i.i.i.i118.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i117, i64 24
   store float %div3, ptr %vert_set.sroa.36.60._M_storage.i.i.i.i118.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i117, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i117, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %17 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i120 = add i64 %17, 1
   store i64 %add.i.i.i120, ptr %_M_size.i.i.i, align 8
@@ -662,7 +662,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.11.12._M_storage.i.i.i.i122.sroa_idx, align 4
   %vert_set.sroa.12.12._M_storage.i.i.i.i122.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i121, i64 24
   store float %div3, ptr %vert_set.sroa.12.12._M_storage.i.i.i.i122.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i121, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i121, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %18 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i124 = add i64 %18, 1
   store i64 %add.i.i.i124, ptr %_M_size.i.i.i, align 8
@@ -673,7 +673,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.5.0._M_storage.i.i.i.i126.sroa_idx, align 4
   %vert_set.sroa.6.0._M_storage.i.i.i.i126.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i125, i64 24
   store float %div3, ptr %vert_set.sroa.6.0._M_storage.i.i.i.i126.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i125, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i125, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %19 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i128 = add i64 %19, 1
   store i64 %add.i.i.i128, ptr %_M_size.i.i.i, align 8
@@ -684,7 +684,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.11.12._M_storage.i.i.i.i130.sroa_idx, align 4
   %vert_set.sroa.12.12._M_storage.i.i.i.i130.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i129, i64 24
   store float %div3, ptr %vert_set.sroa.12.12._M_storage.i.i.i.i130.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i129, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i129, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %20 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i132 = add i64 %20, 1
   store i64 %add.i.i.i132, ptr %_M_size.i.i.i, align 8
@@ -695,7 +695,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.35.60._M_storage.i.i.i.i134.sroa_idx, align 4
   %vert_set.sroa.36.60._M_storage.i.i.i.i134.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i133, i64 24
   store float %div3, ptr %vert_set.sroa.36.60._M_storage.i.i.i.i134.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i133, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i133, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %21 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i136 = add i64 %21, 1
   store i64 %add.i.i.i136, ptr %_M_size.i.i.i, align 8
@@ -706,7 +706,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.29.48._M_storage.i.i.i.i138.sroa_idx, align 4
   %vert_set.sroa.30.48._M_storage.i.i.i.i138.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i137, i64 24
   store float %div3, ptr %vert_set.sroa.30.48._M_storage.i.i.i.i138.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i137, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i137, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %22 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i140 = add i64 %22, 1
   store i64 %add.i.i.i140, ptr %_M_size.i.i.i, align 8
@@ -717,7 +717,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.47.84._M_storage.i.i.i.i142.sroa_idx, align 4
   %vert_set.sroa.48.84._M_storage.i.i.i.i142.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i141, i64 24
   store float %fneg4, ptr %vert_set.sroa.48.84._M_storage.i.i.i.i142.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i141, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i141, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %23 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i144 = add i64 %23, 1
   store i64 %add.i.i.i144, ptr %_M_size.i.i.i, align 8
@@ -728,7 +728,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.41.72._M_storage.i.i.i.i146.sroa_idx, align 4
   %vert_set.sroa.42.72._M_storage.i.i.i.i146.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i145, i64 24
   store float %fneg4, ptr %vert_set.sroa.42.72._M_storage.i.i.i.i146.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i145, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i145, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %24 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i148 = add i64 %24, 1
   store i64 %add.i.i.i148, ptr %_M_size.i.i.i, align 8
@@ -739,7 +739,7 @@ entry:
   store float %div1, ptr %vert_set.sroa.17.24._M_storage.i.i.i.i150.sroa_idx, align 4
   %vert_set.sroa.18.24._M_storage.i.i.i.i150.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i149, i64 24
   store float %fneg4, ptr %vert_set.sroa.18.24._M_storage.i.i.i.i150.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i149, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i149, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %25 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i152 = add i64 %25, 1
   store i64 %add.i.i.i152, ptr %_M_size.i.i.i, align 8
@@ -750,7 +750,7 @@ entry:
   store float %fneg2, ptr %vert_set.sroa.23.36._M_storage.i.i.i.i154.sroa_idx, align 4
   %vert_set.sroa.24.36._M_storage.i.i.i.i154.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i153, i64 24
   store float %fneg4, ptr %vert_set.sroa.24.36._M_storage.i.i.i.i154.sroa_idx, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i153, ptr noundef nonnull %pVertices) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i153, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) #22
   %26 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i156 = add i64 %26, 1
   store i64 %add.i.i.i156, ptr %_M_size.i.i.i, align 8
@@ -1291,7 +1291,7 @@ for.inc:                                          ; preds = %for.body
   store float %2, ptr %b.i.i.i.i.i.i, align 4
   %a.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i4, i64 28
   store float 1.000000e+00, ptr %a.i.i.i.i.i.i, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i4, ptr noundef nonnull %tcol) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %tcol) #22
   %3 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i = add i64 %3, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
@@ -1318,7 +1318,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 while.body.i.i.i:                                 ; preds = %lpad, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %5, %while.body.i.i.i ], [ %4, %lpad ]
   %5 = load ptr, ptr %__cur.05.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #25
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #25
   %cmp.not.i.i.i = icmp eq ptr %5, %tcol
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !13
 
@@ -1337,7 +1337,7 @@ invoke.cont10:                                    ; preds = %for.end
 while.body.i.i.i6:                                ; preds = %invoke.cont10, %while.body.i.i.i6
   %__cur.05.i.i.i7 = phi ptr [ %7, %while.body.i.i.i6 ], [ %6, %invoke.cont10 ]
   %7 = load ptr, ptr %__cur.05.i.i.i7, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i7) #25
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i7) #25
   %cmp.not.i.i.i8 = icmp eq ptr %7, %tcol
   br i1 %cmp.not.i.i.i8, label %_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EED2Ev.exit9, label %while.body.i.i.i6, !llvm.loop !13
 
@@ -1773,19 +1773,19 @@ lpad:                                             ; preds = %invoke.cont, %entry
 define linkonce_odr void @_ZN17DeadlyImportErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %args) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp)
   invoke void @_ZN15DeadlyErrorBaseC2IJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN6Assimp9Formatter15basic_formatterIcS4_S5_EEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #22
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #22
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #22
   resume { ptr, i32 } %0
 }
 
@@ -1825,7 +1825,7 @@ for.inc:                                          ; preds = %for.body
   store float %2, ptr %b.i.i.i.i.i.i, align 4
   %a.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i4, i64 28
   store float 1.000000e+00, ptr %a.i.i.i.i.i.i, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i4, ptr noundef nonnull %tcol) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %tcol) #22
   %3 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i = add i64 %3, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
@@ -1852,7 +1852,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 while.body.i.i.i:                                 ; preds = %lpad, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %5, %while.body.i.i.i ], [ %4, %lpad ]
   %5 = load ptr, ptr %__cur.05.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #25
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #25
   %cmp.not.i.i.i = icmp eq ptr %5, %tcol
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !13
 
@@ -1871,7 +1871,7 @@ invoke.cont10:                                    ; preds = %for.end
 while.body.i.i.i6:                                ; preds = %invoke.cont10, %while.body.i.i.i6
   %__cur.05.i.i.i7 = phi ptr [ %7, %while.body.i.i.i6 ], [ %6, %invoke.cont10 ]
   %7 = load ptr, ptr %__cur.05.i.i.i7, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i7) #25
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i7) #25
   %cmp.not.i.i.i8 = icmp eq ptr %7, %tcol
   br i1 %cmp.not.i.i.i8, label %_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EED2Ev.exit9, label %while.body.i.i.i6, !llvm.loop !13
 
@@ -2743,7 +2743,7 @@ for.body283:                                      ; preds = %if.end273, %for.inc
 for.inc286:                                       ; preds = %for.body283
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i337, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %it274.sroa.0.0450, i64 16, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i337, ptr noundef nonnull %col_tgt_list) #22
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i337, ptr noundef nonnull align 8 dereferenceable(24) %col_tgt_list) #22
   %61 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i336 = add i64 %61, 1
   store i64 %add.i.i.i336, ptr %_M_size.i.i.i.i.i, align 8
@@ -2772,7 +2772,7 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit:      ; preds = %invoke.cont290, %if
 while.body.i.i.i:                                 ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %63, %while.body.i.i.i ], [ %62, %_ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit ]
   %63 = load ptr, ptr %__cur.05.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #25
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #25
   %cmp.not.i.i.i341 = icmp eq ptr %63, %col_tgt_list
   br i1 %cmp.not.i.i.i341, label %_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !13
 
@@ -2808,7 +2808,7 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit347:   ; preds = %ehcleanup291.thread
 while.body.i.i.i349:                              ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit347, %while.body.i.i.i349
   %__cur.05.i.i.i350 = phi ptr [ %65, %while.body.i.i.i349 ], [ %64, %_ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit347 ]
   %65 = load ptr, ptr %__cur.05.i.i.i350, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i350) #25
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i350) #25
   %cmp.not.i.i.i351 = icmp eq ptr %65, %col_tgt_list
   br i1 %cmp.not.i.i.i351, label %_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EED2Ev.exit352, label %while.body.i.i.i349, !llvm.loop !13
 
@@ -4835,14 +4835,14 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
   %0 = load ptr, ptr %u, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef %0)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %f, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %f)
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(376) %f)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit unwind label %lpad3.i
 
 lpad.i:                                           ; preds = %entry
@@ -4858,7 +4858,7 @@ lpad3.i:                                          ; preds = %invoke.cont.i
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #22
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #22
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
@@ -4868,7 +4868,7 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; p
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #22
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #22
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -4935,14 +4935,14 @@ define linkonce_odr void @_ZN15DeadlyErrorBaseC2IJENSt7__cxx1112basic_stringIcSt
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef nonnull align 8 dereferenceable(32) %u)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(376) %f, ptr noundef nonnull align 8 dereferenceable(32) %u)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %f)
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(376) %f)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit unwind label %lpad3.i
 
 lpad.i:                                           ; preds = %entry
@@ -4958,7 +4958,7 @@ lpad3.i:                                          ; preds = %invoke.cont.i
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #22
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #22
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
@@ -4968,7 +4968,7 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; p
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #22
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #22
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit

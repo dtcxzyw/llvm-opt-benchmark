@@ -175,7 +175,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 53:                                               ; preds = %50, %48
   %.034 = phi i8 [ 0, %48 ], [ 2, %50 ]
   %.2.i = getelementptr i8, ptr %.067.lcssa.i, i64 1
-  %54 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef %.2.i, ptr noundef %3, ptr noundef %2, ptr noundef %17)
+  %54 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef %.2.i, ptr noundef nonnull %3, ptr noundef %2, ptr noundef %17)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %91, label %56
 
@@ -190,7 +190,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 62:                                               ; preds = %56
   %63 = getelementptr i8, ptr %54, i64 1
-  %64 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef %63, ptr noundef %4, ptr noundef %2, ptr noundef %17)
+  %64 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef %63, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %17)
   %65 = icmp eq ptr %64, null
   br i1 %65, label %91, label %68
 
@@ -665,7 +665,7 @@ define dso_local void @range_deserialize(ptr nocapture noundef readonly %0, ptr 
 38:                                               ; preds = %26
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %25) #14
+  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %25) #14
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
@@ -823,7 +823,7 @@ fetch_att.exit.thread:                            ; preds = %36, %33, %30, %27, 
 114:                                              ; preds = %102
   %115 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %115)
-  %116 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %99) #14
+  %116 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %99) #14
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
@@ -1022,7 +1022,7 @@ define dso_local i64 @range_send(ptr nocapture noundef readonly %0) local_unname
   %35 = getelementptr inbounds i8, ptr %31, i64 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %9, i32 noundef 4) #14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %36 = tail call i32 @llvm.bswap.i32(i32 %34)
+  %36 = tail call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %34)
   %37 = load ptr, ptr %9, align 8, !alias.scope !12
   %38 = load i32, ptr %21, align 8, !alias.scope !12
   %39 = sext i32 %38 to i64
@@ -1048,7 +1048,7 @@ define dso_local i64 @range_send(ptr nocapture noundef readonly %0) local_unname
   %51 = getelementptr inbounds i8, ptr %47, i64 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %9, i32 noundef 4) #14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %52 = tail call i32 @llvm.bswap.i32(i32 %50)
+  %52 = tail call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %50)
   %53 = load ptr, ptr %9, align 8, !alias.scope !15
   %54 = load i32, ptr %21, align 8, !alias.scope !15
   %55 = sext i32 %54 to i64
@@ -6084,7 +6084,7 @@ range_get_typcache.exit:                          ; preds = %15, %25
 
 68:                                               ; preds = %59, %61
   %.0 = phi i32 [ %67, %61 ], [ 0, %59 ]
-  %69 = tail call i32 @hash_bytes_uint32(i32 noundef %50) #14
+  %69 = tail call i32 @hash_bytes_uint32(i32 noundef range(i32 -128, 128) %50) #14
   %70 = xor i32 %69, %.023
   %71 = tail call noundef i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 1)
   %72 = xor i32 %71, %.0
@@ -6208,7 +6208,7 @@ range_get_typcache.exit:                          ; preds = %17, %27
 
 68:                                               ; preds = %60, %62
   %.0 = phi i64 [ %67, %62 ], [ 0, %60 ]
-  %69 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %52, i64 noundef %10) #14
+  %69 = tail call i64 @hash_bytes_uint32_extended(i32 noundef range(i32 -128, 128) %52, i64 noundef %10) #14
   %70 = xor i64 %69, %.028
   %71 = shl i64 %70, 1
   %72 = and i64 %71, -4294967298
@@ -7197,7 +7197,7 @@ define internal fastcc ptr @datum_write(ptr noundef %0, i64 noundef %1, i1 nound
   %29 = sext i16 %4 to i32
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %30)
-  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %29) #14
+  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %29) #14
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 202, ptr noundef nonnull @__func__.store_att_byval) #14
   unreachable
 

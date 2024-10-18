@@ -424,7 +424,7 @@ define void @_ZN2cv11large_kinfu6Params13defaultParamsEv(ptr dead_on_unwind noal
   %8 = getelementptr inbounds i8, ptr %2, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %9 = getelementptr inbounds i8, ptr %2, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %9, i8 0, i64 40, i1 false)
   br label %10
 
 10:                                               ; preds = %10, %1
@@ -554,7 +554,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; pred
   store i32 1, ptr %41, align 4, !noalias !16
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11large_kinfu6ParamsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %39, align 8, !noalias !16
   %42 = getelementptr inbounds i8, ptr %39, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %42, ptr noundef nonnull readonly align 8 dereferenceable(104) %2, i64 104, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %42, ptr noundef nonnull readonly align 8 dereferenceable(260) %2, i64 104, i1 false), !noalias !16
   %43 = getelementptr inbounds i8, ptr %39, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %43, i8 0, i64 12, i1 false)
   %44 = getelementptr inbounds i8, ptr %39, i64 132
@@ -5936,7 +5936,7 @@ _ZN2cvplIfLi4ELi4EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit.i: ; preds = %156
   br i1 %exitcond.not.i.i83, label %_ZN2cv5kinfu6SubmapINS_3MatEE14PoseConstraint14accumulatePoseERKNS_7Affine3IfEEi.exit, label %165, !llvm.loop !142
 
 _ZN2cv5kinfu6SubmapINS_3MatEE14PoseConstraint14accumulatePoseERKNS_7Affine3IfEEi.exit: ; preds = %165
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %105, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %105, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
@@ -6485,7 +6485,7 @@ _ZN2cv5kinfu13SubmapManagerINS_3MatEE16ActiveSubmapDataD2Ev.exit: ; preds = %329
   %379 = getelementptr inbounds i8, ptr %.pre263, i64 56
   %380 = load float, ptr %379, align 4, !noalias !166
   call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 12, i1 false)
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %.sroa.2.0.copyload.i.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4, !noalias !172
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
@@ -8904,7 +8904,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cvlsI
   %15 = getelementptr inbounds i8, ptr %7, i64 80
   store ptr %15, ptr %14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef nonnull %1, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 noundef 0)
           to label %.noexc unwind label %110
 
 .noexc:                                           ; preds = %2
@@ -10031,7 +10031,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %7, align 4
   %11 = getelementptr inbounds i8, ptr %6, i64 36
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, i8 0, i64 64, i1 false), !alias.scope !269
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %11, i8 0, i64 64, i1 false), !alias.scope !269
   br label %12
 
 12:                                               ; preds = %12, %5
@@ -12291,7 +12291,7 @@ _ZN2cvplIfLi4ELi4EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit.i: ; preds = %156
   br i1 %exitcond.not.i.i83, label %_ZN2cv5kinfu6SubmapINS_4UMatEE14PoseConstraint14accumulatePoseERKNS_7Affine3IfEEi.exit, label %165, !llvm.loop !142
 
 _ZN2cv5kinfu6SubmapINS_4UMatEE14PoseConstraint14accumulatePoseERKNS_7Affine3IfEEi.exit: ; preds = %165
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %105, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %105, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
@@ -12840,7 +12840,7 @@ _ZN2cv5kinfu13SubmapManagerINS_4UMatEE16ActiveSubmapDataD2Ev.exit: ; preds = %32
   %379 = getelementptr inbounds i8, ptr %.pre263, i64 56
   %380 = load float, ptr %379, align 4, !noalias !335
   call void @llvm.experimental.noalias.scope.decl(metadata !338)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 12, i1 false)
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %.sroa.2.0.copyload.i.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4, !noalias !341
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
@@ -15850,7 +15850,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIiSt4pairIKiN2cv5kinfu6SubmapINS2_
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %7, align 4
   %11 = getelementptr inbounds i8, ptr %6, i64 36
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, i8 0, i64 64, i1 false), !alias.scope !421
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %11, i8 0, i64 64, i1 false), !alias.scope !421
   br label %12
 
 12:                                               ; preds = %12, %5

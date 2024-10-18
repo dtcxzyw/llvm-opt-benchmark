@@ -2163,7 +2163,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZN6duckdb14ScalarFunctionD2Ev.exit:              ; preds = %lpad18.i.body, %if.then.i.i
-  call void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(170) %agg.tmp16.i) #23
+  call void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %agg.tmp16.i) #23
   br label %ehcleanup.i
 
 if.end.i:                                         ; preds = %_ZN6duckdb14ScalarFunctionD2Ev.exit.i, %invoke.cont14.i
@@ -4087,7 +4087,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZN6duckdb14ScalarFunctionD2Ev.exit:              ; preds = %lpad16.i.body, %if.then.i.i
-  call void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(170) %agg.tmp14.i) #23
+  call void @_ZN6duckdb18BaseScalarFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %agg.tmp14.i) #23
   br label %ehcleanup.i
 
 if.end.i:                                         ; preds = %_ZN6duckdb14ScalarFunctionD2Ev.exit.i, %invoke.cont12.i

@@ -1943,7 +1943,7 @@ thread-pre-split.i.i:                             ; preds = %247
   %265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #13
   %266 = getelementptr i8, ptr %256, i64 %265
   store i8 0, ptr %266, align 1
-  call fastcc void @zonefrom_url(ptr noundef %storemerge.i.i, ptr noundef nonnull %0, ptr noundef %45)
+  call fastcc void @zonefrom_url(ptr noundef %storemerge.i.i, ptr noundef nonnull %0, ptr noundef nonnull %45)
   br label %267
 
 267:                                              ; preds = %260, %257, %255
@@ -2067,7 +2067,7 @@ thread-pre-split.i.i:                             ; preds = %247
 
 317:                                              ; preds = %316, %310, %281, %278, %275
   %318 = load ptr, ptr %156, align 8
-  %319 = call fastcc i32 @findprotocol(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %318)
+  %319 = call fastcc i32 @findprotocol(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr noundef %318)
   %.not206.i.i = icmp eq i32 %319, 0
   br i1 %.not206.i.i, label %320, label %parseurlandfillconn.exit.thread.i
 
@@ -2604,7 +2604,7 @@ detect_proxy.exit.i.i:                            ; preds = %494, %491, %.thread
   %536 = phi ptr [ %524, %.thread.i296.i ], [ %531, %530 ]
   %.3115166168.i.i = phi ptr [ %.2114.i.i, %.thread.i296.i ], [ null, %530 ]
   %537 = phi i1 [ true, %.thread.i296.i ], [ false, %530 ]
-  %538 = call fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef %45, ptr noundef %.3.i.i, i32 noundef %535)
+  %538 = call fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef nonnull %45, ptr noundef %.3.i.i, i32 noundef %535)
   %539 = load ptr, ptr @Curl_cfree, align 8
   call void %539(ptr noundef nonnull %.3.i.i) #12
   %.not150.i.i = icmp eq i32 %538, 0
@@ -2617,7 +2617,7 @@ detect_proxy.exit.i.i:                            ; preds = %494, %491, %.thread
   %.3115166167186.i.i = phi ptr [ %.3115166168.i.i, %540 ], [ %.2114.i.i, %.thread.i296.i ]
   %541 = phi ptr [ %536, %540 ], [ %524, %.thread.i296.i ]
   %542 = phi i32 [ %535, %540 ], [ %526, %.thread.i296.i ]
-  %543 = call fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef %45, ptr noundef %.3115166167186.i.i, i32 noundef %542)
+  %543 = call fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef nonnull %45, ptr noundef %.3115166167186.i.i, i32 noundef %542)
   %544 = load ptr, ptr @Curl_cfree, align 8
   call void %544(ptr noundef nonnull %.3115166167186.i.i) #12
   %.not151.i.i = icmp eq i32 %543, 0

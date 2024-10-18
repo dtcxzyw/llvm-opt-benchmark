@@ -567,7 +567,7 @@ if.end3.i:                                        ; preds = %if.end, %if.end.i
   br i1 %new.isnull.i, label %new.cont.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.end3.i
-  invoke void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call4.i, ptr noundef nonnull @uprv_deleteUObject_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %this)
+  invoke void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call4.i, ptr noundef nonnull @uprv_deleteUObject_75, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %if.end3.i
@@ -674,7 +674,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %new.isnull.i, label %new.cont.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.end3.i
-  invoke void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call4.i, ptr noundef nonnull @uprv_deleteUObject_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %this)
+  invoke void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call4.i, ptr noundef nonnull @uprv_deleteUObject_75, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %if.end3.i
@@ -775,7 +775,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %new.isnull.i, label %new.cont.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.end3.i
-  invoke void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call4.i, ptr noundef nonnull @uprv_deleteUObject_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %this)
+  invoke void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call4.i, ptr noundef nonnull @uprv_deleteUObject_75, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %if.end3.i
@@ -2808,14 +2808,14 @@ invoke.cont:
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %iter) #16
+  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %iter) #16
   call void @_ZN6icu_7518LocalePriorityListD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %list) #16
   ret ptr %call
 
 lpad2:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %iter) #16
+  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %iter) #16
   call void @_ZN6icu_7518LocalePriorityListD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %list) #16
   resume { ptr, i32 } %2
 }
@@ -3512,8 +3512,8 @@ if.then10:                                        ; preds = %cond.false6, %cond.
 
 if.end11:                                         ; preds = %cond.true4, %cond.false6
   %call.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale7getRootEv()
-  call void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %converter, ptr noundef nonnull align 8 dereferenceable(217) %call.i)
-  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(217) %converter)
+  call void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %converter, ptr noundef nonnull align 8 dereferenceable(217) %call.i)
+  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(224) %converter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end11
@@ -3525,26 +3525,26 @@ invoke.cont:                                      ; preds = %if.end11
   %end_.i = getelementptr inbounds i8, ptr %desiredLocales, i64 16
   store ptr %add.ptr, ptr %end_.i, align 8
   %converter_.i = getelementptr inbounds i8, ptr %desiredLocales, i64 24
-  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %converter_.i, ptr noundef nonnull align 8 dereferenceable(217) %agg.tmp)
+  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %converter_.i, ptr noundef nonnull align 8 dereferenceable(224) %agg.tmp)
           to label %invoke.cont13 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales) #16
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %agg.tmp) #16
+  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %desiredLocales) #16
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %agg.tmp) #16
   br label %ehcleanup
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %agg.tmp) #16
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %agg.tmp) #16
   %call16 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_114acceptLanguageER12UEnumerationRN6icu_756Locale8IteratorEPciP13UAcceptResultR10UErrorCode(ptr noundef nonnull align 1 %availableLocales, ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales, ptr noundef %result, i32 noundef %resultAvailable, ptr noundef %outResult, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %desiredLocales, align 8
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_.i) #16
-  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales) #16
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter) #16
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %converter_.i) #16
+  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %desiredLocales) #16
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %converter) #16
   br label %return
 
 lpad:                                             ; preds = %if.end11
@@ -3556,13 +3556,13 @@ lpad14:                                           ; preds = %invoke.cont13
   %3 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %desiredLocales, align 8
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_.i) #16
-  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales) #16
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %converter_.i) #16
+  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %desiredLocales) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad14, %lpad.i, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad14 ], [ %1, %lpad.i ], [ %2, %lpad ]
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter) #16
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %converter) #16
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %invoke.cont15, %if.then10
@@ -3767,7 +3767,7 @@ define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_11
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %this, align 8
   %converter_ = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_) #16
+  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %converter_) #16
   tail call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   ret void
 }
@@ -3829,14 +3829,14 @@ invoke.cont:                                      ; preds = %lor.lhs.false
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales) #16
+  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %desiredLocales) #16
   call void @_ZN6icu_7518LocalePriorityListD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %list) #16
   br label %return
 
 lpad8:                                            ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %desiredLocales) #16
+  call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %desiredLocales) #16
   call void @_ZN6icu_7518LocalePriorityListD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %list) #16
   resume { ptr, i32 } %6
 
@@ -3859,7 +3859,7 @@ declare void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7518LocalePriorityList8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
@@ -3922,8 +3922,8 @@ define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_11
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %this, align 8
   %converter_.i = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %converter_.i) #16
-  tail call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %converter_.i) #16
+  tail call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) #16
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -3952,7 +3952,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %ref.tmp.i)
   call void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp.i, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null)
-  %call.i = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %converter_, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp.i) #16
+  %call.i = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(224) %converter_, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp.i) #16
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp.i) #16
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %ref.tmp.i)
   ret ptr %call.i

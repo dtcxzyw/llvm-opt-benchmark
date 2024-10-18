@@ -3090,7 +3090,7 @@ Abc_TtCopy.exit67.i:                              ; preds = %.lr.ph.i56.i, %.lr.
 
 1007:                                             ; preds = %1005
   %1008 = trunc nuw nsw i64 %indvars.iv.next.i71.i to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %5, i32 noundef %776, i32 noundef %.017.i.i, i32 noundef %1008)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %5, i32 noundef range(i32 7, -2147483648) %776, i32 noundef %.017.i.i, i32 noundef %1008)
   br label %1009
 
 1009:                                             ; preds = %1007, %1005
@@ -3134,7 +3134,7 @@ Abc_TtExpand.exit.i:                              ; preds = %1011, %Abc_TtCopy.e
 
 1029:                                             ; preds = %1027
   %1030 = trunc nuw nsw i64 %indvars.iv.next.i76.i to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %6, i32 noundef %776, i32 noundef %.017.i75.i, i32 noundef %1030)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %6, i32 noundef range(i32 7, -2147483648) %776, i32 noundef %.017.i75.i, i32 noundef %1030)
   br label %1031
 
 1031:                                             ; preds = %1029, %1027
@@ -5267,7 +5267,7 @@ Abc_TtCopy.exit96:                                ; preds = %.lr.ph.i85, %.lr.ph
 
 331:                                              ; preds = %329
   %332 = trunc nuw nsw i64 %indvars.iv.next.i100 to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %11, i32 noundef %16, i32 noundef %.017.i, i32 noundef %332)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %11, i32 noundef range(i32 7, -2147483648) %16, i32 noundef %.017.i, i32 noundef %332)
   br label %333
 
 333:                                              ; preds = %331, %329
@@ -5313,7 +5313,7 @@ Abc_TtExpand.exit:                                ; preds = %335, %Abc_TtCopy.ex
 
 355:                                              ; preds = %353
   %356 = trunc nuw nsw i64 %indvars.iv.next.i105 to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %12, i32 noundef %16, i32 noundef %.017.i104, i32 noundef %356)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %12, i32 noundef range(i32 7, -2147483648) %16, i32 noundef %.017.i104, i32 noundef %356)
   br label %357
 
 357:                                              ; preds = %355, %353
@@ -5359,7 +5359,7 @@ Abc_TtExpand.exit107:                             ; preds = %359, %Abc_TtExpand.
 
 379:                                              ; preds = %377
   %380 = trunc nuw nsw i64 %indvars.iv.next.i112 to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %13, i32 noundef %16, i32 noundef %.017.i111, i32 noundef %380)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %13, i32 noundef range(i32 7, -2147483648) %16, i32 noundef %.017.i111, i32 noundef %380)
   br label %381
 
 381:                                              ; preds = %379, %377
@@ -15457,7 +15457,7 @@ define noundef ptr @Lf_ManPerformMappingInt(ptr noundef %0, ptr noundef %1) loca
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %113
-  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.59, i32 noundef %118) #30
+  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.59, i32 noundef range(i32 0, 16) %118) #30
   br label %Vec_MemDumpDigit.exit.i.i
 
 122:                                              ; preds = %113

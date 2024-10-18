@@ -959,7 +959,7 @@ define void @_ZN5faiss17knn_inner_productEPKfS1_mmmmPfPlPKNS_10IDSelectorE(ptr n
   %95 = trunc i64 %3 to i32
   %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %94, i32 %95)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %87, i32 %.sroa.speculated.i.i)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_22Top1BlockResultHandlerINS_4CMinIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %64, ptr nonnull %61, ptr nonnull %58, ptr nonnull %60, ptr nonnull %59, ptr nonnull %62, ptr nonnull %63)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_22Top1BlockResultHandlerINS_4CMinIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(48) %64, ptr nonnull %61, ptr nonnull %58, ptr nonnull %60, ptr nonnull %59, ptr nonnull %62, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
@@ -991,7 +991,7 @@ define void @_ZN5faiss17knn_inner_productEPKfS1_mmmmPfPlPKNS_10IDSelectorE(ptr n
   %102 = trunc i64 %3 to i32
   %.sroa.speculated.i21.i = tail call i32 @llvm.smin.i32(i32 %101, i32 %102)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %87, i32 %.sroa.speculated.i21.i)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_22Top1BlockResultHandlerINS_4CMinIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %64, ptr nonnull %55, ptr nonnull %52, ptr nonnull %54, ptr nonnull %53, ptr nonnull %56, ptr nonnull %57)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_22Top1BlockResultHandlerINS_4CMinIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(48) %64, ptr nonnull %55, ptr nonnull %52, ptr nonnull %54, ptr nonnull %53, ptr nonnull %56, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
@@ -1130,7 +1130,7 @@ _ZN5faiss22Top1BlockResultHandlerINS_4CMinIflEEE11add_resultsEmmPKf.exit.us.i.i:
   %162 = load ptr, ptr %64, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 16
   %164 = load ptr, ptr %163, align 8
-  invoke void %164(ptr noundef nonnull align 8 dereferenceable(32) %64)
+  invoke void %164(ptr noundef nonnull align 8 dereferenceable(48) %64)
           to label %129 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.split.us.i.i
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.split.us.i.i: ; preds = %._crit_edge.us.i.i, %129
@@ -1197,7 +1197,7 @@ _ZN5faiss12_GLOBAL__N_129exhaustive_inner_product_blasINS_22Top1BlockResultHandl
   %177 = trunc i64 %3 to i32
   %.sroa.speculated.i.i80 = tail call i32 @llvm.smin.i32(i32 %176, i32 %177)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %87, i32 %.sroa.speculated.i.i80)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_22HeapBlockResultHandlerINS_4CMinIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %65, ptr nonnull %44, ptr nonnull %41, ptr nonnull %43, ptr nonnull %42, ptr nonnull %45, ptr nonnull %46)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_22HeapBlockResultHandlerINS_4CMinIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(56) %65, ptr nonnull %44, ptr nonnull %41, ptr nonnull %43, ptr nonnull %42, ptr nonnull %45, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
@@ -1229,7 +1229,7 @@ _ZN5faiss12_GLOBAL__N_129exhaustive_inner_product_blasINS_22Top1BlockResultHandl
   %184 = trunc i64 %3 to i32
   %.sroa.speculated.i21.i84 = tail call i32 @llvm.smin.i32(i32 %183, i32 %184)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %87, i32 %.sroa.speculated.i21.i84)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_22HeapBlockResultHandlerINS_4CMinIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %65, ptr nonnull %38, ptr nonnull %35, ptr nonnull %37, ptr nonnull %36, ptr nonnull %39, ptr nonnull %40)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_22HeapBlockResultHandlerINS_4CMinIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(56) %65, ptr nonnull %38, ptr nonnull %35, ptr nonnull %37, ptr nonnull %36, ptr nonnull %39, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
@@ -1360,7 +1360,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i.i82: ; preds = %_ZNSt10
   store i64 %.04260.i.i, ptr %27, align 8
   store i64 %spec.select49.i.i, ptr %28, align 8
   store ptr %196, ptr %29, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE11add_resultsEmmPKf.omp_outlined, ptr nonnull %65, ptr nonnull %29, ptr nonnull %28, ptr nonnull %27)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE11add_resultsEmmPKf.omp_outlined, ptr nonnull align 8 dereferenceable(56) %65, ptr nonnull %29, ptr nonnull %28, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
@@ -1578,7 +1578,7 @@ _ZN5faiss12_GLOBAL__N_129exhaustive_inner_product_blasINS_22HeapBlockResultHandl
   %322 = trunc i64 %3 to i32
   %.sroa.speculated.i.i89 = tail call i32 @llvm.smin.i32(i32 %321, i32 %322)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %87, i32 %.sroa.speculated.i.i89)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_27ReservoirBlockResultHandlerINS_4CMinIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %66, ptr nonnull %24, ptr nonnull %21, ptr nonnull %23, ptr nonnull %22, ptr nonnull %25, ptr nonnull %26)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_27ReservoirBlockResultHandlerINS_4CMinIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(136) %66, ptr nonnull %24, ptr nonnull %21, ptr nonnull %23, ptr nonnull %22, ptr nonnull %25, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
@@ -1610,7 +1610,7 @@ _ZN5faiss12_GLOBAL__N_129exhaustive_inner_product_blasINS_22HeapBlockResultHandl
   %329 = trunc i64 %3 to i32
   %.sroa.speculated.i21.i132 = tail call i32 @llvm.smin.i32(i32 %328, i32 %329)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %87, i32 %.sroa.speculated.i21.i132)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_27ReservoirBlockResultHandlerINS_4CMinIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %66, ptr nonnull %18, ptr nonnull %15, ptr nonnull %17, ptr nonnull %16, ptr nonnull %19, ptr nonnull %20)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_27ReservoirBlockResultHandlerINS_4CMinIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(136) %66, ptr nonnull %18, ptr nonnull %15, ptr nonnull %17, ptr nonnull %16, ptr nonnull %19, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
@@ -5439,7 +5439,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinIflEEE10add_resultEfl.exit: ; preds = %162, %14
   %184 = getelementptr inbounds i8, ptr %177, i64 40
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds i64, ptr %185, i64 %182
-  invoke void @_ZNK5faiss13ReservoirTopNINS_4CMinIflEEE9to_resultEPfPl(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %183, ptr noundef %186)
+  invoke void @_ZNK5faiss13ReservoirTopNINS_4CMinIflEEE9to_resultEPfPl(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef %183, ptr noundef %186)
           to label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler3endEv.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler3endEv.exit: ; preds = %._crit_edge
@@ -5924,7 +5924,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinIflEEE10add_resultEfl.exit: ; preds = %156, %14
   %178 = getelementptr inbounds i8, ptr %171, i64 40
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds i64, ptr %179, i64 %176
-  invoke void @_ZNK5faiss13ReservoirTopNINS_4CMinIflEEE9to_resultEPfPl(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %177, ptr noundef %180)
+  invoke void @_ZNK5faiss13ReservoirTopNINS_4CMinIflEEE9to_resultEPfPl(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef %177, ptr noundef %180)
           to label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler3endEv.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler3endEv.exit: ; preds = %._crit_edge
@@ -6233,7 +6233,7 @@ define void @_ZN5faiss9knn_L2sqrEPKfS1_mmmmPfPlS1_PKNS_10IDSelectorE(ptr noundef
   %117 = trunc i64 %3 to i32
   %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %116, i32 %117)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %109, i32 %.sroa.speculated.i.i)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22Top1BlockResultHandlerINS_4CMaxIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %86, ptr nonnull %83, ptr nonnull %80, ptr nonnull %82, ptr nonnull %81, ptr nonnull %84, ptr nonnull %85)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22Top1BlockResultHandlerINS_4CMaxIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(48) %86, ptr nonnull %83, ptr nonnull %80, ptr nonnull %82, ptr nonnull %81, ptr nonnull %84, ptr nonnull %85)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
@@ -6265,7 +6265,7 @@ define void @_ZN5faiss9knn_L2sqrEPKfS1_mmmmPfPlS1_PKNS_10IDSelectorE(ptr noundef
   %124 = trunc i64 %3 to i32
   %.sroa.speculated.i22.i = tail call i32 @llvm.smin.i32(i32 %123, i32 %124)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %109, i32 %.sroa.speculated.i22.i)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22Top1BlockResultHandlerINS_4CMaxIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %86, ptr nonnull %77, ptr nonnull %74, ptr nonnull %76, ptr nonnull %75, ptr nonnull %78, ptr nonnull %79)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22Top1BlockResultHandlerINS_4CMaxIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(48) %86, ptr nonnull %77, ptr nonnull %74, ptr nonnull %76, ptr nonnull %75, ptr nonnull %78, ptr nonnull %79)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76)
@@ -6490,7 +6490,7 @@ _ZN5faiss22Top1BlockResultHandlerINS_4CMaxIflEEE11add_resultsEmmPKf.exit.us.i.i.
   %208 = load ptr, ptr %86, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
-  invoke void %210(ptr noundef nonnull align 8 dereferenceable(32) %86)
+  invoke void %210(ptr noundef nonnull align 8 dereferenceable(48) %86)
           to label %158 unwind label %.loopexit.split-lp.split.us.i.i.i
 
 .loopexit.split-lp.split.us.i.i.i:                ; preds = %._crit_edge.us.i.i.i, %158
@@ -6594,7 +6594,7 @@ _ZN5faiss12_GLOBAL__N_121exhaustive_L2sqr_blasINS_22Top1BlockResultHandlerINS_4C
   %227 = trunc i64 %3 to i32
   %.sroa.speculated.i.i83 = tail call i32 @llvm.smin.i32(i32 %226, i32 %227)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %109, i32 %.sroa.speculated.i.i83)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22HeapBlockResultHandlerINS_4CMaxIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %87, ptr nonnull %59, ptr nonnull %56, ptr nonnull %58, ptr nonnull %57, ptr nonnull %60, ptr nonnull %61)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22HeapBlockResultHandlerINS_4CMaxIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(56) %87, ptr nonnull %59, ptr nonnull %56, ptr nonnull %58, ptr nonnull %57, ptr nonnull %60, ptr nonnull %61)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
@@ -6626,7 +6626,7 @@ _ZN5faiss12_GLOBAL__N_121exhaustive_L2sqr_blasINS_22Top1BlockResultHandlerINS_4C
   %234 = trunc i64 %3 to i32
   %.sroa.speculated.i22.i91 = tail call i32 @llvm.smin.i32(i32 %233, i32 %234)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %109, i32 %.sroa.speculated.i22.i91)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22HeapBlockResultHandlerINS_4CMaxIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %87, ptr nonnull %53, ptr nonnull %50, ptr nonnull %52, ptr nonnull %51, ptr nonnull %54, ptr nonnull %55)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22HeapBlockResultHandlerINS_4CMaxIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(56) %87, ptr nonnull %53, ptr nonnull %50, ptr nonnull %52, ptr nonnull %51, ptr nonnull %54, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
@@ -6809,7 +6809,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i.i.
   store i64 %294, ptr %35, align 8
   store i64 %295, ptr %36, align 8
   store ptr %296, ptr %37, align 8
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE11add_resultsEmmPKf.omp_outlined, ptr nonnull %87, ptr nonnull %37, ptr nonnull %36, ptr nonnull %35)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE11add_resultsEmmPKf.omp_outlined, ptr nonnull align 8 dereferenceable(56) %87, ptr nonnull %37, ptr nonnull %36, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
@@ -7073,7 +7073,7 @@ _ZN5faiss12_GLOBAL__N_121exhaustive_L2sqr_blasINS_22HeapBlockResultHandlerINS_4C
   %399 = trunc i64 %3 to i32
   %.sroa.speculated.i.i96 = tail call i32 @llvm.smin.i32(i32 %398, i32 %399)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %109, i32 %.sroa.speculated.i.i96)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_27ReservoirBlockResultHandlerINS_4CMaxIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %88, ptr nonnull %32, ptr nonnull %29, ptr nonnull %31, ptr nonnull %30, ptr nonnull %33, ptr nonnull %34)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_27ReservoirBlockResultHandlerINS_4CMaxIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(136) %88, ptr nonnull %32, ptr nonnull %29, ptr nonnull %31, ptr nonnull %30, ptr nonnull %33, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
@@ -7105,7 +7105,7 @@ _ZN5faiss12_GLOBAL__N_121exhaustive_L2sqr_blasINS_22HeapBlockResultHandlerINS_4C
   %406 = trunc i64 %3 to i32
   %.sroa.speculated.i22.i146 = tail call i32 @llvm.smin.i32(i32 %405, i32 %406)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %109, i32 %.sroa.speculated.i22.i146)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_27ReservoirBlockResultHandlerINS_4CMaxIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %88, ptr nonnull %26, ptr nonnull %23, ptr nonnull %25, ptr nonnull %24, ptr nonnull %27, ptr nonnull %28)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_27ReservoirBlockResultHandlerINS_4CMaxIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(136) %88, ptr nonnull %26, ptr nonnull %23, ptr nonnull %25, ptr nonnull %24, ptr nonnull %27, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
@@ -10991,7 +10991,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxIflEEE10add_resultEfl.exit: ; preds = %162, %14
   %184 = getelementptr inbounds i8, ptr %177, i64 40
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds i64, ptr %185, i64 %182
-  invoke void @_ZNK5faiss13ReservoirTopNINS_4CMaxIflEEE9to_resultEPfPl(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %183, ptr noundef %186)
+  invoke void @_ZNK5faiss13ReservoirTopNINS_4CMaxIflEEE9to_resultEPfPl(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef %183, ptr noundef %186)
           to label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler3endEv.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler3endEv.exit: ; preds = %._crit_edge
@@ -11476,7 +11476,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxIflEEE10add_resultEfl.exit: ; preds = %156, %14
   %178 = getelementptr inbounds i8, ptr %171, i64 40
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds i64, ptr %179, i64 %176
-  invoke void @_ZNK5faiss13ReservoirTopNINS_4CMaxIflEEE9to_resultEPfPl(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %177, ptr noundef %180)
+  invoke void @_ZNK5faiss13ReservoirTopNINS_4CMaxIflEEE9to_resultEPfPl(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef %177, ptr noundef %180)
           to label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler3endEv.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler3endEv.exit: ; preds = %._crit_edge
@@ -11750,7 +11750,7 @@ define void @_ZN5faiss18range_search_L2sqrEPKfS1_mmmfPNS_17RangeSearchResultEPKN
   %44 = trunc i64 %3 to i32
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %43, i32 %44)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %41, i32 %.sroa.speculated.i)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_29RangeSearchBlockResultHandlerINS_4CMaxIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %33, ptr nonnull %30, ptr nonnull %27, ptr nonnull %29, ptr nonnull %28, ptr nonnull %31, ptr nonnull %32)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_29RangeSearchBlockResultHandlerINS_4CMaxIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(100) %33, ptr nonnull %30, ptr nonnull %27, ptr nonnull %29, ptr nonnull %28, ptr nonnull %31, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
@@ -11792,7 +11792,7 @@ define void @_ZN5faiss18range_search_L2sqrEPKfS1_mmmfPNS_17RangeSearchResultEPKN
   %53 = trunc i64 %3 to i32
   %.sroa.speculated.i24 = tail call i32 @llvm.smin.i32(i32 %52, i32 %53)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %41, i32 %.sroa.speculated.i24)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_29RangeSearchBlockResultHandlerINS_4CMaxIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %33, ptr nonnull %24, ptr nonnull %21, ptr nonnull %23, ptr nonnull %22, ptr nonnull %25, ptr nonnull %26)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_29RangeSearchBlockResultHandlerINS_4CMaxIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(100) %33, ptr nonnull %24, ptr nonnull %21, ptr nonnull %23, ptr nonnull %22, ptr nonnull %25, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
@@ -11950,7 +11950,7 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %114 = load ptr, ptr %33, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 16
   %116 = load ptr, ptr %115, align 8
-  invoke void %116(ptr noundef nonnull align 8 dereferenceable(32) %33)
+  invoke void %116(ptr noundef nonnull align 8 dereferenceable(100) %33)
           to label %84 unwind label %.loopexit.split-lp.split.us.i.i
 
 .loopexit.split-lp.split.us.i.i:                  ; preds = %._crit_edge.us.i.i, %84, %.lr.ph8.split.us.i.i
@@ -12552,7 +12552,7 @@ _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10ad
   unreachable
 
 _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerD2Ev.exit: ; preds = %59, %62
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #2
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #2
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph, %41, %47
@@ -12612,7 +12612,7 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEE
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %3, %6
-  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #2
+  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #2
   ret void
 
 7:                                                ; preds = %1
@@ -12648,7 +12648,7 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEE
   unreachable
 
 _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerD2Ev.exit: ; preds = %3, %6
-  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #2
+  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #2
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -12779,7 +12779,7 @@ _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10ad
   unreachable
 
 _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandlerD2Ev.exit: ; preds = %53, %56
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #2
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #2
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph, %41
@@ -12953,7 +12953,7 @@ define void @_ZN5faiss26range_search_inner_productEPKfS1_mmmfPNS_17RangeSearchRe
   %37 = trunc i64 %3 to i32
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %36, i32 %37)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %.sroa.speculated.i)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_29RangeSearchBlockResultHandlerINS_4CMinIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %26, ptr nonnull %23, ptr nonnull %20, ptr nonnull %22, ptr nonnull %21, ptr nonnull %24, ptr nonnull %25)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_29RangeSearchBlockResultHandlerINS_4CMinIflEEEELb1EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(100) %26, ptr nonnull %23, ptr nonnull %20, ptr nonnull %22, ptr nonnull %21, ptr nonnull %24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
@@ -12995,7 +12995,7 @@ define void @_ZN5faiss26range_search_inner_productEPKfS1_mmmfPNS_17RangeSearchRe
   %46 = trunc i64 %3 to i32
   %.sroa.speculated.i22 = tail call i32 @llvm.smin.i32(i32 %45, i32 %46)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %34, i32 %.sroa.speculated.i22)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_29RangeSearchBlockResultHandlerINS_4CMinIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull %26, ptr nonnull %17, ptr nonnull %14, ptr nonnull %16, ptr nonnull %15, ptr nonnull %18, ptr nonnull %19)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_29RangeSearchBlockResultHandlerINS_4CMinIflEEEELb0EEEvPKfS7_mmmRT_PKNS_10IDSelectorE.omp_outlined, ptr nonnull align 8 dereferenceable(100) %26, ptr nonnull %17, ptr nonnull %14, ptr nonnull %16, ptr nonnull %15, ptr nonnull %18, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -13097,7 +13097,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNSt10uniq
   %85 = load ptr, ptr %26, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  invoke void %87(ptr noundef nonnull align 8 dereferenceable(32) %26)
+  invoke void %87(ptr noundef nonnull align 8 dereferenceable(100) %26)
           to label %88 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.i
 
 88:                                               ; preds = %84
@@ -13651,7 +13651,7 @@ _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10ad
   unreachable
 
 _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMinIflEEE19SingleResultHandlerD2Ev.exit: ; preds = %59, %62
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #2
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #2
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph, %41, %47
@@ -13711,7 +13711,7 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMinIflEE
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %3, %6
-  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #2
+  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #2
   ret void
 
 7:                                                ; preds = %1
@@ -13747,7 +13747,7 @@ define linkonce_odr void @_ZN5faiss29RangeSearchBlockResultHandlerINS_4CMinIflEE
   unreachable
 
 _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMinIflEEE19SingleResultHandlerD2Ev.exit: ; preds = %3, %6
-  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #2
+  tail call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #2
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -13873,7 +13873,7 @@ _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10ad
   unreachable
 
 _ZN5faiss29RangeSearchBlockResultHandlerINS_4CMinIflEEE19SingleResultHandlerD2Ev.exit: ; preds = %53, %56
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #2
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %16) #2
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph, %41

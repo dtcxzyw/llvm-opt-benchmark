@@ -1101,7 +1101,7 @@ oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %algop.0.val.i.i.i = load i64, ptr %8, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
   %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp8, i64 %..i.i.i.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp8, i64 %..i.i.i.i)
   %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %while.end.i, label %while.body.i
 
@@ -1488,7 +1488,7 @@ oideq_by_value.exit.i.i:                          ; preds = %if.else.i.i.i.i, %i
   %algop.0.val.i.i.i.i = load i64, ptr %66, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i.i, 32
   %..i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %arrayidx121.i, i64 %..i.i.i.i.i)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %arrayidx121.i, i64 %..i.i.i.i.i)
   %retval.0.in.i.i.i.not.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i.i, label %while.end.i.i, label %while.body.i.i
 
@@ -2510,7 +2510,7 @@ if.then3:                                         ; preds = %lor.lhs.false
   br i1 %tobool4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 3)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 3)
   br label %return
 
 if.then10:                                        ; preds = %lor.lhs.false
@@ -2595,7 +2595,7 @@ if.end.i:                                         ; preds = %for.body7.i
   br i1 %tobool18.not.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call19.i = call fastcc i64 @get_size_by_pos(ptr noundef readonly %bitmap_git, i32 noundef %add14.i)
+  %call19.i = call fastcc i64 @get_size_by_pos(ptr noundef nonnull readonly %bitmap_git, i32 noundef %add14.i)
   %cmp20.not.i = icmp ult i64 %call19.i, %2
   br i1 %cmp20.not.i, label %for.inc.i, label %if.then22.i
 
@@ -2665,7 +2665,7 @@ land.lhs.true44.i:                                ; preds = %land.lhs.true41.i
 
 land.lhs.true47.i:                                ; preds = %land.lhs.true44.i
   %conv48.i = trunc i64 %add.i.i to i32
-  %call49.i = call fastcc i64 @get_size_by_pos(ptr noundef readonly %bitmap_git, i32 noundef %conv48.i)
+  %call49.i = call fastcc i64 @get_size_by_pos(ptr noundef nonnull readonly %bitmap_git, i32 noundef %conv48.i)
   %cmp50.not.i = icmp ult i64 %call49.i, %2
   br i1 %cmp50.not.i, label %for.inc54.i, label %if.then52.i
 
@@ -2697,8 +2697,8 @@ if.then18:                                        ; preds = %land.lhs.true
   br i1 %tobool19.not, label %return, label %if.then20
 
 if.then20:                                        ; preds = %if.then18
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 3)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 3)
   br label %return
 
 if.then26:                                        ; preds = %lor.lhs.false
@@ -2721,21 +2721,21 @@ if.end.i33:                                       ; preds = %if.then28
   br i1 %cond.i, label %if.then6.thread.i, label %if.then3.i
 
 if.then6.thread.i:                                ; preds = %if.end.i33
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
   br label %if.then9.thread.i
 
 if.then3.i:                                       ; preds = %if.end.i33
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 4)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 4)
   %cond15.i = icmp eq i32 %22, 1
   br i1 %cond15.i, label %if.then9.thread.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then3.i
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
   %cond16.i = icmp eq i32 %22, 2
   br i1 %cond16.i, label %if.then12.i, label %filter_bitmap_object_type.exit
 
 if.then9.thread.i:                                ; preds = %if.then3.i, %if.then6.thread.i
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
   br label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.then9.thread.i, %if.then6.i
@@ -2743,7 +2743,7 @@ if.then12.i:                                      ; preds = %if.then9.thread.i, 
 
 filter_bitmap_object_type.exit:                   ; preds = %if.then6.i, %if.then12.i
   %.sink.i = phi i32 [ 3, %if.then12.i ], [ 2, %if.then6.i ]
-  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef %.sink.i)
+  tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef %.sink.i)
   br label %return
 
 for.cond:                                         ; preds = %for.body
@@ -3201,7 +3201,7 @@ if.end32.i.i:                                     ; preds = %if.end30.i.i, %if.t
   br i1 %tobool34.not.i.i, label %try_partial_reuse.exit.thread.i, label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %if.end32.i.i, %if.end6.i.i
-  call void @bitmap_set(ptr noundef %call84, i64 noundef %add27.i) #18
+  call void @bitmap_set(ptr noundef %call84, i64 noundef range(i64 0, 4294967295) %add27.i) #18
   br label %try_partial_reuse.exit.thread.i
 
 try_partial_reuse.exit.thread.i:                  ; preds = %if.end37.i.i, %if.end32.i.i, %if.end27.i.i, %if.else.i.i, %if.then18.i.i, %if.then9.i.i
@@ -3463,7 +3463,7 @@ oideq_by_value.exit.i.i:                          ; preds = %if.else.i.i.i.i, %i
   %algop.0.val.i.i.i.i = load i64, ptr %15, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i.i, 32
   %..i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp5.i, i64 %..i.i.i.i.i)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp5.i, i64 %..i.i.i.i.i)
   %retval.0.in.i.i.i.not.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i.i, label %while.end.i.i, label %while.body.i.i
 
@@ -5914,7 +5914,7 @@ oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %algop.0.val.i.i.i = load i64, ptr %55, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
   %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %call10, i64 %..i.i.i.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %call10, i64 %..i.i.i.i)
   %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %if.then55.loopexit.i, label %while.body.i
 
@@ -6618,7 +6618,7 @@ oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %algop.0.val.i.i.i = load i64, ptr %54, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
   %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp24, i64 %..i.i.i.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp24, i64 %..i.i.i.i)
   %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %if.then55.loopexit.i, label %while.body.i
 

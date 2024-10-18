@@ -325,7 +325,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN4base12SampleVectorD2Ev.exit
 
 _ZN4base12SampleVectorD2Ev.exit:                  ; preds = %entry, %if.then.i.i.i.i
-  tail call void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
+  tail call void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
@@ -954,7 +954,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base20SampleVectorIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }

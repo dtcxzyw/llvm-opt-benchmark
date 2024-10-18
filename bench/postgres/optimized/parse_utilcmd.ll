@@ -579,7 +579,7 @@ transformOfType.exit:                             ; preds = %._crit_edge.i, %116
   %241 = load i16, ptr %240, align 2
   %242 = call i32 @getIdentitySequence(i32 noundef %239, i16 noundef signext %241, i1 noundef zeroext false) #8
   %243 = call ptr @sequence_options(i32 noundef %242) #8
-  call fastcc void @generateSerialExtraStmts(ptr noundef %5, ptr noundef %217, i32 noundef 0, ptr noundef %243, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
+  call fastcc void @generateSerialExtraStmts(ptr noundef nonnull %5, ptr noundef %217, i32 noundef 0, ptr noundef %243, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   %244 = load i8, ptr %235, align 1
   %245 = getelementptr inbounds i8, ptr %217, i64 64
   store i8 %244, ptr %245, align 8

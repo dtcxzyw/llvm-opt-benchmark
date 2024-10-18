@@ -909,7 +909,7 @@ process_rtsp_reply.exit.i:                        ; preds = %278, %295, %.lr.ph5
 328:                                              ; preds = %321
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
-  %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %169, i64 255)
+  %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 range(i64 11, 2147483648) %169, i64 255)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull readonly align 1 dereferenceable(1) %168, i64 %spec.store.select.i.i, i1 false)
   %329 = getelementptr [256 x i8], ptr %8, i64 0, i64 %spec.store.select.i.i
   store i8 0, ptr %329, align 1
@@ -1317,7 +1317,7 @@ rtsp_create_conversation.exit.i:                  ; preds = %483, %482, %478, %4
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %spec.store.select.i309.i = call i64 @llvm.umin.i64(i64 %169, i64 255)
+  %spec.store.select.i309.i = call i64 @llvm.umin.i64(i64 range(i64 16, 2147483648) %169, i64 255)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %5, ptr noundef nonnull readonly align 1 dereferenceable(1) %168, i64 %spec.store.select.i309.i, i1 false)
   %522 = getelementptr [256 x i8], ptr %5, i64 0, i64 %spec.store.select.i309.i
   store i8 0, ptr %522, align 1

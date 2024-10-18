@@ -155,7 +155,7 @@ _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_on
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN9EdgeStore3putE13UnifiedOopRef(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.StoredEdge, align 8
-  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null, i64 %1) #14
+  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef null, i64 %1) #14
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %0, align 8
@@ -168,7 +168,7 @@ define hidden noundef ptr @_ZN9EdgeStore3putE13UnifiedOopRef(ptr nocapture nound
 10:                                               ; preds = %2
   store ptr null, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   %13 = load i64, ptr %4, align 8
   store i64 %13, ptr %12, align 8
@@ -342,7 +342,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore13put_skip_edgeEPP10StoredEdgePPK
 .loopexit:                                        ; preds = %26, %7
   %.sroa.0.0.copyload.i19 = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, i64 %.sroa.0.0.copyload.i19) #14
+  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 %.sroa.0.0.copyload.i19) #14
   %31 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = load ptr, ptr %0, align 8
@@ -355,7 +355,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore13put_skip_edgeEPP10StoredEdgePPK
 37:                                               ; preds = %.loopexit
   store ptr null, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 16, i1 false)
   %39 = getelementptr inbounds i8, ptr %35, i64 24
   %40 = load i64, ptr %31, align 8
   store i64 %40, ptr %39, align 8
@@ -472,7 +472,7 @@ define hidden noundef ptr @_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge(p
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef null, i64 %.sroa.0.0.copyload.i) #14
+  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef null, i64 %.sroa.0.0.copyload.i) #14
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %0, align 8
@@ -485,7 +485,7 @@ define hidden noundef ptr @_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge(p
 13:                                               ; preds = %3
   store ptr null, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %11, i64 24
   %16 = load i64, ptr %7, align 8
   store i64 %16, ptr %15, align 8
@@ -636,7 +636,7 @@ _ZN9EdgeStore24link_with_existing_chainEPK10StoredEdgePPS0_m.exit: ; preds = %39
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, i64 %.sroa.0.0.copyload.i.i) #14
+  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 %.sroa.0.0.copyload.i.i) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %53 = load ptr, ptr %0, align 8
   %54 = lshr i64 %.sroa.0.0.copyload.i.i, 1
@@ -648,7 +648,7 @@ _ZN9EdgeStore24link_with_existing_chainEPK10StoredEdgePPS0_m.exit: ; preds = %39
 58:                                               ; preds = %.loopexit
   store ptr null, ptr %56, align 8
   %59 = getelementptr inbounds i8, ptr %56, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 16, i1 false)
   %60 = getelementptr inbounds i8, ptr %56, i64 24
   %61 = load i64, ptr %11, align 8
   store i64 %61, ptr %60, align 8
@@ -800,7 +800,7 @@ _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EED2Ev.exit: 
 
 26:                                               ; preds = %22
   store i32 0, ptr %20, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
   br label %_ZN13GrowableArrayIPK10StoredEdgeED2Ev.exit
 
 _ZN13GrowableArrayIPK10StoredEdgeED2Ev.exit:      ; preds = %22, %26
@@ -891,7 +891,7 @@ define hidden noundef ptr @_ZN9EdgeStore37associate_leak_context_with_candidateE
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null, i64 %.sroa.0.0.copyload.i) #14
+  call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef null, i64 %.sroa.0.0.copyload.i) #14
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %0, align 8
@@ -904,7 +904,7 @@ define hidden noundef ptr @_ZN9EdgeStore37associate_leak_context_with_candidateE
 11:                                               ; preds = %2
   store ptr null, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 16, i1 false)
   %13 = getelementptr inbounds i8, ptr %9, i64 24
   %14 = load i64, ptr %5, align 8
   store i64 %14, ptr %13, align 8

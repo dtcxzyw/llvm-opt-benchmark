@@ -199,7 +199,7 @@ entry:
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread: ; preds = %entry
   %output_10 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %output_10, align 8
-  %call.i211 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %0, i64 noundef 1)
+  %call.i211 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %0, i64 noundef 1)
   br label %if.then.i
 
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit:       ; preds = %entry
@@ -208,7 +208,7 @@ _ZN9grpc_core12VarintWriterILh1EEC2Em.exit:       ; preds = %entry
   %call.i = tail call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i)
   %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %output_, align 8
-  %call.i2 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %1, i64 noundef %call.i)
+  %call.i2 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %1, i64 noundef %call.i)
   %cmp.i4 = icmp eq i64 %call.i, 1
   br i1 %cmp.i4, label %if.then.i, label %if.else.i
 
@@ -291,7 +291,7 @@ if.then.i.i:                                      ; preds = %call.i.noexc.i
 lpad.i:                                           ; preds = %if.then.i.i, %cond.end.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %key) #22
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
   br label %eh.resume
 
@@ -301,7 +301,7 @@ invoke.cont4:                                     ; preds = %call.i.noexc.i, %co
   %.pre = load ptr, ptr %output_.phi.trans.insert, align 8
   %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.i = add i64 %7, 1
-  %call.i14 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre, i64 noundef %add.i)
+  %call.i14 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %.pre, i64 noundef %add.i)
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -325,8 +325,8 @@ if.else.i.i:                                      ; preds = %invoke.cont6
 
 invoke.cont8:                                     ; preds = %if.then.i.i19, %if.else.i.i
   %9 = load ptr, ptr %output_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %key, i8 0, i64 32, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(48) %key, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %key, i8 0, i64 32, i1 false), !noalias !12
   invoke void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(264) %9, ptr noundef nonnull %agg.tmp10)
           to label %invoke.cont13 unwind label %lpad12
 
@@ -343,7 +343,7 @@ if.then.i.i22:                                    ; preds = %invoke.cont13
 if.then.i.i.i24:                                  ; preds = %if.then.i.i22
   %destroyer_fn_.i.i.i25 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %destroyer_fn_.i.i.i25, align 8
-  invoke void %12(ptr noundef nonnull %10)
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN9grpc_core5SliceD2Ev.exit27 unwind label %terminate.lpad.i26
 
 terminate.lpad.i26:                               ; preds = %if.then.i.i.i24
@@ -394,14 +394,14 @@ if.then.i.i42:                                    ; preds = %call.i.noexc.i40
 lpad.i39:                                         ; preds = %if.then.i.i42, %cond.end.i.i36
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %emit) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %emit) #22
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp14) #22
   br label %ehcleanup32
 
 invoke.cont19:                                    ; preds = %call.i.noexc.i40, %cond.end.thread.i.i44
   %18 = phi i64 [ %call.i1.i38, %call.i.noexc.i40 ], [ 1, %cond.end.thread.i.i44 ]
   %.pre81 = load ptr, ptr %output_, align 8
-  %call.i53 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre81, i64 noundef %18)
+  %call.i53 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %.pre81, i64 noundef %18)
           to label %invoke.cont21 unwind label %lpad18
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -432,8 +432,8 @@ invoke.cont23:                                    ; preds = %if.then.i.i62, %if.
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   %21 = load ptr, ptr %output_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %emit, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %emit, i8 0, i64 32, i1 false), !noalias !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp28, ptr noundef nonnull align 8 dereferenceable(48) %emit, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %emit, i8 0, i64 32, i1 false), !noalias !23
   invoke void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull %agg.tmp28)
           to label %invoke.cont31 unwind label %lpad30
 
@@ -450,7 +450,7 @@ if.then.i.i66:                                    ; preds = %invoke.cont31
 if.then.i.i.i68:                                  ; preds = %if.then.i.i66
   %destroyer_fn_.i.i.i69 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %destroyer_fn_.i.i.i69, align 8
-  invoke void %24(ptr noundef nonnull %22)
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
           to label %_ZN9grpc_core5SliceD2Ev.exit71 unwind label %terminate.lpad.i70
 
 terminate.lpad.i70:                               ; preds = %if.then.i.i.i68
@@ -473,7 +473,7 @@ if.then.i.i.i73:                                  ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i73
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %emit.val4, i64 8
   %28 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %28(ptr noundef nonnull %emit.val4)
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) %emit.val4)
           to label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -496,7 +496,7 @@ if.then.i.i.i75:                                  ; preds = %_ZN9grpc_core12_GLO
 if.then.i.i.i.i77:                                ; preds = %if.then.i.i.i75
   %destroyer_fn_.i.i.i.i78 = getelementptr inbounds i8, ptr %key.val6, i64 8
   %32 = load ptr, ptr %destroyer_fn_.i.i.i.i78, align 8
-  invoke void %32(ptr noundef nonnull %key.val6)
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(16) %key.val6)
           to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i79
 
 terminate.lpad.i.i79:                             ; preds = %if.then.i.i.i.i77
@@ -565,7 +565,7 @@ if.then.i:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %if.then.i, %entry, %if.then.i.i
@@ -597,7 +597,7 @@ if.then.i.i:                                      ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %1(ptr noundef nonnull %this.0.val)
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -625,7 +625,7 @@ if.then.i.i:                                      ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %1(ptr noundef nonnull %this.0.val)
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -688,7 +688,7 @@ if.then.i.i:                                      ; preds = %call.i.noexc.i
 lpad.i:                                           ; preds = %if.then.i.i, %cond.end.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %key) #22
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
   br label %eh.resume
 
@@ -698,7 +698,7 @@ invoke.cont3:                                     ; preds = %call.i.noexc.i, %co
   %.pre = load ptr, ptr %output_.phi.trans.insert, align 8
   %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.i = add i64 %3, 1
-  %call.i11 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre, i64 noundef %add.i)
+  %call.i11 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %.pre, i64 noundef %add.i)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -722,8 +722,8 @@ if.else.i.i:                                      ; preds = %invoke.cont4
 
 invoke.cont6:                                     ; preds = %if.then.i.i16, %if.else.i.i
   %5 = load ptr, ptr %output_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %key, i8 0, i64 32, i1 false), !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(48) %key, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %key, i8 0, i64 32, i1 false), !noalias !34
   invoke void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull %agg.tmp8)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -740,7 +740,7 @@ if.then.i.i19:                                    ; preds = %invoke.cont11
 if.then.i.i.i21:                                  ; preds = %if.then.i.i19
   %destroyer_fn_.i.i.i22 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i22, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core5SliceD2Ev.exit24 unwind label %terminate.lpad.i23
 
 terminate.lpad.i23:                               ; preds = %if.then.i.i.i21
@@ -771,7 +771,7 @@ if.then.i.i27:                                    ; preds = %invoke.cont14
 if.then.i.i.i29:                                  ; preds = %if.then.i.i27
   %destroyer_fn_.i.i.i30 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %destroyer_fn_.i.i.i30, align 8
-  invoke void %14(ptr noundef nonnull %12)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %invoke.cont17 unwind label %terminate.lpad.i31
 
 terminate.lpad.i31:                               ; preds = %if.then.i.i.i29
@@ -790,7 +790,7 @@ invoke.cont17:                                    ; preds = %if.then.i.i.i29, %i
   %20 = and i8 %emit.val, 1
   %conv.i = zext nneg i8 %20 to i64
   %add.i33 = add i64 %emit.val6, %conv.i
-  %call.i34 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %17, i64 noundef %add.i33)
+  %call.i34 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %17, i64 noundef %add.i33)
           to label %invoke.cont19 unwind label %lpad16
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -828,8 +828,8 @@ if.then.i:                                        ; preds = %_ZNK9grpc_core12Var
 
 invoke.cont21:                                    ; preds = %if.then.i, %_ZNK9grpc_core12VarintWriterILh1EE5WriteEhPh.exit.i
   %26 = load ptr, ptr %output_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(32) %emit, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %emit, i8 0, i64 32, i1 false), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(72) %emit, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %emit, i8 0, i64 32, i1 false), !noalias !42
   invoke void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(264) %26, ptr noundef nonnull %agg.tmp23)
           to label %invoke.cont26 unwind label %lpad25
 
@@ -846,7 +846,7 @@ if.then.i.i46:                                    ; preds = %invoke.cont26
 if.then.i.i.i48:                                  ; preds = %if.then.i.i46
   %destroyer_fn_.i.i.i49 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %destroyer_fn_.i.i.i49, align 8
-  invoke void %29(ptr noundef nonnull %27)
+  invoke void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
           to label %_ZN9grpc_core5SliceD2Ev.exit51 unwind label %terminate.lpad.i50
 
 terminate.lpad.i50:                               ; preds = %if.then.i.i.i48
@@ -869,7 +869,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %emit.val7, i64 8
   %33 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
-  invoke void %33(ptr noundef nonnull %emit.val7)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(16) %emit.val7)
           to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
@@ -892,7 +892,7 @@ if.then.i.i.i53:                                  ; preds = %_ZN9grpc_core12_GLO
 if.then.i.i.i.i55:                                ; preds = %if.then.i.i.i53
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %key.val5, i64 8
   %37 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %37(ptr noundef nonnull %key.val5)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %key.val5)
           to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i55
@@ -1027,7 +1027,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 8
   %4 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull %.pre)
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %.pre)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -1102,7 +1102,7 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %1(ptr noundef nonnull %this.0.val)
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val)
           to label %_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -1171,7 +1171,7 @@ if.then.i.i:                                      ; preds = %call.i.noexc.i
 lpad.i:                                           ; preds = %if.then.i.i, %cond.end.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %key) #22
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
   br label %eh.resume
 
@@ -1181,7 +1181,7 @@ invoke.cont3:                                     ; preds = %call.i.noexc.i, %co
   %.pre = load ptr, ptr %output_.phi.trans.insert, align 8
   %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.i = add i64 %5, 1
-  %call.i12 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre, i64 noundef %add.i)
+  %call.i12 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %.pre, i64 noundef %add.i)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1205,8 +1205,8 @@ if.else.i.i:                                      ; preds = %invoke.cont5
 
 invoke.cont7:                                     ; preds = %if.then.i.i17, %if.else.i.i
   %7 = load ptr, ptr %output_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %key, i8 0, i64 32, i1 false), !noalias !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(48) %key, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %key, i8 0, i64 32, i1 false), !noalias !62
   invoke void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull %agg.tmp9)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -1223,7 +1223,7 @@ if.then.i.i20:                                    ; preds = %invoke.cont12
 if.then.i.i.i22:                                  ; preds = %if.then.i.i20
   %destroyer_fn_.i.i.i23 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %destroyer_fn_.i.i.i23, align 8
-  invoke void %10(ptr noundef nonnull %8)
+  invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN9grpc_core5SliceD2Ev.exit25 unwind label %terminate.lpad.i24
 
 terminate.lpad.i24:                               ; preds = %if.then.i.i.i22
@@ -1254,7 +1254,7 @@ if.then.i.i28:                                    ; preds = %invoke.cont15
 if.then.i.i.i30:                                  ; preds = %if.then.i.i28
   %destroyer_fn_.i.i.i31 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %destroyer_fn_.i.i.i31, align 8
-  invoke void %16(ptr noundef nonnull %14)
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %invoke.cont18 unwind label %terminate.lpad.i32
 
 terminate.lpad.i32:                               ; preds = %if.then.i.i.i30
@@ -1273,7 +1273,7 @@ invoke.cont18:                                    ; preds = %if.then.i.i.i30, %i
   %22 = and i8 %emit.val, 1
   %conv.i = zext nneg i8 %22 to i64
   %add.i34 = add i64 %emit.val6, %conv.i
-  %call.i35 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %19, i64 noundef %add.i34)
+  %call.i35 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %19, i64 noundef %add.i34)
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont18
@@ -1323,8 +1323,8 @@ invoke.cont22:                                    ; preds = %if.then.i, %_ZNK9gr
 
 invoke.cont26:                                    ; preds = %invoke.cont22
   %30 = load ptr, ptr %output_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29, ptr noundef nonnull align 8 dereferenceable(32) %emit, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %emit, i8 0, i64 32, i1 false), !noalias !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29, ptr noundef nonnull align 8 dereferenceable(72) %emit, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %emit, i8 0, i64 32, i1 false), !noalias !70
   invoke void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(264) %30, ptr noundef nonnull %agg.tmp29)
           to label %invoke.cont32 unwind label %lpad31
 
@@ -1341,7 +1341,7 @@ if.then.i.i48:                                    ; preds = %invoke.cont32
 if.then.i.i.i50:                                  ; preds = %if.then.i.i48
   %destroyer_fn_.i.i.i51 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %destroyer_fn_.i.i.i51, align 8
-  invoke void %33(ptr noundef nonnull %31)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
           to label %_ZN9grpc_core5SliceD2Ev.exit53 unwind label %terminate.lpad.i52
 
 terminate.lpad.i52:                               ; preds = %if.then.i.i.i50
@@ -1364,7 +1364,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %emit.val8, i64 8
   %37 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
-  invoke void %37(ptr noundef nonnull %emit.val8)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %emit.val8)
           to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
@@ -1387,7 +1387,7 @@ if.then.i.i.i55:                                  ; preds = %_ZN9grpc_core12_GLO
 if.then.i.i.i.i57:                                ; preds = %if.then.i.i.i55
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %key.val5, i64 8
   %41 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %41(ptr noundef nonnull %key.val5)
+  invoke void %41(ptr noundef nonnull align 8 dereferenceable(16) %key.val5)
           to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i57
@@ -1472,7 +1472,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -1504,7 +1504,7 @@ invoke.cont5:                                     ; preds = %cond.end.i, %_ZN9gr
   %conv.i = zext nneg i8 %9 to i64
   %add.i = add i64 %emit.val4, %key.sroa.3.0
   %add = add i64 %add.i, %conv.i
-  %call.i10 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %6, i64 noundef %add)
+  %call.i10 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %6, i64 noundef %add)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -1560,8 +1560,8 @@ if.then.i16:                                      ; preds = %_ZNK9grpc_core12Var
 
 invoke.cont12:                                    ; preds = %if.then.i16, %_ZNK9grpc_core12VarintWriterILh1EE5WriteEhPh.exit.i
   %16 = load ptr, ptr %output_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %emit, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %emit, i8 0, i64 32, i1 false), !noalias !78
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(72) %emit, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %emit, i8 0, i64 32, i1 false), !noalias !78
   invoke void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(264) %16, ptr noundef nonnull %agg.tmp14)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -1578,7 +1578,7 @@ if.then.i.i20:                                    ; preds = %invoke.cont17
 if.then.i.i.i22:                                  ; preds = %if.then.i.i20
   %destroyer_fn_.i.i.i23 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %destroyer_fn_.i.i.i23, align 8
-  invoke void %19(ptr noundef nonnull %17)
+  invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %17)
           to label %_ZN9grpc_core5SliceD2Ev.exit25 unwind label %terminate.lpad.i24
 
 terminate.lpad.i24:                               ; preds = %if.then.i.i.i22
@@ -1601,7 +1601,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %emit.val6, i64 8
   %23 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
-  invoke void %23(ptr noundef nonnull %emit.val6)
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %emit.val6)
           to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
@@ -1692,7 +1692,7 @@ if.then.i.i:                                      ; preds = %call.i.noexc.i
 lpad.i:                                           ; preds = %if.then.i.i, %cond.end.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %key) #22
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
   br label %eh.resume
 
@@ -1702,7 +1702,7 @@ invoke.cont3:                                     ; preds = %call.i.noexc.i, %co
   %.pre = load ptr, ptr %output_.phi.trans.insert, align 8
   %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.i = add i64 %3, 1
-  %call.i10 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre, i64 noundef %add.i)
+  %call.i10 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %.pre, i64 noundef %add.i)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -1726,8 +1726,8 @@ if.else.i.i:                                      ; preds = %invoke.cont4
 
 invoke.cont6:                                     ; preds = %if.then.i.i15, %if.else.i.i
   %5 = load ptr, ptr %output_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %key, i8 0, i64 32, i1 false), !noalias !89
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(48) %key, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %key, i8 0, i64 32, i1 false), !noalias !89
   invoke void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull %agg.tmp8)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -1744,7 +1744,7 @@ if.then.i.i18:                                    ; preds = %invoke.cont11
 if.then.i.i.i20:                                  ; preds = %if.then.i.i18
   %destroyer_fn_.i.i.i21 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i21, align 8
-  invoke void %8(ptr noundef nonnull %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN9grpc_core5SliceD2Ev.exit23 unwind label %terminate.lpad.i22
 
 terminate.lpad.i22:                               ; preds = %if.then.i.i.i20
@@ -1795,14 +1795,14 @@ if.then.i.i38:                                    ; preds = %call.i.noexc.i36
 lpad.i35:                                         ; preds = %if.then.i.i38, %cond.end.i.i32
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %emit) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %emit) #22
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #22
   br label %ehcleanup27
 
 invoke.cont17:                                    ; preds = %call.i.noexc.i36, %cond.end.thread.i.i40
   %14 = phi i64 [ %call.i1.i34, %call.i.noexc.i36 ], [ 1, %cond.end.thread.i.i40 ]
   %.pre77 = load ptr, ptr %output_, align 8
-  %call.i49 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre77, i64 noundef %14)
+  %call.i49 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %.pre77, i64 noundef %14)
           to label %invoke.cont19 unwind label %lpad16
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -1824,8 +1824,8 @@ if.else.i.i54:                                    ; preds = %invoke.cont19
 
 invoke.cont21:                                    ; preds = %if.then.i.i58, %if.else.i.i54
   %16 = load ptr, ptr %output_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(32) %emit, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %emit, i8 0, i64 32, i1 false), !noalias !100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(48) %emit, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %emit, i8 0, i64 32, i1 false), !noalias !100
   invoke void @_ZN9grpc_core11SliceBuffer6AppendENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(264) %16, ptr noundef nonnull %agg.tmp23)
           to label %invoke.cont26 unwind label %lpad25
 
@@ -1842,7 +1842,7 @@ if.then.i.i62:                                    ; preds = %invoke.cont26
 if.then.i.i.i64:                                  ; preds = %if.then.i.i62
   %destroyer_fn_.i.i.i65 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %destroyer_fn_.i.i.i65, align 8
-  invoke void %19(ptr noundef nonnull %17)
+  invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %17)
           to label %_ZN9grpc_core5SliceD2Ev.exit67 unwind label %terminate.lpad.i66
 
 terminate.lpad.i66:                               ; preds = %if.then.i.i.i64
@@ -1865,7 +1865,7 @@ if.then.i.i.i69:                                  ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i69
   %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %emit.val5, i64 8
   %23 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %23(ptr noundef nonnull %emit.val5)
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %emit.val5)
           to label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -1888,7 +1888,7 @@ if.then.i.i.i71:                                  ; preds = %_ZN9grpc_core12_GLO
 if.then.i.i.i.i73:                                ; preds = %if.then.i.i.i71
   %destroyer_fn_.i.i.i.i74 = getelementptr inbounds i8, ptr %key.val7, i64 8
   %27 = load ptr, ptr %destroyer_fn_.i.i.i.i74, align 8
-  invoke void %27(ptr noundef nonnull %key.val7)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(16) %key.val7)
           to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i75
 
 terminate.lpad.i.i75:                             ; preds = %if.then.i.i.i.i73
@@ -1953,7 +1953,7 @@ entry:
 _ZN9grpc_core12VarintWriterILh3EEC2Em.exit.thread: ; preds = %entry
   %output_10 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %output_10, align 8
-  %call.i211 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %2, i64 noundef 1)
+  %call.i211 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %2, i64 noundef 1)
   br label %if.then.i
 
 _ZN9grpc_core12VarintWriterILh3EEC2Em.exit:       ; preds = %entry
@@ -1962,7 +1962,7 @@ _ZN9grpc_core12VarintWriterILh3EEC2Em.exit:       ; preds = %entry
   %call.i = tail call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i)
   %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %output_, align 8
-  %call.i2 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %3, i64 noundef %call.i)
+  %call.i2 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %3, i64 noundef %call.i)
   %cmp.i4 = icmp eq i64 %call.i, 1
   br i1 %cmp.i4, label %if.then.i, label %if.else.i
 
@@ -2044,7 +2044,7 @@ if.then.i.i19:                                    ; preds = %invoke.cont10
 if.then.i.i.i:                                    ; preds = %if.then.i.i19
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -2067,7 +2067,7 @@ if.then.i.i21:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i23:                                  ; preds = %if.then.i.i21
   %destroyer_fn_.i.i.i24 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %destroyer_fn_.i.i.i24, align 8
-  invoke void %12(ptr noundef nonnull %10)
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %return unwind label %terminate.lpad.i25
 
 terminate.lpad.i25:                               ; preds = %if.then.i.i.i23
@@ -2120,7 +2120,7 @@ if.then24:                                        ; preds = %if.then21
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread.i: ; preds = %if.then24
   %output_10.i = getelementptr inbounds i8, ptr %encoder, i64 16
   %21 = load ptr, ptr %output_10.i, align 8
-  %call.i211.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %21, i64 noundef 1)
+  %call.i211.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %21, i64 noundef 1)
   br label %if.then.i.i31
 
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %if.then24
@@ -2129,7 +2129,7 @@ _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %if.then24
   %call.i.i = tail call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i.i)
   %output_.i = getelementptr inbounds i8, ptr %encoder, i64 16
   %22 = load ptr, ptr %output_.i, align 8
-  %call.i2.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %22, i64 noundef %call.i.i)
+  %call.i2.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %22, i64 noundef %call.i.i)
   %cmp.i4.i = icmp eq i64 %call.i.i, 1
   br i1 %cmp.i4.i, label %if.then.i.i31, label %if.else.i.i
 
@@ -2180,7 +2180,7 @@ if.then.i.i38:                                    ; preds = %invoke.cont34
 if.then.i.i.i40:                                  ; preds = %if.then.i.i38
   %destroyer_fn_.i.i.i41 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %destroyer_fn_.i.i.i41, align 8
-  invoke void %28(ptr noundef nonnull %26)
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) %26)
           to label %_ZN9grpc_core5SliceD2Ev.exit43 unwind label %terminate.lpad.i42
 
 terminate.lpad.i42:                               ; preds = %if.then.i.i.i40
@@ -2203,7 +2203,7 @@ if.then.i.i45:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i47:                                  ; preds = %if.then.i.i45
   %destroyer_fn_.i.i.i48 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %destroyer_fn_.i.i.i48, align 8
-  invoke void %33(ptr noundef nonnull %31)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
           to label %if.end40 unwind label %terminate.lpad.i49
 
 terminate.lpad.i49:                               ; preds = %if.then.i.i.i47
@@ -2229,11 +2229,11 @@ if.then46:                                        ; preds = %if.end40
   %ref.tmp.i.i.sroa.0.0.copyload.i = load ptr, ptr %prev.sroa.0.0104.lcssa, align 8
   %ref.tmp.i.i.sroa.4.0.__a.sroa_idx.i = getelementptr inbounds i8, ptr %prev.sroa.0.0104.lcssa, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.4.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.0.__a.sroa_idx.i, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %prev.sroa.0.0104.lcssa, i8 0, i64 32, i1 false), !noalias !122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %prev.sroa.0.0104.lcssa, i8 0, i64 32, i1 false), !noalias !122
   %index3.i.i = getelementptr inbounds i8, ptr %prev.sroa.0.0104.lcssa, i64 32
   %38 = load i32, ptr %index3.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %prev.sroa.0.0104.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0103.lcssa, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0103.lcssa, i8 0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %prev.sroa.0.0104.lcssa, ptr noundef nonnull align 8 dereferenceable(36) %it.sroa.0.0103.lcssa, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %it.sroa.0.0103.lcssa, i8 0, i64 32, i1 false)
   %39 = load i32, ptr %index, align 8
   store i32 %39, ptr %index3.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i.i.i5.sroa.4.i)
@@ -2256,7 +2256,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then46
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.i5.sroa.0.0.copyload.i, i64 8
   %41 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
-  invoke void %41(ptr noundef nonnull %__tmp.i.i.i.i5.sroa.0.0.copyload.i)
+  invoke void %41(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i5.sroa.0.0.copyload.i)
           to label %_ZSt4swapIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
@@ -2300,7 +2300,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i, align 8
-  invoke void %51(ptr noundef nonnull %49)
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(16) %49)
           to label %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8pop_backEv.exit unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i
@@ -2359,7 +2359,7 @@ if.then.i.i65:                                    ; preds = %invoke.cont66
 if.then.i.i.i67:                                  ; preds = %if.then.i.i65
   %destroyer_fn_.i.i.i68 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %destroyer_fn_.i.i.i68, align 8
-  invoke void %61(ptr noundef nonnull %59)
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(16) %59)
           to label %_ZN9grpc_core5SliceD2Ev.exit70 unwind label %terminate.lpad.i69
 
 terminate.lpad.i69:                               ; preds = %if.then.i.i.i67
@@ -2382,7 +2382,7 @@ if.then.i.i72:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i74:                                  ; preds = %if.then.i.i72
   %destroyer_fn_.i.i.i75 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %destroyer_fn_.i.i.i75, align 8
-  invoke void %66(ptr noundef nonnull %64)
+  invoke void %66(ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %_ZN9grpc_core5SliceD2Ev.exit77 unwind label %terminate.lpad.i76
 
 terminate.lpad.i76:                               ; preds = %if.then.i.i.i74
@@ -2443,7 +2443,7 @@ if.then.i.i84:                                    ; preds = %invoke.cont73
 if.then.i.i.i86:                                  ; preds = %if.then.i.i84
   %destroyer_fn_.i.i.i87 = getelementptr inbounds i8, ptr %.pre109, i64 8
   %76 = load ptr, ptr %destroyer_fn_.i.i.i87, align 8
-  invoke void %76(ptr noundef nonnull %.pre109)
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(16) %.pre109)
           to label %return unwind label %terminate.lpad.i88
 
 terminate.lpad.i88:                               ; preds = %if.then.i.i.i86
@@ -2540,7 +2540,7 @@ if.then.i.i13:                                    ; preds = %invoke.cont7
 if.then.i.i.i:                                    ; preds = %if.then.i.i13
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %9(ptr noundef nonnull %7)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -2563,7 +2563,7 @@ if.then.i.i15:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i17:                                  ; preds = %if.then.i.i15
   %destroyer_fn_.i.i.i18 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %destroyer_fn_.i.i.i18, align 8
-  invoke void %14(ptr noundef nonnull %12)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %if.end unwind label %terminate.lpad.i19
 
 terminate.lpad.i19:                               ; preds = %if.then.i.i.i17
@@ -2614,7 +2614,7 @@ if.then.i.i28:                                    ; preds = %invoke.cont13
 if.then.i.i.i30:                                  ; preds = %if.then.i.i28
   %destroyer_fn_.i.i.i31 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %destroyer_fn_.i.i.i31, align 8
-  invoke void %23(ptr noundef nonnull %21)
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %_ZN9grpc_core5SliceD2Ev.exit33 unwind label %terminate.lpad.i32
 
 terminate.lpad.i32:                               ; preds = %if.then.i.i.i30
@@ -2637,7 +2637,7 @@ if.then.i.i35:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i37:                                  ; preds = %if.then.i.i35
   %destroyer_fn_.i.i.i38 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %destroyer_fn_.i.i.i38, align 8
-  invoke void %28(ptr noundef nonnull %26)
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) %26)
           to label %if.end unwind label %terminate.lpad.i39
 
 terminate.lpad.i39:                               ; preds = %if.then.i.i.i37
@@ -2684,7 +2684,7 @@ sw.epilog.sink.split:                             ; preds = %entry, %sw.bb2
   %.sink = phi i8 [ -121, %sw.bb2 ], [ -122, %entry ]
   %output_10.i2 = getelementptr inbounds i8, ptr %encoder, i64 16
   %0 = load ptr, ptr %output_10.i2, align 8
-  %call.i211.i3 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %0, i64 noundef 1)
+  %call.i211.i3 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %0, i64 noundef 1)
   store i8 %.sink, ptr %call.i211.i3, align 1
   br label %sw.epilog
 
@@ -2767,7 +2767,7 @@ if.then.i.i:                                      ; preds = %invoke.cont14
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -2790,7 +2790,7 @@ if.then.i.i12:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i14:                                  ; preds = %if.then.i.i12
   %destroyer_fn_.i.i.i15 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i15, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %if.end15 unwind label %terminate.lpad.i16
 
 terminate.lpad.i16:                               ; preds = %if.then.i.i.i14
@@ -2820,7 +2820,7 @@ if.end15.sink.split:                              ; preds = %sw.bb2, %sw.bb3, %s
   %index.0.ph.sink = phi i8 [ -120, %entry ], [ -118, %sw.bb2 ], [ -117, %sw.bb3 ], [ -116, %sw.bb4 ], [ -115, %sw.bb5 ], [ -114, %sw.bb6 ], [ -119, %if.then9 ]
   %output_10.i7 = getelementptr inbounds i8, ptr %encoder, i64 16
   %12 = load ptr, ptr %output_10.i7, align 8
-  %call.i211.i8 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %12, i64 noundef 1)
+  %call.i211.i8 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %12, i64 noundef 1)
   store i8 %index.0.ph.sink, ptr %call.i211.i8, align 1
   br label %if.end15
 
@@ -2870,7 +2870,7 @@ if.then.i.i:                                      ; preds = %invoke.cont6
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -2893,7 +2893,7 @@ if.then.i.i10:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i12:                                  ; preds = %if.then.i.i10
   %destroyer_fn_.i.i.i13 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i13, align 8
-  invoke void %7(ptr noundef nonnull %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %sw.epilog unwind label %terminate.lpad.i14
 
 terminate.lpad.i14:                               ; preds = %if.then.i.i.i12
@@ -2918,7 +2918,7 @@ sw.epilog.sink.split:                             ; preds = %entry, %sw.bb2
   %.sink = phi i8 [ -126, %sw.bb2 ], [ -125, %entry ]
   %output_10.i4 = getelementptr inbounds i8, ptr %encoder, i64 16
   %11 = load ptr, ptr %output_10.i4, align 8
-  %call.i211.i5 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %11, i64 noundef 1)
+  %call.i211.i5 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %11, i64 noundef 1)
   store i8 %.sink, ptr %call.i211.i5, align 1
   br label %sw.epilog
 
@@ -2951,7 +2951,7 @@ if.then:                                          ; preds = %entry
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread.i: ; preds = %if.then
   %output_10.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %output_10.i, align 8
-  %call.i211.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %5, i64 noundef 1)
+  %call.i211.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %5, i64 noundef 1)
   br label %if.then.i.i
 
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %if.then
@@ -2960,7 +2960,7 @@ _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %if.then
   %call.i.i = tail call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i.i)
   %output_.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %output_.i, align 8
-  %call.i2.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %6, i64 noundef %call.i.i)
+  %call.i2.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %6, i64 noundef %call.i.i)
   %cmp.i4.i = icmp eq i64 %call.i.i, 1
   br i1 %cmp.i4.i, label %if.then.i.i, label %if.else.i.i
 
@@ -3003,7 +3003,7 @@ if.then.i.i4:                                     ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i4
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %10(ptr noundef nonnull %8)
+  invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -3026,7 +3026,7 @@ if.then.i.i6:                                     ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i8:                                   ; preds = %if.then.i.i6
   %destroyer_fn_.i.i.i9 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %destroyer_fn_.i.i.i9, align 8
-  invoke void %15(ptr noundef nonnull %13)
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %if.end unwind label %terminate.lpad.i10
 
 terminate.lpad.i10:                               ; preds = %if.then.i.i.i8
@@ -3085,7 +3085,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %4)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %if.end unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -3125,7 +3125,7 @@ if.then.i.i6:                                     ; preds = %invoke.cont9
 if.then.i.i.i8:                                   ; preds = %if.then.i.i6
   %destroyer_fn_.i.i.i9 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %destroyer_fn_.i.i.i9, align 8
-  invoke void %12(ptr noundef nonnull %10)
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN9grpc_core5SliceD2Ev.exit11 unwind label %terminate.lpad.i10
 
 terminate.lpad.i10:                               ; preds = %if.then.i.i.i8
@@ -3148,7 +3148,7 @@ if.then.i.i13:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i15:                                  ; preds = %if.then.i.i13
   %destroyer_fn_.i.i.i16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %destroyer_fn_.i.i.i16, align 8
-  invoke void %17(ptr noundef nonnull %15)
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %15)
           to label %if.end unwind label %terminate.lpad.i17
 
 terminate.lpad.i17:                               ; preds = %if.then.i.i.i15
@@ -3225,7 +3225,7 @@ if.then.i.i8:                                     ; preds = %invoke.cont7
 if.then.i.i.i:                                    ; preds = %if.then.i.i8
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull %4)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -3248,7 +3248,7 @@ if.then.i.i10:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i12:                                  ; preds = %if.then.i.i10
   %destroyer_fn_.i.i.i13 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %destroyer_fn_.i.i.i13, align 8
-  invoke void %11(ptr noundef nonnull %9)
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %if.end unwind label %terminate.lpad.i14
 
 terminate.lpad.i14:                               ; preds = %if.then.i.i.i12
@@ -3290,7 +3290,7 @@ if.then.i.i20:                                    ; preds = %invoke.cont11
 if.then.i.i.i22:                                  ; preds = %if.then.i.i20
   %destroyer_fn_.i.i.i23 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %destroyer_fn_.i.i.i23, align 8
-  invoke void %18(ptr noundef nonnull %16)
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %if.end unwind label %terminate.lpad.i24
 
 terminate.lpad.i24:                               ; preds = %if.then.i.i.i22
@@ -3406,7 +3406,7 @@ if.then18:                                        ; preds = %if.end
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread.i: ; preds = %if.then18
   %output_10.i = getelementptr inbounds i8, ptr %encoder, i64 16
   %10 = load ptr, ptr %output_10.i, align 8
-  %call.i211.i = call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %10, i64 noundef 1)
+  %call.i211.i = call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %10, i64 noundef 1)
   br label %if.then.i.i
 
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %if.then18
@@ -3415,7 +3415,7 @@ _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %if.then18
   %call.i.i = call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i.i)
   %output_.i = getelementptr inbounds i8, ptr %encoder, i64 16
   %11 = load ptr, ptr %output_.i, align 8
-  %call.i2.i = call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %11, i64 noundef %call.i.i)
+  %call.i2.i = call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %11, i64 noundef %call.i.i)
   %cmp.i4.i = icmp eq i64 %call.i.i, 1
   br i1 %cmp.i4.i, label %if.then.i.i, label %if.else.i.i
 
@@ -3463,7 +3463,7 @@ if.then.i.i13:                                    ; preds = %invoke.cont27
 if.then.i.i.i15:                                  ; preds = %if.then.i.i13
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %15(ptr noundef nonnull %13)
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i15
@@ -3486,7 +3486,7 @@ if.then.i.i17:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i19:                                  ; preds = %if.then.i.i17
   %destroyer_fn_.i.i.i20 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %destroyer_fn_.i.i.i20, align 8
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN9grpc_core5SliceD2Ev.exit22 unwind label %terminate.lpad.i21
 
 terminate.lpad.i21:                               ; preds = %if.then.i.i.i19
@@ -3521,7 +3521,7 @@ if.then.i.i24:                                    ; preds = %_ZN9grpc_core5Slice
 if.then.i.i.i26:                                  ; preds = %if.then.i.i24
   %destroyer_fn_.i.i.i27 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %destroyer_fn_.i.i.i27, align 8
-  invoke void %27(ptr noundef nonnull %25)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
           to label %return unwind label %terminate.lpad.i28
 
 terminate.lpad.i28:                               ; preds = %if.then.i.i.i26
@@ -3573,7 +3573,7 @@ if.then:                                          ; preds = %entry
 
 _ZN9grpc_core12VarintWriterILh3EEC2Em.exit.thread.i: ; preds = %if.then
   %3 = load ptr, ptr %output_, align 8
-  %call.i211.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %3, i64 noundef 1)
+  %call.i211.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %3, i64 noundef 1)
   br label %if.then.i.i
 
 _ZN9grpc_core12VarintWriterILh3EEC2Em.exit.i:     ; preds = %if.then
@@ -3581,7 +3581,7 @@ _ZN9grpc_core12VarintWriterILh3EEC2Em.exit.i:     ; preds = %if.then
   %sub.i.i = add nsw i64 %conv.i, -31
   %call.i.i = tail call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i.i)
   %4 = load ptr, ptr %output_, align 8
-  %call.i2.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %4, i64 noundef %call.i.i)
+  %call.i2.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(264) %4, i64 noundef %call.i.i)
   %cmp.i4.i = icmp eq i64 %call.i.i, 1
   br i1 %cmp.i4.i, label %if.then.i.i, label %if.else.i.i
 
@@ -3648,7 +3648,7 @@ if.then.i.i:                                      ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %1(ptr noundef nonnull %this.0.val)
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -3741,9 +3741,9 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i, i64 32, i1 false), !noalias !211
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i, i8 0, i64 32, i1 false), !alias.scope !214, !noalias !216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !214
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.06.i.i.i, i64 32, i1 false), !noalias !211
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.06.i.i.i, i8 0, i64 32, i1 false), !alias.scope !214, !noalias !216
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !214
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %index.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %index3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
@@ -3766,9 +3766,9 @@ for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIN9grpc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i18)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i22, i64 32, i1 false), !noalias !220
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i22, i8 0, i64 32, i1 false), !alias.scope !223, !noalias !225
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i18, i64 32, i1 false), !noalias !223
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.06.i.i.i22, i64 32, i1 false), !noalias !220
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.06.i.i.i22, i8 0, i64 32, i1 false), !alias.scope !223, !noalias !225
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %__cur.07.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i18, i64 32, i1 false), !noalias !223
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i18)
   %index.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i21, i64 32
   %index3.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i22, i64 32

@@ -343,7 +343,7 @@ define void @_ZNK23InterfaceTreeCacheModel4dataERK11QModelIndexi(ptr dead_on_unw
   br i1 %or.cond63, label %17, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %16, align 8
   br label %110
@@ -497,7 +497,7 @@ _ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit: ; preds = %_ZNKS
   br i1 %82, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit23.thread, label %.lr.ph.i.i.i.i37.preheader
 
 .lr.ph.i.i.i.i37.preheader:                       ; preds = %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %83 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %83, align 8
   br label %.lr.ph.i.i.i.i37
@@ -566,7 +566,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit23
   br label %110
 
 108:                                              ; preds = %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit23.thread
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %109 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %109, align 8
   br label %110

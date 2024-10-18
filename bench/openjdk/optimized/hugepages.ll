@@ -401,7 +401,7 @@ _ZL14scan_hugepagesv.exit:                        ; preds = %27, %._crit_edge.i
   br i1 %.not10, label %59, label %56
 
 56:                                               ; preds = %54
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #15
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %57 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %57) #15
@@ -508,7 +508,7 @@ _ZL16read_number_filePKcPm.exit:                  ; preds = %13, %16
   br i1 %.not7, label %23, label %20
 
 20:                                               ; preds = %_ZL16read_number_filePKcPm.exit
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #15
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %21) #15
@@ -716,7 +716,7 @@ define hidden void @_ZN15ShmemTHPSupport7scan_osEv(ptr nocapture noundef nonnull
   br i1 %.not11, label %33, label %23
 
 23:                                               ; preds = %21
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #15
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #15

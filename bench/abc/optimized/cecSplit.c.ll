@@ -541,7 +541,7 @@ Gia_SplitCofVar2.exit:                            ; preds = %19, %..critedge_cri
   %35 = getelementptr i8, ptr %.val45, i64 4
   %.val45.val = load i32, ptr %35, align 4
   %36 = sub nsw i32 %.val45.val, %.val44
-  %37 = tail call noundef i32 @llvm.smin.i32(i32 %1, i32 %36)
+  %37 = tail call noundef i32 @llvm.smin.i32(i32 range(i32 2, 1) %1, i32 %36)
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph.preheader, label %._crit_edge
 

@@ -3019,7 +3019,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Darts7Details9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #23
   ret void
 }
@@ -4216,7 +4216,7 @@ _ZN5Darts7Details8AutoPoolIjE6resizeEmRKj.exit:   ; preds = %.lr.ph9.i, %11
 
 29:                                               ; preds = %23
   %30 = add i64 %25, 1
-  tail call void @_ZN5Darts7Details8AutoPoolINS0_8DawgNodeEE10resize_bufEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %30)
+  tail call void @_ZN5Darts7Details8AutoPoolINS0_8DawgNodeEE10resize_bufEm(ptr noundef nonnull align 8 dereferenceable(200) %0, i64 noundef %30)
   %.pre.i.i = load i64, ptr %24, align 8
   br label %_ZN5Darts7Details8AutoPoolINS0_8DawgNodeEE6appendEv.exit.i
 
@@ -4400,7 +4400,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6insertEPKcmi(ptr nounde
 
 64:                                               ; preds = %59
   %65 = add i64 %60, 1
-  tail call void @_ZN5Darts7Details8AutoPoolINS0_8DawgNodeEE10resize_bufEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %65)
+  tail call void @_ZN5Darts7Details8AutoPoolINS0_8DawgNodeEE10resize_bufEm(ptr noundef nonnull align 8 dereferenceable(200) %0, i64 noundef %65)
   %.pre.i.i = load i64, ptr %45, align 8
   br label %_ZN5Darts7Details8AutoPoolINS0_8DawgNodeEE6appendEv.exit.i
 
@@ -4639,7 +4639,7 @@ define linkonce_odr noundef i32 @_ZN5Darts7Details11DawgBuilder11append_unitEv(p
 
 13:                                               ; preds = %7
   %14 = add i64 %9, 1
-  tail call void @_ZN5Darts7Details8AutoPoolIjE10resize_bufEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %14)
+  tail call void @_ZN5Darts7Details8AutoPoolIjE10resize_bufEm(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %14)
   %.pre.i.i = load i64, ptr %8, align 8
   br label %_ZN5Darts7Details8AutoPoolIjE6appendERKj.exit.i
 

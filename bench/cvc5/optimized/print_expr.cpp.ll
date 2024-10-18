@@ -1072,7 +1072,7 @@ if.then13.i.i9.i.i.i:                             ; preds = %if.else.i.i7.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then13.i.i9.i.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
   resume { ptr, i32 } %7
 
 _ZNSt16allocator_traitsISaIN4cvc58internal5proof5PExprEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %if.then.i.i11.i.i.i, %if.else.i.i7.i.i.i, %if.then13.i.i9.i.i.i
@@ -1195,7 +1195,7 @@ if.then13.i.i9.i.i.i:                             ; preds = %if.else.i.i7.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then13.i.i9.i.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
   resume { ptr, i32 } %7
 
 _ZNSt16allocator_traitsISaIN4cvc58internal5proof5PExprEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %if.then.i.i11.i.i.i, %if.else.i.i7.i.i.i, %if.then13.i.i9.i.i.i
@@ -1316,7 +1316,7 @@ if.then13.i.i9.i.i.i:                             ; preds = %if.else.i.i7.i.i.i
 lpad.body.thread:                                 ; preds = %if.then13.i.i9.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr) #12
+  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr) #12
   br label %if.else
 
 invoke.cont:                                      ; preds = %if.then13.i.i9.i.i.i, %if.else.i.i7.i.i.i, %if.then.i.i11.i.i.i
@@ -1533,7 +1533,7 @@ if.then13.i.i9.i.i:                               ; preds = %if.else.i.i7.i.i
 lpad.i.i:                                         ; preds = %if.then13.i.i9.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__cur.013) #12
+  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %__cur.013) #12
   br label %lpad.body
 
 for.inc:                                          ; preds = %if.then13.i.i9.i.i, %if.else.i.i7.i.i, %if.then.i.i11.i.i
@@ -1754,7 +1754,7 @@ if.then13.i.i9.i.i.i:                             ; preds = %if.else.i.i7.i.i.i
 lpad.body.thread:                                 ; preds = %if.then13.i.i9.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr) #12
+  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr) #12
   br label %if.else
 
 invoke.cont:                                      ; preds = %if.then13.i.i9.i.i.i, %if.else.i.i7.i.i.i, %if.then.i.i11.i.i.i

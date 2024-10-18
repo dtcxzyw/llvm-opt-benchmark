@@ -320,7 +320,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not, label %load_aux.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef 3) #9
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef range(i32 0, 5) 3) #9
   %call.i = tail call ptr @lua_setupvalue(ptr noundef %L, i32 noundef -2, i32 noundef 1) #9
   %tobool7.not.i = icmp eq ptr %call.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %load_aux.exit
@@ -372,7 +372,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.not, label %load_aux.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  call void @lua_pushvalue(ptr noundef %L, i32 noundef 4) #9
+  call void @lua_pushvalue(ptr noundef %L, i32 noundef range(i32 0, 5) 4) #9
   %call.i = call ptr @lua_setupvalue(ptr noundef %L, i32 noundef -2, i32 noundef 1) #9
   %tobool7.not.i = icmp eq ptr %call.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %load_aux.exit

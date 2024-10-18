@@ -121,7 +121,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$16inse
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %3
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3c418f21b03233f6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3c418f21b03233f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %6)
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %9
@@ -147,7 +147,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$16inse
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %10
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h2c63e249f5f4ba13E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %19)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h2c63e249f5f4ba13E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %19)
           to label %._crit_edge.i unwind label %23, !noalias !22
 
 ._crit_edge.i:                                    ; preds = %22
@@ -257,7 +257,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !26
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd926472a305c6508E.llvm.8367403837193465475"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd926472a305c6508E.llvm.8367403837193465475"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !range !35, !noalias !26, !noundef !15
   %.not.i.i.i.i = icmp eq i64 %9, 0
@@ -286,7 +286,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..error..context
 18:                                               ; preds = %1
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !36
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd926472a305c6508E.llvm.8367403837193465475"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd926472a305c6508E.llvm.8367403837193465475"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
   %20 = getelementptr inbounds i8, ptr %2, i64 8
   %21 = load i64, ptr %20, align 8, !range !35, !noalias !36, !noundef !15
   %.not.i.i.i.i.i = icmp eq i64 %21, 0

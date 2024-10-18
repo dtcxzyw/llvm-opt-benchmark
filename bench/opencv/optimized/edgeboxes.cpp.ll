@@ -8179,7 +8179,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_
   %.016.i.i = sdiv i64 %.016.in.i.i, 2
   %43 = sub nsw i64 0, %.016.i.i
   %gep.i = getelementptr %"struct.cv::ximgproc::Box", ptr %invariant.gep.i, i64 %43
-  %44 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(20) %gep.i, ptr noundef nonnull align 4 dereferenceable(20) %4)
+  %44 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(20) %gep.i, ptr noundef nonnull align 8 dereferenceable(20) %4)
   br i1 %44, label %45, label %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc3BoxESt6vectorIS5_SaIS5_EEEEElS5_NS1_5__ops15_Iter_comp_iterIPFbRKS5_SF_EEEEvT_T0_SK_T1_T2_.exit
 
 45:                                               ; preds = %.lr.ph.i.i
@@ -8300,7 +8300,7 @@ define linkonce_odr hidden void @_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_c
   %.016.i.i34 = lshr i64 %.016.in.i.i, 1
   %47 = sub nsw i64 0, %.016.i.i34
   %gep.i = getelementptr %"struct.cv::ximgproc::Box", ptr %invariant.gep.i, i64 %47
-  %48 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(20) %gep.i, ptr noundef nonnull align 4 dereferenceable(20) %5)
+  %48 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(20) %gep.i, ptr noundef nonnull align 8 dereferenceable(20) %5)
   br i1 %48, label %49, label %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc3BoxESt6vectorIS5_SaIS5_EEEEElS5_NS1_5__ops15_Iter_comp_iterIPFbRKS5_SF_EEEEvT_T0_SK_T1_T2_.exit
 
 49:                                               ; preds = %.lr.ph.i.i

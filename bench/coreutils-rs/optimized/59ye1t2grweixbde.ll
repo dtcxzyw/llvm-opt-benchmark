@@ -510,7 +510,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !59, !nonnull !4, !align !17, !noundef !4
-  %18 = call noundef i32 @lstat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2), !noalias !64
+  %18 = call noundef i32 @lstat(ptr noundef nonnull readonly align 1 %17, ptr noundef nonnull align 8 dereferenceable(144) %2), !noalias !64
   br label %19
 
 19:                                               ; preds = %15, %7
@@ -556,7 +556,7 @@ define hidden { i32, i32 } @"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$G
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !65, !nonnull !4, !align !17, !noundef !4
-  %18 = call noundef i32 @stat(ptr noundef nonnull readonly %17, ptr noundef nonnull %2), !noalias !70
+  %18 = call noundef i32 @stat(ptr noundef nonnull readonly align 1 %17, ptr noundef nonnull align 8 dereferenceable(144) %2), !noalias !70
   br label %19
 
 19:                                               ; preds = %15, %7
@@ -611,7 +611,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf301b802f1ab6c36E.llvm.10461450130873317783.exit", label %14
 
 14:                                               ; preds = %6
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %9, i64 noundef %11) #22, !noalias !77
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -9223372036854775808) %9, i64 noundef range(i64 1, -9223372036854775807) %11) #22, !noalias !77
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf301b802f1ab6c36E.llvm.10461450130873317783.exit"
 
 15:                                               ; preds = %1
@@ -625,7 +625,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf301b802f1ab6c36E.llvm.10461450130873317783.exit1", label %22
 
 22:                                               ; preds = %15
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %17, i64 noundef %19) #22, !noalias !81
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #22, !noalias !81
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf301b802f1ab6c36E.llvm.10461450130873317783.exit1"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf301b802f1ab6c36E.llvm.10461450130873317783.exit1": ; preds = %15, %22
@@ -728,7 +728,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %19 = add i64 %.sroa.5.09.i.i, 1
   %.not.i.i1.i = icmp eq i64 %.sroa.5.09.i.i, 0
   %..i.i.i = select i1 %.not.i.i1.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef %..i.i.i, i64 noundef 8) #22, !noalias !106
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i.i, i64 noundef range(i64 1, -9223372036854775808) %..i.i.i, i64 noundef 8) #22, !noalias !106
   %20 = load ptr, ptr %18, align 8, !noalias !99, !noundef !4
   %21 = icmp eq ptr %20, null
   br i1 %21, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h7175e984285e043cE.llvm.10461450130873317783.exit.i", label %.lr.ph.i.i
@@ -738,7 +738,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %.sroa.5.0.lcssa.i.i = phi i64 [ %15, %.loopexit.i ], [ %19, %.lr.ph.i.i ]
   %.not.i6.i.i = icmp eq i64 %.sroa.5.0.lcssa.i.i, 0
   %..i7.i.i = select i1 %.not.i6.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef %..i7.i.i, i64 noundef 8) #22, !noalias !106
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i.i, i64 noundef range(i64 1, -9223372036854775808) %..i7.i.i, i64 noundef 8) #22, !noalias !106
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hda6aadbc8c6ff9b0E.llvm.10461450130873317783.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hda6aadbc8c6ff9b0E.llvm.10461450130873317783.exit": ; preds = %7, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h7175e984285e043cE.llvm.10461450130873317783.exit.i"
@@ -858,7 +858,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17ha169270839164c31E
   %23 = load i16, ptr %22, align 8, !noalias !134
   %.not.i.i.i = icmp eq i64 %.sroa.5.065.i.i, 0
   %..i.i.i = select i1 %.not.i.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066.i.i, i64 noundef %..i.i.i, i64 noundef 8) #22, !noalias !139
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066.i.i, i64 noundef range(i64 1, -9223372036854775808) %..i.i.i, i64 noundef 8) #22, !noalias !139
   %24 = getelementptr inbounds i8, ptr %18, i64 538
   %25 = load i16, ptr %24, align 2, !noalias !120, !noundef !4
   %.not.i.i = icmp ult i16 %23, %25
@@ -867,7 +867,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17ha169270839164c31E
 26:                                               ; preds = %.lr.ph.i.i
   %.not.i59.i.i = icmp eq i64 %.sroa.5.065.i.i, 0
   %..i60.i.i = select i1 %.not.i59.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066.i.i, i64 noundef %..i60.i.i, i64 noundef 8) #22, !noalias !139
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066.i.i, i64 noundef range(i64 1, -9223372036854775808) %..i60.i.i, i64 noundef 8) #22, !noalias !139
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.80e654d16142edf019a1257fb4f8d59b.11.llvm.10461450130873317783) #23
           to label %.noexc unwind label %27
 
@@ -919,7 +919,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %8 = add i64 %.sroa.5.09, 1
   %.not.i = icmp eq i64 %.sroa.5.09, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef %..i, i64 noundef 8) #22, !noalias !145
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08, i64 noundef range(i64 1, -9223372036854775808) %..i, i64 noundef 8) #22, !noalias !145
   %9 = load ptr, ptr %7, align 8, !noalias !140, !noundef !4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -929,7 +929,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa = phi i64 [ %3, %1 ], [ %8, %.lr.ph ]
   %.not.i6 = icmp eq i64 %.sroa.5.0.lcssa, 0
   %..i7 = select i1 %.not.i6, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef %..i7, i64 noundef 8) #22, !noalias !145
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa, i64 noundef range(i64 1, -9223372036854775808) %..i7, i64 noundef 8) #22, !noalias !145
   ret void
 }
 
@@ -1007,7 +1007,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 25:                                               ; preds = %.lr.ph
   %.not.i59 = icmp eq i64 %.sroa.5.065, 0
   %..i60 = select i1 %.not.i59, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066, i64 noundef %..i60, i64 noundef 8) #22, !noalias !158
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066, i64 noundef range(i64 1, -9223372036854775808) %..i60, i64 noundef 8) #22, !noalias !158
   store ptr null, ptr %0, align 8
   br label %24
 
@@ -1017,7 +1017,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %29 = load i16, ptr %28, align 8, !noalias !153
   %.not.i = icmp eq i64 %.sroa.5.065, 0
   %..i = select i1 %.not.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066, i64 noundef %..i, i64 noundef 8) #22, !noalias !158
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066, i64 noundef range(i64 1, -9223372036854775808) %..i, i64 noundef 8) #22, !noalias !158
   %30 = getelementptr inbounds i8, ptr %22, i64 538
   %31 = load i16, ptr %30, align 2, !noundef !4
   %.not = icmp ult i16 %29, %31
@@ -1083,7 +1083,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %27 = load i16, ptr %26, align 8, !noalias !172
   %.not.i.i = icmp eq i64 %.sroa.5.065.i, 0
   %..i.i = select i1 %.not.i.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066.i, i64 noundef %..i.i, i64 noundef 8) #22, !noalias !177
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066.i, i64 noundef range(i64 1, -9223372036854775808) %..i.i, i64 noundef 8) #22, !noalias !177
   %28 = getelementptr inbounds i8, ptr %22, i64 538
   %29 = load i16, ptr %28, align 2, !noalias !164, !noundef !4
   %.not.i = icmp ult i16 %27, %29
@@ -1092,7 +1092,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 30:                                               ; preds = %.lr.ph.i
   %.not.i59.i = icmp eq i64 %.sroa.5.065.i, 0
   %..i60.i = select i1 %.not.i59.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066.i, i64 noundef %..i60.i, i64 noundef 8) #22, !noalias !177
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.066.i, i64 noundef range(i64 1, -9223372036854775808) %..i60.i, i64 noundef 8) #22, !noalias !177
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.80e654d16142edf019a1257fb4f8d59b.11.llvm.10461450130873317783) #23
   unreachable
 
@@ -1258,7 +1258,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %13 = add i64 %.sroa.5.09.i, 1
   %.not.i.i1 = icmp eq i64 %.sroa.5.09.i, 0
   %..i.i = select i1 %.not.i.i1, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef %..i.i, i64 noundef 8) #22, !noalias !199
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.08.i, i64 noundef range(i64 1, -9223372036854775808) %..i.i, i64 noundef 8) #22, !noalias !199
   %14 = load ptr, ptr %12, align 8, !noalias !192, !noundef !4
   %15 = icmp eq ptr %14, null
   br i1 %15, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h7175e984285e043cE.llvm.10461450130873317783.exit", label %.lr.ph.i
@@ -1268,7 +1268,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %.sroa.5.0.lcssa.i = phi i64 [ %9, %.loopexit ], [ %13, %.lr.ph.i ]
   %.not.i6.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
   %..i7.i = select i1 %.not.i6.i, i64 544, i64 640
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef %..i7.i, i64 noundef 8) #22, !noalias !199
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.02.0.lcssa.i, i64 noundef range(i64 1, -9223372036854775808) %..i7.i, i64 noundef 8) #22, !noalias !199
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h6548b76eeead1c8eE.llvm.10461450130873317783.exit"
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h6548b76eeead1c8eE.llvm.10461450130873317783.exit": ; preds = %1, %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h7175e984285e043cE.llvm.10461450130873317783.exit"
@@ -1336,7 +1336,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %1
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef %8) #22
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -9223372036854775808) %6, i64 noundef range(i64 1, -9223372036854775807) %8) #22
   br label %12
 
 12:                                               ; preds = %1, %11

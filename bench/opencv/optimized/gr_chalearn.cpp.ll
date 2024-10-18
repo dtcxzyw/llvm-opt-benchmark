@@ -686,7 +686,7 @@ define hidden void @_ZN2cv8datasets14GR_chalearnImp15loadDatasetPartERKNSt7__cxx
           to label %50 unwind label %.loopexit185
 
 50:                                               ; preds = %48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(192) %49) #15
   %51 = getelementptr inbounds i8, ptr %49, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #15
   %52 = getelementptr inbounds i8, ptr %49, i64 64
@@ -2613,7 +2613,7 @@ _ZN2cv8datasets14GR_chalearnObjD2Ev.exit:         ; preds = %_ZNSt6vectorIN2cv8d
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
   %14 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(192) %3) #15
   tail call void @_ZdlPv(ptr noundef nonnull %3) #16
   br label %15
 

@@ -1488,7 +1488,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %77, %73, %82
           to label %104 unwind label %129
 
 104:                                              ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #24
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %14) #24
   br i1 %5, label %.loopexit82, label %.preheader
 
 .preheader:                                       ; preds = %104
@@ -1531,7 +1531,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %77, %73, %82
 129:                                              ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
   %130 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #24
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %14) #24
   br label %.loopexit.split-lp
 
 .loopexit82:                                      ; preds = %120, %.preheader, %104
@@ -2139,7 +2139,7 @@ define linkonce_odr hidden void @_ZN2cv18AffineFeature_ImplD1Ev(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18AffineFeature_ImplD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 {
   tail call void @_ZN2cv18AffineFeature_ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @_ZTTN2cv18AffineFeature_ImplE) #24
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -2203,7 +2203,7 @@ declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv22skewedDetectAndComputeD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -2986,7 +2986,7 @@ _ZN2cvmlIfLi4ELi2ELi2EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %101 = getelementptr inbounds i8, ptr %15, i64 80
   store ptr %101, ptr %100, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 4, i32 noundef 2, i32 noundef 5, ptr noundef nonnull %16, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 4, i32 noundef 2, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(32) %16, i64 noundef 0)
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %_ZN2cvmlIfLi4ELi2ELi2EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit
@@ -3714,7 +3714,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv18AffineFeat
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv18AffineFeature_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN2cv18AffineFeature_ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull @_ZTTN2cv18AffineFeature_ImplE) #24
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #24
   ret void
 }
 

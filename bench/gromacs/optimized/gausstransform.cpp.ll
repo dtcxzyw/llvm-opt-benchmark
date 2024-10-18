@@ -604,7 +604,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %51, %54
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19GaussianOn1DLatticeaSERKS0_(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -802,7 +802,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv
 
 28:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv.exit.i
   %29 = sub nuw i64 %19, %26
-  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %29)
+  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %29)
   %.pre.i = load ptr, ptr %1, align 8
   br label %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit
 
@@ -1137,7 +1137,7 @@ define void @_ZN3gmx16GaussTransform3D4ImplC2ERKNS_7extentsIJLln1ELln1ELln1EEEER
   %.sroa.0.sroa.3.0.copyload = load i64, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
@@ -1161,7 +1161,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br i1 %.not.i, label %35, label %31
 
 31:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %29)
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(72) %21, i64 noundef %29)
           to label %.noexc.i unwind label %32
 
 .noexc.i:                                         ; preds = %31
@@ -1199,7 +1199,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %37, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
   %39 = getelementptr inbounds i8, ptr %0, i64 136
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i)
@@ -1443,7 +1443,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv
 
 93:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv.exit.i.i
   %94 = sub nuw i64 %84, %91
-  call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef %94), !noalias !19
+  call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(64) %59, i64 noundef %94), !noalias !19
   %.pre.i.i = load ptr, ptr %59, align 8, !noalias !19
   br label %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit.i
 
@@ -1778,7 +1778,7 @@ define linkonce_odr void @_ZN3gmx16GaussTransform3D4ImplC2ERKS1_(ptr noundef non
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %.not.i.i.i.i.i, label %15, label %12
 
@@ -1831,7 +1831,7 @@ _ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1ELln1EEEENS_12layo
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %33, %34
   br i1 %.not.i.i.i.i.i.i, label %.noexc8, label %39
 
@@ -1946,11 +1946,11 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx16GaussTransform3D
   %.sroa.03.i.i = alloca { %"class.gmx::accessor_basic.6", %"class.gmx::layout_right::mapping.16" }, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(36) %3, i64 36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(200) %3, i64 36, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 40
   %6 = getelementptr inbounds i8, ptr %3, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.03.i.i)
-  %7 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 72
   %.sroa.03.8..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.03.i.i, i64 8
@@ -1963,7 +1963,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx16GaussTransform3D
   %11 = getelementptr inbounds i8, ptr %4, i64 112
   %12 = getelementptr inbounds i8, ptr %3, i64 112
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03.i.i.i)
-  %13 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  %13 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %12)
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 144
   %.sroa.03.8..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.i.i.i, i64 8
@@ -1983,7 +1983,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx16GaussTransform3D
   %21 = getelementptr inbounds [3 x %"class.gmx::GaussianOn1DLattice"], ptr %18, i64 0, i64 %.05.i.i
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %20, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = getelementptr inbounds i8, ptr %22, i64 16
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)

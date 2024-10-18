@@ -856,7 +856,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %7
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = getelementptr inbounds i8, ptr %21, i64 %24
-  tail call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %25, ptr noundef %15, ptr noundef %20)
+  tail call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %25, ptr noundef %15, ptr noundef %20)
   %.pr = load i64, ptr %8, align 8
   %26 = icmp slt i64 %.pr, 1
   br i1 %26, label %_ZN5draco13EncoderBuffer6EncodeIfEEbRKT_.exit, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
@@ -870,7 +870,7 @@ _ZN5draco13EncoderBuffer6EncodeIfEEbRKT_.exit:    ; preds = %_ZN5draco13EncoderB
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds i8, ptr %30, i64 %33
-  tail call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %34, ptr noundef nonnull %27, ptr noundef nonnull %29)
+  tail call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %34, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull %29)
   %.pr5 = load i64, ptr %8, align 8
   %35 = load i32, ptr %4, align 8
   %36 = trunc i32 %35 to i8
@@ -886,7 +886,7 @@ _ZN5draco13EncoderBuffer6EncodeIfEEbRKT_.exit:    ; preds = %_ZN5draco13EncoderB
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %45, ptr noundef nonnull %3, ptr noundef nonnull %40)
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %45, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %40)
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %7, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, %38, %_ZN5draco13EncoderBuffer6EncodeIfEEbRKT_.exit, %2
@@ -947,7 +947,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
 32:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %33 = load ptr, ptr %2, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %34, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %34, i64 %26, i1 false)
   %35 = load i64, ptr %29, align 8
   %36 = add i64 %35, %26
   store i64 %36, ptr %29, align 8

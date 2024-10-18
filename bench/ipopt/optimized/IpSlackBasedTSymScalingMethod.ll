@@ -504,7 +504,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit122:   ; preds = %_ZNK5Ipopt6Vector7M
           to label %.noexc unwind label %276
 
 .noexc:                                           ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit122
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %231)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %231)
           to label %_ZN5Ipopt6Vector3SetEd.exit unwind label %276
 
 _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc
@@ -515,7 +515,7 @@ _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc
           to label %.noexc124 unwind label %276
 
 .noexc124:                                        ; preds = %_ZN5Ipopt6Vector3SetEd.exit
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %178)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %178)
           to label %_ZN5Ipopt6Vector14ElementWiseMinERKS0_.exit unwind label %276
 
 _ZN5Ipopt6Vector14ElementWiseMinERKS0_.exit:      ; preds = %.noexc124

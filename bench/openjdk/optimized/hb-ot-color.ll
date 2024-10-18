@@ -3752,7 +3752,7 @@ _ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_cont
 118:                                              ; preds = %99
   %119 = zext i32 %116 to i64
   %120 = getelementptr inbounds i8, ptr %0, i64 %119
-  %121 = tail call noundef zeroext i1 @_ZNK2OT13BaseGlyphList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %120, ptr noundef nonnull %1)
+  %121 = tail call noundef zeroext i1 @_ZNK2OT13BaseGlyphList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %120, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %121, label %.thread85, label %122
 
 122:                                              ; preds = %118
@@ -3808,7 +3808,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %122
 157:                                              ; preds = %138
   %158 = zext i32 %155 to i64
   %159 = getelementptr inbounds i8, ptr %0, i64 %158
-  %160 = tail call noundef zeroext i1 @_ZNK2OT9LayerList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %159, ptr noundef nonnull %1)
+  %160 = tail call noundef zeroext i1 @_ZNK2OT9LayerList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %159, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %160, label %.thread91, label %161
 
 161:                                              ; preds = %157
@@ -3864,7 +3864,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i59: ; preds = %161
 196:                                              ; preds = %177
   %197 = zext i32 %194 to i64
   %198 = getelementptr inbounds i8, ptr %0, i64 %197
-  %199 = tail call noundef zeroext i1 @_ZNK2OT8ClipList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %198, ptr noundef nonnull %1)
+  %199 = tail call noundef zeroext i1 @_ZNK2OT8ClipList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %198, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %199, label %.thread97, label %200
 
 200:                                              ; preds = %196
@@ -3976,7 +3976,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i65: ; preds = %239
 274:                                              ; preds = %255
   %275 = zext i32 %272 to i64
   %276 = getelementptr inbounds i8, ptr %0, i64 %275
-  %277 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %276, ptr noundef nonnull %1)
+  %277 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %276, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %277, label %.thread, label %278
 
 278:                                              ; preds = %274
@@ -4133,7 +4133,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i.i.i.i.i: ; preds = %9
   br i1 %.not.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i.i.i.i.i
-  %95 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %92, ptr noundef nonnull %1)
+  %95 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %92, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %96 = load i32, ptr %58, align 4
   %97 = add nsw i32 %96, -1
   store i32 %97, ptr %58, align 4
@@ -4267,7 +4267,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 43:                                               ; preds = %12
-  %44 = tail call noundef zeroext i1 @_ZNK2OT10PaintGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %44 = tail call noundef zeroext i1 @_ZNK2OT10PaintGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 45:                                               ; preds = %12
@@ -4278,11 +4278,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 50:                                               ; preds = %12
-  %51 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_10NoVariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull %1)
+  %51 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_10NoVariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 52:                                               ; preds = %12
-  %53 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_8VariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull %1)
+  %53 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_8VariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 54:                                               ; preds = %12
@@ -4293,7 +4293,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %58
 
 58:                                               ; preds = %54
-  %59 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %59 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 60:                                               ; preds = %12
@@ -4304,7 +4304,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i68, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %64
 
 64:                                               ; preds = %60
-  %65 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %65 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 66:                                               ; preds = %12
@@ -4315,7 +4315,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i69, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %70
 
 70:                                               ; preds = %66
-  %71 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %71 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 72:                                               ; preds = %12
@@ -4326,7 +4326,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i70, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %76
 
 76:                                               ; preds = %72
-  %77 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %77 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 78:                                               ; preds = %12
@@ -4337,7 +4337,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i71, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %82
 
 82:                                               ; preds = %78
-  %83 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1)
+  %83 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 84:                                               ; preds = %12
@@ -4348,7 +4348,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i72, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %88
 
 88:                                               ; preds = %84
-  %89 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1)
+  %89 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 90:                                               ; preds = %12
@@ -4359,7 +4359,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i73, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %94
 
 94:                                               ; preds = %90
-  %95 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %95 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 96:                                               ; preds = %12
@@ -4370,7 +4370,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i74, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %100
 
 100:                                              ; preds = %96
-  %101 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %101 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 102:                                              ; preds = %12
@@ -4381,7 +4381,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i75, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %106
 
 106:                                              ; preds = %102
-  %107 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1)
+  %107 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 108:                                              ; preds = %12
@@ -4392,7 +4392,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i76, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %112
 
 112:                                              ; preds = %108
-  %113 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1)
+  %113 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 114:                                              ; preds = %12
@@ -4403,7 +4403,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i77, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %118
 
 118:                                              ; preds = %114
-  %119 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %119 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 120:                                              ; preds = %12
@@ -4414,7 +4414,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i78, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %124
 
 124:                                              ; preds = %120
-  %125 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull %1)
+  %125 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 126:                                              ; preds = %12
@@ -4425,7 +4425,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i79, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %130
 
 130:                                              ; preds = %126
-  %131 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1)
+  %131 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 132:                                              ; preds = %12
@@ -4436,7 +4436,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i80, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %136
 
 136:                                              ; preds = %132
-  %137 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull %1)
+  %137 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 138:                                              ; preds = %12
@@ -4447,7 +4447,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i81, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %142
 
 142:                                              ; preds = %138
-  %143 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %143 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 144:                                              ; preds = %12
@@ -4458,7 +4458,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i82, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %148
 
 148:                                              ; preds = %144
-  %149 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %149 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 150:                                              ; preds = %12
@@ -4469,7 +4469,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i83, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %154
 
 154:                                              ; preds = %150
-  %155 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1)
+  %155 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 156:                                              ; preds = %12
@@ -4480,11 +4480,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br i1 %.not.i.i84, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit, label %160
 
 160:                                              ; preds = %156
-  %161 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull %1)
+  %161 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 162:                                              ; preds = %12
-  %163 = tail call noundef zeroext i1 @_ZNK2OT14PaintComposite8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull %1)
+  %163 = tail call noundef zeroext i1 @_ZNK2OT14PaintComposite8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_14PaintTranslateEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS5_.exit: ; preds = %160, %156, %154, %150, %148, %144, %142, %138, %136, %132, %130, %126, %124, %120, %118, %114, %112, %108, %106, %102, %100, %96, %94, %90, %88, %84, %82, %78, %76, %72, %70, %66, %64, %60, %58, %54, %12, %2, %162, %52, %50, %45, %43, %41, %39, %37, %35, %33, %31, %23, %19, %14
@@ -5148,7 +5148,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -5232,7 +5232,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not43, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -5368,7 +5368,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not39, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -5511,7 +5511,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -5595,7 +5595,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -5679,7 +5679,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -5763,7 +5763,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -5847,7 +5847,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -5931,7 +5931,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -6015,7 +6015,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -6099,7 +6099,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -6183,7 +6183,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull %1)
+  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %38 = load i32, ptr %34, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %34, align 4
@@ -6276,7 +6276,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %35
   br i1 %.not51, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %41 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %37, ptr noundef nonnull %1)
+  %41 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %37, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %42 = load i32, ptr %38, align 4
   %43 = add nsw i32 %42, -1
   store i32 %43, ptr %38, align 4
@@ -6343,7 +6343,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i33: ; preds = %72
   br i1 %.not52, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i33
-  %78 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %74, ptr noundef nonnull %1)
+  %78 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %74, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %79 = load i32, ptr %75, align 4
   %80 = add nsw i32 %79, -1
   store i32 %80, ptr %75, align 4
@@ -6500,7 +6500,7 @@ _ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i.i.i.i: ; preds = %88
   br i1 %.not.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i.i.i.i
-  %93 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %90, ptr noundef nonnull %1)
+  %93 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %90, ptr noundef nonnull align 8 dereferenceable(62) %1)
   %94 = load i32, ptr %57, align 4
   %95 = add nsw i32 %94, -1
   store i32 %95, ptr %57, align 4
@@ -7752,7 +7752,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21h
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %67 = getelementptr inbounds [1 x %"struct.OT::BitmapSizeTable"], ptr %3, i64 0, i64 %indvars.iv
-  %68 = tail call noundef zeroext i1 @_ZNK2OT15BitmapSizeTable8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(48) %67, ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %68 = tail call noundef zeroext i1 @_ZNK2OT15BitmapSizeTable8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %68, i1 %exitcond.not, i1 false
@@ -7862,7 +7862,7 @@ _ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanit
 .lr.ph.i.i.i:                                     ; preds = %68, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %68 ]
   %69 = getelementptr inbounds [1 x %"struct.OT::IndexSubtableRecord"], ptr %36, i64 0, i64 %indvars.iv.i.i.i
-  %70 = tail call noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %69, ptr noundef nonnull %1, ptr noundef nonnull %36)
+  %70 = tail call noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %69, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(8) %36)
   br i1 %70, label %68, label %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.loopexit: ; preds = %68

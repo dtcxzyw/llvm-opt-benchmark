@@ -360,7 +360,7 @@ define void @_ZN3gmx15analysismodules10SelectInfo6createEv(ptr dead_on_unwind no
   %4 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  invoke void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %4)
           to label %.noexc unwind label %217
 
 .noexc:                                           ; preds = %1
@@ -732,11 +732,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit29.i
 
 _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit29.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i28.i, %169, %156, %138
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %22, ptr noundef nonnull @.str)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(472) %4, ptr noundef nonnull %22, ptr noundef nonnull @.str)
           to label %174 unwind label %205
 
 174:                                              ; preds = %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit29.i
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %24, ptr noundef nonnull @.str.1)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(472) %4, ptr noundef nonnull %24, ptr noundef nonnull @.str.1)
           to label %175 unwind label %205
 
 175:                                              ; preds = %174
@@ -748,11 +748,11 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit29.i: ; preds = %_ZNSt16_
           to label %177 unwind label %205
 
 177:                                              ; preds = %176
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %26, ptr noundef nonnull @.str.2)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(472) %4, ptr noundef nonnull %26, ptr noundef nonnull @.str.2)
           to label %178 unwind label %205
 
 178:                                              ; preds = %177
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %28, ptr noundef nonnull @.str.3)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(472) %4, ptr noundef nonnull %28, ptr noundef nonnull @.str.3)
           to label %179 unwind label %205
 
 179:                                              ; preds = %178
@@ -762,12 +762,12 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit29.i: ; preds = %_ZNSt16_
 
 181:                                              ; preds = %179
   %182 = load ptr, ptr %30, align 8
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule20registerBasicDatasetEPNS_20AbstractAnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %182, ptr noundef nonnull @.str.4)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule20registerBasicDatasetEPNS_20AbstractAnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(472) %4, ptr noundef %182, ptr noundef nonnull @.str.4)
           to label %183 unwind label %205
 
 183:                                              ; preds = %181
   %184 = load ptr, ptr %53, align 8
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule20registerBasicDatasetEPNS_20AbstractAnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %184, ptr noundef nonnull @.str.5)
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule20registerBasicDatasetEPNS_20AbstractAnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(472) %4, ptr noundef %184, ptr noundef nonnull @.str.5)
           to label %216 unwind label %205
 
 185:                                              ; preds = %.noexc
@@ -887,7 +887,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %213, %211
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i: ; preds = %215, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
+  call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %4) #23
   br label %.body
 
 216:                                              ; preds = %183
@@ -1441,7 +1441,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %32 = load ptr, ptr %1, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %35 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %4)
   %36 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 12
@@ -1471,7 +1471,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
-  %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %5)
   %53 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 1, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %6, i64 12
@@ -1501,7 +1501,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %66 = load ptr, ptr %1, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = call noundef ptr %68(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %69 = call noundef ptr %68(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %6)
   %70 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 1, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %7, i64 12
@@ -1531,7 +1531,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %83 = load ptr, ptr %1, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
-  %86 = call noundef ptr %85(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %86 = call noundef ptr %85(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %7)
   %87 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 1, ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %8, i64 12
@@ -1561,7 +1561,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %100 = load ptr, ptr %1, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 24
   %102 = load ptr, ptr %101, align 8
-  %103 = call noundef ptr %102(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  %103 = call noundef ptr %102(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %8)
   %104 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 1, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %9, i64 12
@@ -1591,7 +1591,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %117 = load ptr, ptr %1, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8
-  %120 = call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %120 = call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %9)
   %121 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %10, i64 12
@@ -1621,7 +1621,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %134 = load ptr, ptr %1, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 24
   %136 = load ptr, ptr %135, align 8
-  %137 = call noundef ptr %136(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %10)
+  %137 = call noundef ptr %136(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %10)
   %138 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 1, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %11, i64 12
@@ -1651,7 +1651,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %151 = load ptr, ptr %1, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8
-  %154 = call noundef ptr %153(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %11)
+  %154 = call noundef ptr %153(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %11)
   %155 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 1, ptr %155, align 8
   %156 = getelementptr inbounds i8, ptr %12, i64 12
@@ -1675,7 +1675,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %165 = load ptr, ptr %1, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 24
   %167 = load ptr, ptr %166, align 8
-  %168 = call noundef ptr %167(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %12)
+  %168 = call noundef ptr %167(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(104) %12)
   %169 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 1, ptr %169, align 8
   %170 = getelementptr inbounds i8, ptr %13, i64 12
@@ -1693,7 +1693,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %176 = load ptr, ptr %1, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 24
   %178 = load ptr, ptr %177, align 8
-  %179 = call noundef ptr %178(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %13)
+  %179 = call noundef ptr %178(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %13)
   %180 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 1, ptr %180, align 8
   %181 = getelementptr inbounds i8, ptr %14, i64 12
@@ -1711,7 +1711,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %187 = load ptr, ptr %1, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 24
   %189 = load ptr, ptr %188, align 8
-  %190 = call noundef ptr %189(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %14)
+  %190 = call noundef ptr %189(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %14)
   %191 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 1, ptr %191, align 8
   %192 = getelementptr inbounds i8, ptr %15, i64 12
@@ -1733,7 +1733,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %200 = load ptr, ptr %1, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 24
   %202 = load ptr, ptr %201, align 8
-  %203 = call noundef ptr %202(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %15)
+  %203 = call noundef ptr %202(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %15)
   %204 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 1, ptr %204, align 8
   %205 = getelementptr inbounds i8, ptr %16, i64 12
@@ -1755,7 +1755,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %213 = load ptr, ptr %1, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 24
   %215 = load ptr, ptr %214, align 8
-  %216 = call noundef ptr %215(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %16)
+  %216 = call noundef ptr %215(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %16)
   %217 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 1, ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %17, i64 12
@@ -1773,7 +1773,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
   %224 = load ptr, ptr %1, align 8
   %225 = getelementptr inbounds i8, ptr %224, i64 24
   %226 = load ptr, ptr %225, align 8
-  %227 = call noundef ptr %226(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %17)
+  %227 = call noundef ptr %226(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %17)
   ret void
 }
 
@@ -2089,7 +2089,7 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit: ; preds = %1
   %.039232 = phi i64 [ %150, %149 ], [ 0, %.preheader219 ]
   %146 = getelementptr inbounds %"class.gmx::Selection", ptr %145, i64 %.039232
   %147 = load ptr, ptr %146, align 8
-  %148 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %147) #23
+  %148 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(294) %147) #23
   invoke void @_ZN3gmx18AbstractPlotModule12appendLegendEPKc(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef %148)
           to label %149 unwind label %.loopexit220
 
@@ -2396,7 +2396,7 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit78: ; preds = 
   %.038235 = phi i64 [ %285, %284 ], [ 0, %.preheader213 ]
   %281 = getelementptr inbounds %"class.gmx::Selection", ptr %280, i64 %.038235
   %282 = load ptr, ptr %281, align 8
-  %283 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %282) #23
+  %283 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(294) %282) #23
   invoke void @_ZN3gmx18AbstractPlotModule12appendLegendEPKc(ptr noundef nonnull align 8 dereferenceable(16) %252, ptr noundef %283)
           to label %284 unwind label %.loopexit214
 
@@ -2942,13 +2942,13 @@ _ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule11setFileNameERKNSt
   %.037238 = phi i64 [ 0, %.lr.ph239 ], [ %593, %_ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule11setFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %523 = getelementptr inbounds %"class.gmx::Selection", ptr %522, i64 %.037238
   %524 = load ptr, ptr %523, align 8
-  %525 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %524) #23
+  %525 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(294) %524) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #23
   %526 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc unwind label %603
 
 .noexc:                                           ; preds = %521
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %526, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %526, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc114 unwind label %603
 
 .noexc114:                                        ; preds = %.noexc
@@ -2974,7 +2974,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule11setFileNameERKNSt
 
 530:                                              ; preds = %.loopexit.split-lp204, %.loopexit203
   %lpad.phi207 = phi { ptr, i32 } [ %lpad.loopexit205, %.loopexit203 ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp204 ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   br label %.body
 
 531:                                              ; preds = %.noexc114
@@ -3022,7 +3022,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   br i1 %.not.i4.i, label %554, label %550
 
 550:                                              ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %548, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(33) %548, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc.i unwind label %.loopexit208
 
 .noexc.i:                                         ; preds = %550
@@ -3067,7 +3067,7 @@ _ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupI
 _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupInfoESaIS4_EE11_M_allocateEm.exit.i.i.i: ; preds = %566, %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupInfoESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %569 = phi ptr [ null, %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupInfoESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %568, %566 ]
   %570 = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::IndexFileWriterModule::GroupInfo", ptr %569, i64 %560
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %570, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(33) %570, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %571 unwind label %581
 
 571:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupInfoESaIS4_EE11_M_allocateEm.exit.i.i.i
@@ -3080,13 +3080,13 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9
   %.092.i.i.i.i.i.i = phi ptr [ %577, %.lr.ph.i.i.i.i.i.i ], [ %.val27.i.i.i, %571 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %.03.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %.092.i.i.i.i.i.i) #23
   %573 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 32
   %574 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 32
   %575 = load i8, ptr %574, align 8, !alias.scope !13, !noalias !10
   %576 = and i8 %575, 1
   store i8 %576, ptr %573, align 8, !alias.scope !10, !noalias !13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.092.i.i.i.i.i.i) #23
   %577 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i, i64 40
   %578 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i119 = icmp eq ptr %577, %548
@@ -3111,7 +3111,7 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupIn
   br i1 %.not.i.i.i118, label %.thread.i.i.i, label %587
 
 .thread.i.i.i:                                    ; preds = %581
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %570) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %570) #23
   br label %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupInfoESaIS4_EE13_M_deallocateEPS4_m.exit43.i.i.i
 
 585:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupInfoESaIS4_EE13_M_deallocateEPS4_m.exit43.i.i.i
@@ -3763,7 +3763,7 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit156: ; preds =
   %.035243 = phi i64 [ %863, %862 ], [ 0, %.preheader197 ]
   %859 = getelementptr inbounds %"class.gmx::Selection", ptr %858, i64 %.035243
   %860 = load ptr, ptr %859, align 8
-  %861 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %860) #23
+  %861 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(294) %860) #23
   invoke void @_ZN3gmx18AbstractPlotModule12appendLegendEPKc(ptr noundef nonnull align 8 dereferenceable(16) %831, ptr noundef %861)
           to label %862 unwind label %.loopexit198
 
@@ -4059,7 +4059,7 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit174: ; preds =
   %.0246 = phi i64 [ %991, %990 ], [ 0, %.preheader ]
   %987 = getelementptr inbounds %"class.gmx::Selection", ptr %986, i64 %.0246
   %988 = load ptr, ptr %987, align 8
-  %989 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %988) #23
+  %989 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(294) %988) #23
   invoke void @_ZN3gmx18AbstractPlotModule12appendLegendEPKc(ptr noundef nonnull align 8 dereferenceable(16) %959, ptr noundef %989)
           to label %990 unwind label %.loopexit
 
@@ -4723,7 +4723,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_16Select11writeOutput
 25:                                               ; preds = %20
   %26 = load i32, ptr %21, align 8
   %27 = sext i32 %26 to i64
-  %28 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.121, i32 noundef 690, i64 noundef %27, i64 noundef 52)
+  %28 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.121, i32 noundef 690, i64 noundef range(i64 -2147483648, 2147483648) %27, i64 noundef 52)
           to label %29 unwind label %.loopexit.split-lp107
 
 29:                                               ; preds = %25
@@ -4969,12 +4969,12 @@ _ZN3gmx6copyOfINS_11BasicVectorIfEEEESt6vectorIT_SaIS4_EERKNS_8ArrayRefIKS4_EE.e
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %144
 
 144:                                              ; preds = %141
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %142, ptr noundef nonnull %143) #23
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull %143) #23
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %141, %144
   store ptr null, ptr %142, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #23
   %145 = invoke noundef i32 @_Z14write_trxframeP11t_trxstatusP10t_trxframeP12gmx_conect_t(ptr noundef %140, ptr noundef nonnull %3, ptr noundef null)
           to label %146 unwind label %135
 
@@ -5104,12 +5104,12 @@ _ZNSt6vectorIiSaIiEEC2ISt23_Rb_tree_const_iteratorIiEvEET_S5_RKS0_.exit: ; preds
   br i1 %.not.i.i.i55, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit56, label %195
 
 195:                                              ; preds = %192
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %193, ptr noundef nonnull %194) #23
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %193, ptr noundef nonnull %194) #23
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit56
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit56:        ; preds = %192, %195
   store ptr null, ptr %193, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #23
   %196 = ptrtoint ptr %.sroa.088.0 to i64
   %197 = sub i64 %.0.lcssa.i.i.i.i.i.i.i.i.i.i, %196
   %198 = lshr exact i64 %197, 2
@@ -5289,12 +5289,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i66, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit67, label %258
 
 258:                                              ; preds = %255
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %256, ptr noundef nonnull %257) #23
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %256, ptr noundef nonnull %257) #23
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit67
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit67:        ; preds = %255, %258
   store ptr null, ptr %256, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #23
   %259 = ptrtoint ptr %.sroa.0.0.lcssa to i64
   %260 = sub i64 %.sroa.7.0.lcssa, %259
   %261 = lshr exact i64 %260, 2
@@ -6961,7 +6961,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9closeFileEv.exit: 
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9closeFileEv.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %7, %_ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9closeFileEv.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.05.i.i.i.i) #23
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %10, %9
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupInfoES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !44
@@ -7018,7 +7018,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9closeFileEv.exit.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9closeFileEv.exit.i, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i.i ], [ %7, %_ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9closeFileEv.exit.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.05.i.i.i.i.i) #23
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i = icmp eq ptr %10, %9
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterModule9GroupInfoES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !44
@@ -7079,12 +7079,12 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_121IndexFileWriterMod
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %14
 
 14:                                               ; preds = %10
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %13) #23
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %13) #23
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %10, %14
   store ptr null, ptr %12, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
   br label %17
 
 15:                                               ; preds = %7
@@ -7352,7 +7352,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %25
 
 25:                                               ; preds = %22
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull %24) #23
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %24) #23
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %22, %25
@@ -7377,7 +7377,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #23
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #23
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4

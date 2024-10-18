@@ -659,7 +659,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %EVP_PKEY_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call fastcc void @evp_pkey_free_it(ptr noundef %allocpkey.1)
+  tail call fastcc void @evp_pkey_free_it(ptr noundef nonnull %allocpkey.1)
   %ex_data.i = getelementptr inbounds i8, ptr %allocpkey.1, i64 80
   tail call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %allocpkey.1, ptr noundef nonnull %ex_data.i) #12
   %lock.i = getelementptr inbounds i8, ptr %allocpkey.1, i64 56
@@ -3065,7 +3065,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i64 @BIO_ctrl(ptr noundef %out, i32 noundef 81, i64 noundef 0, ptr noundef null) #12
   %cond.i = tail call i64 @llvm.smax.i64(i64 %call.i, i64 0)
-  %call2.i = tail call i64 @BIO_ctrl(ptr noundef %out, i32 noundef 80, i64 noundef %conv, ptr noundef null) #12
+  %call2.i = tail call i64 @BIO_ctrl(ptr noundef %out, i32 noundef 80, i64 noundef range(i64 -2147483648, 2147483648) %conv, ptr noundef null) #12
   %cmp3.i = icmp sgt i64 %call2.i, 0
   br i1 %cmp3.i, label %if.end10.i, label %if.then4.i
 
@@ -3082,7 +3082,7 @@ if.end.i:                                         ; preds = %if.then4.i
 if.end10.i:                                       ; preds = %if.end.i, %if.then.i
   %out.addr.0 = phi ptr [ %call9.i, %if.end.i ], [ %out, %if.then.i ]
   %pop_f_prefix.0 = phi i32 [ 1, %if.end.i ], [ 0, %if.then.i ]
-  %call11.i = tail call i64 @BIO_ctrl(ptr noundef %out.addr.0, i32 noundef 80, i64 noundef %conv, ptr noundef null) #12
+  %call11.i = tail call i64 @BIO_ctrl(ptr noundef %out.addr.0, i32 noundef 80, i64 noundef range(i64 -2147483648, 2147483648) %conv, ptr noundef null) #12
   %cmp12.i = icmp slt i64 %call11.i, 1
   br i1 %cmp12.i, label %if.then13.i, label %if.end
 
@@ -3290,7 +3290,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call fastcc i32 @legacy_asn1_ctrl_to_param(ptr noundef %pkey, i32 noundef 3, ptr noundef %pnid)
+  %call.i = tail call fastcc i32 @legacy_asn1_ctrl_to_param(ptr noundef nonnull %pkey, i32 noundef 3, ptr noundef %pnid)
   br label %return
 
 if.end.i:                                         ; preds = %if.end
@@ -3936,7 +3936,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call fastcc void @evp_pkey_free_it(ptr noundef %call)
+  tail call fastcc void @evp_pkey_free_it(ptr noundef nonnull %call)
   %ex_data.i = getelementptr inbounds i8, ptr %call, i64 80
   tail call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %call, ptr noundef nonnull %ex_data.i) #12
   %lock.i = getelementptr inbounds i8, ptr %call, i64 56

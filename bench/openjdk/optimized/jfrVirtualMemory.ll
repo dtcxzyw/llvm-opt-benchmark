@@ -238,7 +238,7 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager11new_segmentEm(pt
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %3, i8 0, i64 16, i1 false)
   tail call void @_ZN13ReservedSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(49) %6) #11
   %7 = getelementptr inbounds i8, ptr %3, i64 72
   tail call void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #11

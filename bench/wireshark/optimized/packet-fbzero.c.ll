@@ -231,7 +231,7 @@ define internal noundef i32 @dissect_fb_zero(ptr noundef %0, ptr noundef %1, ptr
 37:                                               ; preds = %34, %34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.040.i) #3
+  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 1, 5) %.040.i) #3
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph.i.i, label %dissect_fb_zero_unencrypt.exit.i
 

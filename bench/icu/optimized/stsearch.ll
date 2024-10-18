@@ -1221,7 +1221,7 @@ if.end:                                           ; preds = %invoke.cont
   %call.i = call noundef i32 @usearch_getOffset_75(ptr noundef %7)
   %m_strsrch_.i6 = getelementptr inbounds i8, ptr %call, i64 152
   %8 = load ptr, ptr %m_strsrch_.i6, align 8
-  call void @usearch_setOffset_75(ptr noundef %8, i32 noundef %call.i, ptr noundef nonnull %status)
+  call void @usearch_setOffset_75(ptr noundef %8, i32 noundef %call.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load ptr, ptr %m_strsrch_.i, align 8
   %10 = load ptr, ptr %9, align 8
   %matchedIndex = getelementptr inbounds i8, ptr %10, i64 32

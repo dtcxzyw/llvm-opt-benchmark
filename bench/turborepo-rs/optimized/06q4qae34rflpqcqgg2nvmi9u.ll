@@ -34,7 +34,7 @@ define void @_RINvXs5_NtCs68wO5nsWeTG_5alloc6stringNtB6_6StringINtNtNtNtCs1LoaDT
           to label %11 unwind label %9
 
 8:                                                ; preds = %.noexc
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 0, i64 noundef %7)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 0, i64 noundef %7)
           to label %.noexc4 unwind label %9
 
 9:                                                ; preds = %8, %.noexc4, %2
@@ -175,7 +175,7 @@ _ZN4core4char7methods15encode_utf8_raw17h29cdc5573eb60f23E.exit.i.i.i: ; preds =
   br i1 %45, label %46, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCsff1zCjKRl2o_13turborepo_env.exit.i.i.i
 
 46:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h29cdc5573eb60f23E.exit.i.i.i
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %42, i64 noundef %38)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %42, i64 noundef %38)
   %.pre.i.i.i.i = load i64, ptr %5, align 8, !alias.scope !25
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCsff1zCjKRl2o_13turborepo_env.exit.i.i.i
 
@@ -198,7 +198,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCsff1zCjKRl2o_13tu
   br i1 %56, label %57, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCsff1zCjKRl2o_13turborepo_env.exit.i.i.i
 
 57:                                               ; preds = %52
-  tail call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  tail call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCsff1zCjKRl2o_13turborepo_env.exit.i.i.i
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCsff1zCjKRl2o_13turborepo_env.exit.i.i.i: ; preds = %57, %52

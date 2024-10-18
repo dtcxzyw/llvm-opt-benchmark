@@ -485,7 +485,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %arrayidx.i.i = getelementptr inbounds %class.GIM_CONTACT, ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %class.GIM_CONTACT, ptr %3, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx3.i.i, i64 16, i1 false)
   %m_normal.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %m_normal3.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_normal.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_normal3.i.i.i, i64 16, i1 false)
@@ -535,7 +535,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
   %10 = load ptr, ptr %m_data, align 8
   %idxprom = sext i32 %9 to i64
   %arrayidx = getelementptr inbounds %class.GIM_CONTACT, ptr %10, i64 %idxprom
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %_Val, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx, ptr noundef nonnull align 4 dereferenceable(48) %_Val, i64 16, i1 false)
   %m_normal.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %m_normal3.i = getelementptr inbounds i8, ptr %_Val, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 4 dereferenceable(16) %m_normal3.i, i64 16, i1 false)

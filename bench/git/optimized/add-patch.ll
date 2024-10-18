@@ -399,7 +399,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i, %if.end13.i
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %cp.i, ptr noundef null)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %cp.i, ptr noundef null)
   %13 = load ptr, ptr %args.i, align 8
   call void @strvec_pushv(ptr noundef nonnull %cp.i, ptr noundef %13) #17
   %call.i.i = call i32 @pipe_command(ptr noundef nonnull %cp.i, ptr noundef null, i64 noundef 0, ptr noundef nonnull %plain2.i, i64 noundef 0, ptr noundef null, i64 noundef 0) #17
@@ -476,7 +476,7 @@ if.then30.i:                                      ; preds = %strbuf_complete_lin
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %colored_cp.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.apply_for_checkout.apply_worktree, i64 120, i1 false)
   %interactive_diff_filter.i = getelementptr inbounds i8, ptr %s, i64 696
   %24 = load ptr, ptr %interactive_diff_filter.i, align 8
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %colored_cp.i, ptr noundef null)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %colored_cp.i, ptr noundef null)
   %25 = load ptr, ptr %args.i, align 8
   %arrayidx33.i = getelementptr inbounds ptr, ptr %25, i64 %8
   %26 = load ptr, ptr %arrayidx33.i, align 8
@@ -509,7 +509,7 @@ if.end44.i:                                       ; preds = %if.then30.i
 
 if.then46.i:                                      ; preds = %if.end44.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %filter_cp.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.apply_for_checkout.apply_worktree, i64 120, i1 false)
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %filter_cp.i, ptr noundef nonnull %24, ptr noundef null)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %filter_cp.i, ptr noundef nonnull %24, ptr noundef null)
   %git_cmd.i = getelementptr inbounds i8, ptr %filter_cp.i, i64 104
   %bf.load.i = load i16, ptr %git_cmd.i, align 8
   %bf.clear48.i = and i16 %bf.load.i, -41
@@ -868,7 +868,7 @@ if.then216.i:                                     ; preds = %if.end214.i
   br label %if.end227.i
 
 if.else221.i:                                     ; preds = %if.end214.i
-  %call222.i = call fastcc i32 @parse_hunk_header(ptr noundef %s, ptr noundef nonnull %add.ptr201.i)
+  %call222.i = call fastcc i32 @parse_hunk_header(ptr noundef nonnull %s, ptr noundef nonnull %add.ptr201.i)
   %cmp223.i = icmp slt i32 %call222.i, 0
   br i1 %cmp223.i, label %parse_diff.exit.thread, label %if.end227.i
 
@@ -1378,7 +1378,7 @@ land.end.i.i:                                     ; preds = %strbuf_setlen.exit.
   br i1 %cmp.not.i.i, label %if.then.i.i71, label %if.end.i.i
 
 if.then.i.i71:                                    ; preds = %land.end.i.i, %strbuf_setlen.exit.i29
-  call fastcc void @render_hunk(ptr noundef %s, ptr noundef nonnull readonly %arrayidx, i64 noundef 0, i32 noundef %lnot.ext.i, ptr noundef %buf.i24)
+  call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef nonnull readonly %arrayidx, i64 noundef 0, i32 noundef range(i32 0, 2) %lnot.ext.i, ptr noundef nonnull %buf.i24)
   br label %render_diff_header.exit.i
 
 if.end.i.i:                                       ; preds = %land.end.i.i
@@ -1499,7 +1499,7 @@ strbuf_setlen.exit237.i:                          ; preds = %if.then4.i235.i, %i
   br i1 %tobool46.not.i, label %if.end101.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %strbuf_setlen.exit237.i
-  call fastcc void @render_hunk(ptr noundef %s, ptr noundef %cond476.i, i64 noundef 0, i32 noundef %lnot.ext.i, ptr noundef %buf.i24)
+  call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef %cond476.i, i64 noundef 0, i32 noundef %lnot.ext.i, ptr noundef %buf.i24)
   %143 = load ptr, ptr %buf4, align 8
   %144 = load ptr, ptr @stdout, align 8
   %call51.i = call i32 @fputs(ptr noundef %143, ptr noundef %144)
@@ -1828,7 +1828,7 @@ if.end3.i264.i:                                   ; preds = %if.else270.i
 
 _.exit267.i:                                      ; preds = %if.end3.i264.i, %if.else270.i
   %retval.0.i266.i = phi ptr [ %call.i265.i, %if.end3.i264.i ], [ @.str.96, %if.else270.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i266.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i266.i)
   br label %for.cond.i.backedge
 
 if.then280.i:                                     ; preds = %if.else259.i
@@ -1847,7 +1847,7 @@ if.end3.i270.i:                                   ; preds = %if.else285.i
 
 _.exit273.i:                                      ; preds = %if.end3.i270.i, %if.else285.i
   %retval.0.i272.i = phi ptr [ %call.i271.i, %if.end3.i270.i ], [ @.str.97, %if.else285.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i272.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i272.i)
   br label %for.cond.i.backedge
 
 if.then295.i:                                     ; preds = %if.else259.i
@@ -1866,7 +1866,7 @@ if.end3.i276.i:                                   ; preds = %if.else299.i
 
 _.exit279.i:                                      ; preds = %if.end3.i276.i, %if.else299.i
   %retval.0.i278.i = phi ptr [ %call.i277.i, %if.end3.i276.i ], [ @.str.96, %if.else299.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i278.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i278.i)
   br label %for.cond.i.backedge
 
 if.then309.i:                                     ; preds = %if.else259.i
@@ -1885,7 +1885,7 @@ if.end3.i282.i:                                   ; preds = %if.else313.i
 
 _.exit285.i:                                      ; preds = %if.end3.i282.i, %if.else313.i
   %retval.0.i284.i = phi ptr [ %call.i283.i, %if.end3.i282.i ], [ @.str.97, %if.else313.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i284.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i284.i)
   br label %for.cond.i.backedge
 
 if.then323.i:                                     ; preds = %if.else259.i
@@ -1904,7 +1904,7 @@ if.end3.i288.i:                                   ; preds = %if.then326.i
 
 _.exit291.i:                                      ; preds = %if.end3.i288.i, %if.then326.i
   %retval.0.i290.i = phi ptr [ %call.i289.i, %if.end3.i288.i ], [ @.str.98, %if.then326.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i290.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i290.i)
   br label %for.cond.i.backedge
 
 if.end328.i:                                      ; preds = %if.then323.i
@@ -2172,7 +2172,7 @@ if.end3.i313.i:                                   ; preds = %if.then382.i58
 _.exit316.i:                                      ; preds = %if.end3.i313.i, %if.then382.i58
   %225 = phi ptr [ %.pre457, %if.end3.i313.i ], [ %223, %if.then382.i58 ]
   %retval.0.i315.i = phi ptr [ %call.i314.i, %if.end3.i313.i ], [ @.str.102, %if.then382.i58 ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i315.i, ptr noundef %225)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i315.i, ptr noundef %225)
   br label %for.cond.i.backedge
 
 if.else386.i:                                     ; preds = %while.end.i57
@@ -2205,7 +2205,7 @@ Q_.exit.i:                                        ; preds = %if.end.i318.i, %if.
   %229 = phi i64 [ %.pre686.i, %if.end.i318.i ], [ %226, %if.then.i321.i ]
   %retval.0.i320.i = phi ptr [ %call.i319.i, %if.end.i318.i ], [ %cond.i323.i, %if.then.i321.i ]
   %conv399.i = trunc i64 %229 to i32
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i320.i, i32 noundef %conv399.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i320.i, i32 noundef %conv399.i)
   br label %for.cond.i.backedge
 
 if.then409.i:                                     ; preds = %if.else259.i
@@ -2224,7 +2224,7 @@ if.end3.i326.i:                                   ; preds = %if.then412.i
 
 _.exit329.i:                                      ; preds = %if.end3.i326.i, %if.then412.i
   %retval.0.i328.i = phi ptr [ %call.i327.i, %if.end3.i326.i ], [ @.str.105, %if.then412.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i328.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i328.i)
   br label %for.cond.i.backedge
 
 if.end414.i:                                      ; preds = %if.then409.i
@@ -2278,14 +2278,14 @@ if.end3.i338.i:                                   ; preds = %if.then443.i
 _.exit341.i:                                      ; preds = %if.end3.i338.i, %if.then443.i
   %retval.0.i340.i = phi ptr [ %call.i339.i, %if.end3.i338.i ], [ @.str.107, %if.then443.i ]
   %238 = load ptr, ptr %buf, align 8
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i340.i, ptr noundef %238, ptr noundef nonnull %errbuf.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i340.i, ptr noundef %238, ptr noundef nonnull %errbuf.i)
   br label %for.cond.i.backedge
 
 for.cond451.i:                                    ; preds = %if.end438.i, %if.end461.i
   %i.4.i = phi i64 [ %spec.store.select3.i, %if.end461.i ], [ %spec.store.select.i, %if.end438.i ]
   %239 = load ptr, ptr %hunk13.i, align 8
   %add.ptr453.i = getelementptr inbounds %struct.hunk, ptr %239, i64 %i.4.i
-  call fastcc void @render_hunk(ptr noundef %s, ptr noundef %add.ptr453.i, i64 noundef 0, i32 noundef 0, ptr noundef %buf.i24)
+  call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef %add.ptr453.i, i64 noundef 0, i32 noundef 0, ptr noundef %buf.i24)
   %240 = load ptr, ptr %buf4, align 8
   %call457.i = call i32 @regexec(ptr noundef nonnull %regex.i, ptr noundef %240, i64 noundef 0, ptr noundef null, i32 noundef 0) #17
   %cmp458.not.i = icmp eq i32 %call457.i, 1
@@ -2310,7 +2310,7 @@ if.end3.i344.i:                                   ; preds = %if.end471.i
 
 _.exit347.i:                                      ; preds = %if.end3.i344.i, %if.end471.i
   %retval.0.i346.i = phi ptr [ %call.i345.i, %if.end3.i344.i ], [ @.str.108, %if.end471.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i346.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i346.i)
   br label %for.cond.i.backedge
 
 if.then481.i:                                     ; preds = %if.else259.i
@@ -2331,7 +2331,7 @@ if.end3.i350.i:                                   ; preds = %if.then486.i
 
 _.exit353.i:                                      ; preds = %if.end3.i350.i, %if.then486.i
   %retval.0.i352.i = phi ptr [ %call.i351.i, %if.end3.i350.i ], [ @.str.109, %if.then486.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i352.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i352.i)
   br label %for.cond.i.backedge
 
 if.else488.i:                                     ; preds = %if.then481.i
@@ -2725,7 +2725,7 @@ if.end3.i385.i:                                   ; preds = %if.then510.i
 
 _.exit388.i:                                      ; preds = %if.end3.i385.i, %if.then510.i
   %retval.0.i387.i = phi ptr [ %call.i386.i, %if.end3.i385.i ], [ @.str.111, %if.then510.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i387.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i387.i)
   br label %for.cond.i.backedge
 
 if.else512.i:                                     ; preds = %if.then507.i
@@ -2771,7 +2771,7 @@ if.end3.i.i.i.i:                                  ; preds = %strbuf_setlen.exit.
 _.exit.i.i.i:                                     ; preds = %if.end3.i.i.i.i, %strbuf_setlen.exit.i.i.i
   %retval.0.i.i.i395.i = phi ptr [ %call.i.i.i394.i, %if.end3.i.i.i.i ], [ @.str.130, %strbuf_setlen.exit.i.i.i ]
   call void (ptr, i8, ptr, ...) @strbuf_commented_addf(ptr noundef nonnull %buf.i24, i8 noundef signext %285, ptr noundef %retval.0.i.i.i395.i) #17
-  call fastcc void @render_hunk(ptr noundef %s, ptr noundef nonnull %cond476.i, i64 noundef 0, i32 noundef 0, ptr noundef %buf.i24)
+  call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef nonnull %cond476.i, i64 noundef 0, i32 noundef 0, ptr noundef %buf.i24)
   %287 = load i8, ptr @comment_line_char, align 1
   %288 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i33.i.i.i = icmp eq i32 %288, 0
@@ -2981,7 +2981,7 @@ recolor_hunk.exit.i.i.i:                          ; preds = %for.end54.i.i.i.i, 
   br i1 %cmp50.i.i.i, label %land.lhs.true.i.i.i49, label %if.then3.i.i
 
 land.lhs.true.i.i.i49:                            ; preds = %recolor_hunk.exit.i.i.i
-  %call52.i.i.i = call fastcc i32 @parse_hunk_header(ptr noundef %s, ptr noundef nonnull %cond476.i)
+  %call52.i.i.i = call fastcc i32 @parse_hunk_header(ptr noundef nonnull %s, ptr noundef nonnull %cond476.i)
   %cmp53.i.i.i = icmp slt i32 %call52.i.i.i, 0
   br i1 %cmp53.i.i.i, label %if.then55.i.i.i, label %land.lhs.true.i.if.then3_crit_edge.i.i
 
@@ -3105,8 +3105,8 @@ if.then4.i.i54.i.i:                               ; preds = %recount_edited_hunk
   br label %strbuf_setlen.exit.i55.i.i
 
 strbuf_setlen.exit.i55.i.i:                       ; preds = %if.then4.i.i54.i.i, %recount_edited_hunk.exit.i.i
-  call fastcc void @reassemble_patch(ptr noundef %s, ptr noundef readonly %arrayidx, i32 noundef 1, ptr noundef %buf.i24)
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %cp.i.i.i, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.135, ptr noundef null)
+  call fastcc void @reassemble_patch(ptr noundef nonnull %s, ptr noundef readonly %arrayidx, i32 noundef 1, ptr noundef %buf.i24)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %cp.i.i.i, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.135, ptr noundef null)
   %338 = load ptr, ptr %mode58, align 8
   %apply_check_args.i.i.i = getelementptr inbounds i8, ptr %338, i64 64
   call void @strvec_pushv(ptr noundef nonnull %cp.i.i.i, ptr noundef nonnull %apply_check_args.i.i.i) #17
@@ -3189,7 +3189,7 @@ if.end3.i.i.i:                                    ; preds = %strbuf_setlen.exit7
 
 _.exit.i.i:                                       ; preds = %if.end3.i.i.i, %strbuf_setlen.exit78.i.i
   %retval.0.i81.i.i = phi ptr [ %call.i80.i.i, %if.end3.i.i.i ], [ @.str.129, %strbuf_setlen.exit78.i.i ]
-  %call13.i.i = call fastcc i32 @prompt_yesno(ptr noundef %s, ptr noundef %retval.0.i81.i.i)
+  %call13.i.i = call fastcc i32 @prompt_yesno(ptr noundef nonnull %s, ptr noundef %retval.0.i81.i.i)
   %cmp14.i.i = icmp slt i32 %call13.i.i, 1
   br i1 %cmp14.i.i, label %edit_hunk_loop.exit.thread.i, label %for.cond.i.i
 
@@ -3310,7 +3310,7 @@ if.then4.i448.i:                                  ; preds = %if.then595.i
   br label %strbuf_setlen.exit451.i
 
 strbuf_setlen.exit451.i:                          ; preds = %if.then4.i448.i, %if.then595.i
-  call fastcc void @reassemble_patch(ptr noundef %s, ptr noundef nonnull %arrayidx, i32 noundef 0, ptr noundef %buf.i24)
+  call fastcc void @reassemble_patch(ptr noundef nonnull %s, ptr noundef nonnull %arrayidx, i32 noundef 0, ptr noundef %buf.i24)
   %364 = load ptr, ptr %s, align 8
   %index.i = getelementptr inbounds i8, ptr %364, i64 240
   %365 = load ptr, ptr %index.i, align 8
@@ -3334,12 +3334,12 @@ if.then605.i:                                     ; preds = %strbuf_setlen.exit4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %check_worktree.i.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.apply_for_checkout.apply_worktree, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %apply_index.i.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.apply_for_checkout.apply_worktree, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %apply_worktree.i.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.apply_for_checkout.apply_worktree, i64 120, i1 false)
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %check_index.i.i, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.135, ptr noundef %cond.i453.i, ptr noundef null)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %check_index.i.i, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.135, ptr noundef %cond.i453.i, ptr noundef null)
   %368 = load ptr, ptr %buf4, align 8
   %369 = load i64, ptr %len2.i.i25, align 8
   %call.i456.i = call i32 @pipe_command(ptr noundef nonnull %check_index.i.i, ptr noundef %368, i64 noundef %369, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #17
   %tobool1.not.i457.i = icmp eq i32 %call.i456.i, 0
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %check_worktree.i.i, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.135, ptr noundef %cond.i453.i, ptr noundef null)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %check_worktree.i.i, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.135, ptr noundef %cond.i453.i, ptr noundef null)
   %370 = load ptr, ptr %buf4, align 8
   %371 = load i64, ptr %len2.i.i25, align 8
   %call4.i.i = call i32 @pipe_command(ptr noundef nonnull %check_worktree.i.i, ptr noundef %370, i64 noundef %371, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #17
@@ -3348,11 +3348,11 @@ if.then605.i:                                     ; preds = %strbuf_setlen.exit4
   br i1 %or.cond.i458.i, label %if.then.i468.i, label %if.end.i459.i
 
 if.then.i468.i:                                   ; preds = %if.then605.i
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %apply_index.i.i, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.4, ptr noundef %cond.i453.i, ptr noundef null)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %apply_index.i.i, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.4, ptr noundef %cond.i453.i, ptr noundef null)
   %372 = load ptr, ptr %buf4, align 8
   %373 = load i64, ptr %len2.i.i25, align 8
   %call12.i.i = call i32 @pipe_command(ptr noundef nonnull %apply_index.i.i, ptr noundef %372, i64 noundef %373, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #17
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %apply_worktree.i.i, ptr noundef nonnull @.str.113, ptr noundef %cond.i453.i, ptr noundef null)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %apply_worktree.i.i, ptr noundef nonnull @.str.113, ptr noundef %cond.i453.i, ptr noundef null)
   %374 = load ptr, ptr %buf4, align 8
   %375 = load i64, ptr %len2.i.i25, align 8
   %call15.i.i = call i32 @pipe_command(ptr noundef nonnull %apply_worktree.i.i, ptr noundef %374, i64 noundef %375, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #17
@@ -3372,7 +3372,7 @@ if.end3.i.i461.i:                                 ; preds = %if.then17.i.i
 
 _.exit.i463.i:                                    ; preds = %if.end3.i.i461.i, %if.then17.i.i
   %retval.0.i.i464.i = phi ptr [ %call.i.i462.i, %if.end3.i.i461.i ], [ @.str.140, %if.then17.i.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i.i464.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i.i464.i)
   %377 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i24.i.i = icmp eq i32 %377, 0
   br i1 %tobool1.not.i24.i.i, label %_.exit28.i.i, label %if.end3.i25.i.i
@@ -3383,12 +3383,12 @@ if.end3.i25.i.i:                                  ; preds = %_.exit.i463.i
 
 _.exit28.i.i:                                     ; preds = %if.end3.i25.i.i, %_.exit.i463.i
   %retval.0.i27.i.i = phi ptr [ %call.i26.i.i, %if.end3.i25.i.i ], [ @.str.141, %_.exit.i463.i ]
-  %call20.i.i = call fastcc i32 @prompt_yesno(ptr noundef %s, ptr noundef %retval.0.i27.i.i)
+  %call20.i.i = call fastcc i32 @prompt_yesno(ptr noundef nonnull %s, ptr noundef %retval.0.i27.i.i)
   %cmp.i465.i = icmp sgt i32 %call20.i.i, 0
   br i1 %cmp.i465.i, label %if.then21.i.i, label %if.end25.i.i
 
 if.then21.i.i:                                    ; preds = %_.exit28.i.i
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %apply_worktree.i.i, ptr noundef nonnull @.str.113, ptr noundef %cond.i453.i, ptr noundef null)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %apply_worktree.i.i, ptr noundef nonnull @.str.113, ptr noundef %cond.i453.i, ptr noundef null)
   %378 = load ptr, ptr %buf4, align 8
   %379 = load i64, ptr %len2.i.i25, align 8
   %call24.i.i = call i32 @pipe_command(ptr noundef nonnull %apply_worktree.i.i, ptr noundef %378, i64 noundef %379, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #17
@@ -3405,7 +3405,7 @@ if.end3.i30.i.i:                                  ; preds = %if.end25.i.i
 
 _.exit33.i.i:                                     ; preds = %if.end3.i30.i.i, %if.end25.i.i
   %retval.0.i32.i.i = phi ptr [ %call.i31.i.i, %if.end3.i30.i.i ], [ @.str.142, %if.end25.i.i ]
-  call void (ptr, ptr, ...) @err(ptr noundef %s, ptr noundef %retval.0.i32.i.i)
+  call void (ptr, ptr, ...) @err(ptr noundef nonnull %s, ptr noundef %retval.0.i32.i.i)
   br label %apply_for_checkout.exit.i
 
 if.else.i467.i:                                   ; preds = %if.end.i459.i
@@ -3423,7 +3423,7 @@ apply_for_checkout.exit.i:                        ; preds = %if.else.i467.i, %_.
   br label %if.end626.i
 
 if.else612.i:                                     ; preds = %strbuf_setlen.exit451.i
-  call void (ptr, ptr, ...) @setup_child_process(ptr noundef %s, ptr noundef %cp.i19, ptr noundef nonnull @.str.113, ptr noundef null)
+  call void (ptr, ptr, ...) @setup_child_process(ptr noundef nonnull %s, ptr noundef %cp.i19, ptr noundef nonnull @.str.113, ptr noundef null)
   %384 = load ptr, ptr %mode58, align 8
   %apply_args.i = getelementptr inbounds i8, ptr %384, i64 32
   call void @strvec_pushv(ptr noundef nonnull %cp.i19, ptr noundef nonnull %apply_args.i) #17
@@ -4180,7 +4180,7 @@ land.end.i:                                       ; preds = %entry
   br i1 %cmp.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.end.i, %entry
-  tail call fastcc void @render_hunk(ptr noundef %s, ptr noundef nonnull readonly %file_diff, i64 noundef 0, i32 noundef 0, ptr noundef %out)
+  tail call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef nonnull readonly %file_diff, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %out)
   br label %render_diff_header.exit
 
 if.end.i:                                         ; preds = %land.end.i

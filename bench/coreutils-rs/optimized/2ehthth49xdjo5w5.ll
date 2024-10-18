@@ -460,7 +460,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h25102db8ff
 
 31:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74639679a6ef4f90E.llvm.12682842541434669924.exit"
   tail call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.9306133046804639813(i8 noundef 2), !noalias !71
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5219d1e700758de3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27), !noalias !68
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5219d1e700758de3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27), !noalias !68
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h39c981b179a68022E.llvm.12682842541434669924.exit"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h39c981b179a68022E.llvm.12682842541434669924.exit": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74639679a6ef4f90E.llvm.12682842541434669924.exit", %31
@@ -532,7 +532,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h55697e47fe
 
 31:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c083ca5b0408f86E.llvm.12682842541434669924.exit"
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hdfb3fc4c479e0aafE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27), !noalias !94
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hdfb3fc4c479e0aafE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27), !noalias !94
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h09479e70c8788da6E.llvm.12682842541434669924.exit"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h09479e70c8788da6E.llvm.12682842541434669924.exit": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c083ca5b0408f86E.llvm.12682842541434669924.exit", %31
@@ -608,7 +608,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h194df7a
 
 38:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c083ca5b0408f86E.llvm.12682842541434669924.exit.i"
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hdfb3fc4c479e0aafE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !123
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hdfb3fc4c479e0aafE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34), !noalias !123
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h09479e70c8788da6E.llvm.12682842541434669924.exit.i"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h09479e70c8788da6E.llvm.12682842541434669924.exit.i": ; preds = %38, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c083ca5b0408f86E.llvm.12682842541434669924.exit.i"
@@ -729,7 +729,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h435f03c
 
 38:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74639679a6ef4f90E.llvm.12682842541434669924.exit.i"
   tail call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.9306133046804639813(i8 noundef 2), !noalias !161
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5219d1e700758de3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34), !noalias !158
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5219d1e700758de3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34), !noalias !158
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h39c981b179a68022E.llvm.12682842541434669924.exit.i"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h39c981b179a68022E.llvm.12682842541434669924.exit.i": ; preds = %38, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74639679a6ef4f90E.llvm.12682842541434669924.exit.i"
@@ -809,7 +809,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h09479e70c8788da6E
 
 7:                                                ; preds = %1
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hdfb3fc4c479e0aafE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hdfb3fc4c479e0aafE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br label %"_ZN4core3ptr103drop_in_place$LT$$LP$alloc..sync..Arc$LT$str$GT$$C$regex_automata..util..primitives..SmallIndex$RP$$GT$17h82c56ff30ba2d53bE.llvm.12682842541434669924.exit"
 
 "_ZN4core3ptr103drop_in_place$LT$$LP$alloc..sync..Arc$LT$str$GT$$C$regex_automata..util..primitives..SmallIndex$RP$$GT$17h82c56ff30ba2d53bE.llvm.12682842541434669924.exit": ; preds = %1, %7
@@ -831,7 +831,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h39c981b179a68022E
 
 7:                                                ; preds = %1
   tail call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.9306133046804639813(i8 noundef 2), !noalias !187
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5219d1e700758de3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5219d1e700758de3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br label %"_ZN4core3ptr118drop_in_place$LT$$LP$regex_automata..util..determinize..state..State$C$regex_automata..hybrid..id..LazyStateID$RP$$GT$17hce7028ff7dfe6a0aE.llvm.12682842541434669924.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$$LP$regex_automata..util..determinize..state..State$C$regex_automata..hybrid..id..LazyStateID$RP$$GT$17hce7028ff7dfe6a0aE.llvm.12682842541434669924.exit": ; preds = %1, %7

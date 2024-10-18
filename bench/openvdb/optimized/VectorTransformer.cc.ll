@@ -870,29 +870,29 @@ if.then2:                                         ; preds = %sw.bb
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(1240) %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(128) %invmat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp3, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 24
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 48
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 72
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 88
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 120
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 144
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 168
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 192
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 208
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 240
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 240
@@ -934,29 +934,29 @@ if.else:                                          ; preds = %sw.bb
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(1240) %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(128) %invmat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i10, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp5, i64 24, i1 false)
   %mNext.i.i.i.i11 = getelementptr inbounds i8, ptr %proc.i10, i64 24
   %mNext3.i.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i12, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i12, i64 24, i1 false)
   %mNext.i.i.i.i.i13 = getelementptr inbounds i8, ptr %proc.i10, i64 48
   %mNext3.i.i.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp5, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i14, i64 24, i1 false)
   %mNext.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %proc.i10, i64 72
   %mNext3.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %ref.tmp5, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i16, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %proc.i10, i64 88
   %mValueIterList.i.i.i18 = getelementptr inbounds i8, ptr %proc.i10, i64 120
   %mValueIterList3.i.i.i19 = getelementptr inbounds i8, ptr %ref.tmp5, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i18, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i19, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i18, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i19, i64 24, i1 false)
   %mNext.i6.i.i.i20 = getelementptr inbounds i8, ptr %proc.i10, i64 144
   %mNext3.i7.i.i.i21 = getelementptr inbounds i8, ptr %ref.tmp5, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i20, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i21, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i20, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i21, i64 24, i1 false)
   %mNext.i.i8.i.i.i22 = getelementptr inbounds i8, ptr %proc.i10, i64 168
   %mNext3.i.i9.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp5, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i22, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i23, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i22, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i23, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i24 = getelementptr inbounds i8, ptr %proc.i10, i64 192
   %mNext3.i.i.i11.i.i.i25 = getelementptr inbounds i8, ptr %ref.tmp5, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i25, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i24, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i25, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i26 = getelementptr inbounds i8, ptr %proc.i10, i64 208
   %mLevel.i.i.i27 = getelementptr inbounds i8, ptr %proc.i10, i64 240
   %mLevel4.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp5, i64 240
@@ -1000,29 +1000,29 @@ sw.bb8:                                           ; preds = %if.end
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(1240) %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(128) %mat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i43)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i43, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i43, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp9, i64 24, i1 false)
   %mNext.i.i.i.i44 = getelementptr inbounds i8, ptr %proc.i43, i64 24
   %mNext3.i.i.i.i45 = getelementptr inbounds i8, ptr %ref.tmp9, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i45, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i45, i64 24, i1 false)
   %mNext.i.i.i.i.i46 = getelementptr inbounds i8, ptr %proc.i43, i64 48
   %mNext3.i.i.i.i.i47 = getelementptr inbounds i8, ptr %ref.tmp9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i46, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i47, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i46, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i47, i64 24, i1 false)
   %mNext.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %proc.i43, i64 72
   %mNext3.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %ref.tmp9, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i49, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i49, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %proc.i43, i64 88
   %mValueIterList.i.i.i51 = getelementptr inbounds i8, ptr %proc.i43, i64 120
   %mValueIterList3.i.i.i52 = getelementptr inbounds i8, ptr %ref.tmp9, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i51, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i52, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i51, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i52, i64 24, i1 false)
   %mNext.i6.i.i.i53 = getelementptr inbounds i8, ptr %proc.i43, i64 144
   %mNext3.i7.i.i.i54 = getelementptr inbounds i8, ptr %ref.tmp9, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i53, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i54, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i53, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i54, i64 24, i1 false)
   %mNext.i.i8.i.i.i55 = getelementptr inbounds i8, ptr %proc.i43, i64 168
   %mNext3.i.i9.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp9, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i55, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i56, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i55, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i56, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i57 = getelementptr inbounds i8, ptr %proc.i43, i64 192
   %mNext3.i.i.i11.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp9, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i57, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i58, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i57, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i58, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i59 = getelementptr inbounds i8, ptr %proc.i43, i64 208
   %mLevel.i.i.i60 = getelementptr inbounds i8, ptr %proc.i43, i64 240
   %mLevel4.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp9, i64 240
@@ -1066,29 +1066,29 @@ sw.bb11:                                          ; preds = %if.end
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(1240) %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(128) %mat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i76)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i76, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i76, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp12, i64 24, i1 false)
   %mNext.i.i.i.i77 = getelementptr inbounds i8, ptr %proc.i76, i64 24
   %mNext3.i.i.i.i78 = getelementptr inbounds i8, ptr %ref.tmp12, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i78, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i78, i64 24, i1 false)
   %mNext.i.i.i.i.i79 = getelementptr inbounds i8, ptr %proc.i76, i64 48
   %mNext3.i.i.i.i.i80 = getelementptr inbounds i8, ptr %ref.tmp12, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i80, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i80, i64 24, i1 false)
   %mNext.i.i.i.i.i.i81 = getelementptr inbounds i8, ptr %proc.i76, i64 72
   %mNext3.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %ref.tmp12, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i81, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i82, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i81, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i82, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %proc.i76, i64 88
   %mValueIterList.i.i.i84 = getelementptr inbounds i8, ptr %proc.i76, i64 120
   %mValueIterList3.i.i.i85 = getelementptr inbounds i8, ptr %ref.tmp12, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i84, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i85, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i84, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i85, i64 24, i1 false)
   %mNext.i6.i.i.i86 = getelementptr inbounds i8, ptr %proc.i76, i64 144
   %mNext3.i7.i.i.i87 = getelementptr inbounds i8, ptr %ref.tmp12, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i86, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i87, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i86, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i87, i64 24, i1 false)
   %mNext.i.i8.i.i.i88 = getelementptr inbounds i8, ptr %proc.i76, i64 168
   %mNext3.i.i9.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp12, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i88, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i89, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i88, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i89, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i90 = getelementptr inbounds i8, ptr %proc.i76, i64 192
   %mNext3.i.i.i11.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp12, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i90, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i91, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i90, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i91, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i92 = getelementptr inbounds i8, ptr %proc.i76, i64 208
   %mLevel.i.i.i93 = getelementptr inbounds i8, ptr %proc.i76, i64 240
   %mLevel4.i.i.i94 = getelementptr inbounds i8, ptr %ref.tmp12, i64 240
@@ -1212,29 +1212,29 @@ if.then2:                                         ; preds = %sw.bb
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(1248) %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(128) %invmat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp3, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 24
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 48
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 72
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 88
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 120
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 144
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 168
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 192
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 208
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 240
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 240
@@ -1276,29 +1276,29 @@ if.else:                                          ; preds = %sw.bb
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(1248) %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(128) %invmat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i10, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp5, i64 24, i1 false)
   %mNext.i.i.i.i11 = getelementptr inbounds i8, ptr %proc.i10, i64 24
   %mNext3.i.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i12, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i12, i64 24, i1 false)
   %mNext.i.i.i.i.i13 = getelementptr inbounds i8, ptr %proc.i10, i64 48
   %mNext3.i.i.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp5, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i14, i64 24, i1 false)
   %mNext.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %proc.i10, i64 72
   %mNext3.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %ref.tmp5, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i16, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %proc.i10, i64 88
   %mValueIterList.i.i.i18 = getelementptr inbounds i8, ptr %proc.i10, i64 120
   %mValueIterList3.i.i.i19 = getelementptr inbounds i8, ptr %ref.tmp5, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i18, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i19, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i18, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i19, i64 24, i1 false)
   %mNext.i6.i.i.i20 = getelementptr inbounds i8, ptr %proc.i10, i64 144
   %mNext3.i7.i.i.i21 = getelementptr inbounds i8, ptr %ref.tmp5, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i20, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i21, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i20, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i21, i64 24, i1 false)
   %mNext.i.i8.i.i.i22 = getelementptr inbounds i8, ptr %proc.i10, i64 168
   %mNext3.i.i9.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp5, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i22, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i23, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i22, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i23, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i24 = getelementptr inbounds i8, ptr %proc.i10, i64 192
   %mNext3.i.i.i11.i.i.i25 = getelementptr inbounds i8, ptr %ref.tmp5, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i25, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i24, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i25, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i26 = getelementptr inbounds i8, ptr %proc.i10, i64 208
   %mLevel.i.i.i27 = getelementptr inbounds i8, ptr %proc.i10, i64 240
   %mLevel4.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp5, i64 240
@@ -1342,29 +1342,29 @@ sw.bb8:                                           ; preds = %if.end
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(1248) %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(128) %mat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i43)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i43, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i43, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp9, i64 24, i1 false)
   %mNext.i.i.i.i44 = getelementptr inbounds i8, ptr %proc.i43, i64 24
   %mNext3.i.i.i.i45 = getelementptr inbounds i8, ptr %ref.tmp9, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i45, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i45, i64 24, i1 false)
   %mNext.i.i.i.i.i46 = getelementptr inbounds i8, ptr %proc.i43, i64 48
   %mNext3.i.i.i.i.i47 = getelementptr inbounds i8, ptr %ref.tmp9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i46, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i47, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i46, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i47, i64 24, i1 false)
   %mNext.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %proc.i43, i64 72
   %mNext3.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %ref.tmp9, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i49, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i49, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %proc.i43, i64 88
   %mValueIterList.i.i.i51 = getelementptr inbounds i8, ptr %proc.i43, i64 120
   %mValueIterList3.i.i.i52 = getelementptr inbounds i8, ptr %ref.tmp9, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i51, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i52, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i51, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i52, i64 24, i1 false)
   %mNext.i6.i.i.i53 = getelementptr inbounds i8, ptr %proc.i43, i64 144
   %mNext3.i7.i.i.i54 = getelementptr inbounds i8, ptr %ref.tmp9, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i53, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i54, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i53, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i54, i64 24, i1 false)
   %mNext.i.i8.i.i.i55 = getelementptr inbounds i8, ptr %proc.i43, i64 168
   %mNext3.i.i9.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp9, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i55, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i56, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i55, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i56, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i57 = getelementptr inbounds i8, ptr %proc.i43, i64 192
   %mNext3.i.i.i11.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp9, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i57, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i58, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i57, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i58, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i59 = getelementptr inbounds i8, ptr %proc.i43, i64 208
   %mLevel.i.i.i60 = getelementptr inbounds i8, ptr %proc.i43, i64 240
   %mLevel4.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp9, i64 240
@@ -1408,29 +1408,29 @@ sw.bb11:                                          ; preds = %if.end
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(1248) %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(128) %mat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i76)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i76, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i76, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp12, i64 24, i1 false)
   %mNext.i.i.i.i77 = getelementptr inbounds i8, ptr %proc.i76, i64 24
   %mNext3.i.i.i.i78 = getelementptr inbounds i8, ptr %ref.tmp12, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i78, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i78, i64 24, i1 false)
   %mNext.i.i.i.i.i79 = getelementptr inbounds i8, ptr %proc.i76, i64 48
   %mNext3.i.i.i.i.i80 = getelementptr inbounds i8, ptr %ref.tmp12, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i80, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i80, i64 24, i1 false)
   %mNext.i.i.i.i.i.i81 = getelementptr inbounds i8, ptr %proc.i76, i64 72
   %mNext3.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %ref.tmp12, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i81, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i82, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i81, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i82, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %proc.i76, i64 88
   %mValueIterList.i.i.i84 = getelementptr inbounds i8, ptr %proc.i76, i64 120
   %mValueIterList3.i.i.i85 = getelementptr inbounds i8, ptr %ref.tmp12, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i84, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i85, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i84, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i85, i64 24, i1 false)
   %mNext.i6.i.i.i86 = getelementptr inbounds i8, ptr %proc.i76, i64 144
   %mNext3.i7.i.i.i87 = getelementptr inbounds i8, ptr %ref.tmp12, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i86, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i87, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i86, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i87, i64 24, i1 false)
   %mNext.i.i8.i.i.i88 = getelementptr inbounds i8, ptr %proc.i76, i64 168
   %mNext3.i.i9.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp12, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i88, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i89, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i88, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i89, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i90 = getelementptr inbounds i8, ptr %proc.i76, i64 192
   %mNext3.i.i.i11.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp12, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i90, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i91, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i90, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i91, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i92 = getelementptr inbounds i8, ptr %proc.i76, i64 208
   %mLevel.i.i.i93 = getelementptr inbounds i8, ptr %proc.i76, i64 240
   %mLevel4.i.i.i94 = getelementptr inbounds i8, ptr %ref.tmp12, i64 240
@@ -1554,29 +1554,29 @@ if.then2:                                         ; preds = %sw.bb
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(1240) %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(128) %invmat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp3, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 24
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 48
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 72
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 88
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 120
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 144
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 168
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 192
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 208
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %proc.i, i64 240
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 240
@@ -1618,29 +1618,29 @@ if.else:                                          ; preds = %sw.bb
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(1240) %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(128) %invmat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i10, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp5, i64 24, i1 false)
   %mNext.i.i.i.i11 = getelementptr inbounds i8, ptr %proc.i10, i64 24
   %mNext3.i.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i12, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i12, i64 24, i1 false)
   %mNext.i.i.i.i.i13 = getelementptr inbounds i8, ptr %proc.i10, i64 48
   %mNext3.i.i.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp5, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i14, i64 24, i1 false)
   %mNext.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %proc.i10, i64 72
   %mNext3.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %ref.tmp5, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i16, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %proc.i10, i64 88
   %mValueIterList.i.i.i18 = getelementptr inbounds i8, ptr %proc.i10, i64 120
   %mValueIterList3.i.i.i19 = getelementptr inbounds i8, ptr %ref.tmp5, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i18, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i19, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i18, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i19, i64 24, i1 false)
   %mNext.i6.i.i.i20 = getelementptr inbounds i8, ptr %proc.i10, i64 144
   %mNext3.i7.i.i.i21 = getelementptr inbounds i8, ptr %ref.tmp5, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i20, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i21, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i20, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i21, i64 24, i1 false)
   %mNext.i.i8.i.i.i22 = getelementptr inbounds i8, ptr %proc.i10, i64 168
   %mNext3.i.i9.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp5, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i22, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i23, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i22, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i23, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i24 = getelementptr inbounds i8, ptr %proc.i10, i64 192
   %mNext3.i.i.i11.i.i.i25 = getelementptr inbounds i8, ptr %ref.tmp5, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i25, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i24, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i25, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i26 = getelementptr inbounds i8, ptr %proc.i10, i64 208
   %mLevel.i.i.i27 = getelementptr inbounds i8, ptr %proc.i10, i64 240
   %mLevel4.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp5, i64 240
@@ -1684,29 +1684,29 @@ sw.bb8:                                           ; preds = %if.end
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(1240) %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(128) %mat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i43)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i43, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i43, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp9, i64 24, i1 false)
   %mNext.i.i.i.i44 = getelementptr inbounds i8, ptr %proc.i43, i64 24
   %mNext3.i.i.i.i45 = getelementptr inbounds i8, ptr %ref.tmp9, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i45, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i45, i64 24, i1 false)
   %mNext.i.i.i.i.i46 = getelementptr inbounds i8, ptr %proc.i43, i64 48
   %mNext3.i.i.i.i.i47 = getelementptr inbounds i8, ptr %ref.tmp9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i46, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i47, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i46, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i47, i64 24, i1 false)
   %mNext.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %proc.i43, i64 72
   %mNext3.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %ref.tmp9, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i49, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i49, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %proc.i43, i64 88
   %mValueIterList.i.i.i51 = getelementptr inbounds i8, ptr %proc.i43, i64 120
   %mValueIterList3.i.i.i52 = getelementptr inbounds i8, ptr %ref.tmp9, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i51, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i52, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i51, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i52, i64 24, i1 false)
   %mNext.i6.i.i.i53 = getelementptr inbounds i8, ptr %proc.i43, i64 144
   %mNext3.i7.i.i.i54 = getelementptr inbounds i8, ptr %ref.tmp9, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i53, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i54, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i53, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i54, i64 24, i1 false)
   %mNext.i.i8.i.i.i55 = getelementptr inbounds i8, ptr %proc.i43, i64 168
   %mNext3.i.i9.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp9, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i55, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i56, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i55, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i56, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i57 = getelementptr inbounds i8, ptr %proc.i43, i64 192
   %mNext3.i.i.i11.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp9, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i57, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i58, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i57, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i58, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i59 = getelementptr inbounds i8, ptr %proc.i43, i64 208
   %mLevel.i.i.i60 = getelementptr inbounds i8, ptr %proc.i43, i64 240
   %mLevel4.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp9, i64 240
@@ -1750,29 +1750,29 @@ sw.bb11:                                          ; preds = %if.end
   call void @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEC2ERSE_(ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(1240) %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(128) %mat, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %proc.i76)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %proc.i76, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %proc.i76, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp12, i64 24, i1 false)
   %mNext.i.i.i.i77 = getelementptr inbounds i8, ptr %proc.i76, i64 24
   %mNext3.i.i.i.i78 = getelementptr inbounds i8, ptr %ref.tmp12, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i78, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i78, i64 24, i1 false)
   %mNext.i.i.i.i.i79 = getelementptr inbounds i8, ptr %proc.i76, i64 48
   %mNext3.i.i.i.i.i80 = getelementptr inbounds i8, ptr %ref.tmp12, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i80, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i80, i64 24, i1 false)
   %mNext.i.i.i.i.i.i81 = getelementptr inbounds i8, ptr %proc.i76, i64 72
   %mNext3.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %ref.tmp12, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i81, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i82, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i81, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i82, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %proc.i76, i64 88
   %mValueIterList.i.i.i84 = getelementptr inbounds i8, ptr %proc.i76, i64 120
   %mValueIterList3.i.i.i85 = getelementptr inbounds i8, ptr %ref.tmp12, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i84, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i85, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i84, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i85, i64 24, i1 false)
   %mNext.i6.i.i.i86 = getelementptr inbounds i8, ptr %proc.i76, i64 144
   %mNext3.i7.i.i.i87 = getelementptr inbounds i8, ptr %ref.tmp12, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i86, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i87, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i86, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i87, i64 24, i1 false)
   %mNext.i.i8.i.i.i88 = getelementptr inbounds i8, ptr %proc.i76, i64 168
   %mNext3.i.i9.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp12, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i88, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i89, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i88, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i89, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i90 = getelementptr inbounds i8, ptr %proc.i76, i64 192
   %mNext3.i.i.i11.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp12, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i90, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i91, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i90, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i91, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i92 = getelementptr inbounds i8, ptr %proc.i76, i64 208
   %mLevel.i.i.i93 = getelementptr inbounds i8, ptr %proc.i76, i64 240
   %mLevel4.i.i.i94 = getelementptr inbounds i8, ptr %ref.tmp12, i64 240
@@ -1845,7 +1845,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #16
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   ret void
 }
 
@@ -1920,7 +1920,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #16
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -1997,7 +1997,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #16
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -2447,7 +2447,7 @@ catch:                                            ; preds = %lpad449, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont453
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.3, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_015ArithmeticErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_015ArithmeticErrorE, ptr nonnull @_ZN7openvdb5v11_015ArithmeticErrorD2Ev) #24
           to label %unreachable unwind label %lpad455
@@ -2697,29 +2697,29 @@ entry:
   %context.i.i = alloca %"class.tbb::detail::d1::task_group_context", align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %range = alloca %"class.openvdb::v11_0::tree::IteratorRange", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %range, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %range, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %range, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %range, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %range, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %range, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %range, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %range, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -2875,7 +2875,7 @@ for.inc.i.i:                                      ; preds = %for.body
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %r, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %r, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -2900,29 +2900,29 @@ for.end:                                          ; preds = %for.body, %_ZNK7ope
 define linkonce_odr noundef i64 @_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #5 comdat align 2 {
 entry:
   %it = alloca %"class.openvdb::v11_0::tree::TreeValueIteratorBase", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %it, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %it, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 24
   %mNext3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 48
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 72
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 88
   %mValueIterList.i = getelementptr inbounds i8, ptr %it, i64 120
   %mValueIterList3.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i, i64 24, i1 false)
   %mNext.i6.i = getelementptr inbounds i8, ptr %it, i64 144
   %mNext3.i7.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i, i64 24, i1 false)
   %mNext.i.i8.i = getelementptr inbounds i8, ptr %it, i64 168
   %mNext3.i.i9.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i, i64 24, i1 false)
   %mNext.i.i.i10.i = getelementptr inbounds i8, ptr %it, i64 192
   %mNext3.i.i.i11.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i = getelementptr inbounds i8, ptr %it, i64 208
   %mLevel.i = getelementptr inbounds i8, ptr %it, i64 240
   %mLevel4.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -4691,7 +4691,7 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true3.i
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext)
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext)
   %idxprom.i.i.i.i.i = zext i32 %5 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.71"], ptr %call.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
@@ -4846,7 +4846,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -4870,7 +4870,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #16
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   ret void
 }
 
@@ -4880,7 +4880,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #16
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -4934,7 +4934,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -5007,30 +5007,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -5066,30 +5066,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mGrainSize3.i.i.i = getelementptr inbounds i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %body, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %body, i64 24, i1 false)
   %mNext.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i2.i.i = getelementptr inbounds i8, ptr %body, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i2.i.i, i64 24, i1 false)
   %mNext.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %body, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %body, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i7.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i9.i.i = getelementptr inbounds i8, ptr %body, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
   %mNext.i6.i.i10.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i11.i.i = getelementptr inbounds i8, ptr %body, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i12.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i13.i.i = getelementptr inbounds i8, ptr %body, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i15.i.i = getelementptr inbounds i8, ptr %body, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i16.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i16.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -5207,12 +5207,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -5223,7 +5223,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 16
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -5295,7 +5295,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forIN7openvdb5v11_04tree13IteratorRangeINSB_21TreeValueIteratorBaseINSB_4TreeINSB_8RootNodeINSB_12InternalNodeINSG_INSB_8LeafNodeINSA_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSO_9ValueIterISO_St17_Rb_tree_iteratorISt4pairIKNSI_5CoordENSO_10NodeStructEEENSO_12ValueAllPredESK_EEEEEENSA_5tools8valxform15SharedOpApplierIS10_KNS12_15MatMulNormalizeEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -5346,7 +5346,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -5412,7 +5412,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
   %6 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %7 = load i64, ptr %mSize.i, align 8
   %8 = load i64, ptr %mGrainSize.i, align 8
@@ -5481,29 +5481,29 @@ if.else:                                          ; preds = %lor.lhs.false
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
   store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 40
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 64
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 88
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 104
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 136
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 160
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 184
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 208
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 224
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 256
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %range, i64 240
@@ -5642,30 +5642,30 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range2 = getelementptr inbounds i8, ptr %parent_, i64 64
   %my_range = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range, ptr noundef nonnull align 64 dereferenceable(24) %my_range2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range, ptr noundef nonnull align 64 dereferenceable(280) %my_range2, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %parent_, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %parent_, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %parent_, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %parent_, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -5723,7 +5723,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %my_range2, i1 noundef zeroext false)
+  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %my_range2, i1 noundef zeroext false)
   br i1 %call.i.i.i.i3, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -5742,30 +5742,30 @@ _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12Inte
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
   %my_body4 = getelementptr inbounds i8, ptr %parent_, i64 344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body, ptr noundef nonnull align 8 dereferenceable(24) %my_body4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body, ptr noundef nonnull align 8 dereferenceable(272) %my_body4, i64 24, i1 false)
   %mNext.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 368
   %mNext3.i.i.i5 = getelementptr inbounds i8, ptr %parent_, i64 368
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i5, i64 24, i1 false)
   %mNext.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 392
   %mNext3.i.i.i.i7 = getelementptr inbounds i8, ptr %parent_, i64 392
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i7, i64 24, i1 false)
   %mNext.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 416
   %mNext3.i.i.i.i.i9 = getelementptr inbounds i8, ptr %parent_, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i9, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i9, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i10, i8 0, i64 32, i1 false)
   %mValueIterList.i.i11 = getelementptr inbounds i8, ptr %this, i64 464
   %mValueIterList3.i.i12 = getelementptr inbounds i8, ptr %parent_, i64 464
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i12, i64 24, i1 false)
   %mNext.i6.i.i13 = getelementptr inbounds i8, ptr %this, i64 488
   %mNext3.i7.i.i14 = getelementptr inbounds i8, ptr %parent_, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i14, i64 24, i1 false)
   %mNext.i.i8.i.i15 = getelementptr inbounds i8, ptr %this, i64 512
   %mNext3.i.i9.i.i16 = getelementptr inbounds i8, ptr %parent_, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i16, i64 24, i1 false)
   %mNext.i.i.i10.i.i17 = getelementptr inbounds i8, ptr %this, i64 536
   %mNext3.i.i.i11.i.i18 = getelementptr inbounds i8, ptr %parent_, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i19 = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i19, i8 0, i64 32, i1 false)
   %mLevel.i.i20 = getelementptr inbounds i8, ptr %this, i64 584
@@ -5862,29 +5862,29 @@ while.body:                                       ; preds = %_ZN3tbb6detail2d112
   store i8 %rem, ptr %this, align 8
   %idx.ext = zext nneg i8 %rem to i64
   %add.ptr = getelementptr inbounds %"class.openvdb::v11_0::tree::IteratorRange", ptr %my_pool.i.i, i64 %idx.ext
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %add.ptr, ptr noundef nonnull align 8 dereferenceable(280) %arrayidx.i2.i, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 240
@@ -5960,7 +5960,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %add.ptr, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -6010,30 +6010,30 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %constructor_args1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %constructor_args1, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -6071,30 +6071,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %my_body2.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %my_body2.i.i, i64 24, i1 false)
   %mNext.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i3.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i3.i.i, i64 24, i1 false)
   %mNext.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i9.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i10.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
   %mNext.i6.i.i11.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i12.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i13.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i14.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i15.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i16.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i17.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i18.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -6162,7 +6162,7 @@ entry:
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
   %16 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
   ret void
 }
 
@@ -6242,7 +6242,7 @@ entry:
   ]
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %23 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -6251,7 +6251,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i.i.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i.i.i)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
@@ -6268,7 +6268,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %26 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %26 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
@@ -6277,7 +6277,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
   %27 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %27 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.71"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i
@@ -6336,7 +6336,7 @@ init.end.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IfEELj3EE9ValueIterINS0_4util17DenseMaskIteratorINS8_8NodeMaskILj3EEEEES6_KS5_NS6_8ValueAllEE8getValueEv.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %init.end.i.i.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IfEELj3EE9ValueIterINS0_4util17DenseMaskIteratorINS8_8NodeMaskILj3EEEEES6_KS5_NS6_8ValueAllEE8getValueEv.exit
 
 _ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IfEELj3EE9ValueIterINS0_4util17DenseMaskIteratorINS8_8NodeMaskILj3EEEEES6_KS5_NS6_8ValueAllEE8getValueEv.exit: ; preds = %init.end.i.i.i.i, %if.then.i.i.i.i.i
@@ -6351,7 +6351,7 @@ if.then.i:                                        ; preds = %entry
   %mNext = getelementptr inbounds i8, ptr %this, i64 24
   %mMaskIter.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i32, ptr %mMaskIter.i.i.i, align 8
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext)
   %idxprom.i.i.i = zext i32 %5 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %return
@@ -6360,7 +6360,7 @@ if.then.i.i:                                      ; preds = %entry
   %mNext.i = getelementptr inbounds i8, ptr %this, i64 48
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i)
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i)
   %idxprom.i.i.i.i2 = zext i32 %6 to i64
   %arrayidx.i.i.i.i3 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.71"], ptr %call.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i2
   br label %return
@@ -6425,7 +6425,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -6532,7 +6532,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -6749,7 +6749,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -6759,7 +6759,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #16
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -6964,7 +6964,7 @@ lpad117:                                          ; preds = %if.else120, %if.the
   br label %ehcleanup192
 
 if.else120:                                       ; preds = %if.then112
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end123 unwind label %lpad117
 
 if.end123:                                        ; preds = %invoke.cont103.thread158, %invoke.cont103.thread156, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
@@ -7880,7 +7880,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -7890,7 +7890,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -8252,7 +8252,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -8319,7 +8319,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -8451,29 +8451,29 @@ entry:
   %context.i.i = alloca %"class.tbb::detail::d1::task_group_context", align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %range = alloca %"class.openvdb::v11_0::tree::IteratorRange", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %range, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %range, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %range, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %range, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %range, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %range, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %range, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %range, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -8629,7 +8629,7 @@ for.inc.i.i:                                      ; preds = %for.body
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %r, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %r, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -8705,30 +8705,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -8764,30 +8764,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mGrainSize3.i.i.i = getelementptr inbounds i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %body, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %body, i64 24, i1 false)
   %mNext.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i2.i.i = getelementptr inbounds i8, ptr %body, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i2.i.i, i64 24, i1 false)
   %mNext.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %body, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %body, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i7.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i9.i.i = getelementptr inbounds i8, ptr %body, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
   %mNext.i6.i.i10.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i11.i.i = getelementptr inbounds i8, ptr %body, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i12.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i13.i.i = getelementptr inbounds i8, ptr %body, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i15.i.i = getelementptr inbounds i8, ptr %body, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i16.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i16.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -8875,12 +8875,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -8891,7 +8891,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 16
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -8963,7 +8963,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forIN7openvdb5v11_04tree13IteratorRangeINSB_21TreeValueIteratorBaseINSB_4TreeINSB_8RootNodeINSB_12InternalNodeINSG_INSB_8LeafNodeINSA_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSO_9ValueIterISO_St17_Rb_tree_iteratorISt4pairIKNSI_5CoordENSO_10NodeStructEEENSO_12ValueAllPredESK_EEEEEENSA_5tools8valxform15SharedOpApplierIS10_KNS12_6MatMulEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -9014,7 +9014,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -9075,7 +9075,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
   %6 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %7 = load i64, ptr %mSize.i, align 8
   %8 = load i64, ptr %mGrainSize.i, align 8
@@ -9142,29 +9142,29 @@ if.else:                                          ; preds = %lor.lhs.false
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
   store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 40
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 64
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 88
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 104
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 136
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 160
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 184
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 208
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 224
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 256
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %range, i64 240
@@ -9301,30 +9301,30 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range2 = getelementptr inbounds i8, ptr %parent_, i64 64
   %my_range = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range, ptr noundef nonnull align 64 dereferenceable(24) %my_range2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range, ptr noundef nonnull align 64 dereferenceable(280) %my_range2, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %parent_, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %parent_, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %parent_, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %parent_, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -9382,7 +9382,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %my_range2, i1 noundef zeroext false)
+  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %my_range2, i1 noundef zeroext false)
   br i1 %call.i.i.i.i3, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -9401,30 +9401,30 @@ _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12Inte
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
   %my_body4 = getelementptr inbounds i8, ptr %parent_, i64 344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body, ptr noundef nonnull align 8 dereferenceable(24) %my_body4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body, ptr noundef nonnull align 8 dereferenceable(272) %my_body4, i64 24, i1 false)
   %mNext.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 368
   %mNext3.i.i.i5 = getelementptr inbounds i8, ptr %parent_, i64 368
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i5, i64 24, i1 false)
   %mNext.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 392
   %mNext3.i.i.i.i7 = getelementptr inbounds i8, ptr %parent_, i64 392
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i7, i64 24, i1 false)
   %mNext.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 416
   %mNext3.i.i.i.i.i9 = getelementptr inbounds i8, ptr %parent_, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i9, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i9, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i10, i8 0, i64 32, i1 false)
   %mValueIterList.i.i11 = getelementptr inbounds i8, ptr %this, i64 464
   %mValueIterList3.i.i12 = getelementptr inbounds i8, ptr %parent_, i64 464
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i12, i64 24, i1 false)
   %mNext.i6.i.i13 = getelementptr inbounds i8, ptr %this, i64 488
   %mNext3.i7.i.i14 = getelementptr inbounds i8, ptr %parent_, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i14, i64 24, i1 false)
   %mNext.i.i8.i.i15 = getelementptr inbounds i8, ptr %this, i64 512
   %mNext3.i.i9.i.i16 = getelementptr inbounds i8, ptr %parent_, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i16, i64 24, i1 false)
   %mNext.i.i.i10.i.i17 = getelementptr inbounds i8, ptr %this, i64 536
   %mNext3.i.i.i11.i.i18 = getelementptr inbounds i8, ptr %parent_, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i19 = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i19, i8 0, i64 32, i1 false)
   %mLevel.i.i20 = getelementptr inbounds i8, ptr %this, i64 584
@@ -9490,30 +9490,30 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %constructor_args1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %constructor_args1, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -9551,30 +9551,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %my_body2.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %my_body2.i.i, i64 24, i1 false)
   %mNext.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i3.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i3.i.i, i64 24, i1 false)
   %mNext.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i9.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i10.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
   %mNext.i6.i.i11.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i12.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i13.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i14.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i15.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i16.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i17.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i18.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -9642,7 +9642,7 @@ entry:
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
   %16 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
   ret void
 }
 
@@ -9699,7 +9699,7 @@ entry:
   ]
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %20 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -9708,7 +9708,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i.i.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i.i.i)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
@@ -9725,7 +9725,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %23 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %23 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
@@ -9734,7 +9734,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %24 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.71"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i
@@ -9764,29 +9764,29 @@ entry:
   %context.i.i = alloca %"class.tbb::detail::d1::task_group_context", align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %range = alloca %"class.openvdb::v11_0::tree::IteratorRange", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %range, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %range, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %range, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %range, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %range, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %range, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %range, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %range, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -9942,7 +9942,7 @@ for.inc.i.i:                                      ; preds = %for.body
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %r, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %r, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -10018,30 +10018,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -10077,30 +10077,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mGrainSize3.i.i.i = getelementptr inbounds i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %body, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %body, i64 24, i1 false)
   %mNext.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i2.i.i = getelementptr inbounds i8, ptr %body, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i2.i.i, i64 24, i1 false)
   %mNext.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %body, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %body, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i7.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i9.i.i = getelementptr inbounds i8, ptr %body, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
   %mNext.i6.i.i10.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i11.i.i = getelementptr inbounds i8, ptr %body, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i12.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i13.i.i = getelementptr inbounds i8, ptr %body, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i15.i.i = getelementptr inbounds i8, ptr %body, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i16.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i16.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -10188,12 +10188,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -10204,7 +10204,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 16
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -10276,7 +10276,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forIN7openvdb5v11_04tree13IteratorRangeINSB_21TreeValueIteratorBaseINSB_4TreeINSB_8RootNodeINSB_12InternalNodeINSG_INSB_8LeafNodeINSA_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSO_9ValueIterISO_St17_Rb_tree_iteratorISt4pairIKNSI_5CoordENSO_10NodeStructEEENSO_12ValueAllPredESK_EEEEEENSA_5tools8valxform15SharedOpApplierIS10_KNS12_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -10327,7 +10327,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -10388,7 +10388,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
   %6 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %7 = load i64, ptr %mSize.i, align 8
   %8 = load i64, ptr %mGrainSize.i, align 8
@@ -10455,29 +10455,29 @@ if.else:                                          ; preds = %lor.lhs.false
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
   store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 40
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 64
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 88
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 104
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 136
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 160
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 184
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 208
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 224
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 256
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %range, i64 240
@@ -10614,30 +10614,30 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range2 = getelementptr inbounds i8, ptr %parent_, i64 64
   %my_range = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range, ptr noundef nonnull align 64 dereferenceable(24) %my_range2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range, ptr noundef nonnull align 64 dereferenceable(280) %my_range2, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %parent_, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %parent_, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %parent_, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %parent_, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -10695,7 +10695,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %my_range2, i1 noundef zeroext false)
+  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %my_range2, i1 noundef zeroext false)
   br i1 %call.i.i.i.i3, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -10714,30 +10714,30 @@ _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12Inte
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
   %my_body4 = getelementptr inbounds i8, ptr %parent_, i64 344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body, ptr noundef nonnull align 8 dereferenceable(24) %my_body4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body, ptr noundef nonnull align 8 dereferenceable(272) %my_body4, i64 24, i1 false)
   %mNext.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 368
   %mNext3.i.i.i5 = getelementptr inbounds i8, ptr %parent_, i64 368
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i5, i64 24, i1 false)
   %mNext.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 392
   %mNext3.i.i.i.i7 = getelementptr inbounds i8, ptr %parent_, i64 392
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i7, i64 24, i1 false)
   %mNext.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 416
   %mNext3.i.i.i.i.i9 = getelementptr inbounds i8, ptr %parent_, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i9, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i9, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i10, i8 0, i64 32, i1 false)
   %mValueIterList.i.i11 = getelementptr inbounds i8, ptr %this, i64 464
   %mValueIterList3.i.i12 = getelementptr inbounds i8, ptr %parent_, i64 464
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i12, i64 24, i1 false)
   %mNext.i6.i.i13 = getelementptr inbounds i8, ptr %this, i64 488
   %mNext3.i7.i.i14 = getelementptr inbounds i8, ptr %parent_, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i14, i64 24, i1 false)
   %mNext.i.i8.i.i15 = getelementptr inbounds i8, ptr %this, i64 512
   %mNext3.i.i9.i.i16 = getelementptr inbounds i8, ptr %parent_, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i16, i64 24, i1 false)
   %mNext.i.i.i10.i.i17 = getelementptr inbounds i8, ptr %this, i64 536
   %mNext3.i.i.i11.i.i18 = getelementptr inbounds i8, ptr %parent_, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i19 = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i19, i8 0, i64 32, i1 false)
   %mLevel.i.i20 = getelementptr inbounds i8, ptr %this, i64 584
@@ -10803,30 +10803,30 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %constructor_args1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %constructor_args1, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -10864,30 +10864,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %my_body2.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %my_body2.i.i, i64 24, i1 false)
   %mNext.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i3.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i3.i.i, i64 24, i1 false)
   %mNext.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i9.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i10.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
   %mNext.i6.i.i11.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i12.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i13.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i14.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i15.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i16.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i17.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i18.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -10955,7 +10955,7 @@ entry:
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
   %16 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
   ret void
 }
 
@@ -11046,7 +11046,7 @@ _ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit: ; preds
   ]
 
 if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %32 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -11055,7 +11055,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i.i.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i.i.i)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
@@ -11072,7 +11072,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %35 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %35 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
@@ -11081,7 +11081,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK7openvdb5v11_04
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
   %36 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %36 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.71"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i
@@ -11111,29 +11111,29 @@ entry:
   %context.i.i = alloca %"class.tbb::detail::d1::task_group_context", align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %range = alloca %"class.openvdb::v11_0::tree::IteratorRange.196", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %range, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %range, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %range, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %range, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %range, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %range, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %range, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %range, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -11289,7 +11289,7 @@ for.inc.i.i:                                      ; preds = %for.body
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %r, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %r, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -11314,29 +11314,29 @@ for.end:                                          ; preds = %for.body, %_ZNK7ope
 define linkonce_odr noundef i64 @_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #5 comdat align 2 {
 entry:
   %it = alloca %"class.openvdb::v11_0::tree::TreeValueIteratorBase.171", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %it, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %it, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 24
   %mNext3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 48
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 72
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 88
   %mValueIterList.i = getelementptr inbounds i8, ptr %it, i64 120
   %mValueIterList3.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i, i64 24, i1 false)
   %mNext.i6.i = getelementptr inbounds i8, ptr %it, i64 144
   %mNext3.i7.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i, i64 24, i1 false)
   %mNext.i.i8.i = getelementptr inbounds i8, ptr %it, i64 168
   %mNext3.i.i9.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i, i64 24, i1 false)
   %mNext.i.i.i10.i = getelementptr inbounds i8, ptr %it, i64 192
   %mNext3.i.i.i11.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i = getelementptr inbounds i8, ptr %it, i64 208
   %mLevel.i = getelementptr inbounds i8, ptr %it, i64 240
   %mLevel4.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -13099,7 +13099,7 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true3.i
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext)
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext)
   %idxprom.i.i.i.i.i = zext i32 %5 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.215"], ptr %call.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
@@ -13254,7 +13254,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -13321,7 +13321,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -13394,30 +13394,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -13453,30 +13453,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mGrainSize3.i.i.i = getelementptr inbounds i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %body, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %body, i64 24, i1 false)
   %mNext.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i2.i.i = getelementptr inbounds i8, ptr %body, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i2.i.i, i64 24, i1 false)
   %mNext.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %body, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %body, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i7.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i9.i.i = getelementptr inbounds i8, ptr %body, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
   %mNext.i6.i.i10.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i11.i.i = getelementptr inbounds i8, ptr %body, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i12.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i13.i.i = getelementptr inbounds i8, ptr %body, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i15.i.i = getelementptr inbounds i8, ptr %body, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i16.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i16.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -13564,12 +13564,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -13580,7 +13580,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 16
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -13652,7 +13652,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forIN7openvdb5v11_04tree13IteratorRangeINSB_21TreeValueIteratorBaseINSB_4TreeINSB_8RootNodeINSB_12InternalNodeINSG_INSB_8LeafNodeINSA_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSO_9ValueIterISO_St17_Rb_tree_iteratorISt4pairIKNSI_5CoordENSO_10NodeStructEEENSO_12ValueAllPredESK_EEEEEENSA_5tools8valxform15SharedOpApplierIS10_KNS12_15MatMulNormalizeEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -13703,7 +13703,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -13764,7 +13764,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
   %6 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %7 = load i64, ptr %mSize.i, align 8
   %8 = load i64, ptr %mGrainSize.i, align 8
@@ -13831,29 +13831,29 @@ if.else:                                          ; preds = %lor.lhs.false
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
   store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 40
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 64
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 88
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 104
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 136
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 160
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 184
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 208
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 224
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 256
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %range, i64 240
@@ -13990,30 +13990,30 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range2 = getelementptr inbounds i8, ptr %parent_, i64 64
   %my_range = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range, ptr noundef nonnull align 64 dereferenceable(24) %my_range2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range, ptr noundef nonnull align 64 dereferenceable(280) %my_range2, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %parent_, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %parent_, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %parent_, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %parent_, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -14071,7 +14071,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %my_range2, i1 noundef zeroext false)
+  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %my_range2, i1 noundef zeroext false)
   br i1 %call.i.i.i.i3, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -14090,30 +14090,30 @@ _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12Inte
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
   %my_body4 = getelementptr inbounds i8, ptr %parent_, i64 344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body, ptr noundef nonnull align 8 dereferenceable(24) %my_body4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body, ptr noundef nonnull align 8 dereferenceable(272) %my_body4, i64 24, i1 false)
   %mNext.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 368
   %mNext3.i.i.i5 = getelementptr inbounds i8, ptr %parent_, i64 368
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i5, i64 24, i1 false)
   %mNext.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 392
   %mNext3.i.i.i.i7 = getelementptr inbounds i8, ptr %parent_, i64 392
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i7, i64 24, i1 false)
   %mNext.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 416
   %mNext3.i.i.i.i.i9 = getelementptr inbounds i8, ptr %parent_, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i9, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i9, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i10, i8 0, i64 32, i1 false)
   %mValueIterList.i.i11 = getelementptr inbounds i8, ptr %this, i64 464
   %mValueIterList3.i.i12 = getelementptr inbounds i8, ptr %parent_, i64 464
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i12, i64 24, i1 false)
   %mNext.i6.i.i13 = getelementptr inbounds i8, ptr %this, i64 488
   %mNext3.i7.i.i14 = getelementptr inbounds i8, ptr %parent_, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i14, i64 24, i1 false)
   %mNext.i.i8.i.i15 = getelementptr inbounds i8, ptr %this, i64 512
   %mNext3.i.i9.i.i16 = getelementptr inbounds i8, ptr %parent_, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i16, i64 24, i1 false)
   %mNext.i.i.i10.i.i17 = getelementptr inbounds i8, ptr %this, i64 536
   %mNext3.i.i.i11.i.i18 = getelementptr inbounds i8, ptr %parent_, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i19 = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i19, i8 0, i64 32, i1 false)
   %mLevel.i.i20 = getelementptr inbounds i8, ptr %this, i64 584
@@ -14208,29 +14208,29 @@ while.body:                                       ; preds = %_ZN3tbb6detail2d112
   store i8 %rem, ptr %this, align 8
   %idx.ext = zext nneg i8 %rem to i64
   %add.ptr = getelementptr inbounds %"class.openvdb::v11_0::tree::IteratorRange.196", ptr %my_pool.i.i, i64 %idx.ext
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %add.ptr, ptr noundef nonnull align 8 dereferenceable(280) %arrayidx.i2.i, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 240
@@ -14306,7 +14306,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %add.ptr, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -14356,30 +14356,30 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %constructor_args1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %constructor_args1, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -14417,30 +14417,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %my_body2.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %my_body2.i.i, i64 24, i1 false)
   %mNext.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i3.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i3.i.i, i64 24, i1 false)
   %mNext.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i9.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i10.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
   %mNext.i6.i.i11.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i12.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i13.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i14.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i15.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i16.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i17.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i18.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -14508,7 +14508,7 @@ entry:
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
   %16 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
   ret void
 }
 
@@ -14572,7 +14572,7 @@ entry:
   ]
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %20 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -14581,7 +14581,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i.i.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i.i.i)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
@@ -14598,7 +14598,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %23 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %23 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.212"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
@@ -14607,7 +14607,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %24 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.215"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i
@@ -14665,7 +14665,7 @@ init.end.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IdEELj3EE9ValueIterINS0_4util17DenseMaskIteratorINS8_8NodeMaskILj3EEEEES6_KS5_NS6_8ValueAllEE8getValueEv.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %init.end.i.i.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IdEELj3EE9ValueIterINS0_4util17DenseMaskIteratorINS8_8NodeMaskILj3EEEEES6_KS5_NS6_8ValueAllEE8getValueEv.exit
 
 _ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IdEELj3EE9ValueIterINS0_4util17DenseMaskIteratorINS8_8NodeMaskILj3EEEEES6_KS5_NS6_8ValueAllEE8getValueEv.exit: ; preds = %init.end.i.i.i.i, %if.then.i.i.i.i.i
@@ -14680,7 +14680,7 @@ if.then.i:                                        ; preds = %entry
   %mNext = getelementptr inbounds i8, ptr %this, i64 24
   %mMaskIter.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i32, ptr %mMaskIter.i.i.i, align 8
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext)
   %idxprom.i.i.i = zext i32 %5 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.212"], ptr %call.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %return
@@ -14689,7 +14689,7 @@ if.then.i.i:                                      ; preds = %entry
   %mNext.i = getelementptr inbounds i8, ptr %this, i64 48
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i)
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i)
   %idxprom.i.i.i.i2 = zext i32 %6 to i64
   %arrayidx.i.i.i.i3 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.215"], ptr %call.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i2
   br label %return
@@ -14754,7 +14754,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -14861,7 +14861,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -15070,7 +15070,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -15080,7 +15080,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #16
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -15292,7 +15292,7 @@ lpad111:                                          ; preds = %if.else114, %if.the
   br label %ehcleanup184
 
 if.else114:                                       ; preds = %if.then106
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end117 unwind label %lpad111
 
 if.end117:                                        ; preds = %invoke.cont97.thread160, %invoke.cont97.thread158, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
@@ -16123,7 +16123,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -16190,7 +16190,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -16322,29 +16322,29 @@ entry:
   %context.i.i = alloca %"class.tbb::detail::d1::task_group_context", align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %range = alloca %"class.openvdb::v11_0::tree::IteratorRange.196", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %range, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %range, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %range, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %range, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %range, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %range, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %range, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %range, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -16500,7 +16500,7 @@ for.inc.i.i:                                      ; preds = %for.body
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %r, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %r, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -16576,30 +16576,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -16635,30 +16635,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mGrainSize3.i.i.i = getelementptr inbounds i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %body, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %body, i64 24, i1 false)
   %mNext.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i2.i.i = getelementptr inbounds i8, ptr %body, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i2.i.i, i64 24, i1 false)
   %mNext.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %body, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %body, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i7.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i9.i.i = getelementptr inbounds i8, ptr %body, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
   %mNext.i6.i.i10.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i11.i.i = getelementptr inbounds i8, ptr %body, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i12.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i13.i.i = getelementptr inbounds i8, ptr %body, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i15.i.i = getelementptr inbounds i8, ptr %body, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i16.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i16.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -16746,12 +16746,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -16762,7 +16762,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 16
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -16834,7 +16834,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forIN7openvdb5v11_04tree13IteratorRangeINSB_21TreeValueIteratorBaseINSB_4TreeINSB_8RootNodeINSB_12InternalNodeINSG_INSB_8LeafNodeINSA_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSO_9ValueIterISO_St17_Rb_tree_iteratorISt4pairIKNSI_5CoordENSO_10NodeStructEEENSO_12ValueAllPredESK_EEEEEENSA_5tools8valxform15SharedOpApplierIS10_KNS12_6MatMulEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -16885,7 +16885,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -16946,7 +16946,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
   %6 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %7 = load i64, ptr %mSize.i, align 8
   %8 = load i64, ptr %mGrainSize.i, align 8
@@ -17013,29 +17013,29 @@ if.else:                                          ; preds = %lor.lhs.false
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
   store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 40
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 64
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 88
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 104
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 136
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 160
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 184
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 208
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 224
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 256
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %range, i64 240
@@ -17172,30 +17172,30 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range2 = getelementptr inbounds i8, ptr %parent_, i64 64
   %my_range = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range, ptr noundef nonnull align 64 dereferenceable(24) %my_range2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range, ptr noundef nonnull align 64 dereferenceable(280) %my_range2, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %parent_, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %parent_, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %parent_, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %parent_, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -17253,7 +17253,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %my_range2, i1 noundef zeroext false)
+  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %my_range2, i1 noundef zeroext false)
   br i1 %call.i.i.i.i3, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -17272,30 +17272,30 @@ _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12Inte
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
   %my_body4 = getelementptr inbounds i8, ptr %parent_, i64 344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body, ptr noundef nonnull align 8 dereferenceable(24) %my_body4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body, ptr noundef nonnull align 8 dereferenceable(272) %my_body4, i64 24, i1 false)
   %mNext.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 368
   %mNext3.i.i.i5 = getelementptr inbounds i8, ptr %parent_, i64 368
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i5, i64 24, i1 false)
   %mNext.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 392
   %mNext3.i.i.i.i7 = getelementptr inbounds i8, ptr %parent_, i64 392
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i7, i64 24, i1 false)
   %mNext.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 416
   %mNext3.i.i.i.i.i9 = getelementptr inbounds i8, ptr %parent_, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i9, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i9, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i10, i8 0, i64 32, i1 false)
   %mValueIterList.i.i11 = getelementptr inbounds i8, ptr %this, i64 464
   %mValueIterList3.i.i12 = getelementptr inbounds i8, ptr %parent_, i64 464
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i12, i64 24, i1 false)
   %mNext.i6.i.i13 = getelementptr inbounds i8, ptr %this, i64 488
   %mNext3.i7.i.i14 = getelementptr inbounds i8, ptr %parent_, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i14, i64 24, i1 false)
   %mNext.i.i8.i.i15 = getelementptr inbounds i8, ptr %this, i64 512
   %mNext3.i.i9.i.i16 = getelementptr inbounds i8, ptr %parent_, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i16, i64 24, i1 false)
   %mNext.i.i.i10.i.i17 = getelementptr inbounds i8, ptr %this, i64 536
   %mNext3.i.i.i11.i.i18 = getelementptr inbounds i8, ptr %parent_, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i19 = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i19, i8 0, i64 32, i1 false)
   %mLevel.i.i20 = getelementptr inbounds i8, ptr %this, i64 584
@@ -17361,30 +17361,30 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %constructor_args1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %constructor_args1, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -17422,30 +17422,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %my_body2.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %my_body2.i.i, i64 24, i1 false)
   %mNext.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i3.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i3.i.i, i64 24, i1 false)
   %mNext.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i9.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i10.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
   %mNext.i6.i.i11.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i12.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i13.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i14.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i15.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i16.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i17.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i18.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -17513,7 +17513,7 @@ entry:
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
   %16 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
   ret void
 }
 
@@ -17564,7 +17564,7 @@ entry:
   ]
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %17 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -17573,7 +17573,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i.i.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i.i.i)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
@@ -17590,7 +17590,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %20 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %20 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.212"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
@@ -17599,7 +17599,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
   %21 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.215"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i
@@ -17629,29 +17629,29 @@ entry:
   %context.i.i = alloca %"class.tbb::detail::d1::task_group_context", align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %range = alloca %"class.openvdb::v11_0::tree::IteratorRange.196", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %range, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %range, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %range, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %range, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %range, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %range, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %range, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %range, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -17807,7 +17807,7 @@ for.inc.i.i:                                      ; preds = %for.body
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %r, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %r, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -17883,30 +17883,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -17942,30 +17942,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mGrainSize3.i.i.i = getelementptr inbounds i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %body, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %body, i64 24, i1 false)
   %mNext.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i2.i.i = getelementptr inbounds i8, ptr %body, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i2.i.i, i64 24, i1 false)
   %mNext.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %body, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %body, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i7.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i9.i.i = getelementptr inbounds i8, ptr %body, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
   %mNext.i6.i.i10.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i11.i.i = getelementptr inbounds i8, ptr %body, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i12.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i13.i.i = getelementptr inbounds i8, ptr %body, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i15.i.i = getelementptr inbounds i8, ptr %body, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i16.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i16.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -18053,12 +18053,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -18069,7 +18069,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 16
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -18141,7 +18141,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forIN7openvdb5v11_04tree13IteratorRangeINSB_21TreeValueIteratorBaseINSB_4TreeINSB_8RootNodeINSB_12InternalNodeINSG_INSB_8LeafNodeINSA_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSO_9ValueIterISO_St17_Rb_tree_iteratorISt4pairIKNSI_5CoordENSO_10NodeStructEEENSO_12ValueAllPredESK_EEEEEENSA_5tools8valxform15SharedOpApplierIS10_KNS12_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -18192,7 +18192,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -18253,7 +18253,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
   %6 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %7 = load i64, ptr %mSize.i, align 8
   %8 = load i64, ptr %mGrainSize.i, align 8
@@ -18320,29 +18320,29 @@ if.else:                                          ; preds = %lor.lhs.false
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
   store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 40
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 64
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 88
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 104
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 136
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 160
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 184
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 208
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 224
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 256
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %range, i64 240
@@ -18479,30 +18479,30 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range2 = getelementptr inbounds i8, ptr %parent_, i64 64
   %my_range = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range, ptr noundef nonnull align 64 dereferenceable(24) %my_range2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range, ptr noundef nonnull align 64 dereferenceable(280) %my_range2, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %parent_, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %parent_, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %parent_, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %parent_, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -18560,7 +18560,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %my_range2, i1 noundef zeroext false)
+  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %my_range2, i1 noundef zeroext false)
   br i1 %call.i.i.i.i3, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -18579,30 +18579,30 @@ _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12Inte
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
   %my_body4 = getelementptr inbounds i8, ptr %parent_, i64 344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body, ptr noundef nonnull align 8 dereferenceable(24) %my_body4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body, ptr noundef nonnull align 8 dereferenceable(272) %my_body4, i64 24, i1 false)
   %mNext.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 368
   %mNext3.i.i.i5 = getelementptr inbounds i8, ptr %parent_, i64 368
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i5, i64 24, i1 false)
   %mNext.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 392
   %mNext3.i.i.i.i7 = getelementptr inbounds i8, ptr %parent_, i64 392
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i7, i64 24, i1 false)
   %mNext.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 416
   %mNext3.i.i.i.i.i9 = getelementptr inbounds i8, ptr %parent_, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i9, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i9, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i10, i8 0, i64 32, i1 false)
   %mValueIterList.i.i11 = getelementptr inbounds i8, ptr %this, i64 464
   %mValueIterList3.i.i12 = getelementptr inbounds i8, ptr %parent_, i64 464
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i12, i64 24, i1 false)
   %mNext.i6.i.i13 = getelementptr inbounds i8, ptr %this, i64 488
   %mNext3.i7.i.i14 = getelementptr inbounds i8, ptr %parent_, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i14, i64 24, i1 false)
   %mNext.i.i8.i.i15 = getelementptr inbounds i8, ptr %this, i64 512
   %mNext3.i.i9.i.i16 = getelementptr inbounds i8, ptr %parent_, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i16, i64 24, i1 false)
   %mNext.i.i.i10.i.i17 = getelementptr inbounds i8, ptr %this, i64 536
   %mNext3.i.i.i11.i.i18 = getelementptr inbounds i8, ptr %parent_, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i19 = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i19, i8 0, i64 32, i1 false)
   %mLevel.i.i20 = getelementptr inbounds i8, ptr %this, i64 584
@@ -18668,30 +18668,30 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %constructor_args1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %constructor_args1, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -18729,30 +18729,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %my_body2.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %my_body2.i.i, i64 24, i1 false)
   %mNext.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i3.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i3.i.i, i64 24, i1 false)
   %mNext.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i9.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i10.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
   %mNext.i6.i.i11.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i12.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i13.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i14.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i15.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i16.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i17.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i18.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -18820,7 +18820,7 @@ entry:
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
   %16 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
   ret void
 }
 
@@ -18905,7 +18905,7 @@ _ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit: ; preds
   ]
 
 if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %26 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -18914,7 +18914,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i.i.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i.i.i)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
@@ -18931,7 +18931,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %29 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %29 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.212"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
@@ -18940,7 +18940,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK7openvdb5v11_04
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
   %30 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %30 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.215"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i
@@ -18970,29 +18970,29 @@ entry:
   %context.i.i = alloca %"class.tbb::detail::d1::task_group_context", align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %range = alloca %"class.openvdb::v11_0::tree::IteratorRange.297", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %range, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %range, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %range, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %range, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %range, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %range, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %range, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %range, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -19148,7 +19148,7 @@ for.inc.i.i:                                      ; preds = %for.body
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %r, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %r, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -19173,29 +19173,29 @@ for.end:                                          ; preds = %for.body, %_ZNK7ope
 define linkonce_odr noundef i64 @_ZNK7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #5 comdat align 2 {
 entry:
   %it = alloca %"class.openvdb::v11_0::tree::TreeValueIteratorBase.272", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %it, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %it, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 24
   %mNext3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 48
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 72
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 88
   %mValueIterList.i = getelementptr inbounds i8, ptr %it, i64 120
   %mValueIterList3.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i, i64 24, i1 false)
   %mNext.i6.i = getelementptr inbounds i8, ptr %it, i64 144
   %mNext3.i7.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i, i64 24, i1 false)
   %mNext.i.i8.i = getelementptr inbounds i8, ptr %it, i64 168
   %mNext3.i.i9.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i, i64 24, i1 false)
   %mNext.i.i.i10.i = getelementptr inbounds i8, ptr %it, i64 192
   %mNext3.i.i.i11.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i = getelementptr inbounds i8, ptr %it, i64 208
   %mLevel.i = getelementptr inbounds i8, ptr %it, i64 240
   %mLevel4.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -20958,7 +20958,7 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true3.i
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext)
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext)
   %idxprom.i.i.i.i.i = zext i32 %5 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.320"], ptr %call.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
@@ -21113,7 +21113,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -21180,7 +21180,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -21253,30 +21253,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -21312,30 +21312,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mGrainSize3.i.i.i = getelementptr inbounds i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %body, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %body, i64 24, i1 false)
   %mNext.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i2.i.i = getelementptr inbounds i8, ptr %body, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i2.i.i, i64 24, i1 false)
   %mNext.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %body, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %body, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i7.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i9.i.i = getelementptr inbounds i8, ptr %body, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
   %mNext.i6.i.i10.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i11.i.i = getelementptr inbounds i8, ptr %body, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i12.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i13.i.i = getelementptr inbounds i8, ptr %body, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i15.i.i = getelementptr inbounds i8, ptr %body, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i16.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i16.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -21423,12 +21423,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -21439,7 +21439,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 16
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -21511,7 +21511,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forIN7openvdb5v11_04tree13IteratorRangeINSB_21TreeValueIteratorBaseINSB_4TreeINSB_8RootNodeINSB_12InternalNodeINSG_INSB_8LeafNodeINSA_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSO_9ValueIterISO_St17_Rb_tree_iteratorISt4pairIKNSI_5CoordENSO_10NodeStructEEENSO_12ValueAllPredESK_EEEEEENSA_5tools8valxform15SharedOpApplierIS10_KNS12_15MatMulNormalizeEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -21562,7 +21562,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -21623,7 +21623,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
   %6 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %7 = load i64, ptr %mSize.i, align 8
   %8 = load i64, ptr %mGrainSize.i, align 8
@@ -21690,29 +21690,29 @@ if.else:                                          ; preds = %lor.lhs.false
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
   store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 40
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 64
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 88
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 104
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 136
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 160
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 184
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 208
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 224
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 256
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %range, i64 240
@@ -21849,30 +21849,30 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range2 = getelementptr inbounds i8, ptr %parent_, i64 64
   %my_range = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range, ptr noundef nonnull align 64 dereferenceable(24) %my_range2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range, ptr noundef nonnull align 64 dereferenceable(280) %my_range2, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %parent_, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %parent_, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %parent_, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %parent_, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -21930,7 +21930,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %my_range2, i1 noundef zeroext false)
+  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %my_range2, i1 noundef zeroext false)
   br i1 %call.i.i.i.i3, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -21949,30 +21949,30 @@ _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12Inte
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
   %my_body4 = getelementptr inbounds i8, ptr %parent_, i64 344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body, ptr noundef nonnull align 8 dereferenceable(24) %my_body4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body, ptr noundef nonnull align 8 dereferenceable(272) %my_body4, i64 24, i1 false)
   %mNext.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 368
   %mNext3.i.i.i5 = getelementptr inbounds i8, ptr %parent_, i64 368
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i5, i64 24, i1 false)
   %mNext.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 392
   %mNext3.i.i.i.i7 = getelementptr inbounds i8, ptr %parent_, i64 392
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i7, i64 24, i1 false)
   %mNext.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 416
   %mNext3.i.i.i.i.i9 = getelementptr inbounds i8, ptr %parent_, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i9, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i9, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i10, i8 0, i64 32, i1 false)
   %mValueIterList.i.i11 = getelementptr inbounds i8, ptr %this, i64 464
   %mValueIterList3.i.i12 = getelementptr inbounds i8, ptr %parent_, i64 464
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i12, i64 24, i1 false)
   %mNext.i6.i.i13 = getelementptr inbounds i8, ptr %this, i64 488
   %mNext3.i7.i.i14 = getelementptr inbounds i8, ptr %parent_, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i14, i64 24, i1 false)
   %mNext.i.i8.i.i15 = getelementptr inbounds i8, ptr %this, i64 512
   %mNext3.i.i9.i.i16 = getelementptr inbounds i8, ptr %parent_, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i16, i64 24, i1 false)
   %mNext.i.i.i10.i.i17 = getelementptr inbounds i8, ptr %this, i64 536
   %mNext3.i.i.i11.i.i18 = getelementptr inbounds i8, ptr %parent_, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i19 = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i19, i8 0, i64 32, i1 false)
   %mLevel.i.i20 = getelementptr inbounds i8, ptr %this, i64 584
@@ -22067,29 +22067,29 @@ while.body:                                       ; preds = %_ZN3tbb6detail2d112
   store i8 %rem, ptr %this, align 8
   %idx.ext = zext nneg i8 %rem to i64
   %add.ptr = getelementptr inbounds %"class.openvdb::v11_0::tree::IteratorRange.297", ptr %my_pool.i.i, i64 %idx.ext
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %add.ptr, ptr noundef nonnull align 8 dereferenceable(280) %arrayidx.i2.i, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %arrayidx.i2.i, i64 240
@@ -22165,7 +22165,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %add.ptr, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -22215,30 +22215,30 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_15MatMulNormalizeEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %constructor_args1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %constructor_args1, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -22276,30 +22276,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %my_body2.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %my_body2.i.i, i64 24, i1 false)
   %mNext.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i3.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i3.i.i, i64 24, i1 false)
   %mNext.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i9.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i10.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
   %mNext.i6.i.i11.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i12.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i13.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i14.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i15.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i16.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i17.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i18.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -22367,7 +22367,7 @@ entry:
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
   %16 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
   ret void
 }
 
@@ -22437,7 +22437,7 @@ entry:
   ]
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %23 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -22446,7 +22446,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i.i.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i.i.i)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
@@ -22463,7 +22463,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %26 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %26 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.316"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
@@ -22472,7 +22472,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
   %27 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %27 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.320"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i
@@ -22531,7 +22531,7 @@ init.end.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IiEELj3EE9ValueIterINS0_4util17DenseMaskIteratorINS8_8NodeMaskILj3EEEEES6_KS5_NS6_8ValueAllEE8getValueEv.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %init.end.i.i.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IiEELj3EE9ValueIterINS0_4util17DenseMaskIteratorINS8_8NodeMaskILj3EEEEES6_KS5_NS6_8ValueAllEE8getValueEv.exit
 
 _ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IiEELj3EE9ValueIterINS0_4util17DenseMaskIteratorINS8_8NodeMaskILj3EEEEES6_KS5_NS6_8ValueAllEE8getValueEv.exit: ; preds = %init.end.i.i.i.i, %if.then.i.i.i.i.i
@@ -22546,7 +22546,7 @@ if.then.i:                                        ; preds = %entry
   %mNext = getelementptr inbounds i8, ptr %this, i64 24
   %mMaskIter.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i32, ptr %mMaskIter.i.i.i, align 8
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext)
   %idxprom.i.i.i = zext i32 %5 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.316"], ptr %call.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %return
@@ -22555,7 +22555,7 @@ if.then.i.i:                                      ; preds = %entry
   %mNext.i = getelementptr inbounds i8, ptr %this, i64 48
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i)
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i)
   %idxprom.i.i.i.i2 = zext i32 %6 to i64
   %arrayidx.i.i.i.i3 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.320"], ptr %call.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i2
   br label %return
@@ -22620,7 +22620,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -22727,7 +22727,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -22936,7 +22936,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -22946,7 +22946,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #16
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -23161,7 +23161,7 @@ lpad117:                                          ; preds = %if.else120, %if.the
   br label %ehcleanup190
 
 if.else120:                                       ; preds = %if.then112
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end123 unwind label %lpad117
 
 if.end123:                                        ; preds = %invoke.cont103.thread169, %invoke.cont103.thread167, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
@@ -23716,7 +23716,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -23783,7 +23783,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull %_openvdb_throw_msg) #16
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #24
           to label %unreachable unwind label %lpad6
@@ -23915,29 +23915,29 @@ entry:
   %context.i.i = alloca %"class.tbb::detail::d1::task_group_context", align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %range = alloca %"class.openvdb::v11_0::tree::IteratorRange.297", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %range, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %range, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %range, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %range, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %range, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %range, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %range, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %range, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -24093,7 +24093,7 @@ for.inc.i.i:                                      ; preds = %for.body
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %r, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %r, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -24169,30 +24169,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -24228,30 +24228,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mGrainSize3.i.i.i = getelementptr inbounds i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %body, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %body, i64 24, i1 false)
   %mNext.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i2.i.i = getelementptr inbounds i8, ptr %body, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i2.i.i, i64 24, i1 false)
   %mNext.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %body, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %body, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i7.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i9.i.i = getelementptr inbounds i8, ptr %body, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
   %mNext.i6.i.i10.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i11.i.i = getelementptr inbounds i8, ptr %body, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i12.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i13.i.i = getelementptr inbounds i8, ptr %body, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i15.i.i = getelementptr inbounds i8, ptr %body, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i16.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i16.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -24339,12 +24339,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -24355,7 +24355,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 16
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -24427,7 +24427,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forIN7openvdb5v11_04tree13IteratorRangeINSB_21TreeValueIteratorBaseINSB_4TreeINSB_8RootNodeINSB_12InternalNodeINSG_INSB_8LeafNodeINSA_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSO_9ValueIterISO_St17_Rb_tree_iteratorISt4pairIKNSI_5CoordENSO_10NodeStructEEENSO_12ValueAllPredESK_EEEEEENSA_5tools8valxform15SharedOpApplierIS10_KNS12_6MatMulEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -24478,7 +24478,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -24539,7 +24539,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
   %6 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %7 = load i64, ptr %mSize.i, align 8
   %8 = load i64, ptr %mGrainSize.i, align 8
@@ -24606,29 +24606,29 @@ if.else:                                          ; preds = %lor.lhs.false
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
   store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 40
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 64
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 88
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 104
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 136
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 160
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 184
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 208
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 224
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 256
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %range, i64 240
@@ -24765,30 +24765,30 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range2 = getelementptr inbounds i8, ptr %parent_, i64 64
   %my_range = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range, ptr noundef nonnull align 64 dereferenceable(24) %my_range2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range, ptr noundef nonnull align 64 dereferenceable(280) %my_range2, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %parent_, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %parent_, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %parent_, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %parent_, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -24846,7 +24846,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %my_range2, i1 noundef zeroext false)
+  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %my_range2, i1 noundef zeroext false)
   br i1 %call.i.i.i.i3, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -24865,30 +24865,30 @@ _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12Inte
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
   %my_body4 = getelementptr inbounds i8, ptr %parent_, i64 344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body, ptr noundef nonnull align 8 dereferenceable(24) %my_body4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body, ptr noundef nonnull align 8 dereferenceable(272) %my_body4, i64 24, i1 false)
   %mNext.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 368
   %mNext3.i.i.i5 = getelementptr inbounds i8, ptr %parent_, i64 368
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i5, i64 24, i1 false)
   %mNext.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 392
   %mNext3.i.i.i.i7 = getelementptr inbounds i8, ptr %parent_, i64 392
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i7, i64 24, i1 false)
   %mNext.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 416
   %mNext3.i.i.i.i.i9 = getelementptr inbounds i8, ptr %parent_, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i9, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i9, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i10, i8 0, i64 32, i1 false)
   %mValueIterList.i.i11 = getelementptr inbounds i8, ptr %this, i64 464
   %mValueIterList3.i.i12 = getelementptr inbounds i8, ptr %parent_, i64 464
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i12, i64 24, i1 false)
   %mNext.i6.i.i13 = getelementptr inbounds i8, ptr %this, i64 488
   %mNext3.i7.i.i14 = getelementptr inbounds i8, ptr %parent_, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i14, i64 24, i1 false)
   %mNext.i.i8.i.i15 = getelementptr inbounds i8, ptr %this, i64 512
   %mNext3.i.i9.i.i16 = getelementptr inbounds i8, ptr %parent_, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i16, i64 24, i1 false)
   %mNext.i.i.i10.i.i17 = getelementptr inbounds i8, ptr %this, i64 536
   %mNext3.i.i.i11.i.i18 = getelementptr inbounds i8, ptr %parent_, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i19 = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i19, i8 0, i64 32, i1 false)
   %mLevel.i.i20 = getelementptr inbounds i8, ptr %this, i64 584
@@ -24954,30 +24954,30 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_6MatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %constructor_args1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %constructor_args1, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -25015,30 +25015,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %my_body2.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %my_body2.i.i, i64 24, i1 false)
   %mNext.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i3.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i3.i.i, i64 24, i1 false)
   %mNext.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i9.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i10.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
   %mNext.i6.i.i11.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i12.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i13.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i14.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i15.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i16.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i17.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i18.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -25106,7 +25106,7 @@ entry:
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
   %16 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
   ret void
 }
 
@@ -25163,7 +25163,7 @@ entry:
   ]
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %20 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -25172,7 +25172,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i.i.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i.i.i)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
@@ -25189,7 +25189,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %23 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %23 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.316"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
@@ -25198,7 +25198,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %24 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.320"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i
@@ -25228,29 +25228,29 @@ entry:
   %context.i.i = alloca %"class.tbb::detail::d1::task_group_context", align 8
   %ref.tmp.i = alloca %"class.tbb::detail::d1::auto_partitioner", align 1
   %range = alloca %"class.openvdb::v11_0::tree::IteratorRange.297", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %range, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %range, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 88
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %range, i64 120
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %range, i64 144
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %range, i64 168
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %range, i64 192
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %range, i64 208
   %mLevel.i.i = getelementptr inbounds i8, ptr %range, i64 240
   %mLevel4.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -25406,7 +25406,7 @@ for.inc.i.i:                                      ; preds = %for.body
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %r, i1 noundef zeroext false)
+  %call.i.i.i.i = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %r, i1 noundef zeroext false)
   br i1 %call.i.i.i.i, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree13IteratorRangeINS1_21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSE_9ValueIterISE_St17_Rb_tree_iteratorISt4pairIKNS8_5CoordENSE_10NodeStructEEENSE_12ValueAllPredESA_EEEEEppEv.exit
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -25482,30 +25482,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i4, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -25541,30 +25541,30 @@ if.then:                                          ; preds = %cond.true.i.i.i.i.i
   %mGrainSize3.i.i.i = getelementptr inbounds i8, ptr %range, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %body, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %body, i64 24, i1 false)
   %mNext.i.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i2.i.i = getelementptr inbounds i8, ptr %body, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i2.i.i, i64 24, i1 false)
   %mNext.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %body, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i4.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %body, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i6.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i7.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i9.i.i = getelementptr inbounds i8, ptr %body, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i9.i.i, i64 24, i1 false)
   %mNext.i6.i.i10.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i11.i.i = getelementptr inbounds i8, ptr %body, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i11.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i12.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i13.i.i = getelementptr inbounds i8, ptr %body, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i13.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i14.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i15.i.i = getelementptr inbounds i8, ptr %body, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i15.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i16.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i16.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -25652,12 +25652,12 @@ entry:
   br i1 %cmp.i, label %if.end, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %entry
-  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %cmp5.i = icmp eq i16 %0, %call.i.i
   br i1 %cmp5.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -25668,7 +25668,7 @@ if.end:                                           ; preds = %entry, %if.then, %_
 
 if.then.i:                                        ; preds = %if.end
   store i64 1, ptr %my_partition3, align 16
-  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %ed)
+  %call.i.i.i = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %original_slot.i.i.i = getelementptr inbounds i8, ptr %ed, i64 8
   %2 = load i16, ptr %original_slot.i.i.i, align 8
   %cmp.i.not.i = icmp eq i16 %call.i.i.i, %2
@@ -25740,7 +25740,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forIN7openvdb5v11_04tree13IteratorRangeINSB_21TreeValueIteratorBaseINSB_4TreeINSB_8RootNodeINSB_12InternalNodeINSG_INSB_8LeafNodeINSA_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSO_9ValueIterISO_St17_Rb_tree_iteratorISt4pairIKNSI_5CoordENSO_10NodeStructEEENSO_12ValueAllPredESK_EEEEEENSA_5tools8valxform15SharedOpApplierIS10_KNS12_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %for.end.i.i, %if.then.i.i.i.i
   %19 = inttoptr i64 %8 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -25791,7 +25791,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 
 _ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %if.end2.i.i, %entry, %for.end.i.i, %if.then.i.i.i.i
   %12 = inttoptr i64 %1 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 64 dereferenceable(648) %this, i64 noundef 704, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   ret ptr null
 }
 
@@ -25852,7 +25852,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %my_parent6.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 616
   store ptr %call.i4.i.i, ptr %my_parent6.i.i, align 8
   %6 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc.i.i)
   %7 = load i64, ptr %mSize.i, align 8
   %8 = load i64, ptr %mGrainSize.i, align 8
@@ -25919,29 +25919,29 @@ if.else:                                          ; preds = %lor.lhs.false
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
   store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(280) %range, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 40
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 64
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 88
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 104
   %mValueIterList.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 136
   %mValueIterList3.i.i.i = getelementptr inbounds i8, ptr %range, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 160
   %mNext3.i7.i.i.i = getelementptr inbounds i8, ptr %range, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 184
   %mNext3.i.i9.i.i.i = getelementptr inbounds i8, ptr %range, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 208
   %mNext3.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %range, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 224
   %mLevel.i.i.i = getelementptr inbounds i8, ptr %range_pool, i64 256
   %mLevel4.i.i.i = getelementptr inbounds i8, ptr %range, i64 240
@@ -26078,30 +26078,30 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range2 = getelementptr inbounds i8, ptr %parent_, i64 64
   %my_range = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range, ptr noundef nonnull align 64 dereferenceable(24) %my_range2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range, ptr noundef nonnull align 64 dereferenceable(280) %my_range2, i64 24, i1 false)
   %mNext.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mNext3.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %mNext3.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(56) %mNext3.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %mValueIterList3.i.i = getelementptr inbounds i8, ptr %parent_, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i, i64 24, i1 false)
   %mNext.i6.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %mNext3.i7.i.i = getelementptr inbounds i8, ptr %parent_, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i7.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i7.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %mNext3.i.i9.i.i = getelementptr inbounds i8, ptr %parent_, i64 232
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %mNext3.i.i.i11.i.i = getelementptr inbounds i8, ptr %parent_, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(16) %mNext3.i.i.i11.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i.i11.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -26159,7 +26159,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %for.inc.i.i
-  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(264) %my_range2, i1 noundef zeroext false)
+  %call.i.i.i.i3 = tail call noundef zeroext i1 @_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE7advanceEb(ptr noundef nonnull align 8 dereferenceable(280) %my_range2, i1 noundef zeroext false)
   br i1 %call.i.i.i.i3, label %do.cond.i.i.i.i, label %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -26178,30 +26178,30 @@ _ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12Inte
 invoke.cont8:                                     ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit.i.i, %land.rhs.i.i, %invoke.cont
   %my_body = getelementptr inbounds i8, ptr %this, i64 344
   %my_body4 = getelementptr inbounds i8, ptr %parent_, i64 344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body, ptr noundef nonnull align 8 dereferenceable(24) %my_body4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body, ptr noundef nonnull align 8 dereferenceable(272) %my_body4, i64 24, i1 false)
   %mNext.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 368
   %mNext3.i.i.i5 = getelementptr inbounds i8, ptr %parent_, i64 368
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i4, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i5, i64 24, i1 false)
   %mNext.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 392
   %mNext3.i.i.i.i7 = getelementptr inbounds i8, ptr %parent_, i64 392
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i7, i64 24, i1 false)
   %mNext.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 416
   %mNext3.i.i.i.i.i9 = getelementptr inbounds i8, ptr %parent_, i64 416
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i9, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i8, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i9, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i10, i8 0, i64 32, i1 false)
   %mValueIterList.i.i11 = getelementptr inbounds i8, ptr %this, i64 464
   %mValueIterList3.i.i12 = getelementptr inbounds i8, ptr %parent_, i64 464
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i11, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i12, i64 24, i1 false)
   %mNext.i6.i.i13 = getelementptr inbounds i8, ptr %this, i64 488
   %mNext3.i7.i.i14 = getelementptr inbounds i8, ptr %parent_, i64 488
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i14, i64 24, i1 false)
   %mNext.i.i8.i.i15 = getelementptr inbounds i8, ptr %this, i64 512
   %mNext3.i.i9.i.i16 = getelementptr inbounds i8, ptr %parent_, i64 512
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i16, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i15, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i16, i64 24, i1 false)
   %mNext.i.i.i10.i.i17 = getelementptr inbounds i8, ptr %this, i64 536
   %mNext3.i.i.i11.i.i18 = getelementptr inbounds i8, ptr %parent_, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i17, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i18, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i19 = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i19, i8 0, i64 32, i1 false)
   %mLevel.i.i20 = getelementptr inbounds i8, ptr %this, i64 584
@@ -26267,30 +26267,30 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree13IteratorRangeINS5_21TreeValueIteratorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSA_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSI_9ValueIterISI_St17_Rb_tree_iteratorISt4pairIKNSC_5CoordENSI_10NodeStructEEENSI_12ValueAllPredESE_EEEEEENS4_5tools8valxform15SharedOpApplierISU_KNSW_17HomogeneousMatMulEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %constructor_args1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(280) %constructor_args1, i64 24, i1 false)
   %mNext.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %mNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %mNext3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %mNext.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %mNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %mValueIterList3.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList3.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList3.i.i.i.i, i64 24, i1 false)
   %mNext.i6.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 208
   %mNext3.i7.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %mNext3.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i8.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i9.i.i.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %mNext3.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %constructor_args1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i.i10.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i12.i.i.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -26328,30 +26328,30 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mGrainSize3.i.i.i, i64 16, i1 false)
   %my_body.i.i = getelementptr inbounds i8, ptr %call.i, i64 344
   %my_body2.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(24) %my_body2.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %my_body.i.i, ptr noundef nonnull align 8 dereferenceable(272) %my_body2.i.i, i64 24, i1 false)
   %mNext.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %mNext3.i.i.i3.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 368
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mNext3.i.i.i3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %mNext.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(88) %mNext3.i.i.i3.i.i, i64 24, i1 false)
   %mNext.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 392
   %mNext3.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i.i4.i.i, ptr noundef nonnull align 8 dereferenceable(56) %mNext3.i.i.i.i5.i.i, i64 24, i1 false)
   %mNext.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 416
   %mNext3.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(16) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %mNext.i.i.i.i.i6.i.i, ptr noundef nonnull align 32 dereferenceable(24) %mNext3.i.i.i.i.i7.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i, i64 432
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %mPrev.i.i.i.i.i.i8.i.i, i8 0, i64 32, i1 false)
   %mValueIterList.i.i9.i.i = getelementptr inbounds i8, ptr %call.i, i64 464
   %mValueIterList3.i.i10.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(24) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(120) %mValueIterList3.i.i10.i.i, i64 24, i1 false)
   %mNext.i6.i.i11.i.i = getelementptr inbounds i8, ptr %call.i, i64 488
   %mNext3.i7.i.i12.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i6.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(88) %mNext3.i7.i.i12.i.i, i64 24, i1 false)
   %mNext.i.i8.i.i13.i.i = getelementptr inbounds i8, ptr %call.i, i64 512
   %mNext3.i.i9.i.i14.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(24) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) %mNext.i.i8.i.i13.i.i, ptr noundef nonnull align 64 dereferenceable(56) %mNext3.i.i9.i.i14.i.i, i64 24, i1 false)
   %mNext.i.i.i10.i.i15.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   %mNext3.i.i.i11.i.i16.i.i = getelementptr inbounds i8, ptr %constructor_args, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i10.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNext3.i.i.i11.i.i16.i.i, i64 16, i1 false)
   %mPrev.i.i.i.i12.i.i17.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mPrev.i.i.i.i12.i.i17.i.i, i8 0, i64 32, i1 false)
   %mLevel.i.i18.i.i = getelementptr inbounds i8, ptr %call.i, i64 584
@@ -26419,7 +26419,7 @@ entry:
   %my_parent8 = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call.i4, ptr %my_parent8, align 8
   %16 = load ptr, ptr %ed, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(648) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %16)
   ret void
 }
 
@@ -26510,7 +26510,7 @@ _ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit: ; preds
   ]
 
 if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(120) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %32 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -26519,7 +26519,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %call.i.i.i)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %call.i.i.i)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
@@ -26536,7 +26536,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %35 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
+  %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %35 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.316"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
@@ -26545,7 +26545,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK7openvdb5v11_04
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
   %36 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
+  %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %36 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.320"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i

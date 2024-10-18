@@ -906,7 +906,7 @@ if.then17:                                        ; preds = %while.end.thread, %
   %call.i4 = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i.i), !noalias !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !17
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i.i, ptr noundef nonnull %call.i4, i32 noundef 18)
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i.i, ptr noundef nonnull align 8 dereferenceable(3360) %call.i4, i32 noundef 18)
   store ptr %base.sroa.0.0.lcssa2528, ptr %agg.tmp.i.i, align 8, !noalias !20
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i.i, ptr noundef nonnull %agg.tmp.i.i)
           to label %invoke.cont3.i.i unwind label %lpad2.i.i, !noalias !20

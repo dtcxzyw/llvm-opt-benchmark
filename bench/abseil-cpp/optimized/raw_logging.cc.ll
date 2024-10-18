@@ -114,7 +114,7 @@ if.then12.i:                                      ; preds = %if.end11.i
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 3000
   %5 = load atomic i64, ptr @_ZN4absl16raw_log_internal12_GLOBAL__N_110abort_hookE acquire, align 8
   %atomic-temp.i.0.i.i.i3.i = inttoptr i64 %5 to ptr
-  call void %atomic-temp.i.0.i.i.i3.i(ptr noundef %file, i32 noundef %line, ptr noundef nonnull %buffer.i, ptr noundef %1, ptr noundef nonnull %add.ptr.i)
+  call void %atomic-temp.i.0.i.i.i3.i(ptr noundef %file, i32 noundef %line, ptr noundef nonnull align 1 dereferenceable(3000) %buffer.i, ptr noundef %1, ptr noundef nonnull %add.ptr.i)
   call void @abort() #16
   unreachable
 

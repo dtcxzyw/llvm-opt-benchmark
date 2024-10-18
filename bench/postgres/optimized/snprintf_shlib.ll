@@ -975,7 +975,7 @@ find_arguments.exit:                              ; preds = %242, %163
   br i1 %398, label %399, label %400
 
 399:                                              ; preds = %395
-  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %spec.select.i.i, ptr noundef %0)
+  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %spec.select.i.i, ptr noundef nonnull %0)
   br label %400
 
 400:                                              ; preds = %399, %395
@@ -1040,7 +1040,7 @@ dopr_outch.exit.i:                                ; preds = %423, %405
 
 428:                                              ; preds = %dopr_outch.exit.i
   %429 = sub nsw i32 0, %.0.i249
-  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %429, ptr noundef %0)
+  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %429, ptr noundef nonnull %0)
   br label %fmtchar.exit
 
 430:                                              ; preds = %66
@@ -1105,18 +1105,18 @@ dopr_outch.exit.i:                                ; preds = %423, %405
   br i1 %458, label %.thread.i, label %459
 
 .thread.i:                                        ; preds = %455
-  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %spec.select.i.i253, ptr noundef %0)
-  call fastcc void @dostr(ptr noundef nonnull readonly %spec.store.select2, i32 noundef %.0.i250, ptr noundef %0)
+  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %spec.select.i.i253, ptr noundef nonnull %0)
+  call fastcc void @dostr(ptr noundef nonnull readonly %spec.store.select2, i32 noundef %.0.i250, ptr noundef nonnull %0)
   br label %fmtchar.exit
 
 459:                                              ; preds = %455
-  call fastcc void @dostr(ptr noundef nonnull readonly %spec.store.select2, i32 noundef %.0.i250, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull readonly %spec.store.select2, i32 noundef %.0.i250, ptr noundef nonnull %0)
   %460 = icmp slt i32 %spec.select.i.i253, 0
   br i1 %460, label %461, label %fmtchar.exit
 
 461:                                              ; preds = %459
   %462 = sub nsw i32 0, %spec.select.i.i253
-  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %462, ptr noundef %0)
+  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %462, ptr noundef nonnull %0)
   br label %fmtchar.exit
 
 463:                                              ; preds = %66
@@ -1160,7 +1160,7 @@ dopr_outch.exit.i:                                ; preds = %423, %405
   br label %fmtptr.exit
 
 483:                                              ; preds = %479
-  call fastcc void @dostr(ptr noundef nonnull %7, i32 noundef %480, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %7, i32 noundef %480, ptr noundef nonnull %0)
   br label %fmtptr.exit
 
 fmtptr.exit:                                      ; preds = %482, %483
@@ -1285,7 +1285,7 @@ adjust_sign.exit.thread.i:                        ; preds = %adjust_sign.exit.i,
   %526 = sub nsw i32 0, %spec.store.select.i.i256
   %spec.select.i.i257 = select i1 %.not.i43.i, i32 %spec.store.select.i.i256, i32 %526
   store i32 %spec.select.i.i257, ptr %6, align 4
-  call fastcc void @leading_pad(i32 noundef %.0168, i32 noundef %.048.i, ptr noundef %6, ptr noundef %0)
+  call fastcc void @leading_pad(i32 noundef range(i32 0, 49) %.0168, i32 noundef %.048.i, ptr noundef %6, ptr noundef nonnull %0)
   %527 = icmp sgt i32 %.035.i, 0
   br i1 %527, label %528, label %537
 
@@ -1304,19 +1304,19 @@ adjust_sign.exit.thread.i:                        ; preds = %adjust_sign.exit.i,
   %532 = ptrtoint ptr %.064.i to i64
   %533 = sub i64 %532, %25
   %534 = trunc i64 %533 to i32
-  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %534, ptr noundef %0)
-  call fastcc void @dopr_outchmulti(i32 noundef 48, i32 noundef %.035.i, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %534, ptr noundef nonnull %0)
+  call fastcc void @dopr_outchmulti(i32 noundef 48, i32 noundef %.035.i, ptr noundef nonnull %0)
   %535 = sub i32 %.036.i, %534
-  call fastcc void @dostr(ptr noundef nonnull %.064.i, i32 noundef %535, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %.064.i, i32 noundef %535, ptr noundef nonnull %0)
   br label %538
 
 536:                                              ; preds = %530
-  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %.036.i, ptr noundef %0)
-  call fastcc void @dopr_outchmulti(i32 noundef 48, i32 noundef %.035.i, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %.036.i, ptr noundef nonnull %0)
+  call fastcc void @dopr_outchmulti(i32 noundef 48, i32 noundef %.035.i, ptr noundef nonnull %0)
   br label %538
 
 537:                                              ; preds = %523
-  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %.036.i, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %.036.i, ptr noundef nonnull %0)
   br label %538
 
 538:                                              ; preds = %537, %536, %.thread61.i
@@ -1326,7 +1326,7 @@ adjust_sign.exit.thread.i:                        ; preds = %adjust_sign.exit.i,
 
 541:                                              ; preds = %538
   %542 = sub i32 0, %539
-  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %542, ptr noundef %0)
+  call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %542, ptr noundef nonnull %0)
   br label %fmtfloat.exit
 
 543:                                              ; preds = %521
@@ -2219,7 +2219,7 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
 
 60:                                               ; preds = %53
   %61 = sub i32 0, %58
-  tail call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %61, ptr noundef %8)
+  tail call fastcc void @dopr_outchmulti(i32 noundef 32, i32 noundef %61, ptr noundef nonnull %8)
   br label %trailing_pad.exit
 
 trailing_pad.exit:                                ; preds = %60, %53, %9

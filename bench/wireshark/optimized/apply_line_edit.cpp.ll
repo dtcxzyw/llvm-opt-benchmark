@@ -1088,7 +1088,7 @@ define void @_ZN13ApplyLineEditD0Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZThn16_N13ApplyLineEditD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN13ApplyLineEditD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %2) #14
   ret void
 }
 

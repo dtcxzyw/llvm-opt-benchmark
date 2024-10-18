@@ -392,7 +392,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12Sdf_IdentityD2Ev.exit: ; preds = %38, %41
   br label %58
 
 58:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_IdentityD2Ev.exit, %35
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_7SdfPathEPNS_12Sdf_IdentityEENS0_9robin_mapIS4_S6_NS4_4HashESt8equal_toIS4_ESaIS7_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSG_11ValueSelectES9_SB_SC_Lb0ESF_E17erase_from_bucketENSJ_14robin_iteratorILb0EEE(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr nonnull %.sroa.06.018)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_7SdfPathEPNS_12Sdf_IdentityEENS0_9robin_mapIS4_S6_NS4_4HashESt8equal_toIS4_ESaIS7_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSG_11ValueSelectES9_SB_SC_Lb0ESF_E17erase_from_bucketENSJ_14robin_iteratorILb0EEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nonnull %.sroa.06.018)
           to label %.noexc unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
 .noexc:                                           ; preds = %58
@@ -497,7 +497,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit: ; p
           to label %11 unwind label %37
 
 11:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(113) %10, i8 0, i64 32, i1 false)
   %12 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_7SdfPathEPNS_12Sdf_IdentityEENS0_9robin_mapIS4_S6_NS4_4HashESt8equal_toIS4_ESaIS7_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSG_11ValueSelectES9_SB_SC_Lb0ESF_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapINS_7SdfPathEPNS_12Sdf_IdentityENS2_4HashESt8equal_toIS2_ESaISt4pairIS2_S4_EELb0ENS0_2rh26power_of_two_growth_policyILm2EEEEC2Ev.exit.i, !prof !4
@@ -803,7 +803,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12Sdf_IdentityC2EPNS_18Sdf_IdRegistryImplER
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store ptr %2, ptr %4, align 8, !alias.scope !12
-  %86 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_7SdfPathEPNS_12Sdf_IdentityEENS0_9robin_mapIS4_S6_NS4_4HashESt8equal_toIS4_ESaIS7_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSG_11ValueSelectES9_SB_SC_Lb0ESF_E11insert_implIS4_JRKSt21piecewise_construct_tSt5tupleIJRKS4_EESO_IJEEEEES3_INSJ_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(74) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %86 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_7SdfPathEPNS_12Sdf_IdentityEENS0_9robin_mapIS4_S6_NS4_4HashESt8equal_toIS4_ESaIS7_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSG_11ValueSelectES9_SB_SC_Lb0ESF_E11insert_implIS4_JRKSt21piecewise_construct_tSt5tupleIJRKS4_EESO_IJEEEEES3_INSJ_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %87 unwind label %101
 
 87:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_IdentityC2EPNS_18Sdf_IdRegistryImplERKNS_7SdfPathE.exit
@@ -1000,7 +1000,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt
   store i32 %71, ptr %69, align 4, !alias.scope !15
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %72, align 8, !alias.scope !15
-  %73 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_7SdfPathEPNS_12Sdf_IdentityEENS0_9robin_mapIS4_S6_NS4_4HashESt8equal_toIS4_ESaIS7_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSG_11ValueSelectES9_SB_SC_Lb0ESF_E11insert_implIS4_JS7_EEES3_INSJ_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %73 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_7SdfPathEPNS_12Sdf_IdentityEENS0_9robin_mapIS4_S6_NS4_4HashESt8equal_toIS4_ESaIS7_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSG_11ValueSelectES9_SB_SC_Lb0ESF_E11insert_implIS4_JS7_EEES3_INSJ_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapINS_7SdfPathEPNS_12Sdf_IdentityENS2_4HashESt8equal_toIS2_ESaISt4pairIS2_S4_EELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE6insertEOS9_.exit unwind label %125
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapINS_7SdfPathEPNS_12Sdf_IdentityENS2_4HashESt8equal_toIS2_ESaISt4pairIS2_S4_EELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE6insertEOS9_.exit: ; preds = %68
@@ -1229,7 +1229,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   %195 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %196 = load i32, ptr %70, align 4
   store i32 %196, ptr %195, align 4
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_7SdfPathEPNS_12Sdf_IdentityEENS0_9robin_mapIS4_S6_NS4_4HashESt8equal_toIS4_ESaIS7_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSG_11ValueSelectES9_SB_SC_Lb0ESF_E17erase_from_bucketENSJ_14robin_iteratorILb0EEE(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr nonnull %.sroa.0.0.i.i.i.i.i23)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINS_7SdfPathEPNS_12Sdf_IdentityEENS0_9robin_mapIS4_S6_NS4_4HashESt8equal_toIS4_ESaIS7_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSG_11ValueSelectES9_SB_SC_Lb0ESF_E17erase_from_bucketENSJ_14robin_iteratorILb0EEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nonnull %.sroa.0.0.i.i.i.i.i23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapINS_7SdfPathEPNS_12Sdf_IdentityENS2_4HashESt8equal_toIS2_ESaISt4pairIS2_S4_EELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE5eraseENS0_17detail_robin_hash10robin_hashIS9_NSE_9KeySelectENSE_11ValueSelectES5_S7_SA_Lb0ESD_E14robin_iteratorILb0EEE.exit unwind label %53
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapINS_7SdfPathEPNS_12Sdf_IdentityENS2_4HashESt8equal_toIS2_ESaISt4pairIS2_S4_EELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE5eraseENS0_17detail_robin_hash10robin_hashIS9_NSE_9KeySelectENSE_11ValueSelectES5_S7_SA_Lb0ESD_E14robin_iteratorILb0EEE.exit: ; preds = %194

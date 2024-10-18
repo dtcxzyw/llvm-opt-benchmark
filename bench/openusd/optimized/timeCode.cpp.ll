@@ -209,7 +209,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_Simple
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -271,7 +271,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   br i1 %4, label %5, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_11SdfTimeCodeEvE4HashERKS2_.exit
 
 5:                                                ; preds = %1
-  %6 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %2, i64 noundef 8, i64 noundef 3339675911)
+  %6 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 8, i64 noundef 3339675911)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_11SdfTimeCodeEvE4HashERKS2_.exit unwind label %7
 
 7:                                                ; preds = %5
@@ -418,7 +418,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_Simple
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11SdfTimeCodeEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_11SdfTimeCodeEEERKT_v.exit: ; preds = %2, %7

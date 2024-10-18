@@ -1221,7 +1221,7 @@ entry:
   store ptr %p2.coerce0, ptr %p2, align 8
   %1 = getelementptr inbounds i8, ptr %p2, i64 8
   store i32 %p2.coerce1, ptr %1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %e, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %e, ptr noundef nonnull align 8 dereferenceable(16) %p1, i64 16, i1 false)
   %second.i = getelementptr inbounds i8, ptr %e, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull align 8 dereferenceable(16) %p2, i64 16, i1 false)
   %m_todo = getelementptr inbounds i8, ptr %this, i64 16
@@ -1903,7 +1903,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

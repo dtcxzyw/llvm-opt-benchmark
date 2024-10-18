@@ -117,7 +117,7 @@ for.body38.i:                                     ; preds = %for.body38.i, %for.
   br i1 %exitcond62.not.i, label %for.end47.i, label %for.body38.i, !llvm.loop !6
 
 for.end47.i:                                      ; preds = %for.body38.i
-  tail call fastcc void @BlockSha3(ptr noundef %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
   store i8 0, ptr %i1.i, align 8
   br label %if.end52.i
 
@@ -153,7 +153,7 @@ for.body63.i:                                     ; preds = %for.body63.i, %for.
   br i1 %exitcond68.not.i, label %for.end74.i, label %for.body63.i, !llvm.loop !7
 
 for.end74.i:                                      ; preds = %for.body63.i
-  tail call fastcc void @BlockSha3(ptr noundef %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
   %add.ptr83.i = getelementptr inbounds i8, ptr %data.addr.153.i, i64 %idx.ext82.i
   %dec.i = add nsw i32 %blocks.052.i, -1
   %cmp56.not.i = icmp eq i32 %dec.i, 0
@@ -230,7 +230,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %for.body.i.i, !llvm.loop !9
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
-  tail call fastcc void @BlockSha3(ptr noundef %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %sha3, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
@@ -300,7 +300,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %for.body.i.i.i, !llvm.loop !9
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
-  call fastcc void @BlockSha3(ptr noundef %tmpSha3.i)
+  call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 8 dereferenceable(28) %tmpSha3.i, i64 28, i1 false)
   br label %wc_Sha3GetHash.exit
 
@@ -403,7 +403,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %for.body.i.i, !llvm.loop !9
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
-  tail call fastcc void @BlockSha3(ptr noundef %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %sha3, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
@@ -473,7 +473,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %for.body.i.i.i, !llvm.loop !9
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
-  call fastcc void @BlockSha3(ptr noundef %tmpSha3.i)
+  call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 8 dereferenceable(32) %tmpSha3.i, i64 32, i1 false)
   br label %wc_Sha3GetHash.exit
 
@@ -576,7 +576,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %for.body.i.i, !llvm.loop !9
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
-  tail call fastcc void @BlockSha3(ptr noundef %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %hash, ptr noundef nonnull align 8 dereferenceable(48) %sha3, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
@@ -646,7 +646,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %for.body.i.i.i, !llvm.loop !9
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
-  call fastcc void @BlockSha3(ptr noundef %tmpSha3.i)
+  call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %hash, ptr noundef nonnull align 8 dereferenceable(48) %tmpSha3.i, i64 48, i1 false)
   br label %wc_Sha3GetHash.exit
 
@@ -749,7 +749,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %for.body.i.i, !llvm.loop !9
 
 Sha3Final.exit.i:                                 ; preds = %for.body.i.i
-  tail call fastcc void @BlockSha3(ptr noundef %sha3)
+  tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %sha3, i64 64, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
   store i8 0, ptr %i2.i.i, align 8
@@ -819,7 +819,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
   br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %for.body.i.i.i, !llvm.loop !9
 
 wc_Sha3Final.exit.i:                              ; preds = %for.body.i.i.i
-  call fastcc void @BlockSha3(ptr noundef %tmpSha3.i)
+  call fastcc void @BlockSha3(ptr noundef nonnull %tmpSha3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %hash, ptr noundef nonnull align 8 dereferenceable(64) %tmpSha3.i, i64 64, i1 false)
   br label %wc_Sha3GetHash.exit
 

@@ -933,7 +933,7 @@ invoke.cont19:                                    ; preds = %invoke.cont19.lr.ph
 
 land.rhs:                                         ; preds = %invoke.cont19
   %80 = load ptr, ptr %this, align 8
-  %call2.i.i191 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %80)
+  %call2.i.i191 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %80)
           to label %land.end unwind label %lpad5.loopexit
 
 land.end:                                         ; preds = %land.rhs
@@ -5486,7 +5486,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -7131,7 +7131,7 @@ invoke.cont99:                                    ; preds = %.noexc206, %lor.lhs
   store ptr %1, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %call98, ptr %m_value.i.i, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_memoize_proof, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_memoize_proof, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %_ZN7obj_mapI4exprP3appE6insertEPS0_RKS2_.exit unwind label %lpad50.loopexit.split-lp
 
 _ZN7obj_mapI4exprP3appE6insertEPS0_RKS2_.exit:    ; preds = %invoke.cont99
@@ -7144,7 +7144,7 @@ if.end102:                                        ; preds = %_ZN7obj_mapI4exprP3
   store ptr %1, ptr %ref.tmp.i209, align 8
   %m_value.i.i210 = getelementptr inbounds i8, ptr %ref.tmp.i209, i64 8
   store ptr %142, ptr %m_value.i.i210, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_memoize_disj, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i209)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_memoize_disj, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i209)
           to label %invoke.cont107 unwind label %lpad50.loopexit.split-lp
 
 invoke.cont107:                                   ; preds = %if.end102

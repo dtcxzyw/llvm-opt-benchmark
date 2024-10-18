@@ -266,7 +266,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %2 = tail call noundef ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #16
+  %2 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %0, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #16
   %elements_.i = getelementptr inbounds i8, ptr %2, i64 136
   call void @_ZN8facebook5velox3row13UnsafeRowFastC1ERKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %elements_.i)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -281,7 +281,7 @@ if.then.i.i:                                      ; preds = %sw.bb
   store i8 %5, ptr %3, align 8
   %decoded_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %decoded_3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %decoded_3.i.i.i.i.i, i64 68, i1 false)
   %copiedIndices_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
   %copiedIndices_3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   %6 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i, align 8
@@ -424,7 +424,7 @@ lpad:                                             ; preds = %if.else.i.i
   br label %eh.resume
 
 sw.bb8:                                           ; preds = %entry
-  %30 = tail call noundef ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #16
+  %30 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %0, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #16
   %children_10 = getelementptr inbounds i8, ptr %this, i64 136
   %keys_.i = getelementptr inbounds i8, ptr %30, i64 136
   call void @_ZN8facebook5velox3row13UnsafeRowFastC1ERKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %keys_.i)
@@ -440,7 +440,7 @@ if.then.i.i18:                                    ; preds = %sw.bb8
   store i8 %33, ptr %31, align 8
   %decoded_.i.i.i.i.i19 = getelementptr inbounds i8, ptr %31, i64 8
   %decoded_3.i.i.i.i.i20 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i20, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(120) %decoded_3.i.i.i.i.i20, i64 68, i1 false)
   %copiedIndices_.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %31, i64 80
   %copiedIndices_3.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %ref.tmp11, i64 80
   %34 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i22, align 8
@@ -523,7 +523,7 @@ if.then.i.i57:                                    ; preds = %invoke.cont14
   store i8 %47, ptr %45, align 8
   %decoded_.i.i.i.i.i58 = getelementptr inbounds i8, ptr %45, i64 8
   %decoded_3.i.i.i.i.i59 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i59, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(120) %decoded_3.i.i.i.i.i59, i64 68, i1 false)
   %copiedIndices_.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %45, i64 80
   %copiedIndices_3.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp16, i64 80
   %48 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i61, align 8
@@ -732,7 +732,7 @@ lpad18:                                           ; preds = %if.else.i.i90
   br label %eh.resume
 
 sw.bb30:                                          ; preds = %entry
-  %85 = tail call noundef ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #16
+  %85 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %0, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #16
   %children_.i = getelementptr inbounds i8, ptr %85, i64 112
   %86 = load ptr, ptr %children_.i, align 8
   %_M_finish.i149 = getelementptr inbounds i8, ptr %85, i64 120
@@ -779,7 +779,7 @@ if.then.i.i153:                                   ; preds = %for.body
   %90 = load i8, ptr %ref.tmp39, align 8
   store i8 %90, ptr %88, align 8
   %decoded_.i.i.i.i.i154 = getelementptr inbounds i8, ptr %88, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i154, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i155, i64 68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i.i.i.i.i154, ptr noundef nonnull align 8 dereferenceable(120) %decoded_3.i.i.i.i.i155, i64 68, i1 false)
   %copiedIndices_.i.i.i.i.i.i156 = getelementptr inbounds i8, ptr %88, i64 80
   %91 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i157, align 8
   store ptr %91, ptr %copiedIndices_.i.i.i.i.i.i156, align 8
@@ -3565,7 +3565,7 @@ _ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_M_allocateEm.
   store i8 %3, ptr %add.ptr, align 8
   %decoded_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %decoded_3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i, i64 68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %decoded_3.i.i.i, i64 68, i1 false)
   %copiedIndices_.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 80
   %copiedIndices_3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 80
   %4 = load ptr, ptr %copiedIndices_3.i.i.i.i, align 8
@@ -3637,7 +3637,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   store i8 %14, ptr %__cur.07.i.i.i, align 8, !alias.scope !12, !noalias !15
   %decoded_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %decoded_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i.i.i, i64 68, i1 false), !alias.scope !17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %decoded_3.i.i.i.i.i.i.i, i64 68, i1 false), !alias.scope !17
   %copiedIndices_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 80
   %copiedIndices_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 80
   %15 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
@@ -3718,7 +3718,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8face
   store i8 %25, ptr %__cur.07.i.i.i13, align 8, !alias.scope !19, !noalias !22
   %decoded_.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   %decoded_3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i.i.i16, i64 68, i1 false), !alias.scope !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %decoded_.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(120) %decoded_3.i.i.i.i.i.i.i16, i64 68, i1 false), !alias.scope !24
   %copiedIndices_.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 80
   %copiedIndices_3.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 80
   %26 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i.i.i18, align 8, !alias.scope !22, !noalias !19

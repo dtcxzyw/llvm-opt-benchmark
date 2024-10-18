@@ -281,7 +281,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv3dnn15Expand
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv3dnn15ExpandLayerImplEEEvRS0_PT_.exit: ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %5) #21
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %5) #21
   ret void
 }
 
@@ -1018,7 +1018,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ExpandLayerImplD0Ev(ptr noundef non
   br label %_ZN2cv3dnn15ExpandLayerImplD2Ev.exit
 
 _ZN2cv3dnn15ExpandLayerImplD2Ev.exit:             ; preds = %1, %4
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #21
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

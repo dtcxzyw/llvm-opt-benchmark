@@ -13,6 +13,8 @@ $_ZNSt10shared_ptrIN4YAML6detail4nodeEED2Ev = comdat any
 
 $__clang_call_terminate = comdat any
 
+$_ZN4YAML6detail8node_refC2Ev = comdat any
+
 $_ZN4YAML6detail9node_dataD2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN4YAML6detail9node_dataELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
@@ -24,8 +26,6 @@ $_ZNSt15_Sp_counted_ptrIPN4YAML6detail9node_dataELN9__gnu_cxx12_Lock_policyE2EE1
 $_ZNSt15_Sp_counted_ptrIPN4YAML6detail9node_dataELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN4YAML6detail9node_dataELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
-
-$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail8node_refEEET_ = comdat any
 
 $_ZN4YAML6detail8node_refD2Ev = comdat any
 
@@ -392,35 +392,35 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 define linkonce_odr void @_ZN4YAML6detail4nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #11
-  %call.i1 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #11
-          to label %call.i.noexc unwind label %lpad
+  invoke void @_ZN4YAML6detail8node_refC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
+          to label %invoke.cont unwind label %lpad
 
-call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZN4YAML6detail9node_dataC1Ev(ptr noundef nonnull align 8 dereferenceable(176) %call.i1)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %call.i.noexc
-  store ptr %call.i1, ptr %call, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr null, ptr %_M_refcount.i.i.i, align 8
+invoke.cont:                                      ; preds = %entry
+  store ptr %call, ptr %this, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store ptr null, ptr %_M_refcount.i.i, align 8
   %call.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #11
-          to label %invoke.cont unwind label %lpad.i2
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail8node_refEEET_.exit unwind label %lpad.i
 
-lpad.i2:                                          ; preds = %invoke.cont.i
+lpad.i:                                           ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #10
-  tail call void @_ZN4YAML6detail9node_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %call.i1) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i1) #12
+  tail call void @_ZN4YAML6detail8node_refD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #12
   invoke void @__cxa_rethrow() #13
           to label %unreachable.i unwind label %lpad3.i
 
-lpad3.i:                                          ; preds = %lpad.i2
+lpad3.i:                                          ; preds = %lpad.i
   %3 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.body unwind label %terminate.lpad.i
+          to label %common.resume unwind label %terminate.lpad.i
+
+common.resume:                                    ; preds = %lpad3.i, %lpad
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad ], [ %3, %lpad3.i ]
+  resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i:                                 ; preds = %lpad3.i
   %4 = landingpad { ptr, i32 }
@@ -429,47 +429,34 @@ terminate.lpad.i:                                 ; preds = %lpad3.i
   tail call void @__clang_call_terminate(ptr %5) #14
   unreachable
 
-unreachable.i:                                    ; preds = %lpad.i2
+unreachable.i:                                    ; preds = %lpad.i
   unreachable
 
-lpad.i:                                           ; preds = %call.i.noexc
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i1) #12
-  br label %lpad.body
-
-invoke.cont:                                      ; preds = %invoke.cont.i
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail8node_refEEET_.exit: ; preds = %invoke.cont
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4YAML6detail9node_dataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4YAML6detail8node_refELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  store ptr %call.i1, ptr %_M_ptr.i.i, align 8
-  store ptr %call.i, ptr %_M_refcount.i.i.i, align 8
-  store ptr %call, ptr %this, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail8node_refEEET_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i, ptr noundef nonnull %call)
+  store ptr %call, ptr %_M_ptr.i.i, align 8
+  store ptr %call.i, ptr %_M_refcount.i.i, align 8
   %m_dependencies = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = getelementptr inbounds i8, ptr %this, i64 24
+  %6 = getelementptr inbounds i8, ptr %this, i64 24
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_dependencies, i8 0, i64 24, i1 false)
-  store ptr %7, ptr %_M_left.i.i.i.i.i, align 8
+  store ptr %6, ptr %_M_left.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr %7, ptr %_M_right.i.i.i.i.i, align 8
+  store ptr %6, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_node_count.i.i.i.i.i, i8 0, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad, %lpad3.i, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad.i ], [ %8, %lpad ], [ %3, %lpad3.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call) #12
-  resume { ptr, i32 } %eh.lpad-body
+  br label %common.resume
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -569,6 +556,68 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 ; Function Attrs: cold nofree noreturn
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN4YAML6detail8node_refC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %call = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #11
+  invoke void @_ZN4YAML6detail9node_dataC1Ev(ptr noundef nonnull align 8 dereferenceable(176) %call)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  store ptr %call, ptr %this, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store ptr null, ptr %_M_refcount.i.i, align 8
+  %call.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #11
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail9node_dataEEET_.exit unwind label %lpad.i
+
+lpad.i:                                           ; preds = %invoke.cont
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #10
+  tail call void @_ZN4YAML6detail9node_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %call) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #12
+  invoke void @__cxa_rethrow() #13
+          to label %unreachable.i unwind label %lpad3.i
+
+lpad3.i:                                          ; preds = %lpad.i
+  %3 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %terminate.lpad.i
+
+common.resume:                                    ; preds = %lpad3.i, %lpad
+  %common.resume.op = phi { ptr, i32 } [ %6, %lpad ], [ %3, %lpad3.i ]
+  resume { ptr, i32 } %common.resume.op
+
+terminate.lpad.i:                                 ; preds = %lpad3.i
+  %4 = landingpad { ptr, i32 }
+          catch ptr null
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #14
+  unreachable
+
+unreachable.i:                                    ; preds = %lpad.i
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail9node_dataEEET_.exit: ; preds = %invoke.cont
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i, align 8
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i, align 4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4YAML6detail9node_dataELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8
+  %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  store ptr %call, ptr %_M_ptr.i.i, align 8
+  store ptr %call.i, ptr %_M_refcount.i.i, align 8
+  ret void
+
+lpad:                                             ; preds = %entry
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #12
+  br label %common.resume
+}
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
@@ -585,7 +634,7 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #12
   %cmp.not.i.i.i = icmp eq ptr %1, %m_undefinedPairs
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt4pairIPN4YAML6detail4nodeES5_ESaIS6_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !4
 
@@ -651,7 +700,7 @@ delete.notnull:                                   ; preds = %entry
 while.body.i.i.i.i:                               ; preds = %delete.notnull, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i ], [ %1, %delete.notnull ]
   %2 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #12
   %cmp.not.i.i.i.i = icmp eq ptr %2, %m_undefinedPairs.i
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listISt4pairIPN4YAML6detail4nodeES5_ESaIS6_EED2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !4
 
@@ -702,61 +751,6 @@ entry:
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail8node_refEEET_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr null, ptr %this, align 8
-  %call = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #11
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call, i64 12
-  store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4YAML6detail8node_refELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call, align 8
-  %_M_ptr.i = getelementptr inbounds i8, ptr %call, i64 16
-  store ptr %__p, ptr %_M_ptr.i, align 8
-  store ptr %call, ptr %this, align 8
-  ret void
-
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #10
-  %isnull = icmp eq ptr %__p, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %lpad
-  tail call void @_ZN4YAML6detail8node_refD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__p) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %__p) #12
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %lpad
-  invoke void @__cxa_rethrow() #13
-          to label %unreachable unwind label %lpad3
-
-lpad3:                                            ; preds = %delete.end
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %eh.resume unwind label %terminate.lpad
-
-eh.resume:                                        ; preds = %lpad3
-  resume { ptr, i32 } %3
-
-terminate.lpad:                                   ; preds = %lpad3
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #14
-  unreachable
-
-unreachable:                                      ; preds = %delete.end
-  unreachable
-}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML6detail8node_refD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {

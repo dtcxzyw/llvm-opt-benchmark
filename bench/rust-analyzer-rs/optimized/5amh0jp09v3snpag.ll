@@ -267,7 +267,7 @@ define hidden void @"_ZN4core3ptr164drop_in_place$LT$core..option..Option$LT$ind
 23:                                               ; preds = %11
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$salsa..DatabaseKeyIndex$C$$LP$$RP$$GT$$GT$$GT$17heaf549af0f32a8c2E.llvm.12611796297594801985.exit.i.i.i" unwind label %25
 
 25:                                               ; preds = %23
@@ -280,7 +280,7 @@ define hidden void @"_ZN4core3ptr164drop_in_place$LT$core..option..Option$LT$ind
   resume { ptr, i32 } %24
 
 "_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit": ; preds = %6, %.noexc.i.i.i
-  tail call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
   br label %5
 }
 
@@ -641,7 +641,7 @@ common.resume:                                    ; preds = %12, %.body
 36:                                               ; preds = %24
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %.body unwind label %38
 
 38:                                               ; preds = %36
@@ -651,7 +651,7 @@ common.resume:                                    ; preds = %12, %.body
   unreachable
 
 "_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i": ; preds = %.noexc.i.i.i.i, %19
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %"_ZN4core3ptr164drop_in_place$LT$core..option..Option$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h640b4d5cddf010a0E.llvm.9631263155592013171.exit" unwind label %40
 
 40:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i"
@@ -738,7 +738,7 @@ define void @"_ZN66_$LT$salsa..runtime..Runtime$u20$as$u20$core..default..Defaul
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false)
   %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !115
-  %14 = tail call noundef align 8 dereferenceable_or_null(144) ptr @__rust_alloc(i64 noundef 144, i64 noundef 8) #23, !noalias !115
+  %14 = tail call noundef align 8 dereferenceable_or_null(144) ptr @__rust_alloc(i64 noundef range(i64 32, 145) 144, i64 noundef 8) #23, !noalias !115
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %22
 
@@ -1270,7 +1270,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %96, label %97, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h9ff61b0152a0371dE.exit"
 
 97:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left17hf167526aba3be53fE.exit"
-  %98 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h3d74b3d8d4362827E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %95)
+  %98 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h3d74b3d8d4362827E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %95)
           to label %.noexc114 unwind label %192
 
 .noexc114:                                        ; preds = %97
@@ -1301,7 +1301,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   store i64 1, ptr %11, align 8
   %104 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !154
-  %105 = call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #23, !noalias !154
+  %105 = call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 32, 145) 32, i64 noundef 8) #23, !noalias !154
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %113
 
@@ -1387,7 +1387,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !157
   store i64 %132, ptr %8, align 8, !noalias !157
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !167
-  invoke void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$16swap_remove_full17h44db2b7285b0d768E.llvm.7895469578230281792"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8)
+  invoke void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$16swap_remove_full17h44db2b7285b0d768E.llvm.7895469578230281792"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(80) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8)
           to label %.noexc123 unwind label %.loopexit
 
 .noexc123:                                        ; preds = %.lr.ph.i
@@ -1873,7 +1873,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery18add_untracked_read17h55244b1
 23:                                               ; preds = %11
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %.body unwind label %25
 
 25:                                               ; preds = %23
@@ -1883,7 +1883,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery18add_untracked_read17h55244b1
   unreachable
 
 "_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i": ; preds = %.noexc.i.i.i.i, %6
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %"_ZN4core3ptr164drop_in_place$LT$core..option..Option$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h640b4d5cddf010a0E.llvm.9631263155592013171.exit" unwind label %27
 
 27:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i"
@@ -1952,7 +1952,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery18add_synthetic_read17h2bf4062
 24:                                               ; preds = %12
   %25 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %.body unwind label %26
 
 26:                                               ; preds = %24
@@ -1962,7 +1962,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery18add_synthetic_read17h2bf4062
   unreachable
 
 "_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i": ; preds = %.noexc.i.i.i.i, %7
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %"_ZN4core3ptr164drop_in_place$LT$core..option..Option$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h640b4d5cddf010a0E.llvm.9631263155592013171.exit" unwind label %28
 
 28:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i"
@@ -2101,7 +2101,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE(
 38:                                               ; preds = %26
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %.body unwind label %40
 
 40:                                               ; preds = %38
@@ -2111,7 +2111,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE(
   unreachable
 
 "_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i": ; preds = %.noexc.i.i.i.i, %21
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2232891c3a5b4cbE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %"_ZN4core3ptr164drop_in_place$LT$core..option..Option$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h640b4d5cddf010a0E.llvm.9631263155592013171.exit" unwind label %61
 
 42:                                               ; preds = %16

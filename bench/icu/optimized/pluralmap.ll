@@ -526,7 +526,7 @@ define noundef i32 @_ZN6icu_7513PluralMapBase10toCategoryERKNS_13UnicodeStringE(
 entry:
   %cCategory = alloca %"class.icu_75::CharString", align 8
   %status = alloca i32, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cCategory)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %cCategory)
   %len.i = getelementptr inbounds i8, ptr %cCategory, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %cCategory, align 8
@@ -563,13 +563,13 @@ return.split.loop.exit6.i:                        ; preds = %for.body.i
 
 cond.end:                                         ; preds = %for.inc.i, %return.split.loop.exit6.i, %invoke.cont
   %cond = phi i32 [ -1, %invoke.cont ], [ %4, %return.split.loop.exit6.i ], [ -1, %for.inc.i ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cCategory) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %cCategory) #11
   ret i32 %cond
 
 lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cCategory) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %cCategory) #11
   resume { ptr, i32 } %5
 }
 

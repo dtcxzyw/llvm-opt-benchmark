@@ -2496,7 +2496,7 @@ define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr n
 113:                                              ; preds = %110
   %114 = load ptr, ptr @wassp_dissector_table, align 8
   %115 = zext i16 %112 to i32
-  %116 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140, i32 noundef %.1141, i32 noundef %115) #6
+  %116 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140, i32 noundef range(i32 0, 17) %.1141, i32 noundef %115) #6
   %117 = tail call i32 @dissector_try_uint(ptr noundef %114, i32 noundef 161, ptr noundef %116, ptr noundef nonnull %1, ptr noundef nonnull %31) #6
   %118 = add nuw nsw i32 %.1141, %115
   br label %137
@@ -2505,7 +2505,7 @@ define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr n
   %120 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.0108140, i32 noundef 36) #6
   %121 = load ptr, ptr @ip_handle, align 8
   %122 = zext i16 %112 to i32
-  %123 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140, i32 noundef %.1141, i32 noundef %122) #6
+  %123 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140, i32 noundef range(i32 0, 17) %.1141, i32 noundef %122) #6
   %124 = tail call i32 @call_dissector(ptr noundef %121, ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull %31) #6
   %125 = icmp eq i16 %120, 31875
   br i1 %125, label %126, label %dissect_unfragmented_wassp.exit
@@ -2517,7 +2517,7 @@ define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr n
 
 129:                                              ; preds = %110
   %130 = zext i16 %112 to i32
-  %131 = tail call fastcc i32 @dissect_wassp_mu(ptr noundef %31, ptr noundef %.0108140, ptr noundef nonnull %1, i32 noundef %.1141, i32 noundef %130)
+  %131 = tail call fastcc i32 @dissect_wassp_mu(ptr noundef %31, ptr noundef %.0108140, ptr noundef nonnull %1, i32 noundef range(i32 0, 17) %.1141, i32 noundef %130)
   br label %137
 
 132:                                              ; preds = %110
@@ -2526,7 +2526,7 @@ define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr n
   br label %137
 
 135:                                              ; preds = %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110
-  %136 = tail call fastcc i32 @dissect_wassp_tlv(ptr noundef nonnull %31, ptr noundef %.0108140, ptr noundef nonnull %1, i32 noundef %.1141, i32 noundef %8)
+  %136 = tail call fastcc i32 @dissect_wassp_tlv(ptr noundef nonnull %31, ptr noundef %.0108140, ptr noundef nonnull %1, i32 noundef range(i32 0, 17) %.1141, i32 noundef range(i32 0, 256) %8)
   br label %137
 
 137:                                              ; preds = %135, %132, %129, %126, %113
@@ -2744,7 +2744,7 @@ define internal fastcc i32 @dissect_wassp_mu(ptr noundef nonnull %0, ptr noundef
 
 53:                                               ; preds = %50
   %54 = load i32, ptr @hf_wassp_mu_netflow_tree, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %54, ptr noundef %1, i32 noundef %51, i32 noundef -1, i32 noundef 0) #6
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %54, ptr noundef %1, i32 noundef range(i32 14, 32) %51, i32 noundef -1, i32 noundef 0) #6
   %56 = load i32, ptr @ett_wassp_mu_data_netflow, align 4
   %57 = tail call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %56) #6
   %58 = load i32, ptr @hf_wassp_mu_netflow_header, align 4

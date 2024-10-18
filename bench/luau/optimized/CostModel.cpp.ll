@@ -1501,7 +1501,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile11CostVisitorD2Ev(ptr nounde
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalEmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEmNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %1, %4
@@ -1900,7 +1900,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile11CostVisitor5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(49) %8, ptr noundef nonnull %0)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(49) %8, ptr noundef nonnull align 8 dereferenceable(72) %0)
   %12 = load i64, ptr %9, align 8
   %13 = add i64 %12, %6
   %14 = and i64 %13, -9187201950435737472
@@ -1950,7 +1950,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile11CostVisitor5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(49) %8, ptr noundef nonnull %0)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(49) %8, ptr noundef nonnull align 8 dereferenceable(72) %0)
   %12 = load i64, ptr %9, align 8
   %13 = add i64 %12, %6
   %14 = and i64 %13, -9187201950435737472
@@ -2353,7 +2353,7 @@ _ZN4Luau7Compile12getTripCountEddd.exit.thread:   ; preds = %138, %141, %96, %98
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %150 = load ptr, ptr %149, align 8
   %151 = load ptr, ptr %150, align 8
-  tail call void %151(ptr noundef nonnull align 8 dereferenceable(49) %149, ptr noundef nonnull %0)
+  tail call void %151(ptr noundef nonnull align 8 dereferenceable(49) %149, ptr noundef nonnull align 8 dereferenceable(72) %0)
   %152 = load i64, ptr %7, align 8
   %153 = add i64 %152, 1
   %154 = and i64 %153, -9187201950435737472
@@ -2439,7 +2439,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile11CostVisitor5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = load ptr, ptr %25, align 8
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(49) %25, ptr noundef nonnull %0)
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(49) %25, ptr noundef nonnull align 8 dereferenceable(72) %0)
   %29 = load i64, ptr %26, align 8
   %30 = add i64 %29, 1
   %31 = and i64 %30, -9187201950435737472

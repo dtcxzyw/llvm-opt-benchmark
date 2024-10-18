@@ -30,7 +30,7 @@ define dso_local i32 @uv_tcp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not.i, label %11, label %maybe_new_socket.exit.thread
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @uv__socket(i32 noundef %4, i32 noundef 1, i32 noundef 0) #8
+  %12 = tail call i32 @uv__socket(i32 noundef range(i32 1, 65536) %4, i32 noundef 1, i32 noundef 0) #8
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %maybe_new_socket.exit, label %14
 
@@ -93,7 +93,7 @@ define dso_local i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not.i, label %14, label %21
 
 14:                                               ; preds = %.thread
-  %15 = tail call i32 @uv__socket(i32 noundef %11, i32 noundef 1, i32 noundef 0) #8
+  %15 = tail call i32 @uv__socket(i32 noundef range(i32 1, 65536) %11, i32 noundef 1, i32 noundef 0) #8
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %maybe_new_socket.exit, label %17
 
@@ -214,7 +214,7 @@ define dso_local i32 @uv__tcp_connect(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i, label %18, label %maybe_new_socket.exit.sink.split
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @uv__socket(i32 noundef %13, i32 noundef 1, i32 noundef 0) #8
+  %19 = tail call i32 @uv__socket(i32 noundef range(i32 1, 65536) %13, i32 noundef 1, i32 noundef 0) #8
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %maybe_new_socket.exit.thread, label %21
 
@@ -461,7 +461,7 @@ define dso_local i32 @uv__tcp_listen(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not.i, label %25, label %32
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @uv__socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #8
+  %26 = tail call i32 @uv__socket(i32 noundef range(i32 1, 65536) 2, i32 noundef 1, i32 noundef 0) #8
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %maybe_new_socket.exit, label %28
 

@@ -2021,7 +2021,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #28
   ret void
 }
 
@@ -2098,7 +2098,7 @@ _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noex
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #28
   ret void
 }
 
@@ -3112,7 +3112,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #28
   ret void
 }
 
@@ -3189,7 +3189,7 @@ _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.no
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #28
   ret void
 }
 

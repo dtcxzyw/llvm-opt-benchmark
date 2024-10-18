@@ -833,7 +833,7 @@ _ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vect
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss9nndescent5Nhood6insertEif(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -1000,7 +1000,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss9nndescent8NeighborESt6vec
 65:                                               ; preds = %_ZNKSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, %37
   %66 = landingpad { ptr, i32 }
           cleanup
-  %67 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %67 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   resume { ptr, i32 } %66
 
 68:                                               ; preds = %._crit_edge
@@ -1165,7 +1165,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss9nndescent8NeighborESt6vec
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %132 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %132 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   ret void
 }
 
@@ -2950,7 +2950,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %105, label %106, label %209
 
 106:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %107 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %66) #14
+  %107 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %66) #14
   %.not.i.i = icmp eq i32 %107, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %.invoke135
 
@@ -3133,7 +3133,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit56:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i53, %123, %188
   %.pre.i.i84123 = phi i64 [ %.pre.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i53 ], [ %.pre.i.i, %123 ], [ %.pre.i.i84124, %188 ]
   %207 = phi i64 [ %60, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i53 ], [ %60, %123 ], [ %190, %188 ]
-  %208 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #14
+  %208 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %66) #14
   br label %209
 
 209:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit56, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -3222,7 +3222,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit69:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %246, label %247, label %349
 
 247:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit69
-  %248 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %66) #14
+  %248 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %66) #14
   %.not.i.i70 = icmp eq i32 %248, 0
   br i1 %.not.i.i70, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit72, label %.invoke135
 
@@ -3397,7 +3397,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit83:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i80, %263, %328
   %.pre.i.i84127 = phi i64 [ %.pre.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i80 ], [ %.pre.i.i, %263 ], [ %.pre.i.i84128, %328 ]
   %347 = phi i64 [ %60, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i80 ], [ %60, %263 ], [ %330, %328 ]
-  %348 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #14
+  %348 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %66) #14
   br label %349
 
 349:                                              ; preds = %209, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit83, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit69
@@ -4662,7 +4662,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
   %55 = load i32, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %55, ptr %4, align 4
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 5, ptr nonnull @_ZN5faiss9NNDescent17generate_eval_setERNS_16DistanceComputerERSt6vectorIiSaIiEERS3_IS5_SaIS5_EEi.omp_outlined, ptr nonnull %5, ptr nonnull %4, ptr nonnull %1, ptr nonnull %0, ptr nonnull %6)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 5, ptr nonnull @_ZN5faiss9NNDescent17generate_eval_setERNS_16DistanceComputerERSt6vectorIiSaIiEERS3_IS5_SaIS5_EEi.omp_outlined, ptr nonnull align 8 dereferenceable(24) %5, ptr nonnull %4, ptr nonnull align 8 dereferenceable(8) %1, ptr nonnull align 8 dereferenceable(88) %0, ptr nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %56 = getelementptr inbounds i8, ptr %0, i64 12
   %57 = load i32, ptr %56, align 4
@@ -4676,11 +4676,11 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3_SaIS3_EE.exit.us
   %.01125.us = phi i32 [ %106, %_ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3_SaIS3_EE.exit.us ], [ 0, %.lr.ph ]
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 2, ptr nonnull @_ZN5faiss9NNDescent4joinERNS_16DistanceComputerE.omp_outlined, ptr nonnull %0, ptr nonnull %1)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined, ptr nonnull %0)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.3, ptr nonnull %0)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.4, ptr nonnull %0)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.5, ptr nonnull %0)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 2, ptr nonnull @_ZN5faiss9NNDescent4joinERNS_16DistanceComputerE.omp_outlined, ptr nonnull align 8 dereferenceable(88) %0, ptr nonnull align 8 dereferenceable(8) %1)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined, ptr nonnull align 8 dereferenceable(88) %0)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.3, ptr nonnull align 8 dereferenceable(88) %0)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.4, ptr nonnull align 8 dereferenceable(88) %0)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.5, ptr nonnull align 8 dereferenceable(88) %0)
   %61 = load ptr, ptr %27, align 8
   %62 = load ptr, ptr %5, align 8
   %63 = ptrtoint ptr %61 to i64
@@ -4785,11 +4785,11 @@ _ZN5faiss9NNDescent11eval_recallERSt6vectorIiSaIiEERS1_IS3_SaIS3_EE.exit.us: ; p
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.01125 = phi i32 [ %109, %.lr.ph.split ], [ 0, %.lr.ph ]
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 2, ptr nonnull @_ZN5faiss9NNDescent4joinERNS_16DistanceComputerE.omp_outlined, ptr nonnull %0, ptr nonnull %1)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined, ptr nonnull %0)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.3, ptr nonnull %0)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.4, ptr nonnull %0)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.5, ptr nonnull %0)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 2, ptr nonnull @_ZN5faiss9NNDescent4joinERNS_16DistanceComputerE.omp_outlined, ptr nonnull align 8 dereferenceable(88) %0, ptr nonnull align 8 dereferenceable(8) %1)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined, ptr nonnull align 8 dereferenceable(88) %0)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.3, ptr nonnull align 8 dereferenceable(88) %0)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.4, ptr nonnull align 8 dereferenceable(88) %0)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 1, ptr nonnull @_ZN5faiss9NNDescent6updateEv.omp_outlined.5, ptr nonnull align 8 dereferenceable(88) %0)
   %109 = add nuw nsw i32 %.01125, 1
   %110 = load i32, ptr %56, align 4
   %111 = icmp slt i32 %109, %110

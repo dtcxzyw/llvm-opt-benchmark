@@ -1617,7 +1617,7 @@ define dso_local noundef i64 @rb_str_coderange_scan_restartable(ptr noundef %0, 
   br i1 %.not35.i, label %27, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 true)
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %20, i1 true)
   %23 = lshr i64 %22, 3
   %24 = getelementptr i8, ptr %.02637.i, i64 %23
   %25 = icmp eq ptr %24, null
@@ -1727,7 +1727,7 @@ rb_enc_asciicompat.exit.preheader:                ; preds = %58, %55
   br i1 %.not35.i80, label %69, label %65
 
 65:                                               ; preds = %.lr.ph.i78
-  %66 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %64, i1 true)
+  %66 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %64, i1 true)
   %67 = lshr i64 %66, 3
   %68 = getelementptr i8, ptr %.02637.i79, i64 %67
   br label %search_nonascii.exit81
@@ -1855,7 +1855,7 @@ search_nonascii.exit81.thread:                    ; preds = %93, %._crit_edge.i6
   br i1 %.not35.i94, label %125, label %121
 
 121:                                              ; preds = %.lr.ph.i92
-  %122 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %120, i1 true)
+  %122 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %120, i1 true)
   %123 = lshr i64 %122, 3
   %124 = getelementptr i8, ptr %.02637.i93, i64 %123
   br label %search_nonascii.exit95
@@ -3161,7 +3161,7 @@ define dso_local i64 @rb_external_str_new_with_enc(ptr noundef %0, i64 noundef %
   br i1 %.not35.i, label %27, label %search_nonascii.exit
 
 search_nonascii.exit:                             ; preds = %.lr.ph.i
-  %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %22, i1 true)
+  %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %22, i1 true)
   %24 = lshr i64 %23, 3
   %25 = getelementptr i8, ptr %.02637.i, i64 %24
   %26 = icmp eq ptr %25, null
@@ -3288,7 +3288,7 @@ rb_enc_asciicompat.exit:                          ; preds = %67
   br i1 %.not35.i66, label %80, label %search_nonascii.exit67
 
 search_nonascii.exit67:                           ; preds = %.lr.ph.i64
-  %76 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %75, i1 true)
+  %76 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %75, i1 true)
   %77 = lshr i64 %76, 3
   %78 = getelementptr i8, ptr %.02637.i65, i64 %77
   %79 = icmp eq ptr %78, null
@@ -5436,7 +5436,7 @@ rb_enc_asciicompat.exit.preheader:                ; preds = %64, %62
   br i1 %.not35.i, label %98, label %94
 
 94:                                               ; preds = %.lr.ph.i
-  %95 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %93, i1 true)
+  %95 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %93, i1 true)
   %96 = lshr i64 %95, 3
   %97 = getelementptr i8, ptr %.02637.i, i64 %96
   br label %search_nonascii.exit
@@ -5546,7 +5546,7 @@ search_nonascii.exit.thread:                      ; preds = %116, %._crit_edge.i
   br i1 %.not35.i121, label %143, label %139
 
 139:                                              ; preds = %.lr.ph.i119
-  %140 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %138, i1 true)
+  %140 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %138, i1 true)
   %141 = lshr i64 %140, 3
   %142 = getelementptr i8, ptr %.02637.i120, i64 %141
   br label %search_nonascii.exit122
@@ -5722,7 +5722,7 @@ rb_enc_asciicompat.exit.preheader:                ; preds = %19, %18
   br i1 %.not35.i, label %40, label %36
 
 36:                                               ; preds = %.lr.ph.i
-  %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %35, i1 true)
+  %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %35, i1 true)
   %38 = lshr i64 %37, 3
   %39 = getelementptr i8, ptr %.02637.i, i64 %38
   br label %search_nonascii.exit
@@ -6449,7 +6449,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit82,
 
 93:                                               ; preds = %.lr.ph
   %94 = getelementptr i8, ptr %.sroa.2.0.i77, i64 %.06389
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr readonly align 1 %.sroa.2.0.i77, i64 %.06389, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull readonly align 1 %.sroa.2.0.i77, i64 %.06389, i1 false)
   br label %ruby_nonempty_memcpy.exit85
 
 ruby_nonempty_memcpy.exit85:                      ; preds = %.lr.ph, %93
@@ -6465,7 +6465,7 @@ ruby_nonempty_memcpy.exit85:                      ; preds = %.lr.ph, %93
 96:                                               ; preds = %._crit_edge
   %97 = sub i64 %64, %.063.lcssa
   %98 = getelementptr i8, ptr %.sroa.2.0.i77, i64 %.063.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr readonly align 1 %.sroa.2.0.i77, i64 %97, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull readonly align 1 %.sroa.2.0.i77, i64 %97, i1 false)
   br label %ruby_nonempty_memcpy.exit87
 
 ruby_nonempty_memcpy.exit87:                      ; preds = %96, %._crit_edge, %RSTRING_PTR.exit78
@@ -6616,7 +6616,7 @@ RSTRING_END.exit:                                 ; preds = %42, %45
   br i1 %.not35.i, label %55, label %search_nonascii.exit
 
 search_nonascii.exit:                             ; preds = %.lr.ph.i
-  %51 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %50, i1 true)
+  %51 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %50, i1 true)
   %52 = lshr i64 %51, 3
   %53 = getelementptr i8, ptr %.02637.i, i64 %52
   %54 = icmp eq ptr %53, null
@@ -7633,7 +7633,7 @@ rb_enc_asciicompat.exit.preheader:                ; preds = %19, %17
   br i1 %.not35.i, label %39, label %35
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %34, i1 true)
+  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %34, i1 true)
   %37 = lshr i64 %36, 3
   %38 = getelementptr i8, ptr %.02637.i, i64 %37
   br label %search_nonascii.exit
@@ -10790,12 +10790,12 @@ RSTRING_PTR.exit:                                 ; preds = %get_encoding.exit, 
 
 66:                                               ; preds = %63, %.split216.us
   %.056.i = phi i32 [ 4, %.split216.us ], [ 1, %63 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull readonly align 1 dereferenceable(1) %.us-phi219, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull readonly align 1 dereferenceable(1) %.us-phi219, i64 range(i64 1, 2147483648) %57, i1 false)
   br label %67
 
 67:                                               ; preds = %76, %66
   %68 = phi i1 [ true, %66 ], [ false, %76 ]
-  %69 = call fastcc i32 @enc_succ_char(ptr noundef %.us-phi219, i64 noundef %57, ptr noundef %17)
+  %69 = call fastcc i32 @enc_succ_char(ptr noundef nonnull %.us-phi219, i64 noundef range(i64 1, 2147483648) %57, ptr noundef %17)
   %70 = icmp eq i32 %69, 1
   br i1 %70, label %71, label %76
 
@@ -10803,7 +10803,7 @@ RSTRING_PTR.exit:                                 ; preds = %get_encoding.exit, 
   %72 = load ptr, ptr %23, align 8
   %73 = call i32 %72(ptr noundef nonnull %.us-phi219, ptr noundef %58, ptr noundef %17) #28
   %74 = load ptr, ptr %24, align 8
-  %75 = call i32 %74(i32 noundef %73, i32 noundef %.056.i, ptr noundef %17) #28
+  %75 = call i32 %74(i32 noundef %73, i32 noundef range(i32 1, 5) %.056.i, ptr noundef %17) #28
   %.not67.i = icmp eq i32 %75, 0
   br i1 %.not67.i, label %76, label %enc_succ_alnum_char.exit.thread174
 
@@ -10815,7 +10815,7 @@ enc_succ_alnum_char.exit.thread174:               ; preds = %71
   br i1 %68, label %67, label %77, !llvm.loop !205
 
 77:                                               ; preds = %76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.us-phi219, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.us-phi219, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 range(i64 1, 2147483648) %57, i1 false)
   %78 = add nsw i64 %57, -1
   %invariant.gep.i.i = getelementptr i8, ptr %.us-phi219, i64 1
   %.not177 = icmp eq i32 %.us-phi217, 1
@@ -10823,7 +10823,7 @@ enc_succ_alnum_char.exit.thread174:               ; preds = %71
 
 79:                                               ; preds = %137, %77
   %.055.i = phi i32 [ 1, %77 ], [ %138, %137 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull readonly align 1 dereferenceable(1) %.us-phi219, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull readonly align 1 dereferenceable(1) %.us-phi219, i64 range(i64 1, 2147483648) %57, i1 false)
   %.val.i.i = load i32, ptr %25, align 4
   %80 = icmp sgt i32 %.val.i.i, 1
   br i1 %80, label %105, label %.preheader74.i.i
@@ -10956,7 +10956,7 @@ enc_pred_char.exit.thread63.i:                    ; preds = %97, %124, %enc_pred
   %133 = load ptr, ptr %23, align 8
   %134 = call i32 %133(ptr noundef nonnull %.us-phi219, ptr noundef %58, ptr noundef %17) #28
   %135 = load ptr, ptr %24, align 8
-  %136 = call i32 %135(i32 noundef %134, i32 noundef %.056.i, ptr noundef %17) #28
+  %136 = call i32 %135(i32 noundef %134, i32 noundef range(i32 1, 5) %.056.i, ptr noundef %17) #28
   %.not66.i = icmp eq i32 %136, 0
   br i1 %.not66.i, label %enc_pred_char.exit.thread.i, label %137
 
@@ -10965,7 +10965,7 @@ enc_pred_char.exit.thread63.i:                    ; preds = %97, %124, %enc_pred
   br label %79
 
 enc_pred_char.exit.thread.i:                      ; preds = %enc_pred_char.exit.thread63.i, %enc_pred_char.exit.i, %111, %108, %105, %102, %118
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.us-phi219, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.us-phi219, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 range(i64 1, 2147483648) %57, i1 false)
   %139 = icmp eq i32 %.055.i, 1
   br i1 %139, label %enc_succ_alnum_char.exit, label %140
 
@@ -10974,7 +10974,7 @@ enc_pred_char.exit.thread.i:                      ; preds = %enc_pred_char.exit.
   br i1 %.not.i, label %143, label %141
 
 141:                                              ; preds = %140
-  %142 = call fastcc i32 @enc_succ_char(ptr noundef %3, i64 noundef %57, ptr noundef %17)
+  %142 = call fastcc i32 @enc_succ_char(ptr noundef nonnull %3, i64 noundef range(i64 1, 2147483648) %57, ptr noundef %17)
   br label %143
 
 enc_succ_alnum_char.exit:                         ; preds = %63, %enc_pred_char.exit.thread.i
@@ -13866,13 +13866,13 @@ str_offset.exit:                                  ; preds = %79, %81
 
 89:                                               ; preds = %87
   %90 = sub i64 %.sroa.1.0.i, %.046
-  %91 = tail call i64 @rb_memsearch(ptr noundef %.sroa.2.0.i56, i64 noundef %43, ptr noundef %.047, i64 noundef %90, ptr noundef %6) #28
+  %91 = tail call i64 @rb_memsearch(ptr noundef %.sroa.2.0.i56, i64 noundef range(i64 1, 0) %43, ptr noundef %.047, i64 noundef %90, ptr noundef %6) #28
   %92 = icmp slt i64 %91, 0
   br i1 %92, label %strseq_core.exit, label %.lr.ph.i
 
 93:                                               ; preds = %101
   %94 = add i64 %104, %.02937.i
-  %95 = tail call i64 @rb_memsearch(ptr noundef %.sroa.2.0.i56, i64 noundef %43, ptr noundef %99, i64 noundef %105, ptr noundef %6) #28
+  %95 = tail call i64 @rb_memsearch(ptr noundef %.sroa.2.0.i56, i64 noundef range(i64 1, 0) %43, ptr noundef %99, i64 noundef %105, ptr noundef %6) #28
   %96 = icmp slt i64 %95, 0
   br i1 %96, label %strseq_core.exit, label %.lr.ph.i
 
@@ -16830,7 +16830,7 @@ RSTRING_PTR.exit284:                              ; preds = %36, %41
   br i1 %.not35.i, label %57, label %53
 
 53:                                               ; preds = %.lr.ph.i
-  %54 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %52, i1 true)
+  %54 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %52, i1 true)
   %55 = lshr i64 %54, 3
   %56 = getelementptr i8, ptr %.02637.i, i64 %55
   br label %search_nonascii.exit
@@ -17132,7 +17132,7 @@ rb_str_cat.exit290:                               ; preds = %146, %142, %rb_str_
   br i1 %.not35.i314, label %189, label %185
 
 185:                                              ; preds = %.lr.ph.i312
-  %186 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %184, i1 true)
+  %186 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %184, i1 true)
   %187 = lshr i64 %186, 3
   %188 = getelementptr i8, ptr %.02637.i313, i64 %187
   br label %search_nonascii.exit315
@@ -22114,7 +22114,7 @@ define internal i64 @rb_str_to_f(i64 noundef %0) #1 {
   br i1 %.not7.i, label %9, label %13
 
 9:                                                ; preds = %4
-  %10 = tail call noundef i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 3)
+  %10 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %3, i64 range(i64 3458764513820540929, 3458764513820540928) %3, i64 3)
   %11 = and i64 %10, -4
   %12 = or disjoint i64 %11, 2
   br label %rb_float_new_inline.exit
@@ -25167,7 +25167,7 @@ define internal range(i64 1, -7) i64 @rb_str_sub_bang(i32 noundef %0, ptr nocapt
   br i1 %or.cond279, label %11, label %rb_check_arity.exit
 
 11:                                               ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef %8, i32 noundef 2) #33
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef range(i32 0, 3) %8, i32 noundef 2) #33
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -29533,7 +29533,7 @@ define internal fastcc range(i32 1048576, 3145729) i32 @coderange_scan(ptr nound
   br i1 %.not35.i, label %18, label %12
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %11, i1 true)
+  %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %11, i1 true)
   %14 = lshr i64 %13, 3
   %15 = getelementptr i8, ptr %.02637.i, i64 %14
   %16 = icmp eq ptr %15, null
@@ -29636,7 +29636,7 @@ rb_enc_asciicompat.exit.preheader:                ; preds = %49, %46
   br i1 %.not35.i53, label %60, label %56
 
 56:                                               ; preds = %.lr.ph.i51
-  %57 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %55, i1 true)
+  %57 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %55, i1 true)
   %58 = lshr i64 %57, 3
   %59 = getelementptr i8, ptr %.02637.i52, i64 %58
   br label %search_nonascii.exit54
@@ -29745,7 +29745,7 @@ search_nonascii.exit54:                           ; preds = %56, %67, %69, %72, 
   br i1 %.not35.i67, label %109, label %105
 
 105:                                              ; preds = %.lr.ph.i65
-  %106 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %104, i1 true)
+  %106 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -9187201950435737471) %104, i1 true)
   %107 = lshr i64 %106, 3
   %108 = getelementptr i8, ptr %.02637.i66, i64 %107
   br label %search_nonascii.exit68

@@ -559,7 +559,7 @@ if.end15.i:                                       ; preds = %verify_cb_cert.exit
   br i1 %cmp17.i, label %land.lhs.true18.i, label %if.end22.i
 
 land.lhs.true18.i:                                ; preds = %if.end15.i
-  %call19.i = tail call fastcc i32 @check_id(ptr noundef %ctx)
+  %call19.i = tail call fastcc i32 @check_id(ptr noundef nonnull %ctx)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %land.lhs.true26, label %if.end22.i
 
@@ -640,7 +640,7 @@ verify_cb_cert.exit.i:                            ; preds = %cond.false.i.i, %if
   br label %cond.end
 
 if.end37.i:                                       ; preds = %lor.end.i, %land.lhs.true.i
-  %call38.i = tail call fastcc i32 @verify_chain(ptr noundef %ctx)
+  %call38.i = tail call fastcc i32 @verify_chain(ptr noundef nonnull %ctx)
   br label %cond.end
 
 cond.false:                                       ; preds = %land.lhs.true19, %if.end17
@@ -3077,11 +3077,11 @@ if.end2.i:                                        ; preds = %if.end.i
   br i1 %cmp1.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end2.i
-  %call.i.i = call fastcc i32 @x509_verify_rpk(ptr noundef %crl_ctx.i)
+  %call.i.i = call fastcc i32 @x509_verify_rpk(ptr noundef nonnull %crl_ctx.i)
   br label %X509_verify_cert.exit.i
 
 cond.false.i.i:                                   ; preds = %if.end2.i
-  %call2.i.i = call fastcc i32 @x509_verify_x509(ptr noundef %crl_ctx.i)
+  %call2.i.i = call fastcc i32 @x509_verify_x509(ptr noundef nonnull %crl_ctx.i)
   br label %X509_verify_cert.exit.i
 
 X509_verify_cert.exit.i:                          ; preds = %cond.false.i.i, %cond.true.i.i
@@ -5223,7 +5223,7 @@ if.end.i423.i:                                    ; preds = %land.lhs.true.i.i
 sw.default.i.i:                                   ; preds = %if.end.i423.i, %land.lhs.true.i.i, %land.lhs.true334.i
   %cmp5.i.i = icmp sgt i32 %must_be_ca.0469.i, 0
   %conv.i.i = zext i1 %cmp5.i.i to i32
-  %call6.i.i = call i32 @X509_check_purpose(ptr noundef %call9.i, i32 noundef %purpose.0.i, i32 noundef %conv.i.i) #10
+  %call6.i.i = call i32 @X509_check_purpose(ptr noundef %call9.i, i32 noundef range(i32 1, -2147483648) %purpose.0.i, i32 noundef %conv.i.i) #10
   switch i32 %call6.i.i, label %sw.default9.i.i [
     i32 1, label %if.end338.i
     i32 0, label %sw.epilog15.i.i

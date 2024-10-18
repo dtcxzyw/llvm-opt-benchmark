@@ -4993,7 +4993,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit658: ; preds = %_ZN3
   %2078 = load ptr, ptr %120, align 8
   %2079 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %2080 = load ptr, ptr %2079, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %120, i8 0, i64 16, i1 false)
   store ptr %2078, ptr %118, align 8
   %2081 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %2082 = load ptr, ptr %2081, align 8

@@ -1319,13 +1319,13 @@ if.end.i:                                         ; preds = %for.cond.i
   br i1 %generate_seed.addr.0.i, label %if.end5.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call3.i = call i32 @RAND_bytes_ex(ptr noundef %call.i, ptr noundef nonnull %seed, i64 noundef %shr, i32 noundef 0) #5
+  %call3.i = call i32 @RAND_bytes_ex(ptr noundef %call.i, ptr noundef nonnull %seed, i64 noundef range(i64 0, 2305843009213693952) %shr, i32 noundef 0) #5
   %cmp.i = icmp slt i32 %call3.i, 1
   br i1 %cmp.i, label %generate_q_fips186_2.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %seed, i64 %shr, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf2.i, ptr nonnull align 16 %seed, i64 %shr, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %seed, i64 range(i64 0, 2305843009213693952) %shr, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf2.i, ptr nonnull align 16 %seed, i64 range(i64 0, 2305843009213693952) %shr, i1 false)
   br label %for.cond6.i
 
 for.cond6.i:                                      ; preds = %for.body.i, %if.end5.i
@@ -1344,12 +1344,12 @@ for.body.i:                                       ; preds = %for.cond6.i
   br i1 %cmp13.not.i, label %for.cond6.i, label %for.end.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond6.i
-  %call18.i = call i32 @EVP_Digest(ptr noundef nonnull %seed, i64 noundef %shr, ptr noundef nonnull %md.i, ptr noundef null, ptr noundef nonnull %call19, ptr noundef null) #5
+  %call18.i = call i32 @EVP_Digest(ptr noundef nonnull %seed, i64 noundef range(i64 0, 2305843009213693952) %shr, ptr noundef nonnull %md.i, ptr noundef null, ptr noundef nonnull %call19, ptr noundef null) #5
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %generate_q_fips186_2.exit.thread, label %if.end21.i
 
 if.end21.i:                                       ; preds = %for.end.i
-  %call23.i = call i32 @EVP_Digest(ptr noundef nonnull %buf, i64 noundef %shr, ptr noundef nonnull %buf2.i, ptr noundef null, ptr noundef nonnull %call19, ptr noundef null) #5
+  %call23.i = call i32 @EVP_Digest(ptr noundef nonnull %buf, i64 noundef range(i64 0, 2305843009213693952) %shr, ptr noundef nonnull %buf2.i, ptr noundef null, ptr noundef nonnull %call19, ptr noundef null) #5
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %generate_q_fips186_2.exit.thread, label %for.cond27.preheader.i
 

@@ -1517,7 +1517,7 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$ropey..tree..node..
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %19, ptr %21, align 8, !noalias !74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !78
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8bd9ee004478dbcdE.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4), !noalias !74
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8bd9ee004478dbcdE.llvm.10316259052761615454"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !74
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load i64, ptr %22, align 8, !range !85, !noalias !78, !noundef !7
   %24 = icmp eq i64 %23, 0
@@ -4052,7 +4052,7 @@ define hidden noundef ptr @_ZN5ropey4tree4node4Node15append_at_depth17hdb6405e51
 65:                                               ; preds = %60
   %66 = zext nneg i8 %61 to i64
   %67 = getelementptr inbounds [24 x { [4 x i64] }], ptr %49, i64 0, i64 %66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false), !alias.scope !436
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 32, i1 false), !alias.scope !436
   %68 = load i8, ptr %40, align 8, !alias.scope !433, !noalias !434, !noundef !7
   %69 = zext i8 %68 to i64
   %70 = icmp ult i8 %68, 24
@@ -4335,7 +4335,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %_ZN5rope
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(975) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(975) %.sroa.4, i64 975, i1 false)
   %178 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !489
-  %179 = tail call noalias noundef align 8 dereferenceable_or_null(1024) ptr @__rust_alloc(i64 noundef 1024, i64 noundef 8) #26, !noalias !489
+  %179 = tail call noalias noundef align 8 dereferenceable_or_null(1024) ptr @__rust_alloc(i64 noundef 1024, i64 noundef range(i64 1, -9223372036854775807) 8) #26, !noalias !489
   %180 = icmp eq ptr %179, null
   br i1 %180, label %181, label %186
 
@@ -4392,7 +4392,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit52: ; preds = %.noexc
   %194 = zext nneg i8 %188 to i64
   %195 = getelementptr inbounds i8, ptr %0, i64 200
   %196 = getelementptr inbounds [24 x { [4 x i64] }], ptr %195, i64 0, i64 %194
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !alias.scope !496
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 32, i1 false), !alias.scope !496
   %197 = load i8, ptr %88, align 8, !alias.scope !471, !noalias !476, !noundef !7
   %198 = zext i8 %197 to i64
   %199 = icmp ult i8 %197, 24
@@ -4646,7 +4646,7 @@ define hidden noundef ptr @_ZN5ropey4tree4node4Node16prepend_at_depth17he2ba03bc
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds [24 x { [4 x i64] }], ptr %50, i64 0, i64 %65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false), !alias.scope !549, !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false), !alias.scope !549, !noalias !7
   %70 = getelementptr inbounds [24 x ptr], ptr %40, i64 0, i64 %65
   %71 = load ptr, ptr %70, align 8, !alias.scope !547, !noalias !548
   store ptr %71, ptr %51, align 8, !alias.scope !548, !noalias !547
@@ -4905,7 +4905,7 @@ _ZN4core10intrinsics10typed_swap17h649bdce67b735b77E.exit: ; preds = %163
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(975) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(975) %.sroa.4, i64 975, i1 false)
   %171 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !592
-  %172 = tail call noalias noundef align 8 dereferenceable_or_null(1024) ptr @__rust_alloc(i64 noundef 1024, i64 noundef 8) #26, !noalias !592
+  %172 = tail call noalias noundef align 8 dereferenceable_or_null(1024) ptr @__rust_alloc(i64 noundef 1024, i64 noundef range(i64 1, -9223372036854775807) 8) #26, !noalias !592
   %173 = icmp eq ptr %172, null
   br i1 %173, label %174, label %179
 
@@ -5433,7 +5433,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %_ZN5rope
   %204 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 1, ptr %204, align 8
   %205 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !658
-  %206 = call noalias noundef align 8 dereferenceable_or_null(1024) ptr @__rust_alloc(i64 noundef 1024, i64 noundef 8) #26, !noalias !658
+  %206 = call noalias noundef align 8 dereferenceable_or_null(1024) ptr @__rust_alloc(i64 noundef 1024, i64 noundef range(i64 1, -9223372036854775807) 8) #26, !noalias !658
   %207 = icmp eq ptr %206, null
   br i1 %207, label %208, label %213
 

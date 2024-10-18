@@ -496,7 +496,7 @@ switch.lookup:                                    ; preds = %33
   %73 = sub nuw nsw i32 32, %72
   %74 = shl nuw i32 1, %73
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %68, i32 %74
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -1948,7 +1948,7 @@ switch.lookup28:                                  ; preds = %switch.hole_check27
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %switch.lookup28
-  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 300, i1 noundef zeroext true) #17
+  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 300, i1 noundef zeroext true) #17
   %64 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 3, ptr %64, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -1966,11 +1966,11 @@ switch.lookup28:                                  ; preds = %switch.hole_check27
 
 71:                                               ; preds = %65
   %72 = shl i64 %70, 1
-  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %59, i64 noundef %72, i1 noundef zeroext true) #17
+  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef %72, i1 noundef zeroext true) #17
   br label %_ZN12LIRGenerator13set_vreg_flagE7LIR_OprNS_8VregFlagE.exit
 
 _ZN12LIRGenerator13set_vreg_flagE7LIR_OprNS_8VregFlagE.exit: ; preds = %65, %71
-  call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(16) %59, i64 noundef %70, i1 noundef zeroext true) #17
+  call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef %70, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %73 = getelementptr inbounds i8, ptr %0, i64 144
   %74 = load ptr, ptr %73, align 8
@@ -2209,7 +2209,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   %49 = sub nuw nsw i32 32, %48
   %50 = shl nuw i32 1, %49
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %44, i32 %50
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -2338,7 +2338,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %24, %22
   %43 = load ptr, ptr %.012, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 416
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(96) %.012, ptr noundef nonnull %0) #17
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(96) %.012, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   store ptr %42, ptr %41, align 8
   br label %_ZN12LIRGenerator7do_rootEP11Instruction.exit
 
@@ -2545,7 +2545,7 @@ define hidden noundef ptr @_ZN12LIRGenerator9state_forEP11InstructionP10ValueSta
   %52 = load ptr, ptr %21, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 416
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull %0) #17
+  call void %54(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit
 
 _ZN12LIRGenerator4walkEP11Instruction.exit:       ; preds = %42, %48, %51
@@ -2706,7 +2706,7 @@ _ZN6BitMap5clearEv.exit:                          ; preds = %.lr.ph.preheader.i.
   %144 = load ptr, ptr %99, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 416
   %146 = load ptr, ptr %145, align 8
-  call void %146(ptr noundef nonnull align 8 dereferenceable(96) %99, ptr noundef nonnull %0) #17
+  call void %146(ptr noundef nonnull align 8 dereferenceable(96) %99, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit66
 
 _ZN12LIRGenerator4walkEP11Instruction.exit66:     ; preds = %134, %140, %143
@@ -3002,7 +3002,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %39, %37
   %76 = sub nuw nsw i32 32, %75
   %77 = shl nuw i32 1, %76
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %71, i32 %77
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -3235,7 +3235,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   %44 = sub nuw nsw i32 32, %43
   %45 = shl nuw i32 1, %44
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %39, i32 %45
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -3482,7 +3482,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -3601,7 +3601,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -3720,7 +3720,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -3889,7 +3889,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %62 = sub nuw nsw i32 32, %61
   %63 = shl nuw i32 1, %62
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %57, i32 %63
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -4008,7 +4008,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %62 = sub nuw nsw i32 32, %61
   %63 = shl nuw i32 1, %62
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %57, i32 %63
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -4127,7 +4127,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -4246,7 +4246,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %62 = sub nuw nsw i32 32, %61
   %63 = shl nuw i32 1, %62
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %57, i32 %63
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -4493,7 +4493,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -4612,7 +4612,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -4731,7 +4731,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -4989,7 +4989,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %39, %37
   %75 = sub nuw nsw i32 32, %74
   %76 = shl nuw i32 1, %75
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %70, i32 %76
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -5182,7 +5182,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %54
   %56 = load ptr, ptr %2, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
+  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(144) %2) #17
   br i1 %59, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass14is_initializedEv.exit
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %54
@@ -5254,7 +5254,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i45:          ; preds = %96
   %98 = load ptr, ptr %2, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 32
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
+  %101 = tail call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(144) %2) #17
   br i1 %101, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i44, label %_ZN15ciInstanceKlass14is_initializedEv.exit46
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i44:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i45, %96
@@ -6491,7 +6491,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %23, %25
   %66 = sub nuw nsw i32 32, %65
   %67 = shl nuw i32 1, %66
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %61, i32 %67
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -6602,7 +6602,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %58 = sub nuw nsw i32 32, %57
   %59 = shl nuw i32 1, %58
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %53, i32 %59
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -6706,7 +6706,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %54 = sub nuw nsw i32 32, %53
   %55 = shl nuw i32 1, %54
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %49, i32 %55
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -6815,7 +6815,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %58 = sub nuw nsw i32 32, %57
   %59 = shl nuw i32 1, %58
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %53, i32 %59
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -7866,7 +7866,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -7989,7 +7989,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -8495,7 +8495,7 @@ _ZN13GrowableArrayI9BasicTypeED2Ev.exit:          ; preds = %_ZN26GrowableArrayW
   %111 = load ptr, ptr %89, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 416
   %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(96) %89, ptr noundef nonnull %0) #17
+  call void %113(ptr noundef nonnull align 8 dereferenceable(96) %89, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %110, %107, %101
@@ -8735,7 +8735,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   %43 = sub nuw nsw i32 32, %42
   %44 = shl nuw i32 1, %43
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %38, i32 %44
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -8805,7 +8805,7 @@ define hidden void @_ZN12LIRGenerator16do_Reference_getEP9Intrinsic(ptr noundef 
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 416
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull %0) #17
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %32, %29, %23
@@ -9061,7 +9061,7 @@ define hidden void @_ZN12LIRGenerator13do_isInstanceEP9Intrinsic(ptr noundef non
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 416
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull %0) #17
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %31, %28, %22
@@ -9122,7 +9122,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %61 = load ptr, ptr %39, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 416
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull %0) #17
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i16
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i16: ; preds = %60, %57, %51
@@ -9272,7 +9272,7 @@ define hidden i64 @_ZN12LIRGenerator12call_runtimeEP11InstructionS1_PhP9ValueTyp
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 416
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %0) #17
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %36, %33, %27
@@ -9327,7 +9327,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %6, %_ZN12LIRGenerat
   %63 = load ptr, ptr %2, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 416
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull %0) #17
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i12
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i12: ; preds = %62, %59, %53
@@ -9483,7 +9483,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %51 = sub nuw nsw i32 32, %50
   %52 = shl nuw i32 1, %51
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %46, i32 %52
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -9550,7 +9550,7 @@ define hidden void @_ZN12LIRGenerator11do_getClassEP9Intrinsic(ptr noundef nonnu
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 416
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull %0) #17
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %31, %28, %22
@@ -9917,7 +9917,7 @@ define hidden void @_ZN12LIRGenerator14do_isPrimitiveEP9Intrinsic(ptr noundef no
   %31 = load ptr, ptr %8, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 416
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull %0) #17
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %30, %27, %21
@@ -10301,7 +10301,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %62 = sub nuw nsw i32 32, %61
   %63 = shl nuw i32 1, %62
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %57, i32 %63
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -10368,7 +10368,7 @@ define hidden void @_ZN12LIRGenerator15do_getModifiersEP9Intrinsic(ptr noundef n
   %31 = load ptr, ptr %8, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 416
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull %0) #17
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %30, %27, %21
@@ -10780,7 +10780,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %51 = load ptr, ptr %28, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 416
   %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull %0) #17
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %50, %47, %41
@@ -11595,7 +11595,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   %62 = sub nuw nsw i32 32, %61
   %63 = shl nuw i32 1, %62
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %57, i32 %63
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -11705,7 +11705,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %56 = sub nuw nsw i32 32, %55
   %57 = shl nuw i32 1, %56
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %51, i32 %57
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -11995,7 +11995,7 @@ define hidden void @_ZN12LIRGenerator20do_RegisterFinalizerEP9Intrinsic(ptr noun
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 416
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull %0) #17
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %31, %28, %22
@@ -12105,7 +12105,7 @@ define hidden void @_ZN12LIRGenerator13set_vreg_flagEiNS_8VregFlagE(ptr noundef 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
-  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 300, i1 noundef zeroext true) #17
+  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 300, i1 noundef zeroext true) #17
   %10 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 3, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -12125,11 +12125,11 @@ define hidden void @_ZN12LIRGenerator13set_vreg_flagEiNS_8VregFlagE(ptr noundef 
 
 19:                                               ; preds = %11
   %20 = shl i64 %18, 1
-  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %20, i1 noundef zeroext true) #17
+  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %20, i1 noundef zeroext true) #17
   br label %_ZN8BitMap2D11at_put_growEmmb.exit
 
 _ZN8BitMap2D11at_put_growEmmb.exit:               ; preds = %11, %19
-  call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %18, i1 noundef zeroext true) #17
+  call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %18, i1 noundef zeroext true) #17
   ret void
 }
 
@@ -12489,7 +12489,7 @@ define hidden void @_ZN12LIRGenerator17do_CompareAndSwapEP9IntrinsicP9ValueType(
   %36 = load ptr, ptr %13, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 416
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull %0) #17
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %35, %32, %26
@@ -12551,7 +12551,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %3, %_ZN12LIRGenerat
   %66 = load ptr, ptr %44, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 416
   %68 = load ptr, ptr %67, align 8
-  tail call void %68(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull %0) #17
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i12
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i12: ; preds = %65, %62, %56
@@ -12612,7 +12612,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit15: ; preds = %_ZN7LIRItemC2EP11
   %97 = load ptr, ptr %75, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 416
   %99 = load ptr, ptr %98, align 8
-  tail call void %99(ptr noundef nonnull align 8 dereferenceable(96) %75, ptr noundef nonnull %0) #17
+  tail call void %99(ptr noundef nonnull align 8 dereferenceable(96) %75, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i20
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i20: ; preds = %96, %93, %87
@@ -12672,7 +12672,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit23: ; preds = %_ZN7LIRItemC2EP11
   %127 = load ptr, ptr %106, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 416
   %129 = load ptr, ptr %128, align 8
-  tail call void %129(ptr noundef nonnull align 8 dereferenceable(96) %106, ptr noundef nonnull %0) #17
+  tail call void %129(ptr noundef nonnull align 8 dereferenceable(96) %106, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i28
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i28: ; preds = %126, %123, %117
@@ -12889,7 +12889,7 @@ _ZNK11AccessField10field_typeEv.exit:             ; preds = %2, %17
   %66 = load ptr, ptr %43, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 416
   %68 = load ptr, ptr %67, align 8
-  tail call void %68(ptr noundef nonnull align 8 dereferenceable(96) %43, ptr noundef nonnull %0) #17
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(96) %43, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %65, %62, %56
@@ -12947,7 +12947,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %41, %_ZN12LIRGenera
   %94 = load ptr, ptr %72, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 416
   %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(96) %72, ptr noundef nonnull %0) #17
+  tail call void %96(ptr noundef nonnull align 8 dereferenceable(96) %72, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i46
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i46: ; preds = %93, %90, %84
@@ -13382,7 +13382,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %2, %14, %_ZN12LIRGe
   %67 = load ptr, ptr %44, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 416
   %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull %0) #17
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %66, %63, %57
@@ -13440,7 +13440,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %_Z17is_reference_ty
   %95 = load ptr, ptr %73, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 416
   %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef nonnull align 8 dereferenceable(96) %73, ptr noundef nonnull %0) #17
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(96) %73, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i53
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i53: ; preds = %94, %91, %85
@@ -13498,7 +13498,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit56: ; preds = %_ZN7LIRItemC2EP11
   %123 = load ptr, ptr %101, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 416
   %125 = load ptr, ptr %124, align 8
-  tail call void %125(ptr noundef nonnull align 8 dereferenceable(96) %101, ptr noundef nonnull %0) #17
+  tail call void %125(ptr noundef nonnull align 8 dereferenceable(96) %101, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i61
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i61: ; preds = %122, %119, %113
@@ -13565,7 +13565,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit64: ; preds = %_ZN7LIRItemC2EP11
   %153 = load ptr, ptr %133, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 416
   %155 = load ptr, ptr %154, align 8
-  call void %155(ptr noundef nonnull align 8 dereferenceable(96) %133, ptr noundef nonnull %136) #17
+  call void %155(ptr noundef nonnull align 8 dereferenceable(96) %133, ptr noundef nonnull align 8 dereferenceable(232) %136) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i:     ; preds = %152, %149, %143
@@ -14164,7 +14164,7 @@ _ZNK11AccessField10field_typeEv.exit:             ; preds = %2, %14
   %63 = load ptr, ptr %40, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 416
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull %0) #17
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %62, %59, %53
@@ -14418,7 +14418,7 @@ define hidden void @_ZN12LIRGenerator26do_PreconditionsCheckIndexEP9Intrinsic9Ba
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 416
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull %0) #17
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %33, %30, %24
@@ -14480,7 +14480,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %3, %_ZN12LIRGenerat
   %65 = load ptr, ptr %43, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 416
   %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef nonnull align 8 dereferenceable(96) %43, ptr noundef nonnull %0) #17
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(96) %43, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i40
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i40: ; preds = %64, %61, %55
@@ -14542,7 +14542,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit43: ; preds = %_ZN7LIRItemC2EP11
   %96 = load ptr, ptr %74, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 416
   %98 = load ptr, ptr %97, align 8
-  tail call void %98(ptr noundef nonnull align 8 dereferenceable(96) %74, ptr noundef nonnull %0) #17
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(96) %74, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i48
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i48: ; preds = %95, %92, %86
@@ -15403,7 +15403,7 @@ define hidden void @_ZN12LIRGenerator14do_ArrayLengthEP11ArrayLength(ptr noundef
   %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 416
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull %0) #17
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %27, %24, %18
@@ -15596,7 +15596,7 @@ define hidden void @_ZN12LIRGenerator14do_LoadIndexedEP11LoadIndexed(ptr noundef
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 416
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull %0) #17
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %32, %29, %23
@@ -15653,7 +15653,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %61 = load ptr, ptr %39, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 416
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull %0) #17
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i40
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i40: ; preds = %60, %57, %51
@@ -15718,7 +15718,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit43: ; preds = %_ZN7LIRItemC2EP11
   %91 = load ptr, ptr %72, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 416
   %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(96) %72, ptr noundef nonnull %0) #17
+  tail call void %93(ptr noundef nonnull align 8 dereferenceable(96) %72, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i:     ; preds = %90, %87, %81
@@ -15996,7 +15996,7 @@ define hidden void @_ZN12LIRGenerator12do_NullCheckEP9NullCheck(ptr noundef nonn
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 416
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull %0) #17
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %32, %29, %23
@@ -16070,7 +16070,7 @@ define hidden void @_ZN12LIRGenerator11do_TypeCastEP8TypeCast(ptr noundef nonnul
   %27 = load ptr, ptr %5, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 416
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull %0) #17
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %26, %23, %17
@@ -16139,7 +16139,7 @@ define hidden void @_ZN12LIRGenerator8do_ThrowEP5Throw(ptr noundef nonnull align
   %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 416
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull %0) #17
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %27, %24, %18
@@ -16287,7 +16287,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %119, %117
   br i1 %121, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %122
 
 122:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %101, i32 noundef 4, i32 noundef %103) #17
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %101, i32 noundef 4, i32 noundef %103) #17
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %122
@@ -16420,7 +16420,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   %51 = sub nuw nsw i32 32, %50
   %52 = shl nuw i32 1, %51
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %46, i32 %52
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -16540,7 +16540,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -16606,7 +16606,7 @@ define hidden void @_ZN12LIRGenerator10do_RoundFPEP7RoundFP(ptr noundef nonnull 
   %29 = load ptr, ptr %6, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 416
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull %0) #17
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %28, %25, %19
@@ -16659,7 +16659,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %37, %41
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %_ZN12LIRGenerator12new_registerE9BasicType.exit
-  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 300, i1 noundef zeroext true) #17
+  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 300, i1 noundef zeroext true) #17
   %55 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 3, ptr %55, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
@@ -16677,11 +16677,11 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %37, %41
 
 62:                                               ; preds = %56
   %63 = shl i64 %61, 1
-  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %63, i1 noundef zeroext true) #17
+  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %63, i1 noundef zeroext true) #17
   br label %_ZN12LIRGenerator13set_vreg_flagE7LIR_OprNS_8VregFlagE.exit
 
 _ZN12LIRGenerator13set_vreg_flagE7LIR_OprNS_8VregFlagE.exit: ; preds = %56, %62
-  call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %61, i1 noundef zeroext true) #17
+  call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %61, i1 noundef zeroext true) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %64 = getelementptr inbounds i8, ptr %0, i64 144
   %65 = load ptr, ptr %64, align 8
@@ -16786,7 +16786,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   %54 = sub nuw nsw i32 32, %53
   %55 = shl nuw i32 1, %54
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %49, i32 %55
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -16853,7 +16853,7 @@ define hidden void @_ZN12LIRGenerator12do_UnsafeGetEP9UnsafeGet(ptr noundef nonn
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 416
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull %0) #17
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %31, %28, %22
@@ -16910,7 +16910,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %60 = load ptr, ptr %38, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 416
   %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull %0) #17
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i35
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i35: ; preds = %59, %56, %50
@@ -17122,7 +17122,7 @@ define hidden void @_ZN12LIRGenerator12do_UnsafePutEP9UnsafePut(ptr noundef nonn
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 416
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull %0) #17
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %32, %29, %23
@@ -17179,7 +17179,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %61 = load ptr, ptr %39, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 416
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull %0) #17
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i20
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i20: ; preds = %60, %57, %51
@@ -17236,7 +17236,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit23: ; preds = %_ZN7LIRItemC2EP11
   %89 = load ptr, ptr %67, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 416
   %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull align 8 dereferenceable(96) %67, ptr noundef nonnull %0) #17
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(96) %67, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i28
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i28: ; preds = %88, %85, %79
@@ -17367,7 +17367,7 @@ define hidden void @_ZN12LIRGenerator18do_UnsafeGetAndSetEP15UnsafeGetAndSet(ptr
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 416
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull %0) #17
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %33, %30, %24
@@ -17424,7 +17424,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %62 = load ptr, ptr %40, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 416
   %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull %0) #17
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i18
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i18: ; preds = %61, %58, %52
@@ -17481,7 +17481,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit21: ; preds = %_ZN7LIRItemC2EP11
   %90 = load ptr, ptr %68, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 416
   %92 = load ptr, ptr %91, align 8
-  tail call void %92(ptr noundef nonnull align 8 dereferenceable(96) %68, ptr noundef nonnull %0) #17
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(96) %68, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i26
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i26: ; preds = %89, %86, %80
@@ -17944,7 +17944,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   %44 = sub nuw nsw i32 32, %43
   %45 = shl nuw i32 1, %44
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %39, i32 %45
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -18028,7 +18028,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   %43 = sub nuw nsw i32 32, %42
   %44 = shl nuw i32 1, %43
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %38, i32 %44
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -18553,7 +18553,7 @@ define hidden void @_ZN12LIRGenerator14do_TableSwitchEP11TableSwitch(ptr noundef
   %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 416
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull %0) #17
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %27, %24, %18
@@ -19067,7 +19067,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   %52 = sub nuw nsw i32 32, %51
   %53 = shl nuw i32 1, %52
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %47, i32 %53
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -19135,7 +19135,7 @@ define hidden void @_ZN12LIRGenerator15do_LookupSwitchEP12LookupSwitch(ptr nound
   %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 416
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull %0) #17
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %27, %24, %18
@@ -20037,7 +20037,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %54 = sub nuw nsw i32 32, %53
   %55 = shl nuw i32 1, %54
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %49, i32 %55
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -20366,7 +20366,7 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %128, %131
   %164 = load ptr, ptr %5, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 416
   %166 = load ptr, ptr %165, align 8
-  tail call void %166(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull %0) #17
+  tail call void %166(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %163, %160, %154
@@ -20565,7 +20565,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %23, %25
   %64 = sub nuw nsw i32 32, %63
   %65 = shl nuw i32 1, %64
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %59, i32 %65
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -20719,7 +20719,7 @@ _ZNK7LIR_Opr4typeEv.exit.thread35:                ; preds = %46, %_ZNK7LIR_Opr4t
   %84 = getelementptr inbounds i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = tail call noundef ptr %85(ptr noundef nonnull align 8 dereferenceable(96) %82) #17
-  %87 = tail call noundef i32 @_ZN12ciMethodData14offset_of_slotEP11ProfileData8ByteSize(ptr noundef nonnull align 8 dereferenceable(176) %25, ptr noundef %28, i32 noundef 24) #17
+  %87 = tail call noundef i32 @_ZN12ciMethodData14offset_of_slotEP11ProfileData8ByteSize(ptr noundef nonnull align 8 dereferenceable(176) %25, ptr noundef nonnull %28, i32 noundef 24) #17
   %88 = shl i32 %.02841, 4
   %89 = load ptr, ptr %86, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 464
@@ -21399,7 +21399,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %319, %317
   br i1 %321, label %_ZN10ValueStack4copyENS_4KindEi.exit, label %322
 
 322:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i80, ptr noundef nonnull %303, i32 noundef 2, i32 noundef -1) #17
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i80, ptr noundef nonnull align 8 dereferenceable(81) %303, i32 noundef 2, i32 noundef -1) #17
   br label %_ZN10ValueStack4copyENS_4KindEi.exit
 
 _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %322
@@ -21619,7 +21619,7 @@ _ZN22CompilationResourceObjnwEm.exit.i99:         ; preds = %446, %444
   br i1 %448, label %_ZN10ValueStack4copyENS_4KindEi.exit101, label %449
 
 449:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i99
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i100, ptr noundef nonnull %430, i32 noundef 2, i32 noundef -1) #17
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i100, ptr noundef nonnull align 8 dereferenceable(81) %430, i32 noundef 2, i32 noundef -1) #17
   br label %_ZN10ValueStack4copyENS_4KindEi.exit101
 
 _ZN10ValueStack4copyENS_4KindEi.exit101:          ; preds = %_ZN22CompilationResourceObjnwEm.exit.i99, %449
@@ -21789,7 +21789,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   %48 = sub nuw nsw i32 32, %47
   %49 = shl nuw i32 1, %48
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %43, i32 %49
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -21935,7 +21935,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %39, %37
   %75 = sub nuw nsw i32 32, %74
   %76 = shl nuw i32 1, %75
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %70, i32 %76
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -22101,7 +22101,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   %48 = sub nuw nsw i32 32, %47
   %49 = shl nuw i32 1, %48
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %43, i32 %49
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -22416,7 +22416,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %25, %27
   %54 = load ptr, ptr %31, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 416
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull %0) #17
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %53, %50, %44
@@ -22555,7 +22555,7 @@ _ZN22CompilationResourceObjnwEm.exit15:           ; preds = %98, %100
   %130 = load ptr, ptr %108, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 416
   %132 = load ptr, ptr %131, align 8
-  tail call void %132(ptr noundef nonnull align 8 dereferenceable(96) %108, ptr noundef nonnull %0) #17
+  tail call void %132(ptr noundef nonnull align 8 dereferenceable(96) %108, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i20
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i20: ; preds = %129, %126, %120
@@ -22939,7 +22939,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %21, %23
   %58 = sub nuw nsw i32 32, %57
   %59 = shl nuw i32 1, %58
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %53, i32 %59
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -23048,7 +23048,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   %59 = sub nuw nsw i32 32, %58
   %60 = shl nuw i32 1, %59
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %54, i32 %60
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -23157,7 +23157,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   %59 = sub nuw nsw i32 32, %58
   %60 = shl nuw i32 1, %59
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %54, i32 %60
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -23266,7 +23266,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   %59 = sub nuw nsw i32 32, %58
   %60 = shl nuw i32 1, %59
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %54, i32 %60
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -23335,7 +23335,7 @@ define hidden void @_ZN12LIRGenerator15do_FPIntrinsicsEP9Intrinsic(ptr noundef n
   %31 = load ptr, ptr %8, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 416
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull %0) #17
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %30, %27, %21
@@ -23459,7 +23459,7 @@ define hidden void @_ZN12LIRGenerator7do_IfOpEP4IfOp(ptr noundef nonnull align 8
   %31 = load ptr, ptr %8, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 416
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull %0) #17
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %30, %27, %21
@@ -23517,7 +23517,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %59 = load ptr, ptr %37, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 416
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull %0) #17
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i20
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i20: ; preds = %58, %55, %49
@@ -23585,7 +23585,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit23: ; preds = %_ZN7LIRItemC2EP11
   %92 = load ptr, ptr %69, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 416
   %94 = load ptr, ptr %93, align 8
-  call void %94(ptr noundef nonnull align 8 dereferenceable(96) %69, ptr noundef nonnull %0) #17
+  call void %94(ptr noundef nonnull align 8 dereferenceable(96) %69, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i28
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i28: ; preds = %91, %88, %82
@@ -23642,7 +23642,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit31: ; preds = %67, %_ZN12LIRGene
   %120 = load ptr, ptr %98, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 416
   %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(96) %98, ptr noundef nonnull %0) #17
+  call void %122(ptr noundef nonnull align 8 dereferenceable(96) %98, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i36
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i36: ; preds = %119, %116, %110
@@ -24117,7 +24117,7 @@ define hidden void @_ZN12LIRGenerator12do_IntrinsicEP9Intrinsic(ptr noundef nonn
   %85 = load ptr, ptr %67, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 416
   %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(96) %67, ptr noundef nonnull %0) #17
+  call void %87(ptr noundef nonnull align 8 dereferenceable(96) %67, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i.i: ; preds = %84, %81, %75
@@ -24249,7 +24249,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   %47 = sub nuw nsw i32 32, %46
   %48 = shl nuw i32 1, %47
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %42, i32 %48
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -24348,7 +24348,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   %47 = sub nuw nsw i32 32, %46
   %48 = shl nuw i32 1, %47
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %42, i32 %48
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -24447,7 +24447,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   %47 = sub nuw nsw i32 32, %46
   %48 = shl nuw i32 1, %47
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %42, i32 %48
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -24546,7 +24546,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   %47 = sub nuw nsw i32 32, %46
   %48 = shl nuw i32 1, %47
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %42, i32 %48
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -24645,7 +24645,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   %47 = sub nuw nsw i32 32, %46
   %48 = shl nuw i32 1, %47
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %42, i32 %48
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -24729,7 +24729,7 @@ define hidden void @_ZN12LIRGenerator12do_blackholeEP9Intrinsic(ptr noundef nonn
   %36 = load ptr, ptr %18, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 416
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull %0) #17
+  call void %38(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %35, %32, %26
@@ -25527,7 +25527,7 @@ _ZNK11ProfileCall16nb_profiled_argsEv.exit22.thread: ; preds = %_ZNK11ProfileCal
   %54 = load ptr, ptr %.pr.pre, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 416
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(96) %.pr.pre, ptr noundef nonnull %0) #17
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(96) %.pr.pre, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
 
 _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %44, %50, %53
@@ -25684,7 +25684,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %23, %25
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -26858,7 +26858,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %85, %87
   %111 = load ptr, ptr %71, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 416
   %113 = load ptr, ptr %112, align 8
-  tail call void %113(ptr noundef nonnull align 8 dereferenceable(96) %71, ptr noundef nonnull %0) #17
+  tail call void %113(ptr noundef nonnull align 8 dereferenceable(96) %71, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %110, %107, %101
@@ -27239,7 +27239,7 @@ _ZN22CompilationResourceObjnwEm.exit59:           ; preds = %98, %100
   %131 = load ptr, ptr %108, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 416
   %133 = load ptr, ptr %132, align 8
-  tail call void %133(ptr noundef nonnull align 8 dereferenceable(96) %108, ptr noundef nonnull %0) #17
+  tail call void %133(ptr noundef nonnull align 8 dereferenceable(96) %108, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
 
 _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %121, %127, %130
@@ -27290,7 +27290,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %121, %127, %130
   %156 = load ptr, ptr %135, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 416
   %158 = load ptr, ptr %157, align 8
-  tail call void %158(ptr noundef nonnull align 8 dereferenceable(96) %135, ptr noundef nonnull %0) #17
+  tail call void %158(ptr noundef nonnull align 8 dereferenceable(96) %135, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i65
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i65: ; preds = %155, %152, %146
@@ -27443,7 +27443,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   %43 = sub nuw nsw i32 32, %42
   %44 = shl nuw i32 1, %43
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %38, i32 %44
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -27514,7 +27514,7 @@ define hidden i64 @_ZN12LIRGenerator12call_runtimeEP11InstructionPhP9ValueTypeP1
   %35 = load ptr, ptr %1, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 416
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %0) #17
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   br label %_ZN12LIRGenerator4walkEP11Instruction.exit.i.i
 
 _ZN12LIRGenerator4walkEP11Instruction.exit.i.i:   ; preds = %34, %31, %25
@@ -27854,7 +27854,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %21, %23
   %55 = sub nuw nsw i32 32, %54
   %56 = shl nuw i32 1, %55
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %50, i32 %56
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -28019,7 +28019,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   %47 = sub nuw nsw i32 32, %46
   %48 = shl nuw i32 1, %47
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %42, i32 %48
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -28118,7 +28118,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   %47 = sub nuw nsw i32 32, %46
   %48 = shl nuw i32 1, %47
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %42, i32 %48
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -28217,7 +28217,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   %47 = sub nuw nsw i32 32, %46
   %48 = shl nuw i32 1, %47
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %42, i32 %48
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 

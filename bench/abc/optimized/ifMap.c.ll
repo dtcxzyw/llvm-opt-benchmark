@@ -121,7 +121,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %50 = icmp sgt i32 %46, -1
   %51 = icmp sgt i32 %49, -1
   %or.cond = select i1 %50, i1 %51, i1 false
-  %52 = tail call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %46, i32 %49)
+  %52 = tail call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 range(i32 0, -2147483648) %46, i32 range(i32 0, -2147483648) %49)
   %53 = add nuw nsw i32 %52, 1
   %54 = select i1 %or.cond, i32 %53, i32 -1
   %55 = getelementptr inbounds i8, ptr %1, i64 64
@@ -1343,7 +1343,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %569 = load i64, ptr %417, align 4
   %570 = trunc i64 %569 to i32
   %571 = lshr i32 %570, 24
-  %572 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %571, i32 6)
+  %572 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %571, i32 range(i32 0, -2147483648) 6)
   %573 = icmp samesign ult i32 %568, %572
   br i1 %573, label %532, label %.loopexit, !llvm.loop !10
 
@@ -1386,7 +1386,7 @@ If_CutTruthWR.exit:                               ; preds = %._crit_edge850, %57
   %595 = lshr i32 %594, 24
   %596 = getelementptr inbounds [16 x ptr], ptr %252, i64 0, i64 %.lcssa
   %597 = load ptr, ptr %596, align 8
-  %598 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %595, i32 6)
+  %598 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %595, i32 range(i32 0, -2147483648) 6)
   %599 = mul nsw i32 %.pre958, %598
   %600 = getelementptr i8, ptr %597, i64 8
   %.val.i = load ptr, ptr %600, align 8
@@ -1619,7 +1619,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %724 = load i64, ptr %417, align 4
   %725 = trunc i64 %724 to i32
   %726 = lshr i32 %725, 24
-  %727 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %726, i32 6)
+  %727 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %726, i32 range(i32 0, -2147483648) 6)
   %728 = load ptr, ptr %13, align 8
   %729 = getelementptr inbounds i8, ptr %728, i64 200
   %730 = load ptr, ptr %729, align 8
@@ -2018,7 +2018,7 @@ If_CutTruth.exit728:                              ; preds = %.lr.ph.i.i.i717, %.
   ]
 
 942:                                              ; preds = %If_CutTruth.exit728
-  %943 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %940)
+  %943 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 range(i32 0, 65536) %940)
   %944 = icmp samesign ult i32 %943, 2
   br i1 %944, label %Abc_Tt4Check.exit.thread, label %945
 
@@ -2050,7 +2050,7 @@ If_CutTruth.exit728:                              ; preds = %.lr.ph.i.i.i717, %.
   ]
 
 965:                                              ; preds = %949
-  %966 = call fastcc i32 @Abc_Tt4CheckTwoLevel(i32 noundef %940)
+  %966 = call fastcc i32 @Abc_Tt4CheckTwoLevel(i32 noundef range(i32 0, 65536) %940)
   %967 = icmp sgt i32 %966, 0
   br i1 %967, label %Abc_Tt4Check.exit.thread, label %Abc_Tt4Check.exit
 
@@ -2238,12 +2238,12 @@ If_CutTruthWR.exit738:                            ; preds = %1040, %1043
   %wide.trip.count24.i.i741 = zext nneg i32 %1065 to i64
   %1067 = shl nuw nsw i64 %wide.trip.count24.i.i741, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull readonly align 8 dereferenceable(1) %1061, i64 %1067, i1 false)
-  %1068 = call fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef %8, i32 noundef %1035, i32 noundef %1037)
+  %1068 = call fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef %8, i32 noundef range(i32 0, 256) %1035, i32 noundef range(i32 -1073741824, 1073741824) %1037)
   %.not.i742 = icmp eq i32 %1068, 0
   br i1 %.not.i742, label %.lr.ph.i.i743, label %Abc_TtProcessBiDec.exit
 
 Abc_TtCopy.exit.thread.i:                         ; preds = %If_CutTruthWR.exit738
-  %1069 = call fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef %8, i32 noundef %1035, i32 noundef %1037)
+  %1069 = call fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef %8, i32 noundef range(i32 0, 256) %1035, i32 noundef range(i32 -1073741824, 1073741824) %1037)
   %.not17.i = icmp eq i32 %1069, 0
   br i1 %.not17.i, label %Abc_TtCopy.exit16.i, label %Abc_TtProcessBiDec.exit
 
@@ -2259,7 +2259,7 @@ Abc_TtCopy.exit.thread.i:                         ; preds = %If_CutTruthWR.exit7
   br i1 %exitcond.not.i.i746, label %Abc_TtCopy.exit16.i, label %.lr.ph.i.i743, !llvm.loop !11
 
 Abc_TtCopy.exit16.i:                              ; preds = %.lr.ph.i.i743, %Abc_TtCopy.exit.thread.i
-  %1074 = call fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef %8, i32 noundef %1035, i32 noundef %1037)
+  %1074 = call fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef %8, i32 noundef range(i32 0, 256) %1035, i32 noundef range(i32 -1073741824, 1073741824) %1037)
   %.not15.i = icmp eq i32 %1074, 0
   %1075 = or i32 %1074, 1073741824
   %spec.select.i = select i1 %.not15.i, i32 0, i32 %1075

@@ -300,7 +300,7 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 0, ptr %8, align 8, !alias.scope !60, !noalias !59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !61
-  call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17hb6530d2a1b86bfd3E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !59
+  call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17hb6530d2a1b86bfd3E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !59
   %9 = load i64, ptr %3, align 8, !range !62, !noalias !61, !noundef !4
   %10 = icmp eq i64 %9, 2
   %11 = getelementptr inbounds i8, ptr %3, i64 8
@@ -415,7 +415,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 0, ptr %8, align 8, !alias.scope !69, !noalias !66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !74
-  call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17hb6530d2a1b86bfd3E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !66
+  call void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$9parse_str17hb6530d2a1b86bfd3E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !66
   %9 = load i64, ptr %3, align 8, !range !62, !noalias !74, !noundef !4
   %10 = icmp eq i64 %9, 2
   %11 = getelementptr inbounds i8, ptr %3, i64 8

@@ -5670,7 +5670,7 @@ define hidden void @_ZN21ZStatMutatorAllocRate17sample_allocationEm(i64 noundef 
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @_ZN21ZStatMutatorAllocRate10_stat_lockE, align 8
-  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %7) #20
+  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %53
 
@@ -5682,7 +5682,7 @@ define hidden void @_ZN21ZStatMutatorAllocRate17sample_allocationEm(i64 noundef 
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr @_ZN21ZStatMutatorAllocRate10_stat_lockE, align 8
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #20
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #20
   br label %53
 
 17:                                               ; preds = %10
@@ -5694,7 +5694,7 @@ define hidden void @_ZN21ZStatMutatorAllocRate17sample_allocationEm(i64 noundef 
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr @_ZN21ZStatMutatorAllocRate10_stat_lockE, align 8
-  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #20
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %23) #20
   br label %53
 
 25:                                               ; preds = %17
@@ -5735,7 +5735,7 @@ define hidden void @_ZN21ZStatMutatorAllocRate17sample_allocationEm(i64 noundef 
 
 50:                                               ; preds = %25, %42
   %51 = load ptr, ptr @_ZN21ZStatMutatorAllocRate10_stat_lockE, align 8
-  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %51) #20
+  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %51) #20
   tail call void @_ZN9ZDirector14evaluate_rulesEv() #20
   br label %53
 
@@ -5771,11 +5771,11 @@ define hidden void @_ZN21ZStatMutatorAllocRate5statsEv(ptr dead_on_unwind noalia
   br i1 %.not.i, label %_ZN7ZLockerI5ZLockED2Ev.exit.critedge, label %_ZN7ZLockerI5ZLockEC2EPS0_.exit
 
 _ZN7ZLockerI5ZLockEC2EPS0_.exit:                  ; preds = %1
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #20
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #20
   %4 = tail call noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21ZStatMutatorAllocRate5_rateE) #20
   %5 = tail call noundef double @_ZNK12TruncatedSeq12predict_nextEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN21ZStatMutatorAllocRate5_rateE) #20
   %6 = tail call noundef double @_ZNK6AbsSeq2sdEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21ZStatMutatorAllocRate5_rateE) #20
-  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #20
+  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #20
   br label %_ZN7ZLockerI5ZLockED2Ev.exit
 
 _ZN7ZLockerI5ZLockED2Ev.exit.critedge:            ; preds = %1
@@ -6535,7 +6535,7 @@ declare void @_ZN9NumberSeqC1Ed(ptr noundef nonnull align 8 dereferenceable(72),
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ZStatCycle8at_startEv(ptr noundef nonnull align 8 dereferenceable(376) %0) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %2 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
@@ -6543,13 +6543,13 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   store i64 %3, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %4, ptr %.sroa.2.0..sroa_idx, align 8
-  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ZStatCycle6at_endEP12ZStatWorkersb(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.024.0.copyload = load i64, ptr %5, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
@@ -6585,7 +6585,7 @@ define hidden void @_ZN10ZStatCycle6at_endEP12ZStatWorkersb(ptr noundef nonnull 
   %23 = load i64, ptr %22, align 8
   %24 = sub nsw i64 %.sroa.4.0.copyload.i.i.i.i.i, %23
   %25 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %21, i64 %24) #20
-  %26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #20
+  %26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(96) %1) #20
   %27 = getelementptr inbounds i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i = load i64, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 72
@@ -6593,8 +6593,8 @@ define hidden void @_ZN10ZStatCycle6at_endEP12ZStatWorkersb(ptr noundef nonnull 
   %28 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i) #20
   %29 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #20
-  %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #20
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(96) %1) #20
+  %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(96) %1) #20
   %32 = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.0.0.copyload.i.i11 = load i64, ptr %32, align 8
   %.sroa.2.0..sroa_idx.i.i12 = getelementptr inbounds i8, ptr %1, i64 88
@@ -6602,7 +6602,7 @@ define hidden void @_ZN10ZStatCycle6at_endEP12ZStatWorkersb(ptr noundef nonnull 
   %33 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.0.0.copyload.i.i11, i64 %.sroa.2.0.copyload.i.i13) #20
   %34 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #20
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(96) %1) #20
   %36 = fdiv double %33, %28
   %37 = getelementptr inbounds i8, ptr %0, i64 368
   store double %36, ptr %37, align 8
@@ -6630,14 +6630,14 @@ define hidden void @_ZN10ZStatCycle6at_endEP12ZStatWorkersb(ptr noundef nonnull 
   br label %_ZN7ZLockerI5ZLockED2Ev.exit
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %38, %43, %18
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZN12ZStatWorkers22get_and_reset_durationEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
@@ -6645,14 +6645,14 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %3 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #20
   %4 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZN12ZStatWorkers18get_and_reset_timeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 88
@@ -6660,7 +6660,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %3 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #20
   %4 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret double %3
 }
 
@@ -6742,7 +6742,7 @@ define hidden noundef double @_ZN10ZStatCycle15time_since_lastEv(ptr nocapture n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ZStatCycle5statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ZStatCycleStats) align 8 %0, ptr noundef nonnull align 8 dereferenceable(376) %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #20
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #20
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, 2
@@ -6828,7 +6828,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %_ZN10ZStatCycle15ti
   %57 = getelementptr inbounds i8, ptr %0, i64 96
   %58 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %55) #20
   store double %58, ptr %57, align 8
-  %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #20
+  %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #20
   ret void
 }
 
@@ -6850,7 +6850,7 @@ define hidden void @_ZN12ZStatWorkersC2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ZStatWorkers8at_startEj(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
@@ -6860,13 +6860,13 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   store i64 %5, ptr %.sroa.2.0..sroa_idx, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %7, align 8
-  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ZStatWorkers6at_endEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
@@ -6916,7 +6916,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %.lr.ph.preheader, %
   %38 = add nsw i64 %37, %11
   store i64 %38, ptr %36, align 8
   store i32 0, ptr %12, align 8
-  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
@@ -7001,7 +7001,7 @@ define hidden noundef i32 @_ZN12ZStatWorkers14active_workersEv(ptr nocapture nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { double, double } @_ZN12ZStatWorkers5statsEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20
@@ -7063,7 +7063,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %_ZN12ZStatWorkers16
   %.sroa.01.0.i = phi i64 [ %.sroa.01.0.copyload.i, %_ZN12ZStatWorkers16accumulated_timeEv.exit ], [ %31, %26 ]
   %.sroa.4.0.i4 = phi i64 [ %.sroa.4.0.copyload.i2, %_ZN12ZStatWorkers16accumulated_timeEv.exit ], [ %33, %26 ]
   %34 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.01.0.i, i64 %.sroa.4.0.i4) #20
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %.fca.0.insert = insertvalue { double, double } poison, double %22, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %34, 1
   ret { double, double } %.fca.1.insert
@@ -7634,17 +7634,17 @@ define hidden noundef i64 @_ZNK9ZStatHeap9reclaimedEmmm(ptr nocapture noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZStatHeap13at_initializeEmm(ptr noundef nonnull align 8 dereferenceable(488) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   store i64 %1, ptr @_ZN9ZStatHeap14_at_initializeE, align 8
   store i64 %2, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
-  %4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZStatHeap19at_collection_startERK19ZPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -7666,14 +7666,14 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %17, ptr %18, align 8
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZStatHeap13at_mark_startERK19ZPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -7699,14 +7699,14 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %20, ptr %21, align 8
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZStatHeap11at_mark_endERK19ZPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -7733,13 +7733,13 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 184
   store i64 %21, ptr %22, align 8
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZStatHeap24at_select_relocation_setERK27ZRelocationSetSelectorStats(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2312) %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %4 = getelementptr inbounds i8, ptr %1, i64 784
   %5 = getelementptr inbounds i8, ptr %1, i64 1552
   br label %6
@@ -7769,14 +7769,14 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %6
   %19 = sub i64 %18, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 168
   store i64 %19, ptr %20, align 8
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZStatHeap17at_relocate_startERK19ZPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -7840,13 +7840,13 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 272
   store i64 %51, ptr %52, align 8
-  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZStatHeap15at_relocate_endERK19ZPageAllocatorStatsb(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #20
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 280
@@ -7951,7 +7951,7 @@ define hidden void @_ZN9ZStatHeap15at_relocate_endERK19ZPageAllocatorStatsb(ptr 
   br label %_ZN7ZLockerI5ZLockED2Ev.exit
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %81, %3
-  %84 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #20
+  %84 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
 
@@ -8036,7 +8036,7 @@ define hidden noundef i64 @_ZNK9ZStatHeap22stalls_at_relocate_endEv(ptr nocaptur
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZStatHeap5statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ZStatHeapStats) align 8 %0, ptr noundef nonnull align 8 dereferenceable(488) %1) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #20
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #20
   %3 = getelementptr inbounds i8, ptr %1, i64 160
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8
@@ -8049,7 +8049,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %10 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #20
   %11 = fptoui double %10 to i64
   store i64 %11, ptr %8, align 8
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #20
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #20
   ret void
 }
 
@@ -8082,8 +8082,8 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 define linkonce_odr hidden void @_ZN5ZStatD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV5ZStat, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #20
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #20
+  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #20
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #20
   ret void
 }
 
@@ -8091,8 +8091,8 @@ define linkonce_odr hidden void @_ZN5ZStatD2Ev(ptr noundef nonnull align 8 deref
 define linkonce_odr hidden void @_ZN5ZStatD0Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV5ZStat, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #20
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #20
+  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #20
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) #20
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #20
   ret void
 }

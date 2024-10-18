@@ -355,7 +355,7 @@ define void @_ZN6Blocks10totalOrderB5cxx11Ev(ptr dead_on_unwind noalias writable
 .lr.ph.i.i.i:                                     ; preds = %30, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %32, %30 ]
   %33 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #15
   %.not.i.i.i = icmp eq ptr %33, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !8
 

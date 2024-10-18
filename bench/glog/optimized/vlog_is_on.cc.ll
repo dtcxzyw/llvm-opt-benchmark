@@ -95,7 +95,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMa
 define noundef i32 @_ZN6google12SetVLOGLevelEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr @_ZN3fLI7FLAGS_vE, align 4
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN6googleL13vmodule_mutexE) #12
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6googleL13vmodule_mutexE) #12
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader, label %6
 
@@ -128,7 +128,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader: ; preds = %2
 14:                                               ; preds = %30, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN6googleL13vmodule_mutexE) #12
+  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6googleL13vmodule_mutexE) #12
   resume { ptr, i32 } %15
 
 17:                                               ; preds = %11, %10
@@ -170,7 +170,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread: ; preds = %_ZNSt10loc
           to label %30 unwind label %14
 
 30:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #12
   %31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef %0)
           to label %32 unwind label %14
 
@@ -215,7 +215,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread: ; preds = %_ZNSt10loc
 
 .loopexit:                                        ; preds = %46, %32, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge
   %.0.lcssa65 = phi i32 [ %.0.lcssa64, %32 ], [ %.2, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge ], [ %.0.lcssa64, %46 ]
-  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN6googleL13vmodule_mutexE) #12
+  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6googleL13vmodule_mutexE) #12
   %48 = load ptr, ptr @_ZZN6google12SetVLOGLevelEPKciE8vlocal__, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %52
@@ -258,7 +258,7 @@ define noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noun
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca i32, align 4
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN6googleL13vmodule_mutexE) #12
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6googleL13vmodule_mutexE) #12
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %9
 
@@ -306,7 +306,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
           to label %24 unwind label %33
 
 24:                                               ; preds = %22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #12
   %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %26 unwind label %33
 
@@ -365,7 +365,7 @@ _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %39, %40
 
 .body:                                            ; preds = %31, %33
   %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
-  %43 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN6googleL13vmodule_mutexE) #12
+  %43 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6googleL13vmodule_mutexE) #12
   resume { ptr, i32 } %eh.lpad-body
 
 44:                                               ; preds = %_ZN6googleL16VLOG2InitializerEv.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -455,7 +455,7 @@ _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %39, %40
   store i32 %46, ptr %45, align 4
   %83 = load i32, ptr %.039, align 4
   %84 = icmp sge i32 %83, %3
-  %85 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN6googleL13vmodule_mutexE) #12
+  %85 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6googleL13vmodule_mutexE) #12
   ret i1 %84
 }
 

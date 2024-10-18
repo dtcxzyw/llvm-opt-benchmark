@@ -1420,7 +1420,7 @@ lor.lhs.false.i.i:                                ; preds = %call.i.i.noexc
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont34
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %call.i.i.noexc
-  invoke void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail)
+  invoke void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %m_trail)
           to label %.noexc unwind label %lpad33
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -1780,7 +1780,7 @@ lor.lhs.false.i.i:                                ; preds = %call.i.i.noexc
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont19
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %call.i.i.noexc
-  invoke void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail)
+  invoke void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %m_trail)
           to label %.noexc unwind label %lpad18
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -2801,7 +2801,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

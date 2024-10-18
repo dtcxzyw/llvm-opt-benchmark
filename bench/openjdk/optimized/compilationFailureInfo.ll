@@ -185,7 +185,7 @@ define hidden noundef zeroext i1 @_ZN22CompilationFailureInfo33print_pending_com
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.5, ptr noundef %42) #3
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.6) #3
-  tail call void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32) %.1, ptr noundef nonnull %0) #3
+  tail call void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(52) %.1, ptr noundef nonnull %0) #3
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   br label %.thread32
 

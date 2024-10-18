@@ -1742,7 +1742,7 @@ define hidden noundef ptr @_ZN11opencv_onnx14AttributeProto14_InternalParseEPKcP
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %28
-  %41 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %33, i32 noundef %25)
+  %41 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %33, i32 noundef %25)
   %42 = extractvalue { ptr, i8 } %41, 0
   %43 = extractvalue { ptr, i8 } %41, 1
   %44 = trunc i8 %43 to i1
@@ -5635,7 +5635,7 @@ define hidden noundef ptr @_ZN11opencv_onnx14ValueInfoProto14_InternalParseEPKcP
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
-  %27 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %19, i32 noundef %11)
+  %27 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %19, i32 noundef %11)
   %28 = extractvalue { ptr, i8 } %27, 0
   %29 = extractvalue { ptr, i8 } %27, 1
   %30 = trunc i8 %29 to i1
@@ -6164,7 +6164,7 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
 _ZNK11opencv_onnx9TypeProto12ByteSizeLongEv.exit: ; preds = %22, %25
   %.1.i = phi i64 [ %39, %25 ], [ %.0.i, %22 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 20
-  %41 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1.i, ptr noundef nonnull %40)
+  %41 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %.1.i, ptr noundef nonnull %40)
   %42 = trunc i64 %41 to i32
   %43 = or i32 %42, 1
   %44 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
@@ -7372,7 +7372,7 @@ define hidden noundef ptr @_ZN11opencv_onnx9NodeProto14_InternalParseEPKcPN6goog
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %19
-  %32 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %24, i32 noundef %16)
+  %32 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %24, i32 noundef %16)
   %33 = extractvalue { ptr, i8 } %32, 0
   %34 = extractvalue { ptr, i8 } %32, 1
   %35 = trunc i8 %34 to i1
@@ -9482,7 +9482,7 @@ define hidden noundef ptr @_ZN11opencv_onnx10ModelProto14_InternalParseEPKcPN6go
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %25
-  %38 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %30, i32 noundef %22)
+  %38 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %30, i32 noundef %22)
   %39 = extractvalue { ptr, i8 } %38, 0
   %40 = extractvalue { ptr, i8 } %38, 1
   %41 = trunc i8 %40 to i1
@@ -10611,7 +10611,7 @@ define hidden noundef i64 @_ZNK11opencv_onnx10ModelProto12ByteSizeLongEv(ptr nou
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN11opencv_onnx18OperatorSetIdProtoEEEmRKT_.exit: ; preds = %.lr.ph, %32, %34
   %.0.i.i = phi i64 [ %43, %34 ], [ %.1.i.i, %32 ], [ 0, %.lr.ph ]
   %44 = getelementptr inbounds i8, ptr %9, i64 20
-  %45 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %.0.i.i, ptr noundef nonnull %44)
+  %45 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(40) %9, i64 noundef %.0.i.i, ptr noundef nonnull %44)
   %46 = trunc i64 %45 to i32
   %47 = or i32 %46, 1
   %48 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %47, i1 true)
@@ -10889,7 +10889,7 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
 _ZNK11opencv_onnx22StringStringEntryProto12ByteSizeLongEv.exit: ; preds = %1, %24, %26
   %.0.i = phi i64 [ %43, %26 ], [ %.1.i, %24 ], [ 0, %1 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 20
-  %45 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0.i, ptr noundef nonnull %44)
+  %45 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i, ptr noundef nonnull %44)
   %46 = trunc i64 %45 to i32
   %47 = or i32 %46, 1
   %48 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %47, i1 true)
@@ -11742,7 +11742,7 @@ define hidden noundef ptr @_ZN11opencv_onnx22StringStringEntryProto14_InternalPa
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
-  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %18, i32 noundef %10)
+  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %18, i32 noundef %10)
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
   %29 = trunc i8 %28 to i1
@@ -13002,7 +13002,7 @@ define hidden noundef ptr @_ZN11opencv_onnx10GraphProto14_InternalParseEPKcPN6go
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %25
-  %38 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %30, i32 noundef %22)
+  %38 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %30, i32 noundef %22)
   %39 = extractvalue { ptr, i8 } %38, 0
   %40 = extractvalue { ptr, i8 } %38, 1
   %41 = trunc i8 %40 to i1
@@ -14527,7 +14527,7 @@ define hidden noundef ptr @_ZN11opencv_onnx19TensorProto_Segment14_InternalParse
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
-  %25 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %17, i32 noundef %9)
+  %25 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %17, i32 noundef %9)
   %26 = extractvalue { ptr, i8 } %25, 0
   %27 = extractvalue { ptr, i8 } %25, 1
   %28 = trunc i8 %27 to i1
@@ -15562,7 +15562,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit56._crit_edge: ; 
 .body:                                            ; preds = %139, %137
   %145 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %127) #20
+  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %127) #20
   tail call void @_ZdlPv(ptr noundef nonnull %127) #22
   br label %154
 
@@ -15877,7 +15877,7 @@ define hidden noundef ptr @_ZN11opencv_onnx11TensorProto14_InternalParseEPKcPN6g
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %30
-  %43 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %35, i32 noundef %27)
+  %43 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %35, i32 noundef %27)
   %44 = extractvalue { ptr, i8 } %43, 0
   %45 = extractvalue { ptr, i8 } %43, 1
   %46 = trunc i8 %45 to i1
@@ -17662,7 +17662,7 @@ define hidden noundef i64 @_ZNK11opencv_onnx11TensorProto12ByteSizeLongEv(ptr no
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN11opencv_onnx19TensorProto_SegmentEEEmRKT_.exit: ; preds = %171, %188, %190
   %.0.i.i = phi i64 [ %199, %190 ], [ %.1.i.i, %188 ], [ 0, %171 ]
   %200 = getelementptr inbounds i8, ptr %173, i64 20
-  %201 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %173, i64 noundef %.0.i.i, ptr noundef nonnull %200)
+  %201 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(40) %173, i64 noundef %.0.i.i, ptr noundef nonnull %200)
   %202 = trunc i64 %201 to i32
   %203 = or i32 %202, 1
   %204 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %203, i1 true)
@@ -18269,7 +18269,7 @@ define hidden noundef ptr @_ZN11opencv_onnx26TensorShapeProto_Dimension14_Intern
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
-  %27 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %19, i32 noundef %11)
+  %27 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %19, i32 noundef %11)
   %28 = extractvalue { ptr, i8 } %27, 0
   %29 = extractvalue { ptr, i8 } %27, 1
   %30 = trunc i8 %29 to i1
@@ -19425,7 +19425,7 @@ define hidden noundef ptr @_ZN11opencv_onnx16TensorShapeProto14_InternalParseEPK
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
-  %28 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %20, i32 noundef %12)
+  %28 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %20, i32 noundef %12)
   %29 = extractvalue { ptr, i8 } %28, 0
   %30 = extractvalue { ptr, i8 } %28, 1
   %31 = trunc i8 %30 to i1
@@ -20330,7 +20330,7 @@ define hidden noundef ptr @_ZN11opencv_onnx16TypeProto_Tensor14_InternalParseEPK
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
-  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %18, i32 noundef %10)
+  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %18, i32 noundef %10)
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
   %29 = trunc i8 %28 to i1
@@ -20840,7 +20840,7 @@ define hidden noundef i64 @_ZNK11opencv_onnx16TypeProto_Tensor12ByteSizeLongEv(p
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN11opencv_onnx16TensorShapeProtoEEEmRKT_.exit: ; preds = %.lr.ph.i.i, %7
   %.0.lcssa.i.i = phi i64 [ 0, %7 ], [ %28, %.lr.ph.i.i ]
   %30 = getelementptr inbounds i8, ptr %9, i64 40
-  %31 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %.0.lcssa.i.i, ptr noundef nonnull %30)
+  %31 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %.0.lcssa.i.i, ptr noundef nonnull %30)
   %32 = trunc i64 %31 to i32
   %33 = or i32 %32, 1
   %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %33, i1 true)
@@ -21718,7 +21718,7 @@ define hidden noundef ptr @_ZN11opencv_onnx9TypeProto14_InternalParseEPKcPN6goog
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
-  %27 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %19, i32 noundef %11)
+  %27 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %19, i32 noundef %11)
   %28 = extractvalue { ptr, i8 } %27, 0
   %29 = extractvalue { ptr, i8 } %27, 1
   %30 = trunc i8 %29 to i1
@@ -22492,7 +22492,7 @@ define hidden noundef ptr @_ZN11opencv_onnx18OperatorSetIdProto14_InternalParseE
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
-  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %18, i32 noundef %10)
+  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %18, i32 noundef %10)
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
   %29 = trunc i8 %28 to i1
@@ -23196,7 +23196,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11open
 
 .body:                                            ; preds = %12, %10
   %.pn.pn.i = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
-  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #20
   tail call void @_ZdlPv(ptr noundef nonnull %4) #22
   br label %common.resume
 
@@ -23243,7 +23243,7 @@ common.resume:                                    ; preds = %28, %.body
 
 28:                                               ; preds = %26, %24
   %.pn.pn.i33 = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #20
+  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %17) #20
   br label %common.resume
 
 _ZN11opencv_onnx9NodeProtoC2EPN6google8protobuf5ArenaEb.exit34: ; preds = %22
@@ -23738,7 +23738,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11opencv_onnx9NodeProto3NewEPN6googl
 
 .body:                                            ; preds = %13, %11
   %.pn.pn.i = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #20
   tail call void @_ZdlPv(ptr noundef nonnull %5) #22
   br label %common.resume
 
@@ -23785,7 +23785,7 @@ common.resume:                                    ; preds = %29, %.body
 
 29:                                               ; preds = %27, %25
   %.pn.pn.i2 = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #20
+  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %18) #20
   br label %common.resume
 
 _ZN11opencv_onnx9NodeProtoC2EPN6google8protobuf5ArenaEb.exit3: ; preds = %23
@@ -24532,7 +24532,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal20RepeatedPt
 
 .body:                                            ; preds = %28, %26
   %.pn.pn.i = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
-  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
+  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %20) #20
   tail call void @_ZdlPv(ptr noundef nonnull %20) #22
   br label %common.resume
 
@@ -24579,7 +24579,7 @@ common.resume:                                    ; preds = %44, %.body
 
 44:                                               ; preds = %42, %40
   %.pn.pn.i7 = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
-  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #20
+  tail call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %33) #20
   br label %common.resume
 
 _ZN11opencv_onnx9NodeProtoC2EPN6google8protobuf5ArenaEb.exit8: ; preds = %38

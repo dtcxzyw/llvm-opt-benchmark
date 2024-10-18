@@ -447,14 +447,14 @@ select.unfold:                                    ; preds = %125
 151:                                              ; preds = %150
   %152 = getelementptr inbounds i8, ptr %13, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #6
-  call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #6
+  call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %13) #6
   br label %155
 
 153:                                              ; preds = %149, %110
   %.pn46 = phi { ptr, i32 } [ %111, %110 ], [ %.pn44, %149 ]
   %154 = getelementptr inbounds i8, ptr %13, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #6
-  call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #6
+  call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %13) #6
   br label %156
 
 155:                                              ; preds = %75, %151

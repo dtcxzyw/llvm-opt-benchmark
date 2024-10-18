@@ -396,7 +396,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h4f95734b9bc534b
   %2 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !110
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.c9a73e9d2c54560daa36ab0ce0f3c16c.55, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !111
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.c9a73e9d2c54560daa36ab0ce0f3c16c.55, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !111
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !106
   ret i1 %3
 }
@@ -525,12 +525,12 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8f1124b090de5df3E.exit.i": ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i
   %51 = sub nuw i64 %48, %15
   %52 = getelementptr inbounds i8, ptr %.val, i64 %51
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %52, ptr nonnull readonly %12, i64 %15), !alias.scope !121, !noalias !115
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %52, ptr nonnull readonly align 1 %12, i64 %15), !alias.scope !121, !noalias !115
   %53 = icmp eq i32 %bcmp.i.i, 0
   br i1 %53, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9", label %49
 
 .split.us.i:                                      ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %15, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c9a73e9d2c54560daa36ab0ce0f3c16c.56) #25, !noalias !125
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef range(i64 0, 256) %15, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c9a73e9d2c54560daa36ab0ce0f3c16c.56) #25, !noalias !125
   unreachable
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread18": ; preds = %.preheader.i.i, %42, %.preheader.i.us.i, %29
@@ -582,7 +582,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp.
   br i1 %.not.i, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8f1124b090de5df3E.exit"
 
 5:                                                ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %1), !alias.scope !131
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %2, i64 %1), !alias.scope !131
   %6 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8f1124b090de5df3E.exit"
 
@@ -834,7 +834,7 @@ define hidden void @_ZN4gpui4view8any_view6render17h3917267d3972cecaE(ptr dead_o
   br i1 %12, label %_ZN4gpui4view7AnyView8downcast17hba50cc720800d510E.exit.thread, label %13
 
 13:                                               ; preds = %10
-  call void @"_ZN4core3ptr49drop_in_place$LT$gpui..style..StyleRefinement$GT$17hccd3819820dd12a6E"(ptr noalias noundef nonnull align 8 dereferenceable(568) %5), !noalias !182
+  call void @"_ZN4core3ptr49drop_in_place$LT$gpui..style..StyleRefinement$GT$17hccd3819820dd12a6E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %5), !noalias !182
   br label %_ZN4gpui4view7AnyView8downcast17hba50cc720800d510E.exit.thread
 
 _ZN4gpui4view7AnyView8downcast17hba50cc720800d510E.exit.thread: ; preds = %10, %13
@@ -1004,7 +1004,7 @@ define hidden void @_ZN4gpui4view8any_view6render17he5eb0721d9092c16E(ptr dead_o
   br i1 %12, label %_ZN4gpui4view7AnyView8downcast17h87a19d5b2aa731edE.exit.thread, label %13
 
 13:                                               ; preds = %10
-  call void @"_ZN4core3ptr49drop_in_place$LT$gpui..style..StyleRefinement$GT$17hccd3819820dd12a6E"(ptr noalias noundef nonnull align 8 dereferenceable(568) %5), !noalias !218
+  call void @"_ZN4core3ptr49drop_in_place$LT$gpui..style..StyleRefinement$GT$17hccd3819820dd12a6E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %5), !noalias !218
   br label %_ZN4gpui4view7AnyView8downcast17h87a19d5b2aa731edE.exit.thread
 
 _ZN4gpui4view7AnyView8downcast17h87a19d5b2aa731edE.exit.thread: ; preds = %10, %13
@@ -1152,7 +1152,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h1be4ef0d43c35250E(ptr noun
   br i1 %3, label %"_ZN4core3ptr131drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$ui..components..button..icon_button..IconButton$GT$$GT$$GT$17h71dd0c89db8091d8E.exit", label %4
 
 4:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$ui..components..button..button_like..ButtonLike$GT$17heaeafe0aa0e2e503E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %0)
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$ui..components..button..button_like..ButtonLike$GT$17heaeafe0aa0e2e503E"(ptr noalias noundef nonnull align 8 dereferenceable(1992) %0)
           to label %"_ZN4core3ptr131drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$ui..components..button..icon_button..IconButton$GT$$GT$$GT$17h71dd0c89db8091d8E.exit" unwind label %5
 
 5:                                                ; preds = %4
@@ -1190,7 +1190,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h411e3bd350ee6310E(ptr noun
   br i1 %3, label %"_ZN4core3ptr131drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$ui..components..button..button_like..ButtonLike$GT$$GT$$GT$17h44fdf49a94a7071eE.exit", label %4
 
 4:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$ui..components..button..button_like..ButtonLike$GT$17heaeafe0aa0e2e503E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %0)
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$ui..components..button..button_like..ButtonLike$GT$17heaeafe0aa0e2e503E"(ptr noalias noundef nonnull align 8 dereferenceable(1968) %0)
           to label %"_ZN4core3ptr131drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$ui..components..button..button_like..ButtonLike$GT$$GT$$GT$17h44fdf49a94a7071eE.exit" unwind label %5
 
 5:                                                ; preds = %4
@@ -1224,7 +1224,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h495db385a155731eE(ptr noun
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr213drop_in_place$LT$gpui..element..ElementDrawPhase$LT$ui..components..popover_menu..PopoverMenuFrameState$LT$ui..components..context_menu..ContextMenu$GT$$C$core..option..Option$LT$gpui..window..HitboxId$GT$$GT$$GT$17h9ab09f93723496e5E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1160) %0) #26
+  invoke void @"_ZN4core3ptr213drop_in_place$LT$gpui..element..ElementDrawPhase$LT$ui..components..popover_menu..PopoverMenuFrameState$LT$ui..components..context_menu..ContextMenu$GT$$C$core..option..Option$LT$gpui..window..HitboxId$GT$$GT$$GT$17h9ab09f93723496e5E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1248) %0) #26
           to label %7 unwind label %5
 
 5:                                                ; preds = %3
@@ -1237,7 +1237,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h495db385a155731eE(ptr noun
   resume { ptr, i32 } %4
 
 "_ZN4core3ptr142drop_in_place$LT$gpui..element..Drawable$LT$ui..components..popover_menu..PopoverMenu$LT$ui..components..context_menu..ContextMenu$GT$$GT$$GT$17h780aac7953696512E.exit": ; preds = %1
-  tail call void @"_ZN4core3ptr213drop_in_place$LT$gpui..element..ElementDrawPhase$LT$ui..components..popover_menu..PopoverMenuFrameState$LT$ui..components..context_menu..ContextMenu$GT$$C$core..option..Option$LT$gpui..window..HitboxId$GT$$GT$$GT$17h9ab09f93723496e5E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1160) %0)
+  tail call void @"_ZN4core3ptr213drop_in_place$LT$gpui..element..ElementDrawPhase$LT$ui..components..popover_menu..PopoverMenuFrameState$LT$ui..components..context_menu..ContextMenu$GT$$C$core..option..Option$LT$gpui..window..HitboxId$GT$$GT$$GT$17h9ab09f93723496e5E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1248) %0)
   ret void
 }
 
@@ -1248,7 +1248,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h6c6bc1bb60a4e0f9E(ptr noun
   br i1 %3, label %"_ZN4core3ptr119drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$ui..components..label..label..Label$GT$$GT$$GT$17h1f0f92f46b54c845E.exit", label %4
 
 4:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hf5116d3e1ed87a30E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(856) %0)
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hf5116d3e1ed87a30E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1952) %0)
           to label %"_ZN4core3ptr119drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$ui..components..label..label..Label$GT$$GT$$GT$17h1f0f92f46b54c845E.exit" unwind label %5
 
 5:                                                ; preds = %4
@@ -1287,13 +1287,13 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hb0fd7cd7a986fed9E(ptr noun
   br i1 %4, label %"_ZN4core3ptr55drop_in_place$LT$gpui..elements..deferred..Deferred$GT$17h0bc44bcca716a575E.exit.i", label %5
 
 5:                                                ; preds = %1
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5fc048e6a1c29b93E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5fc048e6a1c29b93E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %"_ZN4core3ptr55drop_in_place$LT$gpui..elements..deferred..Deferred$GT$17h0bc44bcca716a575E.exit.i" unwind label %6
 
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h8baebef098eb5afbE.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1072) %0) #26
+  invoke void @"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h8baebef098eb5afbE.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1104) %0) #26
           to label %24 unwind label %22
 
 "_ZN4core3ptr55drop_in_place$LT$gpui..elements..deferred..Deferred$GT$17h0bc44bcca716a575E.exit.i": ; preds = %5, %1
@@ -1344,13 +1344,13 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hb0fd7cd7a986fed9E(ptr noun
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hbad8c0ecb68f4d2bE(ptr noundef %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 1072
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5fc048e6a1c29b93E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5fc048e6a1c29b93E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h9bc6235819c6eb35E.exit.i" unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h8baebef098eb5afbE.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1072) %0) #26
+  invoke void @"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h8baebef098eb5afbE.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1096) %0) #26
           to label %21 unwind label %19
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h9bc6235819c6eb35E.exit.i": ; preds = %1
@@ -1400,7 +1400,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hbad8c0ecb68f4d2bE(ptr noun
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hc1deab80856dda54E(ptr noundef nonnull %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$gpui..elements..animation..AnimationElement$LT$ui..components..icon..Icon$GT$$GT$17h8b47cbe78e596f43E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %0)
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$gpui..elements..animation..AnimationElement$LT$ui..components..icon..Icon$GT$$GT$17h8b47cbe78e596f43E"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %0)
           to label %"_ZN4core3ptr129drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..animation..AnimationElement$LT$ui..components..icon..Icon$GT$$GT$$GT$17hab0b3d8b147b54d0E.exit" unwind label %2
 
 2:                                                ; preds = %1
@@ -1468,7 +1468,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hd0573d91f4002535E(ptr noun
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hd39c3f70869f7d9bE(ptr noundef nonnull %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..Interactivity$GT$17h437331978e1cd798E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(664) %0)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..Interactivity$GT$17h437331978e1cd798E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1856) %0)
           to label %5 unwind label %2
 
 2:                                                ; preds = %1
@@ -1523,7 +1523,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hdbc63e9787a59d6eE(ptr noun
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4gpui5arena5Arena5alloc4drop17he876bef8cc2c96edE(ptr noundef nonnull %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..Interactivity$GT$17h437331978e1cd798E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(664) %0)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$gpui..elements..div..Interactivity$GT$17h437331978e1cd798E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1856) %0)
           to label %"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h4132bc1cb0161e21E.exit.i.i" unwind label %2
 
 2:                                                ; preds = %1
@@ -1573,13 +1573,13 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17he876bef8cc2c96edE(ptr noun
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hf3002c690c05d688E(ptr noundef %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 1112
-  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h39b1c4b4ff81dbb0E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
+  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h39b1c4b4ff81dbb0E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(96) %2)
           to label %"_ZN4core3ptr86drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..anchored..Anchored$GT$$GT$17h94b1feb7f2e13865E.exit" unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr110drop_in_place$LT$gpui..element..ElementDrawPhase$LT$gpui..elements..anchored..AnchoredState$C$$LP$$RP$$GT$$GT$17h0459e2c689be825cE.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1112) %0) #26
+  invoke void @"_ZN4core3ptr110drop_in_place$LT$gpui..element..ElementDrawPhase$LT$gpui..elements..anchored..AnchoredState$C$$LP$$RP$$GT$$GT$17h0459e2c689be825cE.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1208) %0) #26
           to label %7 unwind label %5
 
 5:                                                ; preds = %3
@@ -1592,7 +1592,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hf3002c690c05d688E(ptr noun
   resume { ptr, i32 } %4
 
 "_ZN4core3ptr86drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..anchored..Anchored$GT$$GT$17h94b1feb7f2e13865E.exit": ; preds = %1
-  tail call void @"_ZN4core3ptr110drop_in_place$LT$gpui..element..ElementDrawPhase$LT$gpui..elements..anchored..AnchoredState$C$$LP$$RP$$GT$$GT$17h0459e2c689be825cE.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1112) %0)
+  tail call void @"_ZN4core3ptr110drop_in_place$LT$gpui..element..ElementDrawPhase$LT$gpui..elements..anchored..AnchoredState$C$$LP$$RP$$GT$$GT$17h0459e2c689be825cE.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(1208) %0)
   ret void
 }
 
@@ -1603,7 +1603,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hfc9df9ced862deb4E(ptr noun
   br i1 %3, label %"_ZN4core3ptr122drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$quick_action_bar..QuickActionBarButton$GT$$GT$$GT$17h60a00ed583e462f2E.exit", label %4
 
 4:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$quick_action_bar..QuickActionBarButton$GT$17hb9dc0a22e716b7a5E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$quick_action_bar..QuickActionBarButton$GT$17hb9dc0a22e716b7a5E"(ptr noalias noundef nonnull align 8 dereferenceable(1208) %0)
           to label %"_ZN4core3ptr122drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$quick_action_bar..QuickActionBarButton$GT$$GT$$GT$17h60a00ed583e462f2E.exit" unwind label %5
 
 5:                                                ; preds = %4
@@ -1660,7 +1660,7 @@ define hidden void @_ZN4util21log_error_with_caller17h68037298521a62c3E(ptr noal
   store i8 1, ptr %.sroa.616.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 65
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
-  %11 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h050fc435eba31307E"(ptr noalias noundef align 8 dereferenceable(72) %6)
+  %11 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h050fc435eba31307E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6)
           to label %14 unwind label %12
 
 12:                                               ; preds = %3, %31, %20, %18, %16
@@ -3007,7 +3007,7 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$
   %trunc = trunc nuw i64 %9 to i1
   %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
   %.sroa.0.0 = getelementptr inbounds i8, ptr %8, i64 %.sroa.0.0.idx
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.sroa.0.0, ptr nonnull readonly %.sroa.01.0, i64 %.sroa.3.0), !alias.scope !448
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0, ptr nonnull readonly align 1 %.sroa.01.0, i64 %.sroa.3.0), !alias.scope !448
   %10 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.14064308132688830049.exit"
 

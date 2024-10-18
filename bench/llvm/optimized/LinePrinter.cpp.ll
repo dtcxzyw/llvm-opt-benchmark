@@ -287,7 +287,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb11LinePrinter10SetFiltersISt20_List
   %6 = load ptr, ptr %.09.i.i, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
   tail call void @_ZN4llvm5RegexD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #16
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i, i64 noundef 32) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i, i64 noundef 32) #17
   %.not.i.i = icmp eq ptr %6, %1
   br i1 %.not.i.i, label %_ZNSt7__cxx114listIN4llvm5RegexESaIS2_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !4
 
@@ -308,7 +308,7 @@ _ZNSt7__cxx114listIN4llvm5RegexESaIS2_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %4
   %13 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @_ZN4llvm5RegexC1ENS_9StringRefENS0_10RegexFlagsE(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr %11, i64 %12, i32 noundef 0) #16
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %1) #16
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(24) %1) #16
   %15 = load i64, ptr %9, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %9, align 8
@@ -3650,7 +3650,7 @@ define linkonce_odr hidden void @_ZN4llvm8FmtAlign6formatERNS_11raw_ostreamENS_9
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %16, i64 noundef 64) #16
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull %16, i64 noundef 64) #16
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 2, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -3662,7 +3662,7 @@ define linkonce_odr hidden void @_ZN4llvm8FmtAlign6formatERNS_11raw_ostreamENS_9
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %21, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 24
@@ -3831,8 +3831,8 @@ _ZN4llvm8FmtAlign4fillERNS_11raw_ostreamEm.exit.sink.split: ; preds = %_ZN4llvm1
   br label %_ZN4llvm8FmtAlign4fillERNS_11raw_ostreamEm.exit
 
 _ZN4llvm8FmtAlign4fillERNS_11raw_ostreamEm.exit:  ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i30, %_ZN4llvm11raw_ostreamlsEc.exit.i, %_ZN4llvm8FmtAlign4fillERNS_11raw_ostreamEm.exit.sink.split, %_ZN4llvm8FmtAlign4fillERNS_11raw_ostreamEm.exit25, %34
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #16
-  %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #16
+  %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %5) #16
   %97 = load ptr, ptr %5, align 8
   %98 = icmp eq ptr %97, %16
   br i1 %98, label %_ZN4llvm11SmallStringILj64EED2Ev.exit, label %99

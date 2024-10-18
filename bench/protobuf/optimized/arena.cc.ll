@@ -795,7 +795,7 @@ invoke.cont4.i:                                   ; preds = %_ZN6google8protobuf
   %7 = load ptr, ptr %limit_.i, align 8, !noalias !10
   %and.i.i = and i64 %5, -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 %and.i.i
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr nonnull %agg.result, ptr noundef %7, ptr noundef %add.ptr.i.i.i)
+  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr nonnull align 8 %agg.result, ptr noundef %7, ptr noundef %add.ptr.i.i.i)
           to label %for.cond.i unwind label %lpad.loopexit.split-lp.i
 
 for.cond.i:                                       ; preds = %invoke.cont4.i, %invoke.cont7.i
@@ -811,7 +811,7 @@ invoke.cont7.i:                                   ; preds = %for.cond.i
   %9 = load i64, ptr %size.i9.i, align 8, !noalias !10
   %and.i10.i = and i64 %9, -8
   %add.ptr.i.i11.i = getelementptr inbounds i8, ptr %b.0.i, i64 %and.i10.i
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr %agg.result, ptr noundef %8, ptr noundef nonnull %add.ptr.i.i11.i)
+  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr align 8 %agg.result, ptr noundef %8, ptr noundef nonnull %add.ptr.i.i11.i)
           to label %for.cond.i unwind label %lpad.loopexit.i
 
 _ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv.exit: ; preds = %for.cond.i, %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit
@@ -1706,7 +1706,7 @@ invoke.cont:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
   %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
   %head_.i = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %first_arena_, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_, i8 0, i64 48, i1 false)
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %0, align 8
   store i64 0, ptr %mutex_, align 8
@@ -1807,7 +1807,7 @@ invoke.cont:                                      ; preds = %if.end.i, %entry
   %retval.0.i = phi ptr [ %mem, %if.end.i ], [ @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, %entry ]
   %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
   %head_.i = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %first_arena_, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_, i8 0, i64 48, i1 false)
   store ptr %retval.0.i, ptr %head_.i, align 8
   %space_used_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 0, ptr %space_used_.i, align 8
@@ -1953,7 +1953,7 @@ invoke.cont:                                      ; preds = %invoke.cont.sink.sp
   %retval.0.i = phi ptr [ @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, %if.then.i ], [ %mem.sroa.0.0.i.sink5, %invoke.cont.sink.split ]
   %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
   %head_.i = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %first_arena_, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_, i8 0, i64 48, i1 false)
   store ptr %retval.0.i, ptr %head_.i, align 8
   %space_used_.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 0, ptr %space_used_.i, align 8
@@ -4030,7 +4030,7 @@ invoke.cont4.i.i:                                 ; preds = %_ZN6google8protobuf
   %7 = load ptr, ptr %limit_.i.i, align 8, !noalias !31
   %and.i.i.i = and i64 %5, -8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 %and.i.i.i
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr nonnull %agg.result, ptr noundef %7, ptr noundef %add.ptr.i.i.i.i)
+  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr nonnull align 8 %agg.result, ptr noundef %7, ptr noundef %add.ptr.i.i.i.i)
           to label %for.cond.i.i unwind label %lpad.loopexit.split-lp.i.i
 
 for.cond.i.i:                                     ; preds = %invoke.cont4.i.i, %invoke.cont7.i.i
@@ -4046,7 +4046,7 @@ invoke.cont7.i.i:                                 ; preds = %for.cond.i.i
   %9 = load i64, ptr %size.i9.i.i, align 8, !noalias !31
   %and.i10.i.i = and i64 %9, -8
   %add.ptr.i.i11.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 %and.i10.i.i
-  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr %agg.result, ptr noundef %8, ptr noundef nonnull %add.ptr.i.i11.i.i)
+  invoke fastcc void @"_ZZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEvENK3$_0clEPKcS5_"(ptr align 8 %agg.result, ptr noundef %8, ptr noundef nonnull %add.ptr.i.i11.i.i)
           to label %for.cond.i.i unwind label %lpad.loopexit.i.i
 
 _ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv.exit: ; preds = %for.cond.i.i, %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit.i

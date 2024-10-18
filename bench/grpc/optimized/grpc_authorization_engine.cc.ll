@@ -168,7 +168,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit
   %__begin1.sroa.0.053 = phi ptr [ %2, %for.body.lr.ph ], [ %call.i, %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %policy6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %policy6) #14
   store ptr null, ptr %matcher.i, align 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %policy6, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %invoke.cont unwind label %lpad
@@ -210,7 +210,7 @@ _ZNSt10unique_ptrIN9grpc_core26PolicyAuthorizationMatcherESt14default_deleteIS1_
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont12.thread
 
 invoke.cont12.thread:                             ; preds = %_ZNSt10unique_ptrIN9grpc_core26PolicyAuthorizationMatcherESt14default_deleteIS1_EED2Ev.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %policy6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %policy6) #14
   %matcher.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %matcher.i, align 8
   store i64 %9, ptr %matcher.i.i.i.i.i, align 8
@@ -237,7 +237,7 @@ _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i: ; pr
 
 _ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit: ; preds = %invoke.cont12.thread, %invoke.cont12, %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i
   store ptr null, ptr %matcher.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %policy6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %policy6) #14
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.053) #15
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -258,7 +258,7 @@ _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i9: ; p
 
 _ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit12: ; preds = %lpad, %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i9
   store ptr null, ptr %matcher.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %policy6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %policy6) #14
   br label %ehcleanup
 
 for.end:                                          ; preds = %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit, %entry
@@ -479,7 +479,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %agg.result, align 8
   %principals.i = getelementptr inbounds i8, ptr %agg.tmp, i64 264
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %principals.i) #14
-  call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp) #14
+  call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %agg.tmp) #14
   ret void
 
 lpad:                                             ; preds = %entry
@@ -487,7 +487,7 @@ lpad:                                             ; preds = %entry
           cleanup
   %principals.i1 = getelementptr inbounds i8, ptr %agg.tmp, i64 264
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %principals.i1) #14
-  call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp) #14
+  call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %agg.tmp) #14
   call void @_ZdlPv(ptr noundef nonnull %call) #18
   resume { ptr, i32 } %0
 }
@@ -567,7 +567,7 @@ _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i, %for.body.i.i.i
   store ptr null, ptr %matcher.i.i.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i) #14
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !12
@@ -682,7 +682,7 @@ _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store ptr null, ptr %matcher.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i.i.i.i) #14
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !12
@@ -965,7 +965,7 @@ _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i3
   store ptr null, ptr %matcher.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i4) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i.i4) #14
   %incdec.ptr.i.i.i.i5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4, i64 40
   %cmp.not.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i5, %6
   br i1 %cmp.not.i.i.i.i6, label %invoke.contthread-pre-split.i7, label %for.body.i.i.i.i3, !llvm.loop !12
@@ -1131,7 +1131,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %if.then.i.i
   %ip = getelementptr inbounds i8, ptr %this, i64 184
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ip) #14
   %regex_matcher_.i = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %regex_matcher_.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
@@ -1161,7 +1161,7 @@ _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZN9grpc_core13Stri
   store ptr null, ptr %regex_matcher_.i.i, align 8
   %string_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(114) %header_matcher) #14
   ret void
 }
 
@@ -1212,7 +1212,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %if.then.i.i
   %ip = getelementptr inbounds i8, ptr %this, i64 192
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ip) #14
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %4 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
@@ -1252,7 +1252,7 @@ _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZNSt8optionalIN9gr
   store ptr null, ptr %regex_matcher_.i.i, align 8
   %string_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(114) %header_matcher) #14
   ret void
 }
 
@@ -1296,7 +1296,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN9grp
 _ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %cond.i10, i64 %sub.ptr.div.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %__args) #14
   %matcher.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %matcher3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   %3 = load i64, ptr %matcher3.i.i.i, align 8
@@ -1310,13 +1310,13 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i) #14
   %matcher.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %matcher3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %4 = load i64, ptr %matcher3.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !15
   store i64 %4, ptr %matcher.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !18
   store ptr null, ptr %matcher3.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i) #14
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -1333,13 +1333,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN9grpc
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i14) #14
   %matcher.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %matcher3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %5 = load i64, ptr %matcher3.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !21
   store i64 %5, ptr %matcher.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !24
   store ptr null, ptr %matcher3.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !21
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i14) #14
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
   %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0

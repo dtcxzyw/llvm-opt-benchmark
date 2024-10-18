@@ -360,7 +360,7 @@ define hidden void @_ZN17KlassCleaningTask4workEv(ptr noundef nonnull align 8 de
   br i1 %.not.i, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
 
 _ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit: ; preds = %1
-  %15 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %0) #3, !srcloc !15
+  %15 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull align 8 dereferenceable(16) %0) #3, !srcloc !15
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
 

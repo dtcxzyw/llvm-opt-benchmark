@@ -105,7 +105,7 @@ define void @_ZN5draco10StlEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc14 unwind label %16
 
 .noexc14:                                         ; preds = %.noexc
@@ -115,7 +115,7 @@ define void @_ZN5draco10StlEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic
 13:                                               ; preds = %.noexc14
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc14
@@ -214,7 +214,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   br label %_ZN5draco13EncoderBufferD2Ev.exit
 
 _ZN5draco13EncoderBufferD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, %46
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %8) #18
   br label %47
 
 47:                                               ; preds = %_ZN5draco13EncoderBufferD2Ev.exit, %_ZN5draco6StatusC2ENS0_4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -296,7 +296,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit, %5
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
@@ -349,7 +349,7 @@ define void @_ZN5draco10StlEncoder14EncodeInternalEv(ptr dead_on_unwind noalias 
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
-  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr %37, ptr noundef %24, ptr noundef %32)
+  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %23, ptr %37, ptr noundef %24, ptr noundef %32)
           to label %38 unwind label %74
 
 38:                                               ; preds = %29, %22
@@ -380,7 +380,7 @@ define void @_ZN5draco10StlEncoder14EncodeInternalEv(ptr dead_on_unwind noalias 
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %62 = getelementptr inbounds i8, ptr %58, i64 %61
-  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr %62, ptr noundef nonnull %5, ptr noundef nonnull %57)
+  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %50, ptr %62, ptr noundef nonnull %5, ptr noundef nonnull %57)
           to label %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit40_crit_edge unwind label %74
 
 ._ZN5draco13EncoderBuffer6EncodeEPKvm.exit40_crit_edge: ; preds = %54
@@ -402,7 +402,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit40:      ; preds = %._ZN5draco13Encoder
           to label %.noexc41 unwind label %76
 
 .noexc41:                                         ; preds = %67
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %68, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %68, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc42 unwind label %76
 
 .noexc42:                                         ; preds = %.noexc41
@@ -412,7 +412,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit40:      ; preds = %._ZN5draco13Encoder
 69:                                               ; preds = %.noexc42
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc42
@@ -485,7 +485,7 @@ _ZN5draco11ErrorStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ex
           to label %.noexc44 unwind label %94
 
 .noexc44:                                         ; preds = %89
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %90, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %90, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc45 unwind label %94
 
 .noexc45:                                         ; preds = %.noexc44
@@ -495,7 +495,7 @@ _ZN5draco11ErrorStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ex
 91:                                               ; preds = %.noexc45
   %92 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   br label %.body46
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48: ; preds = %.noexc45
@@ -721,7 +721,7 @@ _ZN5draco7VectorDIfLi3EE9NormalizeEv.exit:        ; preds = %.preheader.i, %_ZNK
   %215 = ptrtoint ptr %213 to i64
   %216 = sub i64 %214, %215
   %217 = getelementptr inbounds i8, ptr %213, i64 %216
-  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %206, ptr %217, ptr noundef nonnull %12, ptr noundef nonnull %116)
+  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %206, ptr %217, ptr noundef nonnull %12, ptr noundef nonnull %116)
           to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit63 unwind label %.loopexit.split-lp.loopexit
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit63:      ; preds = %210, %_ZN5draco7VectorDIfLi3EE9NormalizeEv.exit
@@ -885,7 +885,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit65:      ; preds = %229, %_ZNSt12_Vecto
   %290 = ptrtoint ptr %288 to i64
   %291 = sub i64 %289, %290
   %292 = getelementptr inbounds i8, ptr %288, i64 %291
-  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr %292, ptr noundef nonnull %10, ptr noundef nonnull %117)
+  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %281, ptr %292, ptr noundef nonnull %10, ptr noundef nonnull %117)
           to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit67 unwind label %.loopexit.split-lp.loopexit
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit67:      ; preds = %280, %285

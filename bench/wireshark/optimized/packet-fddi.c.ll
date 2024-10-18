@@ -425,7 +425,7 @@ fddifc_to_str.exit:                               ; preds = %4, %23, %24, %25, %
   %93 = load i32, ptr @fddi_padding, align 4
   %.not109 = icmp eq i32 %93, 0
   %94 = select i1 %.not109, i32 1, i32 4
-  %95 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %94, i64 noundef 6) #4
+  %95 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef range(i32 1, 11) %94, i64 noundef 6) #4
   call void @bitswap_buf_inplace(ptr noundef nonnull %6, i64 noundef 6) #4
   %96 = getelementptr inbounds i8, ptr %1, i64 136
   store i32 1, ptr %96, align 8
@@ -540,7 +540,7 @@ proto_item_set_hidden.exit129:                    ; preds = %142, %139, %proto_i
   %151 = load i32, ptr @fddi_padding, align 4
   %.not117 = icmp eq i32 %151, 0
   %152 = select i1 %.not117, i32 7, i32 10
-  %153 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %152, i64 noundef 6) #4
+  %153 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef range(i32 1, 11) %152, i64 noundef 6) #4
   call void @bitswap_buf_inplace(ptr noundef nonnull %5, i64 noundef 6) #4
   %154 = getelementptr inbounds i8, ptr %1, i64 112
   store i32 1, ptr %154, align 8

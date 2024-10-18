@@ -449,7 +449,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE5trainElPKf(pt
   br i1 %.not.i.i, label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit unwind label %11
 
 11:                                               ; preds = %9
@@ -471,7 +471,7 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit:     ; preds = %7, %9
   br i1 %.not.i.i4, label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit5, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit5 unwind label %19
 
 19:                                               ; preds = %17
@@ -504,7 +504,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE3addElPKf(ptr 
   br i1 %.not.i.i, label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit unwind label %11
 
 11:                                               ; preds = %9
@@ -526,7 +526,7 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit:     ; preds = %7, %9
   br i1 %.not.i.i4, label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit5, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit5 unwind label %19
 
 19:                                               ; preds = %17
@@ -723,7 +723,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_5IndexEE6searchElPKfl
   br i1 %.not.i.i, label %_ZNSt8functionIFviPKN5faiss5IndexEEED2Ev.exit, label %91
 
 91:                                               ; preds = %89
-  %92 = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %92 = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFviPKN5faiss5IndexEEED2Ev.exit unwind label %93
 
 93:                                               ; preds = %91
@@ -744,7 +744,7 @@ _ZNSt8functionIFviPKN5faiss5IndexEEED2Ev.exit:    ; preds = %91, %89, %70
   br i1 %.not.i.i32, label %_ZNSt8functionIFviPKN5faiss5IndexEEED2Ev.exit33, label %99
 
 99:                                               ; preds = %96
-  %100 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %100 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFviPKN5faiss5IndexEEED2Ev.exit33 unwind label %101
 
 101:                                              ; preds = %99
@@ -777,7 +777,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE5resetEv(ptr nound
   %2 = alloca %"class.std::function", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFviPN5faiss5IndexEEZNS0_13ThreadedIndexIS1_E5resetEvEUliS2_E_E9_M_invokeERKSt9_Any_dataOiOS2_, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFviPN5faiss5IndexEEZNS0_13ThreadedIndexIS1_E5resetEvEUliS2_E_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %3, align 8
   invoke void @_ZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull %2)
@@ -789,7 +789,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE5resetEv(ptr nound
   br i1 %.not.i.i, label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit unwind label %9
 
 9:                                                ; preds = %7
@@ -814,7 +814,7 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit:     ; preds = %5, %7
   br i1 %.not.i.i2, label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit3, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit3 unwind label %19
 
 19:                                               ; preds = %17
@@ -1387,7 +1387,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE5trainE
   br i1 %.not.i.i, label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit unwind label %11
 
 11:                                               ; preds = %9
@@ -1409,7 +1409,7 @@ _ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit: ; preds = %7, %9
   br i1 %.not.i.i4, label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit5, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit5 unwind label %19
 
 19:                                               ; preds = %17
@@ -1442,7 +1442,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE3addElP
   br i1 %.not.i.i, label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit unwind label %11
 
 11:                                               ; preds = %9
@@ -1464,7 +1464,7 @@ _ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit: ; preds = %7, %9
   br i1 %.not.i.i4, label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit5, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit5 unwind label %19
 
 19:                                               ; preds = %17
@@ -1663,7 +1663,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_11IndexBinaryEE6searc
   br i1 %.not.i.i, label %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEED2Ev.exit, label %93
 
 93:                                               ; preds = %91
-  %94 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %94 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEED2Ev.exit unwind label %95
 
 95:                                               ; preds = %93
@@ -1684,7 +1684,7 @@ _ZNSt8functionIFviPKN5faiss11IndexBinaryEEED2Ev.exit: ; preds = %93, %91, %70
   br i1 %.not.i.i32, label %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEED2Ev.exit33, label %101
 
 101:                                              ; preds = %98
-  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEED2Ev.exit33 unwind label %103
 
 103:                                              ; preds = %101
@@ -1715,7 +1715,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE5resetEv(pt
   %2 = alloca %"class.std::function.57", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFviPN5faiss11IndexBinaryEEZNS0_13ThreadedIndexIS1_E5resetEvEUliS2_E_E9_M_invokeERKSt9_Any_dataOiOS2_, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFviPN5faiss11IndexBinaryEEZNS0_13ThreadedIndexIS1_E5resetEvEUliS2_E_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %3, align 8
   invoke void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull %2)
@@ -1727,7 +1727,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE5resetEv(pt
   br i1 %.not.i.i, label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit unwind label %9
 
 9:                                                ; preds = %7
@@ -1752,7 +1752,7 @@ _ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit: ; preds = %5, %7
   br i1 %.not.i.i2, label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit3, label %17
 
 17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit3 unwind label %19
 
 19:                                               ; preds = %17
@@ -2798,7 +2798,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -2991,7 +2991,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8fu
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFviPN5faiss5IndexEEEC2ERKS4_.exit, label %38
 
 38:                                               ; preds = %31
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %40 unwind label %43
 
 40:                                               ; preds = %38
@@ -3009,7 +3009,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8fu
   br i1 %.not.i.i, label %.body, label %46
 
 46:                                               ; preds = %43
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body unwind label %48
 
 48:                                               ; preds = %46
@@ -3031,14 +3031,14 @@ _ZNSt8functionIFviPN5faiss5IndexEEEC2ERKS4_.exit: ; preds = %40, %31
 
 .noexc:                                           ; preds = %_ZNSt8functionIFviPN5faiss5IndexEEEC2ERKS4_.exit
   %55 = getelementptr inbounds i8, ptr %54, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, i8 0, i64 24, i1 false)
   store ptr %52, ptr %55, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %58, label %56
 
 56:                                               ; preds = %.noexc
   %57 = getelementptr inbounds i8, ptr %54, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 16, i1 false)
   store ptr %51, ptr %57, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %58
@@ -3155,7 +3155,7 @@ _ZNSt6futureIbED2Ev.exit:                         ; preds = %_ZNSt6vectorISt6fut
   br i1 %.not.i.i28, label %_ZNSt8functionIFvvEED2Ev.exit, label %106
 
 106:                                              ; preds = %_ZNSt6futureIbED2Ev.exit
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %108
 
 108:                                              ; preds = %106
@@ -3171,7 +3171,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt6futureIbED2Ev
   br i1 %.not.i.i.i, label %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit, label %112
 
 112:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit
-  %113 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %113 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 3)
           to label %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit unwind label %114
 
 114:                                              ; preds = %112
@@ -3220,7 +3220,7 @@ _ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2
   br i1 %.not.i.i30, label %_ZNSt8functionIFvvEED2Ev.exit32, label %134
 
 134:                                              ; preds = %132
-  %135 = invoke noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %135 = invoke noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit32 unwind label %136
 
 136:                                              ; preds = %134
@@ -3237,7 +3237,7 @@ _ZNSt8functionIFvvEED2Ev.exit32:                  ; preds = %134, %132, %126
   br i1 %.not.i.i.i33, label %.body, label %140
 
 140:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit32
-  %141 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %141 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 3)
           to label %.body unwind label %142
 
 142:                                              ; preds = %140
@@ -3388,7 +3388,7 @@ _ZSt8_DestroyIPSt6futureIbES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
 
 200:                                              ; preds = %193
   %201 = load ptr, ptr %191, align 8
-  invoke void %201(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %201(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZNKSt8functionIFviPN5faiss5IndexEEEclEiS2_.exit unwind label %202
 
 _ZNKSt8functionIFviPN5faiss5IndexEEEclEiS2_.exit: ; preds = %200
@@ -4341,7 +4341,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN5faiss13ThreadedIndexIN
 _ZSt10__invoke_rIvRZN5faiss13ThreadedIndexINS0_5IndexEE10runOnIndexESt8functionIFviPS2_EEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %1
   %12 = getelementptr inbounds i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
@@ -4395,13 +4395,13 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN5
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN5faiss13ThreadedIndexINS1_5IndexEE10runOnIndexESt8functionIFviPS3_EEEUlvE_E15_M_init_functorIRKS9_EEvRSt9_Any_dataOT_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -4420,7 +4420,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN5
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -4453,7 +4453,7 @@ _ZNSt14_Function_base13_Base_managerIZN5faiss13ThreadedIndexINS1_5IndexEE10runOn
   br i1 %.not.i.i.i.i, label %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit.i, label %36
 
 36:                                               ; preds = %33
-  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %31, i32 noundef 3)
+  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %31, i32 noundef 3)
           to label %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit.i unwind label %38
 
 38:                                               ; preds = %36
@@ -4593,7 +4593,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; 
   %.025.us.i.i = phi i32 [ %16, %.preheader.i ], [ %10, %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit ]
   %12 = atomicrmw or ptr %8, i32 -2147483648 monotonic, align 4
   %13 = or disjoint i32 %.025.us.i.i, -2147483648
-  %14 = tail call noundef zeroext i1 @_ZNSt28__atomic_futex_unsigned_base19_M_futex_wait_untilEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %8, i32 noundef %13, i1 noundef zeroext false, i64 0, i64 0)
+  %14 = tail call noundef zeroext i1 @_ZNSt28__atomic_futex_unsigned_base19_M_futex_wait_untilEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef %13, i1 noundef zeroext false, i64 0, i64 0)
   %15 = load atomic i32, ptr %8 acquire, align 4
   %16 = and i32 %15, 2147483647
   %17 = icmp ne i32 %16, 1
@@ -4983,7 +4983,7 @@ define linkonce_odr void @_ZNK5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8f
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFviPKN5faiss5IndexEEEC2ERKS5_.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %11 unwind label %15
 
 11:                                               ; preds = %9
@@ -5002,7 +5002,7 @@ define linkonce_odr void @_ZNK5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8f
   br i1 %.not.i.i, label %common.resume, label %18
 
 18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %20
 
 20:                                               ; preds = %18
@@ -5025,14 +5025,14 @@ _ZNSt8functionIFviPKN5faiss5IndexEEEC2ERKS5_.exit: ; preds = %2, %11
 
 .noexc:                                           ; preds = %_ZNSt8functionIFviPKN5faiss5IndexEEEC2ERKS5_.exit
   %26 = getelementptr inbounds i8, ptr %25, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   store ptr %24, ptr %26, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %29, label %27
 
 27:                                               ; preds = %.noexc
   %28 = getelementptr inbounds i8, ptr %25, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store ptr %23, ptr %28, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %29
@@ -5052,7 +5052,7 @@ _ZNSt8functionIFviPKN5faiss5IndexEEEC2ERKS5_.exit: ; preds = %2, %11
   br i1 %.not.i.i4, label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit unwind label %36
 
 36:                                               ; preds = %34
@@ -5068,7 +5068,7 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit:     ; preds = %32, %34
   br i1 %.not.i.i.i, label %_ZZNK5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPKS1_EEENUliPS1_E_D2Ev.exit, label %40
 
 40:                                               ; preds = %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZZNK5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPKS1_EEENUliPS1_E_D2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -5094,7 +5094,7 @@ _ZZNK5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPKS1_EEENUliPS
   br i1 %.not.i.i6, label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit8, label %50
 
 50:                                               ; preds = %47
-  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit8 unwind label %52
 
 52:                                               ; preds = %50
@@ -5111,7 +5111,7 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit8:    ; preds = %50, %47, %45
   br i1 %.not.i.i.i9, label %common.resume, label %56
 
 56:                                               ; preds = %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit8
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %58
 
 58:                                               ; preds = %56
@@ -5145,7 +5145,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss5IndexEEZNKS0_13Th
 _ZSt10__invoke_rIvRZNK5faiss13ThreadedIndexINS0_5IndexEE10runOnIndexESt8functionIFviPKS2_EEEUliPS2_E_JiS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %3
   %12 = getelementptr inbounds i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void
@@ -5205,7 +5205,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZNK
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZNK5faiss13ThreadedIndexINS1_5IndexEE10runOnIndexESt8functionIFviPKS3_EEEUliPS3_E_E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -5224,7 +5224,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZNK
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -5254,7 +5254,7 @@ _ZNSt14_Function_base13_Base_managerIZNK5faiss13ThreadedIndexINS1_5IndexEE10runO
   br i1 %.not.i.i.i.i, label %_ZZNK5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPKS1_EEENUliPS1_E_D2Ev.exit.i, label %34
 
 34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %_ZZNK5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPKS1_EEENUliPS1_E_D2Ev.exit.i unwind label %36
 
 36:                                               ; preds = %34
@@ -5370,7 +5370,7 @@ _ZNSt14_Function_base13_Base_managerIZNK5faiss21IndexReplicasTemplateINS1_5Index
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %0, i1 noundef zeroext %1) unnamed_addr #1 comdat($_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC5Eb) align 2 {
   %3 = zext i1 %1 to i8
-  tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i32 noundef 1)
+  tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(65) %0, i64 noundef 0, i32 noundef 1)
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5550,7 +5550,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC2Elb(p
   %4 = zext i1 %2 to i8
   %sext = shl i64 %1, 32
   %5 = ashr exact i64 %sext, 32
-  tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i32 noundef 1)
+  tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(65) %0, i64 noundef %5, i32 noundef 1)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5633,7 +5633,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(p
 define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat($_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC5Eib) align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %2 to i8
   %5 = sext i32 %1 to i64
-  tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i32 noundef 1)
+  tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(65) %0, i64 noundef %5, i32 noundef 1)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5906,7 +5906,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnInde
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEEC2ERKS4_.exit, label %38
 
 38:                                               ; preds = %31
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %40 unwind label %43
 
 40:                                               ; preds = %38
@@ -5924,7 +5924,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnInde
   br i1 %.not.i.i, label %.body, label %46
 
 46:                                               ; preds = %43
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body unwind label %48
 
 48:                                               ; preds = %46
@@ -5946,14 +5946,14 @@ _ZNSt8functionIFviPN5faiss11IndexBinaryEEEC2ERKS4_.exit: ; preds = %40, %31
 
 .noexc:                                           ; preds = %_ZNSt8functionIFviPN5faiss11IndexBinaryEEEC2ERKS4_.exit
   %55 = getelementptr inbounds i8, ptr %54, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, i8 0, i64 24, i1 false)
   store ptr %52, ptr %55, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %58, label %56
 
 56:                                               ; preds = %.noexc
   %57 = getelementptr inbounds i8, ptr %54, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 16, i1 false)
   store ptr %51, ptr %57, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %58
@@ -6070,7 +6070,7 @@ _ZNSt6futureIbED2Ev.exit:                         ; preds = %_ZNSt6vectorISt6fut
   br i1 %.not.i.i28, label %_ZNSt8functionIFvvEED2Ev.exit, label %106
 
 106:                                              ; preds = %_ZNSt6futureIbED2Ev.exit
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %108
 
 108:                                              ; preds = %106
@@ -6086,7 +6086,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt6futureIbED2Ev
   br i1 %.not.i.i.i, label %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit, label %112
 
 112:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit
-  %113 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %113 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 3)
           to label %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit unwind label %114
 
 114:                                              ; preds = %112
@@ -6135,7 +6135,7 @@ _ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEEN
   br i1 %.not.i.i30, label %_ZNSt8functionIFvvEED2Ev.exit32, label %134
 
 134:                                              ; preds = %132
-  %135 = invoke noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %135 = invoke noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit32 unwind label %136
 
 136:                                              ; preds = %134
@@ -6152,7 +6152,7 @@ _ZNSt8functionIFvvEED2Ev.exit32:                  ; preds = %134, %132, %126
   br i1 %.not.i.i.i33, label %.body, label %140
 
 140:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit32
-  %141 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %141 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 3)
           to label %.body unwind label %142
 
 142:                                              ; preds = %140
@@ -6303,7 +6303,7 @@ _ZSt8_DestroyIPSt6futureIbES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
 
 200:                                              ; preds = %193
   %201 = load ptr, ptr %191, align 8
-  invoke void %201(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %201(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZNKSt8functionIFviPN5faiss11IndexBinaryEEEclEiS2_.exit unwind label %202
 
 _ZNKSt8functionIFviPN5faiss11IndexBinaryEEEclEiS2_.exit: ; preds = %200
@@ -6881,7 +6881,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN5faiss13ThreadedIndexIN
 _ZSt10__invoke_rIvRZN5faiss13ThreadedIndexINS0_11IndexBinaryEE10runOnIndexESt8functionIFviPS2_EEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %1
   %12 = getelementptr inbounds i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
@@ -6935,13 +6935,13 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN5
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN5faiss13ThreadedIndexINS1_11IndexBinaryEE10runOnIndexESt8functionIFviPS3_EEEUlvE_E15_M_init_functorIRKS9_EEvRSt9_Any_dataOT_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -6960,7 +6960,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN5
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -6993,7 +6993,7 @@ _ZNSt14_Function_base13_Base_managerIZN5faiss13ThreadedIndexINS1_11IndexBinaryEE
   br i1 %.not.i.i.i.i, label %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit.i, label %36
 
 36:                                               ; preds = %33
-  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %31, i32 noundef 3)
+  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %31, i32 noundef 3)
           to label %_ZZN5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit.i unwind label %38
 
 38:                                               ; preds = %36
@@ -7140,7 +7140,7 @@ define linkonce_odr void @_ZNK5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnInd
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEEC2ERKS5_.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %11 unwind label %15
 
 11:                                               ; preds = %9
@@ -7159,7 +7159,7 @@ define linkonce_odr void @_ZNK5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnInd
   br i1 %.not.i.i, label %common.resume, label %18
 
 18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %20
 
 20:                                               ; preds = %18
@@ -7182,14 +7182,14 @@ _ZNSt8functionIFviPKN5faiss11IndexBinaryEEEC2ERKS5_.exit: ; preds = %2, %11
 
 .noexc:                                           ; preds = %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEEC2ERKS5_.exit
   %26 = getelementptr inbounds i8, ptr %25, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   store ptr %24, ptr %26, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %29, label %27
 
 27:                                               ; preds = %.noexc
   %28 = getelementptr inbounds i8, ptr %25, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store ptr %23, ptr %28, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %29
@@ -7209,7 +7209,7 @@ _ZNSt8functionIFviPKN5faiss11IndexBinaryEEEC2ERKS5_.exit: ; preds = %2, %11
   br i1 %.not.i.i4, label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit unwind label %36
 
 36:                                               ; preds = %34
@@ -7225,7 +7225,7 @@ _ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit: ; preds = %32, %34
   br i1 %.not.i.i.i, label %_ZZNK5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPKS1_EEENUliPS1_E_D2Ev.exit, label %40
 
 40:                                               ; preds = %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit
-  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZZNK5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPKS1_EEENUliPS1_E_D2Ev.exit unwind label %42
 
 42:                                               ; preds = %40
@@ -7251,7 +7251,7 @@ _ZZNK5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPKS1_EE
   br i1 %.not.i.i6, label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit8, label %50
 
 50:                                               ; preds = %47
-  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit8 unwind label %52
 
 52:                                               ; preds = %50
@@ -7268,7 +7268,7 @@ _ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit8: ; preds = %50, %47, %45
   br i1 %.not.i.i.i9, label %common.resume, label %56
 
 56:                                               ; preds = %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit8
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %58
 
 58:                                               ; preds = %56
@@ -7302,7 +7302,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFviPN5faiss11IndexBinaryEEZNK
 _ZSt10__invoke_rIvRZNK5faiss13ThreadedIndexINS0_11IndexBinaryEE10runOnIndexESt8functionIFviPKS2_EEEUliPS2_E_JiS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %3
   %12 = getelementptr inbounds i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void
@@ -7362,7 +7362,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZNK
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZNK5faiss13ThreadedIndexINS1_11IndexBinaryEE10runOnIndexESt8functionIFviPKS3_EEEUliPS3_E_E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -7381,7 +7381,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZNK
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -7411,7 +7411,7 @@ _ZNSt14_Function_base13_Base_managerIZNK5faiss13ThreadedIndexINS1_11IndexBinaryE
   br i1 %.not.i.i.i.i, label %_ZZNK5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPKS1_EEENUliPS1_E_D2Ev.exit.i, label %34
 
 34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %_ZZNK5faiss13ThreadedIndexINS_11IndexBinaryEE10runOnIndexESt8functionIFviPKS1_EEENUliPS1_E_D2Ev.exit.i unwind label %36
 
 36:                                               ; preds = %34

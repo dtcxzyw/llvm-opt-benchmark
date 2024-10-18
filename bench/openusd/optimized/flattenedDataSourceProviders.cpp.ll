@@ -2070,7 +2070,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceISt10shared_ptrINS_29HdFlattenedDataSourceProviderEEED2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceISt10shared_ptrINS_29HdFlattenedDataSourceProviderEEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #16
   ret void
 }

@@ -1583,7 +1583,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$$u5b$uu_df..filesystem..File
   br label %"_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit"
 
 "_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit": ; preds = %.lr.ph, %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.10978358169496455607.exit.i.i1.i.i.i.i"
-  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %4)
+  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %4)
   %13 = icmp eq i64 %5, %1
   br i1 %13, label %._crit_edge, label %.lr.ph
 
@@ -2527,7 +2527,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$uu_df..fi
   br label %"_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit.i.i"
 
 "_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.10978358169496455607.exit.i.i1.i.i.i.i.i.i", %12, %.lr.ph.i.i
-  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7), !noalias !1146
+  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %7), !noalias !1146
   %16 = icmp eq i64 %8, %5
   br i1 %16, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b21b626181ea046E.llvm.10978358169496455607.exit", label %.lr.ph.i.i
 
@@ -3269,7 +3269,7 @@ define hidden void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..into_iter..IntoI
   br label %"_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit.i.i"
 
 "_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.10978358169496455607.exit.i.i1.i.i.i.i.i.i", %16, %.lr.ph.i.i
-  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %11), !noalias !1533
+  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %11), !noalias !1533
   %20 = icmp eq i64 %12, %9
   br i1 %20, label %"_ZN4core3ptr60drop_in_place$LT$$u5b$uu_df..filesystem..Filesystem$u5d$$GT$17hf55e0c990fa26d13E.llvm.10978358169496455607.exit.i", label %.lr.ph.i.i
 
@@ -3909,7 +3909,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %"_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit.i"
 
 "_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.10978358169496455607.exit.i.i1.i.i.i.i.i", %12, %.lr.ph.i
-  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7)
+  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %7)
   %16 = icmp eq i64 %8, %5
   br i1 %16, label %"_ZN4core3ptr60drop_in_place$LT$$u5b$uu_df..filesystem..Filesystem$u5d$$GT$17hf55e0c990fa26d13E.llvm.10978358169496455607.exit", label %.lr.ph.i
 
@@ -4462,7 +4462,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br label %"_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit.i"
 
 "_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17hcb9369f6fb0860bfE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.10978358169496455607.exit.i.i1.i.i.i.i.i", %16, %.lr.ph.i
-  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %11)
+  tail call void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %11)
   %20 = icmp eq i64 %12, %9
   br i1 %20, label %"_ZN4core3ptr60drop_in_place$LT$$u5b$uu_df..filesystem..Filesystem$u5d$$GT$17hf55e0c990fa26d13E.llvm.10978358169496455607.exit", label %.lr.ph.i
 

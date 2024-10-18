@@ -923,7 +923,7 @@ if.then104:                                       ; preds = %if.then97
   br i1 %mul.ov.i, label %if.then.i94, label %st_mult.exit
 
 if.then.i94:                                      ; preds = %if.then104
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 8, i64 noundef %conv116) #10
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 8, i64 noundef range(i64 -2147483648, 4294967296) %conv116) #10
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then104
@@ -1036,7 +1036,7 @@ if.then155:                                       ; preds = %do.body151
   br i1 %mul.ov.i111, label %if.then.i114, label %st_mult.exit115
 
 if.then.i114:                                     ; preds = %if.then155
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 8, i64 noundef %conv169) #10
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 8, i64 noundef range(i64 -2147483648, 4294967296) %conv169) #10
   unreachable
 
 st_mult.exit115:                                  ; preds = %if.then155

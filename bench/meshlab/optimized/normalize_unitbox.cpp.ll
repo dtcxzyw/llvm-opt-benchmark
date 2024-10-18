@@ -196,9 +196,9 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6Mat
   store i64 %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   %13 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS_16PartialReduxExprINS2_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(9) %13, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS_16PartialReduxExprINS2_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(25) %13, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEKNS_9ReplicateINS_16PartialReduxExprIS6_NS0_15member_minCoeffIddEELi0EEELin1ELi1EEEEEEC2ERKSF_.exit unwind label %.body.i.i.i.i.i.i
 
 common.resume:                                    ; preds = %65, %.body.i.i.i.i.i.i

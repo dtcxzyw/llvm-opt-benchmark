@@ -1684,13 +1684,13 @@ define internal fastcc void @Fxch_ManDivDoubleCube(ptr nocapture noundef %0, i32
   br i1 %.not.i, label %Fxch_ManSCAddRemove.exit, label %Fxch_ManSCAddRemove.exit.thread
 
 Fxch_ManSCAddRemove.exit:                         ; preds = %.critedge
-  %25 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %24, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext %22) #19
+  %25 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %24, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext range(i8 0, 2) %22) #19
   %.val7187 = load i32, ptr %11, align 4
   %26 = icmp sgt i32 %.val7187, 1
   br i1 %26, label %Fxch_ManSCAddRemove.exit75.us.preheader, label %.critedge2
 
 Fxch_ManSCAddRemove.exit.thread:                  ; preds = %.critedge
-  %27 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %24, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext %22) #19
+  %27 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %24, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext range(i8 0, 2) %22) #19
   %.val7187126 = load i32, ptr %11, align 4
   %28 = icmp sgt i32 %.val7187126, 1
   br i1 %28, label %Fxch_ManSCAddRemove.exit75.preheader, label %.critedge2
@@ -1724,7 +1724,7 @@ Fxch_ManSCAddRemove.exit75.us:                    ; preds = %Fxch_ManSCAddRemove
   %41 = load ptr, ptr %23, align 8
   %42 = load ptr, ptr %0, align 8
   %43 = trunc nuw nsw i64 %indvars.iv111 to i32
-  %44 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %41, ptr noundef %42, i32 noundef %40, i32 noundef %1, i32 noundef %43, i32 noundef 0, i8 noundef signext %22) #19
+  %44 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %41, ptr noundef %42, i32 noundef %40, i32 noundef %1, i32 noundef %43, i32 noundef 0, i8 noundef signext range(i8 0, 2) %22) #19
   %45 = load i32, ptr %34, align 4
   %46 = add nsw i32 %45, %44
   store i32 %46, ptr %34, align 4
@@ -1771,7 +1771,7 @@ Fxch_ManSCAddRemove.exit78.us.us:                 ; preds = %.preheader.us, %Fxc
   %62 = load ptr, ptr %23, align 8
   %63 = load ptr, ptr %0, align 8
   %64 = trunc nuw nsw i64 %indvars.iv108 to i32
-  %65 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %62, ptr noundef %63, i32 noundef %61, i32 noundef %1, i32 noundef %43, i32 noundef %64, i8 noundef signext %22) #19
+  %65 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %62, ptr noundef %63, i32 noundef %61, i32 noundef %1, i32 noundef %43, i32 noundef %64, i8 noundef signext range(i8 0, 2) %22) #19
   %66 = load i32, ptr %34, align 4
   %67 = add nsw i32 %66, %65
   store i32 %67, ptr %34, align 4
@@ -1800,7 +1800,7 @@ Fxch_ManSCAddRemove.exit75:                       ; preds = %Fxch_ManSCAddRemove
   %79 = load ptr, ptr %23, align 8
   %80 = load ptr, ptr %0, align 8
   %81 = trunc nuw nsw i64 %indvars.iv102 to i32
-  %82 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %79, ptr noundef %80, i32 noundef %78, i32 noundef %1, i32 noundef %81, i32 noundef 0, i8 noundef signext %22) #19
+  %82 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %79, ptr noundef %80, i32 noundef %78, i32 noundef %1, i32 noundef %81, i32 noundef 0, i8 noundef signext range(i8 0, 2) %22) #19
   %83 = load i32, ptr %31, align 4
   %84 = add nsw i32 %83, %82
   store i32 %84, ptr %31, align 4
@@ -1834,7 +1834,7 @@ Fxch_ManSCAddRemove.exit78:                       ; preds = %.preheader, %Fxch_M
   %95 = load ptr, ptr %23, align 8
   %96 = load ptr, ptr %0, align 8
   %97 = trunc nuw nsw i64 %indvars.iv99 to i32
-  %98 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %95, ptr noundef %96, i32 noundef %94, i32 noundef %1, i32 noundef %81, i32 noundef %97, i8 noundef signext %22) #19
+  %98 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %95, ptr noundef %96, i32 noundef %94, i32 noundef %1, i32 noundef %81, i32 noundef %97, i8 noundef signext range(i8 0, 2) %22) #19
   %99 = load i32, ptr %31, align 4
   %100 = add nsw i32 %99, %98
   store i32 %100, ptr %31, align 4
@@ -2876,8 +2876,8 @@ Vec_IntPush.exit107.i:                            ; preds = %398, %Vec_IntGrow.e
   br i1 %412, label %413, label %490
 
 413:                                              ; preds = %Vec_IntPush.exit107.i
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.0198, i32 %.0199)
-  %spec.select82.i = tail call i32 @llvm.smin.i32(i32 %.0198, i32 %.0199)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 range(i32 -1073741824, 1073741824) %.0198, i32 range(i32 -1073741824, 1073741824) %.0199)
+  %spec.select82.i = tail call i32 @llvm.smin.i32(i32 range(i32 -1073741824, 1073741824) %.0198, i32 range(i32 -1073741824, 1073741824) %.0199)
   %414 = xor i32 %spec.select82.i, 1
   %415 = load i32, ptr %374, align 4
   %416 = load i32, ptr %373, align 8

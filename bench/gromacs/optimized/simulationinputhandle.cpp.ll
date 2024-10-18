@@ -303,7 +303,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx21SimulationInputHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i64 0, ptr %0, align 8
-  invoke void @_ZN3gmx6detail32SimulationInputHandleImplDeleterC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZN3gmx6detail32SimulationInputHandleImplDeleterC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZNSt10unique_ptrIN3gmx6detail25SimulationInputHandleImplENS1_32SimulationInputHandleImplDeleterEEC2IS3_vEEv.exit unwind label %2
 
 2:                                                ; preds = %1
@@ -500,7 +500,7 @@ _ZNK3gmx6detail32SimulationInputHandleImplDeleterclEPNS0_25SimulationInputHandle
 define void @_ZN3gmx21SimulationInputHandleC2ESt10unique_ptrINS_6detail25SimulationInputHandleImplESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
-  invoke void @_ZN3gmx6detail32SimulationInputHandleImplDeleterC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZN3gmx6detail32SimulationInputHandleImplDeleterC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZNSt10unique_ptrIN3gmx6detail25SimulationInputHandleImplENS1_32SimulationInputHandleImplDeleterEEC2IS3_vEEPS2_.exit unwind label %4
 
 4:                                                ; preds = %2
@@ -518,7 +518,7 @@ _ZNSt10unique_ptrIN3gmx6detail25SimulationInputHandleImplENS1_32SimulationInputH
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx21SimulationInputHandleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store i64 0, ptr %0, align 8
-  invoke void @_ZN3gmx6detail32SimulationInputHandleImplDeleterC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %0)
+  invoke void @_ZN3gmx6detail32SimulationInputHandleImplDeleterC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZNSt10unique_ptrIN3gmx6detail25SimulationInputHandleImplENS1_32SimulationInputHandleImplDeleterEEC2IS3_vEEv.exit unwind label %3
 
 3:                                                ; preds = %2
@@ -1139,7 +1139,7 @@ _ZNSt10unique_ptrIN3gmx6detail25SimulationInputHandleImplESt14default_deleteIS2_
 _ZNKSt14default_deleteIN3gmx15SimulationInputEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN3gmx6detail25SimulationInputHandleImplESt14default_deleteIS2_EED2Ev.exit15
   %113 = getelementptr inbounds i8, ptr %112, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %113) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %112) #14
   call void @_ZdlPv(ptr noundef nonnull %112) #15
   br label %_ZNSt10unique_ptrIN3gmx15SimulationInputESt14default_deleteIS1_EED2Ev.exit
 
@@ -1177,7 +1177,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIN3gmx15SimulationInputESt14default_d
 _ZNKSt14default_deleteIN3gmx15SimulationInputEEclEPS1_.exit: ; preds = %1
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #14
   tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   br label %4
 
@@ -1195,7 +1195,7 @@ define linkonce_odr void @_ZN3gmx15SimulationInputC2EPKcS2_(ptr noundef nonnull 
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc6 unwind label %25
 
 .noexc6:                                          ; preds = %.noexc
@@ -1212,7 +1212,7 @@ define linkonce_odr void @_ZN3gmx15SimulationInputC2EPKcS2_(ptr noundef nonnull 
 10:                                               ; preds = %12, %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 12:                                               ; preds = %.noexc6
@@ -1229,7 +1229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc7 unwind label %27
 
 .noexc7:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc8 unwind label %27
 
 .noexc8:                                          ; preds = %.noexc7
@@ -1246,7 +1246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 20:                                               ; preds = %22, %18
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
   br label %.body9
 
 22:                                               ; preds = %.noexc8
@@ -1611,7 +1611,7 @@ define linkonce_odr void @_ZNSt19_Sp_counted_deleterIPN3gmx15SimulationInputESt1
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #14
   tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   br label %_ZNKSt14default_deleteIN3gmx15SimulationInputEEclEPS1_.exit
 

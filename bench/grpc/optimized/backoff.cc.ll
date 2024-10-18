@@ -189,7 +189,7 @@ _ZN9grpc_coremlENS_8DurationEd.exit:              ; preds = %if.then.i, %cond.fa
 
 if.end.i:                                         ; preds = %_ZN9grpc_coremlENS_8DurationEd.exit
   %rand_gen_ = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i = call noundef double @_ZN4absl12lts_2023080215random_internal18DistributionCallerINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEE4ImplINS1_26UniformDistributionWrapperIdEEJRdSC_EEENT_11result_typeESt17integral_constantIbLb0EEPS7_DpOT0_(ptr noundef nonnull %rand_gen_, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i)
+  %call.i.i = call noundef double @_ZN4absl12lts_2023080215random_internal18DistributionCallerINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEE4ImplINS1_26UniformDistributionWrapperIdEEJRdSC_EEENT_11result_typeESt17integral_constantIbLb0EEPS7_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %rand_gen_, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i)
   br label %_ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit
 
 _ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit: ; preds = %_ZN9grpc_coremlENS_8DurationEd.exit, %if.end.i

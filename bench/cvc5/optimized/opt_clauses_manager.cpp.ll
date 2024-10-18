@@ -428,7 +428,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.
 
 if.end15.i.i.i.i.i.i:                             ; preds = %cond.end238
   %d_hashMap.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 80
-  %call2.i.i.i.i.i.i.i = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %d_hashMap.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__begin5.sroa.0.01172)
+  %call2.i.i.i.i.i.i.i = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %d_hashMap.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__begin5.sroa.0.01172)
   %_M_bucket_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 88
   %53 = load i64, ptr %_M_bucket_count.i.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %call2.i.i.i.i.i.i.i, %53
@@ -483,7 +483,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i2.i, label %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit.i, label %if.then.i.i.i1077
 
 if.then.i.i.i1077:                                ; preds = %if.else.i
-  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %48)
+  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(56) %48)
   br label %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit.i
 
 _ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit.i: ; preds = %if.then.i.i.i1077, %if.else.i
@@ -598,7 +598,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
   br label %_ZN4cvc57context13InsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE9push_backERKS4_RKb.exit
 
 if.else.i.i1105:                                  ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEbED2Ev.exit.i
-  call void @_ZNSt5dequeIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE16_M_push_back_auxIJRKS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %70, ptr noundef nonnull align 8 dereferenceable(8) %__begin5.sroa.0.01172)
+  call void @_ZNSt5dequeIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE16_M_push_back_auxIJRKS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(136) %70, ptr noundef nonnull align 8 dereferenceable(8) %__begin5.sroa.0.01172)
   br label %_ZN4cvc57context13InsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE9push_backERKS4_RKb.exit
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i1098
@@ -783,7 +783,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal4prop23OptimizedClausesManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN4cvc57context16ContextNotifyObjD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #19
+  tail call void @_ZN4cvc57context16ContextNotifyObjD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }

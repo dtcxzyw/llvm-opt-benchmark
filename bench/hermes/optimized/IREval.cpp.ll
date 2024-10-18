@@ -1615,7 +1615,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i.thread.i, label %if.end.i.i
 
 if.end.i.thread.i:                                ; preds = %entry
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %a.8.val, i64 noundef 1) #6
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %a.8.val, i64 noundef 1) #6
   %.pre13.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %0 = zext i32 %.pre13.pre.i.i to i64
   %.pre = load ptr, ptr %agg.result, align 8
@@ -1648,7 +1648,7 @@ _ZN4llvh11SmallStringILj256EE6appendENS_9StringRefE.exit: ; preds = %if.end.i.i,
 
 if.end.i.thread.i15:                              ; preds = %_ZN4llvh11SmallStringILj256EE6appendENS_9StringRefE.exit
   %add.i.i16 = add i64 %b.8.val, %conv.i5.i.i4
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i16, i64 noundef 1) #6
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %agg.result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i16, i64 noundef 1) #6
   %.pre13.pre.i.i18 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre2 = zext i32 %.pre13.pre.i.i18 to i64
   br label %if.then.i.i.i9

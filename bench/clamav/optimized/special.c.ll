@@ -49,7 +49,7 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %3, i64 104
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr %13(ptr noundef nonnull %3, i64 noundef 0, i64 noundef %11, i32 noundef 0) #7
+  %14 = tail call ptr %13(ptr noundef nonnull %3, i64 noundef 0, i64 noundef range(i64 0, 4294967296) %11, i32 noundef 0) #7
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.loopexit, label %.preheader.preheader
 

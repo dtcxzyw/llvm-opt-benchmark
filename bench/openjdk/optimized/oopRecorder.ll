@@ -1657,7 +1657,7 @@ _ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.threa
 _ZNK17GrowableArrayViewIN12ObjectLookup11ObjectEntryEE11find_sortedIP7oopDescTnPFiRKT_RKS1_EXadL_ZNS0_19sort_oop_by_addressERKS5_SA_EEEEiS8_Rb.exit: ; preds = %78, %52, %_ZN12ObjectLookup12maybe_resortEv.exit
   %.0.i10 = phi i32 [ 0, %_ZN12ObjectLookup12maybe_resortEv.exit ], [ %53, %52 ], [ %.1.i, %78 ]
   %79 = tail call noundef ptr @_ZN10JNIHandles10make_localEP7oopDesc(ptr noundef %.0.i) #12
-  %80 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %79, i1 noundef zeroext false)
+  %80 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %79, i1 noundef zeroext false)
   %81 = load i32, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 4
   %83 = load i32, ptr %82, align 4
@@ -2308,9 +2308,9 @@ declare void @_ZN5ArenaC1E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_Z22ExternalsRecorder_initv() local_unnamed_addr #0 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 4, i32 noundef 0) #12
-  tail call void @_ZN5ArenaC1E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 4, i8 noundef zeroext 0, i64 noundef 984) #12
+  tail call void @_ZN5ArenaC1E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 noundef zeroext 4, i8 noundef zeroext 0, i64 noundef 984) #12
   %2 = getelementptr inbounds i8, ptr %1, i64 48
-  tail call void @_ZN13ValueRecorderIPhEC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull %1) #12
+  tail call void @_ZN13ValueRecorderIPhEC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull align 8 dereferenceable(88) %1) #12
   store ptr %1, ptr @_ZN17ExternalsRecorder9_recorderE, align 8
   ret void
 }
@@ -2318,9 +2318,9 @@ define hidden void @_Z22ExternalsRecorder_initv() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17ExternalsRecorder10initializeEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 4, i32 noundef 0) #12
-  tail call void @_ZN5ArenaC1E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 4, i8 noundef zeroext 0, i64 noundef 984) #12
+  tail call void @_ZN5ArenaC1E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 noundef zeroext 4, i8 noundef zeroext 0, i64 noundef 984) #12
   %2 = getelementptr inbounds i8, ptr %1, i64 48
-  tail call void @_ZN13ValueRecorderIPhEC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull %1) #12
+  tail call void @_ZN13ValueRecorderIPhEC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull align 8 dereferenceable(88) %1) #12
   store ptr %1, ptr @_ZN17ExternalsRecorder9_recorderE, align 8
   ret void
 }

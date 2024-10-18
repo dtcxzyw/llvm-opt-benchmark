@@ -105,7 +105,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %init.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(48) %call.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -139,7 +139,7 @@ init.i7:                                          ; preds = %init.check.i5
           to label %invoke.cont5.i10 unwind label %lpad.i9
 
 invoke.cont5.i10:                                 ; preds = %init.i7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call.i8, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(48) %call.i8, i64 16, i1 false)
   %arrayidx6.i.i.i11 = getelementptr inbounds i8, ptr %call.i8, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i11, i64 16, i1 false)
   %arrayidx10.i.i.i12 = getelementptr inbounds i8, ptr %call.i8, i64 32

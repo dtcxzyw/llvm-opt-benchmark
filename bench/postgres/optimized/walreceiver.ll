@@ -1794,7 +1794,7 @@ define internal fastcc void @WalRcvFetchTimeLineHistoryFiles(i32 noundef %0, i32
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @wrconn, align 8
   call void %16(ptr noundef %17, i32 noundef %.016, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
-  %18 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.28, i32 noundef %.016) #15
+  %18 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.28, i32 noundef range(i32 2, 1) %.016) #15
   %19 = load ptr, ptr %3, align 8
   %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %6) #18
   %.not12 = icmp eq i32 %20, 0

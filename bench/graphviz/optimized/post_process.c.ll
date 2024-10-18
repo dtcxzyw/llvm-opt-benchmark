@@ -16,7 +16,7 @@ define noalias noundef ptr @StressMajorizationSmoother2_new(ptr noundef %0, i32 
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc ptr @ideal_distance_matrix(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %3)
-  %12 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %12 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 81) 80) #15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %gv_alloc.exit
 
@@ -1049,7 +1049,7 @@ define noalias noundef ptr @SparseStressMajorizationSmoother_new(ptr noundef %0,
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %20 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 81) 80) #15
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %gv_alloc.exit
 
@@ -2178,7 +2178,7 @@ define noalias noundef ptr @TriangleSmoother_new(ptr noundef %0, i32 noundef %1,
   br i1 %exitcond.not, label %._crit_edge157, label %.lr.ph156
 
 ._crit_edge157:                                   ; preds = %._crit_edge, %4
-  %39 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %39 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 81) 80) #15
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %gv_alloc.exit
 
@@ -2456,7 +2456,7 @@ define noalias noundef ptr @SpringSmoother_new(ptr noundef %0, i32 noundef %1, p
   %10 = tail call fastcc ptr @ideal_distance_matrix(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %3)
   %11 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #15
+  %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 81) 16) #15
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %gv_alloc.exit
 

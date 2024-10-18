@@ -167,7 +167,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr 
 90:                                               ; preds = %86, %83, %77
   %.0112.i.i = phi i32 [ %89, %86 ], [ 128, %83 ], [ 128, %77 ]
   %91 = load ptr, ptr %7, align 8
-  %92 = call fastcc i64 @sstep(ptr noundef %91, i64 noundef %28, i64 noundef %29, i64 noundef %70, i32 noundef 132, i64 noundef %70)
+  %92 = call fastcc i64 @sstep(ptr noundef %91, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %28, i64 noundef %29, i64 noundef %70, i32 noundef 132, i64 noundef %70)
   %93 = load ptr, ptr %68, align 8
   %94 = getelementptr inbounds i8, ptr %91, i64 36
   %95 = getelementptr inbounds i8, ptr %91, i64 68
@@ -246,7 +246,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr 
 .preheader.i.i:                                   ; preds = %123, %.preheader.i.i
   %.2117.i.i = phi i64 [ %125, %.preheader.i.i ], [ %.0115.i.i, %123 ]
   %.2.i.i = phi i32 [ %126, %.preheader.i.i ], [ %.1107.i.i, %123 ]
-  %125 = call fastcc i64 @sstep(ptr noundef %91, i64 noundef %28, i64 noundef %29, i64 noundef %.2117.i.i, i32 noundef %.1109.i.i, i64 noundef %.2117.i.i)
+  %125 = call fastcc i64 @sstep(ptr noundef %91, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %28, i64 noundef %29, i64 noundef %.2117.i.i, i32 noundef %.1109.i.i, i64 noundef %.2117.i.i)
   %126 = add nsw i32 %.2.i.i, -1
   %.old17.i.i = icmp ugt i32 %.2.i.i, 1
   br i1 %.old17.i.i, label %.preheader.i.i, label %.loopexit.i.i
@@ -348,7 +348,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr 
 
 .thread139.i.i:                                   ; preds = %.thread.i.i, %157, %154
   %.3142.i.i = phi i32 [ %.3.i.i, %.thread.i.i ], [ 134, %154 ], [ 134, %157 ]
-  %166 = call fastcc i64 @sstep(ptr noundef %91, i64 noundef %28, i64 noundef %29, i64 noundef %.1116.i.i, i32 noundef %.3142.i.i, i64 noundef %.1116.i.i)
+  %166 = call fastcc i64 @sstep(ptr noundef %91, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %28, i64 noundef %29, i64 noundef %.1116.i.i, i32 noundef %.3142.i.i, i64 noundef %.1116.i.i)
   br label %167
 
 167:                                              ; preds = %.thread139.i.i, %.thread.i.i
@@ -360,7 +360,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr 
   br i1 %or.cond.i.i, label %sfast.exit.i, label %170
 
 170:                                              ; preds = %167
-  %171 = call fastcc i64 @sstep(ptr noundef %91, i64 noundef %28, i64 noundef %29, i64 noundef %.3118.i.i, i32 noundef %106, i64 noundef %92)
+  %171 = call fastcc i64 @sstep(ptr noundef %91, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %28, i64 noundef %29, i64 noundef %.3118.i.i, i32 noundef %106, i64 noundef %92)
   %172 = getelementptr inbounds i8, ptr %.0114.i.i, i64 1
   br label %100
 
@@ -754,7 +754,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
   %354 = getelementptr inbounds i8, ptr %335, i64 %272
   store i8 1, ptr %354, align 1
   %355 = load ptr, ptr %6, align 8
-  %356 = call fastcc ptr @lstep(ptr noundef %355, i64 noundef %272, i64 noundef %273, ptr noundef %335, i32 noundef 132, ptr noundef %335)
+  %356 = call fastcc ptr @lstep(ptr noundef %355, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %272, i64 noundef %273, ptr noundef %335, i32 noundef 132, ptr noundef %335)
   %357 = load ptr, ptr %6, align 8
   %358 = getelementptr inbounds i8, ptr %357, i64 40
   %359 = load i64, ptr %358, align 8
@@ -843,7 +843,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
 .preheader.i.i56:                                 ; preds = %396, %.preheader.i.i56
   %.2.i.i57 = phi i32 [ %400, %.preheader.i.i56 ], [ %.1116.i.i29, %396 ]
   %398 = load ptr, ptr %6, align 8
-  %399 = call fastcc ptr @lstep(ptr noundef %398, i64 noundef %272, i64 noundef %273, ptr noundef %335, i32 noundef %.1118.i.i, ptr noundef %335)
+  %399 = call fastcc ptr @lstep(ptr noundef %398, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %272, i64 noundef %273, ptr noundef %335, i32 noundef %.1118.i.i, ptr noundef %335)
   %400 = add nsw i32 %.2.i.i57, -1
   %.old17.i.i58 = icmp ugt i32 %.2.i.i57, 1
   br i1 %.old17.i.i58, label %.preheader.i.i56, label %.loopexit.i.i30
@@ -945,7 +945,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
 .thread149.i.i:                                   ; preds = %.thread.i.i34, %431, %428
   %.3152.i.i = phi i32 [ %.3.i.i35, %.thread.i.i34 ], [ 134, %428 ], [ 134, %431 ]
   %440 = load ptr, ptr %6, align 8
-  %441 = call fastcc ptr @lstep(ptr noundef %440, i64 noundef %272, i64 noundef %273, ptr noundef %335, i32 noundef %.3152.i.i, ptr noundef %335)
+  %441 = call fastcc ptr @lstep(ptr noundef %440, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %272, i64 noundef %273, ptr noundef %335, i32 noundef %.3152.i.i, ptr noundef %335)
   br label %442
 
 442:                                              ; preds = %.thread149.i.i, %.thread.i.i34
@@ -965,7 +965,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
   %451 = load i64, ptr %450, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %335, ptr align 1 %336, i64 %451, i1 false)
   %452 = load ptr, ptr %6, align 8
-  %453 = call fastcc ptr @lstep(ptr noundef %452, i64 noundef %272, i64 noundef %273, ptr noundef %337, i32 noundef %368, ptr noundef nonnull %335)
+  %453 = call fastcc ptr @lstep(ptr noundef %452, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %272, i64 noundef %273, ptr noundef %337, i32 noundef %368, ptr noundef nonnull %335)
   %454 = getelementptr inbounds i8, ptr %.0123.i.i, i64 1
   br label %361
 

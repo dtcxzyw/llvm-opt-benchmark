@@ -192,7 +192,7 @@ _ZN16btTriangleBufferD2Ev.exit:                   ; preds = %entry, %if.then.i.i
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
 }

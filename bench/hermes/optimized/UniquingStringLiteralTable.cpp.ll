@@ -88,7 +88,7 @@ entry:
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %storage, i64 16
   %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %storage, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %storage, i8 0, i64 24, i1 false)
   %storage_.i = getelementptr inbounds i8, ptr %this, i64 24
   %storage_3.i = getelementptr inbounds i8, ptr %storage, i64 24
   %3 = load ptr, ptr %storage_3.i, align 8
@@ -266,14 +266,14 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4backEv.
   %second.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   store i32 %conv7, ptr %second.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !9
-  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) %stringsToIndex_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !9
+  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) %stringsToIndex_, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !9
   %18 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !9
   br i1 %call.i.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4backEv.exit
-  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %stringsToIndex_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef %18), !noalias !9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, i64 16, i1 false), !noalias !9
+  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E20InsertIntoBucketImplIS2_EEPS7_RKS2_RKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %stringsToIndex_, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp15, ptr noundef %18), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp15, i64 16, i1 false), !noalias !9
   %second.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2.i.i, i64 16
   %19 = load i32, ptr %second.i, align 8, !noalias !9
   store i32 %19, ptr %second.i.i3.i.i, align 4, !noalias !9
@@ -833,12 +833,12 @@ if.end18.i.i:                                     ; preds = %if.else.i.i, %if.th
   %16 = tail call i64 @llvm.usub.sat.i64(i64 %sub.ptr.div.i.i, i64 %add12.i.i.i)
   %sub.i.i = sub i64 0, %16
   %add.ptr.i.i120 = getelementptr inbounds %struct.Index, ptr %indices.sroa.0.0.lcssa412, i64 %sub.i.i
-  %.sroa.speculated6.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 255)
+  %.sroa.speculated6.i.i = tail call i64 @llvm.umax.i64(i64 range(i64 -1, 65536) %sub.ptr.div.i.i, i64 255)
   %.sroa.speculated.i.i121 = tail call i64 @llvm.umin.i64(i64 %add12.i.i.i, i64 %.sroa.speculated6.i.i)
   %sub.i.i122 = sub i64 %.sroa.speculated.i.i121, %sub.ptr.div.i.i
   %add.ptr.i.i123 = getelementptr inbounds %struct.Index, ptr %indices.sroa.0.0.lcssa412, i64 %sub.i.i122
   tail call fastcc void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEEEvT_SB_(ptr %add.ptr.i.i120, ptr %add.ptr.i.i123)
-  %.sroa.speculated6.i.i128 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 65535)
+  %.sroa.speculated6.i.i128 = tail call i64 @llvm.umax.i64(i64 range(i64 -1, 65536) %sub.ptr.div.i.i, i64 65535)
   %.sroa.speculated.i.i129 = tail call i64 @llvm.umin.i64(i64 %add12.i.i.i, i64 %.sroa.speculated6.i.i128)
   %sub.i.i130 = sub i64 %.sroa.speculated.i.i129, %sub.ptr.div.i.i
   %add.ptr.i.i131 = getelementptr inbounds %struct.Index, ptr %indices.sroa.0.0.lcssa412, i64 %sub.i.i130
@@ -1127,7 +1127,7 @@ for.end110:                                       ; preds = %_ZNSt14_Bit_referen
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %accum, i64 16
   %30 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
   store ptr %30, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %accum, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %accum, i8 0, i64 24, i1 false)
   %storage_.i303 = getelementptr inbounds i8, ptr %agg.tmp111, i64 24
   %storage_3.i = getelementptr inbounds i8, ptr %accum, i64 24
   %31 = load ptr, ptr %storage_3.i, align 8
@@ -1621,7 +1621,7 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %__args1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2, ptr noundef %3)
@@ -1965,7 +1965,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE22_M_res
   %11 = load ptr, ptr %__args1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef %11)
@@ -3031,7 +3031,7 @@ while.end.i27:                                    ; preds = %"_ZSt12__move_merge
   %__first.sroa.0.0.lcssa.i28 = phi ptr [ %__first.coerce, %while.body ], [ %add.ptr.i16.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %add.ptr.i.i.i.i.i14.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %sub.ptr.div.i.lcssa.i = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %__step_size.058, i64 %sub.ptr.div.i.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 288230376151711743) %__step_size.058, i64 %sub.ptr.div.i.lcssa.i)
   %add.ptr.i22.i = getelementptr inbounds %struct.Index, ptr %__first.sroa.0.0.lcssa.i28, i64 %.sroa.speculated.i
   %cmp.i1.i24.i = icmp ne i64 %.sroa.speculated.i, 0
   %cmp.i72.i25.i = icmp ne ptr %add.ptr.i22.i, %__last.coerce
@@ -3179,7 +3179,7 @@ while.end.i53:                                    ; preds = %"_ZSt12__move_merge
   %__first.addr.0.lcssa.i = phi ptr [ %__buffer, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %add.ptr2.i, %"_ZSt12__move_mergeIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS2_7toTableES2_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %__result.sroa.0.0.lcssa.i = phi ptr [ %__first.coerce, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %add.ptr.i.i.i.i.i18.i.i, %"_ZSt12__move_mergeIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS2_7toTableES2_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div.i, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNS4_7toTableES4_bE3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %sub.ptr.div.i51, %"_ZSt12__move_mergeIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES2_bE5IndexN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS2_7toTableES2_bE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.sroa.speculated.i54 = tail call i64 @llvm.smin.i64(i64 %mul.i, i64 %sub.ptr.div.lcssa.i)
+  %.sroa.speculated.i54 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 576460752303423485) %mul.i, i64 %sub.ptr.div.lcssa.i)
   %add.ptr13.i = getelementptr inbounds %struct.Index, ptr %__first.addr.0.lcssa.i, i64 %.sroa.speculated.i54
   %cmp2.i19.i = icmp ne i64 %.sroa.speculated.i54, 0
   %cmp13.i20.i = icmp ne ptr %add.ptr13.i, %add.ptr

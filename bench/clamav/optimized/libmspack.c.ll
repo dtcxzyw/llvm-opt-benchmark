@@ -582,10 +582,10 @@ define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, 
 
 26:                                               ; preds = %24
   %27 = sub nuw i64 %21, %16
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %27)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 2147483648) %19, i64 %27)
   %28 = getelementptr inbounds i8, ptr %18, i64 104
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr %29(ptr noundef nonnull %18, i64 noundef %16, i64 noundef %spec.select.i, i32 noundef 0) #14
+  %30 = tail call ptr %29(ptr noundef nonnull %18, i64 noundef %16, i64 noundef range(i64 0, 2147483648) %spec.select.i, i32 noundef 0) #14
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %32, label %31
 

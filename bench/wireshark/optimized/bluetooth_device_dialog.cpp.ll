@@ -6614,7 +6614,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i3:   ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i3, %24
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #19
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #19
   ret void
 
 26:                                               ; preds = %7
@@ -6657,7 +6657,7 @@ define void @_ZN21BluetoothDeviceDialogD0Ev(ptr noundef nonnull align 8 derefere
 define void @_ZThn16_N21BluetoothDeviceDialogD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN21BluetoothDeviceDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(260) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(260) %2) #20
   ret void
 }
 
@@ -8724,7 +8724,7 @@ define void @_ZN21BluetoothDeviceDialog34on_actionMark_Unmark_Row_triggeredEv(pt
   br i1 %.not.i, label %_ZNK16QTableWidgetItem3rowEv.exit, label %39
 
 39:                                               ; preds = %34
-  %40 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull %21)
+  %40 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(60) %21)
           to label %_ZNK16QTableWidgetItem3rowEv.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZNK16QTableWidgetItem3rowEv.exit:                ; preds = %34, %39
@@ -8870,7 +8870,7 @@ _ZNK16QTableWidgetItem3rowEv.exit:                ; preds = %34, %39
   br i1 %.not.i28, label %_ZNK16QTableWidgetItem3rowEv.exit30, label %99
 
 99:                                               ; preds = %94
-  %100 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %98, ptr noundef nonnull %21)
+  %100 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %98, ptr noundef nonnull align 8 dereferenceable(60) %21)
           to label %_ZNK16QTableWidgetItem3rowEv.exit30 unwind label %.loopexit
 
 _ZNK16QTableWidgetItem3rowEv.exit30:              ; preds = %94, %99
@@ -8891,7 +8891,7 @@ _ZNK16QTableWidgetItem3rowEv.exit30:              ; preds = %94, %99
           to label %.noexc32 unwind label %.loopexit
 
 108:                                              ; preds = %103
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store i64 2, ptr %85, align 8
   br label %.noexc32
 
@@ -8923,7 +8923,7 @@ _ZNK16QTableWidgetItem3rowEv.exit30:              ; preds = %94, %99
           to label %.noexc36 unwind label %.loopexit
 
 119:                                              ; preds = %114
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   store i64 2, ptr %86, align 8
   br label %.noexc36
 
@@ -9122,7 +9122,7 @@ define void @_ZN21BluetoothDeviceDialog35on_actionMark_Unmark_Cell_triggeredEv(p
           to label %.noexc14 unwind label %43
 
 71:                                               ; preds = %64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %72 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 2, ptr %72, align 8
   br label %.noexc14
@@ -9155,7 +9155,7 @@ define void @_ZN21BluetoothDeviceDialog35on_actionMark_Unmark_Cell_triggeredEv(p
           to label %.noexc18 unwind label %43
 
 83:                                               ; preds = %78
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %84 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %84, align 8
   br label %.noexc18
@@ -9439,7 +9439,7 @@ _ZNK17QArrayDataPointerIP16QTableWidgetItemE11needsDetachEv.exit.thread.i.i.i22:
   br i1 %.not.i, label %_ZNK16QTableWidgetItem3rowEv.exit, label %55
 
 55:                                               ; preds = %45
-  %56 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull %52)
+  %56 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(60) %52)
           to label %_ZNK16QTableWidgetItem3rowEv.exit unwind label %133
 
 _ZNK16QTableWidgetItem3rowEv.exit:                ; preds = %45, %55
@@ -9482,7 +9482,7 @@ _ZNK16QTableWidgetItem3rowEv.exit:                ; preds = %45, %55
   br i1 %.not.i27, label %_ZNK16QTableWidgetItem3rowEv.exit29, label %73
 
 73:                                               ; preds = %66
-  %74 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull %70)
+  %74 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(60) %70)
           to label %_ZNK16QTableWidgetItem3rowEv.exit29 unwind label %137
 
 _ZNK16QTableWidgetItem3rowEv.exit29:              ; preds = %66, %73
@@ -9525,7 +9525,7 @@ _ZNK16QTableWidgetItem3rowEv.exit29:              ; preds = %66, %73
   br i1 %.not.i34, label %_ZNK16QTableWidgetItem3rowEv.exit36, label %91
 
 91:                                               ; preds = %84
-  %92 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef nonnull %88)
+  %92 = invoke noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef nonnull align 8 dereferenceable(60) %88)
           to label %_ZNK16QTableWidgetItem3rowEv.exit36 unwind label %141
 
 _ZNK16QTableWidgetItem3rowEv.exit36:              ; preds = %84, %91
@@ -10970,7 +10970,7 @@ define void @_ZN21BluetoothDeviceDialog12saveItemDataEP16QTableWidgetItemP23_blu
   store i32 %29, ptr %30, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %21, ptr %4, align 8, !noalias !64
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %4)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 32
@@ -11287,7 +11287,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31:    ; preds = %55
 
 69:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %2) #19
+  call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %2, align 8
   %70 = getelementptr inbounds i8, ptr %2, i64 16
   %71 = getelementptr inbounds i8, ptr %9, i64 16

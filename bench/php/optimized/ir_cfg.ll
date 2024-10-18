@@ -766,7 +766,7 @@ ir_try_split_if.exit:                             ; preds = %373, %379, %385, %3
   br i1 %426, label %427, label %ir_try_split_if.exit.thread
 
 427:                                              ; preds = %423
-  %428 = call fastcc i32 @ir_try_split_if_cmp(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %290, ptr noundef nonnull %292)
+  %428 = call fastcc i32 @ir_try_split_if_cmp(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %290, ptr noundef nonnull %292)
   %.not.i = icmp eq i32 %428, 0
   br i1 %.not.i, label %ir_try_split_if.exit.thread, label %ir_optimize_merge.exit
 

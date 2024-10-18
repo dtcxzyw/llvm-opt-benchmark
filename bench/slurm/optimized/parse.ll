@@ -1251,7 +1251,7 @@ get_argument.exit.thread:                         ; preds = %.critedge2.i, %7
 
 25:                                               ; preds = %28, %22
   %26 = load ptr, ptr %3, align 8
-  %27 = call i32 @getopt_long(i32 noundef %.040, ptr noundef %23, ptr noundef %26, ptr noundef %24, ptr noundef null) #8
+  %27 = call i32 @getopt_long(i32 noundef range(i32 2, -2147483648) %.040, ptr noundef %23, ptr noundef %26, ptr noundef %24, ptr noundef null) #8
   %.not.i = icmp eq i32 %27, -1
   br i1 %.not.i, label %34, label %28
 

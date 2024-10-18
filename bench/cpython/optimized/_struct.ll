@@ -693,7 +693,7 @@ land.lhs.true31:                                  ; preds = %if.end23, %if.end29
 skip_optional_pos:                                ; preds = %if.end29, %land.lhs.true31, %if.end20
   %offset.0 = phi i64 [ 0, %if.end20 ], [ -1, %land.lhs.true31 ], [ %call28, %if.end29 ]
   %10 = load ptr, ptr %s_object, align 8
-  %call.i = call fastcc ptr @Struct_unpack_from_impl(ptr noundef readonly %10, ptr noundef readonly %buffer, i64 noundef %offset.0)
+  %call.i = call fastcc ptr @Struct_unpack_from_impl(ptr noundef readonly %10, ptr noundef nonnull readonly %buffer, i64 noundef %offset.0)
   br label %exit
 
 exitthread-pre-split:                             ; preds = %cond.end9, %if.end, %if.end15, %land.lhs.true31

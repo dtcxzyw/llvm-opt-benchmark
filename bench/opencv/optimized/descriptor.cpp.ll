@@ -564,7 +564,7 @@ _ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit.critedge: ; preds = %88
 114:                                              ; preds = %_ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit.critedge
   %115 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %18) #8
   br label %129
 
 _ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit59.critedge: ; preds = %88
@@ -599,12 +599,12 @@ _ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit59.critedge: ; preds = %88
 126:                                              ; preds = %_ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit59.critedge
   %127 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %20) #8
   br label %129
 
 128:                                              ; preds = %_ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit59.critedge, %_ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit.critedge
   %.sink = phi ptr [ %18, %_ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit.critedge ], [ %20, %_ZN2cv6stereo12CensusKernelILi2EEC2EPPh.exit59.critedge ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %.sink) #8
   ret void
 
 129:                                              ; preds = %126, %114, %87, %77, %67, %51, %41
@@ -876,7 +876,7 @@ define void @_ZN2cv6stereo15censusTransformERKNS_3MatEiRS1_i(ptr nocapture nound
 104:                                              ; preds = %94
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %16) #8
   br label %119
 
 106:                                              ; preds = %82
@@ -907,12 +907,12 @@ define void @_ZN2cv6stereo15censusTransformERKNS_3MatEiRS1_i(ptr nocapture nound
 116:                                              ; preds = %106
   %117 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %18) #8
   br label %119
 
 118:                                              ; preds = %106, %94
   %.sink = phi ptr [ %16, %94 ], [ %18, %106 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %.sink) #8
   ret void
 
 119:                                              ; preds = %116, %104, %81, %71, %61, %49, %39
@@ -1144,7 +1144,7 @@ _ZN2cv6stereo16StarKernelCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge: ; preds = 
           to label %102 unwind label %110
 
 102:                                              ; preds = %_ZN2cv6stereo16StarKernelCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %16) #8
   %103 = getelementptr inbounds i8, ptr %14, i64 192
   br label %104
 
@@ -1167,7 +1167,7 @@ _ZN2cv6stereo16StarKernelCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge: ; preds = 
 110:                                              ; preds = %_ZN2cv6stereo16StarKernelCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge
   %111 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %16) #8
   %112 = getelementptr inbounds i8, ptr %14, i64 192
   br label %113
 
@@ -1387,14 +1387,14 @@ define void @_ZN2cv6stereo19starCensusTransformERKNS_3MatEiRS1_(ptr noundef nonn
           to label %91 unwind label %.loopexit.loopexit
 
 91:                                               ; preds = %68
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %14) #8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #8
   ret void
 
 .loopexit.loopexit:                               ; preds = %68
   %92 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %14) #8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #8
   br label %.loopexit
 
@@ -1665,7 +1665,7 @@ _ZN2cv6stereo9MCTKernelILi2EEC2EPPhi.exit.critedge: ; preds = %99
 123:                                              ; preds = %_ZN2cv6stereo9MCTKernelILi2EEC2EPPhi.exit.critedge
   %124 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %21) #8
   br label %216
 
 125:                                              ; preds = %99
@@ -1906,12 +1906,12 @@ _ZN2cv6stereo8MVKernelILi2EEC2EPPhPPi.exit.critedge: ; preds = %192
 213:                                              ; preds = %_ZN2cv6stereo8MVKernelILi2EEC2EPPhPPi.exit.critedge
   %214 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %31) #8
   br label %216
 
 215:                                              ; preds = %_ZN2cv6stereo8MVKernelILi2EEC2EPPhPPi.exit.critedge, %_ZN2cv6stereo9MCTKernelILi2EEC2EPPhi.exit.critedge
   %.sink = phi ptr [ %21, %_ZN2cv6stereo9MCTKernelILi2EEC2EPPhi.exit.critedge ], [ %31, %_ZN2cv6stereo8MVKernelILi2EEC2EPPhPPi.exit.critedge ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %.sink) #8
   ret void
 
 216:                                              ; preds = %213, %181, %170, %145, %134, %123, %98, %88, %78, %62, %52
@@ -2180,7 +2180,7 @@ define void @_ZN2cv6stereo23modifiedCensusTransformERKNS_3MatEiRS1_iiS3_(ptr noc
 111:                                              ; preds = %98
   %112 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %18) #8
   br label %164
 
 113:                                              ; preds = %88
@@ -2313,12 +2313,12 @@ define void @_ZN2cv6stereo23modifiedCensusTransformERKNS_3MatEiRS1_iiS3_(ptr noc
 161:                                              ; preds = %150
   %162 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %24) #8
   br label %164
 
 163:                                              ; preds = %150, %98
   %.sink = phi ptr [ %18, %98 ], [ %24, %150 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %.sink) #8
   ret void
 
 164:                                              ; preds = %161, %133, %122, %111, %87, %77, %67, %55, %45
@@ -2649,7 +2649,7 @@ _ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge: ; preds = %96
 
 143:                                              ; preds = %_ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge, %_ZN2cv6stereo14SymetricCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge
   %.sink = phi ptr [ %19, %_ZN2cv6stereo14SymetricCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge ], [ %21, %_ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %.sink) #8
   %144 = getelementptr inbounds i8, ptr %17, i64 192
   br label %145
 
@@ -2666,7 +2666,7 @@ _ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge: ; preds = %96
 150:                                              ; preds = %141, %123
   %.sink82 = phi ptr [ %21, %141 ], [ %19, %123 ]
   %.pn47 = phi { ptr, i32 } [ %142, %141 ], [ %124, %123 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink82) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %.sink82) #8
   %151 = getelementptr inbounds i8, ptr %17, i64 192
   br label %152
 
@@ -2974,14 +2974,14 @@ define void @_ZN2cv6stereo23symetricCensusTransformERKNS_3MatEiRS1_i(ptr noundef
 
 129:                                              ; preds = %111, %89
   %.sink = phi ptr [ %17, %89 ], [ %19, %111 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %.sink) #8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #8
   ret void
 
 .loopexit.loopexit:                               ; preds = %127, %109
   %.sink60 = phi ptr [ %19, %127 ], [ %17, %109 ]
   %.pn42 = phi { ptr, i32 } [ %128, %127 ], [ %110, %109 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink60) #8
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %.sink60) #8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #8
   br label %.loopexit
 
@@ -3007,7 +3007,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi2ENS0_12CensusKernelILi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -3238,7 +3238,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi2ELi2ELi1ELi2ENS0_12CensusKernelILi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -3460,7 +3460,7 @@ _ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi1ENS0_12CensusKernelILi1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -3676,7 +3676,7 @@ _ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi2ELi2ELi1ELi1ENS0_12CensusKernelILi1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -3886,7 +3886,7 @@ _ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo16StarKernelCensusILi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -4171,7 +4171,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo16StarKernelCensusILi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -4456,7 +4456,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi2ENS0_9MCTKernelILi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -4715,7 +4715,7 @@ _ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.loopexit.us.us.us.us: ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi2ENS0_8MVKernelILi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -4952,7 +4952,7 @@ _ZNK2cv6stereo8MVKernelILi2EEclEiiiiiPi.exit.loopexit.us.us.us.us: ; preds = %._
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi1ENS0_9MCTKernelILi1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -5200,7 +5200,7 @@ _ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.loopexit.us.us.us.us: ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi1ENS0_8MVKernelILi1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -5425,7 +5425,7 @@ _ZNK2cv6stereo8MVKernelILi1EEclEiiiiiPi.exit.loopexit.us.us.us.us: ; preds = %._
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo14SymetricCensusILi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -5643,7 +5643,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi2ENS0_16ModifiedCsCensusILi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -5883,7 +5883,7 @@ _ZNK2cv6stereo16ModifiedCsCensusILi2EEclEiiiiiPi.exit.us.us: ; preds = %._crit_e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo14SymetricCensusILi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -6101,7 +6101,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi1ENS0_16ModifiedCsCensusILi1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }

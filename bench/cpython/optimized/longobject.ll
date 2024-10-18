@@ -5693,14 +5693,14 @@ if.end117.thread:                                 ; preds = %if.else28, %land.lh
   %base.addr.048.ph65 = phi i32 [ %base.addr.04959, %if.then110 ], [ %base, %land.lhs.true71 ], [ 10, %if.else28 ]
   %tobool126.not46.ph66 = phi i1 [ true, %if.then110 ], [ true, %land.lhs.true71 ], [ false, %if.else28 ]
   %str.addr.2.ph67 = phi ptr [ %add.ptr, %if.then110 ], [ %str.addr.1, %land.lhs.true71 ], [ %str.addr.1, %if.else28 ]
-  %11 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %base.addr.048.ph65)
+  %11 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 1, 0) %base.addr.048.ph65)
   br label %while.cond.preheader.i
 
 if.end117:                                        ; preds = %if.then114, %if.then22, %if.end66
   %12 = phi i8 [ %5, %if.end66 ], [ %5, %if.then22 ], [ %.pr64.pre, %if.then114 ]
   %base.addr.048 = phi i32 [ %base, %if.end66 ], [ 10, %if.then22 ], [ %base.addr.04959, %if.then114 ]
   %str.addr.2 = phi ptr [ %str.addr.1, %if.end66 ], [ %str.addr.1, %if.then22 ], [ %incdec.ptr115, %if.then114 ]
-  %13 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %base.addr.048)
+  %13 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 1, 0) %base.addr.048)
   %cmp2.i = icmp eq i8 %12, 95
   br i1 %cmp2.i, label %onError, label %while.cond.preheader.i
 
@@ -5784,7 +5784,7 @@ if.end49.i:                                       ; preds = %while.body42.i, %wh
   br i1 %cmp.i1978, label %if.then51.i, label %if.else52.i
 
 if.then51.i:                                      ; preds = %if.end49.i
-  call fastcc void @long_from_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef %z)
+  call fastcc void @long_from_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef range(i32 1, 0) %base.addr.04873, ptr noundef nonnull %z)
   br label %if.end121
 
 if.else52.i:                                      ; preds = %if.end49.i
@@ -5816,11 +5816,11 @@ if.end66.i:                                       ; preds = %if.then55.i
   br i1 %or.cond.i, label %if.then72.i, label %if.end74.i
 
 if.then72.i:                                      ; preds = %if.end66.i
-  call fastcc void @pylong_int_from_string(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, ptr noundef %z)
+  call fastcc void @pylong_int_from_string(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull %z)
   br label %if.end121
 
 if.end74.i:                                       ; preds = %if.end66.i, %if.else52.i
-  call fastcc void @long_from_non_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef %z)
+  call fastcc void @long_from_non_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef range(i32 1, 0) %base.addr.04873, ptr noundef nonnull %z)
   br label %if.end121
 
 if.end121:                                        ; preds = %if.end74.i, %if.then72.i, %if.then51.i
@@ -10196,7 +10196,7 @@ rem1.exit.i:                                      ; preds = %while.body.i.i.i, %
   br i1 %cmp21.i, label %return, label %if.end31.i
 
 if.else.i24:                                      ; preds = %if.end13.i
-  %call25.i = call fastcc ptr @x_divrem(ptr noundef nonnull %v, ptr noundef nonnull readonly %w, ptr noundef %mod)
+  %call25.i = call fastcc ptr @x_divrem(ptr noundef nonnull %v, ptr noundef nonnull readonly %w, ptr noundef nonnull %mod)
   %cmp.not.i.i = icmp eq ptr %call25.i, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i32.i
 
@@ -18325,7 +18325,7 @@ if.end11.i:                                       ; preds = %if.end, %if.end8.i3
 
 if.end15.i:                                       ; preds = %if.end11.i
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call12.i, i64 32
-  %call17.i = call i32 @_PyLong_AsByteArray(ptr noundef readonly %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %length.0587085, i32 noundef %little_endian.0.i86, i32 noundef %is_signed.07184)
+  %call17.i = call i32 @_PyLong_AsByteArray(ptr noundef readonly %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %length.0587085, i32 noundef %little_endian.0.i86, i32 noundef range(i32 0, -2147483648) %is_signed.07184)
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %if.then19.i, label %exit
 
@@ -18447,7 +18447,7 @@ if.end12.i:                                       ; preds = %if.end8.i
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call9.i, i64 32
   %12 = getelementptr i8, ptr %call9.i, i64 16
   %call9.val.i = load i64, ptr %12, align 8
-  %call15.i = call ptr @_PyLong_FromByteArray(ptr noundef nonnull %ob_sval.i.i, i64 noundef %call9.val.i, i32 noundef %little_endian.0.i, i32 noundef %is_signed.044)
+  %call15.i = call ptr @_PyLong_FromByteArray(ptr noundef nonnull %ob_sval.i.i, i64 noundef %call9.val.i, i32 noundef %little_endian.0.i, i32 noundef range(i32 0, -2147483648) %is_signed.044)
   %13 = load i64, ptr %call9.i, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i31.not.i = icmp eq i64 %14, 0

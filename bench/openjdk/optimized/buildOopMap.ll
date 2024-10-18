@@ -973,7 +973,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %56, %
   br i1 %.not.i.i179.i, label %_ZN10Block_List4pushEP5Block.exit.i, label %105
 
 105:                                              ; preds = %92
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %102) #11
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %102) #11
   br label %_ZN10Block_List4pushEP5Block.exit.i
 
 _ZN10Block_List4pushEP5Block.exit.i:              ; preds = %105, %92
@@ -1380,7 +1380,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i: ; preds = %29
   br i1 %.not.i.i185.i, label %_ZN10Block_List4pushEP5Block.exit186.i, label %333
 
 333:                                              ; preds = %.lr.ph230.i
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %330) #11
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %330) #11
   br label %_ZN10Block_List4pushEP5Block.exit186.i
 
 _ZN10Block_List4pushEP5Block.exit186.i:           ; preds = %333, %.lr.ph230.i
@@ -1514,7 +1514,7 @@ _ZNK5Block8get_nodeEj.exit188._crit_edge.i:       ; preds = %_ZNK5Block8get_node
   br i1 %.not.i.i189.i, label %_ZN10Block_List4pushEP5Block.exit190.i, label %392
 
 392:                                              ; preds = %.lr.ph245.i
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %389) #11
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %389) #11
   br label %_ZN10Block_List4pushEP5Block.exit190.i
 
 _ZN10Block_List4pushEP5Block.exit190.i:           ; preds = %392, %.lr.ph245.i
@@ -1681,7 +1681,7 @@ _ZN7OopFlow4makeEP5ArenaiP7Compile.exit:          ; preds = %_ZN5Arena7AmallocEm
   br i1 %.not.i.i96, label %_ZN10Block_List4pushEP5Block.exit, label %483
 
 483:                                              ; preds = %476
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %480) #11
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %480) #11
   br label %_ZN10Block_List4pushEP5Block.exit
 
 _ZN10Block_List4pushEP5Block.exit:                ; preds = %476, %483
@@ -1944,7 +1944,7 @@ _ZN7OopFlow4makeEP5ArenaiP7Compile.exit109:       ; preds = %.thread._ZN7OopFlow
   br i1 %.not.i.i110, label %_ZN10Block_List4pushEP5Block.exit111, label %607
 
 607:                                              ; preds = %600
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %604) #11
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %604) #11
   br label %_ZN10Block_List4pushEP5Block.exit111
 
 _ZN10Block_List4pushEP5Block.exit111:             ; preds = %600, %607

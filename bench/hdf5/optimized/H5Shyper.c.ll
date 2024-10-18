@@ -9524,7 +9524,7 @@ define internal fastcc ptr @H5S__combine_select(ptr noundef nonnull %0, i32 noun
 54:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %55 = call fastcc i32 @H5S__fill_in_new_space(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %27, i1 noundef zeroext false, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %55 = call fastcc i32 @H5S__fill_in_new_space(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %27, i1 noundef zeroext false, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %70, label %57
 
@@ -9683,7 +9683,7 @@ define range(i32 -1, 1) i32 @H5S__modify_select(ptr noundef %0, i32 noundef %1, 
 56:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %57 = call fastcc i32 @H5S__fill_in_new_space(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %29, i1 noundef zeroext false, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %57 = call fastcc i32 @H5S__fill_in_new_space(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %29, i1 noundef zeroext false, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %72, label %59
 

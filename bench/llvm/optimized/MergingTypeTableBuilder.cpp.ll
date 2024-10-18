@@ -65,7 +65,7 @@ define dso_local void @_ZN4llvm8codeview23MergingTypeTableBuilderC2ERNS_20BumpPt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef 2) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %7, i64 noundef 2) #14
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   %9 = icmp ult i64 %8, 4096
   br i1 %9, label %10, label %_ZN4llvm15SmallVectorImplINS_8ArrayRefIhEEE7reserveEm.exit
@@ -84,7 +84,7 @@ declare void @_ZN4llvm8codeview20SimpleTypeSerializerC1Ev(ptr noundef nonnull al
 define dso_local void @_ZN4llvm8codeview23MergingTypeTableBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm8codeview23MergingTypeTableBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #14
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = icmp eq ptr %4, %5
@@ -972,7 +972,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8
 40:                                               ; preds = %14
   %41 = zext i32 %10 to i64
   %42 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %16, i64 %41
-  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %16, ptr noundef nonnull %42)
+  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %16, ptr noundef nonnull %42)
   %43 = shl nuw nsw i64 %41, 5
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %16, i64 noundef %43, i64 noundef 8) #14
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E4growEj.exit
@@ -1038,7 +1038,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeInd
 75:                                               ; preds = %51
   %76 = zext i32 %10 to i64
   %77 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %52, i64 %76
-  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %52, ptr noundef nonnull %77)
+  tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %52, ptr noundef nonnull %77)
   %78 = shl nuw nsw i64 %76, 5
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %52, i64 noundef %78, i64 noundef 8) #14
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E4growEj.exit16

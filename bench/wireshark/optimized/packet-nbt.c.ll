@@ -561,7 +561,7 @@ dissect_nbns_query.exit.us.us.i:                  ; preds = %.lr.ph.split.us.i, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %59 = call ptr @wmem_packet_scope() #8
   %60 = call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef 379) #8
-  %61 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.us.us.i, i32 noundef 0, ptr noundef %60, i32 noundef 379, ptr noundef %5)
+  %61 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.us.us.i, i32 noundef 0, ptr noundef %60, i32 noundef 379, ptr noundef nonnull %5)
   %62 = add i32 %61, %.017.us.us.i
   %63 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %62) #8
   %64 = zext i16 %63 to i32
@@ -580,7 +580,7 @@ dissect_nbns_query.exit.us.i:                     ; preds = %.lr.ph.split.us.i, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %71 = call ptr @wmem_packet_scope() #8
   %72 = call noalias ptr @wmem_alloc(ptr noundef %71, i64 noundef 379) #8
-  %73 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.us.i, i32 noundef 0, ptr noundef %72, i32 noundef 379, ptr noundef %5)
+  %73 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.us.i, i32 noundef 0, ptr noundef %72, i32 noundef 379, ptr noundef nonnull %5)
   %74 = add i32 %73, %.017.us.i
   %75 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %74) #8
   %76 = zext i16 %75 to i32
@@ -600,7 +600,7 @@ dissect_nbns_query.exit.us.i:                     ; preds = %.lr.ph.split.us.i, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %83 = call ptr @wmem_packet_scope() #8
   %84 = call noalias ptr @wmem_alloc(ptr noundef %83, i64 noundef 379) #8
-  %85 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.i, i32 noundef 0, ptr noundef %84, i32 noundef 379, ptr noundef %5)
+  %85 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.i, i32 noundef 0, ptr noundef %84, i32 noundef 379, ptr noundef nonnull %5)
   %86 = add i32 %85, %.017.i
   %87 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %86) #8
   %88 = zext i16 %87 to i32
@@ -1251,7 +1251,7 @@ define internal fastcc noundef i32 @dissect_answer_records(ptr noundef %0, ptr n
   %23 = call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef 379) #8
   %24 = call ptr @wmem_packet_scope() #8
   %25 = call noalias ptr @wmem_alloc(ptr noundef %24, i64 noundef 21) #8
-  %26 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.050, i32 noundef 0, ptr noundef %21, i32 noundef 379, ptr noundef %9)
+  %26 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.050, i32 noundef 0, ptr noundef %21, i32 noundef 379, ptr noundef nonnull %9)
   %27 = add i32 %26, %.050
   %28 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %27) #8
   %29 = zext i16 %28 to i32

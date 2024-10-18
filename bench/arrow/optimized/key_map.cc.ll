@@ -1116,7 +1116,7 @@ if.then.i:                                        ; preds = %if.then26
 _ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit: ; preds = %if.then26
   %_M_invoker.i = getelementptr inbounds i8, ptr %equal_impl, i64 24
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(16) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i)
+  call void %2(ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -1155,7 +1155,7 @@ if.then.i35:                                      ; preds = %if.else
 _ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit36: ; preds = %if.else
   %_M_invoker.i34 = getelementptr inbounds i8, ptr %equal_impl, i64 24
   %7 = load ptr, ptr %_M_invoker.i34, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i27, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i28, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i29, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i31)
+  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i27, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i28, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i29, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i31)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i28)
@@ -1190,7 +1190,7 @@ if.then.i46:                                      ; preds = %if.else29
 _ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit47: ; preds = %if.else29
   %_M_invoker.i45 = getelementptr inbounds i8, ptr %equal_impl, i64 24
   %10 = load ptr, ptr %_M_invoker.i45, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i37, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i38, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i39, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i40, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i41, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i42)
+  call void %10(ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i37, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i38, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i39, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i40, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i41, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i42)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i37)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i39)
@@ -1311,7 +1311,7 @@ if.then.i46.i:                                    ; preds = %if.end.i
 _ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit47.i: ; preds = %if.end.i
   %_M_invoker.i45.i = getelementptr inbounds i8, ptr %equal_impl, i64 24
   %6 = load ptr, ptr %_M_invoker.i45.i, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i37.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i38.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i39.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i40.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i41.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i42.i)
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i37.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i38.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i39.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i40.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i41.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i42.i)
           to label %.noexc48 unwind label %lpad
 
 .noexc48:                                         ; preds = %_ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit47.i
@@ -1621,7 +1621,7 @@ if.then.i46.i81:                                  ; preds = %if.end.i74
 
 _ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit47.i78: ; preds = %if.end.i74
   %45 = load ptr, ptr %_M_invoker.i45.i79, align 8
-  invoke void %45(ptr noundef nonnull align 8 dereferenceable(16) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i37.i66, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i38.i67, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i39.i68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i40.i69, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i41.i70, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i42.i71)
+  invoke void %45(ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i37.i66, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i38.i67, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i39.i68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i40.i69, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i41.i70, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i42.i71)
           to label %_ZNK5arrow7compute10SwissTable15run_comparisonsEiPKtPKhPKjPiPtRKSt8functionIFviS3_S7_PjS9_PvEESC_.exit87 unwind label %lpad19.loopexit
 
 _ZNK5arrow7compute10SwissTable15run_comparisonsEiPKtPKhPKjPiPtRKSt8functionIFviS3_S7_PjS9_PvEESC_.exit87: ; preds = %_ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit47.i78
@@ -2043,7 +2043,7 @@ do.body:                                          ; preds = %invoke.cont66
 if.end.i:                                         ; preds = %do.body
   %_M_invoker.i = getelementptr inbounds i8, ptr %append_impl, i64 24
   %42 = load ptr, ptr %_M_invoker.i, align 8, !noalias !26
-  invoke void %42(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %append_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i)
+  invoke void %42(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %append_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad67
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end.i
@@ -2104,7 +2104,7 @@ if.then.i46.i.cont:                               ; preds = %if.then.i46.i.invok
 _ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit47.i: ; preds = %if.end.i114
   %_M_invoker.i45.i = getelementptr inbounds i8, ptr %equal_impl, i64 24
   %48 = load ptr, ptr %_M_invoker.i45.i, align 8
-  invoke void %48(ptr noundef nonnull align 8 dereferenceable(16) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i37.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i38.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i39.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i40.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i41.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i42.i)
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i37.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i38.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i39.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i40.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr8.i41.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr10.i42.i)
           to label %invoke.cont97 unwind label %lpad67
 
 invoke.cont97:                                    ; preds = %_ZNKSt8functionIFviPKtPKjPjPtPvEEclEiS1_S3_S4_S5_S6_.exit47.i

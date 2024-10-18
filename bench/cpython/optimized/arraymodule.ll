@@ -2667,7 +2667,7 @@ setarrayitem.exit:                                ; preds = %if.end143
   %55 = load ptr, ptr %ob_descr.i.i, align 8
   %setitem.i.i = getelementptr inbounds i8, ptr %55, i64 16
   %56 = load ptr, ptr %setitem.i.i, align 8
-  %call6.i.i = call i32 %56(ptr noundef nonnull %call123, i64 noundef %i.0194, ptr noundef nonnull %call139) #11
+  %call6.i.i = call i32 %56(ptr noundef nonnull %call123, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %i.0194, ptr noundef nonnull %call139) #11
   %cmp145.not = icmp eq i32 %call6.i.i, 0
   br i1 %cmp145.not, label %if.end148, label %if.then147
 

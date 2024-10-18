@@ -204,7 +204,7 @@ declare noundef ptr @_ZN7rocksdb3Env7DefaultEv() local_unnamed_addr #1
 define void @_ZN7rocksdb14ConvertOptionsERKNS_14LevelDBOptionsE(ptr noalias nonnull sret(%"struct.rocksdb::Options") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %leveldb_options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %table_options = alloca %"struct.rocksdb::BlockBasedTableOptions", align 8
-  tail call void @_ZN7rocksdb9DBOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %agg.result)
+  tail call void @_ZN7rocksdb9DBOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(1508) %agg.result)
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 688
   invoke void @_ZN7rocksdb19ColumnFamilyOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(820) %0)
           to label %_ZN7rocksdb7OptionsC2Ev.exit unwind label %lpad.i
@@ -216,7 +216,7 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i
 lpad.i:                                           ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %agg.result) #9
+  tail call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(1508) %agg.result) #9
   br label %common.resume
 
 _ZN7rocksdb7OptionsC2Ev.exit:                     ; preds = %entry
@@ -258,7 +258,7 @@ invoke.cont:                                      ; preds = %_ZN7rocksdb7Options
   %compression13 = getelementptr inbounds i8, ptr %agg.result, i64 1264
   store i8 %9, ptr %compression13, align 8
   %cache_index_and_filter_blocks_with_high_priority.i = getelementptr inbounds i8, ptr %table_options, i64 17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %table_options, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %table_options, i8 0, i64 17, i1 false)
   store i8 1, ptr %cache_index_and_filter_blocks_with_high_priority.i, align 1
   %pin_l0_filter_and_index_blocks_in_cache.i = getelementptr inbounds i8, ptr %table_options, i64 18
   store i8 0, ptr %pin_l0_filter_and_index_blocks_in_cache.i, align 2
@@ -372,7 +372,7 @@ lpad15:                                           ; preds = %invoke.cont22, %inv
 ehcleanup:                                        ; preds = %lpad15, %lpad
   %.pn = phi { ptr, i32 } [ %16, %lpad15 ], [ %15, %lpad ]
   call void @_ZN7rocksdb19ColumnFamilyOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(820) %0) #9
-  call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %agg.result) #9
+  call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(1508) %agg.result) #9
   br label %common.resume
 }
 
@@ -1641,7 +1641,7 @@ _ZNSt10shared_ptrIN7rocksdb18WriteBufferManagerEED2Ev.exit: ; preds = %_ZNSt6vec
 
 for.body.i.i.i.i97:                               ; preds = %_ZNSt10shared_ptrIN7rocksdb18WriteBufferManagerEED2Ev.exit, %for.body.i.i.i.i97
   %__first.addr.04.i.i.i.i98 = phi ptr [ %incdec.ptr.i.i.i.i99, %for.body.i.i.i.i97 ], [ %58, %_ZNSt10shared_ptrIN7rocksdb18WriteBufferManagerEED2Ev.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i98) #9
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i.i98) #9
   %incdec.ptr.i.i.i.i99 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i98, i64 40
   %cmp.not.i.i.i.i100 = icmp eq ptr %incdec.ptr.i.i.i.i99, %59
   br i1 %cmp.not.i.i.i.i100, label %invoke.contthread-pre-split.i101, label %for.body.i.i.i.i97, !llvm.loop !6
@@ -2158,7 +2158,7 @@ _ZNSt10shared_ptrIN7rocksdb21ConcurrentTaskLimiterEED2Ev.exit: ; preds = %_ZNSt1
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt10shared_ptrIN7rocksdb21ConcurrentTaskLimiterEED2Ev.exit, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %22, %_ZNSt10shared_ptrIN7rocksdb21ConcurrentTaskLimiterEED2Ev.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #9
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i.i) #9
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %23
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !6

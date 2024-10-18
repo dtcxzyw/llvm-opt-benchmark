@@ -3281,13 +3281,13 @@ Vec_StrGetI.exit705.i:                            ; preds = %._crit_edge.loopexi
   %1172 = getelementptr inbounds i8, ptr %1120, i64 8
   store i32 %1171, ptr %1172, align 8
   %1173 = getelementptr inbounds i8, ptr %1120, i64 24
-  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef %2, ptr noundef nonnull %1173)
+  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1173)
   %1174 = getelementptr inbounds i8, ptr %1120, i64 200
-  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef %2, ptr noundef nonnull %1174)
+  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1174)
   %1175 = getelementptr inbounds i8, ptr %1120, i64 376
-  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef %2, ptr noundef nonnull %1175)
+  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1175)
   %1176 = getelementptr inbounds i8, ptr %1120, i64 552
-  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef %2, ptr noundef nonnull %1176)
+  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1176)
   br label %1177
 
 1177:                                             ; preds = %Vec_StrGetI.exit705.i, %Vec_StrGetI.exit686.i
@@ -4407,19 +4407,19 @@ define void @Abc_SclWriteLiberty(ptr noundef %0, ptr nocapture noundef readonly 
 211:                                              ; preds = %209, %207, %205, %197
   %212 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 22, i64 1, ptr nonnull %3)
   %213 = getelementptr inbounds i8, ptr %199, i64 24
-  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef %3, ptr noundef nonnull %213)
+  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull %3, ptr noundef nonnull %213)
   %214 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr nonnull %3)
   %215 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 22, i64 1, ptr nonnull %3)
   %216 = getelementptr inbounds i8, ptr %199, i64 200
-  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef %3, ptr noundef nonnull %216)
+  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull %3, ptr noundef nonnull %216)
   %217 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr nonnull %3)
   %218 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 28, i64 1, ptr nonnull %3)
   %219 = getelementptr inbounds i8, ptr %199, i64 376
-  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef %3, ptr noundef nonnull %219)
+  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull %3, ptr noundef nonnull %219)
   %220 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr nonnull %3)
   %221 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 28, i64 1, ptr nonnull %3)
   %222 = getelementptr inbounds i8, ptr %199, i64 552
-  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef %3, ptr noundef nonnull %222)
+  tail call fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull %3, ptr noundef nonnull %222)
   %223 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 10, i64 1, ptr nonnull %3)
   %224 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 8, i64 1, ptr nonnull %3)
   %.val199.pre.i = load i32, ptr %189, align 4

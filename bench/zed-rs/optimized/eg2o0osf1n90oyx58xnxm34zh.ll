@@ -179,7 +179,7 @@ define hidden { i64, ptr } @_ZN8async_io6driver8block_on17h2fdc2333357ce770E(ptr
   store ptr %55, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   %56 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %57 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #13
+  %57 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 24, 33) 24, i64 noundef 8) #13
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %62
 
@@ -217,7 +217,7 @@ define hidden { i64, ptr } @_ZN8async_io6driver8block_on17h2fdc2333357ce770E(ptr
   %68 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %57, ptr %68, align 8
   %69 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !16
-  %70 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #13, !noalias !16
+  %70 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 24, 33) 32, i64 noundef 8) #13, !noalias !16
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %84
 
@@ -724,7 +724,7 @@ _ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i: ; preds = %20
   br i1 %257, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.i.i.i, label %258
 
 258:                                              ; preds = %.noexc111
-  invoke void @_ZN4core4sync6atomic12atomic_store17hf8e5278451c827aeE.llvm.9190978326575674131(ptr noundef nonnull %250, i8 noundef 1, i8 noundef 0)
+  invoke void @_ZN4core4sync6atomic12atomic_store17hf8e5278451c827aeE.llvm.9190978326575674131(ptr noundef nonnull align 1 %250, i8 noundef 1, i8 noundef 0)
           to label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.i.i.i unwind label %.loopexit.split-lp191
 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.i.i.i: ; preds = %258, %.noexc111, %.noexc110, %249
@@ -872,7 +872,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.
   br i1 %295, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.i.i.i119, label %296
 
 296:                                              ; preds = %.noexc121
-  invoke void @_ZN4core4sync6atomic12atomic_store17hf8e5278451c827aeE.llvm.9190978326575674131(ptr noundef nonnull %287, i8 noundef 1, i8 noundef 0)
+  invoke void @_ZN4core4sync6atomic12atomic_store17hf8e5278451c827aeE.llvm.9190978326575674131(ptr noundef nonnull align 1 %287, i8 noundef 1, i8 noundef 0)
           to label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.i.i.i119 unwind label %300
 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.i.i.i119: ; preds = %296, %.noexc121, %.noexc120, %285
@@ -1108,7 +1108,7 @@ _ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i132: ; preds = 
   br i1 %357, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.i.i.i145, label %358
 
 358:                                              ; preds = %.noexc147
-  invoke void @_ZN4core4sync6atomic12atomic_store17hf8e5278451c827aeE.llvm.9190978326575674131(ptr noundef nonnull %349, i8 noundef 1, i8 noundef 0)
+  invoke void @_ZN4core4sync6atomic12atomic_store17hf8e5278451c827aeE.llvm.9190978326575674131(ptr noundef nonnull align 1 %349, i8 noundef 1, i8 noundef 0)
           to label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.i.i.i145 unwind label %150
 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.i.i.i145: ; preds = %358, %.noexc147, %.noexc146, %347

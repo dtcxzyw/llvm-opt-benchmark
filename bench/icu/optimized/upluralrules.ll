@@ -777,7 +777,7 @@ if.end7:                                          ; preds = %cond.false, %cond.t
   br i1 %cmp.i.i, label %if.end13.i, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %if.end7
-  %2 = call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7512NumberFormatE, ptr nonnull @_ZTIN6icu_7513DecimalFormatE, i64 0) #12, !noalias !5
+  %2 = call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(356) %fmt, ptr nonnull @_ZTIN6icu_7512NumberFormatE, ptr nonnull @_ZTIN6icu_7513DecimalFormatE, i64 0) #12, !noalias !5
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then1.i
 

@@ -2134,7 +2134,7 @@ if.end76.i.i:                                     ; preds = %if.then73.i.i, %if.
   store ptr %ref_map.i.i.i, ptr %tail.i.i.i, align 8
   store ptr null, ptr %orefs.i.i.i, align 8
   store ptr %orefs.i.i.i, ptr %oref_tail.i.i.i, align 8
-  call fastcc void @filter_prefetch_refspec(ptr noundef %rs.i)
+  call fastcc void @filter_prefetch_refspec(ptr noundef nonnull %rs.i)
   %tobool.not.i68.i.i = icmp eq ptr %111, null
   br i1 %tobool.not.i68.i.i, label %if.end.i70.i.i, label %if.then.i69.i.i
 
@@ -2987,7 +2987,7 @@ _.exit32.i.i:                                     ; preds = %if.end3.i29.i.i, %_
   %name29.i.i = getelementptr inbounds i8, ptr %ref.250.i.i, i64 176
   %new_oid.i.i = getelementptr inbounds i8, ptr %ref.250.i.i, i64 44
   %old_oid.i.i = getelementptr inbounds i8, ptr %ref.250.i.i, i64 8
-  call fastcc void @display_ref_update(ptr noundef %display_state.i.i, i8 noundef signext 45, ptr noundef %retval.0.i2643.i.i, ptr noundef null, ptr noundef %retval.0.i31.i.i, ptr noundef nonnull %name29.i.i, ptr noundef nonnull %new_oid.i.i, ptr noundef nonnull %old_oid.i.i, i32 noundef %call23.i.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state.i.i, i8 noundef signext 45, ptr noundef %retval.0.i2643.i.i, ptr noundef null, ptr noundef %retval.0.i31.i.i, ptr noundef nonnull %name29.i.i, ptr noundef nonnull %new_oid.i.i, ptr noundef nonnull %old_oid.i.i, i32 noundef %call23.i.i)
   %207 = load ptr, ptr @stderr, align 8
   call void @warn_dangling_symref(ptr noundef %207, ptr noundef %cond35.i.i, ptr noundef nonnull %name29.i.i) #17
   %208 = load ptr, ptr %ref.250.i.i, align 8
@@ -3006,7 +3006,7 @@ prune_refs.exit.i:                                ; preds = %for.body.i37.i, %_.
 
 if.end115.i.i:                                    ; preds = %prune_refs.exit.i, %if.end99.i.i
   %retcode.1.i.i = phi i32 [ %spec.store.select.i.i, %prune_refs.exit.i ], [ 0, %if.end99.i.i ]
-  %call116.i.i = call fastcc i32 @fetch_and_consume_refs(ptr noundef %display_state.i.i, ptr noundef %79, ptr noundef %transaction.1.i.i, ptr noundef %164, ptr noundef %fetch_head.i.i, ptr noundef readonly %config)
+  %call116.i.i = call fastcc i32 @fetch_and_consume_refs(ptr noundef %display_state.i.i, ptr noundef %79, ptr noundef %transaction.1.i.i, ptr noundef %164, ptr noundef %fetch_head.i.i, ptr noundef nonnull readonly %config)
   %tobool117.not.i.i = icmp eq i32 %call116.i.i, 0
   br i1 %tobool117.not.i.i, label %if.end119.i.i, label %if.then210.i.i
 
@@ -3048,7 +3048,7 @@ if.end.i111.i.i:                                  ; preds = %if.then.i116.i.i, %
   %call5.i112.i.i = call i32 @transport_set_option(ptr noundef %transport.addr.0.i.i.i, ptr noundef nonnull @.str.164, ptr noundef null) #17
   %call6.i113.i.i = call i32 @transport_set_option(ptr noundef %transport.addr.0.i.i.i, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.235) #17
   %call7.i.i.i = call i32 @transport_set_option(ptr noundef %transport.addr.0.i.i.i, ptr noundef nonnull @.str.146, ptr noundef null) #17
-  %call8.i114.i.i = call fastcc i32 @fetch_and_consume_refs(ptr noundef %display_state.i.i, ptr noundef %transport.addr.0.i.i.i, ptr noundef %transaction.1.i.i, ptr noundef nonnull %210, ptr noundef %fetch_head.i.i, ptr noundef readonly %config)
+  %call8.i114.i.i = call fastcc i32 @fetch_and_consume_refs(ptr noundef nonnull %display_state.i.i, ptr noundef %transport.addr.0.i.i.i, ptr noundef %transaction.1.i.i, ptr noundef nonnull %210, ptr noundef nonnull %fetch_head.i.i, ptr noundef nonnull readonly %config)
   %214 = load ptr, ptr @gsecondary, align 8
   %tobool9.not.i115.i.i = icmp eq ptr %214, null
   br i1 %tobool9.not.i115.i.i, label %backfill_tags.exit.i.i, label %if.then10.i.i.i
@@ -3426,7 +3426,7 @@ truncate_fetch_head.exit.i:                       ; preds = %if.end3.i.i.i104, %
 
 if.end4.i89:                                      ; preds = %truncate_fetch_head.exit.thread.i, %if.end749
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %argv.i, ptr noundef nonnull @.str.238, ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str.242, ptr noundef null) #17
-  call fastcc void @add_options_to_argv(ptr noundef %argv.i, ptr noundef %config)
+  call fastcc void @add_options_to_argv(ptr noundef %argv.i, ptr noundef nonnull %config)
   %cmp.not.i90 = icmp eq i32 %max_children.0, 1
   %nr14.phi.trans.insert.i = getelementptr inbounds i8, ptr %list, i64 8
   %.pre.i = load i64, ptr %nr14.phi.trans.insert.i, align 8
@@ -5397,7 +5397,7 @@ _.exit.i.i:                                       ; preds = %if.end3.i.i.i, %if.
   %retval.0.i.i75.i = phi ptr [ %call.i.i.i, %if.end3.i.i.i ], [ @.str.211, %if.then8.i.i ]
   %name.i.i = getelementptr inbounds i8, ptr %70, i64 176
   %name10.i.i = getelementptr inbounds i8, ptr %ref.0.i, i64 176
-  call fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext 61, ptr noundef %retval.0.i.i75.i, ptr noundef null, ptr noundef nonnull %name.i.i, ptr noundef nonnull %name10.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext 61, ptr noundef %retval.0.i.i75.i, ptr noundef null, ptr noundef nonnull %name.i.i, ptr noundef nonnull %name10.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
   br label %update_local_ref.exit.i
 
 if.end15.i.i:                                     ; preds = %oideq.exit.i.i
@@ -5457,7 +5457,7 @@ _.exit90.i.i:                                     ; preds = %if.end3.i87.i.i, %_
   %retval.0.i84176.i.i = phi ptr [ %call.i83.i.i, %if.end3.i87.i.i ], [ %call.i83.i.i, %_.exit85.i.i ], [ @.str.212, %if.then25.i.i ]
   %retval.0.i89.i.i = phi ptr [ %call.i88.i.i, %if.end3.i87.i.i ], [ @.str.213, %_.exit85.i.i ], [ @.str.213, %if.then25.i.i ]
   %name28.i.i = getelementptr inbounds i8, ptr %70, i64 176
-  call fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext 33, ptr noundef %retval.0.i84176.i.i, ptr noundef %retval.0.i89.i.i, ptr noundef nonnull %name28.i.i, ptr noundef nonnull %name21.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext 33, ptr noundef %retval.0.i84176.i.i, ptr noundef %retval.0.i89.i.i, ptr noundef nonnull %name28.i.i, ptr noundef nonnull %name21.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
   br label %update_local_ref.exit.i
 
 if.end34.i.i:                                     ; preds = %land.lhs.true20.i.i, %is_null_oid.exit.i.i, %if.end15.i.i
@@ -5506,7 +5506,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then43.i.i
   br i1 %tobool45.not.i.i, label %if.else.i71.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.then43.i.i
-  %call47.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.214, ptr noundef %ref.0.i, ptr noundef %transaction, i32 noundef 0)
+  %call47.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.214, ptr noundef nonnull %ref.0.i, ptr noundef %transaction, i32 noundef 0)
   %tobool48.not.i.i = icmp eq i32 %call47.i.i, 0
   %conv.i.i = select i1 %tobool48.not.i.i, i8 116, i8 33
   %89 = load i32, ptr @git_gettext_enabled, align 4
@@ -5533,7 +5533,7 @@ if.end3.i113.i.i:                                 ; preds = %cond.true.i.i
 cond.end.i.i:                                     ; preds = %if.end3.i113.i.i, %cond.true.i.i, %_.exit111.i.i
   %cond52.i.i = phi ptr [ null, %_.exit111.i.i ], [ %call.i114.i.i, %if.end3.i113.i.i ], [ @.str.216, %cond.true.i.i ]
   %name53.i.i = getelementptr inbounds i8, ptr %70, i64 176
-  call fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext %conv.i.i, ptr noundef %retval.0.i110.i.i, ptr noundef %cond52.i.i, ptr noundef nonnull %name53.i.i, ptr noundef nonnull %name39.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext %conv.i.i, ptr noundef %retval.0.i110.i.i, ptr noundef %cond52.i.i, ptr noundef nonnull %name53.i.i, ptr noundef nonnull %name39.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
   br label %update_local_ref.exit.i
 
 if.else.i71.i:                                    ; preds = %lor.lhs.false.i.i
@@ -5555,7 +5555,7 @@ _.exit126.i.i:                                    ; preds = %if.end3.i123.i.i, %
   %retval.0.i120180.i.i = phi ptr [ %call.i119.i.i, %if.end3.i123.i.i ], [ %call.i119.i.i, %_.exit121.i.i ], [ @.str.212, %if.else.i71.i ]
   %retval.0.i125.i.i = phi ptr [ %call.i124.i.i, %if.end3.i123.i.i ], [ @.str.217, %_.exit121.i.i ], [ @.str.217, %if.else.i71.i ]
   %name61.i.i = getelementptr inbounds i8, ptr %70, i64 176
-  call fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext 33, ptr noundef %retval.0.i120180.i.i, ptr noundef %retval.0.i125.i.i, ptr noundef nonnull %name61.i.i, ptr noundef nonnull %name39.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext 33, ptr noundef %retval.0.i120180.i.i, ptr noundef %retval.0.i125.i.i, ptr noundef nonnull %name61.i.i, ptr noundef nonnull %name39.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
   br label %update_local_ref.exit.i
 
 if.end67.i.i:                                     ; preds = %land.lhs.true38.i.i, %is_null_oid.exit106.i.i
@@ -5597,7 +5597,7 @@ if.end93.sink.split.i.i:                          ; preds = %if.else83.i.i, %if.
 if.end93.i.i:                                     ; preds = %if.end93.sink.split.i.i, %if.else83.i.i, %if.then81.i.i
   %what.0.i.i = phi ptr [ @.str.219, %if.then81.i.i ], [ %call.i139.i.i, %if.end93.sink.split.i.i ], [ %.str.223..str.221.i.i, %if.else83.i.i ]
   %msg.0.i.i = phi ptr [ @.str.218, %if.then81.i.i ], [ %msg.0.ph.i.i, %if.end93.sink.split.i.i ], [ %.str.222..str.220.i.i, %if.else83.i.i ]
-  %call94.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull %msg.0.i.i, ptr noundef %ref.0.i, ptr noundef %transaction, i32 noundef 0)
+  %call94.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull %msg.0.i.i, ptr noundef nonnull %ref.0.i, ptr noundef %transaction, i32 noundef 0)
   %tobool95.not.i.i = icmp eq i32 %call94.i.i, 0
   %conv97.i.i = select i1 %tobool95.not.i.i, i8 42, i8 33
   br i1 %tobool95.not.i.i, label %cond.end102.i.i, label %cond.true99.i.i
@@ -5614,7 +5614,7 @@ if.end3.i143.i.i:                                 ; preds = %cond.true99.i.i
 cond.end102.i.i:                                  ; preds = %if.end3.i143.i.i, %cond.true99.i.i, %if.end93.i.i
   %cond103.i.i = phi ptr [ null, %if.end93.i.i ], [ %call.i144.i.i, %if.end3.i143.i.i ], [ @.str.216, %cond.true99.i.i ]
   %name106.i.i = getelementptr inbounds i8, ptr %ref.0.i, i64 176
-  call fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext %conv97.i.i, ptr noundef %what.0.i.i, ptr noundef %cond103.i.i, ptr noundef nonnull %name77.i.i, ptr noundef nonnull %name106.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext %conv97.i.i, ptr noundef %what.0.i.i, ptr noundef %cond103.i.i, ptr noundef nonnull %name77.i.i, ptr noundef nonnull %name106.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
   br label %update_local_ref.exit.i
 
 if.end110.i.i:                                    ; preds = %if.end67.i.i
@@ -5643,7 +5643,7 @@ if.then119.i.i:                                   ; preds = %if.then112.i.i, %if
   call void @strbuf_add(ptr noundef nonnull %quickref.i.i, ptr noundef nonnull @.str.224, i64 noundef 2) #17
   %102 = load i32, ptr @default_abbrev, align 4
   call void @strbuf_add_unique_abbrev(ptr noundef nonnull %quickref.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %102) #17
-  %call122.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.225, ptr noundef %ref.0.i, ptr noundef %transaction, i32 noundef 1)
+  %call122.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.225, ptr noundef nonnull %ref.0.i, ptr noundef %transaction, i32 noundef 1)
   %tobool123.not.i.i = icmp eq i32 %call122.i.i, 0
   %conv125.i.i = select i1 %tobool123.not.i.i, i8 32, i8 33
   %103 = load ptr, ptr %buf.i72.i, align 8
@@ -5662,7 +5662,7 @@ cond.end130.i.i:                                  ; preds = %if.end3.i149.i.i, %
   %cond131.i.i = phi ptr [ null, %if.then119.i.i ], [ %call.i150.i.i, %if.end3.i149.i.i ], [ @.str.216, %cond.true127.i.i ]
   %name132.i.i = getelementptr inbounds i8, ptr %70, i64 176
   %name134.i.i = getelementptr inbounds i8, ptr %ref.0.i, i64 176
-  call fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext %conv125.i.i, ptr noundef %103, ptr noundef %cond131.i.i, ptr noundef nonnull %name132.i.i, ptr noundef nonnull %name134.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext %conv125.i.i, ptr noundef %103, ptr noundef %cond131.i.i, ptr noundef nonnull %name132.i.i, ptr noundef nonnull %name134.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
   call void @strbuf_release(ptr noundef nonnull %quickref.i.i) #17
   br label %update_local_ref.exit.i
 
@@ -5686,7 +5686,7 @@ if.then146.i.i:                                   ; preds = %lor.lhs.false140.i.
   call void @strbuf_add(ptr noundef nonnull %quickref147.i.i, ptr noundef nonnull @.str.227, i64 noundef 3) #17
   %107 = load i32, ptr @default_abbrev, align 4
   call void @strbuf_add_unique_abbrev(ptr noundef nonnull %quickref147.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %107) #17
-  %call152.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.228, ptr noundef %ref.0.i, ptr noundef %transaction, i32 noundef 1)
+  %call152.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.228, ptr noundef nonnull %ref.0.i, ptr noundef %transaction, i32 noundef 1)
   %tobool153.not.i.i = icmp eq i32 %call152.i.i, 0
   %conv155.i.i = select i1 %tobool153.not.i.i, i8 43, i8 33
   %108 = load ptr, ptr %buf156.i.i, align 8
@@ -5703,7 +5703,7 @@ cond.end162.i.i:                                  ; preds = %cond.end162.sink.sp
   %cond163.i.i = phi ptr [ %call.i161.i.i, %cond.end162.sink.split.i.i ], [ %.str.229..str.216.i.i, %if.then146.i.i ]
   %name164.i.i = getelementptr inbounds i8, ptr %70, i64 176
   %name166.i.i = getelementptr inbounds i8, ptr %ref.0.i, i64 176
-  call fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext %conv155.i.i, ptr noundef %108, ptr noundef %cond163.i.i, ptr noundef nonnull %name164.i.i, ptr noundef nonnull %name166.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext %conv155.i.i, ptr noundef %108, ptr noundef %cond163.i.i, ptr noundef nonnull %name164.i.i, ptr noundef nonnull %name166.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
   call void @strbuf_release(ptr noundef nonnull %quickref147.i.i) #17
   br label %update_local_ref.exit.i
 
@@ -5727,7 +5727,7 @@ _.exit173.i.i:                                    ; preds = %if.end3.i170.i.i, %
   %retval.0.i172.i.i = phi ptr [ %call.i171.i.i, %if.end3.i170.i.i ], [ @.str.230, %_.exit168.i.i ], [ @.str.230, %if.else170.i.i ]
   %name173.i.i = getelementptr inbounds i8, ptr %70, i64 176
   %name175.i.i = getelementptr inbounds i8, ptr %ref.0.i, i64 176
-  call fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext 33, ptr noundef %retval.0.i167184.i.i, ptr noundef %retval.0.i172.i.i, ptr noundef nonnull %name173.i.i, ptr noundef nonnull %name175.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext 33, ptr noundef %retval.0.i167184.i.i, ptr noundef %retval.0.i172.i.i, ptr noundef nonnull %name173.i.i, ptr noundef nonnull %name175.i.i, ptr noundef nonnull %old_oid.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %summary_width.0.i)
   br label %update_local_ref.exit.i
 
 update_local_ref.exit.i:                          ; preds = %_.exit173.i.i, %cond.end162.i.i, %cond.end130.i.i, %cond.end102.i.i, %_.exit126.i.i, %cond.end.i.i, %_.exit90.i.i, %_.exit.i.i, %if.then7.i.i
@@ -5754,7 +5754,7 @@ if.then115.i:                                     ; preds = %if.else111.i
   %name122.i = getelementptr inbounds i8, ptr %114, i64 176
   %new_oid124.i = getelementptr inbounds i8, ptr %114, i64 44
   %old_oid125.i = getelementptr inbounds i8, ptr %114, i64 8
-  call fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext 42, ptr noundef nonnull %cond121.i, ptr noundef null, ptr noundef nonnull %name122.i, ptr noundef nonnull @.str.205, ptr noundef nonnull %new_oid124.i, ptr noundef nonnull %old_oid125.i, i32 noundef %summary_width.0.i)
+  call fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext 42, ptr noundef nonnull %cond121.i, ptr noundef null, ptr noundef nonnull %name122.i, ptr noundef nonnull @.str.205, ptr noundef nonnull %new_oid124.i, ptr noundef nonnull %old_oid125.i, i32 noundef %summary_width.0.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then115.i, %if.else111.i, %update_local_ref.exit.i, %if.end42.i, %_.exit33.i, %if.then15.i

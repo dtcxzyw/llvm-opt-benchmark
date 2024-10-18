@@ -486,7 +486,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %68, %72, %76
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 90:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
-  %91 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %80, i64 noundef 8, i32 noundef 0) #8
+  %91 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %80, i64 noundef 8, i32 noundef 0) #8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %90, %88
@@ -517,7 +517,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %90, %88
   %104 = shl nuw nsw i64 %indvars.iv, %.7.i
   %105 = add nuw nsw i64 %103, %104
   %106 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %107 = call noundef ptr %106(ptr noundef nonnull %98, i64 noundef %105) #8
+  %107 = call noundef ptr %106(ptr noundef nonnull align 8 dereferenceable(16) %98, i64 noundef %105) #8
   %108 = call noundef ptr @_ZN8WhiteBox14lookup_jstringEPKcP7oopDesc(ptr noundef nonnull @.str.10, ptr noundef %107) #8
   %109 = call noundef ptr @_ZN8WhiteBox14lookup_jstringEPKcP7oopDesc(ptr noundef nonnull @.str.11, ptr noundef %107) #8
   %110 = call noundef ptr @_ZN8WhiteBox14lookup_jstringEPKcP7oopDesc(ptr noundef nonnull @.str.12, ptr noundef %107) #8
@@ -541,7 +541,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.i.i:  ; preds = %118, %114, %.lr.ph
   %119 = call noundef i32 @_ZN8WhiteBox16offset_for_fieldEPKcP7oopDescP6Symbol(ptr noundef nonnull @.str.15, ptr noundef %107, ptr noundef %113) #8
   %120 = sext i32 %119 to i64
   %121 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %122 = call noundef ptr %121(ptr noundef nonnull %107, i64 noundef %120) #8
+  %122 = call noundef ptr %121(ptr noundef nonnull align 8 dereferenceable(16) %107, i64 noundef %120) #8
   %123 = call noundef ptr @_ZN8WhiteBox14lookup_jstringEPKcP7oopDesc(ptr noundef nonnull @.str.10, ptr noundef %122) #8
   br i1 %.not.i.i.i53, label %_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.exit.i, label %124
 
@@ -803,7 +803,7 @@ _ZL14fill_in_parserP10DCmdParserP7oopDesc.exit:   ; preds = %138, %139, %154, %1
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i55
 
 241:                                              ; preds = %230
-  %242 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %231, i64 noundef 8, i32 noundef 0) #8
+  %242 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %231, i64 noundef 8, i32 noundef 0) #8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i55
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i55: ; preds = %241, %239
@@ -848,7 +848,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58: ; preds = %228, %_ZN10H
   %263 = shl nuw nsw i64 %257, %.8.i
   %264 = add nuw nsw i64 %262, %263
   %265 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %265(ptr noundef nonnull %256, i64 noundef %264, ptr noundef %253) #8
+  call void %265(ptr noundef nonnull align 8 dereferenceable(16) %256, i64 noundef %264, ptr noundef %253) #8
   %266 = load ptr, ptr %248, align 8
   %267 = getelementptr inbounds ptr, ptr %266, i64 %indvars.iv85
   %268 = load ptr, ptr %267, align 8
@@ -887,7 +887,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58: ; preds = %228, %_ZN10H
   %288 = shl nuw nsw i64 %282, %.8.i61
   %289 = add nuw nsw i64 %287, %288
   %290 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %290(ptr noundef nonnull %281, i64 noundef %289, ptr noundef %278) #8
+  call void %290(ptr noundef nonnull align 8 dereferenceable(16) %281, i64 noundef %289, ptr noundef %278) #8
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %291 = call noundef i32 @_ZNK10DCmdParser13num_argumentsEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #8
   %292 = sext i32 %291 to i64

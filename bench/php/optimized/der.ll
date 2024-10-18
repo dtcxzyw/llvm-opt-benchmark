@@ -322,7 +322,7 @@ getlength.exit.thread69:                          ; preds = %32
   br label %der_tag.exit
 
 60:                                               ; preds = %53
-  %61 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.4, i32 noundef %.016.i66) #6
+  %61 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.4, i32 noundef range(i32 0, -1) %.016.i66) #6
   br label %der_tag.exit
 
 der_tag.exit:                                     ; preds = %55, %60
@@ -367,7 +367,7 @@ der_tag.exit:                                     ; preds = %55, %60
   ]
 
 79:                                               ; preds = %76, %76, %76
-  %80 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.42, i32 noundef %.0.i4973, ptr noundef nonnull %78) #6
+  %80 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.42, i32 noundef range(i32 0, -1) %.0.i4973, ptr noundef nonnull %78) #6
   br label %der_data.exit
 
 81:                                               ; preds = %76

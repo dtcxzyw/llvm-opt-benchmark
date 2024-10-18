@@ -175,7 +175,7 @@ _ZNK5Block8get_nodeEj.exit53:                     ; preds = %._crit_edge
   %101 = or i32 %100, 65536
   store i32 %101, ptr %99, align 8
   %102 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(24) %102, i32 noundef %1) #4
+  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(28) %102, i32 noundef %1) #4
   %103 = getelementptr inbounds i8, ptr %0, i64 40
   %104 = load i32, ptr %103, align 8
   %105 = add i32 %104, -1
@@ -539,19 +539,19 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %158, %169
   %207 = or i32 %206, 65536
   store i32 %207, ptr %205, align 8
   %208 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(24) %208, i32 noundef %.092) #4
+  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(28) %208, i32 noundef %.092) #4
   %209 = load i32, ptr %90, align 8
   %210 = add i32 %209, -1
   store i32 %210, ptr %90, align 8
-  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(24) %208, i32 noundef %1) #4
+  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(28) %208, i32 noundef %1) #4
   %211 = load i32, ptr %90, align 8
   %212 = add i32 %211, -1
   store i32 %212, ptr %90, align 8
-  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(24) %208, i32 noundef %52) #4
+  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(28) %208, i32 noundef %52) #4
   %213 = load i32, ptr %90, align 8
   %214 = add i32 %213, -1
   store i32 %214, ptr %90, align 8
-  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %208, i32 noundef %52, ptr noundef nonnull %117) #4
+  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %208, i32 noundef %52, ptr noundef nonnull %117) #4
   %215 = load i32, ptr %90, align 8
   %216 = add i32 %215, 1
   store i32 %216, ptr %90, align 8

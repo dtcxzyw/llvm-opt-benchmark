@@ -910,7 +910,7 @@ if.end201:                                        ; preds = %if.end193
 
 if.then203:                                       ; preds = %if.end201
   %call204 = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.39) #20
-  %call.i.i54 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull @log_lock, ptr noundef %call204, i32 noundef 1, i64 noundef 0, i32 noundef 438) #20
+  %call.i.i54 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull @log_lock, ptr noundef %call204, i32 noundef range(i32 1, 3) 1, i64 noundef 0, i32 noundef 438) #20
   %log_lock.val = load ptr, ptr @log_lock, align 8
   %call.i55 = call i32 @get_tempfile_fd(ptr noundef %log_lock.val) #20
   %call207 = call i32 @dup2(i32 noundef %call.i55, i32 noundef 2) #20
@@ -1557,7 +1557,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then3, %if.end
   %call7 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.78) #20
-  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lock, ptr noundef %call7, i32 noundef 1, i64 noundef 0, i32 noundef 438) #20
+  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lock, ptr noundef %call7, i32 noundef range(i32 1, 3) 1, i64 noundef 0, i32 noundef 438) #20
   %tobool9.not = icmp eq i32 %force, 0
   br i1 %tobool9.not, label %if.then10, label %if.end45
 
@@ -2286,7 +2286,7 @@ if.end63:                                         ; preds = %initialize_task_con
   %path.i = getelementptr inbounds i8, ptr %14, i64 56
   %15 = load ptr, ptr %path.i, align 8
   %call.i4 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.156, ptr noundef %15) #20
-  %call.i.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lk.i, ptr noundef %call.i4, i32 noundef 2, i64 noundef 0, i32 noundef 438) #20
+  %call.i.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lk.i, ptr noundef %call.i4, i32 noundef range(i32 1, 3) 2, i64 noundef 0, i32 noundef 438) #20
   %cmp.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp.i, label %if.then.i13, label %if.end5.i5
 
@@ -4086,7 +4086,7 @@ entry:
   %path = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %path, align 8
   %call = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.249, ptr noundef %3) #20
-  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lk, ptr noundef %call, i32 noundef 2, i64 noundef 0, i32 noundef 438) #20
+  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lk, ptr noundef %call, i32 noundef range(i32 1, 3) 2, i64 noundef 0, i32 noundef 438) #20
   %cmp = icmp slt i32 %call.i.i, 0
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
@@ -4997,7 +4997,7 @@ if.end10.i:                                       ; preds = %if.end.i
   %3 = sext i32 %switch.tableidx15 to i64
   %switch.gep16 = getelementptr inbounds [3 x ptr], ptr @switch.table.systemd_timer_enable_unit.8, i64 0, i64 %3
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
-  %call15.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull %switch.load17, i32 noundef %minute) #20
+  %call15.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull %switch.load17, i32 noundef range(i32 0, 60) %minute) #20
   %call16.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call7.i, ptr noundef nonnull @.str.217, ptr noundef %call15.i)
   %cmp.i = icmp slt i32 %call16.i, 0
   br i1 %cmp.i, label %if.then17.i, label %if.end22.i

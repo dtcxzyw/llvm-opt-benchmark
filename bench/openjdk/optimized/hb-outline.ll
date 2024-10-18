@@ -112,7 +112,7 @@ _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit: ; preds = %_ZN9
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %48, %51
   %54 = phi ptr [ %53, %51 ], [ null, %48 ]
-  call void %49(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %45, float noundef %.pre, ptr noundef %54)
+  call void %49(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, float noundef %45, float noundef %.pre, ptr noundef %54)
   br label %55
 
 55:                                               ; preds = %44, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
@@ -128,7 +128,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %48, %
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %55, %58
   %61 = phi ptr [ %60, %58 ], [ null, %55 ]
-  call void %56(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %61)
+  call void %56(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, ptr noundef %61)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   br label %.sink.split
 
@@ -149,7 +149,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %55, 
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %64, %67
   %69 = phi ptr [ %68, %67 ], [ null, %64 ]
-  call void %65(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %35, float noundef %34, ptr noundef %69)
+  call void %65(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, float noundef %35, float noundef %34, ptr noundef %69)
   store i32 1, ptr %4, align 4
   %70 = load float, ptr %13, align 4
   store float %70, ptr %17, align 4
@@ -170,7 +170,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %64, %67
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128: ; preds = %72, %75
   %78 = phi ptr [ %77, %75 ], [ null, %72 ]
-  call void %73(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %.sroa.07.0.copyload, float noundef %.sroa.5.0.copyload, ptr noundef %78)
+  call void %73(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, float noundef %.sroa.07.0.copyload, float noundef %.sroa.5.0.copyload, ptr noundef %78)
   br label %.sink.split
 
 _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit135: ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
@@ -199,7 +199,7 @@ _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit135: ; preds = %_
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit139: ; preds = %82, %85
   %87 = phi ptr [ %86, %85 ], [ null, %82 ]
-  call void %83(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %37, float noundef %36, ptr noundef %87)
+  call void %83(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, float noundef %37, float noundef %36, ptr noundef %87)
   store i32 1, ptr %4, align 4
   %88 = load float, ptr %13, align 4
   store float %88, ptr %17, align 4
@@ -220,7 +220,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit139: ; preds = %82, %8
 
 _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds = %90, %93
   %96 = phi ptr [ %95, %93 ], [ null, %90 ]
-  call void %91(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %.sroa.07.0.copyload, float noundef %.sroa.5.0.copyload, float noundef %.sroa.04.0.copyload, float noundef %.sroa.25.0.copyload, ptr noundef %96)
+  call void %91(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, float noundef %.sroa.07.0.copyload, float noundef %.sroa.5.0.copyload, float noundef %.sroa.04.0.copyload, float noundef %.sroa.25.0.copyload, ptr noundef %96)
   br label %.sink.split
 
 _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147: ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
@@ -257,7 +257,7 @@ _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147: ; preds = %_
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit160: ; preds = %100, %103
   %105 = phi ptr [ %104, %103 ], [ null, %100 ]
-  call void %101(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %39, float noundef %38, ptr noundef %105)
+  call void %101(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, float noundef %39, float noundef %38, ptr noundef %105)
   store i32 1, ptr %4, align 4
   %106 = load float, ptr %13, align 4
   store float %106, ptr %17, align 4
@@ -278,7 +278,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit160: ; preds = %100, %
 
 _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %108, %111
   %114 = phi ptr [ %113, %111 ], [ null, %108 ]
-  call void %109(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %.sroa.07.0.copyload, float noundef %.sroa.5.0.copyload, float noundef %.sroa.01.0.copyload, float noundef %.sroa.22.0.copyload, float noundef %.sroa.0.0.copyload, float noundef %.sroa.2.0.copyload, ptr noundef %114)
+  call void %109(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, float noundef %.sroa.07.0.copyload, float noundef %.sroa.5.0.copyload, float noundef %.sroa.01.0.copyload, float noundef %.sroa.22.0.copyload, float noundef %.sroa.0.0.copyload, float noundef %.sroa.2.0.copyload, ptr noundef %114)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %42, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
@@ -332,7 +332,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163: ; preds = %131, %134
   %137 = phi ptr [ %136, %134 ], [ null, %131 ]
-  call void %132(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %128, float noundef %.pre211, ptr noundef %137)
+  call void %132(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, float noundef %128, float noundef %.pre211, ptr noundef %137)
   br label %138
 
 138:                                              ; preds = %127, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163
@@ -348,7 +348,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163: ; preds = %13
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165: ; preds = %138, %141
   %144 = phi ptr [ %143, %141 ], [ null, %138 ]
-  call void %139(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %144)
+  call void %139(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %4, ptr noundef %144)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %23, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165, %._crit_edge

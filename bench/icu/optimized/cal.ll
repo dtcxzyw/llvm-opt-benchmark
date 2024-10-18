@@ -302,7 +302,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   %tobool.not.i.i.i = icmp eq i8 %useLongNames.048101, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i32 4, i32 3
   %dec.i.i.i = add nsw i32 %call5.i25, -1
-  %call.i.i.i.i = call i32 @udat_countSymbols_75(ptr noundef %call.i.i, i32 noundef %cond.i.i.i) #10
+  %call.i.i.i.i = call i32 @udat_countSymbols_75(ptr noundef %call.i.i, i32 noundef range(i32 1, 5) %cond.i.i.i) #10
   %cmp1.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 8
   br i1 %cmp1.not.i.i.i.i, label %for.body.i.i.i.i, label %get_days.exit.i.i
 
@@ -311,7 +311,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i.i, %fo
   %add5.i.i.i.i = add nsw i32 %dec.i.i.i, %i.019.i.i.i.i
   %rem.i.i.i.i = srem i32 %add5.i.i.i.i, 7
   %add6.i.i.i.i = add nsw i32 %rem.i.i.i.i, 1
-  %call7.i.i.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef %cond.i.i.i, i32 noundef %add6.i.i.i.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #10
+  %call7.i.i.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef range(i32 1, 5) %cond.i.i.i, i32 noundef %add6.i.i.i.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #10
   %add8.i.i.i.i = add nsw i32 %call7.i.i.i.i, 1
   %conv.i.i.i.i = sext i32 %add8.i.i.i.i to i64
   %mul.i.i.i.i = shl nsw i64 %conv.i.i.i.i, 1
@@ -320,7 +320,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i.i, %fo
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %days.i, i64 %idxprom.i.i.i.i
   store ptr %call9.i.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   store i32 0, ptr %status, align 4
-  %call13.i.i.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef %cond.i.i.i, i32 noundef %add6.i.i.i.i, ptr noundef %call9.i.i.i.i, i32 noundef %add8.i.i.i.i, ptr noundef nonnull %status) #10
+  %call13.i.i.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef range(i32 1, 5) %cond.i.i.i, i32 noundef %add6.i.i.i.i, ptr noundef %call9.i.i.i.i, i32 noundef %add8.i.i.i.i, ptr noundef nonnull %status) #10
   %inc.i.i.i.i = add nuw nsw i32 %i.019.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, 7
   br i1 %exitcond.not.i.i.i.i, label %get_days.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !7
@@ -332,14 +332,14 @@ get_days.exit.i.i:                                ; preds = %for.body.i.i.i.i, %
 
 if.end.i.i122.i.i:                                ; preds = %get_days.exit.i.i
   %cond.i124.i.i = select i1 %tobool.not.i.i.i, i32 2, i32 1
-  %call.i.i125.i.i = call i32 @udat_countSymbols_75(ptr noundef %call.i.i, i32 noundef %cond.i124.i.i) #10
+  %call.i.i125.i.i = call i32 @udat_countSymbols_75(ptr noundef %call.i.i, i32 noundef range(i32 1, 5) %cond.i124.i.i) #10
   %cmp1.not.i.i126.i.i = icmp eq i32 %call.i.i125.i.i, 12
   br i1 %cmp1.not.i.i126.i.i, label %for.body.i.i127.i.i, label %for.body.i.i.preheader
 
 for.body.i.i127.i.i:                              ; preds = %if.end.i.i122.i.i, %for.body.i.i127.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i127.i.i ], [ 0, %if.end.i.i122.i.i ]
   %33 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %call7.i.i128.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef %cond.i124.i.i, i32 noundef %33, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #10
+  %call7.i.i128.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef range(i32 1, 5) %cond.i124.i.i, i32 noundef %33, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #10
   %add8.i.i129.i.i = add nsw i32 %call7.i.i128.i.i, 1
   %conv.i.i130.i.i = sext i32 %add8.i.i129.i.i to i64
   %mul.i.i131.i.i = shl nsw i64 %conv.i.i130.i.i, 1
@@ -347,7 +347,7 @@ for.body.i.i127.i.i:                              ; preds = %if.end.i.i122.i.i, 
   %arrayidx.i.i133.i.i = getelementptr inbounds ptr, ptr %months.i, i64 %indvars.iv.i.i.i
   store ptr %call9.i.i132.i.i, ptr %arrayidx.i.i133.i.i, align 8
   store i32 0, ptr %status, align 4
-  %call13.i.i134.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef %cond.i124.i.i, i32 noundef %33, ptr noundef %call9.i.i132.i.i, i32 noundef %add8.i.i129.i.i, ptr noundef nonnull %status) #10
+  %call13.i.i134.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef range(i32 1, 5) %cond.i124.i.i, i32 noundef %33, ptr noundef %call9.i.i132.i.i, i32 noundef %add8.i.i129.i.i, ptr noundef nonnull %status) #10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i135.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 12
   br i1 %exitcond.not.i.i135.i.i, label %for.body.i.i.preheader, label %for.body.i.i127.i.i, !llvm.loop !7
@@ -953,7 +953,7 @@ if.end.i22.i:                                     ; preds = %if.end12.i
 if.end.i.i.i26.i:                                 ; preds = %if.end.i22.i
   %cond.i.i27.i = select i1 %tobool.not.i.i, i32 4, i32 3
   %dec.i.i28.i = add nsw i32 %call13.i, -1
-  %call.i.i.i29.i = call i32 @udat_countSymbols_75(ptr noundef %call.i23.i, i32 noundef %cond.i.i27.i) #10
+  %call.i.i.i29.i = call i32 @udat_countSymbols_75(ptr noundef %call.i23.i, i32 noundef range(i32 1, 5) %cond.i.i27.i) #10
   %cmp1.not.i.i.i30.i = icmp eq i32 %call.i.i.i29.i, 8
   br i1 %cmp1.not.i.i.i30.i, label %for.body.i.i.i69.i, label %for.body.i32.i.preheader
 
@@ -962,7 +962,7 @@ for.body.i.i.i69.i:                               ; preds = %if.end.i.i.i26.i, %
   %add5.i.i.i71.i = add nsw i32 %dec.i.i28.i, %i.019.i.i.i70.i
   %rem.i.i.i72.i = srem i32 %add5.i.i.i71.i, 7
   %add6.i.i.i73.i = add nsw i32 %rem.i.i.i72.i, 1
-  %call7.i.i.i74.i = call i32 @udat_getSymbols_75(ptr noundef %call.i23.i, i32 noundef %cond.i.i27.i, i32 noundef %add6.i.i.i73.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #10
+  %call7.i.i.i74.i = call i32 @udat_getSymbols_75(ptr noundef %call.i23.i, i32 noundef range(i32 1, 5) %cond.i.i27.i, i32 noundef %add6.i.i.i73.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #10
   %add8.i.i.i75.i = add nsw i32 %call7.i.i.i74.i, 1
   %conv.i.i.i76.i = sext i32 %add8.i.i.i75.i to i64
   %mul.i.i.i77.i = shl nsw i64 %conv.i.i.i76.i, 1
@@ -971,7 +971,7 @@ for.body.i.i.i69.i:                               ; preds = %if.end.i.i.i26.i, %
   %arrayidx.i.i.i80.i = getelementptr inbounds ptr, ptr %days.i, i64 %idxprom.i.i.i79.i
   store ptr %call9.i.i.i78.i, ptr %arrayidx.i.i.i80.i, align 8
   store i32 0, ptr %status, align 4
-  %call13.i.i.i81.i = call i32 @udat_getSymbols_75(ptr noundef %call.i23.i, i32 noundef %cond.i.i27.i, i32 noundef %add6.i.i.i73.i, ptr noundef %call9.i.i.i78.i, i32 noundef %add8.i.i.i75.i, ptr noundef nonnull %status) #10
+  %call13.i.i.i81.i = call i32 @udat_getSymbols_75(ptr noundef %call.i23.i, i32 noundef range(i32 1, 5) %cond.i.i27.i, i32 noundef %add6.i.i.i73.i, ptr noundef %call9.i.i.i78.i, i32 noundef %add8.i.i.i75.i, ptr noundef nonnull %status) #10
   %inc.i.i.i82.i = add nuw nsw i32 %i.019.i.i.i70.i, 1
   %exitcond.not.i.i.i83.i = icmp eq i32 %inc.i.i.i82.i, 7
   br i1 %exitcond.not.i.i.i83.i, label %for.body.i32.i.preheader, label %for.body.i.i.i69.i, !llvm.loop !7

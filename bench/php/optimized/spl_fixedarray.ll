@@ -150,7 +150,7 @@ define hidden void @zim_SplFixedArray___construct(ptr nocapture noundef readonly
 
 .lr.ph.preheader.i.i:                             ; preds = %26
   store i64 0, ptr %20, align 8
-  %27 = call noalias ptr @_safe_emalloc(i64 noundef %13, i64 noundef 16, i64 noundef 0) #12
+  %27 = call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %13, i64 noundef 16, i64 noundef 0) #12
   store ptr %27, ptr %21, align 8
   store i64 %13, ptr %20, align 8
   %28 = getelementptr inbounds i8, ptr %19, i64 -16
@@ -215,7 +215,7 @@ define hidden void @zim_SplFixedArray___wakeup(ptr nocapture noundef readonly %0
 .lr.ph.preheader.i.i:                             ; preds = %14
   %18 = zext nneg i32 %16 to i64
   store i64 0, ptr %5, align 8
-  %19 = tail call noalias ptr @_safe_emalloc(i64 noundef %18, i64 noundef 16, i64 noundef 0) #12
+  %19 = tail call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %18, i64 noundef 16, i64 noundef 0) #12
   %20 = getelementptr inbounds i8, ptr %4, i64 -24
   store ptr %19, ptr %20, align 8
   store i64 %18, ptr %5, align 8
@@ -492,7 +492,7 @@ spl_fixedarray_init_non_empty_struct.exit.thread: ; preds = %18
   br label %85
 
 25:                                               ; preds = %18
-  %26 = call noalias ptr @_safe_emalloc(i64 noundef %22, i64 noundef 16, i64 noundef 0) #12
+  %26 = call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %22, i64 noundef 16, i64 noundef 0) #12
   %27 = getelementptr inbounds i8, ptr %6, i64 -24
   store ptr %26, ptr %27, align 8
   store i64 %22, ptr %7, align 8
@@ -858,7 +858,7 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
 .lr.ph.preheader.i.i:                             ; preds = %21, %._crit_edge
   %.0.lcssa174 = phi i64 [ %.0.lcssa, %._crit_edge ], [ 0, %21 ]
   %58 = add nuw nsw i64 %.0.lcssa174, 1
-  %59 = call noalias ptr @_safe_emalloc(i64 noundef %58, i64 noundef 16, i64 noundef 0) #12
+  %59 = call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %58, i64 noundef 16, i64 noundef 0) #12
   %60 = getelementptr inbounds %struct._zval_struct, ptr %59, i64 %58
   br label %.lr.ph.i.i
 
@@ -964,7 +964,7 @@ spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i
 
 .lr.ph.preheader.i.i141:                          ; preds = %18
   %108 = zext nneg i32 %16 to i64
-  %109 = call noalias ptr @_safe_emalloc(i64 noundef %108, i64 noundef 16, i64 noundef 0) #12
+  %109 = call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %108, i64 noundef 16, i64 noundef 0) #12
   %110 = getelementptr inbounds %struct._zval_struct, ptr %109, i64 %108
   br label %.lr.ph.i.i142
 
@@ -1160,7 +1160,7 @@ tailrecurse.i:                                    ; preds = %61, %18
 
 .lr.ph.preheader.i.i.i:                           ; preds = %27
   store i64 0, ptr %20, align 8
-  %29 = call noalias ptr @_safe_emalloc(i64 noundef %.tr46.i, i64 noundef 16, i64 noundef 0) #12
+  %29 = call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %.tr46.i, i64 noundef 16, i64 noundef 0) #12
   store ptr %29, ptr %22, align 8
   store i64 %.tr46.i, ptr %20, align 8
   store i64 -1, ptr %21, align 8
@@ -2550,7 +2550,7 @@ define internal fastcc noundef nonnull ptr @spl_fixedarray_object_new_ex(ptr nou
 
 .lr.ph.preheader.i.i.i:                           ; preds = %16
   store i64 0, ptr %14, align 8
-  %20 = tail call noalias ptr @_safe_emalloc(i64 noundef %18, i64 noundef 16, i64 noundef 0) #12
+  %20 = tail call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %18, i64 noundef 16, i64 noundef 0) #12
   %21 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %20, ptr %21, align 8
   store i64 %18, ptr %14, align 8

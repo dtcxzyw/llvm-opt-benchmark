@@ -299,7 +299,7 @@ define hidden void @_ZN4ring4aead6chacha3Key14encrypt_within17h8681004cfd55c4aaE
 _ZN4ring4aead6chacha3Key17encrypt_less_safe14ChaCha20_ctr3217h8e61c8acfaebf40fE.llvm.6801758991666044160.exit: ; preds = %5
   %7 = sub nuw i64 %3, %4
   %8 = getelementptr inbounds i8, ptr %2, i64 %4
-  tail call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %2, ptr noundef nonnull %8, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %1)
+  tail call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %2, ptr noundef nonnull %8, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %1)
   ret void
 }
 
@@ -1215,7 +1215,7 @@ define void @_ZN4ring4hkdf4Salt7extract17hdcaf8bf80f593376E(ptr noalias nocaptur
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %14, i64 64, i1 false), !alias.scope !168, !noalias !169
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 288
   store i64 %16, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !155, !noalias !167
-  call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(216) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !170
+  call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(296) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !170
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %5), !noalias !152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %5, ptr noundef nonnull align 8 dereferenceable(296) %6, i64 296, i1 false), !noalias !152
   call void @_ZN4ring4hmac7Context4sign17h357fb20bafbe8153E(ptr noalias nocapture noundef nonnull sret({ { ptr, { [64 x i8] } } }) align 8 dereferenceable(72) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(296) %5), !noalias !149
@@ -1409,7 +1409,7 @@ define noundef zeroext i1 @_ZN4ring4hkdf8fill_okm17hadb4f6f109bf9d24E(ptr noalia
 ._crit_edge:                                      ; preds = %.lr.ph, %31
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 %.020, ptr %9, align 1
-  call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(216) %10, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 1)
+  call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(296) %10, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %7)
@@ -1437,7 +1437,7 @@ define noundef zeroext i1 @_ZN4ring4hkdf8fill_okm17hadb4f6f109bf9d24E(ptr noalia
   %40 = load ptr, ptr %.sroa.0.03865, align 8, !nonnull !4, !align !34, !noundef !4
   %41 = getelementptr inbounds i8, ptr %.sroa.0.03865, i64 8
   %42 = load i64, ptr %41, align 8, !noundef !4
-  call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(216) %10, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef %42)
+  call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(296) %10, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef %42)
   %43 = icmp eq ptr %39, %28
   br i1 %43, label %._crit_edge, label %.lr.ph
 
@@ -1483,7 +1483,7 @@ define noundef zeroext i1 @_ZN4ring4hkdf8fill_okm17hadb4f6f109bf9d24E(ptr noalia
   store i64 %21, ptr %.sroa.5.0..sroa_idx3.i, align 8
   store ptr %26, ptr %27, align 8
   store i64 %25, ptr %.sroa.5.0..sroa_idx.i, align 8
-  call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(216) %10, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %34)
+  call void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noundef nonnull align 8 dereferenceable(296) %10, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %34)
   %53 = call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %.020, i8 1)
   %54 = extractvalue { i8, i1 } %53, 1
   br i1 %54, label %56, label %57
@@ -1559,7 +1559,7 @@ define noundef zeroext i1 @"_ZN85_$LT$ring..rsa..padding..pkcs1..PKCS1$u20$as$u2
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd8b1fea51af52a81E.exit"
   %26 = getelementptr inbounds i8, ptr %24, i64 %17
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %26, ptr nonnull readonly %6, i64 %11), !alias.scope !242
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly align 1 %26, ptr nonnull readonly align 1 %6, i64 %11), !alias.scope !242
   %27 = icmp eq i32 %bcmp.i, 0
   br i1 %27, label %28, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.thread"
 
@@ -2100,7 +2100,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit": ; preds = %99
   %.fca.0.extract34 = extractvalue { ptr, i64 } %105, 0
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %56, ptr nonnull readonly %.fca.0.extract34, i64 %57), !alias.scope !328
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly align 1 %56, ptr nonnull readonly align 1 %.fca.0.extract34, i64 %57), !alias.scope !328
   %106 = icmp eq i32 %bcmp.i, 0
   br i1 %106, label %.sink.split.sink.split, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.thread"
 

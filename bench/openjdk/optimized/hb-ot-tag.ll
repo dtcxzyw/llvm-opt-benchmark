@@ -299,7 +299,7 @@ define hidden void @hb_ot_tags_from_script_and_language(i32 noundef %0, ptr noun
 
 .preheader.i.i.i:                                 ; preds = %50, %54
   %.012.i.i.i = phi ptr [ %55, %54 ], [ %46, %50 ]
-  %53 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.3) #10
+  %53 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i.i.i, ptr noundef nonnull dereferenceable(1) @.str.3) #10
   %.not.i.i.i = icmp ne ptr %53, null
   %.not14.i.i.i = icmp ult ptr %53, %.052
   %or.cond.i.i.i = and i1 %.not.i.i.i, %.not14.i.i.i
@@ -322,7 +322,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit.i.i:           ; preds = %54
 
 .preheader.i880.i.i:                              ; preds = %.preheader.i.i.i, %63
   %.012.i881.i.i = phi ptr [ %64, %63 ], [ %46, %.preheader.i.i.i ]
-  %62 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i881.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.4) #10
+  %62 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i881.i.i, ptr noundef nonnull dereferenceable(1) @.str.4) #10
   %.not.i882.i.i = icmp ne ptr %62, null
   %.not14.i883.i.i = icmp ult ptr %62, %.052
   %or.cond.i884.i.i = and i1 %.not.i882.i.i, %.not14.i883.i.i
@@ -345,7 +345,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit887.i.i:        ; preds = %63
 
 .preheader.i888.i.i:                              ; preds = %.preheader.i880.i.i, %72
   %.012.i889.i.i = phi ptr [ %73, %72 ], [ %46, %.preheader.i880.i.i ]
-  %71 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i889.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.5) #10
+  %71 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i889.i.i, ptr noundef nonnull dereferenceable(1) @.str.5) #10
   %.not.i890.i.i = icmp ne ptr %71, null
   %.not14.i891.i.i = icmp ult ptr %71, %.052
   %or.cond.i892.i.i = and i1 %.not.i890.i.i, %.not14.i891.i.i
@@ -368,7 +368,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit895.i.i:        ; preds = %72
 
 .preheader.i896.i.i:                              ; preds = %.preheader.i888.i.i, %81
   %.012.i897.i.i = phi ptr [ %82, %81 ], [ %46, %.preheader.i888.i.i ]
-  %80 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i897.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.6) #10
+  %80 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i897.i.i, ptr noundef nonnull dereferenceable(1) @.str.6) #10
   %.not.i898.i.i = icmp ne ptr %80, null
   %.not14.i899.i.i = icmp ult ptr %80, %.052
   %or.cond.i900.i.i = and i1 %.not.i898.i.i, %.not14.i899.i.i
@@ -396,7 +396,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit903.i.i:        ; preds = %81
 
 .preheader.i94.i:                                 ; preds = %.thread1104.i.i, %92
   %.012.i95.i = phi ptr [ %93, %92 ], [ %46, %.thread1104.i.i ]
-  %91 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i95.i, ptr noundef nonnull readonly dereferenceable(1) @.str.7) #10
+  %91 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i95.i, ptr noundef nonnull dereferenceable(1) @.str.7) #10
   %.not.i96.i = icmp ne ptr %91, null
   %.not14.i97.i = icmp ult ptr %91, %.052
   %or.cond.i98.i = and i1 %.not.i96.i, %.not14.i97.i
@@ -423,7 +423,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit102.i:          ; preds = %92
 
 .preheader.i85.i:                                 ; preds = %.loopexit170.i, %102
   %.012.i86.i = phi ptr [ %103, %102 ], [ %46, %.loopexit170.i ]
-  %101 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i86.i, ptr noundef nonnull readonly dereferenceable(1) @.str.8) #10
+  %101 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i86.i, ptr noundef nonnull dereferenceable(1) @.str.8) #10
   %.not.i87.i = icmp ne ptr %101, null
   %.not14.i88.i = icmp ult ptr %101, %.052
   %or.cond.i89.i = and i1 %.not.i87.i, %.not14.i88.i
@@ -446,7 +446,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit93.i:           ; preds = %102
 
 .preheader.i82.i:                                 ; preds = %.preheader.i85.i, %111
   %.012.i.i = phi ptr [ %112, %111 ], [ %46, %.preheader.i85.i ]
-  %110 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.9) #10
+  %110 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i.i, ptr noundef nonnull dereferenceable(1) @.str.9) #10
   %.not.i83.i = icmp ne ptr %110, null
   %.not14.i.i = icmp ult ptr %110, %.052
   %or.cond.i.i = and i1 %.not.i83.i, %.not14.i.i
@@ -519,7 +519,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit.i:             ; preds = %111
   br i1 %136, label %_ZL12lang_matchesPKcS0_S0_j.exit949.thread.i.i, label %137
 
 137:                                              ; preds = %131
-  %138 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.13, i64 noundef 10) #10
+  %138 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.13, i64 noundef 10) #10
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %_ZL12lang_matchesPKcS0_S0_j.exit.i.i, label %.thread1107.i.i
 
@@ -536,7 +536,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit.i.i:             ; preds = %137
   br label %.sink.split
 
 .thread1107.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit.i.i, %137
-  %143 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.14, i64 noundef 10) #10
+  %143 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.14, i64 noundef 10) #10
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %_ZL12lang_matchesPKcS0_S0_j.exit907.i.i, label %.thread1110.i.i
 
@@ -571,7 +571,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit907.i.i:          ; preds = %.thread1107.i.i
   br label %.sink.split
 
 .thread1110.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit907.i.i, %.thread1107.i.i
-  %156 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.15, i64 noundef 10) #10
+  %156 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.15, i64 noundef 10) #10
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %_ZL12lang_matchesPKcS0_S0_j.exit910.i.i, label %.thread1113.i.i
 
@@ -588,7 +588,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit910.i.i:          ; preds = %.thread1110.i.i
   br label %.sink.split
 
 .thread1113.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit910.i.i, %.thread1110.i.i
-  %161 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.16, i64 noundef 10) #10
+  %161 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.16, i64 noundef 10) #10
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %_ZL12lang_matchesPKcS0_S0_j.exit913.i.i, label %.thread1116.i.i
 
@@ -623,7 +623,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit913.i.i:          ; preds = %.thread1113.i.i
   br label %.sink.split
 
 .thread1116.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit913.i.i, %.thread1113.i.i
-  %174 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.18, i64 noundef 10) #10
+  %174 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.18, i64 noundef 10) #10
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %_ZL12lang_matchesPKcS0_S0_j.exit916.i.i, label %.thread1119.i.i
 
@@ -640,7 +640,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit916.i.i:          ; preds = %.thread1116.i.i
   br label %.sink.split
 
 .thread1119.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit916.i.i, %.thread1116.i.i
-  %179 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.19, i64 noundef 10) #10
+  %179 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.19, i64 noundef 10) #10
   %180 = icmp eq i32 %179, 0
   br i1 %180, label %_ZL12lang_matchesPKcS0_S0_j.exit919.i.i, label %.thread1122.i.i
 
@@ -675,7 +675,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit919.i.i:          ; preds = %.thread1119.i.i
   br label %.sink.split
 
 .thread1122.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit919.i.i, %.thread1119.i.i
-  %192 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.21, i64 noundef 10) #10
+  %192 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.21, i64 noundef 10) #10
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %_ZL12lang_matchesPKcS0_S0_j.exit922.i.i, label %.thread1125.i.i
 
@@ -692,7 +692,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit922.i.i:          ; preds = %.thread1122.i.i
   br label %.sink.split
 
 .thread1125.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit922.i.i, %.thread1122.i.i
-  %197 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.22, i64 noundef 10) #10
+  %197 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.22, i64 noundef 10) #10
   %198 = icmp eq i32 %197, 0
   br i1 %198, label %_ZL12lang_matchesPKcS0_S0_j.exit925.i.i, label %.thread1128.i.i
 
@@ -727,7 +727,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit925.i.i:          ; preds = %.thread1125.i.i
   br label %.sink.split
 
 .thread1128.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit925.i.i, %.thread1125.i.i
-  %210 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.24, i64 noundef 10) #10
+  %210 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.24, i64 noundef 10) #10
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %_ZL12lang_matchesPKcS0_S0_j.exit928.i.i, label %.thread1131.i.i
 
@@ -744,7 +744,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit928.i.i:          ; preds = %.thread1128.i.i
   br label %.sink.split
 
 .thread1131.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit928.i.i, %.thread1128.i.i
-  %215 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.25, i64 noundef 10) #10
+  %215 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.25, i64 noundef 10) #10
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %_ZL12lang_matchesPKcS0_S0_j.exit931.i.i, label %.thread1134.i.i
 
@@ -779,7 +779,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit931.i.i:          ; preds = %.thread1131.i.i
   br label %.sink.split
 
 .thread1134.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit931.i.i, %.thread1131.i.i
-  %228 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.27, i64 noundef 10) #10
+  %228 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.27, i64 noundef 10) #10
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %_ZL12lang_matchesPKcS0_S0_j.exit934.i.i, label %.thread1137.i.i
 
@@ -796,7 +796,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit934.i.i:          ; preds = %.thread1134.i.i
   br label %.sink.split
 
 .thread1137.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit934.i.i, %.thread1134.i.i
-  %233 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.28, i64 noundef 10) #10
+  %233 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.28, i64 noundef 10) #10
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %_ZL12lang_matchesPKcS0_S0_j.exit937.i.i, label %.thread1140.i.i
 
@@ -831,7 +831,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit937.i.i:          ; preds = %.thread1137.i.i
   br label %.sink.split
 
 .thread1140.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit937.i.i, %.thread1137.i.i
-  %246 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.30, i64 noundef 10) #10
+  %246 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.30, i64 noundef 10) #10
   %247 = icmp eq i32 %246, 0
   br i1 %247, label %_ZL12lang_matchesPKcS0_S0_j.exit940.i.i, label %.thread1143.i.i
 
@@ -848,7 +848,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit940.i.i:          ; preds = %.thread1140.i.i
   br label %.sink.split
 
 .thread1143.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit940.i.i, %.thread1140.i.i
-  %251 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.31, i64 noundef 10) #10
+  %251 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.31, i64 noundef 10) #10
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %_ZL12lang_matchesPKcS0_S0_j.exit943.i.i, label %.thread1146.i.i
 
@@ -883,7 +883,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit943.i.i:          ; preds = %.thread1143.i.i
   br label %.sink.split
 
 .thread1146.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit943.i.i, %.thread1143.i.i
-  %264 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.33, i64 noundef 10) #10
+  %264 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.33, i64 noundef 10) #10
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %_ZL12lang_matchesPKcS0_S0_j.exit946.i.i, label %.thread1149.i.i
 
@@ -900,7 +900,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit946.i.i:          ; preds = %.thread1146.i.i
   br label %.sink.split
 
 .thread1149.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit946.i.i, %.thread1146.i.i
-  %269 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(11) @.str.34, i64 noundef 10) #10
+  %269 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(11) @.str.34, i64 noundef 10) #10
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %_ZL12lang_matchesPKcS0_S0_j.exit949.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit949.thread.thread.i.i
 
@@ -939,7 +939,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit949.thread.i.i:   ; preds = %131
   br i1 %282, label %sub_0.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit949.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit949.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit949.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit949.i.i, %.thread1149.i.i
-  %283 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.36, i64 noundef 7) #10
+  %283 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.36, i64 noundef 7) #10
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %_ZL12lang_matchesPKcS0_S0_j.exit952.i.i, label %.thread1153.i.i
 
@@ -956,7 +956,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit952.i.i:          ; preds = %_ZL12lang_matchesPK
   br label %.sink.split
 
 .thread1153.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit952.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit949.thread.thread.i.i
-  %288 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.37, i64 noundef 7) #10
+  %288 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.37, i64 noundef 7) #10
   %289 = icmp eq i32 %288, 0
   br i1 %289, label %_ZL12lang_matchesPKcS0_S0_j.exit955.i.i, label %.thread1156.i.i
 
@@ -973,7 +973,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit955.i.i:          ; preds = %.thread1153.i.i
   br label %.sink.split
 
 .thread1156.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit955.i.i, %.thread1153.i.i
-  %293 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.38, i64 noundef 7) #10
+  %293 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.38, i64 noundef 7) #10
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %_ZL12lang_matchesPKcS0_S0_j.exit958.i.i, label %.thread1159.i.i
 
@@ -990,7 +990,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit958.i.i:          ; preds = %.thread1156.i.i
   br label %.sink.split
 
 .thread1159.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit958.i.i, %.thread1156.i.i
-  %298 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.39, i64 noundef 7) #10
+  %298 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.39, i64 noundef 7) #10
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %_ZL12lang_matchesPKcS0_S0_j.exit961.i.i, label %.thread1162.i.i
 
@@ -1007,7 +1007,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit961.i.i:          ; preds = %.thread1159.i.i
   br label %.sink.split
 
 .thread1162.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit961.i.i, %.thread1159.i.i
-  %303 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.40, i64 noundef 7) #10
+  %303 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.40, i64 noundef 7) #10
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %_ZL12lang_matchesPKcS0_S0_j.exit964.i.i, label %.thread1165.i.i
 
@@ -1024,7 +1024,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit964.i.i:          ; preds = %.thread1162.i.i
   br label %.sink.split
 
 .thread1165.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit964.i.i, %.thread1162.i.i
-  %308 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.41, i64 noundef 7) #10
+  %308 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.41, i64 noundef 7) #10
   %309 = icmp eq i32 %308, 0
   br i1 %309, label %_ZL12lang_matchesPKcS0_S0_j.exit967.i.i, label %.thread1168.i.i
 
@@ -1041,7 +1041,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit967.i.i:          ; preds = %.thread1165.i.i
   br label %.sink.split
 
 .thread1168.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit967.i.i, %.thread1165.i.i
-  %313 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.42, i64 noundef 7) #10
+  %313 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.42, i64 noundef 7) #10
   %314 = icmp eq i32 %313, 0
   br i1 %314, label %_ZL12lang_matchesPKcS0_S0_j.exit970.i.i, label %.thread1171.i.i
 
@@ -1058,7 +1058,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit970.i.i:          ; preds = %.thread1168.i.i
   br label %.sink.split
 
 .thread1171.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit970.i.i, %.thread1168.i.i
-  %318 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.43, i64 noundef 7) #10
+  %318 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.43, i64 noundef 7) #10
   %319 = icmp eq i32 %318, 0
   br i1 %319, label %_ZL12lang_matchesPKcS0_S0_j.exit973.i.i, label %.thread1174.i.i
 
@@ -1075,7 +1075,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit973.i.i:          ; preds = %.thread1171.i.i
   br label %.sink.split
 
 .thread1174.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit973.i.i, %.thread1171.i.i
-  %323 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.44, i64 noundef 7) #10
+  %323 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.44, i64 noundef 7) #10
   %324 = icmp eq i32 %323, 0
   br i1 %324, label %_ZL12lang_matchesPKcS0_S0_j.exit976.i.i, label %.thread1177.i.i
 
@@ -1092,7 +1092,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit976.i.i:          ; preds = %.thread1174.i.i
   br label %.sink.split
 
 .thread1177.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit976.i.i, %.thread1174.i.i
-  %328 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.45, i64 noundef 7) #10
+  %328 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.45, i64 noundef 7) #10
   %329 = icmp eq i32 %328, 0
   br i1 %329, label %_ZL12lang_matchesPKcS0_S0_j.exit979.i.i, label %.thread1180.i.i
 
@@ -1109,7 +1109,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit979.i.i:          ; preds = %.thread1177.i.i
   br label %.sink.split
 
 .thread1180.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit979.i.i, %.thread1177.i.i
-  %333 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.46, i64 noundef 7) #10
+  %333 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.46, i64 noundef 7) #10
   %334 = icmp eq i32 %333, 0
   br i1 %334, label %_ZL12lang_matchesPKcS0_S0_j.exit982.i.i, label %.thread1183.i.i
 
@@ -1126,7 +1126,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit982.i.i:          ; preds = %.thread1180.i.i
   br label %.sink.split
 
 .thread1183.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit982.i.i, %.thread1180.i.i
-  %338 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.47, i64 noundef 7) #10
+  %338 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.47, i64 noundef 7) #10
   %339 = icmp eq i32 %338, 0
   br i1 %339, label %_ZL12lang_matchesPKcS0_S0_j.exit985.i.i, label %.thread1186.i.i
 
@@ -1143,7 +1143,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit985.i.i:          ; preds = %.thread1183.i.i
   br label %.sink.split
 
 .thread1186.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit985.i.i, %.thread1183.i.i
-  %343 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.48, i64 noundef 7) #10
+  %343 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.48, i64 noundef 7) #10
   %344 = icmp eq i32 %343, 0
   br i1 %344, label %_ZL12lang_matchesPKcS0_S0_j.exit988.i.i, label %.thread1189.i.i
 
@@ -1160,7 +1160,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit988.i.i:          ; preds = %.thread1186.i.i
   br label %.sink.split
 
 .thread1189.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit988.i.i, %.thread1186.i.i
-  %348 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.49, i64 noundef 7) #10
+  %348 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.49, i64 noundef 7) #10
   %349 = icmp eq i32 %348, 0
   br i1 %349, label %_ZL12lang_matchesPKcS0_S0_j.exit991.i.i, label %.thread1192.i.i
 
@@ -1177,7 +1177,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit991.i.i:          ; preds = %.thread1189.i.i
   br label %.sink.split
 
 .thread1192.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit991.i.i, %.thread1189.i.i
-  %353 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.50, i64 noundef 7) #10
+  %353 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.50, i64 noundef 7) #10
   %354 = icmp eq i32 %353, 0
   br i1 %354, label %_ZL12lang_matchesPKcS0_S0_j.exit994.i.i, label %.thread1195.i.i
 
@@ -1194,7 +1194,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit994.i.i:          ; preds = %.thread1192.i.i
   br label %.sink.split
 
 .thread1195.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit994.i.i, %.thread1192.i.i
-  %358 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(8) @.str.51, i64 noundef 7) #10
+  %358 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(8) @.str.51, i64 noundef 7) #10
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %_ZL12lang_matchesPKcS0_S0_j.exit997.i.i, label %sub_0.i.i
 
@@ -1635,7 +1635,7 @@ sub_11321.i.i:                                    ; preds = %sub_0.i.i
   br i1 %543, label %_ZL12lang_matchesPKcS0_S0_j.exit1003.thread.i.i, label %544
 
 544:                                              ; preds = %538
-  %545 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull readonly dereferenceable(11) @.str.71, i64 noundef 10) #10
+  %545 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull dereferenceable(11) @.str.71, i64 noundef 10) #10
   %546 = icmp eq i32 %545, 0
   br i1 %546, label %_ZL12lang_matchesPKcS0_S0_j.exit1000.i.i, label %.thread1215.i.i
 
@@ -1652,7 +1652,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1000.i.i:         ; preds = %544
   br label %.sink.split
 
 .thread1215.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1000.i.i, %544
-  %550 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull readonly dereferenceable(11) @.str.72, i64 noundef 10) #10
+  %550 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull dereferenceable(11) @.str.72, i64 noundef 10) #10
   %551 = icmp eq i32 %550, 0
   br i1 %551, label %_ZL12lang_matchesPKcS0_S0_j.exit1003.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1003.thread.thread.i.i
 
@@ -1691,7 +1691,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1003.thread.i.i:  ; preds = %538
   br i1 %563, label %_ZL12lang_matchesPKcS0_S0_j.exit1009.thread.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1003.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1003.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1003.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1003.i.i, %.thread1215.i.i
-  %564 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull readonly dereferenceable(8) @.str.74, i64 noundef 7) #10
+  %564 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull dereferenceable(8) @.str.74, i64 noundef 7) #10
   %565 = icmp eq i32 %564, 0
   br i1 %565, label %_ZL12lang_matchesPKcS0_S0_j.exit1006.i.i, label %.thread1219.i.i
 
@@ -1708,7 +1708,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1006.i.i:         ; preds = %_ZL12lang_matchesPK
   br label %.sink.split
 
 .thread1219.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1006.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1003.thread.thread.i.i
-  %569 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull readonly dereferenceable(8) @.str.75, i64 noundef 7) #10
+  %569 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull dereferenceable(8) @.str.75, i64 noundef 7) #10
   %570 = icmp eq i32 %569, 0
   br i1 %570, label %_ZL12lang_matchesPKcS0_S0_j.exit1009.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1009.thread.thread.i.i
 
@@ -1729,7 +1729,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1009.thread.i.i:  ; preds = %_ZL12lang_matchesPK
   br i1 %.not1655.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1009.thread.thread.i.i, label %sub_01329.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1009.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1009.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1009.i.i, %.thread1219.i.i
-  %574 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull readonly dereferenceable(7) @.str.76, i64 noundef 6) #10
+  %574 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull dereferenceable(7) @.str.76, i64 noundef 6) #10
   %575 = icmp eq i32 %574, 0
   br i1 %575, label %_ZL12lang_matchesPKcS0_S0_j.exit1012.i.i, label %sub_01329.i.i
 
@@ -1810,7 +1810,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1012.thread.tail.i.i: ; preds = %sub_11330.i.i
   br i1 %607, label %_ZL12lang_matchesPKcS0_S0_j.exit1024.thread.i.i, label %608
 
 608:                                              ; preds = %602
-  %609 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull readonly dereferenceable(11) @.str.79, i64 noundef 10) #10
+  %609 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull dereferenceable(11) @.str.79, i64 noundef 10) #10
   %610 = icmp eq i32 %609, 0
   br i1 %610, label %_ZL12lang_matchesPKcS0_S0_j.exit1015.i.i, label %.thread1226.i.i
 
@@ -1827,7 +1827,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1015.i.i:         ; preds = %608
   br label %.sink.split
 
 .thread1226.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1015.i.i, %608
-  %614 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull readonly dereferenceable(11) @.str.80, i64 noundef 10) #10
+  %614 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull dereferenceable(11) @.str.80, i64 noundef 10) #10
   %615 = icmp eq i32 %614, 0
   br i1 %615, label %_ZL12lang_matchesPKcS0_S0_j.exit1018.i.i, label %.thread1229.i.i
 
@@ -1862,7 +1862,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1018.i.i:         ; preds = %.thread1226.i.i
   br label %.sink.split
 
 .thread1229.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1018.i.i, %.thread1226.i.i
-  %627 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull readonly dereferenceable(11) @.str.82, i64 noundef 10) #10
+  %627 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull dereferenceable(11) @.str.82, i64 noundef 10) #10
   %628 = icmp eq i32 %627, 0
   br i1 %628, label %_ZL12lang_matchesPKcS0_S0_j.exit1021.i.i, label %.thread1232.i.i
 
@@ -1879,7 +1879,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1021.i.i:         ; preds = %.thread1229.i.i
   br label %.sink.split
 
 .thread1232.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1021.i.i, %.thread1229.i.i
-  %632 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull readonly dereferenceable(11) @.str.83, i64 noundef 10) #10
+  %632 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull dereferenceable(11) @.str.83, i64 noundef 10) #10
   %633 = icmp eq i32 %632, 0
   br i1 %633, label %_ZL12lang_matchesPKcS0_S0_j.exit1024.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1024.thread.thread.i.i
 
@@ -1918,7 +1918,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1024.thread.i.i:  ; preds = %602
   br i1 %645, label %sub_01333.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1024.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1024.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1024.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1024.i.i, %.thread1232.i.i
-  %646 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull readonly dereferenceable(8) @.str.85, i64 noundef 7) #10
+  %646 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull dereferenceable(8) @.str.85, i64 noundef 7) #10
   %647 = icmp eq i32 %646, 0
   br i1 %647, label %_ZL12lang_matchesPKcS0_S0_j.exit1027.i.i, label %.thread1236.i.i
 
@@ -1935,7 +1935,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1027.i.i:         ; preds = %_ZL12lang_matchesPK
   br label %.sink.split
 
 .thread1236.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1027.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1024.thread.thread.i.i
-  %651 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull readonly dereferenceable(8) @.str.86, i64 noundef 7) #10
+  %651 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull dereferenceable(8) @.str.86, i64 noundef 7) #10
   %652 = icmp eq i32 %651, 0
   br i1 %652, label %_ZL12lang_matchesPKcS0_S0_j.exit1030.i.i, label %.thread1239.i.i
 
@@ -1952,7 +1952,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1030.i.i:         ; preds = %.thread1236.i.i
   br label %.sink.split
 
 .thread1239.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1030.i.i, %.thread1236.i.i
-  %656 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull readonly dereferenceable(8) @.str.87, i64 noundef 7) #10
+  %656 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull dereferenceable(8) @.str.87, i64 noundef 7) #10
   %657 = icmp eq i32 %656, 0
   br i1 %657, label %_ZL12lang_matchesPKcS0_S0_j.exit1033.i.i, label %.thread1242.i.i
 
@@ -1969,7 +1969,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1033.i.i:         ; preds = %.thread1239.i.i
   br label %.sink.split
 
 .thread1242.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1033.i.i, %.thread1239.i.i
-  %661 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull readonly dereferenceable(8) @.str.88, i64 noundef 7) #10
+  %661 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %603, ptr noundef nonnull dereferenceable(8) @.str.88, i64 noundef 7) #10
   %662 = icmp eq i32 %661, 0
   br i1 %662, label %_ZL12lang_matchesPKcS0_S0_j.exit1036.i.i, label %sub_01333.i.i
 
@@ -2146,7 +2146,7 @@ sub_11339.i.i:                                    ; preds = %sub_01333.i.i
   br i1 %737, label %sub_11326.i.thread.i, label %738
 
 738:                                              ; preds = %732
-  %739 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %733, ptr noundef nonnull readonly dereferenceable(8) @.str.48, i64 noundef 7) #10
+  %739 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %733, ptr noundef nonnull dereferenceable(8) @.str.48, i64 noundef 7) #10
   %740 = icmp eq i32 %739, 0
   br i1 %740, label %_ZL12lang_matchesPKcS0_S0_j.exit1039.i.i, label %sub_11326.i.thread.i
 
@@ -2171,7 +2171,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1039.i.i:         ; preds = %738
   br i1 %749, label %_ZL12lang_matchesPKcS0_S0_j.exit1045.thread.i.i, label %750
 
 750:                                              ; preds = %744
-  %751 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %745, ptr noundef nonnull readonly dereferenceable(11) @.str.21, i64 noundef 10) #10
+  %751 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %745, ptr noundef nonnull dereferenceable(11) @.str.21, i64 noundef 10) #10
   %752 = icmp eq i32 %751, 0
   br i1 %752, label %_ZL12lang_matchesPKcS0_S0_j.exit1042.i.i, label %.thread1251.i.i
 
@@ -2188,7 +2188,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1042.i.i:         ; preds = %750
   br label %.sink.split
 
 .thread1251.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1042.i.i, %750
-  %756 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %745, ptr noundef nonnull readonly dereferenceable(11) @.str.22, i64 noundef 10) #10
+  %756 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %745, ptr noundef nonnull dereferenceable(11) @.str.22, i64 noundef 10) #10
   %757 = icmp eq i32 %756, 0
   br i1 %757, label %_ZL12lang_matchesPKcS0_S0_j.exit1045.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1045.thread.thread.i.i
 
@@ -2227,7 +2227,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1045.thread.i.i:  ; preds = %744
   br i1 %769, label %sub_01342.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1045.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1045.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1045.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1045.i.i, %.thread1251.i.i
-  %770 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %745, ptr noundef nonnull readonly dereferenceable(8) @.str.42, i64 noundef 7) #10
+  %770 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %745, ptr noundef nonnull dereferenceable(8) @.str.42, i64 noundef 7) #10
   %771 = icmp eq i32 %770, 0
   br i1 %771, label %_ZL12lang_matchesPKcS0_S0_j.exit1048.i.i, label %.thread1255.i.i
 
@@ -2244,7 +2244,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1048.i.i:         ; preds = %_ZL12lang_matchesPK
   br label %.sink.split
 
 .thread1255.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1048.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1045.thread.thread.i.i
-  %775 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %745, ptr noundef nonnull readonly dereferenceable(8) @.str.43, i64 noundef 7) #10
+  %775 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %745, ptr noundef nonnull dereferenceable(8) @.str.43, i64 noundef 7) #10
   %776 = icmp eq i32 %775, 0
   br i1 %776, label %_ZL12lang_matchesPKcS0_S0_j.exit1051.i.i, label %sub_01342.i.i
 
@@ -2341,7 +2341,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1051.thread.tail.i.i: ; preds = %sub_11343.i.i
   br i1 %814, label %_ZL12lang_matchesPKcS0_S0_j.exit1057.thread.i.i, label %815
 
 815:                                              ; preds = %809
-  %816 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull readonly dereferenceable(11) @.str.71, i64 noundef 10) #10
+  %816 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull dereferenceable(11) @.str.71, i64 noundef 10) #10
   %817 = icmp eq i32 %816, 0
   br i1 %817, label %_ZL12lang_matchesPKcS0_S0_j.exit1054.i.i, label %.thread1261.i.i
 
@@ -2358,7 +2358,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1054.i.i:         ; preds = %815
   br label %.sink.split
 
 .thread1261.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1054.i.i, %815
-  %821 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull readonly dereferenceable(11) @.str.72, i64 noundef 10) #10
+  %821 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull dereferenceable(11) @.str.72, i64 noundef 10) #10
   %822 = icmp eq i32 %821, 0
   br i1 %822, label %_ZL12lang_matchesPKcS0_S0_j.exit1057.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1057.thread.thread.i.i
 
@@ -2397,7 +2397,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1057.thread.i.i:  ; preds = %809
   br i1 %834, label %sub_01351.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1057.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1057.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1057.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1057.i.i, %.thread1261.i.i
-  %835 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull readonly dereferenceable(8) @.str.74, i64 noundef 7) #10
+  %835 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull dereferenceable(8) @.str.74, i64 noundef 7) #10
   %836 = icmp eq i32 %835, 0
   br i1 %836, label %_ZL12lang_matchesPKcS0_S0_j.exit1060.i.i, label %.thread1265.i.i
 
@@ -2414,7 +2414,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1060.i.i:         ; preds = %_ZL12lang_matchesPK
   br label %.sink.split
 
 .thread1265.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1060.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1057.thread.thread.i.i
-  %840 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull readonly dereferenceable(8) @.str.75, i64 noundef 7) #10
+  %840 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %810, ptr noundef nonnull dereferenceable(8) @.str.75, i64 noundef 7) #10
   %841 = icmp eq i32 %840, 0
   br i1 %841, label %_ZL12lang_matchesPKcS0_S0_j.exit1063.i.i, label %sub_01351.i.i
 
@@ -2521,7 +2521,7 @@ sub_01356.i.i:                                    ; preds = %124
 
 .preheader.i1064.i.i:                             ; preds = %.tail1355.i.i, %883
   %.012.i1065.i.i = phi ptr [ %884, %883 ], [ %14, %.tail1355.i.i ]
-  %882 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i1065.i.i, ptr noundef nonnull readonly dereferenceable(1) @.str.106) #10
+  %882 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.012.i1065.i.i, ptr noundef nonnull dereferenceable(1) @.str.106) #10
   %.not.i1066.i.i = icmp ne ptr %882, null
   %.not14.i1067.i.i = icmp ult ptr %882, %.052
   %or.cond.i1068.i.i = and i1 %.not.i1066.i.i, %.not14.i1067.i.i
@@ -2566,7 +2566,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i:       ; preds = %_ZL14subtag_matches
   br i1 %904, label %_ZL12lang_matchesPKcS0_S0_j.exit1077.thread.i.i, label %905
 
 905:                                              ; preds = %899
-  %906 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %900, ptr noundef nonnull readonly dereferenceable(11) @.str.108, i64 noundef 10) #10
+  %906 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %900, ptr noundef nonnull dereferenceable(11) @.str.108, i64 noundef 10) #10
   %907 = icmp eq i32 %906, 0
   br i1 %907, label %_ZL12lang_matchesPKcS0_S0_j.exit1074.i.i, label %.thread1272.i.i
 
@@ -2583,7 +2583,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1074.i.i:         ; preds = %905
   br label %.sink.split
 
 .thread1272.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1074.i.i, %905
-  %911 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %900, ptr noundef nonnull readonly dereferenceable(11) @.str.109, i64 noundef 10) #10
+  %911 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %900, ptr noundef nonnull dereferenceable(11) @.str.109, i64 noundef 10) #10
   %912 = icmp eq i32 %911, 0
   br i1 %912, label %_ZL12lang_matchesPKcS0_S0_j.exit1077.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1077.thread.thread.i.i
 
@@ -2622,7 +2622,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1077.thread.i.i:  ; preds = %899
   br i1 %924, label %sub_01359.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1077.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1077.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1077.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1077.i.i, %.thread1272.i.i
-  %925 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %900, ptr noundef nonnull readonly dereferenceable(8) @.str.111, i64 noundef 7) #10
+  %925 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %900, ptr noundef nonnull dereferenceable(8) @.str.111, i64 noundef 7) #10
   %926 = icmp eq i32 %925, 0
   br i1 %926, label %_ZL12lang_matchesPKcS0_S0_j.exit1080.i.i, label %.thread1276.i.i
 
@@ -2639,7 +2639,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1080.i.i:         ; preds = %_ZL12lang_matchesPK
   br label %.sink.split
 
 .thread1276.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1080.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1077.thread.thread.i.i
-  %930 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %900, ptr noundef nonnull readonly dereferenceable(8) @.str.112, i64 noundef 7) #10
+  %930 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %900, ptr noundef nonnull dereferenceable(8) @.str.112, i64 noundef 7) #10
   %931 = icmp eq i32 %930, 0
   br i1 %931, label %_ZL12lang_matchesPKcS0_S0_j.exit1083.i.i, label %sub_01359.i.i
 
@@ -2720,7 +2720,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1083.thread.tail.i.i: ; preds = %sub_11360.i.i
   br i1 %963, label %sub_11326.i.thread.i, label %964
 
 964:                                              ; preds = %958
-  %965 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %959, ptr noundef nonnull readonly dereferenceable(8) @.str.115, i64 noundef 7) #10
+  %965 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %959, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #10
   %966 = icmp eq i32 %965, 0
   br i1 %966, label %_ZL12lang_matchesPKcS0_S0_j.exit1086.i.i, label %sub_11326.i.thread.i
 
@@ -2745,7 +2745,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1086.i.i:         ; preds = %964
   br i1 %975, label %_ZL12lang_matchesPKcS0_S0_j.exit1092.thread.i.i, label %976
 
 976:                                              ; preds = %970
-  %977 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %971, ptr noundef nonnull readonly dereferenceable(10) @.str.116, i64 noundef 9) #10
+  %977 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %971, ptr noundef nonnull dereferenceable(10) @.str.116, i64 noundef 9) #10
   %978 = icmp eq i32 %977, 0
   br i1 %978, label %_ZL12lang_matchesPKcS0_S0_j.exit1089.i.i, label %.thread1283.i.i
 
@@ -2762,7 +2762,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1089.i.i:         ; preds = %976
   br label %.sink.split
 
 .thread1283.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1089.i.i, %976
-  %982 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %971, ptr noundef nonnull readonly dereferenceable(10) @.str.117, i64 noundef 9) #10
+  %982 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %971, ptr noundef nonnull dereferenceable(10) @.str.117, i64 noundef 9) #10
   %983 = icmp eq i32 %982, 0
   br i1 %983, label %_ZL12lang_matchesPKcS0_S0_j.exit1092.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1092.thread.i.i
 
@@ -2810,7 +2810,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1092.thread.i.i:  ; preds = %_ZL12lang_matchesPK
   br i1 %999, label %_ZL12lang_matchesPKcS0_S0_j.exit1098.thread.i.i, label %1000
 
 1000:                                             ; preds = %998
-  %1001 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %971, ptr noundef nonnull readonly dereferenceable(7) @.str.120, i64 noundef 6) #10
+  %1001 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %971, ptr noundef nonnull dereferenceable(7) @.str.120, i64 noundef 6) #10
   %1002 = icmp eq i32 %1001, 0
   br i1 %1002, label %_ZL12lang_matchesPKcS0_S0_j.exit1095.i.i, label %.thread1287.i.i
 
@@ -2827,7 +2827,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1095.i.i:         ; preds = %1000
   br label %.sink.split
 
 .thread1287.i.i:                                  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1095.i.i, %1000
-  %1006 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %971, ptr noundef nonnull readonly dereferenceable(7) @.str.121, i64 noundef 6) #10
+  %1006 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %971, ptr noundef nonnull dereferenceable(7) @.str.121, i64 noundef 6) #10
   %1007 = icmp eq i32 %1006, 0
   br i1 %1007, label %_ZL12lang_matchesPKcS0_S0_j.exit1098.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1098.thread.i.i
 

@@ -118,7 +118,7 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %0 = getelementptr inbounds i8, ptr %this, i64 1664
   %heldCount.i.i = getelementptr inbounds i8, ptr %this, i64 1720
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(384) %0, i8 0, i64 48, i1 false)
   store i32 -1, ptr %heldCount.i.i, align 4
   %sequenceLength.i.i = getelementptr inbounds i8, ptr %this, i64 1716
   store i32 -1, ptr %sequenceLength.i.i, align 4
@@ -248,7 +248,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
 define hidden void @_ZN3dpx14IndustryHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this) unnamed_addr #5 align 2 {
 entry:
   %heldCount.i = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %this, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(384) %this, i8 0, i64 48, i1 false)
   store i32 -1, ptr %heldCount.i, align 4
   %sequenceLength.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 -1, ptr %sequenceLength.i, align 4
@@ -1781,7 +1781,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1664
   %heldCount.i = getelementptr inbounds i8, ptr %this, i64 1720
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %add.ptr, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(384) %add.ptr, i8 0, i64 48, i1 false)
   store i32 -1, ptr %heldCount.i, align 4
   %sequenceLength.i = getelementptr inbounds i8, ptr %this, i64 1716
   store i32 -1, ptr %sequenceLength.i, align 4

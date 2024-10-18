@@ -9565,7 +9565,7 @@ if.then.i.i209:                                   ; preds = %_ZNR5folly8Optional
   %198 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !67
   store ptr %198, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !67
   %cmp.not3.i.i.i.i.i.i.i.i210 = icmp eq ptr %195, %196
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %handlers147.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %handlers147.i, i8 0, i64 24, i1 false)
   br i1 %cmp.not3.i.i.i.i.i.i.i.i210, label %invoke.cont.i.i.i.i.i218, label %for.body.i.i.i.i.i.i.i.i211
 
 for.body.i.i.i.i.i.i.i.i211:                      ; preds = %if.then.i.i209, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i.i.i215
@@ -9605,7 +9605,7 @@ if.else.i.i229:                                   ; preds = %_ZNR5folly8Optional
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call7.pn.i188, i64 72
   %203 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !67
   store ptr %203, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !67
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %handlers147.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %handlers147.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %hasValue.i.i12.i, align 8, !tbaa !47
   br label %_ZN5folly8OptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE6assignEOS9_.exit.i
 

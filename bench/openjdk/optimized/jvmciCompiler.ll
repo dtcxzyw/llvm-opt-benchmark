@@ -612,7 +612,7 @@ define hidden noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simple
   br label %38
 
 36:                                               ; preds = %24
-  %37 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %26, i64 noundef 8, i32 noundef 0) #11
+  %37 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %26, i64 noundef 8, i32 noundef 0) #11
   br label %38
 
 38:                                               ; preds = %34, %36
@@ -662,7 +662,7 @@ define hidden noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simple
   %71 = shl nuw nsw i64 %indvars.iv, %.7.i
   %72 = add nuw nsw i64 %70, %71
   %73 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %74 = tail call noundef ptr %73(ptr noundef nonnull %67, i64 noundef %72) #11
+  %74 = tail call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef %72) #11
   %75 = tail call noundef ptr @_ZNK11ModuleEntry6moduleEv(ptr noundef nonnull align 8 dereferenceable(80) %49) #11
   %76 = icmp eq ptr %74, %75
   br i1 %76, label %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, label %57
@@ -772,14 +772,14 @@ define hidden void @_ZN13JVMCICompiler12print_timersEv(ptr noundef nonnull align
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.11) #11
   %3 = load ptr, ptr @tty, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) %4) #11
+  %5 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(72) %4) #11
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) %6) #11
   %8 = fadd double %5, %7
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.12, double noundef %8) #11
   %9 = getelementptr inbounds i8, ptr %0, i64 120
   %10 = load ptr, ptr @tty, align 8
-  %11 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) %9) #11
+  %11 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(36) %9) #11
   %12 = getelementptr inbounds i8, ptr %0, i64 144
   %13 = load volatile i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 148
@@ -793,7 +793,7 @@ define hidden void @_ZN13JVMCICompiler12print_timersEv(ptr noundef nonnull align
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull @.str.14) #11
   %20 = getelementptr inbounds i8, ptr %0, i64 160
   %21 = load ptr, ptr @tty, align 8
-  %22 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) %20) #11
+  %22 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(36) %20) #11
   %23 = getelementptr inbounds i8, ptr %0, i64 184
   %24 = load volatile i32, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 188

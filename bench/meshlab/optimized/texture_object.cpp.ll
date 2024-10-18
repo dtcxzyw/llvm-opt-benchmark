@@ -640,7 +640,7 @@ _ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_Dp
   %.0911.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  tail call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i) #23, !noalias !11
+  tail call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i) #23, !noalias !11
   store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %.012.i.i.i.i, align 8, !alias.scope !8, !noalias !11
   %25 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
   %26 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
@@ -664,7 +664,7 @@ _ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; pred
   %.0911.i.i.i.i29 = phi ptr [ %34, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  tail call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i28) #23, !noalias !17
+  tail call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i28) #23, !noalias !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV6QImage, i64 16), ptr %.012.i.i.i.i28, align 8, !alias.scope !14, !noalias !17
   %31 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 24
   %32 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 24

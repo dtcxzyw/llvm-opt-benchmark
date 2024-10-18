@@ -4377,7 +4377,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4MVAR8sanitizeEP21hb_sanit
 46:                                               ; preds = %36
   %47 = zext nneg i32 %44 to i64
   %48 = getelementptr inbounds i8, ptr %0, i64 %47
-  %49 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %48, ptr noundef nonnull %1)
+  %49 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %48, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %49, label %.thread, label %50
 
 50:                                               ; preds = %46

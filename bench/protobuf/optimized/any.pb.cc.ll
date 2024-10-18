@@ -585,7 +585,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZN6google8protobuf3Any5ClearEv.exit
 
 _ZN6google8protobuf3Any5ClearEv.exit:             ; preds = %if.end, %if.then.i.i
-  tail call void @_ZN6google8protobuf3Any9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf3Any9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf3Any5ClearEv.exit

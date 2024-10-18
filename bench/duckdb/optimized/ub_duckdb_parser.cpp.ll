@@ -24320,7 +24320,7 @@ ehcleanup55:                                      ; preds = %_ZNKSt14default_del
 while.body.i.i.i.i.i:                             ; preds = %ehcleanup55, %.noexc.i.i.i.i
   %__n.addr.05.i.i.i.i.i = phi ptr [ %65, %.noexc.i.i.i.i ], [ %64, %ehcleanup55 ]
   %65 = load ptr, ptr %__n.addr.05.i.i.i.i.i, align 8, !tbaa !92
-  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb10unique_ptrINSA_25CommonTableExpressionInfoESt14default_deleteISC_ELb1EEEELb1EEEEE18_M_deallocate_nodeEPSH_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull %__n.addr.05.i.i.i.i.i)
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb10unique_ptrINSA_25CommonTableExpressionInfoESt14default_deleteISC_ELb1EEEELb1EEEEE18_M_deallocate_nodeEPSH_(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, ptr noundef nonnull %__n.addr.05.i.i.i.i.i)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %while.body.i.i.i.i.i

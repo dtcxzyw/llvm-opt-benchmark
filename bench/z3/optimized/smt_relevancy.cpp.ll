@@ -1473,7 +1473,7 @@ _ZN3smt24relevancy_propagator_imp12set_handlersEP4exprP4listIPNS_12relevancy_ehE
   store ptr %source, ptr %ref.tmp.i.i, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr %call.i, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(20) %m_relevant_ehs.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(24) %m_relevant_ehs.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   br label %if.end8
 
@@ -1585,7 +1585,7 @@ _ZN3smt24relevancy_propagator_imp11set_watchesEP4exprbP4listIPNS_12relevancy_ehE
   store ptr %n, ptr %ref.tmp.i.i, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr %call.i, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(20) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %not.val.i = xor i1 %val, true
   %cond.i = zext i1 %not.val.i to i32
@@ -2593,7 +2593,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -3809,7 +3809,7 @@ if.then.i:                                        ; preds = %if.then.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   store ptr %5, ptr %ref.tmp.i.i.i, align 8
   store ptr null, ptr %m_value.i.i.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6removeERKSB_(ptr noundef nonnull align 8 dereferenceable(20) %arrayidx.i14, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6removeERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i14, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   br label %sw.epilog
 
@@ -3817,7 +3817,7 @@ if.else.i:                                        ; preds = %if.then.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store ptr %5, ptr %ref.tmp.i.i, align 8
   store ptr %15, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(20) %arrayidx.i14, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i14, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   br label %sw.epilog
 
@@ -3892,7 +3892,7 @@ if.then.i68:                                      ; preds = %if.then.i.i50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i61)
   store ptr %5, ptr %ref.tmp.i.i.i61, align 8
   store ptr null, ptr %m_value.i.i.i.i69, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6removeERKSB_(ptr noundef nonnull align 8 dereferenceable(20) %m_watches.i19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i61)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6removeERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %m_watches.i19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i61)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i61)
   br label %sw.epilog
 
@@ -3900,7 +3900,7 @@ if.else.i65:                                      ; preds = %if.then.i.i50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i60)
   store ptr %5, ptr %ref.tmp.i.i60, align 8
   store ptr %24, ptr %m_value.i.i.i66, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(20) %m_watches.i19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i60)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(24) %m_watches.i19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i60)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i60)
   br label %sw.epilog
 
@@ -3975,7 +3975,7 @@ if.then.i116:                                     ; preds = %if.then.i.i100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i110)
   store ptr %5, ptr %ref.tmp.i.i.i110, align 8
   store ptr null, ptr %m_value.i.i.i.i117, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6removeERKSB_(ptr noundef nonnull align 8 dereferenceable(20) %m_relevant_ehs.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i110)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6removeERKSB_(ptr noundef nonnull align 8 dereferenceable(24) %m_relevant_ehs.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i110)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i110)
   br label %sw.epilog
 
@@ -3983,7 +3983,7 @@ if.else.i113:                                     ; preds = %if.then.i.i100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i109)
   store ptr %5, ptr %ref.tmp.i.i109, align 8
   store ptr %33, ptr %m_value.i.i.i114, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(20) %m_relevant_ehs.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i109)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(24) %m_relevant_ehs.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i109)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i109)
   br label %sw.epilog
 

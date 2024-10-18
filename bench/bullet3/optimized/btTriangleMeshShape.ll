@@ -228,7 +228,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN19btTriangleMeshShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #14
+  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #14
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN19btTriangleMeshShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -457,13 +457,13 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %filterCallback) #14
+  call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %filterCallback) #14
   ret void
 
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %filterCallback) #14
+  call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %filterCallback) #14
   resume { ptr, i32 } %2
 }
 
@@ -552,13 +552,13 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   %retval.sroa.2.0.copyload.i = load <2 x float>, ptr %retval.sroa.2.0.m_supportVertexLocal.sroa_idx.i, align 8
   %.fca.0.insert.i4 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i5 = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i4, <2 x float> %retval.sroa.2.0.copyload.i, 1
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %supportCallback) #14
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %supportCallback) #14
   ret { <2 x float>, <2 x float> } %.fca.1.insert.i5
 
 lpad:                                             ; preds = %invoke.cont5
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %supportCallback) #14
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %supportCallback) #14
   resume { ptr, i32 } %13
 }
 
@@ -646,7 +646,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #10
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZNK19btTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_EN16FilteredCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -761,7 +761,7 @@ declare void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21SupportVertexCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }

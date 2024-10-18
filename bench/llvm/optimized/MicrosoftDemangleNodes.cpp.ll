@@ -278,7 +278,7 @@ define dso_local void @_ZNK4llvm11ms_demangle4Node8toStringB5cxx11ENS0_11OutputF
   %4 = alloca %"class.llvm::itanium_demangle::OutputBuffer", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 0, i64 24, i1 false)
   store i32 -1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 -1, ptr %7, align 4
@@ -294,7 +294,7 @@ define dso_local void @_ZNK4llvm11ms_demangle4Node8toStringB5cxx11ENS0_11OutputF
   %15 = getelementptr inbounds i8, ptr %12, i64 %14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   %16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %5) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %17, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %12, ptr noundef %15)

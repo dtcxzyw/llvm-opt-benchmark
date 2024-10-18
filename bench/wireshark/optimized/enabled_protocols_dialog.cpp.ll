@@ -211,7 +211,7 @@ define void @_ZN22EnabledProtocolsDialogC2EP7QWidget(ptr noundef nonnull align 8
   %36 = alloca %class.QString, align 8
   %37 = alloca %class.QVariant, align 8
   %38 = alloca i32, align 4
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
@@ -362,7 +362,7 @@ _ZNK7QWidget11fontMetricsEv.exit:                 ; preds = %_ZN7QStringD2Ev.exi
 
 _ZN22EnabledProtocolsDialog2trEPKcS1_i.exit41:    ; preds = %96
   store i32 0, ptr %17, align 4
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull %17)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %_ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit unwind label %219
 
 _ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit: ; preds = %_ZN22EnabledProtocolsDialog2trEPKcS1_i.exit41
@@ -408,7 +408,7 @@ _ZN7QStringD2Ev.exit45:                           ; preds = %103, %_ZN17QArrayDa
 
 _ZN22EnabledProtocolsDialog2trEPKcS1_i.exit47:    ; preds = %_ZN7QStringD2Ev.exit45
   store i32 1, ptr %20, align 4
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull %20)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %20)
           to label %_ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit49 unwind label %228
 
 _ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit49: ; preds = %_ZN22EnabledProtocolsDialog2trEPKcS1_i.exit47
@@ -454,7 +454,7 @@ _ZN7QStringD2Ev.exit57:                           ; preds = %114, %_ZN17QArrayDa
 
 _ZN22EnabledProtocolsDialog2trEPKcS1_i.exit59:    ; preds = %_ZN7QStringD2Ev.exit57
   store i32 2, ptr %23, align 4
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull %23)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %23)
           to label %_ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit61 unwind label %237
 
 _ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit61: ; preds = %_ZN22EnabledProtocolsDialog2trEPKcS1_i.exit59
@@ -500,7 +500,7 @@ _ZN7QStringD2Ev.exit69:                           ; preds = %125, %_ZN17QArrayDa
 
 _ZN22EnabledProtocolsDialog2trEPKcS1_i.exit71:    ; preds = %_ZN7QStringD2Ev.exit69
   store i32 3, ptr %26, align 4
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull %26)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %_ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit73 unwind label %246
 
 _ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit73: ; preds = %_ZN22EnabledProtocolsDialog2trEPKcS1_i.exit71
@@ -546,7 +546,7 @@ _ZN7QStringD2Ev.exit81:                           ; preds = %136, %_ZN17QArrayDa
 
 _ZN22EnabledProtocolsDialog2trEPKcS1_i.exit83:    ; preds = %_ZN7QStringD2Ev.exit81
   store i32 4, ptr %29, align 4
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull %29)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN26EnabledProtocolsProxyModel10SearchTypeEE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %29)
           to label %_ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit85 unwind label %255
 
 _ZN8QVariant9fromValueIN26EnabledProtocolsProxyModel10SearchTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit85: ; preds = %_ZN22EnabledProtocolsDialog2trEPKcS1_i.exit83
@@ -592,7 +592,7 @@ _ZN7QStringD2Ev.exit93:                           ; preds = %147, %_ZN17QArrayDa
 
 _ZN22EnabledProtocolsDialog2trEPKcS1_i.exit95:    ; preds = %_ZN7QStringD2Ev.exit93
   store i32 0, ptr %32, align 4
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN19EnabledProtocolItem18EnableProtocolTypeEE8metaTypeE, ptr noundef nonnull %32)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN19EnabledProtocolItem18EnableProtocolTypeEE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %32)
           to label %_ZN8QVariant9fromValueIN19EnabledProtocolItem18EnableProtocolTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit unwind label %264
 
 _ZN8QVariant9fromValueIN19EnabledProtocolItem18EnableProtocolTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit: ; preds = %_ZN22EnabledProtocolsDialog2trEPKcS1_i.exit95
@@ -638,7 +638,7 @@ _ZN7QStringD2Ev.exit104:                          ; preds = %158, %_ZN17QArrayDa
 
 _ZN22EnabledProtocolsDialog2trEPKcS1_i.exit106:   ; preds = %_ZN7QStringD2Ev.exit104
   store i32 1, ptr %35, align 4
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN19EnabledProtocolItem18EnableProtocolTypeEE8metaTypeE, ptr noundef nonnull %35)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN19EnabledProtocolItem18EnableProtocolTypeEE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %35)
           to label %_ZN8QVariant9fromValueIN19EnabledProtocolItem18EnableProtocolTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit108 unwind label %273
 
 _ZN8QVariant9fromValueIN19EnabledProtocolItem18EnableProtocolTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit108: ; preds = %_ZN22EnabledProtocolsDialog2trEPKcS1_i.exit106
@@ -684,7 +684,7 @@ _ZN7QStringD2Ev.exit116:                          ; preds = %169, %_ZN17QArrayDa
 
 _ZN22EnabledProtocolsDialog2trEPKcS1_i.exit118:   ; preds = %_ZN7QStringD2Ev.exit116
   store i32 2, ptr %38, align 4
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN19EnabledProtocolItem18EnableProtocolTypeEE8metaTypeE, ptr noundef nonnull %38)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN19EnabledProtocolItem18EnableProtocolTypeEE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %38)
           to label %_ZN8QVariant9fromValueIN19EnabledProtocolItem18EnableProtocolTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit120 unwind label %282
 
 _ZN8QVariant9fromValueIN19EnabledProtocolItem18EnableProtocolTypeEEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit120: ; preds = %_ZN22EnabledProtocolsDialog2trEPKcS1_i.exit118
@@ -2237,7 +2237,7 @@ define void @_ZN22EnabledProtocolsDialogD0Ev(ptr noundef nonnull align 8 derefer
 define void @_ZThn16_N22EnabledProtocolsDialogD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22EnabledProtocolsDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
   ret void
 }
 

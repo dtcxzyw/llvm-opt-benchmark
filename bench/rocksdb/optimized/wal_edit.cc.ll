@@ -284,7 +284,7 @@ if.end14:                                         ; preds = %sw.bb
 sw.bb15:                                          ; preds = %if.end8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !7
   br label %return
 
 sw.default:                                       ; preds = %if.end8
@@ -445,7 +445,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -462,7 +462,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc
@@ -679,7 +679,7 @@ if.end:                                           ; preds = %entry
   store i64 %sub.ptr.sub.i, ptr %size_.i.i, align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -777,7 +777,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -817,7 +817,7 @@ if.then12:                                        ; preds = %if.end, %_ZNSt3mapI
   %second.i = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   %5 = load i64, ptr %metadata_.i, align 8
   store i64 %5, ptr %second.i, align 8
-  %call3.i.i.i = call { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb11WalMetadataEESt10_Select1stIS4_ESt4lessImESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i30, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
+  %call3.i.i.i = call { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb11WalMetadataEESt10_Select1stIS4_ESt4lessImESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14)
   %6 = extractvalue { ptr, ptr } %call3.i.i.i, 1
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt3mapImN7rocksdb11WalMetadataESt4lessImESaISt4pairIKmS1_EEE6insertESt23_Rb_tree_const_iteratorIS6_EOS6_.exit, label %if.then.i.i.i
@@ -851,7 +851,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN7rocksdb11WalMetadataEESt10_Select1stIS4_ESt4lessImES
 _ZNSt3mapImN7rocksdb11WalMetadataESt4lessImESaISt4pairIKmS1_EEE6insertESt23_Rb_tree_const_iteratorIS6_EOS6_.exit: ; preds = %if.then12, %_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb11WalMetadataEESt10_Select1stIS4_ESt4lessImESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
   %state_.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i10, align 8, !alias.scope !17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !17
   br label %return
 
 if.end21:                                         ; preds = %land.rhs
@@ -923,14 +923,14 @@ if.end40:                                         ; preds = %if.end21
 if.then49:                                        ; preds = %if.end40
   %state_.i.i19 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i19, align 8, !alias.scope !20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !20
   br label %return
 
 if.end50:                                         ; preds = %if.end40
   store i64 %12, ptr %second, align 8
   %state_.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i22, align 8, !alias.scope !23
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !23
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !23
   br label %return
 
 return:                                           ; preds = %if.end50, %if.then49, %invoke.cont39, %_ZNSt3mapImN7rocksdb11WalMetadataESt4lessImESaISt4pairIKmS1_EEE6insertESt23_Rb_tree_const_iteratorIS6_EOS6_.exit, %if.then
@@ -943,7 +943,7 @@ entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false)
   %0 = load ptr, ptr %wals, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %wals, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
@@ -1145,7 +1145,7 @@ while.body.i.i.i3:                                ; preds = %while.body.i.i.i3, 
 if.end:                                           ; preds = %while.body.i.i.i3, %if.else.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb11WalMetadataEESt10_Select1stIS4_ESt4lessImESaIS4_EE5clearEv.exit.i.i.i, %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !27
   ret void
 }
 
@@ -1193,7 +1193,7 @@ entry:
   %ref.tmp74 = alloca %"class.rocksdb::Slice", align 8
   %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false)
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8

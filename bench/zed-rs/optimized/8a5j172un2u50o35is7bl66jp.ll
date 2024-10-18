@@ -38,7 +38,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h133441f2b6bd588dE.exit.i"
 
 21:                                               ; preds = %16
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc7cb04fff53ef5dfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 0, i64 noundef %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc7cb04fff53ef5dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 0, i64 noundef %11)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %21
@@ -123,7 +123,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3743631e0f63a1a3E.exit.i"
 
 20:                                               ; preds = %15
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd6acf6bf2be54f5cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0, i64 noundef %10)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd6acf6bf2be54f5cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0, i64 noundef %10)
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %20
@@ -465,12 +465,12 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17ha9c8b6
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !noundef !5
   %9 = getelementptr inbounds i8, ptr %1, i64 32
-  %10 = invoke { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc160ac4c59a46019E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %8)
+  %10 = invoke { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc160ac4c59a46019E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %8)
           to label %14 unwind label %12
 
 11:                                               ; preds = %.body, %12
   %.pn = phi { ptr, i32 } [ %38, %.body ], [ %13, %12 ]
-  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ce548a819d0232dE.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ce548a819d0232dE.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
           to label %"_ZN4core3ptr247drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteVideoTrack$GT$$GT$$C$live_kit_client..test..Room..remote_video_tracks..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he2c77e4f265e1237E.exit" unwind label %51
 
 12:                                               ; preds = %2
@@ -568,7 +568,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17ha9c8b6
   %50 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %19, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ce548a819d0232dE.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ce548a819d0232dE.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 
 51:                                               ; preds = %11, %.body
@@ -598,12 +598,12 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hbbb519
   store ptr %10, ptr %12, align 8, !noalias !158
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %9, ptr %13, align 8, !noalias !158
-  %14 = invoke { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hda7fd953f72fd178E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
+  %14 = invoke { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hda7fd953f72fd178E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
           to label %18 unwind label %16
 
 15:                                               ; preds = %.body, %16
   %.pn = phi { ptr, i32 } [ %42, %.body ], [ %17, %16 ]
-  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097224a9e50f4904E.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097224a9e50f4904E.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
           to label %"_ZN4core3ptr389drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteAudioTrack$GT$$GT$$C$live_kit_client..test..Room..remote_audio_track_publications..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$live_kit_client..test..Room..remote_audio_track_publications..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfe4c80d2c0e23fe1E.exit" unwind label %55
 
 16:                                               ; preds = %2
@@ -702,7 +702,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hbbb519
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %23, ptr %54, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097224a9e50f4904E.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097224a9e50f4904E.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 
 55:                                               ; preds = %15, %.body
@@ -724,12 +724,12 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hca0ae9
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !noundef !5
   %9 = getelementptr inbounds i8, ptr %1, i64 32
-  %10 = invoke { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h39e98deb7cfc722fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %8)
+  %10 = invoke { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h39e98deb7cfc722fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %8)
           to label %14 unwind label %12
 
 11:                                               ; preds = %.body, %12
   %.pn = phi { ptr, i32 } [ %38, %.body ], [ %13, %12 ]
-  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097224a9e50f4904E.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097224a9e50f4904E.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
           to label %"_ZN4core3ptr247drop_in_place$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteAudioTrack$GT$$GT$$C$live_kit_client..test..Room..remote_audio_tracks..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf4cb1e4114a63db1E.exit" unwind label %51
 
 12:                                               ; preds = %2
@@ -827,7 +827,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hca0ae9
   %50 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %19, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097224a9e50f4904E.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h097224a9e50f4904E.llvm.8429083252963556395"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 
 51:                                               ; preds = %11, %.body

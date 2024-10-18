@@ -5498,7 +5498,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114DriverOptTableC2Ev() unnamed_add
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114DriverOptTableD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm3opt8OptTableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #5
+  tail call void @_ZN4llvm3opt8OptTableD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #5
   ret void
 }
 
@@ -5521,7 +5521,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3opt19PrecomputedOptTable16get
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114DriverOptTableD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm3opt8OptTableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #5
+  tail call void @_ZN4llvm3opt8OptTableD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #5
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #6
   ret void
 }
@@ -5538,7 +5538,7 @@ define linkonce_odr hidden void @_ZN4llvm3opt19PrecomputedOptTableD2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm3opt19PrecomputedOptTableD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4llvm3opt8OptTableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #5
+  tail call void @_ZN4llvm3opt8OptTableD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #5
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #6
   ret void
 }

@@ -49,7 +49,7 @@ declare void @_ZN4base15ValueSerializerD2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN25JSONStringValueSerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN4base15ValueSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZN4base15ValueSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }
@@ -151,7 +151,7 @@ declare void @_ZN4base17ValueDeserializerD2Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN27JSONStringValueDeserializerD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN4base17ValueDeserializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZN4base17ValueDeserializerD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }

@@ -393,7 +393,7 @@ _ZN4core4char7methods15encode_utf8_raw17h29cdc5573eb60f23E.exit.i: ; preds = %20
   br i1 %41, label %42, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCslOtZNRIhnDi_7pidlock.exit.i
 
 42:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h29cdc5573eb60f23E.exit.i
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %38, i64 noundef %33)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %38, i64 noundef %33)
   %.pre.i.i = load i64, ptr %37, align 8, !alias.scope !185
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCslOtZNRIhnDi_7pidlock.exit.i
 
@@ -418,7 +418,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCslOtZNRIhnDi_7pid
   br i1 %54, label %55, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCslOtZNRIhnDi_7pidlock.exit.i
 
 55:                                               ; preds = %49
-  tail call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCslOtZNRIhnDi_7pidlock.exit.i
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCslOtZNRIhnDi_7pidlock.exit.i: ; preds = %55, %49
@@ -444,7 +444,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br i1 %8, label %9, label %_ZN5alloc6string6String8push_str17h394e518918c1ef53E.exit
 
 9:                                                ; preds = %3
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %2), !noalias !196
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECslOtZNRIhnDi_7pidlock(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %2), !noalias !196
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !191, !noalias !196
   br label %_ZN5alloc6string6String8push_str17h394e518918c1ef53E.exit
 

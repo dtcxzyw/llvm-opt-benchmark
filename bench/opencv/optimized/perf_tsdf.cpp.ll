@@ -246,7 +246,7 @@ define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_126Perf_TSDFin
           to label %5 unwind label %7
 
 5:                                                ; preds = %1
-  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %4)
+  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(249) %4)
           to label %_ZN11opencv_test12_GLOBAL__N_124Perf_TSDF_integrate_TestC2Ev.exit unwind label %9
 
 _ZN11opencv_test12_GLOBAL__N_124Perf_TSDF_integrate_TestC2Ev.exit: ; preds = %5
@@ -412,7 +412,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6v
   br label %_ZN4perf8TestBaseD2Ev.exit
 
 _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #28
   ret void
 }
 
@@ -449,7 +449,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt
   br label %_ZN11opencv_test12_GLOBAL__N_124Perf_TSDF_integrate_TestD2Ev.exit
 
 _ZN11opencv_test12_GLOBAL__N_124Perf_TSDF_integrate_TestD2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -2233,13 +2233,13 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_115SemisphereScene5depthERKN2
           to label %26 unwind label %27
 
 26:                                               ; preds = %3
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %5) #28
   ret void
 
 27:                                               ; preds = %3
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %5) #28
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #28
   resume { ptr, i32 } %28
 }
@@ -2958,7 +2958,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN11opencv_test12_GLOBAL__N_113RenderInvokerINS0_15SemisphereSceneEED0Ev(ptr noundef nonnull align 8 dereferenceable(101) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -3438,7 +3438,7 @@ define linkonce_odr hidden void @_ZN12SkipThisTestD0Ev(ptr noundef nonnull align
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12SkipThisTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -3477,7 +3477,7 @@ define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_124Perf_TSDFra
           to label %5 unwind label %7
 
 5:                                                ; preds = %1
-  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %4)
+  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(249) %4)
           to label %_ZN11opencv_test12_GLOBAL__N_122Perf_TSDF_raycast_TestC2Ev.exit unwind label %9
 
 _ZN11opencv_test12_GLOBAL__N_122Perf_TSDF_raycast_TestC2Ev.exit: ; preds = %5
@@ -3606,7 +3606,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6v
   br label %_ZN4perf8TestBaseD2Ev.exit
 
 _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #28
   ret void
 }
 
@@ -3643,7 +3643,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt
   br label %_ZN11opencv_test12_GLOBAL__N_122Perf_TSDF_raycast_TestD2Ev.exit
 
 _ZN11opencv_test12_GLOBAL__N_122Perf_TSDF_raycast_TestD2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -3946,7 +3946,7 @@ define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_130Perf_HashTS
           to label %5 unwind label %7
 
 5:                                                ; preds = %1
-  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %4)
+  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(249) %4)
           to label %_ZN11opencv_test12_GLOBAL__N_128Perf_HashTSDF_integrate_TestC2Ev.exit unwind label %9
 
 _ZN11opencv_test12_GLOBAL__N_128Perf_HashTSDF_integrate_TestC2Ev.exit: ; preds = %5
@@ -4075,7 +4075,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6v
   br label %_ZN4perf8TestBaseD2Ev.exit
 
 _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #28
   ret void
 }
 
@@ -4112,7 +4112,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt
   br label %_ZN11opencv_test12_GLOBAL__N_128Perf_HashTSDF_integrate_TestD2Ev.exit
 
 _ZN11opencv_test12_GLOBAL__N_128Perf_HashTSDF_integrate_TestD2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -4363,7 +4363,7 @@ define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_128Perf_HashTS
           to label %5 unwind label %7
 
 5:                                                ; preds = %1
-  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %4)
+  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(249) %4)
           to label %_ZN11opencv_test12_GLOBAL__N_126Perf_HashTSDF_raycast_TestC2Ev.exit unwind label %9
 
 _ZN11opencv_test12_GLOBAL__N_126Perf_HashTSDF_raycast_TestC2Ev.exit: ; preds = %5
@@ -4492,7 +4492,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6v
   br label %_ZN4perf8TestBaseD2Ev.exit
 
 _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #28
   ret void
 }
 
@@ -4529,7 +4529,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt
   br label %_ZN11opencv_test12_GLOBAL__N_126Perf_HashTSDF_raycast_TestD2Ev.exit
 
 _ZN11opencv_test12_GLOBAL__N_126Perf_HashTSDF_raycast_TestD2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -4831,7 +4831,7 @@ define internal void @_GLOBAL__sub_I_perf_tsdf.cpp() #21 section ".text.startup"
           to label %14 unwind label %22
 
 14:                                               ; preds = %0
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %15 unwind label %24
 
 15:                                               ; preds = %14
@@ -4862,7 +4862,7 @@ define internal void @_GLOBAL__sub_I_perf_tsdf.cpp() #21 section ".text.startup"
 26:                                               ; preds = %20, %18, %15
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %10) #28
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -4877,7 +4877,7 @@ common.resume:                                    ; preds = %67, %73, %52, %58, 
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.21.exit:                    ; preds = %20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %10) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #28
   store ptr %21, ptr @_ZN11opencv_test12_GLOBAL__N_124Perf_TSDF_integrate_Test10test_info_E, align 8
@@ -4892,7 +4892,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %20
           to label %29 unwind label %37
 
 29:                                               ; preds = %__cxx_global_var_init.21.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %30 unwind label %39
 
 30:                                               ; preds = %29
@@ -4923,7 +4923,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %20
 41:                                               ; preds = %35, %33, %30
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #28
   br label %43
 
 43:                                               ; preds = %41, %39
@@ -4932,7 +4932,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %20
   br label %common.resume
 
 __cxx_global_var_init.24.exit:                    ; preds = %35
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #28
   store ptr %36, ptr @_ZN11opencv_test12_GLOBAL__N_122Perf_TSDF_raycast_Test10test_info_E, align 8
@@ -4947,7 +4947,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %35
           to label %44 unwind label %52
 
 44:                                               ; preds = %__cxx_global_var_init.24.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %45 unwind label %54
 
 45:                                               ; preds = %44
@@ -4978,7 +4978,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %35
 56:                                               ; preds = %50, %48, %45
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #28
   br label %58
 
 58:                                               ; preds = %56, %54
@@ -4987,7 +4987,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %35
   br label %common.resume
 
 __cxx_global_var_init.26.exit:                    ; preds = %50
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #28
   store ptr %51, ptr @_ZN11opencv_test12_GLOBAL__N_128Perf_HashTSDF_integrate_Test10test_info_E, align 8
@@ -5002,7 +5002,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %50
           to label %59 unwind label %67
 
 59:                                               ; preds = %__cxx_global_var_init.26.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %60 unwind label %69
 
 60:                                               ; preds = %59
@@ -5033,7 +5033,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %50
 71:                                               ; preds = %65, %63, %60
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #28
   br label %73
 
 73:                                               ; preds = %71, %69
@@ -5042,7 +5042,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %50
   br label %common.resume
 
 __cxx_global_var_init.28.exit:                    ; preds = %65
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
   store ptr %66, ptr @_ZN11opencv_test12_GLOBAL__N_126Perf_HashTSDF_raycast_Test10test_info_E, align 8

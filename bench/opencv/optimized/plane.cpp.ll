@@ -1773,7 +1773,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit:   ; preds = %647, %648
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %651, %.lr.ph.i.i.i.i ], [ %650, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit ]
   %651 = load ptr, ptr %.09.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #22
   %.not.i.i.i.i174 = icmp eq ptr %651, %19
   br i1 %.not.i.i.i.i174, label %_ZN2cv4rgbd9TileQueueD2Ev.exit, label %.lr.ph.i.i.i.i, !llvm.loop !46
 
@@ -2131,7 +2131,7 @@ _ZN2cvmlIfLi3ELi3ELi1EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   store i32 -1056833531, ptr %11, align 8
   store ptr %6, ptr %52, align 8
   store i64 12884901891, ptr %51, align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #23
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %10) #23
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %53) #23
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %54) #23
   %114 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN2cv3SVDclERKNS_11_InputArrayEi(ptr noundef nonnull align 8 dereferenceable(288) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef 0)
@@ -2217,7 +2217,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us:                    ; preds = %160, %154, %142
   store float %164, ptr %170, align 4
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %54) #23
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %53) #23
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #23
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %10) #23
   br label %177
 
 ._crit_edge128.us.thread:                         ; preds = %70, %._crit_edge128.us
@@ -2384,7 +2384,7 @@ _ZN2cvpLIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.us: ; preds = %_ZN2
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %54) #23
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %53) #23
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #23
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %10) #23
   br label %.body
 
 256:                                              ; preds = %_ZN2cv4Mat_INS_3VecIfLi9EEEE6createEii.exit, %_ZN2cv4Mat_INS_3VecIfLi3EEEE6createEii.exit106, %_ZN2cv4Mat_INS_3VecIfLi3EEEE6createEii.exit, %3
@@ -2446,7 +2446,7 @@ _ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit:             ; preds = %_ZN2cv4Mat_IhE5zero
 .lr.ph.i.i:                                       ; preds = %_ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %20, %_ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit ]
   %21 = load ptr, ptr %.09.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #22
   %.not.i.i = icmp eq ptr %21, %0
   br i1 %.not.i.i, label %_ZNSt7__cxx114listIN2cv4rgbd9TileQueue9PlaneTileESaIS4_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !46
 
@@ -2502,7 +2502,7 @@ _ZNSt7__cxx114listIN2cv4rgbd9TileQueue9PlaneTileESaIS4_EE9push_backEOS4_.exit: ;
   store i32 %32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 24
   store float %41, ptr %.sroa.3.0..sroa_idx, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull %0) #23
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   %47 = load i64, ptr %5, align 8
   %48 = add i64 %47, 1
   store i64 %48, ptr %5, align 8
@@ -2562,7 +2562,7 @@ _ZNSt7__cxx114listIN2cv4rgbd9TileQueue9PlaneTileESaIS4_EE9push_backEOS4_.exit: ;
 .lr.ph.i.i.i:                                     ; preds = %61, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i ], [ %62, %61 ]
   %63 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %63, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIN2cv4rgbd9TileQueue9PlaneTileESaIS4_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !46
 
@@ -3691,7 +3691,7 @@ define linkonce_odr hidden void @_ZN2cv4rgbd9TileQueueD2Ev(ptr noundef nonnull a
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %4, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIN2cv4rgbd9TileQueue9PlaneTileESaIS4_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !46
 
@@ -3835,7 +3835,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx114listIN2cv4rgbd9TileQueue9PlaneTil
   br i1 %29, label %31, label %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN2cv4rgbd9TileQueue9PlaneTileEEvEEEEvRNS_15_List_node_baseET_.exit
 
 31:                                               ; preds = %._crit_edge.i
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %.02550, ptr noundef %.120.i, ptr noundef nonnull %2) #23
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %.02550, ptr noundef %.120.i, ptr noundef nonnull align 8 dereferenceable(16) %2) #23
   br label %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN2cv4rgbd9TileQueue9PlaneTileEEvEEEEvRNS_15_List_node_baseET_.exit
 
 _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN2cv4rgbd9TileQueue9PlaneTileEEvEEEEvRNS_15_List_node_baseET_.exit: ; preds = %16, %31, %._crit_edge.i
@@ -3906,7 +3906,7 @@ _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN2cv4rgbd9T
   br i1 %.lcssa.i37, label %53, label %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN2cv4rgbd9TileQueue9PlaneTileEEvEEEEvRNS_15_List_node_baseET_.exit43
 
 53:                                               ; preds = %._crit_edge.i35
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %.12661, ptr noundef %.019.lcssa.i36, ptr noundef nonnull %.pn60) #23
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %.12661, ptr noundef %.019.lcssa.i36, ptr noundef nonnull align 8 dereferenceable(16) %.pn60) #23
   br label %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN2cv4rgbd9TileQueue9PlaneTileEEvEEEEvRNS_15_List_node_baseET_.exit43
 
 _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN2cv4rgbd9TileQueue9PlaneTileEEvEEEEvRNS_15_List_node_baseET_.exit43: ; preds = %._crit_edge.i35, %53
@@ -4175,7 +4175,7 @@ _ZN2cvmiIfLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit: ; preds = %32
   %40 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %3, ptr %40, align 8
   store i64 12884901891, ptr %39, align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #23
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #23
   %41 = getelementptr inbounds i8, ptr %6, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #23
   %42 = getelementptr inbounds i8, ptr %6, i64 192
@@ -4188,7 +4188,7 @@ _ZN2cvmiIfLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit: ; preds = %32
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #23
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #23
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #23
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #23
   resume { ptr, i32 } %44
 
 45:                                               ; preds = %_ZN2cvmiIfLi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit
@@ -4290,7 +4290,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %82, %74, %66
   store float %109, ptr %110, align 4
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #23
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #23
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #23
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %6) #23
   br label %111
 
 111:                                              ; preds = %1, %108

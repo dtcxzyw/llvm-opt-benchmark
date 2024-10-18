@@ -1853,7 +1853,7 @@ find_tail.exit164.i:                              ; preds = %307, %._crit_edge.i
 
 313:                                              ; preds = %find_tail.exit164.i
   %314 = load i32, ptr %74, align 4
-  %315 = call fastcc ptr @reassemble(ptr noundef %0, ptr noundef nonnull %.010.i.i, i16 noundef zeroext %56, i32 noundef %311, ptr noundef %8, i32 noundef %314)
+  %315 = call fastcc ptr @reassemble(ptr noundef %0, ptr noundef nonnull %.010.i.i, i16 noundef zeroext range(i16 0, 256) %56, i32 noundef %311, ptr noundef %8, i32 noundef %314)
   br label %mac_is_add_fragment.exit
 
 316:                                              ; preds = %267

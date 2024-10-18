@@ -70,7 +70,7 @@ define linkonce_odr void @_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35Re
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, i32 noundef 3)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEvPT_.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %7
@@ -132,7 +132,7 @@ define void @_ZN3gmx27ReferenceTemperatureManager22registerUpdateCallbackESt8fun
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -142,7 +142,7 @@ define void @_ZN3gmx27ReferenceTemperatureManager22registerUpdateCallbackESt8fun
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   %15 = load ptr, ptr %11, align 8
   store ptr %15, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -200,7 +200,7 @@ _ZNSt12_Vector_baseISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureC
   %24 = getelementptr inbounds %"class.std::function", ptr %23, i64 %19
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = getelementptr inbounds i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false)
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 16
@@ -210,7 +210,7 @@ _ZNSt12_Vector_baseISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureC
 
 30:                                               ; preds = %_ZNSt12_Vector_baseISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_M_allocateEm.exit
   %31 = getelementptr inbounds i8, ptr %24, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   store ptr %29, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit
@@ -226,7 +226,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTempe
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !7, !noalias !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !7, !noalias !10
   %34 = load ptr, ptr %33, align 8, !alias.scope !10, !noalias !7
   store ptr %34, ptr %32, align 8, !alias.scope !7, !noalias !10
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
@@ -236,7 +236,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTempe
 
 _ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 16, i1 false), !alias.scope !12
   store ptr %36, ptr %37, align 8, !alias.scope !7, !noalias !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !alias.scope !10, !noalias !7
   br label %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i
@@ -260,7 +260,7 @@ _ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 24
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !14, !noalias !17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !14, !noalias !17
   %43 = load ptr, ptr %42, align 8, !alias.scope !17, !noalias !14
   store ptr %43, ptr %41, align 8, !alias.scope !14, !noalias !17
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
@@ -270,7 +270,7 @@ _ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAl
 
 _ZNSt16allocator_traitsISaISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19, i64 16, i1 false), !alias.scope !19
   store ptr %45, ptr %46, align 8, !alias.scope !14, !noalias !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false), !alias.scope !17, !noalias !14
   br label %_ZSt19__relocate_object_aISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i22
@@ -399,7 +399,7 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %.lr.ph, 
 _ZNKSt8functionIFvN3gmx8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEEclES3_S4_.exit: ; preds = %42
   %46 = getelementptr inbounds i8, ptr %.sroa.010.019, i64 24
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.019, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void %47(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.019, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %48 = getelementptr inbounds i8, ptr %.sroa.010.019, i64 32

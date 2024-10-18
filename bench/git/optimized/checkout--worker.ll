@@ -153,7 +153,7 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %do
   br i1 %cmp.i18.i, label %if.then.i19.i, label %if.end.i.i
 
 if.then.i19.i:                                    ; preds = %do.end.i
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 19, ptr noundef nonnull @.str.9, i32 noundef %call41.i, i32 noundef 72) #9
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 19, ptr noundef nonnull @.str.9, i32 noundef range(i32 1, -2147483648) %call41.i, i32 noundef 72) #9
   unreachable
 
 if.end.i.i:                                       ; preds = %do.end.i

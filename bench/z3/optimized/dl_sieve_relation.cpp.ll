@@ -2144,7 +2144,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %for.body.i.i.i
   br i1 %cmp5.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6vectorIbLb0EjE9push_backERKb.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i.i, %for.body.i.i.i
-  call void @_ZN6vectorIbLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %spec)
+  call void @_ZN6vectorIbLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(12) %spec)
   %.pre.i.i.i.i = load ptr, ptr %spec, align 8
   %arrayidx8.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 -4
   %.pre1.i.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i.i, align 4
@@ -6428,7 +6428,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(28) %this) #23
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %this)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(28) %this)
   ret void
 }
 
@@ -6918,7 +6918,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #23
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -8481,7 +8481,7 @@ _ZN14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP3mapINS1_
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.end:                                          ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP3mapINS1_21sieve_relation_plugin8rel_specEjNS5_4hashE10default_eqIS5_EEEN9table2mapISB_NS2_4hashENS2_2eqEE15entry_hash_procENSF_13entry_eq_procEE8iteratorppEv.exit, %_ZNK9table2mapI17default_map_entryIN7datalog18relation_signatureEP3mapINS1_21sieve_relation_plugin8rel_specEjNS5_4hashE10default_eqIS5_EEENS2_4hashENS2_2eqEE5beginEv.exit
-  tail call void @_ZN14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP3mapINS1_21sieve_relation_plugin8rel_specEjNS5_4hashE10default_eqIS5_EEEN9table2mapISB_NS2_4hashENS2_2eqEE15entry_hash_procENSF_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m)
+  tail call void @_ZN14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP3mapINS1_21sieve_relation_plugin8rel_specEjNS5_4hashE10default_eqIS5_EEEN9table2mapISB_NS2_4hashENS2_2eqEE15entry_hash_procENSF_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m)
   ret void
 }
 
@@ -8596,7 +8596,7 @@ _ZN14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP5u_mapINS
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !40
 
 for.end:                                          ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP5u_mapINS1_21sieve_relation_plugin8rel_specEEEN9table2mapIS8_NS2_4hashENS2_2eqEE15entry_hash_procENSC_13entry_eq_procEE8iteratorppEv.exit, %_ZNK9table2mapI17default_map_entryIN7datalog18relation_signatureEP5u_mapINS1_21sieve_relation_plugin8rel_specEEENS2_4hashENS2_2eqEE5beginEv.exit
-  tail call void @_ZN14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP5u_mapINS1_21sieve_relation_plugin8rel_specEEEN9table2mapIS8_NS2_4hashENS2_2eqEE15entry_hash_procENSC_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m)
+  tail call void @_ZN14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP5u_mapINS1_21sieve_relation_plugin8rel_specEEEN9table2mapIS8_NS2_4hashENS2_2eqEE15entry_hash_procENSC_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m)
   ret void
 }
 
@@ -9843,7 +9843,7 @@ lpad:                                             ; preds = %_ZN9_key_dataIjN7da
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP3mapINS1_21sieve_relation_plugin8rel_specEjNS5_4hashE10default_eqIS5_EEEN9table2mapISB_NS2_4hashENS2_2eqEE15entry_hash_procENSF_13entry_eq_procEE9find_coreERK9_key_dataIS2_SA_E(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %call.i.i.i = tail call noundef i32 @_ZN7datalog15obj_vector_hashINS_18relation_signatureEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(8) %e)
+  %call.i.i.i = tail call noundef i32 @_ZN7datalog15obj_vector_hashINS_18relation_signatureEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e)
   %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %0, -1
@@ -10533,7 +10533,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call.i.i.i = tail call noundef i32 @_ZN7datalog15obj_vector_hashINS_18relation_signatureEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(8) %e)
+  %call.i.i.i = tail call noundef i32 @_ZN7datalog15obj_vector_hashINS_18relation_signatureEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e)
   %3 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %3, -1
   %and = and i32 %sub, %call.i.i.i
@@ -11060,7 +11060,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call.i.i.i = tail call noundef i32 @_ZN7datalog15obj_vector_hashINS_18relation_signatureEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(8) %e)
+  %call.i.i.i = tail call noundef i32 @_ZN7datalog15obj_vector_hashINS_18relation_signatureEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e)
   %3 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %3, -1
   %and = and i32 %sub, %call.i.i.i
@@ -11729,7 +11729,7 @@ entry:
   %ref.tmp.i.i.i = alloca %struct.svector_hash, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   store i8 0, ptr %ref.tmp.i.i.i, align 1
-  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI9bool_hash7svectorIbjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %e)
+  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI9bool_hash7svectorIbjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %e)
   %m_inner_kind.i.i.i = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i32, ptr %m_inner_kind.i.i.i, align 8
   %xor.i.i.i = xor i32 %0, %call.i.i.i
@@ -12454,7 +12454,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   store i8 0, ptr %ref.tmp.i.i.i, align 1
-  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI9bool_hash7svectorIbjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %e)
+  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI9bool_hash7svectorIbjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %e)
   %m_inner_kind.i.i.i = getelementptr inbounds i8, ptr %e, i64 8
   %3 = load i32, ptr %m_inner_kind.i.i.i, align 8
   %xor.i.i.i = xor i32 %3, %call.i.i.i
@@ -13248,7 +13248,7 @@ lpad:                                             ; preds = %_ZN9_key_dataIN7dat
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI17default_map_entryIN7datalog18relation_signatureEP5u_mapINS1_21sieve_relation_plugin8rel_specEEEN9table2mapIS8_NS2_4hashENS2_2eqEE15entry_hash_procENSC_13entry_eq_procEE9find_coreERK9_key_dataIS2_S7_E(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %call.i.i.i = tail call noundef i32 @_ZN7datalog15obj_vector_hashINS_18relation_signatureEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(8) %e)
+  %call.i.i.i = tail call noundef i32 @_ZN7datalog15obj_vector_hashINS_18relation_signatureEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(16) %e)
   %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %0, -1

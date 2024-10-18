@@ -149,7 +149,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o13VertexPointXYC2Ev(ptr noundef nonnull align 16 dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 16 dereferenceable(200) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %3, align 16
@@ -235,7 +235,7 @@ define void @_ZN3g2o31VertexPointXYWriteGnuplotActionC2Ev(ptr noundef nonnull al
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc4 unwind label %8
 
 .noexc4:                                          ; preds = %.noexc
@@ -245,7 +245,7 @@ define void @_ZN3g2o31VertexPointXYWriteGnuplotActionC2Ev(ptr noundef nonnull al
 5:                                                ; preds = %.noexc4
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc4
@@ -362,7 +362,7 @@ define linkonce_odr void @_ZN3g2o13VertexPointXYD2Ev(ptr noundef nonnull align 1
   br label %_ZN3g2o10BaseVertexILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev.exit
 
 _ZN3g2o10BaseVertexILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev.exit: ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #20
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(200) %0) #20
   ret void
 }
 
@@ -386,7 +386,7 @@ define linkonce_odr void @_ZN3g2o13VertexPointXYD0Ev(ptr noundef nonnull align 1
   br label %_ZN3g2o13VertexPointXYD2Ev.exit
 
 _ZN3g2o13VertexPointXYD2Ev.exit:                  ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #20
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(200) %0) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #22
   ret void
 }
@@ -994,7 +994,7 @@ define linkonce_odr void @_ZThn64_N3g2o13VertexPointXYD1Ev(ptr noundef %0) unnam
   br label %_ZN3g2o13VertexPointXYD2Ev.exit
 
 _ZN3g2o13VertexPointXYD2Ev.exit:                  ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #20
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(200) %2) #20
   ret void
 }
 
@@ -1018,8 +1018,8 @@ define linkonce_odr void @_ZThn64_N3g2o13VertexPointXYD0Ev(ptr noundef %0) unnam
   br label %_ZN3g2o13VertexPointXYD0Ev.exit
 
 _ZN3g2o13VertexPointXYD0Ev.exit:                  ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #20
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #22
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(200) %2) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(200) %2, i64 noundef 208) #22
   ret void
 }
 
@@ -1111,7 +1111,7 @@ define linkonce_odr void @_ZThn64_N3g2o10BaseVertexILi2EN5Eigen6MatrixIdLi2ELi1E
   br label %_ZN3g2o10BaseVertexILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev.exit
 
 _ZN3g2o10BaseVertexILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev.exit: ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #20
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(200) %2) #20
   ret void
 }
 

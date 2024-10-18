@@ -743,7 +743,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -1198,12 +1198,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame4Vec35ClearEv.exit
 
 _ZN6mygame4Vec35ClearEv.exit:                     ; preds = %if.end, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame4Vec3E, i64 0) #23
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame4Vec3E, i64 0) #23
   %cmp8.i = icmp eq ptr %5, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN6mygame4Vec35ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(32) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN6mygame4Vec35ClearEv.exit
@@ -1590,7 +1590,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %invoke.cont
 
@@ -1758,7 +1758,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -2327,12 +2327,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame6Weapon5ClearEv.exit
 
 _ZN6mygame6Weapon5ClearEv.exit:                   ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6WeaponE, i64 0) #23
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6WeaponE, i64 0) #23
   %cmp8.i = icmp eq ptr %7, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN6mygame6Weapon5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(32) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN6mygame6Weapon5ClearEv.exit
@@ -3158,7 +3158,7 @@ if.then.i.i.i:                                    ; preds = %delete.notnull.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -3188,7 +3188,7 @@ if.then.i.i.i7:                                   ; preds = %delete.notnull.i5
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i8: ; preds = %if.then.i.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i9
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   tail call void @_ZdlPv(ptr noundef nonnull %4) #25
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit12
 
@@ -3632,7 +3632,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -3779,7 +3779,7 @@ if.end.i20:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i27, label %success, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i20
-  %call5.i = tail call noundef ptr @_ZN6mygame4Vec314_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull %ctx)
+  %call5.i = tail call noundef ptr @_ZN6mygame4Vec314_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %success, label %if.end8.i
 
@@ -4091,7 +4091,7 @@ if.end.i97:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i113, label %success, label %if.end4.i114
 
 if.end4.i114:                                     ; preds = %if.end.i97
-  %call5.i115 = tail call noundef ptr @_ZN6mygame6Weapon14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i.i.i, ptr noundef nonnull %storemerge.i16.i99, ptr noundef nonnull %ctx)
+  %call5.i115 = tail call noundef ptr @_ZN6mygame6Weapon14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i.i.i, ptr noundef nonnull %storemerge.i16.i99, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i116 = icmp eq ptr %call5.i115, null
   br i1 %cmp6.i116, label %success, label %if.end8.i117
 
@@ -4190,7 +4190,7 @@ if.end.i147:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i163, label %success, label %if.end4.i164
 
 if.end4.i164:                                     ; preds = %if.end.i147
-  %call5.i165 = tail call noundef ptr @_ZN6mygame6Weapon14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull %storemerge.i16.i149, ptr noundef nonnull %ctx)
+  %call5.i165 = tail call noundef ptr @_ZN6mygame6Weapon14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull %storemerge.i16.i149, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i166 = icmp eq ptr %call5.i165, null
   br i1 %cmp6.i166, label %success, label %if.end8.i167
 
@@ -4265,7 +4265,7 @@ if.end.i186:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i202, label %success, label %if.end4.i203
 
 if.end4.i203:                                     ; preds = %if.end.i186
-  %call5.i204 = tail call noundef ptr @_ZN6mygame4Vec314_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i180, ptr noundef nonnull %storemerge.i16.i188, ptr noundef nonnull %ctx)
+  %call5.i204 = tail call noundef ptr @_ZN6mygame4Vec314_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i180, ptr noundef nonnull %storemerge.i16.i188, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i205 = icmp eq ptr %call5.i204, null
   br i1 %cmp6.i205, label %success, label %if.end8.i206
 
@@ -5756,12 +5756,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6mygame7Monster5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7MonsterE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7MonsterE, i64 0) #23
   %cmp8.i = icmp eq ptr %0, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(112) %this)
   br label %return
 
 if.else.i:                                        ; preds = %if.end
@@ -6376,7 +6376,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -6517,7 +6517,7 @@ if.end.i10:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i17, label %success, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i10
-  %call5.i = tail call noundef ptr @_ZN6mygame7Monster14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(112) %retval.0.i.i.i, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull %ctx)
+  %call5.i = tail call noundef ptr @_ZN6mygame7Monster14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(112) %retval.0.i.i.i, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %success, label %if.end8.i
 
@@ -6931,12 +6931,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame8Monsters5ClearEv.exit
 
 _ZN6mygame8Monsters5ClearEv.exit:                 ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %8 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame8MonstersE, i64 0) #23
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame8MonstersE, i64 0) #23
   %cmp8.i = icmp eq ptr %8, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN6mygame8Monsters5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(48) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN6mygame8Monsters5ClearEv.exit
@@ -7426,7 +7426,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -8288,12 +8288,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame6rect325ClearEv.exit
 
 _ZN6mygame6rect325ClearEv.exit:                   ; preds = %if.end, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6rect32E, i64 0) #23
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6rect32E, i64 0) #23
   %cmp8.i = icmp eq ptr %5, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN6mygame6rect325ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(40) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN6mygame6rect325ClearEv.exit
@@ -8850,7 +8850,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -8937,7 +8937,7 @@ if.end.i11:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i18, label %success, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i11
-  %call5.i = tail call noundef ptr @_ZN6mygame6rect3214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull %ctx)
+  %call5.i = tail call noundef ptr @_ZN6mygame6rect3214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %success, label %if.end8.i
 
@@ -9374,12 +9374,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame7rect32s5ClearEv.exit
 
 _ZN6mygame7rect32s5ClearEv.exit:                  ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %13 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7rect32sE, i64 0) #23
+  %13 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7rect32sE, i64 0) #23
   %cmp8.i = icmp eq ptr %13, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN6mygame7rect32s5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(48) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN6mygame7rect32s5ClearEv.exit
@@ -9756,7 +9756,7 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   br label %invoke.cont
 
@@ -9926,7 +9926,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -10692,12 +10692,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame6person5ClearEv.exit
 
 _ZN6mygame6person5ClearEv.exit:                   ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6personE, i64 0) #23
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame6personE, i64 0) #23
   %cmp8.i = icmp eq ptr %7, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN6mygame6person5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(48) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN6mygame6person5ClearEv.exit
@@ -11356,7 +11356,7 @@ if.end.i.i:                                       ; preds = %while.cond
   br i1 %cmp8.i.i, label %success, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
+  %call11.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %ctx, ptr noundef %ptr.addr.0, i32 noundef %0)
   %4 = extractvalue { ptr, i8 } %call11.i.i, 0
   %5 = extractvalue { ptr, i8 } %call11.i.i, 1
   %tobool12.i.i = trunc i8 %5 to i1
@@ -11497,7 +11497,7 @@ if.end.i10:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i17, label %success, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i10
-  %call5.i = tail call noundef ptr @_ZN6mygame6person14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull %ctx)
+  %call5.i = tail call noundef ptr @_ZN6mygame6person14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i, ptr noundef nonnull %storemerge.i16.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %success, label %if.end8.i
 
@@ -12055,12 +12055,12 @@ if.then.i3.i.i:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6mygame7persons5ClearEv.exit
 
 _ZN6mygame7persons5ClearEv.exit:                  ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i, %if.then.i3.i.i
-  %15 = tail call ptr @__dynamic_cast(ptr nonnull %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7personsE, i64 0) #23
+  %15 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(16) %from, ptr nonnull @_ZTIN6google8protobuf7MessageE, ptr nonnull @_ZTIN6mygame7personsE, i64 0) #23
   %cmp8.i = icmp eq ptr %15, null
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN6mygame7persons5ClearEv.exit
-  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull %this)
+  tail call void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef nonnull align 8 dereferenceable(48) %this)
   br label %return
 
 if.else.i:                                        ; preds = %_ZN6mygame7persons5ClearEv.exit
@@ -13291,7 +13291,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator.9", align 1
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %__str) #23
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   store ptr %0, ptr %this, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   %1 = load ptr, ptr %__str, align 8
@@ -13363,7 +13363,7 @@ invoke.cont9:                                     ; preds = %if.end.i.i.i3.i, %i
 lpad3:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, %if.end.i.i.i.i, %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #23
   resume { ptr, i32 } %6
 }
 
@@ -13409,7 +13409,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %object) #23
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %object) #23
   ret void
 }
 

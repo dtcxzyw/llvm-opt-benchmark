@@ -361,13 +361,13 @@ search_component.exit:                            ; preds = %pop.exit.i, %.backe
   br label %end_component.exit
 
 177:                                              ; preds = %173
-  %178 = tail call ptr @realloc(ptr noundef %166, i64 noundef %174) #13
+  %178 = tail call ptr @realloc(ptr noundef %166, i64 noundef range(i64 0, -7) %174) #13
   %179 = icmp eq ptr %178, null
   br i1 %179, label %180, label %183
 
 180:                                              ; preds = %177
   %181 = load ptr, ptr @stderr, align 8
-  %182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.2, i64 noundef %174) #14
+  %182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, -7) %174) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 

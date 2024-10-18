@@ -910,7 +910,7 @@ _ZN6cmListD2Ev.exit107:                           ; preds = %209, %_ZSt8_Destroy
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds i8, ptr %226, i64 88
   %230 = load ptr, ptr %229, align 8
-  %231 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIA4_KcEEET_SJ_SJ_T0_St26random_access_iterator_tag(ptr %228, ptr %230, ptr nonnull @.str.27)
+  %231 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIA4_KcEEET_SJ_SJ_T0_St26random_access_iterator_tag(ptr %228, ptr %230, ptr nonnull align 1 dereferenceable(4) @.str.27)
   %232 = load ptr, ptr %229, align 8
   %.not124 = icmp eq ptr %231, %232
   br i1 %.not124, label %235, label %233
@@ -1360,7 +1360,7 @@ _ZNSt6vectorIN26cmExportBuildFileGenerator19TargetExportPrivateESaIS1_EED2Ev.exi
   %.05.i.i.i.i3 = phi ptr [ %16, %.lr.ph.i.i.i.i2 ], [ %12, %_ZNSt6vectorIN26cmExportBuildFileGenerator19TargetExportPrivateESaIS1_EED2Ev.exit ]
   %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i3) #17
   %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 64
   %.not.i.i.i.i4 = icmp eq ptr %16, %14
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN26cmExportBuildFileGenerator12TargetExportES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !25

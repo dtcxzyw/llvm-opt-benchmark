@@ -569,7 +569,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   br i1 %cmp7.not.i, label %if.end20.thread.i, label %sub_0.i
 
 if.end20.thread.i:                                ; preds = %if.then6.i
-  %call2134.i = call ptr @udat_open_75(i32 noundef %style.0.lcssa.ph, i32 noundef %style.0.lcssa.ph, ptr noundef %locale.0.lcssa.ph, ptr noundef %tz.0.lcssa.ph, i32 noundef -1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #9
+  %call2134.i = call ptr @udat_open_75(i32 noundef range(i32 0, 4) %style.0.lcssa.ph, i32 noundef range(i32 0, 4) %style.0.lcssa.ph, ptr noundef %locale.0.lcssa.ph, ptr noundef %tz.0.lcssa.ph, i32 noundef -1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #9
   br label %if.end26.i
 
 sub_0.i:                                          ; preds = %if.then6.i
@@ -603,7 +603,7 @@ if.then15.i:                                      ; preds = %if.else12.tail.i
   br label %getWhen.exit
 
 if.then23.i:                                      ; preds = %if.then8.tail.i, %if.else12.tail.i, %sub_0.i
-  %call21.i = call ptr @udat_open_75(i32 noundef %style.0.lcssa.ph, i32 noundef %style.0.lcssa.ph, ptr noundef %locale.0.lcssa.ph, ptr noundef %tz.0.lcssa.ph, i32 noundef -1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #9
+  %call21.i = call ptr @udat_open_75(i32 noundef range(i32 0, 4) %style.0.lcssa.ph, i32 noundef range(i32 0, 4) %style.0.lcssa.ph, ptr noundef %locale.0.lcssa.ph, ptr noundef %tz.0.lcssa.ph, i32 noundef -1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #9
   %88 = load i32, ptr %status, align 4
   %cmp.i.i = icmp sgt i32 %88, 0
   br i1 %cmp.i.i, label %charsToUCharsDefault.exit.i, label %if.end.i.i
@@ -719,7 +719,7 @@ if.end.i74:                                       ; preds = %getWhen.exit
   br i1 %cmp1.not.i75, label %if.end11.thread.i, label %sub_0.i76
 
 if.end11.thread.i:                                ; preds = %if.end.i74
-  %call1227.i = call ptr @udat_open_75(i32 noundef %style.0.lcssa254277289, i32 noundef %style.0.lcssa254277289, ptr noundef %locale.0.lcssa258275292, ptr noundef %tz.0.lcssa253278287, i32 noundef -1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #9
+  %call1227.i = call ptr @udat_open_75(i32 noundef range(i32 0, 4) %style.0.lcssa254277289, i32 noundef range(i32 0, 4) %style.0.lcssa254277289, ptr noundef %locale.0.lcssa258275292, ptr noundef %tz.0.lcssa253278287, i32 noundef -1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #9
   br label %if.end17.i
 
 sub_0.i76:                                        ; preds = %if.end.i74
@@ -751,7 +751,7 @@ if.then7.i:                                       ; preds = %if.else.tail.i
   br label %date.exit
 
 if.then14.i:                                      ; preds = %if.then2.tail.i, %if.else.tail.i, %sub_0.i76
-  %call12.i78 = call ptr @udat_open_75(i32 noundef %style.0.lcssa254277289, i32 noundef %style.0.lcssa254277289, ptr noundef %locale.0.lcssa258275292, ptr noundef %tz.0.lcssa253278287, i32 noundef -1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #9
+  %call12.i78 = call ptr @udat_open_75(i32 noundef range(i32 0, 4) %style.0.lcssa254277289, i32 noundef range(i32 0, 4) %style.0.lcssa254277289, ptr noundef %locale.0.lcssa258275292, ptr noundef %tz.0.lcssa253278287, i32 noundef -1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status) #9
   %106 = load i32, ptr %status, align 4
   %cmp.i.i79 = icmp sgt i32 %106, 0
   br i1 %cmp.i.i79, label %charsToUCharsDefault.exit.i84, label %if.end.i.i80

@@ -974,7 +974,7 @@ _ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22: ; p
 define linkonce_odr ptr @_ZN5clang4ento16checker_registry10binaryFindISt6vectorINS0_11CheckerInfoESaIS4_EEEENSt11conditionalIXsr3std8is_constIT_EE5valueENS8_14const_iteratorENS8_8iteratorEE4typeERS8_N4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) local_unnamed_addr #0 comdat {
   %4 = alloca %"struct.clang::ento::CheckerInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 16, i1 false)
   store ptr %1, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -1161,7 +1161,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.037.058, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %47, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %47, i64 16, i1 false)
   store ptr %.sroa.01.0.copyload, ptr %34, align 8
   store i64 %.sroa.22.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @_ZN5clang15AnalyzerOptions19printFormattedEntryERN4llvm11raw_ostreamESt4pairINS1_9StringRefES5_Emmm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull byval(%"struct.std::pair.41") align 8 %7, i64 noundef 2, i64 noundef %.1, i64 noundef 0) #14
@@ -1222,7 +1222,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   %66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   %67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %55, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %55, i64 16, i1 false)
   store ptr %66, ptr %32, align 8
   store i64 %67, ptr %.sroa.2.0..sroa_idx.i28, align 8
   call void @_ZN5clang15AnalyzerOptions19printFormattedEntryERN4llvm11raw_ostreamESt4pairINS1_9StringRefES5_Emmm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull byval(%"struct.std::pair.41") align 8 %6, i64 noundef 2, i64 noundef %.1, i64 noundef 0) #14
@@ -1258,7 +1258,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread51: ; preds = %._ZNK4llvm9String
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.037.058, i64 40
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %55, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %55, i64 16, i1 false)
   store ptr %.sroa.0.0.copyload, ptr %33, align 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i31, align 8
   call void @_ZN5clang15AnalyzerOptions19printFormattedEntryERN4llvm11raw_ostreamESt4pairINS1_9StringRefES5_Emmm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull byval(%"struct.std::pair.41") align 8 %5, i64 noundef 2, i64 noundef %.1, i64 noundef 0) #14

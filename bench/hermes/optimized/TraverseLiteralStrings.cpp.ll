@@ -47,7 +47,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit.us: ; preds = %for.body.us
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i.us = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
+  %call2.i.us = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   br i1 %call2.i.us, label %if.end.us, label %for.inc.us
 
@@ -75,7 +75,7 @@ if.then14.us:                                     ; preds = %if.then12.us
 
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15.us: ; preds = %if.then14.us
   %7 = load ptr, ptr %_M_invoker.i13, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
+  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i10)
   br label %for.inc.us
 
@@ -99,7 +99,7 @@ if.then.i:                                        ; preds = %for.body, %for.body
 
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body
   %9 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
+  %call2.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   br i1 %call2.i, label %if.end, label %for.inc
 
@@ -122,7 +122,7 @@ if.then.i8:                                       ; preds = %if.end
 
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit: ; preds = %if.end
   %11 = load ptr, ptr %_M_invoker.i7, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i) #4
+  call void %11(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
   %isGlobal_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.020, i64 64
   %12 = load i8, ptr %isGlobal_.i, align 8
@@ -151,7 +151,7 @@ if.then.i14:                                      ; preds = %if.then14, %if.then
 
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15: ; preds = %if.then14
   %15 = load ptr, ptr %_M_invoker.i13, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
+  call void %15(ptr noundef nonnull align 8 dereferenceable(32) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i10)
   br label %for.inc
 
@@ -202,7 +202,7 @@ if.then.i:                                        ; preds = %for.body
 
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
+  %call2.i = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   br i1 %call2.i, label %if.end, label %for.inc
 
@@ -280,7 +280,7 @@ if.then.i8:                                       ; preds = %if.then7
 
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit: ; preds = %if.then7
   %12 = load ptr, ptr %_M_invoker.i7, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i) #4
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
   br label %for.inc
 
@@ -346,7 +346,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit: ; preds = %if.then
   %7 = load ptr, ptr %_M_invoker.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i) #4
+  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr.i)
   br label %for.inc
@@ -385,7 +385,7 @@ if.then.i21:                                      ; preds = %for.body22
 
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body22
   %10 = load ptr, ptr %_M_invoker.i20, align 8
-  %call2.i = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i17) #4
+  %call2.i = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i17) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i17)
   br i1 %call2.i, label %if.end26, label %for.inc64
 
@@ -490,7 +490,7 @@ if.then.i34:                                      ; preds = %_ZN12_GLOBAL__N_111
 
 _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35: ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
   %15 = load ptr, ptr %_M_invoker.i33, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i29, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i30) #4
+  call void %15(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i29, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i30) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i29)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr.i30)
   br label %for.inc56

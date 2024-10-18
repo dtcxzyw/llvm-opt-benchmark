@@ -393,7 +393,7 @@ sub_1:                                            ; preds = %sub_0
 _ZN2cv4Mat_IcEC2Eii.exit:                         ; preds = %141
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %28)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(96) %28)
           to label %.noexc unwind label %282
 
 .noexc:                                           ; preds = %_ZN2cv4Mat_IcEC2Eii.exit
@@ -1052,7 +1052,7 @@ define hidden void @_Z7SharpenRKN2cv3MatERS0_(ptr nocapture noundef nonnull read
   %100 = add nuw nsw i32 %99, %95
   %101 = add nuw nsw i32 %100, %98
   %102 = sub nsw i32 %86, %101
-  %103 = tail call i32 @llvm.smax.i32(i32 %102, i32 0)
+  %103 = tail call i32 @llvm.smax.i32(i32 range(i32 -1020, 1276) %102, i32 0)
   %104 = tail call i32 @llvm.umin.i32(i32 %103, i32 255)
   %105 = trunc nuw i32 %104 to i8
   %106 = getelementptr inbounds i8, ptr %79, i64 %indvars.iv

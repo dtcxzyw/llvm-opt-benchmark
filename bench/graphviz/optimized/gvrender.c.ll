@@ -921,7 +921,7 @@ agxbsizeof.exit.i.i:                              ; preds = %15
   br i1 %.not.i.i, label %26, label %25
 
 25:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %19, align 1
   br label %26
 
@@ -1087,7 +1087,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   %15 = phi ptr [ %10, %.lr.ph ], [ %60, %59 ]
   %.pn = phi ptr [ %1, %.lr.ph ], [ %16, %59 ]
   %16 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(6) @.str) #22
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str) #22
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
 
@@ -1096,7 +1096,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 20:                                               ; preds = %14
-  %21 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.1) #22
+  %21 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.1) #22
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %24
 
@@ -1105,7 +1105,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #22
+  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.2) #22
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %28
 
@@ -1114,12 +1114,12 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 28:                                               ; preds = %24
-  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(6) @.str.3) #22
+  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str.3) #22
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(10) @.str.4) #22
+  %32 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.4) #22
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %35
 
@@ -1128,7 +1128,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 35:                                               ; preds = %31
-  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(5) @.str.5) #22
+  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.5) #22
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %39
 
@@ -1137,7 +1137,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 39:                                               ; preds = %35
-  %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(13) @.str.6) #22
+  %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.6) #22
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.preheader, label %46
 
@@ -1154,7 +1154,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 46:                                               ; preds = %39
-  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.7) #22
+  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.7) #22
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
@@ -1163,7 +1163,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(9) @.str.8) #22
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.8) #22
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %54
 
@@ -1172,7 +1172,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 54:                                               ; preds = %50
-  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(8) @.str.9) #22
+  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.9) #22
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %59, label %57
 
@@ -2203,7 +2203,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

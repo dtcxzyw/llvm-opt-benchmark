@@ -1204,7 +1204,7 @@ di_read_debug_line_cu.exit.i:                     ; preds = %di_read_debug_abbre
   store ptr %363, ptr %212, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18)
-  %364 = call fastcc ptr @di_read_die(ptr noundef %25, ptr noundef %19, ptr noundef %6)
+  %364 = call fastcc ptr @di_read_die(ptr noundef nonnull %25, ptr noundef %19, ptr noundef %6)
   %.not60.i = icmp eq ptr %364, null
   br i1 %.not60.i, label %478, label %365
 
@@ -1299,7 +1299,7 @@ di_skip_records.exit.thread.i:                    ; preds = %uleb128.exit18.i.i
   br label %478
 
 407:                                              ; preds = %uleb128.exit18.i.i
-  %408 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef %25, i64 noundef %403, ptr noundef %16, ptr noundef %6)
+  %408 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef nonnull %25, i64 noundef %403, ptr noundef %16, ptr noundef %6)
   br i1 %408, label %368, label %di_skip_records.exit.i
 
 di_skip_records.exit.i:                           ; preds = %407
@@ -1395,7 +1395,7 @@ uleb128.exit24.i.i:                               ; preds = %._crit_edge.loopexi
 449:                                              ; preds = %uleb128.exit24.i.i
   store i64 %428, ptr %218, align 8
   store i64 %446, ptr %219, align 8
-  %450 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef %25, i64 noundef %446, ptr noundef %20, ptr noundef %6)
+  %450 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef nonnull %25, i64 noundef %446, ptr noundef nonnull %20, ptr noundef %6)
   br i1 %450, label %di_read_record.exit.i, label %459
 
 di_read_record.exit.i:                            ; preds = %449
@@ -1552,7 +1552,7 @@ rnglists_header_init.exit.i:                      ; preds = %499, %489
 
 507:                                              ; preds = %.backedge.i, %.lr.ph175.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
-  %508 = call fastcc ptr @di_read_die(ptr noundef %25, ptr noundef %13, ptr noundef %6)
+  %508 = call fastcc ptr @di_read_die(ptr noundef nonnull %25, ptr noundef %13, ptr noundef %6)
   %.not.i249 = icmp eq ptr %508, null
   br i1 %.not.i249, label %.backedge.i, label %512
 
@@ -1654,7 +1654,7 @@ uleb128.exit18.i.i291:                            ; preds = %._crit_edge.loopexi
   br i1 %or.cond.not.i.i295, label %di_skip_records.exit.i297, label %553
 
 553:                                              ; preds = %uleb128.exit18.i.i291
-  %554 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef %25, i64 noundef %549, ptr noundef %12, ptr noundef %6)
+  %554 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef nonnull %25, i64 noundef %549, ptr noundef %12, ptr noundef %6)
   br i1 %554, label %514, label %di_skip_records.exit.thread.i296
 
 di_skip_records.exit.thread.i296:                 ; preds = %553
@@ -1751,7 +1751,7 @@ uleb128.exit24.i.i256:                            ; preds = %._crit_edge.loopexi
 593:                                              ; preds = %uleb128.exit24.i.i256
   store i64 %572, ptr %222, align 8
   store i64 %590, ptr %223, align 8
-  %594 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef %25, i64 noundef %590, ptr noundef %15, ptr noundef %6)
+  %594 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef nonnull %25, i64 noundef %590, ptr noundef nonnull %15, ptr noundef %6)
   br i1 %594, label %611, label %di_read_record.exit.i261
 
 di_read_record.exit.i261:                         ; preds = %593, %uleb128.exit24.i.i256
@@ -1884,7 +1884,7 @@ read_addr.exit.i.i:                               ; preds = %638, %634, %628, %6
   %654 = load ptr, ptr %197, align 8
   %655 = getelementptr i8, ptr %654, i64 %649
   store ptr %655, ptr %186, align 8
-  %656 = call fastcc ptr @di_read_die(ptr noundef %25, ptr noundef %10, ptr noundef %6)
+  %656 = call fastcc ptr @di_read_die(ptr noundef nonnull %25, ptr noundef %10, ptr noundef %6)
   %.not.i86.i = icmp eq ptr %656, null
   br i1 %.not.i86.i, label %read_abstract_origin.exit.i, label %.preheader.i.i
 
@@ -1968,7 +1968,7 @@ uleb128.exit24.i.i.i:                             ; preds = %._crit_edge.loopexi
 695:                                              ; preds = %uleb128.exit24.i.i.i
   store i64 %674, ptr %224, align 8
   store i64 %692, ptr %225, align 8
-  %696 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef %25, i64 noundef %692, ptr noundef %11, ptr noundef %6)
+  %696 = call fastcc zeroext i1 @debug_info_reader_read_value(ptr noundef nonnull %25, i64 noundef %692, ptr noundef nonnull %11, ptr noundef %6)
   br i1 %696, label %di_read_record.exit.i.i, label %read_abstract_origin.exit.i
 
 di_read_record.exit.i.i:                          ; preds = %695
@@ -3366,7 +3366,7 @@ uleb128.exit20.i:                                 ; preds = %._crit_edge.loopexi
   br i1 %112, label %di_find_abbrev.exit.thread, label %115
 
 di_find_abbrev.exit.thread:                       ; preds = %.lr.ph.i19
-  %113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.21, i32 noundef 1389, i64 noundef %23) #17
+  %113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.21, i32 noundef 1389, i64 noundef range(i64 1, 0) %23) #17
   %114 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr null, ptr %114, align 8
   br label %228

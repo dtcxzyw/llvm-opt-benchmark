@@ -452,7 +452,7 @@ call7.i.noexc:                                    ; preds = %call6.i.noexc
           to label %call.i.noexc.i unwind label %lpad10.i
 
 call.i.noexc.i:                                   ; preds = %call7.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %pass_through_nullness.i, ptr noundef %call.i92.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %pass_through_nullness.i, ptr noundef %call.i92.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i)
           to label %.noexc.i unwind label %lpad10.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
@@ -464,7 +464,7 @@ call.i.noexc.i:                                   ; preds = %call7.i.noexc
 lpad.i.i:                                         ; preds = %.noexc.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %pass_through_nullness.i) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %pass_through_nullness.i) #22
   br label %lpad10.body.i
 
 invoke.cont11.i:                                  ; preds = %.noexc.i
@@ -609,7 +609,7 @@ invoke.cont40.i:                                  ; preds = %if.then.i.i.i140.i,
   %second.i.i139.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %25, i64 %22, i32 0, i32 1
   %call42.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i139.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.i) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(6) %options_.i.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(73) %options_.i.i, i64 6, i1 false)
   %annotation_list_file.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %annotation_list_file3.i.i = getelementptr inbounds i8, ptr %context, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i.i)
@@ -839,7 +839,7 @@ invoke.cont84.i:                                  ; preds = %if.then.i.i.i226.i,
   %second.i.i225.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %55, i64 %52, i32 0, i32 1
   %call86.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i225.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81.i) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp90.i, ptr noundef nonnull align 8 dereferenceable(6) %options_.i.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp90.i, ptr noundef nonnull align 8 dereferenceable(73) %options_.i.i, i64 6, i1 false)
   %annotation_list_file.i235.i = getelementptr inbounds i8, ptr %agg.tmp90.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i235.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i.i)
           to label %.noexc243.i unwind label %lpad13.i
@@ -967,7 +967,7 @@ invoke.cont120.i:                                 ; preds = %invoke.cont117.i
   store ptr @.str.88, ptr %_M_str.i.i.i, align 8
   %second.i.i = getelementptr inbounds i8, ptr %ref.tmp112.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp113.i) #22
-  %call.i.i.i.i.i.i.i287.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp112.i)
+  %call.i.i.i.i.i.i.i287.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp112.i)
           to label %call.i.i.i.i.i.i.i.noexc.i unwind label %lpad123.i
 
 call.i.i.i.i.i.i.i.noexc.i:                       ; preds = %invoke.cont120.i
@@ -979,7 +979,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %call.i.i.i.i.i.i.i.
   %77 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i287.i, 0
   %78 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !84
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %78, i64 %77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp112.i, i64 16, i1 false), !noalias !84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp112.i, i64 16, i1 false), !noalias !84
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i) #22, !noalias !84
   br label %invoke.cont124.i
@@ -992,7 +992,7 @@ invoke.cont124.i:                                 ; preds = %if.then.i.i.i.i.i.i
   %80 = load i32, ptr @_ZN2pb4javaE, align 8
   %81 = getelementptr inbounds i8, ptr %79, i64 16
   %82 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
-  %call.i.i.i289291.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %81, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(16) %82)
+  %call.i.i.i289291.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %81, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(32) %82)
           to label %call.i.i.i289.noexc.i unwind label %lpad13.i
 
 call.i.i.i289.noexc.i:                            ; preds = %invoke.cont124.i
@@ -1061,7 +1061,7 @@ invoke.cont138.i:                                 ; preds = %invoke.cont137.i
   store ptr @.str.89, ptr %_M_str.i.i309.i, align 8
   %second.i310.i = getelementptr inbounds i8, ptr %ref.tmp130.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i310.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp131.i) #22
-  %call.i.i.i.i.i.i.i324.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp130.i)
+  %call.i.i.i.i.i.i.i324.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp130.i)
           to label %call.i.i.i.i.i.i.i.noexc323.i unwind label %lpad142.i
 
 call.i.i.i.i.i.i.i.noexc323.i:                    ; preds = %invoke.cont138.i
@@ -1073,7 +1073,7 @@ if.then.i.i.i.i.i.i.i318.i:                       ; preds = %call.i.i.i.i.i.i.i.
   %93 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i324.i, 0
   %94 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !104
   %add.ptr.i.i.i.i.i.i.i.i321.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %94, i64 %93
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i.i321.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp130.i, i64 16, i1 false), !noalias !104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i321.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp130.i, i64 16, i1 false), !noalias !104
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i322.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i321.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i322.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i310.i) #22, !noalias !104
   br label %if.end223.i
@@ -1200,7 +1200,7 @@ lpad142.i:                                        ; preds = %invoke.cont138.i
   br label %ehcleanup313.i
 
 if.else.i:                                        ; preds = %invoke.cont127.i, %call3.i.noexc.i, %call.i.i.i289.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp147.i, ptr noundef nonnull align 8 dereferenceable(6) %options_.i.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp147.i, ptr noundef nonnull align 8 dereferenceable(73) %options_.i.i, i64 6, i1 false)
   %annotation_list_file.i334.i = getelementptr inbounds i8, ptr %agg.tmp147.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i334.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i.i)
           to label %.noexc342.i unwind label %lpad13.i
@@ -1313,7 +1313,7 @@ cond.false.i:                                     ; preds = %invoke.cont171.i
           to label %call.i373.noexc.i unwind label %lpad175.i
 
 call.i373.noexc.i:                                ; preds = %cond.false.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp170.i, ptr noundef %call.i373378.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp174.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170.i, ptr noundef %call.i373378.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp174.i)
           to label %.noexc379.i unwind label %lpad175.i
 
 .noexc379.i:                                      ; preds = %call.i373.noexc.i
@@ -1343,7 +1343,7 @@ lpad.i27:                                         ; preds = %invoke.cont.i28, %i
   %126 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i21) #22
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp170.i) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170.i) #22
   br label %cleanup.action194.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit30: ; preds = %invoke.cont.i28
@@ -1394,7 +1394,7 @@ invoke.cont183.i:                                 ; preds = %invoke.cont180.i
   store ptr @.str.81, ptr %_M_str.i.i397.i, align 8
   %second.i398.i = getelementptr inbounds i8, ptr %ref.tmp167.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i398.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp168.i) #22
-  %call.i.i.i.i.i.i.i412.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp167.i)
+  %call.i.i.i.i.i.i.i412.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp167.i)
           to label %call.i.i.i.i.i.i.i.noexc411.i unwind label %lpad187.i
 
 call.i.i.i.i.i.i.i.noexc411.i:                    ; preds = %invoke.cont183.i
@@ -1406,7 +1406,7 @@ if.then.i.i.i.i.i.i.i406.i:                       ; preds = %call.i.i.i.i.i.i.i.
   %138 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i412.i, 0
   %139 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !134
   %add.ptr.i.i.i.i.i.i.i.i409.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %139, i64 %138
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i.i409.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp167.i, i64 16, i1 false), !noalias !134
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i409.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp167.i, i64 16, i1 false), !noalias !134
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i410.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i409.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i410.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i398.i) #22, !noalias !134
   br label %invoke.cont188.i
@@ -1478,7 +1478,7 @@ invoke.cont206.i:                                 ; preds = %if.then.i.i.i431.i,
   %second.i.i430.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %147, i64 %144, i32 0, i32 1
   %call208.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i430.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp203.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp203.i) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp211.i, ptr noundef nonnull align 8 dereferenceable(6) %options_.i.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp211.i, ptr noundef nonnull align 8 dereferenceable(73) %options_.i.i, i64 6, i1 false)
   %annotation_list_file.i440.i = getelementptr inbounds i8, ptr %agg.tmp211.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i440.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i.i)
           to label %.noexc448.i unwind label %lpad13.i
@@ -1664,7 +1664,7 @@ invoke.cont236.i:                                 ; preds = %invoke.cont233.i
   store ptr @.str.91, ptr %_M_str.i.i497.i, align 8
   %second.i498.i = getelementptr inbounds i8, ptr %ref.tmp224.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i498.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp225.i) #22
-  %call.i.i.i.i.i.i.i512.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp224.i)
+  %call.i.i.i.i.i.i.i512.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp224.i)
           to label %call.i.i.i.i.i.i.i.noexc511.i unwind label %lpad240.i
 
 call.i.i.i.i.i.i.i.noexc511.i:                    ; preds = %invoke.cont236.i
@@ -1676,7 +1676,7 @@ if.then.i.i.i.i.i.i.i506.i:                       ; preds = %call.i.i.i.i.i.i.i.
   %178 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i512.i, 0
   %179 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !174
   %add.ptr.i.i.i.i.i.i.i.i509.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %179, i64 %178
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i.i509.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp224.i, i64 16, i1 false), !noalias !174
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i509.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp224.i, i64 16, i1 false), !noalias !174
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i510.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i509.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i510.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i498.i) #22, !noalias !174
   br label %invoke.cont246.i
@@ -1766,7 +1766,7 @@ cond.false269.i:                                  ; preds = %invoke.cont257.i
           to label %call.i546.noexc.i unwind label %lpad272.i
 
 call.i546.noexc.i:                                ; preds = %cond.false269.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp254.i, ptr noundef %call.i546551.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp270.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp254.i, ptr noundef %call.i546551.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp270.i)
           to label %.noexc552.i unwind label %lpad272.i
 
 .noexc552.i:                                      ; preds = %call.i546.noexc.i
@@ -1796,7 +1796,7 @@ lpad.i17:                                         ; preds = %invoke.cont.i18, %i
   %199 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #22
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp254.i) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp254.i) #22
   br label %cleanup.action287.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit: ; preds = %invoke.cont.i18
@@ -1809,7 +1809,7 @@ cond.end274.i:                                    ; preds = %_ZNSt7__cxx1112basi
   store ptr @.str.95, ptr %_M_str.i.i556.i, align 8
   %second.i557.i = getelementptr inbounds i8, ptr %ref.tmp253.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i557.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp254.i) #22
-  %call.i.i.i.i.i.i.i571.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp253.i)
+  %call.i.i.i.i.i.i.i571.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp253.i)
           to label %call.i.i.i.i.i.i.i.noexc570.i unwind label %ehcleanup285.i
 
 call.i.i.i.i.i.i.i.noexc570.i:                    ; preds = %cond.end274.i
@@ -1821,7 +1821,7 @@ if.then.i.i.i.i.i.i.i565.i:                       ; preds = %call.i.i.i.i.i.i.i.
   %201 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i571.i, 0
   %202 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !199
   %add.ptr.i.i.i.i.i.i.i.i568.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %202, i64 %201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i.i568.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp253.i, i64 16, i1 false), !noalias !199
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i568.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp253.i, i64 16, i1 false), !noalias !199
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i569.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i568.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i569.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i557.i) #22, !noalias !199
   br label %invoke.cont279.i
@@ -1876,7 +1876,7 @@ invoke.cont297.i:                                 ; preds = %invoke.cont296.i
   store ptr @.str.99, ptr %_M_str.i.i589.i, align 8
   %second.i590.i = getelementptr inbounds i8, ptr %ref.tmp289.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i590.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp290.i) #22
-  %call.i.i.i.i.i.i.i604.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp289.i)
+  %call.i.i.i.i.i.i.i604.i = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIS7_EESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp289.i)
           to label %call.i.i.i.i.i.i.i.noexc603.i unwind label %lpad301.i
 
 call.i.i.i.i.i.i.i.noexc603.i:                    ; preds = %invoke.cont297.i
@@ -1888,7 +1888,7 @@ if.then.i.i.i.i.i.i.i598.i:                       ; preds = %call.i.i.i.i.i.i.i.
   %212 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i604.i, 0
   %213 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !219
   %add.ptr.i.i.i.i.i.i.i.i601.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %213, i64 %212
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i.i601.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp289.i, i64 16, i1 false), !noalias !219
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i601.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp289.i, i64 16, i1 false), !noalias !219
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i602.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i601.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i602.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i590.i) #22, !noalias !219
   br label %invoke.cont302.i
@@ -2184,7 +2184,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   br label %_ZN6google8protobuf8compiler4java30ImmutableMapFieldLiteGeneratorD2Ev.exit
 
 _ZN6google8protobuf8compiler4java30ImmutableMapFieldLiteGeneratorD2Ev.exit: ; preds = %entry, %invoke.cont13.i.i.i.i
-  tail call void @_ZN6google8protobuf8compiler4java27ImmutableFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
+  tail call void @_ZN6google8protobuf8compiler4java27ImmutableFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
@@ -2245,7 +2245,7 @@ entry:
   %context_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %context_, align 8
   %options_.i = getelementptr inbounds i8, ptr %1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(6) %options_.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(73) %options_.i, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %1, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
@@ -2331,7 +2331,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %14 = load ptr, ptr %descriptor_, align 8
   %15 = load ptr, ptr %context_, align 8
   %options_.i48 = getelementptr inbounds i8, ptr %15, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(6) %options_.i48, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(73) %options_.i48, i64 6, i1 false)
   %annotation_list_file.i49 = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
   %annotation_list_file3.i50 = getelementptr inbounds i8, ptr %15, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i49, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i50)
@@ -2493,7 +2493,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   %43 = phi ptr [ %.pre516, %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit109 ], [ %29, %if.then ]
   %44 = load ptr, ptr %descriptor_, align 8
   %options_.i114 = getelementptr inbounds i8, ptr %43, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp40, ptr noundef nonnull align 8 dereferenceable(6) %options_.i114, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp40, ptr noundef nonnull align 8 dereferenceable(73) %options_.i114, i64 6, i1 false)
   %annotation_list_file.i115 = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
   %annotation_list_file3.i116 = getelementptr inbounds i8, ptr %43, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i115, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i116)
@@ -2573,7 +2573,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %57 = load ptr, ptr %descriptor_, align 8
   %58 = load ptr, ptr %context_, align 8
   %options_.i151 = getelementptr inbounds i8, ptr %58, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp55, ptr noundef nonnull align 8 dereferenceable(6) %options_.i151, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp55, ptr noundef nonnull align 8 dereferenceable(73) %options_.i151, i64 6, i1 false)
   %annotation_list_file.i152 = getelementptr inbounds i8, ptr %agg.tmp55, i64 8
   %annotation_list_file3.i153 = getelementptr inbounds i8, ptr %58, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i152, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i153)
@@ -2653,7 +2653,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %71 = load ptr, ptr %descriptor_, align 8
   %72 = load ptr, ptr %context_, align 8
   %options_.i188 = getelementptr inbounds i8, ptr %72, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp70, ptr noundef nonnull align 8 dereferenceable(6) %options_.i188, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp70, ptr noundef nonnull align 8 dereferenceable(73) %options_.i188, i64 6, i1 false)
   %annotation_list_file.i189 = getelementptr inbounds i8, ptr %agg.tmp70, i64 8
   %annotation_list_file3.i190 = getelementptr inbounds i8, ptr %72, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i189, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i190)
@@ -2735,7 +2735,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %86 = load i32, ptr @_ZN2pb4javaE, align 8
   %87 = getelementptr inbounds i8, ptr %85, i64 16
   %88 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
-  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %87, i32 noundef %86, ptr noundef nonnull align 8 dereferenceable(16) %88)
+  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %87, i32 noundef %86, ptr noundef nonnull align 8 dereferenceable(32) %88)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %89 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %89 to i1
@@ -2805,7 +2805,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %100 = load ptr, ptr %descriptor_, align 8
   %101 = load ptr, ptr %context_, align 8
   %options_.i250 = getelementptr inbounds i8, ptr %101, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp96, ptr noundef nonnull align 8 dereferenceable(6) %options_.i250, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp96, ptr noundef nonnull align 8 dereferenceable(73) %options_.i250, i64 6, i1 false)
   %annotation_list_file.i251 = getelementptr inbounds i8, ptr %agg.tmp96, i64 8
   %annotation_list_file3.i252 = getelementptr inbounds i8, ptr %101, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i251, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i252)
@@ -2885,7 +2885,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %114 = load ptr, ptr %descriptor_, align 8
   %115 = load ptr, ptr %context_, align 8
   %options_.i287 = getelementptr inbounds i8, ptr %115, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp111, ptr noundef nonnull align 8 dereferenceable(6) %options_.i287, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp111, ptr noundef nonnull align 8 dereferenceable(73) %options_.i287, i64 6, i1 false)
   %annotation_list_file.i288 = getelementptr inbounds i8, ptr %agg.tmp111, i64 8
   %annotation_list_file3.i289 = getelementptr inbounds i8, ptr %115, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i288, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i289)
@@ -2965,7 +2965,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %128 = load ptr, ptr %descriptor_, align 8
   %129 = load ptr, ptr %context_, align 8
   %options_.i324 = getelementptr inbounds i8, ptr %129, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp126, ptr noundef nonnull align 8 dereferenceable(6) %options_.i324, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp126, ptr noundef nonnull align 8 dereferenceable(73) %options_.i324, i64 6, i1 false)
   %annotation_list_file.i325 = getelementptr inbounds i8, ptr %agg.tmp126, i64 8
   %annotation_list_file3.i326 = getelementptr inbounds i8, ptr %129, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i325, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i326)
@@ -3147,7 +3147,7 @@ if.end155:                                        ; preds = %_ZN6google8protobuf
   %158 = phi ptr [ %.pre, %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit397 ], [ %29, %if.else ]
   %159 = load ptr, ptr %descriptor_, align 8
   %options_.i398 = getelementptr inbounds i8, ptr %158, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp157, ptr noundef nonnull align 8 dereferenceable(6) %options_.i398, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp157, ptr noundef nonnull align 8 dereferenceable(73) %options_.i398, i64 6, i1 false)
   %annotation_list_file.i399 = getelementptr inbounds i8, ptr %agg.tmp157, i64 8
   %annotation_list_file3.i400 = getelementptr inbounds i8, ptr %158, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i399, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i400)
@@ -3227,7 +3227,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %172 = load ptr, ptr %descriptor_, align 8
   %173 = load ptr, ptr %context_, align 8
   %options_.i435 = getelementptr inbounds i8, ptr %173, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp172, ptr noundef nonnull align 8 dereferenceable(6) %options_.i435, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp172, ptr noundef nonnull align 8 dereferenceable(73) %options_.i435, i64 6, i1 false)
   %annotation_list_file.i436 = getelementptr inbounds i8, ptr %agg.tmp172, i64 8
   %annotation_list_file3.i437 = getelementptr inbounds i8, ptr %173, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i436, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i437)
@@ -3307,7 +3307,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %186 = load ptr, ptr %descriptor_, align 8
   %187 = load ptr, ptr %context_, align 8
   %options_.i472 = getelementptr inbounds i8, ptr %187, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp187, ptr noundef nonnull align 8 dereferenceable(6) %options_.i472, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp187, ptr noundef nonnull align 8 dereferenceable(73) %options_.i472, i64 6, i1 false)
   %annotation_list_file.i473 = getelementptr inbounds i8, ptr %agg.tmp187, i64 8
   %annotation_list_file3.i474 = getelementptr inbounds i8, ptr %187, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i473, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i474)
@@ -3476,7 +3476,7 @@ if.then.i:                                        ; preds = %_ZN6google8protobuf
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7Printer8WithVarsINS0_13flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSC_SaIcEEENS0_18container_internal10StringHashENSI_8StringEqESaISt4pairIKSD_SH_EEEEEEDaPKT_EUlvE_ED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i
-  %call.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i, i32 noundef 3)
           to label %_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7Printer8WithVarsINS0_13flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSC_SaIcEEENS0_18container_internal10StringHashENSI_8StringEqESaISt4pairIKSD_SH_EEEEEEDaPKT_EUlvE_ED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i
@@ -3607,7 +3607,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %context_ = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load ptr, ptr %context_, align 8
   %options_.i = getelementptr inbounds i8, ptr %11, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(6) %options_.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(73) %options_.i, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp12, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %11, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
@@ -3763,7 +3763,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   %38 = phi ptr [ %.pre583, %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit113 ], [ %25, %if.then ]
   %39 = load ptr, ptr %descriptor_, align 8
   %options_.i116 = getelementptr inbounds i8, ptr %38, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp40, ptr noundef nonnull align 8 dereferenceable(6) %options_.i116, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp40, ptr noundef nonnull align 8 dereferenceable(73) %options_.i116, i64 6, i1 false)
   %annotation_list_file.i117 = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
   %annotation_list_file3.i118 = getelementptr inbounds i8, ptr %38, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i117, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i118)
@@ -3843,7 +3843,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %52 = load ptr, ptr %descriptor_, align 8
   %53 = load ptr, ptr %context_, align 8
   %options_.i153 = getelementptr inbounds i8, ptr %53, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp55, ptr noundef nonnull align 8 dereferenceable(6) %options_.i153, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp55, ptr noundef nonnull align 8 dereferenceable(73) %options_.i153, i64 6, i1 false)
   %annotation_list_file.i154 = getelementptr inbounds i8, ptr %agg.tmp55, i64 8
   %annotation_list_file3.i155 = getelementptr inbounds i8, ptr %53, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i154, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i155)
@@ -3923,7 +3923,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %66 = load ptr, ptr %descriptor_, align 8
   %67 = load ptr, ptr %context_, align 8
   %options_.i190 = getelementptr inbounds i8, ptr %67, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp70, ptr noundef nonnull align 8 dereferenceable(6) %options_.i190, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp70, ptr noundef nonnull align 8 dereferenceable(73) %options_.i190, i64 6, i1 false)
   %annotation_list_file.i191 = getelementptr inbounds i8, ptr %agg.tmp70, i64 8
   %annotation_list_file3.i192 = getelementptr inbounds i8, ptr %67, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i191, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i192)
@@ -4005,7 +4005,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %81 = load i32, ptr @_ZN2pb4javaE, align 8
   %82 = getelementptr inbounds i8, ptr %80, i64 16
   %83 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
-  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %82, i32 noundef %81, ptr noundef nonnull align 8 dereferenceable(16) %83)
+  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %82, i32 noundef %81, ptr noundef nonnull align 8 dereferenceable(32) %83)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %84 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %84 to i1
@@ -4075,7 +4075,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %95 = load ptr, ptr %descriptor_, align 8
   %96 = load ptr, ptr %context_, align 8
   %options_.i252 = getelementptr inbounds i8, ptr %96, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp96, ptr noundef nonnull align 8 dereferenceable(6) %options_.i252, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp96, ptr noundef nonnull align 8 dereferenceable(73) %options_.i252, i64 6, i1 false)
   %annotation_list_file.i253 = getelementptr inbounds i8, ptr %agg.tmp96, i64 8
   %annotation_list_file3.i254 = getelementptr inbounds i8, ptr %96, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i253, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i254)
@@ -4155,7 +4155,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %109 = load ptr, ptr %descriptor_, align 8
   %110 = load ptr, ptr %context_, align 8
   %options_.i289 = getelementptr inbounds i8, ptr %110, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp111, ptr noundef nonnull align 8 dereferenceable(6) %options_.i289, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp111, ptr noundef nonnull align 8 dereferenceable(73) %options_.i289, i64 6, i1 false)
   %annotation_list_file.i290 = getelementptr inbounds i8, ptr %agg.tmp111, i64 8
   %annotation_list_file3.i291 = getelementptr inbounds i8, ptr %110, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i290, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i291)
@@ -4235,7 +4235,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %123 = load ptr, ptr %descriptor_, align 8
   %124 = load ptr, ptr %context_, align 8
   %options_.i326 = getelementptr inbounds i8, ptr %124, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp126, ptr noundef nonnull align 8 dereferenceable(6) %options_.i326, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp126, ptr noundef nonnull align 8 dereferenceable(73) %options_.i326, i64 6, i1 false)
   %annotation_list_file.i327 = getelementptr inbounds i8, ptr %agg.tmp126, i64 8
   %annotation_list_file3.i328 = getelementptr inbounds i8, ptr %124, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i327, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i328)
@@ -4421,7 +4421,7 @@ if.end155:                                        ; preds = %_ZN6google8protobuf
   %155 = phi ptr [ %.pre, %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit399 ], [ %143, %if.else ]
   %156 = load ptr, ptr %descriptor_, align 8
   %options_.i400 = getelementptr inbounds i8, ptr %155, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp157, ptr noundef nonnull align 8 dereferenceable(6) %options_.i400, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp157, ptr noundef nonnull align 8 dereferenceable(73) %options_.i400, i64 6, i1 false)
   %annotation_list_file.i401 = getelementptr inbounds i8, ptr %agg.tmp157, i64 8
   %annotation_list_file3.i402 = getelementptr inbounds i8, ptr %155, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i401, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i402)
@@ -4501,7 +4501,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %169 = load ptr, ptr %descriptor_, align 8
   %170 = load ptr, ptr %context_, align 8
   %options_.i437 = getelementptr inbounds i8, ptr %170, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp172, ptr noundef nonnull align 8 dereferenceable(6) %options_.i437, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp172, ptr noundef nonnull align 8 dereferenceable(73) %options_.i437, i64 6, i1 false)
   %annotation_list_file.i438 = getelementptr inbounds i8, ptr %agg.tmp172, i64 8
   %annotation_list_file3.i439 = getelementptr inbounds i8, ptr %170, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i438, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i439)
@@ -4581,7 +4581,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %183 = load ptr, ptr %descriptor_, align 8
   %184 = load ptr, ptr %context_, align 8
   %options_.i474 = getelementptr inbounds i8, ptr %184, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp187, ptr noundef nonnull align 8 dereferenceable(6) %options_.i474, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp187, ptr noundef nonnull align 8 dereferenceable(73) %options_.i474, i64 6, i1 false)
   %annotation_list_file.i475 = getelementptr inbounds i8, ptr %agg.tmp187, i64 8
   %annotation_list_file3.i476 = getelementptr inbounds i8, ptr %184, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i475, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i476)
@@ -4692,7 +4692,7 @@ if.end201:                                        ; preds = %if.end.i227, %_ZN6g
   br i1 %cmp203, label %if.then204, label %if.else224
 
 if.then204:                                       ; preds = %if.end201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp206, ptr noundef nonnull align 8 dereferenceable(6) %options_.i517, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp206, ptr noundef nonnull align 8 dereferenceable(73) %options_.i517, i64 6, i1 false)
   %annotation_list_file.i518 = getelementptr inbounds i8, ptr %agg.tmp206, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i518, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i519)
   %output_list_file.i520 = getelementptr inbounds i8, ptr %agg.tmp206, i64 40
@@ -4723,7 +4723,7 @@ invoke.cont210:                                   ; preds = %_ZN6google8protobuf
   %205 = load i32, ptr @_ZN2pb4javaE, align 8
   %206 = getelementptr inbounds i8, ptr %204, i64 16
   %207 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
-  %call.i.i.i533 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %206, i32 noundef %205, ptr noundef nonnull align 8 dereferenceable(16) %207)
+  %call.i.i.i533 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %206, i32 noundef %205, ptr noundef nonnull align 8 dereferenceable(32) %207)
   %legacy_closed_enum_.i.i.i534 = getelementptr inbounds i8, ptr %call.i.i.i533, i64 24
   %208 = load i8, ptr %legacy_closed_enum_.i.i.i534, align 8
   %tobool.i.i.i535 = trunc i8 %208 to i1
@@ -4743,7 +4743,7 @@ if.then214:                                       ; preds = %_ZN6google8protobuf
   %209 = load ptr, ptr %descriptor_, align 8
   %210 = load ptr, ptr %context_, align 8
   %options_.i545 = getelementptr inbounds i8, ptr %210, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp216, ptr noundef nonnull align 8 dereferenceable(6) %options_.i545, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp216, ptr noundef nonnull align 8 dereferenceable(73) %options_.i545, i64 6, i1 false)
   %annotation_list_file.i546 = getelementptr inbounds i8, ptr %agg.tmp216, i64 8
   %annotation_list_file3.i547 = getelementptr inbounds i8, ptr %210, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i546, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i547)
@@ -4788,7 +4788,7 @@ lpad219:                                          ; preds = %_ZN6google8protobuf
   br label %common.resume
 
 if.else224:                                       ; preds = %if.end201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp226, ptr noundef nonnull align 8 dereferenceable(6) %options_.i517, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp226, ptr noundef nonnull align 8 dereferenceable(73) %options_.i517, i64 6, i1 false)
   %annotation_list_file.i565 = getelementptr inbounds i8, ptr %agg.tmp226, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i565, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i519)
   %output_list_file.i567 = getelementptr inbounds i8, ptr %agg.tmp226, i64 40
@@ -4848,7 +4848,7 @@ entry:
   %5 = load i32, ptr @_ZN2pb4javaE, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %8 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %8 to i1
@@ -5016,7 +5016,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %context_ = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load ptr, ptr %context_, align 8
   %options_.i = getelementptr inbounds i8, ptr %11, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(6) %options_.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(73) %options_.i, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %11, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
@@ -5146,7 +5146,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %34 = load ptr, ptr %descriptor_, align 8
   %35 = load ptr, ptr %context_, align 8
   %options_.i120 = getelementptr inbounds i8, ptr %35, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp27, ptr noundef nonnull align 8 dereferenceable(6) %options_.i120, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp27, ptr noundef nonnull align 8 dereferenceable(73) %options_.i120, i64 6, i1 false)
   %annotation_list_file.i121 = getelementptr inbounds i8, ptr %agg.tmp27, i64 8
   %annotation_list_file3.i122 = getelementptr inbounds i8, ptr %35, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i121, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i122)
@@ -5308,7 +5308,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   %63 = phi ptr [ %.pre827, %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit182 ], [ %49, %if.then ]
   %64 = load ptr, ptr %descriptor_, align 8
   %options_.i187 = getelementptr inbounds i8, ptr %63, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp57, ptr noundef nonnull align 8 dereferenceable(6) %options_.i187, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp57, ptr noundef nonnull align 8 dereferenceable(73) %options_.i187, i64 6, i1 false)
   %annotation_list_file.i188 = getelementptr inbounds i8, ptr %agg.tmp57, i64 8
   %annotation_list_file3.i189 = getelementptr inbounds i8, ptr %63, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i188, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i189)
@@ -5388,7 +5388,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %77 = load ptr, ptr %descriptor_, align 8
   %78 = load ptr, ptr %context_, align 8
   %options_.i224 = getelementptr inbounds i8, ptr %78, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp72, ptr noundef nonnull align 8 dereferenceable(6) %options_.i224, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp72, ptr noundef nonnull align 8 dereferenceable(73) %options_.i224, i64 6, i1 false)
   %annotation_list_file.i225 = getelementptr inbounds i8, ptr %agg.tmp72, i64 8
   %annotation_list_file3.i226 = getelementptr inbounds i8, ptr %78, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i225, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i226)
@@ -5468,7 +5468,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %91 = load ptr, ptr %descriptor_, align 8
   %92 = load ptr, ptr %context_, align 8
   %options_.i261 = getelementptr inbounds i8, ptr %92, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp87, ptr noundef nonnull align 8 dereferenceable(6) %options_.i261, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp87, ptr noundef nonnull align 8 dereferenceable(73) %options_.i261, i64 6, i1 false)
   %annotation_list_file.i262 = getelementptr inbounds i8, ptr %agg.tmp87, i64 8
   %annotation_list_file3.i263 = getelementptr inbounds i8, ptr %92, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i262, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i263)
@@ -5548,7 +5548,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %105 = load ptr, ptr %descriptor_, align 8
   %106 = load ptr, ptr %context_, align 8
   %options_.i298 = getelementptr inbounds i8, ptr %106, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp102, ptr noundef nonnull align 8 dereferenceable(6) %options_.i298, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp102, ptr noundef nonnull align 8 dereferenceable(73) %options_.i298, i64 6, i1 false)
   %annotation_list_file.i299 = getelementptr inbounds i8, ptr %agg.tmp102, i64 8
   %annotation_list_file3.i300 = getelementptr inbounds i8, ptr %106, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i299, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i300)
@@ -5628,7 +5628,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %119 = load ptr, ptr %descriptor_, align 8
   %120 = load ptr, ptr %context_, align 8
   %options_.i335 = getelementptr inbounds i8, ptr %120, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp117, ptr noundef nonnull align 8 dereferenceable(6) %options_.i335, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp117, ptr noundef nonnull align 8 dereferenceable(73) %options_.i335, i64 6, i1 false)
   %annotation_list_file.i336 = getelementptr inbounds i8, ptr %agg.tmp117, i64 8
   %annotation_list_file3.i337 = getelementptr inbounds i8, ptr %120, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i336, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i337)
@@ -5710,7 +5710,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %134 = load i32, ptr @_ZN2pb4javaE, align 8
   %135 = getelementptr inbounds i8, ptr %133, i64 16
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2pb4javaE, i64 8), align 8
-  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %135, i32 noundef %134, ptr noundef nonnull align 8 dereferenceable(16) %136)
+  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %135, i32 noundef %134, ptr noundef nonnull align 8 dereferenceable(32) %136)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %137 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %137 to i1
@@ -5780,7 +5780,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %148 = load ptr, ptr %descriptor_, align 8
   %149 = load ptr, ptr %context_, align 8
   %options_.i398 = getelementptr inbounds i8, ptr %149, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp143, ptr noundef nonnull align 8 dereferenceable(6) %options_.i398, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp143, ptr noundef nonnull align 8 dereferenceable(73) %options_.i398, i64 6, i1 false)
   %annotation_list_file.i399 = getelementptr inbounds i8, ptr %agg.tmp143, i64 8
   %annotation_list_file3.i400 = getelementptr inbounds i8, ptr %149, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i399, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i400)
@@ -5860,7 +5860,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %162 = load ptr, ptr %descriptor_, align 8
   %163 = load ptr, ptr %context_, align 8
   %options_.i435 = getelementptr inbounds i8, ptr %163, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp158, ptr noundef nonnull align 8 dereferenceable(6) %options_.i435, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp158, ptr noundef nonnull align 8 dereferenceable(73) %options_.i435, i64 6, i1 false)
   %annotation_list_file.i436 = getelementptr inbounds i8, ptr %agg.tmp158, i64 8
   %annotation_list_file3.i437 = getelementptr inbounds i8, ptr %163, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i436, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i437)
@@ -5940,7 +5940,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %176 = load ptr, ptr %descriptor_, align 8
   %177 = load ptr, ptr %context_, align 8
   %options_.i472 = getelementptr inbounds i8, ptr %177, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp173, ptr noundef nonnull align 8 dereferenceable(6) %options_.i472, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp173, ptr noundef nonnull align 8 dereferenceable(73) %options_.i472, i64 6, i1 false)
   %annotation_list_file.i473 = getelementptr inbounds i8, ptr %agg.tmp173, i64 8
   %annotation_list_file3.i474 = getelementptr inbounds i8, ptr %177, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i473, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i474)
@@ -6020,7 +6020,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %190 = load ptr, ptr %descriptor_, align 8
   %191 = load ptr, ptr %context_, align 8
   %options_.i509 = getelementptr inbounds i8, ptr %191, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(6) %options_.i509, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(73) %options_.i509, i64 6, i1 false)
   %annotation_list_file.i510 = getelementptr inbounds i8, ptr %agg.tmp188, i64 8
   %annotation_list_file3.i511 = getelementptr inbounds i8, ptr %191, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i510, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i511)
@@ -6100,7 +6100,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %204 = load ptr, ptr %descriptor_, align 8
   %205 = load ptr, ptr %context_, align 8
   %options_.i546 = getelementptr inbounds i8, ptr %205, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp203, ptr noundef nonnull align 8 dereferenceable(6) %options_.i546, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp203, ptr noundef nonnull align 8 dereferenceable(73) %options_.i546, i64 6, i1 false)
   %annotation_list_file.i547 = getelementptr inbounds i8, ptr %agg.tmp203, i64 8
   %annotation_list_file3.i548 = getelementptr inbounds i8, ptr %205, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i547, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i548)
@@ -6310,7 +6310,7 @@ if.end232:                                        ; preds = %_ZN6google8protobuf
   %238 = phi ptr [ %.pre, %_ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_string_viewIcSt11char_traitsIcEES8_PKT_St8optionalINS1_19AnnotationCollector8SemanticEE.exit628 ], [ %49, %if.else ]
   %239 = load ptr, ptr %descriptor_, align 8
   %options_.i629 = getelementptr inbounds i8, ptr %238, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp234, ptr noundef nonnull align 8 dereferenceable(6) %options_.i629, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp234, ptr noundef nonnull align 8 dereferenceable(73) %options_.i629, i64 6, i1 false)
   %annotation_list_file.i630 = getelementptr inbounds i8, ptr %agg.tmp234, i64 8
   %annotation_list_file3.i631 = getelementptr inbounds i8, ptr %238, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i630, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i631)
@@ -6390,7 +6390,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %252 = load ptr, ptr %descriptor_, align 8
   %253 = load ptr, ptr %context_, align 8
   %options_.i666 = getelementptr inbounds i8, ptr %253, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp249, ptr noundef nonnull align 8 dereferenceable(6) %options_.i666, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp249, ptr noundef nonnull align 8 dereferenceable(73) %options_.i666, i64 6, i1 false)
   %annotation_list_file.i667 = getelementptr inbounds i8, ptr %agg.tmp249, i64 8
   %annotation_list_file3.i668 = getelementptr inbounds i8, ptr %253, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i667, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i668)
@@ -6470,7 +6470,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %266 = load ptr, ptr %descriptor_, align 8
   %267 = load ptr, ptr %context_, align 8
   %options_.i703 = getelementptr inbounds i8, ptr %267, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp264, ptr noundef nonnull align 8 dereferenceable(6) %options_.i703, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp264, ptr noundef nonnull align 8 dereferenceable(73) %options_.i703, i64 6, i1 false)
   %annotation_list_file.i704 = getelementptr inbounds i8, ptr %agg.tmp264, i64 8
   %annotation_list_file3.i705 = getelementptr inbounds i8, ptr %267, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i704, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i705)
@@ -6550,7 +6550,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %280 = load ptr, ptr %descriptor_, align 8
   %281 = load ptr, ptr %context_, align 8
   %options_.i740 = getelementptr inbounds i8, ptr %281, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp279, ptr noundef nonnull align 8 dereferenceable(6) %options_.i740, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp279, ptr noundef nonnull align 8 dereferenceable(73) %options_.i740, i64 6, i1 false)
   %annotation_list_file.i741 = getelementptr inbounds i8, ptr %agg.tmp279, i64 8
   %annotation_list_file3.i742 = getelementptr inbounds i8, ptr %281, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i741, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i742)
@@ -6630,7 +6630,7 @@ _ZN6google8protobuf2io7Printer8AnnotateINS0_15FieldDescriptorEEEvSt17basic_strin
   %294 = load ptr, ptr %descriptor_, align 8
   %295 = load ptr, ptr %context_, align 8
   %options_.i778 = getelementptr inbounds i8, ptr %295, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp294, ptr noundef nonnull align 8 dereferenceable(6) %options_.i778, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp294, ptr noundef nonnull align 8 dereferenceable(73) %options_.i778, i64 6, i1 false)
   %annotation_list_file.i779 = getelementptr inbounds i8, ptr %agg.tmp294, i64 8
   %annotation_list_file3.i780 = getelementptr inbounds i8, ptr %295, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i779, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i780)
@@ -6764,7 +6764,7 @@ entry:
   %context_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %context_, align 8
   %options_.i = getelementptr inbounds i8, ptr %1, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(6) %options_.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(73) %options_.i, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %1, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
@@ -6800,7 +6800,7 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   %4 = load ptr, ptr %descriptor_, align 8
   %5 = load ptr, ptr %context_, align 8
   %options_.i18 = getelementptr inbounds i8, ptr %5, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(6) %options_.i18, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(73) %options_.i18, i64 6, i1 false)
   %annotation_list_file.i19 = getelementptr inbounds i8, ptr %agg.tmp6, i64 8
   %annotation_list_file3.i20 = getelementptr inbounds i8, ptr %5, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i19, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i20)
@@ -6830,7 +6830,7 @@ invoke.cont10:                                    ; preds = %_ZN6google8protobuf
   %8 = load ptr, ptr %descriptor_, align 8
   %9 = load ptr, ptr %context_, align 8
   %options_.i32 = getelementptr inbounds i8, ptr %9, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(6) %options_.i32, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(73) %options_.i32, i64 6, i1 false)
   %annotation_list_file.i33 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
   %annotation_list_file3.i34 = getelementptr inbounds i8, ptr %9, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i33, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i34)
@@ -6860,7 +6860,7 @@ invoke.cont18:                                    ; preds = %_ZN6google8protobuf
   %12 = load ptr, ptr %descriptor_, align 8
   %13 = load ptr, ptr %context_, align 8
   %options_.i46 = getelementptr inbounds i8, ptr %13, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp22, ptr noundef nonnull align 8 dereferenceable(6) %options_.i46, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp22, ptr noundef nonnull align 8 dereferenceable(73) %options_.i46, i64 6, i1 false)
   %annotation_list_file.i47 = getelementptr inbounds i8, ptr %agg.tmp22, i64 8
   %annotation_list_file3.i48 = getelementptr inbounds i8, ptr %13, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i47, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i48)
@@ -6890,7 +6890,7 @@ invoke.cont26:                                    ; preds = %_ZN6google8protobuf
   %16 = load ptr, ptr %descriptor_, align 8
   %17 = load ptr, ptr %context_, align 8
   %options_.i60 = getelementptr inbounds i8, ptr %17, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp30, ptr noundef nonnull align 8 dereferenceable(6) %options_.i60, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp30, ptr noundef nonnull align 8 dereferenceable(73) %options_.i60, i64 6, i1 false)
   %annotation_list_file.i61 = getelementptr inbounds i8, ptr %agg.tmp30, i64 8
   %annotation_list_file3.i62 = getelementptr inbounds i8, ptr %17, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i61, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i62)
@@ -6920,7 +6920,7 @@ invoke.cont34:                                    ; preds = %_ZN6google8protobuf
   %20 = load ptr, ptr %descriptor_, align 8
   %21 = load ptr, ptr %context_, align 8
   %options_.i74 = getelementptr inbounds i8, ptr %21, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(6) %options_.i74, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(73) %options_.i74, i64 6, i1 false)
   %annotation_list_file.i75 = getelementptr inbounds i8, ptr %agg.tmp38, i64 8
   %annotation_list_file3.i76 = getelementptr inbounds i8, ptr %21, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i75, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i76)
@@ -7169,18 +7169,18 @@ if.then.i.i:                                      ; preds = %if.then.i
   br i1 %4, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i
-  %call1.i.i.i = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull %field)
+  tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %field)
   %5 = atomicrmw xchg ptr %1, i32 221 release, align 4
   %cmp4.i.i.i = icmp eq i32 %5, 94570706
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
-  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %1, i1 noundef zeroext true)
+  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %1, i1 noundef zeroext true)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i, %lor.lhs.false.i.i.i, %if.then.i.i.i, %if.then5.i.i.i
@@ -7598,7 +7598,7 @@ if.then:                                          ; preds = %for.body
   %arrayidx7.i.i = getelementptr i8, ptr %12, i64 %and6.i.i
   store i8 %conv.i, ptr %arrayidx7.i.i, align 1
   %add.ptr16 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr16, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr16, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 16
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #22
@@ -7654,7 +7654,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE16transfer_slot_fnEPvSK_SK_(ptr noundef %set, ptr noundef %dst, ptr noundef %src) #3 comdat align 2 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dst, ptr noundef nonnull align 8 dereferenceable(48) %src, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 16
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #22
@@ -9075,7 +9075,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont3, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then
-  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i, i32 noundef 3)
           to label %invoke.cont3 unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -9148,7 +9148,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
   %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %_M_invoker2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i, i8 0, i64 24, i1 false), !alias.scope !309, !noalias !312
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, i8 0, i64 24, i1 false), !alias.scope !309, !noalias !312
   %5 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i, align 8, !alias.scope !312, !noalias !309
   store ptr %5, ptr %_M_invoker.i.i.i.i.i.i.i, align 8, !alias.scope !309, !noalias !312
   %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
@@ -9158,7 +9158,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt16allocator_traitsISaISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i: ; preds = %for.body.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !314
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !314
   store ptr %6, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8, !alias.scope !309, !noalias !312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !312, !noalias !309
   br label %_ZSt19__relocate_object_aISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i
@@ -9182,7 +9182,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt8fun
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
   %_M_invoker.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   %_M_invoker2.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i13, i8 0, i64 24, i1 false), !alias.scope !316, !noalias !319
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, i8 0, i64 24, i1 false), !alias.scope !316, !noalias !319
   %7 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i16, align 8, !alias.scope !319, !noalias !316
   store ptr %7, ptr %_M_invoker.i.i.i.i.i.i.i15, align 8, !alias.scope !316, !noalias !319
   %_M_manager.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
@@ -9192,7 +9192,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt8fun
 
 _ZNSt16allocator_traitsISaISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i19: ; preds = %for.body.i.i.i12
   %_M_manager.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i14, i64 16, i1 false), !alias.scope !321
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14, i64 16, i1 false), !alias.scope !321
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i.i20, align 8, !alias.scope !316, !noalias !319
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i17, i8 0, i64 16, i1 false), !alias.scope !319, !noalias !316
   br label %_ZSt19__relocate_object_aISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i21
@@ -9338,7 +9338,7 @@ lpad.i:                                           ; preds = %if.then.i
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %consume_after.i) #22
-  call void @_ZNSt7variantIJSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbvEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %ref.tmp8) #22
+  call void @_ZNSt7variantIJSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbvEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) %ref.tmp8) #22
   resume { ptr, i32 } %9
 
 _ZN6google8protobuf2io7Printer9ValueImplILb0EEC2IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEOT_.exit: ; preds = %if.then.i._ZN6google8protobuf2io7Printer9ValueImplILb0EEC2IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEOT_.exit_crit_edge, %_ZSt17holds_alternativeISt8functionIFbvEEJSt17basic_string_viewIcSt11char_traitsIcEES2_EEbRKSt7variantIJDpT0_EE.exit.i
@@ -9349,13 +9349,13 @@ _ZN6google8protobuf2io7Printer9ValueImplILb0EEC2IRKNSt7__cxx1112basic_stringIcSt
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 sw.bb.i.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN6google8protobuf2io7Printer9ValueImplILb0EEC2IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEOT_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(73) %ref.tmp8, i64 16, i1 false)
   br label %_ZNSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEEC2IS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISA_ISt10in_place_tSH_EESt16is_constructibleIS5_JSD_EESt14is_convertibleISD_S5_EEEbE4typeELb1EEEOSD_.exit
 
 sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN6google8protobuf2io7Printer9ValueImplILb0EEC2IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEOT_.exit
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %_M_invoker2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, i8 0, i64 24, i1 false)
   %11 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %11, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
@@ -9365,7 +9365,7 @@ sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(73) %ref.tmp8, i64 16, i1 false)
   store ptr %12, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEEC2IS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISA_ISt10in_place_tSH_EESt16is_constructibleIS5_JSD_EESt14is_convertibleISD_S5_EEEbE4typeELb1EEEOSD_.exit
@@ -9392,7 +9392,7 @@ sw.bb2.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNSt8optionalIN6go
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8, i32 noundef 3)
+  %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(73) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(73) %ref.tmp8, i32 noundef 3)
           to label %return unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9550,7 +9550,7 @@ sw.bb2.i.i.i.i.i.i.i.i:                           ; preds = %entry
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant13_Variant_baseIJSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbvEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %sw.bb2.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(33) %this, i32 noundef 3)
           to label %_ZNSt8__detail9__variant13_Variant_baseIJSt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbvEEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

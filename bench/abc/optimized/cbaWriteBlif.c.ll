@@ -259,7 +259,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
 
 .critedge2.i.i:                                   ; preds = %.lr.ph83.i.i, %108
   %.val78.i.i = load ptr, ptr %67, align 8
-  %119 = tail call ptr @Abc_NamStr(ptr noundef %.val78.i.i, i32 noundef %85) #6
+  %119 = tail call ptr @Abc_NamStr(ptr noundef %.val78.i.i, i32 noundef range(i32 0, -1) %85) #6
   %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.9, ptr noundef %119) #6
   br label %137
 

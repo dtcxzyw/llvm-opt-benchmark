@@ -356,7 +356,7 @@ define internal range(i32 0, 2) i32 @observer_read(ptr nocapture noundef readonl
 
 24:                                               ; preds = %20
   store i32 -13, ptr %3, align 4
-  %25 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef %22, i32 noundef %17) #13
+  %25 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef range(i32 0, 65536) %22, i32 noundef range(i32 1, -1) %17) #13
   store ptr %25, ptr %4, align 8
   br label %skip_to_next_packet.exit35
 
@@ -397,7 +397,7 @@ skip_to_next_packet.exit:                         ; preds = %26, %27
 
 46:                                               ; preds = %38
   store i32 -13, ptr %3, align 4
-  %47 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef %43, i32 noundef %17) #13
+  %47 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef range(i32 0, 65536) %43, i32 noundef range(i32 1, -2147483648) %17) #13
   store ptr %47, ptr %4, align 8
   br label %skip_to_next_packet.exit35
 
@@ -431,7 +431,7 @@ read_packet_data.exit.thread39:                   ; preds = %52, %read_packet_da
 
 60:                                               ; preds = %read_packet_data.exit.thread39
   store i32 -13, ptr %3, align 4
-  %61 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef %57, i32 noundef %58) #13
+  %61 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef range(i32 0, 65536) %57, i32 noundef range(i32 1, -1) %58) #13
   store ptr %61, ptr %4, align 8
   br label %68
 
@@ -487,7 +487,7 @@ define internal range(i32 0, 2) i32 @observer_seek_read(ptr nocapture noundef re
 
 27:                                               ; preds = %20
   store i32 -13, ptr %4, align 4
-  %28 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef %24, i32 noundef %16) #13
+  %28 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef range(i32 0, 65536) %24, i32 noundef range(i32 1, -2147483648) %16) #13
   store ptr %28, ptr %5, align 8
   br label %read_packet_data.exit.thread
 

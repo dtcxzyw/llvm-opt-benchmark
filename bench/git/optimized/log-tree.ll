@@ -729,7 +729,7 @@ entry:
 add_name_decoration.exit:                         ; preds = %entry
   %call3.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 24) #12
   %name4.i = getelementptr inbounds i8, ptr %call3.i, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %name4.i, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.38, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %name4.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.38, i64 7, i1 false)
   %type5.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   store i32 6, ptr %type5.i, align 8
   %call6.i = tail call ptr @add_decoration(ptr noundef nonnull @name_decoration, ptr noundef nonnull %call, ptr noundef %call3.i) #12

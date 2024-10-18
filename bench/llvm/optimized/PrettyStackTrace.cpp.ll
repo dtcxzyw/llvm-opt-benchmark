@@ -218,7 +218,7 @@ _ZN4llvm21PrettyStackTraceEntryC2Ev.exit:         ; preds = %2, %9
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22PrettyStackTraceFormatE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %15, i64 noundef 32) #19
+  tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull %15, i64 noundef 32) #19
   call void @llvm.va_start.p0(ptr nonnull %3)
   %16 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #19
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -629,7 +629,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr hidden void @_ZN4llvm22PrettyStackTraceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22PrettyStackTraceFormatE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = icmp eq ptr %4, %5
@@ -667,7 +667,7 @@ _ZN4llvm21PrettyStackTraceEntryD2Ev.exit:         ; preds = %_ZN4llvm11SmallVect
 define linkonce_odr hidden void @_ZN4llvm22PrettyStackTraceFormatD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22PrettyStackTraceFormatE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = icmp eq ptr %4, %5

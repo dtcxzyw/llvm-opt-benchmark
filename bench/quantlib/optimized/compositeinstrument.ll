@@ -574,7 +574,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %do.end
 _ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIN8QuantLib10InstrumentEEEdESaIS7_EE12emplace_backIJRKS6_RdEEERS7_DpOT_.exit: ; preds = %do.end, %if.then.i.i.i.i.i.i.i.i
   %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 32
   store double %multiplier, ptr %second.i.i.i.i.i.i, align 8, !tbaa !44
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %components_) #26
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %components_) #26
   %_M_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %24 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !47
   %add.i.i.i24 = add i64 %24, 1
@@ -1340,7 +1340,7 @@ _ZN8QuantLib19CompositeInstrument10deepUpdateEv.exit: ; preds = %_ZNK5boost10sha
   %vtable9.i = load ptr, ptr %2, align 8, !tbaa !33
   %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 16
   %6 = load ptr, ptr %vfn10.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %2)
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(128) %2)
   ret void
 }
 
@@ -2130,7 +2130,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -2192,7 +2192,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib19CompositeInstrumentD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(128) %2, i64 noundef 240) #29
   ret void
 }
 
@@ -2873,7 +2873,7 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
+  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
           to label %call2.i4.i.i.i.i.noexc unwind label %lpad
 
 call2.i4.i.i.i.i.noexc:                           ; preds = %if.then.i.i.i.i.i

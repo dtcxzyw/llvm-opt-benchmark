@@ -1117,7 +1117,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !296
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb7fe87f7ea40ebd0E.llvm.8259769641146142029"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb7fe87f7ea40ebd0E.llvm.8259769641146142029"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
           to label %.noexc19 unwind label %117
 
 .noexc19:                                         ; preds = %8
@@ -1162,7 +1162,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
   br i1 %28, label %119, label %29
 
 29:                                               ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %24, i64 noundef %26) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %24, i64 noundef range(i64 1, -9223372036854775807) %26) #15
   br label %119
 
 30:                                               ; preds = %16
@@ -1178,7 +1178,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
   br i1 %37, label %"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E.exit", label %38
 
 38:                                               ; preds = %30
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %33, i64 noundef %35) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %33, i64 noundef range(i64 1, -9223372036854775807) %35) #15
   br label %"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E.exit"
 
 39:                                               ; preds = %1
@@ -1205,7 +1205,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
   br i1 %51, label %119, label %52
 
 52:                                               ; preds = %43
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val6.i, i64 noundef %47, i64 noundef %49) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val6.i, i64 noundef range(i64 1, -9223372036854775808) %47, i64 noundef range(i64 1, -9223372036854775807) %49) #15
   br label %119
 
 53:                                               ; preds = %39
@@ -1221,7 +1221,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
   br i1 %60, label %"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E.exit", label %61
 
 61:                                               ; preds = %53
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val6.i, i64 noundef %56, i64 noundef %58) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val6.i, i64 noundef range(i64 1, -9223372036854775808) %56, i64 noundef range(i64 1, -9223372036854775807) %58) #15
   br label %"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E.exit"
 
 62:                                               ; preds = %1
@@ -1248,7 +1248,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
   br i1 %74, label %119, label %75
 
 75:                                               ; preds = %66
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val4.i, i64 noundef %70, i64 noundef %72) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val4.i, i64 noundef range(i64 1, -9223372036854775808) %70, i64 noundef range(i64 1, -9223372036854775807) %72) #15
   br label %119
 
 76:                                               ; preds = %62
@@ -1264,7 +1264,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
   br i1 %83, label %"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E.exit", label %84
 
 84:                                               ; preds = %76
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val4.i, i64 noundef %79, i64 noundef %81) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val4.i, i64 noundef range(i64 1, -9223372036854775808) %79, i64 noundef range(i64 1, -9223372036854775807) %81) #15
   br label %"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E.exit"
 
 85:                                               ; preds = %1
@@ -1291,7 +1291,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
   br i1 %97, label %119, label %98
 
 98:                                               ; preds = %89
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i, i64 noundef %93, i64 noundef %95) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i, i64 noundef range(i64 1, -9223372036854775808) %93, i64 noundef range(i64 1, -9223372036854775807) %95) #15
   br label %119
 
 99:                                               ; preds = %85
@@ -1307,7 +1307,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
   br i1 %106, label %"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E.exit", label %107
 
 107:                                              ; preds = %99
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i, i64 noundef %102, i64 noundef %104) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i, i64 noundef range(i64 1, -9223372036854775808) %102, i64 noundef range(i64 1, -9223372036854775807) %104) #15
   br label %"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E.exit"
 
 108:                                              ; preds = %1

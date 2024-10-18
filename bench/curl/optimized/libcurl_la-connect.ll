@@ -1098,7 +1098,7 @@ do.body60.thread.i:                               ; preds = %if.then19.i.i53
   br label %land.lhs.true62.i64
 
 baller_start_next.exit.i:                         ; preds = %if.then7.i148.i, %land.lhs.true.i.i, %baller_next_addr.exit.i.i
-  tail call fastcc void @baller_start(ptr noundef %cf, ptr noundef %data, ptr noundef %53, i64 noundef %spec.select166)
+  tail call fastcc void @baller_start(ptr noundef %cf, ptr noundef %data, ptr noundef nonnull %53, i64 noundef range(i64 -9223372036854775806, -9223372036854775808) %spec.select166)
   %bf.load54.pre.i = load i8, ptr %is_done.i, align 4
   %92 = and i8 %bf.load54.pre.i, 4
   %93 = icmp eq i8 %92, 0

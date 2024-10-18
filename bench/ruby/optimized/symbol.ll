@@ -2922,7 +2922,7 @@ define hidden void @rb_id_table_clear(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %6, label %7, label %rbimpl_size_mul_or_raise.exit
 
 7:                                                ; preds = %1
-  tail call void @ruby_malloc_size_overflow(i64 noundef 16, i64 noundef %5) #19
+  tail call void @ruby_malloc_size_overflow(i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %5) #19
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %1
@@ -3352,7 +3352,7 @@ define hidden void @rb_id_table_foreach(ptr nocapture noundef %0, ptr nocapture 
   br i1 %15, label %16, label %key2id.exit
 
 16:                                               ; preds = %13
-  %17 = tail call fastcc i64 @get_id_serial_entry(i32 noundef %12, i32 noundef 1)
+  %17 = tail call fastcc i64 @get_id_serial_entry(i32 noundef range(i32 1, 0) %12, i32 noundef 1)
   %.not.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i, label %20, label %18
 

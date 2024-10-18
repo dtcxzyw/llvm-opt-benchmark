@@ -3949,7 +3949,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %.preheader.preheader, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(5) @.str.86) #13
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(5) @.str.86) #13
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %29
 
@@ -3958,7 +3958,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
   br label %tok_is_keyword.exit77
 
 29:                                               ; preds = %24
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(8) @.str.87) #13
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.87) #13
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %.preheader.preheader
 
@@ -3996,7 +3996,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
   br i1 %.not.i79, label %.preheader.preheader, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(5) @.str.86) #13
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(5) @.str.86) #13
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %53
 
@@ -4005,7 +4005,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
   br label %tok_is_keyword.exit77
 
 53:                                               ; preds = %48
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(8) @.str.87) #13
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(8) @.str.87) #13
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %.preheader.preheader
 
@@ -4042,7 +4042,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
   br i1 %.not.i85, label %.preheader.preheader, label %71
 
 71:                                               ; preds = %69
-  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull readonly dereferenceable(5) @.str.86) #13
+  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(5) @.str.86) #13
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %76
 
@@ -4051,7 +4051,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
   br label %tok_is_keyword.exit77
 
 76:                                               ; preds = %71
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull readonly dereferenceable(8) @.str.87) #13
+  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(8) @.str.87) #13
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %.preheader.preheader
 
@@ -4087,7 +4087,7 @@ tok_is_keyword.exit77:                            ; preds = %51, %56, %79, %74, 
   br i1 %.not.i91, label %._crit_edge.thread, label %88
 
 88:                                               ; preds = %86
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull readonly dereferenceable(6) @.str.88) #13
+  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(6) @.str.88) #13
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %._crit_edge.thread
 
@@ -5555,12 +5555,12 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br i1 %.not.i, label %tok_is_keyword.exit37, label %14
 
 14:                                               ; preds = %12
-  %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(8) @.str.131) #13
+  %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.131) #13
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %51, label %17
 
 17:                                               ; preds = %14
-  %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(8) @.str.132) #13
+  %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.132) #13
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %21
 
@@ -5573,7 +5573,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br i1 %.not.i18, label %tok_is_keyword.exit37, label %22
 
 22:                                               ; preds = %21
-  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull readonly dereferenceable(7) @.str.133) #13
+  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull dereferenceable(7) @.str.133) #13
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %26
 
@@ -5581,7 +5581,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br label %51
 
 26:                                               ; preds = %22
-  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull readonly dereferenceable(5) @.str.134) #13
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull dereferenceable(5) @.str.134) #13
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %.thread77
 
@@ -5594,7 +5594,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br i1 %.not.i24, label %tok_is_keyword.exit37, label %30
 
 30:                                               ; preds = %.thread77
-  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr96, ptr noundef nonnull readonly dereferenceable(7) @.str.135) #13
+  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr96, ptr noundef nonnull dereferenceable(7) @.str.135) #13
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %34
 
@@ -5602,7 +5602,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br label %51
 
 34:                                               ; preds = %30
-  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr96, ptr noundef nonnull readonly dereferenceable(11) @.str.136) #13
+  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr96, ptr noundef nonnull dereferenceable(11) @.str.136) #13
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %38
 
@@ -5615,7 +5615,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br i1 %.not.i30, label %tok_is_keyword.exit37, label %39
 
 39:                                               ; preds = %38
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr86, ptr noundef nonnull readonly dereferenceable(9) @.str.137) #13
+  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr86, ptr noundef nonnull dereferenceable(9) @.str.137) #13
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %43
 
@@ -5623,7 +5623,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br label %51
 
 43:                                               ; preds = %39
-  %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr86, ptr noundef nonnull readonly dereferenceable(6) @.str.138) #13
+  %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr86, ptr noundef nonnull dereferenceable(6) @.str.138) #13
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %.thread92
 
@@ -5636,7 +5636,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br i1 %.not.i36, label %tok_is_keyword.exit37, label %47
 
 47:                                               ; preds = %.thread92
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr98.pr, ptr noundef nonnull readonly dereferenceable(7) @.str.139) #13
+  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr98.pr, ptr noundef nonnull dereferenceable(7) @.str.139) #13
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %tok_is_keyword.exit37
 
@@ -6205,12 +6205,12 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   br i1 %.not.i, label %tok_is_keyword.exit55, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(5) @.str.49) #13
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(5) @.str.49) #13
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %tok_is_keyword.exit.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(6) @.str.97) #13
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(6) @.str.97) #13
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %26
 
@@ -6224,7 +6224,7 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   br i1 %.not.i45, label %tok_is_keyword.exit55, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull readonly dereferenceable(6) @.str.98) #13
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull dereferenceable(6) @.str.98) #13
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %31
 
@@ -6233,7 +6233,7 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   br label %tok_is_keyword.exit.thread
 
 31:                                               ; preds = %27
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull readonly dereferenceable(5) @.str.99) #13
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull dereferenceable(5) @.str.99) #13
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.thread83
 
@@ -6248,7 +6248,7 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   br i1 %.not.i51, label %tok_is_keyword.exit55, label %35
 
 35:                                               ; preds = %.thread83
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr91, ptr noundef nonnull readonly dereferenceable(9) @.str.100) #13
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr91, ptr noundef nonnull dereferenceable(9) @.str.100) #13
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %40
 
@@ -6260,7 +6260,7 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   br label %tok_is_keyword.exit.thread
 
 40:                                               ; preds = %35
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr91, ptr noundef nonnull readonly dereferenceable(9) @.str.102) #13
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr91, ptr noundef nonnull dereferenceable(9) @.str.102) #13
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %tok_is_keyword.exit55
 

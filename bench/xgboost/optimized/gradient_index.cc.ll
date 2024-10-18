@@ -1402,7 +1402,7 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %66
           to label %77 unwind label %57
 
 77:                                               ; preds = %_ZNK7xgboost6common13HistogramCuts4PtrsEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 16, i1 false)
   %78 = getelementptr inbounds i8, ptr %0, i64 136
   %79 = getelementptr inbounds i8, ptr %11, i64 16
   %80 = load ptr, ptr %79, align 8
@@ -1916,7 +1916,7 @@ _ZNK7xgboost10SparsePage4SizeEv.exit:             ; preds = %.noexc82, %.noexc81
   br label %720
 
 315:                                              ; preds = %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 16, i1 false)
   %316 = getelementptr inbounds i8, ptr %0, i64 16
   %317 = getelementptr inbounds i8, ptr %17, i64 16
   %318 = load ptr, ptr %317, align 8
@@ -2883,7 +2883,7 @@ define linkonce_odr void @_ZN7xgboost6common22MakeFixedVecWithMallocImEENS0_15Re
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10)
+  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7xgboost6common14MallocResourceESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i unwind label %15, !noalias !43
 
 15:                                               ; preds = %13
@@ -3876,7 +3876,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i.i.i.i.i.i, label %.body, label %238
 
 238:                                              ; preds = %.body.i.i.i.i.i.i
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %36) #8
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(48) %36) #8
   br label %.body
 
 .preheader64.i.i.i.i.i.i:                         ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i.i.i, %235, %.noexc3.i.i.i, %.noexc.i.i.i
@@ -4082,7 +4082,7 @@ _ZNK7xgboost6common13HistogramCuts12SearchCatBinEfjRKSt6vectorIjSaIjEERKS2_IfSaI
 
 348:                                              ; preds = %342
   %349 = call ptr @__cxa_begin_catch(ptr %344) #8
-  %350 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %241) #8
+  %350 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %241) #8
   %.not.i.i.i12.i.i.i.i = icmp eq i32 %350, 0
   br i1 %.not.i.i.i12.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i.i, label %351
 
@@ -4131,7 +4131,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i.i.i: ; preds = %353
 
 360:                                              ; preds = %357
   %361 = call ptr @__cxa_begin_catch(ptr %344) #8
-  %362 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %241) #8
+  %362 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %241) #8
   %.not.i.i10.i.i.i.i.i = icmp eq i32 %362, 0
   br i1 %.not.i.i10.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit12.i.i.i.i.i, label %363
 
@@ -4186,7 +4186,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.i.i.i.i.i: ; preds = %365
           to label %.body.i.i.i.i.i.i unwind label %374
 
 "_ZZN7xgboost16GHistIndexMatrix12SetIndexDataINS_4data22SparsePageAdapterBatchEhNS_6common5Index11CompressBinIhEERZNS0_9PushBatchERKNS_10SparsePageENS4_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEvNSB_IT0_Lm18446744073709551615EEEmSE_mRKT_OT2_mOT1_ENKUlmE_clEm.exit.sink.split.i.i.i.i.i": ; preds = %368, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.thread.i.i.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit12.i.i.i.i.i, %356, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread.i.i.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i.i
-  %373 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %241) #8
+  %373 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %241) #8
   invoke void @__cxa_end_catch()
           to label %.loopexit20.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i.i.i
 
@@ -4457,7 +4457,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i.i.i.i48.i.i, label %.body, label %449
 
 449:                                              ; preds = %.body.i.i.i.i46.i.i
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #8
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(48) %25) #8
   br label %.body
 
 .preheader64.i.i.i.i19.i.i:                       ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i18.i.i, %446, %.noexc3.i7.i.i, %_ZN7xgboost6common4SpanItLm18446744073709551615EEC2EPtm.exit.i.i.i
@@ -4663,7 +4663,7 @@ _ZNK7xgboost6common13HistogramCuts12SearchCatBinEfjRKSt6vectorIjSaIjEERKS2_IfSaI
 
 559:                                              ; preds = %553
   %560 = call ptr @__cxa_begin_catch(ptr %555) #8
-  %561 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %452) #8
+  %561 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %452) #8
   %.not.i.i.i12.i.i84.i.i = icmp eq i32 %561, 0
   br i1 %.not.i.i.i12.i.i84.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i86.i.i, label %562
 
@@ -4712,7 +4712,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i89.i.i: ; preds = %564
 
 571:                                              ; preds = %568
   %572 = call ptr @__cxa_begin_catch(ptr %555) #8
-  %573 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %452) #8
+  %573 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %452) #8
   %.not.i.i10.i.i.i73.i.i = icmp eq i32 %573, 0
   br i1 %.not.i.i10.i.i.i73.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit12.i.i.i75.i.i, label %574
 
@@ -4767,7 +4767,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.i.i.i80.i.i: ; preds = %576
           to label %.body.i.i.i.i46.i.i unwind label %585
 
 "_ZZN7xgboost16GHistIndexMatrix12SetIndexDataINS_4data22SparsePageAdapterBatchEtNS_6common5Index11CompressBinItEERZNS0_9PushBatchERKNS_10SparsePageENS4_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEvNSB_IT0_Lm18446744073709551615EEEmSE_mRKT_OT2_mOT1_ENKUlmE_clEm.exit.sink.split.i.i.i.i.i": ; preds = %579, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.i.i.i80.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.thread.i.i.i83.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit12.i.i.i75.i.i, %567, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i89.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread.i.i.i92.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i86.i.i
-  %584 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %452) #8
+  %584 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %452) #8
   invoke void @__cxa_end_catch()
           to label %.loopexit20.i.i39.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i77.i.i
 
@@ -5092,7 +5092,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i.i.i20.i, label %.body, label %673
 
 673:                                              ; preds = %.body.i.i.i.i
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #8
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #8
   br label %.body
 
 .preheader64.i.i.i.i:                             ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i, %670, %.noexc28.i, %_ZN7xgboost6common4SpanIjLm18446744073709551615EEC2EPjm.exit.i
@@ -5294,7 +5294,7 @@ _ZNK7xgboost6common13HistogramCuts12SearchCatBinEfjRKSt6vectorIjSaIjEERKS2_IfSaI
 
 779:                                              ; preds = %773
   %780 = call ptr @__cxa_begin_catch(ptr %775) #8
-  %781 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %676) #8
+  %781 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %676) #8
   %.not.i.i.i12.i.i = icmp eq i32 %781, 0
   br i1 %.not.i.i.i12.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i, label %782
 
@@ -5343,7 +5343,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i: ; preds = %784
 
 791:                                              ; preds = %788
   %792 = call ptr @__cxa_begin_catch(ptr %775) #8
-  %793 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %676) #8
+  %793 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %676) #8
   %.not.i.i10.i.i.i = icmp eq i32 %793, 0
   br i1 %.not.i.i10.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit12.i.i.i, label %794
 
@@ -5398,7 +5398,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.i.i.i: ; preds = %796
           to label %.body.i.i.i.i unwind label %805
 
 "_ZZN7xgboost16GHistIndexMatrix12SetIndexDataINS_4data22SparsePageAdapterBatchEjZNS0_13PushBatchImplIS3_RZNS0_9PushBatchERKNS_10SparsePageENS_6common4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SC_EUlSF_SI_E_SE_EEvNS9_ISI_Lm18446744073709551615EEEmSC_mSH_OT2_mOT1_ENKUlmE_clEm.exit.sink.split.i.i.i": ; preds = %799, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.i.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit12.i.i.i, %787, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i
-  %804 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %676) #8
+  %804 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %676) #8
   invoke void @__cxa_end_catch()
           to label %.loopexit20.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i
 
@@ -6420,7 +6420,7 @@ _ZNK7xgboost10SparsePage4SizeEv.exit:             ; preds = %106, %.noexc47
           to label %109 unwind label %66
 
 109:                                              ; preds = %_ZNK7xgboost10SparsePage4SizeEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 16, i1 false)
   %110 = getelementptr inbounds i8, ptr %0, i64 16
   %111 = getelementptr inbounds i8, ptr %17, i64 16
   %112 = load ptr, ptr %111, align 8
@@ -6590,7 +6590,7 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %_ZN7xgboost6common1
           to label %192 unwind label %66
 
 192:                                              ; preds = %_ZNK7xgboost6common13HistogramCuts4PtrsEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 16, i1 false)
   %193 = getelementptr inbounds i8, ptr %0, i64 136
   %194 = getelementptr inbounds i8, ptr %19, i64 16
   %195 = load ptr, ptr %194, align 8
@@ -7158,7 +7158,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit28.i: ; preds = %.noexc27.i, %_ZN4
           to label %_ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit.i unwind label %113
 
 _ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit.i: ; preds = %117
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 16, i1 false)
   %119 = getelementptr inbounds i8, ptr %37, i64 16
   %120 = getelementptr inbounds i8, ptr %39, i64 16
   %121 = load ptr, ptr %120, align 8
@@ -7362,7 +7362,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2INS1_14MallocResourceEvEE
           to label %193 unwind label %340
 
 193:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2INS1_14MallocResourceEvEERKS_IT_E.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 16, i1 false)
   %194 = getelementptr inbounds i8, ptr %37, i64 16
   %195 = getelementptr inbounds i8, ptr %44, i64 16
   %196 = load ptr, ptr %195, align 8
@@ -7675,7 +7675,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %469
 
 _ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i73.i, %335, %322, %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit.i, %_ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 16, i1 false)
   %343 = getelementptr inbounds i8, ptr %37, i64 16
   %344 = load ptr, ptr %343, align 8
   %345 = getelementptr inbounds i8, ptr %37, i64 24
@@ -8191,7 +8191,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit28.i99: ; preds = %.noexc27.i101, 
           to label %_ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit.i100 unwind label %538
 
 _ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit.i100: ; preds = %542
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 16, i1 false)
   %544 = getelementptr inbounds i8, ptr %23, i64 16
   %545 = getelementptr inbounds i8, ptr %25, i64 16
   %546 = load ptr, ptr %545, align 8
@@ -8395,7 +8395,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2INS1_14MallocResourceEvEE
           to label %618 unwind label %765
 
 618:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2INS1_14MallocResourceEvEERKS_IT_E.exit.i34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 16, i1 false)
   %619 = getelementptr inbounds i8, ptr %23, i64 16
   %620 = getelementptr inbounds i8, ptr %30, i64 16
   %621 = load ptr, ptr %620, align 8
@@ -8708,7 +8708,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %894
 
 _ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i50: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i73.i77, %760, %747, %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit.i46, %_ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit.i100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %476, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %476, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 16, i1 false)
   %768 = getelementptr inbounds i8, ptr %23, i64 16
   %769 = load ptr, ptr %768, align 8
   %770 = getelementptr inbounds i8, ptr %23, i64 24
@@ -9212,7 +9212,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit28.i200: ; preds = %.noexc27.i202,
           to label %_ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit.i201 unwind label %958
 
 _ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit.i201: ; preds = %962
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 16, i1 false)
   %964 = getelementptr inbounds i8, ptr %9, i64 16
   %965 = getelementptr inbounds i8, ptr %11, i64 16
   %966 = load ptr, ptr %965, align 8
@@ -9416,7 +9416,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2INS1_14MallocResourceEvEE
           to label %1038 unwind label %1185
 
 1038:                                             ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2INS1_14MallocResourceEvEERKS_IT_E.exit.i135
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 16, i1 false)
   %1039 = getelementptr inbounds i8, ptr %9, i64 16
   %1040 = getelementptr inbounds i8, ptr %16, i64 16
   %1041 = load ptr, ptr %1040, align 8
@@ -9729,7 +9729,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %1314
 
 _ZN7xgboost6common15RefResourceViewIhED2Ev.exit.i151: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i73.i178, %1180, %1167, %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit.i147, %_ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit.i201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %476, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %476, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
   %1188 = getelementptr inbounds i8, ptr %9, i64 16
   %1189 = load ptr, ptr %1188, align 8
   %1190 = getelementptr inbounds i8, ptr %9, i64 24
@@ -11022,7 +11022,7 @@ define linkonce_odr void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef 
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc6 unwind label %32
 
 .noexc6:                                          ; preds = %.noexc
@@ -11032,7 +11032,7 @@ define linkonce_odr void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef 
 10:                                               ; preds = %.noexc6
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc6
@@ -11058,7 +11058,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %22 = getelementptr inbounds i8, ptr %19, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %19, align 8
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 9, ptr noundef nonnull @.str.13, i32 noundef %21, i32 noundef %23, i32 noundef %24) #8
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(9) %6, i64 noundef 9, ptr noundef nonnull @.str.13, i32 noundef %21, i32 noundef %23, i32 noundef %24) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %6)
@@ -11442,7 +11442,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc32 unwind label %53
 
 .noexc32:                                         ; preds = %.noexc
@@ -11459,7 +11459,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
 19:                                               ; preds = %21, %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   br label %.body
 
 21:                                               ; preds = %.noexc32
@@ -11517,13 +11517,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc33 unwind label %63
 
 .noexc33:                                         ; preds = %40
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc34 unwind label %63
 
 42:                                               ; preds = %.noexc34
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
   br label %.body35
 
 .noexc34:                                         ; preds = %.noexc33
@@ -11659,13 +11659,13 @@ _ZNSt10unique_ptrIcPFvPvEED2Ev.exit41:            ; preds = %73, %.critedge
           to label %.noexc42 unwind label %80
 
 .noexc42:                                         ; preds = %74
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.noexc43 unwind label %80
 
 76:                                               ; preds = %.noexc43
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %.body44
 
 .noexc43:                                         ; preds = %.noexc42
@@ -12593,7 +12593,7 @@ define linkonce_odr void @_ZN7xgboost6common22MakeFixedVecWithMallocIhEENS0_15Re
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %9)
+  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7xgboost6common14MallocResourceESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i unwind label %14, !noalias !177
 
 14:                                               ; preds = %12
@@ -13450,7 +13450,7 @@ define linkonce_odr void @_ZN7xgboost6common14MallocResourceD0Ev(ptr noundef non
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0)
+  invoke void @_ZN7xgboost6common15ResourceHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZN7xgboost6common14MallocResourceD2Ev.exit unwind label %4
 
 4:                                                ; preds = %1
@@ -14282,7 +14282,7 @@ define linkonce_odr void @_ZN7xgboost6common12ColumnMatrix20SetIndexMixedColumns
   %43 = getelementptr inbounds i8, ptr %0, i64 128
   store i64 0, ptr %10, align 8
   call void @_ZN7xgboost6common22MakeFixedVecWithMallocImEENS0_15RefResourceViewIT_EEmRKS3_(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::common::RefResourceView") align 8 %9, i64 noundef %29, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
   %44 = getelementptr inbounds i8, ptr %0, i64 144
   %45 = getelementptr inbounds i8, ptr %9, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -15057,7 +15057,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2INS1_14MallocResourceEvEE
           to label %213 unwind label %365
 
 213:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2INS1_14MallocResourceEvEERKS_IT_E.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 16, i1 false)
   %214 = getelementptr inbounds i8, ptr %11, i64 16
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %11, i64 24
@@ -22260,7 +22260,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i.i.i, label %.body, label %73
 
 73:                                               ; preds = %.body.i.i.i
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #8
   br label %.body
 
 .preheader64.i.i.i:                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %70, %.noexc3, %_ZN7xgboost6common4SpanIjLm18446744073709551615EEC2EPjm.exit
@@ -22468,7 +22468,7 @@ _ZNK7xgboost6common13HistogramCuts12SearchCatBinEfjRKSt6vectorIjSaIjEERKS2_IfSaI
 
 185:                                              ; preds = %179
   %186 = call ptr @__cxa_begin_catch(ptr %181) #8
-  %187 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %78) #8
+  %187 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %78) #8
   %.not.i.i.i12.i = icmp eq i32 %187, 0
   br i1 %.not.i.i.i12.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i, label %188
 
@@ -22517,7 +22517,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i: ; preds = %190
 
 197:                                              ; preds = %194
   %198 = call ptr @__cxa_begin_catch(ptr %181) #8
-  %199 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %78) #8
+  %199 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %78) #8
   %.not.i.i10.i.i = icmp eq i32 %199, 0
   br i1 %.not.i.i10.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit12.i.i, label %200
 
@@ -22572,7 +22572,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.i.i: ; preds = %202
           to label %.body.i.i.i unwind label %211
 
 "_ZZN7xgboost16GHistIndexMatrix12SetIndexDataINS_4data22SparsePageAdapterBatchEjNS_6common5Index11CompressBinIjEERZNS0_9PushBatchERKNS_10SparsePageENS4_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEvNSB_IT0_Lm18446744073709551615EEEmSE_mRKT_OT2_mOT1_ENKUlmE_clEm.exit.sink.split.i.i": ; preds = %205, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit14.thread.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit12.i.i, %193, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i
-  %210 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %78) #8
+  %210 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %78) #8
   invoke void @__cxa_end_catch()
           to label %.loopexit20.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
@@ -23568,7 +23568,7 @@ define linkonce_odr void @_ZN7xgboost6common12ColumnMatrix20SetIndexMixedColumns
   %43 = getelementptr inbounds i8, ptr %0, i64 128
   store i64 0, ptr %10, align 8
   call void @_ZN7xgboost6common22MakeFixedVecWithMallocImEENS0_15RefResourceViewIT_EEmRKS3_(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::common::RefResourceView") align 8 %9, i64 noundef %29, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
   %44 = getelementptr inbounds i8, ptr %0, i64 144
   %45 = getelementptr inbounds i8, ptr %9, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -23952,9 +23952,9 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %.067 = phi i64 [ 0, %.lr.ph68 ], [ %.1.lcssa, %.loopexit ]
   %.01366 = phi i64 [ 0, %.lr.ph68 ], [ %23, %.loopexit ]
   %21 = load ptr, ptr %5, align 8
-  %22 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(50) %21, ptr nonnull %21, i64 %.01366), !noalias !346
+  %22 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(172) %21, ptr nonnull align 8 dereferenceable(172) %21, i64 %.01366), !noalias !346
   %23 = add nuw i64 %.01366, 1
-  %24 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(50) %21, ptr nonnull %21, i64 %23), !noalias !346
+  %24 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(172) %21, ptr nonnull align 8 dereferenceable(172) %21, i64 %23), !noalias !346
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 72
   %.sroa.25.0.copyload.i = load i64, ptr %.sroa.25.0..sroa_idx.i, align 8, !noalias !346
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 88
@@ -24293,9 +24293,9 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %.067 = phi i64 [ 0, %.lr.ph68 ], [ %.1.lcssa, %.loopexit ]
   %.01366 = phi i64 [ 0, %.lr.ph68 ], [ %23, %.loopexit ]
   %21 = load ptr, ptr %5, align 8
-  %22 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(50) %21, ptr nonnull %21, i64 %.01366), !noalias !354
+  %22 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(172) %21, ptr nonnull align 8 dereferenceable(172) %21, i64 %.01366), !noalias !354
   %23 = add nuw i64 %.01366, 1
-  %24 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(50) %21, ptr nonnull %21, i64 %23), !noalias !354
+  %24 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(172) %21, ptr nonnull align 8 dereferenceable(172) %21, i64 %23), !noalias !354
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 72
   %.sroa.25.0.copyload.i = load i64, ptr %.sroa.25.0..sroa_idx.i, align 8, !noalias !354
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 88
@@ -24634,9 +24634,9 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %.067 = phi i64 [ 0, %.lr.ph68 ], [ %.1.lcssa, %.loopexit ]
   %.01366 = phi i64 [ 0, %.lr.ph68 ], [ %23, %.loopexit ]
   %21 = load ptr, ptr %5, align 8
-  %22 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(50) %21, ptr nonnull %21, i64 %.01366), !noalias !362
+  %22 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(172) %21, ptr nonnull align 8 dereferenceable(172) %21, i64 %.01366), !noalias !362
   %23 = add nuw i64 %.01366, 1
-  %24 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(50) %21, ptr nonnull %21, i64 %23), !noalias !362
+  %24 = tail call noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_(ptr noundef nonnull align 8 dereferenceable(172) %21, ptr nonnull align 8 dereferenceable(172) %21, i64 %23), !noalias !362
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 72
   %.sroa.25.0.copyload.i = load i64, ptr %.sroa.25.0..sroa_idx.i, align 8, !noalias !362
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 88
@@ -25441,7 +25441,7 @@ define linkonce_odr void @_ZN7xgboost6common12ColumnMatrix20SetIndexMixedColumns
   %43 = getelementptr inbounds i8, ptr %0, i64 128
   store i64 0, ptr %10, align 8
   call void @_ZN7xgboost6common22MakeFixedVecWithMallocImEENS0_15RefResourceViewIT_EEmRKS3_(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::common::RefResourceView") align 8 %9, i64 noundef %29, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
   %44 = getelementptr inbounds i8, ptr %0, i64 144
   %45 = getelementptr inbounds i8, ptr %9, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -26882,7 +26882,7 @@ define linkonce_odr void @_ZN7xgboost6common12ColumnMatrix20SetIndexMixedColumns
   %43 = getelementptr inbounds i8, ptr %0, i64 128
   store i64 0, ptr %10, align 8
   call void @_ZN7xgboost6common22MakeFixedVecWithMallocImEENS0_15RefResourceViewIT_EEmRKS3_(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::common::RefResourceView") align 8 %9, i64 noundef %29, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
   %44 = getelementptr inbounds i8, ptr %0, i64 144
   %45 = getelementptr inbounds i8, ptr %9, i64 16
   %46 = load ptr, ptr %45, align 8

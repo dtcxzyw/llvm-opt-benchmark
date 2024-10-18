@@ -2254,7 +2254,7 @@ declare void @_ZNK2cv9Algorithm11writeFormatERNS_11FileStorageE(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv8ximgproc15EdgeDrawingImplC2Ev(ptr noundef nonnull align 8 dereferenceable(976) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::ximgproc::EdgeDrawing::Params", align 8
-  tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0)
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv8ximgproc11EdgeDrawingE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN2cv8ximgproc11EdgeDrawing6ParamsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -2267,7 +2267,7 @@ common.resume:                                    ; preds = %_ZNSt6vectorIiSaIiE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #38
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #38
   br label %common.resume
 
 _ZN2cv8ximgproc11EdgeDrawingC2Ev.exit:            ; preds = %1
@@ -2405,7 +2405,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit8:   ; preds = %_ZNSt6vectorIN2cv6P
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit8, %50
   call void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #38
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #38
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #38
   br label %common.resume
 }
 
@@ -2609,7 +2609,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i: ; pre
   br label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i, %51
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #38
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #38
   ret void
 }
 
@@ -3249,7 +3249,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl15ComputeGradientEv(ptr noun
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %59) #38
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %55) #38
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %52) #38
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #38
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(321) %2) #38
   ret void
 
 93:                                               ; preds = %70, %67, %64, %._crit_edge
@@ -5948,7 +5948,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds
 
 .noexc4.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
   %106 = getelementptr i8, ptr %105, i64 %gepdiff
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %105, ptr align 4 %101, i64 %gepdiff, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %105, ptr nonnull align 4 %101, i64 %gepdiff, i1 false)
   br label %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.thread.i.i
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
@@ -23739,7 +23739,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc19ComputeGradientBodyD0Ev(ptr no
   tail call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #38
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #38
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #38
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(321) %0) #38
   tail call void @_ZdlPv(ptr noundef nonnull %0) #39
   ret void
 }

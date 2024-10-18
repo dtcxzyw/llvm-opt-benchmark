@@ -33307,7 +33307,7 @@ invoke.cont58.i:                                  ; preds = %.noexc323.i, %call5
           to label %call2.i.noexc354.i unwind label %lpad57.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc354.i:                               ; preds = %invoke.cont58.i
-  %call.i55 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i355.i, i32 noundef %140, i1 noundef zeroext false, ptr noundef null)
+  %call.i55 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i355.i, i32 noundef %140, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc unwind label %lpad57.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc:                                     ; preds = %call2.i.noexc354.i
@@ -33322,7 +33322,7 @@ lpad.i54:                                         ; preds = %call.i.noexc
   %149 = extractvalue { ptr, i64 } %call.i55, 0
   %exn.slot.0.i = extractvalue { ptr, i32 } %148, 0
   %150 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i355.i, ptr %149, i64 %147, ptr %149, i64 %sub.i.i)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i355.i, ptr %149, i64 %147, ptr %149, i64 %sub.i.i)
           to label %invoke.cont11.i unwind label %lpad10.i
 
 invoke.cont11.i:                                  ; preds = %lpad.i54
@@ -33383,7 +33383,7 @@ invoke.cont60.i:                                  ; preds = %.noexc358.i, %call.
           to label %call2.i.noexc389.i unwind label %lpad57.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc389.i:                               ; preds = %invoke.cont60.i
-  %call.i66 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i390.i, i32 noundef %140, i1 noundef zeroext false, ptr noundef null)
+  %call.i66 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i390.i, i32 noundef %140, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc65 unwind label %lpad57.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc65:                                   ; preds = %call2.i.noexc389.i
@@ -33398,7 +33398,7 @@ lpad.i58:                                         ; preds = %call.i.noexc65
   %162 = extractvalue { ptr, i64 } %call.i66, 0
   %exn.slot.0.i59 = extractvalue { ptr, i32 } %161, 0
   %163 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i59) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i390.i, ptr %162, i64 %160, ptr %162, i64 %sub.i.i56)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i390.i, ptr %162, i64 %160, ptr %162, i64 %sub.i.i56)
           to label %invoke.cont11.i63 unwind label %lpad10.i60
 
 invoke.cont11.i63:                                ; preds = %lpad.i58
@@ -33459,7 +33459,7 @@ invoke.cont62.i:                                  ; preds = %.noexc393.i, %call.
           to label %call2.i.noexc424.i unwind label %lpad57.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc424.i:                               ; preds = %invoke.cont62.i
-  %call.i79 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i425.i, i32 noundef %140, i1 noundef zeroext false, ptr noundef null)
+  %call.i79 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i425.i, i32 noundef %140, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc78 unwind label %lpad57.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc78:                                   ; preds = %call2.i.noexc424.i
@@ -33474,7 +33474,7 @@ lpad.i71:                                         ; preds = %call.i.noexc78
   %175 = extractvalue { ptr, i64 } %call.i79, 0
   %exn.slot.0.i72 = extractvalue { ptr, i32 } %174, 0
   %176 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i72) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i425.i, ptr %175, i64 %173, ptr %175, i64 %sub.i.i69)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i425.i, ptr %175, i64 %173, ptr %175, i64 %sub.i.i69)
           to label %invoke.cont11.i76 unwind label %lpad10.i73
 
 invoke.cont11.i76:                                ; preds = %lpad.i71
@@ -34336,7 +34336,7 @@ invoke.cont59.i:                                  ; preds = %.noexc319.i, %call5
           to label %call2.i.noexc350.i unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc350.i:                               ; preds = %invoke.cont59.i
-  %call.i45 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i351.i, i32 noundef %99, i1 noundef zeroext false, ptr noundef null)
+  %call.i45 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i351.i, i32 noundef %99, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc:                                     ; preds = %call2.i.noexc350.i
@@ -34351,7 +34351,7 @@ lpad.i43:                                         ; preds = %call.i.noexc
   %108 = extractvalue { ptr, i64 } %call.i45, 0
   %exn.slot.0.i = extractvalue { ptr, i32 } %107, 0
   %109 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i351.i, ptr %108, i64 %106, ptr %108, i64 %sub.i.i)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i351.i, ptr %108, i64 %106, ptr %108, i64 %sub.i.i)
           to label %invoke.cont11.i unwind label %lpad10.i
 
 invoke.cont11.i:                                  ; preds = %lpad.i43
@@ -34412,7 +34412,7 @@ invoke.cont61.i:                                  ; preds = %.noexc354.i, %call.
           to label %call2.i.noexc385.i unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc385.i:                               ; preds = %invoke.cont61.i
-  %call.i57 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i386.i, i32 noundef %99, i1 noundef zeroext false, ptr noundef null)
+  %call.i57 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i386.i, i32 noundef %99, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc56 unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc56:                                   ; preds = %call2.i.noexc385.i
@@ -34427,7 +34427,7 @@ lpad.i48:                                         ; preds = %call.i.noexc56
   %121 = extractvalue { ptr, i64 } %call.i57, 0
   %exn.slot.0.i49 = extractvalue { ptr, i32 } %120, 0
   %122 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i49) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i386.i, ptr %121, i64 %119, ptr %121, i64 %sub.i.i46)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i386.i, ptr %121, i64 %119, ptr %121, i64 %sub.i.i46)
           to label %invoke.cont11.i53 unwind label %lpad10.i50
 
 invoke.cont11.i53:                                ; preds = %lpad.i48
@@ -34488,7 +34488,7 @@ invoke.cont63.i:                                  ; preds = %.noexc389.i, %call.
           to label %call2.i.noexc420.i unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc420.i:                               ; preds = %invoke.cont63.i
-  %call.i71 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i421.i, i32 noundef %99, i1 noundef zeroext false, ptr noundef null)
+  %call.i71 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i421.i, i32 noundef %99, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc70 unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc70:                                   ; preds = %call2.i.noexc420.i
@@ -34503,7 +34503,7 @@ lpad.i62:                                         ; preds = %call.i.noexc70
   %134 = extractvalue { ptr, i64 } %call.i71, 0
   %exn.slot.0.i63 = extractvalue { ptr, i32 } %133, 0
   %135 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i63) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i421.i, ptr %134, i64 %132, ptr %134, i64 %sub.i.i60)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i421.i, ptr %134, i64 %132, ptr %134, i64 %sub.i.i60)
           to label %invoke.cont11.i67 unwind label %lpad10.i64
 
 invoke.cont11.i67:                                ; preds = %lpad.i62
@@ -35327,7 +35327,7 @@ invoke.cont59.i:                                  ; preds = %.noexc314.i, %call5
           to label %call2.i.noexc345.i unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc345.i:                               ; preds = %invoke.cont59.i
-  %call.i44 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i346.i, i32 noundef %91, i1 noundef zeroext false, ptr noundef null)
+  %call.i44 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i346.i, i32 noundef %91, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc:                                     ; preds = %call2.i.noexc345.i
@@ -35342,7 +35342,7 @@ lpad.i42:                                         ; preds = %call.i.noexc
   %100 = extractvalue { ptr, i64 } %call.i44, 0
   %exn.slot.0.i = extractvalue { ptr, i32 } %99, 0
   %101 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i346.i, ptr %100, i64 %98, ptr %100, i64 %sub.i.i)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i346.i, ptr %100, i64 %98, ptr %100, i64 %sub.i.i)
           to label %invoke.cont11.i unwind label %lpad10.i
 
 invoke.cont11.i:                                  ; preds = %lpad.i42
@@ -35403,7 +35403,7 @@ invoke.cont61.i:                                  ; preds = %.noexc349.i, %call.
           to label %call2.i.noexc380.i unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc380.i:                               ; preds = %invoke.cont61.i
-  %call.i56 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i381.i, i32 noundef %91, i1 noundef zeroext false, ptr noundef null)
+  %call.i56 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i381.i, i32 noundef %91, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc55 unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc55:                                   ; preds = %call2.i.noexc380.i
@@ -35418,7 +35418,7 @@ lpad.i47:                                         ; preds = %call.i.noexc55
   %113 = extractvalue { ptr, i64 } %call.i56, 0
   %exn.slot.0.i48 = extractvalue { ptr, i32 } %112, 0
   %114 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i48) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i381.i, ptr %113, i64 %111, ptr %113, i64 %sub.i.i45)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i381.i, ptr %113, i64 %111, ptr %113, i64 %sub.i.i45)
           to label %invoke.cont11.i52 unwind label %lpad10.i49
 
 invoke.cont11.i52:                                ; preds = %lpad.i47
@@ -35479,7 +35479,7 @@ invoke.cont63.i:                                  ; preds = %.noexc384.i, %call.
           to label %call2.i.noexc415.i unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc415.i:                               ; preds = %invoke.cont63.i
-  %call.i70 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i416.i, i32 noundef %91, i1 noundef zeroext false, ptr noundef null)
+  %call.i70 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i416.i, i32 noundef %91, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc69 unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc69:                                   ; preds = %call2.i.noexc415.i
@@ -35494,7 +35494,7 @@ lpad.i61:                                         ; preds = %call.i.noexc69
   %126 = extractvalue { ptr, i64 } %call.i70, 0
   %exn.slot.0.i62 = extractvalue { ptr, i32 } %125, 0
   %127 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i62) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i416.i, ptr %126, i64 %124, ptr %126, i64 %sub.i.i59)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i416.i, ptr %126, i64 %124, ptr %126, i64 %sub.i.i59)
           to label %invoke.cont11.i66 unwind label %lpad10.i63
 
 invoke.cont11.i66:                                ; preds = %lpad.i61
@@ -36337,7 +36337,7 @@ invoke.cont59.i:                                  ; preds = %.noexc318.i, %call5
           to label %call2.i.noexc349.i unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc349.i:                               ; preds = %invoke.cont59.i
-  %call.i44 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i350.i, i32 noundef %95, i1 noundef zeroext false, ptr noundef null)
+  %call.i44 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i350.i, i32 noundef %95, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc:                                     ; preds = %call2.i.noexc349.i
@@ -36352,7 +36352,7 @@ lpad.i42:                                         ; preds = %call.i.noexc
   %104 = extractvalue { ptr, i64 } %call.i44, 0
   %exn.slot.0.i = extractvalue { ptr, i32 } %103, 0
   %105 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i350.i, ptr %104, i64 %102, ptr %104, i64 %sub.i.i)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i350.i, ptr %104, i64 %102, ptr %104, i64 %sub.i.i)
           to label %invoke.cont11.i unwind label %lpad10.i
 
 invoke.cont11.i:                                  ; preds = %lpad.i42
@@ -36413,7 +36413,7 @@ invoke.cont61.i:                                  ; preds = %.noexc353.i, %call.
           to label %call2.i.noexc384.i unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc384.i:                               ; preds = %invoke.cont61.i
-  %call.i56 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i385.i, i32 noundef %95, i1 noundef zeroext false, ptr noundef null)
+  %call.i56 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i385.i, i32 noundef %95, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc55 unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc55:                                   ; preds = %call2.i.noexc384.i
@@ -36428,7 +36428,7 @@ lpad.i47:                                         ; preds = %call.i.noexc55
   %117 = extractvalue { ptr, i64 } %call.i56, 0
   %exn.slot.0.i48 = extractvalue { ptr, i32 } %116, 0
   %118 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i48) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i385.i, ptr %117, i64 %115, ptr %117, i64 %sub.i.i45)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i385.i, ptr %117, i64 %115, ptr %117, i64 %sub.i.i45)
           to label %invoke.cont11.i52 unwind label %lpad10.i49
 
 invoke.cont11.i52:                                ; preds = %lpad.i47
@@ -36489,7 +36489,7 @@ invoke.cont63.i:                                  ; preds = %.noexc388.i, %call.
           to label %call2.i.noexc419.i unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call2.i.noexc419.i:                               ; preds = %invoke.cont63.i
-  %call.i70 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(72) %call2.i420.i, i32 noundef %95, i1 noundef zeroext false, ptr noundef null)
+  %call.i70 = invoke { ptr, i64 } @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(96) %call2.i420.i, i32 noundef %95, i1 noundef zeroext false, ptr noundef null)
           to label %call.i.noexc69 unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 call.i.noexc69:                                   ; preds = %call2.i.noexc419.i
@@ -36504,7 +36504,7 @@ lpad.i61:                                         ; preds = %call.i.noexc69
   %130 = extractvalue { ptr, i64 } %call.i70, 0
   %exn.slot.0.i62 = extractvalue { ptr, i32 } %129, 0
   %131 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i62) #23
-  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(72) %call2.i420.i, ptr %130, i64 %128, ptr %130, i64 %sub.i.i59)
+  invoke void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_S2_EEES8_(ptr noundef nonnull align 8 dereferenceable(96) %call2.i420.i, ptr %130, i64 %128, ptr %130, i64 %sub.i.i59)
           to label %invoke.cont11.i66 unwind label %lpad10.i63
 
 invoke.cont11.i66:                                ; preds = %lpad.i61
@@ -44523,7 +44523,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i3, align 8, !tbaa !1643
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i2, align 8, !tbaa !1643
   %tobool.not.i.i.i.i.i.i.i.i4 = icmp eq ptr %0, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %other, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i4, label %_ZN4entt15compressed_pairISt6vectorImSaImEENS_8identityEEaSEOS5_.exit.i, label %if.then.i.i.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i.i.i5:                         ; preds = %entry

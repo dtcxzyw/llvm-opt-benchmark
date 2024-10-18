@@ -268,11 +268,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %42 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %43 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %42, i64 noundef %43, ptr noundef nonnull %call1, i32 noundef %conv.i, i32 noundef %inc.i, i32 noundef %37) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %42, i64 noundef %43, ptr noundef nonnull %call1, i32 noundef range(i32 0, 2) %conv.i, i32 noundef %inc.i, i32 noundef %37) #11
   br label %trace_luring_do_submit.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull %call1, i32 noundef %conv.i, i32 noundef %inc.i, i32 noundef %37) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull %call1, i32 noundef range(i32 0, 2) %conv.i, i32 noundef %inc.i, i32 noundef %37) #11
   br label %trace_luring_do_submit.exit.i
 
 trace_luring_do_submit.exit.i:                    ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.epilog.i
@@ -769,11 +769,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %opaque, i32 noundef %conv, i32 noundef %2, i32 noundef %3) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %opaque, i32 noundef range(i32 0, 2) %conv, i32 noundef %2, i32 noundef %3) #11
   br label %trace_luring_unplug_fn.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull %opaque, i32 noundef %conv, i32 noundef %2, i32 noundef %3) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull %opaque, i32 noundef range(i32 0, 2) %conv, i32 noundef %2, i32 noundef %3) #11
   br label %trace_luring_unplug_fn.exit
 
 trace_luring_unplug_fn.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -955,11 +955,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call10.i.i.i = call i32 @qemu_get_thread_id() #11
   %25 = load i64, ptr %_now.i.i.i, align 8
   %26 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %s, ptr noundef nonnull %3, i32 noundef %4) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %s, ptr noundef nonnull %3, i32 noundef range(i32 1, -2147483648) %4) #11
   br label %trace_luring_resubmit_short_read.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef nonnull %s, ptr noundef nonnull %3, i32 noundef %4) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef nonnull %s, ptr noundef nonnull %3, i32 noundef range(i32 1, -2147483648) %4) #11
   br label %trace_luring_resubmit_short_read.exit.i
 
 trace_luring_resubmit_short_read.exit.i:          ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then21

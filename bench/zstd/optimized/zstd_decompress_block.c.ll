@@ -861,7 +861,7 @@ for.body132.i.i:                                  ; preds = %for.body132.i.i, %i
   %inc138.i.i = add i16 %9, 1
   store i16 %inc138.i.i, ptr %arrayidx137.i.i, align 2
   %conv139.i.i = zext i16 %9 to i32
-  %10 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv139.i.i, i1 true)
+  %10 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv139.i.i, i1 true)
   %sub.i79.i = xor i32 %10, 31
   %sub140.i.i = sub i32 %tableLog, %sub.i79.i
   %conv141.i.i = trunc i32 %sub140.i.i to i8
@@ -1095,7 +1095,7 @@ for.body132.i:                                    ; preds = %if.end127.i, %for.b
   %inc138.i = add i16 %9, 1
   store i16 %inc138.i, ptr %arrayidx137.i, align 2
   %conv139.i = zext i16 %9 to i32
-  %10 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv139.i, i1 true)
+  %10 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv139.i, i1 true)
   %sub.i79 = xor i32 %10, 31
   %sub140.i = sub i32 %tableLog, %sub.i79
   %conv141.i = trunc i32 %sub140.i to i8
@@ -1282,7 +1282,7 @@ do.body66.i:                                      ; preds = %sw.bb51.i
 
 do.end79.i:                                       ; preds = %do.body66.i
   %11 = load i32, ptr %max.addr.i, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %entropy, ptr noundef nonnull %norm.i, i32 noundef %11, ptr noundef nonnull readonly @LL_base, ptr noundef nonnull readonly @LL_bits, i32 noundef %10, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %entropy, ptr noundef nonnull %norm.i, i32 noundef %11, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %10, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val)
   %.pre.pre = load i32, ptr %fseEntropy, align 4
   %.pre167.pre = load i32, ptr %ddictIsCold, align 4
   %dctx.val60.pre.pre = load i32, ptr %5, align 4
@@ -1394,7 +1394,7 @@ do.body66.i71:                                    ; preds = %sw.bb51.i67
 
 do.end79.i73:                                     ; preds = %do.body66.i71
   %19 = load i32, ptr %max.addr.i64, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %OFTable, ptr noundef nonnull %norm.i66, i32 noundef %19, ptr noundef nonnull readonly @OF_base, ptr noundef nonnull readonly @OF_bits, i32 noundef %18, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val60)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %OFTable, ptr noundef nonnull %norm.i66, i32 noundef %19, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %18, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val60)
   %.pre169.pre = load i32, ptr %fseEntropy, align 4
   %.pre170.pre = load i32, ptr %ddictIsCold, align 4
   %dctx.val61.pre.pre = load i32, ptr %5, align 4
@@ -1501,7 +1501,7 @@ do.body66.i114:                                   ; preds = %sw.bb51.i110
 
 do.end79.i116:                                    ; preds = %do.body66.i114
   %27 = load i32, ptr %max.addr.i107, align 4
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %MLTable, ptr noundef nonnull %norm.i109, i32 noundef %27, ptr noundef nonnull readonly @ML_base, ptr noundef nonnull readonly @ML_bits, i32 noundef %26, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val61)
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %MLTable, ptr noundef nonnull %norm.i109, i32 noundef %27, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %26, ptr noundef nonnull %workspace, i64 poison, i32 noundef %dctx.val61)
   br label %sw.epilog.sink.split.i117
 
 sw.epilog.sink.split.i117:                        ; preds = %do.end79.i116, %do.end21.i137, %do.end137
@@ -1866,7 +1866,7 @@ sw.epilog.i.i:                                    ; preds = %sw.bb47.i.i, %if.el
 
 BIT_initDStream.exit.thread1937.i:                ; preds = %sw.epilog.i.i
   %conv56.i.i = zext i8 %23 to i32
-  %24 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv56.i.i, i1 true)
+  %24 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv56.i.i, i1 true)
   %bitsConsumed65.i.i = getelementptr inbounds i8, ptr %seqState.i.i, i64 8
   %25 = trunc nuw i64 %seqSize to i32
   %26 = shl nuw nsw i32 %25, 3
@@ -1878,7 +1878,7 @@ BIT_initDStream.exit.thread1937.i:                ; preds = %sw.epilog.i.i
 BIT_initDStream.exit.i:                           ; preds = %if.then3.i.i
   %27 = lshr i64 %memPtr.val.i.i.i, 56
   %conv.i1521.i = trunc nuw nsw i64 %27 to i32
-  %28 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv.i1521.i, i1 true)
+  %28 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv.i1521.i, i1 true)
   %sub.i.i.i = xor i32 %28, 31
   %sub9.i.i = sub nuw nsw i32 8, %sub.i.i.i
   %bitsConsumed.i.i = getelementptr inbounds i8, ptr %seqState.i.i, i64 8
@@ -4863,7 +4863,7 @@ sw.epilog.i.i:                                    ; preds = %sw.bb47.i.i, %if.el
 
 BIT_initDStream.exit.thread1249.i:                ; preds = %sw.epilog.i.i
   %conv56.i.i = zext i8 %21 to i32
-  %22 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv56.i.i, i1 true)
+  %22 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv56.i.i, i1 true)
   %bitsConsumed65.i.i = getelementptr inbounds i8, ptr %seqState.i.i, i64 8
   %23 = trunc nuw i64 %seqSize to i32
   %24 = shl nuw nsw i32 %23, 3
@@ -4875,7 +4875,7 @@ BIT_initDStream.exit.thread1249.i:                ; preds = %sw.epilog.i.i
 BIT_initDStream.exit.i:                           ; preds = %if.then3.i.i
   %25 = lshr i64 %memPtr.val.i.i.i, 56
   %conv.i992.i = trunc nuw nsw i64 %25 to i32
-  %26 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv.i992.i, i1 true)
+  %26 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv.i992.i, i1 true)
   %sub.i.i.i = xor i32 %26, 31
   %sub9.i.i = sub nuw nsw i32 8, %sub.i.i.i
   %bitsConsumed.i.i = getelementptr inbounds i8, ptr %seqState.i.i, i64 8
@@ -6935,7 +6935,7 @@ sw.epilog.i.i:                                    ; preds = %sw.bb47.i.i, %if.el
 
 BIT_initDStream.exit.thread572.i:                 ; preds = %sw.epilog.i.i
   %conv56.i.i = zext i8 %23 to i32
-  %24 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv56.i.i, i1 true)
+  %24 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv56.i.i, i1 true)
   %bitsConsumed65.i.i = getelementptr inbounds i8, ptr %seqState.i.i, i64 8
   %25 = trunc nuw i64 %seqSize to i32
   %26 = shl nuw nsw i32 %25, 3
@@ -6947,7 +6947,7 @@ BIT_initDStream.exit.thread572.i:                 ; preds = %sw.epilog.i.i
 BIT_initDStream.exit.i:                           ; preds = %if.then3.i.i
   %27 = lshr i64 %memPtr.val.i.i.i, 56
   %conv.i414.i = trunc nuw nsw i64 %27 to i32
-  %28 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv.i414.i, i1 true)
+  %28 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv.i414.i, i1 true)
   %sub.i.i.i = xor i32 %28, 31
   %sub9.i.i = sub nuw nsw i32 8, %sub.i.i.i
   %bitsConsumed.i.i = getelementptr inbounds i8, ptr %seqState.i.i, i64 8
@@ -8087,7 +8087,7 @@ sw.epilog.i:                                      ; preds = %sw.bb47.i, %if.else
 
 BIT_initDStream.exit.thread1937:                  ; preds = %sw.epilog.i
   %conv56.i = zext i8 %22 to i32
-  %23 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv56.i, i1 true)
+  %23 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv56.i, i1 true)
   %bitsConsumed65.i = getelementptr inbounds i8, ptr %seqState.i, i64 8
   %24 = trunc nuw i64 %seqSize to i32
   %25 = shl nuw nsw i32 %24, 3
@@ -8099,7 +8099,7 @@ BIT_initDStream.exit.thread1937:                  ; preds = %sw.epilog.i
 BIT_initDStream.exit:                             ; preds = %if.then3.i
   %26 = lshr i64 %memPtr.val.i.i, 56
   %conv.i1521 = trunc nuw nsw i64 %26 to i32
-  %27 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv.i1521, i1 true)
+  %27 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv.i1521, i1 true)
   %sub.i.i = xor i32 %27, 31
   %sub9.i = sub nuw nsw i32 8, %sub.i.i
   %bitsConsumed.i = getelementptr inbounds i8, ptr %seqState.i, i64 8
@@ -11437,7 +11437,7 @@ sw.epilog.i:                                      ; preds = %sw.bb47.i, %if.else
 
 BIT_initDStream.exit.thread1249:                  ; preds = %sw.epilog.i
   %conv56.i = zext i8 %20 to i32
-  %21 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv56.i, i1 true)
+  %21 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv56.i, i1 true)
   %bitsConsumed65.i = getelementptr inbounds i8, ptr %seqState.i, i64 8
   %22 = trunc nuw i64 %seqSize to i32
   %23 = shl nuw nsw i32 %22, 3
@@ -11449,7 +11449,7 @@ BIT_initDStream.exit.thread1249:                  ; preds = %sw.epilog.i
 BIT_initDStream.exit:                             ; preds = %if.then3.i
   %24 = lshr i64 %memPtr.val.i.i, 56
   %conv.i992 = trunc nuw nsw i64 %24 to i32
-  %25 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv.i992, i1 true)
+  %25 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv.i992, i1 true)
   %sub.i.i = xor i32 %25, 31
   %sub9.i = sub nuw nsw i32 8, %sub.i.i
   %bitsConsumed.i = getelementptr inbounds i8, ptr %seqState.i, i64 8
@@ -13488,7 +13488,7 @@ sw.epilog.i:                                      ; preds = %sw.bb47.i, %if.else
 
 BIT_initDStream.exit.thread572:                   ; preds = %sw.epilog.i
   %conv56.i = zext i8 %22 to i32
-  %23 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv56.i, i1 true)
+  %23 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv56.i, i1 true)
   %bitsConsumed65.i = getelementptr inbounds i8, ptr %seqState.i, i64 8
   %24 = trunc nuw i64 %seqSize to i32
   %25 = shl nuw nsw i32 %24, 3
@@ -13500,7 +13500,7 @@ BIT_initDStream.exit.thread572:                   ; preds = %sw.epilog.i
 BIT_initDStream.exit:                             ; preds = %if.then3.i
   %26 = lshr i64 %memPtr.val.i.i, 56
   %conv.i414 = trunc nuw nsw i64 %26 to i32
-  %27 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %conv.i414, i1 true)
+  %27 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv.i414, i1 true)
   %sub.i.i = xor i32 %27, 31
   %sub9.i = sub nuw nsw i32 8, %sub.i.i
   %bitsConsumed.i = getelementptr inbounds i8, ptr %seqState.i, i64 8

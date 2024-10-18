@@ -5495,7 +5495,7 @@ entry:
   %add.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
   %shl.i.i = shl i64 %totlen.coerce0, 3
   %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %add.i.i.i.i)
-  %or19.i3.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
+  %or19.i3.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i)
   %conv = zext i32 %len to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last, ptr align 1 %b, i64 %conv, i1 false)
   %arrayidx = getelementptr [256 x i8], ptr %last, i64 0, i64 %conv
@@ -5618,7 +5618,7 @@ entry:
   %add.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
   %shl.i.i.i = shl i64 %totlen.coerce0, 3
   %or19.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %add.i.i.i.i.i)
-  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i)
+  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i)
   %conv.i = zext i32 %len to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %b, i64 %conv.i, i1 false)
   %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %conv.i
@@ -6652,7 +6652,7 @@ entry:
   %add.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
   %shl.i.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
   %or19.i.i.i.i = shl nuw nsw i64 %add.i.i.i.i.i, 56
-  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i)
+  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
   %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %idx.ext
   store i8 -128, ptr %arrayidx.i, align 1
@@ -6774,7 +6774,7 @@ Hacl_SHA2_Scalar32_sha512_update_nblocks.exit:    ; preds = %for.body.i, %entry
   %cmp.i = icmp ult i32 %1, -129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i, i8 0, i64 256, i1 false)
   %shl.i.i.i = shl nuw nsw i64 %conv, 3
-  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i)
+  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
   %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %idx.ext5
   store i8 -128, ptr %arrayidx.i, align 1
@@ -6930,7 +6930,7 @@ entry:
   %add.i.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
   %shl.i.i.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
   %or19.i.i.i.i.i = shl nuw nsw i64 %add.i.i.i.i.i.i, 56
-  %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i.i)
+  %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
   %arrayidx.i.i = getelementptr [256 x i8], ptr %last.i.i, i64 0, i64 %idx.ext
   store i8 -128, ptr %arrayidx.i.i, align 1
@@ -7042,7 +7042,7 @@ Hacl_SHA2_Scalar32_sha384_update_nblocks.exit:    ; preds = %for.body.i.i, %entr
   %cmp.i.i = icmp ult i32 %1, -129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i.i, i8 0, i64 256, i1 false)
   %shl.i.i.i.i = shl nuw nsw i64 %conv, 3
-  %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i.i)
+  %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 0, -7) %shl.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
   %arrayidx.i.i = getelementptr [256 x i8], ptr %last.i.i, i64 0, i64 %idx.ext5
   store i8 -128, ptr %arrayidx.i.i, align 1

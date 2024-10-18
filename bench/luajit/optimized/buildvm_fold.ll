@@ -436,7 +436,7 @@ for.body.i34.i:                                   ; preds = %for.inc.i59.i, %if.
   %and4.i37.i = and i32 %53, 16777215
   %or.i.i = call i32 @llvm.fshl.i32(i32 %and4.i37.i, i32 %and4.i37.i, i32 %shr6.i31.i)
   %sub11.i.i = sub i32 %or.i.i, %and4.i37.i
-  %or30.i.i = call i32 @llvm.fshl.i32(i32 %sub11.i.i, i32 %sub11.i.i, i32 %r.1104.i)
+  %or30.i.i = call i32 @llvm.fshl.i32(i32 %sub11.i.i, i32 %sub11.i.i, i32 range(i32 0, 1024) %r.1104.i)
   %rem.i38.i = urem i32 %or30.i.i, %indvars117.i
   %idxprom36.i39.i = zext nneg i32 %rem.i38.i to i64
   %arrayidx37.i40.i = getelementptr inbounds i32, ptr %htab.i, i64 %idxprom36.i39.i
@@ -466,7 +466,7 @@ if.then56.i53.i:                                  ; preds = %land.lhs.true50.i50
   %and60.i54.i = and i32 %55, 16777215
   %or71.i.i = call i32 @llvm.fshl.i32(i32 %and60.i54.i, i32 %and60.i54.i, i32 %shr6.i31.i)
   %sub72.i.i = sub i32 %or71.i.i, %and60.i54.i
-  %or91.i.i = call i32 @llvm.fshl.i32(i32 %sub72.i.i, i32 %sub72.i.i, i32 %r.1104.i)
+  %or91.i.i = call i32 @llvm.fshl.i32(i32 %sub72.i.i, i32 %sub72.i.i, i32 range(i32 0, 1024) %r.1104.i)
   %rem100.i55.i = urem i32 %or91.i.i, %indvars117.i
   %cmp102.not.i56.i = icmp eq i32 %rem100.i55.i, %add41.i43.i
   br i1 %cmp102.not.i56.i, label %if.end105.i57.i, label %for.inc19.i

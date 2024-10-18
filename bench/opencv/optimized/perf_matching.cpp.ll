@@ -197,7 +197,7 @@ define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_128matchingsin
           to label %5 unwind label %7
 
 5:                                                ; preds = %1
-  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %4)
+  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(249) %4)
           to label %_ZN11opencv_test12_GLOBAL__N_126matching_single_match_TestC2Ev.exit unwind label %9
 
 _ZN11opencv_test12_GLOBAL__N_126matching_single_match_TestC2Ev.exit: ; preds = %5
@@ -363,7 +363,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6v
   br label %_ZN4perf8TestBaseD2Ev.exit
 
 _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #20
   ret void
 }
 
@@ -400,7 +400,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt
   br label %_ZN11opencv_test12_GLOBAL__N_126matching_single_match_TestD2Ev.exit
 
 _ZN11opencv_test12_GLOBAL__N_126matching_single_match_TestD2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -1236,7 +1236,7 @@ define linkonce_odr hidden void @_ZN12SkipThisTestD0Ev(ptr noundef nonnull align
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12SkipThisTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -1275,7 +1275,7 @@ define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_144knn_matchin
           to label %5 unwind label %7
 
 5:                                                ; preds = %1
-  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %4)
+  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(249) %4)
           to label %_ZN11opencv_test12_GLOBAL__N_142knn_matching_knn_match_distances_test_TestC2Ev.exit unwind label %9
 
 _ZN11opencv_test12_GLOBAL__N_142knn_matching_knn_match_distances_test_TestC2Ev.exit: ; preds = %5
@@ -1404,7 +1404,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6v
   br label %_ZN4perf8TestBaseD2Ev.exit
 
 _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #20
   ret void
 }
 
@@ -1441,7 +1441,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt
   br label %_ZN11opencv_test12_GLOBAL__N_142knn_matching_knn_match_distances_test_TestD2Ev.exit
 
 _ZN11opencv_test12_GLOBAL__N_142knn_matching_knn_match_distances_test_TestD2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -2016,7 +2016,7 @@ define internal noundef nonnull ptr @_ZN11opencv_test12_GLOBAL__N_147radius_matc
           to label %5 unwind label %7
 
 5:                                                ; preds = %1
-  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %4)
+  invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(249) %4)
           to label %_ZN11opencv_test12_GLOBAL__N_145radius_match_radius_match_distances_test_TestC2Ev.exit unwind label %9
 
 _ZN11opencv_test12_GLOBAL__N_145radius_match_radius_match_distances_test_TestC2Ev.exit: ; preds = %5
@@ -2145,7 +2145,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6v
   br label %_ZN4perf8TestBaseD2Ev.exit
 
 _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #20
   ret void
 }
 
@@ -2182,7 +2182,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt
   br label %_ZN11opencv_test12_GLOBAL__N_145radius_match_radius_match_distances_test_TestD2Ev.exit
 
 _ZN11opencv_test12_GLOBAL__N_145radius_match_radius_match_distances_test_TestD2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, %10
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -2581,7 +2581,7 @@ define internal void @_GLOBAL__sub_I_perf_matching.cpp() #14 section ".text.star
           to label %11 unwind label %19
 
 11:                                               ; preds = %0
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %12 unwind label %21
 
 12:                                               ; preds = %11
@@ -2612,7 +2612,7 @@ define internal void @_GLOBAL__sub_I_perf_matching.cpp() #14 section ".text.star
 23:                                               ; preds = %17, %15, %12
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #20
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -2627,7 +2627,7 @@ common.resume:                                    ; preds = %49, %55, %34, %40, 
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.21.exit:                    ; preds = %17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #20
   store ptr %18, ptr @_ZN11opencv_test12_GLOBAL__N_126matching_single_match_Test10test_info_E, align 8
@@ -2642,7 +2642,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %17
           to label %26 unwind label %34
 
 26:                                               ; preds = %__cxx_global_var_init.21.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %27 unwind label %36
 
 27:                                               ; preds = %26
@@ -2673,7 +2673,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %17
 38:                                               ; preds = %32, %30, %27
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #20
   br label %40
 
 40:                                               ; preds = %38, %36
@@ -2682,7 +2682,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %17
   br label %common.resume
 
 __cxx_global_var_init.24.exit:                    ; preds = %32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   store ptr %33, ptr @_ZN11opencv_test12_GLOBAL__N_142knn_matching_knn_match_distances_test_Test10test_info_E, align 8
@@ -2697,7 +2697,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %32
           to label %41 unwind label %49
 
 41:                                               ; preds = %__cxx_global_var_init.24.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %42 unwind label %51
 
 42:                                               ; preds = %41
@@ -2728,7 +2728,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %32
 53:                                               ; preds = %47, %45, %42
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #20
   br label %55
 
 55:                                               ; preds = %53, %51
@@ -2737,7 +2737,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %32
   br label %common.resume
 
 __cxx_global_var_init.27.exit:                    ; preds = %47
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   store ptr %48, ptr @_ZN11opencv_test12_GLOBAL__N_145radius_match_radius_match_distances_test_Test10test_info_E, align 8

@@ -59,7 +59,7 @@ define void @Java_sun_management_VMManagementImpl_initOptionalSupportFields(ptr 
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 1240
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %12, i8 noundef zeroext %16) #3
+  call void %19(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %12, i8 noundef zeroext range(i8 0, 2) %16) #3
   br label %setStaticBooleanField.exit
 
 setStaticBooleanField.exit:                       ; preds = %2, %13
@@ -78,7 +78,7 @@ setStaticBooleanField.exit:                       ; preds = %2, %13
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 1240
   %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %24, i8 noundef zeroext %28) #3
+  call void %31(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %24, i8 noundef zeroext range(i8 0, 2) %28) #3
   br label %setStaticBooleanField.exit29
 
 setStaticBooleanField.exit29:                     ; preds = %setStaticBooleanField.exit, %25
@@ -97,7 +97,7 @@ setStaticBooleanField.exit29:                     ; preds = %setStaticBooleanFie
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 1240
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %36, i8 noundef zeroext %40) #3
+  call void %43(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %36, i8 noundef zeroext range(i8 0, 2) %40) #3
   br label %setStaticBooleanField.exit31
 
 setStaticBooleanField.exit31:                     ; preds = %setStaticBooleanField.exit29, %37
@@ -116,7 +116,7 @@ setStaticBooleanField.exit31:                     ; preds = %setStaticBooleanFie
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 1240
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %48, i8 noundef zeroext %52) #3
+  call void %55(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %48, i8 noundef zeroext range(i8 0, 2) %52) #3
   br label %setStaticBooleanField.exit33
 
 setStaticBooleanField.exit33:                     ; preds = %setStaticBooleanField.exit31, %49
@@ -140,7 +140,7 @@ setStaticBooleanField.exit33:                     ; preds = %setStaticBooleanFie
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 1240
   %70 = load ptr, ptr %69, align 8
-  call void %70(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %63, i8 noundef zeroext %67) #3
+  call void %70(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %63, i8 noundef zeroext range(i8 0, 2) %67) #3
   br label %setStaticBooleanField.exit35
 
 setStaticBooleanField.exit35:                     ; preds = %58, %64
@@ -159,7 +159,7 @@ setStaticBooleanField.exit35:                     ; preds = %58, %64
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 1240
   %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %75, i8 noundef zeroext %79) #3
+  call void %82(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %75, i8 noundef zeroext range(i8 0, 2) %79) #3
   br label %setStaticBooleanField.exit37
 
 83:                                               ; preds = %setStaticBooleanField.exit33
@@ -207,7 +207,7 @@ setStaticBooleanField.exit37:                     ; preds = %96, %setStaticBoole
   %108 = load ptr, ptr %0, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 1240
   %110 = load ptr, ptr %109, align 8
-  call void %110(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %104, i8 noundef zeroext %107) #3
+  call void %110(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %104, i8 noundef zeroext range(i8 0, 2) %107) #3
   br label %setStaticBooleanField.exit43
 
 setStaticBooleanField.exit43:                     ; preds = %setStaticBooleanField.exit37, %105
@@ -226,7 +226,7 @@ setStaticBooleanField.exit43:                     ; preds = %setStaticBooleanFie
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 1240
   %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %115, i8 noundef zeroext %119) #3
+  call void %122(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %115, i8 noundef zeroext range(i8 0, 2) %119) #3
   br label %setStaticBooleanField.exit45
 
 setStaticBooleanField.exit45:                     ; preds = %setStaticBooleanField.exit43, %116

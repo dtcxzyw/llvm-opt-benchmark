@@ -43,7 +43,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm22createVLIWDAGSchedulerEPNS_16Sel
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #11
   tail call void @_ZN4llvm21ResourcePriorityQueueC1EPNS_16SelectionDAGISelE(ptr noundef nonnull align 8 dereferenceable(200) %8, ptr noundef %0) #12
-  tail call void @_ZN4llvm18ScheduleDAGSDNodesC2ERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(632) %3, ptr noundef nonnull align 8 dereferenceable(1041) %5) #12
+  tail call void @_ZN4llvm18ScheduleDAGSDNodesC2ERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(680) %3, ptr noundef nonnull align 8 dereferenceable(1041) %5) #12
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_115ScheduleDAGVLIWE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 632
   store ptr %8, ptr %9, align 8
@@ -60,7 +60,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm22createVLIWDAGSchedulerEPNS_16Sel
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 936
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(80) %17, ptr noundef nonnull %13, ptr noundef nonnull %3) #12
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(80) %17, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(680) %3) #12
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 664
   store ptr %21, ptr %22, align 8
   ret ptr %3
@@ -177,7 +177,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit:     ; preds = %17, %20
   br label %_ZN4llvm18ScheduleDAGSDNodesD2Ev.exit
 
 _ZN4llvm18ScheduleDAGSDNodesD2Ev.exit:            ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit, %28
-  tail call void @_ZN4llvm11ScheduleDAGD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #12
+  tail call void @_ZN4llvm11ScheduleDAGD2Ev(ptr noundef nonnull align 8 dereferenceable(632) %0) #12
   ret void
 }
 
@@ -241,7 +241,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit.i:   ; preds = %20, %17
   br label %_ZN12_GLOBAL__N_115ScheduleDAGVLIWD2Ev.exit
 
 _ZN12_GLOBAL__N_115ScheduleDAGVLIWD2Ev.exit:      ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit.i, %28
-  tail call void @_ZN4llvm11ScheduleDAGD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #12
+  tail call void @_ZN4llvm11ScheduleDAGD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 680) #13
   ret void
 }

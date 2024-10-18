@@ -457,7 +457,7 @@ default.unreachable73:                            ; preds = %309, %2
   br i1 %147, label %148, label %151
 
 148:                                              ; preds = %134
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h8f59f174b0f22f20E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %115, i64 noundef %144, i64 noundef %142)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h8f59f174b0f22f20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %115, i64 noundef %144, i64 noundef %142)
           to label %.noexc.i.i unwind label %149
 
 .noexc.i.i:                                       ; preds = %148
@@ -794,7 +794,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i: ; preds = %166, 
   br i1 %275, label %276, label %279
 
 276:                                              ; preds = %263
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h8f59f174b0f22f20E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %268, i64 noundef %272, i64 noundef %270)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h8f59f174b0f22f20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %268, i64 noundef %272, i64 noundef %270)
           to label %.noexc123.i.i unwind label %277
 
 .noexc123.i.i:                                    ; preds = %276
@@ -1266,7 +1266,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$async_lock..mutex..
   store i64 0, ptr %1, align 8
   call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %1) #17, !srcloc !164
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %6 = call noundef align 8 ptr @_ZN4core4sync6atomic11atomic_load17heabd6c772170816aE.llvm.17208988669928403088(ptr noundef nonnull %4, i8 noundef 2)
+  %6 = call noundef align 8 ptr @_ZN4core4sync6atomic11atomic_load17heabd6c772170816aE.llvm.17208988669928403088(ptr noundef nonnull align 8 %4, i8 noundef 2)
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %"_ZN80_$LT$async_lock..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h31bb618958d5e17cE.exit", label %7
 
@@ -1386,7 +1386,7 @@ common.ret:                                       ; preds = %31, %27, %21, %16, 
   store i64 0, ptr %3, align 8
   call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %3) #17, !srcloc !164
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %11 = call noundef align 8 ptr @_ZN4core4sync6atomic11atomic_load17heabd6c772170816aE.llvm.17208988669928403088(ptr noundef nonnull %9, i8 noundef 2)
+  %11 = call noundef align 8 ptr @_ZN4core4sync6atomic11atomic_load17heabd6c772170816aE.llvm.17208988669928403088(ptr noundef nonnull align 8 %9, i8 noundef 2)
   %.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i, label %common.ret, label %12
 
@@ -1418,7 +1418,7 @@ common.ret:                                       ; preds = %31, %27, %21, %16, 
   store i64 0, ptr %2, align 8
   call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %2) #17, !srcloc !164
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %26 = call noundef align 8 ptr @_ZN4core4sync6atomic11atomic_load17heabd6c772170816aE.llvm.17208988669928403088(ptr noundef nonnull %24, i8 noundef 2)
+  %26 = call noundef align 8 ptr @_ZN4core4sync6atomic11atomic_load17heabd6c772170816aE.llvm.17208988669928403088(ptr noundef nonnull align 8 %24, i8 noundef 2)
   %.not.i.i.i.i6 = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i6, label %common.ret, label %27
 

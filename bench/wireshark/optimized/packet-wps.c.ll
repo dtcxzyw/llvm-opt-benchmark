@@ -2148,7 +2148,7 @@ define internal fastcc void @dissect_wps_wfa_ext(ptr noundef %0, ptr noundef %1,
 
 34:                                               ; preds = %16
   %35 = load i32, ptr @hf_eapwps_wfa_ext_authorizedmacs, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %35, ptr noundef %1, i32 noundef %9, i32 noundef %13, i32 noundef 0) #3
+  %36 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %35, ptr noundef %1, i32 noundef %9, i32 noundef range(i32 0, 256) %13, i32 noundef 0) #3
   br label %add_wps_wfa_ext.exit
 
 37:                                               ; preds = %16

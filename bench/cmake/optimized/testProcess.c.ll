@@ -113,49 +113,49 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   store ptr null, ptr %14, align 8
   store i32 0, ptr %15, align 4
   store double 0.000000e+00, ptr %16, align 8
-  %28 = call i32 @cmsysProcess_SetCommand(ptr noundef %17, ptr noundef %0) #14
+  %28 = call i32 @cmsysProcess_SetCommand(ptr noundef nonnull %17, ptr noundef %0) #14
   br i1 %19, label %30, label %29
 
 29:                                               ; preds = %26
-  call void @cmsysProcess_SetTimeout(ptr noundef %17, double noundef %7) #14
+  call void @cmsysProcess_SetTimeout(ptr noundef nonnull %17, double noundef %7) #14
   br label %30
 
 30:                                               ; preds = %29, %26
   br i1 %.not78.i, label %32, label %31
 
 31:                                               ; preds = %30
-  call void @cmsysProcess_SetPipeShared(ptr noundef %17, i32 noundef 2, i32 noundef 1) #14
-  call void @cmsysProcess_SetPipeShared(ptr noundef %17, i32 noundef 3, i32 noundef 1) #14
+  call void @cmsysProcess_SetPipeShared(ptr noundef nonnull %17, i32 noundef 2, i32 noundef 1) #14
+  call void @cmsysProcess_SetPipeShared(ptr noundef nonnull %17, i32 noundef 3, i32 noundef 1) #14
   br label %32
 
 32:                                               ; preds = %31, %30
   br i1 %.not79.i, label %34, label %33
 
 33:                                               ; preds = %32
-  call void @cmsysProcess_SetOption(ptr noundef %17, i32 noundef 1, i32 noundef 1) #14
+  call void @cmsysProcess_SetOption(ptr noundef nonnull %17, i32 noundef 1, i32 noundef 1) #14
   br label %34
 
 34:                                               ; preds = %33, %32
   br i1 %.not.i, label %36, label %35
 
 35:                                               ; preds = %34
-  call void @cmsysProcess_SetOption(ptr noundef %17, i32 noundef 4, i32 noundef 1) #14
+  call void @cmsysProcess_SetOption(ptr noundef nonnull %17, i32 noundef 4, i32 noundef 1) #14
   br label %36
 
 36:                                               ; preds = %35, %34
-  call void @cmsysProcess_Execute(ptr noundef %17) #14
+  call void @cmsysProcess_Execute(ptr noundef nonnull %17) #14
   br i1 %.not77.i, label %39, label %37
 
 37:                                               ; preds = %36
-  %38 = call i32 @sleep(i32 noundef %12) #14
-  call void @cmsysProcess_Interrupt(ptr noundef %17) #14
+  %38 = call i32 @sleep(i32 noundef range(i32 1, 0) %12) #14
+  call void @cmsysProcess_Interrupt(ptr noundef nonnull %17) #14
   br label %39
 
 39:                                               ; preds = %37, %36
   br i1 %or.cond.not.i, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %39
-  %40 = call i32 @cmsysProcess_WaitForData(ptr noundef %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #14
+  %40 = call i32 @cmsysProcess_WaitForData(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #14
   %.not80106.i = icmp eq i32 %40, 0
   br i1 %.not80106.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -166,13 +166,13 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br i1 %.not76.i, label %.lr.ph.split.us.i.us, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i.us
-  %41 = call i32 @cmsysProcess_WaitForData(ptr noundef %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #14
+  %41 = call i32 @cmsysProcess_WaitForData(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #14
   %.not80.us.i.us = icmp eq i32 %41, 0
   br i1 %.not80.us.i.us, label %.loopexit.i, label %.lr.ph.split.us.i.us, !llvm.loop !7
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i
   %42 = call i32 @usleep(i32 noundef 100000) #14
-  %43 = call i32 @cmsysProcess_WaitForData(ptr noundef %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #14
+  %43 = call i32 @cmsysProcess_WaitForData(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #14
   %.not80.us.i = icmp eq i32 %43, 0
   br i1 %.not80.us.i, label %.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !7
 
@@ -196,7 +196,7 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
 .thread.i:                                        ; preds = %47
   %54 = load ptr, ptr @stdout, align 8
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.11, i32 noundef 20) #14
-  call void @cmsysProcess_Kill(ptr noundef %17) #14
+  call void @cmsysProcess_Kill(ptr noundef nonnull %17) #14
   br label %65
 
 56:                                               ; preds = %.lr.ph.split.i
@@ -221,7 +221,7 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
 
 67:                                               ; preds = %65, %64
   %.296.i = phi i32 [ %.295.i, %65 ], [ 0, %64 ]
-  %68 = call i32 @cmsysProcess_WaitForData(ptr noundef %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #14
+  %68 = call i32 @cmsysProcess_WaitForData(ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #14
   %.not80.i = icmp eq i32 %68, 0
   br i1 %.not80.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !7
 
@@ -230,15 +230,15 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br i1 %.not79.i, label %70, label %69
 
 69:                                               ; preds = %.loopexit.i
-  call void @cmsysProcess_Disown(ptr noundef %17) #14
+  call void @cmsysProcess_Disown(ptr noundef nonnull %17) #14
   br label %72
 
 70:                                               ; preds = %.loopexit.i
-  %71 = call i32 @cmsysProcess_WaitForExit(ptr noundef %17, ptr noundef null) #14
+  %71 = call i32 @cmsysProcess_WaitForExit(ptr noundef nonnull %17, ptr noundef null) #14
   br label %72
 
 72:                                               ; preds = %70, %69
-  %73 = call i32 @cmsysProcess_GetState(ptr noundef %17) #14
+  %73 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #14
   switch i32 %73, label %.thread97.i [
     i32 0, label %74
     i32 3, label %75
@@ -263,9 +263,9 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br label %.thread97.i
 
 77:                                               ; preds = %72
-  %78 = call i32 @cmsysProcess_GetExitValue(ptr noundef %17) #14
+  %78 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #14
   %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %78)
-  %80 = call i32 @cmsysProcess_GetExitException(ptr noundef %17) #14
+  %80 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #14
   %.not85.i = icmp eq i32 %2, %80
   br i1 %.not85.i, label %90, label %.thread102.i
 
@@ -274,9 +274,9 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br label %.thread97.i
 
 82:                                               ; preds = %72
-  %83 = call ptr @cmsysProcess_GetExceptionString(ptr noundef %17) #14
+  %83 = call ptr @cmsysProcess_GetExceptionString(ptr noundef nonnull %17) #14
   %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %83)
-  %85 = call i32 @cmsysProcess_GetExitException(ptr noundef %17) #14
+  %85 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #14
   %.not83.i = icmp eq i32 %2, %85
   br i1 %.not83.i, label %90, label %.thread102.i
 
@@ -285,40 +285,40 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br label %.thread97.i
 
 87:                                               ; preds = %72
-  %88 = call ptr @cmsysProcess_GetErrorString(ptr noundef %17) #14
+  %88 = call ptr @cmsysProcess_GetErrorString(ptr noundef nonnull %17) #14
   %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %88)
   br label %.thread97.i
 
 90:                                               ; preds = %82, %77
-  %91 = call i32 @cmsysProcess_GetExitValue(ptr noundef %17) #14
+  %91 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #14
   %.065.in.not.i = icmp eq i32 %3, %91
   br i1 %.065.in.not.i, label %.thread97.i, label %.thread102.i
 
 .thread102.i:                                     ; preds = %90, %82, %77
-  %92 = call i32 @cmsysProcess_GetExitException(ptr noundef %17) #14
+  %92 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #14
   %.not90.i = icmp eq i32 %2, %92
   br i1 %.not90.i, label %97, label %93
 
 93:                                               ; preds = %.thread102.i
   %94 = load ptr, ptr @stderr, align 8
-  %95 = call i32 @cmsysProcess_GetExitException(ptr noundef %17) #14
+  %95 = call i32 @cmsysProcess_GetExitException(ptr noundef nonnull %17) #14
   %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.20, i32 noundef %2, i32 noundef %95) #16
   br label %97
 
 97:                                               ; preds = %93, %.thread102.i
-  %98 = call i32 @cmsysProcess_GetExitValue(ptr noundef %17) #14
+  %98 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #14
   %.not91.i = icmp eq i32 %3, %98
   br i1 %.not91.i, label %.thread97.i, label %99
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr @stderr, align 8
-  %101 = call i32 @cmsysProcess_GetExitValue(ptr noundef %17) #14
+  %101 = call i32 @cmsysProcess_GetExitValue(ptr noundef nonnull %17) #14
   %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.21, i32 noundef %3, i32 noundef %101) #16
   br label %.thread97.i
 
 .thread97.i:                                      ; preds = %99, %97, %90, %87, %86, %81, %76, %75, %74, %72
   %.not22 = phi i1 [ false, %97 ], [ false, %99 ], [ true, %90 ], [ true, %72 ], [ true, %87 ], [ true, %86 ], [ true, %81 ], [ true, %76 ], [ true, %75 ], [ true, %74 ]
-  %103 = call i32 @cmsysProcess_GetState(ptr noundef %17) #14
+  %103 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #14
   %.not92.i = icmp eq i32 %103, %1
   br i1 %.not92.i, label %104, label %.thread
 
@@ -330,7 +330,7 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
 
 .thread:                                          ; preds = %.thread97.i
   %107 = load ptr, ptr @stderr, align 8
-  %108 = call i32 @cmsysProcess_GetState(ptr noundef %17) #14
+  %108 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #14
   %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %108) #16
   %110 = icmp ne i32 %.0.i, 0
   %111 = icmp slt i32 %.0.i, 5

@@ -136,7 +136,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtrn
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %6 = xor i1 %5, true
   ret i1 %6
 }
@@ -146,11 +146,11 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtre
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %11 = icmp eq ptr %6, %10
   ret i1 %11
 }
@@ -160,11 +160,11 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtrl
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %11 = icmp ult ptr %6, %10
   ret i1 %11
 }

@@ -169,7 +169,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %_ZNSt6vectorIPN3zmq
   unreachable
 
 _ZN3zmq20worker_poller_base_tD2Ev.exit:           ; preds = %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit
-  tail call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
+  tail call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) #17
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry

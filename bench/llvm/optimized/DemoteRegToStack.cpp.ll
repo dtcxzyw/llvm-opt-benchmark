@@ -916,7 +916,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %63, %76
 
 _ZNK4llvm11Instruction7isEHPadEv.exit.thread122:  ; preds = %84
   %89 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %89, i64 noundef 4) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %89, i64 noundef 4) #7
   %.sroa.0105.0127 = load ptr, ptr %10, align 8
   %.not123128 = icmp eq ptr %.sroa.0105.0127, null
   br i1 %.not123128, label %._crit_edge131, label %.lr.ph130
@@ -985,7 +985,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   br i1 %.not, label %._crit_edge136, label %111
 
 ._crit_edge136:                                   ; preds = %111, %._crit_edge131
-  %121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+  %121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #7
   %122 = load ptr, ptr %7, align 8
   %123 = icmp eq ptr %122, %89
   br i1 %123, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit, label %124

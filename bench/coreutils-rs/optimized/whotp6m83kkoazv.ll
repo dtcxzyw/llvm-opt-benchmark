@@ -145,7 +145,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 27:                                               ; preds = %22
   %28 = add nsw i64 %20, -256
   store i64 %28, ptr %19, align 8, !alias.scope !45, !noalias !46
-  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %17, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %12), !noalias !34
+  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(80) %17, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %12), !noalias !34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !47
   store ptr %12, ptr %5, align 8, !noalias !47
   %29 = getelementptr inbounds i8, ptr %5, i64 8
@@ -162,7 +162,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit
 
 33:                                               ; preds = %22, %16
-  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %17, ptr noalias noundef nonnull align 4 dereferenceable(256) %12, i64 noundef %18), !noalias !34
+  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %17, ptr noalias noundef nonnull align 16 dereferenceable(352) %12, i64 noundef %18), !noalias !34
   br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit
 
 _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i", %33
@@ -211,7 +211,7 @@ _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$ran
 60:                                               ; preds = %56
   %61 = add nsw i64 %54, -256
   store i64 %61, ptr %45, align 8, !alias.scope !65, !noalias !66
-  call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %44, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %42), !noalias !54
+  call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(80) %44, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %42), !noalias !54
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !67
   store ptr %42, ptr %4, align 8, !noalias !67
   store ptr %43, ptr %47, align 8, !noalias !67
@@ -227,7 +227,7 @@ _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$ran
   br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8
 
 65:                                               ; preds = %56, %52
-  call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %44, ptr noalias noundef nonnull align 4 dereferenceable(256) %42, i64 noundef %53), !noalias !54
+  call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %44, ptr noalias noundef nonnull align 16 dereferenceable(352) %42, i64 noundef %53), !noalias !54
   br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8
 
 _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8:   ; preds = %49, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i7", %65
@@ -396,7 +396,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
 26:                                               ; preds = %21
   %27 = add nsw i64 %19, -256
   store i64 %27, ptr %18, align 8, !alias.scope !97, !noalias !98
-  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %16, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %4), !noalias !83
+  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(80) %16, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %4), !noalias !83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !99
   store ptr %4, ptr %2, align 8, !noalias !99
   %28 = getelementptr inbounds i8, ptr %2, i64 8
@@ -413,7 +413,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit.i.i"
 
 32:                                               ; preds = %21, %13
-  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %16, ptr noalias noundef nonnull align 4 dereferenceable(256) %4, i64 noundef %17), !noalias !83
+  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %16, ptr noalias noundef nonnull align 16 dereferenceable(352) %4, i64 noundef %17), !noalias !83
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit.i.i"
 
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit.i.i": ; preds = %32, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i"
@@ -445,7 +445,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
 49:                                               ; preds = %44
   %50 = add nsw i64 %42, -256
   store i64 %50, ptr %41, align 8, !alias.scope !112, !noalias !113
-  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %39, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %4), !noalias !83
+  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(80) %39, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %4), !noalias !83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1), !noalias !114
   store ptr %4, ptr %1, align 8, !noalias !114
   %51 = getelementptr inbounds i8, ptr %1, i64 8
@@ -462,7 +462,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i"
 
 55:                                               ; preds = %44, %38
-  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %39, ptr noalias noundef nonnull align 4 dereferenceable(256) %4, i64 noundef %40), !noalias !83
+  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h0b6ae2c27607d2eaE.llvm.6624592575629554789"(ptr noalias noundef nonnull align 16 dereferenceable(80) %39, ptr noalias noundef nonnull align 16 dereferenceable(352) %4, i64 noundef %40), !noalias !83
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i"
 
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i": ; preds = %55, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i8.i.i"

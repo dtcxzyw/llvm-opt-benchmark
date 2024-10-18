@@ -167,7 +167,7 @@ define internal i32 @pmix_pstrg_base_close() #1 {
 .lr.ph.i:                                         ; preds = %35, %.lr.ph.i
   %41 = phi ptr [ %43, %.lr.ph.i ], [ %40, %35 ]
   %.07.i = phi ptr [ %42, %.lr.ph.i ], [ %39, %35 ]
-  tail call void %41(ptr noundef %18) #8
+  tail call void %41(ptr noundef nonnull %18) #8
   %42 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
@@ -312,7 +312,7 @@ define internal void @qdes(ptr noundef %0) #1 {
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
   %32 = phi ptr [ %34, %.lr.ph.i ], [ %31, %26 ]
   %.07.i = phi ptr [ %33, %.lr.ph.i ], [ %30, %26 ]
-  tail call void %32(ptr noundef %9) #8
+  tail call void %32(ptr noundef nonnull %9) #8
   %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null

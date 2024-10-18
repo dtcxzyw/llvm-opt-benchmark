@@ -1793,7 +1793,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !143
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !143
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !143
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1902,7 +1902,7 @@ for.inc:                                          ; preds = %_ZNKSt14default_del
 for.end:                                          ; preds = %for.inc, %if.end5
   %state_.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i15, align 8, !alias.scope !147
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !147
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !147
   br label %return
 
 return:                                           ; preds = %invoke.cont, %for.end, %if.then3, %if.then
@@ -1963,7 +1963,7 @@ if.end7:                                          ; preds = %if.end
   store i64 %sub.ptr.sub.i10, ptr %size_.i.i, align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !150
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !150
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !150
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then4, %if.then
@@ -2353,7 +2353,7 @@ entry:
 if.then:                                          ; preds = %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !167
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !167
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !167
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2369,7 +2369,7 @@ if.then2:                                         ; preds = %if.end
   store i8 1, ptr %is_sorted_, align 8
   %state_.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i5, align 8, !alias.scope !170
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !170
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !170
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -2381,7 +2381,7 @@ if.end4:                                          ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %copy, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %copy, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %copy, i64 16
   %4 = load ptr, ptr %_M_start3.i.i.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %copy, i64 24
@@ -2399,7 +2399,7 @@ if.then.i.i:                                      ; preds = %if.end4
   %_M_node5.i8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
   %11 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %copy, ptr noundef nonnull align 8 dereferenceable(80) %pairs_, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pairs_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %pairs_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   store ptr %4, ptr %_M_start.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %5, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i, align 8
@@ -2680,7 +2680,7 @@ if.end.i:                                         ; preds = %if.else.i62, %if.th
   store i8 1, ptr %is_sorted_, align 8
   %state_.i.i64 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i64, align 8, !alias.scope !189
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !189
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !189
   %50 = load ptr, ptr %copy, align 8
   %tobool.not.i.i65 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i65, label %return, label %if.then.i.i66

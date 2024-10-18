@@ -48,7 +48,7 @@ $_ZTV17LogStreamImplBase = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace8Settings15ergo_initializeEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.LogStream, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext false) #5
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #5
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #5

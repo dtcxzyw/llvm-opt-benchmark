@@ -11154,7 +11154,7 @@ define internal fastcc range(i32 0, 2) i32 @rb_group_member(i32 noundef %0) unna
   br i1 %16, label %17, label %rb_alloc_tmp_buffer2.exit
 
 17:                                               ; preds = %15
-  tail call void @ruby_malloc_size_overflow(i64 noundef %10, i64 noundef 4) #24
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %10, i64 noundef range(i64 4, 9) 4) #24
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %15
@@ -11718,7 +11718,7 @@ rb_check_arity.exit.preheader.preheader:          ; preds = %3
   br label %rb_check_arity.exit.preheader
 
 9:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %1, i32 noundef %6, i32 noundef %6) #24
+  tail call void @rb_error_arity(i32 noundef %1, i32 noundef range(i32 1, 4) %6, i32 noundef range(i32 -1, 4) %6) #24
   unreachable
 
 rb_check_arity.exit.preheader:                    ; preds = %rb_check_arity.exit.preheader.preheader, %rb_check_arity.exit

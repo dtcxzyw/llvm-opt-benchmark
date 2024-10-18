@@ -387,7 +387,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 59:                                               ; preds = %.outer.split
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !34
-  invoke void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hde17ee5164aafbbeE.llvm.1377623816751877581(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %23, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.3.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.063.sroa.8.0..sroa_idx)
+  invoke void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hde17ee5164aafbbeE.llvm.1377623816751877581(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %23, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.3.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.8.0..sroa_idx)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.loopexit
 
 .noexc:                                           ; preds = %59
@@ -540,7 +540,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br i1 %94, label %95, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4d11a94699d374a1E.exit"
 
 95:                                               ; preds = %91
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h5be5cf5f2d1b5488E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %92)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h5be5cf5f2d1b5488E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %92)
           to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp
 
 .noexc54:                                         ; preds = %95
@@ -578,7 +578,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br i1 %108, label %109, label %116
 
 109:                                              ; preds = %101
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h5be5cf5f2d1b5488E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %106)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h5be5cf5f2d1b5488E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %106)
           to label %.noexc56 unwind label %.loopexit152
 
 .noexc56:                                         ; preds = %109
@@ -794,7 +794,7 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer3new17h8e082e91e73d5bbaE(pt
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %12
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h68aa1341d41ae47bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16, i64 noundef 0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h68aa1341d41ae47bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16, i64 noundef 0)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %18
@@ -854,7 +854,7 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer5reset17hdac89b5d336b67b7E(
   br i1 %7, label %8, label %_ZN21tree_sitter_highlight16shrink_and_clear17h3da781cb84f18834E.exit
 
 8:                                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h332c4e395c9a24ffE.exit.i"
-  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17hf9022c1cf1ed5438E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 10240)
+  %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17hf9022c1cf1ed5438E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 10240)
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
   %12 = tail call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb98b70faa551e2f8E.llvm.23857589297000235"(i64 noundef %10, i64 %11)
@@ -888,7 +888,7 @@ _ZN21tree_sitter_highlight16shrink_and_clear17h3da781cb84f18834E.exit: ; preds =
   br i1 %19, label %20, label %_ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit
 
 20:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h45a2fb773a82f7c5E.exit.i"
-  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h73bcb7dcc55be189E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15, i64 noundef 1000)
+  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h73bcb7dcc55be189E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1000)
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   %24 = tail call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb98b70faa551e2f8E.llvm.23857589297000235"(i64 noundef %22, i64 %23)
@@ -918,7 +918,7 @@ _ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit: ; preds =
   br i1 %28, label %29, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.llvm.16574816117915424926.exit"
 
 29:                                               ; preds = %_ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h68aa1341d41ae47bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15, i64 noundef 0)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h68aa1341d41ae47bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 0)
   %.pre.i = load i64, ptr %16, align 8, !alias.scope !85
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.llvm.16574816117915424926.exit"
 
@@ -962,7 +962,7 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer13end_highlight17h7450f674b
   br i1 %7, label %8, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit"
 
 8:                                                ; preds = %1
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h97d42fb0ac31fcb4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %4, i64 noundef 7)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h97d42fb0ac31fcb4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %4, i64 noundef 7)
   %.pre.i = load i64, ptr %3, align 8, !alias.scope !88
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit"
 
@@ -1165,14 +1165,14 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   ret void
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %60, ptr nonnull readonly @anon.7846843607c3237cb579c64a79ba54af.23, i64 %62), !alias.scope !96
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %60, ptr nonnull @anon.7846843607c3237cb579c64a79ba54af.23, i64 %62), !alias.scope !96
   %69 = icmp eq i32 %bcmp.i, 0
   %.not60 = icmp eq ptr %.sroa.05.1129, null
   %or.cond = select i1 %69, i1 %.not60, i1 false
   br i1 %or.cond, label %75, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit69": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
-  %bcmp.i68 = tail call i32 @bcmp(ptr nonnull readonly %60, ptr nonnull readonly @anon.7846843607c3237cb579c64a79ba54af.24, i64 %62), !alias.scope !100
+  %bcmp.i68 = tail call i32 @bcmp(ptr nonnull readonly align 1 %60, ptr nonnull @anon.7846843607c3237cb579c64a79ba54af.24, i64 %62), !alias.scope !100
   %70 = icmp eq i32 %bcmp.i68, 0
   %.not59 = icmp eq ptr %.sroa.05.1129, null
   %or.cond98 = select i1 %70, i1 %.not59, i1 false
@@ -1181,12 +1181,12 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit73": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
-  %bcmp.i72 = tail call i32 @bcmp(ptr nonnull readonly %60, ptr nonnull readonly @anon.7846843607c3237cb579c64a79ba54af.25, i64 %62), !alias.scope !104
+  %bcmp.i72 = tail call i32 @bcmp(ptr nonnull readonly align 1 %60, ptr nonnull @anon.7846843607c3237cb579c64a79ba54af.25, i64 %62), !alias.scope !104
   %71 = icmp eq i32 %bcmp.i72, 0
   br i1 %71, label %73, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
-  %bcmp.i76 = tail call i32 @bcmp(ptr nonnull readonly %60, ptr nonnull readonly @anon.7846843607c3237cb579c64a79ba54af.26, i64 %62), !alias.scope !108
+  %bcmp.i76 = tail call i32 @bcmp(ptr nonnull readonly align 1 %60, ptr nonnull @anon.7846843607c3237cb579c64a79ba54af.26, i64 %62), !alias.scope !108
   %bcmp.i76.fr = freeze i32 %bcmp.i76
   %72 = icmp eq i32 %bcmp.i76.fr, 0
   %spec.select = select i1 %72, i8 1, i8 %.0131

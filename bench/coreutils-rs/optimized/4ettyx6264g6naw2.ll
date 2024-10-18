@@ -552,7 +552,7 @@ common.resume:                                    ; preds = %.body, %59, %40
 191:                                              ; preds = %200, %199, %190
   %.1 = phi ptr [ %.08.i.i.i83, %200 ], [ %.08.i.i.i72, %199 ], [ %.08.i.i.i64, %190 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !121
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6315a8ee5260d624E.llvm.6590528771756919200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %24)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6315a8ee5260d624E.llvm.6590528771756919200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
   %192 = getelementptr inbounds i8, ptr %4, i64 8
   %193 = load i64, ptr %192, align 8, !range !130, !noalias !121, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %193, 0

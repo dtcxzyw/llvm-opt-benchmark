@@ -867,7 +867,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc24RidgeDetectionFilterImplD2Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc24RidgeDetectionFilterImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #10
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

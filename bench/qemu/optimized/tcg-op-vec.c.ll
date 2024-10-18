@@ -1327,12 +1327,12 @@ entry:
   %bf.cast14.i.i.i = and i32 %13, 255
   %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
-  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
+  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
   %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
   br i1 %cmp20.i.i.i, label %if.then21.i.i.i, label %if.else.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %entry
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 156, i32 noundef 3) #5
+  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
   %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
   %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
   %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
@@ -1353,7 +1353,7 @@ if.then21.i.i.i:                                  ; preds = %entry
 if.else.i.i.i:                                    ; preds = %entry
   %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %tcg_gen_sub_vec.exit
 
 tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i
@@ -1390,12 +1390,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 156, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -1416,7 +1416,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
@@ -1515,12 +1515,12 @@ if.then7:                                         ; preds = %if.then
   %bf.cast14.i.i.i.i = and i32 %24, 255
   %cmp15.i.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i.i, %bf.cast.i.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i.i)
-  %call19.i.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i.i, i32 noundef %vece) #5
+  %call19.i.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i.i, i32 noundef %vece) #5
   %cmp20.i.i.i.i = icmp sgt i32 %call19.i.i.i.i, 0
   br i1 %cmp20.i.i.i.i, label %if.then21.i.i.i.i, label %if.else.i.i.i.i
 
 if.then21.i.i.i.i:                                ; preds = %if.then7
-  %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 156, i32 noundef 3) #5
+  %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
   %bf.load.i.i.i.i.i = load i32, ptr %call.i.i.i.i.i, align 8
   %sub.i.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i.i, 16
   %bf.value.i.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i.i, 16580608
@@ -1541,7 +1541,7 @@ if.then21.i.i.i.i:                                ; preds = %if.then7
 if.else.i.i.i.i:                                  ; preds = %if.then7
   %cmp22.i.i.i.i = icmp ne i32 %call19.i.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i.i, i32 noundef %vece, i64 noundef %16, i64 noundef %17, i64 noundef %18) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i.i, i32 noundef %vece, i64 noundef %16, i64 noundef %17, i64 noundef %18) #5
   br label %tcg_gen_neg_vec.exit
 
 tcg_gen_neg_vec.exit:                             ; preds = %if.then21.i.i.i.i, %if.else.i.i.i.i
@@ -1673,12 +1673,12 @@ if.end13:                                         ; preds = %if.else.i36, %if.th
   %bf.cast14.i.i.i = and i32 %53, 255
   %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
-  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
+  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
   %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
   br i1 %cmp20.i.i.i, label %if.then21.i.i.i, label %if.else.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %if.end13
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 156, i32 noundef 3) #5
+  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
   %bf.load.i.i.i.i50 = load i32, ptr %call.i.i.i.i, align 8
   %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
   %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
@@ -1699,7 +1699,7 @@ if.then21.i.i.i:                                  ; preds = %if.end13
 if.else.i.i.i:                                    ; preds = %if.end13
   %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %48, i64 noundef %48, i64 noundef %49) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %48, i64 noundef %48, i64 noundef %49) #5
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else.i.i.i, %if.then21.i.i.i, %tcg_gen_neg_vec.exit
@@ -1945,12 +1945,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 155, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 155, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -1971,7 +1971,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
@@ -2008,12 +2008,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 157, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 157, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 157, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 157, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -2034,7 +2034,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 157, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 157, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
@@ -2071,12 +2071,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 160, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 160, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 160, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 160, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -2097,7 +2097,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 160, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 160, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
@@ -2272,12 +2272,12 @@ tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else
   %bf.cast14.i.i.i = and i32 %45, 255
   %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i17
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
-  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece) #5
+  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece) #5
   %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
   br i1 %cmp20.i.i.i, label %if.then21.i.i.i, label %if.else.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %tcg_gen_not_vec.exit
-  %call.i.i.i.i19 = tail call ptr @tcg_emit_op(i32 noundef 155, i32 noundef 3) #5
+  %call.i.i.i.i19 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 155, i32 noundef 3) #5
   %bf.load.i.i.i.i20 = load i32, ptr %call.i.i.i.i19, align 8
   %sub.i.i.i.i21 = shl nuw nsw i32 %bf.cast.i.i.i17, 16
   %bf.value.i.i.i.i22 = add nuw nsw i32 %sub.i.i.i.i21, 16580608
@@ -2298,7 +2298,7 @@ if.then21.i.i.i:                                  ; preds = %tcg_gen_not_vec.exi
 if.else.i.i.i:                                    ; preds = %tcg_gen_not_vec.exit
   %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece, i64 noundef %37, i64 noundef %38, i64 noundef %39) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece, i64 noundef %37, i64 noundef %38, i64 noundef %39) #5
   br label %tcg_gen_add_vec.exit
 
 tcg_gen_add_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i
@@ -2346,12 +2346,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 162, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 162, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 162, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 162, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -2372,7 +2372,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 162, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 162, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
@@ -2467,12 +2467,12 @@ if.then:                                          ; preds = %if.else.i
   %bf.cast14.i.i.i = and i32 %24, 255
   %cmp15.i.i.i = icmp samesign uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
-  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
+  %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
   %cmp20.i.i.i = icmp sgt i32 %call19.i.i.i, 0
   br i1 %cmp20.i.i.i, label %if.then21.i.i.i, label %if.else.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %if.then
-  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 156, i32 noundef 3) #5
+  %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
   %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
   %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
   %bf.value.i.i.i.i = add nuw nsw i32 %sub.i.i.i.i, 16580608
@@ -2493,7 +2493,7 @@ if.then21.i.i.i:                                  ; preds = %if.then
 if.else.i.i.i:                                    ; preds = %if.then
   %cmp22.i.i.i = icmp ne i32 %call19.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %16, i64 noundef %17, i64 noundef %18) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %16, i64 noundef %17, i64 noundef %18) #5
   br label %tcg_gen_sub_vec.exit
 
 tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i
@@ -2548,12 +2548,12 @@ entry:
   %bf.cast14.i = and i32 %13, 255
   %cmp15.i = icmp samesign uge i32 %bf.cast14.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp15.i)
-  %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef %opc, i32 noundef %bf.cast.i, i32 noundef %vece) #5
+  %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) %opc, i32 noundef %bf.cast.i, i32 noundef %vece) #5
   %cmp20.i = icmp sgt i32 %call19.i, 0
   br i1 %cmp20.i, label %if.then21.i, label %if.else.i
 
 if.then21.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 3) #5
+  %call.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) %opc, i32 noundef 3) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
   %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
@@ -2576,7 +2576,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp22.i, label %if.then23.i, label %if.then
 
 if.then23.i:                                      ; preds = %if.else.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef %opc, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) %opc, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %if.end
 
 if.then:                                          ; preds = %if.else.i
@@ -2617,12 +2617,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 185, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 185, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 185, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 185, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -2643,7 +2643,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 185, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 185, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
@@ -2680,12 +2680,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 186, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 186, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 186, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 186, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -2706,7 +2706,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 186, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 186, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
@@ -2743,12 +2743,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 187, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 187, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 187, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 187, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -2769,7 +2769,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 187, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 187, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
@@ -2806,12 +2806,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 188, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 188, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 188, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 188, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -2832,7 +2832,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 188, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 188, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i
@@ -2869,12 +2869,12 @@ entry:
   %bf.cast14.i.i = and i32 %13, 255
   %cmp15.i.i = icmp samesign uge i32 %bf.cast14.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i)
-  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 189, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
+  %call19.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 189, i32 noundef %bf.cast.i.i, i32 noundef %vece) #5
   %cmp20.i.i = icmp sgt i32 %call19.i.i, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.else.i.i
 
 if.then21.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 189, i32 noundef 3) #5
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 189, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
   %bf.value.i.i.i = add nuw nsw i32 %sub.i.i.i, 16580608
@@ -2895,7 +2895,7 @@ if.then21.i.i:                                    ; preds = %entry
 if.else.i.i:                                      ; preds = %entry
   %cmp22.i.i = icmp ne i32 %call19.i.i, 0
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 189, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 189, i32 noundef %bf.cast.i.i, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7) #5
   br label %do_op3_nofail.exit
 
 do_op3_nofail.exit:                               ; preds = %if.then21.i.i, %if.else.i.i

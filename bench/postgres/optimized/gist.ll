@@ -843,7 +843,7 @@ list_length.exit.i:                               ; preds = %gistfixsplit.exit
   br i1 %.not.i123, label %gistinserttuples.exit, label %223
 
 223:                                              ; preds = %221
-  call fastcc void @gistfinishsplit(ptr noundef readonly %14, ptr noundef nonnull %211, ptr noundef %3, ptr noundef nonnull %222, i1 noundef zeroext false) #10
+  call fastcc void @gistfinishsplit(ptr noundef nonnull readonly %14, ptr noundef nonnull %211, ptr noundef %3, ptr noundef nonnull %222, i1 noundef zeroext false) #10
   br label %gistinserttuples.exit
 
 gistinserttuples.exit:                            ; preds = %221, %223
@@ -878,7 +878,7 @@ gistfinishsplit.exit:                             ; preds = %225, %gistfixsplit.
   %237 = load i16, ptr %116, align 2
   %238 = load i32, ptr %231, align 8
   %239 = load i32, ptr %230, align 8
-  %240 = call fastcc zeroext i1 @gistinserttuples(ptr noundef readonly %14, ptr noundef %236, ptr noundef %3, ptr noundef nonnull %8, i32 noundef 2, i16 noundef zeroext %237, i32 noundef %238, i32 noundef %239, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %240 = call fastcc zeroext i1 @gistinserttuples(ptr noundef nonnull readonly %14, ptr noundef %236, ptr noundef %3, ptr noundef nonnull %8, i32 noundef 2, i16 noundef zeroext %237, i32 noundef %238, i32 noundef %239, i1 noundef zeroext true, i1 noundef zeroext false) #11
   store i16 0, ptr %116, align 2
   %241 = getelementptr inbounds i8, ptr %103, i64 24
   store i8 1, ptr %241, align 8
@@ -1033,7 +1033,7 @@ BufferGetPage.exit117:                            ; preds = %300, %306
   br i1 %.not.i.i, label %gistinserttuple.exit, label %324
 
 324:                                              ; preds = %314
-  call fastcc void @gistfinishsplit(ptr noundef readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %323, i1 noundef zeroext false) #11
+  call fastcc void @gistfinishsplit(ptr noundef nonnull readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %323, i1 noundef zeroext false) #11
   br label %gistinserttuple.exit
 
 gistinserttuple.exit:                             ; preds = %314, %324
@@ -1163,7 +1163,7 @@ BufferGetPage.exit119:                            ; preds = %342, %348
   br i1 %.not.i.i120, label %gistinserttuple.exit121, label %391
 
 391:                                              ; preds = %380
-  call fastcc void @gistfinishsplit(ptr noundef readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %390, i1 noundef zeroext false) #11
+  call fastcc void @gistfinishsplit(ptr noundef nonnull readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %390, i1 noundef zeroext false) #11
   br label %gistinserttuple.exit121
 
 gistinserttuple.exit121:                          ; preds = %380, %391

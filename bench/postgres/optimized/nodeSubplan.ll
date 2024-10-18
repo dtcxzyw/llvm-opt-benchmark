@@ -304,7 +304,7 @@ ExecProcNode.exit.i.i:                            ; preds = %132, %126
 
 slot_getsomeattrs.exit.i.i.i:                     ; preds = %.lr.ph95.i.i
   %165 = trunc nuw nsw i64 %indvars.iv99.i.i to i32
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.07396.i.i, i32 noundef %165) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.07396.i.i, i32 noundef range(i32 -32767, -2147483648) %165) #7
   br label %slot_getattr.exit.i.i
 
 slot_getattr.exit.i.i:                            ; preds = %slot_getsomeattrs.exit.i.i.i, %.lr.ph95.i.i
@@ -374,7 +374,7 @@ slot_getattr.exit.i.i:                            ; preds = %slot_getsomeattrs.e
   br i1 %207, label %slot_getsomeattrs.exit.i.i.i.i, label %slot_attisnull.exit.i.i.i
 
 slot_getsomeattrs.exit.i.i.i.i:                   ; preds = %204
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %183, i32 noundef %.08.i.i.i) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %183, i32 noundef range(i32 -32767, -2147483648) %.08.i.i.i) #7
   br label %slot_attisnull.exit.i.i.i
 
 slot_attisnull.exit.i.i.i:                        ; preds = %slot_getsomeattrs.exit.i.i.i.i, %204
@@ -504,7 +504,7 @@ buildSubPlanHash.exit.i:                          ; preds = %ExecProcNode.exit86
   br i1 %277, label %slot_getsomeattrs.exit.i.i52.i, label %slot_attisnull.exit.i.i
 
 slot_getsomeattrs.exit.i.i52.i:                   ; preds = %274
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %253, i32 noundef %.08.i.i) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %253, i32 noundef range(i32 -32767, -2147483648) %.08.i.i) #7
   br label %slot_attisnull.exit.i.i
 
 slot_attisnull.exit.i.i:                          ; preds = %slot_getsomeattrs.exit.i.i52.i, %274
@@ -606,7 +606,7 @@ slotNoNulls.exit.thread.i:                        ; preds = %slotNoNulls.exit.i,
   br i1 %332, label %slot_getsomeattrs.exit.i.i60.i, label %slot_attisnull.exit.i56.i
 
 slot_getsomeattrs.exit.i.i60.i:                   ; preds = %.lr.ph.i54.i
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %253, i32 noundef %.08.i55.i) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %253, i32 noundef range(i32 -32767, -2147483648) %.08.i55.i) #7
   %.pre.i = load ptr, ptr %273, align 8
   br label %slot_attisnull.exit.i56.i
 
@@ -972,7 +972,7 @@ ExecProcNode.exit.i:                              ; preds = %431, %.thread.i
   %542 = sext i16 %529 to i32
   %543 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %543)
-  %544 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %542) #7
+  %544 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %542) #7
   call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #7
   unreachable
 
@@ -981,7 +981,7 @@ ExecProcNode.exit.i:                              ; preds = %431, %.thread.i
   br label %heap_getattr.exit.i
 
 547:                                              ; preds = %511
-  %548 = call i64 @nocachegetattr(ptr noundef nonnull %492, i32 noundef %494, ptr noundef nonnull %450) #7
+  %548 = call i64 @nocachegetattr(ptr noundef nonnull %492, i32 noundef range(i32 1, 2048) %494, ptr noundef nonnull %450) #7
   br label %heap_getattr.exit.i
 
 549:                                              ; preds = %506
@@ -1003,7 +1003,7 @@ ExecProcNode.exit.i:                              ; preds = %431, %.thread.i
   br label %heap_getattr.exit.i
 
 561:                                              ; preds = %549
-  %562 = call i64 @nocachegetattr(ptr noundef nonnull %492, i32 noundef %494, ptr noundef %450) #7
+  %562 = call i64 @nocachegetattr(ptr noundef nonnull %492, i32 noundef range(i32 1, 2048) %494, ptr noundef %450) #7
   br label %heap_getattr.exit.i
 
 563:                                              ; preds = %.lr.ph
@@ -1031,7 +1031,7 @@ heap_getattr.exit.i:                              ; preds = %563, %561, %560, %5
   br i1 %573, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %570
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0220.i, i32 noundef 1) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0220.i, i32 noundef range(i32 -32767, -2147483648) 1) #7
   br label %slot_getattr.exit.i
 
 slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.exit.i.i, %570
@@ -1090,7 +1090,7 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
 
 slot_getsomeattrs.exit.i156.i:                    ; preds = %.lr.ph216.i
   %607 = trunc nuw nsw i64 %indvars.iv243.i to i32
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0220.i, i32 noundef %607) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0220.i, i32 noundef range(i32 -32767, -2147483648) %607) #7
   br label %slot_getattr.exit157.i
 
 slot_getattr.exit157.i:                           ; preds = %slot_getsomeattrs.exit.i156.i, %.lr.ph216.i
@@ -1764,7 +1764,7 @@ ExecProcNode.exit:                                ; preds = %38, %44
   br i1 %77, label %slot_getsomeattrs.exit.i.us, label %slot_getattr.exit.us
 
 slot_getsomeattrs.exit.i.us:                      ; preds = %.lr.ph158
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.0140.us147156, i32 noundef 1) #7
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.0140.us147156, i32 noundef range(i32 -32767, -2147483648) 1) #7
   br label %slot_getattr.exit.us
 
 slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.exit.i.us, %.lr.ph158
@@ -1934,7 +1934,7 @@ ExecProcNode.exit118.us:                          ; preds = %88, %slot_getattr.e
   %174 = sext i16 %161 to i32
   %175 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %175)
-  %176 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %174) #7
+  %176 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %174) #7
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #7
   unreachable
 
@@ -1943,7 +1943,7 @@ ExecProcNode.exit118.us:                          ; preds = %88, %slot_getattr.e
   br label %heap_getattr.exit
 
 179:                                              ; preds = %143
-  %180 = tail call i64 @nocachegetattr(ptr noundef nonnull %124, i32 noundef %126, ptr noundef nonnull %98) #7
+  %180 = tail call i64 @nocachegetattr(ptr noundef nonnull %124, i32 noundef range(i32 1, 2048) %126, ptr noundef nonnull %98) #7
   br label %heap_getattr.exit
 
 181:                                              ; preds = %138
@@ -1966,7 +1966,7 @@ ExecProcNode.exit118.us:                          ; preds = %88, %slot_getattr.e
   br label %heap_getattr.exit
 
 194:                                              ; preds = %181
-  %195 = tail call i64 @nocachegetattr(ptr noundef nonnull %124, i32 noundef %126, ptr noundef %98) #7
+  %195 = tail call i64 @nocachegetattr(ptr noundef nonnull %124, i32 noundef range(i32 1, 2048) %126, ptr noundef %98) #7
   br label %heap_getattr.exit
 
 196:                                              ; preds = %.lr.ph192
@@ -2187,7 +2187,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %54 = sext i16 %40 to i32
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %54) #7
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %54) #7
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #7
   unreachable
 
@@ -2196,7 +2196,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 59:                                               ; preds = %21
-  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #7
+  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #7
   br label %fastgetattr.exit
 
 61:                                               ; preds = %16
@@ -2218,7 +2218,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 73:                                               ; preds = %61
-  %74 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #7
+  %74 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #7
   br label %fastgetattr.exit
 
 75:                                               ; preds = %4
@@ -2425,7 +2425,7 @@ define internal fastcc noundef zeroext i1 @findPartialMatch(ptr nocapture nounde
   br i1 %39, label %slot_getsomeattrs.exit.i.i.us, label %slot_getattr.exit.i.us
 
 slot_getsomeattrs.exit.i.i.us:                    ; preds = %34
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %37) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef range(i32 -32767, -2147483648) %37) #7
   br label %slot_getattr.exit.i.us
 
 slot_getattr.exit.i.us:                           ; preds = %slot_getsomeattrs.exit.i.i.us, %34
@@ -2446,7 +2446,7 @@ slot_getattr.exit.i.us:                           ; preds = %slot_getsomeattrs.e
   br i1 %51, label %slot_getsomeattrs.exit.i19.i.us, label %slot_getattr.exit20.i.us
 
 slot_getsomeattrs.exit.i19.i.us:                  ; preds = %49
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %27, i32 noundef %37) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %27, i32 noundef range(i32 -32767, -2147483648) %37) #7
   br label %slot_getattr.exit20.i.us
 
 slot_getattr.exit20.i.us:                         ; preds = %slot_getsomeattrs.exit.i19.i.us, %49

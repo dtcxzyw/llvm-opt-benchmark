@@ -33,7 +33,7 @@ define noundef i32 @MPL_args_serialize(i32 noundef %0, ptr nocapture noundef rea
 
 14:                                               ; preds = %._crit_edge
   %15 = zext nneg i32 %.036.lcssa to i64
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #7
+  %16 = tail call noalias ptr @malloc(i64 noundef range(i64 -17179869184, 17179869177) %15) #7
   br label %MPL_malloc.exit
 
 MPL_malloc.exit:                                  ; preds = %._crit_edge, %14
@@ -101,9 +101,9 @@ define noundef i32 @MPL_args_deserialize(i32 noundef %0, ptr nocapture noundef r
 MPL_malloc.exit39:                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #7
+  %9 = tail call noalias ptr @malloc(i64 noundef range(i64 -17179869184, 17179869177) %8) #7
   %10 = shl nuw nsw i64 %7, 2
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #7
+  %11 = tail call noalias ptr @malloc(i64 noundef range(i64 -17179869184, 17179869177) %10) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -128,7 +128,7 @@ MPL_malloc.exit39:                                ; preds = %4
 16:                                               ; preds = %.lr.ph
   %17 = add nsw i32 %14, 1
   %18 = zext nneg i32 %17 to i64
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #7
+  %19 = tail call noalias ptr @malloc(i64 noundef range(i64 -17179869184, 17179869177) %18) #7
   br label %MPL_malloc.exit41
 
 MPL_malloc.exit41:                                ; preds = %.lr.ph, %16

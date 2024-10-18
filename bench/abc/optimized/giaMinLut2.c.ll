@@ -2532,7 +2532,7 @@ define internal fastcc void @Vec_WecPush(ptr nocapture noundef nonnull %0, i32 n
 6:                                                ; preds = %3
   %7 = add nuw nsw i32 %1, 1
   %8 = shl nsw i32 %5, 1
-  %9 = tail call range(i32 8, -2147483648) i32 @llvm.smax.i32(i32 %8, i32 %7)
+  %9 = tail call range(i32 8, -2147483648) i32 @llvm.smax.i32(i32 %8, i32 range(i32 8, -2147483648) %7)
   %10 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %10, %9
   br i1 %.not.i, label %11, label %Vec_WecGrow.exit

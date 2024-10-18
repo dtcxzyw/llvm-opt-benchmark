@@ -56,7 +56,7 @@ define hidden void @aom_convolve8_horiz_c(ptr nocapture noundef readonly %0, i64
 horz_scalar_product.exit.us.i:                    ; preds = %27
   %36 = add nsw i32 %35, 64
   %37 = ashr i32 %36, 7
-  %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
+  %38 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %37, i32 0)
   %39 = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
   %40 = trunc nuw i32 %39 to i8
   %41 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %indvars.iv.i
@@ -133,7 +133,7 @@ define hidden void @aom_convolve8_vert_c(ptr nocapture noundef readonly %0, i64 
 vert_scalar_product.exit.us.i:                    ; preds = %28
   %38 = add nsw i32 %37, 64
   %39 = ashr i32 %38, 7
-  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
+  %40 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %39, i32 0)
   %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 255)
   %42 = trunc nuw i32 %41 to i8
   %43 = mul nsw i64 %indvars.iv.i, %3
@@ -210,7 +210,7 @@ define hidden void @aom_convolve8_c(ptr nocapture noundef readonly %0, i64 nound
 horz_scalar_product.exit.us.i:                    ; preds = %29
   %38 = add nsw i32 %37, 64
   %39 = ashr i32 %38, 7
-  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
+  %40 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %39, i32 0)
   %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 255)
   %42 = trunc nuw i32 %41 to i8
   %43 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %indvars.iv.i
@@ -273,7 +273,7 @@ convolve_horiz.exit:                              ; preds = %._crit_edge.us.i, %
 vert_scalar_product.exit.us.i:                    ; preds = %57
   %67 = add nsw i32 %66, 64
   %68 = ashr i32 %67, 7
-  %69 = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
+  %69 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %68, i32 0)
   %70 = tail call i32 @llvm.umin.i32(i32 %69, i32 255)
   %71 = trunc nuw i32 %70 to i8
   %72 = mul nsw i64 %indvars.iv.i21, %3
@@ -351,7 +351,7 @@ define hidden void @aom_scaled_2d_c(ptr nocapture noundef readonly %0, i64 nound
 horz_scalar_product.exit.us.i.i:                  ; preds = %29
   %38 = add nsw i32 %37, 64
   %39 = ashr i32 %38, 7
-  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
+  %40 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %39, i32 0)
   %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 255)
   %42 = trunc nuw i32 %41 to i8
   %43 = getelementptr inbounds i8, ptr %.02229.us.i.i, i64 %indvars.iv.i.i
@@ -414,7 +414,7 @@ convolve_horiz.exit.i:                            ; preds = %._crit_edge.us.i.i,
 vert_scalar_product.exit.us.i.i:                  ; preds = %57
   %67 = add nsw i32 %66, 64
   %68 = ashr i32 %67, 7
-  %69 = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
+  %69 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %68, i32 0)
   %70 = tail call i32 @llvm.umin.i32(i32 %69, i32 255)
   %71 = trunc nuw i32 %70 to i8
   %72 = mul nsw i64 %indvars.iv.i21.i, %3
@@ -526,7 +526,7 @@ define hidden void @aom_highbd_convolve8_horiz_c(ptr noundef %0, i64 noundef %1,
 highbd_horz_scalar_product.exit.us.us.us.i:       ; preds = %34
   %43 = add nsw i32 %42, 64
   %44 = ashr i32 %43, 7
-  %45 = tail call i32 @llvm.umin.i32(i32 %44, i32 4095)
+  %45 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %44, i32 4095)
   %46 = icmp slt i32 %44, 0
   %47 = trunc nuw nsw i32 %45 to i16
   %.0.i.us.us.us.i = select i1 %46, i16 0, i16 %47
@@ -579,7 +579,7 @@ highbd_horz_scalar_product.exit.us.us.us.i:       ; preds = %34
 highbd_horz_scalar_product.exit.us38.us.us.i:     ; preds = %60
   %69 = add nsw i32 %68, 64
   %70 = ashr i32 %69, 7
-  %71 = tail call i32 @llvm.umin.i32(i32 %70, i32 1023)
+  %71 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %70, i32 1023)
   %72 = icmp slt i32 %70, 0
   %73 = trunc nuw nsw i32 %71 to i16
   %.0.i.us42.us.us.i = select i1 %72, i16 0, i16 %73
@@ -632,7 +632,7 @@ highbd_horz_scalar_product.exit.us38.us.us.i:     ; preds = %60
 highbd_horz_scalar_product.exit.us57.i:           ; preds = %86
   %95 = add nsw i32 %94, 64
   %96 = ashr i32 %95, 7
-  %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
+  %97 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %96, i32 255)
   %98 = icmp slt i32 %96, 0
   %99 = trunc nuw nsw i32 %97 to i16
   %.0.i.us59.i = select i1 %98, i16 0, i16 %99
@@ -722,15 +722,15 @@ highbd_vert_scalar_product.exit.us.i:             ; preds = %35
   ]
 
 47:                                               ; preds = %highbd_vert_scalar_product.exit.us.i
-  %48 = tail call i32 @llvm.umin.i32(i32 %46, i32 1023)
+  %48 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %46, i32 1023)
   br label %clip_pixel_highbd.exit.us.i
 
 49:                                               ; preds = %highbd_vert_scalar_product.exit.us.i
-  %50 = tail call i32 @llvm.umin.i32(i32 %46, i32 4095)
+  %50 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %46, i32 4095)
   br label %clip_pixel_highbd.exit.us.i
 
 51:                                               ; preds = %highbd_vert_scalar_product.exit.us.i
-  %52 = tail call i32 @llvm.umin.i32(i32 %46, i32 255)
+  %52 = tail call i32 @llvm.umin.i32(i32 range(i32 -16777216, 16777216) %46, i32 255)
   br label %clip_pixel_highbd.exit.us.i
 
 clip_pixel_highbd.exit.us.i:                      ; preds = %51, %49, %47

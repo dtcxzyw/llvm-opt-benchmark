@@ -23,7 +23,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define dso_local noundef i32 @_ZNK20btPolarDecomposition9decomposeERK11btMatrix3x3RS0_S3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %a, ptr nocapture noundef nonnull align 4 dereferenceable(48) %u, ptr nocapture noundef nonnull align 4 dereferenceable(48) %h) local_unnamed_addr #1 align 2 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %u, ptr noundef nonnull align 4 dereferenceable(16) %a, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %u, ptr noundef nonnull align 4 dereferenceable(48) %a, i64 16, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %a, i64 16
   %arrayidx7.i = getelementptr inbounds i8, ptr %u, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)

@@ -972,7 +972,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %cmp3.i, label %mi_show_error_message.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %land.lhs.true.i, %if.end.i, %entry
-  call fastcc void @mi_vfprintf_thread(ptr noundef nonnull @.str.36, ptr noundef %fmt, ptr noundef %args) #18
+  call fastcc void @mi_vfprintf_thread(ptr noundef nonnull @.str.36, ptr noundef %fmt, ptr noundef nonnull %args) #18
   br label %mi_show_error_message.exit
 
 mi_show_error_message.exit:                       ; preds = %if.then.i, %land.lhs.true.i, %if.end6.i

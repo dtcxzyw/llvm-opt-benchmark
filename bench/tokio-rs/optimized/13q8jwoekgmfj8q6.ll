@@ -505,7 +505,7 @@ common.resume:                                    ; preds = %14, %.body
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..semaphore..Semaphore..acquire_many_owned..$u7b$$u7b$closure$u7d$$u7d$$GT$17h75d1eefa108ca0cfE.llvm.1636463278540328082"(ptr noundef nonnull align 8 %2) #18
+  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..semaphore..Semaphore..acquire_many_owned..$u7b$$u7b$closure$u7d$$u7d$$GT$17h75d1eefa108ca0cfE.llvm.1636463278540328082"(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
           to label %common.resume unwind label %16
 
 16:                                               ; preds = %14

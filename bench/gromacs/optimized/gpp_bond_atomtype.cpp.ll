@@ -202,7 +202,7 @@ _ZNK25PreprocessingBondAtomType5isSetEi.exit:     ; preds = %3
 
 15:                                               ; preds = %_ZNK25PreprocessingBondAtomType5isSetEi.exit
   %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 %5
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %16)
   br label %_ZNK25PreprocessingBondAtomType5isSetEi.exit.thread
 
 _ZNK25PreprocessingBondAtomType5isSetEi.exit.thread: ; preds = %_ZNK25PreprocessingBondAtomType5isSetEi.exit, %3, %15

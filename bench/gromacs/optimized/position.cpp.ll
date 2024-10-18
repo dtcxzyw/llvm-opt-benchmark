@@ -108,7 +108,7 @@ define void @_Z19gmx_ana_pos_reserveP13gmx_ana_pos_tii(ptr noundef %0, i32 nound
   store i32 %spec.store.select, ptr %7, align 8
   %11 = zext nneg i32 %spec.store.select to i64
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef %12, i64 noundef %11, i64 noundef 12)
+  %13 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef %12, i64 noundef range(i64 -2147483648, 2147483648) %11, i64 noundef 12)
   store ptr %13, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -116,7 +116,7 @@ define void @_Z19gmx_ana_pos_reserveP13gmx_ana_pos_tii(ptr noundef %0, i32 nound
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %10
-  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull %15, i64 noundef %11, i64 noundef 12)
+  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull %15, i64 noundef range(i64 -2147483648, 2147483648) %11, i64 noundef 12)
   store ptr %17, ptr %14, align 8
   br label %18
 
@@ -127,7 +127,7 @@ define void @_Z19gmx_ana_pos_reserveP13gmx_ana_pos_tii(ptr noundef %0, i32 nound
   br i1 %.not17, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 97, ptr noundef nonnull %20, i64 noundef %11, i64 noundef 12)
+  %22 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 97, ptr noundef nonnull %20, i64 noundef range(i64 -2147483648, 2147483648) %11, i64 noundef 12)
   store ptr %22, ptr %19, align 8
   br label %23
 
@@ -170,7 +170,7 @@ define void @_Z30gmx_ana_pos_reserve_velocitiesP13gmx_ana_pos_t(ptr nocapture no
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %3 to i64
-  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 117, i64 noundef %10, i64 noundef 12)
+  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 117, i64 noundef range(i64 -2147483648, 2147483648) %10, i64 noundef 12)
   store ptr %11, ptr %7, align 8
   br label %12
 
@@ -199,7 +199,7 @@ define void @_Z26gmx_ana_pos_reserve_forcesP13gmx_ana_pos_t(ptr nocapture nounde
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %3 to i64
-  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 132, i64 noundef %10, i64 noundef 12)
+  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 132, i64 noundef range(i64 -2147483648, 2147483648) %10, i64 noundef 12)
   store ptr %11, ptr %7, align 8
   br label %12
 
@@ -212,7 +212,7 @@ define void @_Z30gmx_ana_pos_reserve_for_appendP13gmx_ana_pos_tiibb(ptr noundef 
   tail call void @_Z19gmx_ana_pos_reserveP13gmx_ana_pos_tii(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = sext i32 %2 to i64
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 152, i64 noundef %7, i64 noundef 4)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 152, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 4)
   store ptr %8, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %2, ptr %9, align 4
@@ -236,7 +236,7 @@ define void @_Z30gmx_ana_pos_reserve_for_appendP13gmx_ana_pos_tiibb(ptr noundef 
 
 18:                                               ; preds = %15
   %19 = zext nneg i32 %12 to i64
-  %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 117, i64 noundef %19, i64 noundef 12)
+  %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 117, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 12)
   store ptr %20, ptr %16, align 8
   br label %_Z30gmx_ana_pos_reserve_velocitiesP13gmx_ana_pos_t.exit
 
@@ -261,7 +261,7 @@ _Z30gmx_ana_pos_reserve_velocitiesP13gmx_ana_pos_t.exit: ; preds = %18, %15, %5
 
 29:                                               ; preds = %26
   %30 = zext nneg i32 %23 to i64
-  %31 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 132, i64 noundef %30, i64 noundef 12)
+  %31 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 132, i64 noundef range(i64 -2147483648, 2147483648) %30, i64 noundef 12)
   store ptr %31, ptr %27, align 8
   br label %_Z26gmx_ana_pos_reserve_forcesP13gmx_ana_pos_t.exit
 
@@ -342,7 +342,7 @@ define void @_Z16gmx_ana_pos_copyP13gmx_ana_pos_tS0_b(ptr noundef %0, ptr nounde
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %11 to i64
-  %19 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 117, i64 noundef %18, i64 noundef 12)
+  %19 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 117, i64 noundef range(i64 -2147483648, 2147483648) %18, i64 noundef 12)
   store ptr %19, ptr %15, align 8
   br label %_Z30gmx_ana_pos_reserve_velocitiesP13gmx_ana_pos_t.exit
 
@@ -370,7 +370,7 @@ _Z30gmx_ana_pos_reserve_velocitiesP13gmx_ana_pos_t.exit: ; preds = %17, %14, %4
 
 30:                                               ; preds = %27
   %31 = zext nneg i32 %24 to i64
-  %32 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 132, i64 noundef %31, i64 noundef 12)
+  %32 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 132, i64 noundef range(i64 -2147483648, 2147483648) %31, i64 noundef 12)
   store ptr %32, ptr %28, align 8
   br label %_Z26gmx_ana_pos_reserve_forcesP13gmx_ana_pos_t.exit
 

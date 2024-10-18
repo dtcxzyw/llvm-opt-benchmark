@@ -1394,7 +1394,7 @@ report_parameters.exit:                           ; preds = %._crit_edge59.i, %4
   br i1 %.not.i20, label %500, label %499
 
 499:                                              ; preds = %._crit_edge.i19
-  call fastcc void @run_test(i32 noundef 0, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef readonly %12)
+  call fastcc void @run_test(i32 noundef 0, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef nonnull readonly %12)
   %.pre.i = load i64, ptr %12, align 8
   br label %500
 
@@ -1405,7 +1405,7 @@ report_parameters.exit:                           ; preds = %._crit_edge59.i, %4
   br i1 %.not37.i, label %run_test_loop.exit, label %503
 
 503:                                              ; preds = %500
-  call fastcc void @run_test(i32 noundef 1, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef readonly %12)
+  call fastcc void @run_test(i32 noundef 1, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef nonnull readonly %12)
   br label %run_test_loop.exit
 
 run_test_loop.exit:                               ; preds = %500, %503

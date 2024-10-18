@@ -619,7 +619,7 @@ skip_sfx.exit.thread.i:                           ; preds = %.outer._crit_edge.i
   %177 = tail call ptr @__errno_location() #19
   store i32 0, ptr %177, align 4
   %178 = load i32, ptr %139, align 4
-  %179 = call fastcc i32 @read_Header(ptr noundef nonnull %0, ptr noundef %5, i32 noundef %178)
+  %179 = call fastcc i32 @read_Header(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %178)
   %180 = icmp slt i32 %179, 0
   br i1 %180, label %181, label %186
 

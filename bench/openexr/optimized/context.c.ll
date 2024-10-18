@@ -123,7 +123,7 @@ if.then18.i:                                      ; preds = %if.end.i
   br label %fill_context_data.exit
 
 fill_context_data.exit:                           ; preds = %entry, %if.then.i, %if.end.i, %if.then18.i
-  call void @internal_exr_update_default_handlers(ptr noundef nonnull %inits) #13
+  call void @internal_exr_update_default_handlers(ptr noundef nonnull align 8 %inits) #13
   %tobool.not = icmp eq ptr %filename, null
   br i1 %tobool.not, label %if.else26, label %land.lhs.true
 
@@ -540,7 +540,7 @@ if.then18.i:                                      ; preds = %if.end.i
   br label %fill_context_data.exit
 
 fill_context_data.exit:                           ; preds = %entry, %if.then.i, %if.end.i, %if.then18.i
-  call void @internal_exr_update_default_handlers(ptr noundef nonnull %inits) #13
+  call void @internal_exr_update_default_handlers(ptr noundef nonnull align 8 %inits) #13
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %if.then, label %if.end3
 
@@ -734,7 +734,7 @@ if.then18.i:                                      ; preds = %if.end.i
   br label %fill_context_data.exit
 
 fill_context_data.exit:                           ; preds = %entry, %if.then.i, %if.end.i, %if.then18.i
-  call void @internal_exr_update_default_handlers(ptr noundef nonnull %inits) #13
+  call void @internal_exr_update_default_handlers(ptr noundef nonnull align 8 %inits) #13
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %if.then, label %if.end
 

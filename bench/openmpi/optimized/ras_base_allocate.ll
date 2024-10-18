@@ -3558,7 +3558,7 @@ pmix_pointer_array_get_item.exit349:              ; preds = %pmix_pointer_array_
 .lr.ph.i352:                                      ; preds = %84, %.lr.ph.i352
   %90 = phi ptr [ %92, %.lr.ph.i352 ], [ %89, %84 ]
   %.07.i353 = phi ptr [ %91, %.lr.ph.i352 ], [ %88, %84 ]
-  call void %90(ptr noundef %67) #15
+  call void %90(ptr noundef nonnull %67) #15
   %91 = getelementptr inbounds i8, ptr %.07.i353, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not.i354 = icmp eq ptr %92, null
@@ -3734,7 +3734,7 @@ pmix_pointer_array_get_item.exit363:              ; preds = %pmix_pointer_array_
 .lr.ph.i367:                                      ; preds = %171, %.lr.ph.i367
   %177 = phi ptr [ %179, %.lr.ph.i367 ], [ %176, %171 ]
   %.07.i368 = phi ptr [ %178, %.lr.ph.i367 ], [ %175, %171 ]
-  call void %177(ptr noundef %154) #15
+  call void %177(ptr noundef nonnull %154) #15
   %178 = getelementptr inbounds i8, ptr %.07.i368, i64 8
   %179 = load ptr, ptr %178, align 8
   %.not.i369 = icmp eq ptr %179, null
@@ -3940,7 +3940,7 @@ thread-pre-split:                                 ; preds = %.preheader446, %thr
 .lr.ph.i380:                                      ; preds = %257, %.lr.ph.i380
   %263 = phi ptr [ %265, %.lr.ph.i380 ], [ %262, %257 ]
   %.07.i381 = phi ptr [ %264, %.lr.ph.i380 ], [ %261, %257 ]
-  call void %263(ptr noundef %240) #15
+  call void %263(ptr noundef nonnull %240) #15
   %264 = getelementptr inbounds i8, ptr %.07.i381, i64 8
   %265 = load ptr, ptr %264, align 8
   %.not.i382 = icmp eq ptr %265, null
@@ -4588,7 +4588,7 @@ pmix_obj_run_destructors.exit415:                 ; preds = %.lr.ph.i412, %518
 .lr.ph.i420:                                      ; preds = %564, %.lr.ph.i420
   %570 = phi ptr [ %572, %.lr.ph.i420 ], [ %569, %564 ]
   %.07.i421 = phi ptr [ %571, %.lr.ph.i420 ], [ %568, %564 ]
-  call void %570(ptr noundef %547) #15
+  call void %570(ptr noundef nonnull %547) #15
   %571 = getelementptr inbounds i8, ptr %.07.i421, i64 8
   %572 = load ptr, ptr %571, align 8
   %.not.i422 = icmp eq ptr %572, null

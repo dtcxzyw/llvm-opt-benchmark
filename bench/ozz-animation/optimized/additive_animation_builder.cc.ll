@@ -1515,7 +1515,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocat
   %43 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 16
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %42, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.014.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.010.014.i.i, i8 0, i64 24, i1 false)
   %45 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
   %46 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 24
   %47 = load ptr, ptr %46, align 8

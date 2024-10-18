@@ -981,7 +981,7 @@ define dso_local ptr @scratch_buffer_copy() local_unnamed_addr #7 {
   %2 = zext i32 %1 to i64
   %3 = add nuw nsw i64 %2, 1
   %4 = tail call ptr @calloc_string(i64 noundef %3) #21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull readonly align 4 @scratch_buffer, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 4 @scratch_buffer, i64 %2, i1 false)
   ret ptr %4
 }
 

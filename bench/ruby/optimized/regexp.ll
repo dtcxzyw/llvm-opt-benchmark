@@ -34,7 +34,7 @@ tailrecurse.i:                                    ; preds = %18, %5
   br i1 %.not.i, label %9, label %pm_regexp_parse_expression.exit.thread.i
 
 9:                                                ; preds = %tailrecurse.i
-  %10 = call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef %6)
+  %10 = call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %6)
   br i1 %10, label %.preheader.i.i, label %pm_regexp_parse_pattern.exit
 
 .preheader.i.i:                                   ; preds = %9, %13
@@ -51,7 +51,7 @@ tailrecurse.i:                                    ; preds = %18, %5
   ]
 
 13:                                               ; preds = %11
-  %14 = call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef %6)
+  %14 = call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %6)
   br i1 %14, label %.preheader.i.i, label %pm_regexp_parse_pattern.exit, !llvm.loop !7
 
 pm_regexp_parse_expression.exit.thread.i:         ; preds = %11, %11, %.preheader.i.i, %tailrecurse.i
@@ -226,7 +226,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   br i1 %61, label %.lr.ph93, label %pm_regexp_parse_group.exit.thread, !llvm.loop !9
 
 62:                                               ; preds = %34, %30
-  %63 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 41)
+  %63 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 41)
   br i1 %63, label %.lr.ph91, label %pm_regexp_parse_group.exit.thread
 
 .lr.ph91:                                         ; preds = %62, %70
@@ -242,7 +242,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %67
-  %71 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 41)
+  %71 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 41)
   br i1 %71, label %.lr.ph91, label %pm_regexp_parse_group.exit.thread, !llvm.loop !10
 
 72:                                               ; preds = %22, %22, %22, %22, %22
@@ -269,29 +269,29 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   br label %pm_regexp_char_accept.exit41.thread
 
 80:                                               ; preds = %76
-  %81 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 62)
+  %81 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 62)
   br i1 %81, label %82, label %pm_regexp_parse_group.exit.thread
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %3, align 8
   %84 = getelementptr i8, ptr %83, i64 -1
-  tail call fastcc void @pm_regexp_parser_named_capture(ptr noundef %0, ptr noundef nonnull %75, ptr noundef %84)
+  tail call fastcc void @pm_regexp_parser_named_capture(ptr noundef nonnull %0, ptr noundef nonnull %75, ptr noundef %84)
   br label %pm_regexp_char_accept.exit41.thread
 
 85:                                               ; preds = %22
   %86 = getelementptr i8, ptr %4, i64 3
   store ptr %86, ptr %3, align 8
-  %87 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 39)
+  %87 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 39)
   br i1 %87, label %88, label %pm_regexp_parse_group.exit.thread
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %3, align 8
   %90 = getelementptr i8, ptr %89, i64 -1
-  tail call fastcc void @pm_regexp_parser_named_capture(ptr noundef %0, ptr noundef %86, ptr noundef %90)
+  tail call fastcc void @pm_regexp_parser_named_capture(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %90)
   br label %pm_regexp_char_accept.exit41.thread
 
 91:                                               ; preds = %22
-  %92 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 41)
+  %92 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 41)
   br i1 %92, label %pm_regexp_char_accept.exit41.thread, label %pm_regexp_parse_group.exit.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %101
@@ -388,7 +388,7 @@ pm_regexp_char_accept.exit41.thread:              ; preds = %.lr.ph, %.lr.ph, %.
   br i1 %.not80.i, label %.critedge6.i, label %.lr.ph142, !llvm.loop !13
 
 .lr.ph142:                                        ; preds = %.lr.ph86.preheader, %.lr.ph86
-  %113 = tail call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef %0)
+  %113 = tail call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %0)
   br i1 %113, label %.preheader56, label %pm_regexp_parse_group.exit.thread
 
 .preheader56:                                     ; preds = %.lr.ph142, %116
@@ -405,7 +405,7 @@ pm_regexp_char_accept.exit41.thread:              ; preds = %.lr.ph, %.lr.ph, %.
   ]
 
 116:                                              ; preds = %114
-  %117 = tail call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef %0)
+  %117 = tail call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %0)
   br i1 %117, label %.preheader56, label %pm_regexp_parse_group.exit.thread, !llvm.loop !7
 
 118:                                              ; preds = %114
@@ -746,7 +746,7 @@ pm_regexp_char_accept.exit:                       ; preds = %47, %48, %51
   ]
 
 57:                                               ; preds = %54
-  %58 = tail call fastcc zeroext i1 @pm_regexp_parse_lbracket(ptr noundef %0)
+  %58 = tail call fastcc zeroext i1 @pm_regexp_parse_lbracket(ptr noundef nonnull %0)
   %.val9.i.pre = load ptr, ptr %2, align 8
   %.val10.i.pre = load ptr, ptr %5, align 8
   br label %62

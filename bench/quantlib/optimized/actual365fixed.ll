@@ -177,7 +177,7 @@ sw.bb:                                            ; preds = %entry
   store ptr %call, ptr %agg.result, align 8, !tbaa !6
   %pn.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !11
-  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_14Actual365Fixed4ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull %agg.result, ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(8) %pn.i)
+  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_14Actual365Fixed4ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(8) %pn.i)
           to label %return unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup27, %lpad.i8, %lpad.i6, %lpad.i
@@ -196,7 +196,7 @@ sw.bb1:                                           ; preds = %entry
   store ptr %call2, ptr %agg.result, align 8, !tbaa !6
   %pn.i5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i5, align 8, !tbaa !11
-  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_14Actual365Fixed7CA_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull %agg.result, ptr noundef nonnull %call2, ptr noundef nonnull align 8 dereferenceable(8) %pn.i5)
+  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_14Actual365Fixed7CA_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %call2, ptr noundef nonnull align 8 dereferenceable(8) %pn.i5)
           to label %return unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %sw.bb1
@@ -211,7 +211,7 @@ sw.bb3:                                           ; preds = %entry
   store ptr %call4, ptr %agg.result, align 8, !tbaa !6
   %pn.i7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i7, align 8, !tbaa !11
-  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_14Actual365Fixed7NL_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull %agg.result, ptr noundef nonnull %call4, ptr noundef nonnull align 8 dereferenceable(8) %pn.i7)
+  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_14Actual365Fixed7NL_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %call4, ptr noundef nonnull align 8 dereferenceable(8) %pn.i7)
           to label %return unwind label %lpad.i8
 
 lpad.i8:                                          ; preds = %sw.bb3

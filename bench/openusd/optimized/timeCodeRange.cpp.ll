@@ -1040,7 +1040,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   br i1 %6, label %7, label %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit.i.i.i
 
 7:                                                ; preds = %2
-  tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode28_IssueGetValueOnDefaultErrorEv(ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !8
+  tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode28_IssueGetValueOnDefaultErrorEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !8
   %.pre.i.i.i.i = load double, ptr %1, align 8, !noalias !8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit.i.i.i
 

@@ -1323,7 +1323,7 @@ define linkonce_odr void @_ZThn8_N8QuantLib21TriggeredSwapExerciseD0Ev(ptr nound
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8QuantLib21TriggeredSwapExerciseD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef 248) #23
   ret void
 }
 

@@ -3292,7 +3292,7 @@ sub_0.i:                                          ; preds = %.backedge.i, %sub_0
   %67 = sext i32 %66 to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 %64, ptr %11, align 4
-  %68 = call ptr @bsearch(ptr noundef nonnull %11, ptr noundef %65, i64 noundef %67, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
+  %68 = call ptr @bsearch(ptr noundef nonnull %11, ptr noundef %65, i64 noundef range(i64 -2147483648, 2147483648) %67, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
   %.not40.i = icmp eq ptr %68, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br i1 %.not40.i, label %.backedge.i, label %.outer.i
@@ -6665,14 +6665,14 @@ ReorderBufferSerializeReserve.exit154.i:          ; preds = %.sink.split.i153.i,
   store volatile i32 167772200, ptr %213, align 4
   %214 = load ptr, ptr %26, align 8
   %215 = load i64, ptr %.0.i, align 8
-  %216 = call i64 @write(i32 noundef %.1, ptr noundef %214, i64 noundef %215) #18
+  %216 = call i64 @write(i32 noundef range(i32 0, -2147483648) %.1, ptr noundef %214, i64 noundef %215) #18
   %217 = load i64, ptr %.0.i, align 8
   %.not138.i = icmp eq i64 %216, %217
   br i1 %.not138.i, label %226, label %218
 
 218:                                              ; preds = %211
   %219 = load i32, ptr %212, align 4
-  %220 = call i32 @CloseTransientFile(i32 noundef %.1) #18
+  %220 = call i32 @CloseTransientFile(i32 noundef range(i32 0, -2147483648) %.1) #18
   %.not139.i = icmp eq i32 %219, 0
   %221 = select i1 %.not139.i, i32 28, i32 %219
   store i32 %221, ptr %212, align 4
@@ -7422,7 +7422,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1,
   %43 = sext i16 %29 to i32
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %43) #18
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef range(i32 -32768, 32768) %43) #18
   tail call void @errfinish(ptr noundef nonnull @.str.28, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #18
   unreachable
 

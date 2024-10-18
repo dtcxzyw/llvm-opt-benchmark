@@ -230,7 +230,7 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
   store i32 %71, ptr %.sroa.2.0..sroa_idx.i110, align 8
   %72 = getelementptr inbounds i8, ptr %65, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %73, i32 noundef %64, i32 noundef 1) #4
+  %74 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %73, i32 noundef range(i32 0, 256) %64, i32 noundef 1) #4
   %75 = getelementptr inbounds i8, ptr %6, i64 104
   store i32 %74, ptr %75, align 8
   %76 = load ptr, ptr %66, align 8
@@ -427,7 +427,7 @@ cf_hc_baller_reply_ms.exit.thread.i:              ; preds = %cf_hc_baller_reply_
   store i32 %175, ptr %.sroa.2.0..sroa_idx.i112, align 8
   %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load ptr, ptr %176, align 8
-  %178 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %177, i32 noundef %168, i32 noundef 1) #4
+  %178 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %177, i32 noundef range(i32 0, 256) %168, i32 noundef 1) #4
   %179 = getelementptr inbounds i8, ptr %6, i64 104
   store i32 %178, ptr %179, align 8
   %180 = load ptr, ptr %170, align 8

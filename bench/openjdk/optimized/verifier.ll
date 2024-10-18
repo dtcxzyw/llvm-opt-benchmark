@@ -995,7 +995,7 @@ _ZN13ClassVerifierD2Ev.exit:                      ; preds = %.lr.ph.i, %154, %.p
   br i1 %.not82, label %179, label %173
 
 173:                                              ; preds = %171
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %8, i1 noundef zeroext false) #20
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %8, i1 noundef zeroext false) #20
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %8, align 8
   %174 = getelementptr inbounds i8, ptr %8, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %174) #20
@@ -1017,7 +1017,7 @@ _ZN13ClassVerifierD2Ev.exit:                      ; preds = %.lr.ph.i, %154, %.p
   br i1 %.not83, label %187, label %181
 
 181:                                              ; preds = %179
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %9, i1 noundef zeroext false) #20
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %9, i1 noundef zeroext false) #20
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
   %182 = getelementptr inbounds i8, ptr %9, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %182) #20
@@ -8448,7 +8448,7 @@ declare void @_ZN13StackMapTableC1EP14StackMapReaderP13StackMapFramettPciP10Java
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9LogStreamC2ILN8LogLevel4typeE2ELN6LogTag4typeE170ELS4_0ELS4_0ELS4_0ELS4_0ELS4_0EEERK13LogTargetImplIXT_EXT0_EXT1_EXT2_EXT3_EXT4_EXT5_EE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false) #20
+  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false) #20
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #20
@@ -12873,7 +12873,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %3, %12
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 34:                                               ; preds = %22
-  %35 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, i64 noundef 8, i32 noundef 0) #20
+  %35 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef 8, i32 noundef 0) #20
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %34, %32
@@ -12905,7 +12905,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZNK5Klass12class_l
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i12
 
 49:                                               ; preds = %37
-  %50 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %39, i64 noundef 8, i32 noundef 0) #20
+  %50 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %39, i64 noundef 8, i32 noundef 0) #20
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i12
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i12: ; preds = %49, %47

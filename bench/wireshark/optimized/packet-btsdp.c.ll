@@ -1918,7 +1918,7 @@ dissect_sdp_service_search_request.exit:          ; preds = %138, %144, %get_typ
   %149 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %148, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 2, i32 noundef 0) #7
   %150 = add i32 %.0.lcssa.i, 2
   %151 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %150, i32 noundef %151, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef null, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %150, i32 noundef %151, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull readonly %3)
   %152 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef nonnull %1, i32 noundef %150)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
@@ -2005,7 +2005,7 @@ dissect_sdp_service_search_request.exit:          ; preds = %138, %144, %get_typ
   %.086110.i = phi ptr [ %174, %170 ], [ null, %.thread.i ], [ null, %.lr.ph.split.us.i ], [ %174, %.lr.ph.split.i ]
   %.083.lcssa.i = phi i32 [ 9, %170 ], [ 9, %.thread.i ], [ %177, %.lr.ph.split.us.i ], [ %182, %.lr.ph.split.i ]
   %184 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %.083.lcssa.i, i32 noundef %184, i32 noundef 0, i32 noundef %.083.lcssa.i, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %38, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %39, ptr noundef null, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %.083.lcssa.i, i32 noundef %184, i32 noundef 0, i32 noundef %.083.lcssa.i, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %38, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %39, ptr noundef null, ptr noundef nonnull readonly %3)
   %185 = load i32, ptr %37, align 4
   %.not90.i = icmp eq i32 %185, 0
   br i1 %.not90.i, label %188, label %186
@@ -2336,7 +2336,7 @@ dissect_sdp_service_attribute_request.exit:       ; preds = %.thread.i.i, %._cri
   %330 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef 11, ptr noundef %1, ptr noundef %35)
   %331 = add i32 %330, 11
   %332 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %331, i32 noundef %332, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %331, i32 noundef %332, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull readonly %3)
   %333 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef %1, i32 noundef %331)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %35)
@@ -2355,7 +2355,7 @@ dissect_sdp_service_attribute_request.exit:       ; preds = %.thread.i.i, %._cri
   %338 = zext i16 %337 to i32
   %339 = add nuw nsw i32 %338, 7
   %340 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %339, i32 noundef %340, i32 noundef 0, i32 noundef 7, i32 noundef %338, i32 noundef 1, ptr noundef nonnull %24, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %25, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %339, i32 noundef %340, i32 noundef 0, i32 noundef 7, i32 noundef %338, i32 noundef 1, ptr noundef nonnull %24, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull readonly %3)
   %341 = load i32, ptr %23, align 4
   %.not.i75 = icmp eq i32 %341, 0
   br i1 %.not.i75, label %342, label %.thread.i76
@@ -2528,7 +2528,7 @@ get_uuids.exit.i85:                               ; preds = %384
   br i1 %or.cond.i84, label %409, label %407
 
 407:                                              ; preds = %403
-  %408 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, ptr noundef %26, ptr noundef readonly %3)
+  %408 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, ptr noundef %26, ptr noundef nonnull readonly %3)
   br label %412
 
 409:                                              ; preds = %403, %.thread.i76
@@ -2593,7 +2593,7 @@ proto_item_set_generated.exit.i79:                ; preds = %437, %434, %422
 
 442:                                              ; preds = %proto_item_set_generated.exit.i79
   %443 = load ptr, ptr %24, align 8
-  %444 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %433, ptr noundef %443, i32 noundef 0, ptr noundef %1, ptr noundef %26, ptr noundef readonly %3)
+  %444 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %433, ptr noundef %443, i32 noundef 0, ptr noundef %1, ptr noundef %26, ptr noundef nonnull readonly %3)
   br label %dissect_sdp_service_attribute_response.exit
 
 dissect_sdp_service_attribute_response.exit:      ; preds = %416, %proto_item_set_generated.exit.i79, %442
@@ -2827,7 +2827,7 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %.
   %532 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef %531, ptr noundef %1, ptr noundef %14)
   %533 = add i32 %532, %531
   %534 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %533, i32 noundef %534, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, ptr noundef null, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %533, i32 noundef %534, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull readonly %3)
   %535 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef %1, i32 noundef %533)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -2849,7 +2849,7 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %.
   %540 = zext i16 %539 to i32
   %541 = add nuw nsw i32 %540, 7
   %542 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %541, i32 noundef %542, i32 noundef 0, i32 noundef 7, i32 noundef %540, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef null, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %541, i32 noundef %542, i32 noundef 0, i32 noundef 7, i32 noundef %540, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %3)
   %543 = getelementptr inbounds i8, ptr %1, i64 408
   %544 = load ptr, ptr %543, align 8
   %545 = load ptr, ptr %8, align 8
@@ -2908,7 +2908,7 @@ get_specified_uuid.exit.i:                        ; preds = %._crit_edge.thread.
   br i1 %or.cond.i128, label %562, label %561
 
 561:                                              ; preds = %get_specified_uuid.exit.i
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %540, ptr noundef %9, ptr noundef readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %540, ptr noundef %9, ptr noundef nonnull readonly %3)
   br label %565
 
 562:                                              ; preds = %get_specified_uuid.exit.i
@@ -2974,7 +2974,7 @@ proto_item_set_generated.exit.i132:               ; preds = %590, %587, %575
 595:                                              ; preds = %proto_item_set_generated.exit.i132
   %596 = load ptr, ptr %7, align 8
   %597 = call i32 @tvb_reported_length(ptr noundef %596) #7
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %586, ptr noundef %596, i32 noundef 0, ptr noundef %1, i32 noundef %597, ptr noundef %9, ptr noundef readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %586, ptr noundef %596, i32 noundef 0, ptr noundef %1, i32 noundef %597, ptr noundef %9, ptr noundef nonnull readonly %3)
   br label %dissect_sdp_service_search_attribute_response.exit
 
 dissect_sdp_service_search_attribute_response.exit: ; preds = %569, %proto_item_set_generated.exit.i132, %595

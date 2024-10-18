@@ -831,7 +831,7 @@ if.then46:                                        ; preds = %if.else44
 
 if.end.i.i:                                       ; preds = %if.then46
   %add.ptr.i39 = getelementptr i8, ptr %str, i64 %6
-  %call.i.i = call fastcc i64 @fastsearch(ptr noundef %add.ptr.i39, i64 noundef %sub25, ptr noundef %sub.0, i64 noundef %sub_len.0, i64 noundef -1, i32 noundef 1)
+  %call.i.i = call fastcc i64 @fastsearch(ptr noundef %add.ptr.i39, i64 noundef %sub25, ptr noundef %sub.0, i64 noundef range(i64 2, 1) %sub_len.0, i64 noundef -1, i32 noundef 1)
   %cmp15.i.i = icmp slt i64 %call.i.i, 0
   %add.i.i = select i1 %cmp15.i.i, i64 0, i64 %6
   %spec.select.i.i = add i64 %add.i.i, %call.i.i
@@ -842,7 +842,7 @@ if.else48:                                        ; preds = %if.else44
 
 if.end.i.i41:                                     ; preds = %if.else48
   %add.ptr.i43 = getelementptr i8, ptr %str, i64 %6
-  %call.i.i44 = call fastcc i64 @fastsearch(ptr noundef %add.ptr.i43, i64 noundef %sub25, ptr noundef %sub.0, i64 noundef %sub_len.0, i64 noundef -1, i32 noundef 2)
+  %call.i.i44 = call fastcc i64 @fastsearch(ptr noundef %add.ptr.i43, i64 noundef %sub25, ptr noundef %sub.0, i64 noundef range(i64 2, 1) %sub_len.0, i64 noundef -1, i32 noundef 2)
   %cmp16.i.i = icmp slt i64 %call.i.i44, 0
   %add3.i.i = select i1 %cmp16.i.i, i64 0, i64 %6
   %spec.select.i.i45 = add i64 %add3.i.i, %call.i.i44
@@ -1770,7 +1770,7 @@ if.then63:                                        ; preds = %if.end55.us
 
 if.then66:                                        ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i)
-  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef %m, ptr noundef %p.i)
+  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef range(i64 6, -9223372036854775808) %m, ptr noundef %p.i)
   %call.i = call fastcc i64 @stringlib__two_way(ptr noundef readonly %add.ptr71, i64 noundef %sub72, ptr noundef %p.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %p.i)
   %cmp68 = icmp eq i64 %call.i, -1
@@ -1781,7 +1781,7 @@ if.then66:                                        ; preds = %if.then63
 if.else:                                          ; preds = %if.then63
   %sub73 = sub i64 %maxcount, %count.086.us
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p.i69)
-  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef %m, ptr noundef %p.i69)
+  call fastcc void @stringlib__preprocess(ptr noundef nonnull %p, i64 noundef range(i64 6, -9223372036854775808) %m, ptr noundef %p.i69)
   %call8.i = call fastcc i64 @stringlib__two_way(ptr noundef %add.ptr71, i64 noundef %sub72, ptr noundef %p.i69)
   %cmp9.i = icmp eq i64 %call8.i, -1
   br i1 %cmp9.i, label %stringlib__two_way_count.exit, label %if.end.i

@@ -1663,7 +1663,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %125, %_ZN17QArrayDa
           to label %_ZNK11QModelIndex4dataEi.exit122 unwind label %142
 
 135:                                              ; preds = %_ZN7QStringD2Ev.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false), !alias.scope !25
   store i64 2, ptr %89, align 8, !alias.scope !25
   br label %_ZNK11QModelIndex4dataEi.exit122
 
@@ -1727,7 +1727,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i124:   ; preds = %144
           to label %_ZNK11QModelIndex4dataEi.exit129 unwind label %142
 
 158:                                              ; preds = %152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false), !alias.scope !28
   store i64 2, ptr %90, align 8, !alias.scope !28
   br label %_ZNK11QModelIndex4dataEi.exit129
 
@@ -1827,7 +1827,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i136:   ; preds = %176
           to label %_ZNK11QModelIndex4dataEi.exit141 unwind label %142
 
 192:                                              ; preds = %186
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false), !alias.scope !31
   store i64 2, ptr %95, align 8, !alias.scope !31
   br label %_ZNK11QModelIndex4dataEi.exit141
 
@@ -1863,7 +1863,7 @@ _ZNK11QModelIndex4dataEi.exit141:                 ; preds = %192, %188
           to label %_ZNK11QModelIndex4dataEi.exit144 unwind label %142
 
 204:                                              ; preds = %198
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false), !alias.scope !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false), !alias.scope !34
   store i64 2, ptr %96, align 8, !alias.scope !34
   br label %_ZNK11QModelIndex4dataEi.exit144
 
@@ -1891,7 +1891,7 @@ _ZNK8QVariant5valueI5QFontEET_v.exit:             ; preds = %_ZNK11QModelIndex4d
           to label %_ZNK11QModelIndex4dataEi.exit148 unwind label %142
 
 211:                                              ; preds = %205
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false), !alias.scope !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 24, i1 false), !alias.scope !37
   store i64 2, ptr %97, align 8, !alias.scope !37
   br label %_ZNK11QModelIndex4dataEi.exit148
 
@@ -1914,7 +1914,7 @@ _ZNK11QModelIndex4dataEi.exit148:                 ; preds = %211, %207
           to label %_ZNK11QModelIndex4dataEi.exit151 unwind label %142
 
 219:                                              ; preds = %213
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !alias.scope !40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false), !alias.scope !40
   store i64 2, ptr %98, align 8, !alias.scope !40
   br label %_ZNK11QModelIndex4dataEi.exit151
 
@@ -2124,7 +2124,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i173: ; preds = %266
           to label %_ZNK11QModelIndex4dataEi.exit178 unwind label %.loopexit.split-lp
 
 280:                                              ; preds = %273
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !alias.scope !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false), !alias.scope !48
   %281 = getelementptr inbounds i8, ptr %26, i64 24
   store i64 2, ptr %281, align 8, !alias.scope !48
   br label %_ZNK11QModelIndex4dataEi.exit178
@@ -2150,7 +2150,7 @@ _ZNK11QModelIndex4dataEi.exit178:                 ; preds = %280, %276
           to label %_ZNK11QModelIndex4dataEi.exit181 unwind label %296
 
 290:                                              ; preds = %284
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false), !alias.scope !51
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false), !alias.scope !51
   %291 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 2, ptr %291, align 8, !alias.scope !51
   br label %_ZNK11QModelIndex4dataEi.exit181

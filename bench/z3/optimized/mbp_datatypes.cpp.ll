@@ -275,7 +275,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN3mbp23datatype_project_pluginD2Ev.exit:        ; preds = %entry, %if.end.i.i
-  tail call void @_ZN3mbp14project_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #18
+  tail call void @_ZN3mbp14project_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
@@ -2843,7 +2843,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

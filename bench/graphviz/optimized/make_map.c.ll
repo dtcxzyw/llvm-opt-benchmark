@@ -823,12 +823,12 @@ agxbuse.exit:                                     ; preds = %90, %agxbclear.exit
   %96 = sext i32 %95 to i64
   %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3) #24
   %98 = add nsw i64 %96, 14
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.31, i64 noundef %97, ptr noundef %.3, i64 noundef %98, double noundef %1, i32 noundef %.091126)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, i64 noundef %97, ptr noundef %.3, i64 noundef %98, double noundef %1, i32 noundef %.091126)
   br label %.lr.ph.preheader.i.i
 
 99:                                               ; preds = %93
   %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3) #24
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef %100, ptr noundef %.3, i32 noundef %.091126)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i64 noundef %100, ptr noundef %.3, i32 noundef %.091126)
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %99, %94
@@ -841,7 +841,7 @@ agxbuse.exit:                                     ; preds = %90, %agxbclear.exit
   %102 = load double, ptr %101, align 8
   %103 = getelementptr inbounds double, ptr %30, i64 %indvars.iv.i.i
   %104 = load double, ptr %103, align 8
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.33, double noundef %102, double noundef %104)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, double noundef %102, double noundef %104)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %dot_one_poly.exit, label %.lr.ph.i.i
@@ -891,7 +891,7 @@ dot_one_poly.exit:                                ; preds = %.lr.ph.i.i, %agxbus
 
 125:                                              ; preds = %123
   %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.290) #24
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %126, ptr noundef %.290, i64 noundef %126, ptr noundef %.290, i32 noundef %117)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, i64 noundef %126, ptr noundef %.290, i64 noundef %126, ptr noundef %.290, i32 noundef %117)
   %wide.trip.count.i.i114 = zext nneg i32 %117 to i64
   br label %.lr.ph.i.i115
 
@@ -901,7 +901,7 @@ dot_one_poly.exit:                                ; preds = %.lr.ph.i.i, %agxbus
   %128 = load double, ptr %127, align 8
   %129 = getelementptr inbounds double, ptr %30, i64 %indvars.iv.i.i116
   %130 = load double, ptr %129, align 8
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.33, double noundef %128, double noundef %130)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, double noundef %128, double noundef %130)
   %indvars.iv.next.i.i117 = add nuw nsw i64 %indvars.iv.i.i116, 1
   %exitcond.not.i.i118 = icmp eq i64 %indvars.iv.next.i.i117, %wide.trip.count.i.i114
   br i1 %exitcond.not.i.i118, label %dot_one_poly.exit119, label %.lr.ph.i.i115
@@ -3213,7 +3213,7 @@ conn_comp.exit.i:                                 ; preds = %.loopexit.i.i, %480
   %583 = sext i32 %582 to i64
   %584 = call fastcc ptr @gv_calloc(i64 noundef %583, i64 noundef 4)
   %585 = call fastcc ptr @gv_calloc(i64 noundef %557, i64 noundef 4)
-  %586 = call ptr @SparseMatrix_new(i32 noundef %.3.in.lcssa.i, i32 noundef %463, i32 noundef 1, i32 noundef 4, i32 noundef 1) #20
+  %586 = call ptr @SparseMatrix_new(i32 noundef range(i32 -2147483647, -2147483648) %.3.in.lcssa.i, i32 noundef %463, i32 noundef 1, i32 noundef 4, i32 noundef 1) #20
   store ptr %586, ptr %12, align 8
   %587 = sext i32 %.3.in.lcssa.i to i64
   %588 = call fastcc ptr @gv_calloc(i64 noundef %587, i64 noundef 4)
@@ -3628,7 +3628,7 @@ get_poly_lines.exit.i:                            ; preds = %.loopexit1.i.i, %._
   br i1 %exitcond.not.i138.i, label %._crit_edge467.i.i, label %.lr.ph466.i.i
 
 ._crit_edge467.i.i:                               ; preds = %.lr.ph466.i.i, %._crit_edge462.i.i
-  %801 = call ptr @SparseMatrix_new(i32 noundef %.3.in.lcssa.i, i32 noundef %463, i32 noundef 1, i32 noundef 4, i32 noundef 1) #20
+  %801 = call ptr @SparseMatrix_new(i32 noundef range(i32 -2147483647, -2147483648) %.3.in.lcssa.i, i32 noundef %463, i32 noundef 1, i32 noundef 4, i32 noundef 1) #20
   store ptr %801, ptr %13, align 8
   store i32 0, ptr %20, align 4
   br i1 %540, label %.lr.ph519.i.i, label %get_polygon_solids.exit.i
@@ -4345,7 +4345,7 @@ define internal fastcc void @dot_one_poly(ptr nocapture noundef nonnull %0, doub
 
 11:                                               ; preds = %9
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #24
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %12, ptr noundef %6, i64 noundef %12, ptr noundef %6, i32 noundef %3)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, i64 noundef %12, ptr noundef %6, i64 noundef %12, ptr noundef %6, i32 noundef %3)
   br label %.lr.ph.preheader.i
 
 13:                                               ; preds = %9
@@ -4357,12 +4357,12 @@ define internal fastcc void @dot_one_poly(ptr nocapture noundef nonnull %0, doub
   %17 = sext i32 %16 to i64
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #24
   %19 = add nsw i64 %17, 14
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.31, i64 noundef %18, ptr noundef %6, i64 noundef %19, double noundef %1, i32 noundef %3)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, i64 noundef %18, ptr noundef %6, i64 noundef %19, double noundef %1, i32 noundef %3)
   br label %.lr.ph.preheader.i
 
 20:                                               ; preds = %13
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #24
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef %21, ptr noundef %6, i32 noundef %3)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i64 noundef %21, ptr noundef %6, i32 noundef %3)
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %20, %15, %11
@@ -4375,7 +4375,7 @@ define internal fastcc void @dot_one_poly(ptr nocapture noundef nonnull %0, doub
   %23 = load double, ptr %22, align 8
   %24 = getelementptr inbounds double, ptr %5, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.33, double noundef %23, double noundef %25)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, double noundef %23, double noundef %25)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %dot_polygon.exit, label %.lr.ph.i

@@ -3939,14 +3939,14 @@ ssl3_prf.exit:                                    ; preds = %47, %18
   %128 = getelementptr i8, ptr %124, i64 %127
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %120, ptr align 1 %128, i64 %115, i1 false)
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1193, i32 noundef %114, i32 noundef %98)
-  %129 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.338) #26
+  %129 = tail call i32 @gcry_md_map_name(ptr noundef nonnull @.str.338) #26
   %130 = call fastcc i32 @tls_hash(ptr noundef nonnull %10, ptr %92, i32 %98, i32 noundef %129, ptr noundef nonnull %9, i32 noundef %6)
   %.not57.i = icmp eq i32 %130, 0
   br i1 %.not57.i, label %131, label %146
 
 131:                                              ; preds = %122
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1194)
-  %132 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.339) #26
+  %132 = tail call i32 @gcry_md_map_name(ptr noundef nonnull @.str.339) #26
   %133 = call fastcc i32 @tls_hash(ptr noundef nonnull %11, ptr %92, i32 %98, i32 noundef %132, ptr noundef nonnull %8, i32 noundef %6)
   %.not58.i = icmp eq i32 %133, 0
   br i1 %.not58.i, label %.preheader.i, label %146
@@ -4326,13 +4326,13 @@ ssl_create_decompressor.exit:                     ; preds = %36, %42, %51, %52
   %61 = sext i32 %57 to i64
   %62 = getelementptr [6 x i32], ptr @__const.ssl_cipher_init.gcry_modes, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4
-  %64 = tail call i32 @gcry_cipher_open(ptr noundef nonnull %56, i32 noundef %1, i32 noundef %63, i32 noundef 0) #23
+  %64 = tail call i32 @gcry_cipher_open(ptr noundef nonnull %56, i32 noundef range(i32 1, 0) %1, i32 noundef %63, i32 noundef 0) #23
   %.not.i50 = icmp eq i32 %64, 0
   br i1 %.not.i50, label %65, label %75
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %56, align 8
-  %67 = tail call i64 @gcry_cipher_get_algo_keylen(i32 noundef %1) #23
+  %67 = tail call i64 @gcry_cipher_get_algo_keylen(i32 noundef range(i32 1, 0) %1) #23
   %68 = tail call i32 @gcry_cipher_setkey(ptr noundef %66, ptr noundef %4, i64 noundef %67) #23
   %.not16.i = icmp eq i32 %68, 0
   br i1 %.not16.i, label %69, label %75
@@ -4343,7 +4343,7 @@ ssl_create_decompressor.exit:                     ; preds = %36, %42, %51, %52
 
 71:                                               ; preds = %69
   %72 = load ptr, ptr %56, align 8
-  %73 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %1) #23
+  %73 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef range(i32 1, 0) %1) #23
   %74 = tail call i32 @gcry_cipher_setiv(ptr noundef %72, ptr noundef %5, i64 noundef %73) #23
   %.not17.i = icmp eq i32 %74, 0
   br i1 %.not17.i, label %ssl_cipher_init.exit, label %75
@@ -5282,7 +5282,7 @@ ssl_get_cipher_blocksize.exit:                    ; preds = %371, %371, %371, %3
   br i1 %or.cond.i, label %419, label %ssl_cipher_decrypt.exit.thread
 
 419:                                              ; preds = %416
-  %420 = tail call i32 @llvm.smin.i32(i32 %414, i32 %.pre-phi)
+  %420 = tail call i32 @llvm.smin.i32(i32 %414, i32 range(i32 0, 65536) %.pre-phi)
   %421 = sext i32 %420 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %413, ptr nonnull align 1 %.0141, i64 %421, i1 false)
   br label %ssl_cipher_decrypt.exit.thread

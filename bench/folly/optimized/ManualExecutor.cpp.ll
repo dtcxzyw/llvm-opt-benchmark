@@ -1188,7 +1188,7 @@ while.cond.i.backedge:                            ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i, !llvm.loop !66
 
 if.then32.i:                                      ; preds = %while.end29.i
-  %call.i40.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 2147483647, i32 noundef -1)
+  %call.i40.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i, i32 noundef 2147483647, i32 noundef -1)
           to label %cleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then32.i

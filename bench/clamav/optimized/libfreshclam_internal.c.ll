@@ -942,14 +942,14 @@ select.unfold.i.i:                                ; preds = %59, %57, %55, %53
   br i1 %51, label %.sink.split.i.i, label %109
 
 109:                                              ; preds = %108
-  %110 = call fastcc i32 @remote_cvdhead(ptr noundef %15, i32 noundef %.0263, ptr noundef %2, i32 noundef %6, ptr noundef %16)
+  %110 = call fastcc i32 @remote_cvdhead(ptr noundef %15, i32 noundef %.0263, ptr noundef nonnull %2, i32 noundef %6, ptr noundef %16)
   %or.cond9.i.i = icmp samesign ult i32 %110, 2
   br i1 %or.cond9.i.i, label %112, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %109, %108, %104, %102, %.thread119.i.i, %95, %86, %81
   %.177111127.ph.i.i = phi ptr [ null, %109 ], [ null, %108 ], [ %77, %.thread119.i.i ], [ %77, %104 ], [ %77, %81 ], [ %77, %86 ], [ %77, %95 ], [ %77, %102 ]
   %.175114125.ph.i.i = phi ptr [ null, %109 ], [ null, %108 ], [ %79, %.thread119.i.i ], [ %79, %104 ], [ null, %81 ], [ %79, %86 ], [ %79, %95 ], [ %79, %102 ]
-  %111 = call fastcc i32 @remote_cvdhead(ptr noundef %14, i32 noundef %.0263, ptr noundef %2, i32 noundef %6, ptr noundef %16)
+  %111 = call fastcc i32 @remote_cvdhead(ptr noundef %14, i32 noundef %.0263, ptr noundef nonnull %2, i32 noundef %6, ptr noundef %16)
   br label %112
 
 112:                                              ; preds = %.sink.split.i.i, %109
@@ -1409,7 +1409,7 @@ mkdir_and_chdir_for_cdiff_tmp.exit.thread.i:      ; preds = %273, %267, %263, %2
   %283 = add i64 %282, %281
   %284 = call noalias ptr @malloc(i64 noundef %283) #25
   %285 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %284, i64 noundef %283, ptr noundef nonnull @.str.111, ptr noundef nonnull %2, ptr noundef nonnull %12) #23
-  %286 = call fastcc i32 @downloadFile(ptr noundef %284, ptr noundef %276, i32 noundef %.0143, i64 noundef 0)
+  %286 = call fastcc i32 @downloadFile(ptr noundef %284, ptr noundef %276, i32 noundef range(i32 0, 2) %.0143, i64 noundef 0)
   switch i32 %286, label %289 [
     i32 0, label %292
     i32 6, label %287

@@ -4670,7 +4670,7 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
+  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
           to label %call2.i4.i.i.i.i.noexc unwind label %lpad
 
 call2.i4.i.i.i.i.noexc:                           ; preds = %if.then.i.i.i.i.i
@@ -5245,7 +5245,7 @@ _ZN8QuantLib12ExchangeRateD2Ev.exit:              ; preds = %_ZN8QuantLib8Curren
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIlSt4pairIKlNSt7__cxx114listIN8QuantLib19ExchangeRateManager5EntryESaIS6_EEEESt10_Select1stIS9_ESt4lessIlESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, label %while.body.i.i.i.i.i.i.i, !llvm.loop !124
 
 _ZNSt8_Rb_treeIlSt4pairIKlNSt7__cxx114listIN8QuantLib19ExchangeRateManager5EntryESaIS6_EEEESt10_Select1stIS9_ESt4lessIlESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %_ZN8QuantLib12ExchangeRateD2Ev.exit, %while.body
-  tail call void @_ZdlPvm(ptr noundef %__x.addr.05, i64 noundef 64) #35
+  tail call void @_ZdlPvm(ptr noundef nonnull %__x.addr.05, i64 noundef 64) #35
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !125
 
@@ -5671,7 +5671,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_12bad_any_castEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 56) #35
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef 56) #35
   ret void
 }
 
@@ -5751,7 +5751,7 @@ _ZN5boost10wrapexceptINS_12bad_any_castEED0Ev.exit: ; preds = %entry, %call.i.no
   %4 = getelementptr inbounds i8, ptr %this, i64 -16
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #31
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 56) #35
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(56) %4, i64 noundef 56) #35
   ret void
 }
 
@@ -6421,7 +6421,7 @@ entry:
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %call2.i4.i.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i.i, i64 noundef 0)
+  %call2.i4.i.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i.i, i64 noundef 0)
           to label %call2.i4.i.i.i.i.i.noexc unwind label %lpad
 
 call2.i4.i.i.i.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i.i

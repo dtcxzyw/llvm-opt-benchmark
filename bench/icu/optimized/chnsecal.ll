@@ -1720,7 +1720,7 @@ invoke.cont2:                                     ; preds = %if.then
           to label %invoke.cont4 unwind label %lpad1
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  invoke void @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, i32 noundef 1, i32 noundef -80, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %calendar, i32 noundef 1, i32 noundef -80, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont5 unwind label %lpad1
 
 invoke.cont5:                                     ; preds = %invoke.cont4

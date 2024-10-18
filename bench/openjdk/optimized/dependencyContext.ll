@@ -158,7 +158,7 @@ define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19Deoptimiz
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 8
   %29 = load i64, ptr %28, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #12
   store i32 3, ptr %8, align 8
@@ -479,7 +479,7 @@ define hidden void @_ZN17DependencyContext7releaseEP13nmethodBucket(ptr noundef 
 11:                                               ; preds = %.preheader, %11
   %12 = load volatile ptr, ptr @_ZN17DependencyContext11_purge_listE, align 8
   store volatile ptr %12, ptr %4, align 8
-  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %12, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !9
+  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %12, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !9
   %14 = icmp eq ptr %13, %12
   br i1 %14, label %15, label %11, !llvm.loop !10
 

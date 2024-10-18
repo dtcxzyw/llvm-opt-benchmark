@@ -288,7 +288,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %81 = getelementptr inbounds i8, ptr %80, i64 -72
   %82 = getelementptr inbounds i8, ptr %80, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #14, !noalias !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #14, !noalias !17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %81) #14, !noalias !17
   %83 = icmp eq ptr %81, %4
   br i1 %83, label %84, label %.preheader44.i.i
 
@@ -368,7 +368,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %101 = getelementptr inbounds i8, ptr %100, i64 -72
   %102 = getelementptr inbounds i8, ptr %100, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #14, !noalias !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #14, !noalias !17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %101) #14, !noalias !17
   %103 = icmp eq ptr %101, %13
   br i1 %103, label %104, label %.preheader.i.i
 
@@ -537,7 +537,7 @@ _ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1
   %156 = getelementptr inbounds i8, ptr %155, i64 -72
   %157 = getelementptr inbounds i8, ptr %155, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %157) #14, !noalias !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #14, !noalias !17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %156) #14, !noalias !17
   %158 = icmp eq ptr %156, %4
   br i1 %158, label %159, label %154
 
@@ -607,7 +607,7 @@ _ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1
   %172 = getelementptr inbounds i8, ptr %171, i64 -72
   %173 = getelementptr inbounds i8, ptr %171, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %173) #14, !noalias !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %172) #14, !noalias !17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %172) #14, !noalias !17
   %174 = icmp eq ptr %172, %4
   br i1 %174, label %.loopexit189.i.i.i, label %.preheader188.i.i.i
 
@@ -646,7 +646,7 @@ _ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1
   %187 = getelementptr inbounds i8, ptr %186, i64 -72
   %188 = getelementptr inbounds i8, ptr %186, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %188) #14, !noalias !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %187) #14, !noalias !17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %187) #14, !noalias !17
   %189 = icmp eq ptr %187, %13
   br i1 %189, label %190, label %185
 
@@ -716,7 +716,7 @@ _ZN12_GLOBAL__N_110Toolchains22DumpToolchainVariablesEPK10cmMakefileRKNSt7__cxx1
   %203 = getelementptr inbounds i8, ptr %202, i64 -72
   %204 = getelementptr inbounds i8, ptr %202, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %204) #14, !noalias !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %203) #14, !noalias !17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %203) #14, !noalias !17
   %205 = icmp eq ptr %203, %13
   br i1 %205, label %.loopexit.i.i.i, label %.preheader.i.i.i
 
@@ -925,7 +925,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -953,7 +953,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaI
   %.018.i.i.i.i.i = phi ptr [ %14, %9 ], [ %2, %.lr.ph.i.i.i.i.preheader.i ]
   %.01217.i.i.i.i.i.idx = phi i64 [ %.01217.i.i.i.i.i.add, %9 ], [ 0, %.lr.ph.i.i.i.i.preheader.i ]
   %.01217.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %1, i64 %.01217.i.i.i.i.i.idx
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.018.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.01217.i.i.i.i.i.ptr)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(65) %.018.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(65) %.01217.i.i.i.i.i.ptr)
           to label %.noexc.i.i.i.i.i unwind label %15
 
 .noexc.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
@@ -965,7 +965,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaI
 7:                                                ; preds = %.noexc.i.i.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.018.i.i.i.i.i) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %.018.i.i.i.i.i) #14
   br label %.body.i.i.i.i.i
 
 9:                                                ; preds = %.noexc.i.i.i.i.i
@@ -1049,7 +1049,7 @@ define internal void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EED2
   %.05.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %2, %1 ]
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %.05.i.i.i) #14
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_117ToolchainVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !26
@@ -1420,7 +1420,7 @@ define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_117ToolchainVariableEE
   %.05.i = phi ptr [ %4, %.lr.ph.i ], [ %0, %2 ]
   %3 = getelementptr inbounds i8, ptr %.05.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(65) %.05.i) #14
   %4 = getelementptr inbounds i8, ptr %.05.i, i64 72
   %.not.i = icmp eq ptr %4, %1
   br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_117ToolchainVariableEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !26

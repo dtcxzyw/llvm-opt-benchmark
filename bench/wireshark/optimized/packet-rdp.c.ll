@@ -3163,7 +3163,7 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
   store ptr %10, ptr %113, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %114, i8 0, i64 40, i1 false)
   %137 = load i32, ptr @hf_rdp_clientNetworkData, align 4
-  %138 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %137, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %138 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %137, ptr noundef %0, i32 noundef %.0105, i32 noundef range(i32 0, 65536) %121, i32 noundef 0) #12
   %139 = load i32, ptr @ett_rdp_clientNetworkData, align 4
   %140 = call ptr @proto_item_add_subtree(ptr noundef %138, i32 noundef %139) #12
   %141 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %140, ptr noundef nonnull %8, i32 noundef 0)

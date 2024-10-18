@@ -3988,7 +3988,7 @@ _ZNK4absl12lts_202308024Cord4sizeEv.exit:         ; preds = %cond.true.i.i, %con
 
 if.then5:                                         ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i)
-  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i, ptr noundef nonnull %cord)
+  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %bytes_remaining_.i.i.i = getelementptr inbounds i8, ptr %__begin3.i, i64 24
   %6 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not6.i = icmp eq i64 %6, 0
@@ -4049,7 +4049,7 @@ _ZNK4absl12lts_202308024Cord4sizeEv.exit29:       ; preds = %_ZNK4absl12lts_2023
 
 if.then14:                                        ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit29
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i30)
-  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i30, ptr noundef nonnull %cord)
+  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i30, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %bytes_remaining_.i.i.i31 = getelementptr inbounds i8, ptr %__begin3.i30, i64 24
   %10 = load i64, ptr %bytes_remaining_.i.i.i31, align 8
   %cmp.i.i.not6.i32 = icmp eq i64 %10, 0
@@ -4675,7 +4675,7 @@ define void @_ZN6google8protobuf2io17CodedOutputStreamD2Ev(ptr noundef nonnull a
 entry:
   %cur_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %cur_.i, align 8
-  %call.i1 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %0)
+  %call.i1 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -4695,7 +4695,7 @@ define noundef ptr @_ZN6google8protobuf2io17CodedOutputStream16WriteCordToArrayE
 entry:
   %__begin3.i = alloca %"class.absl::lts_20230802::Cord::ChunkIterator", align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i)
-  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i, ptr noundef nonnull %cord)
+  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %bytes_remaining_.i.i.i = getelementptr inbounds i8, ptr %__begin3.i, i64 24
   %0 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not6.i = icmp eq i64 %0, 0

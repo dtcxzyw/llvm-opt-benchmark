@@ -699,12 +699,12 @@ define hidden void @"_ZN4core3ptr156drop_in_place$LT$ordered_multimap..list_orde
   %32 = landingpad { ptr, i32 }
           cleanup
   %33 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke void @"_ZN4core3ptr193drop_in_place$LT$alloc..vec..Vec$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$$GT$17hb4cd63616a3cad54E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33)
+  invoke void @"_ZN4core3ptr193drop_in_place$LT$alloc..vec..Vec$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$$GT$17hb4cd63616a3cad54E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %33)
           to label %"_ZN4core3ptr172drop_in_place$LT$dlv_list..VecList$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h425a97f94feef7b7E.llvm.12269880611312064175.exit" unwind label %35
 
 "_ZN4core3ptr305drop_in_place$LT$hashbrown..map..HashMap$LT$dlv_list..Index$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$C$ordered_multimap..list_ordered_multimap..DummyState$GT$$GT$17hedae0b6e9ff7d031E.llvm.12269880611312064175.exit": ; preds = %.noexc, %"_ZN4core3ptr95drop_in_place$LT$dlv_list..VecList$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hb69ec0bf063c0b2bE.llvm.12269880611312064175.exit"
   %34 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @"_ZN4core3ptr193drop_in_place$LT$alloc..vec..Vec$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$$GT$17hb4cd63616a3cad54E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
+  tail call void @"_ZN4core3ptr193drop_in_place$LT$alloc..vec..Vec$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$$GT$17hb4cd63616a3cad54E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %34)
   ret void
 
 35:                                               ; preds = %31

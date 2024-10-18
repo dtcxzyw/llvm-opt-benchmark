@@ -89,7 +89,7 @@ entry:
   %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen30HTTPDefaultSessionCodecFactoryE, i64 16), ptr %this, align 8
@@ -181,7 +181,7 @@ _ZNKSt8functionIFbvEEclEv.exit.i:                 ; preds = %_ZSt11make_uniqueIN
   %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_invoker.i.i, align 8
-  %call2.i.i10 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i)
+  %call2.i.i10 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i)
           to label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit15
 
 _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i
@@ -224,7 +224,7 @@ _ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit22: ; preds = %if.then
   %useStrictValidationFn_.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %_M_invoker.i.i20 = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %_M_invoker.i.i20, align 8
-  %call2.i.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i19)
+  %call2.i.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i19)
   %call.i23 = tail call noalias noundef nonnull dereferenceable(432) ptr @_Znwm(i64 noundef 432) #15, !noalias !7
   %9 = load i8, ptr %forceHTTP1_0_to_1_1, align 1, !noalias !7
   %tobool.i = trunc i8 %9 to i1
@@ -270,7 +270,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
   br label %lpad9.body.i
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit.i.i: ; preds = %call5.i.i.i.i.i.i.i.noexc.i
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4.i, ptr noundef nonnull %agg.tmp) #14
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #14
   %14 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %14, 1
   store i64 %add.i.i.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
@@ -302,7 +302,7 @@ while.body.i.i.i:                                 ; preds = %invoke.cont18, %whi
   %18 = load ptr, ptr %__cur.05.i.i.i, align 8
   %_M_storage.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i25) #14
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #16
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #16
   %cmp.not.i.i.i = icmp eq ptr %18, %agg.tmp
   br i1 %cmp.not.i.i.i, label %return, label %while.body.i.i.i, !llvm.loop !12
 
@@ -402,7 +402,7 @@ _ZNKSt8functionIFbvEEclEv.exit.i62:               ; preds = %_ZSt11make_uniqueIN
   %useStrictValidationFn_.i63 = getelementptr inbounds i8, ptr %this, i64 8
   %_M_invoker.i.i64 = getelementptr inbounds i8, ptr %this, i64 32
   %26 = load ptr, ptr %_M_invoker.i.i64, align 8
-  %call2.i.i6568 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i63)
+  %call2.i.i6568 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i63)
           to label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit76 unwind label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit81
 
 _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit76: ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i62
@@ -482,7 +482,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #14
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #16
   %cmp.not.i.i = icmp eq ptr %1, %this
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %while.body.i.i, !llvm.loop !12
 
@@ -514,7 +514,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i, ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, i32 noundef 3)
           to label %_ZN8proxygen16HTTPCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -539,7 +539,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %useStrictValidationFn_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i.i, i32 noundef 3)
           to label %_ZN8proxygen30HTTPDefaultSessionCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -565,7 +565,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %useStrictValidationFn_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_, ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, i32 noundef 3)
           to label %_ZNSt8functionIFbvEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -647,7 +647,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %1 = load ptr, ptr %__cur.05.i, align 8
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__cur.05.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #14
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i) #16
   %cmp.not.i = icmp eq ptr %1, %this
   br i1 %cmp.not.i, label %_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8_M_clearEv.exit, label %while.body.i, !llvm.loop !12
 

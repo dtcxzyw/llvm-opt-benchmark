@@ -228,7 +228,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -245,7 +245,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -359,7 +359,7 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit41:             ; preds = %invoke.cont9, %if.e
 
 .noexc:                                           ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit41
   %4 = load ptr, ptr %m_manager.i, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %lc_inv.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr noundef nonnull align 8 dereferenceable(16) %lc_inv.i)
           to label %invoke.cont17 unwind label %lpad10
 
 invoke.cont17:                                    ; preds = %.noexc
@@ -666,7 +666,7 @@ for.body.i:                                       ; preds = %.noexc134, %for.bod
   %43 = load ptr, ptr %T_0, align 8
   %arrayidx.i3.i = getelementptr inbounds %class.mpz, ptr %43, i64 %indvars.iv.i
   %44 = load ptr, ptr %42, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %44, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %44, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i)
           to label %.noexc134 unwind label %lpad30.loopexit.split-lp.loopexit
 
 .noexc134:                                        ; preds = %for.body.i
@@ -723,7 +723,7 @@ lor.lhs.false.i.i:                                ; preds = %for.body
   br i1 %cmp5.i.i, label %if.then.i.i143, label %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit.i
 
 if.then.i.i143:                                   ; preds = %lor.lhs.false.i.i, %for.body
-  invoke void @_ZN6vectorI3mpzLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %T_0)
+  invoke void @_ZN6vectorI3mpzLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %T_0)
           to label %.noexc144 unwind label %lpad30.loopexit
 
 .noexc144:                                        ; preds = %if.then.i.i143
@@ -1022,7 +1022,7 @@ for.body.i.i.i:                                   ; preds = %.noexc.i.i, %for.bo
   %91 = load ptr, ptr %A_ek, align 8
   %arrayidx.i3.i.i.i = getelementptr inbounds %class.mpz, ptr %91, i64 %indvars.iv.i.i.i
   %92 = load ptr, ptr %90, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %92, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %92, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i
@@ -1083,7 +1083,7 @@ for.body.i.i.i166:                                ; preds = %.noexc.i.i170, %for
   %101 = load ptr, ptr %W, align 8
   %arrayidx.i3.i.i.i168 = getelementptr inbounds %class.mpz, ptr %101, i64 %indvars.iv.i.i.i167
   %102 = load ptr, ptr %100, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %102, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i168)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %102, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i168)
           to label %.noexc.i.i170 unwind label %terminate.lpad.i.i169
 
 .noexc.i.i170:                                    ; preds = %for.body.i.i.i166
@@ -1144,7 +1144,7 @@ for.body.i.i.i191:                                ; preds = %.noexc.i.i195, %for
   %111 = load ptr, ptr %V, align 8
   %arrayidx.i3.i.i.i193 = getelementptr inbounds %class.mpz, ptr %111, i64 %indvars.iv.i.i.i192
   %112 = load ptr, ptr %110, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %112, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i193)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %112, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i193)
           to label %.noexc.i.i195 unwind label %terminate.lpad.i.i194
 
 .noexc.i.i195:                                    ; preds = %for.body.i.i.i191
@@ -1205,7 +1205,7 @@ for.body.i.i.i216:                                ; preds = %.noexc.i.i220, %for
   %121 = load ptr, ptr %T, align 8
   %arrayidx.i3.i.i.i218 = getelementptr inbounds %class.mpz, ptr %121, i64 %indvars.iv.i.i.i217
   %122 = load ptr, ptr %120, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %122, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i218)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %122, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i218)
           to label %.noexc.i.i220 unwind label %terminate.lpad.i.i219
 
 .noexc.i.i220:                                    ; preds = %for.body.i.i.i216
@@ -1266,7 +1266,7 @@ for.body.i.i.i241:                                ; preds = %.noexc.i.i245, %for
   %131 = load ptr, ptr %T_0_d, align 8
   %arrayidx.i3.i.i.i243 = getelementptr inbounds %class.mpz, ptr %131, i64 %indvars.iv.i.i.i242
   %132 = load ptr, ptr %130, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %132, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i243)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %132, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i243)
           to label %.noexc.i.i245 unwind label %terminate.lpad.i.i244
 
 .noexc.i.i245:                                    ; preds = %for.body.i.i.i241
@@ -1309,7 +1309,7 @@ terminate.lpad.i.i244:                            ; preds = %for.body.i.i.i241
 _ZN11upolynomial21scoped_numeral_vectorD2Ev.exit258: ; preds = %_ZN11upolynomial21scoped_numeral_vectorD2Ev.exit233, %for.end.i.i.i248, %invoke.cont.i.i251, %if.then.i.i.i.i.i255
   %138 = load ptr, ptr %constant, align 8
   %139 = load ptr, ptr %138, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %139, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %139, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %_ZN11upolynomial21scoped_numeral_vectorD2Ev.exit258
@@ -1340,7 +1340,7 @@ for.body.i.i.i267:                                ; preds = %.noexc.i.i271, %for
   %145 = load ptr, ptr %T_0, align 8
   %arrayidx.i3.i.i.i269 = getelementptr inbounds %class.mpz, ptr %145, i64 %indvars.iv.i.i.i268
   %146 = load ptr, ptr %144, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %146, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i269)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %146, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i269)
           to label %.noexc.i.i271 unwind label %terminate.lpad.i.i270
 
 .noexc.i.i271:                                    ; preds = %for.body.i.i.i267
@@ -1400,7 +1400,7 @@ for.body.i.i.i292:                                ; preds = %.noexc.i.i296, %for
   %indvars.iv.i.i.i293 = phi i64 [ 0, %for.body.lr.ph.i.i.i289 ], [ %indvars.iv.next.i.i.i297, %.noexc.i.i296 ]
   %arrayidx.i3.i.i.i294 = getelementptr inbounds %class.mpz, ptr %152, i64 %indvars.iv.i.i.i293
   %154 = load ptr, ptr %.pre386, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %154, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i294)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %154, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i294)
           to label %.noexc.i.i296 unwind label %terminate.lpad.i.i295
 
 .noexc.i.i296:                                    ; preds = %for.body.i.i.i292
@@ -1479,7 +1479,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
   %3 = load ptr, ptr %this, align 8
   %arrayidx.i3.i.i = getelementptr inbounds %class.mpz, ptr %3, i64 %indvars.iv.i.i
   %4 = load ptr, ptr %2, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %for.body.i.i
@@ -1529,7 +1529,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_num = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %0, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %m_num)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %1, ptr noundef nonnull align 8 dereferenceable(16) %m_num)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1989,7 +1989,7 @@ for.body.i.i.i:                                   ; preds = %.noexc.i.i, %for.bo
   %33 = load ptr, ptr %v_k, align 8
   %arrayidx.i3.i.i.i = getelementptr inbounds %class.mpz, ptr %33, i64 %indvars.iv.i.i.i
   %34 = load ptr, ptr %32, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %34, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i
@@ -2050,7 +2050,7 @@ for.body.i.i.i96:                                 ; preds = %.noexc.i.i100, %for
   %43 = load ptr, ptr %div, align 8
   %arrayidx.i3.i.i.i98 = getelementptr inbounds %class.mpz, ptr %43, i64 %indvars.iv.i.i.i97
   %44 = load ptr, ptr %42, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %44, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i98)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %44, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i98)
           to label %.noexc.i.i100 unwind label %terminate.lpad.i.i99
 
 .noexc.i.i100:                                    ; preds = %for.body.i.i.i96
@@ -2111,7 +2111,7 @@ for.body.i.i.i121:                                ; preds = %.noexc.i.i125, %for
   %53 = load ptr, ptr %gcd, align 8
   %arrayidx.i3.i.i.i123 = getelementptr inbounds %class.mpz, ptr %53, i64 %indvars.iv.i.i.i122
   %54 = load ptr, ptr %52, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i123)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %54, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i123)
           to label %.noexc.i.i125 unwind label %terminate.lpad.i.i124
 
 .noexc.i.i125:                                    ; preds = %for.body.i.i.i121
@@ -2743,7 +2743,7 @@ for.inc98:                                        ; preds = %.noexc168, %if.then
 for.end100:                                       ; preds = %for.inc98, %for.cond90.preheader
   %81 = load ptr, ptr %tmp, align 8
   %82 = load ptr, ptr %81, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %82, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %82, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %for.end100
@@ -3409,7 +3409,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit413, %lpad.loopexit ], [ %lpad.loopexit415, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit418, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit421, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp422, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %85 = load ptr, ptr %multiplier, align 8
   %86 = load ptr, ptr %85, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %86, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %86, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -3701,7 +3701,7 @@ for.end86:                                        ; preds = %for.end86.loopexit4
   %131 = phi ptr [ %0, %entry ], [ %.pre, %for.end86.loopexit449 ]
   %null_rank.0.lcssa = phi i32 [ 0, %entry ], [ %spec.select, %for.end86.loopexit449 ]
   %132 = load ptr, ptr %131, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %132, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %132, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit130 unwind label %terminate.lpad.i129
 
 terminate.lpad.i129:                              ; preds = %for.end86
@@ -3954,7 +3954,7 @@ for.body:                                         ; preds = %_ZNK6vectorI3mpzLb0
   %3 = load ptr, ptr %m_zpm, align 8
   %arrayidx.i3 = getelementptr inbounds %class.mpz, ptr %0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3)
           to label %for.inc unwind label %terminate.lpad
 
 for.inc:                                          ; preds = %for.body
@@ -4475,7 +4475,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
   %54 = load ptr, ptr %m_manager.i122, align 8
   %55 = load ptr, ptr %test3b, align 8
   %arrayidx.i3.i.i = getelementptr inbounds %class.mpz, ptr %55, i64 %indvars.iv.i.i
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %54, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %for.body.i.i
@@ -4535,7 +4535,7 @@ for.body.i.i142:                                  ; preds = %.noexc.i146, %for.b
   %63 = load ptr, ptr %m_manager.i121, align 8
   %64 = load ptr, ptr %test3a, align 8
   %arrayidx.i3.i.i144 = getelementptr inbounds %class.mpz, ptr %64, i64 %indvars.iv.i.i143
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %63, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i144)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %63, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i144)
           to label %.noexc.i146 unwind label %terminate.lpad.i145
 
 .noexc.i146:                                      ; preds = %for.body.i.i142
@@ -4596,7 +4596,7 @@ for.body.i.i167:                                  ; preds = %.noexc.i171, %for.b
   %72 = load ptr, ptr %m_manager.i114, align 8
   %73 = load ptr, ptr %test2b, align 8
   %arrayidx.i3.i.i169 = getelementptr inbounds %class.mpz, ptr %73, i64 %indvars.iv.i.i168
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i169)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %72, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i169)
           to label %.noexc.i171 unwind label %terminate.lpad.i170
 
 .noexc.i171:                                      ; preds = %for.body.i.i167
@@ -4656,7 +4656,7 @@ for.body.i.i192:                                  ; preds = %.noexc.i196, %for.b
   %81 = load ptr, ptr %m_manager.i113, align 8
   %82 = load ptr, ptr %test2a, align 8
   %arrayidx.i3.i.i194 = getelementptr inbounds %class.mpz, ptr %82, i64 %indvars.iv.i.i193
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %81, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i194)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %81, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i194)
           to label %.noexc.i196 unwind label %terminate.lpad.i195
 
 .noexc.i196:                                      ; preds = %for.body.i.i192
@@ -4730,7 +4730,7 @@ for.body.i.i217:                                  ; preds = %.noexc.i221, %for.b
   %90 = load ptr, ptr %m_manager.i64242, align 8
   %91 = load ptr, ptr %test1, align 8
   %arrayidx.i3.i.i219 = getelementptr inbounds %class.mpz, ptr %91, i64 %indvars.iv.i.i218
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %90, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i219)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %90, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i219)
           to label %.noexc.i221 unwind label %terminate.lpad.i220
 
 .noexc.i221:                                      ; preds = %for.body.i.i217
@@ -4779,7 +4779,7 @@ cleanup90:                                        ; preds = %if.then.i.i.i.i231,
   %retval.0 = phi i1 [ false, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit41 ], [ false, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit51 ], [ false, %invoke.cont27 ], [ false, %if.then.i ], [ %retval.2, %cleanup88 ], [ %retval.1245, %for.end.i.i224 ], [ %retval.1245, %invoke.cont.i227 ], [ %retval.1245, %if.then.i.i.i.i231 ]
   call void @_ZN11upolynomial12core_managerD1Ev(ptr noundef nonnull align 8 dereferenceable(272) %br_upm) #18
   %97 = load ptr, ptr %br, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %97, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %97, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit unwind label %terminate.lpad.i236
 
 terminate.lpad.i236:                              ; preds = %cleanup90
@@ -4952,7 +4952,7 @@ for.body.i:                                       ; preds = %.noexc, %for.body.l
   %2 = load ptr, ptr %m_manager.i.i, align 8
   %3 = load ptr, ptr %this, align 8
   %arrayidx.i3.i = getelementptr inbounds %class.mpz, ptr %3, i64 %indvars.iv.i
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %2, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %for.body.i
@@ -5004,7 +5004,7 @@ define linkonce_odr hidden void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(p
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_num = getelementptr inbounds i8, ptr %this, i64 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %m_num)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %m_num)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -5397,7 +5397,7 @@ for.body.i.i.i:                                   ; preds = %.noexc.i.i, %for.bo
   %49 = load ptr, ptr %tmp, align 8
   %arrayidx.i3.i.i.i = getelementptr inbounds %class.mpz, ptr %49, i64 %indvars.iv.i.i.i
   %50 = load ptr, ptr %48, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %50, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %50, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i
@@ -5458,7 +5458,7 @@ for.body.i.i.i149:                                ; preds = %.noexc.i.i153, %for
   %59 = load ptr, ptr %T, align 8
   %arrayidx.i3.i.i.i151 = getelementptr inbounds %class.mpz, ptr %59, i64 %indvars.iv.i.i.i150
   %60 = load ptr, ptr %58, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %60, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i151)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %60, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i151)
           to label %.noexc.i.i153 unwind label %terminate.lpad.i.i152
 
 .noexc.i.i153:                                    ; preds = %for.body.i.i.i149
@@ -5519,7 +5519,7 @@ for.body.i.i.i174:                                ; preds = %.noexc.i.i178, %for
   %69 = load ptr, ptr %S, align 8
   %arrayidx.i3.i.i.i176 = getelementptr inbounds %class.mpz, ptr %69, i64 %indvars.iv.i.i.i175
   %70 = load ptr, ptr %68, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i176)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %70, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i176)
           to label %.noexc.i.i178 unwind label %terminate.lpad.i.i177
 
 .noexc.i.i178:                                    ; preds = %for.body.i.i.i174
@@ -5580,7 +5580,7 @@ for.body.i.i.i199:                                ; preds = %.noexc.i.i203, %for
   %79 = load ptr, ptr %t, align 8
   %arrayidx.i3.i.i.i201 = getelementptr inbounds %class.mpz, ptr %79, i64 %indvars.iv.i.i.i200
   %80 = load ptr, ptr %78, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %80, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i201)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %80, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i201)
           to label %.noexc.i.i203 unwind label %terminate.lpad.i.i202
 
 .noexc.i.i203:                                    ; preds = %for.body.i.i.i199
@@ -5641,7 +5641,7 @@ for.body.i.i.i224:                                ; preds = %.noexc.i.i228, %for
   %89 = load ptr, ptr %Vf, align 8
   %arrayidx.i3.i.i.i226 = getelementptr inbounds %class.mpz, ptr %89, i64 %indvars.iv.i.i.i225
   %90 = load ptr, ptr %88, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %90, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i226)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %90, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i226)
           to label %.noexc.i.i228 unwind label %terminate.lpad.i.i227
 
 .noexc.i.i228:                                    ; preds = %for.body.i.i.i224
@@ -5702,7 +5702,7 @@ for.body.i.i.i249:                                ; preds = %.noexc.i.i253, %for
   %99 = load ptr, ptr %f, align 8
   %arrayidx.i3.i.i.i251 = getelementptr inbounds %class.mpz, ptr %99, i64 %indvars.iv.i.i.i250
   %100 = load ptr, ptr %98, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %100, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i251)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %100, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i251)
           to label %.noexc.i.i253 unwind label %terminate.lpad.i.i252
 
 .noexc.i.i253:                                    ; preds = %for.body.i.i.i249
@@ -5933,7 +5933,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
   %19 = load ptr, ptr %m_manager.i28, align 8
   %20 = load ptr, ptr %one, align 8
   %arrayidx.i3.i.i = getelementptr inbounds %class.mpz, ptr %20, i64 %indvars.iv.i.i
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %19, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %for.body.i.i
@@ -5995,7 +5995,7 @@ for.body.i.i53:                                   ; preds = %.noexc.i57, %for.bo
   %28 = load ptr, ptr %m_manager.i12, align 8
   %29 = load ptr, ptr %tmp2, align 8
   %arrayidx.i3.i.i55 = getelementptr inbounds %class.mpz, ptr %29, i64 %indvars.iv.i.i54
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i55)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %28, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i55)
           to label %.noexc.i57 unwind label %terminate.lpad.i56
 
 .noexc.i57:                                       ; preds = %for.body.i.i53
@@ -6055,7 +6055,7 @@ for.body.i.i78:                                   ; preds = %.noexc.i82, %for.bo
   %37 = load ptr, ptr %m_manager.i11, align 8
   %38 = load ptr, ptr %tmp1, align 8
   %arrayidx.i3.i.i80 = getelementptr inbounds %class.mpz, ptr %38, i64 %indvars.iv.i.i79
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %37, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i80)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %37, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i80)
           to label %.noexc.i82 unwind label %terminate.lpad.i81
 
 .noexc.i82:                                       ; preds = %for.body.i.i78
@@ -6239,7 +6239,7 @@ if.then.i.i:                                      ; preds = %invoke.cont25
   %bf.clear3.i = and i8 %bf.load.i, -4
   store i8 %bf.clear3.i, ptr %m_kind.i, align 4
   store ptr null, ptr %m_ptr.i, align 8
-  invoke void @_ZN6vectorI3mpzLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %g)
+  invoke void @_ZN6vectorI3mpzLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %g)
           to label %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit.i unwind label %lpad34.loopexit.split-lp
 
 _ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit.i:      ; preds = %if.then.i.i
@@ -7247,7 +7247,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
   %142 = load ptr, ptr %m_manager.i140, align 8
   %143 = load ptr, ptr %tmp2, align 8
   %arrayidx.i3.i.i = getelementptr inbounds %class.mpz, ptr %143, i64 %indvars.iv.i.i
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %142, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %142, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %for.body.i.i
@@ -7307,7 +7307,7 @@ for.body.i.i316:                                  ; preds = %.noexc.i320, %for.b
   %151 = load ptr, ptr %m_manager.i139, align 8
   %152 = load ptr, ptr %t, align 8
   %arrayidx.i3.i.i318 = getelementptr inbounds %class.mpz, ptr %152, i64 %indvars.iv.i.i317
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %151, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i318)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %151, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i318)
           to label %.noexc.i320 unwind label %terminate.lpad.i319
 
 .noexc.i320:                                      ; preds = %for.body.i.i316
@@ -7367,7 +7367,7 @@ for.body.i.i341:                                  ; preds = %.noexc.i345, %for.b
   %160 = load ptr, ptr %m_manager.i138, align 8
   %161 = load ptr, ptr %T, align 8
   %arrayidx.i3.i.i343 = getelementptr inbounds %class.mpz, ptr %161, i64 %indvars.iv.i.i342
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %160, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i343)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %160, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i343)
           to label %.noexc.i345 unwind label %terminate.lpad.i344
 
 .noexc.i345:                                      ; preds = %for.body.i.i341
@@ -7427,7 +7427,7 @@ for.body.i.i366:                                  ; preds = %.noexc.i370, %for.b
   %169 = load ptr, ptr %m_manager.i137, align 8
   %170 = load ptr, ptr %S, align 8
   %arrayidx.i3.i.i368 = getelementptr inbounds %class.mpz, ptr %170, i64 %indvars.iv.i.i367
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %169, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i368)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %169, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i368)
           to label %.noexc.i370 unwind label %terminate.lpad.i369
 
 .noexc.i370:                                      ; preds = %for.body.i.i366
@@ -7487,7 +7487,7 @@ for.body.i.i391:                                  ; preds = %.noexc.i395, %for.b
   %178 = load ptr, ptr %m_manager.i72, align 8
   %179 = load ptr, ptr %g, align 8
   %arrayidx.i3.i.i393 = getelementptr inbounds %class.mpz, ptr %179, i64 %indvars.iv.i.i392
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %178, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i393)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %178, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i393)
           to label %.noexc.i395 unwind label %terminate.lpad.i394
 
 .noexc.i395:                                      ; preds = %for.body.i.i391
@@ -7547,7 +7547,7 @@ for.body.i.i416:                                  ; preds = %.noexc.i420, %for.b
   %187 = load ptr, ptr %m_manager.i71, align 8
   %188 = load ptr, ptr %tmp1, align 8
   %arrayidx.i3.i.i418 = getelementptr inbounds %class.mpz, ptr %188, i64 %indvars.iv.i.i417
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %187, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i418)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %187, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i418)
           to label %.noexc.i420 unwind label %terminate.lpad.i419
 
 .noexc.i420:                                      ; preds = %for.body.i.i416
@@ -7676,7 +7676,7 @@ for.body.i.i441:                                  ; preds = %.noexc.i445, %for.b
   %198 = load ptr, ptr %m_manager.i68, align 8
   %199 = load ptr, ptr %B_lifted, align 8
   %arrayidx.i3.i.i443 = getelementptr inbounds %class.mpz, ptr %199, i64 %indvars.iv.i.i442
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %198, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i443)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %198, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i443)
           to label %.noexc.i445 unwind label %terminate.lpad.i444
 
 .noexc.i445:                                      ; preds = %for.body.i.i441
@@ -7736,7 +7736,7 @@ for.body.i.i466:                                  ; preds = %.noexc.i470, %for.b
   %207 = load ptr, ptr %m_manager.i67, align 8
   %208 = load ptr, ptr %A_lifted, align 8
   %arrayidx.i3.i.i468 = getelementptr inbounds %class.mpz, ptr %208, i64 %indvars.iv.i.i467
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %207, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i468)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %207, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i468)
           to label %.noexc.i470 unwind label %terminate.lpad.i469
 
 .noexc.i470:                                      ; preds = %for.body.i.i466
@@ -7796,7 +7796,7 @@ for.body.i.i491:                                  ; preds = %.noexc.i495, %for.b
   %216 = load ptr, ptr %m_manager.i61, align 8
   %217 = load ptr, ptr %D, align 8
   %arrayidx.i3.i.i493 = getelementptr inbounds %class.mpz, ptr %217, i64 %indvars.iv.i.i492
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %216, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i493)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %216, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i493)
           to label %.noexc.i495 unwind label %terminate.lpad.i494
 
 .noexc.i495:                                      ; preds = %for.body.i.i491
@@ -7856,7 +7856,7 @@ for.body.i.i516:                                  ; preds = %.noexc.i520, %for.b
   %225 = load ptr, ptr %m_manager.i60, align 8
   %226 = load ptr, ptr %V, align 8
   %arrayidx.i3.i.i518 = getelementptr inbounds %class.mpz, ptr %226, i64 %indvars.iv.i.i517
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %225, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i518)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %225, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i518)
           to label %.noexc.i520 unwind label %terminate.lpad.i519
 
 .noexc.i520:                                      ; preds = %for.body.i.i516
@@ -7916,7 +7916,7 @@ for.body.i.i541:                                  ; preds = %.noexc.i545, %for.b
   %234 = load ptr, ptr %m_manager.i59, align 8
   %235 = load ptr, ptr %U, align 8
   %arrayidx.i3.i.i543 = getelementptr inbounds %class.mpz, ptr %235, i64 %indvars.iv.i.i542
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %234, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i543)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %234, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i543)
           to label %.noexc.i545 unwind label %terminate.lpad.i544
 
 .noexc.i545:                                      ; preds = %for.body.i.i541
@@ -8223,7 +8223,7 @@ for.body.i.i.i:                                   ; preds = %.noexc.i.i, %for.bo
   %31 = load ptr, ptr %f_zpe, align 8
   %arrayidx.i3.i.i.i = getelementptr inbounds %class.mpz, ptr %31, i64 %indvars.iv.i.i.i
   %32 = load ptr, ptr %30, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %32, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i
@@ -8284,7 +8284,7 @@ for.body.i.i.i71:                                 ; preds = %.noexc.i.i75, %for.
   %41 = load ptr, ptr %mult_zpe, align 8
   %arrayidx.i3.i.i.i73 = getelementptr inbounds %class.mpz, ptr %41, i64 %indvars.iv.i.i.i72
   %42 = load ptr, ptr %40, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i73)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %42, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i73)
           to label %.noexc.i.i75 unwind label %terminate.lpad.i.i74
 
 .noexc.i.i75:                                     ; preds = %for.body.i.i.i71
@@ -8346,7 +8346,7 @@ for.body.i.i.i96:                                 ; preds = %.noexc.i.i100, %for
   %51 = load ptr, ptr %f_zp, align 8
   %arrayidx.i3.i.i.i98 = getelementptr inbounds %class.mpz, ptr %51, i64 %indvars.iv.i.i.i97
   %52 = load ptr, ptr %50, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %52, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i98)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %52, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i98)
           to label %.noexc.i.i100 unwind label %terminate.lpad.i.i99
 
 .noexc.i.i100:                                    ; preds = %for.body.i.i.i96
@@ -8407,7 +8407,7 @@ for.body.i.i.i121:                                ; preds = %.noexc.i.i125, %for
   %61 = load ptr, ptr %mult_zp, align 8
   %arrayidx.i3.i.i.i123 = getelementptr inbounds %class.mpz, ptr %61, i64 %indvars.iv.i.i.i122
   %62 = load ptr, ptr %60, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i123)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %62, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i123)
           to label %.noexc.i.i125 unwind label %terminate.lpad.i.i124
 
 .noexc.i.i125:                                    ; preds = %for.body.i.i.i121
@@ -8457,7 +8457,7 @@ cleanup50:                                        ; preds = %if.then.i.i.i, %if.
   %retval.0 = phi i1 [ false, %invoke.cont11 ], [ %retval.1, %_ZN11upolynomial21scoped_numeral_vectorD2Ev.exit113 ], [ %retval.1, %for.end.i.i.i128 ], [ %retval.1, %invoke.cont.i.i131 ], [ %retval.1, %if.then.i.i.i.i.i135 ], [ false, %if.then.i.i.i ]
   %68 = load ptr, ptr %power, align 8
   %69 = load ptr, ptr %68, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %69, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %69, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup50
@@ -8567,7 +8567,7 @@ _ZN13mpzzp_manager3mulERK3mpzS2_RS0_.exit18:      ; preds = %if.end, %if.then.i.
 
 while.end:                                        ; preds = %_ZN13mpzzp_manager3mulERK3mpzS2_RS0_.exit18, %_ZN13mpzzp_manager3setER3mpzi.exit
   %8 = load ptr, ptr %this, align 8
-  call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %power)
+  call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %8, ptr noundef nonnull align 8 dereferenceable(16) %power)
   ret void
 }
 
@@ -8637,7 +8637,7 @@ for.body.i.i.i:                                   ; preds = %.noexc.i.i, %for.bo
   %8 = load ptr, ptr %A_pe_p, align 8
   %arrayidx.i3.i.i.i = getelementptr inbounds %class.mpz, ptr %8, i64 %indvars.iv.i.i.i
   %9 = load ptr, ptr %7, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i
@@ -8865,7 +8865,7 @@ invoke.cont36:                                    ; preds = %_ZN11mpz_managerILb
 
 invoke.cont39:                                    ; preds = %invoke.cont36
   %20 = load ptr, ptr %lc, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %20, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %if.end unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont39
@@ -9042,7 +9042,7 @@ invoke.cont79:                                    ; preds = %invoke.cont76
 
 invoke.cont80:                                    ; preds = %invoke.cont79
   %41 = load ptr, ptr %lc_inv, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i106)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %41, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i106)
           to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit138 unwind label %terminate.lpad.i137
 
 terminate.lpad.i137:                              ; preds = %invoke.cont80
@@ -9072,7 +9072,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
   %46 = load ptr, ptr %m_manager.i41, align 8
   %47 = load ptr, ptr %f_parts, align 8
   %arrayidx.i3.i.i = getelementptr inbounds %class.mpz, ptr %47, i64 %indvars.iv.i.i
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %46, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i140
 
 .noexc.i:                                         ; preds = %for.body.i.i
@@ -9132,7 +9132,7 @@ for.body.i.i148:                                  ; preds = %.noexc.i152, %for.b
   %55 = load ptr, ptr %m_manager.i40, align 8
   %56 = load ptr, ptr %C, align 8
   %arrayidx.i3.i.i150 = getelementptr inbounds %class.mpz, ptr %56, i64 %indvars.iv.i.i149
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %55, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i150)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %55, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i150)
           to label %.noexc.i152 unwind label %terminate.lpad.i151
 
 .noexc.i152:                                      ; preds = %for.body.i.i148
@@ -9192,7 +9192,7 @@ for.body.i.i173:                                  ; preds = %.noexc.i177, %for.b
   %64 = load ptr, ptr %m_manager.i39, align 8
   %65 = load ptr, ptr %B, align 8
   %arrayidx.i3.i.i175 = getelementptr inbounds %class.mpz, ptr %65, i64 %indvars.iv.i.i174
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i175)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %64, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i175)
           to label %.noexc.i177 unwind label %terminate.lpad.i176
 
 .noexc.i177:                                      ; preds = %for.body.i.i173
@@ -9252,7 +9252,7 @@ for.body.i.i198:                                  ; preds = %.noexc.i202, %for.b
   %73 = load ptr, ptr %m_manager.i, align 8
   %74 = load ptr, ptr %A, align 8
   %arrayidx.i3.i.i200 = getelementptr inbounds %class.mpz, ptr %74, i64 %indvars.iv.i.i199
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %73, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i200)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %73, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i200)
           to label %.noexc.i202 unwind label %terminate.lpad.i201
 
 .noexc.i202:                                      ; preds = %for.body.i.i198
@@ -9559,7 +9559,7 @@ invoke.cont29:                                    ; preds = %.noexc110, %if.then
 invoke.cont32:                                    ; preds = %invoke.cont29
   %15 = load ptr, ptr %c, align 8
   %16 = load ptr, ptr %15, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %16, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %invoke.cont34 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont32
@@ -9886,12 +9886,12 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit205:            ; preds = %if.end99, %if.end.i
 
 .noexc209:                                        ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit205
   %49 = load ptr, ptr %m_manager.i.i129, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(16) %lc.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %49, ptr noundef nonnull align 8 dereferenceable(16) %lc.i)
           to label %.noexc210 unwind label %lpad90
 
 .noexc210:                                        ; preds = %.noexc209
   %50 = load ptr, ptr %m_manager.i.i129, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %50, ptr noundef nonnull align 8 dereferenceable(16) %lc_inv.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %50, ptr noundef nonnull align 8 dereferenceable(16) %lc_inv.i)
           to label %invoke.cont104 unwind label %lpad90
 
 invoke.cont104:                                   ; preds = %.noexc210
@@ -10078,7 +10078,7 @@ for.body.i.i.i:                                   ; preds = %.noexc.i.i, %for.bo
   %76 = load ptr, ptr %f_pp_zp, align 8
   %arrayidx.i3.i.i.i = getelementptr inbounds %class.mpz, ptr %76, i64 %indvars.iv.i.i.i
   %77 = load ptr, ptr %75, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %77, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %77, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i240
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i
@@ -10491,7 +10491,7 @@ lpad28.i:                                         ; preds = %lpad28.loopexit.spl
 for.end70.i:                                      ; preds = %invoke.cont59.i, %if.then.i.i.i128.i
   %119 = load ptr, ptr %tmp.i, align 8
   %120 = load ptr, ptr %119, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %120, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i61.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %120, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i61.i)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit.i unwind label %terminate.lpad.i.i273
 
 terminate.lpad.i.i273:                            ; preds = %for.end70.i
@@ -10504,7 +10504,7 @@ terminate.lpad.i.i273:                            ; preds = %for.end70.i
 _ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit.i: ; preds = %for.end70.i
   %123 = load ptr, ptr %bound.i, align 8
   %124 = load ptr, ptr %123, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %124, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i41.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %124, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i41.i)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit143.i unwind label %terminate.lpad.i142.i
 
 terminate.lpad.i142.i:                            ; preds = %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit.i
@@ -10517,7 +10517,7 @@ terminate.lpad.i142.i:                            ; preds = %_ZN15_scoped_numera
 _ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit143.i: ; preds = %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit.i
   %127 = load ptr, ptr %f_norm.i, align 8
   %128 = load ptr, ptr %127, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %128, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i.i)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %128, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i.i)
           to label %invoke.cont149 unwind label %terminate.lpad.i145.i
 
 terminate.lpad.i145.i:                            ; preds = %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit143.i
@@ -10639,7 +10639,7 @@ invoke.cont171:                                   ; preds = %_ZN11mpz_managerILb
           to label %invoke.cont174 unwind label %lpad166
 
 invoke.cont174:                                   ; preds = %invoke.cont171
-  invoke void @_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %it, ptr noundef nonnull align 8 dereferenceable(48) %zpe_fs)
+  invoke void @_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %it, ptr noundef nonnull align 8 dereferenceable(48) %zpe_fs)
           to label %invoke.cont179 unwind label %lpad166
 
 invoke.cont179:                                   ; preds = %invoke.cont174
@@ -10881,7 +10881,7 @@ cleanup217:                                       ; preds = %.noexc376, %.noexc3
   %remove.1 = phi i1 [ false, %invoke.cont212 ], [ %remove.0, %.noexc375 ], [ %remove.0, %.noexc376 ]
   %177 = load ptr, ptr %tmp, align 8
   %178 = load ptr, ptr %177, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %178, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i346)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %178, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i346)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit379 unwind label %terminate.lpad.i378
 
 terminate.lpad.i378:                              ; preds = %cleanup217
@@ -10940,7 +10940,7 @@ cleanup239:                                       ; preds = %if.end237, %invoke.
   %remove.2 = phi i1 [ false, %invoke.cont234 ], [ %remove.0, %if.end237 ]
   %187 = load ptr, ptr %tmp222, align 8
   %188 = load ptr, ptr %187, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %188, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i380)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %188, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i380)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit403 unwind label %terminate.lpad.i402
 
 terminate.lpad.i402:                              ; preds = %cleanup239
@@ -11105,7 +11105,7 @@ invoke.cont279:                                   ; preds = %_ZNK6vectorI3mpzLb0
 if.end282:                                        ; preds = %while.end272, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit455, %invoke.cont279
   %210 = load ptr, ptr %trial_factor_cont, align 8
   %211 = load ptr, ptr %210, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %211, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i327)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %211, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i327)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit465 unwind label %terminate.lpad.i464
 
 terminate.lpad.i464:                              ; preds = %if.end282
@@ -11136,7 +11136,7 @@ for.body.i.i.i473:                                ; preds = %.noexc.i.i477, %for
   %217 = load ptr, ptr %trial_factor_quo, align 8
   %arrayidx.i3.i.i.i475 = getelementptr inbounds %class.mpz, ptr %217, i64 %indvars.iv.i.i.i474
   %218 = load ptr, ptr %216, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %218, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i475)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %218, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i475)
           to label %.noexc.i.i477 unwind label %terminate.lpad.i.i476
 
 .noexc.i.i477:                                    ; preds = %for.body.i.i.i473
@@ -11197,7 +11197,7 @@ for.body.i.i.i498:                                ; preds = %.noexc.i.i502, %for
   %227 = load ptr, ptr %trial_factor, align 8
   %arrayidx.i3.i.i.i500 = getelementptr inbounds %class.mpz, ptr %227, i64 %indvars.iv.i.i.i499
   %228 = load ptr, ptr %226, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %228, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i500)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %228, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i500)
           to label %.noexc.i.i502 unwind label %terminate.lpad.i.i501
 
 .noexc.i.i502:                                    ; preds = %for.body.i.i.i498
@@ -11276,7 +11276,7 @@ terminate.lpad.i.i4.i.i:                          ; preds = %if.then.i.i.i2.i.i
 _ZN11upolynomial35ufactorization_combination_iteratorD2Ev.exit: ; preds = %_ZN7svectorIijED2Ev.exit.i.i, %if.then.i.i.i2.i.i
   %240 = load ptr, ptr %f_pp_lc, align 8
   %241 = load ptr, ptr %240, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %241, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i294)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %241, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i294)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit522 unwind label %terminate.lpad.i521
 
 terminate.lpad.i521:                              ; preds = %_ZN11upolynomial35ufactorization_combination_iteratorD2Ev.exit
@@ -11318,7 +11318,7 @@ cleanup298:                                       ; preds = %_ZN11upolynomial21s
   %retval.1 = phi i1 [ %result.0, %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit522 ], [ false, %if.then67 ], [ true, %_ZN11upolynomial21scoped_numeral_vectorD2Ev.exit ]
   %244 = load ptr, ptr %gcd_tmp, align 8
   %245 = load ptr, ptr %244, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %245, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i150)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %245, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i150)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit525 unwind label %terminate.lpad.i524
 
 terminate.lpad.i524:                              ; preds = %cleanup298
@@ -11347,7 +11347,7 @@ terminate.lpad.i.i529:                            ; preds = %if.end.i.i.i528
 _ZN11upolynomial24factorization_degree_setD2Ev.exit530: ; preds = %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit525, %if.end.i.i.i528
   %251 = load ptr, ptr %zp_fs_p, align 8
   %252 = load ptr, ptr %251, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %252, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i136)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %252, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i136)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit533 unwind label %terminate.lpad.i532
 
 terminate.lpad.i532:                              ; preds = %_ZN11upolynomial24factorization_degree_setD2Ev.exit530
@@ -11362,7 +11362,7 @@ _ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit533: ; preds = %_ZN11upolynomial24
   call void @_ZN11upolynomial12core_managerD1Ev(ptr noundef nonnull align 8 dereferenceable(272) %zp_upm) #18
   %255 = load ptr, ptr %p, align 8
   %256 = load ptr, ptr %255, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %256, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i115)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %256, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i115)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit536 unwind label %terminate.lpad.i535
 
 terminate.lpad.i535:                              ; preds = %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit533
@@ -11393,7 +11393,7 @@ for.body.i.i.i544:                                ; preds = %.noexc.i.i548, %for
   %262 = load ptr, ptr %f_pp, align 8
   %arrayidx.i3.i.i.i546 = getelementptr inbounds %class.mpz, ptr %262, i64 %indvars.iv.i.i.i545
   %263 = load ptr, ptr %261, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %263, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i546)
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %263, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i.i546)
           to label %.noexc.i.i548 unwind label %terminate.lpad.i.i547
 
 .noexc.i.i548:                                    ; preds = %for.body.i.i.i544
@@ -12274,7 +12274,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

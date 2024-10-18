@@ -553,7 +553,7 @@ define noundef ptr @data_set_string(ptr noundef returned %0, ptr noundef %1) loc
   br i1 %.not.i, label %_set_data_string_inline.exit, label %22
 
 22:                                               ; preds = %16
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %17, i64 noundef %14, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.70, ptr noundef nonnull @__func__._set_data_string_inline, ptr noundef nonnull %0) #16
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %17, i64 noundef range(i64 0, 8) %14, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.70, ptr noundef nonnull @__func__._set_data_string_inline, ptr noundef nonnull %0) #16
   br label %_set_data_string_inline.exit
 
 23:                                               ; preds = %12
@@ -568,7 +568,7 @@ define noundef ptr @data_set_string(ptr noundef returned %0, ptr noundef %1) loc
   br i1 %.not.i20, label %_set_data_string_inline.exit, label %29
 
 29:                                               ; preds = %23
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %24, i64 noundef %14, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__._set_data_string_ptr, ptr noundef nonnull %0) #16
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %24, i64 noundef range(i64 -2147483648, 2147483648) %14, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__._set_data_string_ptr, ptr noundef nonnull %0) #16
   br label %_set_data_string_inline.exit
 
 _set_data_string_inline.exit:                     ; preds = %29, %23, %22, %16, %11, %8, %4, %2
@@ -634,7 +634,7 @@ define noundef ptr @_data_set_string_own(ptr noundef returned %0, ptr noundef %1
   br i1 %.not.i, label %_set_data_string_inline.exit, label %25
 
 25:                                               ; preds = %19
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %20, i64 noundef %17, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.70, ptr noundef nonnull @__func__._set_data_string_inline, ptr noundef nonnull %0) #16
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %20, i64 noundef range(i64 0, 8) %17, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.70, ptr noundef nonnull @__func__._set_data_string_inline, ptr noundef nonnull %0) #16
   br label %_set_data_string_inline.exit
 
 _set_data_string_inline.exit:                     ; preds = %19, %25
@@ -652,7 +652,7 @@ _set_data_string_inline.exit:                     ; preds = %19, %25
   br i1 %.not.i19, label %_set_data_string_ptr.exit, label %31
 
 31:                                               ; preds = %26
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %6, i64 noundef %17, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__._set_data_string_ptr, ptr noundef nonnull %0) #16
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %6, i64 noundef range(i64 -2147483648, 2147483648) %17, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__._set_data_string_ptr, ptr noundef nonnull %0) #16
   br label %_set_data_string_ptr.exit
 
 _set_data_string_ptr.exit:                        ; preds = %31, %26, %_set_data_string_inline.exit, %14, %11, %7, %4
@@ -2348,27 +2348,27 @@ _convert_data_string.exit:                        ; preds = %6
   br label %_convert_data_force_bool.exit
 
 28:                                               ; preds = %5
-  %29 = tail call fastcc i32 @_convert_data_null(ptr noundef %0)
+  %29 = tail call fastcc i32 @_convert_data_null(ptr noundef nonnull %0)
   %.not14.i = icmp eq i32 %29, 0
   br i1 %.not14.i, label %data_convert_type.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call fastcc i32 @_convert_data_int(ptr noundef %0, i1 noundef zeroext false)
+  %31 = tail call fastcc i32 @_convert_data_int(ptr noundef nonnull %0, i1 noundef zeroext false)
   %.not15.i = icmp eq i32 %31, 0
   br i1 %.not15.i, label %data_convert_type.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = tail call fastcc i32 @_convert_data_float(ptr noundef %0)
+  %33 = tail call fastcc i32 @_convert_data_float(ptr noundef nonnull %0)
   %.not16.i = icmp eq i32 %33, 0
   br i1 %.not16.i, label %data_convert_type.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call fastcc i32 @_convert_data_int(ptr noundef %0, i1 noundef zeroext true)
+  %35 = tail call fastcc i32 @_convert_data_int(ptr noundef nonnull %0, i1 noundef zeroext true)
   %.not17.i = icmp eq i32 %35, 0
   br i1 %.not17.i, label %data_convert_type.exit, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call fastcc i32 @_convert_data_bool(ptr noundef %0)
+  %37 = tail call fastcc i32 @_convert_data_bool(ptr noundef nonnull %0)
   br label %data_convert_type.exit
 
 data_convert_type.exit:                           ; preds = %28, %30, %32, %34, %36

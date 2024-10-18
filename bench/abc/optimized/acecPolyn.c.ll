@@ -2801,7 +2801,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
 104:                                              ; preds = %Vec_FltPush.exit
   %105 = add nsw i32 %102, 1
   %106 = shl nsw i32 %103, 1
-  %107 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %105, i32 %106)
+  %107 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %105, i32 %106)
   tail call fastcc void @Vec_QueGrow(ptr noundef nonnull %100, i32 noundef %107)
   %.pre.i48 = load i32, ptr %100, align 8
   br label %108
@@ -2814,7 +2814,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
 110:                                              ; preds = %108
   %111 = add nsw i32 %9, 1
   %112 = shl nsw i32 %109, 1
-  %113 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %111, i32 %112)
+  %113 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %111, i32 %112)
   tail call fastcc void @Vec_QueGrow(ptr noundef nonnull %100, i32 noundef %113)
   br label %114
 

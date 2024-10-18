@@ -134,7 +134,7 @@ define hidden i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT
   %21 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8e967bddc0b6874aE"(i64 %19, i64 %20, ptr nonnull align 8 %8, i64 %10, ptr nonnull align 8 @anon.c65ca4756dc410cce29925fc6fcc07df.13)
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = extractvalue { ptr, i64 } %21, 1
-  %24 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc1b95e6fcb962aadE"(ptr align 8 %22, i64 %23, ptr align 8 %1, i64 %2)
+  %24 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc1b95e6fcb962aadE"(ptr align 8 %22, i64 %23, ptr align 8 %1, i64 range(i64 1, 0) %2)
   br i1 %24, label %26, label %14
 
 25:                                               ; preds = %3, %._crit_edge, %26
@@ -225,7 +225,7 @@ define hidden i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT
   %21 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf156a56bf74e7174E"(i64 %19, i64 %20, ptr nonnull align 8 %8, i64 %10, ptr nonnull align 8 @anon.c65ca4756dc410cce29925fc6fcc07df.13)
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = extractvalue { ptr, i64 } %21, 1
-  %24 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c0dd9d75a0ecb90E"(ptr align 8 %22, i64 %23, ptr align 8 %1, i64 %2)
+  %24 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c0dd9d75a0ecb90E"(ptr align 8 %22, i64 %23, ptr align 8 %1, i64 range(i64 1, 0) %2)
   br i1 %24, label %26, label %14
 
 25:                                               ; preds = %3, %._crit_edge, %26

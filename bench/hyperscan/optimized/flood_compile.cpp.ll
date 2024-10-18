@@ -464,7 +464,7 @@ while.body.i.i.i.i:                               ; preds = %for.body220, %while
   %__x.addr.03.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %this.val.i.i.i, %for.body220 ]
   %__y.addr.02.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %75, %for.body220 ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.03.i.i.i.i, i64 32
-  %call.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %fl221, i64 noundef 208) #18
+  %call.i.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %fl221, i64 noundef 208) #18
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.02.i.i.i.i, ptr %__x.addr.03.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
@@ -480,7 +480,7 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
 lor.rhs.i:                                        ; preds = %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i
   %__y.addr.02.i.i.i.i.sroa.gep = getelementptr inbounds i8, ptr %__y.addr.02.i.i.i.i, i64 32
   %__y.addr.1.i.i.i.i.sroa.sel = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.02.i.i.i.i.sroa.gep, ptr %_M_storage.i.i.i.i.i.i
-  %call.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %fl221, ptr noundef nonnull readonly dereferenceable(208) %__y.addr.1.i.i.i.i.sroa.sel, i64 noundef 208) #18
+  %call.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %fl221, ptr noundef nonnull readonly align 8 dereferenceable(208) %__y.addr.1.i.i.i.i.sroa.sel, i64 noundef 208) #18
   %cmp.i3.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i3.i, label %if.then.i182, label %for.inc229
 
@@ -505,7 +505,7 @@ if.then.i.i.i:                                    ; preds = %call5.i.i.i.i.i.i.i
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i
   %76 = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %_M_storage.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %76, i64 32
-  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i3.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
+  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i3.i.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %invoke.cont7.i.i, label %if.else.i.i.i
 
@@ -515,7 +515,7 @@ if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 while.body.i.i.i7.i:                              ; preds = %if.else.i.i.i, %while.body.i.i.i7.i
   %__x.024.i.i.i.i = phi ptr [ %__x.0.i.i.i.i, %while.body.i.i.i7.i ], [ %this.val.i.i.i, %if.else.i.i.i ]
   %_M_storage.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %__x.024.i.i.i.i, i64 32
-  %call.i.i.i.i8.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i11.i.i.i, i64 noundef 208) #18
+  %call.i.i.i.i8.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i11.i.i.i, i64 noundef 208) #18
   %cmp.i.i.i.i9.i = icmp slt i32 %call.i.i.i.i8.i, 0
   %cond.in.v.i.i.i.i = select i1 %cmp.i.i.i.i9.i, i64 16, i64 24
   %cond.in.i.i.i.i = getelementptr i8, ptr %__x.024.i.i.i.i, i64 %cond.in.v.i.i.i.i
@@ -540,13 +540,13 @@ if.end12.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %w
   %__y.0.lcssa29.i.i.i.i = phi ptr [ %__y.0.lcssa28.i.i.i.i, %if.else.i.i.i.i ], [ %__x.024.i.i.i.i, %while.end.i.i.i.i ]
   %__j.sroa.0.0.i.i.i.i = phi ptr [ %call.i6.i.i.i.i, %if.else.i.i.i.i ], [ %__x.024.i.i.i.i, %while.end.i.i.i.i ]
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i.i, i64 32
-  %call.i7.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
+  %call.i7.i.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i8.i.i.i.i = icmp slt i32 %call.i7.i.i.i.i, 0
   br i1 %cmp.i8.i.i.i.i, label %if.then.i.i183, label %if.then.i12.i.i
 
 if.else12.i.i.i:                                  ; preds = %call5.i.i.i.i.i.i.i.noexc
   %_M_storage.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i17.i, i64 32
-  %call.i13.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i12.i.i.i, i64 noundef 208) #18
+  %call.i13.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i12.i.i.i, i64 noundef 208) #18
   %cmp.i14.i.i.i = icmp slt i32 %call.i13.i.i.i, 0
   br i1 %cmp.i14.i.i.i, label %if.then18.i.i.i, label %if.else44.i.i.i
 
@@ -558,7 +558,7 @@ if.then18.i.i.i:                                  ; preds = %if.else12.i.i.i
 if.else25.i.i.i:                                  ; preds = %if.then18.i.i.i
   %call.i18.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i17.i) #18
   %_M_storage.i.i.i19.i.i.i = getelementptr inbounds i8, ptr %call.i18.i.i.i, i64 32
-  %call.i20.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i19.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
+  %call.i20.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i19.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i21.i.i.i = icmp slt i32 %call.i20.i.i.i, 0
   br i1 %cmp.i21.i.i.i, label %if.then32.i.i.i, label %if.else42.i.i.i
 
@@ -574,7 +574,7 @@ if.else42.i.i.i:                                  ; preds = %if.else25.i.i.i
 while.body.i27.i.i.i:                             ; preds = %if.else42.i.i.i, %while.body.i27.i.i.i
   %__x.024.i28.i.i.i = phi ptr [ %__x.0.i34.i.i.i, %while.body.i27.i.i.i ], [ %this.val.i.i.i, %if.else42.i.i.i ]
   %_M_storage.i.i.i29.i.i.i = getelementptr inbounds i8, ptr %__x.024.i28.i.i.i, i64 32
-  %call.i.i30.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i29.i.i.i, i64 noundef 208) #18
+  %call.i.i30.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i29.i.i.i, i64 noundef 208) #18
   %cmp.i.i31.i.i.i = icmp slt i32 %call.i.i30.i.i.i, 0
   %cond.in.v.i32.i.i.i = select i1 %cmp.i.i31.i.i.i, i64 16, i64 24
   %cond.in.i33.i.i.i = getelementptr i8, ptr %__x.024.i28.i.i.i, i64 %cond.in.v.i32.i.i.i
@@ -598,12 +598,12 @@ if.end12.i37.i.i.i:                               ; preds = %if.else.i53.i.i.i, 
   %__y.0.lcssa29.i38.i.i.i = phi ptr [ %__y.0.lcssa28.i50.i.i.i, %if.else.i53.i.i.i ], [ %__x.024.i28.i.i.i, %while.end.i36.i.i.i ]
   %__j.sroa.0.0.i39.i.i.i = phi ptr [ %call.i6.i54.i.i.i, %if.else.i53.i.i.i ], [ %__x.024.i28.i.i.i, %while.end.i36.i.i.i ]
   %_M_storage.i.i.i.i40.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i39.i.i.i, i64 32
-  %call.i7.i41.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i40.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
+  %call.i7.i41.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i40.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i8.i42.i.i.i = icmp slt i32 %call.i7.i41.i.i.i, 0
   br i1 %cmp.i8.i42.i.i.i, label %if.then.i.i183, label %if.then.i12.i.i
 
 if.else44.i.i.i:                                  ; preds = %if.else12.i.i.i
-  %call.i57.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i12.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
+  %call.i57.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i12.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i58.i.i.i = icmp slt i32 %call.i57.i.i.i, 0
   br i1 %cmp.i58.i.i.i, label %if.then50.i.i.i, label %if.then.i12.i.i
 
@@ -615,7 +615,7 @@ if.then50.i.i.i:                                  ; preds = %if.else44.i.i.i
 if.else57.i.i.i:                                  ; preds = %if.then50.i.i.i
   %call.i62.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i17.i) #18
   %_M_storage.i.i.i63.i.i.i = getelementptr inbounds i8, ptr %call.i62.i.i.i, i64 32
-  %call.i64.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i63.i.i.i, i64 noundef 208) #18
+  %call.i64.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i63.i.i.i, i64 noundef 208) #18
   %cmp.i65.i.i.i = icmp slt i32 %call.i64.i.i.i, 0
   br i1 %cmp.i65.i.i.i, label %if.then64.i.i.i, label %if.else74.i.i.i
 
@@ -631,7 +631,7 @@ if.else74.i.i.i:                                  ; preds = %if.else57.i.i.i
 while.body.i71.i.i.i:                             ; preds = %if.else74.i.i.i, %while.body.i71.i.i.i
   %__x.024.i72.i.i.i = phi ptr [ %__x.0.i78.i.i.i, %while.body.i71.i.i.i ], [ %this.val.i.i.i, %if.else74.i.i.i ]
   %_M_storage.i.i.i73.i.i.i = getelementptr inbounds i8, ptr %__x.024.i72.i.i.i, i64 32
-  %call.i.i74.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i73.i.i.i, i64 noundef 208) #18
+  %call.i.i74.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i73.i.i.i, i64 noundef 208) #18
   %cmp.i.i75.i.i.i = icmp slt i32 %call.i.i74.i.i.i, 0
   %cond.in.v.i76.i.i.i = select i1 %cmp.i.i75.i.i.i, i64 16, i64 24
   %cond.in.i77.i.i.i = getelementptr i8, ptr %__x.024.i72.i.i.i, i64 %cond.in.v.i76.i.i.i
@@ -656,7 +656,7 @@ if.end12.i81.i.i.i:                               ; preds = %if.else.i97.i.i.i, 
   %__y.0.lcssa29.i82.i.i.i = phi ptr [ %__y.0.lcssa28.i94.i.i.i, %if.else.i97.i.i.i ], [ %__x.024.i72.i.i.i, %while.end.i80.i.i.i ]
   %__j.sroa.0.0.i83.i.i.i = phi ptr [ %call.i6.i98.i.i.i, %if.else.i97.i.i.i ], [ %__x.024.i72.i.i.i, %while.end.i80.i.i.i ]
   %_M_storage.i.i.i.i84.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i83.i.i.i, i64 32
-  %call.i7.i85.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i84.i.i.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
+  %call.i7.i85.i.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i84.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, i64 noundef 208) #18
   %cmp.i8.i86.i.i.i = icmp slt i32 %call.i7.i85.i.i.i, 0
   br i1 %cmp.i8.i86.i.i.i, label %if.then.i.i183, label %if.then.i12.i.i
 
@@ -676,7 +676,7 @@ if.then.i.i183:                                   ; preds = %invoke.cont7.i.i, %
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i183
   %_M_storage.i.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.0.i11.i.i, i64 32
-  %call.i.i.i8.i.i = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly dereferenceable(208) %_M_storage.i.i.i.i.i7.i.i, i64 noundef 208) #18
+  %call.i.i.i8.i.i = call i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i4.i, ptr noundef nonnull readonly align 8 dereferenceable(208) %_M_storage.i.i.i.i.i7.i.i, i64 noundef 208) #18
   %cmp.i.i.i9.i.i = icmp slt i32 %call.i.i.i8.i.i, 0
   br label %cleanup.i.i
 

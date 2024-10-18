@@ -340,7 +340,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16_P
   br i1 %94, label %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9Component9IsStretchEv.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9Component9IsStretchEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9Component9IsStretchEv.exit: ; preds = %91
-  %95 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.084.090) #20
+  %95 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(37) %.sroa.084.090) #20
   br i1 %95, label %96, label %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9Component9IsStretchEv.exit.thread
 
 96:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9Component9IsStretchEv.exit

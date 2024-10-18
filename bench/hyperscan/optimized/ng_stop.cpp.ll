@@ -78,7 +78,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %start2.i, align 8
   %agg.tmp.sroa.2.0.start2.sroa_idx.i = getelementptr inbounds i8, ptr %g, i64 80
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.start2.sroa_idx.i, align 8
-  call void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector") align 8 %depths, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i)
+  call void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector") align 8 dereferenceable(48) %depths, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i)
   %startDs.i = getelementptr inbounds i8, ptr %depths, i64 24
   %startDs4.i = getelementptr inbounds i8, ptr %g, i64 88
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %startDs4.i, align 8
@@ -430,7 +430,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %start2.i, align 8
   %agg.tmp.sroa.2.0.start2.sroa_idx.i = getelementptr inbounds i8, ptr %g, i64 80
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.start2.sroa_idx.i, align 8
-  call void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector") align 8 %depths, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i)
+  call void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector") align 8 dereferenceable(48) %depths, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i)
   %startDs.i = getelementptr inbounds i8, ptr %depths, i64 24
   %startDs4.i = getelementptr inbounds i8, ptr %g, i64 88
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %startDs4.i, align 8

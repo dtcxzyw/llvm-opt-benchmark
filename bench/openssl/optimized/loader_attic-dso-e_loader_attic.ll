@@ -2830,7 +2830,7 @@ if.end.i:                                         ; preds = %if.then
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -10
-  %call10.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr9.i, ptr noundef nonnull readonly dereferenceable(11) @.str.40) #11
+  %call10.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr9.i, ptr noundef nonnull dereferenceable(11) @.str.40) #11
   %cmp11.not.i = icmp eq i32 %call10.i, 0
   br i1 %cmp11.not.i, label %check_suffix.exit, label %return
 
@@ -3034,7 +3034,7 @@ if.end.i:                                         ; preds = %if.else
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -11
-  %call10.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr9.i, ptr noundef nonnull readonly dereferenceable(12) @.str.32) #11
+  %call10.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr9.i, ptr noundef nonnull dereferenceable(12) @.str.32) #11
   %cmp11.not.i = icmp eq i32 %call10.i, 0
   br i1 %cmp11.not.i, label %check_suffix.exit, label %return
 

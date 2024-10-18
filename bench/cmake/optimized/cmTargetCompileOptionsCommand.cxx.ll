@@ -68,7 +68,7 @@ define dso_local noundef zeroext i1 @_Z29cmTargetCompileOptionsCommandRKSt6vecto
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc5 unwind label %12
 
 .noexc5:                                          ; preds = %.noexc
@@ -78,7 +78,7 @@ define dso_local noundef zeroext i1 @_Z29cmTargetCompileOptionsCommandRKSt6vecto
 7:                                                ; preds = %.noexc5
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -242,7 +242,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124TargetCompileOptionsImpl1
 _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %17, %25, %28
   %30 = phi ptr [ null, %17 ], [ %21, %25 ], [ %.pre21, %28 ]
   %31 = phi ptr [ %18, %17 ], [ %18, %25 ], [ %.pre, %28 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #10
   %32 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %7, i64 40
@@ -326,7 +326,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %34, %52, %65, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #10
   %70 = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i12 = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i.i12, label %_ZN19cmListFileBacktraceD2Ev.exit, label %71

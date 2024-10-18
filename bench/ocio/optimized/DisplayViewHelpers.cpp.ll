@@ -5363,7 +5363,7 @@ lpad7.i:                                          ; preds = %invoke.cont4.i
 
 ehcleanup.i:                                      ; preds = %lpad7.i, %lpad3.i, %lpad.i174
   %.pn.i = phi { ptr, i32 } [ %81, %lpad7.i ], [ %80, %lpad3.i ], [ %79, %lpad.i174 ]
-  call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev6ConfigEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %guard) #17
+  call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev6ConfigEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %guard) #17
   br label %ehcleanup315
 
 invoke.cont241:                                   ; preds = %invoke.cont4.i

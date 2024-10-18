@@ -101,7 +101,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr %union.LWLockPadded, ptr %37, i64 %34
   %39 = tail call zeroext i1 @LWLockAcquire(ptr noundef %38, i32 noundef 0) #9
-  %40 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %22, i1 noundef zeroext true, i32 noundef %.032) #9
+  %40 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef range(i64 0, 5244161) %22, i1 noundef zeroext true, i32 noundef %.032) #9
   %41 = load ptr, ptr @CommitTsCtlData, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8

@@ -332,7 +332,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7520DecomposeNormalizer2D2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   ret void
 }
 
@@ -347,7 +347,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518ComposeNormalizer2D2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   ret void
 }
 
@@ -362,7 +362,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7514FCDNormalizer2D2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   ret void
 }
 

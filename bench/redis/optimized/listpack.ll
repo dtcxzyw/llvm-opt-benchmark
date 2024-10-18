@@ -433,7 +433,7 @@ if.end:                                           ; preds = %lpSkip.exit
   %8 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %add.ptr.i, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %8)
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef range(i64 0, 4294967296) %8)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -527,7 +527,7 @@ lpEncodeBacklen.exit:                             ; preds = %if.end.i, %if.else3
   %3 = zext i32 %2 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %add.ptr, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %3)
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef range(i64 0, 4294967296) %3)
   %tobool.not.i13 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i13, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -559,7 +559,7 @@ if.end:                                           ; preds = %entry
   %2 = zext i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %add.ptr, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %2)
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef range(i64 0, 4294967296) %2)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -633,7 +633,7 @@ lpEncodeBacklen.exit.i:                           ; preds = %if.end.i.i, %if.els
   %add.ptr.i = getelementptr i8, ptr %add.ptr12, i64 %reass.sub.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %1)
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef range(i64 0, 4294967296) %1)
   %tobool.not.i13.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i13.i, label %cond.false.i.i, label %lpAssertValidEntry.exit.i
 
@@ -677,7 +677,7 @@ if.end.i:                                         ; preds = %if.end
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %4)
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef range(i64 0, 4294967296) %4)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %while.body.preheader
 
@@ -1289,7 +1289,7 @@ if.end60:                                         ; preds = %lpSkip.exit, %if.en
 if.then66:                                        ; preds = %if.end60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %p.addr.1, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %1)
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef range(i64 0, 4294967296) %1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -2245,7 +2245,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %2)
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef range(i64 0, 4294967296) %2)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %if.end
 
@@ -2294,7 +2294,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %2)
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef range(i64 0, 4294967296) %2)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %if.end
 
@@ -2462,7 +2462,7 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %whi
 if.end6:                                          ; preds = %lpSkip.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i)
   store ptr %add.ptr.i, ptr %p.addr.i, align 8
-  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef %1)
+  %call.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i, i64 noundef range(i64 0, 4294967296) %1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
@@ -2679,7 +2679,7 @@ if.end.i:                                         ; preds = %if.then29
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %4)
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef range(i64 0, 4294967296) %4)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %lpFirst.exit
 
@@ -2757,7 +2757,7 @@ lpEncodeBacklen.exit.i.i:                         ; preds = %if.end.i.i.i, %if.e
   %add.ptr.i.i = getelementptr i8, ptr %add.ptr12.i, i64 %reass.sub.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %7)
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef range(i64 0, 4294967296) %7)
   %tobool.not.i13.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i13.i.i, label %cond.false.i.i.i, label %lpLast.exit
 
@@ -2823,7 +2823,7 @@ lpEncodeBacklen.exit.i:                           ; preds = %if.end.i.i, %if.els
   %add.ptr.i32 = getelementptr i8, ptr %ele35.050, i64 %reass.sub.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i28)
   store ptr %add.ptr.i32, ptr %p.addr.i.i28, align 8
-  %call.i.i33 = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i28, i64 noundef %7)
+  %call.i.i33 = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i28, i64 noundef range(i64 0, 4294967296) %7)
   %tobool.not.i13.i = icmp eq i32 %call.i.i33, 0
   br i1 %tobool.not.i13.i, label %cond.false.i.i36, label %lpPrev.exit
 
@@ -3123,7 +3123,7 @@ if.end.i:                                         ; preds = %if.end8
 if.end.i.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %3)
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %0, ptr noundef nonnull %p.addr.i.i.i, i64 noundef range(i64 0, 4294967296) %3)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -3183,7 +3183,7 @@ if.end.i63:                                       ; preds = %lpLength.exit
 if.end.i.i66:                                     ; preds = %if.end.i63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i53)
   store ptr %add.ptr.i.i64, ptr %p.addr.i.i.i53, align 8
-  %call.i.i.i67 = call i32 @lpValidateNext(ptr noundef nonnull %7, ptr noundef nonnull %p.addr.i.i.i53, i64 noundef %9)
+  %call.i.i.i67 = call i32 @lpValidateNext(ptr noundef nonnull %7, ptr noundef nonnull %p.addr.i.i.i53, i64 noundef range(i64 0, 4294967296) %9)
   %tobool.not.i.i.i68 = icmp eq i32 %call.i.i.i67, 0
   br i1 %tobool.not.i.i.i68, label %cond.false.i.i.i83, label %while.body.preheader.i69
 
@@ -3868,7 +3868,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %4)
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef range(i64 0, 4294967296) %4)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -3942,7 +3942,7 @@ if.end.i21:                                       ; preds = %for.end
   %8 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %8)
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef range(i64 0, 4294967296) %8)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %lpAssertValidEntry.exit.i
 
@@ -4305,7 +4305,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %4)
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef range(i64 0, 4294967296) %4)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -4562,7 +4562,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %4 = zext i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %4)
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef range(i64 0, 4294967296) %4)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -4611,7 +4611,7 @@ if.end.i21:                                       ; preds = %lpLength.exit
   %8 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %8)
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef range(i64 0, 4294967296) %8)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %lpFirst.exit
 
@@ -4776,7 +4776,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %5 = zext i32 %4 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %5)
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef range(i64 0, 4294967296) %5)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -4920,7 +4920,7 @@ if.end.i:                                         ; preds = %entry
 if.end.i.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i.i)
   store ptr %add.ptr.i.i, ptr %p.addr.i.i.i, align 8
-  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef %1)
+  %call.i.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i.i, i64 noundef range(i64 0, 4294967296) %1)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
@@ -4968,7 +4968,7 @@ if.end.i23:                                       ; preds = %lpLength.exit
   %7 = zext i32 %6 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   store ptr %add.ptr.i, ptr %p.addr.i.i, align 8
-  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef %7)
+  %call.i.i = call i32 @lpValidateNext(ptr noundef nonnull %lp, ptr noundef nonnull %p.addr.i.i, i64 noundef range(i64 0, 4294967296) %7)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %while.body.lr.ph
 

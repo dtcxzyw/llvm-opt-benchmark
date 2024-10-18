@@ -525,7 +525,7 @@ define hidden void @_ZN14ArchiveBuilder13SourceObjListD2Ev(ptr noundef nonnull a
 
 9:                                                ; preds = %5
   store i32 0, ptr %3, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEED2Ev.exit
 
 _ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEED2Ev.exit: ; preds = %5, %9
@@ -757,15 +757,15 @@ define hidden void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 derefere
   %13 = getelementptr inbounds i8, ptr %0, i64 376
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 400
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 416
   store i8 13, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 424
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %16, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 440
   store i8 13, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 448
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %18, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 464
   store i8 13, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 472
@@ -925,7 +925,7 @@ define hidden void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 derefere
 
 23:                                               ; preds = %19
   store i32 0, ptr %17, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
   br label %24
 
 24:                                               ; preds = %23, %19
@@ -944,7 +944,7 @@ define hidden void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 derefere
 
 30:                                               ; preds = %.thread
   store i32 0, ptr %26, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %26)
   br label %_ZN13GrowableArrayIP6SymbolED2Ev.exit
 
 _ZN13GrowableArrayIP6SymbolED2Ev.exit:            ; preds = %.thread, %30
@@ -1050,7 +1050,7 @@ _ZN27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15a
 
 69:                                               ; preds = %65
   store i32 0, ptr %63, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %63)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %63)
   br label %_ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEED2Ev.exit.i
 
 _ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEED2Ev.exit.i: ; preds = %69, %65
@@ -1074,7 +1074,7 @@ _ZN14ArchiveBuilder13SourceObjListD2Ev.exit:      ; preds = %_ZN27ResizeableReso
 
 78:                                               ; preds = %74
   store i32 0, ptr %72, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %72)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %72)
   br label %_ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEED2Ev.exit.i19
 
 _ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEED2Ev.exit.i19: ; preds = %78, %74
@@ -1572,7 +1572,7 @@ _ZN14ArchiveBuilder12sort_klassesEv.exit:         ; preds = %49, %55
 _ZN23GatherKlassesAndSymbolsD2Ev.exit:            ; preds = %._crit_edge.i.i.i.i, %61
   %.lcssa.i.i.i.i = phi ptr [ %62, %61 ], [ %69, %._crit_edge.i.i.i.i ]
   call void @_Z8FreeHeapPv(ptr noundef %.lcssa.i.i.i.i) #19
-  call void @_ZN16MetaspaceClosureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
+  call void @_ZN16MetaspaceClosureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #19
   %73 = load ptr, ptr %8, align 8
   %.not.i.i.i.i1 = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i1, label %75, label %74
@@ -2611,7 +2611,7 @@ define hidden void @_ZN14ArchiveBuilder18gather_source_objsEv(ptr noundef nonnul
   store ptr %0, ptr %21, align 8
   call void @_ZN14ArchiveBuilder20iterate_sorted_rootsEP16MetaspaceClosure(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull %2)
   call void @_ZN16MetaspaceClosure6finishEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  call void @_ZN16MetaspaceClosureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
+  call void @_ZN16MetaspaceClosureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #19
   %22 = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %24, label %23
@@ -5009,7 +5009,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger3logEPS_P11Fil
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit: ; preds = %16, %24
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %8, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %8, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %8, align 8
   %25 = getelementptr inbounds i8, ptr %8, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %25) #19
@@ -5030,7 +5030,7 @@ _ZN14ArchiveBuilder12CDSMapLogger10log_headerEP11FileMapInfo.exit: ; preds = %_Z
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %8) #19
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %7, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %7, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
   %29 = getelementptr inbounds i8, ptr %7, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %29) #19
@@ -5113,7 +5113,7 @@ _ZN14ArchiveBuilder12CDSMapLogger20log_metaspace_regionEPKcP10DumpRegionPKNS_13S
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit28: ; preds = %_ZN14ArchiveBuilder12CDSMapLogger20log_metaspace_regionEPKcP10DumpRegionPKNS_13SourceObjListE.exit26, %71
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %72 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %72) #19
@@ -5596,7 +5596,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger15log_heap_reg
   br label %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit: ; preds = %1, %7
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %11) #19
@@ -5667,7 +5667,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %34, %24
   %45 = load ptr, ptr %.0.i.i, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 256
   %47 = load ptr, ptr %46, align 8
-  %48 = call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %17) #19
+  %48 = call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %17) #19
   br label %_ZN7oopDesc4sizeEv.exit
 
 49:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -5700,7 +5700,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %34, %24
   %72 = load ptr, ptr %.0.i.i, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 256
   %74 = load ptr, ptr %73, align 8
-  %75 = call noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %17) #19
+  %75 = call noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %17) #19
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %41, %44, %51, %71
@@ -5746,7 +5746,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %41, %44, %51, %71
   %.025 = phi i64 [ %76, %_ZN7oopDesc4sizeEv.exit ], [ %89, %85 ], [ %91, %92 ]
   %96 = getelementptr inbounds i8, ptr %.032, i64 %.025
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %14) #19
   store i32 1, ptr %15, align 8
@@ -5913,7 +5913,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger21log_metaspac
   %30 = getelementptr inbounds i8, ptr %29, i64 96
   %31 = load i64, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #19
   store i32 1, ptr %17, align 8
@@ -6275,7 +6275,7 @@ _ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit: ; preds 
   %192 = getelementptr inbounds i8, ptr %191, i64 96
   %193 = load i64, ptr %192, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %194 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %194) #19
@@ -6321,7 +6321,7 @@ _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit87: ; preds = %190, 
   %213 = getelementptr inbounds i8, ptr %212, i64 96
   %214 = load i64, ptr %213, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %215 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %215) #19
@@ -6497,7 +6497,7 @@ declare noundef i64 @_ZN17ArchiveHeapWriter18get_filler_size_atEPh(ptr noundef) 
 define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger15log_oop_detailsEP15ArchiveHeapInfoP7oopDescPh(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = alloca %class.LogStreamTemplate.27, align 8
   %5 = alloca %"class.ArchiveBuilder::CDSMapLogger::ArchivedFieldPrinter", align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #19
@@ -6641,7 +6641,7 @@ _ZNK7oopDesc12is_typeArrayEv.exit.thread:         ; preds = %_ZNK14ArchiveBuilde
   %86 = shl nuw nsw i64 %indvars.iv, %.7.i
   %87 = add nuw nsw i64 %85, %86
   %88 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %89 = call noundef ptr %88(ptr noundef nonnull %1, i64 noundef %87) #19
+  %89 = call noundef ptr %88(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %87) #19
   call void @_ZN14ArchiveBuilder12CDSMapLogger32print_oop_with_requested_addr_crEP12outputStreamP7oopDescb(ptr noundef nonnull %4, ptr noundef %89, i1 noundef zeroext true)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -6674,7 +6674,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %_ZNK7oopDesc12is_ty
   %106 = load ptr, ptr %.0.i.i22, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 256
   %108 = load ptr, ptr %107, align 8
-  %109 = call noundef i64 %108(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i22, ptr noundef nonnull %1) #19
+  %109 = call noundef i64 %108(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i22, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   br label %_ZN7oopDesc4sizeEv.exit
 
 110:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -6707,7 +6707,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %_ZNK7oopDesc12is_ty
   %133 = load ptr, ptr %.0.i.i22, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 256
   %135 = load ptr, ptr %134, align 8
-  %136 = call noundef i64 %135(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i22, ptr noundef nonnull %1) #19
+  %136 = call noundef i64 %135(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i22, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %102, %105, %112, %132
@@ -6733,7 +6733,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %102, %105, %112, %1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger14log_heap_rootsEv() local_unnamed_addr #1 comdat align 2 {
   %1 = alloca %class.LogStreamTemplate.27, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #19
@@ -7393,7 +7393,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger20ArchivedFiel
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %22 = sext i32 %.sroa.1.0.copyload.i to i64
   %23 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %24 = tail call noundef ptr %23(ptr noundef nonnull %21, i64 noundef %22) #19
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %22) #19
   tail call void @_ZN14ArchiveBuilder12CDSMapLogger32print_oop_with_requested_addr_crEP12outputStreamP7oopDescb(ptr noundef %19, ptr noundef %24, i1 noundef zeroext true)
   br label %80
 

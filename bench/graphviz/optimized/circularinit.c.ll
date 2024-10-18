@@ -134,7 +134,7 @@ define void @circoLayout(ptr noundef %0) local_unnamed_addr #0 {
   %19 = tail call ptr @agnameof(ptr noundef nonnull %.07190.i) #10
   %20 = tail call ptr @agnode(ptr noundef %7, ptr noundef %19, i32 noundef 1) #10
   %21 = tail call ptr @agbindrec(ptr noundef %20, ptr noundef nonnull @.str.5, i32 noundef 472, i32 noundef 1) #10
-  %22 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #11
+  %22 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 65) 64) #11
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %makeDerivedNode.exit.i
 
@@ -318,7 +318,7 @@ makeDerivedNode.exit.i:                           ; preds = %18
 
 .lr.ph118.i:                                      ; preds = %.lr.ph123.i, %gv_alloc.exit.i
   %.2116.i = phi ptr [ %128, %gv_alloc.exit.i ], [ %119, %.lr.ph123.i ]
-  %120 = call noalias dereferenceable_or_null(4) ptr @calloc(i64 noundef 1, i64 noundef 4) #11
+  %120 = call noalias dereferenceable_or_null(4) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 65) 4) #11
   %121 = icmp eq ptr %120, null
   br i1 %121, label %122, label %gv_alloc.exit.i
 

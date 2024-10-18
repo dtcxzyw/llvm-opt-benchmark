@@ -1680,16 +1680,16 @@ dissect_zbncp_dump_info.exit:                     ; preds = %6, %13, %36
   %69 = tail call i32 @tvb_reported_length(ptr noundef %.0.i) #4
   %70 = add i32 %69, -7
   %71 = load i32, ptr @ett_zbncp_ll_body, align 4
-  %72 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %.0.i, i32 noundef 7, i32 noundef %70, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.1105) #4
+  %72 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %.0.i, i32 noundef range(i32 1, 8) 7, i32 noundef %70, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.1105) #4
   %73 = load i32, ptr @hf_zbncp_body_data_crc16, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %.0.i, i32 noundef 7, i32 noundef 2, i32 noundef -2147483648) #4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %.0.i, i32 noundef range(i32 1, 8) 7, i32 noundef 2, i32 noundef -2147483648) #4
   br i1 %.not47.i, label %120, label %75
 
 75:                                               ; preds = %67
   %76 = load i32, ptr @ett_zbncp_hl_hdr, align 4
-  %77 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %.0.i, i32 noundef 9, i32 noundef 4, i32 noundef %76, ptr noundef null, ptr noundef nonnull @.str.1106) #4
+  %77 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %.0.i, i32 noundef range(i32 3, 10) 9, i32 noundef 4, i32 noundef %76, ptr noundef null, ptr noundef nonnull @.str.1106) #4
   %78 = load i32, ptr @hf_zbncp_data_hl_version, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %.0.i, i32 noundef 9, i32 noundef 1, i32 noundef 0) #4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %.0.i, i32 noundef range(i32 3, 10) 9, i32 noundef 1, i32 noundef 0) #4
   %80 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0.i, i32 noundef 10) #4
   %81 = load i32, ptr @hf_zbncp_data_hl_packet_type, align 4
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %81, ptr noundef %.0.i, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4

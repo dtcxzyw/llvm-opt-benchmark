@@ -8832,7 +8832,7 @@ pmix_pointer_array_get_item.exit533:              ; preds = %505, %582
 .lr.ph.i535:                                      ; preds = %598, %.lr.ph.i535
   %604 = phi ptr [ %606, %.lr.ph.i535 ], [ %603, %598 ]
   %.07.i536 = phi ptr [ %605, %.lr.ph.i535 ], [ %602, %598 ]
-  call void %604(ptr noundef %488) #15
+  call void %604(ptr noundef nonnull %488) #15
   %605 = getelementptr inbounds i8, ptr %.07.i536, i64 8
   %606 = load ptr, ptr %605, align 8
   %.not.i537 = icmp eq ptr %606, null
@@ -8903,7 +8903,7 @@ pmix_obj_run_destructors.exit538:                 ; preds = %.lr.ph.i535, %598
 .lr.ph.i543:                                      ; preds = %635, %.lr.ph.i543
   %641 = phi ptr [ %643, %.lr.ph.i543 ], [ %640, %635 ]
   %.07.i544 = phi ptr [ %642, %.lr.ph.i543 ], [ %639, %635 ]
-  call void %641(ptr noundef %618) #15
+  call void %641(ptr noundef nonnull %618) #15
   %642 = getelementptr inbounds i8, ptr %.07.i544, i64 8
   %643 = load ptr, ptr %642, align 8
   %.not.i545 = icmp eq ptr %643, null

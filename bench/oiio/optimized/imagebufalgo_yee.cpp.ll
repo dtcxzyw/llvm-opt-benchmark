@@ -314,7 +314,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont14
   br i1 %tobool.not.i.i.i, label %invoke.cont17, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, i32 noundef 3)
           to label %invoke.cont17 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -332,7 +332,7 @@ lpad.i:                                           ; preds = %invoke.cont14
   br i1 %tobool.not.i.i3.i, label %ehcleanup261, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i
-  %call.i.i5.i = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, i32 noundef 3)
           to label %ehcleanup261 unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
@@ -413,7 +413,7 @@ invoke.cont.i149:                                 ; preds = %invoke.cont28
   br i1 %tobool.not.i.i.i150, label %invoke.cont31, label %if.then.i.i.i151
 
 if.then.i.i.i151:                                 ; preds = %invoke.cont.i149
-  %call.i.i.i152 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, i32 noundef 3)
+  %call.i.i.i152 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i135, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i135, i32 noundef 3)
           to label %invoke.cont31 unwind label %terminate.lpad.i.i.i153
 
 terminate.lpad.i.i.i153:                          ; preds = %if.then.i.i.i151
@@ -431,7 +431,7 @@ lpad.i143:                                        ; preds = %invoke.cont28
   br i1 %tobool.not.i.i3.i144, label %ehcleanup260, label %if.then.i.i4.i145
 
 if.then.i.i4.i145:                                ; preds = %lpad.i143
-  %call.i.i5.i146 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, i32 noundef 3)
+  %call.i.i5.i146 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i135, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i135, i32 noundef 3)
           to label %ehcleanup260 unwind label %terminate.lpad.i.i6.i147
 
 terminate.lpad.i.i6.i147:                         ; preds = %if.then.i.i4.i145
@@ -487,7 +487,7 @@ invoke.cont.i172:                                 ; preds = %invoke.cont36
   br i1 %tobool.not.i.i.i173, label %invoke.cont39, label %if.then.i.i.i174
 
 if.then.i.i.i174:                                 ; preds = %invoke.cont.i172
-  %call.i.i.i175 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, i32 noundef 3)
+  %call.i.i.i175 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i158, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i158, i32 noundef 3)
           to label %invoke.cont39 unwind label %terminate.lpad.i.i.i176
 
 terminate.lpad.i.i.i176:                          ; preds = %if.then.i.i.i174
@@ -505,7 +505,7 @@ lpad.i166:                                        ; preds = %invoke.cont36
   br i1 %tobool.not.i.i3.i167, label %ehcleanup259, label %if.then.i.i4.i168
 
 if.then.i.i4.i168:                                ; preds = %lpad.i166
-  %call.i.i5.i169 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, i32 noundef 3)
+  %call.i.i5.i169 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i158, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i158, i32 noundef 3)
           to label %ehcleanup259 unwind label %terminate.lpad.i.i6.i170
 
 terminate.lpad.i.i6.i170:                         ; preds = %if.then.i.i4.i168
@@ -585,7 +585,7 @@ invoke.cont.i208:                                 ; preds = %invoke.cont51
   br i1 %tobool.not.i.i.i209, label %invoke.cont54, label %if.then.i.i.i210
 
 if.then.i.i.i210:                                 ; preds = %invoke.cont.i208
-  %call.i.i.i211 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, i32 noundef 3)
+  %call.i.i.i211 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i194, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i194, i32 noundef 3)
           to label %invoke.cont54 unwind label %terminate.lpad.i.i.i212
 
 terminate.lpad.i.i.i212:                          ; preds = %if.then.i.i.i210
@@ -603,7 +603,7 @@ lpad.i202:                                        ; preds = %invoke.cont51
   br i1 %tobool.not.i.i3.i203, label %ehcleanup258, label %if.then.i.i4.i204
 
 if.then.i.i4.i204:                                ; preds = %lpad.i202
-  %call.i.i5.i205 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, i32 noundef 3)
+  %call.i.i5.i205 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i194, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i194, i32 noundef 3)
           to label %ehcleanup258 unwind label %terminate.lpad.i.i6.i206
 
 terminate.lpad.i.i6.i206:                         ; preds = %if.then.i.i4.i204
@@ -1404,7 +1404,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFvN18OpenImageIO_v2_6_03ROIEEEclES1_.exit: ; preds = %if.then
   %_M_invoker.i = getelementptr inbounds i8, ptr %f, i64 24
   %9 = load ptr, ptr %_M_invoker.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp6)
+  call void %9(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6)
   br label %return
 
@@ -1523,7 +1523,7 @@ invoke.cont:                                      ; preds = %if.end48
   br i1 %tobool.not.i.i43, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp53, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, i32 noundef 3)
           to label %return unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1544,7 +1544,7 @@ lpad:                                             ; preds = %if.end48
   br i1 %tobool.not.i.i45, label %_ZNSt8functionIFvllllEED2Ev.exit49, label %if.then.i.i46
 
 if.then.i.i46:                                    ; preds = %lpad
-  %call.i.i47 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp53, i32 noundef 3)
+  %call.i.i47 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, i32 noundef 3)
           to label %_ZNSt8functionIFvllllEED2Ev.exit49 unwind label %terminate.lpad.i.i48
 
 terminate.lpad.i.i48:                             ; preds = %if.then.i.i46
@@ -1622,7 +1622,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS0_3ROIENS0_6paroptESt8functionIFvS2_EEEUlllllE_JllllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %12 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i.i)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
   ret void
 }
@@ -1661,7 +1661,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %a.i.i.i)
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %a.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call.val, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %a.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call.val, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %a.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %a.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %a.i.i.i, i64 36
@@ -1940,7 +1940,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %__args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %a.i.i.i)
-  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %a.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call.val, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
+  call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %a.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call.val, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
   %m_valid.i.i.i.i = getelementptr inbounds i8, ptr %a.i.i.i, i64 8
   %m_x.i.i.i.i = getelementptr inbounds i8, ptr %a.i.i.i, i64 60
   %m_rng_xbegin.i.i.i.i = getelementptr inbounds i8, ptr %a.i.i.i, i64 36

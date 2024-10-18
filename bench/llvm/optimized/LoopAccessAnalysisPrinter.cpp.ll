@@ -136,7 +136,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %48, %50
 _ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %56 = getelementptr inbounds i8, ptr %5, i64 88
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull %56, i64 noundef 4) #4
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull %56, i64 noundef 4) #4
   call void @_ZN4llvm21appendLoopsToWorklistERNS_8LoopInfoERNS_21SmallPriorityWorklistIPNS_4LoopELj4EEE(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(120) %5) #4
   %57 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #4
   br i1 %57, label %._crit_edge, label %.lr.ph
@@ -234,7 +234,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %90, %92
   store i32 0, ptr %109, align 8, !alias.scope !7
   store i32 1, ptr %102, align 4, !alias.scope !7, !noalias !10
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %99, align 8, !alias.scope !7, !noalias !10
-  %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #4
+  %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %55) #4
   %111 = load ptr, ptr %55, align 8
   %112 = icmp eq ptr %111, %56
   br i1 %112, label %_ZN4llvm11SmallVectorIPNS_4LoopELj4EED2Ev.exit.i.i, label %113

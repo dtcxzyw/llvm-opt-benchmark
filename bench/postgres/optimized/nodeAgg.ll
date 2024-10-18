@@ -2800,7 +2800,7 @@ define internal fastcc void @build_hash_tables(ptr noundef %0) unnamed_addr #1 {
   %57 = load i32, ptr %12, align 4
   %58 = and i32 %57, 2
   %59 = icmp ne i32 %58, 0
-  %60 = tail call ptr @BuildTupleHashTableExt(ptr noundef nonnull %0, ptr noundef %46, i32 noundef %48, ptr noundef %50, ptr noundef %52, ptr noundef %54, ptr noundef %56, i64 noundef %32, i64 noundef %42, ptr noundef %33, ptr noundef %36, ptr noundef %39, i1 noundef zeroext %59) #12
+  %60 = tail call ptr @BuildTupleHashTableExt(ptr noundef nonnull %0, ptr noundef %46, i32 noundef %48, ptr noundef %50, ptr noundef %52, ptr noundef %54, ptr noundef %56, i64 noundef range(i64 -9223372036854775808, 4611686018427387904) %32, i64 noundef %42, ptr noundef %33, ptr noundef %36, ptr noundef %39, i1 noundef zeroext %59) #12
   store ptr %60, ptr %16, align 8
   br label %61
 

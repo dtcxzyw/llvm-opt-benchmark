@@ -464,7 +464,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$hashbrown..set..HashSet$LT$
   br i1 %5, label %"_ZN4core3ptr119drop_in_place$LT$hashbrown..map..HashMap$LT$ecow..string..EcoString$C$$LP$$RP$$C$std..hash..random..RandomState$GT$$GT$17h0cecb36b21c0abd3E.llvm.18157932453617260866.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h18b2f5f042c9f6fbE.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h18b2f5f042c9f6fbE.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !97
   %7 = load i64, ptr %3, align 8, !alias.scope !97, !noundef !4
@@ -863,7 +863,7 @@ define hidden void @"_ZN4core3ptr152drop_in_place$LT$std..collections..hash..map
   br i1 %5, label %"_ZN4core3ptr172drop_in_place$LT$hashbrown..map..HashMap$LT$usize$C$$LP$core..ops..range..Range$LT$usize$GT$$C$typst_syntax..parser..Checkpoint$RP$$C$std..hash..random..RandomState$GT$$GT$17h79aaa8c11028450bE.llvm.18157932453617260866.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17ha9a0edfe6cce74e6E.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17ha9a0edfe6cce74e6E.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !245
   %7 = load i64, ptr %3, align 8, !alias.scope !245, !noundef !4
@@ -2235,7 +2235,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$typst_syntax..parser..Parser
   br i1 %61, label %"_ZN4core3ptr152drop_in_place$LT$std..collections..hash..map..HashMap$LT$usize$C$$LP$core..ops..range..Range$LT$usize$GT$$C$typst_syntax..parser..Checkpoint$RP$$GT$$GT$17hdb5b82e96d992f0dE.exit", label %62
 
 62:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$typst_syntax..parser..NewlineMode$GT$$GT$17h1b8c2eea39cd787aE.exit13"
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17ha9a0edfe6cce74e6E.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(32) %58)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17ha9a0edfe6cce74e6E.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(48) %58)
           to label %.noexc14 unwind label %78
 
 .noexc14:                                         ; preds = %62
@@ -2685,7 +2685,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst_syntax..parser..GroupS
   br i1 %5, label %"_ZN4core3ptr88drop_in_place$LT$std..collections..hash..set..HashSet$LT$ecow..string..EcoString$GT$$GT$17h29f4a716407296dcE.llvm.18157932453617260866.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h18b2f5f042c9f6fbE.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h18b2f5f042c9f6fbE.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1045)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1048
   %7 = load i64, ptr %3, align 8, !alias.scope !1048, !noundef !4
@@ -3926,7 +3926,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$alloc..sync..ArcInner$LT$typ
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr79drop_in_place$LT$alloc..sync..ArcInner$LT$typst_syntax..node..InnerNode$GT$$GT$17h469ee1ffc5f32df7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$typst_syntax..node..SyntaxNode$GT$$GT$17hc8e504753e47b019E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$typst_syntax..node..SyntaxNode$GT$$GT$17hc8e504753e47b019E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2)
   ret void
 }
 
@@ -4158,7 +4158,7 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$std..collections..hash..set.
   br i1 %5, label %"_ZN4core3ptr108drop_in_place$LT$hashbrown..set..HashSet$LT$ecow..string..EcoString$C$std..hash..random..RandomState$GT$$GT$17he8ca92301388b5f7E.llvm.18157932453617260866.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h18b2f5f042c9f6fbE.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h18b2f5f042c9f6fbE.llvm.4539678417929093038(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1465)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1468
   %7 = load i64, ptr %3, align 8, !alias.scope !1468, !noundef !4

@@ -2971,7 +2971,7 @@ entry:
   store ptr %0, ptr %ref.tmp.i.i.i, align 8
   %p.sroa.3.0.ref.tmp.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   store i8 %frombool.i, ptr %p.sroa.3.0.ref.tmp.i.i.sroa_idx.i, align 8
-  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
+  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   %tobool.i.not.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.i.not.i, label %if.end.i, label %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.thread.i
@@ -2991,7 +2991,7 @@ if.end.i:                                         ; preds = %entry
   store i8 %frombool.i, ptr %p.sroa.3.0.ref.tmp.i.sroa_idx.i, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store i8 %frombool4.i, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   br label %_ZN3smt13quick_checker5checkEP4exprb.exit
 
@@ -3284,7 +3284,7 @@ entry:
   store ptr %n, ptr %ref.tmp.i.i, align 8
   %p.sroa.3.0.ref.tmp.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i8 %frombool, ptr %p.sroa.3.0.ref.tmp.i.i.sroa_idx, align 8
-  %call.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
+  %call.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   %tobool.i.not = icmp eq ptr %call.i.i, null
   br i1 %tobool.i.not, label %if.end, label %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.thread
@@ -3304,7 +3304,7 @@ if.end:                                           ; preds = %entry
   store i8 %frombool, ptr %p.sroa.3.0.ref.tmp.i.sroa_idx, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i8 %frombool4, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i)
+  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   br label %return
 
@@ -3345,7 +3345,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   store ptr %1, ptr %ref.tmp.i.i.i, align 8
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.i.sroa_idx, align 8
-  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
+  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   %tobool.i.i.not = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.i.i.not, label %if.end.i, label %_ZN3smt13quick_checker5checkEP4exprb.exit
@@ -3357,7 +3357,7 @@ if.end.i:                                         ; preds = %for.body
   store ptr %1, ptr %ref.tmp.i.i, align 8
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.sroa_idx, align 8
   store i8 %frombool4.i, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   br i1 %call3.i, label %for.cond, label %return
 
@@ -3404,7 +3404,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   store ptr %1, ptr %ref.tmp.i.i.i, align 8
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.i.sroa_idx, align 8
-  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
+  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   %tobool.i.i.not = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.i.i.not, label %if.end.i, label %_ZN3smt13quick_checker5checkEP4exprb.exit
@@ -3416,7 +3416,7 @@ if.end.i:                                         ; preds = %for.body
   store ptr %1, ptr %ref.tmp.i.i, align 8
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.sroa_idx, align 8
   store i8 %frombool4.i, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   br i1 %call3.i, label %return, label %for.cond
 
@@ -3535,7 +3535,7 @@ sw.bb23:                                          ; preds = %_ZNK3app13get_decl_
   store ptr %13, ptr %ref.tmp.i.i.i, align 8
   %p.i.sroa.5.0.ref.tmp.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.i.sroa_idx, align 8
-  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
+  %call.i.i.i = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   %tobool.i.i.not = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.i.i.not, label %if.end.i, label %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.i.thread
@@ -3555,7 +3555,7 @@ if.end.i:                                         ; preds = %sw.bb23
   store i8 %frombool.i, ptr %p.i.sroa.5.0.ref.tmp.i.i.sroa_idx, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store i8 %frombool4.i, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   br label %return
 
@@ -3589,7 +3589,7 @@ sw.bb40:                                          ; preds = %_ZNK3app13get_decl_
   store ptr %16, ptr %ref.tmp.i.i.i65, align 8
   %p.i68.sroa.5.0.ref.tmp.i.i.i65.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i.i.i65, i64 8
   store i8 1, ptr %p.i68.sroa.5.0.ref.tmp.i.i.i65.sroa_idx, align 8
-  %call.i.i.i73 = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i72, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i65)
+  %call.i.i.i73 = call noundef ptr @_ZNK14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE9find_coreERK9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i72, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i65)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i65)
   %tobool.i.i74.not = icmp eq ptr %call.i.i.i73, null
   br i1 %tobool.i.i74.not, label %if.end.i76, label %_ZN3smt13quick_checker5checkEP4exprb.exit87
@@ -3603,7 +3603,7 @@ if.end.i76:                                       ; preds = %sw.bb40
   store i8 1, ptr %p.i68.sroa.5.0.ref.tmp.i.i64.sroa_idx, align 8
   %m_value.i.i.i80 = getelementptr inbounds i8, ptr %ref.tmp.i.i64, i64 16
   store i8 %frombool4.i79, ptr %m_value.i.i.i80, align 8
-  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(28) %m_check_cache.i72, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i64)
+  call void @_ZN14core_hashtableI17default_map_entryISt4pairIP4exprbEbEN9table2mapIS5_9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_bE(ptr noundef nonnull align 8 dereferenceable(32) %m_check_cache.i72, ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i64)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i64)
   br i1 %call3.i78, label %if.then43, label %if.else47
 
@@ -4301,7 +4301,7 @@ if.then58:                                        ; preds = %invoke.cont55
   store ptr %n, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %44, ptr %m_value.i.i, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_canonize_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_canonize_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %invoke.cont65 unwind label %lpad.loopexit.split-lp
 
 invoke.cont65:                                    ; preds = %if.then58
@@ -4542,7 +4542,7 @@ invoke.cont123:                                   ; preds = %.noexc155, %lor.lhs
   store ptr %n, ptr %ref.tmp.i157, align 8
   %m_value.i.i158 = getelementptr inbounds i8, ptr %ref.tmp.i157, i64 8
   store ptr %81, ptr %m_value.i.i158, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_canonize_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i157)
+  invoke void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_canonize_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i157)
           to label %invoke.cont129 unwind label %lpad109
 
 invoke.cont129:                                   ; preds = %invoke.cont123
@@ -4845,7 +4845,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

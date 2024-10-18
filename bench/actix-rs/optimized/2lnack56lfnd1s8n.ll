@@ -72,7 +72,7 @@ _ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit.i: ; preds = %36, %
   %44 = trunc i128 %43 to i64
   %45 = call noundef i64 @llvm.fshl.i64(i64 %44, i64 %44, i64 %38)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !11
-  %46 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h87ccb33f5112f37fE.llvm.1490850751085904073"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %45, ptr noundef nonnull align 8 %1)
+  %46 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h87ccb33f5112f37fE.llvm.1490850751085904073"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %45, ptr noundef nonnull align 8 %1)
   %47 = icmp ne ptr %46, null
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha4e738fc92e4e177E.exit"
 
@@ -83,7 +83,7 @@ _ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit.i: ; preds = %36, %
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap3get17h5b67b31985bbda53E(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = tail call fastcc noundef align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1c1ae2b654c417a5E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1)
+  %3 = tail call fastcc noundef align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1c1ae2b654c417a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 

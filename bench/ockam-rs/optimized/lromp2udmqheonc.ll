@@ -545,7 +545,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !23
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !20, !noalias !23
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -611,7 +611,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -864,7 +864,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -1013,7 +1013,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -1445,7 +1445,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !115
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !98
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !96
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !93, !noalias !96
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -1511,7 +1511,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -1764,7 +1764,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -1913,7 +1913,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -2345,7 +2345,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !186
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !178
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !169
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !167
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !167
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !164, !noalias !167
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -2411,7 +2411,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -2664,7 +2664,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -2813,7 +2813,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -3245,7 +3245,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !257
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !249
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !238
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !238
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !235, !noalias !238
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -3311,7 +3311,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -3564,7 +3564,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -3713,7 +3713,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -4145,7 +4145,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !328
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !320
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !311
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !309
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !309
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !306, !noalias !309
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -4211,7 +4211,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -4464,7 +4464,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -4613,7 +4613,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -5045,7 +5045,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !399
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !391
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !382
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !380
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !380
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !377, !noalias !380
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -5111,7 +5111,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -5364,7 +5364,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -5513,7 +5513,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -5945,7 +5945,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !470
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !462
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !453
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !451
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !451
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !448, !noalias !451
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -6011,7 +6011,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -6264,7 +6264,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -6413,7 +6413,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -6845,7 +6845,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !541
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !533
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !524
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !522
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !522
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !519, !noalias !522
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -6911,7 +6911,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -7164,7 +7164,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -7313,7 +7313,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -7745,7 +7745,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !612
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !595
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !593
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !593
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !590, !noalias !593
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -7811,7 +7811,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -8064,7 +8064,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -8213,7 +8213,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -8645,7 +8645,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !683
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !675
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !666
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !664
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !664
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !661, !noalias !664
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -8711,7 +8711,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -8964,7 +8964,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -9113,7 +9113,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -9545,7 +9545,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !754
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !746
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !737
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !735
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !735
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !732, !noalias !735
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -9611,7 +9611,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -9864,7 +9864,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -10013,7 +10013,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -10445,7 +10445,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !825
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !817
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !808
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !806
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !806
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !803, !noalias !806
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -10511,7 +10511,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -10764,7 +10764,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -10913,7 +10913,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -11345,7 +11345,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !896
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !888
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !879
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !877
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !877
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !874, !noalias !877
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -11411,7 +11411,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -11664,7 +11664,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -11813,7 +11813,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -12245,7 +12245,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !967
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !959
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !950
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !948
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !948
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !945, !noalias !948
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -12311,7 +12311,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -12564,7 +12564,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -12713,7 +12713,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -13145,7 +13145,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1038
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1030
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1021
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !1019
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !1019
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !1016, !noalias !1019
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -13211,7 +13211,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -13464,7 +13464,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -13613,7 +13613,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -14045,7 +14045,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1109
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1101
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1092
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !1090
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !1090
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !1087, !noalias !1090
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -14111,7 +14111,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -14364,7 +14364,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -14513,7 +14513,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -14945,7 +14945,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1180
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1172
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !1161
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !1161
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !1158, !noalias !1161
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -15011,7 +15011,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -15264,7 +15264,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -15413,7 +15413,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -15845,7 +15845,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1251
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1243
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1234
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !1232
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !1232
   %.sroa.4.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.12.1.lcssa, ptr %.sroa.4.0..sroa_idx.i211, align 8, !alias.scope !1229, !noalias !1232
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -15911,7 +15911,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 180:                                              ; preds = %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7bb9e4cacfc00957E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
           to label %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..interceptors..Intercept$GT$$GT$17h3738862fb33acd5bE.llvm.9405825265181994393.exit.i.i" unwind label %181
 
 181:                                              ; preds = %180
@@ -16164,7 +16164,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %264, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit", label %265
 
 265:                                              ; preds = %257
-  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef %260, i64 noundef %262) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.val197, i64 noundef range(i64 1, -9223372036854775808) %260, i64 noundef range(i64 1, -9223372036854775807) %262) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit"
 
 266:                                              ; preds = %207
@@ -16313,7 +16313,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
   br i1 %310, label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242", label %311
 
 311:                                              ; preds = %303
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef %306, i64 noundef %308) #16
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.1437, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE.exit242"
 
 312:                                              ; preds = %196, %254, %288
@@ -16377,7 +16377,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$
   br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E.exit", label %14
 
 14:                                               ; preds = %6
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %9, i64 noundef %11) #16
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %9, i64 noundef range(i64 1, -9223372036854775807) %11) #16
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E.exit": ; preds = %6, %14
@@ -16413,7 +16413,7 @@ define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$allo
   br i1 %13, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.exit", label %14
 
 14:                                               ; preds = %6
-  tail call void @__rust_dealloc(ptr noundef nonnull %.16.val, i64 noundef %9, i64 noundef %11) #16
+  tail call void @__rust_dealloc(ptr noundef nonnull %.16.val, i64 noundef range(i64 1, -9223372036854775808) %9, i64 noundef range(i64 1, -9223372036854775807) %11) #16
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.exit": ; preds = %6, %14
@@ -16441,7 +16441,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %0
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %4, i64 noundef %6) #16
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %4, i64 noundef range(i64 1, -9223372036854775807) %6) #16
   br label %10
 
 10:                                               ; preds = %0, %9

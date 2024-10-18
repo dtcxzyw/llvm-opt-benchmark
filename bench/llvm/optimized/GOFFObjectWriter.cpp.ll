@@ -64,7 +64,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116GOFFObjectWriterESt14default_deleteIS1_EED2Ev
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 181
   store i8 0, ptr %18, align 1, !noalias !4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 182
-  tail call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %19, i64 noundef 77, i32 noundef 2) #10, !noalias !4
+  tail call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(147) %10, ptr noundef nonnull %19, i64 noundef 77, i32 noundef 2) #10, !noalias !4
   store ptr %3, ptr %0, align 8
   ret void
 }
@@ -92,7 +92,7 @@ define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD2Ev(ptr noundef nonnul
 12:                                               ; preds = %1
   %13 = sub i64 %4, %11
   %14 = trunc i64 %13 to i32
-  %15 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %14) #10
+  %15 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(147) %2, i32 noundef %14) #10
   %.pre.i.i.i = load ptr, ptr %5, align 8
   %.pre2.i.i.i = load ptr, ptr %7, align 8
   br label %16
@@ -104,11 +104,11 @@ define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD2Ev(ptr noundef nonnul
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit, label %19
 
 19:                                               ; preds = %16
-  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #10
+  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(147) %2) #10
   br label %_ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit
 
 _ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit:          ; preds = %16, %19
-  tail call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #10
+  tail call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(147) %2) #10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
@@ -147,7 +147,7 @@ define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD0Ev(ptr noundef nonnul
 12:                                               ; preds = %1
   %13 = sub i64 %4, %11
   %14 = trunc i64 %13 to i32
-  %15 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %14) #10
+  %15 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(147) %2, i32 noundef %14) #10
   %.pre.i.i.i.i = load ptr, ptr %5, align 8
   %.pre2.i.i.i.i = load ptr, ptr %7, align 8
   br label %16
@@ -159,11 +159,11 @@ define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD0Ev(ptr noundef nonnul
   br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit.i, label %19
 
 19:                                               ; preds = %16
-  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #10
+  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(147) %2) #10
   br label %_ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit.i
 
 _ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit.i:        ; preds = %19, %16
-  tail call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #10
+  tail call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(147) %2) #10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
@@ -178,7 +178,7 @@ _ZNKSt14default_deleteIN4llvm24MCGOFFObjectTargetWriterEEclEPS1_.exit.i.i: ; pre
 
 _ZN12_GLOBAL__N_116GOFFObjectWriterD2Ev.exit:     ; preds = %_ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit.i, %_ZNKSt14default_deleteIN4llvm24MCGOFFObjectTargetWriterEEclEPS1_.exit.i.i
   store ptr null, ptr %20, align 8
-  tail call void @_ZN4llvm14MCObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #10
+  tail call void @_ZN4llvm14MCObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #11
   ret void
 }
@@ -228,7 +228,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_116GOFFObjectWriter11writeObjectERN
 26:                                               ; preds = %2
   %27 = sub i64 %22, %25
   %28 = trunc i64 %27 to i32
-  %29 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef %28) #10
+  %29 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(147) %12, i32 noundef %28) #10
   %.pre.i.i.i = load ptr, ptr %17, align 8
   %.pre2.i.i.i = load ptr, ptr %19, align 8
   br label %30
@@ -240,7 +240,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_116GOFFObjectWriter11writeObjectERN
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_116GOFFObjectWriter11writeHeaderEv.exit, label %33
 
 33:                                               ; preds = %30
-  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #10
+  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(147) %12) #10
   br label %_ZN12_GLOBAL__N_116GOFFObjectWriter11writeHeaderEv.exit
 
 _ZN12_GLOBAL__N_116GOFFObjectWriter11writeHeaderEv.exit: ; preds = %30, %33
@@ -256,26 +256,26 @@ _ZN12_GLOBAL__N_116GOFFObjectWriter11writeHeaderEv.exit: ; preds = %30, %33
   %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef 1) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %11, i64 noundef 4) #10
+  %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(147) %12, ptr noundef nonnull %11, i64 noundef 4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %41 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %10, i64 noundef 4) #10
+  %41 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(147) %12, ptr noundef nonnull %10, i64 noundef 4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef 2) #10
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
   store i16 0, ptr %9, align 2
-  %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %9, i64 noundef 2) #10
+  %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(147) %12, ptr noundef nonnull %9, i64 noundef 2) #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef 16) #10
   %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef 16) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 16777216, ptr %8, align 4
-  %46 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %8, i64 noundef 4) #10
+  %46 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(147) %12, ptr noundef nonnull %8, i64 noundef 4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   store i16 0, ptr %7, align 2
-  %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %7, i64 noundef 2) #10
+  %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(147) %12, ptr noundef nonnull %7, i64 noundef 2) #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef 6) #10
   %49 = load i64, ptr %21, align 8
@@ -290,7 +290,7 @@ _ZN12_GLOBAL__N_116GOFFObjectWriter11writeHeaderEv.exit: ; preds = %30, %33
 55:                                               ; preds = %_ZN12_GLOBAL__N_116GOFFObjectWriter11writeHeaderEv.exit
   %56 = sub i64 %49, %54
   %57 = trunc i64 %56 to i32
-  %58 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef %57) #10
+  %58 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(147) %12, i32 noundef %57) #10
   %.pre.i.i.i2 = load ptr, ptr %17, align 8
   %.pre2.i.i.i3 = load ptr, ptr %19, align 8
   br label %59
@@ -302,7 +302,7 @@ _ZN12_GLOBAL__N_116GOFFObjectWriter11writeHeaderEv.exit: ; preds = %30, %33
   br i1 %.not.i.i.i.i4, label %_ZN12_GLOBAL__N_111GOFFOstream9newRecordEN4llvm4GOFF10RecordTypeEm.exit.i, label %62
 
 62:                                               ; preds = %59
-  call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #10
+  call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(147) %12) #10
   br label %_ZN12_GLOBAL__N_111GOFFOstream9newRecordEN4llvm4GOFF10RecordTypeEm.exit.i
 
 _ZN12_GLOBAL__N_111GOFFOstream9newRecordEN4llvm4GOFF10RecordTypeEm.exit.i: ; preds = %62, %59
@@ -314,20 +314,20 @@ _ZN12_GLOBAL__N_111GOFFOstream9newRecordEN4llvm4GOFF10RecordTypeEm.exit.i: ; pre
   store i32 %64, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 0, ptr %6, align 1
-  %65 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %6, i64 noundef 1) #10
+  %65 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(147) %12, ptr noundef nonnull %6, i64 noundef 1) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 0, ptr %5, align 1
-  %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %5, i64 noundef 1) #10
+  %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(147) %12, ptr noundef nonnull %5, i64 noundef 1) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %67 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef 3) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %68 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %4, i64 noundef 4) #10
+  %68 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(147) %12, ptr noundef nonnull %4, i64 noundef 4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  %69 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %3, i64 noundef 4) #10
+  %69 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(147) %12, ptr noundef nonnull %3, i64 noundef 4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %70 = load i64, ptr %21, align 8
   %71 = load ptr, ptr %17, align 8
@@ -341,7 +341,7 @@ _ZN12_GLOBAL__N_111GOFFOstream9newRecordEN4llvm4GOFF10RecordTypeEm.exit.i: ; pre
 76:                                               ; preds = %_ZN12_GLOBAL__N_111GOFFOstream9newRecordEN4llvm4GOFF10RecordTypeEm.exit.i
   %77 = sub i64 %70, %75
   %78 = trunc i64 %77 to i32
-  %79 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef %78) #10
+  %79 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(147) %12, i32 noundef %78) #10
   %.pre.i.i4.i = load ptr, ptr %17, align 8
   %.pre2.i.i5.i = load ptr, ptr %19, align 8
   br label %80
@@ -353,7 +353,7 @@ _ZN12_GLOBAL__N_111GOFFOstream9newRecordEN4llvm4GOFF10RecordTypeEm.exit.i: ; pre
   br i1 %.not.i.i.i6.i, label %_ZN12_GLOBAL__N_116GOFFObjectWriter8writeEndEv.exit, label %83
 
 83:                                               ; preds = %80
-  call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #10
+  call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(147) %12) #10
   br label %_ZN12_GLOBAL__N_116GOFFObjectWriter8writeEndEv.exit
 
 _ZN12_GLOBAL__N_116GOFFObjectWriter8writeEndEv.exit: ; preds = %80, %83
@@ -396,7 +396,7 @@ define internal void @_ZN12_GLOBAL__N_111GOFFOstreamD2Ev(ptr noundef nonnull ali
 11:                                               ; preds = %1
   %12 = sub i64 %3, %10
   %13 = trunc i64 %12 to i32
-  %14 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %13) #10
+  %14 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(147) %0, i32 noundef %13) #10
   %.pre.i.i = load ptr, ptr %4, align 8
   %.pre2.i.i = load ptr, ptr %6, align 8
   br label %15
@@ -408,7 +408,7 @@ define internal void @_ZN12_GLOBAL__N_111GOFFOstreamD2Ev(ptr noundef nonnull ali
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_111GOFFOstream8finalizeEv.exit, label %18
 
 18:                                               ; preds = %15
-  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
+  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(147) %0) #10
   br label %_ZN12_GLOBAL__N_111GOFFOstream8finalizeEv.exit
 
 _ZN12_GLOBAL__N_111GOFFOstream8finalizeEv.exit:   ; preds = %15, %18
@@ -434,7 +434,7 @@ define internal void @_ZN12_GLOBAL__N_111GOFFOstreamD0Ev(ptr noundef nonnull ali
 11:                                               ; preds = %1
   %12 = sub i64 %3, %10
   %13 = trunc i64 %12 to i32
-  %14 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %13) #10
+  %14 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(147) %0, i32 noundef %13) #10
   %.pre.i.i.i = load ptr, ptr %4, align 8
   %.pre2.i.i.i = load ptr, ptr %6, align 8
   br label %15
@@ -446,11 +446,11 @@ define internal void @_ZN12_GLOBAL__N_111GOFFOstreamD0Ev(ptr noundef nonnull ali
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit, label %18
 
 18:                                               ; preds = %15
-  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
+  tail call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(147) %0) #10
   br label %_ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit
 
 _ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit:          ; preds = %15, %18
-  tail call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
+  tail call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(147) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #11
   ret void
 }

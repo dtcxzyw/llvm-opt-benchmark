@@ -144,7 +144,7 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
   %.012.in15.i.i = phi ptr [ %82, %.lr.ph.i.i ], [ %4, %64 ]
   %.01314.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.030.i, %64 ]
   %.012.i.i = load ptr, ptr %.012.in15.i.i, align 8, !noalias !4
-  call fastcc void @addGraphObjs(ptr noundef %6, ptr noundef %.012.i.i, ptr noundef nonnull %.01314.i.i, ptr noundef null, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.012.i.i, ptr noundef nonnull %.01314.i.i, ptr noundef null, ptr noundef %1)
   %78 = getelementptr inbounds i8, ptr %.012.i.i, i64 16
   %79 = load ptr, ptr %78, align 8, !noalias !4
   %80 = getelementptr inbounds i8, ptr %79, i64 160
@@ -167,7 +167,7 @@ raiseLevel.exit.i:                                ; preds = %.lr.ph.i.i
   %.012.in15.i43.i = phi ptr [ %92, %.lr.ph.i41.i ], [ %5, %86 ]
   %.01314.i44.i = phi ptr [ %.012.i45.i, %.lr.ph.i41.i ], [ %.0.i, %86 ]
   %.012.i45.i = load ptr, ptr %.012.in15.i43.i, align 8, !noalias !4
-  call fastcc void @addGraphObjs(ptr noundef %6, ptr noundef %.012.i45.i, ptr noundef nonnull %.01314.i44.i, ptr noundef null, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.012.i45.i, ptr noundef nonnull %.01314.i44.i, ptr noundef null, ptr noundef %1)
   %88 = getelementptr inbounds i8, ptr %.012.i45.i, i64 16
   %89 = load ptr, ptr %88, align 8, !noalias !4
   %90 = getelementptr inbounds i8, ptr %89, i64 160
@@ -194,8 +194,8 @@ raiseLevel.exit46.i:                              ; preds = %.lr.ph.i41.i
   %.23260.i = phi ptr [ %97, %.lr.ph.i ], [ %.131.i, %96 ]
   %97 = phi ptr [ %104, %.lr.ph.i ], [ %.0..promoted.i, %96 ]
   %98 = phi ptr [ %110, %.lr.ph.i ], [ %.0..promoted57.i, %96 ]
-  call fastcc void @addGraphObjs(ptr noundef %6, ptr noundef %97, ptr noundef null, ptr noundef %.23260.i, ptr noundef %1)
-  call fastcc void @addGraphObjs(ptr noundef %6, ptr noundef %98, ptr noundef %.261.i, ptr noundef null, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %97, ptr noundef null, ptr noundef %.23260.i, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %98, ptr noundef %.261.i, ptr noundef null, ptr noundef %1)
   %99 = getelementptr inbounds i8, ptr %97, i64 16
   %100 = load ptr, ptr %99, align 8, !noalias !4
   %101 = getelementptr inbounds i8, ptr %100, i64 160
@@ -215,7 +215,7 @@ objectList.exit:                                  ; preds = %.lr.ph.i, %96
   %.lcssa58.i = phi ptr [ %.0..promoted57.i, %96 ], [ %110, %.lr.ph.i ]
   %.232.lcssa.i = phi ptr [ %.131.i, %96 ], [ %97, %.lr.ph.i ]
   %.2.lcssa.i = phi ptr [ %.1.i, %96 ], [ %98, %.lr.ph.i ]
-  call fastcc void @addGraphObjs(ptr noundef %6, ptr noundef %.lcssa58.i, ptr noundef %.2.lcssa.i, ptr noundef %.232.lcssa.i, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.lcssa58.i, ptr noundef %.2.lcssa.i, ptr noundef %.232.lcssa.i, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.val = load ptr, ptr %6, align 8

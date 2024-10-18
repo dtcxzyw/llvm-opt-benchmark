@@ -173,7 +173,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf13poll_read_buf17h1d04fa84271fa
   unreachable
 
 "_ZN100_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_read..AsyncRead$GT$9poll_read17h3aebce14fe3391ebE.exit": ; preds = %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9chunk_mut17h6f2df031ef25654fE.exit"
-  %26 = call { i64, ptr } @"_ZN87_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_read..AsyncRead$GT$9poll_read17hbe295fe6f69ef907E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  %26 = call { i64, ptr } @"_ZN87_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_read..AsyncRead$GT$9poll_read17hbe295fe6f69ef907E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
   %switch = icmp eq i64 %27, 0
@@ -6033,7 +6033,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd31f044a7d76b9E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd31f044a7d76b9E.exit": ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !582
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %0, i64 %3), !alias.scope !582
   %5 = icmp eq i32 %bcmp.i, 0
   br label %6
 
@@ -6404,7 +6404,7 @@ define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit"
 
 24:                                               ; preds = %.lr.ph
-  %25 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h20d237124343c3e5E.llvm.11658830040512789610"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %18, i64 noundef %.val9)
+  %25 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h20d237124343c3e5E.llvm.11658830040512789610"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %18, i64 noundef %.val9)
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %24
@@ -6604,7 +6604,7 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$3new17h6f883e9faf8b9f63E
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3d954c4ab274c68E.llvm.14828715386332725032"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3d954c4ab274c68E.llvm.14828715386332725032"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr44drop_in_place$LT$flate2..mem..Decompress$GT$17hc495d85118b30854E.exit" unwind label %14
 
 9:                                                ; preds = %3
@@ -6656,7 +6656,7 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$3new17hae90339413f4f1caE
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3d954c4ab274c68E.llvm.14828715386332725032"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3d954c4ab274c68E.llvm.14828715386332725032"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN4core3ptr44drop_in_place$LT$flate2..mem..Decompress$GT$17hc495d85118b30854E.exit" unwind label %14
 
 9:                                                ; preds = %3
@@ -6849,7 +6849,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h4ba0736
   unreachable
 
 29:                                               ; preds = %26
-  call void @_ZN6flate23crc3Crc6update17h67219475aa36f464E(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %.cast.i.i), !noalias !650
+  call void @_ZN6flate23crc3Crc6update17h67219475aa36f464E(ptr noalias noundef nonnull align 8 dereferenceable(56) %5, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %.cast.i.i), !noalias !650
   %30 = icmp eq ptr %25, null
   br i1 %30, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h1696870748a75087E.exit.thread18", label %31
 

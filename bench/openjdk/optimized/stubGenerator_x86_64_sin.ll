@@ -290,10 +290,10 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %175 = getelementptr inbounds i8, ptr %26, i64 40
   store i32 0, ptr %175, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 8 dereferenceable(21) %26, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 21, i1 false)
   %176 = getelementptr inbounds i8, ptr %8, i64 24
   %177 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %177(ptr noundef nonnull align 8 dereferenceable(20) %173, ptr noundef nonnull align 8 dereferenceable(40) %176) #5
+  call void %177(ptr noundef nonnull align 8 dereferenceable(40) %173, ptr noundef nonnull align 8 dereferenceable(40) %176) #5
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %167, ptr noundef nonnull %8, i32 0) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   %178 = load ptr, ptr %111, align 8
@@ -323,7 +323,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %190 = load ptr, ptr %29, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 16
   %192 = load ptr, ptr %191, align 8
-  call void %192(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 8 dereferenceable(40) %28) #5
+  call void %192(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %28) #5
   %193 = getelementptr inbounds i8, ptr %28, i64 40
   %194 = getelementptr inbounds i8, ptr %29, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %193, ptr noundef nonnull align 8 dereferenceable(16) %194, i64 16, i1 false)
@@ -336,7 +336,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %198 = load ptr, ptr %31, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 16
   %200 = load ptr, ptr %199, align 8
-  call void %200(ptr noundef nonnull align 8 dereferenceable(20) %31, ptr noundef nonnull align 8 dereferenceable(40) %30) #5
+  call void %200(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(56) %30) #5
   %201 = getelementptr inbounds i8, ptr %30, i64 40
   %202 = getelementptr inbounds i8, ptr %31, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef nonnull align 8 dereferenceable(16) %202, i64 16, i1 false)
@@ -359,7 +359,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %211 = load ptr, ptr %33, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 16
   %213 = load ptr, ptr %212, align 8
-  call void %213(ptr noundef nonnull align 8 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #5
+  call void %213(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull align 8 dereferenceable(56) %32) #5
   %214 = getelementptr inbounds i8, ptr %32, i64 40
   %215 = getelementptr inbounds i8, ptr %33, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef nonnull align 8 dereferenceable(16) %215, i64 16, i1 false)
@@ -372,7 +372,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %219 = load ptr, ptr %35, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 16
   %221 = load ptr, ptr %220, align 8
-  call void %221(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #5
+  call void %221(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(56) %34) #5
   %222 = getelementptr inbounds i8, ptr %34, i64 40
   %223 = getelementptr inbounds i8, ptr %35, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, ptr noundef nonnull align 8 dereferenceable(16) %223, i64 16, i1 false)
@@ -395,7 +395,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %232 = load ptr, ptr %37, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 16
   %234 = load ptr, ptr %233, align 8
-  call void %234(ptr noundef nonnull align 8 dereferenceable(20) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #5
+  call void %234(ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %36) #5
   %235 = getelementptr inbounds i8, ptr %36, i64 40
   %236 = getelementptr inbounds i8, ptr %37, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull align 8 dereferenceable(16) %236, i64 16, i1 false)
@@ -412,7 +412,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %242 = load ptr, ptr %39, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 16
   %244 = load ptr, ptr %243, align 8
-  call void %244(ptr noundef nonnull align 8 dereferenceable(20) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #5
+  call void %244(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %38) #5
   %245 = getelementptr inbounds i8, ptr %38, i64 40
   %246 = getelementptr inbounds i8, ptr %39, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef nonnull align 8 dereferenceable(16) %246, i64 16, i1 false)
@@ -448,7 +448,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %260 = load ptr, ptr %41, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 16
   %262 = load ptr, ptr %261, align 8
-  call void %262(ptr noundef nonnull align 8 dereferenceable(20) %41, ptr noundef nonnull align 8 dereferenceable(40) %40) #5
+  call void %262(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull align 8 dereferenceable(56) %40) #5
   %263 = getelementptr inbounds i8, ptr %40, i64 40
   %264 = getelementptr inbounds i8, ptr %41, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %263, ptr noundef nonnull align 8 dereferenceable(16) %264, i64 16, i1 false)
@@ -465,7 +465,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %270 = load ptr, ptr %43, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 16
   %272 = load ptr, ptr %271, align 8
-  call void %272(ptr noundef nonnull align 8 dereferenceable(20) %43, ptr noundef nonnull align 8 dereferenceable(40) %42) #5
+  call void %272(ptr noundef nonnull align 8 dereferenceable(56) %43, ptr noundef nonnull align 8 dereferenceable(56) %42) #5
   %273 = getelementptr inbounds i8, ptr %42, i64 40
   %274 = getelementptr inbounds i8, ptr %43, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %273, ptr noundef nonnull align 8 dereferenceable(16) %274, i64 16, i1 false)
@@ -555,7 +555,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %314 = load ptr, ptr %47, align 8
   %315 = getelementptr inbounds i8, ptr %314, i64 16
   %316 = load ptr, ptr %315, align 8
-  call void %316(ptr noundef nonnull align 8 dereferenceable(20) %47, ptr noundef nonnull align 8 dereferenceable(40) %46) #5
+  call void %316(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %46) #5
   %317 = getelementptr inbounds i8, ptr %46, i64 40
   %318 = getelementptr inbounds i8, ptr %47, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %317, ptr noundef nonnull align 8 dereferenceable(16) %318, i64 16, i1 false)
@@ -603,7 +603,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %339 = load ptr, ptr %50, align 8
   %340 = getelementptr inbounds i8, ptr %339, i64 16
   %341 = load ptr, ptr %340, align 8
-  call void %341(ptr noundef nonnull align 8 dereferenceable(20) %50, ptr noundef nonnull align 8 dereferenceable(40) %49) #5
+  call void %341(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull align 8 dereferenceable(56) %49) #5
   %342 = getelementptr inbounds i8, ptr %49, i64 40
   %343 = getelementptr inbounds i8, ptr %50, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %342, ptr noundef nonnull align 8 dereferenceable(16) %343, i64 16, i1 false)
@@ -627,9 +627,9 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %352 = getelementptr inbounds i8, ptr %51, i64 40
   store i32 0, ptr %352, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %7, ptr noundef nonnull align 8 dereferenceable(21) %51, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %51, i64 21, i1 false)
   %353 = getelementptr inbounds i8, ptr %7, i64 24
-  call void %177(ptr noundef nonnull align 8 dereferenceable(20) %350, ptr noundef nonnull align 8 dereferenceable(40) %353) #5
+  call void %177(ptr noundef nonnull align 8 dereferenceable(40) %350, ptr noundef nonnull align 8 dereferenceable(40) %353) #5
   call void @_ZN9Assembler5mulsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %344, i32 4, ptr noundef nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   %354 = load ptr, ptr %111, align 8
@@ -640,7 +640,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %357 = load ptr, ptr %53, align 8
   %358 = getelementptr inbounds i8, ptr %357, i64 16
   %359 = load ptr, ptr %358, align 8
-  call void %359(ptr noundef nonnull align 8 dereferenceable(20) %53, ptr noundef nonnull align 8 dereferenceable(40) %52) #5
+  call void %359(ptr noundef nonnull align 8 dereferenceable(56) %53, ptr noundef nonnull align 8 dereferenceable(56) %52) #5
   %360 = getelementptr inbounds i8, ptr %52, i64 40
   %361 = getelementptr inbounds i8, ptr %53, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %360, ptr noundef nonnull align 8 dereferenceable(16) %361, i64 16, i1 false)
@@ -668,9 +668,9 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %372 = getelementptr inbounds i8, ptr %54, i64 40
   store i32 0, ptr %372, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %54, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %54, i64 21, i1 false)
   %373 = getelementptr inbounds i8, ptr %6, i64 24
-  call void %177(ptr noundef nonnull align 8 dereferenceable(20) %370, ptr noundef nonnull align 8 dereferenceable(40) %373) #5
+  call void %177(ptr noundef nonnull align 8 dereferenceable(40) %370, ptr noundef nonnull align 8 dereferenceable(40) %373) #5
   call void @_ZN9Assembler5addsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %364, i32 3, ptr noundef nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   %374 = load ptr, ptr %111, align 8
@@ -723,9 +723,9 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %397 = getelementptr inbounds i8, ptr %56, i64 40
   store i32 0, ptr %397, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %56, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %56, i64 21, i1 false)
   %398 = getelementptr inbounds i8, ptr %5, i64 24
-  call void %177(ptr noundef nonnull align 8 dereferenceable(20) %395, ptr noundef nonnull align 8 dereferenceable(40) %398) #5
+  call void %177(ptr noundef nonnull align 8 dereferenceable(40) %395, ptr noundef nonnull align 8 dereferenceable(40) %398) #5
   call void @_ZN9Assembler5addsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %389, i32 1, ptr noundef nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   %399 = load ptr, ptr %111, align 8
@@ -765,7 +765,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %416 = load ptr, ptr %58, align 8
   %417 = getelementptr inbounds i8, ptr %416, i64 16
   %418 = load ptr, ptr %417, align 8
-  call void %418(ptr noundef nonnull align 8 dereferenceable(20) %58, ptr noundef nonnull align 8 dereferenceable(40) %57) #5
+  call void %418(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef nonnull align 8 dereferenceable(56) %57) #5
   %419 = getelementptr inbounds i8, ptr %57, i64 40
   %420 = getelementptr inbounds i8, ptr %58, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %419, ptr noundef nonnull align 8 dereferenceable(16) %420, i64 16, i1 false)
@@ -782,7 +782,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %426 = load ptr, ptr %60, align 8
   %427 = getelementptr inbounds i8, ptr %426, i64 16
   %428 = load ptr, ptr %427, align 8
-  call void %428(ptr noundef nonnull align 8 dereferenceable(20) %60, ptr noundef nonnull align 8 dereferenceable(40) %59) #5
+  call void %428(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(56) %59) #5
   %429 = getelementptr inbounds i8, ptr %59, i64 40
   %430 = getelementptr inbounds i8, ptr %60, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %429, ptr noundef nonnull align 8 dereferenceable(16) %430, i64 16, i1 false)
@@ -799,7 +799,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %436 = load ptr, ptr %62, align 8
   %437 = getelementptr inbounds i8, ptr %436, i64 16
   %438 = load ptr, ptr %437, align 8
-  call void %438(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef nonnull align 8 dereferenceable(40) %61) #5
+  call void %438(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(56) %61) #5
   %439 = getelementptr inbounds i8, ptr %61, i64 40
   %440 = getelementptr inbounds i8, ptr %62, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %439, ptr noundef nonnull align 8 dereferenceable(16) %440, i64 16, i1 false)
@@ -834,7 +834,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %455 = load ptr, ptr %64, align 8
   %456 = getelementptr inbounds i8, ptr %455, i64 16
   %457 = load ptr, ptr %456, align 8
-  call void %457(ptr noundef nonnull align 8 dereferenceable(20) %64, ptr noundef nonnull align 8 dereferenceable(40) %63) #5
+  call void %457(ptr noundef nonnull align 8 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(56) %63) #5
   %458 = getelementptr inbounds i8, ptr %63, i64 40
   %459 = getelementptr inbounds i8, ptr %64, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %458, ptr noundef nonnull align 8 dereferenceable(16) %459, i64 16, i1 false)
@@ -1106,7 +1106,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %589 = load ptr, ptr %73, align 8
   %590 = getelementptr inbounds i8, ptr %589, i64 16
   %591 = load ptr, ptr %590, align 8
-  call void %591(ptr noundef nonnull align 8 dereferenceable(20) %73, ptr noundef nonnull align 8 dereferenceable(40) %72) #5
+  call void %591(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 8 dereferenceable(56) %72) #5
   %592 = getelementptr inbounds i8, ptr %72, i64 40
   %593 = getelementptr inbounds i8, ptr %73, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %592, ptr noundef nonnull align 8 dereferenceable(16) %593, i64 16, i1 false)
@@ -1233,7 +1233,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %654 = load ptr, ptr %75, align 8
   %655 = getelementptr inbounds i8, ptr %654, i64 16
   %656 = load ptr, ptr %655, align 8
-  call void %656(ptr noundef nonnull align 8 dereferenceable(20) %75, ptr noundef nonnull align 8 dereferenceable(40) %74) #5
+  call void %656(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(56) %74) #5
   %657 = getelementptr inbounds i8, ptr %74, i64 40
   %658 = getelementptr inbounds i8, ptr %75, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %657, ptr noundef nonnull align 8 dereferenceable(16) %658, i64 16, i1 false)
@@ -1245,7 +1245,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %662 = load ptr, ptr %77, align 8
   %663 = getelementptr inbounds i8, ptr %662, i64 16
   %664 = load ptr, ptr %663, align 8
-  call void %664(ptr noundef nonnull align 8 dereferenceable(20) %77, ptr noundef nonnull align 8 dereferenceable(40) %76) #5
+  call void %664(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(56) %76) #5
   %665 = getelementptr inbounds i8, ptr %76, i64 40
   %666 = getelementptr inbounds i8, ptr %77, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %665, ptr noundef nonnull align 8 dereferenceable(16) %666, i64 16, i1 false)
@@ -1302,7 +1302,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %692 = load ptr, ptr %79, align 8
   %693 = getelementptr inbounds i8, ptr %692, i64 16
   %694 = load ptr, ptr %693, align 8
-  call void %694(ptr noundef nonnull align 8 dereferenceable(20) %79, ptr noundef nonnull align 8 dereferenceable(40) %78) #5
+  call void %694(ptr noundef nonnull align 8 dereferenceable(56) %79, ptr noundef nonnull align 8 dereferenceable(56) %78) #5
   %695 = getelementptr inbounds i8, ptr %78, i64 40
   %696 = getelementptr inbounds i8, ptr %79, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %695, ptr noundef nonnull align 8 dereferenceable(16) %696, i64 16, i1 false)
@@ -1317,7 +1317,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %701 = load ptr, ptr %81, align 8
   %702 = getelementptr inbounds i8, ptr %701, i64 16
   %703 = load ptr, ptr %702, align 8
-  call void %703(ptr noundef nonnull align 8 dereferenceable(20) %81, ptr noundef nonnull align 8 dereferenceable(40) %80) #5
+  call void %703(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %80) #5
   %704 = getelementptr inbounds i8, ptr %80, i64 40
   %705 = getelementptr inbounds i8, ptr %81, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %704, ptr noundef nonnull align 8 dereferenceable(16) %705, i64 16, i1 false)
@@ -1330,7 +1330,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %709 = load ptr, ptr %83, align 8
   %710 = getelementptr inbounds i8, ptr %709, i64 16
   %711 = load ptr, ptr %710, align 8
-  call void %711(ptr noundef nonnull align 8 dereferenceable(20) %83, ptr noundef nonnull align 8 dereferenceable(40) %82) #5
+  call void %711(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %82) #5
   %712 = getelementptr inbounds i8, ptr %82, i64 40
   %713 = getelementptr inbounds i8, ptr %83, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %712, ptr noundef nonnull align 8 dereferenceable(16) %713, i64 16, i1 false)
@@ -1353,7 +1353,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %722 = load ptr, ptr %85, align 8
   %723 = getelementptr inbounds i8, ptr %722, i64 16
   %724 = load ptr, ptr %723, align 8
-  call void %724(ptr noundef nonnull align 8 dereferenceable(20) %85, ptr noundef nonnull align 8 dereferenceable(40) %84) #5
+  call void %724(ptr noundef nonnull align 8 dereferenceable(56) %85, ptr noundef nonnull align 8 dereferenceable(56) %84) #5
   %725 = getelementptr inbounds i8, ptr %84, i64 40
   %726 = getelementptr inbounds i8, ptr %85, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %725, ptr noundef nonnull align 8 dereferenceable(16) %726, i64 16, i1 false)
@@ -1366,7 +1366,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %730 = load ptr, ptr %87, align 8
   %731 = getelementptr inbounds i8, ptr %730, i64 16
   %732 = load ptr, ptr %731, align 8
-  call void %732(ptr noundef nonnull align 8 dereferenceable(20) %87, ptr noundef nonnull align 8 dereferenceable(40) %86) #5
+  call void %732(ptr noundef nonnull align 8 dereferenceable(56) %87, ptr noundef nonnull align 8 dereferenceable(56) %86) #5
   %733 = getelementptr inbounds i8, ptr %86, i64 40
   %734 = getelementptr inbounds i8, ptr %87, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %733, ptr noundef nonnull align 8 dereferenceable(16) %734, i64 16, i1 false)
@@ -1393,7 +1393,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %745 = load ptr, ptr %89, align 8
   %746 = getelementptr inbounds i8, ptr %745, i64 16
   %747 = load ptr, ptr %746, align 8
-  call void %747(ptr noundef nonnull align 8 dereferenceable(20) %89, ptr noundef nonnull align 8 dereferenceable(40) %88) #5
+  call void %747(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(56) %88) #5
   %748 = getelementptr inbounds i8, ptr %88, i64 40
   %749 = getelementptr inbounds i8, ptr %89, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %748, ptr noundef nonnull align 8 dereferenceable(16) %749, i64 16, i1 false)
@@ -1406,7 +1406,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %753 = load ptr, ptr %91, align 8
   %754 = getelementptr inbounds i8, ptr %753, i64 16
   %755 = load ptr, ptr %754, align 8
-  call void %755(ptr noundef nonnull align 8 dereferenceable(20) %91, ptr noundef nonnull align 8 dereferenceable(40) %90) #5
+  call void %755(ptr noundef nonnull align 8 dereferenceable(56) %91, ptr noundef nonnull align 8 dereferenceable(56) %90) #5
   %756 = getelementptr inbounds i8, ptr %90, i64 40
   %757 = getelementptr inbounds i8, ptr %91, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %756, ptr noundef nonnull align 8 dereferenceable(16) %757, i64 16, i1 false)
@@ -1427,7 +1427,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %765 = load ptr, ptr %93, align 8
   %766 = getelementptr inbounds i8, ptr %765, i64 16
   %767 = load ptr, ptr %766, align 8
-  call void %767(ptr noundef nonnull align 8 dereferenceable(20) %93, ptr noundef nonnull align 8 dereferenceable(40) %92) #5
+  call void %767(ptr noundef nonnull align 8 dereferenceable(56) %93, ptr noundef nonnull align 8 dereferenceable(56) %92) #5
   %768 = getelementptr inbounds i8, ptr %92, i64 40
   %769 = getelementptr inbounds i8, ptr %93, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %768, ptr noundef nonnull align 8 dereferenceable(16) %769, i64 16, i1 false)
@@ -1527,7 +1527,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %815 = load ptr, ptr %98, align 8
   %816 = getelementptr inbounds i8, ptr %815, i64 16
   %817 = load ptr, ptr %816, align 8
-  call void %817(ptr noundef nonnull align 8 dereferenceable(20) %98, ptr noundef nonnull align 8 dereferenceable(40) %97) #5
+  call void %817(ptr noundef nonnull align 8 dereferenceable(56) %98, ptr noundef nonnull align 8 dereferenceable(56) %97) #5
   %818 = getelementptr inbounds i8, ptr %97, i64 40
   %819 = getelementptr inbounds i8, ptr %98, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %818, ptr noundef nonnull align 8 dereferenceable(16) %819, i64 16, i1 false)
@@ -1550,7 +1550,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %828 = load ptr, ptr %100, align 8
   %829 = getelementptr inbounds i8, ptr %828, i64 16
   %830 = load ptr, ptr %829, align 8
-  call void %830(ptr noundef nonnull align 8 dereferenceable(20) %100, ptr noundef nonnull align 8 dereferenceable(40) %99) #5
+  call void %830(ptr noundef nonnull align 8 dereferenceable(56) %100, ptr noundef nonnull align 8 dereferenceable(56) %99) #5
   %831 = getelementptr inbounds i8, ptr %99, i64 40
   %832 = getelementptr inbounds i8, ptr %100, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %831, ptr noundef nonnull align 8 dereferenceable(16) %832, i64 16, i1 false)
@@ -1574,9 +1574,9 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %841 = getelementptr inbounds i8, ptr %101, i64 40
   store i32 0, ptr %841, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 8 dereferenceable(21) %101, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %101, i64 21, i1 false)
   %842 = getelementptr inbounds i8, ptr %4, i64 24
-  call void %177(ptr noundef nonnull align 8 dereferenceable(20) %839, ptr noundef nonnull align 8 dereferenceable(40) %842) #5
+  call void %177(ptr noundef nonnull align 8 dereferenceable(40) %839, ptr noundef nonnull align 8 dereferenceable(40) %842) #5
   call void @_ZN9Assembler5mulsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %833, i32 4, ptr noundef nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %843 = load ptr, ptr %111, align 8
@@ -1587,7 +1587,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %846 = load ptr, ptr %103, align 8
   %847 = getelementptr inbounds i8, ptr %846, i64 16
   %848 = load ptr, ptr %847, align 8
-  call void %848(ptr noundef nonnull align 8 dereferenceable(20) %103, ptr noundef nonnull align 8 dereferenceable(40) %102) #5
+  call void %848(ptr noundef nonnull align 8 dereferenceable(56) %103, ptr noundef nonnull align 8 dereferenceable(56) %102) #5
   %849 = getelementptr inbounds i8, ptr %102, i64 40
   %850 = getelementptr inbounds i8, ptr %103, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %849, ptr noundef nonnull align 8 dereferenceable(16) %850, i64 16, i1 false)
@@ -1615,9 +1615,9 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %861 = getelementptr inbounds i8, ptr %104, i64 40
   store i32 0, ptr %861, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull align 8 dereferenceable(21) %104, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %104, i64 21, i1 false)
   %862 = getelementptr inbounds i8, ptr %3, i64 24
-  call void %177(ptr noundef nonnull align 8 dereferenceable(20) %859, ptr noundef nonnull align 8 dereferenceable(40) %862) #5
+  call void %177(ptr noundef nonnull align 8 dereferenceable(40) %859, ptr noundef nonnull align 8 dereferenceable(40) %862) #5
   call void @_ZN9Assembler5addsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %853, i32 3, ptr noundef nonnull %3) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %863 = load ptr, ptr %111, align 8
@@ -1670,9 +1670,9 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %886 = getelementptr inbounds i8, ptr %106, i64 40
   store i32 0, ptr %886, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %106, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %106, i64 21, i1 false)
   %887 = getelementptr inbounds i8, ptr %2, i64 24
-  call void %177(ptr noundef nonnull align 8 dereferenceable(20) %884, ptr noundef nonnull align 8 dereferenceable(40) %887) #5
+  call void %177(ptr noundef nonnull align 8 dereferenceable(40) %884, ptr noundef nonnull align 8 dereferenceable(40) %887) #5
   call void @_ZN9Assembler5addsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %878, i32 1, ptr noundef nonnull %2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %888 = load ptr, ptr %111, align 8
@@ -1872,7 +1872,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmSinEv(ptr noundef no
   %985 = load ptr, ptr %109, align 8
   %986 = getelementptr inbounds i8, ptr %985, i64 16
   %987 = load ptr, ptr %986, align 8
-  call void %987(ptr noundef nonnull align 8 dereferenceable(20) %109, ptr noundef nonnull align 8 dereferenceable(40) %108) #5
+  call void %987(ptr noundef nonnull align 8 dereferenceable(56) %109, ptr noundef nonnull align 8 dereferenceable(56) %108) #5
   %988 = getelementptr inbounds i8, ptr %108, i64 40
   %989 = getelementptr inbounds i8, ptr %109, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %988, ptr noundef nonnull align 8 dereferenceable(16) %989, i64 16, i1 false)

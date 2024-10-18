@@ -358,7 +358,7 @@ _ZN8facebook5velox9functions13countElementsINS0_11ArrayVectorEEEiRKNS0_17Selecti
   store ptr %9, ptr %indices.i, align 8
   %baseVector_.i.i = getelementptr inbounds i8, ptr %decodedVector, i64 48
   %10 = load ptr, ptr %baseVector_.i.i, align 8
-  %11 = tail call noundef ptr @__dynamic_cast(ptr nonnull %10, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #20
+  %11 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %10, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #20
   %rawSizes_.i.i = getelementptr inbounds i8, ptr %11, i64 128
   %12 = load ptr, ptr %rawSizes_.i.i, align 8
   store ptr %12, ptr %rawSizes.i, align 8
@@ -1044,7 +1044,7 @@ if.then.i190.i:                                   ; preds = %_ZNK8facebook5velox
 _ZN8facebook5velox13DecodedVector7indicesEv.exit.i: ; preds = %.noexc32, %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit189.i
   %120 = phi ptr [ %.pre.i.i20, %.noexc32 ], [ %119, %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit189.i ]
   %121 = load ptr, ptr %baseVector_.i.i, align 8
-  %122 = call noundef ptr @__dynamic_cast(ptr nonnull %121, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #20
+  %122 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %121, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #20
   %rawSizes_.i.i16 = getelementptr inbounds i8, ptr %122, i64 128
   %123 = load ptr, ptr %rawSizes_.i.i16, align 8
   %rawOffsets_.i.i = getelementptr inbounds i8, ptr %122, i64 112
@@ -1629,7 +1629,7 @@ invoke.cont14:                                    ; preds = %_ZZN8facebook5velox
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp15.i)
   %192 = load ptr, ptr %baseVector_.i.i, align 8
-  %193 = call noundef ptr @__dynamic_cast(ptr nonnull %192, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #20
+  %193 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %192, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #20
   %pool_.i = getelementptr inbounds i8, ptr %193, i64 48
   %194 = load ptr, ptr %pool_.i, align 8
   store ptr %194, ptr %ref.tmp, align 8
@@ -2321,7 +2321,7 @@ _ZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17Selectivit
   store ptr %9, ptr %indices.i, align 8
   %baseVector_.i.i = getelementptr inbounds i8, ptr %decodedVector, i64 48
   %10 = load ptr, ptr %baseVector_.i.i, align 8
-  %11 = tail call noundef ptr @__dynamic_cast(ptr nonnull %10, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #20
+  %11 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %10, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #20
   %rawSizes_.i.i = getelementptr inbounds i8, ptr %11, i64 128
   %12 = load ptr, ptr %rawSizes_.i.i, align 8
   store ptr %12, ptr %rawSizes.i, align 8
@@ -3007,7 +3007,7 @@ if.then.i190.i:                                   ; preds = %_ZNK8facebook5velox
 _ZN8facebook5velox13DecodedVector7indicesEv.exit.i: ; preds = %.noexc37, %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit189.i
   %120 = phi ptr [ %.pre.i.i25, %.noexc37 ], [ %119, %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit189.i ]
   %121 = load ptr, ptr %baseVector_.i.i, align 8
-  %122 = call noundef ptr @__dynamic_cast(ptr nonnull %121, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #20
+  %122 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %121, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #20
   %rawSizes_.i.i21 = getelementptr inbounds i8, ptr %122, i64 128
   %123 = load ptr, ptr %rawSizes_.i.i21, align 8
   %rawOffsets_.i.i = getelementptr inbounds i8, ptr %122, i64 112
@@ -3592,7 +3592,7 @@ invoke.cont14:                                    ; preds = %_ZZN8facebook5velox
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp15.i)
   %192 = load ptr, ptr %baseVector_.i.i, align 8
-  %193 = call noundef ptr @__dynamic_cast(ptr nonnull %192, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #20
+  %193 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %192, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #20
   %pool_.i = getelementptr inbounds i8, ptr %193, i64 48
   %194 = load ptr, ptr %pool_.i, align 8
   store ptr %194, ptr %ref.tmp, align 8

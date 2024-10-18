@@ -1745,7 +1745,7 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %119, %116, 
   %141 = load i32, ptr %8, align 4
   %142 = load i32, ptr %9, align 4
   %143 = load i32, ptr %10, align 4
-  call fastcc void @validate_crc_s5(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %31, i32 noundef %141, i32 noundef %142, i32 noundef %143, i32 noundef %140)
+  call fastcc void @validate_crc_s5(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef range(i32 0, 2) %31, i32 noundef %141, i32 noundef %142, i32 noundef %143, i32 noundef %140)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
@@ -2169,7 +2169,7 @@ define internal i32 @dissect_cip_class_s_supervisor(ptr noundef %0, ptr noundef 
 141:                                              ; preds = %69
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %142 = load i32, ptr @hf_cip_ssupervisor_reset_type, align 4
-  %143 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %142, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #6
+  %143 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %142, ptr noundef %0, i32 noundef range(i32 2, 513) %70, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #6
   %144 = load i32, ptr @hf_cip_ssupervisor_reset_password, align 4
   %145 = add nuw nsw i32 %66, 3
   %146 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %144, ptr noundef %0, i32 noundef %145, i32 noundef 16, i32 noundef 0) #6
@@ -2235,7 +2235,7 @@ dissect_safety_supervisor_safety_reset.exit.i:    ; preds = %158, %141
   %195 = load i32, ptr @ett_ssupervisor_propose_tunid, align 4
   %196 = load i32, ptr @ett_ssupervisor_propose_tunid_snn, align 4
   call void @dissect_unid(ptr noundef %0, ptr nonnull poison, i32 noundef %70, ptr noundef %190, ptr noundef nonnull @.str.439, i32 noundef %191, i32 noundef %192, i32 noundef %193, i32 noundef %194, i32 noundef %195, i32 noundef %196)
-  %197 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %70, i32 noundef -2147483648) #6
+  %197 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef range(i32 2, 513) %70, i32 noundef -2147483648) #6
   %198 = add nuw nsw i32 %66, 10
   %199 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %198, i32 noundef -2147483648) #6
   %200 = icmp eq i64 %197, -1
@@ -2257,7 +2257,7 @@ dissect_safety_supervisor_safety_reset.exit.i:    ; preds = %158, %141
   %211 = load i32, ptr @ett_ssupervisor_apply_tunid, align 4
   %212 = load i32, ptr @ett_ssupervisor_apply_tunid_snn, align 4
   call void @dissect_unid(ptr noundef %0, ptr nonnull poison, i32 noundef %70, ptr noundef %206, ptr noundef nonnull @.str.439, i32 noundef %207, i32 noundef %208, i32 noundef %209, i32 noundef %210, i32 noundef %211, i32 noundef %212)
-  %213 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %70, i32 noundef -2147483648) #6
+  %213 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef range(i32 2, 513) %70, i32 noundef -2147483648) #6
   %214 = add nuw nsw i32 %66, 10
   %215 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %214, i32 noundef -2147483648) #6
   %216 = icmp eq i64 %213, -1
@@ -2572,7 +2572,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 %32, ptr %9, align 1
   %34 = call zeroext i8 @crc8_0x37(ptr noundef nonnull %9, i32 noundef 1, i8 noundef zeroext %31) #6
-  %35 = call zeroext i8 @crc8_0x37(ptr noundef %33, i32 noundef %3, i8 noundef zeroext %34) #6
+  %35 = call zeroext i8 @crc8_0x37(ptr noundef %33, i32 noundef range(i32 -6, 2147483642) %3, i8 noundef zeroext %34) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %36 = add nsw i32 %3, 1
   %37 = load i32, ptr @hf_cipsafety_crc_s1, align 4
@@ -2616,7 +2616,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   br i1 %exitcond.not.i, label %compute_crc_s2_data.exit, label %.lr.ph.i, !llvm.loop !11
 
 compute_crc_s2_data.exit:                         ; preds = %.lr.ph.i, %23
-  %57 = call zeroext i8 @crc8_0x3B(ptr noundef %51, i32 noundef %3, i8 noundef zeroext %52) #6
+  %57 = call zeroext i8 @crc8_0x3B(ptr noundef %51, i32 noundef range(i32 -6, 2147483642) %3, i8 noundef zeroext %52) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %58 = add nsw i32 %3, 2
   %59 = load i32, ptr @hf_cipsafety_crc_s2, align 4
@@ -2734,7 +2734,7 @@ define internal fastcc void @dissect_base_format_time_correction_message(ptr nou
 proto_item_set_generated.exit:                    ; preds = %3, %6, %9
   %13 = load i32, ptr @hf_cipsafety_mcast_byte, align 4
   %14 = load i32, ptr @ett_cipsafety_mcast_byte, align 4
-  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @dissect_mcast_byte.bits, i32 noundef -2147483648) #6
+  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -4, -5) %2, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @dissect_mcast_byte.bits, i32 noundef -2147483648) #6
   %16 = load i32, ptr @hf_cipsafety_time_correction, align 4
   %17 = add nsw i32 %2, 1
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %16, ptr noundef %1, i32 noundef %17, i32 noundef 2, i32 noundef -2147483648) #6
@@ -2798,7 +2798,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 %32, ptr %9, align 1
   %34 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %9, i32 noundef 1, i16 noundef zeroext %31) #6
-  %35 = call zeroext i16 @crc16_0x080F_seed(ptr noundef %33, i32 noundef %3, i16 noundef zeroext %34) #6
+  %35 = call zeroext i16 @crc16_0x080F_seed(ptr noundef %33, i32 noundef range(i32 -4, 1073741820) %3, i16 noundef zeroext %34) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %36 = add nsw i32 %3, 1
   %37 = load i32, ptr @hf_cipsafety_crc_s3, align 4
@@ -2818,8 +2818,8 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   %47 = load i32, ptr @hf_cipsafety_complement_data, align 4
   %48 = add nsw i32 %3, 3
   %49 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %47, ptr noundef %2, i32 noundef %48, i32 noundef %3, i32 noundef 0) #6
-  %50 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef 0, i32 noundef %3) #6
-  %51 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %48, i32 noundef %3) #6
+  %50 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef 0, i32 noundef range(i32 -6, 2147483642) %3) #6
+  %51 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef range(i32 -3, 2147483645) %48, i32 noundef range(i32 -6, 2147483642) %3) #6
   %52 = icmp sgt i32 %3, 0
   br i1 %52, label %.lr.ph.preheader.i, label %verify_compliment_data.exit.thread
 
@@ -2869,7 +2869,7 @@ verify_compliment_data.exit.thread:               ; preds = %53, %46, %verify_co
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 %70, ptr %7, align 1
   %72 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %7, i32 noundef 1, i16 noundef zeroext %68) #6
-  %73 = call zeroext i16 @crc16_0x080F_seed(ptr noundef %71, i32 noundef %3, i16 noundef zeroext %72) #6
+  %73 = call zeroext i16 @crc16_0x080F_seed(ptr noundef %71, i32 noundef range(i32 -4, 1073741820) %3, i16 noundef zeroext %72) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %74 = shl nsw i32 %3, 1
   %75 = add nsw i32 %74, 3
@@ -3035,7 +3035,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %17, %20
   store i16 %39, ptr %10, align 2
   %52 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %8, i32 noundef 2, i32 noundef %48) #6
   %53 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %9, i32 noundef 1, i32 noundef %52) #6
-  %54 = call i32 @crc32_0x5D6DCB_seed(ptr noundef %51, i32 noundef %3, i32 noundef %53) #6
+  %54 = call i32 @crc32_0x5D6DCB_seed(ptr noundef %51, i32 noundef range(i32 -6, 2147483642) %3, i32 noundef %53) #6
   %55 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %10, i32 noundef 2, i32 noundef %54) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
@@ -3074,7 +3074,7 @@ define internal fastcc void @dissect_extended_format_time_correction_message(ptr
 proto_item_set_generated.exit:                    ; preds = %3, %6, %9
   %13 = load i32, ptr @hf_cipsafety_mcast_byte, align 4
   %14 = load i32, ptr @ett_cipsafety_mcast_byte, align 4
-  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @dissect_mcast_byte.bits, i32 noundef -2147483648) #6
+  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -4, -5) %2, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @dissect_mcast_byte.bits, i32 noundef -2147483648) #6
   %16 = load i32, ptr @hf_cipsafety_time_correction, align 4
   %17 = add i32 %2, 1
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %16, ptr noundef %1, i32 noundef %17, i32 noundef 2, i32 noundef -2147483648) #6
@@ -3158,7 +3158,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %20, %23
   store i8 %44, ptr %13, align 1
   %46 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %12, i32 noundef 2, i16 noundef zeroext %42) #6
   %47 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %13, i32 noundef 1, i16 noundef zeroext %46) #6
-  %48 = call zeroext i16 @crc16_0x080F_seed(ptr noundef %45, i32 noundef %3, i16 noundef zeroext %47) #6
+  %48 = call zeroext i16 @crc16_0x080F_seed(ptr noundef %45, i32 noundef range(i32 -6, 2147483642) %3, i16 noundef zeroext %47) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   %49 = add nsw i32 %3, 1
@@ -3179,8 +3179,8 @@ proto_item_set_generated.exit:                    ; preds = %7, %20, %23
   %60 = load i32, ptr @hf_cipsafety_complement_data, align 4
   %61 = add nsw i32 %3, 3
   %62 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %60, ptr noundef %2, i32 noundef %61, i32 noundef %3, i32 noundef 0) #6
-  %63 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef 0, i32 noundef %3) #6
-  %64 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %61, i32 noundef %3) #6
+  %63 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef 0, i32 noundef range(i32 -6, 2147483642) %3) #6
+  %64 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef range(i32 -3, 2147483645) %61, i32 noundef range(i32 -6, 2147483642) %3) #6
   %65 = icmp sgt i32 %3, 0
   br i1 %65, label %.lr.ph.preheader.i, label %verify_compliment_data.exit.thread
 
@@ -3267,7 +3267,7 @@ verify_compliment_data.exit.thread:               ; preds = %66, %59, %verify_co
   br i1 %exitcond.not.i75, label %compute_crc_s5_long_data.exit, label %.lr.ph.i72, !llvm.loop !13
 
 compute_crc_s5_long_data.exit:                    ; preds = %.lr.ph.i72, %84
-  %104 = call i32 @crc32_0x5D6DCB_seed(ptr noundef %98, i32 noundef %3, i32 noundef %100) #6
+  %104 = call i32 @crc32_0x5D6DCB_seed(ptr noundef %98, i32 noundef range(i32 -6, 2147483642) %3, i32 noundef %100) #6
   %105 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %10, i32 noundef 2, i32 noundef %104) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)

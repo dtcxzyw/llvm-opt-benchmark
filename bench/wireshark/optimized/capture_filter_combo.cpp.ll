@@ -700,7 +700,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %.split.i.i, %17
   %23 = load i64, ptr %15, align 8
   store i64 %23, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   store i64 2, ptr %16, align 8
   %24 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %.noexc unwind label %34

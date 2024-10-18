@@ -186,7 +186,7 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocaptur
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc42 unwind label %46
 
 .noexc42:                                         ; preds = %.noexc
@@ -203,7 +203,7 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocaptur
 32:                                               ; preds = %34, %30
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   br label %.body
 
 34:                                               ; preds = %.noexc42
@@ -1125,7 +1125,7 @@ _ZL19_CleanOutputForDiffNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exi
   br label %412
 
 388:                                              ; preds = %381
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #17
   %.pre = load ptr, ptr %10, align 8
   %.not.i.i.i80 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i80, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_25UsdImagingStageSceneIndexEED2Ev.exit, label %389
@@ -1722,7 +1722,7 @@ define linkonce_odr dso_local void @_ZN12PrimListenerD0Ev(ptr noundef nonnull al
   unreachable
 
 _ZN12PrimListenerD2Ev.exit:                       ; preds = %1
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #20
   ret void
 }

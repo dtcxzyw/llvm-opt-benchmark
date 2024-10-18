@@ -263,7 +263,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_lastDecisionLit, ptr noundef %call23)
+  invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %d_lastDecisionLit, ptr noundef %call23)
           to label %.noexc unwind label %lpad21
 
 .noexc:                                           ; preds = %invoke.cont22
@@ -519,7 +519,7 @@ declare void @_ZN4cvc58internal8decision12JustifyStackD1Ev(ptr noundef nonnull a
 define linkonce_odr hidden void @_ZN4cvc58internal8decision12JustifyCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatValueESt4hashIS4_EEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -550,7 +550,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal8decision13AssertionListE, i64 16), ptr %this, align 8
   %d_dindex = getelementptr inbounds i8, ptr %this, i64 224
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_dindex, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_dindex)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %d_dindex)
           to label %_ZN4cvc57context3CDOImED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %entry
@@ -603,7 +603,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt13unordered_se
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, %if.then.i.i.i
   %d_assertionIndex = getelementptr inbounds i8, ptr %this, i64 88
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_assertionIndex, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_assertionIndex)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %d_assertionIndex)
           to label %_ZN4cvc57context3CDOImED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit
@@ -665,7 +665,7 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %if.then.i.i.i, %if
 
 if.then.i.i.i2:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
   %d_lastDecisionLit = getelementptr inbounds i8, ptr %this, i64 832
-  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_lastDecisionLit)
+  invoke void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %d_lastDecisionLit)
           to label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i unwind label %lpad3
 
 _ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i: ; preds = %if.then.i.i.i2, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
@@ -969,7 +969,7 @@ invoke.cont65:                                    ; preds = %if.then52, %invoke.
   br i1 %cmp.i.i.i.i, label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont65
-  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_lastDecisionLit)
+  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %d_lastDecisionLit)
   br label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i
 
 _ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i: ; preds = %if.then.i.i.i, %invoke.cont65
@@ -1179,7 +1179,7 @@ if.then171:                                       ; preds = %cond.end163
   br i1 %cmp.i.i.i.i384, label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i386, label %if.then.i.i.i385
 
 if.then.i.i.i385:                                 ; preds = %if.then171
-  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_lastDecisionLit)
+  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %d_lastDecisionLit)
   br label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i386
 
 _ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i386: ; preds = %if.then.i.i.i385, %if.then171
@@ -2282,7 +2282,7 @@ cond.false.i:                                     ; preds = %invoke.cont56
 call3.i.noexc:                                    ; preds = %cond.false.i
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i.i), !noalias !54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !54
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i.i, ptr noundef nonnull %call3.i63, i32 noundef 18)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i.i, ptr noundef nonnull align 8 dereferenceable(3360) %call3.i63, i32 noundef 18)
           to label %.noexc64 unwind label %lpad57
 
 .noexc64:                                         ; preds = %call3.i.noexc
@@ -2968,7 +2968,7 @@ if.then:                                          ; preds = %cond.true11, %cond.
 
 if.then.i.i.i61:                                  ; preds = %if.then
   %d_lastDecisionLit = getelementptr inbounds i8, ptr %this, i64 832
-  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %d_lastDecisionLit)
+  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %d_lastDecisionLit)
   br label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i
 
 _ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i: ; preds = %if.then.i.i.i61, %if.then
@@ -3142,7 +3142,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i, %if.then13.i.i
   %d_lastDecisionLit = getelementptr inbounds i8, ptr %this, i64 832
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, i64 16), ptr %d_lastDecisionLit, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_lastDecisionLit)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %d_lastDecisionLit)
           to label %_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev.exit unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
@@ -3157,7 +3157,7 @@ _ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev.exit: ; preds = %_ZN
   tail call void @_ZN4cvc58internal8decision12JustifyStackD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %d_stack) #19
   %d_jcache = getelementptr inbounds i8, ptr %this, i64 576
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatValueESt4hashIS4_EEE, i64 16), ptr %d_jcache, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_jcache)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %d_jcache)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev.exit
@@ -3502,7 +3502,7 @@ _ZN4cvc57context13InsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatVa
   %9 = phi ptr [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i ], [ %4, %while.body.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   %call.i.i.i.i = tail call noundef i64 @_ZNSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KNS1_4prop8SatValueEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS4_(ptr noundef nonnull align 8 dereferenceable(56) %d_hashMap.i.i, ptr noundef nonnull align 8 dereferenceable(8) %incdec.ptr.i.i.i.i)
-  tail call void @_ZNSt5dequeIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #19
+  tail call void @_ZNSt5dequeIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #19
   br label %while.cond.i, !llvm.loop !73
 
 _ZN4cvc57context13InsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatValueESt4hashIS4_EE11pop_to_sizeEm.exit: ; preds = %while.cond.i
@@ -3515,7 +3515,7 @@ _ZN4cvc57context13InsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatVa
 define linkonce_odr hidden void @_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatValueESt4hashIS4_EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEENS2_4prop8SatValueESt4hashIS4_EEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -4443,7 +4443,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc57context3CDOImED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
           to label %_ZN4cvc57context3CDOImED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %entry
@@ -4705,7 +4705,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %entry, %if.then.i
 define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, i64 16), ptr %this, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
           to label %_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %entry

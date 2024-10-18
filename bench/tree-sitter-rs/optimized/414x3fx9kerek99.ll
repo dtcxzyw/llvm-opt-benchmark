@@ -235,7 +235,7 @@ define internal void @"_ZN4core3ptr45drop_in_place$LT$libloading..error..Error$G
 
 45:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !102
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5107a898055359bfE.llvm.6766350830065688733"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5107a898055359bfE.llvm.6766350830065688733"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %46 = getelementptr inbounds i8, ptr %2, i64 8
   %47 = load i64, ptr %46, align 8, !range !111, !noalias !102, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %47, 0
@@ -311,7 +311,7 @@ define internal { ptr, i64 } @_ZN4core5error5Error11description17hbcf8300d0c767f
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h14c07eb942cfb467E(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -330,7 +330,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h24957dbf9663c70aE(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h371f556da80a19dcE(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -365,7 +365,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h60e31be053265566E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h7c8aa4e7dc5c5764E(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -376,7 +376,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h7c8aa4e7dc5c5764E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h9bd2f1be126859f3E(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -387,7 +387,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h9bd2f1be126859f3E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h9d223b7d71c20a30E(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -398,7 +398,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h9d223b7d71c20a30E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17ha679cda6c1ab7d99E(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -409,7 +409,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17ha679cda6c1ab7d99E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17ha900633532db862bE(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -420,7 +420,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17ha900633532db862bE(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hbabb3550c6e5fa78E(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -431,7 +431,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hbabb3550c6e5fa78E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hbb43de9f02e465d4E(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -442,7 +442,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hbb43de9f02e465d4E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hc8d476430eb6ebc6E(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -453,7 +453,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hc8d476430eb6ebc6E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hda5fae311c41f8f2E(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -464,7 +464,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hda5fae311c41f8f2E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17he06ee8859d1029dcE(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
-  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull %0)
+  %2 = tail call { ptr, ptr } @_ZN6anyhow5error9ErrorImpl5error17h75682aa7a0c9954fE(ptr noundef nonnull align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -839,7 +839,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h17d8f37429c84ee3E(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -941,7 +941,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h753bd7533d736c63E(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %8
 
 8:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %4
@@ -1011,7 +1011,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h9a7611487e0e402fE(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$anyhow..wrapper..MessageError$LT$$RF$str$GT$$GT$$GT$$GT$17hbfb3c2cabfcd8b95E.exit" unwind label %8
 
 8:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %4
@@ -1043,7 +1043,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h9c9f01dd0981f568E(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %"_ZN4core3ptr104drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$std..time..SystemTimeError$GT$$GT$$GT$17he6cd015504812732E.exit" unwind label %8
 
 8:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %4
@@ -1091,7 +1091,7 @@ define hidden void @_ZN6anyhow5error11object_drop17ha4ea4e4567939d85E(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %8
 
 8:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %4
@@ -1145,7 +1145,7 @@ define hidden void @_ZN6anyhow5error11object_drop17hb5c608655b732f51E(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %8
 
 8:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %4
@@ -1201,7 +1201,7 @@ define hidden void @_ZN6anyhow5error11object_drop17hcf8af8b19d92ae68E(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -1272,7 +1272,7 @@ define hidden void @_ZN6anyhow5error11object_drop17hf743ce9e1ff13274E(ptr nounde
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %8
 
 8:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %4
@@ -1459,7 +1459,7 @@ define hidden void @_ZN6anyhow5error17context_drop_rest17h21731bc31bc01412E(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$anyhow..error..ContextError$LT$$RF$str$C$core..mem..manually_drop..ManuallyDrop$LT$std..io..error..Error$GT$$GT$$GT$$GT$$GT$17h83cf416ca3fc84d9E.exit" unwind label %12
 
 common.resume:                                    ; preds = %33, %12
@@ -1494,7 +1494,7 @@ common.resume:                                    ; preds = %33, %12
 
 .sink.split.i.i.i.i.i.i.i14:                      ; preds = %.noexc.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %20)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %21
 
 21:                                               ; preds = %.sink.split.i.i.i.i.i.i.i14, %17
@@ -1572,7 +1572,7 @@ define hidden void @_ZN6anyhow5error17context_drop_rest17h335f552d77c53339E(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10)
           to label %"_ZN4core3ptr193drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$anyhow..error..ContextError$LT$$RF$str$C$core..mem..manually_drop..ManuallyDrop$LT$serde_json..error..Error$GT$$GT$$GT$$GT$$GT$17h97009e80a8831514E.exit" unwind label %11
 
 common.resume:                                    ; preds = %18, %24, %11
@@ -1599,7 +1599,7 @@ common.resume:                                    ; preds = %18, %24, %11
 
 .sink.split.i.i.i.i.i.i.i13:                      ; preds = %.noexc.i.i
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %18
 
 18:                                               ; preds = %.sink.split.i.i.i.i.i.i.i13, %14
@@ -1666,7 +1666,7 @@ common.resume:                                    ; preds = %14, %20, %5
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %13 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %14
 
 14:                                               ; preds = %.sink.split.i.i.i.i.i.i.i, %10
@@ -1739,7 +1739,7 @@ common.resume:                                    ; preds = %27, %6
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %15
 
 15:                                               ; preds = %.sink.split.i.i.i.i.i.i.i, %11
@@ -1813,7 +1813,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17h2830f4d2ffc83d11E(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr147drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$tree_sitter..QueryError$GT$$GT$$GT$$GT$17ha65475d539ed9c01E.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -1845,7 +1845,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17h360a498e457bc25dE(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr131drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$$RF$str$GT$$GT$$GT$$GT$17hd2da66a755412aa5E.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -1877,7 +1877,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17h3989813ae1af646aE(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr145drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$alloc..string..String$GT$$GT$$GT$$GT$17h7b6cdd0e8ca642c5E.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -1909,7 +1909,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17h8d3b211890a40121E(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr150drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$std..time..SystemTimeError$GT$$GT$$GT$$GT$17h464fe053c54ee5bcE.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -1941,7 +1941,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17hf9eadd69a741305bE(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr147drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$tree_sitter_tags..Error$GT$$GT$$GT$$GT$17h2bffe753d1f3ccf7E.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -1973,7 +1973,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17hfdfb96208c5948d9E(ptr 
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr145drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$core..mem..manually_drop..ManuallyDrop$LT$std..io..error..Error$GT$$GT$$GT$$GT$17h6846cd00066062e3E.exit" unwind label %9
 
 9:                                                ; preds = %.sink.split.i.i.i.i.i.i.i, %5
@@ -2057,7 +2057,7 @@ define hidden void @_ZN6anyhow5error23context_chain_drop_rest17h5574170d6198a141
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i
   %12 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
           to label %"_ZN4core3ptr182drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$anyhow..error..ContextError$LT$$RF$str$C$core..mem..manually_drop..ManuallyDrop$LT$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h8a21557614a5b2f4E.exit" unwind label %13
 
 common.resume:                                    ; preds = %25, %31, %13
@@ -2095,7 +2095,7 @@ common.resume:                                    ; preds = %25, %31, %13
 
 .sink.split.i.i.i.i.i.i.i16:                      ; preds = %.noexc.i.i
   %24 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %24)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %25
 
 25:                                               ; preds = %.sink.split.i.i.i.i.i.i.i16, %21
@@ -2175,7 +2175,7 @@ common.resume:                                    ; preds = %19, %25, %7
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %.noexc.i.i
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17h7f225d101f534ba9E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17ha74d2c433b795aceE.llvm.6766350830065688733.exit.i.i" unwind label %19
 
 19:                                               ; preds = %.sink.split.i.i.i.i.i.i.i, %15

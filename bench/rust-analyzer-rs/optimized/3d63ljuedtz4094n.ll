@@ -408,7 +408,7 @@ define hidden void @"_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..RawVec$LT$$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr104drop_in_place$LT$indexmap..set..IndexSet$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h421720acbc396462E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #3 {
-  tail call void @"_ZN4core3ptr125drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$C$$LP$$RP$$GT$$GT$17hf935312b55fea52dE.llvm.5062853439722839227"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
+  tail call void @"_ZN4core3ptr125drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$C$$LP$$RP$$GT$$GT$17hf935312b55fea52dE.llvm.5062853439722839227"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
   ret void
 }
 
@@ -1769,7 +1769,7 @@ define hidden void @"_ZN4core3ptr163drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   br i1 %21, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54181480f9874553E.llvm.5062853439722839227.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #15, !noalias !803
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #15, !noalias !803
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54181480f9874553E.llvm.5062853439722839227.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54181480f9874553E.llvm.5062853439722839227.exit": ; preds = %1, %4, %8, %22
@@ -3308,7 +3308,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$memmap2..os..MmapInner$GT$17
 define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1743)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1743, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h5a853415814db162E.llvm.5062853439722839227"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h5a853415814db162E.llvm.5062853439722839227"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h4b15750948fb5d97E.llvm.5062853439722839227.exit" unwind label %3, !noalias !1743
 
 3:                                                ; preds = %1
@@ -5132,7 +5132,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h4b15750948fb5d97E.llvm.5062853439722839227"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h5a853415814db162E.llvm.5062853439722839227"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h5a853415814db162E.llvm.5062853439722839227"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h036dceb5ae9aed7aE.llvm.5062853439722839227.exit" unwind label %3
 
 "_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h036dceb5ae9aed7aE.llvm.5062853439722839227.exit": ; preds = %1
@@ -6463,7 +6463,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanD
   br label %"_ZN4core3ptr89drop_in_place$LT$tt..Leaf$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hfbd1afb294eba439E.llvm.5062853439722839227.exit"
 
 23:                                               ; preds = %1
-  tail call void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$u5d$$GT$$GT$17h213c6b1b1f421d06E.llvm.5062853439722839227"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$u5d$$GT$$GT$17h213c6b1b1f421d06E.llvm.5062853439722839227"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
   br label %"_ZN4core3ptr89drop_in_place$LT$tt..Leaf$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hfbd1afb294eba439E.llvm.5062853439722839227.exit"
 
 "_ZN4core3ptr89drop_in_place$LT$tt..Leaf$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17hfbd1afb294eba439E.llvm.5062853439722839227.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h02b0f7f84b061d8aE.llvm.5062853439722839227.exit.sink.split.i", %18, %15, %10, %7, %5, %23
@@ -8081,7 +8081,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0130a04ec44ee359E.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #15
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0130a04ec44ee359E.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0130a04ec44ee359E.exit": ; preds = %22, %8, %1, %4

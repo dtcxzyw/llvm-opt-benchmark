@@ -594,7 +594,7 @@ read_1_byte.exit.i7.us.i:                         ; preds = %231, %236
   %239 = load ptr, ptr @outfile, align 8
   %240 = tail call i32 @putc(i32 noundef 255, ptr noundef %239)
   %241 = load ptr, ptr @outfile, align 8
-  %242 = tail call i32 @putc(i32 noundef %223, ptr noundef %241)
+  %242 = tail call i32 @putc(i32 noundef range(i32 0, -1) %223, ptr noundef %241)
   tail call fastcc void @copy_variable()
   br label %skip_variable.exit.us.i
 

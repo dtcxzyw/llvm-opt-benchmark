@@ -6108,7 +6108,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
 
 105:                                              ; preds = %84
   %106 = load i32, ptr %7, align 4
-  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 6, i32 noundef %106)
+  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 6, i32 noundef %106)
   br label %dissect_btmesh_transport_pdu.exit
 
 107:                                              ; preds = %84
@@ -6227,7 +6227,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   br label %dissect_btmesh_transport_pdu.exit
 
 175:                                              ; preds = %159
-  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 3, i32 noundef %160)
+  call fastcc void @dissect_btmesh_transport_control_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 3, i32 noundef %160)
   br label %dissect_btmesh_transport_pdu.exit
 
 176:                                              ; preds = %66
@@ -6282,7 +6282,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   call void @proto_item_set_len(ptr noundef %213, i32 noundef 1) #16
   %214 = getelementptr inbounds i8, ptr %37, i64 48
   store i32 4, ptr %214, align 4
-  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 6, ptr noundef nonnull %37)
+  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 6, ptr noundef nonnull %37)
   br label %dissect_btmesh_transport_pdu.exit
 
 215:                                              ; preds = %191
@@ -6387,7 +6387,7 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   call void @proto_item_set_len(ptr noundef %270, i32 noundef 1) #16
   %271 = getelementptr inbounds i8, ptr %37, i64 48
   store i32 4, ptr %271, align 4
-  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 3, ptr noundef nonnull %37)
+  call fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %54, ptr noundef nonnull %1, ptr noundef %28, i32 noundef 3, ptr noundef nonnull %37)
   br label %dissect_btmesh_transport_pdu.exit
 
 dissect_btmesh_transport_pdu.exit:                ; preds = %105, %134, %143, %144, %146, %152, %155, %162, %175, %212, %242, %251, %252, %254, %260, %265, %269
@@ -6867,7 +6867,7 @@ define internal fastcc void @dissect_btmesh_transport_access_message(ptr noundef
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3) #16
   %7 = load i32, ptr @ett_btmesh_upper_transp_acc_pdu, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.2190) #16
-  %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3) #16
+  %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3) #16
   %10 = getelementptr inbounds i8, ptr %4, i64 48
   %11 = load i32, ptr %10, align 4
   %12 = sub i32 %9, %11
@@ -6981,7 +6981,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %68 = trunc nuw i64 %indvars.iv132.i to i32
   store i32 %68, ptr %17, align 4
   %69 = load ptr, ptr %76, align 8
-  %70 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %69, ptr noundef nonnull %4)
+  %70 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %69, ptr noundef nonnull %4)
   %.not105.us.i = icmp eq i32 %70, 0
   br i1 %.not105.us.i, label %._crit_edge151.i, label %.loopexit107.sink.split.i
 
@@ -7030,7 +7030,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
 93:                                               ; preds = %88
   %94 = getelementptr inbounds i8, ptr %79, i64 80
   %95 = load ptr, ptr %94, align 8
-  %96 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %95, ptr noundef nonnull %4)
+  %96 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %95, ptr noundef nonnull %4)
   %.not104.i = icmp eq i32 %96, 0
   br i1 %.not104.i, label %._crit_edge.i, label %.loopexit107.sink.split.i
 
@@ -7119,7 +7119,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %139 = trunc nuw i64 %indvars.iv141.i to i32
   store i32 %139, ptr %17, align 4
   %140 = load ptr, ptr %147, align 8
-  %141 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %140, ptr noundef nonnull %4)
+  %141 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %140, ptr noundef nonnull %4)
   %.not100.us.i = icmp eq i32 %141, 0
   br i1 %.not100.us.i, label %._crit_edge156.i, label %.loopexit107.sink.split.i
 
@@ -7160,7 +7160,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
 156:                                              ; preds = %153
   %157 = getelementptr inbounds i8, ptr %149, i64 8
   %158 = load ptr, ptr %157, align 8
-  %159 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %158, ptr noundef %4)
+  %159 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %158, ptr noundef %4)
   %.not99.i = icmp eq i32 %159, 0
   br i1 %.not99.i, label %160, label %.loopexit107.sink.split.i
 
@@ -7176,7 +7176,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
 163:                                              ; preds = %161
   %164 = getelementptr inbounds i8, ptr %149, i64 8
   %165 = load ptr, ptr %164, align 8
-  %166 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %165, ptr noundef %4)
+  %166 = tail call fastcc i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3, ptr noundef %16, i32 noundef %12, ptr noundef %165, ptr noundef %4)
   %.not103.i = icmp eq i32 %166, 0
   br i1 %.not103.i, label %167, label %.loopexit107.sink.split.i
 
@@ -7211,7 +7211,7 @@ btmesh_access_find_key_and_decrypt.exit:          ; preds = %167, %.loopexit.us.
   %183 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef -1, i32 noundef %182, ptr noundef null, ptr noundef nonnull @.str.2192) #16
   %184 = load i32, ptr @hf_btmesh_decrypted_access, align 4
   %185 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_model_layer(ptr noundef %.0.i, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @dissect_btmesh_model_layer(ptr noundef nonnull %.0.i, ptr noundef %1, ptr noundef %2)
   br label %186
 
 186:                                              ; preds = %181, %btmesh_access_find_key_and_decrypt.exit

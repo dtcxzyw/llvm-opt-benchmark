@@ -101,7 +101,7 @@ define void @"_ZN11rand_chacha6chacha10abstract20138_$LT$impl$u20$core..convert.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   store <32 x i8> %14, ptr %12, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %15 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !13
+  %15 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !13
   %16 = icmp eq i64 %15, 0
   %bc7 = bitcast <32 x i8> %14 to <2 x i128>
   %17 = extractelement <2 x i128> %bc7, i64 0
@@ -153,7 +153,7 @@ _ZN11rand_chacha4guts11init_chacha17hb3073f091f6bab9cE.exit: ; preds = %22, %27
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %30 = getelementptr inbounds i8, ptr %13, i64 272
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %31 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !38
+  %31 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !38
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i.i
 
@@ -206,7 +206,7 @@ _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit.i: ; preds = %_
   br i1 %47, label %_ZN11rand_chacha6chacha11ChaCha20Rng10set_stream17had64fbedb7455075E.exit, label %48
 
 48:                                               ; preds = %_ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit.i
-  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !59
+  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !59
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %51, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i1.i
 
@@ -237,7 +237,7 @@ _ZN11rand_chacha4guts16get_stream_param17h0995a1fc1c8c7919E.exit.i: ; preds = %5
   %62 = and i64 %60, 15
   %63 = add i64 %59, %61
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %64 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !62
+  %64 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !62
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %66, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i4.i
 
@@ -283,7 +283,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   br label %_ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit8.i
 
 _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit8.i: ; preds = %81, %69
-  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 10, ptr noalias noundef nonnull align 4 dereferenceable(256) %13)
+  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 10, ptr noalias noundef nonnull align 16 dereferenceable(320) %13)
   store i64 %62, ptr %.sroa.4.0..sroa_idx, align 16, !alias.scope !82
   br label %_ZN11rand_chacha6chacha11ChaCha20Rng10set_stream17had64fbedb7455075E.exit
 
@@ -293,7 +293,7 @@ _ZN11rand_chacha6chacha11ChaCha20Rng10set_stream17had64fbedb7455075E.exit: ; pre
   %84 = lshr i128 %83, 4
   %85 = trunc i128 %84 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %86 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !85
+  %86 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !85
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %88, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i1
 
@@ -341,7 +341,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
 _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit: ; preds = %91, %103
   %104 = trunc i128 %83 to i64
   %105 = and i64 %104, 15
-  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 10, ptr noalias noundef nonnull align 4 dereferenceable(256) %13)
+  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 10, ptr noalias noundef nonnull align 16 dereferenceable(320) %13)
   store i64 %105, ptr %.sroa.4.0..sroa_idx, align 16, !alias.scope !104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %0, ptr noundef nonnull align 16 dereferenceable(320) %13, i64 320, i1 false)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %13)
@@ -440,7 +440,7 @@ define void @"_ZN11rand_chacha6chacha10abstract12138_$LT$impl$u20$core..convert.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   store <32 x i8> %14, ptr %12, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %15 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !115
+  %15 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !115
   %16 = icmp eq i64 %15, 0
   %bc7 = bitcast <32 x i8> %14 to <2 x i128>
   %17 = extractelement <2 x i128> %bc7, i64 0
@@ -492,7 +492,7 @@ _ZN11rand_chacha4guts11init_chacha17hb3073f091f6bab9cE.exit: ; preds = %22, %27
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %30 = getelementptr inbounds i8, ptr %13, i64 272
   call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  %31 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !140
+  %31 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !140
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i.i
 
@@ -545,7 +545,7 @@ _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit.i: ; preds = %_
   br i1 %47, label %_ZN11rand_chacha6chacha11ChaCha12Rng10set_stream17h44e8bbaea8c708dbE.exit, label %48
 
 48:                                               ; preds = %_ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit.i
-  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !161
+  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !161
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %51, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i1.i
 
@@ -576,7 +576,7 @@ _ZN11rand_chacha4guts16get_stream_param17h0995a1fc1c8c7919E.exit.i: ; preds = %5
   %62 = and i64 %60, 15
   %63 = add i64 %59, %61
   call void @llvm.experimental.noalias.scope.decl(metadata !164)
-  %64 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !164
+  %64 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !164
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %66, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i4.i
 
@@ -622,7 +622,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   br label %_ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit8.i
 
 _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit8.i: ; preds = %81, %69
-  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 6, ptr noalias noundef nonnull align 4 dereferenceable(256) %13)
+  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(320) %13)
   store i64 %62, ptr %.sroa.4.0..sroa_idx, align 16, !alias.scope !184
   br label %_ZN11rand_chacha6chacha11ChaCha12Rng10set_stream17h44e8bbaea8c708dbE.exit
 
@@ -632,7 +632,7 @@ _ZN11rand_chacha6chacha11ChaCha12Rng10set_stream17h44e8bbaea8c708dbE.exit: ; pre
   %84 = lshr i128 %83, 4
   %85 = trunc i128 %84 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !187)
-  %86 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !187
+  %86 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !187
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %88, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i1
 
@@ -680,7 +680,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
 _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit: ; preds = %91, %103
   %104 = trunc i128 %83 to i64
   %105 = and i64 %104, 15
-  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 6, ptr noalias noundef nonnull align 4 dereferenceable(256) %13)
+  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(320) %13)
   store i64 %105, ptr %.sroa.4.0..sroa_idx, align 16, !alias.scope !206
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %0, ptr noundef nonnull align 16 dereferenceable(320) %13, i64 320, i1 false)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %13)
@@ -779,7 +779,7 @@ define void @"_ZN11rand_chacha6chacha9abstract8135_$LT$impl$u20$core..convert..F
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   store <32 x i8> %14, ptr %12, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
-  %15 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !217
+  %15 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !217
   %16 = icmp eq i64 %15, 0
   %bc7 = bitcast <32 x i8> %14 to <2 x i128>
   %17 = extractelement <2 x i128> %bc7, i64 0
@@ -831,7 +831,7 @@ _ZN11rand_chacha4guts11init_chacha17hb3073f091f6bab9cE.exit: ; preds = %22, %27
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
   %30 = getelementptr inbounds i8, ptr %13, i64 272
   call void @llvm.experimental.noalias.scope.decl(metadata !239)
-  %31 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !242
+  %31 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !242
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i.i
 
@@ -884,7 +884,7 @@ _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit.i: ; preds = %_
   br i1 %47, label %_ZN11rand_chacha6chacha10ChaCha8Rng10set_stream17h032af813c63b9b95E.exit, label %48
 
 48:                                               ; preds = %_ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit.i
-  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !263
+  %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !263
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %51, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i1.i
 
@@ -915,7 +915,7 @@ _ZN11rand_chacha4guts16get_stream_param17h0995a1fc1c8c7919E.exit.i: ; preds = %5
   %62 = and i64 %60, 15
   %63 = add i64 %59, %61
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %64 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !266
+  %64 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !266
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %66, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i4.i
 
@@ -961,7 +961,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   br label %_ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit8.i
 
 _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit8.i: ; preds = %81, %69
-  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 4, ptr noalias noundef nonnull align 4 dereferenceable(256) %13)
+  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 4, ptr noalias noundef nonnull align 16 dereferenceable(320) %13)
   store i64 %62, ptr %.sroa.4.0..sroa_idx, align 16, !alias.scope !286
   br label %_ZN11rand_chacha6chacha10ChaCha8Rng10set_stream17h032af813c63b9b95E.exit
 
@@ -971,7 +971,7 @@ _ZN11rand_chacha6chacha10ChaCha8Rng10set_stream17h032af813c63b9b95E.exit: ; pred
   %84 = lshr i128 %83, 4
   %85 = trunc i128 %84 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !289)
-  %86 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !289
+  %86 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !289
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %88, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i1
 
@@ -1019,7 +1019,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
 _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit: ; preds = %91, %103
   %104 = trunc i128 %83 to i64
   %105 = and i64 %104, 15
-  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 4, ptr noalias noundef nonnull align 4 dereferenceable(256) %13)
+  call void @_ZN11rand_chacha4guts11refill_wide17h19de6fdc130f02a0E(ptr noalias noundef nonnull align 16 dereferenceable(48) %30, i32 noundef 4, ptr noalias noundef nonnull align 16 dereferenceable(320) %13)
   store i64 %105, ptr %.sroa.4.0..sroa_idx, align 16, !alias.scope !308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %0, ptr noundef nonnull align 16 dereferenceable(320) %13, i64 320, i1 false)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %13)

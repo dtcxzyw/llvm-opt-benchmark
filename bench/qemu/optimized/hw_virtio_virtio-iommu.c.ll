@@ -901,11 +901,11 @@ land.lhs.true2.i.i.i:                             ; preds = %sw.bb
 
 virtio_iommu_iov_to_req.exit.thread.i:            ; preds = %land.lhs.true2.i.i.i
   %16 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %req.i, ptr noundef nonnull align 1 dereferenceable(20) %16, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %req.i, ptr noundef nonnull align 1 dereferenceable(20) %16, i64 range(i64 4, 73) 20, i1 false)
   br label %cond.false.i
 
 virtio_iommu_iov_to_req.exit.i:                   ; preds = %land.lhs.true2.i.i.i, %sw.bb
-  %call.i.i.i = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i, i64 noundef 20) #13
+  %call.i.i.i = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i, i64 noundef range(i64 4, 73) 20) #13
   %cmp.not.i.i = icmp eq i64 %call.i.i.i, 20
   br i1 %cmp.not.i.i, label %cond.false.i, label %virtio_iommu_handle_attach.exit
 
@@ -1214,11 +1214,11 @@ land.lhs.true2.i.i.i48:                           ; preds = %sw.bb19
 
 virtio_iommu_iov_to_req.exit.thread.i51:          ; preds = %land.lhs.true2.i.i.i48
   %68 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %req.i46, ptr noundef nonnull align 1 dereferenceable(20) %68, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %req.i46, ptr noundef nonnull align 1 dereferenceable(20) %68, i64 range(i64 4, 73) 20, i1 false)
   br label %cond.false.i52
 
 virtio_iommu_iov_to_req.exit.i85:                 ; preds = %land.lhs.true2.i.i.i48, %sw.bb19
-  %call.i.i.i86 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i46, i64 noundef 20) #13
+  %call.i.i.i86 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i46, i64 noundef range(i64 4, 73) 20) #13
   %cmp.not.i.i87 = icmp eq i64 %call.i.i.i86, 20
   br i1 %cmp.not.i.i87, label %cond.false.i52, label %virtio_iommu_handle_detach.exit
 
@@ -1333,11 +1333,11 @@ land.lhs.true2.i.i.i91:                           ; preds = %sw.bb23
 
 virtio_iommu_iov_to_req.exit.thread.i94:          ; preds = %land.lhs.true2.i.i.i91
   %88 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %req.i89, ptr noundef nonnull align 1 dereferenceable(36) %88, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %req.i89, ptr noundef nonnull align 1 dereferenceable(36) %88, i64 range(i64 4, 73) 36, i1 false)
   br label %cond.false.i95
 
 virtio_iommu_iov_to_req.exit.i120:                ; preds = %land.lhs.true2.i.i.i91, %sw.bb23
-  %call.i.i.i121 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i89, i64 noundef 36) #13
+  %call.i.i.i121 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i89, i64 noundef range(i64 4, 73) 36) #13
   %cmp.not.i.i122 = icmp eq i64 %call.i.i.i121, 36
   br i1 %cmp.not.i.i122, label %cond.false.i95, label %virtio_iommu_handle_map.exit
 
@@ -1452,11 +1452,11 @@ land.lhs.true2.i.i.i127:                          ; preds = %sw.bb27
 
 virtio_iommu_iov_to_req.exit.thread.i130:         ; preds = %land.lhs.true2.i.i.i127
   %107 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %req.i125, ptr noundef nonnull align 1 dereferenceable(28) %107, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %req.i125, ptr noundef nonnull align 1 dereferenceable(28) %107, i64 range(i64 4, 73) 28, i1 false)
   br label %cond.false.i131
 
 virtio_iommu_iov_to_req.exit.i177:                ; preds = %land.lhs.true2.i.i.i127, %sw.bb27
-  %call.i.i.i178 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i125, i64 noundef 28) #13
+  %call.i.i.i178 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i125, i64 noundef range(i64 4, 73) 28) #13
   %cmp.not.i.i179 = icmp eq i64 %call.i.i.i178, 28
   br i1 %cmp.not.i.i179, label %cond.false.i131, label %virtio_iommu_handle_unmap.exit
 
@@ -1782,11 +1782,11 @@ land.lhs.true2.i.i.i183:                          ; preds = %sw.bb31
 
 virtio_iommu_iov_to_req.exit.thread.i186:         ; preds = %land.lhs.true2.i.i.i183
   %158 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %req.i181, ptr noundef nonnull align 1 dereferenceable(72) %158, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %req.i181, ptr noundef nonnull align 1 dereferenceable(72) %158, i64 range(i64 4, 73) 72, i1 false)
   br label %cond.false.i187
 
 virtio_iommu_iov_to_req.exit.i216:                ; preds = %land.lhs.true2.i.i.i183, %sw.bb31
-  %call.i.i.i217 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i181, i64 noundef 72) #13
+  %call.i.i.i217 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i181, i64 noundef range(i64 4, 73) 72) #13
   %cmp.not.i.i218 = icmp eq i64 %call.i.i.i217, 72
   br i1 %cmp.not.i.i218, label %cond.false.i187, label %virtio_iommu_handle_probe.exit
 
@@ -1975,7 +1975,7 @@ iov_from_buf.exit:                                ; preds = %if.then13, %sw.epil
   %cond = select i1 %tobool43.not, ptr %tail, ptr %buf.1
   %176 = load i32, ptr %in_num, align 8
   %177 = load ptr, ptr %in_sg, align 8
-  %call.i221 = call i64 @iov_from_buf_full(ptr noundef %177, i32 noundef %176, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %output_size.0) #13
+  %call.i221 = call i64 @iov_from_buf_full(ptr noundef %177, i32 noundef %176, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef range(i64 4, 4294967300) %output_size.0) #13
   %cmp45 = icmp eq i64 %call.i221, %output_size.0
   br i1 %cmp45, label %if.end48, label %if.else
 
@@ -2618,11 +2618,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end, i64 noundef %paddr, i32 noundef %or) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end, i64 noundef %paddr, i32 noundef range(i32 1, 4) %or) #13
   br label %trace_virtio_iommu_notify_map.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end, i64 noundef %paddr, i32 noundef %or) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end, i64 noundef %paddr, i32 noundef range(i32 1, 4) %or) #13
   br label %trace_virtio_iommu_notify_map.exit
 
 trace_virtio_iommu_notify_map.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3269,11 +3269,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %6, i32 noundef %conv, i64 noundef %addr, i32 noundef %flag) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %6, i32 noundef range(i32 0, 65536) %conv, i64 noundef %addr, i32 noundef %flag) #13
   br label %trace_virtio_iommu_translate.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, ptr noundef %6, i32 noundef %conv, i64 noundef %addr, i32 noundef %flag) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, ptr noundef %6, i32 noundef range(i32 0, 65536) %conv, i64 noundef %addr, i32 noundef %flag) #13
   br label %trace_virtio_iommu_translate.exit
 
 trace_virtio_iommu_translate.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3476,11 +3476,11 @@ if.then8.i.i73:                                   ; preds = %if.then.i.i70
   %42 = load i64, ptr %_now.i.i63, align 8
   %tv_usec.i.i76 = getelementptr inbounds i8, ptr %_now.i.i63, i64 8
   %43 = load i64, ptr %tv_usec.i.i76, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, i32 noundef %call10.i.i75, i64 noundef %42, i64 noundef %43, i64 noundef %addr, i64 noundef %add99, i32 noundef %conv) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, i32 noundef %call10.i.i75, i64 noundef %42, i64 noundef %43, i64 noundef %addr, i64 noundef %add99, i32 noundef range(i32 0, 65536) %conv) #13
   br label %trace_virtio_iommu_translate_out.exit
 
 if.else.i.i72:                                    ; preds = %if.then.i.i70
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i64 noundef %addr, i64 noundef %add99, i32 noundef %conv) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i64 noundef %addr, i64 noundef %add99, i32 noundef range(i32 0, 65536) %conv) #13
   br label %trace_virtio_iommu_translate_out.exit
 
 trace_virtio_iommu_translate_out.exit:            ; preds = %if.end96, %land.lhs.true5.i.i67, %if.then8.i.i73, %if.else.i.i72
@@ -4060,12 +4060,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext nneg i8 %reason to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i, i32 noundef %flags, i32 noundef %endpoint, i64 noundef %address) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i, i32 noundef range(i32 256, 260) %flags, i32 noundef range(i32 0, 65536) %endpoint, i64 noundef %address) #13
   br label %trace_virtio_iommu_report_fault.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext nneg i8 %reason to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %conv12.i.i, i32 noundef %flags, i32 noundef %endpoint, i64 noundef %address) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %conv12.i.i, i32 noundef range(i32 256, 260) %flags, i32 noundef range(i32 0, 65536) %endpoint, i64 noundef %address) #13
   br label %trace_virtio_iommu_report_fault.exit
 
 trace_virtio_iommu_report_fault.exit:             ; preds = %if.end18, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

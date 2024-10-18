@@ -149,7 +149,7 @@ CreateGainFilter.exit.i:                          ; preds = %for.body.i.i
   %add.i.i = add i32 %conv.i, 10
   %conv.i.i = zext i32 %add.i.i to i64
   %mul.i8.i = shl nuw nsw i64 %conv.i.i, 2
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i8.i) #15
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #15
   %cmp.i.i.i = icmp ne i32 %add.i.i, 0
   %cmp1.i.i.i = icmp eq ptr %call.i.i.i, null
   %or.cond.i.i.i = and i1 %cmp1.i.i.i, %cmp.i.i.i
@@ -166,7 +166,7 @@ ReallocateWindowBuffer.exit.i:                    ; preds = %CreateGainFilter.ex
 
 lor.lhs.false.i:                                  ; preds = %ReallocateWindowBuffer.exit.i
   %4 = load ptr, ptr @rstepbuf, align 8
-  %call.i.i12.i = tail call ptr @realloc(ptr noundef %4, i64 noundef %mul.i8.i) #15
+  %call.i.i12.i = tail call ptr @realloc(ptr noundef %4, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #15
   %cmp1.i.i14.i = icmp eq ptr %call.i.i12.i, null
   %or.cond.i.i15.i = and i1 %cmp.i.i.i, %cmp1.i.i14.i
   br i1 %or.cond.i.i15.i, label %ReallocateWindowBuffer.exit17.thread.i, label %ReallocateWindowBuffer.exit17.i
@@ -182,7 +182,7 @@ ReallocateWindowBuffer.exit17.i:                  ; preds = %lor.lhs.false.i
 
 lor.lhs.false5.i:                                 ; preds = %ReallocateWindowBuffer.exit17.i
   %5 = load ptr, ptr @loutbuf, align 8
-  %call.i.i21.i = tail call ptr @realloc(ptr noundef %5, i64 noundef %mul.i8.i) #15
+  %call.i.i21.i = tail call ptr @realloc(ptr noundef %5, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #15
   %cmp1.i.i23.i = icmp eq ptr %call.i.i21.i, null
   %or.cond.i.i24.i = and i1 %cmp.i.i.i, %cmp1.i.i23.i
   br i1 %or.cond.i.i24.i, label %ReallocateWindowBuffer.exit26.thread.i, label %ReallocateWindowBuffer.exit26.i
@@ -198,7 +198,7 @@ ReallocateWindowBuffer.exit26.i:                  ; preds = %lor.lhs.false5.i
 
 lor.lhs.false8.i:                                 ; preds = %ReallocateWindowBuffer.exit26.i
   %6 = load ptr, ptr @routbuf, align 8
-  %call.i.i30.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i8.i) #15
+  %call.i.i30.i = tail call ptr @realloc(ptr noundef %6, i64 noundef range(i64 0, 17179869181) %mul.i8.i) #15
   %cmp1.i.i32.i = icmp eq ptr %call.i.i30.i, null
   %or.cond.i.i33.i = and i1 %cmp.i.i.i, %cmp1.i.i32.i
   br i1 %or.cond.i.i33.i, label %ReallocateWindowBuffer.exit35.thread.i, label %ReallocateWindowBuffer.exit35.i

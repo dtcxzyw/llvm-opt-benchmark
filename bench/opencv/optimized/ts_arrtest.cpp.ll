@@ -307,7 +307,7 @@ define hidden void @_ZN6cvtest9ArrayTestD2Ev(ptr noundef nonnull align 8 derefer
   br i1 %32, label %.preheader.i, label %._crit_edge10.i, !llvm.loop !9
 
 ._crit_edge10.i:                                  ; preds = %._crit_edge.i, %1
-  invoke void @_ZN6cvtest8BaseTest5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN6cvtest8BaseTest5clearEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
           to label %_ZN6cvtest9ArrayTest5clearEv.exit unwind label %.loopexit.split-lp
 
 _ZN6cvtest9ArrayTest5clearEv.exit:                ; preds = %._crit_edge10.i

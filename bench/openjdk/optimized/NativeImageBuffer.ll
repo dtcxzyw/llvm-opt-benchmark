@@ -10,12 +10,12 @@ define noundef ptr @Java_jdk_internal_jimage_NativeImageBuffer_getNativeMap(ptr 
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null)
+  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef null)
   %8 = tail call noundef ptr @_ZN15ImageFileReader10find_imageEPKc(ptr noundef %7)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 1360
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %7)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef %7)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %22, label %12
 
@@ -30,7 +30,7 @@ define noundef ptr @Java_jdk_internal_jimage_NativeImageBuffer_getNativeMap(ptr 
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 1832
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull %0, ptr noundef %14, i64 noundef %17)
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %14, i64 noundef %17)
   br label %22
 
 22:                                               ; preds = %3, %12

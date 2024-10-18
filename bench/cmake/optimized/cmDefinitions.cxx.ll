@@ -168,7 +168,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN13cmDefinit
   %11 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false), !alias.scope !5
   %14 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %12, ptr %14, align 8, !alias.scope !5
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 24
@@ -424,7 +424,7 @@ define dso_local noundef zeroext i1 @_ZN13cmDefinitions6HasKeyERKNSt7__cxx1112ba
   %14 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   %15 = extractvalue { i64, ptr } %14, 0
   %16 = extractvalue { i64, ptr } %14, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false), !alias.scope !8
   store i64 %15, ptr %7, align 8, !alias.scope !8
   store ptr %16, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !8
   %17 = invoke ptr @_ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS3_(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -834,7 +834,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %102
 114:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
-  %115 = invoke { ptr, i8 } @_ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_insert_uniqueIRS3_RKS6_NS8_10_AllocNodeISaINS8_10_Hash_nodeIS6_Lb0EEEEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %115 = invoke { ptr, i8 } @_ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_insert_uniqueIRS3_RKS6_NS8_10_AllocNodeISaINS8_10_Hash_nodeIS6_Lb0EEEEEEEES2_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %_ZNSt13unordered_mapIN2cm6StringEN13cmDefinitions3DefESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE6insertERKSA_.exit unwind label %116
 
 _ZNSt13unordered_mapIN2cm6StringEN13cmDefinitions3DefESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE6insertERKSA_.exit: ; preds = %114
@@ -1250,14 +1250,14 @@ define dso_local void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11c
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseIN2cm6StringESt4pairIKS2_N13cmDefinitions3DefEESaIS7_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseIN2cm6StringESt4pairIKS2_N13cmDefinitions3DefEESaIS7_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZNSt13unordered_mapIN2cm6StringEN13cmDefinitions3DefESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixEOS1_.exit unwind label %127
 
 _ZNSt13unordered_mapIN2cm6StringEN13cmDefinitions3DefESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixEOS1_.exit: ; preds = %11
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false)
   store ptr %13, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -1533,12 +1533,12 @@ define dso_local void @_ZN13cmDefinitions5UnsetERKNSt7__cxx1112basic_stringIcSt1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseIN2cm6StringESt4pairIKS2_N13cmDefinitions3DefEESaIS7_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseIN2cm6StringESt4pairIKS2_N13cmDefinitions3DefEESaIS7_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOS2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZNSt13unordered_mapIN2cm6StringEN13cmDefinitions3DefESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixEOS1_.exit unwind label %123
 
 _ZNSt13unordered_mapIN2cm6StringEN13cmDefinitions3DefESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixEOS1_.exit: ; preds = %9
   %11 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
   store ptr null, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8

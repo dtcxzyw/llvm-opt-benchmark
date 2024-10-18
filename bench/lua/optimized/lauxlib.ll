@@ -244,7 +244,7 @@ if.end25:                                         ; preds = %if.else20, %if.then
   store i64 %add.i31, ptr %n.i, align 8
   call void @lua_settop(ptr noundef %13, i32 noundef -2) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i26)
-  %call.i32 = call fastcc i32 @pushglobalfuncname(ptr noundef %L, ptr noundef %ar)
+  %call.i32 = call fastcc i32 @pushglobalfuncname(ptr noundef %L, ptr noundef nonnull %ar)
   %tobool.not.i33 = icmp eq i32 %call.i32, 0
   br i1 %tobool.not.i33, label %if.else.i, label %if.then.i
 
@@ -1207,7 +1207,7 @@ newbuffsize.exit:                                 ; preds = %if.then.i, %if.end.
 if.then5:                                         ; preds = %newbuffsize.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ud.i)
   %call.i28 = call ptr @lua_getallocf(ptr noundef %3, ptr noundef nonnull %ud.i) #19
-  %call1.i = call ptr @lua_touserdata(ptr noundef %3, i32 noundef %boxidx) #19
+  %call1.i = call ptr @lua_touserdata(ptr noundef %3, i32 noundef range(i32 -2, 2) %boxidx) #19
   %5 = load ptr, ptr %ud.i, align 8
   %6 = load ptr, ptr %call1.i, align 8
   %bsize.i = getelementptr inbounds i8, ptr %call1.i, i64 8
@@ -1248,7 +1248,7 @@ newbox.exit:                                      ; preds = %if.else7, %if.then.
   tail call void @lua_toclose(ptr noundef %3, i32 noundef %boxidx) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ud.i36)
   %call.i37 = call ptr @lua_getallocf(ptr noundef %3, ptr noundef nonnull %ud.i36) #19
-  %call1.i38 = call ptr @lua_touserdata(ptr noundef %3, i32 noundef %boxidx) #19
+  %call1.i38 = call ptr @lua_touserdata(ptr noundef %3, i32 noundef range(i32 -2, 2) %boxidx) #19
   %9 = load ptr, ptr %ud.i36, align 8
   %10 = load ptr, ptr %call1.i38, align 8
   %bsize.i39 = getelementptr inbounds i8, ptr %call1.i38, i64 8
@@ -1466,10 +1466,10 @@ if.then7:                                         ; preds = %if.else
   %call.i = tail call ptr @__errno_location() #21
   %1 = load i32, ptr %call.i, align 4
   %call1.i = tail call ptr @strerror(i32 noundef %1) #19
-  %call2.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef %add, ptr noundef null) #19
+  %call2.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, ptr noundef null) #19
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 1
   %call3.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.27, ptr noundef nonnull %add.ptr.i, ptr noundef %call1.i) #19
-  tail call void @lua_rotate(ptr noundef %L, i32 noundef %add, i32 noundef -1) #19
+  tail call void @lua_rotate(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, i32 noundef -1) #19
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #19
   br label %return
 
@@ -1534,10 +1534,10 @@ if.then27:                                        ; preds = %if.then20
   %call.i21 = tail call ptr @__errno_location() #21
   %4 = load i32, ptr %call.i21, align 4
   %call1.i22 = tail call ptr @strerror(i32 noundef %4) #19
-  %call2.i23 = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef %add, ptr noundef null) #19
+  %call2.i23 = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, ptr noundef null) #19
   %add.ptr.i24 = getelementptr inbounds i8, ptr %call2.i23, i64 1
   %call3.i25 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.30, ptr noundef nonnull %add.ptr.i24, ptr noundef %call1.i22) #19
-  tail call void @lua_rotate(ptr noundef %L, i32 noundef %add, i32 noundef -1) #19
+  tail call void @lua_rotate(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, i32 noundef -1) #19
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #19
   br label %return
 
@@ -1614,10 +1614,10 @@ if.then54:                                        ; preds = %if.end52
   %call.i48 = tail call ptr @__errno_location() #21
   %8 = load i32, ptr %call.i48, align 4
   %call1.i49 = call ptr @strerror(i32 noundef %8) #19
-  %call2.i50 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef %add, ptr noundef null) #19
+  %call2.i50 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, ptr noundef null) #19
   %add.ptr.i51 = getelementptr inbounds i8, ptr %call2.i50, i64 1
   %call3.i52 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.31, ptr noundef nonnull %add.ptr.i51, ptr noundef %call1.i49) #19
-  call void @lua_rotate(ptr noundef %L, i32 noundef %add, i32 noundef -1) #19
+  call void @lua_rotate(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, i32 noundef -1) #19
   call void @lua_settop(ptr noundef %L, i32 noundef -2) #19
   br label %return
 

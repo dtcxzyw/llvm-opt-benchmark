@@ -1341,13 +1341,13 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %343 = zext nneg i32 %.0.lcssa to i64
   %344 = shl nsw i64 %21, 3
   %345 = shl nuw nsw i64 %343, 3
-  %346 = call ptr @realloc(ptr noundef %29, i64 noundef %345) #17
+  %346 = call ptr @realloc(ptr noundef %29, i64 noundef range(i64 8, 17179869177) %345) #17
   %347 = icmp eq ptr %346, null
   br i1 %347, label %348, label %351
 
 348:                                              ; preds = %339
   %349 = load ptr, ptr @stderr, align 8
-  %350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %349, ptr noundef nonnull @.str.9, i64 noundef %345) #15
+  %350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %349, ptr noundef nonnull @.str.9, i64 noundef range(i64 8, 17179869177) %345) #15
   call fastcc void @graphviz_exit() #16
   unreachable
 
@@ -1359,18 +1359,18 @@ gv_recalloc.exit:                                 ; preds = %351
   %353 = getelementptr inbounds i8, ptr %346, i64 %344
   %354 = sub nuw nsw i64 %345, %344
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %353, i8 0, i64 %354, i1 false)
-  %355 = call ptr @realloc(ptr noundef %30, i64 noundef %345) #17
+  %355 = call ptr @realloc(ptr noundef %30, i64 noundef range(i64 8, 17179869177) %345) #17
   %356 = icmp eq ptr %355, null
   br i1 %356, label %359, label %362
 
 gv_recalloc.exit.thread:                          ; preds = %351
-  %357 = call ptr @realloc(ptr noundef %30, i64 noundef %345) #17
+  %357 = call ptr @realloc(ptr noundef %30, i64 noundef range(i64 8, 17179869177) %345) #17
   %358 = icmp eq ptr %357, null
   br i1 %358, label %359, label %gv_recalloc.exit476
 
 359:                                              ; preds = %gv_recalloc.exit.thread, %gv_recalloc.exit
   %360 = load ptr, ptr @stderr, align 8
-  %361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %360, ptr noundef nonnull @.str.9, i64 noundef %345) #15
+  %361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %360, ptr noundef nonnull @.str.9, i64 noundef range(i64 8, 17179869177) %345) #15
   call fastcc void @graphviz_exit() #16
   unreachable
 
@@ -1389,13 +1389,13 @@ gv_recalloc.exit476:                              ; preds = %gv_recalloc.exit.th
   store double %367, ptr %368, align 8
   %369 = getelementptr inbounds i8, ptr %342, i64 104
   store ptr %364, ptr %369, align 8
-  %370 = call ptr @realloc(ptr noundef %33, i64 noundef %345) #17
+  %370 = call ptr @realloc(ptr noundef %33, i64 noundef range(i64 8, 17179869177) %345) #17
   %371 = icmp eq ptr %370, null
   br i1 %371, label %372, label %375
 
 372:                                              ; preds = %gv_recalloc.exit476
   %373 = load ptr, ptr @stderr, align 8
-  %374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %373, ptr noundef nonnull @.str.9, i64 noundef %345) #15
+  %374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %373, ptr noundef nonnull @.str.9, i64 noundef range(i64 8, 17179869177) %345) #15
   call fastcc void @graphviz_exit() #16
   unreachable
 

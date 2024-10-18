@@ -4666,7 +4666,7 @@ ir_ref_spill_slot.exit.i.i.i:                     ; preds = %651, %636
   %.0.in.i.i.i.i.i = phi i64 [ %642, %636 ], [ %655, %651 ]
   %.0.i.i.i.i.i = or disjoint i64 %.0.in.i.i.i.i.i, 561850441793536
   %.val.i.i.i.i = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i.i, i32 noundef %614, i64 noundef %.0.i.i.i.i.i, i8 noundef signext %.157.i)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i.i, i32 noundef range(i32 0, 256) %614, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i.i, i8 noundef signext %.157.i)
   br label %ir_emit_store.exit.i
 
 656:                                              ; preds = %615
@@ -4749,7 +4749,7 @@ ir_ref_spill_slot.exit.i.i.i:                     ; preds = %651, %636
 ir_ref_spill_slot.exit.i52.i.i:                   ; preds = %697, %682
   %.0.in.i.i.i53.i.i = phi i64 [ %688, %682 ], [ %701, %697 ]
   %.0.i.i.i54.i.i = or disjoint i64 %.0.in.i.i.i53.i.i, 561850441793536
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %614, i64 noundef %.0.i.i.i54.i.i, i8 noundef signext %.157.i)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %614, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i54.i.i, i8 noundef signext %.157.i)
   br label %ir_emit_store.exit.i
 
 702:                                              ; preds = %662
@@ -4833,11 +4833,11 @@ ir_ref_spill_slot.exit.i.i:                       ; preds = %743, %726
 
 749:                                              ; preds = %ir_ref_spill_slot.exit.i.i
   %.val.i.i.i = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i, i32 noundef %713, i64 noundef %.0.i.i.i.i, i8 noundef signext %609)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i, i32 noundef range(i32 0, 256) %713, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i, i8 noundef signext %609)
   br label %ir_emit_store.exit.i
 
 750:                                              ; preds = %ir_ref_spill_slot.exit.i.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %713, i64 noundef %.0.i.i.i.i, i8 noundef signext %609)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %713, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i, i8 noundef signext %609)
   br label %ir_emit_store.exit.i
 
 ir_emit_store.exit.i:                             ; preds = %750, %749, %ir_emit_param_move.exit.thread66.i, %ir_emit_param_move.exit.i, %ir_ref_spill_slot.exit.i52.i.i, %ir_ref_spill_slot.exit.i.i.i, %600
@@ -5403,11 +5403,11 @@ ir_ref_spill_slot.exit.i.i586:                    ; preds = %964, %947
 
 970:                                              ; preds = %ir_ref_spill_slot.exit.i.i586
   %.val.i.i.i590 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i590, i32 noundef %854, i64 noundef %.0.i.i.i.i588, i8 noundef signext %spec.select.i583)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i590, i32 noundef range(i32 0, 256) %854, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i588, i8 noundef signext %spec.select.i583)
   br label %ir_emit_lea.exit
 
 971:                                              ; preds = %ir_ref_spill_slot.exit.i.i586
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %854, i64 noundef %.0.i.i.i.i588, i8 noundef signext %spec.select.i583)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %854, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i588, i8 noundef signext %spec.select.i583)
   br label %ir_emit_lea.exit
 
 972:                                              ; preds = %850, %850, %850
@@ -5676,11 +5676,11 @@ ir_ref_spill_slot.exit.i.i598:                    ; preds = %1088, %1071
 
 1094:                                             ; preds = %ir_ref_spill_slot.exit.i.i598
   %.val.i.i.i602 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i602, i32 noundef %977, i64 noundef %.0.i.i.i.i600, i8 noundef signext %spec.select.i594)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i602, i32 noundef range(i32 0, 256) %977, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i600, i8 noundef signext %spec.select.i594)
   br label %ir_emit_lea.exit
 
 1095:                                             ; preds = %ir_ref_spill_slot.exit.i.i598
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %977, i64 noundef %.0.i.i.i.i600, i8 noundef signext %spec.select.i594)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %977, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i600, i8 noundef signext %spec.select.i594)
   br label %ir_emit_lea.exit
 
 1096:                                             ; preds = %850
@@ -5900,11 +5900,11 @@ ir_ref_spill_slot.exit.i.i612:                    ; preds = %1199, %1182
 
 1205:                                             ; preds = %ir_ref_spill_slot.exit.i.i612
   %.val.i.i.i616 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i616, i32 noundef %1101, i64 noundef %.0.i.i.i.i614, i8 noundef signext %spec.select.i606)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i616, i32 noundef range(i32 0, 256) %1101, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i614, i8 noundef signext %spec.select.i606)
   br label %ir_emit_lea.exit
 
 1206:                                             ; preds = %ir_ref_spill_slot.exit.i.i612
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1101, i64 noundef %.0.i.i.i.i614, i8 noundef signext %spec.select.i606)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %1101, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i614, i8 noundef signext %spec.select.i606)
   br label %ir_emit_lea.exit
 
 1207:                                             ; preds = %850
@@ -6186,11 +6186,11 @@ ir_ref_spill_slot.exit.i.i628:                    ; preds = %1319, %1302
 
 1325:                                             ; preds = %ir_ref_spill_slot.exit.i.i628
   %.val.i.i.i632 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i632, i32 noundef %1212, i64 noundef %.0.i.i.i.i630, i8 noundef signext %spec.select.i621)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i632, i32 noundef range(i32 0, 256) %1212, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i630, i8 noundef signext %spec.select.i621)
   br label %ir_emit_lea.exit
 
 1326:                                             ; preds = %ir_ref_spill_slot.exit.i.i628
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1212, i64 noundef %.0.i.i.i.i630, i8 noundef signext %spec.select.i621)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %1212, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i630, i8 noundef signext %spec.select.i621)
   br label %ir_emit_lea.exit
 
 1327:                                             ; preds = %850
@@ -6440,11 +6440,11 @@ ir_ref_spill_slot.exit.i.i643:                    ; preds = %1438, %1421
 
 1444:                                             ; preds = %ir_ref_spill_slot.exit.i.i643
   %.val.i.i.i647 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i647, i32 noundef %1332, i64 noundef %.0.i.i.i.i645, i8 noundef signext %spec.select.i637)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i647, i32 noundef range(i32 0, 256) %1332, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i645, i8 noundef signext %spec.select.i637)
   br label %ir_emit_lea.exit
 
 1445:                                             ; preds = %ir_ref_spill_slot.exit.i.i643
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1332, i64 noundef %.0.i.i.i.i645, i8 noundef signext %spec.select.i637)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %1332, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i645, i8 noundef signext %spec.select.i637)
   br label %ir_emit_lea.exit
 
 1446:                                             ; preds = %850
@@ -6718,11 +6718,11 @@ ir_ref_spill_slot.exit.i.i660:                    ; preds = %1558, %1541
 
 1564:                                             ; preds = %ir_ref_spill_slot.exit.i.i660
   %.val.i.i.i664 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i664, i32 noundef %1451, i64 noundef %.0.i.i.i.i662, i8 noundef signext %spec.select.i653)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i664, i32 noundef range(i32 0, 256) %1451, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i662, i8 noundef signext %spec.select.i653)
   br label %ir_emit_lea.exit
 
 1565:                                             ; preds = %ir_ref_spill_slot.exit.i.i660
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1451, i64 noundef %.0.i.i.i.i662, i8 noundef signext %spec.select.i653)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %1451, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i662, i8 noundef signext %spec.select.i653)
   br label %ir_emit_lea.exit
 
 1566:                                             ; preds = %850
@@ -8329,11 +8329,11 @@ ir_ref_spill_slot.exit.i.i673:                    ; preds = %2150, %2133
 
 2156:                                             ; preds = %ir_ref_spill_slot.exit.i.i673
   %.val.i.i.i677 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i677, i32 noundef %1571, i64 noundef %.0.i.i.i.i675, i8 noundef signext %spec.select.i667)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i677, i32 noundef range(i32 0, 256) %1571, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i675, i8 noundef signext %spec.select.i667)
   br label %ir_emit_lea.exit
 
 2157:                                             ; preds = %ir_ref_spill_slot.exit.i.i673
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1571, i64 noundef %.0.i.i.i.i675, i8 noundef signext %spec.select.i667)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %1571, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i675, i8 noundef signext %spec.select.i667)
   br label %ir_emit_lea.exit
 
 2158:                                             ; preds = %850
@@ -8526,11 +8526,11 @@ ir_ref_spill_slot.exit.i.i693:                    ; preds = %2251, %2234
 
 2257:                                             ; preds = %ir_ref_spill_slot.exit.i.i693
   %.val.i.i.i697 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i697, i32 noundef %2163, i64 noundef %.0.i.i.i.i695, i8 noundef signext %spec.select.i687)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i697, i32 noundef range(i32 0, 256) %2163, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i695, i8 noundef signext %spec.select.i687)
   br label %ir_emit_lea.exit
 
 2258:                                             ; preds = %ir_ref_spill_slot.exit.i.i693
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2163, i64 noundef %.0.i.i.i.i695, i8 noundef signext %spec.select.i687)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %2163, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i695, i8 noundef signext %spec.select.i687)
   br label %ir_emit_lea.exit
 
 2259:                                             ; preds = %850, %850, %850
@@ -8736,11 +8736,11 @@ ir_ref_spill_slot.exit.i.i708:                    ; preds = %2352, %2335
 
 2358:                                             ; preds = %ir_ref_spill_slot.exit.i.i708
   %.val.i.i.i712 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i712, i32 noundef %2264, i64 noundef %.0.i.i.i.i710, i8 noundef signext %spec.select.i700)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i712, i32 noundef range(i32 0, 256) %2264, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i710, i8 noundef signext %spec.select.i700)
   br label %ir_emit_lea.exit
 
 2359:                                             ; preds = %ir_ref_spill_slot.exit.i.i708
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2264, i64 noundef %.0.i.i.i.i710, i8 noundef signext %spec.select.i700)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %2264, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i710, i8 noundef signext %spec.select.i700)
   br label %ir_emit_lea.exit
 
 2360:                                             ; preds = %850
@@ -8883,11 +8883,11 @@ ir_ref_spill_slot.exit.i.i727:                    ; preds = %2432, %2415
 
 2438:                                             ; preds = %ir_ref_spill_slot.exit.i.i727
   %.val.i.i.i731 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i731, i32 noundef %2365, i64 noundef %.0.i.i.i.i729, i8 noundef signext %spec.select.i716)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i731, i32 noundef range(i32 0, 256) %2365, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i729, i8 noundef signext %spec.select.i716)
   br label %ir_emit_lea.exit
 
 2439:                                             ; preds = %ir_ref_spill_slot.exit.i.i727
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2365, i64 noundef %.0.i.i.i.i729, i8 noundef signext %spec.select.i716)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %2365, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i729, i8 noundef signext %spec.select.i716)
   br label %ir_emit_lea.exit
 
 2440:                                             ; preds = %850
@@ -9126,11 +9126,11 @@ ir_ref_spill_slot.exit.i.i738:                    ; preds = %2556, %2539
 
 2562:                                             ; preds = %ir_ref_spill_slot.exit.i.i738
   %.val.i.i.i742 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i742, i32 noundef %2449, i64 noundef %.0.i.i.i.i740, i8 noundef signext %spec.select.i734)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i742, i32 noundef range(i32 0, 256) %2449, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i740, i8 noundef signext %spec.select.i734)
   br label %ir_emit_lea.exit
 
 2563:                                             ; preds = %ir_ref_spill_slot.exit.i.i738
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2449, i64 noundef %.0.i.i.i.i740, i8 noundef signext %spec.select.i734)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %2449, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i740, i8 noundef signext %spec.select.i734)
   br label %ir_emit_lea.exit
 
 2564:                                             ; preds = %850
@@ -9445,11 +9445,11 @@ ir_ref_spill_slot.exit.i.i760:                    ; preds = %2717, %2700
 
 2723:                                             ; preds = %ir_ref_spill_slot.exit.i.i760
   %.val.i.i.i764 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i764, i32 noundef %2687, i64 noundef %.0.i.i.i.i762, i8 noundef signext %spec.select.i752)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i764, i32 noundef range(i32 0, 256) %2687, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i762, i8 noundef signext %spec.select.i752)
   br label %ir_emit_lea.exit
 
 2724:                                             ; preds = %ir_ref_spill_slot.exit.i.i760
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2687, i64 noundef %.0.i.i.i.i762, i8 noundef signext %spec.select.i752)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %2687, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i762, i8 noundef signext %spec.select.i752)
   br label %ir_emit_lea.exit
 
 2725:                                             ; preds = %850
@@ -9950,11 +9950,11 @@ ir_ref_spill_slot.exit.i.i774:                    ; preds = %2934, %2917
 
 2940:                                             ; preds = %ir_ref_spill_slot.exit.i.i774
   %.val.i.i.i778 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i778, i32 noundef %2730, i64 noundef %.0.i.i.i.i776, i8 noundef signext %spec.select.i769)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i778, i32 noundef range(i32 0, 256) %2730, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i776, i8 noundef signext %spec.select.i769)
   br label %ir_emit_lea.exit
 
 2941:                                             ; preds = %ir_ref_spill_slot.exit.i.i774
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %2730, i64 noundef %.0.i.i.i.i776, i8 noundef signext %spec.select.i769)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %2730, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i776, i8 noundef signext %spec.select.i769)
   br label %ir_emit_lea.exit
 
 2942:                                             ; preds = %850
@@ -11280,11 +11280,11 @@ ir_ref_spill_slot.exit.i.i804:                    ; preds = %3413, %3396
 
 3419:                                             ; preds = %ir_ref_spill_slot.exit.i.i804
   %.val.i.i.i808 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i808, i32 noundef %3383, i64 noundef %.0.i.i.i.i806, i8 noundef signext %spec.select.i794)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i808, i32 noundef range(i32 0, 256) %3383, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i806, i8 noundef signext %spec.select.i794)
   br label %ir_emit_lea.exit
 
 3420:                                             ; preds = %ir_ref_spill_slot.exit.i.i804
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %3383, i64 noundef %.0.i.i.i.i806, i8 noundef signext %spec.select.i794)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %3383, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i806, i8 noundef signext %spec.select.i794)
   br label %ir_emit_lea.exit
 
 3421:                                             ; preds = %850
@@ -12616,11 +12616,11 @@ ir_ref_spill_slot.exit.i.i828:                    ; preds = %3909, %3892
 
 3915:                                             ; preds = %ir_ref_spill_slot.exit.i.i828
   %.val.i.i.i832 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i832, i32 noundef %3879, i64 noundef %.0.i.i.i.i830, i8 noundef signext %spec.select.i822)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i832, i32 noundef range(i32 0, 256) %3879, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i830, i8 noundef signext %spec.select.i822)
   br label %ir_emit_lea.exit
 
 3916:                                             ; preds = %ir_ref_spill_slot.exit.i.i828
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %3879, i64 noundef %.0.i.i.i.i830, i8 noundef signext %spec.select.i822)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %3879, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i830, i8 noundef signext %spec.select.i822)
   br label %ir_emit_lea.exit
 
 3917:                                             ; preds = %850, %850, %850
@@ -12898,11 +12898,11 @@ ir_ref_spill_slot.exit.i.i863:                    ; preds = %4038, %4021
 
 4044:                                             ; preds = %ir_ref_spill_slot.exit.i.i863
   %.val.i.i.i867 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i867, i32 noundef %4008, i64 noundef %.0.i.i.i.i865, i8 noundef signext %spec.select.i855)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i867, i32 noundef range(i32 0, 256) %4008, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i865, i8 noundef signext %spec.select.i855)
   br label %ir_emit_lea.exit
 
 4045:                                             ; preds = %ir_ref_spill_slot.exit.i.i863
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4008, i64 noundef %.0.i.i.i.i865, i8 noundef signext %spec.select.i855)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %4008, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i865, i8 noundef signext %spec.select.i855)
   br label %ir_emit_lea.exit
 
 4046:                                             ; preds = %850
@@ -13002,11 +13002,11 @@ ir_ref_spill_slot.exit.i.i876:                    ; preds = %4098, %4081
 
 4104:                                             ; preds = %ir_ref_spill_slot.exit.i.i876
   %.val.i.i.i880 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i880, i32 noundef %4068, i64 noundef %.0.i.i.i.i878, i8 noundef signext %spec.select.i870)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i880, i32 noundef range(i32 0, 256) %4068, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i878, i8 noundef signext %spec.select.i870)
   br label %ir_emit_lea.exit
 
 4105:                                             ; preds = %ir_ref_spill_slot.exit.i.i876
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4068, i64 noundef %.0.i.i.i.i878, i8 noundef signext %spec.select.i870)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %4068, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i878, i8 noundef signext %spec.select.i870)
   br label %ir_emit_lea.exit
 
 4106:                                             ; preds = %850
@@ -13101,11 +13101,11 @@ ir_ref_spill_slot.exit.i.i889:                    ; preds = %4154, %4137
 
 4160:                                             ; preds = %ir_ref_spill_slot.exit.i.i889
   %.val.i.i.i893 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i893, i32 noundef %4124, i64 noundef %.0.i.i.i.i891, i8 noundef signext %spec.select.i883)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i893, i32 noundef range(i32 0, 256) %4124, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i891, i8 noundef signext %spec.select.i883)
   br label %ir_emit_lea.exit
 
 4161:                                             ; preds = %ir_ref_spill_slot.exit.i.i889
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4124, i64 noundef %.0.i.i.i.i891, i8 noundef signext %spec.select.i883)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %4124, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i891, i8 noundef signext %spec.select.i883)
   br label %ir_emit_lea.exit
 
 4162:                                             ; preds = %850
@@ -13249,11 +13249,11 @@ ir_ref_spill_slot.exit.i.i900:                    ; preds = %4228, %4211
 
 4234:                                             ; preds = %ir_ref_spill_slot.exit.i.i900
   %.val.i.i.i904 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i904, i32 noundef %4198, i64 noundef %.0.i.i.i.i902, i8 noundef signext %spec.select.i896)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i904, i32 noundef range(i32 0, 256) %4198, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i902, i8 noundef signext %spec.select.i896)
   br label %ir_emit_lea.exit
 
 4235:                                             ; preds = %ir_ref_spill_slot.exit.i.i900
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4198, i64 noundef %.0.i.i.i.i902, i8 noundef signext %spec.select.i896)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %4198, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i902, i8 noundef signext %spec.select.i896)
   br label %ir_emit_lea.exit
 
 4236:                                             ; preds = %850
@@ -14005,11 +14005,11 @@ ir_ref_spill_slot.exit.i.i911:                    ; preds = %4536, %4519
 
 4542:                                             ; preds = %ir_ref_spill_slot.exit.i.i911
   %.val.i.i.i915 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i915, i32 noundef %4239, i64 noundef %.0.i.i.i.i913, i8 noundef signext %spec.select.i907)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i915, i32 noundef range(i32 0, 256) %4239, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i913, i8 noundef signext %spec.select.i907)
   br label %ir_emit_lea.exit
 
 4543:                                             ; preds = %ir_ref_spill_slot.exit.i.i911
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4239, i64 noundef %.0.i.i.i.i913, i8 noundef signext %spec.select.i907)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %4239, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i913, i8 noundef signext %spec.select.i907)
   br label %ir_emit_lea.exit
 
 4544:                                             ; preds = %850
@@ -14765,11 +14765,11 @@ ir_ref_spill_slot.exit.i.i938:                    ; preds = %4845, %4828
 
 4851:                                             ; preds = %ir_ref_spill_slot.exit.i.i938
   %.val.i.i.i942 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i942, i32 noundef %4547, i64 noundef %.0.i.i.i.i940, i8 noundef signext %spec.select.i934)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i942, i32 noundef range(i32 0, 256) %4547, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i940, i8 noundef signext %spec.select.i934)
   br label %ir_emit_lea.exit
 
 4852:                                             ; preds = %ir_ref_spill_slot.exit.i.i938
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4547, i64 noundef %.0.i.i.i.i940, i8 noundef signext %spec.select.i934)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %4547, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i940, i8 noundef signext %spec.select.i934)
   br label %ir_emit_lea.exit
 
 4853:                                             ; preds = %850
@@ -15039,11 +15039,11 @@ ir_ref_spill_slot.exit.i.i977:                    ; preds = %4988, %4971
 
 4994:                                             ; preds = %ir_ref_spill_slot.exit.i.i977
   %.val.i.i.i981 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i981, i32 noundef %4856, i64 noundef %.0.i.i.i.i979, i8 noundef signext %spec.select.i970)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i981, i32 noundef range(i32 0, 256) %4856, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i979, i8 noundef signext %spec.select.i970)
   br label %ir_emit_lea.exit
 
 4995:                                             ; preds = %ir_ref_spill_slot.exit.i.i977
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4856, i64 noundef %.0.i.i.i.i979, i8 noundef signext %spec.select.i970)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %4856, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i979, i8 noundef signext %spec.select.i970)
   br label %ir_emit_lea.exit
 
 4996:                                             ; preds = %850, %850
@@ -16167,11 +16167,11 @@ ir_ref_spill_slot.exit.i.i1003:                   ; preds = %5453, %5436
 
 5458:                                             ; preds = %ir_ref_spill_slot.exit.i.i1003
   %.val.i.i.i1007 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1007, i32 noundef %4999, i64 noundef %.0.i.i.i.i1005, i8 noundef signext %spec.select.i999)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1007, i32 noundef range(i32 0, 256) %4999, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1005, i8 noundef signext %spec.select.i999)
   br label %ir_emit_lea.exit
 
 5459:                                             ; preds = %ir_ref_spill_slot.exit.i.i1003
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %4999, i64 noundef %.0.i.i.i.i1005, i8 noundef signext %spec.select.i999)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %4999, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1005, i8 noundef signext %spec.select.i999)
   br label %ir_emit_lea.exit
 
 5460:                                             ; preds = %850
@@ -17102,11 +17102,11 @@ ir_ref_spill_slot.exit.i.i1042:                   ; preds = %5798, %5781
 
 5804:                                             ; preds = %ir_ref_spill_slot.exit.i.i1042
   %.val.i.i.i1046 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1046, i32 noundef %5463, i64 noundef %.0.i.i.i.i1044, i8 noundef signext %spec.select.i1037)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1046, i32 noundef range(i32 0, 256) %5463, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1044, i8 noundef signext %spec.select.i1037)
   br label %ir_emit_lea.exit
 
 5805:                                             ; preds = %ir_ref_spill_slot.exit.i.i1042
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %5463, i64 noundef %.0.i.i.i.i1044, i8 noundef signext %spec.select.i1037)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %5463, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1044, i8 noundef signext %spec.select.i1037)
   br label %ir_emit_lea.exit
 
 5806:                                             ; preds = %850
@@ -18081,11 +18081,11 @@ ir_ref_spill_slot.exit.i.i1072:                   ; preds = %6175, %6158
 
 6181:                                             ; preds = %ir_ref_spill_slot.exit.i.i1072
   %.val.i.i.i1076 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1076, i32 noundef %5809, i64 noundef %.0.i.i.i.i1074, i8 noundef signext %spec.select.i1067)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1076, i32 noundef range(i32 0, 256) %5809, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1074, i8 noundef signext %spec.select.i1067)
   br label %ir_emit_lea.exit
 
 6182:                                             ; preds = %ir_ref_spill_slot.exit.i.i1072
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %5809, i64 noundef %.0.i.i.i.i1074, i8 noundef signext %spec.select.i1067)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %5809, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1074, i8 noundef signext %spec.select.i1067)
   br label %ir_emit_lea.exit
 
 6183:                                             ; preds = %850
@@ -18723,11 +18723,11 @@ ir_ref_spill_slot.exit.i.i1105:                   ; preds = %6444, %6427
 
 6450:                                             ; preds = %ir_ref_spill_slot.exit.i.i1105
   %.val.i.i.i1109 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1109, i32 noundef %6186, i64 noundef %.0.i.i.i.i1107, i8 noundef signext %spec.select.i1101)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1109, i32 noundef range(i32 0, 256) %6186, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1107, i8 noundef signext %spec.select.i1101)
   br label %ir_emit_lea.exit
 
 6451:                                             ; preds = %ir_ref_spill_slot.exit.i.i1105
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6186, i64 noundef %.0.i.i.i.i1107, i8 noundef signext %spec.select.i1101)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %6186, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1107, i8 noundef signext %spec.select.i1101)
   br label %ir_emit_lea.exit
 
 6452:                                             ; preds = %850
@@ -18857,11 +18857,11 @@ ir_ref_spill_slot.exit.i.i1137:                   ; preds = %6517, %6500
 
 6523:                                             ; preds = %ir_ref_spill_slot.exit.i.i1137
   %.val.i.i.i1140 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1140, i32 noundef %6455, i64 noundef %.0.i.i.i.i1139, i8 noundef signext %.0.i1134)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1140, i32 noundef range(i32 0, 256) %6455, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1139, i8 noundef signext %.0.i1134)
   br label %ir_emit_lea.exit
 
 6524:                                             ; preds = %ir_ref_spill_slot.exit.i.i1137
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6455, i64 noundef %.0.i.i.i.i1139, i8 noundef signext %.0.i1134)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %6455, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1139, i8 noundef signext %.0.i1134)
   br label %ir_emit_lea.exit
 
 ir_emit_store.exit.i1146:                         ; preds = %6469
@@ -18932,11 +18932,11 @@ ir_ref_spill_slot.exit.i50.i:                     ; preds = %6558, %6541
 
 6564:                                             ; preds = %ir_ref_spill_slot.exit.i50.i
   %.val.i.i53.i = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i53.i, i32 noundef %6455, i64 noundef %.0.i.i.i52.i, i8 noundef signext %6461)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i53.i, i32 noundef range(i32 0, 256) %6455, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i52.i, i8 noundef signext %6461)
   br label %ir_emit_lea.exit
 
 6565:                                             ; preds = %ir_ref_spill_slot.exit.i50.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6455, i64 noundef %.0.i.i.i52.i, i8 noundef signext %6461)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %6455, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i52.i, i8 noundef signext %6461)
   br label %ir_emit_lea.exit
 
 6566:                                             ; preds = %850
@@ -19060,11 +19060,11 @@ ir_ref_spill_slot.exit.i.i1152:                   ; preds = %6630, %6613
 
 6636:                                             ; preds = %ir_ref_spill_slot.exit.i.i1152
   %.val.i.i.i1155 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1155, i32 noundef %6569, i64 noundef %.0.i.i.i.i1154, i8 noundef signext %.0.i1149)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1155, i32 noundef range(i32 0, 256) %6569, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1154, i8 noundef signext %.0.i1149)
   br label %ir_emit_lea.exit
 
 6637:                                             ; preds = %ir_ref_spill_slot.exit.i.i1152
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6569, i64 noundef %.0.i.i.i.i1154, i8 noundef signext %.0.i1149)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %6569, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1154, i8 noundef signext %.0.i1149)
   br label %ir_emit_lea.exit
 
 ir_emit_store.exit.i1164:                         ; preds = %6583
@@ -19135,11 +19135,11 @@ ir_ref_spill_slot.exit.i51.i:                     ; preds = %6671, %6654
 
 6677:                                             ; preds = %ir_ref_spill_slot.exit.i51.i
   %.val.i.i54.i = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i54.i, i32 noundef %6569, i64 noundef %.0.i.i.i53.i, i8 noundef signext %6575)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i54.i, i32 noundef range(i32 0, 256) %6569, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i53.i, i8 noundef signext %6575)
   br label %ir_emit_lea.exit
 
 6678:                                             ; preds = %ir_ref_spill_slot.exit.i51.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %6569, i64 noundef %.0.i.i.i53.i, i8 noundef signext %6575)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %6569, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i53.i, i8 noundef signext %6575)
   br label %ir_emit_lea.exit
 
 6679:                                             ; preds = %850
@@ -20882,11 +20882,11 @@ ir_ref_spill_slot.exit.i.i1247:                   ; preds = %7488, %7471
 
 7494:                                             ; preds = %ir_ref_spill_slot.exit.i.i1247
   %.val.i.i.i1251 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1251, i32 noundef %7222, i64 noundef %.0.i.i.i.i1249, i8 noundef signext %spec.select.i1230)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1251, i32 noundef range(i32 0, 256) %7222, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1249, i8 noundef signext %spec.select.i1230)
   br label %ir_emit_lea.exit
 
 7495:                                             ; preds = %ir_ref_spill_slot.exit.i.i1247
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %7222, i64 noundef %.0.i.i.i.i1249, i8 noundef signext %spec.select.i1230)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %7222, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1249, i8 noundef signext %spec.select.i1230)
   br label %ir_emit_lea.exit
 
 7496:                                             ; preds = %850
@@ -21861,11 +21861,11 @@ ir_ref_spill_slot.exit.i.i1300:                   ; preds = %7922, %7905
 
 7928:                                             ; preds = %ir_ref_spill_slot.exit.i.i1300
   %.val.i.i.i1304 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1304, i32 noundef %7831, i64 noundef %.0.i.i.i.i1302, i8 noundef signext %spec.select.i1290)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1304, i32 noundef range(i32 0, 256) %7831, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1302, i8 noundef signext %spec.select.i1290)
   br label %ir_emit_lea.exit
 
 7929:                                             ; preds = %ir_ref_spill_slot.exit.i.i1300
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %7831, i64 noundef %.0.i.i.i.i1302, i8 noundef signext %spec.select.i1290)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %7831, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1302, i8 noundef signext %spec.select.i1290)
   br label %ir_emit_lea.exit
 
 7930:                                             ; preds = %850
@@ -21957,11 +21957,11 @@ ir_ref_spill_slot.exit.i.i1313:                   ; preds = %7984, %7967
 
 7990:                                             ; preds = %ir_ref_spill_slot.exit.i.i1313
   %.val.i.i.i1317 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1317, i32 noundef %7954, i64 noundef %.0.i.i.i.i1315, i8 noundef signext %spec.select.i1308)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1317, i32 noundef range(i32 0, 256) %7954, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1315, i8 noundef signext %spec.select.i1308)
   br label %ir_emit_lea.exit
 
 7991:                                             ; preds = %ir_ref_spill_slot.exit.i.i1313
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %7954, i64 noundef %.0.i.i.i.i1315, i8 noundef signext %spec.select.i1308)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %7954, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1315, i8 noundef signext %spec.select.i1308)
   br label %ir_emit_lea.exit
 
 7992:                                             ; preds = %850
@@ -28486,11 +28486,11 @@ ir_ref_spill_slot.exit.i.i1430:                   ; preds = %10153, %10136
 
 10159:                                            ; preds = %ir_ref_spill_slot.exit.i.i1430
   %.val.i.i.i1434 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1434, i32 noundef %10096, i64 noundef %.0.i.i.i.i1432, i8 noundef signext %spec.select.i1424)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1434, i32 noundef range(i32 0, 256) %10096, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1432, i8 noundef signext %spec.select.i1424)
   br label %ir_emit_lea.exit
 
 10160:                                            ; preds = %ir_ref_spill_slot.exit.i.i1430
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10096, i64 noundef %.0.i.i.i.i1432, i8 noundef signext %spec.select.i1424)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %10096, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1432, i8 noundef signext %spec.select.i1424)
   br label %ir_emit_lea.exit
 
 10161:                                            ; preds = %850
@@ -28630,11 +28630,11 @@ ir_ref_spill_slot.exit.i.i1445:                   ; preds = %10238, %10221
 
 10243:                                            ; preds = %ir_ref_spill_slot.exit.i.i1445
   %.val.i.i.i1449 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1449, i32 noundef %10167, i64 noundef %.0.i.i.i.i1447, i8 noundef signext %spec.select.i1437)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1449, i32 noundef range(i32 0, 256) %10167, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1447, i8 noundef signext %spec.select.i1437)
   br label %ir_emit_lea.exit
 
 10244:                                            ; preds = %ir_ref_spill_slot.exit.i.i1445
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10167, i64 noundef %.0.i.i.i.i1447, i8 noundef signext %spec.select.i1437)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %10167, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1447, i8 noundef signext %spec.select.i1437)
   br label %ir_emit_lea.exit
 
 10245:                                            ; preds = %850
@@ -28807,7 +28807,7 @@ ir_is_same_mem_var.exit.i1463:                    ; preds = %10325
   br label %ir_emit_lea.exit
 
 10346:                                            ; preds = %10342
-  call fastcc void @ir_emit_load(ptr noundef nonnull %0, i32 noundef %10303, i8 noundef signext %10307, i32 noundef %.0485.val564)
+  call fastcc void @ir_emit_load(ptr noundef nonnull %0, i32 noundef range(i32 0, 256) %10303, i8 noundef signext %10307, i32 noundef range(i32 -2147483648, 0) %.0485.val564)
   call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef 12, i64 noundef %10323, i8 noundef signext %10307)
   br label %ir_emit_lea.exit
 
@@ -28915,11 +28915,11 @@ ir_ref_spill_slot.exit.i.i1469:                   ; preds = %10402, %10385
 
 10408:                                            ; preds = %ir_ref_spill_slot.exit.i.i1469
   %.val.i.i.i1473 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1473, i32 noundef %10356, i64 noundef %.0.i.i.i.i1471, i8 noundef signext %10353)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1473, i32 noundef range(i32 0, 256) %10356, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1471, i8 noundef signext %10353)
   br label %ir_emit_lea.exit
 
 10409:                                            ; preds = %ir_ref_spill_slot.exit.i.i1469
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10356, i64 noundef %.0.i.i.i.i1471, i8 noundef signext %10353)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %10356, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1471, i8 noundef signext %10353)
   br label %ir_emit_lea.exit
 
 10410:                                            ; preds = %10350
@@ -29047,11 +29047,11 @@ ir_ref_spill_slot.exit.i83.i:                     ; preds = %10472, %10455
 
 10478:                                            ; preds = %ir_ref_spill_slot.exit.i83.i
   %.val.i.i86.i = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i86.i, i32 noundef %10356, i64 noundef %.0.i.i.i85.i, i8 noundef signext %10353)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i86.i, i32 noundef range(i32 0, 256) %10356, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i85.i, i8 noundef signext %10353)
   br label %ir_emit_lea.exit
 
 10479:                                            ; preds = %ir_ref_spill_slot.exit.i83.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10356, i64 noundef %.0.i.i.i85.i, i8 noundef signext %10353)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %10356, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i85.i, i8 noundef signext %10353)
   br label %ir_emit_lea.exit
 
 10480:                                            ; preds = %10410
@@ -29223,11 +29223,11 @@ ir_ref_spill_slot.exit.i99.i:                     ; preds = %10557, %10540
 
 10563:                                            ; preds = %ir_ref_spill_slot.exit.i99.i
   %.val.i.i102.i = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i102.i, i32 noundef %10356, i64 noundef %.0.i.i.i101.i, i8 noundef signext %10415)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i102.i, i32 noundef range(i32 0, 256) %10356, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i101.i, i8 noundef signext %10415)
   br label %ir_emit_lea.exit
 
 10564:                                            ; preds = %ir_ref_spill_slot.exit.i99.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10356, i64 noundef %.0.i.i.i101.i, i8 noundef signext %10415)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %10356, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i101.i, i8 noundef signext %10415)
   br label %ir_emit_lea.exit
 
 10565:                                            ; preds = %850
@@ -29659,11 +29659,11 @@ ir_ref_spill_slot.exit.i.i1513:                   ; preds = %10773, %10756
 
 10779:                                            ; preds = %ir_ref_spill_slot.exit.i.i1513
   %.val.i.i.i1515 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1515, i32 noundef %10632, i64 noundef %.0.i.i.i63.i, i8 noundef signext %spec.select.i1507)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1515, i32 noundef range(i32 0, 256) %10632, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i63.i, i8 noundef signext %spec.select.i1507)
   br label %ir_emit_lea.exit
 
 10780:                                            ; preds = %ir_ref_spill_slot.exit.i.i1513
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10632, i64 noundef %.0.i.i.i63.i, i8 noundef signext %spec.select.i1507)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %10632, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i63.i, i8 noundef signext %spec.select.i1507)
   br label %ir_emit_lea.exit
 
 10781:                                            ; preds = %850
@@ -29944,11 +29944,11 @@ ir_ref_spill_slot.exit.i.i1539:                   ; preds = %10925, %10908
 
 10931:                                            ; preds = %ir_ref_spill_slot.exit.i.i1539
   %.val.i.i.i1541 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1541, i32 noundef %10784, i64 noundef %.0.i.i.i65.i, i8 noundef signext %spec.select.i1532)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1541, i32 noundef range(i32 0, 256) %10784, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i65.i, i8 noundef signext %spec.select.i1532)
   br label %ir_emit_lea.exit
 
 10932:                                            ; preds = %ir_ref_spill_slot.exit.i.i1539
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10784, i64 noundef %.0.i.i.i65.i, i8 noundef signext %spec.select.i1532)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %10784, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i65.i, i8 noundef signext %spec.select.i1532)
   br label %ir_emit_lea.exit
 
 10933:                                            ; preds = %850
@@ -30428,7 +30428,7 @@ thread-pre-split.i1615:                           ; preds = %ir_is_same_spill_sl
   br label %ir_emit_lea.exit
 
 11177:                                            ; preds = %11173
-  call fastcc void @ir_emit_load(ptr noundef nonnull %0, i32 noundef %11062, i8 noundef signext %11069, i32 noundef %11164)
+  call fastcc void @ir_emit_load(ptr noundef nonnull %0, i32 noundef range(i32 0, 256) %11062, i8 noundef signext %11069, i32 noundef range(i32 -2147483648, 0) %11164)
   call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull %0, i32 noundef 12, i64 noundef %.0.i1618, i8 noundef signext %11069)
   br label %ir_emit_lea.exit
 
@@ -30685,11 +30685,11 @@ ir_ref_spill_slot.exit.i.i1662:                   ; preds = %11297, %11280
 
 11303:                                            ; preds = %ir_ref_spill_slot.exit.i.i1662
   %.val.i.i.i1666 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1666, i32 noundef %11267, i64 noundef %.0.i.i.i.i1664, i8 noundef signext %11192)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1666, i32 noundef range(i32 0, 256) %11267, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1664, i8 noundef signext %11192)
   br label %ir_emit_lea.exit
 
 11304:                                            ; preds = %ir_ref_spill_slot.exit.i.i1662
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %11267, i64 noundef %.0.i.i.i.i1664, i8 noundef signext %11192)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %11267, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1664, i8 noundef signext %11192)
   br label %ir_emit_lea.exit
 
 11305:                                            ; preds = %11258
@@ -30746,7 +30746,7 @@ ir_emit_store.exit112.i:                          ; preds = %11335, %11318
   %.0.in.i.i.i107.i = phi i64 [ %11324, %11318 ], [ %11339, %11335 ]
   %.0.i.i.i108.i = or disjoint i64 %.0.in.i.i.i107.i, 561850441793536
   %.val.i.i109.i = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i109.i, i32 noundef 6, i64 noundef %.0.i.i.i108.i, i8 noundef signext 4)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i109.i, i32 noundef 6, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i108.i, i8 noundef signext 4)
   br label %ir_emit_lea.exit
 
 11340:                                            ; preds = %850
@@ -31002,11 +31002,11 @@ ir_ref_spill_slot.exit.i.i1692:                   ; preds = %11477, %11460
 
 11482:                                            ; preds = %ir_ref_spill_slot.exit.i.i1692
   %.val.i.i.i1696 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1696, i32 noundef %11417, i64 noundef %.0.i.i.i.i1694, i8 noundef signext %11421)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1696, i32 noundef range(i32 0, 256) %11417, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1694, i8 noundef signext %11421)
   br label %ir_emit_lea.exit
 
 11483:                                            ; preds = %ir_ref_spill_slot.exit.i.i1692
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %11417, i64 noundef %.0.i.i.i.i1694, i8 noundef signext %11421)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %11417, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1694, i8 noundef signext %11421)
   br label %ir_emit_lea.exit
 
 11484:                                            ; preds = %850
@@ -31199,7 +31199,7 @@ ir_emit_store.exit.i1706:                         ; preds = %11583, %11566
   %.0.in.i.i.i.i1707 = phi i64 [ %11572, %11566 ], [ %11587, %11583 ]
   %.0.i.i.i.i1708 = or disjoint i64 %.0.in.i.i.i.i1707, 561850441793536
   %.val.i.i.i1709 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1709, i32 noundef 6, i64 noundef %.0.i.i.i.i1708, i8 noundef signext %spec.select.i1703)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1709, i32 noundef 6, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1708, i8 noundef signext %spec.select.i1703)
   br label %ir_emit_lea.exit
 
 11588:                                            ; preds = %850
@@ -31406,11 +31406,11 @@ ir_ref_spill_slot.exit.i.i1718:                   ; preds = %11693, %11676
 
 11699:                                            ; preds = %ir_ref_spill_slot.exit.i.i1718
   %.val.i.i.i1722 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1722, i32 noundef %11663, i64 noundef %.0.i.i.i.i1720, i8 noundef signext %spec.select.i1712)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1722, i32 noundef range(i32 0, 256) %11663, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1720, i8 noundef signext %spec.select.i1712)
   br label %ir_emit_lea.exit
 
 11700:                                            ; preds = %ir_ref_spill_slot.exit.i.i1718
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %11663, i64 noundef %.0.i.i.i.i1720, i8 noundef signext %spec.select.i1712)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %11663, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1720, i8 noundef signext %spec.select.i1712)
   br label %ir_emit_lea.exit
 
 11701:                                            ; preds = %850, %850
@@ -32314,7 +32314,7 @@ ir_emit_store.exit.i1773:                         ; preds = %12108, %12091
   %.0.in.i.i.i.i1774 = phi i64 [ %12097, %12091 ], [ %12112, %12108 ]
   %.0.i.i.i.i1775 = or disjoint i64 %.0.in.i.i.i.i1774, 561850441793536
   %.val.i.i.i1776 = load ptr, ptr %36, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1776, i32 noundef 6, i64 noundef %.0.i.i.i.i1775, i8 noundef signext %spec.select.i1770)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i.i1776, i32 noundef 6, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i.i1775, i8 noundef signext %spec.select.i1770)
   br label %ir_emit_lea.exit
 
 12113:                                            ; preds = %850
@@ -35550,11 +35550,11 @@ ir_ref_spill_slot.exit.i:                         ; preds = %713, %691
 
 719:                                              ; preds = %ir_ref_spill_slot.exit.i
   %.val.i.i = load ptr, ptr %5, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i, i32 noundef %10, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i, i32 noundef range(i32 0, 256) %10, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i, i8 noundef signext %spec.select)
   br label %ir_emit_store.exit
 
 720:                                              ; preds = %ir_ref_spill_slot.exit.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %10, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %10, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i, i8 noundef signext %spec.select)
   br label %ir_emit_store.exit
 
 ir_emit_store.exit:                               ; preds = %720, %719, %672
@@ -37559,11 +37559,11 @@ ir_ref_spill_slot.exit.i:                         ; preds = %726, %704
 
 732:                                              ; preds = %ir_ref_spill_slot.exit.i
   %.val.i.i = load ptr, ptr %8, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i, i32 noundef %13, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i, i8 noundef signext %spec.select)
   br label %ir_emit_store.exit
 
 733:                                              ; preds = %ir_ref_spill_slot.exit.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i, i8 noundef signext %spec.select)
   br label %ir_emit_store.exit
 
 734:                                              ; preds = %676
@@ -37631,11 +37631,11 @@ ir_ref_spill_slot.exit.i968:                      ; preds = %771, %749
 
 777:                                              ; preds = %ir_ref_spill_slot.exit.i968
   %.val.i.i971 = load ptr, ptr %8, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i971, i32 noundef %13, i64 noundef %.0.i.i.i970, i8 noundef signext 0)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i971, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i970, i8 noundef signext 0)
   br label %ir_emit_store.exit
 
 778:                                              ; preds = %ir_ref_spill_slot.exit.i968
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i970, i8 noundef signext 0)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i970, i8 noundef signext 0)
   br label %ir_emit_store.exit
 
 779:                                              ; preds = %674
@@ -37730,11 +37730,11 @@ ir_ref_spill_slot.exit.i976:                      ; preds = %829, %807
 
 835:                                              ; preds = %ir_ref_spill_slot.exit.i976
   %.val.i.i979 = load ptr, ptr %8, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i979, i32 noundef %13, i64 noundef %.0.i.i.i978, i8 noundef signext %24)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i979, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i978, i8 noundef signext %24)
   br label %ir_emit_store.exit
 
 836:                                              ; preds = %ir_ref_spill_slot.exit.i976
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i978, i8 noundef signext %24)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i978, i8 noundef signext %24)
   br label %ir_emit_store.exit
 
 837:                                              ; preds = %784
@@ -37887,11 +37887,11 @@ ir_ref_spill_slot.exit.i988:                      ; preds = %917, %895
 
 923:                                              ; preds = %ir_ref_spill_slot.exit.i988
   %.val.i.i991 = load ptr, ptr %8, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i991, i32 noundef %13, i64 noundef %.0.i.i.i990, i8 noundef signext %spec.select)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i991, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i990, i8 noundef signext %spec.select)
   br label %ir_emit_store.exit
 
 924:                                              ; preds = %ir_ref_spill_slot.exit.i988
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i990, i8 noundef signext %spec.select)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i990, i8 noundef signext %spec.select)
   br label %ir_emit_store.exit
 
 925:                                              ; preds = %870
@@ -37959,11 +37959,11 @@ ir_ref_spill_slot.exit.i996:                      ; preds = %962, %940
 
 968:                                              ; preds = %ir_ref_spill_slot.exit.i996
   %.val.i.i999 = load ptr, ptr %8, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i999, i32 noundef %13, i64 noundef %.0.i.i.i998, i8 noundef signext 2)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i999, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i998, i8 noundef signext 2)
   br label %ir_emit_store.exit
 
 969:                                              ; preds = %ir_ref_spill_slot.exit.i996
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %13, i64 noundef %.0.i.i.i998, i8 noundef signext 2)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %13, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i998, i8 noundef signext 2)
   br label %ir_emit_store.exit
 
 ir_emit_store.exit:                               ; preds = %969, %968, %924, %923, %836, %835, %778, %777, %733, %732, %788, %ir_ref_spill_slot_offset.exit, %876, %685
@@ -46527,11 +46527,11 @@ ir_ref_spill_slot.exit:                           ; preds = %20, %42
 48:                                               ; preds = %ir_ref_spill_slot.exit
   %49 = getelementptr i8, ptr %0, i64 248
   %.val.i = load ptr, ptr %49, align 8
-  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i, i32 noundef %1, i64 noundef %.0.i.i, i8 noundef signext %3)
+  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i, i32 noundef %1, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i, i8 noundef signext %3)
   br label %ir_emit_store_mem.exit
 
 50:                                               ; preds = %ir_ref_spill_slot.exit
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef %.0.i.i, i8 noundef signext %3)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i, i8 noundef signext %3)
   br label %ir_emit_store_mem.exit
 
 ir_emit_store_mem.exit:                           ; preds = %48, %50
@@ -52745,11 +52745,11 @@ ir_call_used_stack.exit:                          ; preds = %46
 
 112:                                              ; preds = %109
   %.val.i = load ptr, ptr %5, align 8
-  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i, i32 noundef %75, i64 noundef %111, i8 noundef signext %69)
+  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i, i32 noundef %75, i64 noundef range(i64 561850441793536, 562949953421312) %111, i8 noundef signext %69)
   br label %ir_emit_store_mem.exit
 
 113:                                              ; preds = %109
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %75, i64 noundef %111, i8 noundef signext %69)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %75, i64 noundef range(i64 561850441793536, 562949953421312) %111, i8 noundef signext %69)
   br label %ir_emit_store_mem.exit
 
 ir_emit_store_mem.exit:                           ; preds = %113, %112, %107
@@ -53657,11 +53657,11 @@ ir_ref_spill_slot.exit.i:                         ; preds = %258, %236
 
 264:                                              ; preds = %ir_ref_spill_slot.exit.i
   %.val.i.i = load ptr, ptr %6, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i, i32 noundef %221, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select187)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i, i32 noundef range(i32 0, 256) %221, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i, i8 noundef signext %spec.select187)
   br label %ir_emit_store.exit
 
 265:                                              ; preds = %ir_ref_spill_slot.exit.i
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %221, i64 noundef %.0.i.i.i, i8 noundef signext %spec.select187)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %221, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i, i8 noundef signext %spec.select187)
   br label %ir_emit_store.exit
 
 266:                                              ; preds = %208
@@ -53734,7 +53734,7 @@ ir_emit_store.exit205:                            ; preds = %310, %288
   %.0.in.i.i.i200 = phi i64 [ %295, %288 ], [ %314, %310 ]
   %.0.i.i.i201 = or disjoint i64 %.0.in.i.i.i200, 561850441793536
   %.val.i.i202 = load ptr, ptr %6, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i202, i32 noundef %273, i64 noundef %.0.i.i.i201, i8 noundef signext 0)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i202, i32 noundef range(i32 0, 256) %273, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i201, i8 noundef signext 0)
   br label %ir_emit_store.exit
 
 315:                                              ; preds = %199
@@ -53834,11 +53834,11 @@ ir_ref_spill_slot.exit.i209:                      ; preds = %364, %342
 
 370:                                              ; preds = %ir_ref_spill_slot.exit.i209
   %.val.i.i212 = load ptr, ptr %6, align 8
-  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i212, i32 noundef %327, i64 noundef %.0.i.i.i211, i8 noundef signext %spec.select187)
+  call fastcc void @ir_emit_store_mem_int(ptr %.val.i.i212, i32 noundef range(i32 0, 256) %327, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i211, i8 noundef signext %spec.select187)
   br label %ir_emit_store.exit
 
 371:                                              ; preds = %ir_ref_spill_slot.exit.i209
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %327, i64 noundef %.0.i.i.i211, i8 noundef signext %spec.select187)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %327, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i211, i8 noundef signext %spec.select187)
   br label %ir_emit_store.exit
 
 372:                                              ; preds = %315
@@ -53910,7 +53910,7 @@ ir_ref_spill_slot.exit.i209:                      ; preds = %364, %342
 ir_emit_store.exit223:                            ; preds = %416, %394
   %.0.in.i.i.i218 = phi i64 [ %401, %394 ], [ %420, %416 ]
   %.0.i.i.i219 = or disjoint i64 %.0.in.i.i.i218, 561850441793536
-  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %379, i64 noundef %.0.i.i.i219, i8 noundef signext 16)
+  call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %379, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i.i.i219, i8 noundef signext 16)
   br label %ir_emit_store.exit
 
 ir_emit_store.exit:                               ; preds = %371, %370, %265, %264, %266, %ir_emit_store.exit205, %217, %372, %ir_emit_store.exit223, %323, %196
@@ -55082,12 +55082,12 @@ ir_vreg_spill_slot.exit87:                        ; preds = %92, %114
   tail call fastcc void @ir_emit_load(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %4, i32 noundef %3)
   %140 = getelementptr i8, ptr %0, i64 248
   %.val.i88 = load ptr, ptr %140, align 8
-  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i88, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %4)
+  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i88, i32 noundef %1, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i84, i8 noundef signext %4)
   br label %ir_emit_load_mem.exit
 
 141:                                              ; preds = %120
   tail call fastcc void @ir_emit_load(ptr noundef nonnull %0, i32 noundef %1, i8 noundef signext %5, i32 noundef %3)
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %5)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i84, i8 noundef signext %5)
   br label %ir_emit_load_mem.exit
 
 142:                                              ; preds = %ir_vreg_spill_slot.exit87
@@ -55102,11 +55102,11 @@ ir_vreg_spill_slot.exit87:                        ; preds = %92, %114
 147:                                              ; preds = %144
   %148 = getelementptr i8, ptr %0, i64 248
   %.val.i89 = load ptr, ptr %148, align 8
-  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i89, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %145)
+  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i89, i32 noundef %1, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i84, i8 noundef signext %145)
   br label %ir_emit_load_mem.exit
 
 149:                                              ; preds = %144
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %145)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i84, i8 noundef signext %145)
   br label %ir_emit_load_mem.exit
 
 150:                                              ; preds = %142
@@ -55172,7 +55172,7 @@ ir_vreg_spill_slot.exit96:                        ; preds = %160, %182
   %.val.i99 = load ptr, ptr %189, align 8
   tail call fastcc void @ir_emit_load_mem_int(ptr %.val.i99, i32 noundef %1, i8 noundef signext %4, i64 noundef %.0.i93)
   %.val.i101 = load ptr, ptr %189, align 8
-  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i101, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %4)
+  tail call fastcc void @ir_emit_store_mem_int(ptr %.val.i101, i32 noundef %1, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i84, i8 noundef signext %4)
   br label %ir_emit_load_mem.exit
 
 190:                                              ; preds = %ir_vreg_spill_slot.exit96
@@ -55181,7 +55181,7 @@ ir_vreg_spill_slot.exit96:                        ; preds = %160, %182
   %192 = getelementptr i8, ptr %0, i64 248
   %.val9.i98 = load ptr, ptr %192, align 8
   tail call fastcc void @ir_emit_load_mem_fp(i32 %.val8.i97, ptr %.val9.i98, i32 noundef %1, i8 noundef signext %5, i64 noundef %.0.i93)
-  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef %.0.i84, i8 noundef signext %5)
+  tail call fastcc void @ir_emit_store_mem_fp(ptr noundef nonnull readonly %0, i32 noundef %1, i64 noundef range(i64 561850441793536, 562949953421312) %.0.i84, i8 noundef signext %5)
   br label %ir_emit_load_mem.exit
 
 ir_emit_load_mem.exit:                            ; preds = %190, %188, %149, %147, %141, %139, %77, %75, %10, %ir_emit_mov.exit, %25, %136

@@ -349,7 +349,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
 if.then42.i:                                      ; preds = %if.end.i
   %6 = load ptr, ptr @stderr, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.88, ptr noundef %call11.i) #19
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 for.body:                                         ; preds = %if.end.i, %for.body
@@ -425,14 +425,14 @@ if.end.i127:                                      ; preds = %if.then.i126, %if.t
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i127
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i:                                        ; preds = %if.end.i127
   %19 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i = icmp eq i32 %19, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -458,14 +458,14 @@ if.end.i133:                                      ; preds = %if.then.i132, %if.e
   br i1 %cmp1.i136, label %if.then2.i143, label %if.else.i137
 
 if.then2.i143:                                    ; preds = %if.end.i133
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i137:                                     ; preds = %if.end.i133
   %24 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i139 = icmp eq i32 %24, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i139, label %return, label %if.then3.i140
 
 if.then3.i140:                                    ; preds = %if.else.i137
@@ -623,7 +623,7 @@ while.body.i:                                     ; preds = %if.end497.i, %while
   %cmp10.i = icmp eq i32 %34, 2
   %cond.i = select i1 %cmp10.i, i64 16, i64 4
   %35 = load ptr, ptr %inbasefilename.i, align 8
-  %call.i171.i = call i64 @fread(ptr noundef nonnull %chunk_id.i, i64 noundef 1, i64 noundef %cond.i, ptr noundef %33)
+  %call.i171.i = call i64 @fread(ptr noundef nonnull %chunk_id.i, i64 noundef 1, i64 noundef range(i64 2, 17) %cond.i, ptr noundef %33)
   %cmp.i172.i = icmp ne i64 %call.i171.i, 0
   %cmp2.i173.i = icmp ult i64 %call.i171.i, %cond.i
   %or.cond401.i = and i1 %cmp.i172.i, %cmp2.i173.i
@@ -1557,14 +1557,14 @@ if.end.i167:                                      ; preds = %if.then.i166, %if.t
   br i1 %cmp1.i170, label %if.then2.i177, label %if.else.i171
 
 if.then2.i177:                                    ; preds = %if.end.i167
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i171:                                     ; preds = %if.end.i167
   %210 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i173 = icmp eq i32 %210, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i173, label %return, label %if.then3.i174
 
 if.then3.i174:                                    ; preds = %if.else.i171
@@ -2320,14 +2320,14 @@ if.end.i239:                                      ; preds = %if.then.i238, %if.t
   br i1 %cmp1.i242, label %if.then2.i249, label %if.else.i243
 
 if.then2.i249:                                    ; preds = %if.end.i239
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i243:                                     ; preds = %if.end.i239
   %348 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i245 = icmp eq i32 %348, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i245, label %return, label %if.then3.i246
 
 if.then3.i246:                                    ; preds = %if.else.i243
@@ -2362,14 +2362,14 @@ if.end.i254:                                      ; preds = %if.then.i253, %if.t
   br i1 %cmp1.i257, label %if.then2.i264, label %if.else.i258
 
 if.then2.i264:                                    ; preds = %if.end.i254
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i258:                                     ; preds = %if.end.i254
   %355 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i260 = icmp eq i32 %355, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i260, label %return, label %if.then3.i261
 
 if.then3.i261:                                    ; preds = %if.else.i258
@@ -2526,14 +2526,14 @@ if.end.i291:                                      ; preds = %if.then.i290, %if.t
   br i1 %cmp1.i294, label %if.then2.i301, label %if.else.i295
 
 if.then2.i301:                                    ; preds = %if.end.i291
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i295:                                     ; preds = %if.end.i291
   %391 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i297 = icmp eq i32 %391, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i297, label %return, label %if.then3.i298
 
 if.then3.i298:                                    ; preds = %if.else.i295
@@ -2558,14 +2558,14 @@ if.end.i306:                                      ; preds = %if.then.i305, %sw.d
   br i1 %cmp1.i309, label %if.then2.i316, label %if.else.i310
 
 if.then2.i316:                                    ; preds = %if.end.i306
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i310:                                     ; preds = %if.end.i306
   %396 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i312 = icmp eq i32 %396, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i312, label %return, label %if.then3.i313
 
 if.then3.i313:                                    ; preds = %if.else.i310
@@ -2602,14 +2602,14 @@ if.end.i321:                                      ; preds = %if.then.i320, %if.t
   br i1 %cmp1.i324, label %if.then2.i331, label %if.else.i325
 
 if.then2.i331:                                    ; preds = %if.end.i321
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i325:                                     ; preds = %if.end.i321
   %406 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i327 = icmp eq i32 %406, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i327, label %return, label %if.then3.i328
 
 if.then3.i328:                                    ; preds = %if.else.i325
@@ -2643,14 +2643,14 @@ if.end.i336:                                      ; preds = %if.then.i335, %if.t
   br i1 %cmp1.i339, label %if.then2.i346, label %if.else.i340
 
 if.then2.i346:                                    ; preds = %if.end.i336
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i340:                                     ; preds = %if.end.i336
   %414 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i342 = icmp eq i32 %414, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i342, label %return, label %if.then3.i343
 
 if.then3.i343:                                    ; preds = %if.else.i340
@@ -2688,14 +2688,14 @@ if.end.i351:                                      ; preds = %if.then.i350, %if.t
   br i1 %cmp1.i354, label %if.then2.i361, label %if.else.i355
 
 if.then2.i361:                                    ; preds = %if.end.i351
-  call fastcc void @print_verify_error(ptr noundef %encoder_session)
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @print_verify_error(ptr noundef nonnull %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br label %return
 
 if.else.i355:                                     ; preds = %if.end.i351
   %424 = load i32, ptr %outputfile_opened.i, align 4
   %tobool.not.i357 = icmp eq i32 %424, 0
-  call fastcc void @EncoderSession_destroy(ptr noundef %encoder_session)
+  call fastcc void @EncoderSession_destroy(ptr noundef nonnull %encoder_session)
   br i1 %tobool.not.i357, label %return, label %if.then3.i358
 
 if.then3.i358:                                    ; preds = %if.else.i355
@@ -3872,7 +3872,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br label %parse_cuesheet.exit.thread
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %call9.i = call ptr @grabbag__cuesheet_parse(ptr noundef nonnull %call.i, ptr noundef nonnull %error_message.i, ptr noundef nonnull %last_line_read.i, i32 noundef %3, i32 noundef %land.ext, i64 noundef %18) #19
+  %call9.i = call ptr @grabbag__cuesheet_parse(ptr noundef nonnull %call.i, ptr noundef nonnull %error_message.i, ptr noundef nonnull %last_line_read.i, i32 noundef %3, i32 noundef range(i32 0, 2) %land.ext, i64 noundef %18) #19
   store ptr %call9.i, ptr %cuesheet, align 8
   %call10.i = call i32 @fclose(ptr noundef nonnull %call.i)
   %23 = load ptr, ptr %cuesheet, align 8
@@ -5464,7 +5464,7 @@ if.else662:                                       ; preds = %sw.bb649
   store i8 0, ptr %arrayidx.i527, align 1
   %call.i528 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %apodizations) #22
   %sub.i529 = sub i64 2000, %call.i528
-  %call1.i530 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef nonnull readonly @.str.129, i64 noundef %sub.i529) #19
+  %call1.i530 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %apodizations, ptr noundef nonnull @.str.129, i64 noundef %sub.i529) #19
   store i8 0, ptr %arrayidx.i527, align 1
   br label %for.inc728
 

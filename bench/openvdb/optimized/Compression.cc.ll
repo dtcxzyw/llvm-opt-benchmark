@@ -105,7 +105,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -115,7 +115,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -460,7 +460,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont5
   %exception = call ptr @__cxa_allocate_exception(i64 40) #13
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.19, ptr noundef nonnull %_openvdb_throw_msg) #13
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #16
           to label %unreachable unwind label %lpad7
@@ -538,7 +538,7 @@ catch31:                                          ; preds = %lpad16, %lpad14
 
 try.cont35:                                       ; preds = %catch31, %invoke.cont29
   %exception36 = call ptr @__cxa_allocate_exception(i64 40) #13
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception36, ptr noundef nonnull @.str.19, ptr noundef nonnull %_openvdb_throw_msg12) #13
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception36, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg12) #13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception36, align 8
   invoke void @__cxa_throw(ptr nonnull %exception36, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #16
           to label %unreachable unwind label %lpad33
@@ -719,7 +719,7 @@ catch107:                                         ; preds = %lpad83, %lpad81
 
 try.cont111:                                      ; preds = %catch107, %invoke.cont104
   %exception112 = call ptr @__cxa_allocate_exception(i64 40) #13
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception112, ptr noundef nonnull @.str.19, ptr noundef nonnull %_openvdb_throw_msg79) #13
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception112, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg79) #13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception112, align 8
   invoke void @__cxa_throw(ptr nonnull %exception112, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #16
           to label %unreachable unwind label %lpad109
@@ -775,7 +775,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #13
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   ret void
 }
 
@@ -979,7 +979,7 @@ catch:                                            ; preds = %lpad2, %lpad
 
 try.cont:                                         ; preds = %catch, %invoke.cont5
   %exception = call ptr @__cxa_allocate_exception(i64 40) #13
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.19, ptr noundef nonnull %_openvdb_throw_msg) #13
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #16
           to label %unreachable unwind label %lpad7
@@ -1057,7 +1057,7 @@ catch31:                                          ; preds = %lpad16, %lpad14
 
 try.cont35:                                       ; preds = %catch31, %invoke.cont29
   %exception36 = call ptr @__cxa_allocate_exception(i64 40) #13
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception36, ptr noundef nonnull @.str.19, ptr noundef nonnull %_openvdb_throw_msg12) #13
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception36, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg12) #13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception36, align 8
   invoke void @__cxa_throw(ptr nonnull %exception36, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #16
           to label %unreachable unwind label %lpad33
@@ -1178,7 +1178,7 @@ catch90:                                          ; preds = %lpad67, %lpad65
 
 try.cont94:                                       ; preds = %catch90, %invoke.cont88
   %exception95 = call ptr @__cxa_allocate_exception(i64 40) #13
-  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception95, ptr noundef nonnull @.str.19, ptr noundef nonnull %_openvdb_throw_msg63) #13
+  call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception95, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg63) #13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception95, align 8
   invoke void @__cxa_throw(ptr nonnull %exception95, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #16
           to label %unreachable unwind label %lpad92
@@ -1276,7 +1276,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #13
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
@@ -1317,7 +1317,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #13
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }

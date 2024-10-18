@@ -715,7 +715,7 @@ entry:
 define linkonce_odr void @_ZThn8_N8QuantLib19EulerDiscretizationD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 16) #25
   ret void
 }
 

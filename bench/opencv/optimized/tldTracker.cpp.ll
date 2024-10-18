@@ -2138,7 +2138,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.
   %194 = load ptr, ptr %108, align 8
   %195 = getelementptr inbounds i8, ptr %190, i64 16
   %.sroa.0.0.copyload.i97 = load i64, ptr %195, align 8
-  invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %7)
+  invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %18, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %.noexc98 unwind label %105
 
 .noexc98:                                         ; preds = %193
@@ -2149,7 +2149,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.
 197:                                              ; preds = %.noexc98
   %198 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #26
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %18) #26
   br label %.body
 
 199:                                              ; preds = %.noexc98
@@ -2162,7 +2162,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.
   %203 = getelementptr inbounds i8, ptr %18, i64 248
   store i64 %.sroa.0.0.copyload.i97, ptr %203, align 8
   %204 = load ptr, ptr %108, align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #26
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %19) #26
   %205 = getelementptr inbounds i8, ptr %19, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %205) #26
   %206 = getelementptr inbounds i8, ptr %19, i64 192
@@ -2183,7 +2183,7 @@ _ZN2cv8tracking4impl3tld14TrackerTLDImpl7PexpertC2Ev.exit.i: ; preds = %199
   store i32 0, ptr %211, align 8
   %212 = getelementptr inbounds i8, ptr %19, i64 252
   store i32 0, ptr %212, align 4
-  %213 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %7)
+  %213 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %19, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %216 unwind label %214
 
 214:                                              ; preds = %_ZN2cv8tracking4impl3tld14TrackerTLDImpl7PexpertC2Ev.exit.i
@@ -2514,17 +2514,17 @@ _ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i140: ; preds = %_ZSt8_Destr
 
 _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EED2Ev.exit142:   ; preds = %_ZSt8_DestroyIPN2cv4Mat_IhEES2_EvT_S4_RSaIT0_E.exit.i140, %317
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %205) #26
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #26
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %19) #26
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %196) #26
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #26
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %18) #26
   br label %318
 
 .body99:                                          ; preds = %208, %214, %263
   %.pn61 = phi { ptr, i32 } [ %lpad.phi, %263 ], [ %209, %208 ], [ %215, %214 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %205) #26
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #26
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %19) #26
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %196) #26
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #26
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %18) #26
   br label %.body
 
 318:                                              ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EED2Ev.exit142, %189, %165
@@ -3307,7 +3307,7 @@ define linkonce_odr hidden void @_ZN2cv8tracking4impl3tld14TrackerTLDImplD1Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8tracking4impl3tld14TrackerTLDImplD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 comdat align 2 {
   tail call void @_ZN2cv8tracking4impl3tld14TrackerTLDImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull @_ZTTN2cv8tracking4impl3tld14TrackerTLDImplE) #26
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   ret void
 }

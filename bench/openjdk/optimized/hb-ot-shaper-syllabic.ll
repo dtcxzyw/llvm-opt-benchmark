@@ -66,7 +66,7 @@ define hidden noundef zeroext i1 @_Z33hb_syllabic_insert_dotted_circlesP9hb_font
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %23, %32
   %35 = phi ptr [ %34, %32 ], [ null, %23 ]
-  %36 = call noundef i32 %27(ptr noundef nonnull %0, ptr noundef %29, i32 noundef 9676, ptr noundef nonnull %7, ptr noundef %35)
+  %36 = call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %29, i32 noundef 9676, ptr noundef nonnull %7, ptr noundef %35)
   %.not48 = icmp eq i32 %36, 0
   br i1 %.not48, label %149, label %37
 

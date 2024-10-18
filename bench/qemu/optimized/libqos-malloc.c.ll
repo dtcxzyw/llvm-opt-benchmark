@@ -448,7 +448,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 if.then1.i:                                       ; preds = %for.cond.i.i
   %2 = load ptr, ptr @stderr, align 8
-  %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i64 noundef %addr) #9
+  %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i64 noundef range(i64 1, 0) %addr) #9
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 202, ptr noundef nonnull @__func__.mlist_free, ptr noundef null) #10
   unreachable
 

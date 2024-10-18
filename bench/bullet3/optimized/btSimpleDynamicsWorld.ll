@@ -60,7 +60,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP18btConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %constraintSolver, ptr noundef %collisionConfiguration) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN16btCollisionWorldC2EP12btDispatcherP21btBroadphaseInterfaceP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %collisionConfiguration)
+  tail call void @_ZN16btCollisionWorldC2EP12btDispatcherP21btBroadphaseInterfaceP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %collisionConfiguration)
   %m_internalTickCallback.i = getelementptr inbounds i8, ptr %this, i64 128
   %m_solverInfo.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_internalTickCallback.i, i8 0, i64 24, i1 false)
@@ -163,7 +163,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @_ZN16btCollisionWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %this) #13
+  tail call void @_ZN16btCollisionWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) #13
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
@@ -211,7 +211,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN21btSimpleDynamicsWorldD2Ev.exit:              ; preds = %entry, %if.then.i
-  tail call void @_ZN16btCollisionWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %this) #13
+  tail call void @_ZN16btCollisionWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }

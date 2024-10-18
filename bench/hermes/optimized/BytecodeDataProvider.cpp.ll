@@ -1572,11 +1572,11 @@ if.then6:                                         ; preds = %_ZNK6hermes3hbc14BC
   store i32 %loc.sroa.3.0.copyload, ptr %column, align 4
   %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 1, ptr %hasVal.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #19
   %line.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %7 = load i64, ptr %line, align 8
   store i64 %7, ptr %line.i.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fileName) #19
   br label %return
 
@@ -2266,7 +2266,7 @@ if.end24.i:                                       ; preds = %if.then.i.i
 
 if.end37.i:                                       ; preds = %if.end24.i
   %conv.i30.i = zext i32 %12 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %files_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i30.i, i64 noundef 12) #19
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(28) %files_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i30.i, i64 noundef 12) #19
   %.pre = load i32, ptr %Size.i.i.i.i.i, align 8
   %.pre55.pre57.pre = load ptr, ptr %files, align 8
   %.pre60 = zext i32 %.pre to i64
@@ -3196,7 +3196,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPKhjPSt6atomicIbEES4_jS7_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }

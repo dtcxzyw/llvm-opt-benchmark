@@ -540,12 +540,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !106
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !106
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -845,12 +845,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !243
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !243
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -928,12 +928,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !268
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !268
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -1196,7 +1196,7 @@ define hidden void @"_ZN4core3ptr116drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   br i1 %21, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he56e69225880e254E.llvm.14031171042790067460.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #26, !noalias !420
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #26, !noalias !420
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he56e69225880e254E.llvm.14031171042790067460.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he56e69225880e254E.llvm.14031171042790067460.exit": ; preds = %1, %4, %8, %22
@@ -1394,12 +1394,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !486
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !486
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -1538,12 +1538,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !529
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !529
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -1679,12 +1679,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !570
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !570
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -1741,12 +1741,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !595
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !595
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -1785,7 +1785,7 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   br i1 %21, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf78707f5eb88d093E.llvm.14031171042790067460.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #26, !noalias !602
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #26, !noalias !602
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf78707f5eb88d093E.llvm.14031171042790067460.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf78707f5eb88d093E.llvm.14031171042790067460.exit": ; preds = %1, %4, %8, %22
@@ -2159,12 +2159,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !748
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !748
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -2228,7 +2228,7 @@ define hidden void @"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$all
 
 9:                                                ; preds = %5
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0e64d62895a3afbeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0e64d62895a3afbeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %"_ZN4core3ptr98drop_in_place$LT$alloc..boxed..Box$LT$wasmtime_runtime..threads..parking_spot..WaiterInner$GT$$GT$17hbabeb2ea4491c9a3E.llvm.14031171042790067460.exit" unwind label %10, !noalias !792
 
 10:                                               ; preds = %9
@@ -2419,7 +2419,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   br i1 %21, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfc6e47af0dff0d04E.llvm.14031171042790067460.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #26, !noalias !832
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #26, !noalias !832
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfc6e47af0dff0d04E.llvm.14031171042790067460.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfc6e47af0dff0d04E.llvm.14031171042790067460.exit": ; preds = %1, %4, %8, %22
@@ -2694,12 +2694,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !960
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !960
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -2756,12 +2756,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !985
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !985
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -2923,12 +2923,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1020
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1020
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -3223,12 +3223,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1098
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1098
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -3329,7 +3329,7 @@ define hidden void @"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   br i1 %21, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715ad60d5d2bc5ffE.llvm.14031171042790067460.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #26, !noalias !1138
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #26, !noalias !1138
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715ad60d5d2bc5ffE.llvm.14031171042790067460.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h715ad60d5d2bc5ffE.llvm.14031171042790067460.exit": ; preds = %1, %4, %8, %22
@@ -3479,12 +3479,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 11:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1188
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %"_ZN85_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda6174b3a1a9bfc3E.llvm.14031171042790067460.exit"
 
 12:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1188
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %"_ZN85_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda6174b3a1a9bfc3E.llvm.14031171042790067460.exit"
 
 "_ZN85_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda6174b3a1a9bfc3E.llvm.14031171042790067460.exit": ; preds = %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i, %11, %12
@@ -3727,12 +3727,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1326
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1326
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -3831,12 +3831,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1393
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1393
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -4336,12 +4336,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1625
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1625
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -4401,12 +4401,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1650
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1650
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -4579,12 +4579,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1734
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1734
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -4644,12 +4644,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1759
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1759
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -4848,12 +4848,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1821
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1821
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -4952,12 +4952,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1888
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1888
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -5120,12 +5120,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1977
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !1977
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -5182,12 +5182,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2002
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2002
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -5244,12 +5244,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2027
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2027
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -5306,12 +5306,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2052
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2052
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -5526,12 +5526,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2142
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2142
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -5630,12 +5630,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2209
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2209
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -5731,12 +5731,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2276
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2276
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -5793,12 +5793,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2301
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2301
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -6445,12 +6445,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 14:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2594
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %6)
   br label %"_ZN4core3ptr142drop_in_place$LT$std..sync..lazy_lock..LazyLock$LT$std..backtrace..Capture$C$std..backtrace..lazy_resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcd68f92349b58e43E.llvm.14031171042790067460.exit"
 
 15:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2594
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %6)
   br label %"_ZN4core3ptr142drop_in_place$LT$std..sync..lazy_lock..LazyLock$LT$std..backtrace..Capture$C$std..backtrace..lazy_resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcd68f92349b58e43E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr142drop_in_place$LT$std..sync..lazy_lock..LazyLock$LT$std..backtrace..Capture$C$std..backtrace..lazy_resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcd68f92349b58e43E.llvm.14031171042790067460.exit": ; preds = %15, %14, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i, %1
@@ -6601,12 +6601,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 14:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2640
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %6)
   br label %"_ZN4core3ptr42drop_in_place$LT$std..backtrace..Inner$GT$17hbcc54a86ee204fdfE.llvm.14031171042790067460.exit"
 
 15:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !2640
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %6)
   br label %"_ZN4core3ptr42drop_in_place$LT$std..backtrace..Inner$GT$17hbcc54a86ee204fdfE.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$std..backtrace..Inner$GT$17hbcc54a86ee204fdfE.llvm.14031171042790067460.exit": ; preds = %1, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i, %14, %15
@@ -6894,7 +6894,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_environ..module..Mo
   tail call void @llvm.assume(i1 %45)
   %46 = sub nsw i64 0, %38
   %47 = getelementptr inbounds i8, ptr %.val.i.i, i64 %46
-  tail call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %41, i64 noundef 16) #26, !noalias !2793
+  tail call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %41, i64 noundef range(i64 0, -9223372036854775807) 16) #26, !noalias !2793
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc768a29fa2b09b1cE.exit.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc768a29fa2b09b1cE.exit.i.i": ; preds = %30, %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_environ..module..Initializer$GT$$GT$17h92df2a85c47e00d1E.exit"
@@ -8071,7 +8071,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$wasmtime_runtime..threads..p
 
 8:                                                ; preds = %4
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0e64d62895a3afbeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0e64d62895a3afbeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %"_ZN4core3ptr98drop_in_place$LT$alloc..boxed..Box$LT$wasmtime_runtime..threads..parking_spot..WaiterInner$GT$$GT$17hbabeb2ea4491c9a3E.llvm.14031171042790067460.exit.i" unwind label %9, !noalias !3104
 
 9:                                                ; preds = %8
@@ -8317,12 +8317,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3217
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3217
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -8613,12 +8613,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3338
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3338
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 19:                                               ; preds = %12
@@ -8757,12 +8757,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 16:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3375
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8)
   br label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h576842ed2a0eed14E.llvm.14031171042790067460.exit"
 
 17:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3375
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8)
   br label %"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h576842ed2a0eed14E.llvm.14031171042790067460.exit"
 }
 
@@ -8991,7 +8991,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..sync..ArcInner$LT$was
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr78drop_in_place$LT$std..backtrace..lazy_resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$17h89e4aa9186f07809E.llvm.14031171042790067460"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 {
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   ret void
 }
 
@@ -9532,12 +9532,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3685
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3685
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -9924,12 +9924,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3863
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !3863
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -10550,12 +10550,12 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !4190
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !4190
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h2d28c6e73372aa68E.llvm.14031171042790067460.exit": ; preds = %1, %7, %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2.i.i.i.i.i, %17, %18
@@ -10748,7 +10748,7 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$alloc..boxed..Box$LT$wasmtim
 
 6:                                                ; preds = %1
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0e64d62895a3afbeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0e64d62895a3afbeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %"_ZN4core3ptr73drop_in_place$LT$wasmtime_runtime..threads..parking_spot..WaiterInner$GT$17h5becae4791b4be02E.exit" unwind label %7
 
 "_ZN4core3ptr73drop_in_place$LT$wasmtime_runtime..threads..parking_spot..WaiterInner$GT$17h5becae4791b4be02E.exit": ; preds = %1, %6
@@ -10802,7 +10802,7 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..cell..UnsafeCell$LT$wa
 
 8:                                                ; preds = %4
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0e64d62895a3afbeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0e64d62895a3afbeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %"_ZN4core3ptr98drop_in_place$LT$alloc..boxed..Box$LT$wasmtime_runtime..threads..parking_spot..WaiterInner$GT$$GT$17hbabeb2ea4491c9a3E.llvm.14031171042790067460.exit.i.i" unwind label %9, !noalias !4318
 
 9:                                                ; preds = %8
@@ -12315,7 +12315,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #26
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit": ; preds = %22, %8, %1, %4
@@ -12374,7 +12374,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #26
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit": ; preds = %22, %8, %1, %4
@@ -12475,7 +12475,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #26
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit": ; preds = %22, %8, %1, %4
@@ -12513,7 +12513,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #26
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0ba676386f116d35E.exit": ; preds = %22, %8, %1, %4
@@ -13214,7 +13214,7 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 11:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   br label %12
 
 12:                                               ; preds = %_ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.14031171042790067460.exit.thread2, %13, %11
@@ -13222,7 +13222,7 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1403117104279
 
 13:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$std..backtrace..BacktraceFrame$GT$$GT$17hba1c9171eff06db0E.llvm.14031171042790067460"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   br label %12
 }
 

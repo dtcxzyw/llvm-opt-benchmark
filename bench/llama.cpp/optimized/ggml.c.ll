@@ -25950,7 +25950,7 @@ gguf_get_key.exit.i:                              ; preds = %for.inc.i, %gguf_ge
   %indvars.iv.i = phi i64 [ 0, %gguf_get_key.exit.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %data.i.i = getelementptr inbounds %struct.gguf_kv, ptr %58, i64 %indvars.iv.i, i32 0, i32 1
   %59 = load ptr, ptr %data.i.i, align 8
-  %call2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(18) @.str.221, ptr noundef nonnull dereferenceable(1) %59) #48
+  %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(18) @.str.221, ptr noundef nonnull dereferenceable(1) %59) #48
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %if.then371, label %for.inc.i
 
@@ -31585,13 +31585,13 @@ sw.bb106:                                         ; preds = %if.end3
 sw.bb111:                                         ; preds = %if.end3
   %src112 = getelementptr inbounds i8, ptr %tensor, i64 160
   %42 = load ptr, ptr %src112, align 8
-  tail call fastcc void @ggml_compute_forward_dup(ptr noundef readonly %params, ptr noundef readonly %42, ptr noundef nonnull readonly %tensor)
+  tail call fastcc void @ggml_compute_forward_dup(ptr noundef nonnull readonly %params, ptr noundef readonly %42, ptr noundef nonnull readonly %tensor)
   br label %sw.epilog
 
 sw.bb114:                                         ; preds = %if.end3
   %src115 = getelementptr inbounds i8, ptr %tensor, i64 160
   %43 = load ptr, ptr %src115, align 8
-  tail call fastcc void @ggml_compute_forward_dup(ptr noundef readonly %params, ptr noundef readonly %43, ptr noundef nonnull readonly %tensor)
+  tail call fastcc void @ggml_compute_forward_dup(ptr noundef nonnull readonly %params, ptr noundef readonly %43, ptr noundef nonnull readonly %tensor)
   br label %sw.epilog
 
 sw.bb129:                                         ; preds = %if.end3

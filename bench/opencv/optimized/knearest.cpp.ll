@@ -319,7 +319,7 @@ define void @_ZN2cv2ml8KNearest6createEv(ptr dead_on_unwind noalias nocapture wr
   store i32 1, ptr %4, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml12KNearestImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %.noexc.i.i.i.i.i unwind label %8, !noalias !4
 
 .noexc.i.i.i.i.i:                                 ; preds = %1
@@ -333,7 +333,7 @@ define void @_ZN2cv2ml8KNearest6createEv(ptr dead_on_unwind noalias nocapture wr
   %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2cv3PtrINS_2ml4ImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #18, !noalias !4
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18, !noalias !4
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18, !noalias !4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml12KNearestImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i
 
 8:                                                ; preds = %1
@@ -375,7 +375,7 @@ define void @_ZN2cv2ml8KNearest4loadERKNSt7__cxx1112basic_stringIcSt11char_trait
   store i32 1, ptr %10, align 4, !noalias !9
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml12KNearestImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !9
   %11 = getelementptr inbounds i8, ptr %8, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %.noexc.i.i.i.i.i unwind label %14, !noalias !9
 
 .noexc.i.i.i.i.i:                                 ; preds = %.noexc
@@ -389,7 +389,7 @@ define void @_ZN2cv2ml8KNearest4loadERKNSt7__cxx1112basic_stringIcSt11char_trait
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3PtrINS_2ml4ImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #18, !noalias !9
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18, !noalias !9
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18, !noalias !9
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml12KNearestImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i
 
 14:                                               ; preds = %.noexc
@@ -773,7 +773,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !19
   store ptr null, ptr %4, align 8, !alias.scope !22, !noalias !19
   %90 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv2ml10KDTreeImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull %3), !noalias !19
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv2ml10KDTreeImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull %3), !noalias !19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !19
   %91 = load ptr, ptr %4, align 8, !noalias !19
   %92 = load ptr, ptr %90, align 8, !noalias !19
@@ -1425,7 +1425,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %104, %107
 
 121:                                              ; preds = %112
   %122 = load float, ptr %7, align 4
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #18
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #18
@@ -1434,7 +1434,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %104, %107
 123:                                              ; preds = %112
   %124 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #18
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #18
   br label %125
 
 125:                                              ; preds = %123, %110, %95, %80, %78
@@ -1518,7 +1518,7 @@ declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv2ml14BruteForceImpl19findKNearestInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -3419,7 +3419,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv2ml12KNearestImplEEEvRS0_PT_.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #18
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #18
   ret void
 }
 
@@ -3696,7 +3696,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv2ml12KNearestImplD2Ev.exit
 
 _ZN2cv2ml12KNearestImplD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

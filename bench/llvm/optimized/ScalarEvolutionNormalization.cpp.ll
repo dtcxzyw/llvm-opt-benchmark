@@ -306,7 +306,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVES4_Lj4ENS_12DenseMapInfoIS4
 95:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %96 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %96, i64 noundef 2) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %96, i64 noundef 2) #7
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -360,7 +360,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i53: ; pre
 
 .critedge:                                        ; preds = %95, %122, %._crit_edge147
   %125 = phi ptr [ %124, %122 ], [ %1, %._crit_edge147 ], [ %1, %95 ]
-  %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
+  %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %127 = load ptr, ptr %3, align 8
   %128 = icmp eq ptr %127, %96
   br i1 %128, label %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit, label %129
@@ -376,7 +376,7 @@ _ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE12vi
 130:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %131 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %131, i64 noundef 2) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %131, i64 noundef 2) #7
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -430,7 +430,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i46: ; pre
 
 .critedge149:                                     ; preds = %130, %157, %._crit_edge140
   %160 = phi ptr [ %159, %157 ], [ %1, %._crit_edge140 ], [ %1, %130 ]
-  %161 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
+  %161 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %162 = load ptr, ptr %4, align 8
   %163 = icmp eq ptr %162, %131
   br i1 %163, label %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit, label %164
@@ -467,7 +467,7 @@ _ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE12vi
 177:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
   %178 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %178, i64 noundef 8) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %178, i64 noundef 8) #7
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -508,7 +508,7 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPKNS0_4SCEVELj8EEEEaSEOS4_.exit.
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %200 = load i64, ptr %199, align 8
-  %201 = call noundef zeroext i1 %198(i64 noundef %200, ptr noundef %1) #7
+  %201 = call noundef zeroext i1 %198(i64 noundef %200, ptr noundef nonnull %1) #7
   br i1 %201, label %202, label %.loopexit
 
 202:                                              ; preds = %"_ZSt9transformIPKPKN4llvm4SCEVESt20back_insert_iteratorINS0_11SmallVectorIS3_Lj8EEEEZN12_GLOBAL__N_128NormalizeDenormalizeRewriter15visitAddRecExprEPKNS0_14SCEVAddRecExprEE3$_0ET0_T_SH_SG_T1_.exit"
@@ -544,10 +544,10 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPKNS0_4SCEVELj8EEEEaSEOS4_.exit.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %218, ptr %6, align 8
   store ptr %220, ptr %211, align 8
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %212, i64 noundef 2) #7
-  call void @_ZN4llvm15SmallVectorImplIPKNS_4SCEVEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, ptr noundef nonnull %213)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %212, i64 noundef 2) #7
+  call void @_ZN4llvm15SmallVectorImplIPKNS_4SCEVEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %6, ptr noundef nonnull %213)
   %221 = call noundef ptr @_ZN4llvm15ScalarEvolution10getAddExprERNS_15SmallVectorImplIPKNS_4SCEVEEENS2_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1392) %215, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0, i32 noundef 0) #7
-  %222 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
+  %222 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %223 = load ptr, ptr %5, align 8
   %224 = icmp eq ptr %223, %212
   br i1 %224, label %_ZN4llvm15ScalarEvolution10getAddExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit.i, label %225
@@ -595,7 +595,7 @@ _ZN4llvm15ScalarEvolution10getAddExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit.i: 
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %243 = load ptr, ptr %242, align 8
   %244 = call noundef ptr @_ZN4llvm15ScalarEvolution13getAddRecExprERNS_15SmallVectorImplIPKNS_4SCEVEEEPKNS_4LoopENS2_11NoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(1392) %241, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %243, i32 noundef 0) #7
-  %245 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
+  %245 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %7) #7
   %246 = load ptr, ptr %7, align 8
   %247 = icmp eq ptr %246, %178
   br i1 %247, label %_ZN12_GLOBAL__N_128NormalizeDenormalizeRewriter15visitAddRecExprEPKN4llvm14SCEVAddRecExprE.exit, label %248
@@ -611,7 +611,7 @@ _ZN12_GLOBAL__N_128NormalizeDenormalizeRewriter15visitAddRecExprEPKN4llvm14SCEVA
 249:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %250 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %250, i64 noundef 2) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %250, i64 noundef 2) #7
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -665,7 +665,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i35: ; pre
 
 .critedge150:                                     ; preds = %249, %276, %._crit_edge123
   %279 = phi ptr [ %278, %276 ], [ %1, %._crit_edge123 ], [ %1, %249 ]
-  %280 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
+  %280 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
   %281 = load ptr, ptr %8, align 8
   %282 = icmp eq ptr %281, %250
   br i1 %282, label %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit, label %283
@@ -681,7 +681,7 @@ _ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE13vi
 284:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %285 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %285, i64 noundef 2) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %285, i64 noundef 2) #7
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -735,7 +735,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i28: ; pre
 
 .critedge151:                                     ; preds = %284, %311, %._crit_edge116
   %314 = phi ptr [ %313, %311 ], [ %1, %._crit_edge116 ], [ %1, %284 ]
-  %315 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
+  %315 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #7
   %316 = load ptr, ptr %9, align 8
   %317 = icmp eq ptr %316, %285
   br i1 %317, label %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit, label %318
@@ -751,7 +751,7 @@ _ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE13vi
 319:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %320 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %320, i64 noundef 2) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %320, i64 noundef 2) #7
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %322 = load ptr, ptr %321, align 8
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -805,7 +805,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i21: ; pre
 
 .critedge152:                                     ; preds = %319, %346, %._crit_edge109
   %349 = phi ptr [ %348, %346 ], [ %1, %._crit_edge109 ], [ %1, %319 ]
-  %350 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
+  %350 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
   %351 = load ptr, ptr %10, align 8
   %352 = icmp eq ptr %351, %320
   br i1 %352, label %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit, label %353
@@ -821,7 +821,7 @@ _ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE13vi
 354:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %355 = getelementptr inbounds i8, ptr %11, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %355, i64 noundef 2) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %355, i64 noundef 2) #7
   %356 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %357 = load ptr, ptr %356, align 8
   %358 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -875,7 +875,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i14: ; pre
 
 .critedge153:                                     ; preds = %354, %381, %._crit_edge102
   %384 = phi ptr [ %383, %381 ], [ %1, %._crit_edge102 ], [ %1, %354 ]
-  %385 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #7
+  %385 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
   %386 = load ptr, ptr %11, align 8
   %387 = icmp eq ptr %386, %355
   br i1 %387, label %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit, label %388
@@ -891,7 +891,7 @@ _ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE13vi
 389:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %390 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %390, i64 noundef 2) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %390, i64 noundef 2) #7
   %391 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %392 = load ptr, ptr %391, align 8
   %393 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -945,7 +945,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.i: ; preds
 
 .critedge154:                                     ; preds = %389, %416, %._crit_edge
   %419 = phi ptr [ %418, %416 ], [ %1, %._crit_edge ], [ %1, %389 ]
-  %420 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
+  %420 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #7
   %421 = load ptr, ptr %12, align 8
   %422 = icmp eq ptr %421, %390
   br i1 %422, label %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_128NormalizeDenormalizeRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit, label %423

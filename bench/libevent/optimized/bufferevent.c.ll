@@ -317,7 +317,7 @@ bufferevent_incref_and_lock_.exit.i:              ; preds = %if.then.i.i, %if.en
   br i1 %cmp.not.i.i, label %bufferevent_trigger.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %bufferevent_incref_and_lock_.exit.i
-  tail call void @bufferevent_run_readcb_(ptr noundef nonnull %bufev, i32 noundef 4)
+  tail call void @bufferevent_run_readcb_(ptr noundef nonnull %bufev, i32 noundef range(i32 0, 65541) 4)
   br label %bufferevent_trigger.exit
 
 bufferevent_trigger.exit:                         ; preds = %bufferevent_incref_and_lock_.exit.i, %if.then.i4.i
@@ -469,7 +469,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i4
 
 if.then.i4:                                       ; preds = %lor.lhs.false.i, %land.lhs.true.i
-  tail call void @bufferevent_run_readcb_(ptr noundef nonnull %bufev, i32 noundef %and)
+  tail call void @bufferevent_run_readcb_(ptr noundef nonnull %bufev, i32 noundef range(i32 0, 65541) %and)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i4, %lor.lhs.false.i, %bufferevent_incref_and_lock_.exit
@@ -1188,7 +1188,7 @@ bufferevent_incref_and_lock_.exit.i.i:            ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.not.i.i.i, label %bufferevent_trigger.exit.i, label %if.then.i4.i.i
 
 if.then.i4.i.i:                                   ; preds = %bufferevent_incref_and_lock_.exit.i.i
-  tail call void @bufferevent_run_readcb_(ptr noundef nonnull %arg, i32 noundef 4)
+  tail call void @bufferevent_run_readcb_(ptr noundef nonnull %arg, i32 noundef range(i32 0, 65541) 4)
   br label %bufferevent_trigger.exit.i
 
 bufferevent_trigger.exit.i:                       ; preds = %if.then.i4.i.i, %bufferevent_incref_and_lock_.exit.i.i
@@ -1373,7 +1373,7 @@ bufferevent_incref_and_lock_.exit.i.i:            ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.not.i.i.i, label %bufferevent_trigger.exit.i, label %if.then.i4.i.i
 
 if.then.i4.i.i:                                   ; preds = %bufferevent_incref_and_lock_.exit.i.i
-  tail call void @bufferevent_run_readcb_(ptr noundef nonnull %arg, i32 noundef 4)
+  tail call void @bufferevent_run_readcb_(ptr noundef nonnull %arg, i32 noundef range(i32 0, 65541) 4)
   br label %bufferevent_trigger.exit.i
 
 bufferevent_trigger.exit.i:                       ; preds = %if.then.i4.i.i, %bufferevent_incref_and_lock_.exit.i.i

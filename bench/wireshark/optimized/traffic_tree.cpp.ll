@@ -868,7 +868,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %44, %_ZN17QArrayDat
 
 _ZN11TrafficTree9dataModelEv.exit:                ; preds = %_ZN7QStringD2Ev.exit85, %_ZN7QStringD2Ev.exit
   %.063 = phi i32 [ 0, %_ZN7QStringD2Ev.exit ], [ %103, %_ZN7QStringD2Ev.exit85 ]
-  %53 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %33)
+  %53 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %33)
   %54 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QSortFilterProxyModel16staticMetaObjectE, ptr noundef %53)
   %.not.i = icmp ne ptr %54, null
   call void @llvm.assume(i1 %.not.i)
@@ -885,7 +885,7 @@ _ZN11TrafficTree9dataModelEv.exit:                ; preds = %_ZN7QStringD2Ev.exi
   br i1 %61, label %_ZN11TrafficTree9dataModelEv.exit80, label %125
 
 _ZN11TrafficTree9dataModelEv.exit80:              ; preds = %_ZN11TrafficTree9dataModelEv.exit
-  %62 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %33)
+  %62 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %33)
   %63 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QSortFilterProxyModel16staticMetaObjectE, ptr noundef %62)
   %.not.i78 = icmp ne ptr %63, null
   call void @llvm.assume(i1 %.not.i78)
@@ -1513,7 +1513,7 @@ define void @_ZN21TrafficTreeHeaderViewD0Ev(ptr noundef nonnull align 8 derefere
 define void @_ZThn16_N21TrafficTreeHeaderViewD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN21TrafficTreeHeaderViewD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %2) #26
   ret void
 }
 
@@ -1671,7 +1671,7 @@ define void @_ZN21TrafficTreeHeaderView15columnTriggeredEb(ptr noundef nonnull a
   br label %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit
 
 _ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit: ; preds = %37, %40
-  call void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+  call void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(72) %21)
   %43 = getelementptr inbounds i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
@@ -1688,7 +1688,7 @@ _ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit: ; preds = %37, %40
 
 52:                                               ; preds = %103, %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit
   %.022 = phi i32 [ 0, %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit ], [ %104, %103 ]
-  %53 = invoke noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
+  %53 = invoke noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %18)
           to label %.noexc unwind label %95
 
 .noexc:                                           ; preds = %52
@@ -2698,7 +2698,7 @@ _Z12qobject_castIP22TrafficDataFilterProxyET_P7QObject.exit.preheader: ; preds =
 
 _Z12qobject_castIP22TrafficDataFilterProxyET_P7QObject.exit: ; preds = %_Z12qobject_castIP22TrafficDataFilterProxyET_P7QObject.exit.preheader, %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit
   %storemerge = phi i32 [ %85, %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit ], [ 0, %_Z12qobject_castIP22TrafficDataFilterProxyET_P7QObject.exit.preheader ]
-  %54 = invoke noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %14)
+  %54 = invoke noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %14)
           to label %.noexc23 unwind label %.loopexit
 
 .noexc23:                                         ; preds = %_Z12qobject_castIP22TrafficDataFilterProxyET_P7QObject.exit
@@ -2784,7 +2784,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %71, %64, %76
   br label %84
 
 84:                                               ; preds = %.noexc29, %.noexc28
-  invoke void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %48)
+  invoke void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(72) %48)
           to label %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit unwind label %.loopexit
 
 _ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit: ; preds = %84
@@ -3258,12 +3258,12 @@ _ZN5QTime10fromStringERK7QStringN2Qt10DateFormatE.exit: ; preds = %84
           to label %96 unwind label %82
 
 94:                                               ; preds = %89
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 24, i1 false)
   %95 = getelementptr inbounds i8, ptr %18, i64 24
   store i64 2, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 24, i1 false)
   store i64 2, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
@@ -3439,10 +3439,10 @@ _ZNK8QVariant9constDataEv.exit:                   ; preds = %27, %28
   br label %37
 
 36:                                               ; preds = %_Zeq9QMetaTypeS_.exit.thread6, %_Zeq9QMetaTypeS_.exit, %_ZNK8QVariant10isDetachedEv.exit
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI9QDateTimeE8metaTypeE, ptr noundef nonnull %1)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI9QDateTimeE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -3556,10 +3556,10 @@ _ZNK8QVariant9constDataEv.exit:                   ; preds = %27, %28
   br label %37
 
 36:                                               ; preds = %_Zeq9QMetaTypeS_.exit.thread6, %_Zeq9QMetaTypeS_.exit, %_ZNK8QVariant10isDetachedEv.exit
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI5QTimeE8metaTypeE, ptr noundef nonnull %1)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI5QTimeE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -3671,10 +3671,10 @@ _ZNK8QVariant9constDataEv.exit:                   ; preds = %27, %28
   br label %37
 
 36:                                               ; preds = %_Zeq9QMetaTypeS_.exit.thread6, %_Zeq9QMetaTypeS_.exit, %_ZNK8QVariant10isDetachedEv.exit
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI5QTimeE8metaTypeE, ptr noundef nonnull %1)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI5QTimeE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -3807,7 +3807,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %66
           to label %_ZNK11QModelIndex4dataEi.exit143 unwind label %85
 
 77:                                               ; preds = %_ZNK11QModelIndex4dataEi.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !50
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !50
   %78 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %78, align 8, !alias.scope !50
   br label %_ZNK11QModelIndex4dataEi.exit143
@@ -4893,7 +4893,7 @@ define void @_ZN11TrafficTree17customContextMenuERK6QPoint(ptr noundef nonnull a
   br label %_ZN7QStringD2Ev.exit34
 
 25:                                               ; preds = %19, %13
-  %26 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %26 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %27 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QSortFilterProxyModel16staticMetaObjectE, ptr noundef %26)
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %_ZN11TrafficTree9dataModelEv.exit, label %28
@@ -5171,7 +5171,7 @@ _ZL13initDirectionv.exit:                         ; preds = %_ZNK4QMapIN12Filter
   br i1 %3, label %78, label %89
 
 78:                                               ; preds = %_ZL13initDirectionv.exit
-  %79 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %79 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %80 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QSortFilterProxyModel16staticMetaObjectE, ptr noundef %79)
   %.not.i = icmp eq ptr %80, null
   br i1 %.not.i, label %_ZN11TrafficTree9dataModelEv.exit, label %81
@@ -6810,7 +6810,7 @@ _ZN17QArrayDataPointerIN12FilterAction15ActionDirectionEE5derefEv.exit.i.i.i340:
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %.split
 
 600:                                              ; preds = %594
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false), !alias.scope !83
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 24, i1 false), !alias.scope !83
   store i64 2, ptr %113, align 8, !alias.scope !83
   br label %_ZNK11QModelIndex4dataEi.exit
 
@@ -8073,7 +8073,7 @@ _ZN7QStringD2Ev.exit82:                           ; preds = %96, %_ZN17QArrayDat
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %.not.i.i.i83 = icmp eq ptr %102, null
   %spec.select.i.i.i = select i1 %.not.i.i.i83, ptr @_ZN7QString6_emptyE, ptr %102
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %18, ptr noundef nonnull %14, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %104)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %18, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %104)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %241
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %99
@@ -8636,7 +8636,7 @@ _ZN7QStringD2Ev.exit109:                          ; preds = %311, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not.i.i.i152 = icmp eq ptr %317, null
   %spec.select.i.i.i153 = select i1 %.not.i.i.i152, ptr @_ZN7QString6_emptyE, ptr %317
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %28, ptr noundef nonnull %14, ptr noundef nonnull %spec.select.i.i.i153, i64 noundef %318)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %28, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %spec.select.i.i.i153, i64 noundef %318)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit155 unwind label %330
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit155: ; preds = %315
@@ -10533,7 +10533,7 @@ declare void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11TrafficTree10disableTapEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %2 = tail call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %3 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QSortFilterProxyModel16staticMetaObjectE, ptr noundef %2)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN11TrafficTree9dataModelEv.exit.thread, label %_ZN11TrafficTree9dataModelEv.exit
@@ -10592,7 +10592,7 @@ _ZN11TrafficTree9dataModelEv.exit.preheader:      ; preds = %2
 
 _ZN11TrafficTree9dataModelEv.exit:                ; preds = %_ZN11TrafficTree9dataModelEv.exit.preheader, %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit
   %storemerge = phi i32 [ %44, %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit ], [ 0, %_ZN11TrafficTree9dataModelEv.exit.preheader ]
-  %16 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %16 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %17 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QSortFilterProxyModel16staticMetaObjectE, ptr noundef %16)
   %.not.i = icmp ne ptr %17, null
   call void @llvm.assume(i1 %.not.i)
@@ -10663,13 +10663,13 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %34
   br label %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit
 
 _ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit: ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %42
-  call void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  call void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(72) %9)
   %44 = add nuw i32 %storemerge, 1
   br label %_ZN11TrafficTree9dataModelEv.exit, !llvm.loop !131
 
 45:                                               ; preds = %_ZN11TrafficTree9dataModelEv.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %46 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %46 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   store i32 -1, ptr %3, align 8
   %47 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 -1, ptr %47, align 4
@@ -10684,9 +10684,9 @@ _ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit: ; preds = %_ZNK23QList
 
 .lr.ph.i:                                         ; preds = %45, %.lr.ph.i
   %.03.i = phi i32 [ %54, %.lr.ph.i ], [ 0, %45 ]
-  call void @_ZN9QTreeView22resizeColumnToContentsEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.03.i)
+  call void @_ZN9QTreeView22resizeColumnToContentsEi(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.03.i)
   %54 = add nuw nsw i32 %.03.i, 1
-  %55 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %55 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   store i32 -1, ptr %3, align 8
   store i32 -1, ptr %47, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)

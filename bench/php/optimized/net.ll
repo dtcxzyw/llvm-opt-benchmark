@@ -250,7 +250,7 @@ define hidden void @zif_net_get_interfaces(ptr nocapture noundef readonly %0, pt
   %62 = call ptr @_zend_new_array_0() #6
   store ptr %62, ptr %3, align 8
   store i32 775, ptr %22, align 8
-  call void @add_assoc_long_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 5, i64 noundef %45) #6
+  call void @add_assoc_long_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 5, i64 noundef range(i64 0, 4294967296) %45) #6
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %68, label %63
 

@@ -219,7 +219,7 @@ if.end67:                                         ; preds = %_ZN6hermes2vm15Hand
 
 if.then.i.i.i.i:                                  ; preds = %if.end67
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %arrayidx.i.i82, i64 %retval.sroa.0.0.copyload.i.i79) #8
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i82, i64 %retval.sroa.0.0.copyload.i.i79) #8
   br label %_ZN6hermes2vm6Domain9setModuleEjRNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
 
 _ZN6hermes2vm6Domain9setModuleEjRNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %if.end67, %if.then.i.i.i.i
@@ -366,7 +366,7 @@ if.then170:                                       ; preds = %_ZN6hermes2vm15Hand
 
 if.then.i.i.i.i142:                               ; preds = %if.then170
   %heapStorage_.i.i143 = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i143, ptr noundef nonnull %arrayidx.i.i138, i64 %retval.sroa.0.0.copyload.i.i135) #8
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i143, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i138, i64 %retval.sroa.0.0.copyload.i.i135) #8
   br label %_ZN6hermes2vm6Domain9setModuleEjRNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit144
 
 _ZN6hermes2vm6Domain9setModuleEjRNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit144: ; preds = %if.then170, %if.then.i.i.i.i142
@@ -400,7 +400,7 @@ if.end191:                                        ; preds = %if.end178
 
 if.then.i.i.i.i161:                               ; preds = %if.end191
   %heapStorage_.i.i162 = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i162, ptr noundef nonnull %arrayidx.i.i157, i64 %51) #8
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i162, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i157, i64 %51) #8
   br label %_ZN6hermes2vm6Domain16setCachedExportsEjRNS0_7RuntimeENS0_11HermesValueE.exit
 
 _ZN6hermes2vm6Domain16setCachedExportsEjRNS0_7RuntimeENS0_11HermesValueE.exit: ; preds = %if.end191, %if.then.i.i.i.i161
@@ -769,12 +769,12 @@ _ZNK6hermes2vm15StringPrimitive2atEj.exit.i:      ; preds = %_ZNK6hermes2vm15Str
   br i1 %cmp7.i, label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr nonnull %canonicalPath, ptr nonnull readonly %incdec.ptr.i.i.i.i.i.i, i32 noundef 0)
+  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr nonnull align 8 %canonicalPath, ptr nonnull readonly %incdec.ptr.i.i.i.i.i.i, i32 noundef 0)
   br label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit
 
 _ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit: ; preds = %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i, %if.else.i
   %.sink.i = phi i32 [ 0, %if.else.i ], [ 1, %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i ]
-  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr nonnull %canonicalPath, ptr nonnull readonly %retval.0.i.i.i.i.i.i40, i32 noundef %.sink.i)
+  call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr nonnull align 8 %canonicalPath, ptr nonnull readonly %retval.0.i.i.i.i.i.i40, i32 noundef %.sink.i)
   %call16.i = call noundef zeroext i1 @_ZN4llvh3sys4path11remove_dotsERNS_15SmallVectorImplIcEEbNS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(16) %canonicalPath, i1 noundef zeroext true, i32 noundef 1) #8
   %22 = load ptr, ptr %canonicalPath, align 8
   %23 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
@@ -995,7 +995,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8, !noalias !27
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i, align 8, !alias.scope !27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %str.coerce0, ptr noundef %add.ptr.i.i)

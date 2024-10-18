@@ -1077,7 +1077,7 @@ entry:
   br i1 %cmp.not, label %invoke.cont22, label %if.then
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %fn, i8 0)
+  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(408) %fn, i8 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then
@@ -1104,7 +1104,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %fn) #14
+  call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %fn) #14
   br label %ehcleanup53
 
 invoke.cont:                                      ; preds = %invoke.cont.i

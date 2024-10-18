@@ -2209,7 +2209,7 @@ define hidden noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnu
   %14 = sub nuw nsw i32 32, %13
   %15 = shl nuw i32 1, %14
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %9, i32 %15
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6OopMap13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6OopMap13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN9OopMapSet3addEP6OopMap.exit
 
@@ -2270,7 +2270,7 @@ _ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopClosure27DerivedPoint
   store ptr %2, ptr %8, align 8
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.0.i, ptr %19, align 8
-  call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %13)
+  call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(9) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -2338,7 +2338,7 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosureP1
   store ptr %2, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %3, ptr %11, align 8
-  call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10)
+  call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(9) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }
@@ -4890,7 +4890,7 @@ define hidden void @_ZN19DerivedPointerTable3addEP15derived_pointerP12derived_ba
 12:                                               ; preds = %12, %2
   %.0.i.i = phi ptr [ %11, %2 ], [ %13, %12 ]
   store volatile ptr %.0.i.i, ptr %9, align 8
-  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7, ptr %.0.i.i, ptr nonnull %10) #19, !srcloc !32
+  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %7, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %10) #19, !srcloc !32
   %.not.i.i = icmp eq ptr %.0.i.i, %13
   br i1 %.not.i.i, label %_ZN13LockFreeStackIN19DerivedPointerTable5EntryEXadL_ZNS1_8next_ptrERS1_EEE4pushES2_.exit, label %12, !llvm.loop !33
 
@@ -4901,7 +4901,7 @@ _ZN13LockFreeStackIN19DerivedPointerTable5EntryEXadL_ZNS1_8next_ptrERS1_EEE4push
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19DerivedPointerTable15update_pointersEv() local_unnamed_addr #2 align 2 {
   %1 = load ptr, ptr @_ZN19DerivedPointerTable5Entry5_listE, align 8
-  %2 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %1) #19, !srcloc !34
+  %2 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %1) #19, !srcloc !34
   %.not10 = icmp eq ptr %2, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -5159,7 +5159,7 @@ define linkonce_odr hidden void @_ZN13AddDerivedOop14do_derived_oopEP12derived_b
 13:                                               ; preds = %13, %3
   %.0.i.i.i = phi ptr [ %12, %3 ], [ %14, %13 ]
   store volatile ptr %.0.i.i.i, ptr %10, align 8
-  %14 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8, ptr %.0.i.i.i, ptr nonnull %11) #19, !srcloc !32
+  %14 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %8, ptr %.0.i.i.i, ptr nonnull align 8 dereferenceable(8) %11) #19, !srcloc !32
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %14
   br i1 %.not.i.i.i, label %_ZN19DerivedPointerTable3addEP15derived_pointerP12derived_base.exit, label %13, !llvm.loop !33
 

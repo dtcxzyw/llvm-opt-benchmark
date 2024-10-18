@@ -314,7 +314,7 @@ _ZNK4llvm20iterator_facade_baseINS_3pdb15GSIHashIteratorESt26random_access_itera
   %134 = shl i32 %43, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %135 = zext i32 %134 to i64
-  call void @_ZNK4llvm15BinaryStreamRef9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %135, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(16) %6) #13
+  call void @_ZNK4llvm15BinaryStreamRef9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 noundef %135, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %136 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %136, null
   br i1 %.not.i.i.i.i, label %_ZNK4llvm3pdb15GSIHashIteratordeEv.exit, label %137

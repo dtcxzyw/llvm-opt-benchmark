@@ -144,11 +144,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and3, i32 noundef %conv) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef range(i32 0, 32) %and, i32 noundef range(i32 0, 8) %and3, i32 noundef range(i32 0, 65536) %conv) #10
   br label %trace_sriov_unregister_vfs.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and3, i32 noundef %conv) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull %name, i32 noundef range(i32 0, 32) %and, i32 noundef range(i32 0, 8) %and3, i32 noundef range(i32 0, 65536) %conv) #10
   br label %trace_sriov_unregister_vfs.exit
 
 trace_sriov_unregister_vfs.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -424,11 +424,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and9, i32 noundef %sub, i32 noundef %val, i32 noundef %len) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef range(i32 0, 32) %and, i32 noundef range(i32 0, 8) %and9, i32 noundef range(i32 0, 64) %sub, i32 noundef %val, i32 noundef %len) #10
   br label %trace_sriov_config_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and9, i32 noundef %sub, i32 noundef %val, i32 noundef %len) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull %name, i32 noundef range(i32 0, 32) %and, i32 noundef range(i32 0, 8) %and9, i32 noundef range(i32 0, 64) %sub, i32 noundef %val, i32 noundef %len) #10
   br label %trace_sriov_config_write.exit
 
 trace_sriov_config_write.exit:                    ; preds = %if.end7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -532,11 +532,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and24, i32 noundef %conv25) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %name, i32 noundef range(i32 0, 32) %and, i32 noundef range(i32 0, 8) %and24, i32 noundef range(i32 0, 65536) %conv25) #10
   br label %trace_sriov_register_vfs.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and24, i32 noundef %conv25) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull %name, i32 noundef range(i32 0, 32) %and, i32 noundef range(i32 0, 8) %and24, i32 noundef range(i32 0, 65536) %conv25) #10
   br label %trace_sriov_register_vfs.exit
 
 trace_sriov_register_vfs.exit:                    ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

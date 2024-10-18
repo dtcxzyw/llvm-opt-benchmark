@@ -201,7 +201,7 @@ call.i.noexc.i:                                   ; preds = %entry
 lpad.i.i:                                         ; preds = %.noexc.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygen5http218kConnectionPrefaceB5cxx11E) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygen5http218kConnectionPrefaceB5cxx11E) #10
   br label %common.resume
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %entry
@@ -255,7 +255,7 @@ lpad.i41:                                         ; preds = %invoke.cont.i, %if.
   %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #10
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygen5http215kProtocolStringB5cxx11E) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygen5http215kProtocolStringB5cxx11E) #10
   br label %common.resume
 
 lpad.i3:                                          ; preds = %call.i.noexc.i6, %__cxx_global_var_init.exit
@@ -304,7 +304,7 @@ lpad.i48:                                         ; preds = %invoke.cont.i49, %i
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i43) #10
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygen5http220kProtocolDraftStringB5cxx11E) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygen5http220kProtocolDraftStringB5cxx11E) #10
   br label %common.resume
 
 lpad.i11:                                         ; preds = %call.i.noexc.i14, %__cxx_global_var_init.1.exit
@@ -353,7 +353,7 @@ lpad.i58:                                         ; preds = %invoke.cont.i59, %i
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i53) #10
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygen5http227kProtocolExperimentalStringB5cxx11E) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygen5http227kProtocolExperimentalStringB5cxx11E) #10
   br label %common.resume
 
 lpad.i19:                                         ; preds = %call.i.noexc.i22, %__cxx_global_var_init.3.exit
@@ -402,7 +402,7 @@ lpad.i68:                                         ; preds = %invoke.cont.i69, %i
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i63) #10
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygen5http224kProtocolCleartextStringB5cxx11E) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygen5http224kProtocolCleartextStringB5cxx11E) #10
   br label %common.resume
 
 lpad.i27:                                         ; preds = %call.i.noexc.i30, %__cxx_global_var_init.5.exit
@@ -451,7 +451,7 @@ lpad.i78:                                         ; preds = %invoke.cont.i79, %i
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i73) #10
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN8proxygen5http223kProtocolSettingsHeaderB5cxx11E) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN8proxygen5http223kProtocolSettingsHeaderB5cxx11E) #10
   br label %common.resume
 
 lpad.i35:                                         ; preds = %call.i.noexc.i38, %__cxx_global_var_init.7.exit

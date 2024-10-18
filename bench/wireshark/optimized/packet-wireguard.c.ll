@@ -623,7 +623,7 @@ wg_is_valid_message_length.exit.thread65:         ; preds = %37
   %121 = load ptr, ptr %96, align 8
   call fastcc void @wg_mix_hash(ptr noundef nonnull %30, ptr noundef %121, i64 noundef 32)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
-  %122 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %27, ptr noundef %117, i64 noundef 32, ptr noundef nonnull %29, i64 noundef 32) #15
+  %122 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %27, ptr noundef %117, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %29, i64 noundef 32) #15
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %125, label %124
 
@@ -661,7 +661,7 @@ wg_kdf.exit.i.i:                                  ; preds = %125
 
 138:                                              ; preds = %133, %129
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
-  %139 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %26, ptr noundef nonnull %31, i64 noundef 32, ptr noundef nonnull %29, i64 noundef 32) #15
+  %139 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %26, ptr noundef nonnull %31, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %29, i64 noundef 32) #15
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %142, label %141
 
@@ -728,7 +728,7 @@ wg_kdf.exit54.i.i:                                ; preds = %142
 
 167:                                              ; preds = %162, %157
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
-  %168 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %25, ptr noundef nonnull %32, i64 noundef 32, ptr noundef nonnull %29, i64 noundef 32) #15
+  %168 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %25, ptr noundef nonnull %32, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %29, i64 noundef 32) #15
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %171, label %170
 
@@ -1145,7 +1145,7 @@ wg_prepare_handshake_responder_keys.exit.i:       ; preds = %326, %322
   %369 = getelementptr inbounds i8, ptr %331, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %369, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  %370 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %15, ptr noundef %364, i64 noundef 32, ptr noundef nonnull %16, i64 noundef 32) #15
+  %370 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %15, ptr noundef %364, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32) #15
   %371 = icmp eq i32 %370, 0
   br i1 %371, label %373, label %372
 
@@ -1182,7 +1182,7 @@ wg_kdf.exit.i.i53:                                ; preds = %373
 
 386:                                              ; preds = %381, %377
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %387 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %14, ptr noundef nonnull %18, i64 noundef 32, ptr noundef nonnull %16, i64 noundef 32) #15
+  %387 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %14, ptr noundef nonnull %18, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32) #15
   %388 = icmp eq i32 %387, 0
   br i1 %388, label %390, label %389
 
@@ -1218,7 +1218,7 @@ wg_kdf.exit71.i.i:                                ; preds = %390
 
 403:                                              ; preds = %398, %394
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %404 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %13, ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull %16, i64 noundef 32) #15
+  %404 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %13, ptr noundef nonnull %19, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32) #15
   %405 = icmp eq i32 %404, 0
   br i1 %405, label %407, label %406
 
@@ -1291,7 +1291,7 @@ wg_kdf.exit72.i.i:                                ; preds = %407
   %.sroa.082.4.ph.i.i = phi i32 [ 3, %414 ], [ %.sroa.082.1.i.i, %._crit_edge.i.i.i ]
   %.sroa.483.1.ph.i.i = phi ptr [ null, %414 ], [ %420, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %422 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef 32, ptr noundef nonnull %16, i64 noundef 32) #15
+  %422 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32) #15
   %423 = icmp eq i32 %422, 0
   br i1 %423, label %425, label %424
 
@@ -1337,7 +1337,7 @@ wg_psk_iter_next.exit.i.i:                        ; preds = %.lr.ph.i.i.i
 436:                                              ; preds = %wg_psk_iter_next.exit.i.i, %wg_psk_iter_next.exit.thread.i.i
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef %365, i64 noundef 16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %437 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %11, ptr noundef null, i64 noundef 0, ptr noundef nonnull %16, i64 noundef 32) #15
+  %437 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %11, ptr noundef null, i64 noundef range(i64 0, 33) 0, ptr noundef nonnull %16, i64 noundef 32) #15
   %438 = icmp eq i32 %437, 0
   br i1 %438, label %440, label %439
 
@@ -2042,7 +2042,7 @@ wg_aead_decrypt.exit.i.i:                         ; preds = %785
   br i1 %792, label %wg_dissect_data.exit, label %793
 
 793:                                              ; preds = %791
-  %794 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %777, i32 noundef %767, i32 noundef %767) #15
+  %794 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %777, i32 noundef range(i32 0, 2147483632) %767, i32 noundef range(i32 0, 2147483632) %767) #15
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %794, ptr noundef nonnull @.str.128) #15
   %795 = call ptr @proto_item_get_parent(ptr noundef %54) #15
   %796 = load i32, ptr @pref_dissect_packet, align 4

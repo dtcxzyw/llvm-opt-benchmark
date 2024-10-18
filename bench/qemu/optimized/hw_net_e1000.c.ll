@@ -341,15 +341,15 @@ e1000_mmio_setup.exit:                            ; preds = %for.body.i
   %call12 = tail call ptr @qemu_get_queue(ptr noundef %call10) #13
   tail call void @qemu_format_nic_info_str(ptr noundef %call12, ptr noundef nonnull %conf) #13
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #14
-  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @e1000_autoneg_timer, ptr noundef %call.i26) #13
+  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef range(i32 1, 1000001) 1000000, i32 noundef 0, ptr noundef nonnull @e1000_autoneg_timer, ptr noundef %call.i26) #13
   %autoneg_timer = getelementptr inbounds i8, ptr %call.i26, i64 208520
   store ptr %call.i.i.i, ptr %autoneg_timer, align 8
   %call.i.i.i28 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #14
-  tail call void @timer_init_full(ptr noundef %call.i.i.i28, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @e1000_mit_timer, ptr noundef %call.i26) #13
+  tail call void @timer_init_full(ptr noundef %call.i.i.i28, ptr noundef null, i32 noundef 1, i32 noundef range(i32 1, 1000001) 1, i32 noundef 0, ptr noundef nonnull @e1000_mit_timer, ptr noundef %call.i26) #13
   %mit_timer = getelementptr inbounds i8, ptr %call.i26, i64 208528
   store ptr %call.i.i.i28, ptr %mit_timer, align 16
   %call.i.i.i29 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #14
-  tail call void @timer_init_full(ptr noundef %call.i.i.i29, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @e1000_flush_queue_timer, ptr noundef %call.i26) #13
+  tail call void @timer_init_full(ptr noundef %call.i.i.i29, ptr noundef null, i32 noundef 1, i32 noundef range(i32 1, 1000001) 1000000, i32 noundef 0, ptr noundef nonnull @e1000_flush_queue_timer, ptr noundef %call.i26) #13
   %flush_queue_timer = getelementptr inbounds i8, ptr %call.i26, i64 208544
   store ptr %call.i.i.i29, ptr %flush_queue_timer, align 16
   ret void
@@ -1373,7 +1373,7 @@ if.end57.i.i:                                     ; preds = %do.body.i.i
   %add.ptr78.i.i = getelementptr i8, ptr %data140.i.i, i64 %conv68.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %addr.0.i.i, i32 1, ptr noundef %add.ptr78.i.i, i64 noundef %cond73.i.i, i1 noundef zeroext false) #13
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %addr.0.i.i, i32 1, ptr noundef %add.ptr78.i.i, i64 noundef range(i64 0, 4294967296) %cond73.i.i, i1 noundef zeroext false) #13
   %24 = load i16, ptr %size.i.i, align 4
   %conv82.i.i = zext i16 %24 to i32
   %add83.i.i = add nuw nsw i32 %conv82.i.i, %conv74.i.i
@@ -1424,7 +1424,7 @@ if.else127.i.i:                                   ; preds = %if.end43.i.i
   %add.ptr145.i.i = getelementptr i8, ptr %data140.i.i, i64 %conv129.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i93.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %20, i32 1, ptr noundef %add.ptr145.i.i, i64 noundef %cond138.i.i, i1 noundef zeroext false) #13
+  %call.i.i.i.i93.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %20, i32 1, ptr noundef %add.ptr145.i.i, i64 noundef range(i64 0, 4294967296) %cond138.i.i, i1 noundef zeroext false) #13
   %31 = load i16, ptr %size.i.i, align 4
   %add150.i.i = add i16 %31, %conv139.i.i
   store i16 %add150.i.i, ptr %size.i.i, align 4
@@ -1776,7 +1776,7 @@ if.then2.i:                                       ; preds = %if.then98
   %sub3.i = sub nsw i32 %n.addr.0.i, %conv106
   %idx.ext.i = zext i8 %32 to i64
   %add.ptr.i = getelementptr i8, ptr %data99, i64 %idx.ext.i
-  %call.i.i = tail call i32 @net_checksum_add_cont(i32 noundef %sub3.i, ptr noundef %add.ptr.i, i32 noundef 0) #13
+  %call.i.i = tail call i32 @net_checksum_add_cont(i32 noundef range(i32 -255, 65536) %sub3.i, ptr noundef %add.ptr.i, i32 noundef 0) #13
   %idx.ext4.i = zext i8 %30 to i64
   %add.ptr5.i = getelementptr i8, ptr %data99, i64 %idx.ext4.i
   %call.i8.i = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i) #13
@@ -1819,7 +1819,7 @@ if.then2.i83:                                     ; preds = %if.then113
   %sub3.i84 = sub nsw i32 %n.addr.0.i80, %conv120
   %idx.ext.i85 = zext i8 %40 to i64
   %add.ptr.i86 = getelementptr i8, ptr %data114, i64 %idx.ext.i85
-  %call.i.i87 = tail call i32 @net_checksum_add_cont(i32 noundef %sub3.i84, ptr noundef %add.ptr.i86, i32 noundef 0) #13
+  %call.i.i87 = tail call i32 @net_checksum_add_cont(i32 noundef range(i32 -255, 65536) %sub3.i84, ptr noundef %add.ptr.i86, i32 noundef 0) #13
   %idx.ext4.i88 = zext i8 %38 to i64
   %add.ptr5.i89 = getelementptr i8, ptr %data114, i64 %idx.ext4.i88
   %call.i8.i90 = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i87) #13

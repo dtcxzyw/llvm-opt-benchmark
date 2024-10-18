@@ -3750,7 +3750,7 @@ define noundef i32 @If_CutFilter2(ptr noundef %0, ptr nocapture noundef readnone
 33:                                               ; preds = %31
   %34 = load i32, ptr %30, align 8
   %35 = lshr i32 %34, 13
-  %36 = tail call range(i32 0, 524288) i32 @llvm.umin.i32(i32 %.061, i32 %35)
+  %36 = tail call range(i32 0, 524288) i32 @llvm.umin.i32(i32 range(i32 0, 1000000001) %.061, i32 range(i32 0, 524288) %35)
   %37 = load ptr, ptr %10, align 8
   %38 = getelementptr inbounds i8, ptr %30, i64 4
   %39 = load i32, ptr %38, align 4

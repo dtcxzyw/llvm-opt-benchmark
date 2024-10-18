@@ -123,7 +123,7 @@ define hidden void @_ZN27G1RedirtyCardsLocalQueueSet5flushEv(ptr dead_on_unwind 
 20:                                               ; preds = %20, %9
   %.0.i.i.i = phi ptr [ %18, %9 ], [ %21, %20 ]
   store volatile ptr %.0.i.i.i, ptr %19, align 8
-  %21 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr %.0.i.i.i, ptr nonnull %14) #6, !srcloc !7
+  %21 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %15, ptr %.0.i.i.i, ptr nonnull align 8 dereferenceable(8) %14) #6, !srcloc !7
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %21
   br i1 %.not.i.i.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit.i, label %20, !llvm.loop !8
 
@@ -172,7 +172,7 @@ define hidden void @_ZN22G1RedirtyCardsQueueSet14add_bufferlistERK14BufferNodeLi
 15:                                               ; preds = %15, %4
   %.0.i.i = phi ptr [ %13, %4 ], [ %16, %15 ]
   store volatile ptr %.0.i.i, ptr %14, align 8
-  %16 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, ptr %.0.i.i, ptr nonnull %9) #6, !srcloc !7
+  %16 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %10, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %9) #6, !srcloc !7
   %.not.i.i = icmp eq ptr %.0.i.i, %16
   br i1 %.not.i.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit, label %15, !llvm.loop !8
 
@@ -233,7 +233,7 @@ define hidden noundef ptr @_ZNK22G1RedirtyCardsQueueSet21all_completed_buffersEv
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1RedirtyCardsQueueSet26take_all_completed_buffersEv(ptr dead_on_unwind noalias writable sret(%struct.BufferNodeList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
-  %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %3) #6, !srcloc !10
+  %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %3) #6, !srcloc !10
   %5 = getelementptr inbounds i8, ptr %1, i64 400
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 272
@@ -280,7 +280,7 @@ define hidden void @_ZN22G1RedirtyCardsQueueSet24enqueue_completed_bufferEP10Buf
 14:                                               ; preds = %14, %2
   %.0.i.i = phi ptr [ %12, %2 ], [ %15, %14 ]
   store volatile ptr %.0.i.i, ptr %13, align 8
-  %15 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr %.0.i.i, ptr nonnull %11) #6, !srcloc !7
+  %15 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %1, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %11) #6, !srcloc !7
   %.not.i.i = icmp eq ptr %.0.i.i, %15
   br i1 %.not.i.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE4pushES1_.exit, label %14, !llvm.loop !8
 

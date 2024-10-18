@@ -1173,7 +1173,7 @@ define hidden void @_ZN15MutexLockerImpl15post_initializeEv() local_unnamed_addr
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext false) #6
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #6
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #6

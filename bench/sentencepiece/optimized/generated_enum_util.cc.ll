@@ -182,7 +182,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal21InitializeEnumStringsEP
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %8
-  tail call void @_ZNK6google8protobuf11StringPiece8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  tail call void @_ZNK6google8protobuf11StringPiece8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %9)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal13DestroyStringEPKv, ptr noundef %5)
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2
@@ -213,7 +213,7 @@ define linkonce_odr void @_ZNK6google8protobuf11StringPiece8ToStringB5cxx11Ev(pt
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc4 unwind label %11
 
 .noexc4:                                          ; preds = %.noexc
@@ -223,7 +223,7 @@ define linkonce_odr void @_ZNK6google8protobuf11StringPiece8ToStringB5cxx11Ev(pt
 9:                                                ; preds = %.noexc4
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 11:                                               ; preds = %.noexc, %7

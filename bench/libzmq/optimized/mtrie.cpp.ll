@@ -676,7 +676,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store i64 %size_, ptr %it.sroa.40.0._M_storage.i.i.i.i.sroa_idx, align 8
   %it.sroa.43.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i23, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %it.sroa.43.0._M_storage.i.i.i.i.sroa_idx, i8 0, i64 5, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i23, ptr noundef nonnull %stack) #20
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(24) %stack) #20
   %0 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i = add i64 %0, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
@@ -712,7 +712,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub.i.i.i = add i64 %3, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
-  call void @_ZdlPv(ptr noundef %2) #18
+  call void @_ZdlPv(ptr noundef nonnull %2) #18
   %tobool = trunc i8 %it.sroa.49.0.copyload to i1
   br i1 %tobool, label %if.else, label %if.then
 
@@ -749,7 +749,7 @@ lpad:                                             ; preds = %lpad.loopexit.loope
 while.body.i.i.i:                                 ; preds = %lpad, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %6, %while.body.i.i.i ], [ %5, %lpad ]
   %6 = load ptr, ptr %__cur.05.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #18
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #18
   %cmp.not.i.i.i = icmp eq ptr %6, %stack
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !11
 
@@ -877,7 +877,7 @@ invoke.cont73:                                    ; preds = %if.end71
   store i8 1, ptr %it.sroa.49.0._M_storage.i.i.i.i26.sroa_idx, align 4
   %it.sroa.53.0._M_storage.i.i.i.i26.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i29, i64 53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.53.0._M_storage.i.i.i.i26.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %it.sroa.53, i64 3, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i29, ptr noundef nonnull %stack) #20
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %stack) #20
   %20 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i28 = add i64 %20, 1
   store i64 %add.i.i.i28, ptr %_M_size.i.i.i.i.i, align 8
@@ -897,7 +897,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   store i64 %sub81, ptr %next.sroa.4.0._M_storage.i.i.i.i31.sroa_idx, align 8
   %next.sroa.5.0._M_storage.i.i.i.i31.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i34, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %next.sroa.5.0._M_storage.i.i.i.i31.sroa_idx, i8 0, i64 5, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i34, ptr noundef nonnull %stack) #20
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(24) %stack) #20
   %21 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i33 = add i64 %21, 1
   store i64 %add.i.i.i33, ptr %_M_size.i.i.i.i.i, align 8
@@ -1254,7 +1254,7 @@ if.end422:                                        ; preds = %_ZNSt7__cxx114listI
 while.body.i.i.i39:                               ; preds = %if.end422, %while.body.i.i.i39
   %__cur.05.i.i.i40 = phi ptr [ %80, %while.body.i.i.i39 ], [ %79, %if.end422 ]
   %80 = load ptr, ptr %__cur.05.i.i.i40, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i40) #18
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i40) #18
   %cmp.not.i.i.i41 = icmp eq ptr %80, %stack
   br i1 %cmp.not.i.i.i41, label %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit42, label %while.body.i.i.i39, !llvm.loop !11
 

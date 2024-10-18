@@ -181,7 +181,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %1, %while.body.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #19
   %cmp.not.i.i = icmp eq ptr %1, %this
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIPN17grpc_event_engine12experimental12Epoll1PollerESaIS4_EED2Ev.exit, label %while.body.i.i, !llvm.loop !4
 
@@ -371,7 +371,7 @@ invoke.cont37:                                    ; preds = %_ZN4absl12lts_20230
   %free_epoll1_handles_list_ = getelementptr inbounds i8, ptr %24, i64 1248
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 16
   store ptr %this, ptr %_M_storage.i.i.i.i, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i8, ptr noundef nonnull %free_epoll1_handles_list_) #21
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i8, ptr noundef nonnull align 8 dereferenceable(24) %free_epoll1_handles_list_) #21
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %24, i64 1264
   %25 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %25, 1
@@ -728,7 +728,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   br i1 %cmp.i.i.i.i, label %invoke.cont7, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont5
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #24
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #24
           to label %.noexc2 unwind label %lpad6
 
 .noexc2:                                          ; preds = %if.then.i.i
@@ -884,7 +884,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental8WakeupFdESt14default_delete
 while.body.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental8WakeupFdESt14default_deleteIS2_EED2Ev.exit, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %22, %while.body.i.i.i ], [ %21, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental8WakeupFdESt14default_deleteIS2_EED2Ev.exit ]
   %22 = load ptr, ptr %__cur.05.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #19
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #19
   %cmp.not.i.i.i10 = icmp eq ptr %22, %free_epoll1_handles_list_
   br i1 %cmp.not.i.i.i10, label %_ZNSt7__cxx114listIPN17grpc_event_engine12experimental11EventHandleESaIS4_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !9
 
@@ -1001,7 +1001,7 @@ while.end.i.i:                                    ; preds = %if.end.i.i
 while.body.i.i.i.i.i:                             ; preds = %while.end.i.i, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %6, %while.body.i.i.i.i.i ], [ %.pre.i.i, %while.end.i.i ]
   %6 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #19
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #19
   %cmp.not.i.i.i.i.i = icmp eq ptr %6, %__to_destroy.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx114listIPN17grpc_event_engine12experimental12Epoll1PollerESaIS4_EE6removeERKS4_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !4
 
@@ -1072,7 +1072,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub.i.i.i = add i64 %8, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
-  tail call void @_ZdlPv(ptr noundef %6) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   %isnull = icmp eq ptr %7, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
@@ -1139,7 +1139,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental8WakeupFdESt14default_delete
 while.body.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental8WakeupFdESt14default_deleteIS2_EED2Ev.exit, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %3, %while.body.i.i.i ], [ %2, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental8WakeupFdESt14default_deleteIS2_EED2Ev.exit ]
   %3 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #19
   %cmp.not.i.i.i = icmp eq ptr %3, %free_epoll1_handles_list_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIPN17grpc_event_engine12experimental11EventHandleESaIS4_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !9
 
@@ -1192,7 +1192,7 @@ define void @_ZThn8_N17grpc_event_engine12experimental12Epoll1PollerD0Ev(ptr nou
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN17grpc_event_engine12experimental12Epoll1PollerD1Ev(ptr noundef nonnull align 8 dereferenceable(1281) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1281) %0) #19
   ret void
 }
 
@@ -1235,7 +1235,7 @@ if.else:                                          ; preds = %entry
   %sub.i.i.i = add i64 %4, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  tail call void @_ZdlPv(ptr noundef %0) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   %fd_.i = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %fd, ptr %fd_.i, align 8
   %read_closure_.i = getelementptr inbounds i8, ptr %3, i64 56
@@ -2385,7 +2385,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2395,7 +2395,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -2487,7 +2487,7 @@ while.body8:                                      ; preds = %while.cond6.prehead
   %sub.i.i.i = add i64 %8, -1
   store i64 %sub.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_116fork_poller_listB5cxx11E, i64 16), align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
-  tail call void @_ZdlPv(ptr noundef %6) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   tail call void @_ZN17grpc_event_engine12experimental12Epoll1Poller5CloseEv(ptr noundef nonnull align 8 dereferenceable(1281) %7)
   %9 = load ptr, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_116fork_poller_listB5cxx11E, align 8
   %cmp.i = icmp eq ptr %9, @_ZN17grpc_event_engine12experimental12_GLOBAL__N_116fork_poller_listB5cxx11E

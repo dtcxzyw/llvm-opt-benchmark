@@ -155,7 +155,7 @@ define noundef zeroext i1 @_ZN7Imf_3_221hasOriginalDataWindowERKNS_6HeaderE(ptr 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -168,7 +168,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -183,7 +183,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -347,7 +347,7 @@ define noundef zeroext i1 @_ZN7Imf_3_216hasWorldToCameraERKNS_6HeaderE(ptr nound
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(14) @.str.1, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(14) @.str.1, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -360,7 +360,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -375,7 +375,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -534,7 +534,7 @@ define noundef zeroext i1 @_ZN7Imf_3_213hasWorldToNDCERKNS_6HeaderE(ptr noundef 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(11) @.str.2, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(11) @.str.2, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -547,7 +547,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -562,7 +562,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -722,7 +722,7 @@ define noundef zeroext i1 @_ZN7Imf_3_221hasSensorCenterOffsetERKNS_6HeaderE(ptr 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.3, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.3, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -735,7 +735,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -750,7 +750,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -909,7 +909,7 @@ define noundef zeroext i1 @_ZN7Imf_3_226hasSensorOverallDimensionsERKNS_6HeaderE
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(24) @.str.4, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(24) @.str.4, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -922,7 +922,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -937,7 +937,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -1097,7 +1097,7 @@ define noundef zeroext i1 @_ZN7Imf_3_223hasSensorPhotositePitchERKNS_6HeaderE(pt
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(21) @.str.5, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(21) @.str.5, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -1110,7 +1110,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -1125,7 +1125,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -1284,7 +1284,7 @@ define noundef zeroext i1 @_ZN7Imf_3_229hasSensorAcquisitionRectangleERKNS_6Head
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(27) @.str.6, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(27) @.str.6, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -1297,7 +1297,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -1312,7 +1312,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -1472,7 +1472,7 @@ define noundef zeroext i1 @_ZN7Imf_3_225hasAscFramingDecisionListERKNS_6HeaderE(
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(23) @.str.7, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(23) @.str.7, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -1485,7 +1485,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -1500,7 +1500,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -1659,7 +1659,7 @@ define noundef zeroext i1 @_ZN7Imf_3_211hasXDensityERKNS_6HeaderE(ptr noundef no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.8, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.8, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -1672,7 +1672,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -1687,7 +1687,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -1842,7 +1842,7 @@ define noundef zeroext i1 @_ZN7Imf_3_212hasLongitudeERKNS_6HeaderE(ptr noundef n
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.9, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.9, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -1855,7 +1855,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -1870,7 +1870,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -2025,7 +2025,7 @@ define noundef zeroext i1 @_ZN7Imf_3_211hasLatitudeERKNS_6HeaderE(ptr noundef no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.10, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.10, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -2038,7 +2038,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -2053,7 +2053,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -2208,7 +2208,7 @@ define noundef zeroext i1 @_ZN7Imf_3_211hasAltitudeERKNS_6HeaderE(ptr noundef no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.11, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.11, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -2221,7 +2221,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -2236,7 +2236,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -2391,7 +2391,7 @@ define noundef zeroext i1 @_ZN7Imf_3_213hasCameraMakeERKNS_6HeaderE(ptr noundef 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(11) @.str.12, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(11) @.str.12, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -2404,7 +2404,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -2419,7 +2419,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -2574,7 +2574,7 @@ define noundef zeroext i1 @_ZN7Imf_3_214hasCameraModelERKNS_6HeaderE(ptr noundef
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(12) @.str.13, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(12) @.str.13, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -2587,7 +2587,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -2602,7 +2602,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -2757,7 +2757,7 @@ define noundef zeroext i1 @_ZN7Imf_3_221hasCameraSerialNumberERKNS_6HeaderE(ptr 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.14, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.14, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -2770,7 +2770,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -2785,7 +2785,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -2940,7 +2940,7 @@ define noundef zeroext i1 @_ZN7Imf_3_224hasCameraFirmwareVersionERKNS_6HeaderE(p
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(22) @.str.15, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(22) @.str.15, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -2953,7 +2953,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -2968,7 +2968,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -3123,7 +3123,7 @@ define noundef zeroext i1 @_ZN7Imf_3_213hasCameraUuidERKNS_6HeaderE(ptr noundef 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(11) @.str.16, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(11) @.str.16, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -3136,7 +3136,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -3151,7 +3151,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -3306,7 +3306,7 @@ define noundef zeroext i1 @_ZN7Imf_3_214hasCameraLabelERKNS_6HeaderE(ptr noundef
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(12) @.str.17, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(12) @.str.17, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -3319,7 +3319,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -3334,7 +3334,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -3489,7 +3489,7 @@ define noundef zeroext i1 @_ZN7Imf_3_219hasCameraCCTSettingERKNS_6HeaderE(ptr no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(17) @.str.18, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(17) @.str.18, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -3502,7 +3502,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -3517,7 +3517,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -3672,7 +3672,7 @@ define noundef zeroext i1 @_ZN7Imf_3_220hasCameraTintSettingERKNS_6HeaderE(ptr n
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(18) @.str.19, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(18) @.str.19, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -3685,7 +3685,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -3700,7 +3700,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -3855,7 +3855,7 @@ define noundef zeroext i1 @_ZN7Imf_3_221hasCameraColorBalanceERKNS_6HeaderE(ptr 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.20, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.20, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -3868,7 +3868,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -3883,7 +3883,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -4038,7 +4038,7 @@ define noundef zeroext i1 @_ZN7Imf_3_211hasIsoSpeedERKNS_6HeaderE(ptr noundef no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -4051,7 +4051,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -4066,7 +4066,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -4221,7 +4221,7 @@ define noundef zeroext i1 @_ZN7Imf_3_210hasExpTimeERKNS_6HeaderE(ptr noundef non
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(8) @.str.22, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(8) @.str.22, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -4234,7 +4234,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -4249,7 +4249,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -4404,7 +4404,7 @@ define noundef zeroext i1 @_ZN7Imf_3_215hasShutterAngleERKNS_6HeaderE(ptr nounde
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(13) @.str.23, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(13) @.str.23, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -4417,7 +4417,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -4432,7 +4432,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -4592,7 +4592,7 @@ define noundef zeroext i1 @_ZN7Imf_3_214hasCaptureRateERKNS_6HeaderE(ptr noundef
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(12) @.str.24, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(12) @.str.24, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -4605,7 +4605,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -4620,7 +4620,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINS_8RationalEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -4779,7 +4779,7 @@ define noundef zeroext i1 @_ZN7Imf_3_211hasLensMakeERKNS_6HeaderE(ptr noundef no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.25, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -4792,7 +4792,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -4807,7 +4807,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -4962,7 +4962,7 @@ define noundef zeroext i1 @_ZN7Imf_3_212hasLensModelERKNS_6HeaderE(ptr noundef n
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.26, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.26, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -4975,7 +4975,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -4990,7 +4990,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -5145,7 +5145,7 @@ define noundef zeroext i1 @_ZN7Imf_3_219hasLensSerialNumberERKNS_6HeaderE(ptr no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(17) @.str.27, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(17) @.str.27, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -5158,7 +5158,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -5173,7 +5173,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -5328,7 +5328,7 @@ define noundef zeroext i1 @_ZN7Imf_3_222hasLensFirmwareVersionERKNS_6HeaderE(ptr
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(20) @.str.28, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(20) @.str.28, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -5341,7 +5341,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -5356,7 +5356,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -5511,7 +5511,7 @@ define noundef zeroext i1 @_ZN7Imf_3_221hasNominalFocalLengthERKNS_6HeaderE(ptr 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.29, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.29, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -5524,7 +5524,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -5539,7 +5539,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -5694,7 +5694,7 @@ define noundef zeroext i1 @_ZN7Imf_3_221hasPinholeFocalLengthERKNS_6HeaderE(ptr 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.30, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.30, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -5707,7 +5707,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -5722,7 +5722,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -5877,7 +5877,7 @@ define noundef zeroext i1 @_ZN7Imf_3_223hasEffectiveFocalLengthERKNS_6HeaderE(pt
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(21) @.str.31, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(21) @.str.31, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -5890,7 +5890,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -5905,7 +5905,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -6060,7 +6060,7 @@ define noundef zeroext i1 @_ZN7Imf_3_222hasEntrancePupilOffsetERKNS_6HeaderE(ptr
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(20) @.str.32, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(20) @.str.32, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -6073,7 +6073,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -6088,7 +6088,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -6243,7 +6243,7 @@ define noundef zeroext i1 @_ZN7Imf_3_211hasApertureERKNS_6HeaderE(ptr noundef no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.33, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.33, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -6256,7 +6256,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -6271,7 +6271,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -6426,7 +6426,7 @@ define noundef zeroext i1 @_ZN7Imf_3_28hasTStopERKNS_6HeaderE(ptr noundef nonnul
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(6) @.str.34, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(6) @.str.34, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -6439,7 +6439,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -6454,7 +6454,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -6609,7 +6609,7 @@ define noundef zeroext i1 @_ZN7Imf_3_28hasFocusERKNS_6HeaderE(ptr noundef nonnul
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(6) @.str.35, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(6) @.str.35, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -6622,7 +6622,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -6637,7 +6637,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -6792,7 +6792,7 @@ define noundef zeroext i1 @_ZN7Imf_3_28hasOwnerERKNS_6HeaderE(ptr noundef nonnul
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(6) @.str.36, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(6) @.str.36, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -6805,7 +6805,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -6820,7 +6820,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -6975,7 +6975,7 @@ define noundef zeroext i1 @_ZN7Imf_3_211hasCommentsERKNS_6HeaderE(ptr noundef no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.37, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.37, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -6988,7 +6988,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -7003,7 +7003,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -7158,7 +7158,7 @@ define noundef zeroext i1 @_ZN7Imf_3_210hasCapDateERKNS_6HeaderE(ptr noundef non
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(8) @.str.38, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(8) @.str.38, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -7171,7 +7171,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -7186,7 +7186,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -7341,7 +7341,7 @@ define noundef zeroext i1 @_ZN7Imf_3_212hasUtcOffsetERKNS_6HeaderE(ptr noundef n
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.39, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.39, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -7354,7 +7354,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -7369,7 +7369,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -7529,7 +7529,7 @@ define noundef zeroext i1 @_ZN7Imf_3_210hasKeyCodeERKNS_6HeaderE(ptr noundef non
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(8) @.str.40, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(8) @.str.40, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -7542,7 +7542,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -7557,7 +7557,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINS_7KeyCodeEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -7721,7 +7721,7 @@ define noundef zeroext i1 @_ZN7Imf_3_211hasTimeCodeERKNS_6HeaderE(ptr noundef no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.41, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.41, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -7734,7 +7734,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -7749,7 +7749,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINS_8TimeCodeEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -7908,7 +7908,7 @@ define noundef zeroext i1 @_ZN7Imf_3_218hasFramesPerSecondERKNS_6HeaderE(ptr nou
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(16) @.str.42, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(16) @.str.42, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -7921,7 +7921,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -7936,7 +7936,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINS_8RationalEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -8096,7 +8096,7 @@ define noundef zeroext i1 @_ZN7Imf_3_215hasImageCounterERKNS_6HeaderE(ptr nounde
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(13) @.str.43, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(13) @.str.43, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -8109,7 +8109,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -8124,7 +8124,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIiEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -8283,7 +8283,7 @@ define noundef zeroext i1 @_ZN7Imf_3_211hasReelNameERKNS_6HeaderE(ptr noundef no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.44, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(9) @.str.44, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -8296,7 +8296,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -8311,7 +8311,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -8471,7 +8471,7 @@ define noundef zeroext i1 @_ZN7Imf_3_217hasChromaticitiesERKNS_6HeaderE(ptr noun
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(15) @.str.45, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(15) @.str.45, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -8484,7 +8484,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -8499,7 +8499,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINS_14ChromaticitiesEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -8658,7 +8658,7 @@ define noundef zeroext i1 @_ZN7Imf_3_217hasWhiteLuminanceERKNS_6HeaderE(ptr noun
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(15) @.str.46, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(15) @.str.46, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -8671,7 +8671,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -8686,7 +8686,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -8841,7 +8841,7 @@ define noundef zeroext i1 @_ZN7Imf_3_217hasAdoptedNeutralERKNS_6HeaderE(ptr noun
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(15) @.str.47, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(15) @.str.47, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -8854,7 +8854,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -8869,7 +8869,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -9024,7 +9024,7 @@ define noundef zeroext i1 @_ZN7Imf_3_221hasRenderingTransformERKNS_6HeaderE(ptr 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.48, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(19) @.str.48, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -9037,7 +9037,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -9052,7 +9052,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -9207,7 +9207,7 @@ define noundef zeroext i1 @_ZN7Imf_3_219hasLookModTransformERKNS_6HeaderE(ptr no
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(17) @.str.49, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(17) @.str.49, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -9220,7 +9220,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -9235,7 +9235,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -9395,7 +9395,7 @@ define noundef zeroext i1 @_ZN7Imf_3_29hasEnvmapERKNS_6HeaderE(ptr noundef nonnu
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(7) @.str.50, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(7) @.str.50, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -9408,7 +9408,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -9423,7 +9423,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINS_6EnvmapEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -9582,7 +9582,7 @@ define noundef zeroext i1 @_ZN7Imf_3_212hasWrapmodesERKNS_6HeaderE(ptr noundef n
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.51, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.51, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -9595,7 +9595,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -9610,7 +9610,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -9770,7 +9770,7 @@ define noundef zeroext i1 @_ZN7Imf_3_212hasMultiViewERKNS_6HeaderE(ptr noundef n
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.52, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(10) @.str.52, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -9783,7 +9783,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -9798,7 +9798,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -9962,7 +9962,7 @@ define noundef zeroext i1 @_ZN7Imf_3_217hasDeepImageStateERKNS_6HeaderE(ptr noun
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(15) @.str.53, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(15) @.str.53, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -9975,7 +9975,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -9990,7 +9990,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINS_14DeepImageStateEEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -10149,7 +10149,7 @@ define noundef zeroext i1 @_ZN7Imf_3_222hasDwaCompressionLevelERKNS_6HeaderE(ptr
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(20) @.str.54, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(20) @.str.54, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -10162,7 +10162,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -10177,7 +10177,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeIfEEEEPKT_PKc.exit, label %cond.false.i
 
@@ -10337,7 +10337,7 @@ define noundef zeroext i1 @_ZN7Imf_3_213hasIDManifestERKNS_6HeaderE(ptr noundef 
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i)
-  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(11) @.str.55, i64 noundef 255) #11
+  %call.i.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull dereferenceable(11) @.str.55, i64 noundef 255) #11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 255
   store i8 0, ptr %arrayidx.i.i, align 1
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
@@ -10350,7 +10350,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
-  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %ref.tmp.i) #12
+  %call2.i.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i) #12
   %cmp.i.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i.i, 0
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
@@ -10365,7 +10365,7 @@ _ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ES
 
 _ZNKSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp.i, ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i3.i.i.i) #12
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(256) %_M_storage.i.i.i3.i.i.i) #12
   %cmp.i.i.i.i.i = icmp slt i32 %call2.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZNK7Imf_3_26Header18findTypedAttributeINS_14TypedAttributeINS_20CompressedIDManifestEEEEEPKT_PKc.exit, label %cond.false.i
 

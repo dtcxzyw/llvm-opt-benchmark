@@ -1239,12 +1239,12 @@ Vec_IntFillExtra.exit341:                         ; preds = %405, %._crit_edge.i
   br i1 %.not.i312, label %Abc_ObjMvVarNum.exit, label %573
 
 573:                                              ; preds = %566
-  %574 = call fastcc ptr @Abc_ObjMvVar(ptr noundef readonly %561)
+  %574 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %561)
   %.not3.i = icmp eq ptr %574, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %575
 
 575:                                              ; preds = %573
-  %576 = call fastcc ptr @Abc_ObjMvVar(ptr noundef readonly %561)
+  %576 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %561)
   %577 = load i32, ptr %576, align 4
   br label %Abc_ObjMvVarNum.exit
 
@@ -2872,12 +2872,12 @@ Vec_IntFillExtra.exit366:                         ; preds = %465, %._crit_edge.i
   br i1 %.not.i336, label %Abc_ObjMvVarNum.exit, label %640
 
 640:                                              ; preds = %633
-  %641 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef readonly %628)
+  %641 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %628)
   %.not3.i = icmp eq ptr %641, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %642
 
 642:                                              ; preds = %640
-  %643 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef readonly %628)
+  %643 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %628)
   %644 = load i32, ptr %643, align 4
   br label %Abc_ObjMvVarNum.exit
 

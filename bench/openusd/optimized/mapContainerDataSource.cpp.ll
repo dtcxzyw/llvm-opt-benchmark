@@ -50,7 +50,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24HdMapContainerDataSourceC2ER
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEERKS3_EEC2ERKS7_.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %11 unwind label %15
 
 11:                                               ; preds = %9
@@ -69,7 +69,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24HdMapContainerDataSourceC2ER
   br i1 %.not.i.i, label %.body, label %18
 
 18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %20
 
 20:                                               ; preds = %18
@@ -200,7 +200,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
 
 40:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 3)
+  %42 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 3)
           to label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEERKS3_EED2Ev.exit unwind label %43
 
 43:                                               ; preds = %40
@@ -292,7 +292,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24HdMapContainerDataSource3Get
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load ptr, ptr %20, align 8, !noalias !4
-  invoke void %21(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void %21(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNKSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEERKS3_EEclES5_.exit unwind label %58
 
 _ZNKSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEERKS3_EEclES5_.exit: ; preds = %19

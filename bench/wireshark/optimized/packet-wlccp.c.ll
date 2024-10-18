@@ -1417,7 +1417,7 @@ define internal fastcc i32 @dissect_wlccp_tlvs(ptr noundef %0, ptr noundef %1, i
   %58 = add nsw i32 %7, -4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.476) #4
   %59 = load i32, ptr @hf_wlccp_tlv_unknown_value, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %59, ptr noundef %1, i32 noundef %35, i32 noundef %58, i32 noundef 0) #4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %59, ptr noundef %1, i32 noundef %35, i32 noundef range(i32 -4, 65532) %58, i32 noundef 0) #4
   br label %.loopexit
 
 .thread133:                                       ; preds = %15
@@ -1444,7 +1444,7 @@ define internal fastcc i32 @dissect_wlccp_tlvs(ptr noundef %0, ptr noundef %1, i
   %71 = add nsw i32 %7, -4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.476) #4
   %72 = load i32, ptr @hf_wlccp_tlv_unknown_value, align 4
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %72, ptr noundef %1, i32 noundef %35, i32 noundef %71, i32 noundef 0) #4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %72, ptr noundef %1, i32 noundef %35, i32 noundef range(i32 -4, 65532) %71, i32 noundef 0) #4
   br label %.loopexit
 
 dissect_wlccp_sec_tlv.exit.thread:                ; preds = %15
@@ -1574,7 +1574,7 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   %167 = add nsw i32 %7, -4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.476) #4
   %168 = load i32, ptr @hf_wlccp_tlv_unknown_value, align 4
-  %169 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %168, ptr noundef %1, i32 noundef %35, i32 noundef %167, i32 noundef 0) #4
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %168, ptr noundef %1, i32 noundef %35, i32 noundef range(i32 -4, 65532) %167, i32 noundef 0) #4
   br label %.loopexit
 
 170:                                              ; preds = %.thread131
@@ -1954,7 +1954,7 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
 455:                                              ; preds = %.thread131
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.476) #4
   %456 = load i32, ptr @hf_wlccp_tlv_unknown_value, align 4
-  %457 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %456, ptr noundef %1, i32 noundef %35, i32 noundef %52, i32 noundef 0) #4
+  %457 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %456, ptr noundef %1, i32 noundef %35, i32 noundef range(i32 -4, 65532) %52, i32 noundef 0) #4
   br label %.loopexit
 
 458:                                              ; preds = %.thread133
@@ -2084,7 +2084,7 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   %564 = add nsw i32 %7, -4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.476) #4
   %565 = load i32, ptr @hf_wlccp_tlv_unknown_value, align 4
-  %566 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %565, ptr noundef %1, i32 noundef %35, i32 noundef %564, i32 noundef 0) #4
+  %566 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %565, ptr noundef %1, i32 noundef %35, i32 noundef range(i32 -4, 65532) %564, i32 noundef 0) #4
   br label %.loopexit
 
 dissect_wlccp_sec_tlv.exit:                       ; preds = %.lr.ph.i, %.lr.ph418.i, %.lr.ph422.i, %.lr.ph427.i, %555, %529, %516, %497, %484, %458, %451, %441, %437, %433, %417, %404, %385, %328, %315, %298, %285, %269, %256, %224, %204, %188, %187, %177, %170, %144, %132, %110, %88, %83, %dissect_wlccp_ccm_tlv.exit

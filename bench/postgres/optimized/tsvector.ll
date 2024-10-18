@@ -29,7 +29,7 @@ define dso_local range(i32 -1, 2) i32 @compareWordEntryPos(ptr nocapture noundef
   %6 = load i16, ptr %1, align 2
   %7 = and i16 %6, 16383
   %8 = zext nneg i16 %7 to i32
-  %9 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %5, i32 %8)
+  %9 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 range(i32 0, 16384) %5, i32 range(i32 0, 16384) %8)
   ret i32 %9
 }
 

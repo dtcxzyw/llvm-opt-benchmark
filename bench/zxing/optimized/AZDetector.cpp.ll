@@ -1069,7 +1069,7 @@ _ZN5ZXing5AztecL12FindRotationEjb.exit.i:         ; preds = %369
 
 384:                                              ; preds = %_ZN5ZXing5AztecL12FindRotationEjb.exit.i
   %385 = getelementptr inbounds i8, ptr %10, i64 %gepdiff.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %385, ptr nonnull align 8 %20, i64 %.idx.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %385, ptr nonnull align 8 dereferenceable(64) %20, i64 %.idx.i.i, i1 false)
   br label %_ZSt11rotate_copyIPKN5ZXing6PointTIdEEPS2_ET0_T_S7_S7_S6_.exit.i.i
 
 _ZSt11rotate_copyIPKN5ZXing6PointTIdEEPS2_ET0_T_S7_S7_S6_.exit.i.i: ; preds = %384, %_ZN5ZXing5AztecL12FindRotationEjb.exit.i
@@ -1488,7 +1488,7 @@ _ZN5ZXing5AztecL12FindRotationEjb.exit.i.thread:  ; preds = %373, %_ZN5ZXing5Azt
 
 546:                                              ; preds = %.thread175
   %547 = getelementptr inbounds i8, ptr %26, i64 %gepdiff.i.pre-phi
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %547, ptr nonnull align 8 %20, i64 %.idx.i66.pre-phi, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %547, ptr nonnull align 8 dereferenceable(64) %20, i64 %.idx.i66.pre-phi, i1 false)
   br label %_ZSt11rotate_copyIPKN5ZXing6PointTIdEEPS2_ET0_T_S7_S7_S6_.exit.i
 
 _ZSt11rotate_copyIPKN5ZXing6PointTIdEEPS2_ET0_T_S7_S7_S6_.exit.i: ; preds = %546, %.thread175

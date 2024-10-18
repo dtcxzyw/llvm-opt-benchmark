@@ -148,7 +148,7 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %49, align 8
-  %68 = call i32 %65(ptr noundef nonnull %55, ptr noundef %67, ptr noundef nonnull %1, i32 noundef %.3) #7
+  %68 = call i32 %65(ptr noundef nonnull %55, ptr noundef %67, ptr noundef nonnull %1, i32 noundef range(i32 0, 25) %.3) #7
   br label %69
 
 69:                                               ; preds = %66, %63, %60, %54

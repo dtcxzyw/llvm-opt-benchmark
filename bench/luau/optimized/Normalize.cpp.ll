@@ -2094,7 +2094,7 @@ define linkonce_odr dso_local void @_ZN4Luau19BuiltinTypeFamiliesD2Ev(ptr nounde
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 1440
-  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %7 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit unwind label %8
 
 8:                                                ; preds = %5
@@ -2105,7 +2105,7 @@ define linkonce_odr dso_local void @_ZN4Luau19BuiltinTypeFamiliesD2Ev(ptr nounde
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit:                    ; preds = %1, %5
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #28
   %11 = getelementptr inbounds i8, ptr %0, i64 1344
   %12 = getelementptr inbounds i8, ptr %0, i64 1392
   %13 = load ptr, ptr %12, align 8
@@ -2114,7 +2114,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit:                    ; preds = %1, %5
 
 14:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit
   %15 = getelementptr inbounds i8, ptr %0, i64 1376
-  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %16 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit2 unwind label %17
 
 17:                                               ; preds = %14
@@ -2125,7 +2125,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit:                    ; preds = %1, %5
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit2:                   ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit, %14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #28
   %20 = getelementptr inbounds i8, ptr %0, i64 1280
   %21 = getelementptr inbounds i8, ptr %0, i64 1328
   %22 = load ptr, ptr %21, align 8
@@ -2134,7 +2134,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit2:                   ; preds = %_ZN4Luau10TypeFamil
 
 23:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit2
   %24 = getelementptr inbounds i8, ptr %0, i64 1312
-  %25 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
+  %25 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit4 unwind label %26
 
 26:                                               ; preds = %23
@@ -2145,7 +2145,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit2:                   ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit4:                   ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit2, %23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #28
   %29 = getelementptr inbounds i8, ptr %0, i64 1216
   %30 = getelementptr inbounds i8, ptr %0, i64 1264
   %31 = load ptr, ptr %30, align 8
@@ -2154,7 +2154,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit4:                   ; preds = %_ZN4Luau10TypeFamil
 
 32:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit4
   %33 = getelementptr inbounds i8, ptr %0, i64 1248
-  %34 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef 3)
+  %34 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit6 unwind label %35
 
 35:                                               ; preds = %32
@@ -2165,7 +2165,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit4:                   ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit6:                   ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit4, %32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %29) #28
   %38 = getelementptr inbounds i8, ptr %0, i64 1152
   %39 = getelementptr inbounds i8, ptr %0, i64 1200
   %40 = load ptr, ptr %39, align 8
@@ -2174,7 +2174,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit6:                   ; preds = %_ZN4Luau10TypeFamil
 
 41:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit6
   %42 = getelementptr inbounds i8, ptr %0, i64 1184
-  %43 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %42, i32 noundef 3)
+  %43 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit8 unwind label %44
 
 44:                                               ; preds = %41
@@ -2185,7 +2185,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit6:                   ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit8:                   ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit6, %41
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %38) #28
   %47 = getelementptr inbounds i8, ptr %0, i64 1088
   %48 = getelementptr inbounds i8, ptr %0, i64 1136
   %49 = load ptr, ptr %48, align 8
@@ -2194,7 +2194,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit8:                   ; preds = %_ZN4Luau10TypeFamil
 
 50:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit8
   %51 = getelementptr inbounds i8, ptr %0, i64 1120
-  %52 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %51, i32 noundef 3)
+  %52 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit10 unwind label %53
 
 53:                                               ; preds = %50
@@ -2205,7 +2205,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit8:                   ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit10:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit8, %50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %47) #28
   %56 = getelementptr inbounds i8, ptr %0, i64 1024
   %57 = getelementptr inbounds i8, ptr %0, i64 1072
   %58 = load ptr, ptr %57, align 8
@@ -2214,7 +2214,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit10:                  ; preds = %_ZN4Luau10TypeFamil
 
 59:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit10
   %60 = getelementptr inbounds i8, ptr %0, i64 1056
-  %61 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %60, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit12 unwind label %62
 
 62:                                               ; preds = %59
@@ -2225,7 +2225,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit10:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit12:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit10, %59
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %56) #28
   %65 = getelementptr inbounds i8, ptr %0, i64 960
   %66 = getelementptr inbounds i8, ptr %0, i64 1008
   %67 = load ptr, ptr %66, align 8
@@ -2234,7 +2234,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit12:                  ; preds = %_ZN4Luau10TypeFamil
 
 68:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit12
   %69 = getelementptr inbounds i8, ptr %0, i64 992
-  %70 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %69, i32 noundef 3)
+  %70 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %69, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit14 unwind label %71
 
 71:                                               ; preds = %68
@@ -2245,7 +2245,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit12:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit14:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit12, %68
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %65) #28
   %74 = getelementptr inbounds i8, ptr %0, i64 896
   %75 = getelementptr inbounds i8, ptr %0, i64 944
   %76 = load ptr, ptr %75, align 8
@@ -2254,7 +2254,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit14:                  ; preds = %_ZN4Luau10TypeFamil
 
 77:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit14
   %78 = getelementptr inbounds i8, ptr %0, i64 928
-  %79 = invoke noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %78, i32 noundef 3)
+  %79 = invoke noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %78, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit16 unwind label %80
 
 80:                                               ; preds = %77
@@ -2265,7 +2265,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit14:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit16:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit14, %77
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %74) #28
   %83 = getelementptr inbounds i8, ptr %0, i64 832
   %84 = getelementptr inbounds i8, ptr %0, i64 880
   %85 = load ptr, ptr %84, align 8
@@ -2274,7 +2274,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit16:                  ; preds = %_ZN4Luau10TypeFamil
 
 86:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit16
   %87 = getelementptr inbounds i8, ptr %0, i64 864
-  %88 = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %87, i32 noundef 3)
+  %88 = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %87, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit18 unwind label %89
 
 89:                                               ; preds = %86
@@ -2285,7 +2285,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit16:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit18:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit16, %86
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %83) #28
   %92 = getelementptr inbounds i8, ptr %0, i64 768
   %93 = getelementptr inbounds i8, ptr %0, i64 816
   %94 = load ptr, ptr %93, align 8
@@ -2294,7 +2294,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit18:                  ; preds = %_ZN4Luau10TypeFamil
 
 95:                                               ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit18
   %96 = getelementptr inbounds i8, ptr %0, i64 800
-  %97 = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(16) %96, i32 noundef 3)
+  %97 = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %96, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit20 unwind label %98
 
 98:                                               ; preds = %95
@@ -2305,7 +2305,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit18:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit20:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit18, %95
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %92) #28
   %101 = getelementptr inbounds i8, ptr %0, i64 704
   %102 = getelementptr inbounds i8, ptr %0, i64 752
   %103 = load ptr, ptr %102, align 8
@@ -2314,7 +2314,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit20:                  ; preds = %_ZN4Luau10TypeFamil
 
 104:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit20
   %105 = getelementptr inbounds i8, ptr %0, i64 736
-  %106 = invoke noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %105, i32 noundef 3)
+  %106 = invoke noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %105, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit22 unwind label %107
 
 107:                                              ; preds = %104
@@ -2325,7 +2325,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit20:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit22:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit20, %104
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %101) #28
   %110 = getelementptr inbounds i8, ptr %0, i64 640
   %111 = getelementptr inbounds i8, ptr %0, i64 688
   %112 = load ptr, ptr %111, align 8
@@ -2334,7 +2334,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit22:                  ; preds = %_ZN4Luau10TypeFamil
 
 113:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit22
   %114 = getelementptr inbounds i8, ptr %0, i64 672
-  %115 = invoke noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 3)
+  %115 = invoke noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(32) %114, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit24 unwind label %116
 
 116:                                              ; preds = %113
@@ -2345,7 +2345,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit22:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit24:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit22, %113
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %110) #28
   %119 = getelementptr inbounds i8, ptr %0, i64 576
   %120 = getelementptr inbounds i8, ptr %0, i64 624
   %121 = load ptr, ptr %120, align 8
@@ -2354,7 +2354,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit24:                  ; preds = %_ZN4Luau10TypeFamil
 
 122:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit24
   %123 = getelementptr inbounds i8, ptr %0, i64 608
-  %124 = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %123, i32 noundef 3)
+  %124 = invoke noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %123, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit26 unwind label %125
 
 125:                                              ; preds = %122
@@ -2365,7 +2365,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit24:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit26:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit24, %122
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %119) #28
   %128 = getelementptr inbounds i8, ptr %0, i64 512
   %129 = getelementptr inbounds i8, ptr %0, i64 560
   %130 = load ptr, ptr %129, align 8
@@ -2374,7 +2374,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit26:                  ; preds = %_ZN4Luau10TypeFamil
 
 131:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit26
   %132 = getelementptr inbounds i8, ptr %0, i64 544
-  %133 = invoke noundef zeroext i1 %130(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %132, i32 noundef 3)
+  %133 = invoke noundef zeroext i1 %130(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit28 unwind label %134
 
 134:                                              ; preds = %131
@@ -2385,7 +2385,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit26:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit28:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit26, %131
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %128) #28
   %137 = getelementptr inbounds i8, ptr %0, i64 448
   %138 = getelementptr inbounds i8, ptr %0, i64 496
   %139 = load ptr, ptr %138, align 8
@@ -2394,7 +2394,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit28:                  ; preds = %_ZN4Luau10TypeFamil
 
 140:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit28
   %141 = getelementptr inbounds i8, ptr %0, i64 480
-  %142 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(16) %141, i32 noundef 3)
+  %142 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %141, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit30 unwind label %143
 
 143:                                              ; preds = %140
@@ -2405,7 +2405,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit28:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit30:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit28, %140
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %137) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %137) #28
   %146 = getelementptr inbounds i8, ptr %0, i64 384
   %147 = getelementptr inbounds i8, ptr %0, i64 432
   %148 = load ptr, ptr %147, align 8
@@ -2414,7 +2414,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit30:                  ; preds = %_ZN4Luau10TypeFamil
 
 149:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit30
   %150 = getelementptr inbounds i8, ptr %0, i64 416
-  %151 = invoke noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(16) %150, ptr noundef nonnull align 8 dereferenceable(16) %150, i32 noundef 3)
+  %151 = invoke noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull align 8 dereferenceable(32) %150, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit32 unwind label %152
 
 152:                                              ; preds = %149
@@ -2425,7 +2425,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit30:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit32:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit30, %149
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %146) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %146) #28
   %155 = getelementptr inbounds i8, ptr %0, i64 320
   %156 = getelementptr inbounds i8, ptr %0, i64 368
   %157 = load ptr, ptr %156, align 8
@@ -2434,7 +2434,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit32:                  ; preds = %_ZN4Luau10TypeFamil
 
 158:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit32
   %159 = getelementptr inbounds i8, ptr %0, i64 352
-  %160 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(16) %159, i32 noundef 3)
+  %160 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(32) %159, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit34 unwind label %161
 
 161:                                              ; preds = %158
@@ -2445,7 +2445,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit32:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit34:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit32, %158
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %155) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %155) #28
   %164 = getelementptr inbounds i8, ptr %0, i64 256
   %165 = getelementptr inbounds i8, ptr %0, i64 304
   %166 = load ptr, ptr %165, align 8
@@ -2454,7 +2454,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit34:                  ; preds = %_ZN4Luau10TypeFamil
 
 167:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit34
   %168 = getelementptr inbounds i8, ptr %0, i64 288
-  %169 = invoke noundef zeroext i1 %166(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(16) %168, i32 noundef 3)
+  %169 = invoke noundef zeroext i1 %166(ptr noundef nonnull align 8 dereferenceable(32) %168, ptr noundef nonnull align 8 dereferenceable(32) %168, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit36 unwind label %170
 
 170:                                              ; preds = %167
@@ -2465,7 +2465,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit34:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit36:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit34, %167
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %164) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %164) #28
   %173 = getelementptr inbounds i8, ptr %0, i64 192
   %174 = getelementptr inbounds i8, ptr %0, i64 240
   %175 = load ptr, ptr %174, align 8
@@ -2474,7 +2474,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit36:                  ; preds = %_ZN4Luau10TypeFamil
 
 176:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit36
   %177 = getelementptr inbounds i8, ptr %0, i64 224
-  %178 = invoke noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(16) %177, i32 noundef 3)
+  %178 = invoke noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef nonnull align 8 dereferenceable(32) %177, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit38 unwind label %179
 
 179:                                              ; preds = %176
@@ -2485,7 +2485,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit36:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit38:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit36, %176
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %173) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %173) #28
   %182 = getelementptr inbounds i8, ptr %0, i64 128
   %183 = getelementptr inbounds i8, ptr %0, i64 176
   %184 = load ptr, ptr %183, align 8
@@ -2494,7 +2494,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit38:                  ; preds = %_ZN4Luau10TypeFamil
 
 185:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit38
   %186 = getelementptr inbounds i8, ptr %0, i64 160
-  %187 = invoke noundef zeroext i1 %184(ptr noundef nonnull align 8 dereferenceable(16) %186, ptr noundef nonnull align 8 dereferenceable(16) %186, i32 noundef 3)
+  %187 = invoke noundef zeroext i1 %184(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(32) %186, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit40 unwind label %188
 
 188:                                              ; preds = %185
@@ -2505,7 +2505,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit38:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit40:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit38, %185
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %182) #28
   %191 = getelementptr inbounds i8, ptr %0, i64 64
   %192 = getelementptr inbounds i8, ptr %0, i64 112
   %193 = load ptr, ptr %192, align 8
@@ -2514,7 +2514,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit40:                  ; preds = %_ZN4Luau10TypeFamil
 
 194:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit40
   %195 = getelementptr inbounds i8, ptr %0, i64 96
-  %196 = invoke noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef nonnull align 8 dereferenceable(16) %195, i32 noundef 3)
+  %196 = invoke noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(32) %195, ptr noundef nonnull align 8 dereferenceable(32) %195, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit42 unwind label %197
 
 197:                                              ; preds = %194
@@ -2525,7 +2525,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit40:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit42:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit40, %194
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %191) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %191) #28
   %200 = getelementptr inbounds i8, ptr %0, i64 48
   %201 = load ptr, ptr %200, align 8
   %.not.i.i.i43 = icmp eq ptr %201, null
@@ -2533,7 +2533,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit42:                  ; preds = %_ZN4Luau10TypeFamil
 
 202:                                              ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit42
   %203 = getelementptr inbounds i8, ptr %0, i64 32
-  %204 = invoke noundef zeroext i1 %201(ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef nonnull align 8 dereferenceable(16) %203, i32 noundef 3)
+  %204 = invoke noundef zeroext i1 %201(ptr noundef nonnull align 8 dereferenceable(32) %203, ptr noundef nonnull align 8 dereferenceable(32) %203, i32 noundef 3)
           to label %_ZN4Luau10TypeFamilyD2Ev.exit44 unwind label %205
 
 205:                                              ; preds = %202
@@ -2544,7 +2544,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit42:                  ; preds = %_ZN4Luau10TypeFamil
   unreachable
 
 _ZN4Luau10TypeFamilyD2Ev.exit44:                  ; preds = %_ZN4Luau10TypeFamilyD2Ev.exit42, %202
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #28
   ret void
 }
 
@@ -2693,7 +2693,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %9, %12
 
 19:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %18) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %19
@@ -2939,7 +2939,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit: ; preds = %1, %6
 
 15:                                               ; preds = %10
   tail call void @_ZdlPv(ptr noundef %14) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i
 
 16:                                               ; preds = %10
@@ -3211,7 +3211,7 @@ _ZNK4Luau7TypeIds5countEPKNS_4TypeE.exit.thread:  ; preds = %34, %32, %17, %12, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %.sroa.05.013, align 8
   store ptr %42, ptr %3, align 8
-  %43 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %43 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   store i8 0, ptr %43, align 1
   %44 = load ptr, ptr %3, align 8
   %45 = ptrtoint ptr %44 to i64
@@ -3849,7 +3849,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau9isSubtypeERKNS_20NormalizedStringT
 19:                                               ; preds = %.lr.ph, %39
   %.sroa.014.029 = phi ptr [ %14, %.lr.ph ], [ %40, %39 ]
   %20 = getelementptr inbounds i8, ptr %.sroa.014.029, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %20)
   %21 = getelementptr inbounds i8, ptr %.sroa.014.029, i64 64
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %16, align 8
@@ -3897,14 +3897,14 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   unreachable
 
 .thread:                                          ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #28
   br label %.loopexit27
 
 37:                                               ; preds = %31
   %38 = icmp slt i32 %33, 0
   %.not26.not32 = icmp eq ptr %.19.i.i.i, %18
   %.not26.not = select i1 %38, i1 true, i1 %.not26.not32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #28
   br i1 %.not26.not, label %.loopexit27, label %39
 
 39:                                               ; preds = %37
@@ -4020,7 +4020,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %10, %_ZNSt6
   %45 = getelementptr inbounds i8, ptr %2, i64 24
   %46 = load ptr, ptr %45, align 8, !noalias !12
   store ptr %46, ptr %44, align 8, !alias.scope !12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !noalias !12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 24, i1 false), !noalias !12
   %47 = getelementptr inbounds i8, ptr %4, i64 48
   %48 = getelementptr inbounds i8, ptr %2, i64 40
   %49 = load ptr, ptr %48, align 8, !noalias !12
@@ -4097,7 +4097,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %5, %1
 
 12:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %11) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit
 
 _ZN4Luau7TypeIdsD2Ev.exit:                        ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i, %12
@@ -4203,7 +4203,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i: ; preds = %7, %1
 
 16:                                               ; preds = %11
   tail call void @_ZdlPv(ptr noundef %15) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i
 
 17:                                               ; preds = %11
@@ -4262,7 +4262,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i: ; preds = %7, %1
 
 16:                                               ; preds = %11
   tail call void @_ZdlPv(ptr noundef %15) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i
 
 17:                                               ; preds = %11
@@ -4391,10 +4391,10 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   store ptr %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 192
   %42 = getelementptr inbounds i8, ptr %0, i64 232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %41, i8 0, i64 32, i1 false)
   %43 = getelementptr inbounds i8, ptr %0, i64 272
   %44 = getelementptr inbounds i8, ptr %0, i64 312
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %43, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false)
   %45 = getelementptr inbounds i8, ptr %0, i64 344
   %46 = getelementptr inbounds i8, ptr %0, i64 392
@@ -4442,7 +4442,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %1, %4
 
 11:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %10) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %11
@@ -4645,7 +4645,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i: ; preds = %58, %56
 
 64:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i
   call void @_ZdlPv(ptr noundef nonnull %63) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %36, i8 0, i64 16, i1 false)
   br label %_ZNSt4pairIKPKN4Luau4TypeENS0_7TypeIdsEED2Ev.exit
 
 _ZNSt4pairIKPKN4Luau4TypeENS0_7TypeIdsEED2Ev.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i, %64
@@ -6038,7 +6038,7 @@ _ZNK4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5countERKS3_.exit: ; preds = %63
   br i1 %.not39, label %_ZNK4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5countERKS3_.exit.thread, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZNK4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5countERKS3_.exit.thread: ; preds = %69, %67, %50, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit, %_ZNK4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5countERKS3_.exit
-  %75 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %75 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZNK4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5countERKS3_.exit.thread
@@ -6807,7 +6807,7 @@ _ZNSt10shared_ptrIN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %87, %.loopexit, 
 
 170:                                              ; preds = %168
   call void @_ZdlPv(ptr noundef nonnull %169) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 16, i1 false)
   br label %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit
 
 _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit: ; preds = %168, %170
@@ -6822,7 +6822,7 @@ _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit: ; preds = %168, %170
 
 172:                                              ; preds = %.body
   call void @_ZdlPv(ptr noundef nonnull %171) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 16, i1 false)
   br label %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit32
 
 _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit32: ; preds = %172, %.body
@@ -7464,7 +7464,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i: ; preds = %21, %_ZNSt10_Hashta
 
 28:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %27) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 16, i1 false)
   br label %_ZN4Luau22NormalizedFunctionTypeD2Ev.exit
 
 _ZN4Luau22NormalizedFunctionTypeD2Ev.exit:        ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i, %28
@@ -7490,7 +7490,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %32, %_ZN4Luau22Norm
 
 39:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %38) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit
 
 _ZN4Luau7TypeIdsD2Ev.exit:                        ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i, %39
@@ -7595,7 +7595,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -7796,7 +7796,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %.thread272
   br i1 %.not163, label %89, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
 
 89:                                               ; preds = %88
-  %90 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %90 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %89
@@ -7865,7 +7865,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit:  ; preds = %_ZN4Luau12TypeItera
 
 127:                                              ; preds = %125
   call void @_ZdlPv(ptr noundef nonnull %126) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %101, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit
 
 _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit:  ; preds = %125, %127
@@ -7925,7 +7925,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEEdeEv.exit:  ; preds = %.noexc186
   br i1 %.not164, label %150, label %142
 
 142:                                              ; preds = %141
-  %143 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %143 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc188 unwind label %.loopexit.split-lp350.loopexit.split-lp
 
 .noexc188:                                        ; preds = %142
@@ -8004,7 +8004,7 @@ _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit.thread: ; preds
 
 180:                                              ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit
   call void @_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #28
-  %181 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %181 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc192 unwind label %.loopexit.split-lp
 
 .noexc192:                                        ; preds = %180
@@ -8029,7 +8029,7 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %.thread272
   br i1 %.not157, label %190, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
 
 190:                                              ; preds = %189
-  %191 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %191 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc195 unwind label %.loopexit.split-lp
 
 .noexc195:                                        ; preds = %190
@@ -8103,7 +8103,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEEppEv.exit: ; preds = %_ZN4Luau12Ty
 
 232:                                              ; preds = %215
   call void @_ZdlPv(ptr noundef nonnull %231) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %207, i8 0, i64 16, i1 false)
   %.pre409 = load ptr, ptr %12, align 8
   br label %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit
 
@@ -8122,7 +8122,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit: ; preds = %215, %232
 
 238:                                              ; preds = %236
   call void @_ZdlPv(ptr noundef nonnull %237) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %207, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit384
 
 _ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit384: ; preds = %236, %238
@@ -8187,7 +8187,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEEdeEv.exit: ; preds = %.noexc389
   br i1 %.not158, label %263, label %255
 
 255:                                              ; preds = %254
-  %256 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %256 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc200 unwind label %.loopexit.split-lp358
 
 .noexc200:                                        ; preds = %255
@@ -8266,7 +8266,7 @@ _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit201.thread: ; pr
 
 293:                                              ; preds = %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit384
   call void @_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #28
-  %294 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %294 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc202 unwind label %242
 
 .noexc202:                                        ; preds = %293
@@ -8566,7 +8566,7 @@ _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %.thread339
           to label %_ZN4Luau10Normalizer20unionTablesWithTableERNS_7TypeIdsEPKNS_4TypeE.exit unwind label %.loopexit.split-lp
 
 386:                                              ; preds = %375
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %374)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(32) %374)
           to label %387 unwind label %.loopexit.split-lp
 
 387:                                              ; preds = %386
@@ -8578,13 +8578,13 @@ _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %.thread339
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE6insertEOSE_.exit unwind label %392
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE6insertEOSE_.exit: ; preds = %387
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #28
   br label %_ZN4Luau10Normalizer20unionTablesWithTableERNS_7TypeIdsEPKNS_4TypeE.exit
 
 392:                                              ; preds = %387
   %393 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #28
   br label %_ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit232
 
 _ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %365
@@ -8611,7 +8611,7 @@ _ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %365
 
 404:                                              ; preds = %400
   store i8 0, ptr %401, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %18) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %18) #28
   br label %_ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit
 
 _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %400, %404
@@ -8639,7 +8639,7 @@ _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %400, %404
 
 415:                                              ; preds = %410
   store i8 0, ptr %412, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %18) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %18) #28
   br label %422
 
 416:                                              ; preds = %_ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit
@@ -8654,7 +8654,7 @@ _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %400, %404
 
 421:                                              ; preds = %418
   store i8 0, ptr %394, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %16) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %16) #28
   br label %_ZN4Luau10Normalizer20unionTablesWithTableERNS_7TypeIdsEPKNS_4TypeE.exit
 
 422:                                              ; preds = %408, %410, %415
@@ -8666,7 +8666,7 @@ _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %400, %404
 
 424:                                              ; preds = %422
   store i8 0, ptr %394, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %16) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %16) #28
   br label %_ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit232
 
 _ZN4Luau10Normalizer20unionTablesWithTableERNS_7TypeIdsEPKNS_4TypeE.exit: ; preds = %365, %.invoke, %360, %306, %421, %418, %384, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit, %350, %354, %358, %356, %352, %348, %369, %373, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE6insertEOSE_.exit, %382, %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit220, %341
@@ -8718,7 +8718,7 @@ _ZN4LuauL10tyvarIndexEPKNS_4TypeE.exit240:        ; preds = %_ZN4Luau3getINS_11B
 
 441:                                              ; preds = %.critedge
   store i8 0, ptr %394, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %16) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %16) #28
   br label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %426, %438, %58, %52, %46, %441, %.critedge, %304, %184, %.noexc192, %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit.thread, %72, %_ZN4LuauL10tyvarIndexEPKNS_4TypeE.exit, %189, %88, %302, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit182, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit174.thread
@@ -8881,7 +8881,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i14: ; preds = %71, %_ZN4Luau20
 
 80:                                               ; preds = %75
   tail call void @_ZdlPv(ptr noundef %79) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %66, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i
 
 81:                                               ; preds = %75
@@ -8936,7 +8936,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i.i: ; preds = %94, %_ZN4Luau7T
 
 103:                                              ; preds = %98
   tail call void @_ZdlPv(ptr noundef %102) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %89, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i.i
 
 104:                                              ; preds = %98
@@ -9329,7 +9329,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit:  ; preds = %_ZN4Luau12TypeItera
 
 141:                                              ; preds = %139
   call void @_ZdlPv(ptr noundef nonnull %140) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %115, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit
 
 _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit:  ; preds = %139, %141
@@ -9454,7 +9454,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEE7advanceEv.exit.i: ; preds = %_ZN4Luau8Vec
 
 192:                                              ; preds = %189
   call void @_ZdlPv(ptr noundef nonnull %191) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %190, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit220
 
 _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit220: ; preds = %189, %192
@@ -9531,7 +9531,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEEppEv.exit: ; preds = %_ZN4Luau12Ty
 
 230:                                              ; preds = %228
   call void @_ZdlPv(ptr noundef nonnull %229) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %204, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %204, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit
 
 _ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit: ; preds = %228, %230
@@ -9768,7 +9768,7 @@ _ZNSt10unique_ptrIN4Luau14NormalizedTypeESt14default_deleteIS1_EED2Ev.exit: ; pr
   %318 = getelementptr inbounds i8, ptr %1, i64 296
   %319 = load ptr, ptr %318, align 8
   store ptr %319, ptr %317, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %309, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %309, i8 0, i64 24, i1 false)
   %320 = getelementptr inbounds i8, ptr %15, i64 48
   %321 = getelementptr inbounds i8, ptr %1, i64 312
   %322 = load ptr, ptr %321, align 8
@@ -9835,7 +9835,7 @@ _ZNSt10unique_ptrIN4Luau14NormalizedTypeESt14default_deleteIS1_EED2Ev.exit: ; pr
   %347 = getelementptr inbounds i8, ptr %1, i64 216
   %348 = load ptr, ptr %347, align 8
   store ptr %348, ptr %346, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %338, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %338, i8 0, i64 24, i1 false)
   %349 = getelementptr inbounds i8, ptr %16, i64 40
   %350 = getelementptr inbounds i8, ptr %1, i64 232
   %351 = load ptr, ptr %350, align 8
@@ -9971,7 +9971,7 @@ _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %301
   %417 = getelementptr inbounds i8, ptr %1, i64 296
   %418 = load ptr, ptr %417, align 8
   store ptr %418, ptr %416, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %408, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %408, i8 0, i64 24, i1 false)
   %419 = getelementptr inbounds i8, ptr %19, i64 48
   %420 = getelementptr inbounds i8, ptr %1, i64 312
   %421 = load ptr, ptr %420, align 8
@@ -10008,7 +10008,7 @@ _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %301
   %444 = getelementptr inbounds i8, ptr %1, i64 216
   %445 = load ptr, ptr %444, align 8
   store ptr %445, ptr %443, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %435, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %435, i8 0, i64 24, i1 false)
   %446 = getelementptr inbounds i8, ptr %20, i64 40
   %447 = getelementptr inbounds i8, ptr %1, i64 232
   %448 = load ptr, ptr %447, align 8
@@ -10161,7 +10161,7 @@ _ZN4Luau20NormalizedStringTypeC2EOS0_.exit250:    ; preds = %481, %494
   br i1 %507, label %508, label %515
 
 508:                                              ; preds = %506
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %505)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(32) %505)
           to label %509 unwind label %502
 
 509:                                              ; preds = %508
@@ -10172,13 +10172,13 @@ _ZN4Luau20NormalizedStringTypeC2EOS0_.exit250:    ; preds = %481, %494
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE6insertEOSE_.exit unwind label %513
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE6insertEOSE_.exit: ; preds = %509
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #28
   br label %515
 
 513:                                              ; preds = %509
   %514 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #28
   br label %516
 
 515:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE6insertEOSE_.exit, %506, %504, %500
@@ -10837,7 +10837,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer12cacheTypeIdsENS_7TypeIdsE(pt
   %21 = getelementptr inbounds i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !noalias !39
   store ptr %22, ptr %20, align 8, !noalias !39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false), !noalias !39
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 24, i1 false), !noalias !39
   %23 = getelementptr inbounds i8, ptr %12, i64 40
   %24 = getelementptr inbounds i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8, !noalias !39
@@ -11036,7 +11036,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer9unionTypeEPKNS_4TypeES3_(ptr 
 
 .thread93:                                        ; preds = %.thread
   %30 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   br label %83
 
@@ -11047,7 +11047,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer9unionTypeEPKNS_4TypeES3_(ptr 
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
   %36 = icmp eq i32 %32, 13
   %37 = getelementptr inbounds i8, ptr %20, i64 8
@@ -11055,7 +11055,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer9unionTypeEPKNS_4TypeES3_(ptr 
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   invoke void @_ZN4Luau5beginEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %6, ptr noundef nonnull %37)
           to label %40 unwind label %.loopexit.split-lp100
@@ -11110,7 +11110,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer9unionTypeEPKNS_4TypeES3_(ptr 
   %58 = getelementptr inbounds i8, ptr %5, i64 24
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 24, i1 false)
   %60 = getelementptr inbounds i8, ptr %9, i64 40
   store ptr %49, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %9, i64 48
@@ -11198,7 +11198,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer9unionTypeEPKNS_4TypeES3_(ptr 
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %10, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 32, i1 false)
   invoke void @_ZN4Luau5beginEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %11, ptr noundef nonnull %89)
           to label %92 unwind label %.loopexit.split-lp
@@ -11253,7 +11253,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer9unionTypeEPKNS_4TypeES3_(ptr 
   %110 = getelementptr inbounds i8, ptr %10, i64 24
   %111 = load ptr, ptr %110, align 8
   store ptr %111, ptr %109, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 24, i1 false)
   %112 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %101, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %14, i64 48
@@ -11391,7 +11391,7 @@ _ZNSt13unordered_mapIPKN4Luau7TypeIdsEPKNS0_4TypeESt4hashIS3_ESt8equal_toIS3_ESa
   %171 = getelementptr inbounds i8, ptr %4, i64 24
   %172 = load ptr, ptr %171, align 8
   store ptr %172, ptr %170, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 24, i1 false)
   %173 = getelementptr inbounds i8, ptr %19, i64 40
   %174 = load ptr, ptr %85, align 8
   store ptr %174, ptr %173, align 8
@@ -11538,7 +11538,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit:  ; preds = %_ZN4Luau12TypeItera
 
 34:                                               ; preds = %31
   call void @_ZdlPv(ptr noundef nonnull %33) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit
 
 _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit:  ; preds = %31, %34
@@ -11659,7 +11659,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev(p
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_9UnionTypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetIPKNS_9UnionTypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %1, %4
@@ -11748,7 +11748,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau9TypeArena7addTypeINS_9UnionT
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %3, i64 352
   store i8 0, ptr %15, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %21, %18
@@ -11854,7 +11854,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer16intersectionTypeEPKNS_4TypeE
 
 .thread94:                                        ; preds = %.thread
   %30 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   br label %83
 
@@ -11865,7 +11865,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer16intersectionTypeEPKNS_4TypeE
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
   %36 = icmp eq i32 %32, 14
   %37 = getelementptr inbounds i8, ptr %20, i64 8
@@ -11873,7 +11873,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer16intersectionTypeEPKNS_4TypeE
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   invoke void @_ZN4Luau5beginEPKNS_16IntersectionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator.213") align 8 %6, ptr noundef nonnull %37)
           to label %40 unwind label %.loopexit.split-lp101
@@ -11928,7 +11928,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer16intersectionTypeEPKNS_4TypeE
   %58 = getelementptr inbounds i8, ptr %5, i64 24
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 24, i1 false)
   %60 = getelementptr inbounds i8, ptr %9, i64 40
   store ptr %49, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %9, i64 48
@@ -12016,7 +12016,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer16intersectionTypeEPKNS_4TypeE
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %10, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 32, i1 false)
   invoke void @_ZN4Luau5beginEPKNS_16IntersectionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator.213") align 8 %11, ptr noundef nonnull %89)
           to label %92 unwind label %.loopexit.split-lp
@@ -12071,7 +12071,7 @@ define dso_local noundef ptr @_ZN4Luau10Normalizer16intersectionTypeEPKNS_4TypeE
   %110 = getelementptr inbounds i8, ptr %10, i64 24
   %111 = load ptr, ptr %110, align 8
   store ptr %111, ptr %109, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 24, i1 false)
   %112 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %101, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %14, i64 48
@@ -12222,7 +12222,7 @@ _ZNSt13unordered_mapIPKN4Luau7TypeIdsEPKNS0_4TypeESt4hashIS3_ESt8equal_toIS3_ESa
   %180 = getelementptr inbounds i8, ptr %4, i64 24
   %181 = load ptr, ptr %180, align 8
   store ptr %181, ptr %179, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 24, i1 false)
   %182 = getelementptr inbounds i8, ptr %19, i64 40
   %183 = load ptr, ptr %85, align 8
   store ptr %183, ptr %182, align 8
@@ -12369,7 +12369,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEEppEv.exit: ; preds = %_ZN4Luau12Ty
 
 34:                                               ; preds = %31
   call void @_ZdlPv(ptr noundef nonnull %33) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit
 
 _ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit: ; preds = %31, %34
@@ -12490,7 +12490,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeIteratorINS_16IntersectionType
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_16IntersectionTypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetIPKNS_16IntersectionTypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %1, %4
@@ -12539,7 +12539,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau9TypeArena7addTypeINS_16Inter
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %3, i64 352
   store i8 0, ptr %15, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %21, %18
@@ -12983,7 +12983,7 @@ _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit15: ; preds = %45, %47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %57 = load ptr, ptr %.sroa.018.026, align 8
   store ptr %57, ptr %4, align 8
-  %58 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %58 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i8 0, ptr %58, align 1
   %59 = load ptr, ptr %4, align 8
   %60 = ptrtoint ptr %59 to i64
@@ -13264,7 +13264,7 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit37:      ; preds = %_ZN4Luau3getINS_9Cl
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %101 = load ptr, ptr %.sroa.059.0114, align 8
   store ptr %101, ptr %4, align 8
-  %102 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %102 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %56, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i8 0, ptr %102, align 1
   %103 = load ptr, ptr %4, align 8
   %104 = ptrtoint ptr %103 to i64
@@ -13344,7 +13344,7 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit42:      ; preds = %_ZN4Luau3getINS_9Cl
   %144 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 40
   %145 = load ptr, ptr %144, align 8
   store ptr %145, ptr %143, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %135, i8 0, i64 24, i1 false)
   %146 = getelementptr inbounds i8, ptr %6, i64 40
   %147 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 56
   %148 = load ptr, ptr %147, align 8
@@ -13488,7 +13488,7 @@ _ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10
   store i64 %212, ptr %216, align 8
   %217 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %211, ptr %217, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 24, i1 false)
   %218 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %210, ptr %218, align 8
   %219 = getelementptr inbounds i8, ptr %7, i64 48
@@ -13841,7 +13841,7 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit52.thread: ; preds = %_ZN4Luau3getINS_9
 
 142:                                              ; preds = %_ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit52.thread, %_ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit52
   %143 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 16, i1 false)
   %144 = load i64, ptr %143, align 8
   store i64 %144, ptr %38, align 8
   %145 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 40
@@ -14031,7 +14031,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNSt6vec
   store i64 %159, ptr %46, align 8, !alias.scope !54
   store i64 %144, ptr %47, align 8, !alias.scope !54
   store ptr %146, ptr %48, align 8, !alias.scope !54
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !54
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 24, i1 false), !noalias !54
   store ptr %174, ptr %49, align 8, !alias.scope !54
   store ptr %179, ptr %50, align 8, !alias.scope !54
   store ptr %175, ptr %51, align 8, !alias.scope !54
@@ -14054,7 +14054,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNSt6vec
   store i64 %144, ptr %214, align 8
   %215 = getelementptr inbounds i8, ptr %210, i64 40
   store ptr %146, ptr %215, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %45, i8 0, i64 24, i1 false)
   %216 = getelementptr inbounds i8, ptr %210, i64 56
   store ptr %174, ptr %216, align 8
   %217 = getelementptr inbounds i8, ptr %210, i64 64
@@ -14131,7 +14131,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNSt6vec
 _ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i: ; preds = %245, %.lr.ph.i.i.i96, %233, %.thread.i
   %250 = phi i64 [ %236, %233 ], [ %223, %.thread.i ], [ %223, %.lr.ph.i.i.i96 ], [ %223, %245 ]
   %251 = phi i64 [ %234, %233 ], [ %221, %.thread.i ], [ %221, %.lr.ph.i.i.i96 ], [ %221, %245 ]
-  %252 = invoke ptr @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS9_10_Hash_nodeIS7_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %250, i64 noundef %251, ptr noundef nonnull %210, i64 noundef 1)
+  %252 = invoke ptr @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS9_10_Hash_nodeIS7_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 noundef %250, i64 noundef %251, ptr noundef nonnull %210, i64 noundef 1)
           to label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE6insertIS9_IS3_S4_EEENSt9enable_ifIXsr16is_constructibleISB_OT_EE5valueES9_INSt8__detail14_Node_iteratorISB_Lb0ELb0EEEbEE4typeESI_.exit.i.thread unwind label %231
 
 _ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE6insertIS9_IS3_S4_EEENSt9enable_ifIXsr16is_constructibleISB_OT_EE5valueES9_INSt8__detail14_Node_iteratorISB_Lb0ELb0EEEbEE4typeESI_.exit.i.thread: ; preds = %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread.i
@@ -14213,7 +14213,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %266, %264
 
 272:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %271) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit
 
 .loopexit321:                                     ; preds = %199
@@ -14304,7 +14304,7 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit63:      ; preds = %_ZN4Luau3getINS_9Cl
   br i1 %.not.i.i.i103, label %.loopexit.i.i104, label %307, !llvm.loop !7
 
 .loopexit.i.i104:                                 ; preds = %313, %311, %296, %294
-  call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_bES5_IKS4_bENS0_16ItemInterfaceMapIS4_bEENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %286)
+  call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_bES5_IKS4_bENS0_16ItemInterfaceMapIS4_bEENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(72) %286)
   %.pre.i105 = load i64, ptr %290, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_bES5_IKS4_bENS0_16ItemInterfaceMapIS4_bEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i
 
@@ -14425,7 +14425,7 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit68:      ; preds = %_ZN4Luau3getINS_9Cl
   %375 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i44, i64 40
   %376 = load ptr, ptr %375, align 8
   store ptr %376, ptr %25, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %369, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %369, i8 0, i64 24, i1 false)
   %377 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i44, i64 56
   %378 = load ptr, ptr %377, align 8
   store ptr %378, ptr %26, align 8
@@ -14802,7 +14802,7 @@ _ZN4Luau7TypeIds5eraseEN9__gnu_cxx17__normal_iteratorIPKPKNS_4TypeESt6vectorIS5_
 
 .noexc152:                                        ; preds = %._crit_edge.i112
   store ptr %543, ptr %4, align 8
-  %544 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %544 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc153 unwind label %.loopexit.split-lp.loopexit
 
 .noexc153:                                        ; preds = %.noexc152
@@ -15012,7 +15012,7 @@ _ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10
   store i64 %634, ptr %31, align 8
   %635 = load ptr, ptr %25, align 8
   store ptr %635, ptr %32, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 24, i1 false)
   %636 = load ptr, ptr %26, align 8
   store ptr %636, ptr %33, align 8
   %637 = load ptr, ptr %27, align 8
@@ -15045,7 +15045,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i76: ; preds = %642, %640
 
 648:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i76
   call void @_ZdlPv(ptr noundef nonnull %647) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit79
 
 _ZN4Luau7TypeIdsD2Ev.exit79:                      ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i76, %648
@@ -15068,7 +15068,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i81: ; preds = %650, %_ZN4Luau7Type
 
 656:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i81
   call void @_ZdlPv(ptr noundef nonnull %655) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit
 
 .loopexit:                                        ; preds = %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit15.i, %432, %461
@@ -15509,7 +15509,7 @@ _ZN4Luau7TypeIds5eraseEN9__gnu_cxx17__normal_iteratorIPKPKNS_4TypeESt6vectorIS5_
   br i1 %.not.i.i.i216, label %.loopexit.i.i217, label %845, !llvm.loop !7
 
 .loopexit.i.i217:                                 ; preds = %851, %849, %835, %833
-  call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_bES5_IKS4_bENS0_16ItemInterfaceMapIS4_bEENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %662)
+  call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_bES5_IKS4_bENS0_16ItemInterfaceMapIS4_bEENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(72) %662)
   %.pre.i218 = load i64, ptr %669, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_bES5_IKS4_bENS0_16ItemInterfaceMapIS4_bEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i219
 
@@ -15675,7 +15675,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i91: ; preds = %914, %912
 
 920:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i91
   call void @_ZdlPv(ptr noundef nonnull %919) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit
 
 921:                                              ; preds = %.critedge36
@@ -15698,7 +15698,7 @@ define linkonce_odr dso_local void @_ZN4Luau7TypeIdsC2ERKS0_(ptr noundef nonnull
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -15798,7 +15798,7 @@ _ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i: ; preds
 
 53:                                               ; preds = %50
   tail call void @_ZdlPv(ptr noundef nonnull %52) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %50, %53
@@ -15867,7 +15867,7 @@ _ZN4Luau20NormalizedStringType13resetToStringEv.exit: ; preds = %11
 32:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_.exit.i.i, %.lr.ph.i.i
   %.sroa.03.07.i.i = phi ptr [ %30, %.lr.ph.i.i ], [ %39, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_.exit.i.i ]
   %33 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i, i64 32
-  %34 = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr nonnull %31, ptr noundef nonnull align 8 dereferenceable(32) %33)
+  %34 = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr nonnull %31, ptr noundef nonnull align 8 dereferenceable(40) %33)
   %35 = extractvalue { ptr, ptr } %34, 1
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_.exit.i.i, label %36
@@ -15952,7 +15952,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4l
 63:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit
   %64 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %44) #28
   %65 = getelementptr inbounds i8, ptr %64, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %65) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef 72) #27
   %66 = load i64, ptr %45, align 8
   %67 = add i64 %66, -1
@@ -16060,7 +16060,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4
   %107 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.055.088) #31
   %108 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.055.088, ptr noundef nonnull align 8 dereferenceable(32) %86) #28
   %109 = getelementptr inbounds i8, ptr %108, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %109) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %108, i64 noundef 72) #27
   %110 = load i64, ptr %89, align 8
   %111 = add i64 %110, -1
@@ -16143,7 +16143,7 @@ define linkonce_odr dso_local ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 72) #27
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
@@ -16994,7 +16994,7 @@ _ZStneIPKN4Luau11TypePackVarESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit.thread48: ; pre
 
 89:                                               ; preds = %85
   store i8 0, ptr %86, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #28
   br label %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit
 
 _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit: ; preds = %82, %85, %89
@@ -17035,7 +17035,7 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit: ; preds = %82, %85, %89
 
 108:                                              ; preds = %104
   store i8 0, ptr %105, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #28
   br label %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit29
 
 109:                                              ; preds = %92, %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit
@@ -17729,7 +17729,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau9TypeArena7addTypeINS_12Funct
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %3, i64 352
   store i8 0, ptr %13, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %19, %16
@@ -17814,7 +17814,7 @@ define linkonce_odr dso_local void @_ZN4Luau12FunctionTypeC2EOS0_(ptr noundef no
   br i1 %11, label %12, label %_ZNSt22_Optional_payload_baseIN4Luau18FunctionDefinitionEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i
 
 12:                                               ; preds = %7
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) #28
   store i8 1, ptr %9, align 8
   br label %_ZNSt22_Optional_payload_baseIN4Luau18FunctionDefinitionEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i
 
@@ -17884,7 +17884,7 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEEC2EOS2_.exit: ; preds = %2, %_ZNSt22_
   %53 = getelementptr inbounds i8, ptr %0, i64 232
   %54 = getelementptr inbounds i8, ptr %0, i64 256
   %55 = getelementptr inbounds i8, ptr %1, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 24, i1 false)
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %54, align 8
   %57 = getelementptr inbounds i8, ptr %1, i64 248
@@ -17895,7 +17895,7 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEEC2EOS2_.exit: ; preds = %2, %_ZNSt22_
 59:                                               ; preds = %_ZNSt8optionalIN4Luau18FunctionDefinitionEEC2EOS2_.exit
   %60 = getelementptr inbounds i8, ptr %1, i64 232
   %61 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 16, i1 false)
   %62 = load ptr, ptr %57, align 8
   store ptr %62, ptr %61, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
@@ -17905,7 +17905,7 @@ _ZNSt8functionIFSt8optionalIN4Luau13WithPredicateIPKNS1_11TypePackVarEEEERNS1_11
   %63 = getelementptr inbounds i8, ptr %0, i64 264
   %64 = getelementptr inbounds i8, ptr %0, i64 288
   %65 = getelementptr inbounds i8, ptr %1, i64 288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 24, i1 false)
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %64, align 8
   %67 = getelementptr inbounds i8, ptr %1, i64 280
@@ -17916,7 +17916,7 @@ _ZNSt8functionIFSt8optionalIN4Luau13WithPredicateIPKNS1_11TypePackVarEEEERNS1_11
 69:                                               ; preds = %_ZNSt8functionIFSt8optionalIN4Luau13WithPredicateIPKNS1_11TypePackVarEEEERNS1_11TypeCheckerERKSt10shared_ptrINS1_5ScopeEERKNS1_11AstExprCallES6_EEC2EOSJ_.exit
   %70 = getelementptr inbounds i8, ptr %1, i64 264
   %71 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 16, i1 false)
   %72 = load ptr, ptr %67, align 8
   store ptr %72, ptr %71, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
@@ -17938,7 +17938,7 @@ define linkonce_odr dso_local void @_ZN4Luau12FunctionTypeD2Ev(ptr noundef nonnu
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 264
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFbN4Luau24MagicFunctionCallContextEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -17956,7 +17956,7 @@ _ZNSt8functionIFbN4Luau24MagicFunctionCallContextEEED2Ev.exit: ; preds = %1, %4
 
 12:                                               ; preds = %_ZNSt8functionIFbN4Luau24MagicFunctionCallContextEEED2Ev.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 232
-  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8functionIFSt8optionalIN4Luau13WithPredicateIPKNS1_11TypePackVarEEEERNS1_11TypeCheckerERKSt10shared_ptrINS1_5ScopeEERKNS1_11AstExprCallES6_EED2Ev.exit unwind label %15
 
 15:                                               ; preds = %12
@@ -18016,7 +18016,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 37:                                               ; preds = %.lr.ph.i.i.i.i3
   store i8 0, ptr %34, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i4) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i.i4) #28
   br label %_ZSt8_DestroyISt8optionalIN4Luau16FunctionArgumentEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt8optionalIN4Luau16FunctionArgumentEEEvPT_.exit.i.i.i.i: ; preds = %37, %.lr.ph.i.i.i.i3
@@ -18087,7 +18087,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPKN4Lu
 
 69:                                               ; preds = %65
   store i8 0, ptr %66, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #28
   br label %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit
 
 _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %65, %69
@@ -18135,7 +18135,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i.i: ; preds = %16, %10
 
 25:                                               ; preds = %20
   tail call void @_ZdlPv(ptr noundef %24) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i.i
 
 26:                                               ; preds = %20
@@ -18177,7 +18177,7 @@ _ZN4Luau22NormalizedFunctionType10resetToTopEv.exit: ; preds = %_ZNSt6vectorIPKN
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   %41 = load i8, ptr %1, align 8
   %42 = trunc i8 %41 to i1
@@ -18216,7 +18216,7 @@ _ZN4Luau7TypeIds6insertIN9__gnu_cxx17__normal_iteratorIPKPKNS_4TypeESt6vectorIS6
 
 54:                                               ; preds = %52
   call void @_ZdlPv(ptr noundef nonnull %53) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, i8 0, i64 16, i1 false)
   br label %55
 
 55:                                               ; preds = %54, %52
@@ -18234,7 +18234,7 @@ _ZN4Luau7TypeIds6insertIN9__gnu_cxx17__normal_iteratorIPKPKNS_4TypeESt6vectorIS6
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %64, ptr %65, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 24, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i: ; preds = %55, %_ZN4Luau7TypeIds6insertIN9__gnu_cxx17__normal_iteratorIPKPKNS_4TypeESt6vectorIS6_SaIS6_EEEEEEvT_SD_.exit
@@ -18332,7 +18332,7 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7
 
 98:                                               ; preds = %96
   call void @_ZdlPv(ptr noundef nonnull %97) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %76, i8 0, i64 16, i1 false)
   br label %99
 
 99:                                               ; preds = %98, %96
@@ -18350,7 +18350,7 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %108, ptr %109, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 24, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i24
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i24: ; preds = %99, %._crit_edge46
@@ -18421,7 +18421,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(72) ptr @_
 
 5:                                                ; preds = %3
   tail call void @_ZdlPv(ptr noundef nonnull %4) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   br label %6
 
 6:                                                ; preds = %5, %3
@@ -18439,7 +18439,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(72) ptr @_
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %15, ptr %16, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 24, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit: ; preds = %2, %6
@@ -18494,7 +18494,7 @@ define dso_local void @_ZN4Luau10Normalizer26unionFunctionsWithFunctionERNS_22No
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   invoke void @_ZN4Luau7TypeIds6insertEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %2)
           to label %15 unwind label %55
@@ -18511,7 +18511,7 @@ define dso_local void @_ZN4Luau10Normalizer26unionFunctionsWithFunctionERNS_22No
 
 19:                                               ; preds = %17
   call void @_ZdlPv(ptr noundef nonnull %18) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, i8 0, i64 16, i1 false)
   br label %20
 
 20:                                               ; preds = %19, %17
@@ -18529,7 +18529,7 @@ define dso_local void @_ZN4Luau10Normalizer26unionFunctionsWithFunctionERNS_22No
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %29, ptr %30, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 24, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i: ; preds = %20, %15
@@ -18588,7 +18588,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %.thread, %49, %42
 
 57:                                               ; preds = %3
   %58 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   %.not30 = icmp eq ptr %9, %11
@@ -18644,7 +18644,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %.thread, %49, %42
 
 79:                                               ; preds = %77
   call void @_ZdlPv(ptr noundef nonnull %78) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %59, i8 0, i64 16, i1 false)
   br label %80
 
 80:                                               ; preds = %79, %77
@@ -18662,7 +18662,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %.thread, %49, %42
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %89, ptr %90, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 24, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i17
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i17: ; preds = %80, %._crit_edge
@@ -18802,7 +18802,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i: ; preds = %20, %15
 
 29:                                               ; preds = %24
   tail call void @_ZdlPv(ptr noundef %28) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i
 
 30:                                               ; preds = %24
@@ -18902,14 +18902,14 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau10Normalizer29intersectNor
   br i1 %15, label %17, label %171
 
 17:                                               ; preds = %16
-  %18 = invoke noundef nonnull align 8 dereferenceable(401) ptr @_ZN4Luau14NormalizedTypeaSEOS0_(ptr noundef nonnull align 8 dereferenceable(401) %4, ptr noundef nonnull align 8 dereferenceable(401) %6)
+  %18 = invoke noundef nonnull align 8 dereferenceable(401) ptr @_ZN4Luau14NormalizedTypeaSEOS0_(ptr noundef nonnull align 8 dereferenceable(416) %4, ptr noundef nonnull align 8 dereferenceable(416) %6)
           to label %_ZNSt8optionalIN4Luau14NormalizedTypeEEaSEOS2_.exit unwind label %181
 
 .thread.i.i.i.i.i:                                ; preds = %10
   br i1 %15, label %19, label %_ZNSt8optionalIN4Luau14NormalizedTypeEEaSEOS2_.exit
 
 19:                                               ; preds = %.thread.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %4, ptr noundef nonnull align 8 dereferenceable(416) %6, i64 16, i1 false)
   %20 = getelementptr inbounds i8, ptr %4, i64 16
   %21 = getelementptr inbounds i8, ptr %6, i64 16
   %22 = load ptr, ptr %21, align 8
@@ -19046,7 +19046,7 @@ _ZN4Luau19NormalizedClassTypeC2EOS0_.exit.i:      ; preds = %41, %39
   %97 = getelementptr inbounds i8, ptr %6, i64 216
   %98 = load ptr, ptr %97, align 8
   store ptr %98, ptr %96, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %88, i8 0, i64 24, i1 false)
   %99 = getelementptr inbounds i8, ptr %4, i64 232
   %100 = getelementptr inbounds i8, ptr %6, i64 232
   %101 = load ptr, ptr %100, align 8
@@ -19085,7 +19085,7 @@ _ZN4Luau19NormalizedClassTypeC2EOS0_.exit.i:      ; preds = %41, %39
   %125 = getelementptr inbounds i8, ptr %6, i64 296
   %126 = load ptr, ptr %125, align 8
   store ptr %126, ptr %124, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %116, i8 0, i64 24, i1 false)
   %127 = getelementptr inbounds i8, ptr %4, i64 312
   %128 = getelementptr inbounds i8, ptr %6, i64 312
   %129 = load ptr, ptr %128, align 8
@@ -19165,7 +19165,7 @@ _ZN4Luau19NormalizedClassTypeC2EOS0_.exit.i:      ; preds = %41, %39
 
 171:                                              ; preds = %16
   store i8 0, ptr %7, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %4) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %4) #28
   br label %_ZNSt8optionalIN4Luau14NormalizedTypeEEaSEOS2_.exit
 
 _ZNSt8optionalIN4Luau14NormalizedTypeEEaSEOS2_.exit: ; preds = %171, %.noexc10, %.thread.i.i.i.i.i, %17
@@ -19175,7 +19175,7 @@ _ZNSt8optionalIN4Luau14NormalizedTypeEEaSEOS2_.exit: ; preds = %171, %.noexc10, 
 
 174:                                              ; preds = %_ZNSt8optionalIN4Luau14NormalizedTypeEEaSEOS2_.exit
   store i8 0, ptr %13, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %6) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %6) #28
   br label %_ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit
 
 _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %_ZNSt8optionalIN4Luau14NormalizedTypeEEaSEOS2_.exit, %174
@@ -19202,7 +19202,7 @@ _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %_ZNSt8optionalIN4Lu
 
 185:                                              ; preds = %181
   store i8 0, ptr %13, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %6) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %6) #28
   br label %_ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit11
 
 186:                                              ; preds = %_ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit
@@ -19291,7 +19291,7 @@ _ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %188, %207, %220
 
 227:                                              ; preds = %_ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev.exit
   store i8 0, ptr %7, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %4) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %4) #28
   br label %_ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit12
 
 _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit12: ; preds = %_ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev.exit, %227
@@ -19310,7 +19310,7 @@ _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit11: ; preds = %185, %181, %179
 
 231:                                              ; preds = %228
   store i8 0, ptr %7, align 8
-  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %4) #28
+  call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %4) #28
   br label %_ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit13
 
 _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit13: ; preds = %228, %231
@@ -19675,7 +19675,7 @@ _ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit
   %151 = getelementptr inbounds i8, ptr %7, i64 8
   %152 = getelementptr inbounds i8, ptr %7, i64 16
   %153 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 16, i1 false)
   %154 = load i64, ptr %153, align 8
   store i64 %154, ptr %152, align 8
   %155 = getelementptr inbounds i8, ptr %7, i64 24
@@ -19765,7 +19765,7 @@ _ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i: ; pre
 
 187:                                              ; preds = %185
   call void @_ZdlPv(ptr noundef nonnull %168) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 16, i1 false)
   br label %.body77
 
 188:                                              ; preds = %181, %.noexc5.i.thread
@@ -19801,7 +19801,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %198, %196
 
 204:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %203) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exitthread-pre-split
 
 205:                                              ; preds = %188
@@ -19839,7 +19839,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83: ; preds = %_ZNSt6vectorIPKN4Lu
 
 215:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83
   call void @_ZdlPv(ptr noundef nonnull %214) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit86
 
 .body77:                                          ; preds = %.loopexit141, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %185, %187, %205
@@ -19992,7 +19992,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i.i: ; preds = %282, %275
 
 291:                                              ; preds = %286
   call void @_ZdlPv(ptr noundef %290) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %277, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %277, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i.i
 
 292:                                              ; preds = %286
@@ -20048,7 +20048,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i.i99: ; preds = %306, %299
 
 315:                                              ; preds = %310
   call void @_ZdlPv(ptr noundef %314) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %301, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %301, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i.i104
 
 316:                                              ; preds = %310
@@ -20132,7 +20132,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i107: ; preds = %350, %344
 
 359:                                              ; preds = %354
   call void @_ZdlPv(ptr noundef %358) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %345, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %345, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i
 
 360:                                              ; preds = %354
@@ -20161,7 +20161,7 @@ _ZN4Luau7TypeIds5clearEv.exit:                    ; preds = %_ZNSt6vectorIPKN4Lu
   br label %.invoke
 
 .invoke:                                          ; preds = %3, %14, %328, %_ZN4Luau7TypeIds5clearEv.exit, %24
-  invoke void @_ZN4Luau14NormalizedTypeC2EOS0_(ptr noundef nonnull align 8 dereferenceable(401) %0, ptr noundef nonnull align 8 dereferenceable(401) %5)
+  invoke void @_ZN4Luau14NormalizedTypeC2EOS0_(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(401) %5)
           to label %_ZNSt8optionalIN4Luau14NormalizedTypeEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit unwind label %17
 
 _ZNSt8optionalIN4Luau14NormalizedTypeEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit: ; preds = %.invoke, %333, %338, %298
@@ -20191,20 +20191,20 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(416) ptr @
   br i1 %8, label %10, label %13
 
 10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(401) ptr @_ZN4Luau14NormalizedTypeaSEOS0_(ptr noundef nonnull align 8 dereferenceable(401) %0, ptr noundef nonnull align 8 dereferenceable(401) %1)
+  %11 = tail call noundef nonnull align 8 dereferenceable(401) ptr @_ZN4Luau14NormalizedTypeaSEOS0_(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(416) %1)
   br label %_ZNSt14_Optional_baseIN4Luau14NormalizedTypeELb0ELb0EEaSEOS2_.exit
 
 .thread.i.i.i.i:                                  ; preds = %2
   br i1 %8, label %12, label %_ZNSt14_Optional_baseIN4Luau14NormalizedTypeELb0ELb0EEaSEOS2_.exit
 
 12:                                               ; preds = %.thread.i.i.i.i
-  tail call void @_ZN4Luau14NormalizedTypeC2EOS0_(ptr noundef nonnull align 8 dereferenceable(401) %0, ptr noundef nonnull align 8 dereferenceable(401) %1)
+  tail call void @_ZN4Luau14NormalizedTypeC2EOS0_(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(416) %1)
   store i8 1, ptr %3, align 8
   br label %_ZNSt14_Optional_baseIN4Luau14NormalizedTypeELb0ELb0EEaSEOS2_.exit
 
 13:                                               ; preds = %9
   store i8 0, ptr %3, align 8
-  tail call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %0) #28
+  tail call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) #28
   br label %_ZNSt14_Optional_baseIN4Luau14NormalizedTypeELb0ELb0EEaSEOS2_.exit
 
 _ZNSt14_Optional_baseIN4Luau14NormalizedTypeELb0ELb0EEaSEOS2_.exit: ; preds = %10, %.thread.i.i.i.i, %12, %13
@@ -20502,7 +20502,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i.i.i: ; preds = %121, %119
 
 130:                                              ; preds = %125
   tail call void @_ZdlPv(ptr noundef %129) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %120, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i.i.i
 
 131:                                              ; preds = %125
@@ -20857,7 +20857,7 @@ _ZNSt10unique_ptrIN4Luau14NormalizedTypeESt14default_deleteIS1_EEaSEOS4_.exit: ;
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau10Normalizer9negateAllERKNS_7TypeIdsE(ptr dead_on_unwind noalias writable sret(%"class.Luau::TypeIds") align 8 %0, ptr noundef nonnull align 8 dereferenceable(337) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -21610,7 +21610,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i.i: ; preds = %55, %48
 
 64:                                               ; preds = %59
   tail call void @_ZdlPv(ptr noundef %63) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %50, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i.i
 
 65:                                               ; preds = %59
@@ -21666,7 +21666,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i: ; preds = %78, %72
 
 87:                                               ; preds = %82
   tail call void @_ZdlPv(ptr noundef %86) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %73, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i
 
 88:                                               ; preds = %82
@@ -21726,20 +21726,20 @@ _ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit: ; preds = %_
 
 14:                                               ; preds = %_ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit
   %15 = getelementptr inbounds i8, ptr %1, i64 128
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %16 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %2, ptr %16, align 8
   %17 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE16_M_insert_uniqueISC_EES6_ISt17_Rb_tree_iteratorISC_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE6insertEOSE_.exit unwind label %18
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE6insertEOSE_.exit: ; preds = %14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #28
   br label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
 
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #28
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %_ZN4Luau3getINS_15StringSingletonEEEPKT_PKNS_13SingletonTypeE.exit
@@ -21795,7 +21795,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4l
 38:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit
   %39 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %23) #28
   %40 = getelementptr inbounds i8, ptr %39, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef 72) #27
   %41 = getelementptr inbounds i8, ptr %1, i64 168
   %42 = load i64, ptr %41, align 8
@@ -22247,7 +22247,7 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit.thread: ; preds = %_ZN4Luau3getINS_9Cl
   %153 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i40, i64 40
   %154 = load ptr, ptr %153, align 8
   store ptr %154, ptr %65, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %147, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %147, i8 0, i64 24, i1 false)
   %155 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i40, i64 56
   %156 = load ptr, ptr %155, align 8
   store ptr %156, ptr %66, align 8
@@ -22299,7 +22299,7 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit48:      ; preds = %_ZN4Luau3getINS_9Cl
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %177 = load ptr, ptr %.sroa.0125.0233, align 8
   store ptr %177, ptr %5, align 8
-  %178 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %178 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %176
@@ -22488,7 +22488,7 @@ _ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10
   store i64 %257, ptr %71, align 8
   %258 = load ptr, ptr %65, align 8
   store ptr %258, ptr %72, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 24, i1 false)
   %259 = load ptr, ptr %66, align 8
   store ptr %259, ptr %73, align 8
   %260 = load ptr, ptr %67, align 8
@@ -22521,7 +22521,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %265, %263
 
 271:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %270) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit
 
 _ZN4Luau7TypeIdsD2Ev.exit:                        ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i, %271
@@ -22616,7 +22616,7 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit72:      ; preds = %_ZN4Luau3getINS_9Cl
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %312 = load ptr, ptr %.sroa.0118.0230, align 8
   store ptr %312, ptr %4, align 8
-  %313 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %313 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc76 unwind label %.loopexit.split-lp167
 
 .noexc76:                                         ; preds = %311
@@ -22841,7 +22841,7 @@ _ZN4Luau7TypeIdsD2Ev.exit61.sink.split:           ; preds = %_ZNSt6vectorIPKN4Lu
   %.sink334 = phi ptr [ %278, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i59 ], [ %343, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i85 ]
   %.sink = phi ptr [ %6, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i59 ], [ %8, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i85 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink334) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sink, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit61
 
 _ZN4Luau7TypeIdsD2Ev.exit61:                      ; preds = %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit115, %.lr.ph.i89, %_ZN4Luau7TypeIdsD2Ev.exit61.sink.split, %_ZNKSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit, %346, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i85, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i59
@@ -23022,7 +23022,7 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit25:      ; preds = %_ZN4Luau3getINS_9Cl
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %80 = load ptr, ptr %.sroa.066.0125, align 8
   store ptr %80, ptr %4, align 8
-  %81 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %81 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc unwind label %.loopexit85
 
 .noexc:                                           ; preds = %79
@@ -23193,7 +23193,7 @@ _ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10
   %160 = getelementptr inbounds i8, ptr %5, i64 24
   %161 = load ptr, ptr %160, align 8
   store ptr %161, ptr %159, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 24, i1 false)
   %162 = getelementptr inbounds i8, ptr %6, i64 40
   %163 = load ptr, ptr %60, align 8
   store ptr %163, ptr %162, align 8
@@ -23646,7 +23646,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4l
 .lr.ph.i.i:                                       ; preds = %102, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_.exit.i.i
   %.sroa.03.07.i.i = phi ptr [ %118, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_.exit.i.i ], [ %110, %102 ]
   %112 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i, i64 32
-  %113 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %103, ptr noundef nonnull align 8 dereferenceable(32) %112)
+  %113 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %103, ptr noundef nonnull align 8 dereferenceable(40) %112)
           to label %.noexc unwind label %.loopexit.split-lp133.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i
@@ -23677,7 +23677,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 .lr.ph.i.i68:                                     ; preds = %.loopexit141, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_.exit.i.i
   %.sroa.03.07.i.i69 = phi ptr [ %128, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_.exit.i.i ], [ %120, %.loopexit141 ]
   %122 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i69, i64 32
-  %123 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %103, ptr noundef nonnull align 8 dereferenceable(32) %122)
+  %123 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %103, ptr noundef nonnull align 8 dereferenceable(40) %122)
           to label %.noexc72 unwind label %.loopexit132
 
 .noexc72:                                         ; preds = %.lr.ph.i.i68
@@ -23806,7 +23806,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %166 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.093.0143) #31
   %167 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.093.0143, ptr noundef nonnull align 8 dereferenceable(32) %103) #28
   %168 = getelementptr inbounds i8, ptr %167, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %168) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %168) #28
   call void @_ZdlPvm(ptr noundef nonnull %167, i64 noundef 72) #27
   %169 = load i64, ptr %107, align 8
   %170 = add i64 %169, -1
@@ -24390,7 +24390,7 @@ _ZNK4Luau9TypeLevel8subsumesERKS0_.exit.thread.i: ; preds = %_ZNK4Luau9TypeLevel
   br i1 %160, label %162, label %175
 
 162:                                              ; preds = %161
-  %163 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %147)
+  %163 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %147)
           to label %.noexc unwind label %.loopexit.split-lp351
 
 .noexc:                                           ; preds = %162
@@ -24406,7 +24406,7 @@ _ZNK4Luau9TypeLevel8subsumesERKS0_.exit.thread.i: ; preds = %_ZNK4Luau9TypeLevel
   br label %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit
 
 _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit: ; preds = %166, %.noexc
-  %169 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %152)
+  %169 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %152)
           to label %.noexc218 unwind label %.loopexit.split-lp351
 
 .noexc218:                                        ; preds = %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit
@@ -24422,7 +24422,7 @@ _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit: ; preds = %166
   br label %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit219
 
 175:                                              ; preds = %161, %158
-  %176 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %147)
+  %176 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %147)
           to label %.noexc220 unwind label %.loopexit350
 
 .noexc220:                                        ; preds = %175
@@ -24438,7 +24438,7 @@ _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit: ; preds = %166
   br label %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE6insertERKS3_.exit
 
 _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE6insertERKS3_.exit: ; preds = %179, %.noexc220
-  %182 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %152)
+  %182 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %152)
           to label %.noexc221 unwind label %.loopexit350
 
 .noexc221:                                        ; preds = %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE6insertERKS3_.exit
@@ -24468,7 +24468,7 @@ _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE6insertERKS3_.exit222: ; preds = 
   br i1 %196, label %197, label %210
 
 197:                                              ; preds = %191
-  %198 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %147)
+  %198 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %147)
           to label %.noexc223 unwind label %.loopexit350
 
 .noexc223:                                        ; preds = %197
@@ -24484,7 +24484,7 @@ _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE6insertERKS3_.exit222: ; preds = 
   br label %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit224
 
 _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit224: ; preds = %201, %.noexc223
-  %204 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %152)
+  %204 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %152)
           to label %.noexc225 unwind label %.loopexit350
 
 .noexc225:                                        ; preds = %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit224
@@ -24525,7 +24525,7 @@ _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit224: ; preds = %
 
 224:                                              ; preds = %221
   call void @_ZdlPv(ptr noundef nonnull %223) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %132, i8 0, i64 16, i1 false)
   br label %_ZN4Luau14SimplifyResultD2Ev.exit
 
 _ZN4Luau14SimplifyResultD2Ev.exit:                ; preds = %221, %224
@@ -24604,7 +24604,7 @@ _ZN4Luau14SimplifyResultD2Ev.exit:                ; preds = %221, %224
 
 269:                                              ; preds = %266
   call void @_ZdlPv(ptr noundef nonnull %268) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %134, i8 0, i64 16, i1 false)
   %.pre = load i8, ptr %.sroa.2263.0..sroa_idx, align 8
   br label %_ZN4Luau14SimplifyResultD2Ev.exit228
 
@@ -25121,7 +25121,7 @@ _ZNSt8optionalIN4Luau12TableIndexerEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_IS
 
 497:                                              ; preds = %494
   store i8 0, ptr %492, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %491) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %491) #28
   br label %_ZN4Luau13MetatableTypeD2Ev.exit
 
 498:                                              ; preds = %487
@@ -25133,7 +25133,7 @@ _ZNSt8optionalIN4Luau12TableIndexerEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_IS
 
 502:                                              ; preds = %498
   store i8 0, ptr %492, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %491) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %491) #28
   br label %_ZN4Luau13MetatableTypeD2Ev.exit242
 
 503:                                              ; preds = %472
@@ -25162,7 +25162,7 @@ _ZNSt8optionalIN4Luau12TableIndexerEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_IS
 
 516:                                              ; preds = %513
   store i8 0, ptr %511, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %510) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %510) #28
   br label %_ZN4Luau13MetatableTypeD2Ev.exit
 
 517:                                              ; preds = %506
@@ -25174,7 +25174,7 @@ _ZNSt8optionalIN4Luau12TableIndexerEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_IS
 
 521:                                              ; preds = %517
   store i8 0, ptr %511, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %510) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %510) #28
   br label %_ZN4Luau13MetatableTypeD2Ev.exit242
 
 522:                                              ; preds = %503
@@ -25203,7 +25203,7 @@ _ZNSt8optionalIN4Luau12TableIndexerEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_IS
 
 535:                                              ; preds = %532
   store i8 0, ptr %530, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %529) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %529) #28
   br label %_ZN4Luau13MetatableTypeD2Ev.exit
 
 536:                                              ; preds = %525
@@ -25215,7 +25215,7 @@ _ZNSt8optionalIN4Luau12TableIndexerEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_IS
 
 540:                                              ; preds = %536
   store i8 0, ptr %530, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %529) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %529) #28
   br label %_ZN4Luau13MetatableTypeD2Ev.exit242
 
 _ZN4Luau13MetatableTypeD2Ev.exit:                 ; preds = %484, %481, %522, %535, %532, %523, %516, %513, %504, %477, %497, %494, %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit219
@@ -25279,7 +25279,7 @@ define linkonce_odr dso_local void @_ZN4Luau8PropertyC2ERKS0_(ptr noundef nonnul
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJRKS5_EEEvDpOT_.exit.i.i.i.i.i: ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   %17 = getelementptr inbounds i8, ptr %1, i64 104
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %17)
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJRKS5_EEEvDpOT_.exit.i.i.i.i.i
@@ -25537,7 +25537,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPKN4Lu
 34:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
   %35 = getelementptr inbounds i8, ptr %0, i64 136
   store i8 0, ptr %31, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %35) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %34
@@ -25549,7 +25549,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 39:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %40 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %36, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit3
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit3: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %39
@@ -25662,20 +25662,20 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(176) ptr @
   br i1 %20, label %22, label %25
 
 22:                                               ; preds = %21
-  %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %14)
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exit
 
 .thread.i.i.i.i.i:                                ; preds = %2
   br i1 %20, label %24, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exit
 
 24:                                               ; preds = %.thread.i.i.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %14)
   store i8 1, ptr %15, align 8
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exit
 
 25:                                               ; preds = %21
   store i8 0, ptr %15, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS6_.exit: ; preds = %22, %.thread.i.i.i.i.i, %24, %25
@@ -25695,7 +25695,7 @@ define linkonce_odr dso_local void @_ZN4Luau8PropertyD2Ev(ptr noundef nonnull al
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   store i8 0, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %1, %5
@@ -25830,7 +25830,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau9TypeArena7addTypeINS_9TableT
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %3, i64 352
   store i8 0, ptr %13, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %19, %16
@@ -25958,7 +25958,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt
 32:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2EOSE_.exit
   %33 = getelementptr inbounds i8, ptr %0, i64 96
   %34 = getelementptr inbounds i8, ptr %1, i64 96
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %34) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %34) #28
   store i8 1, ptr %29, align 8
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
 
@@ -25973,7 +25973,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
 39:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
   %40 = getelementptr inbounds i8, ptr %0, i64 136
   %41 = getelementptr inbounds i8, ptr %1, i64 136
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %41) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %41) #28
   store i8 1, ptr %36, align 8
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit11
 
@@ -26035,7 +26035,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau9TypeArena7addTypeINS_13Metat
   %4 = alloca %"class.Luau::Variant.420", align 8
   store i32 10, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   store i8 0, ptr %7, align 8
@@ -26046,7 +26046,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau9TypeArena7addTypeINS_13Metat
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = getelementptr inbounds i8, ptr %1, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %12) #28
   store i8 1, ptr %7, align 8
   %.pre = load i32, ptr %4, align 8
   br label %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEC2ISG_EEOT_PNSt9enable_ifIXgecl9getTypeIdISS_EELi0EEvE4typeE.exit
@@ -26079,7 +26079,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %3, i64 352
   store i8 0, ptr %20, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %27) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %26, %23
@@ -26150,7 +26150,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 define dso_local void @_ZN4Luau10Normalizer24intersectTablesWithTableERNS_7TypeIdsEPKNS_4TypeERNS_3SetIS5_NS_16DenseHashPointerEEE(ptr noundef nonnull align 8 dereferenceable(337) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Luau::TypeIds", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -26258,7 +26258,7 @@ define dso_local void @_ZN4Luau10Normalizer15intersectTablesERNS_7TypeIdsERKS1_(
   %4 = alloca %"class.Luau::TypeIds", align 8
   %5 = alloca %"class.Luau::Set", align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -26616,7 +26616,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNSt6vec
 
 155:                                              ; preds = %153
   call void @_ZdlPv(ptr noundef nonnull %154) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit
 
 _ZN4Luau7TypeIds6insertEPKNS_4TypeE.exit:         ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit.i, %.noexc15, %28
@@ -26626,7 +26626,7 @@ _ZN4Luau7TypeIds6insertEPKNS_4TypeE.exit:         ; preds = %_ZNSt6vectorIPKN4Lu
 
 157:                                              ; preds = %_ZN4Luau7TypeIds6insertEPKNS_4TypeE.exit
   call void @_ZdlPv(ptr noundef nonnull %156) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit19
 
 _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit19: ; preds = %_ZN4Luau7TypeIds6insertEPKNS_4TypeE.exit, %157
@@ -26848,7 +26848,7 @@ _ZStneIPKN4Luau11TypePackVarESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit.thread70: ; pre
 
 92:                                               ; preds = %88
   store i8 0, ptr %89, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #28
   br label %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit
 
 _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit: ; preds = %85, %88, %92
@@ -27087,7 +27087,7 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EEaSERKS5_.exit: ; preds = %_ZNSt8optio
 
 185:                                              ; preds = %181
   store i8 0, ptr %182, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #28
   br label %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit61
 
 186:                                              ; preds = %.invoke, %_ZNSt12_Vector_baseIPKN4Luau11TypePackVarESaIS3_EE11_M_allocateEm.exit.i.i, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i
@@ -27234,7 +27234,7 @@ _ZStneIPKN4Luau11TypePackVarESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit.thread57: ; pre
 
 71:                                               ; preds = %67
   store i8 0, ptr %68, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #28
   br label %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit
 
 _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit: ; preds = %64, %67, %71
@@ -27480,7 +27480,7 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EEaSERKS5_.exit: ; preds = %_ZSt4copyIN
 
 164:                                              ; preds = %160
   store i8 0, ptr %161, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #28
   br label %_ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit48
 
 165:                                              ; preds = %.invoke, %_ZNSt12_Vector_baseIPKN4Luau11TypePackVarESaIS3_EE11_M_allocateEm.exit.i.i, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i
@@ -27533,7 +27533,7 @@ define dso_local void @_ZN4Luau10Normalizer30intersectFunctionsWithFunctionERNS_
 
 ._crit_edge.thread:                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   br label %._crit_edge55
 
@@ -27564,7 +27564,7 @@ define dso_local void @_ZN4Luau10Normalizer30intersectFunctionsWithFunctionERNS_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %27 = load ptr, ptr %.sroa.032.050, align 8
   store ptr %27, ptr %4, align 8
-  %28 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %28 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i8 0, ptr %28, align 1
   %29 = load ptr, ptr %4, align 8
   %30 = ptrtoint ptr %29 to i64
@@ -27607,7 +27607,7 @@ _ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit: ; preds = %._ZN4Luau3ge
 ._crit_edge:                                      ; preds = %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit
   %.pre59 = load ptr, ptr %8, align 8
   %47 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   %.not3951 = icmp eq ptr %.pre59, %46
   br i1 %.not3951, label %._crit_edge55, label %.lr.ph54
@@ -27754,7 +27754,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5clearEv.exit.i.i: ; preds = %21, %19
 
 30:                                               ; preds = %25
   tail call void @_ZdlPv(ptr noundef %29) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 16, i1 false)
   br label %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeEbE4fillEPSt4pairIS4_bEmRKS4_.exit.i.i.i.i
 
 31:                                               ; preds = %25
@@ -28030,7 +28030,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(80) ptr @_
 
 9:                                                ; preds = %7
   tail call void @_ZdlPv(ptr noundef nonnull %8) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 16, i1 false)
   br label %10
 
 10:                                               ; preds = %9, %7
@@ -28048,7 +28048,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(80) ptr @_
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %19, ptr %20, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 24, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i: ; preds = %10, %2
@@ -28109,7 +28109,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %5, %1
 
 12:                                               ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %11) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit
 
 _ZN4Luau7TypeIdsD2Ev.exit:                        ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i, %12
@@ -28811,7 +28811,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit150: ; preds = %_ZNSt12_
 
 169:                                              ; preds = %166
   store i8 0, ptr %84, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %86) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i: ; preds = %169, %166
@@ -30962,7 +30962,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau9TypeArena7addTypeINS_12Negat
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %3, i64 352
   store i8 0, ptr %9, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %15, %12
@@ -31165,7 +31165,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau9isSubtypeEPKNS_4TypeES2_NS_7NotNul
   %.0 = phi i1 [ %59, %57 ], [ %70, %66 ]
   call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %8) #28
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #28
-  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
+  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #28
   ret i1 %.0
 
@@ -31173,7 +31173,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau9isSubtypeEPKNS_4TypeES2_NS_7NotNul
   %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ], [ %72, %71 ]
   call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %8) #28
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #28
-  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
+  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #28
   resume { ptr, i32 } %.pn
 }
@@ -31210,7 +31210,7 @@ _ZN4Luau6detail16ItemInterfaceSetINS_18SubtypingReasoningEE7destroyEPS2_m.exit.l
 _ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE7destroyEv.exit.i.i: ; preds = %_ZN4Luau6detail16ItemInterfaceSetINS_18SubtypingReasoningEE7destroyEPS2_m.exit.loopexit.i.i.i, %4
   %9 = phi ptr [ %.pre.i.i.i, %_ZN4Luau6detail16ItemInterfaceSetINS_18SubtypingReasoningEE7destroyEPS2_m.exit.loopexit.i.i.i ], [ %3, %4 ]
   tail call void @_ZdlPv(ptr noundef %9) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EED2Ev.exit: ; preds = %1, %_ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE7destroyEv.exit.i.i
@@ -31298,7 +31298,7 @@ _ZN4Luau6detail16ItemInterfaceMapISt4pairIPKNS_4TypeES5_ENS_15SubtypingResultEE7
 _ZN4Luau6detail14DenseHashTableISt4pairIPKNS_4TypeES5_ES2_IS6_NS_15SubtypingResultEES2_IKS6_S7_ENS0_16ItemInterfaceMapIS6_S7_EENS_12TypePairHashESt8equal_toIS6_EE7destroyEv.exit.i.i: ; preds = %_ZN4Luau6detail16ItemInterfaceMapISt4pairIPKNS_4TypeES5_ENS_15SubtypingResultEE7destroyEPS2_IS6_S7_Em.exit.loopexit.i.i.i, %4
   %9 = phi ptr [ %.pre.i.i.i, %_ZN4Luau6detail16ItemInterfaceMapISt4pairIPKNS_4TypeES5_ENS_15SubtypingResultEE7destroyEPS2_IS6_S7_Em.exit.loopexit.i.i.i ], [ %3, %4 ]
   tail call void @_ZdlPv(ptr noundef %9) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EED2Ev.exit: ; preds = %1, %_ZN4Luau6detail14DenseHashTableISt4pairIPKNS_4TypeES5_ES2_IS6_NS_15SubtypingResultEES2_IKS6_S7_ENS0_16ItemInterfaceMapIS6_S7_EENS_12TypePairHashESt8equal_toIS6_EE7destroyEv.exit.i.i
@@ -31309,7 +31309,7 @@ _ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePair
 
 12:                                               ; preds = %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %11) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 16, i1 false)
   br label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEED2Ev.exit
 
 _ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EED2Ev.exit, %12
@@ -31491,7 +31491,7 @@ define linkonce_odr dso_local void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_EbNS_14TypeIdPairHashESt8equal_toIS5_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_EbNS_14TypeIdPairHashESt8equal_toIS5_EED2Ev.exit: ; preds = %1, %4
@@ -31502,7 +31502,7 @@ _ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_EbNS_14TypeIdPairHashESt8equal_toIS
 
 7:                                                ; preds = %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_EbNS_14TypeIdPairHashESt8equal_toIS5_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_EbNS_14TypeIdPairHashESt8equal_toIS5_EED2Ev.exit, %7
@@ -31585,7 +31585,7 @@ define linkonce_odr dso_local void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %1, %4
@@ -31596,7 +31596,7 @@ _ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_E
 
 7:                                                ; preds = %_ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %7
@@ -31641,7 +31641,7 @@ _ZN4Luau6detail16ItemInterfaceMapISt4pairIPKNS_4TypeES5_ENS_7VariantIJNS_12TypeM
 _ZN4Luau6detail14DenseHashTableISt4pairIPKNS_4TypeES5_ES2_IS6_NS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25Uninhab: ; preds = %_ZN4Luau6detail16ItemInterfaceMapISt4pairIPKNS_4TypeES5_ENS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25Uninhabited4, %10
   %23 = phi ptr [ %.pre.i.i.i, %_ZN4Luau6detail16ItemInterfaceMapISt4pairIPKNS_4TypeES5_ENS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25Uninhabited4 ], [ %9, %10 ]
   tail call void @_ZdlPv(ptr noundef %23) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFami
 
 _ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFami: ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %_ZN4Luau6detail14DenseHashTableISt4pairIPKNS_4TypeES5_ES2_IS6_NS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25Uninhab
@@ -31652,7 +31652,7 @@ _ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_7VariantIJNS_12TypeMismatchENS_
 
 26:                                               ; preds = %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFami
   tail call void @_ZdlPv(ptr noundef nonnull %25) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFami, %26
@@ -31663,7 +31663,7 @@ _ZN4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5
 
 29:                                               ; preds = %_ZN4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %28) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashSetISt4pairIPKNS_4TypeES4_ENS_14TypeIdPairHashESt8equal_toIS5_EED2Ev.exit, %29
@@ -31815,7 +31815,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau9isSubtypeEPKNS_11TypePackVarES2_NS
   %.0 = phi i1 [ %59, %57 ], [ %70, %66 ]
   call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %8) #28
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #28
-  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
+  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #28
   ret i1 %.0
 
@@ -31823,7 +31823,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau9isSubtypeEPKNS_11TypePackVarES2_NS
   %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ], [ %72, %71 ]
   call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %8) #28
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #28
-  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
+  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #28
   resume { ptr, i32 } %.pn
 }
@@ -31947,7 +31947,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau19isConsistentSubtypeEPKNS_4TypeES2
   call void @_ZN4Luau7UnifierD2Ev(ptr noundef nonnull align 8 dereferenceable(289) %9) #28
   call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %8) #28
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #28
-  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
+  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #28
   ret i1 %63
 
@@ -31966,7 +31966,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau19isConsistentSubtypeEPKNS_4TypeES2
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
   call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %8) #28
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #28
-  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
+  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #28
   resume { ptr, i32 } %.pn
 }
@@ -32088,7 +32088,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau19isConsistentSubtypeEPKNS_11TypePa
   call void @_ZN4Luau7UnifierD2Ev(ptr noundef nonnull align 8 dereferenceable(289) %9) #28
   call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %8) #28
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #28
-  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
+  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #28
   ret i1 %63
 
@@ -32107,7 +32107,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau19isConsistentSubtypeEPKNS_11TypePa
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
   call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %8) #28
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #28
-  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
+  call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #28
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #28
   resume { ptr, i32 } %.pn
 }
@@ -32126,7 +32126,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEE6fnDtorIS2_EEvPv(ptr noundef %0) #1 comdat align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #28
   ret void
 }
 
@@ -32297,7 +32297,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEE6fnCopyIS2_EEvPvPKv(ptr noundef %0, ptr noundef %1) #4 comdat align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(33) %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i8, ptr %4, align 8
@@ -32564,7 +32564,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(401) ptr @
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 16
-  invoke void @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE14_M_move_assignEOSK_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
+  invoke void @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE14_M_move_assignEOSK_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEEaSEOSD_.exit.i unwind label %5
 
 5:                                                ; preds = %2
@@ -32675,7 +32675,7 @@ _ZN4Luau20NormalizedStringTypeaSEOS0_.exit:       ; preds = %_ZNSt8_Rb_treeINSt7
 
 58:                                               ; preds = %56
   tail call void @_ZdlPv(ptr noundef nonnull %57) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %54, i8 0, i64 16, i1 false)
   br label %59
 
 59:                                               ; preds = %58, %56
@@ -32693,7 +32693,7 @@ _ZN4Luau20NormalizedStringTypeaSEOS0_.exit:       ; preds = %_ZNSt8_Rb_treeINSt7
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %68, ptr %69, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %55, i8 0, i64 24, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i: ; preds = %59, %_ZN4Luau20NormalizedStringTypeaSEOS0_.exit
@@ -32743,7 +32743,7 @@ _ZN4Luau7TypeIdsaSEOS0_.exit:                     ; preds = %_ZN4Luau12DenseHash
 
 96:                                               ; preds = %94
   tail call void @_ZdlPv(ptr noundef nonnull %95) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %92, i8 0, i64 16, i1 false)
   br label %97
 
 97:                                               ; preds = %96, %94
@@ -32761,7 +32761,7 @@ _ZN4Luau7TypeIdsaSEOS0_.exit:                     ; preds = %_ZN4Luau12DenseHash
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 296
   store ptr %106, ptr %107, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %93, i8 0, i64 24, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i.i
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i.i: ; preds = %97, %_ZN4Luau7TypeIdsaSEOS0_.exit
@@ -32958,7 +32958,7 @@ _ZN4Luau19NormalizedClassTypeC2EOS0_.exit:        ; preds = %23, %25
   %83 = getelementptr inbounds i8, ptr %1, i64 216
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %82, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %74, i8 0, i64 24, i1 false)
   %85 = getelementptr inbounds i8, ptr %0, i64 232
   %86 = getelementptr inbounds i8, ptr %1, i64 232
   %87 = load ptr, ptr %86, align 8
@@ -32997,7 +32997,7 @@ _ZN4Luau19NormalizedClassTypeC2EOS0_.exit:        ; preds = %23, %25
   %111 = getelementptr inbounds i8, ptr %1, i64 296
   %112 = load ptr, ptr %111, align 8
   store ptr %112, ptr %110, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %102, i8 0, i64 24, i1 false)
   %113 = getelementptr inbounds i8, ptr %0, i64 312
   %114 = getelementptr inbounds i8, ptr %1, i64 312
   %115 = load ptr, ptr %114, align 8
@@ -33131,7 +33131,7 @@ _ZNK4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE8containsERKS3_.exit: ; preds = 
   br i1 %.not52, label %_ZNK4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE8containsERKS3_.exit.thread, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZNK4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE8containsERKS3_.exit.thread: ; preds = %26, %28, %9, %2, %_ZNK4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE8containsERKS3_.exit
-  %34 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %34 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %35 = load i8, ptr %34, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE6insertERKS3_.exit, label %37
@@ -33255,7 +33255,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_str
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
   %7 = getelementptr inbounds i8, ptr %6, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE13_M_clone_nodeILb0ENSI_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISC_ESN_RT0_.exit unwind label %8
 
 8:                                                ; preds = %4
@@ -33348,7 +33348,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 .noexc:                                           ; preds = %.lr.ph
   %35 = getelementptr inbounds i8, ptr %.038, i64 32
   %36 = getelementptr inbounds i8, ptr %34, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %35)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35)
           to label %47 unwind label %37
 
 37:                                               ; preds = %.noexc
@@ -33442,7 +33442,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #27
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
@@ -33737,8 +33737,8 @@ define linkonce_odr dso_local noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_str
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread: ; preds = %21, %18, %24, %22, %12
   %25 = getelementptr inbounds i8, ptr %4, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #28
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #28
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_construct_nodeIJRKSC_EEEvPSt13_Rb_tree_nodeISC_EDpOT_.exit unwind label %26
 
 26:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread
@@ -33773,7 +33773,7 @@ common.resume:                                    ; preds = %42, %30
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9: ; preds = %2
   %36 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
   %37 = getelementptr inbounds i8, ptr %36, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_construct_nodeIJRKSC_EEEvPSt13_Rb_tree_nodeISC_EDpOT_.exit unwind label %38
 
 38:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9
@@ -33949,7 +33949,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 168
   store i8 0, ptr %3, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i: ; preds = %6, %2
@@ -33989,7 +33989,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %20 = getelementptr inbounds i8, ptr %1, i64 32
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #28
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(208) %20) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 240) #27
   ret void
 }
@@ -34610,7 +34610,7 @@ _ZN4Luau12TypeMismatchD2Ev.exit:                  ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE6fnDtorIS2_EEvPv(ptr noundef %0) #1 comdat align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #28
   ret void
 }
 
@@ -34640,7 +34640,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE6fnDtorIS7_EEvPv(ptr noundef %0) #1 comdat align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #28
   ret void
 }
 
@@ -34704,7 +34704,7 @@ _ZNSt6vectorIN4Luau25GenericTypePackDefinitionESaIS1_EED2Ev.exit.i.i: ; preds = 
   br label %_ZN4Luau30IncorrectGenericParameterCountD2Ev.exit
 
 _ZN4Luau30IncorrectGenericParameterCountD2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau25GenericTypePackDefinitionESaIS1_EED2Ev.exit.i.i, %12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #28
   ret void
 }
 
@@ -34772,7 +34772,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE6fnDtorISM_EEvPv(ptr noundef %0) #1 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #28
   ret void
 }
 
@@ -34817,7 +34817,7 @@ _ZN4Luau25ModuleHasCyclicDependencyD2Ev.exit:     ; preds = %_ZSt8_DestroyIPNSt7
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE6fnDtorISO_EEvPv(ptr noundef %0) #1 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #28
   ret void
 }
 
@@ -34862,7 +34862,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #28
   br label %_ZN4Luau26CannotInferBinaryOperationD2Ev.exit
 
 _ZN4Luau26CannotInferBinaryOperationD2Ev.exit:    ; preds = %1, %5
@@ -34909,7 +34909,7 @@ _ZN4Luau17MissingPropertiesD2Ev.exit:             ; preds = %_ZSt8_DestroyIPNSt7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE6fnDtorISU_EEvPv(ptr noundef %0) #1 comdat align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #28
   ret void
 }
 
@@ -34993,7 +34993,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE6fnDtorIS16_EEvPv(ptr noundef %0) #1 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #28
   ret void
 }
 
@@ -35006,7 +35006,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE6fnDtorIS18_EEvPv(ptr noundef %0) #1 comdat align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
   ret void
 }
 
@@ -35030,7 +35030,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13Unk
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i.i.i ], [ %2, %1 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i) #28
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !121
@@ -35143,7 +35143,7 @@ _ZN4Luau14TypedAllocatorINS_4TypeEE8unfreezeEv.exit: ; preds = %.noexc, %4
 29:                                               ; preds = %.lr.ph.i1
   %30 = getelementptr inbounds i8, ptr %25, i64 352
   store i8 0, ptr %26, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i: ; preds = %29, %.lr.ph.i1
@@ -35234,7 +35234,7 @@ define linkonce_odr dso_local void @_ZN4Luau4TypeD2Ev(ptr noundef nonnull align 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 352
   store i8 0, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %1, %5
@@ -35369,7 +35369,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #28
   br label %_ZN4Luau13MetatableTypeD2Ev.exit
 
 _ZN4Luau13MetatableTypeD2Ev.exit:                 ; preds = %1, %5
@@ -35433,7 +35433,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
   br i1 %.not.i.i.i, label %_ZN4Luau8LazyTypeD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %5 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 3)
           to label %_ZN4Luau8LazyTypeD2Ev.exit unwind label %6
 
 6:                                                ; preds = %4
@@ -35705,7 +35705,7 @@ _ZN4Luau6detail16ItemInterfaceMapIPKNS_11TypePackVarESt10unique_ptrINS_15Pending
 _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarESt4pairIS4_St10unique_ptrINS_15PendingTypePackESt14default_deleteIS7_EEES5_IKS4_SA_ENS0_16ItemInterfaceMapIS4_SA_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i.i: ; preds = %_ZN4Luau6detail16ItemInterfaceMapIPKNS_11TypePackVarESt10unique_ptrINS_15PendingTypePackESt14default_deleteIS6_EEE7destroyEPSt4pairIS4_S9_Em.exit.loopexit.i.i.i, %12
   %27 = phi ptr [ %.pre.i.i.i, %_ZN4Luau6detail16ItemInterfaceMapIPKNS_11TypePackVarESt10unique_ptrINS_15PendingTypePackESt14default_deleteIS6_EEE7destroyEPSt4pairIS4_S9_Em.exit.loopexit.i.i.i ], [ %11, %12 ]
   tail call void @_ZdlPv(ptr noundef %27) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_11TypePackVarESt10unique_ptrINS_15PendingTypePackESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_11TypePackVarESt10unique_ptrINS_15PendingTypePackESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIPKvS2_ESaIS3_EED2Ev.exit, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarESt4pairIS4_St10unique_ptrINS_15PendingTypePackESt14default_deleteIS7_EEES5_IKS4_SA_ENS0_16ItemInterfaceMapIS4_SA_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i.i
@@ -35735,7 +35735,7 @@ _ZN4Luau12DenseHashMapIPKNS_11TypePackVarESt10unique_ptrINS_15PendingTypePackESt
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %33, i64 352
   store i8 0, ptr %35, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %39) #28
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %38, %34
@@ -35771,7 +35771,7 @@ _ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt1
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St10unique_ptrINS_11PendingTypeESt14default_deleteIS7_EEES5_IKS4_SA_ENS0_16ItemInterfaceMapIS4_SA_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i.i: ; preds = %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS6_EEE7destroyEPSt4pairIS4_S9_Em.exit.loopexit.i.i.i, %29
   %49 = phi ptr [ %.pre.i.i.i7, %_ZN4Luau6detail16ItemInterfaceMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS6_EEE7destroyEPSt4pairIS4_S9_Em.exit.loopexit.i.i.i ], [ %28, %29 ]
   tail call void @_ZdlPv(ptr noundef %49) #28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPKNS_4TypeESt10unique_ptrINS_11PendingTypeESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapIPKNS_11TypePackVarESt10unique_ptrINS_15PendingTypePackESt14default_deleteIS5_EENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St10unique_ptrINS_11PendingTypeESt14default_deleteIS7_EEES5_IKS4_SA_ENS0_16ItemInterfaceMapIS4_SA_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i.i
@@ -36256,7 +36256,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPKN4Luau4TypeESt4pa
   %18 = getelementptr inbounds i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %17, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 24, i1 false)
   %20 = getelementptr inbounds i8, ptr %5, i64 56
   %21 = getelementptr inbounds i8, ptr %1, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -37729,7 +37729,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmESaIS5_EEC2ERKS7_.exit: ; preds = %.l
   %36 = getelementptr inbounds i8, ptr %0, i64 40
   %37 = getelementptr inbounds i8, ptr %0, i64 48
   %38 = getelementptr inbounds i8, ptr %1, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 16, i1 false)
   %39 = load i64, ptr %38, align 8
   store i64 %39, ptr %37, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 56
@@ -38426,7 +38426,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE6fnMoveIS9_EEvPvSS_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(57) %1, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #28
@@ -38465,7 +38465,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE6fnMoveISD_EEvPvSS_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -38513,7 +38513,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE6fnMoveISG_EEvPvSS_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %4, align 8
@@ -38524,7 +38524,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %9) #28
   store i8 1, ptr %4, align 8
   br label %_ZN4Luau13MetatableTypeC2EOS0_.exit
 
@@ -38534,7 +38534,7 @@ _ZN4Luau13MetatableTypeC2EOS0_.exit:              ; preds = %2, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE6fnMoveISH_EEvPvSS_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -38658,7 +38658,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE6fnMoveISL_EEvPvSS_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -38668,7 +38668,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 16, i1 false)
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -38828,7 +38828,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_16IntersectionTypeEmESaIS5_EEC2ERKS7_.exit: ; pre
   %36 = getelementptr inbounds i8, ptr %0, i64 40
   %37 = getelementptr inbounds i8, ptr %0, i64 48
   %38 = getelementptr inbounds i8, ptr %1, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 16, i1 false)
   %39 = load i64, ptr %38, align 8
   store i64 %39, ptr %37, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 56
@@ -39327,7 +39327,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %16 = phi i1 [ true, %5 ], [ %14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
   %17 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
   %18 = getelementptr inbounds i8, ptr %17, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_Alloc_nodeclIRKSC_EEPSt13_Rb_tree_nodeISC_EOT_.exit unwind label %19
 
 19:                                               ; preds = %15
@@ -39620,7 +39620,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   %21 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09) #31
   %22 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09, ptr noundef nonnull align 8 dereferenceable(32) %18) #28
   %23 = getelementptr inbounds i8, ptr %22, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 72) #27
   %24 = load i64, ptr %19, align 8
   %25 = add i64 %24, -1
@@ -40153,7 +40153,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmESaIS5_EE9pop_frontEv.exit.i: ; preds
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %87, !llvm.loop !147
 
 .loopexit.i.i:                                    ; preds = %93, %91, %.thread, %.thread18
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %6)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   %.pre.i6 = load i64, ptr %9, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
@@ -40612,7 +40612,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_16IntersectionTypeEmESaIS5_EE9pop_frontEv.exit.i:
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %87, !llvm.loop !152
 
 .loopexit.i.i:                                    ; preds = %93, %91, %.thread, %.thread18
-  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(34) %6)
+  tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   %.pre.i6 = load i64, ptr %9, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
@@ -40994,7 +40994,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %16 = phi i1 [ true, %5 ], [ %14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
   %17 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
   %18 = getelementptr inbounds i8, ptr %17, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_Alloc_nodeclISC_EEPSt13_Rb_tree_nodeISC_EOT_.exit unwind label %19
 
 19:                                               ; preds = %15
@@ -41046,7 +41046,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -41131,7 +41131,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 72) #27
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeD2Ev.exit
 
@@ -41149,7 +41149,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #27
   br label %6
 
@@ -41185,7 +41185,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %16 = phi i1 [ true, %5 ], [ %14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
   %17 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
   %18 = getelementptr inbounds i8, ptr %17, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau4TypeEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_Alloc_nodeclIRSC_EEPSt13_Rb_tree_nodeISC_EOT_.exit unwind label %19
 
 19:                                               ; preds = %15
@@ -41612,7 +41612,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load i64, ptr %3, align 8
   %8 = inttoptr i64 %7 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %5
@@ -41623,7 +41623,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 10:                                               ; preds = %.noexc
   %11 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #28
   br label %.body
 
 12:                                               ; preds = %5
@@ -41635,7 +41635,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %eh.lpad-body = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   %14 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #28
-  tail call void @_ZdlPvm(ptr noundef %1, i64 noundef 240) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 240) #27
   invoke void @__cxa_rethrow() #29
           to label %22 unwind label %16
 

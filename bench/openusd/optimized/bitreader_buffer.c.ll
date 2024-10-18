@@ -367,7 +367,7 @@ define hidden signext i16 @aom_rb_read_signed_primitive_refsubexpfin(ptr nocaptu
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.i.i
   %19 = zext i16 %17 to i32
-  %20 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 range(i32 2, 65536) %19, i1 true)
   %21 = xor i32 %20, 31
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8

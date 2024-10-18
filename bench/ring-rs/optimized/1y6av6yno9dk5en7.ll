@@ -312,7 +312,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h37fd206f7b9f84fdE
   %3 = alloca { [6 x i64], {}, {} }, align 8
   %4 = alloca { [6 x i64], {}, {} }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !78
-  %5 = tail call noundef i64 @ring_core_0_17_8__LIMBS_are_zero(ptr noundef nonnull readonly %1, i64 noundef 4), !noalias !82
+  %5 = tail call noundef i64 @ring_core_0_17_8__LIMBS_are_zero(ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef 4), !noalias !82
   %6 = icmp eq i64 %5, -1
   br i1 %6, label %7, label %"_ZN4ring2ec7suite_b3ops4p25617PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h9088e48efadb44baE.exit"
 
@@ -323,7 +323,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h37fd206f7b9f84fdE
 "_ZN4ring2ec7suite_b3ops4p25617PUBLIC_SCALAR_OPS28_$u7b$$u7b$closure$u7d$$u7d$17h9088e48efadb44baE.exit": ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !86
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !noalias !86
-  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZN4ring2ec7suite_b3ops4p25618PRIVATE_SCALAR_OPS17haa44eb43c9b60f50E, i64 16)), !noalias !92
+  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @_ZN4ring2ec7suite_b3ops4p25618PRIVATE_SCALAR_OPS17haa44eb43c9b60f50E, i64 16)), !noalias !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !93
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !86
   call void @_ZN4ring2ec7suite_b3ops4p25623p256_scalar_inv_to_mont17hc1175c89a72a4458E(ptr noalias nocapture noundef nonnull sret({ [6 x i64], {}, {} }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
@@ -2675,7 +2675,7 @@ _ZN4ring2ec7suite_b11private_key28scalar_from_big_endian_bytes17hf6ce9f7db3a0bd5
   %33 = getelementptr inbounds i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !alias.scope !1142, !noalias !1152, !nonnull !17, !noundef !17
   %35 = getelementptr inbounds i8, ptr %14, i64 48
-  call void %34(ptr noundef nonnull %9, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %35), !noalias !1153
+  call void %34(ptr noundef nonnull %9, ptr noundef nonnull readonly align 8 dereferenceable(48) %12, ptr noundef nonnull readonly align 8 dereferenceable(96) %14, ptr noundef nonnull readonly %35), !noalias !1153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(144) %9, i64 144, i1 false), !noalias !1154
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9), !noalias !1145
   %36 = call noundef zeroext i1 @_ZN4ring2ec7suite_b11private_key31big_endian_affine_from_jacobian17h06a85bd475b5d508E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, i64 %3, ptr noalias noundef align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %11)
@@ -2731,12 +2731,12 @@ define void @_ZN4ring2ec7suite_b3ops4p25621p256_elem_inv_squared17had84a7a3ef2e7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26), !noalias !1155
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25), !noalias !1155
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, i8 0, i64 48, i1 false), !noalias !1155
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %25, ptr noundef nonnull readonly %1), !noalias !1161
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %25, ptr noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !1161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false), !noalias !1155
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25), !noalias !1155
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24), !noalias !1155
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 48, i1 false), !noalias !1155
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef nonnull readonly %1), !noalias !1162
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !1162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %24, i64 48, i1 false), !noalias !1163
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24), !noalias !1155
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26), !noalias !1155
@@ -2744,12 +2744,12 @@ define void @_ZN4ring2ec7suite_b3ops4p25621p256_elem_inv_squared17had84a7a3ef2e7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23), !noalias !1164
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !1164
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false), !noalias !1164
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %22, ptr noundef nonnull readonly %34), !noalias !1170
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %22, ptr noundef nonnull readonly align 8 dereferenceable(48) %34), !noalias !1170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !noalias !1164
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !1164
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !1164
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false), !noalias !1164
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef nonnull readonly %1), !noalias !1171
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !1171
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !noalias !1172
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21), !noalias !1164
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23), !noalias !1164
@@ -2757,7 +2757,7 @@ define void @_ZN4ring2ec7suite_b3ops4p25621p256_elem_inv_squared17had84a7a3ef2e7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20), !noalias !1173
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !1173
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 48, i1 false), !noalias !1173
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %19, ptr noundef nonnull readonly %33), !noalias !1179
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %19, ptr noundef nonnull readonly align 8 dereferenceable(48) %33), !noalias !1179
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !noalias !1173
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19), !noalias !1173
   br label %.lr.ph.i
@@ -2772,7 +2772,7 @@ define void @_ZN4ring2ec7suite_b3ops4p25621p256_elem_inv_squared17had84a7a3ef2e7
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit: ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !1173
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 48, i1 false), !noalias !1173
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull readonly %33), !noalias !1180
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull readonly align 8 dereferenceable(48) %33), !noalias !1180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false), !noalias !1181
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18), !noalias !1173
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !1173
@@ -2780,7 +2780,7 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit: ; preds = %.lr.p
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !1182
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !noalias !1182
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %16, ptr noundef nonnull readonly %32), !noalias !1188
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %16, ptr noundef nonnull readonly align 8 dereferenceable(48) %32), !noalias !1188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false), !noalias !1182
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !1182
   br label %.lr.ph.i4
@@ -2795,7 +2795,7 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit: ; preds = %.lr.p
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7: ; preds = %.lr.ph.i4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !1182
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 48, i1 false), !noalias !1182
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull readonly %32), !noalias !1189
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull readonly align 8 dereferenceable(48) %32), !noalias !1189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false), !noalias !1190
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15), !noalias !1182
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17), !noalias !1182
@@ -2803,7 +2803,7 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7: ; preds = %.lr.
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !1191
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !1191
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 48, i1 false), !noalias !1191
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %13, ptr noundef nonnull readonly %31), !noalias !1197
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %13, ptr noundef nonnull readonly align 8 dereferenceable(48) %31), !noalias !1197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false), !noalias !1191
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !1191
   br label %.lr.ph.i8
@@ -2818,7 +2818,7 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit7: ; preds = %.lr.
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11: ; preds = %.lr.ph.i8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !1191
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false), !noalias !1191
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull readonly %33), !noalias !1198
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull readonly align 8 dereferenceable(48) %33), !noalias !1198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !1199
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !1191
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !1191
@@ -2826,7 +2826,7 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11: ; preds = %.lr
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !1200
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !1200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !noalias !1200
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %10, ptr noundef nonnull readonly %30), !noalias !1206
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %30), !noalias !1206
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false), !noalias !1200
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !1200
   br label %.lr.ph.i12
@@ -2841,7 +2841,7 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit11: ; preds = %.lr
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15: ; preds = %.lr.ph.i12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !1200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false), !noalias !1200
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull readonly %30), !noalias !1207
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull readonly align 8 dereferenceable(48) %30), !noalias !1207
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !1208
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !1200
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !1200
@@ -2849,13 +2849,13 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15: ; preds = %.lr
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !1209
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !1209
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !noalias !1209
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %7, ptr noundef nonnull readonly %29), !noalias !1215
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %29), !noalias !1215
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !1209
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !1209
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %8, ptr noundef nonnull %8), !noalias !1215
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !1209
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !noalias !1209
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull readonly %34), !noalias !1216
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %34), !noalias !1216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !noalias !1217
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !1209
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !1209
@@ -2863,7 +2863,7 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15: ; preds = %.lr
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1218
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1218
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !noalias !1218
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %4, ptr noundef nonnull readonly %28), !noalias !1224
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !1224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !1218
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1218
   br label %.lr.ph.i20
@@ -2878,7 +2878,7 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit15: ; preds = %.lr
 _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23: ; preds = %.lr.ph.i20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !1218
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !noalias !1218
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull readonly %1), !noalias !1225
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !1225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !1226
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !1218
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1218
@@ -2887,34 +2887,34 @@ _ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23: ; preds = %.lr
 40:                                               ; preds = %40, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23
   %.sroa.01.07.i25 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops12elem_sqr_mul17hf3370a4c488739aeE.exit23 ], [ %41, %40 ]
   %41 = add nuw nsw i64 %.sroa.01.07.i25, 1
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %27, ptr noundef nonnull %27), !noalias !1227
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27), !noalias !1227
   %exitcond.not.i26 = icmp eq i64 %41, 128
   br i1 %exitcond.not.i26, label %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit, label %40
 
 _ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit: ; preds = %40
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %27, ptr noundef nonnull %27, ptr noundef nonnull readonly %28), !noalias !1231
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !1231
   br label %42
 
 42:                                               ; preds = %42, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit
   %.sroa.01.07.i28 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit ], [ %43, %42 ]
   %43 = add nuw nsw i64 %.sroa.01.07.i28, 1
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %27, ptr noundef nonnull %27), !noalias !1232
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27), !noalias !1232
   %exitcond.not.i29 = icmp eq i64 %43, 32
   br i1 %exitcond.not.i29, label %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30, label %42
 
 _ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30: ; preds = %42
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %27, ptr noundef nonnull %27, ptr noundef nonnull readonly %28), !noalias !1236
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !1236
   br label %44
 
 44:                                               ; preds = %44, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30
   %.sroa.01.07.i32 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit30 ], [ %45, %44 ]
   %45 = add nuw nsw i64 %.sroa.01.07.i32, 1
-  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %27, ptr noundef nonnull %27), !noalias !1237
+  call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27), !noalias !1237
   %exitcond.not.i33 = icmp eq i64 %45, 30
   br i1 %exitcond.not.i33, label %_ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit34, label %44
 
 _ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit34: ; preds = %44
-  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull %27, ptr noundef nonnull %27, ptr noundef nonnull readonly %29), !noalias !1241
+  call void @ring_core_0_17_8__p256_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %29), !noalias !1241
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %27, ptr noundef nonnull %27)
   call void @ring_core_0_17_8__p256_sqr_mont(ptr noundef nonnull %27, ptr noundef nonnull %27)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 48, i1 false)
@@ -2950,19 +2950,19 @@ define void @_ZN4ring2ec7suite_b3ops4p25617twin_mul_nistz25617hde0227748dd4ecf8E
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6), !noalias !1245
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !alias.scope !1249, !noalias !1245
-  call void @ring_core_0_17_8__p256_point_mul_base_vartime(ptr noundef nonnull %6, ptr noundef nonnull readonly %1), !noalias !1252
+  call void @ring_core_0_17_8__p256_point_mul_base_vartime(ptr noundef nonnull %6, ptr noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !1252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false), !noalias !1253
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6), !noalias !1245
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7), !noalias !1254
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 144, i1 false), !alias.scope !1260, !noalias !1254
   %10 = getelementptr inbounds i8, ptr %3, i64 48
-  call void @ring_core_0_17_8__p256_point_mul(ptr noundef nonnull %7, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %10), !noalias !1263
+  call void @ring_core_0_17_8__p256_point_mul(ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(96) %3, ptr noundef nonnull readonly %10), !noalias !1263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(144) %7, i64 144, i1 false), !noalias !1264
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7), !noalias !1254
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5), !noalias !1265
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false), !alias.scope !1271, !noalias !1265
-  call void @ring_core_0_17_8__p256_point_add(ptr noundef nonnull %5, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %8), !noalias !1274
+  call void @ring_core_0_17_8__p256_point_add(ptr noundef nonnull %5, ptr noundef nonnull readonly align 8 dereferenceable(144) %9, ptr noundef nonnull readonly align 8 dereferenceable(144) %8), !noalias !1274
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false), !noalias !1275
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5), !noalias !1265
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
@@ -3050,10 +3050,10 @@ define void @_ZN4ring2ec7suite_b3ops4p25623p256_scalar_inv_to_mont17hc1175c89a72
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !1276
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false), !noalias !1276
-  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %12, ptr noundef nonnull readonly %28, i64 noundef 1), !noalias !1281
+  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %12, ptr noundef nonnull readonly align 8 dereferenceable(48) %28, i64 noundef 1), !noalias !1281
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !1276
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false), !noalias !1276
-  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly %29), !noalias !1282
+  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly align 8 dereferenceable(48) %29), !noalias !1282
   %40 = getelementptr inbounds i8, ptr %29, i64 288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !1276
@@ -3079,45 +3079,45 @@ define void @_ZN4ring2ec7suite_b3ops4p25623p256_scalar_inv_to_mont17hc1175c89a72
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !1283
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !noalias !1283
-  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %10, ptr noundef nonnull readonly %26, i64 noundef 2), !noalias !1288
+  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %26, i64 noundef 2), !noalias !1288
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !1283
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false), !noalias !1283
-  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull readonly %36), !noalias !1289
+  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %36), !noalias !1289
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !1290
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !1283
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !1283
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !1291
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false), !noalias !1291
-  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %8, ptr noundef nonnull readonly %25, i64 noundef 8), !noalias !1296
+  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %25, i64 noundef 8), !noalias !1296
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !1291
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !noalias !1291
-  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly %25), !noalias !1297
+  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %25), !noalias !1297
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !1298
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !1291
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !1291
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !1299
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !noalias !1299
-  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %6, ptr noundef nonnull readonly %24, i64 noundef 16), !noalias !1304
+  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %6, ptr noundef nonnull readonly align 8 dereferenceable(48) %24, i64 noundef 16), !noalias !1304
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1299
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !noalias !1299
-  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull readonly %24), !noalias !1305
+  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull readonly align 8 dereferenceable(48) %24), !noalias !1305
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !1306
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1299
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !1299
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1307
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !noalias !1307
-  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %4, ptr noundef nonnull readonly %23, i64 noundef 64), !noalias !1312
+  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %23, i64 noundef 64), !noalias !1312
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !1307
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !noalias !1307
-  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull readonly %23), !noalias !1313
+  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %23), !noalias !1313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !1314
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !1307
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1307
-  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %22, ptr noundef nonnull %22, i64 noundef 32), !noalias !1315
-  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %22, ptr noundef nonnull %22, ptr noundef nonnull readonly %23)
+  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 noundef 32), !noalias !1315
+  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull readonly align 8 dereferenceable(48) %23)
   br label %43
 
 42:                                               ; preds = %48
@@ -3146,8 +3146,8 @@ define void @_ZN4ring2ec7suite_b3ops4p25623p256_scalar_inv_to_mont17hc1175c89a72
   %49 = load i8, ptr %.sroa.013.0.ptr17, align 1, !noundef !17
   %50 = zext i8 %49 to i64
   %51 = getelementptr inbounds [8 x { [6 x i64], {}, {} }], ptr %29, i64 0, i64 %46
-  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull %22, ptr noundef nonnull %22, i64 noundef %50), !noalias !1319
-  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull %22, ptr noundef nonnull %22, ptr noundef nonnull readonly %51)
+  call void @ring_core_0_17_8__p256_scalar_sqr_rep_mont(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 noundef range(i64 0, 256) %50), !noalias !1319
+  call void @ring_core_0_17_8__p256_scalar_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull readonly align 8 dereferenceable(48) %51)
   %52 = icmp eq i64 %.sroa.013.0.add, 52
   br i1 %52, label %42, label %43
 

@@ -3556,7 +3556,7 @@ iuup_proto_tree_add_bits.exit:                    ; preds = %59, %39
   %75 = zext i1 %not..not.i to i32
   %76 = add nuw nsw i32 %51, %75
   %77 = tail call ptr @proto_tree_add_bytes(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %45, i32 noundef %76, ptr noundef %54) #8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %77, ptr noundef nonnull @.str.2761, i32 noundef %38) #8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %77, ptr noundef nonnull @.str.2761, i32 noundef range(i32 1, 0) %38) #8
   %78 = load i32, ptr %37, align 4
   %79 = add i32 %78, %.04763
   br label %80

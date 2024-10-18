@@ -61,7 +61,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal3smt19ResourceOutListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN4cvc58internal8ListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
+  tail call void @_ZN4cvc58internal8ListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
   tail call void @_ZdlPv(ptr noundef nonnull %this) #8
   ret void
 }

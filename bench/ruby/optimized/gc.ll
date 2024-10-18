@@ -1186,7 +1186,7 @@ garbage_collect.exit.i:                           ; preds = %85, %rb_vm_lock_ent
   unreachable
 
 87:                                               ; preds = %garbage_collect.exit.i, %79, %rb_current_ractor.exit.i
-  %88 = call fastcc i64 @newobj_alloc(ptr noundef nonnull %17, ptr noundef nonnull %27, i64 noundef %22, i1 noundef zeroext true)
+  %88 = call fastcc i64 @newobj_alloc(ptr noundef nonnull %17, ptr noundef nonnull %27, i64 noundef range(i64 0, 5) %22, i1 noundef zeroext true)
   %89 = inttoptr i64 %88 to ptr
   store i64 %26, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 8
@@ -1362,7 +1362,7 @@ garbage_collect.exit.i45:                         ; preds = %168, %rb_vm_lock_en
   unreachable
 
 170:                                              ; preds = %garbage_collect.exit.i45, %162, %rb_current_ractor.exit.i36
-  %171 = call fastcc i64 @newobj_alloc(ptr noundef nonnull %17, ptr noundef nonnull %27, i64 noundef %22, i1 noundef zeroext true)
+  %171 = call fastcc i64 @newobj_alloc(ptr noundef nonnull %17, ptr noundef nonnull %27, i64 noundef range(i64 0, 5) %22, i1 noundef zeroext true)
   %172 = inttoptr i64 %171 to ptr
   store i64 %26, ptr %172, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 8
@@ -1624,13 +1624,13 @@ rb_current_ractor.exit:                           ; preds = %.split, %8, %12
   br i1 %.not.i, label %rb_data_object_check.exit, label %21
 
 21:                                               ; preds = %.split8
-  %22 = tail call ptr @rb_get_alloc_func(i64 noundef %0) #39
+  %22 = tail call ptr @rb_get_alloc_func(i64 noundef range(i64 1, 0) %0) #39
   %23 = icmp eq ptr %22, @rb_class_allocate_instance
   br i1 %23, label %24, label %rb_data_object_check.exit
 
 24:                                               ; preds = %21
-  tail call void @rb_undef_alloc_func(i64 noundef %0) #39
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.162, i64 noundef %0) #58
+  tail call void @rb_undef_alloc_func(i64 noundef range(i64 1, 0) %0) #39
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.162, i64 noundef range(i64 1, 0) %0) #58
   br label %rb_data_object_check.exit
 
 rb_data_object_check.exit:                        ; preds = %.split8, %21, %24
@@ -1706,13 +1706,13 @@ define dso_local i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef %1, 
   br i1 %or.cond.i, label %rb_data_object_check.exit.i, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @rb_get_alloc_func(i64 noundef %0) #39
+  %12 = tail call ptr @rb_get_alloc_func(i64 noundef range(i64 1, 0) %0) #39
   %13 = icmp eq ptr %12, @rb_class_allocate_instance
   br i1 %13, label %14, label %rb_data_object_check.exit.i
 
 14:                                               ; preds = %11
-  tail call void @rb_undef_alloc_func(i64 noundef %0) #39
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.162, i64 noundef %0) #58
+  tail call void @rb_undef_alloc_func(i64 noundef range(i64 1, 0) %0) #39
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.162, i64 noundef range(i64 1, 0) %0) #58
   br label %rb_data_object_check.exit.i
 
 rb_data_object_check.exit.i:                      ; preds = %14, %11, %9
@@ -1789,13 +1789,13 @@ define dso_local i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef %1
   br i1 %or.cond.i, label %rb_data_object_check.exit.i, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @rb_get_alloc_func(i64 noundef %0) #39
+  %17 = tail call ptr @rb_get_alloc_func(i64 noundef range(i64 1, 0) %0) #39
   %18 = icmp eq ptr %17, @rb_class_allocate_instance
   br i1 %18, label %19, label %rb_data_object_check.exit.i
 
 19:                                               ; preds = %16
-  tail call void @rb_undef_alloc_func(i64 noundef %0) #39
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.162, i64 noundef %0) #58
+  tail call void @rb_undef_alloc_func(i64 noundef range(i64 1, 0) %0) #39
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.162, i64 noundef range(i64 1, 0) %0) #58
   br label %rb_data_object_check.exit.i
 
 rb_data_object_check.exit.i:                      ; preds = %19, %16, %14
@@ -1847,13 +1847,13 @@ typed_data_alloc.exit:                            ; preds = %26, %29, %33
   br i1 %or.cond.i18, label %rb_data_object_check.exit.i19, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call ptr @rb_get_alloc_func(i64 noundef %0) #39
+  %43 = tail call ptr @rb_get_alloc_func(i64 noundef range(i64 1, 0) %0) #39
   %44 = icmp eq ptr %43, @rb_class_allocate_instance
   br i1 %44, label %45, label %rb_data_object_check.exit.i19
 
 45:                                               ; preds = %42
-  tail call void @rb_undef_alloc_func(i64 noundef %0) #39
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.162, i64 noundef %0) #58
+  tail call void @rb_undef_alloc_func(i64 noundef range(i64 1, 0) %0) #39
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.162, i64 noundef range(i64 1, 0) %0) #58
   br label %rb_data_object_check.exit.i19
 
 rb_data_object_check.exit.i19:                    ; preds = %45, %42, %40
@@ -3107,7 +3107,7 @@ define internal noundef i32 @force_chain_object(i64 noundef %0, i64 noundef %1, 
   %5 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1304
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc noalias noundef nonnull dereferenceable(24) ptr @objspace_xmalloc0(ptr noundef %7, i64 noundef 24)
+  %8 = tail call fastcc noalias noundef nonnull dereferenceable(24) ptr @objspace_xmalloc0(ptr noundef %7, i64 noundef range(i64 0, -9223372036854775808) 24)
   store i64 %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %1, ptr %9, align 8
@@ -3508,7 +3508,7 @@ RB_FL_UNSET.exit.i.i:                             ; preds = %.critedge.i.i.i, %3
 
 38:                                               ; preds = %RB_FL_UNSET.exit.i.i
   %39 = load i64, ptr %5, align 8
-  call fastcc void @run_finalizer(i64 noundef %.026.i, i64 noundef %39)
+  call fastcc void @run_finalizer(i64 noundef range(i64 1, 0) %.026.i, i64 noundef %39)
   br label %run_final.exit.i
 
 40:                                               ; preds = %RB_FL_UNSET.exit.i.i
@@ -7507,7 +7507,7 @@ define dso_local void @rb_gc_register_address(ptr noundef %0) local_unnamed_addr
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   store i64 %7, ptr %2, align 8
-  %8 = tail call fastcc noalias noundef nonnull dereferenceable(16) ptr @objspace_xmalloc0(ptr noundef %6, i64 noundef 16)
+  %8 = tail call fastcc noalias noundef nonnull dereferenceable(16) ptr @objspace_xmalloc0(ptr noundef %6, i64 noundef range(i64 0, -9223372036854775808) 16)
   %9 = getelementptr inbounds i8, ptr %6, i64 1464
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
@@ -7534,7 +7534,7 @@ ruby_xmalloc_body.exit:                           ; preds = %1
   %4 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1304
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call fastcc noundef nonnull ptr @objspace_xmalloc0(ptr noundef %6, i64 noundef %0)
+  %7 = tail call fastcc noundef nonnull ptr @objspace_xmalloc0(ptr noundef %6, i64 noundef range(i64 0, -9223372036854775808) %0)
   ret ptr %7
 }
 
@@ -7645,7 +7645,7 @@ define dso_local void @rb_global_variable(ptr noundef %0) local_unnamed_addr #0 
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   store i64 %7, ptr %2, align 8
-  %8 = tail call fastcc noalias noundef nonnull dereferenceable(16) ptr @objspace_xmalloc0(ptr noundef %6, i64 noundef 16)
+  %8 = tail call fastcc noalias noundef nonnull dereferenceable(16) ptr @objspace_xmalloc0(ptr noundef %6, i64 noundef range(i64 0, -9223372036854775808) 16)
   %9 = getelementptr inbounds i8, ptr %6, i64 1464
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
@@ -12104,7 +12104,7 @@ define hidden noundef nonnull ptr @ruby_xmalloc_body(i64 noundef %0) local_unnam
   %5 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1304
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc noundef nonnull ptr @objspace_xmalloc0(ptr noundef %7, i64 noundef %0)
+  %8 = tail call fastcc noundef nonnull ptr @objspace_xmalloc0(ptr noundef %7, i64 noundef range(i64 0, -9223372036854775808) %0)
   ret ptr %8
 }
 
@@ -12685,7 +12685,7 @@ ruby_xmalloc.exit:                                ; preds = %size_mul_add_or_rai
   %21 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 1304
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call fastcc noalias noundef nonnull ptr @objspace_xmalloc0(ptr noundef %23, i64 noundef %18)
+  %24 = tail call fastcc noalias noundef nonnull ptr @objspace_xmalloc0(ptr noundef %23, i64 noundef range(i64 0, -9223372036854775808) %18)
   ret ptr %24
 }
 
@@ -12845,7 +12845,7 @@ ruby_xmalloc.exit:                                ; preds = %size_mul_add_mul_or
   %25 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 1304
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call fastcc noalias noundef nonnull ptr @objspace_xmalloc0(ptr noundef %27, i64 noundef %22)
+  %28 = tail call fastcc noalias noundef nonnull ptr @objspace_xmalloc0(ptr noundef %27, i64 noundef range(i64 0, -9223372036854775808) %22)
   ret ptr %28
 }
 
@@ -13128,7 +13128,7 @@ define hidden noundef ptr @rb_raw_obj_info(ptr noundef returned %0, i64 noundef 
 
 tailrecurse:                                      ; preds = %18
   %20 = getelementptr i8, ptr %.tr180, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %20, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.334, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %20, ptr noundef nonnull align 1 dereferenceable(11) @.str.334, i64 11, i1 false)
   %21 = sub i64 %.tr73181, %5
   %22 = getelementptr inbounds i8, ptr %11, i64 24
   %23 = load i64, ptr %22, align 8
@@ -13188,7 +13188,7 @@ rb_array_const_ptr.exit:                          ; preds = %26
 
 55:                                               ; preds = %53
   %56 = getelementptr i8, ptr %.tr180, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %56, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.340, i64 9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %56, ptr noundef nonnull align 1 dereferenceable(9) @.str.340, i64 9, i1 false)
   br label %57
 
 57:                                               ; preds = %55, %51
@@ -13344,7 +13344,7 @@ RSTRING_PTR.exit30:                               ; preds = %127, %134
 
 138:                                              ; preds = %136
   %139 = getelementptr i8, ptr %.tr180, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %139, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.347, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %139, ptr noundef nonnull align 1 dereferenceable(7) @.str.347, i64 7, i1 false)
   br i1 %ret.known.tr184, label %rb_raw_obj_info_buitin_type.exit.thread, label %rb_raw_obj_info_buitin_type.exit.thread308
 
 140:                                              ; preds = %10
@@ -13969,7 +13969,7 @@ internal_object_p.exit.thread104:                 ; preds = %internal_object_p.e
 
 156:                                              ; preds = %154
   %157 = getelementptr i8, ptr %0, i64 %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %157, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.304, i64 21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %157, ptr noundef nonnull align 1 dereferenceable(21) @.str.304, i64 21, i1 false)
   br label %RB_SYMBOL_P.exit
 
 internal_object_p.exit.thread104.thread:          ; preds = %144, %internal_object_p.exit.thread104
@@ -14980,7 +14980,7 @@ rbimpl_intern_const.exit47:                       ; preds = %.lr.ph.i45, %rbimpl
   br i1 %.not7.i, label %31, label %35
 
 31:                                               ; preds = %26
-  %32 = tail call noundef i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 3)
+  %32 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %25, i64 range(i64 3458764513820540929, 3458764513820540928) %25, i64 3)
   %33 = and i64 %32, -4
   %34 = or disjoint i64 %33, 2
   br label %rb_float_new_inline.exit
@@ -15024,7 +15024,7 @@ rbimpl_intern_const.exit53:                       ; preds = %.lr.ph.i51, %rb_flo
   br i1 %.not7.i55, label %50, label %54
 
 50:                                               ; preds = %45
-  %51 = tail call noundef i64 @llvm.fshl.i64(i64 %44, i64 %44, i64 3)
+  %51 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %44, i64 range(i64 3458764513820540929, 3458764513820540928) %44, i64 3)
   %52 = and i64 %51, -4
   %53 = or disjoint i64 %52, 2
   br label %rb_float_new_inline.exit57
@@ -15365,7 +15365,7 @@ define internal i64 @gc_profile_total_time(i64 %0) #0 {
   br i1 %.not7.i, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = tail call noundef i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 3)
+  %24 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %17, i64 range(i64 3458764513820540929, 3458764513820540928) %17, i64 3)
   %25 = and i64 %24, -4
   %26 = or disjoint i64 %25, 2
   br label %rb_float_new_inline.exit
@@ -18711,7 +18711,7 @@ ROBJECT_IV_COUNT.exit.i.i.i.i.i:                  ; preds = %717, %713
 724:                                              ; preds = %ROBJECT_IV_COUNT.exit.i.i.i.i.i
   %725 = zext i32 %.0.i28.i.i.i.i.i to i64
   %726 = shl nuw nsw i64 %725, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %683, ptr readonly align 1 %.0.i.i.i.i.i.i, i64 %726, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %683, ptr readonly align 1 %.0.i.i.i.i.i.i, i64 range(i64 -32768, 34359738361) %726, i1 false)
   br label %ruby_nonempty_memcpy.exit.i.i.i.i.i
 
 ruby_nonempty_memcpy.exit.i.i.i.i.i:              ; preds = %724, %ROBJECT_IV_COUNT.exit.i.i.i.i.i
@@ -20929,7 +20929,7 @@ gc_prof_sweep_timer_start.exit:                   ; preds = %18, %21, %24, %getr
   br i1 %.not53.i, label %106, label %105
 
 105:                                              ; preds = %98
-  call fastcc void @gc_sweep_plane(ptr noundef nonnull %0, i64 noundef %76, i64 noundef %104, ptr noundef %11)
+  call fastcc void @gc_sweep_plane(ptr noundef nonnull %0, i64 noundef %76, i64 noundef %104, ptr noundef nonnull %11)
   br label %106
 
 106:                                              ; preds = %105, %98
@@ -22208,7 +22208,7 @@ RB_FL_TEST.exit.thread:                           ; preds = %55, %5, %60, %68
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %100
 
 100:                                              ; preds = %98
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %9, i64 %99, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %9, i64 range(i64 -32768, 34359738361) %99, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %98, %100
@@ -22669,7 +22669,7 @@ lock_page_body.exit.i:                            ; preds = %149
   br i1 %.not53.i, label %191, label %190
 
 190:                                              ; preds = %183
-  call fastcc void @gc_sweep_plane(ptr noundef %0, i64 noundef %161, i64 noundef %189, ptr noundef %8)
+  call fastcc void @gc_sweep_plane(ptr noundef %0, i64 noundef %161, i64 noundef %189, ptr noundef nonnull %8)
   br label %191
 
 191:                                              ; preds = %190, %183

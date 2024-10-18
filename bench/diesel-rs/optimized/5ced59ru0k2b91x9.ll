@@ -857,7 +857,7 @@ define hidden void @"_ZN4core3ptr110drop_in_place$LT$alloc..vec..into_iter..Into
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h61a2c03812a787afE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hb25b520aa4f833b5E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 48, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hb25b520aa4f833b5E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 48, i64 noundef 16)
   ret void
 }
 
@@ -1402,7 +1402,7 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..stateme
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$diesel..mysql..connection..bind..PreparedStatementBinds$GT$$GT$17h2b634db6ddd39722E.llvm.2909037117879540835"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #28
+  tail call void @"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$diesel..mysql..connection..bind..PreparedStatementBinds$GT$$GT$17h2b634db6ddd39722E.llvm.2909037117879540835"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0) #28
   resume { ptr, i32 } %8
 
 "_ZN84_$LT$diesel..mysql..connection..stmt..Statement$u20$as$u20$core..ops..drop..Drop$GT$4drop17h69b84362aa0013b6E.exit.i": ; preds = %3
@@ -2265,7 +2265,7 @@ define hidden void @"_ZN4core3ptr145drop_in_place$LT$diesel..connection..stateme
   br i1 %5, label %"_ZN4core3ptr192drop_in_place$LT$std..collections..hash..map..HashMap$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$C$diesel..pg..connection..stmt..Statement$GT$$GT$17h64d642adda4f531fE.llvm.2909037117879540835.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7f93d1cff2dd53faE.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7f93d1cff2dd53faE.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1018)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1021
   %7 = load i64, ptr %3, align 8, !alias.scope !1021, !noundef !4
@@ -2360,7 +2360,7 @@ define hidden void @"_ZN4core3ptr151drop_in_place$LT$hashbrown..raw..RawTable$LT
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr154drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..mysql..backend..Mysql$C$diesel..mysql..connection..stmt..Statement$GT$$GT$17he7750f59f1e579aaE.llvm.2909037117879540835"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h83790c2190b23176E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 80, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h83790c2190b23176E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 80, i64 noundef 16)
   ret void
 }
 
@@ -2377,7 +2377,7 @@ define hidden void @"_ZN4core3ptr155drop_in_place$LT$std..collections..hash..map
   br i1 %5, label %"_ZN4core3ptr175drop_in_place$LT$hashbrown..map..HashMap$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$C$diesel..pg..backend..InnerPgTypeMetadata$C$std..hash..random..RandomState$GT$$GT$17hab428cff7384da42E.llvm.2909037117879540835.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7897e4ba87895462E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7897e4ba87895462E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1064)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1067
   %7 = load i64, ptr %3, align 8, !alias.scope !1067, !noundef !4
@@ -2481,7 +2481,7 @@ define hidden void @"_ZN4core3ptr157drop_in_place$LT$diesel..connection..stateme
   br i1 %5, label %"_ZN4core3ptr204drop_in_place$LT$std..collections..hash..map..HashMap$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$C$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h36064545bbab6df8E.llvm.2909037117879540835.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hf9641b40548ff5e5E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hf9641b40548ff5e5E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1120)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1123
   %7 = load i64, ptr %3, align 8, !alias.scope !1123, !noundef !4
@@ -2775,7 +2775,7 @@ define hidden void @"_ZN4core3ptr192drop_in_place$LT$std..collections..hash..map
   br i1 %5, label %"_ZN4core3ptr212drop_in_place$LT$hashbrown..map..HashMap$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$C$diesel..pg..connection..stmt..Statement$C$std..hash..random..RandomState$GT$$GT$17h1eb81a573bda68faE.llvm.2909037117879540835.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7f93d1cff2dd53faE.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7f93d1cff2dd53faE.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1267)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1270
   %7 = load i64, ptr %3, align 8, !alias.scope !1270, !noundef !4
@@ -2959,7 +2959,7 @@ define internal void @"_ZN4core3ptr201drop_in_place$LT$diesel..query_builder..de
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr201drop_in_place$LT$std..collections..hash..map..HashMap$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..mysql..backend..Mysql$GT$$C$diesel..mysql..connection..stmt..Statement$GT$$GT$17h02912bb6e4a6238aE.llvm.2909037117879540835"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h83790c2190b23176E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 80, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h83790c2190b23176E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 80, i64 noundef 16)
   ret void
 }
 
@@ -3053,7 +3053,7 @@ define hidden void @"_ZN4core3ptr204drop_in_place$LT$std..collections..hash..map
   br i1 %5, label %"_ZN4core3ptr224drop_in_place$LT$hashbrown..map..HashMap$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$C$diesel..sqlite..connection..stmt..Statement$C$std..hash..random..RandomState$GT$$GT$17h94b841ad2dafb9d6E.llvm.2909037117879540835.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hf9641b40548ff5e5E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hf9641b40548ff5e5E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1384)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1387
   %7 = load i64, ptr %3, align 8, !alias.scope !1387, !noundef !4
@@ -4467,7 +4467,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$
 define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17he613baa18edb91bcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2220)
   %2 = load ptr, ptr %0, align 8, !alias.scope !2220, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h67f363de2b4fb9b4E.llvm.2909037117879540835"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h67f363de2b4fb9b4E.llvm.2909037117879540835"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17hcff8297e580fa959E.llvm.2909037117879540835.exit" unwind label %3, !noalias !2220
 
 3:                                                ; preds = %1
@@ -5320,7 +5320,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$diesel..pg..connection..PgCo
   br i1 %6, label %"_ZN4core3ptr145drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..pg..backend..Pg$C$diesel..pg..connection..stmt..Statement$GT$$GT$17h14e9025eeace4586E.exit", label %7
 
 7:                                                ; preds = %1
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7f93d1cff2dd53faE.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7f93d1cff2dd53faE.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %7
@@ -5371,7 +5371,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$diesel..pg..connection..PgCo
   br i1 %27, label %"_ZN4core3ptr65drop_in_place$LT$diesel..pg..metadata_lookup..PgMetadataCache$GT$17he1ecdb7abce4ad57E.llvm.2909037117879540835.exit", label %28
 
 28:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..pg..backend..Pg$C$diesel..pg..connection..stmt..Statement$GT$$GT$17h14e9025eeace4586E.exit"
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7897e4ba87895462E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7897e4ba87895462E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(48) %24)
           to label %.noexc3 unwind label %44
 
 .noexc3:                                          ; preds = %28
@@ -5809,13 +5809,13 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..M
           cleanup
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h83790c2190b23176E(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 80, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h83790c2190b23176E(ptr noalias noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 80, i64 noundef 16)
           to label %"_ZN4core3ptr154drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..mysql..backend..Mysql$C$diesel..mysql..connection..stmt..Statement$GT$$GT$17he7750f59f1e579aaE.llvm.2909037117879540835.exit" unwind label %33
 
 "_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..raw..RawConnection$GT$17h91983490a616c6bfE.exit": ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h83790c2190b23176E(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 80, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h83790c2190b23176E(ptr noalias noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 80, i64 noundef 16)
           to label %"_ZN4core3ptr154drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..mysql..backend..Mysql$C$diesel..mysql..connection..stmt..Statement$GT$$GT$17he7750f59f1e579aaE.llvm.2909037117879540835.exit2" unwind label %10
 
 "_ZN4core3ptr154drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..mysql..backend..Mysql$C$diesel..mysql..connection..stmt..Statement$GT$$GT$17he7750f59f1e579aaE.llvm.2909037117879540835.exit": ; preds = %4, %10
@@ -6119,7 +6119,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$diesel..pg..metadata_lookup.
   br i1 %5, label %"_ZN4core3ptr155drop_in_place$LT$std..collections..hash..map..HashMap$LT$diesel..pg..metadata_lookup..PgMetadataCacheKey$C$diesel..pg..backend..InnerPgTypeMetadata$GT$$GT$17h957c1ebea0d704e3E.llvm.2909037117879540835.exit", label %6
 
 6:                                                ; preds = %1
-  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7897e4ba87895462E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h7897e4ba87895462E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3191)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3194
   %7 = load i64, ptr %3, align 8, !alias.scope !3194, !noundef !4
@@ -6163,7 +6163,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$diesel..sqlite..connection..
   br i1 %6, label %"_ZN4core3ptr157drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..sqlite..backend..Sqlite$C$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h7fd4816b63a4cf53E.exit", label %7
 
 7:                                                ; preds = %1
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hf9641b40548ff5e5E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hf9641b40548ff5e5E.llvm.11693277841074805610(ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %7
@@ -6955,7 +6955,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$diesel..sqlite..connection..
   br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd101b2b890dc684cE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd101b2b890dc684cE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %7 unwind label %4
 
 common.resume:                                    ; preds = %19, %4
@@ -7288,7 +7288,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$core..array..iter..IntoIter$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17hcff8297e580fa959E.llvm.2909037117879540835"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h67f363de2b4fb9b4E.llvm.2909037117879540835"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h67f363de2b4fb9b4E.llvm.2909037117879540835"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h4d728fd11eea34baE.llvm.2909037117879540835.exit" unwind label %3
 
 "_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h4d728fd11eea34baE.llvm.2909037117879540835.exit": ; preds = %1
@@ -11968,7 +11968,7 @@ define void @"_ZN160_$LT$diesel..query_builder..insert_statement..private..Inser
   br i1 %12, label %13, label %"_ZN144_$LT$diesel..sqlite..query_builder..SqliteQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..sqlite..backend..Sqlite$GT$$GT$8push_sql17h14dc80696d479d96E.exit.i"
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %9, i64 noundef 16), !noalias !5343
+  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %9, i64 noundef 16), !noalias !5343
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17had58ffe066ab6fa9E.llvm.13814690712901630071(i64 noundef %15, i64 %16), !noalias !5343
@@ -12017,7 +12017,7 @@ define void @"_ZN158_$LT$diesel..query_builder..insert_statement..private..Inser
   br i1 %12, label %13, label %"_ZN140_$LT$diesel..mysql..query_builder..MysqlQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..mysql..backend..Mysql$GT$$GT$8push_sql17h9e2d6187c4aa6542E.exit.i"
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %9, i64 noundef 13), !noalias !5362
+  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %9, i64 noundef 13), !noalias !5362
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17had58ffe066ab6fa9E.llvm.13814690712901630071(i64 noundef %15, i64 %16), !noalias !5362
@@ -12066,7 +12066,7 @@ define void @"_ZN153_$LT$diesel..query_builder..insert_statement..private..Repla
   br i1 %12, label %13, label %"_ZN144_$LT$diesel..sqlite..query_builder..SqliteQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..sqlite..backend..Sqlite$GT$$GT$8push_sql17h14dc80696d479d96E.exit.i"
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %9, i64 noundef 7), !noalias !5381
+  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %9, i64 noundef 7), !noalias !5381
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17had58ffe066ab6fa9E.llvm.13814690712901630071(i64 noundef %15, i64 %16), !noalias !5381
@@ -12115,7 +12115,7 @@ define void @"_ZN151_$LT$diesel..query_builder..insert_statement..private..Repla
   br i1 %12, label %13, label %"_ZN140_$LT$diesel..mysql..query_builder..MysqlQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..mysql..backend..Mysql$GT$$GT$8push_sql17h9e2d6187c4aa6542E.exit.i"
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %9, i64 noundef 7), !noalias !5400
+  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %9, i64 noundef 7), !noalias !5400
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17had58ffe066ab6fa9E.llvm.13814690712901630071(i64 noundef %15, i64 %16), !noalias !5400
@@ -12223,7 +12223,7 @@ define void @"_ZN6diesel5mysql13query_builder20query_fragment_impls213_$LT$impl$
   br i1 %12, label %13, label %"_ZN140_$LT$diesel..mysql..query_builder..MysqlQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..mysql..backend..Mysql$GT$$GT$8push_sql17h9e2d6187c4aa6542E.exit.i"
 
 13:                                               ; preds = %5
-  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %9, i64 noundef 12), !noalias !5429
+  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha6d221a5d34ee507E.llvm.13814690712901630071"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %9, i64 noundef 12), !noalias !5429
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17had58ffe066ab6fa9E.llvm.13814690712901630071(i64 noundef %15, i64 %16), !noalias !5429
@@ -12346,7 +12346,7 @@ _ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214
 38:                                               ; preds = %43, %17
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$diesel..pg..connection..result..PgResult$GT$$C$diesel..result..Error$GT$$GT$17hbf6407c5f1834dfeE"(ptr noalias noundef align 8 dereferenceable(56) %6) #28
+  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$diesel..pg..connection..result..PgResult$GT$$C$diesel..result..Error$GT$$GT$17hbf6407c5f1834dfeE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6) #28
           to label %common.resume unwind label %48, !noalias !5436
 
 _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit: ; preds = %.critedge.i, %37, %35, %34, %_ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214522E.exit.i, %32, %29, %25, %.noexc

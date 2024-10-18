@@ -464,17 +464,17 @@ define void @_ZN5paths20prompt_overrides_dir17hdca139f96b1a3bfaE(ptr dead_on_unw
 27:                                               ; preds = %10
   %28 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a5f054d2eabc0fE.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a5f054d2eabc0fE.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hdc1ca73e95f24b40E.exit" unwind label %46
 
 _ZN3std4path4Path4join17h66074a45924d7ba7E.exit:  ; preds = %10
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a5f054d2eabc0fE.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a5f054d2eabc0fE.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hdc1ca73e95f24b40E.exit8" unwind label %29
 
 29:                                               ; preds = %41, %37, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hdc1ca73e95f24b40E.exit8", %_ZN3std4path4Path4join17h66074a45924d7ba7E.exit
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a5f054d2eabc0fE.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a5f054d2eabc0fE.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hdc1ca73e95f24b40E.exit" unwind label %46
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hdc1ca73e95f24b40E.exit8": ; preds = %_ZN3std4path4Path4join17h66074a45924d7ba7E.exit
@@ -521,7 +521,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit:  ; preds = %10
 
 45:                                               ; preds = %41, %.noexc16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !23
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a5f054d2eabc0fE.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a5f054d2eabc0fE.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %15
 

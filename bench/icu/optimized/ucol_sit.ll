@@ -535,7 +535,7 @@ if.end:                                           ; preds = %entry
 arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %if.end
   %arrayctor.cur.idx.i = phi i64 [ 0, %if.end ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arrayctor.cur.idx.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.cur.ptr.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur.ptr.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
@@ -548,7 +548,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   br i1 %arrayctor.done.i, label %arrayctor.cont.i, label %arrayctor.loop.i
 
 arrayctor.cont.i:                                 ; preds = %invoke.cont.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %arrayctor.cont.i
@@ -565,7 +565,7 @@ invoke.cont4.i:                                   ; preds = %arrayctor.cont.i
 arrayctor.loop7.i:                                ; preds = %invoke.cont10.i, %invoke.cont4.i
   %arrayctor.cur8.idx.i = phi i64 [ 560, %invoke.cont4.i ], [ %arrayctor.cur8.add.i, %invoke.cont10.i ]
   %arrayctor.cur8.ptr.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arrayctor.cur8.idx.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.cur8.ptr.ptr.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur8.ptr.ptr.i)
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %arrayctor.loop7.i
@@ -586,7 +586,7 @@ lpad.i:                                           ; preds = %arrayctor.loop.i
 arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestroy.body.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayctor.cur.ptr.i, %lpad.i ]
   %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element.i) #15
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %s
   br i1 %arraydestroy.done.i, label %common.resume, label %arraydestroy.body.i
 
@@ -605,12 +605,12 @@ arraydestroy.body12.i:                            ; preds = %lpad9.i, %arraydest
   %arraydestroy.elementPast13.idx.i = phi i64 [ %arraydestroy.elementPast13.add.i, %arraydestroy.body12.i ], [ %arrayctor.cur8.idx.i, %lpad9.i ]
   %arraydestroy.elementPast13.add.i = add nsw i64 %arraydestroy.elementPast13.idx.i, -64
   %arraydestroy.element14.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arraydestroy.elementPast13.add.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element14.ptr.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element14.ptr.i) #15
   %arraydestroy.done15.i = icmp eq i64 %arraydestroy.elementPast13.add.i, 560
   br i1 %arraydestroy.done15.i, label %arraydestroy.done16.i, label %arraydestroy.body12.i
 
 arraydestroy.done16.i:                            ; preds = %arraydestroy.body12.i, %lpad9.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i) #15
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %arraydestroy.done16.i, %lpad3.i
@@ -620,7 +620,7 @@ ehcleanup.i:                                      ; preds = %arraydestroy.done16
 arraydestroy.body21.i:                            ; preds = %arraydestroy.body21.i, %ehcleanup.i
   %arraydestroy.elementPast22.i = phi ptr [ %arrayctor.end.i, %ehcleanup.i ], [ %arraydestroy.element23.i, %arraydestroy.body21.i ]
   %arraydestroy.element23.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast22.i, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element23.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element23.i) #15
   %arraydestroy.done24.i = icmp eq ptr %arraydestroy.element23.i, %s
   br i1 %arraydestroy.done24.i, label %common.resume, label %arraydestroy.body21.i
 
@@ -639,7 +639,7 @@ invoke.cont:                                      ; preds = %_ZN12CollatorSpecC2
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont6
@@ -666,7 +666,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
           to label %invoke.cont18 unwind label %lpad8
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %keyBuffer)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %keyBuffer)
           to label %invoke.cont20 unwind label %lpad8
 
 invoke.cont20:                                    ; preds = %invoke.cont18
@@ -760,26 +760,26 @@ invoke.cont50:                                    ; preds = %invoke.cont49
           to label %cleanup unwind label %lpad22
 
 cleanup:                                          ; preds = %invoke.cont50, %if.else
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %keyBuffer) #15
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %keyBuffer) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer) #15
   br label %arraydestroy.body.i33
 
 arraydestroy.body.i33:                            ; preds = %arraydestroy.body.i33, %cleanup
   %arraydestroy.elementPast.idx.i = phi i64 [ 1648, %cleanup ], [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i33 ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -64
   %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arraydestroy.elementPast.add.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element.ptr.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element.ptr.i) #15
   %arraydestroy.done.i34 = icmp eq i64 %arraydestroy.elementPast.add.i, 560
   br i1 %arraydestroy.done.i34, label %arraydestroy.done2.i, label %arraydestroy.body.i33
 
 arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i33
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i) #15
   br label %arraydestroy.body4.i
 
 arraydestroy.body4.i:                             ; preds = %arraydestroy.body4.i, %arraydestroy.done2.i
   %arraydestroy.elementPast5.i = phi ptr [ %arrayctor.end.i, %arraydestroy.done2.i ], [ %arraydestroy.element6.i, %arraydestroy.body4.i ]
   %arraydestroy.element6.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast5.i, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element6.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element6.i) #15
   %arraydestroy.done7.i = icmp eq ptr %arraydestroy.element6.i, %s
   br i1 %arraydestroy.done7.i, label %cleanup.cont, label %arraydestroy.body4.i
 
@@ -788,12 +788,12 @@ cleanup.cont:                                     ; preds = %arraydestroy.body4.
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %19, %lpad22 ], [ %20, %lpad24 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %keyBuffer) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %keyBuffer) #15
   br label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %ehcleanup, %lpad10, %lpad8
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %17, %lpad8 ], [ %18, %lpad10 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer) #15
   br label %ehcleanup55
 
 ehcleanup55:                                      ; preds = %ehcleanup53, %lpad
@@ -804,18 +804,18 @@ arraydestroy.body.i35:                            ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i36 = phi i64 [ 1648, %ehcleanup55 ], [ %arraydestroy.elementPast.add.i37, %arraydestroy.body.i35 ]
   %arraydestroy.elementPast.add.i37 = add nsw i64 %arraydestroy.elementPast.idx.i36, -64
   %arraydestroy.element.ptr.i38 = getelementptr inbounds i8, ptr %s, i64 %arraydestroy.elementPast.add.i37
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element.ptr.i38) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element.ptr.i38) #15
   %arraydestroy.done.i39 = icmp eq i64 %arraydestroy.elementPast.add.i37, 560
   br i1 %arraydestroy.done.i39, label %arraydestroy.done2.i40, label %arraydestroy.body.i35
 
 arraydestroy.done2.i40:                           ; preds = %arraydestroy.body.i35
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i) #15
   br label %arraydestroy.body4.i42
 
 arraydestroy.body4.i42:                           ; preds = %arraydestroy.body4.i42, %arraydestroy.done2.i40
   %arraydestroy.elementPast5.i43 = phi ptr [ %arrayctor.end.i, %arraydestroy.done2.i40 ], [ %arraydestroy.element6.i44, %arraydestroy.body4.i42 ]
   %arraydestroy.element6.i44 = getelementptr inbounds i8, ptr %arraydestroy.elementPast5.i43, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element6.i44) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element6.i44) #15
   %arraydestroy.done7.i45 = icmp eq ptr %arraydestroy.element6.i44, %s
   br i1 %arraydestroy.done7.i45, label %common.resume, label %arraydestroy.body4.i42
 }
@@ -872,7 +872,7 @@ if.then.i:                                        ; preds = %for.body.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %string.addr.019 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv9.i = trunc i64 %sub.ptr.sub.i to i32
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp.i)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp.i)
   store i32 0, ptr %len.i.i, align 8
   %6 = load ptr, ptr %ref.tmp.i, align 8
   store i8 0, ptr %6, align 1
@@ -881,7 +881,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i
   %common.resume.op.i = phi { ptr, i32 } [ %7, %lpad.i.i ], [ %8, %lpad.i ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp.i) #15
   resume { ptr, i32 } %common.resume.op.i
 
 lpad.i.i:                                         ; preds = %if.then.i
@@ -895,7 +895,7 @@ _ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit.i: ; preds = %if.then.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp.i) #15
   br label %_ZL19ucol_sit_readOptionPKcP12CollatorSpecP10UErrorCode.exit
 
 lpad.i:                                           ; preds = %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit.i
@@ -1112,7 +1112,7 @@ if.end:                                           ; preds = %entry
 arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %if.end
   %arrayctor.cur.idx.i = phi i64 [ 0, %if.end ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arrayctor.cur.idx.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.cur.ptr.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur.ptr.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
@@ -1125,7 +1125,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   br i1 %arrayctor.done.i, label %arrayctor.cont.i, label %arrayctor.loop.i
 
 arrayctor.cont.i:                                 ; preds = %invoke.cont.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %arrayctor.cont.i
@@ -1142,7 +1142,7 @@ invoke.cont4.i:                                   ; preds = %arrayctor.cont.i
 arrayctor.loop7.i:                                ; preds = %invoke.cont10.i, %invoke.cont4.i
   %arrayctor.cur8.idx.i = phi i64 [ 560, %invoke.cont4.i ], [ %arrayctor.cur8.add.i, %invoke.cont10.i ]
   %arrayctor.cur8.ptr.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arrayctor.cur8.idx.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.cur8.ptr.ptr.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur8.ptr.ptr.i)
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %arrayctor.loop7.i
@@ -1163,7 +1163,7 @@ lpad.i:                                           ; preds = %arrayctor.loop.i
 arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestroy.body.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayctor.cur.ptr.i, %lpad.i ]
   %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element.i) #15
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %s
   br i1 %arraydestroy.done.i, label %common.resume, label %arraydestroy.body.i
 
@@ -1182,12 +1182,12 @@ arraydestroy.body12.i:                            ; preds = %lpad9.i, %arraydest
   %arraydestroy.elementPast13.idx.i = phi i64 [ %arraydestroy.elementPast13.add.i, %arraydestroy.body12.i ], [ %arrayctor.cur8.idx.i, %lpad9.i ]
   %arraydestroy.elementPast13.add.i = add nsw i64 %arraydestroy.elementPast13.idx.i, -64
   %arraydestroy.element14.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arraydestroy.elementPast13.add.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element14.ptr.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element14.ptr.i) #15
   %arraydestroy.done15.i = icmp eq i64 %arraydestroy.elementPast13.add.i, 560
   br i1 %arraydestroy.done15.i, label %arraydestroy.done16.i, label %arraydestroy.body12.i
 
 arraydestroy.done16.i:                            ; preds = %arraydestroy.body12.i, %lpad9.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i) #15
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %arraydestroy.done16.i, %lpad3.i
@@ -1197,7 +1197,7 @@ ehcleanup.i:                                      ; preds = %arraydestroy.done16
 arraydestroy.body21.i:                            ; preds = %arraydestroy.body21.i, %ehcleanup.i
   %arraydestroy.elementPast22.i = phi ptr [ %arrayctor.end.i, %ehcleanup.i ], [ %arraydestroy.element23.i, %arraydestroy.body21.i ]
   %arraydestroy.element23.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast22.i, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element23.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element23.i) #15
   %arraydestroy.done24.i = icmp eq ptr %arraydestroy.element23.i, %s
   br i1 %arraydestroy.done24.i, label %common.resume, label %arraydestroy.body21.i
 
@@ -1216,7 +1216,7 @@ invoke.cont:                                      ; preds = %_ZN12CollatorSpecC2
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont6
@@ -1339,31 +1339,31 @@ if.end52:                                         ; preds = %if.then46, %if.else
 
 cleanup:                                          ; preds = %if.then37.invoke, %if.end52
   %retval.1 = phi ptr [ %call17, %if.end52 ], [ null, %if.then37.invoke ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer) #15
   br label %arraydestroy.body.i37
 
 arraydestroy.body.i37:                            ; preds = %arraydestroy.body.i37, %cleanup
   %arraydestroy.elementPast.idx.i = phi i64 [ 1648, %cleanup ], [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i37 ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -64
   %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arraydestroy.elementPast.add.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element.ptr.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element.ptr.i) #15
   %arraydestroy.done.i38 = icmp eq i64 %arraydestroy.elementPast.add.i, 560
   br i1 %arraydestroy.done.i38, label %arraydestroy.done2.i, label %arraydestroy.body.i37
 
 arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i37
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i) #15
   br label %arraydestroy.body4.i
 
 arraydestroy.body4.i:                             ; preds = %arraydestroy.body4.i, %arraydestroy.done2.i
   %arraydestroy.elementPast5.i = phi ptr [ %arrayctor.end.i, %arraydestroy.done2.i ], [ %arraydestroy.element6.i, %arraydestroy.body4.i ]
   %arraydestroy.element6.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast5.i, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element6.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element6.i) #15
   %arraydestroy.done7.i = icmp eq ptr %arraydestroy.element6.i, %s
   br i1 %arraydestroy.done7.i, label %return, label %arraydestroy.body4.i
 
 ehcleanup:                                        ; preds = %lpad8.loopexit, %lpad8.loopexit.split-lp, %lpad10
   %.pn = phi { ptr, i32 } [ %15, %lpad10 ], [ %lpad.loopexit, %lpad8.loopexit ], [ %lpad.loopexit.split-lp, %lpad8.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer) #15
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup, %lpad
@@ -1374,18 +1374,18 @@ arraydestroy.body.i39:                            ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i40 = phi i64 [ 1648, %ehcleanup60 ], [ %arraydestroy.elementPast.add.i41, %arraydestroy.body.i39 ]
   %arraydestroy.elementPast.add.i41 = add nsw i64 %arraydestroy.elementPast.idx.i40, -64
   %arraydestroy.element.ptr.i42 = getelementptr inbounds i8, ptr %s, i64 %arraydestroy.elementPast.add.i41
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element.ptr.i42) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element.ptr.i42) #15
   %arraydestroy.done.i43 = icmp eq i64 %arraydestroy.elementPast.add.i41, 560
   br i1 %arraydestroy.done.i43, label %arraydestroy.done2.i44, label %arraydestroy.body.i39
 
 arraydestroy.done2.i44:                           ; preds = %arraydestroy.body.i39
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i) #15
   br label %arraydestroy.body4.i46
 
 arraydestroy.body4.i46:                           ; preds = %arraydestroy.body4.i46, %arraydestroy.done2.i44
   %arraydestroy.elementPast5.i47 = phi ptr [ %arrayctor.end.i, %arraydestroy.done2.i44 ], [ %arraydestroy.element6.i48, %arraydestroy.body4.i46 ]
   %arraydestroy.element6.i48 = getelementptr inbounds i8, ptr %arraydestroy.elementPast5.i47, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element6.i48) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element6.i48) #15
   %arraydestroy.done7.i49 = icmp eq ptr %arraydestroy.element6.i48, %s
   br i1 %arraydestroy.done7.i49, label %common.resume, label %arraydestroy.body4.i46
 
@@ -1460,7 +1460,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %if.end3
   %arrayctor.cur.idx.i = phi i64 [ 0, %if.end3 ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arrayctor.cur.idx.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.cur.ptr.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur.ptr.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
@@ -1473,7 +1473,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   br i1 %arrayctor.done.i, label %arrayctor.cont.i, label %arrayctor.loop.i
 
 arrayctor.cont.i:                                 ; preds = %invoke.cont.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %arrayctor.cont.i
@@ -1490,7 +1490,7 @@ invoke.cont4.i:                                   ; preds = %arrayctor.cont.i
 arrayctor.loop7.i:                                ; preds = %invoke.cont10.i, %invoke.cont4.i
   %arrayctor.cur8.idx.i = phi i64 [ 560, %invoke.cont4.i ], [ %arrayctor.cur8.add.i, %invoke.cont10.i ]
   %arrayctor.cur8.ptr.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arrayctor.cur8.idx.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.cur8.ptr.ptr.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur8.ptr.ptr.i)
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %arrayctor.loop7.i
@@ -1511,7 +1511,7 @@ lpad.i:                                           ; preds = %arrayctor.loop.i
 arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestroy.body.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayctor.cur.ptr.i, %lpad.i ]
   %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element.i) #15
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %s
   br i1 %arraydestroy.done.i, label %common.resume, label %arraydestroy.body.i
 
@@ -1530,12 +1530,12 @@ arraydestroy.body12.i:                            ; preds = %lpad9.i, %arraydest
   %arraydestroy.elementPast13.idx.i = phi i64 [ %arraydestroy.elementPast13.add.i, %arraydestroy.body12.i ], [ %arrayctor.cur8.idx.i, %lpad9.i ]
   %arraydestroy.elementPast13.add.i = add nsw i64 %arraydestroy.elementPast13.idx.i, -64
   %arraydestroy.element14.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arraydestroy.elementPast13.add.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element14.ptr.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element14.ptr.i) #15
   %arraydestroy.done15.i = icmp eq i64 %arraydestroy.elementPast13.add.i, 560
   br i1 %arraydestroy.done15.i, label %arraydestroy.done16.i, label %arraydestroy.body12.i
 
 arraydestroy.done16.i:                            ; preds = %arraydestroy.body12.i, %lpad9.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i) #15
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %arraydestroy.done16.i, %lpad3.i
@@ -1545,7 +1545,7 @@ ehcleanup.i:                                      ; preds = %arraydestroy.done16
 arraydestroy.body21.i:                            ; preds = %arraydestroy.body21.i, %ehcleanup.i
   %arraydestroy.elementPast22.i = phi ptr [ %arrayctor.end.i, %ehcleanup.i ], [ %arraydestroy.element23.i, %arraydestroy.body21.i ]
   %arraydestroy.element23.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast22.i, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element23.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element23.i) #15
   %arraydestroy.done24.i = icmp eq ptr %arraydestroy.element23.i, %s
   br i1 %arraydestroy.done24.i, label %common.resume, label %arraydestroy.body21.i
 
@@ -1672,18 +1672,18 @@ arraydestroy.body.i10:                            ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i = phi i64 [ 1648, %invoke.cont8 ], [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i10 ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -64
   %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %s, i64 %arraydestroy.elementPast.add.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element.ptr.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element.ptr.i) #15
   %arraydestroy.done.i11 = icmp eq i64 %arraydestroy.elementPast.add.i, 560
   br i1 %arraydestroy.done.i11, label %arraydestroy.done2.i, label %arraydestroy.body.i10
 
 arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i10
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i) #15
   br label %arraydestroy.body4.i
 
 arraydestroy.body4.i:                             ; preds = %arraydestroy.body4.i, %arraydestroy.done2.i
   %arraydestroy.elementPast5.i = phi ptr [ %arrayctor.end.i, %arraydestroy.done2.i ], [ %arraydestroy.element6.i, %arraydestroy.body4.i ]
   %arraydestroy.element6.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast5.i, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element6.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element6.i) #15
   %arraydestroy.done7.i = icmp eq ptr %arraydestroy.element6.i, %s
   br i1 %arraydestroy.done7.i, label %return, label %arraydestroy.body4.i
 
@@ -1710,18 +1710,18 @@ arraydestroy.body.i12:                            ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i13 = phi i64 [ 1648, %lpad ], [ %arraydestroy.elementPast.add.i14, %arraydestroy.body.i12 ]
   %arraydestroy.elementPast.add.i14 = add nsw i64 %arraydestroy.elementPast.idx.i13, -64
   %arraydestroy.element.ptr.i15 = getelementptr inbounds i8, ptr %s, i64 %arraydestroy.elementPast.add.i14
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element.ptr.i15) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element.ptr.i15) #15
   %arraydestroy.done.i16 = icmp eq i64 %arraydestroy.elementPast.add.i14, 560
   br i1 %arraydestroy.done.i16, label %arraydestroy.done2.i17, label %arraydestroy.body.i12
 
 arraydestroy.done2.i17:                           ; preds = %arraydestroy.body.i12
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arrayctor.end.i) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.end.i) #15
   br label %arraydestroy.body4.i19
 
 arraydestroy.body4.i19:                           ; preds = %arraydestroy.body4.i19, %arraydestroy.done2.i17
   %arraydestroy.elementPast5.i20 = phi ptr [ %arrayctor.end.i, %arraydestroy.done2.i17 ], [ %arraydestroy.element6.i21, %arraydestroy.body4.i19 ]
   %arraydestroy.element6.i21 = getelementptr inbounds i8, ptr %arraydestroy.elementPast5.i20, i64 -64
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %arraydestroy.element6.i21) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %arraydestroy.element6.i21) #15
   %arraydestroy.done7.i22 = icmp eq ptr %arraydestroy.element6.i21, %s
   br i1 %arraydestroy.done7.i22, label %common.resume, label %arraydestroy.body4.i19
 
@@ -2117,7 +2117,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.else:                                          ; preds = %lor.lhs.false
   %conv5 = trunc i64 %sub.ptr.sub to i32
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp)
   %len.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store i32 0, ptr %len.i, align 8
   %2 = load ptr, ptr %ref.tmp, align 8
@@ -2127,7 +2127,7 @@ if.else:                                          ; preds = %lor.lhs.false
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %4, %lpad ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp) #15
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.else
@@ -2141,7 +2141,7 @@ _ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit:  ; preds = %if.else
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp) #15
   %add.ptr7 = getelementptr inbounds i8, ptr %call, i64 1
   br label %return
 

@@ -2301,12 +2301,12 @@ define void @png_handle_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, i32
   br label %34
 
 34:                                               ; preds = %33, %24
-  %35 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %26) #12
+  %35 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %26) #12
   %.not27.i = icmp eq ptr %35, null
   br i1 %.not27.i, label %png_read_buffer.exit, label %36
 
 36:                                               ; preds = %34
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 range(i64 0, 4294967296) %26, i1 false)
   store ptr %35, ptr %27, align 8, !alias.scope !29
   %37 = getelementptr inbounds i8, ptr %0, i64 1128
   store i64 %26, ptr %37, align 8, !alias.scope !29
@@ -3462,12 +3462,12 @@ define void @png_handle_pCAL(ptr noalias noundef %0, ptr noalias noundef %1, i32
   br label %30
 
 30:                                               ; preds = %29, %20
-  %31 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %22) #12
+  %31 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %22) #12
   %.not27.i = icmp eq ptr %31, null
   br i1 %.not27.i, label %png_read_buffer.exit, label %32
 
 32:                                               ; preds = %30
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 range(i64 0, 4294967296) %22, i1 false)
   store ptr %31, ptr %23, align 8, !alias.scope !36
   %33 = getelementptr inbounds i8, ptr %0, i64 1128
   store i64 %22, ptr %33, align 8, !alias.scope !36
@@ -3778,12 +3778,12 @@ define void @png_handle_sCAL(ptr noalias noundef %0, ptr noalias noundef %1, i32
   br label %36
 
 36:                                               ; preds = %35, %26
-  %37 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %28) #12
+  %37 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %28) #12
   %.not27.i = icmp eq ptr %37, null
   br i1 %.not27.i, label %png_read_buffer.exit, label %38
 
 38:                                               ; preds = %36
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %37, i8 0, i64 %28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %37, i8 0, i64 range(i64 0, 4294967296) %28, i1 false)
   store ptr %37, ptr %29, align 8, !alias.scope !43
   %39 = getelementptr inbounds i8, ptr %0, i64 1128
   store i64 %28, ptr %39, align 8, !alias.scope !43
@@ -4048,12 +4048,12 @@ define void @png_handle_tEXt(ptr noalias noundef %0, ptr noalias noundef %1, i32
   br label %34
 
 34:                                               ; preds = %33, %24
-  %35 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %26) #12
+  %35 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %26) #12
   %.not27.i = icmp eq ptr %35, null
   br i1 %.not27.i, label %38, label %36
 
 36:                                               ; preds = %34
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 range(i64 0, 4294967296) %26, i1 false)
   store ptr %35, ptr %27, align 8, !alias.scope !46
   %37 = getelementptr inbounds i8, ptr %0, i64 1128
   store i64 %26, ptr %37, align 8, !alias.scope !46
@@ -4182,12 +4182,12 @@ define void @png_handle_zTXt(ptr noalias noundef %0, ptr noalias noundef %1, i32
   br label %34
 
 34:                                               ; preds = %33, %25
-  %35 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %26) #12
+  %35 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %26) #12
   %.not27.i = icmp eq ptr %35, null
   br i1 %.not27.i, label %png_read_buffer.exit, label %36
 
 36:                                               ; preds = %34
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 range(i64 0, 4294967296) %26, i1 false)
   store ptr %35, ptr %27, align 8, !alias.scope !50
   %37 = getelementptr inbounds i8, ptr %0, i64 1128
   store i64 %26, ptr %37, align 8, !alias.scope !50
@@ -4669,12 +4669,12 @@ define void @png_handle_iTXt(ptr noalias noundef %0, ptr noalias noundef %1, i32
   br label %35
 
 35:                                               ; preds = %34, %25
-  %36 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %27) #12
+  %36 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %27) #12
   %.not27.i = icmp eq ptr %36, null
   br i1 %.not27.i, label %39, label %37
 
 37:                                               ; preds = %35
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %36, i8 0, i64 %27, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %36, i8 0, i64 range(i64 0, 4294967296) %27, i1 false)
   store ptr %36, ptr %28, align 8, !alias.scope !69
   %38 = getelementptr inbounds i8, ptr %0, i64 1128
   store i64 %27, ptr %38, align 8, !alias.scope !69
@@ -6211,12 +6211,12 @@ png_crc_finish.exit:                              ; preds = %png_crc_error.exit.
   br label %75
 
 75:                                               ; preds = %74, %67
-  %76 = call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %69) #12
+  %76 = call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %69) #12
   %.not27.i = icmp eq ptr %76, null
   br i1 %.not27.i, label %78, label %77
 
 77:                                               ; preds = %75
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %76, i8 0, i64 %69, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %76, i8 0, i64 range(i64 0, 4294967296) %69, i1 false)
   store ptr %76, ptr %20, align 8, !alias.scope !101
   store i64 %69, ptr %21, align 8, !alias.scope !101
   br label %png_crc_read.exit

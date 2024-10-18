@@ -1028,7 +1028,7 @@ _ZNSt15_Deque_iteratorIiRiPiEppEv.exit25:         ; preds = %._crit_edge116, %18
   %271 = sub nsw i32 %270, %.021141
   %272 = sitofp i32 %271 to float
   %273 = fdiv float %267, %272
-  %274 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %274 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %275 = mul nsw i32 %274, %.021141
   %276 = add nsw i32 %275, %.022151
   %277 = sext i32 %276 to i64
@@ -1060,7 +1060,7 @@ _ZNSt15_Deque_iteratorIiRKiPS0_EppEv.exit:        ; preds = %.lr.ph143, %285
 
 .lr.ph146:                                        ; preds = %.preheader, %.lr.ph146
   %.1145 = phi i32 [ %300, %.lr.ph146 ], [ %.021.lcssa, %.preheader ]
-  %291 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %291 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %292 = mul nsw i32 %291, %.1145
   %293 = add nsw i32 %292, %.022151
   %294 = sext i32 %293 to i64
@@ -1149,7 +1149,7 @@ define void @_ZThn96_N3gmx26AnalysisDataLifetimeModuleD1Ev(ptr noundef %0) unnam
 define void @_ZThn96_N3gmx26AnalysisDataLifetimeModuleD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -96
   tail call void @_ZN3gmx26AnalysisDataLifetimeModuleD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(112) %2) #20
   ret void
 }
 
@@ -1230,7 +1230,7 @@ define void @_ZN3gmx26AnalysisDataLifetimeModuleC2Ev(ptr noundef nonnull align 8
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %3, i8 0, i64 13, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 13, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store ptr %3, ptr %5, align 8
   ret void

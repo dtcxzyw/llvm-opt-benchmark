@@ -518,7 +518,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfQuathdVENS_8pxr_half4halfE.exit: ; preds
   %68 = load float, ptr %30, align 4
   %69 = fpext float %68 to double
   %70 = fdiv double 1.000000e+00, %69
-  %71 = tail call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %0, double noundef %70)
+  %71 = tail call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(8) %0, double noundef %70)
   br label %72
 
 72:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7GfQuathdVENS_8pxr_half4halfE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7GfQuath11GetIdentityEv.exit
@@ -1544,7 +1544,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlENS_8pxr_half4halfERKNS_7GfQuathE.exit: ;
   %199 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 %.sink.i.i.i.i, ptr %199, align 2
   %200 = fpext float %198 to double
-  %201 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %6, double noundef %200)
+  %201 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(8) %6, double noundef %200)
   %.sroa.02.0.copyload.i = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %202 = fptrunc double %.1 to float
@@ -1631,7 +1631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlENS_8pxr_half4halfERKNS_7GfQuathE.exit36:
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 %.sink.i.i.i.i33, ptr %254, align 2
   %255 = fpext float %253 to double
-  %256 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %5, double noundef %255)
+  %256 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(8) %5, double noundef %255)
   %.sroa.02.0.copyload.i34 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.02.0.copyload.i34, ptr %7, align 8
@@ -1680,7 +1680,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfQuathES2_.exit: ; preds = %266, 
   %.sink.i.i.i.i38 = phi i16 [ %282, %274 ], [ %284, %283 ], [ %268, %266 ]
   %285 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i16 %.sink.i.i.i.i38, ptr %285, align 2
-  %286 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %7)
+  %286 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(8) %4, ptr noundef nonnull align 2 dereferenceable(8) %7)
   %.sroa.0.0.copyload.i39 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %.sroa.0.0.copyload.i39

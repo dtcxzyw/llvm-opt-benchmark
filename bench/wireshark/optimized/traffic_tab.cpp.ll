@@ -410,7 +410,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIiED2Ev.ex
   br label %_ZN19DetachableTabWidgetD2Ev.exit
 
 _ZN19DetachableTabWidgetD2Ev.exit:                ; preds = %_ZN5QListIiED2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %25
-  tail call void @_ZN10QTabWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #21
+  tail call void @_ZN10QTabWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #21
   ret void
 }
 
@@ -435,7 +435,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 define void @_ZThn16_N10TrafficTabD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN10TrafficTabD1Ev(ptr noundef nonnull align 8 dereferenceable(122) %2) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(122) %2) #23
   ret void
 }
 
@@ -2013,7 +2013,7 @@ define void @_ZN10TrafficTab15useAbsoluteTimeEb(ptr noundef nonnull align 8 dere
 
 _ZN10TrafficTab20dataModelForTabIndexEi.exit:     ; preds = %2, %8
   %.07 = phi i32 [ %9, %8 ], [ 0, %2 ]
-  %5 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.07)
+  %5 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(122) %0, i32 noundef %.07)
   %6 = tail call noundef ptr @_ZN10TrafficTab18dataModelForWidgetEP7QWidget(ptr nonnull align 8 poison, ptr noundef %5)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -2058,7 +2058,7 @@ define void @_ZN10TrafficTab23useNanosecondTimestampsEb(ptr noundef nonnull alig
 
 _ZN10TrafficTab20dataModelForTabIndexEi.exit:     ; preds = %2, %8
   %.07 = phi i32 [ %9, %8 ], [ 0, %2 ]
-  %5 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.07)
+  %5 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(122) %0, i32 noundef %.07)
   %6 = tail call noundef ptr @_ZN10TrafficTab18dataModelForWidgetEP7QWidget(ptr nonnull align 8 poison, ptr noundef %5)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -2087,7 +2087,7 @@ define void @_ZN10TrafficTab10disableTapEv(ptr noundef nonnull align 8 dereferen
 
 _ZN10TrafficTab20dataModelForTabIndexEi.exit:     ; preds = %1, %7
   %.06 = phi i32 [ %8, %7 ], [ 0, %1 ]
-  %4 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.06)
+  %4 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(122) %0, i32 noundef %.06)
   %5 = tail call noundef ptr @_ZN10TrafficTab18dataModelForWidgetEP7QWidget(ptr nonnull align 8 poison, ptr noundef %4)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -2889,7 +2889,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %294
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %294, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %297
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
   %299 = getelementptr inbounds i8, ptr %21, i64 24
   store i64 2, ptr %299, align 8
   invoke void @_ZN8QVariant8setValueIR7TabDatavEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(28) %19)
@@ -4301,7 +4301,7 @@ _Zeq9QMetaTypeS_.exit._crit_edge:                 ; preds = %_Zeq9QMetaTypeS_.ex
 
 _ZNK8QVariant9constDataEv.exit:                   ; preds = %27, %28
   %34 = phi ptr [ %33, %28 ], [ %0, %27 ]
-  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %1) #21
+  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(28) %34, ptr noundef nonnull align 8 dereferenceable(28) %1) #21
   %36 = getelementptr inbounds i8, ptr %1, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %34, i64 24
@@ -4309,10 +4309,10 @@ _ZNK8QVariant9constDataEv.exit:                   ; preds = %27, %28
   br label %40
 
 39:                                               ; preds = %_Zeq9QMetaTypeS_.exit.thread6, %_Zeq9QMetaTypeS_.exit, %_ZNK8QVariant10isDetachedEv.exit
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7TabDataE8metaTypeE, ptr noundef nonnull %1)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI7TabDataE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(28) %1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -4525,13 +4525,13 @@ define void @_ZN10TrafficTab15currentItemDataEi(ptr dead_on_unwind noalias writa
   br label %_ZNK11QModelIndex4dataEi.exit
 
 31:                                               ; preds = %19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false), !alias.scope !112
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %32, align 8, !alias.scope !112
   br label %_ZNK11QModelIndex4dataEi.exit
 
 33:                                               ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %34, align 8
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -4659,7 +4659,7 @@ define void @_ZN10TrafficTab9setFilterE7QString(ptr noundef nonnull align 8 dere
 
 _ZN10TrafficTab20dataModelForTabIndexEi.exit:     ; preds = %_ZN7QStringD2Ev.exit, %.lr.ph
   %.013 = phi i32 [ 0, %.lr.ph ], [ %23, %_ZN7QStringD2Ev.exit ]
-  %10 = call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.013)
+  %10 = call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(122) %0, i32 noundef %.013)
   %11 = call noundef ptr @_ZN10TrafficTab18dataModelForWidgetEP7QWidget(ptr nonnull align 8 poison, ptr noundef %10)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %_ZN7QStringD2Ev.exit, label %12
@@ -4745,7 +4745,7 @@ define void @_ZN10TrafficTab17setNameResolutionEb(ptr noundef nonnull align 8 de
 
 _ZN10TrafficTab20dataModelForTabIndexEi.exit:     ; preds = %.preheader, %13
   %.09 = phi i32 [ %14, %13 ], [ 0, %.preheader ]
-  %10 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.09)
+  %10 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(122) %0, i32 noundef %.09)
   %11 = tail call noundef ptr @_ZN10TrafficTab18dataModelForWidgetEP7QWidget(ptr nonnull align 8 poison, ptr noundef %10)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
@@ -4787,12 +4787,12 @@ define noundef zeroext i1 @_ZN10TrafficTab17hasNameResolutionEi(ptr noundef nonn
   br i1 %8, label %9, label %_ZN10TrafficTab20dataModelForTabIndexEi.exit
 
 9:                                                ; preds = %6
-  %10 = tail call noundef i32 @_ZNK10QTabWidget12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %10 = tail call noundef i32 @_ZNK10QTabWidget12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(122) %0)
   br label %_ZN10TrafficTab20dataModelForTabIndexEi.exit
 
 _ZN10TrafficTab20dataModelForTabIndexEi.exit:     ; preds = %4, %6, %9
   %.0.i = phi i32 [ %10, %9 ], [ %7, %6 ], [ %1, %4 ]
-  %11 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.0.i)
+  %11 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(122) %0, i32 noundef %.0.i)
   %12 = tail call noundef ptr @_ZN10TrafficTab18dataModelForWidgetEP7QWidget(ptr nonnull align 8 poison, ptr noundef %11)
   %.not9 = icmp eq ptr %12, null
   br i1 %.not9, label %15, label %13
@@ -4835,12 +4835,12 @@ define void @_ZN10TrafficTab9detachTabEi6QPoint(ptr noundef nonnull align 8 dere
   br i1 %7, label %8, label %_ZN10TrafficTab20dataModelForTabIndexEi.exit
 
 8:                                                ; preds = %3
-  %9 = tail call noundef i32 @_ZNK10QTabWidget12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %9 = tail call noundef i32 @_ZNK10QTabWidget12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(122) %0)
   br label %_ZN10TrafficTab20dataModelForTabIndexEi.exit
 
 _ZN10TrafficTab20dataModelForTabIndexEi.exit:     ; preds = %3, %8
   %.0.i = phi i32 [ %9, %8 ], [ %1, %3 ]
-  %10 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.0.i)
+  %10 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(122) %0, i32 noundef %.0.i)
   %11 = tail call noundef ptr @_ZN10TrafficTab18dataModelForWidgetEP7QWidget(ptr nonnull align 8 poison, ptr noundef %10)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %20, label %12

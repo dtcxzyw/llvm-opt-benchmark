@@ -1439,7 +1439,7 @@ define internal fastcc i32 @ArrayCastAndSet(i64 noundef %0, i32 noundef %1, i1 n
 16:                                               ; preds = %8
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61, i32 noundef %1) #17
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61, i32 noundef range(i32 1, -2147483648) %1) #17
   tail call void @errfinish(ptr noundef nonnull @.str.62, i32 noundef 202, ptr noundef nonnull @__func__.store_att_byval) #17
   unreachable
 
@@ -4415,11 +4415,11 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
 146:                                              ; preds = %140, %.thread.i
   %.pn.i = phi i64 [ %141, %140 ], [ %139, %.thread.i ]
   %.fr.i = phi ptr [ %145, %140 ], [ null, %.thread.i ]
-  %147 = call i32 @ArrayGetOffset(i32 noundef %25, ptr noundef %26, ptr noundef %29, ptr noundef %3) #17
+  %147 = call i32 @ArrayGetOffset(i32 noundef range(i32 1, 7) %25, ptr noundef %26, ptr noundef %29, ptr noundef %3) #17
   %148 = call fastcc ptr @array_seek(ptr noundef %39, i32 noundef 0, ptr noundef %spec.select, i32 noundef %147, i32 noundef %7, i8 noundef signext %9)
-  call void @mda_get_prod(i32 noundef %25, ptr noundef %26, ptr noundef nonnull %11) #17
-  call void @mda_get_range(i32 noundef %25, ptr noundef nonnull %12, ptr noundef %3, ptr noundef %2) #17
-  call void @mda_get_offset_values(i32 noundef %25, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12) #17
+  call void @mda_get_prod(i32 noundef range(i32 1, 7) %25, ptr noundef %26, ptr noundef nonnull %11) #17
+  call void @mda_get_range(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %12, ptr noundef %3, ptr noundef %2) #17
+  call void @mda_get_offset_values(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12) #17
   %149 = shl nuw nsw i32 %25, 2
   %150 = zext nneg i32 %149 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %14, i8 0, i64 %150, i1 false)
@@ -4457,7 +4457,7 @@ array_bitmap_copy.exit.us.i:                      ; preds = %156, %.split.us.i
   %164 = getelementptr i8, ptr %.0.us.i, i64 %163
   %165 = getelementptr i8, ptr %.161.us.i, i64 %163
   %166 = add i32 %.1.us.i, 1
-  %167 = call i32 @mda_next_tuple(i32 noundef %25, ptr noundef nonnull %14, ptr noundef nonnull %12) #17
+  %167 = call i32 @mda_next_tuple(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %14, ptr noundef nonnull %12) #17
   %.not70.us.i = icmp eq i32 %167, -1
   br i1 %.not70.us.i, label %array_extract_slice.exit, label %.split.us.i, !llvm.loop !57
 
@@ -4525,7 +4525,7 @@ array_bitmap_copy.exit.i:                         ; preds = %.lr.ph94.i.i, %.lr.
   %201 = getelementptr i8, ptr %.161.i, i64 %179
   %202 = add i32 %.1.i, 1
   %203 = add i32 %.058.i, 1
-  %204 = call i32 @mda_next_tuple(i32 noundef %25, ptr noundef nonnull %14, ptr noundef nonnull %12) #17
+  %204 = call i32 @mda_next_tuple(i32 noundef range(i32 1, 7) %25, ptr noundef nonnull %14, ptr noundef nonnull %12) #17
   %.not70.i = icmp eq i32 %204, -1
   br i1 %.not70.i, label %array_extract_slice.exit, label %.split.i, !llvm.loop !57
 
@@ -5030,8 +5030,8 @@ define dso_local i64 @array_set_element(i64 noundef %0, i32 noundef %1, ptr noun
   %.1186.i = phi i1 [ %spec.select161.i, %.thread.i ], [ %.1.i, %.loopexit195.i ]
   %.0174184.i = phi i32 [ %140, %.thread.i ], [ 0, %.loopexit195.i ]
   %.1176182.i = phi i32 [ %.0175.i, %.thread.i ], [ %.1176.i, %.loopexit195.i ]
-  %165 = call i32 @ArrayGetNItems(i32 noundef %1, ptr noundef nonnull %10) #17
-  call void @ArrayCheckBounds(i32 noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11) #17
+  %165 = call i32 @ArrayGetNItems(i32 noundef range(i32 1, 7) %1, ptr noundef nonnull %10) #17
+  call void @ArrayCheckBounds(i32 noundef range(i32 1, 7) %1, ptr noundef nonnull %10, ptr noundef nonnull %11) #17
   br label %166
 
 166:                                              ; preds = %164, %.loopexit195.i
@@ -5039,7 +5039,7 @@ define dso_local i64 @array_set_element(i64 noundef %0, i32 noundef %1, ptr noun
   %.1185.i = phi i1 [ %.1186.i, %164 ], [ %.1.i, %.loopexit195.i ]
   %.0174183.i = phi i32 [ %.0174184.i, %164 ], [ 0, %.loopexit195.i ]
   %.1176181.i = phi i32 [ %.1176182.i, %164 ], [ %.1176.i, %.loopexit195.i ]
-  %168 = call i32 @ArrayGetOffset(i32 noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %2) #17
+  %168 = call i32 @ArrayGetOffset(i32 noundef range(i32 1, 7) %1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %2) #17
   %169 = load i32, ptr %10, align 16
   %170 = getelementptr inbounds i8, ptr %69, i64 96
   %171 = load i32, ptr %170, align 8
@@ -7189,7 +7189,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   %412 = phi ptr [ %410, %406 ], [ null, %404 ]
   %413 = load i32, ptr %34, align 4
   %414 = call i32 @ArrayGetNItems(i32 noundef %413, ptr noundef %83) #17
-  %415 = call i32 @ArrayGetOffset(i32 noundef %35, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %3) #17
+  %415 = call i32 @ArrayGetOffset(i32 noundef range(i32 2, 7) %35, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %3) #17
   %416 = call fastcc ptr @array_seek(ptr noundef %379, i32 noundef 0, ptr noundef %405, i32 noundef %415, i32 noundef %9, i8 noundef signext %11)
   %417 = ptrtoint ptr %416 to i64
   %418 = ptrtoint ptr %379 to i64
@@ -7315,9 +7315,9 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   br label %array_bitmap_copy.exit.i
 
 array_bitmap_copy.exit.i:                         ; preds = %436, %455, %._crit_edge95.thread.sink.split.i.i, %._crit_edge.i.i, %411
-  call void @mda_get_prod(i32 noundef %35, ptr noundef nonnull %17, ptr noundef nonnull %13) #17
-  call void @mda_get_range(i32 noundef %35, ptr noundef nonnull %14, ptr noundef %3, ptr noundef %2) #17
-  call void @mda_get_offset_values(i32 noundef %35, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %14) #17
+  call void @mda_get_prod(i32 noundef range(i32 2, 7) %35, ptr noundef nonnull %17, ptr noundef nonnull %13) #17
+  call void @mda_get_range(i32 noundef range(i32 2, 7) %35, ptr noundef nonnull %14, ptr noundef %3, ptr noundef %2) #17
+  call void @mda_get_offset_values(i32 noundef range(i32 2, 7) %35, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %14) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %16, i8 0, i64 %85, i1 false)
   %463 = add nsw i32 %35, -1
   %.not.i145.i = icmp eq ptr %405, null
@@ -7538,7 +7538,7 @@ array_bitmap_copy.exit221.i:                      ; preds = %array_bitmap_copy.e
   %561 = add i32 %.0119.i, 1
   %562 = call fastcc ptr @array_seek(ptr noundef %.1126.i, i32 noundef %.1.i, ptr noundef %405, i32 noundef 1, i32 noundef %9, i8 noundef signext %11)
   %563 = add i32 %.1.i, 1
-  %564 = call i32 @mda_next_tuple(i32 noundef %35, ptr noundef nonnull %16, ptr noundef nonnull %14) #17
+  %564 = call i32 @mda_next_tuple(i32 noundef range(i32 2, 7) %35, ptr noundef nonnull %16, ptr noundef nonnull %14) #17
   %.not143.i = icmp eq i32 %564, -1
   br i1 %.not143.i, label %565, label %464, !llvm.loop !70
 

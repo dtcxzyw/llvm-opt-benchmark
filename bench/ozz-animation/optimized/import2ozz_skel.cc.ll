@@ -449,7 +449,7 @@ _ZN3ozz3log6LoggerlsIA39_cEERSoRKT_.exit:         ; preds = %158
 
 .noexc35:                                         ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  invoke void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeletonEE4SaveERNS0_8OArchiveEPKS4_m(ptr noundef nonnull align 8 dereferenceable(9) %19, ptr noundef nonnull %9, i64 noundef 1)
+  invoke void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeletonEE4SaveERNS0_8OArchiveEPKS4_m(ptr noundef nonnull align 8 dereferenceable(9) %19, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 1)
           to label %_ZN3ozz2io8OArchivelsINS_9animation7offline11RawSkeletonEEEvRKT_.exit unwind label %147
 
 177:                                              ; preds = %158, %_ZN3ozz3log6LoggerlsIA39_cEERSoRKT_.exit

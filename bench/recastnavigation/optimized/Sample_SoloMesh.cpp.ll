@@ -231,7 +231,7 @@ define dso_local void @_ZN15Sample_SoloMeshD0Ev(ptr noundef nonnull align 8 dere
   unreachable
 
 _ZN15Sample_SoloMeshD2Ev.exit:                    ; preds = %1
-  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #13
+  tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(356) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }

@@ -92,7 +92,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc4 unwind label %14
 
 .noexc4:                                          ; preds = %.noexc
@@ -102,7 +102,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
 12:                                               ; preds = %.noexc4
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 14:                                               ; preds = %.noexc, %10
@@ -119,7 +119,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
           to label %.noexc5 unwind label %29
 
 .noexc5:                                          ; preds = %16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc6 unwind label %29
 
 .noexc6:                                          ; preds = %.noexc5
@@ -136,7 +136,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
 24:                                               ; preds = %26, %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 26:                                               ; preds = %.noexc6
@@ -156,7 +156,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
           to label %.noexc10 unwind label %35
 
 .noexc10:                                         ; preds = %31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc11 unwind label %35
 
 .noexc11:                                         ; preds = %.noexc10
@@ -166,7 +166,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
 33:                                               ; preds = %.noexc11
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 35:                                               ; preds = %.noexc10, %31
@@ -180,7 +180,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
           to label %.noexc15 unwind label %41
 
 .noexc15:                                         ; preds = %37
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %38, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc16 unwind label %41
 
 .noexc16:                                         ; preds = %.noexc15
@@ -190,7 +190,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
 39:                                               ; preds = %.noexc16
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 41:                                               ; preds = %.noexc15, %37
@@ -204,7 +204,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
           to label %.noexc20 unwind label %47
 
 .noexc20:                                         ; preds = %43
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc21 unwind label %47
 
 .noexc21:                                         ; preds = %.noexc20
@@ -214,7 +214,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
 45:                                               ; preds = %.noexc21
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 47:                                               ; preds = %.noexc20, %43
@@ -228,7 +228,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
           to label %.noexc25 unwind label %53
 
 .noexc25:                                         ; preds = %49
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %50, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %50, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc26 unwind label %53
 
 .noexc26:                                         ; preds = %.noexc25
@@ -238,7 +238,7 @@ define dso_local void @_ZNK16cmFileLockResult16GetOutputMessageB5cxx11Ev(ptr dea
 51:                                               ; preds = %.noexc26
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 53:                                               ; preds = %.noexc25, %49

@@ -367,7 +367,7 @@ entry:
   tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i) #8
   %crypto_negotiated_params_.i = getelementptr inbounds i8, ptr %this, i64 400
   tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i) #8
-  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %this) #8
+  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }
@@ -406,7 +406,7 @@ entry:
   tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i) #8
   %crypto_negotiated_params_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i) #8
-  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %0) #8
+  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) #8
   ret void
 }
 
@@ -420,8 +420,8 @@ entry:
   tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i.i) #8
   %crypto_negotiated_params_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i.i) #8
-  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %0) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #9
+  tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) #8
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1048) %0) #9
   ret void
 }
 

@@ -720,9 +720,9 @@ _ZN6vectorIN7datalog13mk_magic_sets14adornment_descELb1EjE16destroy_elementsEv.e
 
 _ZN6vectorIN7datalog13mk_magic_sets14adornment_descELb1EjE5resetEv.exit: ; preds = %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5resetEv.exit, %_ZN6vectorIN7datalog13mk_magic_sets14adornment_descELb1EjE16destroy_elementsEv.exit.i
   %m_adorned_preds = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @_ZN14core_hashtableI17default_map_entryIN7datalog13mk_magic_sets14adornment_descEP9func_declEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_adorned_preds)
+  tail call void @_ZN14core_hashtableI17default_map_entryIN7datalog13mk_magic_sets14adornment_descEP9func_declEN9table2mapIS6_8obj_hashIS3_E10default_eqIS3_EE15entry_hash_procENSC_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_adorned_preds)
   %m_adornments = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @_ZN14core_hashtableIN7obj_mapI9func_declN7datalog13mk_magic_sets9adornmentEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_adornments)
+  tail call void @_ZN14core_hashtableIN7obj_mapI9func_declN7datalog13mk_magic_sets9adornmentEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_adornments)
   %m_magic_preds = getelementptr inbounds i8, ptr %this, i64 144
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 156
   %14 = load i32, ptr %m_size.i.i, align 4
@@ -2109,7 +2109,7 @@ for.end:                                          ; preds = %for.inc, %_ZNK7obj_
   store ptr %0, ptr %temp.i.i.i, align 8
   %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %temp.i.i.i, i64 8
   store ptr null, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i, align 8
-  %call.i.i.i23 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE24insert_if_not_there_coreEOS6_RPS4_(ptr noundef nonnull align 8 dereferenceable(20) %m_magic_preds, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
+  %call.i.i.i23 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE24insert_if_not_there_coreEOS6_RPS4_(ptr noundef nonnull align 8 dereferenceable(24) %m_magic_preds, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
           to label %invoke.cont12 unwind label %lpad.loopexit.split-lp76
 
 invoke.cont12:                                    ; preds = %for.end
@@ -5201,7 +5201,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

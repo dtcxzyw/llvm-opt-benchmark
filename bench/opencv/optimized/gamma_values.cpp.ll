@@ -714,7 +714,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %7, %_ZNSt6vectorIdS
   br label %_ZN2cv4usac15GammaValuesImplD2Ev.exit
 
 _ZN2cv4usac15GammaValuesImplD2Ev.exit:            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, %10
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }

@@ -89,7 +89,7 @@ invoke.cont:                                      ; preds = %if.then
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %0(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp3, ptr noundef nonnull %agg.tmp3) #10
+  call void %0(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp3, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp3) #10
   %call10 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 4, ptr noundef nonnull @_ZN9grpc_core23ClientCompressionFilter7kFilterE, ptr nonnull @.str, i32 49)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp11, align 16
   %invoker_.i.i.i.i.i12 = getelementptr inbounds i8, ptr %agg.tmp11, i64 24
@@ -108,7 +108,7 @@ invoke.cont13:                                    ; preds = %invoke.cont6
 
 invoke.cont22:                                    ; preds = %invoke.cont13
   %1 = load ptr, ptr %manager_.i.i.i.i.i.i13, align 16
-  call void %1(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull %agg.tmp11) #10
+  call void %1(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp11, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp11) #10
   %call26 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 5, ptr noundef nonnull @_ZN9grpc_core23ServerCompressionFilter7kFilterE, ptr nonnull @.str, i32 54)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp27, align 16
   %invoker_.i.i.i.i.i17 = getelementptr inbounds i8, ptr %agg.tmp27, i64 24
@@ -127,28 +127,28 @@ invoke.cont29:                                    ; preds = %invoke.cont22
 
 invoke.cont38:                                    ; preds = %invoke.cont29
   %2 = load ptr, ptr %manager_.i.i.i.i.i.i18, align 16
-  call void %2(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp27, ptr noundef nonnull %agg.tmp27) #10
+  call void %2(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp27, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp27) #10
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont, %if.then
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %4(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp3, ptr noundef nonnull %agg.tmp3) #10
+  call void %4(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp3, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp3) #10
   br label %eh.resume
 
 lpad12:                                           ; preds = %invoke.cont13, %invoke.cont6
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = load ptr, ptr %manager_.i.i.i.i.i.i13, align 16
-  call void %6(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull %agg.tmp11) #10
+  call void %6(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp11, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp11) #10
   br label %eh.resume
 
 lpad28:                                           ; preds = %invoke.cont29, %invoke.cont22
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load ptr, ptr %manager_.i.i.i.i.i.i18, align 16
-  call void %8(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp27, ptr noundef nonnull %agg.tmp27) #10
+  call void %8(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp27, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp27) #10
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
@@ -170,7 +170,7 @@ invoke.cont45:                                    ; preds = %if.else
 
 invoke.cont54:                                    ; preds = %invoke.cont45
   %9 = load ptr, ptr %manager_.i.i.i.i.i.i26, align 16
-  call void %9(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp43, ptr noundef nonnull %agg.tmp43) #10
+  call void %9(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp43, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp43) #10
   %call58 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 4, ptr noundef nonnull @_ZN9grpc_core29LegacyClientCompressionFilter7kFilterE, ptr nonnull @.str, i32 64)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp59, align 16
   %invoker_.i.i.i.i.i30 = getelementptr inbounds i8, ptr %agg.tmp59, i64 24
@@ -189,7 +189,7 @@ invoke.cont61:                                    ; preds = %invoke.cont54
 
 invoke.cont70:                                    ; preds = %invoke.cont61
   %10 = load ptr, ptr %manager_.i.i.i.i.i.i31, align 16
-  call void %10(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp59, ptr noundef nonnull %agg.tmp59) #10
+  call void %10(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp59, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp59) #10
   %call74 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 5, ptr noundef nonnull @_ZN9grpc_core29LegacyServerCompressionFilter7kFilterE, ptr nonnull @.str, i32 69)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp75, align 16
   %invoker_.i.i.i.i.i35 = getelementptr inbounds i8, ptr %agg.tmp75, i64 24
@@ -208,28 +208,28 @@ invoke.cont77:                                    ; preds = %invoke.cont70
 
 invoke.cont86:                                    ; preds = %invoke.cont77
   %11 = load ptr, ptr %manager_.i.i.i.i.i.i36, align 16
-  call void %11(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp75, ptr noundef nonnull %agg.tmp75) #10
+  call void %11(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp75, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp75) #10
   br label %if.end
 
 lpad44:                                           ; preds = %invoke.cont45, %if.else
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = load ptr, ptr %manager_.i.i.i.i.i.i26, align 16
-  call void %13(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp43, ptr noundef nonnull %agg.tmp43) #10
+  call void %13(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp43, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp43) #10
   br label %eh.resume
 
 lpad60:                                           ; preds = %invoke.cont61, %invoke.cont54
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = load ptr, ptr %manager_.i.i.i.i.i.i31, align 16
-  call void %15(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp59, ptr noundef nonnull %agg.tmp59) #10
+  call void %15(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp59, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp59) #10
   br label %eh.resume
 
 lpad76:                                           ; preds = %invoke.cont77, %invoke.cont70
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load ptr, ptr %manager_.i.i.i.i.i.i36, align 16
-  call void %17(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp75, ptr noundef nonnull %agg.tmp75) #10
+  call void %17(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp75, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp75) #10
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont86, %invoke.cont38
@@ -250,7 +250,7 @@ invoke.cont93:                                    ; preds = %if.end
 
 invoke.cont101:                                   ; preds = %invoke.cont93
   %18 = load ptr, ptr %manager_.i.i.i.i.i.i44, align 16
-  call void %18(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp91, ptr noundef nonnull %agg.tmp91) #10
+  call void %18(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp91, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp91) #10
   %call105 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i41, i32 noundef 4, ptr noundef nonnull @_ZN9grpc_core16HttpClientFilter7kFilterE, ptr nonnull @.str, i32 79)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp106, align 16
   %invoker_.i.i.i.i.i48 = getelementptr inbounds i8, ptr %agg.tmp106, i64 24
@@ -267,7 +267,7 @@ invoke.cont108:                                   ; preds = %invoke.cont101
 
 invoke.cont116:                                   ; preds = %invoke.cont108
   %19 = load ptr, ptr %manager_.i.i.i.i.i.i49, align 16
-  call void %19(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp106, ptr noundef nonnull %agg.tmp106) #10
+  call void %19(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp106, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp106) #10
   %call120 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i41, i32 noundef 5, ptr noundef nonnull @_ZN9grpc_core16HttpServerFilter7kFilterE, ptr nonnull @.str, i32 83)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp121, align 16
   %invoker_.i.i.i.i.i53 = getelementptr inbounds i8, ptr %agg.tmp121, i64 24
@@ -284,28 +284,28 @@ invoke.cont123:                                   ; preds = %invoke.cont116
 
 invoke.cont131:                                   ; preds = %invoke.cont123
   %20 = load ptr, ptr %manager_.i.i.i.i.i.i54, align 16
-  call void %20(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp121, ptr noundef nonnull %agg.tmp121) #10
+  call void %20(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp121, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp121) #10
   ret void
 
 lpad92:                                           ; preds = %invoke.cont93, %if.end
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = load ptr, ptr %manager_.i.i.i.i.i.i44, align 16
-  call void %22(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp91, ptr noundef nonnull %agg.tmp91) #10
+  call void %22(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp91, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp91) #10
   br label %eh.resume
 
 lpad107:                                          ; preds = %invoke.cont108, %invoke.cont101
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load ptr, ptr %manager_.i.i.i.i.i.i49, align 16
-  call void %24(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp106, ptr noundef nonnull %agg.tmp106) #10
+  call void %24(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp106, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp106) #10
   br label %eh.resume
 
 lpad122:                                          ; preds = %invoke.cont123, %invoke.cont116
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = load ptr, ptr %manager_.i.i.i.i.i.i54, align 16
-  call void %26(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp121, ptr noundef nonnull %agg.tmp121) #10
+  call void %26(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp121, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp121) #10
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad122, %lpad107, %lpad92, %lpad76, %lpad60, %lpad44, %lpad28, %lpad12, %lpad

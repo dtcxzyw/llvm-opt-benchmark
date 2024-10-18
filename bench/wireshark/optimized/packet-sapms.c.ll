@@ -1063,8 +1063,8 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %138 = load i32, ptr @hf_sapms_opcode_value, align 4
   %139 = getelementptr inbounds i8, ptr %1, i64 408
   %140 = load ptr, ptr %139, align 8
-  %141 = tail call ptr @tvb_get_string_enc(ptr noundef %140, ptr noundef %0, i32 noundef 114, i32 noundef %92, i32 noundef 0) #4
-  %142 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %98, i32 noundef %138, ptr noundef %0, i32 noundef 114, i32 noundef %92, ptr noundef nonnull @.str.627, ptr noundef %141) #4
+  %141 = tail call ptr @tvb_get_string_enc(ptr noundef %140, ptr noundef %0, i32 noundef 114, i32 noundef range(i32 1, -2147483648) %92, i32 noundef 0) #4
+  %142 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %98, i32 noundef %138, ptr noundef %0, i32 noundef 114, i32 noundef range(i32 1, -2147483648) %92, ptr noundef nonnull @.str.627, ptr noundef %141) #4
   br label %dissect_sapms_opcode.exit
 
 143:                                              ; preds = %94

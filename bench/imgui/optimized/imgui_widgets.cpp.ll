@@ -4630,7 +4630,7 @@ if.then2:                                         ; preds = %if.then
 
 _ZL7ImQsortPvmmPFiPKvS1_E.exit:                   ; preds = %entry
   %conv = sext i32 %count to i64
-  tail call void @qsort(ptr noundef %items, i64 noundef %conv, i64 noundef 12, ptr noundef nonnull @_ZL23ShrinkWidthItemComparerPKvS0_)
+  tail call void @qsort(ptr noundef %items, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 12, ptr noundef nonnull @_ZL23ShrinkWidthItemComparerPKvS0_)
   %cmp866 = fcmp ogt float %width_excess, 0.000000e+00
   %cmp967 = icmp sgt i32 %count, 1
   %1 = and i1 %cmp967, %cmp866
@@ -19588,7 +19588,7 @@ if.then1047:                                      ; preds = %if.then1044
   %CurLenW.i1077 = getelementptr inbounds i8, ptr %state.01462, i64 12
   %251 = load i32, ptr %CurLenW.i1077, align 4
   %undostate.i.i = getelementptr inbounds i8, ptr %state.01462, i64 116
-  %call.i.i1078 = call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %undostate.i.i, i32 noundef 0, i32 noundef %251, i32 noundef 0)
+  %call.i.i1078 = call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %undostate.i.i, i32 noundef 0, i32 noundef %251, i32 noundef range(i32 -2147483648, 2147483647) 0)
   %tobool.not.i.i1079 = icmp ne ptr %call.i.i1078, null
   %cmp7.i.i = icmp sgt i32 %251, 0
   %or.cond.i.i = and i1 %cmp7.i.i, %tobool.not.i.i1079
@@ -21139,7 +21139,7 @@ if.then12:                                        ; preds = %if.end9
   store float 0.000000e+00, ptr %ref.tmp.i, align 4
   %y.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
   store float 0.000000e+00, ptr %y.i.i, align 4
-  %call.i52 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef %label, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, i32 noundef %or10, ptr noundef readonly null, ptr noundef null)
+  %call.i52 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef %label, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, i32 noundef %or10, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br i1 %call.i52, label %if.then15, label %return
 
@@ -21164,7 +21164,7 @@ if.else:                                          ; preds = %if.end9
   store float 0.000000e+00, ptr %ref.tmp.i53, align 4
   %y.i.i54 = getelementptr inbounds i8, ptr %ref.tmp.i53, i64 4
   store float 0.000000e+00, ptr %y.i.i54, align 4
-  %call.i55 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i53, i32 noundef %or10, ptr noundef readonly null, ptr noundef null)
+  %call.i55 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i53, i32 noundef %or10, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i53)
   br i1 %call.i55, label %if.then24, label %if.end28
 
@@ -22043,7 +22043,7 @@ if.end51.thread.i:                                ; preds = %sw.bb43.i
   br label %if.end16.i.i
 
 if.end51.i:                                       ; preds = %sw.bb43.i
-  tail call fastcc void @_ZN5ImStbL25stb_textedit_move_to_lastEP19ImGuiInputTextStatePNS_17STB_TexteditStateE(ptr noundef %this, ptr noundef %Stb)
+  tail call fastcc void @_ZN5ImStbL25stb_textedit_move_to_lastEP19ImGuiInputTextStatePNS_17STB_TexteditStateE(ptr noundef nonnull %this, ptr noundef nonnull %Stb)
   %.pre938.i = load i32, ptr %select_start44.i, align 8
   %.pre939.i = load i32, ptr %select_end45.i, align 4
   %str.val281.i = load i32, ptr %78, align 4
@@ -22188,7 +22188,7 @@ while.cond.i.i:                                   ; preds = %land.rhs.i.i, %if.e
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %idx.addr.0.i.i = add nsw i32 %idx.addr.0.in.i.i, -1
-  %call.i392.i = tail call fastcc noundef i32 @_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei(ptr noundef readonly %this, i32 noundef %idx.addr.0.i.i)
+  %call.i392.i = tail call fastcc noundef i32 @_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei(ptr noundef nonnull readonly %this, i32 noundef %idx.addr.0.i.i)
   %tobool.not.i393.i = icmp eq i32 %call.i392.i, 0
   br i1 %tobool.not.i393.i, label %while.cond.i.i, label %_ZN5ImStbL30STB_TEXTEDIT_MOVEWORDLEFT_IMPLEP19ImGuiInputTextStatei.exit.i, !llvm.loop !43
 
@@ -22228,7 +22228,7 @@ while.cond.i402.i:                                ; preds = %land.rhs.i408.i, %i
 
 land.rhs.i408.i:                                  ; preds = %while.cond.i402.i
   %idx.addr.0.i409.i = add nsw i32 %idx.addr.0.in.i403.i, -1
-  %call.i410.i = tail call fastcc noundef i32 @_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei(ptr noundef readonly %this, i32 noundef %idx.addr.0.i409.i)
+  %call.i410.i = tail call fastcc noundef i32 @_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei(ptr noundef nonnull readonly %this, i32 noundef %idx.addr.0.i409.i)
   %tobool.not.i411.i = icmp eq i32 %call.i410.i, 0
   br i1 %tobool.not.i411.i, label %while.cond.i402.i, label %_ZN5ImStbL30STB_TEXTEDIT_MOVEWORDLEFT_IMPLEP19ImGuiInputTextStatei.exit412.i, !llvm.loop !43
 
@@ -22286,12 +22286,12 @@ sw.bb84.i:                                        ; preds = %retry.i
   br i1 %cmp87.not.i, label %if.else89.i, label %if.then88.i
 
 if.then88.i:                                      ; preds = %sw.bb84.i
-  tail call fastcc void @_ZN5ImStbL25stb_textedit_move_to_lastEP19ImGuiInputTextStatePNS_17STB_TexteditStateE(ptr noundef %this, ptr noundef %Stb)
+  tail call fastcc void @_ZN5ImStbL25stb_textedit_move_to_lastEP19ImGuiInputTextStatePNS_17STB_TexteditStateE(ptr noundef nonnull %this, ptr noundef nonnull %Stb)
   br label %_ZN5ImStbL16stb_textedit_keyEP19ImGuiInputTextStatePNS_17STB_TexteditStateEi.exit
 
 if.else89.i:                                      ; preds = %sw.bb84.i
   %107 = load i32, ptr %Stb, align 4
-  %call91.i = tail call fastcc noundef i32 @_ZN5ImStbL31STB_TEXTEDIT_MOVEWORDRIGHT_IMPLEP19ImGuiInputTextStatei(ptr noundef %this, i32 noundef %107)
+  %call91.i = tail call fastcc noundef i32 @_ZN5ImStbL31STB_TEXTEDIT_MOVEWORDRIGHT_IMPLEP19ImGuiInputTextStatei(ptr noundef nonnull %this, i32 noundef %107)
   store i32 %call91.i, ptr %Stb, align 4
   %108 = getelementptr inbounds i8, ptr %this, i64 12
   %str.val285.i = load i32, ptr %108, align 4
@@ -22340,7 +22340,7 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
   br i1 %cmp.i.i438.i, label %land.rhs.i.i.i, label %_ZN5ImStbL30STB_TEXTEDIT_MOVEWORDRIGHT_WINEP19ImGuiInputTextStatei.exit.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
-  %call.i.i439.i = tail call fastcc noundef i32 @_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei(ptr noundef readonly %this, i32 noundef %idx.addr.0.i.i.i)
+  %call.i.i439.i = tail call fastcc noundef i32 @_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei(ptr noundef nonnull readonly %this, i32 noundef %idx.addr.0.i.i.i)
   %tobool.not.i.i440.i = icmp eq i32 %call.i.i439.i, 0
   br i1 %tobool.not.i.i440.i, label %while.cond.i.i.i, label %_ZN5ImStbL30STB_TEXTEDIT_MOVEWORDRIGHT_WINEP19ImGuiInputTextStatei.exit.i.i, !llvm.loop !44
 
@@ -22560,7 +22560,7 @@ if.then19.i510.i:                                 ; preds = %if.end16.i508.i
 _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit514.i: ; preds = %if.then19.i510.i, %if.end16.i508.i
   %140 = phi i32 [ %137, %if.end16.i508.i ], [ %str.val289.pre.i, %if.then19.i510.i ]
   %conv136.i = zext i8 %0 to i32
-  call fastcc void @_ZN5ImStbL25stb_textedit_find_charposEPNS_12StbFindStateEP19ImGuiInputTextStateii(ptr noundef %find.i, ptr noundef %this, i32 noundef %140, i32 noundef %conv136.i)
+  call fastcc void @_ZN5ImStbL25stb_textedit_find_charposEPNS_12StbFindStateEP19ImGuiInputTextStateii(ptr noundef %find.i, ptr noundef nonnull %this, i32 noundef %140, i32 noundef %conv136.i)
   %has_preferred_x138.i = getelementptr inbounds i8, ptr %this, i64 106
   %cmp137869.i = icmp sgt i32 %cond815.i, 0
   br i1 %cmp137869.i, label %for.body.lr.ph.i, label %_ZN5ImStbL16stb_textedit_keyEP19ImGuiInputTextStatePNS_17STB_TexteditStateEi.exit
@@ -22850,7 +22850,7 @@ if.then19.i571.i:                                 ; preds = %if.end16.i569.i
 _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit575.i: ; preds = %if.then19.i571.i, %if.end16.i569.i
   %179 = phi i32 [ %176, %if.end16.i569.i ], [ %str.val291.pre.i, %if.then19.i571.i ]
   %conv229.i = zext i8 %0 to i32
-  call fastcc void @_ZN5ImStbL25stb_textedit_find_charposEPNS_12StbFindStateEP19ImGuiInputTextStateii(ptr noundef %find191.i, ptr noundef %this, i32 noundef %179, i32 noundef %conv229.i)
+  call fastcc void @_ZN5ImStbL25stb_textedit_find_charposEPNS_12StbFindStateEP19ImGuiInputTextStateii(ptr noundef %find191.i, ptr noundef nonnull %this, i32 noundef %179, i32 noundef %conv229.i)
   %has_preferred_x235.i = getelementptr inbounds i8, ptr %this, i64 106
   %cmp231864.i = icmp sgt i32 %cond209819.i, 0
   br i1 %cmp231864.i, label %for.body232.lr.ph.i, label %_ZN5ImStbL16stb_textedit_keyEP19ImGuiInputTextStatePNS_17STB_TexteditStateEi.exit
@@ -24463,13 +24463,13 @@ if.then19.i.i:                                    ; preds = %if.end16.i.i
 _ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit.i: ; preds = %if.then19.i.i, %if.end16.i.i
   tail call fastcc void @_ZN5ImStbL29stb_textedit_delete_selectionEP19ImGuiInputTextStatePNS_17STB_TexteditStateE(ptr noundef nonnull %str, ptr noundef nonnull %state)
   %6 = load i32, ptr %state, align 4
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN5ImStbL24STB_TEXTEDIT_INSERTCHARSEP19ImGuiInputTextStateiPKti(ptr noundef nonnull %str, i32 noundef %6, ptr noundef %ctext, i32 noundef %len)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN5ImStbL24STB_TEXTEDIT_INSERTCHARSEP19ImGuiInputTextStateiPKti(ptr noundef nonnull %str, i32 noundef %6, ptr noundef %ctext, i32 noundef range(i32 1, -2147483648) %len)
   br i1 %call.i, label %if.then.i, label %_ZN5ImStbL27stb_textedit_paste_internalEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPti.exit
 
 if.then.i:                                        ; preds = %_ZN5ImStbL18stb_textedit_clampEP19ImGuiInputTextStatePNS_17STB_TexteditStateE.exit.i
   %7 = load i32, ptr %state, align 4
   %undostate.i.i = getelementptr inbounds i8, ptr %state, i64 32
-  %call.i.i = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %undostate.i.i, i32 noundef %7, i32 noundef 0, i32 noundef %len)
+  %call.i.i = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %undostate.i.i, i32 noundef %7, i32 noundef 0, i32 noundef range(i32 1, -2147483648) %len)
   %8 = load i32, ptr %state, align 4
   %add.i = add nsw i32 %8, %len
   store i32 %add.i, ptr %state, align 4
@@ -24487,7 +24487,7 @@ entry:
   %CurLenW = getelementptr inbounds i8, ptr %str, i64 12
   %0 = load i32, ptr %CurLenW, align 4
   %undostate.i = getelementptr inbounds i8, ptr %state, i64 32
-  %call.i = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %undostate.i, i32 noundef 0, i32 noundef %0, i32 noundef %text_len)
+  %call.i = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %undostate.i, i32 noundef 0, i32 noundef %0, i32 noundef range(i32 -2147483648, 2147483647) %text_len)
   %tobool.not.i = icmp ne ptr %call.i, null
   %cmp7.i = icmp sgt i32 %0, 0
   %or.cond.i = and i1 %cmp7.i, %tobool.not.i
@@ -25335,7 +25335,7 @@ if.end246:                                        ; preds = %if.else237, %if.the
   store float 0.000000e+00, ptr %ref.tmp.i197, align 4
   %y.i.i198 = getelementptr inbounds i8, ptr %ref.tmp.i197, i64 4
   store float 0.000000e+00, ptr %y.i.i198, align 4
-  %call.i199 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i197, i32 noundef 6, ptr noundef readonly null, ptr noundef null)
+  %call.i199 = call noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef nonnull %buf, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i197, i32 noundef 6, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i197)
   br i1 %call.i199, label %while.cond, label %if.end271
 
@@ -27811,17 +27811,17 @@ for.end647:                                       ; preds = %for.body622
   %agg.tmp3.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %add5.i, i64 0
   %agg.tmp3.sroa.0.4.vec.insert.i = insertelement <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i, float %add662, i64 1
   %shl.i = shl i32 %conv.i649, 24
-  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef %4, <2 x float> %agg.tmp.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i, i32 noundef 1, i32 noundef %shl.i)
+  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef nonnull %4, <2 x float> %agg.tmp.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i, i32 noundef 1, i32 noundef %shl.i)
   %agg.tmp10.sroa.0.4.vec.insert.i = insertelement <2 x float> %agg.tmp659.sroa.0.4.vec.insert, float %add.i650, i64 0
   %or19.i = or disjoint i32 %shl.i, 16777215
-  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef %4, <2 x float> %agg.tmp10.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp661.sroa.0.4.vec.insert, i32 noundef 1, i32 noundef %or19.i)
+  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef nonnull %4, <2 x float> %agg.tmp10.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp661.sroa.0.4.vec.insert, i32 noundef 1, i32 noundef %or19.i)
   %add22.i = fadd float %add663, %sub660
   %sub.i651 = fsub float %add22.i, %add662
   %sub24.i = fadd float %sub.i651, -1.000000e+00
   %agg.tmp20.sroa.0.4.vec.insert.i = insertelement <2 x float> %agg.tmp659.sroa.0.4.vec.insert, float %sub24.i, i64 0
-  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef %4, <2 x float> %agg.tmp20.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i, i32 noundef 0, i32 noundef %shl.i)
+  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef nonnull %4, <2 x float> %agg.tmp20.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i, i32 noundef 0, i32 noundef %shl.i)
   %agg.tmp35.sroa.0.4.vec.insert.i = insertelement <2 x float> %agg.tmp659.sroa.0.4.vec.insert, float %sub.i651, i64 0
-  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef %4, <2 x float> %agg.tmp35.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp661.sroa.0.4.vec.insert, i32 noundef 0, i32 noundef %or19.i)
+  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef nonnull %4, <2 x float> %agg.tmp35.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp661.sroa.0.4.vec.insert, i32 noundef 0, i32 noundef %or19.i)
   br label %if.end666
 
 if.end666:                                        ; preds = %if.else579, %for.end647, %for.end
@@ -27889,17 +27889,17 @@ if.then672:                                       ; preds = %if.end666
   %agg.tmp3.sroa.0.0.vec.insert.i674 = insertelement <2 x float> poison, float %add5.i671, i64 0
   %agg.tmp3.sroa.0.4.vec.insert.i675 = insertelement <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i674, float %add701, i64 1
   %shl.i676 = shl i32 %conv.i665, 24
-  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef %4, <2 x float> %agg.tmp.sroa.0.4.vec.insert.i670, <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i675, i32 noundef 1, i32 noundef %shl.i676)
+  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef nonnull %4, <2 x float> %agg.tmp.sroa.0.4.vec.insert.i670, <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i675, i32 noundef 1, i32 noundef %shl.i676)
   %agg.tmp10.sroa.0.4.vec.insert.i677 = insertelement <2 x float> %agg.tmp698.sroa.0.4.vec.insert, float %add.i668, i64 0
   %or19.i678 = or disjoint i32 %shl.i676, 16777215
-  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef %4, <2 x float> %agg.tmp10.sroa.0.4.vec.insert.i677, <2 x float> %agg.tmp700.sroa.0.4.vec.insert, i32 noundef 1, i32 noundef %or19.i678)
+  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef nonnull %4, <2 x float> %agg.tmp10.sroa.0.4.vec.insert.i677, <2 x float> %agg.tmp700.sroa.0.4.vec.insert, i32 noundef 1, i32 noundef %or19.i678)
   %add22.i679 = fadd float %add702, %sub699
   %sub.i680 = fsub float %add22.i679, %add701
   %sub24.i681 = fadd float %sub.i680, -1.000000e+00
   %agg.tmp20.sroa.0.4.vec.insert.i682 = insertelement <2 x float> %agg.tmp698.sroa.0.4.vec.insert, float %sub24.i681, i64 0
-  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef %4, <2 x float> %agg.tmp20.sroa.0.4.vec.insert.i682, <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i675, i32 noundef 0, i32 noundef %shl.i676)
+  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef nonnull %4, <2 x float> %agg.tmp20.sroa.0.4.vec.insert.i682, <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i675, i32 noundef 0, i32 noundef %shl.i676)
   %agg.tmp35.sroa.0.4.vec.insert.i683 = insertelement <2 x float> %agg.tmp698.sroa.0.4.vec.insert, float %sub.i680, i64 0
-  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef %4, <2 x float> %agg.tmp35.sroa.0.4.vec.insert.i683, <2 x float> %agg.tmp700.sroa.0.4.vec.insert, i32 noundef 0, i32 noundef %or19.i678)
+  call void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef nonnull %4, <2 x float> %agg.tmp35.sroa.0.4.vec.insert.i683, <2 x float> %agg.tmp700.sroa.0.4.vec.insert, i32 noundef 0, i32 noundef %or19.i678)
   br label %if.end704
 
 if.end704:                                        ; preds = %if.then672, %if.end666
@@ -33603,7 +33603,7 @@ if.then.i57:                                      ; preds = %if.then16
   %conv = sext i32 %25 to i64
   %Data = getelementptr inbounds i8, ptr %tab_bar, i64 8
   %26 = load ptr, ptr %Data, align 8
-  tail call void @qsort(ptr noundef %26, i64 noundef %conv, i64 noundef 44, ptr noundef nonnull @_ZL27TabItemComparerByBeginOrderPKvS0_)
+  tail call void @qsort(ptr noundef %26, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 44, ptr noundef nonnull @_ZL27TabItemComparerByBeginOrderPKvS0_)
   %.pre63 = load i32, ptr %CurrFrameVisible, align 4
   br label %if.end18
 
@@ -34033,7 +34033,7 @@ if.then.i257:                                     ; preds = %if.end49
   %conv55 = sext i32 %tab_dst_n.0.lcssa to i64
   %Data = getelementptr inbounds i8, ptr %tab_bar, i64 8
   %29 = load ptr, ptr %Data, align 8
-  tail call void @qsort(ptr noundef %29, i64 noundef %conv55, i64 noundef 44, ptr noundef nonnull @_ZL24TabItemComparerBySectionPKvS0_)
+  tail call void @qsort(ptr noundef %29, i64 noundef range(i64 -2147483648, 2147483648) %conv55, i64 noundef 44, ptr noundef nonnull @_ZL24TabItemComparerBySectionPKvS0_)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then.i257, %if.end49
@@ -37598,7 +37598,7 @@ while.cond.i:                                     ; preds = %land.rhs.i, %if.els
   br i1 %cmp.i, label %land.rhs.i, label %_ZN5ImStbL30STB_TEXTEDIT_MOVEWORDRIGHT_WINEP19ImGuiInputTextStatei.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %call.i = tail call fastcc noundef i32 @_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei(ptr noundef readonly %obj, i32 noundef %idx.addr.0.i)
+  %call.i = tail call fastcc noundef i32 @_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei(ptr noundef nonnull readonly %obj, i32 noundef %idx.addr.0.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %while.cond.i, label %_ZN5ImStbL30STB_TEXTEDIT_MOVEWORDRIGHT_WINEP19ImGuiInputTextStatei.exit, !llvm.loop !44
 

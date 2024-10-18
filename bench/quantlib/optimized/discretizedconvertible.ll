@@ -821,7 +821,7 @@ invoke.cont97:                                    ; preds = %.noexc117, %invoke.
 
 invoke.cont101:                                   ; preds = %invoke.cont97
   store i64 %call102, ptr %ref.tmp94, align 8
-  %call.i120 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp94)
+  %call.i120 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %71, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp94)
           to label %call.i.noexc119 unwind label %lpad96
 
 call.i.noexc119:                                  ; preds = %invoke.cont101

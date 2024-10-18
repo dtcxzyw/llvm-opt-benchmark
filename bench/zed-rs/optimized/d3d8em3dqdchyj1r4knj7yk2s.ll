@@ -89,7 +89,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   ]
 
 6:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr110drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hf7a712561b7beb46E.llvm.11369269461568982580"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @"_ZN4core3ptr110drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hf7a712561b7beb46E.llvm.11369269461568982580"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hc7a8132288d40ac4E.exit"
 
 "_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hc7a8132288d40ac4E.exit": ; preds = %32, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h114cb4be5c338f03E.llvm.11369269461568982580.exit.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h82bc9c704ef6ffdeE.exit", %6, %1, %1, %1
@@ -98,7 +98,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4bdd82b16bc69b61E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4bdd82b16bc69b61E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !range !15, !noalias !6, !noundef !4
   %11 = icmp eq i64 %10, 0
@@ -880,14 +880,14 @@ define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$go
   %15 = alloca [104 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %15)
   %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %17 = tail call noalias noundef align 8 dereferenceable_or_null(480) ptr @__rust_alloc(i64 noundef 480, i64 noundef 8) #17
+  %17 = tail call noalias noundef align 8 dereferenceable_or_null(480) ptr @__rust_alloc(i64 noundef range(i64 1, 481) 480, i64 noundef range(i64 1, 9) 8) #17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %14)
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %21 = tail call noalias noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef 1) #17
+  %21 = tail call noalias noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef range(i64 1, 481) 1, i64 noundef range(i64 1, 9) 1) #17
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %30
 
@@ -925,7 +925,7 @@ define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$go
 30:                                               ; preds = %19
   store i8 5, ptr %21, align 1
   %31 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %32 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @__rust_alloc(i64 noundef 144, i64 noundef 8) #17
+  %32 = tail call noalias noundef align 8 dereferenceable_or_null(144) ptr @__rust_alloc(i64 noundef range(i64 1, 481) 144, i64 noundef range(i64 1, 9) 8) #17
   %33 = icmp eq ptr %32, null
   br i1 %33, label %35, label %34
 
@@ -1006,7 +1006,7 @@ define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$go
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %8)
   %51 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %52 = tail call noalias noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef 1) #17
+  %52 = tail call noalias noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef range(i64 1, 481) 1, i64 noundef range(i64 1, 9) 1) #17
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %63
 
@@ -1131,7 +1131,7 @@ define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$go
   %87 = getelementptr inbounds i8, ptr %15, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, i8 0, i64 32, i1 false)
   %88 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !76
-  %89 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @__rust_alloc(i64 noundef 104, i64 noundef 8) #17, !noalias !76
+  %89 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @__rust_alloc(i64 noundef range(i64 1, 481) 104, i64 noundef range(i64 1, 9) 8) #17, !noalias !76
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17hc4a749a81397213bE.exit"
 

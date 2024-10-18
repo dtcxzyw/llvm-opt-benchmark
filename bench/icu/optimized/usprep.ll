@@ -77,7 +77,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.end
   br i1 %tobool3.not.i.i.i, label %if.else.i.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %call.i.i.i = tail call ptr @uhash_open_75(ptr noundef nonnull @_ZL9hashEntry8UElement, ptr noundef nonnull @_ZL14compareEntries8UElementS_, ptr noundef null, ptr noundef nonnull %status)
+  %call.i.i.i = tail call ptr @uhash_open_75(ptr noundef nonnull @_ZL9hashEntry8UElement, ptr noundef nonnull @_ZL14compareEntries8UElementS_, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
   %cmp.i.i1.i.i = icmp slt i32 %2, 1
   %spec.store.select.i.i.i = select i1 %cmp.i.i1.i.i, ptr %call.i.i.i, ptr null

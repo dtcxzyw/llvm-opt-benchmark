@@ -1569,7 +1569,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %237, %234, %231
   br i1 %.not160.i, label %279, label %277
 
 277:                                              ; preds = %269
-  %278 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %244, i32 noundef %.0151.i, ptr noundef %40)
+  %278 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %244, i32 noundef %.0151.i, ptr noundef nonnull %40)
   br label %279
 
 279:                                              ; preds = %277, %269
@@ -1800,7 +1800,7 @@ thread-pre-split.i:                               ; preds = %354
   %380 = phi i16 [ %375, %373 ], [ %377, %.thread.i ]
   %381 = load i64, ptr %27, align 8
   %382 = trunc i64 %381 to i16
-  %383 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %379, i16 noundef zeroext %367, i16 noundef zeroext %380, i16 noundef zeroext %.0149185.i, i16 noundef zeroext %382, i32 noundef %284, i32 noundef %286, ptr noundef %31, ptr noundef %244)
+  %383 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %40, i8 noundef zeroext %379, i16 noundef zeroext %367, i16 noundef zeroext %380, i16 noundef zeroext %.0149185.i, i16 noundef zeroext %382, i32 noundef %284, i32 noundef %286, ptr noundef nonnull %31, ptr noundef %244)
   br label %384
 
 384:                                              ; preds = %378, %361, %358
@@ -1848,7 +1848,7 @@ thread-pre-split.i:                               ; preds = %354
   %412 = icmp eq i64 %indvars.iv224.i, 0
   %413 = select i1 %412, i32 %284, i32 1
   %414 = select i1 %412, ptr %407, ptr null
-  call fastcc void @show_PDU_in_tree(ptr noundef nonnull %1, ptr noundef %37, ptr noundef %0, i32 noundef %.5200.i, i32 noundef %411, ptr noundef %40, i32 noundef %413, ptr noundef %414, i32 noundef %.0153.i)
+  call fastcc void @show_PDU_in_tree(ptr noundef nonnull %1, ptr noundef %37, ptr noundef %0, i32 noundef %.5200.i, i32 noundef %411, ptr noundef nonnull %40, i32 noundef %413, ptr noundef %414, i32 noundef %.0153.i)
   %415 = load i16, ptr %409, align 2
   %.not190.i = icmp eq i16 %415, 0
   %.not11.i176.i = icmp eq i32 %413, 0
@@ -1892,7 +1892,7 @@ show_PDU_in_info.exit178.i:                       ; preds = %420, %417
   %spec.select.i = select i1 %or.cond.i, i32 %286, i32 0
   %434 = icmp eq i8 %432, 0
   %435 = select i1 %434, ptr %407, ptr null
-  call fastcc void @show_PDU_in_tree(ptr noundef nonnull %1, ptr noundef %37, ptr noundef %0, i32 noundef %.4.i, i32 noundef %431, ptr noundef %40, i32 noundef %spec.select.i, ptr noundef %435, i32 noundef %.0153.i)
+  call fastcc void @show_PDU_in_tree(ptr noundef nonnull %1, ptr noundef %37, ptr noundef %0, i32 noundef %.4.i, i32 noundef %431, ptr noundef nonnull %40, i32 noundef %spec.select.i, ptr noundef %435, i32 noundef %.0153.i)
   %436 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4.i) #13
   %437 = and i32 %436, 65535
   %438 = load i8, ptr @s_number_of_extensions, align 1
@@ -2260,7 +2260,7 @@ thread-pre-split.i.i:                             ; preds = %588
   br i1 %.not79.i.i.i, label %checkChannelRepeatedNACKInfo.exit.i.i, label %628
 
 628:                                              ; preds = %609
-  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %627, ptr noundef readonly %40, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %627, ptr noundef nonnull readonly %40, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelRepeatedNACKInfo.exit.i.i
 
 629:                                              ; preds = %603
@@ -2447,7 +2447,7 @@ thread-pre-split.i.i:                             ; preds = %588
   %720 = or disjoint i32 %715, %719
   store i32 %720, ptr %.phi.trans.insert.i.i.i.i, align 4
   %721 = call ptr @wmem_map_insert(ptr noundef %701, ptr noundef nonnull %705, ptr noundef nonnull %691) #13
-  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %691, ptr noundef readonly %40, ptr noundef %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %691, ptr noundef nonnull readonly %40, ptr noundef %1, ptr noundef %459, ptr noundef %0)
   br label %722
 
 722:                                              ; preds = %._crit_edge.i.i.i.thread, %._crit_edge96.i.i.i, %._crit_edge.i.i.i
@@ -2581,7 +2581,7 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %722, %628, %609
 
 checkChannelACKWindow.exit.sink.split.i.i:        ; preds = %786, %732
   %.sink.i.i = phi ptr [ %788, %786 ], [ %750, %732 ]
-  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %.sink.i.i, i32 noundef 1, ptr noundef %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %.sink.i.i, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelACKWindow.exit.i.i
 
 checkChannelACKWindow.exit.i.i:                   ; preds = %checkChannelACKWindow.exit.sink.split.i.i, %771, %751, %732
@@ -2751,7 +2751,7 @@ dissect_rlc_lte_am_status_pdu.exit.i:             ; preds = %checkChannelACKWind
   br label %901
 
 901:                                              ; preds = %893, %889, %874, %868
-  %902 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %459, i32 noundef %.1201.i, ptr noundef %40)
+  %902 = call fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr noundef %459, i32 noundef %.1201.i, ptr noundef nonnull %40)
   br label %903
 
 903:                                              ; preds = %901, %866
@@ -2958,7 +2958,7 @@ thread-pre-split.i182:                            ; preds = %967
   %993 = add i8 %992, 1
   %994 = load i32, ptr %20, align 4
   %995 = trunc i32 %994 to i16
-  %996 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %993, i16 noundef zeroext %980, i16 noundef zeroext %.0198.i, i16 noundef zeroext %.1.i, i16 noundef zeroext %995, i32 noundef %911, i32 noundef %913, ptr noundef %31, ptr noundef %37)
+  %996 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %40, i8 noundef zeroext %993, i16 noundef zeroext %980, i16 noundef zeroext %.0198.i, i16 noundef zeroext %.1.i, i16 noundef zeroext %995, i32 noundef %911, i32 noundef %913, ptr noundef nonnull %31, ptr noundef %37)
   br label %997
 
 997:                                              ; preds = %991, %974, %971
@@ -3012,7 +3012,7 @@ thread-pre-split.i182:                            ; preds = %967
   %1026 = icmp eq i64 %indvars.iv276.i, 0
   %1027 = select i1 %1026, i32 %911, i32 1
   %1028 = select i1 %1026, ptr %.0203.i, ptr null
-  call fastcc void @show_PDU_in_tree(ptr noundef %1, ptr noundef %37, ptr noundef %0, i32 noundef %.6260.i, i32 noundef %1025, ptr noundef %40, i32 noundef %1027, ptr noundef %1028, i32 noundef %.0202.i)
+  call fastcc void @show_PDU_in_tree(ptr noundef %1, ptr noundef %37, ptr noundef %0, i32 noundef %.6260.i, i32 noundef %1025, ptr noundef nonnull %40, i32 noundef %1027, ptr noundef %1028, i32 noundef %.0202.i)
   %1029 = load i16, ptr %1023, align 2
   %.not250.i = icmp eq i16 %1029, 0
   %.not11.i239.i = icmp eq i32 %1027, 0
@@ -3061,7 +3061,7 @@ show_PDU_in_info.exit241.i:                       ; preds = %1034, %1031
   %spec.select.i179 = select i1 %or.cond.i178, i32 %913, i32 0
   %1051 = icmp eq i8 %1049, 0
   %1052 = select i1 %1051, ptr %.0203.i, ptr null
-  call fastcc void @show_PDU_in_tree(ptr noundef %1, ptr noundef %37, ptr noundef %0, i32 noundef %.5.i, i32 noundef %1048, ptr noundef %40, i32 noundef %spec.select.i179, ptr noundef %1052, i32 noundef %.0202.i)
+  call fastcc void @show_PDU_in_tree(ptr noundef %1, ptr noundef %37, ptr noundef %0, i32 noundef %.5.i, i32 noundef %1048, ptr noundef nonnull %40, i32 noundef %spec.select.i179, ptr noundef %1052, i32 noundef %.0202.i)
   %1053 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5.i) #13
   %1054 = and i32 %1053, 65535
   %1055 = load i8, ptr @s_number_of_extensions, align 1
@@ -3736,7 +3736,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
   %165 = load i32, ptr %151, align 4
   %166 = call ptr @wmem_file_scope() #13
   %167 = zext i16 %5 to i64
-  %168 = call ptr @tvb_memdup(ptr noundef %166, ptr noundef %1, i32 noundef %164, i64 noundef %167) #13
+  %168 = call ptr @tvb_memdup(ptr noundef %166, ptr noundef %1, i32 noundef range(i32 0, 65536) %164, i64 noundef %167) #13
   %169 = load ptr, ptr %157, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 8
   %171 = zext nneg i16 %160 to i64
@@ -3963,7 +3963,7 @@ reassembly_add_segment.exit:                      ; preds = %162, %163
   %306 = load i32, ptr %293, align 4
   %307 = call ptr @wmem_file_scope() #13
   %308 = zext i16 %5 to i64
-  %309 = call ptr @tvb_memdup(ptr noundef %307, ptr noundef %1, i32 noundef %305, i64 noundef %308) #13
+  %309 = call ptr @tvb_memdup(ptr noundef %307, ptr noundef %1, i32 noundef range(i32 0, 65536) %305, i64 noundef %308) #13
   %310 = load ptr, ptr %298, align 8
   %311 = getelementptr inbounds i8, ptr %310, i64 8
   %312 = zext nneg i16 %301 to i64

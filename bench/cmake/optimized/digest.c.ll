@@ -209,7 +209,7 @@ define dso_local i32 @Curl_auth_create_digest_md5_message(ptr noundef %0, ptr no
   br i1 %.not.i, label %auth_decode_digest_md5_message.exit.thread, label %22
 
 22:                                               ; preds = %6
-  %23 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.21) #11
+  %23 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.21) #11
   %.not.i.not.i = icmp eq ptr %23, null
   br i1 %.not.i.not.i, label %auth_decode_digest_md5_message.exit.thread, label %24
 
@@ -250,7 +250,7 @@ auth_digest_get_key_value.exit.i:                 ; preds = %switch.early.test.i
   br label %33
 
 33:                                               ; preds = %auth_digest_get_key_value.exit.i, %auth_digest_get_key_value.exit.thread57.i
-  %34 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #11
+  %34 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.22) #11
   %.not.i15.not.i = icmp eq ptr %34, null
   br i1 %.not.i15.not.i, label %auth_digest_get_key_value.exit28.thread.i, label %35
 
@@ -295,7 +295,7 @@ auth_digest_get_key_value.exit28.thread.i:        ; preds = %33
   br label %44
 
 44:                                               ; preds = %auth_digest_get_key_value.exit28.thread.i, %auth_digest_get_key_value.exit28.i, %auth_digest_get_key_value.exit28.thread59.i
-  %45 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.24) #11
+  %45 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.24) #11
   %.not.i29.not.i = icmp eq ptr %45, null
   br i1 %.not.i29.not.i, label %auth_decode_digest_md5_message.exit.thread, label %46
 
@@ -336,7 +336,7 @@ auth_digest_get_key_value.exit42.i:               ; preds = %switch.early.test64
   br label %55
 
 55:                                               ; preds = %auth_digest_get_key_value.exit42.i, %auth_digest_get_key_value.exit42.thread61.i
-  %56 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) @.str.25) #11
+  %56 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.25) #11
   %.not.i43.not.i = icmp eq ptr %56, null
   br i1 %.not.i43.not.i, label %auth_decode_digest_md5_message.exit.thread, label %57
 

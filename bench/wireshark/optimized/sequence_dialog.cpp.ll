@@ -2530,7 +2530,7 @@ _ZN7QStringD2Ev.exit258:                          ; preds = %401, %_ZN17QArrayDa
   %411 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %408, ptr %411, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false)
   %412 = getelementptr inbounds i8, ptr %45, i64 24
   store i64 2, ptr %412, align 8
   %413 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %408)
@@ -2569,7 +2569,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i260:   ; preds = %416
 _ZN7QStringD2Ev.exit262:                          ; preds = %416, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i260, %419
   %421 = load ptr, ptr %411, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false)
   %422 = getelementptr inbounds i8, ptr %47, i64 24
   store i64 2, ptr %422, align 8
   %423 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %421)
@@ -3703,7 +3703,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %15, %.split.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !noalias !7
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %6)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %27 unwind label %65
 
 27:                                               ; preds = %_ZN7QStringC2EPKc.exit
@@ -4007,7 +4007,7 @@ define void @_ZN14SequenceDialogD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 8:                                                ; preds = %1
   tail call void @_ZN12SequenceInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(12) %4) #23
   br label %_ZN12SequenceInfo5unrefEv.exit
 
 _ZN12SequenceInfo5unrefEv.exit:                   ; preds = %1, %8
@@ -4077,7 +4077,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %31
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #22
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #22
   ret void
 }
 
@@ -4111,7 +4111,7 @@ define void @_ZN14SequenceDialogD0Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZThn16_N14SequenceDialogD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN14SequenceDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(297) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(297) %2) #23
   ret void
 }
 

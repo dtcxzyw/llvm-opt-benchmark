@@ -220,7 +220,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf21removeFromLeafInOrderEv.exit.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i, label %27, label %_ZN4llvm9RopePieceD2Ev.exit.i.i
 
 27:                                               ; preds = %24
-  tail call void @_ZdaPv(ptr noundef nonnull %23) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %23) #9
   br label %_ZN4llvm9RopePieceD2Ev.exit.i.i
 
 _ZN4llvm9RopePieceD2Ev.exit.i.i:                  ; preds = %27, %24, %18
@@ -250,7 +250,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5clearEv.exit.i: ; preds = %_ZN4llvm9RopePi
   br i1 %.not.i.i.i.i.i.i, label %35, label %_ZN4llvm9RopePieceD2Ev.exit.i
 
 35:                                               ; preds = %32
-  tail call void @_ZdaPv(ptr noundef nonnull %31) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %31) #9
   br label %_ZN4llvm9RopePieceD2Ev.exit.i
 
 _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %35, %32, %30
@@ -335,7 +335,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree5clearEv(ptr nocapture noundef no
   br i1 %.not.i.i.i.i.i.i, label %18, label %_ZN4llvm9RopePieceD2Ev.exit.i
 
 18:                                               ; preds = %15
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %14) #9
   br label %_ZN4llvm9RopePieceD2Ev.exit.i
 
 _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %18, %15, %9
@@ -507,7 +507,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit.i: ; preds = %27
   br i1 %.not.i.i.i.i.i.i, label %42, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit
 
 42:                                               ; preds = %39
-  tail call void @_ZdaPv(ptr noundef nonnull %26) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %26) #9
   br label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit
 
 _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit: ; preds = %6, %20, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit.i, %39, %42
@@ -778,7 +778,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i: ; preds
   br i1 %.not.i.i.i.i.i.i, label %53, label %_ZN4llvm9RopePieceaSERKS0_.exit.i
 
 53:                                               ; preds = %50
-  tail call void @_ZdaPv(ptr noundef nonnull %49) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %49) #9
   br label %_ZN4llvm9RopePieceaSERKS0_.exit.i
 
 _ZN4llvm9RopePieceaSERKS0_.exit.i:                ; preds = %53, %50, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i
@@ -821,7 +821,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.i: ;
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %68, label %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i
 
 68:                                               ; preds = %65
-  tail call void @_ZdaPv(ptr noundef nonnull %64) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %64) #9
   br label %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i
 
 _ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i:          ; preds = %68, %65, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.i
@@ -1033,7 +1033,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35.thread: ; pred
   br i1 %.not.i.i.i.i34, label %43, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35
 
 43:                                               ; preds = %40
-  tail call void @_ZdaPv(ptr noundef nonnull %39) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %39) #9
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35
 
 _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35: ; preds = %40, %43
@@ -1169,7 +1169,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i: ; preds =
   br i1 %.not.i.i.i.i.i, label %38, label %_ZN4llvm9RopePieceaSERKS0_.exit
 
 38:                                               ; preds = %35
-  tail call void @_ZdaPv(ptr noundef nonnull %34) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %34) #9
   br label %_ZN4llvm9RopePieceaSERKS0_.exit
 
 _ZN4llvm9RopePieceaSERKS0_.exit:                  ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i, %35, %38
@@ -1209,7 +1209,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i38: ; preds
   br i1 %.not.i.i.i.i.i40, label %53, label %_ZN4llvm9RopePieceaSERKS0_.exit41
 
 53:                                               ; preds = %50
-  tail call void @_ZdaPv(ptr noundef nonnull %49) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %49) #9
   br label %_ZN4llvm9RopePieceaSERKS0_.exit41
 
 _ZN4llvm9RopePieceaSERKS0_.exit41:                ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i38, %50, %53
@@ -1270,7 +1270,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.i.i:
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %77, label %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i.i
 
 77:                                               ; preds = %74
-  tail call void @_ZdaPv(ptr noundef nonnull %73) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %73) #9
   br label %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i.i
 
 _ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i.i:        ; preds = %77, %74, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.i.i
@@ -1300,7 +1300,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i: ; p
   br i1 %.not.i.i.i.i.i.i.i.i42, label %89, label %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i
 
 89:                                               ; preds = %86
-  tail call void @_ZdaPv(ptr noundef nonnull %85) #9
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %85) #9
   br label %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i
 
 _ZN4llvm9RopePieceaSERKS0_.exit.i.i.i:            ; preds = %89, %86, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i

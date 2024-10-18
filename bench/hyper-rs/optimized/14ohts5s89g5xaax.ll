@@ -45,7 +45,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Resul
 15:                                               ; preds = %7
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$hyper..upgrade..Io$u2b$core..marker..Send$GT$$GT$17he639d0fd0f9997a2E.llvm.5819295714002825534"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #8
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$hyper..upgrade..Io$u2b$core..marker..Send$GT$$GT$17he639d0fd0f9997a2E.llvm.5819295714002825534"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #8
           to label %common.resume unwind label %25
 
 "_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hebd77aed4f6c6840E.llvm.5819295714002825534.exit.i.i": ; preds = %"._ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hebd77aed4f6c6840E.llvm.5819295714002825534.exit.i.i_crit_edge", %3
@@ -60,7 +60,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Resul
 21:                                               ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hebd77aed4f6c6840E.llvm.5819295714002825534.exit.i.i"
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab848755341c25caE.llvm.5819295714002825534"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #8
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab848755341c25caE.llvm.5819295714002825534"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #8
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %21
@@ -80,7 +80,7 @@ common.resume:                                    ; preds = %33, %15, %21
   unreachable
 
 "_ZN4core3ptr45drop_in_place$LT$hyper..upgrade..Upgraded$GT$17h180b3c1b35358d6fE.exit": ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hebd77aed4f6c6840E.llvm.5819295714002825534.exit.i.i"
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab848755341c25caE.llvm.5819295714002825534"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab848755341c25caE.llvm.5819295714002825534"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   br label %39
 
 27:                                               ; preds = %1
@@ -93,7 +93,7 @@ common.resume:                                    ; preds = %33, %15, %21
   br i1 %31, label %"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17h5a868e5709239578E.exit", label %32
 
 32:                                               ; preds = %27
-  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h87dc17a134121ec4E.llvm.5819295714002825534"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h87dc17a134121ec4E.llvm.5819295714002825534"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29)
           to label %"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17h5a868e5709239578E.exit" unwind label %33, !noalias !33
 
 33:                                               ; preds = %32

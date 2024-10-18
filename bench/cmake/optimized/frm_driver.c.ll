@@ -5702,7 +5702,7 @@ define internal range(i32 -12, 1) i32 @VSC_Scroll_Page_Forward(ptr nocapture nou
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
   %7 = icmp sgt i16 %5, 0
-  %8 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
+  %8 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %6, i1 true)
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   br i1 %7, label %11, label %24
@@ -5757,7 +5757,7 @@ define internal range(i32 -12, 1) i32 @VSC_Scroll_Page_Backward(ptr nocapture no
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
   %7 = icmp slt i16 %5, 0
-  %8 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
+  %8 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %6, i1 true)
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   br i1 %7, label %11, label %24
@@ -5814,7 +5814,7 @@ define internal range(i32 -12, 1) i32 @VSC_Scroll_Half_Page_Forward(ptr nocaptur
   %7 = add nsw i32 %6, 1
   %8 = sdiv i32 %7, 2
   %9 = icmp sgt i16 %5, 0
-  %10 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
+  %10 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %8, i1 true)
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   br i1 %9, label %13, label %26
@@ -5871,7 +5871,7 @@ define internal range(i32 -12, 1) i32 @VSC_Scroll_Half_Page_Backward(ptr nocaptu
   %7 = add nsw i32 %6, 1
   %.neg = sdiv i32 %7, -2
   %8 = icmp slt i16 %5, -2
-  %9 = tail call i32 @llvm.abs.i32(i32 %.neg, i1 true)
+  %9 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %.neg, i1 true)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   br i1 %8, label %12, label %25
@@ -5979,7 +5979,7 @@ define internal range(i32 -12, 1) i32 @HSC_Horizontal_Line_Forward(ptr nocapture
   %5 = load i16, ptr %4, align 4
   %6 = sext i16 %5 to i32
   %7 = icmp sgt i16 %5, 0
-  %8 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
+  %8 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %6, i1 true)
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   br i1 %7, label %11, label %24
@@ -6034,7 +6034,7 @@ define internal range(i32 -12, 1) i32 @HSC_Horizontal_Line_Backward(ptr nocaptur
   %5 = load i16, ptr %4, align 4
   %6 = sext i16 %5 to i32
   %7 = icmp slt i16 %5, 0
-  %8 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
+  %8 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %6, i1 true)
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   br i1 %7, label %11, label %24
@@ -6091,7 +6091,7 @@ define internal range(i32 -12, 1) i32 @HSC_Horizontal_Half_Line_Forward(ptr noca
   %7 = add nsw i32 %6, 1
   %8 = sdiv i32 %7, 2
   %9 = icmp sgt i16 %5, 0
-  %10 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
+  %10 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %8, i1 true)
   %11 = getelementptr inbounds i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   br i1 %9, label %13, label %26
@@ -6148,7 +6148,7 @@ define internal range(i32 -12, 1) i32 @HSC_Horizontal_Half_Line_Backward(ptr noc
   %7 = add nsw i32 %6, 1
   %.neg = sdiv i32 %7, -2
   %8 = icmp slt i16 %5, -2
-  %9 = tail call i32 @llvm.abs.i32(i32 %.neg, i1 true)
+  %9 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %.neg, i1 true)
   %10 = getelementptr inbounds i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   br i1 %8, label %12, label %25

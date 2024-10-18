@@ -223,7 +223,7 @@ ExecProcNode.exit.i:                              ; preds = %42, %40
 
 slot_getsomeattrs.exit.i.i.i:                     ; preds = %50
   %55 = sext i16 %.val.val.i to i32
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %44, i32 noundef %55) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %44, i32 noundef range(i32 -32767, 32768) %55) #7
   br label %fetch_tuple_flag.exit.i
 
 fetch_tuple_flag.exit.i:                          ; preds = %slot_getsomeattrs.exit.i.i.i, %50
@@ -443,7 +443,7 @@ ExecProcNode.exit.i22:                            ; preds = %157, %155
 
 slot_getsomeattrs.exit.i.i.i20:                   ; preds = %172
   %178 = sext i16 %.val.val.i16 to i32
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %138, i32 noundef %178) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %138, i32 noundef range(i32 -32767, 32768) %178) #7
   br label %fetch_tuple_flag.exit.i17
 
 fetch_tuple_flag.exit.i17:                        ; preds = %slot_getsomeattrs.exit.i.i.i20, %172
@@ -545,7 +545,7 @@ ExecQualAndReset.exit.i:                          ; preds = %201
 
 slot_getsomeattrs.exit.i.i49.i:                   ; preds = %217
   %222 = sext i16 %.val45.val.i to i32
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %194, i32 noundef %222) #7
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %194, i32 noundef range(i32 -32767, 32768) %222) #7
   br label %fetch_tuple_flag.exit50.i
 
 fetch_tuple_flag.exit50.i:                        ; preds = %slot_getsomeattrs.exit.i.i49.i, %217

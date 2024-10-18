@@ -435,7 +435,7 @@ if.end148:                                        ; preds = %if.else, %if.then13
   %8 = load ptr, ptr @cmd_difftool.extcmd, align 8
   %tobool151 = icmp ne ptr %8, null
   %lnot.ext155 = zext i1 %tobool151 to i32
-  call void @die_for_incompatible_opt4(i32 noundef %conv, ptr noundef nonnull @.str.26, i32 noundef %lnot.ext, ptr noundef nonnull @.str.27, i32 noundef %lnot.ext155, ptr noundef nonnull @.str.28, i32 noundef 0, ptr noundef nonnull @.str.45) #17
+  call void @die_for_incompatible_opt4(i32 noundef range(i32 0, 2) %conv, ptr noundef nonnull @.str.26, i32 noundef range(i32 0, 2) %lnot.ext, ptr noundef nonnull @.str.27, i32 noundef range(i32 0, 2) %lnot.ext155, ptr noundef nonnull @.str.28, i32 noundef 0, ptr noundef nonnull @.str.45) #17
   %9 = load i32, ptr %use_gui_tool, align 4
   switch i32 %9, label %if.end166 [
     i32 1, label %if.end166.sink.split
@@ -1087,7 +1087,7 @@ use_wt_file.exit.thread.i:                        ; preds = %land.lhs.true5.i.i,
   br label %if.then149.i
 
 use_wt_file.exit.i:                               ; preds = %is_null_oid.exit.i.i
-  %call12.i.i = call fastcc i32 @oideq(ptr noundef %roid.i, ptr noundef nonnull %wt_oid.i.i)
+  %call12.i.i = call fastcc i32 @oideq(ptr noundef nonnull %roid.i, ptr noundef nonnull %wt_oid.i.i)
   call void @strbuf_release(ptr noundef nonnull %buf.i106.i) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i106.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
@@ -2045,7 +2045,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %path = getelementptr inbounds i8, ptr %entry1, i64 8208
-  tail call fastcc void @add_path(ptr noundef %ldir, i64 noundef %ldir_len, ptr noundef nonnull %path)
+  tail call fastcc void @add_path(ptr noundef nonnull %ldir, i64 noundef %ldir_len, ptr noundef nonnull %path)
   %buf.i = getelementptr inbounds i8, ptr %ldir, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %call.i.i = tail call i32 @safe_create_leading_directories(ptr noundef %1) #17
@@ -2083,7 +2083,7 @@ if.end:                                           ; preds = %write_file_in_direc
 
 if.then7:                                         ; preds = %if.end
   %path8 = getelementptr inbounds i8, ptr %entry1, i64 8208
-  tail call fastcc void @add_path(ptr noundef %rdir, i64 noundef %rdir_len, ptr noundef nonnull %path8)
+  tail call fastcc void @add_path(ptr noundef nonnull %rdir, i64 noundef %rdir_len, ptr noundef nonnull %path8)
   %buf.i6 = getelementptr inbounds i8, ptr %rdir, i64 16
   %6 = load ptr, ptr %buf.i6, align 8
   %call.i.i7 = tail call i32 @safe_create_leading_directories(ptr noundef %6) #17

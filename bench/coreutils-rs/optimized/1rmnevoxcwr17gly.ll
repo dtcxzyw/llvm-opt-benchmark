@@ -462,7 +462,7 @@ define hidden void @"_ZN4core3ptr141drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   br i1 %21, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h764b0ac40fa6f869E.llvm.8092952956822545444.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #16, !noalias !76
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #16, !noalias !76
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h764b0ac40fa6f869E.llvm.8092952956822545444.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h764b0ac40fa6f869E.llvm.8092952956822545444.exit": ; preds = %1, %4, %8, %22
@@ -2848,7 +2848,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matche
   br i1 %31, label %common.resume, label %32
 
 32:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$clap_builder..parser..matches..arg_matches..SubCommand$GT$$GT$17ha08ad988e3eea04dE"(ptr noalias noundef align 8 dereferenceable(8) %29)
+  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$clap_builder..parser..matches..arg_matches..SubCommand$GT$$GT$17ha08ad988e3eea04dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29)
           to label %common.resume unwind label %43
 
 "_ZN4core3ptr149drop_in_place$LT$clap_builder..util..flat_map..FlatMap$LT$clap_builder..util..id..Id$C$clap_builder..parser..matches..matched_arg..MatchedArg$GT$$GT$17h23b6f1f7093d186fE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h314d5cabc36bc4d5E.exit.i", %27
@@ -3326,7 +3326,7 @@ define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$
 
 10:                                               ; preds = %.lr.ph.i.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h850a7ed3456796b9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h850a7ed3456796b9E"(ptr noalias noundef nonnull align 16 dereferenceable(32) %5)
           to label %"_ZN4core3ptr60drop_in_place$LT$clap_builder..util..any_value..AnyValue$GT$17h070a57c7d31aa158E.exit.i.i" unwind label %12
 
 "_ZN4core3ptr60drop_in_place$LT$clap_builder..util..any_value..AnyValue$GT$17h070a57c7d31aa158E.exit.i.i": ; preds = %10, %.lr.ph.i.i
@@ -3353,7 +3353,7 @@ define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$
 
 20:                                               ; preds = %.lr.ph12.i.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h850a7ed3456796b9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h850a7ed3456796b9E"(ptr noalias noundef nonnull align 16 dereferenceable(32) %15)
           to label %"_ZN4core3ptr60drop_in_place$LT$clap_builder..util..any_value..AnyValue$GT$17h070a57c7d31aa158E.exit8.i.i" unwind label %22
 
 "_ZN4core3ptr60drop_in_place$LT$clap_builder..util..any_value..AnyValue$GT$17h070a57c7d31aa158E.exit8.i.i": ; preds = %20, %.lr.ph12.i.i
@@ -4495,7 +4495,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbdb00507be43f6b5E.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #16
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #16
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbdb00507be43f6b5E.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbdb00507be43f6b5E.exit": ; preds = %22, %8, %1, %4

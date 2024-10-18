@@ -607,7 +607,7 @@ define void @_ZThn8_N6icu_7510QuantifierD0Ev(ptr noundef %this) unnamed_addr #10
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6icu_7510QuantifierD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   ret void
 }
 

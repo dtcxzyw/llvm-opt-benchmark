@@ -1271,12 +1271,12 @@ if.end12:                                         ; preds = %if.end7
   br i1 %cmp.i20, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end12
-  %call.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %uri, ptr noundef nonnull @.str.17) #19
+  %call.i.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(200) %uri, ptr noundef nonnull @.str.17) #19
   %cmp.i.i.not.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then15
-  %call3.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %uri) #19
+  %call3.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(200) %uri) #19
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 250, i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef %call3.i)
   br label %return
 
@@ -1310,12 +1310,12 @@ if.end17:                                         ; preds = %if.end12
   br i1 %cmp.i22, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %if.end17
-  %call.i.i.i23 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %uri, ptr noundef nonnull @.str.26) #19
+  %call.i.i.i23 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(200) %uri, ptr noundef nonnull @.str.26) #19
   %cmp.i.i.not.i24 = icmp eq i32 %call.i.i.i23, 0
   br i1 %cmp.i.i.not.i24, label %if.end.i28, label %if.then.i25
 
 if.then.i25:                                      ; preds = %if.then20
-  %call3.i26 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %uri) #19
+  %call3.i26 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(200) %uri) #19
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 345, i32 noundef 2, ptr noundef nonnull @.str.27, ptr noundef %call3.i26)
   br label %return
 
@@ -1423,13 +1423,13 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(140) %agg.result)
           to label %invoke.cont10 unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #19
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %agg.result) #19
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #19
   br label %ehcleanup
 

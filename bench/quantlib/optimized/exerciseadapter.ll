@@ -638,7 +638,7 @@ _ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i:
 
 _ZN8QuantLib15ExerciseAdapterD2Ev.exit:           ; preds = %entry, %_ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i
   store ptr null, ptr %exercise_.i, align 8, !tbaa !3
-  tail call void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #13
+  tail call void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 200) #12
   ret void
 }

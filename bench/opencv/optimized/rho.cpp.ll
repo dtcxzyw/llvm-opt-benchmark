@@ -129,7 +129,7 @@ define hidden void @_ZN2cv7rhoInitEv(ptr dead_on_unwind noalias writable sret(%"
   %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #18
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv13RHO_HEST_REFCE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %2, i64 352
   invoke void @_ZN2cv5utils10BufferAreaC1Eb(ptr noundef nonnull align 8 dereferenceable(41) %4, i1 noundef zeroext false)
           to label %5 unwind label %7
@@ -441,7 +441,7 @@ define hidden noundef i32 @_ZN2cv7rhoHestENS_3PtrINS_8RHO_HESTEEEPKfS4_Pcjfjjdjd
 define hidden void @_ZN2cv13RHO_HEST_REFCC2Ev(ptr noundef nonnull align 8 dereferenceable(452) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv13RHO_HEST_REFCE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   invoke void @_ZN2cv5utils10BufferAreaC1Eb(ptr noundef nonnull align 8 dereferenceable(41) %3, i1 noundef zeroext false)
           to label %4 unwind label %18
@@ -510,7 +510,7 @@ declare void @_ZN2cv5utils10BufferAreaD1Ev(ptr noundef nonnull align 8 dereferen
 define hidden void @_ZN2cv13RHO_HEST_REFCC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(452) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv13RHO_HEST_REFCE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 352
   invoke void @_ZN2cv5utils10BufferAreaC1Eb(ptr noundef nonnull align 8 dereferenceable(41) %4, i1 noundef zeroext false)
           to label %5 unwind label %9
@@ -2368,7 +2368,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC15getPROSACSampleEv(ptr no
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef double %16(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %17 = tail call noundef double %16(ptr noundef nonnull align 8 dereferenceable(452) %0)
   %18 = sub i32 %10, %.03043.i
   %19 = uitofp i32 %18 to double
   %20 = fmul double %17, %19
@@ -2395,7 +2395,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC15getPROSACSampleEv(ptr no
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef double %33(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %34 = tail call noundef double %33(ptr noundef nonnull align 8 dereferenceable(452) %0)
   %35 = fmul double %34, %13
   %36 = fptoui double %35 to i32
   %37 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv48.i
@@ -2423,7 +2423,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC15getPROSACSampleEv(ptr no
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 40
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef double %46(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %47 = tail call noundef double %46(ptr noundef nonnull align 8 dereferenceable(452) %0)
   %48 = fmul double %47, %13
   %49 = fptoui double %48 to i32
   store i32 %49, ptr %37, align 4
@@ -2449,7 +2449,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC15getPROSACSampleEv(ptr no
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef double %56(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %57 = tail call noundef double %56(ptr noundef nonnull align 8 dereferenceable(452) %0)
   %58 = sub i32 %51, %.03043.i16
   %59 = uitofp i32 %58 to double
   %60 = fmul double %57, %59
@@ -2476,7 +2476,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC15getPROSACSampleEv(ptr no
   %71 = load ptr, ptr %0, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef double %73(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %74 = tail call noundef double %73(ptr noundef nonnull align 8 dereferenceable(452) %0)
   %75 = fmul double %74, %53
   %76 = fptoui double %75 to i32
   %77 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv48.i3
@@ -2504,7 +2504,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC15getPROSACSampleEv(ptr no
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call noundef double %86(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %87 = tail call noundef double %86(ptr noundef nonnull align 8 dereferenceable(452) %0)
   %88 = fmul double %87, %53
   %89 = fptoui double %88 to i32
   store i32 %89, ptr %77, align 4

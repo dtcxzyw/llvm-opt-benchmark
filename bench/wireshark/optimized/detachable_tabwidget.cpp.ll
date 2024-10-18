@@ -1467,7 +1467,7 @@ define void @_ZN14DragDropTabBar14dragEnterEventEP15QDragEnterEvent(ptr nocaptur
   %spec.select.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, ptr @_ZN7QString6_emptyE, ptr %24
   %25 = getelementptr i8, ptr %.sroa.015.0.i.i.i, i64 40
   %26 = load i64, ptr %25, align 8
-  %27 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i.i.i.i, i64 noundef %26, ptr noundef nonnull @.str.1, i64 noundef -1, i32 noundef 1) #16
+  %27 = call noundef i32 @_ZN7QString14compare_helperEPK5QCharxPKcxN2Qt15CaseSensitivityE(ptr noundef nonnull %spec.select.i.i.i.i.i.i, i64 noundef %26, ptr noundef nonnull align 1 dereferenceable(7) @.str.1, i64 noundef -1, i32 noundef 1) #16
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %_ZNK23QListSpecialMethodsBaseI7QStringE8containsIA7_cEEbRKT_.exit, label %20, !llvm.loop !16
 

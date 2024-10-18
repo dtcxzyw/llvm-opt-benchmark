@@ -2059,7 +2059,7 @@ _ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread.i48: ; preds = %_ZNK5Ipopt14
 
 _ZNK5Ipopt14CompoundMatrix7GetCompEii.exit53:     ; preds = %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread.i48, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.i51
   %.0.i5.i50 = phi ptr [ null, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.i51 ], [ %.0.i4.i49, %_ZNK5Ipopt14CompoundMatrix9ConstCompEii.exit.thread.i48 ]
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %6)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %6)
           to label %.noexc unwind label %151
 
 .noexc:                                           ; preds = %_ZNK5Ipopt14CompoundMatrix7GetCompEii.exit53
@@ -2077,7 +2077,7 @@ _ZNK5Ipopt14CompoundMatrix7GetCompEii.exit53:     ; preds = %_ZNK5Ipopt14Compoun
   br label %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit
 
 _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit: ; preds = %43, %.noexc
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %6)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %6)
           to label %.noexc56 unwind label %153
 
 .noexc56:                                         ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit
@@ -2095,7 +2095,7 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit: ; preds = %43, %.noexc
   br label %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit57
 
 _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit57: ; preds = %50, %.noexc56
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %8)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %8)
           to label %.noexc59 unwind label %155
 
 .noexc59:                                         ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit57
@@ -2113,7 +2113,7 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit57: ; preds = %50, %.noexc56
   br label %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit60
 
 _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit60: ; preds = %57, %.noexc59
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %8)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %8)
           to label %.noexc62 unwind label %157
 
 .noexc62:                                         ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit60
@@ -2190,7 +2190,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit70:    ; preds = %_ZNK5Ipopt6Vector7M
           to label %.noexc71 unwind label %163
 
 .noexc71:                                         ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit70
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %92)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %92)
           to label %_ZN5Ipopt6Vector3SetEd.exit unwind label %163
 
 _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc71
@@ -2243,7 +2243,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit:      ; preds = %118, %113
           to label %.noexc78 unwind label %163
 
 .noexc78:                                         ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %108)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %108)
           to label %_ZN5Ipopt6Vector3SetEd.exit80 unwind label %163
 
 _ZN5Ipopt6Vector3SetEd.exit80:                    ; preds = %.noexc78
@@ -2812,7 +2812,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -2841,7 +2841,7 @@ define linkonce_odr void @_ZN5Ipopt3NLP11INVALID_NLPC2ERKNSt7__cxx1112basic_stri
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc7 unwind label %20
 
 .noexc7:                                          ; preds = %.noexc
@@ -2851,7 +2851,7 @@ define linkonce_odr void @_ZN5Ipopt3NLP11INVALID_NLPC2ERKNSt7__cxx1112basic_stri
 8:                                                ; preds = %.noexc7
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
@@ -2946,7 +2946,7 @@ define noundef zeroext i1 @_ZN5Ipopt16NLPBoundsRemover16GetStartingPointENS_8Sma
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %5, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %18)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %18)
           to label %.noexc unwind label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit88.thread
 
 .noexc:                                           ; preds = %17
@@ -2972,7 +2972,7 @@ define noundef zeroext i1 @_ZN5Ipopt16NLPBoundsRemover16GetStartingPointENS_8Sma
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %.noexc, %22, %27
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %18)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %18)
           to label %.noexc24 unwind label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit88.thread
 
 .noexc24:                                         ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
@@ -2998,7 +2998,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %.noexc, %22, %27
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit30
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit30:       ; preds = %.noexc24, %34, %39
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %18)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %18)
           to label %.noexc32 unwind label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit88.thread
 
 .noexc32:                                         ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit30
@@ -3428,7 +3428,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit94:       ; preds = %_ZN5Ipopt8SmartPtrI
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5Ipopt16NLPBoundsRemover6Eval_dERKNS_6VectorERS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %2), !noalias !31
+  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %2), !noalias !31
   %4 = getelementptr inbounds i8, ptr %2, i64 208
   %5 = load ptr, ptr %4, align 8, !noalias !31
   %6 = load ptr, ptr %5, align 8, !noalias !31
@@ -3455,7 +3455,7 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit: ; preds = %3, %7
   br i1 %16, label %18, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit24
 
 18:                                               ; preds = %17
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %2)
           to label %.noexc unwind label %61
 
 .noexc:                                           ; preds = %18
@@ -3473,7 +3473,7 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit: ; preds = %3, %7
   br label %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit16
 
 _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit16: ; preds = %22, %.noexc
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %2)
           to label %.noexc18 unwind label %63
 
 .noexc18:                                         ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit16
@@ -4330,7 +4330,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit35: ; preds = %_ZN5Ipopt8SmartPtr
   br label %_ZN5Ipopt8SmartPtrINS_14CompoundVectorEEC2EPS1_.exit
 
 _ZN5Ipopt8SmartPtrINS_14CompoundVectorEEC2EPS1_.exit: ; preds = %79, %80
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %78)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %78)
           to label %.noexc unwind label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit78
 
 .noexc:                                           ; preds = %_ZN5Ipopt8SmartPtrINS_14CompoundVectorEEC2EPS1_.exit
@@ -4349,7 +4349,7 @@ _ZN5Ipopt8SmartPtrINS_14CompoundVectorEEC2EPS1_.exit: ; preds = %79, %80
   br label %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit
 
 _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit: ; preds = %88, %.noexc
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %78)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %78)
           to label %.noexc43 unwind label %147
 
 .noexc43:                                         ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit
@@ -4475,7 +4475,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit51: ; preds = %133, %128, %_ZN5Ip
           to label %.noexc54 unwind label %149
 
 .noexc54:                                         ; preds = %151
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %87)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %87)
           to label %_ZN5Ipopt6Vector3SetEd.exit unwind label %149
 
 _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc54
@@ -4486,7 +4486,7 @@ _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc54
           to label %.noexc56 unwind label %149
 
 .noexc56:                                         ; preds = %_ZN5Ipopt6Vector3SetEd.exit
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %94)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %94)
           to label %158 unwind label %149
 
 158:                                              ; preds = %_ZNK5Ipopt6Matrix15TransMultVectorEdRKNS_6VectorEdRS1_.exit, %.noexc56
@@ -4499,7 +4499,7 @@ _ZN5Ipopt6Vector3SetEd.exit:                      ; preds = %.noexc54
           to label %189 unwind label %149
 
 161:                                              ; preds = %158
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %78)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(265) %78)
           to label %.noexc60 unwind label %149
 
 .noexc60:                                         ; preds = %161
@@ -4523,7 +4523,7 @@ _ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit61: ; preds = %164, %.noexc60
           to label %.noexc62 unwind label %179
 
 .noexc62:                                         ; preds = %_ZN5Ipopt14CompoundVector15GetCompNonConstEi.exit61
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %163)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %163)
           to label %_ZN5Ipopt6Vector3SetEd.exit64 unwind label %179
 
 _ZN5Ipopt6Vector3SetEd.exit64:                    ; preds = %.noexc62
@@ -5152,7 +5152,7 @@ _ZN5Ipopt16DenseVectorSpaceD2Ev.exit:             ; preds = %_ZNSt3mapINSt7__cxx
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5Ipopt16DenseVectorSpace7MakeNewEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #15
-  invoke void @_ZN5Ipopt11DenseVectorC1EPKNS_16DenseVectorSpaceE(ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull %0)
+  invoke void @_ZN5Ipopt11DenseVectorC1EPKNS_16DenseVectorSpaceE(ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 8 dereferenceable(160) %0)
           to label %_ZNK5Ipopt16DenseVectorSpace18MakeNewDenseVectorEv.exit unwind label %3
 
 3:                                                ; preds = %1
@@ -5200,7 +5200,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIdSaIdEEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit: ; preds = %.lr.ph, %9
   %10 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #16
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
@@ -5232,7 +5232,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIiSaIiEEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit: ; preds = %.lr.ph, %9
   %10 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #16
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
@@ -5282,7 +5282,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS5_SaIS5_EEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i, %13
   %14 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #14
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #16
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
@@ -5308,7 +5308,7 @@ define linkonce_odr void @_ZN5Ipopt15ZeroMatrixSpaceD0Ev(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5Ipopt15ZeroMatrixSpace7MakeNewEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #15
-  invoke void @_ZN5Ipopt10ZeroMatrixC1EPKNS_11MatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(69) %2, ptr noundef nonnull %0)
+  invoke void @_ZN5Ipopt10ZeroMatrixC1EPKNS_11MatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(69) %2, ptr noundef nonnull align 8 dereferenceable(20) %0)
           to label %_ZNK5Ipopt15ZeroMatrixSpace17MakeNewZeroMatrixEv.exit unwind label %3
 
 3:                                                ; preds = %1
@@ -5347,7 +5347,7 @@ define linkonce_odr noundef ptr @_ZNK5Ipopt14SymMatrixSpace7MakeNewEv(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5Ipopt19IdentityMatrixSpace16MakeNewSymMatrixEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #15
-  invoke void @_ZN5Ipopt14IdentityMatrixC1EPKNS_14SymMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %0)
+  invoke void @_ZN5Ipopt14IdentityMatrixC1EPKNS_14SymMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %0)
           to label %_ZNK5Ipopt19IdentityMatrixSpace21MakeNewIdentityMatrixEv.exit unwind label %3
 
 3:                                                ; preds = %1
@@ -5427,7 +5427,7 @@ _ZN5Ipopt20TransposeMatrixSpaceD2Ev.exit:         ; preds = %1, %4, %12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5Ipopt20TransposeMatrixSpace7MakeNewEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
-  invoke void @_ZN5Ipopt15TransposeMatrixC1EPKNS_20TransposeMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %0)
+  invoke void @_ZN5Ipopt15TransposeMatrixC1EPKNS_20TransposeMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZNK5Ipopt20TransposeMatrixSpace22MakeNewTransposeMatrixEv.exit unwind label %3
 
 3:                                                ; preds = %1

@@ -81,7 +81,7 @@ _ZN5clang14TypeLocBuilder4growEm.exit.i:          ; preds = %24, %11
 
 _ZN5clang14TypeLocBuilder7reserveEm.exit:         ; preds = %3, %_ZN5clang14TypeLocBuilder4growEm.exit.i
   %25 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %25, i64 noundef 4) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %25, i64 noundef 4) #7
   %.not1013 = icmp eq ptr %1, null
   br i1 %.not1013, label %._crit_edge, label %.lr.ph
 
@@ -4084,7 +4084,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %44, %_ZNK5clang7Ty
   br i1 %exitcond.not, label %._crit_edge1019, label %44, !llvm.loop !7
 
 ._crit_edge1019:                                  ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread, %._crit_edge
-  %1824 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
+  %1824 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #7
   %1825 = load ptr, ptr %4, align 8
   %1826 = icmp eq ptr %1825, %25
   br i1 %1826, label %_ZN4llvm11SmallVectorIN5clang7TypeLocELj4EED2Ev.exit, label %1827
@@ -4356,7 +4356,7 @@ _ZN5clang14TypeLocBuilder4growEm.exit.i:          ; preds = %33, %20
 
 _ZN5clang14TypeLocBuilder7reserveEm.exit:         ; preds = %4, %_ZN5clang14TypeLocBuilder4growEm.exit.i
   %34 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %34, i64 noundef 4) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %34, i64 noundef 4) #7
   %.not1175 = icmp eq i64 %2, 0
   br i1 %.not1175, label %._crit_edge, label %.lr.ph
 
@@ -4391,7 +4391,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7TypeLocELb1EE9push_backES2_.exit: ; pr
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang7TypeLocELb1EE9push_backES2_.exit, %_ZN5clang14TypeLocBuilder7reserveEm.exit
   %47 = load ptr, ptr %5, align 8, !noalias !9
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7, !noalias !9
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #7, !noalias !9
   %49 = getelementptr inbounds %"class.clang::TypeLoc", ptr %47, i64 %48
   %50 = load ptr, ptr %5, align 8, !noalias !20
   %.not10861178 = icmp eq ptr %49, %50
@@ -8399,7 +8399,7 @@ _ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE
   br i1 %.not1086, label %._crit_edge1182, label %63
 
 ._crit_edge1182:                                  ; preds = %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit, %._crit_edge
-  %1828 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
+  %1828 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #7
   %1829 = load ptr, ptr %5, align 8
   %1830 = icmp eq ptr %1829, %34
   br i1 %1830, label %_ZN4llvm11SmallVectorIN5clang7TypeLocELj4EED2Ev.exit, label %1831

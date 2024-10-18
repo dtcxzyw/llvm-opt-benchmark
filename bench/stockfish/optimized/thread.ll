@@ -163,7 +163,7 @@ _ZSt11make_uniqueIN9Stockfish6Search6WorkerEJRNS1_11SharedStateESt10unique_ptrIN
   %22 = load ptr, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
   %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %10) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 7))
   call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %24 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #14
@@ -175,7 +175,7 @@ _ZSt11make_uniqueIN9Stockfish6Search6WorkerEJRNS1_11SharedStateESt10unique_ptrIN
 
 28:                                               ; preds = %_ZSt11make_uniqueIN9Stockfish6Search6WorkerEJRNS1_11SharedStateESt10unique_ptrINS1_14ISearchManagerESt14default_deleteIS6_EERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %29 = getelementptr inbounds i8, ptr %8, i64 112
-  %30 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3) #14
+  %30 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3) #14
   br label %_ZN9Stockfish6OptionD2Ev.exit
 
 _ZN9Stockfish6OptionD2Ev.exit:                    ; preds = %_ZSt11make_uniqueIN9Stockfish6Search6WorkerEJRNS1_11SharedStateESt10unique_ptrINS1_14ISearchManagerESt14default_deleteIS6_EERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %28
@@ -183,7 +183,7 @@ _ZN9Stockfish6OptionD2Ev.exit:                    ; preds = %_ZSt11make_uniqueIN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #14
   %32 = getelementptr inbounds i8, ptr %8, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %8) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
   store i64 %25, ptr %21, align 8
@@ -210,12 +210,12 @@ _ZN9Stockfish6OptionD2Ev.exit:                    ; preds = %_ZSt11make_uniqueIN
   store ptr @_ZNSt17_Function_handlerIFvvESt5_BindIFMN9Stockfish6ThreadEFvvEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %37, align 8
   %43 = call i32 @pthread_attr_init(ptr noundef nonnull %6) #14
   %44 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %6, i64 noundef 8388608) #14
-  %45 = call i32 @pthread_create(ptr noundef nonnull %35, ptr noundef nonnull %6, ptr noundef nonnull @_ZZN9Stockfish12NativeThreadC1IMNS_6ThreadEFvvEJPS2_EEEOT_DpOT0_ENUlPvE_8__invokeESB_, ptr noundef nonnull %36) #14
+  %45 = call i32 @pthread_create(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull %6, ptr noundef nonnull @_ZZN9Stockfish12NativeThreadC1IMNS_6ThreadEFvvEJPS2_EEEOT_DpOT0_ENUlPvE_8__invokeESB_, ptr noundef nonnull %36) #14
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %18, ptr %5, align 8
   %46 = getelementptr inbounds i8, ptr %5, i64 8
-  %47 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %18) #14
+  %47 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %18) #14
   %.not.i.i.i.i = icmp eq i32 %47, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %48
 
@@ -245,7 +245,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %_ZN9Stockfish6Optio
 
 "_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i.thread": ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %52 = phi ptr [ %18, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ], [ %.pre, %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i" ]
-  %53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %52) #14
+  %53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %52) #14
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i.thread"
@@ -295,7 +295,7 @@ define dso_local void @_ZN9Stockfish6Thread9idle_loopEv(ptr noundef nonnull alig
 16:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %9
   store ptr %10, ptr %2, align 8
   store i8 0, ptr %11, align 8
-  %17 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %10) #14
+  %17 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
   %.not.i.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %18
 
@@ -337,7 +337,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %16
   br i1 %.not.i, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #14
+  %30 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %28) #14
   store i8 0, ptr %11, align 8
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
 
@@ -357,7 +357,7 @@ _ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %27, %29
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #14
+  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %36) #14
   store i8 0, ptr %11, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -374,7 +374,7 @@ define dso_local void @_ZN9Stockfish6Thread24wait_for_search_finishedEv(ptr noun
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #14
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %6
 
@@ -407,7 +407,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %13
 
 13:                                               ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread"
-  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #14
+  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %12) #14
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", %13
@@ -420,7 +420,7 @@ define dso_local void @_ZN9Stockfish6ThreadD2Ev(ptr noundef nonnull align 8 dere
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #14
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN9Stockfish6Thread15start_searchingEv.exit, label %5
 
@@ -431,7 +431,7 @@ define dso_local void @_ZN9Stockfish6ThreadD2Ev(ptr noundef nonnull align 8 dere
 _ZN9Stockfish6Thread15start_searchingEv.exit:     ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 121
   store i8 1, ptr %6, align 1
-  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #14
+  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #14
   %9 = getelementptr inbounds i8, ptr %0, i64 128
@@ -516,7 +516,7 @@ _ZNSt10unique_ptrIN9Stockfish6Search6WorkerESt14default_deleteIS2_EED2Ev.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN9Stockfish6Thread15start_searchingEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #14
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #14
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %_ZNSt5mutex4lockEv.exit, label %4
 
@@ -527,7 +527,7 @@ define dso_local void @_ZN9Stockfish6Thread15start_searchingEv(ptr noundef nonnu
 _ZNSt5mutex4lockEv.exit:                          ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 121
   store i8 1, ptr %5, align 1
-  %6 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #14
+  %6 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #14
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #14
   ret void
@@ -578,7 +578,7 @@ define dso_local void @_ZN9Stockfish10ThreadPool3setENS_6Search11SharedStateE(pt
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %19, ptr %4, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 8
-  %21 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %19) #14
+  %21 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %19) #14
   %.not.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %22
 
@@ -610,7 +610,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %17
 
 "_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i.thread": ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %28 = phi ptr [ %19, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ], [ %.pre, %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i" ]
-  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #14
+  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %28) #14
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i.thread"
@@ -649,7 +649,7 @@ _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condit
   %45 = load ptr, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   %46 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %46, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %46, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 7))
   call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %47 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #14
@@ -661,7 +661,7 @@ _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condit
 
 51:                                               ; preds = %.loopexit
   %52 = getelementptr inbounds i8, ptr %5, i64 112
-  %53 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef 3) #14
+  %53 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 3) #14
   br label %_ZN9Stockfish6OptionD2Ev.exit
 
 _ZN9Stockfish6OptionD2Ev.exit:                    ; preds = %.loopexit, %51
@@ -669,7 +669,7 @@ _ZN9Stockfish6OptionD2Ev.exit:                    ; preds = %.loopexit, %51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #14
   %55 = getelementptr inbounds i8, ptr %5, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   %.not5 = icmp eq i32 %47, 0
@@ -943,7 +943,7 @@ _ZN9Stockfish10ThreadPool5clearEv.exit:           ; preds = %._crit_edge, %._cri
   %186 = getelementptr inbounds i8, ptr %185, i64 16
   store ptr %186, ptr %3, align 8
   %187 = getelementptr inbounds i8, ptr %3, i64 8
-  %188 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %186) #14
+  %188 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %186) #14
   %.not.i.i.i.i22 = icmp eq i32 %188, 0
   br i1 %.not.i.i.i.i22, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i23, label %189
 
@@ -975,7 +975,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i23:     ; preds = %_ZN9Stockfish10Thre
 
 "_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i25.thread": ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i29", %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i23
   %195 = phi ptr [ %186, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i23 ], [ %.pre45, %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i29" ]
-  %196 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %195) #14
+  %196 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %195) #14
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit31
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit31: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i29", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i25.thread"
@@ -985,7 +985,7 @@ _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit31: ; preds = %"_ZNSt18cond
   %199 = load ptr, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
   %200 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %200, ptr noundef nonnull align 1 dereferenceable(1) %12) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %200, ptr noundef nonnull align 1 dereferenceable(1) %12) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 4))
   call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Stockfish::Option") align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %199, ptr noundef nonnull align 8 dereferenceable(32) %11) #14
   %201 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %10) #14
@@ -998,7 +998,7 @@ _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit31: ; preds = %"_ZNSt18cond
 
 205:                                              ; preds = %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit31
   %206 = getelementptr inbounds i8, ptr %10, i64 112
-  %207 = call noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef nonnull align 8 dereferenceable(16) %206, i32 noundef 3) #14
+  %207 = call noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull align 8 dereferenceable(32) %206, i32 noundef 3) #14
   br label %_ZN9Stockfish6OptionD2Ev.exit33
 
 _ZN9Stockfish6OptionD2Ev.exit33:                  ; preds = %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit31, %205
@@ -1006,7 +1006,7 @@ _ZN9Stockfish6OptionD2Ev.exit33:                  ; preds = %_ZN9Stockfish6Threa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %208) #14
   %209 = getelementptr inbounds i8, ptr %10, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %209) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %10) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
   br label %210
@@ -1107,7 +1107,7 @@ define dso_local void @_ZN9Stockfish10ThreadPool14start_thinkingERKNS_10OptionsM
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %14, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 8
-  %16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %14) #14
+  %16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %14) #14
   %.not.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %17
 
@@ -1139,7 +1139,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %6
 
 "_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i.thread": ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %23 = phi ptr [ %14, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ], [ %.pre, %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i" ]
-  %24 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #14
+  %24 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %23) #14
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i.thread"
@@ -1168,7 +1168,7 @@ _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condit
   store atomic i8 1, ptr %41 seq_cst, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %42 = getelementptr inbounds i8, ptr %9, i64 2048
-  %43 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %2, ptr noundef nonnull %9) #14
+  %43 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %2, ptr noundef nonnull align 8 dereferenceable(2056) %9) #14
   store ptr %43, ptr %42, align 8
   %.not49 = icmp eq ptr %9, %43
   br i1 %.not49, label %._crit_edge, label %.lr.ph
@@ -1321,7 +1321,7 @@ _ZNSt10unique_ptrISt5dequeIN9Stockfish9StateInfoESaIS2_EESt14default_deleteIS4_E
   %103 = getelementptr inbounds i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 9570304
-  %106 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN9Stockfish4MoveESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %106 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN9Stockfish4MoveESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %105, ptr noundef nonnull align 8 dereferenceable(112) %4)
   %107 = getelementptr inbounds i8, ptr %104, i64 9570328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %107, ptr noundef nonnull align 8 dereferenceable(88) %98, i64 88, i1 false)
   %108 = load ptr, ptr %103, align 8
@@ -1396,7 +1396,7 @@ _ZNSt5dequeIN9Stockfish9StateInfoESaIS1_EE4backEv.exit: ; preds = %101, %136
   %151 = phi ptr [ %.pre55, %._crit_edge54.loopexit ], [ %95, %_ZNSt10unique_ptrISt5dequeIN9Stockfish9StateInfoESaIS2_EESt14default_deleteIS4_EEaSEOS7_.exit ]
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 16
-  %154 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %153) #14
+  %154 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %153) #14
   %.not.i.i41 = icmp eq i32 %154, 0
   br i1 %.not.i.i41, label %_ZN9Stockfish6Thread15start_searchingEv.exit, label %155
 
@@ -1407,7 +1407,7 @@ _ZNSt5dequeIN9Stockfish9StateInfoESaIS1_EE4backEv.exit: ; preds = %101, %136
 _ZN9Stockfish6Thread15start_searchingEv.exit:     ; preds = %._crit_edge54
   %156 = getelementptr inbounds i8, ptr %152, i64 121
   store i8 1, ptr %156, align 1
-  %157 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %153) #14
+  %157 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %153) #14
   %158 = getelementptr inbounds i8, ptr %152, i64 56
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %158) #14
   %159 = load ptr, ptr %8, align 8
@@ -1539,7 +1539,7 @@ _ZNSt12_Vector_baseIN9Stockfish6Search8RootMoveESaIS2_EE13_M_deallocateEPS2_m.ex
   %.012.i.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i.i ], [ %37, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0910.i.i.i.i.i, i64 32, i1 false)
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %40 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN9Stockfish4MoveESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)
@@ -1594,7 +1594,7 @@ _ZSt8_DestroyIN9Stockfish6Search8RootMoveEEvPT_.exit.i.i.i28: ; preds = %50, %.l
   %.012.i.i.i.i.i33 = phi i64 [ %60, %.lr.ph.i.i.i.i.i32 ], [ %54, %.lr.ph.preheader.i.i.i.i.i31 ]
   %.0811.i.i.i.i.i34 = phi ptr [ %59, %.lr.ph.i.i.i.i.i32 ], [ %12, %.lr.ph.preheader.i.i.i.i.i31 ]
   %.0910.i.i.i.i.i35 = phi ptr [ %58, %.lr.ph.i.i.i.i.i32 ], [ %6, %.lr.ph.preheader.i.i.i.i.i31 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i.i35, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.0811.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(56) %.0910.i.i.i.i.i35, i64 32, i1 false)
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 32
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 32
   %57 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN9Stockfish4MoveESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %56)
@@ -1626,7 +1626,7 @@ _ZSt4copyIPN9Stockfish6Search8RootMoveES3_ET0_T_S5_S4_.exit: ; preds = %_ZSt4cop
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPN9Stockfish6Search8RootMoveES3_ET0_T_S5_S4_.exit, %_ZSt10_ConstructIN9Stockfish6Search8RootMoveEJRS2_EEvPT_DpOT0_.exit.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %91, %_ZSt10_ConstructIN9Stockfish6Search8RootMoveEJRS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %63, %_ZSt4copyIPN9Stockfish6Search8RootMoveES3_ET0_T_S5_S4_.exit ]
   %.0811.i.i.i.i = phi ptr [ %90, %_ZSt10_ConstructIN9Stockfish6Search8RootMoveEJRS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %65, %_ZSt4copyIPN9Stockfish6Search8RootMoveES3_ET0_T_S5_S4_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0811.i.i.i.i, i64 32, i1 false)
   %66 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 32
   %68 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 40
@@ -1806,7 +1806,7 @@ _ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairI
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %.val53.val, i64 32
   %59 = load ptr, ptr %58, align 8
-  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 2 dereferenceable(2) %59)
+  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 2 dereferenceable(2) %59)
   %61 = load i64, ptr %60, align 8
   %62 = add nsw i64 %61, %57
   store i64 %62, ptr %60, align 8
@@ -1837,10 +1837,10 @@ _ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairI
   %75 = getelementptr inbounds i8, ptr %68, i64 32
   %76 = getelementptr inbounds i8, ptr %73, i64 32
   %77 = load ptr, ptr %75, align 8
-  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 2 dereferenceable(2) %77)
+  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 2 dereferenceable(2) %77)
   %79 = load i64, ptr %78, align 8
   %80 = load ptr, ptr %76, align 8
-  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 2 dereferenceable(2) %80)
+  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 2 dereferenceable(2) %80)
   %82 = load i64, ptr %81, align 8
   %83 = icmp sgt i32 %69, 31506
   %84 = icmp sgt i32 %74, 31506
@@ -1975,7 +1975,7 @@ define dso_local void @_ZN9Stockfish10ThreadPool15start_searchingEv(ptr nocaptur
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %6, i64 16
-  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %10) #14
+  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %_ZN9Stockfish6Thread15start_searchingEv.exit, label %12
 
@@ -1986,7 +1986,7 @@ define dso_local void @_ZN9Stockfish10ThreadPool15start_searchingEv(ptr nocaptur
 _ZN9Stockfish6Thread15start_searchingEv.exit:     ; preds = %9
   %13 = getelementptr inbounds i8, ptr %6, i64 121
   store i8 1, ptr %13, align 1
-  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #14
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
   %15 = getelementptr inbounds i8, ptr %6, i64 56
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #14
   br label %16
@@ -2026,7 +2026,7 @@ define dso_local void @_ZNK9Stockfish10ThreadPool24wait_for_search_finishedEv(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %13 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %13, ptr %2, align 8
-  %14 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %13) #14
+  %14 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #14
   %.not.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %15
 
@@ -2059,7 +2059,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %12
   br i1 %.not.i.i.i, label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit, label %22
 
 22:                                               ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i"
-  %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #14
+  %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #14
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i", %22
@@ -2366,13 +2366,13 @@ define linkonce_odr dso_local noundef ptr @_ZZN9Stockfish12NativeThreadC1IMNS_6T
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %7 = load ptr, ptr %2, align 8
   %.not.i.i3.i = icmp eq ptr %7, null
   br i1 %.not.i.i3.i, label %_ZZN9Stockfish12NativeThreadC1IMNS_6ThreadEFvvEJPS2_EEEOT_DpOT0_ENKUlPvE_clESB_.exit, label %8
 
 8:                                                ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
-  %9 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3) #14
+  %9 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3) #14
   br label %_ZZN9Stockfish12NativeThreadC1IMNS_6ThreadEFvvEJPS2_EEEOT_DpOT0_ENKUlPvE_clESB_.exit
 
 _ZZN9Stockfish12NativeThreadC1IMNS_6ThreadEFvvEJPS2_EEEOT_DpOT0_ENKUlPvE_clESB_.exit: ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i, %8
@@ -2459,7 +2459,7 @@ _ZNSt12_Vector_baseIN9Stockfish6Search8RootMoveESaIS2_EE11_M_allocateEm.exit: ; 
   %.0911.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN9Stockfish6Search8RootMoveESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 32, i1 false), !alias.scope !30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i, i64 32, i1 false), !alias.scope !30
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
   %39 = load ptr, ptr %38, align 8, !alias.scope !28, !noalias !25
@@ -2489,7 +2489,7 @@ _ZNSt6vectorIN9Stockfish6Search8RootMoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
   %.0911.i.i.i19 = phi ptr [ %58, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN9Stockfish6Search8RootMoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19, i64 32, i1 false), !alias.scope !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i19, i64 32, i1 false), !alias.scope !37
   %49 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
   %50 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
   %51 = load ptr, ptr %50, align 8, !alias.scope !35, !noalias !32
@@ -2560,7 +2560,7 @@ _ZNSt12_Vector_baseIN9Stockfish6Search8RootMoveESaIS2_EE11_M_allocateEm.exit: ; 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN9Stockfish6Search8RootMoveESaIS2_EE11_M_allocateEm.exit, %_ZSt10_ConstructIN9Stockfish6Search8RootMoveEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
   %.010.i.i.i.i = phi ptr [ %36, %_ZSt10_ConstructIN9Stockfish6Search8RootMoveEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %_ZNSt12_Vector_baseIN9Stockfish6Search8RootMoveESaIS2_EE11_M_allocateEm.exit ]
   %.sroa.04.09.i.i.i.i = phi ptr [ %35, %_ZSt10_ConstructIN9Stockfish6Search8RootMoveEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %2, %_ZNSt12_Vector_baseIN9Stockfish6Search8RootMoveESaIS2_EE11_M_allocateEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.010.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.09.i.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.010.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.04.09.i.i.i.i, i64 32, i1 false)
   %14 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 32
   %15 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i.i.i, i64 32
   %16 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i.i.i, i64 40

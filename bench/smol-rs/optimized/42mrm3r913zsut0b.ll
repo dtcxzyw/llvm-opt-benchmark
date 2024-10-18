@@ -732,7 +732,7 @@ define hidden void @"_ZN14event_listener22EventListener$LT$T$GT$6listen17h38504a
   br i1 %.sroa.18.0.in.i.i.i.i, label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i.i, label %64
 
 64:                                               ; preds = %.thread
-  call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 4 %62)
+  call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 8 %62)
   br label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i.i
 
 _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i.i: ; preds = %64, %.thread
@@ -750,7 +750,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 .noexc16:                                         ; preds = %.noexc15, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i.i
   %.0.i.i.i.i.i = phi i8 [ %70, %.noexc15 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i.i ]
   %71 = getelementptr inbounds i8, ptr %61, i64 20
-  %72 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull %71, i8 noundef 0)
+  %72 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %71, i8 noundef 0)
   %73 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %62, ptr %73, align 8, !alias.scope !190
   %74 = getelementptr inbounds i8, ptr %3, i64 16
@@ -949,7 +949,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h8bc0b1f7c018c30cE.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit, %8
   %.0.i.i.i = phi i8 [ %11, %8 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit ]
   %12 = getelementptr inbounds i8, ptr %1, i64 4
-  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull %12, i8 noundef 0), !noalias !215
+  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %12, i8 noundef 0), !noalias !215
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 16
@@ -983,7 +983,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h75cd149a51203d60E.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit, %8
   %.0.i.i.i = phi i8 [ %11, %8 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit ]
   %12 = getelementptr inbounds i8, ptr %1, i64 4
-  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull %12, i8 noundef 0), !noalias !218
+  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %12, i8 noundef 0), !noalias !218
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1002,7 +1002,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listene
   br i1 %.sroa.18.0.in.i.i.i, label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, label %5
 
 5:                                                ; preds = %2
-  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 4 %0), !noalias !221
+  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 8 %0), !noalias !221
   br label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i
 
 _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i: ; preds = %5, %2
@@ -1020,7 +1020,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 "_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$4lock17h9efb6800586cb7e3E.llvm.6090777742988092048.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, %9
   %.0.i.i.i.i = phi i8 [ %12, %9 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i ]
   %13 = getelementptr inbounds i8, ptr %0, i64 4
-  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull %13, i8 noundef 0), !noalias !224
+  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %13, i8 noundef 0), !noalias !224
   %15 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %15, align 8, !alias.scope !221
   %16 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1061,7 +1061,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listene
   br i1 %.sroa.18.0.in.i.i.i, label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, label %5
 
 5:                                                ; preds = %2
-  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 4 %0), !noalias !227
+  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 8 %0), !noalias !227
   br label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i
 
 _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i: ; preds = %5, %2
@@ -1079,7 +1079,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 "_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$4lock17hac8e237ee8e86bdeE.llvm.6090777742988092048.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, %9
   %.0.i.i.i.i = phi i8 [ %12, %9 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i ]
   %13 = getelementptr inbounds i8, ptr %0, i64 4
-  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull %13, i8 noundef 0), !noalias !230
+  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %13, i8 noundef 0), !noalias !230
   %15 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %15, align 8, !alias.scope !227
   %16 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1120,7 +1120,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listene
   br i1 %.sroa.18.0.in.i.i.i, label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, label %5
 
 5:                                                ; preds = %2
-  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 4 %0), !noalias !233
+  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 8 %0), !noalias !233
   br label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i
 
 _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i: ; preds = %5, %2
@@ -1138,7 +1138,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 "_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$4lock17h9efb6800586cb7e3E.llvm.6090777742988092048.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, %9
   %.0.i.i.i.i = phi i8 [ %12, %9 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i ]
   %13 = getelementptr inbounds i8, ptr %0, i64 4
-  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull %13, i8 noundef 0), !noalias !236
+  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %13, i8 noundef 0), !noalias !236
   %15 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %15, align 8, !alias.scope !233
   %16 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1179,7 +1179,7 @@ define hidden void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inne
   br i1 %.sroa.18.0.in.i.i.i, label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, label %7
 
 7:                                                ; preds = %4
-  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 4 %1), !noalias !239
+  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 8 %1), !noalias !239
   br label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i
 
 _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i: ; preds = %7, %4
@@ -1197,7 +1197,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 "_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$4lock17h9efb6800586cb7e3E.llvm.6090777742988092048.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, %11
   %.0.i.i.i.i = phi i8 [ %14, %11 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i ]
   %15 = getelementptr inbounds i8, ptr %1, i64 4
-  %16 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull %15, i8 noundef 0), !noalias !242
+  %16 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %15, i8 noundef 0), !noalias !242
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %1, ptr %17, align 8, !alias.scope !239
   %18 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1247,7 +1247,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN14event_listener3sys48_$LT$impl$u20
   br i1 %.sroa.18.0.in.i.i.i, label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, label %14
 
 14:                                               ; preds = %4
-  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 4 %0), !noalias !245
+  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 8 %0), !noalias !245
   br label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i
 
 _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i: ; preds = %14, %4
@@ -1265,7 +1265,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 "_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$4lock17h9efb6800586cb7e3E.llvm.6090777742988092048.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i, %18
   %.0.i.i.i.i = phi i8 [ %21, %18 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit.i ]
   %22 = getelementptr inbounds i8, ptr %0, i64 4
-  %23 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull %22, i8 noundef 0), !noalias !248
+  %23 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %22, i8 noundef 0), !noalias !248
   %24 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %0, ptr %24, align 8, !alias.scope !245
   %25 = getelementptr inbounds i8, ptr %12, i64 16

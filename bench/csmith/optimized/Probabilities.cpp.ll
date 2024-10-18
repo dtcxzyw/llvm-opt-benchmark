@@ -289,7 +289,7 @@ declare void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17ProbabilityFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
@@ -3608,7 +3608,7 @@ define dso_local void @_ZN13Probabilities26set_default_unary_ops_probEv(ptr noun
           to label %.noexc15 unwind label %28
 
 .noexc15:                                         ; preds = %53
-  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %54)
+  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %54)
           to label %55 unwind label %59
 
 55:                                               ; preds = %.noexc15
@@ -4124,7 +4124,7 @@ define dso_local void @_ZN13Probabilities27set_default_binary_ops_probEv(ptr nou
           to label %.noexc60 unwind label %68
 
 .noexc60:                                         ; preds = %162
-  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %163)
+  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %163)
           to label %164 unwind label %168
 
 164:                                              ; preds = %.noexc60
@@ -4768,7 +4768,7 @@ define dso_local void @_ZN13Probabilities29set_default_simple_types_probEv(ptr n
           to label %.noexc69 unwind label %69
 
 .noexc69:                                         ; preds = %208
-  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %209)
+  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %209)
           to label %210 unwind label %214
 
 210:                                              ; preds = %.noexc69
@@ -4999,7 +4999,7 @@ define dso_local void @_ZN13Probabilities30set_default_safe_ops_size_probEv(ptr 
           to label %.noexc18 unwind label %33
 
 .noexc18:                                         ; preds = %69
-  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %70)
+  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %70)
           to label %71 unwind label %75
 
 71:                                               ; preds = %.noexc18
@@ -5210,7 +5210,7 @@ define dso_local void @_ZN13Probabilities15set_prob_filterE8ProbName(ptr noundef
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %4)
           to label %5 unwind label %9
 
 5:                                                ; preds = %2
@@ -7250,7 +7250,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #23
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #24
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
@@ -7969,7 +7969,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -8054,7 +8054,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #23
   tail call void @_ZdlPv(ptr noundef nonnull %7) #24
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_8ProbNameESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_Auto_nodeD2Ev.exit
 
@@ -8391,7 +8391,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #23
   tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   br label %6
 

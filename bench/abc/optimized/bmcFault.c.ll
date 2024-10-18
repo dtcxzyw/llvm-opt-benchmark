@@ -3046,7 +3046,7 @@ define range(i32 0, 2) i32 @Gia_FormStrCount(ptr noundef %0, ptr nocapture nound
   %36 = load i32, ptr %.sink, align 4
   %37 = zext nneg i8 %22 to i32
   %38 = add nsw i32 %.sink102, %37
-  %39 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %36, i32 %38)
+  %39 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %36, i32 range(i32 1, 5) %38)
   store i32 %39, ptr %.sink, align 4
   br label %40
 

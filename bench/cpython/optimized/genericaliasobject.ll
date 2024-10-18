@@ -2624,7 +2624,7 @@ if.end9.i:                                        ; preds = %if.then4.i, %for.bo
   %8 = load ptr, ptr %ob_item.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %8, i64 %i.09.i
   %9 = load ptr, ptr %arrayidx.i, align 8
-  %call10.i = call fastcc i32 @ga_repr_item(ptr noundef %writer, ptr noundef %9)
+  %call10.i = call fastcc i32 @ga_repr_item(ptr noundef nonnull %writer, ptr noundef %9)
   %cmp11.i = icmp slt i32 %call10.i, 0
   br i1 %cmp11.i, label %error, label %for.cond.i
 

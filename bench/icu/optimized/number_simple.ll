@@ -546,7 +546,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then2, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %call1, i8 0)
+  invoke void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(408) %call1, i8 0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
@@ -573,7 +573,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %call1) #12
+  tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %call1) #12
   br label %lpad.body
 
 if.then2:                                         ; preds = %if.end
@@ -1132,7 +1132,7 @@ new.cont47:                                       ; preds = %new.notnull39, %inv
   %fCurrencySymbol.i.i = getelementptr inbounds i8, ptr %patternModifier, i64 176
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i.i) #12
   %fLocaleName.i.i = getelementptr inbounds i8, ptr %patternModifier, i64 112
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i.i) #12
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i.i) #12
   %fCurrency.i.i = getelementptr inbounds i8, ptr %patternModifier, i64 80
   call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i.i) #12
   call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i) #12
@@ -1169,7 +1169,7 @@ cleanup:                                          ; preds = %invoke.cont17, %new
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i1.i) #12
   %pattern.i = getelementptr inbounds i8, ptr %patternInfo, i64 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern.i) #12
-  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo) #12
+  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %patternInfo) #12
   br label %return
 
 ehcleanup48:                                      ; preds = %ehcleanup, %lpad16, %lpad14
@@ -1370,7 +1370,7 @@ entry:
   %fCurrencySymbol.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol.i) #12
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i) #12
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i) #12
   %fCurrency.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency.i) #12
   tail call void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2) #12

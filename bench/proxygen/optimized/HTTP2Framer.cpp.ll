@@ -2426,7 +2426,7 @@ lpad.i:                                           ; preds = %if.else.i, %invoke.
   br label %terminate.lpad.body
 
 if.else.i:                                        ; preds = %invoke.cont2.i
-  invoke void @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE19readFixedStringSlowEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %ref.tmp30, i64 noundef %conv31)
+  invoke void @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE19readFixedStringSlowEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 %ref.tmp30, i64 noundef %conv31)
           to label %invoke.cont32 unwind label %lpad.i
 
 invoke.cont32:                                    ; preds = %if.else.i, %invoke.cont5.i
@@ -2507,7 +2507,7 @@ lpad.i62:                                         ; preds = %if.else.i74, %invok
   br label %terminate.lpad.body
 
 if.else.i74:                                      ; preds = %invoke.cont2.i63
-  invoke void @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE19readFixedStringSlowEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %ref.tmp44, i64 noundef %conv45)
+  invoke void @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE19readFixedStringSlowEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 %ref.tmp44, i64 noundef %conv45)
           to label %invoke.cont46 unwind label %lpad.i62
 
 invoke.cont46:                                    ; preds = %if.else.i74, %invoke.cont5.i72
@@ -2546,7 +2546,7 @@ lpad.i78:                                         ; preds = %if.else.i90, %invok
   br label %terminate.lpad.body
 
 if.else.i90:                                      ; preds = %invoke.cont2.i79
-  invoke void @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE19readFixedStringSlowEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull %ref.tmp53, i64 noundef %conv54)
+  invoke void @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE19readFixedStringSlowEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 %ref.tmp53, i64 noundef %conv54)
           to label %invoke.cont55 unwind label %lpad.i78
 
 invoke.cont55:                                    ; preds = %if.else.i90, %invoke.cont5.i88
@@ -3083,7 +3083,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.co
 
 if.end:                                           ; preds = %if.end.i14, %land.lhs.true4, %invoke.cont23, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i, %invoke.cont12, %invoke.cont9, %_ZNK5folly5IOBuf11isSharedOneEv.exit, %land.lhs.true, %if.end111.i
   %payloadLength.0 = phi i64 [ 0, %_ZNK5folly5IOBuf11isSharedOneEv.exit ], [ 0, %invoke.cont12 ], [ 0, %invoke.cont9 ], [ 0, %land.lhs.true ], [ 0, %if.end111.i ], [ %20, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i ], [ %20, %invoke.cont23 ], [ 0, %land.lhs.true4 ], [ 0, %if.end.i14 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -3753,7 +3753,7 @@ _ZN5folly8OptionalIhEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont
   br i1 %tobool.i.i, label %invoke.cont2.i8, label %_ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit
 
 invoke.cont2.i8:                                  ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %priority, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(24) %priority, i64 16, i1 false)
   store i8 1, ptr %hasValue.i.i5, align 8
   br label %_ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit
 
@@ -4246,7 +4246,7 @@ _ZN5folly8OptionalIhEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont
   br i1 %tobool.i.i, label %invoke.cont2.i17, label %_ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit
 
 invoke.cont2.i17:                                 ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp116, ptr noundef nonnull align 8 dereferenceable(16) %priority, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp116, ptr noundef nonnull align 8 dereferenceable(24) %priority, i64 16, i1 false)
   store i8 1, ptr %hasValue.i.i14, align 8
   br label %_ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit
 
@@ -4269,7 +4269,7 @@ _ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit: ; preds = %_
   %conv130 = trunc i64 %12 to i32
   %call131 = tail call i32 @htonl(i32 noundef %conv130) #26
   store i32 %call131, ptr %add.ptr127, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -4540,7 +4540,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp17, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -4770,7 +4770,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp2, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -5259,7 +5259,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %cond.end
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %cond.end, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp21, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -5533,7 +5533,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %entry
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp2, align 8
   %conv = zext i32 %0 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -5797,7 +5797,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp9, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -6451,7 +6451,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %cond.end
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %cond.end, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp6, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %writeBuf, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %writeBuf, i64 32
@@ -6665,7 +6665,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %cond.end
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %cond.end, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp8, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %writeBuf, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %writeBuf, i64 32

@@ -521,7 +521,7 @@ define void @_ZN16FilterDockDialogC2ERK17RichParameterListP12FilterPluginPK7QAct
   %37 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 424
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %38, i8 0, i64 56, i1 false)
   %39 = getelementptr inbounds i8, ptr %0, i64 480
   %40 = getelementptr inbounds i8, ptr %0, i64 484
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %40, i8 0, i64 56, i1 false)
@@ -554,7 +554,7 @@ define void @_ZN16FilterDockDialogC2ERK17RichParameterListP12FilterPluginPK7QAct
   %52 = getelementptr inbounds i8, ptr %0, i64 792
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 864
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %53, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %53, i8 0, i64 56, i1 false)
   %54 = getelementptr inbounds i8, ptr %0, i64 920
   %55 = getelementptr inbounds i8, ptr %0, i64 924
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %55, i8 0, i64 56, i1 false)
@@ -3152,7 +3152,7 @@ define void @_ZN16FilterDockDialogD0Ev(ptr noundef nonnull align 8 dereferenceab
 define void @_ZThn16_N16FilterDockDialogD0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16FilterDockDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(1048) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1048) %2) #18
   ret void
 }
 

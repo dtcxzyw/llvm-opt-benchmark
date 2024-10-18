@@ -980,7 +980,7 @@ if.end9.i.i:                                      ; preds = %if.then7.i.i, %if.t
 
 _ZN8QuantLib11FlatForward6updateEv.exit:          ; preds = %entry, %if.end9.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -152
-  tail call void @_ZN8QuantLib18YieldTermStructure6updateEv(ptr noundef nonnull align 8 dereferenceable(152) %5)
+  tail call void @_ZN8QuantLib18YieldTermStructure6updateEv(ptr noundef nonnull align 8 dereferenceable(232) %5)
   ret void
 }
 
@@ -1036,7 +1036,7 @@ if.end9.i.i:                                      ; preds = %if.then7.i.i, %if.t
   br label %_ZN8QuantLib11FlatForward6updateEv.exit
 
 _ZN8QuantLib11FlatForward6updateEv.exit:          ; preds = %entry, %if.end9.i.i
-  tail call void @_ZN8QuantLib18YieldTermStructure6updateEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  tail call void @_ZN8QuantLib18YieldTermStructure6updateEv(ptr noundef nonnull align 8 dereferenceable(232) %2)
   ret void
 }
 
@@ -4863,7 +4863,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8QuantLib11SimpleQuoteD0Ev.exit:               ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 72) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 72) #28
   ret void
 }
 
@@ -5317,7 +5317,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i3.
   unreachable
 
 _ZN8QuantLib11FlatForwardD2Ev.exit:               ; preds = %_ZN8QuantLib12InterestRateD2Ev.exit.i, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i3.i
-  tail call void @_ZN8QuantLib18YieldTermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib11FlatForwardE, i64 8)) #25
+  tail call void @_ZN8QuantLib18YieldTermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib11FlatForwardE, i64 8)) #25
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr6.i, align 8, !tbaa !28
   %observers_.i = getelementptr inbounds i8, ptr %this, i64 296
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
@@ -5371,7 +5371,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %22 = phi ptr [ %21, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull %add.ptr.i)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -5608,7 +5608,7 @@ define linkonce_odr void @_ZThn152_N8QuantLib11FlatForwardD0Ev(ptr noundef %this
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -152
   tail call void @_ZN8QuantLib11FlatForwardD1Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #25
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 344) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef 344) #28
   ret void
 }
 
@@ -5639,7 +5639,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib11FlatForwardD1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2) #25
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 344) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(232) %2, i64 noundef 344) #28
   ret void
 }
 
@@ -6811,7 +6811,7 @@ if.then.i.i:                                      ; preds = %cast.end.i
   br label %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
 
 _ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i: ; preds = %if.then.i.i, %cast.end.i
-  %call3.i4 = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i, ptr noundef nonnull %add.ptr)
+  %call3.i4 = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %if.end.i unwind label %lpad
 
 if.end.i:                                         ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
@@ -7296,7 +7296,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %12 = phi ptr [ %11, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -7358,7 +7358,7 @@ define linkonce_odr void @_ZThn56_N8QuantLib6HandleINS_5QuoteEE4LinkD0Ev(ptr nou
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib6HandleINS_5QuoteEE4LinkD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %0) #25
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(129) %0, i64 noundef 136) #28
   ret void
 }
 
@@ -7366,7 +7366,7 @@ entry:
 define linkonce_odr void @_ZThn56_N8QuantLib6HandleINS_5QuoteEE4Link6updateEv(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(129) %0)
   ret void
 }
 

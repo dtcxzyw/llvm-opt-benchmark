@@ -538,11 +538,11 @@ define hidden void @_ZN17C1_MacroAssembler15allocate_objectE8RegisterS0_S0_iiS0_
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void @_ZN14MacroAssembler13tlab_allocateE8RegisterS0_S0_iS0_S0_R5Label(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 -1, i32 %1, i32 -1, i32 noundef %9, i32 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(33) %7) #5
+  tail call void @_ZN14MacroAssembler13tlab_allocateE8RegisterS0_S0_iS0_S0_R5Label(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 -1, i32 %1, i32 -1, i32 noundef %9, i32 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(33) %7) #5
   br label %_ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit
 
 13:                                               ; preds = %8
-  tail call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %7, i1 noundef zeroext true) #5
+  tail call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %7, i1 noundef zeroext true) #5
   br label %_ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit
 
 _ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit: ; preds = %12, %13
@@ -584,9 +584,9 @@ define hidden void @_ZN17C1_MacroAssembler17initialize_objectE8RegisterS0_S0_iS0
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %9, i64 32
   store i8 0, ptr %24, align 8
-  tail call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 noundef 16) #5
-  tail call void @_ZN14MacroAssembler11zero_memoryE8RegisterS0_iS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %6, i32 noundef 16, i32 %5) #5
-  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %9) #5
+  tail call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 %6, i32 noundef 16) #5
+  tail call void @_ZN14MacroAssembler11zero_memoryE8RegisterS0_iS0_(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 %1, i32 %6, i32 noundef 16, i32 %5) #5
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %9) #5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %.loopexit
 
@@ -708,7 +708,7 @@ define hidden void @_ZN17C1_MacroAssembler17initialize_objectE8RegisterS0_S0_iS0
   %80 = load ptr, ptr %15, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(40) %14) #5
+  call void %82(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %14) #5
   %83 = getelementptr inbounds i8, ptr %14, i64 40
   %84 = getelementptr inbounds i8, ptr %15, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false)
@@ -756,10 +756,10 @@ define hidden void @_ZN17C1_MacroAssembler14allocate_arrayE8RegisterS0_S0_S0_iN7
   %26 = getelementptr inbounds i8, ptr %13, i64 40
   store i32 0, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull align 8 dereferenceable(21) %13, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 21, i1 false)
   %27 = getelementptr inbounds i8, ptr %12, i64 24
   %28 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(40) %27) #5
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %27) #5
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, ptr noundef nonnull %12) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   %29 = load i32, ptr @MinObjAlignmentInBytesMask, align 4
@@ -770,11 +770,11 @@ define hidden void @_ZN17C1_MacroAssembler14allocate_arrayE8RegisterS0_S0_S0_iN7
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %10
-  call void @_ZN14MacroAssembler13tlab_allocateE8RegisterS0_S0_iS0_S0_R5Label(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 -1, i32 %1, i32 %4, i32 noundef 0, i32 %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(33) %8) #5
+  call void @_ZN14MacroAssembler13tlab_allocateE8RegisterS0_S0_iS0_S0_R5Label(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 -1, i32 %1, i32 %4, i32 noundef 0, i32 %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(33) %8) #5
   br label %_ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit
 
 34:                                               ; preds = %10
-  call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %8, i1 noundef zeroext true) #5
+  call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %8, i1 noundef zeroext true) #5
   br label %_ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit
 
 _ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit: ; preds = %33, %34
@@ -792,9 +792,9 @@ _ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit: ; preds = 
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %11, i64 32
   store i8 0, ptr %40, align 8
-  call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 noundef %37) #5
-  call void @_ZN14MacroAssembler11zero_memoryE8RegisterS0_iS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %4, i32 noundef %37, i32 %2) #5
-  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %11) #5
+  call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 %4, i32 noundef %37) #5
+  call void @_ZN14MacroAssembler11zero_memoryE8RegisterS0_iS0_(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 %1, i32 %4, i32 noundef %37, i32 %2) #5
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %11) #5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br label %41
 
@@ -818,7 +818,7 @@ _ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit: ; preds = 
   %55 = load ptr, ptr %15, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(40) %14) #5
+  call void %57(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %14) #5
   %58 = getelementptr inbounds i8, ptr %14, i64 40
   %59 = getelementptr inbounds i8, ptr %15, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)

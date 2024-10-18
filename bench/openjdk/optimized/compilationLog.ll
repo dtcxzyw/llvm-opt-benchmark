@@ -59,7 +59,7 @@ $_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14CompilationLogC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 {
   %2 = load i32, ptr @LogEventsBufferEntries, align 4
-  tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #7
+  tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #7
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 0, ptr noundef nonnull @.str, i1 noundef zeroext true) #7
@@ -295,7 +295,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %21, %23
 define hidden void @_ZN14CompilationLog4initEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #7
   %2 = load i32, ptr @LogEventsBufferEntries, align 4
-  tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #7
+  tail call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %1) #7
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 0, ptr noundef nonnull @.str, i1 noundef zeroext true) #7

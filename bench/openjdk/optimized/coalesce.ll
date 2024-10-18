@@ -654,7 +654,7 @@ _ZN4Node7del_outEPS_.exit.i52:                    ; preds = %211, %199, %_ZN4Nod
 
 _ZN4Node7set_reqEjPS_.exit56:                     ; preds = %_ZN4Node7del_outEPS_.exit.i52, %216, %227
   %233 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %233, i32 noundef %.044, ptr noundef %146) #9
+  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %233, i32 noundef %.044, ptr noundef nonnull %146) #9
   %234 = load i32, ptr %6, align 8
   %235 = add i32 %234, 1
   store i32 %235, ptr %6, align 8
@@ -684,7 +684,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZN4Node7set_req
 249:                                              ; preds = %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit, %141
   %.043 = phi i32 [ %248, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit ], [ %.0.in, %141 ]
   %250 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %250, i32 noundef %.043, ptr noundef %2) #9
+  tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %250, i32 noundef %.043, ptr noundef %2) #9
   %251 = load i32, ptr %6, align 8
   %252 = add i32 %251, 1
   store i32 %252, ptr %6, align 8
@@ -1285,7 +1285,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit215:           ; preds = %_ZN12LiveRangeMap4f
 
 _ZN4Node7set_reqEjPS_.exit220:                    ; preds = %354, %358, %370
   store ptr null, ptr %356, align 8
-  call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(24) %189, i32 noundef %.0181310) #9
+  call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(28) %189, i32 noundef %.0181310) #9
   %375 = load i32, ptr %182, align 8
   %376 = add i32 %375, -1
   store i32 %376, ptr %182, align 8
@@ -1436,7 +1436,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit222:           ; preds = %407, %425
   %484 = select i1 %481, i32 0, i32 %483
   %485 = sub i32 %468, %484
   %486 = getelementptr inbounds i8, ptr %450, i64 16
-  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %486, i32 noundef %485, ptr noundef %465) #9
+  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %486, i32 noundef %485, ptr noundef %465) #9
   %487 = load i32, ptr %466, align 8
   %488 = add nuw i32 %487, 1
   store i32 %488, ptr %466, align 8
@@ -1461,7 +1461,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit222:           ; preds = %407, %425
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %506 = load i32, ptr %505, align 8
   store i32 %506, ptr %4, align 4
-  %507 = call noundef i32 @_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_Rj(ptr noundef nonnull align 8 dereferenceable(364) %489, ptr noundef %450, i32 noundef %503, ptr noundef nonnull %410, ptr noundef %465, ptr noundef nonnull align 4 dereferenceable(4) %4) #9
+  %507 = call noundef i32 @_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_Rj(ptr noundef nonnull align 8 dereferenceable(364) %489, ptr noundef nonnull %450, i32 noundef %503, ptr noundef nonnull %410, ptr noundef %465, ptr noundef nonnull align 4 dereferenceable(4) %4) #9
   %508 = icmp sgt i32 %507, 0
   br i1 %508, label %509, label %_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit
 
@@ -1543,7 +1543,7 @@ _ZN4NodenwEm.exit:                                ; preds = %548, %550
   br i1 %552, label %569, label %553
 
 553:                                              ; preds = %_ZN4NodenwEm.exit
-  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 0) #9
+  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i, i32 noundef 0) #9
   %554 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
   store i8 0, ptr %554, align 4
   %555 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 54
@@ -1570,8 +1570,8 @@ _ZN4NodenwEm.exit:                                ; preds = %548, %550
   %567 = load i32, ptr %566, align 8
   %568 = or i32 %567, 1
   store i32 %568, ptr %566, align 8
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef null) #9
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef nonnull %410) #9
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i, ptr noundef null) #9
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i, ptr noundef nonnull %410) #9
   br label %569
 
 569:                                              ; preds = %553, %_ZN4NodenwEm.exit
@@ -1842,7 +1842,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit236:           ; preds = %_ZN12LiveRangeMap4f
 720:                                              ; preds = %718
   %721 = call noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 dereferenceable(52) %687) #9
   %722 = add i32 %.0181310, 1
-  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %189, i32 noundef %.0181310, ptr noundef %721) #9
+  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %189, i32 noundef %.0181310, ptr noundef %721) #9
   %723 = load i32, ptr %182, align 8
   %724 = add i32 %723, 1
   store i32 %724, ptr %182, align 8
@@ -1851,7 +1851,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit236:           ; preds = %_ZN12LiveRangeMap4f
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %727 = load i32, ptr %726, align 8
   store i32 %727, ptr %3, align 4
-  %728 = call noundef i32 @_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_Rj(ptr noundef nonnull align 8 dereferenceable(364) %725, ptr noundef %178, i32 noundef %722, ptr noundef nonnull %687, ptr noundef %721, ptr noundef nonnull align 4 dereferenceable(4) %3) #9
+  %728 = call noundef i32 @_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_Rj(ptr noundef nonnull align 8 dereferenceable(364) %725, ptr noundef nonnull %178, i32 noundef %722, ptr noundef nonnull %687, ptr noundef %721, ptr noundef nonnull align 4 dereferenceable(4) %3) #9
   %729 = icmp sgt i32 %728, 0
   br i1 %729, label %730, label %_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit237
 
@@ -1920,7 +1920,7 @@ _ZN4NodenwEm.exit240:                             ; preds = %762, %764
   br i1 %766, label %783, label %767
 
 767:                                              ; preds = %_ZN4NodenwEm.exit240
-  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i239, i32 noundef 0) #9
+  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i239, i32 noundef 0) #9
   %768 = getelementptr inbounds i8, ptr %.0.i.i.i239, i64 52
   store i8 0, ptr %768, align 4
   %769 = getelementptr inbounds i8, ptr %.0.i.i.i239, i64 54
@@ -1947,13 +1947,13 @@ _ZN4NodenwEm.exit240:                             ; preds = %762, %764
   %781 = load i32, ptr %780, align 8
   %782 = or i32 %781, 1
   store i32 %782, ptr %780, align 8
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i239, ptr noundef null) #9
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i239, ptr noundef nonnull %687) #9
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i239, ptr noundef null) #9
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i239, ptr noundef nonnull %687) #9
   br label %783
 
 783:                                              ; preds = %767, %_ZN4NodenwEm.exit240
   %784 = add i32 %.0181310, 1
-  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %189, i32 noundef %.0181310, ptr noundef %.0.i.i.i239) #9
+  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %189, i32 noundef %.0181310, ptr noundef %.0.i.i.i239) #9
   %785 = load i32, ptr %182, align 8
   %786 = add i32 %785, 1
   store i32 %786, ptr %182, align 8
@@ -2303,7 +2303,7 @@ _ZN4NodenwEm.exit267:                             ; preds = %978, %980
   br i1 %982, label %999, label %983
 
 983:                                              ; preds = %_ZN4NodenwEm.exit267
-  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i266, i32 noundef 0) #9
+  call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i266, i32 noundef 0) #9
   %984 = getelementptr inbounds i8, ptr %.0.i.i.i266, i64 52
   store i8 0, ptr %984, align 4
   %985 = getelementptr inbounds i8, ptr %.0.i.i.i266, i64 54
@@ -2330,8 +2330,8 @@ _ZN4NodenwEm.exit267:                             ; preds = %978, %980
   %997 = load i32, ptr %996, align 8
   %998 = or i32 %997, 1
   store i32 %998, ptr %996, align 8
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i266, ptr noundef null) #9
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i266, ptr noundef nonnull %900) #9
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i266, ptr noundef null) #9
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i266, ptr noundef nonnull %900) #9
   br label %999
 
 999:                                              ; preds = %983, %_ZN4NodenwEm.exit267
@@ -2406,7 +2406,7 @@ _ZN4Node7del_outEPS_.exit.i271:                   ; preds = %1015, %1003, %999
 
 _ZN4Node7set_reqEjPS_.exit275:                    ; preds = %_ZN4Node7del_outEPS_.exit.i271, %1020, %1031
   %1037 = add i32 %.4307, 1
-  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %189, i32 noundef %.4307, ptr noundef %.0.i.i.i266) #9
+  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %189, i32 noundef %.4307, ptr noundef %.0.i.i.i266) #9
   %1038 = load i32, ptr %182, align 8
   %1039 = add i32 %1038, 1
   store i32 %1039, ptr %182, align 8
@@ -2769,7 +2769,7 @@ define hidden void @_ZN25PhaseConservativeCoalesce12union_helperEP4NodeS1_jjS1_S
   store i32 10, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %38, i64 148
   store i32 0, ptr %41, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %39, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %39, i8 0, i64 88, i1 false)
   %42 = getelementptr inbounds i8, ptr %38, i64 152
   store i32 0, ptr %42, align 8
   %43 = load ptr, ptr %11, align 8
@@ -2928,7 +2928,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 _ZN4Node7set_reqEjPS_.exit44:                     ; preds = %_ZN4Node7set_reqEjPS_.exit, %122, %134
   store ptr null, ptr %120, align 8
   %139 = getelementptr inbounds i8, ptr %8, i64 16
-  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(24) %139, i32 noundef %9) #9
+  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(28) %139, i32 noundef %9) #9
   %140 = getelementptr inbounds i8, ptr %8, i64 40
   %141 = load i32, ptr %140, align 8
   %142 = add i32 %141, -1

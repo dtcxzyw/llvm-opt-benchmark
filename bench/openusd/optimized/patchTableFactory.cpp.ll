@@ -5713,7 +5713,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder15populatePatchesEv(pt
   %.ptr = getelementptr inbounds i8, ptr %2, i64 %.idx
   %12 = getelementptr inbounds nuw i8, ptr %.ptr, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %.ptr, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.ptr, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.ptr, i8 0, i64 40, i1 false)
   store ptr %13, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.ptr, i64 48
   store i32 0, ptr %14, align 8

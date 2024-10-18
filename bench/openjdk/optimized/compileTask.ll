@@ -323,7 +323,7 @@ define hidden void @_ZN11CompileTask10initializeEiRK12methodHandleiiS2_iNS_13Com
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 38:                                               ; preds = %26
-  %39 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %28, i64 noundef 8, i32 noundef 0) #10
+  %39 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %28, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %38, %36
@@ -469,7 +469,7 @@ _ZNK11CompileTask8compilerEv.exit:                ; preds = %71, %73
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19
 
 117:                                              ; preds = %105
-  %118 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %107, i64 noundef 8, i32 noundef 0) #10
+  %118 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %107, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19: ; preds = %117, %115
@@ -570,7 +570,7 @@ _ZNK11CompileTask11is_unloadedEv.exit.thread:     ; preds = %1, %4, %_ZNK11Compi
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 34:                                               ; preds = %22
-  %35 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, i64 noundef 8, i32 noundef 0) #10
+  %35 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %34, %32
@@ -624,7 +624,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZNK11CompileTask11
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i6
 
 65:                                               ; preds = %53
-  %66 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %55, i64 noundef 8, i32 noundef 0) #10
+  %66 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %55, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i6
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i6: ; preds = %65, %63
@@ -1547,7 +1547,7 @@ define hidden void @_ZN11CompileTask8print_ulEPKc(ptr nocapture noundef nonnull 
   br i1 %.not, label %28, label %5
 
 5:                                                ; preds = %2
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #10
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #10
@@ -1610,7 +1610,7 @@ define hidden void @_ZN11CompileTask8print_ulEPK7nmethodPKc(ptr nocapture nounde
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #10
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #10
@@ -1645,7 +1645,7 @@ define hidden void @_ZN11CompileTask17print_inlining_ulEP8ciMethodii14InliningRe
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #10
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %9) #10

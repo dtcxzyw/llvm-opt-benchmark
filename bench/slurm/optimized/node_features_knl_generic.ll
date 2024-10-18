@@ -301,7 +301,7 @@ _config_make_tbl.exit:                            ; preds = %31
 39:                                               ; preds = %37
   %40 = call ptr @xstrdup(ptr noundef nonnull %38) #15
   store ptr %40, ptr %13, align 8
-  %41 = call ptr @strtok_r(ptr noundef %40, ptr noundef nonnull readonly @.str.3, ptr noundef nonnull %12) #15
+  %41 = call ptr @strtok_r(ptr noundef %40, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #15
   %.not1213.i = icmp eq ptr %41, null
   br i1 %.not1213.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -310,7 +310,7 @@ _config_make_tbl.exit:                            ; preds = %31
   %.0914.i = phi ptr [ %44, %.lr.ph.i ], [ %41, %39 ]
   %42 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.0914.i)
   %43 = or i16 %42, %.015.i
-  %44 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull readonly @.str.3, ptr noundef nonnull %12) #15
+  %44 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #15
   %.not12.i = icmp eq ptr %44, null
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
@@ -487,7 +487,7 @@ _make_uid_array.exit:                             ; preds = %75, %._crit_edge.i8
 104:                                              ; preds = %102
   %105 = call ptr @xstrdup(ptr noundef nonnull %103) #15
   store ptr %105, ptr %9, align 8
-  %106 = call ptr @strtok_r(ptr noundef %105, ptr noundef nonnull readonly @.str.3, ptr noundef nonnull %8) #15
+  %106 = call ptr @strtok_r(ptr noundef %105, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #15
   %.not1213.i82 = icmp eq ptr %106, null
   br i1 %.not1213.i82, label %._crit_edge.i87, label %.lr.ph.i83
 
@@ -496,7 +496,7 @@ _make_uid_array.exit:                             ; preds = %75, %._crit_edge.i8
   %.0914.i85 = phi ptr [ %109, %.lr.ph.i83 ], [ %106, %104 ]
   %107 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.0914.i85)
   %108 = or i16 %107, %.015.i84
-  %109 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull readonly @.str.3, ptr noundef nonnull %8) #15
+  %109 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #15
   %.not12.i86 = icmp eq ptr %109, null
   br i1 %.not12.i86, label %._crit_edge.i87, label %.lr.ph.i83, !llvm.loop !6
 
@@ -2478,7 +2478,7 @@ define range(i32 0, 8002) i32 @node_features_p_job_valid(ptr noundef %0, ptr noc
   store ptr null, ptr %3, align 8
   %18 = call ptr @xstrdup(ptr noundef nonnull %.042) #15
   store ptr %18, ptr %4, align 8
-  %19 = call ptr @strtok_r(ptr noundef %18, ptr noundef nonnull readonly @.str.92, ptr noundef nonnull %3) #15
+  %19 = call ptr @strtok_r(ptr noundef %18, ptr noundef nonnull @.str.92, ptr noundef nonnull %3) #15
   %.not1213.i = icmp eq ptr %19, null
   br i1 %.not1213.i, label %_knl_mcdram_parse.exit, label %.lr.ph.i
 
@@ -2487,7 +2487,7 @@ define range(i32 0, 8002) i32 @node_features_p_job_valid(ptr noundef %0, ptr noc
   %.0914.i = phi ptr [ %22, %.lr.ph.i ], [ %19, %.lr.ph ]
   %20 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.0914.i)
   %21 = or i16 %20, %.015.i
-  %22 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull readonly @.str.92, ptr noundef nonnull %3) #15
+  %22 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull %3) #15
   %.not12.i = icmp eq ptr %22, null
   br i1 %.not12.i, label %_knl_mcdram_parse.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 

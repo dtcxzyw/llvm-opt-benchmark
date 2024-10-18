@@ -556,7 +556,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %15, %19, %21, %_ZNK
 93:                                               ; preds = %93, %_ZNK3CFF8FDSelect6get_fdEj.exit
   %.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %.add.i.i.i.i, %93 ]
   %.ptr.i.i.i.i = getelementptr inbounds i8, ptr %90, i64 %.idx.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 24
   %94 = icmp eq i64 %.add.i.i.i.i, 248
   br i1 %94, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %93
@@ -900,7 +900,7 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t11paint_glyphEP9hb_
 
 _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit: ; preds = %6, %11
   %14 = phi ptr [ %13, %11 ], [ null, %6 ]
-  tail call void %8(ptr noundef nonnull %3, ptr noundef %4, i32 noundef %2, ptr noundef %1, ptr noundef %14)
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, i32 noundef %2, ptr noundef %1, ptr noundef %14)
   %15 = getelementptr inbounds i8, ptr %3, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %9, align 8
@@ -914,7 +914,7 @@ _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit: ; preds = %6, %11
 
 _ZN16hb_paint_funcs_t5colorEPvij.exit:            ; preds = %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit, %18
   %21 = phi ptr [ %20, %18 ], [ null, %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit ]
-  tail call void %16(ptr noundef nonnull %3, ptr noundef %4, i32 noundef 1, i32 noundef %5, ptr noundef %21)
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, i32 noundef 1, i32 noundef %5, ptr noundef %21)
   %22 = getelementptr inbounds i8, ptr %3, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %9, align 8
@@ -928,7 +928,7 @@ _ZN16hb_paint_funcs_t5colorEPvij.exit:            ; preds = %_ZN16hb_paint_funcs
 
 _ZN16hb_paint_funcs_t8pop_clipEPv.exit:           ; preds = %_ZN16hb_paint_funcs_t5colorEPvij.exit, %25
   %28 = phi ptr [ %27, %25 ], [ null, %_ZN16hb_paint_funcs_t5colorEPvij.exit ]
-  tail call void %23(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %28)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, ptr noundef %28)
   ret i1 true
 }
 
@@ -1104,7 +1104,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %14, %18, %20, %_ZNK
 92:                                               ; preds = %92, %_ZNK3CFF8FDSelect6get_fdEj.exit
   %.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %.add.i.i.i.i, %92 ]
   %.ptr.i.i.i.i = getelementptr inbounds i8, ptr %89, i64 %.idx.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 24
   %93 = icmp eq i64 %.add.i.i.i.i, 248
   br i1 %93, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %92
@@ -1354,7 +1354,7 @@ _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_pr
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i: ; preds = %200, %._crit_edge.i
   %203 = phi ptr [ %202, %200 ], [ null, %._crit_edge.i ]
-  call void %197(ptr noundef nonnull %181, ptr noundef %183, ptr noundef nonnull %184, float noundef %188, float noundef %.pre.i, ptr noundef %203)
+  call void %197(ptr noundef nonnull align 8 dereferenceable(72) %181, ptr noundef %183, ptr noundef nonnull align 4 dereferenceable(48) %184, float noundef %188, float noundef %.pre.i, ptr noundef %203)
   br label %.noexc22
 
 .noexc22:                                         ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i, %192
@@ -1372,7 +1372,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i: ; preds = %200
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit.i: ; preds = %208, %.noexc22
   %211 = phi ptr [ %210, %208 ], [ null, %.noexc22 ]
-  call void %205(ptr noundef nonnull %181, ptr noundef %183, ptr noundef nonnull %184, ptr noundef %211)
+  call void %205(ptr noundef nonnull align 8 dereferenceable(72) %181, ptr noundef %183, ptr noundef nonnull align 4 dereferenceable(48) %184, ptr noundef %211)
   br label %_ZN17cff1_path_param_t8end_pathEv.exit
 
 _ZN17cff1_path_param_t8end_pathEv.exit:           ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit.i, %178
@@ -1548,7 +1548,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %13, %17, %19, %_ZNK
 90:                                               ; preds = %90, %_ZNK3CFF8FDSelect6get_fdEj.exit
   %.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %.add.i.i.i.i, %90 ]
   %.ptr.i.i.i.i = getelementptr inbounds i8, ptr %88, i64 %.idx.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 24
   %91 = icmp eq i64 %.add.i.i.i.i, 248
   br i1 %91, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %90
@@ -2472,7 +2472,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE16return_
   %.0.i.i = phi ptr [ %19, %15 ], [ @_hb_CrapPool, %20 ]
   %22 = getelementptr inbounds i8, ptr %1, i64 4128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, i64 24, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %1, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 16, i1 false)
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_tE.exit
 
 23:                                               ; preds = %3
@@ -2647,7 +2647,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_sub
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i
   %118 = getelementptr inbounds i8, ptr %1, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(4464) %1, i64 16, i1 false)
   %119 = getelementptr inbounds i8, ptr %1, i64 4176
   %120 = add nuw nsw i32 %112, 1
   store i32 %120, ptr %111, align 4
@@ -2686,7 +2686,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i: ; preds =
   store i32 2, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %1, i64 4148
   store i32 %99, ptr %138, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %1, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false)
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_tE.exit
 
 139:                                              ; preds = %3
@@ -2754,7 +2754,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_sub
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i140: ; preds = %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i139
   %174 = getelementptr inbounds i8, ptr %1, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(4464) %1, i64 16, i1 false)
   %175 = getelementptr inbounds i8, ptr %1, i64 4176
   %176 = add nuw nsw i32 %168, 1
   store i32 %176, ptr %167, align 4
@@ -2793,7 +2793,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i143: ; pred
   store i32 1, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %1, i64 4148
   store i32 %155, ptr %194, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %174, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %1, ptr noundef nonnull align 8 dereferenceable(16) %174, i64 16, i1 false)
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_tE.exit
 
 195:                                              ; preds = %3, %3
@@ -7402,7 +7402,7 @@ define linkonce_odr hidden void @_ZN20cff1_cs_opset_path_t12process_seacERN3CFF2
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i: ; preds = %26, %._crit_edge.i
   %29 = phi ptr [ %28, %26 ], [ null, %._crit_edge.i ]
-  tail call void %23(ptr noundef nonnull %7, ptr noundef %9, ptr noundef nonnull %10, float noundef %14, float noundef %.pre.i, ptr noundef %29)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %10, float noundef %14, float noundef %.pre.i, ptr noundef %29)
   br label %30
 
 30:                                               ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i, %18
@@ -7420,7 +7420,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i: ; preds = %26,
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit.i: ; preds = %35, %30
   %38 = phi ptr [ %37, %35 ], [ null, %30 ]
-  tail call void %32(ptr noundef nonnull %7, ptr noundef %9, ptr noundef nonnull %10, ptr noundef %38)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %10, ptr noundef %38)
   br label %_ZN17cff1_path_param_t8end_pathEv.exit
 
 _ZN17cff1_path_param_t8end_pathEv.exit:           ; preds = %2, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit.i
@@ -7686,7 +7686,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE16return_
   %.0.i.i = phi ptr [ %23, %19 ], [ @_hb_CrapPool, %24 ]
   %26 = getelementptr inbounds i8, ptr %1, i64 4128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, i64 24, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %1, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 16, i1 false)
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_tE.exit
 
 27:                                               ; preds = %3
@@ -7861,7 +7861,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_sub
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i
   %122 = getelementptr inbounds i8, ptr %1, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(4464) %1, i64 16, i1 false)
   %123 = getelementptr inbounds i8, ptr %1, i64 4176
   %124 = add nuw nsw i32 %116, 1
   store i32 %124, ptr %115, align 4
@@ -7900,7 +7900,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i: ; preds =
   store i32 2, ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %1, i64 4148
   store i32 %103, ptr %142, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %122, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %1, ptr noundef nonnull align 8 dereferenceable(16) %122, i64 16, i1 false)
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_tE.exit
 
 143:                                              ; preds = %3
@@ -7968,7 +7968,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_sub
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i140: ; preds = %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i139
   %178 = getelementptr inbounds i8, ptr %1, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %178, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %178, ptr noundef nonnull align 8 dereferenceable(4464) %1, i64 16, i1 false)
   %179 = getelementptr inbounds i8, ptr %1, i64 4176
   %180 = add nuw nsw i32 %172, 1
   store i32 %180, ptr %171, align 4
@@ -8007,7 +8007,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i143: ; pred
   store i32 1, ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %1, i64 4148
   store i32 %159, ptr %198, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %178, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %1, ptr noundef nonnull align 8 dereferenceable(16) %178, i64 16, i1 false)
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_tE.exit
 
 199:                                              ; preds = %3, %3
@@ -11264,7 +11264,7 @@ define linkonce_odr hidden void @_ZN17cff1_path_param_t7move_toERKN3CFF7point_tE
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %._crit_edge67, %47
   %50 = phi ptr [ %49, %47 ], [ null, %._crit_edge67 ]
-  tail call void %44(ptr noundef nonnull %27, ptr noundef %29, ptr noundef nonnull %30, float noundef %35, float noundef %.pre69, ptr noundef %50)
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(48) %30, float noundef %35, float noundef %.pre69, ptr noundef %50)
   br label %51
 
 51:                                               ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit, %39
@@ -11282,7 +11282,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %._cri
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %51, %56
   %59 = phi ptr [ %58, %56 ], [ null, %51 ]
-  tail call void %53(ptr noundef nonnull %27, ptr noundef %29, ptr noundef nonnull %30, ptr noundef %59)
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(48) %30, ptr noundef %59)
   br label %.sink.split
 
 60:                                               ; preds = %11
@@ -11323,7 +11323,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %51, 
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit62: ; preds = %._crit_edge, %78
   %81 = phi ptr [ %80, %78 ], [ null, %._crit_edge ]
-  tail call void %75(ptr noundef nonnull %27, ptr noundef %29, ptr noundef nonnull %30, float noundef %66, float noundef %.pre, ptr noundef %81)
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(48) %30, float noundef %66, float noundef %.pre, ptr noundef %81)
   br label %82
 
 82:                                               ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit62, %70
@@ -11341,7 +11341,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit62: ; preds = %._c
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit64: ; preds = %82, %87
   %90 = phi ptr [ %89, %87 ], [ null, %82 ]
-  tail call void %84(ptr noundef nonnull %27, ptr noundef %29, ptr noundef nonnull %30, ptr noundef %90)
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(48) %30, ptr noundef %90)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit64
@@ -11426,7 +11426,7 @@ define linkonce_odr hidden void @_ZN17cff1_path_param_t7line_toERKN3CFF7point_tE
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %33, %42
   %44 = phi ptr [ %43, %42 ], [ null, %33 ]
-  tail call void %39(ptr noundef nonnull %27, ptr noundef %29, ptr noundef nonnull %30, float noundef %35, float noundef %37, ptr noundef %44)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(48) %30, float noundef %35, float noundef %37, ptr noundef %44)
   store i32 1, ptr %30, align 4
   %45 = load float, ptr %34, align 4
   %46 = getelementptr inbounds i8, ptr %13, i64 28
@@ -11451,7 +11451,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %33, %42
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %49, %54
   %57 = phi ptr [ %56, %54 ], [ null, %49 ]
-  tail call void %51(ptr noundef nonnull %27, ptr noundef %29, ptr noundef nonnull %30, float noundef %18, float noundef %22, ptr noundef %57)
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(48) %30, float noundef %18, float noundef %22, ptr noundef %57)
   br label %87
 
 58:                                               ; preds = %11
@@ -11479,7 +11479,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %49, %
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit35: ; preds = %62, %71
   %73 = phi ptr [ %72, %71 ], [ null, %62 ]
-  tail call void %68(ptr noundef nonnull %27, ptr noundef %29, ptr noundef nonnull %30, float noundef %64, float noundef %66, ptr noundef %73)
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(48) %30, float noundef %64, float noundef %66, ptr noundef %73)
   store i32 1, ptr %30, align 4
   %74 = load float, ptr %63, align 4
   %75 = getelementptr inbounds i8, ptr %13, i64 28
@@ -11504,7 +11504,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit35: ; preds = %62, %71
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit37: ; preds = %78, %83
   %86 = phi ptr [ %85, %83 ], [ null, %78 ]
-  tail call void %80(ptr noundef nonnull %27, ptr noundef %29, ptr noundef nonnull %30, float noundef %60, float noundef %22, ptr noundef %86)
+  tail call void %80(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(48) %30, float noundef %60, float noundef %22, ptr noundef %86)
   br label %87
 
 87:                                               ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit37, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
@@ -11603,7 +11603,7 @@ define linkonce_odr hidden void @_ZN17cff1_path_param_t8cubic_toERKN3CFF7point_t
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %47, %56
   %58 = phi ptr [ %57, %56 ], [ null, %47 ]
-  tail call void %53(ptr noundef nonnull %41, ptr noundef %43, ptr noundef nonnull %44, float noundef %49, float noundef %51, ptr noundef %58)
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef %43, ptr noundef nonnull align 4 dereferenceable(48) %44, float noundef %49, float noundef %51, ptr noundef %58)
   store i32 1, ptr %44, align 4
   %59 = load float, ptr %48, align 4
   %60 = getelementptr inbounds i8, ptr %19, i64 28
@@ -11628,7 +11628,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %47, %56
 
 _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %63, %68
   %71 = phi ptr [ %70, %68 ], [ null, %63 ]
-  tail call void %65(ptr noundef nonnull %41, ptr noundef %43, ptr noundef nonnull %44, float noundef %24, float noundef %28, float noundef %30, float noundef %32, float noundef %34, float noundef %36, ptr noundef %71)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef %43, ptr noundef nonnull align 4 dereferenceable(48) %44, float noundef %24, float noundef %28, float noundef %30, float noundef %32, float noundef %34, float noundef %36, ptr noundef %71)
   br label %103
 
 72:                                               ; preds = %17
@@ -11658,7 +11658,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit55: ; preds = %78, %87
   %89 = phi ptr [ %88, %87 ], [ null, %78 ]
-  tail call void %84(ptr noundef nonnull %41, ptr noundef %43, ptr noundef nonnull %44, float noundef %80, float noundef %82, ptr noundef %89)
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef %43, ptr noundef nonnull align 4 dereferenceable(48) %44, float noundef %80, float noundef %82, ptr noundef %89)
   store i32 1, ptr %44, align 4
   %90 = load float, ptr %79, align 4
   %91 = getelementptr inbounds i8, ptr %19, i64 28
@@ -11683,7 +11683,7 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit55: ; preds = %78, %87
 
 _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit57: ; preds = %94, %99
   %102 = phi ptr [ %101, %99 ], [ null, %94 ]
-  tail call void %96(ptr noundef nonnull %41, ptr noundef %43, ptr noundef nonnull %44, float noundef %74, float noundef %28, float noundef %75, float noundef %32, float noundef %76, float noundef %36, ptr noundef %102)
+  tail call void %96(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef %43, ptr noundef nonnull align 4 dereferenceable(48) %44, float noundef %74, float noundef %28, float noundef %75, float noundef %32, float noundef %76, float noundef %36, ptr noundef %102)
   br label %103
 
 103:                                              ; preds = %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit57, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
@@ -11880,7 +11880,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE16return_
   %.0.i.i = phi ptr [ %19, %15 ], [ @_hb_CrapPool, %20 ]
   %22 = getelementptr inbounds i8, ptr %1, i64 4128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, i64 24, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %1, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i64 16, i1 false)
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_tE.exit
 
 23:                                               ; preds = %3
@@ -12055,7 +12055,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_sub
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i
   %118 = getelementptr inbounds i8, ptr %1, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(4464) %1, i64 16, i1 false)
   %119 = getelementptr inbounds i8, ptr %1, i64 4176
   %120 = add nuw nsw i32 %112, 1
   store i32 %120, ptr %111, align 4
@@ -12094,7 +12094,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i: ; preds =
   store i32 2, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %1, i64 4148
   store i32 %99, ptr %138, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %1, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false)
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_tE.exit
 
 139:                                              ; preds = %3
@@ -12162,7 +12162,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_sub
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i140: ; preds = %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i139
   %174 = getelementptr inbounds i8, ptr %1, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(4464) %1, i64 16, i1 false)
   %175 = getelementptr inbounds i8, ptr %1, i64 4176
   %176 = add nuw nsw i32 %168, 1
   store i32 %176, ptr %167, align 4
@@ -12201,7 +12201,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i143: ; pred
   store i32 1, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %1, i64 4148
   store i32 %155, ptr %194, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %174, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %1, ptr noundef nonnull align 8 dereferenceable(16) %174, i64 16, i1 false)
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE22push_fixed_from_substrERNS_14byte_str_ref_tE.exit
 
 195:                                              ; preds = %3, %3

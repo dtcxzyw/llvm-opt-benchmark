@@ -46,7 +46,7 @@ if.then.i.i:                                      ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %tobool2.not = icmp eq ptr %out, null
   %cond-lvalue = select i1 %tobool2.not, ptr @_ZSt4cerr, ptr %out
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %call, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 17, i1 false)
   %m_msg.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %msg, ptr %m_msg.i, align 8
   %m_out.i = getelementptr inbounds i8, ptr %call, i64 32

@@ -939,7 +939,7 @@ _ZN11StringDedup9Processor14ProcessRequest11release_refEPP7oopDesc.exit: ; preds
   %22 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %23 = sext i32 %22 to i64
   %24 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %25 = tail call noundef ptr %24(ptr noundef nonnull %5, i64 noundef %23) #12
+  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %23) #12
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %30
 
@@ -2951,9 +2951,9 @@ define linkonce_odr hidden void @_ZN10OopStorage13BasicParState7iterateILb0ENS_5
 
 _ZNK11StringDedup9Processor5yieldEv.exit8:        ; preds = %.lr.ph.i.i, %37, %38, %41
   %42 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %43 = call noundef ptr %42(ptr noundef %22) #12
+  %43 = call noundef ptr %42(ptr noundef nonnull %22) #12
   %44 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE0EE11_store_funcE, align 8
-  call void %44(ptr noundef %22, ptr noundef null) #12
+  call void %44(ptr noundef nonnull %22, ptr noundef null) #12
   %45 = load i64, ptr %7, align 8
   %46 = add i64 %45, 1
   store i64 %46, ptr %7, align 8
@@ -2983,7 +2983,7 @@ _ZN11StringDedup9Processor14ProcessRequest11release_refEPP7oopDesc.exit.i: ; pre
   %57 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %58 = sext i32 %57 to i64
   %59 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %60 = call noundef ptr %59(ptr noundef nonnull %43, i64 noundef %58) #12
+  %60 = call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %58) #12
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %65
 

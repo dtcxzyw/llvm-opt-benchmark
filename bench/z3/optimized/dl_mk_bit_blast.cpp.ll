@@ -386,7 +386,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   %5 = load i32, ptr %m_proof_mode.i.i, align 8
   %cmp.i.i = icmp ne i32 %5, 0
   %m_cfg.i = getelementptr inbounds i8, ptr %this, i64 992
-  invoke void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %m_rewriter, ptr noundef nonnull align 8 dereferenceable(976) %4, i1 noundef zeroext %cmp.i.i, ptr noundef nonnull align 8 dereferenceable(160) %m_cfg.i)
+  invoke void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(696) %m_rewriter, ptr noundef nonnull align 8 dereferenceable(976) %4, i1 noundef zeroext %cmp.i.i, ptr noundef nonnull align 8 dereferenceable(160) %m_cfg.i)
           to label %.noexc unwind label %lpad8
 
 .noexc:                                           ; preds = %invoke.cont7
@@ -397,7 +397,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 lpad.i:                                           ; preds = %.noexc
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_rewriter) #17
+  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(696) %m_rewriter) #17
   br label %ehcleanup
 
 invoke.cont11:                                    ; preds = %.noexc
@@ -435,7 +435,7 @@ lpad13:                                           ; preds = %invoke.cont16, %inv
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11expand_mkbvE, i64 16), ptr %m_rewriter, align 8
   tail call void @_ZN7datalog15expand_mkbv_cfgD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %m_cfg.i) #17
-  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_rewriter) #17
+  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(696) %m_rewriter) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %lpad.i, %lpad13
@@ -468,7 +468,7 @@ if.end.i:                                         ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11expand_mkbvE, i64 16), ptr %m_rewriter.i.i, align 8
   %m_cfg.i.i.i = getelementptr inbounds i8, ptr %0, i64 992
   tail call void @_ZN7datalog15expand_mkbv_cfgD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %m_cfg.i.i.i) #17
-  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_rewriter.i.i) #17
+  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(696) %m_rewriter.i.i) #17
   %m_blaster.i.i = getelementptr inbounds i8, ptr %0, i64 448
   tail call void @_ZN20bit_blaster_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_blaster.i.i) #17
   %m_simplifier.i.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -515,7 +515,7 @@ if.end.i.i:                                       ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11expand_mkbvE, i64 16), ptr %m_rewriter.i.i.i, align 8
   %m_cfg.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 992
   tail call void @_ZN7datalog15expand_mkbv_cfgD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %m_cfg.i.i.i.i) #17
-  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_rewriter.i.i.i) #17
+  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(696) %m_rewriter.i.i.i) #17
   %m_blaster.i.i.i = getelementptr inbounds i8, ptr %0, i64 448
   tail call void @_ZN20bit_blaster_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_blaster.i.i.i) #17
   %m_simplifier.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -610,7 +610,7 @@ for.cond:                                         ; preds = %for.inc, %invoke.co
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %invoke.cont11 ]
   %9 = load ptr, ptr %this, align 8
   %10 = load ptr, ptr %9, align 8
-  %call2.i.i28 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+  %call2.i.i28 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %10)
           to label %call2.i.i.noexc unwind label %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call2.i.i.noexc:                                  ; preds = %for.cond
@@ -1279,7 +1279,7 @@ if.then.i.i.i.i140:                               ; preds = %if.then.i.i.i137
   %vtable.i.i.i.i.i = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %vtable.i.i.i.i.i, align 8
   call void %105(ptr noundef nonnull align 8 dereferenceable(12) %103) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %103)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %103)
           to label %_ZN7datalog7context19add_model_converterEP15model_converter.exit unwind label %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN7datalog7context19add_model_converterEP15model_converter.exit: ; preds = %if.then.i.i.i.i140, %if.end.i.i136, %if.then.i.i.i137
@@ -1425,7 +1425,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11expand_mkbvE, i64 16), ptr %this, align 8
   %m_cfg.i = getelementptr inbounds i8, ptr %this, i64 536
   tail call void @_ZN7datalog15expand_mkbv_cfgD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %m_cfg.i) #17
-  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #17
+  tail call void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(696) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -1626,9 +1626,9 @@ terminate.lpad.i18:                               ; preds = %if.then2.i.i.i17
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit10, %if.then.i.i.i12, %if.then2.i.i.i17
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter) #17
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter) #17
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #17
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #17
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load ptr, ptr %m_bindings, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %18, null
@@ -2693,7 +2693,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %m_orig, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %m_orig, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2710,7 +2710,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_orig) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_orig) #17
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -3040,7 +3040,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end16, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -3395,7 +3395,7 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %entry, %if.then.i.i
   store ptr null, ptr %result_pr, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
@@ -3652,7 +3652,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -4325,7 +4325,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -5439,7 +5439,7 @@ entry:
   %m_bindings = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %m_bindings, align 8
   %m_shifter = getelementptr inbounds i8, ptr %this, i64 168
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
@@ -5451,7 +5451,7 @@ invoke.cont3:                                     ; preds = %entry
   %m_shift2.i = getelementptr inbounds i8, ptr %this, i64 320
   store i32 0, ptr %m_shift2.i, align 8
   %m_inv_shifter = getelementptr inbounds i8, ptr %this, i64 328
-  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
+  invoke void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(148) %m_inv_shifter, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext false)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -5480,7 +5480,7 @@ lpad2:                                            ; preds = %entry
 lpad4:                                            ; preds = %invoke.cont3
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_shifter) #17
+  tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %m_shifter) #17
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %lpad4, %lpad2
@@ -7052,7 +7052,7 @@ invoke.cont114:                                   ; preds = %.noexc308, %lor.lhs
   store ptr %f, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %call111, ptr %m_value.i.i, align 8
-  invoke void @_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_pred2blast, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_pred2blast, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %invoke.cont117 unwind label %lpad86.loopexit.split-lp
 
 invoke.cont117:                                   ; preds = %invoke.cont114
@@ -8668,7 +8668,7 @@ if.then110:                                       ; preds = %invoke.cont107
 if.then.i:                                        ; preds = %if.then110
   %76 = load ptr, ptr %m_pr89, align 8
   %77 = load ptr, ptr %m_r, align 8
-  invoke void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, ptr noundef %77, ptr noundef %76)
+  invoke void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %t, ptr noundef %77, ptr noundef %76)
           to label %invoke.cont119 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont119:                                   ; preds = %if.then110, %if.then.i
@@ -9184,7 +9184,7 @@ invoke.cont193:                                   ; preds = %.noexc432, %lor.lhs
 if.then.i435:                                     ; preds = %invoke.cont193
   %169 = load ptr, ptr %m_pr89, align 8
   %170 = load ptr, ptr %m_r, align 8
-  invoke void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, ptr noundef %170, ptr noundef %169)
+  invoke void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %t, ptr noundef %170, ptr noundef %169)
           to label %invoke.cont205 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont205:                                   ; preds = %invoke.cont193, %if.then.i435
@@ -9524,7 +9524,7 @@ invoke.cont280:                                   ; preds = %.noexc614, %lor.lhs
 if.then.i617:                                     ; preds = %invoke.cont280
   %222 = load ptr, ptr %m_pr285, align 8
   %223 = load ptr, ptr %m_r, align 8
-  invoke void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, ptr noundef %223, ptr noundef %222)
+  invoke void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %t, ptr noundef %223, ptr noundef %222)
           to label %invoke.cont292 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont292:                                   ; preds = %invoke.cont280, %if.then.i617
@@ -10165,7 +10165,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 if.then.i934:                                     ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit932
   %337 = load ptr, ptr %m_pr343, align 8
   %338 = load ptr, ptr %m_r356, align 8
-  tail call void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, ptr noundef %338, ptr noundef %337)
+  tail call void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, ptr noundef %338, ptr noundef %337)
   br label %_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEE12cache_resultILb1EEEvP4exprS5_P3appb.exit935
 
 _ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEE12cache_resultILb1EEEvP4exprS5_P3appb.exit935: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit932, %if.then.i934
@@ -10238,7 +10238,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -11338,7 +11338,7 @@ invoke.cont196:                                   ; preds = %_ZN6vectorIjLb0EjE6
 
 if.then.i390:                                     ; preds = %invoke.cont196
   %163 = load ptr, ptr %m_pr, align 8
-  invoke void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %q, ptr noundef %162, ptr noundef %163)
+  invoke void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %q, ptr noundef %162, ptr noundef %163)
           to label %invoke.cont205thread-pre-split unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont205thread-pre-split:                   ; preds = %if.then.i390
@@ -12165,7 +12165,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorIN
 
 while.body:                                       ; preds = %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit
   %3 = load ptr, ptr %m_manager.i, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
@@ -13144,7 +13144,7 @@ if.then71:                                        ; preds = %invoke.cont68
 
 if.then.i:                                        ; preds = %if.then71
   %26 = load ptr, ptr %m_r, align 8
-  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, i32 noundef 0, ptr noundef %26)
+  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %26)
           to label %invoke.cont79 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont79:                                    ; preds = %if.then71, %if.then.i
@@ -13270,7 +13270,7 @@ invoke.cont113:                                   ; preds = %invoke.cont108
 
 if.then.i118:                                     ; preds = %invoke.cont113
   %43 = load ptr, ptr %m_r, align 8
-  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, i32 noundef 0, ptr noundef %43)
+  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %43)
           to label %invoke.cont125 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont125:                                   ; preds = %invoke.cont113, %if.then.i118
@@ -13426,7 +13426,7 @@ invoke.cont194:                                   ; preds = %.noexc244, %lor.lhs
 
 if.then.i247:                                     ; preds = %invoke.cont194
   %72 = load ptr, ptr %m_r, align 8
-  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, i32 noundef 0, ptr noundef %72)
+  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %72)
           to label %invoke.cont206 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont206:                                   ; preds = %invoke.cont194, %if.then.i247
@@ -13689,7 +13689,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 
 if.then.i350:                                     ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit348
   %119 = load ptr, ptr %m_r218, align 8
-  tail call void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, i32 noundef 0, ptr noundef %119)
+  tail call void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef 0, ptr noundef %119)
   br label %_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit351
 
 _ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit351: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit348, %if.then.i350
@@ -13988,7 +13988,7 @@ invoke.cont277:                                   ; preds = %.noexc475, %lor.lhs
 
 if.then.i478:                                     ; preds = %invoke.cont277
   %167 = load ptr, ptr %m_r254, align 8
-  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, i32 noundef 0, ptr noundef %167)
+  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %t, i32 noundef 0, ptr noundef %167)
           to label %invoke.cont289 unwind label %lpad249.loopexit.split-lp
 
 invoke.cont289:                                   ; preds = %invoke.cont277, %if.then.i478
@@ -14071,7 +14071,7 @@ entry:
   br i1 %cmp, label %if.then, label %cond.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  tail call void @_ZN13rewriter_core11begin_scopeEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %m_expr.i, align 8
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
@@ -14884,7 +14884,7 @@ invoke.cont125:                                   ; preds = %_ZN6vectorIjLb0EjE6
   br i1 %tobool134.not, label %invoke.cont135, label %if.then.i246
 
 if.then.i246:                                     ; preds = %invoke.cont125
-  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %q, i32 noundef 0, ptr noundef %119)
+  invoke void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %q, i32 noundef 0, ptr noundef %119)
           to label %invoke.cont135thread-pre-split unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont135thread-pre-split:                   ; preds = %if.then.i246
@@ -15421,7 +15421,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 
 if.then.i:                                        ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit87
   %57 = load ptr, ptr %m_r, align 8
-  tail call void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, i32 noundef 0, ptr noundef %57)
+  tail call void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef 0, ptr noundef %57)
   br label %_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit
 
 _ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit87, %if.then.i
@@ -16802,7 +16802,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }

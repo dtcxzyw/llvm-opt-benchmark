@@ -2455,7 +2455,7 @@ if.end8:                                          ; preds = %if.end, %if.end
   store i8 %conv, ptr %this, align 1
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !9
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then4, %if.then
@@ -2689,7 +2689,7 @@ _ZNSt6vectorISt4pairIjmESaIS1_EE12emplace_backIJRjmEEERS1_DpOT_.exit: ; preds = 
 for.end:                                          ; preds = %_ZNSt6vectorISt4pairIjmESaIS1_EE12emplace_backIJRjmEEERS1_DpOT_.exit, %if.end
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !18
   br label %return
 
 return:                                           ; preds = %for.end, %if.then21, %invoke.cont17
@@ -2809,7 +2809,7 @@ if.end14:                                         ; preds = %if.end3.i.i.i.i.i, 
 for.end:                                          ; preds = %if.end14, %entry
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !23
   br label %return
 
 return:                                           ; preds = %for.end, %if.then11, %if.then
@@ -4752,7 +4752,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb3log22FragmentBufferedReaderE, i64 16), ptr %this, align 8
   %fragments_.i = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fragments_.i) #22
-  tail call void @_ZN7rocksdb3log6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #22
+  tail call void @_ZN7rocksdb3log6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(273) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }

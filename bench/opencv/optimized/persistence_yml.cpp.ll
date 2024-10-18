@@ -412,7 +412,7 @@ define linkonce_odr hidden void @_ZN2cv11YAMLEmitter16startWriteStructERKNS_11FS
   %46 = getelementptr inbounds i8, ptr %45, i64 56
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %3, ptr noundef %.027)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   %48 = getelementptr inbounds i8, ptr %0, i64 32
   %49 = getelementptr inbounds i8, ptr %0, i64 36
   %50 = getelementptr inbounds i8, ptr %2, i64 36
@@ -441,7 +441,7 @@ define linkonce_odr hidden void @_ZN2cv11YAMLEmitter16startWriteStructERKNS_11FS
 62:                                               ; preds = %56, %44
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   br label %65
 
 64:                                               ; preds = %55, %58

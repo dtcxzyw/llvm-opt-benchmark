@@ -201,8 +201,8 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %31, %34
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %31 ], [ %36, %34 ]
   %40 = getelementptr inbounds %"class.llvm::Use", ptr %39, i64 %.pre-phi2.i.i
   %41 = getelementptr inbounds i8, ptr %39, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %9, i64 noundef 8) #4
-  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %41, ptr noundef %40)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %9, i64 noundef 8) #4
+  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %41, ptr noundef %40)
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %7, align 8
@@ -210,7 +210,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %31, %34
   %46 = call noundef i64 @_ZNK4llvm10DataLayout22getIndexedOffsetInTypeEPNS_4TypeENS_8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(512) %10, ptr noundef %43, ptr %44, i64 %45) #4
   %47 = add nsw i64 %46, %3
   call fastcc void @_ZL29findLoadCallsAtConstantOffsetPKN4llvm6ModuleERNS_15SmallVectorImplINS_14DevirtCallSiteEEEPNS_5ValueElPKNS_8CallInstERNS_13DominatorTreeE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %13, i64 noundef %47, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(124) %5)
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #4
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %7) #4
   %49 = load ptr, ptr %7, align 8
   %50 = icmp eq ptr %49, %9
   br i1 %50, label %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit, label %51

@@ -554,13 +554,13 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120CStringSyntaxCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120CStringSyntaxCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #18
   ret void
 }
@@ -2467,7 +2467,7 @@ _ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit: ; preds = %_ZN
   %.sroa.0.0.i = phi ptr [ null, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread ], [ %233, %229 ], [ @.str.20, %221 ]
   %.sroa.4.0.i = phi i64 [ 0, %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread ], [ %235, %229 ], [ 0, %221 ]
   %236 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %236, i64 noundef 256) #19
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %7, ptr noundef nonnull %236, i64 noundef 256) #19
   %237 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 2, ptr %237, align 8
   %238 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -2479,7 +2479,7 @@ _ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit: ; preds = %_ZN
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %8, align 8
   %241 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %7, ptr %241, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   %242 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %243 = load ptr, ptr %242, align 8
   %244 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -2699,8 +2699,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %344, %346
   store i64 1, ptr %357, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @_ZN5clang4ento11BugReporter15EmitBasicReportEPKNS_4DeclEPKNS0_11CheckerBaseEN4llvm9StringRefES9_S9_NS0_22PathDiagnosticLocationENS8_8ArrayRefINS_11SourceRangeEEENSB_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(120) %349, ptr noundef nonnull %27, ptr noundef %350, ptr nonnull @.str.9, i64 28, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %6, ptr noundef nonnull byval(%"class.llvm::ArrayRef.556") align 8 %11, ptr noundef nonnull byval(%"class.llvm::ArrayRef.557") align 8 %13) #19
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #19
-  %358 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #19
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #19
+  %358 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %7) #19
   %359 = load ptr, ptr %7, align 8
   %360 = icmp eq ptr %359, %236
   br i1 %360, label %_ZN4llvm11SmallStringILj256EED2Ev.exit, label %361
@@ -3000,7 +3000,7 @@ _ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit72: ; preds = %4
   %.sroa.0.0.i66 = phi ptr [ null, %487 ], [ %525, %521 ], [ @.str.20, %513 ]
   %.sroa.4.0.i67 = phi i64 [ 0, %487 ], [ %527, %521 ], [ 0, %513 ]
   %528 = getelementptr inbounds i8, ptr %15, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %528, i64 noundef 256) #19
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(280) %15, ptr noundef nonnull %528, i64 noundef 256) #19
   %529 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 2, ptr %529, align 8
   %530 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -3012,7 +3012,7 @@ _ZN12_GLOBAL__N_17WalkAST16getPrintableNameEPKN5clang4ExprE.exit72: ; preds = %4
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %16, align 8
   %533 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %15, ptr %533, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   %534 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %535 = load ptr, ptr %534, align 8
   %536 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -3180,8 +3180,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit93:               ; preds = %604, %606
   store i64 1, ptr %617, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   call void @_ZN5clang4ento11BugReporter15EmitBasicReportEPKNS_4DeclEPKNS0_11CheckerBaseEN4llvm9StringRefES9_S9_NS0_22PathDiagnosticLocationENS8_8ArrayRefINS_11SourceRangeEEENSB_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(120) %609, ptr noundef nonnull %27, ptr noundef %610, ptr nonnull @.str.9, i64 28, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %17, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %18, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %14, ptr noundef nonnull byval(%"class.llvm::ArrayRef.556") align 8 %19, ptr noundef nonnull byval(%"class.llvm::ArrayRef.557") align 8 %21) #19
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #19
-  %618 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #19
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #19
+  %618 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %15) #19
   %619 = load ptr, ptr %15, align 8
   %620 = icmp eq ptr %619, %528
   br i1 %620, label %_ZN4llvm11SmallStringILj256EED2Ev.exit, label %621
@@ -3203,7 +3203,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17WalkAST13VisitChildrenEPN5clang4S
   %3 = alloca %"class.llvm::iterator_range", align 8
   %4 = alloca %"struct.clang::StmtIterator", align 8
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32

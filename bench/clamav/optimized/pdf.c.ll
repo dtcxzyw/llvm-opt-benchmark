@@ -2349,7 +2349,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %135
 
 340:                                              ; preds = %335
   %341 = add i64 %291, %338
-  %342 = call i64 @cli_writen(i32 noundef %49, ptr noundef %.0271, i64 noundef %338) #23
+  %342 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %49, ptr noundef nonnull %.0271, i64 noundef %338) #23
   br label %filter_writen.exit
 
 filter_writen.exit:                               ; preds = %335, %340
@@ -2411,7 +2411,7 @@ filter_writen.exit:                               ; preds = %335, %340
   %366 = ptrtoint ptr %365 to i64
   %367 = sub i64 %364, %366
   %368 = add i64 %343, %367
-  %369 = call i64 @cli_writen(i32 noundef %49, ptr noundef nonnull %365, i64 noundef %367) #23
+  %369 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %49, ptr noundef nonnull %365, i64 noundef %367) #23
   br label %.critedge
 
 .critedge:                                        ; preds = %355, %363, %361, %293
@@ -3538,7 +3538,7 @@ define internal fastcc i32 @pdf_scan_contents(i32 noundef range(i32 0, -21474836
 42:                                               ; preds = %40
   %43 = load ptr, ptr %3, align 8
   %44 = load i64, ptr %23, align 8
-  %45 = call i64 @cli_writen(i32 noundef %13, ptr noundef %43, i64 noundef %44) #23
+  %45 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %13, ptr noundef %43, i64 noundef %44) #23
   call void @text_normalize_reset(ptr noundef nonnull %3) #23
   br label %46
 

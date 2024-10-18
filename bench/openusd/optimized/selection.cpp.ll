@@ -226,7 +226,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelection8AddRprimERKNS0_1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = zext i32 %13 to i64
   %16 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %14, i64 0, i64 %15
-  %17 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %17 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 4 dereferenceable(8) %2)
   store i8 1, ptr %17, align 8
   %18 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26HD_BPRIM_ADDED__DebugCodesEE5nodesE, i64 112) seq_cst, align 16
   %19 = icmp eq i32 %18, 0
@@ -287,7 +287,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelection11AddInstanceERKN
   %17 = load i32, ptr %1, align 4
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %16, i64 0, i64 %18
-  %20 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %20 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 4 dereferenceable(8) %2)
   store i8 1, ptr %20, align 8
   br label %21
 
@@ -296,7 +296,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelection11AddInstanceERKN
   %23 = load i32, ptr %1, align 4
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %22, i64 0, i64 %24
-  %26 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %26 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 4 dereferenceable(8) %2)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -369,7 +369,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelection11AddElementsERKN
   %16 = load i32, ptr %1, align 4
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %15, i64 0, i64 %17
-  %19 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %19 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 4 dereferenceable(8) %2)
   br i1 %14, label %20, label %26
 
 20:                                               ; preds = %.critedge
@@ -463,7 +463,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelection8AddEdgesERKNS0_1
   %17 = load i32, ptr %1, align 4
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %16, i64 0, i64 %18
-  %20 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %20 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 4 dereferenceable(8) %2)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 72
@@ -546,7 +546,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelection10_AddPointsERKNS
   %9 = load i32, ptr %1, align 4
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %8, i64 0, i64 %10
-  %12 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %12 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(8) %2)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 96
@@ -570,7 +570,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEESaIS2_EE9push_backER
   %22 = load i32, ptr %1, align 4
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %8, i64 0, i64 %23
-  %25 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %25 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 4 dereferenceable(8) %2)
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %28 = load ptr, ptr %27, align 8
@@ -691,7 +691,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11HdSelection9AddPointsERKNS0_
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load ptr, ptr %17, align 8
-  %19 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %16, ptr %18, ptr nonnull %4)
+  %19 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr %16, ptr %18, ptr nonnull align 4 dereferenceable(16) %4)
   %20 = load ptr, ptr %17, align 8
   %21 = icmp eq ptr %19, %20
   %22 = load ptr, ptr %15, align 8
@@ -1544,7 +1544,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L7_AppendINS_7GfVec4fEEEvPSt6vectorIT_SaIS3
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = getelementptr inbounds [2 x %"class.std::unordered_map"], ptr %67, i64 0, i64 %.072
-  %69 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull align 4 dereferenceable(8) %65)
+  %69 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS2_NS1_11HdSelection18PrimSelectionStateEESaIS7_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %68, ptr noundef nonnull align 4 dereferenceable(8) %65)
           to label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_11HdSelection18PrimSelectionStateENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_11HdSelection18PrimSelectionStateENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEEixERS8_.exit: ; preds = %.lr.ph
@@ -3795,7 +3795,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %6, 
 22:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %4) #18
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #18
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 152) #17

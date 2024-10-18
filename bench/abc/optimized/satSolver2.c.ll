@@ -1527,7 +1527,7 @@ sat_clause_compute_lbd.exit:                      ; preds = %sat_clause_compute_
 act_clause2_rescale.exit.i:                       ; preds = %.lr.ph.i.i, %143
   %151 = load i32, ptr %137, align 4
   %152 = ashr i32 %151, 14
-  %153 = tail call range(i32 16, 131072) i32 @llvm.smax.i32(i32 %152, i32 1024)
+  %153 = tail call range(i32 16, 131072) i32 @llvm.smax.i32(i32 range(i32 -131072, 131072) %152, i32 1024)
   store i32 %153, ptr %137, align 4
   br label %act_clause2_bump.exit
 
@@ -3402,7 +3402,7 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %44, 3
   %50 = and i32 %49, 255
-  %51 = call noundef range(i32 0, 8) i32 @llvm.umin.i32(i32 %50, i32 7)
+  %51 = call noundef range(i32 0, 8) i32 @llvm.umin.i32(i32 range(i32 0, 256) %50, i32 7)
   %52 = shl nuw nsw i32 %51, 28
   %53 = sub nuw nsw i32 1879048192, %52
   %54 = sext i32 %48 to i64
@@ -4619,7 +4619,7 @@ define void @sat_solver2_rollback(ptr noundef %0) local_unnamed_addr #2 {
 46:                                               ; preds = %36
   %.val.i.i = load i32, ptr %31, align 4
   store i32 %.val.i.i, ptr %43, align 4
-  tail call fastcc void @veci_push(ptr noundef nonnull %30, i32 noundef %40)
+  tail call fastcc void @veci_push(ptr noundef nonnull %30, i32 noundef range(i32 -1073741824, 1073741824) %40)
   %47 = load ptr, ptr %29, align 8
   %.val.i.i.i = load ptr, ptr %32, align 8
   %48 = getelementptr inbounds i32, ptr %47, i64 %42
@@ -5781,7 +5781,7 @@ veci_push.exit150.i:                              ; preds = %234, %225
 act_clause2_rescale.exit.i.i.i:                   ; preds = %.lr.ph.i.i.i.i, %255
   %262 = load i32, ptr %122, align 4
   %263 = ashr i32 %262, 14
-  %264 = call range(i32 16, 131072) i32 @llvm.smax.i32(i32 %263, i32 1024)
+  %264 = call range(i32 16, 131072) i32 @llvm.smax.i32(i32 range(i32 -131072, 131072) %263, i32 1024)
   store i32 %264, ptr %122, align 4
   br label %act_clause2_bump.exit.i.i
 
@@ -5926,7 +5926,7 @@ veci_push.exit147.i:                              ; preds = %312, %var_set_tag.e
 act_var_rescale.exit.i.i.i:                       ; preds = %.lr.ph.i.i170.i.i, %328
   %337 = load i32, ptr %126, align 4
   %338 = ashr i32 %337, 19
-  %339 = call range(i32 16, 131072) i32 @llvm.smax.i32(i32 %338, i32 16)
+  %339 = call range(i32 16, 131072) i32 @llvm.smax.i32(i32 range(i32 -131072, 131072) %338, i32 16)
   store i32 %339, ptr %126, align 4
   br label %340
 
@@ -7005,7 +7005,7 @@ define internal fastcc i32 @solver2_analyze_final(ptr nocapture noundef %0, ptr 
   br i1 %34, label %35, label %var_set_tag.exit
 
 35:                                               ; preds = %29
-  tail call fastcc void @veci_push(ptr noundef nonnull %19, i32 noundef %24)
+  tail call fastcc void @veci_push(ptr noundef nonnull %19, i32 noundef range(i32 -1073741824, 1073741824) %24)
   %.pre.i = load ptr, ptr %18, align 8
   %.phi.trans.insert.i = getelementptr inbounds %struct.varinfo2_t, ptr %.pre.i, i64 %26
   %.pre6.i = load i8, ptr %.phi.trans.insert.i, align 4
@@ -7121,7 +7121,7 @@ clause2_read.exit:                                ; preds = %69
   br i1 %95, label %96, label %var_set_tag.exit68
 
 96:                                               ; preds = %90
-  tail call fastcc void @veci_push(ptr noundef nonnull %58, i32 noundef %85)
+  tail call fastcc void @veci_push(ptr noundef nonnull %58, i32 noundef range(i32 -1073741824, 1073741824) %85)
   %.pre.i65 = load ptr, ptr %52, align 8
   %.phi.trans.insert.i66 = getelementptr inbounds %struct.varinfo2_t, ptr %.pre.i65, i64 %87
   %.pre6.i67 = load i8, ptr %.phi.trans.insert.i66, align 4
@@ -7304,7 +7304,7 @@ define internal fastcc void @solver2_canceluntil(ptr nocapture noundef %0, i32 n
 66:                                               ; preds = %56
   %.val.i = load i32, ptr %51, align 4
   store i32 %.val.i, ptr %63, align 4
-  tail call fastcc void @veci_push(ptr noundef nonnull %50, i32 noundef %60)
+  tail call fastcc void @veci_push(ptr noundef nonnull %50, i32 noundef range(i32 -1073741824, 1073741824) %60)
   %67 = load ptr, ptr %49, align 8
   %.val.i.i = load ptr, ptr %52, align 8
   %68 = getelementptr inbounds i32, ptr %67, i64 %62

@@ -2688,7 +2688,7 @@ rb_long2num_inline.exit:                          ; preds = %30, %33
 40:                                               ; preds = %35
   %41 = add i64 %.142, 8
   %42 = lshr i64 %41, 3
-  %43 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %5, i64 noundef %36, i64 noundef %42) #13
+  %43 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %5, i64 noundef range(i64 1024, 0) %36, i64 noundef %42) #13
   br label %44
 
 44:                                               ; preds = %40, %38

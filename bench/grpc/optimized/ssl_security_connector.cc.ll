@@ -148,7 +148,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i.i), !noalias !4
   store ptr %0, ptr %agg.tmp2.i.i, align 8, !noalias !4
   store ptr %1, ptr %agg.tmp3.i.i, align 8, !noalias !4
-  invoke void @_ZN31grpc_channel_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI24grpc_channel_credentialsEENS5_I21grpc_call_credentialsEE(ptr noundef nonnull align 8 dereferenceable(56) %call.i, i64 5, ptr nonnull @.str.9, ptr noundef nonnull %agg.tmp2.i.i, ptr noundef nonnull %agg.tmp3.i.i)
+  invoke void @_ZN31grpc_channel_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI24grpc_channel_credentialsEENS5_I21grpc_call_credentialsEE(ptr noundef nonnull align 8 dereferenceable(136) %call.i, i64 5, ptr nonnull @.str.9, ptr noundef nonnull %agg.tmp2.i.i, ptr noundef nonnull %agg.tmp3.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !4
 
 invoke.cont.i.i:                                  ; preds = %if.end
@@ -201,7 +201,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit.i.i: ; preds =
           to label %call.i.noexc.i.i unwind label %lpad4.i.i, !noalias !4
 
 call.i.noexc.i.i:                                 ; preds = %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %overridden_target_name_.i.i, ptr noundef %call.i14.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name_.i.i, ptr noundef %call.i14.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
           to label %.noexc.i.i unwind label %lpad4.i.i, !noalias !4
 
 .noexc.i.i:                                       ; preds = %call.i.noexc.i.i
@@ -213,7 +213,7 @@ call.i.noexc.i.i:                                 ; preds = %_ZN9grpc_core13RefC
 lpad.i.i.i:                                       ; preds = %.noexc.i.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %overridden_target_name_.i.i) #18, !noalias !4
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name_.i.i) #18, !noalias !4
   br label %lpad4.body.i.i
 
 invoke.cont5.i.i:                                 ; preds = %.noexc.i.i
@@ -310,7 +310,7 @@ ehcleanup.i.i:                                    ; preds = %lpad11.i.i, %lpad7.
 ehcleanup15.i.i:                                  ; preds = %ehcleanup.i.i, %lpad4.body.i.i
   %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i ], [ %eh.lpad-body.i.i, %lpad4.body.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_name_.i.i) #18, !noalias !4
-  call void @_ZN31grpc_channel_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i) #18, !noalias !4
+  call void @_ZN31grpc_channel_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call.i) #18, !noalias !4
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i: ; preds = %ehcleanup15.i.i, %if.then.i.i30.i.i, %if.then.i27.i.i, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit25.i.i
@@ -361,7 +361,7 @@ do.end:                                           ; preds = %entry
   store ptr null, ptr %server_credentials, align 8, !noalias !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i), !noalias !7
   store ptr %0, ptr %agg.tmp2.i.i, align 8, !noalias !7
-  invoke void @_ZN30grpc_server_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI23grpc_server_credentialsEE(ptr noundef nonnull align 8 dereferenceable(40) %call.i, i64 5, ptr nonnull @.str.9, ptr noundef nonnull %agg.tmp2.i.i)
+  invoke void @_ZN30grpc_server_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI23grpc_server_credentialsEE(ptr noundef nonnull align 8 dereferenceable(56) %call.i, i64 5, ptr nonnull @.str.9, ptr noundef nonnull %agg.tmp2.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !7
 
 invoke.cont.i.i:                                  ; preds = %do.end
@@ -745,7 +745,7 @@ call.i.noexc:                                     ; preds = %.noexc3
   %cipher_suites.i.i = getelementptr inbounds i8, ptr %options.i, i64 32
   %session_ticket_key.i.i = getelementptr inbounds i8, ptr %options.i, i64 56
   %max_tls_version.i.i = getelementptr inbounds i8, ptr %options.i, i64 76
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %options.i, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(113) %options.i, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %cipher_suites.i.i, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %session_ticket_key.i.i, i8 0, i64 20, i1 false)
   store i32 1, ptr %max_tls_version.i.i, align 4
@@ -1978,7 +1978,7 @@ if.then.i.i:                                      ; preds = %invoke.cont21
 
 if.then.i.i.i11:                                  ; preds = %if.then.i.i
   call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #18
-  call void @_ZdlPv(ptr noundef nonnull %15) #19
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %15) #19
   br label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit
 
 _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit: ; preds = %if.then.i.i, %if.then.i.i.i11
@@ -1993,7 +1993,7 @@ if.then.i:                                        ; preds = %_ZN9grpc_core13RefC
 
 if.then.i.i12:                                    ; preds = %if.then.i
   call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pr) #18
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #19
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #19
   br label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit: ; preds = %invoke.cont21, %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSEOS2_.exit, %if.then.i, %if.then.i.i12
@@ -2135,7 +2135,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i6:                                       ; preds = %if.then.i
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %entry, %if.then.i6, %if.then.i
@@ -2201,7 +2201,7 @@ common.ret11:                                     ; preds = %if.then.i5, %_ZNSt1
 
 if.then.i8:                                       ; preds = %if.then.i5
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
   br label %common.ret11
 
 terminate.lpad.loopexit:                          ; preds = %for.body

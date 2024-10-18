@@ -534,7 +534,7 @@ define hidden void @_ZN15fieldDescriptor12print_on_forEP12outputStreamP7oopDesc(
   %.sroa.1.0.copyload.i70 = load i32, ptr %.sroa.1.0..sroa_idx.i69, align 8
   %16 = sext i32 %.sroa.1.0.copyload.i70 to i64
   %17 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %18 = tail call noundef ptr %17(ptr noundef nonnull %2, i64 noundef %16) #10
+  %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %16) #10
   %.not52 = icmp eq ptr %18, null
   br i1 %.not52, label %23, label %19
 
@@ -542,7 +542,7 @@ define hidden void @_ZN15fieldDescriptor12print_on_forEP12outputStreamP7oopDesc(
   %.sroa.1.0.copyload.i72 = load i32, ptr %.sroa.1.0..sroa_idx.i69, align 8
   %20 = sext i32 %.sroa.1.0.copyload.i72 to i64
   %21 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %22 = tail call noundef ptr %21(ptr noundef nonnull %2, i64 noundef %20) #10
+  %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %20) #10
   tail call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %1) #10
   br label %35
 
@@ -555,7 +555,7 @@ define hidden void @_ZN15fieldDescriptor12print_on_forEP12outputStreamP7oopDesc(
   %.sroa.1.0.copyload.i74 = load i32, ptr %.sroa.1.0..sroa_idx.i73, align 8
   %25 = sext i32 %.sroa.1.0.copyload.i74 to i64
   %26 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull %2, i64 noundef %25) #10
+  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %25) #10
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %32, label %28
 
@@ -563,7 +563,7 @@ define hidden void @_ZN15fieldDescriptor12print_on_forEP12outputStreamP7oopDesc(
   %.sroa.1.0.copyload.i76 = load i32, ptr %.sroa.1.0..sroa_idx.i73, align 8
   %29 = sext i32 %.sroa.1.0.copyload.i76 to i64
   %30 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %31 = tail call noundef ptr %30(ptr noundef nonnull %2, i64 noundef %29) #10
+  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %29) #10
   tail call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %1) #10
   br label %35
 

@@ -203,7 +203,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %9 = load ptr, ptr %m_fml.i, align 8, !noalias !4
   tail call void @_ZN2bv5slice10process_eqEP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %9)
   %10 = load ptr, ptr %m.i, align 8
-  %call2.i.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+  %call2.i.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %10)
   br i1 %call2.i.i, label %lor.lhs.false.i, label %_ZN25dependent_expr_simplifier8iteratorppEv.exit
 
 lor.lhs.false.i:                                  ; preds = %for.body
@@ -2269,7 +2269,7 @@ lpad162:                                          ; preds = %invoke.cont159
 
 for.inc166:                                       ; preds = %invoke.cont152, %invoke.cont163
   %238 = load ptr, ptr %m, align 8
-  %call2.i.i374 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %238)
+  %call2.i.i374 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %238)
           to label %call2.i.i.noexc unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call2.i.i.noexc:                                  ; preds = %for.inc166
@@ -3078,7 +3078,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then12
   br i1 %cmp5.i.i, label %if.then.i.i, label %invoke.cont15
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then12
-  call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
+  call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %20)
   %.pre.i.i = load ptr, ptr %20, align 8
   %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
@@ -3211,7 +3211,7 @@ lor.lhs.false.i.i93:                              ; preds = %if.then27
   br i1 %cmp5.i.i96, label %if.then.i.i101, label %invoke.cont32
 
 if.then.i.i101:                                   ; preds = %lor.lhs.false.i.i93, %if.then27
-  call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %40)
+  call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %40)
   %.pre.i.i102 = load ptr, ptr %40, align 8
   %arrayidx8.phi.trans.insert.i.i103 = getelementptr inbounds i8, ptr %.pre.i.i102, i64 -4
   %.pre1.i.i104 = load i32, ptr %arrayidx8.phi.trans.insert.i.i103, align 4
@@ -4013,7 +4013,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -4138,7 +4138,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

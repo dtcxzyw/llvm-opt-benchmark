@@ -275,7 +275,7 @@ default.unreachable:                              ; preds = %.noexc, %26
 
 113:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %114 = invoke align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr align 8 %3, i32 %107, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.8)
+  %114 = invoke align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr align 8 %3, i32 range(i32 1, 0) %107, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.8)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %113
@@ -353,7 +353,7 @@ default.unreachable:                              ; preds = %.noexc, %26
 
 142:                                              ; preds = %152, %._crit_edge.thread.i, %._crit_edge.i, %.noexc21
   %.sroa.02.1.i = phi i64 [ %128, %.noexc21 ], [ %155, %152 ], [ 0, %._crit_edge.thread.i ], [ %.sroa.02.0.be.i, %._crit_edge.i ]
-  %143 = invoke align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 %107, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.11)
+  %143 = invoke align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 range(i32 1, 0) %107, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.11)
           to label %_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit unwind label %.loopexit.split-lp.loopexit
 
 144:                                              ; preds = %.noexc23

@@ -179,7 +179,7 @@ define noundef zeroext i1 @_ZN6google8protobuf4util32ParseDelimitedFromZeroCopyS
 entry:
   %coded_input = alloca %"class.google::protobuf::io::CodedInputStream", align 8
   %input_.i = getelementptr inbounds i8, ptr %coded_input, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %coded_input, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %coded_input, i8 0, i64 16, i1 false)
   store ptr %input, ptr %input_.i, align 8
   %total_bytes_read_.i = getelementptr inbounds i8, ptr %coded_input, i64 24
   %current_limit_.i = getelementptr inbounds i8, ptr %coded_input, i64 40
@@ -356,7 +356,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %1)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %1)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %if.end
@@ -382,7 +382,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i, align 1
   store ptr %incdec.ptr2.i.i.i, ptr %cur_.i, align 8
-  %call.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream34GetDirectBufferForNBytesAndAdvanceEiPPh(ptr noundef nonnull align 8 dereferenceable(60) %output, i32 noundef %conv, ptr noundef nonnull %cur_.i)
+  %call.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream34GetDirectBufferForNBytesAndAdvanceEiPPh(ptr noundef nonnull align 8 dereferenceable(80) %output, i32 noundef %conv, ptr noundef nonnull %cur_.i)
   %cmp3.not = icmp eq ptr %call.i, null
   br i1 %cmp3.not, label %if.else, label %if.then4
 
@@ -397,7 +397,7 @@ if.else:                                          ; preds = %_ZN6google8protobuf
   %5 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %4, ptr noundef nonnull %output)
   store ptr %call3.i, ptr %cur_.i, align 8
-  %call.i11 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call3.i)
+  %call.i11 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call3.i)
   store ptr %call.i11, ptr %cur_.i, align 8
   %had_error_.i.i = getelementptr inbounds i8, ptr %output, i64 56
   %6 = load i8, ptr %had_error_.i.i, align 8

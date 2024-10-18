@@ -518,7 +518,7 @@ entry:
   %ref.tmp1 = alloca %"class.icu_75::UnicodeString", align 8
   %dq = alloca %"class.icu_75::number::impl::DecimalQuantity", align 8
   %localStatus = alloca i32, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer)
   %len.i = getelementptr inbounds i8, ptr %buffer, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %buffer, align 8
@@ -721,12 +721,12 @@ cleanup:                                          ; preds = %invoke.cont57, %if.
   br label %cleanup59
 
 cleanup59:                                        ; preds = %cleanup, %if.then15, %if.then
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer) #20
   ret void
 
 ehcleanup60:                                      ; preds = %lpad19, %ehcleanup, %lpad
   %.pn10 = phi { ptr, i32 } [ %12, %lpad19 ], [ %5, %lpad ], [ %.pn, %ehcleanup ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer) #20
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer) #20
   resume { ptr, i32 } %.pn10
 }
 
@@ -1530,9 +1530,9 @@ if.end.i:                                         ; preds = %entry
   %isoCode.i.i = getelementptr inbounds i8, ptr %currency, i64 20
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %fUnion.i, align 8, !noalias !52
-  %call2.i = call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %1, ptr noundef nonnull %localStatus), !noalias !52
+  %call2.i = call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %localStatus), !noalias !52
   %2 = load i32, ptr %fUnion.i, align 8, !noalias !52
-  %call4.i = call i32 @ucurr_getDefaultFractionDigitsForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %2, ptr noundef nonnull %localStatus), !noalias !52
+  %call4.i = call i32 @ucurr_getDefaultFractionDigitsForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %localStatus), !noalias !52
   %cmp5.i = fcmp une double %call2.i, 0.000000e+00
   br i1 %cmp5.i, label %cond.true.i, label %cond.false.i
 
@@ -1657,9 +1657,9 @@ if.end.i:                                         ; preds = %entry
   %isoCode.i.i = getelementptr inbounds i8, ptr %currency, i64 20
   %fUnion.i = getelementptr inbounds i8, ptr %precision, i64 8
   %1 = load i32, ptr %fUnion.i, align 8, !noalias !55
-  %call2.i = tail call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %1, ptr noundef nonnull %status), !noalias !55
+  %call2.i = tail call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !55
   %2 = load i32, ptr %fUnion.i, align 8, !noalias !55
-  %call4.i = tail call i32 @ucurr_getDefaultFractionDigitsForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %2, ptr noundef nonnull %status), !noalias !55
+  %call4.i = tail call i32 @ucurr_getDefaultFractionDigitsForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !55
   %cmp5.i = fcmp une double %call2.i, 0.000000e+00
   br i1 %cmp5.i, label %cond.true.i, label %cond.false.i
 

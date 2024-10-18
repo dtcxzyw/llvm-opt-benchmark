@@ -90,7 +90,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i.i.i.i)
   %ref.tmp.sroa.0.0.insert.ext.i.i = zext i32 %el to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext.i.i, ptr %temp.i.i.i.i, align 8
-  %call.i.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i)
+  %call.i.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i.i.i.i)
   %0 = load ptr, ptr %et.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i.i)
@@ -110,7 +110,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i.i.i)
   %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %el to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext.i, ptr %temp.i.i.i, align 8
-  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
+  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i.i.i)
   %0 = load ptr, ptr %et.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i)
@@ -138,7 +138,7 @@ for.body:                                         ; preds = %for.body.preheader,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i.i.i.i.i)
   %ref.tmp.sroa.0.0.insert.ext.i.i.i = zext i32 %0 to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext.i.i.i, ptr %temp.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i)
+  %call.i.i.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i.i.i.i.i)
   %1 = load ptr, ptr %et.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i.i.i)
@@ -1343,7 +1343,7 @@ lpad.i:                                           ; preds = %call.i.i.i.i.i.i.i.
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_visited.i) #18
-  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %aux_counter) #18
+  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %aux_counter) #18
   br label %ehcleanup
 
 invoke.cont48:                                    ; preds = %call.i.i.i.i.i.i.i.i.noexc
@@ -1759,7 +1759,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

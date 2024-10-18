@@ -2418,7 +2418,7 @@ define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.848, i32 noundef %21, i32 noundef 19) #3
+  %30 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.848, i32 noundef range(i32 0, 256) %21, i32 noundef 19) #3
   br label %dissect_isis_lsp_clv_mt_cap_spb_instance.exit
 
 31:                                               ; preds = %27
@@ -2426,7 +2426,7 @@ define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #3
   %34 = add nuw nsw i32 %21, 2
   %35 = load i32, ptr @ett_isis_lsp_clv_mt_cap_spb_instance, align 4
-  %36 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.089, i32 noundef %34, i32 noundef %35, ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef 1, i32 noundef %21) #3
+  %36 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.089, i32 noundef %34, i32 noundef %35, ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef 1, i32 noundef range(i32 0, 256) %21) #3
   %37 = load i32, ptr @hf_isis_lsp_mt_cap_spb_instance_cist_root_identifier, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %20, i32 noundef 8, i32 noundef 0) #3
   %39 = load i32, ptr @hf_isis_lsp_mt_cap_spb_instance_cist_external_root_path_cost, align 4
@@ -2521,13 +2521,13 @@ define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %92
-  %95 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.854, i32 noundef %21, i32 noundef 8) #3
+  %95 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.854, i32 noundef range(i32 0, 256) %21, i32 noundef 8) #3
   br label %dissect_isis_lsp_clv_mt_cap_spb_instance.exit
 
 96:                                               ; preds = %92
   %97 = add nuw nsw i32 %21, 2
   %98 = load i32, ptr @ett_isis_lsp_clv_mt_cap_spbm_service_identifier, align 4
-  %99 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.089, i32 noundef %97, i32 noundef %98, ptr noundef null, ptr noundef nonnull @.str.855, i32 noundef 3, i32 noundef %21) #3
+  %99 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.089, i32 noundef %97, i32 noundef %98, ptr noundef null, ptr noundef nonnull @.str.855, i32 noundef 3, i32 noundef range(i32 0, 256) %21) #3
   %100 = load i32, ptr @hf_isis_lsp_mt_cap_spbm_service_identifier_b_mac, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %0, i32 noundef %20, i32 noundef 6, i32 noundef 0) #3
   %102 = load i32, ptr @hf_isis_lsp_mt_cap_spbm_service_identifier_base_vid, align 4
@@ -2567,13 +2567,13 @@ define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
-  %120 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.857, i32 noundef %21, i32 noundef 2) #3
+  %120 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %20, i32 noundef -1, ptr noundef nonnull @.str.857, i32 noundef range(i32 0, 256) %21, i32 noundef 2) #3
   br label %dissect_isis_lsp_clv_mt_cap_spb_instance.exit
 
 121:                                              ; preds = %117
   %122 = add nuw nsw i32 %21, 2
   %123 = load i32, ptr @ett_isis_lsp_clv_mt_cap_spbv_mac_address, align 4
-  %124 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.089, i32 noundef %122, i32 noundef %123, ptr noundef null, ptr noundef nonnull @.str.858, i32 noundef 4, i32 noundef %21) #3
+  %124 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.089, i32 noundef %122, i32 noundef %123, ptr noundef null, ptr noundef nonnull @.str.858, i32 noundef 4, i32 noundef range(i32 0, 256) %21) #3
   %125 = load i32, ptr @hf_isis_lsp_spb_reserved, align 4
   %126 = tail call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0) #3
   %127 = load i32, ptr @hf_isis_lsp_spb_sr_bit, align 4
@@ -3257,7 +3257,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %.064, i32 noundef %.02363, ptr noundef nonnull @.str.898, i32 noundef %.02363) #3
+  %28 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %.064, i32 noundef range(i32 1, 2147483646) %.02363, ptr noundef nonnull @.str.898, i32 noundef range(i32 1, 2147483646) %.02363) #3
   br label %dissect_lsp_srv6_locator_entry.exit.thread
 
 29:                                               ; preds = %25
@@ -3280,7 +3280,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %36
-  %42 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %.064, i32 noundef %.02363, ptr noundef nonnull @.str.900, i32 noundef %.02363, i32 noundef %39) #3
+  %42 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %.064, i32 noundef range(i32 1, 2147483646) %.02363, ptr noundef nonnull @.str.900, i32 noundef range(i32 1, 2147483646) %.02363, i32 noundef %39) #3
   br label %dissect_lsp_srv6_locator_entry.exit.thread
 
 43:                                               ; preds = %36
@@ -3293,7 +3293,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %43
-  %51 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %.064, i32 noundef %.02363, ptr noundef nonnull @.str.901, i32 noundef %48, i32 noundef %.02363) #3
+  %51 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %.064, i32 noundef range(i32 1, 2147483646) %.02363, ptr noundef nonnull @.str.901, i32 noundef %48, i32 noundef range(i32 1, 2147483646) %.02363) #3
   br label %dissect_lsp_srv6_locator_entry.exit.thread
 
 52:                                               ; preds = %43
@@ -3373,7 +3373,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   br i1 %.not.i.i.i, label %103, label %101
 
 101:                                              ; preds = %100
-  %102 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %.012910.i, i32 noundef 2, ptr noundef nonnull @.str.837, i32 noundef %84) #3
+  %102 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %.012910.i, i32 noundef 2, ptr noundef nonnull @.str.837, i32 noundef range(i32 0, 254) %84) #3
   br label %dissect_lsp_srv6_locator_subclv.exit.i
 
 103:                                              ; preds = %100
@@ -3402,7 +3402,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %115
-  %118 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %.012910.i, i32 noundef %85, ptr noundef nonnull @.str.905, i32 noundef %84) #3
+  %118 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %.012910.i, i32 noundef %85, ptr noundef nonnull @.str.905, i32 noundef range(i32 0, 254) %84) #3
   br label %dissect_lsp_srv6_locator_subclv.exit.i
 
 119:                                              ; preds = %115
@@ -3475,7 +3475,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   br i1 %160, label %.lr.ph.i.i, label %dissect_lsp_srv6_locator_subclv.exit.i, !llvm.loop !25
 
 161:                                              ; preds = %97
-  %162 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_subtlv, ptr noundef %0, i32 noundef %98, i32 noundef %84, ptr noundef nonnull @.str.908, i32 noundef %81, i32 noundef %84) #3
+  %162 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_subtlv, ptr noundef %0, i32 noundef %98, i32 noundef range(i32 0, 254) %84, ptr noundef nonnull @.str.908, i32 noundef range(i32 0, 256) %81, i32 noundef range(i32 0, 254) %84) #3
   br label %dissect_lsp_srv6_locator_subclv.exit.i
 
 dissect_lsp_srv6_locator_subclv.exit.i:           ; preds = %157, %161, %151, %137, %.preheader.i.i, %117, %108, %103, %101
@@ -4150,7 +4150,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
 136:                                              ; preds = %8
   %137 = add i32 %25, %20
   %138 = load i32, ptr @ett_isis_lsp_subclv_bw_ct, align 4
-  %139 = call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %9, i32 noundef %20, i32 noundef %138, ptr noundef null, ptr noundef nonnull @.str.820) #3
+  %139 = call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %9, i32 noundef range(i32 0, 256) %20, i32 noundef %138, ptr noundef null, ptr noundef nonnull @.str.820) #3
   %140 = load i32, ptr @hf_isis_lsp_bw_ct_model, align 4
   %141 = call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #3
   %142 = add i32 %9, 3
@@ -4279,7 +4279,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   br i1 %.not.i338, label %227, label %225
 
 225:                                              ; preds = %224
-  %226 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %25, i32 noundef -1, ptr noundef nonnull @.str.821, i32 noundef %20, i32 noundef 6) #3
+  %226 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %25, i32 noundef -1, ptr noundef nonnull @.str.821, i32 noundef range(i32 0, 256) %20, i32 noundef 6) #3
   br label %dissect_subclv_admin_group.exit
 
 227:                                              ; preds = %224
@@ -4329,7 +4329,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   br i1 %257, label %260, label %258
 
 258:                                              ; preds = %255
-  %259 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %25, i32 noundef %20, ptr noundef nonnull @.str.823) #3
+  %259 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %25, i32 noundef range(i32 0, 256) %20, ptr noundef nonnull @.str.823) #3
   br label %260
 
 260:                                              ; preds = %258, %255
@@ -4343,7 +4343,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   br i1 %.not53.i, label %267, label %265
 
 265:                                              ; preds = %263
-  %266 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %25, i32 noundef %20, ptr noundef nonnull @.str.824) #3
+  %266 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %25, i32 noundef range(i32 0, 256) %20, ptr noundef nonnull @.str.824) #3
   br label %267
 
 267:                                              ; preds = %265, %263
@@ -4358,7 +4358,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   br i1 %.not.i340, label %273, label %275
 
 273:                                              ; preds = %270
-  %274 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %25, i32 noundef %20, ptr noundef nonnull @.str.825) #3
+  %274 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %25, i32 noundef range(i32 0, 256) %20, ptr noundef nonnull @.str.825) #3
   br label %275
 
 275:                                              ; preds = %273, %270
@@ -4744,7 +4744,7 @@ define internal fastcc void @dissect_ipreach_subclv(ptr noundef %0, ptr noundef 
 
 48:                                               ; preds = %47
   %49 = add i32 %4, -2
-  %50 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %49, i32 noundef 2, ptr noundef nonnull @.str.837, i32 noundef %6) #3
+  %50 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %49, i32 noundef 2, ptr noundef nonnull @.str.837, i32 noundef range(i32 0, 256) %6) #3
   br label %dissect_prefix_attr_flags_subclv.exit
 
 51:                                               ; preds = %47
@@ -4836,7 +4836,7 @@ define internal fastcc void @dissect_ipreach_subclv(ptr noundef %0, ptr noundef 
   br i1 %.not.i.i, label %106, label %104
 
 104:                                              ; preds = %103
-  %105 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %94, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %99, i32 noundef %91, ptr noundef nonnull @.str.843, i32 noundef %91) #3
+  %105 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %94, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_malformed_subtlv, ptr noundef %0, i32 noundef %99, i32 noundef range(i32 0, 256) %91, ptr noundef nonnull @.str.843, i32 noundef range(i32 0, 256) %91) #3
   br label %dissect_bierinfo_subsubtlv.exit.i
 
 106:                                              ; preds = %103

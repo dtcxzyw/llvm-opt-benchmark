@@ -2286,7 +2286,7 @@ remember_outgoing_sr.exit.i:                      ; preds = %273, %240, %proto_i
 
 277:                                              ; preds = %remember_outgoing_sr.exit.i
   %278 = add nsw i32 %107, -24
-  %279 = call fastcc i32 @dissect_rtcp_rr(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %230, ptr noundef %114, i32 noundef %185, i32 noundef %278)
+  %279 = call fastcc i32 @dissect_rtcp_rr(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %230, ptr noundef %114, i32 noundef range(i32 0, 32) %185, i32 noundef %278)
   br label %dissect_rtcp_sr.exit
 
 280:                                              ; preds = %remember_outgoing_sr.exit.i
@@ -2590,10 +2590,10 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %288
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %30)
-  %446 = call ptr @val_to_str(i32 noundef %185, ptr noundef nonnull @rtcp_app_poc1_floor_cnt_type_vals, ptr noundef nonnull @.str.867) #7
+  %446 = call ptr @val_to_str(i32 noundef range(i32 0, 32) %185, ptr noundef nonnull @rtcp_app_poc1_floor_cnt_type_vals, ptr noundef nonnull @.str.867) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %397, ptr noundef nonnull @.str.868, ptr noundef %446) #7
   %447 = load ptr, ptr %77, align 8
-  %448 = call ptr @val_to_str(i32 noundef %185, ptr noundef nonnull @rtcp_app_poc1_floor_cnt_type_vals, ptr noundef nonnull @.str.867) #7
+  %448 = call ptr @val_to_str(i32 noundef range(i32 0, 32) %185, ptr noundef nonnull @rtcp_app_poc1_floor_cnt_type_vals, ptr noundef nonnull @.str.867) #7
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %447, i32 noundef 25, ptr noundef nonnull @.str.891, ptr noundef %448) #7
   %449 = add i32 %.032963240, 12
   %450 = add nsw i32 %.0149.i, -4
@@ -3042,7 +3042,7 @@ dissect_rtcp_app_poc1.exit.i:                     ; preds = %688, %.loopexit.i.i
 697:                                              ; preds = %693
   %698 = load ptr, ptr %77, align 8
   %699 = load ptr, ptr %31, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %698, i32 noundef 25, ptr noundef nonnull @.str.887, ptr noundef %699, i32 noundef %185) #7
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %698, i32 noundef 25, ptr noundef nonnull @.str.887, ptr noundef %699, i32 noundef range(i32 0, 32) %185) #7
   %700 = add i32 %.032963240, 12
   %701 = add nsw i32 %.0149.i, -4
   br i1 %.not160.i, label %708, label %702
@@ -3110,12 +3110,12 @@ dissect_rtcp_app_poc1.exit.i:                     ; preds = %688, %.loopexit.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
   %737 = load ptr, ptr %77, align 8
-  %738 = call ptr @val_to_str(i32 noundef %185, ptr noundef nonnull @rtcp_mcpt_subtype_vals, ptr noundef nonnull @.str.867) #7
+  %738 = call ptr @val_to_str(i32 noundef range(i32 0, 32) %185, ptr noundef nonnull @rtcp_mcpt_subtype_vals, ptr noundef nonnull @.str.867) #7
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %737, i32 noundef 25, ptr noundef nonnull @.str.866, ptr noundef %738) #7
-  %739 = call ptr @val_to_str(i32 noundef %185, ptr noundef nonnull @rtcp_mcpt_subtype_vals, ptr noundef nonnull @.str.867) #7
+  %739 = call ptr @val_to_str(i32 noundef range(i32 0, 32) %185, ptr noundef nonnull @rtcp_mcpt_subtype_vals, ptr noundef nonnull @.str.867) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %397, ptr noundef nonnull @.str.868, ptr noundef %739) #7
   %740 = load i32, ptr @ett_rtcp_mcpt, align 4
-  %741 = call ptr @proto_tree_add_subtree(ptr noundef %114, ptr noundef %0, i32 noundef %410, i32 noundef %.0149.i, i32 noundef %740, ptr noundef null, ptr noundef nonnull @.str.912) #7
+  %741 = call ptr @proto_tree_add_subtree(ptr noundef %114, ptr noundef %0, i32 noundef %410, i32 noundef range(i32 -259, 262137) %.0149.i, i32 noundef %740, ptr noundef null, ptr noundef nonnull @.str.912) #7
   %742 = add i32 %.032963240, 12
   %743 = add nsw i32 %.0149.i, -4
   %744 = icmp eq i32 %743, 0
@@ -3551,9 +3551,9 @@ dissect_rtcp_app_mcpt.exit.i:                     ; preds = %974, %749, %.prehea
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %981 = load ptr, ptr %77, align 8
-  %982 = call ptr @val_to_str(i32 noundef %185, ptr noundef nonnull @rtcp_mccp_subtype_vals, ptr noundef nonnull @.str.867) #7
+  %982 = call ptr @val_to_str(i32 noundef range(i32 0, 32) %185, ptr noundef nonnull @rtcp_mccp_subtype_vals, ptr noundef nonnull @.str.867) #7
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %981, i32 noundef 25, ptr noundef nonnull @.str.915, ptr noundef %982) #7
-  %983 = call ptr @val_to_str(i32 noundef %185, ptr noundef nonnull @rtcp_mccp_subtype_vals, ptr noundef nonnull @.str.867) #7
+  %983 = call ptr @val_to_str(i32 noundef range(i32 0, 32) %185, ptr noundef nonnull @rtcp_mccp_subtype_vals, ptr noundef nonnull @.str.867) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %397, ptr noundef nonnull @.str.868, ptr noundef %983) #7
   %984 = icmp slt i32 %.0149.i, 1
   br i1 %984, label %985, label %988
@@ -3745,7 +3745,7 @@ dissect_rtcp_app_mccp.exit.i:                     ; preds = %1078, %988
 1097:                                             ; preds = %1080
   %1098 = load ptr, ptr %77, align 8
   %1099 = load ptr, ptr %31, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1098, i32 noundef 25, ptr noundef nonnull @.str.887, ptr noundef %1099, i32 noundef %185) #7
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1098, i32 noundef 25, ptr noundef nonnull @.str.887, ptr noundef %1099, i32 noundef range(i32 0, 32) %185) #7
   %1100 = add i32 %.032963240, 12
   %1101 = add nsw i32 %.0149.i, -4
   br i1 %.not160.i, label %1108, label %1102
@@ -3772,7 +3772,7 @@ dissect_rtcp_app_mccp.exit.i:                     ; preds = %1078, %988
 
 1113:                                             ; preds = %440
   %1114 = load ptr, ptr %77, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1114, i32 noundef 25, ptr noundef nonnull @.str.890, i32 noundef %185) #7
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1114, i32 noundef 25, ptr noundef nonnull @.str.890, i32 noundef range(i32 0, 32) %185) #7
   %1115 = add i32 %.032963240, 12
   %1116 = add nsw i32 %.0149.i, -4
   br i1 %.not160.i, label %1123, label %1117
@@ -3818,7 +3818,7 @@ dissect_rtcp_app.exit:                            ; preds = %dissect_rtcp_app_po
   br i1 %1138, label %1139, label %1141
 
 1139:                                             ; preds = %1128
-  %1140 = call ptr @proto_tree_add_expert(ptr noundef %114, ptr noundef nonnull %1, ptr noundef nonnull @ei_rtcp_missing_sender_ssrc, ptr noundef %0, i32 noundef %1137, i32 noundef %107) #7
+  %1140 = call ptr @proto_tree_add_expert(ptr noundef %114, ptr noundef nonnull %1, ptr noundef nonnull @ei_rtcp_missing_sender_ssrc, ptr noundef %0, i32 noundef %1137, i32 noundef range(i32 0, 262141) %107) #7
   br label %dissect_rtcp_xr.exit
 
 1141:                                             ; preds = %1128
@@ -3893,7 +3893,7 @@ parse_xr_type_specific_field.exit.i:              ; preds = %1168, %1167, %1161
   %1174 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1173) #7
   %1175 = zext i16 %1174 to i32
   %1176 = load i32, ptr @hf_rtcp_xr_block_length, align 4
-  %1177 = call ptr @proto_tree_add_uint(ptr noundef %1156, i32 noundef %1176, ptr noundef %0, i32 noundef %1173, i32 noundef 2, i32 noundef %1175) #7
+  %1177 = call ptr @proto_tree_add_uint(ptr noundef %1156, i32 noundef %1176, ptr noundef %0, i32 noundef %1173, i32 noundef 2, i32 noundef range(i32 0, 65536) %1175) #7
   %1178 = shl nuw nsw i32 %1175, 2
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1177, ptr noundef nonnull @.str.873, i32 noundef %1178) #7
   switch i8 %1154, label %validate_xr_block_length.exit.i [

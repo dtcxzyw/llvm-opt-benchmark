@@ -325,7 +325,7 @@ entry:
   %position.i = getelementptr inbounds i8, ptr %lexer, i64 32
   %token_string.i = getelementptr inbounds i8, ptr %lexer, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %position.i, i8 0, i64 48, i1 false)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %token_string.i) #19
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %token_string.i) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %token_string.i, i8 0, i64 24, i1 false)
   %token_buffer.i = getelementptr inbounds i8, ptr %lexer, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i) #19
@@ -368,7 +368,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont4
   br label %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEED2Ev.exit
 
 _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEED2Ev.exit: ; preds = %invoke.cont4, %if.then.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %token_string.i) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %token_string.i) #19
   ret void
 
 lpad:                                             ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEEC2EOSJ_b.exit
@@ -636,7 +636,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %token_string) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %token_string) #19
   ret void
 }
 
@@ -3051,7 +3051,7 @@ invoke.cont898:                                   ; preds = %for.body
           to label %invoke.cont902 unwind label %lpad901
 
 invoke.cont902:                                   ; preds = %invoke.cont898
-  invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_13)
+  invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_13)
           to label %invoke.cont905 unwind label %lpad901
 
 invoke.cont905:                                   ; preds = %invoke.cont902
@@ -3196,7 +3196,7 @@ sw.epilog:                                        ; preds = %invoke.cont945, %in
   br i1 %tobool.i, label %if.then.i, label %"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_2vE3$_0ED2Ev.exit"
 
 if.then.i:                                        ; preds = %sw.epilog
-  invoke void @_ZN7doctest6detail16ContextScopeBase7destroyEv(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_13)
+  invoke void @_ZN7doctest6detail16ContextScopeBase7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_13)
           to label %"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_2vE3$_0ED2Ev.exit" unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -3207,7 +3207,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 "_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_2vE3$_0ED2Ev.exit": ; preds = %sw.epilog, %if.then.i
-  call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #19
+  call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_13) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #19
   %inc = add nuw nsw i32 %c.0706, 1
   %exitcond.not = icmp eq i32 %inc, 128
@@ -3393,7 +3393,7 @@ invoke.cont1028:                                  ; preds = %invoke.cont1022
 invoke.cont1032:                                  ; preds = %invoke.cont1028
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %158 = load i32, ptr %ref.tmp1027, align 4, !noalias !12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1026, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1029) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1026, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1029) #19
   %m_at.i.i = getelementptr inbounds i8, ptr %ref.tmp1026, i64 32
   store i32 %158, ptr %m_at.i.i, align 8, !alias.scope !12
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1025, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1026, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3406,7 +3406,7 @@ invoke.cont1034:                                  ; preds = %invoke.cont1032
 invoke.cont1036:                                  ; preds = %invoke.cont1034
   %m_decomp.i497 = getelementptr inbounds i8, ptr %ref.tmp1025, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i497) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1026) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1026) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1029) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1043, i32 noundef 10)
           to label %invoke.cont1044 unwind label %lpad1005
@@ -3443,7 +3443,7 @@ invoke.cont1060:                                  ; preds = %invoke.cont1054
 invoke.cont1064:                                  ; preds = %invoke.cont1060
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %160 = load i32, ptr %ref.tmp1059, align 4, !noalias !15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1058, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1061) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1058, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1061) #19
   %m_at.i.i504 = getelementptr inbounds i8, ptr %ref.tmp1058, i64 32
   store i32 %160, ptr %m_at.i.i504, align 8, !alias.scope !15
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1057, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1058, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3456,7 +3456,7 @@ invoke.cont1066:                                  ; preds = %invoke.cont1064
 invoke.cont1068:                                  ; preds = %invoke.cont1066
   %m_decomp.i505 = getelementptr inbounds i8, ptr %ref.tmp1057, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i505) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1058) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1058) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1061) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1075, i32 noundef 10)
           to label %invoke.cont1076 unwind label %lpad1005
@@ -3493,7 +3493,7 @@ invoke.cont1092:                                  ; preds = %invoke.cont1086
 invoke.cont1096:                                  ; preds = %invoke.cont1092
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %162 = load i32, ptr %ref.tmp1091, align 4, !noalias !18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1090, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1093) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1090, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1093) #19
   %m_at.i.i512 = getelementptr inbounds i8, ptr %ref.tmp1090, i64 32
   store i32 %162, ptr %m_at.i.i512, align 8, !alias.scope !18
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1089, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1090, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3506,7 +3506,7 @@ invoke.cont1098:                                  ; preds = %invoke.cont1096
 invoke.cont1100:                                  ; preds = %invoke.cont1098
   %m_decomp.i513 = getelementptr inbounds i8, ptr %ref.tmp1089, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i513) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1090) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1090) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1093) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1107, i32 noundef 10)
           to label %invoke.cont1108 unwind label %lpad1005
@@ -3543,7 +3543,7 @@ invoke.cont1124:                                  ; preds = %invoke.cont1118
 invoke.cont1128:                                  ; preds = %invoke.cont1124
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %164 = load i32, ptr %ref.tmp1123, align 4, !noalias !21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1122, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1125) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1122, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1125) #19
   %m_at.i.i520 = getelementptr inbounds i8, ptr %ref.tmp1122, i64 32
   store i32 %164, ptr %m_at.i.i520, align 8, !alias.scope !21
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1121, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1122, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3556,7 +3556,7 @@ invoke.cont1130:                                  ; preds = %invoke.cont1128
 invoke.cont1132:                                  ; preds = %invoke.cont1130
   %m_decomp.i521 = getelementptr inbounds i8, ptr %ref.tmp1121, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i521) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1122) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1122) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1125) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1139, i32 noundef 10)
           to label %invoke.cont1140 unwind label %lpad1005
@@ -3593,7 +3593,7 @@ invoke.cont1156:                                  ; preds = %invoke.cont1150
 invoke.cont1160:                                  ; preds = %invoke.cont1156
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %166 = load i32, ptr %ref.tmp1155, align 4, !noalias !24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1154, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1157) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1154, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1157) #19
   %m_at.i.i528 = getelementptr inbounds i8, ptr %ref.tmp1154, i64 32
   store i32 %166, ptr %m_at.i.i528, align 8, !alias.scope !24
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1153, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1154, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3606,7 +3606,7 @@ invoke.cont1162:                                  ; preds = %invoke.cont1160
 invoke.cont1164:                                  ; preds = %invoke.cont1162
   %m_decomp.i529 = getelementptr inbounds i8, ptr %ref.tmp1153, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i529) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1154) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1154) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1157) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1171, i32 noundef 10)
           to label %invoke.cont1172 unwind label %lpad1005
@@ -3643,7 +3643,7 @@ invoke.cont1188:                                  ; preds = %invoke.cont1182
 invoke.cont1192:                                  ; preds = %invoke.cont1188
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %168 = load i32, ptr %ref.tmp1187, align 4, !noalias !27
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1186, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1189) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1186, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1189) #19
   %m_at.i.i536 = getelementptr inbounds i8, ptr %ref.tmp1186, i64 32
   store i32 %168, ptr %m_at.i.i536, align 8, !alias.scope !27
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1185, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1186, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3656,7 +3656,7 @@ invoke.cont1194:                                  ; preds = %invoke.cont1192
 invoke.cont1196:                                  ; preds = %invoke.cont1194
   %m_decomp.i537 = getelementptr inbounds i8, ptr %ref.tmp1185, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i537) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1186) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1186) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1189) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1203, i32 noundef 10)
           to label %invoke.cont1204 unwind label %lpad1005
@@ -3693,7 +3693,7 @@ invoke.cont1220:                                  ; preds = %invoke.cont1214
 invoke.cont1224:                                  ; preds = %invoke.cont1220
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %170 = load i32, ptr %ref.tmp1219, align 4, !noalias !30
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1218, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1221) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1218, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1221) #19
   %m_at.i.i544 = getelementptr inbounds i8, ptr %ref.tmp1218, i64 32
   store i32 %170, ptr %m_at.i.i544, align 8, !alias.scope !30
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1217, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1218, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3706,7 +3706,7 @@ invoke.cont1226:                                  ; preds = %invoke.cont1224
 invoke.cont1228:                                  ; preds = %invoke.cont1226
   %m_decomp.i545 = getelementptr inbounds i8, ptr %ref.tmp1217, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i545) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1218) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1218) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1221) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1235, i32 noundef 10)
           to label %invoke.cont1236 unwind label %lpad1005
@@ -3743,7 +3743,7 @@ invoke.cont1252:                                  ; preds = %invoke.cont1246
 invoke.cont1256:                                  ; preds = %invoke.cont1252
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %172 = load i32, ptr %ref.tmp1251, align 4, !noalias !33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1250, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1253) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1250, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1253) #19
   %m_at.i.i552 = getelementptr inbounds i8, ptr %ref.tmp1250, i64 32
   store i32 %172, ptr %m_at.i.i552, align 8, !alias.scope !33
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1249, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1250, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3756,7 +3756,7 @@ invoke.cont1258:                                  ; preds = %invoke.cont1256
 invoke.cont1260:                                  ; preds = %invoke.cont1258
   %m_decomp.i553 = getelementptr inbounds i8, ptr %ref.tmp1249, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i553) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1250) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1250) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1253) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1267, i32 noundef 10)
           to label %invoke.cont1268 unwind label %lpad1005
@@ -3793,7 +3793,7 @@ invoke.cont1284:                                  ; preds = %invoke.cont1278
 invoke.cont1288:                                  ; preds = %invoke.cont1284
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %174 = load i32, ptr %ref.tmp1283, align 4, !noalias !36
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1282, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1285) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1282, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1285) #19
   %m_at.i.i560 = getelementptr inbounds i8, ptr %ref.tmp1282, i64 32
   store i32 %174, ptr %m_at.i.i560, align 8, !alias.scope !36
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1281, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1282, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3806,7 +3806,7 @@ invoke.cont1290:                                  ; preds = %invoke.cont1288
 invoke.cont1292:                                  ; preds = %invoke.cont1290
   %m_decomp.i561 = getelementptr inbounds i8, ptr %ref.tmp1281, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i561) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1282) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1282) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1285) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1299, i32 noundef 10)
           to label %invoke.cont1300 unwind label %lpad1005
@@ -3843,7 +3843,7 @@ invoke.cont1316:                                  ; preds = %invoke.cont1310
 invoke.cont1320:                                  ; preds = %invoke.cont1316
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %176 = load i32, ptr %ref.tmp1315, align 4, !noalias !39
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1314, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1317) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1314, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1317) #19
   %m_at.i.i568 = getelementptr inbounds i8, ptr %ref.tmp1314, i64 32
   store i32 %176, ptr %m_at.i.i568, align 8, !alias.scope !39
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1313, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1314, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3856,7 +3856,7 @@ invoke.cont1322:                                  ; preds = %invoke.cont1320
 invoke.cont1324:                                  ; preds = %invoke.cont1322
   %m_decomp.i569 = getelementptr inbounds i8, ptr %ref.tmp1313, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i569) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1314) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1314) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1317) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1331, i32 noundef 10)
           to label %invoke.cont1332 unwind label %lpad1005
@@ -3893,7 +3893,7 @@ invoke.cont1348:                                  ; preds = %invoke.cont1342
 invoke.cont1352:                                  ; preds = %invoke.cont1348
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %178 = load i32, ptr %ref.tmp1347, align 4, !noalias !42
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1346, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1349) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1346, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1349) #19
   %m_at.i.i576 = getelementptr inbounds i8, ptr %ref.tmp1346, i64 32
   store i32 %178, ptr %m_at.i.i576, align 8, !alias.scope !42
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA16_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1345, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1346, ptr noundef nonnull align 1 dereferenceable(16) @.str.109)
@@ -3906,7 +3906,7 @@ invoke.cont1354:                                  ; preds = %invoke.cont1352
 invoke.cont1356:                                  ; preds = %invoke.cont1354
   %m_decomp.i577 = getelementptr inbounds i8, ptr %ref.tmp1345, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i577) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1346) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1346) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1349) #19
   br label %if.end1361
 
@@ -3947,7 +3947,7 @@ lpad1035:                                         ; preds = %invoke.cont1034
 
 ehcleanup1039:                                    ; preds = %lpad1035, %lpad1033
   %.pn68 = phi { ptr, i32 } [ %183, %lpad1035 ], [ %182, %lpad1033 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1026) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1026) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1029) #19
   br label %ehcleanup1362
 
@@ -3972,7 +3972,7 @@ lpad1067:                                         ; preds = %invoke.cont1066
 
 ehcleanup1071:                                    ; preds = %lpad1067, %lpad1065
   %.pn71 = phi { ptr, i32 } [ %186, %lpad1067 ], [ %185, %lpad1065 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1058) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1058) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1061) #19
   br label %ehcleanup1362
 
@@ -3997,7 +3997,7 @@ lpad1099:                                         ; preds = %invoke.cont1098
 
 ehcleanup1103:                                    ; preds = %lpad1099, %lpad1097
   %.pn74 = phi { ptr, i32 } [ %189, %lpad1099 ], [ %188, %lpad1097 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1090) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1090) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1093) #19
   br label %ehcleanup1362
 
@@ -4022,7 +4022,7 @@ lpad1131:                                         ; preds = %invoke.cont1130
 
 ehcleanup1135:                                    ; preds = %lpad1131, %lpad1129
   %.pn77 = phi { ptr, i32 } [ %192, %lpad1131 ], [ %191, %lpad1129 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1122) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1122) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1125) #19
   br label %ehcleanup1362
 
@@ -4047,7 +4047,7 @@ lpad1163:                                         ; preds = %invoke.cont1162
 
 ehcleanup1167:                                    ; preds = %lpad1163, %lpad1161
   %.pn80 = phi { ptr, i32 } [ %195, %lpad1163 ], [ %194, %lpad1161 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1154) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1154) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1157) #19
   br label %ehcleanup1362
 
@@ -4072,7 +4072,7 @@ lpad1195:                                         ; preds = %invoke.cont1194
 
 ehcleanup1199:                                    ; preds = %lpad1195, %lpad1193
   %.pn83 = phi { ptr, i32 } [ %198, %lpad1195 ], [ %197, %lpad1193 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1186) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1186) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1189) #19
   br label %ehcleanup1362
 
@@ -4097,7 +4097,7 @@ lpad1227:                                         ; preds = %invoke.cont1226
 
 ehcleanup1231:                                    ; preds = %lpad1227, %lpad1225
   %.pn86 = phi { ptr, i32 } [ %201, %lpad1227 ], [ %200, %lpad1225 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1218) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1218) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1221) #19
   br label %ehcleanup1362
 
@@ -4122,7 +4122,7 @@ lpad1259:                                         ; preds = %invoke.cont1258
 
 ehcleanup1263:                                    ; preds = %lpad1259, %lpad1257
   %.pn89 = phi { ptr, i32 } [ %204, %lpad1259 ], [ %203, %lpad1257 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1250) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1250) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1253) #19
   br label %ehcleanup1362
 
@@ -4147,7 +4147,7 @@ lpad1291:                                         ; preds = %invoke.cont1290
 
 ehcleanup1295:                                    ; preds = %lpad1291, %lpad1289
   %.pn92 = phi { ptr, i32 } [ %207, %lpad1291 ], [ %206, %lpad1289 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1282) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1282) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1285) #19
   br label %ehcleanup1362
 
@@ -4172,7 +4172,7 @@ lpad1323:                                         ; preds = %invoke.cont1322
 
 ehcleanup1327:                                    ; preds = %lpad1323, %lpad1321
   %.pn95 = phi { ptr, i32 } [ %210, %lpad1323 ], [ %209, %lpad1321 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1314) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1314) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1317) #19
   br label %ehcleanup1362
 
@@ -4197,7 +4197,7 @@ lpad1355:                                         ; preds = %invoke.cont1354
 
 ehcleanup1359:                                    ; preds = %lpad1355, %lpad1353
   %.pn98 = phi { ptr, i32 } [ %213, %lpad1355 ], [ %212, %lpad1353 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1346) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1346) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1349) #19
   br label %ehcleanup1362
 
@@ -4251,7 +4251,7 @@ invoke.cont1391:                                  ; preds = %invoke.cont1385
 invoke.cont1395:                                  ; preds = %invoke.cont1391
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %215 = load i32, ptr %ref.tmp1390, align 4, !noalias !45
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1389, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1392) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1389, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1392) #19
   %m_at.i.i606 = getelementptr inbounds i8, ptr %ref.tmp1389, i64 32
   store i32 %215, ptr %m_at.i.i606, align 8, !alias.scope !45
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA48_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1388, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1389, ptr noundef nonnull align 1 dereferenceable(48) @.str.143)
@@ -4264,7 +4264,7 @@ invoke.cont1397:                                  ; preds = %invoke.cont1395
 invoke.cont1399:                                  ; preds = %invoke.cont1397
   %m_decomp.i607 = getelementptr inbounds i8, ptr %ref.tmp1388, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i607) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1389) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1389) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1392) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1406, i32 noundef 10)
           to label %invoke.cont1407 unwind label %lpad1368
@@ -4301,7 +4301,7 @@ invoke.cont1423:                                  ; preds = %invoke.cont1417
 invoke.cont1427:                                  ; preds = %invoke.cont1423
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %217 = load i32, ptr %ref.tmp1422, align 4, !noalias !48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1421, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1424) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1421, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1424) #19
   %m_at.i.i614 = getelementptr inbounds i8, ptr %ref.tmp1421, i64 32
   store i32 %217, ptr %m_at.i.i614, align 8, !alias.scope !48
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA48_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1420, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1421, ptr noundef nonnull align 1 dereferenceable(48) @.str.143)
@@ -4314,7 +4314,7 @@ invoke.cont1429:                                  ; preds = %invoke.cont1427
 invoke.cont1431:                                  ; preds = %invoke.cont1429
   %m_decomp.i615 = getelementptr inbounds i8, ptr %ref.tmp1420, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i615) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1421) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1421) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1424) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1438, i32 noundef 10)
           to label %invoke.cont1439 unwind label %lpad1368
@@ -4351,7 +4351,7 @@ invoke.cont1455:                                  ; preds = %invoke.cont1449
 invoke.cont1459:                                  ; preds = %invoke.cont1455
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %219 = load i32, ptr %ref.tmp1454, align 4, !noalias !51
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1453, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1456) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1453, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1456) #19
   %m_at.i.i622 = getelementptr inbounds i8, ptr %ref.tmp1453, i64 32
   store i32 %219, ptr %m_at.i.i622, align 8, !alias.scope !51
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA38_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1452, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1453, ptr noundef nonnull align 1 dereferenceable(38) @.str.148)
@@ -4364,7 +4364,7 @@ invoke.cont1461:                                  ; preds = %invoke.cont1459
 invoke.cont1463:                                  ; preds = %invoke.cont1461
   %m_decomp.i623 = getelementptr inbounds i8, ptr %ref.tmp1452, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i623) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1453) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1453) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1456) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1470, i32 noundef 10)
           to label %invoke.cont1471 unwind label %lpad1368
@@ -4401,7 +4401,7 @@ invoke.cont1487:                                  ; preds = %invoke.cont1481
 invoke.cont1491:                                  ; preds = %invoke.cont1487
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %221 = load i32, ptr %ref.tmp1486, align 4, !noalias !54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1485, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1488) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1485, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1488) #19
   %m_at.i.i630 = getelementptr inbounds i8, ptr %ref.tmp1485, i64 32
   store i32 %221, ptr %m_at.i.i630, align 8, !alias.scope !54
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA38_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1484, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1485, ptr noundef nonnull align 1 dereferenceable(38) @.str.148)
@@ -4414,7 +4414,7 @@ invoke.cont1493:                                  ; preds = %invoke.cont1491
 invoke.cont1495:                                  ; preds = %invoke.cont1493
   %m_decomp.i631 = getelementptr inbounds i8, ptr %ref.tmp1484, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i631) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1485) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1485) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1488) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1502, i32 noundef 10)
           to label %invoke.cont1503 unwind label %lpad1368
@@ -4501,7 +4501,7 @@ invoke.cont1551:                                  ; preds = %invoke.cont1545
 invoke.cont1555:                                  ; preds = %invoke.cont1551
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %225 = load i32, ptr %ref.tmp1550, align 4, !noalias !57
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1549, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1552) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1549, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1552) #19
   %m_at.i.i650 = getelementptr inbounds i8, ptr %ref.tmp1549, i64 32
   store i32 %225, ptr %m_at.i.i650, align 8, !alias.scope !57
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRA38_KcEEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISE_EEtlNS0_6ResultEEESF_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1548, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1549, ptr noundef nonnull align 1 dereferenceable(38) @.str.148)
@@ -4514,7 +4514,7 @@ invoke.cont1557:                                  ; preds = %invoke.cont1555
 invoke.cont1559:                                  ; preds = %invoke.cont1557
   %m_decomp.i651 = getelementptr inbounds i8, ptr %ref.tmp1548, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i651) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1549) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1549) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1552) #19
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1566, i32 noundef 10)
           to label %invoke.cont1567 unwind label %lpad1368
@@ -4705,7 +4705,7 @@ lpad1398:                                         ; preds = %invoke.cont1397
 
 ehcleanup1402:                                    ; preds = %lpad1398, %lpad1396
   %.pn102 = phi { ptr, i32 } [ %236, %lpad1398 ], [ %235, %lpad1396 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1389) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1389) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1392) #19
   br label %ehcleanup1661
 
@@ -4730,7 +4730,7 @@ lpad1430:                                         ; preds = %invoke.cont1429
 
 ehcleanup1434:                                    ; preds = %lpad1430, %lpad1428
   %.pn105 = phi { ptr, i32 } [ %239, %lpad1430 ], [ %238, %lpad1428 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1421) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1421) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1424) #19
   br label %ehcleanup1661
 
@@ -4755,7 +4755,7 @@ lpad1462:                                         ; preds = %invoke.cont1461
 
 ehcleanup1466:                                    ; preds = %lpad1462, %lpad1460
   %.pn108 = phi { ptr, i32 } [ %242, %lpad1462 ], [ %241, %lpad1460 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1453) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1453) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1456) #19
   br label %ehcleanup1661
 
@@ -4780,7 +4780,7 @@ lpad1494:                                         ; preds = %invoke.cont1493
 
 ehcleanup1498:                                    ; preds = %lpad1494, %lpad1492
   %.pn111 = phi { ptr, i32 } [ %245, %lpad1494 ], [ %244, %lpad1492 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1485) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1485) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1488) #19
   br label %ehcleanup1661
 
@@ -4819,7 +4819,7 @@ lpad1558:                                         ; preds = %invoke.cont1557
 
 ehcleanup1562:                                    ; preds = %lpad1558, %lpad1556
   %.pn114 = phi { ptr, i32 } [ %250, %lpad1558 ], [ %249, %lpad1556 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1549) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp1549) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1552) #19
   br label %ehcleanup1661
 
@@ -4895,7 +4895,7 @@ entry:
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_full_name) #19
   %m_type = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_type) #19
-  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #19
+  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #19
   ret void
 }
 
@@ -4952,7 +4952,7 @@ entry:
   %position.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %token_string.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %position.i, i8 0, i64 48, i1 false)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %token_string.i) #19
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %token_string.i) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %token_string.i, i8 0, i64 24, i1 false)
   %token_buffer.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i) #19
@@ -4988,7 +4988,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
   br label %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEED2Ev.exit
 
 _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %token_string.i) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %token_string.i) #19
   ret i32 %call1
 
 lpad:                                             ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEEC2EOSJ_b.exit
@@ -5079,7 +5079,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) #19
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
@@ -5274,7 +5274,7 @@ entry:
   br i1 %tobool.i, label %if.then.i, label %"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_2vE3$_0ED2Ev.exit"
 
 if.then.i:                                        ; preds = %entry
-  invoke void @_ZN7doctest6detail16ContextScopeBase7destroyEv(ptr noundef nonnull align 8 dereferenceable(9) %this)
+  invoke void @_ZN7doctest6detail16ContextScopeBase7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
           to label %"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_2vE3$_0ED2Ev.exit" unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -5285,7 +5285,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 "_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_2vE3$_0ED2Ev.exit": ; preds = %entry, %if.then.i
-  tail call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
@@ -5365,7 +5365,7 @@ entry:
   %1 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !noalias !60
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %1, 0
   %conv.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, i32 5, i32 6
-  call void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull %in, i32 noundef %conv.i.i.i.i.i.i), !noalias !60
+  call void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(6) %in, i32 noundef %conv.i.i.i.i.i.i), !noalias !60
   %call.i.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctestlsERSoRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i)
           to label %_ZN7doctest8toStringIA6_cTnNS_6detail5types9enable_ifIXntsr6detail35should_stringify_as_underlying_typeIT_EE5valueEbE4typeELb1EEENS_6StringERKS5_.exit unwind label %lpad.i.i.i.i.i.i, !noalias !60
 
@@ -5443,7 +5443,7 @@ call.i.i.i4.noexc:                                ; preds = %invoke.cont4
   %0 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !noalias !74
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %0, 0
   %conv.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, i32 15, i32 16
-  invoke void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull %rhs, i32 noundef %conv.i.i.i.i.i.i)
+  invoke void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(16) %rhs, i32 noundef %conv.i.i.i.i.i.i)
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %call.i.i.i4.noexc
@@ -5540,7 +5540,7 @@ call.i.i.i4.noexc:                                ; preds = %invoke.cont4
   %0 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !noalias !88
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %0, 0
   %conv.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, i32 47, i32 48
-  invoke void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull %rhs, i32 noundef %conv.i.i.i.i.i.i)
+  invoke void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(48) %rhs, i32 noundef %conv.i.i.i.i.i.i)
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %call.i.i.i4.noexc
@@ -5635,7 +5635,7 @@ call.i.i.i4.noexc:                                ; preds = %invoke.cont4
   %0 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !noalias !102
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %0, 0
   %conv.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, i32 37, i32 38
-  invoke void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull %rhs, i32 noundef %conv.i.i.i.i.i.i)
+  invoke void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(38) %rhs, i32 noundef %conv.i.i.i.i.i.i)
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %call.i.i.i4.noexc
@@ -7586,7 +7586,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont3.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_full_name.i.i) #19
   %m_type.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_type.i.i) #19
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1) #19
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp.i1) #19
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1.i) #19
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %ref.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp1.i)

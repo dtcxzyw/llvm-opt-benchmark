@@ -860,7 +860,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i: ; preds = 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not.i.i.i21 = icmp eq ptr %47, null
   %spec.select.i.i.i = select i1 %.not.i.i.i21, ptr @_ZN7QString6_emptyE, ptr %47
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, ptr noundef nonnull %10, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %49)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %49)
           to label %_ZN7QStringD2Ev.exit26 unwind label %81
 
 _ZN7QStringD2Ev.exit26:                           ; preds = %44
@@ -1050,7 +1050,7 @@ _ZN7QStringD2Ev.exit46:                           ; preds = %93, %_ZN17QArrayDat
   %111 = load ptr, ptr %85, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 520
   %113 = load ptr, ptr %112, align 8
-  invoke void %113(ptr noundef nonnull align 8 dereferenceable(248) %85)
+  invoke void %113(ptr noundef nonnull align 8 dereferenceable(256) %85)
           to label %_ZN29ScsiServiceResponseTimeDialog14setScsiCommandEi.exit unwind label %77
 
 114:                                              ; preds = %86

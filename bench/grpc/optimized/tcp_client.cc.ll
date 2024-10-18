@@ -682,7 +682,7 @@ cleanup.done76.sink.split:                        ; preds = %cleanup.done76.sink
 
 cleanup.done76:                                   ; preds = %cleanup.done76.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i120, %_ZN9grpc_core11MemoryOwnerD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i48, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i38, %if.end.i
   %74 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %74(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull %agg.tmp11) #18
+  call void %74(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp11, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp11) #18
   %75 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_event_engine_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %75 to i1
   br i1 %tobool.i.i.i, label %if.then84, label %if.end89
@@ -693,7 +693,7 @@ if.then84:                                        ; preds = %cleanup.done76
   br i1 %cmp.i.i.i.i142, label %invoke.cont85, label %if.then.i.i143
 
 if.then.i.i143:                                   ; preds = %if.then84
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(8) %addr_uri) #20
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(40) %addr_uri) #20
           to label %.noexc144 unwind label %lpad6
 
 .noexc144:                                        ; preds = %if.then.i.i143
@@ -733,7 +733,7 @@ cleanup.action79:                                 ; preds = %cleanup.action65, %
 ehcleanup81:                                      ; preds = %lpad32, %cleanup.action79, %lpad15
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %cleanup.action79 ], [ %78, %lpad15 ], [ %80, %lpad32 ]
   %81 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %81(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull %agg.tmp11) #18
+  call void %81(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp11, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp11) #18
   br label %ehcleanup92
 
 if.end89:                                         ; preds = %invoke.cont85, %cleanup.done76
@@ -2025,7 +2025,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad.body.thread5
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2035,7 +2035,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.body.thread:                                 ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   br label %cleanup.action4
 
 cond.false:                                       ; preds = %entry

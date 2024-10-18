@@ -2419,7 +2419,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   store i32 %78, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %46, i64 584
   store i32 3, ptr %80, align 8
-  %81 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef readonly %0, ptr noundef %46)
+  %81 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull readonly %0, ptr noundef %46)
   %.not29.i = icmp eq i32 %81, 0
   br i1 %.not29.i, label %82, label %85
 
@@ -2434,7 +2434,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   br label %301
 
 85:                                               ; preds = %77
-  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef readonly %0, ptr noundef %46)
+  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly %0, ptr noundef %46)
   %86 = getelementptr inbounds i8, ptr %46, i64 592
   store ptr null, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %17, i64 64
@@ -2714,7 +2714,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   %spec.select.i = select i1 %254, i32 %255, i32 6
   %256 = getelementptr inbounds i8, ptr %190, i64 584
   store i32 %spec.select.i, ptr %256, align 8
-  %257 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef readonly %0, ptr noundef %190)
+  %257 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull readonly %0, ptr noundef %190)
   %.not82.i = icmp eq i32 %257, 0
   br i1 %.not82.i, label %258, label %259
 
@@ -2723,7 +2723,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   br label %IDAAckpntNew.exit.thread
 
 259:                                              ; preds = %251
-  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef readonly %0, ptr noundef %190)
+  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly %0, ptr noundef %190)
   %260 = load ptr, ptr %147, align 8
   %261 = getelementptr inbounds i8, ptr %190, i64 592
   store ptr %260, ptr %261, align 8

@@ -350,7 +350,7 @@ invoke.cont16:                                    ; preds = %if.end11
 
 invoke.cont18:                                    ; preds = %invoke.cont16
   %12 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %12(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp13, ptr noundef nonnull %agg.tmp13) #18
+  call void %12(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp13, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp13) #18
   %13 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalISt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS5_EEED2Ev.exit
@@ -372,7 +372,7 @@ lpad17:                                           ; preds = %invoke.cont16
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %16(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp13, ptr noundef nonnull %agg.tmp13) #18
+  call void %16(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp13, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp13) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i.i5, %lpad9, %lpad17, %lpad
@@ -470,11 +470,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   %cv_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i.i) #18
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %main_loop_exit_signal_) #18
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %main_loop_exit_signal_) #18
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental9TimerListESt14default_deleteIS2_EED2Ev.exit, %if.then.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %main_loop_exit_signal_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %main_loop_exit_signal_, i8 0, i64 24, i1 false)
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   %5 = load ptr, ptr %thread_pool_, align 8
   %6 = ptrtoint ptr %this to i64
@@ -491,7 +491,7 @@ invoke.cont17:                                    ; preds = %_ZNSt10unique_ptrIN
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   %8 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %8(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #18
+  call void %8(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #18
   ret void
 
 lpad8:                                            ; preds = %entry
@@ -503,7 +503,7 @@ lpad18:                                           ; preds = %invoke.cont17
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %11(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #18
+  call void %11(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %lpad.i, %lpad18
@@ -546,7 +546,7 @@ if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
   %cv_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i.i) #18
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
   br label %_ZNSt14_Optional_baseIN9grpc_core12NotificationELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN9grpc_core12NotificationELb0ELb0EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
@@ -697,7 +697,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
 
 cleanup.cont:                                     ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
   %main_loop_exit_signal_ = getelementptr inbounds i8, ptr %this, i64 80
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %main_loop_exit_signal_)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(17) %main_loop_exit_signal_)
   %notified_.i = getelementptr inbounds i8, ptr %this, i64 96
   %cv_.i = getelementptr inbounds i8, ptr %this, i64 88
   br label %while.cond.i
@@ -708,13 +708,13 @@ while.cond.i:                                     ; preds = %while.body.i, %clea
   br i1 %tobool.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  invoke void @_ZN4absl12lts_202308027CondVar4WaitEPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i, ptr noundef nonnull %main_loop_exit_signal_)
+  invoke void @_ZN4absl12lts_202308027CondVar4WaitEPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i, ptr noundef nonnull align 8 dereferenceable(17) %main_loop_exit_signal_)
           to label %while.cond.i unwind label %lpad.i, !llvm.loop !7
 
 lpad.i:                                           ; preds = %while.body.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %main_loop_exit_signal_)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %main_loop_exit_signal_)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %lpad.i
@@ -729,7 +729,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
   resume { ptr, i32 } %common.resume.op
 
 while.end.i:                                      ; preds = %while.cond.i
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %main_loop_exit_signal_)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %main_loop_exit_signal_)
           to label %return unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %while.end.i
@@ -775,7 +775,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
   %cv_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i.i.i) #18
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %main_loop_exit_signal_) #18
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %main_loop_exit_signal_) #18
   br label %_ZNSt8optionalIN9grpc_core12NotificationEED2Ev.exit
 
 _ZNSt8optionalIN9grpc_core12NotificationEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i.i
@@ -1023,11 +1023,11 @@ if.then.i.i.i:                                    ; preds = %do.end
   store i8 0, ptr %_M_engaged.i.i.i, align 8
   %cv_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4absl12lts_202308027CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %cv_.i.i.i.i.i) #18
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %main_loop_exit_signal_) #18
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %main_loop_exit_signal_) #18
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %do.end, %if.then.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %main_loop_exit_signal_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %main_loop_exit_signal_, i8 0, i64 24, i1 false)
   store i8 1, ptr %_M_engaged.i.i.i, align 8
   %thread_pool_ = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %thread_pool_, align 8
@@ -1045,7 +1045,7 @@ invoke.cont5:                                     ; preds = %do.end, %if.then.i.
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %6 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %6(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #18
+  call void %6(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #18
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1063,7 +1063,7 @@ lpad6:                                            ; preds = %invoke.cont5
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %10(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #18
+  call void %10(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad
@@ -1152,7 +1152,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %arraydestroy.body.i
   br label %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i.i
 
 _ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %arraydestroy.body.i.i
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.i.i) #18
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %arraydestroy.element.i.i) #18
   %arraydestroy.done.i.i = icmp eq ptr %arraydestroy.element.i.i, %1
   br i1 %arraydestroy.done.i.i, label %_ZNKSt14default_deleteIA_N17grpc_event_engine12experimental9TimerList5ShardEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i, label %arraydestroy.body.i.i
 
@@ -1192,7 +1192,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
   %main_loop_exit_signal_.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 80
-  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %main_loop_exit_signal_.i.i.i.i.i)
+  tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(17) %main_loop_exit_signal_.i.i.i.i.i)
   %notified_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 96
   store i8 1, ptr %notified_.i.i.i.i.i.i, align 8
   %cv_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 88
@@ -1200,7 +1200,7 @@ if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
           to label %invoke.cont.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %main_loop_exit_signal_.i.i.i.i.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %main_loop_exit_signal_.i.i.i.i.i)
           to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN17grpc_event_engine12experimental12TimerManager8MainLoopEvE3$_0JEvEEvOT0_DpOT1_.exit" unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i.i.i
@@ -1213,7 +1213,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i
 lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %main_loop_exit_signal_.i.i.i.i.i)
+  invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(17) %main_loop_exit_signal_.i.i.i.i.i)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit2.i.i.i.i.i.i unwind label %terminate.lpad.i1.i.i.i.i.i.i
 
 terminate.lpad.i1.i.i.i.i.i.i:                    ; preds = %lpad.i.i.i.i.i.i

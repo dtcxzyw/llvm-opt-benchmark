@@ -190,7 +190,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %_ZN8proxygen9ByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -215,7 +215,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %callback_.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i.i, i32 noundef 3)
           to label %_ZN8proxygen13PingByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -247,7 +247,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %callback_ = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %callback_, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %callback_, ptr noundef nonnull align 8 dereferenceable(32) %callback_, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -272,7 +272,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i32 noundef 3)
           to label %_ZN8proxygen9ByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i

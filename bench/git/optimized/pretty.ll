@@ -2983,7 +2983,7 @@ if.end.i:                                         ; preds = %if.then.i22, %if.el
   br i1 %cmp8.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %call.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %sb, ptr noundef nonnull %placeholder.addr.0.i, ptr noundef %context)
+  %call.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %sb, ptr noundef nonnull %placeholder.addr.0.i, ptr noundef nonnull %context)
   br label %if.end12.i
 
 if.else.i:                                        ; preds = %if.end.i
@@ -3013,7 +3013,7 @@ if.end7.i.i:                                      ; preds = %if.then.i.i, %if.el
   %22 = phi i8 [ %.pre.i28, %if.then.i.i ], [ %14, %if.else.i ]
   %padding.0.i.i = phi i32 [ %sub6.i.i, %if.then.i.i ], [ %17, %if.else.i ]
   %cmp882.i.i = icmp eq i8 %22, 67
-  %call1083.i.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %local_sb.i.i, ptr noundef nonnull %placeholder.addr.0.i, ptr noundef %context)
+  %call1083.i.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %local_sb.i.i, ptr noundef nonnull %placeholder.addr.0.i, ptr noundef nonnull %context)
   br i1 %cmp882.i.i, label %if.end14.i.i, label %while.end.i.i
 
 if.end14.i.i:                                     ; preds = %if.end7.i.i, %if.end19.i.i
@@ -3030,7 +3030,7 @@ if.end19.i.i:                                     ; preds = %if.end14.i.i
   %inc.i.i = add i64 %add1186.i.i, 1
   %24 = load i8, ptr %incdec.ptr.i.i, align 1
   %cmp8.i.i = icmp eq i8 %24, 67
-  %call10.i.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %local_sb.i.i, ptr noundef nonnull %incdec.ptr.i.i, ptr noundef %context)
+  %call10.i.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %local_sb.i.i, ptr noundef nonnull %incdec.ptr.i.i, ptr noundef nonnull %context)
   %add11.i.i = add i64 %inc.i.i, %call10.i.i
   br i1 %cmp8.i.i, label %if.end14.i.i, label %while.end.i.i
 

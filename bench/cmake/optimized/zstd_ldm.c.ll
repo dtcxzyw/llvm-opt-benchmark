@@ -701,7 +701,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
 
 179:                                              ; preds = %178
   %180 = xor i64 %.val52.i.i.us.i, %.val.i.i.us.i
-  %181 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %180, i1 true)
+  %181 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %180, i1 true)
   %182 = lshr i64 %181, 3
   br label %ZSTD_count.exit.i.us.i
 
@@ -777,7 +777,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
 
 209:                                              ; preds = %208
   %210 = xor i64 %.1.val.i.i.us.i, %.142.val.i.i.us.i
-  %211 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %210, i1 true)
+  %211 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %210, i1 true)
   %212 = lshr i64 %211, 3
   %213 = getelementptr inbounds i8, ptr %.1.i.i.us.i, i64 %212
   %214 = ptrtoint ptr %213 to i64
@@ -803,7 +803,7 @@ ZSTD_count.exit.i.us.i:                           ; preds = %209, %205, %179
 
 221:                                              ; preds = %220
   %222 = xor i64 %.val52.i38.i.us.i, %.val.i37.i.us.i
-  %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %222, i1 true)
+  %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %222, i1 true)
   %224 = lshr i64 %223, 3
   br label %ZSTD_count.exit48.i.us.i
 
@@ -878,7 +878,7 @@ ZSTD_count.exit.i.us.i:                           ; preds = %209, %205, %179
 
 250:                                              ; preds = %249
   %251 = xor i64 %.1.val.i46.i.us.i, %.142.val.i45.i.us.i
-  %252 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %251, i1 true)
+  %252 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %251, i1 true)
   %253 = lshr i64 %252, 3
   %254 = getelementptr inbounds i8, ptr %.1.i43.i.us.i, i64 %253
   %255 = ptrtoint ptr %254 to i64
@@ -1005,7 +1005,7 @@ ZSTD_ldm_countBackwardsMatch_2segments.exit.us.i: ; preds = %ZSTD_ldm_countBackw
 
 302:                                              ; preds = %301
   %303 = xor i64 %.val52.i.i, %.val.i.i
-  %304 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %303, i1 true)
+  %304 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %303, i1 true)
   %305 = lshr i64 %304, 3
   br label %ZSTD_count.exit.i
 
@@ -1025,7 +1025,7 @@ ZSTD_ldm_countBackwardsMatch_2segments.exit.us.i: ; preds = %ZSTD_ldm_countBackw
 
 308:                                              ; preds = %307
   %309 = xor i64 %.1.val.i.i, %.142.val.i.i
-  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %309, i1 true)
+  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %309, i1 true)
   %311 = lshr i64 %310, 3
   %312 = getelementptr inbounds i8, ptr %.1.i.i, i64 %311
   %313 = ptrtoint ptr %312 to i64

@@ -452,7 +452,7 @@ jent_stuck.exit:                                  ; preds = %92, %96, %98, %102
   %110 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %81, ptr %110, align 4
   %111 = load ptr, ptr %0, align 8
-  %112 = call i32 @jent_hash_time(ptr noundef %111, i64 noundef %46, ptr noundef nonnull %3, i32 noundef 16, i64 noundef 8, i32 noundef %.0.i) #4
+  %112 = call i32 @jent_hash_time(ptr noundef %111, i64 noundef %46, ptr noundef nonnull %3, i32 noundef 16, i64 noundef 8, i32 noundef range(i32 0, 2) %.0.i) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %114, label %113

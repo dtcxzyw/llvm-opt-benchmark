@@ -170,7 +170,7 @@ json_skip_space.exit90:                           ; preds = %.lr.ph.i86, %json_i
   br i1 %35, label %44, label %36
 
 36:                                               ; preds = %33
-  %37 = call fastcc i32 @json_parse(ptr noundef %6, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %27)
+  %37 = call fastcc i32 @json_parse(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %27)
   %.not.i = icmp eq i32 %37, 0
   %.pre.pre = load ptr, ptr %6, align 8
   %38 = icmp eq ptr %.pre.pre, %1
@@ -301,7 +301,7 @@ json_skip_space.exit98:                           ; preds = %.lr.ph.i94, %json_i
   br i1 %.not21.i, label %79, label %json_parse_object.exit.loopexit.split.loop.exit172
 
 79:                                               ; preds = %76
-  %80 = call fastcc i32 @json_parse(ptr noundef %5, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %52)
+  %80 = call fastcc i32 @json_parse(ptr noundef %5, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %52)
   %.not22.i = icmp eq i32 %80, 0
   %storemerge.i49.pre.pre = load ptr, ptr %5, align 8
   %81 = icmp eq ptr %storemerge.i49.pre.pre, %1

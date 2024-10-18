@@ -506,9 +506,9 @@ define internal fastcc void @dissect_mp4ves_VisualObjectSequence(ptr noundef %0,
   br i1 %or.cond.i, label %25, label %dissect_mp4ves_visual_object_type.exit.i
 
 25:                                               ; preds = %15
-  %26 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %22, i32 noundef 1) #4
+  %26 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef range(i32 77, 85) %22, i32 noundef 1) #4
   %27 = load i32, ptr @hf_mp4ves_video_signal_type, align 4
-  %28 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef range(i32 77, 85) %22, i32 noundef 1, i32 noundef 0) #4
   %29 = add nuw nsw i32 %spec.select.i, 5
   %.not.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i, label %dissect_mp4ves_visual_object_type.exit.i, label %30

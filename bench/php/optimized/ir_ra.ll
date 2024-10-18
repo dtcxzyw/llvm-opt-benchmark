@@ -4712,7 +4712,7 @@ ir_hint_conflict.exit109.i:                       ; preds = %468
 
 ir_hint_conflict.exit109.thread.i:                ; preds = %471, %ir_hint_conflict.exit109.i, %._crit_edge.i97.i
   %475 = trunc nuw nsw i64 %indvars.iv496 to i32
-  tail call fastcc void @ir_swap_operands(ptr noundef readonly %0, i32 noundef %475, ptr noundef nonnull %303)
+  tail call fastcc void @ir_swap_operands(ptr noundef nonnull readonly %0, i32 noundef %475, ptr noundef nonnull %303)
   br label %ir_try_swap_operands.exit
 
 476:                                              ; preds = %ir_hint_conflict.exit109.i, %ir_vregs_overlap.exit87.i

@@ -444,7 +444,7 @@ define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr nocapture noundef writeo
   br i1 %or.cond.i, label %hwloc_get_next_obj_by_type.exit.thread, label %hwloc_get_next_obj_by_type.exit
 
 hwloc_get_next_obj_by_type.exit:                  ; preds = %53
-  %56 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %54, i32 noundef %55, i32 noundef 0) #13
+  %56 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %54, i32 noundef range(i32 0, -2) %55, i32 noundef 0) #13
   %.not121 = icmp eq ptr %56, null
   br i1 %.not121, label %hwloc_get_next_obj_by_type.exit.thread, label %57
 
@@ -818,7 +818,7 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
   br i1 %or.cond.i.i.us.us, label %hwloc_get_obj_inside_cpuset_by_type.exit.i.us.us, label %213
 
 213:                                              ; preds = %205
-  %214 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %202, i32 noundef %212, i32 noundef 0) #13
+  %214 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %202, i32 noundef range(i32 0, -2) %212, i32 noundef 0) #13
   %.not.i.i.i.us.us = icmp eq ptr %214, null
   br i1 %.not.i.i.i.us.us, label %hwloc_get_obj_inside_cpuset_by_type.exit.i.us.us, label %.preheader.i.i.i.us.us
 

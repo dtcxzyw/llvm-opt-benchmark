@@ -822,7 +822,7 @@ psh_glyph_compute_extrema.exit:                   ; preds = %.loopexit87.i
 .lr.ph.i91:                                       ; preds = %.lr.ph.i91.preheader, %.lr.ph.i91
   %.03.i = phi i32 [ %411, %.lr.ph.i91 ], [ %.val, %.lr.ph.i91.preheader ]
   %.082.i = phi ptr [ %412, %.lr.ph.i91 ], [ %.val80, %.lr.ph.i91.preheader ]
-  call fastcc void @psh_hint_align(ptr noundef %.082.i, ptr noundef readonly %408, i32 noundef %410, ptr noundef readonly %6)
+  call fastcc void @psh_hint_align(ptr noundef %.082.i, ptr noundef readonly %408, i32 noundef range(i32 0, 2) %410, ptr noundef nonnull readonly %6)
   %411 = add i32 %.03.i, -1
   %412 = getelementptr inbounds i8, ptr %.082.i, i64 48
   %.not.i92 = icmp eq i32 %411, 0

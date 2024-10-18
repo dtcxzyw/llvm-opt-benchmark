@@ -473,7 +473,7 @@ define dso_local range(i32 -1, 2041) i32 @select_p_job_test(ptr noundef %0, ptr 
 93:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   %94 = tail call i64 @time(ptr noundef null) #11
-  %95 = tail call i32 @llvm.umax.i32(i32 %.055, i32 2)
+  %95 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 32768) %.055, i32 2)
   %96 = add nsw i32 %95, -1
   %97 = tail call ptr @slurm_bit_copy(ptr noundef %1) #11
   store ptr %97, ptr %13, align 8

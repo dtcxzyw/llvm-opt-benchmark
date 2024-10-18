@@ -702,7 +702,7 @@ define linkonce_odr hidden void @_ZN7nanogui6WindowD0Ev(ptr noundef nonnull alig
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #13
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

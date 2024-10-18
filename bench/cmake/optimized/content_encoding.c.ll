@@ -220,7 +220,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 .preheader.preheader.i:                           ; preds = %30
-  %38 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef %7, i64 noundef %.041) #7
+  %38 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef %7, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %.041) #7
   %.not42.i = icmp eq i32 %38, 0
   br i1 %.not42.i, label %42, label %39
 
@@ -234,7 +234,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not44.i, label %.loopexit47.i.preheader, label %43
 
 43:                                               ; preds = %42
-  %44 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef nonnull %8, i64 noundef %.041) #7
+  %44 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef nonnull %8, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %.041) #7
   %.not45.i = icmp eq i32 %44, 0
   br i1 %.not45.i, label %.loopexit47.i.preheader, label %45
 
@@ -251,7 +251,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   %48 = phi ptr [ %66, %64 ], [ @identity_encoding, %.loopexit47.i.preheader ]
   %.151.i = phi ptr [ %65, %64 ], [ @general_unencoders, %.loopexit47.i.preheader ]
   %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef %49, i64 noundef %.041) #7
+  %50 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef %49, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %.041) #7
   %.not37.i = icmp eq i32 %50, 0
   br i1 %.not37.i, label %55, label %51
 
@@ -269,7 +269,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not39.i, label %64, label %58
 
 58:                                               ; preds = %55
-  %59 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef nonnull %57, i64 noundef %.041) #7
+  %59 = call i32 @curl_strnequal(ptr noundef nonnull %.143, ptr noundef nonnull %57, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %.041) #7
   %.not40.i = icmp eq i32 %59, 0
   br i1 %.not40.i, label %64, label %60
 

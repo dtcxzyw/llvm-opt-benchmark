@@ -795,7 +795,7 @@ define internal i32 @dissect_iax2(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 39:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %40 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.060) #13
+  %40 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 2, 5) %.060) #13
   %41 = and i16 %40, 32767
   %42 = add nuw nsw i32 %.060, 2
   %43 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %42) #13
@@ -826,7 +826,7 @@ define internal i32 @dissect_iax2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %58 = load i32, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %1, i64 284
   %60 = load i32, ptr %59, align 4
-  %61 = tail call fastcc i32 @iax_circuit_lookup(ptr noundef nonnull %56, i32 noundef %58, i32 noundef %60, i32 noundef %54)
+  %61 = tail call fastcc i32 @iax_circuit_lookup(ptr noundef nonnull %56, i32 noundef %58, i32 noundef %60, i32 noundef range(i32 0, 32768) %54)
   %62 = tail call ptr @wmem_file_scope() #13
   %63 = tail call noalias ptr @wmem_alloc(ptr noundef %62, i64 noundef 104) #13
   %64 = getelementptr inbounds i8, ptr %63, i64 36
@@ -941,9 +941,9 @@ iax2_populate_pinfo_from_packet_data.exit.i:      ; preds = %110, %107
 
 118:                                              ; preds = %iax2_populate_pinfo_from_packet_data.exit.i
   %119 = load i32, ptr @hf_iax2_dcallno, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %119, ptr noundef %0, i32 noundef %.060, i32 noundef 2, i32 noundef 0) #13
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %119, ptr noundef %0, i32 noundef range(i32 2, 5) %.060, i32 noundef 2, i32 noundef 0) #13
   %121 = load i32, ptr @hf_iax2_retransmission, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %121, ptr noundef %0, i32 noundef %.060, i32 noundef 2, i32 noundef 0) #13
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %121, ptr noundef %0, i32 noundef range(i32 2, 5) %.060, i32 noundef 2, i32 noundef 0) #13
   %.not208.i = icmp eq ptr %.1.i, null
   br i1 %.not208.i, label %proto_item_set_generated.exit.i, label %123
 
@@ -1043,11 +1043,11 @@ iax2_add_ts_fields.exit.i:                        ; preds = %163, %148
   ]
 
 169:                                              ; preds = %164
-  %170 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %46) #13
+  %170 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 11, 14) %46) #13
   %171 = load ptr, ptr %109, align 8
   %172 = load i32, ptr @hf_iax2_iax_csub, align 4
   %173 = zext i8 %170 to i32
-  %174 = call ptr @proto_tree_add_uint(ptr noundef %.0197.i, i32 noundef %172, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef %173) #13
+  %174 = call ptr @proto_tree_add_uint(ptr noundef %.0197.i, i32 noundef %172, ptr noundef %0, i32 noundef range(i32 11, 14) %46, i32 noundef 1, i32 noundef %173) #13
   %175 = add nuw nsw i32 %.060, 10
   %176 = load ptr, ptr %13, align 8
   %177 = call ptr @val_to_str_ext(i32 noundef %173, ptr noundef nonnull @iax_iax_subclasses_ext, ptr noundef nonnull @.str.485) #13
@@ -1736,9 +1736,9 @@ dissect_fullpacket.exit:                          ; preds = %dissect_iax2_comman
 
 526:                                              ; preds = %38
   store ptr @.str.480, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 24), align 8
-  %527 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.060) #13
+  %527 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 2, 5) %.060) #13
   %528 = zext i16 %527 to i32
-  %529 = tail call fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef nonnull %1, i16 noundef zeroext %.058, i32 noundef 0)
+  %529 = tail call fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef nonnull %1, i16 noundef zeroext range(i16 0, -32768) %.058, i32 noundef 0)
   %.not.i63 = icmp eq ptr %33, null
   br i1 %.not.i63, label %547, label %530
 
@@ -1771,7 +1771,7 @@ dissect_fullpacket.exit:                          ; preds = %dissect_iax2_comman
 
 proto_item_set_generated.exit.i66:                ; preds = %541, %538, %533, %530
   %545 = load i32, ptr @hf_iax2_minits, align 4
-  %546 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %33, i32 noundef %545, ptr noundef %0, i32 noundef %.060, i32 noundef 2, i32 noundef %528) #13
+  %546 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %33, i32 noundef %545, ptr noundef %0, i32 noundef range(i32 2, 5) %.060, i32 noundef 2, i32 noundef %528) #13
   tail call fastcc void @iax2_add_ts_fields(ptr noundef nonnull %1, ptr noundef nonnull %33, ptr noundef %0, ptr noundef nonnull %529, i32 noundef 0, i32 noundef %528)
   br label %dissect_minipacket.exit
 
@@ -1823,10 +1823,10 @@ dissect_minipacket.exit:                          ; preds = %proto_item_set_gene
 
 570:                                              ; preds = %38
   store ptr @.str.481, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 24), align 8
-  %571 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.060) #13
+  %571 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 2, 5) %.060) #13
   %572 = and i16 %571, 32767
   %573 = zext nneg i16 %572 to i32
-  %574 = tail call fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef nonnull %1, i16 noundef zeroext %.058, i32 noundef 1)
+  %574 = tail call fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef nonnull %1, i16 noundef zeroext range(i16 0, -32768) %.058, i32 noundef 1)
   %.not42.i = icmp eq ptr %33, null
   br i1 %.not42.i, label %594, label %575
 
@@ -1859,10 +1859,10 @@ dissect_minipacket.exit:                          ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit.i70:                ; preds = %586, %583, %578, %575
   %590 = load i32, ptr @hf_iax2_minividts, align 4
-  %591 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %590, ptr noundef %0, i32 noundef %.060, i32 noundef 2, i32 noundef 0) #13
+  %591 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %590, ptr noundef %0, i32 noundef range(i32 2, 5) %.060, i32 noundef 2, i32 noundef 0) #13
   tail call fastcc void @iax2_add_ts_fields(ptr noundef nonnull %1, ptr noundef nonnull %33, ptr noundef %0, ptr noundef nonnull %574, i32 noundef 2, i32 noundef %573)
   %592 = load i32, ptr @hf_iax2_minividmarker, align 4
-  %593 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %592, ptr noundef %0, i32 noundef %.060, i32 noundef 2, i32 noundef 0) #13
+  %593 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %592, ptr noundef %0, i32 noundef range(i32 2, 5) %.060, i32 noundef 2, i32 noundef 0) #13
   br label %dissect_minivideopacket.exit
 
 594:                                              ; preds = %570
@@ -1924,7 +1924,7 @@ dissect_minivideopacket.exit:                     ; preds = %proto_item_set_gene
 622:                                              ; preds = %618
   %623 = zext i8 %620 to i32
   %624 = load i32, ptr @hf_iax2_trunk_metacmd, align 4
-  %625 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %624, ptr noundef %0, i32 noundef %.060, i32 noundef 1, i32 noundef 0) #13
+  %625 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %33, i32 noundef %624, ptr noundef %0, i32 noundef range(i32 2, 5) %.060, i32 noundef 1, i32 noundef 0) #13
   %626 = load i32, ptr @hf_iax2_trunk_cmddata, align 4
   %627 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %33, i32 noundef %626, ptr noundef %0, i32 noundef %619, i32 noundef 1, i32 noundef %623) #13
   %628 = load i32, ptr @ett_iax2_trunk_cmddata, align 4

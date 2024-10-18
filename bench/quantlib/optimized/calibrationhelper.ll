@@ -1899,7 +1899,7 @@ sw.bb:                                            ; preds = %entry
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !13
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %marketValue_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load double, ptr %marketValue_.i, align 8, !tbaa !54
   %vtable = load ptr, ptr %this, align 8, !tbaa !13
@@ -1911,7 +1911,7 @@ sw.bb:                                            ; preds = %entry
   %vtable.i11 = load ptr, ptr %this, align 8, !tbaa !13
   %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 24
   %5 = load ptr, ptr %vfn.i12, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %6 = load double, ptr %marketValue_.i, align 8, !tbaa !54
   %div = fdiv double %4, %6
   br label %sw.epilog
@@ -1920,7 +1920,7 @@ sw.bb4:                                           ; preds = %entry
   %vtable.i14 = load ptr, ptr %this, align 8, !tbaa !13
   %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
   %7 = load ptr, ptr %vfn.i15, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %this)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %marketValue_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load double, ptr %marketValue_.i16, align 8, !tbaa !54
   %vtable6 = load ptr, ptr %this, align 8, !tbaa !13

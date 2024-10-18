@@ -215,7 +215,7 @@ define internal void @req_destruct(ptr noundef %0) #3 {
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
   %32 = phi ptr [ %34, %.lr.ph.i ], [ %31, %26 ]
   %.07.i = phi ptr [ %33, %.lr.ph.i ], [ %30, %26 ]
-  tail call void %32(ptr noundef %9) #13
+  tail call void %32(ptr noundef nonnull %9) #13
   %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
@@ -315,7 +315,7 @@ pmix_obj_run_destructors.exit58:                  ; preds = %.lr.ph.i55, %._crit
 .lr.ph.i62:                                       ; preds = %76, %.lr.ph.i62
   %82 = phi ptr [ %84, %.lr.ph.i62 ], [ %81, %76 ]
   %.07.i63 = phi ptr [ %83, %.lr.ph.i62 ], [ %80, %76 ]
-  tail call void %82(ptr noundef %59) #13
+  tail call void %82(ptr noundef nonnull %59) #13
   %83 = getelementptr inbounds i8, ptr %.07.i63, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not.i64 = icmp eq ptr %84, null

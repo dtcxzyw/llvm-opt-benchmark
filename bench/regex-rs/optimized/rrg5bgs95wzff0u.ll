@@ -36,7 +36,7 @@ define internal void @"_ZN4core3ptr40drop_in_place$LT$regex..error..Error$GT$17h
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he8140680544c89adE.llvm.13084666244534616040"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he8140680544c89adE.llvm.13084666244534616040"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !range !4, !noalias !6, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %6, 0
@@ -227,7 +227,7 @@ define { i64, i64 } @_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE(i8 nounde
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E monotonic, align 8, !noalias !25
   %.0.i.i.i = inttoptr i64 %5 to ptr
-  %6 = tail call { i64, ptr } %.0.i.i.i(i8 noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %4), !noalias !30
+  %6 = tail call { i64, ptr } %.0.i.i.i(i8 noundef %0, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %4), !noalias !30
   %.fca.0.extract.i.i = extractvalue { i64, ptr } %6, 0
   %switch8.i.not.i = icmp eq i64 %.fca.0.extract.i.i, 0
   br i1 %switch8.i.not.i, label %_ZN5regex9find_byte9find_byte3imp17h1a86779a7b56a56bE.llvm.15639794734364571569.exit, label %7
@@ -254,7 +254,7 @@ define hidden { i64, i64 } @_ZN5regex9find_byte9find_byte3imp17h1a86779a7b56a56b
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E monotonic, align 8, !noalias !31
   %.0.i.i = inttoptr i64 %5 to ptr
-  %6 = tail call { i64, ptr } %.0.i.i(i8 noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %4), !noalias !31
+  %6 = tail call { i64, ptr } %.0.i.i(i8 noundef %0, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %4), !noalias !31
   %.fca.0.extract.i = extractvalue { i64, ptr } %6, 0
   %switch8.i.not = icmp eq i64 %.fca.0.extract.i, 0
   br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h19ca94b3ee7805e8E.llvm.15639794734364571569.exit, label %7
@@ -401,7 +401,7 @@ define void @"_ZN96_$LT$regex..regexset..bytes..SetMatches$u20$as$u20$core..iter
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfc06e279fdc2e4dbE.llvm.13084666244534616040"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfc06e279fdc2e4dbE.llvm.13084666244534616040"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %"_ZN4core3ptr55drop_in_place$LT$regex..regexset..bytes..SetMatches$GT$17h4133b03375c141edE.exit" unwind label %9
 
 6:                                                ; preds = %2

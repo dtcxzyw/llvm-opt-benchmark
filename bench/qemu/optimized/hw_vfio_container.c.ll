@@ -259,7 +259,7 @@ for.body19.us.i.i:                                ; preds = %while.end.us.i.i, %
   br i1 %tobool21.not.us.i.i, label %if.end52.us.i.i, label %if.then22.us.i.i
 
 if.then22.us.i.i:                                 ; preds = %for.body19.us.i.i
-  %14 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %13)
+  %14 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %13)
   %15 = load ptr, ptr %blocks.i.i, align 16
   %arrayidx27.us.i.i = getelementptr ptr, ptr %15, i64 %idx.181.us.i.i
   %16 = load ptr, ptr %arrayidx27.us.i.i, align 8
@@ -402,7 +402,7 @@ if.then81.us.i.i:                                 ; preds = %for.body77.us.i.i
   br i1 %tobool87.not.us.i.i, label %if.end96.us.i.i, label %if.then94.us.i.i
 
 if.then94.us.i.i:                                 ; preds = %if.then81.us.i.i
-  %39 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %37)
+  %39 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %37)
   %40 = load i64, ptr @total_dirty_pages, align 8
   %add95.us.i.i = add i64 %40, %39
   store i64 %add95.us.i.i, ptr @total_dirty_pages, align 8
@@ -554,7 +554,7 @@ if.then81.i.i:                                    ; preds = %for.body77.i.i
   br i1 %tobool87.not.i.i, label %if.end96.i.i, label %if.then94.i.i
 
 if.then94.i.i:                                    ; preds = %if.then81.i.i
-  %55 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %53)
+  %55 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %53)
   %56 = load i64, ptr @total_dirty_pages, align 8
   %add95.i.i = add i64 %56, %55
   store i64 %add95.i.i, ptr @total_dirty_pages, align 8
@@ -1112,11 +1112,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %6, i32 noundef %retval.0.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %6, i32 noundef range(i32 0, -2147483648) %retval.0.i) #15
   br label %trace_vfio_attach_device.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %6, i32 noundef %retval.0.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %6, i32 noundef range(i32 0, -2147483648) %retval.0.i) #15
   br label %trace_vfio_attach_device.exit
 
 trace_vfio_attach_device.exit:                    ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1144,7 +1144,7 @@ if.then.i38:                                      ; preds = %for.body.i
   br i1 %cmp3.i39, label %if.end4, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i38
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 712, ptr noundef nonnull @__func__.vfio_get_group, ptr noundef nonnull @.str.19, i32 noundef %retval.0.i) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 712, ptr noundef nonnull @__func__.vfio_get_group, ptr noundef nonnull @.str.19, i32 noundef range(i32 0, -2147483648) %retval.0.i) #15
   br label %vfio_get_group.exit.thread
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -1155,7 +1155,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %trace_vfio_attach_device.exit
   %call.i32 = call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #16
-  %call6.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %path.i, i64 noundef 32, ptr noundef nonnull @.str.20, i32 noundef %retval.0.i) #15
+  %call6.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %path.i, i64 noundef 32, ptr noundef nonnull @.str.20, i32 noundef range(i32 0, -2147483648) %retval.0.i) #15
   %call8.i33 = call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef nonnull %path.i, i32 noundef 2) #15
   store i32 %call8.i33, ptr %call.i32, align 8
   %cmp10.i = icmp slt i32 %call8.i33, 0
@@ -1175,7 +1175,7 @@ if.end14.i:                                       ; preds = %for.end.i
 if.then18.i:                                      ; preds = %if.end14.i
   %call19.i = tail call ptr @__errno_location() #17
   %18 = load i32, ptr %call19.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 728, ptr noundef nonnull @__func__.vfio_get_group, i32 noundef %18, ptr noundef nonnull @.str.22, i32 noundef %retval.0.i) #15
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 728, ptr noundef nonnull @__func__.vfio_get_group, i32 noundef %18, ptr noundef nonnull @.str.22, i32 noundef range(i32 0, -2147483648) %retval.0.i) #15
   br label %close_fd_exit.i
 
 if.end20.i:                                       ; preds = %if.end14.i
@@ -1186,7 +1186,7 @@ if.end20.i:                                       ; preds = %if.end14.i
   br i1 %tobool21.not.i, label %if.then22.i, label %if.end23.i
 
 if.then22.i:                                      ; preds = %if.end20.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 733, ptr noundef nonnull @__func__.vfio_get_group, ptr noundef nonnull @.str.23, i32 noundef %retval.0.i) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 733, ptr noundef nonnull @__func__.vfio_get_group, ptr noundef nonnull @.str.23, i32 noundef range(i32 0, -2147483648) %retval.0.i) #15
   call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.24) #15
   br label %close_fd_exit.i
 
@@ -1615,7 +1615,7 @@ vfio_connect_container.exit.i:                    ; preds = %close_fd_exit.i.i, 
   br i1 %tobool26.not.i, label %do.body29.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %vfio_connect_container.exit.i, %vfio_connect_container.exit.thread34.i
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.25, i32 noundef %retval.0.i) #15
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.25, i32 noundef range(i32 0, -2147483648) %retval.0.i) #15
   br label %close_fd_exit.i
 
 do.body29.i:                                      ; preds = %vfio_connect_container.exit.i, %vfio_connect_container.exit.thread.i

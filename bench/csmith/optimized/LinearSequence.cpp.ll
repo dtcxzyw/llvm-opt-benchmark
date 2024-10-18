@@ -100,7 +100,7 @@ define dso_local void @_ZN14LinearSequenceD0Ev(ptr noundef nonnull align 8 deref
   unreachable
 
 _ZN14LinearSequenceD2Ev.exit:                     ; preds = %1
-  tail call void @_ZN8SequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN8SequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

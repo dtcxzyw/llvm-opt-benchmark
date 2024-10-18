@@ -527,7 +527,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %9
-  call void @"_ZN58_$LT$text..EditOperation$u20$as$u20$core..clone..Clone$GT$5clone17h1ad1ff071f5b59ddE.llvm.6824404958573674335"(ptr noalias nocapture noundef nonnull sret([104 x i8]) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %6)
+  call void @"_ZN58_$LT$text..EditOperation$u20$as$u20$core..clone..Clone$GT$5clone17h1ad1ff071f5b59ddE.llvm.6824404958573674335"(ptr noalias nocapture noundef nonnull sret([104 x i8]) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %6)
   br label %"_ZN80_$LT$sum_tree..tree_map..MapEntry$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5b21550af25daa45E.llvm.6824404958573674335.exit"
 
 18:                                               ; preds = %9
@@ -1014,7 +1014,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %2
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %18
-  call void @"_ZN58_$LT$text..EditOperation$u20$as$u20$core..clone..Clone$GT$5clone17h1ad1ff071f5b59ddE.llvm.6824404958573674335"(ptr noalias nocapture noundef nonnull sret([104 x i8]) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %.sroa.02.0.i.i.ph)
+  call void @"_ZN58_$LT$text..EditOperation$u20$as$u20$core..clone..Clone$GT$5clone17h1ad1ff071f5b59ddE.llvm.6824404958573674335"(ptr noalias nocapture noundef nonnull sret([104 x i8]) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.sroa.02.0.i.i.ph)
   br label %"_ZN80_$LT$sum_tree..tree_map..MapEntry$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5b21550af25daa45E.llvm.6824404958573674335.exit"
 
 26:                                               ; preds = %18
@@ -2409,7 +2409,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !913
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %7, ptr %3, align 8, !noalias !913
-  %8 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17hd819415f03a2bc8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.17, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.18, i64 noundef 9, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.72a4335f63967911718358b9115cfec6.14, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.19, i64 noundef 6, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.72a4335f63967911718358b9115cfec6.5, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.20, i64 noundef 4, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.72a4335f63967911718358b9115cfec6.15, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.21, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.72a4335f63967911718358b9115cfec6.16)
+  %8 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17hd819415f03a2bc8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.17, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.18, i64 noundef 9, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.72a4335f63967911718358b9115cfec6.14, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.19, i64 noundef 6, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.72a4335f63967911718358b9115cfec6.5, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.20, i64 noundef 4, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.72a4335f63967911718358b9115cfec6.15, ptr noalias noundef nonnull readonly align 1 @anon.72a4335f63967911718358b9115cfec6.21, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.72a4335f63967911718358b9115cfec6.16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !913
   ret i1 %8
 }
@@ -2675,7 +2675,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$text
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr38drop_in_place$LT$text..Transaction$GT$17h434ad4b34131e569E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  tail call void @"_ZN4core3ptr38drop_in_place$LT$text..Transaction$GT$17h434ad4b34131e569E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0)
   br label %4
 }
 

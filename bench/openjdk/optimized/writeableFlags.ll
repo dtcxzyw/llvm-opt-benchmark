@@ -572,11 +572,11 @@ define internal fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5Er
   %15 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly %9, i64 noundef %13) #13
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %17 = sub i64 79, %16
-  %18 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly @.str.20, i64 noundef %17) #13
+  %18 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.20, i64 noundef %17) #13
   br label %21
 
 19:                                               ; preds = %7
-  %20 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly @.str.21, i64 noundef %13) #13
+  %20 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.21, i64 noundef %13) #13
   br label %21
 
 21:                                               ; preds = %19, %14
@@ -593,19 +593,19 @@ define internal fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5Er
 22:                                               ; preds = %21
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %24 = sub i64 79, %23
-  %25 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly @.str.22, i64 noundef %24) #13
+  %25 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.22, i64 noundef %24) #13
   br label %78
 
 26:                                               ; preds = %21
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %28 = sub i64 79, %27
-  %29 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly @.str.23, i64 noundef %28) #13
+  %29 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.23, i64 noundef %28) #13
   br label %78
 
 30:                                               ; preds = %21
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %32 = sub i64 79, %31
-  %33 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly @.str.24, i64 noundef %32) #13
+  %33 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.24, i64 noundef %32) #13
   br label %78
 
 34:                                               ; preds = %21
@@ -638,7 +638,7 @@ define internal fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5Er
   store i32 %41, ptr @_ZN12JVMFlagLimit13_last_checkedE, align 4
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %52 = sub i64 79, %51
-  %53 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly @.str.29, i64 noundef %52) #13
+  %53 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.29, i64 noundef %52) #13
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #13
   call void @_ZN13JVMFlagAccess11print_rangeEP12outputStreamPK7JVMFlag(ptr noundef nonnull %4, ptr noundef nonnull %1) #13
   %54 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %4, i1 noundef zeroext false) #13
@@ -682,19 +682,19 @@ _ZL31print_flag_error_message_boundsPK7JVMFlagPc.exit: ; preds = %35, %46, %._cr
 66:                                               ; preds = %21
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %68 = sub i64 79, %67
-  %69 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly @.str.25, i64 noundef %68) #13
+  %69 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.25, i64 noundef %68) #13
   br label %78
 
 70:                                               ; preds = %21
   %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %72 = sub i64 79, %71
-  %73 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly @.str.26, i64 noundef %72) #13
+  %73 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.26, i64 noundef %72) #13
   br label %78
 
 74:                                               ; preds = %21
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %76 = sub i64 79, %75
-  %77 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly @.str.27, i64 noundef %76) #13
+  %77 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.27, i64 noundef %76) #13
   br label %78
 
 78:                                               ; preds = %21, %34, %_ZL31print_flag_error_message_boundsPK7JVMFlagPc.exit, %74, %70, %66, %30, %26, %22

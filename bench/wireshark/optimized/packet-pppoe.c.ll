@@ -487,7 +487,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
   %85 = add nuw nsw i32 %.0195.i, 8
   %86 = add nsw i32 %76, -4
   %87 = load i32, ptr @hf_pppoed_tag_vspec_tags, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %87, ptr noundef %0, i32 noundef %85, i32 noundef %86, i32 noundef 0) #5
+  %88 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %87, ptr noundef %0, i32 noundef range(i32 14, 65548) %85, i32 noundef range(i32 1, 65532) %86, i32 noundef 0) #5
   %89 = load i32, ptr @ett_pppoed_tags, align 4
   %90 = call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %89) #5
   %91 = add nuw nsw i32 %.0195.i, 6

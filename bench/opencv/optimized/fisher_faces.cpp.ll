@@ -926,7 +926,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc107, %308
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %257) #18
   %335 = getelementptr inbounds i8, ptr %20, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %335) #18
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %20) #18
   %336 = load ptr, ptr %18, align 8
   %.not.i.i.i109 = icmp eq ptr %336, null
   br i1 %.not.i.i.i109, label %_ZNSt6vectorIiSaIiEED2Ev.exit110, label %337
@@ -1956,7 +1956,7 @@ _ZN2cv3PtrINS_4face11FisherfacesEED2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !47
   store ptr null, ptr %4, align 8, !alias.scope !50, !noalias !47
   %7 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4face11FisherfacesESaIvEJRKiRKdEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !47
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4face11FisherfacesESaIvEJRKiRKdEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !47
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !47
   %8 = load ptr, ptr %4, align 8, !noalias !47
   %9 = load ptr, ptr %7, align 8, !noalias !47
@@ -2103,7 +2103,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   unreachable
 
 _ZN2cv4face14FaceRecognizerD2Ev.exit:             ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
   ret void
 }
 
@@ -2336,7 +2336,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4face11FisherfacesES
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load i32, ptr %3, align 4
   %10 = load double, ptr %4, align 8
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(480) %8)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face11FisherfacesESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face11FisherfacesESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face11FisherfacesESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4face11FisherfacesESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit

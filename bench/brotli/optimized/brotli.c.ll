@@ -1021,7 +1021,7 @@ if.then517.i:                                     ; preds = %if.then515.i
   br label %sw.default
 
 if.end519.i:                                      ; preds = %if.then515.i
-  %call521.i = call fastcc i32 @ParseInt(ptr noundef nonnull %arrayidx432.i, i32 noundef 11, ptr noundef %context)
+  %call521.i = call fastcc i32 @ParseInt(ptr noundef nonnull %arrayidx432.i, i32 noundef 11, ptr noundef nonnull %context)
   %tobool522.not.i = icmp eq i32 %call521.i, 0
   br i1 %tobool522.not.i, label %if.then523.i, label %for.inc557.i
 
@@ -1275,7 +1275,7 @@ sw.bb35:                                          ; preds = %if.else
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.end.i, %sw.bb35
-  %call.i32 = call fastcc i32 @NextFile(ptr noundef %context)
+  %call.i32 = call fastcc i32 @NextFile(ptr noundef nonnull %context)
   %tobool.not.i33.not.not = icmp ne i32 %call.i32, 0
   br i1 %tobool.not.i33.not.not, label %while.body.i, label %sw.epilog
 
@@ -1350,7 +1350,7 @@ if.then35.i:                                      ; preds = %if.end33.i
   br label %if.end37.i41
 
 if.end37.i41:                                     ; preds = %if.then35.i, %if.end33.i
-  %call38.i = call fastcc i32 @OpenFiles(ptr noundef %context)
+  %call38.i = call fastcc i32 @OpenFiles(ptr noundef nonnull %context)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %if.end52.thread.i, label %land.lhs.true.i42
 
@@ -1545,7 +1545,7 @@ if.then30.i.i:                                    ; preds = %if.end28.i.i
   store i64 %call31.i.i, ptr %end_time.i.i, align 8
   %187 = load ptr, ptr @stderr, align 8
   %188 = call i64 @fwrite(ptr nonnull @.str.62, i64 11, i64 1, ptr %187) #20
-  call fastcc void @PrintFileProcessingProgress(ptr noundef %context)
+  call fastcc void @PrintFileProcessingProgress(ptr noundef nonnull %context)
   %189 = load ptr, ptr @stderr, align 8
   %fputc.i.i = call i32 @fputc(i32 10, ptr %189)
   br label %land.lhs.true55.i
@@ -1578,14 +1578,14 @@ if.then63.i:                                      ; preds = %if.then60.i
 
 if.end67.split.i:                                 ; preds = %if.then63.i, %if.then60.i, %if.end52.thread.i
   %196 = phi i1 [ true, %if.end52.thread.i ], [ false, %if.then60.i ], [ false, %if.then63.i ]
-  %call7039.i = call fastcc i32 @CloseFiles(ptr noundef %context, i32 noundef 0, i32 noundef 1)
+  %call7039.i = call fastcc i32 @CloseFiles(ptr noundef nonnull %context, i32 noundef 0, i32 noundef 1)
   br label %land.end.i
 
 land.rhs.split.i:                                 ; preds = %if.then57.i53, %land.lhs.true55.i
   %197 = load i32, ptr %junk_source, align 8
   %tobool69.i = icmp ne i32 %197, 0
   %land.ext40.i = zext i1 %tobool69.i to i32
-  %call7041.i = call fastcc i32 @CloseFiles(ptr noundef %context, i32 noundef %land.ext40.i, i32 noundef 0)
+  %call7041.i = call fastcc i32 @CloseFiles(ptr noundef nonnull %context, i32 noundef %land.ext40.i, i32 noundef 0)
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.split.i, %if.end67.split.i
@@ -1607,7 +1607,7 @@ sw.bb37:                                          ; preds = %if.else, %if.else
   br label %while.cond.i83
 
 while.cond.i83:                                   ; preds = %land.end.i99, %sw.bb37
-  %call.i84 = call fastcc i32 @NextFile(ptr noundef %context)
+  %call.i84 = call fastcc i32 @NextFile(ptr noundef nonnull %context)
   %tobool.not.i85.not.not = icmp ne i32 %call.i84, 0
   br i1 %tobool.not.i85.not.not, label %while.body.i86, label %sw.epilog
 
@@ -1633,7 +1633,7 @@ if.then6.i:                                       ; preds = %if.end.i89
   br label %if.end9.i92
 
 if.end9.i92:                                      ; preds = %if.then6.i, %if.end.i89
-  %call10.i = call fastcc i32 @OpenFiles(ptr noundef %context)
+  %call10.i = call fastcc i32 @OpenFiles(ptr noundef nonnull %context)
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %land.end.thread.i, label %land.lhs.true.i93
 
@@ -1843,7 +1843,7 @@ if.then41.i.i:                                    ; preds = %if.end38.i.i
   store i64 %call42.i.i, ptr %end_time.i.i81, align 8
   %248 = load ptr, ptr @stderr, align 8
   %249 = call i64 @fwrite(ptr nonnull @.str.81, i64 13, i64 1, ptr %248) #20
-  call fastcc void @PrintFileProcessingProgress(ptr noundef %context)
+  call fastcc void @PrintFileProcessingProgress(ptr noundef nonnull %context)
   %250 = load ptr, ptr @stderr, align 8
   %fputc.i.i100 = call i32 @fputc(i32 10, ptr %250)
   br label %land.end.i99
@@ -1871,7 +1871,7 @@ if.end58.i.i:                                     ; preds = %ProvideOutput.exit.
 
 land.end.thread.i:                                ; preds = %if.end9.i92, %WriteOutput.exit183, %if.then52.i.i, %if.else46.i.i, %if.then35.i.i, %if.then29.i.i, %WriteOutput.exit.i113, %ProvideInput.exit.thread.i.i124, %if.then5.i.i, %if.then1.i.i, %if.then18.i
   call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %call1.i87) #22
-  %call2830.i = call fastcc i32 @CloseFiles(ptr noundef %context, i32 noundef 0, i32 noundef 1)
+  %call2830.i = call fastcc i32 @CloseFiles(ptr noundef nonnull %context, i32 noundef 0, i32 noundef 1)
   br label %sw.epilog
 
 land.end.i99:                                     ; preds = %if.then41.i.i, %if.end38.i.i
@@ -1879,7 +1879,7 @@ land.end.i99:                                     ; preds = %if.then41.i.i, %if.
   %255 = load i32, ptr %junk_source, align 8
   %tobool27.i = icmp ne i32 %255, 0
   %256 = zext i1 %tobool27.i to i32
-  %call28.i = call fastcc i32 @CloseFiles(ptr noundef %context, i32 noundef %256, i32 noundef 0)
+  %call28.i = call fastcc i32 @CloseFiles(ptr noundef nonnull %context, i32 noundef %256, i32 noundef 0)
   %tobool29.not.i = icmp eq i32 %call28.i, 0
   br i1 %tobool29.not.i, label %sw.epilog, label %while.cond.i83, !llvm.loop !11
 

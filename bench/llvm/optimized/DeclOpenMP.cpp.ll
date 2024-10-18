@@ -99,7 +99,7 @@ define dso_local noundef ptr @_ZN5clang20OMPThreadPrivateDecl6CreateERNS_10ASTCo
   %6 = trunc i64 %4 to i32
   %7 = tail call noundef i64 @_ZN5clang11OMPChildren4sizeEjbj(i32 noundef 0, i1 noundef zeroext false, i32 noundef %6) #10
   %8 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextEPNS_11DeclContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, i64 noundef %7) #10
-  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(33) %8, i32 noundef 12, ptr noundef %1, i32 %2)
+  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 12, ptr noundef %1, i32 %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr null, ptr %9, align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang20OMPThreadPrivateDeclE, i64 16), ptr %8, align 8
@@ -201,7 +201,7 @@ define dso_local noundef ptr @_ZN5clang15OMPAllocateDecl6CreateERNS_10ASTContext
   %8 = trunc i64 %.sroa.22.0.copyload to i32
   %9 = tail call noundef i64 @_ZN5clang11OMPChildren4sizeEjbj(i32 noundef %8, i1 noundef zeroext false, i32 noundef %7) #10
   %10 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextEPNS_11DeclContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, i64 noundef %9) #10
-  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(33) %10, i32 noundef 14, ptr noundef %1, i32 %2)
+  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 14, ptr noundef %1, i32 %2)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr null, ptr %11, align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPAllocateDeclE, i64 16), ptr %10, align 8
@@ -307,7 +307,7 @@ define dso_local noundef ptr @_ZN5clang15OMPRequiresDecl6CreateERNS_10ASTContext
   %6 = trunc i64 %4 to i32
   %7 = tail call noundef i64 @_ZN5clang11OMPChildren4sizeEjbj(i32 noundef %6, i1 noundef zeroext false, i32 noundef 0) #10
   %8 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextEPNS_11DeclContextEm(i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, i64 noundef %7) #10
-  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(33) %8, i32 noundef 13, ptr noundef %1, i32 %2)
+  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef 13, ptr noundef %1, i32 %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr null, ptr %9, align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang15OMPRequiresDeclE, i64 16), ptr %8, align 8
@@ -372,7 +372,7 @@ _ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE.exit: ; preds 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang23OMPDeclareReductionDeclC2ENS_4Decl4KindEPNS_11DeclContextENS_14SourceLocationENS_15DeclarationNameENS_8QualTypeEPS0_(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, i32 %3, i64 %4, i64 %5, ptr noundef %6) unnamed_addr #1 align 2 {
-  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(33) %0, i32 noundef %1, ptr noundef %2, i32 %3)
+  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2, i32 %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %4, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang9ValueDeclE, i64 16), ptr %0, align 8
@@ -488,7 +488,7 @@ define dso_local noundef ptr @_ZN5clang20OMPDeclareMapperDecl6CreateERNS_10ASTCo
   %9 = trunc i64 %.sroa.2.0.copyload to i32
   %10 = tail call noundef i64 @_ZN5clang11OMPChildren4sizeEjbj(i32 noundef %9, i1 noundef zeroext false, i32 noundef 1) #10
   %11 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextEPNS_11DeclContextEm(i64 noundef 120, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, i64 noundef %10) #10
-  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(33) %11, i32 noundef 24, ptr noundef %1, i32 %2)
+  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(120) %11, i32 noundef 24, ptr noundef %1, i32 %2)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 %3, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -652,7 +652,7 @@ define dso_local void @_ZN5clang19OMPCapturedExprDecl6anchorEv(ptr nocapture non
 define dso_local noundef ptr @_ZN5clang19OMPCapturedExprDecl6CreateERNS_10ASTContextEPNS_11DeclContextEPNS_14IdentifierInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, ptr noundef %2, i64 %3, i32 %4) local_unnamed_addr #1 align 2 {
   %6 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextEPNS_11DeclContextEm(i64 noundef 104, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, i64 noundef 0) #10
   %7 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %3, i32 0) #10
-  tail call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(100) %6, i32 noundef 41, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, i32 %4, i32 %4, ptr noundef %2, i64 %3, ptr noundef %7, i32 noundef 0) #10
+  tail call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(104) %6, i32 noundef 41, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, i32 %4, i32 %4, ptr noundef %2, i64 %3, ptr noundef %7, i32 noundef 0) #10
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang19OMPCapturedExprDeclE, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %9 = load i32, ptr %8, align 4
@@ -666,7 +666,7 @@ declare noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTy
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang19OMPCapturedExprDecl18CreateDeserializedERNS_10ASTContextENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN5clang4DeclnwEmRKNS_10ASTContextENS_12GlobalDeclIDEm(i64 noundef 104, ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %1, i64 noundef 0) #10
-  tail call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(100) %3, i32 noundef 41, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 0, ptr noundef null, i32 noundef 0) #10
+  tail call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 41, ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 0, ptr noundef null, i32 noundef 0) #10
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang19OMPCapturedExprDeclE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i32, ptr %4, align 4
@@ -696,13 +696,13 @@ declare i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang20OMPThreadPrivateDeclD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang20OMPThreadPrivateDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #12
   ret void
 }
@@ -758,7 +758,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasBodyEv(ptr nou
 define linkonce_odr hidden void @_ZN5clang20OMPDeclareMapperDeclD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN5clang11DeclContextD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
   ret void
 }
 
@@ -766,7 +766,7 @@ define linkonce_odr hidden void @_ZN5clang20OMPDeclareMapperDeclD2Ev(ptr noundef
 define linkonce_odr hidden void @_ZN5clang20OMPDeclareMapperDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN5clang11DeclContextD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 120) #12
   ret void
 }
@@ -777,13 +777,13 @@ declare void @_ZNK5clang9NamedDecl20getNameForDiagnosticERN4llvm11raw_ostreamERK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang19OMPCapturedExprDeclD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang19OMPCapturedExprDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #12
   ret void
 }
@@ -795,7 +795,7 @@ declare noundef ptr @_ZN5clang7VarDecl16getCanonicalDeclEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN5clang7VarDecl24getNextRedeclarationImplEv(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %0)
+  %3 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %0)
   ret ptr %3
 }
 
@@ -808,7 +808,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang7VarDecl19getPreviousDeclImplEv
   br i1 %.not.i, label %4, label %_ZN5clang12RedeclarableINS_7VarDeclEE15getPreviousDeclEv.exit
 
 4:                                                ; preds = %1
-  %5 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %0)
+  %5 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %0)
   br label %_ZN5clang12RedeclarableINS_7VarDeclEE15getPreviousDeclEv.exit
 
 _ZN5clang12RedeclarableINS_7VarDeclEE15getPreviousDeclEv.exit: ; preds = %1, %4
@@ -821,32 +821,32 @@ define linkonce_odr hidden noundef ptr @_ZN5clang7VarDecl21getMostRecentDeclImpl
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 72
-  %5 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %3)
+  %5 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %3)
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang15OMPRequiresDeclD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang15OMPRequiresDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang15OMPAllocateDeclD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang15OMPAllocateDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #12
   ret void
 }
@@ -855,7 +855,7 @@ define linkonce_odr hidden void @_ZN5clang15OMPAllocateDeclD0Ev(ptr noundef nonn
 define linkonce_odr hidden void @_ZN5clang23OMPDeclareReductionDeclD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN5clang11DeclContextD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   ret void
 }
 
@@ -863,7 +863,7 @@ define linkonce_odr hidden void @_ZN5clang23OMPDeclareReductionDeclD2Ev(ptr noun
 define linkonce_odr hidden void @_ZN5clang23OMPDeclareReductionDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN5clang11DeclContextD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #12
   ret void
 }
@@ -1140,13 +1140,13 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang23OMPDeclarativeDirectiveINS_9ValueDeclEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang23OMPDeclarativeDirectiveINS_9ValueDeclEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) #10
+  tail call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #12
   ret void
 }

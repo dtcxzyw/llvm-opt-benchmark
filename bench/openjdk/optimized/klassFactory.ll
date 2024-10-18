@@ -342,7 +342,7 @@ _ZNK15ClassLoaderData12class_loaderEv.exit.i:     ; preds = %31
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 50:                                               ; preds = %38
-  %51 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef 8, i32 noundef 0) #8
+  %51 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %40, i64 noundef 8, i32 noundef 0) #8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %50, %48

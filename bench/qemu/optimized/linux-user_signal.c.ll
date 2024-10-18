@@ -1367,11 +1367,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %36 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %37 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, ptr noundef %add.ptr.i, i32 noundef %host_sig, i32 noundef %retval.0.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, ptr noundef %add.ptr.i, i32 noundef %host_sig, i32 noundef range(i32 1, 65) %retval.0.i) #16
   br label %trace_user_host_signal.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef %add.ptr.i, i32 noundef %host_sig, i32 noundef %retval.0.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef %add.ptr.i, i32 noundef %host_sig, i32 noundef range(i32 1, 65) %retval.0.i) #16
   br label %trace_user_host_signal.exit
 
 trace_user_host_signal.exit:                      ; preds = %if.end7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2022,11 +2022,11 @@ if.then8.i.i44:                                   ; preds = %if.then.i.i41
   %21 = load i64, ptr %_now.i.i34, align 8
   %tv_usec.i.i47 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
   %22 = load i64, ptr %tv_usec.i.i47, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i46, i64 noundef %21, i64 noundef %22, i32 noundef %conv.i, i32 noundef 64) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i46, i64 noundef %21, i64 noundef %22, i32 noundef range(i32 -2147483648, 256) %conv.i, i32 noundef 64) #16
   br label %trace_signal_do_sigaction_host.exit
 
 if.else.i.i43:                                    ; preds = %if.then.i.i41
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %conv.i, i32 noundef 64) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef range(i32 -2147483648, 256) %conv.i, i32 noundef 64) #16
   br label %trace_signal_do_sigaction_host.exit
 
 trace_signal_do_sigaction_host.exit:              ; preds = %target_to_host_signal.exit, %land.lhs.true5.i.i38, %if.then8.i.i44, %if.else.i.i43
@@ -2676,11 +2676,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %env, i32 noundef 6, i32 noundef 6) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %env, i32 noundef 6, i32 noundef range(i32 -2147483648, 256) 6) #16
   br label %trace_user_dump_core_and_abort.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull %env, i32 noundef 6, i32 noundef 6) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull %env, i32 noundef 6, i32 noundef range(i32 -2147483648, 256) 6) #16
   br label %trace_user_dump_core_and_abort.exit
 
 trace_user_dump_core_and_abort.exit:              ; preds = %if.then.split, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2730,11 +2730,11 @@ if.then8.i.i27:                                   ; preds = %if.then.i.i24
   %12 = load i64, ptr %_now.i.i17, align 8
   %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %13 = load i64, ptr %tv_usec.i.i30, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i29, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %env, i32 noundef %target_sig, i32 noundef %retval.0.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i29, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %env, i32 noundef %target_sig, i32 noundef range(i32 -2147483648, 256) %retval.0.i) #16
   br label %trace_user_dump_core_and_abort.exit31
 
 if.else.i.i26:                                    ; preds = %if.then.i.i24
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull %env, i32 noundef %target_sig, i32 noundef %retval.0.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull %env, i32 noundef %target_sig, i32 noundef range(i32 -2147483648, 256) %retval.0.i) #16
   br label %trace_user_dump_core_and_abort.exit31
 
 trace_user_dump_core_and_abort.exit31:            ; preds = %target_to_host_signal.exit, %land.lhs.true5.i.i21, %if.then8.i.i27, %if.else.i.i26

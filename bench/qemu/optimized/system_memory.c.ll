@@ -1877,7 +1877,7 @@ if.end8:                                          ; preds = %if.end
   %max_access_size10.i = getelementptr inbounds i8, ptr %4, i64 68
   %7 = load i32, ptr %max_access_size10.i, align 4
   %memory_region_read_with_attrs_accessor.memory_region_read_accessor.i = select i1 %tobool.not.i, ptr @memory_region_read_with_attrs_accessor, ptr @memory_region_read_accessor
-  %call12.i = tail call fastcc i32 @access_with_adjusted_size(i64 noundef %addr.tr.lcssa, ptr noundef nonnull %pval, i32 noundef %shl.i.le, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %memory_region_read_with_attrs_accessor.memory_region_read_accessor.i, ptr noundef nonnull %mr.tr.lcssa, i32 %attrs.coerce)
+  %call12.i = tail call fastcc i32 @access_with_adjusted_size(i64 noundef %addr.tr.lcssa, ptr noundef nonnull %pval, i32 noundef range(i32 1, 129) %shl.i.le, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %memory_region_read_with_attrs_accessor.memory_region_read_accessor.i, ptr noundef nonnull %mr.tr.lcssa, i32 %attrs.coerce)
   %mr.val = load ptr, ptr %ops.i, align 16
   %8 = getelementptr i8, ptr %mr.val, i64 32
   %mr.val.val = load i32, ptr %8, align 8
@@ -4931,11 +4931,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @qemu_get_thread_id() #19
   %36 = load i64, ptr %_now.i.i, align 8
   %37 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, ptr noundef %cond, ptr noundef %31, i32 noundef 0) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, ptr noundef %cond, ptr noundef %31, i32 noundef range(i32 0, 2) 0) #19
   br label %trace_memory_region_sync_dirty.exit
 
 if.else.i.i24:                                    ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %cond, ptr noundef %31, i32 noundef 0) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %cond, ptr noundef %31, i32 noundef range(i32 0, 2) 0) #19
   br label %trace_memory_region_sync_dirty.exit
 
 trace_memory_region_sync_dirty.exit:              ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i24
@@ -4984,11 +4984,11 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i32
   %call10.i.i37 = call i32 @qemu_get_thread_id() #19
   %45 = load i64, ptr %_now.i.i25, align 8
   %46 = load i64, ptr %tv_usec.i.i38, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i37, i64 noundef %45, i64 noundef %46, ptr noundef %cond23, ptr noundef %40, i32 noundef 1) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i37, i64 noundef %45, i64 noundef %46, ptr noundef %cond23, ptr noundef %40, i32 noundef range(i32 0, 2) 1) #19
   br label %trace_memory_region_sync_dirty.exit39
 
 if.else.i.i34:                                    ; preds = %if.then.i.i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %cond23, ptr noundef %40, i32 noundef 1) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef %cond23, ptr noundef %40, i32 noundef range(i32 0, 2) 1) #19
   br label %trace_memory_region_sync_dirty.exit39
 
 trace_memory_region_sync_dirty.exit39:            ; preds = %cond.end22, %land.lhs.true5.i.i29, %if.then8.i.i35, %if.else.i.i34
@@ -5670,7 +5670,7 @@ entry:
   br i1 %tobool9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %size, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %size, i1 true)
   %1 = getelementptr i8, ptr %mr, i64 80
   %mr.val = load ptr, ptr %1, align 16
   %2 = getelementptr i8, ptr %mr.val, i64 32
@@ -5914,7 +5914,7 @@ entry:
   br i1 %tobool9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %size, i1 true)
+  %0 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %size, i1 true)
   %1 = getelementptr i8, ptr %mr, i64 80
   %mr.val = load ptr, ptr %1, align 16
   %2 = getelementptr i8, ptr %mr.val, i64 32
@@ -6684,7 +6684,7 @@ if.end:                                           ; preds = %for.body.i
   %range.sroa.7.0.range27.sroa_idx = getelementptr inbounds i8, ptr %range27, i64 16
   store i128 %size.sroa.0.0.insert.ext.i, ptr %range.sroa.7.0.range27.sroa_idx, align 16
   %conv.i = zext i32 %call11.val24 to i64
-  %call.i = call ptr @bsearch(ptr noundef nonnull %range27, ptr noundef %call11.val, i64 noundef %conv.i, i64 noundef 64, ptr noundef nonnull @cmp_flatrange_addr) #19
+  %call.i = call ptr @bsearch(ptr noundef nonnull align 16 %range27, ptr noundef %call11.val, i64 noundef %conv.i, i64 noundef 64, ptr noundef nonnull @cmp_flatrange_addr) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %range27)
   %tobool13.not = icmp eq ptr %call.i, null
   br i1 %tobool13.not, label %return, label %while.cond.preheader

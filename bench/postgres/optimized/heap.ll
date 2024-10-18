@@ -2644,7 +2644,7 @@ cookConstraint.exit:                              ; preds = %list_length.exit.i,
   %188 = sext i16 %175 to i32
   %189 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %189)
-  %190 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %188) #11
+  %190 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef range(i32 -32768, 32768) %188) #11
   call void @errfinish(ptr noundef nonnull @.str.51, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 

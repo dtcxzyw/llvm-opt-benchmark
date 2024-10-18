@@ -1399,7 +1399,7 @@ dissect_tecmp_control_msg.exit:                   ; preds = %74, %78, %._crit_ed
   %149 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %146, ptr noundef %0, i32 noundef 12, i32 noundef %148, i32 noundef 0) #4
   %150 = load i32, ptr @ett_tecmp_payload, align 4
   %151 = call ptr @proto_item_add_subtree(ptr noundef %149, i32 noundef %150) #4
-  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %151, i32 noundef 12, i32 noundef %73, i16 noundef zeroext %144, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %28)
+  call fastcc void @dissect_tecmp_entry_header(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %151, i32 noundef 12, i32 noundef range(i32 0, 256) %73, i16 noundef zeroext %144, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %28)
   %152 = load i32, ptr @hf_tecmp_payload_status_vendor_id, align 4
   %153 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %151, i32 noundef %152, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %25) #4
   %154 = load i32, ptr @hf_tecmp_payload_status_dev_version, align 4

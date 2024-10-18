@@ -432,7 +432,7 @@ define dso_local { ptr, i64 } @_ZN5clang4ento14CheckerContext22getMacroNameOrSpe
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %25, i64 noundef 16) #9
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %25, i64 noundef 16) #9
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 664
@@ -451,7 +451,7 @@ define dso_local { ptr, i64 } @_ZN5clang4ento14CheckerContext22getMacroNameOrSpe
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2112
   %41 = load ptr, ptr %40, align 8
   %42 = call { ptr, i64 } @_ZN5clang5Lexer11getSpellingENS_14SourceLocationERN4llvm15SmallVectorImplIcEERKNS_13SourceManagerERKNS_11LangOptionsEPb(i32 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(696) %32, ptr noundef nonnull align 8 dereferenceable(841) %41, ptr noundef null) #9
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   %44 = load ptr, ptr %3, align 8
   %45 = icmp eq ptr %44, %25
   br i1 %45, label %_ZN4llvm11SmallStringILj16EED2Ev.exit, label %46
@@ -654,7 +654,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %50 = load ptr, ptr %49, align 8, !noalias !4
   store ptr %46, ptr %7, align 8, !noalias !4
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %46) #9, !noalias !4
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %46) #9, !noalias !4
   call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.635") align 8 %10, ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull %7, ptr %.fca.0.extract5, i8 %.fca.1.extract6) #9
   %51 = load ptr, ptr %7, align 8, !noalias !4
   %.not.i.i.i = icmp eq ptr %51, null

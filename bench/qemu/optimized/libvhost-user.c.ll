@@ -835,7 +835,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %backend_mutex.i) #21
   %backend_fd.i = getelementptr inbounds i8, ptr %dev, i64 1368
   %4 = load i32, ptr %backend_fd.i, align 8
-  %call1.i = call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %4, ptr noundef %msg)
+  %call1.i = call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %4, ptr noundef nonnull %msg)
   %call3.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %backend_mutex.i) #21
   br label %return
 
@@ -868,7 +868,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %backend_mutex.i) #21
   %backend_fd.i = getelementptr inbounds i8, ptr %dev, i64 1368
   %4 = load i32, ptr %backend_fd.i, align 8
-  %call1.i = call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %4, ptr noundef %msg)
+  %call1.i = call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %4, ptr noundef nonnull %msg)
   %call3.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %backend_mutex.i) #21
   br label %return
 
@@ -977,7 +977,7 @@ sw.bb22.i:                                        ; preds = %if.end20.i
   br label %vu_process_message.exit
 
 sw.bb24.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_get_protocol_features_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_get_protocol_features_exec(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %if.end6.thread
 
 sw.bb26.i:                                        ; preds = %if.end20.i
@@ -1008,15 +1008,15 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %vu_process_message.exit
 
 sw.bb32.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_mem_table_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_mem_table_exec(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb34.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_log_base_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_log_base_exec(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %if.end6.thread
 
 sw.bb36.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_log_fd_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_log_fd_exec(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb38.i:                                        ; preds = %if.end20.i
@@ -1032,7 +1032,7 @@ sw.bb38.i:                                        ; preds = %if.end20.i
   br label %vu_process_message.exit
 
 sw.bb40.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_vring_addr_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_vring_addr_exec(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb42.i:                                        ; preds = %if.end20.i
@@ -1052,19 +1052,19 @@ sw.bb42.i:                                        ; preds = %if.end20.i
   br label %vu_process_message.exit
 
 sw.bb44.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_get_vring_base_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_get_vring_base_exec(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %if.end6.thread
 
 sw.bb46.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_vring_kick_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_vring_kick_exec(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb48.i:                                        ; preds = %if.end20.i
-  %call49.i = call fastcc zeroext i1 @vu_set_vring_call_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  %call49.i = call fastcc zeroext i1 @vu_set_vring_call_exec(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb50.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_vring_err_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_vring_err_exec(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb52.i:                                        ; preds = %if.end20.i
@@ -1103,7 +1103,7 @@ if.end.i:                                         ; preds = %sw.bb54.i
   br label %vu_process_message.exit
 
 sw.bb56.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_backend_req_fd(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_backend_req_fd(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb58.i:                                        ; preds = %if.end20.i
@@ -1127,7 +1127,7 @@ if.then5.i.i:                                     ; preds = %if.then.i83.i, %sw.
   br label %if.end6.thread
 
 sw.bb60.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_config(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_config(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb62.i:                                        ; preds = %if.end20.i
@@ -1135,7 +1135,7 @@ sw.bb62.i:                                        ; preds = %if.end20.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_postcopy_advise(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_postcopy_advise(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %if.end6.thread
 
 sw.bb65.i:                                        ; preds = %if.end20.i
@@ -1186,11 +1186,11 @@ vu_set_postcopy_end.exit.i:                       ; preds = %if.then.i94.i, %sw.
   br label %if.end6.thread
 
 sw.bb69.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_get_inflight_fd(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_get_inflight_fd(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %if.end6.thread
 
 sw.bb71.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_inflight_fd(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_inflight_fd(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb73.i:                                        ; preds = %if.end20.i
@@ -1209,11 +1209,11 @@ sw.bb75.i:                                        ; preds = %if.end20.i
   br label %if.end6.thread
 
 sw.bb77.i:                                        ; preds = %if.end20.i
-  %call78.i = call fastcc zeroext i1 @vu_add_mem_reg(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  %call78.i = call fastcc zeroext i1 @vu_add_mem_reg(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb79.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_rem_mem_reg(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_rem_mem_reg(ptr noundef nonnull %dev, ptr noundef nonnull %vmsg)
   br label %vu_process_message.exit
 
 sw.bb81.i:                                        ; preds = %if.end20.i
@@ -1265,7 +1265,7 @@ vmsg_close_fds.exit.loopexit.i:                   ; preds = %for.body.i.i
 
 vmsg_close_fds.exit.i:                            ; preds = %vmsg_close_fds.exit.loopexit.i, %sw.default.i
   %43 = phi i32 [ %.pre.i, %vmsg_close_fds.exit.loopexit.i ], [ %6, %sw.default.i ]
-  call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.60, i32 noundef %43)
+  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.60, i32 noundef %43)
   br label %vu_process_message.exit
 
 if.end6.thread:                                   ; preds = %if.then5.i.i, %if.then.i83.i, %vu_get_features_exec.exit.i, %sw.bb24.i, %sw.bb34.i, %sw.bb44.i, %sw.bb52.i, %sw.bb63.i, %vu_set_postcopy_listen.exit.i, %vu_set_postcopy_end.exit.i, %sw.bb69.i, %sw.bb75.i, %vu_get_shared_object.exit.i
@@ -1298,7 +1298,7 @@ if.end9:                                          ; preds = %if.end6.thread, %if
   %and.i = and i32 %45, -8
   %or3.i = or disjoint i32 %and.i, 5
   store i32 %or3.i, ptr %flags, align 4
-  %call.i9 = call fastcc noundef zeroext i1 @vu_message_write(ptr noundef %dev, i32 noundef %44, ptr noundef %vmsg)
+  %call.i9 = call fastcc noundef zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %44, ptr noundef nonnull %vmsg)
   br label %end
 
 end:                                              ; preds = %if.end9, %if.end6, %entry
@@ -3550,7 +3550,7 @@ for.end.i:                                        ; preds = %if.end.i, %if.then4
   %and.i.i = and i32 %24, -8
   %or3.i.i = or disjoint i32 %and.i.i, 5
   store i32 %or3.i.i, ptr %flags.i.i, align 1
-  %call.i.i = tail call fastcc noundef zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %23, ptr noundef %vmsg)
+  %call.i.i = tail call fastcc noundef zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %23, ptr noundef nonnull %vmsg)
   br i1 %call.i.i, label %if.end35.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %for.end.i
@@ -4548,7 +4548,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %call1.i = tail call i32 @ftruncate64(i32 noundef %call.i, i64 noundef %mul) #21
+  %call1.i = tail call i32 @ftruncate64(i32 noundef %call.i, i64 noundef range(i64 0, 68718428161) %mul) #21
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %return.sink.split.i, label %if.end5.i
 
@@ -4558,7 +4558,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp7.i, label %return.sink.split.i, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end5.i
-  %call11.i = tail call ptr @mmap64(ptr noundef null, i64 noundef %mul, i32 noundef 3, i32 noundef 1, i32 noundef %call.i, i64 noundef 0) #21
+  %call11.i = tail call ptr @mmap64(ptr noundef null, i64 noundef range(i64 0, 68718428161) %mul, i32 noundef 3, i32 noundef 1, i32 noundef %call.i, i64 noundef 0) #21
   %magicptr = ptrtoint ptr %call11.i to i64
   switch i64 %magicptr, label %if.end15 [
     i64 -1, label %return.sink.split.i

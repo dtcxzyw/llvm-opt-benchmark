@@ -23298,7 +23298,7 @@ define linkonce_odr noundef i64 @_ZN8LightGBM12BinaryWriter12AlignedWriteEPKvmm(
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #35
           to label %19 unwind label %17
@@ -23306,7 +23306,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
 17:                                               ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
   br label %.body
 
 19:                                               ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
@@ -23335,7 +23335,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %27, %30
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
   br label %35
 
 31:                                               ; preds = %15
@@ -23380,7 +23380,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 d
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   ret void
 }
 
@@ -68281,7 +68281,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   br i1 %.not.i.i, label %_ZNSt8functionIFvimmEED2Ev.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvimmEED2Ev.exit unwind label %28
 
 28:                                               ; preds = %26
@@ -68325,7 +68325,7 @@ _ZNSt8functionIFvimmEED2Ev.exit:                  ; preds = %24, %26
   br i1 %.not.i.i18, label %_ZNSt8functionIFvimmEED2Ev.exit19, label %46
 
 46:                                               ; preds = %43
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvimmEED2Ev.exit19 unwind label %48
 
 48:                                               ; preds = %46
@@ -68510,7 +68510,7 @@ define internal void @_ZN8LightGBM9Threading3ForImEEiT_S2_S2_RKSt8functionIFviS2
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %25, align 8
-  invoke void %41(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %_ZNKSt8functionIFvimmEEclEimm.exit unwind label %42
 
 _ZNKSt8functionIFvimmEEclEimm.exit:               ; preds = %40
@@ -68598,7 +68598,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:
 
 4:                                                ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #19
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit2, label %7
 
@@ -68638,7 +68638,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit: ; preds = %9
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit2, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %12
-  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #19
+  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   br label %14
 
 14:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit

@@ -1529,7 +1529,7 @@ if.then.i75:                                      ; preds = %if.then69
 
 if.end.i72:                                       ; preds = %if.then69
   %conv71 = sext i32 %50 to i64
-  %call.i73 = call ptr @ngettext(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i64 noundef %conv71) #21
+  %call.i73 = call ptr @ngettext(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i64 noundef range(i64 -2147483648, 2147483648) %conv71) #21
   %.pre141 = load i32, ptr %p_value10, align 4
   br label %Q_.exit
 
@@ -2258,7 +2258,7 @@ if.then.i68:                                      ; preds = %if.then35
 
 if.end.i:                                         ; preds = %if.then35
   %conv = sext i32 %sub to i64
-  %call.i66 = tail call ptr @ngettext(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %conv) #21
+  %call.i66 = tail call ptr @ngettext(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef range(i64 -2147483648, 2147483648) %conv) #21
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %if.then.i68, %if.end.i
@@ -2285,7 +2285,7 @@ if.then.i74:                                      ; preds = %if.then42
 
 if.end.i71:                                       ; preds = %if.then42
   %conv44 = sext i32 %18 to i64
-  %call.i72 = tail call ptr @ngettext(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef %conv44) #21
+  %call.i72 = tail call ptr @ngettext(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef range(i64 -2147483648, 2147483648) %conv44) #21
   %.pre111 = load i32, ptr %whitespace_error, align 8
   br label %Q_.exit77
 
@@ -2319,7 +2319,7 @@ if.then.i82:                                      ; preds = %if.then53
 
 if.end.i79:                                       ; preds = %if.then53
   %conv55 = sext i32 %21 to i64
-  %call.i80 = tail call ptr @ngettext(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i64 noundef %conv55) #21
+  %call.i80 = tail call ptr @ngettext(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i64 noundef range(i64 -2147483648, 2147483648) %conv55) #21
   %.pre = load i32, ptr %applied_after_fixing_ws, align 8
   br label %Q_.exit85
 
@@ -2346,7 +2346,7 @@ if.then.i90:                                      ; preds = %if.then61
 
 if.end.i87:                                       ; preds = %if.then61
   %conv63 = sext i32 %25 to i64
-  %call.i88 = tail call ptr @ngettext(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef %conv63) #21
+  %call.i88 = tail call ptr @ngettext(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef range(i64 -2147483648, 2147483648) %conv63) #21
   %.pre110 = load i32, ptr %whitespace_error, align 8
   br label %Q_.exit93
 
@@ -2452,7 +2452,7 @@ entry:
   store ptr null, ptr %list, align 8
   %patch_input_file = getelementptr inbounds i8, ptr %state, i64 120
   store ptr %filename, ptr %patch_input_file, align 8
-  %call.i = call i64 @strbuf_read(ptr noundef nonnull %buf, i32 noundef %fd, i64 noundef 0) #21
+  %call.i = call i64 @strbuf_read(ptr noundef nonnull %buf, i32 noundef range(i32 0, -2147483648) %fd, i64 noundef 0) #21
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -3374,7 +3374,7 @@ if.end5.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
 if.then7.i.i.i.i.i:                               ; preds = %if.end5.i.i.i.i.i
   %88 = load ptr, ptr @stderr, align 8
   %89 = load ptr, ptr %patch_input_file, align 8
-  %call8.i.i.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.156, ptr noundef %89, i32 noundef %84, ptr noundef %call.i.i124.i.i.i, i32 noundef %sub2.i.i.i.i, ptr noundef nonnull %add.ptr.i118.i.i.i) #24
+  %call8.i.i.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.156, ptr noundef %89, i32 noundef %84, ptr noundef %call.i.i124.i.i.i, i32 noundef range(i32 -2147483648, 2147483646) %sub2.i.i.i.i, ptr noundef nonnull %add.ptr.i118.i.i.i) #24
   br label %if.end9.i.i.i.i.i
 
 if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i, %if.end5.i.i.i.i.i
@@ -3449,7 +3449,7 @@ if.end5.i.i153.i.i.i:                             ; preds = %if.end.i.i146.i.i.i
 if.then7.i.i158.i.i.i:                            ; preds = %if.end5.i.i153.i.i.i
   %103 = load ptr, ptr @stderr, align 8
   %104 = load ptr, ptr %patch_input_file, align 8
-  %call8.i.i160.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.156, ptr noundef %104, i32 noundef %99, ptr noundef %call.i.i154.i.i.i, i32 noundef %sub2.i143.i.i.i, ptr noundef nonnull %add.ptr.i140.i.i.i) #24
+  %call8.i.i160.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.156, ptr noundef %104, i32 noundef %99, ptr noundef %call.i.i154.i.i.i, i32 noundef range(i32 -2147483648, 2147483646) %sub2.i143.i.i.i, ptr noundef nonnull %add.ptr.i140.i.i.i) #24
   br label %if.end9.i.i157.i.i.i
 
 if.end9.i.i157.i.i.i:                             ; preds = %if.then7.i.i158.i.i.i, %if.end5.i.i153.i.i.i
@@ -3529,7 +3529,7 @@ if.end5.i.i190.i.i.i:                             ; preds = %if.end.i.i183.i.i.i
 if.then7.i.i195.i.i.i:                            ; preds = %if.end5.i.i190.i.i.i
   %118 = load ptr, ptr @stderr, align 8
   %119 = load ptr, ptr %patch_input_file, align 8
-  %call8.i.i197.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.156, ptr noundef %119, i32 noundef %114, ptr noundef %call.i.i191.i.i.i, i32 noundef %sub2.i180.i.i.i, ptr noundef nonnull %add.ptr.i177.i.i.i) #24
+  %call8.i.i197.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.156, ptr noundef %119, i32 noundef %114, ptr noundef %call.i.i191.i.i.i, i32 noundef range(i32 -2147483648, 2147483646) %sub2.i180.i.i.i, ptr noundef nonnull %add.ptr.i177.i.i.i) #24
   br label %if.end9.i.i194.i.i.i
 
 if.end9.i.i194.i.i.i:                             ; preds = %if.then7.i.i195.i.i.i, %if.end5.i.i190.i.i.i
@@ -5452,7 +5452,7 @@ _.exit134.i.i:                                    ; preds = %if.end3.i131.i.i, %
 
 if.end103.i.i:                                    ; preds = %land.lhs.true94.i.i, %if.end92.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %image.i.i.i)
-  %call.i135.i.i = call fastcc i32 @load_preimage(ptr noundef nonnull %state, ptr noundef %image.i.i.i, ptr noundef %patch.addr.044.i, ptr noundef readonly %st.i.i, ptr noundef %ce.2.i.i)
+  %call.i135.i.i = call fastcc i32 @load_preimage(ptr noundef nonnull %state, ptr noundef %image.i.i.i, ptr noundef nonnull %patch.addr.044.i, ptr noundef nonnull readonly %st.i.i, ptr noundef %ce.2.i.i)
   %cmp.i136.i.i = icmp slt i32 %call.i135.i.i, 0
   br i1 %cmp.i136.i.i, label %if.then106.i.i, label %if.end.i137.i.i
 
@@ -5674,7 +5674,7 @@ add_line_info.exit.i.i.i.i:                       ; preds = %hash_line.exit.loop
 prepare_image.exit.i.i.i.i:                       ; preds = %add_line_info.exit.i.i.i.i, %if.end43.i.i.i.i
   %360 = phi ptr [ null, %if.end43.i.i.i.i ], [ %.pre.i7781.i.i.i.i, %add_line_info.exit.i.i.i.i ]
   store ptr %360, ptr %line.i.i.i.i.i, align 8
-  %call45.i.i.i.i = call fastcc i32 @apply_fragments(ptr noundef %state, ptr noundef %tmp_image.i.i.i.i, ptr noundef %patch.addr.044.i)
+  %call45.i.i.i.i = call fastcc i32 @apply_fragments(ptr noundef %state, ptr noundef %tmp_image.i.i.i.i, ptr noundef nonnull %patch.addr.044.i)
   %cmp46.i.i.i.i = icmp slt i32 %call45.i.i.i.i, 0
   %361 = load ptr, ptr %tmp_image.i.i.i.i, align 8
   br i1 %cmp46.i.i.i.i, label %if.then47.i.i.i.i, label %if.end48.i.i.i.i
@@ -5697,7 +5697,7 @@ if.end48.i.i.i.i:                                 ; preds = %prepare_image.exit.
   br i1 %tobool53.not.i.i.i.i, label %if.else62.i.i.i.i, label %if.then54.i.i.i.i
 
 if.then54.i.i.i.i:                                ; preds = %if.end48.i.i.i.i
-  %call55.i.i.i.i = call fastcc i32 @load_current(ptr noundef %state, ptr noundef %tmp_image.i.i.i.i, ptr noundef %patch.addr.044.i)
+  %call55.i.i.i.i = call fastcc i32 @load_current(ptr noundef %state, ptr noundef %tmp_image.i.i.i.i, ptr noundef nonnull %patch.addr.044.i)
   %tobool56.not.i.i.i.i = icmp eq i32 %call55.i.i.i.i, 0
   br i1 %tobool56.not.i.i.i.i, label %if.end70.i.i.i.i, label %if.then57.i.i.i.i
 
@@ -5717,7 +5717,7 @@ _.exit48.i.i.i.i:                                 ; preds = %if.end3.i45.i.i.i.i
   br label %try_threeway.exit.thread.i.i.i
 
 if.else62.i.i.i.i:                                ; preds = %if.end48.i.i.i.i
-  %call63.i.i.i.i = call fastcc i32 @load_preimage(ptr noundef %state, ptr noundef %tmp_image.i.i.i.i, ptr noundef %patch.addr.044.i, ptr noundef readonly %st.i.i, ptr noundef %ce.2.i.i)
+  %call63.i.i.i.i = call fastcc i32 @load_preimage(ptr noundef %state, ptr noundef %tmp_image.i.i.i.i, ptr noundef nonnull %patch.addr.044.i, ptr noundef nonnull readonly %st.i.i, ptr noundef %ce.2.i.i)
   %tobool64.not.i.i.i.i = icmp eq i32 %call63.i.i.i.i, 0
   br i1 %tobool64.not.i.i.i.i, label %if.end70.i.i.i.i, label %if.then65.i.i.i.i
 
@@ -5744,7 +5744,7 @@ if.end70.i.i.i.i:                                 ; preds = %if.else62.i.i.i.i, 
   %372 = load ptr, ptr %line_allocated19.phi.trans.insert.i.i.i.i.i, align 8
   call void @free(ptr noundef %372) #21
   %373 = load ptr, ptr %patch.addr.044.i, align 8
-  %call75.i.i.i.i = call fastcc i32 @three_way_merge(ptr noundef %state, ptr noundef %image.i.i.i, ptr noundef %373, ptr noundef %pre_oid.i.i.i.i, ptr noundef %our_oid.i.i.i.i, ptr noundef %post_oid.i.i.i.i)
+  %call75.i.i.i.i = call fastcc i32 @three_way_merge(ptr noundef %state, ptr noundef nonnull %image.i.i.i, ptr noundef %373, ptr noundef %pre_oid.i.i.i.i, ptr noundef %our_oid.i.i.i.i, ptr noundef %post_oid.i.i.i.i)
   %cmp76.i.i.i.i = icmp slt i32 %call75.i.i.i.i, 0
   br i1 %cmp76.i.i.i.i, label %if.then77.i.i.i.i, label %if.end84.i.i.i.i
 
@@ -5910,7 +5910,7 @@ if.end12.i.i.i:                                   ; preds = %_.exit.i153.i.i, %l
   br i1 %tobool18.not.i.i.i, label %lor.lhs.false19.i.i.i, label %if.then106.i.i
 
 lor.lhs.false19.i.i.i:                            ; preds = %if.end12.i.i.i
-  %call20.i.i.i = call fastcc i32 @apply_fragments(ptr noundef nonnull %state, ptr noundef %image.i.i.i, ptr noundef %patch.addr.044.i)
+  %call20.i.i.i = call fastcc i32 @apply_fragments(ptr noundef nonnull %state, ptr noundef %image.i.i.i, ptr noundef nonnull %patch.addr.044.i)
   %cmp21.i.i.i = icmp slt i32 %call20.i.i.i, 0
   br i1 %cmp21.i.i.i, label %if.then106.i.i, label %if.end24.i.i.i
 
@@ -6081,7 +6081,7 @@ if.then5.i.i:                                     ; preds = %lor.lhs.false.i.i24
   br i1 %cmp11.i.i, label %if.end15.i224, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
-  %call8.i.i244 = call fastcc i32 @create_file(ptr noundef %state, ptr noundef readonly %l.034.i)
+  %call8.i.i244 = call fastcc i32 @create_file(ptr noundef %state, ptr noundef nonnull readonly %l.034.i)
   br label %write_out_one_result.exit.i
 
 if.end10.i.i:                                     ; preds = %lor.lhs.false.i.i241
@@ -6091,11 +6091,11 @@ if.then12.i.i281:                                 ; preds = %if.end10.i.i
   %bf.lshr14.i.i = lshr i16 %bf.load.i.i242, 4
   %bf.clear15.i.i = and i16 %bf.lshr14.i.i, 1
   %bf.cast16.i.i = zext nneg i16 %bf.clear15.i.i to i32
-  %call17.i.i = call fastcc i32 @remove_file(ptr noundef %state, ptr noundef readonly %l.034.i, i32 noundef %bf.cast16.i.i)
+  %call17.i.i = call fastcc i32 @remove_file(ptr noundef %state, ptr noundef nonnull readonly %l.034.i, i32 noundef %bf.cast16.i.i)
   br label %write_out_one_result.exit.i
 
 if.then20.i.i:                                    ; preds = %if.end10.i.i
-  %call21.i.i = call fastcc i32 @create_file(ptr noundef %state, ptr noundef readonly %l.034.i)
+  %call21.i.i = call fastcc i32 @create_file(ptr noundef %state, ptr noundef nonnull readonly %l.034.i)
   br label %write_out_one_result.exit.i
 
 write_out_one_result.exit.i:                      ; preds = %if.then20.i.i, %if.then12.i.i281, %if.then7.i.i
@@ -6104,7 +6104,7 @@ write_out_one_result.exit.i:                      ; preds = %if.then20.i.i, %if.
   br i1 %tobool2.not.i246, label %if.end.i247, label %write_out_results.exit.thread
 
 write_out_one_result.exit.i.thread:               ; preds = %if.then.i.i282
-  %call.i.i283 = call fastcc i32 @remove_file(ptr noundef %state, ptr noundef readonly %l.034.i, i32 noundef 1)
+  %call.i.i283 = call fastcc i32 @remove_file(ptr noundef %state, ptr noundef nonnull readonly %l.034.i, i32 noundef 1)
   %tobool2.not.i246391 = icmp eq i32 %call.i.i283, 0
   br i1 %tobool2.not.i246391, label %if.end15.i224, label %write_out_results.exit.thread
 
@@ -6185,7 +6185,7 @@ if.then.i.i.i274:                                 ; preds = %if.end10.i19.i
 
 if.end.i.i.i255:                                  ; preds = %if.end10.i19.i
   %conv.i.i256 = sext i32 %spec.select.i.i to i64
-  %call.i38.i.i = call ptr @ngettext(ptr noundef nonnull @.str.232, ptr noundef nonnull @.str.233, i64 noundef %conv.i.i256) #21
+  %call.i38.i.i = call ptr @ngettext(ptr noundef nonnull @.str.232, ptr noundef nonnull @.str.233, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i256) #21
   br label %Q_.exit.i.i
 
 Q_.exit.i.i:                                      ; preds = %if.end.i.i.i255, %if.then.i.i.i274
@@ -10301,7 +10301,7 @@ for.end.i:                                        ; preds = %for.inc.i, %land.rh
   %sub.ptr.lhs.cast.i = ptrtoint ptr %spec.select.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cp.023.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call fastcc void @add_line_info(ptr noundef %image, ptr noundef %cp.023.i, i64 noundef %sub.ptr.sub.i, i32 noundef 0)
+  call fastcc void @add_line_info(ptr noundef nonnull %image, ptr noundef %cp.023.i, i64 noundef %sub.ptr.sub.i, i32 noundef 0)
   %cmp.i = icmp ult ptr %spec.select.i, %add.ptr.i
   br i1 %cmp.i, label %for.cond.preheader.i, label %while.end.loopexit.i, !llvm.loop !27
 
@@ -10526,7 +10526,7 @@ if.end45.i:                                       ; preds = %if.else.i, %if.then
   br i1 %tobool50.not.i, label %if.end52.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %if.end45.i
-  call fastcc void @clear_image(ptr noundef %img)
+  call fastcc void @clear_image(ptr noundef nonnull %img)
   br label %apply_binary.exit
 
 if.end52.i:                                       ; preds = %if.end45.i
@@ -10556,7 +10556,7 @@ _.exit44.i:                                       ; preds = %if.end3.i41.i, %if.
   br label %apply_binary.exit
 
 if.end64.i:                                       ; preds = %if.then55.i
-  call fastcc void @clear_image(ptr noundef %img)
+  call fastcc void @clear_image(ptr noundef nonnull %img)
   store ptr %call56.i, ptr %img, align 8
   %25 = load i64, ptr %size.i, align 8
   %len66.i = getelementptr inbounds i8, ptr %img, i64 8
@@ -10564,7 +10564,7 @@ if.end64.i:                                       ; preds = %if.then55.i
   br label %apply_binary.exit
 
 if.else67.i:                                      ; preds = %if.end52.i
-  %call68.i = call fastcc i32 @apply_binary_fragment(ptr noundef readonly %state, ptr noundef %img, ptr noundef %patch)
+  %call68.i = call fastcc i32 @apply_binary_fragment(ptr noundef readonly %state, ptr noundef nonnull %img, ptr noundef nonnull %patch)
   %tobool69.not.i = icmp eq i32 %call68.i, 0
   br i1 %tobool69.not.i, label %if.end74.i, label %if.then70.i
 
@@ -11659,7 +11659,7 @@ for.end48.i.i.i.i:                                ; preds = %for.end32.i.i.i.i, 
   call void @strbuf_add(ptr noundef nonnull %fixed.i.i.i.i, ptr noundef %add.ptr20.i.i.i.i, i64 noundef %gepdiff.i.i.i.i) #21
   %call52.i.i.i.i = call ptr @strbuf_detach(ptr noundef nonnull %fixed.i.i.i.i, ptr noundef nonnull %fixed_len.i.i.i.i) #21
   %173 = load i64, ptr %fixed_len.i.i.i.i, align 8
-  call fastcc void @update_pre_post_images(ptr noundef %preimage.i, ptr noundef %postimage.i, ptr noundef %call52.i.i.i.i, i64 noundef %173, i64 noundef %postlen.0.lcssa.i.i.i.i)
+  call fastcc void @update_pre_post_images(ptr noundef nonnull %preimage.i, ptr noundef nonnull %postimage.i, ptr noundef %call52.i.i.i.i, i64 noundef %173, i64 noundef %postlen.0.lcssa.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %fixed.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fixed_len.i.i.i.i)
   br label %find_pos.exit.i
@@ -11827,7 +11827,7 @@ for.end228.i.i.i:                                 ; preds = %for.cond190.prehead
   %cmp231.i.i.i = icmp ult i64 %postlen.2.lcssa.i.i.i, %202
   %spec.store.select.i.i.i = select i1 %cmp231.i.i.i, i64 0, i64 %postlen.2.lcssa.i.i.i
   %203 = load i64, ptr %fixed_len.i.i.i, align 8
-  call fastcc void @update_pre_post_images(ptr noundef %preimage.i, ptr noundef %postimage.i, ptr noundef %call229.i.i.i, i64 noundef %203, i64 noundef %spec.store.select.i.i.i)
+  call fastcc void @update_pre_post_images(ptr noundef nonnull %preimage.i, ptr noundef nonnull %postimage.i, ptr noundef %call229.i.i.i, i64 noundef %203, i64 noundef %spec.store.select.i.i.i)
   br label %find_pos.exit.i
 
 unmatch_exit.i.i.i:                               ; preds = %land.end.i.i.i, %for.body210.i.i.i, %land.end.i.i.thread.i
@@ -12078,13 +12078,13 @@ if.then.i329.i:                                   ; preds = %if.then254.i
 
 if.end.i326.i:                                    ; preds = %if.then254.i
   %conv261.i = sext i32 %spec.select132.i to i64
-  %call.i327.i = call ptr @ngettext(ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i64 noundef %conv261.i) #21
+  %call.i327.i = call ptr @ngettext(ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i64 noundef range(i64 -2147483648, 2147483648) %conv261.i) #21
   br label %Q_.exit.i
 
 Q_.exit.i:                                        ; preds = %if.end.i326.i, %if.then.i329.i
   %retval.0.i328.i = phi ptr [ %call.i327.i, %if.end.i326.i ], [ %cond.i.i, %if.then.i329.i ]
   %add263.i = add nuw nsw i32 %current_lno.0.i.i, 1
-  %call264.i = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %244, ptr noundef %retval.0.i328.i, i32 noundef %inc, i32 noundef %add263.i, i32 noundef %spec.select132.i) #21
+  %call264.i = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %244, ptr noundef %retval.0.i328.i, i32 noundef range(i32 -2147483647, -2147483648) %inc, i32 noundef %add263.i, i32 noundef %spec.select132.i) #21
   br label %if.end265.i
 
 if.end265.i:                                      ; preds = %Q_.exit.i, %if.end247.i
@@ -12986,7 +12986,7 @@ for.end.i:                                        ; preds = %for.inc.i, %land.rh
   %sub.ptr.lhs.cast.i = ptrtoint ptr %spec.select.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cp.023.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call fastcc void @add_line_info(ptr noundef %image, ptr noundef %cp.023.i, i64 noundef %sub.ptr.sub.i, i32 noundef 0)
+  call fastcc void @add_line_info(ptr noundef nonnull %image, ptr noundef %cp.023.i, i64 noundef %sub.ptr.sub.i, i32 noundef 0)
   %cmp.i31 = icmp ult ptr %spec.select.i, %add.ptr.i
   br i1 %cmp.i31, label %for.cond.preheader.i, label %while.end.loopexit.i, !llvm.loop !27
 

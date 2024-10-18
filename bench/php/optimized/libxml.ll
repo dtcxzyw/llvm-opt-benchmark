@@ -1712,7 +1712,7 @@ define void @php_libxml_ctx_error(ptr noundef %0, ptr noundef %1, ...) local_unn
 php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
   %.012.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
   %.0.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef %0, ptr %1, ptr noundef %3, i32 noundef %.0.i, i32 noundef %.012.i)
+  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef %0, ptr %1, ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef %.012.i)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1740,7 +1740,7 @@ define void @php_libxml_ctx_warning(ptr noundef %0, ptr noundef %1, ...) local_u
 php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
   %.012.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
   %.0.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 2, ptr noundef %0, ptr %1, ptr noundef %3, i32 noundef %.0.i, i32 noundef %.012.i)
+  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 2, ptr noundef %0, ptr %1, ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef %.012.i)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1749,7 +1749,7 @@ php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
 define void @php_libxml_error_handler(ptr noundef %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 0, ptr noundef %0, ptr %1, ptr noundef %3, i32 noundef 0, i32 noundef 0)
+  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 0, ptr noundef %0, ptr %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -3663,7 +3663,7 @@ define internal ptr @php_libxml_input_buffer_create_filename(ptr noundef %0, i32
   br i1 %or.cond, label %32, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef %0, ptr noundef nonnull @.str.72, i32 noundef 1)
+  %7 = tail call fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef nonnull %0, ptr noundef nonnull @.str.72, i32 noundef 1)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %32, label %9
 
@@ -3759,14 +3759,14 @@ define internal ptr @php_libxml_output_buffer_create_filename(ptr noundef %0, pt
   br i1 %.not29, label %.thread36, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef %13, ptr noundef nonnull @.str.75, i32 noundef 0)
+  %15 = tail call fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef nonnull %13, ptr noundef nonnull @.str.75, i32 noundef 0)
   %16 = load ptr, ptr @xmlFree, align 8
   tail call void %16(ptr noundef nonnull %13) #17
   %17 = icmp eq ptr %15, null
   br i1 %17, label %.thread36, label %.thread38
 
 .thread36:                                        ; preds = %8, %.thread33, %12, %14
-  %18 = tail call fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef 0)
+  %18 = tail call fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef nonnull %0, ptr noundef nonnull @.str.75, i32 noundef 0)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %.thread38
 

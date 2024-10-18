@@ -321,7 +321,7 @@ define void @_ZN2cv6bgsegm28BackgroundSubtractorLSBPDesc18calcLocalSVDValuesERKN
           to label %36 unwind label %114
 
 36:                                               ; preds = %30
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
   %37 = icmp sgt i32 %14, 2
   br i1 %37, label %.lr.ph, label %..preheader_crit_edge
 
@@ -436,7 +436,7 @@ define void @_ZN2cv6bgsegm28BackgroundSubtractorLSBPDesc18calcLocalSVDValuesERKN
 114:                                              ; preds = %30
   %115 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
   br label %163
 
 116:                                              ; preds = %.lr.ph83, %116
@@ -689,14 +689,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
           to label %24 unwind label %25
 
 24:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #28
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #28
   ret void
 
 25:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #28
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #28
   resume { ptr, i32 } %26
 }
@@ -2825,7 +2825,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit166: ; preds = %577, %_ZNSt6vectorI
           to label %594 unwind label %700
 
 594:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit166
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #28
   %595 = getelementptr inbounds i8, ptr %0, i64 40
   %596 = load i64, ptr %595, align 8
   %597 = add i64 %596, 1
@@ -3055,7 +3055,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20Backgr
 700:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit166
   %701 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #28
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit170
 
 702:                                              ; preds = %594
@@ -3136,7 +3136,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119Backgroun
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc i64 %.0.val to i32
   %.sroa.4.0.extract.shift.i.i.i.i.i.i.i.i.i = lshr i64 %.0.val, 32
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i.i.i.i.i.i to i32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !55
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 24, i1 false), !noalias !55
   %6 = getelementptr inbounds i8, ptr %2, i64 40
   store i64 %.0.val, ptr %6, align 8, !noalias !55
   %7 = getelementptr inbounds i8, ptr %2, i64 48
@@ -5888,7 +5888,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit141: ; preds = %593, %_ZNSt6vectorI
           to label %611 unwind label %613
 
 611:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit141
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %40) #28
   invoke void @_ZN2cv6bgsegm28BackgroundSubtractorLSBPImpl14postprocessingERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %612 unwind label %362
 
@@ -5901,7 +5901,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit141: ; preds = %593, %_ZNSt6vectorI
 613:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit141
   %614 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #28
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %40) #28
   br label %.body
 
 .body:                                            ; preds = %600, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit143, %117, %613, %379, %366, %364, %362
@@ -5932,7 +5932,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119Backgroun
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc i64 %.0.val to i32
   %.sroa.4.0.extract.shift.i.i.i.i.i.i.i.i.i = lshr i64 %.0.val, 32
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i.i.i.i.i.i to i32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !111
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 24, i1 false), !noalias !111
   %6 = getelementptr inbounds i8, ptr %2, i64 40
   store i64 %.0.val, ptr %6, align 8, !noalias !111
   %7 = getelementptr inbounds i8, ptr %2, i64 48
@@ -6644,7 +6644,7 @@ declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv6bgsegm12_GLOBAL__N_122ParallelLocalSVDValuesD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
@@ -6871,7 +6871,7 @@ declare float @cosf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv6bgsegm12_GLOBAL__N_126ParallelFromLocalSVDValuesD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
@@ -7012,7 +7012,7 @@ declare void @_ZN2cv20calcOpticalFlowPyrLKERKNS_11_InputArrayES2_S2_RKNS_17_Inpu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6bgsegm12ParallelGSOCD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
@@ -7544,7 +7544,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20Backgr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6bgsegm12ParallelLSBPD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }

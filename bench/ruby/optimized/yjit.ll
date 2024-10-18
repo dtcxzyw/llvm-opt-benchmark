@@ -2047,7 +2047,7 @@ rb_array_const_ptr.exit:                          ; preds = %6, %10
   br i1 %16, label %17, label %rbimpl_size_mul_or_raise.exit
 
 17:                                               ; preds = %rb_array_const_ptr.exit
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %15) #24
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %15) #24
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_array_const_ptr.exit
@@ -2056,7 +2056,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_array_const_ptr.
 
 18:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %19 = ashr exact i64 %sext, 29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr readonly align 1 %.0.i6, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr readonly align 1 %.0.i6, i64 range(i64 -17179869184, 17179869177) %19, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %18

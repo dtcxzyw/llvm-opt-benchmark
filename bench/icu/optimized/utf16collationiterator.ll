@@ -938,7 +938,7 @@ while.end:                                        ; preds = %land.rhs, %if.end, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7525FCDUTF16CollationIteratorC2ERKS0_PKDs(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 8 dereferenceable(521) %other, ptr noundef %newText) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN6icu_7517CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull align 8 dereferenceable(389) %other)
+  tail call void @_ZN6icu_7517CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef nonnull align 8 dereferenceable(416) %other)
   %start.i = getelementptr inbounds i8, ptr %this, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %start.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i64 16), ptr %this, align 8
@@ -1028,7 +1028,7 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(389) %this) #14
+  tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) #14
   resume { ptr, i32 } %15
 
 if.else:                                          ; preds = %invoke.cont
@@ -1093,7 +1093,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i64 16), ptr %this, align 8
   %normalized = getelementptr inbounds i8, ptr %this, i64 456
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalized) #14
-  tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(389) %this) #14
+  tail call void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) #14
   ret void
 }
 

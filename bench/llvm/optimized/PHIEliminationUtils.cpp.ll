@@ -150,7 +150,7 @@ define dso_local ptr @_ZN4llvm22findPHICopyInsertPointEPNS_17MachineBasicBlockES
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 74:                                               ; preds = %._crit_edge.i.i, %60
-  %75 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef %56) #4, !noalias !6
+  %75 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull %56) #4, !noalias !6
   %.pre.i = load ptr, ptr %4, align 8, !noalias !6
   %.pre8.i = load i32, ptr %26, align 4, !noalias !6
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i

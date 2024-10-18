@@ -1003,7 +1003,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow11TensorProto14_InternalParseEP
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %33
-  %46 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %38, i32 noundef %30)
+  %46 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %38, i32 noundef %30)
   %47 = extractvalue { ptr, i8 } %46, 0
   %48 = extractvalue { ptr, i8 } %46, 1
   %49 = trunc i8 %48 to i1

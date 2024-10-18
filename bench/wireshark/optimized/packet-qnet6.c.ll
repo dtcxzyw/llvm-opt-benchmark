@@ -1731,16 +1731,16 @@ define internal i32 @dissect_qnet6(ptr noundef %0, ptr nocapture noundef readonl
   %104 = add nsw i32 %101, -8
   %105 = load i32, ptr @hf_qnet6_qos_tcs_src_name_off, align 4
   %106 = load i32, ptr @hf_qnet6_qos_tcs_src_name_generated, align 4
-  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef %6, i32 noundef %20, i32 noundef %105, i32 noundef %106, i32 noundef %104, i32 noundef 46)
+  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %6, i32 noundef range(i32 -2147483648, 1) %20, i32 noundef %105, i32 noundef %106, i32 noundef %104, i32 noundef 46)
   %107 = load i32, ptr @hf_qnet6_qos_tcs_src_domain_off, align 4
   %108 = load i32, ptr @hf_qnet6_qos_tcs_src_domain_generated, align 4
-  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef %6, i32 noundef %20, i32 noundef %107, i32 noundef %108, i32 noundef %104, i32 noundef 46)
+  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %6, i32 noundef range(i32 -2147483648, 1) %20, i32 noundef %107, i32 noundef %108, i32 noundef %104, i32 noundef 46)
   %109 = load i32, ptr @hf_qnet6_qos_tcs_dst_name_off, align 4
   %110 = load i32, ptr @hf_qnet6_qos_tcs_dst_name_generated, align 4
-  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef %6, i32 noundef %20, i32 noundef %109, i32 noundef %110, i32 noundef %104, i32 noundef 46)
+  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %6, i32 noundef range(i32 -2147483648, 1) %20, i32 noundef %109, i32 noundef %110, i32 noundef %104, i32 noundef 46)
   %111 = load i32, ptr @hf_qnet6_qos_tcs_dst_domain_off, align 4
   %112 = load i32, ptr @hf_qnet6_qos_tcs_dst_domain_generated, align 4
-  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef %6, i32 noundef %20, i32 noundef %111, i32 noundef %112, i32 noundef %104, i32 noundef 46)
+  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %6, i32 noundef range(i32 -2147483648, 1) %20, i32 noundef %111, i32 noundef %112, i32 noundef %104, i32 noundef 46)
   br label %.sink.split.i
 
 113:                                              ; preds = %94
@@ -3448,28 +3448,28 @@ tailrecurse.backedge:                             ; preds = %145, %201, %dissect
 
 160:                                              ; preds = %29
   %161 = load i32, ptr %3, align 4
-  %162 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %161, i32 noundef %4) #5
+  %162 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %161, i32 noundef range(i32 -2147483648, 1) %4) #5
   %163 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %164 = load i32, ptr %3, align 4
-  %165 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %163, ptr noundef %0, i32 noundef %164, i32 noundef 2, i32 noundef %4) #5
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %163, ptr noundef %0, i32 noundef %164, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %166 = load i32, ptr %3, align 4
   %167 = add i32 %166, 2
   store i32 %167, ptr %3, align 4
-  %168 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %167, i32 noundef %4) #5
+  %168 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %167, i32 noundef range(i32 -2147483648, 1) %4) #5
   %169 = load i32, ptr %3, align 4
   %170 = load i32, ptr @hf_qnet6_kif_msg_devctl_dcmd, align 4
   %171 = load i32, ptr @ett_qnet6_kif_msg_devctl_dcmd, align 4
-  %172 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %169, i32 noundef %170, i32 noundef %171, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_devctl.dcmd_fields, i32 noundef %4) #5
+  %172 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %169, i32 noundef %170, i32 noundef %171, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_devctl.dcmd_fields, i32 noundef range(i32 -2147483648, 1) %4) #5
   %173 = load i32, ptr %3, align 4
   %174 = add i32 %173, 4
   store i32 %174, ptr %3, align 4
   %175 = load i32, ptr @hf_qnet6_kif_msg_devctl_nbytes, align 4
-  %176 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %175, ptr noundef %0, i32 noundef %174, i32 noundef 4, i32 noundef %4) #5
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %175, ptr noundef %0, i32 noundef %174, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %177 = load i32, ptr %3, align 4
   %178 = add i32 %177, 4
   store i32 %178, ptr %3, align 4
   %179 = load i32, ptr @hf_qnet6_kif_msg_devctl_zero, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %179, ptr noundef %0, i32 noundef %178, i32 noundef 4, i32 noundef %4) #5
+  %180 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %179, ptr noundef %0, i32 noundef %178, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %181 = load i32, ptr %3, align 4
   %182 = add i32 %181, 4
   store i32 %182, ptr %3, align 4
@@ -3517,23 +3517,23 @@ dissect_qnet6_kif_msgsend_msg_extra.exit:         ; preds = %160, %186, %190
   %205 = load i32, ptr %3, align 4
   %206 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %205) #5
   %207 = load i32, ptr %3, align 4
-  %208 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %207, i32 noundef %4) #5
+  %208 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %207, i32 noundef range(i32 -2147483648, 1) %4) #5
   %209 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %210 = load i32, ptr %3, align 4
-  %211 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %209, ptr noundef %0, i32 noundef %210, i32 noundef 2, i32 noundef %4) #5
+  %211 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %209, ptr noundef %0, i32 noundef %210, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %212 = load i32, ptr %3, align 4
   %213 = add i32 %212, 2
   store i32 %213, ptr %3, align 4
   %214 = load i32, ptr @hf_qnet6_kif_msg_io_read_nbytes, align 4
-  %215 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %214, ptr noundef %0, i32 noundef %213, i32 noundef 4, i32 noundef %4) #5
+  %215 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %214, ptr noundef %0, i32 noundef %213, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %216 = load i32, ptr %3, align 4
   %217 = add i32 %216, 4
   store i32 %217, ptr %3, align 4
-  %218 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %217, i32 noundef %4) #5
+  %218 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %217, i32 noundef range(i32 -2147483648, 1) %4) #5
   %219 = load i32, ptr %3, align 4
   %220 = load i32, ptr @hf_qnet6_kif_msg_io_read_xtypes, align 4
   %221 = load i32, ptr @ett_qnet6_kif_msg_read_xtypes, align 4
-  %222 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef %221, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_read.xtypes_fields, i32 noundef %4) #5
+  %222 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef %221, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_read.xtypes_fields, i32 noundef range(i32 -2147483648, 1) %4) #5
   %223 = load i32, ptr %3, align 4
   %224 = add i32 %223, 4
   store i32 %224, ptr %3, align 4
@@ -3551,22 +3551,22 @@ dissect_qnet6_kif_msgsend_msg_extra.exit:         ; preds = %160, %186, %190
 
 230:                                              ; preds = %204
   %231 = load i32, ptr @hf_qnet6_kif_msg_io_read_xoffset, align 4
-  %232 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %231, ptr noundef %0, i32 noundef %228, i32 noundef 8, i32 noundef %4) #5
+  %232 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %231, ptr noundef %0, i32 noundef %228, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %4) #5
   br label %.sink.split
 
 233:                                              ; preds = %204
   %234 = load i32, ptr @hf_qnet6_kif_msg_io_read_cond_min, align 4
-  %235 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %234, ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef %4) #5
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %234, ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %236 = load i32, ptr %3, align 4
   %237 = add i32 %236, 4
   store i32 %237, ptr %3, align 4
   %238 = load i32, ptr @hf_qnet6_kif_msg_io_read_cond_time, align 4
-  %239 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 4, i32 noundef %4) #5
+  %239 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %240 = load i32, ptr %3, align 4
   %241 = add i32 %240, 4
   store i32 %241, ptr %3, align 4
   %242 = load i32, ptr @hf_qnet6_kif_msg_io_read_cond_timeout, align 4
-  %243 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %242, ptr noundef %0, i32 noundef %241, i32 noundef 4, i32 noundef %4) #5
+  %243 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %242, ptr noundef %0, i32 noundef %241, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   br label %.sink.split
 
 .sink.split:                                      ; preds = %230, %233
@@ -3614,23 +3614,23 @@ dissect_qnet6_kif_msgsend_msg_extra.exit509:      ; preds = %247, %252, %255
   %264 = load i32, ptr %3, align 4
   %265 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %264) #5
   %266 = load i32, ptr %3, align 4
-  %267 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %266, i32 noundef %4) #5
+  %267 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %266, i32 noundef range(i32 -2147483648, 1) %4) #5
   %268 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %269 = load i32, ptr %3, align 4
-  %270 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %268, ptr noundef %0, i32 noundef %269, i32 noundef 2, i32 noundef %4) #5
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %268, ptr noundef %0, i32 noundef %269, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %271 = load i32, ptr %3, align 4
   %272 = add i32 %271, 2
   store i32 %272, ptr %3, align 4
   %273 = load i32, ptr @hf_qnet6_kif_msg_io_write_nbytes, align 4
-  %274 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %273, ptr noundef %0, i32 noundef %272, i32 noundef 4, i32 noundef %4) #5
+  %274 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %273, ptr noundef %0, i32 noundef %272, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %275 = load i32, ptr %3, align 4
   %276 = add i32 %275, 4
   store i32 %276, ptr %3, align 4
-  %277 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %276, i32 noundef %4) #5
+  %277 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %276, i32 noundef range(i32 -2147483648, 1) %4) #5
   %278 = load i32, ptr %3, align 4
   %279 = load i32, ptr @hf_qnet6_kif_msg_io_write_xtypes, align 4
   %280 = load i32, ptr @ett_qnet6_kif_msg_write_xtypes, align 4
-  %281 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %278, i32 noundef %279, i32 noundef %280, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_write.xtypes_fields, i32 noundef %4) #5
+  %281 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %278, i32 noundef %279, i32 noundef %280, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_write.xtypes_fields, i32 noundef range(i32 -2147483648, 1) %4) #5
   %282 = load i32, ptr %3, align 4
   %283 = add i32 %282, 4
   store i32 %283, ptr %3, align 4
@@ -3648,22 +3648,22 @@ dissect_qnet6_kif_msgsend_msg_extra.exit509:      ; preds = %247, %252, %255
 
 289:                                              ; preds = %263
   %290 = load i32, ptr @hf_qnet6_kif_msg_io_write_xoffset, align 4
-  %291 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %290, ptr noundef %0, i32 noundef %287, i32 noundef 8, i32 noundef %4) #5
+  %291 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %290, ptr noundef %0, i32 noundef %287, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %4) #5
   br label %.sink.split502
 
 292:                                              ; preds = %263
   %293 = load i32, ptr @hf_qnet6_kif_msg_io_read_cond_min, align 4
-  %294 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %293, ptr noundef %0, i32 noundef %287, i32 noundef 4, i32 noundef %4) #5
+  %294 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %293, ptr noundef %0, i32 noundef %287, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %295 = load i32, ptr %3, align 4
   %296 = add i32 %295, 4
   store i32 %296, ptr %3, align 4
   %297 = load i32, ptr @hf_qnet6_kif_msg_io_read_cond_time, align 4
-  %298 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %297, ptr noundef %0, i32 noundef %296, i32 noundef 4, i32 noundef %4) #5
+  %298 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %297, ptr noundef %0, i32 noundef %296, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %299 = load i32, ptr %3, align 4
   %300 = add i32 %299, 4
   store i32 %300, ptr %3, align 4
   %301 = load i32, ptr @hf_qnet6_kif_msg_io_read_cond_timeout, align 4
-  %302 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %301, ptr noundef %0, i32 noundef %300, i32 noundef 4, i32 noundef %4) #5
+  %302 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %301, ptr noundef %0, i32 noundef %300, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   br label %.sink.split502
 
 .sink.split502:                                   ; preds = %289, %292
@@ -3722,15 +3722,15 @@ dissect_qnet6_kif_msgsend_msg_extra.exit511:      ; preds = %306, %311, %314
   %328 = load i32, ptr %3, align 4
   %329 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %328) #5
   %330 = load i32, ptr %3, align 4
-  %331 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %330, i32 noundef %4) #5
+  %331 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %330, i32 noundef range(i32 -2147483648, 1) %4) #5
   %332 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %333 = load i32, ptr %3, align 4
-  %334 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %332, ptr noundef %0, i32 noundef %333, i32 noundef 2, i32 noundef %4) #5
+  %334 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %332, ptr noundef %0, i32 noundef %333, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %335 = load i32, ptr %3, align 4
   %336 = add i32 %335, 2
   store i32 %336, ptr %3, align 4
   %337 = load i32, ptr @hf_qnet6_kif_msg_pathconf_name, align 4
-  %338 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %337, ptr noundef %0, i32 noundef %336, i32 noundef 2, i32 noundef %4) #5
+  %338 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %337, ptr noundef %0, i32 noundef %336, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %339 = load i32, ptr %3, align 4
   %340 = add i32 %339, 2
   store i32 %340, ptr %3, align 4
@@ -3771,10 +3771,10 @@ dissect_qnet6_kif_msgsend_msg_extra.exit347:      ; preds = %327, %348, %352
   %361 = load i32, ptr %3, align 4
   %362 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %361) #5
   %363 = load i32, ptr %3, align 4
-  %364 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %363, i32 noundef %4) #5
+  %364 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %363, i32 noundef range(i32 -2147483648, 1) %4) #5
   %365 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %366 = load i32, ptr %3, align 4
-  %367 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %365, ptr noundef %0, i32 noundef %366, i32 noundef 2, i32 noundef %4) #5
+  %367 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %365, ptr noundef %0, i32 noundef %366, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %368 = load i32, ptr %3, align 4
   %369 = add i32 %368, 2
   store i32 %369, ptr %3, align 4
@@ -3815,15 +3815,15 @@ dissect_qnet6_kif_msgsend_msg_extra.exit349:      ; preds = %360, %377, %381
   %390 = load i32, ptr %3, align 4
   %391 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %390) #5
   %392 = load i32, ptr %3, align 4
-  %393 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %392, i32 noundef %4) #5
+  %393 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %392, i32 noundef range(i32 -2147483648, 1) %4) #5
   %394 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %395 = load i32, ptr %3, align 4
-  %396 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %394, ptr noundef %0, i32 noundef %395, i32 noundef 2, i32 noundef %4) #5
+  %396 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %394, ptr noundef %0, i32 noundef %395, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %397 = load i32, ptr %3, align 4
   %398 = add i32 %397, 2
   store i32 %398, ptr %3, align 4
   %399 = load i32, ptr @hf_qnet6_kif_msg_seek_whence, align 4
-  %400 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %399, ptr noundef %0, i32 noundef %398, i32 noundef 2, i32 noundef %4) #5
+  %400 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %399, ptr noundef %0, i32 noundef %398, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %401 = load i32, ptr %3, align 4
   %402 = add i32 %401, 2
   store i32 %402, ptr %3, align 4
@@ -3833,7 +3833,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit349:      ; preds = %360, %377, %381
   %406 = add i32 %405, 2
   store i32 %406, ptr %3, align 4
   %407 = load i32, ptr @hf_qnet6_kif_msg_seek_offset, align 4
-  %408 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %407, ptr noundef %0, i32 noundef %406, i32 noundef 8, i32 noundef %4) #5
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %407, ptr noundef %0, i32 noundef %406, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %4) #5
   %409 = load i32, ptr %3, align 4
   %410 = add i32 %409, 8
   store i32 %410, ptr %3, align 4
@@ -3869,16 +3869,16 @@ dissect_qnet6_kif_msgsend_msg_extra.exit351:      ; preds = %389, %414, %418
   %427 = load i32, ptr %3, align 4
   %428 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %427) #5
   %429 = load i32, ptr %3, align 4
-  %430 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %429, i32 noundef %4) #5
+  %430 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %429, i32 noundef range(i32 -2147483648, 1) %4) #5
   %431 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %432 = load i32, ptr %3, align 4
-  %433 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %431, ptr noundef %0, i32 noundef %432, i32 noundef 2, i32 noundef %4) #5
+  %433 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %431, ptr noundef %0, i32 noundef %432, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %434 = load i32, ptr %3, align 4
   %435 = add i32 %434, 2
   store i32 %435, ptr %3, align 4
   %436 = load i32, ptr @hf_qnet6_kif_msg_io_chmod, align 4
   %437 = load i32, ptr @ett_qnet6_kif_chmod_mode, align 4
-  %438 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %435, i32 noundef %436, i32 noundef %437, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_chmod.chmod_fields, i32 noundef %4) #5
+  %438 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %435, i32 noundef %436, i32 noundef %437, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_chmod.chmod_fields, i32 noundef range(i32 -2147483648, 1) %4) #5
   %439 = load i32, ptr %3, align 4
   %440 = add i32 %439, 4
   store i32 %440, ptr %3, align 4
@@ -3914,20 +3914,20 @@ dissect_qnet6_kif_msgsend_msg_extra.exit353:      ; preds = %426, %444, %448
   %457 = load i32, ptr %3, align 4
   %458 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %457) #5
   %459 = load i32, ptr %3, align 4
-  %460 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %459, i32 noundef %4) #5
+  %460 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %459, i32 noundef range(i32 -2147483648, 1) %4) #5
   %461 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %462 = load i32, ptr %3, align 4
-  %463 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %461, ptr noundef %0, i32 noundef %462, i32 noundef 2, i32 noundef %4) #5
+  %463 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %461, ptr noundef %0, i32 noundef %462, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %464 = load i32, ptr %3, align 4
   %465 = add i32 %464, 2
   store i32 %465, ptr %3, align 4
   %466 = load i32, ptr @hf_qnet6_kif_msg_io_chown_gid, align 4
-  %467 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %466, ptr noundef %0, i32 noundef %465, i32 noundef 4, i32 noundef %4) #5
+  %467 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %466, ptr noundef %0, i32 noundef %465, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %468 = load i32, ptr %3, align 4
   %469 = add i32 %468, 4
   store i32 %469, ptr %3, align 4
   %470 = load i32, ptr @hf_qnet6_kif_msg_io_chown_uid, align 4
-  %471 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %470, ptr noundef %0, i32 noundef %469, i32 noundef 4, i32 noundef %4) #5
+  %471 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %470, ptr noundef %0, i32 noundef %469, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %472 = load i32, ptr %3, align 4
   %473 = add i32 %472, 4
   store i32 %473, ptr %3, align 4
@@ -3963,15 +3963,15 @@ dissect_qnet6_kif_msgsend_msg_extra.exit355:      ; preds = %456, %477, %481
   %490 = load i32, ptr %3, align 4
   %491 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %490) #5
   %492 = load i32, ptr %3, align 4
-  %493 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %492, i32 noundef %4) #5
+  %493 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %492, i32 noundef range(i32 -2147483648, 1) %4) #5
   %494 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %495 = load i32, ptr %3, align 4
-  %496 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %494, ptr noundef %0, i32 noundef %495, i32 noundef 2, i32 noundef %4) #5
+  %496 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %494, ptr noundef %0, i32 noundef %495, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %497 = load i32, ptr %3, align 4
   %498 = add i32 %497, 2
   store i32 %498, ptr %3, align 4
   %499 = load i32, ptr @hf_qnet6_kif_msg_io_utime_curflag, align 4
-  %500 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %499, ptr noundef %0, i32 noundef %498, i32 noundef 4, i32 noundef %4) #5
+  %500 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %499, ptr noundef %0, i32 noundef %498, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %501 = load i32, ptr %3, align 4
   %502 = add i32 %501, 4
   store i32 %502, ptr %3, align 4
@@ -4021,25 +4021,25 @@ dissect_qnet6_kif_msgsend_msg_extra.exit357:      ; preds = %489, %514, %518
 
 530:                                              ; preds = %526
   %531 = load i32, ptr %3, align 4
-  %532 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %531, i32 noundef %4) #5
+  %532 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %531, i32 noundef range(i32 -2147483648, 1) %4) #5
   %533 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %534 = load i32, ptr %3, align 4
-  %535 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %533, ptr noundef %0, i32 noundef %534, i32 noundef 2, i32 noundef %4) #5
+  %535 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %533, ptr noundef %0, i32 noundef %534, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %536 = load i32, ptr %3, align 4
   %537 = add i32 %536, 2
   store i32 %537, ptr %3, align 4
   %538 = load i32, ptr @hf_qnet6_kif_msg_io_fdinfo_flags, align 4
-  %539 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %538, ptr noundef %0, i32 noundef %537, i32 noundef 4, i32 noundef %4) #5
+  %539 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %538, ptr noundef %0, i32 noundef %537, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %540 = load i32, ptr %3, align 4
   %541 = add i32 %540, 4
   store i32 %541, ptr %3, align 4
   %542 = load i32, ptr @hf_qnet6_kif_msg_io_fdinfo_path_len, align 4
-  %543 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %542, ptr noundef %0, i32 noundef %541, i32 noundef 4, i32 noundef %4) #5
+  %543 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %542, ptr noundef %0, i32 noundef %541, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %544 = load i32, ptr %3, align 4
   %545 = add i32 %544, 4
   store i32 %545, ptr %3, align 4
   %546 = load i32, ptr @hf_qnet6_kif_msg_io_fdinfo_reserved, align 4
-  %547 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %546, ptr noundef %0, i32 noundef %545, i32 noundef 4, i32 noundef %4) #5
+  %547 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %546, ptr noundef %0, i32 noundef %545, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %548 = load i32, ptr %3, align 4
   %549 = add i32 %548, 4
   store i32 %549, ptr %3, align 4
@@ -4075,20 +4075,20 @@ dissect_qnet6_kif_msgsend_msg_extra.exit359:      ; preds = %530, %553, %557
   %566 = load i32, ptr %3, align 4
   %567 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %566) #5
   %568 = load i32, ptr %3, align 4
-  %569 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %568, i32 noundef %4) #5
+  %569 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %568, i32 noundef range(i32 -2147483648, 1) %4) #5
   %570 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %571 = load i32, ptr %3, align 4
-  %572 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %570, ptr noundef %0, i32 noundef %571, i32 noundef 2, i32 noundef %4) #5
+  %572 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %570, ptr noundef %0, i32 noundef %571, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %573 = load i32, ptr %3, align 4
   %574 = add i32 %573, 2
   store i32 %574, ptr %3, align 4
   %575 = load i32, ptr @hf_qnet6_kif_msg_io_lock_subtype, align 4
-  %576 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %575, ptr noundef %0, i32 noundef %574, i32 noundef 4, i32 noundef %4) #5
+  %576 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %575, ptr noundef %0, i32 noundef %574, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %577 = load i32, ptr %3, align 4
   %578 = add i32 %577, 4
   store i32 %578, ptr %3, align 4
   %579 = load i32, ptr @hf_qnet6_kif_msg_io_lock_nbytes, align 4
-  %580 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %579, ptr noundef %0, i32 noundef %578, i32 noundef 4, i32 noundef %4) #5
+  %580 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %579, ptr noundef %0, i32 noundef %578, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %581 = load i32, ptr %3, align 4
   %582 = add i32 %581, 4
   store i32 %582, ptr %3, align 4
@@ -4124,30 +4124,30 @@ dissect_qnet6_kif_msgsend_msg_extra.exit361:      ; preds = %565, %586, %590
   %599 = load i32, ptr %3, align 4
   %600 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %599) #5
   %601 = load i32, ptr %3, align 4
-  %602 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %601, i32 noundef %4) #5
+  %602 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %601, i32 noundef range(i32 -2147483648, 1) %4) #5
   %603 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %604 = load i32, ptr %3, align 4
-  %605 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %603, ptr noundef %0, i32 noundef %604, i32 noundef 2, i32 noundef %4) #5
+  %605 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %603, ptr noundef %0, i32 noundef %604, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %606 = load i32, ptr %3, align 4
   %607 = add i32 %606, 2
   store i32 %607, ptr %3, align 4
   %608 = load i32, ptr @hf_qnet6_kif_msg_io_space_subtype, align 4
-  %609 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %608, ptr noundef %0, i32 noundef %607, i32 noundef 2, i32 noundef %4) #5
+  %609 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %608, ptr noundef %0, i32 noundef %607, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %610 = load i32, ptr %3, align 4
   %611 = add i32 %610, 2
   store i32 %611, ptr %3, align 4
   %612 = load i32, ptr @hf_qnet6_kif_msg_io_space_whence, align 4
-  %613 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %612, ptr noundef %0, i32 noundef %611, i32 noundef 2, i32 noundef %4) #5
+  %613 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %612, ptr noundef %0, i32 noundef %611, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %614 = load i32, ptr %3, align 4
   %615 = add i32 %614, 2
   store i32 %615, ptr %3, align 4
   %616 = load i32, ptr @hf_qnet6_kif_msg_io_space_start, align 4
-  %617 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %616, ptr noundef %0, i32 noundef %615, i32 noundef 8, i32 noundef %4) #5
+  %617 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %616, ptr noundef %0, i32 noundef %615, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %4) #5
   %618 = load i32, ptr %3, align 4
   %619 = add i32 %618, 8
   store i32 %619, ptr %3, align 4
   %620 = load i32, ptr @hf_qnet6_kif_msg_io_space_len, align 4
-  %621 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %620, ptr noundef %0, i32 noundef %619, i32 noundef 8, i32 noundef %4) #5
+  %621 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %620, ptr noundef %0, i32 noundef %619, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %4) #5
   %622 = load i32, ptr %3, align 4
   %623 = add i32 %622, 8
   store i32 %623, ptr %3, align 4
@@ -4183,10 +4183,10 @@ dissect_qnet6_kif_msgsend_msg_extra.exit363:      ; preds = %598, %627, %631
   %640 = load i32, ptr %3, align 4
   %641 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %640) #5
   %642 = load i32, ptr %3, align 4
-  %643 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %642, i32 noundef %4) #5
+  %643 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %642, i32 noundef range(i32 -2147483648, 1) %4) #5
   %644 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %645 = load i32, ptr %3, align 4
-  %646 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %644, ptr noundef %0, i32 noundef %645, i32 noundef 2, i32 noundef %4) #5
+  %646 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %644, ptr noundef %0, i32 noundef %645, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %647 = load i32, ptr %3, align 4
   %648 = add i32 %647, 2
   store i32 %648, ptr %3, align 4
@@ -4222,16 +4222,16 @@ dissect_qnet6_kif_msgsend_msg_extra.exit365:      ; preds = %639, %652, %656
   %665 = load i32, ptr %3, align 4
   %666 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %665) #5
   %667 = load i32, ptr %3, align 4
-  %668 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %667, i32 noundef %4) #5
+  %668 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %667, i32 noundef range(i32 -2147483648, 1) %4) #5
   %669 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %670 = load i32, ptr %3, align 4
-  %671 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %669, ptr noundef %0, i32 noundef %670, i32 noundef 2, i32 noundef %4) #5
+  %671 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %669, ptr noundef %0, i32 noundef %670, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %672 = load i32, ptr %3, align 4
   %673 = add i32 %672, 2
   store i32 %673, ptr %3, align 4
   %674 = load i32, ptr @hf_qnet6_kif_msg_io_sync, align 4
   %675 = load i32, ptr @ett_qnet6_kif_msg_sync, align 4
-  %676 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %673, i32 noundef %674, i32 noundef %675, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_sync.sync_fields, i32 noundef %4) #5
+  %676 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %673, i32 noundef %674, i32 noundef %675, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_sync.sync_fields, i32 noundef range(i32 -2147483648, 1) %4) #5
   %677 = load i32, ptr %3, align 4
   %678 = add i32 %677, 4
   store i32 %678, ptr %3, align 4
@@ -4267,40 +4267,40 @@ dissect_qnet6_kif_msgsend_msg_extra.exit367:      ; preds = %664, %682, %686
   %695 = load i32, ptr %3, align 4
   %696 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %695) #5
   %697 = load i32, ptr %3, align 4
-  %698 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %697, i32 noundef %4) #5
+  %698 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %697, i32 noundef range(i32 -2147483648, 1) %4) #5
   %699 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %700 = load i32, ptr %3, align 4
-  %701 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %699, ptr noundef %0, i32 noundef %700, i32 noundef 2, i32 noundef %4) #5
+  %701 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %699, ptr noundef %0, i32 noundef %700, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %702 = load i32, ptr %3, align 4
   %703 = add i32 %702, 2
   store i32 %703, ptr %3, align 4
   %704 = load i32, ptr @hf_qnet6_kif_msg_openfd_ioflag, align 4
   %705 = load i32, ptr @ett_qnet6_kif_msg_openfd_ioflag, align 4
-  %706 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %703, i32 noundef %704, i32 noundef %705, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_openfd.openfd_ioflag_fields, i32 noundef %4) #5
+  %706 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %703, i32 noundef %704, i32 noundef %705, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_openfd.openfd_ioflag_fields, i32 noundef range(i32 -2147483648, 1) %4) #5
   %707 = load i32, ptr %3, align 4
   %708 = add i32 %707, 4
   store i32 %708, ptr %3, align 4
   %709 = load i32, ptr @hf_qnet6_kif_msg_openfd_sflag, align 4
-  %710 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %709, ptr noundef %0, i32 noundef %708, i32 noundef 2, i32 noundef %4) #5
+  %710 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %709, ptr noundef %0, i32 noundef %708, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %711 = load i32, ptr %3, align 4
   %712 = add i32 %711, 2
   store i32 %712, ptr %3, align 4
   %713 = load i32, ptr @hf_qnet6_kif_msg_openfd_xtype, align 4
-  %714 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %713, ptr noundef %0, i32 noundef %712, i32 noundef 2, i32 noundef %4) #5
+  %714 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %713, ptr noundef %0, i32 noundef %712, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %715 = load i32, ptr %3, align 4
   %716 = add i32 %715, 2
   store i32 %716, ptr %3, align 4
   %717 = load i32, ptr @ett_qnet6_kif_msg_msginfo, align 4
   %718 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %716, i32 noundef 48, i32 noundef %717, ptr noundef null, ptr noundef nonnull @.str.1089) #5
-  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %718, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %718, ptr noundef nonnull %3, i32 noundef range(i32 -2147483648, 1) %4)
   %719 = load i32, ptr @hf_qnet6_kif_msg_openfd_reserved, align 4
   %720 = load i32, ptr %3, align 4
-  %721 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %719, ptr noundef %0, i32 noundef %720, i32 noundef 4, i32 noundef %4) #5
+  %721 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %719, ptr noundef %0, i32 noundef %720, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %722 = load i32, ptr %3, align 4
   %723 = add i32 %722, 4
   store i32 %723, ptr %3, align 4
   %724 = load i32, ptr @hf_qnet6_kif_msg_openfd_key, align 4
-  %725 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %724, ptr noundef %0, i32 noundef %723, i32 noundef 4, i32 noundef %4) #5
+  %725 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %724, ptr noundef %0, i32 noundef %723, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %726 = load i32, ptr %3, align 4
   %727 = add i32 %726, 4
   store i32 %727, ptr %3, align 4
@@ -4336,10 +4336,10 @@ dissect_qnet6_kif_msgsend_msg_extra.exit369:      ; preds = %694, %731, %735
   %744 = load i32, ptr %3, align 4
   %745 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %744) #5
   %746 = load i32, ptr %3, align 4
-  %747 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %746, i32 noundef %4) #5
+  %747 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %746, i32 noundef range(i32 -2147483648, 1) %4) #5
   %748 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %749 = load i32, ptr %3, align 4
-  %750 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %748, ptr noundef %0, i32 noundef %749, i32 noundef 2, i32 noundef %4) #5
+  %750 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %748, ptr noundef %0, i32 noundef %749, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %751 = load i32, ptr %3, align 4
   %752 = add i32 %751, 2
   store i32 %752, ptr %3, align 4
@@ -4375,27 +4375,27 @@ dissect_qnet6_kif_msgsend_msg_extra.exit371:      ; preds = %743, %756, %760
   %769 = load i32, ptr %3, align 4
   %770 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %769) #5
   %771 = load i32, ptr %3, align 4
-  %772 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %771, i32 noundef %4) #5
+  %772 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %771, i32 noundef range(i32 -2147483648, 1) %4) #5
   %773 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %774 = load i32, ptr %3, align 4
-  %775 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %773, ptr noundef %0, i32 noundef %774, i32 noundef 2, i32 noundef %4) #5
+  %775 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %773, ptr noundef %0, i32 noundef %774, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %776 = load i32, ptr %3, align 4
   %777 = add i32 %776, 2
   store i32 %777, ptr %3, align 4
   %778 = load i32, ptr @hf_qnet6_kif_msg_io_mmap_prot, align 4
   %779 = load i32, ptr @ett_qnet6_kif_msg_prot, align 4
-  %780 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %777, i32 noundef %778, i32 noundef %779, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_mmap.prot_fields, i32 noundef %4) #5
+  %780 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %777, i32 noundef %778, i32 noundef %779, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_mmap.prot_fields, i32 noundef range(i32 -2147483648, 1) %4) #5
   %781 = load i32, ptr %3, align 4
   %782 = add i32 %781, 4
   store i32 %782, ptr %3, align 4
   %783 = load i32, ptr @hf_qnet6_kif_msg_io_mmap_offset, align 4
-  %784 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %783, ptr noundef %0, i32 noundef %782, i32 noundef 8, i32 noundef %4) #5
+  %784 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %783, ptr noundef %0, i32 noundef %782, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %4) #5
   %785 = load i32, ptr %3, align 4
   %786 = add i32 %785, 8
   store i32 %786, ptr %3, align 4
   %787 = load i32, ptr @ett_qnet6_kif_msg_msginfo, align 4
   %788 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %786, i32 noundef 48, i32 noundef %787, ptr noundef null, ptr noundef nonnull @.str.1089) #5
-  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %788, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %788, ptr noundef nonnull %3, i32 noundef range(i32 -2147483648, 1) %4)
   %789 = load i32, ptr @hf_qnet6_kif_zero, align 4
   %790 = load i32, ptr %3, align 4
   %791 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %789, ptr noundef %0, i32 noundef %790, i32 noundef 24, i32 noundef 0) #5
@@ -4434,20 +4434,20 @@ dissect_qnet6_kif_msgsend_msg_extra.exit373:      ; preds = %768, %797, %801
   %810 = load i32, ptr %3, align 4
   %811 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %810) #5
   %812 = load i32, ptr %3, align 4
-  %813 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %812, i32 noundef %4) #5
+  %813 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %812, i32 noundef range(i32 -2147483648, 1) %4) #5
   %814 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %815 = load i32, ptr %3, align 4
-  %816 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %814, ptr noundef %0, i32 noundef %815, i32 noundef 2, i32 noundef %4) #5
+  %816 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %814, ptr noundef %0, i32 noundef %815, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %817 = load i32, ptr %3, align 4
   %818 = add i32 %817, 2
   store i32 %818, ptr %3, align 4
   %819 = load i32, ptr @hf_qnet6_kif_msg_io_msg_mgrid, align 4
-  %820 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %819, ptr noundef %0, i32 noundef %818, i32 noundef 2, i32 noundef %4) #5
+  %820 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %819, ptr noundef %0, i32 noundef %818, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %821 = load i32, ptr %3, align 4
   %822 = add i32 %821, 2
   store i32 %822, ptr %3, align 4
   %823 = load i32, ptr @hf_qnet6_kif_msg_io_msg_subtype, align 4
-  %824 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %823, ptr noundef %0, i32 noundef %822, i32 noundef 2, i32 noundef %4) #5
+  %824 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %823, ptr noundef %0, i32 noundef %822, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %825 = load i32, ptr %3, align 4
   %826 = add i32 %825, 2
   store i32 %826, ptr %3, align 4
@@ -4486,21 +4486,21 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %809, %830, %834
   %843 = load i32, ptr %3, align 4
   %844 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %843) #5
   %845 = load i32, ptr %3, align 4
-  %846 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %845, i32 noundef %4) #5
+  %846 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %845, i32 noundef range(i32 -2147483648, 1) %4) #5
   %847 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %848 = load i32, ptr %3, align 4
-  %849 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %847, ptr noundef %0, i32 noundef %848, i32 noundef 2, i32 noundef %4) #5
+  %849 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %847, ptr noundef %0, i32 noundef %848, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %850 = load i32, ptr %3, align 4
   %851 = add i32 %850, 2
   store i32 %851, ptr %3, align 4
   %852 = load i32, ptr @hf_qnet6_kif_msg_io_notify_action, align 4
-  %853 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %852, ptr noundef %0, i32 noundef %851, i32 noundef 4, i32 noundef %4) #5
+  %853 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %852, ptr noundef %0, i32 noundef %851, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %854 = load i32, ptr %3, align 4
   %855 = add i32 %854, 4
   store i32 %855, ptr %3, align 4
   %856 = load i32, ptr @hf_qnet6_kif_msg_io_notify_flags, align 4
   %857 = load i32, ptr @ett_qnet6_kif_msg_notify_flags, align 4
-  %858 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %855, i32 noundef %856, i32 noundef %857, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_notify.notify_flags_fields, i32 noundef %4) #5
+  %858 = tail call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %0, i32 noundef %855, i32 noundef %856, i32 noundef %857, ptr noundef nonnull @dissect_qnet6_kif_msgsend_msg_notify.notify_flags_fields, i32 noundef range(i32 -2147483648, 1) %4) #5
   %859 = load i32, ptr %3, align 4
   %860 = add i32 %859, 4
   store i32 %860, ptr %3, align 4
@@ -4508,58 +4508,58 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %809, %830, %834
   %862 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %860, i32 noundef 16, i32 noundef %861, ptr noundef null, ptr noundef nonnull @.str.1094) #5
   %863 = load i32, ptr @hf_qnet6_kif_event_notify, align 4
   %864 = load i32, ptr %3, align 4
-  %865 = tail call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %863, ptr noundef %0, i32 noundef %864, i32 noundef 4, i32 noundef %4) #5
+  %865 = tail call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %863, ptr noundef %0, i32 noundef %864, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %866 = load i32, ptr %3, align 4
   %867 = add i32 %866, 4
   store i32 %867, ptr %3, align 4
   %868 = load i32, ptr @hf_qnet6_kif_event_union1, align 4
-  %869 = tail call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %868, ptr noundef %0, i32 noundef %867, i32 noundef 4, i32 noundef %4) #5
+  %869 = tail call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %868, ptr noundef %0, i32 noundef %867, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %870 = load i32, ptr %3, align 4
   %871 = add i32 %870, 4
   store i32 %871, ptr %3, align 4
   %872 = load i32, ptr @hf_qnet6_kif_event_value, align 4
-  %873 = tail call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %872, ptr noundef %0, i32 noundef %871, i32 noundef 4, i32 noundef %4) #5
+  %873 = tail call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %872, ptr noundef %0, i32 noundef %871, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %874 = load i32, ptr %3, align 4
   %875 = add i32 %874, 4
   store i32 %875, ptr %3, align 4
   %876 = load i32, ptr @hf_qnet6_kif_event_union2, align 4
-  %877 = tail call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %876, ptr noundef %0, i32 noundef %875, i32 noundef 4, i32 noundef %4) #5
+  %877 = tail call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %876, ptr noundef %0, i32 noundef %875, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %878 = load i32, ptr %3, align 4
   %879 = add i32 %878, 4
   store i32 %879, ptr %3, align 4
   %880 = load i32, ptr @hf_qnet6_kif_msg_io_notify_mgr, align 4
-  %881 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %880, ptr noundef %0, i32 noundef %879, i32 noundef 8, i32 noundef %4) #5
+  %881 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %880, ptr noundef %0, i32 noundef %879, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %4) #5
   %882 = load i32, ptr %3, align 4
   %883 = add i32 %882, 8
   store i32 %883, ptr %3, align 4
   %884 = load i32, ptr @hf_qnet6_kif_msg_io_notify_flags_extra_mask, align 4
-  %885 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %884, ptr noundef %0, i32 noundef %883, i32 noundef 4, i32 noundef %4) #5
+  %885 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %884, ptr noundef %0, i32 noundef %883, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %886 = load i32, ptr %3, align 4
   %887 = add i32 %886, 4
   store i32 %887, ptr %3, align 4
   %888 = load i32, ptr @hf_qnet6_kif_msg_io_notify_flags_exten, align 4
-  %889 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %888, ptr noundef %0, i32 noundef %887, i32 noundef 4, i32 noundef %4) #5
+  %889 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %888, ptr noundef %0, i32 noundef %887, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %890 = load i32, ptr %3, align 4
   %891 = add i32 %890, 4
   store i32 %891, ptr %3, align 4
-  %892 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %891, i32 noundef %4) #5
+  %892 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %891, i32 noundef range(i32 -2147483648, 1) %4) #5
   %893 = load i32, ptr @hf_qnet6_kif_msg_io_notify_nfds, align 4
   %894 = load i32, ptr %3, align 4
-  %895 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %893, ptr noundef %0, i32 noundef %894, i32 noundef 4, i32 noundef %4) #5
+  %895 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %893, ptr noundef %0, i32 noundef %894, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %896 = load i32, ptr %3, align 4
   %897 = add i32 %896, 4
   store i32 %897, ptr %3, align 4
   %898 = load i32, ptr @hf_qnet6_kif_msg_io_notify_fd_first, align 4
-  %899 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %898, ptr noundef %0, i32 noundef %897, i32 noundef 4, i32 noundef %4) #5
+  %899 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %898, ptr noundef %0, i32 noundef %897, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %900 = load i32, ptr %3, align 4
   %901 = add i32 %900, 4
   store i32 %901, ptr %3, align 4
   %902 = load i32, ptr @hf_qnet6_kif_msg_io_notify_nfds_ready, align 4
-  %903 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %902, ptr noundef %0, i32 noundef %901, i32 noundef 4, i32 noundef %4) #5
+  %903 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %902, ptr noundef %0, i32 noundef %901, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %904 = load i32, ptr %3, align 4
   %905 = add i32 %904, 4
   store i32 %905, ptr %3, align 4
-  %906 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %905, i32 noundef %4) #5
+  %906 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %905, i32 noundef range(i32 -2147483648, 1) %4) #5
   %.not.i341 = icmp eq i64 %906, 0
   br i1 %.not.i341, label %918, label %907
 
@@ -4617,13 +4617,13 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %809, %830, %834
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %968
   %931 = phi i32 [ %973, %968 ], [ %.pre, %.lr.ph.preheader ]
   %.0144.i481 = phi i32 [ %974, %968 ], [ 0, %.lr.ph.preheader ]
-  %932 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %931, i32 noundef %4) #5
+  %932 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %931, i32 noundef range(i32 -2147483648, 1) %4) #5
   %933 = load i32, ptr %3, align 4
   %934 = add i32 %933, 4
-  %935 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %934, i32 noundef %4) #5
+  %935 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %934, i32 noundef range(i32 -2147483648, 1) %4) #5
   %936 = load i32, ptr %3, align 4
   %937 = add i32 %936, 6
-  %938 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %937, i32 noundef %4) #5
+  %938 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %937, i32 noundef range(i32 -2147483648, 1) %4) #5
   store i8 0, ptr %8, align 16
   store i8 0, ptr %7, align 16
   %939 = zext i16 %935 to i32
@@ -4717,7 +4717,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit377:      ; preds = %._crit_edge, %980, 
   br i1 %or.cond.i342, label %992, label %dissect_qnet6_kif_msgsend_msg_notify.exit
 
 992:                                              ; preds = %dissect_qnet6_kif_msgsend_msg_extra.exit377
-  %993 = call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef %3, i32 noundef %4)
+  %993 = call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef nonnull %3, i32 noundef range(i32 -2147483648, 1) %4)
   br label %dissect_qnet6_kif_msgsend_msg_notify.exit
 
 dissect_qnet6_kif_msgsend_msg_notify.exit:        ; preds = %920, %dissect_qnet6_kif_msgsend_msg_extra.exit377, %992
@@ -4731,24 +4731,24 @@ dissect_qnet6_kif_msgsend_msg_notify.exit:        ; preds = %920, %dissect_qnet6
   %995 = load i32, ptr %3, align 4
   %996 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %995) #5
   %997 = load i32, ptr %3, align 4
-  %998 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %997, i32 noundef %4) #5
+  %998 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %997, i32 noundef range(i32 -2147483648, 1) %4) #5
   %999 = load i32, ptr @hf_qnet6_kif_msg_io_combine_len, align 4
   %1000 = load i32, ptr %3, align 4
-  %1001 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %999, ptr noundef %0, i32 noundef %1000, i32 noundef 2, i32 noundef %4) #5
+  %1001 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %999, ptr noundef %0, i32 noundef %1000, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %4) #5
   %1002 = load i32, ptr %3, align 4
   %1003 = add i32 %1002, 2
   store i32 %1003, ptr %3, align 4
   %1004 = load i32, ptr @ett_qnet6_kif_msg_msginfo, align 4
   %1005 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %1003, i32 noundef 48, i32 noundef %1004, ptr noundef null, ptr noundef nonnull @.str.1089) #5
-  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %1005, ptr noundef %3, i32 noundef %4)
+  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %1005, ptr noundef nonnull %3, i32 noundef range(i32 -2147483648, 1) %4)
   %1006 = load i32, ptr @hf_qnet6_kif_msg_io_dup_reserved, align 4
   %1007 = load i32, ptr %3, align 4
-  %1008 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %1006, ptr noundef %0, i32 noundef %1007, i32 noundef 4, i32 noundef %4) #5
+  %1008 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %1006, ptr noundef %0, i32 noundef %1007, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %1009 = load i32, ptr %3, align 4
   %1010 = add i32 %1009, 4
   store i32 %1010, ptr %3, align 4
   %1011 = load i32, ptr @hf_qnet6_kif_msg_io_dup_key, align 4
-  %1012 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %1011, ptr noundef %0, i32 noundef %1010, i32 noundef 4, i32 noundef %4) #5
+  %1012 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %1011, ptr noundef %0, i32 noundef %1010, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4) #5
   %1013 = load i32, ptr %3, align 4
   %1014 = add i32 %1013, 4
   store i32 %1014, ptr %3, align 4

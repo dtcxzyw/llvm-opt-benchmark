@@ -3463,7 +3463,7 @@ define noundef nonnull align 4 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load double, ptr %11, align 8, !noalias !29
   %13 = fneg double %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %13, ptr %14, align 8, !alias.scope !29
   %15 = load double, ptr %5, align 8, !alias.scope !29

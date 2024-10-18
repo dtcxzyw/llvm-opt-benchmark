@@ -146,7 +146,7 @@ define void @_ZThn1448_N3zmq8dealer_tD0Ev(ptr noundef %this) unnamed_addr #4 ali
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq8dealer_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1929) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1929) %0) #10
   ret void
 }
 
@@ -155,7 +155,7 @@ define void @_ZThn1464_N3zmq8dealer_tD0Ev(ptr noundef %this) unnamed_addr #4 ali
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq8dealer_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1929) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1929) %0) #10
   ret void
 }
 
@@ -164,7 +164,7 @@ define void @_ZThn1472_N3zmq8dealer_tD0Ev(ptr noundef %this) unnamed_addr #4 ali
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1472
   tail call void @_ZN3zmq8dealer_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1929) %0) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1929) %0) #10
   ret void
 }
 

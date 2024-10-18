@@ -238,7 +238,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtBGRtoHSVEPKhmPhmiiiibbb(ptr nou
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_bEEEvPKhmPhmiiRKT_.exit: ; preds = %39
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19)
   br label %109
@@ -246,7 +246,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2
 .body:                                            ; preds = %55, %90, %107, %71
   %.sink = phi ptr [ %19, %55 ], [ %15, %90 ], [ %13, %107 ], [ %17, %71 ]
   %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %91, %90 ], [ %108, %107 ], [ %72, %71 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #15
   resume { ptr, i32 } %eh.lpad-body
 
@@ -287,7 +287,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_fEEEvPKhmPhmiiRKT_.exit: ; preds = %57
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17)
   br label %109
@@ -335,7 +335,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_bEEEvPKhmPhmiiRKT_.exit: ; preds = %74
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   br label %109
@@ -378,7 +378,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_fEEEvPKhmPhmiiRKT_.exit: ; preds = %92
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   br label %109
@@ -494,7 +494,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtHSVtoBGREPKhmPhmiiiibbb(ptr nou
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_bEEEvPKhmPhmiiRKT_.exit: ; preds = %31
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19)
   br label %101
@@ -502,7 +502,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2
 .body:                                            ; preds = %63, %99, %82, %46
   %.sink = phi ptr [ %17, %63 ], [ %13, %99 ], [ %15, %82 ], [ %19, %46 ]
   %eh.lpad-body = phi { ptr, i32 } [ %64, %63 ], [ %100, %99 ], [ %83, %82 ], [ %47, %46 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #15
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #15
   resume { ptr, i32 } %eh.lpad-body
 
@@ -544,7 +544,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_fEEEvPKhmPhmiiRKT_.exit: ; preds = %48
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17)
   br label %101
@@ -592,7 +592,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_bEEEvPKhmPhmiiRKT_.exit: ; preds = %66
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   br label %101
@@ -635,7 +635,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fEEEvPKhmPhmiiRKT_.exit: ; preds = %84
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   br label %101
@@ -791,7 +791,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HLSERKNS_11_InputArrayERKNS_12_OutputArr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %33 = getelementptr inbounds i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #15
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
   ret void
 
 34:                                               ; preds = %4
@@ -803,7 +803,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HLSERKNS_11_InputArrayERKNS_12_OutputArr
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %31, %30 ]
   %36 = getelementptr inbounds i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #15
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1061,7 +1061,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HSVERKNS_11_InputArrayERKNS_12_OutputArr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %33 = getelementptr inbounds i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #15
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
   ret void
 
 34:                                               ; preds = %4
@@ -1073,7 +1073,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HSVERKNS_11_InputArrayERKNS_12_OutputArr
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %31, %30 ]
   %36 = getelementptr inbounds i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #15
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1133,7 +1133,7 @@ define hidden void @_ZN2cv15cvtColorHLS2BGRERKNS_11_InputArrayERKNS_12_OutputArr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %33 = getelementptr inbounds i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #15
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #15
   ret void
 
 34:                                               ; preds = %5
@@ -1145,7 +1145,7 @@ define hidden void @_ZN2cv15cvtColorHLS2BGRERKNS_11_InputArrayERKNS_12_OutputArr
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %31, %30 ]
   %36 = getelementptr inbounds i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #15
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #15
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1411,7 +1411,7 @@ define hidden void @_ZN2cv15cvtColorHSV2BGRERKNS_11_InputArrayERKNS_12_OutputArr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %33 = getelementptr inbounds i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #15
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #15
   ret void
 
 34:                                               ; preds = %5
@@ -1423,7 +1423,7 @@ define hidden void @_ZN2cv15cvtColorHSV2BGRERKNS_11_InputArrayERKNS_12_OutputArr
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %31, %30 ]
   %36 = getelementptr inbounds i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #15
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #15
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1508,7 +1508,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_bEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -1742,7 +1742,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_fEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -1936,7 +1936,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_bEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -2277,7 +2277,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_fEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -2477,7 +2477,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_bEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -2711,7 +2711,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_fEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -2918,7 +2918,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_bEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -3285,7 +3285,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

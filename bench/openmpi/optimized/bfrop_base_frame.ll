@@ -182,7 +182,7 @@ define internal i32 @pmix_bfrop_close() #0 {
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %31 = phi ptr [ %33, %.lr.ph.i ], [ %30, %25 ]
   %.07.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %25 ]
-  tail call void %31(ptr noundef %8) #10
+  tail call void %31(ptr noundef nonnull %8) #10
   %32 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %33, null
@@ -1111,7 +1111,7 @@ pmix_bfrops_base_tma_geometry_destruct.exit:      ; preds = %29, %._crit_edge.i.
   br label %pmix_tma_free.exit
 
 44:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %0) #10
+  tail call void @free(ptr noundef nonnull %0) #10
   br label %pmix_tma_free.exit
 
 pmix_tma_free.exit:                               ; preds = %44, %41, %3
@@ -1936,7 +1936,7 @@ pmix_tma_free.exit:                               ; preds = %16, %14, %10
   br label %pmix_tma_free.exit148
 
 35:                                               ; preds = %._crit_edge323
-  tail call void @free(ptr noundef %27) #10
+  tail call void @free(ptr noundef nonnull %27) #10
   br label %pmix_tma_free.exit148
 
 36:                                               ; preds = %2
@@ -2241,7 +2241,7 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph312, %112
   br label %pmix_tma_free.exit148
 
 129:                                              ; preds = %._crit_edge310
-  tail call void @free(ptr noundef %121) #10
+  tail call void @free(ptr noundef nonnull %121) #10
   br label %pmix_tma_free.exit148
 
 130:                                              ; preds = %2

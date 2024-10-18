@@ -1305,7 +1305,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %612
 .lr.ph.i615:                                      ; preds = %642, %.lr.ph.i615
   %648 = phi ptr [ %650, %.lr.ph.i615 ], [ %647, %642 ]
   %.07.i616 = phi ptr [ %649, %.lr.ph.i615 ], [ %646, %642 ]
-  call void %648(ptr noundef %.0504701) #14
+  call void %648(ptr noundef nonnull %.0504701) #14
   %649 = getelementptr inbounds i8, ptr %.07.i616, i64 8
   %650 = load ptr, ptr %649, align 8
   %.not.i617 = icmp eq ptr %650, null

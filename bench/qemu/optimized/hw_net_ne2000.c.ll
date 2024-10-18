@@ -537,11 +537,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %18 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i.i, i64 noundef %18, i64 noundef %19, i64 noundef %addr, i64 noundef %conv34.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i.i, i64 noundef %18, i64 noundef %19, i64 noundef range(i64 0, 16) %addr, i64 noundef range(i64 0, 16777216) %conv34.i) #9
   br label %ne2000_ioport_read.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i64 noundef %addr, i64 noundef %conv34.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i64 noundef range(i64 0, 16) %addr, i64 noundef range(i64 0, 16777216) %conv34.i) #9
   br label %ne2000_ioport_read.exit
 
 ne2000_ioport_read.exit:                          ; preds = %if.end.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -897,11 +897,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %10 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %addr, i64 noundef %conv1.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef range(i64 0, 16) %addr, i64 noundef range(i64 0, 4294967296) %conv1.i) #9
   br label %trace_ne2000_ioport_write.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i64 noundef %addr, i64 noundef %conv1.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i64 noundef range(i64 0, 16) %addr, i64 noundef range(i64 0, 4294967296) %conv1.i) #9
   br label %trace_ne2000_ioport_write.exit.i
 
 trace_ne2000_ioport_write.exit.i:                 ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then

@@ -72,7 +72,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !15
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdba0dd03668fec05E.llvm.8475916056208462138"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdba0dd03668fec05E.llvm.8475916056208462138"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8, !range !26, !noalias !15, !noundef !14
   %.not.i.i.i.i.i = icmp eq i64 %19, 0
@@ -673,7 +673,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
   store ptr %9, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !158
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %15, ptr %16, align 8, !noalias !158
-  call fastcc void @"_ZN127_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h17f2992497540518E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %8, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %7), !noalias !163
+  call fastcc void @"_ZN127_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h17f2992497540518E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %7), !noalias !163
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !158
   %17 = load i64, ptr %8, align 8, !range !13, !noalias !158, !noundef !14
   %18 = icmp eq i64 %17, -9223372036854775798
@@ -768,7 +768,7 @@ default.unreachable:                              ; preds = %23
   store ptr %6, ptr %.sroa.4.0..sroa_idx.i60, align 8, !noalias !169
   %38 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %15, ptr %38, align 8, !noalias !169
-  call fastcc void @"_ZN127_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb9b91b697d646f09E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr noalias noundef readonly align 8 dereferenceable(8) %37, ptr noalias nocapture noundef align 8 dereferenceable(32) %4), !noalias !174
+  call fastcc void @"_ZN127_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb9b91b697d646f09E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37, ptr noalias nocapture noundef align 8 dereferenceable(32) %4), !noalias !174
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !169
   %39 = load i64, ptr %5, align 8, !range !13, !noalias !169, !noundef !14
   %40 = icmp eq i64 %39, -9223372036854775798
@@ -917,7 +917,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples96_$LT$impl$u20$diesel..insert
   store ptr %11, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !186
   %14 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %13, ptr %14, align 8, !noalias !186
-  call fastcc void @"_ZN127_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h17f2992497540518E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %10, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %9), !noalias !191
+  call fastcc void @"_ZN127_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h17f2992497540518E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %9), !noalias !191
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !186
   %15 = load i64, ptr %10, align 8, !range !13, !noalias !186, !noundef !14
   %16 = icmp eq i64 %15, -9223372036854775798
@@ -987,7 +987,7 @@ default.unreachable:                              ; preds = %21
   store ptr %7, ptr %.sroa.4.0..sroa_idx.i64, align 8, !noalias !205
   %28 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %13, ptr %28, align 8, !noalias !205
-  call fastcc void @"_ZN127_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb9b91b697d646f09E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr noalias noundef readonly align 8 dereferenceable(8) %27, ptr noalias nocapture noundef align 8 dereferenceable(32) %5), !noalias !210
+  call fastcc void @"_ZN127_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb9b91b697d646f09E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %27, ptr noalias nocapture noundef align 8 dereferenceable(32) %5), !noalias !210
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !205
   %29 = load i64, ptr %6, align 8, !range !13, !noalias !205, !noundef !14
   %30 = icmp eq i64 %29, -9223372036854775798

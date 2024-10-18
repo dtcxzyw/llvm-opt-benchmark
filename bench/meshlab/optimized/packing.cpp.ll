@@ -1136,21 +1136,21 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt6vectorIN3vcg1
           to label %315 unwind label %.loopexit437
 
 315:                                              ; preds = %314
-  %316 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str)
+  %316 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %12, ptr noundef nonnull @.str)
           to label %_ZN7logging6BufferlsIA27_cEERS0_RKT_.exit unwind label %343
 
 _ZN7logging6BufferlsIA27_cEERS0_RKT_.exit:        ; preds = %315
   %317 = load i32, ptr %302, align 4
-  %318 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %317)
+  %318 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(376) %12, i32 noundef %317)
           to label %_ZN7logging6BufferlsIiEERS0_RKT_.exit unwind label %343
 
 _ZN7logging6BufferlsIiEERS0_RKT_.exit:            ; preds = %_ZN7logging6BufferlsIA27_cEERS0_RKT_.exit
-  %319 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.4)
+  %319 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %12, ptr noundef nonnull @.str.4)
           to label %_ZN7logging6BufferlsIA2_cEERS0_RKT_.exit unwind label %343
 
 _ZN7logging6BufferlsIA2_cEERS0_RKT_.exit:         ; preds = %_ZN7logging6BufferlsIiEERS0_RKT_.exit
   %320 = load i32, ptr %303, align 4
-  %321 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %320)
+  %321 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(376) %12, i32 noundef %320)
           to label %_ZN7logging6BufferlsIiEERS0_RKT_.exit201 unwind label %343
 
 _ZN7logging6BufferlsIiEERS0_RKT_.exit201:         ; preds = %_ZN7logging6BufferlsIA2_cEERS0_RKT_.exit
@@ -9740,7 +9740,7 @@ _ZNSt16allocator_traitsISaIN3vcg24RasterizedOutline2PackerIf20QtOutline2Rasteriz
   %30 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %31 = load ptr, ptr %30, align 8, !alias.scope !118, !noalias !115
   store ptr %31, ptr %29, align 8, !alias.scope !115, !noalias !118
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !118, !noalias !115
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(172) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !118, !noalias !115
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
   %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
   %34 = load ptr, ptr %33, align 8, !alias.scope !118, !noalias !115
@@ -9836,7 +9836,7 @@ _ZNSt6vectorIN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfi
   %87 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 16
   %88 = load ptr, ptr %87, align 8, !alias.scope !125, !noalias !122
   store ptr %88, ptr %86, align 8, !alias.scope !122, !noalias !125
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i29, i8 0, i64 24, i1 false), !alias.scope !125, !noalias !122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(172) %.0911.i.i.i.i29, i8 0, i64 24, i1 false), !alias.scope !125, !noalias !122
   %89 = getelementptr inbounds i8, ptr %.012.i.i.i.i28, i64 24
   %90 = getelementptr inbounds i8, ptr %.0911.i.i.i.i29, i64 24
   %91 = load ptr, ptr %90, align 8, !alias.scope !125, !noalias !122
@@ -11110,13 +11110,13 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %206, %199, %198
           to label %234 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 234:                                              ; preds = %233
-  %235 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.18)
+  %235 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %6, ptr noundef nonnull @.str.18)
           to label %_ZN7logging6BufferlsIA65_cEERS0_RKT_.exit unwind label %358
 
 _ZN7logging6BufferlsIA65_cEERS0_RKT_.exit:        ; preds = %234
   %236 = getelementptr inbounds i8, ptr %1, i64 8
   %237 = load i32, ptr %236, align 8
-  %238 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %237)
+  %238 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(376) %6, i32 noundef %237)
           to label %_ZN7logging6BufferlsIiEERS0_RKT_.exit unwind label %358
 
 _ZN7logging6BufferlsIiEERS0_RKT_.exit:            ; preds = %_ZN7logging6BufferlsIA65_cEERS0_RKT_.exit

@@ -818,7 +818,7 @@ BufferGetPage.exit.i55:                           ; preds = %323, %317
   br i1 %378, label %.loopexit.i60, label %379
 
 379:                                              ; preds = %376
-  call fastcc void @_bt_stepright(ptr noundef %0, ptr noundef %4, ptr noundef %11, ptr noundef %.0.i)
+  call fastcc void @_bt_stepright(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %11, ptr noundef %.0.i)
   %380 = load i32, ptr %28, align 8
   %381 = icmp slt i32 %380, 0
   br i1 %381, label %382, label %388
@@ -856,7 +856,7 @@ BufferGetPage.exit85.i:                           ; preds = %388, %382
   br i1 %400, label %401, label %.loopexit89.i
 
 401:                                              ; preds = %.loopexit.i60
-  call fastcc void @_bt_delete_or_dedup_one_page(ptr noundef %0, ptr noundef %4, ptr noundef %11, i1 noundef zeroext false, i1 noundef zeroext %.0.shrunk, i1 noundef zeroext %.0.i61, i1 noundef zeroext %3)
+  call fastcc void @_bt_delete_or_dedup_one_page(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %11, i1 noundef zeroext false, i1 noundef zeroext %.0.shrunk, i1 noundef zeroext %.0.i61, i1 noundef zeroext %3)
   br label %.loopexit89.i
 
 402:                                              ; preds = %BufferGetPage.exit88.i, %.lr.ph.i
@@ -869,7 +869,7 @@ BufferGetPage.exit85.i:                           ; preds = %388, %382
   br i1 %.not.i59, label %409, label %406
 
 406:                                              ; preds = %402
-  call fastcc void @_bt_delete_or_dedup_one_page(ptr noundef %0, ptr noundef %4, ptr noundef %11, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_bt_delete_or_dedup_one_page(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %11, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   %407 = call i64 @PageGetFreeSpace(ptr noundef nonnull %.27590.i) #9
   %408 = load i64, ptr %25, align 8
   %.not78.i = icmp ult i64 %407, %408
@@ -915,7 +915,7 @@ BufferGetPage.exit85.i:                           ; preds = %388, %382
   br i1 %430, label %.loopexit89.i, label %431
 
 431:                                              ; preds = %428
-  call fastcc void @_bt_stepright(ptr noundef %0, ptr noundef %4, ptr noundef %11, ptr noundef %.0.i)
+  call fastcc void @_bt_stepright(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %11, ptr noundef %.0.i)
   %432 = load i32, ptr %28, align 8
   %433 = icmp slt i32 %432, 0
   br i1 %433, label %434, label %440
@@ -954,7 +954,7 @@ BufferGetPage.exit88.i:                           ; preds = %440, %434
   br i1 %455, label %456, label %_bt_findinsertloc.exit
 
 456:                                              ; preds = %.loopexit89.i
-  call fastcc void @_bt_delete_or_dedup_one_page(ptr noundef %0, ptr noundef %4, ptr noundef %11, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_bt_delete_or_dedup_one_page(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %11, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   store i32 0, ptr %29, align 4
   %457 = call zeroext i16 @_bt_binsrch_insert(ptr noundef %0, ptr noundef nonnull %11) #9
   %.pre = load i32, ptr %29, align 4

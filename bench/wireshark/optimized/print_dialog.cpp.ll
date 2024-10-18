@@ -1819,7 +1819,7 @@ define void @_ZN11PrintDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(52
 define void @_ZThn16_N11PrintDialogD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN11PrintDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(525) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(525) %2) #18
   ret void
 }
 

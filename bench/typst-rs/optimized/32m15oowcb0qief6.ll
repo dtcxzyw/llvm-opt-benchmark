@@ -125,7 +125,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   br i1 %41, label %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1238dacbfcfead3E.exit"
 
 42:                                               ; preds = %39
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h302f45b2f42e7b73E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %37)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h302f45b2f42e7b73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %37)
   %.pre.i = load i64, ptr %8, align 8, !alias.scope !23
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1238dacbfcfead3E.exit"
 
@@ -509,7 +509,7 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit: ; preds = %_ZN3std2io5error5Er
   %146 = zext i8 %145 to i64
   %147 = shl nuw nsw i64 %146, 8
   %148 = or disjoint i64 %147, %144
-  %149 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5bc4d4926b6faab7E"(i64 noundef %148, i1 noundef zeroext true), !noalias !49
+  %149 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5bc4d4926b6faab7E"(i64 noundef range(i64 0, 65536) %148, i1 noundef zeroext true), !noalias !49
   %150 = extractvalue { i64, ptr } %149, 0
   %151 = extractvalue { i64, ptr } %149, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -519,7 +519,7 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit: ; preds = %_ZN3std2io5error5Er
 
 154:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !55
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6e947aa81fd762eE.llvm.7454132670541690561"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6e947aa81fd762eE.llvm.7454132670541690561"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %161
 
 .noexc:                                           ; preds = %154

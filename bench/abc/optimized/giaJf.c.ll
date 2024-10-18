@@ -3740,7 +3740,7 @@ Abc_TtCopy.exit48:                                ; preds = %.lr.ph.i37, %.lr.ph
 
 78:                                               ; preds = %76
   %79 = trunc nuw nsw i64 %indvars.iv.next.i52 to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %8, i32 noundef %12, i32 noundef %.017.i, i32 noundef %79)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %8, i32 noundef %12, i32 noundef %.017.i, i32 noundef %79)
   br label %80
 
 80:                                               ; preds = %78, %76
@@ -3785,7 +3785,7 @@ Abc_TtExpand.exit:                                ; preds = %82, %Abc_TtCopy.exi
 
 100:                                              ; preds = %98
   %101 = trunc nuw nsw i64 %indvars.iv.next.i57 to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %9, i32 noundef %12, i32 noundef %.017.i56, i32 noundef %101)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %9, i32 noundef %12, i32 noundef %.017.i56, i32 noundef %101)
   br label %102
 
 102:                                              ; preds = %100, %98
@@ -3889,7 +3889,7 @@ Abc_TtHasVar.exit.thread30.us.i:                  ; preds = %Abc_TtHasVar.exit.u
   %142 = load i32, ptr %141, align 4
   %143 = getelementptr inbounds i32, ptr %63, i64 %138
   store i32 %142, ptr %143, align 4
-  call fastcc void @Abc_TtSwapVars(ptr noundef %7, i32 noundef %12, i32 noundef %.038.us.i, i32 noundef %130)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %7, i32 noundef %12, i32 noundef %.038.us.i, i32 noundef %130)
   br label %144
 
 144:                                              ; preds = %140, %Abc_TtHasVar.exit.thread30.us.i
@@ -3989,7 +3989,7 @@ Abc_TtHasVar.exit.thread30.i:                     ; preds = %153, %167
   %180 = getelementptr inbounds i32, ptr %63, i64 %175
   store i32 %179, ptr %180, align 4
   %181 = trunc nuw nsw i64 %indvars.iv.i70 to i32
-  call fastcc void @Abc_TtSwapVars(ptr noundef %7, i32 noundef %12, i32 noundef %.038.i, i32 noundef %181)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %7, i32 noundef %12, i32 noundef %.038.i, i32 noundef %181)
   br label %182
 
 182:                                              ; preds = %177, %Abc_TtHasVar.exit.thread30.i
@@ -10861,7 +10861,7 @@ Jf_ManPropagateFlow.exit:                         ; preds = %40, %66, %33
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %127
-  %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.47, i32 noundef %132) #30
+  %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.47, i32 noundef range(i32 0, 16) %132) #30
   br label %Vec_MemDumpDigit.exit.i.i
 
 136:                                              ; preds = %127

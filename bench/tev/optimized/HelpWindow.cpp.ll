@@ -384,7 +384,7 @@ define dso_local void @_ZN3tev10HelpWindowC2EPN7nanogui6WidgetEbNSt3__18function
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 24
   %171 = load ptr, ptr %170, align 8
-  invoke void %171(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef nonnull %160)
+  invoke void %171(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef nonnull align 16 dereferenceable(48) %160)
           to label %_ZNSt3__18functionIFvvEEC2ERKS2_.exit unwind label %641
 
 172:                                              ; preds = %164
@@ -435,7 +435,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %191 = load ptr, ptr %185, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 24
   %193 = load ptr, ptr %192, align 8
-  invoke void %193(ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef nonnull %6)
+  invoke void %193(ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef nonnull align 16 dereferenceable(48) %6)
           to label %_ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i unwind label %643
 
 194:                                              ; preds = %187
@@ -452,7 +452,7 @@ _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i.sink.split: ; preds = %194, %182
   br label %_ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i
 
 _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i:        ; preds = %_ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i.sink.split, %189
-  call void @_ZNSt3__110__function12__value_funcIFvvEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 16 dereferenceable(40) %183) #19
+  call void @_ZNSt3__110__function12__value_funcIFvvEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %6, ptr noundef nonnull align 16 dereferenceable(48) %183) #19
   %200 = getelementptr inbounds i8, ptr %6, i64 32
   %201 = load ptr, ptr %200, align 16
   %202 = icmp eq ptr %201, %6
@@ -3337,7 +3337,7 @@ _ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i:        ; preds = %.noexc794
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %5, align 16
   %1073 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %1068, ptr %1073, align 8
-  call void @_ZNSt3__110__function12__value_funcIFviEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) %1071) #19
+  call void @_ZNSt3__110__function12__value_funcIFviEE4swapB8ne190000ERS3_(ptr noundef nonnull align 16 dereferenceable(48) %5, ptr noundef nonnull align 16 dereferenceable(48) %1071) #19
   %1074 = load ptr, ptr %1072, align 16
   %1075 = icmp eq ptr %1074, %5
   br i1 %1075, label %.sink.split.i.i.i.i797, label %1076
@@ -4253,7 +4253,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %.sink.split.i.i807,
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
   %1360 = getelementptr inbounds i8, ptr %0, i64 136
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1360) #19
-  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) #19
+  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(170) %0) #19
   br label %1361
 
 1361:                                             ; preds = %_ZNSt3__18functionIFvvEED2Ev.exit, %639
@@ -4706,7 +4706,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %6, %.sink.split.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) #19
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(170) %0) #19
   ret void
 }
 
@@ -4735,7 +4735,7 @@ _ZN3tev10HelpWindowD2Ev.exit:                     ; preds = %6, %.sink.split.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) #19
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 16 dereferenceable(224) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

@@ -961,7 +961,7 @@ sub_1.i:                                          ; preds = %368
   br label %375
 
 375:                                              ; preds = %373, %.tail.i
-  %376 = call i32 @WebPSaveImage(ptr noundef nonnull %9, i32 noundef %.0190336, ptr noundef nonnull %.0192343) #7
+  %376 = call i32 @WebPSaveImage(ptr noundef nonnull %9, i32 noundef range(i32 0, 21) %.0190336, ptr noundef nonnull %.0192343) #7
   %.not13.i = icmp eq i32 %376, 0
   br i1 %.not13.i, label %399, label %377
 

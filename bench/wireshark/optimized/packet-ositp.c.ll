@@ -673,7 +673,7 @@ define internal fastcc i32 @dissect_ositp_internal(ptr noundef %0, ptr noundef %
   store ptr @.str.181, ptr %1, align 8
   %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %.1110, i32 noundef %31) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %37 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef %.2) #8
+  %37 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2) #8
   %38 = load ptr, ptr %9, align 8
   call void @col_append_str(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.279) #8
   br i1 %.not46.i, label %.thread46.i, label %754
@@ -705,7 +705,7 @@ define internal fastcc i32 @dissect_ositp_internal(ptr noundef %0, ptr noundef %
   br i1 %48, label %ositp_decode_CR_CC.exit, label %49
 
 49:                                               ; preds = %42
-  %50 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef %.2) #8
+  %50 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2) #8
   %51 = add i32 %.2, 2
   %52 = call zeroext i16 @tvb_get_ntohs(ptr noundef %.1110, i32 noundef %51) #8
   store i16 %44, ptr %13, align 4
@@ -719,11 +719,11 @@ define internal fastcc i32 @dissect_ositp_internal(ptr noundef %0, ptr noundef %
   %58 = load i32, ptr @proto_cotp, align 4
   %59 = zext i8 %23 to i32
   %60 = add nuw nsw i32 %59, 1
-  %61 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %.1110, i32 noundef %.2, i32 noundef %60, i32 noundef 0) #8
+  %61 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %60, i32 noundef 0) #8
   %62 = load i32, ptr @ett_cotp, align 4
   %63 = call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62) #8
   %64 = load i32, ptr @hf_cotp_li, align 4
-  %65 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %64, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %59) #8
+  %65 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %64, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %59) #8
   %66 = load i32, ptr @hf_cotp_type, align 4
   %67 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %66, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %68 = load i32, ptr @hf_cotp_destref, align 4
@@ -804,7 +804,7 @@ ositp_decode_CR_CC.exit:                          ; preds = %42, %90, %98
   br i1 %103, label %ositp_decode_DR.exit.thread, label %104
 
 104:                                              ; preds = %101
-  %105 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef %.2) #8
+  %105 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2) #8
   %106 = add i32 %.2, 2
   %107 = call zeroext i16 @tvb_get_ntohs(ptr noundef %.1110, i32 noundef %106) #8
   %108 = add i32 %.2, 4
@@ -834,11 +834,11 @@ ositp_decode_CR_CC.exit:                          ; preds = %42, %90, %98
 121:                                              ; preds = %115
   %122 = load i32, ptr @proto_cotp, align 4
   %123 = add nuw nsw i32 %102, 1
-  %124 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %122, ptr noundef %.1110, i32 noundef %.2, i32 noundef %123, i32 noundef 0) #8
+  %124 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %122, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %123, i32 noundef 0) #8
   %125 = load i32, ptr @ett_cotp, align 4
   %126 = call ptr @proto_item_add_subtree(ptr noundef %124, i32 noundef %125) #8
   %127 = load i32, ptr @hf_cotp_li, align 4
-  %128 = call ptr @proto_tree_add_uint(ptr noundef %126, i32 noundef %127, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %102) #8
+  %128 = call ptr @proto_tree_add_uint(ptr noundef %126, i32 noundef %127, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %102) #8
   %129 = load i32, ptr @hf_cotp_type, align 4
   %130 = call ptr @proto_tree_add_uint(ptr noundef %126, i32 noundef %129, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %131 = load i32, ptr @hf_cotp_destref, align 4
@@ -867,7 +867,7 @@ ositp_decode_CR_CC.exit:                          ; preds = %42, %90, %98
 
 148:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %149 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef %.2) #8
+  %149 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2) #8
   %150 = zext i8 %23 to i32
   %151 = icmp ugt i8 %23, 2
   %152 = load i32, ptr @cotp_decode_atn, align 4
@@ -1085,11 +1085,11 @@ ositp_decode_CR_CC.exit:                          ; preds = %42, %90, %98
 .thread273.i:                                     ; preds = %243
   %244 = load i32, ptr @proto_cotp, align 4
   %245 = add nuw nsw i32 %150, 1
-  %246 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %244, ptr noundef %.1110, i32 noundef %.2, i32 noundef %245, i32 noundef 0) #8
+  %246 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %244, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %245, i32 noundef 0) #8
   %247 = load i32, ptr @ett_cotp, align 4
   %248 = call ptr @proto_item_add_subtree(ptr noundef %246, i32 noundef %247) #8
   %249 = load i32, ptr @hf_cotp_li, align 4
-  %250 = call ptr @proto_tree_add_uint(ptr noundef %248, i32 noundef %249, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %150) #8
+  %250 = call ptr @proto_tree_add_uint(ptr noundef %248, i32 noundef %249, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %150) #8
   %251 = load i32, ptr @hf_cotp_type, align 4
   %252 = call ptr @proto_tree_add_uint(ptr noundef %248, i32 noundef %251, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %253 = add i32 %.2, 2
@@ -1284,7 +1284,7 @@ ositp_decode_DT.exit:                             ; preds = %153, %154, %162, %2
 
 329:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %330 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef %.2) #8
+  %330 = call i32 @tvb_reported_length_remaining(ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2) #8
   %331 = load i32, ptr @cotp_decode_atn, align 4
   %.not.i122 = icmp eq i32 %331, 0
   br i1 %.not.i122, label %332, label %350
@@ -1460,11 +1460,11 @@ ositp_decode_DT.exit:                             ; preds = %153, %154, %162, %2
   %408 = load i32, ptr @proto_cotp, align 4
   %409 = zext nneg i8 %23 to i32
   %410 = add nuw nsw i32 %409, 1
-  %411 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %408, ptr noundef %.1110, i32 noundef %.2, i32 noundef %410, i32 noundef 0) #8
+  %411 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %408, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %410, i32 noundef 0) #8
   %412 = load i32, ptr @ett_cotp, align 4
   %413 = call ptr @proto_item_add_subtree(ptr noundef %411, i32 noundef %412) #8
   %414 = load i32, ptr @hf_cotp_li, align 4
-  %415 = call ptr @proto_tree_add_uint(ptr noundef %413, i32 noundef %414, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %409) #8
+  %415 = call ptr @proto_tree_add_uint(ptr noundef %413, i32 noundef %414, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %409) #8
   %416 = load i32, ptr @hf_cotp_type, align 4
   %417 = call ptr @proto_tree_add_uint(ptr noundef %413, i32 noundef %416, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %418 = load i32, ptr @hf_cotp_destref, align 4
@@ -1582,11 +1582,11 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %466 = load i32, ptr @proto_cotp, align 4
   %467 = zext nneg i8 %23 to i32
   %468 = add nuw nsw i32 %467, 1
-  %469 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %466, ptr noundef %.1110, i32 noundef %.2, i32 noundef %468, i32 noundef 0) #8
+  %469 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %466, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %468, i32 noundef 0) #8
   %470 = load i32, ptr @ett_cotp, align 4
   %471 = call ptr @proto_item_add_subtree(ptr noundef %469, i32 noundef %470) #8
   %472 = load i32, ptr @hf_cotp_li, align 4
-  %473 = call ptr @proto_tree_add_uint(ptr noundef %471, i32 noundef %472, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %467) #8
+  %473 = call ptr @proto_tree_add_uint(ptr noundef %471, i32 noundef %472, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %467) #8
   %474 = load i32, ptr @hf_cotp_type, align 4
   %475 = call ptr @proto_tree_add_uint(ptr noundef %471, i32 noundef %474, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %476 = icmp eq i8 %23, 4
@@ -1658,11 +1658,11 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %515 = zext nneg i8 %23 to i32
   %516 = add nuw nsw i32 %515, 1
   %517 = load i32, ptr @proto_cotp, align 4
-  %518 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %517, ptr noundef %.1110, i32 noundef %.2, i32 noundef %516, i32 noundef 0) #8
+  %518 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %517, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %516, i32 noundef 0) #8
   %519 = load i32, ptr @ett_cotp, align 4
   %520 = call ptr @proto_item_add_subtree(ptr noundef %518, i32 noundef %519) #8
   %521 = load i32, ptr @hf_cotp_li, align 4
-  %522 = call ptr @proto_tree_add_uint(ptr noundef %520, i32 noundef %521, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %515) #8
+  %522 = call ptr @proto_tree_add_uint(ptr noundef %520, i32 noundef %521, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %515) #8
   %523 = load i32, ptr @hf_cotp_type, align 4
   %524 = call ptr @proto_tree_add_uint(ptr noundef %520, i32 noundef %523, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %525 = load i32, ptr @hf_cotp_destref, align 4
@@ -1723,11 +1723,11 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
 
 557:                                              ; preds = %550
   %558 = load i32, ptr @proto_cotp, align 4
-  %559 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %558, ptr noundef %.1110, i32 noundef %.2, i32 noundef %544, i32 noundef 0) #8
+  %559 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %558, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %544, i32 noundef 0) #8
   %560 = load i32, ptr @ett_cotp, align 4
   %561 = call ptr @proto_item_add_subtree(ptr noundef %559, i32 noundef %560) #8
   %562 = load i32, ptr @hf_cotp_li, align 4
-  %563 = call ptr @proto_tree_add_uint(ptr noundef %561, i32 noundef %562, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %543) #8
+  %563 = call ptr @proto_tree_add_uint(ptr noundef %561, i32 noundef %562, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %543) #8
   %564 = load i32, ptr @hf_cotp_type, align 4
   %565 = call ptr @proto_tree_add_uint(ptr noundef %561, i32 noundef %564, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %566 = load i32, ptr @hf_cotp_credit_cdt, align 4
@@ -1768,11 +1768,11 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
 
 588:                                              ; preds = %579
   %589 = load i32, ptr @proto_cotp, align 4
-  %590 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %589, ptr noundef %.1110, i32 noundef %.2, i32 noundef %544, i32 noundef 0) #8
+  %590 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %589, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %544, i32 noundef 0) #8
   %591 = load i32, ptr @ett_cotp, align 4
   %592 = call ptr @proto_item_add_subtree(ptr noundef %590, i32 noundef %591) #8
   %593 = load i32, ptr @hf_cotp_li, align 4
-  %594 = call ptr @proto_tree_add_uint(ptr noundef %592, i32 noundef %593, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %543) #8
+  %594 = call ptr @proto_tree_add_uint(ptr noundef %592, i32 noundef %593, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %543) #8
   %595 = load i32, ptr @hf_cotp_type, align 4
   %596 = call ptr @proto_tree_add_uint(ptr noundef %592, i32 noundef %595, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %597 = load i32, ptr @hf_cotp_destref, align 4
@@ -1973,11 +1973,11 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %693 = zext nneg i8 %23 to i32
   %694 = add nuw nsw i32 %693, 1
   %695 = load i32, ptr @proto_cotp, align 4
-  %696 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %695, ptr noundef %.1110, i32 noundef %.2, i32 noundef %694, i32 noundef 0) #8
+  %696 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %695, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %694, i32 noundef 0) #8
   %697 = load i32, ptr @ett_cotp, align 4
   %698 = call ptr @proto_item_add_subtree(ptr noundef %696, i32 noundef %697) #8
   %699 = load i32, ptr @hf_cotp_li, align 4
-  %700 = call ptr @proto_tree_add_uint(ptr noundef %698, i32 noundef %699, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %693) #8
+  %700 = call ptr @proto_tree_add_uint(ptr noundef %698, i32 noundef %699, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %693) #8
   %701 = load i32, ptr @hf_cotp_type, align 4
   %702 = call ptr @proto_tree_add_uint(ptr noundef %698, i32 noundef %701, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %703 = load i32, ptr @hf_cotp_destref, align 4
@@ -2042,11 +2042,11 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
 
 733:                                              ; preds = %726
   %734 = load i32, ptr @proto_cotp, align 4
-  %735 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %734, ptr noundef %.1110, i32 noundef %.2, i32 noundef %720, i32 noundef 0) #8
+  %735 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %734, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %720, i32 noundef 0) #8
   %736 = load i32, ptr @ett_cotp, align 4
   %737 = call ptr @proto_item_add_subtree(ptr noundef %735, i32 noundef %736) #8
   %738 = load i32, ptr @hf_cotp_li, align 4
-  %739 = call ptr @proto_tree_add_uint(ptr noundef %737, i32 noundef %738, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %719) #8
+  %739 = call ptr @proto_tree_add_uint(ptr noundef %737, i32 noundef %738, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %719) #8
   %740 = load i32, ptr @hf_cotp_type, align 4
   %741 = call ptr @proto_tree_add_uint(ptr noundef %737, i32 noundef %740, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %742 = load i32, ptr @hf_cotp_destref, align 4
@@ -2075,11 +2075,11 @@ ositp_decode_ED.exit:                             ; preds = %332, %333, %336, %3
   %755 = load i32, ptr @proto_cltp, align 4
   %756 = zext i8 %23 to i32
   %757 = add nuw nsw i32 %756, 1
-  %758 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %755, ptr noundef %.1110, i32 noundef %.2, i32 noundef %757, i32 noundef 0) #8
+  %758 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %755, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef %757, i32 noundef 0) #8
   %759 = load i32, ptr @ett_cltp, align 4
   %760 = call ptr @proto_item_add_subtree(ptr noundef %758, i32 noundef %759) #8
   %761 = load i32, ptr @hf_cltp_li, align 4
-  %762 = call ptr @proto_tree_add_uint(ptr noundef %760, i32 noundef %761, ptr noundef %.1110, i32 noundef %.2, i32 noundef 1, i32 noundef %756) #8
+  %762 = call ptr @proto_tree_add_uint(ptr noundef %760, i32 noundef %761, ptr noundef %.1110, i32 noundef range(i32 0, -1) %.2, i32 noundef 1, i32 noundef %756) #8
   %763 = load i32, ptr @hf_cltp_type, align 4
   %764 = call ptr @proto_tree_add_uint(ptr noundef %760, i32 noundef %763, ptr noundef %.1110, i32 noundef %31, i32 noundef 1, i32 noundef %34) #8
   %765 = add i32 %.2, 2

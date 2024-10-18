@@ -318,7 +318,7 @@ while.end:                                        ; preds = %invoke.cont2
   br i1 %call.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.end
-  %call2.i9 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_16Parser10ParseChunkESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS7_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %parser, i64 1, ptr nonnull @.str.8, ptr noundef %local_error)
+  %call2.i9 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_16Parser10ParseChunkESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS7_SaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %parser, i64 1, ptr nonnull @.str.8, ptr noundef nonnull %local_error)
           to label %call2.i.noexc unwind label %lpad1.loopexit.split-lp
 
 call2.i.noexc:                                    ; preds = %land.lhs.true.i

@@ -1197,7 +1197,7 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   %44 = getelementptr inbounds i8, ptr %calloc.i, i64 24
   %45 = load ptr, ptr %44, align 8
   call void @free(ptr noundef %45) #19
-  call void @free(ptr noundef %calloc.i) #19
+  call void @free(ptr noundef nonnull %calloc.i) #19
   br label %onas_hashnode_init.exit.thread
 
 46:                                               ; preds = %36
@@ -1329,7 +1329,7 @@ onas_free_hashnode.exit:                          ; preds = %onas_free_listnode.
   store ptr null, ptr %56, align 8
   %103 = load ptr, ptr %78, align 8
   call void @free(ptr noundef %103) #19
-  call void @free(ptr noundef %calloc.i) #19
+  call void @free(ptr noundef nonnull %calloc.i) #19
   br label %onas_hashnode_init.exit.thread
 
 onas_add_hashnode_child.exit.thread:              ; preds = %90, %85, %.preheader

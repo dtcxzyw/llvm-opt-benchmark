@@ -972,7 +972,7 @@ parse_unix_address.exit.i:                        ; preds = %38, %33
   %66 = and i8 %65, 1
   %67 = zext nneg i8 %66 to i32
   %68 = getelementptr inbounds i8, ptr %3, i64 104
-  %69 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %60, i64 noundef %62, ptr noundef %8, i32 noundef %67, ptr noundef nonnull %68)
+  %69 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %60, i64 noundef %62, ptr noundef nonnull %8, i32 noundef %67, ptr noundef nonnull %68)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %php_tcp_sockop_connect.exit, label %71
 
@@ -1220,7 +1220,7 @@ parse_unix_address.exit.i28:                      ; preds = %179, %174
   %195 = and i8 %194, 1
   %196 = zext nneg i8 %195 to i32
   %197 = getelementptr inbounds i8, ptr %3, i64 104
-  %198 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %189, i64 noundef %191, ptr noundef %5, i32 noundef %196, ptr noundef nonnull %197)
+  %198 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %189, i64 noundef %191, ptr noundef nonnull %5, i32 noundef %196, ptr noundef nonnull %197)
   %199 = icmp eq ptr %198, null
   br i1 %199, label %php_tcp_sockop_bind.exit, label %200
 

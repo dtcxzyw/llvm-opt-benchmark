@@ -606,7 +606,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit: ; pre
   %.06.i.i.i.i3 = phi ptr [ %25, %.lr.ph.i.i.i.i2 ], [ %24, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit ]
   %25 = load ptr, ptr %.06.i.i.i.i3, align 8
   %26 = getelementptr inbounds i8, ptr %.06.i.i.i.i3, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %26) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i3, i64 noundef 56) #24
   %.not.i.i.i.i4 = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i4, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i2, !llvm.loop !6
@@ -1455,7 +1455,7 @@ _ZNSt5stackIjSt5dequeIjSaIjEEED2Ev.exit:          ; preds = %_ZNSt6vectorIPKcSaI
   %.06.i.i.i.i146 = phi ptr [ %384, %.lr.ph.i.i.i.i145 ], [ %383, %_ZNSt5stackIjSt5dequeIjSaIjEEED2Ev.exit ]
   %384 = load ptr, ptr %.06.i.i.i.i146, align 8
   %385 = getelementptr inbounds i8, ptr %.06.i.i.i.i146, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %385) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %385) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i146, i64 noundef 56) #24
   %.not.i.i.i.i147 = icmp eq ptr %384, null
   br i1 %.not.i.i.i.i147, label %_ZNSt10_HashtableIjSt4pairIKjN3spv7Builder12DebugTypeLocEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i145, !llvm.loop !13
@@ -1681,7 +1681,7 @@ define noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 19, ptr %2, align 4
-  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
@@ -1711,7 +1711,7 @@ define noundef i32 @_ZN3spv7Builder12makeVoidTypeEv(ptr noundef nonnull align 8 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store i32 19, ptr %4, align 4
-  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 16
@@ -1869,7 +1869,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 
 96:                                               ; preds = %1
   store i32 19, ptr %6, align 4
-  %97 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %97 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %98 = getelementptr inbounds i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 -8
@@ -1969,7 +1969,7 @@ define noundef i32 @_ZN3spv7Builder12makeBoolTypeEv(ptr noundef nonnull align 8 
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 20, ptr %2, align 4
-  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
@@ -1998,7 +1998,7 @@ define noundef i32 @_ZN3spv7Builder12makeBoolTypeEv(ptr noundef nonnull align 8 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store i32 20, ptr %3, align 4
-  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 16
@@ -2159,7 +2159,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 
 98:                                               ; preds = %1
   store i32 20, ptr %6, align 4
-  %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 -8
@@ -2185,7 +2185,7 @@ define noundef i32 @_ZN3spv7Builder17makeBoolDebugTypeEi(ptr noundef nonnull ali
   %10 = alloca %"class.std::unique_ptr", align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 2, ptr %3, align 4
-  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
@@ -2200,7 +2200,7 @@ define noundef i32 @_ZN3spv7Builder17makeBoolDebugTypeEi(ptr noundef nonnull ali
 .lr.ph:                                           ; preds = %2, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %2 ]
   store i32 2, ptr %4, align 4
-  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -2209,7 +2209,7 @@ define noundef i32 @_ZN3spv7Builder17makeBoolDebugTypeEi(ptr noundef nonnull ali
   %28 = load i32, ptr %27, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #22
   %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %6) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %6) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 4))
   %30 = call noundef i32 @_ZN3spv7Builder11getStringIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %31 = icmp eq i32 %28, %30
@@ -2242,7 +2242,7 @@ define noundef i32 @_ZN3spv7Builder17makeBoolDebugTypeEi(ptr noundef nonnull ali
 43:                                               ; preds = %37, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 2, ptr %3, align 4
-  %44 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %44 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %44, align 8
@@ -2292,7 +2292,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %43, %2
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %53, i32 noundef 2)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
   %73 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %73, ptr noundef nonnull align 1 dereferenceable(1) %8) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %73, ptr noundef nonnull align 1 dereferenceable(1) %8) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 4))
   %74 = call noundef i32 @_ZN3spv7Builder11getStringIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %53, i32 noundef %74)
@@ -2308,7 +2308,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %43, %2
   %80 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %79, i32 noundef 0, i1 noundef zeroext false)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %53, i32 noundef %80)
   store i32 2, ptr %9, align 4
-  %81 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %81 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %81, i64 16
@@ -2548,7 +2548,7 @@ define noundef i32 @_ZN3spv7Builder15makeSamplerTypeEv(ptr noundef nonnull align
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 26, ptr %2, align 4
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
@@ -2577,7 +2577,7 @@ define noundef i32 @_ZN3spv7Builder15makeSamplerTypeEv(ptr noundef nonnull align
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store i32 26, ptr %3, align 4
-  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %26, i64 16
@@ -2726,7 +2726,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 
 91:                                               ; preds = %1
   store i32 26, ptr %5, align 4
-  %92 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %92 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 -8
@@ -2794,7 +2794,7 @@ define noundef i32 @_ZN3spv7Builder22makeCompositeDebugTypeERKSt6vectorIjSaIjEEP
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %6, align 4
-  %27 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjN3spv7Builder12DebugTypeLocEESaIS6_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %27 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjN3spv7Builder12DebugTypeLocEESaIS6_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %28 = call noundef i32 @_ZN3spv7Builder19makeMemberDebugTypeEjRKNS0_12DebugTypeLocE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(40) %27)
   %.not.i = icmp eq ptr %.sroa.6.065, %.sroa.12.064
   br i1 %.not.i, label %31, label %29
@@ -2928,7 +2928,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %74, %75
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %55, i32 noundef 10)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
   %84 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %84, ptr noundef nonnull align 1 dereferenceable(1) %8) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %84, ptr noundef nonnull align 1 dereferenceable(1) %8) #22
   %85 = icmp eq ptr %2, null
   br i1 %85, label %86, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -2966,7 +2966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
   %102 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %102, ptr noundef nonnull align 1 dereferenceable(1) %11) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %102, ptr noundef nonnull align 1 dereferenceable(1) %11) #22
   %103 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
   %104 = getelementptr inbounds i8, ptr %2, i64 %103
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %2, ptr noundef nonnull %104)
@@ -2983,7 +2983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #22
   %108 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %108, ptr noundef nonnull align 1 dereferenceable(1) %13) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %108, ptr noundef nonnull align 1 dereferenceable(1) %13) #22
   %109 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
   %110 = getelementptr inbounds i8, ptr %2, i64 %109
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %2, ptr noundef nonnull %110)
@@ -3015,7 +3015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13: ; 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %114
   %119 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 10, ptr %14, align 4
-  %120 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %119, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %120 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %119, ptr noundef nonnull align 4 dereferenceable(4) %14)
   %121 = getelementptr inbounds i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %120, i64 16
@@ -3185,7 +3185,7 @@ define noundef i32 @_ZN3spv7Builder11makePointerENS_12StorageClassEj(ptr noundef
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 32, ptr %4, align 4
-  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
@@ -3200,7 +3200,7 @@ define noundef i32 @_ZN3spv7Builder11makePointerENS_12StorageClassEj(ptr noundef
 .lr.ph:                                           ; preds = %3, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %3 ]
   store i32 32, ptr %5, align 4
-  %20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
@@ -3223,7 +3223,7 @@ define noundef i32 @_ZN3spv7Builder11makePointerENS_12StorageClassEj(ptr noundef
 34:                                               ; preds = %.lr.ph, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 32, ptr %4, align 4
-  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
@@ -3269,7 +3269,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %34, %3
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %44, i32 noundef %1)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %44, i32 noundef %2)
   store i32 32, ptr %6, align 4
-  %61 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %61 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %61, i64 16
@@ -3679,7 +3679,7 @@ define noundef i32 @_ZN3spv7Builder20makePointerDebugTypeENS_12StorageClassEj(pt
   %15 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %14, i32 noundef %1, i1 noundef zeroext false)
   %16 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 3, ptr %5, align 4
-  %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -3754,7 +3754,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %34, %13
   %57 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %56, i32 noundef 0, i1 noundef zeroext false)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %36, i32 noundef %57)
   store i32 3, ptr %6, align 4
-  %58 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %58 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %58, i64 16
@@ -4037,7 +4037,7 @@ define noundef i32 @_ZN3spv7Builder27makeForwardPointerDebugTypeENS_12StorageCla
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %4) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   %10 = getelementptr inbounds i8, ptr %0, i64 240
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 36))
   %11 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -4078,7 +4078,7 @@ define noundef i32 @_ZN3spv7Builder27makeForwardPointerDebugTypeENS_12StorageCla
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef %28)
   %29 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 3, ptr %5, align 4
-  %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %30, i64 16
@@ -4239,7 +4239,7 @@ define noundef i32 @_ZN3spv7Builder29makePointerFromForwardPointerENS_12StorageC
   store i32 %3, ptr %6, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 32, ptr %7, align 4
-  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
@@ -4254,7 +4254,7 @@ define noundef i32 @_ZN3spv7Builder29makePointerFromForwardPointerENS_12StorageC
 .lr.ph:                                           ; preds = %4, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %4 ]
   store i32 32, ptr %8, align 4
-  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -4277,7 +4277,7 @@ define noundef i32 @_ZN3spv7Builder29makePointerFromForwardPointerENS_12StorageC
 36:                                               ; preds = %.lr.ph, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 32, ptr %7, align 4
-  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
@@ -4319,7 +4319,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %46, i32 noundef %1)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %46, i32 noundef %3)
   store i32 32, ptr %9, align 4
-  %60 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %60 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %60, i64 16
@@ -4500,7 +4500,7 @@ define noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull alig
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 21, ptr %4, align 4
-  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
@@ -4519,7 +4519,7 @@ define noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull alig
 21:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   store i32 21, ptr %5, align 4
-  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -4542,7 +4542,7 @@ define noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull alig
 36:                                               ; preds = %21, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 21, ptr %4, align 4
-  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
@@ -4589,7 +4589,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %3
   %63 = zext i1 %2 to i32
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %46, i32 noundef %63)
   store i32 21, ptr %6, align 4
-  %64 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %64 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %64, i64 16
@@ -4855,7 +4855,7 @@ define noundef i32 @_ZN3spv7Builder20makeIntegerDebugTypeEib(ptr noundef nonnull
   %.017 = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %20 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.017) #22
   %21 = getelementptr inbounds i8, ptr %.017, i64 %20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %.017, ptr noundef nonnull %21)
@@ -4864,7 +4864,7 @@ define noundef i32 @_ZN3spv7Builder20makeIntegerDebugTypeEib(ptr noundef nonnull
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %23 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 2, ptr %6, align 4
-  %24 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %24 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
@@ -4883,7 +4883,7 @@ define noundef i32 @_ZN3spv7Builder20makeIntegerDebugTypeEib(ptr noundef nonnull
 35:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   store i32 2, ptr %7, align 4
-  %36 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %36 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
@@ -4912,7 +4912,7 @@ define noundef i32 @_ZN3spv7Builder20makeIntegerDebugTypeEib(ptr noundef nonnull
 54:                                               ; preds = %35, %44, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 2, ptr %6, align 4
-  %55 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %55 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %55, align 8
@@ -4972,7 +4972,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %54, %18
   %89 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %88, i32 noundef 0, i1 noundef zeroext false)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %64, i32 noundef %89)
   store i32 2, ptr %8, align 4
-  %90 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %90 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %91 = getelementptr inbounds i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %90, i64 16
@@ -5134,7 +5134,7 @@ define noundef i32 @_ZN3spv7Builder13makeFloatTypeEi(ptr noundef nonnull align 8
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 22, ptr %3, align 4
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
@@ -5149,7 +5149,7 @@ define noundef i32 @_ZN3spv7Builder13makeFloatTypeEi(ptr noundef nonnull align 8
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 22, ptr %3, align 4
-  %20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %20, align 8
@@ -5164,7 +5164,7 @@ define noundef i32 @_ZN3spv7Builder13makeFloatTypeEi(ptr noundef nonnull align 8
 .lr.ph:                                           ; preds = %2, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %2 ]
   store i32 22, ptr %4, align 4
-  %29 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %29 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
@@ -5201,7 +5201,7 @@ define noundef i32 @_ZN3spv7Builder13makeFloatTypeEi(ptr noundef nonnull align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %39, i32 noundef %1)
   store i32 22, ptr %5, align 4
-  %50 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %50 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %50, i64 16
@@ -5447,7 +5447,7 @@ define noundef i32 @_ZN3spv7Builder18makeFloatDebugTypeEi(ptr noundef nonnull al
   %switch.select13 = select i1 %switch.selectcmp12, ptr @.str.13, ptr %switch.select
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %4) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.select13) #22
   %11 = getelementptr inbounds i8, ptr %switch.select13, i64 %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %switch.select13, ptr noundef nonnull %11)
@@ -5456,7 +5456,7 @@ define noundef i32 @_ZN3spv7Builder18makeFloatDebugTypeEi(ptr noundef nonnull al
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   %13 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 2, ptr %5, align 4
-  %14 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %14 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
@@ -5471,7 +5471,7 @@ define noundef i32 @_ZN3spv7Builder18makeFloatDebugTypeEi(ptr noundef nonnull al
 .lr.ph:                                           ; preds = %2, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %2 ]
   store i32 2, ptr %6, align 4
-  %24 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %24 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
@@ -5500,7 +5500,7 @@ define noundef i32 @_ZN3spv7Builder18makeFloatDebugTypeEi(ptr noundef nonnull al
 42:                                               ; preds = %.lr.ph, %32, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 2, ptr %5, align 4
-  %43 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %43 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
@@ -5559,7 +5559,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %42, %2
   %77 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %76, i32 noundef 0, i1 noundef zeroext false)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %52, i32 noundef %77)
   store i32 2, ptr %7, align 4
-  %78 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %78 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %78, i64 16
@@ -5768,7 +5768,7 @@ define noundef i32 @_ZN3spv7Builder14makeStructTypeERKSt6vectorIjSaIjEEPKcb(ptr 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %38 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 30, ptr %5, align 4
-  %39 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %39 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 16
@@ -6046,7 +6046,7 @@ define noundef i32 @_ZN3spv7Builder20makeStructResultTypeEjj(ptr noundef nonnull
   %6 = alloca %"class.std::vector.33", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 30, ptr %4, align 4
-  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
@@ -6061,7 +6061,7 @@ define noundef i32 @_ZN3spv7Builder20makeStructResultTypeEjj(ptr noundef nonnull
 .lr.ph:                                           ; preds = %3, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %3 ]
   store i32 30, ptr %5, align 4
-  %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -6095,7 +6095,7 @@ define noundef i32 @_ZN3spv7Builder20makeStructResultTypeEjj(ptr noundef nonnull
 38:                                               ; preds = %30, %32, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 30, ptr %4, align 4
-  %39 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %39 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %39, align 8
@@ -6137,7 +6137,7 @@ define noundef i32 @_ZN3spv7Builder14makeVectorTypeEji(ptr noundef nonnull align
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 23, ptr %4, align 4
-  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
@@ -6152,7 +6152,7 @@ define noundef i32 @_ZN3spv7Builder14makeVectorTypeEji(ptr noundef nonnull align
 .lr.ph:                                           ; preds = %3, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %3 ]
   store i32 23, ptr %5, align 4
-  %20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
@@ -6175,7 +6175,7 @@ define noundef i32 @_ZN3spv7Builder14makeVectorTypeEji(ptr noundef nonnull align
 34:                                               ; preds = %.lr.ph, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 23, ptr %4, align 4
-  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %35 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
@@ -6221,7 +6221,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %34, %3
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %44, i32 noundef %1)
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %44, i32 noundef %2)
   store i32 23, ptr %6, align 4
-  %61 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %61 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %61, i64 16
@@ -6406,7 +6406,7 @@ define noundef i32 @_ZN3spv7Builder14makeMatrixTypeEjii(ptr noundef nonnull alig
   %10 = tail call noundef i32 @_ZN3spv7Builder14makeVectorTypeEji(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %3)
   %11 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 24, ptr %5, align 4
-  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
@@ -6421,7 +6421,7 @@ define noundef i32 @_ZN3spv7Builder14makeMatrixTypeEjii(ptr noundef nonnull alig
 .lr.ph:                                           ; preds = %4, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %4 ]
   store i32 24, ptr %6, align 4
-  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -6444,7 +6444,7 @@ define noundef i32 @_ZN3spv7Builder14makeMatrixTypeEjii(ptr noundef nonnull alig
 36:                                               ; preds = %.lr.ph, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 24, ptr %5, align 4
-  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
@@ -6490,7 +6490,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %46, i32 noundef %10)
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %46, i32 noundef %2)
   store i32 24, ptr %7, align 4
-  %63 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %63 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %63, i64 16
@@ -6665,7 +6665,7 @@ define noundef i32 @_ZN3spv7Builder19makeMatrixDebugTypeEjib(ptr noundef nonnull
   store i32 %1, ptr %5, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 108, ptr %6, align 4
-  %11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
@@ -6680,7 +6680,7 @@ define noundef i32 @_ZN3spv7Builder19makeMatrixDebugTypeEjib(ptr noundef nonnull
 .lr.ph:                                           ; preds = %4, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %4 ]
   store i32 108, ptr %7, align 4
-  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
@@ -6705,7 +6705,7 @@ define noundef i32 @_ZN3spv7Builder19makeMatrixDebugTypeEjib(ptr noundef nonnull
 37:                                               ; preds = %.lr.ph, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 108, ptr %6, align 4
-  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
@@ -6763,7 +6763,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %37, %4
   %72 = call noundef i32 @_ZN3spv7Builder16makeBoolConstantEbb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i1 noundef zeroext %3, i1 noundef zeroext false)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef %72)
   store i32 108, ptr %8, align 4
-  %73 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %73 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %73, i64 16
@@ -6924,7 +6924,7 @@ define noundef i32 @_ZN3spv7Builder28makeCooperativeMatrixTypeKHREjjjjj(ptr noun
   %10 = alloca %"class.std::unique_ptr", align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 4456, ptr %7, align 4
-  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
@@ -6939,7 +6939,7 @@ define noundef i32 @_ZN3spv7Builder28makeCooperativeMatrixTypeKHREjjjjj(ptr noun
 .lr.ph:                                           ; preds = %6, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %6 ]
   store i32 4456, ptr %8, align 4
-  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -6980,7 +6980,7 @@ define noundef i32 @_ZN3spv7Builder28makeCooperativeMatrixTypeKHREjjjjj(ptr noun
 48:                                               ; preds = %.lr.ph, %30, %34, %38, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 4456, ptr %7, align 4
-  %49 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %49 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %50 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %49, align 8
@@ -7029,7 +7029,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %48, %6
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %58, i32 noundef %4)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %58, i32 noundef %5)
   store i32 4456, ptr %9, align 4
-  %75 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %75 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %75, i64 16
@@ -7190,7 +7190,7 @@ define noundef i32 @_ZN3spv7Builder27makeCooperativeMatrixTypeNVEjjjj(ptr nounde
   %9 = alloca %"class.std::unique_ptr", align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 5358, ptr %6, align 4
-  %11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
@@ -7205,7 +7205,7 @@ define noundef i32 @_ZN3spv7Builder27makeCooperativeMatrixTypeNVEjjjj(ptr nounde
 .lr.ph:                                           ; preds = %5, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %5 ]
   store i32 5358, ptr %7, align 4
-  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
@@ -7240,7 +7240,7 @@ define noundef i32 @_ZN3spv7Builder27makeCooperativeMatrixTypeNVEjjjj(ptr nounde
 43:                                               ; preds = %.lr.ph, %29, %33, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 5358, ptr %6, align 4
-  %44 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %44 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %44, align 8
@@ -7288,7 +7288,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %43, %5
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %53, i32 noundef %3)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %53, i32 noundef %4)
   store i32 5358, ptr %8, align 4
-  %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %70, i64 16
@@ -7484,7 +7484,7 @@ define noundef i32 @_ZN3spv7Builder15makeGenericTypeENS_2OpERSt6vectorINS_11IdIm
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 %1, ptr %4, align 4
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
@@ -7503,7 +7503,7 @@ define noundef i32 @_ZN3spv7Builder15makeGenericTypeENS_2OpERSt6vectorINS_11IdIm
 20:                                               ; preds = %.lr.ph, %.critedge34
   %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %.critedge34 ]
   store i32 %1, ptr %5, align 4
-  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv58
   %24 = load ptr, ptr %23, align 8
@@ -7553,7 +7553,7 @@ define noundef i32 @_ZN3spv7Builder15makeGenericTypeENS_2OpERSt6vectorINS_11IdIm
 .critedge34:                                      ; preds = %41, %20
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   store i32 %1, ptr %4, align 4
-  %46 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %46 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %46, align 8
@@ -7656,7 +7656,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %75, %76
 
 ._crit_edge54:                                    ; preds = %93, %_ZN3spv11Instruction15reserveOperandsEm.exit
   store i32 %1, ptr %6, align 4
-  %102 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %102 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %103 = getelementptr inbounds i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %102, i64 16
@@ -7822,7 +7822,7 @@ define noundef i32 @_ZN3spv7Builder13makeArrayTypeEjji(ptr noundef nonnull align
 .preheader:                                       ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 28, ptr %5, align 4
-  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
@@ -7837,7 +7837,7 @@ define noundef i32 @_ZN3spv7Builder13makeArrayTypeEjji(ptr noundef nonnull align
 .lr.ph:                                           ; preds = %.preheader, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader ]
   store i32 28, ptr %6, align 4
-  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -7860,7 +7860,7 @@ define noundef i32 @_ZN3spv7Builder13makeArrayTypeEjji(ptr noundef nonnull align
 36:                                               ; preds = %.lr.ph, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 28, ptr %5, align 4
-  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
@@ -7907,7 +7907,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %.preheader, %4
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %46, i32 noundef %2)
   %63 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 28, ptr %7, align 4
-  %64 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %64 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %64, i64 16
@@ -8210,7 +8210,7 @@ define noundef i32 @_ZN3spv7Builder16makeFunctionTypeEjRKSt6vectorIjSaIjEE(ptr n
   %11 = alloca %"class.std::unique_ptr", align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 33, ptr %4, align 4
-  %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
@@ -8229,7 +8229,7 @@ define noundef i32 @_ZN3spv7Builder16makeFunctionTypeEjRKSt6vectorIjSaIjEE(ptr n
 24:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %.loopexit ]
   store i32 33, ptr %5, align 4
-  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv58
   %28 = load ptr, ptr %27, align 8
@@ -8309,7 +8309,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %56
 .loopexit:                                        ; preds = %48, %24, %32
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   store i32 33, ptr %4, align 4
-  %67 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %67 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %67, align 8
@@ -8406,7 +8406,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %97, %98
 
 ._crit_edge55:                                    ; preds = %.lr.ph54, %_ZN3spv11Instruction15reserveOperandsEm.exit
   store i32 33, ptr %10, align 4
-  %123 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %123 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %124 = getelementptr inbounds i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %123, i64 16
@@ -8827,7 +8827,7 @@ define noundef i32 @_ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormat
   %14 = alloca i32, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 25, ptr %9, align 4
-  %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
@@ -8848,7 +8848,7 @@ define noundef i32 @_ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormat
 29:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
   store i32 25, ptr %10, align 4
-  %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
@@ -8901,7 +8901,7 @@ define noundef i32 @_ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormat
 64:                                               ; preds = %29, %38, %42, %46, %50, %54, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 25, ptr %9, align 4
-  %65 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %65 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %65, align 8
@@ -8955,7 +8955,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %64, %8
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %74, i32 noundef %6)
   call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %74, i32 noundef %7)
   store i32 25, ptr %11, align 4
-  %94 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %94 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 4 dereferenceable(4) %11)
   %95 = getelementptr inbounds i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %94, i64 16
@@ -9835,7 +9835,7 @@ define noundef i32 @_ZN3spv7Builder20makeSampledImageTypeEj(ptr noundef nonnull 
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 27, ptr %3, align 4
-  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
@@ -9850,7 +9850,7 @@ define noundef i32 @_ZN3spv7Builder20makeSampledImageTypeEj(ptr noundef nonnull 
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 27, ptr %3, align 4
-  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %21, align 8
@@ -9865,7 +9865,7 @@ define noundef i32 @_ZN3spv7Builder20makeSampledImageTypeEj(ptr noundef nonnull 
 .lr.ph:                                           ; preds = %2, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %2 ]
   store i32 27, ptr %4, align 4
-  %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
@@ -9902,7 +9902,7 @@ define noundef i32 @_ZN3spv7Builder20makeSampledImageTypeEj(ptr noundef nonnull 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %40, i32 noundef %1)
   store i32 27, ptr %5, align 4
-  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 16
@@ -10346,7 +10346,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
   store ptr %15, ptr %67, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %68 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %68, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %68, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %69 = icmp eq ptr %23, null
   br i1 %69, label %70, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -10358,7 +10358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %71 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #22
   %72 = getelementptr inbounds i8, ptr %23, i64 %71
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %23, ptr noundef nonnull %72)
-  %73 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_jESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %73 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_jESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
   store i32 %14, ptr %73, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
@@ -10385,7 +10385,7 @@ define noundef i32 @_ZN3spv7Builder23makeSequentialDebugTypeEjjNS_41NonSemanticS
   store i32 %1, ptr %5, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 %3, ptr %6, align 4
-  %11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
@@ -10400,7 +10400,7 @@ define noundef i32 @_ZN3spv7Builder23makeSequentialDebugTypeEjjNS_41NonSemanticS
 .lr.ph:                                           ; preds = %4, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %4 ]
   store i32 %3, ptr %7, align 4
-  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
@@ -10425,7 +10425,7 @@ define noundef i32 @_ZN3spv7Builder23makeSequentialDebugTypeEjjNS_41NonSemanticS
 37:                                               ; preds = %.lr.ph, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 %3, ptr %6, align 4
-  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
@@ -10479,7 +10479,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %37, %4
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef %69)
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef %2)
   store i32 %3, ptr %8, align 4
-  %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %70, i64 16
@@ -10647,7 +10647,7 @@ define noundef i32 @_ZN3spv7Builder16makeBoolConstantEbb(ptr noundef nonnull ali
 .preheader:                                       ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 20, ptr %4, align 4
-  %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
@@ -10663,7 +10663,7 @@ define noundef i32 @_ZN3spv7Builder16makeBoolConstantEbb(ptr noundef nonnull ali
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.preheader ]
   %.01726 = phi i32 [ %.1, %37 ], [ 0, %.preheader ]
   store i32 20, ptr %5, align 4
-  %23 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %23 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
@@ -10687,7 +10687,7 @@ define noundef i32 @_ZN3spv7Builder16makeBoolConstantEbb(ptr noundef nonnull ali
   %.1 = phi i32 [ %36, %34 ], [ %.01726, %30 ], [ %.01726, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 20, ptr %4, align 4
-  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
@@ -10758,7 +10758,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   store ptr null, ptr %6, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 20, ptr %7, align 4
-  %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %69, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %70, i64 16
@@ -10952,7 +10952,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef %46)
   %47 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 11, ptr %4, align 4
-  %48 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %48 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %48, i64 16
@@ -11165,7 +11165,7 @@ define noundef i32 @_ZN3spv7Builder15makeDebugSourceEj(ptr noundef nonnull align
   br i1 %.not17.i.i.i.i, label %28, label %_ZN3spv11Instruction15reserveOperandsEm.exit, !llvm.loop !46
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit: ; preds = %28, %11, %23
-  %36 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %36 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %37 = load i32, ptr %36, align 4
   br label %119
 
@@ -11341,7 +11341,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
   %116 = phi ptr [ %100, %115 ], [ %100, %113 ], [ %100, %111 ], [ %.pre.i, %109 ], [ %100, %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit ]
   %117 = getelementptr inbounds ptr, ptr %116, i64 %96
   store ptr %41, ptr %117, align 8
-  %118 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %118 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
   store i32 %40, ptr %118, align 4
   br label %119
 
@@ -11554,7 +11554,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef 18)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %30 = icmp eq ptr %2, null
   br i1 %30, label %31, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19
 
@@ -11587,7 +11587,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19: ; 
   call void @_ZN3spv11Instruction12addIdOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef %44)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   %45 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %7) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   %46 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
   %47 = getelementptr inbounds i8, ptr %2, i64 %46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %2, ptr noundef nonnull %47)
@@ -11720,7 +11720,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   tail call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 26)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %27 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %28 = icmp eq ptr %2, null
   br i1 %28, label %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -12763,7 +12763,7 @@ define noundef i32 @_ZN3spv7Builder29makeAccelerationStructureTypeEv(ptr noundef
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 5341, ptr %2, align 4
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
@@ -12792,7 +12792,7 @@ define noundef i32 @_ZN3spv7Builder29makeAccelerationStructureTypeEv(ptr noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store i32 5341, ptr %3, align 4
-  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %26, i64 16
@@ -12954,7 +12954,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN3spv6Module14map
 
 98:                                               ; preds = %1
   store i32 5341, ptr %7, align 4
-  %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 -8
@@ -12978,7 +12978,7 @@ define noundef i32 @_ZN3spv7Builder16makeRayQueryTypeEv(ptr noundef nonnull alig
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 4472, ptr %2, align 4
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
@@ -13007,7 +13007,7 @@ define noundef i32 @_ZN3spv7Builder16makeRayQueryTypeEv(ptr noundef nonnull alig
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store i32 4472, ptr %3, align 4
-  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %26, i64 16
@@ -13169,7 +13169,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN3spv6Module14map
 
 98:                                               ; preds = %1
   store i32 4472, ptr %7, align 4
-  %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 -8
@@ -13191,7 +13191,7 @@ define noundef i32 @_ZN3spv7Builder19makeHitObjectNVTypeEv(ptr noundef nonnull a
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 5281, ptr %2, align 4
-  %7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
@@ -13220,7 +13220,7 @@ define noundef i32 @_ZN3spv7Builder19makeHitObjectNVTypeEv(ptr noundef nonnull a
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %20, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store i32 5281, ptr %3, align 4
-  %24 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %24 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 16
@@ -13369,7 +13369,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 
 89:                                               ; preds = %1
   store i32 5281, ptr %5, align 4
-  %90 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %90 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %91 = getelementptr inbounds i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 -8
@@ -13880,7 +13880,7 @@ define noundef i32 @_ZN3spv7Builder18findScalarConstantENS_2OpES1_jj(ptr noundef
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 %1, ptr %6, align 4
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
@@ -13895,7 +13895,7 @@ define noundef i32 @_ZN3spv7Builder18findScalarConstantENS_2OpES1_jj(ptr noundef
 .lr.ph:                                           ; preds = %5, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %5 ]
   store i32 %1, ptr %7, align 4
-  %19 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %19 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
@@ -13925,7 +13925,7 @@ define noundef i32 @_ZN3spv7Builder18findScalarConstantENS_2OpES1_jj(ptr noundef
 38:                                               ; preds = %.lr.ph, %26, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 %1, ptr %6, align 4
-  %39 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %39 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %39, align 8
@@ -13948,7 +13948,7 @@ define noundef i32 @_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj(ptr nounde
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 %1, ptr %7, align 4
-  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
@@ -13963,7 +13963,7 @@ define noundef i32 @_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj(ptr nounde
 .lr.ph:                                           ; preds = %6, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %6 ]
   store i32 %1, ptr %8, align 4
-  %20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %20 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
@@ -13999,7 +13999,7 @@ define noundef i32 @_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj(ptr nounde
 43:                                               ; preds = %.lr.ph, %27, %31, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i32 %1, ptr %7, align 4
-  %44 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %44 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %44, align 8
@@ -14292,7 +14292,7 @@ define noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull ali
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %11 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 21, ptr %5, align 4
-  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
@@ -14307,7 +14307,7 @@ define noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull ali
 .lr.ph.i:                                         ; preds = %10, %38
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %10 ]
   store i32 21, ptr %6, align 4
-  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
@@ -14332,7 +14332,7 @@ define noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull ali
 38:                                               ; preds = %33, %29, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   store i32 21, ptr %5, align 4
-  %39 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %39 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %39, align 8
@@ -14413,7 +14413,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   store ptr null, ptr %7, align 8
   %73 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 21, ptr %8, align 4
-  %74 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %74 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %74, i64 16
@@ -14551,7 +14551,7 @@ define noundef i32 @_ZN3spv7Builder17makeInt64ConstantEjyb(ptr noundef nonnull a
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %14 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 21, ptr %5, align 4
-  %15 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %15 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
@@ -14566,7 +14566,7 @@ define noundef i32 @_ZN3spv7Builder17makeInt64ConstantEjyb(ptr noundef nonnull a
 .lr.ph.i:                                         ; preds = %13, %45
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %13 ]
   store i32 21, ptr %6, align 4
-  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
@@ -14597,7 +14597,7 @@ define noundef i32 @_ZN3spv7Builder17makeInt64ConstantEjyb(ptr noundef nonnull a
 45:                                               ; preds = %41, %36, %32, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   store i32 21, ptr %5, align 4
-  %46 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %46 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %46, align 8
@@ -14689,7 +14689,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   store ptr null, ptr %7, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 21, ptr %8, align 4
-  %86 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %86 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %85, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %87 = getelementptr inbounds i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %86, i64 16
@@ -14826,7 +14826,7 @@ define noundef i32 @_ZN3spv7Builder17makeFloatConstantEfb(ptr noundef nonnull al
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %12 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 22, ptr %4, align 4
-  %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
@@ -14841,7 +14841,7 @@ define noundef i32 @_ZN3spv7Builder17makeFloatConstantEfb(ptr noundef nonnull al
 .lr.ph.i:                                         ; preds = %11, %39
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 0, %11 ]
   store i32 22, ptr %5, align 4
-  %23 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %23 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
@@ -14866,7 +14866,7 @@ define noundef i32 @_ZN3spv7Builder17makeFloatConstantEfb(ptr noundef nonnull al
 39:                                               ; preds = %34, %30, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   store i32 22, ptr %4, align 4
-  %40 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %40 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %40, align 8
@@ -14947,7 +14947,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   store ptr null, ptr %6, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 22, ptr %7, align 4
-  %75 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %75 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %74, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %75, i64 16
@@ -15087,7 +15087,7 @@ define noundef i32 @_ZN3spv7Builder18makeDoubleConstantEdb(ptr noundef nonnull a
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %15 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 22, ptr %4, align 4
-  %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
@@ -15102,7 +15102,7 @@ define noundef i32 @_ZN3spv7Builder18makeDoubleConstantEdb(ptr noundef nonnull a
 .lr.ph.i:                                         ; preds = %14, %46
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ 0, %14 ]
   store i32 22, ptr %5, align 4
-  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %26 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
@@ -15133,7 +15133,7 @@ define noundef i32 @_ZN3spv7Builder18makeDoubleConstantEdb(ptr noundef nonnull a
 46:                                               ; preds = %42, %37, %33, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   store i32 22, ptr %4, align 4
-  %47 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %47 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %47, align 8
@@ -15225,7 +15225,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   store ptr null, ptr %6, align 8
   %86 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 22, ptr %7, align 4
-  %87 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %86, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %87 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %86, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %87, i64 16
@@ -15368,7 +15368,7 @@ define noundef i32 @_ZN3spv7Builder19makeFloat16ConstantEfb(ptr noundef nonnull 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %14 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 22, ptr %4, align 4
-  %15 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %15 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
@@ -15383,7 +15383,7 @@ define noundef i32 @_ZN3spv7Builder19makeFloat16ConstantEfb(ptr noundef nonnull 
 .lr.ph.i:                                         ; preds = %13, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %13 ]
   store i32 22, ptr %5, align 4
-  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %25 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
@@ -15408,7 +15408,7 @@ define noundef i32 @_ZN3spv7Builder19makeFloat16ConstantEfb(ptr noundef nonnull 
 41:                                               ; preds = %36, %32, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   store i32 22, ptr %4, align 4
-  %42 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %42 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %42, align 8
@@ -15489,7 +15489,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   store ptr null, ptr %8, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 22, ptr %9, align 4
-  %77 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %76, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %77 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %76, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %77, i64 16
@@ -15823,7 +15823,7 @@ define noundef i32 @_ZN3spv7Builder44importNonSemanticShaderDebugInfoInstruction
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %9 = getelementptr inbounds i8, ptr %0, i64 240
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 25))
   %10 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -15846,7 +15846,7 @@ define noundef i32 @_ZN3spv7Builder21findCompositeConstantENS_2OpEjRKSt6vectorIj
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 %1, ptr %5, align 4
-  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
@@ -15861,7 +15861,7 @@ define noundef i32 @_ZN3spv7Builder21findCompositeConstantENS_2OpEjRKSt6vectorIj
 .lr.ph26:                                         ; preds = %4, %.loopexit
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.loopexit ], [ 0, %4 ]
   store i32 %1, ptr %6, align 4
-  %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv31
   %21 = load ptr, ptr %20, align 8
@@ -15905,7 +15905,7 @@ define noundef i32 @_ZN3spv7Builder21findCompositeConstantENS_2OpEjRKSt6vectorIj
 .loopexit:                                        ; preds = %36, %.lr.ph26
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   store i32 %1, ptr %5, align 4
-  %41 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %41 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %41, align 8
@@ -15932,7 +15932,7 @@ define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr
   %4 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 848
-  %6 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %6 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
@@ -15946,7 +15946,7 @@ define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr
 
 .lr.ph22:                                         ; preds = %3, %37
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %37 ], [ 0, %3 ]
-  %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv27
   %19 = load ptr, ptr %18, align 8
@@ -15983,7 +15983,7 @@ define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr
 
 37:                                               ; preds = %32
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
@@ -16119,7 +16119,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   %58 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %58, ptr noundef nonnull align 1 dereferenceable(1) %7) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %58, ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   %59 = getelementptr inbounds i8, ptr %0, i64 240
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 29))
   %60 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -16157,7 +16157,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %1, ptr %5, align 4
   %69 = getelementptr inbounds i8, ptr %0, i64 848
-  %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %69, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %70, align 8
@@ -16171,7 +16171,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
 
 .lr.ph22.i:                                       ; preds = %68, %101
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %101 ], [ 0, %68 ]
-  %80 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %80 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %69, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv27.i
   %83 = load ptr, ptr %82, align 8
@@ -16208,7 +16208,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
 
 101:                                              ; preds = %96
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %102 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %102 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %69, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %103 = getelementptr inbounds i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %102, align 8
@@ -16344,7 +16344,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 
 159:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %160 = getelementptr inbounds i8, ptr %0, i64 848
-  %161 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %160, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %161 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %160, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %162 = getelementptr inbounds i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds i8, ptr %161, i64 16
@@ -16417,7 +16417,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
 192:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %193 = getelementptr inbounds i8, ptr %0, i64 792
   store i32 %17, ptr %10, align 4
-  %194 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 1 dereferenceable(1) %193, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %194 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %193, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %195 = getelementptr inbounds i8, ptr %194, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %194, i64 16
@@ -18496,7 +18496,7 @@ define noundef nonnull ptr @_ZN3spv7Builder17makeFunctionEntryENS_10DecorationEj
   %32 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
   %33 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %10) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %10) #22
   %34 = icmp eq ptr %3, null
   br i1 %34, label %35, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -19463,7 +19463,7 @@ define void @_ZN3spv7Builder23setupDebugFunctionEntryEPNS_8FunctionEPKciRKSt6vec
   store i32 %3, ptr %18, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #22
   %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %9) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %9) #22
   %20 = icmp eq ptr %2, null
   br i1 %20, label %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -24196,7 +24196,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %94, %_ZNSt8_Rb_
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #22
   %108 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %108, ptr noundef nonnull align 1 dereferenceable(1) %6) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %108, ptr noundef nonnull align 1 dereferenceable(1) %6) #22
   %109 = getelementptr inbounds i8, ptr %0, i64 240
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 29))
   %110 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -26925,7 +26925,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %104, %_ZNSt8_Rb
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %118 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %118, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %118, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   %119 = getelementptr inbounds i8, ptr %0, i64 240
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 29))
   %120 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %119, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -35738,13 +35738,13 @@ define linkonce_odr ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_t
   %.sroa.06.014 = phi ptr [ %.sroa.06.0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_jENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread10 ], [ %.sroa.06.012, %5 ]
   %7 = getelementptr inbounds i8, ptr %.sroa.06.014, i64 8
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
-  %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
+  %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #22
   %10 = icmp eq i64 %8, %9
   br i1 %10, label %11, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_jENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread10
 
 11:                                               ; preds = %.lr.ph
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
-  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
+  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #22
   %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_jENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -35812,13 +35812,13 @@ define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcS
 
 15:                                               ; preds = %11
   %16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
+  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #22
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_jENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread
 
 19:                                               ; preds = %15
   %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
+  %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #22
   %22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_jENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread18, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_jENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -35867,7 +35867,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
   %11 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   %13 = getelementptr inbounds i8, ptr %11, i64 40
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 32
@@ -36525,7 +36525,7 @@ define linkonce_odr void @_ZNK3spv8Function4dumpERSt6vectorIjSaIjEE(ptr noundef 
   br i1 %.not.i.i, label %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit, label %38
 
 38:                                               ; preds = %._crit_edge
-  %39 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
+  %39 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #22
   br label %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit
 
 _ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit: ; preds = %._crit_edge, %38
@@ -37436,7 +37436,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__det
   store i32 %3, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, i8 0, i64 40, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %26) #22
   %27 = getelementptr inbounds i8, ptr %24, i64 48
   store i32 0, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %24, i64 52

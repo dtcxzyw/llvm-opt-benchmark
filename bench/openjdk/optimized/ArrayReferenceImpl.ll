@@ -502,7 +502,7 @@ isReferenceTag.exit:                              ; preds = %jdwpTag.exit, %21, 
   ]
 
 26:                                               ; preds = %isReferenceTag.exit, %isReferenceTag.exit
-  tail call void @createLocalRefSpace(ptr noundef %0, i32 noundef %5) #4
+  tail call void @createLocalRefSpace(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %5) #4
   %.not24.i = icmp eq i32 %5, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -579,7 +579,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   br i1 %.not.i.i, label %writeByteComponents.exit, label %63
 
 63:                                               ; preds = %62
-  %64 = tail call ptr @jvmtiAllocate(i32 noundef %5) #4
+  %64 = tail call ptr @jvmtiAllocate(i32 noundef range(i32 0, -2147483648) %5) #4
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %67
 
@@ -606,7 +606,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 1600
   %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %64) #4
+  tail call void %77(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %64) #4
   br label %78
 
 78:                                               ; preds = %78, %74
@@ -655,7 +655,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %97 = load ptr, ptr %0, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 1608
   %99 = load ptr, ptr %98, align 8
-  tail call void %99(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %86) #4
+  tail call void %99(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %86) #4
   %wide.trip.count.i58 = zext nneg i32 %5 to i64
   br label %100
 
@@ -706,7 +706,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 1640
   %122 = load ptr, ptr %121, align 8
-  tail call void %122(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %108) #4
+  tail call void %122(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %108) #4
   br label %123
 
 123:                                              ; preds = %123, %119
@@ -756,7 +756,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %143 = load ptr, ptr %0, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 1648
   %145 = load ptr, ptr %144, align 8
-  tail call void %145(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %131) #4
+  tail call void %145(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %131) #4
   br label %146
 
 146:                                              ; preds = %146, %142
@@ -806,7 +806,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %166 = load ptr, ptr %0, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 1624
   %168 = load ptr, ptr %167, align 8
-  tail call void %168(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %154) #4
+  tail call void %168(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %154) #4
   br label %169
 
 169:                                              ; preds = %169, %165
@@ -856,7 +856,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %189 = load ptr, ptr %0, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 1632
   %191 = load ptr, ptr %190, align 8
-  tail call void %191(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %177) #4
+  tail call void %191(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %177) #4
   br label %192
 
 192:                                              ; preds = %192, %188
@@ -905,7 +905,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %211 = load ptr, ptr %0, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 1616
   %213 = load ptr, ptr %212, align 8
-  tail call void %213(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %200) #4
+  tail call void %213(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %200) #4
   %wide.trip.count.i88 = zext nneg i32 %5 to i64
   br label %214
 
@@ -927,7 +927,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   br i1 %.not.i.i92, label %writeByteComponents.exit, label %220
 
 220:                                              ; preds = %219
-  %221 = tail call ptr @jvmtiAllocate(i32 noundef %5) #4
+  %221 = tail call ptr @jvmtiAllocate(i32 noundef range(i32 0, -2147483648) %5) #4
   %222 = icmp eq ptr %221, null
   br i1 %222, label %223, label %224
 
@@ -954,7 +954,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %232 = load ptr, ptr %0, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 1592
   %234 = load ptr, ptr %233, align 8
-  tail call void %234(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %221) #4
+  tail call void %234(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %221) #4
   br label %235
 
 235:                                              ; preds = %235, %231

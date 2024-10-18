@@ -411,7 +411,7 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..stateme
   br i1 %7, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$diesel..mysql..connection..bind..PreparedStatementBinds$GT$$GT$17hd29a5c3f320b2558E.llvm.8475916056208462138.exit.i", label %8
 
 8:                                                ; preds = %4
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$diesel..mysql..connection..bind..BindData$GT$$GT$17hba20e51e036b0a90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$diesel..mysql..connection..bind..BindData$GT$$GT$17hba20e51e036b0a90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$diesel..mysql..connection..bind..PreparedStatementBinds$GT$$GT$17hd29a5c3f320b2558E.llvm.8475916056208462138.exit.i" unwind label %13
 
 9:                                                ; preds = %3
@@ -420,7 +420,7 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..stateme
   br i1 %11, label %"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h6bbb959f0ae347a0E.exit", label %12
 
 12:                                               ; preds = %9
-  tail call void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$diesel..mysql..connection..bind..BindData$GT$$GT$17hba20e51e036b0a90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$diesel..mysql..connection..bind..BindData$GT$$GT$17hba20e51e036b0a90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   br label %"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h6bbb959f0ae347a0E.exit"
 
 13:                                               ; preds = %8
@@ -1234,7 +1234,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..s
   br i1 %10, label %common.resume, label %11
 
 11:                                               ; preds = %7
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$diesel..mysql..connection..bind..BindData$GT$$GT$17hba20e51e036b0a90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$diesel..mysql..connection..bind..BindData$GT$$GT$17hba20e51e036b0a90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %common.resume unwind label %16
 
 12:                                               ; preds = %6
@@ -1243,7 +1243,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..s
   br i1 %14, label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h783028d0ca46c242E.llvm.8475916056208462138.exit", label %15
 
 15:                                               ; preds = %12
-  tail call void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$diesel..mysql..connection..bind..BindData$GT$$GT$17hba20e51e036b0a90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  tail call void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$diesel..mysql..connection..bind..BindData$GT$$GT$17hba20e51e036b0a90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   br label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h783028d0ca46c242E.llvm.8475916056208462138.exit"
 
 16:                                               ; preds = %11

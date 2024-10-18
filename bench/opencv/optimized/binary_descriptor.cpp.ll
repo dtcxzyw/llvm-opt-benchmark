@@ -4592,7 +4592,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLi
 
 _ZNSt6vectorIS_IN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EESaIS5_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i367, %299, %297, %295
   %311 = getelementptr inbounds i8, ptr %9, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %9, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %311, i8 0, i64 24, i1 false)
   %.not476 = icmp eq i32 %.3296, 0
   br i1 %.not476, label %._crit_edge473, label %.lr.ph472
@@ -4757,7 +4757,7 @@ _ZNSt6vectorIS_IN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_
   br i1 %.not.i, label %439, label %415
 
 415:                                              ; preds = %405
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %412, ptr noundef nonnull align 8 dereferenceable(52) %9, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %412, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 52, i1 false)
   %416 = getelementptr inbounds i8, ptr %412, i64 56
   %417 = load ptr, ptr %324, align 8
   %418 = load ptr, ptr %311, align 8
@@ -5124,7 +5124,7 @@ define void @_ZNK2cv15line_descriptor16BinaryDescriptor11computeImplERKNS_3MatER
 
 _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %._crit_edge, %64
   %65 = getelementptr inbounds i8, ptr %12, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %12, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   %66 = getelementptr inbounds i8, ptr %12, i64 48
   store i32 %.pre214, ptr %66, align 8
@@ -5273,7 +5273,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSin
   %116 = sext i32 %.sroa.4.0.copyload to i64
   %117 = load ptr, ptr %115, align 8
   %118 = getelementptr inbounds %"struct.cv::line_descriptor::BinaryDescriptor::OctaveSingleLine", ptr %117, i64 %116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %118, ptr noundef nonnull align 8 dereferenceable(52) %16, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %118, ptr noundef nonnull align 8 dereferenceable(80) %16, i64 52, i1 false)
   %119 = getelementptr inbounds i8, ptr %118, i64 56
   %120 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %97)
           to label %_ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineaSERKS2_.exit unwind label %136
@@ -5380,7 +5380,7 @@ _ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineD2Ev.exit: ; preds = 
   %.012.i.i.i.i.i.i.i = phi i64 [ %175, %_ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineaSEOS2_.exit.i.i.i.i.i.i.i ], [ %161, %.lr.ph.preheader.i.i.i.i.i.i.i ]
   %.0811.i.i.i.i.i.i.i = phi ptr [ %174, %_ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineaSEOS2_.exit.i.i.i.i.i.i.i ], [ %151, %.lr.ph.preheader.i.i.i.i.i.i.i ]
   %.0910.i.i.i.i.i.i.i = phi ptr [ %173, %_ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineaSEOS2_.exit.i.i.i.i.i.i.i ], [ %156, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %.0811.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(52) %.0910.i.i.i.i.i.i.i, i64 52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.0811.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.0910.i.i.i.i.i.i.i, i64 52, i1 false)
   %162 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
   %163 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 56
   %164 = load ptr, ptr %162, align 8
@@ -6905,7 +6905,7 @@ define void @_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetectorC2Ev(ptr n
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %4, i8 0, i64 72, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 368
   %6 = getelementptr inbounds i8, ptr %0, i64 416
   %7 = getelementptr inbounds i8, ptr %0, i64 568
@@ -7259,7 +7259,7 @@ define void @_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetectorC2ENS1_11E
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #24
   %5 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %5, i8 0, i64 72, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 368
   %7 = getelementptr inbounds i8, ptr %0, i64 416
   %8 = getelementptr inbounds i8, ptr %0, i64 568
@@ -9695,7 +9695,7 @@ define noundef range(i32 -1, 2) i32 @_ZN2cv15line_descriptor16BinaryDescriptor14
   %8 = alloca %"class.std::vector.30", align 8
   %9 = alloca %"class.std::vector", align 8
   %10 = alloca %"class.std::vector.30", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %4, i8 0, i64 72, i1 false)
   %11 = invoke noundef i32 @_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector11EdgeDrawingERNS_3MatERNS1_10EdgeChainsE(ptr noundef nonnull align 8 dereferenceable(1440) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(76) %4)
           to label %12 unwind label %17
 
@@ -13466,7 +13466,7 @@ define linkonce_odr noundef ptr @_ZSt18__do_uninit_fill_nIPN2cv15line_descriptor
 6:                                                ; preds = %.lr.ph, %27
   %.018 = phi ptr [ %0, %.lr.ph ], [ %30, %27 ]
   %.01117 = phi i64 [ %1, %.lr.ph ], [ %29, %27 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %.018, ptr noundef nonnull align 8 dereferenceable(52) %2, i64 52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.018, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 52, i1 false)
   %7 = getelementptr inbounds i8, ptr %.018, i64 56
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %4, align 8
@@ -13703,7 +13703,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 .lr.ph:                                           ; preds = %3, %26
   %.017 = phi ptr [ %29, %26 ], [ %2, %3 ]
   %.sroa.09.016 = phi ptr [ %28, %26 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %.017, ptr noundef nonnull align 8 dereferenceable(52) %.sroa.09.016, i64 52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.017, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.09.016, i64 52, i1 false)
   %4 = getelementptr inbounds i8, ptr %.017, i64 56
   %5 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 56
   %6 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 64
@@ -14081,7 +14081,7 @@ _ZNKSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE
 _ZNSt12_Vector_baseIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cv::line_descriptor::BinaryDescriptor::OctaveSingleLine", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %24, ptr noundef nonnull align 8 dereferenceable(52) %2, i64 52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 52, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 56
   %26 = getelementptr inbounds i8, ptr %2, i64 56
   %27 = getelementptr inbounds i8, ptr %2, i64 64
@@ -14140,7 +14140,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %36
   %.0911.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i ], [ %6, %43 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(52) %.0911.i.i.i.i, i64 52, i1 false), !alias.scope !143
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.0911.i.i.i.i, i64 52, i1 false), !alias.scope !143
   %47 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 56
   %48 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 56
   %49 = load ptr, ptr %48, align 8, !alias.scope !141, !noalias !138
@@ -14170,7 +14170,7 @@ _ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE1
   %.0911.i.i.i.i30 = phi ptr [ %68, %.lr.ph.i.i.i.i28 ], [ %1, %_ZNSt6vectorIN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %.012.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(52) %.0911.i.i.i.i30, i64 52, i1 false), !alias.scope !150
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.012.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(80) %.0911.i.i.i.i30, i64 52, i1 false), !alias.scope !150
   %59 = getelementptr inbounds i8, ptr %.012.i.i.i.i29, i64 56
   %60 = getelementptr inbounds i8, ptr %.0911.i.i.i.i30, i64 56
   %61 = load ptr, ptr %60, align 8, !alias.scope !148, !noalias !145

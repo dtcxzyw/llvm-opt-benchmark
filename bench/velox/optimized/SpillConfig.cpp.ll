@@ -12,7 +12,7 @@ define void @_ZN8facebook5velox6common11SpillConfigC2ESt8functionIFRKNSt7__cxx11
 entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %_getSpillDirPathCb, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %0, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %_getSpillDirPathCb, i64 16
@@ -22,7 +22,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_getSpillDirPathCb, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %_getSpillDirPathCb, i64 16, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
   store ptr %2, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -85,7 +85,7 @@ lpad:                                             ; preds = %invoke.cont, %_ZNSt
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad
-  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 3)
           to label %_ZNSt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i

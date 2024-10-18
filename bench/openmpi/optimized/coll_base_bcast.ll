@@ -1208,7 +1208,7 @@ ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
 283:                                              ; preds = %267
   %284 = zext i32 %279 to i64
   %285 = zext i32 %272 to i64
-  %286 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %270, i64 noundef %285, ptr noundef %2, i32 noundef %.0183, i32 noundef -17, ptr noundef %277, i64 noundef %284, ptr noundef %2, i32 noundef %.0183, i32 noundef -17, ptr noundef %4, ptr noundef null) #4
+  %286 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %270, i64 noundef range(i64 -2147483648, 4294967296) %285, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %.0183, i32 noundef -17, ptr noundef %277, i64 noundef range(i64 -2147483645, 4294967296) %284, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %.0183, i32 noundef -17, ptr noundef %4, ptr noundef null) #4
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %281, %283
@@ -1728,7 +1728,7 @@ define i32 @ompi_coll_base_bcast_intra_scatter_allgather(ptr noundef %0, i32 nou
 104:                                              ; preds = %89
   %105 = zext nneg i32 %spec.store.select to i64
   %106 = sext i32 %.3178249 to i64
-  %107 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %99, i64 noundef %106, ptr noundef %2, i32 noundef %91, i32 noundef -17, ptr noundef %100, i64 noundef %105, ptr noundef %2, i32 noundef %91, i32 noundef -17, ptr noundef %4, ptr noundef nonnull %8) #4
+  %107 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %99, i64 noundef range(i64 -2147483648, 4294967296) %106, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %91, i32 noundef -17, ptr noundef %100, i64 noundef range(i64 -2147483645, 4294967296) %105, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %91, i32 noundef -17, ptr noundef %4, ptr noundef nonnull %8) #4
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %102, %104
@@ -2025,7 +2025,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %.lr.ph172, %99
   %111 = getelementptr inbounds i8, ptr %0, i64 %104
   %112 = zext nneg i32 %spec.store.select to i64
   %113 = zext nneg i32 %spec.store.select2 to i64
-  %114 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %110, i64 noundef %113, ptr noundef %2, i32 noundef %82, i32 noundef -17, ptr noundef %111, i64 noundef %112, ptr noundef %2, i32 noundef %80, i32 noundef -17, ptr noundef %4, ptr noundef null) #4
+  %114 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %110, i64 noundef range(i64 -2147483648, 4294967296) %113, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %82, i32 noundef -17, ptr noundef %111, i64 noundef range(i64 -2147483645, 4294967296) %112, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %80, i32 noundef -17, ptr noundef %4, ptr noundef null) #4
   %.not149 = icmp eq i32 %114, 0
   br i1 %.not149, label %99, label %.loopexit
 

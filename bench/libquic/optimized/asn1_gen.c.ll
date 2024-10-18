@@ -409,7 +409,7 @@ if.else65.i:                                      ; preds = %sw.bb58.i
 if.end67.i:                                       ; preds = %if.then64.i, %sw.bb58.i
   %format.addr.0.i = phi i32 [ 4096, %if.then64.i ], [ 4097, %sw.bb58.i ]
   %value68.i = getelementptr inbounds i8, ptr %call.i36, i64 8
-  %call69.i = call i64 @ASN1_tag2bit(i32 noundef %0) #9
+  %call69.i = call i64 @ASN1_tag2bit(i32 noundef range(i32 18, 16) %0) #9
   %call70.i = call i32 @ASN1_mbstring_copy(ptr noundef nonnull %value68.i, ptr noundef nonnull %spec.store.select.i, i32 noundef -1, i32 noundef %format.addr.0.i, i64 noundef %call69.i) #9
   %cmp71.i = icmp slt i32 %call70.i, 1
   br i1 %cmp71.i, label %if.then73.i, label %sw.epilog.i

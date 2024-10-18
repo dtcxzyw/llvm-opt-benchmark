@@ -940,7 +940,7 @@ switch.early.test:                                ; preds = %93, %97, %101
   %switch.select11.i = select i1 %switch.selectcmp10.i, i32 64, i32 %switch.select.i
   %239 = getelementptr inbounds i8, ptr %134, i64 64
   %240 = load ptr, ptr %239, align 8
-  %241 = call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef nonnull %0, ptr noundef nonnull %134, ptr noundef %240, i32 noundef %switch.select11.i, ptr noundef null, ptr noundef %4)
+  %241 = call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef nonnull %0, ptr noundef nonnull %134, ptr noundef %240, i32 noundef range(i32 1, 131073) %switch.select11.i, ptr noundef null, ptr noundef nonnull %4)
   br i1 %241, label %sema_analyse_attributes_for_var.exit.thread, label %sema_analyse_attributes_for_var.exit
 
 sema_analyse_attributes_for_var.exit:             ; preds = %.thread270
@@ -1844,7 +1844,7 @@ define dso_local zeroext i1 @sema_analyse_var_decl(ptr noundef %0, ptr noundef %
   %52 = phi i32 [ 2, %.thread334 ], [ %spec.select342, %49 ]
   %53 = getelementptr inbounds i8, ptr %1, i64 64
   %54 = load ptr, ptr %53, align 8
-  %55 = call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %52, ptr noundef null, ptr noundef %4)
+  %55 = call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %54, i32 noundef range(i32 1, 131073) %52, ptr noundef null, ptr noundef nonnull %4)
   br i1 %55, label %61, label %56
 
 56:                                               ; preds = %50
@@ -3579,7 +3579,7 @@ define dso_local zeroext i1 @sema_analyse_decl(ptr noundef %0, ptr noundef %1) l
   %36 = select i1 %35, i32 32, i32 16
   %37 = getelementptr inbounds i8, ptr %1, i64 64
   %38 = load ptr, ptr %37, align 8
-  %39 = call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %15, ptr noundef nonnull %1, ptr noundef %38, i32 noundef %36, ptr noundef null, ptr noundef %4)
+  %39 = call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %15, ptr noundef nonnull %1, ptr noundef %38, i32 noundef range(i32 1, 131073) %36, ptr noundef null, ptr noundef nonnull %4)
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %33
@@ -3872,7 +3872,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_interface(ptr noundef %0
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %6, i32 noundef 2048, ptr noundef null, ptr noundef %2)
+  %7 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %6, i32 noundef 2048, ptr noundef null, ptr noundef nonnull %2)
   br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %3
@@ -4197,7 +4197,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct(ptr noundef %0
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %6, i32 noundef 8192, ptr noundef null, ptr noundef %2)
+  %7 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %6, i32 noundef 8192, ptr noundef null, ptr noundef nonnull %2)
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
@@ -4418,7 +4418,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
 define internal fastcc noundef zeroext i1 @sema_analyse_fntype(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 256, ptr noundef null, ptr noundef %2)
+  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 256, ptr noundef null, ptr noundef nonnull %2)
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
@@ -4460,7 +4460,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_func(ptr noundef %0, ptr
   %9 = select i1 %.not, i32 131072, i32 1
   %10 = getelementptr inbounds i8, ptr %1, i64 64
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %9, ptr noundef null, ptr noundef %2)
+  %12 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef range(i32 1, 131073) %9, ptr noundef null, ptr noundef nonnull %2)
   br i1 %12, label %17, label %sema_analyse_func_macro.exit
 
 sema_analyse_func_macro.exit:                     ; preds = %3
@@ -4840,7 +4840,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_macro(ptr noundef %0, pt
   store ptr %6, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 64
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef 16384, ptr noundef null, ptr noundef %2)
+  %12 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef range(i32 1, 131073) 16384, ptr noundef null, ptr noundef nonnull %2)
   br i1 %12, label %17, label %sema_analyse_func_macro.exit
 
 sema_analyse_func_macro.exit:                     ; preds = %3
@@ -5131,7 +5131,7 @@ sema_analyse_macro_method.exit.thread:            ; preds = %133, %105, %114, %.
 define internal fastcc noundef zeroext i1 @sema_analyse_attribute_decl(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 256, ptr noundef null, ptr noundef %2)
+  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 256, ptr noundef null, ptr noundef nonnull %2)
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
@@ -5245,7 +5245,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_attribute_decl(ptr nound
 define internal fastcc noundef zeroext i1 @sema_analyse_distinct(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 32768, ptr noundef null, ptr noundef %2)
+  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 32768, ptr noundef null, ptr noundef nonnull %2)
   br i1 %6, label %7, label %58
 
 7:                                                ; preds = %3
@@ -5376,7 +5376,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_distinct(ptr noundef %0,
 define internal fastcc noundef zeroext i1 @sema_analyse_typedef(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 256, ptr noundef null, ptr noundef %2)
+  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 256, ptr noundef null, ptr noundef nonnull %2)
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
@@ -5442,7 +5442,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_enum(ptr noundef %0, ptr
   %5 = alloca %struct.Int, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %7, i32 noundef 8, ptr noundef null, ptr noundef %2)
+  %8 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %7, i32 noundef 8, ptr noundef null, ptr noundef nonnull %2)
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %3
@@ -5797,7 +5797,7 @@ type_flatten.exit:                                ; preds = %34
   store i8 0, ptr %4, align 1
   %180 = getelementptr inbounds i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8
-  %182 = call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %181, i32 noundef 8, ptr noundef null, ptr noundef %4)
+  %182 = call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %181, i32 noundef 8, ptr noundef null, ptr noundef nonnull %4)
   br i1 %182, label %188, label %183
 
 183:                                              ; preds = %176
@@ -6012,7 +6012,7 @@ sema_analyse_enum_param.exit.thread:              ; preds = %146, %125, %.crited
 define internal fastcc noundef zeroext i1 @sema_analyse_error(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 128, ptr noundef null, ptr noundef %2)
+  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 128, ptr noundef null, ptr noundef nonnull %2)
   br i1 %6, label %7, label %.loopexit.sink.split
 
 7:                                                ; preds = %3
@@ -6080,7 +6080,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_error(ptr noundef %0, pt
 define internal fastcc noundef zeroext i1 @sema_analyse_define(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 256, ptr noundef null, ptr noundef %2)
+  %6 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 256, ptr noundef null, ptr noundef nonnull %2)
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
@@ -7936,7 +7936,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
 27:                                               ; preds = %16
   %28 = getelementptr inbounds i8, ptr %2, i64 64
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %29, i32 noundef 1024, ptr noundef null, ptr noundef %5)
+  %30 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %29, i32 noundef 1024, ptr noundef null, ptr noundef nonnull %5)
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %27
@@ -9013,7 +9013,7 @@ define internal fastcc zeroext i1 @sema_analyse_struct_member(ptr noundef %0, pt
   %.051 = phi i32 [ 512, %17 ], [ 16, %24 ], [ 32, %23 ], [ 8192, %22 ]
   %27 = getelementptr inbounds i8, ptr %2, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %28, i32 noundef %.051, ptr noundef null, ptr noundef %3)
+  %29 = tail call fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %28, i32 noundef range(i32 1, 131073) %.051, ptr noundef null, ptr noundef nonnull %3)
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %26

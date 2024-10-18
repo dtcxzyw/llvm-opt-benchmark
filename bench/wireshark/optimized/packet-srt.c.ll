@@ -765,7 +765,7 @@ srt_format_ip_address.exit.i:                     ; preds = %.loopexit.i.i, %118
   br i1 %.not.i213.i, label %srt_format_hs_ext_group.exit.i, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %178, %174
-  %190 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %19, ptr noundef %1, ptr noundef nonnull @ei_srt_hs_ext_hsreq_len, ptr noundef %0, i32 noundef %133, i32 noundef %176, ptr noundef nonnull @.str.254, i32 noundef %176) #5
+  %190 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %19, ptr noundef %1, ptr noundef nonnull @ei_srt_hs_ext_hsreq_len, ptr noundef %0, i32 noundef %133, i32 noundef range(i32 0, 262141) %176, ptr noundef nonnull @.str.254, i32 noundef range(i32 0, 262141) %176) #5
   br label %srt_format_hs_ext_group.exit.i
 
 191:                                              ; preds = %.preheader.i

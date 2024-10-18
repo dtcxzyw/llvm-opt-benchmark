@@ -2319,7 +2319,7 @@ if.then3.i:                                       ; preds = %do.body.i
   br i1 %mul.ov.i.i, label %if.then.i.i, label %st_mult.exit.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef %conv.i) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #20
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then3.i
@@ -2732,7 +2732,7 @@ _.exit.i46.i.i:                                   ; preds = %if.end3.i.i44.i.i, 
   br label %get_default_remote_submodule.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then15.i.i
-  %call4.i.i.i = call fastcc i32 @repo_get_default_remote(ptr noundef nonnull %subrepo.i.i.i, ptr noundef %remote_name.i.i)
+  %call4.i.i.i = call fastcc i32 @repo_get_default_remote(ptr noundef nonnull %subrepo.i.i.i, ptr noundef nonnull %remote_name.i.i)
   call void @repo_clear(ptr noundef nonnull %subrepo.i.i.i) #19
   br label %get_default_remote_submodule.exit.i.i
 
@@ -3530,7 +3530,7 @@ sw.bb2.i.i.i.i:                                   ; preds = %if.end40.i.i.i
   br label %submodule_update_type_to_label.exit.i.i.i
 
 sw.epilog.i.i122.i.i:                             ; preds = %if.end40.i.i.i
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.97, i32 noundef 2460, ptr noundef nonnull @.str.228, i32 noundef %next.sroa.4.0.copyload.i.i) #20
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.97, i32 noundef 2460, ptr noundef nonnull @.str.228, i32 noundef range(i32 1, 0) %next.sroa.4.0.copyload.i.i) #20
   unreachable
 
 submodule_update_type_to_label.exit.i.i.i:        ; preds = %sw.bb2.i.i.i.i, %sw.bb1.i.i.i.i, %if.end40.i.i.i
@@ -4037,7 +4037,7 @@ if.then3.i:                                       ; preds = %do.body.i
   br i1 %mul.ov.i.i, label %if.then.i.i, label %st_mult.exit.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef %conv.i) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #20
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then3.i
@@ -5277,7 +5277,7 @@ for.body.i.i.us:                                  ; preds = %for.body.i.i.prehea
   ]
 
 if.then.i.i.us:                                   ; preds = %for.body.i.i.us, %for.body.i.i.us
-  call fastcc void @generate_submodule_summary(ptr noundef readonly %info, ptr noundef nonnull %24)
+  call fastcc void @generate_submodule_summary(ptr noundef nonnull readonly %info, ptr noundef nonnull %24)
   br label %for.inc.i.i.us
 
 if.end.i.i.us:                                    ; preds = %for.body.i.i.us
@@ -5290,7 +5290,7 @@ if.end.i.i.us:                                    ; preds = %for.body.i.i.us
   br i1 %tobool36.not.i.i.us, label %if.end38.i.i.us, label %if.then37.i.i.us
 
 if.then37.i.i.us:                                 ; preds = %if.end.i.i.us
-  call fastcc void @generate_submodule_summary(ptr noundef readonly %info, ptr noundef nonnull %24)
+  call fastcc void @generate_submodule_summary(ptr noundef nonnull readonly %info, ptr noundef nonnull %24)
   br label %if.end38.i.i.us
 
 if.end38.i.i.us:                                  ; preds = %if.then37.i.i.us, %if.end.i.i.us
@@ -5319,7 +5319,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   ]
 
 if.then.i.i:                                      ; preds = %for.body.i.i, %for.body.i.i
-  call fastcc void @generate_submodule_summary(ptr noundef readonly %info, ptr noundef nonnull %30)
+  call fastcc void @generate_submodule_summary(ptr noundef nonnull readonly %info, ptr noundef nonnull %30)
   br label %for.inc.i.i
 
 land.lhs.true11.i.i:                              ; preds = %for.body.i.i
@@ -5372,7 +5372,7 @@ if.end33.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %tobool36.not.i.i, label %if.end38.i.i, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %if.end33.i.i
-  call fastcc void @generate_submodule_summary(ptr noundef readonly %info, ptr noundef nonnull %30)
+  call fastcc void @generate_submodule_summary(ptr noundef nonnull readonly %info, ptr noundef nonnull %30)
   br label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.then37.i.i, %if.end33.i.i
@@ -6499,7 +6499,7 @@ entry:
 lor.lhs.false.i.i:                                ; preds = %entry
   %sub.i.i = add i64 %call.i, -8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(8) @.str.72, i64 8)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull dereferenceable(8) @.str.72, i64 8)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %if.then, label %if.end26
 
@@ -6928,7 +6928,7 @@ while.body:                                       ; preds = %if.then, %if.end
 lor.lhs.false.i:                                  ; preds = %while.body
   %sub.i = add i64 %sub.ptr.sub, -8
   %add.ptr.i = getelementptr inbounds i8, ptr %line.011, i64 %sub.i
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(8) @.str.127, i64 8)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %add.ptr.i, ptr noundef nonnull dereferenceable(8) @.str.127, i64 8)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.then6, label %if.end
 
@@ -7055,7 +7055,7 @@ if.then18:                                        ; preds = %do.body
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then18
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef %conv36) #20
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv36) #20
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then18
@@ -7560,7 +7560,7 @@ if.then5:                                         ; preds = %strbuf_addch.exit
   br i1 %mul.ov.i, label %if.then.i29, label %st_mult.exit
 
 if.then.i29:                                      ; preds = %if.then5
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef %conv) #20
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv) #20
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then5
@@ -7961,7 +7961,7 @@ if.then65:                                        ; preds = %strbuf_setlen.exit1
   br i1 %mul.ov.i, label %if.then.i136, label %st_mult.exit
 
 if.then.i136:                                     ; preds = %if.then65
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 48, i64 noundef %conv) #20
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 48, i64 noundef range(i64 -2147483648, 2147483648) %conv) #20
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then65
@@ -8652,7 +8652,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   br label %get_default_remote_submodule.exit
 
 if.end.i:                                         ; preds = %strbuf_setlen.exit45
-  %call4.i48 = call fastcc i32 @repo_get_default_remote(ptr noundef nonnull %subrepo.i, ptr noundef %default_remote)
+  %call4.i48 = call fastcc i32 @repo_get_default_remote(ptr noundef nonnull %subrepo.i, ptr noundef nonnull %default_remote)
   call void @repo_clear(ptr noundef nonnull %subrepo.i) #19
   br label %get_default_remote_submodule.exit
 
@@ -8833,7 +8833,7 @@ if.then23:                                        ; preds = %if.end
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then23
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef %conv41) #20
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.161, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv41) #20
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then23

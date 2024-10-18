@@ -68,7 +68,7 @@ for.body12:                                       ; preds = %for.body, %for.inc
   br i1 %cmp, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body12
-  %call.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.036) #9
+  %call.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %__begin2.sroa.0.036) #9
   %2 = add i32 %call.i, -3
   %or.cond = icmp ult i32 %2, 4
   br i1 %or.cond, label %if.then20, label %for.inc
@@ -83,9 +83,9 @@ if.then20:                                        ; preds = %if.then
   call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %__begin2.sroa.0.036) #9
   %textifiedCallee.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.036, i64 136
   %4 = load ptr, ptr %textifiedCallee.i, align 8
-  %call.i17 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.036, i32 noundef 0) #9
-  %call.i18 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.036, i32 noundef 2) #9
-  %call.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.036) #9, !noalias !4
+  %call.i17 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %__begin2.sroa.0.036, i32 noundef 0) #9
+  %call.i18 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %__begin2.sroa.0.036, i32 noundef 2) #9
+  %call.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %__begin2.sroa.0.036) #9, !noalias !4
   %sub.i.i = add i32 %call.i.i, -2
   %sub.i19 = add i32 %call.i.i, -3
   %cmp3.i.not.i = icmp eq i32 %sub.i19, 0
@@ -108,7 +108,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %5 = phi ptr [ %ref.tmp.sroa.6.3, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ %call5.i.i.i.i.i, %for.body.i.preheader ]
   %i.011.i = phi i32 [ %inc.i, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ 1, %for.body.i.preheader ]
   %add.i.i = add i32 %i.011.i, 2
-  %call.i5.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.036, i32 noundef %add.i.i) #9, !noalias !4
+  %call.i5.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %__begin2.sroa.0.036, i32 noundef %add.i.i) #9, !noalias !4
   %cmp.not.i.i.i = icmp eq ptr %5, %ref.tmp.sroa.10.3
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i8.i
 
@@ -201,7 +201,7 @@ _ZNSt6vectorIPN6hermes5ValueESaIS2_EED2Ev.exit:   ; preds = %_ZN12_GLOBAL__N_123
   br i1 %cmp.not.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIPN6hermes5ValueESaIS2_EED2Ev.exit
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #9
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
 

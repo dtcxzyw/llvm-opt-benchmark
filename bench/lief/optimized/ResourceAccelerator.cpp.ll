@@ -351,7 +351,7 @@ define void @_ZNK4LIEF2PE19ResourceAccelerator8ansi_strB5cxx11Ev(ptr dead_on_unw
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %17
 
 .noexc2:                                          ; preds = %.noexc
@@ -368,7 +368,7 @@ define void @_ZNK4LIEF2PE19ResourceAccelerator8ansi_strB5cxx11Ev(ptr dead_on_unw
 12:                                               ; preds = %14, %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   br label %.body
 
 14:                                               ; preds = %.noexc2

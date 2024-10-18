@@ -705,7 +705,7 @@ if.else242.i:                                     ; preds = %if.else230.i
 if.then245.i:                                     ; preds = %if.else242.i
   %call246.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 26)
   %argument247.i = getelementptr inbounds i8, ptr %call246.i, i64 8
-  %call2.i.i = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull readonly @.str.67) #20
+  %call2.i.i = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.67) #20
   store ptr %call2.i.i, ptr %argument247.i, align 8
   br label %parse_option.exit
 
@@ -2314,7 +2314,7 @@ if.end29.i:                                       ; preds = %if.then28.i, %if.th
 if.end3.i.i:                                      ; preds = %if.end29.i
   %conv37.i = zext i32 %mul32.i to i64
   %mul.i.i = mul nuw nsw i64 %conv37.i, 24
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %7, i64 noundef %mul.i.i) #25
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %7, i64 noundef range(i64 24, 206158430161) %mul.i.i) #25
   %cmp1.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp1.i.i.i, label %safe_realloc_mul_2op_.exit.thread.i, label %safe_realloc_mul_2op_.exit.thread21.i
 
@@ -2824,7 +2824,7 @@ if.end29:                                         ; preds = %if.then28, %if.then
 if.end3.i:                                        ; preds = %if.end29
   %conv37 = zext i32 %mul32 to i64
   %mul.i = mul nuw nsw i64 %conv37, 48
-  %call.i.i = tail call ptr @realloc(ptr noundef %7, i64 noundef %mul.i) #25
+  %call.i.i = tail call ptr @realloc(ptr noundef %7, i64 noundef range(i64 24, 206158430161) %mul.i) #25
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %safe_realloc_mul_2op_.exit.thread, label %safe_realloc_mul_2op_.exit.thread21
 

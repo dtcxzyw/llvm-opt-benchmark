@@ -2070,7 +2070,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i.i = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.ptr.i.i.i, i32 noundef 3) #20
+  %call.i.i.i.i.i.i.i.i.i.i = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i.ptr.i.i.i, i32 noundef 3) #20
   br label %_ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i.i.i.i
@@ -2173,7 +2173,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i1
   br i1 %tobool.not.i.i.i.i.i.i.i20.i.i.i, label %_ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i23.i.i.i, label %if.then.i.i.i.i.i.i.i21.i.i.i
 
 if.then.i.i.i.i.i.i.i21.i.i.i:                    ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i18.i.i.i
-  %call.i.i.i.i.i.i.i22.i.i.i = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i5.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i5.i.i.i, i32 noundef 3) #20
+  %call.i.i.i.i.i.i.i22.i.i.i = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i5.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i5.i.i.i, i32 noundef 3) #20
   br label %_ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i23.i.i.i
 
 _ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i23.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i21.i.i.i, %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i18.i.i.i
@@ -2267,7 +2267,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i6
   br i1 %tobool.not.i.i.i.i.i.i.i63.i.i.i, label %_ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i66.i.i.i, label %if.then.i.i.i.i.i.i.i64.i.i.i
 
 if.then.i.i.i.i.i.i.i64.i.i.i:                    ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i61.i.i.i
-  %call.i.i.i.i.i.i.i65.i.i.i = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i48.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i48.i.i.i, i32 noundef 3) #20
+  %call.i.i.i.i.i.i.i65.i.i.i = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i48.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i48.i.i.i, i32 noundef 3) #20
   br label %_ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i66.i.i.i
 
 _ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i66.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i64.i.i.i, %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i61.i.i.i
@@ -2361,7 +2361,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i1
   br i1 %tobool.not.i.i.i.i.i.i.i106.i.i.i, label %_ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i109.i.i.i, label %if.then.i.i.i.i.i.i.i107.i.i.i
 
 if.then.i.i.i.i.i.i.i107.i.i.i:                   ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i104.i.i.i
-  %call.i.i.i.i.i.i.i108.i.i.i = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i91.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i91.i.i.i, i32 noundef 3) #20
+  %call.i.i.i.i.i.i.i108.i.i.i = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i91.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i91.i.i.i, i32 noundef 3) #20
   br label %_ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i109.i.i.i
 
 _ZSt8_DestroyIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEvPT_.exit.i.i.i109.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i107.i.i.i, %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i104.i.i.i
@@ -2588,7 +2588,7 @@ if.then24:                                        ; preds = %_ZN4node12_GLOBAL__
   call fastcc void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl13DrainAndCloseEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl12OnStreamReadElRK8uv_buf_tEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl12OnStreamReadElRK8uv_buf_tEUlmE_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -2609,7 +2609,7 @@ if.then.i:                                        ; preds = %if.then24
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds = %if.then24
   %_M_invoker.i8 = getelementptr inbounds i8, ptr %pending, i64 24
   %15 = load ptr, ptr %_M_invoker.i8, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void %15(ptr noundef nonnull align 8 dereferenceable(32) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -2618,7 +2618,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds =
   br i1 %tobool.not.i.i10, label %cleanup, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit
-  %call.i.i = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #20
+  %call.i.i = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #20
   br label %cleanup
 
 if.end26:                                         ; preds = %_ZN4node12_GLOBAL__N_17FdEntry13CheckModifiedEPS1_i.exit
@@ -2632,7 +2632,7 @@ if.then27:                                        ; preds = %if.end26
 if.then29:                                        ; preds = %if.then27
   %_M_manager.i.i11 = getelementptr inbounds i8, ptr %agg.tmp31, i64 16
   %_M_invoker.i12 = getelementptr inbounds i8, ptr %agg.tmp31, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl12OnStreamReadElRK8uv_buf_tEUlmE0_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i12, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl12OnStreamReadElRK8uv_buf_tEUlmE0_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i11, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i13)
@@ -2653,7 +2653,7 @@ if.then.i20:                                      ; preds = %if.then29
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit21: ; preds = %if.then29
   %_M_invoker.i19 = getelementptr inbounds i8, ptr %pending, i64 24
   %18 = load ptr, ptr %_M_invoker.i19, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i13, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i14, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i15, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31) #20
+  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i13, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i14, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i15, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i15)
@@ -2662,14 +2662,14 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit21: ; preds
   br i1 %tobool.not.i.i23, label %if.end36, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit21
-  %call.i.i25 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31, i32 noundef 3) #20
+  %call.i.i25 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31, i32 noundef 3) #20
   br label %if.end36
 
 if.else:                                          ; preds = %if.then27
   %conv = trunc i64 %nread to i32
   %_M_manager.i.i27 = getelementptr inbounds i8, ptr %agg.tmp34, i64 16
   %_M_invoker.i28 = getelementptr inbounds i8, ptr %agg.tmp34, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp34, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp34, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl12OnStreamReadElRK8uv_buf_tEUlmE1_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i28, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl12OnStreamReadElRK8uv_buf_tEUlmE1_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i27, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i29)
@@ -2690,7 +2690,7 @@ if.then.i36:                                      ; preds = %if.else
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit37: ; preds = %if.else
   %_M_invoker.i35 = getelementptr inbounds i8, ptr %pending, i64 24
   %21 = load ptr, ptr %_M_invoker.i35, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i29, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i31, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp34) #20
+  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i29, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i31, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp34) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i31)
@@ -2699,7 +2699,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit37: ; preds
   br i1 %tobool.not.i.i39, label %if.end36, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit37
-  %call.i.i41 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp34, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp34, i32 noundef 3) #20
+  %call.i.i41 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp34, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp34, i32 noundef 3) #20
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then.i.i40, %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit37, %if.then.i.i24, %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit21
@@ -2764,7 +2764,7 @@ if.then.i52:                                      ; preds = %_ZNSt10shared_ptrIN
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit53: ; preds = %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit
   %_M_invoker.i51 = getelementptr inbounds i8, ptr %pending, i64 24
   %31 = load ptr, ptr %_M_invoker.i51, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(16) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i45, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i46, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i47, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp41) #20
+  call void %31(ptr noundef nonnull align 8 dereferenceable(32) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i45, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i46, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i47, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp41) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i47)
@@ -2773,7 +2773,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit53: ; preds
   br i1 %tobool.not.i.i55, label %_ZZN4node12_GLOBAL__N_17FdEntry10ReaderImpl12OnStreamReadElRK8uv_buf_tENUlmE2_D2Ev.exit, label %if.then.i.i56
 
 if.then.i.i56:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit53
-  %call.i.i57 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp41, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp41, i32 noundef 3) #20
+  %call.i.i57 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp41, i32 noundef 3) #20
   br label %_ZZN4node12_GLOBAL__N_17FdEntry10ReaderImpl12OnStreamReadElRK8uv_buf_tENUlmE2_D2Ev.exit
 
 _ZZN4node12_GLOBAL__N_17FdEntry10ReaderImpl12OnStreamReadElRK8uv_buf_tENUlmE2_D2Ev.exit: ; preds = %if.then.i.i56, %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit53
@@ -2877,7 +2877,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i: ; preds
   br i1 %tobool.not.i.i.i, label %cleanup56, label %if.then.i.i.i72
 
 if.then.i.i.i72:                                  ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i
-  %call.i.i.i73 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %pending, ptr noundef nonnull align 8 dereferenceable(16) %pending, i32 noundef 3) #20
+  %call.i.i.i73 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(48) %pending, ptr noundef nonnull align 8 dereferenceable(48) %pending, i32 noundef 3) #20
   br label %cleanup56
 
 cleanup56:                                        ; preds = %if.then.i.i.i72, %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i, %do.body
@@ -2988,7 +2988,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -3009,7 +3009,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds = %if.then
   %_M_invoker.i2 = getelementptr inbounds i8, ptr %next, i64 24
   %4 = load ptr, ptr %_M_invoker.i2, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void %4(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -3018,7 +3018,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds =
   br i1 %tobool.not.i.i4, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit
-  %call.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #20
+  %call.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #20
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -3057,7 +3057,7 @@ if.then7:                                         ; preds = %_ZN4node12_GLOBAL__
   call fastcc void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl13DrainAndCloseEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
   %_M_manager.i.i5 = getelementptr inbounds i8, ptr %agg.tmp8, i64 16
   %_M_invoker.i6 = getelementptr inbounds i8, ptr %agg.tmp8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE0_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i6, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE0_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager.i.i5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i7)
@@ -3078,7 +3078,7 @@ if.then.i14:                                      ; preds = %if.then7
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit15: ; preds = %if.then7
   %_M_invoker.i13 = getelementptr inbounds i8, ptr %next, i64 24
   %14 = load ptr, ptr %_M_invoker.i13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i7, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i8, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i9, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #20
+  call void %14(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i7, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i8, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i9, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i9)
@@ -3087,7 +3087,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit15: ; preds
   br i1 %tobool.not.i.i17, label %return, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit15
-  %call.i.i19 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, i32 noundef 3) #20
+  %call.i.i19 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, i32 noundef 3) #20
   br label %return
 
 if.end10:                                         ; preds = %_ZN4node12_GLOBAL__N_17FdEntry13CheckModifiedEPS1_i.exit
@@ -3139,11 +3139,11 @@ if.then.i21:                                      ; preds = %_ZNSt23enable_share
   br i1 %tobool.not.i.i.not.i.i.i.i, label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit.i.i.i.thread, label %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i
 
 _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit.i.i.i.thread: ; preds = %if.then.i21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 24, i1 false)
   br label %if.end.i23
 
 _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i: ; preds = %if.then.i21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i1.i.i.i = getelementptr inbounds i8, ptr %22, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.i.i.i, i64 16, i1 false)
@@ -3308,11 +3308,11 @@ _ZNSt5dequeIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullESaIS4_EE22_M_r
   br i1 %tobool.not.i.i.not.i.i.i.i.i, label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit.i.i.i.i.thread, label %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i
 
 _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit.i.i.i.i.thread: ; preds = %_ZNSt5dequeIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullESaIS4_EE22_M_reserve_map_at_backEm.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, i8 0, i64 24, i1 false)
   br label %if.end.thread.i
 
 _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i: ; preds = %_ZNSt5dequeIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullESaIS4_EE22_M_reserve_map_at_backEm.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.i.i.i.i, i64 16, i1 false)
@@ -3380,7 +3380,7 @@ define internal void @_ZThn8_N4node12_GLOBAL__N_17FdEntry10ReaderImplD0Ev(ptr no
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #24
   ret void
 }
 
@@ -3405,7 +3405,7 @@ define internal void @_ZThn16_N4node12_GLOBAL__N_17FdEntry10ReaderImplD0Ev(ptr n
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %0) #24
   ret void
 }
 
@@ -3473,7 +3473,7 @@ for.cond:                                         ; preds = %for.body, %if.then
 
 for.body:                                         ; preds = %for.cond
   %add.ptr16 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
-  %call4.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr16) #20
+  %call4.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr16) #20
   br i1 %call4.i, label %if.then.i23, label %for.cond, !llvm.loop !62
 
 if.end21:                                         ; preds = %for.cond, %entry
@@ -3507,7 +3507,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
 
 _ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i.i: ; preds = %for.cond.i.i
   %add.ptr.i.i8 = getelementptr inbounds i8, ptr %__p.0.i.i, i64 8
-  %call4.i.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i8) #20
+  %call4.i.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i8) #20
   br i1 %call4.i.i.i.i, label %_ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i.i, %for.cond.i.i
@@ -3739,7 +3739,7 @@ while.body.lr.ph:                                 ; preds = %if.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullD2Ev.exit
   call fastcc void @_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl18DequeuePendingPullEv(ptr noalias align 8 %pending, ptr noundef nonnull align 8 dereferenceable(168) %this)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl13DrainAndCloseEvEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_17FdEntry10ReaderImpl13DrainAndCloseEvEUlmE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -3758,7 +3758,7 @@ if.then.i:                                        ; preds = %while.body
 
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds = %while.body
   %5 = load ptr, ptr %_M_invoker.i3, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(16) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void %5(ptr noundef nonnull align 8 dereferenceable(32) %pending, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -3767,7 +3767,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds =
   br i1 %tobool.not.i.i5, label %_ZNSt8functionIFvmEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit
-  %call.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #20
+  %call.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #20
   br label %_ZNSt8functionIFvmEED2Ev.exit
 
 _ZNSt8functionIFvmEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit, %if.then.i.i
@@ -3849,7 +3849,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i: ; preds
   br i1 %tobool.not.i.i.i, label %_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i
-  %call.i.i.i = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %pending, ptr noundef nonnull align 8 dereferenceable(16) %pending, i32 noundef 3) #20
+  %call.i.i.i = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(48) %pending, ptr noundef nonnull align 8 dereferenceable(48) %pending, i32 noundef 3) #20
   br label %_ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullD2Ev.exit
 
 _ZN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullD2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i, %if.then.i.i.i
@@ -3890,7 +3890,7 @@ do.body5:                                         ; preds = %entry
 do.end6:                                          ; preds = %entry
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %_M_invoker2.i.i = getelementptr inbounds i8, ptr %pending_pulls_.val, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %_M_invoker2.i.i, align 8
   store ptr %2, ptr %_M_invoker.i.i, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %pending_pulls_.val, i64 16
@@ -3900,7 +3900,7 @@ do.end6:                                          ; preds = %entry
 
 if.then.i.i:                                      ; preds = %do.end6
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %pending_pulls_.val, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %pending_pulls_.val, i64 16, i1 false)
   store ptr %3, ptr %_M_manager.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
   br label %if.then.i
@@ -4004,7 +4004,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEE7destroyIS4_EEvRS5_PT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3) #20
+  %call.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef 3) #20
   br label %_ZNSt16allocator_traitsISaIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEE7destroyIS4_EEvRS5_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullEEE7destroyIS4_EEvRS5_PT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i.i
@@ -4090,7 +4090,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt5dequeIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i, label %if.then.i.i.i.i.i.i2.i.i.i
 
 if.then.i.i.i.i.i.i2.i.i.i:                       ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3) #20
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef 3) #20
   br label %_ZNSt5dequeIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i
 
 _ZNSt5dequeIN4node12_GLOBAL__N_17FdEntry10ReaderImpl11PendingPullESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i2.i.i.i, %_ZNSt10shared_ptrIN4node12_GLOBAL__N_17FdEntry10ReaderImplEED2Ev.exit.i.i.i.i.i.i.i
@@ -4167,12 +4167,12 @@ if.then:                                          ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.then
   %add.ptr.i30 = getelementptr inbounds i8, ptr %1, i64 8
-  %call4.i.i31 = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i30) #20
+  %call4.i.i31 = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i30) #20
   br i1 %call4.i.i31, label %if.end, label %if.end4.i
 
 for.body.i:                                       ; preds = %if.end4.i
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
-  %call4.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i) #20
+  %call4.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #20
   br i1 %call4.i.i, label %if.end, label %if.end4.i, !llvm.loop !66
 
 if.end4.i:                                        ; preds = %for.body.i.preheader, %for.body.i
@@ -4217,7 +4217,7 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i, %i
 
 _ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i: ; preds = %for.cond.i
   %add.ptr.i15 = getelementptr inbounds i8, ptr %__p.0.i, i64 8
-  %call4.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i15) #20
+  %call4.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i15) #20
   br i1 %call4.i.i.i, label %if.end11, label %if.end3.i
 
 if.end3.i:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i, %for.cond.i
@@ -6730,7 +6730,7 @@ _ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i: ; preds = %if.e
 
 _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
   store ptr %call9, ptr %call.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -7394,7 +7394,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_125IdempotentDataQueueReaderEED2Ev.exit: ; 
 if.then:                                          ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_125IdempotentDataQueueReaderEED2Ev.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -7415,7 +7415,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds = %if.then
   %_M_invoker.i6 = getelementptr inbounds i8, ptr %next, i64 24
   %7 = load ptr, ptr %_M_invoker.i6, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -7424,7 +7424,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds =
   br i1 %tobool.not.i.i8, label %if.then.i.i.i69, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit
-  %call.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #20
+  %call.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #20
   br label %if.then.i.i.i69
 
 if.end:                                           ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_125IdempotentDataQueueReaderEED2Ev.exit
@@ -7448,7 +7448,7 @@ if.then6:                                         ; preds = %if.then3
   store i8 1, ptr %ended_, align 8
   %_M_manager.i.i9 = getelementptr inbounds i8, ptr %agg.tmp8, i64 16
   %_M_invoker.i10 = getelementptr inbounds i8, ptr %agg.tmp8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE0_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i10, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i9, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i11)
@@ -7469,7 +7469,7 @@ if.then.i17:                                      ; preds = %if.then6
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit18: ; preds = %if.then6
   %_M_invoker.i16 = getelementptr inbounds i8, ptr %next, i64 24
   %13 = load ptr, ptr %_M_invoker.i16, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i12, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i13, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #20
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i12, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i13, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i13)
@@ -7478,7 +7478,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit18: ; preds
   br i1 %tobool.not.i.i20, label %if.then.i.i.i69, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit18
-  %call.i.i22 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, i32 noundef 3) #20
+  %call.i.i22 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, i32 noundef 3) #20
   br label %if.then.i.i.i69
 
 do.body7.i.thread:                                ; preds = %if.then3
@@ -7681,7 +7681,7 @@ _ZN4node12_GLOBAL__N_125IdempotentDataQueueReader16getCurrentReaderEv.exit: ; pr
 if.then16:                                        ; preds = %_ZN4node12_GLOBAL__N_125IdempotentDataQueueReader16getCurrentReaderEv.exit
   %_M_manager.i.i39 = getelementptr inbounds i8, ptr %agg.tmp17, i64 16
   %_M_invoker.i40 = getelementptr inbounds i8, ptr %agg.tmp17, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp17, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp17, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE1_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i40, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i39, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i41)
@@ -7702,7 +7702,7 @@ if.then.i47:                                      ; preds = %if.then16
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit48: ; preds = %if.then16
   %_M_invoker.i46 = getelementptr inbounds i8, ptr %next, i64 24
   %45 = load ptr, ptr %_M_invoker.i46, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i41, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i42, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i43, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp17) #20
+  call void %45(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i41, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i42, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i43, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp17) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i43)
@@ -7711,7 +7711,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit48: ; preds
   br i1 %tobool.not.i.i50, label %if.then.i.i.i69, label %if.then.i.i51
 
 if.then.i.i51:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit48
-  %call.i.i52 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp17, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp17, i32 noundef 3) #20
+  %call.i.i52 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp17, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp17, i32 noundef 3) #20
   br label %if.then.i.i.i69
 
 do.body:                                          ; preds = %_ZN4node12_GLOBAL__N_125IdempotentDataQueueReader16getCurrentReaderEv.exit.thread, %_ZN4node12_GLOBAL__N_125IdempotentDataQueueReader16getCurrentReaderEv.exit
@@ -7733,7 +7733,7 @@ do.end28:                                         ; preds = %do.body
   %49 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   %_M_invoker.i54 = getelementptr inbounds i8, ptr %ref.tmp32, i64 32
   %_M_invoker2.i = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false)
   %50 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %50, ptr %_M_invoker.i54, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %next, i64 16
@@ -7743,7 +7743,7 @@ do.end28:                                         ; preds = %do.body
 
 if.then.i55:                                      ; preds = %do.end28
   %_M_manager.i.i56 = getelementptr inbounds i8, ptr %ref.tmp32, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %51, ptr %_M_manager.i.i56, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit
@@ -7755,7 +7755,7 @@ _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit: ; preds = %do.
   store ptr %this, ptr %call.i.i.i, align 8
   %53 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 24, i1 false)
   store ptr %50, ptr %_M_invoker.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp32, i64 24
   %tobool.not.i.i.not.i.i.i.i.i = icmp eq ptr %51, null
@@ -7763,7 +7763,7 @@ _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit: ; preds = %do.
 
 if.then.i.i.i.i.i57:                              ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %49, i64 16, i1 false)
   store ptr %51, ptr %_M_manager.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2IZNS0_12_GLOBAL__N_125IdempotentDataQueueReader4PullES8_iPS2_mmEUliS4_mS6_E_vEEOT_.exit
@@ -7783,7 +7783,7 @@ _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2IZNS0_12_GLOBAL__N_125Idem
   br i1 %tobool.not.i.i61, label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit, label %if.then.i.i62
 
 if.then.i.i62:                                    ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2IZNS0_12_GLOBAL__N_125IdempotentDataQueueReader4PullES8_iPS2_mmEUliS4_mS6_E_vEEOT_.exit
-  %call.i.i63 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31, i32 noundef 3) #20
+  %call.i.i63 = call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31, i32 noundef 3) #20
   br label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit
 
 _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit: ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2IZNS0_12_GLOBAL__N_125IdempotentDataQueueReader4PullES8_iPS2_mmEUliS4_mS6_E_vEEOT_.exit, %if.then.i.i62
@@ -7792,7 +7792,7 @@ _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit: ; preds = %_ZNSt8
   br i1 %tobool.not.i.i.i, label %_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit, label %if.then.i.i.i65
 
 if.then.i.i.i65:                                  ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit
-  %call.i.i.i66 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %49, i32 noundef 3) #20
+  %call.i.i.i66 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3) #20
   br label %_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit
 
 _ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit: ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit, %if.then.i.i.i65
@@ -7893,7 +7893,7 @@ define internal void @_ZThn8_N4node12_GLOBAL__N_125IdempotentDataQueueReaderD0Ev
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN4node12_GLOBAL__N_125IdempotentDataQueueReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %0) #24
   ret void
 }
 
@@ -8002,7 +8002,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %__args5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8
   store ptr %0, ptr %_M_invoker.i.i.i, align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__args5, i64 16
@@ -8012,7 +8012,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args5, i64 16, i1 false)
   store ptr %1, ptr %_M_manager.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i
@@ -8163,7 +8163,7 @@ if.end20.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   %status.addr.0.i.i.i = phi i32 [ 0, %if.then17.i.i.i ], [ 1, %if.else.i.i.i ]
   %_M_manager.i.i.i1.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmENKUliS8_mS9_E_clEiS8_mS9_EUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmENKUliS8_mS9_E_clEiS8_mS9_EUlmE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager.i.i.i1.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i.i.i.i)
@@ -8185,7 +8185,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit.i.i.i: ; p
   %19 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %_M_invoker.i13.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %20 = load ptr, ptr %_M_invoker.i13.i.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i) #20
+  call void %20(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i.i.i.i)
@@ -8194,20 +8194,20 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit.i.i.i: ; p
   br i1 %tobool.not.i.i15.i.i.i, label %_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit.i.i.i
-  %call.i.i.i.i.i = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i32 noundef 3) #20
+  %call.i.i.i.i.i = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i32 noundef 3) #20
   br label %_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i
 
 if.end22.i.i.i:                                   ; preds = %do.end10.i.i.i, %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i
   %22 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %_M_invoker.i16.i.i.i = getelementptr inbounds i8, ptr %agg.tmp23.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp23.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23.i.i.i, i8 0, i64 24, i1 false)
   store ptr %0, ptr %_M_invoker.i16.i.i.i, align 8
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i.i, label %if.then.i17.i.i.i
 
 if.then.i17.i.i.i:                                ; preds = %if.end22.i.i.i
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %_M_manager.i.i18.i.i.i = getelementptr inbounds i8, ptr %agg.tmp23.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i64 16, i1 false)
   store ptr %1, ptr %_M_manager.i.i18.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i.i
@@ -8231,7 +8231,7 @@ if.then.i27.i.i.i:                                ; preds = %_ZNSt8functionIFvmE
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit28.i.i.i: ; preds = %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i.i
   %_M_invoker.i26.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %24 = load ptr, ptr %_M_invoker.i26.i.i.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i20.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i21.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i22.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23.i.i.i) #20
+  call void %24(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i20.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i21.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i22.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23.i.i.i) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i20.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i21.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i22.i.i.i)
@@ -8241,7 +8241,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit28.i.i.i: ;
   br i1 %tobool.not.i.i30.i.i.i, label %_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i, label %if.then.i.i31.i.i.i
 
 if.then.i.i31.i.i.i:                              ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit28.i.i.i
-  %call.i.i32.i.i.i = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23.i.i.i, i32 noundef 3) #20
+  %call.i.i32.i.i.i = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23.i.i.i, i32 noundef 3) #20
   br label %_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i
 
 _ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i: ; preds = %if.then.i.i31.i.i.i, %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit28.i.i.i, %if.then.i.i.i.i.i, %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit.i.i.i
@@ -8253,7 +8253,7 @@ _ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9Dat
   br i1 %tobool.not.i.i.i.i, label %_ZSt10__invoke_rIvRZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS0_9DataQueue3VecEmS3_IFvmEEEEiPS5_mmEUliS7_mS9_E_JiS7_mS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit, label %if.then.i.i3.i.i
 
 if.then.i.i3.i.i:                                 ; preds = %_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i
-  %call.i.i.i.i = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i32 noundef 3) #20
+  %call.i.i.i.i = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i32 noundef 3) #20
   br label %_ZSt10__invoke_rIvRZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS0_9DataQueue3VecEmS3_IFvmEEEEiPS5_mmEUliS7_mS9_E_JiS7_mS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit
 
 _ZSt10__invoke_rIvRZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS0_9DataQueue3VecEmS3_IFvmEEEEiPS5_mmEUliS7_mS9_E_JiS7_mS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit: ; preds = %_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i, %if.then.i.i3.i.i
@@ -8295,7 +8295,7 @@ if.then.i.i.i.i.i:                                ; preds = %sw.bb4.i
   %3 = getelementptr inbounds i8, ptr %__source.val, i64 8
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
-  %call3.i.i.i.i.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2) #20
+  %call3.i.i.i.i.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2) #20
   %_M_invoker4.i.i.i.i.i = getelementptr inbounds i8, ptr %__source.val, i64 32
   %4 = load ptr, ptr %_M_invoker4.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_invoker.i.i.i.i.i, align 8
@@ -8320,7 +8320,7 @@ delete.notnull.i.i:                               ; preds = %sw.bb6.i
 
 if.then.i.i.i.i5.i:                               ; preds = %delete.notnull.i.i
   %7 = getelementptr inbounds i8, ptr %__dest.val.i, i64 8
-  %call.i.i.i.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3) #20
+  %call.i.i.i.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #20
   br label %_ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit.i.i
 
 _ZZN4node12_GLOBAL__N_125IdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit.i.i: ; preds = %if.then.i.i.i.i5.i, %delete.notnull.i.i
@@ -8677,7 +8677,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderEED2Ev.exit:
 if.then:                                          ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderEED2Ev.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -8698,7 +8698,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds = %if.then
   %_M_invoker.i10 = getelementptr inbounds i8, ptr %next, i64 24
   %7 = load ptr, ptr %_M_invoker.i10, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -8707,7 +8707,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds =
   br i1 %tobool.not.i.i12, label %if.then.i.i.i179, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit
-  %call.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #20
+  %call.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #20
   br label %if.then.i.i.i179
 
 if.end:                                           ; preds = %_ZNSt10shared_ptrIN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderEED2Ev.exit
@@ -8729,7 +8729,7 @@ if.then4:                                         ; preds = %if.end
 if.then8:                                         ; preds = %if.then4
   %_M_manager.i.i13 = getelementptr inbounds i8, ptr %agg.tmp9, i64 16
   %_M_invoker.i14 = getelementptr inbounds i8, ptr %agg.tmp9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE0_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i14, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i13, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i15)
@@ -8750,7 +8750,7 @@ if.then.i21:                                      ; preds = %if.then8
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit22: ; preds = %if.then8
   %_M_invoker.i20 = getelementptr inbounds i8, ptr %next, i64 24
   %13 = load ptr, ptr %_M_invoker.i20, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i17, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9) #20
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i17, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i17)
@@ -8759,7 +8759,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit22: ; preds
   br i1 %tobool.not.i.i24, label %if.then.i.i.i179, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit22
-  %call.i.i26 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, i32 noundef 3) #20
+  %call.i.i26 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9, i32 noundef 3) #20
   br label %if.then.i.i.i179
 
 if.end11:                                         ; preds = %if.then4
@@ -8779,7 +8779,7 @@ _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %if.end11
 if.then29:                                        ; preds = %_ZNRSt8optionalImE5valueEv.exit
   %_M_manager.i.i41 = getelementptr inbounds i8, ptr %agg.tmp30, i64 16
   %_M_invoker.i42 = getelementptr inbounds i8, ptr %agg.tmp30, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp30, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE1_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i42, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i41, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i43)
@@ -8800,7 +8800,7 @@ if.then.i50:                                      ; preds = %if.then29
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit51: ; preds = %if.then29
   %_M_invoker.i49 = getelementptr inbounds i8, ptr %next, i64 24
   %17 = load ptr, ptr %_M_invoker.i49, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i43, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i44, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i45, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30) #20
+  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i43, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i44, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i45, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i45)
@@ -8809,7 +8809,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit51: ; preds
   br i1 %tobool.not.i.i53, label %if.then.i.i.i179, label %if.then.i.i54
 
 if.then.i.i54:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit51
-  %call.i.i55 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp30, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp30, i32 noundef 3) #20
+  %call.i.i55 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30, i32 noundef 3) #20
   br label %if.then.i.i.i179
 
 if.end33:                                         ; preds = %_ZNRSt8optionalImE5valueEv.exit, %if.end11
@@ -8893,7 +8893,7 @@ _ZNSt10shared_ptrIN4node9DataQueue6ReaderEED2Ev.exit: ; preds = %if.end8.sink.sp
   store i8 1, ptr %ended_, align 8
   %_M_manager.i.i90 = getelementptr inbounds i8, ptr %agg.tmp37, i64 16
   %_M_invoker.i91 = getelementptr inbounds i8, ptr %agg.tmp37, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE2_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i91, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE2_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i90, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i92)
@@ -8914,7 +8914,7 @@ if.then.i99:                                      ; preds = %_ZNSt10shared_ptrIN
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit100: ; preds = %_ZNSt10shared_ptrIN4node9DataQueue6ReaderEED2Ev.exit
   %_M_invoker.i98 = getelementptr inbounds i8, ptr %next, i64 24
   %31 = load ptr, ptr %_M_invoker.i98, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i92, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i93, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i94, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37) #20
+  call void %31(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i92, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i93, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i94, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i92)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i93)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i94)
@@ -8923,7 +8923,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit100: ; pred
   br i1 %tobool.not.i.i102, label %if.then.i.i.i179, label %if.then.i.i103
 
 if.then.i.i103:                                   ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit100
-  %call.i.i104 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, i32 noundef 3) #20
+  %call.i.i104 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37, i32 noundef 3) #20
   br label %if.then.i.i.i179
 
 do.end17.i:                                       ; preds = %if.end
@@ -9104,7 +9104,7 @@ _ZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader16getCurrentReaderEv.exit: ;
 if.then42:                                        ; preds = %_ZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader16getCurrentReaderEv.exit
   %_M_manager.i.i147 = getelementptr inbounds i8, ptr %agg.tmp43, i64 16
   %_M_invoker.i148 = getelementptr inbounds i8, ptr %agg.tmp43, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE3_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i148, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmEUlmE3_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %_M_manager.i.i147, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i149)
@@ -9125,7 +9125,7 @@ if.then.i156:                                     ; preds = %if.then42
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit157: ; preds = %if.then42
   %_M_invoker.i155 = getelementptr inbounds i8, ptr %next, i64 24
   %61 = load ptr, ptr %_M_invoker.i155, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i150, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i151, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43) #20
+  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i150, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i151, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i149)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i150)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i151)
@@ -9134,7 +9134,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit157: ; pred
   br i1 %tobool.not.i.i159, label %if.then.i.i.i179, label %if.then.i.i160
 
 if.then.i.i160:                                   ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit157
-  %call.i.i161 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp43, i32 noundef 3) #20
+  %call.i.i161 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp43, i32 noundef 3) #20
   br label %if.then.i.i.i179
 
 do.body:                                          ; preds = %_ZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader16getCurrentReaderEv.exit.thread, %_ZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader16getCurrentReaderEv.exit
@@ -9156,7 +9156,7 @@ do.end54:                                         ; preds = %do.body
   %65 = getelementptr inbounds i8, ptr %ref.tmp58, i64 8
   %_M_invoker.i163 = getelementptr inbounds i8, ptr %ref.tmp58, i64 32
   %_M_invoker2.i = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 24, i1 false)
   %66 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %66, ptr %_M_invoker.i163, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %next, i64 16
@@ -9166,7 +9166,7 @@ do.end54:                                         ; preds = %do.body
 
 if.then.i164:                                     ; preds = %do.end54
   %_M_manager.i.i165 = getelementptr inbounds i8, ptr %ref.tmp58, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %67, ptr %_M_manager.i.i165, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit
@@ -9178,7 +9178,7 @@ _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit: ; preds = %do.
   store ptr %this, ptr %call.i.i.i, align 8
   %69 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 24, i1 false)
   store ptr %66, ptr %_M_invoker.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp58, i64 24
   %tobool.not.i.i.not.i.i.i.i.i = icmp eq ptr %67, null
@@ -9186,7 +9186,7 @@ _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit: ; preds = %do.
 
 if.then.i.i.i.i.i167:                             ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 16, i1 false)
   store ptr %67, ptr %_M_manager.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2IZNS0_12_GLOBAL__N_128NonIdempotentDataQueueReader4PullES8_iPS2_mmEUliS4_mS6_E_vEEOT_.exit
@@ -9206,7 +9206,7 @@ _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2IZNS0_12_GLOBAL__N_128NonI
   br i1 %tobool.not.i.i171, label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit, label %if.then.i.i172
 
 if.then.i.i172:                                   ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2IZNS0_12_GLOBAL__N_128NonIdempotentDataQueueReader4PullES8_iPS2_mmEUliS4_mS6_E_vEEOT_.exit
-  %call.i.i173 = call noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp57, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp57, i32 noundef 3) #20
+  %call.i.i173 = call noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp57, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp57, i32 noundef 3) #20
   br label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit
 
 _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit: ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2IZNS0_12_GLOBAL__N_128NonIdempotentDataQueueReader4PullES8_iPS2_mmEUliS4_mS6_E_vEEOT_.exit, %if.then.i.i172
@@ -9215,7 +9215,7 @@ _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit: ; preds = %_ZNSt8
   br i1 %tobool.not.i.i.i, label %_ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit, label %if.then.i.i.i175
 
 if.then.i.i.i175:                                 ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit
-  %call.i.i.i176 = call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef 3) #20
+  %call.i.i.i176 = call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %65, i32 noundef 3) #20
   br label %_ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit
 
 _ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit: ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEED2Ev.exit, %if.then.i.i.i175
@@ -9316,7 +9316,7 @@ define internal void @_ZThn8_N4node12_GLOBAL__N_128NonIdempotentDataQueueReaderD
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN4node12_GLOBAL__N_128NonIdempotentDataQueueReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
   ret void
 }
 
@@ -9477,7 +9477,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %__args5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i.i.i, align 8
   store ptr %0, ptr %_M_invoker.i.i.i, align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__args5, i64 16
@@ -9487,7 +9487,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args5, i64 16, i1 false)
   store ptr %1, ptr %_M_manager.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i
@@ -9676,7 +9676,7 @@ _ZNSt10shared_ptrIN4node9DataQueue6ReaderEED2Ev.exit.i.i.i: ; preds = %if.end8.s
   %spec.select.i.i.i = zext nneg i8 %26 to i32
   %_M_manager.i.i.i1.i.i = getelementptr inbounds i8, ptr %agg.tmp29.i.i.i, i64 16
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp29.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp29.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29.i.i.i, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmENKUliS8_mS9_E_clEiS8_mS9_EUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS4_IS0_EEEiPS6_mmENKUliS8_mS9_E_clEiS8_mS9_EUlmE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager.i.i.i1.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i.i.i.i)
@@ -9698,7 +9698,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit.i.i.i: ; p
   %28 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %_M_invoker.i24.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %29 = load ptr, ptr %_M_invoker.i24.i.i.i, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29.i.i.i) #20
+  call void %29(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29.i.i.i) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i.i.i.i)
@@ -9707,7 +9707,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit.i.i.i: ; p
   br i1 %tobool.not.i.i26.i.i.i, label %_ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i, label %if.then.i.i27.i.i.i
 
 if.then.i.i27.i.i.i:                              ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit.i.i.i
-  %call.i.i.i.i.i = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp29.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp29.i.i.i, i32 noundef 3) #20
+  %call.i.i.i.i.i = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29.i.i.i, i32 noundef 3) #20
   br label %_ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i
 
 if.end31.i.i.i:                                   ; preds = %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i
@@ -9764,14 +9764,14 @@ for.body.i.i.i.i:                                 ; preds = %for.end.i.i.i, %for
 if.end39.i.i.i:                                   ; preds = %for.body.i.i.i.i, %for.end.i.i.i, %if.end31.thread.i.i.i, %if.end31.i.i.i
   %39 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %_M_invoker.i29.i.i.i = getelementptr inbounds i8, ptr %agg.tmp40.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp40.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp40.i.i.i, i8 0, i64 24, i1 false)
   store ptr %0, ptr %_M_invoker.i29.i.i.i, align 8
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i.i, label %if.then.i30.i.i.i
 
 if.then.i30.i.i.i:                                ; preds = %if.end39.i.i.i
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %_M_manager.i.i31.i.i.i = getelementptr inbounds i8, ptr %agg.tmp40.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp40.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i64 16, i1 false)
   store ptr %1, ptr %_M_manager.i.i31.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i.i
@@ -9795,7 +9795,7 @@ if.then.i38.i.i.i:                                ; preds = %_ZNSt8functionIFvmE
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit39.i.i.i: ; preds = %_ZNSt8functionIFvmEEC2EOS1_.exit.i.i.i
   %_M_invoker.i37.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %41 = load ptr, ptr %_M_invoker.i37.i.i.i, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i32.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i33.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i34.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp40.i.i.i) #20
+  call void %41(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i32.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i33.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i34.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp40.i.i.i) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i32.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i33.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i34.i.i.i)
@@ -9805,7 +9805,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit39.i.i.i: ;
   br i1 %tobool.not.i.i41.i.i.i, label %_ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i, label %if.then.i.i42.i.i.i
 
 if.then.i.i42.i.i.i:                              ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit39.i.i.i
-  %call.i.i43.i.i.i = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40.i.i.i, i32 noundef 3) #20
+  %call.i.i43.i.i.i = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp40.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp40.i.i.i, i32 noundef 3) #20
   br label %_ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i
 
 _ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i: ; preds = %if.then.i.i42.i.i.i, %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit39.i.i.i, %if.then.i.i27.i.i.i, %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit.i.i.i
@@ -9817,7 +9817,7 @@ _ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9
   br i1 %tobool.not.i.i.i.i, label %_ZSt10__invoke_rIvRZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS0_9DataQueue3VecEmS3_IFvmEEEEiPS5_mmEUliS7_mS9_E_JiS7_mS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit, label %if.then.i.i3.i.i
 
 if.then.i.i3.i.i:                                 ; preds = %_ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i
-  %call.i.i.i.i = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i32 noundef 3) #20
+  %call.i.i.i.i = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i32 noundef 3) #20
   br label %_ZSt10__invoke_rIvRZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS0_9DataQueue3VecEmS3_IFvmEEEEiPS5_mmEUliS7_mS9_E_JiS7_mS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit
 
 _ZSt10__invoke_rIvRZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS0_9DataQueue3VecEmS3_IFvmEEEEiPS5_mmEUliS7_mS9_E_JiS7_mS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit: ; preds = %_ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENKUliS6_mS8_E_clEiS6_mS8_.exit.i.i, %if.then.i.i3.i.i
@@ -9859,7 +9859,7 @@ if.then.i.i.i.i.i:                                ; preds = %sw.bb4.i
   %3 = getelementptr inbounds i8, ptr %__source.val, i64 8
   %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
-  %call3.i.i.i.i.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2) #20
+  %call3.i.i.i.i.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2) #20
   %_M_invoker4.i.i.i.i.i = getelementptr inbounds i8, ptr %__source.val, i64 32
   %4 = load ptr, ptr %_M_invoker4.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_invoker.i.i.i.i.i, align 8
@@ -9884,7 +9884,7 @@ delete.notnull.i.i:                               ; preds = %sw.bb6.i
 
 if.then.i.i.i.i5.i:                               ; preds = %delete.notnull.i.i
   %7 = getelementptr inbounds i8, ptr %__dest.val.i, i64 8
-  %call.i.i.i.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3) #20
+  %call.i.i.i.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #20
   br label %_ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit.i.i
 
 _ZZN4node12_GLOBAL__N_128NonIdempotentDataQueueReader4PullESt8functionIFviPKNS_9DataQueue3VecEmS2_IFvmEEEEiPS4_mmENUliS6_mS8_E_D2Ev.exit.i.i: ; preds = %if.then.i.i.i.i5.i, %delete.notnull.i.i
@@ -11425,7 +11425,7 @@ _ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE
   %add.ptr2 = getelementptr inbounds i8, ptr %5, i64 8
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %next, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %6, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %next, i64 16
@@ -11435,7 +11435,7 @@ _ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE
 
 if.then.i:                                        ; preds = %_ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplEE16shared_from_thisEv.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %next, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %next, i64 16, i1 false)
   store ptr %7, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit
@@ -11451,7 +11451,7 @@ _ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit: ; preds = %_ZN
   br i1 %tobool.not.i.i, label %if.then.i.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit
-  %call.i.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #20
+  %call.i.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #20
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i, %_ZNSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEC2EOS8_.exit
@@ -12416,7 +12416,7 @@ _ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderEE16
 if.then:                                          ; preds = %_ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderEE16shared_from_thisEv.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_110EmptyEntry11EmptyReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_110EmptyEntry11EmptyReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -12437,7 +12437,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds = %if.then
   %_M_invoker.i2 = getelementptr inbounds i8, ptr %next, i64 24
   %7 = load ptr, ptr %_M_invoker.i2, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -12446,14 +12446,14 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds =
   br i1 %tobool.not.i.i4, label %if.then.i.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit
-  %call.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #20
+  %call.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #20
   br label %if.then.i.i.i
 
 if.end:                                           ; preds = %_ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderEE16shared_from_thisEv.exit
   store i8 1, ptr %ended_, align 8
   %_M_manager.i.i5 = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
   %_M_invoker.i6 = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_110EmptyEntry11EmptyReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE0_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i6, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_110EmptyEntry11EmptyReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE0_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager.i.i5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i7)
@@ -12474,7 +12474,7 @@ if.then.i13:                                      ; preds = %if.end
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit14: ; preds = %if.end
   %_M_invoker.i12 = getelementptr inbounds i8, ptr %next, i64 24
   %10 = load ptr, ptr %_M_invoker.i12, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i7, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i8, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i9, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3) #20
+  call void %10(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i7, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i8, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i9, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i9)
@@ -12483,7 +12483,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit14: ; preds
   br i1 %tobool.not.i.i16, label %if.then.i.i.i, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit14
-  %call.i.i18 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i32 noundef 3) #20
+  %call.i.i18 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3, i32 noundef 3) #20
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit, %if.then.i.i, %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit14, %if.then.i.i17
@@ -12636,7 +12636,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderD0Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   ret void
 }
 
@@ -12923,7 +12923,7 @@ _ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_113InMemoryEntry14InMemoryRead
 if.then:                                          ; preds = %_ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReaderEE16shared_from_thisEv.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE_E9_M_invokeERKSt9_Any_dataOm, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvmEZN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReader4PullESt8functionIFviPKNS1_9DataQueue3VecEmS5_IS0_EEEiPS7_mmEUlmE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -12944,7 +12944,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds = %if.then
   %_M_invoker.i2 = getelementptr inbounds i8, ptr %next, i64 24
   %7 = load ptr, ptr %_M_invoker.i2, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
@@ -12953,7 +12953,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit: ; preds =
   br i1 %tobool.not.i.i4, label %if.then.i.i.i24, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit
-  %call.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #20
+  %call.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #20
   br label %if.then.i.i.i24
 
 if.end:                                           ; preds = %_ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReaderEE16shared_from_thisEv.exit
@@ -13025,7 +13025,7 @@ if.then.i14:                                      ; preds = %_ZNSt10shared_ptrIN
 _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit15: ; preds = %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit
   %_M_invoker.i13 = getelementptr inbounds i8, ptr %next, i64 24
   %21 = load ptr, ptr %_M_invoker.i13, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i8, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i9, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i10, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7) #20
+  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i8, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i9, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i10, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i10)
@@ -13034,7 +13034,7 @@ _ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit15: ; preds
   br i1 %tobool.not.i.i17, label %if.then.i.i.i24, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit15
-  %call.i.i19 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp7, i32 noundef 3) #20
+  %call.i.i19 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, i32 noundef 3) #20
   br label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit, %if.then.i.i, %if.then.i.i18, %_ZNKSt8functionIFviPKN4node9DataQueue3VecEmS_IFvmEEEEclEiS4_mS6_.exit15
@@ -13187,7 +13187,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN4node12_GLOBAL__N_113InMemoryEntry14InMemoryReaderD0Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %5) #24
   ret void
 }
 

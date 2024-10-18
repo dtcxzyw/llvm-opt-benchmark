@@ -2875,7 +2875,7 @@ define noundef ptr @zend_array_dup(ptr noundef %0) local_unnamed_addr #5 {
 305:                                              ; preds = %.lr.ph.i1893
   %306 = getelementptr inbounds i8, ptr %.013.i1894, i64 8
   %307 = load i32, ptr %306, align 8
-  %308 = tail call i32 @zend_hash_iterator_add(ptr noundef %2, i32 noundef %307)
+  %308 = tail call i32 @zend_hash_iterator_add(ptr noundef nonnull %2, i32 noundef %307)
   %309 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
   %310 = zext i32 %308 to i64
   %311 = getelementptr inbounds i8, ptr %.013.i1894, i64 12
@@ -3435,7 +3435,7 @@ zend_hash_iterators_lower_pos.exit1910:           ; preds = %556, %_zend_hash_it
 571:                                              ; preds = %.lr.ph.i1912
   %572 = getelementptr inbounds i8, ptr %.013.i1913, i64 8
   %573 = load i32, ptr %572, align 8
-  %574 = tail call i32 @zend_hash_iterator_add(ptr noundef %2, i32 noundef %573)
+  %574 = tail call i32 @zend_hash_iterator_add(ptr noundef nonnull %2, i32 noundef %573)
   %575 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
   %576 = zext i32 %574 to i64
   %577 = getelementptr inbounds i8, ptr %.013.i1913, i64 12

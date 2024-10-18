@@ -504,7 +504,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 
 67:                                               ; preds = %.lr.ph.split.us.i
   %68 = add nuw i32 %.035.us.i, 1
-  %69 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %68, i32 noundef %6, i8 noundef zeroext 9) #4
+  %69 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %68, i32 noundef range(i32 0, -1) %6, i8 noundef zeroext 9) #4
   %70 = icmp eq i32 %69, -1
   br i1 %70, label %.critedge.i, label %71
 
@@ -525,7 +525,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 
 80:                                               ; preds = %.lr.ph.split.i
   %81 = add nuw i32 %.035.i, 1
-  %82 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %81, i32 noundef %6, i8 noundef zeroext 9) #4
+  %82 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %81, i32 noundef range(i32 0, -1) %6, i8 noundef zeroext 9) #4
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %.critedge.i, label %84
 

@@ -1331,7 +1331,7 @@ guess_style.exit.i:                               ; preds = %69, %65, %f_negativ
   br i1 %71, label %72, label %guess_style.exit.thread.i
 
 72:                                               ; preds = %guess_style.exit.i
-  call fastcc void @decode_year(i64 noundef %30, double noundef -1.000000e+00, ptr noundef %4, ptr noundef %5)
+  call fastcc void @decode_year(i64 noundef %30, double noundef -1.000000e+00, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %73 = load i32, ptr %5, align 4
   %74 = icmp slt i32 %40, 0
   %75 = add nsw i32 %40, 13
@@ -3515,7 +3515,7 @@ guess_style.exit:                                 ; preds = %91, %f_negative_p.e
   br i1 %109, label %110, label %guess_style.exit.thread
 
 110:                                              ; preds = %guess_style.exit
-  call fastcc void @decode_year(i64 noundef %.0, double noundef -1.000000e+00, ptr noundef %9, ptr noundef %10)
+  call fastcc void @decode_year(i64 noundef %.0, double noundef -1.000000e+00, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %111 = load i32, ptr %10, align 4
   %112 = icmp slt i32 %.040, 0
   %113 = add nsw i32 %.040, 13
@@ -3951,7 +3951,7 @@ m_df.exit.i:                                      ; preds = %27, %.get_c_df.exit
   %50 = sext i32 %.0.i.i to i64
   %51 = shl nsw i64 %50, 1
   %52 = or disjoint i64 %51, 1
-  %53 = tail call i64 @rb_rational_new(i64 noundef %52, i64 noundef 172801) #20
+  %53 = tail call i64 @rb_rational_new(i64 noundef range(i64 1, 0) %52, i64 noundef 172801) #20
   %54 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %22, i64 noundef 43, i32 noundef 1, i64 noundef %53) #20
   %.pre.i = load i32, ptr %4, align 8
   br label %55
@@ -4228,7 +4228,7 @@ m_sf.exit.i:                                      ; preds = %7, %.get_c_df.exit_
   %35 = sext i32 %.0.i.i5.i.i to i64
   %36 = shl nsw i64 %35, 1
   %37 = or disjoint i64 %36, 1
-  %38 = tail call i64 @rb_rational_new(i64 noundef %37, i64 noundef 172801) #20
+  %38 = tail call i64 @rb_rational_new(i64 noundef range(i64 1, 0) %37, i64 noundef 172801) #20
   %39 = and i64 %34, 7
   %40 = icmp ne i64 %39, 0
   %41 = icmp eq i64 %34, 0
@@ -6820,7 +6820,7 @@ f_zero_p.exit.thread134.i:                        ; preds = %f_zero_p.exit.threa
   %132 = sext i32 %.164.i to i64
   %133 = shl nsw i64 %132, 1
   %134 = or disjoint i64 %133, 1
-  %135 = tail call i64 @rb_rational_new(i64 noundef %134, i64 noundef 172801) #20
+  %135 = tail call i64 @rb_rational_new(i64 noundef range(i64 1, 0) %134, i64 noundef 172801) #20
   %136 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.1.i, i64 noundef 43, i32 noundef 1, i64 noundef %135) #20
   br label %137
 
@@ -9096,7 +9096,7 @@ f_eqeq_p.exit.thread.i:                           ; preds = %f_eqeq_p.exit.i, %1
   br label %f_eqeq_p.exit.thread43.i
 
 f_eqeq_p.exit.thread43.i:                         ; preds = %f_eqeq_p.exit.thread.i, %f_eqeq_p.exit.i, %115
-  call fastcc void @decode_jd(i64 noundef %74, ptr noundef %3, ptr noundef %4)
+  call fastcc void @decode_jd(i64 noundef %74, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %119 = and i64 %88, 1
   %.not.i28.i = icmp eq i64 %119, 0
   br i1 %.not.i28.i, label %122, label %120
@@ -11477,7 +11477,7 @@ guess_style.exit.i:                               ; preds = %238, %234, %f_negat
   br i1 %240, label %241, label %guess_style.exit.thread.i
 
 241:                                              ; preds = %guess_style.exit.i
-  call fastcc void @decode_year(i64 noundef %.0.i, double noundef -1.000000e+00, ptr noundef %14, ptr noundef %15)
+  call fastcc void @decode_year(i64 noundef %.0.i, double noundef -1.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %15)
   %242 = load i32, ptr %15, align 4
   %243 = icmp slt i32 %.083.i, 0
   %244 = add nsw i32 %.083.i, 13
@@ -13392,7 +13392,7 @@ define internal i64 @d_lite_offset(i64 noundef %0) #0 {
 
 m_of_in_day.exit:                                 ; preds = %1, %5
   %.0.i.i = phi i64 [ %10, %5 ], [ 1, %1 ]
-  %11 = tail call i64 @rb_rational_new(i64 noundef %.0.i.i, i64 noundef 172801) #20
+  %11 = tail call i64 @rb_rational_new(i64 noundef range(i64 1, 0) %.0.i.i, i64 noundef 172801) #20
   ret i64 %11
 }
 
@@ -14742,7 +14742,7 @@ c_find_ldoy.exit.thread:                          ; preds = %23
 25:                                               ; preds = %23, %22
   %.08.i = phi i32 [ 0, %22 ], [ %24, %23 ]
   %26 = xor i32 %.08.i, 31
-  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 12, i32 noundef %26, double noundef %2, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 12, i32 noundef %26, double noundef %2, ptr noundef %17, ptr noundef %18, ptr noundef nonnull %19, ptr noundef nonnull %20)
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %23, label %28
 
@@ -14791,7 +14791,7 @@ c_jd_to_civil.exit.i:                             ; preds = %34, %28
 
 55:                                               ; preds = %55, %c_jd_to_civil.exit.i
   %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit.i ], [ %57, %55 ]
-  %56 = call fastcc i32 @c_valid_civil_p(i32 noundef %54, i32 noundef 1, i32 noundef %.08.i.i, double noundef %2, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  %56 = call fastcc i32 @c_valid_civil_p(i32 noundef %54, i32 noundef 1, i32 noundef %.08.i.i, double noundef %2, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %.not.i.i = icmp ne i32 %56, 0
   %57 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %57, 31
@@ -14818,7 +14818,7 @@ c_jd_to_ordinal.exit:                             ; preds = %55
 
 62:                                               ; preds = %62, %61
   %.08.i.i20 = phi i32 [ 1, %61 ], [ %64, %62 ]
-  %63 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i20, double noundef %2, ptr noundef %10, ptr noundef %11, ptr noundef %3, ptr noundef %12)
+  %63 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i20, double noundef %2, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %3, ptr noundef nonnull %12)
   %.not.i.i21 = icmp ne i32 %63, 0
   %64 = add nuw nsw i32 %.08.i.i20, 1
   %exitcond.not.i.i22 = icmp eq i32 %64, 31
@@ -14877,7 +14877,7 @@ c_jd_to_civil.exit.i24:                           ; preds = %74, %c_ordinal_to_j
 
 95:                                               ; preds = %95, %c_jd_to_civil.exit.i24
   %.08.i.i28 = phi i32 [ 1, %c_jd_to_civil.exit.i24 ], [ %97, %95 ]
-  %96 = call fastcc i32 @c_valid_civil_p(i32 noundef %94, i32 noundef 1, i32 noundef %.08.i.i28, double noundef %2, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %96 = call fastcc i32 @c_valid_civil_p(i32 noundef %94, i32 noundef 1, i32 noundef %.08.i.i28, double noundef %2, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not.i.i29 = icmp ne i32 %96, 0
   %97 = add nuw nsw i32 %.08.i.i28, 1
   %exitcond.not.i.i30 = icmp eq i32 %97, 31
@@ -15136,7 +15136,7 @@ c_find_ldom.exit.thread:                          ; preds = %17
 19:                                               ; preds = %16, %17
   %.0.i57 = phi i32 [ 0, %16 ], [ %18, %17 ]
   %20 = xor i32 %.0.i57, 31
-  %21 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %spec.select, i32 noundef %20, double noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %6, ptr noundef %7)
+  %21 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef range(i32 1, 13) %spec.select, i32 noundef %20, double noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %17, label %22
 
@@ -15708,7 +15708,7 @@ define internal fastcc range(i32 0, 2) i32 @c_valid_commercial_p(i32 noundef %0,
 
 25:                                               ; preds = %25, %23
   %.08.i.i = phi i32 [ 1, %23 ], [ %27, %25 ]
-  %26 = call fastcc i32 @c_valid_civil_p(i32 noundef %24, i32 noundef 1, i32 noundef %.08.i.i, double noundef %3, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  %26 = call fastcc i32 @c_valid_civil_p(i32 noundef %24, i32 noundef 1, i32 noundef %.08.i.i, double noundef %3, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %.not.i.i = icmp ne i32 %26, 0
   %27 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %27, 31
@@ -15759,7 +15759,7 @@ c_commercial_to_jd.exit:                          ; preds = %31, %35
 
 45:                                               ; preds = %45, %44
   %.08.i.i32 = phi i32 [ 1, %44 ], [ %47, %45 ]
-  %46 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i32, double noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %46 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i32, double noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not.i.i33 = icmp ne i32 %46, 0
   %47 = add nuw nsw i32 %.08.i.i32, 1
   %exitcond.not.i.i34 = icmp eq i32 %47, 31
@@ -15871,7 +15871,7 @@ c_jd_to_civil.exit:                               ; preds = %5, %17
 
 39:                                               ; preds = %39, %c_jd_to_civil.exit
   %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit ], [ %41, %39 ]
-  %40 = call fastcc i32 @c_valid_civil_p(i32 noundef %38, i32 noundef 1, i32 noundef %.08.i.i, double noundef %1, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  %40 = call fastcc i32 @c_valid_civil_p(i32 noundef %38, i32 noundef 1, i32 noundef %.08.i.i, double noundef %1, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i.i = icmp ne i32 %40, 0
   %41 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %41, 31
@@ -15913,7 +15913,7 @@ c_commercial_to_jd.exit:                          ; preds = %45, %49
 
 54:                                               ; preds = %54, %53
   %.08.i.i23 = phi i32 [ 1, %53 ], [ %56, %54 ]
-  %55 = call fastcc i32 @c_valid_civil_p(i32 noundef %37, i32 noundef 1, i32 noundef %.08.i.i23, double noundef %1, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  %55 = call fastcc i32 @c_valid_civil_p(i32 noundef %37, i32 noundef 1, i32 noundef %.08.i.i23, double noundef %1, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not.i.i24 = icmp ne i32 %55, 0
   %56 = add nuw nsw i32 %.08.i.i23, 1
   %exitcond.not.i.i25 = icmp eq i32 %56, 31
@@ -19697,7 +19697,7 @@ guess_style.exit.i:                               ; preds = %49, %45, %f_negativ
 guess_style.exit.thread.i:                        ; preds = %guess_style.exit.i, %47
   %52 = tail call i64 @rb_fix2int(i64 noundef %0) #20
   %53 = trunc i64 %52 to i32
-  %54 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %53, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %33, ptr noundef %11, ptr noundef %12, ptr noundef %6, ptr noundef %14)
+  %54 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %53, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %33, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %6, ptr noundef nonnull %14)
   %.not.i12 = icmp eq i32 %54, 0
   br i1 %.not.i12, label %valid_weeknum_p.exit.thread15, label %55
 
@@ -19711,7 +19711,7 @@ valid_weeknum_p.exit.thread15:                    ; preds = %guess_style.exit.th
   %57 = sext i32 %56 to i64
   %58 = shl nsw i64 %57, 1
   %59 = or disjoint i64 %58, 1
-  call fastcc void @decode_jd(i64 noundef %59, ptr noundef %8, ptr noundef %13)
+  call fastcc void @decode_jd(i64 noundef %59, ptr noundef nonnull %8, ptr noundef nonnull %13)
   %60 = load i64, ptr %8, align 8
   %61 = and i64 %60, 7
   %62 = icmp ne i64 %61, 0
@@ -19768,7 +19768,7 @@ f_zero_p.exit.thread.i:                           ; preds = %f_zero_p.exit.i, %7
   %.not38.i = icmp eq i32 %79, 0
   %80 = select i1 %.not38.i, i32 1, i32 -1
   %81 = sitofp i32 %80 to double
-  call fastcc void @decode_year(i64 noundef %0, double noundef %81, ptr noundef %7, ptr noundef %10)
+  call fastcc void @decode_year(i64 noundef %0, double noundef %81, ptr noundef %7, ptr noundef nonnull %10)
   br label %valid_weeknum_p.exit.thread
 
 valid_weeknum_p.exit.thread:                      ; preds = %f_zero_p.exit.thread46.i, %f_zero_p.exit.thread.i
@@ -19777,9 +19777,9 @@ valid_weeknum_p.exit.thread:                      ; preds = %f_zero_p.exit.threa
   br label %84
 
 valid_weeknum_p.exit:                             ; preds = %guess_style.exit.i
-  call fastcc void @decode_year(i64 noundef %0, double noundef %.0.i.i, ptr noundef %8, ptr noundef %10)
+  call fastcc void @decode_year(i64 noundef %0, double noundef %.0.i.i, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %82 = load i32, ptr %10, align 4
-  %83 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %82, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %.0.i.i, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  %83 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %82, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %.0.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not = icmp eq i32 %83, 0
@@ -19830,7 +19830,7 @@ define internal fastcc range(i32 0, 2) i32 @c_valid_weeknum_p(i32 noundef %0, i3
 
 26:                                               ; preds = %26, %24
   %.08.i.i = phi i32 [ 1, %24 ], [ %28, %26 ]
-  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %25, i32 noundef 1, i32 noundef %.08.i.i, double noundef %4, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %25, i32 noundef 1, i32 noundef %.08.i.i, double noundef %4, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %.not.i.i = icmp ne i32 %27, 0
   %28 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %28, 31
@@ -19884,7 +19884,7 @@ c_weeknum_to_jd.exit:                             ; preds = %33, %37
 
 49:                                               ; preds = %49, %48
   %.08.i.i37 = phi i32 [ 1, %48 ], [ %51, %49 ]
-  %50 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i37, double noundef %4, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  %50 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i37, double noundef %4, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i.i38 = icmp ne i32 %50, 0
   %51 = add nuw nsw i32 %.08.i.i37, 1
   %exitcond.not.i.i39 = icmp eq i32 %51, 31
@@ -19991,7 +19991,7 @@ c_jd_to_civil.exit:                               ; preds = %6, %13
 
 34:                                               ; preds = %34, %c_jd_to_civil.exit
   %.08.i = phi i32 [ 1, %c_jd_to_civil.exit ], [ %36, %34 ]
-  %35 = call fastcc i32 @c_valid_civil_p(i32 noundef %33, i32 noundef 1, i32 noundef %.08.i, double noundef %2, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  %35 = call fastcc i32 @c_valid_civil_p(i32 noundef %33, i32 noundef 1, i32 noundef %.08.i, double noundef %2, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not.i = icmp ne i32 %35, 0
   %36 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %36, 31
@@ -20226,7 +20226,7 @@ m_df.exit.thread:                                 ; preds = %m_real_jd.exit27, %
   %49 = sext i32 %48 to i64
   %50 = shl nsw i64 %49, 1
   %51 = or disjoint i64 %50, 1
-  %52 = tail call i64 @rb_rational_new(i64 noundef %51, i64 noundef 172801) #20
+  %52 = tail call i64 @rb_rational_new(i64 noundef range(i64 1, 0) %51, i64 noundef 172801) #20
   %53 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef 43, i32 noundef 1, i64 noundef %52) #20
   %.pre = load i32, ptr %0, align 8
   br label %54
@@ -21102,7 +21102,7 @@ c_jd_to_civil.exit.i:                             ; preds = %61, %59
 
 82:                                               ; preds = %82, %c_jd_to_civil.exit.i
   %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit.i ], [ %84, %82 ]
-  %83 = call fastcc i32 @c_valid_civil_p(i32 noundef %81, i32 noundef 1, i32 noundef %.08.i.i, double noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %83 = call fastcc i32 @c_valid_civil_p(i32 noundef %81, i32 noundef 1, i32 noundef %.08.i.i, double noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not.i.i21 = icmp ne i32 %83, 0
   %84 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %84, 31

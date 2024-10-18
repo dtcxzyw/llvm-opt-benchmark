@@ -250,7 +250,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %51 = add nsw i32 %0, -1
   %52 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %50, i8 0, i64 88, i1 false)
-  %53 = call i32 @ExUtilInitCommandLineArguments(i32 noundef %51, ptr noundef nonnull %52, ptr noundef nonnull %50) #12
+  %53 = call i32 @ExUtilInitCommandLineArguments(i32 noundef range(i32 -2147483648, 2147483647) %51, ptr noundef nonnull %52, ptr noundef nonnull %50) #12
   %.not.i = icmp eq i32 %53, 0
   br i1 %.not.i, label %InitializeConfig.exit.thread, label %54
 
@@ -270,7 +270,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %.09.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %59 ]
   %60 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i.i.i
   %61 = load ptr, ptr %60, align 8
-  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(5) @.str.2) #13
+  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(5) @.str.2) #13
   %.not.i.i.i = icmp eq i32 %62, 0
   %63 = zext i1 %.not.i.i.i to i32
   %spec.select.i.i.i = add nuw nsw i32 %.09.i.i.i, %63
@@ -292,7 +292,7 @@ CountOccurrences.exit.i.i:                        ; preds = %59
   %.09.i37.i.i = phi i32 [ %spec.select.i39.i.i, %.lr.ph.i34.i.i ], [ 0, %CountOccurrences.exit.i.i ]
   %68 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i36.i.i
   %69 = load ptr, ptr %68, align 8
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull readonly dereferenceable(5) @.str.4) #13
+  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(5) @.str.4) #13
   %.not.i38.i.i = icmp eq i32 %70, 0
   %71 = zext i1 %.not.i38.i.i to i32
   %spec.select.i39.i.i = add nuw nsw i32 %.09.i37.i.i, %71
@@ -314,7 +314,7 @@ CountOccurrences.exit42.i.i:                      ; preds = %.lr.ph.i34.i.i
   %.09.i47.i.i = phi i32 [ %spec.select.i49.i.i, %.lr.ph.i44.i.i ], [ 0, %CountOccurrences.exit42.i.i ]
   %76 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i46.i.i
   %77 = load ptr, ptr %76, align 8
-  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull readonly dereferenceable(7) @.str.6) #13
+  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(7) @.str.6) #13
   %.not.i48.i.i = icmp eq i32 %78, 0
   %79 = zext i1 %.not.i48.i.i to i32
   %spec.select.i49.i.i = add nuw nsw i32 %.09.i47.i.i, %79
@@ -336,7 +336,7 @@ CountOccurrences.exit52.i.i:                      ; preds = %.lr.ph.i44.i.i
   %.09.i57.i.i = phi i32 [ %spec.select.i59.i.i, %.lr.ph.i54.i.i ], [ 0, %CountOccurrences.exit52.i.i ]
   %84 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i56.i.i
   %85 = load ptr, ptr %84, align 8
-  %86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull readonly dereferenceable(6) @.str.8) #13
+  %86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(6) @.str.8) #13
   %.not.i58.i.i = icmp eq i32 %86, 0
   %87 = zext i1 %.not.i58.i.i to i32
   %spec.select.i59.i.i = add nuw nsw i32 %.09.i57.i.i, %87
@@ -396,7 +396,7 @@ CountOccurrences.exit72.i.i:                      ; preds = %.tail.i.i
   %.09.i77.i.i = phi i32 [ %spec.select.i79.i.i, %.lr.ph.i74.i.i ], [ 0, %CountOccurrences.exit72.i.i ]
   %105 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i76.i.i
   %106 = load ptr, ptr %105, align 8
-  %107 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull readonly dereferenceable(7) @.str.12) #13
+  %107 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(7) @.str.12) #13
   %.not.i78.i.i = icmp eq i32 %107, 0
   %108 = zext i1 %.not.i78.i.i to i32
   %spec.select.i79.i.i = add nuw nsw i32 %.09.i77.i.i, %108
@@ -409,7 +409,7 @@ CountOccurrences.exit72.i.i:                      ; preds = %.tail.i.i
   %.09.i87.i.i = phi i32 [ %spec.select.i89.i.i, %.lr.ph.i84.i.i ], [ 0, %.lr.ph.i74.i.i ]
   %109 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i86.i.i
   %110 = load ptr, ptr %109, align 8
-  %111 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull readonly dereferenceable(6) @.str.13) #13
+  %111 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(6) @.str.13) #13
   %.not.i88.i.i = icmp eq i32 %111, 0
   %112 = zext i1 %.not.i88.i.i to i32
   %spec.select.i89.i.i = add nuw nsw i32 %.09.i87.i.i, %112
@@ -422,7 +422,7 @@ CountOccurrences.exit72.i.i:                      ; preds = %.tail.i.i
   %.09.i97.i.i = phi i32 [ %spec.select.i99.i.i, %.lr.ph.i94.i.i ], [ 0, %.lr.ph.i84.i.i ]
   %113 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i96.i.i
   %114 = load ptr, ptr %113, align 8
-  %115 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull readonly dereferenceable(9) @.str.14) #13
+  %115 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(9) @.str.14) #13
   %.not.i98.i.i = icmp eq i32 %115, 0
   %116 = zext i1 %.not.i98.i.i to i32
   %spec.select.i99.i.i = add nuw nsw i32 %.09.i97.i.i, %116
@@ -435,7 +435,7 @@ CountOccurrences.exit72.i.i:                      ; preds = %.tail.i.i
   %.09.i107.i.i = phi i32 [ %spec.select.i109.i.i, %.lr.ph.i104.i.i ], [ 0, %.lr.ph.i94.i.i ]
   %117 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i106.i.i
   %118 = load ptr, ptr %117, align 8
-  %119 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %118, ptr noundef nonnull readonly dereferenceable(10) @.str.15) #13
+  %119 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %118, ptr noundef nonnull dereferenceable(10) @.str.15) #13
   %.not.i108.i.i = icmp eq i32 %119, 0
   %120 = zext i1 %.not.i108.i.i to i32
   %spec.select.i109.i.i = add nuw nsw i32 %.09.i107.i.i, %120
@@ -851,7 +851,7 @@ sub_16.i.i:                                       ; preds = %.tail.thread.i.i
 
 316:                                              ; preds = %.tail4.thread.i.i, %.tail4.i.i
   call fastcc void @PrintHelp()
-  call fastcc void @DeleteConfig(ptr noundef %50)
+  call fastcc void @DeleteConfig(ptr noundef nonnull %50)
   call void @exit(i32 noundef 0) #17
   unreachable
 
@@ -868,7 +868,7 @@ sub_16.i.i:                                       ; preds = %.tail.thread.i.i
   %324 = and i32 %323, 255
   %325 = and i32 %320, 255
   %326 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %322, i32 noundef %324, i32 noundef %325)
-  call fastcc void @DeleteConfig(ptr noundef %50)
+  call fastcc void @DeleteConfig(ptr noundef nonnull %50)
   call void @exit(i32 noundef 0) #17
   unreachable
 

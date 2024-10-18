@@ -1401,7 +1401,7 @@ if.then46:                                        ; preds = %invoke.cont40
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !8
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLParsingInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !8
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !8
   %m_metadata.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
   invoke void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i.i.i.i.i.i.i.i)
           to label %_ZSt11make_sharedIN19OpenColorIO_v2_4dev14CDLParsingInfoEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_.exit unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !8
@@ -1413,7 +1413,7 @@ common.resume:                                    ; preds = %ehcleanup11, %ehcle
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %if.then46
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i) #23, !noalias !8
+  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i) #23, !noalias !8
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #27, !noalias !8
   br label %common.resume
 
@@ -12990,7 +12990,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %1 = load i32, ptr %__args1, align 4
-  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(80) %__p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %__args3)
+  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(96) %__p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %__args3)
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %invoke.cont
@@ -13008,7 +13008,7 @@ call5.i.i.i3.i.i.i.i.noexc.i:                     ; preds = %.noexc
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !130
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLParsingInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i1.i, align 8, !noalias !130
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i1.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !130
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !130
   %m_metadata.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i1.i, i64 40
   invoke void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i.i.i.i.i.i.i.i.i)
           to label %invoke.cont7 unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !130
@@ -13016,7 +13016,7 @@ call5.i.i.i3.i.i.i.i.noexc.i:                     ; preds = %.noexc
 lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i3.i.i.i.i.noexc.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i.i) #23, !noalias !130
+  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i.i) #23, !noalias !130
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i1.i) #27, !noalias !130
   br label %lpad.body.i
 
@@ -13027,7 +13027,7 @@ lpad.i:                                           ; preds = %.noexc
 
 lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i.i.i.i.i.i.i.i
   %eh.lpad-body.i = phi { ptr, i32 } [ %3, %lpad.i ], [ %2, %lpad.i.i.i.i.i.i.i.i.i ]
-  call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %__p) #23
+  call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %__p) #23
   br label %lpad6.body
 
 invoke.cont7:                                     ; preds = %call5.i.i.i3.i.i.i.i.noexc.i
@@ -13219,7 +13219,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev29CDLReaderColorDecisionListEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev29CDLReaderColorDecisionListEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -13491,7 +13491,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile)
+  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit
@@ -13699,7 +13699,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev19XmlReaderComplexEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev19XmlReaderComplexEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #23
   ret void
 }
 
@@ -13784,7 +13784,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev25CDLReaderColorDecisionEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev25CDLReaderColorDecisionEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -13995,7 +13995,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %1 = load i32, ptr %__args1, align 4
-  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(80) %__p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %__args3)
+  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(96) %__p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %__args3)
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %invoke.cont
@@ -14013,7 +14013,7 @@ call5.i.i.i3.i.i.i.i.noexc.i:                     ; preds = %.noexc
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !133
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLParsingInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i1.i, align 8, !noalias !133
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i1.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !133
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !133
   %m_metadata.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i1.i, i64 40
   invoke void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i.i.i.i.i.i.i.i.i)
           to label %invoke.cont7 unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !133
@@ -14021,7 +14021,7 @@ call5.i.i.i3.i.i.i.i.noexc.i:                     ; preds = %.noexc
 lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i3.i.i.i.i.noexc.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i.i) #23, !noalias !133
+  call void @_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i.i) #23, !noalias !133
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i1.i) #27, !noalias !133
   br label %lpad.body.i
 
@@ -14032,7 +14032,7 @@ lpad.i:                                           ; preds = %.noexc
 
 lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i.i.i.i.i.i.i.i
   %eh.lpad-body.i = phi { ptr, i32 } [ %3, %lpad.i ], [ %2, %lpad.i.i.i.i.i.i.i.i.i ]
-  call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %__p) #23
+  call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %__p) #23
   br label %lpad6.body
 
 invoke.cont7:                                     ; preds = %call5.i.i.i3.i.i.i.i.noexc.i
@@ -14224,7 +14224,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev37CDLReaderColorCorrectionCollectionEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev37CDLReaderColorCorrectionCollectionEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -14775,7 +14775,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile)
+  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit
@@ -14971,7 +14971,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev23XmlReaderSOPNodeBaseEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev23XmlReaderSOPNodeBaseEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) #23
   ret void
 }
 
@@ -15053,7 +15053,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev21CDLReaderSOPNodeCCEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev21CDLReaderSOPNodeCCEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -15347,7 +15347,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev19XmlReaderComplexEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev19XmlReaderComplexEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #23
   ret void
 }
 
@@ -15958,7 +15958,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile)
+  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit
@@ -16148,7 +16148,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev23XmlReaderSatNodeBaseEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev23XmlReaderSatNodeBaseEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #23
   ret void
 }
 
@@ -16230,7 +16230,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev21CDLReaderSatNodeCCEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev21CDLReaderSatNodeCCEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -16413,7 +16413,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN19OpenColorIO_v2_4dev19XmlReaderComplexEltD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev19XmlReaderComplexEltD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #23
+  tail call void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #23
   ret void
 }
 
@@ -16516,7 +16516,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %xmlLocation, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile)
+  invoke void @_ZN19OpenColorIO_v2_4dev16XmlReaderElementC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS8_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %xmlLocation, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltEEC2ERKS2_.exit
@@ -17244,7 +17244,7 @@ entry:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -17403,7 +17403,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #27
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeD2Ev.exit
 
@@ -17814,7 +17814,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit: ; preds = %if.then, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   br label %if.end
 

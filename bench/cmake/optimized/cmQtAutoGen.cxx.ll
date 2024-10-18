@@ -831,7 +831,7 @@ define internal fastcc void @_ZL12MergeOptionsRSt6vectorINSt7__cxx1112basic_stri
   %.sroa.038.048 = phi ptr [ %8, %.lr.ph ], [ %66, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
   %23 = load ptr, ptr %0, align 8
   %24 = load ptr, ptr %14, align 8
-  %25 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %23, ptr %24, ptr nonnull %.sroa.038.048)
+  %25 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIKS7_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %23, ptr %24, ptr nonnull align 8 dereferenceable(32) %.sroa.038.048)
           to label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit unwind label %.loopexit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit: ; preds = %22
@@ -891,7 +891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__norm
   br i1 %47, label %.critedge, label %48
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEERS4_T_SC_.exit
-  %49 = invoke noundef ptr @_ZSt9__find_ifIPKSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcS2_SaIcEEEEEET_SF_SF_T0_St26random_access_iterator_tag(ptr noundef %2, ptr noundef nonnull %19, ptr nonnull %7)
+  %49 = invoke noundef ptr @_ZSt9__find_ifIPKSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcS2_SaIcEEEEEET_SF_SF_T0_St26random_access_iterator_tag(ptr noundef %2, ptr noundef nonnull %19, ptr nonnull align 8 dereferenceable(32) %7)
           to label %50 unwind label %45
 
 50:                                               ; preds = %48
@@ -1824,7 +1824,7 @@ _Z18cmHasLiteralPrefixILm14EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.
   store ptr null, ptr %303, align 8
   %304 = getelementptr inbounds i8, ptr %8, i64 552
   store i32 0, ptr %304, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %8, i8 0, i64 522, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %8, i8 0, i64 522, i1 false)
   %305 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %8, ptr noundef nonnull @.str.51)
           to label %.noexc89 unwind label %279
 
@@ -1835,7 +1835,7 @@ _Z18cmHasLiteralPrefixILm14EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.
   store ptr null, ptr %307, align 8
   %308 = getelementptr inbounds i8, ptr %9, i64 552
   store i32 0, ptr %308, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %9, i8 0, i64 522, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %9, i8 0, i64 522, i1 false)
   %309 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %9, ptr noundef nonnull @.str.52)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit.i unwind label %356
 
@@ -1851,7 +1851,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit.i:        ; preds = %.noexc89
 
 317:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i88, %_ZN5cmsys17RegularExpressionC2EPKc.exit.i
   %.0.i = phi ptr [ %310, %_ZN5cmsys17RegularExpressionC2EPKc.exit.i ], [ %333, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i88 ]
-  %318 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %8, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(520) %8)
+  %318 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %8, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(556) %8)
           to label %_ZN5cmsys17RegularExpression4findEPKc.exit.i unwind label %358
 
 _ZN5cmsys17RegularExpression4findEPKc.exit.i:     ; preds = %317
@@ -1891,7 +1891,7 @@ _ZN5cmsys17RegularExpression4findEPKc.exit.i:     ; preds = %317
   %332 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %333 = getelementptr inbounds i8, ptr %.0.i, i64 %332
   %334 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  %335 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %9, ptr noundef %334, ptr noundef nonnull align 8 dereferenceable(520) %9)
+  %335 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %9, ptr noundef %334, ptr noundef nonnull align 8 dereferenceable(556) %9)
           to label %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i unwind label %360
 
 _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %331
@@ -3113,7 +3113,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3

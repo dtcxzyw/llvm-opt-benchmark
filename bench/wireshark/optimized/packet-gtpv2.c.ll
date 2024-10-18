@@ -6111,7 +6111,7 @@ define internal void @dissect_gtpv2_f_teid(ptr noundef %0, ptr nocapture noundef
   %43 = load ptr, ptr %22, align 8
   %44 = call ptr @tvb_address_to_str(ptr noundef %43, ptr noundef %0, i32 noundef 3, i32 noundef %.0) #10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1669, ptr noundef %44) #10
-  %45 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0, i32 noundef 16) #10
+  %45 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 5, 10) %.0, i32 noundef 16) #10
   store i32 3, ptr %40, align 8
   %46 = getelementptr inbounds i8, ptr %40, i64 4
   store i32 16, ptr %46, align 4

@@ -181,7 +181,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN30btMultiBodySphericalJointLimitD0Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #13
+  tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) #13
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN21btMultiBodyConstraintdlEPv.exit unwind label %terminate.lpad.i
 
@@ -641,7 +641,7 @@ if.end120:                                        ; preds = %if.end120.sink.spli
   %92 = load ptr, ptr %m_bodyA, align 8
   %93 = load i32, ptr %m_linkA, align 8
   call void @_ZNK11btMultiBody17localFrameToWorldEiRK11btMatrix3x3(ptr nonnull sret(%class.btMatrix3x3) align 4 %ref.tmp140, ptr noundef nonnull align 8 dereferenceable(640) %92, i32 noundef %93, ptr noundef nonnull align 4 dereferenceable(48) %frameAworld)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %frameAworld, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp140, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %frameAworld, ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp140, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i166, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i165, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i167, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
   %94 = load ptr, ptr %m_bodyA, align 8

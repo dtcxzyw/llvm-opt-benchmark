@@ -34,7 +34,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local { ptr, i64 } @_ZN5clang10installapi7Library31getFrameworkNameFromInstallNameEN4llvm9StringRefE(ptr %0, i64 %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, i64 noundef 3) #8
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %4, i64 noundef 3) #8
   %5 = call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) @_ZN5clang10installapiL4RuleE, ptr %0, i64 %1, ptr noundef nonnull %3, ptr noundef null) #8
   %6 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   br i1 %6, label %12, label %7
@@ -52,7 +52,7 @@ define dso_local { ptr, i64 } @_ZN5clang10installapi7Library31getFrameworkNameFr
 12:                                               ; preds = %2, %7
   %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload, %7 ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %7 ], [ @.str.1, %2 ]
-  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #8
   %14 = load ptr, ptr %3, align 8
   %15 = icmp eq ptr %14, %4
   br i1 %15, label %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit, label %16

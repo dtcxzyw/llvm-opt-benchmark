@@ -5299,7 +5299,7 @@ zend_jit_trace_escape_name.exit.i:                ; preds = %119, %116
   %129 = load i32, ptr @zend_jit_vm_kind, align 4
   %130 = icmp eq i32 %129, 1
   %131 = select i1 %130, i32 0, i32 4096
-  call fastcc void @zend_jit_init_ctx(ptr noundef %8, i32 noundef %131)
+  call fastcc void @zend_jit_init_ctx(ptr noundef nonnull %8, i32 noundef %131)
   %132 = getelementptr inbounds i8, ptr %8, i64 148
   store i32 14, ptr %132, align 4
   %133 = getelementptr inbounds i8, ptr %8, i64 712
@@ -5464,11 +5464,11 @@ jit_CONST_ADDR.exit.i.i:                          ; preds = %231, %223
   br label %235
 
 zend_jit_set_ip_ex.exit.thread.i:                 ; preds = %.split76.i, %173
-  call fastcc void @zend_jit_set_ip(ptr noundef %8, ptr noundef nonnull %172)
+  call fastcc void @zend_jit_set_ip(ptr noundef nonnull %8, ptr noundef nonnull %172)
   br label %zend_jit_trace_return.exit.sink.split.i
 
 zend_jit_set_ip_ex.exit.i:                        ; preds = %193
-  call fastcc void @zend_jit_set_ip(ptr noundef %8, ptr noundef nonnull %172)
+  call fastcc void @zend_jit_set_ip(ptr noundef nonnull %8, ptr noundef nonnull %172)
   br label %235
 
 235:                                              ; preds = %zend_jit_set_ip_ex.exit.i, %jit_CONST_ADDR.exit.i.i
@@ -5713,7 +5713,7 @@ zend_jit_trace_exit_to_vm.exit:                   ; preds = %zend_jit_trace_exit
 
 zend_jit_link_side_trace.exit:                    ; preds = %317, %313, %337, %342
   %.0.i.i = phi ptr [ %351, %342 ], [ %341, %337 ], [ null, %313 ], [ null, %317 ]
-  %352 = call i32 @ir_patch(ptr noundef %305, i64 noundef %308, i32 noundef %310, ptr noundef %.0.i.i, ptr noundef nonnull %.073.i) #33
+  %352 = call i32 @ir_patch(ptr noundef %305, i64 noundef range(i64 0, 4294967296) %308, i32 noundef %310, ptr noundef %.0.i.i, ptr noundef nonnull %.073.i) #33
   %.pre = load ptr, ptr @zend_jit_traces, align 8
   br label %353
 
@@ -7704,7 +7704,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_jit(ptr noundef %0, ptr nounde
   %54 = load i32, ptr @zend_jit_vm_kind, align 4
   %55 = icmp eq i32 %54, 1
   %56 = select i1 %55, i32 0, i32 12288
-  call fastcc void @zend_jit_init_ctx(ptr noundef %4, i32 noundef %56)
+  call fastcc void @zend_jit_init_ctx(ptr noundef nonnull %4, i32 noundef %56)
   %57 = getelementptr inbounds i8, ptr %4, i64 148
   store i32 14, ptr %57, align 4
   %58 = getelementptr inbounds i8, ptr %4, i64 720
@@ -7925,7 +7925,7 @@ zend_jit_start.exit:                              ; preds = %123, %125
   %indvars.iv.i5436 = phi i64 [ %indvars.iv.next.i5437, %181 ], [ 0, %173 ]
   %.0354437.i = phi i32 [ %.1355.i, %181 ], [ 0, %173 ]
   %176 = trunc nuw nsw i64 %indvars.iv.i5436 to i32
-  %177 = call fastcc zeroext i1 @zend_jit_may_be_in_reg(ptr noundef %0, ptr noundef %1, i32 noundef %176)
+  %177 = call fastcc zeroext i1 @zend_jit_may_be_in_reg(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %176)
   br i1 %177, label %178, label %181
 
 178:                                              ; preds = %.lr.ph.i5435
@@ -8843,7 +8843,7 @@ switch.edge.i:                                    ; preds = %643
 656:                                              ; preds = %switch.edge.i, %652
   %.020.i = phi i32 [ %654, %652 ], [ %655, %switch.edge.i ]
   %657 = call i32 @_ir_END(ptr noundef nonnull %4) #33
-  call fastcc void @_zend_jit_add_predecessor_ref(ptr noundef %4, i32 noundef %.020.i, i32 noundef %606, i32 noundef %657)
+  call fastcc void @_zend_jit_add_predecessor_ref(ptr noundef nonnull %4, i32 noundef %.020.i, i32 noundef %606, i32 noundef %657)
   store i32 -1, ptr %585, align 8
   br label %.backedge
 
@@ -9451,7 +9451,7 @@ switch.edge.i5463:                                ; preds = %981
 994:                                              ; preds = %switch.edge.i5463, %990
   %.020.i5464 = phi i32 [ %992, %990 ], [ %993, %switch.edge.i5463 ]
   %995 = call i32 @_ir_END(ptr noundef nonnull %4) #33
-  call fastcc void @_zend_jit_add_predecessor_ref(ptr noundef %4, i32 noundef %.020.i5464, i32 noundef %606, i32 noundef %995)
+  call fastcc void @_zend_jit_add_predecessor_ref(ptr noundef nonnull %4, i32 noundef %.020.i5464, i32 noundef %606, i32 noundef %995)
   store i32 -1, ptr %585, align 8
   br label %zend_jit_bb_end.exit5465
 
@@ -9546,7 +9546,7 @@ zend_jit_load_var.exit:                           ; preds = %1028, %1030
   %1049 = zext i32 %1048 to i64
   %1050 = shl nuw nsw i64 %1049, 8
   %1051 = or disjoint i64 %1050, 57
-  call fastcc void @zend_jit_spill_store(ptr noundef %4, i64 noundef %1046, i64 noundef %1051, i32 noundef %1041, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef nonnull %4, i64 noundef %1046, i64 noundef %1051, i32 noundef %1041, i1 noundef zeroext true)
   br label %1052
 
 1052:                                             ; preds = %1037, %zend_jit_load_var.exit, %1035, %.lr.ph5890
@@ -10434,7 +10434,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1345, %1342, %1338,
   %1488 = load i32, ptr %1487, align 8
   %1489 = load i32, ptr %1484, align 8
   %1490 = load i32, ptr %1486, align 4
-  call fastcc void @zend_jit_long_math_helper(ptr noundef %4, ptr noundef nonnull %1069, i8 noundef zeroext %1482, i8 noundef zeroext %1483, i32 %1489, i64 noundef %1428, i32 noundef %.04327, ptr noundef %1403, i8 noundef zeroext %1485, i32 %1490, i64 noundef %1470, i32 noundef %.04306, ptr noundef %1445, i32 noundef %1488, i64 noundef %.14009, i32 noundef %.04121, i32 noundef %.24024, i32 noundef %1481)
+  call fastcc void @zend_jit_long_math_helper(ptr noundef nonnull %4, ptr noundef nonnull %1069, i8 noundef zeroext %1482, i8 noundef zeroext %1483, i32 %1489, i64 noundef %1428, i32 noundef %.04327, ptr noundef %1403, i8 noundef zeroext %1485, i32 %1490, i64 noundef %1470, i32 noundef %.04306, ptr noundef %1445, i32 noundef %1488, i64 noundef %.14009, i32 noundef %.04121, i32 noundef %.24024, i32 noundef range(i32 0, 2) %1481)
   %1491 = load i32, ptr %1487, align 8
   %1492 = and i64 %.14009, 3
   %1493 = icmp eq i64 %1492, 2
@@ -10463,7 +10463,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1345, %1342, %1338,
   %1505 = sext i32 %1491 to i64
   %1506 = shl nsw i64 %1505, 8
   %1507 = or disjoint i64 %1506, 57
-  call fastcc void @zend_jit_spill_store(ptr noundef %4, i64 noundef %.14009, i64 noundef %1507, i32 noundef %.04121, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef nonnull %4, i64 noundef %.14009, i64 noundef %1507, i32 noundef %.04121, i1 noundef zeroext true)
   br label %zend_jit_long_math.exitthread-pre-split
 
 1508:                                             ; preds = %1077, %1077, %1077
@@ -10987,7 +10987,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1345, %1342, %1338,
   %1807 = load i32, ptr %1806, align 8
   %1808 = load i32, ptr %1803, align 8
   %1809 = load i32, ptr %1805, align 4
-  %1810 = call fastcc i32 @zend_jit_math_helper(ptr noundef %4, ptr noundef nonnull %1069, i8 noundef zeroext %1801, i8 noundef zeroext %1802, i32 %1808, i64 noundef %1790, i32 noundef %.04328, i8 noundef zeroext %1804, i32 %1809, i64 noundef %1791, i32 noundef %.04307, i32 noundef %1807, i64 noundef %.2401055685576, i32 noundef %.04120, i32 noundef %.3402555675577, i32 noundef %1798, i32 noundef %1800)
+  %1810 = call fastcc i32 @zend_jit_math_helper(ptr noundef nonnull %4, ptr noundef nonnull %1069, i8 noundef zeroext %1801, i8 noundef zeroext %1802, i32 %1808, i64 noundef %1790, i32 noundef %.04328, i8 noundef zeroext %1804, i32 %1809, i64 noundef %1791, i32 noundef %.04307, i32 noundef %1807, i64 noundef %.2401055685576, i32 noundef %.04120, i32 noundef %.3402555675577, i32 noundef range(i32 0, 2) %1798, i32 noundef range(i32 0, 2) %1800)
   %.not24.i = icmp eq i32 %1810, 0
   br i1 %.not24.i, label %zend_jit_math.exit, label %1811
 
@@ -11020,7 +11020,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1345, %1342, %1338,
   %1826 = sext i32 %1812 to i64
   %1827 = shl nsw i64 %1826, 8
   %1828 = or disjoint i64 %1827, 57
-  call fastcc void @zend_jit_spill_store(ptr noundef %4, i64 noundef %.2401055685576, i64 noundef %1828, i32 noundef %.04120, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef nonnull %4, i64 noundef %.2401055685576, i64 noundef %1828, i32 noundef %.04120, i1 noundef zeroext true)
   br label %zend_jit_long_math.exitthread-pre-split
 
 1829:                                             ; preds = %1077, %1077
@@ -11309,7 +11309,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1964, %1961, %1957,
   %1997 = shl nuw nsw i64 %1996, 8
   %1998 = or disjoint i64 %1997, 57
   %1999 = select i1 %1990, i64 %1995, i64 %1998
-  call fastcc void @zend_jit_concat_helper(ptr noundef %4, ptr noundef nonnull %1069, i8 noundef zeroext %1978, i32 %1981, i64 noundef %1988, i32 noundef %.04323, i8 noundef zeroext %1989, i32 %1992, i64 noundef %1999, i32 noundef %.04309, i64 noundef %.34011, i32 noundef %1977)
+  call fastcc void @zend_jit_concat_helper(ptr noundef nonnull %4, ptr noundef nonnull %1069, i8 noundef zeroext %1978, i32 %1981, i64 noundef %1988, i32 noundef %.04323, i8 noundef zeroext %1989, i32 %1992, i64 noundef %1999, i32 noundef %.04309, i64 noundef %.34011, i32 noundef range(i32 0, 2) %1977)
   br label %zend_jit_long_math.exitthread-pre-split
 
 2000:                                             ; preds = %1077
@@ -18160,7 +18160,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %1964, %1961, %1957,
   br label %zend_jit_long_math.exitthread-pre-split
 
 5869:                                             ; preds = %.critedge, %.critedge, %.critedge, %.critedge
-  call fastcc void @zend_jit_tail_handler(ptr noundef %4, ptr noundef nonnull %1069)
+  call fastcc void @zend_jit_tail_handler(ptr noundef nonnull %4, ptr noundef nonnull %1069)
   br label %zend_jit_long_math.exitthread-pre-split
 
 5870:                                             ; preds = %.critedge, %.critedge
@@ -18354,18 +18354,18 @@ jit_CMP_IP.exit.i:                                ; preds = %5974, %.loopexit.si
   %5983 = call i32 @ir_const_u32(ptr noundef nonnull %4, i32 noundef %5982) #33
   %5984 = call i32 @ir_fold2(ptr noundef nonnull %4, i32 noundef 271, i32 noundef %5980, i32 noundef %5983) #33
   %5985 = call i32 @_ir_IF(ptr noundef nonnull %4, i32 noundef %5984) #33
-  call void @ir_set_op(ptr noundef nonnull %4, i32 noundef %5985, i32 noundef 3, i32 noundef %1061) #33
+  call void @ir_set_op(ptr noundef nonnull %4, i32 noundef %5985, i32 noundef 3, i32 noundef range(i32 -2147483647, -2147483648) %1061) #33
   call void @_ir_IF_FALSE(ptr noundef nonnull %4, i32 noundef %5985) #33
   %5986 = load i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 3), align 1
   %5987 = icmp ult i8 %5986, 2
   br i1 %5987, label %5988, label %5989
 
 5988:                                             ; preds = %jit_CMP_IP.exit.i
-  call fastcc void @zend_jit_tail_handler(ptr noundef %4, ptr noundef nonnull %5901)
+  call fastcc void @zend_jit_tail_handler(ptr noundef nonnull %4, ptr noundef nonnull %5901)
   br label %5991
 
 5989:                                             ; preds = %jit_CMP_IP.exit.i
-  %5990 = call fastcc i32 @zend_jit_do_fcall(ptr noundef %4, ptr noundef nonnull %5901, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.24061, ptr noundef null)
+  %5990 = call fastcc i32 @zend_jit_do_fcall(ptr noundef nonnull %4, ptr noundef nonnull %5901, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.24061, ptr noundef null)
   %.not.i5479 = icmp eq i32 %5990, 0
   br i1 %.not.i5479, label %zend_jit_constructor.exit, label %5991
 
@@ -19034,7 +19034,7 @@ zend_jit_set_cond.exit:                           ; preds = %6351, %6359
   store i8 0, ptr %589, align 1
   store ptr null, ptr %590, align 8
   %6363 = getelementptr inbounds i8, ptr %1069, i64 32
-  call fastcc void @zend_jit_set_ip(ptr noundef %4, ptr noundef nonnull %6363)
+  call fastcc void @zend_jit_set_ip(ptr noundef nonnull %4, ptr noundef nonnull %6363)
   br label %zend_jit_long_math.exitthread-pre-split
 
 zend_jit_long_math.exitthread-pre-split:          ; preds = %1825, %1821, %1817, %1815, %1811, %6035, %.thread5774, %.thread5778, %.thread5784, %2105, %2337, %.thread5624, %2572, %2799, %.thread5645, %3341, %3419, %.thread5661, %3589, %3837, %4088, %4830, %4927, %.thread5710, %5191, %5240, %5530, %5532, %.thread5755, %5713, %5796, %6289, %6293, %5896, %5900, %zend_jit_constructor.exit, %5868, %1206, %1738, %zend_jit_next_is_send_result.exit5475, %.thread5651, %3339, %.thread5659, %3587, %3588, %4119, %.thread5671, %4243, %4269, %4362, %4379, %4478, %4585, %4681, %5239, %5242, %.thread5719, %5333, %5428, %5525, %5551, %5596, %5843, %5863, %5869, %5883, %5887, %5895, %zend_jit_set_cond.exit, %.thread5544, %1494, %1496, %1500, %1504, %5855, %5858
@@ -19099,7 +19099,7 @@ switch.edge.i5488:                                ; preds = %6371
 6384:                                             ; preds = %switch.edge.i5488, %6380
   %.020.i5489 = phi i32 [ %6382, %6380 ], [ %6383, %switch.edge.i5488 ]
   %6385 = call i32 @_ir_END(ptr noundef nonnull %4) #33
-  call fastcc void @_zend_jit_add_predecessor_ref(ptr noundef %4, i32 noundef %.020.i5489, i32 noundef %606, i32 noundef %6385)
+  call fastcc void @_zend_jit_add_predecessor_ref(ptr noundef nonnull %4, i32 noundef %.020.i5489, i32 noundef %606, i32 noundef %6385)
   store i32 -1, ptr %585, align 8
   br label %zend_jit_bb_end.exit5490
 
@@ -21333,7 +21333,7 @@ zend_jit_trace_name.exit:                         ; preds = %188, %191
   %205 = load i32, ptr @zend_jit_vm_kind, align 4
   %206 = icmp eq i32 %205, 1
   %207 = select i1 %206, i32 0, i32 4096
-  call fastcc void @zend_jit_init_ctx(ptr noundef %17, i32 noundef %207)
+  call fastcc void @zend_jit_init_ctx(ptr noundef nonnull %17, i32 noundef %207)
   %208 = getelementptr inbounds i8, ptr %17, i64 148
   store i32 14, ptr %208, align 4
   %209 = getelementptr inbounds i8, ptr %17, i64 712
@@ -22150,7 +22150,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
 651:                                              ; preds = %634
   %652 = getelementptr inbounds i8, ptr %.0989.i, i64 8
   %653 = load ptr, ptr %652, align 8
-  %654 = call fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr noundef %.0987.i, ptr noundef readonly %40, ptr noundef %653, ptr noundef %.0981.i, ptr noundef nonnull %.0989.i)
+  %654 = call fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr noundef %.0987.i, ptr noundef nonnull readonly %40, ptr noundef %653, ptr noundef %.0981.i, ptr noundef nonnull %.0989.i)
   br i1 %654, label %655, label %673
 
 655:                                              ; preds = %651
@@ -22222,7 +22222,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
   %690 = load i32, ptr %689, align 4
   %691 = getelementptr inbounds i8, ptr %.0981.i, i64 24
   %692 = load i32, ptr %691, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %674, i32 noundef %690, i32 noundef %692, ptr noundef nonnull %.0996.i, ptr noundef readonly %40, ptr noundef %317, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %674, i32 noundef %690, i32 noundef %692, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %317, ptr noundef %.0987.i, ptr noundef %.0985.i)
   %693 = getelementptr inbounds i8, ptr %653, i64 29
   %694 = load i8, ptr %693, align 1
   %.not1100.i = icmp eq i8 %694, 8
@@ -22305,7 +22305,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
   %726 = load i32, ptr %725, align 4
   %727 = getelementptr inbounds i8, ptr %.0981.i, i64 28
   %728 = load i32, ptr %727, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %711, i32 noundef %726, i32 noundef %728, ptr noundef nonnull %.0996.i, ptr noundef readonly %40, ptr noundef %317, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %711, i32 noundef %726, i32 noundef %728, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %317, ptr noundef %.0987.i, ptr noundef %.0985.i)
   %729 = getelementptr inbounds i8, ptr %653, i64 30
   %730 = load i8, ptr %729, align 2
   %.not1105.i = icmp eq i8 %730, 8
@@ -22371,7 +22371,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
   %756 = load i32, ptr %755, align 4
   %757 = getelementptr inbounds i8, ptr %.0981.i, i64 32
   %758 = load i32, ptr %757, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %739, i32 noundef %756, i32 noundef %758, ptr noundef nonnull %.0996.i, ptr noundef readonly %40, ptr noundef %317, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %739, i32 noundef %756, i32 noundef %758, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %317, ptr noundef %.0987.i, ptr noundef %.0985.i)
   br label %.critedge1149.i
 
 .critedge1149.i:                                  ; preds = %.critedge1147.i, %752, %750, %745, %743, %741, %737
@@ -23001,7 +23001,7 @@ zend_jit_var_supports_reg.exit1239.thread.i:      ; preds = %.preheader42.i1228.
   %1062 = load i32, ptr %1061, align 4
   %1063 = getelementptr inbounds i8, ptr %.0981.i, i64 60
   %1064 = load i32, ptr %1063, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %1048, i32 noundef %1062, i32 noundef %1064, ptr noundef nonnull %.0996.i, ptr noundef readonly %40, ptr noundef %317, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %1048, i32 noundef %1062, i32 noundef %1064, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %317, ptr noundef %.0987.i, ptr noundef %.0985.i)
   %1065 = getelementptr inbounds i8, ptr %653, i64 61
   %1066 = load i8, ptr %1065, align 1
   %.not1129.i = icmp eq i8 %1066, 8
@@ -25497,7 +25497,7 @@ zend_jit_load_var.exit12100:                      ; preds = %2426, %2428
   %2457 = zext i32 %2456 to i64
   %2458 = shl nuw nsw i64 %2457, 8
   %2459 = or disjoint i64 %2458, 57
-  call fastcc void @zend_jit_spill_store(ptr noundef %17, i64 noundef %2454, i64 noundef %2459, i32 noundef %2443, i1 noundef zeroext %2452)
+  call fastcc void @zend_jit_spill_store(ptr noundef nonnull %17, i64 noundef %2454, i64 noundef %2459, i32 noundef %2443, i1 noundef zeroext %2452)
   %2460 = load i32, ptr %2347, align 4
   %2461 = sext i32 %2460 to i64
   %2462 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %.09775, i64 %2461
@@ -49193,7 +49193,7 @@ zend_jit_trace_call_frame.exit12154:              ; preds = %.critedge11987
   br i1 %17023, label %zend_jit_store_var_type.exit, label %17024
 
 17024:                                            ; preds = %17015, %17013, %17005
-  %17025 = call i32 @ir_const_u32(ptr noundef nonnull %17, i32 noundef %17006) #33
+  %17025 = call i32 @ir_const_u32(ptr noundef nonnull %17, i32 noundef range(i32 0, 256) %17006) #33
   call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef nonnull %17, i64 noundef %17011, i32 noundef %17025)
   br label %zend_jit_store_var_type.exit
 
@@ -49406,7 +49406,7 @@ zend_jit_trace_end_loop.exit:                     ; preds = %.thread12654, %zend
 
 17121:                                            ; preds = %17108
   %17122 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %17, i64 noundef %17118)
-  call void @_ir_STORE(ptr noundef nonnull %17, i32 noundef %17122, i32 noundef %17102) #33
+  call void @_ir_STORE(ptr noundef nonnull %17, i32 noundef %17122, i32 noundef range(i32 1, 0) %17102) #33
   br i1 %.not12695, label %zend_jit_store_ref.exit, label %17123
 
 17123:                                            ; preds = %17121
@@ -49439,7 +49439,7 @@ zend_jit_trace_end_loop.exit:                     ; preds = %.thread12654, %zend
   %17142 = icmp eq i32 %17119, 32
   call void @llvm.assume(i1 %17142)
   %17143 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %17, i64 noundef %17118)
-  call void @_ir_STORE(ptr noundef nonnull %17, i32 noundef %17143, i32 noundef %17102) #33
+  call void @_ir_STORE(ptr noundef nonnull %17, i32 noundef %17143, i32 noundef range(i32 1, 0) %17102) #33
   br i1 %.not12695, label %zend_jit_store_ref.exit, label %17144
 
 17144:                                            ; preds = %17141
@@ -59961,7 +59961,7 @@ zend_jit_store_spill_slot.exit:                   ; preds = %206, %209, %213, %2
   br label %332
 
 345:                                              ; preds = %332
-  %346 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 11, i32 noundef %330) #33
+  %346 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 11, i32 noundef range(i32 -128, 128) %330) #33
   br label %zend_jit_deopt_rload.exit.i
 
 zend_jit_deopt_rload.exit.i:                      ; preds = %345, %340
@@ -60057,7 +60057,7 @@ zend_jit_deopt_rload.exit.i:                      ; preds = %345, %340
   br label %382
 
 395:                                              ; preds = %382
-  %396 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 12, i32 noundef %380) #33
+  %396 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 12, i32 noundef range(i32 -128, 128) %380) #33
   br label %zend_jit_deopt_rload.exit56.i
 
 zend_jit_deopt_rload.exit56.i:                    ; preds = %395, %390
@@ -60229,7 +60229,7 @@ zend_jit_store_reg.exit:                          ; preds = %352, %355, %356, %3
   br label %464
 
 477:                                              ; preds = %464
-  %478 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %461) #33
+  %478 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef range(i32 -128, 128) %461) #33
   %.pre.i = sext i32 %478 to i64
   br label %zend_jit_deopt_rload.exit.i288
 
@@ -60245,7 +60245,7 @@ zend_jit_deopt_rload.exit.i288:                   ; preds = %477, %472
   br i1 %.not.i289, label %485, label %484
 
 484:                                              ; preds = %zend_jit_deopt_rload.exit.i288
-  tail call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef -1)
+  tail call fastcc void @zend_jit_save_call_chain(ptr noundef nonnull %0, i32 noundef -1)
   br label %485
 
 485:                                              ; preds = %484, %zend_jit_deopt_rload.exit.i288
@@ -60272,7 +60272,7 @@ zend_jit_deopt_rload.exit.i288:                   ; preds = %477, %472
   %498 = zext i32 %497 to i64
   %499 = shl nuw nsw i64 %498, 8
   %500 = or disjoint i64 %499, 57
-  tail call fastcc void @zend_jit_zval_try_addref(ptr noundef %0, i64 noundef %500)
+  tail call fastcc void @zend_jit_zval_try_addref(ptr noundef nonnull %0, i64 noundef %500)
   br label %501
 
 501:                                              ; preds = %495, %490, %485
@@ -60327,7 +60327,7 @@ zend_jit_escape_if_undef.exit:                    ; preds = %501, %504
   br label %511
 
 524:                                              ; preds = %511
-  %525 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %461) #33
+  %525 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef range(i32 -128, 128) %461) #33
   %.pre.i294 = sext i32 %525 to i64
   br label %zend_jit_restore_zval.exit
 
@@ -62370,7 +62370,7 @@ jit_set_Z_TYPE_INFO.exit623:                      ; preds = %1010, %1000, %jit_s
 
 .thread.i:                                        ; preds = %1046, %1044, %1040, %1036, %1028
   %.029.i = phi i1 [ true, %1028 ], [ false, %1044 ], [ %or.cond.not.i, %1046 ], [ true, %1036 ], [ true, %1040 ]
-  call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %5, i64 noundef %1031, i32 noundef %4, i1 noundef zeroext %.029.i)
+  call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %5, i64 noundef %1031, i32 noundef %4, i1 noundef zeroext %.029.i)
   br label %zend_jit_store_var_if_necessary_ex.exit
 
 zend_jit_store_var_if_necessary_ex.exit:          ; preds = %1013, %1017, %1020, %1024, %.thread.i
@@ -62410,7 +62410,7 @@ zend_jit_store_var_if_necessary_ex.exit:          ; preds = %1013, %1017, %1020,
   %1076 = sext i32 %1061 to i64
   %1077 = shl nsw i64 %1076, 8
   %1078 = or disjoint i64 %1077, 57
-  call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %8, i64 noundef %1078, i32 noundef %7, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %8, i64 noundef %1078, i32 noundef %7, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %1075, %1071, %1067, %1064, %1059, %zend_jit_store_var_if_necessary_ex.exit
@@ -64974,7 +64974,7 @@ define internal fastcc void @zend_jit_long_math(ptr noundef nonnull %0, ptr noun
   %44 = sext i32 %29 to i64
   %45 = shl nsw i64 %44, 8
   %46 = or disjoint i64 %45, 57
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %10, i64 noundef %46, i32 noundef %9, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %10, i64 noundef %46, i32 noundef %9, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %12, %32, %35, %39, %43
@@ -65863,7 +65863,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_math(ptr noundef nonnull %0
   %43 = sext i32 %28 to i64
   %44 = shl nsw i64 %43, 8
   %45 = or disjoint i64 %44, 57
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %8, i64 noundef %45, i32 noundef %7, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %8, i64 noundef %45, i32 noundef %7, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %42, %38, %34, %31, %27, %11
@@ -74572,7 +74572,7 @@ define internal fastcc void @zend_jit_assign(ptr noundef nonnull %0, ptr noundef
 
 zend_jit_store_var_if_necessary_ex.exit:          ; preds = %59, %69, %73, %77, %79
   %.029.i = phi i1 [ true, %59 ], [ false, %77 ], [ %or.cond.not.i, %79 ], [ true, %69 ], [ true, %73 ]
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %5, i64 noundef %64, i32 noundef %4, i1 noundef zeroext %.029.i)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %5, i64 noundef %64, i32 noundef %4, i1 noundef zeroext %.029.i)
   br label %178
 
 90:                                               ; preds = %48, %51, %55
@@ -74751,7 +74751,7 @@ jit_set_Z_TYPE_INFO.exit115.thread:               ; preds = %145, %jit_set_Z_TYP
   %198 = sext i32 %183 to i64
   %199 = shl nsw i64 %198, 8
   %200 = or disjoint i64 %199, 57
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %10, i64 noundef %200, i32 noundef %9, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %10, i64 noundef %200, i32 noundef %9, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %197, %193, %189, %186, %181, %178
@@ -74844,7 +74844,7 @@ define internal fastcc void @zend_jit_qm_assign(ptr noundef nonnull %0, ptr noun
   %34 = sext i32 %19 to i64
   %35 = shl nsw i64 %34, 8
   %36 = or disjoint i64 %35, 57
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %7, i64 noundef %36, i32 noundef %6, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %7, i64 noundef %36, i32 noundef %6, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 zend_jit_store_var_if_necessary.exit:             ; preds = %15, %22, %25, %29, %33
@@ -80665,7 +80665,7 @@ switch.edge:                                      ; preds = %1280
   call void @llvm.assume(i1 %1303)
   %1304 = getelementptr inbounds i8, ptr %1299, i64 12
   %1305 = load i32, ptr %1304, align 4
-  call void @_ir_ENTRY(ptr noundef nonnull %0, i32 noundef %1297, i32 noundef %1305) #33
+  call void @_ir_ENTRY(ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 2147483647) %1297, i32 noundef %1305) #33
   %1306 = load ptr, ptr %0, align 8
   %1307 = getelementptr inbounds i8, ptr %1306, i64 32
   %1308 = load i8, ptr %1307, align 8
@@ -93150,7 +93150,7 @@ jit_Z_PTR.exit:                                   ; preds = %306, %317, %325, %3
   %412 = sext i32 %400 to i64
   %413 = shl nsw i64 %412, 8
   %414 = or disjoint i64 %413, 57
-  call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %9, i64 noundef %414, i32 noundef %.0364, i1 noundef zeroext true)
+  call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %9, i64 noundef %414, i32 noundef %.0364, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 415:                                              ; preds = %342
@@ -99458,7 +99458,7 @@ define internal fastcc void @zend_jit_strlen(ptr noundef nonnull %0, ptr noundef
   %54 = sext i32 %42 to i64
   %55 = shl nsw i64 %54, 8
   %56 = or disjoint i64 %55, 57
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %56, i32 noundef 16, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %56, i32 noundef 16, i1 noundef zeroext true)
   br label %jit_set_Z_TYPE_INFO.exit
 
 57:                                               ; preds = %5
@@ -99571,7 +99571,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %92, %100
   %121 = sext i32 %109 to i64
   %122 = shl nsw i64 %121, 8
   %123 = or disjoint i64 %122, 57
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %123, i32 noundef 16, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %123, i32 noundef 16, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit40
 
 124:                                              ; preds = %jit_ADD_OFFSET.exit
@@ -99703,7 +99703,7 @@ define internal fastcc void @zend_jit_count(ptr noundef nonnull %0, ptr noundef 
   %56 = sext i32 %44 to i64
   %57 = shl nsw i64 %56, 8
   %58 = or disjoint i64 %57, 57
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %58, i32 noundef 16, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %58, i32 noundef 16, i1 noundef zeroext true)
   br label %jit_set_Z_TYPE_INFO.exit
 
 59:                                               ; preds = %6
@@ -99817,7 +99817,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %94, %102
   %124 = sext i32 %112 to i64
   %125 = shl nsw i64 %124, 8
   %126 = or disjoint i64 %125, 57
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %126, i32 noundef 16, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %126, i32 noundef 16, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit46
 
 127:                                              ; preds = %jit_ADD_OFFSET.exit
@@ -102692,7 +102692,7 @@ define internal fastcc void @zend_jit_verify_return_type(ptr noundef nonnull %0,
   %56 = icmp ne i8 %55, 0
   tail call void @llvm.assume(i1 %56)
   %57 = tail call fastcc i32 @jit_Z_TYPE(ptr noundef nonnull %0, i64 noundef %20)
-  %58 = tail call i32 @ir_const_u8(ptr noundef nonnull %0, i8 noundef zeroext %55) #33
+  %58 = tail call i32 @ir_const_u8(ptr noundef nonnull %0, i8 noundef zeroext range(i8 -1, 63) %55) #33
   %59 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %57, i32 noundef %58) #33
   br label %.sink.split
 
@@ -104976,7 +104976,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_CONST_ADDR.exit
   %228 = sext i32 %213 to i64
   %229 = shl nsw i64 %228, 8
   %230 = or disjoint i64 %229, 57
-  tail call fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %4, i64 noundef %230, i32 noundef %204, i1 noundef zeroext true)
+  tail call fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %4, i64 noundef %230, i32 noundef %204, i1 noundef zeroext true)
   br label %zend_jit_store_var_if_necessary.exit
 
 231:                                              ; preds = %jit_STUB_ADDR.exit
@@ -105093,7 +105093,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_init_method_call(ptr nounde
   br label %54
 
 67:                                               ; preds = %54
-  %68 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %48) #33
+  %68 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef range(i32 -128, 128) %48) #33
   %.pre = load ptr, ptr %0, align 8
   br label %zend_jit_deopt_rload.exit
 
@@ -105131,7 +105131,7 @@ zend_jit_deopt_rload.exit:                        ; preds = %62, %67
   br label %70
 
 83:                                               ; preds = %70
-  %84 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %50) #33
+  %84 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef range(i32 -128, 128) %50) #33
   br label %zend_jit_deopt_rload.exit316
 
 85:                                               ; preds = %.critedge307
@@ -139291,7 +139291,7 @@ define internal fastcc range(i64 3, 1) i64 @zend_jit_guard_fetch_result_type(ptr
   %89 = icmp ne i8 %3, 0
   tail call void @llvm.assume(i1 %89)
   %90 = tail call fastcc i32 @jit_Z_TYPE(ptr noundef nonnull %0, i64 noundef %2)
-  %91 = tail call i32 @ir_const_u8(ptr noundef nonnull %0, i8 noundef zeroext %3) #33
+  %91 = tail call i32 @ir_const_u8(ptr noundef nonnull %0, i8 noundef zeroext range(i8 -1, 63) %3) #33
   %92 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %90, i32 noundef %91) #33
   %93 = tail call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %92) #33
   tail call void @_ir_IF_TRUE(ptr noundef nonnull %0, i32 noundef %93) #33
@@ -145100,7 +145100,7 @@ jit_CONST_FUNC.exit91:                            ; preds = %144, %155
   tail call void @llvm.assume(i1 %spec.select)
   %205 = getelementptr inbounds %struct._zend_basic_block, ptr %195, i64 %.pre-phi, i32 2
   %206 = load i32, ptr %205, align 4
-  tail call void @_ir_ENTRY(ptr noundef nonnull %0, i32 noundef %198, i32 noundef %206) #33
+  tail call void @_ir_ENTRY(ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 2147483647) %198, i32 noundef %206) #33
   %207 = load ptr, ptr %0, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 32
   %209 = load i8, ptr %208, align 8

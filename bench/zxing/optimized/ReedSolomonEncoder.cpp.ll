@@ -111,7 +111,7 @@ _ZN5ZXing13GenericGFPolyC2ERKNS_9GenericGFEOSt6vectorIiSaIiEE.exit: ; preds = %9
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %4) #14
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %41 = load i64, ptr %6, align 8
   %42 = add i64 %41, 1
   store i64 %42, ptr %6, align 8
@@ -343,7 +343,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN5ZXing13GenericGFPolyEEEED2Ev.exit9.i.
   br label %.body29
 
 57:                                               ; preds = %.noexc28
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull %5) #14
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(24) %5) #14
   %58 = load i64, ptr %6, align 8
   %59 = add i64 %58, 1
   store i64 %59, ptr %6, align 8

@@ -164,7 +164,7 @@ define hidden void @_ZN11ZRememberedC2EP10ZPageTablePK16ZForwardingTableP14ZPage
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr @ZAddressOffsetMax, align 8
   %9 = lshr i64 %8, 21
-  tail call void @_ZN11CHeapBitMapC1Em8MEMFLAGSb(ptr noundef nonnull align 8 dereferenceable(17) %7, i64 noundef %9, i8 noundef zeroext 5, i1 noundef zeroext true) #14
+  tail call void @_ZN11CHeapBitMapC1Em8MEMFLAGSb(ptr noundef nonnull align 8 dereferenceable(68) %7, i64 noundef %9, i8 noundef zeroext 5, i1 noundef zeroext true) #14
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load i64, ptr @ZAddressOffsetMax, align 8
   %12 = lshr i64 %11, 21
@@ -391,7 +391,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
   tail call void (ptr, ptr, ...) @_ZNK5ZPage7log_msgEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull @.str.5)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @_ZN38ZRememberedSetContainingInLiveIteratorC1EP5ZPage(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull %1) #14
+  call void @_ZN38ZRememberedSetContainingInLiveIteratorC1EP5ZPage(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(192) %1) #14
   %109 = call noundef zeroext i1 @_ZN38ZRememberedSetContainingInLiveIterator4nextEP24ZRememberedSetContaining(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull %4) #14
   br i1 %109, label %.lr.ph.i, label %"_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit"
 
@@ -485,7 +485,7 @@ define linkonce_odr hidden void @_ZNK5ZPage7log_msgEPKcz(ptr noundef nonnull ali
 
 7:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #14
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #14
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #14
@@ -629,7 +629,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %52, %42
   %63 = load ptr, ptr %.0.i.i.i.i, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 256
   %65 = load ptr, ptr %64, align 8
-  %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull %38) #14
+  %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %38) #14
   br label %_ZN6ZUtils11object_sizeE8zaddress.exit.i
 
 67:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i.i
@@ -662,7 +662,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %52, %42
   %90 = load ptr, ptr %.0.i.i.i.i, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 256
   %92 = load ptr, ptr %91, align 8
-  %93 = call noundef i64 %92(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull %38) #14
+  %93 = call noundef i64 %92(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %38) #14
   br label %_ZN6ZUtils11object_sizeE8zaddress.exit.i
 
 _ZN6ZUtils11object_sizeE8zaddress.exit.i:         ; preds = %89, %69, %62, %59
@@ -1209,7 +1209,7 @@ _ZN11ZRemembered8FoundOld13register_pageEP5ZPage.exit: ; preds = %18, %20
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11ZRemembered15scan_and_followEP5ZMark(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ZRememberedScanMarkFollowTask, align 8
-  call void @_ZN16ZRestartableTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull @.str.14) #14
+  call void @_ZN16ZRestartableTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull @.str.14) #14
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV29ZRememberedScanMarkFollowTask, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %0, ptr %4, align 8
@@ -1890,14 +1890,14 @@ define linkonce_odr hidden void @_ZN29ZRememberedScanMarkFollowTask14resize_work
 define linkonce_odr hidden void @_ZN29ZRememberedScanMarkFollowTask10work_innerEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %struct.ZRememberedScanForwardingContext, align 8
   %3 = alloca %struct.ZRemsetTableEntry, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %2, i8 0, i64 16, i1 false)
   br label %4
 
 4:                                                ; preds = %4, %1
   %.idx.i = phi i64 [ 16, %1 ], [ %.add.i, %4 ]
   %.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   %scevgep.i.i = getelementptr inbounds i8, ptr %.ptr.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %.ptr.i, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(164) %scevgep.i.i, i8 0, i64 164, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 192
   %5 = icmp eq i64 %.add.i, 400

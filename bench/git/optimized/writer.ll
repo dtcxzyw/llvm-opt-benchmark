@@ -462,7 +462,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv = sext i32 %n to i64
-  tail call void @qsort(ptr noundef %refs, i64 noundef %conv, i64 noundef 88, ptr noundef nonnull @reftable_ref_record_compare_name) #13
+  tail call void @qsort(ptr noundef %refs, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 88, ptr noundef nonnull @reftable_ref_record_compare_name) #13
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %entry, %if.then.i
@@ -673,7 +673,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv = sext i32 %n to i64
-  tail call void @qsort(ptr noundef %logs, i64 noundef %conv, i64 noundef 80, ptr noundef nonnull @reftable_log_record_compare_key) #13
+  tail call void @qsort(ptr noundef %logs, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 80, ptr noundef nonnull @reftable_log_record_compare_key) #13
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %entry, %if.then.i
@@ -748,7 +748,7 @@ padded_write.exit:                                ; preds = %if.then3, %if.end.i
   %5 = load ptr, ptr %w, align 8
   %write_arg14.i = getelementptr inbounds i8, ptr %w, i64 8
   %6 = load ptr, ptr %write_arg14.i, align 8
-  %call15.i = call i64 %5(ptr noundef %6, ptr noundef nonnull %header, i64 noundef %conv7) #13
+  %call15.i = call i64 %5(ptr noundef %6, ptr noundef nonnull %header, i64 noundef range(i64 -2147483648, 2147483648) %conv7) #13
   %conv16.i = trunc i64 %call15.i to i32
   %cmp9 = icmp slt i32 %conv16.i, 0
   br i1 %cmp9, label %done, label %if.end13
@@ -981,7 +981,7 @@ if.end11.i136:                                    ; preds = %if.end.i150, %if.en
   %19 = load ptr, ptr %w, align 8
   %write_arg14.i137 = getelementptr inbounds i8, ptr %w, i64 8
   %20 = load ptr, ptr %write_arg14.i137, align 8
-  %call15.i138 = call i64 %19(ptr noundef %20, ptr noundef nonnull %footer, i64 noundef %conv41) #13
+  %call15.i138 = call i64 %19(ptr noundef %20, ptr noundef nonnull %footer, i64 noundef range(i64 -2147483648, 2147483648) %conv41) #13
   %conv16.i139 = trunc i64 %call15.i138 to i32
   %conv16..i140 = call i32 @llvm.smin.i32(i32 %conv16.i139, i32 0)
   br label %padded_write.exit151
@@ -1451,7 +1451,7 @@ padded_write.exit.i:                              ; preds = %if.end.i.i, %if.end
   %21 = load ptr, ptr %w, align 8
   %write_arg14.i.i = getelementptr inbounds i8, ptr %w, i64 8
   %22 = load ptr, ptr %write_arg14.i.i, align 8
-  %call15.i.i = tail call i64 %21(ptr noundef %22, ptr noundef %16, i64 noundef %conv28.i) #13
+  %call15.i.i = tail call i64 %21(ptr noundef %22, ptr noundef %16, i64 noundef range(i64 -2147483648, 2147483648) %conv28.i) #13
   %conv16.i.i = trunc i64 %call15.i.i to i32
   %cmp30.i = icmp slt i32 %conv16.i.i, 0
   br i1 %cmp30.i, label %writer_flush_nonempty_block.exit, label %if.end33.i

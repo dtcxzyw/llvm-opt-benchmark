@@ -51,7 +51,7 @@ define noundef i32 @Ppolybarriers(ptr nocapture noundef readonly %0, i32 noundef
 
 12:                                               ; preds = %._crit_edge
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef %11, i64 noundef 32) #13
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %11, i64 noundef 32) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
 
@@ -59,7 +59,7 @@ define noundef i32 @Ppolybarriers(ptr nocapture noundef readonly %0, i32 noundef
   %15 = phi i64 [ %11, %._crit_edge ], [ 0, %4 ]
   %.030.lcssa62 = phi i32 [ %10, %._crit_edge ], [ 0, %4 ]
   %16 = icmp ne i32 %.030.lcssa62, 0
-  %17 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 32) #15
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %15, i64 noundef 32) #15
   %18 = icmp eq ptr %17, null
   %or.cond3.i = and i1 %16, %18
   br i1 %or.cond3.i, label %19, label %gv_calloc.exit.preheader
@@ -145,13 +145,13 @@ define void @make_polyline(ptr nocapture readonly %0, i32 %1, ptr nocapture noun
   %10 = zext nneg i32 %5 to i64
   %11 = shl nuw nsw i64 %9, 4
   %12 = shl nuw nsw i64 %10, 4
-  %13 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %12) #16
+  %13 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef range(i64 16, 34359738353) %12) #16
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i64 noundef %12) #13
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i64 noundef range(i64 16, 34359738353) %12) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
 

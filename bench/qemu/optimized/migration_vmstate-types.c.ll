@@ -683,11 +683,11 @@ if.then8.i.i37:                                   ; preds = %if.then.i.i34
   %18 = load i64, ptr %_now.i.i27, align 8
   %tv_usec.i.i40 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
   %19 = load i64, ptr %tv_usec.i.i40, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i39, i64 noundef %18, i64 noundef %19, ptr noundef %13, ptr noundef nonnull @.str.30, i32 noundef -22) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i39, i64 noundef %18, i64 noundef %19, ptr noundef %13, ptr noundef nonnull @.str.30, i32 noundef range(i32 -22, 1) -22) #6
   br label %trace_get_qtailq_end.exit
 
 if.else.i.i36:                                    ; preds = %if.then.i.i34
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef %13, ptr noundef nonnull @.str.30, i32 noundef -22) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef %13, ptr noundef nonnull @.str.30, i32 noundef range(i32 -22, 1) -22) #6
   br label %trace_get_qtailq_end.exit
 
 trace_get_qtailq_end.exit:                        ; preds = %if.then, %land.lhs.true5.i.i31, %if.then8.i.i37, %if.else.i.i36
@@ -738,11 +738,11 @@ if.then8.i.i51:                                   ; preds = %if.then.i.i48
   %27 = load i64, ptr %_now.i.i41, align 8
   %tv_usec.i.i54 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
   %28 = load i64, ptr %tv_usec.i.i54, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i53, i64 noundef %27, i64 noundef %28, ptr noundef %22, ptr noundef nonnull @.str.31, i32 noundef -22) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i53, i64 noundef %27, i64 noundef %28, ptr noundef %22, ptr noundef nonnull @.str.31, i32 noundef range(i32 -22, 1) -22) #6
   br label %trace_get_qtailq_end.exit55
 
 if.else.i.i50:                                    ; preds = %if.then.i.i48
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef %22, ptr noundef nonnull @.str.31, i32 noundef -22) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef %22, ptr noundef nonnull @.str.31, i32 noundef range(i32 -22, 1) -22) #6
   br label %trace_get_qtailq_end.exit55
 
 trace_get_qtailq_end.exit55:                      ; preds = %if.then8, %land.lhs.true5.i.i45, %if.then8.i.i51, %if.else.i.i50
@@ -794,11 +794,11 @@ if.then8.i.i66:                                   ; preds = %if.then.i.i63
   %35 = load i64, ptr %_now.i.i56, align 8
   %tv_usec.i.i69 = getelementptr inbounds i8, ptr %_now.i.i56, i64 8
   %36 = load i64, ptr %tv_usec.i.i69, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i68, i64 noundef %35, i64 noundef %36, ptr noundef %30, ptr noundef nonnull @.str.32, i32 noundef 0) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i68, i64 noundef %35, i64 noundef %36, ptr noundef %30, ptr noundef nonnull @.str.32, i32 noundef range(i32 -22, 1) 0) #6
   br label %trace_get_qtailq_end.exit70
 
 if.else.i.i65:                                    ; preds = %if.then.i.i63
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef %30, ptr noundef nonnull @.str.32, i32 noundef 0) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef %30, ptr noundef nonnull @.str.32, i32 noundef range(i32 -22, 1) 0) #6
   br label %trace_get_qtailq_end.exit70
 
 trace_get_qtailq_end.exit70:                      ; preds = %while.end, %land.lhs.true5.i.i60, %if.then8.i.i66, %if.else.i.i65

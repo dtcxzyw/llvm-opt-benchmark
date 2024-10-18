@@ -565,7 +565,7 @@ arrayctor.loop:                                   ; preds = %entry, %invoke.cont
   store ptr null, ptr %arrayctor.cur.ptr.ptr, align 8
   store i32 0, ptr %status.i, align 4
   %hashObj.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
-  %call2.i.i4 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status.i)
+  %call2.i.i4 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
           to label %call2.i.i.noexc unwind label %lpad2
 
 call2.i.i.noexc:                                  ; preds = %arrayctor.loop
@@ -1404,7 +1404,7 @@ if.then3:                                         ; preds = %for.body
   %sub = sub nsw i32 %numCodeUnits., %3
   call void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %inString, i32 noundef %3, i32 noundef %sub)
   %5 = load ptr, ptr %arrayidx13, align 8
-  %call.i64 = invoke noundef i32 @uhash_geti_75(ptr noundef %5, ptr noundef nonnull %ref.tmp)
+  %call.i64 = invoke noundef i32 @uhash_geti_75(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then3
@@ -1453,7 +1453,7 @@ if.then34:                                        ; preds = %land.lhs.true
   %sub55 = sub nsw i32 %numCodeUnits.62, %8
   call void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(64) %inString, i32 noundef %8, i32 noundef %sub55)
   %13 = load ptr, ptr %arrayidx49, align 8
-  %call.i65 = invoke noundef i32 @uhash_geti_75(ptr noundef %13, ptr noundef nonnull %ref.tmp50)
+  %call.i65 = invoke noundef i32 @uhash_geti_75(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp50)
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %if.then34
@@ -1502,7 +1502,7 @@ if.then82:                                        ; preds = %land.lhs.true77
   %sub103 = sub nsw i32 %numCodeUnits.63, %15
   call void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(64) %inString, i32 noundef %15, i32 noundef %sub103)
   %20 = load ptr, ptr %arrayidx97, align 8
-  %call.i67 = invoke noundef i32 @uhash_geti_75(ptr noundef %20, ptr noundef nonnull %ref.tmp98)
+  %call.i67 = invoke noundef i32 @uhash_geti_75(ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp98)
           to label %invoke.cont105 unwind label %lpad104
 
 invoke.cont105:                                   ; preds = %if.then82
@@ -1717,7 +1717,7 @@ new.notnull.i:                                    ; preds = %if.then34
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %if.then34
-  %call2.i22 = invoke noundef i32 @uhash_puti_75(ptr noundef %10, ptr noundef %call.i, i32 noundef %9, ptr noundef nonnull %error)
+  %call2.i22 = invoke noundef i32 @uhash_puti_75(ptr noundef %10, ptr noundef %call.i, i32 noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %error)
           to label %for.inc unwind label %lpad7.loopexit
 
 lpad.i:                                           ; preds = %new.notnull.i

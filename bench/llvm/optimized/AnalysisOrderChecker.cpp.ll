@@ -615,13 +615,13 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120AnalysisOrderCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120AnalysisOrderCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #16
   ret void
 }
@@ -653,11 +653,11 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_8CastExprEE10_checkStmtIN1
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.1, i64 15, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.1, i64 15, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker12checkPreStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -776,11 +776,11 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_8CastExprEE10_checkStmtIN
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.5, i64 16, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.5, i64 16, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -886,11 +886,11 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_18ArraySubscriptExprEE10_c
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.7, i64 25, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.7, i64 25, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker12checkPreStmtEPKN5clang18ArraySubscriptExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -936,11 +936,11 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_18ArraySubscriptExprEE10_
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.9, i64 26, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.9, i64 26, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker13checkPostStmtEPKN5clang18ArraySubscriptExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -986,11 +986,11 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_10CXXNewExprEE10_checkStmt
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.11, i64 17, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.11, i64 17, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker12checkPreStmtEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1036,11 +1036,11 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_10CXXNewExprEE10_checkStm
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.13, i64 18, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.13, i64 18, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker13checkPostStmtEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1086,11 +1086,11 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_13CXXDeleteExprEE10_checkS
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.15, i64 20, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.15, i64 20, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker12checkPreStmtEPKN5clang13CXXDeleteExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1136,11 +1136,11 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_13CXXDeleteExprEE10_check
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.17, i64 21, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.17, i64 21, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker13checkPostStmtEPKN5clang13CXXDeleteExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1186,11 +1186,11 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_16CXXConstructExprEE10_che
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.19, i64 23, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.19, i64 23, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker12checkPreStmtEPKN5clang16CXXConstructExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1237,11 +1237,11 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_16CXXConstructExprEE10_ch
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.21, i64 24, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.21, i64 24, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker13checkPostStmtEPKN5clang16CXXConstructExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1288,11 +1288,11 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_12OffsetOfExprEE10_checkSt
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.23, i64 19, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.23, i64 19, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker12checkPreStmtEPKN5clang12OffsetOfExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1338,11 +1338,11 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_12OffsetOfExprEE10_checkS
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.25, i64 20, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.25, i64 20, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker13checkPostStmtEPKN5clang12OffsetOfExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1392,11 +1392,11 @@ define internal void @_ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_120
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(488) ptr %8(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %11 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull %0, ptr nonnull @.str.27, i64 7, i1 noundef zeroext false) #17
+  %11 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.27, i64 7, i1 noundef zeroext false) #17
   br i1 %11, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1615,11 +1615,11 @@ define internal void @_ZN5clang4ento5check8PostCall10_checkCallIN12_GLOBAL__N_12
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(488) ptr %8(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %11 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull %0, ptr nonnull @.str.30, i64 8, i1 noundef zeroext false) #17
+  %11 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.30, i64 8, i1 noundef zeroext false) #17
   br i1 %11, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -1823,11 +1823,11 @@ define internal void @_ZN5clang4ento5check11EndFunction17_checkEndFunctionIN12_G
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val.i) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.31, i64 11, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.31, i64 11, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -2023,11 +2023,11 @@ define internal void @_ZN5clang4ento5check11EndAnalysis17_checkEndAnalysisIN12_G
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(488) ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %.val) #17
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERKN5clang15AnalyzerOptionsEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERKN5clang15AnalyzerOptionsEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERKN5clang15AnalyzerOptionsEN4llvm9StringRefE.exit.i: ; preds = %4
-  %11 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull %0, ptr nonnull @.str.39, i64 11, i1 noundef zeroext false) #17
+  %11 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.39, i64 11, i1 noundef zeroext false) #17
   br i1 %11, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERKN5clang15AnalyzerOptionsEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker16checkEndAnalysisERN5clang4ento13ExplodedGraphERNS2_11BugReporterERNS2_10ExprEngineE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERKN5clang15AnalyzerOptionsEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERKN5clang15AnalyzerOptionsEN4llvm9StringRefE.exit.i, %4
@@ -2068,11 +2068,11 @@ define internal void @_ZN5clang4ento5check12NewAllocator18_checkNewAllocatorIN12
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(488) ptr %7(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %9 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %9, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull %0, ptr nonnull @.str.41, i64 12, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.41, i64 12, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17checkNewAllocatorERKN5clang4ento16CXXAllocatorCallERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3
@@ -2113,11 +2113,11 @@ define internal void @_ZN5clang4ento5check4Bind10_checkBindIN12_GLOBAL__N_120Ana
   %10 = getelementptr inbounds i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef nonnull align 8 dereferenceable(488) ptr %11(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %13 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %12, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %13 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %12, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %13, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %7
-  %14 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %12, ptr noundef nonnull %0, ptr nonnull @.str.43, i64 4, i1 noundef zeroext false) #17
+  %14 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %12, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.43, i64 4, i1 noundef zeroext false) #17
   br i1 %14, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker9checkBindEN5clang4ento4SValES3_PKNS1_4StmtERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %7
@@ -2179,7 +2179,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 17:                                               ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 20, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
@@ -2280,7 +2280,7 @@ _ZNK4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13Dens
 
 66:                                               ; preds = %55, %36
   %.sink.i.i.i.i = phi ptr [ %56, %55 ], [ null, %36 ]
-  %67 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i), !noalias !14
+  %67 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E20InsertIntoBucketImplIS6_EEPSC_RKS6_RKT_SG_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i), !noalias !14
   %68 = load ptr, ptr %10, align 8, !noalias !14
   store ptr %68, ptr %67, align 8, !noalias !14
   br label %_ZN4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E6insertERKS6_.exit
@@ -2374,7 +2374,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef nonnull align 8 dereferenceable(488) ptr %10(ptr noundef nonnull align 8 dereferenceable(256) %.val.val.val.val) #17
-  %12 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %11, ptr noundef nonnull %1, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %12 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %11, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %12, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
@@ -2382,7 +2382,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread: ; pr
   br label %14
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
-  %13 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %11, ptr noundef nonnull %1, ptr nonnull @.str.45, i64 13, i1 noundef zeroext false) #17
+  %13 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %11, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.45, i64 13, i1 noundef zeroext false) #17
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %4) #17
   br i1 %13, label %14, label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2736,7 +2736,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !22
   %17 = tail call noundef nonnull align 8 dereferenceable(488) ptr %16(ptr noundef nonnull align 8 dereferenceable(256) %.val.val.val.val.i) #17, !noalias !22
-  %18 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %17, ptr noundef nonnull %1, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17, !noalias !22
+  %18 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %17, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17, !noalias !22
   br i1 %18, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
@@ -2744,7 +2744,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i: ; 
   br label %20
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  %19 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %17, ptr noundef nonnull %1, ptr nonnull @.str.47, i64 13, i1 noundef zeroext false) #17, !noalias !22
+  %19 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %17, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nonnull @.str.47, i64 13, i1 noundef zeroext false) #17, !noalias !22
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %10) #17, !noalias !22
   br i1 %19, label %20, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -2799,7 +2799,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef nonnull align 8 dereferenceable(488) ptr %10(ptr noundef nonnull align 8 dereferenceable(256) %.val.val.val.val.i) #17
-  %12 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %11, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %12 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %11, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %12, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
@@ -2807,7 +2807,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i: ; 
   br label %14
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  %13 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %11, ptr noundef nonnull %0, ptr nonnull @.str.49, i64 11, i1 noundef zeroext false) #17
+  %13 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %11, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.49, i64 11, i1 noundef zeroext false) #17
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %4) #17
   br i1 %13, label %14, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -2852,11 +2852,11 @@ define internal noundef zeroext i1 @_ZN5clang4ento4eval4Call9_evalCallIN12_GLOBA
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(488) ptr %8(ptr noundef nonnull align 8 dereferenceable(256) %.val.val) #17
-  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
+  %10 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.4, i64 1, i1 noundef zeroext false) #17
   br i1 %10, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i: ; preds = %3
-  %11 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull %0, ptr nonnull @.str.51, i64 8, i1 noundef zeroext false) #17
+  %11 = tail call noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.51, i64 8, i1 noundef zeroext false) #17
   br i1 %11, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i, label %_ZNK12_GLOBAL__N_120AnalysisOrderChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_120AnalysisOrderChecker17isCallbackEnabledERN5clang4ento14CheckerContextEN4llvm9StringRefE.exit.i, %3

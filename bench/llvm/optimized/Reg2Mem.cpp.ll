@@ -316,7 +316,7 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
 .lr.ph.i.i39.i:                                   ; preds = %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit._crit_edge.i, %.lr.ph.i.i39.i
   %.09.i.i.i = phi ptr [ %135, %.lr.ph.i.i39.i ], [ %134, %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit._crit_edge.i ]
   %135 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef %.09.i.i.i, i64 noundef 24) #8
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i, i64 noundef 24) #8
   %.not.i.i.i = icmp eq ptr %135, %6
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN4llvm11InstructionESaIS3_EE5clearEv.exit.i, label %.lr.ph.i.i39.i, !llvm.loop !12
 
@@ -404,7 +404,7 @@ _ZNSt7__cxx114listIPN4llvm11InstructionESaIS3_EE5clearEv.exit.i: ; preds = %.lr.
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge109.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %164, %.lr.ph.i.i.i.i ], [ %163, %._crit_edge109.i ]
   %164 = load ptr, ptr %.09.i.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef %.09.i.i.i.i, i64 noundef 24) #8
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i.i, i64 noundef 24) #8
   %.not.i.i.i43.i = icmp eq ptr %164, %6
   br i1 %.not.i.i.i43.i, label %_ZL7runPassRN4llvm8FunctionE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
@@ -561,7 +561,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit: ; preds = %20, %8,
   br label %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit
 
 48:                                               ; preds = %36
-  %49 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE) #6
+  %49 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE) #6
   %.not.i.i.i = icmp eq ptr %49, null
   %.pre.i.i = load ptr, ptr %33, align 8
   %.pre4.i.i = load ptr, ptr %0, align 8

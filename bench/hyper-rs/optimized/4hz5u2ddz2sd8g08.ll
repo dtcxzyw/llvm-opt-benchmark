@@ -48,7 +48,7 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
   %19 = getelementptr inbounds i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
   %21 = sub i64 %18, %20
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %21)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %8, i64 %21)
   %22 = load ptr, ptr %10, align 8, !noundef !4
   %23 = add i64 %.0.sroa.speculated.i, %20
   %24 = load ptr, ptr %2, align 8, !noalias !13, !nonnull !4, !align !16, !noundef !4

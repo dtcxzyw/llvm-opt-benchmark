@@ -1022,7 +1022,7 @@ _ZN2cv4Mat_ItEC2ENS_5Size_IiEERKt.exit:           ; preds = %9
   br i1 %exitcond.not.i.i, label %64, label %61, !llvm.loop !35
 
 64:                                               ; preds = %61
-  %65 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %16, i64 noundef 16, i32 noundef 4, ptr noundef nonnull %17, i64 noundef 16, i32 noundef 4), !noalias !32
+  %65 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %16, i64 noundef 16, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(64) %17, i64 noundef 16, i32 noundef 4), !noalias !32
   %.not216 = icmp eq i32 %65, 0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16), !noalias !32
   br i1 %.not216, label %67, label %66
@@ -1153,7 +1153,7 @@ _ZN2cvmlIfLi4ELi4ELi4EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br i1 %exitcond.not.i.i158, label %104, label %101, !llvm.loop !35
 
 104:                                              ; preds = %101
-  %105 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %14, i64 noundef 16, i32 noundef 4, ptr noundef nonnull %15, i64 noundef 16, i32 noundef 4), !noalias !49
+  %105 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %14, i64 noundef 16, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(64) %15, i64 noundef 16, i32 noundef 4), !noalias !49
   %.not215 = icmp eq i32 %105, 0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14), !noalias !49
   br i1 %.not215, label %107, label %106
@@ -1823,7 +1823,7 @@ _ZN2cv4Mat_IfEC2ENS_5Size_IiEERKf.exit:           ; preds = %9
   br i1 %exitcond.not.i.i, label %65, label %62, !llvm.loop !35
 
 65:                                               ; preds = %62
-  %66 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %16, i64 noundef 16, i32 noundef 4, ptr noundef nonnull %17, i64 noundef 16, i32 noundef 4), !noalias !75
+  %66 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %16, i64 noundef 16, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(64) %17, i64 noundef 16, i32 noundef 4), !noalias !75
   %.not217 = icmp eq i32 %66, 0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16), !noalias !75
   br i1 %.not217, label %68, label %67
@@ -1954,7 +1954,7 @@ _ZN2cvmlIfLi4ELi4ELi4EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br i1 %exitcond.not.i.i158, label %105, label %102, !llvm.loop !35
 
 105:                                              ; preds = %102
-  %106 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %14, i64 noundef 16, i32 noundef 4, ptr noundef nonnull %15, i64 noundef 16, i32 noundef 4), !noalias !88
+  %106 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %14, i64 noundef 16, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(64) %15, i64 noundef 16, i32 noundef 4), !noalias !88
   %.not216 = icmp eq i32 %106, 0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14), !noalias !88
   br i1 %.not216, label %108, label %107
@@ -2618,7 +2618,7 @@ _ZN2cv4Mat_IdEC2ENS_5Size_IiEERKd.exit:           ; preds = %9
   br i1 %exitcond.not.i.i, label %65, label %62, !llvm.loop !35
 
 65:                                               ; preds = %62
-  %66 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %16, i64 noundef 16, i32 noundef 4, ptr noundef nonnull %17, i64 noundef 16, i32 noundef 4), !noalias !113
+  %66 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %16, i64 noundef 16, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(64) %17, i64 noundef 16, i32 noundef 4), !noalias !113
   %.not217 = icmp eq i32 %66, 0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16), !noalias !113
   br i1 %.not217, label %68, label %67
@@ -2749,7 +2749,7 @@ _ZN2cvmlIfLi4ELi4ELi4EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br i1 %exitcond.not.i.i158, label %105, label %102, !llvm.loop !35
 
 105:                                              ; preds = %102
-  %106 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %14, i64 noundef 16, i32 noundef 4, ptr noundef nonnull %15, i64 noundef 16, i32 noundef 4), !noalias !126
+  %106 = call noundef i32 @_ZN2cv2LUEPfmiS0_mi(ptr noundef nonnull %14, i64 noundef 16, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(64) %15, i64 noundef 16, i32 noundef 4), !noalias !126
   %.not216 = icmp eq i32 %106, 0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14), !noalias !126
   br i1 %.not216, label %108, label %107

@@ -209,7 +209,7 @@ vec_uint_alloc.exit:                              ; preds = %skip_line.exit27, %
 
 87:                                               ; preds = %85
   store i32 0, ptr %20, align 4
-  %88 = call fastcc i32 @read_int(ptr noundef %3)
+  %88 = call fastcc i32 @read_int(ptr noundef nonnull %3)
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %read_clause.exit, label %.lr.ph.i29
 

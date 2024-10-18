@@ -3439,13 +3439,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %38 = phi ptr [ %.pre71, %for.end.loopexit ], [ %.pre72, %if.end ]
   %39 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %if.end ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %comps, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %comps, i64 16, i1 false)
   %40 = load ptr, ptr %_M_first3.i.i, align 8
   %41 = load ptr, ptr %_M_first3.i.i9, align 8
   %42 = load ptr, ptr %_M_last4.i.i11, align 8
   %43 = load ptr, ptr %_M_node5.i.i13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %comps, ptr noundef nonnull align 8 dereferenceable(80) %out, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %out, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %out, i64 16
   store ptr %39, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %out, i64 24
@@ -4011,7 +4011,7 @@ if.else.i.i.i.thread:                             ; preds = %if.then.thread
   br label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_copy_proxyISD_PSA_EEEEvSI_mT_.exit.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.thread, %if.then
-  call void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull %value)
+  call void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14, i64 noundef 1, ptr nonnull align 8 dereferenceable(16) %value)
   %.pre = load ptr, ptr %agg.tmp12, align 8
   br label %return
 
@@ -4078,7 +4078,7 @@ if.else.i.i.i.i.i:
   store i64 0, ptr %m_size.i.i.i.i.i.i.i, align 8
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
           to label %invoke.cont4 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %if.else.i.i.i.i.i
@@ -5742,13 +5742,13 @@ invoke.cont4:
   %ref.tmp28 = alloca %"struct.std::pair.214", align 8
   %ref.tmp82 = alloca %"struct.std::pair.214", align 8
   %agg.tmp.sroa.0.0.copyload.i.fr.i.i.i.i.i.i.i = freeze ptr %u.coerce0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ei, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %ei, i8 0, i64 16, i1 false)
   %in_it.i.i.i = getelementptr inbounds i8, ptr %ei, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %in_it.i.i.i, i8 0, i64 17, i1 false)
   %m_vertex_pred.i.i = getelementptr inbounds i8, ptr %ei, i64 56
   store ptr null, ptr %m_vertex_pred.i.i, align 8
   %m_end.i = getelementptr inbounds i8, ptr %ei, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_end.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i, i8 0, i64 16, i1 false)
   %in_it.i.i = getelementptr inbounds i8, ptr %ei, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %in_it.i.i, i8 0, i64 17, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ei_end.sroa.0, i8 0, i64 16, i1 false)
@@ -5853,7 +5853,7 @@ lpad2.loopexit.split-lp:                          ; preds = %invoke.cont6, %if.t
   br label %ehcleanup142
 
 invoke.cont36:                                    ; preds = %invoke.cont6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ei, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %ei, ptr noundef nonnull align 8 dereferenceable(240) %ref.tmp7, i64 24, i1 false)
   %in_it3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
   %10 = load ptr, ptr %in_it3.i.i.i.i, align 8
   store ptr %10, ptr %in_it.i.i.i, align 8
@@ -5870,7 +5870,7 @@ invoke.cont36:                                    ; preds = %invoke.cont6
   %m_predicate2.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate2.i.i, i64 24, i1 false)
   %m_end3.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i, ptr noundef nonnull align 8 dereferenceable(24) %m_end3.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i, ptr noundef nonnull align 8 dereferenceable(41) %m_end3.i.i, i64 24, i1 false)
   %in_it3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 96
   %13 = load ptr, ptr %in_it3.i.i.i, align 8
   store ptr %13, ptr %in_it.i.i, align 8
@@ -5960,7 +5960,7 @@ invoke.cont36:                                    ; preds = %invoke.cont6
   br i1 %cmp.not.i.i209, label %if.else.i.i259, label %if.then.i.i210
 
 if.then.i.i210:                                   ; preds = %invoke.cont36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %22, ptr noundef nonnull align 8 dereferenceable(296) %ref.tmp28, i64 16, i1 false)
   %second.i.i.i.i.i211 = getelementptr inbounds i8, ptr %22, i64 16
   store i8 0, ptr %second.i.i.i.i.i211, align 8
   %24 = load i8, ptr %second.i.i161, align 8
@@ -5976,7 +5976,7 @@ invoke.cont.i.i.i.i.i.i.i.i256:                   ; preds = %if.then.i.i210
 
 _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS1_17undirected_detail32undirected_graph_edge_descriptorIS5_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINSA_8keep_allENS1_17bad_vertex_filterISt13unordered_setIS9_St4hashIS9_ESt8equal_toIS9_ESaIS9_EEEENSA_14filtered_graphINS1_16undirected_graphIS5_RKS5_EESK_ST_EEEENSY_17adj_edge_iteratorILb0EEEEES13_EEEEE9constructIS16_JS16_EEEvRS17_PT_DpOT0_.exit.i.i214: ; preds = %invoke.cont.i.i.i.i.i.i.i.i256, %if.then.i.i210
   %second.i.i.i.i.i.i215 = getelementptr inbounds i8, ptr %22, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i215, ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i163, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %second.i.i.i.i.i.i215, ptr noundef nonnull align 8 dereferenceable(240) %second.i.i.i163, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i.i.i.i217 = getelementptr inbounds i8, ptr %22, i64 80
   %25 = load ptr, ptr %in_it.i.i.i.i.i.i.i165, align 8
   store ptr %25, ptr %in_it.i.i.i.i.i.i.i.i.i.i217, align 8
@@ -5990,7 +5990,7 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   %m_predicate.i.i.i.i.i.i.i.i224 = getelementptr inbounds i8, ptr %22, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i.i.i.i.i.i.i224, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i.i.i.i172, i64 24, i1 false)
   %m_end.i.i.i.i.i.i.i.i226 = getelementptr inbounds i8, ptr %22, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i.i.i.i.i.i.i.i226, ptr noundef nonnull align 8 dereferenceable(24) %m_end.i.i.i.i.i174, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i.i.i.i.i.i.i.i226, ptr noundef nonnull align 8 dereferenceable(41) %m_end.i.i.i.i.i174, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i.i.i228 = getelementptr inbounds i8, ptr %22, i64 152
   %28 = load ptr, ptr %in_it.i.i.i.i.i.i176, align 8
   store ptr %28, ptr %in_it.i.i.i.i.i.i.i.i.i228, align 8
@@ -6002,7 +6002,7 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   %frombool.i.i.i.i.i.i.i.i.i234 = and i8 %30, 1
   store i8 %frombool.i.i.i.i.i.i.i.i.i234, ptr %done_in.i.i.i.i.i.i.i.i.i232, align 8
   %second.i.i.i.i.i.i.i235 = getelementptr inbounds i8, ptr %22, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i235, ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i183, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %second.i.i.i.i.i.i.i235, ptr noundef nonnull align 8 dereferenceable(120) %second.i.i.i.i183, i64 24, i1 false)
   %in_it.i.i.i2.i.i.i.i.i.i.i237 = getelementptr inbounds i8, ptr %22, i64 200
   %31 = load ptr, ptr %in_it.i.i.i2.i.i.i.i185, align 8
   store ptr %31, ptr %in_it.i.i.i2.i.i.i.i.i.i.i237, align 8
@@ -6016,7 +6016,7 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   %m_predicate.i9.i.i.i.i.i.i.i244 = getelementptr inbounds i8, ptr %22, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i9.i.i.i.i.i.i.i244, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i9.i.i.i.i192, i64 24, i1 false)
   %m_end.i11.i.i.i.i.i.i.i246 = getelementptr inbounds i8, ptr %22, i64 248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i11.i.i.i.i.i.i.i246, ptr noundef nonnull align 8 dereferenceable(24) %m_end.i11.i.i.i.i194, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i11.i.i.i.i.i.i.i246, ptr noundef nonnull align 8 dereferenceable(41) %m_end.i11.i.i.i.i194, i64 24, i1 false)
   %in_it.i.i13.i.i.i.i.i.i.i248 = getelementptr inbounds i8, ptr %22, i64 272
   %34 = load ptr, ptr %in_it.i.i13.i.i.i.i196, align 8
   store ptr %34, ptr %in_it.i.i13.i.i.i.i.i.i.i248, align 8
@@ -6140,7 +6140,7 @@ if.then7.i.i.i:                                   ; preds = %if.else5.i.i.i
 invoke.cont51:                                    ; preds = %if.then.i.i.i285, %if.then7.i.i.i, %if.else5.i.i.i
   %src_e.sroa.0.5 = phi i8 [ 1, %if.then7.i.i.i ], [ %src_e.sroa.0.21127, %if.else5.i.i.i ], [ %spec.select, %if.then.i.i.i285 ]
   %second48 = getelementptr inbounds i8, ptr %43, i64 -240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ei, ptr noundef nonnull align 8 dereferenceable(24) %second48, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %ei, ptr noundef nonnull align 8 dereferenceable(240) %second48, i64 24, i1 false)
   %in_it3.i.i.i.i289 = getelementptr inbounds i8, ptr %43, i64 -216
   %45 = load ptr, ptr %in_it3.i.i.i.i289, align 8
   store ptr %45, ptr %in_it.i.i.i, align 8
@@ -6154,7 +6154,7 @@ invoke.cont51:                                    ; preds = %if.then.i.i.i285, %
   %m_predicate2.i.i296 = getelementptr inbounds i8, ptr %43, i64 -192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate2.i.i296, i64 24, i1 false)
   %m_end3.i.i298 = getelementptr inbounds i8, ptr %43, i64 -168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i, ptr noundef nonnull align 8 dereferenceable(24) %m_end3.i.i298, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i, ptr noundef nonnull align 8 dereferenceable(41) %m_end3.i.i298, i64 24, i1 false)
   %in_it3.i.i.i300 = getelementptr inbounds i8, ptr %43, i64 -144
   %48 = load ptr, ptr %in_it3.i.i.i300, align 8
   store ptr %48, ptr %in_it.i.i, align 8
@@ -6420,7 +6420,7 @@ invoke.cont90:                                    ; preds = %.noexc388
   br i1 %cmp.not.i.i518, label %if.else.i.i568, label %if.then.i.i519
 
 if.then.i.i519:                                   ; preds = %invoke.cont90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp82, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %87, ptr noundef nonnull align 8 dereferenceable(296) %ref.tmp82, i64 16, i1 false)
   %second.i.i.i.i.i520 = getelementptr inbounds i8, ptr %87, i64 16
   store i8 0, ptr %second.i.i.i.i.i520, align 8
   %89 = load i8, ptr %second.i.i470, align 8
@@ -6435,7 +6435,7 @@ invoke.cont.i.i.i.i.i.i.i.i565:                   ; preds = %if.then.i.i519
 
 _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS1_17undirected_detail32undirected_graph_edge_descriptorIS5_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINSA_8keep_allENS1_17bad_vertex_filterISt13unordered_setIS9_St4hashIS9_ESt8equal_toIS9_ESaIS9_EEEENSA_14filtered_graphINS1_16undirected_graphIS5_RKS5_EESK_ST_EEEENSY_17adj_edge_iteratorILb0EEEEES13_EEEEE9constructIS16_JS16_EEEvRS17_PT_DpOT0_.exit.i.i523: ; preds = %invoke.cont.i.i.i.i.i.i.i.i565, %if.then.i.i519
   %second.i.i.i.i.i.i524 = getelementptr inbounds i8, ptr %87, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i524, ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i472, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %second.i.i.i.i.i.i524, ptr noundef nonnull align 8 dereferenceable(240) %second.i.i.i472, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i.i.i.i526 = getelementptr inbounds i8, ptr %87, i64 80
   %90 = load ptr, ptr %in_it.i.i.i.i.i.i.i474, align 8
   store ptr %90, ptr %in_it.i.i.i.i.i.i.i.i.i.i526, align 8
@@ -6449,7 +6449,7 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   %m_predicate.i.i.i.i.i.i.i.i533 = getelementptr inbounds i8, ptr %87, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i.i.i.i.i.i.i533, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i.i.i.i481, i64 24, i1 false)
   %m_end.i.i.i.i.i.i.i.i535 = getelementptr inbounds i8, ptr %87, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i.i.i.i.i.i.i.i535, ptr noundef nonnull align 8 dereferenceable(24) %m_end.i.i.i.i.i483, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i.i.i.i.i.i.i.i535, ptr noundef nonnull align 8 dereferenceable(41) %m_end.i.i.i.i.i483, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i.i.i537 = getelementptr inbounds i8, ptr %87, i64 152
   %93 = load ptr, ptr %in_it.i.i.i.i.i.i485, align 8
   store ptr %93, ptr %in_it.i.i.i.i.i.i.i.i.i537, align 8
@@ -6461,7 +6461,7 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   %frombool.i.i.i.i.i.i.i.i.i543 = and i8 %95, 1
   store i8 %frombool.i.i.i.i.i.i.i.i.i543, ptr %done_in.i.i.i.i.i.i.i.i.i541, align 8
   %second.i.i.i.i.i.i.i544 = getelementptr inbounds i8, ptr %87, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i544, ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i492, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %second.i.i.i.i.i.i.i544, ptr noundef nonnull align 8 dereferenceable(120) %second.i.i.i.i492, i64 24, i1 false)
   %in_it.i.i.i2.i.i.i.i.i.i.i546 = getelementptr inbounds i8, ptr %87, i64 200
   %96 = load ptr, ptr %in_it.i.i.i2.i.i.i.i494, align 8
   store ptr %96, ptr %in_it.i.i.i2.i.i.i.i.i.i.i546, align 8
@@ -6475,7 +6475,7 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   %m_predicate.i9.i.i.i.i.i.i.i553 = getelementptr inbounds i8, ptr %87, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i9.i.i.i.i.i.i.i553, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i9.i.i.i.i501, i64 24, i1 false)
   %m_end.i11.i.i.i.i.i.i.i555 = getelementptr inbounds i8, ptr %87, i64 248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i11.i.i.i.i.i.i.i555, ptr noundef nonnull align 8 dereferenceable(24) %m_end.i11.i.i.i.i503, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i11.i.i.i.i.i.i.i555, ptr noundef nonnull align 8 dereferenceable(41) %m_end.i11.i.i.i.i503, i64 24, i1 false)
   %in_it.i.i13.i.i.i.i.i.i.i557 = getelementptr inbounds i8, ptr %87, i64 272
   %99 = load ptr, ptr %in_it.i.i13.i.i.i.i505, align 8
   store ptr %99, ptr %in_it.i.i13.i.i.i.i.i.i.i557, align 8
@@ -7277,7 +7277,7 @@ _ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHol
   store i8 1, ptr %done_in.i.i47, align 8
   call void @_ZN5boost9iterators15filter_iteratorINS_6detail18out_edge_predicateINS_8keep_allEN3ue217bad_vertex_filterISt13unordered_setINS5_12graph_detail17vertex_descriptorINS5_9ue2_graphINS5_8NGHolderENS5_19NFAGraphVertexPropsENS5_17NFAGraphEdgePropsEEEEESt4hashISF_ESt8equal_toISF_ESaISF_EEEENS_14filtered_graphINS5_16undirected_graphISB_RKSB_EES4_SM_EEEENSR_17adj_edge_iteratorILb0EEEE17satisfy_predicateEv(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp7)
   call void @llvm.experimental.noalias.scope.decl(metadata !476)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp3, i64 24, i1 false)
   %in_it.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %10 = load ptr, ptr %in_it.i.i.i, align 8, !noalias !476
   store ptr %10, ptr %in_it.i.i.i.i.i, align 8, !alias.scope !476
@@ -7291,7 +7291,7 @@ _ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHol
   %m_predicate.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i, i64 24, i1 false)
   %m_end.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_end.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %m_end.i, i64 24, i1 false)
   %in_it.i.i.i.i50 = getelementptr inbounds i8, ptr %agg.result, i64 96
   %13 = load ptr, ptr %in_it.i.i13, align 8, !noalias !476
   store ptr %13, ptr %in_it.i.i.i.i50, align 8, !alias.scope !476
@@ -7303,7 +7303,7 @@ _ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHol
   %frombool.i.i.i.i = and i8 %15, 1
   store i8 %frombool.i.i.i.i, ptr %done_in.i.i.i.i52, align 8, !alias.scope !476
   %second.i.i = getelementptr inbounds i8, ptr %agg.result, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %second.i.i, ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp7, i64 24, i1 false)
   %in_it.i.i.i1.i.i = getelementptr inbounds i8, ptr %agg.result, i64 144
   %16 = load ptr, ptr %in_it.i.i.i34, align 8, !noalias !476
   store ptr %16, ptr %in_it.i.i.i1.i.i, align 8, !alias.scope !476
@@ -7317,7 +7317,7 @@ _ZN3ue29out_edgesERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHol
   %m_predicate.i8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i41, i64 24, i1 false)
   %m_end.i10.i.i = getelementptr inbounds i8, ptr %agg.result, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_end.i42, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i10.i.i, ptr noundef nonnull align 8 dereferenceable(41) %m_end.i42, i64 24, i1 false)
   %in_it.i.i12.i.i = getelementptr inbounds i8, ptr %agg.result, i64 216
   %19 = load ptr, ptr %in_it.i.i43, align 8, !noalias !476
   store ptr %19, ptr %in_it.i.i12.i.i, align 8, !alias.scope !476
@@ -7380,7 +7380,7 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   store i32 0, ptr %second.i.i.i.i.i.i.i, align 8
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESt10_Select1stISB_ESt4lessIS8_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERSA_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i)
@@ -8150,7 +8150,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt4pa
 _ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS1_17undirected_detail32undirected_graph_edge_descriptorIS5_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINSA_8keep_allENS1_17bad_vertex_filterISt13unordered_setIS9_St4hashIS9_ESt8equal_toIS9_ESaIS9_EEEENSA_14filtered_graphINS1_16undirected_graphIS5_RKS5_EESK_ST_EEEENSY_17adj_edge_iteratorILb0EEEEES13_EEESaIS16_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS1_17undirected_detail32undirected_graph_edge_descriptorIS5_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINSA_8keep_allENS1_17bad_vertex_filterISt13unordered_setIS9_St4hashIS9_ESt8equal_toIS9_ESaIS9_EEEENSA_14filtered_graphINS1_16undirected_graphIS5_RKS5_EESK_ST_EEEENSY_17adj_edge_iteratorILb0EEEEES13_EEESaIS16_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS1_17undirected_detail32undirected_graph_edge_descriptorIS5_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINSA_8keep_allENS1_17bad_vertex_filterISt13unordered_setIS9_St4hashIS9_ESt8equal_toIS9_ESaIS9_EEEENSA_14filtered_graphINS1_16undirected_graphIS5_RKS5_EESK_ST_EEEENSY_17adj_edge_iteratorILb0EEEEES13_EEESaIS16_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.std::pair.214", ptr %cond.i19, i64 %sub.ptr.div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %add.ptr, ptr noundef nonnull align 8 dereferenceable(296) %__args, i64 16, i1 false)
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %second3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   store i8 0, ptr %second.i.i.i, align 8
@@ -8168,7 +8168,7 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
 invoke.cont:                                      ; preds = %invoke.cont.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS1_17undirected_detail32undirected_graph_edge_descriptorIS5_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINSA_8keep_allENS1_17bad_vertex_filterISt13unordered_setIS9_St4hashIS9_ESt8equal_toIS9_ESaIS9_EEEENSA_14filtered_graphINS1_16undirected_graphIS5_RKS5_EESK_ST_EEEENSY_17adj_edge_iteratorILb0EEEEES13_EEESaIS16_EE11_M_allocateEm.exit
   %second.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %second3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %second3.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %second.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(240) %second3.i.i.i.i, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 80
   %in_it3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 80
   %4 = load ptr, ptr %in_it3.i.i.i.i.i.i.i.i, align 8
@@ -8187,7 +8187,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate2.i.i.i.i.i.i, i64 24, i1 false)
   %m_end.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 128
   %m_end3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_end3.i.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %m_end3.i.i.i.i.i.i, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 152
   %in_it3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 152
   %7 = load ptr, ptr %in_it3.i.i.i.i.i.i.i, align 8
@@ -8203,7 +8203,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i.i.i
   store i8 %frombool.i.i.i.i.i.i.i, ptr %done_in.i.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 176
   %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %second3.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %second3.i.i.i.i.i, i64 24, i1 false)
   %in_it.i.i.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 200
   %in_it3.i.i.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 200
   %10 = load ptr, ptr %in_it3.i.i.i3.i.i.i.i.i, align 8
@@ -8222,7 +8222,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i9.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate2.i10.i.i.i.i.i, i64 24, i1 false)
   %m_end.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 248
   %m_end3.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i11.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_end3.i12.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i11.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %m_end3.i12.i.i.i.i.i, i64 24, i1 false)
   %in_it.i.i13.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 272
   %in_it3.i.i14.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 272
   %13 = load ptr, ptr %in_it3.i.i14.i.i.i.i.i, align 8
@@ -8242,7 +8242,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i.i.i
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.inc.i.i.i.i.i
   %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i19, %invoke.cont ]
   %__first.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.09.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(296) %__first.addr.09.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 16
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i, align 8
@@ -8260,7 +8260,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 56
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %second3.i.i.i.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(240) %second3.i.i.i.i.i.i.i.i, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 80
   %in_it3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 80
   %17 = load ptr, ptr %in_it3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -8279,7 +8279,7 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate2.i.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
   %m_end.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 128
   %m_end3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_end3.i.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %m_end3.i.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 152
   %in_it3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 152
   %20 = load ptr, ptr %in_it3.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -8295,7 +8295,7 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i
   store i8 %frombool.i.i.i.i.i.i.i.i.i.i.i, ptr %done_in.i.i.i.i.i.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 176
   %second3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %second3.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %second.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %second3.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
   %in_it.i.i.i2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 200
   %in_it3.i.i.i3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 200
   %23 = load ptr, ptr %in_it3.i.i.i3.i.i.i.i.i.i.i.i.i, align 8
@@ -8314,7 +8314,7 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i9.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate2.i10.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
   %m_end.i11.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 248
   %m_end3.i12.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i11.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_end3.i12.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i11.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %m_end3.i12.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
   %in_it.i.i13.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 272
   %in_it3.i.i14.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 272
   %26 = load ptr, ptr %in_it3.i.i14.i.i.i.i.i.i.i.i.i, align 8
@@ -8342,7 +8342,7 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i27
   %__cur.010.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i69, %for.inc.i.i.i.i.i27 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.09.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i68, %for.inc.i.i.i.i.i27 ], [ %__position.coerce, %invoke.cont10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.09.i.i.i.i.i23, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %__cur.010.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(296) %__first.addr.09.i.i.i.i.i23, i64 16, i1 false)
   %second.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 16
   %second3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 16
   store i8 0, ptr %second.i.i.i.i.i.i.i24, align 8
@@ -8360,7 +8360,7 @@ if.then.i.i.i.i.i.i.i.i.i.i72:                    ; preds = %for.body.i.i.i.i.i2
 for.inc.i.i.i.i.i27:                              ; preds = %if.then.i.i.i.i.i.i.i.i.i.i72, %for.body.i.i.i.i.i21
   %second.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 56
   %second3.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(24) %second3.i.i.i.i.i.i.i.i29, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %second.i.i.i.i.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(240) %second3.i.i.i.i.i.i.i.i29, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 80
   %in_it3.i.i.i.i.i.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 80
   %30 = load ptr, ptr %in_it3.i.i.i.i.i.i.i.i.i.i.i.i31, align 8
@@ -8379,7 +8379,7 @@ for.inc.i.i.i.i.i27:                              ; preds = %if.then.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i.i.i.i.i.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate2.i.i.i.i.i.i.i.i.i.i38, i64 24, i1 false)
   %m_end.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 128
   %m_end3.i.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i.i.i.i.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(24) %m_end3.i.i.i.i.i.i.i.i.i.i40, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i.i.i.i.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(41) %m_end3.i.i.i.i.i.i.i.i.i.i40, i64 24, i1 false)
   %in_it.i.i.i.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 152
   %in_it3.i.i.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 152
   %33 = load ptr, ptr %in_it3.i.i.i.i.i.i.i.i.i.i.i42, align 8
@@ -8395,7 +8395,7 @@ for.inc.i.i.i.i.i27:                              ; preds = %if.then.i.i.i.i.i.i
   store i8 %frombool.i.i.i.i.i.i.i.i.i.i.i47, ptr %done_in.i.i.i.i.i.i.i.i.i.i.i45, align 8
   %second.i.i.i.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 176
   %second3.i.i.i.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(24) %second3.i.i.i.i.i.i.i.i.i49, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %second.i.i.i.i.i.i.i.i.i48, ptr noundef nonnull align 8 dereferenceable(120) %second3.i.i.i.i.i.i.i.i.i49, i64 24, i1 false)
   %in_it.i.i.i2.i.i.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 200
   %in_it3.i.i.i3.i.i.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 200
   %36 = load ptr, ptr %in_it3.i.i.i3.i.i.i.i.i.i.i.i.i51, align 8
@@ -8414,7 +8414,7 @@ for.inc.i.i.i.i.i27:                              ; preds = %if.then.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_predicate.i9.i.i.i.i.i.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(24) %m_predicate2.i10.i.i.i.i.i.i.i.i.i58, i64 24, i1 false)
   %m_end.i11.i.i.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 248
   %m_end3.i12.i.i.i.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_end.i11.i.i.i.i.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(24) %m_end3.i12.i.i.i.i.i.i.i.i.i60, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %m_end.i11.i.i.i.i.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(41) %m_end3.i12.i.i.i.i.i.i.i.i.i60, i64 24, i1 false)
   %in_it.i.i13.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 272
   %in_it3.i.i14.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 272
   %39 = load ptr, ptr %in_it3.i.i14.i.i.i.i.i.i.i.i.i62, align 8

@@ -329,10 +329,10 @@ _ZN4node5Realm10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %entry, %i
   %isolate_.i = getelementptr inbounds i8, ptr %10, i64 88
   %11 = load ptr, ptr %isolate_.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21, !noalias !5
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i, ptr noundef nonnull %retval.0.i, ptr %target.coerce) #20, !noalias !5
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(57) %call.i.i, ptr noundef nonnull align 8 dereferenceable(872) %retval.0.i, ptr %target.coerce) #20, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i64 16), ptr %call.i.i, align 8, !noalias !5
   %parser_buffer.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %parser_buffer.i.i.i) #20, !noalias !5
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %parser_buffer.i.i.i) #20, !noalias !5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %parser_buffer.i.i.i, i8 0, i64 25, i1 false), !noalias !5
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i) #20, !noalias !5
   %call.i.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i) #20, !noalias !5
@@ -1670,7 +1670,7 @@ _ZN4node5Realm14GetBindingDataINS_12_GLOBAL__N_111BindingDataEEEPT_RKN2v820Funct
   %16 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %16, i64 176
   %17 = load ptr, ptr %env_.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(56) %call1, ptr noundef %17, ptr nonnull %add.ptr.i) #20
+  tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(1848) %call1, ptr noundef %17, ptr nonnull %add.ptr.i) #20
   %18 = getelementptr inbounds i8, ptr %call1, i64 56
   %stream_.i.i = getelementptr inbounds i8, ptr %call1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i, i8 0, i64 16, i1 false)
@@ -3337,7 +3337,7 @@ _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %en
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 -8
   %13 = getelementptr i8, ptr %retval.0.i, i64 2728
   %call7.val = load ptr, ptr %13, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %call7.val, ptr nonnull %add.ptr.i) #20
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(128) %call8, ptr noundef %call7.val, ptr nonnull %add.ptr.i) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i64 16), ptr %call8, align 8
   %14 = getelementptr inbounds i8, ptr %call8, i64 40
   store i32 0, ptr %14, align 8
@@ -3359,7 +3359,7 @@ _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %en
   store ptr %15, ptr %_M_right.i.i.i.i.i3.i, align 8
   %_M_node_count.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %call8, i64 120
   store i64 0, ptr %_M_node_count.i.i.i.i.i4.i, align 8
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call8) #20
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(128) %call8) #20
   ret void
 }
 
@@ -4434,7 +4434,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %parser_buffer) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %parser_buffer) #20
   tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
   ret void
 }
@@ -4453,8 +4453,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN4node12_GLOBAL__N_111BindingDataD2Ev.exit
 
 _ZN4node12_GLOBAL__N_111BindingDataD2Ev.exit:     ; preds = %entry, %if.then.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %parser_buffer.i) #20
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %parser_buffer.i) #20
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
@@ -5490,7 +5490,7 @@ define internal void @_ZThn56_N4node12_GLOBAL__N_16ParserD0Ev(ptr noundef %this)
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node12_GLOBAL__N_16ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(1848) %0) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1848) %0) #23
   ret void
 }
 
@@ -6339,7 +6339,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %_ZN4node23ArrayBufferViewContentsIcLm64EE4ReadEN2v85LocalINS2_15ArrayBufferViewEEE.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call18.i = tail call noundef i64 @_ZN2v815ArrayBufferView12CopyContentsEPvm(ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce, ptr noundef nonnull %this, i64 noundef 64) #20
+  %call18.i = tail call noundef i64 @_ZN2v815ArrayBufferView12CopyContentsEPvm(ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce, ptr noundef nonnull align 8 dereferenceable(81) %this, i64 noundef 64) #20
   br label %_ZN4node23ArrayBufferViewContentsIcLm64EE4ReadEN2v85LocalINS2_15ArrayBufferViewEEE.exit
 
 _ZN4node23ArrayBufferViewContentsIcLm64EE4ReadEN2v85LocalINS2_15ArrayBufferViewEEE.exit: ; preds = %if.then.i, %if.else.i
@@ -6464,10 +6464,10 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %all_connections_.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i.i, ptr nonnull %1)
+  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i.i, ptr nonnull align 8 dereferenceable(1848) %1)
   %3 = load ptr, ptr %connectionsList_.i, align 8
   %active_connections_.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i.i, ptr nonnull %1)
+  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i.i, ptr nonnull align 8 dereferenceable(1848) %1)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -6530,10 +6530,10 @@ _ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit10.i: ; preds = %delete.end.i9.i, %
 
 if.then6.i:                                       ; preds = %_ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit10.i
   %all_connections_.i11.i = getelementptr inbounds i8, ptr %8, i64 32
-  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i11.i, ptr nonnull %1)
+  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i11.i, ptr nonnull align 8 dereferenceable(1848) %1)
   %9 = load ptr, ptr %connectionsList_.i, align 8
   %active_connections_.i12.i = getelementptr inbounds i8, ptr %9, i64 80
-  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i12.i, ptr nonnull %1)
+  tail call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i12.i, ptr nonnull align 8 dereferenceable(1848) %1)
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then6.i, %_ZN4node12_GLOBAL__N_19StringPtr5ResetEv.exit10.i
@@ -6585,7 +6585,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i: ; preds = %if.then.i.i,
   br i1 %call33.i, label %if.then34.i, label %_ZN4node12_GLOBAL__N_16Parser16on_message_beginEv.exit
 
 if.then34.i:                                      ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i
-  call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i, ptr noundef nonnull %1, i32 noundef 2) #20
+  call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i, ptr noundef nonnull align 8 dereferenceable(1848) %1, i32 noundef 2) #20
   %20 = load ptr, ptr %realm_.i.i.i, align 8
   %env_.i.i14.i = getelementptr inbounds i8, ptr %20, i64 176
   %21 = load ptr, ptr %env_.i.i14.i, align 8
@@ -7366,7 +7366,7 @@ if.end111.i:                                      ; preds = %_ZNK4node12_GLOBAL_
   %retval.i369.sroa.0.0.i = inttoptr i64 %retval.i369.sroa.0.0.in.i to ptr
   %arrayidx169.i = getelementptr inbounds i8, ptr %argv.i, i64 56
   store ptr %retval.i369.sroa.0.0.i, ptr %arrayidx169.i, align 8
-  call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i, ptr noundef nonnull %1, i32 noundef 2) #20
+  call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i, ptr noundef nonnull align 8 dereferenceable(1848) %1, i32 noundef 2) #20
   %52 = load ptr, ptr %realm_.i.i.i, align 8
   %env_.i.i52.i = getelementptr inbounds i8, ptr %52, i64 176
   %53 = load ptr, ptr %env_.i.i52.i, align 8
@@ -7531,7 +7531,7 @@ if.then.i73.i:                                    ; preds = %if.end27.i
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit.i: ; preds = %if.then.i73.i, %if.end27.i
   store ptr %call30.i, ptr %buffer.i, align 8
-  %call50.i = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nonnull %call15.i, i32 noundef 1, ptr noundef nonnull %buffer.i) #20
+  %call50.i = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1848) %1, ptr nonnull %call15.i, i32 noundef 1, ptr noundef nonnull %buffer.i) #20
   %cmp.i.i89.i = icmp eq ptr %call50.i, null
   br i1 %cmp.i.i89.i, label %_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit, label %_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit.thread8
 
@@ -7597,10 +7597,10 @@ if.end.thread.i:                                  ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %all_connections_.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i.i, ptr nonnull %1)
+  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i.i, ptr nonnull align 8 dereferenceable(1848) %1)
   %6 = load ptr, ptr %connectionsList_.i, align 8
   %active_connections_.i.i = getelementptr inbounds i8, ptr %6, i64 80
-  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i.i, ptr nonnull %1)
+  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_.i.i, ptr nonnull align 8 dereferenceable(1848) %1)
   %.pr.i = load ptr, ptr %connectionsList_.i, align 8
   %last_message_start_.i = getelementptr inbounds i8, ptr %1, i64 1824
   store i64 0, ptr %last_message_start_.i, align 8
@@ -7609,7 +7609,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then7.i:                                       ; preds = %if.end.i
   %all_connections_.i3.i = getelementptr inbounds i8, ptr %.pr.i, i64 32
-  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i3.i, ptr nonnull %1)
+  call fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_.i3.i, ptr nonnull align 8 dereferenceable(1848) %1)
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then7.i, %if.end.i, %if.end.thread.i
@@ -7670,7 +7670,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i: ; preds = %if.then.i.i,
   br i1 %call34.i, label %if.end36.i, label %if.then
 
 if.end36.i:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i
-  call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i, ptr noundef nonnull %1, i32 noundef 2) #20
+  call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i, ptr noundef nonnull align 8 dereferenceable(1848) %1, i32 noundef 2) #20
   %18 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i7.i = getelementptr inbounds i8, ptr %18, i64 176
   %19 = load ptr, ptr %env_.i.i7.i, align 8
@@ -8225,7 +8225,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 48
   %all_connections_.val.i = load ptr, ptr %1, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef %all_connections_.val.i)
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }

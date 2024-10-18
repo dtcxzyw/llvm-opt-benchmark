@@ -80,13 +80,13 @@ define void @_ZNK15CacheProxyModel4dataERK11QModelIndexi(ptr dead_on_unwind noal
   br i1 %or.cond, label %22, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %21, align 8
   br label %29
 
 22:                                               ; preds = %4
-  %23 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %23 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %23, %7
   br i1 %.not, label %28, label %24
 
@@ -122,7 +122,7 @@ declare void @_ZNK18QStandardItemModel4dataERK11QModelIndexi(ptr dead_on_unwind 
 
 ; Function Attrs: mustprogress uwtable
 define i32 @_ZNK15CacheProxyModel5flagsERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
-  %3 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %3 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %.not = icmp eq ptr %3, %4
   br i1 %.not, label %7, label %5
@@ -140,7 +140,7 @@ declare i32 @_ZNK19QAbstractProxyModel5flagsERK11QModelIndex(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK15CacheProxyModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_unwind noalias writable sret(%class.QVariant) align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %6 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %.not = icmp eq ptr %6, %7
   br i1 %.not, label %12, label %8
@@ -172,7 +172,7 @@ declare void @_ZNK18QStandardItemModel10headerDataEiN2Qt11OrientationEi(ptr dead
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK15CacheProxyModel8rowCountERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
-  %3 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %3 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %.not = icmp eq ptr %3, %4
   br i1 %.not, label %7, label %5
@@ -199,7 +199,7 @@ declare noundef i32 @_ZNK18QStandardItemModel8rowCountERK11QModelIndex(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK15CacheProxyModel11columnCountERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
-  %3 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %3 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %.not = icmp eq ptr %3, %4
   br i1 %.not, label %7, label %5

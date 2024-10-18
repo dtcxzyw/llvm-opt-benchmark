@@ -270,11 +270,11 @@ define internal i32 @dissect_xdmcp(ptr noundef %0, ptr noundef %1, ptr noundef %
 55:                                               ; preds = %45, %50, %24, %24, %24
   %.0244 = phi i32 [ 6, %24 ], [ 6, %24 ], [ 6, %24 ], [ %49, %45 ], [ %54, %50 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0244) #3
+  %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 6, 131081) %.0244) #3
   %57 = zext i8 %56 to i32
   %58 = load i32, ptr @ett_xdmcp_authentication_names, align 4
-  %59 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef %.0244, i32 noundef -1, i32 noundef %58, ptr noundef nonnull %5, ptr noundef nonnull @.str.87, i32 noundef %57) #3
-  %60 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0244) #3
+  %59 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef range(i32 6, 131081) %.0244, i32 noundef -1, i32 noundef %58, ptr noundef nonnull %5, ptr noundef nonnull @.str.87, i32 noundef %57) #3
+  %60 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 6, 131081) %.0244) #3
   %61 = add nuw nsw i32 %.0244, 1
   %.not.i = icmp eq i8 %60, 0
   br i1 %.not.i, label %xdmcp_add_authentication_names.exit, label %.lr.ph.preheader.i

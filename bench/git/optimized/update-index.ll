@@ -1039,7 +1039,7 @@ if.end.i:                                         ; preds = %if.then496
   %idxprom.i = zext nneg i32 %call1.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %16, i64 %idxprom.i
   %17 = load ptr, ptr %arrayidx.i, align 8
-  %call3.i = call i32 @chmod_index_entry(ptr noundef nonnull @the_index, ptr noundef %17, i8 noundef signext %15) #18
+  %call3.i = call i32 @chmod_index_entry(ptr noundef nonnull @the_index, ptr noundef %17, i8 noundef signext range(i8 1, 0) %15) #18
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %fail.i, label %chmod_path.exit
 
@@ -1238,7 +1238,7 @@ if.end.i39:                                       ; preds = %if.then567
   %idxprom.i40 = zext nneg i32 %call1.i37 to i64
   %arrayidx.i41 = getelementptr inbounds ptr, ptr %45, i64 %idxprom.i40
   %46 = load ptr, ptr %arrayidx.i41, align 8
-  %call3.i42 = call i32 @chmod_index_entry(ptr noundef nonnull @the_index, ptr noundef %46, i8 noundef signext %44) #18
+  %call3.i42 = call i32 @chmod_index_entry(ptr noundef nonnull @the_index, ptr noundef %46, i8 noundef signext range(i8 1, 0) %44) #18
   %cmp4.i43 = icmp slt i32 %call3.i42, 0
   br i1 %cmp4.i43, label %fail.i45, label %chmod_path.exit47
 
@@ -3570,7 +3570,7 @@ return.sink.split.i.i:                            ; preds = %if.end.i.i, %if.the
   br label %return
 
 if.end.i:                                         ; preds = %if.end19
-  %call2.i = tail call ptr @strerror(i32 noundef %stat_errno) #18
+  %call2.i = tail call ptr @strerror(i32 noundef range(i32 1, 0) %stat_errno) #18
   %call3.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.118, ptr noundef %path, ptr noundef %call2.i) #18
   br label %return
 
@@ -3604,7 +3604,7 @@ if.then2.i:                                       ; preds = %if.then.i19
   br i1 %cmp4.i, label %process_directory.exit, label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.then2.i
-  %call6.i = call fastcc i32 @add_one_path(ptr noundef nonnull %8, ptr noundef %path, i32 noundef %conv, ptr noundef %st)
+  %call6.i = call fastcc i32 @add_one_path(ptr noundef nonnull %8, ptr noundef %path, i32 noundef %conv, ptr noundef nonnull %st)
   br label %process_directory.exit
 
 if.end7.i:                                        ; preds = %if.then.i19
@@ -3667,7 +3667,7 @@ while.end.i:                                      ; preds = %if.end17.i, %while.
   br i1 %tobool37.not.i, label %if.then38.i, label %if.end40.i
 
 if.then38.i:                                      ; preds = %while.end.i
-  %call39.i = call fastcc i32 @add_one_path(ptr noundef null, ptr noundef %path, i32 noundef %conv, ptr noundef %st)
+  %call39.i = call fastcc i32 @add_one_path(ptr noundef null, ptr noundef %path, i32 noundef %conv, ptr noundef nonnull %st)
   br label %process_directory.exit
 
 if.end40.i:                                       ; preds = %while.end.i

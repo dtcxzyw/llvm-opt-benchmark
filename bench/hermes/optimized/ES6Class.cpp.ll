@@ -561,18 +561,18 @@ _ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefER
   store ptr %retval.0.i.i.i, ptr %retval.0.i.i, align 8
   %str.sroa.2.0.str_.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 %agg.tmp8.sroa.2.0.copyload, ptr %str.sroa.2.0.str_.sroa_idx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
   store ptr %retval.0.i.i, ptr %second.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !4
-  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !4
+  %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !4
   %26 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !4
   br i1 %call.i.i.i, label %return, label %if.end.i.i4
 
 if.end.i.i4:                                      ; preds = %_ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefERT_S3_.exit
-  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef %26), !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i64 16, i1 false), !noalias !4
+  %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef %26), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, i64 16, i1 false), !noalias !4
   %second.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2.i.i, i64 16
   %27 = load ptr, ptr %second.i, align 8, !noalias !4
   store ptr %27, ptr %second.i.i3.i.i, align 8, !noalias !4
@@ -3316,7 +3316,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -3763,7 +3763,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -4210,7 +4210,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -4657,7 +4657,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -6456,7 +6456,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -7409,7 +7409,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %12, ptr %11, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
@@ -7942,7 +7942,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %12, ptr %11, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
@@ -8185,7 +8185,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %12, ptr %11, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
@@ -9792,7 +9792,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -10183,7 +10183,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -10284,7 +10284,7 @@ for.body.i9:                                      ; preds = %_ZN6hermes6ESTree24
   store ptr %11, ptr %10, align 8
   %Next2.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %10, ptr %Next2.i.i.i.i.i.i12, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i10, i8 0, i64 16, i1 false)
   %call10.i13 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i10, ptr noundef %node)
   %12 = extractvalue { ptr, i8 } %call10.i13, 0
   %13 = extractvalue { ptr, i8 } %call10.i13, 1
@@ -10947,7 +10947,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %22, ptr %21, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %21, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %23 = extractvalue { ptr, i8 } %call10.i, 0
   %24 = extractvalue { ptr, i8 } %call10.i, 1
@@ -11048,7 +11048,7 @@ for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24
   store ptr %31, ptr %30, align 8
   %Next2.i.i.i.i.i.i187 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %30, ptr %Next2.i.i.i.i.i.i187, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i185, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i185, i8 0, i64 16, i1 false)
   %call10.i188 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i185, ptr noundef %node)
   %32 = extractvalue { ptr, i8 } %call10.i188, 0
   %33 = extractvalue { ptr, i8 } %call10.i188, 1
@@ -11495,7 +11495,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %22, ptr %21, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %21, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %23 = extractvalue { ptr, i8 } %call10.i, 0
   %24 = extractvalue { ptr, i8 } %call10.i, 1
@@ -11596,7 +11596,7 @@ for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24
   store ptr %31, ptr %30, align 8
   %Next2.i.i.i.i.i.i187 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %30, ptr %Next2.i.i.i.i.i.i187, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i185, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i185, i8 0, i64 16, i1 false)
   %call10.i188 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i185, ptr noundef %node)
   %32 = extractvalue { ptr, i8 } %call10.i188, 0
   %33 = extractvalue { ptr, i8 } %call10.i188, 1
@@ -12280,7 +12280,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -12449,7 +12449,7 @@ for.body.i32:                                     ; preds = %_ZN6hermes6ESTree24
   store ptr %16, ptr %15, align 8
   %Next2.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %15, ptr %Next2.i.i.i.i.i.i35, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i33, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i33, i8 0, i64 16, i1 false)
   %call10.i36 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i33, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call10.i36, 0
   %18 = extractvalue { ptr, i8 } %call10.i36, 1
@@ -13056,7 +13056,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -13595,7 +13595,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -13770,7 +13770,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -14661,7 +14661,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -15194,7 +15194,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -15437,7 +15437,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -15612,7 +15612,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -16133,7 +16133,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -18512,7 +18512,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -19311,7 +19311,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %12, ptr %11, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
@@ -20110,7 +20110,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %12, ptr %11, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
@@ -20421,7 +20421,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %12, ptr %11, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
@@ -20522,7 +20522,7 @@ for.body.i110:                                    ; preds = %_ZN6hermes6ESTree24
   store ptr %21, ptr %20, align 8
   %Next2.i.i.i.i.i.i113 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %20, ptr %Next2.i.i.i.i.i.i113, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i111, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i111, i8 0, i64 16, i1 false)
   %call10.i114 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i111, ptr noundef %node)
   %22 = extractvalue { ptr, i8 } %call10.i114, 0
   %23 = extractvalue { ptr, i8 } %call10.i114, 1
@@ -20623,7 +20623,7 @@ for.body.i159:                                    ; preds = %_ZN6hermes6ESTree24
   store ptr %30, ptr %29, align 8
   %Next2.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %29, ptr %Next2.i.i.i.i.i.i162, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i160, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i160, i8 0, i64 16, i1 false)
   %call10.i163 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i160, ptr noundef %node)
   %31 = extractvalue { ptr, i8 } %call10.i163, 0
   %32 = extractvalue { ptr, i8 } %call10.i163, 1
@@ -21008,7 +21008,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -21603,7 +21603,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -22426,7 +22426,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -22527,7 +22527,7 @@ for.body.i25:                                     ; preds = %_ZN6hermes6ESTree24
   store ptr %11, ptr %10, align 8
   %Next2.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %10, ptr %Next2.i.i.i.i.i.i28, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i26, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i26, i8 0, i64 16, i1 false)
   %call10.i29 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i26, ptr noundef %node)
   %12 = extractvalue { ptr, i8 } %call10.i29, 0
   %13 = extractvalue { ptr, i8 } %call10.i29, 1
@@ -22628,7 +22628,7 @@ for.body.i74:                                     ; preds = %_ZN6hermes6ESTree24
   store ptr %20, ptr %19, align 8
   %Next2.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %19, ptr %Next2.i.i.i.i.i.i77, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i75, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i75, i8 0, i64 16, i1 false)
   %call10.i78 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i75, ptr noundef %node)
   %21 = extractvalue { ptr, i8 } %call10.i78, 0
   %22 = extractvalue { ptr, i8 } %call10.i78, 1
@@ -22729,7 +22729,7 @@ for.body.i123:                                    ; preds = %_ZN6hermes6ESTree24
   store ptr %29, ptr %28, align 8
   %Next2.i.i.i.i.i.i126 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %28, ptr %Next2.i.i.i.i.i.i126, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i124, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i124, i8 0, i64 16, i1 false)
   %call10.i127 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i124, ptr noundef %node)
   %30 = extractvalue { ptr, i8 } %call10.i127, 0
   %31 = extractvalue { ptr, i8 } %call10.i127, 1
@@ -25892,7 +25892,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -26135,7 +26135,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -27224,7 +27224,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %12, ptr %11, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10.i, 0
   %14 = extractvalue { ptr, i8 } %call10.i, 1
@@ -27609,7 +27609,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -28982,7 +28982,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
   store ptr %7, ptr %6, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = extractvalue { ptr, i8 } %call10.i, 1
@@ -29157,7 +29157,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -29332,7 +29332,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029.i, ptr noundef %node)
   %3 = extractvalue { ptr, i8 } %call10.i, 0
   %4 = extractvalue { ptr, i8 } %call10.i, 1
@@ -29796,7 +29796,7 @@ for.body:                                         ; preds = %entry, %if.end27
   store ptr %2, ptr %1, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.029, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %it.sroa.0.029, i8 0, i64 16, i1 false)
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.029, ptr noundef %parent)
   %3 = extractvalue { ptr, i8 } %call10, 0
   %4 = extractvalue { ptr, i8 } %call10, 1
@@ -29940,7 +29940,7 @@ for.body.i:                                       ; preds = %if.then4, %_ZN4llvh
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i
 
@@ -29978,7 +29978,7 @@ if.end13.i.i.i.i:                                 ; preds = %_ZN12_GLOBAL__N_110
 
 if.end28.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
   %conv.i.i.i.i.i = zext i32 %10 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i, i64 noundef 8) #16
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %return.sink.split.i.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i
@@ -30047,7 +30047,7 @@ for.body.i21:                                     ; preds = %if.end16, %_ZN4llvh
   br i1 %cmp.not.i.i23, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i26, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %for.body.i21
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp19, ptr noundef nonnull %add.ptr.i.i.i.i.i.i15, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp19, ptr noundef nonnull %add.ptr.i.i.i.i.i.i15, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i25 = load i32, ptr %Size.i.i.i.i.i.i16, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i26
 
@@ -30111,7 +30111,7 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %land.lhs.true.i, %_
   br i1 %cmp9.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
-  %call11.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %28, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
@@ -30122,7 +30122,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvh9StringRefC
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %38, %if.end.i.i.i.i.i.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i.i, align 8
   %parens_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 20
@@ -30177,7 +30177,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i.i55, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i55:                              ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i
-  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %39, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i
@@ -30188,7 +30188,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i55
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i.i55 ], [ %49, %if.end.i.i.i.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 55, ptr %kind_.i.i.i.i.i, align 8
   %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20
@@ -30242,7 +30242,7 @@ if.end.i:                                         ; preds = %if.then.i.i.i.i36, 
   br i1 %cmp9.i.i.i.i19.i, label %if.then.i.i.i.i41.i, label %if.end.i.i.i.i20.i
 
 if.then.i.i.i.i41.i:                              ; preds = %if.end.i
-  %call11.i.i.i.i42.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %50, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i42.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %50, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i22.i
 
 if.end.i.i.i.i20.i:                               ; preds = %if.end.i
@@ -30253,7 +30253,7 @@ if.end.i.i.i.i20.i:                               ; preds = %if.end.i
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i22.i: ; preds = %if.end.i.i.i.i20.i, %if.then.i.i.i.i41.i
   %retval.0.i.i.i.i23.i = phi ptr [ %call11.i.i.i.i42.i, %if.then.i.i.i.i41.i ], [ %60, %if.end.i.i.i.i20.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i23.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i23.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i25.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 16
   store i32 55, ptr %kind_.i.i.i.i25.i, align 8
   %parens_.i.i.i.i26.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 20
@@ -30299,7 +30299,7 @@ if.end13.i.i.i.i43:                               ; preds = %_ZN6hermes25ES6Clas
 
 if.end28.i.i.i.i50:                               ; preds = %if.end13.i.i.i.i43
   %conv.i.i.i.i44.i = zext i32 %61 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i37, i64 noundef %conv.i.i.i.i44.i, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp10.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i37, i64 noundef %conv.i.i.i.i44.i, i64 noundef 8) #16
   %.pre.i.i.i51 = load i32, ptr %Size.i.i.i.i.i.i16, align 8
   %cmp.not.i.i.i.i.i52 = icmp eq i32 %.pre.i.i.i51, 0
   br i1 %cmp.not.i.i.i.i.i52, label %return.sink.split.i.i.i.i47, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i53
@@ -30380,7 +30380,7 @@ entry:
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 48, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %0, i64 noundef 48, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
@@ -30391,7 +30391,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %10, %if.end.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 37, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
@@ -30418,7 +30418,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %node.addr.i)
   store ptr %retval.0.i.i.i.i, ptr %node.addr.i, align 8
   %11 = load ptr, ptr %parameters, align 8
-  %call3.i = call noundef ptr @_ZN4llvh15SmallVectorImplIPN6hermes6ESTree4NodeEE6insertEPS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %node.addr.i)
+  %call3.i = call noundef ptr @_ZN4llvh15SmallVectorImplIPN6hermes6ESTree4NodeEE6insertEPS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(80) %parameters, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %node.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %node.addr.i)
   %12 = load ptr, ptr %this, align 8
   %stringTable_.i.i = getelementptr inbounds i8, ptr %12, i64 72
@@ -30447,7 +30447,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
-  %call11.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
@@ -30458,7 +30458,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %23, %if.end.i.i.i.i.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i, align 8
   %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
@@ -30511,7 +30511,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i18, label %if.then.i.i.i.i34, label %if.end.i.i.i.i19
 
 if.then.i.i.i.i34:                                ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
-  %call11.i.i.i.i35 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i35 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %24, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i21
 
 if.end.i.i.i.i19:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
@@ -30522,7 +30522,7 @@ if.end.i.i.i.i19:                                 ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i21: ; preds = %if.end.i.i.i.i19, %if.then.i.i.i.i34
   %retval.0.i.i.i.i22 = phi ptr [ %call11.i.i.i.i35, %if.then.i.i.i.i34 ], [ %34, %if.end.i.i.i.i19 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i22, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 16
   store i32 55, ptr %kind_.i.i.i.i, align 8
   %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 20
@@ -30602,7 +30602,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6h
   br i1 %cmp9.i.i.i.i46, label %if.then.i.i.i.i64, label %if.end.i.i.i.i47
 
 if.then.i.i.i.i64:                                ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
-  %call11.i.i.i.i65 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 80, i64 noundef 8) #16
+  %call11.i.i.i.i65 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %38, i64 noundef 80, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i49
 
 if.end.i.i.i.i47:                                 ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
@@ -30613,7 +30613,7 @@ if.end.i.i.i.i47:                                 ; preds = %_ZNK12_GLOBAL__N_11
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i49: ; preds = %if.end.i.i.i.i47, %if.then.i.i.i.i64
   %retval.0.i.i.i.i50 = phi ptr [ %call11.i.i.i.i65, %if.then.i.i.i.i64 ], [ %48, %if.end.i.i.i.i47 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i50, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %retval.0.i.i.i.i50, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i51 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 16
   store i32 48, ptr %kind_.i.i.i.i51, align 8
   %parens_.i.i.i.i52 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 20
@@ -30818,7 +30818,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then2
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %2, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.then2
@@ -30865,7 +30865,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp9.i.i.i.i26, label %if.then.i.i.i.i43, label %if.end.i.i.i.i27
 
 if.then.i.i.i.i43:                                ; preds = %if.end5
-  %call11.i.i.i.i44 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i44 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %16, i64 noundef 72, i64 noundef 8) #16
   br label %return.sink.split
 
 if.end.i.i.i.i27:                                 ; preds = %if.end5
@@ -30882,7 +30882,7 @@ return.sink.split:                                ; preds = %if.then.i.i.i.i43, 
   %.sink55.in = getelementptr inbounds i8, ptr %node, i64 64
   %.sink55 = load i8, ptr %.sink55.in, align 1
   %frombool.i.i31 = and i8 %.sink55, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i30.sink54, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i30.sink54, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 16
   store i32 %.sink, ptr %kind_.i.i.i.i, align 8
   %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 20
@@ -30946,7 +30946,7 @@ entry:
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %entry
@@ -30957,7 +30957,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %entry
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %11, %if.end.i.i.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i, align 8
   %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
@@ -31014,7 +31014,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i.i.i26, label %if.then.i.i.i.i.i.i47, label %if.end.i.i.i.i.i.i27
 
 if.then.i.i.i.i.i.i47:                            ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
-  %call11.i.i.i.i.i.i48 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i48 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i29
 
 if.end.i.i.i.i.i.i27:                             ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
@@ -31025,7 +31025,7 @@ if.end.i.i.i.i.i.i27:                             ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i29: ; preds = %if.end.i.i.i.i.i.i27, %if.then.i.i.i.i.i.i47
   %retval.0.i.i.i.i.i.i30 = phi ptr [ %call11.i.i.i.i.i.i48, %if.then.i.i.i.i.i.i47 ], [ %23, %if.end.i.i.i.i.i.i27 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i30, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i31 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i31, align 8
   %parens_.i.i.i.i.i32 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 20
@@ -31078,7 +31078,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit49
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %24, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit49
@@ -31089,7 +31089,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %34, %if.end.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 55, ptr %kind_.i.i.i.i, align 8
   %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
@@ -31165,7 +31165,7 @@ if.else:                                          ; preds = %land.lhs.true, %_ZN
   br i1 %cmp9.i.i.i.i.i.i64, label %if.then.i.i.i.i.i.i85, label %if.end.i.i.i.i.i.i65
 
 if.then.i.i.i.i.i.i85:                            ; preds = %if.else
-  %call11.i.i.i.i.i.i86 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i86 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %38, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i67
 
 if.end.i.i.i.i.i.i65:                             ; preds = %if.else
@@ -31176,7 +31176,7 @@ if.end.i.i.i.i.i.i65:                             ; preds = %if.else
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i67: ; preds = %if.end.i.i.i.i.i.i65, %if.then.i.i.i.i.i.i85
   %retval.0.i.i.i.i.i.i68 = phi ptr [ %call11.i.i.i.i.i.i86, %if.then.i.i.i.i.i.i85 ], [ %48, %if.end.i.i.i.i.i.i65 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i68, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i68, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i69 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i69, align 8
   %parens_.i.i.i.i.i70 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 20
@@ -31229,7 +31229,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i98, label %if.then.i.i.i.i120, label %if.end.i.i.i.i99
 
 if.then.i.i.i.i120:                               ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit87
-  %call11.i.i.i.i121 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %49, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i121 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %49, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i101
 
 if.end.i.i.i.i99:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit87
@@ -31240,7 +31240,7 @@ if.end.i.i.i.i99:                                 ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i101: ; preds = %if.end.i.i.i.i99, %if.then.i.i.i.i120
   %retval.0.i.i.i.i102 = phi ptr [ %call11.i.i.i.i121, %if.then.i.i.i.i120 ], [ %59, %if.end.i.i.i.i99 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i102, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i102, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i104 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 16
   store i32 55, ptr %kind_.i.i.i.i104, align 8
   %parens_.i.i.i.i105 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 20
@@ -31302,7 +31302,7 @@ if.end:                                           ; preds = %if.then.i.i.i110, %
   br i1 %cmp9.i.i.i.i134, label %if.then.i.i.i.i150, label %if.end.i.i.i.i135
 
 if.then.i.i.i.i150:                               ; preds = %if.end
-  %call11.i.i.i.i151 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 noundef 56, i64 noundef 8) #16
+  %call11.i.i.i.i151 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %61, i64 noundef 56, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit
 
 if.end.i.i.i.i135:                                ; preds = %if.end
@@ -31314,7 +31314,7 @@ if.end.i.i.i.i135:                                ; preds = %if.end
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit: ; preds = %if.end.i.i.i.i135, %if.then.i.i.i.i150
   %retval.0.i.i.i.i138 = phi ptr [ %call11.i.i.i.i151, %if.then.i.i.i.i150 ], [ %71, %if.end.i.i.i.i135 ]
   %72 = load ptr, ptr %_name, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i138, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %retval.0.i.i.i.i138, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i138, i64 16
   store i32 33, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i138, i64 20
@@ -31357,7 +31357,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringL
   br i1 %cmp9.i.i.i.i162, label %if.then.i.i.i.i180, label %if.end.i.i.i.i163
 
 if.then.i.i.i.i180:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit
-  %call11.i.i.i.i181 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %73, i64 noundef 48, i64 noundef 8) #16
+  %call11.i.i.i.i181 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %73, i64 noundef 48, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i165
 
 if.end.i.i.i.i163:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit
@@ -31368,7 +31368,7 @@ if.end.i.i.i.i163:                                ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i165: ; preds = %if.end.i.i.i.i163, %if.then.i.i.i.i180
   %retval.0.i.i.i.i166 = phi ptr [ %call11.i.i.i.i181, %if.then.i.i.i.i180 ], [ %83, %if.end.i.i.i.i163 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i166, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i.i166, i8 0, i64 16, i1 false)
   %kind_.i.i.i167 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i166, i64 16
   store i32 37, ptr %kind_.i.i.i167, align 8
   %parens_.i.i.i168 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i166, i64 20
@@ -31425,7 +31425,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   br i1 %cmp9.i.i.i.i196, label %if.then.i.i.i.i214, label %if.end.i.i.i.i197
 
 if.then.i.i.i.i214:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
-  %call11.i.i.i.i215 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %85, i64 noundef 80, i64 noundef 8) #16
+  %call11.i.i.i.i215 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %85, i64 noundef 80, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i199
 
 if.end.i.i.i.i197:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
@@ -31436,7 +31436,7 @@ if.end.i.i.i.i197:                                ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i199: ; preds = %if.end.i.i.i.i197, %if.then.i.i.i.i214
   %retval.0.i.i.i.i200 = phi ptr [ %call11.i.i.i.i215, %if.then.i.i.i.i214 ], [ %95, %if.end.i.i.i.i197 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i200, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %retval.0.i.i.i.i200, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i201 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i200, i64 16
   store i32 48, ptr %kind_.i.i.i.i201, align 8
   %parens_.i.i.i.i202 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i200, i64 20
@@ -31534,7 +31534,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end
-  %call11.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %5, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end
@@ -31547,7 +31547,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit: ; 
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %15, %if.end.i.i.i.i.i ]
   %_name.i = getelementptr inbounds i8, ptr %4, i64 48
   %16 = load ptr, ptr %_name.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i, align 8
   %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20
@@ -31629,7 +31629,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN4llvh9StringRefC2EPKc.exit
-  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -31640,7 +31640,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %11, %if.end.i.i.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i, align 8
   %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
@@ -31692,7 +31692,7 @@ _ZN4llvh9StringRefC2EPKc.exit33:                  ; preds = %if.end
   br i1 %cmp9.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i41, label %if.end.i.i.i.i.i.i33
 
 if.then.i.i.i.i.i.i41:                            ; preds = %_ZN4llvh9StringRefC2EPKc.exit33
-  %call11.i.i.i.i.i.i42 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i42 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
 
 if.end.i.i.i.i.i.i33:                             ; preds = %_ZN4llvh9StringRefC2EPKc.exit33
@@ -31703,7 +31703,7 @@ if.end.i.i.i.i.i.i33:                             ; preds = %_ZN4llvh9StringRefC
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43: ; preds = %if.then.i.i.i.i.i.i41, %if.end.i.i.i.i.i.i33
   %retval.0.i.i.i.i.i.i35 = phi ptr [ %call11.i.i.i.i.i.i42, %if.then.i.i.i.i.i.i41 ], [ %23, %if.end.i.i.i.i.i.i33 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i35, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i35, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i36 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i35, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i36, align 8
   %parens_.i.i.i.i.i37 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i35, i64 20
@@ -31723,7 +31723,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp.not.i.i, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit
 
@@ -31764,7 +31764,7 @@ if.else10:                                        ; preds = %if.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else10
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 48, i64 noundef 8) #16
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %12, i64 noundef 48, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.else10
@@ -31775,7 +31775,7 @@ if.end.i.i.i:                                     ; preds = %if.else10
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.end.i.i.i
   %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %38, %if.end.i.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store i32 31, ptr %kind_.i.i, align 8
   %parens_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 20
@@ -32077,7 +32077,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseM
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i27.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i27.i:                              ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i
-  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %66, i64 noundef 56, i64 noundef 8) #16
+  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %66, i64 noundef 56, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i
@@ -32089,7 +32089,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN4llvh12DenseMapB
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i27.i
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i27.i ], [ %76, %if.end.i.i.i.i.i ]
   %77 = load ptr, ptr %_name.i49, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 33, ptr %kind_.i.i.i.i, align 8
   %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20
@@ -32211,7 +32211,7 @@ _ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBod
   br i1 %cmp9.i.i.i.i.i73, label %if.then.i.i.i.i.i89, label %if.end.i.i.i.i.i74
 
 if.then.i.i.i.i.i89:                              ; preds = %_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit
-  %call11.i.i.i.i.i90 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %85, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i90 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %85, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit
 
 if.end.i.i.i.i.i74:                               ; preds = %_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit
@@ -32224,7 +32224,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit: ; 
   %retval.0.i.i.i.i.i76 = phi ptr [ %call11.i.i.i.i.i90, %if.then.i.i.i.i.i89 ], [ %95, %if.end.i.i.i.i.i74 ]
   %_name.i77 = getelementptr inbounds i8, ptr %84, i64 48
   %96 = load ptr, ptr %_name.i77, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i76, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i76, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i78 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 16
   store i32 63, ptr %kind_.i.i.i.i78, align 8
   %parens_.i.i.i.i79 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 20
@@ -32267,7 +32267,7 @@ for.body.i94:                                     ; preds = %_ZN4llvh23SmallVect
   br i1 %cmp.not.i.i95, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i, label %if.then.i.i96
 
 if.then.i.i96:                                    ; preds = %for.body.i94
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i91, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i91, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i97 = load i32, ptr %Size.i.i.i.i.i.i92, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i
 
@@ -32302,7 +32302,7 @@ _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit:           ; preds = %_ZN12_GLOBAL__N_110
   br i1 %cmp.not.i.i106, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit113, label %if.then.i.i107
 
 if.then.i.i107:                                   ; preds = %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i109 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit113
 
@@ -32339,7 +32339,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit113: ; preds = %
   br i1 %cmp9.i.i.i.i.i123, label %if.then.i.i.i.i.i138, label %if.end.i.i.i.i.i124
 
 if.then.i.i.i.i.i138:                             ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit113
-  %call11.i.i.i.i.i139 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %109, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i.i139 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %109, i64 noundef 64, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i
 
 if.end.i.i.i.i.i124:                              ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit113
@@ -32350,7 +32350,7 @@ if.end.i.i.i.i.i124:                              ; preds = %_ZN12_GLOBAL__N_110
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i: ; preds = %if.end.i.i.i.i.i124, %if.then.i.i.i.i.i138
   %retval.0.i.i.i.i.i126 = phi ptr [ %call11.i.i.i.i.i139, %if.then.i.i.i.i.i138 ], [ %119, %if.end.i.i.i.i.i124 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i126, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i.i.i.i126, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i127 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i126, i64 16
   store i32 27, ptr %kind_.i.i.i.i.i127, align 8
   %parens_.i.i.i.i.i128 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i126, i64 20
@@ -32384,7 +32384,7 @@ _ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit: ; pre
   br i1 %cmp.not.i.i142, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit149, label %if.then.i.i143
 
 if.then.i.i143:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i145 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit149
 
@@ -32444,7 +32444,7 @@ for.body.i152:                                    ; preds = %for.body.i152.lr.ph
   br i1 %cmp9.i.i.i.i.i387, label %if.then.i.i.i.i.i406, label %if.end.i.i.i.i.i388
 
 if.then.i.i.i.i.i406:                             ; preds = %for.body.i152
-  %call11.i.i.i.i.i407 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %127, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i407 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %127, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit408
 
 if.end.i.i.i.i.i388:                              ; preds = %for.body.i152
@@ -32456,7 +32456,7 @@ if.end.i.i.i.i.i388:                              ; preds = %for.body.i152
 _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit408: ; preds = %if.then.i.i.i.i.i406, %if.end.i.i.i.i.i388
   %retval.0.i.i.i.i.i390 = phi ptr [ %call11.i.i.i.i.i407, %if.then.i.i.i.i.i406 ], [ %137, %if.end.i.i.i.i.i388 ]
   %138 = load ptr, ptr %_name.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i390, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i390, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i392 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i390, i64 16
   store i32 63, ptr %kind_.i.i.i.i392, align 8
   %parens_.i.i.i.i393 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i390, i64 20
@@ -32482,7 +32482,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit408:
   br i1 %cmp.not.i.i370, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit377, label %if.then.i.i371
 
 if.then.i.i371:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit408
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i409, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i409, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i373 = load i32, ptr %Size.i.i.i.i.i.i410, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit377
 
@@ -32501,7 +32501,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit377: ; preds = %
   br i1 %cmp.not.i.i360, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit367, label %if.then.i.i361
 
 if.then.i.i361:                                   ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit377
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i409, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i409, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i363 = load i32, ptr %Size.i.i.i.i.i.i410, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit367
 
@@ -32591,7 +32591,7 @@ if.else18.i:                                      ; preds = %if.else.i157
   br i1 %cmp9.i.i.i.i.i.i.i312, label %if.then.i.i.i.i.i.i.i333, label %if.end.i.i.i.i.i.i.i313
 
 if.then.i.i.i.i.i.i.i333:                         ; preds = %if.else18.i
-  %call11.i.i.i.i.i.i.i334 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %165, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i.i334 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %165, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i315
 
 if.end.i.i.i.i.i.i.i313:                          ; preds = %if.else18.i
@@ -32602,7 +32602,7 @@ if.end.i.i.i.i.i.i.i313:                          ; preds = %if.else18.i
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i315: ; preds = %if.end.i.i.i.i.i.i.i313, %if.then.i.i.i.i.i.i.i333
   %retval.0.i.i.i.i.i.i.i316 = phi ptr [ %call11.i.i.i.i.i.i.i334, %if.then.i.i.i.i.i.i.i333 ], [ %175, %if.end.i.i.i.i.i.i.i313 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i.i316, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i.i316, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i.i317 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i316, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i.i317, align 8
   %parens_.i.i.i.i.i.i318 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i316, i64 20
@@ -32639,7 +32639,7 @@ _ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit3
 
 if.end.i159.sink.split:                           ; preds = %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit335, %if.then13.i
   %retval.0.i.i.i.i.i.i.i316.sink.ph = phi ptr [ %160, %if.then13.i ], [ %retval.0.i.i.i.i.i.i.i316, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit335 ]
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i409, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i409, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i296 = load i32, ptr %Size.i.i.i.i.i.i410, align 8
   br label %if.end.i159
 
@@ -32700,7 +32700,7 @@ if.else27.i:                                      ; preds = %if.end.i159
   br i1 %cmp9.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i280, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i280:                         ; preds = %if.else27.i
-  %call11.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %188, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %188, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.else27.i
@@ -32711,7 +32711,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.else27.i
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i280
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i280 ], [ %198, %if.end.i.i.i.i.i.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i.i, align 8
   %parens_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 20
@@ -32751,7 +32751,7 @@ if.end31.i.sink.split:                            ; preds = %_ZN6hermes25ES6Clas
   %hermesCallName.i.sroa.0.1.ph = phi ptr [ %cond.i, %if.then.i154 ], [ %cond11.i, %if.then22.i ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
   %hermesCallName.i.sroa.6.1.ph = phi i64 [ %call.i.i155, %if.then.i154 ], [ %call.i43.i, %if.then22.i ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
   %srcNode.0.i.ph = phi ptr [ %149, %if.then.i154 ], [ %180, %if.then22.i ], [ %157, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i409, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i409, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i271 = load i32, ptr %Size.i.i.i.i.i.i410, align 8
   br label %if.end31.i
 
@@ -32793,7 +32793,7 @@ if.end31.i:                                       ; preds = %if.end31.i.sink.spl
   br i1 %cmp9.i.i.i.i.i243, label %if.then.i.i.i.i.i263, label %if.end.i.i.i.i.i244
 
 if.then.i.i.i.i.i263:                             ; preds = %if.end31.i
-  %call11.i.i.i.i.i264 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %203, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i.i264 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %203, i64 noundef 64, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i246
 
 if.end.i.i.i.i.i244:                              ; preds = %if.end31.i
@@ -32804,7 +32804,7 @@ if.end.i.i.i.i.i244:                              ; preds = %if.end31.i
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i246: ; preds = %if.end.i.i.i.i.i244, %if.then.i.i.i.i.i263
   %retval.0.i.i.i.i.i247 = phi ptr [ %call11.i.i.i.i.i264, %if.then.i.i.i.i.i263 ], [ %213, %if.end.i.i.i.i.i244 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i247, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i.i.i.i247, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i248 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i247, i64 16
   store i32 27, ptr %kind_.i.i.i.i.i248, align 8
   %parens_.i.i.i.i.i249 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i247, i64 20
@@ -32838,7 +32838,7 @@ _ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit265: ; 
   br i1 %cmp.not.i.i226, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit233, label %if.then.i.i227
 
 if.then.i.i227:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit265
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i229 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit233
 
@@ -32924,7 +32924,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i: ; preds = %for.body.i.i, %_
   br i1 %cmp9.i.i.i.i.i.i173, label %if.then.i.i.i.i.i.i210, label %if.end.i.i.i.i.i.i174
 
 if.then.i.i.i.i.i.i210:                           ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i
-  %call11.i.i.i.i.i.i211 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %223, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i211 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %223, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i
 
 if.end.i.i.i.i.i.i174:                            ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i
@@ -32937,7 +32937,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i: 
   %retval.0.i.i.i.i.i.i176 = phi ptr [ %call11.i.i.i.i.i.i211, %if.then.i.i.i.i.i.i210 ], [ %233, %if.end.i.i.i.i.i.i174 ]
   %_name.i.i = getelementptr inbounds i8, ptr %220, i64 48
   %234 = load ptr, ptr %_name.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i176, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i176, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i177 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i176, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i177, align 8
   %parens_.i.i.i.i.i178 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i176, i64 20
@@ -32984,7 +32984,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i: 
   br i1 %cmp9.i.i.i.i.i191, label %if.then.i.i.i.i.i208, label %if.end.i.i.i.i.i192
 
 if.then.i.i.i.i.i208:                             ; preds = %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i
-  %call11.i.i.i.i.i209 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %235, i64 noundef 56, i64 noundef 8) #16
+  %call11.i.i.i.i.i209 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %235, i64 noundef 56, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i194
 
 if.end.i.i.i.i.i192:                              ; preds = %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i
@@ -32995,7 +32995,7 @@ if.end.i.i.i.i.i192:                              ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i194: ; preds = %if.end.i.i.i.i.i192, %if.then.i.i.i.i.i208
   %retval.0.i.i.i.i.i195 = phi ptr [ %call11.i.i.i.i.i209, %if.then.i.i.i.i.i208 ], [ %245, %if.end.i.i.i.i.i192 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i195, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %retval.0.i.i.i.i.i195, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i5.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i195, i64 16
   store i32 23, ptr %kind_.i.i.i.i5.i, align 8
   %parens_.i.i.i.i6.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i195, i64 20
@@ -33052,7 +33052,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnS
   br i1 %cmp9.i.i.i.i17.i, label %if.then.i.i.i.i35.i, label %if.end.i.i.i.i18.i
 
 if.then.i.i.i.i35.i:                              ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnStatementNodeEJPNS2_14IdentifierNodeEEEEPT_PNS2_4NodeEDpOT0_.exit.i
-  %call11.i.i.i.i36.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %247, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i36.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %247, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i20.i
 
 if.end.i.i.i.i18.i:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnStatementNodeEJPNS2_14IdentifierNodeEEEEPT_PNS2_4NodeEDpOT0_.exit.i
@@ -33063,7 +33063,7 @@ if.end.i.i.i.i18.i:                               ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i20.i: ; preds = %if.end.i.i.i.i18.i, %if.then.i.i.i.i35.i
   %retval.0.i.i.i.i21.i = phi ptr [ %call11.i.i.i.i36.i, %if.then.i.i.i.i35.i ], [ %257, %if.end.i.i.i.i18.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i21.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %retval.0.i.i.i.i21.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i22.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 16
   store i32 19, ptr %kind_.i.i.i.i22.i, align 8
   %parens_.i.i.i.i23.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 20
@@ -33146,7 +33146,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockSt
   br i1 %cmp9.i.i.i.i48.i, label %if.then.i.i.i.i76.i, label %if.end.i.i.i.i49.i
 
 if.then.i.i.i.i76.i:                              ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit.i
-  %call11.i.i.i.i77.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %263, i64 noundef 136, i64 noundef 8) #16
+  %call11.i.i.i.i77.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %263, i64 noundef 136, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i51.i
 
 if.end.i.i.i.i49.i:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit.i
@@ -33157,7 +33157,7 @@ if.end.i.i.i.i49.i:                               ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i51.i: ; preds = %if.end.i.i.i.i49.i, %if.then.i.i.i.i76.i
   %retval.0.i.i.i.i52.i = phi ptr [ %call11.i.i.i.i77.i, %if.then.i.i.i.i76.i ], [ %273, %if.end.i.i.i.i49.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i52.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(130) %retval.0.i.i.i.i52.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i53.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 16
   store i32 4, ptr %kind_.i.i.i.i53.i, align 8
   %parens_.i.i.i.i54.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 20
@@ -33240,7 +33240,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22Functio
   br i1 %cmp9.i.i.i.i89.i, label %if.then.i.i.i.i116.i, label %if.end.i.i.i.i90.i
 
 if.then.i.i.i.i116.i:                             ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22FunctionExpressionNodeEJDnN4llvh12simple_ilistINS2_4NodeEJEEERPNS2_18BlockStatementNodeEDnDnDnbbEEEPT_PS6_DpOT0_.exit.i
-  %call11.i.i.i.i117.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %279, i64 noundef 80, i64 noundef 8) #16
+  %call11.i.i.i.i117.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %279, i64 noundef 80, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i92.i
 
 if.end.i.i.i.i90.i:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22FunctionExpressionNodeEJDnN4llvh12simple_ilistINS2_4NodeEJEEERPNS2_18BlockStatementNodeEDnDnDnbbEEEPT_PS6_DpOT0_.exit.i
@@ -33251,7 +33251,7 @@ if.end.i.i.i.i90.i:                               ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i92.i: ; preds = %if.end.i.i.i.i90.i, %if.then.i.i.i.i116.i
   %retval.0.i.i.i.i93.i = phi ptr [ %call11.i.i.i.i117.i, %if.then.i.i.i.i116.i ], [ %289, %if.end.i.i.i.i90.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i93.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %retval.0.i.i.i.i93.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i94.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 16
   store i32 48, ptr %kind_.i.i.i.i94.i, align 8
   %parens_.i.i.i.i95.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 20
@@ -33356,7 +33356,7 @@ entry:
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %0, i64 noundef 64, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
@@ -33367,7 +33367,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %10, %if.end.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 68, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
@@ -33426,7 +33426,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22Variabl
   br i1 %cmp9.i.i.i.i13, label %if.then.i.i.i.i31, label %if.end.i.i.i.i14
 
 if.then.i.i.i.i31:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22VariableDeclaratorNodeEJRPNS2_4NodeES6_EEEPT_S5_DpOT0_.exit
-  %call11.i.i.i.i32 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i32 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %11, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i16
 
 if.end.i.i.i.i14:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22VariableDeclaratorNodeEJRPNS2_4NodeES6_EEEPT_S5_DpOT0_.exit
@@ -33438,7 +33438,7 @@ if.end.i.i.i.i14:                                 ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i16: ; preds = %if.end.i.i.i.i14, %if.then.i.i.i.i31
   %retval.0.i.i.i.i17 = phi ptr [ %call11.i.i.i.i32, %if.then.i.i.i.i31 ], [ %21, %if.end.i.i.i.i14 ]
   %22 = load ptr, ptr %identVar_, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i17, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %retval.0.i.i.i.i17, i8 0, i64 16, i1 false)
   %kind_.i.i.i18 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 16
   store i32 69, ptr %kind_.i.i.i18, align 8
   %parens_.i.i.i19 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 20
@@ -33579,7 +33579,7 @@ if.then.i:                                        ; preds = %for.body
   br i1 %cmp.not.i.i.i, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit.i
 
@@ -33611,7 +33611,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i.i18.i, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit25.i, label %if.then.i.i19.i
 
 if.then.i.i19.i:                                  ; preds = %if.then4.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i21.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit25.i
 
@@ -33644,7 +33644,7 @@ for.body.i.i:                                     ; preds = %if.end5.i, %_ZN4llv
   br i1 %cmp.not.i.i26.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i.i, label %if.then.i.i27.i
 
 if.then.i.i27.i:                                  ; preds = %for.body.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %expressions.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %expressions.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i28.i = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -33701,7 +33701,7 @@ for.body.i:                                       ; preds = %_ZN12_GLOBAL__N_110
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i27
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i
-  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %28, i64 noundef 64, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i
 
 if.end.i.i.i.i.i27:                               ; preds = %for.body.i
@@ -33713,7 +33713,7 @@ if.end.i.i.i.i.i27:                               ; preds = %for.body.i
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i: ; preds = %if.end.i.i.i.i.i27, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %38, %if.end.i.i.i.i.i27 ]
   %39 = load ptr, ptr %_directive.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 27, ptr %kind_.i.i.i.i.i, align 8
   %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20
@@ -33747,7 +33747,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23Express
   br i1 %cmp.not.i.i35.i, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit42.i, label %if.then.i.i36.i
 
 if.then.i.i36.i:                                  ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23ExpressionStatementNodeEJRPNS2_4NodeERPNS_12UniqueStringEEEEPT_S5_DpOT0_.exit.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i38.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit42.i
 
@@ -33966,7 +33966,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %if.else
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN4llvh9StringRefC2EPKc.exit
-  %call11.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %65, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %65, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -33977,7 +33977,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %75, %if.end.i.i.i.i.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i32 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i32, align 8
   %parens_.i.i.i.i.i33 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
@@ -34024,7 +34024,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i39, label %if.end.i.i.i.i
 
 if.then.i.i.i.i39:                                ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
-  %call11.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %76, i64 noundef 56, i64 noundef 8) #16
+  %call11.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %76, i64 noundef 56, i64 noundef 8) #16
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
@@ -34035,7 +34035,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6Clas
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i: ; preds = %if.then.i.i.i.i39, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i39 ], [ %86, %if.end.i.i.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 42, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
@@ -34078,7 +34078,7 @@ if.end13.i.i.i.i:                                 ; preds = %_ZN4llvh23SmallVect
 
 if.end28.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
   %conv.i.i.i.i.i56 = zext i32 %88 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i48, i64 noundef %conv.i.i.i.i.i56, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i48, i64 noundef %conv.i.i.i.i.i56, i64 noundef 8) #16
   %.pre.i.i.i57 = load i32, ptr %Size.i.i.i.i.i.i41, align 8
   %cmp.not.i.i.i.i.i58 = icmp eq i32 %.pre.i.i.i57, 0
   br i1 %cmp.not.i.i.i.i.i58, label %return.sink.split.i.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i
@@ -34198,7 +34198,7 @@ if.end42:                                         ; preds = %for.inc.i196, %if.e
   br i1 %cmp9.i.i.i.i76, label %if.then.i.i.i.i93, label %if.end.i.i.i.i77
 
 if.then.i.i.i.i93:                                ; preds = %if.end42
-  %call11.i.i.i.i94 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %100, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i94 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %100, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i79
 
 if.end.i.i.i.i77:                                 ; preds = %if.end42
@@ -34209,7 +34209,7 @@ if.end.i.i.i.i77:                                 ; preds = %if.end42
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i79: ; preds = %if.end.i.i.i.i77, %if.then.i.i.i.i93
   %retval.0.i.i.i.i80 = phi ptr [ %call11.i.i.i.i94, %if.then.i.i.i.i93 ], [ %110, %if.end.i.i.i.i77 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i80, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %retval.0.i.i.i.i80, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 16
   store i32 19, ptr %kind_.i.i.i.i, align 8
   %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 20
@@ -34290,7 +34290,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockSt
   br i1 %cmp9.i.i.i.i105, label %if.then.i.i.i.i133, label %if.end.i.i.i.i106
 
 if.then.i.i.i.i133:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit
-  %call11.i.i.i.i134 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %116, i64 noundef 136, i64 noundef 8) #16
+  %call11.i.i.i.i134 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %116, i64 noundef 136, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i108
 
 if.end.i.i.i.i106:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit
@@ -34301,7 +34301,7 @@ if.end.i.i.i.i106:                                ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i108: ; preds = %if.end.i.i.i.i106, %if.then.i.i.i.i133
   %retval.0.i.i.i.i109 = phi ptr [ %call11.i.i.i.i134, %if.then.i.i.i.i133 ], [ %126, %if.end.i.i.i.i106 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i109, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(130) %retval.0.i.i.i.i109, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i110 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 16
   store i32 6, ptr %kind_.i.i.i.i110, align 8
   %parens_.i.i.i.i111 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 20
@@ -34389,7 +34389,7 @@ entry:
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %entry
@@ -34400,7 +34400,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %entry
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %11, %if.end.i.i.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i, align 8
   %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
@@ -34457,7 +34457,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i39, label %if.end.i.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i39:                            ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
-  %call11.i.i.i.i.i.i40 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i40 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i21
 
 if.end.i.i.i.i.i.i19:                             ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
@@ -34468,7 +34468,7 @@ if.end.i.i.i.i.i.i19:                             ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i21: ; preds = %if.end.i.i.i.i.i.i19, %if.then.i.i.i.i.i.i39
   %retval.0.i.i.i.i.i.i22 = phi ptr [ %call11.i.i.i.i.i.i40, %if.then.i.i.i.i.i.i39 ], [ %23, %if.end.i.i.i.i.i.i19 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i22, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i.i.i22, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i23 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i23, align 8
   %parens_.i.i.i.i.i24 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 20
@@ -34521,7 +34521,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit41
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %24, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit41
@@ -34532,7 +34532,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %34, %if.end.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 55, ptr %kind_.i.i.i.i, align 8
   %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
@@ -34612,7 +34612,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6h
   br i1 %cmp9.i.i.i.i53, label %if.then.i.i.i.i71, label %if.end.i.i.i.i54
 
 if.then.i.i.i.i71:                                ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
-  %call11.i.i.i.i72 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 80, i64 noundef 8) #16
+  %call11.i.i.i.i72 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %38, i64 noundef 80, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i56
 
 if.end.i.i.i.i54:                                 ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
@@ -34623,7 +34623,7 @@ if.end.i.i.i.i54:                                 ; preds = %_ZNK12_GLOBAL__N_11
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i56: ; preds = %if.end.i.i.i.i54, %if.then.i.i.i.i71
   %retval.0.i.i.i.i57 = phi ptr [ %call11.i.i.i.i72, %if.then.i.i.i.i71 ], [ %48, %if.end.i.i.i.i54 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i57, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %retval.0.i.i.i.i57, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i58 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 16
   store i32 48, ptr %kind_.i.i.i.i58, align 8
   %parens_.i.i.i.i59 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 20
@@ -34831,7 +34831,7 @@ entry:
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 48, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %0, i64 noundef 48, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
@@ -34842,7 +34842,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %10, %if.end.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 37, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
@@ -34890,7 +34890,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   br i1 %cmp9.i.i.i.i15, label %if.then.i.i.i.i31, label %if.end.i.i.i.i16
 
 if.then.i.i.i.i31:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
-  %call11.i.i.i.i32 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i32 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %11, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i18
 
 if.end.i.i.i.i16:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
@@ -34901,7 +34901,7 @@ if.end.i.i.i.i16:                                 ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i18: ; preds = %if.end.i.i.i.i16, %if.then.i.i.i.i31
   %retval.0.i.i.i.i19 = phi ptr [ %call11.i.i.i.i32, %if.then.i.i.i.i31 ], [ %21, %if.end.i.i.i.i16 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i.i19, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 16
   store i32 55, ptr %kind_.i.i.i.i, align 8
   %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 20
@@ -34957,7 +34957,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
   br i1 %cmp9.i.i.i.i43, label %if.then.i.i.i.i61, label %if.end.i.i.i.i44
 
 if.then.i.i.i.i61:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_18ThisExpressionNodeERPNS2_4NodeEbEEEPT_S8_DpOT0_.exit
-  %call11.i.i.i.i62 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i62 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %23, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i46
 
 if.end.i.i.i.i44:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_18ThisExpressionNodeERPNS2_4NodeEbEEEPT_S8_DpOT0_.exit
@@ -34968,7 +34968,7 @@ if.end.i.i.i.i44:                                 ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i46: ; preds = %if.end.i.i.i.i44, %if.then.i.i.i.i61
   %retval.0.i.i.i.i47 = phi ptr [ %call11.i.i.i.i62, %if.then.i.i.i.i61 ], [ %33, %if.end.i.i.i.i44 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i47, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %retval.0.i.i.i.i47, i8 0, i64 16, i1 false)
   %kind_.i.i.i48 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 16
   store i32 51, ptr %kind_.i.i.i48, align 8
   %parens_.i.i.i49 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 20
@@ -35021,7 +35021,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24Assignm
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24AssignmentExpressionNodeEJPNS_12UniqueStringERPNS2_20MemberExpressionNodeERPNS2_4NodeEEEEPT_SA_DpOT0_.exit
-  %call11.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %34, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %34, i64 noundef 64, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24AssignmentExpressionNodeEJPNS_12UniqueStringERPNS2_20MemberExpressionNodeERPNS2_4NodeEEEEPT_SA_DpOT0_.exit
@@ -35032,7 +35032,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %44, %if.end.i.i.i.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 27, ptr %kind_.i.i.i.i.i, align 8
   %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20

@@ -342,7 +342,7 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %conv = sext i32 %1 to i64
   %2 = load ptr, ptr %entries, align 8
-  tail call void @qsort(ptr noundef %2, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @ref_entry_cmp) #12
+  tail call void @qsort(ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef 8, ptr noundef nonnull @ref_entry_cmp) #12
   %.pre = load i32, ptr %dir, align 8
   br label %sane_qsort.exit
 

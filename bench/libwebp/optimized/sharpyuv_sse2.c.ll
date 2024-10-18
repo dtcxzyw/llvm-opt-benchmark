@@ -91,7 +91,7 @@ define internal i64 @SharpYuvUpdateY_SSE2(ptr nocapture noundef readonly %0, ptr
   %42 = zext i16 %41 to i32
   %43 = add nsw i32 %39, %42
   %44 = icmp slt i32 %43, 0
-  %45 = tail call i32 @llvm.smin.i32(i32 %43, i32 %6)
+  %45 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %43, i32 range(i32 -2147483648, 2147483647) %6)
   %46 = trunc i32 %45 to i16
   %47 = select i1 %44, i16 0, i16 %46
   store i16 %47, ptr %40, align 2
@@ -280,7 +280,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr nocapture noundef readonly %0, 
   %83 = zext i16 %82 to i32
   %84 = add nsw i32 %74, %83
   %85 = icmp slt i32 %84, 0
-  %86 = tail call i32 @llvm.smin.i32(i32 %84, i32 %8)
+  %86 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %84, i32 range(i32 -2147483648, 2147483647) %8)
   %87 = trunc i32 %86 to i16
   %88 = select i1 %85, i16 0, i16 %87
   %89 = getelementptr inbounds i16, ptr %4, i64 %80
@@ -291,7 +291,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr nocapture noundef readonly %0, 
   %93 = zext i16 %92 to i32
   %94 = add nsw i32 %79, %93
   %95 = icmp slt i32 %94, 0
-  %96 = tail call i32 @llvm.smin.i32(i32 %94, i32 %8)
+  %96 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %94, i32 range(i32 -2147483648, 2147483647) %8)
   %97 = trunc i32 %96 to i16
   %98 = select i1 %95, i16 0, i16 %97
   %99 = getelementptr inbounds i16, ptr %4, i64 %90
@@ -417,7 +417,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr nocapture noundef readonly %0, 
   %186 = zext i16 %185 to i32
   %187 = add nsw i32 %177, %186
   %188 = icmp slt i32 %187, 0
-  %189 = tail call i32 @llvm.smin.i32(i32 %187, i32 %8)
+  %189 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %187, i32 range(i32 -2147483648, 2147483647) %8)
   %190 = trunc i32 %189 to i16
   %191 = select i1 %188, i16 0, i16 %190
   %192 = getelementptr inbounds i16, ptr %4, i64 %183
@@ -428,7 +428,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr nocapture noundef readonly %0, 
   %196 = zext i16 %195 to i32
   %197 = add nsw i32 %182, %196
   %198 = icmp slt i32 %197, 0
-  %199 = tail call i32 @llvm.smin.i32(i32 %197, i32 %8)
+  %199 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %197, i32 range(i32 -2147483648, 2147483647) %8)
   %200 = trunc i32 %199 to i16
   %201 = select i1 %198, i16 0, i16 %200
   %202 = getelementptr inbounds i16, ptr %4, i64 %193

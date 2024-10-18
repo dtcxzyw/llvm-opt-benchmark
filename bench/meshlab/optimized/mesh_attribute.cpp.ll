@@ -4308,7 +4308,7 @@ _ZNSt6vectorImSaImEED2Ev.exit75:                  ; preds = %350, %_ZNSt6vectorI
 
 355:                                              ; preds = %._crit_edge
   call void @_ZN7logging6BufferC1Ei(ptr noundef nonnull align 8 dereferenceable(376) %6, i32 noundef 2)
-  %356 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.15)
+  %356 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %6, ptr noundef nonnull @.str.15)
           to label %_ZN7logging6BufferlsIA10_cEERS0_RKT_.exit unwind label %380
 
 _ZN7logging6BufferlsIA10_cEERS0_RKT_.exit:        ; preds = %355
@@ -4344,11 +4344,11 @@ _ZN7logging6BufferlsIA10_cEERS0_RKT_.exit:        ; preds = %355
   unreachable
 
 _ZN12BoundaryInfo1NEv.exit:                       ; preds = %369
-  %378 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %362)
+  %378 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(376) %6, i64 noundef %362)
           to label %_ZN7logging6BufferlsImEERS0_RKT_.exit unwind label %380
 
 _ZN7logging6BufferlsImEERS0_RKT_.exit:            ; preds = %_ZN12BoundaryInfo1NEv.exit
-  %379 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.16)
+  %379 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %6, ptr noundef nonnull @.str.16)
           to label %_ZN7logging6BufferlsIA12_cEERS0_RKT_.exit unwind label %380
 
 _ZN7logging6BufferlsIA12_cEERS0_RKT_.exit:        ; preds = %_ZN7logging6BufferlsImEERS0_RKT_.exit
@@ -4659,7 +4659,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI4MeshE25FixPaddedPerMeshAttribut
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %12 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %12 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %11)
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   %15 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorImSaImEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)

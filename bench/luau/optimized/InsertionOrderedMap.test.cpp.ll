@@ -144,7 +144,7 @@ define internal void @_ZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_4Ev() #2 personality 
   %2 = alloca %"struct.(anonymous namespace)::DOCTEST_ANON_CLASS_3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %4, ptr %3, align 8
@@ -321,7 +321,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail8TestCaseD2Ev(ptr noundef 
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
-  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
+  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #18
   ret void
 }
 
@@ -372,7 +372,7 @@ define internal void @_ZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_7Ev() #2 personality 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %23, ptr %22, align 8
@@ -576,7 +576,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE3getERKS1_.exit.i: ; preds = %59, %.lr.ph.i.i.
 
 103:                                              ; preds = %102
   %104 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %104) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %104) #18
   %105 = getelementptr inbounds i8, ptr %3, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #18
   %106 = getelementptr inbounds i8, ptr %3, i64 48
@@ -674,7 +674,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE3getERKS1_.exit.i: ; preds = %59, %.lr.ph.i.i.
 
 136:                                              ; preds = %135
   %137 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %137) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %137) #18
   %138 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %138) #18
   %139 = getelementptr inbounds i8, ptr %9, i64 48
@@ -946,7 +946,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE3getERKS1_.exit50.i: ; preds = %193, %.lr.ph.i
 
 238:                                              ; preds = %237
   %239 = getelementptr inbounds i8, ptr %15, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %239) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %239) #18
   %240 = getelementptr inbounds i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %240) #18
   %241 = getelementptr inbounds i8, ptr %15, i64 48
@@ -1100,7 +1100,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_10Ev() #2 personality
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %17, ptr %16, align 8
@@ -1315,7 +1315,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE3getERKS1_.exit.i: ; preds = %54, %.lr.ph.i.i.
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %100) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %100) #18
   %101 = getelementptr inbounds i8, ptr %3, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %101) #18
   %102 = getelementptr inbounds i8, ptr %3, i64 48
@@ -1413,7 +1413,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE3getERKS1_.exit.i: ; preds = %54, %.lr.ph.i.i.
 
 132:                                              ; preds = %131
   %133 = getelementptr inbounds i8, ptr %9, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %133) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %133) #18
   %134 = getelementptr inbounds i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %134) #18
   %135 = getelementptr inbounds i8, ptr %9, i64 48
@@ -1657,7 +1657,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_13Ev() #2 personality
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 24, i1 false)
   %64 = getelementptr inbounds i8, ptr %1, i64 24
   %65 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %65, ptr %64, align 8
@@ -1887,7 +1887,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 146:                                              ; preds = %145
   %147 = getelementptr inbounds i8, ptr %6, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %147) #18
   %148 = getelementptr inbounds i8, ptr %6, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %148) #18
   %149 = getelementptr inbounds i8, ptr %6, i64 48
@@ -1984,7 +1984,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 179:                                              ; preds = %178
   %180 = getelementptr inbounds i8, ptr %12, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %180) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %180) #18
   %181 = getelementptr inbounds i8, ptr %12, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %181) #18
   %182 = getelementptr inbounds i8, ptr %12, i64 48
@@ -2083,7 +2083,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 213:                                              ; preds = %212
   %214 = getelementptr inbounds i8, ptr %17, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %214) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %214) #18
   %215 = getelementptr inbounds i8, ptr %17, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #18
   %216 = getelementptr inbounds i8, ptr %17, i64 48
@@ -2185,7 +2185,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 249:                                              ; preds = %248
   %250 = getelementptr inbounds i8, ptr %23, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %250) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %250) #18
   %251 = getelementptr inbounds i8, ptr %23, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %251) #18
   %252 = getelementptr inbounds i8, ptr %23, i64 48
@@ -2282,7 +2282,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 282:                                              ; preds = %281
   %283 = getelementptr inbounds i8, ptr %29, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %283) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %283) #18
   %284 = getelementptr inbounds i8, ptr %29, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %284) #18
   %285 = getelementptr inbounds i8, ptr %29, i64 48
@@ -2381,7 +2381,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 316:                                              ; preds = %315
   %317 = getelementptr inbounds i8, ptr %34, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %317) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %317) #18
   %318 = getelementptr inbounds i8, ptr %34, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %318) #18
   %319 = getelementptr inbounds i8, ptr %34, i64 48
@@ -2483,7 +2483,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 352:                                              ; preds = %351
   %353 = getelementptr inbounds i8, ptr %40, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %353) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %353) #18
   %354 = getelementptr inbounds i8, ptr %40, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %354) #18
   %355 = getelementptr inbounds i8, ptr %40, i64 48
@@ -2580,7 +2580,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 385:                                              ; preds = %384
   %386 = getelementptr inbounds i8, ptr %46, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %386) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %386) #18
   %387 = getelementptr inbounds i8, ptr %46, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %387) #18
   %388 = getelementptr inbounds i8, ptr %46, i64 48
@@ -2679,7 +2679,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 419:                                              ; preds = %418
   %420 = getelementptr inbounds i8, ptr %51, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %420) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %420) #18
   %421 = getelementptr inbounds i8, ptr %51, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %421) #18
   %422 = getelementptr inbounds i8, ptr %51, i64 48
@@ -2781,7 +2781,7 @@ _ZNKSt14default_deleteIiEclEPi.exit.i3.i69.i:     ; preds = %.noexc75.i
 
 455:                                              ; preds = %454
   %456 = getelementptr inbounds i8, ptr %57, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %456) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %456) #18
   %457 = getelementptr inbounds i8, ptr %57, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %457) #18
   %458 = getelementptr inbounds i8, ptr %57, i64 48
@@ -3003,7 +3003,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_19Ev() #2 personality
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 24, i1 false)
   %26 = getelementptr inbounds i8, ptr %1, i64 24
   %27 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %27, ptr %26, align 8
@@ -3251,7 +3251,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE4findES1_.exit.i: ; preds = %_ZNSt13unordered_
 
 127:                                              ; preds = %126
   %128 = getelementptr inbounds i8, ptr %2, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %128) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %128) #18
   %129 = getelementptr inbounds i8, ptr %2, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %129) #18
   %130 = getelementptr inbounds i8, ptr %2, i64 48
@@ -3403,7 +3403,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE4findES1_.exit.i: ; preds = %_ZNSt13unordered_
 
 183:                                              ; preds = %182
   %184 = getelementptr inbounds i8, ptr %8, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %184) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %184) #18
   %185 = getelementptr inbounds i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #18
   %186 = getelementptr inbounds i8, ptr %8, i64 48
@@ -3578,7 +3578,7 @@ _ZNSt6vectorISt4pairIPiiESaIS2_EE2atEm.exit.i.i:  ; preds = %_ZNSt13unordered_ma
 
 251:                                              ; preds = %250
   %252 = getelementptr inbounds i8, ptr %13, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %252) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %252) #18
   %253 = getelementptr inbounds i8, ptr %13, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %253) #18
   %254 = getelementptr inbounds i8, ptr %13, i64 48
@@ -3753,7 +3753,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE3getERKS1_.exit67.i: ; preds = %275, %.lr.ph.i
 
 319:                                              ; preds = %318
   %320 = getelementptr inbounds i8, ptr %20, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %320) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %320) #18
   %321 = getelementptr inbounds i8, ptr %20, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %321) #18
   %322 = getelementptr inbounds i8, ptr %20, i64 48
@@ -3919,7 +3919,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_22Ev() #2 personality
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 24, i1 false)
   %20 = getelementptr inbounds i8, ptr %1, i64 24
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %21, ptr %20, align 8
@@ -4084,7 +4084,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, 
 
 80:                                               ; preds = %79
   %81 = getelementptr inbounds i8, ptr %2, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %81) #18
   %82 = getelementptr inbounds i8, ptr %2, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #18
   %83 = getelementptr inbounds i8, ptr %2, i64 48
@@ -4237,7 +4237,7 @@ _ZN4Luau19InsertionOrderedMapIPiiE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, 
 
 137:                                              ; preds = %136
   %138 = getelementptr inbounds i8, ptr %8, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %138) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %138) #18
   %139 = getelementptr inbounds i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %139) #18
   %140 = getelementptr inbounds i8, ptr %8, i64 48
@@ -4412,7 +4412,7 @@ _ZNSt6vectorISt4pairIPiiESaIS2_EE2atEm.exit.i.i:  ; preds = %_ZNSt13unordered_ma
 
 205:                                              ; preds = %204
   %206 = getelementptr inbounds i8, ptr %13, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %206) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %206) #18
   %207 = getelementptr inbounds i8, ptr %13, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %207) #18
   %208 = getelementptr inbounds i8, ptr %13, i64 48
@@ -5196,7 +5196,7 @@ declare void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #18
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6761,7 +6761,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %25
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #18
   %32 = getelementptr inbounds i8, ptr %14, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #18
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %14) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
@@ -6796,7 +6796,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %36
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #18
   %43 = getelementptr inbounds i8, ptr %12, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #18
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %12) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -6831,7 +6831,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %47
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #18
   %54 = getelementptr inbounds i8, ptr %10, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #18
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %10) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -6866,7 +6866,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %58
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %64) #18
   %65 = getelementptr inbounds i8, ptr %8, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #18
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %8) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -6901,7 +6901,7 @@ __cxx_global_var_init.12.exit:                    ; preds = %69
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %75) #18
   %76 = getelementptr inbounds i8, ptr %6, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #18
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %6) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -6936,7 +6936,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %80
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %86) #18
   %87 = getelementptr inbounds i8, ptr %4, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %87) #18
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -6971,7 +6971,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %91
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %97) #18
   %98 = getelementptr inbounds i8, ptr %2, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %98) #18
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)

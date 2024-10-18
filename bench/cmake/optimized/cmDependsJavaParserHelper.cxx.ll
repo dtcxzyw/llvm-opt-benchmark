@@ -138,7 +138,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelperC2Ev(ptr noundef nonnull al
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %4 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #21
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
@@ -152,7 +152,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelperC2Ev(ptr noundef nonnull al
   store i32 0, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 0, ptr %10, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #21
   %11 = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str)
@@ -167,7 +167,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelperC2Ev(ptr noundef nonnull al
   br i1 %.not.i.i, label %29, label %18
 
 18:                                               ; preds = %13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %2) #21
   %19 = getelementptr inbounds i8, ptr %15, i64 32
   %20 = load ptr, ptr %11, align 8
   store ptr %20, ptr %19, align 8
@@ -218,7 +218,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i: ; p
   br label %_ZN25cmDependsJavaParserHelper12CurrentClassD2Ev.exit
 
 _ZN25cmDependsJavaParserHelper12CurrentClassD2Ev.exit: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i, %36
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #21
   ret void
 
 37:                                               ; preds = %29, %1
@@ -390,7 +390,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   ret void
 }
 
@@ -547,7 +547,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit18, %38
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #21
   %39 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
@@ -746,7 +746,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr nou
   br i1 %.not.i, label %19, label %16
 
 16:                                               ; preds = %._crit_edge
-  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcEEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %18, ptr %7, align 8
@@ -794,7 +794,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelper17AddPackagesImportEPKc(ptr
   br i1 %.not.i, label %18, label %15
 
 15:                                               ; preds = %._crit_edge
-  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRPKcEEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   store ptr %17, ptr %6, align 8
@@ -1127,7 +1127,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN25cmDependsJavaParserHelper10StartClassEPKc(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cmDependsJavaParserHelper::CurrentClass", align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #21
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1)
@@ -1142,7 +1142,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelper10StartClassEPKc(ptr nounde
   br i1 %.not.i.i, label %22, label %11
 
 11:                                               ; preds = %6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %3) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %3) #21
   %12 = getelementptr inbounds i8, ptr %8, i64 32
   %13 = load ptr, ptr %4, align 8
   store ptr %13, ptr %12, align 8
@@ -1198,7 +1198,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i: ; p
   br label %_ZN25cmDependsJavaParserHelper12CurrentClassD2Ev.exit
 
 _ZN25cmDependsJavaParserHelper12CurrentClassD2Ev.exit: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i, %33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #21
   ret void
 
 34:                                               ; preds = %22, %2
@@ -1291,7 +1291,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.
   br label %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE8pop_backEv.exit
 
 _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE8pop_backEv.exit: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i, %44
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %35) #21
   ret void
 }
 
@@ -1330,7 +1330,7 @@ _ZN25cmDependsJavaParserHelper16GetFilesProducedB5cxx11Ev.exit.thread: ; preds =
 
 .lr.ph.i:                                         ; preds = %11, %17
   %.sroa.07.011.i = phi ptr [ %18, %17 ], [ %13, %11 ]
-  invoke void @_ZNK25cmDependsJavaParserHelper12CurrentClass23AddFileNamesForPrintingEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPKcSC_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.07.011.i, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @.str.15)
+  invoke void @_ZNK25cmDependsJavaParserHelper12CurrentClass23AddFileNamesForPrintingEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPKcSC_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.07.011.i, ptr noundef nonnull align 8 %2, ptr noundef null, ptr noundef nonnull @.str.15)
           to label %17 unwind label %19
 
 17:                                               ; preds = %.lr.ph.i
@@ -1859,7 +1859,7 @@ _ZSt8_DestroyIPN25cmDependsJavaParserHelper12CurrentClassES1_EvT_S3_RSaIT0_E.exi
   br label %_ZN25cmDependsJavaParserHelper12CurrentClassD2Ev.exit
 
 _ZN25cmDependsJavaParserHelper12CurrentClassD2Ev.exit: ; preds = %_ZSt8_DestroyIPN25cmDependsJavaParserHelper12CurrentClassES1_EvT_S3_RSaIT0_E.exit.i, %11
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.05) #21
   %12 = getelementptr inbounds i8, ptr %.05, i64 56
   %.not = icmp eq ptr %12, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
@@ -1904,7 +1904,7 @@ _ZNKSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE12_M_check_lenE
 _ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.cmDependsJavaParserHelper::CurrentClass", ptr %23, i64 %19
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %2) #21
   %25 = getelementptr inbounds i8, ptr %24, i64 32
   %26 = getelementptr inbounds i8, ptr %2, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -1926,7 +1926,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.
   %.0911.i.i.i = phi ptr [ %43, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i) #21
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
   %36 = load ptr, ptr %35, align 8, !alias.scope !28, !noalias !25
@@ -1940,7 +1940,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.
   %42 = load ptr, ptr %41, align 8, !alias.scope !28, !noalias !25
   store ptr %42, ptr %40, align 8, !alias.scope !25, !noalias !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !28, !noalias !25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i) #21
   %43 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
   %44 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %43, %1
@@ -1957,7 +1957,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.
   %.0911.i.i.i19 = phi ptr [ %55, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i19) #21
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
   %48 = load ptr, ptr %47, align 8, !alias.scope !34, !noalias !31
@@ -1971,7 +1971,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.
   %54 = load ptr, ptr %53, align 8, !alias.scope !34, !noalias !31
   store ptr %54, ptr %52, align 8, !alias.scope !31, !noalias !34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !34, !noalias !31
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i19) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i19) #21
   %55 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 56
   %56 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 56
   %.not.i.i.i20 = icmp eq ptr %55, %5
@@ -2033,7 +2033,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i: ;
   br label %_ZNSt15__new_allocatorIN25cmDependsJavaParserHelper12CurrentClassEE7destroyIS1_EEvPT_.exit
 
 _ZNSt15__new_allocatorIN25cmDependsJavaParserHelper12CurrentClassEE7destroyIS1_EEvPT_.exit: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i, %11
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #21
   ret void
 }
 
@@ -2305,7 +2305,7 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorINSt7__cxx1112basic_st
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc3 unwind label %15
 
 .noexc3:                                          ; preds = %.noexc
@@ -2322,7 +2322,7 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorINSt7__cxx1112basic_st
 10:                                               ; preds = %12, %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   br label %.body
 
 12:                                               ; preds = %.noexc3
@@ -2500,7 +2500,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.
   %.0911.i.i.i = phi ptr [ %34, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i) #21
   %25 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
   %27 = load ptr, ptr %26, align 8, !alias.scope !40, !noalias !37
@@ -2514,7 +2514,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.
   %33 = load ptr, ptr %32, align 8, !alias.scope !40, !noalias !37
   store ptr %33, ptr %31, align 8, !alias.scope !37, !noalias !40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !alias.scope !40, !noalias !37
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i) #21
   %34 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
   %35 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %34, %1
@@ -2531,7 +2531,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.
   %.0911.i.i.i29 = phi ptr [ %46, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.i.i.i.i27 ], [ %1, %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i29) #21
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
   %39 = load ptr, ptr %38, align 8, !alias.scope !45, !noalias !42
@@ -2545,7 +2545,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EED2Ev.exit.i.i.i.
   %45 = load ptr, ptr %44, align 8, !alias.scope !45, !noalias !42
   store ptr %45, ptr %43, align 8, !alias.scope !42, !noalias !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !45, !noalias !42
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i29) #21
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 56
   %47 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 56
   %.not.i.i.i30 = icmp eq ptr %46, %5
@@ -2686,7 +2686,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN25cmDependsJavaParserHelper12CurrentClassEJRKS1_EEvPT_DpOT0_.exit
   %.016 = phi ptr [ %28, %_ZSt10_ConstructIN25cmDependsJavaParserHelper12CurrentClassEJRKS1_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.sroa.08.015 = phi ptr [ %27, %_ZSt10_ConstructIN25cmDependsJavaParserHelper12CurrentClassEJRKS1_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.016, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.015)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %.016, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.08.015)
           to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %.lr.ph
@@ -2754,7 +2754,7 @@ _ZNSt16allocator_traitsISaIN25cmDependsJavaParserHelper12CurrentClassEEE8allocat
 
 .body25:                                          ; preds = %.loopexit, %.loopexit.split-lp, %23, %26
   %eh.lpad-body26 = phi { ptr, i32 } [ %24, %26 ], [ %24, %23 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.016) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.016) #21
   br label %.body
 
 _ZSt10_ConstructIN25cmDependsJavaParserHelper12CurrentClassEJRKS1_EEvPT_DpOT0_.exit: ; preds = %.noexc24

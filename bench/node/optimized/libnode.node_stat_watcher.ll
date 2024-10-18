@@ -1076,7 +1076,7 @@ _ZN4node17BaseObjectPtrImplINS_2fs11BindingDataELb0EED2Ev.exit: ; preds = %entry
   store ptr %3, ptr %1, align 8
   store ptr %handle_wrap_queue_.i, ptr %handle_wrap_queue_.i, align 8
   store ptr %handle_wrap_queue_.i, ptr %next_.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #14
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #14
   ret void
 }
 
@@ -1105,7 +1105,7 @@ _ZN4node11StatWatcherD2Ev.exit:                   ; preds = %entry, %if.then.i.i
   store ptr %3, ptr %1, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %handle_wrap_queue_.i.i, align 8
   store ptr %handle_wrap_queue_.i.i, ptr %next_.i.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #14
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }

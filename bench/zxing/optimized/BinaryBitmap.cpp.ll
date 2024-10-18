@@ -416,7 +416,7 @@ define noundef ptr @_ZNK5ZXing12BinaryBitmap12getBitMatrixEv(ptr noundef nonnull
   store ptr %2, ptr %6, align 8
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %7, align 8
-  %8 = invoke noundef i32 @pthread_once(ptr noundef nonnull %5, ptr noundef nonnull @__once_proxy)
+  %8 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %11
 
 _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %1

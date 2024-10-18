@@ -1945,7 +1945,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   br i1 %tobool3.not.i.i, label %if.else.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6icu_7517InitCanonIterData6doInitEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef nonnull %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517InitCanonIterData6doInitEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %2 = load i32, ptr %errorCode, align 4
   %fErrCode.i.i = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %2, ptr %fErrCode.i.i, align 4

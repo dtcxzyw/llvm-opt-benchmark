@@ -524,9 +524,9 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
   %6 = icmp ugt i32 %5, 4095
   %7 = lshr i32 %5, 11
   %spec.select = select i1 %6, i32 %7, i32 1
-  %8 = tail call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %spec.select)
+  %8 = tail call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 range(i32 1, 2097152) %spec.select)
   %9 = icmp samesign ult i32 %8, 2
-  %10 = tail call range(i32 11, 33) i32 @llvm.ctlz.i32(i32 %spec.select, i1 true)
+  %10 = tail call range(i32 11, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 2097152) %spec.select, i1 true)
   %11 = xor i32 %10, 31
   %12 = shl nuw nsw i32 2, %11
   %.0.i = select i1 %9, i32 %spec.select, i32 %12
@@ -624,7 +624,7 @@ define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noca
   %24 = phi i32 [ %22, %21 ], [ %11, %13 ], [ %11, %9 ]
   %25 = getelementptr inbounds i8, ptr %2, i64 32
   %26 = zext i32 %24 to i64
-  %27 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %26, ptr nonnull elementtype(i64) %25) #9, !srcloc !9
+  %27 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 range(i64 0, 4294967296) %26, ptr nonnull elementtype(i64) %25) #9, !srcloc !9
   %storemerge.in.pre = load i32, ptr %10, align 4
   br label %28
 

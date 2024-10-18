@@ -789,7 +789,7 @@ if.end:                                           ; preds = %entry
   %lor.ext = zext i1 %8 to i32
   %9 = load i32, ptr %keep_unreachable, align 4
   %and357 = and i32 %7, 4
-  call void @die_for_incompatible_opt4(i32 noundef %lor.ext, ptr noundef nonnull @.str.55, i32 noundef %9, ptr noundef nonnull @.str.56, i32 noundef %and357, ptr noundef nonnull @.str.57, i32 noundef 0, ptr noundef nonnull @.str.111) #15
+  call void @die_for_incompatible_opt4(i32 noundef range(i32 0, 2) %lor.ext, ptr noundef nonnull @.str.55, i32 noundef %9, ptr noundef nonnull @.str.56, i32 noundef range(i32 0, 5) %and357, ptr noundef nonnull @.str.57, i32 noundef 0, ptr noundef nonnull @.str.111) #15
   %10 = load i32, ptr @pack_everything, align 4
   %and358 = and i32 %10, 4
   %tobool359.not = icmp eq i32 %and358, 0
@@ -1635,7 +1635,7 @@ if.then483:                                       ; preds = %if.end480
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.write_midx_included_packs.cmd, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %line.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.geometry_remove_redundant_packs.buf, i64 24, i1 false)
   %106 = load ptr, ptr @packtmp, align 8
-  call fastcc void @prepare_pack_objects(ptr noundef %cmd.i, ptr noundef readonly %po_args, ptr noundef %106)
+  call fastcc void @prepare_pack_objects(ptr noundef %cmd.i, ptr noundef nonnull readonly %po_args, ptr noundef %106)
   %in.i = getelementptr inbounds i8, ptr %cmd.i, i64 80
   store i32 -1, ptr %in.i, align 8
   %call.i121 = call i32 @for_each_packed_object(ptr noundef nonnull @write_oid, ptr noundef nonnull %cmd.i, i32 noundef 2) #15
@@ -2095,7 +2095,7 @@ do.cond.i.i164:                                   ; preds = %do.body.i.i160
 
 skip_prefix.exit.i:                               ; preds = %do.cond.i.i164, %do.body.i.i160
   %conv.i168 = zext i1 %tobool.not.i.i163 to i32
-  call fastcc void @prepare_pack_objects(ptr noundef %cmd.i159, ptr noundef readonly %po_args, ptr noundef %174)
+  call fastcc void @prepare_pack_objects(ptr noundef %cmd.i159, ptr noundef nonnull readonly %po_args, ptr noundef %174)
   %call2.i169 = call ptr @strvec_push(ptr noundef nonnull %cmd.i159, ptr noundef nonnull @.str.85) #15
   %181 = load i32, ptr @pack_kept_objects, align 4
   %tobool.not.i170 = icmp eq i32 %181, 0
@@ -2230,7 +2230,7 @@ for.body85.i:                                     ; preds = %land.rhs76.lr.ph.i,
 
 write_filtered_pack.exit:                         ; preds = %for.body85.i, %land.rhs76.lr.ph.i, %for.end70.i
   %call91.i = call i32 @fclose(ptr noundef %call18.i179)
-  %call92.i = call fastcc i32 @finish_pack_objects_cmd(ptr noundef %cmd.i159, ptr noundef %names, i32 noundef %conv.i168)
+  %call92.i = call fastcc i32 @finish_pack_objects_cmd(ptr noundef %cmd.i159, ptr noundef nonnull %names, i32 noundef %conv.i168)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cmd.i159)
   %tobool672.not = icmp eq i32 %call92.i, 0
   br i1 %tobool672.not, label %if.end675, label %cleanup

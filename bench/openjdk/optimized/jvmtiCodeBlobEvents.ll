@@ -112,7 +112,7 @@ define hidden void @_ZN17CodeBlobCollector7do_blobEP8CodeBlob(ptr noundef %0) #0
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %0, i64 %34
-  %36 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %28, i64 noundef 63) #10
+  %36 = tail call ptr @strncpy(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull dereferenceable(1) %28, i64 noundef 63) #10
   %37 = getelementptr inbounds i8, ptr %26, i64 63
   store i8 0, ptr %37, align 1
   %38 = getelementptr inbounds i8, ptr %26, i64 64
@@ -169,7 +169,7 @@ define hidden void @_ZN17CodeBlobCollector14do_vtable_stubEP10VtableStub(ptr nou
   %7 = tail call noundef i32 @_ZN11VtableStubs15code_size_limitEb(i1 noundef zeroext %5) #10
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
-  %10 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(12) %.str.4..str.5, i64 noundef 63) #10
+  %10 = tail call ptr @strncpy(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull dereferenceable(12) %.str.4..str.5, i64 noundef 63) #10
   %11 = getelementptr inbounds i8, ptr %2, i64 63
   store i8 0, ptr %11, align 1
   %12 = getelementptr inbounds i8, ptr %2, i64 64
@@ -243,7 +243,7 @@ define hidden void @_ZN17CodeBlobCollector7collectEv(ptr nocapture noundef nonnu
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %.011, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 63) #10
+  %18 = tail call ptr @strncpy(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 63) #10
   %19 = getelementptr inbounds i8, ptr %11, i64 63
   store i8 0, ptr %19, align 1
   %20 = getelementptr inbounds i8, ptr %11, i64 64
@@ -385,7 +385,7 @@ _ZN17CodeBlobCollector4nextEv.exit:               ; preds = %12
 
 36:                                               ; preds = %._crit_edge.i
   store i32 0, ptr %5, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlobDesc13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlobDesc13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   br label %_ZN17CodeBlobCollectorD2Ev.exit
 
 _ZN17CodeBlobCollectorD2Ev.exit:                  ; preds = %._crit_edge.i, %36

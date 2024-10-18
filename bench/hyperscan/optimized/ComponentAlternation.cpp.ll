@@ -186,7 +186,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZN3ue220ComponentAlternationD2Ev.exit
 
 _ZN3ue220ComponentAlternationD2Ev.exit:           ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
-  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #11
+  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #12
   ret void
 }

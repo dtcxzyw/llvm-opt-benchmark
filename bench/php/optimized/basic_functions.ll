@@ -7369,32 +7369,32 @@ define hidden void @zif_ini_set(ptr noundef %0, ptr nocapture noundef %1) #0 {
   ]
 
 php_ini_check_path.exit:                          ; preds = %67
-  %71 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(10) @.str.34, i64 noundef 9) #19
+  %71 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(10) @.str.34, i64 noundef 9) #19
   %.not5.i.not = icmp eq i32 %71, 0
   br i1 %.not5.i.not, label %77, label %php_ini_check_path.exit251
 
 php_ini_check_path.exit247:                       ; preds = %67
-  %72 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(16) @.str.35, i64 noundef 15) #19
+  %72 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(16) @.str.35, i64 noundef 15) #19
   %.not5.i246.not = icmp eq i32 %72, 0
   br i1 %.not5.i246.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit251:                       ; preds = %php_ini_check_path.exit
-  %73 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(10) @.str.36, i64 noundef 9) #19
+  %73 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(10) @.str.36, i64 noundef 9) #19
   %.not5.i250.not = icmp eq i32 %73, 0
   br i1 %.not5.i250.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit255:                       ; preds = %67
-  %74 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(9) @.str.37, i64 noundef 8) #19
+  %74 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(9) @.str.37, i64 noundef 8) #19
   %.not5.i254.not = icmp eq i32 %74, 0
   br i1 %.not5.i254.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit259:                       ; preds = %67
-  %75 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(18) @.str.38, i64 noundef 17) #19
+  %75 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(18) @.str.38, i64 noundef 17) #19
   %.not5.i258.not = icmp eq i32 %75, 0
   br i1 %.not5.i258.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit263:                       ; preds = %67
-  %76 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(19) @.str.39, i64 noundef 18) #19
+  %76 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull dereferenceable(19) @.str.39, i64 noundef 18) #19
   %.not5.i262.not = icmp eq i32 %76, 0
   br i1 %.not5.i262.not, label %77, label %php_ini_check_path.exit263.thread
 

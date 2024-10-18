@@ -1206,7 +1206,7 @@ if.end8.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %bus_master_as.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i32 1, ptr noundef nonnull %txbuffer.i.i.i.i, i64 noundef %conv21.i.i.i.i, i1 noundef zeroext false) #12
+  %call.i.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i32 1, ptr noundef nonnull %txbuffer.i.i.i.i, i64 noundef range(i64 -2147483648, 2147483648) %conv21.i.i.i.i, i1 noundef zeroext false) #12
   %63 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %or29.i.i.i.i = or i32 %63, 40960
   store i32 %or29.i.i.i.i, ptr %arrayidx.i.i.i.i, align 4
@@ -2053,7 +2053,7 @@ if.end49.i:                                       ; preds = %if.then41.i, %if.en
   %conv63.i = sext i32 %spec.select.i to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i234.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %or.i232.i, i32 1, ptr noundef %add.ptr.i, i64 noundef %conv63.i, i1 noundef zeroext false) #12
+  %call.i.i.i.i234.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %or.i232.i, i32 1, ptr noundef %add.ptr.i, i64 noundef range(i64 -2147483648, 2147483648) %conv63.i, i1 noundef zeroext false) #12
   %14 = load i32, ptr %cplus_txbuffer_offset.i, align 4
   %add66.i = add i32 %14, %spec.select.i
   store i32 %add66.i, ptr %cplus_txbuffer_offset.i, align 4

@@ -1191,7 +1191,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
 
 215:                                              ; preds = %212
   %216 = add i64 %.0246297, 49
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %138, ptr noundef nonnull readonly dereferenceable(1) %0, i64 %.0246297)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %138, ptr noundef nonnull readonly dereferenceable(1) %0, i64 range(i64 1, 0) %.0246297)
   %.not44.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not44.i, label %220, label %217
 

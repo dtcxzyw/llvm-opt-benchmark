@@ -601,7 +601,7 @@ define hidden void @_ZN7VMError17print_stack_traceEP12outputStreamP10JavaThreadP
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #21
+  %25 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %7) #21
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %24, %20
@@ -616,7 +616,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %26
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
-  %32 = call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #21
+  %32 = call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %7) #21
   %33 = zext i1 %32 to i8
   br label %34
 
@@ -631,7 +631,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %26
   br i1 %37, label %_ZN16StackFrameStream4nextEv.exit, label %38
 
 38:                                               ; preds = %34
-  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull %16)
+  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %6, ptr noundef nonnull align 8 dereferenceable(5041) %7, ptr noundef nonnull %16)
   %39 = load i8, ptr %17, align 1, !noalias !6
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %_ZNK5frame6senderEP11RegisterMap.exit.i
@@ -652,7 +652,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, %_ZNK11RegisterMap7in_contEv.exit.i.i, %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5041) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   %.pre = load i8, ptr %11, align 8
   br label %_ZN16StackFrameStream4nextEv.exit
 
@@ -2869,7 +2869,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit456:     ; preds = %648
   br i1 %741, label %742, label %744
 
 742:                                              ; preds = %738
-  %743 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #21
+  %743 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %23) #21
   br i1 %743, label %752, label %744
 
 744:                                              ; preds = %742, %738
@@ -2884,7 +2884,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %744
   br i1 %748, label %749, label %752
 
 749:                                              ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
-  %750 = call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #21
+  %750 = call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %23) #21
   %751 = zext i1 %750 to i8
   br label %752
 
@@ -2904,7 +2904,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %744
   br i1 %761, label %_ZN16StackFrameStream4nextEv.exit, label %762
 
 762:                                              ; preds = %752
-  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull %731)
+  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(5041) %23, ptr noundef nonnull %731)
   %763 = load i8, ptr %732, align 1, !noalias !16
   %764 = trunc i8 %763 to i1
   br i1 %764, label %765, label %_ZNK5frame6senderEP11RegisterMap.exit.i
@@ -2925,7 +2925,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, %_ZNK11RegisterMap7in_contEv.exit.i.i, %762
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5041) %23, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   br label %_ZN16StackFrameStream4nextEv.exit
 
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %752, %_ZNK5frame6senderEP11RegisterMap.exit.i
@@ -4544,7 +4544,7 @@ define hidden void @_ZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadP
   %16 = alloca %class.fdStream, align 8
   %17 = alloca %class.fileStream, align 8
   tail call void @_Z20disarm_assert_poisonv() #21
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %12, i1 noundef zeroext false) #21
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %12, i1 noundef zeroext false) #21
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %12, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 56
   store i32 1, ptr %18, align 8
@@ -4553,7 +4553,7 @@ define hidden void @_ZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadP
   %20 = getelementptr inbounds i8, ptr %12, i64 48
   store i64 2000, ptr %20, align 8
   %21 = load i32, ptr @_ZZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_imE6fd_log, align 4
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %13, i1 noundef zeroext false) #21
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %13, i1 noundef zeroext false) #21
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %13, align 8
   %22 = getelementptr inbounds i8, ptr %13, i64 56
   store i32 %21, ptr %22, align 8
@@ -4883,7 +4883,7 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %47
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %150
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %16, i1 noundef zeroext false) #21
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %16, i1 noundef zeroext false) #21
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %16, align 8
   %154 = getelementptr inbounds i8, ptr %16, i64 56
   store i32 1, ptr %154, align 8
@@ -4952,7 +4952,7 @@ _ZN7VMError16show_message_boxEPci.exit:           ; preds = %47
   br i1 %.not83, label %193, label %190
 
 190:                                              ; preds = %188
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %17, i1 noundef zeroext false) #21
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %17, i1 noundef zeroext false) #21
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %17, align 8
   %191 = getelementptr inbounds i8, ptr %17, i64 56
   store ptr %189, ptr %191, align 8
@@ -5753,7 +5753,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deo
   br i1 %68, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i.i:   ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i, %69, %58, %51
-  %72 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %45, ptr noundef nonnull %0) #21
+  %72 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %45, ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %73 = load ptr, ptr %72, align 8
   %.not.i.i.i9 = icmp eq ptr %73, null
   br i1 %.not.i.i.i9, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i.i, label %74
@@ -5879,7 +5879,7 @@ _ZNK5frame7oop_mapEv.exit.thread20:               ; preds = %34, %31
   br label %59
 
 _ZNK5frame7oop_mapEv.exit:                        ; preds = %38, %42
-  %57 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull %1) #21
+  %57 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull align 8 dereferenceable(56) %1) #21
   store ptr %57, ptr %28, align 8
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %59, label %_ZNK5frame7oop_mapEv.exit.thread
@@ -6020,7 +6020,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i:             ; preds = %_ZN7nmethod14is_deo
   br i1 %43, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i:       ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i, %44, %33, %26
-  %47 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %.0.i.i, ptr noundef nonnull %0) #21
+  %47 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i, label %49

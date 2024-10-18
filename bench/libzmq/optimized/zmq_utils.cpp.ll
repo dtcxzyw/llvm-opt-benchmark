@@ -94,7 +94,7 @@ new.cont:                                         ; preds = %entry
   %_started.i = getelementptr inbounds i8, ptr %call, i64 32
   store i8 0, ptr %_started.i, align 8
   %_thread_priority.i = getelementptr inbounds i8, ptr %call, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call, i8 0, i64 16, i1 false)
   store i32 -1, ptr %_thread_priority.i, align 8
   %_thread_sched_policy.i = getelementptr inbounds i8, ptr %call, i64 52
   store i32 -1, ptr %_thread_sched_policy.i, align 4

@@ -527,7 +527,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   %126 = getelementptr inbounds i8, ptr %49, i64 16
   %127 = load i32, ptr %126, align 8
   %128 = and i32 %127, 16383
-  %129 = tail call range(i32 0, 16384) i32 @llvm.umax.i32(i32 %125, i32 %128)
+  %129 = tail call range(i32 0, 16384) i32 @llvm.umax.i32(i32 range(i32 0, 16384) %125, i32 range(i32 0, 16384) %128)
   %130 = add nuw nsw i32 %129, 1
   br i1 %122, label %148, label %131
 

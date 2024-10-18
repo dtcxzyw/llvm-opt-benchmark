@@ -373,7 +373,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_1
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_12QPACKContextE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(116) %context) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_11HeaderTableE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(80) %context)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_11HeaderTableE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(116) %context)
   ret ptr %os
 }
 

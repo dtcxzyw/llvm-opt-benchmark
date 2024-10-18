@@ -15,13 +15,13 @@ define void @PCA_alloc(ptr nocapture noundef readonly %0, i32 noundef %1, i32 no
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef %6, i64 noundef 8) #9
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8) #9
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
 10:                                               ; preds = %5
   %11 = icmp ne i32 %4, 0
-  %12 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #11
+  %12 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8) #11
   %13 = icmp eq ptr %12, null
   %or.cond3.i = and i1 %11, %13
   br i1 %or.cond3.i, label %18, label %gv_calloc.exit.preheader
@@ -31,7 +31,7 @@ gv_calloc.exit.preheader:                         ; preds = %10
   br i1 %.not126, label %gv_calloc.exit._crit_edge.thread, label %.lr.ph
 
 gv_calloc.exit._crit_edge.thread:                 ; preds = %gv_calloc.exit.preheader
-  %14 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #11
+  %14 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8) #11
   br label %gv_calloc.exit89
 
 .lr.ph:                                           ; preds = %gv_calloc.exit.preheader
@@ -46,7 +46,7 @@ gv_calloc.exit._crit_edge.thread:                 ; preds = %gv_calloc.exit.preh
 
 gv_calloc.exit86.us:                              ; preds = %.lr.ph.split, %gv_calloc.exit86.us
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %gv_calloc.exit86.us ], [ 0, %.lr.ph.split ]
-  %16 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 8) #11
+  %16 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %15, i64 noundef 8) #11
   %17 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv139
   store ptr %16, ptr %17, align 8
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
@@ -62,13 +62,13 @@ gv_calloc.exit86.us:                              ; preds = %.lr.ph.split, %gv_c
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %gv_calloc.exit86
   %indvars.iv = phi i64 [ %indvars.iv.next, %gv_calloc.exit86 ], [ 0, %.lr.ph.split ]
-  %22 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 8) #11
+  %22 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %15, i64 noundef 8) #11
   %23 = icmp eq ptr %22, null
   br i1 %23, label %27, label %gv_calloc.exit86
 
 24:                                               ; preds = %.lr.ph
   %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str, i64 noundef %15, i64 noundef 8) #9
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %15, i64 noundef 8) #9
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
@@ -87,7 +87,7 @@ gv_calloc.exit86:                                 ; preds = %.lr.ph.split.split
   br i1 %exitcond.not, label %gv_calloc.exit._crit_edge, label %.lr.ph.split.split
 
 gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit86, %gv_calloc.exit86.us
-  %32 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #11
+  %32 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8) #11
   %33 = icmp eq ptr %32, null
   %or.cond3.i88 = and i1 %11, %33
   br i1 %or.cond3.i88, label %34, label %gv_calloc.exit89
@@ -107,13 +107,13 @@ gv_calloc.exit89:                                 ; preds = %gv_calloc.exit._cri
 
 40:                                               ; preds = %gv_calloc.exit89
   %41 = load ptr, ptr @stderr, align 8
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str, i64 noundef %39, i64 noundef 8) #9
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %39, i64 noundef 8) #9
   tail call fastcc void @graphviz_exit() #10
   unreachable
 
 43:                                               ; preds = %gv_calloc.exit89
   %44 = icmp ne i32 %1, 0
-  %45 = tail call noalias ptr @calloc(i64 noundef %39, i64 noundef 8) #11
+  %45 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %39, i64 noundef 8) #11
   %46 = icmp eq ptr %45, null
   %or.cond3.i91 = and i1 %44, %46
   br i1 %or.cond3.i91, label %47, label %gv_calloc.exit92
@@ -128,7 +128,7 @@ gv_calloc.exit89:                                 ; preds = %gv_calloc.exit._cri
 gv_calloc.exit92:                                 ; preds = %43
   %51 = mul nuw nsw i32 %1, %1
   %52 = zext nneg i32 %51 to i64
-  %53 = tail call noalias ptr @calloc(i64 noundef %52, i64 noundef 8) #11
+  %53 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %52, i64 noundef 8) #11
   %54 = icmp eq ptr %53, null
   %or.cond3.i94 = and i1 %44, %54
   br i1 %or.cond3.i94, label %55, label %gv_calloc.exit95.preheader

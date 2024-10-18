@@ -23,7 +23,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !6
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %5, ptr %3, align 8, !noalias !6
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h3f3e3e7d38ec950bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.0, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.1, i64 noundef 3, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a35a79827839fc437f8c6deac10cb88a.2, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.3, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a35a79827839fc437f8c6deac10cb88a.4)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h3f3e3e7d38ec950bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.0, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.1, i64 noundef 3, ptr noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a35a79827839fc437f8c6deac10cb88a.2, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.3, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a35a79827839fc437f8c6deac10cb88a.4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6
   ret i1 %6
 }
@@ -85,7 +85,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %7 = load ptr, ptr %6, align 8, !noalias !16, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E, i8 noundef 0), !noalias !16
-  %10 = tail call noundef i128 %9(ptr noundef nonnull %8), !noalias !16
+  %10 = tail call noundef i128 %9(ptr noundef nonnull align 16 %8), !noalias !16
   %11 = icmp eq i128 %10, 0
   br i1 %11, label %12, label %"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Hash$GT$4hash17h5ae635e63da70aeaE.exit"
 
@@ -93,7 +93,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %13 = getelementptr inbounds i8, ptr %7, i64 32
   %14 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.llvm.2546880118954093015(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13), !noalias !16
   %15 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE, i8 noundef 0), !noalias !16
-  tail call void %15(ptr noundef nonnull %8, i128 noundef %14), !noalias !16
+  tail call void %15(ptr noundef nonnull align 16 %8, i128 noundef %14), !noalias !16
   br label %"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Hash$GT$4hash17h5ae635e63da70aeaE.exit"
 
 "_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Hash$GT$4hash17h5ae635e63da70aeaE.exit": ; preds = %2, %12
@@ -197,7 +197,7 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %8 = load ptr, ptr %7, align 8, !noalias !48, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E, i8 noundef 0), !noalias !48
-  %11 = tail call noundef i128 %10(ptr noundef nonnull %9), !noalias !48
+  %11 = tail call noundef i128 %10(ptr noundef nonnull align 16 %9), !noalias !48
   %12 = icmp eq i128 %11, 0
   br i1 %12, label %13, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hdeb1397000fe76c5E.llvm.1287454497751845056.exit"
 
@@ -205,7 +205,7 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %14 = getelementptr inbounds i8, ptr %8, i64 32
   %15 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.llvm.2546880118954093015(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14), !noalias !48
   %16 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE, i8 noundef 0), !noalias !48
-  tail call void %16(ptr noundef nonnull %9, i128 noundef %15), !noalias !48
+  tail call void %16(ptr noundef nonnull align 16 %9, i128 noundef %15), !noalias !48
   br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hdeb1397000fe76c5E.llvm.1287454497751845056.exit"
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hdeb1397000fe76c5E.llvm.1287454497751845056.exit": ; preds = %2, %13
@@ -248,7 +248,7 @@ define hidden void @"_ZN4core4hash5impls64_$LT$impl$u20$core..hash..Hash$u20$for
   %8 = load ptr, ptr %7, align 8, !noalias !71, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E, i8 noundef 0), !noalias !71
-  %11 = tail call noundef i128 %10(ptr noundef nonnull %9), !noalias !71
+  %11 = tail call noundef i128 %10(ptr noundef nonnull align 16 %9), !noalias !71
   %12 = icmp eq i128 %11, 0
   br i1 %12, label %13, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hdeb1397000fe76c5E.llvm.1287454497751845056.exit"
 
@@ -256,7 +256,7 @@ define hidden void @"_ZN4core4hash5impls64_$LT$impl$u20$core..hash..Hash$u20$for
   %14 = getelementptr inbounds i8, ptr %8, i64 32
   %15 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.llvm.2546880118954093015(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14), !noalias !71
   %16 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE, i8 noundef 0), !noalias !71
-  tail call void %16(ptr noundef nonnull %9, i128 noundef %15), !noalias !71
+  tail call void %16(ptr noundef nonnull align 16 %9, i128 noundef %15), !noalias !71
   br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hdeb1397000fe76c5E.llvm.1287454497751845056.exit"
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hdeb1397000fe76c5E.llvm.1287454497751845056.exit": ; preds = %2, %13
@@ -374,7 +374,7 @@ define hidden noundef i128 @_ZN5typst4util7hash12817h40e6c78f1f3d54c8E(ptr noali
   store i64 8387220255154660723, ptr %.sroa.614.0..sroa_idx, align 8
   %.sroa.715.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.715.0..sroa_idx, i8 0, i64 40, i1 false)
-  call void @"_ZN50_$LT$typst_svg..Id$u20$as$u20$core..hash..Hash$GT$4hash17hb5e7086a09025950E.llvm.1287454497751845056"(ptr noalias noundef nonnull readonly align 16 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  call void @"_ZN50_$LT$typst_svg..Id$u20$as$u20$core..hash..Hash$GT$4hash17hb5e7086a09025950E.llvm.1287454497751845056"(ptr noalias noundef nonnull readonly align 16 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   call void @"_ZN72_$LT$typst..layout..transform..Transform$u20$as$u20$core..hash..Hash$GT$4hash17h2f7c4ea59b202da6E.llvm.1287454497751845056"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(72) %2), !alias.scope !100
   %4 = call { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E.llvm.1287454497751845056"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %2)
@@ -489,7 +489,7 @@ define hidden noundef i128 @_ZN5typst4util7hash12817h860540db43f36bfaE(ptr noali
   %8 = load ptr, ptr %7, align 8, !noalias !124, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E, i8 noundef 0), !noalias !124
-  %11 = tail call noundef i128 %10(ptr noundef nonnull %9), !noalias !124
+  %11 = tail call noundef i128 %10(ptr noundef nonnull align 16 %9), !noalias !124
   %12 = icmp eq i128 %11, 0
   br i1 %12, label %13, label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h8054ccaae4d65456E.llvm.1287454497751845056.exit"
 
@@ -497,7 +497,7 @@ define hidden noundef i128 @_ZN5typst4util7hash12817h860540db43f36bfaE(ptr noali
   %14 = getelementptr inbounds i8, ptr %8, i64 32
   %15 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.llvm.2546880118954093015(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14), !noalias !124
   %16 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef nonnull @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE, i8 noundef 0), !noalias !124
-  tail call void %16(ptr noundef nonnull %9, i128 noundef %15), !noalias !124
+  tail call void %16(ptr noundef nonnull align 16 %9, i128 noundef %15), !noalias !124
   br label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h8054ccaae4d65456E.llvm.1287454497751845056.exit"
 
 "_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h8054ccaae4d65456E.llvm.1287454497751845056.exit": ; preds = %1, %13
@@ -2119,7 +2119,7 @@ define hidden void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$cor
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i, 3
   br i1 %12, label %13, label %15
 

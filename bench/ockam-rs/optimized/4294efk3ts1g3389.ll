@@ -84,7 +84,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$L
 .body.i:                                          ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #13, !noalias !6
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5) #13, !noalias !6
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %5) #13, !noalias !6
   resume { ptr, i32 } %10
 
@@ -160,7 +160,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$all
   unreachable
 
 .body.i:                                          ; preds = %12
-  tail call void @"_ZN4core3ptr94drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_core..error..inner..LocalPayloadEntry$GT$$GT$17h47b07089c0844607E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0) #13
+  tail call void @"_ZN4core3ptr94drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_core..error..inner..LocalPayloadEntry$GT$$GT$17h47b07089c0844607E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #13
   resume { ptr, i32 } %15
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hef85e5510e10b5eaE.llvm.12192176430880052379.exit.i": ; preds = %7
@@ -280,7 +280,7 @@ define hidden void @"_ZN4core3ptr163drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   br i1 %21, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfce43bc5947ebfc7E.llvm.12192176430880052379.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #14, !noalias !51
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #14, !noalias !51
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfce43bc5947ebfc7E.llvm.12192176430880052379.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfce43bc5947ebfc7E.llvm.12192176430880052379.exit": ; preds = %1, %4, %8, %22
@@ -332,7 +332,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h
 .body.i.i.i.i:                                    ; preds = %5
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #13, !noalias !83
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6) #13, !noalias !83
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %6) #13, !noalias !83
   resume { ptr, i32 } %12
 
@@ -568,7 +568,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i
   resume { ptr, i32 } %common.resume.op
 
 .body.i.i:                                        ; preds = %46
-  tail call void @"_ZN4core3ptr94drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_core..error..inner..LocalPayloadEntry$GT$$GT$17h47b07089c0844607E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35) #13
+  tail call void @"_ZN4core3ptr94drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_core..error..inner..LocalPayloadEntry$GT$$GT$17h47b07089c0844607E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35) #13
   br label %common.resume
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hef85e5510e10b5eaE.llvm.12192176430880052379.exit.i.i": ; preds = %41
@@ -619,7 +619,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpack
 .body.i.i.i:                                      ; preds = %5
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #13, !noalias !218
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6) #13, !noalias !218
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %6) #13, !noalias !218
   resume { ptr, i32 } %12
 
@@ -751,7 +751,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !range !22, !alias.scope !327, !noundef !5
-  %14 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17hebe463803d8ba904E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %13)
+  %14 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17hebe463803d8ba904E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %13)
           to label %.noexc2.i.i unwind label %85
 
 .noexc2.i.i:                                      ; preds = %11, %1
@@ -1033,7 +1033,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
 85:                                               ; preds = %.noexc21.i.i, %.noexc20.i.i, %.noexc19.i.i, %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit126.i.i.i", %.noexc17.i.i, %.noexc16.i.i, %.noexc15.i.i, %.noexc14.i.i, %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit.i.i.i", %.noexc12.i.i, %.critedge.i8.i.i, %28, %20, %11
   %86 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h01a8e39f417b394eE"(ptr noalias noundef align 8 dereferenceable(32) %0) #13
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17h01a8e39f417b394eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #13
           to label %99 unwind label %97
 
 "_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04d42e0f064cae5bE.exit.i.i": ; preds = %.noexc5.i.i, %17, %.noexc2.i.i
@@ -1091,7 +1091,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io
 .body:                                            ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #13
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %2) #13
   resume { ptr, i32 } %7
 
@@ -1516,7 +1516,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.exit", label %22
 
 22:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #14
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %15) #14
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h19b613542d82c7a9E.exit": ; preds = %22, %8, %1, %4
@@ -1597,7 +1597,7 @@ define hidden void @"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$c
 .body.i.i:                                        ; preds = %5
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #13, !noalias !476
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21a96821667bd066E.llvm.12192176430880052379"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6) #13, !noalias !476
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb87078ad0480e74E"(ptr nonnull %6) #13, !noalias !476
   resume { ptr, i32 } %12
 

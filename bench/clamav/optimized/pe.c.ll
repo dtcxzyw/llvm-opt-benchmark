@@ -7151,7 +7151,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
   %2974 = zext i32 %.02044 to i64
   %2975 = zext i32 %2955 to i64
   %2976 = load ptr, ptr %2941, align 8
-  %2977 = call ptr %2976(ptr noundef nonnull %43, i64 noundef %2974, i64 noundef %2975, i32 noundef 1) #20
+  %2977 = call ptr %2976(ptr noundef nonnull %43, i64 noundef range(i64 0, 4294967296) %2974, i64 noundef range(i64 0, 4294967296) %2975, i32 noundef 1) #20
   %.not2693 = icmp eq ptr %2977, null
   br i1 %.not2693, label %2978, label %2979
 
@@ -7189,7 +7189,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
 2994:                                             ; preds = %2989
   %2995 = getelementptr inbounds i8, ptr %43, i64 128
   %2996 = load ptr, ptr %2995, align 8
-  call void %2996(ptr noundef nonnull %43, i64 noundef %2974, i64 noundef %2975) #20
+  call void %2996(ptr noundef nonnull %43, i64 noundef %2974, i64 noundef range(i64 0, 4294967296) %2975) #20
   %2997 = add i32 %.02045, 639
   %2998 = getelementptr inbounds i8, ptr %2992, i64 1
   %2999 = load i32, ptr %2998, align 1
@@ -9783,7 +9783,7 @@ cli_rawaddr.exit:                                 ; preds = %28, %16, %18, %30
   %60 = shl nuw nsw i32 %51, 3
   %61 = zext nneg i32 %60 to i64
   %62 = load ptr, ptr %45, align 8
-  %63 = tail call ptr %62(ptr noundef nonnull %2, i64 noundef %59, i64 noundef %61, i32 noundef 1) #20
+  %63 = tail call ptr %62(ptr noundef nonnull %2, i64 noundef range(i64 0, 4294967296) %59, i64 noundef range(i64 0, 4294967296) %61, i32 noundef 1) #20
   %.not97 = icmp eq ptr %63, null
   br i1 %.not97, label %69, label %.preheader
 
@@ -10028,7 +10028,7 @@ cli_rawaddr.exit133.thread:                       ; preds = %138, %128, %149, %c
   %172 = sub i64 %169, %171
   %173 = getelementptr inbounds i8, ptr %2, i64 128
   %174 = load ptr, ptr %173, align 8
-  tail call void %174(ptr noundef %2, i64 noundef %172, i64 noundef %61) #20
+  tail call void %174(ptr noundef %2, i64 noundef %172, i64 noundef range(i64 8, 524281) %61) #20
   br label %175
 
 175:                                              ; preds = %48, %41, %43, %cli_rawaddr.exit, %39, %166, %75, %69
@@ -11207,7 +11207,7 @@ cli_rawaddr.exit.thread:                          ; preds = %36, %26, %46, %cli_
   %52 = zext i32 %16 to i64
   %53 = getelementptr inbounds i8, ptr %8, i64 104
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr %54(ptr noundef %8, i64 noundef %51, i64 noundef %52, i32 noundef 1) #20
+  %55 = tail call ptr %54(ptr noundef %8, i64 noundef range(i64 0, 4294967296) %51, i64 noundef range(i64 0, 4294967296) %52, i32 noundef 1) #20
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %58
 
@@ -11634,7 +11634,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
 
 238:                                              ; preds = %199
   %239 = trunc i32 %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i to i16
-  %240 = tail call fastcc ptr @pe_ordinal(ptr noundef %124, i16 noundef zeroext %239)
+  %240 = tail call fastcc ptr @pe_ordinal(ptr noundef nonnull %124, i16 noundef zeroext %239)
   %241 = icmp eq ptr %240, null
   br i1 %241, label %242, label %243
 
@@ -11916,7 +11916,7 @@ cli_rawaddr.exit296.i:                            ; preds = %323
 
 360:                                              ; preds = %321
   %361 = trunc i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i to i16
-  %362 = tail call fastcc ptr @pe_ordinal(ptr noundef %124, i16 noundef zeroext %361)
+  %362 = tail call fastcc ptr @pe_ordinal(ptr noundef nonnull %124, i16 noundef zeroext %361)
   %363 = icmp eq ptr %362, null
   br i1 %363, label %364, label %365
 
@@ -12136,7 +12136,7 @@ hash_impfns.exit:                                 ; preds = %313, %fmap_readn.ex
   %443 = zext i32 %442 to i64
   %444 = getelementptr inbounds i8, ptr %8, i64 128
   %445 = load ptr, ptr %444, align 8
-  tail call void %445(ptr noundef %8, i64 noundef %51, i64 noundef %443) #20
+  tail call void %445(ptr noundef %8, i64 noundef %51, i64 noundef range(i64 0, 4294967296) %443) #20
   br label %446
 
 446:                                              ; preds = %18, %cli_rawaddr.exit.thread, %57, %.loopexit

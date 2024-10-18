@@ -1194,7 +1194,7 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
   %208 = sext i16 %161 to i32
   %209 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %209)
-  %210 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %208) #8
+  %210 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef range(i32 -32768, 32768) %208) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 

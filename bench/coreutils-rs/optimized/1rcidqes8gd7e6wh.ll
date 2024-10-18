@@ -310,7 +310,7 @@ define void @_ZN6uu_yes14prepare_buffer17h11868802ee63e8cfE(ptr noalias noundef 
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18extend_from_within17h83281dc547aed22dE.exit"
 
 24:                                               ; preds = %15
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc5e49e360801aef3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %16, i64 noundef %spec.select.i.i.i)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc5e49e360801aef3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16, i64 noundef %spec.select.i.i.i)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18extend_from_within17h83281dc547aed22dE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$18extend_from_within17h83281dc547aed22dE.exit": ; preds = %15, %24

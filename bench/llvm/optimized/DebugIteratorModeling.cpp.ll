@@ -158,13 +158,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121DebugIteratorModelingE, i64 16), ptr %41, align 8
-  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %42, ptr noundef nonnull %41, ptr nonnull @.str, i64 29, ptr nonnull @.str.1, i64 5, i1 noundef zeroext true)
+  call void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4llvm9StringRefES6_b(ptr noundef nonnull align 8 dereferenceable(97) %42, ptr noundef nonnull align 8 dereferenceable(160) %41, ptr nonnull @.str, i64 29, ptr nonnull @.str.1, i64 5, i1 noundef zeroext true)
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 136
   store ptr @.str.2, ptr %4, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 32, ptr %45, align 8
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %3, i32 noundef 2, ptr nonnull %4, i64 1, i64 4294967297, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull readonly align 8 dereferenceable(60) %3, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -228,7 +228,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_121DebugIteratorModeling
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 33, ptr %71, align 8
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %5, i32 noundef 2, ptr nonnull %6, i64 1, i64 4294967297, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %70, ptr noundef nonnull readonly align 8 dereferenceable(60) %5, i64 16, i1 false)
   %72 = getelementptr inbounds i8, ptr %2, i64 96
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -292,7 +292,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_121DebugIteratorModeling
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 32, ptr %97, align 8
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %7, i32 noundef 2, ptr nonnull %8, i64 1, i64 4294967297, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull readonly align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %96, ptr noundef nonnull readonly align 8 dereferenceable(60) %7, i64 16, i1 false)
   %98 = getelementptr inbounds i8, ptr %2, i64 176
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -365,7 +365,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.012.i.i.i.i.i.i.i.i.i = phi ptr [ %152, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_121DebugIteratorModelingEKFvPKNS1_8CallExprERNS2_14CheckerContextEEEJRKSD_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i ], [ %124, %.lr.ph.i.i.i.i.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i.i.i.idx.i.i = phi i64 [ %.0811.i.i.i.i.i.i.i.add.i.i, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_121DebugIteratorModelingEKFvPKNS1_8CallExprERNS2_14CheckerContextEEEJRKSD_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %.0811.i.i.i.i.i.i.i.idx.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.0811.i.i.i.i.i.i.i.ptr.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.012.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %.0811.i.i.i.i.i.i.i.ptr.i.i, i64 16, i1 false)
   %127 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i.i, i64 16
   %128 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.ptr.i.i, i64 16
   %129 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.ptr.i.i, i64 24
@@ -1737,7 +1737,7 @@ _ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_121DebugIteratorModelingEKFvPK
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #14
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #14
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   ret void
 }
 

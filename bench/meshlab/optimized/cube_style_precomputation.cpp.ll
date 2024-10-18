@@ -13538,7 +13538,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3ig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3igl12parallel_forIiZNS3_12parallel_forIiZNS3_20squared_edge_lengthsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS8_IiLin1ELin1ELi0ELin1ELin1EEENS8_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS7_10MatrixBaseIT_EERKNSC_IT0_EERNS7_15PlainObjectBaseIT1_EEEUliE_EEbSD_RKSH_mEUlmE_ZNS5_IiSP_EEbSD_SR_mEUlimE_SS_EEbSD_SR_RKSM_RKT2_mEUliimE_iimEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }
@@ -14603,7 +14603,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3ig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3igl12parallel_forIiZNS3_12parallel_forIiZNS3_20squared_edge_lengthsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS8_IiLin1ELin1ELi0ELin1ELin1EEENS8_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS7_10MatrixBaseIT_EERKNSC_IT0_EERNS7_15PlainObjectBaseIT1_EEEUliE0_EEbSD_RKSH_mEUlmE_ZNS5_IiSP_EEbSD_SR_mEUlimE_SS_EEbSD_SR_RKSM_RKT2_mEUliimE_iimEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }
@@ -15940,7 +15940,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3ig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3igl12parallel_forIiZNS3_12parallel_forIiZNS3_5sort3IN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES9_NS8_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS7_9DenseBaseIT_EEibRNS7_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlRKiE_EEbSC_RKSH_mEUlmE_ZNS5_IiSP_EEbSC_SR_mEUlimE_SS_EEbSC_SR_RKSK_RKT2_mEUliimE_iimEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }
@@ -16721,7 +16721,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3ig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3igl12parallel_forIlZNS3_12parallel_forIlZNS3_10doubleareaIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS8_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS7_10MatrixBaseIT_EENSC_6ScalarERNS7_15PlainObjectBaseIT0_EEEUliE_EEbSC_RKSI_mEUlmE_ZNS5_IlSL_EEbSC_SN_mEUllmE_SO_EEbSC_SN_RKT1_RKT2_mEUlllmE_llmEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }
@@ -17867,7 +17867,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3ig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3igl12parallel_forIiZNS3_12parallel_forIiZNS3_20squared_edge_lengthsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS8_IiLin1ELin1ELi0ELin1ELin1EEES9_EEvRKNS7_10MatrixBaseIT_EERKNSB_IT0_EERNS7_15PlainObjectBaseIT1_EEEUliE_EEbSC_RKSG_mEUlmE_ZNS5_IiSO_EEbSC_SQ_mEUlimE_SR_EEbSC_SQ_RKSL_RKT2_mEUliimE_iimEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }
@@ -18928,7 +18928,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3ig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3igl12parallel_forIiZNS3_12parallel_forIiZNS3_20squared_edge_lengthsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS8_IiLin1ELin1ELi0ELin1ELin1EEES9_EEvRKNS7_10MatrixBaseIT_EERKNSB_IT0_EERNS7_15PlainObjectBaseIT1_EEEUliE0_EEbSC_RKSG_mEUlmE_ZNS5_IiSO_EEbSC_SQ_mEUlimE_SR_EEbSC_SQ_RKSL_RKT2_mEUliimE_iimEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }
@@ -19697,7 +19697,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3ig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3igl12parallel_forIlZNS3_12parallel_forIlZNS3_42internal_angles_using_squared_edge_lengthsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS8_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS7_10MatrixBaseIT_EERNS7_15PlainObjectBaseIT0_EEEUllE_EEbSC_RKSH_mEUlmE_ZNS5_IlSK_EEbSC_SM_mEUllmE_SN_EEbSC_SM_RKT1_RKT2_mEUlllmE_llmEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }
@@ -19956,7 +19956,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6Mat
   store i64 %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_12CwiseUnaryOpINS_8internal14scalar_sqrt_opIdEEKNS_16PartialReduxExprIKNS3_INS4_14scalar_abs2_opIdEEKNS0_IdLin1ELin1ELi0ELin1ELin1EEEEENS4_10member_sumIddEELi1EEEEEEERKT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(41) %12)
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_12CwiseUnaryOpINS_8internal14scalar_sqrt_opIdEEKNS_16PartialReduxExprIKNS3_INS4_14scalar_abs2_opIdEEKNS0_IdLin1ELin1ELi0ELin1ELin1EEEEENS4_10member_sumIddEELi1EEEEEEERKT_(ptr noundef nonnull align 8 dereferenceable(33) %11, ptr noundef nonnull align 8 dereferenceable(64) %12)
   %13 = getelementptr inbounds i8, ptr %4, i64 40
   %14 = load ptr, ptr %11, align 8
   store ptr %14, ptr %13, align 8
@@ -23250,7 +23250,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3ig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3igl12parallel_forIiZNS3_12parallel_forIiZNS3_20squared_edge_lengthsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS8_IiLin1ELin1ELi0ELin1ELin1EEENS8_IdLin1ELi6ELi0ELin1ELi6EEEEEvRKNS7_10MatrixBaseIT_EERKNSC_IT0_EERNS7_15PlainObjectBaseIT1_EEEUliE_EEbSD_RKSH_mEUlmE_ZNS5_IiSP_EEbSD_SR_mEUlimE_SS_EEbSD_SR_RKSM_RKT2_mEUliimE_iimEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }
@@ -24311,7 +24311,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3ig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3igl12parallel_forIiZNS3_12parallel_forIiZNS3_20squared_edge_lengthsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS8_IiLin1ELin1ELi0ELin1ELin1EEENS8_IdLin1ELi6ELi0ELin1ELi6EEEEEvRKNS7_10MatrixBaseIT_EERKNSC_IT0_EERNS7_15PlainObjectBaseIT1_EEEUliE0_EEbSD_RKSH_mEUlmE_ZNS5_IiSP_EEbSD_SR_mEUlimE_SS_EEbSD_SR_RKSM_RKT2_mEUliimE_iimEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
 }
@@ -43576,7 +43576,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit38: ; preds = %_ZN5Eigen
   %179 = add nsw i32 %176, %165
   %180 = sext i32 %179 to i64
   %181 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %180
-  %182 = call fastcc noundef i32 @_ZN5Eigen8internal6ColamdL14init_rows_colsIiEET_S3_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_SA_(i32 noundef %10, i32 noundef %13, ptr noundef %181, ptr noundef %178, ptr noundef %.sroa.0.0, ptr noundef %.sroa.053.0, ptr noundef %7)
+  %182 = call fastcc noundef i32 @_ZN5Eigen8internal6ColamdL14init_rows_colsIiEET_S3_S3_PNS1_12RowStructureIS3_EEPNS1_12ColStructureIS3_EEPS3_SA_SA_(i32 noundef %10, i32 noundef %13, ptr noundef %181, ptr noundef %178, ptr noundef %.sroa.0.0, ptr noundef %.sroa.053.0, ptr noundef nonnull %7)
   %.not99.i = icmp eq i32 %182, 0
   br i1 %.not99.i, label %186, label %183
 
@@ -56778,7 +56778,7 @@ define linkonce_odr noundef i64 @_ZN5Eigen8internal12SparseLUImplIdiE10column_df
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %18, ptr noundef nonnull align 8 dereferenceable(17) %8, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %18, ptr noundef nonnull align 8 dereferenceable(19) %8, i64 17, i1 false)
   store ptr %31, ptr %19, align 8
   store i64 %1, ptr %38, align 8
   call void @_ZN5Eigen8internal12SparseLUImplIdiE10dfs_kernelINS0_17column_dfs_traitsINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS5_IdLin1ELi1ELi0ELin1ELi1EEEEEEEviRS6_RlS9_S9_NS_3RefIS6_Li0ENS_11InnerStrideILi1EEEEES9_SE_S9_S9_RNS0_13LU_GlobalLU_tIS6_S7_EESA_lRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(184) %13, ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %44, ptr noundef nonnull align 8 dereferenceable(32) %17)
@@ -60269,7 +60269,7 @@ define linkonce_odr void @_ZN5Eigen8internal26triangular_solver_selectorINS_3Map
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24
@@ -66859,7 +66859,7 @@ common.resume:                                    ; preds = %.body, %.body.i
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %3, i64 136
   store i8 1, ptr %13, align 8
-  call void @_ZN5Eigen8internal13SparseRefBaseINS_3RefIKNS_12SparseMatrixIdLi0EiEELi0ENS_11OuterStrideILin1EEEEEE9constructIS4_EEvRT_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(72) %8)
+  call void @_ZN5Eigen8internal13SparseRefBaseINS_3RefIKNS_12SparseMatrixIdLi0EiEELi0ENS_11OuterStrideILin1EEEEEE9constructIS4_EEvRT_(ptr noundef nonnull align 8 dereferenceable(137) %3, ptr noundef nonnull align 8 dereferenceable(72) %8)
   %14 = getelementptr inbounds i8, ptr %3, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
@@ -71156,7 +71156,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiE8finalizeEv.exit:  ; preds = %.lr.ph13.i, %298, %
 define linkonce_odr void @_ZN5Eigen8internal23assign_sparse_to_sparseINS_12SparseMatrixIdLi0EiEENS_7ProductINS4_IS3_S3_Li2EEES3_Li2EEEEEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::evaluator.2739", align 8
   %4 = alloca %"class.Eigen::SparseMatrix", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -72147,7 +72147,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit:         ; preds = %_ZN5Eigen12SparseMa
 define linkonce_odr void @_ZN5Eigen8internal23assign_sparse_to_sparseINS_12SparseMatrixIdLi0EiEENS_7ProductIS3_S3_Li2EEEEEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::evaluator.2740", align 8
   %4 = alloca %"class.Eigen::SparseMatrix", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8

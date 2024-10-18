@@ -75,7 +75,7 @@ define hidden void @aom_lpf_horizontal_4_c(ptr nocapture noundef %0, i32 noundef
   %68 = sub nsw i32 %66, %67
   %69 = mul nsw i32 %68, 3
   %70 = add nsw i32 %65, %69
-  %71 = tail call i32 @llvm.smin.i32(i32 %70, i32 127)
+  %71 = tail call i32 @llvm.smin.i32(i32 range(i32 -893, 893) %70, i32 127)
   %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 -128)
   %73 = select i1 %46, i32 %72, i32 0
   %74 = tail call i32 @llvm.smin.i32(i32 %73, i32 123)
@@ -176,7 +176,7 @@ define hidden void @aom_lpf_vertical_4_c(ptr nocapture noundef %0, i32 noundef %
   %50 = sub nsw i32 %48, %49
   %51 = mul nsw i32 %50, 3
   %52 = add nsw i32 %47, %51
-  %53 = tail call i32 @llvm.smin.i32(i32 %52, i32 127)
+  %53 = tail call i32 @llvm.smin.i32(i32 range(i32 -893, 893) %52, i32 127)
   %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 -128)
   %55 = select i1 %36, i32 %54, i32 0
   %56 = tail call i32 @llvm.smin.i32(i32 %55, i32 123)
@@ -262,7 +262,7 @@ define hidden void @aom_lpf_vertical_4_c(ptr nocapture noundef %0, i32 noundef %
   %121 = sub nsw i32 %119, %120
   %122 = mul nsw i32 %121, 3
   %123 = add nsw i32 %118, %122
-  %124 = tail call i32 @llvm.smin.i32(i32 %123, i32 127)
+  %124 = tail call i32 @llvm.smin.i32(i32 range(i32 -893, 893) %123, i32 127)
   %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 -128)
   %126 = select i1 %107, i32 %125, i32 0
   %127 = tail call i32 @llvm.smin.i32(i32 %126, i32 123)
@@ -481,7 +481,7 @@ define internal fastcc void @filter6(i8 noundef signext %0, i8 noundef zeroext %
   %79 = sub nsw i32 %77, %78
   %80 = mul nsw i32 %79, 3
   %81 = add nsw i32 %76, %80
-  %82 = tail call i32 @llvm.smin.i32(i32 %81, i32 127)
+  %82 = tail call i32 @llvm.smin.i32(i32 range(i32 -893, 893) %81, i32 127)
   %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 -128)
   %84 = trunc nsw i32 %83 to i8
   %85 = and i8 %0, %84
@@ -751,7 +751,7 @@ define internal fastcc void @filter8(i8 noundef signext %0, i8 noundef zeroext %
   %106 = sub nsw i32 %104, %105
   %107 = mul nsw i32 %106, 3
   %108 = add nsw i32 %103, %107
-  %109 = tail call i32 @llvm.smin.i32(i32 %108, i32 127)
+  %109 = tail call i32 @llvm.smin.i32(i32 range(i32 -893, 893) %108, i32 127)
   %110 = tail call i32 @llvm.smax.i32(i32 %109, i32 -128)
   %111 = trunc nsw i32 %110 to i8
   %112 = and i8 %0, %111
@@ -1423,11 +1423,11 @@ define internal fastcc void @highbd_filter4(i8 noundef signext %0, i8 noundef ze
   ]
 
 signed_char_clamp_high.exit.thread:               ; preds = %7
-  %40 = tail call i32 @llvm.smin.i32(i32 %34, i32 511)
+  %40 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %34, i32 511)
   %41 = tail call i32 @llvm.smax.i32(i32 %40, i32 -512)
   %42 = select i1 %.not112, i32 0, i32 %41
   %43 = add nsw i32 %42, %38
-  %44 = tail call i32 @llvm.smin.i32(i32 %43, i32 511)
+  %44 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %43, i32 511)
   %45 = tail call i32 @llvm.smax.i32(i32 %44, i32 -512)
   %46 = and i32 %45, %39
   %47 = tail call i32 @llvm.smin.i32(i32 %46, i32 507)
@@ -1442,14 +1442,14 @@ signed_char_clamp_high.exit.thread:               ; preds = %7
   %54 = ashr i16 %.0.i5686, 3
   %55 = sext i16 %50 to i32
   %56 = sub nsw i32 %35, %55
-  %57 = tail call i32 @llvm.smin.i32(i32 %56, i32 511)
+  %57 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %56, i32 511)
   %58 = tail call i32 @llvm.smax.i32(i32 %57, i32 -512)
   %.0.i5991 = trunc nsw i32 %58 to i16
   %59 = add i16 %.0.i5991, %11
   store i16 %59, ptr %4, align 2
   %60 = sext i16 %54 to i32
   %61 = add nsw i32 %60, %36
-  %62 = tail call i32 @llvm.smin.i32(i32 %61, i32 511)
+  %62 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %61, i32 511)
   %63 = tail call i32 @llvm.smax.i32(i32 %62, i32 -512)
   %.0.i6296 = trunc nsw i32 %63 to i16
   %64 = add i16 %.0.i6296, %11
@@ -1459,22 +1459,22 @@ signed_char_clamp_high.exit.thread:               ; preds = %7
   %67 = sext i16 %66 to i32
   %68 = select i1 %.not112, i32 %67, i32 0
   %69 = sub nsw i32 %33, %68
-  %70 = tail call i32 @llvm.smin.i32(i32 %69, i32 511)
+  %70 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %69, i32 511)
   %71 = tail call i32 @llvm.smax.i32(i32 %70, i32 -512)
   %.0.i65101 = trunc nsw i32 %71 to i16
   %72 = add i16 %.0.i65101, %11
   store i16 %72, ptr %5, align 2
   %73 = add nsw i32 %68, %32
-  %74 = tail call i32 @llvm.smin.i32(i32 %73, i32 511)
+  %74 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %73, i32 511)
   %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 -512)
   br label %signed_char_clamp_high.exit69
 
 signed_char_clamp_high.exit.thread72:             ; preds = %7
-  %76 = tail call i32 @llvm.smin.i32(i32 %34, i32 2047)
+  %76 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %34, i32 2047)
   %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 -2048)
   %78 = select i1 %.not112, i32 0, i32 %77
   %79 = add nsw i32 %78, %38
-  %80 = tail call i32 @llvm.smin.i32(i32 %79, i32 2047)
+  %80 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %79, i32 2047)
   %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 -2048)
   %82 = and i32 %81, %39
   %83 = tail call i32 @llvm.smin.i32(i32 %82, i32 2043)
@@ -1489,14 +1489,14 @@ signed_char_clamp_high.exit.thread72:             ; preds = %7
   %90 = ashr i16 %.0.i5689, 3
   %91 = sext i16 %86 to i32
   %92 = sub nsw i32 %35, %91
-  %93 = tail call i32 @llvm.smin.i32(i32 %92, i32 2047)
+  %93 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %92, i32 2047)
   %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 -2048)
   %.0.i5994 = trunc nsw i32 %94 to i16
   %95 = add i16 %.0.i5994, %11
   store i16 %95, ptr %4, align 2
   %96 = sext i16 %90 to i32
   %97 = add nsw i32 %96, %36
-  %98 = tail call i32 @llvm.smin.i32(i32 %97, i32 2047)
+  %98 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %97, i32 2047)
   %99 = tail call i32 @llvm.smax.i32(i32 %98, i32 -2048)
   %.0.i6299 = trunc nsw i32 %99 to i16
   %100 = add i16 %.0.i6299, %11
@@ -1506,22 +1506,22 @@ signed_char_clamp_high.exit.thread72:             ; preds = %7
   %103 = sext i16 %102 to i32
   %104 = select i1 %.not112, i32 %103, i32 0
   %105 = sub nsw i32 %33, %104
-  %106 = tail call i32 @llvm.smin.i32(i32 %105, i32 2047)
+  %106 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %105, i32 2047)
   %107 = tail call i32 @llvm.smax.i32(i32 %106, i32 -2048)
   %.0.i65104 = trunc nsw i32 %107 to i16
   %108 = add i16 %.0.i65104, %11
   store i16 %108, ptr %5, align 2
   %109 = add nsw i32 %104, %32
-  %110 = tail call i32 @llvm.smin.i32(i32 %109, i32 2047)
+  %110 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %109, i32 2047)
   %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 -2048)
   br label %signed_char_clamp_high.exit69
 
 signed_char_clamp_high.exit:                      ; preds = %7
-  %112 = tail call i32 @llvm.smin.i32(i32 %34, i32 127)
+  %112 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %34, i32 127)
   %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 -128)
   %114 = select i1 %.not112, i32 0, i32 %113
   %115 = add nsw i32 %114, %38
-  %116 = tail call i32 @llvm.smin.i32(i32 %115, i32 127)
+  %116 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %115, i32 127)
   %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 -128)
   %118 = and i32 %117, %39
   %119 = tail call i32 @llvm.smin.i32(i32 %118, i32 123)
@@ -1536,14 +1536,14 @@ signed_char_clamp_high.exit:                      ; preds = %7
   %126 = ashr i16 %.0.i56, 3
   %127 = sext i16 %122 to i32
   %128 = sub nsw i32 %35, %127
-  %129 = tail call i32 @llvm.smin.i32(i32 %128, i32 127)
+  %129 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %128, i32 127)
   %130 = tail call i32 @llvm.smax.i32(i32 %129, i32 -128)
   %.0.i59 = trunc nsw i32 %130 to i16
   %131 = add i16 %.0.i59, %11
   store i16 %131, ptr %4, align 2
   %132 = sext i16 %126 to i32
   %133 = add nsw i32 %132, %36
-  %134 = tail call i32 @llvm.smin.i32(i32 %133, i32 127)
+  %134 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %133, i32 127)
   %135 = tail call i32 @llvm.smax.i32(i32 %134, i32 -128)
   %.0.i62 = trunc nsw i32 %135 to i16
   %136 = add i16 %.0.i62, %11
@@ -1553,13 +1553,13 @@ signed_char_clamp_high.exit:                      ; preds = %7
   %139 = sext i16 %138 to i32
   %140 = select i1 %.not112, i32 %139, i32 0
   %141 = sub nsw i32 %33, %140
-  %142 = tail call i32 @llvm.smin.i32(i32 %141, i32 127)
+  %142 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %141, i32 127)
   %143 = tail call i32 @llvm.smax.i32(i32 %142, i32 -128)
   %.0.i65 = trunc nsw i32 %143 to i16
   %144 = add i16 %.0.i65, %11
   store i16 %144, ptr %5, align 2
   %145 = add nsw i32 %140, %32
-  %146 = tail call i32 @llvm.smin.i32(i32 %145, i32 127)
+  %146 = tail call i32 @llvm.smin.i32(i32 range(i32 -229373, 229373) %145, i32 127)
   %147 = tail call i32 @llvm.smax.i32(i32 %146, i32 -128)
   br label %signed_char_clamp_high.exit69
 

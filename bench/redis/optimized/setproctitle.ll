@@ -295,7 +295,7 @@ if.end19:                                         ; preds = %if.else14, %if.then
   %cond.i9.pre-phi = phi i64 [ %cond.i, %if.else14 ], [ %.pre, %if.then13 ]
   %conv = zext nneg i32 %len.0 to i64
   %sub = add nsw i64 %cond.i9.pre-phi, -1
-  %cond.i10 = call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %conv, i64 %sub)
+  %cond.i10 = call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 range(i64 1, 2147483648) %conv, i64 %sub)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 16 %buf, i64 %cond.i10, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %cond.i10
   %4 = load ptr, ptr @SPT.3, align 8

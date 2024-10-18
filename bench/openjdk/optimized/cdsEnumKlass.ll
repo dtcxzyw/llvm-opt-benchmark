@@ -484,7 +484,7 @@ define hidden void @_ZN12CDSEnumKlass20archive_static_fieldEiP17KlassSubGraphInf
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %53 = sext i32 %.sroa.1.0.copyload.i to i64
   %54 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %55 = tail call noundef ptr %54(ptr noundef nonnull %3, i64 noundef %53) #9
+  %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %53) #9
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %62
 
@@ -816,7 +816,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %110 = call noundef ptr @_ZN10HeapShared8get_rootEib(i32 noundef %105, i1 noundef zeroext true) #9
   %111 = sext i32 %.sroa.1.0.copyload.i to i64
   %112 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %112(ptr noundef nonnull %41, i64 noundef %111, ptr noundef %110) #9
+  call void %112(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %111, ptr noundef %110) #9
   %.pre = load i32, ptr %68, align 8
   %.pre19 = load i32, ptr %69, align 4
   br label %113

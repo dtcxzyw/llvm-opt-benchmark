@@ -2222,7 +2222,7 @@ define dso_local void @_ZN13StatementGotoD0Ev(ptr noundef nonnull align 8 derefe
 _ZN13StatementGotoD2Ev.exit:                      ; preds = %9, %12
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
-  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
+  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

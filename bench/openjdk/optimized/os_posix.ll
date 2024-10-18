@@ -2141,7 +2141,7 @@ define hidden noundef zeroext i1 @_ZN2os5Posix21handle_stack_overflowEP10JavaThr
 36:                                               ; preds = %.loopexit
   %37 = getelementptr inbounds i8, ptr %10, i64 40
   %38 = getelementptr inbounds i8, ptr %10, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store i32 2, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %10, i64 24
@@ -3231,7 +3231,7 @@ define hidden void @_ZN13PlatformMutexD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15PlatformMonitorC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
-  %2 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %0, ptr noundef nonnull @_ZL10_mutexAttr) #28
+  %2 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @_ZL10_mutexAttr) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = tail call i32 @pthread_cond_init(ptr noundef nonnull %3, ptr noundef nonnull @_ZL9_condAttr) #28
   ret void
@@ -3241,7 +3241,7 @@ define hidden void @_ZN15PlatformMonitorC2Ev(ptr noundef nonnull align 8 derefer
 define hidden void @_ZN15PlatformMonitorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %2) #28
-  %4 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %0) #28
+  %4 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   ret void
 }
 
@@ -3385,7 +3385,7 @@ define hidden noundef zeroext i1 @_ZN2os11message_boxEPKcS1_(ptr noundef %0, ptr
   %7 = load i32, ptr @_ZN13defaultStream10_output_fdE, align 4
   %8 = load i32, ptr @_ZN13defaultStream9_error_fdE, align 4
   %9 = select i1 %6, i32 %7, i32 %8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #28
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %3, i1 noundef zeroext false) #28
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 %9, ptr %10, align 8

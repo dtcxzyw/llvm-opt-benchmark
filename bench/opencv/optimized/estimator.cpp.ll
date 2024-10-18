@@ -754,7 +754,7 @@ _ZN2cv3PtrINS_4usac23HomographyEstimatorImplEED2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !4
   store ptr null, ptr %5, align 8, !alias.scope !7, !noalias !4
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4usac23HomographyEstimatorImplESaIvEJRKNS4_3PtrINS5_13MinimalSolverEEERKNS8_INS5_16NonMinimalSolverEEERKNS8_INS5_10DegeneracyEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3), !noalias !4
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4usac23HomographyEstimatorImplESaIvEJRKNS4_3PtrINS5_13MinimalSolverEEERKNS8_INS5_16NonMinimalSolverEEERKNS8_INS5_10DegeneracyEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3), !noalias !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !4
   %7 = load ptr, ptr %5, align 8, !noalias !4
   %8 = load ptr, ptr %6, align 8, !noalias !4
@@ -774,7 +774,7 @@ _ZN2cv3PtrINS_4usac24FundamentalEstimatorImplEED2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !10
   store ptr null, ptr %5, align 8, !alias.scope !13, !noalias !10
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4usac24FundamentalEstimatorImplESaIvEJRKNS4_3PtrINS5_13MinimalSolverEEERKNS8_INS5_16NonMinimalSolverEEERKNS8_INS5_10DegeneracyEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3), !noalias !10
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4usac24FundamentalEstimatorImplESaIvEJRKNS4_3PtrINS5_13MinimalSolverEEERKNS8_INS5_16NonMinimalSolverEEERKNS8_INS5_10DegeneracyEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3), !noalias !10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !10
   %7 = load ptr, ptr %5, align 8, !noalias !10
   %8 = load ptr, ptr %6, align 8, !noalias !10
@@ -794,7 +794,7 @@ _ZN2cv3PtrINS_4usac22EssentialEstimatorImplEED2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !16
   store ptr null, ptr %5, align 8, !alias.scope !19, !noalias !16
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4usac22EssentialEstimatorImplESaIvEJRKNS4_3PtrINS5_13MinimalSolverEEERKNS8_INS5_16NonMinimalSolverEEERKNS8_INS5_10DegeneracyEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3), !noalias !16
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4usac22EssentialEstimatorImplESaIvEJRKNS4_3PtrINS5_13MinimalSolverEEERKNS8_INS5_16NonMinimalSolverEEERKNS8_INS5_10DegeneracyEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3), !noalias !16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !16
   %7 = load ptr, ptr %5, align 8, !noalias !16
   %8 = load ptr, ptr %6, align 8, !noalias !16
@@ -814,7 +814,7 @@ define hidden void @_ZN2cv4usac15AffineEstimator6createERKNS_3PtrINS0_13MinimalS
   store i32 1, ptr %6, align 4, !noalias !22
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac19AffineEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !22
   %7 = getelementptr inbounds i8, ptr %4, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %.noexc.i.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac19AffineEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !22
 
 .noexc.i.i.i.i.i:                                 ; preds = %3
@@ -894,7 +894,7 @@ define hidden void @_ZN2cv4usac12PnPEstimator6createERKNS_3PtrINS0_13MinimalSolv
   store i32 1, ptr %6, align 4, !noalias !27
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac16PnPEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !27
   %7 = getelementptr inbounds i8, ptr %4, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %.noexc.i.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac16PnPEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !27
 
 .noexc.i.i.i.i.i:                                 ; preds = %3
@@ -1124,7 +1124,7 @@ define hidden void @_ZN2cv4usac13NormTransform6createERKNS_3MatE(ptr dead_on_unw
   store i32 1, ptr %5, align 4, !noalias !62
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac17NormTransformImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !62
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %6)
           to label %.noexc.i.i.i.i.i unwind label %9, !noalias !62
 
 .noexc.i.i.i.i.i:                                 ; preds = %2
@@ -1136,7 +1136,7 @@ define hidden void @_ZN2cv4usac13NormTransform6createERKNS_3MatE(ptr dead_on_unw
 .body.i.i.i.i.i.i:                                ; preds = %.noexc.i.i.i.i.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #16, !noalias !62
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %6) #16, !noalias !62
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac17NormTransformImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i
 
 9:                                                ; preds = %2
@@ -1168,7 +1168,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEst
   store i32 1, ptr %8, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
@@ -1700,7 +1700,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEs
   store i32 1, ptr %8, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
@@ -2303,7 +2303,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEsti
   store i32 1, ptr %8, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12
 
 .noexc:                                           ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
@@ -3619,7 +3619,7 @@ define linkonce_odr hidden void @_ZN2cv4usac30ReprojectionErrorSymmetricImplD0Ev
 _ZN2cv4usac30ReprojectionErrorSymmetricImplD2Ev.exit: ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -4226,7 +4226,7 @@ define linkonce_odr hidden void @_ZN2cv4usac28ReprojectionErrorForwardImplD0Ev(p
 _ZN2cv4usac28ReprojectionErrorForwardImplD2Ev.exit: ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -4627,7 +4627,7 @@ define linkonce_odr hidden void @_ZN2cv4usac16SampsonErrorImplD0Ev(ptr noundef n
 _ZN2cv4usac16SampsonErrorImplD2Ev.exit:           ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -5042,7 +5042,7 @@ define linkonce_odr hidden void @_ZN2cv4usac30SymmetricGeometricDistanceImplD0Ev
 _ZN2cv4usac30SymmetricGeometricDistanceImplD2Ev.exit: ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -5461,7 +5461,7 @@ define linkonce_odr hidden void @_ZN2cv4usac28ReprojectionErrorPmatrixImplD0Ev(p
 _ZN2cv4usac28ReprojectionErrorPmatrixImplD2Ev.exit: ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -5890,7 +5890,7 @@ define linkonce_odr hidden void @_ZN2cv4usac30ReprojectionDistanceAffineImplD0Ev
 _ZN2cv4usac30ReprojectionDistanceAffineImplD2Ev.exit: ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -6159,7 +6159,7 @@ define linkonce_odr hidden void @_ZN2cv4usac17NormTransformImplD0Ev(ptr noundef 
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv4usac17NormTransformImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

@@ -2584,7 +2584,7 @@ if.then138.i:                                     ; preds = %if.else134.i
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %volatile_header.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %extent.i30)
   store ptr null, ptr %extent.i30, align 8
-  %call.i31 = call i32 @bdrv_apply_auto_read_only(ptr noundef %bs, ptr noundef nonnull @.str.72, ptr noundef %errp) #15
+  %call.i31 = call i32 @bdrv_apply_auto_read_only(ptr noundef nonnull %bs, ptr noundef nonnull @.str.72, ptr noundef %errp) #15
   %cmp.i32 = icmp slt i32 %call.i31, 0
   br i1 %cmp.i32, label %if.then142.i, label %if.end.i33
 
@@ -2726,7 +2726,7 @@ if.end23.i:                                       ; preds = %if.end12.i.i
   %.tr33.i = trunc i64 %48 to i32
   %conv28.i = shl i32 %.tr33.i, 6
   %49 = load i64, ptr %grain_size.i.i, align 8
-  %call29.i = call fastcc i32 @vmdk_add_extent(ptr noundef %bs, ptr noundef nonnull %call99.i, i1 noundef zeroext false, i64 noundef %45, i64 noundef %mul24.i, i64 noundef 0, i32 noundef %conv.i, i32 noundef %conv28.i, i64 noundef %49, ptr noundef %extent.i30, ptr noundef %errp)
+  %call29.i = call fastcc i32 @vmdk_add_extent(ptr noundef nonnull %bs, ptr noundef nonnull %call99.i, i1 noundef zeroext false, i64 noundef %45, i64 noundef %mul24.i, i64 noundef 0, i32 noundef %conv.i, i32 noundef %conv28.i, i64 noundef %49, ptr noundef %extent.i30, ptr noundef %errp)
   %cmp30.i = icmp slt i32 %call29.i, 0
   br i1 %cmp30.i, label %if.then142.i, label %if.end33.i36
 

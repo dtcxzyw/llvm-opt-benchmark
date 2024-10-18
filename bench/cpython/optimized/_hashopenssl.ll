@@ -1212,7 +1212,7 @@ if.then.i:                                        ; preds = %skip_optional_kwonl
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
   %8 = load ptr, ptr %name.i, align 8
-  %call1.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef %8, ptr noundef %data_obj.034, i32 noundef %usedforsecurity.0)
+  %call1.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef %8, ptr noundef %data_obj.034, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %EVP_new_impl.exit
 
 EVP_new_impl.exit:                                ; preds = %if.then.i, %if.end.i
@@ -2250,7 +2250,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.2, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.2, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2306,7 +2306,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.4, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.4, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2362,7 +2362,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.6, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.6, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2418,7 +2418,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.8, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.8, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2474,7 +2474,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.10, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.10, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2530,7 +2530,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.12, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.12, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2586,7 +2586,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.20, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.20, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2642,7 +2642,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.22, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.22, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2698,7 +2698,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.24, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.24, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2754,7 +2754,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.26, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.26, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2810,7 +2810,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.28, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.28, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly
@@ -2866,7 +2866,7 @@ if.end24:                                         ; preds = %skip_optional_pos
 skip_optional_kwonly:                             ; preds = %if.end, %if.end24, %skip_optional_pos
   %data_obj.033 = phi ptr [ %2, %if.end24 ], [ %2, %skip_optional_pos ], [ null, %if.end ]
   %usedforsecurity.0 = phi i32 [ %call26, %if.end24 ], [ 1, %skip_optional_pos ], [ 1, %if.end ]
-  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.30, ptr noundef %data_obj.033, i32 noundef %usedforsecurity.0)
+  %call.i = call fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef nonnull @.str.30, ptr noundef %data_obj.033, i32 noundef range(i32 0, -2147483648) %usedforsecurity.0)
   br label %exit
 
 exit:                                             ; preds = %if.end24, %cond.end9, %skip_optional_kwonly

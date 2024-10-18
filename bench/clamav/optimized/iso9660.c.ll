@@ -672,7 +672,7 @@ needblock.exit:                                   ; preds = %26
   %51 = zext i32 %28 to i64
   %52 = getelementptr inbounds i8, ptr %32, i64 104
   %53 = load ptr, ptr %52, align 8
-  %54 = call ptr %53(ptr noundef nonnull %32, i64 noundef %50, i64 noundef %51, i32 noundef 1) #9
+  %54 = call ptr %53(ptr noundef nonnull %32, i64 noundef %50, i64 noundef range(i64 0, 4294967296) %51, i32 noundef 1) #9
   %.not112 = icmp eq ptr %54, null
   br i1 %.not112, label %needblock.exit.thread, label %55
 
@@ -747,7 +747,7 @@ needblock.exit:                                   ; preds = %26
   br i1 %.not.i, label %96, label %87
 
 87:                                               ; preds = %84
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %.093, i32 258)
+  %spec.store.select.i = call i32 @llvm.umin.i32(i32 range(i32 -32, 256) %.093, i32 258)
   %88 = zext nneg i32 %spec.store.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull readonly align 1 %85, i64 %88, i1 false)
   %89 = getelementptr inbounds [260 x i8], ptr %14, i64 0, i64 %88
@@ -892,7 +892,7 @@ needblock.exit.i:                                 ; preds = %.lr.ph.i
   %170 = zext i32 %147 to i64
   %171 = getelementptr inbounds i8, ptr %151, i64 104
   %172 = load ptr, ptr %171, align 8
-  %173 = call ptr %172(ptr noundef nonnull %151, i64 noundef %169, i64 noundef %170, i32 noundef 0) #9
+  %173 = call ptr %172(ptr noundef nonnull %151, i64 noundef %169, i64 noundef range(i64 0, 4294967296) %170, i32 noundef 0) #9
   %174 = load i32, ptr %10, align 8
   %.022..i = call i32 @llvm.umin.i32(i32 %.02235.i, i32 %174)
   %.not26.i = icmp eq ptr %173, null
@@ -979,7 +979,7 @@ iso_scan_file.exit:                               ; preds = %139, %198
   %209 = sub i64 %206, %208
   %210 = getelementptr inbounds i8, ptr %201, i64 128
   %211 = load ptr, ptr %210, align 8
-  call void %211(ptr noundef %201, i64 noundef %209, i64 noundef %203) #9
+  call void %211(ptr noundef %201, i64 noundef %209, i64 noundef range(i64 0, 4294967296) %203) #9
   br label %212
 
 212:                                              ; preds = %22, %.loopexit

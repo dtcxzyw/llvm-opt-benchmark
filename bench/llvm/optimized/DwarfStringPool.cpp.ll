@@ -35,7 +35,7 @@ $_ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm15DwarfStringPoolC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEERNS_10AsmPrinterENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 20, i1 false)
   store i32 32, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %7, align 8
@@ -137,7 +137,7 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool8getEntryERNS_10AsmPrinterENS_9St
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %3, ptr %.sroa.29.0..sroa_idx.i, align 8
   %7 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %2, i64 %3) #10
-  %8 = call { ptr, i8 } @_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJS1_EEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %2, i64 %3, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.310.0..sroa_idx.i)
+  %8 = call { ptr, i8 } @_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJS1_EEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(61) %0, ptr %2, i64 %3, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.310.0..sroa_idx.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %8, 1
@@ -202,7 +202,7 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool15getIndexedEntryERNS_10AsmPrinte
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %3, ptr %.sroa.29.0..sroa_idx.i, align 8
   %7 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %2, i64 %3) #10
-  %8 = call { ptr, i8 } @_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJS1_EEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %2, i64 %3, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.310.0..sroa_idx.i)
+  %8 = call { ptr, i8 } @_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJS1_EEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(61) %0, ptr %2, i64 %3, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.310.0..sroa_idx.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %8, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %8, 1
@@ -339,7 +339,7 @@ define dso_local void @_ZN4llvm15DwarfStringPool4emitERNS_10AsmPrinterEPNS_9MCSe
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %2, i32 noundef 0) #10
   %17 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %17, i64 noundef 64) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %6, ptr noundef nonnull %17, i64 noundef 64) #10
   %18 = load i32, ptr %8, align 4
   %19 = zext i32 %18 to i64
   %20 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
@@ -424,7 +424,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_14StringMapEntryINS_20DwarfStringPoolEntr
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit.loopexit, %_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit
   %43 = load ptr, ptr %6, align 8
-  %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
+  %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %6) #10
   %.idx.i = shl nsw i64 %44, 3
   %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not.i.i.i.i = icmp eq i64 %44, 0
@@ -742,7 +742,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   br i1 %.not42, label %.loopexit, label %.lr.ph87.split
 
 .loopexit:                                        ; preds = %.lr.ph87.split, %.lr.ph87.split.us, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit55._crit_edge, %._crit_edge
-  %155 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
+  %155 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %6) #10
   %156 = load ptr, ptr %6, align 8
   %157 = icmp eq ptr %156, %17
   br i1 %157, label %_ZN4llvm11SmallVectorIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEELj64EED2Ev.exit, label %158

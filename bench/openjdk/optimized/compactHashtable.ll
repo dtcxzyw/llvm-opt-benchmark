@@ -185,7 +185,7 @@ define hidden void @_ZN22CompactHashtableWriterD2Ev(ptr nocapture noundef nonnul
 
 16:                                               ; preds = %12
   store i32 0, ptr %10, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  tail call void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
   br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit
 
 _ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit: ; preds = %12, %16
@@ -591,7 +591,7 @@ define hidden void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePK
   store ptr %19, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %22, ptr %26, align 8
-  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(81) %5) #14
   %27 = getelementptr inbounds i8, ptr %5, i64 72
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 80
@@ -644,13 +644,13 @@ define hidden void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePK
 
 62:                                               ; preds = %30
   %63 = load ptr, ptr %27, align 8
-  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %63, ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %63, ptr noundef nonnull align 8 dereferenceable(81) %5) #14
   store i8 0, ptr %28, align 8
-  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(81) %5) #14
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
 _ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %.thread, %30, %62
-  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %5) #14
   ret void
 }
 

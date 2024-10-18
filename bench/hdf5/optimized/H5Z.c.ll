@@ -235,7 +235,7 @@ define range(i32 -1, 1) i32 @H5Z_init() local_unnamed_addr #0 {
   %.sink = phi ptr [ %23, %19 ], [ %25, %24 ]
   %.pre24.pre.i7 = phi ptr [ %20, %19 ], [ %.pre24.pre.i, %24 ]
   %.pr52 = phi i64 [ %22, %19 ], [ %4, %24 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink, ptr noundef nonnull readonly align 16 dereferenceable(48) @H5Z_SHUFFLE, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink, ptr noundef nonnull align 16 dereferenceable(48) @H5Z_SHUFFLE, i64 48, i1 false)
   %.not.i6 = icmp eq i64 %.pr52, 0
   br i1 %.not.i6, label %._crit_edge.i11, label %.lr.ph.i8
 
@@ -299,7 +299,7 @@ define range(i32 -1, 1) i32 @H5Z_init() local_unnamed_addr #0 {
   %.sink77 = phi ptr [ %52, %48 ], [ %54, %53 ]
   %.pre24.pre.i18 = phi ptr [ %49, %48 ], [ %.pre24.pre.i7, %53 ]
   %.pr54 = phi i64 [ %51, %48 ], [ %.pr52, %53 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink77, ptr noundef nonnull readonly align 16 dereferenceable(48) @H5Z_FLETCHER32, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink77, ptr noundef nonnull align 16 dereferenceable(48) @H5Z_FLETCHER32, i64 48, i1 false)
   %.not.i17 = icmp eq i64 %.pr54, 0
   br i1 %.not.i17, label %._crit_edge.i22, label %.lr.ph.i19
 
@@ -363,7 +363,7 @@ define range(i32 -1, 1) i32 @H5Z_init() local_unnamed_addr #0 {
   %.sink78 = phi ptr [ %81, %77 ], [ %83, %82 ]
   %.pre24.pre.i29 = phi ptr [ %78, %77 ], [ %.pre24.pre.i18, %82 ]
   %.pr56 = phi i64 [ %80, %77 ], [ %.pr54, %82 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink78, ptr noundef nonnull readonly align 16 dereferenceable(48) @H5Z_NBIT, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink78, ptr noundef nonnull align 16 dereferenceable(48) @H5Z_NBIT, i64 48, i1 false)
   %.not.i28 = icmp eq i64 %.pr56, 0
   br i1 %.not.i28, label %._crit_edge.i33, label %.lr.ph.i30
 
@@ -427,7 +427,7 @@ define range(i32 -1, 1) i32 @H5Z_init() local_unnamed_addr #0 {
   %.sink79 = phi ptr [ %110, %106 ], [ %112, %111 ]
   %.pre24.pre.i40 = phi ptr [ %107, %106 ], [ %.pre24.pre.i29, %111 ]
   %121 = phi i64 [ %109, %106 ], [ %.pr56, %111 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink79, ptr noundef nonnull readonly align 16 dereferenceable(48) @H5Z_SCALEOFFSET, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink79, ptr noundef nonnull align 16 dereferenceable(48) @H5Z_SCALEOFFSET, i64 48, i1 false)
   %.not.i39 = icmp eq i64 %121, 0
   br i1 %.not.i39, label %._crit_edge.i44, label %.lr.ph.i41
 
@@ -472,12 +472,12 @@ define range(i32 -1, 1) i32 @H5Z_init() local_unnamed_addr #0 {
   %139 = add i64 %138, 1
   store i64 %139, ptr @H5Z_table_used_g, align 8
   %140 = getelementptr inbounds %struct.H5Z_class2_t, ptr %137, i64 %138
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %140, ptr noundef nonnull readonly align 16 dereferenceable(48) @H5Z_DEFLATE, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %140, ptr noundef nonnull align 16 dereferenceable(48) @H5Z_DEFLATE, i64 48, i1 false)
   br label %H5Z_register.exit49.thread
 
 141:                                              ; preds = %123
   %142 = getelementptr inbounds %struct.H5Z_class2_t, ptr %.pre24.pre.i40, i64 %.022.i42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %142, ptr noundef nonnull readonly align 16 dereferenceable(48) @H5Z_DEFLATE, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %142, ptr noundef nonnull align 16 dereferenceable(48) @H5Z_DEFLATE, i64 48, i1 false)
   br label %H5Z_register.exit49.thread
 
 143:                                              ; preds = %130
@@ -1019,7 +1019,7 @@ define internal range(i32 -1, 2) i32 @H5Z__check_unregister_dset_cb(ptr nocaptur
 27:                                               ; preds = %20
   %28 = load i32, ptr %2, align 4
   %29 = load i64, ptr @H5P_CLS_OBJECT_CREATE_ID_g, align 8
-  %30 = call ptr @H5P_object_verify(i64 noundef %21, i64 noundef %29) #9
+  %30 = call ptr @H5P_object_verify(i64 noundef range(i64 0, -9223372036854775808) %21, i64 noundef %29) #9
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %36
 
@@ -1118,7 +1118,7 @@ define internal range(i32 -1, 2) i32 @H5Z__check_unregister_group_cb(ptr nocaptu
 27:                                               ; preds = %20
   %28 = load i32, ptr %2, align 4
   %29 = load i64, ptr @H5P_CLS_OBJECT_CREATE_ID_g, align 8
-  %30 = call ptr @H5P_object_verify(i64 noundef %21, i64 noundef %29) #9
+  %30 = call ptr @H5P_object_verify(i64 noundef range(i64 0, -9223372036854775808) %21, i64 noundef %29) #9
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %36
 

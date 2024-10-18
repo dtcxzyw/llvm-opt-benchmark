@@ -186,7 +186,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @_ZN6icu_75L9DATA_TYPEE, ptr noundef nonnull @_ZN6icu_75L9DATA_NAMEE, ptr noundef nonnull @_ZN6icu_75L12isAcceptableEPvPKcS2_PK9UDataInfo, ptr noundef null, ptr noundef nonnull %pErrorCode)
+  %call.i = tail call ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @_ZN6icu_75L9DATA_TYPEE, ptr noundef nonnull @_ZN6icu_75L9DATA_NAMEE, ptr noundef nonnull @_ZN6icu_75L12isAcceptableEPvPKcS2_PK9UDataInfo, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
   store ptr %call.i, ptr @_ZN6icu_75L14uCharNamesDataE, align 8
   %2 = load i32, ptr %pErrorCode, align 4
   %cmp.i.i2 = icmp slt i32 %2, 1
@@ -693,7 +693,7 @@ _ZN6icu_75L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.exit: ; p
   %add.ptr9.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i, i64 %idx.ext8.i
   %arrayidx11.i = getelementptr inbounds [34 x i16], ptr %lengths.i, i64 0, i64 %conv4
   %19 = load i16, ptr %arrayidx11.i, align 2
-  %call12.i = tail call fastcc noundef zeroext i16 @_ZN6icu_75L10expandNameEPNS_10UCharNamesEPKht15UCharNameChoicePct(ptr noundef readonly %names, ptr noundef nonnull %add.ptr9.i, i16 noundef zeroext %19, i32 noundef %nameChoice, ptr noundef %buffer, i16 noundef zeroext %bufferLength)
+  %call12.i = tail call fastcc noundef zeroext i16 @_ZN6icu_75L10expandNameEPNS_10UCharNamesEPKht15UCharNameChoicePct(ptr noundef readonly %names, ptr noundef nonnull %add.ptr9.i, i16 noundef zeroext %19, i32 noundef range(i32 -2147483648, 4) %nameChoice, ptr noundef %buffer, i16 noundef zeroext %bufferLength)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %offsets.i)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %lengths.i)
   br label %return
@@ -729,7 +729,7 @@ lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
   br i1 %or.cond.i.i, label %if.else.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %entry
-  %call.i.i = tail call signext i8 @u_charType_75(i32 noundef %code)
+  %call.i.i = tail call signext i8 @u_charType_75(i32 noundef range(i32 -2147483648, 2147483647) %code)
   %cmp5.i.i = icmp eq i8 %call.i.i, 18
   %and7.i.i = and i32 %code, -1024
   %cmp8.i.i = icmp eq i32 %and7.i.i, 55296

@@ -1608,7 +1608,7 @@ ip6_dst_mtu_maybe_forward.exit:                   ; preds = %372, %384
   br i1 %407, label %410, label %408
 
 408:                                              ; preds = %400
-  %409 = call zeroext i1 @skb_gso_validate_network_len(ptr noundef %0, i32 noundef %387) #12
+  %409 = call zeroext i1 @skb_gso_validate_network_len(ptr noundef %0, i32 noundef range(i32 1280, 0) %387) #12
   br i1 %409, label %429, label %410
 
 410:                                              ; preds = %400, %408, %391

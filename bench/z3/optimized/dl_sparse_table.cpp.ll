@@ -2326,7 +2326,7 @@ _ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11ke
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %while.body.i.i.i.i.i, %_Z7deallocIN7datalog12sparse_table11key_indexerEEvPT_.exit.i, %_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE8iteratorppEv.exit.i, %while.body.i.i.i, %_ZNK9table2mapI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEENS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE5beginEv.exit.i
-  invoke void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_key_indexes.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_key_indexes.i)
           to label %invoke.cont unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %for.end.i
@@ -2536,7 +2536,7 @@ _ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11ke
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE8iteratorppEv.exit, %_ZNK9table2mapI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEENS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE5beginEv.exit
-  tail call void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_key_indexes)
+  tail call void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_key_indexes)
   ret void
 }
 
@@ -2628,7 +2628,7 @@ _ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11ke
   br i1 %cmp.i.not.i, label %_ZN7datalog12sparse_table13reset_indexesEv.exit, label %for.body.i, !llvm.loop !14
 
 _ZN7datalog12sparse_table13reset_indexesEv.exit:  ; preds = %while.body.i.i.i.i.i, %_Z7deallocIN7datalog12sparse_table11key_indexerEEvPT_.exit.i, %_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE8iteratorppEv.exit.i, %while.body.i.i.i, %_ZNK9table2mapI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEENS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE5beginEv.exit.i
-  tail call void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_key_indexes.i)
+  tail call void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_key_indexes.i)
   %m_data = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN7datalog13entry_storage5resetEv(ptr noundef nonnull align 8 dereferenceable(88) %m_data)
   ret void
@@ -4416,7 +4416,7 @@ _ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11ke
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i6, !llvm.loop !14
 
 for.end.i:                                        ; preds = %while.body.i.i.i.i.i, %_Z7deallocIN7datalog12sparse_table11key_indexerEEvPT_.exit.i, %_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE8iteratorppEv.exit.i, %while.body.i.i.i, %_ZNK9table2mapI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEENS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE5beginEv.exit.i
-  invoke void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_key_indexes.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_key_indexes.i)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %for.end.i, %invoke.cont2
@@ -5884,7 +5884,7 @@ for.body9:                                        ; preds = %_ZN6vectorIPN7datal
   %vtable.i = load ptr, ptr %7, align 8
   %8 = load ptr, ptr %vtable.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(36) %7) #28
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(36) %7)
   %incdec.ptr = getelementptr inbounds i8, ptr %vit.014, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %if.end.i, label %for.body9, !llvm.loop !39
@@ -5931,7 +5931,7 @@ _ZN14core_hashtableI17default_map_entryIN7datalog15table_signatureEP10ptr_vector
   br i1 %cmp.i.not, label %for.end12, label %for.body, !llvm.loop !40
 
 for.end12:                                        ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableI17default_map_entryIN7datalog15table_signatureEP10ptr_vectorINS1_12sparse_tableEEEN9table2mapIS7_NS2_4hashENS2_2eqEE15entry_hash_procENSB_13entry_eq_procEE8iteratorppEv.exit, %_ZNK9table2mapI17default_map_entryIN7datalog15table_signatureEP10ptr_vectorINS1_12sparse_tableEEENS2_4hashENS2_2eqEE5beginEv.exit
-  tail call void @_ZN14core_hashtableI17default_map_entryIN7datalog15table_signatureEP10ptr_vectorINS1_12sparse_tableEEEN9table2mapIS7_NS2_4hashENS2_2eqEE15entry_hash_procENSB_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_pool)
+  tail call void @_ZN14core_hashtableI17default_map_entryIN7datalog15table_signatureEP10ptr_vectorINS1_12sparse_tableEEEN9table2mapIS7_NS2_4hashENS2_2eqEE15entry_hash_procENSB_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_pool)
   ret void
 }
 
@@ -6977,7 +6977,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %9, %lpad2.i ], [ %8, %lpad.i ]
-  tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #28
+  tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #28
   resume { ptr, i32 } %.pn.i
 
 _ZN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnC2ERKNS_15table_signatureEjPKj.exit: ; preds = %invoke.cont.i
@@ -7089,7 +7089,7 @@ lpad2.i:                                          ; preds = %if.then.i.i, %if.en
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7svectorImjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_key.i) #28
-  call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call10) #28
+  call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %call10) #28
   resume { ptr, i32 } %9
 
 _ZN7datalog19sparse_table_plugin27select_equal_and_project_fnC2ERKNS_15table_signatureEmj.exit: ; preds = %lor.lhs.false.i.i, %.noexc.i
@@ -8323,7 +8323,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #28
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #28
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -8600,7 +8600,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(36) %this) #28
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %this)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(36) %this)
   ret void
 }
 
@@ -10900,7 +10900,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog19sparse_table_plugin15join_project_fnclERKNS_10table_baseES4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(36) %tb1, ptr noundef nonnull align 8 dereferenceable(36) %tb2) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %tb1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit
 
@@ -10909,7 +10909,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tb2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %tb2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i8, label %_ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit9
 
@@ -11083,7 +11083,7 @@ define linkonce_odr hidden void @_ZN7datalog19sparse_table_plugin8union_fnclERNS
 entry:
   %_va = alloca %"class.datalog::verbose_action", align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.21, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %tgt0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %0 = call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %tgt0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i.invoke, label %invoke.cont
 
@@ -11095,7 +11095,7 @@ dynamic_cast.bad_cast.i.cont:                     ; preds = %dynamic_cast.bad_ca
   unreachable
 
 invoke.cont:                                      ; preds = %entry
-  %2 = call ptr @__dynamic_cast(ptr nonnull readonly %src0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %2 = call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %src0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i.invoke, label %invoke.cont2
 
@@ -11277,7 +11277,7 @@ entry:
   %et.i.i = alloca ptr, align 8
   %_va = alloca %"class.datalog::verbose_action", align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.22, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %0 = call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %invoke.cont2
 
@@ -11675,7 +11675,7 @@ entry:
   %_va = alloca %"class.datalog::verbose_action", align 8
   %t_offsets = alloca %"struct.datalog::sparse_table::key_indexer::query_result", align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.23, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %0 = call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %invoke.cont2
 
@@ -12226,7 +12226,7 @@ entry:
   %et.i.i = alloca ptr, align 8
   %_va = alloca %"class.datalog::verbose_action", align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.24, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %0 = call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %tb, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %invoke.cont2
 
@@ -12999,7 +12999,7 @@ define linkonce_odr hidden void @_ZN7datalog19sparse_table_plugin18negation_filt
 entry:
   %_va = alloca %"class.datalog::verbose_action", align 8
   %to_remove = alloca %class.svector.2, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %tgt0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog19sparse_table_plugin3getERNS_10table_baseE.exit
 
@@ -13008,7 +13008,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog19sparse_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %neg0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %neg0, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i11, label %_ZN7datalog19sparse_table_plugin3getERKNS_10table_baseE.exit
 
@@ -13171,7 +13171,7 @@ _ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11ke
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %while.body.i.i.i.i.i, %_Z7deallocIN7datalog12sparse_table11key_indexerEEvPT_.exit.i, %_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE8iteratorppEv.exit.i, %while.body.i.i.i, %_ZNK9table2mapI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEENS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE5beginEv.exit.i
-  invoke void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_key_indexes.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_key_indexes.i)
           to label %invoke.cont26 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %for.end.i
@@ -14625,7 +14625,7 @@ entry:
   %_va = alloca %"class.datalog::verbose_action", align 8
   %to_remove = alloca %class.svector.2, align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_va, ptr noundef nonnull @.str.29, i32 noundef 11)
-  %0 = call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %0 = call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %invoke.cont
 
@@ -14638,12 +14638,12 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %to_remove, align 8
-  %2 = call ptr @__dynamic_cast(ptr nonnull readonly %_s1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %2 = call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_s1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i8.invoke, label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %4 = call ptr @__dynamic_cast(ptr nonnull readonly %_s2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
+  %4 = call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_s2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog12sparse_tableE, i64 0) #28
   %5 = icmp eq ptr %4, null
   br i1 %5, label %dynamic_cast.bad_cast.i8.invoke, label %invoke.cont6
 
@@ -14777,7 +14777,7 @@ _ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11ke
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %while.body.i.i.i.i.i, %_Z7deallocIN7datalog12sparse_table11key_indexerEEvPT_.exit.i, %_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE8iteratorppEv.exit.i, %while.body.i.i.i, %_ZNK9table2mapI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEENS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE5beginEv.exit.i
-  invoke void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_key_indexes.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %m_key_indexes.i)
           to label %invoke.cont14 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont14:                                    ; preds = %for.end.i
@@ -16107,7 +16107,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   store i8 0, ptr %ref.tmp.i.i.i, align 1
-  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI13unsigned_hash7svectorIjjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %e)
+  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI13unsigned_hash7svectorIjjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %e)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %3 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %3, -1
@@ -17418,7 +17418,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   store i8 0, ptr %ref.tmp.i.i.i, align 1
-  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI11uint64_hash7svectorImjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %e)
+  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI11uint64_hash7svectorImjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %e)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %3 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %3, -1
@@ -18525,7 +18525,7 @@ entry:
   %ref.tmp.i.i.i = alloca %struct.svector_hash.35, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   store i8 0, ptr %ref.tmp.i.i.i, align 1
-  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI11uint64_hash7svectorImjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %e)
+  %call.i.i.i = call noundef i32 @_ZNK15vector_hash_tplI11uint64_hash7svectorImjEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %e)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity, align 8

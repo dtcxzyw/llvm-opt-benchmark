@@ -2198,7 +2198,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 257, ptr %13, align 8, !noalias !70
-  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(34) %4)
+  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(34) %4)
   %14 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit18.i, label %_ZN4llvm5ErrorD2Ev.exit16.thread
@@ -2292,7 +2292,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %21, %13
   br i1 %brmerge.not, label %27, label %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
 
 27:                                               ; preds = %25
-  tail call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %2, i64 4) #16
+  tail call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull align 1 dereferenceable(4) %2, i64 4) #16
   br label %32
 
 _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %25, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit
@@ -2405,7 +2405,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit: ; preds = %_ZN4llvm8co
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   store i16 257, ptr %43, align 8, !noalias !76
-  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerItEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 2 dereferenceable(2) %.sroa.03.019, ptr noundef nonnull align 8 dereferenceable(34) %7)
+  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerItEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 2 dereferenceable(4) %.sroa.03.019, ptr noundef nonnull align 8 dereferenceable(34) %7)
   %48 = load ptr, ptr %0, align 8
   %.not.i19 = icmp eq ptr %48, null
   br i1 %.not.i19, label %_ZNK12_GLOBAL__N_16MapGapclERN4llvm8codeview16CodeViewRecordIOERNS2_20LocalVariableAddrGapE.exit, label %_ZN4llvm5ErrorD2Ev.exit.thread
@@ -2480,7 +2480,7 @@ _ZNK4llvm18BinaryStreamReader5emptyEv.exit:       ; preds = %60, %63, %66
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   store i16 257, ptr %51, align 8, !noalias !79
-  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerItEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 2 dereferenceable(2) %10, ptr noundef nonnull align 8 dereferenceable(34) %5)
+  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerItEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 2 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(34) %5)
   %82 = load ptr, ptr %0, align 8
   %.not.i20 = icmp eq ptr %82, null
   br i1 %.not.i20, label %_ZNK12_GLOBAL__N_16MapGapclERN4llvm8codeview16CodeViewRecordIOERNS2_20LocalVariableAddrGapE.exit22, label %_ZN4llvm5ErrorD2Ev.exit23.thread
@@ -2636,7 +2636,7 @@ _ZN4llvm5ErrorD2Ev.exit29:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 257, ptr %17, align 8, !noalias !90
-  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(34) %4)
+  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(34) %4)
   %18 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit18.i, label %_ZN4llvm5ErrorD2Ev.exit30.thread
@@ -2730,7 +2730,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %21, %13
   br i1 %brmerge.not, label %27, label %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
 
 27:                                               ; preds = %25
-  tail call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %2, i64 2) #16
+  tail call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull align 1 dereferenceable(2) %2, i64 2) #16
   br label %32
 
 _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %25, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit
@@ -2784,7 +2784,7 @@ _ZN4llvm5ErrorD2Ev.exit22:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 257, ptr %15, align 8, !noalias !96
-  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(34) %4)
+  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(34) %4)
   %16 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit18.i, label %_ZN4llvm5ErrorD2Ev.exit23.thread
@@ -2862,7 +2862,7 @@ _ZN4llvm5ErrorD2Ev.exit29:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 257, ptr %17, align 8, !noalias !99
-  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(34) %4)
+  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(34) %4)
   %18 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit18.i, label %_ZN4llvm5ErrorD2Ev.exit30.thread
@@ -2956,7 +2956,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %21, %13
   br i1 %brmerge.not, label %27, label %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
 
 27:                                               ; preds = %25
-  tail call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull %2, i64 4) #16
+  tail call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr nonnull align 1 dereferenceable(4) %2, i64 4) #16
   br label %32
 
 _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %25, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit
@@ -3016,7 +3016,7 @@ _ZN4llvm5ErrorD2Ev.exit22:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 257, ptr %19, align 8, !noalias !105
-  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(34) %4)
+  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(34) %4)
   %20 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit18.i, label %_ZN4llvm5ErrorD2Ev.exit23.thread
@@ -3083,7 +3083,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 257, ptr %15, align 8, !noalias !108
-  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(34) %4)
+  call void @_ZN4llvm8codeview16CodeViewRecordIO10mapIntegerIjEENS_5ErrorERT_RKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(34) %4)
   %16 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit18.i, label %_ZN4llvm5ErrorD2Ev.exit16.thread
@@ -5153,7 +5153,7 @@ switch.lookup:                                    ; preds = %6
 define linkonce_odr hidden void @_ZN4llvm8codeview19SymbolRecordMappingD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 376) (i8, ptr @_ZTVN4llvm8codeview19SymbolRecordMappingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %2) #16
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = icmp eq ptr %4, %5
@@ -5171,7 +5171,7 @@ _ZN4llvm8codeview16CodeViewRecordIOD2Ev.exit:     ; preds = %1, %7
 define linkonce_odr hidden void @_ZN4llvm8codeview19SymbolRecordMappingD0Ev(ptr noundef nonnull align 8 dereferenceable(92) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 376) (i8, ptr @_ZTVN4llvm8codeview19SymbolRecordMappingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %2) #16
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = icmp eq ptr %4, %5
@@ -5265,12 +5265,12 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #16
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #16
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   ret void
 }
 

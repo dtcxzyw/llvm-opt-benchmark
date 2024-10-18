@@ -743,7 +743,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   br i1 %new.isnull.i, label %new.cont.thread.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then4.i
-  invoke void @_ZN6icu_7515RegexStaticSetsC1EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(3840) %call.i, ptr noundef nonnull %status)
+  invoke void @_ZN6icu_7515RegexStaticSetsC1EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(3840) %call.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i

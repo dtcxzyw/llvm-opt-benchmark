@@ -844,7 +844,7 @@ for.body11:                                       ; preds = %for.end, %for.body1
   br i1 %tobool10.not, label %for.end16, label %for.body11, !llvm.loop !12
 
 for.end16:                                        ; preds = %for.body11, %for.end
-  tail call void @free(ptr noundef %alc) #28
+  tail call void @free(ptr noundef nonnull %alc) #28
   br label %return
 
 return:                                           ; preds = %entry, %for.end16
@@ -1474,7 +1474,7 @@ if.then.i25.thread:                               ; preds = %if.end7
   br label %unsafe_yyjson_str_pool_release.exit.i
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %if.end7
-  %call.i23 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %call.i, ptr noundef nonnull readonly %3)
+  %call.i23 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %call.i, ptr noundef nonnull readonly %3)
   %tobool10.not = icmp eq ptr %call.i23, null
   br i1 %tobool10.not, label %if.then.i25, label %if.then.i
 

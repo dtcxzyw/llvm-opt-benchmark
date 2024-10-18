@@ -780,7 +780,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -1398,7 +1398,7 @@ if.end11:                                         ; preds = %_ZNK6Assimp4STEP7EX
 if.end18:                                         ; preds = %if.end11
   %Name = getelementptr inbounds i8, ptr %in, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %Name, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad19
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end18
@@ -2849,7 +2849,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit:           ; preds = %do.body, %if.then.i
 if.end8:                                          ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
   %RefLatitude = getelementptr inbounds i8, ptr %in, i64 360
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP24InternGenericConvertListINS0_7EXPRESS17PrimitiveDataTypeIlEELm3ELm3EEclERNS0_6ListOfIS4_Lm3ELm3EEERKSt10shared_ptrIKNS2_8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %RefLatitude, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP24InternGenericConvertListINS0_7EXPRESS17PrimitiveDataTypeIlEELm3ELm3EEclERNS0_6ListOfIS4_Lm3ELm3EEERKSt10shared_ptrIKNS2_8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(25) %RefLatitude, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_6ListOfINS0_7EXPRESS17PrimitiveDataTypeIlEELm3ELm3EEEEEEEvRT_RKSt10shared_ptrIKNS4_8DataTypeEERKNS0_2DBE.exit unwind label %lpad9
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_6ListOfINS0_7EXPRESS17PrimitiveDataTypeIlEELm3ELm3EEEEEEEvRT_RKSt10shared_ptrIKNS4_8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end8
@@ -3052,7 +3052,7 @@ ehcleanup32:                                      ; preds = %cleanup.done29, %lp
 if.end42:                                         ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit61
   %RefLongitude = getelementptr inbounds i8, ptr %in, i64 392
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i62)
-  invoke void @_ZN6Assimp4STEP24InternGenericConvertListINS0_7EXPRESS17PrimitiveDataTypeIlEELm3ELm3EEclERNS0_6ListOfIS4_Lm3ELm3EEERKSt10shared_ptrIKNS2_8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i62, ptr noundef nonnull align 8 dereferenceable(24) %RefLongitude, ptr noundef nonnull align 8 dereferenceable(16) %arg34, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP24InternGenericConvertListINS0_7EXPRESS17PrimitiveDataTypeIlEELm3ELm3EEclERNS0_6ListOfIS4_Lm3ELm3EEERKSt10shared_ptrIKNS2_8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i62, ptr noundef nonnull align 8 dereferenceable(25) %RefLongitude, ptr noundef nonnull align 8 dereferenceable(16) %arg34, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_6ListOfINS0_7EXPRESS17PrimitiveDataTypeIlEELm3ELm3EEEEEEEvRT_RKSt10shared_ptrIKNS4_8DataTypeEERKNS0_2DBE.exit64 unwind label %lpad43
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_6ListOfINS0_7EXPRESS17PrimitiveDataTypeIlEELm3ELm3EEEEEEEvRT_RKSt10shared_ptrIKNS4_8DataTypeEERKNS0_2DBE.exit64: ; preds = %if.end42
@@ -3255,7 +3255,7 @@ ehcleanup78:                                      ; preds = %cleanup.done71, %lp
 if.end89:                                         ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit110
   %RefElevation = getelementptr inbounds i8, ptr %in, i64 424
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i111)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i111, ptr noundef nonnull align 8 dereferenceable(8) %RefElevation, ptr noundef nonnull align 8 dereferenceable(16) %arg81, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i111, ptr noundef nonnull align 8 dereferenceable(9) %RefElevation, ptr noundef nonnull align 8 dereferenceable(16) %arg81, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad90
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end89
@@ -3458,7 +3458,7 @@ ehcleanup125:                                     ; preds = %cleanup.done118, %l
 if.end136:                                        ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit158
   %LandTitleNumber = getelementptr inbounds i8, ptr %in, i64 440
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i159)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i159, ptr noundef nonnull align 8 dereferenceable(32) %LandTitleNumber, ptr noundef nonnull align 8 dereferenceable(16) %arg128, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i159, ptr noundef nonnull align 8 dereferenceable(33) %LandTitleNumber, ptr noundef nonnull align 8 dereferenceable(16) %arg128, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad137
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end136
@@ -3661,7 +3661,7 @@ ehcleanup172:                                     ; preds = %cleanup.done165, %l
 if.end183:                                        ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit206
   %SiteAddress = getelementptr inbounds i8, ptr %in, i64 480
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i207)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINS0_4LazyINS_3IFC10Schema_2x314NotImplementedEEEEclERS6_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i207, ptr noundef nonnull align 8 dereferenceable(8) %SiteAddress, ptr noundef nonnull align 8 dereferenceable(16) %arg175, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINS0_4LazyINS_3IFC10Schema_2x314NotImplementedEEEEclERS6_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i207, ptr noundef nonnull align 8 dereferenceable(9) %SiteAddress, ptr noundef nonnull align 8 dereferenceable(16) %arg175, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_4LazyINS_3IFC10Schema_2x314NotImplementedEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad184
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_4LazyINS_3IFC10Schema_2x314NotImplementedEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end183
@@ -6574,7 +6574,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit:           ; preds = %do.body, %if.then.i
 if.end8:                                          ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
   %Scale2 = getelementptr inbounds i8, ptr %in, i64 152
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %Scale2, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %Scale2, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad9
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end8
@@ -6777,7 +6777,7 @@ ehcleanup32:                                      ; preds = %cleanup.done29, %lp
 if.end42:                                         ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit34
   %Scale3 = getelementptr inbounds i8, ptr %in, i64 168
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i35)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i35, ptr noundef nonnull align 8 dereferenceable(8) %Scale3, ptr noundef nonnull align 8 dereferenceable(16) %arg34, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i35, ptr noundef nonnull align 8 dereferenceable(9) %Scale3, ptr noundef nonnull align 8 dereferenceable(16) %arg34, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit37 unwind label %lpad43
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit37: ; preds = %if.end42
@@ -7139,7 +7139,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit:           ; preds = %do.body, %if.then.i
 if.end8:                                          ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
   %RefDirection = getelementptr inbounds i8, ptr %in, i64 72
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEclERS6_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %RefDirection, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEclERS6_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %RefDirection, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad9
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end8
@@ -8027,7 +8027,7 @@ if.end11:                                         ; preds = %_ZNK6Assimp4STEP7EX
 if.end18:                                         ; preds = %if.end11
   %ContextIdentifier = getelementptr inbounds i8, ptr %in, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ContextIdentifier, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %ContextIdentifier, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad19
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end18
@@ -8241,7 +8241,7 @@ if.end57:                                         ; preds = %_ZNK6Assimp4STEP7EX
 if.end64:                                         ; preds = %if.end57
   %ContextType = getelementptr inbounds i8, ptr %in, i64 56
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i38)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i38, ptr noundef nonnull align 8 dereferenceable(32) %ContextType, ptr noundef nonnull align 8 dereferenceable(16) %arg44, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i38, ptr noundef nonnull align 8 dereferenceable(33) %ContextType, ptr noundef nonnull align 8 dereferenceable(16) %arg44, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit40 unwind label %lpad65
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit40: ; preds = %if.end64
@@ -8751,7 +8751,7 @@ if.end52:                                         ; preds = %_ZNK6Assimp4STEP7EX
 if.end59:                                         ; preds = %if.end52
   %Precision = getelementptr inbounds i8, ptr %in, i64 120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %Precision, ptr noundef nonnull align 8 dereferenceable(16) %arg38, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %Precision, ptr noundef nonnull align 8 dereferenceable(16) %arg38, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad60
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end59
@@ -9181,7 +9181,7 @@ if.end165:                                        ; preds = %_ZNK6Assimp4STEP7EX
 if.end172:                                        ; preds = %if.end165
   %TrueNorth = getelementptr inbounds i8, ptr %in, i64 152
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i176)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEclERS6_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i176, ptr noundef nonnull align 8 dereferenceable(8) %TrueNorth, ptr noundef nonnull align 8 dereferenceable(16) %arg151, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEclERS6_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i176, ptr noundef nonnull align 8 dereferenceable(9) %TrueNorth, ptr noundef nonnull align 8 dereferenceable(16) %arg151, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad173
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end172
@@ -9474,7 +9474,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit:           ; preds = %do.body, %if.then.i
 if.end8:                                          ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
   %Prefix = getelementptr inbounds i8, ptr %in, i64 72
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Prefix, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %Prefix, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad9
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end8
@@ -9965,7 +9965,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit:           ; preds = %do.body, %if.then.i
 if.end8:                                          ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
   %Axis = getelementptr inbounds i8, ptr %in, i64 72
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEclERS6_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %Axis, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEclERS6_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %Axis, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad9
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINS0_4LazyINS_3IFC10Schema_2x312IfcDirectionEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end8
@@ -13354,7 +13354,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit:           ; preds = %do.body, %if.then.i
 if.end8:                                          ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
   %MethodOfMeasurement = getelementptr inbounds i8, ptr %in, i64 184
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %MethodOfMeasurement, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS7_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %MethodOfMeasurement, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad9
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end8
@@ -14377,7 +14377,7 @@ ehcleanup29:                                      ; preds = %cleanup.done26, %lp
 if.end35:                                         ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit33
   %ElevationWithFlooring = getelementptr inbounds i8, ptr %in, i64 392
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ElevationWithFlooring, ptr noundef nonnull align 8 dereferenceable(16) %arg31, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %ElevationWithFlooring, ptr noundef nonnull align 8 dereferenceable(16) %arg31, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad36
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end35
@@ -17575,7 +17575,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit:           ; preds = %do.body, %if.then.i
 if.end8:                                          ; preds = %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit
   %Transparency = getelementptr inbounds i8, ptr %in, i64 40
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %Transparency, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
+  invoke void @_ZN6Assimp4STEP20InternGenericConvertIdEclERdRKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %Transparency, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef nonnull align 8 dereferenceable(376) %db)
           to label %_ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit unwind label %lpad9
 
 _ZN6Assimp4STEP14GenericConvertINS0_5MaybeIdEEEEvRT_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE.exit: ; preds = %if.end8

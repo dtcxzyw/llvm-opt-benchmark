@@ -247,7 +247,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   br i1 %cmp.i.i.not.i, label %cleanup, label %if.end26.i
 
 if.end26.i:                                       ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i
-  call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %call21.i, ptr noundef nonnull align 8 dereferenceable(16) %strBuf) #13
+  call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %call21.i, ptr noundef nonnull align 8 dereferenceable(144) %strBuf) #13
   br label %_ZN4llvh9StringRefC2EPKc.exit99
 
 _ZN4llvh9StringRefC2EPKc.exit99:                  ; preds = %if.end26.i, %if.end.i
@@ -261,7 +261,7 @@ _ZN4llvh9StringRefC2EPKc.exit99:                  ; preds = %if.end26.i, %if.end
 
 if.then.i.i67:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit99
   %add.i.i68 = add nuw nsw i64 %conv.i5.i.i50, 20
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %strBuf, ptr noundef nonnull %add.ptr.i.i.i.i.i.i41, i64 noundef %add.i.i68, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %strBuf, ptr noundef nonnull %add.ptr.i.i.i.i.i.i41, i64 noundef %add.i.i68, i64 noundef 2) #13
   %.pre.i.i70 = load i32, ptr %Size.i.i.i.i.i.i42, align 8
   %.pre14.i.i71 = zext i32 %.pre.i.i70 to i64
   br label %if.end.i.i53
@@ -441,7 +441,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   br i1 %cmp.i.i.not.i179, label %cleanup88, label %if.end26.i180
 
 if.end26.i180:                                    ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i176
-  call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %call21.i178, ptr noundef nonnull align 8 dereferenceable(16) %strBuf33) #13
+  call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %call21.i178, ptr noundef nonnull align 8 dereferenceable(144) %strBuf33) #13
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end26.i180, %if.end.i166
@@ -464,7 +464,7 @@ _ZN4llvh9StringRefC2EPKc.exit139:                 ; preds = %if.end53
 
 if.then.i.i208:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit139
   %add.i.i209 = add nuw nsw i64 %conv.i5.i.i191, 20
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef %add.i.i209, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef %add.i.i209, i64 noundef 2) #13
   %.pre.i.i211 = load i32, ptr %Size.i.i.i.i.i.i76, align 8
   %.pre14.i.i212 = zext i32 %.pre.i.i211 to i64
   br label %if.end.i.i194
@@ -494,7 +494,7 @@ if.else59:                                        ; preds = %if.end53
   br i1 %cmp.not.i.i, label %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit, label %if.then.i.i216
 
 if.then.i.i216:                                   ; preds = %if.else59
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef 0, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef 0, i64 noundef 2) #13
   %.pre.i.i218 = load i32, ptr %Size.i.i.i.i.i.i76, align 8
   br label %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit
 
@@ -546,7 +546,7 @@ _ZN4llvh9StringRefC2EPKc.exit149:                 ; preds = %for.body
 
 if.then.i.i243:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit149
   %add.i.i244 = add nuw nsw i64 %conv.i5.i.i226, 2
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef %add.i.i244, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef %add.i.i244, i64 noundef 2) #13
   %.pre.i.i246 = load i32, ptr %Size.i.i.i.i.i.i76, align 8
   %.pre14.i.i247 = zext i32 %.pre.i.i246 to i64
   br label %if.end.i.i229
@@ -588,7 +588,7 @@ if.end78:                                         ; preds = %_ZN6hermes2vm12Smal
 
 if.then.i.i269:                                   ; preds = %if.end78
   %add.i.i270 = add i64 %call.i158, %conv.i5.i.i252
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef %add.i.i270, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef %add.i.i270, i64 noundef 2) #13
   %.pre.i.i272 = load i32, ptr %Size.i.i.i.i.i.i76, align 8
   %.pre14.i.i273 = zext i32 %.pre.i.i272 to i64
   br label %if.end.i.i255
@@ -640,7 +640,7 @@ _ZN4llvh9StringRefC2EPKc.exit169:                 ; preds = %_ZN6hermes2vm12Smal
 
 if.then.i.i297:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit169
   %add.i.i298 = add nuw nsw i64 %conv.i5.i.i278, 16
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef %add.i.i298, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %strBuf33, ptr noundef nonnull %add.ptr.i.i.i.i.i.i75, i64 noundef %add.i.i298, i64 noundef 2) #13
   %.pre.i.i300 = load i32, ptr %Size.i.i.i.i.i.i76, align 8
   %.pre14.i.i301 = zext i32 %.pre.i.i300 to i64
   br label %if.end.i.i281

@@ -513,7 +513,7 @@ if.end21.i:                                       ; preds = %if.end18.i, %if.the
 
 if.then24.i:                                      ; preds = %if.end21.i
   %sub.i = add i64 %23, -1
-  %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %sub.i, i1 true)
+  %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -1) %sub.i, i1 true)
   %25 = trunc nuw nsw i64 %24 to i32
   %cmp27.i128 = icmp eq i64 %24, 0
   br i1 %cmp27.i128, label %ph_insert.exit, label %for.body.i.preheader
@@ -2970,7 +2970,7 @@ if.end21.i:                                       ; preds = %if.end18.i, %if.the
 
 if.then24.i:                                      ; preds = %if.end21.i
   %sub.i = add i64 %26, -1
-  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %sub.i, i1 true)
+  %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, -1) %sub.i, i1 true)
   %28 = trunc nuw nsw i64 %27 to i32
   %cmp27.i125 = icmp eq i64 %27, 0
   br i1 %cmp27.i125, label %ph_insert.exit, label %for.body.i.preheader

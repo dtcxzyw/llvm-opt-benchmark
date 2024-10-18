@@ -441,7 +441,7 @@ _ZN7nanogui3refINS_6ButtonEED2Ev.exit:            ; preds = %_ZN7nanogui3refINS_
   store i8 0, ptr %9, align 1
   %62 = getelementptr inbounds i8, ptr %46, i64 280
   %63 = load ptr, ptr %62, align 8
-  invoke void %63(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void %63(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %_ZNKSt8functionIFvbEEclEb.exit unwind label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit
 
 _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %60
@@ -485,7 +485,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %60
   store i8 0, ptr %8, align 1
   %79 = getelementptr inbounds i8, ptr %65, i64 280
   %80 = load ptr, ptr %79, align 8
-  invoke void %80(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void %80(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %_ZNKSt8functionIFvbEEclEb.exit65 unwind label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNKSt8functionIFvbEEclEb.exit65:                 ; preds = %77
@@ -552,7 +552,7 @@ _ZNKSt8functionIFvbEEclEb.exit65:                 ; preds = %77
   store i8 0, ptr %7, align 1
   %111 = getelementptr inbounds i8, ptr %95, i64 280
   %112 = load ptr, ptr %111, align 8
-  invoke void %112(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void %112(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %_ZNKSt8functionIFvbEEclEb.exit70 unwind label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit
 
 _ZNKSt8functionIFvbEEclEb.exit70:                 ; preds = %109
@@ -629,7 +629,7 @@ _ZNKSt8functionIFvbEEclEb.exit70:                 ; preds = %109
   %148 = getelementptr inbounds i8, ptr %0, i64 224
   %149 = getelementptr inbounds i8, ptr %0, i64 248
   %150 = load ptr, ptr %149, align 8
-  invoke void %150(ptr noundef nonnull align 8 dereferenceable(16) %148)
+  invoke void %150(ptr noundef nonnull align 8 dereferenceable(32) %148)
           to label %._ZNKSt8functionIFvvEEclEv.exit_crit_edge unwind label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 ._ZNKSt8functionIFvvEEclEv.exit_crit_edge:        ; preds = %147
@@ -669,7 +669,7 @@ _ZNKSt8functionIFvvEEclEv.exit._crit_edge:        ; preds = %_ZNKSt8functionIFvv
   store i8 %162, ptr %6, align 1
   %163 = getelementptr inbounds i8, ptr %0, i64 280
   %164 = load ptr, ptr %163, align 8
-  invoke void %164(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void %164(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %_ZNKSt8functionIFvbEEclEb.exit79 unwind label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNKSt8functionIFvbEEclEb.exit79:                 ; preds = %160
@@ -1136,7 +1136,7 @@ _ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit: ; preds = %1, %4
 
 7:                                                ; preds = %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 256
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvbEED2Ev.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -1154,7 +1154,7 @@ _ZNSt8functionIFvbEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN7nan
 
 15:                                               ; preds = %_ZNSt8functionIFvbEED2Ev.exit
   %16 = getelementptr inbounds i8, ptr %0, i64 224
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %18
 
 18:                                               ; preds = %15
@@ -1191,7 +1191,7 @@ _ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i: ; preds = %4, %1
 
 7:                                                ; preds = %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i
   %8 = getelementptr inbounds i8, ptr %0, i64 256
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFvbEED2Ev.exit.i unwind label %10
 
 10:                                               ; preds = %7
@@ -1209,7 +1209,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i:                  ; preds = %7, %_ZNSt6vectorIPN
 
 15:                                               ; preds = %_ZNSt8functionIFvbEED2Ev.exit.i
   %16 = getelementptr inbounds i8, ptr %0, i64 224
-  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3)
           to label %_ZN7nanogui6ButtonD2Ev.exit unwind label %18
 
 18:                                               ; preds = %15
@@ -1222,7 +1222,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i:                  ; preds = %7, %_ZNSt6vectorIPN
 _ZN7nanogui6ButtonD2Ev.exit:                      ; preds = %_ZNSt8functionIFvbEED2Ev.exit.i, %15
   %21 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #12
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

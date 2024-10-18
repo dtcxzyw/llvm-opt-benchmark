@@ -5245,7 +5245,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib12DefaultEventD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(176) %2, i64 noundef 232) #29
   ret void
 }
 
@@ -5369,7 +5369,7 @@ terminate.lpad.i.i.i2.i.i:                        ; preds = %_ZN8QuantLib12Defau
   unreachable
 
 _ZN8QuantLib12DefaultEvent17DefaultSettlementD0Ev.exit: ; preds = %_ZN8QuantLib12DefaultEvent17DefaultSettlementD2Ev.exit.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 120) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %2, i64 noundef 120) #29
   ret void
 }
 
@@ -5496,7 +5496,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib17FailureToPayEventD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %2, i64 noundef 240) #29
   ret void
 }
 
@@ -5629,7 +5629,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib15BankruptcyEventD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(176) %2, i64 noundef 232) #29
   ret void
 }
 

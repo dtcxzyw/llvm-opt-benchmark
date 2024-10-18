@@ -60,7 +60,7 @@ if.else:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.else
   %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
-  %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 3) #7
+  %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef range(i32 3, 6) 3) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then3.i
 
@@ -110,7 +110,7 @@ for.body.i:                                       ; preds = %entry, %do.end.i
 
 if.then.i:                                        ; preds = %for.body.i
   %3 = inttoptr i64 %hint.024.i to ptr
-  %call.i.i = tail call ptr @mmap64(ptr noundef nonnull %3, i64 noundef %and, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #7
+  %call.i.i = tail call ptr @mmap64(ptr noundef nonnull %3, i64 noundef range(i64 0, -4095) %and, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #7
   %magicptr.i = ptrtoint ptr %call.i.i to i64
   switch i64 %magicptr.i, label %land.lhs.true.i [
     i64 -1, label %do.body.i.preheader
@@ -126,7 +126,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   br i1 %or.cond.i, label %mcode_alloc.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %call.i21.i = tail call i32 @munmap(ptr noundef nonnull %call.i.i, i64 noundef %and) #7
+  %call.i21.i = tail call i32 @munmap(ptr noundef nonnull %call.i.i, i64 noundef range(i64 0, -4095) %and) #7
   br label %do.body.i.preheader
 
 do.body.i.preheader:                              ; preds = %if.then10.i, %if.then.i, %if.then.i, %for.body.i
@@ -191,7 +191,7 @@ if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr %mcarea.i, align 8
   %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
-  %call.i.i = tail call i32 @mprotect(ptr noundef %1, i64 noundef %2, i32 noundef 5) #7
+  %call.i.i = tail call i32 @mprotect(ptr noundef %1, i64 noundef %2, i32 noundef range(i32 3, 6) 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then3.i
 
@@ -224,7 +224,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
-  %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 5) #7
+  %call.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef range(i32 3, 6) 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then3.i
 
@@ -261,7 +261,7 @@ if.then1:                                         ; preds = %if.then
 if.then.i:                                        ; preds = %if.then1
   %szmcarea.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i, align 8
-  %call.i.i = tail call i32 @mprotect(ptr noundef %0, i64 noundef %2, i32 noundef 5) #7
+  %call.i.i = tail call i32 @mprotect(ptr noundef %0, i64 noundef %2, i32 noundef range(i32 3, 6) 5) #7
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then3.i
 
@@ -305,7 +305,7 @@ if.then13:                                        ; preds = %land.lhs.true
   br i1 %cmp.not.i24, label %return, label %if.then.i25
 
 if.then.i25:                                      ; preds = %if.then13
-  %call.i.i28 = tail call i32 @mprotect(ptr noundef %0, i64 noundef %4, i32 noundef 3) #7
+  %call.i.i28 = tail call i32 @mprotect(ptr noundef %0, i64 noundef %4, i32 noundef range(i32 3, 6) 3) #7
   %tobool.not.i29 = icmp eq i32 %call.i.i28, 0
   br i1 %tobool.not.i29, label %if.end.i31, label %if.then3.i30
 
@@ -391,7 +391,7 @@ if.then.i:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then.i
   %szmcarea.i.i = getelementptr inbounds i8, ptr %J, i64 3072
   %2 = load i64, ptr %szmcarea.i.i, align 8
-  %call.i.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 5) #7
+  %call.i.i.i = tail call i32 @mprotect(ptr noundef nonnull %0, i64 noundef %2, i32 noundef range(i32 3, 6) 5) #7
   %tobool.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then3.i.i
 

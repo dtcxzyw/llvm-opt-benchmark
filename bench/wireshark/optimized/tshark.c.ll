@@ -4402,7 +4402,7 @@ process_cap_file_second_pass.exit:                ; preds = %process_new_idbs.ex
   call void @epan_free(ptr noundef %408) #23
   %409 = call ptr @epan_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef nonnull @tshark_epan_new.funcs) #23
   store ptr %409, ptr @cfile, align 8
-  call void @epan_dissect_init(ptr noundef %.059.i, ptr noundef %409, i32 noundef %.0.i93, i32 noundef %405) #23
+  call void @epan_dissect_init(ptr noundef %.059.i, ptr noundef %409, i32 noundef range(i32 0, 2) %.0.i93, i32 noundef range(i32 0, 2) %405) #23
   br label %reset_epan_mem.exit.i
 
 reset_epan_mem.exit.i:                            ; preds = %403, %.loopexit.i102

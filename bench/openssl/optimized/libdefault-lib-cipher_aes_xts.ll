@@ -345,7 +345,7 @@ if.end13:                                         ; preds = %if.then9
 land.lhs.true.i:                                  ; preds = %if.end13
   %div12 = lshr i64 %keylen, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %key, i64 %div12
-  %call.i = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %key, ptr noundef nonnull %add.ptr.i, i64 noundef %div12) #4
+  %call.i = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %key, ptr noundef nonnull %add.ptr.i, i64 noundef range(i64 0, -9223372036854775808) %div12) #4
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %aes_xts_check_keys_differ.exit, label %if.end17
 

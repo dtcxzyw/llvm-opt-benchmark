@@ -393,7 +393,7 @@ entry:
 define internal void @_ZNK9grpc_core12_GLOBAL__N_119IPv4ResolverFactory14CreateResolverENS_12ResolverArgsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.83") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.grpc_core::ResolverArgs", align 8
-  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(200) %args) #17
+  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args) #17
   %args.i = getelementptr inbounds i8, ptr %agg.tmp, i64 200
   %args3.i = getelementptr inbounds i8, ptr %args, i64 200
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args.i, ptr noundef nonnull align 8 dereferenceable(8) %args3.i) #17
@@ -596,7 +596,7 @@ if.end9:                                          ; preds = %for.body
           to label %call.i21.noexc unwind label %lpad
 
 call.i21.noexc:                                   ; preds = %if.end9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp12, ptr noundef %call.i2122, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, ptr noundef %call.i2122, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i21.noexc
@@ -606,7 +606,7 @@ call.i21.noexc:                                   ; preds = %if.end9
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp12) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #17
   br label %ehcleanup29
 
 invoke.cont:                                      ; preds = %.noexc
@@ -629,7 +629,7 @@ invoke.cont17:                                    ; preds = %invoke.cont
           to label %call.i25.noexc unwind label %lpad21
 
 call.i25.noexc:                                   ; preds = %invoke.cont17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp19, ptr noundef %call.i2529, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp19, ptr noundef %call.i2529, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20)
           to label %.noexc30 unwind label %lpad21
 
 .noexc30:                                         ; preds = %call.i25.noexc
@@ -639,7 +639,7 @@ call.i25.noexc:                                   ; preds = %invoke.cont17
 lpad.i28:                                         ; preds = %.noexc30
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp19) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp19) #17
   br label %ehcleanup
 
 invoke.cont22:                                    ; preds = %.noexc30
@@ -658,7 +658,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont24, %for
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %15, %invoke.cont24 ]
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i) #17
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %16
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !30
@@ -934,7 +934,7 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   %value.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 64
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !30
@@ -1315,7 +1315,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i) #17
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !30
@@ -1425,7 +1425,7 @@ call.i.noexc:                                     ; preds = %if.end
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !noalias !43
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !noalias !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %addresses, i8 0, i64 24, i1 false), !noalias !43
-  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %agg.tmp3.i, ptr noundef nonnull align 8 dereferenceable(200) %args) #17, !noalias !43
+  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp3.i, ptr noundef nonnull align 8 dereferenceable(240) %args) #17, !noalias !43
   %args.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 200
   %args3.i.i = getelementptr inbounds i8, ptr %args, i64 200
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args.i.i, ptr noundef nonnull align 8 dereferenceable(8) %args3.i.i) #17, !noalias !43
@@ -1448,7 +1448,7 @@ call.i.noexc:                                     ; preds = %if.end
   %7 = load i64, ptr %result_handler6.i.i, align 8, !noalias !43
   store i64 %7, ptr %result_handler.i.i, align 8, !noalias !43
   store ptr null, ptr %result_handler6.i.i, align 8, !noalias !43
-  invoke void @_ZN9grpc_core8ResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1)
+  invoke void @_ZN9grpc_core8ResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i1)
           to label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_116SockaddrResolverENS0_16OrphanableDeleteEED2Ev.exit unwind label %lpad.i, !noalias !43
 
 lpad.i:                                           ; preds = %call.i.noexc
@@ -1816,7 +1816,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_116SockaddrResolver11StartLocked
 entry:
   %result = alloca %"struct.grpc_core::Resolver::Result", align 8
   %agg.tmp = alloca %"struct.grpc_core::Resolver::Result", align 8
-  call void @_ZN4absl12lts_202308028StatusOrISt6vectorIN9grpc_core17EndpointAddressesESaIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %result)
+  call void @_ZN4absl12lts_202308028StatusOrISt6vectorIN9grpc_core17EndpointAddressesESaIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %result)
   %service_config.i = getelementptr inbounds i8, ptr %result, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %service_config.i, i8 0, i64 16, i1 false)
   %resolution_note.i = getelementptr inbounds i8, ptr %result, i64 48
@@ -1834,7 +1834,7 @@ lpad2.i:                                          ; preds = %entry
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %resolution_note.i) #17
   call void @_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %service_config.i) #17
-  call void @_ZN4absl12lts_202308028StatusOrISt6vectorIN9grpc_core17EndpointAddressesESaIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %result) #17
+  call void @_ZN4absl12lts_202308028StatusOrISt6vectorIN9grpc_core17EndpointAddressesESaIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %result) #17
   br label %common.resume
 
 _ZN9grpc_core8Resolver6ResultC2Ev.exit:           ; preds = %entry
@@ -1901,7 +1901,7 @@ _ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEE
   %result_health_callback.i5 = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 112
   %_M_invoker2.i.i = getelementptr inbounds i8, ptr %result, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %result_health_callback.i5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result_health_callback.i5, i8 0, i64 24, i1 false)
   %12 = load ptr, ptr %_M_invoker2.i.i, align 8
   store ptr %12, ptr %_M_invoker.i.i, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 104
@@ -1911,7 +1911,7 @@ _ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEE
 
 if.then.i.i:                                      ; preds = %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEEEEC2EOS6_.exit.i
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result_health_callback.i5, ptr noundef nonnull align 8 dereferenceable(16) %result_health_callback.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result_health_callback.i5, ptr noundef nonnull align 8 dereferenceable(32) %result_health_callback.i, i64 16, i1 false)
   store ptr %13, ptr %_M_manager.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN9grpc_core8Resolver6ResultC2EOS1_.exit
@@ -1976,7 +1976,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %result_health_callback = getelementptr inbounds i8, ptr %this, i64 88
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %result_health_callback, ptr noundef nonnull align 8 dereferenceable(16) %result_health_callback, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %result_health_callback, ptr noundef nonnull align 8 dereferenceable(32) %result_health_callback, i32 noundef 3)
           to label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -2106,13 +2106,13 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %this)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #17
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #17
   resume { ptr, i32 } %1
 
@@ -2453,7 +2453,7 @@ entry:
 define internal void @_ZNK9grpc_core12_GLOBAL__N_119IPv6ResolverFactory14CreateResolverENS_12ResolverArgsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.83") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.grpc_core::ResolverArgs", align 8
-  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(200) %args) #17
+  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args) #17
   %args.i = getelementptr inbounds i8, ptr %agg.tmp, i64 200
   %args3.i = getelementptr inbounds i8, ptr %args, i64 200
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args.i, ptr noundef nonnull align 8 dereferenceable(8) %args3.i) #17
@@ -2522,7 +2522,7 @@ entry:
 define internal void @_ZNK9grpc_core12_GLOBAL__N_119UnixResolverFactory14CreateResolverENS_12ResolverArgsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.83") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.grpc_core::ResolverArgs", align 8
-  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(200) %args) #17
+  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args) #17
   %args.i = getelementptr inbounds i8, ptr %agg.tmp, i64 200
   %args3.i = getelementptr inbounds i8, ptr %args, i64 200
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args.i, ptr noundef nonnull align 8 dereferenceable(8) %args3.i) #17
@@ -2591,7 +2591,7 @@ entry:
 define internal void @_ZNK9grpc_core12_GLOBAL__N_127UnixAbstractResolverFactory14CreateResolverENS_12ResolverArgsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.83") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.grpc_core::ResolverArgs", align 8
-  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(200) %args) #17
+  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args) #17
   %args.i = getelementptr inbounds i8, ptr %agg.tmp, i64 200
   %args3.i = getelementptr inbounds i8, ptr %args, i64 200
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args.i, ptr noundef nonnull align 8 dereferenceable(8) %args3.i) #17
@@ -2660,7 +2660,7 @@ entry:
 define internal void @_ZNK9grpc_core12_GLOBAL__N_120VSockResolverFactory14CreateResolverENS_12ResolverArgsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.83") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.grpc_core::ResolverArgs", align 8
-  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(200) %args) #17
+  call void @_ZN9grpc_core3URIC2EOS0_(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args) #17
   %args.i = getelementptr inbounds i8, ptr %agg.tmp, i64 200
   %args3.i = getelementptr inbounds i8, ptr %args, i64 200
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args.i, ptr noundef nonnull align 8 dereferenceable(8) %args3.i) #17

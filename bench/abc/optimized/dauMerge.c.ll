@@ -1891,11 +1891,11 @@ Dau_DsdMergeReplace.exit195:                      ; preds = %328, %387
 Dau_DsdMergeReplace.exit223:                      ; preds = %Dau_DsdMergeReplace.exit195
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store ptr %22, ptr %14, align 8
-  %389 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %22, ptr noundef nonnull %14, ptr noundef nonnull readonly %24, i32 noundef %250, ptr noundef nonnull %29)
+  %389 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %22, ptr noundef nonnull %14, ptr noundef nonnull readonly %24, i32 noundef range(i32 1, 0) %250, ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr %23, ptr %13, align 8
-  %390 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %23, ptr noundef nonnull %13, ptr noundef nonnull readonly %25, i32 noundef %250, ptr noundef nonnull %30)
+  %390 = call i32 @Dau_DsdMergeStatus_rec(ptr noundef nonnull %23, ptr noundef nonnull %13, ptr noundef nonnull readonly %25, i32 noundef range(i32 1, 0) %250, ptr noundef nonnull %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   store i32 %250, ptr %32, align 8
   %391 = getelementptr inbounds i8, ptr %32, i64 4024

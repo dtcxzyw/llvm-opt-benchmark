@@ -336,11 +336,11 @@ if.then13.i:                                      ; preds = %land.lhs.true11.i
   br i1 %cmp.i.i44, label %if.then.i.i45, label %if.else.i.i
 
 if.then.i.i45:                                    ; preds = %if.then13.i
-  tail call void @ehooks_default_zero_impl(ptr noundef %38, i64 noundef %and.i18.i) #9
+  tail call void @ehooks_default_zero_impl(ptr noundef %38, i64 noundef range(i64 0, -4095) %and.i18.i) #9
   br label %if.end21
 
 if.else.i.i:                                      ; preds = %if.then13.i
-  tail call void @llvm.memset.p0.i64(ptr align 4096 %38, i8 0, i64 %and.i18.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4096 %38, i8 0, i64 range(i64 0, -4095) %and.i18.i, i1 false)
   br label %if.end21
 
 extent_commit_zero.exit:                          ; preds = %if.then.i46
@@ -404,7 +404,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %ecache_retained.i = getelementptr inbounds i8, ptr %pac, i64 38936
-  %call.i = call fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache_retained.i, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef %commit, i1 noundef zeroext %guarded)
+  %call.i = call fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache_retained.i, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef nonnull %commit, i1 noundef zeroext %guarded)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.else.i, label %extent_alloc_retained.exit.thread19
 
@@ -649,11 +649,11 @@ if.then59.i.i:                                    ; preds = %land.lhs.true57.i.i
   br i1 %cmp.i72.i.i, label %if.then.i.i23.i, label %if.else.i.i.i
 
 if.then.i.i23.i:                                  ; preds = %if.then59.i.i
-  call void @ehooks_default_zero_impl(ptr noundef %31, i64 noundef %and.i71.i.i) #9
+  call void @ehooks_default_zero_impl(ptr noundef %31, i64 noundef range(i64 0, -4095) %and.i71.i.i) #9
   br label %extent_alloc_retained.exit.thread22
 
 if.else.i.i.i:                                    ; preds = %if.then59.i.i
-  call void @llvm.memset.p0.i64(ptr align 4096 %31, i8 0, i64 %and.i71.i.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4096 %31, i8 0, i64 range(i64 0, -4095) %and.i71.i.i, i1 false)
   br label %extent_alloc_retained.exit.thread22
 
 extent_alloc_retained.exit.thread:                ; preds = %if.else.i
@@ -1129,7 +1129,7 @@ if.end:                                           ; preds = %do.end5, %if.then
   br i1 %cmp.i.i50, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %call1.i.i = tail call zeroext i1 @ehooks_default_dalloc_impl(ptr noundef %10, i64 noundef %and.i15.i) #9
+  %call1.i.i = tail call zeroext i1 @ehooks_default_dalloc_impl(ptr noundef %10, i64 noundef range(i64 0, -4095) %and.i15.i) #9
   br i1 %call1.i.i, label %if.end8, label %extent_dalloc_wrapper_try.exit
 
 if.else.i.i:                                      ; preds = %if.end
@@ -1171,7 +1171,7 @@ if.then.i.i.i.i:                                  ; preds = %cond.end.i.i.i
 ehooks_pre_reentrancy.exit.i.i:                   ; preds = %if.then.i.i.i.i, %cond.end.i.i.i
   %20 = load ptr, ptr %dalloc.i.i, align 8
   %ehooks.val.i.i = load i32, ptr %ehooks, align 8
-  %call7.i.i = tail call zeroext i1 %20(ptr noundef nonnull %14, ptr noundef %10, i64 noundef %and.i15.i, i1 noundef zeroext %tobool.i.i, i32 noundef %ehooks.val.i.i) #9
+  %call7.i.i = tail call zeroext i1 %20(ptr noundef nonnull %14, ptr noundef %10, i64 noundef range(i64 0, -4095) %and.i15.i, i1 noundef zeroext %tobool.i.i, i32 noundef %ehooks.val.i.i) #9
   br i1 %cmp.i.i.i.i, label %cond.true.i13.i.i, label %cond.end.i9.i.i
 
 cond.true.i13.i.i:                                ; preds = %ehooks_pre_reentrancy.exit.i.i
@@ -1407,7 +1407,7 @@ if.then.i.i.i:                                    ; preds = %cond.end.i.i
 ehooks_pre_reentrancy.exit.i:                     ; preds = %if.then.i.i.i, %cond.end.i.i
   %11 = load ptr, ptr %decommit.i, align 8
   %ehooks.val.i = load i32, ptr %ehooks, align 8
-  %call7.i = tail call zeroext i1 %11(ptr noundef nonnull %5, ptr noundef %2, i64 noundef %and.i10, i64 noundef %offset, i64 noundef %length, i32 noundef %ehooks.val.i) #9
+  %call7.i = tail call zeroext i1 %11(ptr noundef nonnull %5, ptr noundef %2, i64 noundef range(i64 0, -4095) %and.i10, i64 noundef %offset, i64 noundef %length, i32 noundef %ehooks.val.i) #9
   br i1 %cmp.i.i.i, label %cond.true.i14.i, label %cond.end.i10.i
 
 cond.true.i14.i:                                  ; preds = %ehooks_pre_reentrancy.exit.i
@@ -1650,7 +1650,7 @@ if.end:                                           ; preds = %do.end10, %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @ehooks_default_destroy_impl(ptr noundef %4, i64 noundef %and.i22) #9
+  tail call void @ehooks_default_destroy_impl(ptr noundef %4, i64 noundef range(i64 0, -4095) %and.i22) #9
   br label %ehooks_destroy.exit
 
 if.else.i:                                        ; preds = %if.end
@@ -1692,7 +1692,7 @@ if.then.i.i.i:                                    ; preds = %cond.end.i.i
 ehooks_pre_reentrancy.exit.i:                     ; preds = %if.then.i.i.i, %cond.end.i.i
   %14 = load ptr, ptr %destroy.i, align 8
   %ehooks.val.i = load i32, ptr %ehooks, align 8
-  tail call void %14(ptr noundef nonnull %8, ptr noundef %4, i64 noundef %and.i22, i1 noundef zeroext %tobool.i23, i32 noundef %ehooks.val.i) #9
+  tail call void %14(ptr noundef nonnull %8, ptr noundef %4, i64 noundef range(i64 0, -4095) %and.i22, i1 noundef zeroext %tobool.i23, i32 noundef %ehooks.val.i) #9
   br i1 %cmp.i.i.i, label %cond.true.i13.i, label %cond.end.i9.i
 
 cond.true.i13.i:                                  ; preds = %ehooks_pre_reentrancy.exit.i
@@ -1795,7 +1795,7 @@ if.then.i.i.i:                                    ; preds = %cond.end.i.i
 ehooks_pre_reentrancy.exit.i:                     ; preds = %if.then.i.i.i, %cond.end.i.i
   %11 = load ptr, ptr %commit.i, align 8
   %ehooks.val.i = load i32, ptr %ehooks, align 8
-  %call7.i = tail call zeroext i1 %11(ptr noundef nonnull %5, ptr noundef %2, i64 noundef %and.i10, i64 noundef %offset, i64 noundef %length, i32 noundef %ehooks.val.i) #9
+  %call7.i = tail call zeroext i1 %11(ptr noundef nonnull %5, ptr noundef %2, i64 noundef range(i64 0, -4095) %and.i10, i64 noundef %offset, i64 noundef %length, i32 noundef %ehooks.val.i) #9
   br i1 %cmp.i.i.i, label %cond.true.i17.i, label %cond.end.i13.i
 
 cond.true.i17.i:                                  ; preds = %ehooks_pre_reentrancy.exit.i
@@ -2109,7 +2109,7 @@ if.then.i.i.i:                                    ; preds = %cond.end.i.i
 ehooks_pre_reentrancy.exit.i:                     ; preds = %if.then.i.i.i, %cond.end.i.i
   %16 = load ptr, ptr %merge.i, align 8
   %ehooks.val.i = load i32, ptr %ehooks, align 8
-  %call7.i = tail call zeroext i1 %16(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %and.i49, ptr noundef %6, i64 noundef %and.i51, i1 noundef zeroext %tobool.i, i32 noundef %ehooks.val.i) #9
+  %call7.i = tail call zeroext i1 %16(ptr noundef nonnull %10, ptr noundef %2, i64 noundef range(i64 0, -4095) %and.i49, ptr noundef %6, i64 noundef range(i64 0, -4095) %and.i51, i1 noundef zeroext %tobool.i, i32 noundef %ehooks.val.i) #9
   br i1 %cmp.i.i.i, label %cond.true.i14.i, label %cond.end.i10.i
 
 cond.true.i14.i:                                  ; preds = %ehooks_pre_reentrancy.exit.i
@@ -2230,11 +2230,11 @@ if.then13:                                        ; preds = %land.lhs.true11
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then13
-  tail call void @ehooks_default_zero_impl(ptr noundef %5, i64 noundef %and.i18) #9
+  tail call void @ehooks_default_zero_impl(ptr noundef %5, i64 noundef range(i64 0, -4095) %and.i18) #9
   br label %return
 
 if.else.i:                                        ; preds = %if.then13
-  tail call void @llvm.memset.p0.i64(ptr align 4096 %5, i8 0, i64 %and.i18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4096 %5, i8 0, i64 range(i64 0, -4095) %and.i18, i1 false)
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.then.i, %if.then, %if.end9, %land.lhs.true11

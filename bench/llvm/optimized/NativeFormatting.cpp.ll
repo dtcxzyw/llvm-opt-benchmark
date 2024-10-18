@@ -522,7 +522,7 @@ define dso_local void @_ZN4llvm12write_doubleERNS_11raw_ostreamEdNS_10FloatStyle
   %switch.selectcmp14 = icmp eq i32 %2, 0
   %switch.select15 = select i1 %switch.selectcmp14, i8 101, i8 %switch.select
   %47 = getelementptr inbounds i8, ptr %6, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %47, i64 noundef 8) #12
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %47, i64 noundef 8) #12
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 2, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -534,7 +534,7 @@ define dso_local void @_ZN4llvm12write_doubleERNS_11raw_ostreamEdNS_10FloatStyle
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %6, ptr %52, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -657,8 +657,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %89, %91, %92
   br label %_ZN4llvm11raw_ostreamlsEc.exit28
 
 _ZN4llvm11raw_ostreamlsEc.exit28:                 ; preds = %115, %114, %112, %99, %97
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #12
-  %118 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #12
+  %118 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %119 = load ptr, ptr %6, align 8
   %120 = icmp eq ptr %119, %47
   br i1 %120, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %121

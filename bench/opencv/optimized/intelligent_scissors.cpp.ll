@@ -119,7 +119,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
   %41 = alloca %"class.std::__cxx11::basic_string", align 8
   %42 = alloca %"class.std::allocator.5", align 1
   %43 = alloca %"class.cv::_InputArray", align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #20
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %3) #20
   %44 = getelementptr inbounds i8, ptr %3, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #20
   %45 = getelementptr inbounds i8, ptr %3, i64 192
@@ -250,7 +250,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
 
 87:                                               ; preds = %81
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
-  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull %12)
+  invoke void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0, i1 noundef zeroext true, i32 noundef 3, ptr noundef nonnull align 8 %12)
           to label %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit unwind label %88
 
 88:                                               ; preds = %87
@@ -1208,7 +1208,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN2cv6
           to label %130 unwind label %266
 
 130:                                              ; preds = %125
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 24, i1 false)
   %.sroa.029.0.copyload.i = load i64, ptr %36, align 4
   %131 = getelementptr inbounds i8, ptr %7, i64 16
   %132 = load ptr, ptr %131, align 8

@@ -147,7 +147,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i.i, label %if.else, label %for.cond.i.i, !llvm.loop !4
 
 if.end15.i.i:                                     ; preds = %cond.end
-  %call2.i.i.i = tail call noundef i64 @_ZNKSt4hashIN4cvc58internal8TypeNodeEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %d_typ_enum_map, ptr noundef nonnull align 8 dereferenceable(8) %tn)
+  %call2.i.i.i = tail call noundef i64 @_ZNKSt4hashIN4cvc58internal8TypeNodeEEclERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %d_typ_enum_map, ptr noundef nonnull align 8 dereferenceable(8) %tn)
   %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %call2.i.i.i, %3
@@ -199,7 +199,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %call.i72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_mESaIS6_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %d_typ_enum_map, ptr noundef nonnull align 8 dereferenceable(8) %tn)
+  %call.i72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_mESaIS6_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %d_typ_enum_map, ptr noundef nonnull align 8 dereferenceable(8) %tn)
   store i64 %sub.ptr.div.i, ptr %call.i72, align 8
   %17 = load ptr, ptr %tn, align 8
   store ptr %17, ptr %agg.tmp, align 8
@@ -331,7 +331,7 @@ if.end:                                           ; preds = %if.then13.i.i87, %i
   %teIndex.0 = phi i64 [ %34, %if.else ], [ %sub.ptr.div.i, %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit ], [ %sub.ptr.div.i, %if.then.i.i81 ], [ %sub.ptr.div.i, %if.then13.i.i87 ]
   %conv = zext i32 %index to i64
   %d_enum_terms = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i94161 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_St6vectorINS2_12NodeTemplateILb1EEESaIS8_EEESaISB_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %d_enum_terms, ptr noundef nonnull align 8 dereferenceable(8) %tn)
+  %call.i94161 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_St6vectorINS2_12NodeTemplateILb1EEESaIS8_EEESaISB_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %d_enum_terms, ptr noundef nonnull align 8 dereferenceable(8) %tn)
   %_M_finish.i95162 = getelementptr inbounds i8, ptr %call.i94161, i64 8
   %35 = load ptr, ptr %_M_finish.i95162, align 8
   %36 = load ptr, ptr %call.i94161, align 8
@@ -386,7 +386,7 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %return
 
 if.end30:                                         ; preds = %while.body
-  %call.i104 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_St6vectorINS2_12NodeTemplateILb1EEESaIS8_EEESaISB_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %d_enum_terms, ptr noundef nonnull align 8 dereferenceable(8) %tn)
+  %call.i104 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_St6vectorINS2_12NodeTemplateILb1EEESaIS8_EEESaISB_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %d_enum_terms, ptr noundef nonnull align 8 dereferenceable(8) %tn)
   %42 = load ptr, ptr %d_typ_enum26, align 8
   %add.ptr.i105 = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumerator", ptr %42, i64 %teIndex.0
   %43 = load ptr, ptr %add.ptr.i105, align 8, !noalias !10
@@ -474,7 +474,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont37, %if.
   %vfn.i129 = getelementptr inbounds i8, ptr %vtable.i128, i64 32
   %56 = load ptr, ptr %vfn.i129, align 8
   %call.i130 = call noundef nonnull align 8 dereferenceable(16) ptr %56(ptr noundef nonnull align 8 dereferenceable(16) %55)
-  %call.i94 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_St6vectorINS2_12NodeTemplateILb1EEESaIS8_EEESaISB_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %d_enum_terms, ptr noundef nonnull align 8 dereferenceable(8) %tn)
+  %call.i94 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_St6vectorINS2_12NodeTemplateILb1EEESaIS8_EEESaISB_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %d_enum_terms, ptr noundef nonnull align 8 dereferenceable(8) %tn)
   %_M_finish.i95 = getelementptr inbounds i8, ptr %call.i94, i64 8
   %57 = load ptr, ptr %_M_finish.i95, align 8
   %58 = load ptr, ptr %call.i94, align 8
@@ -492,7 +492,7 @@ lpad36:                                           ; preds = %if.else.i.i114, %if
   br label %eh.resume
 
 while.end:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.end
-  %call.i131 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_St6vectorINS2_12NodeTemplateILb1EEESaIS8_EEESaISB_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 1 dereferenceable(1) %d_enum_terms, ptr noundef nonnull align 8 dereferenceable(8) %tn)
+  %call.i131 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal8TypeNodeESt4pairIKS3_St6vectorINS2_12NodeTemplateILb1EEESaIS8_EEESaISB_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %d_enum_terms, ptr noundef nonnull align 8 dereferenceable(8) %tn)
   %60 = load ptr, ptr %call.i131, align 8
   %add.ptr.i132 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %60, i64 %conv
   %61 = load ptr, ptr %add.ptr.i132, align 8

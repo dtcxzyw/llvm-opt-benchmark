@@ -1640,7 +1640,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   br i1 %.not.i, label %16, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call fastcc ptr @getStringBytes(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %3)
+  %15 = tail call fastcc ptr @getStringBytes(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %3)
   br label %getStringUTF8.exit
 
 16:                                               ; preds = %8

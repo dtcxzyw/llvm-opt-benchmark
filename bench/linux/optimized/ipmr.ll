@@ -2265,14 +2265,14 @@ define dso_local range(i32 -95, 1) i32 @ip_mroute_getsockopt(ptr nocapture nound
   br label %58
 
 copy_to_sockptr.exit:                             ; preds = %52
-  %54 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %8, i64 noundef %49) #17
+  %54 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %8, i64 noundef range(i64 -2147483648, 2147483648) %49) #17
   %.fr2 = freeze i64 %54
   %55 = and i64 %.fr2, 4294967295
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %57, label %58
 
 copy_to_sockptr.exit.thread:                      ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 4 %8, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 4 %8, i64 range(i64 -2147483648, 2147483648) %49, i1 false)
   br label %57
 
 57:                                               ; preds = %copy_to_sockptr.exit.thread, %copy_to_sockptr.exit

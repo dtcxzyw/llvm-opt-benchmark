@@ -71,7 +71,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %23, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff1b55dddd5461f6E.exit.i.i.i", label %24, !prof !20
 
 24:                                               ; preds = %21
-  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %22, i64 noundef %.val1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.969be4b6212c0d94dff5a5125a935392.4) #15
+  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef range(i64 0, 4294967296) %22, i64 noundef %.val1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.969be4b6212c0d94dff5a5125a935392.4) #15
           to label %.noexc.i unwind label %.loopexit.split-lp.i, !noalias !12
 
 .noexc.i:                                         ; preds = %24
@@ -911,7 +911,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %25, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff1b55dddd5461f6E.exit.i.i", label %26, !prof !20
 
 26:                                               ; preds = %21
-  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %23, i64 noundef %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.969be4b6212c0d94dff5a5125a935392.4) #15
+  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef range(i64 0, 4294967296) %23, i64 noundef %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.969be4b6212c0d94dff5a5125a935392.4) #15
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %26

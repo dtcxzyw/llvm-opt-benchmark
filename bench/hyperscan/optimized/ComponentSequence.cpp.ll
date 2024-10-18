@@ -252,7 +252,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZN3ue217ComponentSequenceD2Ev.exit
 
 _ZN3ue217ComponentSequenceD2Ev.exit:              ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
-  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #16
+  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
@@ -949,7 +949,7 @@ _ZNKSt14default_deleteIN3ue220ComponentAlternationEEclEPS1_.exit.i.i.i.i: ; pred
 
 if.end:                                           ; preds = %_ZN5boost11make_uniqueIN3ue220ComponentAlternationEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit, %_ZNKSt14default_deleteIN3ue220ComponentAlternationEEclEPS1_.exit.i.i.i.i, %entry
   %call.i1 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #19, !noalias !19
-  invoke void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i1)
+  invoke void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %call.i1)
           to label %_ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit unwind label %lpad.i2, !noalias !19
 
 lpad.i2:                                          ; preds = %if.end

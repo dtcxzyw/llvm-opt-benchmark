@@ -4650,7 +4650,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   %837 = icmp sgt i32 %..i594, %797
   %838 = sub nsw i32 %..i594, %797
   %.1.i = select i1 %837, i32 %838, i32 0
-  %.2.i = call i32 @llvm.smin.i32(i32 %.1, i32 %.1.i)
+  %.2.i = call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %.1, i32 %.1.i)
   %839 = load ptr, ptr %9, align 8
   %840 = load ptr, ptr %14, align 8
   %841 = call fastcc ptr @_pick_step_nodes_cpus(ptr noundef %839, i32 noundef %.2.i, i32 noundef %833, ptr noundef %840)
@@ -4709,7 +4709,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   %864 = icmp sgt i32 %..i596, %.1372
   %865 = sub nsw i32 %..i596, %.1372
   %.1.i597 = select i1 %864, i32 %865, i32 0
-  %.2.i598 = call i32 @llvm.smin.i32(i32 %.2, i32 %.1.i597)
+  %.2.i598 = call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %.2, i32 %.1.i597)
   %866 = load ptr, ptr %8, align 8
   %867 = load ptr, ptr %14, align 8
   %868 = call fastcc ptr @_pick_step_nodes_cpus(ptr noundef %866, i32 noundef %.2.i598, i32 noundef %860, ptr noundef %867)
@@ -6667,7 +6667,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   br label %382
 
 382:                                              ; preds = %378, %_use_one_thread_per_core.exit.thread
-  %383 = call i32 @get_job_resources_cnt(ptr noundef nonnull %18, i32 noundef %128, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
+  %383 = call i32 @get_job_resources_cnt(ptr noundef nonnull %18, i32 noundef range(i32 -2147483647, -2147483648) %128, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %.not99.i = icmp eq i32 %383, 0
   br i1 %.not99.i, label %385, label %384
 
@@ -6773,7 +6773,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %440 = getelementptr inbounds i16, ptr %439, i64 %indvars.iv.next
   %441 = load i16, ptr %440, align 2
   %442 = zext i16 %441 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.127, ptr noundef nonnull @__func__._pick_step_cores, ptr noundef nonnull %0, i32 noundef %431, i32 noundef %128, i32 noundef %438, i32 noundef %442) #13
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.127, ptr noundef nonnull @__func__._pick_step_cores, ptr noundef nonnull %0, i32 noundef %431, i32 noundef range(i32 -2147483647, -2147483648) %128, i32 noundef %438, i32 noundef %442) #13
   br label %443
 
 443:                                              ; preds = %437, %434, %430
@@ -6812,9 +6812,9 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %463 = add i16 %462, -1
   %464 = load i16, ptr %4, align 2
   %465 = add i16 %464, -1
-  %466 = call i32 @get_job_resources_offset(ptr noundef nonnull %18, i32 noundef %128, i16 noundef zeroext %463, i16 noundef zeroext %465) #13
+  %466 = call i32 @get_job_resources_offset(ptr noundef nonnull %18, i32 noundef range(i32 -2147483647, -2147483648) %128, i16 noundef zeroext %463, i16 noundef zeroext %465) #13
   store i32 %466, ptr %112, align 8
-  %467 = call i32 @get_job_resources_offset(ptr noundef nonnull %18, i32 noundef %128, i16 noundef zeroext 0, i16 noundef zeroext 0) #13
+  %467 = call i32 @get_job_resources_offset(ptr noundef nonnull %18, i32 noundef range(i32 -2147483647, -2147483648) %128, i16 noundef zeroext 0, i16 noundef zeroext 0) #13
   store i32 %467, ptr %113, align 4
   store i32 %128, ptr %114, align 8
   %468 = load ptr, ptr @node_record_table_ptr, align 8
@@ -6868,7 +6868,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %500 = trunc i32 %499 to i16
   %501 = load i16, ptr %3, align 2
   %502 = load i16, ptr %4, align 2
-  %503 = call fastcc zeroext i1 @_handle_core_select(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %457, i32 noundef %128, i16 noundef zeroext %501, i16 noundef zeroext %502, i1 noundef zeroext %.0.i323, i1 noundef zeroext false, ptr noundef %5, i16 noundef zeroext %500)
+  %503 = call fastcc zeroext i1 @_handle_core_select(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %457, i32 noundef range(i32 -2147483647, -2147483648) %128, i16 noundef zeroext %501, i16 noundef zeroext %502, i1 noundef zeroext %.0.i323, i1 noundef zeroext false, ptr noundef %5, i16 noundef zeroext %500)
   br i1 %503, label %588, label %504
 
 504:                                              ; preds = %496
@@ -6880,7 +6880,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %507 = load ptr, ptr %7, align 8
   %508 = load i16, ptr %3, align 2
   %509 = load i16, ptr %4, align 2
-  %510 = call fastcc zeroext i1 @_handle_core_select(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %507, i32 noundef %128, i16 noundef zeroext %508, i16 noundef zeroext %509, i1 noundef zeroext %.0.i323, i1 noundef zeroext false, ptr noundef %5, i16 noundef zeroext %500)
+  %510 = call fastcc zeroext i1 @_handle_core_select(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %507, i32 noundef range(i32 -2147483647, -2147483648) %128, i16 noundef zeroext %508, i16 noundef zeroext %509, i1 noundef zeroext %.0.i323, i1 noundef zeroext false, ptr noundef %5, i16 noundef zeroext %500)
   br i1 %510, label %588, label %511
 
 511:                                              ; preds = %506, %504
@@ -6917,7 +6917,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %528 = load ptr, ptr %18, align 8
   %529 = load i16, ptr %3, align 2
   %530 = load i16, ptr %4, align 2
-  %531 = call fastcc zeroext i1 @_handle_core_select(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %528, i32 noundef %128, i16 noundef zeroext %529, i16 noundef zeroext %530, i1 noundef zeroext %.0.i323, i1 noundef zeroext false, ptr noundef %5, i16 noundef zeroext %500)
+  %531 = call fastcc zeroext i1 @_handle_core_select(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %528, i32 noundef range(i32 -2147483647, -2147483648) %128, i16 noundef zeroext %529, i16 noundef zeroext %530, i1 noundef zeroext %.0.i323, i1 noundef zeroext false, ptr noundef %5, i16 noundef zeroext %500)
   br i1 %531, label %588, label %532
 
 532:                                              ; preds = %527, %516, %511
@@ -6980,7 +6980,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %561 = phi i16 [ %533, %543 ], [ %.pre126.i, %546 ], [ %.pre.i, %549 ]
   %562 = load ptr, ptr %6, align 8
   %563 = load i16, ptr %3, align 2
-  %564 = call fastcc zeroext i1 @_handle_core_select(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %562, i32 noundef %128, i16 noundef zeroext %563, i16 noundef zeroext %561, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %5, i16 noundef zeroext %500)
+  %564 = call fastcc zeroext i1 @_handle_core_select(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %562, i32 noundef range(i32 -2147483647, -2147483648) %128, i16 noundef zeroext %563, i16 noundef zeroext %561, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %5, i16 noundef zeroext %500)
   br i1 %564, label %588, label %565
 
 565:                                              ; preds = %560
@@ -6994,7 +6994,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %570 = load ptr, ptr %7, align 8
   %571 = load i16, ptr %3, align 2
   %572 = load i16, ptr %4, align 2
-  %573 = call fastcc zeroext i1 @_handle_core_select(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %570, i32 noundef %128, i16 noundef zeroext %571, i16 noundef zeroext %572, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %5, i16 noundef zeroext %500)
+  %573 = call fastcc zeroext i1 @_handle_core_select(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %570, i32 noundef range(i32 -2147483647, -2147483648) %128, i16 noundef zeroext %571, i16 noundef zeroext %572, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %5, i16 noundef zeroext %500)
   br i1 %573, label %588, label %574
 
 574:                                              ; preds = %569, %565
@@ -7016,7 +7016,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   %584 = load ptr, ptr %18, align 8
   %585 = load i16, ptr %3, align 2
   %586 = load i16, ptr %4, align 2
-  %587 = call fastcc zeroext i1 @_handle_core_select(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %584, i32 noundef %128, i16 noundef zeroext %585, i16 noundef zeroext %586, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %5, i16 noundef zeroext %500)
+  %587 = call fastcc zeroext i1 @_handle_core_select(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %584, i32 noundef range(i32 -2147483647, -2147483648) %128, i16 noundef zeroext %585, i16 noundef zeroext %586, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %5, i16 noundef zeroext %500)
   br label %588
 
 588:                                              ; preds = %583, %579, %574, %569, %560, %532, %527, %506, %496

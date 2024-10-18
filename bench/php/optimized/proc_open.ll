@@ -174,7 +174,7 @@ waitpid_cached.exit.us:                           ; preds = %waitpid_cached.exit
 
 42:                                               ; preds = %.split
   %43 = load i32, ptr %4, align 8
-  %44 = call i32 @waitpid(i32 noundef %43, ptr noundef nonnull %2, i32 noundef %spec.select) #13
+  %44 = call i32 @waitpid(i32 noundef %43, ptr noundef nonnull %2, i32 noundef range(i32 0, 4) %spec.select) #13
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %waitpid_cached.exit
 
@@ -831,7 +831,7 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %.not39.i.i, label %get_valid_arg_string.exit.i, label %119
 
 119:                                              ; preds = %.thread._crit_edge.i.i
-  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.22, i32 noundef %87) #13
+  call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.22, i32 noundef range(i32 -2147483647, -2147483648) %87) #13
   %120 = getelementptr inbounds i8, ptr %99, i64 4
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 64
@@ -1378,7 +1378,7 @@ _php_array_to_envp.exit:                          ; preds = %190, %._crit_edge17
   %362 = tail call ptr @__errno_location() #14
   %363 = load i32, ptr %362, align 4
   %364 = call ptr @strerror(i32 noundef %363) #13
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.24, i64 noundef %340, ptr noundef %364) #13
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.24, i64 noundef range(i64 -2147483648, 2147483648) %340, ptr noundef %364) #13
   br label %set_proc_descriptor_from_resource.exit.thread
 
 set_proc_descriptor_from_resource.exit.thread:    ; preds = %349, %353, %361
@@ -1808,7 +1808,7 @@ set_proc_descriptor_to_file.exit.i:               ; preds = %501, %498, %get_str
   br i1 %.not149.i487, label %548, label %.critedge14.i
 
 548:                                              ; preds = %546
-  %549 = call fastcc i32 @set_proc_descriptor_to_pty(ptr noundef nonnull %341, ptr noundef %11, ptr noundef %12)
+  %549 = call fastcc i32 @set_proc_descriptor_to_pty(ptr noundef nonnull %341, ptr noundef nonnull %11, ptr noundef nonnull %12)
   br label %set_proc_descriptor_to_blackhole.exit.thread.thread.i
 
 .critedge14.i:                                    ; preds = %546, %.critedge12.i
@@ -2488,7 +2488,7 @@ define internal fastcc range(i32 -1, 1) i32 @redirect_proc_descriptor(ptr nocapt
   %22 = tail call ptr @__errno_location() #14
   %23 = load i32, ptr %22, align 4
   %24 = tail call ptr @strerror(i32 noundef %23) #13
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.24, i64 noundef %21, ptr noundef %24) #13
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.24, i64 noundef range(i64 -2147483648, 2147483648) %21, ptr noundef %24) #13
   br label %dup_proc_descriptor.exit
 
 dup_proc_descriptor.exit:                         ; preds = %20, %16, %15

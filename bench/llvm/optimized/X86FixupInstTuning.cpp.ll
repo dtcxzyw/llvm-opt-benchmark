@@ -53,7 +53,7 @@ define dso_local void @_ZN4llvm36initializeX86FixupInstTuningPassPassERNS_12Pass
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL40InitializeX86FixupInstTuningPassPassFlag, ptr noundef nonnull @__once_proxy) #10
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL40InitializeX86FixupInstTuningPassPassFlag, ptr noundef nonnull @__once_proxy) #10
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -131,13 +131,13 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122X86FixupInstTuningPassD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #10
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122X86FixupInstTuningPassD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #10
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 80) #13
   ret void
 }
@@ -929,12 +929,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %279, label %280, label %282
 
 280:                                              ; preds = %271
-  %281 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3409, i1 noundef zeroext false)
+  %281 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 3409, i1 noundef zeroext false)
   br i1 %281, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %282
 
 282:                                              ; preds = %280, %271
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %283 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 4561, i1 noundef zeroext false)
+  %283 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 4561, i1 noundef zeroext false)
   br i1 %283, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i238.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i238"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i238.thread": ; preds = %282
@@ -973,12 +973,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %296, label %297, label %299
 
 297:                                              ; preds = %288
-  %298 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20297, i1 noundef zeroext false)
+  %298 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20297, i1 noundef zeroext false)
   br i1 %298, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %299
 
 299:                                              ; preds = %297, %288
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %300 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21420, i1 noundef zeroext false)
+  %300 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21420, i1 noundef zeroext false)
   br i1 %300, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i234.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i234"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i234.thread": ; preds = %299
@@ -1017,12 +1017,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %313, label %314, label %316
 
 314:                                              ; preds = %305
-  %315 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20268, i1 noundef zeroext false)
+  %315 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20268, i1 noundef zeroext false)
   br i1 %315, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %316
 
 316:                                              ; preds = %314, %305
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %317 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21391, i1 noundef zeroext false)
+  %317 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21391, i1 noundef zeroext false)
   br i1 %317, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i230.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i230"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i230.thread": ; preds = %316
@@ -1061,12 +1061,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %330, label %331, label %333
 
 331:                                              ; preds = %322
-  %332 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20275, i1 noundef zeroext false)
+  %332 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20275, i1 noundef zeroext false)
   br i1 %332, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %333
 
 333:                                              ; preds = %331, %322
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %334 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21398, i1 noundef zeroext false)
+  %334 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21398, i1 noundef zeroext false)
   br i1 %334, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i226.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i226"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i226.thread": ; preds = %333
@@ -1105,12 +1105,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %347, label %348, label %350
 
 348:                                              ; preds = %339
-  %349 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20284, i1 noundef zeroext false)
+  %349 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20284, i1 noundef zeroext false)
   br i1 %349, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %350
 
 350:                                              ; preds = %348, %339
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %351 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21407, i1 noundef zeroext false)
+  %351 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21407, i1 noundef zeroext false)
   br i1 %351, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i222.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i222"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i222.thread": ; preds = %350
@@ -1149,12 +1149,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %364, label %365, label %367
 
 365:                                              ; preds = %356
-  %366 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20293, i1 noundef zeroext false)
+  %366 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20293, i1 noundef zeroext false)
   br i1 %366, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %367
 
 367:                                              ; preds = %365, %356
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %368 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21416, i1 noundef zeroext false)
+  %368 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21416, i1 noundef zeroext false)
   br i1 %368, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i218.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i218"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i218.thread": ; preds = %367
@@ -1193,12 +1193,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %381, label %382, label %384
 
 382:                                              ; preds = %373
-  %383 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20276, i1 noundef zeroext false)
+  %383 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20276, i1 noundef zeroext false)
   br i1 %383, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %384
 
 384:                                              ; preds = %382, %373
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %385 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21399, i1 noundef zeroext false)
+  %385 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21399, i1 noundef zeroext false)
   br i1 %385, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i214.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i214"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i214.thread": ; preds = %384
@@ -1237,12 +1237,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %398, label %399, label %401
 
 399:                                              ; preds = %390
-  %400 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20285, i1 noundef zeroext false)
+  %400 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20285, i1 noundef zeroext false)
   br i1 %400, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %401
 
 401:                                              ; preds = %399, %390
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %402 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21408, i1 noundef zeroext false)
+  %402 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21408, i1 noundef zeroext false)
   br i1 %402, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i210.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i210"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i210.thread": ; preds = %401
@@ -1281,12 +1281,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %415, label %416, label %418
 
 416:                                              ; preds = %407
-  %417 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20294, i1 noundef zeroext false)
+  %417 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20294, i1 noundef zeroext false)
   br i1 %417, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %418
 
 418:                                              ; preds = %416, %407
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %419 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21417, i1 noundef zeroext false)
+  %419 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21417, i1 noundef zeroext false)
   br i1 %419, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i206.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i206"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i206.thread": ; preds = %418
@@ -1325,12 +1325,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %432, label %433, label %435
 
 433:                                              ; preds = %424
-  %434 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20277, i1 noundef zeroext false)
+  %434 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20277, i1 noundef zeroext false)
   br i1 %434, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %435
 
 435:                                              ; preds = %433, %424
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %436 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21400, i1 noundef zeroext false)
+  %436 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21400, i1 noundef zeroext false)
   br i1 %436, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i202.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i202"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i202.thread": ; preds = %435
@@ -1369,12 +1369,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %449, label %450, label %452
 
 450:                                              ; preds = %441
-  %451 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20286, i1 noundef zeroext false)
+  %451 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20286, i1 noundef zeroext false)
   br i1 %451, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %452
 
 452:                                              ; preds = %450, %441
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %453 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21409, i1 noundef zeroext false)
+  %453 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21409, i1 noundef zeroext false)
   br i1 %453, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i198.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i198"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i198.thread": ; preds = %452
@@ -1413,12 +1413,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %466, label %467, label %469
 
 467:                                              ; preds = %458
-  %468 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20295, i1 noundef zeroext false)
+  %468 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20295, i1 noundef zeroext false)
   br i1 %468, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %469
 
 469:                                              ; preds = %467, %458
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %470 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21418, i1 noundef zeroext false)
+  %470 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21418, i1 noundef zeroext false)
   br i1 %470, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i195.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i195"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i195.thread": ; preds = %469
@@ -1457,12 +1457,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %483, label %484, label %486
 
 484:                                              ; preds = %475
-  %485 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3401, i1 noundef zeroext false)
+  %485 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 3401, i1 noundef zeroext false)
   br i1 %485, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %486
 
 486:                                              ; preds = %484, %475
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  %487 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 4561, i1 noundef zeroext false)
+  %487 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 4561, i1 noundef zeroext false)
   br i1 %487, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i191.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i191"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i191.thread": ; preds = %486
@@ -1502,12 +1502,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %500, label %501, label %503
 
 501:                                              ; preds = %492
-  %502 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20191, i1 noundef zeroext false)
+  %502 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20191, i1 noundef zeroext false)
   br i1 %502, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %503
 
 503:                                              ; preds = %501, %492
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %504 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21420, i1 noundef zeroext false)
+  %504 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21420, i1 noundef zeroext false)
   br i1 %504, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i187.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i187"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i187.thread": ; preds = %503
@@ -1547,12 +1547,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %517, label %518, label %520
 
 518:                                              ; preds = %509
-  %519 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20162, i1 noundef zeroext false)
+  %519 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20162, i1 noundef zeroext false)
   br i1 %519, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %520
 
 520:                                              ; preds = %518, %509
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %521 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21391, i1 noundef zeroext false)
+  %521 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21391, i1 noundef zeroext false)
   br i1 %521, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i183.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i183"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i183.thread": ; preds = %520
@@ -1592,12 +1592,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %534, label %535, label %537
 
 535:                                              ; preds = %526
-  %536 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20169, i1 noundef zeroext false)
+  %536 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20169, i1 noundef zeroext false)
   br i1 %536, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %537
 
 537:                                              ; preds = %535, %526
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  %538 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21398, i1 noundef zeroext false)
+  %538 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21398, i1 noundef zeroext false)
   br i1 %538, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i179.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i179"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i179.thread": ; preds = %537
@@ -1637,12 +1637,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %551, label %552, label %554
 
 552:                                              ; preds = %543
-  %553 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20178, i1 noundef zeroext false)
+  %553 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20178, i1 noundef zeroext false)
   br i1 %553, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %554
 
 554:                                              ; preds = %552, %543
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  %555 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21407, i1 noundef zeroext false)
+  %555 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21407, i1 noundef zeroext false)
   br i1 %555, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i175.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i175"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i175.thread": ; preds = %554
@@ -1682,12 +1682,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %568, label %569, label %571
 
 569:                                              ; preds = %560
-  %570 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20187, i1 noundef zeroext false)
+  %570 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20187, i1 noundef zeroext false)
   br i1 %570, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %571
 
 571:                                              ; preds = %569, %560
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
-  %572 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21416, i1 noundef zeroext false)
+  %572 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21416, i1 noundef zeroext false)
   br i1 %572, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i171.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i171"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i171.thread": ; preds = %571
@@ -1727,12 +1727,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %585, label %586, label %588
 
 586:                                              ; preds = %577
-  %587 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20170, i1 noundef zeroext false)
+  %587 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20170, i1 noundef zeroext false)
   br i1 %587, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %588
 
 588:                                              ; preds = %586, %577
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  %589 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21399, i1 noundef zeroext false)
+  %589 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21399, i1 noundef zeroext false)
   br i1 %589, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i167.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i167"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i167.thread": ; preds = %588
@@ -1772,12 +1772,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %602, label %603, label %605
 
 603:                                              ; preds = %594
-  %604 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20179, i1 noundef zeroext false)
+  %604 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20179, i1 noundef zeroext false)
   br i1 %604, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %605
 
 605:                                              ; preds = %603, %594
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  %606 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21408, i1 noundef zeroext false)
+  %606 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21408, i1 noundef zeroext false)
   br i1 %606, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i163.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i163"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i163.thread": ; preds = %605
@@ -1817,12 +1817,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %619, label %620, label %622
 
 620:                                              ; preds = %611
-  %621 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20188, i1 noundef zeroext false)
+  %621 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20188, i1 noundef zeroext false)
   br i1 %621, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %622
 
 622:                                              ; preds = %620, %611
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  %623 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21417, i1 noundef zeroext false)
+  %623 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21417, i1 noundef zeroext false)
   br i1 %623, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i159.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i159"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i159.thread": ; preds = %622
@@ -1862,12 +1862,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %636, label %637, label %639
 
 637:                                              ; preds = %628
-  %638 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20171, i1 noundef zeroext false)
+  %638 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20171, i1 noundef zeroext false)
   br i1 %638, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %639
 
 639:                                              ; preds = %637, %628
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
-  %640 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21400, i1 noundef zeroext false)
+  %640 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21400, i1 noundef zeroext false)
   br i1 %640, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i155.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i155"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i155.thread": ; preds = %639
@@ -1907,12 +1907,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %653, label %654, label %656
 
 654:                                              ; preds = %645
-  %655 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20180, i1 noundef zeroext false)
+  %655 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20180, i1 noundef zeroext false)
   br i1 %655, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %656
 
 656:                                              ; preds = %654, %645
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
-  %657 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21409, i1 noundef zeroext false)
+  %657 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21409, i1 noundef zeroext false)
   br i1 %657, label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i151.thread", label %"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i151"
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i151.thread": ; preds = %656
@@ -1952,12 +1952,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   br i1 %670, label %671, label %673
 
 671:                                              ; preds = %662
-  %672 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20189, i1 noundef zeroext false)
+  %672 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20189, i1 noundef zeroext false)
   br i1 %672, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %673
 
 673:                                              ; preds = %671, %662
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
-  %674 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 21418, i1 noundef zeroext false)
+  %674 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 4561, 21421) 21418, i1 noundef zeroext false)
   br i1 %674, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread683, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit
 
 _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread683: ; preds = %673
@@ -1985,7 +1985,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %687, label %688, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 688:                                              ; preds = %679
-  %689 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3408, i1 noundef zeroext false)
+  %689 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 3408, i1 noundef zeroext false)
   br i1 %689, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 690:                                              ; preds = %.lr.ph
@@ -2000,7 +2000,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %698, label %699, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 699:                                              ; preds = %690
-  %700 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20296, i1 noundef zeroext false)
+  %700 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20296, i1 noundef zeroext false)
   br i1 %700, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 701:                                              ; preds = %.lr.ph
@@ -2015,7 +2015,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %709, label %710, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 710:                                              ; preds = %701
-  %711 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20267, i1 noundef zeroext false)
+  %711 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20267, i1 noundef zeroext false)
   br i1 %711, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 712:                                              ; preds = %.lr.ph
@@ -2030,7 +2030,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %720, label %721, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 721:                                              ; preds = %712
-  %722 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20269, i1 noundef zeroext false)
+  %722 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20269, i1 noundef zeroext false)
   br i1 %722, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 723:                                              ; preds = %.lr.ph
@@ -2045,7 +2045,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %731, label %732, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 732:                                              ; preds = %723
-  %733 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20278, i1 noundef zeroext false)
+  %733 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20278, i1 noundef zeroext false)
   br i1 %733, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 734:                                              ; preds = %.lr.ph
@@ -2060,7 +2060,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %742, label %743, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 743:                                              ; preds = %734
-  %744 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20287, i1 noundef zeroext false)
+  %744 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20287, i1 noundef zeroext false)
   br i1 %744, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 745:                                              ; preds = %.lr.ph
@@ -2075,7 +2075,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %753, label %754, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 754:                                              ; preds = %745
-  %755 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20273, i1 noundef zeroext false)
+  %755 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20273, i1 noundef zeroext false)
   br i1 %755, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 756:                                              ; preds = %.lr.ph
@@ -2090,7 +2090,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %764, label %765, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 765:                                              ; preds = %756
-  %766 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20282, i1 noundef zeroext false)
+  %766 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20282, i1 noundef zeroext false)
   br i1 %766, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 767:                                              ; preds = %.lr.ph
@@ -2105,7 +2105,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %775, label %776, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 776:                                              ; preds = %767
-  %777 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20291, i1 noundef zeroext false)
+  %777 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20291, i1 noundef zeroext false)
   br i1 %777, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 778:                                              ; preds = %.lr.ph
@@ -2120,7 +2120,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %786, label %787, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 787:                                              ; preds = %778
-  %788 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20274, i1 noundef zeroext false)
+  %788 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20274, i1 noundef zeroext false)
   br i1 %788, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 789:                                              ; preds = %.lr.ph
@@ -2135,7 +2135,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %797, label %798, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 798:                                              ; preds = %789
-  %799 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20283, i1 noundef zeroext false)
+  %799 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20283, i1 noundef zeroext false)
   br i1 %799, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 800:                                              ; preds = %.lr.ph
@@ -2150,7 +2150,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %808, label %809, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 809:                                              ; preds = %800
-  %810 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20292, i1 noundef zeroext false)
+  %810 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20292, i1 noundef zeroext false)
   br i1 %810, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 811:                                              ; preds = %.lr.ph
@@ -2165,7 +2165,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %819, label %820, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 820:                                              ; preds = %811
-  %821 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3400, i1 noundef zeroext false)
+  %821 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 3400, i1 noundef zeroext false)
   br i1 %821, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 822:                                              ; preds = %.lr.ph
@@ -2180,7 +2180,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %830, label %831, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 831:                                              ; preds = %822
-  %832 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20190, i1 noundef zeroext false)
+  %832 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20190, i1 noundef zeroext false)
   br i1 %832, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 833:                                              ; preds = %.lr.ph
@@ -2195,7 +2195,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %841, label %842, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 842:                                              ; preds = %833
-  %843 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20161, i1 noundef zeroext false)
+  %843 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20161, i1 noundef zeroext false)
   br i1 %843, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 844:                                              ; preds = %.lr.ph
@@ -2210,7 +2210,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %852, label %853, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 853:                                              ; preds = %844
-  %854 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20163, i1 noundef zeroext false)
+  %854 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20163, i1 noundef zeroext false)
   br i1 %854, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 855:                                              ; preds = %.lr.ph
@@ -2225,7 +2225,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %863, label %864, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 864:                                              ; preds = %855
-  %865 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20172, i1 noundef zeroext false)
+  %865 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20172, i1 noundef zeroext false)
   br i1 %865, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 866:                                              ; preds = %.lr.ph
@@ -2240,7 +2240,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %874, label %875, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 875:                                              ; preds = %866
-  %876 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20181, i1 noundef zeroext false)
+  %876 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20181, i1 noundef zeroext false)
   br i1 %876, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 877:                                              ; preds = %.lr.ph
@@ -2255,7 +2255,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %885, label %886, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 886:                                              ; preds = %877
-  %887 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20167, i1 noundef zeroext false)
+  %887 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20167, i1 noundef zeroext false)
   br i1 %887, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 888:                                              ; preds = %.lr.ph
@@ -2270,7 +2270,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %896, label %897, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 897:                                              ; preds = %888
-  %898 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20176, i1 noundef zeroext false)
+  %898 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20176, i1 noundef zeroext false)
   br i1 %898, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 899:                                              ; preds = %.lr.ph
@@ -2285,7 +2285,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %907, label %908, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 908:                                              ; preds = %899
-  %909 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20185, i1 noundef zeroext false)
+  %909 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20185, i1 noundef zeroext false)
   br i1 %909, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 910:                                              ; preds = %.lr.ph
@@ -2300,7 +2300,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %918, label %919, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 919:                                              ; preds = %910
-  %920 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20168, i1 noundef zeroext false)
+  %920 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20168, i1 noundef zeroext false)
   br i1 %920, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 921:                                              ; preds = %.lr.ph
@@ -2315,7 +2315,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %929, label %930, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 930:                                              ; preds = %921
-  %931 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20177, i1 noundef zeroext false)
+  %931 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20177, i1 noundef zeroext false)
   br i1 %931, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 932:                                              ; preds = %.lr.ph
@@ -2330,7 +2330,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %940, label %941, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 941:                                              ; preds = %932
-  %942 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20186, i1 noundef zeroext false)
+  %942 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20186, i1 noundef zeroext false)
   br i1 %942, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 943:                                              ; preds = %.lr.ph
@@ -2345,7 +2345,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %951, label %952, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 952:                                              ; preds = %943
-  %953 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3407, i1 noundef zeroext false)
+  %953 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 3407, i1 noundef zeroext false)
   br i1 %953, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 954:                                              ; preds = %.lr.ph
@@ -2360,7 +2360,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %962, label %963, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 963:                                              ; preds = %954
-  %964 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20266, i1 noundef zeroext false)
+  %964 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20266, i1 noundef zeroext false)
   br i1 %964, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 965:                                              ; preds = %.lr.ph
@@ -2375,7 +2375,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %973, label %974, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 974:                                              ; preds = %965
-  %975 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20237, i1 noundef zeroext false)
+  %975 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20237, i1 noundef zeroext false)
   br i1 %975, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 976:                                              ; preds = %.lr.ph
@@ -2390,7 +2390,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %984, label %985, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 985:                                              ; preds = %976
-  %986 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20244, i1 noundef zeroext false)
+  %986 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20244, i1 noundef zeroext false)
   br i1 %986, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 987:                                              ; preds = %.lr.ph
@@ -2405,7 +2405,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %995, label %996, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 996:                                              ; preds = %987
-  %997 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20253, i1 noundef zeroext false)
+  %997 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20253, i1 noundef zeroext false)
   br i1 %997, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 998:                                              ; preds = %.lr.ph
@@ -2420,7 +2420,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1006, label %1007, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1007:                                             ; preds = %998
-  %1008 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20262, i1 noundef zeroext false)
+  %1008 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20262, i1 noundef zeroext false)
   br i1 %1008, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1009:                                             ; preds = %.lr.ph
@@ -2435,7 +2435,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1017, label %1018, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1018:                                             ; preds = %1009
-  %1019 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20245, i1 noundef zeroext false)
+  %1019 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20245, i1 noundef zeroext false)
   br i1 %1019, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1020:                                             ; preds = %.lr.ph
@@ -2450,7 +2450,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1028, label %1029, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1029:                                             ; preds = %1020
-  %1030 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20254, i1 noundef zeroext false)
+  %1030 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20254, i1 noundef zeroext false)
   br i1 %1030, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1031:                                             ; preds = %.lr.ph
@@ -2465,7 +2465,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1039, label %1040, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1040:                                             ; preds = %1031
-  %1041 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20263, i1 noundef zeroext false)
+  %1041 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20263, i1 noundef zeroext false)
   br i1 %1041, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1042:                                             ; preds = %.lr.ph
@@ -2480,7 +2480,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1050, label %1051, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1051:                                             ; preds = %1042
-  %1052 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20246, i1 noundef zeroext false)
+  %1052 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20246, i1 noundef zeroext false)
   br i1 %1052, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1053:                                             ; preds = %.lr.ph
@@ -2495,7 +2495,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1061, label %1062, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1062:                                             ; preds = %1053
-  %1063 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20255, i1 noundef zeroext false)
+  %1063 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20255, i1 noundef zeroext false)
   br i1 %1063, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1064:                                             ; preds = %.lr.ph
@@ -2510,7 +2510,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1072, label %1073, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1073:                                             ; preds = %1064
-  %1074 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20264, i1 noundef zeroext false)
+  %1074 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20264, i1 noundef zeroext false)
   br i1 %1074, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1075:                                             ; preds = %.lr.ph
@@ -2525,7 +2525,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1083, label %1084, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1084:                                             ; preds = %1075
-  %1085 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3399, i1 noundef zeroext false)
+  %1085 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 3399, i1 noundef zeroext false)
   br i1 %1085, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1086:                                             ; preds = %.lr.ph
@@ -2540,7 +2540,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1094, label %1095, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1095:                                             ; preds = %1086
-  %1096 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20160, i1 noundef zeroext false)
+  %1096 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20160, i1 noundef zeroext false)
   br i1 %1096, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1097:                                             ; preds = %.lr.ph
@@ -2555,7 +2555,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1105, label %1106, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1106:                                             ; preds = %1097
-  %1107 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20131, i1 noundef zeroext false)
+  %1107 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20131, i1 noundef zeroext false)
   br i1 %1107, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1108:                                             ; preds = %.lr.ph
@@ -2570,7 +2570,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1116, label %1117, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1117:                                             ; preds = %1108
-  %1118 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20138, i1 noundef zeroext false)
+  %1118 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20138, i1 noundef zeroext false)
   br i1 %1118, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1119:                                             ; preds = %.lr.ph
@@ -2585,7 +2585,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1127, label %1128, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1128:                                             ; preds = %1119
-  %1129 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20147, i1 noundef zeroext false)
+  %1129 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20147, i1 noundef zeroext false)
   br i1 %1129, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1130:                                             ; preds = %.lr.ph
@@ -2600,7 +2600,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1138, label %1139, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1139:                                             ; preds = %1130
-  %1140 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20156, i1 noundef zeroext false)
+  %1140 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20156, i1 noundef zeroext false)
   br i1 %1140, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1141:                                             ; preds = %.lr.ph
@@ -2615,7 +2615,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1149, label %1150, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1150:                                             ; preds = %1141
-  %1151 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20139, i1 noundef zeroext false)
+  %1151 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20139, i1 noundef zeroext false)
   br i1 %1151, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1152:                                             ; preds = %.lr.ph
@@ -2630,7 +2630,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1160, label %1161, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1161:                                             ; preds = %1152
-  %1162 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20148, i1 noundef zeroext false)
+  %1162 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20148, i1 noundef zeroext false)
   br i1 %1162, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1163:                                             ; preds = %.lr.ph
@@ -2645,7 +2645,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1171, label %1172, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1172:                                             ; preds = %1163
-  %1173 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20157, i1 noundef zeroext false)
+  %1173 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20157, i1 noundef zeroext false)
   br i1 %1173, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1174:                                             ; preds = %.lr.ph
@@ -2660,7 +2660,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1182, label %1183, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1183:                                             ; preds = %1174
-  %1184 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20140, i1 noundef zeroext false)
+  %1184 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20140, i1 noundef zeroext false)
   br i1 %1184, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1185:                                             ; preds = %.lr.ph
@@ -2675,7 +2675,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1193, label %1194, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1194:                                             ; preds = %1185
-  %1195 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20149, i1 noundef zeroext false)
+  %1195 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20149, i1 noundef zeroext false)
   br i1 %1195, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1196:                                             ; preds = %.lr.ph
@@ -2690,7 +2690,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1204, label %1205, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1205:                                             ; preds = %1196
-  %1206 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20158, i1 noundef zeroext false)
+  %1206 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20158, i1 noundef zeroext false)
   br i1 %1206, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1207:                                             ; preds = %.lr.ph
@@ -2705,7 +2705,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1215, label %1216, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1216:                                             ; preds = %1207
-  %1217 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3406, i1 noundef zeroext false)
+  %1217 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 3406, i1 noundef zeroext false)
   br i1 %1217, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1218:                                             ; preds = %.lr.ph
@@ -2720,7 +2720,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1226, label %1227, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1227:                                             ; preds = %1218
-  %1228 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20265, i1 noundef zeroext false)
+  %1228 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20265, i1 noundef zeroext false)
   br i1 %1228, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1229:                                             ; preds = %.lr.ph
@@ -2735,7 +2735,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1237, label %1238, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1238:                                             ; preds = %1229
-  %1239 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20236, i1 noundef zeroext false)
+  %1239 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20236, i1 noundef zeroext false)
   br i1 %1239, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1240:                                             ; preds = %.lr.ph
@@ -2750,7 +2750,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1248, label %1249, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1249:                                             ; preds = %1240
-  %1250 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20238, i1 noundef zeroext false)
+  %1250 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20238, i1 noundef zeroext false)
   br i1 %1250, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1251:                                             ; preds = %.lr.ph
@@ -2765,7 +2765,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1259, label %1260, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1260:                                             ; preds = %1251
-  %1261 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20247, i1 noundef zeroext false)
+  %1261 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20247, i1 noundef zeroext false)
   br i1 %1261, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1262:                                             ; preds = %.lr.ph
@@ -2780,7 +2780,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1270, label %1271, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1271:                                             ; preds = %1262
-  %1272 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20256, i1 noundef zeroext false)
+  %1272 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20256, i1 noundef zeroext false)
   br i1 %1272, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1273:                                             ; preds = %.lr.ph
@@ -2795,7 +2795,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1281, label %1282, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1282:                                             ; preds = %1273
-  %1283 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20242, i1 noundef zeroext false)
+  %1283 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20242, i1 noundef zeroext false)
   br i1 %1283, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1284:                                             ; preds = %.lr.ph
@@ -2810,7 +2810,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1292, label %1293, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1293:                                             ; preds = %1284
-  %1294 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20251, i1 noundef zeroext false)
+  %1294 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20251, i1 noundef zeroext false)
   br i1 %1294, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1295:                                             ; preds = %.lr.ph
@@ -2825,7 +2825,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1303, label %1304, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1304:                                             ; preds = %1295
-  %1305 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20260, i1 noundef zeroext false)
+  %1305 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20260, i1 noundef zeroext false)
   br i1 %1305, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1306:                                             ; preds = %.lr.ph
@@ -2840,7 +2840,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1314, label %1315, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1315:                                             ; preds = %1306
-  %1316 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20243, i1 noundef zeroext false)
+  %1316 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20243, i1 noundef zeroext false)
   br i1 %1316, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1317:                                             ; preds = %.lr.ph
@@ -2855,7 +2855,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1325, label %1326, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1326:                                             ; preds = %1317
-  %1327 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20252, i1 noundef zeroext false)
+  %1327 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20252, i1 noundef zeroext false)
   br i1 %1327, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1328:                                             ; preds = %.lr.ph
@@ -2870,7 +2870,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1336, label %1337, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1337:                                             ; preds = %1328
-  %1338 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20261, i1 noundef zeroext false)
+  %1338 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20261, i1 noundef zeroext false)
   br i1 %1338, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1339:                                             ; preds = %.lr.ph
@@ -2885,7 +2885,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1347, label %1348, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1348:                                             ; preds = %1339
-  %1349 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 3398, i1 noundef zeroext false)
+  %1349 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 3398, i1 noundef zeroext false)
   br i1 %1349, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1350:                                             ; preds = %.lr.ph
@@ -2900,7 +2900,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1358, label %1359, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1359:                                             ; preds = %1350
-  %1360 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20159, i1 noundef zeroext false)
+  %1360 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20159, i1 noundef zeroext false)
   br i1 %1360, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1361:                                             ; preds = %.lr.ph
@@ -2915,7 +2915,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1369, label %1370, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1370:                                             ; preds = %1361
-  %1371 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20130, i1 noundef zeroext false)
+  %1371 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20130, i1 noundef zeroext false)
   br i1 %1371, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1372:                                             ; preds = %.lr.ph
@@ -2930,7 +2930,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1380, label %1381, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1381:                                             ; preds = %1372
-  %1382 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20132, i1 noundef zeroext false)
+  %1382 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20132, i1 noundef zeroext false)
   br i1 %1382, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1383:                                             ; preds = %.lr.ph
@@ -2945,7 +2945,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1391, label %1392, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1392:                                             ; preds = %1383
-  %1393 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20141, i1 noundef zeroext false)
+  %1393 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20141, i1 noundef zeroext false)
   br i1 %1393, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1394:                                             ; preds = %.lr.ph
@@ -2960,7 +2960,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1402, label %1403, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1403:                                             ; preds = %1394
-  %1404 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20150, i1 noundef zeroext false)
+  %1404 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20150, i1 noundef zeroext false)
   br i1 %1404, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1405:                                             ; preds = %.lr.ph
@@ -2975,7 +2975,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1413, label %1414, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1414:                                             ; preds = %1405
-  %1415 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20136, i1 noundef zeroext false)
+  %1415 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20136, i1 noundef zeroext false)
   br i1 %1415, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1416:                                             ; preds = %.lr.ph
@@ -2990,7 +2990,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1424, label %1425, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1425:                                             ; preds = %1416
-  %1426 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20145, i1 noundef zeroext false)
+  %1426 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20145, i1 noundef zeroext false)
   br i1 %1426, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1427:                                             ; preds = %.lr.ph
@@ -3005,7 +3005,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1435, label %1436, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1436:                                             ; preds = %1427
-  %1437 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20154, i1 noundef zeroext false)
+  %1437 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20154, i1 noundef zeroext false)
   br i1 %1437, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1438:                                             ; preds = %.lr.ph
@@ -3020,7 +3020,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1446, label %1447, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1447:                                             ; preds = %1438
-  %1448 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20137, i1 noundef zeroext false)
+  %1448 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20137, i1 noundef zeroext false)
   br i1 %1448, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1449:                                             ; preds = %.lr.ph
@@ -3035,7 +3035,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1457, label %1458, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1458:                                             ; preds = %1449
-  %1459 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20146, i1 noundef zeroext false)
+  %1459 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20146, i1 noundef zeroext false)
   br i1 %1459, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1460:                                             ; preds = %.lr.ph
@@ -3050,7 +3050,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
   br i1 %1468, label %1469, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 1469:                                             ; preds = %1460
-  %1470 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 20155, i1 noundef zeroext false)
+  %1470 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef range(i32 3398, 20298) 20155, i1 noundef zeroext false)
   br i1 %1470, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681, label %_ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread
 
 _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread: ; preds = %157, %.lr.ph, %155, %146, %170, %162, %181, %172, %192, %183, %203, %194, %214, %205, %225, %216, %236, %227, %247, %238, %258, %249, %269, %260, %688, %679, %699, %690, %710, %701, %721, %712, %732, %723, %743, %734, %754, %745, %765, %756, %776, %767, %787, %778, %798, %789, %809, %800, %820, %811, %831, %822, %842, %833, %853, %844, %864, %855, %875, %866, %886, %877, %897, %888, %908, %899, %919, %910, %930, %921, %941, %932, %952, %943, %963, %954, %974, %965, %985, %976, %996, %987, %1007, %998, %1018, %1009, %1029, %1020, %1040, %1031, %1051, %1042, %1062, %1053, %1073, %1064, %1084, %1075, %1095, %1086, %1106, %1097, %1117, %1108, %1128, %1119, %1139, %1130, %1150, %1141, %1161, %1152, %1172, %1163, %1183, %1174, %1194, %1185, %1205, %1196, %1216, %1207, %1227, %1218, %1238, %1229, %1249, %1240, %1260, %1251, %1271, %1262, %1282, %1273, %1293, %1284, %1304, %1295, %1315, %1306, %1326, %1317, %1337, %1328, %1348, %1339, %1359, %1350, %1370, %1361, %1381, %1372, %1392, %1383, %1403, %1394, %1414, %1405, %1425, %1416, %1436, %1427, %1447, %1438, %1458, %1449, %1469, %1460

@@ -43,7 +43,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal10LazyString4InitB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZNK6google8protobuf8internal10LazyString4InitB5cxx11EvE2mu) #9
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZNK6google8protobuf8internal10LazyString4InitB5cxx11EvE2mu) #9
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal12WrappedMutex4LockEv.exit, label %4
 
@@ -80,7 +80,7 @@ _ZN6google8protobuf8internal12WrappedMutex4LockEv.exit: ; preds = %1
 
 13:                                               ; preds = %9, %_ZN6google8protobuf8internal12WrappedMutex4LockEv.exit
   %.0 = phi ptr [ %0, %9 ], [ %.0.i, %_ZN6google8protobuf8internal12WrappedMutex4LockEv.exit ]
-  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZNK6google8protobuf8internal10LazyString4InitB5cxx11EvE2mu) #9
+  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZNK6google8protobuf8internal10LazyString4InitB5cxx11EvE2mu) #9
   ret ptr %.0
 }
 

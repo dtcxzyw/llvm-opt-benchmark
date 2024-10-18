@@ -411,7 +411,7 @@ switch.lookup:                                    ; preds = %146
   %.032 = phi ptr [ null, %139 ], [ null, %127 ], [ %switch.load, %switch.lookup ]
   %158 = getelementptr inbounds i8, ptr %44, i64 16
   %159 = getelementptr inbounds i8, ptr %44, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %44, i8 0, i64 16, i1 false)
   store ptr %159, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %44, i64 24
   store i64 0, ptr %160, align 8
@@ -917,7 +917,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i.i:  ; preds = %.noexc.i.i, %312
   br label %.body80
 
 ._crit_edge56.i.i:                                ; preds = %._crit_edge.us58.i.i, %.preheader.i30.i
-  %361 = invoke noundef float %.032(ptr noundef nonnull %318, ptr noundef nonnull %320, i32 noundef %88)
+  %361 = invoke noundef float %.032(ptr noundef nonnull %318, ptr noundef nonnull %320, i32 noundef range(i32 -2147483648, 2147483647) %88)
           to label %362 unwind label %356, !callees !23
 
 362:                                              ; preds = %._crit_edge56.i.i
@@ -1294,7 +1294,7 @@ _ZN2cv10AutoBufferIN12_GLOBAL__N_16Node2DELm0EE8allocateEm.exit.i: ; preds = %.n
   %529 = getelementptr inbounds i8, ptr %525, i64 8
   %530 = load i64, ptr %529, align 8
   %531 = getelementptr inbounds i8, ptr %528, i64 %530
-  %532 = invoke noundef float %.032(ptr noundef %522, ptr noundef %531, i32 noundef %88)
+  %532 = invoke noundef float %.032(ptr noundef %522, ptr noundef %531, i32 noundef range(i32 -2147483648, 2147483647) %88)
           to label %.noexc95 unwind label %.loopexit137
 
 .noexc95:                                         ; preds = %514

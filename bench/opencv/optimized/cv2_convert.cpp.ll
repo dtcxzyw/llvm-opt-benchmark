@@ -2117,7 +2117,7 @@ _ZN12_GLOBAL__N_116parseNumpyScalarImEEbP7_objectRT_.exit: ; preds = %_ZN12_GLOB
   %76 = load ptr, ptr @opencv_ARRAY_API, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 504
   %78 = load ptr, ptr %77, align 8
-  %79 = call noundef i32 %78(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %47)
+  %79 = call noundef i32 %78(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %47)
   br label %86
 
 80:                                               ; preds = %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.i
@@ -3647,7 +3647,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv11RotatedRectEEbP7_objectR
   br label %30
 
 20:                                               ; preds = %16
-  invoke fastcc void @_ZL15getPyObjectAttrB5cxx11P7_objectPKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %17, ptr noundef nonnull @.str.80)
+  invoke fastcc void @_ZL15getPyObjectAttrB5cxx11P7_objectPKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %17, ptr noundef nonnull @.str.80)
           to label %21 unwind label %28
 
 21:                                               ; preds = %20

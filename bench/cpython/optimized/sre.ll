@@ -6986,12 +6986,12 @@ lor.lhs.false381:                                 ; preds = %TARGET_SRE_OP_LITER
   br i1 %cmp.i1426, label %if.end388, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false381
-  %call.i.i.i = tail call i32 @tolower(i32 noundef %conv382) #16
+  %call.i.i.i = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv382) #16
   %cmp1.i = icmp eq i32 %call.i.i.i, %114
   br i1 %cmp1.i, label %if.end388, label %char_loc_ignore.exit
 
 char_loc_ignore.exit:                             ; preds = %lor.lhs.false.i
-  %call.i.i8.i = tail call i32 @toupper(i32 noundef %conv382) #16
+  %call.i.i8.i = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv382) #16
   %cmp3.i1427.not = icmp eq i32 %call.i.i8.i, %114
   br i1 %cmp3.i1427.not, label %if.end388, label %exit
 
@@ -7095,12 +7095,12 @@ lor.lhs.false473:                                 ; preds = %TARGET_SRE_OP_NOT_L
   br i1 %cmp.i1437, label %exit, label %lor.lhs.false.i1438
 
 lor.lhs.false.i1438:                              ; preds = %lor.lhs.false473
-  %call.i.i.i1441 = tail call i32 @tolower(i32 noundef %conv474) #16
+  %call.i.i.i1441 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv474) #16
   %cmp1.i1442 = icmp eq i32 %call.i.i.i1441, %124
   br i1 %cmp1.i1442, label %exit, label %char_loc_ignore.exit1445
 
 char_loc_ignore.exit1445:                         ; preds = %lor.lhs.false.i1438
-  %call.i.i8.i1444 = tail call i32 @toupper(i32 noundef %conv474) #16
+  %call.i.i8.i1444 = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv474) #16
   %cmp3.i1439.not = icmp eq i32 %call.i.i8.i1444, %124
   br i1 %cmp3.i1439.not, label %exit, label %if.end480
 
@@ -7206,13 +7206,13 @@ lor.lhs.false571:                                 ; preds = %TARGET_SRE_OP_IN_LO
   %add.ptr572 = getelementptr i8, ptr %pattern.addr.2, i64 4
   %134 = load i8, ptr %ptr.0, align 1
   %conv573 = zext i8 %134 to i32
-  %call.i.i.i1455 = tail call i32 @tolower(i32 noundef %conv573) #16
+  %call.i.i.i1455 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv573) #16
   %call1.i = tail call fastcc i32 @sre_ucs1_charset(ptr noundef readonly %add.ptr572, i32 noundef %call.i.i.i1455)
   %tobool.not.i1456 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i1456, label %if.end.i1458, label %if.end579
 
 if.end.i1458:                                     ; preds = %lor.lhs.false571
-  %call.i.i6.i = tail call i32 @toupper(i32 noundef %conv573) #16
+  %call.i.i6.i = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv573) #16
   %cmp.not.i = icmp eq i32 %call.i.i6.i, %call.i.i.i1455
   br i1 %cmp.not.i, label %exit, label %sre_ucs1_charset_loc_ignore.exit
 
@@ -9861,10 +9861,10 @@ while.body3020:                                   ; preds = %while.body3020.preh
 lor.lhs.false3023:                                ; preds = %while.body3020
   %503 = load i8, ptr %ptr.141841, align 1
   %conv3024 = zext i8 %503 to i32
-  %call.i.i1572 = tail call i32 @tolower(i32 noundef %conv3024) #16
+  %call.i.i1572 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv3024) #16
   %504 = load i8, ptr %p2998.01840, align 1
   %conv3026 = zext i8 %504 to i32
-  %call.i.i1577 = tail call i32 @tolower(i32 noundef %conv3026) #16
+  %call.i.i1577 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv3026) #16
   %cmp3028.not = icmp eq i32 %call.i.i1572, %call.i.i1577
   br i1 %cmp3028.not, label %if.end3033, label %exit.loopexit2621
 
@@ -11376,12 +11376,12 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false381
   br i1 %cmp.i.i, label %sre_lower_locale.exit.i, label %char_loc_ignore.exit
 
 sre_lower_locale.exit.i:                          ; preds = %lor.lhs.false.i
-  %call.i.i.i = tail call i32 @tolower(i32 noundef %conv382) #16
+  %call.i.i.i = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv382) #16
   %cmp1.i = icmp eq i32 %call.i.i.i, %114
   br i1 %cmp1.i, label %if.end388, label %cond.true.i7.i
 
 cond.true.i7.i:                                   ; preds = %sre_lower_locale.exit.i
-  %call.i.i8.i = tail call i32 @toupper(i32 noundef %conv382) #16
+  %call.i.i8.i = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv382) #16
   br label %char_loc_ignore.exit
 
 char_loc_ignore.exit:                             ; preds = %lor.lhs.false.i, %cond.true.i7.i
@@ -11494,12 +11494,12 @@ lor.lhs.false.i1437:                              ; preds = %lor.lhs.false473
   br i1 %cmp.i.i1438, label %sre_lower_locale.exit.i1443, label %char_loc_ignore.exit1448
 
 sre_lower_locale.exit.i1443:                      ; preds = %lor.lhs.false.i1437
-  %call.i.i.i1444 = tail call i32 @tolower(i32 noundef %conv474) #16
+  %call.i.i.i1444 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv474) #16
   %cmp1.i1445 = icmp eq i32 %call.i.i.i1444, %124
   br i1 %cmp1.i1445, label %exit, label %cond.true.i7.i1446
 
 cond.true.i7.i1446:                               ; preds = %sre_lower_locale.exit.i1443
-  %call.i.i8.i1447 = tail call i32 @toupper(i32 noundef %conv474) #16
+  %call.i.i8.i1447 = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv474) #16
   br label %char_loc_ignore.exit1448
 
 char_loc_ignore.exit1448:                         ; preds = %lor.lhs.false.i1437, %cond.true.i7.i1446
@@ -11614,13 +11614,13 @@ lor.lhs.false571:                                 ; preds = %TARGET_SRE_OP_IN_LO
   br i1 %cmp.i.i1458, label %sre_lower_locale.exit.i1460, label %sre_ucs2_charset_loc_ignore.exit
 
 sre_lower_locale.exit.i1460:                      ; preds = %lor.lhs.false571
-  %call.i.i.i1461 = tail call i32 @tolower(i32 noundef %conv573) #16
+  %call.i.i.i1461 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv573) #16
   %call1.i = tail call fastcc i32 @sre_ucs2_charset(ptr noundef readonly %add.ptr572, i32 noundef %call.i.i.i1461)
   %tobool.not.i1462 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i1462, label %sre_upper_locale.exit.i1463, label %if.end579
 
 sre_upper_locale.exit.i1463:                      ; preds = %sre_lower_locale.exit.i1460
-  %call.i.i9.i = tail call i32 @toupper(i32 noundef %conv573) #16
+  %call.i.i9.i = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv573) #16
   %cmp.not.i = icmp eq i32 %call.i.i9.i, %call.i.i.i1461
   br i1 %cmp.not.i, label %exit, label %sre_ucs2_charset_loc_ignore.exit
 
@@ -14185,7 +14185,7 @@ lor.lhs.false3025:                                ; preds = %while.body3022
   br i1 %cmp.i1518, label %cond.true.i1521, label %sre_lower_locale.exit
 
 cond.true.i1521:                                  ; preds = %lor.lhs.false3025
-  %call.i.i1522 = tail call i32 @tolower(i32 noundef %conv3026) #16
+  %call.i.i1522 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv3026) #16
   br label %sre_lower_locale.exit
 
 sre_lower_locale.exit:                            ; preds = %lor.lhs.false3025, %cond.true.i1521
@@ -14196,7 +14196,7 @@ sre_lower_locale.exit:                            ; preds = %lor.lhs.false3025, 
   br i1 %cmp.i1523, label %cond.true.i1526, label %sre_lower_locale.exit1528
 
 cond.true.i1526:                                  ; preds = %sre_lower_locale.exit
-  %call.i.i1527 = tail call i32 @tolower(i32 noundef %conv3028) #16
+  %call.i.i1527 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv3028) #16
   br label %sre_lower_locale.exit1528
 
 sre_lower_locale.exit1528:                        ; preds = %sre_lower_locale.exit, %cond.true.i1526
@@ -15707,12 +15707,12 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false374
   br i1 %cmp.i.i, label %sre_lower_locale.exit.i, label %char_loc_ignore.exit
 
 sre_lower_locale.exit.i:                          ; preds = %lor.lhs.false.i
-  %call.i.i.i = tail call i32 @tolower(i32 noundef %119) #16
+  %call.i.i.i = tail call i32 @tolower(i32 noundef range(i32 0, 256) %119) #16
   %cmp1.i = icmp eq i32 %call.i.i.i, %118
   br i1 %cmp1.i, label %if.end380, label %cond.true.i7.i
 
 cond.true.i7.i:                                   ; preds = %sre_lower_locale.exit.i
-  %call.i.i8.i = tail call i32 @toupper(i32 noundef %119) #16
+  %call.i.i8.i = tail call i32 @toupper(i32 noundef range(i32 0, 256) %119) #16
   br label %char_loc_ignore.exit
 
 char_loc_ignore.exit:                             ; preds = %lor.lhs.false.i, %cond.true.i7.i
@@ -15822,12 +15822,12 @@ lor.lhs.false.i1437:                              ; preds = %lor.lhs.false463
   br i1 %cmp.i.i1438, label %sre_lower_locale.exit.i1443, label %char_loc_ignore.exit1448
 
 sre_lower_locale.exit.i1443:                      ; preds = %lor.lhs.false.i1437
-  %call.i.i.i1444 = tail call i32 @tolower(i32 noundef %129) #16
+  %call.i.i.i1444 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %129) #16
   %cmp1.i1445 = icmp eq i32 %call.i.i.i1444, %128
   br i1 %cmp1.i1445, label %exit, label %cond.true.i7.i1446
 
 cond.true.i7.i1446:                               ; preds = %sre_lower_locale.exit.i1443
-  %call.i.i8.i1447 = tail call i32 @toupper(i32 noundef %129) #16
+  %call.i.i8.i1447 = tail call i32 @toupper(i32 noundef range(i32 0, 256) %129) #16
   br label %char_loc_ignore.exit1448
 
 char_loc_ignore.exit1448:                         ; preds = %lor.lhs.false.i1437, %cond.true.i7.i1446
@@ -15939,13 +15939,13 @@ lor.lhs.false558:                                 ; preds = %TARGET_SRE_OP_IN_LO
   br i1 %cmp.i.i1458, label %sre_lower_locale.exit.i1460, label %sre_ucs4_charset_loc_ignore.exit
 
 sre_lower_locale.exit.i1460:                      ; preds = %lor.lhs.false558
-  %call.i.i.i1461 = tail call i32 @tolower(i32 noundef %138) #16
+  %call.i.i.i1461 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %138) #16
   %call1.i = tail call fastcc i32 @sre_ucs4_charset(ptr noundef readonly %add.ptr559, i32 noundef %call.i.i.i1461)
   %tobool.not.i1462 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i1462, label %sre_upper_locale.exit.i1463, label %if.end565
 
 sre_upper_locale.exit.i1463:                      ; preds = %sre_lower_locale.exit.i1460
-  %call.i.i9.i = tail call i32 @toupper(i32 noundef %138) #16
+  %call.i.i9.i = tail call i32 @toupper(i32 noundef range(i32 0, 256) %138) #16
   %cmp.not.i = icmp eq i32 %call.i.i9.i, %call.i.i.i1461
   br i1 %cmp.not.i, label %exit, label %sre_ucs4_charset_loc_ignore.exit
 
@@ -18502,7 +18502,7 @@ lor.lhs.false3002:                                ; preds = %while.body2999
   br i1 %cmp.i1518, label %cond.true.i1521, label %sre_lower_locale.exit
 
 cond.true.i1521:                                  ; preds = %lor.lhs.false3002
-  %call.i.i1522 = tail call i32 @tolower(i32 noundef %495) #16
+  %call.i.i1522 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %495) #16
   br label %sre_lower_locale.exit
 
 sre_lower_locale.exit:                            ; preds = %lor.lhs.false3002, %cond.true.i1521
@@ -18512,7 +18512,7 @@ sre_lower_locale.exit:                            ; preds = %lor.lhs.false3002, 
   br i1 %cmp.i1523, label %cond.true.i1526, label %sre_lower_locale.exit1528
 
 cond.true.i1526:                                  ; preds = %sre_lower_locale.exit
-  %call.i.i1527 = tail call i32 @tolower(i32 noundef %496) #16
+  %call.i.i1527 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %496) #16
   br label %sre_lower_locale.exit1528
 
 sre_lower_locale.exit1528:                        ; preds = %sre_lower_locale.exit, %cond.true.i1526
@@ -19826,12 +19826,12 @@ land.rhs72:                                       ; preds = %land.rhs72.preheade
   br i1 %cmp.i79, label %while.body77, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs72
-  %call.i.i.i = tail call i32 @tolower(i32 noundef %conv73) #16
+  %call.i.i.i = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv73) #16
   %cmp1.i = icmp eq i32 %call.i.i.i, %19
   br i1 %cmp1.i, label %while.body77, label %char_loc_ignore.exit
 
 char_loc_ignore.exit:                             ; preds = %lor.lhs.false.i
-  %call.i.i8.i = tail call i32 @toupper(i32 noundef %conv73) #16
+  %call.i.i8.i = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv73) #16
   %cmp3.i.not = icmp eq i32 %call.i.i8.i, %19
   br i1 %cmp3.i.not, label %while.body77, label %sw.epilog
 
@@ -19944,12 +19944,12 @@ land.rhs134:                                      ; preds = %land.rhs134.prehead
   br i1 %cmp.i88, label %sw.epilog, label %lor.lhs.false.i89
 
 lor.lhs.false.i89:                                ; preds = %land.rhs134
-  %call.i.i.i92 = tail call i32 @tolower(i32 noundef %conv135) #16
+  %call.i.i.i92 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv135) #16
   %cmp1.i93 = icmp eq i32 %call.i.i.i92, %33
   br i1 %cmp1.i93, label %sw.epilog, label %char_loc_ignore.exit96
 
 char_loc_ignore.exit96:                           ; preds = %lor.lhs.false.i89
-  %call.i.i8.i95 = tail call i32 @toupper(i32 noundef %conv135) #16
+  %call.i.i8.i95 = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv135) #16
   %cmp3.i90.not = icmp eq i32 %call.i.i8.i95, %33
   br i1 %cmp3.i90.not, label %sw.epilog, label %while.body140
 
@@ -20427,12 +20427,12 @@ lor.lhs.false.i:                                  ; preds = %land.rhs72
   br i1 %cmp.i.i, label %sre_lower_locale.exit.i, label %char_loc_ignore.exit
 
 sre_lower_locale.exit.i:                          ; preds = %lor.lhs.false.i
-  %call.i.i.i = tail call i32 @tolower(i32 noundef %conv73) #16
+  %call.i.i.i = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv73) #16
   %cmp1.i = icmp eq i32 %call.i.i.i, %13
   br i1 %cmp1.i, label %while.body77, label %cond.true.i7.i
 
 cond.true.i7.i:                                   ; preds = %sre_lower_locale.exit.i
-  %call.i.i8.i = tail call i32 @toupper(i32 noundef %conv73) #16
+  %call.i.i8.i = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv73) #16
   br label %char_loc_ignore.exit
 
 char_loc_ignore.exit:                             ; preds = %lor.lhs.false.i, %cond.true.i7.i
@@ -20537,12 +20537,12 @@ lor.lhs.false.i89:                                ; preds = %land.rhs134
   br i1 %cmp.i.i90, label %sre_lower_locale.exit.i95, label %char_loc_ignore.exit100
 
 sre_lower_locale.exit.i95:                        ; preds = %lor.lhs.false.i89
-  %call.i.i.i96 = tail call i32 @tolower(i32 noundef %conv135) #16
+  %call.i.i.i96 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %conv135) #16
   %cmp1.i97 = icmp eq i32 %call.i.i.i96, %23
   br i1 %cmp1.i97, label %sw.epilog, label %cond.true.i7.i98
 
 cond.true.i7.i98:                                 ; preds = %sre_lower_locale.exit.i95
-  %call.i.i8.i99 = tail call i32 @toupper(i32 noundef %conv135) #16
+  %call.i.i8.i99 = tail call i32 @toupper(i32 noundef range(i32 0, 256) %conv135) #16
   br label %char_loc_ignore.exit100
 
 char_loc_ignore.exit100:                          ; preds = %lor.lhs.false.i89, %cond.true.i7.i98
@@ -20989,12 +20989,12 @@ lor.lhs.false.i:                                  ; preds = %land.rhs52
   br i1 %cmp.i.i, label %sre_lower_locale.exit.i, label %char_loc_ignore.exit
 
 sre_lower_locale.exit.i:                          ; preds = %lor.lhs.false.i
-  %call.i.i.i = tail call i32 @tolower(i32 noundef %13) #16
+  %call.i.i.i = tail call i32 @tolower(i32 noundef range(i32 0, 256) %13) #16
   %cmp1.i = icmp eq i32 %call.i.i.i, %12
   br i1 %cmp1.i, label %while.body56, label %cond.true.i7.i
 
 cond.true.i7.i:                                   ; preds = %sre_lower_locale.exit.i
-  %call.i.i8.i = tail call i32 @toupper(i32 noundef %13) #16
+  %call.i.i8.i = tail call i32 @toupper(i32 noundef range(i32 0, 256) %13) #16
   br label %char_loc_ignore.exit
 
 char_loc_ignore.exit:                             ; preds = %lor.lhs.false.i, %cond.true.i7.i
@@ -21088,12 +21088,12 @@ lor.lhs.false.i84:                                ; preds = %land.rhs95
   br i1 %cmp.i.i85, label %sre_lower_locale.exit.i90, label %char_loc_ignore.exit95
 
 sre_lower_locale.exit.i90:                        ; preds = %lor.lhs.false.i84
-  %call.i.i.i91 = tail call i32 @tolower(i32 noundef %22) #16
+  %call.i.i.i91 = tail call i32 @tolower(i32 noundef range(i32 0, 256) %22) #16
   %cmp1.i92 = icmp eq i32 %call.i.i.i91, %21
   br i1 %cmp1.i92, label %sw.epilog, label %cond.true.i7.i93
 
 cond.true.i7.i93:                                 ; preds = %sre_lower_locale.exit.i90
-  %call.i.i8.i94 = tail call i32 @toupper(i32 noundef %22) #16
+  %call.i.i8.i94 = tail call i32 @toupper(i32 noundef range(i32 0, 256) %22) #16
   br label %char_loc_ignore.exit95
 
 char_loc_ignore.exit95:                           ; preds = %lor.lhs.false.i84, %cond.true.i7.i93

@@ -941,7 +941,7 @@ common.resume:                                    ; preds = %266, %269, %274, %2
   br i1 %256, label %_ZN4gpui4view7AnyView8downcast17h59e4723d0e3dfaffE.exit.thread, label %257
 
 257:                                              ; preds = %254
-  call void @"_ZN4core3ptr49drop_in_place$LT$gpui..style..StyleRefinement$GT$17h206d9ec75a368344E"(ptr noalias noundef nonnull align 8 dereferenceable(568) %7), !noalias !98
+  call void @"_ZN4core3ptr49drop_in_place$LT$gpui..style..StyleRefinement$GT$17h206d9ec75a368344E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %7), !noalias !98
   br label %_ZN4gpui4view7AnyView8downcast17h59e4723d0e3dfaffE.exit.thread
 
 _ZN4gpui4view7AnyView8downcast17h59e4723d0e3dfaffE.exit.thread: ; preds = %254, %257

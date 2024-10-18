@@ -714,7 +714,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal17DenseSparseMatrixD0Ev(ptr n
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #20
-  tail call void @_ZN5ceres8internal12SparseMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN5ceres8internal12SparseMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }

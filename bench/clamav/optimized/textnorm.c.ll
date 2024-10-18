@@ -146,7 +146,7 @@ define i64 @text_normalize_map(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   %.056 = phi i64 [ %48, %44 ], [ %2, %3 ]
   %.03055 = phi i64 [ %49, %44 ], [ 0, %3 ]
   %15 = load ptr, ptr %11, align 8
-  %16 = tail call ptr %15(ptr noundef %1, i64 noundef %.056, i64 noundef %.57, i32 noundef 0) #4
+  %16 = tail call ptr %15(ptr noundef %1, i64 noundef %.056, i64 noundef range(i64 1, 0) %.57, i32 noundef 0) #4
   %.not37 = icmp eq ptr %16, null
   br i1 %.not37, label %.loopexit, label %17
 

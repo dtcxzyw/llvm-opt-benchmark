@@ -6126,7 +6126,7 @@ if.then.i:                                        ; preds = %if.then29
   br i1 %mul.ov.i.i, label %if.then.i.i34, label %st_mult.exit.i
 
 if.then.i.i34:                                    ; preds = %if.then.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.458, i64 noundef 16, i64 noundef %sub) #21
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.458, i64 noundef range(i64 4, 41) 16, i64 noundef %sub) #21
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then.i
@@ -6409,7 +6409,7 @@ _.exit22:                                         ; preds = %if.then11, %if.end3
   br label %cleanup
 
 if.end15:                                         ; preds = %if.end8
-  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lock, ptr noundef %call.i, i32 noundef 0, i64 noundef 0, i32 noundef 438) #19
+  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lock, ptr noundef %call.i, i32 noundef range(i32 0, 5) 0, i64 noundef 0, i32 noundef 438) #19
   %cmp17 = icmp slt i32 %call.i.i, 0
   br i1 %cmp17, label %if.then18, label %if.end22
 
@@ -7897,7 +7897,7 @@ if.else.i.i:                                      ; preds = %while.body.i.i
 
 is_final_fixup.exit.i:                            ; preds = %if.else.i.i, %while.body.i.i, %while.cond.i.i, %if.end.i
   %retval.0.i.i133 = phi i32 [ 0, %if.end.i ], [ 1, %while.cond.i.i ], [ 1, %if.else.i.i ], [ 0, %while.body.i.i ]
-  %call5.i = call fastcc i32 @do_pick_commit(ptr noundef %r, ptr noundef %add.ptr.i132, ptr noundef nonnull %opts, i32 noundef %retval.0.i.i133, ptr noundef %check_todo)
+  %call5.i = call fastcc i32 @do_pick_commit(ptr noundef %r, ptr noundef %add.ptr.i132, ptr noundef nonnull %opts, i32 noundef %retval.0.i.i133, ptr noundef nonnull %check_todo)
   %opts.val61.i = load i32, ptr %opts, align 8
   %cmp.i66.i = icmp eq i32 %opts.val61.i, 2
   %cmp.i134 = icmp slt i32 %call5.i, 0
@@ -9796,7 +9796,7 @@ if.then12.i375:                                   ; preds = %lor.lhs.false.i379,
   %265 = load ptr, ptr %items, align 8
   call void @free(ptr noundef %265) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %items, i8 0, i64 16, i1 false)
-  %call13.i = call fastcc i32 @read_populate_todo(ptr noundef %r, ptr noundef %todo_list, ptr noundef nonnull readonly %opts)
+  %call13.i = call fastcc i32 @read_populate_todo(ptr noundef %r, ptr noundef nonnull %todo_list, ptr noundef nonnull readonly %opts)
   %tobool14.not.i376 = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i376, label %if.end16.i, label %reread_todo_if_changed.exit.thread
 
@@ -12756,7 +12756,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_message(ptr noundef %buf, i64
 entry:
   %msg_file = alloca %struct.lock_file, align 8
   store i64 0, ptr %msg_file, align 8
-  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %msg_file, ptr noundef %filename, i32 noundef 0, i64 noundef 0, i32 noundef 438) #19
+  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %msg_file, ptr noundef %filename, i32 noundef range(i32 0, 5) 0, i64 noundef 0, i32 noundef 438) #19
   %cmp = icmp slt i32 %call.i.i, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -13842,7 +13842,7 @@ if.then.i42.i:                                    ; preds = %if.end43.i
   br i1 %mul.ov.i.i.i137, label %if.then.i.i.i148, label %st_mult.exit.i.i138
 
 if.then.i.i.i148:                                 ; preds = %if.then.i42.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.458, i64 noundef 40, i64 noundef %conv.i136) #21
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.458, i64 noundef range(i64 4, 41) 40, i64 noundef %conv.i136) #21
   unreachable
 
 st_mult.exit.i.i138:                              ; preds = %if.then.i42.i
@@ -16131,7 +16131,7 @@ get_todo_path.exit:                               ; preds = %if.then.i, %if.end.
   %not.or.cond = xor i1 %or.cond, true
   %inc = zext i1 %not.or.cond to i32
   %spec.select = add nsw i32 %3, %inc
-  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %todo_lock, ptr noundef %retval.0.i, i32 noundef 0, i64 noundef 0, i32 noundef 438) #19
+  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %todo_lock, ptr noundef %retval.0.i, i32 noundef range(i32 0, 5) 0, i64 noundef 0, i32 noundef 438) #19
   %cmp = icmp slt i32 %call.i.i, 0
   br i1 %cmp, label %if.then4, label %if.end8
 
@@ -17652,7 +17652,7 @@ if.end3.i.i156.i:                                 ; preds = %strbuf_setlen.exit.
 
 _.exit.i158.i:                                    ; preds = %if.end3.i.i156.i, %strbuf_setlen.exit.i.i
   %retval.0.i.i159.i = phi ptr [ %call.i.i157.i, %if.end3.i.i156.i ], [ @nth_commit_msg_fmt, %strbuf_setlen.exit.i.i ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf1.i.i, ptr noundef %retval.0.i.i159.i, i32 noundef %inc34.i.i) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf1.i.i, ptr noundef %retval.0.i.i159.i, i32 noundef range(i32 -2147483647, -2147483648) %inc34.i.i) #19
   %118 = load i64, ptr %buf1.i.i, align 8
   %tobool.not.i.i.i160.i = icmp eq i64 %118, 0
   br i1 %tobool.not.i.i.i160.i, label %if.then.i10.i.i, label %strbuf_avail.exit.i.i161.i
@@ -17710,7 +17710,7 @@ if.end3.i23.i.i:                                  ; preds = %strbuf_setlen.exit2
 
 _.exit26.i.i:                                     ; preds = %if.end3.i23.i.i, %strbuf_setlen.exit20.i.i
   %retval.0.i25.i.i = phi ptr [ %call.i24.i.i, %if.end3.i23.i.i ], [ @skip_nth_commit_msg_fmt, %strbuf_setlen.exit20.i.i ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf2.i.i, ptr noundef %retval.0.i25.i.i, i32 noundef %inc34.i.i) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf2.i.i, ptr noundef %retval.0.i25.i.i, i32 noundef range(i32 -2147483647, -2147483648) %inc34.i.i) #19
   %127 = load i64, ptr %buf2.i.i, align 8
   %tobool.not.i.i27.i.i = icmp eq i64 %127, 0
   br i1 %tobool.not.i.i27.i.i, label %if.then.i38.i.i, label %strbuf_avail.exit.i28.i.i
@@ -17998,7 +17998,7 @@ if.end3.i135.i:                                   ; preds = %if.else107.i
 
 _.exit138.i:                                      ; preds = %if.end3.i135.i, %if.else107.i
   %retval.0.i137.i = phi ptr [ %call.i136.i, %if.end3.i135.i ], [ @.str.156, %if.else107.i ]
-  %call109.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i137.i, i32 noundef %8) #19
+  %call109.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i137.i, i32 noundef range(i32 4, 3) %8) #19
   br label %update_squash_messages.exit.thread
 
 if.then114.i:                                     ; preds = %_.exit131.i, %if.then96.i
@@ -20298,7 +20298,7 @@ entry:
   %lock = alloca %struct.lock_file, align 8
   %buf = alloca %struct.strbuf, align 8
   store i64 0, ptr %lock, align 8
-  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lock, ptr noundef %filename, i32 noundef 4, i64 noundef 0, i32 noundef 438) #19
+  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lock, ptr noundef %filename, i32 noundef range(i32 0, 5) 4, i64 noundef 0, i32 noundef 438) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.make_script_with_merges.label, i64 24, i1 false)
   %cmp = icmp slt i32 %call.i.i, 0
   br i1 %cmp, label %return, label %if.end

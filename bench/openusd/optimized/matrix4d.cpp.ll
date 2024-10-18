@@ -3405,7 +3405,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load double, ptr %11, align 8, !noalias !38
   %13 = fneg double %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %13, ptr %14, align 8, !alias.scope !38
   %15 = load double, ptr %5, align 8, !alias.scope !38
@@ -4694,7 +4694,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d19ExtractRotation
   %97 = fcmp ogt double %.033, 1.000000e+00
   %..i = select i1 %97, double 1.000000e+00, double %.033
   %.0.i = select i1 %96, double -1.000000e+00, double %..i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %.0.i, ptr %98, align 8
   ret void

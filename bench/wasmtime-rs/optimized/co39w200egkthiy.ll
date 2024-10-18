@@ -81,7 +81,7 @@ define hidden void @_ZN6wiggle19validate_size_align17hc7cbc044803564daE.llvm.976
 27:                                               ; preds = %21
   call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h0aefb1773182874dE"(ptr noalias noundef align 8 dereferenceable(64) %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  %28 = tail call noundef i64 @_ZN4core3ptr12align_offset17h31c87f3a276ef94bE(ptr noundef nonnull %17, i64 noundef 1), !noalias !9
+  %28 = tail call noundef i64 @_ZN4core3ptr12align_offset17h31c87f3a276ef94bE(ptr noundef nonnull align 1 %17, i64 noundef 1), !noalias !9
   %29 = icmp ugt i64 %28, %23
   br i1 %29, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h3acc222d7a387e73E.exit", label %30
 

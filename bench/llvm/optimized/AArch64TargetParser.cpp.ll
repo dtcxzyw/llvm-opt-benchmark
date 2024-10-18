@@ -3041,7 +3041,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm7AArch6415r
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm7AArch6415resolveCPUAliasENS_9StringRefE.exit.split.us
   %.us-phi23 = phi ptr [ %.0.ptr22.us, %_ZN4llvm7AArch6415resolveCPUAliasENS_9StringRefE.exit.split.us ], [ %.0.ptr22, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %.us-phi23, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %.us-phi23, i64 40, i1 false)
   br label %.split25.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread16:       ; preds = %_ZN4llvm7AArch6415resolveCPUAliasENS_9StringRefE.exit.split, %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -3088,7 +3088,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %13
   br i1 %15, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %13, %_ZN4llvmeqENS_9StringRefES0_.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %4, %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -3242,7 +3242,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit13:              ; preds = %.lr.ph.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit13.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit13, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.sroa.014.029.us, %.lr.ph.split.us ], [ %.sroa.014.029, %_ZN4llvmeqENS_9StringRefES0_.exit13 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.us-phi, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %.us-phi, i64 48, i1 false)
   br label %._crit_edge
 
 _ZN4llvmeqENS_9StringRefES0_.exit13.thread24:     ; preds = %.lr.ph.split, %_ZN4llvmeqENS_9StringRefES0_.exit13
@@ -3481,7 +3481,7 @@ _ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7decl
   br i1 %.not.i3, label %.loopexit, label %.preheader.i
 
 15:                                               ; preds = %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 16 dereferenceable(112) %.0.ptr14.i, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 16 dereferenceable(112) %.0.ptr14.i, i64 112, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i8 1, ptr %16, align 8, !alias.scope !14
   %.sroa.08.0.copyload = load ptr, ptr %.v.sroa.phi21, align 8
@@ -3536,7 +3536,7 @@ _ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7decl
   br i1 %11, label %12, label %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread
 
 12:                                               ; preds = %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 16 dereferenceable(112) %.0.ptr14, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 16 dereferenceable(112) %.0.ptr14, i64 112, i1 false)
   br label %.loopexit
 
 _ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread: ; preds = %9, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit
@@ -3778,7 +3778,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %.split.us
   %.us-phi = phi ptr [ %.0.ptr15.us, %.split.us ], [ %.0.ptr15, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 16 dereferenceable(112) %.us-phi, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 16 dereferenceable(112) %.us-phi, i64 112, i1 false)
   br label %.split17.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %.split, %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -5497,9 +5497,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(16) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -5596,9 +5596,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -5695,9 +5695,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -5794,9 +5794,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -5893,9 +5893,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(25) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -5992,9 +5992,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6091,9 +6091,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(12) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6190,9 +6190,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6289,9 +6289,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(38) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6388,9 +6388,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(27) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6487,9 +6487,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6586,9 +6586,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(16) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6685,9 +6685,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(3) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(16) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6784,9 +6784,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(26) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6883,9 +6883,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(35) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -6982,9 +6982,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7081,9 +7081,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(24) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7180,9 +7180,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7279,9 +7279,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(13) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7378,9 +7378,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7477,9 +7477,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7576,9 +7576,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(21) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7675,9 +7675,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(13) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7774,9 +7774,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(21) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7873,9 +7873,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -7972,9 +7972,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(3) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8071,9 +8071,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(16) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8170,9 +8170,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(22) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8269,9 +8269,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(28) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8368,9 +8368,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8467,9 +8467,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(23) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8566,9 +8566,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(17) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8665,9 +8665,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(31) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8764,9 +8764,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(37) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8863,9 +8863,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(37) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -8962,9 +8962,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(37) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -9061,9 +9061,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(47) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -9160,9 +9160,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(13) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(51) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -9259,9 +9259,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(14) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(47) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
@@ -9358,9 +9358,9 @@ _ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN4llvm7AArch647FMVInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit, %23
   %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorIN4llvm7AArch647FMVInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %27 = getelementptr inbounds %"struct.llvm::AArch64::FMVInfo", ptr %26, i64 %22
-  %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %28 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %2) #26
   %29 = load i32, ptr %3, align 4
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(48) %4) #26
   %31 = load i32, ptr %5, align 4
   store ptr %2, ptr %27, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8

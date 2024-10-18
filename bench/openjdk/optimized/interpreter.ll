@@ -244,15 +244,15 @@ _ZN11CodeletMark12codelet_sizeEv.exit:            ; preds = %4
   %59 = getelementptr inbounds i8, ptr %0, i64 64
   %60 = getelementptr inbounds i8, ptr %0, i64 132
   store i32 0, ptr %60, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %59, i8 0, i64 66, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %59, i8 0, i64 66, i1 false)
   %61 = getelementptr inbounds i8, ptr %0, i64 152
   %62 = getelementptr inbounds i8, ptr %0, i64 220
   store i32 0, ptr %62, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %61, i8 0, i64 66, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %61, i8 0, i64 66, i1 false)
   %63 = getelementptr inbounds i8, ptr %0, i64 240
   %64 = getelementptr inbounds i8, ptr %0, i64 308
   store i32 0, ptr %64, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %63, i8 0, i64 66, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %63, i8 0, i64 66, i1 false)
   %65 = getelementptr inbounds i8, ptr %0, i64 368
   tail call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %65, ptr noundef null, i1 noundef zeroext false) #9
   store ptr @.str.15, ptr %38, align 8
@@ -297,9 +297,9 @@ _ZN11CodeletMark12codelet_sizeEv.exit:            ; preds = %4
   %85 = getelementptr inbounds i8, ptr %84, i64 12
   store i32 %3, ptr %85, align 4
   %86 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #9
-  tail call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull %38) #9
+  tail call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull %38) #9
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %86, align 8
-  tail call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %86) #9
+  tail call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(48) %86) #9
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV25InterpreterMacroAssembler, i64 16), ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 40
   store i32 14, ptr %87, align 8

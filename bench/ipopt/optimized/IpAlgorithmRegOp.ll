@@ -128,7 +128,7 @@ define void @_ZN5Ipopt25RegisterOptions_AlgorithmERKNS_8SmartPtrINS_17Registered
           to label %.noexc unwind label %673
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %82, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %82, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc143 unwind label %673
 
 .noexc143:                                        ; preds = %.noexc
@@ -138,7 +138,7 @@ define void @_ZN5Ipopt25RegisterOptions_AlgorithmERKNS_8SmartPtrINS_17Registered
 83:                                               ; preds = %.noexc143
   %84 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc143
@@ -194,7 +194,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit: ; preds = %94, %96, %101
           to label %.noexc144 unwind label %689
 
 .noexc144:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %106, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %106, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc145 unwind label %689
 
 .noexc145:                                        ; preds = %.noexc144
@@ -204,7 +204,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit: ; preds = %94, %96, %101
 107:                                              ; preds = %.noexc145
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   br label %.body146
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit148: ; preds = %.noexc145
@@ -260,7 +260,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit154: ; preds = %118, %120, %
           to label %.noexc155 unwind label %705
 
 .noexc155:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit154
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %130, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %130, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc156 unwind label %705
 
 .noexc156:                                        ; preds = %.noexc155
@@ -270,7 +270,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit154: ; preds = %118, %120, %
 131:                                              ; preds = %.noexc156
   %132 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
   br label %.body157
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit159: ; preds = %.noexc156
@@ -326,7 +326,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit165: ; preds = %142, %144, %
           to label %.noexc166 unwind label %721
 
 .noexc166:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit165
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %154, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %154, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc167 unwind label %721
 
 .noexc167:                                        ; preds = %.noexc166
@@ -336,7 +336,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit165: ; preds = %142, %144, %
 155:                                              ; preds = %.noexc167
   %156 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
   br label %.body168
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit170: ; preds = %.noexc167
@@ -392,7 +392,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit176: ; preds = %166, %168, %
           to label %.noexc177 unwind label %737
 
 .noexc177:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit176
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %178, ptr noundef nonnull align 1 dereferenceable(1) %15)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef %178, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %.noexc178 unwind label %737
 
 .noexc178:                                        ; preds = %.noexc177
@@ -402,7 +402,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit176: ; preds = %166, %168, %
 179:                                              ; preds = %.noexc178
   %180 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
   br label %.body179
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit181: ; preds = %.noexc178
@@ -458,7 +458,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit187: ; preds = %190, %192, %
           to label %.noexc188 unwind label %753
 
 .noexc188:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit187
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %202, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %202, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %.noexc189 unwind label %753
 
 .noexc189:                                        ; preds = %.noexc188
@@ -468,7 +468,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit187: ; preds = %190, %192, %
 203:                                              ; preds = %.noexc189
   %204 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
   br label %.body190
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit192: ; preds = %.noexc189
@@ -524,7 +524,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit198: ; preds = %214, %216, %
           to label %.noexc199 unwind label %769
 
 .noexc199:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit198
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %226, ptr noundef nonnull align 1 dereferenceable(1) %21)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %226, ptr noundef nonnull align 1 dereferenceable(1) %21)
           to label %.noexc200 unwind label %769
 
 .noexc200:                                        ; preds = %.noexc199
@@ -534,7 +534,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit198: ; preds = %214, %216, %
 227:                                              ; preds = %.noexc200
   %228 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #8
   br label %.body201
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit203: ; preds = %.noexc200
@@ -590,7 +590,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit209: ; preds = %238, %240, %
           to label %.noexc210 unwind label %785
 
 .noexc210:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit209
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %250, ptr noundef nonnull align 1 dereferenceable(1) %24)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %250, ptr noundef nonnull align 1 dereferenceable(1) %24)
           to label %.noexc211 unwind label %785
 
 .noexc211:                                        ; preds = %.noexc210
@@ -600,7 +600,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit209: ; preds = %238, %240, %
 251:                                              ; preds = %.noexc211
   %252 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #8
   br label %.body212
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit214: ; preds = %.noexc211
@@ -620,7 +620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit214: ;
           to label %.noexc215 unwind label %789
 
 .noexc215:                                        ; preds = %256
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %258, ptr noundef nonnull align 1 dereferenceable(1) %26)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %258, ptr noundef nonnull align 1 dereferenceable(1) %26)
           to label %.noexc216 unwind label %789
 
 .noexc216:                                        ; preds = %.noexc215
@@ -630,7 +630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit214: ;
 259:                                              ; preds = %.noexc216
   %260 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #8
   br label %.body217
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219: ; preds = %.noexc216
@@ -650,7 +650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219: ;
           to label %.noexc220 unwind label %793
 
 .noexc220:                                        ; preds = %264
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %266, ptr noundef nonnull align 1 dereferenceable(1) %28)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef %266, ptr noundef nonnull align 1 dereferenceable(1) %28)
           to label %.noexc221 unwind label %793
 
 .noexc221:                                        ; preds = %.noexc220
@@ -660,7 +660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit219: ;
 267:                                              ; preds = %.noexc221
   %268 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #8
   br label %.body222
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit224: ; preds = %.noexc221
@@ -716,7 +716,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit230: ; preds = %278, %280, %
           to label %.noexc231 unwind label %809
 
 .noexc231:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit230
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %290, ptr noundef nonnull align 1 dereferenceable(1) %31)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef %290, ptr noundef nonnull align 1 dereferenceable(1) %31)
           to label %.noexc232 unwind label %809
 
 .noexc232:                                        ; preds = %.noexc231
@@ -726,7 +726,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit230: ; preds = %278, %280, %
 291:                                              ; preds = %.noexc232
   %292 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #8
   br label %.body233
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit235: ; preds = %.noexc232
@@ -746,7 +746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit235: ;
           to label %.noexc236 unwind label %813
 
 .noexc236:                                        ; preds = %296
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %298, ptr noundef nonnull align 1 dereferenceable(1) %33)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef %298, ptr noundef nonnull align 1 dereferenceable(1) %33)
           to label %.noexc237 unwind label %813
 
 .noexc237:                                        ; preds = %.noexc236
@@ -756,7 +756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit235: ;
 299:                                              ; preds = %.noexc237
   %300 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #8
   br label %.body238
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit240: ; preds = %.noexc237
@@ -812,7 +812,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit246: ; preds = %310, %312, %
           to label %.noexc247 unwind label %829
 
 .noexc247:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit246
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %322, ptr noundef nonnull align 1 dereferenceable(1) %36)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %322, ptr noundef nonnull align 1 dereferenceable(1) %36)
           to label %.noexc248 unwind label %829
 
 .noexc248:                                        ; preds = %.noexc247
@@ -822,7 +822,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit246: ; preds = %310, %312, %
 323:                                              ; preds = %.noexc248
   %324 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
   br label %.body249
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit251: ; preds = %.noexc248
@@ -878,7 +878,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit257: ; preds = %334, %336, %
           to label %.noexc258 unwind label %845
 
 .noexc258:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit257
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %346, ptr noundef nonnull align 1 dereferenceable(1) %39)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef %346, ptr noundef nonnull align 1 dereferenceable(1) %39)
           to label %.noexc259 unwind label %845
 
 .noexc259:                                        ; preds = %.noexc258
@@ -888,7 +888,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit257: ; preds = %334, %336, %
 347:                                              ; preds = %.noexc259
   %348 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #8
   br label %.body260
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit262: ; preds = %.noexc259
@@ -908,7 +908,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit262: ;
           to label %.noexc263 unwind label %849
 
 .noexc263:                                        ; preds = %352
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %354, ptr noundef nonnull align 1 dereferenceable(1) %41)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef %354, ptr noundef nonnull align 1 dereferenceable(1) %41)
           to label %.noexc264 unwind label %849
 
 .noexc264:                                        ; preds = %.noexc263
@@ -918,7 +918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit262: ;
 355:                                              ; preds = %.noexc264
   %356 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #8
   br label %.body265
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit267: ; preds = %.noexc264
@@ -974,7 +974,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit273: ; preds = %366, %368, %
           to label %.noexc274 unwind label %865
 
 .noexc274:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit273
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %378, ptr noundef nonnull align 1 dereferenceable(1) %44)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef %378, ptr noundef nonnull align 1 dereferenceable(1) %44)
           to label %.noexc275 unwind label %865
 
 .noexc275:                                        ; preds = %.noexc274
@@ -984,7 +984,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit273: ; preds = %366, %368, %
 379:                                              ; preds = %.noexc275
   %380 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #8
   br label %.body276
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit278: ; preds = %.noexc275
@@ -1040,7 +1040,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit284: ; preds = %390, %392, %
           to label %.noexc285 unwind label %881
 
 .noexc285:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit284
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %402, ptr noundef nonnull align 1 dereferenceable(1) %47)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef %402, ptr noundef nonnull align 1 dereferenceable(1) %47)
           to label %.noexc286 unwind label %881
 
 .noexc286:                                        ; preds = %.noexc285
@@ -1050,7 +1050,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit284: ; preds = %390, %392, %
 403:                                              ; preds = %.noexc286
   %404 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #8
   br label %.body287
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit289: ; preds = %.noexc286
@@ -1106,7 +1106,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit295: ; preds = %414, %416, %
           to label %.noexc296 unwind label %897
 
 .noexc296:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit295
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef %426, ptr noundef nonnull align 1 dereferenceable(1) %50)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef %426, ptr noundef nonnull align 1 dereferenceable(1) %50)
           to label %.noexc297 unwind label %897
 
 .noexc297:                                        ; preds = %.noexc296
@@ -1116,7 +1116,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit295: ; preds = %414, %416, %
 427:                                              ; preds = %.noexc297
   %428 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #8
   br label %.body298
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit300: ; preds = %.noexc297
@@ -1136,7 +1136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit300: ;
           to label %.noexc301 unwind label %901
 
 .noexc301:                                        ; preds = %432
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %434, ptr noundef nonnull align 1 dereferenceable(1) %52)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef %434, ptr noundef nonnull align 1 dereferenceable(1) %52)
           to label %.noexc302 unwind label %901
 
 .noexc302:                                        ; preds = %.noexc301
@@ -1146,7 +1146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit300: ;
 435:                                              ; preds = %.noexc302
   %436 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #8
   br label %.body303
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit305: ; preds = %.noexc302
@@ -1202,7 +1202,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit311: ; preds = %446, %448, %
           to label %.noexc312 unwind label %917
 
 .noexc312:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit311
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %458, ptr noundef nonnull align 1 dereferenceable(1) %55)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef %458, ptr noundef nonnull align 1 dereferenceable(1) %55)
           to label %.noexc313 unwind label %917
 
 .noexc313:                                        ; preds = %.noexc312
@@ -1212,7 +1212,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit311: ; preds = %446, %448, %
 459:                                              ; preds = %.noexc313
   %460 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #8
   br label %.body314
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit316: ; preds = %.noexc313
@@ -1268,7 +1268,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit322: ; preds = %470, %472, %
           to label %.noexc323 unwind label %933
 
 .noexc323:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit322
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %482, ptr noundef nonnull align 1 dereferenceable(1) %58)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef %482, ptr noundef nonnull align 1 dereferenceable(1) %58)
           to label %.noexc324 unwind label %933
 
 .noexc324:                                        ; preds = %.noexc323
@@ -1278,7 +1278,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit322: ; preds = %470, %472, %
 483:                                              ; preds = %.noexc324
   %484 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #8
   br label %.body325
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit327: ; preds = %.noexc324
@@ -1334,7 +1334,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit333: ; preds = %494, %496, %
           to label %.noexc334 unwind label %949
 
 .noexc334:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit333
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef %506, ptr noundef nonnull align 1 dereferenceable(1) %61)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef %506, ptr noundef nonnull align 1 dereferenceable(1) %61)
           to label %.noexc335 unwind label %949
 
 .noexc335:                                        ; preds = %.noexc334
@@ -1344,7 +1344,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit333: ; preds = %494, %496, %
 507:                                              ; preds = %.noexc335
   %508 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #8
   br label %.body336
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit338: ; preds = %.noexc335
@@ -1400,7 +1400,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit344: ; preds = %518, %520, %
           to label %.noexc345 unwind label %965
 
 .noexc345:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit344
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef %530, ptr noundef nonnull align 1 dereferenceable(1) %64)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef %530, ptr noundef nonnull align 1 dereferenceable(1) %64)
           to label %.noexc346 unwind label %965
 
 .noexc346:                                        ; preds = %.noexc345
@@ -1410,7 +1410,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit344: ; preds = %518, %520, %
 531:                                              ; preds = %.noexc346
   %532 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #8
   br label %.body347
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit349: ; preds = %.noexc346
@@ -1466,7 +1466,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit355: ; preds = %542, %544, %
           to label %.noexc356 unwind label %981
 
 .noexc356:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit355
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %554, ptr noundef nonnull align 1 dereferenceable(1) %67)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef %554, ptr noundef nonnull align 1 dereferenceable(1) %67)
           to label %.noexc357 unwind label %981
 
 .noexc357:                                        ; preds = %.noexc356
@@ -1476,7 +1476,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit355: ; preds = %542, %544, %
 555:                                              ; preds = %.noexc357
   %556 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #8
   br label %.body358
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit360: ; preds = %.noexc357
@@ -1532,7 +1532,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit366: ; preds = %566, %568, %
           to label %.noexc367 unwind label %997
 
 .noexc367:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit366
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %578, ptr noundef nonnull align 1 dereferenceable(1) %70)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef %578, ptr noundef nonnull align 1 dereferenceable(1) %70)
           to label %.noexc368 unwind label %997
 
 .noexc368:                                        ; preds = %.noexc367
@@ -1542,7 +1542,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit366: ; preds = %566, %568, %
 579:                                              ; preds = %.noexc368
   %580 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #8
   br label %.body369
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit371: ; preds = %.noexc368
@@ -1598,7 +1598,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit377: ; preds = %590, %592, %
           to label %.noexc378 unwind label %1013
 
 .noexc378:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit377
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %602, ptr noundef nonnull align 1 dereferenceable(1) %73)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef %602, ptr noundef nonnull align 1 dereferenceable(1) %73)
           to label %.noexc379 unwind label %1013
 
 .noexc379:                                        ; preds = %.noexc378
@@ -1608,7 +1608,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit377: ; preds = %590, %592, %
 603:                                              ; preds = %.noexc379
   %604 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #8
   br label %.body380
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit382: ; preds = %.noexc379
@@ -1664,7 +1664,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit388: ; preds = %614, %616, %
           to label %.noexc389 unwind label %1029
 
 .noexc389:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit388
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %626, ptr noundef nonnull align 1 dereferenceable(1) %76)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef %626, ptr noundef nonnull align 1 dereferenceable(1) %76)
           to label %.noexc390 unwind label %1029
 
 .noexc390:                                        ; preds = %.noexc389
@@ -1674,7 +1674,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit388: ; preds = %614, %616, %
 627:                                              ; preds = %.noexc390
   %628 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #8
   br label %.body391
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit393: ; preds = %.noexc390
@@ -1730,7 +1730,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit399: ; preds = %638, %640, %
           to label %.noexc400 unwind label %1045
 
 .noexc400:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit399
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef %650, ptr noundef nonnull align 1 dereferenceable(1) %79)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef %650, ptr noundef nonnull align 1 dereferenceable(1) %79)
           to label %.noexc401 unwind label %1045
 
 .noexc401:                                        ; preds = %.noexc400
@@ -1740,7 +1740,7 @@ _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit399: ; preds = %638, %640, %
 651:                                              ; preds = %.noexc401
   %652 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %78) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #8
   br label %.body402
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit404: ; preds = %.noexc401

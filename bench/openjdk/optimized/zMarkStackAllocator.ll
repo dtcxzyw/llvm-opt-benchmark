@@ -274,7 +274,7 @@ define hidden noundef i64 @_ZN15ZMarkStackSpace11alloc_spaceEm(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN15ZMarkStackSpace22expand_and_alloc_spaceEm(ptr noundef nonnull align 8 dereferenceable(65) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #10
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load volatile i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -335,7 +335,7 @@ _ZN15ZMarkStackSpace12expand_spaceEv.exit:        ; preds = %25, %27
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %_ZN15ZMarkStackSpace11alloc_spaceEm.exit, %_ZN15ZMarkStackSpace12expand_spaceEv.exit
   %.0 = phi i64 [ %32, %_ZN15ZMarkStackSpace12expand_spaceEv.exit ], [ %.011.i, %_ZN15ZMarkStackSpace11alloc_spaceEm.exit ]
-  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #10
+  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
   ret i64 %.0
 }
 
@@ -459,7 +459,7 @@ define hidden noundef i64 @_ZNK19ZMarkStackAllocator4sizeEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN19ZMarkStackAllocator26create_magazine_from_spaceEmm(ptr nocapture noundef nonnull readnone align 64 dereferenceable(257) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = inttoptr i64 %1 to ptr
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, i8 0, i64 16, i1 false)
   %5 = icmp ugt i64 %2, 2048
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -471,7 +471,7 @@ define hidden noundef ptr @_ZN19ZMarkStackAllocator26create_magazine_from_spaceE
   %.08 = phi i64 [ 2048, %.lr.ph ], [ %14, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit ]
   %8 = add i64 %.08, %1
   %9 = inttoptr i64 %8 to ptr
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %9, i8 0, i64 16, i1 false)
   %10 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %10, 15
   br i1 %.not, label %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit, label %11
@@ -570,7 +570,7 @@ _ZN15ZMarkStackSpace5allocEm.exit:                ; preds = %40, %_ZN15ZMarkStac
 _ZN15ZMarkStackSpace5allocEm.exit.thread:         ; preds = %_ZN15ZMarkStackSpace11alloc_spaceEm.exit.i, %_ZN15ZMarkStackSpace5allocEm.exit
   %.0.i713 = phi i64 [ %47, %_ZN15ZMarkStackSpace5allocEm.exit ], [ %.011.i.i, %_ZN15ZMarkStackSpace11alloc_spaceEm.exit.i ]
   %49 = inttoptr i64 %.0.i713 to ptr
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %49, i8 0, i64 16, i1 false)
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   br label %51
 
@@ -578,7 +578,7 @@ _ZN15ZMarkStackSpace5allocEm.exit.thread:         ; preds = %_ZN15ZMarkStackSpac
   %.08.i8 = phi i64 [ 2048, %_ZN15ZMarkStackSpace5allocEm.exit.thread ], [ %58, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i ]
   %52 = add i64 %.08.i8, %.0.i713
   %53 = inttoptr i64 %52 to ptr
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %53, i8 0, i64 16, i1 false)
   %54 = load i64, ptr %49, align 8
   %.not.i9 = icmp eq i64 %54, 15
   br i1 %.not.i9, label %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.i, label %55

@@ -425,7 +425,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define void @_ZThn184_N25QCPErrorBarsNotSelectableD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -184
   tail call void @_ZN25QCPErrorBarsNotSelectableD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(248) %2) #26
   ret void
 }
 
@@ -505,7 +505,7 @@ define void @_ZN15TCPStreamDialogC2EP7QWidgetP13_capture_file15tcp_graph_type_(p
   %71 = alloca %"class.QMetaObject::Connection", align 8
   %72 = alloca %"class.QMetaObject::Connection", align 8
   %73 = alloca %"class.QMetaObject::Connection", align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %74 = getelementptr inbounds i8, ptr %0, i64 16
   %75 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
@@ -545,7 +545,7 @@ define void @_ZN15TCPStreamDialogC2EP7QWidgetP13_capture_file15tcp_graph_type_(p
   %99 = getelementptr inbounds i8, ptr %0, i64 344
   %100 = getelementptr inbounds i8, ptr %0, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(180) %84, i8 0, i64 180, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %100, ptr noundef nonnull align 8 dereferenceable(72) @constinit, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %100, ptr noundef nonnull align 8 dereferenceable(72) @constinit, i64 72, i1 false)
   %101 = getelementptr inbounds i8, ptr %0, i64 464
   %102 = load i16, ptr %101, align 8
   %103 = and i16 %102, -1024
@@ -6084,7 +6084,7 @@ _ZN17QArrayDataPointerI12QCPGraphDataE5derefEv.exit.i.i.i: ; preds = %_ZN17QArra
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %50, i64 8
   %81 = load ptr, ptr %80, align 8
-  invoke void %81(ptr noundef nonnull %50)
+  invoke void %81(ptr noundef nonnull align 8 dereferenceable(16) %50)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %84
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %79, %76
@@ -6191,7 +6191,7 @@ _ZN5QListI16QCPErrorBarsDataE5clearEv.exit:       ; preds = %119, %118, %_ZN17QA
 123:                                              ; preds = %120
   %124 = getelementptr inbounds i8, ptr %98, i64 8
   %125 = load ptr, ptr %124, align 8
-  invoke void %125(ptr noundef nonnull %98)
+  invoke void %125(ptr noundef nonnull align 8 dereferenceable(16) %98)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i87 unwind label %128
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i87: ; preds = %123, %120
@@ -6289,7 +6289,7 @@ _ZN5QListI16QCPErrorBarsDataE5clearEv.exit98:     ; preds = %158, %157, %_ZN17QA
 162:                                              ; preds = %159
   %163 = getelementptr inbounds i8, ptr %137, i64 8
   %164 = load ptr, ptr %163, align 8
-  invoke void %164(ptr noundef nonnull %137)
+  invoke void %164(ptr noundef nonnull align 8 dereferenceable(16) %137)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i101 unwind label %167
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i101: ; preds = %162, %159
@@ -6387,7 +6387,7 @@ _ZN5QListI16QCPErrorBarsDataE5clearEv.exit113:    ; preds = %197, %196, %_ZN17QA
 201:                                              ; preds = %198
   %202 = getelementptr inbounds i8, ptr %176, i64 8
   %203 = load ptr, ptr %202, align 8
-  invoke void %203(ptr noundef nonnull %176)
+  invoke void %203(ptr noundef nonnull align 8 dereferenceable(16) %176)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i116 unwind label %206
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i116: ; preds = %201, %198
@@ -7827,7 +7827,7 @@ define void @_ZN15TCPStreamDialogD0Ev(ptr noundef nonnull align 8 dereferenceabl
 define void @_ZThn16_N15TCPStreamDialogD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15TCPStreamDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(584) %2) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(584) %2) #26
   ret void
 }
 

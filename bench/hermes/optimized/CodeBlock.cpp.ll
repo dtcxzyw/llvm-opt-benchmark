@@ -346,7 +346,7 @@ _ZNK6hermes2vm9CodeBlock29getDebugSourceLocationsOffsetEv.exit: ; preds = %entry
 
 if.then:                                          ; preds = %entry, %_ZNK6hermes2vm9CodeBlock29getDebugSourceLocationsOffsetEv.exit
   %envReg.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(33) %agg.result, i8 0, i64 28, i1 false)
   store i32 -1, ptr %envReg.i.i, align 4
   %hasValue_.i1 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasValue_.i1, align 4

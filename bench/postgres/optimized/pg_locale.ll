@@ -2696,7 +2696,7 @@ define dso_local i64 @wchar2char(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @uselocale(ptr noundef %12) #22
-  %14 = tail call i64 @wcstombs(ptr noundef %0, ptr noundef %1, i64 noundef %2) #22
+  %14 = tail call i64 @wcstombs(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2) #22
   %15 = tail call ptr @uselocale(ptr noundef %13) #22
   br label %16
 
@@ -2726,7 +2726,7 @@ define dso_local range(i64 0, -1) i64 @char2wchar(ptr noundef %0, i64 noundef %1
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @uselocale(ptr noundef %14) #22
-  %16 = tail call i64 @mbstowcs(ptr noundef %0, ptr noundef %8, i64 noundef %1) #22
+  %16 = tail call i64 @mbstowcs(ptr noundef %0, ptr noundef %8, i64 noundef range(i64 1, 0) %1) #22
   %17 = tail call ptr @uselocale(ptr noundef %15) #22
   br label %18
 

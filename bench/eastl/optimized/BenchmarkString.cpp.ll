@@ -265,7 +265,7 @@ for.body:                                         ; preds = %entry, %_ZN5eastl12
           to label %call.i.noexc unwind label %lpad1
 
 call.i.noexc:                                     ; preds = %for.body
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ss8, ptr noundef %call.i46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ss8, ptr noundef %call.i46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad1
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -275,7 +275,7 @@ call.i.noexc:                                     ; preds = %for.body
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ss8) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ss8) #8
   br label %lpad1.body
 
 invoke.cont6:                                     ; preds = %.noexc
@@ -303,7 +303,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %call5.i.i.i.i1.i.no
   store i64 -9223372036854775792, ptr %mnCapacity.i.i.i.i, align 8
   store i64 16, ptr %mnSize.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(34) %call.i.i.i.i.i55, i8 0, i64 34, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %3 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -351,7 +351,7 @@ for.end.i:                                        ; preds = %.noexc56
           to label %invoke.cont15 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont15:                                    ; preds = %for.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %7 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i60 = icmp eq i32 %7, 1
   br i1 %cmp.i.i.i60, label %if.then2.i.i.i81, label %if.else.i.i.i61
@@ -471,7 +471,7 @@ if.then19.i:                                      ; preds = %if.then17.i, %lor.l
 if.then21.i:                                      ; preds = %if.then19.i
   %23 = load ptr, ptr %es8, align 8
   %spec.select.i.i2460 = select i1 %tobool.i.i29.i, ptr %es8, ptr %23
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %es8, ptr align 1 %spec.select.i.i2460, i64 %n.addr.0.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %es8, ptr align 1 %spec.select.i.i2460, i64 %n.addr.0.i, i1 false)
   %24 = trunc nuw i64 %n.addr.0.i to i8
   %conv.i.i = sub nuw nsw i8 23, %24
   store i8 %conv.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
@@ -881,7 +881,7 @@ lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %ehcleanup451
 
 if.end:                                           ; preds = %invoke.cont21, %invoke.cont16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %41 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i86 = icmp eq i32 %41, 1
   br i1 %cmp.i.i.i86, label %if.then2.i.i.i107, label %if.else.i.i.i87
@@ -996,7 +996,7 @@ for.end.i103:                                     ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont24 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont24:                                    ; preds = %for.end.i103
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %51 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i112 = icmp eq i32 %51, 1
   br i1 %cmp.i.i.i112, label %if.then2.i.i.i158, label %if.else.i.i.i113
@@ -1117,7 +1117,7 @@ if.then21.i2524:                                  ; preds = %if.then19.i2501
   %67 = load ptr, ptr %es16, align 8
   %spec.select.i.i2525 = select i1 %tobool.i.i29.i2493, ptr %es16, ptr %67
   %add.ptr.idx.i2526 = shl nuw nsw i64 %n.addr.0.i2492, 1
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %es16, ptr align 2 %spec.select.i.i2525, i64 %add.ptr.idx.i2526, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %es16, ptr align 2 %spec.select.i.i2525, i64 %add.ptr.idx.i2526, i1 false)
   %68 = trunc nuw i64 %n.addr.0.i2492 to i8
   %conv.i.i2527 = sub nuw nsw i8 11, %68
   store i8 %conv.i.i2527, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
@@ -1250,7 +1250,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
 if.end35:                                         ; preds = %invoke.cont32, %invoke.cont25
   store i16 97, ptr %pInsert1_8, align 2
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ss8) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %82 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i164 = icmp eq i32 %82, 1
   br i1 %cmp.i.i.i164, label %if.then2.i.i.i179, label %if.else.i.i.i165
@@ -1305,7 +1305,7 @@ invoke.cont36:                                    ; preds = %for.end.i176
   %conv.i.i.i.i = zext nneg i8 %86 to i64
   %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
   %cond.i.i.i184 = select i1 %tobool.i.i.i.i, i64 %87, i64 %sub.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %88 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i186 = icmp eq i32 %88, 1
   br i1 %cmp.i.i.i186, label %if.then2.i.i.i205, label %if.else.i.i.i187
@@ -1390,7 +1390,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
 if.end48:                                         ; preds = %invoke.cont45, %invoke.cont38
   store i32 97, ptr %pInsert1_16, align 4
   %97 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %98 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i211 = icmp eq i32 %98, 1
   br i1 %cmp.i.i.i211, label %if.then2.i.i.i232, label %if.else.i.i.i212
@@ -1471,7 +1471,7 @@ invoke.cont50:                                    ; preds = %for.end.i229
   %conv.i.i.i.i239 = zext nneg i8 %107 to i64
   %sub.i.i.i.i240 = sub nsw i64 11, %conv.i.i.i.i239
   %cond.i.i.i241 = select i1 %tobool.i.i.i.i237, i64 %108, i64 %sub.i.i.i.i240
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %109 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i243 = icmp eq i32 %109, 1
   br i1 %cmp.i.i.i243, label %if.then2.i.i.i271, label %if.else.i.i.i244
@@ -1555,7 +1555,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
 
 if.end62:                                         ; preds = %invoke.cont59, %invoke.cont52
   %call.i277 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ss8) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %118 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i279 = icmp eq i32 %118, 1
   br i1 %cmp.i.i.i279, label %if.then2.i.i.i298, label %if.else.i.i.i280
@@ -1610,7 +1610,7 @@ invoke.cont63:                                    ; preds = %for.end.i295
   %conv.i.i.i.i306 = zext nneg i8 %122 to i64
   %sub.i.i.i.i307 = sub nsw i64 23, %conv.i.i.i.i306
   %cond.i.i.i308 = select i1 %tobool.i.i.i.i304, i64 %123, i64 %sub.i.i.i.i307
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %124 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i310 = icmp eq i32 %124, 1
   br i1 %cmp.i.i.i310, label %if.then2.i.i.i343, label %if.else.i.i.i311
@@ -1722,7 +1722,7 @@ invoke.cont71:                                    ; preds = %invoke.cont69
 
 if.end74:                                         ; preds = %invoke.cont71, %invoke.cont64
   %137 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %138 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i349 = icmp eq i32 %138, 1
   br i1 %cmp.i.i.i349, label %if.then2.i.i.i374, label %if.else.i.i.i350
@@ -1813,7 +1813,7 @@ invoke.cont75:                                    ; preds = %for.end.i368
   %conv.i.i.i.i381 = zext nneg i8 %148 to i64
   %sub.i.i.i.i382 = sub nsw i64 11, %conv.i.i.i.i381
   %cond.i.i.i383 = select i1 %tobool.i.i.i.i379, i64 %149, i64 %sub.i.i.i.i382
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %150 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i385 = icmp eq i32 %150, 1
   br i1 %cmp.i.i.i385, label %if.then2.i.i.i431, label %if.else.i.i.i386
@@ -1924,7 +1924,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
 if.end86:                                         ; preds = %invoke.cont83, %invoke.cont76
   store i64 7523094288207667809, ptr %pReplace1_8, align 8
   %call.i435 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ss8) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %163 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i437 = icmp eq i32 %163, 1
   br i1 %cmp.i.i.i437, label %if.then2.i.i.i456, label %if.else.i.i.i438
@@ -1981,7 +1981,7 @@ invoke.cont88:                                    ; preds = %for.end.i453
   %conv.i.i.i.i463 = zext nneg i8 %167 to i64
   %sub.i.i.i.i464 = sub nsw i64 23, %conv.i.i.i.i463
   %cond.i.i.i465 = select i1 %tobool.i.i.i.i461, i64 %168, i64 %sub.i.i.i.i464
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %169 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i467 = icmp eq i32 %169, 1
   br i1 %cmp.i.i.i467, label %if.then2.i.i.i492, label %if.else.i.i.i468
@@ -2174,7 +2174,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
 if.end100:                                        ; preds = %invoke.cont97, %invoke.cont90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pReplace1_16, ptr noundef nonnull align 16 dereferenceable(16) @__const._Z15BenchmarkStringv.pReplace1_16, i64 16, i1 false)
   %192 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %193 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i499 = icmp eq i32 %193, 1
   br i1 %cmp.i.i.i499, label %if.then2.i.i.i523, label %if.else.i.i.i500
@@ -2475,7 +2475,7 @@ invoke.cont102:                                   ; preds = %for.end.i519
   %conv.i.i.i.i531 = zext nneg i8 %212 to i64
   %sub.i.i.i.i532 = sub nsw i64 11, %conv.i.i.i.i531
   %cond.i.i.i533 = select i1 %tobool.i.i.i.i529, i64 %213, i64 %sub.i.i.i.i532
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %214 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i535 = icmp eq i32 %214, 1
   br i1 %cmp.i.i.i535, label %if.then2.i.i.i566, label %if.else.i.i.i536
@@ -2681,7 +2681,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
 
 if.end114:                                        ; preds = %invoke.cont111, %invoke.cont104
   %call.i572 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ss8) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %236 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i574 = icmp eq i32 %236, 1
   br i1 %cmp.i.i.i574, label %if.then2.i.i.i594, label %if.else.i.i.i575
@@ -2737,7 +2737,7 @@ invoke.cont115:                                   ; preds = %for.end.i591
   %241 = load i64, ptr %add.ptr.i1.i.i.i, align 8
   %and.i.i.i = and i64 %241, 9223372036854775807
   %242 = add nsw i64 %and.i.i.i, -2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %243 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i600 = icmp eq i32 %243, 1
   br i1 %cmp.i.i.i600, label %if.then2.i.i.i628, label %if.else.i.i.i601
@@ -2812,7 +2812,7 @@ if.then19.i2699:                                  ; preds = %if.then17.i2697, %l
 if.then21.i2722:                                  ; preds = %if.then19.i2699
   %250 = load ptr, ptr %es8, align 8
   %spec.select.i.i2723 = select i1 %tobool.i.i29.i2691, ptr %es8, ptr %250
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %es8, ptr align 1 %spec.select.i.i2723, i64 %spec.select, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %es8, ptr align 1 %spec.select.i.i2723, i64 %spec.select, i1 false)
   %251 = trunc nuw i64 %spec.select to i8
   %conv.i.i2724 = sub nuw nsw i8 23, %251
   store i8 %conv.i.i2724, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
@@ -2921,7 +2921,7 @@ if.then.i.i.i664:                                 ; preds = %if.end126
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i: ; preds = %if.then.i.i.i664, %if.end126
   %261 = load i64, ptr %0, align 8
   %262 = add i64 %261, -2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %263 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i6.i = icmp eq i32 %263, 1
   br i1 %cmp.i.i6.i, label %if.then2.i.i.i663, label %if.else.i.i.i635
@@ -3049,7 +3049,7 @@ invoke.cont127:                                   ; preds = %for.end.i655
   %275 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i672 = and i64 %275, 9223372036854775807
   %276 = add nsw i64 %and.i.i.i672, -2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %277 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i674 = icmp eq i32 %277, 1
   br i1 %cmp.i.i.i674, label %if.then2.i.i.i705, label %if.else.i.i.i675
@@ -3125,7 +3125,7 @@ if.then21.i2792:                                  ; preds = %if.then19.i2768
   %284 = load ptr, ptr %es16, align 8
   %spec.select.i.i2793 = select i1 %tobool.i.i29.i2760, ptr %es16, ptr %284
   %add.ptr.idx.i2794 = shl nuw nsw i64 %spec.select2895, 1
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %es16, ptr align 2 %spec.select.i.i2793, i64 %add.ptr.idx.i2794, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %es16, ptr align 2 %spec.select.i.i2793, i64 %add.ptr.idx.i2794, i1 false)
   %285 = trunc nuw i64 %spec.select2895 to i8
   %conv.i.i2795 = sub nuw nsw i8 11, %285
   store i8 %conv.i.i2795, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
@@ -3222,7 +3222,7 @@ invoke.cont135:                                   ; preds = %invoke.cont133
           to label %if.end138 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end138:                                        ; preds = %invoke.cont135, %invoke.cont128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %293 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i711 = icmp eq i32 %293, 1
   br i1 %cmp.i.i.i711, label %if.then2.i.i.i729, label %if.else.i.i.i712
@@ -3257,7 +3257,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i719:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i721:                                    ; preds = %.noexc730, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i719
   %i.04.i722 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i719 ], [ %inc.i724, %.noexc730 ]
   %call.i723 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ss8) #8
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8, i64 noundef %call.i723)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8, i64 noundef %call.i723)
           to label %.noexc730 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc730:                                        ; preds = %for.body.i721
@@ -3270,7 +3270,7 @@ for.end.i726:                                     ; preds = %.noexc730
           to label %invoke.cont139 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont139:                                   ; preds = %for.end.i726
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %297 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i734 = icmp eq i32 %297, 1
   br i1 %cmp.i.i.i734, label %if.then2.i.i.i757, label %if.else.i.i.i735
@@ -3310,7 +3310,7 @@ for.body.i746:                                    ; preds = %.noexc758, %_ZN2EA4
   %conv.i.i.i.i749 = zext nneg i8 %301 to i64
   %sub.i.i.i.i750 = sub nsw i64 23, %conv.i.i.i.i749
   %cond.i.i.i751 = select i1 %tobool.i.i.i.i748, i64 %302, i64 %sub.i.i.i.i750
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8, i64 noundef %cond.i.i.i751)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8, i64 noundef %cond.i.i.i751)
           to label %.noexc758 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc758:                                        ; preds = %for.body.i746
@@ -3339,7 +3339,7 @@ invoke.cont147:                                   ; preds = %invoke.cont145
           to label %if.end150 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end150:                                        ; preds = %invoke.cont147, %invoke.cont140
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %304 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i763 = icmp eq i32 %304, 1
   br i1 %cmp.i.i.i763, label %if.then2.i.i.i781, label %if.else.i.i.i764
@@ -3374,7 +3374,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i771:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i774:                                    ; preds = %.noexc782, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i771
   %i.04.i775 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i771 ], [ %inc.i776, %.noexc782 ]
   %308 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i64 noundef %308)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i64 noundef %308)
           to label %.noexc782 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc782:                                        ; preds = %for.body.i774
@@ -3387,7 +3387,7 @@ for.end.i778:                                     ; preds = %.noexc782
           to label %invoke.cont151 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont151:                                   ; preds = %for.end.i778
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %309 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i786 = icmp eq i32 %309, 1
   br i1 %cmp.i.i.i786, label %if.then2.i.i.i809, label %if.else.i.i.i787
@@ -3427,7 +3427,7 @@ for.body.i798:                                    ; preds = %.noexc810, %_ZN2EA4
   %conv.i.i.i.i801 = zext nneg i8 %313 to i64
   %sub.i.i.i.i802 = sub nsw i64 11, %conv.i.i.i.i801
   %cond.i.i.i803 = select i1 %tobool.i.i.i.i800, i64 %314, i64 %sub.i.i.i.i802
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16, i64 noundef %cond.i.i.i803)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16, i64 noundef %cond.i.i.i803)
           to label %.noexc810 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc810:                                        ; preds = %for.body.i798
@@ -3456,7 +3456,7 @@ invoke.cont159:                                   ; preds = %invoke.cont157
           to label %if.end162 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end162:                                        ; preds = %invoke.cont159, %invoke.cont152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %316 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i815 = icmp eq i32 %316, 1
   br i1 %cmp.i.i.i815, label %if.then2.i.i.i834, label %if.else.i.i.i816
@@ -3511,7 +3511,7 @@ for.end.i831:                                     ; preds = %call1.i.noexc835, %
 
 invoke.cont163:                                   ; preds = %for.end.i831
   %call2.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %temp.0.lcssa.i) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %321 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i840 = icmp eq i32 %321, 1
   br i1 %cmp.i.i.i840, label %if.then2.i.i.i868, label %if.else.i.i.i841
@@ -3589,7 +3589,7 @@ invoke.cont171:                                   ; preds = %invoke.cont169
           to label %if.end174 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end174:                                        ; preds = %invoke.cont171, %invoke.cont164
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %330 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i873 = icmp eq i32 %330, 1
   br i1 %cmp.i.i.i873, label %if.then2.i.i.i899, label %if.else.i.i.i874
@@ -3645,7 +3645,7 @@ for.end.i894:                                     ; preds = %for.body.i886, %_ZN
 
 invoke.cont175:                                   ; preds = %for.end.i894
   %call2.i896 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %temp.0.lcssa.i895) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %337 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i903 = icmp eq i32 %337, 1
   br i1 %cmp.i.i.i903, label %if.then2.i.i.i935, label %if.else.i.i.i904
@@ -3723,7 +3723,7 @@ invoke.cont183:                                   ; preds = %invoke.cont181
           to label %if.end186 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end186:                                        ; preds = %invoke.cont183, %invoke.cont176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %346 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i940 = icmp eq i32 %346, 1
   br i1 %cmp.i.i.i940, label %if.then2.i.i.i962, label %if.else.i.i.i941
@@ -3784,7 +3784,7 @@ _ZN5eastl4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   %first.sroa.0.0.lcssa.i.i = phi ptr [ %call.i952, %for.body.i950 ], [ %scevgep.i.i, %while.body.i.i ], [ %first.sroa.0.04.i.i, %land.rhs.i.i ]
   %352 = load i8, ptr %first.sroa.0.0.lcssa.i.i, align 1
   %conv.i956 = sext i8 %352 to i32
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8, i32 noundef %conv.i956)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8, i32 noundef %conv.i956)
           to label %.noexc963 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc963:                                        ; preds = %_ZN5eastl4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEET_SB_SB_RKT0_.exit.i
@@ -3797,7 +3797,7 @@ for.end.i959:                                     ; preds = %.noexc963
           to label %invoke.cont187 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont187:                                   ; preds = %for.end.i959
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %353 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i967 = icmp eq i32 %353, 1
   br i1 %cmp.i.i.i967, label %if.then2.i.i.i998, label %if.else.i.i.i968
@@ -3866,7 +3866,7 @@ _ZN5eastl4findIPccEET_S2_S2_RKT0_.exit.i:         ; preds = %while.body.i.i990, 
   %first.addr.0.lcssa.i.i = phi ptr [ %spec.select.i.i.i981, %for.body.i979 ], [ %scevgep.i.i988, %while.body.i.i990 ], [ %first.addr.05.i.i, %land.rhs.i.i989 ]
   %362 = load i8, ptr %first.addr.0.lcssa.i.i, align 1
   %conv.i992 = sext i8 %362 to i32
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8, i32 noundef %conv.i992)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8, i32 noundef %conv.i992)
           to label %.noexc999 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc999:                                        ; preds = %_ZN5eastl4findIPccEET_S2_S2_RKT0_.exit.i
@@ -3895,7 +3895,7 @@ invoke.cont195:                                   ; preds = %invoke.cont193
           to label %if.end198 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end198:                                        ; preds = %invoke.cont195, %invoke.cont188
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %364 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1004 = icmp eq i32 %364, 1
   br i1 %cmp.i.i.i1004, label %if.then2.i.i.i1032, label %if.else.i.i.i1005
@@ -3950,7 +3950,7 @@ _ZN5eastl4findIN9__gnu_cxx17__normal_iteratorIPDsNSt7__cxx1112basic_stringIDsSt1
   %first.sroa.0.0.lcssa.i.i1025 = phi ptr [ %368, %for.body.i1015 ], [ %add.ptr.i.i1017, %while.body.i.i1022 ], [ %first.sroa.0.04.i.i1020, %land.rhs.i.i1019 ]
   %371 = load i16, ptr %first.sroa.0.0.lcssa.i.i1025, align 2
   %conv.i1026 = zext i16 %371 to i32
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i32 noundef %conv.i1026)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i32 noundef %conv.i1026)
           to label %.noexc1033 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1033:                                       ; preds = %_ZN5eastl4findIN9__gnu_cxx17__normal_iteratorIPDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEEDsEET_SB_SB_RKT0_.exit.i
@@ -3963,7 +3963,7 @@ for.end.i1029:                                    ; preds = %.noexc1033
           to label %invoke.cont199 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont199:                                   ; preds = %for.end.i1029
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %372 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1037 = icmp eq i32 %372, 1
   br i1 %cmp.i.i.i1037, label %if.then2.i.i.i1072, label %if.else.i.i.i1038
@@ -4025,7 +4025,7 @@ _ZN5eastl4findIPDsDsEET_S2_S2_RKT0_.exit.i:       ; preds = %while.body.i.i1062,
   %first.addr.0.lcssa.i.i1065 = phi ptr [ %spec.select.i.i.i1052, %for.body.i1049 ], [ %incdec.ptr.i.i1063, %while.body.i.i1062 ], [ %first.addr.05.i.i1060, %land.rhs.i.i1059 ]
   %380 = load i16, ptr %first.addr.0.lcssa.i.i1065, align 2
   %conv.i1066 = zext i16 %380 to i32
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16, i32 noundef %conv.i1066)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16, i32 noundef %conv.i1066)
           to label %.noexc1073 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1073:                                       ; preds = %_ZN5eastl4findIPDsDsEET_S2_S2_RKT0_.exit.i
@@ -4088,7 +4088,7 @@ _ZN5eastl10CharStrlenIcEEmPKT_.exit.i:            ; preds = %while.cond.i.i
           to label %invoke.cont218 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont218:                                   ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %386 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1085 = icmp eq i32 %386, 1
   br i1 %cmp.i.i.i1085, label %if.then2.i.i.i1103, label %if.else.i.i.i1086
@@ -4123,7 +4123,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i1093:       ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i1095:                                   ; preds = %.noexc1104, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1093
   %i.04.i1096 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1093 ], [ %inc.i1098, %.noexc1104 ]
   %call.i1097 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %ss8, ptr noundef nonnull %pFind1_8, i64 noundef 15, i64 noundef 7) #8
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8, i64 noundef %call.i1097)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8, i64 noundef %call.i1097)
           to label %.noexc1104 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1104:                                       ; preds = %for.body.i1095
@@ -4136,7 +4136,7 @@ for.end.i1100:                                    ; preds = %.noexc1104
           to label %invoke.cont221 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont221:                                   ; preds = %for.end.i1100
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %390 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1108 = icmp eq i32 %390, 1
   br i1 %cmp.i.i.i1108, label %if.then2.i.i.i1140, label %if.else.i.i.i1109
@@ -4243,7 +4243,7 @@ if.then15.i.i:                                    ; preds = %_ZN5eastl6searchIPK
 
 _ZNK5eastl12basic_stringIcNS_9allocatorEE4findEPKcmm.exit.i: ; preds = %if.then11.i.i.i, %while.body8.i.i.i, %if.end.i.i.i1133, %if.then15.i.i, %_ZN5eastl6searchIPKcS2_EET_S3_S3_T0_S4_.exit.i.i, %for.body.i1120
   %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i1137, %if.then15.i.i ], [ -1, %_ZN5eastl6searchIPKcS2_EET_S3_S3_T0_S4_.exit.i.i ], [ -1, %for.body.i1120 ], [ -1, %if.end.i.i.i1133 ], [ -1, %while.body8.i.i.i ], [ -1, %if.then11.i.i.i ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8, i64 noundef %retval.0.i.i)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8, i64 noundef %retval.0.i.i)
           to label %.noexc1141 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1141:                                       ; preds = %_ZNK5eastl12basic_stringIcNS_9allocatorEE4findEPKcmm.exit.i
@@ -4302,7 +4302,7 @@ _ZN5eastl10CharStrlenIDsEEmPKT_.exit.i:           ; preds = %while.cond.i.i1150
           to label %invoke.cont237 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont237:                                   ; preds = %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %407 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1165 = icmp eq i32 %407, 1
   br i1 %cmp.i.i.i1165, label %if.then2.i.i.i1194, label %if.else.i.i.i1166
@@ -4406,7 +4406,7 @@ if.end17.i.i:                                     ; preds = %for.body.i19.i.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE4findEPKDsmm.exit.i: ; preds = %if.end17.i.i, %for.inc.i.i.i, %if.then16.i.i, %if.end5.i.i, %for.body.i1176
   %retval.0.i.i1178 = phi i64 [ %sub.ptr.div.i.i, %if.then16.i.i ], [ -1, %for.body.i1176 ], [ -1, %if.end5.i.i ], [ -1, %for.inc.i.i.i ], [ -1, %if.end17.i.i ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i64 noundef %retval.0.i.i1178)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i64 noundef %retval.0.i.i1178)
           to label %.noexc1195 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1195:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE4findEPKDsmm.exit.i
@@ -4419,7 +4419,7 @@ for.end.i1181:                                    ; preds = %.noexc1195
           to label %invoke.cont240 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont240:                                   ; preds = %for.end.i1181
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %417 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1199 = icmp eq i32 %417, 1
   br i1 %cmp.i.i.i1199, label %if.then2.i.i.i1261, label %if.else.i.i.i1200
@@ -4527,7 +4527,7 @@ if.then15.i.i1254:                                ; preds = %_ZN5eastl6searchIPK
 
 _ZNK5eastl12basic_stringIDsNS_9allocatorEE4findEPKDsmm.exit.i: ; preds = %if.then11.i.i.i1238, %while.body8.i.i.i1231, %if.end.i.i.i1249, %if.then15.i.i1254, %_ZN5eastl6searchIPKDsS2_EET_S3_S3_T0_S4_.exit.i.i, %for.body.i1211
   %retval.0.i.i1234 = phi i64 [ %sub.ptr.div.i.i1258, %if.then15.i.i1254 ], [ -1, %_ZN5eastl6searchIPKDsS2_EET_S3_S3_T0_S4_.exit.i.i ], [ -1, %for.body.i1211 ], [ -1, %if.end.i.i.i1249 ], [ -1, %while.body8.i.i.i1231 ], [ -1, %if.then11.i.i.i1238 ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16, i64 noundef %retval.0.i.i1234)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16, i64 noundef %retval.0.i.i1234)
           to label %.noexc1262 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1262:                                       ; preds = %_ZNK5eastl12basic_stringIDsNS_9allocatorEE4findEPKDsmm.exit.i
@@ -4556,7 +4556,7 @@ invoke.cont249:                                   ; preds = %invoke.cont247
           to label %if.end252 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end252:                                        ; preds = %invoke.cont249, %invoke.cont242
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %429 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1267 = icmp eq i32 %429, 1
   br i1 %cmp.i.i.i1267, label %if.then2.i.i.i1285, label %if.else.i.i.i1268
@@ -4591,7 +4591,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i1275:       ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i1277:                                   ; preds = %.noexc1286, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1275
   %i.04.i1278 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1275 ], [ %inc.i1280, %.noexc1286 ]
   %call.i1279 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %ss8, ptr noundef nonnull %pFind1_8, i64 noundef 15, i64 noundef 7) #8
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8, i64 noundef %call.i1279)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8, i64 noundef %call.i1279)
           to label %.noexc1286 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1286:                                       ; preds = %for.body.i1277
@@ -4604,7 +4604,7 @@ for.end.i1282:                                    ; preds = %.noexc1286
           to label %invoke.cont254 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont254:                                   ; preds = %for.end.i1282
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %433 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1290 = icmp eq i32 %433, 1
   br i1 %cmp.i.i.i1290, label %if.then2.i.i.i1326, label %if.else.i.i.i1291
@@ -4716,7 +4716,7 @@ if.then16.i.i1321:                                ; preds = %if.then27.i.i.i
 
 _ZNK5eastl12basic_stringIcNS_9allocatorEE5rfindEPKcmm.exit.i: ; preds = %while.end.i.i.i, %while.cond.i30.i.i.i, %if.then16.i.i1321, %if.then27.i.i.i, %if.then.i.i1308, %for.body.i1302
   %retval.0.i.i1316 = phi i64 [ %sub.ptr.sub.i.i1323, %if.then16.i.i1321 ], [ -1, %if.then27.i.i.i ], [ -1, %for.body.i1302 ], [ -1, %if.then.i.i1308 ], [ -1, %while.cond.i30.i.i.i ], [ -1, %while.end.i.i.i ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8, i64 noundef %retval.0.i.i1316)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8, i64 noundef %retval.0.i.i1316)
           to label %.noexc1327 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1327:                                       ; preds = %_ZNK5eastl12basic_stringIcNS_9allocatorEE5rfindEPKcmm.exit.i
@@ -4745,7 +4745,7 @@ invoke.cont263:                                   ; preds = %invoke.cont261
           to label %if.end266 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end266:                                        ; preds = %invoke.cont263, %invoke.cont256
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %445 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1332 = icmp eq i32 %445, 1
   br i1 %cmp.i.i.i1332, label %if.then2.i.i.i1363, label %if.else.i.i.i1333
@@ -4815,7 +4815,7 @@ do.cond.i.i:                                      ; preds = %for.body.i.i.i1349
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE5rfindEPKDsmm.exit.i: ; preds = %do.cond.i.i, %for.cond.i.i.i1358, %for.body.i1343
   %retval.0.i.i1354 = phi i64 [ -1, %for.body.i1343 ], [ %__pos.addr.0.i.i, %for.cond.i.i.i1358 ], [ -1, %do.cond.i.i ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i64 noundef %retval.0.i.i1354)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i64 noundef %retval.0.i.i1354)
           to label %.noexc1364 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1364:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE5rfindEPKDsmm.exit.i
@@ -4828,7 +4828,7 @@ for.end.i1357:                                    ; preds = %.noexc1364
           to label %invoke.cont268 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont268:                                   ; preds = %for.end.i1357
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %453 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1368 = icmp eq i32 %453, 1
   br i1 %cmp.i.i.i1368, label %if.then2.i.i.i1419, label %if.else.i.i.i1369
@@ -4944,7 +4944,7 @@ if.then16.i.i1413:                                ; preds = %if.then29.i.i.i
 
 _ZNK5eastl12basic_stringIDsNS_9allocatorEE5rfindEPKDsmm.exit.i: ; preds = %while.end.i.i.i1405, %while.cond.i30.i.i.i1398, %if.then16.i.i1413, %if.then29.i.i.i, %if.then.i.i1387, %for.body.i1380
   %retval.0.i.i1407 = phi i64 [ %sub.ptr.div.i.i1416, %if.then16.i.i1413 ], [ -1, %if.then29.i.i.i ], [ -1, %for.body.i1380 ], [ -1, %if.then.i.i1387 ], [ -1, %while.cond.i30.i.i.i1398 ], [ -1, %while.end.i.i.i1405 ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16, i64 noundef %retval.0.i.i1407)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16, i64 noundef %retval.0.i.i1407)
           to label %.noexc1420 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1420:                                       ; preds = %_ZNK5eastl12basic_stringIDsNS_9allocatorEE5rfindEPKDsmm.exit.i
@@ -4974,7 +4974,7 @@ invoke.cont277:                                   ; preds = %invoke.cont275
 
 if.end280:                                        ; preds = %invoke.cont277, %invoke.cont270
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %pFindOf1_8, i8 126, i64 7, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %465 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1425 = icmp eq i32 %465, 1
   br i1 %cmp.i.i.i1425, label %if.then2.i.i.i1443, label %if.else.i.i.i1426
@@ -5009,7 +5009,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i1433:       ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i1435:                                   ; preds = %.noexc1444, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1433
   %i.04.i1436 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1433 ], [ %inc.i1438, %.noexc1444 ]
   %call.i1437 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %ss8, ptr noundef nonnull %pFindOf1_8, i64 noundef 15, i64 noundef 7) #8
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8, i64 noundef %call.i1437)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8, i64 noundef %call.i1437)
           to label %.noexc1444 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1444:                                       ; preds = %for.body.i1435
@@ -5022,7 +5022,7 @@ for.end.i1440:                                    ; preds = %.noexc1444
           to label %invoke.cont282 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont282:                                   ; preds = %for.end.i1440
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %469 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1448 = icmp eq i32 %469, 1
   br i1 %cmp.i.i.i1448, label %if.then2.i.i.i1482, label %if.else.i.i.i1449
@@ -5110,7 +5110,7 @@ if.then13.i.i:                                    ; preds = %_ZN5eastl12basic_st
 
 _ZNK5eastl12basic_stringIcNS_9allocatorEE13find_first_ofEPKcmm.exit.i: ; preds = %for.cond1.for.inc6_crit_edge.i.i.i, %if.then13.i.i, %_ZN5eastl12basic_stringIcNS_9allocatorEE25CharTypeStringFindFirstOfEPKcS4_S4_S4_.exit.i.i, %if.then.i.i1471, %for.body.i1460
   %retval.0.i.i1467 = phi i64 [ %sub.ptr.sub.i.i1479, %if.then13.i.i ], [ -1, %_ZN5eastl12basic_stringIcNS_9allocatorEE25CharTypeStringFindFirstOfEPKcS4_S4_S4_.exit.i.i ], [ -1, %for.body.i1460 ], [ -1, %if.then.i.i1471 ], [ -1, %for.cond1.for.inc6_crit_edge.i.i.i ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8, i64 noundef %retval.0.i.i1467)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8, i64 noundef %retval.0.i.i1467)
           to label %.noexc1483 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1483:                                       ; preds = %_ZNK5eastl12basic_stringIcNS_9allocatorEE13find_first_ofEPKcmm.exit.i
@@ -5139,7 +5139,7 @@ invoke.cont291:                                   ; preds = %invoke.cont289
           to label %if.end294 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end294:                                        ; preds = %invoke.cont291, %invoke.cont284
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %479 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1488 = icmp eq i32 %479, 1
   br i1 %cmp.i.i.i1488, label %if.then2.i.i.i1515, label %if.else.i.i.i1489
@@ -5195,7 +5195,7 @@ for.body.i.i.i1506.preheader:                     ; preds = %for.body.lr.ph.i.i.
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE13find_first_ofEPKDsmm.exit.i: ; preds = %for.body.i.i.i1506.preheader, %for.body.lr.ph.i.i.i, %for.body.i1499
   %retval.0.i.i1501 = phi i64 [ -1, %for.body.i1499 ], [ %__pos.addr.011.i.i, %for.body.lr.ph.i.i.i ], [ -1, %for.body.i.i.i1506.preheader ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i64 noundef %retval.0.i.i1501)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i64 noundef %retval.0.i.i1501)
           to label %.noexc1516 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1516:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE13find_first_ofEPKDsmm.exit.i
@@ -5208,7 +5208,7 @@ for.end.i1504:                                    ; preds = %.noexc1516
           to label %invoke.cont296 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont296:                                   ; preds = %for.end.i1504
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %486 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1520 = icmp eq i32 %486, 1
   br i1 %cmp.i.i.i1520, label %if.then2.i.i.i1570, label %if.else.i.i.i1521
@@ -5286,7 +5286,7 @@ if.then13.i.i1563:                                ; preds = %_ZN5eastl12basic_st
 
 _ZNK5eastl12basic_stringIDsNS_9allocatorEE13find_first_ofEPKDsmm.exit.i: ; preds = %for.body3.i.i.i1552.preheader, %if.then13.i.i1563, %_ZN5eastl12basic_stringIDsNS_9allocatorEE25CharTypeStringFindFirstOfEPKDsS4_S4_S4_.exit.i.i, %if.then.i.i1543, %for.body.i1532
   %retval.0.i.i1539 = phi i64 [ %sub.ptr.div.i.i1567, %if.then13.i.i1563 ], [ -1, %_ZN5eastl12basic_stringIDsNS_9allocatorEE25CharTypeStringFindFirstOfEPKDsS4_S4_S4_.exit.i.i ], [ -1, %for.body.i1532 ], [ -1, %if.then.i.i1543 ], [ -1, %for.body3.i.i.i1552.preheader ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16, i64 noundef %retval.0.i.i1539)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16, i64 noundef %retval.0.i.i1539)
           to label %.noexc1571 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1571:                                       ; preds = %_ZNK5eastl12basic_stringIDsNS_9allocatorEE13find_first_ofEPKDsmm.exit.i
@@ -5315,7 +5315,7 @@ invoke.cont305:                                   ; preds = %invoke.cont303
           to label %if.end308 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end308:                                        ; preds = %invoke.cont305, %invoke.cont298
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %495 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1576 = icmp eq i32 %495, 1
   br i1 %cmp.i.i.i1576, label %if.then2.i.i.i1594, label %if.else.i.i.i1577
@@ -5350,7 +5350,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i1584:       ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i1586:                                   ; preds = %.noexc1595, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1584
   %i.04.i1587 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1584 ], [ %inc.i1589, %.noexc1595 ]
   %call.i1588 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %ss8, ptr noundef nonnull %pFindOf1_8, i64 noundef 15, i64 noundef 7) #8
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8, i64 noundef %call.i1588)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8, i64 noundef %call.i1588)
           to label %.noexc1595 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1595:                                       ; preds = %for.body.i1586
@@ -5363,7 +5363,7 @@ for.end.i1591:                                    ; preds = %.noexc1595
           to label %invoke.cont310 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont310:                                   ; preds = %for.end.i1591
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %499 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1599 = icmp eq i32 %499, 1
   br i1 %cmp.i.i.i1599, label %if.then2.i.i.i1644, label %if.else.i.i.i1600
@@ -5449,7 +5449,7 @@ if.then14.i.i:                                    ; preds = %_ZN5eastl12basic_st
 
 _ZNK5eastl12basic_stringIcNS_9allocatorEE12find_last_ofEPKcmm.exit.i: ; preds = %for.cond1.for.inc6_crit_edge.i.i.i1632, %if.then14.i.i, %_ZN5eastl12basic_stringIcNS_9allocatorEE26CharTypeStringRFindFirstOfEPKcS4_S4_S4_.exit.i.i, %for.body.i1611
   %retval.0.i.i1634 = phi i64 [ %sub.ptr.sub.i.i1641, %if.then14.i.i ], [ -1, %_ZN5eastl12basic_stringIcNS_9allocatorEE26CharTypeStringRFindFirstOfEPKcS4_S4_S4_.exit.i.i ], [ -1, %for.body.i1611 ], [ -1, %for.cond1.for.inc6_crit_edge.i.i.i1632 ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8, i64 noundef %retval.0.i.i1634)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8, i64 noundef %retval.0.i.i1634)
           to label %.noexc1645 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1645:                                       ; preds = %_ZNK5eastl12basic_stringIcNS_9allocatorEE12find_last_ofEPKcmm.exit.i
@@ -5478,7 +5478,7 @@ invoke.cont319:                                   ; preds = %invoke.cont317
           to label %if.end322 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end322:                                        ; preds = %invoke.cont319, %invoke.cont312
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %509 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1650 = icmp eq i32 %509, 1
   br i1 %cmp.i.i.i1650, label %if.then2.i.i.i1682, label %if.else.i.i.i1651
@@ -5536,7 +5536,7 @@ for.body.i.i.i1668.preheader:                     ; preds = %for.body.lr.ph.i.i.
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE12find_last_ofEPKDsmm.exit.i: ; preds = %for.body.i.i.i1668.preheader, %for.body.lr.ph.i.i.i1666, %for.body.i1661
   %retval.0.i.i1676 = phi i64 [ -1, %for.body.i1661 ], [ %__size.1.i.i, %for.body.lr.ph.i.i.i1666 ], [ -1, %for.body.i.i.i1668.preheader ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i64 noundef %retval.0.i.i1676)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i64 noundef %retval.0.i.i1676)
           to label %.noexc1683 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1683:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE12find_last_ofEPKDsmm.exit.i
@@ -5549,7 +5549,7 @@ for.end.i1679:                                    ; preds = %.noexc1683
           to label %invoke.cont324 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont324:                                   ; preds = %for.end.i1679
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %516 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1687 = icmp eq i32 %516, 1
   br i1 %cmp.i.i.i1687, label %if.then2.i.i.i1736, label %if.else.i.i.i1688
@@ -5625,7 +5625,7 @@ if.then14.i.i1729:                                ; preds = %_ZN5eastl12basic_st
 
 _ZNK5eastl12basic_stringIDsNS_9allocatorEE12find_last_ofEPKDsmm.exit.i: ; preds = %for.body3.i.i.i1715.preheader, %if.then14.i.i1729, %_ZN5eastl12basic_stringIDsNS_9allocatorEE26CharTypeStringRFindFirstOfEPKDsS4_S4_S4_.exit.i.i, %for.body.i1699
   %retval.0.i.i1724 = phi i64 [ %sub.ptr.div.i.i1733, %if.then14.i.i1729 ], [ -1, %_ZN5eastl12basic_stringIDsNS_9allocatorEE26CharTypeStringRFindFirstOfEPKDsS4_S4_S4_.exit.i.i ], [ -1, %for.body.i1699 ], [ -1, %for.body3.i.i.i1715.preheader ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16, i64 noundef %retval.0.i.i1724)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16, i64 noundef %retval.0.i.i1724)
           to label %.noexc1737 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1737:                                       ; preds = %_ZNK5eastl12basic_stringIDsNS_9allocatorEE12find_last_ofEPKDsmm.exit.i
@@ -5654,7 +5654,7 @@ invoke.cont333:                                   ; preds = %invoke.cont331
           to label %if.end336 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end336:                                        ; preds = %invoke.cont333, %invoke.cont326
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %525 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1742 = icmp eq i32 %525, 1
   br i1 %cmp.i.i.i1742, label %if.then2.i.i.i1760, label %if.else.i.i.i1743
@@ -5689,7 +5689,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i1750:       ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i1752:                                   ; preds = %.noexc1761, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1750
   %i.04.i1753 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1750 ], [ %inc.i1755, %.noexc1761 ]
   %call.i1754 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %ss8, ptr noundef nonnull %pFind1_8, i64 noundef 15, i64 noundef 7) #8
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8, i64 noundef %call.i1754)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8, i64 noundef %call.i1754)
           to label %.noexc1761 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1761:                                       ; preds = %for.body.i1752
@@ -5702,7 +5702,7 @@ for.end.i1757:                                    ; preds = %.noexc1761
           to label %invoke.cont338 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont338:                                   ; preds = %for.end.i1757
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %529 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1765 = icmp eq i32 %529, 1
   br i1 %cmp.i.i.i1765, label %if.then2.i.i.i1807, label %if.else.i.i.i1766
@@ -5790,7 +5790,7 @@ if.then13.i.i1796:                                ; preds = %_ZN5eastl12basic_st
 
 _ZNK5eastl12basic_stringIcNS_9allocatorEE17find_first_not_ofEPKcmm.exit.i: ; preds = %for.inc9.i.i.i, %if.then13.i.i1796, %_ZN5eastl12basic_stringIcNS_9allocatorEE28CharTypeStringFindFirstNotOfEPKcS4_S4_S4_.exit.i.i, %if.then.i.i1784, %for.body.i1777
   %retval.0.i.i1800 = phi i64 [ %sub.ptr.sub.i.i1799, %if.then13.i.i1796 ], [ -1, %_ZN5eastl12basic_stringIcNS_9allocatorEE28CharTypeStringFindFirstNotOfEPKcS4_S4_S4_.exit.i.i ], [ -1, %for.body.i1777 ], [ -1, %if.then.i.i1784 ], [ -1, %for.inc9.i.i.i ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8, i64 noundef %retval.0.i.i1800)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8, i64 noundef %retval.0.i.i1800)
           to label %.noexc1808 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1808:                                       ; preds = %_ZNK5eastl12basic_stringIcNS_9allocatorEE17find_first_not_ofEPKcmm.exit.i
@@ -5819,7 +5819,7 @@ invoke.cont347:                                   ; preds = %invoke.cont345
           to label %if.end350 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end350:                                        ; preds = %invoke.cont347, %invoke.cont340
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %539 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1813 = icmp eq i32 %539, 1
   br i1 %cmp.i.i.i1813, label %if.then2.i.i.i1843, label %if.else.i.i.i1814
@@ -5886,7 +5886,7 @@ for.inc.i.i1838:                                  ; preds = %for.body.i.i.i1831
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE17find_first_not_ofEPKDsmm.exit.i: ; preds = %for.inc.i.i1838, %for.inc.i.i.i1835, %for.body.i1824
   %retval.0.i.i1826 = phi i64 [ -1, %for.body.i1824 ], [ %__pos.addr.09.i.i, %for.inc.i.i.i1835 ], [ -1, %for.inc.i.i1838 ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i64 noundef %retval.0.i.i1826)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i64 noundef %retval.0.i.i1826)
           to label %.noexc1844 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1844:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE17find_first_not_ofEPKDsmm.exit.i
@@ -5899,7 +5899,7 @@ for.end.i1829:                                    ; preds = %.noexc1844
           to label %invoke.cont352 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont352:                                   ; preds = %for.end.i1829
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %547 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1848 = icmp eq i32 %547, 1
   br i1 %cmp.i.i.i1848, label %if.then2.i.i.i1898, label %if.else.i.i.i1849
@@ -5988,7 +5988,7 @@ if.then13.i.i1884:                                ; preds = %_ZN5eastl12basic_st
 
 _ZNK5eastl12basic_stringIDsNS_9allocatorEE17find_first_not_ofEPKDsmm.exit.i: ; preds = %for.inc9.i.i.i1893, %if.then13.i.i1884, %_ZN5eastl12basic_stringIDsNS_9allocatorEE28CharTypeStringFindFirstNotOfEPKDsS4_S4_S4_.exit.i.i, %if.then.i.i1867, %for.body.i1860
   %retval.0.i.i1889 = phi i64 [ %sub.ptr.div.i.i1888, %if.then13.i.i1884 ], [ -1, %_ZN5eastl12basic_stringIDsNS_9allocatorEE28CharTypeStringFindFirstNotOfEPKDsS4_S4_S4_.exit.i.i ], [ -1, %for.body.i1860 ], [ -1, %if.then.i.i1867 ], [ -1, %for.inc9.i.i.i1893 ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16, i64 noundef %retval.0.i.i1889)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16, i64 noundef %retval.0.i.i1889)
           to label %.noexc1899 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1899:                                       ; preds = %_ZNK5eastl12basic_stringIDsNS_9allocatorEE17find_first_not_ofEPKDsmm.exit.i
@@ -6017,7 +6017,7 @@ invoke.cont361:                                   ; preds = %invoke.cont359
           to label %if.end364 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end364:                                        ; preds = %invoke.cont361, %invoke.cont354
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %557 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1904 = icmp eq i32 %557, 1
   br i1 %cmp.i.i.i1904, label %if.then2.i.i.i1922, label %if.else.i.i.i1905
@@ -6052,7 +6052,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i1912:       ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i1914:                                   ; preds = %.noexc1923, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1912
   %i.04.i1915 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1912 ], [ %inc.i1917, %.noexc1923 ]
   %call.i1916 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16find_last_not_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %ss8, ptr noundef nonnull %pFind1_8, i64 noundef 15, i64 noundef 7) #8
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8, i64 noundef %call.i1916)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8, i64 noundef %call.i1916)
           to label %.noexc1923 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1923:                                       ; preds = %for.body.i1914
@@ -6065,7 +6065,7 @@ for.end.i1919:                                    ; preds = %.noexc1923
           to label %invoke.cont366 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont366:                                   ; preds = %for.end.i1919
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %561 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i1927 = icmp eq i32 %561, 1
   br i1 %cmp.i.i.i1927, label %if.then2.i.i.i1974, label %if.else.i.i.i1928
@@ -6151,7 +6151,7 @@ if.then14.i.i1962:                                ; preds = %_ZN5eastl12basic_st
 
 _ZNK5eastl12basic_stringIcNS_9allocatorEE16find_last_not_ofEPKcmm.exit.i: ; preds = %for.inc9.i.i.i1970, %if.then14.i.i1962, %_ZN5eastl12basic_stringIcNS_9allocatorEE29CharTypeStringRFindFirstNotOfEPKcS4_S4_S4_.exit.i.i, %for.body.i1939
   %retval.0.i.i1966 = phi i64 [ %sub.ptr.sub.i.i1965, %if.then14.i.i1962 ], [ -1, %_ZN5eastl12basic_stringIcNS_9allocatorEE29CharTypeStringRFindFirstNotOfEPKcS4_S4_S4_.exit.i.i ], [ -1, %for.body.i1939 ], [ -1, %for.inc9.i.i.i1970 ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8, i64 noundef %retval.0.i.i1966)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8, i64 noundef %retval.0.i.i1966)
           to label %.noexc1975 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1975:                                       ; preds = %_ZNK5eastl12basic_stringIcNS_9allocatorEE16find_last_not_ofEPKcmm.exit.i
@@ -6180,7 +6180,7 @@ invoke.cont375:                                   ; preds = %invoke.cont373
           to label %if.end378 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end378:                                        ; preds = %invoke.cont375, %invoke.cont368
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %571 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1980 = icmp eq i32 %571, 1
   br i1 %cmp.i.i.i1980, label %if.then2.i.i.i2014, label %if.else.i.i.i1981
@@ -6249,7 +6249,7 @@ do.cond.i.i2011:                                  ; preds = %for.body.i.i.i2000
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE16find_last_not_ofEPKDsmm.exit.i: ; preds = %do.cond.i.i2011, %for.inc.i.i.i2004, %for.body.i1991
   %retval.0.i.i2007 = phi i64 [ -1, %for.body.i1991 ], [ %__size.1.i.i1998, %for.inc.i.i.i2004 ], [ -1, %do.cond.i.i2011 ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i64 noundef %retval.0.i.i2007)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i64 noundef %retval.0.i.i2007)
           to label %.noexc2015 unwind label %lpad14.loopexit.split-lp.loopexit
 
 .noexc2015:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE16find_last_not_ofEPKDsmm.exit.i
@@ -6262,7 +6262,7 @@ for.end.i2010:                                    ; preds = %.noexc2015
           to label %invoke.cont380 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont380:                                   ; preds = %for.end.i2010
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %579 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i2019 = icmp eq i32 %579, 1
   br i1 %cmp.i.i.i2019, label %if.then2.i.i.i2068, label %if.else.i.i.i2020
@@ -6349,7 +6349,7 @@ if.then14.i.i2055:                                ; preds = %_ZN5eastl12basic_st
 
 _ZNK5eastl12basic_stringIDsNS_9allocatorEE16find_last_not_ofEPKDsmm.exit.i: ; preds = %for.inc9.i.i.i2064, %if.then14.i.i2055, %_ZN5eastl12basic_stringIDsNS_9allocatorEE29CharTypeStringRFindFirstNotOfEPKDsS4_S4_S4_.exit.i.i, %for.body.i2031
   %retval.0.i.i2060 = phi i64 [ %sub.ptr.div.i.i2059, %if.then14.i.i2055 ], [ -1, %_ZN5eastl12basic_stringIDsNS_9allocatorEE29CharTypeStringRFindFirstNotOfEPKDsS4_S4_S4_.exit.i.i ], [ -1, %for.body.i2031 ], [ -1, %for.inc9.i.i.i2064 ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16, i64 noundef %retval.0.i.i2060)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16, i64 noundef %retval.0.i.i2060)
           to label %.noexc2069 unwind label %lpad14.loopexit
 
 .noexc2069:                                       ; preds = %_ZNK5eastl12basic_stringIDsNS_9allocatorEE16find_last_not_ofEPKDsmm.exit.i
@@ -6529,7 +6529,7 @@ invoke.cont399:                                   ; preds = %if.else.i.i.i2128, 
   %add.ptr.i1.i.i.i2136 = getelementptr inbounds i16, ptr %es16X, i64 %sub.i.i.i.i.i2135
   %cond.i.i.i2137 = select i1 %tobool.i.i5.i.i2131, ptr %add.ptr.i.i.i.i2133, ptr %add.ptr.i1.i.i.i2136
   store i16 0, ptr %cond.i.i.i2137, align 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %607 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i2147 = icmp eq i32 %607, 1
   br i1 %cmp.i.i.i2147, label %if.then2.i.i.i2165, label %if.else.i.i.i2148
@@ -6567,7 +6567,7 @@ for.body.i2157:                                   ; preds = %.noexc2167, %_ZN2EA
           to label %call.i2159.noexc unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i2159.noexc:                                 ; preds = %for.body.i2157
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8, i32 noundef %call.i21592166)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8, i32 noundef %call.i21592166)
           to label %.noexc2167 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc2167:                                       ; preds = %call.i2159.noexc
@@ -6580,7 +6580,7 @@ for.end.i2162:                                    ; preds = %.noexc2167
           to label %invoke.cont401 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont401:                                   ; preds = %for.end.i2162
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %611 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i2171 = icmp eq i32 %611, 1
   br i1 %cmp.i.i.i2171, label %if.then2.i.i.i2203, label %if.else.i.i.i2172
@@ -6658,7 +6658,7 @@ _ZN5eastl7CompareEPKcS1_m.exit.i.i.i:             ; preds = %for.body.i2183
 
 _ZNK5eastl12basic_stringIcNS_9allocatorEE7compareERKS2_.exit.i: ; preds = %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i
   %621 = phi i32 [ %cond1010.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i ], [ %spec.select.i15.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8, i32 noundef %621)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8, i32 noundef %621)
           to label %.noexc2204 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc2204:                                       ; preds = %_ZNK5eastl12basic_stringIcNS_9allocatorEE7compareERKS2_.exit.i
@@ -6767,7 +6767,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %if.then.i.i2209
   br label %ehcleanup
 
 if.end412:                                        ; preds = %invoke.cont409, %invoke.cont402
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %627 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i2213 = icmp eq i32 %627, 1
   br i1 %cmp.i.i.i2213, label %if.then2.i.i.i2242, label %if.else.i.i.i2214
@@ -6836,7 +6836,7 @@ if.then.i.i2235:                                  ; preds = %for.cond.i.i.i2232,
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7compareERKS4_.exit.i: ; preds = %if.else.i.i5.i, %for.body.i.i.i2227, %if.then.i.i2235
   %__r.0.i.i = phi i32 [ %retval.0.i4.i.i, %if.then.i.i2235 ], [ -1, %for.body.i.i.i2227 ], [ 1, %if.else.i.i5.i ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i32 noundef %__r.0.i.i)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i32 noundef %__r.0.i.i)
           to label %.noexc2243 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc2243:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7compareERKS4_.exit.i
@@ -6849,7 +6849,7 @@ for.end.i2239:                                    ; preds = %.noexc2243
           to label %invoke.cont413 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont413:                                   ; preds = %for.end.i2239
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %637 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i2247 = icmp eq i32 %637, 1
   br i1 %cmp.i.i.i2247, label %if.then2.i.i.i2290, label %if.else.i.i.i2248
@@ -6942,7 +6942,7 @@ _ZN5eastl7CompareIDsEEiPKT_S3_m.exit.i.i.i:       ; preds = %for.body.i.i.i.i228
 
 _ZNK5eastl12basic_stringIDsNS_9allocatorEE7compareERKS2_.exit.i: ; preds = %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit.i.i.i, %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit.thread.i.i.i
   %649 = phi i32 [ %cond1111.i.i.i, %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit.thread.i.i.i ], [ %cond.i8.i.i.i, %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit.i.i.i ]
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16, i32 noundef %649)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16, i32 noundef %649)
           to label %.noexc2291 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc2291:                                       ; preds = %_ZNK5eastl12basic_stringIDsNS_9allocatorEE7compareERKS2_.exit.i
@@ -6971,7 +6971,7 @@ invoke.cont421:                                   ; preds = %invoke.cont419
           to label %if.end424 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end424:                                        ; preds = %invoke.cont421, %invoke.cont414
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %651 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i2296 = icmp eq i32 %651, 1
   br i1 %cmp.i.i.i2296, label %if.then2.i.i.i2313, label %if.else.i.i.i2297
@@ -7006,7 +7006,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i2304:       ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i2306:                                   ; preds = %.noexc2314, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i2304
   %i.04.i2307 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i2304 ], [ %inc.i2308, %.noexc2314 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %ss8, ptr noundef nonnull align 8 dereferenceable(32) %ss8X) #8
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss8)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss8)
           to label %.noexc2314 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc2314:                                       ; preds = %for.body.i2306
@@ -7019,7 +7019,7 @@ for.end.i2310:                                    ; preds = %.noexc2314
           to label %invoke.cont425 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont425:                                   ; preds = %for.end.i2310
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %655 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i2318 = icmp eq i32 %655, 1
   br i1 %cmp.i.i.i2318, label %if.then2.i.i.i2335, label %if.else.i.i.i2319
@@ -7058,7 +7058,7 @@ for.body.i2328:                                   ; preds = %.noexc2336, %_ZN2EA
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %es8, ptr noundef nonnull align 8 dereferenceable(24) %es8X, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %es8X, ptr noundef nonnull align 8 dereferenceable(24) %temp.sroa.0.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i)
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es8)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es8)
           to label %.noexc2336 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc2336:                                       ; preds = %for.body.i2328
@@ -7087,7 +7087,7 @@ invoke.cont433:                                   ; preds = %invoke.cont431
           to label %if.end436 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end436:                                        ; preds = %invoke.cont433, %invoke.cont426
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %660 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i2341 = icmp eq i32 %660, 1
   br i1 %cmp.i.i.i2341, label %if.then2.i.i.i2358, label %if.else.i.i.i2342
@@ -7223,7 +7223,7 @@ if.end75.i:                                       ; preds = %if.end74.i, %_ZNSt1
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE4swapERS4_.exit: ; preds = %_ZNSt11char_traitsIDsE4copyEPDsPKDsm.exit54.i, %_ZNSt11char_traitsIDsE4copyEPDsPKDsm.exit62.i, %if.end75.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp_data.i)
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16)
           to label %.noexc2359 unwind label %lpad400.loopexit.split-lp.loopexit
 
 .noexc2359:                                       ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE4swapERS4_.exit
@@ -7236,7 +7236,7 @@ for.end.i2355:                                    ; preds = %.noexc2359
           to label %invoke.cont437 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont437:                                   ; preds = %for.end.i2355
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %675 = load i32, ptr %mnUnits.i.i.i59, align 8
   %cmp.i.i.i2364 = icmp eq i32 %675, 1
   br i1 %cmp.i.i.i2364, label %if.then2.i.i.i2381, label %if.else.i.i.i2365
@@ -7275,7 +7275,7 @@ for.body.i2374:                                   ; preds = %.noexc2382, %_ZN2EA
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %es16, ptr noundef nonnull align 8 dereferenceable(24) %es16X, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %es16X, ptr noundef nonnull align 8 dereferenceable(24) %temp.sroa.0.i.i.i2361, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i2361)
-  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %es16)
+  invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(24) %es16)
           to label %.noexc2382 unwind label %lpad400.loopexit
 
 .noexc2382:                                       ; preds = %for.body.i2374

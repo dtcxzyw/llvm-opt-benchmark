@@ -136,11 +136,11 @@ if.then8.i.i29:                                   ; preds = %if.then.i.i26
   %15 = load i64, ptr %_now.i.i19, align 8
   %tv_usec.i.i32 = getelementptr inbounds i8, ptr %_now.i.i19, i64 8
   %16 = load i64, ptr %tv_usec.i.i32, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i31, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %s, ptr noundef %table, i32 noundef %spec.select) #6
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i31, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %s, ptr noundef %table, i32 noundef range(i32 -2147483648, 1) %spec.select) #6
   br label %trace_qed_read_table_cb.exit
 
 if.else.i.i28:                                    ; preds = %if.then.i.i26
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, ptr noundef nonnull %s, ptr noundef %table, i32 noundef %spec.select) #6
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, ptr noundef nonnull %s, ptr noundef %table, i32 noundef range(i32 -2147483648, 1) %spec.select) #6
   br label %trace_qed_read_table_cb.exit
 
 trace_qed_read_table_cb.exit:                     ; preds = %trace_qed_read_table.exit, %land.lhs.true5.i.i23, %if.then8.i.i29, %if.else.i.i28
@@ -299,11 +299,11 @@ if.then8.i.i40:                                   ; preds = %if.then.i.i37
   %22 = load i64, ptr %_now.i.i30, align 8
   %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
   %23 = load i64, ptr %tv_usec.i.i43, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i42, i64 noundef %22, i64 noundef %23, ptr noundef nonnull %s, ptr noundef %table, i32 noundef %conv17, i32 noundef %call.i) #6
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i42, i64 noundef %22, i64 noundef %23, ptr noundef nonnull %s, ptr noundef %table, i32 noundef range(i32 0, 2) %conv17, i32 noundef %call.i) #6
   br label %trace_qed_write_table_cb.exit
 
 if.else.i.i39:                                    ; preds = %if.then.i.i37
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull %s, ptr noundef %table, i32 noundef %conv17, i32 noundef %call.i) #6
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull %s, ptr noundef %table, i32 noundef range(i32 0, 2) %conv17, i32 noundef %call.i) #6
   br label %trace_qed_write_table_cb.exit
 
 trace_qed_write_table_cb.exit:                    ; preds = %for.end, %land.lhs.true5.i.i34, %if.then8.i.i40, %if.else.i.i39

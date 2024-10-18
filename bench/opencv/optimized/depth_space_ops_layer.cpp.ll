@@ -428,7 +428,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2.i.i.i.i:           ; preds = %8, %_ZNSt6vectorIiS
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv3dnn21DepthToSpaceLayerImplEEEvRS0_PT_.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit2.i.i.i.i, %10
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %11) #20
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %11) #20
   ret void
 }
 
@@ -1115,7 +1115,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2.i.i:               ; preds = %8, %_ZNSt6vectorIiS
   br label %_ZN2cv3dnn21DepthToSpaceLayerImplD2Ev.exit
 
 _ZN2cv3dnn21DepthToSpaceLayerImplD2Ev.exit:       ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit2.i.i, %10
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #20
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -2848,7 +2848,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2.i.i.i.i:           ; preds = %8, %_ZNSt6vectorIiS
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv3dnn21SpaceToDepthLayerImplEEEvRS0_PT_.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit2.i.i.i.i, %10
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %11) #20
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %11) #20
   ret void
 }
 
@@ -3192,7 +3192,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2.i.i:               ; preds = %8, %_ZNSt6vectorIiS
   br label %_ZN2cv3dnn21SpaceToDepthLayerImplD2Ev.exit
 
 _ZN2cv3dnn21SpaceToDepthLayerImplD2Ev.exit:       ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit2.i.i, %10
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #20
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

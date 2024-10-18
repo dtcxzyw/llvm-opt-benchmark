@@ -197,7 +197,7 @@ if.end23:                                         ; preds = %"_ZSt11upper_boundI
   %cond-lvalue = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 -28
   %hasVal.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 1, ptr %hasVal.i.i15, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(28) %cond-lvalue, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %agg.result, ptr noundef nonnull align 4 dereferenceable(28) %cond-lvalue, i64 28, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end23, %if.then22, %if.then7, %if.then
@@ -289,7 +289,7 @@ if.end:                                           ; preds = %lor.lhs.false.i
   %conv.i = zext i32 %seg.sroa.1.0.copyload.i to i64
   %5 = load ptr, ptr %sources_.i, align 8, !noalias !12
   %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %conv.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %this) #6
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #6
   %line4 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i32 %add.i, ptr %line4, align 8
@@ -297,11 +297,11 @@ if.end:                                           ; preds = %lor.lhs.false.i
   store i32 %add15.i, ptr %column7, align 4
   %hasVal.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 1, ptr %hasVal.i.i1, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #6
   %line.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %6 = load i64, ptr %line4, align 8
   store i64 %6, ptr %line.i.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #6
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

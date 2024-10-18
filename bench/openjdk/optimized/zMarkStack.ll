@@ -261,7 +261,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit.thread: ; preds = %8
   br label %15
 
 _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit: ; preds = %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %9, i8 0, i64 16, i1 false)
   store ptr null, ptr %0, align 8
   br label %15
 
@@ -288,7 +288,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.us: ; preds = %.lr.p
   br label %6
 
 6:                                                ; preds = %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.us, %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 16, i1 false)
   store ptr %2, ptr %0, align 8
   br label %10
 
@@ -338,7 +338,7 @@ _ZN22ZMarkThreadLocalStacks14allocate_stackEP19ZMarkStackAllocator.exit.thread: 
   br i1 %.not.i, label %_ZN22ZMarkThreadLocalStacks14allocate_stackEP19ZMarkStackAllocator.exit.thread16, label %_ZN22ZMarkThreadLocalStacks14allocate_stackEP19ZMarkStackAllocator.exit
 
 _ZN22ZMarkThreadLocalStacks14allocate_stackEP19ZMarkStackAllocator.exit.thread16: ; preds = %17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %18, i8 0, i64 16, i1 false)
   store ptr null, ptr %0, align 8
   store ptr %18, ptr %3, align 8
   br label %25
@@ -494,7 +494,7 @@ _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit: ; preds = %.sp
 
 84:                                               ; preds = %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit
   %85 = getelementptr inbounds i8, ptr %2, i64 16
-  %86 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %85) #11
+  %86 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %85) #11
   %87 = load volatile i32, ptr %76, align 4
   %88 = load volatile i32, ptr %78, align 8
   %89 = add i32 %88, %87
@@ -511,7 +511,7 @@ _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit: ; preds = %.sp
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit.i:         ; preds = %91, %84
-  %96 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %85) #11
+  %96 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %85) #11
   br label %_ZN14ZMarkTerminate7wake_upEv.exit
 
 _ZN14ZMarkTerminate7wake_upEv.exit:               ; preds = %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit, %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i
@@ -638,7 +638,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i: ; preds = %.lr
   br label %72
 
 72:                                               ; preds = %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i, %_ZN6ZStackI15ZMarkStackEntryLm254EE3popERS0_.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.1, i8 0, i64 16, i1 false)
   store ptr %.1, ptr %0, align 8
   br label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
 
@@ -698,7 +698,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i: ; preds = %.lr
   br label %22
 
 22:                                               ; preds = %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i, %19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %14, i8 0, i64 16, i1 false)
   store ptr %14, ptr %0, align 8
   br label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
 
@@ -751,7 +751,7 @@ _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i: ; preds = %.
   br i1 %or.cond.i.i, label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit, label %54
 
 54:                                               ; preds = %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i
-  %55 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #11
+  %55 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %9) #11
   %56 = load volatile i32, ptr %7, align 4
   %57 = load volatile i32, ptr %8, align 8
   %58 = add i32 %57, %56
@@ -767,7 +767,7 @@ _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i: ; preds = %.
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i:       ; preds = %60, %54
-  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #11
+  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %9) #11
   br label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
 
 _ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit: ; preds = %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i, %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i, %22

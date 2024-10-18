@@ -8609,7 +8609,7 @@ _ZN2cv3PtrINS_6legacy8tracking4impl14TrackerKCFImplEED2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !75
   store ptr null, ptr %3, align 8, !alias.scope !78, !noalias !75
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerKCFImplESaIvEJRKNS6_10TrackerKCF6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(44) %1), !noalias !75
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerKCFImplESaIvEJRKNS6_10TrackerKCF6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(44) %1), !noalias !75
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !75
   %5 = load ptr, ptr %3, align 8, !noalias !75
   %6 = load ptr, ptr %4, align 8, !noalias !75
@@ -8657,7 +8657,7 @@ define void @_ZN2cv6legacy8tracking10TrackerKCF6createEv(ptr dead_on_unwind noal
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !84
   store ptr null, ptr %3, align 8, !alias.scope !87, !noalias !84
   %18 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerKCFImplESaIvEJRKNS6_10TrackerKCF6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(44) %4), !noalias !84
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerKCFImplESaIvEJRKNS6_10TrackerKCF6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(44) %4), !noalias !84
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !84
   %19 = load ptr, ptr %3, align 8, !noalias !84
   %20 = load ptr, ptr %18, align 8, !noalias !84
@@ -9662,11 +9662,11 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4imp
   store i32 1, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerKCFImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(3744) %7)
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerKCFImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSC_.exit
-  invoke void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16))
+  invoke void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(3744) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16))
           to label %8 unwind label %10
 
 8:                                                ; preds = %.noexc
@@ -9683,12 +9683,12 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4imp
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16)) #25
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(3744) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16)) #25
   br label %.body.i
 
 .body.i:                                          ; preds = %12, %10
   %.pn.i.i.i.i = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(3744) %7) #25
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerKCFImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerKCFImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %8
@@ -9725,8 +9725,8 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6legacy8trac
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN2cv8tracking4impl14TrackerKCFImplD2Ev(ptr noundef nonnull align 8 dereferenceable(3680) %3) #25
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16)) #25
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #25
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(3744) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16)) #25
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(3744) %2) #25
   ret void
 }
 
@@ -9809,7 +9809,7 @@ declare void @_ZN2cv6legacy8tracking7TrackerD0Ev(ptr noundef nonnull align 8 der
 define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerKCFImplD1Ev(ptr noundef nonnull align 8 dereferenceable(3744) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN2cv8tracking4impl14TrackerKCFImplD2Ev(ptr noundef nonnull align 8 dereferenceable(3680) %2) #25
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16)) #25
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(3744) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16)) #25
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
   ret void
 }
@@ -9818,8 +9818,8 @@ define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerKCFImplD1Ev
 define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerKCFImplD0Ev(ptr noundef nonnull align 8 dereferenceable(3744) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN2cv8tracking4impl14TrackerKCFImplD2Ev(ptr noundef nonnull align 8 dereferenceable(3680) %2) #25
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16)) #25
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(3744) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerKCFImplE, i64 16)) #25
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(3744) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }

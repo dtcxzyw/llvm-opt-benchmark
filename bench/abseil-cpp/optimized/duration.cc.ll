@@ -948,7 +948,7 @@ entry:
   store i64 %d.coerce0, ptr %lhs.i, align 8
   %coerce.sroa.2.0.lhs.sroa_idx.i = getelementptr inbounds i8, ptr %lhs.i, i64 8
   store i32 %d.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i, align 8
-  %call.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull %lhs.i)
+  %call.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull align 4 dereferenceable(12) %lhs.i)
   %retval.sroa.0.0.copyload.i = load i64, ptr %lhs.i, align 8
   %retval.sroa.2.0.copyload.i = load i32, ptr %coerce.sroa.2.0.lhs.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i)
@@ -1005,7 +1005,7 @@ entry:
   store i64 %d.coerce0, ptr %lhs.i.i, align 8
   %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds i8, ptr %lhs.i.i, i64 8
   store i32 %d.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
-  %call.i.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull %lhs.i.i)
+  %call.i.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i)
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %lhs.i.i, align 8
   %retval.sroa.2.0.copyload.i.i = load i32, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i)
@@ -1179,7 +1179,7 @@ entry:
   store i64 %d.coerce0, ptr %lhs.i.i, align 8
   %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds i8, ptr %lhs.i.i, i64 8
   store i32 %d.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
-  %call.i.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull %lhs.i.i)
+  %call.i.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i)
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %lhs.i.i, align 8
   %retval.sroa.2.0.copyload.i.i = load i32, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i)

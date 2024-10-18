@@ -164,7 +164,7 @@ define dso_local noundef nonnull ptr @_ZN24FunctionInvocationBinary30CreateFunct
           to label %28 unwind label %22
 
 28:                                               ; preds = %25
-  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %27, i32 noundef 0, ptr noundef nonnull %2)
+  invoke void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(128) %27, i32 noundef 0, ptr noundef nonnull %2)
           to label %.noexc unwind label %38
 
 .noexc:                                           ; preds = %28
@@ -193,7 +193,7 @@ define dso_local noundef nonnull ptr @_ZN24FunctionInvocationBinary30CreateFunct
 
 37:                                               ; preds = %35, %33
   %.pn.i = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
-  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #15
+  call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %27) #15
   br label %.body
 
 _ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit: ; preds = %31
@@ -465,7 +465,7 @@ define dso_local void @_ZN24FunctionInvocationBinaryD0Ev(ptr noundef nonnull ali
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
-  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
+  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
@@ -473,7 +473,7 @@ define dso_local void @_ZN24FunctionInvocationBinaryD0Ev(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZNK24FunctionInvocationBinary5cloneEv(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #16
-  invoke void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %0)
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %1
@@ -506,7 +506,7 @@ define dso_local noundef nonnull ptr @_ZNK24FunctionInvocationBinary5cloneEv(ptr
 
 15:                                               ; preds = %13, %11
   %.pn.i = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #15
+  tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #15
   br label %.body
 
 _ZN24FunctionInvocationBinaryC2ERKS_.exit:        ; preds = %8

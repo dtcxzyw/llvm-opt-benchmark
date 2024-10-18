@@ -1039,7 +1039,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev(ptr noundef
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %1, %4, %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %21) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %21) #19
   ret void
 }
 
@@ -1218,7 +1218,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycleD2Ev(ptr nou
   unreachable
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__21PcpSiteTrackerSegmentEEvPT_.exit.i.i.i.i: ; preds = %21, %8, %.lr.ph.i.i.i.i
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i.i) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %.05.i.i.i.i) #19
   %25 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %25, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__21PcpSiteTrackerSegmentES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
@@ -1276,7 +1276,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__21PcpSiteTrackerSegmentESaIS1_EE
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__21PcpSiteTrackerSegmentESaIS1_EED2Ev.exit, %35, %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %52) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %52) #19
   ret void
 }
 
@@ -1310,7 +1310,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycle8ToStringB5
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc21 unwind label %33
 
 .noexc21:                                         ; preds = %.noexc
@@ -1320,7 +1320,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycle8ToStringB5
 15:                                               ; preds = %.noexc21
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc21
@@ -1652,7 +1652,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorArcPermissionDeniedD
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %1, %5, %18
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %24 = load i32, ptr %23, align 8
@@ -1686,7 +1686,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %1, %5, %18
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit2: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit, %25, %38
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %22) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %22) #19
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %43 = load i32, ptr %42, align 8
@@ -1721,7 +1721,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit2: ; preds = %_ZN32pxrInte
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit2, %44, %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %61) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %61) #19
   ret void
 }
 
@@ -2005,7 +2005,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorArcToProhibitedChild
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %1, %5, %18
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %24 = load i32, ptr %23, align 8
@@ -2039,7 +2039,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %1, %5, %18
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit2: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit, %25, %38
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %22) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %22) #19
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = load i32, ptr %43, align 8
@@ -2073,7 +2073,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit2: ; preds = %_ZN32pxrInte
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit4: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit2, %45, %58
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %42) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %42) #19
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %63 = load i32, ptr %62, align 8
@@ -2108,7 +2108,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit4: ; preds = %_ZN32pxrInte
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit4, %64, %77
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %81) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %81) #19
   ret void
 }
 
@@ -2387,7 +2387,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorCapacityExceededD2Ev
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %1, %4, %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %21) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %21) #19
   ret void
 }
 
@@ -2408,7 +2408,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__24PcpErrorCapacityExceeded8To
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc6 unwind label %24
 
 .noexc6:                                          ; preds = %.noexc
@@ -2418,7 +2418,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__24PcpErrorCapacityExceeded8To
 7:                                                ; preds = %.noexc6
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc6
@@ -2613,7 +2613,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit2: ; preds = %_ZN32pxrInte
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit2, %44, %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %61) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %61) #19
   ret void
 }
 
@@ -3300,7 +3300,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %33, %46
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %30) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %30) #19
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %51 = load i32, ptr %50, align 8
@@ -3335,7 +3335,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %_ZN32pxrInter
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit, %52, %65
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %69) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %69) #19
   ret void
 }
 
@@ -3426,7 +3426,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__23PcpErrorInvalidPrimPath8ToS
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %22, %25, %38
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
@@ -3588,7 +3588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %36, %49
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %33) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %33) #19
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %54 = load i32, ptr %53, align 8
@@ -3623,7 +3623,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %_ZN32pxrInter
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit, %55, %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %72) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %72) #19
   ret void
 }
 
@@ -3711,7 +3711,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorInvalidAssetPathC2Ev
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #19
   resume { ptr, i32 } %6
 
 _ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseC2ENS_12PcpErrorTypeE.exit: ; preds = %1
@@ -3825,7 +3825,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__24PcpErrorInvalidAssetPath8To
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %25, %28, %41
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
@@ -3937,7 +3937,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorMutedAssetPathC2Ev(p
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #19
   resume { ptr, i32 } %6
 
 _ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseC2ENS_12PcpErrorTypeE.exit: ; preds = %1
@@ -4047,7 +4047,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__22PcpErrorMutedAssetPath8ToSt
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %21, %24, %37
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
@@ -4245,7 +4245,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit4: ; preds = %_ZN32pxrInte
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit4, %70, %83
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %87) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %87) #19
   ret void
 }
 
@@ -5001,7 +5001,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit3: ; pred
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit3, %22, %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %39) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %39) #19
   ret void
 }
 
@@ -5373,7 +5373,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, %52, %65
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %69) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %69) #19
   ret void
 }
 
@@ -5491,7 +5491,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__30PcpErrorInvalidReferenceOff
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %33, %36, %49
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   ret void
@@ -5720,7 +5720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, %35, %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %52) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %52) #19
   ret void
 }
 
@@ -6180,7 +6180,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, %15, %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %32) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %32) #19
   ret void
 }
 
@@ -6272,7 +6272,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseD2Ev(p
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %1, %4, %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %21) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %21) #19
   ret void
 }
 
@@ -6514,7 +6514,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit4: ; preds = %_ZN32pxrInte
 
 _ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit4, %71, %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %88) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %88) #19
   ret void
 }
 
@@ -6916,7 +6916,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit13: ; preds = %_ZN32pxrInt
 
 _ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit13, %136, %149
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %153) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %153) #19
   ret void
 }
 
@@ -7204,7 +7204,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZNSt6vectorI
 
 _ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %35, %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %52) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %52) #19
   ret void
 }
 
@@ -7520,7 +7520,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, %32, %45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %49) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %49) #19
   ret void
 }
 
@@ -7709,7 +7709,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorPrimPermissionDenied
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %1, %5, %18
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %24 = load i32, ptr %23, align 8
@@ -7743,7 +7743,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %1, %5, %18
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit2: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit, %25, %38
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %22) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %22) #19
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %43 = load i32, ptr %42, align 8
@@ -7778,7 +7778,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit2: ; preds = %_ZN32pxrInte
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit2, %44, %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %61) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %61) #19
   ret void
 }
 
@@ -8018,7 +8018,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %1, %5, %18
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %24, %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %41) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %41) #19
   ret void
 }
 
@@ -8194,7 +8194,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit3: ; pred
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit3, %22, %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %39) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %39) #19
   ret void
 }
 
@@ -8636,7 +8636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit3: ; pred
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit3, %42, %55
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %39) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %39) #19
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %60 = load i32, ptr %59, align 8
@@ -8671,7 +8671,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %_ZN32pxrInter
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit, %61, %74
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %78) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %78) #19
   ret void
 }
 
@@ -8788,7 +8788,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__26PcpErrorUnresolvedPrimPath8
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %31, %34, %47
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %9) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %52 = load i32, ptr %51, align 8
@@ -8822,7 +8822,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %31, %34, %47
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit15: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit, %53, %66
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   ret void
 
@@ -9049,7 +9049,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
 
 _ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, %35, %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %52) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %52) #19
   ret void
 }
 

@@ -126,7 +126,7 @@ define void @_ZN15DragDropToolBar12setupToolbarEv(ptr noundef nonnull align 8 de
   store i32 0, ptr %6, align 8
   tail call void @_ZN7QWidget14setAcceptDropsEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %7 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN11QToolButton16staticMetaObjectE, i32 1)
+  %7 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN11QToolButton16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP11QToolButtonEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %26
 
 _ZNK7QObject9findChildIP11QToolButtonEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit: ; preds = %1
@@ -329,7 +329,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define void @_ZThn16_N15DragDropToolBarD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15DragDropToolBarD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(52) %2) #16
   ret void
 }
 
@@ -370,7 +370,7 @@ define void @_ZN15DragDropToolBar10childEventEP11QChildEvent(ptr noundef nonnull
   %20 = phi ptr [ %.pre, %18 ], [ %8, %14 ]
   tail call void @_ZN7QObject18installEventFilterEPS_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %0)
   %21 = load ptr, ptr %7, align 8
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull %15)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %15)
   %22 = invoke noundef zeroext i1 @_ZN7QObject11setPropertyEPKcRK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %23 unwind label %26
 

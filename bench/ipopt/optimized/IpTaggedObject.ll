@@ -27,7 +27,7 @@ define void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 2, ptr noundef nonnull %6)
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %15 = getelementptr inbounds i8, ptr %.sroa.01.013.i, i64 8
   %16 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %15, %16

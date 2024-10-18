@@ -12092,7 +12092,7 @@ while.cond.i.backedge:                            ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i, !llvm.loop !423
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %arrayidx.i.i22, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i22, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i
@@ -17071,7 +17071,7 @@ while.cond.i.backedge:                            ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i, !llvm.loop !423
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %arrayidx.i.i4, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i4, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i
@@ -18960,7 +18960,7 @@ while.cond.i.backedge:                            ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i, !llvm.loop !423
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %arrayidx.i.i6, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i6, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly14UnboundedQueueINS_8FunctionIFSt10shared_ptrINS_15observer_detail4CoreEEvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE5Entry7putItemIS7_EEvOT_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i
@@ -19709,7 +19709,7 @@ while.cond.i.backedge:                            ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i, !llvm.loop !423
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %arrayidx.i.i2, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i2, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly14UnboundedQueueINS_8FunctionIFSt10shared_ptrINS_15observer_detail4CoreEEvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE5Entry7putItemIS7_EEvOT_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i
@@ -20612,7 +20612,7 @@ while.cond.i.backedge:                            ; preds = %_ZNSt13__atomic_bas
   br label %while.cond.i, !llvm.loop !423
 
 if.then30.i:                                      ; preds = %while.end27.i
-  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %arrayidx.i.i24, i32 noundef 2147483647, i32 noundef -1)
+  %call.i38.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i24, i32 noundef 2147483647, i32 noundef -1)
           to label %_ZN5folly14UnboundedQueueINS_8FunctionIFSt10shared_ptrINS_15observer_detail4CoreEEvEEELb0ELb1ELb1ELm8ELm7ESt6atomicE5Entry7putItemIS7_EEvOT_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then30.i

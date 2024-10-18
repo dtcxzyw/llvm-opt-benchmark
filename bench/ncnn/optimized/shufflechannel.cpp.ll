@@ -152,7 +152,7 @@ define linkonce_odr hidden void @_ZN4ncnn14ShuffleChannelD2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn14ShuffleChannelD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #6
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #7
   ret void
 }

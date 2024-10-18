@@ -1169,7 +1169,7 @@ if.end13.i.i:                                     ; preds = %entry
 
 if.end28.i.i:                                     ; preds = %if.end13.i.i
   %conv.i.i.i = zext i32 %1 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
   %.pre.i = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp.not.i.i.i, label %return.sink.split.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge
@@ -1282,7 +1282,7 @@ if.end13.i.i:                                     ; preds = %entry
 
 if.end28.i.i:                                     ; preds = %if.end13.i.i
   %conv.i.i.i = zext i32 %0 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
   %.pre.i = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp.not.i.i.i, label %land.lhs.true, label %if.end28.i.i.if.then.i.i.i_crit_edge
@@ -1375,7 +1375,7 @@ if.end13.i.i:                                     ; preds = %entry
 
 if.end28.i.i:                                     ; preds = %if.end13.i.i
   %conv.i.i.i = zext i32 %0 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
   %.pre.i = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp.not.i.i.i, label %land.lhs.true, label %if.end28.i.i.if.then.i.i.i_crit_edge
@@ -1509,7 +1509,7 @@ if.end13.i.i:                                     ; preds = %entry
 
 if.end28.i.i:                                     ; preds = %if.end13.i.i
   %conv.i.i.i = zext i32 %0 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
   %.pre.i = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp.not.i.i.i, label %land.lhs.true, label %if.end28.i.i.if.then.i.i.i_crit_edge
@@ -1605,7 +1605,7 @@ if.end13.i.i:                                     ; preds = %entry
   br i1 %cmp15.i.i, label %if.end28.i.i, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2ERKS6_.exit
 
 if.end28.i.i:                                     ; preds = %if.end13.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
   %.pre.i = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp.not.i.i.i, label %land.lhs.true.sink.split, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2ERKS6_.exit.thread17
@@ -4176,7 +4176,7 @@ if.end13.i.i:                                     ; preds = %if.end170
 
 if.end28.i.i:                                     ; preds = %if.end13.i.i
   %conv.i.i.i = zext i32 %44 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %match, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef %conv.i.i.i, i64 noundef 12) #13
   %.pre.i = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp.not.i.i.i, label %lor.lhs.false, label %if.end28.i.i.if.then.i.i.i_crit_edge
@@ -5141,7 +5141,7 @@ if.end24.i235:                                    ; preds = %if.end12.i224
 
 if.then27.i253:                                   ; preds = %if.end24.i235
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i, i64 noundef %conv.i30.i226, i64 noundef 12) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(72) %matchResult, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i, i64 noundef %conv.i30.i226, i64 noundef 12) #13
   br label %if.end37.i242
 
 if.else.i238:                                     ; preds = %if.end24.i235
@@ -5187,7 +5187,7 @@ if.else.i.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2EOS6_.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %call2.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(16) %matchResult, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp46)
+  %call2.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(72) %matchResult, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp46)
   br label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2EOS6_.exit.i.i.i.i
 
 _ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2EOS6_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i
@@ -5423,7 +5423,7 @@ if.then.i.i111:                                   ; preds = %_ZN6hermes2vm13Herm
 
 if.then.i.i.i.i112:                               ; preds = %if.then.i.i111
   %heapStorage_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, ptr noundef nonnull %arrayidx.i.i, i32 %retval.sroa.0.0.i) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i, i32 %retval.sroa.0.0.i) #13
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i: ; preds = %if.then.i.i.i.i112, %if.then.i.i111
@@ -5450,7 +5450,7 @@ if.end.i.i106:                                    ; preds = %_ZN6hermes2vm13Herm
 
 if.then.i.i.i.i.i110:                             ; preds = %if.end.i.i106
   %heapStorage_.i7.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i, ptr noundef nonnull %arrayidx.i.i.i, i32 %retval.sroa.0.0.i) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i, i32 %retval.sroa.0.0.i) #13
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i
 
 _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i: ; preds = %if.then.i.i.i.i.i110, %if.end.i.i106
@@ -5495,7 +5495,7 @@ if.then.i.i146:                                   ; preds = %_ZN6hermes2vm8JSObj
 
 if.then.i.i.i.i152:                               ; preds = %if.then.i.i146
   %heapStorage_.i.i.i153 = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i153, ptr noundef nonnull %arrayidx.i.i148, i32 %or.i.i.i126) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i153, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i148, i32 %or.i.i.i126) #13
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i154
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i154: ; preds = %if.then.i.i.i.i152, %if.then.i.i146
@@ -5522,7 +5522,7 @@ if.end.i.i131:                                    ; preds = %_ZN6hermes2vm8JSObj
 
 if.then.i.i.i.i.i143:                             ; preds = %if.end.i.i131
   %heapStorage_.i7.i.i144 = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i144, ptr noundef nonnull %arrayidx.i.i.i139, i32 %or.i.i.i126) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i144, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i139, i32 %or.i.i.i126) #13
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i145
 
 _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i145: ; preds = %if.then.i.i.i.i.i143, %if.end.i.i131
@@ -6173,7 +6173,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEER
   br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit, label %if.then.i.i2.i.i
 
 if.then.i.i2.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i.i, i32 %retval.sroa.0.0.i) #13
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i.i.i, i32 %retval.sroa.0.0.i) #13
   br label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit
 
 _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %if.then.i.i2.i.i
@@ -6270,7 +6270,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEER
   br i1 %cmp.i.i.i.i.i111, label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit118, label %if.then.i.i2.i.i112
 
 if.then.i.i2.i.i112:                              ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i107
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i.i108, i32 %retval.sroa.0.0.i75) #13
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i.i.i108, i32 %retval.sroa.0.0.i75) #13
   br label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit118
 
 _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit118: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i107, %if.then.i.i2.i.i112
@@ -6424,7 +6424,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEER
   br i1 %cmp.i.i.i.i.i154, label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit161, label %if.then.i.i2.i.i155
 
 if.then.i.i2.i.i155:                              ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i150
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i.i151, i32 %retval.sroa.0.0.i121) #13
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i.i.i151, i32 %retval.sroa.0.0.i121) #13
   br label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit161
 
 _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit161: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i150, %if.then.i.i2.i.i155
@@ -6713,7 +6713,7 @@ if.then.i25.i.i.i:                                ; preds = %_ZNK6hermes2vm9Arra
   br i1 %cmp.i.i.i.i.i.i11.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i208
 
 if.then.i.i.i.i.i.i208:                           ; preds = %if.then.i25.i.i.i
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i.i.i, ptr noundef nonnull %arrayidx.i.i.i.i207, i32 %retval.sroa.0.0.i10.i.i.i) #13
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i.i207, i32 %retval.sroa.0.0.i10.i.i.i) #13
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i.i.i
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i208, %if.then.i25.i.i.i
@@ -6738,7 +6738,7 @@ if.end.i16.i.i.i:                                 ; preds = %_ZNK6hermes2vm9Arra
   br i1 %cmp.i.i.i.i.i.i.i.i206, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i10.i
 
 if.then.i.i.i.i.i.i10.i:                          ; preds = %if.end.i16.i.i.i
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i.i.i, ptr noundef nonnull %arrayidx.i.i24.i.i.i, i32 %retval.sroa.0.0.i10.i.i.i) #13
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i24.i.i.i, i32 %retval.sroa.0.0.i10.i.i.i) #13
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i.i.i
 
 _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i10.i, %if.end.i16.i.i.i
@@ -6881,7 +6881,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i
   %heapStorage_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, ptr noundef nonnull %arrayidx.i.i, i32 14) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i, i32 14) #13
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i: ; preds = %if.then.i.i.i.i, %if.then.i.i
@@ -6908,7 +6908,7 @@ if.end.i.i:                                       ; preds = %if.then
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i
   %heapStorage_.i7.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i, ptr noundef nonnull %arrayidx.i.i.i, i32 14) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i, i32 14) #13
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i
 
 _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.end.i.i
@@ -7170,7 +7170,7 @@ if.then.i25.i.i.i:                                ; preds = %_ZNK6hermes2vm9Arra
   br i1 %cmp.i.i.i.i.i.i11.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i29
 
 if.then.i.i.i.i.i.i29:                            ; preds = %if.then.i25.i.i.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i.i.i, ptr noundef nonnull %arrayidx.i.i.i.i, i32 %retval.sroa.0.0.i10.i.i.i) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i.i, i32 %retval.sroa.0.0.i10.i.i.i) #13
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i.i.i
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i29, %if.then.i25.i.i.i
@@ -7195,7 +7195,7 @@ if.end.i16.i.i.i:                                 ; preds = %_ZNK6hermes2vm9Arra
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i.i.i, label %if.then.i.i.i.i.i.i10.i
 
 if.then.i.i.i.i.i.i10.i:                          ; preds = %if.end.i16.i.i.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i.i.i, ptr noundef nonnull %arrayidx.i.i24.i.i.i, i32 %retval.sroa.0.0.i10.i.i.i) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i24.i.i.i, i32 %retval.sroa.0.0.i10.i.i.i) #13
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i.i.i
 
 _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i10.i, %if.end.i16.i.i.i
@@ -7252,7 +7252,7 @@ if.then.i.i55:                                    ; preds = %"_ZN6hermes2vm11Hid
 
 if.then.i.i.i.i61:                                ; preds = %if.then.i.i55
   %heapStorage_.i.i.i62 = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i62, ptr noundef nonnull %arrayidx.i.i57, i32 %conv.i.i.i.i.i35) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i62, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i57, i32 %conv.i.i.i.i.i35) #13
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i63
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i.i63: ; preds = %if.then.i.i.i.i61, %if.then.i.i55
@@ -7279,7 +7279,7 @@ if.end.i.i40:                                     ; preds = %"_ZN6hermes2vm11Hid
 
 if.then.i.i.i.i.i52:                              ; preds = %if.end.i.i40
   %heapStorage_.i7.i.i53 = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i53, ptr noundef nonnull %arrayidx.i.i.i48, i32 %conv.i.i.i.i.i35) #13
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i7.i.i53, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i48, i32 %conv.i.i.i.i.i35) #13
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i54
 
 _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i.i54: ; preds = %if.then.i.i.i.i.i52, %if.end.i.i40
@@ -7663,7 +7663,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13, !noalias !30
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i, align 8, !alias.scope !30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %str.coerce0, ptr noundef %add.ptr.i.i)
@@ -7905,7 +7905,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Str
   br i1 %cmp.not.i.i, label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEDs.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 2) #13
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEDs.exit
 
@@ -8039,7 +8039,7 @@ if.then40:                                        ; preds = %_ZNK6hermes2vm10Str
   br i1 %cmp.not.i.i151, label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEDs.exit158, label %if.then.i.i152
 
 if.then.i.i152:                                   ; preds = %if.then40
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 2) #13
   %.pre.i.i154 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEDs.exit158
 
@@ -8739,7 +8739,7 @@ if.else120:                                       ; preds = %if.else103
 
 if.end.i.thread.i:                                ; preds = %if.else120
   %add.i.i528 = add nuw nsw i64 %conv.i5.i.i, 2
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i528, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i528, i64 noundef 2) #13
   %.pre13.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre1064 = zext i32 %.pre13.pre.i.i to i64
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit
@@ -9031,7 +9031,7 @@ if.else145:                                       ; preds = %if.else128
 
 if.end.i.thread.i730:                             ; preds = %if.else145
   %add.i.i731 = add nuw nsw i64 %conv.i5.i.i719, 2
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i731, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i731, i64 noundef 2) #13
   %.pre13.pre.i.i733 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre1065 = zext i32 %.pre13.pre.i.i733 to i64
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit734
@@ -9230,7 +9230,7 @@ if.then176:                                       ; preds = %for.inc, %for.inc.u
 
 if.end.i.thread.i823:                             ; preds = %if.then176
   %add.i.i824 = add nuw nsw i64 %conv.i5.i.i812, 2
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i824, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i824, i64 noundef 2) #13
   %.pre13.pre.i.i826 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre1066 = zext i32 %.pre13.pre.i.i826 to i64
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit827
@@ -9355,7 +9355,7 @@ if.else243:                                       ; preds = %land.lhs.true161, %
 
 if.end.i.thread.i877:                             ; preds = %if.else243
   %add.i.i878 = add nuw nsw i64 %conv.i5.i.i866, 2
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i878, i64 noundef 2) #13
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %result, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i878, i64 noundef 2) #13
   %.pre13.pre.i.i880 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre1067 = zext i32 %.pre13.pre.i.i880 to i64
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit881
@@ -10162,7 +10162,7 @@ if.then:                                          ; preds = %_ZN6hermes2vm13Herm
 
 if.then.i.i17:                                    ; preds = %if.then
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %arrayidx, i32 %retval.sroa.0.0.i) #13
+  tail call void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx, i32 %retval.sroa.0.0.i) #13
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EEC2ISt17integral_constantIbLb1EEEES2_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EEC2ISt17integral_constantIbLb1EEEES2_RNS0_7HadesGCE.exit: ; preds = %if.then, %if.then.i.i17

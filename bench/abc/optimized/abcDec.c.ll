@@ -152,7 +152,7 @@ define void @Abc_TruthWriteHex(ptr nocapture noundef %0, ptr nocapture noundef r
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %.lr.ph
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef %15) #17
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef range(i32 0, 16) %15) #17
   br label %Abc_TruthWriteHexDigit.exit
 
 19:                                               ; preds = %.lr.ph
@@ -693,7 +693,7 @@ define void @Abc_TtStoreWrite(ptr noundef %0, ptr nocapture noundef readonly %1,
   br label %Abc_TruthWriteHexDigit.exit.i.us
 
 36:                                               ; preds = %.lr.ph.i.us
-  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.29, i32 noundef %32) #17
+  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.29, i32 noundef range(i32 0, 16) %32) #17
   br label %Abc_TruthWriteHexDigit.exit.i.us
 
 Abc_TruthWriteHexDigit.exit.i.us:                 ; preds = %36, %34

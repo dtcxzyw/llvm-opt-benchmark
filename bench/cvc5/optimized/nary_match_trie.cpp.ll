@@ -303,7 +303,7 @@ invoke.cont7:                                     ; preds = %_ZNSt12_Vector_base
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %call5.i.i.i.i2.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i3.i, %call5.i.i.i.i2.i
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i.i.i
 
@@ -366,7 +366,7 @@ invoke.cont.i.i57.thread:                         ; preds = %invoke.cont9
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %11 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp, i8 0, i64 24, i1 false)
   %d_trie.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %d_trie.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(25) %d_trie.i, i64 25, i1 false)
   %12 = load ptr, ptr %_M_finish.i.i50, align 8
@@ -1281,7 +1281,7 @@ if.end113:                                        ; preds = %_ZNSt6vectorIN4cvc5
   %sub.ptr.rhs.cast.i.i.i306 = ptrtoint ptr %119 to i64
   %sub.ptr.sub.i.i.i307 = sub i64 %sub.ptr.lhs.cast.i.i.i305, %sub.ptr.rhs.cast.i.i.i306
   %sub.ptr.div.i.i.i308 = ashr exact i64 %sub.ptr.sub.i.i.i307, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp114, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp114, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i309 = icmp eq ptr %118, %119
   br i1 %cmp.not.i.i.i.i.i309, label %invoke.cont.i.i313, label %cond.true.i.i.i.i.i310
 
@@ -1338,7 +1338,7 @@ invoke.cont.i.i362.thread:                        ; preds = %invoke.cont116
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i337 = getelementptr inbounds i8, ptr %122, i64 16
   %126 = load ptr, ptr %_M_end_of_storage.i.i.i.i317, align 8
   store ptr %126, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i337, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp114, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp114, i8 0, i64 24, i1 false)
   %d_trie.i.i.i.i.i339 = getelementptr inbounds i8, ptr %122, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %d_trie.i.i.i.i.i339, ptr noundef nonnull align 8 dereferenceable(25) %d_trie.i323, i64 25, i1 false)
   %127 = load ptr, ptr %_M_finish.i.i50, align 8
@@ -1935,7 +1935,7 @@ for.end:                                          ; preds = %_ZN4cvc58internal12
 
 if.then180:                                       ; preds = %if.then144, %for.end
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 10)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 10)
           to label %.noexc531 unwind label %lpad138.loopexit.split-lp
 
 .noexc531:                                        ; preds = %if.then180
@@ -3132,7 +3132,7 @@ invoke.cont388:                                   ; preds = %lor.lhs.false.i.i15
   %sub.ptr.rhs.cast.i.i.i1562 = ptrtoint ptr %334 to i64
   %sub.ptr.sub.i.i.i1563 = sub i64 %sub.ptr.lhs.cast.i.i.i1561, %sub.ptr.rhs.cast.i.i.i1562
   %sub.ptr.div.i.i.i1564 = ashr exact i64 %sub.ptr.sub.i.i.i1563, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp391, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp391, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i1565 = icmp eq ptr %333, %334
   br i1 %cmp.not.i.i.i.i.i1565, label %invoke.cont.i.i1569, label %cond.true.i.i.i.i.i1566
 
@@ -3189,7 +3189,7 @@ invoke.cont.i.i1619.thread:                       ; preds = %invoke.cont394
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i1594 = getelementptr inbounds i8, ptr %337, i64 16
   %341 = load ptr, ptr %_M_end_of_storage.i.i.i.i1573, align 8
   store ptr %341, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i1594, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp391, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp391, i8 0, i64 24, i1 false)
   %d_trie.i.i.i.i.i1596 = getelementptr inbounds i8, ptr %337, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %d_trie.i.i.i.i.i1596, ptr noundef nonnull align 8 dereferenceable(25) %d_trie.i1579, i64 25, i1 false)
   %342 = load ptr, ptr %_M_finish.i.i50, align 8
@@ -6382,7 +6382,7 @@ _ZNSt12_Vector_baseIN4cvc58internal4expr14NaryMatchFrameESaIS3_EE11_M_allocateEm
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__args, i8 0, i64 24, i1 false)
   %d_trie.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %d_trie3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %d_trie.i.i.i, ptr noundef nonnull align 8 dereferenceable(25) %d_trie3.i.i.i, i64 25, i1 false)
@@ -6404,7 +6404,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !69, !noalias !66
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !69
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !69, !noalias !66
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !69, !noalias !66
   %d_trie.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %d_trie3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %d_trie.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(25) %d_trie3.i.i.i.i.i.i.i, i64 25, i1 false), !alias.scope !71
@@ -6434,7 +6434,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4cvc5
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !76, !noalias !73
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !73, !noalias !76
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !76, !noalias !73
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !76, !noalias !73
   %d_trie.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   %d_trie3.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %d_trie.i.i.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(25) %d_trie3.i.i.i.i.i.i.i20, i64 25, i1 false), !alias.scope !78
@@ -9083,7 +9083,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i.i: ; preds = %if.then13
 lpad.i.i.i.i:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i) #22
+  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %_M_storage.i) #22
   br label %lpad.body
 
 lpad:                                             ; preds = %if.then13.i.i.i.i.i.i
@@ -9480,7 +9480,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i.i: ; preds = %if.then13
 lpad.i.i.i.i:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i) #22
+  tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %_M_storage.i) #22
   br label %lpad.body
 
 lpad:                                             ; preds = %if.then13.i.i.i.i.i.i

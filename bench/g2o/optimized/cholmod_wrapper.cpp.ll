@@ -25,7 +25,7 @@ define void @_ZN3g2o7cholmod7CholmodC2Ev(ptr nocapture noundef nonnull writeonly
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2752
   store i64 0, ptr %4, align 8, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2728
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 64, i1 false), !noalias !4
   store i32 1, ptr %5, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2732
   store i32 0, ptr %6, align 4, !noalias !4
@@ -39,7 +39,7 @@ define void @_ZN3g2o7cholmod7CholmodC2Ev(ptr nocapture noundef nonnull writeonly
   store i32 1, ptr %10, align 4, !noalias !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 2760
   store ptr null, ptr %11, align 8, !noalias !4
-  %12 = invoke i32 @cholmod_start(ptr noundef nonnull %2)
+  %12 = invoke i32 @cholmod_start(ptr noundef nonnull align 8 dereferenceable(2768) %2)
           to label %_ZSt11make_uniqueIN3g2o7cholmod7Cholmod4ImplEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %.body.i, !noalias !4
 
 .body.i:                                          ; preds = %1
@@ -85,7 +85,7 @@ define void @_ZN3g2o7cholmod7Cholmod10freeFactorEv(ptr nocapture noundef nonnull
   br i1 %.not.i, label %_ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @cholmod_free_factor(ptr noundef nonnull %3, ptr noundef nonnull %2)
+  %6 = tail call i32 @cholmod_free_factor(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(2768) %2)
   store ptr null, ptr %3, align 8
   br label %_ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv.exit
 
@@ -384,7 +384,7 @@ define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4ImplD2Ev(ptr noundef nonnull a
   br i1 %.not.i, label %_ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = invoke i32 @cholmod_free_factor(ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %5 = invoke i32 @cholmod_free_factor(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(2768) %0)
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %4

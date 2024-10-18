@@ -722,11 +722,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %40, %43
   %109 = fdiv double %108, %.086.i
   %110 = fptosi double %107 to i32
   %111 = icmp slt i32 %110, 0
-  %112 = call i32 @llvm.smin.i32(i32 %110, i32 %91)
+  %112 = call i32 @llvm.smin.i32(i32 %110, i32 range(i32 -2147483648, 2147483646) %91)
   %113 = select i1 %111, i32 0, i32 %112
   %114 = fptosi double %109 to i32
   %115 = icmp slt i32 %114, 0
-  %116 = call i32 @llvm.smin.i32(i32 %114, i32 %92)
+  %116 = call i32 @llvm.smin.i32(i32 %114, i32 range(i32 -2147483648, 2147483646) %92)
   %117 = select i1 %115, i32 0, i32 %116
   %118 = sext i32 %117 to i64
   %119 = mul nsw i64 %118, %75
@@ -1062,7 +1062,7 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm26SyntheticSequenceGeneratorD0Ev(p
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

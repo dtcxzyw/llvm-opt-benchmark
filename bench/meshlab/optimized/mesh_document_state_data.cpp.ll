@@ -470,7 +470,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %15
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %10)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %10)
           to label %_ZN4QMapIi18MeshModelStateDataED2Ev.exit unwind label %15
 
 15:                                               ; preds = %.noexc1.i, %.noexc.i, %13
@@ -523,7 +523,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i.i unwind label %9
 
 .noexc1.i.i:                                      ; preds = %.noexc.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %2)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %_ZN4QMapIi18MeshModelStateDataEaSEOS1_.exit unwind label %9
 
 9:                                                ; preds = %.noexc1.i.i, %.noexc.i.i, %7
@@ -560,7 +560,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %17
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull @_ZN12QMapDataBase11shared_nullE)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12QMapDataBase11shared_nullE)
           to label %_ZN4QMapIi18MeshModelStateDataED2Ev.exit unwind label %17
 
 17:                                               ; preds = %.noexc1.i, %.noexc.i, %15
@@ -895,7 +895,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIi18MeshModelStateDataE7destroyEv.exit
 
 _ZN8QMapDataIi18MeshModelStateDataE7destroyEv.exit: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIi18MeshModelStateDataE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit

@@ -336,7 +336,7 @@ entry:
   %offset_.i = getelementptr inbounds i8, ptr %fdid, i64 16
   %current_.i = getelementptr inbounds i8, ptr %fdid, i64 24
   %envReg.i.i = getelementptr inbounds i8, ptr %fdid, i64 52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %current_.i, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %current_.i, i8 0, i64 28, i1 false)
   store i32 -1, ptr %envReg.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i.i)
   %call.i.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i32 noundef %debugOffset, ptr noundef nonnull %result.i.i) #16
@@ -429,7 +429,7 @@ if.then10:                                        ; preds = %for.body.i, %if.the
 
 if.end13:                                         ; preds = %for.body.lr.ph.i, %while.end
   %envReg.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(33) %agg.result, i8 0, i64 28, i1 false)
   store i32 -1, ptr %envReg.i.i8, align 4
   br label %return
 
@@ -466,7 +466,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %envReg.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(33) %agg.result, i8 0, i64 28, i1 false)
   store i32 -1, ptr %envReg.i.i, align 4
   br label %return
 
@@ -552,7 +552,7 @@ if.end8:                                          ; preds = %if.then6, %if.end
   %conv25 = trunc i64 %10 to i32
   %envReg27 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %conv25, ptr %envReg27, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %current_, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(33) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %current_, i64 32, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then
@@ -650,7 +650,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.call12.sroa_idx, align 8
   store ptr %agg.tmp.sroa.0.0.copyload.us, ptr %fdid, align 8
   store i64 %agg.tmp.sroa.2.0.copyload.us, ptr %data.sroa.2.0.data_.sroa_idx.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %current_.i, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %current_.i, i8 0, i64 28, i1 false)
   store i32 -1, ptr %envReg.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i.i)
   %call.i.i.us = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload.us, i64 %agg.tmp.sroa.2.0.copyload.us, i32 noundef %offset.082.us, ptr noundef nonnull %result.i.i) #16
@@ -709,7 +709,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call12.sroa_idx, align 8
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %fdid, align 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %data.sroa.2.0.data_.sroa_idx.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %current_.i, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %current_.i, i8 0, i64 28, i1 false)
   store i32 -1, ptr %envReg.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i.i)
   %call.i.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i32 noundef %offset.082, ptr noundef nonnull %result.i.i) #16
@@ -3071,9 +3071,9 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(80) %filenameTable, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %filenameTable, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(104) %filenameTable, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %filenameTable, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %filenameTable, i64 16
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %filenameTable, i64 24
@@ -3118,7 +3118,7 @@ _ZN6hermes3hbc21UniquingFilenameTableC2EOS1_.exit: ; preds = %entry, %if.then.i.
   call void @_ZN6hermes3hbc21UniquingFilenameTable9toStorageES1_(ptr nonnull sret(%"class.hermes::hbc::ConsecutiveStringStorage") align 8 %filenameStrings_, ptr noundef nonnull %agg.tmp) #16
   %5 = load ptr, ptr %stringsToIndex_.i.i, align 8
   call void @_ZdlPv(ptr noundef %5) #16
-  call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp) #16
+  call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp) #16
   %files_ = getelementptr inbounds i8, ptr %this, i64 88
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %add.ptr.i.i.i.i.i, ptr %files_, align 8
@@ -3373,7 +3373,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %if.end.i, %_ZNSt12_
   %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %27 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8, !noalias !67
   store ptr %27, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !67
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filenameStrings_, i8 0, i64 24, i1 false), !noalias !67
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %filenameStrings_, i8 0, i64 24, i1 false), !noalias !67
   %filenameStorage_.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %isStorageValid_.i.i = getelementptr inbounds i8, ptr %this, i64 81
@@ -3404,7 +3404,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %if.end.i, %_ZNSt12_
 
 if.then.i.i44:                                    ; preds = %_ZNSt6vectorIhSaIhEE7reserveEm.exit
   %files_ = getelementptr inbounds i8, ptr %this, i64 88
-  %call2.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %files_.i, ptr noundef nonnull align 8 dereferenceable(16) %files_)
+  %call2.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(28) %files_.i, ptr noundef nonnull align 8 dereferenceable(28) %files_)
   %.pre51 = load ptr, ptr %combinedData, align 8
   br label %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit
 

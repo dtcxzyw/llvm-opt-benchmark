@@ -67,7 +67,7 @@ define hidden void @_ZN16LinuxWaitBarrier4waitEi(ptr noundef nonnull align 4 der
   br label %.loopexit
 
 .preheader:                                       ; preds = %4, %20
-  %7 = tail call noundef i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %0, i32 noundef 128, i32 noundef %1, ptr null, ptr null, i32 noundef 0) #5
+  %7 = tail call noundef i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %0, i32 noundef 128, i32 noundef range(i32 1, 0) %1, ptr null, ptr null, i32 noundef 0) #5
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %20, label %9
 

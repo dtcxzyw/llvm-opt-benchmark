@@ -268,7 +268,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7630fced2496e6aE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7630fced2496e6aE.exit": ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !35
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %0, i64 %3), !alias.scope !35
   %5 = icmp eq i32 %bcmp.i, 0
   br label %6
 
@@ -569,7 +569,7 @@ _ZN4ecow7dynamic9InlineVec4push17h92a252e53362ebd2E.exit.i.i: ; preds = %44
   store ptr inttoptr (i64 16 to ptr), ptr %3, align 8, !noalias !50
   %65 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %65, align 8, !noalias !50
-  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h5fa4c1543ef89d24E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %64)
+  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h5fa4c1543ef89d24E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef range(i64 1, 129) %64)
           to label %82 unwind label %66, !noalias !50
 
 66:                                               ; preds = %63
@@ -599,7 +599,7 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   %73 = load ptr, ptr %4, align 8, !noalias !50, !nonnull !7, !noundef !7
   %74 = load i64, ptr %85, align 8, !noalias !50, !noundef !7
   %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 %0, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 dereferenceable(16) %0, i64 %87, i1 false)
   %76 = load i64, ptr %85, align 8, !noalias !50, !noundef !7
   %77 = add i64 %76, %87
   store i64 %77, ptr %85, align 8, !noalias !50
@@ -724,7 +724,7 @@ define hidden void @"_ZN65_$LT$flate2..crc..CrcReader$LT$R$GT$$u20$as$u20$std..i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = getelementptr inbounds i8, ptr %1, i64 72
-  call void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
+  call void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   %8 = load i64, ptr %5, align 8, !range !40, !noundef !7
   %trunc = trunc nuw i64 %8 to i1
   %9 = getelementptr inbounds i8, ptr %5, i64 8

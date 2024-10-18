@@ -2836,7 +2836,7 @@ cond.false.i9:                                    ; preds = %invoke.cont21
 
 invoke.cont23:                                    ; preds = %.noexc11, %invoke.cont21
   %15 = phi ptr [ %14, %invoke.cont21 ], [ %.pre.i10, %.noexc11 ]
-  %call.i13 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate)
+  %call.i13 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %15, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate)
           to label %call.i.noexc unwind label %lpad7
 
 call.i.noexc:                                     ; preds = %invoke.cont23
@@ -3483,7 +3483,7 @@ cond.false.i:                                     ; preds = %invoke.cont49
 
 invoke.cont51:                                    ; preds = %.noexc44, %invoke.cont49
   %45 = phi ptr [ %44, %invoke.cont49 ], [ %.pre.i, %.noexc44 ]
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate_, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(68) %45, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate_, i1 noundef zeroext false)
           to label %.noexc46 unwind label %lpad48
 
 .noexc46:                                         ; preds = %invoke.cont51
@@ -3498,7 +3498,7 @@ invoke.cont51:                                    ; preds = %.noexc44, %invoke.c
           to label %call.i.i45.noexc unwind label %lpad48
 
 call.i.i45.noexc:                                 ; preds = %.noexc47
-  %call2.i49 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate_)
+  %call2.i49 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(68) %45, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate_)
           to label %invoke.cont54 unwind label %lpad48
 
 invoke.cont54:                                    ; preds = %call.i.i45.noexc
@@ -4550,7 +4550,7 @@ cond.false.i105:                                  ; preds = %invoke.cont65
 
 invoke.cont67:                                    ; preds = %.noexc107, %invoke.cont65
   %59 = phi ptr [ %58, %invoke.cont65 ], [ %.pre.i106, %.noexc107 ]
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate_, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(68) %59, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate_, i1 noundef zeroext false)
           to label %.noexc110 unwind label %lpad64
 
 .noexc110:                                        ; preds = %invoke.cont67
@@ -4565,7 +4565,7 @@ invoke.cont67:                                    ; preds = %.noexc107, %invoke.
           to label %call.i.i109.noexc unwind label %lpad64
 
 call.i.i109.noexc:                                ; preds = %.noexc111
-  %call2.i113 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate_)
+  %call2.i113 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(68) %59, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate_)
           to label %invoke.cont69 unwind label %lpad64
 
 invoke.cont69:                                    ; preds = %call.i.i109.noexc
@@ -5064,7 +5064,7 @@ cond.false.i230:                                  ; preds = %invoke.cont174
 
 invoke.cont176:                                   ; preds = %.noexc232, %invoke.cont174
   %137 = phi ptr [ %136, %invoke.cont174 ], [ %.pre.i231, %.noexc232 ]
-  %call.i233 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %137, ptr noundef nonnull align 8 dereferenceable(8) %cond159)
+  %call.i233 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %137, ptr noundef nonnull align 8 dereferenceable(8) %cond159)
           to label %call.i.noexc unwind label %lpad173
 
 call.i.noexc:                                     ; preds = %invoke.cont176
@@ -5122,7 +5122,7 @@ cond.false.i248:                                  ; preds = %invoke.cont187
 
 invoke.cont189:                                   ; preds = %.noexc250, %invoke.cont187
   %144 = phi ptr [ %143, %invoke.cont187 ], [ %.pre.i249, %.noexc250 ]
-  %call.i253 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %144, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp149)
+  %call.i253 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %144, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp149)
           to label %call.i.noexc252 unwind label %lpad186
 
 call.i.noexc252:                                  ; preds = %invoke.cont189
@@ -7479,7 +7479,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %10 = phi ptr [ %9, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %4)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -8118,7 +8118,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib21BlackIborCouponPricerD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(160) %2, i64 noundef 272) #34
   ret void
 }
 
@@ -13225,7 +13225,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -13384,7 +13384,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -13543,7 +13543,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -13707,7 +13707,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -13868,7 +13868,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -14029,7 +14029,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -14190,7 +14190,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -14351,7 +14351,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -14512,7 +14512,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -14673,7 +14673,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -14834,7 +14834,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -14995,7 +14995,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -15156,7 +15156,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -15317,7 +15317,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 
@@ -15478,7 +15478,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef 144) #34
   ret void
 }
 

@@ -74,7 +74,7 @@ define dso_local void @_ZN21OffMeshConnectionToolD0Ev(ptr noundef nonnull align 
   br label %_ZN21OffMeshConnectionToolD2Ev.exit
 
 _ZN21OffMeshConnectionToolD2Ev.exit:              ; preds = %1, %4
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(31) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }

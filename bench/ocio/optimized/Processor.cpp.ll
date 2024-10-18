@@ -582,7 +582,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %4)
           to label %_ZN19OpenColorIO_v2_4dev17ProcessorMetadata4ImplD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
@@ -1515,7 +1515,7 @@ entry:
   %fullstr = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %m_resultsCacheMutex = getelementptr inbounds i8, ptr %this, i64 192
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_resultsCacheMutex) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1577,12 +1577,12 @@ if.end16:                                         ; preds = %if.then5, %invoke.c
 
 cleanup:                                          ; preds = %if.end16, %if.then
   %retval.0 = phi ptr [ %call18, %if.end16 ], [ %call3, %if.then ]
-  %call1.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_resultsCacheMutex) #24
+  %call1.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex) #24
   ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %lpad12, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad12 ]
-  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_resultsCacheMutex) #24
+  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -1631,7 +1631,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %m_mutex.i = getelementptr inbounds i8, ptr %this, i64 256
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1876,12 +1876,12 @@ if.else.i.i.i.i.i19:                              ; preds = %if.then.i.i.i15
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9ProcessorEEC2IS1_vEERKS_IT_E.exit: ; preds = %if.end, %if.then.i.i.i.i.i17, %if.else.i.i.i.i.i19
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #24
-  %call1.i.i.i20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   br label %return
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %31, %lpad5 ], [ %30, %lpad ]
-  %call1.i.i.i21 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i21 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   resume { ptr, i32 } %.pn
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9ProcessorEED2Ev.exit54: ; preds = %entry
@@ -2238,7 +2238,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %m_mutex.i = getelementptr inbounds i8, ptr %this, i64 464
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -2483,12 +2483,12 @@ if.else.i.i.i.i.i19:                              ; preds = %if.then.i.i.i15
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEEC2IS1_vEERKS_IT_E.exit: ; preds = %if.end, %if.then.i.i.i.i.i17, %if.else.i.i.i.i.i19
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #24
-  %call1.i.i.i20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   br label %return
 
 ehcleanup:                                        ; preds = %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %32, %lpad8 ], [ %31, %lpad ]
-  %call1.i.i.i21 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i21 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   resume { ptr, i32 } %.pn
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit54: ; preds = %entry, %land.lhs.true
@@ -2971,7 +2971,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %m_resultsCacheMutex = getelementptr inbounds i8, ptr %this, i64 192
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_resultsCacheMutex) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -3104,7 +3104,7 @@ invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN
   %m_cacheFlags5 = getelementptr inbounds i8, ptr %this, i64 232
   store i32 %17, ptr %m_cacheFlags5, align 8
   %m_mutex.i = getelementptr inbounds i8, ptr %this, i64 256
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont.i, label %if.then.i.i.i6
 
@@ -3145,8 +3145,8 @@ _ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE5clearEv.
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i, align 8
   %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
   store i64 0, ptr %_M_node_count.i.i.i.i, align 8
-  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #24
-  %call1.i.i.i.i8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
+  %call1.i.i.i.i8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   %tobool.not.i.i.i9 = icmp eq i32 %call1.i.i.i.i8, 0
   br i1 %tobool.not.i.i.i9, label %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE6enableEb.exit, label %if.then.i.i.i10
 
@@ -3169,9 +3169,9 @@ _ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE6enableEb
   %frombool.i = and i8 %25, 1
   %m_enabled.i = getelementptr inbounds i8, ptr %this, i64 249
   store i8 %frombool.i, ptr %m_enabled.i, align 1
-  %call1.i.i.i1.i14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i1.i14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   %m_mutex.i15 = getelementptr inbounds i8, ptr %this, i64 360
-  %call1.i.i.i.i16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i15) #24
+  %call1.i.i.i.i16 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i15) #24
   %tobool.not.i.i.i17 = icmp eq i32 %call1.i.i.i.i16, 0
   br i1 %tobool.not.i.i.i17, label %invoke.cont.i21, label %if.then.i.i.i18
 
@@ -3212,8 +3212,8 @@ _ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12GPUProcessorEEE5clea
   store ptr %add.ptr.i.i.i25, ptr %_M_right.i.i.i.i27, align 8
   %_M_node_count.i.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 440
   store i64 0, ptr %_M_node_count.i.i.i.i28, align 8
-  %call1.i.i.i1.i29 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i15) #24
-  %call1.i.i.i.i31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i15) #24
+  %call1.i.i.i1.i29 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i15) #24
+  %call1.i.i.i.i31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i15) #24
   %tobool.not.i.i.i32 = icmp eq i32 %call1.i.i.i.i31, 0
   br i1 %tobool.not.i.i.i32, label %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12GPUProcessorEEE6enableEb.exit, label %if.then.i.i.i33
 
@@ -3234,9 +3234,9 @@ terminate.lpad.i34:                               ; preds = %if.then.i.i.i33
 _ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12GPUProcessorEEE6enableEb.exit: ; preds = %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12GPUProcessorEEE5clearEv.exit
   %m_enabled.i38 = getelementptr inbounds i8, ptr %this, i64 353
   store i8 %frombool.i, ptr %m_enabled.i38, align 1
-  %call1.i.i.i1.i39 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i15) #24
+  %call1.i.i.i1.i39 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i15) #24
   %m_mutex.i40 = getelementptr inbounds i8, ptr %this, i64 464
-  %call1.i.i.i.i41 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i40) #24
+  %call1.i.i.i.i41 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i40) #24
   %tobool.not.i.i.i42 = icmp eq i32 %call1.i.i.i.i41, 0
   br i1 %tobool.not.i.i.i42, label %invoke.cont.i46, label %if.then.i.i.i43
 
@@ -3277,8 +3277,8 @@ _ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEE5clea
   store ptr %add.ptr.i.i.i50, ptr %_M_right.i.i.i.i52, align 8
   %_M_node_count.i.i.i.i53 = getelementptr inbounds i8, ptr %this, i64 544
   store i64 0, ptr %_M_node_count.i.i.i.i53, align 8
-  %call1.i.i.i1.i54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i40) #24
-  %call1.i.i.i.i56 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i40) #24
+  %call1.i.i.i1.i54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i40) #24
+  %call1.i.i.i.i56 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i40) #24
   %tobool.not.i.i.i57 = icmp eq i32 %call1.i.i.i.i56, 0
   br i1 %tobool.not.i.i.i57, label %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEE6enableEb.exit, label %if.then.i.i.i58
 
@@ -3299,14 +3299,14 @@ terminate.lpad.i59:                               ; preds = %if.then.i.i.i58
 _ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEE6enableEb.exit: ; preds = %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEE5clearEv.exit
   %m_enabled.i63 = getelementptr inbounds i8, ptr %this, i64 457
   store i8 %frombool.i, ptr %m_enabled.i63, align 1
-  %call1.i.i.i1.i64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i40) #24
-  %call1.i.i.i66 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_resultsCacheMutex) #24
+  %call1.i.i.i1.i64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i40) #24
+  %call1.i.i.i66 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex) #24
   br label %if.end
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17ProcessorMetadataEEaSERKS2_.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i68 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_resultsCacheMutex) #24
+  %call1.i.i.i68 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex) #24
   resume { ptr, i32 } %40
 
 if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEE6enableEb.exit, %entry
@@ -3849,7 +3849,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %m_mutex.i = getelementptr inbounds i8, ptr %this, i64 360
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -4024,7 +4024,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 lpad:                                             ; preds = %if.then8
   %28 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   resume { ptr, i32 } %28
 
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12GPUProcessorEEaSEOS2_.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -4054,7 +4054,7 @@ if.else.i.i.i.i.i16:                              ; preds = %if.then.i.i.i12
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12GPUProcessorEEC2IS1_vEERKS_IT_E.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12GPUProcessorEEC2IS1_vEERKS_IT_E.exit: ; preds = %if.end, %if.then.i.i.i.i.i14, %if.else.i.i.i.i.i16
-  %call1.i.i.i17 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i17 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12GPUProcessorEED2Ev.exit50: ; preds = %entry
@@ -4587,7 +4587,7 @@ entry:
   %m_cacheFlags = getelementptr inbounds i8, ptr %this, i64 232
   store i32 %flags, ptr %m_cacheFlags, align 8
   %m_mutex.i = getelementptr inbounds i8, ptr %this, i64 256
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE6enableEb.exit, label %if.then.i.i.i
 
@@ -4610,9 +4610,9 @@ _ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE6enableEb
   %frombool.i = and i8 %2, 1
   %m_enabled.i = getelementptr inbounds i8, ptr %this, i64 249
   store i8 %frombool.i, ptr %m_enabled.i, align 1
-  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #24
+  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i) #24
   %m_mutex.i3 = getelementptr inbounds i8, ptr %this, i64 360
-  %call1.i.i.i.i4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i3) #24
+  %call1.i.i.i.i4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i3) #24
   %tobool.not.i.i.i5 = icmp eq i32 %call1.i.i.i.i4, 0
   br i1 %tobool.not.i.i.i5, label %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12GPUProcessorEEE6enableEb.exit, label %if.then.i.i.i6
 
@@ -4633,9 +4633,9 @@ terminate.lpad.i7:                                ; preds = %if.then.i.i.i6
 _ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12GPUProcessorEEE6enableEb.exit: ; preds = %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE6enableEb.exit
   %m_enabled.i10 = getelementptr inbounds i8, ptr %this, i64 353
   store i8 %frombool.i, ptr %m_enabled.i10, align 1
-  %call1.i.i.i1.i11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i3) #24
+  %call1.i.i.i1.i11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i3) #24
   %m_mutex.i12 = getelementptr inbounds i8, ptr %this, i64 464
-  %call1.i.i.i.i13 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex.i12) #24
+  %call1.i.i.i.i13 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i12) #24
   %tobool.not.i.i.i14 = icmp eq i32 %call1.i.i.i.i13, 0
   br i1 %tobool.not.i.i.i14, label %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEE6enableEb.exit, label %if.then.i.i.i15
 
@@ -4656,7 +4656,7 @@ terminate.lpad.i16:                               ; preds = %if.then.i.i.i15
 _ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEE6enableEb.exit: ; preds = %_ZN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12GPUProcessorEEE6enableEb.exit
   %m_enabled.i19 = getelementptr inbounds i8, ptr %this, i64 457
   store i8 %frombool.i, ptr %m_enabled.i19, align 1
-  %call1.i.i.i1.i20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i12) #24
+  %call1.i.i.i1.i20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i12) #24
   ret void
 }
 
@@ -4830,7 +4830,7 @@ entry:
   %m_ops7 = getelementptr inbounds i8, ptr %3, i64 16
   %call9 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecpLERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %m_ops3, ptr noundef nonnull align 8 dereferenceable(144) %m_ops7)
   %m_resultsCacheMutex.i = getelementptr inbounds i8, ptr %this, i64 192
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_resultsCacheMutex.i) #24
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex.i) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -4851,7 +4851,7 @@ for.body.i:                                       ; preds = %_ZNSt10lock_guardIS
   %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %7 = load ptr, ptr %vfn.i, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(552) %this)
           to label %for.inc.i unwind label %lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -4862,11 +4862,11 @@ for.inc.i:                                        ; preds = %for.body.i
 lpad.i:                                           ; preds = %for.body.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_resultsCacheMutex.i) #24
+  %call1.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex.i) #24
   resume { ptr, i32 } %8
 
 _ZN19OpenColorIO_v2_4dev9Processor4Impl15computeMetadataEv.exit: ; preds = %for.inc.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %call1.i.i.i3.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_resultsCacheMutex.i) #24
+  %call1.i.i.i3.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex.i) #24
   tail call void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec25validateDynamicPropertiesEv(ptr noundef nonnull align 8 dereferenceable(144) %m_ops3)
   ret void
 }
@@ -4875,7 +4875,7 @@ _ZN19OpenColorIO_v2_4dev9Processor4Impl15computeMetadataEv.exit: ; preds = %for.
 define void @_ZN19OpenColorIO_v2_4dev9Processor4Impl15computeMetadataEv(ptr noundef nonnull align 8 dereferenceable(552) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_resultsCacheMutex = getelementptr inbounds i8, ptr %this, i64 192
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_resultsCacheMutex) #24
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -4908,11 +4908,11 @@ for.inc:                                          ; preds = %for.body
 lpad:                                             ; preds = %for.body
   %4 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_resultsCacheMutex) #24
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex) #24
   resume { ptr, i32 } %4
 
 for.end:                                          ; preds = %for.inc, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_resultsCacheMutex) #24
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %m_resultsCacheMutex) #24
   ret void
 }
 

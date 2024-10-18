@@ -121,7 +121,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx18initForCommandL
 .thread.i:                                        ; preds = %9
   %18 = add nsw i32 %15, 1
   %19 = sext i32 %18 to i64
-  %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 111, i64 noundef %19, i64 noundef 8)
+  %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 111, i64 noundef range(i64 -2147483647, 2147483648) %19, i64 noundef 8)
   store ptr %20, ptr %1, align 8
   %21 = load i32, ptr %0, align 4
   %22 = icmp sgt i32 %21, 0
@@ -158,7 +158,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx18initForCommandL
   %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv.i
   %44 = load i32, ptr %3, align 4
   %45 = sext i32 %44 to i64
-  %46 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, i32 noundef 123, i64 noundef %45, i64 noundef 1)
+  %46 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, i32 noundef 123, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef 1)
   store ptr %46, ptr %43, align 8
   %47 = load i32, ptr %3, align 4
   %48 = load ptr, ptr %1, align 8
@@ -413,7 +413,7 @@ define noundef i32 @_ZN3gmx20runCommandLineModuleEiPPcPKcS3_St8functionIFSt10uni
   %6 = alloca %"class.std::function", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -423,7 +423,7 @@ define noundef i32 @_ZN3gmx20runCommandLineModuleEiPPcPKcS3_St8functionIFSt10uni
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store ptr %11, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit
@@ -439,7 +439,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit unwind label %20
 
 20:                                               ; preds = %18
@@ -461,7 +461,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   br i1 %.not.i.i5, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit6, label %27
 
 27:                                               ; preds = %23
-  %28 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+  %28 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit6 unwind label %29
 
 29:                                               ; preds = %27

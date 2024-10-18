@@ -1319,7 +1319,7 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly 
   br i1 %32, label %.critedge63, label %34
 
 .critedge63:                                      ; preds = %22, %27
-  %33 = tail call range(i32 -536870912, 536870912) i32 @llvm.smax.i32(i32 %.177, i32 %26)
+  %33 = tail call range(i32 -536870912, 536870912) i32 @llvm.smax.i32(i32 range(i32 -536870912, 536870912) %.177, i32 range(i32 -536870912, 536870912) %26)
   br label %34
 
 34:                                               ; preds = %27, %.critedge63

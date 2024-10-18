@@ -746,7 +746,7 @@ do.end:                                           ; preds = %entry
   %relInitStepSize_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %23 = load double, ptr %relInitStepSize_, align 8, !tbaa !28
   %mul = fmul double %0, %23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp25, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %ref.tmp25, i8 0, i64 24, i1 false)
   %eps_.i = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 24
   store double %22, ptr %eps_.i, align 8, !tbaa !50
   %h1_.i = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 32
@@ -897,7 +897,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont45, %if.
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %call.i = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -1078,7 +1078,7 @@ ehcleanup49:                                      ; preds = %lpad.i, %if.then.i.
   br i1 %tobool.not.i66, label %_ZNSt14_Function_baseD2Ev.exit70, label %if.then.i67
 
 if.then.i67:                                      ; preds = %ehcleanup49
-  %call.i68 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, i32 noundef 3)
+  %call.i68 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit70 unwind label %terminate.lpad.i69
 
 terminate.lpad.i69:                               ; preds = %if.then.i67
@@ -1310,7 +1310,7 @@ if.then.i:                                        ; preds = %for.body
 
 if.end.i:                                         ; preds = %for.body
   %10 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !104
-  invoke void %10(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %dydx, ptr noundef nonnull align 8 dereferenceable(16) %ode, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.result)
+  invoke void %10(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %dydx, ptr noundef nonnull align 8 dereferenceable(32) %ode, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.result)
           to label %_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_.exit unwind label %lpad4.loopexit
 
 _ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_.exit: ; preds = %if.end.i
@@ -2584,7 +2584,7 @@ if.then.i:                                        ; preds = %for.cond.cleanup
 if.end.i:                                         ; preds = %for.cond.cleanup
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %derivs, i64 24
   %12 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !112
-  invoke void %12(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(16) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
+  invoke void %12(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont24 unwind label %lpad23
 
 ehcleanup157.thread:                              ; preds = %if.then.i.i.i.i.i97
@@ -2685,7 +2685,7 @@ if.then.i189:                                     ; preds = %for.cond.cleanup29
 
 if.end.i187:                                      ; preds = %for.cond.cleanup29
   %30 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !116
-  invoke void %30(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(16) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i184, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
+  invoke void %30(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i184, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont44 unwind label %lpad43
 
 lpad23:                                           ; preds = %if.end.i, %if.then.i
@@ -2773,7 +2773,7 @@ if.then.i219:                                     ; preds = %for.cond.cleanup49
 
 if.end.i217:                                      ; preds = %for.cond.cleanup49
   %48 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !120
-  invoke void %48(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(16) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i214, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
+  invoke void %48(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i214, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont66 unwind label %lpad65
 
 lpad43:                                           ; preds = %if.end.i187, %if.then.i189
@@ -2866,7 +2866,7 @@ if.then.i250:                                     ; preds = %for.cond.cleanup71
 
 if.end.i248:                                      ; preds = %for.cond.cleanup71
   %69 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !124
-  invoke void %69(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(16) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i245, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
+  invoke void %69(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i245, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont90 unwind label %lpad89
 
 lpad65:                                           ; preds = %if.end.i217, %if.then.i219
@@ -2964,7 +2964,7 @@ if.then.i282:                                     ; preds = %for.cond.cleanup95
 
 if.end.i280:                                      ; preds = %for.cond.cleanup95
   %93 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !128
-  invoke void %93(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(16) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i277, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
+  invoke void %93(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i277, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont116 unwind label %lpad115
 
 lpad89:                                           ; preds = %if.end.i248, %if.then.i250

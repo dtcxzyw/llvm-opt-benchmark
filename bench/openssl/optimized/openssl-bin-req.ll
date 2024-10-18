@@ -2746,12 +2746,12 @@ for.cond31.i.preheader:                           ; preds = %check_end.exit83.i,
 check_end.exit.i:                                 ; preds = %if.end15.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %31, i64 %call1.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -4
-  %call3.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.212) #11
+  %call3.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull dereferenceable(5) @.str.212) #11
   %tobool19.not.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool19.not.i, label %for.cond.backedge.i, label %check_end.exit63.i
 
 check_end.exit63.i:                               ; preds = %check_end.exit.i
-  %call3.i61.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.213) #11
+  %call3.i61.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull dereferenceable(5) @.str.213) #11
   %tobool21.not.i = icmp eq i32 %call3.i61.i, 0
   br i1 %tobool21.not.i, label %for.cond.backedge.i, label %lor.lhs.false22.i
 
@@ -2761,7 +2761,7 @@ lor.lhs.false22.i:                                ; preds = %check_end.exit63.i
 
 check_end.exit73.i:                               ; preds = %lor.lhs.false22.i
   %add.ptr2.i70.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
-  %call3.i71.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i70.i, ptr noundef nonnull readonly dereferenceable(9) @.str.214) #11
+  %call3.i71.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i70.i, ptr noundef nonnull dereferenceable(9) @.str.214) #11
   %tobool24.not.i = icmp eq i32 %call3.i71.i, 0
   br i1 %tobool24.not.i, label %for.cond.backedge.i, label %check_end.exit83.i
 
@@ -2771,7 +2771,7 @@ lor.lhs.false25.i:                                ; preds = %lor.lhs.false22.i
 
 check_end.exit83.i:                               ; preds = %lor.lhs.false25.i, %check_end.exit73.i
   %add.ptr2.i80.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -6
-  %call3.i81.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i80.i, ptr noundef nonnull readonly dereferenceable(7) @.str.215) #11
+  %call3.i81.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i80.i, ptr noundef nonnull dereferenceable(7) @.str.215) #11
   %tobool27.not.i = icmp eq i32 %call3.i81.i, 0
   br i1 %tobool27.not.i, label %for.cond.backedge.i, label %for.cond31.i.preheader
 
@@ -2832,7 +2832,7 @@ join.exit.thread.i:                               ; preds = %if.end59.i
 if.end64.i:                                       ; preds = %if.end59.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %35, i64 %call.i84.i, i1 false)
   %add.ptr.i88.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i84.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i88.i, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i88.i, ptr noundef nonnull align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
   %38 = load ptr, ptr @req_conf, align 8
   %call66.i = call ptr @app_conf_try_string(ptr noundef %38, ptr noundef %call3, ptr noundef nonnull %buf.i) #10
   %cmp67.i = icmp eq ptr %call66.i, null
@@ -2851,7 +2851,7 @@ join.exit101.thread.i:                            ; preds = %if.end64.i
 if.end76.i:                                       ; preds = %if.end64.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %39, i64 %call.i91.i, i1 false)
   %add.ptr.i97.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i91.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i97.i, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i97.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
   %42 = load ptr, ptr @req_conf, align 8
   %call78.i = call ptr @app_conf_try_string(ptr noundef %42, ptr noundef %call3, ptr noundef nonnull %buf.i) #10
   %43 = load ptr, ptr %name.i25, align 8
@@ -2868,7 +2868,7 @@ join.exit112.thread.i:                            ; preds = %if.end76.i
 if.end88.i:                                       ; preds = %if.end76.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %43, i64 %call.i102.i, i1 false)
   %add.ptr.i108.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i102.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i108.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i108.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
   %46 = load ptr, ptr @req_conf, align 8
   %call90.i = call i32 @app_conf_try_number(ptr noundef %46, ptr noundef %call3, ptr noundef nonnull %buf.i, ptr noundef nonnull %n_min.i) #10
   %tobool91.not.i = icmp eq i32 %call90.i, 0
@@ -2893,7 +2893,7 @@ join.exit123.thread.i:                            ; preds = %if.end93.i
 if.end99.i:                                       ; preds = %if.end93.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %47, i64 %call.i113.i, i1 false)
   %add.ptr.i119.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i113.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i119.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i119.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
   %50 = load ptr, ptr @req_conf, align 8
   %call101.i = call i32 @app_conf_try_number(ptr noundef %50, ptr noundef %call3, ptr noundef nonnull %buf.i, ptr noundef nonnull %n_max.i) #10
   %tobool102.not.i = icmp eq i32 %call101.i, 0
@@ -2920,7 +2920,7 @@ if.end104.i:                                      ; preds = %if.then103.i, %if.e
   br i1 %or.cond.i.i, label %add_DN_object.exit.i, label %if.end.i125.i
 
 if.end.i125.i:                                    ; preds = %if.end104.i
-  %call3.i126.i = call i32 @X509_NAME_add_entry_by_NID(ptr noundef %call.i20, i32 noundef %call55.i, i32 noundef %conv.i.i, ptr noundef nonnull %buf.i.i, i32 noundef -1, i32 noundef -1, i32 noundef %mval.0.i31) #10
+  %call3.i126.i = call i32 @X509_NAME_add_entry_by_NID(ptr noundef %call.i20, i32 noundef range(i32 1, 0) %call55.i, i32 noundef %conv.i.i, ptr noundef nonnull %buf.i.i, i32 noundef -1, i32 noundef -1, i32 noundef range(i32 -1, 1) %mval.0.i31) #10
   %tobool.not.i.i = icmp ne i32 %call3.i126.i, 0
   %spec.select.i.i = zext i1 %tobool.not.i.i to i32
   br label %add_DN_object.exit.i
@@ -2994,7 +2994,7 @@ join.exit138.thread.i:                            ; preds = %if.end151.i
 if.end156.i:                                      ; preds = %if.end151.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %57, i64 %call.i128.i, i1 false)
   %add.ptr.i134.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i128.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i134.i, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i134.i, ptr noundef nonnull align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
   %60 = load ptr, ptr @req_conf, align 8
   %call158.i = call ptr @app_conf_try_string(ptr noundef %60, ptr noundef %call12, ptr noundef nonnull %buf.i) #10
   %cmp159.i = icmp eq ptr %call158.i, null
@@ -3012,7 +3012,7 @@ join.exit149.thread.i:                            ; preds = %if.end156.i
 if.end167.i:                                      ; preds = %if.end156.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %57, i64 %call.i139.i, i1 false)
   %add.ptr.i145.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i139.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i145.i, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i145.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
   %63 = load ptr, ptr @req_conf, align 8
   %call169.i = call ptr @app_conf_try_string(ptr noundef %63, ptr noundef %call12, ptr noundef nonnull %buf.i) #10
   %call.i150.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #11
@@ -3028,7 +3028,7 @@ join.exit160.thread.i:                            ; preds = %if.end167.i
 if.end174.i:                                      ; preds = %if.end167.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %57, i64 %call.i150.i, i1 false)
   %add.ptr.i156.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i150.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i156.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i156.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
   %66 = load ptr, ptr @req_conf, align 8
   %call176.i = call i32 @app_conf_try_number(ptr noundef %66, ptr noundef %call12, ptr noundef nonnull %buf.i, ptr noundef nonnull %n_min.i) #10
   %tobool177.not.i = icmp eq i32 %call176.i, 0
@@ -3052,7 +3052,7 @@ join.exit171.thread.i:                            ; preds = %if.end179.i
 if.end184.i:                                      ; preds = %if.end179.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %57, i64 %call.i161.i, i1 false)
   %add.ptr.i167.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i161.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i167.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i167.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
   %69 = load ptr, ptr @req_conf, align 8
   %call186.i = call i32 @app_conf_try_number(ptr noundef %69, ptr noundef %call12, ptr noundef nonnull %buf.i, ptr noundef nonnull %n_max.i) #10
   %tobool187.not.i = icmp eq i32 %call186.i, 0
@@ -3079,7 +3079,7 @@ if.end189.i:                                      ; preds = %if.then188.i, %if.e
   br i1 %or.cond.i174.i, label %add_attribute_object.exit.i, label %if.end.i175.i
 
 if.end.i175.i:                                    ; preds = %if.end189.i
-  %call3.i177.i = call i32 @X509_REQ_add1_attr_by_NID(ptr noundef nonnull %req, i32 noundef %call147.i, i32 noundef %conv.i176.i115, ptr noundef nonnull %buf.i172.i, i32 noundef -1) #10
+  %call3.i177.i = call i32 @X509_REQ_add1_attr_by_NID(ptr noundef nonnull %req, i32 noundef range(i32 1, 0) %call147.i, i32 noundef %conv.i176.i115, ptr noundef nonnull %buf.i172.i, i32 noundef -1) #10
   %tobool.not.i178.i = icmp eq i32 %call3.i177.i, 0
   br i1 %tobool.not.i178.i, label %add_attribute_object.exit.thread.i, label %add_attribute_object.exit.i
 

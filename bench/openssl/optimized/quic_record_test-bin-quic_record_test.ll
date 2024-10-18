@@ -830,7 +830,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %arrayidx.i, align 8
   %expected_len.i = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load i64, ptr %expected_len.i, align 8
-  %call.i6 = tail call fastcc i32 @test_wire_pkt_hdr_actual(i32 noundef %div3, i32 noundef %rem2, i32 noundef %rem, i64 noundef %3)
+  %call.i6 = tail call fastcc i32 @test_wire_pkt_hdr_actual(i32 noundef range(i32 -178956970, 178956971) %div3, i32 noundef range(i32 -3, 4) %rem2, i32 noundef range(i32 -2, 3) %rem, i64 noundef %3)
   %call1.i = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 2924, ptr noundef nonnull @.str.80, i32 noundef %call.i6) #10
   %tobool.not.i7 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i7, label %return, label %for.cond.preheader.i
@@ -848,7 +848,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %i.09.i = phi i64 [ %inc.i8, %for.cond.i ], [ 0, %for.cond.preheader.i ]
-  %call5.i = tail call fastcc i32 @test_wire_pkt_hdr_actual(i32 noundef %div3, i32 noundef %rem2, i32 noundef %rem, i64 noundef %i.09.i)
+  %call5.i = tail call fastcc i32 @test_wire_pkt_hdr_actual(i32 noundef range(i32 -178956970, 178956971) %div3, i32 noundef range(i32 -3, 4) %rem2, i32 noundef range(i32 -2, 3) %rem, i64 noundef %i.09.i)
   %call8.i = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 2929, ptr noundef nonnull @.str.81, i32 noundef %call5.i) #10
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %return, label %for.cond.i
@@ -1368,7 +1368,7 @@ entry:
   %0 = load i64, ptr @time_counter, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr @time_counter, align 8
-  %1 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %inc, i64 1000000)
+  %1 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -1, 1000001) %inc, i64 1000000)
   %2 = extractvalue { i64, i1 } %1, 1
   %3 = extractvalue { i64, i1 } %1, 0
   %retval.sroa.0.0.i.i = select i1 %2, i64 -1, i64 %3

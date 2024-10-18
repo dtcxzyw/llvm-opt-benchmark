@@ -212,7 +212,7 @@ if.then.i:                                        ; preds = %_ZN9grpc_core7ExecC
 if.then.i.i3:                                     ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  invoke void %18(ptr noundef nonnull %16)
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.then.i, %_ZN9grpc_core7ExecCtxC2Ev.exit, %if.then.i.i3
@@ -229,7 +229,7 @@ if.then.i5:                                       ; preds = %invoke.cont1
 if.then.i.i7:                                     ; preds = %if.then.i5
   %destroyer_fn_.i.i8 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %destroyer_fn_.i.i8, align 8
-  invoke void %21(ptr noundef nonnull %19)
+  invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.then.i5, %invoke.cont1, %if.then.i.i7

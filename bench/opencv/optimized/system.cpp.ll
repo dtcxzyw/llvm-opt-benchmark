@@ -2471,7 +2471,7 @@ _ZNK2cv7details14TlsAbstraction7getDataEv.exit:   ; preds = %7
 
 _ZNK2cv7details14TlsAbstraction7getDataEv.exit.thread38: ; preds = %5, %_ZNK2cv7details14TlsAbstraction7getDataEv.exit
   %14 = phi ptr [ %12, %_ZNK2cv7details14TlsAbstraction7getDataEv.exit ], [ %1, %5 ]
-  %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #28
+  %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   %.not.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader, label %24
 
@@ -2523,7 +2523,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader: ; preds = %_ZNK2cv
 
 31:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   resume { ptr, i32 } %lpad.phi
 
 33:                                               ; preds = %30, %28
@@ -2605,7 +2605,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit._crit_edge: ; preds = %_ZNSt1
   br label %71
 
 71:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit._crit_edge, %_ZN2cv7details10ThreadDataD2Ev.exit
-  %72 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %72 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   br label %_ZNK2cv7details14TlsAbstraction7getDataEv.exit.thread
 
 _ZNK2cv7details14TlsAbstraction7getDataEv.exit.thread: ; preds = %7, %_ZNK2cv7details14TlsAbstraction7getDataEv.exit, %2, %71
@@ -2666,7 +2666,7 @@ _ZN2cv7detailsL13getTlsStorageEv.exit:            ; preds = %1, %4, %9
 define linkonce_odr hidden noundef i64 @_ZN2cv7details10TlsStorage11reserveSlotEPNS_16TLSDataContainerE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #28
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %6
 
@@ -2826,12 +2826,12 @@ _ZNSt6vectorIN2cv7details10TlsStorage11TlsSlotInfoESaIS3_EE9push_backEOS3_.exit:
 
 62:                                               ; preds = %_ZNSt6vectorIN2cv7details10TlsStorage11TlsSlotInfoESaIS3_EE9push_backEOS3_.exit, %29
   %.013 = phi i64 [ %.024, %29 ], [ %58, %_ZNSt6vectorIN2cv7details10TlsStorage11TlsSlotInfoESaIS3_EE9push_backEOS3_.exit ]
-  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   ret i64 %.013
 
 64:                                               ; preds = %60, %25
   %.pn15 = phi { ptr, i32 } [ %61, %60 ], [ %.pn, %25 ]
-  %65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %65 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   resume { ptr, i32 } %.pn15
 }
 
@@ -2932,7 +2932,7 @@ define linkonce_odr hidden void @_ZN2cv7details10TlsStorage6gatherEmRSt6vectorIP
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #28
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %9
 
@@ -3150,12 +3150,12 @@ _ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt6vectorIPvSaIS
   br i1 %98, label %45, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit, %.preheader
-  %99 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %99 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   ret void
 
 100:                                              ; preds = %.loopexit, %.loopexit.split-lp, %44, %28
   %.pn23 = phi { ptr, i32 } [ %.pn20, %44 ], [ %.pn, %28 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %101 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %101 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   resume { ptr, i32 } %.pn23
 }
 
@@ -3214,7 +3214,7 @@ define linkonce_odr hidden void @_ZN2cv7details10TlsStorage11releaseSlotEmRSt6ve
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #28
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %10
 
@@ -3450,12 +3450,12 @@ _ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt6vectorIPvSaIS
   br label %107
 
 107:                                              ; preds = %104, %._crit_edge
-  %108 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %108 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   ret void
 
 109:                                              ; preds = %.loopexit, %.loopexit.split-lp, %45, %29
   %.pn27 = phi { ptr, i32 } [ %.pn24, %45 ], [ %.pn, %29 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %110 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %110 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   resume { ptr, i32 } %.pn27
 }
 
@@ -4038,7 +4038,7 @@ _ZNK2cv7details14TlsAbstraction7getDataEv.exit.thread: ; preds = %21, %_ZNK2cv7d
   %32 = getelementptr inbounds i8, ptr %28, i64 256
   store ptr %32, ptr %31, align 8
   tail call void @_ZN2cv7details14TlsAbstraction7setDataEPv(ptr noundef nonnull align 4 dereferenceable(5) %19, ptr noundef nonnull %27)
-  %33 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #28
+  %33 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.preheader, label %42
 
@@ -4160,11 +4160,11 @@ _ZNSt6vectorIPN2cv7details10ThreadDataESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9_
 77:                                               ; preds = %66, %61
   %78 = landingpad { ptr, i32 }
           cleanup
-  %79 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %79 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   br label %115
 
 _ZNSt6vectorIPN2cv7details10ThreadDataESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIPN2cv7details10ThreadDataESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %56, %46
-  %80 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %80 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   br label %81
 
 81:                                               ; preds = %_ZNSt6vectorIPN2cv7details10ThreadDataESaIS3_EE9push_backERKS3_.exit, %_ZNK2cv7details14TlsAbstraction7getDataEv.exit
@@ -4180,7 +4180,7 @@ _ZNSt6vectorIPN2cv7details10ThreadDataESaIS3_EE9push_backERKS3_.exit: ; preds = 
   br i1 %.not23, label %111, label %89
 
 89:                                               ; preds = %81
-  %90 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #28
+  %90 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   %.not.i.i27 = icmp eq i32 %90, 0
   br i1 %.not.i.i27, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit28, label %91
 
@@ -4219,14 +4219,14 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit28: ; preds = %89
   br label %_ZNSt6vectorIPvSaIS0_EE6resizeEmRKS0_.exit
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEmRKS0_.exit:       ; preds = %106, %104, %102, %100
-  %107 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %107 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   %.pre = load ptr, ptr %.040, align 8
   br label %111
 
 108:                                              ; preds = %100
   %109 = landingpad { ptr, i32 }
           cleanup
-  %110 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #28
+  %110 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   br label %115
 
 111:                                              ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEmRKS0_.exit, %81
@@ -4895,7 +4895,7 @@ define void @_ZN2cv5instr8NodeDataC2EPKcS3_iPvbNS0_4TYPEENS0_4IMPLE(ptr noundef 
   %10 = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   %11 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @_ZN2cv16TLSDataContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11)
+  invoke void @_ZN2cv16TLSDataContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %11)
           to label %12 unwind label %33
 
 12:                                               ; preds = %8
@@ -5011,7 +5011,7 @@ _ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EED2Ev.exit2: ; preds = %_ZNSt6vecto
 define void @_ZN2cv5instr8NodeDataC2ERS1_(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(196) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @_ZN2cv16TLSDataContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
+  invoke void @_ZN2cv16TLSDataContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %3)
           to label %4 unwind label %42
 
 4:                                                ; preds = %2
@@ -5022,7 +5022,7 @@ define void @_ZN2cv5instr8NodeDataC2ERS1_(ptr noundef nonnull align 8 dereferenc
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %7, i8 0, i64 49, i1 false)
-  %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(196) %1)
           to label %9 unwind label %44
 
 9:                                                ; preds = %4
@@ -5172,7 +5172,7 @@ _ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EED2Ev.exit.i: ; preds = %6, %3
   unreachable
 
 _ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEED2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EED2Ev.exit.i, %9
-  tail call void @_ZN2cv7TLSDataINS_5instr11NodeDataTlsEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #28
+  tail call void @_ZN2cv7TLSDataINS_5instr11NodeDataTlsEED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %2) #28
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   ret void
 }
@@ -5858,7 +5858,7 @@ define linkonce_odr hidden void @_ZN2cv10HWFeatures12readSettingsEPKii(ptr nound
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc64 unwind label %25
 
 .noexc64:                                         ; preds = %.noexc
@@ -5869,7 +5869,7 @@ define linkonce_odr hidden void @_ZN2cv10HWFeatures12readSettingsEPKii(ptr nound
 22:                                               ; preds = %.noexc64
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit: ; preds = %.noexc64
@@ -7496,7 +7496,7 @@ _ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EED2Ev.exit.i: ; preds = %5, %2
   unreachable
 
 _ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEED2Ev.exit: ; preds = %_ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EED2Ev.exit.i, %8
-  tail call void @_ZN2cv7TLSDataINS_5instr11NodeDataTlsEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #28
+  tail call void @_ZN2cv7TLSDataINS_5instr11NodeDataTlsEED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #42
   ret void
 }
@@ -7525,7 +7525,7 @@ define linkonce_odr hidden void @_ZNK2cv18TLSDataAccumulatorINS_5instr11NodeData
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %10) #28
+  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %10) #28
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %12
 
@@ -7608,13 +7608,13 @@ _ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gn
   br label %_ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %18
-  %44 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #28
+  %44 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %10) #28
   br label %48
 
 45:                                               ; preds = %33, %27
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #28
+  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %10) #28
   resume { ptr, i32 } %46
 
 48:                                               ; preds = %6, %8, %_ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EE9push_backEOS3_.exit
@@ -7703,7 +7703,7 @@ define linkonce_odr hidden void @_ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataT
   store i8 1, ptr %2, align 8
   tail call void @_ZN2cv16TLSDataContainer7releaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #28
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #28
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %5
 
@@ -7776,7 +7776,7 @@ _ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEE20_cleanupDetachedDataEv.exit
   br label %_ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEE22_cleanupTerminatedDataEv.exit
 
 _ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEE22_cleanupTerminatedDataEv.exit: ; preds = %27, %._crit_edge.i6, %_ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEE20_cleanupDetachedDataEv.exit
-  %28 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #28
+  %28 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #28
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i3
@@ -7791,7 +7791,7 @@ _ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEE22_cleanupTerminatedDataEv.ex
 
 29:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #28
+  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #28
   resume { ptr, i32 } %lpad.phi
 }
 

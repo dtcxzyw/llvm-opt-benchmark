@@ -8342,7 +8342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   store i8 0, ptr %1808, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #16
   %1809 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %1809, ptr noundef nonnull align 1 dereferenceable(1) %12) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %1809, ptr noundef nonnull align 1 dereferenceable(1) %12) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.273, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.273, i64 7359))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #16
   %1810 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
@@ -65974,7 +65974,7 @@ _ZN7glslang13IncludeLegacyEi8EProfileRKNS_10SpvVersionE.exit.thread: ; preds = %
   store i8 0, ptr %40, align 1
   %41 = getelementptr inbounds i8, ptr %6, i64 44
   %42 = load i32, ptr %41, align 4
-  tail call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(16) %36, i32 noundef %42, ptr noundef null)
+  tail call void @_ZN7glslang17TSmallArrayVector9push_backEjPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(22) %36, i32 noundef %42, ptr noundef null)
   %43 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
   %44 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %43, i64 noundef 240) #16
   %45 = tail call noundef ptr @_ZN7glslang14NewPoolTStringB5cxx11EPKc(ptr noundef nonnull @.str.1281)

@@ -126,7 +126,7 @@ invoke.cont:                                      ; preds = %if.end
   %2 = load ptr, ptr @_ZN4baseL13g_top_managerE, align 8
   %stack_ = getelementptr inbounds i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %tasks, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %tasks, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tasks, i64 16
   %3 = load ptr, ptr %_M_start3.i.i.i.i.i.i.i, align 8
   %_M_first3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tasks, i64 24
@@ -145,7 +145,7 @@ invoke.cont:                                      ; preds = %if.end
   %10 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tasks, i8 0, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tasks, ptr noundef nonnull align 8 dereferenceable(80) %stack_, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stack_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stack_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %3, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i, align 8
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 64
@@ -272,7 +272,7 @@ define dso_local void @_ZN4base13AtExitManager16RegisterCallbackEPFvPvES1_(ptr n
 entry:
   %agg.tmp = alloca %"class.base::Callback", align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16, !noalias !10
-  invoke void @_ZN4base8internal13BindStateBaseC2EPFvvEPFvPS1_E(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i, ptr noundef nonnull @_ZN4base8internal7InvokerINS0_9BindStateIPFvPvEJS3_EEEFvvEE3RunEPNS0_13BindStateBaseE, ptr noundef nonnull @_ZN4base8internal9BindStateIPFvPvEJS2_EE7DestroyEPNS0_13BindStateBaseE)
+  invoke void @_ZN4base8internal13BindStateBaseC2EPFvvEPFvPS1_E(ptr noundef nonnull align 8 dereferenceable(48) %call.i.i, ptr noundef nonnull @_ZN4base8internal7InvokerINS0_9BindStateIPFvPvEJS3_EEEFvvEE3RunEPNS0_13BindStateBaseE, ptr noundef nonnull @_ZN4base8internal9BindStateIPFvPvEJS2_EE7DestroyEPNS0_13BindStateBaseE)
           to label %_ZN4base4BindIRPFvPvEJRS1_EEENS_8CallbackINS_8internal22MakeUnboundRunTypeImplIT_JDpT0_EE4TypeELNS7_8CopyModeE1ELNS7_10RepeatModeE1EEEOS9_DpOSA_.exit unwind label %lpad.i.i, !noalias !10
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i

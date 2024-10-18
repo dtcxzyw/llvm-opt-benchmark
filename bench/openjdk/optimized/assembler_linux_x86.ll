@@ -17,7 +17,7 @@ define hidden void @_ZN14MacroAssembler4int3Ev(ptr noundef nonnull align 8 deref
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(40) %2) #3
+  call void %6(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %2) #3
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)

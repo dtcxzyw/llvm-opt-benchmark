@@ -685,7 +685,7 @@ if.end17:                                         ; preds = %if.end14.i
 
 if.end21:                                         ; preds = %if.end17
   %call5.val = load i32, ptr %bfd.i, align 8
-  %call.i14 = call i32 @setsockopt(i32 noundef %call5.val, i32 noundef 279, i32 noundef 1, ptr noundef nonnull %key, i32 noundef %call18) #14
+  %call.i14 = call i32 @setsockopt(i32 noundef %call5.val, i32 noundef 279, i32 noundef 1, ptr noundef nonnull %key, i32 noundef range(i32 1, -2147483648) %call18) #14
   %cmp.i15 = icmp slt i32 %call.i14, 0
   br i1 %cmp.i15, label %do.body.i17, label %if.end25
 

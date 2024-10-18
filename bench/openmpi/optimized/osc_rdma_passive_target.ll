@@ -1547,7 +1547,7 @@ define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_lock_acquire_shared(pt
   %34 = load i8, ptr %17, align 1
   %35 = load ptr, ptr %18, align 8
   %36 = load ptr, ptr %19, align 8
-  %37 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %34, ptr noundef %35, i64 noundef %30, ptr noundef %36, i64 noundef %24)
+  %37 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %34, ptr noundef %35, i64 noundef %30, ptr noundef %36, i64 noundef range(i64 -4294967296, 0) %24)
   br label %ompi_osc_rdma_lock_release_shared.exit
 
 38:                                               ; preds = %28
@@ -1941,7 +1941,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 256
   %72 = load ptr, ptr %71, align 8
-  %73 = call ptr %72(ptr noundef %70, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %66, i64 noundef %68, i32 noundef 15) #7
+  %73 = call ptr %72(ptr noundef %70, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %66, i64 noundef range(i64 0, 4294967296) %68, i32 noundef 15) #7
   store ptr %73, ptr %57, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %_ompi_osc_rdma_register.exit, label %_ompi_osc_rdma_register.exit.thread
@@ -2250,7 +2250,7 @@ ompi_osc_rdma_btl_atomic_op.exit:                 ; preds = %44, %47
   %.0.i77 = load ptr, ptr %.0.in.i, align 8
   %52 = getelementptr inbounds i8, ptr %.0.i77, i64 232
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %53(ptr noundef %.0.i77, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef 1, i64 noundef %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef %19, ptr noundef null) #7
+  %54 = tail call i32 %53(ptr noundef %.0.i77, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef 1, i64 noundef range(i64 -9223372036854775808, 0) %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef %19, ptr noundef null) #7
   %55 = add i32 %54, 1
   %56 = icmp ult i32 %55, -2
   br i1 %56, label %59, label %57
@@ -2483,7 +2483,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %43, %45
 65:                                               ; preds = %.thread
   %66 = getelementptr inbounds i8, ptr %64, i64 240
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 %67(ptr noundef %64, ptr noundef %2, ptr noundef %59, i64 noundef %3, ptr noundef %61, ptr noundef %4, i32 noundef 1, i64 noundef %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %21, ptr noundef null) #7
+  %68 = tail call i32 %67(ptr noundef %64, ptr noundef %2, ptr noundef %59, i64 noundef %3, ptr noundef %61, ptr noundef %4, i32 noundef 1, i64 noundef range(i64 -9223372036854775808, 4294967297) %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %21, ptr noundef null) #7
   br label %ompi_osc_rdma_btl_atomic_fop.exit
 
 69:                                               ; preds = %.thread
@@ -2491,7 +2491,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %43, %45
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 80
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call i32 %73(ptr noundef %71, ptr noundef %2, ptr noundef %59, i64 noundef %3, ptr noundef %61, ptr noundef %4, i32 noundef 1, i64 noundef %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %21, ptr noundef null) #7
+  %74 = tail call i32 %73(ptr noundef %71, ptr noundef %2, ptr noundef %59, i64 noundef %3, ptr noundef %61, ptr noundef %4, i32 noundef 1, i64 noundef range(i64 -9223372036854775808, 4294967297) %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %21, ptr noundef null) #7
   br label %ompi_osc_rdma_btl_atomic_fop.exit
 
 ompi_osc_rdma_btl_atomic_fop.exit:                ; preds = %69, %65, %56

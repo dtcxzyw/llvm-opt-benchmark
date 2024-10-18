@@ -4690,7 +4690,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i40:    ; preds = %177
 _ZN7QStringD2Ev.exit42:                           ; preds = %83, %177, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i40, %179
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #16
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #16
   ret void
 
 _ZN7QStringD2Ev.exit38:                           ; preds = %156, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36, %152, %158, %_ZN7QStringD2Ev.exit29, %91
@@ -4720,7 +4720,7 @@ _ZN7QStringD2Ev.exit46:                           ; preds = %181, %_ZN17QArrayDa
 
 183:                                              ; preds = %182, %50
   %.pn14.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn, %182 ], [ %51, %50 ]
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #16
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #16
   resume { ptr, i32 } %.pn14.pn.pn.pn
 }
 

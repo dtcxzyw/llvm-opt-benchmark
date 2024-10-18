@@ -1420,14 +1420,14 @@ _ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev.exit: ; preds = 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o16VertexSim3ExpmapC2Ev(ptr noundef nonnull align 16 dereferenceable(369) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  tail call void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 16 dereferenceable(296) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %3, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = getelementptr inbounds i8, ptr %0, i64 232
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1461,12 +1461,12 @@ define void @_ZN3g2o16VertexSim3ExpmapC2Ev(ptr noundef nonnull align 16 derefere
 define void @_ZN3g2o8EdgeSim3C2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0)
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeC2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = getelementptr inbounds i8, ptr %0, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -1518,7 +1518,7 @@ define void @_ZN3g2o8EdgeSim3C2Ev(ptr noundef nonnull align 16 dereferenceable(7
 29:                                               ; preds = %23
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) #26
   resume { ptr, i32 } %30
 
 _ZN3g2o14BaseBinaryEdgeILi7ENS_4Sim3ENS_16VertexSim3ExpmapES2_EC2Ev.exit: ; preds = %23, %25, %26, %28
@@ -1755,7 +1755,7 @@ _ZNK3g2o4Sim37inverseEv.exit:                     ; preds = %._crit_edge.i.i.i, 
   %148 = load ptr, ptr %0, align 16
   %149 = getelementptr inbounds i8, ptr %148, i64 216
   %150 = load ptr, ptr %149, align 8
-  call void %150(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  call void %150(ptr noundef nonnull align 16 dereferenceable(296) %0)
   ret i1 %142
 }
 
@@ -2167,7 +2167,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal13scala
   %.0140 = phi double [ 5.000000e-01, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS3_IS6_KS1_S7_EEKNS3_INS4_18scalar_quotient_opIddEEKNS_7ProductIS1_S1_Li0EEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEES7_EEEEEEEERS1_RKNS_9DenseBaseIT_EE.exit ], [ %139, %134 ], [ %197, %193 ], [ %294, %235 ]
   %307 = getelementptr inbounds i8, ptr %3, i64 64
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(72) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false)
   %.sroa.0.24.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %.0140, i64 0
   %.sroa.12.56.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %.0141, i64 0
@@ -2799,7 +2799,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_13CwiseBinaryOpINS_8internal13scala
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %3, align 8, !noalias !38
   store i64 3, ptr %258, align 8, !noalias !38
-  %259 = call noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLi3EE12unblocked_luERNS_3RefINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_11OuterStrideILin1EEEEEPiRi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %257, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %259 = call noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLi3EE12unblocked_luERNS_3RefINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_11OuterStrideILin1EEEEEPiRi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(12) %257, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !38
   %260 = load i32, ptr %4, align 4, !noalias !38
   %261 = and i32 %260, 1
@@ -3234,7 +3234,7 @@ _ZNK3g2o8BaseEdgeILi7ENS_4Sim3EE22writeInformationMatrixERSo.exit: ; preds = %91
 define void @_ZN3g2o18EdgeSim3ProjectXYZC2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0)
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeC2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 2, ptr %4, align 8
@@ -3283,7 +3283,7 @@ define void @_ZN3g2o18EdgeSim3ProjectXYZC2Ev(ptr noundef nonnull align 16 derefe
 25:                                               ; preds = %19
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) #26
   resume { ptr, i32 } %26
 
 _ZN3g2o14BaseBinaryEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_14VertexPointXYZENS_16VertexSim3ExpmapEEC2Ev.exit: ; preds = %19, %21, %22, %24
@@ -3454,7 +3454,7 @@ _ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22writeInformationM
 define void @_ZN3g2o25EdgeInverseSim3ProjectXYZC2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0)
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeC2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 2, ptr %4, align 8
@@ -3503,7 +3503,7 @@ define void @_ZN3g2o25EdgeInverseSim3ProjectXYZC2Ev(ptr noundef nonnull align 16
 25:                                               ; preds = %19
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) #26
   resume { ptr, i32 } %26
 
 _ZN3g2o14BaseBinaryEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_14VertexPointXYZENS_16VertexSim3ExpmapEEC2Ev.exit: ; preds = %19, %21, %22, %24
@@ -3690,7 +3690,7 @@ define linkonce_odr void @_ZN3g2o16VertexSim3ExpmapD2Ev(ptr noundef nonnull alig
   br label %_ZN3g2o10BaseVertexILi7ENS_4Sim3EED2Ev.exit
 
 _ZN3g2o10BaseVertexILi7ENS_4Sim3EED2Ev.exit:      ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(296) %0) #26
   ret void
 }
 
@@ -3714,7 +3714,7 @@ define linkonce_odr void @_ZN3g2o16VertexSim3ExpmapD0Ev(ptr noundef nonnull alig
   br label %_ZN3g2o16VertexSim3ExpmapD2Ev.exit
 
 _ZN3g2o16VertexSim3ExpmapD2Ev.exit:               ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(369) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 384) #25
   ret void
 }
@@ -3760,7 +3760,7 @@ define linkonce_odr noundef double @_ZNK3g2o10BaseVertexILi7ENS_4Sim3EE18hessian
   %2 = alloca %"class.Eigen::PartialPivLU.1247", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %2)
-  call void @_ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi0ENS_6StrideILi0ELi0EEEEEE12partialPivLuEv(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::PartialPivLU.1247") align 8 %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi0ENS_6StrideILi0ELi0EEEEEE12partialPivLuEv(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::PartialPivLU.1247") align 8 %2, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 456
   %5 = load i8, ptr %4, align 8
   %6 = sitofp i8 %5 to double
@@ -4030,7 +4030,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi7ENS_4Sim3EE11solveDir
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %3, align 8
   store i64 7, ptr %131, align 8
-  %132 = call noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLi7EE12unblocked_luERNS_3RefINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi0ENS_11OuterStrideILin1EEEEEPiRi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %130, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %132 = call noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLi7EE12unblocked_luERNS_3RefINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi0ENS_11OuterStrideILin1EEEEEPiRi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(28) %130, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %133 = load i32, ptr %4, align 4
   %134 = and i32 %133, 1
@@ -4280,7 +4280,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi1ELi7E
 
 272:                                              ; preds = %269
   store i8 1, ptr %167, align 16
-  %273 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEEEElRT_(ptr noundef nonnull align 8 dereferenceable(392) %12)
+  %273 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEEEElRT_(ptr noundef nonnull align 8 dereferenceable(408) %12)
   %274 = icmp ne i64 %273, -1
   %275 = zext i1 %274 to i32
   %276 = getelementptr inbounds nuw i8, ptr %12, i64 404
@@ -4601,7 +4601,7 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi7ENS_4Sim3EE4pushEv(ptr noundef 
   br i1 %.not.i.i, label %15, label %7
 
 7:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %2, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 16 dereferenceable(24) %9, i64 24, i1 false)
@@ -4811,7 +4811,7 @@ define linkonce_odr void @_ZN3g2o16VertexSim3Expmap9oplusImplEPKd(ptr noundef no
   %103 = load ptr, ptr %0, align 16
   %104 = getelementptr inbounds i8, ptr %103, i64 216
   %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  call void %105(ptr noundef nonnull align 16 dereferenceable(296) %0)
   ret void
 }
 
@@ -4858,7 +4858,7 @@ define linkonce_odr void @_ZThn64_N3g2o16VertexSim3ExpmapD1Ev(ptr noundef %0) un
   br label %_ZN3g2o16VertexSim3ExpmapD2Ev.exit
 
 _ZN3g2o16VertexSim3ExpmapD2Ev.exit:               ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #26
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(369) %2) #26
   ret void
 }
 
@@ -4882,20 +4882,20 @@ define linkonce_odr void @_ZThn64_N3g2o16VertexSim3ExpmapD0Ev(ptr noundef %0) un
   br label %_ZN3g2o16VertexSim3ExpmapD0Ev.exit
 
 _ZN3g2o16VertexSim3ExpmapD0Ev.exit:               ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 384) #25
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(369) %2) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(369) %2, i64 noundef 384) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o8EdgeSim3D2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o8EdgeSim3D0Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 784) #25
   ret void
 }
@@ -6185,7 +6185,7 @@ _ZNK3g2o4Sim37inverseEv.exit:                     ; preds = %._crit_edge.i.i.i, 
   %246 = load ptr, ptr %.sink55, align 16
   %247 = getelementptr inbounds i8, ptr %246, i64 216
   %248 = load ptr, ptr %247, align 8
-  tail call void %248(ptr noundef nonnull align 8 dereferenceable(128) %.sink55)
+  tail call void %248(ptr noundef nonnull align 16 dereferenceable(296) %.sink55)
   ret void
 }
 
@@ -6274,27 +6274,27 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi7ENS_4Sim3EJNS_16VertexS
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o8EdgeSim3D1Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %2) #26
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o8EdgeSim3D0Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 784) #25
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(776) %2) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(776) %2, i64 noundef 784) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o18EdgeSim3ProjectXYZD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o18EdgeSim3ProjectXYZD0Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 336) #25
   ret void
 }
@@ -6833,27 +6833,27 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o18EdgeSim3ProjectXYZD1Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %2) #26
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o18EdgeSim3ProjectXYZD0Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 336) #25
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %2) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(328) %2, i64 noundef 336) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o25EdgeInverseSim3ProjectXYZD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o25EdgeInverseSim3ProjectXYZD0Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 336) #25
   ret void
 }
@@ -7040,15 +7040,15 @@ _ZNK3g2o4Sim37inverseEv.exit:                     ; preds = %._crit_edge.i.i.i, 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o25EdgeInverseSim3ProjectXYZD1Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %2) #26
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o25EdgeInverseSim3ProjectXYZD0Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 336) #25
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(328) %2) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(328) %2, i64 noundef 336) #25
   ret void
 }
 
@@ -7198,7 +7198,7 @@ define linkonce_odr void @_ZThn64_N3g2o10BaseVertexILi7ENS_4Sim3EED1Ev(ptr nound
   br label %_ZN3g2o10BaseVertexILi7ENS_4Sim3EED2Ev.exit
 
 _ZN3g2o10BaseVertexILi7ENS_4Sim3EED2Ev.exit:      ; preds = %1, %5
-  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #26
+  tail call void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 16 dereferenceable(296) %2) #26
   ret void
 }
 
@@ -8311,7 +8311,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_16VertexSim3Expma
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc2 unwind label %7
 
 .noexc2:                                          ; preds = %.noexc
@@ -8321,7 +8321,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_16VertexSim3Expma
 5:                                                ; preds = %.noexc2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -8562,7 +8562,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_8EdgeSim3EEC2Ev(p
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc2 unwind label %7
 
 .noexc2:                                          ; preds = %.noexc
@@ -8572,7 +8572,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_8EdgeSim3EEC2Ev(p
 5:                                                ; preds = %.noexc2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -8809,7 +8809,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSim3Project
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc2 unwind label %7
 
 .noexc2:                                          ; preds = %.noexc
@@ -8819,7 +8819,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSim3Project
 5:                                                ; preds = %.noexc2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -9056,7 +9056,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_25EdgeInverseSim3
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc2 unwind label %7
 
 .noexc2:                                          ; preds = %.noexc
@@ -9066,7 +9066,7 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_25EdgeInverseSim3
 5:                                                ; preds = %.noexc2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -9175,7 +9175,7 @@ define linkonce_odr void @_ZN3g2o8BaseEdgeILi7ENS_4Sim3EE15initialEstimateERKSt3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi7ENS_4Sim3EJNS_16VertexSim3ExpmapES2_EED2Ev(ptr noundef nonnull align 16 dereferenceable(760) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(688) %0) #26
   ret void
 }
 
@@ -9188,7 +9188,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi7ENS_4Sim3EJNS_16VertexS
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o18BaseFixedSizedEdgeILi7ENS_4Sim3EJNS_16VertexSim3ExpmapES2_EED1Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(760) %2) #26
   ret void
 }
 
@@ -9390,7 +9390,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_14VertexPointXYZENS_16VertexSim3ExpmapEEED2Ev(ptr noundef nonnull align 16 dereferenceable(312) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(240) %0) #26
   ret void
 }
 
@@ -9403,7 +9403,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_14VertexPointXYZENS_16VertexSim3ExpmapEEED1Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #26
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(312) %2) #26
   ret void
 }
 
@@ -9574,7 +9574,7 @@ define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLi7ELi7ELi0
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %3, align 8
   store i64 7, ptr %118, align 8
-  %119 = call noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLi7EE12unblocked_luERNS_3RefINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi0ENS_11OuterStrideILin1EEEEEPiRi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %117, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %119 = call noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLi7EE12unblocked_luERNS_3RefINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi0ENS_11OuterStrideILin1EEEEEPiRi(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(28) %117, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %120 = load i32, ptr %4, align 4
   %121 = and i32 %120, 1
@@ -10671,7 +10671,7 @@ _ZNKSt6vectorIN3g2o4Sim3ESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
 23:                                               ; preds = %20, %_ZNKSt6vectorIN3g2o4Sim3ESaIS1_EE12_M_check_lenEmPKc.exit
   %24 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN3g2o4Sim3ESaIS1_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds %"struct.g2o::Sim3", ptr %24, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %25, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %25, ptr noundef nonnull align 16 dereferenceable(64) %2, i64 32, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %26, ptr noundef nonnull align 16 dereferenceable(24) %27, i64 24, i1 false)
@@ -10687,7 +10687,7 @@ _ZNKSt6vectorIN3g2o4Sim3ESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %.0911.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i ], [ %6, %23 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i, i64 32, i1 false), !alias.scope !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.012.i.i.i, ptr noundef nonnull align 16 dereferenceable(64) %.0911.i.i.i, i64 32, i1 false), !alias.scope !352
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %31, ptr noundef nonnull align 16 dereferenceable(24) %32, i64 24, i1 false), !alias.scope !352
@@ -10711,7 +10711,7 @@ _ZNSt6vectorIN3g2o4Sim3ESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.l
   %.0911.i.i.i29 = phi ptr [ %44, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN3g2o4Sim3ESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !357)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.012.i.i.i28, ptr noundef nonnull align 16 dereferenceable(32) %.0911.i.i.i29, i64 32, i1 false), !alias.scope !359
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.012.i.i.i28, ptr noundef nonnull align 16 dereferenceable(64) %.0911.i.i.i29, i64 32, i1 false), !alias.scope !359
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %39, ptr noundef nonnull align 16 dereferenceable(24) %40, i64 24, i1 false), !alias.scope !359
@@ -11745,7 +11745,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generi
 define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_IS4_Li16ES6_EEEENS9_IKNS8_ISC_S4_Li0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Eigen::internal::evaluator.3202", align 8
   %5 = alloca %"struct.Eigen::internal::evaluator.3183", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %1, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 10, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -12608,7 +12608,7 @@ _ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_14Vert
 define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi7ELi3ELi0ELi7ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_INS3_IdLi2ELi7ELi0ELi2ELi7EEELi16ES6_EEEENS9_IKNS8_INS9_IKNS2_INS3_IdLi2ELi3ELi0ELi2ELi3EEELi16ES6_EEEENS3_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Eigen::internal::evaluator.3725", align 16
   %5 = alloca %"struct.Eigen::internal::evaluator.3688", align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %1, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 10, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
@@ -12877,7 +12877,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
 51:                                               ; preds = %19
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %52, ptr noundef nonnull align 8 dereferenceable(10) %53, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %52, ptr noundef nonnull align 8 dereferenceable(12) %53, i64 10, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %4, ptr %54, align 16
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -13318,7 +13318,7 @@ define internal void @_GLOBAL__sub_I_types_seven_dof_expmap.cpp() #19 section ".
           to label %.noexc.i unwind label %13
 
 .noexc.i:                                         ; preds = %0
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc3.i unwind label %13
 
 .noexc3.i:                                        ; preds = %.noexc.i
@@ -13328,7 +13328,7 @@ define internal void @_GLOBAL__sub_I_types_seven_dof_expmap.cpp() #19 section ".
 11:                                               ; preds = %.noexc3.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
   br label %common.resume
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc3.i
@@ -13365,7 +13365,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt7__cxx1112basi
           to label %.noexc.i3 unwind label %21
 
 .noexc.i3:                                        ; preds = %__cxx_global_var_init.5.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc3.i4 unwind label %21
 
 .noexc3.i4:                                       ; preds = %.noexc.i3
@@ -13375,7 +13375,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt7__cxx1112basi
 19:                                               ; preds = %.noexc3.i4
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   br label %common.resume
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5: ; preds = %.noexc3.i4
@@ -13406,7 +13406,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %_ZNSt7__cxx1112basi
           to label %.noexc.i8 unwind label %29
 
 .noexc.i8:                                        ; preds = %__cxx_global_var_init.6.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc3.i9 unwind label %29
 
 .noexc3.i9:                                       ; preds = %.noexc.i8
@@ -13416,7 +13416,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %_ZNSt7__cxx1112basi
 27:                                               ; preds = %.noexc3.i9
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   br label %common.resume
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i10: ; preds = %.noexc3.i9
@@ -13447,7 +13447,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %_ZNSt7__cxx1112basi
           to label %.noexc.i13 unwind label %37
 
 .noexc.i13:                                       ; preds = %__cxx_global_var_init.8.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc3.i14 unwind label %37
 
 .noexc3.i14:                                      ; preds = %.noexc.i13
@@ -13457,7 +13457,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %_ZNSt7__cxx1112basi
 35:                                               ; preds = %.noexc3.i14
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
   br label %common.resume
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15: ; preds = %.noexc3.i14

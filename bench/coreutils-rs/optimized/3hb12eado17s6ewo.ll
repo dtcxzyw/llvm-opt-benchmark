@@ -222,7 +222,7 @@ define hidden void @_ZN3hex6encode17hffe4318caf6b0221E(ptr noalias nocapture nou
 15:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !42
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd926472a305c6508E.llvm.8367403837193465475"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd926472a305c6508E.llvm.8367403837193465475"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !49, !noalias !42, !noundef !25
   %.not.i.i.i = icmp eq i64 %17, 0

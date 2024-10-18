@@ -73,11 +73,11 @@ invoke.cont7:                                     ; preds = %while.body
 lpad:                                             ; preds = %while.body, %while.cond
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %scriptRun) #6
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %scriptRun) #6
   resume { ptr, i32 } %4
 
 while.end:                                        ; preds = %invoke.cont
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %scriptRun) #6
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %scriptRun) #6
   ret i32 0
 }
 
@@ -103,7 +103,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6icu_759ScriptRunD0Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this) #6
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6
   ret void
 }

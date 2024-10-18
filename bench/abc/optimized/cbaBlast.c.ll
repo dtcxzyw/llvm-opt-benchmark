@@ -327,7 +327,7 @@ define void @Cba_BlastConst(ptr nocapture noundef readonly %0, ptr nocapture nou
   %.val60 = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %.val60, i64 24
   %.val60.val = load ptr, ptr %7, align 8
-  %8 = tail call ptr @Abc_NamStr(ptr noundef %.val60.val, i32 noundef %6) #20
+  %8 = tail call ptr @Abc_NamStr(ptr noundef %.val60.val, i32 noundef range(i32 -2147483648, 2147483647) %6) #20
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #21
   br label %10
 
@@ -3822,7 +3822,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntGrow.exit, %
   %80 = getelementptr i8, ptr %.val.i.i, i64 24
   %.val.val.i.i = load ptr, ptr %80, align 8
   %81 = xor i32 %78, -1
-  %82 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i.i, i32 noundef %81) #20
+  %82 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i.i, i32 noundef range(i32 -2147483648, 2147483647) %81) #20
   %83 = tail call i32 @atoi(ptr nocapture noundef %82) #21
   br label %Cba_ObjRangeSize.exit
 
@@ -3922,7 +3922,7 @@ Cba_ObjIsSeq.exit:                                ; preds = %Cba_ObjNtkId.exit.i
 
 .lr.ph:                                           ; preds = %133, %Vec_IntPush.exit
   %.09201777 = phi i32 [ %215, %Vec_IntPush.exit ], [ 0, %133 ]
-  %135 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %48)
+  %135 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %48)
   %136 = load i64, ptr %135, align 4
   %137 = or i64 %136, 2684354559
   store i64 %137, ptr %135, align 4
@@ -4120,7 +4120,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %237 = getelementptr i8, ptr %.val.i1045, i64 24
   %.val.val.i = load ptr, ptr %237, align 8
   %238 = xor i32 %226, -1
-  %239 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %238) #20
+  %239 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef range(i32 -2147483648, 2147483647) %238) #20
   %240 = tail call i32 @atoi(ptr nocapture noundef %239) #21
   br label %Cba_FonRangeSize.exit
 
@@ -4183,7 +4183,7 @@ Cba_FonRangeSize.exit:                            ; preds = %Cba_NtkRangeSize.ex
   %273 = getelementptr i8, ptr %.val.i1049, i64 24
   %.val.val.i1050 = load ptr, ptr %273, align 8
   %274 = xor i32 %235, -1
-  %275 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1050, i32 noundef %274) #20
+  %275 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1050, i32 noundef range(i32 -2147483648, 2147483647) %274) #20
   %276 = tail call i32 @atoi(ptr nocapture noundef %275) #21
   br label %Cba_FonRangeSize.exit1057
 
@@ -4246,7 +4246,7 @@ Cba_FonRangeSize.exit1057:                        ; preds = %Cba_NtkRangeSize.ex
   %309 = getelementptr i8, ptr %.val.i1059, i64 24
   %.val.val.i1060 = load ptr, ptr %309, align 8
   %310 = xor i32 %234, -1
-  %311 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1060, i32 noundef %310) #20
+  %311 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1060, i32 noundef range(i32 -2147483648, 2147483647) %310) #20
   %312 = tail call i32 @atoi(ptr nocapture noundef %311) #21
   br label %Cba_FonRangeSize.exit1067
 
@@ -4379,7 +4379,7 @@ Cba_FonCopy.exit1072:                             ; preds = %365
   %383 = getelementptr i8, ptr %.val.i1074, i64 24
   %.val.val.i1075 = load ptr, ptr %383, align 8
   %384 = xor i32 %377, -1
-  %385 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1075, i32 noundef %384) #20
+  %385 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1075, i32 noundef range(i32 -2147483648, 2147483647) %384) #20
   %386 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %385, i32 noundef 115) #21
   %387 = icmp ne ptr %386, null
   %388 = zext i1 %387 to i32
@@ -4423,7 +4423,7 @@ Cba_FonSigned.exit:                               ; preds = %.thread2042, %391
   %408 = getelementptr i8, ptr %.val.i1079, i64 24
   %.val.val.i1080 = load ptr, ptr %408, align 8
   %409 = xor i32 %400, -1
-  %410 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1080, i32 noundef %409) #20
+  %410 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1080, i32 noundef range(i32 -2147483648, 2147483647) %409) #20
   %411 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %410, i32 noundef 115) #21
   %412 = icmp ne ptr %411, null
   br label %.thread1657
@@ -4766,7 +4766,7 @@ Vec_IntPush.exit1119:                             ; preds = %.Vec_IntGrow.exit10
   %581 = getelementptr i8, ptr %.val.i1121, i64 24
   %.val.val.i1122 = load ptr, ptr %581, align 8
   %582 = xor i32 %579, -1
-  %583 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1122, i32 noundef %582) #20
+  %583 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1122, i32 noundef range(i32 -2147483648, 2147483647) %582) #20
   br label %Cba_FonRangeSize.exit1129
 
 584:                                              ; preds = %.lr.ph1782
@@ -4887,12 +4887,12 @@ Cba_FonSigned.exit1147:                           ; preds = %.lr.ph1788
   %635 = getelementptr i8, ptr %.val.i1131, i64 24
   %.val.val.i1132 = load ptr, ptr %635, align 8
   %636 = xor i32 %596, -1
-  %637 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1132, i32 noundef %636) #20
+  %637 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1132, i32 noundef range(i32 -2147483648, 2147483647) %636) #20
   %638 = tail call i32 @atoi(ptr nocapture noundef %637) #21
   %.val.i1143 = load ptr, ptr %0, align 8
   %639 = getelementptr i8, ptr %.val.i1143, i64 24
   %.val.val.i1144 = load ptr, ptr %639, align 8
-  %640 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1144, i32 noundef %636) #20
+  %640 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1144, i32 noundef range(i32 -2147483648, 2147483647) %636) #20
   %641 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %640, i32 noundef 115) #21
   %642 = icmp ne ptr %641, null
   %643 = zext i1 %642 to i32
@@ -4995,7 +4995,7 @@ Vec_IntPush.exit1154:                             ; preds = %.Vec_IntGrow.exit10
   %685 = getelementptr i8, ptr %.val.i1156, i64 24
   %.val.val.i1157 = load ptr, ptr %685, align 8
   %686 = xor i32 %425, -1
-  %687 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1157, i32 noundef %686) #20
+  %687 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1157, i32 noundef range(i32 -2147483648, 2147483647) %686) #20
   %688 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %687, i32 noundef 115) #21
   %689 = icmp ne ptr %688, null
   %690 = zext i1 %689 to i32
@@ -5150,7 +5150,7 @@ Vec_IntPush.exit1167:                             ; preds = %.Vec_IntGrow.exit10
   %749 = getelementptr i8, ptr %.val.i1169, i64 24
   %.val.val.i1170 = load ptr, ptr %749, align 8
   %750 = xor i32 %746, -1
-  %751 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1170, i32 noundef %750) #20
+  %751 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1170, i32 noundef range(i32 -2147483648, 2147483647) %750) #20
   %752 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %751, i32 noundef 115) #21
   %753 = icmp ne ptr %752, null
   %754 = zext i1 %753 to i32
@@ -5221,7 +5221,7 @@ Cba_FonRangeSize.exit1183.thread:                 ; preds = %779
   %780 = getelementptr i8, ptr %.val.i1175, i64 24
   %.val.val.i1176 = load ptr, ptr %780, align 8
   %781 = xor i32 %778, -1
-  %782 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1176, i32 noundef %781) #20
+  %782 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1176, i32 noundef range(i32 -2147483648, 2147483647) %781) #20
   %783 = tail call i32 @atoi(ptr nocapture noundef %782) #21
   br label %813
 
@@ -5373,7 +5373,7 @@ Vec_IntGrow.exit.i1191:                           ; preds = %842, %840
   %859 = getelementptr i8, ptr %.val.i1194, i64 24
   %.val.val.i1195 = load ptr, ptr %859, align 8
   %860 = xor i32 %778, -1
-  %861 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1195, i32 noundef %860) #20
+  %861 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1195, i32 noundef range(i32 -2147483648, 2147483647) %860) #20
   %862 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %861, i32 noundef 115) #21
   %863 = icmp ne ptr %862, null
   %864 = zext i1 %863 to i32
@@ -5587,7 +5587,7 @@ switch.early.test:                                ; preds = %942
   %949 = getelementptr i8, ptr %.val.i1214, i64 24
   %.val.val.i1215 = load ptr, ptr %949, align 8
   %950 = xor i32 %425, -1
-  %951 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1215, i32 noundef %950) #20
+  %951 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1215, i32 noundef range(i32 -2147483648, 2147483647) %950) #20
   %952 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %951, i32 noundef 115) #21
   %953 = icmp ne ptr %952, null
   %954 = zext i1 %953 to i32
@@ -5624,7 +5624,7 @@ Cba_FonSigned.exit1218:                           ; preds = %948, %955, %957
   %967 = getelementptr i8, ptr %.val.i1220, i64 24
   %.val.val.i1221 = load ptr, ptr %967, align 8
   %968 = xor i32 %425, -1
-  %969 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1221, i32 noundef %968) #20
+  %969 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1221, i32 noundef range(i32 -2147483648, 2147483647) %968) #20
   %970 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %969, i32 noundef 115) #21
   %971 = icmp ne ptr %970, null
   br label %Cba_FonSigned.exit1224
@@ -6018,7 +6018,7 @@ Vec_IntPush.exit1252:                             ; preds = %.Vec_IntGrow.exit10
   %.02841.i = phi i32 [ 0, %.lr.ph42.preheader.i ], [ %1145, %.lr.ph42.i ]
   %1143 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv53.i
   %1144 = load i32, ptr %1143, align 4
-  %1145 = tail call i32 @Gia_ManHashOr(ptr noundef %48, i32 noundef %.02841.i, i32 noundef %1144) #20
+  %1145 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %48, i32 noundef %.02841.i, i32 noundef %1144) #20
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
   br i1 %exitcond57.not.i, label %Cba_BlastReduction.exit.loopexit, label %.lr.ph42.i, !llvm.loop !24
@@ -6114,7 +6114,7 @@ Vec_IntPush.exit1259:                             ; preds = %.Vec_IntGrow.exit10
   %.02841.i1265 = phi i32 [ 0, %.lr.ph42.preheader.i1261 ], [ %1181, %.lr.ph42.i1263 ]
   %1179 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv53.i1264
   %1180 = load i32, ptr %1179, align 4
-  %1181 = tail call i32 @Gia_ManHashOr(ptr noundef %48, i32 noundef %.02841.i1265, i32 noundef %1180) #20
+  %1181 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %48, i32 noundef %.02841.i1265, i32 noundef %1180) #20
   %indvars.iv.next54.i1266 = add nuw nsw i64 %indvars.iv53.i1264, 1
   %exitcond57.not.i1267 = icmp eq i64 %indvars.iv.next54.i1266, %wide.trip.count56.i1262
   br i1 %exitcond57.not.i1267, label %Cba_BlastReduction.exit1268, label %.lr.ph42.i1263, !llvm.loop !24
@@ -6133,7 +6133,7 @@ Cba_BlastReduction.exit1268:                      ; preds = %.lr.ph42.i1263, %11
   %.02841.i1274 = phi i32 [ 0, %.lr.ph42.preheader.i1270 ], [ %1185, %.lr.ph42.i1272 ]
   %1183 = getelementptr inbounds i32, ptr %430, i64 %indvars.iv53.i1273
   %1184 = load i32, ptr %1183, align 4
-  %1185 = tail call i32 @Gia_ManHashOr(ptr noundef %48, i32 noundef %.02841.i1274, i32 noundef %1184) #20
+  %1185 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %48, i32 noundef %.02841.i1274, i32 noundef %1184) #20
   %indvars.iv.next54.i1275 = add nuw nsw i64 %indvars.iv53.i1273, 1
   %exitcond57.not.i1276 = icmp eq i64 %indvars.iv.next54.i1275, %wide.trip.count56.i1271
   br i1 %exitcond57.not.i1276, label %Cba_BlastReduction.exit1277, label %.lr.ph42.i1272, !llvm.loop !24
@@ -6226,7 +6226,7 @@ Vec_IntPush.exit1284:                             ; preds = %.Vec_IntGrow.exit10
   %.02841.i1290 = phi i32 [ 0, %.lr.ph42.preheader.i1286 ], [ %1221, %.lr.ph42.i1288 ]
   %1219 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv53.i1289
   %1220 = load i32, ptr %1219, align 4
-  %1221 = tail call i32 @Gia_ManHashOr(ptr noundef %48, i32 noundef %.02841.i1290, i32 noundef %1220) #20
+  %1221 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %48, i32 noundef %.02841.i1290, i32 noundef %1220) #20
   %indvars.iv.next54.i1291 = add nuw nsw i64 %indvars.iv53.i1289, 1
   %exitcond57.not.i1292 = icmp eq i64 %indvars.iv.next54.i1291, %wide.trip.count56.i1287
   br i1 %exitcond57.not.i1292, label %Cba_BlastReduction.exit1293, label %.lr.ph42.i1288, !llvm.loop !24
@@ -6245,7 +6245,7 @@ Cba_BlastReduction.exit1293:                      ; preds = %.lr.ph42.i1288, %12
   %.02841.i1299 = phi i32 [ 0, %.lr.ph42.preheader.i1295 ], [ %1225, %.lr.ph42.i1297 ]
   %1223 = getelementptr inbounds i32, ptr %430, i64 %indvars.iv53.i1298
   %1224 = load i32, ptr %1223, align 4
-  %1225 = tail call i32 @Gia_ManHashOr(ptr noundef %48, i32 noundef %.02841.i1299, i32 noundef %1224) #20
+  %1225 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %48, i32 noundef %.02841.i1299, i32 noundef %1224) #20
   %indvars.iv.next54.i1300 = add nuw nsw i64 %indvars.iv53.i1298, 1
   %exitcond57.not.i1301 = icmp eq i64 %indvars.iv.next54.i1300, %wide.trip.count56.i1296
   br i1 %exitcond57.not.i1301, label %Cba_BlastReduction.exit1302, label %.lr.ph42.i1297, !llvm.loop !24
@@ -6338,7 +6338,7 @@ Vec_IntPush.exit1309:                             ; preds = %.Vec_IntGrow.exit10
   %.02841.i1315 = phi i32 [ 0, %.lr.ph42.preheader.i1311 ], [ %1261, %.lr.ph42.i1313 ]
   %1259 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv53.i1314
   %1260 = load i32, ptr %1259, align 4
-  %1261 = tail call i32 @Gia_ManHashOr(ptr noundef %48, i32 noundef %.02841.i1315, i32 noundef %1260) #20
+  %1261 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %48, i32 noundef %.02841.i1315, i32 noundef %1260) #20
   %indvars.iv.next54.i1316 = add nuw nsw i64 %indvars.iv53.i1314, 1
   %exitcond57.not.i1317 = icmp eq i64 %indvars.iv.next54.i1316, %wide.trip.count56.i1312
   br i1 %exitcond57.not.i1317, label %Cba_BlastReduction.exit1318, label %.lr.ph42.i1313, !llvm.loop !24
@@ -6357,7 +6357,7 @@ Cba_BlastReduction.exit1318:                      ; preds = %.lr.ph42.i1313, %12
   %.02841.i1324 = phi i32 [ 0, %.lr.ph42.preheader.i1320 ], [ %1265, %.lr.ph42.i1322 ]
   %1263 = getelementptr inbounds i32, ptr %430, i64 %indvars.iv53.i1323
   %1264 = load i32, ptr %1263, align 4
-  %1265 = tail call i32 @Gia_ManHashOr(ptr noundef %48, i32 noundef %.02841.i1324, i32 noundef %1264) #20
+  %1265 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %48, i32 noundef %.02841.i1324, i32 noundef %1264) #20
   %indvars.iv.next54.i1325 = add nuw nsw i64 %indvars.iv53.i1323, 1
   %exitcond57.not.i1326 = icmp eq i64 %indvars.iv.next54.i1325, %wide.trip.count56.i1321
   br i1 %exitcond57.not.i1326, label %Cba_BlastReduction.exit1327, label %.lr.ph42.i1322, !llvm.loop !24
@@ -7322,12 +7322,12 @@ Cba_VecLoadFanins.exit1528.us:                    ; preds = %.lr.ph1874.us
   %1680 = getelementptr i8, ptr %.val.i1487.us, i64 24
   %.val.val.i1488.us = load ptr, ptr %1680, align 8
   %1681 = xor i32 %1529, -1
-  %1682 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1488.us, i32 noundef %1681) #20
+  %1682 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1488.us, i32 noundef range(i32 -2147483648, 2147483647) %1681) #20
   %1683 = tail call i32 @atoi(ptr nocapture noundef %1682) #21
   %.val.i1499.us = load ptr, ptr %0, align 8
   %1684 = getelementptr i8, ptr %.val.i1499.us, i64 24
   %.val.val.i1500.us = load ptr, ptr %1684, align 8
-  %1685 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1500.us, i32 noundef %1681) #20
+  %1685 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1500.us, i32 noundef range(i32 -2147483648, 2147483647) %1681) #20
   %1686 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1685, i32 noundef 115) #21
   %1687 = icmp ne ptr %1686, null
   %1688 = zext i1 %1687 to i32
@@ -7355,7 +7355,7 @@ Cba_VecLoadFanins.exit1528.us:                    ; preds = %.lr.ph1874.us
   %indvars.iv1996 = phi i64 [ 0, %.lr.ph1869.us.preheader ], [ %indvars.iv.next1997, %Gia_ManAppendCo.exit1541.us ]
   %1696 = getelementptr inbounds i32, ptr %.val.i1505.us2050, i64 %indvars.iv1996
   %1697 = load i32, ptr %1696, align 4
-  %1698 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %48)
+  %1698 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %48)
   %1699 = load i64, ptr %1698, align 4
   %1700 = or i64 %1699, 2147483648
   store i64 %1700, ptr %1698, align 4
@@ -7890,12 +7890,12 @@ Cba_VecLoadFanins.exit:                           ; preds = %.lr.ph1855
   %1929 = getelementptr i8, ptr %.val.i1354, i64 24
   %.val.val.i1355 = load ptr, ptr %1929, align 8
   %1930 = xor i32 %1778, -1
-  %1931 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1355, i32 noundef %1930) #20
+  %1931 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1355, i32 noundef range(i32 -2147483648, 2147483647) %1930) #20
   %1932 = tail call i32 @atoi(ptr nocapture noundef %1931) #21
   %.val.i1366 = load ptr, ptr %0, align 8
   %1933 = getelementptr i8, ptr %.val.i1366, i64 24
   %.val.val.i1367 = load ptr, ptr %1933, align 8
-  %1934 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1367, i32 noundef %1930) #20
+  %1934 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1367, i32 noundef range(i32 -2147483648, 2147483647) %1930) #20
   %1935 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1934, i32 noundef 115) #21
   %1936 = icmp ne ptr %1935, null
   %1937 = zext i1 %1936 to i32
@@ -7913,7 +7913,7 @@ Cba_VecLoadFanins.exit:                           ; preds = %.lr.ph1855
   %indvars.iv1969 = phi i64 [ 0, %.lr.ph1850.preheader ], [ %indvars.iv.next1970, %Gia_ManAppendCo.exit ]
   %1940 = getelementptr inbounds i32, ptr %.val.i13712053, i64 %indvars.iv1969
   %1941 = load i32, ptr %1940, align 4
-  %1942 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %48)
+  %1942 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %48)
   %1943 = load i64, ptr %1942, align 4
   %1944 = or i64 %1943, 2147483648
   store i64 %1944, ptr %1942, align 4
@@ -8077,7 +8077,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i1
   %2027 = getelementptr i8, ptr %.val.i1393, i64 24
   %.val.val.i1394 = load ptr, ptr %2027, align 8
   %2028 = xor i32 %2023, -1
-  %2029 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1394, i32 noundef %2028) #20
+  %2029 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1394, i32 noundef range(i32 -2147483648, 2147483647) %2028) #20
   %2030 = tail call i32 @atoi(ptr nocapture noundef %2029) #21
   br label %Cba_FonRangeSize.exit1401
 
@@ -8130,7 +8130,7 @@ Cba_FonRangeSize.exit1401:                        ; preds = %2026, %Cba_NtkRange
   %2057 = getelementptr i8, ptr %.val.i1403, i64 24
   %.val.val.i1404 = load ptr, ptr %2057, align 8
   %2058 = xor i32 %2025, -1
-  %2059 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1404, i32 noundef %2058) #20
+  %2059 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1404, i32 noundef range(i32 -2147483648, 2147483647) %2058) #20
   br label %Cba_FonRangeSize.exit1411
 
 2060:                                             ; preds = %Cba_FonRangeSize.exit1401
@@ -8174,12 +8174,12 @@ Cba_FonRangeSize.exit1411:                        ; preds = %Cba_FonRange.exit.i
   %2076 = getelementptr i8, ptr %.val.i1413, i64 24
   %.val.val.i1414 = load ptr, ptr %2076, align 8
   %2077 = xor i32 %2075, -1
-  %2078 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1414, i32 noundef %2077) #20
+  %2078 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1414, i32 noundef range(i32 -2147483648, 2147483647) %2077) #20
   %2079 = tail call i32 @atoi(ptr nocapture noundef %2078) #21
   %.val.i1425 = load ptr, ptr %0, align 8
   %2080 = getelementptr i8, ptr %.val.i1425, i64 24
   %.val.val.i1426 = load ptr, ptr %2080, align 8
-  %2081 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1426, i32 noundef %2077) #20
+  %2081 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i1426, i32 noundef range(i32 -2147483648, 2147483647) %2077) #20
   %2082 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2081, i32 noundef 115) #21
   %2083 = icmp ne ptr %2082, null
   %2084 = zext i1 %2083 to i32
@@ -8577,7 +8577,7 @@ Cba_VecLoadFanins.exit1454:                       ; preds = %Vec_IntPush.exit.i1
   %indvars.iv1985 = phi i64 [ 0, %.lr.ph1863.preheader ], [ %indvars.iv.next1986, %Gia_ManAppendCo.exit1467 ]
   %2232 = getelementptr inbounds i32, ptr %.val.i1431, i64 %indvars.iv1985
   %2233 = load i32, ptr %2232, align 4
-  %2234 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %48)
+  %2234 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %48)
   %2235 = load i64, ptr %2234, align 4
   %2236 = or i64 %2235, 2147483648
   store i64 %2236, ptr %2234, align 4
@@ -9042,7 +9042,7 @@ define internal fastcc range(i32 0, 2) i32 @Cba_FonSigned(ptr nocapture noundef 
   %4 = getelementptr i8, ptr %.val, i64 24
   %.val.val = load ptr, ptr %4, align 8
   %5 = xor i32 %1, -1
-  %6 = tail call ptr @Abc_NamStr(ptr noundef %.val.val, i32 noundef %5) #20
+  %6 = tail call ptr @Abc_NamStr(ptr noundef %.val.val, i32 noundef range(i32 -2147483648, 2147483647) %5) #20
   %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 115) #21
   %8 = icmp ne ptr %7, null
   %9 = zext i1 %8 to i32

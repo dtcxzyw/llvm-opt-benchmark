@@ -455,7 +455,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemo
   %indvars.iv20.i.i = phi i64 [ %23, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
   %33 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %16, i64 %indvars.iv20.i.i
   %34 = getelementptr inbounds i8, ptr %33, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %33, i8 -1, i64 16, i1 false)
   store i8 0, ptr %34, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %35 = load i32, ptr %5, align 4
@@ -983,7 +983,7 @@ define hidden void @_ZN22XPhysicalMemoryManager19try_enable_uncommitEmm(ptr noun
   %37 = getelementptr inbounds i8, ptr %31, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = sub i64 %38, %36
-  %40 = call noundef i64 @_ZNK22XPhysicalMemoryBacking6commitEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %36, i64 noundef %39) #14
+  %40 = call noundef i64 @_ZNK22XPhysicalMemoryBacking6commitEmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %36, i64 noundef %39) #14
   %41 = load ptr, ptr %27, align 8
   %42 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %41, i64 %indvars.iv.i
   %43 = getelementptr inbounds i8, ptr %42, i64 8
@@ -1043,7 +1043,7 @@ _ZN15XPhysicalMemory14commit_segmentEim.exit.i:   ; preds = %48
   %66 = getelementptr inbounds i8, ptr %60, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = sub i64 %67, %65
-  %69 = call noundef i64 @_ZNK22XPhysicalMemoryBacking8uncommitEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %65, i64 noundef %68) #14
+  %69 = call noundef i64 @_ZNK22XPhysicalMemoryBacking8uncommitEmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %65, i64 noundef %68) #14
   %70 = load ptr, ptr %27, align 8
   %71 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %70, i64 %indvars.iv.i12
   %72 = getelementptr inbounds i8, ptr %71, i64 8
@@ -1649,7 +1649,7 @@ _ZNK15XPhysicalMemory4sizeEv.exit.thread:         ; preds = %3
   %36 = load i64, ptr %35, align 8
   %37 = load i64, ptr %33, align 8
   %38 = sub i64 %36, %37
-  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %34, i64 noundef %38, i64 noundef %37) #14
+  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %34, i64 noundef %38, i64 noundef %37) #14
   %39 = load i64, ptr %35, align 8
   %40 = load i64, ptr %33, align 8
   %41 = add i64 %39, %.016.i
@@ -1686,7 +1686,7 @@ _ZNK15XPhysicalMemory4sizeEv.exit.thread:         ; preds = %3
   %58 = load i64, ptr %57, align 8
   %59 = load i64, ptr %55, align 8
   %60 = sub i64 %58, %59
-  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %56, i64 noundef %60, i64 noundef %59) #14
+  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %56, i64 noundef %60, i64 noundef %59) #14
   %61 = load i64, ptr %57, align 8
   %62 = load i64, ptr %55, align 8
   %63 = add i64 %61, %.016.i19
@@ -1738,7 +1738,7 @@ _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit21: ; preds = %._
   %88 = load i64, ptr %87, align 8
   %89 = load i64, ptr %85, align 8
   %90 = sub i64 %88, %89
-  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %86, i64 noundef %90, i64 noundef %89) #14
+  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %86, i64 noundef %90, i64 noundef %89) #14
   %91 = load i64, ptr %87, align 8
   %92 = load i64, ptr %85, align 8
   %93 = add i64 %91, %.016.i27
@@ -1788,7 +1788,7 @@ _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit29: ; preds = %._
   %117 = load i64, ptr %116, align 8
   %118 = load i64, ptr %114, align 8
   %119 = sub i64 %117, %118
-  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %115, i64 noundef %119, i64 noundef %118) #14
+  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %115, i64 noundef %119, i64 noundef %118) #14
   %120 = load i64, ptr %116, align 8
   %121 = load i64, ptr %114, align 8
   %122 = add i64 %120, %.016.i35
@@ -1885,12 +1885,12 @@ _ZNK22XPhysicalMemoryManager12nmt_uncommitEmm.exit: ; preds = %3, %12
 19:                                               ; preds = %_ZNK22XPhysicalMemoryManager12nmt_uncommitEmm.exit
   %20 = load i64, ptr @XAddressMetadataMarked0, align 8
   %21 = or i64 %18, %20
-  call void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %21, i64 noundef %2) #14
+  call void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %21, i64 noundef %2) #14
   %22 = load i64, ptr @XAddressOffsetMask, align 8
   %23 = and i64 %22, %1
   %24 = load i64, ptr @XAddressMetadataMarked1, align 8
   %25 = or i64 %23, %24
-  call void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %25, i64 noundef %2) #14
+  call void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %25, i64 noundef %2) #14
   %26 = load i64, ptr @XAddressOffsetMask, align 8
   %27 = and i64 %26, %1
   br label %28
@@ -1900,7 +1900,7 @@ _ZNK22XPhysicalMemoryManager12nmt_uncommitEmm.exit: ; preds = %3, %12
   %.sink10 = phi i64 [ %27, %19 ], [ %18, %_ZNK22XPhysicalMemoryManager12nmt_uncommitEmm.exit ]
   %29 = load i64, ptr %XAddressMetadataRemapped.sink, align 8
   %30 = or i64 %.sink10, %29
-  call void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %30, i64 noundef %2) #14
+  call void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %30, i64 noundef %2) #14
   ret void
 }
 
@@ -1928,7 +1928,7 @@ define hidden void @_ZNK22XPhysicalMemoryManager9debug_mapEmRK15XPhysicalMemory(
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %13, align 8
   %18 = sub i64 %16, %17
-  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %14, i64 noundef %18, i64 noundef %17) #14
+  tail call void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %14, i64 noundef %18, i64 noundef %17) #14
   %19 = load i64, ptr %15, align 8
   %20 = load i64, ptr %13, align 8
   %21 = add i64 %19, %.016.i
@@ -1963,7 +1963,7 @@ define hidden void @_ZNK22XPhysicalMemoryManager11debug_unmapEmm(ptr noundef non
   %5 = and i64 %4, %1
   %6 = load i64, ptr @XAddressGoodMask, align 8
   %7 = or i64 %5, %6
-  tail call void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %7, i64 noundef %2) #14
+  tail call void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %7, i64 noundef %2) #14
   ret void
 }
 

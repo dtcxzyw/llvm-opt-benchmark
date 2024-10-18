@@ -301,7 +301,7 @@ define weak_odr hidden void @_ZN17JfrThreadIteratorI28JfrJavaThreadIteratorAdapt
   %4 = zext i1 %1 to i8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
-  tail call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %6) #5
+  tail call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(73) %3, ptr noundef %6) #5
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -429,7 +429,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK17JfrThreadIteratorI28JfrJavaThre
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN17JfrThreadIteratorI31JfrNonJavaThreadIteratorAdapter8StackObjEC2Eb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %1) unnamed_addr #0 comdat($_ZN17JfrThreadIteratorI31JfrNonJavaThreadIteratorAdapter8StackObjEC5Eb) align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZN13NonJavaThread8IteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  tail call void @_ZN13NonJavaThread8IteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   br label %5
 
@@ -439,7 +439,7 @@ define weak_odr hidden void @_ZN17JfrThreadIteratorI31JfrNonJavaThreadIteratorAd
   br i1 %7, label %_ZN31JfrNonJavaThreadIteratorAdapterC2Eb.exit, label %8
 
 8:                                                ; preds = %5
-  tail call void @_ZN13NonJavaThread8Iterator4stepEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  tail call void @_ZN13NonJavaThread8Iterator4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
   %9 = getelementptr i8, ptr %6, i64 778
   %.val.i.i = load i8, ptr %9, align 2
   %10 = trunc i8 %.val.i.i to i1
@@ -465,7 +465,7 @@ define weak_odr hidden noundef ptr @_ZN17JfrThreadIteratorI31JfrNonJavaThreadIte
   br i1 %8, label %_ZN31JfrNonJavaThreadIteratorAdapter4nextEv.exit, label %9
 
 9:                                                ; preds = %6
-  tail call void @_ZN13NonJavaThread8Iterator4stepEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #5
+  tail call void @_ZN13NonJavaThread8Iterator4stepEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #5
   %10 = getelementptr i8, ptr %7, i64 778
   %.val.i.i = load i8, ptr %10, align 2
   %11 = trunc i8 %.val.i.i to i1

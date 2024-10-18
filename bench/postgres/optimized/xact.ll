@@ -1455,7 +1455,7 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %.06.i, i64 16
   %35 = load ptr, ptr %34, align 8
-  tail call void %33(i32 noundef %29, ptr noundef %35) #22
+  tail call void %33(i32 noundef range(i32 0, 8) %29, ptr noundef %35) #22
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !13
 
@@ -1751,7 +1751,7 @@ RecordTransactionCommit.exit:                     ; preds = %149, %150
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %.06.i28, i64 16
   %162 = load ptr, ptr %161, align 8
-  call void %160(i32 noundef %156, ptr noundef %162) #22
+  call void %160(i32 noundef range(i32 0, 8) %156, ptr noundef %162) #22
   %.not.i29 = icmp eq ptr %158, null
   br i1 %.not.i29, label %CallXactCallbacks.exit30, label %.lr.ph.i27, !llvm.loop !13
 

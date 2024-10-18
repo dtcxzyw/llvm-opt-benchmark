@@ -216,7 +216,7 @@ is_armagetronad_packet.exit:                      ; preds = %13, %4
 60:                                               ; preds = %55
   %61 = add i32 %.02936, 6
   %62 = load i32, ptr @hf_armagetronad_data, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %51, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef %38, i32 noundef 0) #2
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %51, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef range(i32 0, 131071) %38, i32 noundef 0) #2
   br label %add_message.exit
 
 add_message.exit:                                 ; preds = %55, %60

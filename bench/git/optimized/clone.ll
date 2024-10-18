@@ -2172,7 +2172,7 @@ if.then79.i.i:                                    ; preds = %if.end74.i.i
   unreachable
 
 if.then85.i.i:                                    ; preds = %while.cond.i.i
-  call fastcc void @strbuf_setlen(ptr noundef %src.i, i64 noundef %conv22.i.i)
+  call fastcc void @strbuf_setlen(ptr noundef nonnull %src.i, i64 noundef %conv22.i.i)
   %call87.i.i = call fastcc ptr @_(ptr noundef nonnull @.str.194)
   %228 = load ptr, ptr %buf1.i.i, align 8
   call void (ptr, ...) @die(ptr noundef %call87.i.i, ptr noundef %228) #18

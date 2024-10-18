@@ -109,7 +109,7 @@ define hidden void @_ZN3std3sys3pal4unix2os10join_paths17h6e3303521725643eE(ptr 
   %23 = phi ptr [ %12, %2 ], [ %22, %._crit_edge.loopexit.split.loop.exit67 ], [ %81, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit19" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !34
   store ptr %5, ptr %4, align 8, !noalias !34
-  %24 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h51d02b0e54b7a2d0E.llvm.6435588442613421834(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
+  %24 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h51d02b0e54b7a2d0E.llvm.6435588442613421834(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
           to label %27 unwind label %25
 
 25:                                               ; preds = %27, %._crit_edge
@@ -194,7 +194,7 @@ define hidden void @_ZN3std3sys3pal4unix2os10join_paths17h6e3303521725643eE(ptr 
   br i1 %49, label %50, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha081ba3e211fcdd6E.exit"
 
 50:                                               ; preds = %46
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3bb14af922a33c7aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3bb14af922a33c7aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha081ba3e211fcdd6E.exit" unwind label %31
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha081ba3e211fcdd6E.exit": ; preds = %50, %46
@@ -226,7 +226,7 @@ define hidden void @_ZN3std3sys3pal4unix2os10join_paths17h6e3303521725643eE(ptr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !83
   store ptr %5, ptr %3, align 8, !noalias !83
   %57 = load ptr, ptr %10, align 8, !alias.scope !83, !nonnull !12, !noundef !12
-  %58 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h51d02b0e54b7a2d0E.llvm.6435588442613421834(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
+  %58 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h51d02b0e54b7a2d0E.llvm.6435588442613421834(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
           to label %61 unwind label %59
 
 59:                                               ; preds = %61, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit8"
@@ -272,7 +272,7 @@ define hidden void @_ZN3std3sys3pal4unix2os10join_paths17h6e3303521725643eE(ptr 
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %.thread
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hcf6869b993f9b262E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %68, i64 noundef %.sroa.10.sroa.6.0.copyload)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hcf6869b993f9b262E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %68, i64 noundef %.sroa.10.sroa.6.0.copyload)
           to label %.noexc17 unwind label %31
 
 .noexc17:                                         ; preds = %72

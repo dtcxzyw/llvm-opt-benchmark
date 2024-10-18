@@ -77,7 +77,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %17
   store volatile i32 6, ptr %7, align 4
-  %18 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4
+  %18 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #4
   %19 = load i8, ptr @UseCompressedClassPointers, align 1
   %20 = trunc i8 %19 to i1
   %21 = ptrtoint ptr %18 to i64
@@ -163,7 +163,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %17
   store volatile i32 6, ptr %7, align 4
-  %18 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4
+  %18 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #4
   %19 = load i8, ptr @UseCompressedClassPointers, align 1
   %20 = trunc i8 %19 to i1
   %21 = ptrtoint ptr %18 to i64

@@ -700,7 +700,7 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit: ; preds = %32
 _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5, %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit
   %36 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %36, null
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %7, i1 noundef zeroext false) #17
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %7, i1 noundef zeroext false) #17
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
   %37 = getelementptr inbounds i8, ptr %7, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %37) #17
@@ -944,7 +944,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
   br i1 %60, label %.lr.ph.i, label %_ZN19MaskFillerForNativeC2ERK12methodHandlePmi.exit, !llvm.loop !12
 
 _ZN19MaskFillerForNativeC2ERK12methodHandlePmi.exit: ; preds = %.lr.ph.i, %_ZN16OopMapCacheEntry17allocate_bit_maskEv.exit
-  call void @_ZN23NativeSignatureIterator7iterateEv(ptr noundef nonnull align 8 dereferenceable(60) %4)
+  call void @_ZN23NativeSignatureIterator7iterateEv(ptr noundef nonnull align 8 dereferenceable(76) %4)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV23NativeSignatureIterator, i64 16), ptr %4, align 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #17
   ret void
@@ -994,7 +994,7 @@ _ZN16OopMapCacheEntry5flushEv.exit:               ; preds = %3, %8, %11
   br label %30
 
 22:                                               ; preds = %_ZN16OopMapCacheEntry5flushEv.exit
-  call void @_ZN14GenerateOopMapC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull align 8 dereferenceable(16) %1) #17
+  call void @_ZN14GenerateOopMapC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV19OopMapForCacheEntry, i64 16), ptr %4, align 8
   %23 = getelementptr inbounds i8, ptr %4, i64 184
   store i32 %2, ptr %23, align 8
@@ -2407,7 +2407,7 @@ define linkonce_odr hidden void @_ZN23NativeSignatureIterator7iterateEv(ptr noun
   br label %_ZN23NativeSignatureIterator7iterateEm.exit
 
 _ZN23NativeSignatureIterator7iterateEm.exit:      ; preds = %1, %25
-  call void @_ZN17SignatureIterator16do_parameters_onI23NativeSignatureIteratorEEvPT_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull %0)
+  call void @_ZN17SignatureIterator16do_parameters_onI23NativeSignatureIteratorEEvPT_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(60) %0)
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   ret void
 }

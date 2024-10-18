@@ -1779,7 +1779,7 @@ if.then13:                                        ; preds = %if.else4
   store i32 0, ptr %i.i, align 4
   %conv.i23 = zext i32 %sz to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %dp, i8 0, i64 %conv.i23, i1 false)
-  call fastcc void @cconv_substruct_init(ptr noundef %cts, ptr noundef nonnull %d, ptr noundef %dp, ptr noundef %o, i32 noundef %len, ptr noundef %i.i)
+  call fastcc void @cconv_substruct_init(ptr noundef %cts, ptr noundef nonnull %d, ptr noundef %dp, ptr noundef %o, i32 noundef range(i32 1, 0) %len, ptr noundef %i.i)
   %9 = load i32, ptr %i.i, align 4
   %cmp.i24 = icmp ult i32 %9, %len
   br i1 %cmp.i24, label %if.then.i26, label %cconv_struct_init.exit

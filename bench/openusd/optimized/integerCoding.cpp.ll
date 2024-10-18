@@ -140,7 +140,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 32, i1 false)
   %17 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %.lr.ph.preheader.i.i, !prof !4
@@ -186,7 +186,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store ptr %7, ptr %4, align 8, !alias.scope !5
-  %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIiJRKSt21piecewise_construct_tSt5tupleIJRKiEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(74) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIiJRKSt21piecewise_construct_tSt5tupleIJRKiEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %34 unwind label %41
 
 34:                                               ; preds = %.lr.ph.i.i
@@ -596,7 +596,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 32, i1 false)
   %17 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %.lr.ph.preheader.i.i, !prof !4
@@ -642,7 +642,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store ptr %7, ptr %4, align 8, !alias.scope !15
-  %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIiJRKSt21piecewise_construct_tSt5tupleIJRKiEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(74) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIiJRKSt21piecewise_construct_tSt5tupleIJRKiEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %34 unwind label %41
 
 34:                                               ; preds = %.lr.ph.i.i
@@ -1651,7 +1651,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 32, i1 false)
   %17 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %.lr.ph.preheader.i.i, !prof !4
@@ -1697,7 +1697,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store ptr %7, ptr %4, align 8, !alias.scope !31
-  %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIlJRKSt21piecewise_construct_tSt5tupleIJRKlEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(74) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIlJRKSt21piecewise_construct_tSt5tupleIJRKlEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %34 unwind label %41
 
 34:                                               ; preds = %.lr.ph.i.i
@@ -2107,7 +2107,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 32, i1 false)
   %17 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %.lr.ph.preheader.i.i, !prof !4
@@ -2153,7 +2153,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store ptr %7, ptr %4, align 8, !alias.scope !40
-  %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIlJRKSt21piecewise_construct_tSt5tupleIJRKlEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(74) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %33 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E11insert_implIlJRKSt21piecewise_construct_tSt5tupleIJRKlEESM_IJEEEEES3_INSH_14robin_iteratorILb0EEEbERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %34 unwind label %41
 
 34:                                               ; preds = %.lr.ph.i.i

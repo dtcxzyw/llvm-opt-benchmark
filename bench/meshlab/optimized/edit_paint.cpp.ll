@@ -1255,7 +1255,7 @@ define void @_ZN15EditPaintPluginD0Ev(ptr noundef nonnull align 8 dereferenceabl
 define void @_ZThn16_N15EditPaintPluginD0Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15EditPaintPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(704) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(704) %2) #25
   ret void
 }
 
@@ -1714,7 +1714,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.i.i:               ; preds = %77
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i:        ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i, %77, %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %60, ptr noundef nonnull align 4 dereferenceable(12) %73, i64 12, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %59, ptr noundef nonnull align 4 dereferenceable(12) %73, i64 12, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %59, ptr noundef nonnull align 4 dereferenceable(12) %73, i64 12, i1 false)
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
 
 84:                                               ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i
@@ -2765,7 +2765,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %6
 12:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %13 = getelementptr inbounds i8, ptr %8, i64 4
   %14 = load i32, ptr %13, align 4, !noalias !14
-  %15 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %14)
+  %15 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %14)
   %16 = load ptr, ptr %2, align 8, !alias.scope !14
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = getelementptr inbounds i8, ptr %16, i64 8
@@ -5014,7 +5014,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %357
   %361 = phi ptr [ %.pre.i132, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %358, %357 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %361, i64 noundef 16, i64 noundef 8) #26
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %361, i64 noundef 16, i64 noundef 8) #26
   br label %_ZN7QVectorI7QPointFED2Ev.exit
 
 _ZN7QVectorI7QPointFED2Ev.exit:                   ; preds = %357, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -5757,7 +5757,7 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
   br i1 %369, label %.thread267, label %370
 
 370:                                              ; preds = %362, %363
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, i8 0, i64 24, i1 false)
   br i1 %172, label %371, label %383
 
 371:                                              ; preds = %370
@@ -6893,7 +6893,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit: ; preds = %153
   %192 = load ptr, ptr %5, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 40
   %.sroa.01.0.copyload = load i32, ptr %193, align 1
-  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef null)
+  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(28) %191, ptr noundef null)
           to label %194 unwind label %220
 
 194:                                              ; preds = %180
@@ -7068,7 +7068,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36: ; preds = %2
   %304 = load ptr, ptr %5, align 8
   %305 = getelementptr inbounds i8, ptr %304, i64 40
   %.sroa.0.0.copyload = load i32, ptr %305, align 1
-  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %303, ptr noundef null)
+  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(28) %303, ptr noundef null)
           to label %306 unwind label %332
 
 306:                                              ; preds = %298
@@ -7434,7 +7434,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8containsERKS1_.exit.thread: ; p
   %.sroa.019.0.copyload = load <2 x float>, ptr %157, align 4
   %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %155, i64 32
   %.sroa.220.0.copyload = load float, ptr %.sroa.220.0..sroa_idx, align 4
-  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef null)
+  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(48) %154, ptr noundef null)
           to label %158 unwind label %176
 
 158:                                              ; preds = %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8containsERKS1_.exit.thread
@@ -7987,7 +7987,7 @@ _ZN8Paintbox12getUndoStackEv.exit:                ; preds = %103
   %107 = load ptr, ptr %7, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 40
   %.sroa.042.0.copyload = load i32, ptr %108, align 1
-  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef null)
+  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(28) %105, ptr noundef null)
           to label %109 unwind label %112
 
 109:                                              ; preds = %106
@@ -8022,7 +8022,7 @@ _ZN8Paintbox12getUndoStackEv.exit129:             ; preds = %114
   %.sroa.038.0.copyload = load <2 x float>, ptr %120, align 4
   %.sroa.239.0..sroa_idx = getelementptr inbounds i8, ptr %118, i64 32
   %.sroa.239.0.copyload = load float, ptr %.sroa.239.0..sroa_idx, align 4
-  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef null)
+  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr noundef null)
           to label %121 unwind label %127
 
 121:                                              ; preds = %117
@@ -9308,7 +9308,7 @@ _ZN8Paintbox12getUndoStackEv.exit62:              ; preds = %_ZN5QHashIP8CVertex
   %183 = load ptr, ptr %73, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 40
   %.sroa.09.0.copyload = load i32, ptr %184, align 1
-  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef null)
+  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(28) %181, ptr noundef null)
           to label %185 unwind label %212
 
 185:                                              ; preds = %182
@@ -10608,7 +10608,7 @@ _ZN8Paintbox12getUndoStackEv.exit82:              ; preds = %269
 275:                                              ; preds = %_ZN8Paintbox12getUndoStackEv.exit82
   %276 = getelementptr inbounds i8, ptr %.pre192, i64 40
   %.sroa.0.0.copyload = load i32, ptr %276, align 1
-  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %274, ptr noundef null)
+  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(28) %274, ptr noundef null)
           to label %277 unwind label %327
 
 277:                                              ; preds = %275
@@ -12492,7 +12492,7 @@ define linkonce_odr void @_ZN15SingleColorUndoD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15SingleColorUndoD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN12QUndoCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN12QUndoCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -12675,7 +12675,7 @@ _ZN9QHashData8willGrowEv.exit:                    ; preds = %62, %60, %45, %_ZNK
 
 81:                                               ; preds = %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit
   %82 = getelementptr inbounds i8, ptr %33, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %82, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %82, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 12, i1 false)
   %83 = getelementptr inbounds i8, ptr %2, i64 12
   %84 = load float, ptr %83, align 4
   %85 = getelementptr inbounds i8, ptr %33, i64 36
@@ -13031,7 +13031,7 @@ define linkonce_odr void @_ZN18SinglePositionUndoD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18SinglePositionUndoD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN12QUndoCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN12QUndoCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -14150,7 +14150,7 @@ _ZN9QHashData8willGrowEv.exit:                    ; preds = %62, %60, %45, %_ZNK
 
 81:                                               ; preds = %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit
   %82 = getelementptr inbounds i8, ptr %33, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %82, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %82, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 12, i1 false)
   %83 = getelementptr inbounds i8, ptr %2, i64 12
   %84 = getelementptr inbounds i8, ptr %33, i64 36
   %85 = load i32, ptr %83, align 4
@@ -14993,21 +14993,21 @@ _ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit74.thread: ; preds = %_ZNK3vcg4Box3If
 
 _ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit77.thread: ; preds = %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit74.thread, %75, %78
   %81 = getelementptr inbounds i8, ptr %5, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %82 = call noundef zeroext i1 @_ZN3vcg22IntersectionSegmentBoxIfEEbRKNS_4Box3IT_EERKNS_8Segment3IS2_EERNS_6Point3IS2_EE(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(12) %4)
   br i1 %82, label %.critedge, label %83
 
 83:                                               ; preds = %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit77.thread
   %84 = getelementptr inbounds i8, ptr %6, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %85 = call noundef zeroext i1 @_ZN3vcg22IntersectionSegmentBoxIfEEbRKNS_4Box3IT_EERKNS_8Segment3IS2_EERNS_6Point3IS2_EE(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(12) %4)
   br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds i8, ptr %7, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %87, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %88 = call noundef zeroext i1 @_ZN3vcg22IntersectionSegmentBoxIfEEbRKNS_4Box3IT_EERKNS_8Segment3IS2_EERNS_6Point3IS2_EE(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %4)
   br i1 %88, label %.critedge, label %.preheader.preheader
@@ -15387,7 +15387,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit13:
 _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %33, %41
   %.sroa.6.0 = phi float [ %44, %41 ], [ %36, %33 ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %41 ], [ %.sroa.0.4.vec.insert.i, %33 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %45 = getelementptr inbounds i8, ptr %3, i64 12
   store <2 x float> %.sroa.0.0, ptr %45, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
@@ -15460,7 +15460,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg27IntersectionSegmentTriangleIfEE
   %27 = fcmp olt float %.sroa.34.12.copyload, %23
   %.sroa.34.1 = select i1 %27, float %23, float %.sroa.34.12.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %28 = load float, ptr %7, align 4
   %29 = load float, ptr %11, align 4
   %30 = fcmp ogt float %28, %29
@@ -15480,7 +15480,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.i29:               ; preds = %31
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i30:        ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i29, %31, %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %.pre = load float, ptr %7, align 4
   %.pre71 = load float, ptr %11, align 4
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit31
@@ -15560,7 +15560,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.i32:               ; preds = %66
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i33:        ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i32, %66, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %.pre72 = load float, ptr %7, align 4
   %.pre73 = load float, ptr %11, align 4
   %.pre74 = load float, ptr %12, align 4
@@ -15688,7 +15688,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit34:      ; preds = %100, %97, %_ZNK3vcg
 _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %115, %135
   %.sroa.6.0 = phi float [ %138, %135 ], [ %130, %115 ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %135 ], [ %.sroa.0.4.vec.insert.i, %115 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %139 = getelementptr inbounds i8, ptr %9, i64 12
   store <2 x float> %.sroa.0.0, ptr %139, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 20
@@ -16594,7 +16594,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2:      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge, %1
   %5 = phi ptr [ %.pre, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge ], [ %2, %1 ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %5, i64 noundef 16, i64 noundef 8) #26
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8) #26
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2, %_ZN9QtPrivate8RefCount5derefEv.exit

@@ -2364,7 +2364,7 @@ select.unfold:                                    ; preds = %71, %63, %75
 
 280:                                              ; preds = %261
   %281 = sub nuw i32 %16, %277
-  %282 = call i32 @llvm.umin.i32(i32 %5, i32 %281)
+  %282 = call i32 @llvm.umin.i32(i32 range(i32 0, 16777216) %5, i32 %281)
   %.not.i = icmp eq i32 %282, 0
   br i1 %.not.i, label %286, label %283
 
@@ -2439,7 +2439,7 @@ select.unfold:                                    ; preds = %71, %63, %75
 
 328:                                              ; preds = %307
   %329 = sub nuw i32 %16, %325
-  %330 = call i32 @llvm.umin.i32(i32 %5, i32 %329)
+  %330 = call i32 @llvm.umin.i32(i32 range(i32 0, 16777216) %5, i32 %329)
   %.not.i1593 = icmp eq i32 %330, 0
   br i1 %.not.i1593, label %334, label %331
 
@@ -2619,7 +2619,7 @@ select.unfold:                                    ; preds = %71, %63, %75
 
 435:                                              ; preds = %.loopexit
   %436 = sub nuw i32 %16, %432
-  %437 = call i32 @llvm.umin.i32(i32 %5, i32 %436)
+  %437 = call i32 @llvm.umin.i32(i32 range(i32 0, 16777216) %5, i32 %436)
   %.not.i1601 = icmp eq i32 %437, 0
   br i1 %.not.i1601, label %441, label %438
 
@@ -4667,12 +4667,12 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %40 = call i32 @tvb_find_guint8(ptr noundef %31, i32 noundef %39, i32 noundef -1, i8 noundef zeroext 58) #9
+  %40 = call i32 @tvb_find_guint8(ptr noundef %31, i32 noundef range(i32 1, 0) %39, i32 noundef -1, i8 noundef zeroext 58) #9
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %iscsi_dissect_TargetAddress.exit.i, label %42
 
 42:                                               ; preds = %38
-  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef %39) #9
+  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef range(i32 1, 0) %39) #9
   %44 = icmp eq i8 %43, 91
   br i1 %44, label %45, label %59
 
@@ -4699,7 +4699,7 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
 59:                                               ; preds = %42
   %60 = load ptr, ptr %21, align 8
   %61 = sub i32 %40, %39
-  %62 = call ptr @tvb_get_string_enc(ptr noundef %60, ptr noundef %31, i32 noundef %39, i32 noundef %61, i32 noundef 0) #9
+  %62 = call ptr @tvb_get_string_enc(ptr noundef %60, ptr noundef %31, i32 noundef range(i32 1, 0) %39, i32 noundef %61, i32 noundef 0) #9
   %63 = load ptr, ptr %21, align 8
   %64 = call noalias ptr @wmem_alloc(ptr noundef %63, i64 noundef 4) #9
   %65 = call zeroext i1 @ws_inet_pton4(ptr noundef %62, ptr noundef %64) #9

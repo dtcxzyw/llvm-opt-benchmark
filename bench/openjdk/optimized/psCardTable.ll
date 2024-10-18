@@ -536,7 +536,7 @@ _ZN18PSPromotionManager21push_contents_boundedEP7oopDescPP12HeapWordImplS4_.exit
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef %.0.i.i.i, ptr %3, i64 %49) #11
+  call void %54(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i.i, ptr %3, i64 %49) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %55
 
@@ -641,7 +641,7 @@ _ZNK7oopDesc5klassEv.exit.i.i25:                  ; preds = %56, %46
   %67 = load ptr, ptr %.0.i.i.i26, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 256
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i26, ptr noundef nonnull %42) #11
+  %70 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i26, ptr noundef nonnull align 8 dereferenceable(16) %42) #11
   br label %_ZN7oopDesc4sizeEv.exit.i27
 
 71:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i25
@@ -674,7 +674,7 @@ _ZNK7oopDesc5klassEv.exit.i.i25:                  ; preds = %56, %46
   %94 = load ptr, ptr %.0.i.i.i26, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 256
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i26, ptr noundef nonnull %42) #11
+  %97 = tail call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i26, ptr noundef nonnull align 8 dereferenceable(16) %42) #11
   br label %_ZN7oopDesc4sizeEv.exit.i27
 
 _ZN7oopDesc4sizeEv.exit.i27:                      ; preds = %93, %73, %66, %63
@@ -943,7 +943,7 @@ _ZNK7oopDesc5klassEv.exit.i.i30:                  ; preds = %236, %226
   %247 = load ptr, ptr %.0.i.i.i31, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 256
   %249 = load ptr, ptr %248, align 8
-  %250 = call noundef i64 %249(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i31, ptr noundef nonnull %222) #11
+  %250 = call noundef i64 %249(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %222) #11
   br label %_ZN7oopDesc4sizeEv.exit.i32
 
 251:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i30
@@ -976,7 +976,7 @@ _ZNK7oopDesc5klassEv.exit.i.i30:                  ; preds = %236, %226
   %274 = load ptr, ptr %.0.i.i.i31, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 256
   %276 = load ptr, ptr %275, align 8
-  %277 = call noundef i64 %276(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i31, ptr noundef nonnull %222) #11
+  %277 = call noundef i64 %276(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %222) #11
   br label %_ZN7oopDesc4sizeEv.exit.i32
 
 _ZN7oopDesc4sizeEv.exit.i32:                      ; preds = %273, %253, %246, %243
@@ -1042,7 +1042,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %299, %289
   %311 = load ptr, ptr %.pn.i, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 256
   %313 = load ptr, ptr %312, align 8
-  %314 = call noundef i64 %313(ptr noundef nonnull align 8 dereferenceable(196) %.pn.i, ptr noundef nonnull %.041.i) #11
+  %314 = call noundef i64 %313(ptr noundef nonnull align 8 dereferenceable(196) %.pn.i, ptr noundef nonnull align 8 dereferenceable(16) %.041.i) #11
   br label %_ZN7oopDesc4sizeEv.exit.i
 
 315:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -1075,7 +1075,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %299, %289
   %338 = load ptr, ptr %.pn.i, align 8
   %339 = getelementptr inbounds i8, ptr %338, i64 256
   %340 = load ptr, ptr %339, align 8
-  %341 = call noundef i64 %340(ptr noundef nonnull align 8 dereferenceable(196) %.pn.i, ptr noundef nonnull %.041.i) #11
+  %341 = call noundef i64 %340(ptr noundef nonnull align 8 dereferenceable(196) %.pn.i, ptr noundef nonnull align 8 dereferenceable(16) %.041.i) #11
   br label %_ZN7oopDesc4sizeEv.exit.i
 
 _ZN7oopDesc4sizeEv.exit.i:                        ; preds = %337, %317, %310, %307
@@ -1154,7 +1154,7 @@ _ZN18PSPromotionManager21push_contents_boundedEP7oopDescPP12HeapWordImplS4_.exit
   %382 = sext i32 %381 to i64
   %383 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %382
   %384 = load ptr, ptr %383, align 8
-  call void %384(ptr noundef nonnull %9, ptr noundef nonnull %.041.i, ptr noundef %.0.i.i.i.i.i, ptr %213, i64 %284) #11
+  call void %384(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(16) %.041.i, ptr noundef %.0.i.i.i.i.i, ptr %213, i64 %284) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %_ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWordImplS6_.exit.i
 
@@ -1234,7 +1234,7 @@ _ZN18PSPromotionManager21push_contents_boundedEP7oopDescPP12HeapWordImplS4_.exit
   %426 = sext i32 %425 to i64
   %427 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %426
   %428 = load ptr, ptr %427, align 8
-  call void %428(ptr noundef nonnull %8, ptr noundef nonnull %.041.i, ptr noundef %.0.i.i.i.i56.i, ptr %213, i64 %281) #11
+  call void %428(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %.041.i, ptr noundef %.0.i.i.i.i56.i, ptr %213, i64 %281) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWordImplS6_.exit.i
 
@@ -1819,7 +1819,7 @@ _ZN7oopDesc11oop_iterateI22PSCheckForUnmarkedOopsEEvPT_.exit: ; preds = %15, %25
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22PSCheckForUnmarkedOopsE6_tableE, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef %.0.i.i) #11
+  call void %31(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #11
   %32 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %45, label %33
@@ -3265,7 +3265,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #11, !srcloc !24
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #11, !srcloc !24
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
@@ -3821,7 +3821,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #11, !srcloc !24
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #11, !srcloc !24
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
@@ -5784,7 +5784,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %85, %75
   %96 = load ptr, ptr %.0.i.i.i, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 256
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #11
+  %99 = tail call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 100:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -5817,7 +5817,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %85, %75
   %123 = load ptr, ptr %.0.i.i.i, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 256
   %125 = load ptr, ptr %124, align 8
-  %126 = tail call noundef i64 %125(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #11
+  %126 = tail call noundef i64 %125(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %92, %95, %102, %122
@@ -5915,7 +5915,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   %56 = load ptr, ptr %.0.i.i.i, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 256
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #11
+  %59 = tail call noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 60:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -5948,7 +5948,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   %83 = load ptr, ptr %.0.i.i.i, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 256
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef i64 %85(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #11
+  %86 = tail call noundef i64 %85(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %52, %55, %62, %82
@@ -11015,7 +11015,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   %56 = load ptr, ptr %.0.i.i.i, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 256
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #11
+  %59 = tail call noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 60:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -11048,7 +11048,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   %83 = load ptr, ptr %.0.i.i.i, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 256
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef i64 %85(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #11
+  %86 = tail call noundef i64 %85(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %52, %55, %62, %82
@@ -11375,7 +11375,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %103, %93
   %114 = load ptr, ptr %.0.i.i.i, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 256
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #11
+  %117 = tail call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 118:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -11408,7 +11408,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %103, %93
   %141 = load ptr, ptr %.0.i.i.i, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 256
   %143 = load ptr, ptr %142, align 8
-  %144 = tail call noundef i64 %143(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #11
+  %144 = tail call noundef i64 %143(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %110, %113, %120, %140
@@ -11691,7 +11691,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
   %55 = load ptr, ptr %.0.i.i, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 256
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.0) #11
+  %58 = tail call noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0) #11
   br label %_ZN7oopDesc4sizeEv.exit
 
 59:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -11724,7 +11724,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
   %82 = load ptr, ptr %.0.i.i, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 256
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.0) #11
+  %85 = tail call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0) #11
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %51, %54, %61, %81

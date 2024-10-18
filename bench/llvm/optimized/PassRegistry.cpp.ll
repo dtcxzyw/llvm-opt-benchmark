@@ -58,7 +58,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm12PassRegistry15getPassRegistryEv(
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i64 88), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i64 88), i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i8 0, i64 84, i1 false)
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i64 108), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i64 112), i8 0, i64 48, i1 false)
@@ -168,7 +168,7 @@ _ZNSt6vectorISt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EESaIS6_EED2E
 34:                                               ; preds = %.lr.ph.i
   %35 = load i64, ptr %33, align 8
   %36 = add i64 %35, 17
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %33, i64 noundef %36, i64 noundef 8) #14
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, i64 noundef %36, i64 noundef 8) #14
   br label %37
 
 37:                                               ; preds = %34, %.lr.ph.i, %.lr.ph.i
@@ -194,7 +194,7 @@ define dso_local noundef ptr @_ZNK4llvm12PassRegistry11getPassInfoEPKv(ptr nound
   br label %3
 
 3:                                                ; preds = %3, %2
-  %4 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %0) #14
+  %4 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   switch i32 %4, label %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit [
     i32 11, label %3
     i32 35, label %5
@@ -251,7 +251,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEEN
 
 _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEED2Ev.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E6doFindIS3_EEPKSB_RKT_.exit.i
   %.0.i = phi ptr [ %33, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E6doFindIS3_EEPKSB_RKT_.exit.i ], [ null, %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit ], [ null, %.lr.ph.i.i.i ]
-  %34 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %0) #14
+  %34 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   ret ptr %.0.i
 }
 
@@ -260,7 +260,7 @@ define dso_local noundef ptr @_ZNK4llvm12PassRegistry11getPassInfoENS_9StringRef
   br label %4
 
 4:                                                ; preds = %4, %3
-  %5 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %0) #14
+  %5 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   switch i32 %5, label %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit [
     i32 11, label %4
     i32 35, label %6
@@ -293,7 +293,7 @@ _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %4
 
 _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEED2Ev.exit: ; preds = %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit, %15
   %.0.i = phi ptr [ %19, %15 ], [ null, %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit ]
-  %20 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %0) #14
+  %20 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   ret ptr %.0.i
 }
 
@@ -304,7 +304,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %"struct.std::pair.5", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
-  %6 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %0) #14
+  %6 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   %7 = icmp eq i32 %6, 35
   br i1 %7, label %8, label %_ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit
 
@@ -369,7 +369,7 @@ _ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %3
 
 42:                                               ; preds = %31, %_ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit
   %.sink.i.i.i.i = phi ptr [ %32, %31 ], [ null, %_ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit ]
-  %43 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E20InsertIntoBucketImplIS3_EEPSB_RKS3_RKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !9
+  %43 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E20InsertIntoBucketImplIS3_EEPSB_RKS3_RKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.sink.i.i.i.i), !noalias !9
   %44 = load ptr, ptr %4, align 8, !noalias !9
   store ptr %44, ptr %43, align 8, !noalias !9
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -443,7 +443,7 @@ _ZNSt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS2_EED2Ev.exit: ; preds = 
   br label %71
 
 71:                                               ; preds = %_ZNSt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS2_EED2Ev.exit, %._crit_edge
-  %72 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %0) #14
+  %72 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   ret void
 }
 
@@ -452,7 +452,7 @@ define dso_local void @_ZN4llvm12PassRegistry13enumerateWithEPNS_24PassRegistrat
   br label %3
 
 3:                                                ; preds = %3, %2
-  %4 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %0) #14
+  %4 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   switch i32 %4, label %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit [
     i32 11, label %3
     i32 35, label %5
@@ -529,13 +529,13 @@ _ZN4llvm16DenseMapIteratorIPKvPKNS_8PassInfoENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not, label %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEED2Ev.exit, label %.lr.ph
 
 _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEED2Ev.exit: ; preds = %.critedge2.i8.i14.i6.i, %_ZN4llvm16DenseMapIteratorIPKvPKNS_8PassInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit, %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %0) #14
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12PassRegistry23addRegistrationListenerEPNS_24PassRegistrationListenerE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %0) #14
+  %3 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   %4 = icmp eq i32 %3, 35
   br i1 %4, label %5, label %_ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit
 
@@ -615,13 +615,13 @@ _ZNSt6vectorIPN4llvm24PassRegistrationListenerESaIS2_EE17_M_realloc_insertIJRKS2
   br label %_ZNSt6vectorIPN4llvm24PassRegistrationListenerESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN4llvm24PassRegistrationListenerESaIS2_EE9push_backERKS2_.exit: ; preds = %11, %_ZNSt6vectorIPN4llvm24PassRegistrationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %37 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %0) #14
+  %37 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12PassRegistry26removeRegistrationListenerEPNS_24PassRegistrationListenerE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
-  %3 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %0) #14
+  %3 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   %4 = icmp eq i32 %3, 35
   br i1 %4, label %5, label %_ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit
 
@@ -750,7 +750,7 @@ _ZNSt6vectorIPN4llvm24PassRegistrationListenerESaIS2_EE5eraseEN9__gnu_cxx17__nor
   %56 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm24PassRegistrationListenerESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %9, %_ZN4llvm4findIRSt6vectorIPNS_24PassRegistrationListenerESaIS3_EES3_EEDaOT_RKT0_.exit ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -8
   store ptr %57, ptr %8, align 8
-  %58 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %0) #14
+  %58 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   ret void
 }
 

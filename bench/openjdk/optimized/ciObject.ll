@@ -237,7 +237,7 @@ define hidden void @_ZN8ciObjectC2EP7oopDesc(ptr nocapture noundef nonnull write
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 25:                                               ; preds = %11
-  %26 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %15, i64 noundef 8, i32 noundef 0) #12
+  %26 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef 8, i32 noundef 0) #12
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %25, %23

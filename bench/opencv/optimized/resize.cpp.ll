@@ -979,7 +979,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %156, %_ZN2cv10AutoB
           to label %184 unwind label %188
 
 184:                                              ; preds = %181
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %185 = load ptr, ptr %17, align 8
   %.not.i.i24.i = icmp eq ptr %185, %145
   %186 = icmp eq ptr %185, null
@@ -993,7 +993,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %156, %_ZN2cv10AutoB
 188:                                              ; preds = %181, %._crit_edge.i
   %189 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #19
   %190 = load ptr, ptr %17, align 8
   %.not.i.i25.i = icmp eq ptr %190, %145
   %191 = icmp eq ptr %190, null
@@ -1108,7 +1108,7 @@ _ZN2cvL8resizeNNERKNS_3MatERS0_dd.exit:           ; preds = %184, %187
 242:                                              ; preds = %239, %._crit_edge.i446
   %243 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   br label %244
 
 244:                                              ; preds = %242, %229
@@ -1117,7 +1117,7 @@ _ZN2cvL8resizeNNERKNS_3MatERS0_dd.exit:           ; preds = %184, %187
   br label %.body
 
 _ZN2cvL17resizeNN_bitexactERKNS_3MatERS0_dd.exit: ; preds = %239
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   call void @_ZN2cv5utils10BufferAreaD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %13) #19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -2339,7 +2339,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearIhisLi2048ENS_12
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2404,7 +2404,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearItffLi1ENS_12HRe
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2469,7 +2469,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearIsffLi1ENS_12HRe
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2534,7 +2534,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearIfffLi1ENS_12HRe
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2599,7 +2599,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearIddfLi1ENS_12HRe
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2664,7 +2664,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicIhisEENS_12VResiz
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2729,7 +2729,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicItffEENS_12VResiz
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2794,7 +2794,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicIsffEENS_12VResiz
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2859,7 +2859,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicIfffEENS_12VResiz
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2924,7 +2924,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicIddfEENS_12VResiz
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -2989,7 +2989,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4IhisEENS_15VRe
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -3054,7 +3054,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4ItffEENS_15VRe
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -3119,7 +3119,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4IsffEENS_15VRe
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -3184,7 +3184,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4IfffEENS_15VRe
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -3249,7 +3249,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4IddfEENS_15VRe
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #19
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %13) #19
   ret void
 
 40:                                               ; preds = %34, %9
@@ -3295,7 +3295,7 @@ common.resume:                                    ; preds = %29, %19
 
 19:                                               ; preds = %17, %15
   %.pn.i = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   br label %common.resume
 
 _ZN2cv22resizeAreaFast_InvokerIhiNS_17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEEEC2ERKNS_3MatERS6_iiPKiSB_.exit: ; preds = %13
@@ -3320,7 +3320,7 @@ _ZN2cv22resizeAreaFast_InvokerIhiNS_17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVe
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv22resizeAreaFast_InvokerIhiNS_17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEEEE, i64 16), ptr %8, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   ret void
 
 29:                                               ; preds = %25, %_ZN2cv22resizeAreaFast_InvokerIhiNS_17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEEEC2ERKNS_3MatERS6_iiPKiSB_.exit
@@ -3366,7 +3366,7 @@ common.resume:                                    ; preds = %29, %19
 
 19:                                               ; preds = %17, %15
   %.pn.i = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   br label %common.resume
 
 _ZN2cv22resizeAreaFast_InvokerItfNS_17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEEEC2ERKNS_3MatERS6_iiPKiSB_.exit: ; preds = %13
@@ -3391,7 +3391,7 @@ _ZN2cv22resizeAreaFast_InvokerItfNS_17ResizeAreaFastVecItNS_19ResizeAreaFastNoVe
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv22resizeAreaFast_InvokerItfNS_17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEEEE, i64 16), ptr %8, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   ret void
 
 29:                                               ; preds = %25, %_ZN2cv22resizeAreaFast_InvokerItfNS_17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEEEC2ERKNS_3MatERS6_iiPKiSB_.exit
@@ -3437,7 +3437,7 @@ common.resume:                                    ; preds = %29, %19
 
 19:                                               ; preds = %17, %15
   %.pn.i = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   br label %common.resume
 
 _ZN2cv22resizeAreaFast_InvokerIsfNS_17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEEEC2ERKNS_3MatERS6_iiPKiSB_.exit: ; preds = %13
@@ -3462,7 +3462,7 @@ _ZN2cv22resizeAreaFast_InvokerIsfNS_17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVe
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv22resizeAreaFast_InvokerIsfNS_17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEEEE, i64 16), ptr %8, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   ret void
 
 29:                                               ; preds = %25, %_ZN2cv22resizeAreaFast_InvokerIsfNS_17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEEEC2ERKNS_3MatERS6_iiPKiSB_.exit
@@ -3508,7 +3508,7 @@ common.resume:                                    ; preds = %29, %19
 
 19:                                               ; preds = %17, %15
   %.pn.i = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   br label %common.resume
 
 _ZN2cv22resizeAreaFast_InvokerIffNS_19ResizeAreaFastNoVecIffEEEC2ERKNS_3MatERS4_iiPKiS9_.exit: ; preds = %13
@@ -3533,7 +3533,7 @@ _ZN2cv22resizeAreaFast_InvokerIffNS_19ResizeAreaFastNoVecIffEEEC2ERKNS_3MatERS4_
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv22resizeAreaFast_InvokerIffNS_19ResizeAreaFastNoVecIffEEEE, i64 16), ptr %8, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   ret void
 
 29:                                               ; preds = %25, %_ZN2cv22resizeAreaFast_InvokerIffNS_19ResizeAreaFastNoVecIffEEEC2ERKNS_3MatERS4_iiPKiS9_.exit
@@ -3579,7 +3579,7 @@ common.resume:                                    ; preds = %29, %19
 
 19:                                               ; preds = %17, %15
   %.pn.i = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   br label %common.resume
 
 _ZN2cv22resizeAreaFast_InvokerIddNS_19ResizeAreaFastNoVecIddEEEC2ERKNS_3MatERS4_iiPKiS9_.exit: ; preds = %13
@@ -3604,7 +3604,7 @@ _ZN2cv22resizeAreaFast_InvokerIddNS_19ResizeAreaFastNoVecIddEEEC2ERKNS_3MatERS4_
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv22resizeAreaFast_InvokerIddNS_19ResizeAreaFastNoVecIddEEEE, i64 16), ptr %8, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #19
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %8) #19
   ret void
 
 29:                                               ; preds = %25, %_ZN2cv22resizeAreaFast_InvokerIddNS_19ResizeAreaFastNoVecIddEEEC2ERKNS_3MatERS4_iiPKiS9_.exit
@@ -3648,13 +3648,13 @@ define internal void @_ZN2cvL11resizeArea_IhfEEvRKNS_3MatERS1_PKNS_13DecimateAlp
           to label %24 unwind label %25
 
 24:                                               ; preds = %21
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   ret void
 
 25:                                               ; preds = %21, %7
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   resume { ptr, i32 } %26
 }
 
@@ -3692,13 +3692,13 @@ define internal void @_ZN2cvL11resizeArea_ItfEEvRKNS_3MatERS1_PKNS_13DecimateAlp
           to label %24 unwind label %25
 
 24:                                               ; preds = %21
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   ret void
 
 25:                                               ; preds = %21, %7
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   resume { ptr, i32 } %26
 }
 
@@ -3736,13 +3736,13 @@ define internal void @_ZN2cvL11resizeArea_IsfEEvRKNS_3MatERS1_PKNS_13DecimateAlp
           to label %24 unwind label %25
 
 24:                                               ; preds = %21
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   ret void
 
 25:                                               ; preds = %21, %7
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   resume { ptr, i32 } %26
 }
 
@@ -3780,13 +3780,13 @@ define internal void @_ZN2cvL11resizeArea_IffEEvRKNS_3MatERS1_PKNS_13DecimateAlp
           to label %24 unwind label %25
 
 24:                                               ; preds = %21
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   ret void
 
 25:                                               ; preds = %21, %7
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   resume { ptr, i32 } %26
 }
 
@@ -3824,13 +3824,13 @@ define internal void @_ZN2cvL11resizeArea_IddEEvRKNS_3MatERS1_PKNS_13DecimateAlp
           to label %24 unwind label %25
 
 24:                                               ; preds = %21
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   ret void
 
 25:                                               ; preds = %21, %7
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #19
   resume { ptr, i32 } %26
 }
 
@@ -3879,7 +3879,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactIhNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 4607182418800017408, ptr %14, align 8, !alias.scope !21
   store double %9, ptr %15, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %28 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %2, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %16, i64 12
@@ -3892,7 +3892,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactIhNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 4607182418800017408, ptr %12, align 8, !alias.scope !26
   store double %10, ptr %13, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
   %31 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 %3, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %17, i64 12
@@ -4035,7 +4035,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %48
           to label %90 unwind label %94
 
 90:                                               ; preds = %._crit_edge73
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   %91 = load ptr, ptr %18, align 8
   %.not.i.i63 = icmp eq ptr %91, %46
   %92 = icmp eq ptr %91, null
@@ -4052,7 +4052,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %93, %90
 94:                                               ; preds = %._crit_edge73
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   br label %96
 
 96:                                               ; preds = %.loopexit, %.loopexit.split-lp, %94
@@ -4116,7 +4116,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactIaNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 4607182418800017408, ptr %14, align 8, !alias.scope !33
   store double %9, ptr %15, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %28 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %2, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %16, i64 12
@@ -4129,7 +4129,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactIaNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 4607182418800017408, ptr %12, align 8, !alias.scope !38
   store double %10, ptr %13, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
   %31 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 %3, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %17, i64 12
@@ -4270,7 +4270,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %46
           to label %88 unwind label %92
 
 88:                                               ; preds = %._crit_edge73
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   %89 = load ptr, ptr %18, align 8
   %.not.i.i63 = icmp eq ptr %89, %44
   %90 = icmp eq ptr %89, null
@@ -4287,7 +4287,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %91, %88
 92:                                               ; preds = %._crit_edge73
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   br label %94
 
 94:                                               ; preds = %.loopexit, %.loopexit.split-lp, %92
@@ -4351,7 +4351,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactItNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 4607182418800017408, ptr %14, align 8, !alias.scope !45
   store double %9, ptr %15, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %28 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %2, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %16, i64 12
@@ -4364,7 +4364,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactItNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 4607182418800017408, ptr %12, align 8, !alias.scope !50
   store double %10, ptr %13, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
   %31 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 %3, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %17, i64 12
@@ -4505,7 +4505,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %46
           to label %88 unwind label %92
 
 88:                                               ; preds = %._crit_edge73
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   %89 = load ptr, ptr %18, align 8
   %.not.i.i63 = icmp eq ptr %89, %44
   %90 = icmp eq ptr %89, null
@@ -4522,7 +4522,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %91, %88
 92:                                               ; preds = %._crit_edge73
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   br label %94
 
 94:                                               ; preds = %.loopexit, %.loopexit.split-lp, %92
@@ -4586,7 +4586,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactIsNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 4607182418800017408, ptr %14, align 8, !alias.scope !57
   store double %9, ptr %15, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %28 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %2, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %16, i64 12
@@ -4599,7 +4599,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactIsNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 4607182418800017408, ptr %12, align 8, !alias.scope !62
   store double %10, ptr %13, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
   %31 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 %3, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %17, i64 12
@@ -4740,7 +4740,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %46
           to label %88 unwind label %92
 
 88:                                               ; preds = %._crit_edge73
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   %89 = load ptr, ptr %18, align 8
   %.not.i.i63 = icmp eq ptr %89, %44
   %90 = icmp eq ptr %89, null
@@ -4757,7 +4757,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %91, %88
 92:                                               ; preds = %._crit_edge73
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   br label %94
 
 94:                                               ; preds = %.loopexit, %.loopexit.split-lp, %92
@@ -4821,7 +4821,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactIiNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 4607182418800017408, ptr %14, align 8, !alias.scope !69
   store double %9, ptr %15, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %28 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %2, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %16, i64 12
@@ -4834,7 +4834,7 @@ define internal void @_ZN12_GLOBAL__N_115resize_bitExactIiNS_19interpolationLine
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 4607182418800017408, ptr %12, align 8, !alias.scope !74
   store double %10, ptr %13, align 8
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
   %31 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 %3, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %17, i64 12
@@ -4977,7 +4977,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %48
           to label %90 unwind label %94
 
 90:                                               ; preds = %._crit_edge73
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   %91 = load ptr, ptr %18, align 8
   %.not.i.i63 = icmp eq ptr %91, %46
   %92 = icmp eq ptr %91, null
@@ -4994,7 +4994,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %93, %90
 94:                                               ; preds = %._crit_edge73
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #19
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %19) #19
   br label %96
 
 96:                                               ; preds = %.loopexit, %.loopexit.split-lp, %94
@@ -5863,7 +5863,7 @@ define linkonce_odr hidden void @_ZN2cv15resizeNNInvokerD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15resizeNNInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -6407,7 +6407,7 @@ declare void @_ZN2cv5utils10BufferArea9allocate_EPPvtmt(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv24resizeNN_bitexactInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -6857,7 +6857,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_13HResizeLinea
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -7557,7 +7557,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_13HResizeLinea
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -8239,7 +8239,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_13HResizeLinea
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -8921,7 +8921,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_13HResizeLinea
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -9586,7 +9586,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_13HResizeLinea
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -10257,7 +10257,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_12HResizeCubic
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -10846,7 +10846,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_12HResizeCubic
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -11419,7 +11419,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_12HResizeCubic
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -11992,7 +11992,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_12HResizeCubic
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -12555,7 +12555,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_12HResizeCubic
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -13127,7 +13127,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_15HResizeLancz
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -13796,7 +13796,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_15HResizeLancz
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -14433,7 +14433,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_15HResizeLancz
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -15070,7 +15070,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_15HResizeLancz
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -15693,7 +15693,7 @@ define linkonce_odr hidden void @_ZN2cv21resizeGeneric_InvokerINS_15HResizeLancz
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(260) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -16242,7 +16242,7 @@ define linkonce_odr hidden void @_ZN2cv22resizeAreaFast_InvokerIhiNS_17ResizeAre
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -16830,7 +16830,7 @@ define linkonce_odr hidden void @_ZN2cv22resizeAreaFast_InvokerItfNS_17ResizeAre
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -17414,7 +17414,7 @@ define linkonce_odr hidden void @_ZN2cv22resizeAreaFast_InvokerIsfNS_17ResizeAre
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -17998,7 +17998,7 @@ define linkonce_odr hidden void @_ZN2cv22resizeAreaFast_InvokerIffNS_19ResizeAre
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -18248,7 +18248,7 @@ define linkonce_odr hidden void @_ZN2cv22resizeAreaFast_InvokerIddNS_19ResizeAre
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -18491,7 +18491,7 @@ define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerIhfED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerIhfED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -18906,7 +18906,7 @@ define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerItfED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerItfED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -19321,7 +19321,7 @@ define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerIsfED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerIsfED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -19736,7 +19736,7 @@ define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerIffED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerIffED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -20117,7 +20117,7 @@ define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerIddED2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18ResizeArea_InvokerIddED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -20537,7 +20537,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %24 = load i8, ptr %21, align 1
   %25 = zext i8 %24 to i32
   %26 = mul nuw nsw i32 %25, %23
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %26, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %26, i32 65535)
   %27 = trunc nuw i32 %.sroa.speculated.i to i16
   %28 = getelementptr inbounds i8, ptr %.158, i64 2
   %29 = getelementptr inbounds i8, ptr %21, i64 1
@@ -20546,7 +20546,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %32 = load i8, ptr %29, align 1
   %33 = zext i8 %32 to i32
   %34 = mul nuw nsw i32 %33, %31
-  %.sroa.speculated.i48 = tail call i32 @llvm.umin.i32(i32 %34, i32 65535)
+  %.sroa.speculated.i48 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %34, i32 65535)
   %35 = trunc nuw i32 %.sroa.speculated.i48 to i16
   %36 = tail call i16 @llvm.uadd.sat.i16(i16 %27, i16 %35)
   %37 = getelementptr inbounds i8, ptr %.14556, i64 2
@@ -20672,7 +20672,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = mul nuw nsw i32 %40, %37
-  %.sroa.speculated.i.us.i.i = tail call i32 @llvm.umin.i32(i32 %41, i32 65535)
+  %.sroa.speculated.i.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %41, i32 65535)
   %42 = trunc nuw i32 %.sroa.speculated.i.us.i.i to i16
   br label %.critedge.us.i.i
 
@@ -20689,7 +20689,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %47 = load i8, ptr %gep.i.i, align 1
   %48 = zext i8 %47 to i32
   %49 = mul nuw nsw i32 %48, %46
-  %.sroa.speculated.i85.us.i.i = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
+  %.sroa.speculated.i85.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i85.us.i.i to i16
   br label %51
 
@@ -20806,7 +20806,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %30 = load i8, ptr %27, align 1
   %31 = zext i8 %30 to i32
   %32 = mul nuw nsw i32 %31, %29
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %32, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %32, i32 65535)
   %33 = trunc nuw i32 %.sroa.speculated.i to i16
   %34 = getelementptr inbounds i8, ptr %.193, i64 2
   %35 = getelementptr inbounds i8, ptr %27, i64 2
@@ -20815,7 +20815,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %38 = load i8, ptr %35, align 1
   %39 = zext i8 %38 to i32
   %40 = mul nuw nsw i32 %39, %37
-  %.sroa.speculated.i78 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
+  %.sroa.speculated.i78 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %40, i32 65535)
   %41 = trunc nuw i32 %.sroa.speculated.i78 to i16
   %42 = tail call i16 @llvm.uadd.sat.i16(i16 %33, i16 %41)
   %43 = getelementptr inbounds i8, ptr %.17491, i64 2
@@ -20826,7 +20826,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %47 = load i8, ptr %44, align 1
   %48 = zext i8 %47 to i32
   %49 = mul nuw nsw i32 %48, %46
-  %.sroa.speculated.i79 = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
+  %.sroa.speculated.i79 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i79 to i16
   %51 = getelementptr inbounds i8, ptr %27, i64 3
   %52 = load i16, ptr %34, align 2
@@ -20834,7 +20834,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %54 = load i8, ptr %51, align 1
   %55 = zext i8 %54 to i32
   %56 = mul nuw nsw i32 %55, %53
-  %.sroa.speculated.i80 = tail call i32 @llvm.umin.i32(i32 %56, i32 65535)
+  %.sroa.speculated.i80 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %56, i32 65535)
   %57 = trunc nuw i32 %.sroa.speculated.i80 to i16
   %58 = tail call i16 @llvm.uadd.sat.i16(i16 %50, i16 %57)
   %59 = getelementptr inbounds i8, ptr %.17491, i64 4
@@ -20967,7 +20967,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = mul nuw nsw i32 %40, %37
-  %.sroa.speculated.i.us.i.i = tail call i32 @llvm.umin.i32(i32 %41, i32 65535)
+  %.sroa.speculated.i.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %41, i32 65535)
   %42 = trunc nuw i32 %.sroa.speculated.i.us.i.i to i16
   br label %.critedge.us.i.i
 
@@ -20984,7 +20984,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %47 = load i8, ptr %gep.i.i, align 1
   %48 = zext i8 %47 to i32
   %49 = mul nuw nsw i32 %48, %46
-  %.sroa.speculated.i85.us.i.i = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
+  %.sroa.speculated.i85.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i85.us.i.i to i16
   br label %51
 
@@ -21107,7 +21107,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %35 = load i8, ptr %32, align 1
   %36 = zext i8 %35 to i32
   %37 = mul nuw nsw i32 %36, %34
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %37, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %37, i32 65535)
   %38 = trunc nuw i32 %.sroa.speculated.i to i16
   %39 = getelementptr inbounds i8, ptr %.1130, i64 2
   %40 = getelementptr inbounds i8, ptr %32, i64 3
@@ -21116,7 +21116,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %43 = load i8, ptr %40, align 1
   %44 = zext i8 %43 to i32
   %45 = mul nuw nsw i32 %44, %42
-  %.sroa.speculated.i110 = tail call i32 @llvm.umin.i32(i32 %45, i32 65535)
+  %.sroa.speculated.i110 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %45, i32 65535)
   %46 = trunc nuw i32 %.sroa.speculated.i110 to i16
   %47 = tail call i16 @llvm.uadd.sat.i16(i16 %38, i16 %46)
   %48 = getelementptr inbounds i8, ptr %.1105128, i64 2
@@ -21127,7 +21127,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %52 = load i8, ptr %49, align 1
   %53 = zext i8 %52 to i32
   %54 = mul nuw nsw i32 %53, %51
-  %.sroa.speculated.i111 = tail call i32 @llvm.umin.i32(i32 %54, i32 65535)
+  %.sroa.speculated.i111 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %54, i32 65535)
   %55 = trunc nuw i32 %.sroa.speculated.i111 to i16
   %56 = getelementptr inbounds i8, ptr %32, i64 4
   %57 = load i16, ptr %39, align 2
@@ -21135,7 +21135,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %59 = load i8, ptr %56, align 1
   %60 = zext i8 %59 to i32
   %61 = mul nuw nsw i32 %60, %58
-  %.sroa.speculated.i112 = tail call i32 @llvm.umin.i32(i32 %61, i32 65535)
+  %.sroa.speculated.i112 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %61, i32 65535)
   %62 = trunc nuw i32 %.sroa.speculated.i112 to i16
   %63 = tail call i16 @llvm.uadd.sat.i16(i16 %55, i16 %62)
   %64 = getelementptr inbounds i8, ptr %.1105128, i64 4
@@ -21146,7 +21146,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %68 = load i8, ptr %65, align 1
   %69 = zext i8 %68 to i32
   %70 = mul nuw nsw i32 %69, %67
-  %.sroa.speculated.i113 = tail call i32 @llvm.umin.i32(i32 %70, i32 65535)
+  %.sroa.speculated.i113 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %70, i32 65535)
   %71 = trunc nuw i32 %.sroa.speculated.i113 to i16
   %72 = getelementptr inbounds i8, ptr %32, i64 5
   %73 = load i16, ptr %39, align 2
@@ -21154,7 +21154,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %75 = load i8, ptr %72, align 1
   %76 = zext i8 %75 to i32
   %77 = mul nuw nsw i32 %76, %74
-  %.sroa.speculated.i114 = tail call i32 @llvm.umin.i32(i32 %77, i32 65535)
+  %.sroa.speculated.i114 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %77, i32 65535)
   %78 = trunc nuw i32 %.sroa.speculated.i114 to i16
   %79 = tail call i16 @llvm.uadd.sat.i16(i16 %71, i16 %78)
   %80 = getelementptr inbounds i8, ptr %.1105128, i64 6
@@ -21293,7 +21293,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = mul nuw nsw i32 %40, %37
-  %.sroa.speculated.i.us.i.i = tail call i32 @llvm.umin.i32(i32 %41, i32 65535)
+  %.sroa.speculated.i.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %41, i32 65535)
   %42 = trunc nuw i32 %.sroa.speculated.i.us.i.i to i16
   br label %.critedge.us.i.i
 
@@ -21310,7 +21310,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %47 = load i8, ptr %gep.i.i, align 1
   %48 = zext i8 %47 to i32
   %49 = mul nuw nsw i32 %48, %46
-  %.sroa.speculated.i85.us.i.i = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
+  %.sroa.speculated.i85.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i85.us.i.i to i16
   br label %51
 
@@ -21439,7 +21439,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %40 = load i8, ptr %37, align 1
   %41 = zext i8 %40 to i32
   %42 = mul nuw nsw i32 %41, %39
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %42, i32 65535)
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %42, i32 65535)
   %43 = trunc nuw i32 %.sroa.speculated.i to i16
   %44 = getelementptr inbounds i8, ptr %.1163, i64 2
   %45 = getelementptr inbounds i8, ptr %37, i64 4
@@ -21448,7 +21448,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %48 = load i8, ptr %45, align 1
   %49 = zext i8 %48 to i32
   %50 = mul nuw nsw i32 %49, %47
-  %.sroa.speculated.i138 = tail call i32 @llvm.umin.i32(i32 %50, i32 65535)
+  %.sroa.speculated.i138 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %50, i32 65535)
   %51 = trunc nuw i32 %.sroa.speculated.i138 to i16
   %52 = tail call i16 @llvm.uadd.sat.i16(i16 %43, i16 %51)
   %53 = getelementptr inbounds i8, ptr %.1132161, i64 2
@@ -21459,7 +21459,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %57 = load i8, ptr %54, align 1
   %58 = zext i8 %57 to i32
   %59 = mul nuw nsw i32 %58, %56
-  %.sroa.speculated.i139 = tail call i32 @llvm.umin.i32(i32 %59, i32 65535)
+  %.sroa.speculated.i139 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %59, i32 65535)
   %60 = trunc nuw i32 %.sroa.speculated.i139 to i16
   %61 = getelementptr inbounds i8, ptr %37, i64 5
   %62 = load i16, ptr %44, align 2
@@ -21467,7 +21467,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %64 = load i8, ptr %61, align 1
   %65 = zext i8 %64 to i32
   %66 = mul nuw nsw i32 %65, %63
-  %.sroa.speculated.i140 = tail call i32 @llvm.umin.i32(i32 %66, i32 65535)
+  %.sroa.speculated.i140 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %66, i32 65535)
   %67 = trunc nuw i32 %.sroa.speculated.i140 to i16
   %68 = tail call i16 @llvm.uadd.sat.i16(i16 %60, i16 %67)
   %69 = getelementptr inbounds i8, ptr %.1132161, i64 4
@@ -21478,7 +21478,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %73 = load i8, ptr %70, align 1
   %74 = zext i8 %73 to i32
   %75 = mul nuw nsw i32 %74, %72
-  %.sroa.speculated.i141 = tail call i32 @llvm.umin.i32(i32 %75, i32 65535)
+  %.sroa.speculated.i141 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %75, i32 65535)
   %76 = trunc nuw i32 %.sroa.speculated.i141 to i16
   %77 = getelementptr inbounds i8, ptr %37, i64 6
   %78 = load i16, ptr %44, align 2
@@ -21486,7 +21486,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %80 = load i8, ptr %77, align 1
   %81 = zext i8 %80 to i32
   %82 = mul nuw nsw i32 %81, %79
-  %.sroa.speculated.i142 = tail call i32 @llvm.umin.i32(i32 %82, i32 65535)
+  %.sroa.speculated.i142 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %82, i32 65535)
   %83 = trunc nuw i32 %.sroa.speculated.i142 to i16
   %84 = tail call i16 @llvm.uadd.sat.i16(i16 %76, i16 %83)
   %85 = getelementptr inbounds i8, ptr %.1132161, i64 6
@@ -21497,7 +21497,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %89 = load i8, ptr %86, align 1
   %90 = zext i8 %89 to i32
   %91 = mul nuw nsw i32 %90, %88
-  %.sroa.speculated.i143 = tail call i32 @llvm.umin.i32(i32 %91, i32 65535)
+  %.sroa.speculated.i143 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %91, i32 65535)
   %92 = trunc nuw i32 %.sroa.speculated.i143 to i16
   %93 = getelementptr inbounds i8, ptr %37, i64 7
   %94 = load i16, ptr %44, align 2
@@ -21505,7 +21505,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %96 = load i8, ptr %93, align 1
   %97 = zext i8 %96 to i32
   %98 = mul nuw nsw i32 %97, %95
-  %.sroa.speculated.i144 = tail call i32 @llvm.umin.i32(i32 %98, i32 65535)
+  %.sroa.speculated.i144 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %98, i32 65535)
   %99 = trunc nuw i32 %.sroa.speculated.i144 to i16
   %100 = tail call i16 @llvm.uadd.sat.i16(i16 %92, i16 %99)
   %101 = getelementptr inbounds i8, ptr %.1132161, i64 8
@@ -21650,7 +21650,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = mul nuw nsw i32 %40, %37
-  %.sroa.speculated.i.us.i.i = tail call i32 @llvm.umin.i32(i32 %41, i32 65535)
+  %.sroa.speculated.i.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %41, i32 65535)
   %42 = trunc nuw i32 %.sroa.speculated.i.us.i.i to i16
   br label %.critedge.us.i.i
 
@@ -21667,7 +21667,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   %47 = load i8, ptr %gep.i.i, align 1
   %48 = zext i8 %47 to i32
   %49 = mul nuw nsw i32 %48, %46
-  %.sroa.speculated.i85.us.i.i = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
+  %.sroa.speculated.i85.us.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i85.us.i.i to i16
   br label %51
 
@@ -21817,7 +21817,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb1
   %36 = load i8, ptr %33, align 1
   %37 = zext i8 %36 to i32
   %38 = mul nuw nsw i32 %37, %35
-  %.sroa.speculated.i.us = tail call i32 @llvm.umin.i32(i32 %38, i32 65535)
+  %.sroa.speculated.i.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %38, i32 65535)
   %39 = trunc nuw i32 %.sroa.speculated.i.us to i16
   store i16 %39, ptr %.391.us, align 2
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv124
@@ -21826,7 +21826,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb1
   %42 = load i8, ptr %gep, align 1
   %43 = zext i8 %42 to i32
   %44 = mul nuw nsw i32 %43, %41
-  %.sroa.speculated.i76.us = tail call i32 @llvm.umin.i32(i32 %44, i32 65535)
+  %.sroa.speculated.i76.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %44, i32 65535)
   %45 = trunc nuw i32 %.sroa.speculated.i76.us to i16
   %46 = tail call i16 @llvm.uadd.sat.i16(i16 %39, i16 %45)
   store i16 %46, ptr %.391.us, align 2
@@ -21976,7 +21976,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb0
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = mul nuw nsw i32 %40, %37
-  %.sroa.speculated.i.us = tail call i32 @llvm.umin.i32(i32 %41, i32 65535)
+  %.sroa.speculated.i.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %41, i32 65535)
   %42 = trunc nuw i32 %.sroa.speculated.i.us to i16
   br label %.critedge.us
 
@@ -21993,7 +21993,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb0
   %47 = load i8, ptr %gep, align 1
   %48 = zext i8 %47 to i32
   %49 = mul nuw nsw i32 %48, %46
-  %.sroa.speculated.i85.us = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
+  %.sroa.speculated.i85.us = tail call i32 @llvm.umin.i32(i32 range(i32 0, 16711426) %49, i32 65535)
   %50 = trunc nuw i32 %.sroa.speculated.i85.us to i16
   br label %51
 
@@ -22158,7 +22158,7 @@ declare noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122resize_bitExactInvokerIhNS_13ufixedpoint16ELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -22456,7 +22456,7 @@ _ZN12_GLOBAL__N_18vlineSetIhNS_13ufixedpoint16EEEvPT0_PT_i.exit: ; preds = %.lr.
   %152 = call i32 @llvm.uadd.sat.i32(i32 %147, i32 %151)
   %153 = add i32 %152, 32768
   %154 = lshr i32 %153, 16
-  %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 %154, i32 255)
+  %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %154, i32 255)
   %155 = trunc nuw i32 %.sroa.speculated.i.i to i8
   %156 = getelementptr inbounds i8, ptr %.0223.i, i64 1
   store i8 %155, ptr %.0223.i, align 1
@@ -22631,7 +22631,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %24 = load i8, ptr %21, align 1
   %25 = sext i8 %24 to i64
   %26 = mul nsw i64 %25, %23
-  %27 = tail call i64 @llvm.smax.i64(i64 %26, i64 -2147483648)
+  %27 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %26, i64 -2147483648)
   %28 = tail call i64 @llvm.smin.i64(i64 %27, i64 2147483647)
   %29 = trunc nsw i64 %28 to i32
   %30 = getelementptr inbounds i8, ptr %.161.i, i64 4
@@ -22641,7 +22641,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %34 = load i8, ptr %31, align 1
   %35 = sext i8 %34 to i64
   %36 = mul nsw i64 %35, %33
-  %37 = tail call i64 @llvm.smax.i64(i64 %36, i64 -2147483648)
+  %37 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %36, i64 -2147483648)
   %38 = tail call i64 @llvm.smin.i64(i64 %37, i64 2147483647)
   %39 = trunc nsw i64 %38 to i32
   %40 = add nsw i32 %39, %29
@@ -22744,7 +22744,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %30 = load i8, ptr %27, align 1
   %31 = sext i8 %30 to i64
   %32 = mul nsw i64 %31, %29
-  %33 = tail call i64 @llvm.smax.i64(i64 %32, i64 -2147483648)
+  %33 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %32, i64 -2147483648)
   %34 = tail call i64 @llvm.smin.i64(i64 %33, i64 2147483647)
   %35 = trunc nsw i64 %34 to i32
   %36 = getelementptr inbounds i8, ptr %.199.i, i64 4
@@ -22754,7 +22754,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %40 = load i8, ptr %37, align 1
   %41 = sext i8 %40 to i64
   %42 = mul nsw i64 %41, %39
-  %43 = tail call i64 @llvm.smax.i64(i64 %42, i64 -2147483648)
+  %43 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %42, i64 -2147483648)
   %44 = tail call i64 @llvm.smin.i64(i64 %43, i64 2147483647)
   %45 = trunc nsw i64 %44 to i32
   %46 = add nsw i32 %45, %35
@@ -22773,7 +22773,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %57 = load i8, ptr %54, align 1
   %58 = sext i8 %57 to i64
   %59 = mul nsw i64 %58, %56
-  %60 = tail call i64 @llvm.smax.i64(i64 %59, i64 -2147483648)
+  %60 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %59, i64 -2147483648)
   %61 = tail call i64 @llvm.smin.i64(i64 %60, i64 2147483647)
   %62 = trunc nsw i64 %61 to i32
   %63 = getelementptr inbounds i8, ptr %27, i64 3
@@ -22782,7 +22782,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %66 = load i8, ptr %63, align 1
   %67 = sext i8 %66 to i64
   %68 = mul nsw i64 %67, %65
-  %69 = tail call i64 @llvm.smax.i64(i64 %68, i64 -2147483648)
+  %69 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %68, i64 -2147483648)
   %70 = tail call i64 @llvm.smin.i64(i64 %69, i64 2147483647)
   %71 = trunc nsw i64 %70 to i32
   %72 = add nsw i32 %71, %62
@@ -22898,7 +22898,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %35 = load i8, ptr %32, align 1
   %36 = sext i8 %35 to i64
   %37 = mul nsw i64 %36, %34
-  %38 = tail call i64 @llvm.smax.i64(i64 %37, i64 -2147483648)
+  %38 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %37, i64 -2147483648)
   %39 = tail call i64 @llvm.smin.i64(i64 %38, i64 2147483647)
   %40 = trunc nsw i64 %39 to i32
   %41 = getelementptr inbounds i8, ptr %.1137.i, i64 4
@@ -22908,7 +22908,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %45 = load i8, ptr %42, align 1
   %46 = sext i8 %45 to i64
   %47 = mul nsw i64 %46, %44
-  %48 = tail call i64 @llvm.smax.i64(i64 %47, i64 -2147483648)
+  %48 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %47, i64 -2147483648)
   %49 = tail call i64 @llvm.smin.i64(i64 %48, i64 2147483647)
   %50 = trunc nsw i64 %49 to i32
   %51 = add nsw i32 %50, %40
@@ -22927,7 +22927,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %62 = load i8, ptr %59, align 1
   %63 = sext i8 %62 to i64
   %64 = mul nsw i64 %63, %61
-  %65 = tail call i64 @llvm.smax.i64(i64 %64, i64 -2147483648)
+  %65 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %64, i64 -2147483648)
   %66 = tail call i64 @llvm.smin.i64(i64 %65, i64 2147483647)
   %67 = trunc nsw i64 %66 to i32
   %68 = getelementptr inbounds i8, ptr %32, i64 4
@@ -22936,7 +22936,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %71 = load i8, ptr %68, align 1
   %72 = sext i8 %71 to i64
   %73 = mul nsw i64 %72, %70
-  %74 = tail call i64 @llvm.smax.i64(i64 %73, i64 -2147483648)
+  %74 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %73, i64 -2147483648)
   %75 = tail call i64 @llvm.smin.i64(i64 %74, i64 2147483647)
   %76 = trunc nsw i64 %75 to i32
   %77 = add nsw i32 %76, %67
@@ -22955,7 +22955,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %88 = load i8, ptr %85, align 1
   %89 = sext i8 %88 to i64
   %90 = mul nsw i64 %89, %87
-  %91 = tail call i64 @llvm.smax.i64(i64 %90, i64 -2147483648)
+  %91 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %90, i64 -2147483648)
   %92 = tail call i64 @llvm.smin.i64(i64 %91, i64 2147483647)
   %93 = trunc nsw i64 %92 to i32
   %94 = getelementptr inbounds i8, ptr %32, i64 5
@@ -22964,7 +22964,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %97 = load i8, ptr %94, align 1
   %98 = sext i8 %97 to i64
   %99 = mul nsw i64 %98, %96
-  %100 = tail call i64 @llvm.smax.i64(i64 %99, i64 -2147483648)
+  %100 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %99, i64 -2147483648)
   %101 = tail call i64 @llvm.smin.i64(i64 %100, i64 2147483647)
   %102 = trunc nsw i64 %101 to i32
   %103 = add nsw i32 %102, %93
@@ -23092,7 +23092,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %40 = load i8, ptr %37, align 1
   %41 = sext i8 %40 to i64
   %42 = mul nsw i64 %41, %39
-  %43 = tail call i64 @llvm.smax.i64(i64 %42, i64 -2147483648)
+  %43 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %42, i64 -2147483648)
   %44 = tail call i64 @llvm.smin.i64(i64 %43, i64 2147483647)
   %45 = trunc nsw i64 %44 to i32
   %46 = getelementptr inbounds i8, ptr %.1175.i, i64 4
@@ -23102,7 +23102,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %50 = load i8, ptr %47, align 1
   %51 = sext i8 %50 to i64
   %52 = mul nsw i64 %51, %49
-  %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
+  %53 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
   %55 = trunc nsw i64 %54 to i32
   %56 = add nsw i32 %55, %45
@@ -23121,7 +23121,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %67 = load i8, ptr %64, align 1
   %68 = sext i8 %67 to i64
   %69 = mul nsw i64 %68, %66
-  %70 = tail call i64 @llvm.smax.i64(i64 %69, i64 -2147483648)
+  %70 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %69, i64 -2147483648)
   %71 = tail call i64 @llvm.smin.i64(i64 %70, i64 2147483647)
   %72 = trunc nsw i64 %71 to i32
   %73 = getelementptr inbounds i8, ptr %37, i64 5
@@ -23130,7 +23130,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %76 = load i8, ptr %73, align 1
   %77 = sext i8 %76 to i64
   %78 = mul nsw i64 %77, %75
-  %79 = tail call i64 @llvm.smax.i64(i64 %78, i64 -2147483648)
+  %79 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %78, i64 -2147483648)
   %80 = tail call i64 @llvm.smin.i64(i64 %79, i64 2147483647)
   %81 = trunc nsw i64 %80 to i32
   %82 = add nsw i32 %81, %72
@@ -23149,7 +23149,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %93 = load i8, ptr %90, align 1
   %94 = sext i8 %93 to i64
   %95 = mul nsw i64 %94, %92
-  %96 = tail call i64 @llvm.smax.i64(i64 %95, i64 -2147483648)
+  %96 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %95, i64 -2147483648)
   %97 = tail call i64 @llvm.smin.i64(i64 %96, i64 2147483647)
   %98 = trunc nsw i64 %97 to i32
   %99 = getelementptr inbounds i8, ptr %37, i64 6
@@ -23158,7 +23158,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %102 = load i8, ptr %99, align 1
   %103 = sext i8 %102 to i64
   %104 = mul nsw i64 %103, %101
-  %105 = tail call i64 @llvm.smax.i64(i64 %104, i64 -2147483648)
+  %105 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %104, i64 -2147483648)
   %106 = tail call i64 @llvm.smin.i64(i64 %105, i64 2147483647)
   %107 = trunc nsw i64 %106 to i32
   %108 = add nsw i32 %107, %98
@@ -23177,7 +23177,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %119 = load i8, ptr %116, align 1
   %120 = sext i8 %119 to i64
   %121 = mul nsw i64 %120, %118
-  %122 = tail call i64 @llvm.smax.i64(i64 %121, i64 -2147483648)
+  %122 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %121, i64 -2147483648)
   %123 = tail call i64 @llvm.smin.i64(i64 %122, i64 2147483647)
   %124 = trunc nsw i64 %123 to i32
   %125 = getelementptr inbounds i8, ptr %37, i64 7
@@ -23186,7 +23186,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
   %128 = load i8, ptr %125, align 1
   %129 = sext i8 %128 to i64
   %130 = mul nsw i64 %129, %127
-  %131 = tail call i64 @llvm.smax.i64(i64 %130, i64 -2147483648)
+  %131 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %130, i64 -2147483648)
   %132 = tail call i64 @llvm.smin.i64(i64 %131, i64 2147483647)
   %133 = trunc nsw i64 %132 to i32
   %134 = add nsw i32 %133, %124
@@ -23341,7 +23341,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb1E
   %36 = load i8, ptr %33, align 1
   %37 = sext i8 %36 to i64
   %38 = mul nsw i64 %37, %35
-  %39 = tail call i64 @llvm.smax.i64(i64 %38, i64 -2147483648)
+  %39 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %38, i64 -2147483648)
   %40 = tail call i64 @llvm.smin.i64(i64 %39, i64 2147483647)
   %41 = trunc nsw i64 %40 to i32
   store i32 %41, ptr %.394.us, align 4
@@ -23351,7 +23351,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb1E
   %44 = load i8, ptr %gep, align 1
   %45 = sext i8 %44 to i64
   %46 = mul nsw i64 %45, %43
-  %47 = tail call i64 @llvm.smax.i64(i64 %46, i64 -2147483648)
+  %47 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %46, i64 -2147483648)
   %48 = tail call i64 @llvm.smin.i64(i64 %47, i64 2147483647)
   %49 = trunc nsw i64 %48 to i32
   %50 = add nsw i32 %49, %41
@@ -23509,7 +23509,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb0E
   %39 = load i8, ptr %37, align 1
   %40 = sext i8 %39 to i64
   %41 = mul nsw i64 %40, %38
-  %42 = tail call i64 @llvm.smax.i64(i64 %41, i64 -2147483648)
+  %42 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %41, i64 -2147483648)
   %43 = tail call i64 @llvm.smin.i64(i64 %42, i64 2147483647)
   %44 = trunc nsw i64 %43 to i32
   br label %.critedge.us
@@ -23527,7 +23527,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb0E
   %49 = load i8, ptr %gep, align 1
   %50 = sext i8 %49 to i64
   %51 = mul nsw i64 %50, %48
-  %52 = tail call i64 @llvm.smax.i64(i64 %51, i64 -2147483648)
+  %52 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %51, i64 -2147483648)
   %53 = tail call i64 @llvm.smin.i64(i64 %52, i64 2147483647)
   %54 = trunc nsw i64 %53 to i32
   br label %55
@@ -23680,7 +23680,7 @@ define internal void @_ZN12_GLOBAL__N_122resize_bitExactInvokerIaNS_12fixedpoint
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122resize_bitExactInvokerIaNS_12fixedpoint32ELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -23831,7 +23831,7 @@ _ZN2cv10AutoBufferIN12_GLOBAL__N_112fixedpoint32ELm264EED2Ev.exit: ; preds = %44
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 32768
   %78 = ashr i32 %77, 16
-  %79 = call i32 @llvm.smax.i32(i32 %78, i32 -128)
+  %79 = call i32 @llvm.smax.i32(i32 range(i32 -32768, 32768) %78, i32 -128)
   %80 = call i32 @llvm.smin.i32(i32 %79, i32 127)
   %81 = trunc nsw i32 %80 to i8
   %82 = getelementptr inbounds i8, ptr %70, i64 %indvars.iv.i
@@ -23983,7 +23983,7 @@ _ZN12_GLOBAL__N_18vlineSetIaNS_12fixedpoint32EEEvPT0_PT_i.exit: ; preds = %.lr.p
   %160 = select i1 %157, i64 %159, i64 %153
   %161 = add i64 %160, 2147483648
   %162 = ashr i64 %161, 32
-  %163 = call i64 @llvm.smax.i64(i64 %162, i64 -128)
+  %163 = call i64 @llvm.smax.i64(i64 range(i64 -2147483648, 2147483648) %162, i64 -128)
   %164 = call i64 @llvm.smin.i64(i64 %163, i64 127)
   %165 = trunc nsw i64 %164 to i8
   %166 = getelementptr inbounds i8, ptr %139, i64 %indvars.iv.i75
@@ -24081,7 +24081,7 @@ _ZN12_GLOBAL__N_111vlineResizeIaNS_12fixedpoint32ELi2EEEvPT0_mS3_PT_i.exit: ; pr
   %220 = load i32, ptr %219, align 4
   %221 = add i32 %220, 32768
   %222 = ashr i32 %221, 16
-  %223 = call i32 @llvm.smax.i32(i32 %222, i32 -128)
+  %223 = call i32 @llvm.smax.i32(i32 range(i32 -32768, 32768) %222, i32 -128)
   %224 = call i32 @llvm.smin.i32(i32 %223, i32 127)
   %225 = trunc nsw i32 %224 to i8
   %226 = getelementptr inbounds i8, ptr %214, i64 %indvars.iv.i81
@@ -24160,7 +24160,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %24 = load i16, ptr %21, align 2
   %25 = zext i16 %24 to i64
   %26 = mul nuw nsw i64 %25, %23
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %26, i64 4294967295)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %26, i64 4294967295)
   %27 = trunc nuw i64 %.sroa.speculated.i to i32
   %28 = getelementptr inbounds i8, ptr %.158, i64 4
   %29 = getelementptr inbounds i8, ptr %21, i64 2
@@ -24169,7 +24169,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %32 = load i16, ptr %29, align 2
   %33 = zext i16 %32 to i64
   %34 = mul nuw nsw i64 %33, %31
-  %.sroa.speculated.i48 = tail call i64 @llvm.umin.i64(i64 %34, i64 4294967295)
+  %.sroa.speculated.i48 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %34, i64 4294967295)
   %35 = trunc nuw i64 %.sroa.speculated.i48 to i32
   %36 = tail call i32 @llvm.uadd.sat.i32(i32 %27, i32 %35)
   %37 = getelementptr inbounds i8, ptr %.14556, i64 4
@@ -24295,7 +24295,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %39 = load i16, ptr %37, align 2
   %40 = zext i16 %39 to i64
   %41 = mul nuw nsw i64 %40, %38
-  %.sroa.speculated.i.us.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 4294967295)
+  %.sroa.speculated.i.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %41, i64 4294967295)
   %42 = trunc nuw i64 %.sroa.speculated.i.us.i.i to i32
   br label %.critedge.us.i.i
 
@@ -24312,7 +24312,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %47 = load i16, ptr %gep.i.i, align 2
   %48 = zext i16 %47 to i64
   %49 = mul nuw nsw i64 %48, %46
-  %.sroa.speculated.i85.us.i.i = tail call i64 @llvm.umin.i64(i64 %49, i64 4294967295)
+  %.sroa.speculated.i85.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i85.us.i.i to i32
   br label %51
 
@@ -24429,7 +24429,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %30 = load i16, ptr %27, align 2
   %31 = zext i16 %30 to i64
   %32 = mul nuw nsw i64 %31, %29
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %32, i64 4294967295)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %32, i64 4294967295)
   %33 = trunc nuw i64 %.sroa.speculated.i.i to i32
   %34 = getelementptr inbounds i8, ptr %.194.i, i64 4
   %35 = getelementptr inbounds i8, ptr %27, i64 4
@@ -24438,7 +24438,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %38 = load i16, ptr %35, align 2
   %39 = zext i16 %38 to i64
   %40 = mul nuw nsw i64 %39, %37
-  %.sroa.speculated.i79.i = tail call i64 @llvm.umin.i64(i64 %40, i64 4294967295)
+  %.sroa.speculated.i79.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %40, i64 4294967295)
   %41 = trunc nuw i64 %.sroa.speculated.i79.i to i32
   %42 = tail call i32 @llvm.uadd.sat.i32(i32 %33, i32 %41)
   %43 = getelementptr inbounds i8, ptr %.17492.i, i64 4
@@ -24449,7 +24449,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %47 = load i16, ptr %44, align 2
   %48 = zext i16 %47 to i64
   %49 = mul nuw nsw i64 %48, %46
-  %.sroa.speculated.i80.i = tail call i64 @llvm.umin.i64(i64 %49, i64 4294967295)
+  %.sroa.speculated.i80.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i80.i to i32
   %51 = getelementptr inbounds i8, ptr %27, i64 6
   %52 = load i32, ptr %34, align 4
@@ -24457,7 +24457,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %54 = load i16, ptr %51, align 2
   %55 = zext i16 %54 to i64
   %56 = mul nuw nsw i64 %55, %53
-  %.sroa.speculated.i81.i = tail call i64 @llvm.umin.i64(i64 %56, i64 4294967295)
+  %.sroa.speculated.i81.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %56, i64 4294967295)
   %57 = trunc nuw i64 %.sroa.speculated.i81.i to i32
   %58 = tail call i32 @llvm.uadd.sat.i32(i32 %50, i32 %57)
   %59 = getelementptr inbounds i8, ptr %.17492.i, i64 8
@@ -24590,7 +24590,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %39 = load i16, ptr %37, align 2
   %40 = zext i16 %39 to i64
   %41 = mul nuw nsw i64 %40, %38
-  %.sroa.speculated.i.us.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 4294967295)
+  %.sroa.speculated.i.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %41, i64 4294967295)
   %42 = trunc nuw i64 %.sroa.speculated.i.us.i.i to i32
   br label %.critedge.us.i.i
 
@@ -24607,7 +24607,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %47 = load i16, ptr %gep.i.i, align 2
   %48 = zext i16 %47 to i64
   %49 = mul nuw nsw i64 %48, %46
-  %.sroa.speculated.i85.us.i.i = tail call i64 @llvm.umin.i64(i64 %49, i64 4294967295)
+  %.sroa.speculated.i85.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i85.us.i.i to i32
   br label %51
 
@@ -24730,7 +24730,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %35 = load i16, ptr %32, align 2
   %36 = zext i16 %35 to i64
   %37 = mul nuw nsw i64 %36, %34
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %37, i64 4294967295)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %37, i64 4294967295)
   %38 = trunc nuw i64 %.sroa.speculated.i.i to i32
   %39 = getelementptr inbounds i8, ptr %.1130.i, i64 4
   %40 = getelementptr inbounds i8, ptr %32, i64 6
@@ -24739,7 +24739,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %43 = load i16, ptr %40, align 2
   %44 = zext i16 %43 to i64
   %45 = mul nuw nsw i64 %44, %42
-  %.sroa.speculated.i110.i = tail call i64 @llvm.umin.i64(i64 %45, i64 4294967295)
+  %.sroa.speculated.i110.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %45, i64 4294967295)
   %46 = trunc nuw i64 %.sroa.speculated.i110.i to i32
   %47 = tail call i32 @llvm.uadd.sat.i32(i32 %38, i32 %46)
   %48 = getelementptr inbounds i8, ptr %.1103128.i, i64 4
@@ -24750,7 +24750,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %52 = load i16, ptr %49, align 2
   %53 = zext i16 %52 to i64
   %54 = mul nuw nsw i64 %53, %51
-  %.sroa.speculated.i111.i = tail call i64 @llvm.umin.i64(i64 %54, i64 4294967295)
+  %.sroa.speculated.i111.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %54, i64 4294967295)
   %55 = trunc nuw i64 %.sroa.speculated.i111.i to i32
   %56 = getelementptr inbounds i8, ptr %32, i64 8
   %57 = load i32, ptr %39, align 4
@@ -24758,7 +24758,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %59 = load i16, ptr %56, align 2
   %60 = zext i16 %59 to i64
   %61 = mul nuw nsw i64 %60, %58
-  %.sroa.speculated.i112.i = tail call i64 @llvm.umin.i64(i64 %61, i64 4294967295)
+  %.sroa.speculated.i112.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %61, i64 4294967295)
   %62 = trunc nuw i64 %.sroa.speculated.i112.i to i32
   %63 = tail call i32 @llvm.uadd.sat.i32(i32 %55, i32 %62)
   %64 = getelementptr inbounds i8, ptr %.1103128.i, i64 8
@@ -24769,7 +24769,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %68 = load i16, ptr %65, align 2
   %69 = zext i16 %68 to i64
   %70 = mul nuw nsw i64 %69, %67
-  %.sroa.speculated.i113.i = tail call i64 @llvm.umin.i64(i64 %70, i64 4294967295)
+  %.sroa.speculated.i113.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %70, i64 4294967295)
   %71 = trunc nuw i64 %.sroa.speculated.i113.i to i32
   %72 = getelementptr inbounds i8, ptr %32, i64 10
   %73 = load i32, ptr %39, align 4
@@ -24777,7 +24777,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %75 = load i16, ptr %72, align 2
   %76 = zext i16 %75 to i64
   %77 = mul nuw nsw i64 %76, %74
-  %.sroa.speculated.i114.i = tail call i64 @llvm.umin.i64(i64 %77, i64 4294967295)
+  %.sroa.speculated.i114.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %77, i64 4294967295)
   %78 = trunc nuw i64 %.sroa.speculated.i114.i to i32
   %79 = tail call i32 @llvm.uadd.sat.i32(i32 %71, i32 %78)
   %80 = getelementptr inbounds i8, ptr %.1103128.i, i64 12
@@ -24916,7 +24916,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %39 = load i16, ptr %37, align 2
   %40 = zext i16 %39 to i64
   %41 = mul nuw nsw i64 %40, %38
-  %.sroa.speculated.i.us.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 4294967295)
+  %.sroa.speculated.i.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %41, i64 4294967295)
   %42 = trunc nuw i64 %.sroa.speculated.i.us.i.i to i32
   br label %.critedge.us.i.i
 
@@ -24933,7 +24933,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %47 = load i16, ptr %gep.i.i, align 2
   %48 = zext i16 %47 to i64
   %49 = mul nuw nsw i64 %48, %46
-  %.sroa.speculated.i85.us.i.i = tail call i64 @llvm.umin.i64(i64 %49, i64 4294967295)
+  %.sroa.speculated.i85.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i85.us.i.i to i32
   br label %51
 
@@ -25062,7 +25062,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %40 = load i16, ptr %37, align 2
   %41 = zext i16 %40 to i64
   %42 = mul nuw nsw i64 %41, %39
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %42, i64 4294967295)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %42, i64 4294967295)
   %43 = trunc nuw i64 %.sroa.speculated.i.i to i32
   %44 = getelementptr inbounds i8, ptr %.1166.i, i64 4
   %45 = getelementptr inbounds i8, ptr %37, i64 8
@@ -25071,7 +25071,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %48 = load i16, ptr %45, align 2
   %49 = zext i16 %48 to i64
   %50 = mul nuw nsw i64 %49, %47
-  %.sroa.speculated.i141.i = tail call i64 @llvm.umin.i64(i64 %50, i64 4294967295)
+  %.sroa.speculated.i141.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %50, i64 4294967295)
   %51 = trunc nuw i64 %.sroa.speculated.i141.i to i32
   %52 = tail call i32 @llvm.uadd.sat.i32(i32 %43, i32 %51)
   %53 = getelementptr inbounds i8, ptr %.1132164.i, i64 4
@@ -25082,7 +25082,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %57 = load i16, ptr %54, align 2
   %58 = zext i16 %57 to i64
   %59 = mul nuw nsw i64 %58, %56
-  %.sroa.speculated.i142.i = tail call i64 @llvm.umin.i64(i64 %59, i64 4294967295)
+  %.sroa.speculated.i142.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %59, i64 4294967295)
   %60 = trunc nuw i64 %.sroa.speculated.i142.i to i32
   %61 = getelementptr inbounds i8, ptr %37, i64 10
   %62 = load i32, ptr %44, align 4
@@ -25090,7 +25090,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %64 = load i16, ptr %61, align 2
   %65 = zext i16 %64 to i64
   %66 = mul nuw nsw i64 %65, %63
-  %.sroa.speculated.i143.i = tail call i64 @llvm.umin.i64(i64 %66, i64 4294967295)
+  %.sroa.speculated.i143.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %66, i64 4294967295)
   %67 = trunc nuw i64 %.sroa.speculated.i143.i to i32
   %68 = tail call i32 @llvm.uadd.sat.i32(i32 %60, i32 %67)
   %69 = getelementptr inbounds i8, ptr %.1132164.i, i64 8
@@ -25101,7 +25101,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %73 = load i16, ptr %70, align 2
   %74 = zext i16 %73 to i64
   %75 = mul nuw nsw i64 %74, %72
-  %.sroa.speculated.i144.i = tail call i64 @llvm.umin.i64(i64 %75, i64 4294967295)
+  %.sroa.speculated.i144.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %75, i64 4294967295)
   %76 = trunc nuw i64 %.sroa.speculated.i144.i to i32
   %77 = getelementptr inbounds i8, ptr %37, i64 12
   %78 = load i32, ptr %44, align 4
@@ -25109,7 +25109,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %80 = load i16, ptr %77, align 2
   %81 = zext i16 %80 to i64
   %82 = mul nuw nsw i64 %81, %79
-  %.sroa.speculated.i145.i = tail call i64 @llvm.umin.i64(i64 %82, i64 4294967295)
+  %.sroa.speculated.i145.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %82, i64 4294967295)
   %83 = trunc nuw i64 %.sroa.speculated.i145.i to i32
   %84 = tail call i32 @llvm.uadd.sat.i32(i32 %76, i32 %83)
   %85 = getelementptr inbounds i8, ptr %.1132164.i, i64 12
@@ -25120,7 +25120,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %89 = load i16, ptr %86, align 2
   %90 = zext i16 %89 to i64
   %91 = mul nuw nsw i64 %90, %88
-  %.sroa.speculated.i146.i = tail call i64 @llvm.umin.i64(i64 %91, i64 4294967295)
+  %.sroa.speculated.i146.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %91, i64 4294967295)
   %92 = trunc nuw i64 %.sroa.speculated.i146.i to i32
   %93 = getelementptr inbounds i8, ptr %37, i64 14
   %94 = load i32, ptr %44, align 4
@@ -25128,7 +25128,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %96 = load i16, ptr %93, align 2
   %97 = zext i16 %96 to i64
   %98 = mul nuw nsw i64 %97, %95
-  %.sroa.speculated.i147.i = tail call i64 @llvm.umin.i64(i64 %98, i64 4294967295)
+  %.sroa.speculated.i147.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %98, i64 4294967295)
   %99 = trunc nuw i64 %.sroa.speculated.i147.i to i32
   %100 = tail call i32 @llvm.uadd.sat.i32(i32 %92, i32 %99)
   %101 = getelementptr inbounds i8, ptr %.1132164.i, i64 16
@@ -25273,7 +25273,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %39 = load i16, ptr %37, align 2
   %40 = zext i16 %39 to i64
   %41 = mul nuw nsw i64 %40, %38
-  %.sroa.speculated.i.us.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 4294967295)
+  %.sroa.speculated.i.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %41, i64 4294967295)
   %42 = trunc nuw i64 %.sroa.speculated.i.us.i.i to i32
   br label %.critedge.us.i.i
 
@@ -25290,7 +25290,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   %47 = load i16, ptr %gep.i.i, align 2
   %48 = zext i16 %47 to i64
   %49 = mul nuw nsw i64 %48, %46
-  %.sroa.speculated.i85.us.i.i = tail call i64 @llvm.umin.i64(i64 %49, i64 4294967295)
+  %.sroa.speculated.i85.us.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i85.us.i.i to i32
   br label %51
 
@@ -25440,7 +25440,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb1
   %36 = load i16, ptr %33, align 2
   %37 = zext i16 %36 to i64
   %38 = mul nuw nsw i64 %37, %35
-  %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 %38, i64 4294967295)
+  %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %38, i64 4294967295)
   %39 = trunc nuw i64 %.sroa.speculated.i.us to i32
   store i32 %39, ptr %.391.us, align 4
   %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv124
@@ -25449,7 +25449,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb1
   %42 = load i16, ptr %gep, align 2
   %43 = zext i16 %42 to i64
   %44 = mul nuw nsw i64 %43, %41
-  %.sroa.speculated.i76.us = tail call i64 @llvm.umin.i64(i64 %44, i64 4294967295)
+  %.sroa.speculated.i76.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %44, i64 4294967295)
   %45 = trunc nuw i64 %.sroa.speculated.i76.us to i32
   %46 = tail call i32 @llvm.uadd.sat.i32(i32 %39, i32 %45)
   store i32 %46, ptr %.391.us, align 4
@@ -25599,7 +25599,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb0
   %39 = load i16, ptr %37, align 2
   %40 = zext i16 %39 to i64
   %41 = mul nuw nsw i64 %40, %38
-  %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 %41, i64 4294967295)
+  %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %41, i64 4294967295)
   %42 = trunc nuw i64 %.sroa.speculated.i.us to i32
   br label %.critedge.us
 
@@ -25616,7 +25616,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb0
   %47 = load i16, ptr %gep, align 2
   %48 = zext i16 %47 to i64
   %49 = mul nuw nsw i64 %48, %46
-  %.sroa.speculated.i85.us = tail call i64 @llvm.umin.i64(i64 %49, i64 4294967295)
+  %.sroa.speculated.i85.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %49, i64 4294967295)
   %50 = trunc nuw i64 %.sroa.speculated.i85.us to i32
   br label %51
 
@@ -25766,7 +25766,7 @@ define internal void @_ZN12_GLOBAL__N_122resize_bitExactInvokerItNS_13ufixedpoin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122resize_bitExactInvokerItNS_13ufixedpoint32ELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -26060,7 +26060,7 @@ _ZN12_GLOBAL__N_18vlineSetItNS_13ufixedpoint32EEEvPT0_PT_i.exit: ; preds = %.lr.
   %151 = call i64 @llvm.uadd.sat.i64(i64 %146, i64 %150)
   %152 = add i64 %151, 2147483648
   %153 = lshr i64 %152, 32
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %153, i64 65535)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %153, i64 65535)
   %154 = trunc nuw i64 %.sroa.speculated.i.i to i16
   %155 = getelementptr inbounds i16, ptr %137, i64 %indvars.iv.i75
   store i16 %154, ptr %155, align 2
@@ -26234,7 +26234,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %24 = load i16, ptr %21, align 2
   %25 = sext i16 %24 to i64
   %26 = mul nsw i64 %25, %23
-  %27 = tail call i64 @llvm.smax.i64(i64 %26, i64 -2147483648)
+  %27 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %26, i64 -2147483648)
   %28 = tail call i64 @llvm.smin.i64(i64 %27, i64 2147483647)
   %29 = trunc nsw i64 %28 to i32
   %30 = getelementptr inbounds i8, ptr %.161.i, i64 4
@@ -26244,7 +26244,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %34 = load i16, ptr %31, align 2
   %35 = sext i16 %34 to i64
   %36 = mul nsw i64 %35, %33
-  %37 = tail call i64 @llvm.smax.i64(i64 %36, i64 -2147483648)
+  %37 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %36, i64 -2147483648)
   %38 = tail call i64 @llvm.smin.i64(i64 %37, i64 2147483647)
   %39 = trunc nsw i64 %38 to i32
   %40 = add nsw i32 %39, %29
@@ -26347,7 +26347,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %30 = load i16, ptr %27, align 2
   %31 = sext i16 %30 to i64
   %32 = mul nsw i64 %31, %29
-  %33 = tail call i64 @llvm.smax.i64(i64 %32, i64 -2147483648)
+  %33 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %32, i64 -2147483648)
   %34 = tail call i64 @llvm.smin.i64(i64 %33, i64 2147483647)
   %35 = trunc nsw i64 %34 to i32
   %36 = getelementptr inbounds i8, ptr %.199.i, i64 4
@@ -26357,7 +26357,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %40 = load i16, ptr %37, align 2
   %41 = sext i16 %40 to i64
   %42 = mul nsw i64 %41, %39
-  %43 = tail call i64 @llvm.smax.i64(i64 %42, i64 -2147483648)
+  %43 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %42, i64 -2147483648)
   %44 = tail call i64 @llvm.smin.i64(i64 %43, i64 2147483647)
   %45 = trunc nsw i64 %44 to i32
   %46 = add nsw i32 %45, %35
@@ -26376,7 +26376,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %57 = load i16, ptr %54, align 2
   %58 = sext i16 %57 to i64
   %59 = mul nsw i64 %58, %56
-  %60 = tail call i64 @llvm.smax.i64(i64 %59, i64 -2147483648)
+  %60 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %59, i64 -2147483648)
   %61 = tail call i64 @llvm.smin.i64(i64 %60, i64 2147483647)
   %62 = trunc nsw i64 %61 to i32
   %63 = getelementptr inbounds i8, ptr %27, i64 6
@@ -26385,7 +26385,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %66 = load i16, ptr %63, align 2
   %67 = sext i16 %66 to i64
   %68 = mul nsw i64 %67, %65
-  %69 = tail call i64 @llvm.smax.i64(i64 %68, i64 -2147483648)
+  %69 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %68, i64 -2147483648)
   %70 = tail call i64 @llvm.smin.i64(i64 %69, i64 2147483647)
   %71 = trunc nsw i64 %70 to i32
   %72 = add nsw i32 %71, %62
@@ -26501,7 +26501,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %35 = load i16, ptr %32, align 2
   %36 = sext i16 %35 to i64
   %37 = mul nsw i64 %36, %34
-  %38 = tail call i64 @llvm.smax.i64(i64 %37, i64 -2147483648)
+  %38 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %37, i64 -2147483648)
   %39 = tail call i64 @llvm.smin.i64(i64 %38, i64 2147483647)
   %40 = trunc nsw i64 %39 to i32
   %41 = getelementptr inbounds i8, ptr %.1137.i, i64 4
@@ -26511,7 +26511,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %45 = load i16, ptr %42, align 2
   %46 = sext i16 %45 to i64
   %47 = mul nsw i64 %46, %44
-  %48 = tail call i64 @llvm.smax.i64(i64 %47, i64 -2147483648)
+  %48 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %47, i64 -2147483648)
   %49 = tail call i64 @llvm.smin.i64(i64 %48, i64 2147483647)
   %50 = trunc nsw i64 %49 to i32
   %51 = add nsw i32 %50, %40
@@ -26530,7 +26530,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %62 = load i16, ptr %59, align 2
   %63 = sext i16 %62 to i64
   %64 = mul nsw i64 %63, %61
-  %65 = tail call i64 @llvm.smax.i64(i64 %64, i64 -2147483648)
+  %65 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %64, i64 -2147483648)
   %66 = tail call i64 @llvm.smin.i64(i64 %65, i64 2147483647)
   %67 = trunc nsw i64 %66 to i32
   %68 = getelementptr inbounds i8, ptr %32, i64 8
@@ -26539,7 +26539,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %71 = load i16, ptr %68, align 2
   %72 = sext i16 %71 to i64
   %73 = mul nsw i64 %72, %70
-  %74 = tail call i64 @llvm.smax.i64(i64 %73, i64 -2147483648)
+  %74 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %73, i64 -2147483648)
   %75 = tail call i64 @llvm.smin.i64(i64 %74, i64 2147483647)
   %76 = trunc nsw i64 %75 to i32
   %77 = add nsw i32 %76, %67
@@ -26558,7 +26558,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %88 = load i16, ptr %85, align 2
   %89 = sext i16 %88 to i64
   %90 = mul nsw i64 %89, %87
-  %91 = tail call i64 @llvm.smax.i64(i64 %90, i64 -2147483648)
+  %91 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %90, i64 -2147483648)
   %92 = tail call i64 @llvm.smin.i64(i64 %91, i64 2147483647)
   %93 = trunc nsw i64 %92 to i32
   %94 = getelementptr inbounds i8, ptr %32, i64 10
@@ -26567,7 +26567,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %97 = load i16, ptr %94, align 2
   %98 = sext i16 %97 to i64
   %99 = mul nsw i64 %98, %96
-  %100 = tail call i64 @llvm.smax.i64(i64 %99, i64 -2147483648)
+  %100 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %99, i64 -2147483648)
   %101 = tail call i64 @llvm.smin.i64(i64 %100, i64 2147483647)
   %102 = trunc nsw i64 %101 to i32
   %103 = add nsw i32 %102, %93
@@ -26695,7 +26695,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %40 = load i16, ptr %37, align 2
   %41 = sext i16 %40 to i64
   %42 = mul nsw i64 %41, %39
-  %43 = tail call i64 @llvm.smax.i64(i64 %42, i64 -2147483648)
+  %43 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %42, i64 -2147483648)
   %44 = tail call i64 @llvm.smin.i64(i64 %43, i64 2147483647)
   %45 = trunc nsw i64 %44 to i32
   %46 = getelementptr inbounds i8, ptr %.1175.i, i64 4
@@ -26705,7 +26705,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %50 = load i16, ptr %47, align 2
   %51 = sext i16 %50 to i64
   %52 = mul nsw i64 %51, %49
-  %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
+  %53 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
   %55 = trunc nsw i64 %54 to i32
   %56 = add nsw i32 %55, %45
@@ -26724,7 +26724,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %67 = load i16, ptr %64, align 2
   %68 = sext i16 %67 to i64
   %69 = mul nsw i64 %68, %66
-  %70 = tail call i64 @llvm.smax.i64(i64 %69, i64 -2147483648)
+  %70 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %69, i64 -2147483648)
   %71 = tail call i64 @llvm.smin.i64(i64 %70, i64 2147483647)
   %72 = trunc nsw i64 %71 to i32
   %73 = getelementptr inbounds i8, ptr %37, i64 10
@@ -26733,7 +26733,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %76 = load i16, ptr %73, align 2
   %77 = sext i16 %76 to i64
   %78 = mul nsw i64 %77, %75
-  %79 = tail call i64 @llvm.smax.i64(i64 %78, i64 -2147483648)
+  %79 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %78, i64 -2147483648)
   %80 = tail call i64 @llvm.smin.i64(i64 %79, i64 2147483647)
   %81 = trunc nsw i64 %80 to i32
   %82 = add nsw i32 %81, %72
@@ -26752,7 +26752,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %93 = load i16, ptr %90, align 2
   %94 = sext i16 %93 to i64
   %95 = mul nsw i64 %94, %92
-  %96 = tail call i64 @llvm.smax.i64(i64 %95, i64 -2147483648)
+  %96 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %95, i64 -2147483648)
   %97 = tail call i64 @llvm.smin.i64(i64 %96, i64 2147483647)
   %98 = trunc nsw i64 %97 to i32
   %99 = getelementptr inbounds i8, ptr %37, i64 12
@@ -26761,7 +26761,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %102 = load i16, ptr %99, align 2
   %103 = sext i16 %102 to i64
   %104 = mul nsw i64 %103, %101
-  %105 = tail call i64 @llvm.smax.i64(i64 %104, i64 -2147483648)
+  %105 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %104, i64 -2147483648)
   %106 = tail call i64 @llvm.smin.i64(i64 %105, i64 2147483647)
   %107 = trunc nsw i64 %106 to i32
   %108 = add nsw i32 %107, %98
@@ -26780,7 +26780,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %119 = load i16, ptr %116, align 2
   %120 = sext i16 %119 to i64
   %121 = mul nsw i64 %120, %118
-  %122 = tail call i64 @llvm.smax.i64(i64 %121, i64 -2147483648)
+  %122 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %121, i64 -2147483648)
   %123 = tail call i64 @llvm.smin.i64(i64 %122, i64 2147483647)
   %124 = trunc nsw i64 %123 to i32
   %125 = getelementptr inbounds i8, ptr %37, i64 14
@@ -26789,7 +26789,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
   %128 = load i16, ptr %125, align 2
   %129 = sext i16 %128 to i64
   %130 = mul nsw i64 %129, %127
-  %131 = tail call i64 @llvm.smax.i64(i64 %130, i64 -2147483648)
+  %131 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %130, i64 -2147483648)
   %132 = tail call i64 @llvm.smin.i64(i64 %131, i64 2147483647)
   %133 = trunc nsw i64 %132 to i32
   %134 = add nsw i32 %133, %124
@@ -26944,7 +26944,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb1E
   %36 = load i16, ptr %33, align 2
   %37 = sext i16 %36 to i64
   %38 = mul nsw i64 %37, %35
-  %39 = tail call i64 @llvm.smax.i64(i64 %38, i64 -2147483648)
+  %39 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %38, i64 -2147483648)
   %40 = tail call i64 @llvm.smin.i64(i64 %39, i64 2147483647)
   %41 = trunc nsw i64 %40 to i32
   store i32 %41, ptr %.394.us, align 4
@@ -26954,7 +26954,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb1E
   %44 = load i16, ptr %gep, align 2
   %45 = sext i16 %44 to i64
   %46 = mul nsw i64 %45, %43
-  %47 = tail call i64 @llvm.smax.i64(i64 %46, i64 -2147483648)
+  %47 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %46, i64 -2147483648)
   %48 = tail call i64 @llvm.smin.i64(i64 %47, i64 2147483647)
   %49 = trunc nsw i64 %48 to i32
   %50 = add nsw i32 %49, %41
@@ -27112,7 +27112,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb0E
   %39 = load i16, ptr %37, align 2
   %40 = sext i16 %39 to i64
   %41 = mul nsw i64 %40, %38
-  %42 = tail call i64 @llvm.smax.i64(i64 %41, i64 -2147483648)
+  %42 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %41, i64 -2147483648)
   %43 = tail call i64 @llvm.smin.i64(i64 %42, i64 2147483647)
   %44 = trunc nsw i64 %43 to i32
   br label %.critedge.us
@@ -27130,7 +27130,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb0E
   %49 = load i16, ptr %gep, align 2
   %50 = sext i16 %49 to i64
   %51 = mul nsw i64 %50, %48
-  %52 = tail call i64 @llvm.smax.i64(i64 %51, i64 -2147483648)
+  %52 = tail call i64 @llvm.smax.i64(i64 range(i64 -70368744144896, 70368744177665) %51, i64 -2147483648)
   %53 = tail call i64 @llvm.smin.i64(i64 %52, i64 2147483647)
   %54 = trunc nsw i64 %53 to i32
   br label %55
@@ -27283,7 +27283,7 @@ define internal void @_ZN12_GLOBAL__N_122resize_bitExactInvokerIsNS_12fixedpoint
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122resize_bitExactInvokerIsNS_12fixedpoint32ELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -27584,7 +27584,7 @@ _ZN12_GLOBAL__N_18vlineSetIsNS_12fixedpoint32EEEvPT0_PT_i.exit: ; preds = %.lr.p
   %158 = select i1 %155, i64 %157, i64 %151
   %159 = add i64 %158, 2147483648
   %160 = ashr i64 %159, 32
-  %161 = call i64 @llvm.smax.i64(i64 %160, i64 -32768)
+  %161 = call i64 @llvm.smax.i64(i64 range(i64 -2147483648, 2147483648) %160, i64 -32768)
   %162 = call i64 @llvm.smin.i64(i64 %161, i64 32767)
   %163 = trunc nsw i64 %162 to i16
   %164 = getelementptr inbounds i16, ptr %137, i64 %indvars.iv.i75
@@ -29692,7 +29692,7 @@ declare void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122resize_bitExactInvokerIiNS_12fixedpoint64ELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

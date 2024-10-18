@@ -3538,7 +3538,7 @@ define linkonce_odr hidden void @_ZN4ncnn10GridSampleD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn10GridSampleD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #13
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 224) #16
   ret void
 }

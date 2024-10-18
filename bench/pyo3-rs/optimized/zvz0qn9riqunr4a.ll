@@ -1204,7 +1204,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
   %.neg41.i.i = xor i64 %103, -1
   %.neg42.i.i = mul i64 %.neg41.i.i, 48
   %107 = getelementptr inbounds i8, ptr %106, i64 %.neg42.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %107, ptr noundef nonnull align 1 dereferenceable(48) %105, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %107, ptr noundef nonnull align 1 dereferenceable(48) %105, i64 range(i64 24, 49) 48, i1 false)
   %.pr = load i64, ptr %.sroa.312.0..sroa_idx.i.i, align 8
   %108 = icmp eq i64 %.pr, 0
   br i1 %108, label %._crit_edge.loopexit, label %.lr.ph
@@ -1492,7 +1492,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
   %.neg41.i.i = xor i64 %103, -1
   %.neg42.i.i = mul i64 %.neg41.i.i, 24
   %107 = getelementptr inbounds i8, ptr %106, i64 %.neg42.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %107, ptr noundef nonnull align 1 dereferenceable(24) %105, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %107, ptr noundef nonnull align 1 dereferenceable(24) %105, i64 range(i64 24, 49) 24, i1 false)
   %.pr = load i64, ptr %.sroa.312.0..sroa_idx.i.i, align 8
   %108 = icmp eq i64 %.pr, 0
   br i1 %108, label %._crit_edge.loopexit, label %.lr.ph

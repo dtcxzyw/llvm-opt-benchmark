@@ -737,7 +737,7 @@ read_sequence_header_obu.exit:                    ; preds = %279, %287
 .thread:                                          ; preds = %300, %305
   %307 = icmp ne i8 %137, 6
   %308 = zext i1 %307 to i32
-  %309 = call i32 @av1_decode_frame_headers_and_setup(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %308) #9
+  %309 = call i32 @av1_decode_frame_headers_and_setup(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef range(i32 0, 2) %308) #9
   %310 = load i32, ptr %43, align 8
   %.not.i173 = icmp eq i32 %310, 0
   br i1 %.not.i173, label %read_frame_header_obu.exit, label %311
@@ -961,7 +961,7 @@ read_one_tile_group_obu.exit.thread:              ; preds = %395
 397:                                              ; preds = %392
   %398 = zext nneg i32 %391 to i64
   %399 = getelementptr inbounds i8, ptr %353, i64 %398
-  call void @av1_decode_tg_tiles_and_wrapup(ptr noundef %0, ptr noundef %399, ptr noundef %354, ptr noundef %3, i32 noundef %.028.i, i32 noundef %storemerge.i.i, i32 noundef %.0123.ph296) #9
+  call void @av1_decode_tg_tiles_and_wrapup(ptr noundef %0, ptr noundef %399, ptr noundef %354, ptr noundef %3, i32 noundef %.028.i, i32 noundef %storemerge.i.i, i32 noundef range(i32 0, 2) %.0123.ph296) #9
   %400 = load ptr, ptr %3, align 8
   %401 = ptrtoint ptr %400 to i64
   %402 = ptrtoint ptr %399 to i64

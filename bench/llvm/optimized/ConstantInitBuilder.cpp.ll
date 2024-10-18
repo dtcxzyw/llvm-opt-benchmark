@@ -142,7 +142,7 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit: ; preds = %2, %14
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %39, %_ZSt8_DestroyIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEEvPT_.exit.i.i.i.i.i ], [ %.pre, %._crit_edge ]
   %33 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #11
+  %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %33) #11
   %35 = load ptr, ptr %33, align 8
   %36 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
   %37 = icmp eq ptr %35, %36
@@ -301,7 +301,7 @@ define dso_local void @_ZN5clang7CodeGen23ConstantInitBuilderBase21resolveSelfRe
   %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   store i8 0, ptr %9, align 8
-  %18 = call noundef ptr @_ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantENS_8ArrayRefIS4_EENS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_(ptr noundef %14, ptr noundef %1, ptr %16, i64 %17, i32 3, ptr noundef nonnull %3, ptr noundef null)
+  %18 = call noundef ptr @_ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantENS_8ArrayRefIS4_EENS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_(ptr noundef %14, ptr noundef nonnull %1, ptr %16, i64 %17, i32 3, ptr noundef nonnull %3, ptr noundef null)
   %19 = load i8, ptr %9, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %_ZN4llvm12ConstantExpr24getInBoundsGetElementPtrEPNS_4TypeEPNS_8ConstantENS_8ArrayRefIS4_EE.exit
@@ -353,7 +353,7 @@ _ZN4llvm12ConstantExpr24getInBoundsGetElementPtrEPNS_4TypeEPNS_8ConstantENS_8Arr
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %42, %_ZSt8_DestroyIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEEvPT_.exit.i.i.i.i.i ], [ %.pre, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #11
+  %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %36) #11
   %38 = load ptr, ptr %36, align 8
   %39 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
   %40 = icmp eq ptr %38, %39
@@ -510,7 +510,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen28ConstantAggregateBuilderBase17g
   store ptr %6, ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = getelementptr inbounds i8, ptr %14, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %19, i64 noundef 4) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull %19, i64 noundef 4) #11
   %20 = load ptr, ptr %13, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 56
   store ptr %21, ptr %13, align 8
@@ -638,7 +638,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen28ConstantAggregateBuilderBase24g
   store ptr %5, ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %18, i64 noundef 4) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull %18, i64 noundef 4) #11
   %19 = load ptr, ptr %12, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 56
   store ptr %20, ptr %12, align 8
@@ -1121,7 +1121,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12ConstantExpr16getGetElementPtr
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i.i.i
 
 20:                                               ; preds = %13
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %5) #11
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5) #11
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i.i.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i.i.i:      ; preds = %20, %18
@@ -1377,7 +1377,7 @@ _ZNSt12_Vector_baseIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceESaIS
   store ptr %25, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = getelementptr inbounds i8, ptr %24, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %27, i64 noundef 4) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %27, i64 noundef 4) #11
   %.not9.i.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -1389,12 +1389,12 @@ _ZNSt12_Vector_baseIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceESaIS
   %29 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
   %31 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull %31, i64 noundef 4) #11
-  %32 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull %31, i64 noundef 4) #11
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %30) #11
   br i1 %32, label %_ZSt10_ConstructIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %33
 
 33:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %34 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_8ConstantEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %34 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_8ConstantEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %30)
   br label %_ZSt10_ConstructIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %33, %.lr.ph.i.i.i.i.i
@@ -1417,12 +1417,12 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5clang7CodeGen23ConstantInitBuilderBa
   %39 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i20, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i21, i64 8
   %41 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i20, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %41, i64 noundef 4) #11
-  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull %41, i64 noundef 4) #11
+  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %40) #11
   br i1 %42, label %_ZSt10_ConstructIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i22, label %43
 
 43:                                               ; preds = %.lr.ph.i.i.i.i.i19
-  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_8ConstantEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %40)
+  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_8ConstantEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %40)
   br label %_ZSt10_ConstructIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i22
 
 _ZSt10_ConstructIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i22: ; preds = %43, %.lr.ph.i.i.i.i.i19
@@ -1439,7 +1439,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5clang7CodeGen23ConstantInitBuilderBa
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceES4_SaIS3_EET0_T_S7_S6_RT1_.exit25, %_ZSt8_DestroyIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %53, %_ZSt8_DestroyIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceES4_SaIS3_EET0_T_S7_S6_RT1_.exit25 ]
   %47 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #11
+  %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %47) #11
   %49 = load ptr, ptr %47, align 8
   %50 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
   %51 = icmp eq ptr %49, %50

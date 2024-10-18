@@ -253,7 +253,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %27
-  %30 = tail call ptr @memmem(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull %0, i64 noundef %1) #27
+  %30 = tail call ptr @memmem(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull %0, i64 noundef range(i64 2, 9) %1) #27
   %.not.i = icmp eq ptr %30, null
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %2 to i64
@@ -330,7 +330,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %61
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %.02838.i, i64 %1)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %.02838.i, i64 range(i64 2, -9223372036854775808) %1)
   %66 = icmp eq i32 %bcmp.i, 0
   br i1 %66, label %67, label %71
 
@@ -1324,7 +1324,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %6, %rb_enc_asciicom
 14:                                               ; preds = %rb_enc_asciicompat.exit.thread, %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %15 = call fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %9, ptr noundef %3, ptr noundef %8, ptr noundef %4, i32 noundef %5, i32 noundef 0)
+  %15 = call fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %23
@@ -2189,7 +2189,7 @@ rb_reg_error_desc.exit:                           ; preds = %21, %27
   %28 = getelementptr inbounds i8, ptr %23, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = call ptr @rb_enc_get(i64 noundef %22) #28
-  %31 = call fastcc i64 @rb_enc_reg_error_desc(ptr noundef %.sroa.2.0.i.i, i64 noundef %29, ptr noundef %30, i32 noundef 0, ptr noundef %4)
+  %31 = call fastcc i64 @rb_enc_reg_error_desc(ptr noundef %.sroa.2.0.i.i, i64 noundef %29, ptr noundef %30, i32 noundef 0, ptr noundef nonnull %4)
   br label %32
 
 32:                                               ; preds = %RSTRING_PTR.exit, %rb_reg_error_desc.exit
@@ -2768,7 +2768,7 @@ RSTRING_PTR.exit:                                 ; preds = %57, %62
 69:                                               ; preds = %RSTRING_PTR.exit
   %70 = and i32 %.03456, 7
   %71 = load i32, ptr @OnigDefaultCaseFoldFlag, align 4
-  %72 = tail call i32 @onig_reg_init(ptr noundef nonnull %67, i32 noundef %70, i32 noundef %71, ptr noundef %.03358, ptr noundef %66) #28
+  %72 = tail call i32 @onig_reg_init(ptr noundef nonnull %67, i32 noundef range(i32 0, 8) %70, i32 noundef %71, ptr noundef %.03358, ptr noundef %66) #28
   %.not.i.i49 = icmp eq i32 %72, 0
   br i1 %.not.i.i49, label %73, label %75
 
@@ -2865,7 +2865,7 @@ rb_reg_error_desc.exit:                           ; preds = %16, %21
   %22 = getelementptr inbounds i8, ptr %17, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @rb_enc_get(i64 noundef %.010) #28
-  %25 = call fastcc i64 @rb_enc_reg_error_desc(ptr noundef %.sroa.2.0.i.i, i64 noundef %23, ptr noundef %24, i32 noundef %1, ptr noundef %5)
+  %25 = call fastcc i64 @rb_enc_reg_error_desc(ptr noundef %.sroa.2.0.i.i, i64 noundef %23, ptr noundef %24, i32 noundef %1, ptr noundef nonnull %5)
   call void @rb_set_errinfo(i64 noundef %25) #28
   br label %28
 
@@ -3799,7 +3799,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit114
 121:                                              ; preds = %61, %57
   %.2101 = phi ptr [ %.099129, %57 ], [ %65, %61 ]
   %122 = load ptr, ptr %47, align 8
-  %123 = call i32 %122(i32 noundef %49, ptr noundef %.2101, ptr noundef %3) #28
+  %123 = call i32 %122(i32 noundef range(i32 0, -1) %49, ptr noundef %.2101, ptr noundef %3) #28
   %124 = sext i32 %123 to i64
   %125 = getelementptr i8, ptr %.2101, i64 %124
   br label %.backedge
@@ -4349,7 +4349,7 @@ define dso_local noundef zeroext i1 @rb_reg_timeout_p(ptr nocapture noundef read
 
 9:                                                ; preds = %5
   %10 = tail call i64 @rb_hrtime_now() #28
-  %.0.i = tail call range(i64 1, 0) i64 @llvm.uadd.sat.i64(i64 %spec.select, i64 %10)
+  %.0.i = tail call range(i64 1, 0) i64 @llvm.uadd.sat.i64(i64 range(i64 1, 0) %spec.select, i64 %10)
   br label %.sink.split
 
 11:                                               ; preds = %2
@@ -7963,7 +7963,7 @@ rb_enc_asciicompat.exit:                          ; preds = %6
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr %21, align 8
-  %28 = call i32 %27(i32 noundef %23, i32 noundef 7, ptr noundef %3) #28
+  %28 = call i32 %27(i32 noundef range(i32 0, -1) %23, i32 noundef 7, ptr noundef %3) #28
   %.not88.us = icmp eq i32 %28, 0
   br i1 %.not88.us, label %rb_enc_asciicompat.exit.thread, label %29
 
@@ -7992,7 +7992,7 @@ rb_enc_asciicompat.exit:                          ; preds = %6
 
 37:                                               ; preds = %.lr.ph.split
   %38 = load ptr, ptr %21, align 8
-  %39 = call i32 %38(i32 noundef %35, i32 noundef 7, ptr noundef %3) #28
+  %39 = call i32 %38(i32 noundef range(i32 0, -1) %35, i32 noundef 7, ptr noundef %3) #28
   %.not88 = icmp eq i32 %39, 0
   br i1 %.not88, label %rb_enc_asciicompat.exit.thread, label %40
 
@@ -8086,7 +8086,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %37, %.lr.ph.split, 
 
 82:                                               ; preds = %75
   %83 = load ptr, ptr %47, align 8
-  %84 = call i32 %83(i32 noundef %49, i32 noundef 7, ptr noundef %3) #28
+  %84 = call i32 %83(i32 noundef range(i32 0, -1) %49, i32 noundef 7, ptr noundef %3) #28
   %.not89 = icmp eq i32 %84, 0
   br i1 %.not89, label %89, label %85
 
@@ -8098,7 +8098,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %37, %.lr.ph.split, 
 
 89:                                               ; preds = %82
   %90 = load ptr, ptr %47, align 8
-  %91 = call i32 %90(i32 noundef %49, i32 noundef 9, ptr noundef nonnull %3) #28
+  %91 = call i32 %90(i32 noundef range(i32 0, -1) %49, i32 noundef 9, ptr noundef nonnull %3) #28
   %.not90 = icmp eq i32 %91, 0
   br i1 %.not90, label %92, label %95
 

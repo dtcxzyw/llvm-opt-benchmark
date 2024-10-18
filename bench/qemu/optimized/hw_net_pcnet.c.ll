@@ -241,7 +241,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %tobool.not.i181, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
-  call void %22(ptr noundef %23, i64 noundef %conv71, ptr noundef nonnull %rda.i, i32 noundef 8, i32 noundef 0) #11
+  call void %22(ptr noundef %23, i64 noundef range(i64 0, 4294967296) %conv71, ptr noundef nonnull %rda.i, i32 noundef 8, i32 noundef 0) #11
   %24 = load i32, ptr %rda.i, align 4
   %and1.i = and i32 %24, 16777215
   store i32 %and1.i, ptr %rmd, align 4
@@ -258,7 +258,7 @@ if.then.i:                                        ; preds = %for.body
   br label %pcnet_rmd_load.exit
 
 if.else.i:                                        ; preds = %for.body
-  call void %22(ptr noundef %23, i64 noundef %conv71, ptr noundef nonnull %rmd, i32 noundef 16, i32 noundef 0) #11
+  call void %22(ptr noundef %23, i64 noundef range(i64 0, 4294967296) %conv71, ptr noundef nonnull %rmd, i32 noundef 16, i32 noundef 0) #11
   %28 = load i16, ptr %arrayidx67, align 4
   %29 = and i16 %28, 255
   %cmp.i = icmp eq i16 %29, 3
@@ -407,7 +407,7 @@ if.then.i191:                                     ; preds = %if.end163
   %53 = load ptr, ptr %phys_mem_read.i185293, align 8
   %dma_opaque.i186294 = getelementptr inbounds i8, ptr %call, i64 13000
   %54 = load ptr, ptr %dma_opaque.i186294, align 8
-  call void %53(ptr noundef %54, i64 noundef %or175, ptr noundef nonnull %rda.i182, i32 noundef 8, i32 noundef 0) #11
+  call void %53(ptr noundef %54, i64 noundef range(i64 0, 4294967296) %or175, ptr noundef nonnull %rda.i182, i32 noundef 8, i32 noundef 0) #11
   %55 = load i32, ptr %rda.i182, align 4
   %and1.i192 = and i32 %55, 16777215
   store i32 %and1.i192, ptr %rmd102, align 4
@@ -436,7 +436,7 @@ if.else.i187:                                     ; preds = %if.end163
   %59 = load ptr, ptr %phys_mem_read.i185, align 8
   %dma_opaque.i186 = getelementptr inbounds i8, ptr %call, i64 13000
   %60 = load ptr, ptr %dma_opaque.i186, align 8
-  call void %59(ptr noundef %60, i64 noundef %or100, ptr noundef nonnull %rmd102, i32 noundef 16, i32 noundef 0) #11
+  call void %59(ptr noundef %60, i64 noundef range(i64 0, 4294967296) %or100, ptr noundef nonnull %rmd102, i32 noundef 16, i32 noundef 0) #11
   %61 = load i16, ptr %arrayidx165, align 4
   %62 = and i16 %61, 255
   %cmp.i188 = icmp eq i16 %62, 3
@@ -530,7 +530,7 @@ if.then.i209:                                     ; preds = %cond.end209
   store i16 %conv7.i, ptr %msg_length9.i, align 2
   %90 = load ptr, ptr %phys_mem_write, align 16
   %91 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %90(ptr noundef %91, i64 noundef %or238, ptr noundef nonnull %rda.i203, i32 noundef 8, i32 noundef 0) #11
+  call void %90(ptr noundef %91, i64 noundef range(i64 0, 4294967296) %or238, ptr noundef nonnull %rda.i203, i32 noundef 8, i32 noundef 0) #11
   br label %pcnet_rmd_store.exit
 
 if.else.i206:                                     ; preds = %cond.end209
@@ -563,7 +563,7 @@ if.then30.i:                                      ; preds = %if.else.i206
 if.end.i:                                         ; preds = %if.then30.i, %if.else.i206
   %97 = load ptr, ptr %phys_mem_write, align 16
   %98 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %97(ptr noundef %98, i64 noundef %or100, ptr noundef nonnull %rda10.i, i32 noundef 16, i32 noundef 0) #11
+  call void %97(ptr noundef %98, i64 noundef range(i64 0, 4294967296) %or100, ptr noundef nonnull %rda10.i, i32 noundef 16, i32 noundef 0) #11
   br label %pcnet_rmd_store.exit
 
 pcnet_rmd_store.exit:                             ; preds = %if.then.i209, %if.end.i
@@ -773,7 +773,7 @@ if.then.i224:                                     ; preds = %if.end468
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i215)
   %157 = load ptr, ptr %phys_mem_read.i185296, align 8
   %158 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %157(ptr noundef %158, i64 noundef %or482, ptr noundef nonnull %rda.i215, i32 noundef 8, i32 noundef 0) #11
+  call void %157(ptr noundef %158, i64 noundef range(i64 0, 4294967296) %or482, ptr noundef nonnull %rda.i215, i32 noundef 8, i32 noundef 0) #11
   %159 = load i32, ptr %rda.i215, align 4
   %and1.i225 = and i32 %159, 16777215
   store i32 %and1.i225, ptr %rmd102, align 4
@@ -797,7 +797,7 @@ if.else.i220:                                     ; preds = %if.end468
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i215)
   %163 = load ptr, ptr %phys_mem_read.i185296, align 8
   %164 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %163(ptr noundef %164, i64 noundef %crda.0, ptr noundef nonnull %rmd102, i32 noundef 16, i32 noundef 0) #11
+  call void %163(ptr noundef %164, i64 noundef range(i64 0, 4294967296) %crda.0, ptr noundef nonnull %rmd102, i32 noundef 16, i32 noundef 0) #11
   %165 = load i16, ptr %arrayidx165, align 4
   %166 = and i16 %165, 255
   %cmp.i221 = icmp eq i16 %166, 3
@@ -886,7 +886,7 @@ if.then.i254:                                     ; preds = %if.end579
   store i16 %conv7.i263, ptr %msg_length9.i264, align 2
   %189 = load ptr, ptr %phys_mem_write, align 16
   %190 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %189(ptr noundef %190, i64 noundef %or593, ptr noundef nonnull %rda.i236, i32 noundef 8, i32 noundef 0) #11
+  call void %189(ptr noundef %190, i64 noundef range(i64 0, 4294967296) %or593, ptr noundef nonnull %rda.i236, i32 noundef 8, i32 noundef 0) #11
   br label %pcnet_rmd_store.exit267
 
 if.else.i240:                                     ; preds = %if.end579
@@ -919,7 +919,7 @@ if.then30.i253:                                   ; preds = %if.else.i240
 if.end.i250:                                      ; preds = %if.then30.i253, %if.else.i240
   %196 = load ptr, ptr %phys_mem_write, align 16
   %197 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %196(ptr noundef %197, i64 noundef %crda.0, ptr noundef nonnull %rda10.i237, i32 noundef 16, i32 noundef 0) #11
+  call void %196(ptr noundef %197, i64 noundef range(i64 0, 4294967296) %crda.0, ptr noundef nonnull %rda10.i237, i32 noundef 16, i32 noundef 0) #11
   br label %pcnet_rmd_store.exit267
 
 pcnet_rmd_store.exit267:                          ; preds = %if.then.i254, %if.end.i250
@@ -1169,7 +1169,7 @@ pcnet_rdra_addr.exit92:                           ; preds = %while.body.i88.preh
   br i1 %tobool.not.i94, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %pcnet_rdra_addr.exit92
-  call void %19(ptr noundef %20, i64 noundef %conv7.i, ptr noundef nonnull %rda.i, i32 noundef 8, i32 noundef 0) #11
+  call void %19(ptr noundef %20, i64 noundef range(i64 0, 4294967296) %conv7.i, ptr noundef nonnull %rda.i, i32 noundef 8, i32 noundef 0) #11
   %21 = load i32, ptr %rda.i, align 4
   %and1.i = and i32 %21, 16777215
   store i32 %and1.i, ptr %rmd, align 4
@@ -1192,7 +1192,7 @@ if.then.i:                                        ; preds = %pcnet_rdra_addr.exi
   br label %pcnet_rmd_load.exit
 
 if.else.i:                                        ; preds = %pcnet_rdra_addr.exit92
-  call void %19(ptr noundef %20, i64 noundef %conv7.i, ptr noundef nonnull %rmd, i32 noundef 16, i32 noundef 0) #11
+  call void %19(ptr noundef %20, i64 noundef range(i64 0, 4294967296) %conv7.i, ptr noundef nonnull %rmd, i32 noundef 16, i32 noundef 0) #11
   %25 = load i16, ptr %arrayidx4.i, align 4
   %26 = and i16 %25, 255
   %cmp.i95 = icmp eq i16 %26, 3
@@ -1236,7 +1236,7 @@ do.body22:                                        ; preds = %pcnet_rmd_load.exit
   br i1 %tobool.not.i98, label %if.then.i105, label %if.else.i101
 
 if.then.i105:                                     ; preds = %do.body22
-  call void %35(ptr noundef %36, i64 noundef %conv7.i71, ptr noundef nonnull %rda.i96, i32 noundef 8, i32 noundef 0) #11
+  call void %35(ptr noundef %36, i64 noundef range(i64 0, 4294967296) %conv7.i71, ptr noundef nonnull %rda.i96, i32 noundef 8, i32 noundef 0) #11
   %37 = load i32, ptr %rda.i96, align 4
   %and1.i106 = and i32 %37, 16777215
   store i32 %and1.i106, ptr %rmd23, align 4
@@ -1260,7 +1260,7 @@ if.then.i105:                                     ; preds = %do.body22
   br label %pcnet_rmd_load.exit116
 
 if.else.i101:                                     ; preds = %do.body22
-  call void %35(ptr noundef %36, i64 noundef %conv7.i71, ptr noundef nonnull %rmd23, i32 noundef 16, i32 noundef 0) #11
+  call void %35(ptr noundef %36, i64 noundef range(i64 0, 4294967296) %conv7.i71, ptr noundef nonnull %rmd23, i32 noundef 16, i32 noundef 0) #11
   %41 = load i16, ptr %arrayidx4.i, align 4
   %42 = and i16 %41, 255
   %cmp.i102 = icmp eq i16 %42, 3
@@ -1299,7 +1299,7 @@ pcnet_rmd_load.exit116:                           ; preds = %if.else.i101.pcnet_
   br i1 %tobool.not.i119, label %if.then.i126, label %if.else.i122
 
 if.then.i126:                                     ; preds = %pcnet_rmd_load.exit116
-  call void %51(ptr noundef %52, i64 noundef %conv7.i87, ptr noundef nonnull %rda.i117, i32 noundef 8, i32 noundef 0) #11
+  call void %51(ptr noundef %52, i64 noundef range(i64 0, 4294967296) %conv7.i87, ptr noundef nonnull %rda.i117, i32 noundef 8, i32 noundef 0) #11
   %53 = load i32, ptr %rda.i117, align 4
   %and1.i127 = and i32 %53, 16777215
   store i32 %and1.i127, ptr %rmd45, align 4
@@ -1322,7 +1322,7 @@ if.then.i126:                                     ; preds = %pcnet_rmd_load.exit
   br label %pcnet_rmd_load.exit137
 
 if.else.i122:                                     ; preds = %pcnet_rmd_load.exit116
-  call void %51(ptr noundef %52, i64 noundef %conv7.i87, ptr noundef nonnull %rmd45, i32 noundef 16, i32 noundef 0) #11
+  call void %51(ptr noundef %52, i64 noundef range(i64 0, 4294967296) %conv7.i87, ptr noundef nonnull %rmd45, i32 noundef 16, i32 noundef 0) #11
   %57 = load i16, ptr %arrayidx4.i, align 4
   %58 = and i16 %57, 255
   %cmp.i123 = icmp eq i16 %58, 3
@@ -1405,7 +1405,7 @@ if.then.i147:                                     ; preds = %if.then102
   %74 = load ptr, ptr %phys_mem_read.i141182, align 8
   %dma_opaque.i142183 = getelementptr inbounds i8, ptr %s, i64 13000
   %75 = load ptr, ptr %dma_opaque.i142183, align 8
-  call void %74(ptr noundef %75, i64 noundef %conv130181, ptr noundef nonnull %rda.i138, i32 noundef 8, i32 noundef 0) #11
+  call void %74(ptr noundef %75, i64 noundef range(i64 0, 4294967296) %conv130181, ptr noundef nonnull %rda.i138, i32 noundef 8, i32 noundef 0) #11
   %76 = load i32, ptr %rda.i138, align 4
   %and1.i148 = and i32 %76, 16777215
   store i32 %and1.i148, ptr %rmd103, align 4
@@ -1434,7 +1434,7 @@ if.else.i143:                                     ; preds = %if.then102
   %80 = load ptr, ptr %phys_mem_read.i141, align 8
   %dma_opaque.i142 = getelementptr inbounds i8, ptr %s, i64 13000
   %81 = load ptr, ptr %dma_opaque.i142, align 8
-  call void %80(ptr noundef %81, i64 noundef %conv130, ptr noundef nonnull %rmd103, i32 noundef 16, i32 noundef 0) #11
+  call void %80(ptr noundef %81, i64 noundef range(i64 0, 4294967296) %conv130, ptr noundef nonnull %rmd103, i32 noundef 16, i32 noundef 0) #11
   %82 = load i16, ptr %arrayidx104, align 4
   %83 = and i16 %82, 255
   %cmp.i144 = icmp eq i16 %83, 3
@@ -1501,7 +1501,7 @@ if.then.i168:                                     ; preds = %if.then154
   %98 = load ptr, ptr %phys_mem_read.i162187, align 8
   %dma_opaque.i163188 = getelementptr inbounds i8, ptr %s, i64 13000
   %99 = load ptr, ptr %dma_opaque.i163188, align 8
-  call void %98(ptr noundef %99, i64 noundef %conv187186, ptr noundef nonnull %rda.i159, i32 noundef 8, i32 noundef 0) #11
+  call void %98(ptr noundef %99, i64 noundef range(i64 0, 4294967296) %conv187186, ptr noundef nonnull %rda.i159, i32 noundef 8, i32 noundef 0) #11
   %100 = load i32, ptr %rda.i159, align 4
   %buf_length.i170 = getelementptr inbounds i8, ptr %rda.i159, i64 4
   %101 = load i16, ptr %buf_length.i170, align 4
@@ -1521,7 +1521,7 @@ if.else.i164:                                     ; preds = %if.then154
   %103 = load ptr, ptr %phys_mem_read.i162, align 8
   %dma_opaque.i163 = getelementptr inbounds i8, ptr %s, i64 13000
   %104 = load ptr, ptr %dma_opaque.i163, align 8
-  call void %103(ptr noundef %104, i64 noundef %conv187, ptr noundef nonnull %rmd155, i32 noundef 16, i32 noundef 0) #11
+  call void %103(ptr noundef %104, i64 noundef range(i64 0, 4294967296) %conv187, ptr noundef nonnull %rmd155, i32 noundef 16, i32 noundef 0) #11
   br label %pcnet_rmd_load.exit179
 
 pcnet_rmd_load.exit179:                           ; preds = %if.else.i164, %if.then.i168
@@ -1835,11 +1835,11 @@ if.then8.i.i36:                                   ; preds = %if.then.i.i33
   %33 = load i64, ptr %_now.i.i26, align 8
   %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i26, i64 8
   %34 = load i64, ptr %tv_usec.i.i39, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i38, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %s, i32 noundef %isr.2, i32 noundef %28) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i38, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %s, i32 noundef range(i32 0, 2) %isr.2, i32 noundef %28) #11
   br label %trace_pcnet_isr_change.exit
 
 if.else.i.i35:                                    ; preds = %if.then.i.i33
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull %s, i32 noundef %isr.2, i32 noundef %28) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull %s, i32 noundef range(i32 0, 2) %isr.2, i32 noundef %28) #11
   br label %trace_pcnet_isr_change.exit
 
 trace_pcnet_isr_change.exit:                      ; preds = %if.then87, %land.lhs.true5.i.i30, %if.then8.i.i36, %if.else.i.i35
@@ -3071,7 +3071,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  call void %7(ptr noundef %8, i64 noundef %conv12, ptr noundef nonnull %xda.i, i32 noundef 8, i32 noundef 0) #11
+  call void %7(ptr noundef %8, i64 noundef range(i64 0, 4294967296) %conv12, ptr noundef nonnull %xda.i, i32 noundef 8, i32 noundef 0) #11
   %9 = load i32, ptr %xda.i, align 4
   %and1.i = and i32 %9, 16777215
   store i32 %and1.i, ptr %tmd, align 4
@@ -3095,7 +3095,7 @@ if.then.i:                                        ; preds = %if.then
   br label %pcnet_tmd_load.exit
 
 if.else.i:                                        ; preds = %if.then
-  call void %7(ptr noundef %8, i64 noundef %conv12, ptr noundef nonnull %tmd, i32 noundef 16, i32 noundef 0) #11
+  call void %7(ptr noundef %8, i64 noundef range(i64 0, 4294967296) %conv12, ptr noundef nonnull %tmd, i32 noundef 16, i32 noundef 0) #11
   %13 = load i16, ptr %arrayidx9, align 4
   %14 = and i16 %13, 255
   %cmp.i = icmp eq i16 %14, 3
@@ -3180,7 +3180,7 @@ if.then.i47:                                      ; preds = %if.then64
   %29 = load ptr, ptr %phys_mem_read.i4162, align 8
   %dma_opaque.i4263 = getelementptr inbounds i8, ptr %s, i64 13000
   %30 = load ptr, ptr %dma_opaque.i4263, align 8
-  call void %29(ptr noundef %30, i64 noundef %conv9461, ptr noundef nonnull %xda.i38, i32 noundef 8, i32 noundef 0) #11
+  call void %29(ptr noundef %30, i64 noundef range(i64 0, 4294967296) %conv9461, ptr noundef nonnull %xda.i38, i32 noundef 8, i32 noundef 0) #11
   %31 = load i32, ptr %xda.i38, align 4
   %length.i49 = getelementptr inbounds i8, ptr %xda.i38, i64 4
   %32 = load i16, ptr %length.i49, align 4
@@ -3200,7 +3200,7 @@ if.else.i43:                                      ; preds = %if.then64
   %34 = load ptr, ptr %phys_mem_read.i41, align 8
   %dma_opaque.i42 = getelementptr inbounds i8, ptr %s, i64 13000
   %35 = load ptr, ptr %dma_opaque.i42, align 8
-  call void %34(ptr noundef %35, i64 noundef %conv94, ptr noundef nonnull %tmd65, i32 noundef 16, i32 noundef 0) #11
+  call void %34(ptr noundef %35, i64 noundef range(i64 0, 4294967296) %conv94, ptr noundef nonnull %tmd65, i32 noundef 16, i32 noundef 0) #11
   br label %pcnet_tmd_load.exit59
 
 pcnet_tmd_load.exit59:                            ; preds = %if.else.i43, %if.then.i47
@@ -3334,7 +3334,7 @@ if.then.i:                                        ; preds = %if.then10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i)
   %12 = load ptr, ptr %phys_mem_read.i97, align 8
   %13 = load ptr, ptr %dma_opaque.i98, align 8
-  call void %12(ptr noundef %13, i64 noundef %or34, ptr noundef nonnull %xda.i, i32 noundef 8, i32 noundef 0) #11
+  call void %12(ptr noundef %13, i64 noundef range(i64 0, 4294967296) %or34, ptr noundef nonnull %xda.i, i32 noundef 8, i32 noundef 0) #11
   %14 = load i32, ptr %xda.i, align 4
   %and1.i = and i32 %14, 16777215
   store i32 %and1.i, ptr %tmd, align 4
@@ -3357,7 +3357,7 @@ if.else.i:                                        ; preds = %if.then10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i)
   %20 = load ptr, ptr %phys_mem_read.i97, align 8
   %21 = load ptr, ptr %dma_opaque.i98, align 8
-  call void %20(ptr noundef %21, i64 noundef %19, ptr noundef nonnull %tmd, i32 noundef 16, i32 noundef 0) #11
+  call void %20(ptr noundef %21, i64 noundef range(i64 0, 4294967296) %19, ptr noundef nonnull %tmd, i32 noundef 16, i32 noundef 0) #11
   %22 = load i16, ptr %arrayidx.i95, align 4
   %23 = and i16 %22, 255
   %cmp.i = icmp eq i16 %23, 3
@@ -3588,7 +3588,7 @@ if.then.i85:                                      ; preds = %txdone
   store i16 %conv7.i, ptr %status9.i92, align 2
   %92 = load ptr, ptr %phys_mem_write35.i131, align 16
   %93 = load ptr, ptr %dma_opaque.i98, align 8
-  call void %92(ptr noundef %93, i64 noundef %or260, ptr noundef nonnull %xda.i79, i32 noundef 8, i32 noundef 0) #11
+  call void %92(ptr noundef %93, i64 noundef range(i64 0, 4294967296) %or260, ptr noundef nonnull %xda.i79, i32 noundef 8, i32 noundef 0) #11
   br label %pcnet_tmd_store.exit
 
 if.else.i82:                                      ; preds = %txdone
@@ -3617,7 +3617,7 @@ if.then30.i:                                      ; preds = %if.else.i82
 if.end.i:                                         ; preds = %if.then30.i, %if.else.i82
   %101 = load ptr, ptr %phys_mem_write35.i131, align 16
   %102 = load ptr, ptr %dma_opaque.i98, align 8
-  call void %101(ptr noundef %102, i64 noundef %95, ptr noundef nonnull %xda10.i, i32 noundef 16, i32 noundef 0) #11
+  call void %101(ptr noundef %102, i64 noundef range(i64 0, 4294967296) %95, ptr noundef nonnull %xda10.i, i32 noundef 16, i32 noundef 0) #11
   br label %pcnet_tmd_store.exit
 
 pcnet_tmd_store.exit:                             ; preds = %if.then.i85, %if.end.i
@@ -3678,7 +3678,7 @@ if.then310:                                       ; preds = %if.else306
   br i1 %tobool.not.i96, label %if.then.i103, label %if.else.i99
 
 if.then.i103:                                     ; preds = %if.then310
-  call void %114(ptr noundef %115, i64 noundef %xmit_cxda.0.ph, ptr noundef nonnull %xda.i94, i32 noundef 8, i32 noundef 0) #11
+  call void %114(ptr noundef %115, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %xda.i94, i32 noundef 8, i32 noundef 0) #11
   %116 = load i32, ptr %xda.i94, align 4
   %and1.i104 = and i32 %116, 16777215
   store i32 %and1.i104, ptr %tmd311, align 4
@@ -3696,7 +3696,7 @@ if.then.i103:                                     ; preds = %if.then310
   br label %pcnet_tmd_load.exit115
 
 if.else.i99:                                      ; preds = %if.then310
-  call void %114(ptr noundef %115, i64 noundef %xmit_cxda.0.ph, ptr noundef nonnull %tmd311, i32 noundef 16, i32 noundef 0) #11
+  call void %114(ptr noundef %115, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %tmd311, i32 noundef 16, i32 noundef 0) #11
   %120 = load i16, ptr %arrayidx.i95, align 4
   %121 = and i16 %120, 255
   %cmp.i100 = icmp eq i16 %121, 3
@@ -3739,7 +3739,7 @@ if.then.i134:                                     ; preds = %pcnet_tmd_load.exit
   store i16 %conv7.i144, ptr %status9.i145, align 2
   %130 = load ptr, ptr %phys_mem_write35.i131, align 16
   %131 = load ptr, ptr %dma_opaque.i98, align 8
-  call void %130(ptr noundef %131, i64 noundef %xmit_cxda.0.ph, ptr noundef nonnull %xda.i116, i32 noundef 8, i32 noundef 0) #11
+  call void %130(ptr noundef %131, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %xda.i116, i32 noundef 8, i32 noundef 0) #11
   br label %pcnet_tmd_store.exit148
 
 if.else.i120:                                     ; preds = %pcnet_tmd_load.exit115
@@ -3762,7 +3762,7 @@ if.then30.i133:                                   ; preds = %if.else.i120
 if.end.i130:                                      ; preds = %if.then30.i133, %if.else.i120
   %135 = load ptr, ptr %phys_mem_write35.i131, align 16
   %136 = load ptr, ptr %dma_opaque.i98, align 8
-  call void %135(ptr noundef %136, i64 noundef %xmit_cxda.0.ph, ptr noundef nonnull %xda10.i117, i32 noundef 16, i32 noundef 0) #11
+  call void %135(ptr noundef %136, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %xda10.i117, i32 noundef 16, i32 noundef 0) #11
   br label %pcnet_tmd_store.exit148
 
 pcnet_tmd_store.exit148:                          ; preds = %if.then.i134, %if.end.i130
@@ -3840,11 +3840,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %s, i64 noundef %cond) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %s, i64 noundef range(i64 0, 4294967296) %cond) #11
   br label %trace_pcnet_init.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %s, i64 noundef %cond) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %s, i64 noundef range(i64 0, 4294967296) %cond) #11
   br label %trace_pcnet_init.exit
 
 trace_pcnet_init.exit:                            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3955,11 +3955,11 @@ if.then8.i.i77:                                   ; preds = %if.then.i.i74
   %38 = load i64, ptr %_now.i.i67, align 8
   %tv_usec.i.i80 = getelementptr inbounds i8, ptr %_now.i.i67, i64 8
   %39 = load i64, ptr %tv_usec.i.i80, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i79, i64 noundef %38, i64 noundef %39, ptr noundef nonnull %s, i32 noundef %rlen.0, i32 noundef %tlen.0) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i79, i64 noundef %38, i64 noundef %39, ptr noundef nonnull %s, i32 noundef range(i32 0, 16) %rlen.0, i32 noundef range(i32 0, 16) %tlen.0) #11
   br label %trace_pcnet_rlen_tlen.exit
 
 if.else.i.i76:                                    ; preds = %if.then.i.i74
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef nonnull %s, i32 noundef %rlen.0, i32 noundef %tlen.0) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef nonnull %s, i32 noundef range(i32 0, 16) %rlen.0, i32 noundef range(i32 0, 16) %tlen.0) #11
   br label %trace_pcnet_rlen_tlen.exit
 
 trace_pcnet_rlen_tlen.exit:                       ; preds = %if.end, %land.lhs.true5.i.i71, %if.then8.i.i77, %if.else.i.i76
@@ -4054,11 +4054,11 @@ if.then8.i.i91:                                   ; preds = %if.then.i.i88
   %52 = load i64, ptr %_now.i.i81, align 8
   %tv_usec.i.i94 = getelementptr inbounds i8, ptr %_now.i.i81, i64 8
   %53 = load i64, ptr %tv_usec.i.i94, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i93, i64 noundef %52, i64 noundef %53, ptr noundef nonnull %s, i32 noundef %lnot.ext, i32 noundef %rdra.0.sink, i32 noundef %conv266, i32 noundef %cond247, i32 noundef %conv270) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i93, i64 noundef %52, i64 noundef %53, ptr noundef nonnull %s, i32 noundef range(i32 0, 2) %lnot.ext, i32 noundef %rdra.0.sink, i32 noundef range(i32 0, 65536) %conv266, i32 noundef %cond247, i32 noundef range(i32 0, 65536) %conv270) #11
   br label %trace_pcnet_ss32_rdra_tdra.exit
 
 if.else.i.i90:                                    ; preds = %if.then.i.i88
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef nonnull %s, i32 noundef %lnot.ext, i32 noundef %rdra.0.sink, i32 noundef %conv266, i32 noundef %cond247, i32 noundef %conv270) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef nonnull %s, i32 noundef range(i32 0, 2) %lnot.ext, i32 noundef %rdra.0.sink, i32 noundef range(i32 0, 65536) %conv266, i32 noundef %cond247, i32 noundef range(i32 0, 65536) %conv270) #11
   br label %trace_pcnet_ss32_rdra_tdra.exit
 
 trace_pcnet_ss32_rdra_tdra.exit:                  ; preds = %cond.end246, %land.lhs.true5.i.i85, %if.then8.i.i91, %if.else.i.i90

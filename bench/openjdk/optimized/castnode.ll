@@ -640,7 +640,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10CastIINodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEbPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 2) #6
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 2) #6
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 44
@@ -734,7 +734,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10CastLLNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 2) #6
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 2) #6
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1051,7 +1051,7 @@ define hidden noundef ptr @_ZN10CastIINode5IdealEP8PhaseGVNb(ptr noundef nonnull
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call noundef zeroext i1 @_ZN4Node18remove_dead_regionEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) #6
+  %8 = tail call noundef zeroext i1 @_ZN4Node18remove_dead_regionEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i1 noundef zeroext %2) #6
   br i1 %8, label %_ZN18ConstraintCastNode5IdealEP8PhaseGVNb.exit, label %9
 
 9:                                                ; preds = %3, %7
@@ -1255,7 +1255,7 @@ _ZN18ConstraintCastNode8IdentityEP8PhaseGVN.exit.thread: ; preds = %8, %2, %_ZN1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK10CastIINode3cmpERK4Node(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
-  %3 = tail call noundef zeroext i1 @_ZNK8TypeNode3cmpERK4Node(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) #6
+  %3 = tail call noundef zeroext i1 @_ZNK8TypeNode3cmpERK4Node(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) #6
   br i1 %3, label %4, label %_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread
 
 4:                                                ; preds = %2
@@ -1472,7 +1472,7 @@ define hidden noundef ptr @_ZN10CastLLNode5IdealEP8PhaseGVNb(ptr noundef nonnull
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call noundef zeroext i1 @_ZN4Node18remove_dead_regionEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) #6
+  %8 = tail call noundef zeroext i1 @_ZN4Node18remove_dead_regionEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i1 noundef zeroext %2) #6
   br i1 %8, label %_ZN18ConstraintCastNode5IdealEP8PhaseGVNb.exit, label %9
 
 9:                                                ; preds = %3, %7
@@ -2514,7 +2514,7 @@ _ZN4NodenwEm.exit56:                              ; preds = %99, %101
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10CastFFNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 2) #6
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 2) #6
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 44
@@ -2605,7 +2605,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10CastDDNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 2) #6
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 2) #6
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 44
@@ -2696,7 +2696,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10CastVVNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 2) #6
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 2) #6
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 44
@@ -2787,7 +2787,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10CastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 2) #6
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 2) #6
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 44

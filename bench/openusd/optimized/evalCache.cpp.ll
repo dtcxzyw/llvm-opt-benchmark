@@ -537,7 +537,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__22Ts_EvalQuaternionCacheINS_7GfQuatdEE9Typ
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfQuatdEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %20, align 8
   %21 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %21, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store atomic i32 0, ptr %22 seq_cst, align 4
   store ptr %21, ptr %0, align 8
@@ -748,7 +748,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 
 6:                                                ; preds = %1
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13, !noalias !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.pre.i.i, i64 32, i1 false), !noalias !7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(32) %.pre.i.i, i64 32, i1 false), !noalias !7
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store atomic i32 0, ptr %8 seq_cst, align 4, !noalias !7
   %9 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !7
@@ -853,7 +853,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfQuatdEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !10
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13, !noalias !10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store atomic i32 0, ptr %6 seq_cst, align 4, !noalias !10
   store ptr %5, ptr %0, align 8, !alias.scope !10
@@ -1172,7 +1172,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 
 6:                                                ; preds = %1
   %7 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #13, !noalias !13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %.pre.i.i, i64 16, i1 false), !noalias !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(16) %.pre.i.i, i64 16, i1 false), !noalias !13
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store atomic i32 0, ptr %8 seq_cst, align 4, !noalias !13
   %9 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !13
@@ -1277,7 +1277,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7GfQuatfEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !16
   %5 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #13, !noalias !16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !noalias !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !noalias !16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store atomic i32 0, ptr %6 seq_cst, align 4, !noalias !16
   store ptr %5, ptr %0, align 8, !alias.scope !16

@@ -1046,7 +1046,7 @@ entry:
   store i8 0, ptr %needToRelease.i.i.i, align 4
   %isFrozen.i = getelementptr inbounds i8, ptr %this, i64 184
   store i8 0, ptr %isFrozen.i, align 8
-  %call.i = invoke ptr @uhash_init_75(ptr noundef nonnull %strings, ptr noundef nonnull @uhash_hashUChars_75, ptr noundef nonnull @uhash_compareUChars_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef nonnull %errorCode)
+  %call.i = invoke ptr @uhash_init_75(ptr noundef nonnull align 8 dereferenceable(177) %strings, ptr noundef nonnull @uhash_hashUChars_75, ptr noundef nonnull @uhash_compareUChars_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -1065,7 +1065,7 @@ if.end.i:                                         ; preds = %invoke.cont.i
   br i1 %new.isnull.i, label %if.then9.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.end.i
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call4.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %call4.i)
           to label %new.cont.i unwind label %lpad5.i
 
 new.cont.i:                                       ; preds = %new.notnull.i
@@ -1097,7 +1097,7 @@ _ZN6icu_7517UniqueCharStringsC2ER10UErrorCode.exit: ; preds = %invoke.cont.i, %n
   %distanceData = getelementptr inbounds i8, ptr %this, i64 232
   %distances.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr null, ptr %distances.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %distanceData, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %distanceData, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %languageAliases, i8 0, i64 36, i1 false)
   ret void
 }
@@ -1163,7 +1163,7 @@ invoke.cont19:                                    ; preds = %invoke.cont8
   store i32 0, ptr %languagesLength, align 4
   store i32 0, ptr %regionsLength, align 4
   store i32 0, ptr %lsrSubtagsLength, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m49Array, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %m49Array, i8 0, i64 20, i1 false)
   %call21 = invoke noundef signext i8 @_ZNK6icu_7513ResourceTable9findValueEPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %likelyTable, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %value)
           to label %invoke.cont20 unwind label %lpad18
 
@@ -1417,7 +1417,7 @@ if.end130:                                        ; preds = %if.else125, %invoke
   store i8 1, ptr %isFrozen.i, align 8
   %21 = load i32, ptr %languagesLength, align 4
   %div = sdiv i32 %21, 2
-  %call.i81 = invoke ptr @uhash_openSize_75(ptr noundef nonnull @uhash_hashChars_75, ptr noundef nonnull @uhash_compareChars_75, ptr noundef nonnull @uhash_compareChars_75, i32 noundef %div, ptr noundef nonnull %errorCode)
+  %call.i81 = invoke ptr @uhash_openSize_75(ptr noundef nonnull @uhash_hashChars_75, ptr noundef nonnull @uhash_compareChars_75, ptr noundef nonnull @uhash_compareChars_75, i32 noundef %div, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont133 unwind label %lpad63.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont133:                                   ; preds = %if.end130
@@ -1479,7 +1479,7 @@ cond.true.i91:                                    ; preds = %invoke.cont140
 invoke.cont146:                                   ; preds = %cond.true.i91, %invoke.cont140
   %cond.i90 = phi ptr [ %add.ptr.i94, %cond.true.i91 ], [ null, %invoke.cont140 ]
   %34 = load ptr, ptr %languageAliases, align 8
-  %call.i96 = invoke ptr @uhash_put_75(ptr noundef %34, ptr noundef %cond.i, ptr noundef %cond.i90, ptr noundef nonnull %errorCode)
+  %call.i96 = invoke ptr @uhash_put_75(ptr noundef %34, ptr noundef %cond.i, ptr noundef %cond.i90, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %for.inc unwind label %lpad63.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %invoke.cont146
@@ -1492,7 +1492,7 @@ for.inc:                                          ; preds = %invoke.cont146
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %37 = load i32, ptr %regionsLength, align 4
   %div151 = sdiv i32 %37, 2
-  %call.i97 = invoke ptr @uhash_openSize_75(ptr noundef nonnull @uhash_hashChars_75, ptr noundef nonnull @uhash_compareChars_75, ptr noundef nonnull @uhash_compareChars_75, i32 noundef %div151, ptr noundef nonnull %errorCode)
+  %call.i97 = invoke ptr @uhash_openSize_75(ptr noundef nonnull @uhash_hashChars_75, ptr noundef nonnull @uhash_compareChars_75, ptr noundef nonnull @uhash_compareChars_75, i32 noundef %div151, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont152 unwind label %lpad63.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont152:                                   ; preds = %for.end
@@ -1554,7 +1554,7 @@ cond.true.i118:                                   ; preds = %invoke.cont163
 invoke.cont170:                                   ; preds = %cond.true.i118, %invoke.cont163
   %cond.i117 = phi ptr [ %add.ptr.i121, %cond.true.i118 ], [ null, %invoke.cont163 ]
   %50 = load ptr, ptr %regionAliases, align 8
-  %call.i123 = invoke ptr @uhash_put_75(ptr noundef %50, ptr noundef %cond.i106, ptr noundef %cond.i117, ptr noundef nonnull %errorCode)
+  %call.i123 = invoke ptr @uhash_put_75(ptr noundef %50, ptr noundef %cond.i106, ptr noundef %cond.i117, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %for.inc173 unwind label %lpad63.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc173:                                       ; preds = %invoke.cont170
@@ -2395,7 +2395,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %1) #14
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %1) #14
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %1) #14
   br label %delete.end
 
@@ -4560,7 +4560,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #14
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #14
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #14
   br label %delete.end
 
@@ -4789,7 +4789,7 @@ if.then3.i19:                                     ; preds = %if.end.i
   br label %_ZN6icu_7517UniqueCharStrings3addEPKDsR10UErrorCode.exit.thread
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call5.i = call i32 @uhash_geti_75(ptr noundef nonnull %strings, ptr noundef %call18)
+  %call5.i = call i32 @uhash_geti_75(ptr noundef nonnull align 8 dereferenceable(177) %strings, ptr noundef %call18)
   %cmp.not.i = icmp eq i32 %call5.i, 0
   br i1 %cmp.not.i, label %if.end7.i, label %_ZN6icu_7517UniqueCharStrings3addEPKDsR10UErrorCode.exit
 
@@ -4801,7 +4801,7 @@ if.end7.i:                                        ; preds = %if.end4.i
   %10 = load i32, ptr %len.i.i, align 8
   %call12.i = call i32 @u_strlen_75(ptr noundef %call18)
   %call13.i = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %9, ptr noundef %call18, i32 noundef %call12.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %call15.i = call i32 @uhash_puti_75(ptr noundef nonnull %strings, ptr noundef %call18, i32 noundef %10, ptr noundef nonnull %errorCode)
+  %call15.i = call i32 @uhash_puti_75(ptr noundef nonnull align 8 dereferenceable(177) %strings, ptr noundef %call18, i32 noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %_ZN6icu_7517UniqueCharStrings3addEPKDsR10UErrorCode.exit
 
 _ZN6icu_7517UniqueCharStrings3addEPKDsR10UErrorCode.exit.thread: ; preds = %if.then15, %if.then3.i19
@@ -5086,7 +5086,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call5.i = tail call i32 @uhash_geti_75(ptr noundef nonnull %this, ptr noundef %call13)
+  %call5.i = tail call i32 @uhash_geti_75(ptr noundef nonnull align 8 dereferenceable(177) %this, ptr noundef %call13)
   %cmp.not.i = icmp eq i32 %call5.i, 0
   br i1 %cmp.not.i, label %if.end7.i, label %return
 
@@ -5099,7 +5099,7 @@ if.end7.i:                                        ; preds = %if.end4.i
   %6 = load i32, ptr %len.i.i, align 8
   %call12.i = tail call i32 @u_strlen_75(ptr noundef %call13)
   %call13.i = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %5, ptr noundef %call13, i32 noundef %call12.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %call15.i = tail call i32 @uhash_puti_75(ptr noundef nonnull %this, ptr noundef %call13, i32 noundef %6, ptr noundef nonnull %errorCode)
+  %call15.i = tail call i32 @uhash_puti_75(ptr noundef nonnull align 8 dereferenceable(177) %this, ptr noundef %call13, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
 
 return:                                           ; preds = %if.end7.i, %if.end4.i, %if.then3.i, %if.end12, %if.end4, %entry, %if.then11, %if.then3

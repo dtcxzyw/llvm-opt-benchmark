@@ -75,7 +75,7 @@ define void @_ZN3gmx22WholeMoleculeTransformC2ERK10gmx_mtop_t7PbcTypeb(ptr nound
   store i32 %2, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %7, i8 0, i64 40, i1 false)
   %9 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #10
   store ptr %9, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 4
@@ -89,7 +89,7 @@ define void @_ZN3gmx22WholeMoleculeTransformC2ERK10gmx_mtop_t7PbcTypeb(ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %13, i8 0, i64 25, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %14, i8 0, i64 52, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 24, i1 false)
   %16 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #10
           to label %17 unwind label %70
 
@@ -173,7 +173,7 @@ _ZN7t_graphD2Ev.exit:                             ; preds = %_ZNSt6vectorIiSaIiE
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 %47, ptr %48, align 8
-  %49 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %49 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %.noexc unwind label %74
 
 .noexc:                                           ; preds = %45
@@ -252,7 +252,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i15:              ; preds = %79, %_ZNSt6vectorI5
   br label %_ZN14gmx_localtop_tD2Ev.exit
 
 _ZN14gmx_localtop_tD2Ev.exit:                     ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i15, %81
-  call void @_ZN22InteractionDefinitionsD2Ev(ptr noundef nonnull align 8 dereferenceable(2736) %5) #11
+  call void @_ZN22InteractionDefinitionsD2Ev(ptr noundef nonnull align 8 dereferenceable(2784) %5) #11
   ret void
 
 82:                                               ; preds = %74, %72
@@ -300,7 +300,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(124) ptr @_ZN7t_grap
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %5, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i, label %13
 
 13:                                               ; preds = %2
@@ -931,7 +931,7 @@ define void @_ZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEER
 
 40:                                               ; preds = %24
   %41 = sub nuw nsw i64 1, %38
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %41)
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %31, i64 noundef %41)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 42:                                               ; preds = %24

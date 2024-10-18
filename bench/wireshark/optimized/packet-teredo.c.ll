@@ -217,7 +217,7 @@ parse_teredo_auth.exit:                           ; preds = %48, %55
 
 73:                                               ; preds = %72
   %74 = load i32, ptr @hf_teredo_orig, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %16, i32 noundef %74, ptr noundef %0, i32 noundef %.0, i32 noundef 8, i32 noundef 0) #2
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %16, i32 noundef %74, ptr noundef %0, i32 noundef range(i32 0, 524) %.0, i32 noundef 8, i32 noundef 0) #2
   %76 = load i32, ptr @ett_teredo_orig, align 4
   %77 = tail call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76) #2
   br label %78
@@ -267,7 +267,7 @@ parse_teredo_orig.exit:                           ; preds = %.thread.i, %85
   %103 = zext i16 %102 to i32
   %104 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #2
   %105 = load ptr, ptr @teredo_dissector_table, align 8
-  %106 = tail call i32 @dissector_try_uint(ptr noundef %105, i32 noundef %103, ptr noundef %104, ptr noundef nonnull %1, ptr noundef %2) #2
+  %106 = tail call i32 @dissector_try_uint(ptr noundef %105, i32 noundef range(i32 0, 65536) %103, ptr noundef %104, ptr noundef nonnull %1, ptr noundef %2) #2
   %.not.i27 = icmp eq i32 %106, 0
   br i1 %.not.i27, label %107, label %decode_teredo_ports.exit
 

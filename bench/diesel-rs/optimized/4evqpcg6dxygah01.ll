@@ -77,7 +77,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !12
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = load i64, ptr %30, align 8, !range !19, !noalias !12, !noundef !9
   %.not.i.i.i = icmp eq i64 %31, 0
@@ -109,7 +109,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %42, label %43, label %57
 
 43:                                               ; preds = %39
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %40)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %40)
           to label %._crit_edge.i unwind label %44, !noalias !23
 
 ._crit_edge.i:                                    ; preds = %43
@@ -119,7 +119,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %9) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #12
           to label %97 unwind label %46
 
 46:                                               ; preds = %44
@@ -137,7 +137,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %48
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %49)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %49)
           to label %._crit_edge.i23 unwind label %53, !noalias !28
 
 ._crit_edge.i23:                                  ; preds = %52
@@ -147,7 +147,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %10) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #12
           to label %97 unwind label %55
 
 55:                                               ; preds = %53
@@ -179,7 +179,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %66)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %66)
           to label %._crit_edge.i30 unwind label %70, !noalias !33
 
 ._crit_edge.i30:                                  ; preds = %69
@@ -227,7 +227,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 
 89:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !35
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %90 = getelementptr inbounds i8, ptr %6, i64 8
   %91 = load i64, ptr %90, align 8, !range !19, !noalias !35, !noundef !9
   %.not.i.i.i34 = icmp eq i64 %91, 0
@@ -338,7 +338,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !47
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = load i64, ptr %30, align 8, !range !19, !noalias !47, !noundef !9
   %.not.i.i.i = icmp eq i64 %31, 0
@@ -370,7 +370,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %42, label %43, label %57
 
 43:                                               ; preds = %39
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %40)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %40)
           to label %._crit_edge.i unwind label %44, !noalias !57
 
 ._crit_edge.i:                                    ; preds = %43
@@ -380,7 +380,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %9) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #12
           to label %97 unwind label %46
 
 46:                                               ; preds = %44
@@ -398,7 +398,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %48
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %49)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %49)
           to label %._crit_edge.i23 unwind label %53, !noalias !62
 
 ._crit_edge.i23:                                  ; preds = %52
@@ -408,7 +408,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %10) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #12
           to label %97 unwind label %55
 
 55:                                               ; preds = %53
@@ -440,7 +440,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %66)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %66)
           to label %._crit_edge.i30 unwind label %70, !noalias !67
 
 ._crit_edge.i30:                                  ; preds = %69
@@ -488,7 +488,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 
 89:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !69
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %90 = getelementptr inbounds i8, ptr %6, i64 8
   %91 = load i64, ptr %90, align 8, !range !19, !noalias !69, !noundef !9
   %.not.i.i.i34 = icmp eq i64 %91, 0
@@ -600,7 +600,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !87
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = load i64, ptr %30, align 8, !range !19, !noalias !87, !noundef !9
   %.not.i.i.i = icmp eq i64 %31, 0
@@ -632,7 +632,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %42, label %43, label %57
 
 43:                                               ; preds = %39
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %40)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %40)
           to label %._crit_edge.i unwind label %44, !noalias !97
 
 ._crit_edge.i:                                    ; preds = %43
@@ -642,7 +642,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %9) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #12
           to label %97 unwind label %46
 
 46:                                               ; preds = %44
@@ -660,7 +660,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %48
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %49)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %49)
           to label %._crit_edge.i23 unwind label %53, !noalias !102
 
 ._crit_edge.i23:                                  ; preds = %52
@@ -670,7 +670,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %10) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #12
           to label %97 unwind label %55
 
 55:                                               ; preds = %53
@@ -702,7 +702,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %66)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %66)
           to label %._crit_edge.i30 unwind label %70, !noalias !107
 
 ._crit_edge.i30:                                  ; preds = %69
@@ -750,7 +750,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 
 89:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !109
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %90 = getelementptr inbounds i8, ptr %6, i64 8
   %91 = load i64, ptr %90, align 8, !range !19, !noalias !109, !noundef !9
   %.not.i.i.i34 = icmp eq i64 %91, 0
@@ -862,7 +862,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !127
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = load i64, ptr %30, align 8, !range !19, !noalias !127, !noundef !9
   %.not.i.i.i = icmp eq i64 %31, 0
@@ -894,7 +894,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %42, label %43, label %57
 
 43:                                               ; preds = %39
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %40)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %40)
           to label %._crit_edge.i unwind label %44, !noalias !137
 
 ._crit_edge.i:                                    ; preds = %43
@@ -904,7 +904,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %9) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #12
           to label %97 unwind label %46
 
 46:                                               ; preds = %44
@@ -922,7 +922,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %48
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %49)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %49)
           to label %._crit_edge.i23 unwind label %53, !noalias !142
 
 ._crit_edge.i23:                                  ; preds = %52
@@ -932,7 +932,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %10) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #12
           to label %97 unwind label %55
 
 55:                                               ; preds = %53
@@ -964,7 +964,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %66)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %66)
           to label %._crit_edge.i30 unwind label %70, !noalias !147
 
 ._crit_edge.i30:                                  ; preds = %69
@@ -1012,7 +1012,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 
 89:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !149
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %90 = getelementptr inbounds i8, ptr %6, i64 8
   %91 = load i64, ptr %90, align 8, !range !19, !noalias !149, !noundef !9
   %.not.i.i.i34 = icmp eq i64 %91, 0
@@ -1077,7 +1077,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %5
-  %17 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h44e6ccf81b3e681eE.llvm.15847726986504949345"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef 0, i64 noundef %15)
+  %17 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h44e6ccf81b3e681eE.llvm.15847726986504949345"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 0, i64 noundef %15)
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %16
@@ -1120,7 +1120,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %27
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28, i64 noundef %30)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %30)
           to label %._crit_edge.i24 unwind label %34, !noalias !184
 
 ._crit_edge.i24:                                  ; preds = %33
@@ -1130,7 +1130,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 34:                                               ; preds = %33
   %35 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %7) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #12
           to label %61 unwind label %36
 
 36:                                               ; preds = %34
@@ -1140,7 +1140,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   unreachable
 
 38:                                               ; preds = %43
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %51)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %51)
           to label %._crit_edge.i31 unwind label %39, !noalias !186
 
 ._crit_edge.i31:                                  ; preds = %38
@@ -1227,7 +1227,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %5
-  %16 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h44e6ccf81b3e681eE.llvm.15847726986504949345"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef 0, i64 noundef %14)
+  %16 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h44e6ccf81b3e681eE.llvm.15847726986504949345"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 0, i64 noundef %14)
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %15
@@ -1270,7 +1270,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %26
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27, i64 noundef %29)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %29)
           to label %._crit_edge.i24 unwind label %33, !noalias !212
 
 ._crit_edge.i24:                                  ; preds = %32
@@ -1280,7 +1280,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %7) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #12
           to label %60 unwind label %35
 
 35:                                               ; preds = %33
@@ -1290,7 +1290,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   unreachable
 
 37:                                               ; preds = %42
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %50)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %50)
           to label %._crit_edge.i31 unwind label %38, !noalias !214
 
 ._crit_edge.i31:                                  ; preds = %37
@@ -1426,7 +1426,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !231
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = load i64, ptr %30, align 8, !range !19, !noalias !231, !noundef !9
   %.not.i.i.i = icmp eq i64 %31, 0
@@ -1458,7 +1458,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %42, label %43, label %57
 
 43:                                               ; preds = %39
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %40)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %40)
           to label %._crit_edge.i unwind label %44, !noalias !241
 
 ._crit_edge.i:                                    ; preds = %43
@@ -1468,7 +1468,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %9) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #12
           to label %97 unwind label %46
 
 46:                                               ; preds = %44
@@ -1486,7 +1486,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %48
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %49)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %49)
           to label %._crit_edge.i23 unwind label %53, !noalias !246
 
 ._crit_edge.i23:                                  ; preds = %52
@@ -1496,7 +1496,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %10) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #12
           to label %97 unwind label %55
 
 55:                                               ; preds = %53
@@ -1528,7 +1528,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %66)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %66)
           to label %._crit_edge.i30 unwind label %70, !noalias !251
 
 ._crit_edge.i30:                                  ; preds = %69
@@ -1576,7 +1576,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 
 89:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !253
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %90 = getelementptr inbounds i8, ptr %6, i64 8
   %91 = load i64, ptr %90, align 8, !range !19, !noalias !253, !noundef !9
   %.not.i.i.i34 = icmp eq i64 %91, 0
@@ -1688,7 +1688,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !271
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = load i64, ptr %30, align 8, !range !19, !noalias !271, !noundef !9
   %.not.i.i.i = icmp eq i64 %31, 0
@@ -1720,7 +1720,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %42, label %43, label %57
 
 43:                                               ; preds = %39
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %40)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %40)
           to label %._crit_edge.i unwind label %44, !noalias !281
 
 ._crit_edge.i:                                    ; preds = %43
@@ -1730,7 +1730,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %9) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #12
           to label %97 unwind label %46
 
 46:                                               ; preds = %44
@@ -1748,7 +1748,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %48
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %49)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %49)
           to label %._crit_edge.i23 unwind label %53, !noalias !286
 
 ._crit_edge.i23:                                  ; preds = %52
@@ -1758,7 +1758,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %10) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #12
           to label %97 unwind label %55
 
 55:                                               ; preds = %53
@@ -1790,7 +1790,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %66)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %66)
           to label %._crit_edge.i30 unwind label %70, !noalias !291
 
 ._crit_edge.i30:                                  ; preds = %69
@@ -1838,7 +1838,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 
 89:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !293
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %90 = getelementptr inbounds i8, ptr %6, i64 8
   %91 = load i64, ptr %90, align 8, !range !19, !noalias !293, !noundef !9
   %.not.i.i.i34 = icmp eq i64 %91, 0
@@ -1904,7 +1904,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %5
-  %18 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h44e6ccf81b3e681eE.llvm.15847726986504949345"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef 0, i64 noundef %16)
+  %18 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h44e6ccf81b3e681eE.llvm.15847726986504949345"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 0, i64 noundef %16)
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %17
@@ -1947,7 +1947,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %28
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %31)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %31)
           to label %._crit_edge.i24 unwind label %35, !noalias !327
 
 ._crit_edge.i24:                                  ; preds = %34
@@ -1957,7 +1957,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %7) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #12
           to label %62 unwind label %37
 
 37:                                               ; preds = %35
@@ -1967,7 +1967,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   unreachable
 
 39:                                               ; preds = %44
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %52)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %52)
           to label %._crit_edge.i31 unwind label %40, !noalias !329
 
 ._crit_edge.i31:                                  ; preds = %39
@@ -2102,7 +2102,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   store ptr %28, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !339
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = load i64, ptr %30, align 8, !range !19, !noalias !339, !noundef !9
   %.not.i.i.i = icmp eq i64 %31, 0
@@ -2134,7 +2134,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %42, label %43, label %57
 
 43:                                               ; preds = %39
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %40)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %40)
           to label %._crit_edge.i unwind label %44, !noalias !349
 
 ._crit_edge.i:                                    ; preds = %43
@@ -2144,7 +2144,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %9) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #12
           to label %97 unwind label %46
 
 46:                                               ; preds = %44
@@ -2162,7 +2162,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %48
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %49)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0cba3383342cd834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %49)
           to label %._crit_edge.i23 unwind label %53, !noalias !354
 
 ._crit_edge.i23:                                  ; preds = %52
@@ -2172,7 +2172,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef align 8 dereferenceable(24) %10) #12
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2a4f32336bc2174fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #12
           to label %97 unwind label %55
 
 55:                                               ; preds = %53
@@ -2204,7 +2204,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %66)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0192da11e2bec26cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %66)
           to label %._crit_edge.i30 unwind label %70, !noalias !359
 
 ._crit_edge.i30:                                  ; preds = %69
@@ -2252,7 +2252,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 
 89:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !361
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   %90 = getelementptr inbounds i8, ptr %6, i64 8
   %91 = load i64, ptr %90, align 8, !range !19, !noalias !361, !noundef !9
   %.not.i.i.i34 = icmp eq i64 %91, 0
@@ -2307,7 +2307,7 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Optio
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !368
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfef4e42bcf133fa3E.llvm.8035010821628579948"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !19, !noalias !368, !noundef !9
   %.not.i.i.i = icmp eq i64 %8, 0
@@ -2546,7 +2546,7 @@ define void @_ZN17all_about_updates23update_from_post_fields17hb24d248db6561488E
   %5 = alloca { { ptr, ptr, ptr, ptr, ptr }, { {} }, {}, {} }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !415
-  %6 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_119_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$alloc..string..String$GT$13as_expression17hb0ccee00cd9163d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !422
+  %6 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_119_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$alloc..string..String$GT$13as_expression17hb0ccee00cd9163d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1), !noalias !422
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_119_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$alloc..string..String$GT$13as_expression17hb0ccee00cd9163d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7), !noalias !422
   %9 = getelementptr inbounds i8, ptr %1, i64 76
@@ -2575,7 +2575,7 @@ define void @_ZN17all_about_updates23update_from_post_fields17hb24d248db6561488E
 define void @_ZN17all_about_updates18update_with_option17hd782219a8ebc4583E(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(128) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr }, align 8
   %4 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_105_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$$RF$str$GT$13as_expression17h3e9485229295b47dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @anon.7677ef7fe63393c0d74a2170710465ed.3, i64 16))
-  %5 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hd33b9bfd40b2147dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+  %5 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hd33b9bfd40b2147dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) dereferenceable_or_null(16) %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr null, ptr %3, align 8, !noalias !423
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2877,7 +2877,7 @@ define { ptr, ptr } @"_ZN17all_about_updates18update_with_option1_145_$LT$impl$u
   br i1 %13, label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h296a56459d25f7deE.llvm.12703545329642850438.exit.i", label %14
 
 14:                                               ; preds = %12
-  %15 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hc6e54cd8c9d4dfeeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.07), !noalias !446
+  %15 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hc6e54cd8c9d4dfeeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) dereferenceable_or_null(16) %.07), !noalias !446
   br label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h296a56459d25f7deE.llvm.12703545329642850438.exit.i"
 
 "_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h296a56459d25f7deE.llvm.12703545329642850438.exit.i": ; preds = %14, %12
@@ -2886,7 +2886,7 @@ define { ptr, ptr } @"_ZN17all_about_updates18update_with_option1_145_$LT$impl$u
   br i1 %16, label %"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17hfc757bb5597d52f6E.exit", label %17
 
 17:                                               ; preds = %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h296a56459d25f7deE.llvm.12703545329642850438.exit.i"
-  %18 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hd33b9bfd40b2147dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.06)
+  %18 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hd33b9bfd40b2147dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) dereferenceable_or_null(16) %.06)
   br label %"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17hfc757bb5597d52f6E.exit"
 
 "_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17hfc757bb5597d52f6E.exit": ; preds = %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h296a56459d25f7deE.llvm.12703545329642850438.exit.i", %17

@@ -147,7 +147,7 @@ define internal i32 @pmix_preg_close() #1 {
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %31 = phi ptr [ %33, %.lr.ph.i ], [ %30, %25 ]
   %.07.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %25 ]
-  tail call void %31(ptr noundef %8) #9
+  tail call void %31(ptr noundef nonnull %8) #9
   %32 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %33, null
@@ -325,7 +325,7 @@ define internal void @rvdes(ptr noundef %0) #1 {
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i
   %40 = phi ptr [ %42, %.lr.ph.i ], [ %39, %34 ]
   %.07.i = phi ptr [ %41, %.lr.ph.i ], [ %38, %34 ]
-  tail call void %40(ptr noundef %17) #9
+  tail call void %40(ptr noundef nonnull %17) #9
   %41 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null

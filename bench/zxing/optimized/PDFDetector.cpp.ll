@@ -155,7 +155,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41715HasStartPatternERKNS_9BitMatrixEb(p
   store ptr %29, ptr %16, align 8
   %38 = getelementptr inbounds i8, ptr %29, i64 %34
   store ptr %38, ptr %17, align 8
-  invoke void @_ZN5ZXing13FindLeftGuardILi8EZNS_13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS2_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdEUlS4_iE_EES2_S4_iT0_(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::PatternView") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 25, ptr nonnull %3, double 2.000000e+00)
+  invoke void @_ZN5ZXing13FindLeftGuardILi8EZNS_13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS2_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdEUlS4_iE_EES2_S4_iT0_(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::PatternView") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 25, ptr nonnull align 2 dereferenceable(16) %3, double 2.000000e+00)
           to label %_ZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEd.exit unwind label %45
 
 _ZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEd.exit: ; preds = %28
@@ -229,7 +229,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %_ZN5ZXing13FindLeft
   store ptr %58, ptr %22, align 8
   %66 = getelementptr inbounds i8, ptr %58, i64 %62
   store ptr %66, ptr %23, align 8
-  invoke void @_ZN5ZXing13FindLeftGuardILi8EZNS_13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS2_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdEUlS4_iE_EES2_S4_iT0_(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::PatternView") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 25, ptr nonnull %3, double 2.000000e+00)
+  invoke void @_ZN5ZXing13FindLeftGuardILi8EZNS_13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS2_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdEUlS4_iE_EES2_S4_iT0_(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::PatternView") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 25, ptr nonnull align 2 dereferenceable(16) %3, double 2.000000e+00)
           to label %_ZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEd.exit14 unwind label %45
 
 _ZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEd.exit14: ; preds = %.loopexit
@@ -342,7 +342,7 @@ common.resume:                                    ; preds = %18, %_ZN5ZXing9BitM
   br label %_ZN5ZXing6Pdf4178Detector6ResultD2Ev.exit
 
 32:                                               ; preds = %"_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEC2IS2_ZNS0_6Pdf4178Detector6DetectERKNS0_12BinaryBitmapEbbE3$_0vEEPT_T0_.exit"
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %6, i8 0, i64 16, i1 false)
   %33 = getelementptr inbounds i8, ptr %6, i64 16
   %34 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %33, ptr %34, align 8
@@ -641,7 +641,7 @@ _ZNSt10shared_ptrIN5ZXing9BitMatrixEED2Ev.exit:   ; preds = %_ZNSt16_Sp_counted_
 .lr.ph.i.i.i.i:                                   ; preds = %154, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %156, %.lr.ph.i.i.i.i ], [ %155, %154 ]
   %156 = load ptr, ptr %.09.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #19
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #19
   %.not.i.i.i.i25 = icmp eq ptr %156, %33
   br i1 %.not.i.i.i.i25, label %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
@@ -844,7 +844,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit50:                   ; preds = %_ZNK5ZXing9BitMatri
 .lr.ph.i.i.i.i52:                                 ; preds = %233, %.lr.ph.i.i.i.i52
   %.09.i.i.i.i53 = phi ptr [ %235, %.lr.ph.i.i.i.i52 ], [ %234, %233 ]
   %235 = load ptr, ptr %.09.i.i.i.i53, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i53) #19
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i53) #19
   %.not.i.i.i.i54 = icmp eq ptr %235, %33
   br i1 %.not.i.i.i.i54, label %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EE5clearEv.exit.i.i55, label %.lr.ph.i.i.i.i52, !llvm.loop !13
 
@@ -1117,7 +1117,7 @@ _ZNSt10shared_ptrIN5ZXing9BitMatrixEED2Ev.exit82: ; preds = %_ZNSt16_Sp_counted_
 .lr.ph.i.i.i.i86:                                 ; preds = %342, %.lr.ph.i.i.i.i86
   %.09.i.i.i.i87 = phi ptr [ %347, %.lr.ph.i.i.i.i86 ], [ %.pre129, %342 ]
   %347 = load ptr, ptr %.09.i.i.i.i87, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i.i87) #19
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i87) #19
   %.not.i.i.i.i88 = icmp eq ptr %347, %33
   br i1 %.not.i.i.i.i88, label %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EED2Ev.exit.i, label %.lr.ph.i.i.i.i86, !llvm.loop !13
 
@@ -1559,7 +1559,7 @@ _ZN5ZXing6Pdf417L12CopyToResultERSt5arrayINS_8NullableINS_11ResultPointEEELm8EER
 .lr.ph.i.i.i:                                     ; preds = %.body, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %81, %.lr.ph.i.i.i ], [ %80, %.body ]
   %81 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #19
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #19
   %.not.i.i.i = icmp eq ptr %81, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
@@ -1622,7 +1622,7 @@ _ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EED2
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %104, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %106, ptr noundef nonnull align 8 dereferenceable(192) %9, i64 192, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull %0) #21
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   %107 = load i64, ptr %11, align 8
   %108 = add i64 %107, 1
   store i64 %108, ptr %11, align 8
@@ -1659,7 +1659,7 @@ define linkonce_odr void @_ZN5ZXing6Pdf4178Detector6ResultD2Ev(ptr noundef nonnu
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #19
   %.not.i.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaIS6_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 

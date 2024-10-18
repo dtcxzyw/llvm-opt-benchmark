@@ -90,7 +90,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerES
 define dso_local noundef zeroext i1 @_ZNK4llvm21MultiHazardRecognizer12atIssueLimitEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #6
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #6
   %5 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i64 %4
   %6 = tail call noundef ptr @_ZSt9__find_ifIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMS2_KFbvEEEEET_SG_SG_T0_St26random_access_iterator_tag(ptr noundef %3, ptr noundef %5, i64 17, i64 0)
   %7 = icmp ne ptr %5, %6
@@ -256,7 +256,7 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_
 define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   %6 = getelementptr inbounds %"class.std::unique_ptr", ptr %4, i64 %5
   %7 = ptrtoint ptr %6 to i64
   %8 = ashr i64 %5, 2
@@ -453,7 +453,7 @@ define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD2Ev(ptr noundef
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm21MultiHazardRecognizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #6
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #6
   %.not4.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.i, label %.lr.ph.i.preheader.i
 
@@ -500,7 +500,7 @@ define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD0Ev(ptr noundef
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm21MultiHazardRecognizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #6
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #6
   %.not4.i.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.i.i, label %.lr.ph.i.preheader.i.i
 
@@ -538,7 +538,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerES
   br label %_ZN4llvm21MultiHazardRecognizerD2Ev.exit
 
 _ZN4llvm21MultiHazardRecognizerD2Ev.exit:         ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.i.i, %14
-  tail call void @_ZN4llvm24ScheduleHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
+  tail call void @_ZN4llvm24ScheduleHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #6
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #7
   ret void
 }

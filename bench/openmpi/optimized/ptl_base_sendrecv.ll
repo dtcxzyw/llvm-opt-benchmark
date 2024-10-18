@@ -321,7 +321,7 @@ define void @pmix_ptl_base_send_handler(i32 noundef %0, i16 noundef signext %1, 
 .lr.ph.i:                                         ; preds = %124, %.lr.ph.i
   %130 = phi ptr [ %132, %.lr.ph.i ], [ %129, %124 ]
   %.07.i = phi ptr [ %131, %.lr.ph.i ], [ %128, %124 ]
-  call void %130(ptr noundef %6) #11
+  call void %130(ptr noundef nonnull %6) #11
   %131 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %132 = load ptr, ptr %131, align 8
   %.not.i67 = icmp eq ptr %132, null
@@ -445,7 +445,7 @@ pmix_list_remove_first.exit:                      ; preds = %138, %142
 .lr.ph.i71:                                       ; preds = %185, %.lr.ph.i71
   %191 = phi ptr [ %193, %.lr.ph.i71 ], [ %190, %185 ]
   %.07.i72 = phi ptr [ %192, %.lr.ph.i71 ], [ %189, %185 ]
-  call void %191(ptr noundef %6) #11
+  call void %191(ptr noundef nonnull %6) #11
   %192 = getelementptr inbounds i8, ptr %.07.i72, i64 8
   %193 = load ptr, ptr %192, align 8
   %.not.i73 = icmp eq ptr %193, null

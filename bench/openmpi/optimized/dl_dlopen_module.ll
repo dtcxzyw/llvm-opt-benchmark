@@ -78,7 +78,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   br i1 %26, label %29, label %.split.us.thread
 
 .split.us.thread:                                 ; preds = %24
-  %28 = call ptr @dlopen(ptr noundef %27, i32 noundef %.) #7
+  %28 = call ptr @dlopen(ptr noundef %27, i32 noundef range(i32 1, 258) %.) #7
   %.not6.i = icmp eq ptr %28, null
   br i1 %.not6.i, label %33, label %.sink.split.i
 
@@ -93,7 +93,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   br i1 %.not, label %do_dlopen.exit34.thread, label %.lr.ph.split, !llvm.loop !4
 
 .split.us:                                        ; preds = %14
-  %32 = call ptr @dlopen(ptr noundef %17, i32 noundef %.) #7
+  %32 = call ptr @dlopen(ptr noundef %17, i32 noundef range(i32 1, 258) %.) #7
   br label %do_dlopen.exit
 
 33:                                               ; preds = %.split.us.thread
@@ -112,7 +112,7 @@ do_dlopen.exit:                                   ; preds = %.split.us, %.sink.s
   br label %do_dlopen.exit34
 
 37:                                               ; preds = %5
-  %38 = tail call ptr @dlopen(ptr noundef %0, i32 noundef %.) #7
+  %38 = tail call ptr @dlopen(ptr noundef %0, i32 noundef range(i32 1, 258) %.) #7
   %.not.i30 = icmp eq ptr %4, null
   br i1 %.not.i30, label %do_dlopen.exit34, label %39
 

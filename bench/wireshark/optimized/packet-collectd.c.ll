@@ -737,7 +737,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
   %.off.i = add nsw i32 %210, -15
   %262 = icmp ult i32 %.off.i, 9
   %263 = select i1 %262, ptr @.str.92, ptr @.str.89
-  %264 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.084.i, ptr noundef %0, i32 noundef %259, i32 noundef %260, i32 noundef %261, ptr noundef null, ptr noundef nonnull @.str.108, i32 noundef %240, ptr noundef nonnull %263) #5
+  %264 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.084.i, ptr noundef %0, i32 noundef %259, i32 noundef %260, i32 noundef %261, ptr noundef null, ptr noundef nonnull @.str.108, i32 noundef range(i32 1, 7282) %240, ptr noundef nonnull %263) #5
   %265 = add i32 %240, %259
   br label %266
 

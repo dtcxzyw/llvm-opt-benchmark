@@ -759,7 +759,7 @@ agxblen.exit.i:                                   ; preds = %1, %_printXDot.exit
   unreachable
 
 25:                                               ; preds = %_printXDot.exit
-  call fastcc void @agxbputc(ptr noundef %2, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %2, i8 noundef signext 0)
   %26 = load ptr, ptr %2, align 8
   br label %agxbdisown.exit
 
@@ -970,7 +970,7 @@ define internal fastcc void @printXDot_Op(ptr nocapture noundef readonly %0, ptr
   %32 = tail call i32 (ptr, ptr, ...) %1(ptr noundef %2, ptr noundef nonnull @.str.10) #21
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   call fastcc void @toGradString(ptr noundef %5, ptr noundef nonnull %33)
-  call fastcc void @agxbputc(ptr noundef %5, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %5, i8 noundef signext 0)
   %34 = getelementptr inbounds i8, ptr %5, i64 31
   %.val.i.i = load i8, ptr %34, align 1
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -1004,7 +1004,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
   %48 = tail call i32 (ptr, ptr, ...) %1(ptr noundef %2, ptr noundef nonnull @.str.11) #21
   %49 = getelementptr inbounds i8, ptr %0, i64 8
   call fastcc void @toGradString(ptr noundef %5, ptr noundef nonnull %49)
-  call fastcc void @agxbputc(ptr noundef %5, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %5, i8 noundef signext 0)
   %50 = getelementptr inbounds i8, ptr %5, i64 31
   %.val.i.i96 = load i8, ptr %50, align 1
   %.not.i.i97 = icmp eq i8 %.val.i.i96, -1
@@ -1294,7 +1294,7 @@ agxblen.exit40.i.i489:                            ; preds = %69
   br label %agxbuf_trim_zeros.exit.i404
 
 agxbuf_trim_zeros.exit.i404:                      ; preds = %52, %60, %83, %81, %77, %73, %agxblen.exit40.i.i489
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %.val.i.i13.i405 = load i8, ptr %35, align 1
   %.not.i.i14.i406 = icmp eq i8 %.val.i.i13.i405, -1
   br i1 %.not.i.i14.i406, label %86, label %agxbclear.exit.i.i407
@@ -1408,7 +1408,7 @@ agxblen.exit40.i33.i479:                          ; preds = %113
   br label %agxbuf_trim_zeros.exit39.i419
 
 agxbuf_trim_zeros.exit39.i419:                    ; preds = %96, %104, %127, %125, %121, %117, %agxblen.exit40.i33.i479
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %.val.i.i40.i420 = load i8, ptr %35, align 1
   %.not.i.i41.i421 = icmp eq i8 %.val.i.i40.i420, -1
   br i1 %.not.i.i41.i421, label %130, label %agxbclear.exit.i42.i422
@@ -1522,7 +1522,7 @@ agxblen.exit40.i62.i469:                          ; preds = %157
   br label %agxbuf_trim_zeros.exit68.i434
 
 agxbuf_trim_zeros.exit68.i434:                    ; preds = %140, %148, %171, %169, %165, %161, %agxblen.exit40.i62.i469
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %.val.i.i69.i435 = load i8, ptr %35, align 1
   %.not.i.i70.i436 = icmp eq i8 %.val.i.i69.i435, -1
   br i1 %.not.i.i70.i436, label %174, label %agxbclear.exit.i71.i437
@@ -1636,7 +1636,7 @@ agxblen.exit40.i91.i459:                          ; preds = %201
   br label %agxbuf_trim_zeros.exit97.i449
 
 agxbuf_trim_zeros.exit97.i449:                    ; preds = %184, %192, %215, %213, %209, %205, %agxblen.exit40.i91.i459
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %.val.i.i98.i450 = load i8, ptr %35, align 1
   %.not.i.i99.i451 = icmp eq i8 %.val.i.i98.i450, -1
   br i1 %.not.i.i99.i451, label %218, label %agxbclear.exit.i100.i452
@@ -1767,7 +1767,7 @@ agxblen.exit40.i.i385:                            ; preds = %248
   br label %agxbuf_trim_zeros.exit.i300
 
 agxbuf_trim_zeros.exit.i300:                      ; preds = %231, %239, %262, %260, %256, %252, %agxblen.exit40.i.i385
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %.val.i.i13.i301 = load i8, ptr %33, align 1
   %.not.i.i14.i302 = icmp eq i8 %.val.i.i13.i301, -1
   br i1 %.not.i.i14.i302, label %265, label %agxbclear.exit.i.i303
@@ -1881,7 +1881,7 @@ agxblen.exit40.i33.i375:                          ; preds = %292
   br label %agxbuf_trim_zeros.exit39.i315
 
 agxbuf_trim_zeros.exit39.i315:                    ; preds = %275, %283, %306, %304, %300, %296, %agxblen.exit40.i33.i375
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %.val.i.i40.i316 = load i8, ptr %33, align 1
   %.not.i.i41.i317 = icmp eq i8 %.val.i.i40.i316, -1
   br i1 %.not.i.i41.i317, label %309, label %agxbclear.exit.i42.i318
@@ -1995,7 +1995,7 @@ agxblen.exit40.i62.i365:                          ; preds = %336
   br label %agxbuf_trim_zeros.exit68.i330
 
 agxbuf_trim_zeros.exit68.i330:                    ; preds = %319, %327, %350, %348, %344, %340, %agxblen.exit40.i62.i365
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %.val.i.i69.i331 = load i8, ptr %33, align 1
   %.not.i.i70.i332 = icmp eq i8 %.val.i.i69.i331, -1
   br i1 %.not.i.i70.i332, label %353, label %agxbclear.exit.i71.i333
@@ -2109,7 +2109,7 @@ agxblen.exit40.i91.i355:                          ; preds = %380
   br label %agxbuf_trim_zeros.exit97.i345
 
 agxbuf_trim_zeros.exit97.i345:                    ; preds = %363, %371, %394, %392, %388, %384, %agxblen.exit40.i91.i355
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %.val.i.i98.i346 = load i8, ptr %33, align 1
   %.not.i.i99.i347 = icmp eq i8 %.val.i.i98.i346, -1
   br i1 %.not.i.i99.i347, label %397, label %agxbclear.exit.i100.i348
@@ -2254,7 +2254,7 @@ agxblen.exit40.i.i281:                            ; preds = %433
   br label %agxbuf_trim_zeros.exit.i245
 
 agxbuf_trim_zeros.exit.i245:                      ; preds = %416, %424, %447, %445, %441, %437, %agxblen.exit40.i.i281
-  call fastcc void @agxbputc(ptr noundef %5, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %5, i8 noundef signext 0)
   %.val.i.i14.i246 = load i8, ptr %31, align 1
   %.not.i.i15.i247 = icmp eq i8 %.val.i.i14.i246, -1
   br i1 %.not.i.i15.i247, label %450, label %agxbclear.exit.i.i248
@@ -2369,7 +2369,7 @@ agxblen.exit40.i34.i271:                          ; preds = %478
   br label %agxbuf_trim_zeros.exit40.i260
 
 agxbuf_trim_zeros.exit40.i260:                    ; preds = %461, %469, %492, %490, %486, %482, %agxblen.exit40.i34.i271
-  call fastcc void @agxbputc(ptr noundef %5, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %5, i8 noundef signext 0)
   %.val.i.i41.i261 = load i8, ptr %31, align 1
   %.not.i.i42.i262 = icmp eq i8 %.val.i.i41.i261, -1
   br i1 %.not.i.i42.i262, label %495, label %agxbclear.exit.i43.i263
@@ -2518,7 +2518,7 @@ agxblen.exit40.i.i223:                            ; preds = %533
   br label %agxbuf_trim_zeros.exit.i187
 
 agxbuf_trim_zeros.exit.i187:                      ; preds = %516, %524, %547, %545, %541, %537, %agxblen.exit40.i.i223
-  call fastcc void @agxbputc(ptr noundef %6, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %6, i8 noundef signext 0)
   %.val.i.i14.i188 = load i8, ptr %29, align 1
   %.not.i.i15.i189 = icmp eq i8 %.val.i.i14.i188, -1
   br i1 %.not.i.i15.i189, label %550, label %agxbclear.exit.i.i190
@@ -2633,7 +2633,7 @@ agxblen.exit40.i34.i213:                          ; preds = %578
   br label %agxbuf_trim_zeros.exit40.i202
 
 agxbuf_trim_zeros.exit40.i202:                    ; preds = %561, %569, %592, %590, %586, %582, %agxblen.exit40.i34.i213
-  call fastcc void @agxbputc(ptr noundef %6, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %6, i8 noundef signext 0)
   %.val.i.i41.i203 = load i8, ptr %29, align 1
   %.not.i.i42.i204 = icmp eq i8 %.val.i.i41.i203, -1
   br i1 %.not.i.i42.i204, label %595, label %agxbclear.exit.i43.i205
@@ -2782,7 +2782,7 @@ agxblen.exit40.i.i165:                            ; preds = %633
   br label %agxbuf_trim_zeros.exit.i129
 
 agxbuf_trim_zeros.exit.i129:                      ; preds = %616, %624, %647, %645, %641, %637, %agxblen.exit40.i.i165
-  call fastcc void @agxbputc(ptr noundef %7, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %7, i8 noundef signext 0)
   %.val.i.i14.i130 = load i8, ptr %27, align 1
   %.not.i.i15.i131 = icmp eq i8 %.val.i.i14.i130, -1
   br i1 %.not.i.i15.i131, label %650, label %agxbclear.exit.i.i132
@@ -2897,7 +2897,7 @@ agxblen.exit40.i34.i155:                          ; preds = %678
   br label %agxbuf_trim_zeros.exit40.i144
 
 agxbuf_trim_zeros.exit40.i144:                    ; preds = %661, %669, %692, %690, %686, %682, %agxblen.exit40.i34.i155
-  call fastcc void @agxbputc(ptr noundef %7, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %7, i8 noundef signext 0)
   %.val.i.i41.i145 = load i8, ptr %27, align 1
   %.not.i.i42.i146 = icmp eq i8 %.val.i.i41.i145, -1
   br i1 %.not.i.i42.i146, label %695, label %agxbclear.exit.i43.i147
@@ -3046,7 +3046,7 @@ agxblen.exit40.i.i107:                            ; preds = %733
   br label %agxbuf_trim_zeros.exit.i71
 
 agxbuf_trim_zeros.exit.i71:                       ; preds = %716, %724, %747, %745, %741, %737, %agxblen.exit40.i.i107
-  call fastcc void @agxbputc(ptr noundef %8, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %8, i8 noundef signext 0)
   %.val.i.i14.i72 = load i8, ptr %25, align 1
   %.not.i.i15.i73 = icmp eq i8 %.val.i.i14.i72, -1
   br i1 %.not.i.i15.i73, label %750, label %agxbclear.exit.i.i74
@@ -3161,7 +3161,7 @@ agxblen.exit40.i34.i97:                           ; preds = %778
   br label %agxbuf_trim_zeros.exit40.i86
 
 agxbuf_trim_zeros.exit40.i86:                     ; preds = %761, %769, %792, %790, %786, %782, %agxblen.exit40.i34.i97
-  call fastcc void @agxbputc(ptr noundef %8, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %8, i8 noundef signext 0)
   %.val.i.i41.i87 = load i8, ptr %25, align 1
   %.not.i.i42.i88 = icmp eq i8 %.val.i.i41.i87, -1
   br i1 %.not.i.i42.i88, label %795, label %agxbclear.exit.i43.i89
@@ -3207,7 +3207,7 @@ printPolyline.exit114:                            ; preds = %702, %._crit_edge.i
   %fputc508 = call i32 @fputc(i32 99, ptr %0)
   %808 = getelementptr inbounds i8, ptr %41, i64 8
   call fastcc void @toGradString(ptr noundef %12, ptr noundef nonnull readonly %808)
-  call fastcc void @agxbputc(ptr noundef %12, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 0)
   %.val.i.i.i = load i8, ptr %23, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   br i1 %.not.i.i.i, label %809, label %agxbclear.exit.i.i
@@ -3239,7 +3239,7 @@ agxbuse.exit.i:                                   ; preds = %809, %agxbclear.exi
   %fputc506 = call i32 @fputc(i32 67, ptr %0)
   %820 = getelementptr inbounds i8, ptr %41, i64 8
   call fastcc void @toGradString(ptr noundef %12, ptr noundef nonnull readonly %820)
-  call fastcc void @agxbputc(ptr noundef %12, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext 0)
   %.val.i.i96.i = load i8, ptr %23, align 1
   %.not.i.i97.i = icmp eq i8 %.val.i.i96.i, -1
   br i1 %.not.i.i97.i, label %821, label %agxbclear.exit.i98.i
@@ -3374,7 +3374,7 @@ agxblen.exit40.i.i50:                             ; preds = %857
   br label %agxbuf_trim_zeros.exit.i43
 
 agxbuf_trim_zeros.exit.i43:                       ; preds = %840, %848, %871, %869, %865, %861, %agxblen.exit40.i.i50
-  call fastcc void @agxbputc(ptr noundef %9, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %9, i8 noundef signext 0)
   %.val.i.i14.i = load i8, ptr %21, align 1
   %.not.i.i15.i = icmp eq i8 %.val.i.i14.i, -1
   br i1 %.not.i.i15.i, label %874, label %agxbclear.exit.i.i44
@@ -3489,7 +3489,7 @@ agxblen.exit40.i34.i:                             ; preds = %902
   br label %agxbuf_trim_zeros.exit40.i
 
 agxbuf_trim_zeros.exit40.i:                       ; preds = %885, %893, %916, %914, %910, %906, %agxblen.exit40.i34.i
-  call fastcc void @agxbputc(ptr noundef %9, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %9, i8 noundef signext 0)
   %.val.i.i41.i = load i8, ptr %21, align 1
   %.not.i.i42.i = icmp eq i8 %.val.i.i41.i, -1
   br i1 %.not.i.i42.i, label %919, label %agxbclear.exit.i43.i
@@ -3655,7 +3655,7 @@ agxblen.exit40.i.i25:                             ; preds = %972
   br label %agxbuf_trim_zeros.exit.i18
 
 agxbuf_trim_zeros.exit.i18:                       ; preds = %955, %963, %986, %984, %980, %976, %agxblen.exit40.i.i25
-  call fastcc void @agxbputc(ptr noundef %10, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %10, i8 noundef signext 0)
   %.val.i.i5.i = load i8, ptr %19, align 1
   %.not.i.i6.i = icmp eq i8 %.val.i.i5.i, -1
   br i1 %.not.i.i6.i, label %989, label %agxbuse.exit.i20
@@ -3795,7 +3795,7 @@ agxblen.exit40.i.i:                               ; preds = %1029
   br label %agxbuf_trim_zeros.exit.i
 
 agxbuf_trim_zeros.exit.i:                         ; preds = %1012, %1020, %1043, %1041, %1037, %1033, %agxblen.exit40.i.i
-  call fastcc void @agxbputc(ptr noundef %11, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %11, i8 noundef signext 0)
   %.val.i.i13.i = load i8, ptr %17, align 1
   %.not.i.i14.i = icmp eq i8 %.val.i.i13.i, -1
   br i1 %.not.i.i14.i, label %1046, label %agxbclear.exit.i.i5
@@ -3909,7 +3909,7 @@ agxblen.exit40.i33.i:                             ; preds = %1073
   br label %agxbuf_trim_zeros.exit39.i
 
 agxbuf_trim_zeros.exit39.i:                       ; preds = %1056, %1064, %1087, %1085, %1081, %1077, %agxblen.exit40.i33.i
-  call fastcc void @agxbputc(ptr noundef %11, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %11, i8 noundef signext 0)
   %.val.i.i40.i = load i8, ptr %17, align 1
   %.not.i.i41.i = icmp eq i8 %.val.i.i40.i, -1
   br i1 %.not.i.i41.i, label %1090, label %agxbclear.exit.i42.i
@@ -4023,7 +4023,7 @@ agxblen.exit40.i62.i:                             ; preds = %1117
   br label %agxbuf_trim_zeros.exit68.i
 
 agxbuf_trim_zeros.exit68.i:                       ; preds = %1100, %1108, %1131, %1129, %1125, %1121, %agxblen.exit40.i62.i
-  call fastcc void @agxbputc(ptr noundef %11, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %11, i8 noundef signext 0)
   %.val.i.i69.i = load i8, ptr %17, align 1
   %.not.i.i70.i = icmp eq i8 %.val.i.i69.i, -1
   br i1 %.not.i.i70.i, label %1134, label %agxbclear.exit.i71.i
@@ -4137,7 +4137,7 @@ agxblen.exit40.i91.i:                             ; preds = %1161
   br label %agxbuf_trim_zeros.exit97.i
 
 agxbuf_trim_zeros.exit97.i:                       ; preds = %1144, %1152, %1175, %1173, %1169, %1165, %agxblen.exit40.i91.i
-  call fastcc void @agxbputc(ptr noundef %11, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %11, i8 noundef signext 0)
   %.val.i.i98.i = load i8, ptr %17, align 1
   %.not.i.i99.i = icmp eq i8 %.val.i.i98.i, -1
   br i1 %.not.i.i99.i, label %1178, label %agxbclear.exit.i100.i
@@ -4478,7 +4478,7 @@ jsonString.exit.i:                                ; preds = %127
   %137 = call i64 @fwrite(ptr nonnull @.str.37, i64 7, i64 1, ptr %0)
   %138 = getelementptr inbounds i8, ptr %18, i64 8
   call fastcc void @toGradString(ptr noundef %4, ptr noundef nonnull %138)
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %.val.i.i.i = load i8, ptr %12, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   br i1 %.not.i.i.i, label %139, label %agxbclear.exit.i.i
@@ -4568,7 +4568,7 @@ jsonString.exit127.i:                             ; preds = %155
   %165 = call i64 @fwrite(ptr nonnull @.str.38, i64 7, i64 1, ptr %0)
   %166 = getelementptr inbounds i8, ptr %18, i64 8
   call fastcc void @toGradString(ptr noundef %4, ptr noundef nonnull %166)
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %.val.i.i128.i = load i8, ptr %12, align 1
   %.not.i.i129.i = icmp eq i8 %.val.i.i128.i, -1
   br i1 %.not.i.i129.i, label %167, label %agxbclear.exit.i130.i
@@ -4820,7 +4820,7 @@ agxblen.exit40.i.i:                               ; preds = %253
   br label %agxbuf_trim_zeros.exit.i
 
 agxbuf_trim_zeros.exit.i:                         ; preds = %236, %244, %267, %265, %261, %257, %agxblen.exit40.i.i
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %.val.i.i5.i = load i8, ptr %10, align 1
   %.not.i.i6.i = icmp eq i8 %.val.i.i5.i, -1
   br i1 %.not.i.i6.i, label %270, label %agxbuse.exit.i9
@@ -5994,7 +5994,7 @@ agxblen.exit.i:                                   ; preds = %15, %._crit_edge
   unreachable
 
 44:                                               ; preds = %._crit_edge
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %45 = load ptr, ptr %4, align 8
   br label %agxbdisown.exit
 
@@ -6211,7 +6211,7 @@ agxblen.exit40.i:                                 ; preds = %29
   br label %agxbuf_trim_zeros.exit
 
 agxbuf_trim_zeros.exit:                           ; preds = %12, %20, %agxblen.exit40.i, %33, %37, %41, %43
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %.val.i.i13 = load i8, ptr %6, align 1
   %.not.i.i14 = icmp eq i8 %.val.i.i13, -1
   br i1 %.not.i.i14, label %46, label %agxbclear.exit.i
@@ -6325,7 +6325,7 @@ agxblen.exit40.i33:                               ; preds = %74
   br label %agxbuf_trim_zeros.exit39
 
 agxbuf_trim_zeros.exit39:                         ; preds = %57, %65, %agxblen.exit40.i33, %78, %82, %86, %88
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %.val.i.i40 = load i8, ptr %6, align 1
   %.not.i.i41 = icmp eq i8 %.val.i.i40, -1
   br i1 %.not.i.i41, label %91, label %agxbclear.exit.i42
@@ -6439,7 +6439,7 @@ agxblen.exit40.i62:                               ; preds = %119
   br label %agxbuf_trim_zeros.exit68
 
 agxbuf_trim_zeros.exit68:                         ; preds = %102, %110, %agxblen.exit40.i62, %123, %127, %131, %133
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %.val.i.i69 = load i8, ptr %6, align 1
   %.not.i.i70 = icmp eq i8 %.val.i.i69, -1
   br i1 %.not.i.i70, label %136, label %agxbclear.exit.i71
@@ -6553,7 +6553,7 @@ agxblen.exit40.i91:                               ; preds = %164
   br label %agxbuf_trim_zeros.exit97
 
 agxbuf_trim_zeros.exit97:                         ; preds = %147, %155, %agxblen.exit40.i91, %168, %172, %176, %178
-  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
   %.val.i.i98 = load i8, ptr %6, align 1
   %.not.i.i99 = icmp eq i8 %.val.i.i98, -1
   br i1 %.not.i.i99, label %181, label %agxbclear.exit.i100
@@ -6699,7 +6699,7 @@ agxblen.exit40.i:                                 ; preds = %36
   br label %agxbuf_trim_zeros.exit
 
 agxbuf_trim_zeros.exit:                           ; preds = %19, %27, %agxblen.exit40.i, %40, %44, %48, %50
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %.val.i.i14 = load i8, ptr %9, align 1
   %.not.i.i15 = icmp eq i8 %.val.i.i14, -1
   br i1 %.not.i.i15, label %53, label %agxbclear.exit.i
@@ -6814,7 +6814,7 @@ agxblen.exit40.i34:                               ; preds = %82
   br label %agxbuf_trim_zeros.exit40
 
 agxbuf_trim_zeros.exit40:                         ; preds = %65, %73, %agxblen.exit40.i34, %86, %90, %94, %96
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %.val.i.i41 = load i8, ptr %9, align 1
   %.not.i.i42 = icmp eq i8 %.val.i.i41, -1
   br i1 %.not.i.i42, label %99, label %agxbclear.exit.i43
@@ -7031,7 +7031,7 @@ agxblen.exit40.i:                                 ; preds = %29
   br label %agxbuf_trim_zeros.exit
 
 agxbuf_trim_zeros.exit:                           ; preds = %12, %20, %agxblen.exit40.i, %33, %37, %41, %43
-  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
   %.val.i.i5 = load i8, ptr %6, align 1
   %.not.i.i6 = icmp eq i8 %.val.i.i5, -1
   br i1 %.not.i.i6, label %46, label %agxbclear.exit.i

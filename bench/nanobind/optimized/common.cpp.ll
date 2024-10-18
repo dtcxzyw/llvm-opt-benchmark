@@ -85,7 +85,7 @@ define void @_ZN8nanobind6detail5raiseEPKcz(ptr nocapture noundef readonly %0, .
   call fastcc void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias writable align 8 %3, i32 noundef 0, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %4 = call ptr @__cxa_allocate_exception(i64 24) #23
-  call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #23
+  call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #23
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8nanobind17builtin_exceptionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -185,7 +185,7 @@ define void @_ZN8nanobind6detail16raise_type_errorEPKcz(ptr nocapture noundef re
   call fastcc void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias writable align 8 %3, i32 noundef 5, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %4 = call ptr @__cxa_allocate_exception(i64 24) #23
-  call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #23
+  call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #23
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8nanobind17builtin_exceptionE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = getelementptr inbounds i8, ptr %3, i64 16

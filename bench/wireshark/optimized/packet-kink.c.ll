@@ -671,7 +671,7 @@ tailrecurse.backedge:                             ; preds = %45, %86, %121, %148
   %262 = tail call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %260, i32 noundef %233, i32 noundef %233) #5
   tail call void @add_new_data_source(ptr noundef %0, ptr noundef %262, ptr noundef nonnull @.str.83) #5
   %263 = load i32, ptr @ett_decrypt_kink_encrypt, align 4
-  %264 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %262, i32 noundef 0, i32 noundef %233, i32 noundef %263, ptr noundef null, ptr noundef nonnull @.str.84) #5
+  %264 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %262, i32 noundef 0, i32 noundef range(i32 -4, 65532) %233, i32 noundef %263, ptr noundef null, ptr noundef nonnull @.str.84) #5
   %265 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %262, i32 noundef 0) #5
   %266 = load i32, ptr @hf_kink_next_payload, align 4
   %267 = zext i8 %265 to i32

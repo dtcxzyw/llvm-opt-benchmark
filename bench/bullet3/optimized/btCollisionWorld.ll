@@ -498,7 +498,7 @@ if.then:                                          ; preds = %entry
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %0, ptr noundef %4)
   %m_worldTransform.i = getelementptr inbounds i8, ptr %collisionObject, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %trans, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %trans, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %collisionObject, i64 24
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %trans, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -620,7 +620,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit: ; preds = 
   %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %m_size.i, align 4
   %m_worldTransform.i = getelementptr inbounds i8, ptr %collisionObject, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %trans, ptr noundef nonnull align 4 dereferenceable(16) %m_worldTransform.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %trans, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %collisionObject, i64 24
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %trans, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -1344,17 +1344,17 @@ invoke.cont25:                                    ; preds = %if.then19
 lpad13:                                           ; preds = %invoke.cont25, %invoke.cont11
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %gjkConvexCaster) #20
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %gjkConvexCaster) #20
   br label %ehcleanup
 
 if.end39:                                         ; preds = %invoke.cont17, %invoke.cont25, %if.then19, %invoke.cont14
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %gjkConvexCaster) #20
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %subSimplexConvexCaster) #20
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %gjkConvexCaster) #20
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %subSimplexConvexCaster) #20
   br label %if.end184
 
 ehcleanup:                                        ; preds = %lpad13, %lpad10
   %.pn = phi { ptr, i32 } [ %18, %lpad13 ], [ %8, %lpad10 ]
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %subSimplexConvexCaster) #20
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %subSimplexConvexCaster) #20
   br label %ehcleanup185
 
 invoke.cont42:                                    ; preds = %invoke.cont4
@@ -1456,7 +1456,7 @@ if.then58:                                        ; preds = %invoke.cont52
   %59 = load ptr, ptr %m_collisionObject.i105, align 8
   %m_flags.i = getelementptr inbounds i8, ptr %resultCallback, i64 32
   %60 = load i32, ptr %m_flags.i, align 8
-  invoke void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr noundef nonnull align 8 dereferenceable(48) %rcb, ptr noundef nonnull align 4 dereferenceable(16) %rayFromLocal, ptr noundef nonnull align 4 dereferenceable(16) %rayToLocal, i32 noundef %60)
+  invoke void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr noundef nonnull align 8 dereferenceable(136) %rcb, ptr noundef nonnull align 4 dereferenceable(16) %rayFromLocal, ptr noundef nonnull align 4 dereferenceable(16) %rayToLocal, i32 noundef %60)
           to label %invoke.cont61 unwind label %lpad
 
 invoke.cont61:                                    ; preds = %if.then58
@@ -1468,7 +1468,7 @@ invoke.cont61:                                    ; preds = %if.then58
   %m_triangleMesh.i = getelementptr inbounds i8, ptr %rcb, i64 64
   store ptr %0, ptr %m_triangleMesh.i, align 8
   %m_colObjWorldTransform.i = getelementptr inbounds i8, ptr %rcb, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_colObjWorldTransform.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %1, i64 16, i1 false)
   %arrayidx8.i.i.i107 = getelementptr inbounds i8, ptr %rcb, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i107, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
   %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %rcb, i64 104
@@ -1483,13 +1483,13 @@ invoke.cont61:                                    ; preds = %if.then58
           to label %invoke.cont64 unwind label %lpad63
 
 invoke.cont64:                                    ; preds = %invoke.cont61
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rcb) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %rcb) #20
   br label %if.end184
 
 lpad63:                                           ; preds = %invoke.cont61
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rcb) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %rcb) #20
   br label %ehcleanup185
 
 if.then70:                                        ; preds = %invoke.cont52
@@ -1529,7 +1529,7 @@ invoke.cont81:                                    ; preds = %if.then70
   %67 = load ptr, ptr %m_collisionObject.i122, align 8
   %m_flags.i123 = getelementptr inbounds i8, ptr %resultCallback, i64 32
   %68 = load i32, ptr %m_flags.i123, align 8
-  invoke void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr noundef nonnull align 8 dereferenceable(48) %rcb84, ptr noundef nonnull align 4 dereferenceable(16) %rayFromLocalScaled, ptr noundef nonnull align 4 dereferenceable(16) %rayToLocalScaled, i32 noundef %68)
+  invoke void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr noundef nonnull align 8 dereferenceable(136) %rcb84, ptr noundef nonnull align 4 dereferenceable(16) %rayFromLocalScaled, ptr noundef nonnull align 4 dereferenceable(16) %rayToLocalScaled, i32 noundef %68)
           to label %invoke.cont87 unwind label %lpad
 
 invoke.cont87:                                    ; preds = %invoke.cont81
@@ -1541,7 +1541,7 @@ invoke.cont87:                                    ; preds = %invoke.cont81
   %m_triangleMesh.i126 = getelementptr inbounds i8, ptr %rcb84, i64 64
   store ptr %63, ptr %m_triangleMesh.i126, align 8
   %m_colObjWorldTransform.i127 = getelementptr inbounds i8, ptr %rcb84, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i127, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_colObjWorldTransform.i127, ptr noundef nonnull readonly align 4 dereferenceable(64) %1, i64 16, i1 false)
   %arrayidx8.i.i.i129 = getelementptr inbounds i8, ptr %rcb84, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i129, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
   %arrayidx12.i.i.i131 = getelementptr inbounds i8, ptr %rcb84, i64 104
@@ -1556,13 +1556,13 @@ invoke.cont87:                                    ; preds = %invoke.cont81
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %invoke.cont87
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rcb84) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %rcb84) #20
   br label %if.end184
 
 lpad90:                                           ; preds = %invoke.cont87
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rcb84) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %rcb84) #20
   br label %ehcleanup185
 
 if.else93:                                        ; preds = %invoke.cont52
@@ -1600,7 +1600,7 @@ invoke.cont112:                                   ; preds = %invoke.cont106
   %m_collisionObject.i138 = getelementptr inbounds i8, ptr %collisionObjectWrap, i64 16
   %78 = load ptr, ptr %m_collisionObject.i138, align 8
   %79 = load i32, ptr %m_flags94, align 8
-  invoke void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr noundef nonnull align 8 dereferenceable(48) %rcb115, ptr noundef nonnull align 4 dereferenceable(16) %rayFromLocal103, ptr noundef nonnull align 4 dereferenceable(16) %rayToLocal109, i32 noundef %79)
+  invoke void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr noundef nonnull align 8 dereferenceable(136) %rcb115, ptr noundef nonnull align 4 dereferenceable(16) %rayFromLocal103, ptr noundef nonnull align 4 dereferenceable(16) %rayToLocal109, i32 noundef %79)
           to label %invoke.cont118 unwind label %lpad
 
 invoke.cont118:                                   ; preds = %invoke.cont112
@@ -1612,7 +1612,7 @@ invoke.cont118:                                   ; preds = %invoke.cont112
   %m_triangleMesh.i142 = getelementptr inbounds i8, ptr %rcb115, i64 64
   store ptr %0, ptr %m_triangleMesh.i142, align 8
   %m_colObjWorldTransform.i143 = getelementptr inbounds i8, ptr %rcb115, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i143, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_colObjWorldTransform.i143, ptr noundef nonnull readonly align 4 dereferenceable(64) %1, i64 16, i1 false)
   %arrayidx8.i.i.i145 = getelementptr inbounds i8, ptr %rcb115, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i145, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
   %arrayidx12.i.i.i147 = getelementptr inbounds i8, ptr %rcb115, i64 104
@@ -1627,13 +1627,13 @@ invoke.cont118:                                   ; preds = %invoke.cont112
           to label %invoke.cont122 unwind label %lpad121
 
 invoke.cont122:                                   ; preds = %invoke.cont118
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rcb115) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %rcb115) #20
   br label %if.end184
 
 lpad121:                                          ; preds = %invoke.cont118
   %81 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rcb115) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %rcb115) #20
   br label %ehcleanup185
 
 invoke.cont136:                                   ; preds = %if.else93
@@ -1645,7 +1645,7 @@ invoke.cont136:                                   ; preds = %if.else93
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i101, ptr %83, align 8
   %m_collisionObject.i234 = getelementptr inbounds i8, ptr %collisionObjectWrap, i64 16
   %84 = load ptr, ptr %m_collisionObject.i234, align 8
-  invoke void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr noundef nonnull align 8 dereferenceable(48) %rcb139, ptr noundef nonnull align 4 dereferenceable(16) %rayFromLocal127, ptr noundef nonnull align 4 dereferenceable(16) %rayToLocal133, i32 noundef %71)
+  invoke void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr noundef nonnull align 8 dereferenceable(136) %rcb139, ptr noundef nonnull align 4 dereferenceable(16) %rayFromLocal127, ptr noundef nonnull align 4 dereferenceable(16) %rayToLocal133, i32 noundef %71)
           to label %invoke.cont142 unwind label %lpad
 
 invoke.cont142:                                   ; preds = %invoke.cont136
@@ -1657,7 +1657,7 @@ invoke.cont142:                                   ; preds = %invoke.cont136
   %m_triangleMesh.i238 = getelementptr inbounds i8, ptr %rcb139, i64 64
   store ptr %0, ptr %m_triangleMesh.i238, align 8
   %m_colObjWorldTransform.i239 = getelementptr inbounds i8, ptr %rcb139, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_colObjWorldTransform.i239, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_colObjWorldTransform.i239, ptr noundef nonnull readonly align 4 dereferenceable(64) %1, i64 16, i1 false)
   %arrayidx8.i.i.i241 = getelementptr inbounds i8, ptr %rcb139, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i241, ptr noundef nonnull readonly align 4 dereferenceable(16) %arrayidx3.i.i70, i64 16, i1 false)
   %arrayidx12.i.i.i243 = getelementptr inbounds i8, ptr %rcb139, i64 104
@@ -1761,13 +1761,13 @@ invoke.cont147:                                   ; preds = %if.then.i11.i261, %
           to label %invoke.cont150 unwind label %lpad145
 
 invoke.cont150:                                   ; preds = %invoke.cont147
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rcb139) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %rcb139) #20
   br label %if.end184
 
 lpad145:                                          ; preds = %invoke.cont147
   %99 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rcb139) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %rcb139) #20
   br label %ehcleanup185
 
 invoke.cont156:                                   ; preds = %invoke.cont42
@@ -1898,12 +1898,12 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %if.end184, label %for.body, !llvm.loop !17
 
 if.end184:                                        ; preds = %for.inc, %if.else175, %invoke.cont171, %invoke.cont91, %invoke.cont150, %invoke.cont122, %invoke.cont64, %invoke.cont156, %if.end39
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %pointShape) #20
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %pointShape) #20
   ret void
 
 ehcleanup185:                                     ; preds = %lpad166.loopexit, %lpad166.loopexit.split-lp, %lpad7, %ehcleanup, %lpad145, %lpad121, %lpad90, %lpad63, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %6, %lpad ], [ %62, %lpad63 ], [ %70, %lpad90 ], [ %81, %lpad121 ], [ %99, %lpad145 ], [ %.pn, %ehcleanup ], [ %7, %lpad7 ], [ %lpad.loopexit, %lpad166.loopexit ], [ %lpad.loopexit.split-lp, %lpad166.loopexit.split-lp ]
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %pointShape) #20
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %pointShape) #20
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -2044,7 +2044,7 @@ declare void @_ZN22btBvhTriangleMeshShape14performRaycastEP18btTriangleCallbackR
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN29BridgeTriangleRaycastCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #20
   ret void
 }
 
@@ -2056,7 +2056,7 @@ declare void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTriangleCallb
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN29BridgeTriangleRaycastCallbackD2E_0v(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #20
   ret void
 }
 
@@ -2666,11 +2666,11 @@ invoke.cont18:                                    ; preds = %if.then12
 lpad6:                                            ; preds = %invoke.cont18, %invoke.cont
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %convexCaster1) #20
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %convexCaster1) #20
   br label %eh.resume
 
 if.end30:                                         ; preds = %invoke.cont10, %invoke.cont18, %if.then12, %invoke.cont7
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %convexCaster1) #20
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %convexCaster1) #20
   br label %if.end197
 
 if.else:                                          ; preds = %entry
@@ -2841,7 +2841,7 @@ if.then36:                                        ; preds = %if.then33
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %83 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef float %83(ptr noundef nonnull align 8 dereferenceable(36) %0)
-  call void @_ZN28btTriangleConvexcastCallbackC2EPK13btConvexShapeRK11btTransformS5_S5_f(ptr noundef nonnull align 8 dereferenceable(220) %tccb, ptr noundef %castShape, ptr noundef nonnull align 4 dereferenceable(64) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %convexToTrans, ptr noundef nonnull align 4 dereferenceable(64) %1, float noundef %call.i)
+  call void @_ZN28btTriangleConvexcastCallbackC2EPK13btConvexShapeRK11btTransformS5_S5_f(ptr noundef nonnull align 8 dereferenceable(248) %tccb, ptr noundef %castShape, ptr noundef nonnull align 4 dereferenceable(64) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %convexToTrans, ptr noundef nonnull align 4 dereferenceable(64) %1, float noundef %call.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfE32BridgeTriangleConvexcastCallback, i64 16), ptr %tccb, align 8
   %m_resultCallback.i = getelementptr inbounds i8, ptr %tccb, i64 224
   store ptr %resultCallback, ptr %m_resultCallback.i, align 8
@@ -2866,13 +2866,13 @@ invoke.cont56:                                    ; preds = %if.then36
           to label %invoke.cont57 unwind label %lpad51
 
 invoke.cont57:                                    ; preds = %invoke.cont56
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tccb) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %tccb) #20
   br label %if.end197
 
 lpad51:                                           ; preds = %invoke.cont56, %if.then36
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tccb) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %tccb) #20
   br label %eh.resume
 
 if.then62:                                        ; preds = %if.then33
@@ -2948,11 +2948,11 @@ invoke.cont87:                                    ; preds = %if.then81
 lpad73:                                           ; preds = %invoke.cont87, %if.then62
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %convexCaster167) #20
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %convexCaster167) #20
   br label %eh.resume
 
 if.end104:                                        ; preds = %invoke.cont78, %invoke.cont87, %if.then81, %invoke.cont74
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %convexCaster167) #20
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %convexCaster167) #20
   br label %if.end197
 
 if.else107:                                       ; preds = %if.then33
@@ -3101,7 +3101,7 @@ if.else107:                                       ; preds = %if.then33
   %vfn.i279 = getelementptr inbounds i8, ptr %vtable.i278, i64 96
   %163 = load ptr, ptr %vfn.i279, align 8
   %call.i280 = tail call noundef float %163(ptr noundef nonnull align 8 dereferenceable(36) %0)
-  call void @_ZN28btTriangleConvexcastCallbackC2EPK13btConvexShapeRK11btTransformS5_S5_f(ptr noundef nonnull align 8 dereferenceable(220) %tccb125, ptr noundef %castShape, ptr noundef nonnull align 4 dereferenceable(64) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %convexToTrans, ptr noundef nonnull align 4 dereferenceable(64) %1, float noundef %call.i280)
+  call void @_ZN28btTriangleConvexcastCallbackC2EPK13btConvexShapeRK11btTransformS5_S5_f(ptr noundef nonnull align 8 dereferenceable(248) %tccb125, ptr noundef %castShape, ptr noundef nonnull align 4 dereferenceable(64) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %convexToTrans, ptr noundef nonnull align 4 dereferenceable(64) %1, float noundef %call.i280)
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfE32BridgeTriangleConvexcastCallback_0, i64 16), ptr %tccb125, align 8
   %m_resultCallback.i281 = getelementptr inbounds i8, ptr %tccb125, i64 224
   store ptr %resultCallback, ptr %m_resultCallback.i281, align 8
@@ -3186,13 +3186,13 @@ _Z8btSetMinIfEvRT_RKS0_.exit6.i:                  ; preds = %if.then.i5.i, %_Z8b
           to label %invoke.cont146 unwind label %lpad131
 
 invoke.cont146:                                   ; preds = %_Z8btSetMinIfEvRT_RKS0_.exit6.i
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tccb125) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %tccb125) #20
   br label %if.end197
 
 lpad131:                                          ; preds = %_Z8btSetMinIfEvRT_RKS0_.exit6.i, %if.else107
   %179 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tccb125) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %tccb125) #20
   br label %eh.resume
 
 if.else150:                                       ; preds = %if.else
@@ -3616,7 +3616,7 @@ invoke.cont190:                                   ; preds = %invoke.cont190.lr.p
   %m_childShape.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %310, i64 %indvars.iv, i32 1
   %311 = load ptr, ptr %m_childShape.i, align 8
   %arrayidx.i.i489 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %310, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %childTrans, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i489, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %childTrans, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx.i.i489, i64 16, i1 false)
   %arrayidx6.i.i490 = getelementptr inbounds i8, ptr %arrayidx.i.i489, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i491, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i490, i64 16, i1 false)
   %arrayidx10.i.i492 = getelementptr inbounds i8, ptr %arrayidx.i.i489, i64 32
@@ -3658,7 +3658,7 @@ declare void @_ZN22btBvhTriangleMeshShape17performConvexcastEP18btTriangleCallba
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN32BridgeTriangleConvexcastCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) #20
   ret void
 }
 
@@ -3667,7 +3667,7 @@ declare void @_ZN27btContinuousConvexCollisionC1EPK13btConvexShapePK18btStaticPl
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN32BridgeTriangleConvexcastCallbackD2E_0v(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) #20
   ret void
 }
 
@@ -4249,7 +4249,7 @@ invoke.cont4:
   %R = alloca %class.btTransform, align 4
   %convexCB = alloca %struct.btSingleSweepCallback, align 8
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(16) %convexFromWorld, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %convexFromWorld, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %convexFromWorld, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %convexFromTrans, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -4259,7 +4259,7 @@ invoke.cont4:
   %m_origin.i = getelementptr inbounds i8, ptr %convexFromWorld, i64 48
   %m_origin3.i = getelementptr inbounds i8, ptr %convexFromTrans, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %convexToTrans, ptr noundef nonnull align 4 dereferenceable(16) %convexToWorld, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %convexToTrans, ptr noundef nonnull align 4 dereferenceable(64) %convexToWorld, i64 16, i1 false)
   %arrayidx5.i.i5 = getelementptr inbounds i8, ptr %convexToWorld, i64 16
   %arrayidx7.i.i6 = getelementptr inbounds i8, ptr %convexToTrans, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i6, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i5, i64 16, i1 false)
@@ -4305,7 +4305,7 @@ invoke.cont16:                                    ; preds = %invoke.cont4
   %arrayidx7.i6.i.i.i = getelementptr inbounds i8, ptr %R, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i6.i.i.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  invoke void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  invoke void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont16
@@ -4370,7 +4370,7 @@ invoke.cont21:                                    ; preds = %invoke.cont16
 invoke.cont22:                                    ; preds = %invoke.cont21
   store ptr getelementptr inbounds (i8, ptr @_ZTV21btSingleSweepCallback, i64 16), ptr %convexCB, align 8
   %m_convexFromTrans.i = getelementptr inbounds i8, ptr %convexCB, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_convexFromTrans.i, ptr noundef nonnull align 4 dereferenceable(16) %convexFromWorld, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_convexFromTrans.i, ptr noundef nonnull align 4 dereferenceable(64) %convexFromWorld, i64 16, i1 false)
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %convexCB, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
   %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %convexCB, i64 72
@@ -4378,7 +4378,7 @@ invoke.cont22:                                    ; preds = %invoke.cont21
   %m_origin.i.i23 = getelementptr inbounds i8, ptr %convexCB, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i23, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %m_convexToTrans.i = getelementptr inbounds i8, ptr %convexCB, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_convexToTrans.i, ptr noundef nonnull align 4 dereferenceable(16) %convexToWorld, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_convexToTrans.i, ptr noundef nonnull align 4 dereferenceable(64) %convexToWorld, i64 16, i1 false)
   %arrayidx8.i.i2.i = getelementptr inbounds i8, ptr %convexCB, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i2.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i5, i64 16, i1 false)
   %arrayidx12.i.i4.i = getelementptr inbounds i8, ptr %convexCB, i64 136
@@ -4580,7 +4580,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN16btManifoldResultC2EPK24btCollisionObjectWrapperS2_(ptr noundef nonnull align 8 dereferenceable(52) %contactPointResult, ptr noundef nonnull %obA, ptr noundef nonnull %obB)
+  call void @_ZN16btManifoldResultC2EPK24btCollisionObjectWrapperS2_(ptr noundef nonnull align 8 dereferenceable(64) %contactPointResult, ptr noundef nonnull %obA, ptr noundef nonnull %obB)
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btBridgedManifoldResult, i64 16), ptr %contactPointResult, align 8
   %m_resultCallback.i = getelementptr inbounds i8, ptr %contactPointResult, i64 56
   store ptr %resultCallback, ptr %m_resultCallback.i, align 8
@@ -4830,15 +4830,15 @@ sw.bb:                                            ; preds = %if.end
   %vtable.i = load ptr, ptr %shape, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %47 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef float %47(ptr noundef nonnull align 8 dereferenceable(72) %shape)
+  %call2.i = tail call noundef float %47(ptr noundef nonnull align 8 dereferenceable(80) %shape)
   %vtable4.i = load ptr, ptr %shape, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 96
   %48 = load ptr, ptr %vfn5.i, align 8
-  %call6.i = tail call noundef float %48(ptr noundef nonnull align 8 dereferenceable(72) %shape)
+  %call6.i = tail call noundef float %48(ptr noundef nonnull align 8 dereferenceable(80) %shape)
   %vtable8.i = load ptr, ptr %shape, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 96
   %49 = load ptr, ptr %vfn9.i, align 8
-  %call10.i = tail call noundef float %49(ptr noundef nonnull align 8 dereferenceable(72) %shape)
+  %call10.i = tail call noundef float %49(ptr noundef nonnull align 8 dereferenceable(80) %shape)
   %retval.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
   %add.i.i = fadd float %retval.sroa.0.0.vec.extract.i, %call2.i
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %add.i.i, i64 0
@@ -5061,15 +5061,15 @@ sw.bb80:                                          ; preds = %if.end
   %vtable.i172 = load ptr, ptr %shape, align 8
   %vfn.i173 = getelementptr inbounds i8, ptr %vtable.i172, i64 96
   %112 = load ptr, ptr %vfn.i173, align 8
-  %call2.i174 = tail call noundef float %112(ptr noundef nonnull align 8 dereferenceable(72) %shape)
+  %call2.i174 = tail call noundef float %112(ptr noundef nonnull align 8 dereferenceable(76) %shape)
   %vtable4.i175 = load ptr, ptr %shape, align 8
   %vfn5.i176 = getelementptr inbounds i8, ptr %vtable4.i175, i64 96
   %113 = load ptr, ptr %vfn5.i176, align 8
-  %call6.i177 = tail call noundef float %113(ptr noundef nonnull align 8 dereferenceable(72) %shape)
+  %call6.i177 = tail call noundef float %113(ptr noundef nonnull align 8 dereferenceable(76) %shape)
   %vtable8.i178 = load ptr, ptr %shape, align 8
   %vfn9.i179 = getelementptr inbounds i8, ptr %vtable8.i178, i64 96
   %114 = load ptr, ptr %vfn9.i179, align 8
-  %call10.i180 = tail call noundef float %114(ptr noundef nonnull align 8 dereferenceable(72) %shape)
+  %call10.i180 = tail call noundef float %114(ptr noundef nonnull align 8 dereferenceable(76) %shape)
   %retval.sroa.0.0.vec.extract.i181 = extractelement <2 x float> %retval.sroa.0.0.copyload.i169, i64 0
   %add.i.i182 = fadd float %retval.sroa.0.0.vec.extract.i181, %call2.i174
   %retval.sroa.0.0.vec.insert.i183 = insertelement <2 x float> poison, float %add.i.i182, i64 0
@@ -5499,7 +5499,7 @@ if.then227:                                       ; preds = %if.end225
   %m_color.i = getelementptr inbounds i8, ptr %drawCallback, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_color.i, ptr noundef nonnull align 4 dereferenceable(16) %color, i64 16, i1 false)
   %m_worldTrans.i = getelementptr inbounds i8, ptr %drawCallback, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTrans.i, ptr noundef nonnull align 4 dereferenceable(16) %worldTransform, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTrans.i, ptr noundef nonnull align 4 dereferenceable(64) %worldTransform, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %worldTransform, i64 16
   %arrayidx8.i.i.i392 = getelementptr inbounds i8, ptr %drawCallback, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i392, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
@@ -5517,7 +5517,7 @@ if.then227:                                       ; preds = %if.end225
 
 invoke.cont:                                      ; preds = %if.then227
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %252) #20
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %drawCallback) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %drawCallback) #20
   %.pr = load i32, ptr %m_shapeType.i, align 8
   br label %if.end239
 
@@ -5558,7 +5558,7 @@ if.then242:                                       ; preds = %if.end239
   %m_color.i403 = getelementptr inbounds i8, ptr %drawCallback251, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_color.i403, ptr noundef nonnull align 4 dereferenceable(16) %color, i64 16, i1 false)
   %m_worldTrans.i404 = getelementptr inbounds i8, ptr %drawCallback251, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTrans.i404, ptr noundef nonnull align 4 dereferenceable(16) %worldTransform, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTrans.i404, ptr noundef nonnull align 4 dereferenceable(64) %worldTransform, i64 16, i1 false)
   %arrayidx6.i.i.i405 = getelementptr inbounds i8, ptr %worldTransform, i64 16
   %arrayidx8.i.i.i406 = getelementptr inbounds i8, ptr %drawCallback251, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i406, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i405, i64 16, i1 false)
@@ -5578,7 +5578,7 @@ if.then242:                                       ; preds = %if.end239
 
 invoke.cont260:                                   ; preds = %if.then242
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %257) #20
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %drawCallback251) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %drawCallback251) #20
   br label %if.end262
 
 lpad255:                                          ; preds = %if.then242
@@ -5594,7 +5594,7 @@ eh.resume:                                        ; preds = %lpad255, %lpad
   %drawCallback251.sink = phi ptr [ %drawCallback251, %lpad255 ], [ %drawCallback, %lpad ]
   %.pn = phi { ptr, i32 } [ %260, %lpad255 ], [ %254, %lpad ]
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #20
-  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %drawCallback251.sink) #20
+  call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %drawCallback251.sink) #20
   resume { ptr, i32 } %.pn
 }
 
@@ -6768,7 +6768,7 @@ declare void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN29BridgeTriangleRaycastCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -6844,7 +6844,7 @@ declare void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN29BridgeTriangleRaycastCallbackD0E_0v(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -7065,7 +7065,7 @@ declare void @_ZN28btTriangleConvexcastCallbackC2EPK13btConvexShapeRK11btTransfo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN32BridgeTriangleConvexcastCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -7113,7 +7113,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN32BridgeTriangleConvexcastCallbackD0E_0v(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -7175,7 +7175,7 @@ entry:
   %3 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %1 to i64
   %arrayidx.i.i = getelementptr inbounds %struct.btCompoundShapeChild, ptr %3, i64 %idxprom.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %childTrans, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %childTrans, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx.i.i, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %childTrans, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -7752,7 +7752,7 @@ if.then3:                                         ; preds = %if.end
 
 if.then15:                                        ; preds = %if.then3
   %11 = load ptr, ptr %m_resultCallback, align 8
-  call void @_ZN16btManifoldResultC2EPK24btCollisionObjectWrapperS2_(ptr noundef nonnull align 8 dereferenceable(52) %contactPointResult, ptr noundef nonnull %ob0, ptr noundef nonnull %ob1)
+  call void @_ZN16btManifoldResultC2EPK24btCollisionObjectWrapperS2_(ptr noundef nonnull align 8 dereferenceable(64) %contactPointResult, ptr noundef nonnull %ob0, ptr noundef nonnull %ob1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btBridgedManifoldResult, i64 16), ptr %contactPointResult, align 8
   %m_resultCallback.i = getelementptr inbounds i8, ptr %contactPointResult, i64 56
   store ptr %11, ptr %m_resultCallback.i, align 8
@@ -8036,7 +8036,7 @@ define linkonce_odr dso_local void @_ZN17DebugDrawcallbackD0Ev(ptr noundef nonnu
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -8246,7 +8246,7 @@ define linkonce_odr dso_local void @_ZThn8_N17DebugDrawcallbackD1Ev(ptr noundef 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #20
   ret void
 }
 
@@ -8255,8 +8255,8 @@ define linkonce_odr dso_local void @_ZThn8_N17DebugDrawcallbackD0Ev(ptr noundef 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
-  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(104) %0) #21
   ret void
 }
 

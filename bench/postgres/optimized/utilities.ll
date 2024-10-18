@@ -1560,7 +1560,7 @@ slice_check.exit.i:                               ; preds = %13
   br i1 %.not.i, label %slice_from_s.exit, label %18
 
 18:                                               ; preds = %slice_check.exit.i
-  %19 = tail call i32 @replace_s(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %7, i32 noundef 0, ptr noundef readonly null, ptr noundef null)
+  %19 = tail call i32 @replace_s(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %7, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %slice_from_s.exit
 
 slice_from_s.exit:                                ; preds = %1, %5, %9, %13, %slice_check.exit.i, %18

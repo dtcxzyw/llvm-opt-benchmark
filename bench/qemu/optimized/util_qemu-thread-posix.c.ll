@@ -1347,7 +1347,7 @@ for.body.i:                                       ; preds = %do.body1, %for.inc.
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %1, i1 true)
   %add.i = or disjoint i64 %2, %result.012.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 %nbits)
   br label %find_first_bit.exit

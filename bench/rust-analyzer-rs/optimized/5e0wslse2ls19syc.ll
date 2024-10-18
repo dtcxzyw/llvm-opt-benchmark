@@ -598,7 +598,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$std
 9:                                                ; preds = %4
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a7c581190760bcE.llvm.13721132488288449969"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #21
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a7c581190760bcE.llvm.13721132488288449969"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #21
           to label %13 unwind label %11
 
 11:                                               ; preds = %9
@@ -611,7 +611,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$std
   resume { ptr, i32 } %10
 
 "_ZN4core3ptr44drop_in_place$LT$stdx..thread..pool..Job$GT$17h881930626477ba03E.exit": ; preds = %4
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a7c581190760bcE.llvm.13721132488288449969"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a7c581190760bcE.llvm.13721132488288449969"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %14
 
 14:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$stdx..thread..pool..Job$GT$17h881930626477ba03E.exit", %1
@@ -1203,7 +1203,7 @@ _ZN17crossbeam_channel7channel9unbounded17h154918b71c0c2ad8E.exit: ; preds = %.n
 70:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !82
   store i8 0, ptr %51, align 8, !alias.scope !79, !noalias !86
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !noalias !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !noalias !86
   store i8 0, ptr %52, align 1, !alias.scope !79, !noalias !86
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -1301,7 +1301,7 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
 103:                                              ; preds = %93, %88, %84, %80, %76, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3b54ace2c8519debE.exit"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !101
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !noalias !106
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 40, i1 false), !noalias !106
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !101
   store i8 0, ptr %53, align 8, !noalias !101
   store i64 %.val24, ptr %6, align 8, !noalias !107
@@ -1363,7 +1363,7 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   br i1 %117, label %118, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19cef3b38cb75523E.exit"
 
 118:                                              ; preds = %114
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4b4c090f8541b90E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %115)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4b4c090f8541b90E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %115)
           to label %._crit_edge.i unwind label %119, !noalias !122
 
 ._crit_edge.i:                                    ; preds = %118

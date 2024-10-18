@@ -202,7 +202,7 @@ define void @_ZN3gmx20QuadraticSplineTableC2ESt16initializer_listINS_26Analytica
   %.051 = phi i1 [ false, %44 ], [ true, %42 ]
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #20
   br i1 %.051, label %49, label %332
@@ -256,7 +256,7 @@ define void @_ZN3gmx20QuadraticSplineTableC2ESt16initializer_listINS_26Analytica
   %.055 = phi i1 [ false, %57 ], [ true, %55 ]
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #20
   call void @_ZN3gmx14ToleranceErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #20
   br i1 %.055, label %62, label %332
@@ -421,7 +421,7 @@ define void @_ZN3gmx20QuadraticSplineTableC2ESt16initializer_listINS_26Analytica
   %.059 = phi i1 [ false, %117 ], [ true, %115 ]
   %121 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #20
   call void @_ZN3gmx14ToleranceErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #20
   br i1 %.059, label %122, label %332
@@ -522,7 +522,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit66.i:           ; preds = %.noexc151
 
 _ZNKSt8functionIFddEEclEd.exit.i:                 ; preds = %160
   %162 = load ptr, ptr %149, align 8
-  %163 = invoke noundef double %162(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %163 = invoke noundef double %162(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %.noexc87 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit140.thread
 
 .noexc87:                                         ; preds = %_ZNKSt8functionIFddEEclEd.exit.i
@@ -546,7 +546,7 @@ _ZNKSt8functionIFddEEclEd.exit.i:                 ; preds = %160
 
 _ZNKSt8functionIFddEEclEd.exit70.i:               ; preds = %.noexc87
   %174 = load ptr, ptr %151, align 8
-  %175 = invoke noundef double %174(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %175 = invoke noundef double %174(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %.noexc89 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit140.thread
 
 .noexc89:                                         ; preds = %_ZNKSt8functionIFddEEclEd.exit70.i
@@ -559,7 +559,7 @@ _ZNKSt8functionIFddEEclEd.exit70.i:               ; preds = %.noexc87
 
 _ZNKSt8functionIFddEEclEd.exit72.i:               ; preds = %.noexc89
   %177 = load ptr, ptr %151, align 8
-  %178 = invoke noundef double %177(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %178 = invoke noundef double %177(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %.noexc91 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit140.thread
 
 .noexc91:                                         ; preds = %_ZNKSt8functionIFddEEclEd.exit72.i
@@ -573,7 +573,7 @@ _ZNKSt8functionIFddEEclEd.exit72.i:               ; preds = %.noexc89
 
 _ZNKSt8functionIFddEEclEd.exit74.i:               ; preds = %.noexc91
   %181 = load ptr, ptr %151, align 8
-  %182 = invoke noundef double %181(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %182 = invoke noundef double %181(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc93 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit140.thread
 
 .noexc93:                                         ; preds = %_ZNKSt8functionIFddEEclEd.exit74.i
@@ -593,7 +593,7 @@ _ZNKSt8functionIFddEEclEd.exit74.i:               ; preds = %.noexc91
 
 _ZNKSt8functionIFddEEclEd.exit76.i:               ; preds = %.noexc93
   %184 = load ptr, ptr %151, align 8
-  %185 = invoke noundef double %184(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %185 = invoke noundef double %184(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %.noexc95 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit140.thread
 
 .noexc95:                                         ; preds = %_ZNKSt8functionIFddEEclEd.exit76.i
@@ -1140,7 +1140,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -1157,7 +1157,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -1262,7 +1262,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   ret void
 }
 
@@ -1458,7 +1458,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
 
 _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   ret void
 }
 
@@ -1551,7 +1551,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -2001,7 +2001,7 @@ define void @_ZN3gmx20QuadraticSplineTableC2ESt16initializer_listINS_25Numerical
   %.064 = phi i1 [ false, %46 ], [ true, %44 ]
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #20
   br i1 %.064, label %51, label %387
@@ -2055,7 +2055,7 @@ define void @_ZN3gmx20QuadraticSplineTableC2ESt16initializer_listINS_25Numerical
   %.071 = phi i1 [ false, %59 ], [ true, %57 ]
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   call void @_ZN3gmx14ToleranceErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #20
   br i1 %.071, label %64, label %387
@@ -2147,7 +2147,7 @@ define void @_ZN3gmx20QuadraticSplineTableC2ESt16initializer_listINS_25Numerical
   %90 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3gmx16GromacsExceptionE
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #20
   br i1 %.078, label %91, label %107
@@ -2209,7 +2209,7 @@ define void @_ZN3gmx20QuadraticSplineTableC2ESt16initializer_listINS_25Numerical
   %105 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3gmx16GromacsExceptionE
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #20
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #20
   br i1 %.075, label %106, label %107
@@ -2365,7 +2365,7 @@ define void @_ZN3gmx20QuadraticSplineTableC2ESt16initializer_listINS_25Numerical
   %.068 = phi i1 [ false, %157 ], [ true, %155 ]
   %161 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #20
   call void @_ZN3gmx14ToleranceErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #20
   br i1 %.068, label %162, label %387
@@ -2431,7 +2431,7 @@ define void @_ZN3gmx20QuadraticSplineTableC2ESt16initializer_listINS_25Numerical
   %174 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3gmx16GromacsExceptionE
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #20
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #20
   call void @_ZN3gmx14ToleranceErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #20
   br i1 %.040, label %175, label %_ZNSt6vectorIfSaIfEED2Ev.exit173
@@ -3166,7 +3166,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   ret void
 }
 

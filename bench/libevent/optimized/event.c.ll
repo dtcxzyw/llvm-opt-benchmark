@@ -2124,7 +2124,7 @@ if.then.i:                                        ; preds = %for.end
   br label %event_mm_free_.exit
 
 if.else.i:                                        ; preds = %for.end
-  tail call void @free(ptr noundef %20) #26
+  tail call void @free(ptr noundef nonnull %20) #26
   br label %event_mm_free_.exit
 
 event_mm_free_.exit:                              ; preds = %if.then.i, %if.else.i

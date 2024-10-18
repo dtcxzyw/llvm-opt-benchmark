@@ -1465,7 +1465,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdSkelTopologyC2Ev.exit: ; preds = %41
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %47)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %47)
           to label %.noexc unwind label %71
 
 .noexc:                                           ; preds = %46
@@ -1476,12 +1476,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdSkelTopologyC2Ev.exit: ; preds = %41
 49:                                               ; preds = %.noexc
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %47) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %47) #17
   br label %.body
 
 _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolderC2Ev.exit: ; preds = %.noexc
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %51)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %51)
           to label %.noexc16 unwind label %73
 
 .noexc16:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolderC2Ev.exit
@@ -1492,12 +1492,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolderC2Ev.
 53:                                               ; preds = %.noexc16
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %51) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %51) #17
   br label %.body17
 
 _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolderC2Ev.exit19: ; preds = %.noexc16
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %55)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %55)
           to label %.noexc20 unwind label %75
 
 .noexc20:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolderC2Ev.exit19
@@ -1508,7 +1508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolderC2Ev.
 57:                                               ; preds = %.noexc20
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %55) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %55) #17
   br label %.body21
 
 _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolderC2Ev.exit23: ; preds = %.noexc20
@@ -1562,13 +1562,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolderC2Ev.
 .body21:                                          ; preds = %57, %75
   %eh.lpad-body22 = phi { ptr, i32 } [ %76, %75 ], [ %58, %57 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %52) #17
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %51) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %51) #17
   br label %.body17
 
 .body17:                                          ; preds = %73, %53, %.body21
   %.pn = phi { ptr, i32 } [ %eh.lpad-body22, %.body21 ], [ %74, %73 ], [ %54, %53 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %48) #17
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %47) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %47) #17
   br label %.body
 
 .body:                                            ; preds = %71, %49, %.body17
@@ -1700,7 +1700,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev(
   br i1 %7, label %8, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
 
 8:                                                ; preds = %3
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull align 8 dereferenceable(15) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i unwind label %16
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %3, %8
@@ -2394,15 +2394,15 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDef
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #17
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #17
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2428,7 +2428,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDef
   br i1 %19, label %20, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
 
 20:                                               ; preds = %15
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull %.0.i.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull align 8 dereferenceable(15) %.0.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i unwind label %28
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %20, %15
@@ -2930,7 +2930,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition27GetJointLocalRest
 
 .critedge:                                        ; preds = %20, %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %30 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %29) #17
+  %30 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %29) #17
   %.not.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %31
 
@@ -3010,11 +3010,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfSpanINS_10GfMatrix4dEEC2INS_7VtArrayIS1_
 57:                                               ; preds = %.noexc15, %_ZN32pxrInternal_v0_24__pxrReserved__6TfSpanIKNS_10GfMatrix4dEEC2INS_7VtArrayIS1_EEEERKT_PNSt9enable_ifIXsr3std7is_sameINS7_10value_typeES1_EE5valueES7_E4typeE.exit, %.noexc13, %38, %34, %45, %_ZN32pxrInternal_v0_24__pxrReserved__6TfSpanINS_10GfMatrix4dEEC2INS_7VtArrayIS1_EEEERT_PNSt9enable_ifIXaantL_ZNSt17integral_constantIbLb0EE5valueEEsr3std7is_sameINS6_10value_typeES1_EE5valueES6_E4typeE.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelTopology4sizeEv.exit
   %58 = landingpad { ptr, i32 }
           cleanup
-  %59 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #17
+  %59 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %29) #17
   br label %65
 
 60:                                               ; preds = %51, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #17
+  %61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %29) #17
   br label %62
 
 62:                                               ; preds = %28, %60
@@ -3123,7 +3123,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %24 unwind label %25
 
 24:                                               ; preds = %21
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5)
           to label %.thread unwind label %25
 
 .thread:                                          ; preds = %24
@@ -3157,7 +3157,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 .critedge:                                        ; preds = %.thread, %33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %35 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %34) #17
+  %35 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %34) #17
   %.not.i.i11 = icmp eq i32 %35, 0
   br i1 %.not.i.i11, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %36
 
@@ -3237,11 +3237,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfSpanINS_10GfMatrix4fEEC2INS_7VtArrayIS1_
 62:                                               ; preds = %.noexc16, %_ZN32pxrInternal_v0_24__pxrReserved__6TfSpanIKNS_10GfMatrix4fEEC2INS_7VtArrayIS1_EEEERKT_PNSt9enable_ifIXsr3std7is_sameINS7_10value_typeES1_EE5valueES7_E4typeE.exit, %.noexc14, %43, %39, %50, %_ZN32pxrInternal_v0_24__pxrReserved__6TfSpanINS_10GfMatrix4fEEC2INS_7VtArrayIS1_EEEERT_PNSt9enable_ifIXaantL_ZNSt17integral_constantIbLb0EE5valueEEsr3std7is_sameINS6_10value_typeES1_EE5valueES6_E4typeE.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelTopology4sizeEv.exit
   %63 = landingpad { ptr, i32 }
           cleanup
-  %64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #17
+  %64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %34) #17
   br label %.body
 
 65:                                               ; preds = %56, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %66 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #17
+  %66 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %34) #17
   br label %67
 
 67:                                               ; preds = %33, %65
@@ -3349,7 +3349,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition27GetJointWorldBind
 
 .critedge:                                        ; preds = %19, %27
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %29 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %28) #17
+  %29 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %28) #17
   %.not.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %30
 
@@ -3388,11 +3388,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.critedge
 41:                                               ; preds = %33
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #17
+  %43 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %28) #17
   br label %49
 
 44:                                               ; preds = %35, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %45 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #17
+  %45 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %28) #17
   br label %46
 
 46:                                               ; preds = %27, %44
@@ -3508,7 +3508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %23 unwind label %24
 
 23:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5)
           to label %.thread unwind label %24
 
 .thread:                                          ; preds = %23
@@ -3542,7 +3542,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 .critedge:                                        ; preds = %.thread, %32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %34 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %33) #17
+  %34 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %33) #17
   %.not.i.i8 = icmp eq i32 %34, 0
   br i1 %.not.i.i8, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %35
 
@@ -3581,11 +3581,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.critedge
 46:                                               ; preds = %38
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #17
+  %48 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #17
   br label %.body
 
 49:                                               ; preds = %40, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #17
+  %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #17
   br label %51
 
 51:                                               ; preds = %32, %49
@@ -3714,7 +3714,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition27GetJointLocalRest
 
 .critedge:                                        ; preds = %19, %27
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %29 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %28) #17
+  %29 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %28) #17
   %.not.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %30
 
@@ -3753,11 +3753,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.critedge
 41:                                               ; preds = %33
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #17
+  %43 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %28) #17
   br label %49
 
 44:                                               ; preds = %35, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %45 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #17
+  %45 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %28) #17
   br label %46
 
 46:                                               ; preds = %27, %44
@@ -3846,7 +3846,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %23 unwind label %24
 
 23:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5)
           to label %.thread unwind label %24
 
 .thread:                                          ; preds = %23
@@ -3880,7 +3880,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 .critedge:                                        ; preds = %.thread, %32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %34 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %33) #17
+  %34 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %33) #17
   %.not.i.i8 = icmp eq i32 %34, 0
   br i1 %.not.i.i8, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %35
 
@@ -3919,11 +3919,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.critedge
 46:                                               ; preds = %38
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #17
+  %48 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #17
   br label %.body
 
 49:                                               ; preds = %40, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #17
+  %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #17
   br label %51
 
 51:                                               ; preds = %32, %49

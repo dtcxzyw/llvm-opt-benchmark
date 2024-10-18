@@ -2998,7 +2998,7 @@ define linkonce_odr hidden void @_ZNK7nanogui18AdvancedGridLayout6AnchorcvNSt7__
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %28
 
 .noexc2:                                          ; preds = %.noexc
@@ -3010,7 +3010,7 @@ define linkonce_odr hidden void @_ZNK7nanogui18AdvancedGridLayout6AnchorcvNSt7__
 26:                                               ; preds = %.noexc2
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -3049,7 +3049,7 @@ define linkonce_odr hidden void @_ZN7nanogui11GroupLayoutD2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui11GroupLayoutD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #18
+  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -3102,7 +3102,7 @@ _ZNSt6vectorIN7nanogui9AlignmentESaIS1_EED2Ev.exit.i: ; preds = %4, %2
   br i1 %5, label %_ZN7nanogui10GridLayoutD2Ev.exit, label %2
 
 _ZN7nanogui10GridLayoutD2Ev.exit:                 ; preds = %_ZNSt6vectorIN7nanogui9AlignmentESaIS1_EED2Ev.exit.i
-  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #18
+  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -3115,7 +3115,7 @@ define linkonce_odr hidden void @_ZN7nanogui9BoxLayoutD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui9BoxLayoutD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #18
+  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

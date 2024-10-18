@@ -1163,13 +1163,13 @@ get_length.exit359:                               ; preds = %258, %269, %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46)
   store i32 0, ptr %45, align 4
   store i32 0, ptr %46, align 4
-  call fastcc void @field_codepage(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %45, ptr noundef %46)
-  call fastcc void @field_clientId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %45, ptr noundef %46)
-  call fastcc void @field_reqFileId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %45, ptr noundef %46)
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %45, ptr noundef %46)
-  call fastcc void @field_username(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %45, ptr noundef %46)
-  call fastcc void @field_password(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %45, ptr noundef %46)
-  call fastcc void @field_smlVersion(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %45, ptr noundef %46)
+  call fastcc void @field_codepage(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %45, ptr noundef %46)
+  call fastcc void @field_clientId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %45, ptr noundef %46)
+  call fastcc void @field_reqFileId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %45, ptr noundef %46)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %45, ptr noundef %46)
+  call fastcc void @field_username(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %45, ptr noundef %46)
+  call fastcc void @field_password(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %45, ptr noundef %46)
+  call fastcc void @field_smlVersion(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %45, ptr noundef %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46)
   br label %.thread
@@ -1185,10 +1185,10 @@ get_length.exit359:                               ; preds = %258, %269, %274
   store ptr null, ptr %42, align 8
   store i32 0, ptr %43, align 4
   store i32 0, ptr %44, align 4
-  call fastcc void @field_codepage(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %43, ptr noundef %44)
-  call fastcc void @field_clientId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %43, ptr noundef %44)
-  call fastcc void @field_reqFileId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %43, ptr noundef %44)
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %43, ptr noundef %44)
+  call fastcc void @field_codepage(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %43, ptr noundef %44)
+  call fastcc void @field_clientId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %43, ptr noundef %44)
+  call fastcc void @field_reqFileId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %43, ptr noundef %44)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %43, ptr noundef %44)
   %.val.i = load i32, ptr %2, align 4
   store i32 0, ptr %43, align 4
   %293 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val.i) #5
@@ -1258,14 +1258,14 @@ get_length.exit.i:                                ; preds = %312, %307, %296
   %327 = load i32, ptr %2, align 4
   %328 = add i32 %327, 1
   store i32 %328, ptr %2, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %319, ptr noundef %2)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %319, ptr noundef nonnull %2)
   %329 = load ptr, ptr %42, align 8
   %330 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %329, ptr noundef %0, i32 noundef %330) #5
   br label %decode_PublicOpenRes.exit
 
 decode_PublicOpenRes.exit:                        ; preds = %321, %326
-  call fastcc void @field_smlVersion(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %43, ptr noundef %44)
+  call fastcc void @field_smlVersion(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %43, ptr noundef %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
@@ -1318,7 +1318,7 @@ decode_PublicOpenRes.exit:                        ; preds = %321, %326
   store ptr null, ptr %39, align 8
   store i32 0, ptr %40, align 4
   store i32 0, ptr %41, align 4
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
   %.val191.i = load i32, ptr %2, align 4
   store i32 0, ptr %40, align 4
   %344 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val191.i) #5
@@ -1377,11 +1377,11 @@ get_length.exit.i365:                             ; preds = %363, %358, %347
   %374 = load i32, ptr %2, align 4
   %375 = add i32 %374, 1
   store i32 %375, ptr %2, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %373, ptr noundef %2)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %373, ptr noundef nonnull %2)
   %376 = load ptr, ptr %33, align 8
   %377 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %376, ptr noundef %0, i32 noundef %377) #5
-  call fastcc void @field_regPeriod(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_regPeriod(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
   %.val190.i = load i32, ptr %2, align 4
   store i32 0, ptr %40, align 4
   %378 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val190.i) #5
@@ -1471,7 +1471,7 @@ get_length.exit197.i:                             ; preds = %397, %392, %381
 
 425:                                              ; preds = %425, %422
   %.0169265.i = phi i32 [ 0, %422 ], [ %426, %425 ]
-  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %407, ptr noundef %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %407, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
   %426 = add nuw i32 %.0169265.i, 1
   %exitcond.not.i = icmp eq i32 %426, %402
   br i1 %exitcond.not.i, label %427, label %425, !llvm.loop !6
@@ -1618,9 +1618,9 @@ get_length.exit209.i:                             ; preds = %496, %491, %480
   %507 = load i32, ptr %2, align 4
   %508 = add i32 %507, 1
   store i32 %508, ptr %2, align 4
-  call fastcc void @field_objName(ptr noundef %0, ptr noundef %506, ptr noundef %2, ptr noundef %40, ptr noundef %41)
-  call fastcc void @field_unit(ptr noundef %0, ptr noundef %506, ptr noundef %2, ptr noundef %40, ptr noundef %41)
-  call fastcc void @field_scaler(ptr noundef %0, ptr noundef %506, ptr noundef %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_objName(ptr noundef %0, ptr noundef %506, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_unit(ptr noundef %0, ptr noundef %506, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_scaler(ptr noundef %0, ptr noundef %506, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
   %509 = load ptr, ptr %38, align 8
   %510 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %509, ptr noundef %0, i32 noundef %510) #5
@@ -1824,11 +1824,11 @@ get_length.exit227.i:                             ; preds = %613, %608, %597
   %620 = load i32, ptr %2, align 4
   %621 = add i32 %620, 1
   store i32 %621, ptr %2, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %619, ptr noundef %2)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %619, ptr noundef nonnull %2)
   %622 = load ptr, ptr %33, align 8
   %623 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %622, ptr noundef %0, i32 noundef %623) #5
-  call fastcc void @field_status(ptr noundef %0, ptr noundef %591, ptr noundef %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_status(ptr noundef %0, ptr noundef %591, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
   %.val184.i = load i32, ptr %2, align 4
   %624 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val184.i) #5
   %625 = zext i8 %624 to i32
@@ -1967,8 +1967,8 @@ get_length.exit239.i:                             ; preds = %690, %685, %674
   %701 = load i32, ptr %2, align 4
   %702 = add i32 %701, 1
   store i32 %702, ptr %2, align 4
-  call fastcc void @sml_value(ptr noundef %0, ptr noundef %1, ptr noundef %700, ptr noundef %2, ptr noundef %40, ptr noundef %41)
-  call fastcc void @field_valueSignature(ptr noundef %0, ptr noundef %700, ptr noundef %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @sml_value(ptr noundef %0, ptr noundef %1, ptr noundef %700, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_valueSignature(ptr noundef %0, ptr noundef %700, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
   %703 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef null, ptr noundef %0, i32 noundef %703) #5
   %704 = add nuw i32 %.0281.i, 1
@@ -1979,7 +1979,7 @@ get_length.exit239.i:                             ; preds = %690, %685, %674
   %706 = load ptr, ptr %39, align 8
   %707 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %706, ptr noundef %0, i32 noundef %707) #5
-  call fastcc void @field_periodSignature(ptr noundef %0, ptr noundef %591, ptr noundef %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_periodSignature(ptr noundef %0, ptr noundef %591, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
   %708 = load ptr, ptr %36, align 8
   %709 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %708, ptr noundef %0, i32 noundef %709) #5
@@ -1991,7 +1991,7 @@ get_length.exit239.i:                             ; preds = %690, %685, %674
   %712 = load ptr, ptr %35, align 8
   %713 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %712, ptr noundef %0, i32 noundef %713) #5
-  call fastcc void @field_rawdata(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %40, ptr noundef %41)
+  call fastcc void @field_rawdata(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %40, ptr noundef %41)
   %.val.i367 = load i32, ptr %2, align 4
   %714 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val.i367) #5
   %715 = zext i8 %714 to i32
@@ -2105,7 +2105,7 @@ decode_GetProfilePackRes.exit:                    ; preds = %414, %419, %465, %4
   store ptr null, ptr %30, align 8
   store i32 0, ptr %31, align 4
   store i32 0, ptr %32, align 4
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
   %.val112.i = load i32, ptr %2, align 4
   store i32 0, ptr %31, align 4
   %764 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val112.i) #5
@@ -2160,11 +2160,11 @@ get_length.exit.i373:                             ; preds = %783, %778, %767
   %789 = load i32, ptr %2, align 4
   %790 = add i32 %789, 1
   store i32 %790, ptr %2, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %788, ptr noundef %2)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %788, ptr noundef nonnull %2)
   %791 = load ptr, ptr %27, align 8
   %792 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %791, ptr noundef %0, i32 noundef %792) #5
-  call fastcc void @field_regPeriod(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_regPeriod(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
   %.val111.i = load i32, ptr %2, align 4
   store i32 0, ptr %31, align 4
   %793 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val111.i) #5
@@ -2254,7 +2254,7 @@ get_length.exit118.i:                             ; preds = %812, %807, %796
 
 840:                                              ; preds = %840, %837
   %.0158.i = phi i32 [ 0, %837 ], [ %841, %840 ]
-  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %822, ptr noundef %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %822, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
   %841 = add nuw i32 %.0158.i, 1
   %exitcond.not.i375 = icmp eq i32 %841, %817
   br i1 %exitcond.not.i375, label %842, label %840, !llvm.loop !10
@@ -2332,14 +2332,14 @@ get_length.exit124.i:                             ; preds = %864, %859, %848
   %879 = load i32, ptr %2, align 4
   %880 = add i32 %879, 1
   store i32 %880, ptr %2, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %871, ptr noundef %2)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %871, ptr noundef nonnull %2)
   %881 = load ptr, ptr %27, align 8
   %882 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %881, ptr noundef %0, i32 noundef %882) #5
   br label %883
 
 883:                                              ; preds = %878, %873
-  call fastcc void @field_status(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_status(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
   %.val109.i = load i32, ptr %2, align 4
   %884 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val109.i) #5
   %885 = zext i8 %884 to i32
@@ -2475,11 +2475,11 @@ get_length.exit136.i:                             ; preds = %950, %945, %934
   %956 = load i32, ptr %2, align 4
   %957 = add i32 %956, 1
   store i32 %957, ptr %2, align 4
-  call fastcc void @field_objName(ptr noundef %0, ptr noundef %955, ptr noundef %2, ptr noundef %31, ptr noundef %32)
-  call fastcc void @field_unit(ptr noundef %0, ptr noundef %955, ptr noundef %2, ptr noundef %31, ptr noundef %32)
-  call fastcc void @field_scaler(ptr noundef %0, ptr noundef %955, ptr noundef %2, ptr noundef %31, ptr noundef %32)
-  call fastcc void @sml_value(ptr noundef %0, ptr noundef %1, ptr noundef %955, ptr noundef %2, ptr noundef %31, ptr noundef %32)
-  call fastcc void @field_valueSignature(ptr noundef %0, ptr noundef %955, ptr noundef %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_objName(ptr noundef %0, ptr noundef %955, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_unit(ptr noundef %0, ptr noundef %955, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_scaler(ptr noundef %0, ptr noundef %955, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @sml_value(ptr noundef %0, ptr noundef %1, ptr noundef %955, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_valueSignature(ptr noundef %0, ptr noundef %955, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
   %958 = load ptr, ptr %30, align 8
   %959 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %958, ptr noundef %0, i32 noundef %959) #5
@@ -2491,8 +2491,8 @@ get_length.exit136.i:                             ; preds = %950, %945, %934
   %962 = load ptr, ptr %29, align 8
   %963 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %962, ptr noundef %0, i32 noundef %963) #5
-  call fastcc void @field_rawdata(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %31, ptr noundef %32)
-  call fastcc void @field_periodSignature(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_rawdata(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
+  call fastcc void @field_periodSignature(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %31, ptr noundef %32)
   br label %decode_GetProfileListRes.exit
 
 decode_GetProfileListRes.exit:                    ; preds = %829, %834, %919, %924, %961
@@ -2516,9 +2516,9 @@ decode_GetProfileListRes.exit:                    ; preds = %829, %834, %919, %9
   store ptr null, ptr %24, align 8
   store i32 0, ptr %25, align 4
   store i32 0, ptr %26, align 4
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %25, ptr noundef %26)
-  call fastcc void @field_username(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %25, ptr noundef %26)
-  call fastcc void @field_password(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %25, ptr noundef %26)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %25, ptr noundef %26)
+  call fastcc void @field_username(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %25, ptr noundef %26)
+  call fastcc void @field_password(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %25, ptr noundef %26)
   %.val49.i = load i32, ptr %2, align 4
   store i32 0, ptr %25, align 4
   %967 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val49.i) #5
@@ -2608,7 +2608,7 @@ get_length.exit.i382:                             ; preds = %986, %981, %970
 
 1014:                                             ; preds = %1014, %1011
   %.064.i = phi i32 [ 0, %1011 ], [ %1015, %1014 ]
-  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %996, ptr noundef %2, ptr noundef %25, ptr noundef %26)
+  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %996, ptr noundef nonnull %2, ptr noundef %25, ptr noundef %26)
   %1015 = add nuw i32 %.064.i, 1
   %exitcond.not.i384 = icmp eq i32 %1015, %991
   br i1 %exitcond.not.i384, label %1016, label %1014, !llvm.loop !12
@@ -2706,7 +2706,7 @@ decode_GetProcParameterReq.exit:                  ; preds = %1003, %1008, %1058
   store ptr null, ptr %21, align 8
   store i32 0, ptr %22, align 4
   store i32 0, ptr %23, align 4
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %22, ptr noundef %23)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %23)
   %.val46.i = load i32, ptr %2, align 4
   store i32 0, ptr %22, align 4
   %1064 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val46.i) #5
@@ -2796,7 +2796,7 @@ get_length.exit.i391:                             ; preds = %1083, %1078, %1067
 
 1111:                                             ; preds = %1111, %1108
   %.057.i = phi i32 [ 0, %1108 ], [ %1112, %1111 ]
-  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1093, ptr noundef %2, ptr noundef %22, ptr noundef %23)
+  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1093, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %23)
   %1112 = add nuw i32 %.057.i, 1
   %exitcond.not.i393 = icmp eq i32 %1112, %1088
   br i1 %exitcond.not.i393, label %1113, label %1111, !llvm.loop !13
@@ -2881,7 +2881,7 @@ get_length.exit52.i:                              ; preds = %1135, %1130, %1119
   %1156 = load i32, ptr %2, align 4
   %1157 = add i32 %1156, %1139
   store i32 %1157, ptr %2, align 4
-  call fastcc void @child_tree(ptr noundef %0, ptr noundef %1, ptr noundef %1145, ptr noundef %2, ptr noundef %22, ptr noundef %23)
+  call fastcc void @child_tree(ptr noundef %0, ptr noundef %1, ptr noundef %1145, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %23)
   %1158 = load ptr, ptr %21, align 8
   %1159 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %1158, ptr noundef %0, i32 noundef %1159) #5
@@ -2908,9 +2908,9 @@ decode_GetProcParameterRes.exit:                  ; preds = %1100, %1105, %1152,
   store ptr null, ptr %17, align 8
   store i32 0, ptr %18, align 4
   store i32 0, ptr %19, align 4
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %18, ptr noundef %19)
-  call fastcc void @field_username(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %18, ptr noundef %19)
-  call fastcc void @field_password(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %18, ptr noundef %19)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %19)
+  call fastcc void @field_username(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %19)
+  call fastcc void @field_password(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %19)
   %.val52.i = load i32, ptr %2, align 4
   store i32 0, ptr %18, align 4
   %1163 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val52.i) #5
@@ -3000,7 +3000,7 @@ get_length.exit.i400:                             ; preds = %1182, %1177, %1166
 
 1210:                                             ; preds = %1210, %1207
   %.063.i = phi i32 [ 0, %1207 ], [ %1211, %1210 ]
-  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1192, ptr noundef %2, ptr noundef %18, ptr noundef %19)
+  call fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1192, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %19)
   %1211 = add nuw i32 %.063.i, 1
   %exitcond.not.i402 = icmp eq i32 %1211, %1187
   br i1 %exitcond.not.i402, label %1212, label %1210, !llvm.loop !14
@@ -3085,7 +3085,7 @@ get_length.exit58.i:                              ; preds = %1234, %1229, %1218
   %1255 = load i32, ptr %2, align 4
   %1256 = add i32 %1255, %1238
   store i32 %1256, ptr %2, align 4
-  call fastcc void @child_tree(ptr noundef %0, ptr noundef %1, ptr noundef %1244, ptr noundef %2, ptr noundef %18, ptr noundef %19)
+  call fastcc void @child_tree(ptr noundef %0, ptr noundef %1, ptr noundef %1244, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %19)
   %1257 = load ptr, ptr %17, align 8
   %1258 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %1257, ptr noundef %0, i32 noundef %1258) #5
@@ -3108,11 +3108,11 @@ decode_SetProcParameterReq.exit:                  ; preds = %1199, %1204, %1251,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   store i32 0, ptr %14, align 4
   store i32 0, ptr %15, align 4
-  call fastcc void @field_clientId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %14, ptr noundef %15)
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %14, ptr noundef %15)
-  call fastcc void @field_username(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %14, ptr noundef %15)
-  call fastcc void @field_password(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %14, ptr noundef %15)
-  call fastcc void @field_listName(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %14, ptr noundef %15)
+  call fastcc void @field_clientId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %14, ptr noundef %15)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %14, ptr noundef %15)
+  call fastcc void @field_username(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %14, ptr noundef %15)
+  call fastcc void @field_password(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %14, ptr noundef %15)
+  call fastcc void @field_listName(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %14, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %.thread
@@ -3131,9 +3131,9 @@ decode_SetProcParameterReq.exit:                  ; preds = %1199, %1204, %1251,
   store ptr null, ptr %10, align 8
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 4
-  call fastcc void @field_clientId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %12, ptr noundef %13)
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %12, ptr noundef %13)
-  call fastcc void @field_listName(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %12, ptr noundef %13)
+  call fastcc void @field_clientId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %12, ptr noundef %13)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %12, ptr noundef %13)
+  call fastcc void @field_listName(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %12, ptr noundef %13)
   %.val116.i = load i32, ptr %2, align 4
   %1265 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val116.i) #5
   %1266 = zext i8 %1265 to i32
@@ -3202,7 +3202,7 @@ get_length.exit.i409:                             ; preds = %1284, %1279, %1268
   %1299 = load i32, ptr %2, align 4
   %1300 = add i32 %1299, 1
   store i32 %1300, ptr %2, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %1291, ptr noundef %2)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %1291, ptr noundef nonnull %2)
   %1301 = load ptr, ptr %11, align 8
   %1302 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %1301, ptr noundef %0, i32 noundef %1302) #5
@@ -3346,8 +3346,8 @@ get_length.exit128.i:                             ; preds = %1370, %1365, %1354
   %1377 = load i32, ptr %2, align 4
   %1378 = add i32 %1377, %1373
   store i32 %1378, ptr %2, align 4
-  call fastcc void @field_objName(ptr noundef %0, ptr noundef %1376, ptr noundef %2, ptr noundef %12, ptr noundef %13)
-  call fastcc void @field_status(ptr noundef %0, ptr noundef %1376, ptr noundef %2, ptr noundef %12, ptr noundef %13)
+  call fastcc void @field_objName(ptr noundef %0, ptr noundef %1376, ptr noundef nonnull %2, ptr noundef %12, ptr noundef %13)
+  call fastcc void @field_status(ptr noundef %0, ptr noundef %1376, ptr noundef nonnull %2, ptr noundef %12, ptr noundef %13)
   %.val113.i = load i32, ptr %2, align 4
   store i32 0, ptr %12, align 4
   %1379 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val113.i) #5
@@ -3417,17 +3417,17 @@ get_length.exit134.i:                             ; preds = %1398, %1393, %1382
   %1413 = load i32, ptr %2, align 4
   %1414 = add i32 %1413, 1
   store i32 %1414, ptr %2, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %1405, ptr noundef %2)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %1405, ptr noundef nonnull %2)
   %1415 = load ptr, ptr %11, align 8
   %1416 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %1415, ptr noundef %0, i32 noundef %1416) #5
   br label %1417
 
 1417:                                             ; preds = %1412, %1407
-  call fastcc void @field_unit(ptr noundef %0, ptr noundef %1376, ptr noundef %2, ptr noundef %12, ptr noundef %13)
-  call fastcc void @field_scaler(ptr noundef %0, ptr noundef %1376, ptr noundef %2, ptr noundef %12, ptr noundef %13)
-  call fastcc void @sml_value(ptr noundef %0, ptr noundef %1, ptr noundef %1376, ptr noundef %2, ptr noundef %12, ptr noundef %13)
-  call fastcc void @field_valueSignature(ptr noundef %0, ptr noundef %1376, ptr noundef %2, ptr noundef %12, ptr noundef %13)
+  call fastcc void @field_unit(ptr noundef %0, ptr noundef %1376, ptr noundef nonnull %2, ptr noundef %12, ptr noundef %13)
+  call fastcc void @field_scaler(ptr noundef %0, ptr noundef %1376, ptr noundef nonnull %2, ptr noundef %12, ptr noundef %13)
+  call fastcc void @sml_value(ptr noundef %0, ptr noundef %1, ptr noundef %1376, ptr noundef nonnull %2, ptr noundef %12, ptr noundef %13)
+  call fastcc void @field_valueSignature(ptr noundef %0, ptr noundef %1376, ptr noundef nonnull %2, ptr noundef %12, ptr noundef %13)
   %1418 = load ptr, ptr %9, align 8
   %1419 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %1418, ptr noundef %0, i32 noundef %1419) #5
@@ -3566,7 +3566,7 @@ get_length.exit146.i:                             ; preds = %1484, %1479, %1463
   %1499 = load i32, ptr %2, align 4
   %1500 = add i32 %1499, 1
   store i32 %1500, ptr %2, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %1491, ptr noundef %2)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %1491, ptr noundef nonnull %2)
   %1501 = load ptr, ptr %11, align 8
   %1502 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %1501, ptr noundef %0, i32 noundef %1502) #5
@@ -3593,7 +3593,7 @@ decode_GetListRes.exit:                           ; preds = %1339, %1344, %1493,
   store ptr null, ptr %5, align 8
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
-  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef %2, ptr noundef %7, ptr noundef %8)
+  call fastcc void @field_serverId(ptr noundef %0, ptr noundef %284, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8)
   %.val58.i = load i32, ptr %2, align 4
   %1506 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val58.i) #5
   %1507 = zext i8 %1506 to i32
@@ -3833,7 +3833,7 @@ get_length.exit70.i:                              ; preds = %1622, %1617, %1606
   %1641 = load i32, ptr %2, align 4
   %1642 = add i32 %1641, %1626
   store i32 %1642, ptr %2, align 4
-  call fastcc void @child_tree(ptr noundef %0, ptr noundef %1, ptr noundef %1593, ptr noundef %2, ptr noundef %7, ptr noundef %8)
+  call fastcc void @child_tree(ptr noundef %0, ptr noundef %1, ptr noundef %1593, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8)
   %1643 = load ptr, ptr %5, align 8
   %1644 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %1643, ptr noundef %0, i32 noundef %1644) #5
@@ -6705,7 +6705,7 @@ get_length.exit:                                  ; preds = %19, %30, %38
   %78 = load i32, ptr %3, align 4
   %79 = add i32 %78, 1
   store i32 %79, ptr %3, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %77, ptr noundef %3)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %77, ptr noundef nonnull %3)
   %80 = load ptr, ptr %13, align 8
   %81 = load i32, ptr %3, align 4
   call void @proto_item_set_end(ptr noundef %80, ptr noundef %0, i32 noundef %81) #5
@@ -6730,11 +6730,11 @@ get_length.exit:                                  ; preds = %19, %30, %38
   %92 = load i32, ptr %3, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %3, align 4
-  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %91, ptr noundef %3)
+  call fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %91, ptr noundef nonnull %3)
   %94 = load ptr, ptr %10, align 8
   %95 = load i32, ptr %3, align 4
   call void @proto_item_set_end(ptr noundef %94, ptr noundef %0, i32 noundef %95) #5
-  call fastcc void @field_status(ptr noundef %0, ptr noundef %88, ptr noundef %3, ptr noundef %11, ptr noundef %12)
+  call fastcc void @field_status(ptr noundef %0, ptr noundef %88, ptr noundef nonnull %3, ptr noundef %11, ptr noundef %12)
   %.val.i.i.i = load i32, ptr %3, align 4
   %96 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val.i.i.i) #5
   %97 = zext i8 %96 to i32
@@ -6922,7 +6922,7 @@ sml_timestampedvalue_type.exit.i:                 ; preds = %147, %get_length.ex
   br label %get_length.exit.i.i49.i
 
 get_length.exit.i.i49.i:                          ; preds = %197, %192, %181
-  call fastcc void @field_scaler(ptr noundef %0, ptr noundef %175, ptr noundef %3, ptr noundef %7, ptr noundef %8)
+  call fastcc void @field_scaler(ptr noundef %0, ptr noundef %175, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %8)
   %.val.i.i50.i = load i32, ptr %3, align 4
   store i32 0, ptr %7, align 4
   %200 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.val.i.i50.i) #5
@@ -6971,7 +6971,7 @@ get_length.exit.i.i49.i:                          ; preds = %197, %192, %181
   br label %sml_cosem_scaler_unit_type.exit.i.i
 
 sml_cosem_scaler_unit_type.exit.i.i:              ; preds = %219, %214, %203
-  call fastcc void @field_unit(ptr noundef %0, ptr noundef %175, ptr noundef %3, ptr noundef %7, ptr noundef %8)
+  call fastcc void @field_unit(ptr noundef %0, ptr noundef %175, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %sml_cosemvalue_type.exit.i

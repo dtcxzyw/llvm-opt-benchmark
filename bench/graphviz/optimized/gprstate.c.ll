@@ -157,12 +157,12 @@ define void @addBindings(ptr nocapture noundef writeonly %0, ptr noundef readonl
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %.02030.lcssa, i64 noundef 16) #19
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef range(i64 1, 0) %.02030.lcssa, i64 noundef 16) #19
   tail call fastcc void @graphviz_exit() #20
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call noalias ptr @calloc(i64 noundef %.02030.lcssa, i64 noundef 16) #17
+  %15 = tail call noalias ptr @calloc(i64 noundef range(i64 1, 0) %.02030.lcssa, i64 noundef 16) #17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %gv_calloc.exit.preheader
 

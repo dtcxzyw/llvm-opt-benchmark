@@ -52,7 +52,7 @@ declare void @_ZN3net12HostPortPairC1Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12QuicServerIdC2ERKNS_12HostPortPairENS_11PrivacyModeE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(34) %host_port_pair, i32 noundef %privacy_mode) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %host_port_pair)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(34) %this, ptr noundef nonnull align 8 dereferenceable(34) %host_port_pair)
   %port_.i = getelementptr inbounds i8, ptr %this, i64 32
   %port_3.i = getelementptr inbounds i8, ptr %host_port_pair, i64 32
   %0 = load i16, ptr %port_3.i, align 8
@@ -85,7 +85,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12QuicServerIdD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #7
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(34) %this) #7
   ret void
 }
 
@@ -117,15 +117,15 @@ entry:
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #7
-  %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %other) #7
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(34) %this) #7
+  %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(34) %other) #7
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZNK3net12HostPortPair6EqualsERKS0_.exit
 
 land.rhs.i.i:                                     ; preds = %land.rhs
-  %call2.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #7
-  %call3.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %other) #7
-  %call4.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #7
+  %call2.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(34) %this) #7
+  %call3.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(34) %other) #7
+  %call4.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(34) %this) #7
   %cmp.i.i.i = icmp eq i64 %call4.i.i, 0
   br i1 %cmp.i.i.i, label %_ZNK3net12HostPortPair6EqualsERKS0_.exit, label %if.end.i.i.i
 
@@ -167,7 +167,7 @@ entry:
   br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZN3net12HostPortPairC1Ev(ptr noundef nonnull align 8 dereferenceable(34) %agg.result)
+  invoke void @_ZN3net12HostPortPairC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %agg.result)
           to label %_ZN3net12QuicServerIdC2Ev.exit unwind label %lpad
 
 _ZN3net12QuicServerIdC2Ev.exit:                   ; preds = %if.then
@@ -199,12 +199,12 @@ if.end.i.i:                                       ; preds = %invoke.cont2
   %6 = load i32, ptr %path.i, align 8, !noalias !11
   %conv.i.i = sext i32 %6 to i64
   %conv3.i.i = zext nneg i32 %5 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %url, i64 noundef %conv.i.i, i64 noundef %conv3.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(120) %url, i64 noundef %conv.i.i, i64 noundef %conv3.i.i)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %if.then.i.i, %if.end.i.i
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str) #7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %agg.result, ptr noundef nonnull align 8 dereferenceable(34) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont5
@@ -217,7 +217,7 @@ invoke.cont9:                                     ; preds = %invoke.cont5
   %privacy_mode_.i3 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %cond, ptr %privacy_mode_.i3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(34) %ref.tmp) #7
   br label %cleanup
 
 lpad4:                                            ; preds = %if.end.i.i
@@ -233,7 +233,7 @@ lpad6:                                            ; preds = %invoke.cont5
 
 ehcleanup:                                        ; preds = %lpad6, %lpad4
   %.pn = phi { ptr, i32 } [ %9, %lpad6 ], [ %8, %lpad4 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(34) %ref.tmp) #7
   br label %ehcleanup10
 
 cleanup:                                          ; preds = %_ZN3net12QuicServerIdC2Ev.exit, %invoke.cont9
@@ -324,7 +324,7 @@ lor.rhs.i.i.i:                                    ; preds = %entry
   br i1 %cmp7.i.i.i, label %lor.rhs, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %lor.rhs.i.i.i
-  %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %land.rhs.i.i.i
@@ -339,7 +339,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %cmp.i.i.i.i.i, label %lor.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i
-  %call.i5.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %call.i5.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %0)
           to label %lor.rhs.i.i.i.i.lor.rhs_crit_edge unwind label %terminate.lpad.i6.i.i.i.i
 
 lor.rhs.i.i.i.i.lor.rhs_crit_edge:                ; preds = %lor.rhs.i.i.i.i
@@ -371,7 +371,7 @@ lor.rhs.i.i.i11:                                  ; preds = %lor.rhs
   br i1 %cmp7.i.i.i12, label %land.rhs, label %land.rhs.i.i.i13
 
 land.rhs.i.i.i13:                                 ; preds = %lor.rhs.i.i.i11
-  %call.i.i.i.i.i14 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %call.i.i.i.i.i14 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef nonnull align 8 dereferenceable(34) %10)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i16 unwind label %terminate.lpad.i.i.i.i.i15
 
 terminate.lpad.i.i.i.i.i15:                       ; preds = %land.rhs.i.i.i13
@@ -386,7 +386,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %cmp.i.i.i.i.i17, label %lor.end, label %lor.rhs.i.i.i.i18
 
 lor.rhs.i.i.i.i18:                                ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i16
-  %call.i5.i.i.i.i19 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %call.i5.i.i.i.i19 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(34) %11)
           to label %land.rhs unwind label %terminate.lpad.i6.i.i.i.i20
 
 terminate.lpad.i6.i.i.i.i20:                      ; preds = %lor.rhs.i.i.i.i18

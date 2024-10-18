@@ -703,7 +703,7 @@ _ZN4llvm26ScoreboardHazardRecognizer10ScoreboardD2Ev.exit.i: ; preds = %5, %1
   br label %_ZN4llvm26ScoreboardHazardRecognizerD2Ev.exit
 
 _ZN4llvm26ScoreboardHazardRecognizerD2Ev.exit:    ; preds = %_ZN4llvm26ScoreboardHazardRecognizer10ScoreboardD2Ev.exit.i, %9
-  tail call void @_ZN4llvm24ScheduleHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #10
+  tail call void @_ZN4llvm24ScheduleHazardRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #11
   ret void
 }

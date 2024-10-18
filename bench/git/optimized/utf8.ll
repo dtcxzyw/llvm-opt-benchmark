@@ -1729,12 +1729,12 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %ent
   br i1 %or.cond4.i, label %lor.rhs, label %has_bom_prefix.exit
 
 has_bom_prefix.exit:                              ; preds = %land.lhs.true
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_be_bom, i64 2)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_be_bom, i64 2)
   %tobool3.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool3.not.i.not, label %lor.end18, label %has_bom_prefix.exit17
 
 has_bom_prefix.exit17:                            ; preds = %has_bom_prefix.exit
-  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_le_bom, i64 2)
+  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_le_bom, i64 2)
   %tobool3.not.i15.not = icmp eq i32 %bcmp.i14, 0
   br i1 %tobool3.not.i15.not, label %lor.end18, label %lor.rhs
 
@@ -1755,12 +1755,12 @@ land.rhs:                                         ; preds = %lor.lhs.false10, %l
   br i1 %or.cond4.i20, label %lor.end18, label %has_bom_prefix.exit25
 
 has_bom_prefix.exit25:                            ; preds = %land.rhs
-  %bcmp.i22 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_be_bom, i64 4)
+  %bcmp.i22 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
   %tobool3.not.i23.not = icmp eq i32 %bcmp.i22, 0
   br i1 %tobool3.not.i23.not, label %lor.end18, label %land.rhs.i29
 
 land.rhs.i29:                                     ; preds = %has_bom_prefix.exit25
-  %bcmp.i30 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_le_bom, i64 4)
+  %bcmp.i30 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
   %tobool3.not.i31 = icmp eq i32 %bcmp.i30, 0
   %0 = zext i1 %tobool3.not.i31 to i32
   br label %lor.end18
@@ -1784,12 +1784,12 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond4.i, label %lor.end12, label %has_bom_prefix.exit
 
 has_bom_prefix.exit:                              ; preds = %land.lhs.true
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_be_bom, i64 2)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_be_bom, i64 2)
   %tobool3.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool3.not.i.not, label %lor.rhs, label %has_bom_prefix.exit15
 
 has_bom_prefix.exit15:                            ; preds = %has_bom_prefix.exit
-  %bcmp.i12 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull readonly dereferenceable(2) @utf16_le_bom, i64 2)
+  %bcmp.i12 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %data, ptr noundef nonnull dereferenceable(2) @utf16_le_bom, i64 2)
   %tobool3.not.i13.not = icmp eq i32 %bcmp.i12, 0
   br i1 %tobool3.not.i13.not, label %lor.rhs, label %lor.end12
 
@@ -1805,12 +1805,12 @@ land.rhs:                                         ; preds = %lor.rhs
   br i1 %or.cond4.i18, label %lor.end12, label %has_bom_prefix.exit23
 
 has_bom_prefix.exit23:                            ; preds = %land.rhs
-  %bcmp.i20 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_be_bom, i64 4)
+  %bcmp.i20 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
   %tobool3.not.i21.not = icmp eq i32 %bcmp.i20, 0
   br i1 %tobool3.not.i21.not, label %lor.end12, label %land.rhs.i27
 
 land.rhs.i27:                                     ; preds = %has_bom_prefix.exit23
-  %bcmp.i28 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull readonly dereferenceable(4) @utf32_le_bom, i64 4)
+  %bcmp.i28 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
   %tobool3.not.i29 = icmp ne i32 %bcmp.i28, 0
   %0 = zext i1 %tobool3.not.i29 to i32
   br label %lor.end12

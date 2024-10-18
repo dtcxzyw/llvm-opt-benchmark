@@ -377,7 +377,7 @@ define void @_ZThn16_N3zmq12wss_engine_tD0Ev(ptr noundef %this) unnamed_addr #7 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN3zmq12wss_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(25720) %0) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(25720) %0) #14
   ret void
 }
 
@@ -386,7 +386,7 @@ define void @_ZN3zmq12wss_engine_t13plug_internalEv(ptr noundef nonnull align 8 
 entry:
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %0 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
+  tail call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %0)
   tail call void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1689) %this)
   ret void
 }
@@ -423,7 +423,7 @@ entry:
   %call = tail call i32 @gnutls_handshake(ptr noundef %0)
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %1 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t13reset_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
+  tail call void @_ZN3zmq11io_object_t13reset_polloutEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %1)
   switch i32 %call, label %if.else12 [
     i32 0, label %if.then
     i32 -28, label %if.then3
@@ -445,7 +445,7 @@ if.then3:                                         ; preds = %entry
 
 if.then7:                                         ; preds = %if.then3
   %3 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %3)
+  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %3)
   br label %return
 
 if.else12:                                        ; preds = %entry

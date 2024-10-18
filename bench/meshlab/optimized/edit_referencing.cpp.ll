@@ -13148,7 +13148,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 60:                                               ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store double 1.000000e+00, ptr %3, align 8
-  call void @_ZN5Eigen8internal24selfadjoint_product_implINS_5BlockINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEELi17ELb0ENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS3_IdLin1ELi1ELi0ELi4ELi1EEEEEKNS2_INS2_IS4_Li4ELi1ELb1EEELin1ELi1ELb0EEEEELi0ELb1EE3runINS2_INS3_IdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEEEvRT_RKS5_RKSJ_RKd(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(129) %25, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN5Eigen8internal24selfadjoint_product_implINS_5BlockINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEELi17ELb0ENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS3_IdLin1ELi1ELi0ELi4ELi1EEEEEKNS2_INS2_IS4_Li4ELi1ELb1EEELin1ELi1ELb0EEEEELi0ELb1EE3runINS2_INS3_IdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEEEvRT_RKS5_RKSJ_RKd(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef nonnull align 8 dereferenceable(129) %25, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %61 = load double, ptr %6, align 8
   %62 = fmul double %61, -5.000000e-01
@@ -16114,7 +16114,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit: ; preds = %_ZN
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELi4ELi4EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i.i: ; preds = %45
   %50 = shl i64 %48, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %14, i8 0, i64 %50, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 dereferenceable(144) %14, i8 0, i64 %50, i1 false)
   %.pre.i.i.i.i.i.i = load i64, ptr %46, align 16
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELi4ELi4EEEEC2INS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS1_IdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEEEELj6EEESA_Li0EEEEERKNS_9DenseBaseIT_EE.exit.i
 
@@ -16135,7 +16135,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELi4ELi4EEEEC2INS_7ProductIN
   %56 = getelementptr inbounds i8, ptr %12, i64 176
   %57 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %56, ptr %57, align 8
-  invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi6ELb1ELi1ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %.sroa.speculated37.i.i.i.i.i.i.i.i.i, i64 noundef %.sroa.838.56.copyload, i64 noundef %.sroa.342.0.copyload, ptr noundef nonnull %.sroa.041.0.copyload, i64 noundef 4, ptr noundef nonnull %.sroa.637.56.copyload, i64 noundef 4, ptr noundef nonnull %14, i64 noundef 1, i64 noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(40) %12)
+  invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi6ELb1ELi1ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %.sroa.speculated37.i.i.i.i.i.i.i.i.i, i64 noundef %.sroa.838.56.copyload, i64 noundef %.sroa.342.0.copyload, ptr noundef nonnull %.sroa.041.0.copyload, i64 noundef 4, ptr noundef nonnull %.sroa.637.56.copyload, i64 noundef 4, ptr noundef nonnull align 16 dereferenceable(144) %14, i64 noundef 1, i64 noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(40) %12)
           to label %58 unwind label %41
 
 58:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELi4ELi4EEEEC2INS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS1_IdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEEEELj6EEESA_Li0EEEEERKNS_9DenseBaseIT_EE.exit.i
@@ -16305,7 +16305,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELi4ELi4EEaSINS_7ProductINS_14TriangularViewIKNS_
   store ptr %119, ptr %120, align 8
   %121 = load i64, ptr %46, align 16
   %122 = load ptr, ptr %0, align 8
-  invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi5ELb1ELi0ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %.sroa.342.0.copyload, i64 noundef %114, i64 noundef %.sroa.speculated37.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %.sroa.041.0.copyload, i64 noundef 4, ptr noundef nonnull %14, i64 noundef %121, ptr noundef nonnull %122, i64 noundef 1, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
+  invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi5ELb1ELi0ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %.sroa.342.0.copyload, i64 noundef %114, i64 noundef %.sroa.speculated37.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %.sroa.041.0.copyload, i64 noundef 4, ptr noundef nonnull align 16 dereferenceable(144) %14, i64 noundef %121, ptr noundef nonnull %122, i64 noundef 1, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %123 unwind label %41
 
 123:                                              ; preds = %113
@@ -20151,7 +20151,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_product_implILi2ELb1ENS
   %13 = getelementptr inbounds i8, ptr %2, i64 136
   %14 = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %.sroa.speculated, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 24
@@ -21548,7 +21548,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_product_implILi1ELb1EKN
   %15 = load i64, ptr %14, align 8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %11, i64 %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %11, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 24

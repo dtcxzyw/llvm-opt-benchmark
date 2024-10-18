@@ -198,15 +198,15 @@ define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackIfE4
 
 _ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS7_EEEEEvRKT_.exit: ; preds = %2, %22
   %33 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %33, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackIfE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS6_EEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %0, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeIfEENS_12StdAllocatorIS6_EEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, i32 noundef 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %4, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 1, i32 noundef 0)
   ret void
 }
 
@@ -287,15 +287,15 @@ define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_
 _ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS9_EEEEEvRKT_.exit: ; preds = %2, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %26 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %26, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float2EE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %0, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, i32 noundef 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %4, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 1, i32 noundef 0)
   ret void
 }
 
@@ -376,15 +376,15 @@ define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_
 _ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS9_EEEEEvRKT_.exit: ; preds = %2, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %26 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %26, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float3EE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %0, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, i32 noundef 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %4, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 1, i32 noundef 0)
   ret void
 }
 
@@ -465,15 +465,15 @@ define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_
 _ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS9_EEEEEvRKT_.exit: ; preds = %2, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %26 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %26, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float4EE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %0, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, i32 noundef 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %4, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 1, i32 noundef 0)
   ret void
 }
 
@@ -554,15 +554,15 @@ define weak_odr dso_local void @_ZNK3ozz9animation7offline8internal8RawTrackINS_
 _ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS9_EEEEEvRKT_.exit: ; preds = %2, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %26 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %26, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %0, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS8_EEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, i32 noundef 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %4, i64 noundef 1, i32 noundef 0)
+  tail call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 1, i32 noundef 0)
   ret void
 }
 
@@ -1083,7 +1083,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %30, %.lr.ph.i.i
   %45 = call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull %3, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %46 = getelementptr inbounds i8, ptr %18, i64 8
-  call void @_ZN3ozz2io6ExternINS_4math6Float2EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %46, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_4math6Float2EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(8) %46, i64 noundef 1)
   %47 = add nuw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %47, %17
   br i1 %exitcond.not.i.i, label %_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4SaveERNS0_8OArchiveEPKS7_m.exit.i, label %.lr.ph.i.i, !llvm.loop !15
@@ -1171,7 +1171,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12
   %.sroa.0.0.insert.insert.i.i.i = call i32 @llvm.bswap.i32(i32 %46)
   %47 = select i1 %45, i32 %.sroa.0.0.insert.insert.i.i.i, i32 %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %7, i64 noundef 1, i32 noundef %47)
+  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef 1, i32 noundef %47)
   br label %48
 
 48:                                               ; preds = %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEE6resizeEm.exit, %37
@@ -1371,7 +1371,7 @@ _ZN3ozz2io8IArchiversERf.exit.i:                  ; preds = %38, %29
   store float %40, ptr %21, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %41 = getelementptr inbounds i8, ptr %13, i64 8
-  call void @_ZN3ozz2io6ExternINS_4math6Float2EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %41, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_4math6Float2EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(8) %41, i64 noundef 1, i32 noundef 0)
   %42 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %42, %12
   br i1 %exitcond.not.i, label %_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float2EEEE4LoadERNS0_8IArchiveEPS7_mj.exit, label %.lr.ph.i, !llvm.loop !18
@@ -1459,7 +1459,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %30, %.lr.ph.i.i
   %45 = call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull %3, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %46 = getelementptr inbounds i8, ptr %18, i64 8
-  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %46, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %46, i64 noundef 1)
   %47 = add nuw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %47, %17
   br i1 %exitcond.not.i.i, label %_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4SaveERNS0_8OArchiveEPKS7_m.exit.i, label %.lr.ph.i.i, !llvm.loop !20
@@ -1547,7 +1547,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12
   %.sroa.0.0.insert.insert.i.i.i = call i32 @llvm.bswap.i32(i32 %46)
   %47 = select i1 %45, i32 %.sroa.0.0.insert.insert.i.i.i, i32 %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %7, i64 noundef 1, i32 noundef %47)
+  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef 1, i32 noundef %47)
   br label %48
 
 48:                                               ; preds = %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEE6resizeEm.exit, %37
@@ -1747,7 +1747,7 @@ _ZN3ozz2io8IArchiversERf.exit.i:                  ; preds = %38, %29
   store float %40, ptr %21, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %41 = getelementptr inbounds i8, ptr %13, i64 8
-  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %41, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %41, i64 noundef 1, i32 noundef 0)
   %42 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %42, %12
   br i1 %exitcond.not.i, label %_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float3EEEE4LoadERNS0_8IArchiveEPS7_mj.exit, label %.lr.ph.i, !llvm.loop !23
@@ -1835,7 +1835,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %30, %.lr.ph.i.i
   %45 = call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull %3, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %46 = getelementptr inbounds i8, ptr %18, i64 8
-  call void @_ZN3ozz2io6ExternINS_4math6Float4EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %46, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_4math6Float4EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %46, i64 noundef 1)
   %47 = add nuw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %47, %17
   br i1 %exitcond.not.i.i, label %_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4SaveERNS0_8OArchiveEPKS7_m.exit.i, label %.lr.ph.i.i, !llvm.loop !25
@@ -1923,7 +1923,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12
   %.sroa.0.0.insert.insert.i.i.i = call i32 @llvm.bswap.i32(i32 %46)
   %47 = select i1 %45, i32 %.sroa.0.0.insert.insert.i.i.i, i32 %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %7, i64 noundef 1, i32 noundef %47)
+  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef 1, i32 noundef %47)
   br label %48
 
 48:                                               ; preds = %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEE6resizeEm.exit, %37
@@ -2123,7 +2123,7 @@ _ZN3ozz2io8IArchiversERf.exit.i:                  ; preds = %38, %29
   store float %40, ptr %21, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %41 = getelementptr inbounds i8, ptr %13, i64 8
-  call void @_ZN3ozz2io6ExternINS_4math6Float4EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %41, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_4math6Float4EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %41, i64 noundef 1, i32 noundef 0)
   %42 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %42, %12
   br i1 %exitcond.not.i, label %_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math6Float4EEEE4LoadERNS0_8IArchiveEPS7_mj.exit, label %.lr.ph.i, !llvm.loop !28
@@ -2211,7 +2211,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %30, %.lr.ph.i.i
   %45 = call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull %3, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %46 = getelementptr inbounds i8, ptr %18, i64 8
-  call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %46, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %46, i64 noundef 1)
   %47 = add nuw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %47, %17
   br i1 %exitcond.not.i.i, label %_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4SaveERNS0_8OArchiveEPKS7_m.exit.i, label %.lr.ph.i.i, !llvm.loop !30
@@ -2299,7 +2299,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
   %.sroa.0.0.insert.insert.i.i.i = call i32 @llvm.bswap.i32(i32 %46)
   %47 = select i1 %45, i32 %.sroa.0.0.insert.insert.i.i.i, i32 %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %7, i64 noundef 1, i32 noundef %47)
+  call void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEEEE4LoadERNS0_8IArchiveEPSB_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef 1, i32 noundef %47)
   br label %48
 
 48:                                               ; preds = %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEE6resizeEm.exit, %37
@@ -2499,7 +2499,7 @@ _ZN3ozz2io8IArchiversERf.exit.i:                  ; preds = %38, %29
   store float %40, ptr %21, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %41 = getelementptr inbounds i8, ptr %13, i64 8
-  call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %41, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %41, i64 noundef 1, i32 noundef 0)
   %42 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %42, %12
   br i1 %exitcond.not.i, label %_ZN3ozz2io6ExternINS_9animation7offline16RawTrackKeyframeINS_4math10QuaternionEEEE4LoadERNS0_8IArchiveEPS7_mj.exit, label %.lr.ph.i, !llvm.loop !33

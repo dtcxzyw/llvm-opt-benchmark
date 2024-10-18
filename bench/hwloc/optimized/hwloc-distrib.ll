@@ -380,37 +380,37 @@ sub_1.i:                                          ; preds = %58
 79:                                               ; preds = %75
   %80 = getelementptr inbounds i8, ptr %.0127388, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull readonly @.str.68, i64 noundef 3) #19
+  %82 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull @.str.68, i64 noundef 3) #19
   %.not.i.i = icmp eq i32 %82, 0
   br i1 %.not.i.i, label %hwloc_utils_parse_input_format.exit.i, label %83
 
 83:                                               ; preds = %79
-  %84 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull readonly @.str.69, i64 noundef 1) #19
+  %84 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull @.str.69, i64 noundef 1) #19
   %.not9.i.i = icmp eq i32 %84, 0
   br i1 %.not9.i.i, label %hwloc_utils_parse_input_format.exit.i, label %85
 
 85:                                               ; preds = %83
-  %86 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull readonly @.str.70, i64 noundef 1) #19
+  %86 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull @.str.70, i64 noundef 1) #19
   %.not10.i.i = icmp eq i32 %86, 0
   br i1 %.not10.i.i, label %hwloc_utils_parse_input_format.exit.i, label %87
 
 87:                                               ; preds = %85
-  %88 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull readonly @.str.71, i64 noundef 5) #19
+  %88 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull @.str.71, i64 noundef 5) #19
   %.not11.i.i = icmp eq i32 %88, 0
   br i1 %.not11.i.i, label %hwloc_utils_parse_input_format.exit.i, label %89
 
 89:                                               ; preds = %87
-  %90 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull readonly @.str.72, i64 noundef 1) #19
+  %90 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull @.str.72, i64 noundef 1) #19
   %.not12.i.i = icmp eq i32 %90, 0
   br i1 %.not12.i.i, label %hwloc_utils_parse_input_format.exit.i, label %91
 
 91:                                               ; preds = %89
-  %92 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull readonly @.str.73, i64 noundef 1) #19
+  %92 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull @.str.73, i64 noundef 1) #19
   %.not13.i.i = icmp eq i32 %92, 0
   br i1 %.not13.i.i, label %hwloc_utils_parse_input_format.exit.i, label %93
 
 93:                                               ; preds = %91
-  %94 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull readonly @.str.74, i64 noundef 1) #19
+  %94 = call i32 @strncasecmp(ptr noundef readonly %81, ptr noundef nonnull @.str.74, i64 noundef 1) #19
   %.not14.i.i = icmp eq i32 %94, 0
   br i1 %.not14.i.i, label %hwloc_utils_parse_input_format.exit.i, label %95
 
@@ -1067,7 +1067,7 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
 .split11.us.i:                                    ; preds = %51, %38
   %52 = load ptr, ptr @stderr, align 8
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.81, ptr noundef nonnull %24) #20
-  tail call fastcc void @hwloc_utils_parsing_flag_error(ptr noundef readonly @__const.hwloc_utils_parse_restrict_flags.possible_flags)
+  tail call fastcc void @hwloc_utils_parsing_flag_error(ptr noundef nonnull readonly @__const.hwloc_utils_parse_restrict_flags.possible_flags)
   br label %hwloc_utils_parse_flags.exit
 
 54:                                               ; preds = %51
@@ -1091,7 +1091,7 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
 60:                                               ; preds = %.split13.us.i
   %61 = load ptr, ptr @stderr, align 8
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.81, ptr noundef nonnull %24) #20
-  tail call fastcc void @hwloc_utils_parsing_flag_error(ptr noundef readonly @__const.hwloc_utils_parse_restrict_flags.possible_flags)
+  tail call fastcc void @hwloc_utils_parsing_flag_error(ptr noundef nonnull readonly @__const.hwloc_utils_parse_restrict_flags.possible_flags)
   br label %hwloc_utils_parse_flags.exit
 
 hwloc_utils_parse_flags.exit:                     ; preds = %.preheader.i, %22, %8, %._crit_edge.i, %.split11.us.i, %60

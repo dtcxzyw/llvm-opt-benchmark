@@ -1803,20 +1803,20 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br label %35
 
 23:                                               ; preds = %5
-  %24 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef %3, i32 noundef %4) #6
+  %24 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) #6
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
   %27 = load i32, ptr @hf_eap_identity, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #6
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, i32 noundef 0) #6
   %29 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_eap_identity_nonascii) #6
   br label %dissect_eap_identity_wlan.exit
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds i8, ptr %1, i64 408
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #6
+  %33 = tail call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, i32 noundef 0) #6
   %34 = tail call ptr @g_strsplit_set(ptr noundef %33, ptr noundef nonnull @.str.504, i32 noundef -1) #6
   br label %35
 
@@ -1860,7 +1860,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
 
 54:                                               ; preds = %53
   %55 = load i32, ptr @hf_eap_identity, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #6
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, i32 noundef 0) #6
   br label %dissect_eap_identity_wlan.exit
 
 57:                                               ; preds = %53
@@ -1904,7 +1904,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
 
 78:                                               ; preds = %74, %70, %67, %66
   %79 = load i32, ptr @hf_eap_identity, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #6
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, i32 noundef 0) #6
   br label %dissect_eap_identity_wlan.exit
 
 81:                                               ; preds = %74, %44
@@ -2001,7 +2001,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
 
 145:                                              ; preds = %81
   %146 = load i32, ptr @hf_eap_identity_full, align 4
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %146, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #6
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %146, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, i32 noundef 0) #6
   %148 = load i32, ptr @hf_eap_identity, align 4
   %149 = load ptr, ptr %.1205.i, align 8
   %150 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %149) #7
@@ -2740,7 +2740,7 @@ define internal fastcc void @dissect_eap_psk(ptr noundef %0, ptr noundef %1, ptr
   %34 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef 22, i32 noundef 16, i32 noundef 0) #6
   %35 = add nsw i32 %3, -33
   %36 = load i32, ptr @hf_eap_psk_pchannel, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %36, ptr noundef %1, i32 noundef 38, i32 noundef %35, i32 noundef 0) #6
+  %37 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %36, ptr noundef %1, i32 noundef 38, i32 noundef range(i32 -38, 65514) %35, i32 noundef 0) #6
   br label %44
 
 38:                                               ; preds = %4
@@ -2749,7 +2749,7 @@ define internal fastcc void @dissect_eap_psk(ptr noundef %0, ptr noundef %1, ptr
   %40 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef 6, i32 noundef 16, i32 noundef 0) #6
   %41 = add nsw i32 %3, -17
   %42 = load i32, ptr @hf_eap_psk_pchannel, align 4
-  %43 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %42, ptr noundef %1, i32 noundef 22, i32 noundef %41, i32 noundef 0) #6
+  %43 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %42, ptr noundef %1, i32 noundef 22, i32 noundef range(i32 -38, 65514) %41, i32 noundef 0) #6
   br label %44
 
 default.unreachable:                              ; preds = %4

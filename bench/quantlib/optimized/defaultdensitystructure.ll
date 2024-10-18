@@ -226,11 +226,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %vtable, i64 -32
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
-  tail call void @_ZN8QuantLib13TermStructure6updateEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
+  tail call void @_ZN8QuantLib13TermStructure6updateEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
   %vtable.i = load ptr, ptr %2, align 8, !tbaa !10
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %3 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(152) %2)
   %latestReference_.i = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i64, ptr %call.i, align 8, !tbaa !12
   %5 = load i64, ptr %latestReference_.i, align 8, !tbaa !12
@@ -1221,7 +1221,7 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %t, i1 noundef zeroext true)
+  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %t, i1 noundef zeroext true)
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !10
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %0 = load ptr, ptr %vfn.i, align 8

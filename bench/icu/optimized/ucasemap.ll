@@ -3010,7 +3010,7 @@ if.end264.i:                                      ; preds = %cond.end238.i, %if.
   %c.0193.i = phi i32 [ %conv.i, %if.then7.i ], [ %or176.i, %cond.end238.i ], [ %or.i, %if.then46.i ]
   store i32 %srcIndex.1213.i, ptr %cpStart265.i, align 4
   store i32 %srcIndex.2195.i, ptr %cpLimit.i, align 8
-  %call266.i = call i32 @ucase_toFullUpper_75(i32 noundef %c.0193.i, ptr noundef nonnull @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva, ptr noundef nonnull %csc, ptr noundef nonnull %s.i, i32 noundef %caseLocale)
+  %call266.i = call i32 @ucase_toFullUpper_75(i32 noundef %c.0193.i, ptr noundef nonnull @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva, ptr noundef nonnull %csc, ptr noundef nonnull %s.i, i32 noundef range(i32 5, 4) %caseLocale)
   %cmp267.i = icmp sgt i32 %call266.i, -1
   br i1 %cmp267.i, label %if.then268.i, label %if.end275.i
 

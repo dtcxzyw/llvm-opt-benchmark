@@ -249,7 +249,7 @@ define internal i32 @prte_grpcomm_base_close() #1 {
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %47 = phi ptr [ %49, %.lr.ph.i ], [ %46, %41 ]
   %.07.i = phi ptr [ %48, %.lr.ph.i ], [ %45, %41 ]
-  tail call void %47(ptr noundef %24) #10
+  tail call void %47(ptr noundef nonnull %24) #10
   %48 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not.i = icmp eq ptr %49, null
@@ -342,7 +342,7 @@ pmix_obj_run_destructors.exit47:                  ; preds = %.lr.ph.i44, %._crit
 .lr.ph.i51:                                       ; preds = %86, %.lr.ph.i51
   %92 = phi ptr [ %94, %.lr.ph.i51 ], [ %91, %86 ]
   %.07.i52 = phi ptr [ %93, %.lr.ph.i51 ], [ %90, %86 ]
-  tail call void %92(ptr noundef %69) #10
+  tail call void %92(ptr noundef nonnull %69) #10
   %93 = getelementptr inbounds i8, ptr %.07.i52, i64 8
   %94 = load ptr, ptr %93, align 8
   %.not.i53 = icmp eq ptr %94, null
@@ -620,7 +620,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 .lr.ph.i41:                                       ; preds = %58, %.lr.ph.i41
   %64 = phi ptr [ %66, %.lr.ph.i41 ], [ %63, %58 ]
   %.07.i42 = phi ptr [ %65, %.lr.ph.i41 ], [ %62, %58 ]
-  tail call void %64(ptr noundef %41) #10
+  tail call void %64(ptr noundef nonnull %41) #10
   %65 = getelementptr inbounds i8, ptr %.07.i42, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not.i43 = icmp eq ptr %66, null

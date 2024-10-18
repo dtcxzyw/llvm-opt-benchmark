@@ -1647,7 +1647,7 @@ define dso_local i64 @_ZNK5clang5NSAPI17getOrInitSelectorEN4llvm8ArrayRefINS1_9S
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %8, i64 noundef 4) #10
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %8, i64 noundef 4) #10
   %9 = getelementptr inbounds %"class.llvm::StringRef", ptr %1, i64 %2
   %.not11 = icmp eq i64 %2, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -1693,7 +1693,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.
   %30 = load ptr, ptr %5, align 8
   %31 = call i64 @_ZN5clang13SelectorTable11getSelectorEjPPKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %29, ptr noundef %30) #10
   store i64 %31, ptr %3, align 8
-  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
+  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #10
   %33 = load ptr, ptr %5, align 8
   %34 = icmp eq ptr %33, %8
   br i1 %34, label %_ZN4llvm11SmallVectorIPKN5clang14IdentifierInfoELj4EED2Ev.exit, label %35

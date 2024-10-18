@@ -208,7 +208,7 @@ define linkonce_odr void @_ZN7GaelMls5RIMLSI6CMeshOED0Ev(ptr noundef nonnull ali
   br label %_ZN7GaelMls5RIMLSI6CMeshOED2Ev.exit
 
 _ZN7GaelMls5RIMLSI6CMeshOED2Ev.exit:              ; preds = %1, %4
-  tail call void @_ZN7GaelMls10MlsSurfaceI6CMeshOED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #23
+  tail call void @_ZN7GaelMls10MlsSurfaceI6CMeshOED2Ev(ptr noundef nonnull align 8 dereferenceable(348) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

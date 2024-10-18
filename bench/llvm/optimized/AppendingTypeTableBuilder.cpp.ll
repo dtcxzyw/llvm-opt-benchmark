@@ -42,7 +42,7 @@ define dso_local void @_ZN4llvm8codeview25AppendingTypeTableBuilderC2ERNS_20Bump
   tail call void @_ZN4llvm8codeview20SimpleTypeSerializerC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 2) #10
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %6, i64 noundef 2) #10
   ret void
 }
 
@@ -52,7 +52,7 @@ declare void @_ZN4llvm8codeview20SimpleTypeSerializerC1Ev(ptr noundef nonnull al
 define dso_local void @_ZN4llvm8codeview25AppendingTypeTableBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm8codeview25AppendingTypeTableBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #10
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = icmp eq ptr %4, %5

@@ -574,7 +574,7 @@ define internal fastcc void @wcp(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 16:                                               ; preds = %._crit_edge
   %17 = sext i32 %0 to i64
-  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %17)
+  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef range(i64 -2147483648, 2147483648) %17)
   %.pre = load i32, ptr @flags, align 4
   br label %19
 
@@ -586,7 +586,7 @@ define internal fastcc void @wcp(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 22:                                               ; preds = %19
   %23 = sext i32 %1 to i64
-  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %23)
+  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef range(i64 -2147483648, 2147483648) %23)
   %.pre13 = load i32, ptr @flags, align 4
   br label %25
 
@@ -598,7 +598,7 @@ define internal fastcc void @wcp(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 28:                                               ; preds = %25
   %29 = sext i32 %2 to i64
-  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %29)
+  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef range(i64 -2147483648, 2147483648) %29)
   %.pre14 = load i32, ptr @flags, align 4
   br label %31
 
@@ -610,7 +610,7 @@ define internal fastcc void @wcp(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 34:                                               ; preds = %31
   %35 = sext i32 %3 to i64
-  %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %35)
+  %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef range(i64 -2147483648, 2147483648) %35)
   br label %37
 
 37:                                               ; preds = %34, %31

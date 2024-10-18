@@ -1309,7 +1309,7 @@ CreateVP8XChunk.exit:                             ; preds = %177, %179
   %204 = trunc i32 %203 to i8
   %205 = getelementptr inbounds i8, ptr %3, i64 9
   store i8 %204, ptr %205, align 1
-  %206 = call fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %80, ptr noundef %4, i32 noundef 1)
+  %206 = call fastcc i32 @MuxSet(ptr noundef nonnull %0, i32 noundef %80, ptr noundef %4, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not49 = icmp eq i32 %206, 1

@@ -550,7 +550,7 @@ define hidden void @_ZN22ThreadLocalAllocBuffer13make_parsableEv(ptr nocapture n
   br label %_ZN22ThreadLocalAllocBuffer6retireEP21ThreadLocalAllocStats.exit
 
 _ZN22ThreadLocalAllocBuffer6retireEP21ThreadLocalAllocStats.exit: ; preds = %9, %32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(116) %0, i8 0, i64 40, i1 false)
   br label %_ZN22ThreadLocalAllocBuffer13insert_fillerEv.exit
 
 37:                                               ; preds = %4
@@ -708,7 +708,7 @@ define hidden void @_ZN22ThreadLocalAllocBuffer24retire_before_allocationEv(ptr 
   br label %_ZN22ThreadLocalAllocBuffer13insert_fillerEv.exit.i
 
 _ZN22ThreadLocalAllocBuffer13insert_fillerEv.exit.i: ; preds = %37, %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(116) %0, i8 0, i64 40, i1 false)
   br label %_ZN22ThreadLocalAllocBuffer6retireEP21ThreadLocalAllocStats.exit
 
 _ZN22ThreadLocalAllocBuffer6retireEP21ThreadLocalAllocStats.exit: ; preds = %1, %_ZN22ThreadLocalAllocBuffer13insert_fillerEv.exit.i

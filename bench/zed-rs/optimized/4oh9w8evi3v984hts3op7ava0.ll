@@ -318,7 +318,7 @@ define hidden void @_ZN5audio6assets13SoundRegistry3get17hbb6b61378f730f06E(ptr 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf95f3b4b556a99caE.exit.i.i": ; preds = %.lr.ph.i.i
   %61 = getelementptr i8, ptr %59, i64 -48
   %.val4.i.i.i = load ptr, ptr %61, align 8, !noalias !92, !nonnull !17, !noundef !17
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %34, ptr nonnull readonly %.val4.i.i.i, i64 %35), !alias.scope !93, !noalias !100
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %.val4.i.i.i, i64 %35), !alias.scope !93, !noalias !100
   %62 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %62, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17ha522b97c2dd57036E.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf95f3b4b556a99caE.exit.thread.i.i"
 
@@ -504,7 +504,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %121, i64 32, i1 false), !noalias !119
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10), !noalias !119
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !124
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5a44943ef5d01882E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5a44943ef5d01882E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
           to label %.noexc81 unwind label %93
 
 .noexc81:                                         ; preds = %122
@@ -693,7 +693,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !169
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5a44943ef5d01882E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5a44943ef5d01882E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
   %189 = getelementptr inbounds i8, ptr %6, i64 8
   %190 = load i64, ptr %189, align 8, !range !14, !noalias !169, !noundef !17
   %191 = icmp eq i64 %190, 0
@@ -729,7 +729,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
 
 200:                                              ; preds = %99, %.thread127, %198
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !178
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5a44943ef5d01882E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5a44943ef5d01882E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
   %201 = getelementptr inbounds i8, ptr %5, i64 8
   %202 = load i64, ptr %201, align 8, !range !14, !noalias !178, !noundef !17
   %203 = icmp eq i64 %202, 0

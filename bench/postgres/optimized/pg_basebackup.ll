@@ -2515,7 +2515,7 @@ progress_update_filename.exit.i.i:                ; preds = %879, %868
 
 882:                                              ; preds = %progress_update_filename.exit.i.i
   call void @initPQExpBuffer(ptr noundef nonnull %6) #18
-  call fastcc void @ReceiveCopyData(ptr noundef %869, ptr noundef nonnull @ReceiveBackupManifestInMemoryChunk, ptr noundef %6)
+  call fastcc void @ReceiveCopyData(ptr noundef %869, ptr noundef nonnull @ReceiveBackupManifestInMemoryChunk, ptr noundef nonnull %6)
   %883 = load i64, ptr %828, align 8
   %884 = icmp eq i64 %883, 0
   br i1 %884, label %885, label %886

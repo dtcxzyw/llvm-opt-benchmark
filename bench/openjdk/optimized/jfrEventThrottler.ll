@@ -61,7 +61,7 @@ define hidden noundef zeroext i1 @_ZN17JfrEventThrottler6createEv() local_unname
   br label %9
 
 3:                                                ; preds = %0
-  tail call void @_ZN18JfrAdaptiveSamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %1) #9
+  tail call void @_ZN18JfrAdaptiveSamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(142) %1) #9
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17JfrEventThrottler, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = getelementptr inbounds i8, ptr %1, i64 136
@@ -124,7 +124,7 @@ define hidden void @_ZN17JfrEventThrottler9configureE10JfrEventIdll(i32 noundef 
   store i64 %2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 141
   store i8 1, ptr %9, align 1
-  tail call void @_ZN18JfrAdaptiveSampler11reconfigureEv(ptr noundef nonnull align 8 dereferenceable(76) %5) #9
+  tail call void @_ZN18JfrAdaptiveSampler11reconfigureEv(ptr noundef nonnull align 8 dereferenceable(142) %5) #9
   tail call void @_ZN6Thread11SpinReleaseEPVi(ptr noundef nonnull %6) #9
   br label %10
 
@@ -393,7 +393,7 @@ define linkonce_odr hidden void @_ZN17JfrEventThrottlerD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17JfrEventThrottlerD0Ev(ptr noundef nonnull align 8 dereferenceable(142) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN18JfrAdaptiveSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) #9
+  tail call void @_ZN18JfrAdaptiveSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(142) %0) #9
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %0, i64 noundef 144) #9
   ret void
 }

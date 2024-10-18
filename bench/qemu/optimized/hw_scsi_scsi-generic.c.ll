@@ -1905,11 +1905,11 @@ if.then8.i.i28:                                   ; preds = %if.then.i.i25
   %21 = load i64, ptr %_now.i.i18, align 8
   %tv_usec.i.i31 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
   %22 = load i64, ptr %tv_usec.i.i31, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i30, i64 noundef %21, i64 noundef %22, i32 noundef %or32) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i30, i64 noundef %21, i64 noundef %22, i32 noundef range(i32 0, 16777216) %or32) #14
   br label %trace_scsi_generic_write_complete_blocksize.exit
 
 if.else.i.i27:                                    ; preds = %if.then.i.i25
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %or32) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef range(i32 0, 16777216) %or32) #14
   br label %trace_scsi_generic_write_complete_blocksize.exit
 
 trace_scsi_generic_write_complete_blocksize.exit: ; preds = %if.then21, %land.lhs.true5.i.i22, %if.then8.i.i28, %if.else.i.i27

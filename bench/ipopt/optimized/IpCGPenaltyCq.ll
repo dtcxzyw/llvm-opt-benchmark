@@ -227,7 +227,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED2Ev(ptr noundef nonnull al
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.thread, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %13, %._crit_edge.thread ]
   %14 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #21
   %.not.i.i.i = icmp eq ptr %14, %.lcssa13
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !6
 
@@ -293,7 +293,7 @@ define void @_ZN5Ipopt11CGPenaltyCqD2Ev(ptr nocapture noundef nonnull align 8 de
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i ], [ %14, %._crit_edge.thread.i ]
   %15 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #21
   %.not.i.i.i.i = icmp eq ptr %15, %.lcssa13.i
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
@@ -353,7 +353,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit:             ; preds = %1, %._crit_edge.i, 
 .lr.ph.i.i.i.i16:                                 ; preds = %._crit_edge.thread.i13, %.lr.ph.i.i.i.i16
   %.09.i.i.i.i17 = phi ptr [ %29, %.lr.ph.i.i.i.i16 ], [ %28, %._crit_edge.thread.i13 ]
   %29 = load ptr, ptr %.09.i.i.i.i17, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i17) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i17) #21
   %.not.i.i.i.i18 = icmp eq ptr %29, %.lcssa13.i14
   br i1 %.not.i.i.i.i18, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i19, label %.lr.ph.i.i.i.i16, !llvm.loop !6
 
@@ -413,7 +413,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit20:           ; preds = %_ZN5Ipopt13CachedRe
 .lr.ph.i.i.i.i36:                                 ; preds = %._crit_edge.thread.i33, %.lr.ph.i.i.i.i36
   %.09.i.i.i.i37 = phi ptr [ %43, %.lr.ph.i.i.i.i36 ], [ %42, %._crit_edge.thread.i33 ]
   %43 = load ptr, ptr %.09.i.i.i.i37, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i37) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i37) #21
   %.not.i.i.i.i38 = icmp eq ptr %43, %.lcssa13.i34
   br i1 %.not.i.i.i.i38, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i39, label %.lr.ph.i.i.i.i36, !llvm.loop !6
 
@@ -473,7 +473,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit40:           ; preds = %_ZN5Ipopt13CachedRe
 .lr.ph.i.i.i.i56:                                 ; preds = %._crit_edge.thread.i53, %.lr.ph.i.i.i.i56
   %.09.i.i.i.i57 = phi ptr [ %57, %.lr.ph.i.i.i.i56 ], [ %56, %._crit_edge.thread.i53 ]
   %57 = load ptr, ptr %.09.i.i.i.i57, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i57) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i57) #21
   %.not.i.i.i.i58 = icmp eq ptr %57, %.lcssa13.i54
   br i1 %.not.i.i.i.i58, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i59, label %.lr.ph.i.i.i.i56, !llvm.loop !6
 
@@ -533,7 +533,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit60:           ; preds = %_ZN5Ipopt13CachedRe
 .lr.ph.i.i.i.i76:                                 ; preds = %._crit_edge.thread.i73, %.lr.ph.i.i.i.i76
   %.09.i.i.i.i77 = phi ptr [ %71, %.lr.ph.i.i.i.i76 ], [ %70, %._crit_edge.thread.i73 ]
   %71 = load ptr, ptr %.09.i.i.i.i77, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i77) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i77) #21
   %.not.i.i.i.i78 = icmp eq ptr %71, %.lcssa13.i74
   br i1 %.not.i.i.i.i78, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i79, label %.lr.ph.i.i.i.i76, !llvm.loop !6
 
@@ -593,7 +593,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit80:           ; preds = %_ZN5Ipopt13CachedRe
 .lr.ph.i.i.i.i96:                                 ; preds = %._crit_edge.thread.i93, %.lr.ph.i.i.i.i96
   %.09.i.i.i.i97 = phi ptr [ %85, %.lr.ph.i.i.i.i96 ], [ %84, %._crit_edge.thread.i93 ]
   %85 = load ptr, ptr %.09.i.i.i.i97, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i97) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i97) #21
   %.not.i.i.i.i98 = icmp eq ptr %85, %.lcssa13.i94
   br i1 %.not.i.i.i.i98, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i99, label %.lr.ph.i.i.i.i96, !llvm.loop !6
 
@@ -653,7 +653,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit100:          ; preds = %_ZN5Ipopt13CachedRe
 .lr.ph.i.i.i.i116:                                ; preds = %._crit_edge.thread.i113, %.lr.ph.i.i.i.i116
   %.09.i.i.i.i117 = phi ptr [ %99, %.lr.ph.i.i.i.i116 ], [ %98, %._crit_edge.thread.i113 ]
   %99 = load ptr, ptr %.09.i.i.i.i117, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i117) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i117) #21
   %.not.i.i.i.i118 = icmp eq ptr %99, %.lcssa13.i114
   br i1 %.not.i.i.i.i118, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i119, label %.lr.ph.i.i.i.i116, !llvm.loop !6
 
@@ -713,7 +713,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit120:          ; preds = %_ZN5Ipopt13CachedRe
 .lr.ph.i.i.i.i136:                                ; preds = %._crit_edge.thread.i133, %.lr.ph.i.i.i.i136
   %.09.i.i.i.i137 = phi ptr [ %113, %.lr.ph.i.i.i.i136 ], [ %112, %._crit_edge.thread.i133 ]
   %113 = load ptr, ptr %.09.i.i.i.i137, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i137) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i137) #21
   %.not.i.i.i.i138 = icmp eq ptr %113, %.lcssa13.i134
   br i1 %.not.i.i.i.i138, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i139, label %.lr.ph.i.i.i.i136, !llvm.loop !6
 
@@ -1681,7 +1681,7 @@ _ZNK5Ipopt13CachedResultsIdE25CleanupInvalidatedResultsEv.exit: ; preds = %23, %
   %66 = add i64 %62, -1
   store i64 %66, ptr %65, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #20
-  tail call void @_ZdlPv(ptr noundef %63) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %63) #21
   br label %67
 
 67:                                               ; preds = %45, %61, %34
@@ -2564,7 +2564,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 
 280:                                              ; preds = %263
   %281 = getelementptr inbounds i8, ptr %264, i64 64
-  %282 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %264, ptr noundef nonnull %storemerge.i.i100)
+  %282 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(205) %264, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i100)
           to label %.noexc118 unwind label %497
 
 .noexc118:                                        ; preds = %280
@@ -2579,7 +2579,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 
 .noexc119:                                        ; preds = %283
   store double %287, ptr %7, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %264, ptr noundef nonnull %storemerge.i.i100)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(205) %264, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i100)
           to label %.noexc120 unwind label %497
 
 .noexc120:                                        ; preds = %.noexc119, %.noexc118
@@ -2633,7 +2633,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i123:               ; preds = %.noexc127, %._crit_
 
 308:                                              ; preds = %291
   %309 = getelementptr inbounds i8, ptr %292, i64 64
-  %310 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %309, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %292, ptr noundef nonnull %storemerge.i.i111)
+  %310 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %309, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(205) %292, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i111)
           to label %.noexc128 unwind label %499
 
 .noexc128:                                        ; preds = %308
@@ -2648,7 +2648,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i123:               ; preds = %.noexc127, %._crit_
 
 .noexc129:                                        ; preds = %311
   store double %315, ptr %6, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %309, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %292, ptr noundef nonnull %storemerge.i.i111)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %309, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(205) %292, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i111)
           to label %.noexc130 unwind label %499
 
 .noexc130:                                        ; preds = %.noexc129, %.noexc128
@@ -2772,7 +2772,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i137:               ; preds = %.noexc141, %._crit_
 
 377:                                              ; preds = %360
   %378 = getelementptr inbounds i8, ptr %361, i64 64
-  %379 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %378, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %361, ptr noundef nonnull %storemerge.i.i59)
+  %379 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %378, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(205) %361, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i59)
           to label %.noexc142 unwind label %523
 
 .noexc142:                                        ; preds = %377
@@ -2787,7 +2787,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i137:               ; preds = %.noexc141, %._crit_
 
 .noexc143:                                        ; preds = %380
   store double %384, ptr %5, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %378, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %361, ptr noundef nonnull %storemerge.i.i59)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %378, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(205) %361, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i59)
           to label %.noexc144 unwind label %523
 
 .noexc144:                                        ; preds = %.noexc143, %.noexc142
@@ -2836,7 +2836,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i148:               ; preds = %.noexc152, %._crit_
 
 403:                                              ; preds = %386
   %404 = getelementptr inbounds i8, ptr %387, i64 64
-  %405 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %404, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %387, ptr noundef nonnull %storemerge.i.i78)
+  %405 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %404, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(205) %387, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i78)
           to label %.noexc153 unwind label %523
 
 .noexc153:                                        ; preds = %403
@@ -2851,7 +2851,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i148:               ; preds = %.noexc152, %._crit_
 
 .noexc154:                                        ; preds = %406
   store double %410, ptr %4, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %404, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %387, ptr noundef nonnull %storemerge.i.i78)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %404, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(205) %387, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i78)
           to label %.noexc155 unwind label %523
 
 .noexc155:                                        ; preds = %.noexc154, %.noexc153
@@ -2900,7 +2900,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i159:               ; preds = %.noexc163, %._crit_
 
 429:                                              ; preds = %412
   %430 = getelementptr inbounds i8, ptr %413, i64 64
-  %431 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %430, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %413, ptr noundef nonnull %storemerge.i.i69)
+  %431 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %430, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(205) %413, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i69)
           to label %.noexc164 unwind label %523
 
 .noexc164:                                        ; preds = %429
@@ -2915,7 +2915,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i159:               ; preds = %.noexc163, %._crit_
 
 .noexc165:                                        ; preds = %432
   store double %436, ptr %3, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %430, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %413, ptr noundef nonnull %storemerge.i.i69)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %430, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(205) %413, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i69)
           to label %.noexc166 unwind label %523
 
 .noexc166:                                        ; preds = %.noexc165, %.noexc164
@@ -2964,7 +2964,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i170:               ; preds = %.noexc174, %._crit_
 
 455:                                              ; preds = %438
   %456 = getelementptr inbounds i8, ptr %439, i64 64
-  %457 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %456, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %439, ptr noundef nonnull %storemerge.i.i89)
+  %457 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %456, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(205) %439, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i89)
           to label %.noexc175 unwind label %523
 
 .noexc175:                                        ; preds = %455
@@ -2979,7 +2979,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i170:               ; preds = %.noexc174, %._crit_
 
 .noexc176:                                        ; preds = %458
   store double %462, ptr %2, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %456, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %439, ptr noundef nonnull %storemerge.i.i89)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %456, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(205) %439, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i89)
           to label %.noexc177 unwind label %523
 
 .noexc177:                                        ; preds = %.noexc176, %.noexc175
@@ -3947,7 +3947,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 
 224:                                              ; preds = %207
   %225 = getelementptr inbounds i8, ptr %208, i64 64
-  %226 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %225, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %208, ptr noundef nonnull %storemerge.i.i72)
+  %226 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %225, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(205) %208, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i72)
           to label %.noexc90 unwind label %387
 
 .noexc90:                                         ; preds = %224
@@ -3962,7 +3962,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 
 .noexc91:                                         ; preds = %227
   store double %231, ptr %5, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %225, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %208, ptr noundef nonnull %storemerge.i.i72)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %225, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(205) %208, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i72)
           to label %.noexc92 unwind label %387
 
 .noexc92:                                         ; preds = %.noexc91, %.noexc90
@@ -4016,7 +4016,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i95:                ; preds = %.noexc99, %._crit_e
 
 252:                                              ; preds = %235
   %253 = getelementptr inbounds i8, ptr %236, i64 64
-  %254 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %236, ptr noundef nonnull %storemerge.i.i83)
+  %254 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(205) %236, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i83)
           to label %.noexc100 unwind label %389
 
 .noexc100:                                        ; preds = %252
@@ -4031,7 +4031,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i95:                ; preds = %.noexc99, %._crit_e
 
 .noexc101:                                        ; preds = %255
   store double %259, ptr %4, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %236, ptr noundef nonnull %storemerge.i.i83)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(205) %236, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i83)
           to label %.noexc102 unwind label %389
 
 .noexc102:                                        ; preds = %.noexc101, %.noexc100
@@ -4155,7 +4155,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i109:               ; preds = %.noexc113, %._crit_
 
 321:                                              ; preds = %304
   %322 = getelementptr inbounds i8, ptr %305, i64 64
-  %323 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %322, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %305, ptr noundef nonnull %storemerge.i.i52)
+  %323 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %322, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(205) %305, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i52)
           to label %.noexc114 unwind label %413
 
 .noexc114:                                        ; preds = %321
@@ -4170,7 +4170,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i109:               ; preds = %.noexc113, %._crit_
 
 .noexc115:                                        ; preds = %324
   store double %328, ptr %3, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %322, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %305, ptr noundef nonnull %storemerge.i.i52)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %322, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(205) %305, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i52)
           to label %.noexc116 unwind label %413
 
 .noexc116:                                        ; preds = %.noexc115, %.noexc114
@@ -4219,7 +4219,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i120:               ; preds = %.noexc124, %._crit_
 
 347:                                              ; preds = %330
   %348 = getelementptr inbounds i8, ptr %331, i64 64
-  %349 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %348, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %331, ptr noundef nonnull %storemerge.i.i62)
+  %349 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %348, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(205) %331, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i62)
           to label %.noexc125 unwind label %413
 
 .noexc125:                                        ; preds = %347
@@ -4234,7 +4234,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i120:               ; preds = %.noexc124, %._crit_
 
 .noexc126:                                        ; preds = %350
   store double %354, ptr %2, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %348, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %331, ptr noundef nonnull %storemerge.i.i62)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %348, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(205) %331, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i62)
           to label %.noexc127 unwind label %413
 
 .noexc127:                                        ; preds = %.noexc126, %.noexc125
@@ -5377,7 +5377,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 
 203:                                              ; preds = %186
   %204 = getelementptr inbounds i8, ptr %187, i64 64
-  %205 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %204, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %187, ptr noundef nonnull %storemerge.i.i)
+  %205 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %204, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(205) %187, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i)
           to label %.noexc84 unwind label %519
 
 .noexc84:                                         ; preds = %203
@@ -5392,7 +5392,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 
 .noexc85:                                         ; preds = %206
   store double %210, ptr %9, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %204, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %187, ptr noundef nonnull %storemerge.i.i)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %204, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(205) %187, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i)
           to label %.noexc86 unwind label %519
 
 .noexc86:                                         ; preds = %.noexc85, %.noexc84
@@ -5466,7 +5466,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i90:                ; preds = %.noexc94, %._crit_e
 
 241:                                              ; preds = %224
   %242 = getelementptr inbounds i8, ptr %225, i64 64
-  %243 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %225, ptr noundef nonnull %storemerge.i.i37)
+  %243 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(205) %225, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i37)
           to label %.noexc95 unwind label %531
 
 .noexc95:                                         ; preds = %241
@@ -5481,7 +5481,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i90:                ; preds = %.noexc94, %._crit_e
 
 .noexc96:                                         ; preds = %244
   store double %248, ptr %8, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %225, ptr noundef nonnull %storemerge.i.i37)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(205) %225, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i37)
           to label %.noexc97 unwind label %531
 
 .noexc97:                                         ; preds = %.noexc96, %.noexc95
@@ -5554,7 +5554,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i103:               ; preds = %.noexc107, %._crit_
 
 282:                                              ; preds = %261
   %283 = getelementptr inbounds i8, ptr %storemerge.i.i46, i64 64
-  %284 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %283, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %storemerge.i.i46, ptr noundef nonnull %storemerge.i.i66)
+  %284 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %283, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i46, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i66)
           to label %.noexc108 unwind label %517
 
 .noexc108:                                        ; preds = %282
@@ -5569,7 +5569,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i103:               ; preds = %.noexc107, %._crit_
 
 .noexc109:                                        ; preds = %285
   store double %289, ptr %7, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %283, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %storemerge.i.i46, ptr noundef nonnull %storemerge.i.i66)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %283, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i46, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i66)
           to label %.noexc110 unwind label %517
 
 .noexc110:                                        ; preds = %.noexc109, %.noexc108
@@ -5617,7 +5617,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i114:               ; preds = %.noexc118, %._crit_
 
 307:                                              ; preds = %291
   %308 = getelementptr inbounds i8, ptr %storemerge.i.i56, i64 64
-  %309 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %308, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %storemerge.i.i56, ptr noundef nonnull %storemerge.i.i77)
+  %309 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %308, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i56, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i77)
           to label %.noexc119 unwind label %517
 
 .noexc119:                                        ; preds = %307
@@ -5632,7 +5632,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i114:               ; preds = %.noexc118, %._crit_
 
 .noexc120:                                        ; preds = %310
   store double %314, ptr %6, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %308, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %storemerge.i.i56, ptr noundef nonnull %storemerge.i.i77)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %308, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i56, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i77)
           to label %.noexc121 unwind label %517
 
 .noexc121:                                        ; preds = %.noexc120, %.noexc119
@@ -5685,7 +5685,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i125:               ; preds = %.noexc129, %._crit_
 
 335:                                              ; preds = %318
   %336 = getelementptr inbounds i8, ptr %319, i64 64
-  %337 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %336, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %319, ptr noundef nonnull %storemerge.i.i46)
+  %337 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %336, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(205) %319, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i46)
           to label %.noexc130 unwind label %517
 
 .noexc130:                                        ; preds = %335
@@ -5700,7 +5700,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i125:               ; preds = %.noexc129, %._crit_
 
 .noexc131:                                        ; preds = %338
   store double %342, ptr %5, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %336, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %319, ptr noundef nonnull %storemerge.i.i46)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %336, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(205) %319, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i46)
           to label %.noexc132 unwind label %517
 
 .noexc132:                                        ; preds = %.noexc131, %.noexc130
@@ -5749,7 +5749,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i136:               ; preds = %.noexc140, %._crit_
 
 361:                                              ; preds = %344
   %362 = getelementptr inbounds i8, ptr %345, i64 64
-  %363 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %345, ptr noundef nonnull %storemerge.i.i56)
+  %363 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(205) %345, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i56)
           to label %.noexc141 unwind label %517
 
 .noexc141:                                        ; preds = %361
@@ -5764,7 +5764,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i136:               ; preds = %.noexc140, %._crit_
 
 .noexc142:                                        ; preds = %364
   store double %368, ptr %4, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %345, ptr noundef nonnull %storemerge.i.i56)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(205) %345, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i56)
           to label %.noexc143 unwind label %517
 
 .noexc143:                                        ; preds = %.noexc142, %.noexc141
@@ -5813,7 +5813,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i147:               ; preds = %.noexc151, %._crit_
 
 387:                                              ; preds = %370
   %388 = getelementptr inbounds i8, ptr %371, i64 64
-  %389 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %388, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %371, ptr noundef nonnull %storemerge.i.i66)
+  %389 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %388, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(205) %371, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i66)
           to label %.noexc152 unwind label %517
 
 .noexc152:                                        ; preds = %387
@@ -5828,7 +5828,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i147:               ; preds = %.noexc151, %._crit_
 
 .noexc153:                                        ; preds = %390
   store double %394, ptr %3, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %388, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %371, ptr noundef nonnull %storemerge.i.i66)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %388, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(205) %371, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i66)
           to label %.noexc154 unwind label %517
 
 .noexc154:                                        ; preds = %.noexc153, %.noexc152
@@ -5877,7 +5877,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i158:               ; preds = %.noexc162, %._crit_
 
 413:                                              ; preds = %396
   %414 = getelementptr inbounds i8, ptr %397, i64 64
-  %415 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %414, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %397, ptr noundef nonnull %storemerge.i.i77)
+  %415 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %414, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(205) %397, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i77)
           to label %.noexc163 unwind label %517
 
 .noexc163:                                        ; preds = %413
@@ -5892,7 +5892,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i158:               ; preds = %.noexc162, %._crit_
 
 .noexc164:                                        ; preds = %416
   store double %420, ptr %2, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %414, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %397, ptr noundef nonnull %storemerge.i.i77)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %414, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(205) %397, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i77)
           to label %.noexc165 unwind label %517
 
 .noexc165:                                        ; preds = %.noexc164, %.noexc163
@@ -6686,7 +6686,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 
 197:                                              ; preds = %180
   %198 = getelementptr inbounds i8, ptr %181, i64 64
-  %199 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %198, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %181, ptr noundef nonnull %storemerge.i.i)
+  %199 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %198, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(205) %181, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i)
           to label %.noexc123 unwind label %578
 
 .noexc123:                                        ; preds = %197
@@ -6701,7 +6701,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc, %._crit_edg
 
 .noexc124:                                        ; preds = %200
   store double %204, ptr %14, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %198, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %181, ptr noundef nonnull %storemerge.i.i)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %198, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(205) %181, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i)
           to label %.noexc125 unwind label %578
 
 .noexc125:                                        ; preds = %.noexc124, %.noexc123
@@ -6775,7 +6775,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i129:               ; preds = %.noexc133, %._crit_
 
 235:                                              ; preds = %218
   %236 = getelementptr inbounds i8, ptr %219, i64 64
-  %237 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %236, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %219, ptr noundef nonnull %storemerge.i.i76)
+  %237 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %236, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(205) %219, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i76)
           to label %.noexc134 unwind label %590
 
 .noexc134:                                        ; preds = %235
@@ -6790,7 +6790,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i129:               ; preds = %.noexc133, %._crit_
 
 .noexc135:                                        ; preds = %238
   store double %242, ptr %13, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %236, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %219, ptr noundef nonnull %storemerge.i.i76)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %236, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(205) %219, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i76)
           to label %.noexc136 unwind label %590
 
 .noexc136:                                        ; preds = %.noexc135, %.noexc134
@@ -6861,7 +6861,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit:      ; preds = %_ZNK5Ipopt6Vector7M
           to label %.noexc143 unwind label %606
 
 .noexc143:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %266)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %266)
           to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit unwind label %606
 
 _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit: ; preds = %.noexc143
@@ -6905,7 +6905,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit150:   ; preds = %_ZNK5Ipopt6Vector7M
           to label %.noexc151 unwind label %612
 
 .noexc151:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit150
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %286)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %286)
           to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit153 unwind label %612
 
 _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit153: ; preds = %.noexc151
@@ -6947,7 +6947,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i156:               ; preds = %.noexc160, %._crit_
 
 311:                                              ; preds = %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit153
   %312 = getelementptr inbounds i8, ptr %266, i64 64
-  %313 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %312, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %266, ptr noundef nonnull %storemerge.i.i)
+  %313 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %312, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(205) %266, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i)
           to label %.noexc161 unwind label %612
 
 .noexc161:                                        ; preds = %311
@@ -6962,7 +6962,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i156:               ; preds = %.noexc160, %._crit_
 
 .noexc162:                                        ; preds = %314
   store double %318, ptr %12, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %312, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %266, ptr noundef nonnull %storemerge.i.i)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %312, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(205) %266, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i)
           to label %.noexc163 unwind label %612
 
 .noexc163:                                        ; preds = %.noexc162, %.noexc161
@@ -7010,7 +7010,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i167:               ; preds = %.noexc171, %._crit_
 
 336:                                              ; preds = %320
   %337 = getelementptr inbounds i8, ptr %286, i64 64
-  %338 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %337, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %286, ptr noundef nonnull %storemerge.i.i)
+  %338 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %337, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(205) %286, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i)
           to label %.noexc172 unwind label %612
 
 .noexc172:                                        ; preds = %336
@@ -7025,7 +7025,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i167:               ; preds = %.noexc171, %._crit_
 
 .noexc173:                                        ; preds = %339
   store double %343, ptr %11, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %337, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %286, ptr noundef nonnull %storemerge.i.i)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %337, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(205) %286, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i)
           to label %.noexc174 unwind label %612
 
 .noexc174:                                        ; preds = %.noexc173, %.noexc172
@@ -7073,7 +7073,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i178:               ; preds = %.noexc182, %._crit_
 
 361:                                              ; preds = %345
   %362 = getelementptr inbounds i8, ptr %storemerge.i.i95, i64 64
-  %363 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %storemerge.i.i95, ptr noundef nonnull %storemerge.i.i76)
+  %363 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i95, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i76)
           to label %.noexc183 unwind label %612
 
 .noexc183:                                        ; preds = %361
@@ -7088,7 +7088,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i178:               ; preds = %.noexc182, %._crit_
 
 .noexc184:                                        ; preds = %364
   store double %368, ptr %10, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %storemerge.i.i95, ptr noundef nonnull %storemerge.i.i76)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i95, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i76)
           to label %.noexc185 unwind label %612
 
 .noexc185:                                        ; preds = %.noexc184, %.noexc183
@@ -7136,7 +7136,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i189:               ; preds = %.noexc193, %._crit_
 
 386:                                              ; preds = %370
   %387 = getelementptr inbounds i8, ptr %storemerge.i.i116, i64 64
-  %388 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %387, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %storemerge.i.i116, ptr noundef nonnull %storemerge.i.i76)
+  %388 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %387, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i116, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i76)
           to label %.noexc194 unwind label %612
 
 .noexc194:                                        ; preds = %386
@@ -7151,7 +7151,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i189:               ; preds = %.noexc193, %._crit_
 
 .noexc195:                                        ; preds = %389
   store double %393, ptr %9, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %387, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %storemerge.i.i116, ptr noundef nonnull %storemerge.i.i76)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %387, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i116, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i76)
           to label %.noexc196 unwind label %612
 
 .noexc196:                                        ; preds = %.noexc195, %.noexc194
@@ -7413,7 +7413,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i228:               ; preds = %.noexc232, %._crit_
 
 524:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit225
   %525 = getelementptr inbounds i8, ptr %508, i64 64
-  %526 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %525, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %508, ptr noundef nonnull %storemerge.i.i209)
+  %526 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %525, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(205) %508, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i209)
           to label %.noexc233 unwind label %616
 
 .noexc233:                                        ; preds = %524
@@ -7428,7 +7428,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i228:               ; preds = %.noexc232, %._crit_
 
 .noexc234:                                        ; preds = %527
   store double %531, ptr %8, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %525, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %508, ptr noundef nonnull %storemerge.i.i209)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %525, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(205) %508, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i209)
           to label %.noexc235 unwind label %616
 
 .noexc235:                                        ; preds = %.noexc234, %.noexc233
@@ -7478,7 +7478,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i239:               ; preds = %.noexc243, %._crit_
 
 551:                                              ; preds = %534
   %552 = getelementptr inbounds i8, ptr %535, i64 64
-  %553 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %552, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %535, ptr noundef nonnull %storemerge.i.i220)
+  %553 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %552, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(205) %535, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i220)
           to label %.noexc244 unwind label %616
 
 .noexc244:                                        ; preds = %551
@@ -7493,7 +7493,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i239:               ; preds = %.noexc243, %._crit_
 
 .noexc245:                                        ; preds = %554
   store double %558, ptr %7, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %552, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %535, ptr noundef nonnull %storemerge.i.i220)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %552, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(205) %535, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i220)
           to label %.noexc246 unwind label %616
 
 .noexc246:                                        ; preds = %.noexc245, %.noexc244
@@ -7800,7 +7800,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i299:               ; preds = %.noexc303, %._crit_
 
 703:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit296
   %704 = getelementptr inbounds i8, ptr %687, i64 64
-  %705 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %704, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %687, ptr noundef nonnull %storemerge.i.i280)
+  %705 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %704, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(205) %687, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i280)
           to label %.noexc304 unwind label %809
 
 .noexc304:                                        ; preds = %703
@@ -7815,7 +7815,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i299:               ; preds = %.noexc303, %._crit_
 
 .noexc305:                                        ; preds = %706
   store double %710, ptr %6, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %704, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %687, ptr noundef nonnull %storemerge.i.i280)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %704, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(205) %687, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i280)
           to label %.noexc306 unwind label %809
 
 .noexc306:                                        ; preds = %.noexc305, %.noexc304
@@ -7865,7 +7865,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i310:               ; preds = %.noexc314, %._crit_
 
 730:                                              ; preds = %713
   %731 = getelementptr inbounds i8, ptr %714, i64 64
-  %732 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %731, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %714, ptr noundef nonnull %storemerge.i.i85)
+  %732 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %731, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(205) %714, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i85)
           to label %.noexc315 unwind label %809
 
 .noexc315:                                        ; preds = %730
@@ -7880,7 +7880,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i310:               ; preds = %.noexc314, %._crit_
 
 .noexc316:                                        ; preds = %733
   store double %737, ptr %5, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %731, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %714, ptr noundef nonnull %storemerge.i.i85)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %731, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(205) %714, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i85)
           to label %.noexc317 unwind label %809
 
 .noexc317:                                        ; preds = %.noexc316, %.noexc315
@@ -7929,7 +7929,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i321:               ; preds = %.noexc325, %._crit_
 
 756:                                              ; preds = %739
   %757 = getelementptr inbounds i8, ptr %740, i64 64
-  %758 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %757, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %740, ptr noundef nonnull %storemerge.i.i291)
+  %758 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %757, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(205) %740, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i291)
           to label %.noexc326 unwind label %809
 
 .noexc326:                                        ; preds = %756
@@ -7944,7 +7944,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i321:               ; preds = %.noexc325, %._crit_
 
 .noexc327:                                        ; preds = %759
   store double %763, ptr %4, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %757, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %740, ptr noundef nonnull %storemerge.i.i291)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %757, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(205) %740, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i291)
           to label %.noexc328 unwind label %809
 
 .noexc328:                                        ; preds = %.noexc327, %.noexc326
@@ -7993,7 +7993,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i332:               ; preds = %.noexc336, %._crit_
 
 782:                                              ; preds = %765
   %783 = getelementptr inbounds i8, ptr %766, i64 64
-  %784 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %783, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %766, ptr noundef nonnull %storemerge.i.i95)
+  %784 = invoke noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %783, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(205) %766, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i95)
           to label %.noexc337 unwind label %809
 
 .noexc337:                                        ; preds = %782
@@ -8008,7 +8008,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i332:               ; preds = %.noexc336, %._crit_
 
 .noexc338:                                        ; preds = %785
   store double %789, ptr %3, align 8
-  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %783, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %766, ptr noundef nonnull %storemerge.i.i95)
+  invoke void @_ZN5Ipopt13CachedResultsIdE19AddCachedResult2DepERKdPKNS_12TaggedObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %783, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(205) %766, ptr noundef nonnull align 8 dereferenceable(205) %storemerge.i.i95)
           to label %.noexc339 unwind label %809
 
 .noexc339:                                        ; preds = %.noexc338, %.noexc337
@@ -9850,7 +9850,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i102: ; preds = %_ZNK5Ipo
           to label %.noexc unwind label %418
 
 .noexc:                                           ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i102
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %124)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %124)
           to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit unwind label %418
 
 _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit: ; preds = %.noexc
@@ -9997,7 +9997,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i129: ; preds = %_ZNK5Ipo
           to label %.noexc135 unwind label %454
 
 .noexc135:                                        ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i129
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %167)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %167)
           to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit137 unwind label %454
 
 _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit137: ; preds = %.noexc135
@@ -10767,7 +10767,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED0Ev(ptr noundef nonnull al
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread.i, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %13, %._crit_edge.thread.i ]
   %14 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #21
   %.not.i.i.i.i = icmp eq ptr %14, %.lcssa13.i
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 

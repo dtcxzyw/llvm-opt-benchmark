@@ -242,7 +242,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece4findES1_m(ptr nocapture no
   %14 = getelementptr inbounds i8, ptr %13, i64 %3
   %15 = getelementptr inbounds i8, ptr %13, i64 %6
   %16 = getelementptr inbounds i8, ptr %1, i64 %2
-  %17 = tail call noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_(ptr noundef %14, ptr noundef %15, ptr noundef %1, ptr noundef %16)
+  %17 = tail call noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_(ptr noundef %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %16)
   %18 = load ptr, ptr %0, align 8
   %19 = load i64, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %18, i64 %19

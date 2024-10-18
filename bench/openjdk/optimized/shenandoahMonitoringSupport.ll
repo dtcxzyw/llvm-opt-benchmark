@@ -62,7 +62,7 @@ define hidden void @_ZN27ShenandoahMonitoringSupportC2EP14ShenandoahHeap(ptr nou
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  tail call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 100) #6
+  tail call void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull align 8 dereferenceable(288) %4, i64 noundef 100) #6
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV36ShenandoahPeriodicCountersUpdateTask, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 128
   %6 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %5) #6, !srcloc !6
@@ -91,7 +91,7 @@ define hidden void @_ZN27ShenandoahMonitoringSupportC2EP14ShenandoahHeap(ptr nou
   %21 = getelementptr inbounds i8, ptr %20, i64 88
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(2657) %1) #6
-  tail call void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.5, i32 noundef 1, i32 noundef 1, i64 noundef %15, i64 noundef %19, i64 noundef %23) #6
+  tail call void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull @.str.5, i32 noundef 1, i32 noundef 1, i64 noundef %15, i64 noundef %19, i64 noundef %23) #6
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahGenerationCounters, i64 16), ptr %14, align 8
   %24 = getelementptr inbounds i8, ptr %14, i64 32
   store ptr %1, ptr %24, align 8
@@ -494,7 +494,7 @@ define linkonce_odr hidden void @_ZN36ShenandoahPeriodicCountersUpdateTaskD2Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN36ShenandoahPeriodicCountersUpdateTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN12PeriodicTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #6
+  tail call void @_ZN12PeriodicTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #6
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #6
   ret void
 }

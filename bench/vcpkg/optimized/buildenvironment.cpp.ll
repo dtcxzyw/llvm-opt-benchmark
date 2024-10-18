@@ -57,7 +57,7 @@ define dso_local void @_ZN5vcpkg14make_cmake_cmdERKNS_10VcpkgPathsERKNS_4PathEOS
   br i1 %.not.i, label %17, label %14
 
 14:                                               ; preds = %4
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nonnull @.str, i64 14, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nonnull align 1 dereferenceable(15) @.str, i64 14, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %14
@@ -81,7 +81,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
   br i1 %.not.i10, label %25, label %22
 
 22:                                               ; preds = %19
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr nonnull @.str.1, i64 12, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr nonnull align 1 dereferenceable(13) @.str.1, i64 12, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %.noexc12 unwind label %65
 
 .noexc12:                                         ; preds = %22
@@ -105,7 +105,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEE
   br i1 %.not.i14, label %33, label %30
 
 30:                                               ; preds = %27
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr nonnull @.str.2, i64 14, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr nonnull align 1 dereferenceable(15) @.str.2, i64 14, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %.noexc16 unwind label %65
 
 .noexc16:                                         ; preds = %30
@@ -129,7 +129,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
   br i1 %.not.i19, label %41, label %38
 
 38:                                               ; preds = %35
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr nonnull @.str.3, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %34)
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr nonnull align 1 dereferenceable(21) @.str.3, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %34)
           to label %.noexc21 unwind label %65
 
 .noexc21:                                         ; preds = %38
@@ -155,7 +155,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEE
   br i1 %.not.i23, label %49, label %46
 
 46:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr nonnull @.str.4, i64 9, ptr noundef nonnull align 8 dereferenceable(32) %44)
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr nonnull align 1 dereferenceable(10) @.str.4, i64 9, ptr noundef nonnull align 8 dereferenceable(32) %44)
           to label %.noexc25 unwind label %65
 
 .noexc25:                                         ; preds = %46
@@ -179,7 +179,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEE
   br i1 %.not.i27, label %55, label %52
 
 52:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewEPKc(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr nonnull @.str.5, i64 22, ptr noundef nonnull @.str.6)
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewEPKc(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr nonnull align 1 dereferenceable(23) @.str.5, i64 22, ptr noundef nonnull align 1 dereferenceable(4) @.str.6)
           to label %.noexc29 unwind label %65
 
 .noexc29:                                         ; preds = %52
@@ -335,8 +335,8 @@ _ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit, %21
   %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds %"struct.vcpkg::CMakeVariable", ptr %24, i64 %20
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %26 = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(15) %2) #17
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull align 1 dereferenceable(15) %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA15_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit unwind label %35
 
 _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA15_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit
@@ -480,8 +480,8 @@ _ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit, %21
   %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds %"struct.vcpkg::CMakeVariable", ptr %24, i64 %20
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %26 = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(13) %2) #17
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull align 1 dereferenceable(13) %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA13_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit unwind label %35
 
 _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA13_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit
@@ -607,8 +607,8 @@ _ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit, %21
   %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds %"struct.vcpkg::CMakeVariable", ptr %24, i64 %20
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %26 = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(21) %2) #17
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull align 1 dereferenceable(21) %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA21_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit unwind label %35
 
 _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA21_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit
@@ -734,8 +734,8 @@ _ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit, %21
   %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds %"struct.vcpkg::CMakeVariable", ptr %24, i64 %20
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %26 = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %2) #17
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull align 1 dereferenceable(10) %2, i64 %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA10_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit unwind label %35
 
 _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA10_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit
@@ -861,8 +861,8 @@ _ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
 _ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit, %21
   %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds %"struct.vcpkg::CMakeVariable", ptr %24, i64 %20
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull %2, i64 %26, ptr noundef nonnull %3)
+  %26 = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(23) %2) #17
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr nonnull align 1 dereferenceable(23) %2, i64 %26, ptr noundef nonnull align 1 dereferenceable(4) %3)
           to label %_ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA23_KcRA4_S5_EEEvRS2_PT_DpOT0_.exit unwind label %35
 
 _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA23_KcRA4_S5_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EE11_M_allocateEm.exit

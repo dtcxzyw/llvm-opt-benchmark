@@ -90,7 +90,7 @@ define hidden void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnul
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %0) #8
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   store ptr %36, ptr %3, align 8
   br label %40
 
@@ -234,7 +234,7 @@ define hidden void @_ZN16MetaspaceClosure6finishEv(ptr noundef nonnull align 8 d
   %31 = load ptr, ptr %7, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %0) #8
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   store ptr %30, ptr %5, align 8
   br label %34
 

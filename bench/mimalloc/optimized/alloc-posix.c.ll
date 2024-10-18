@@ -55,7 +55,7 @@ entry:
   %or.cond7.not10.not12 = and i1 %cmp, %cmp1.not
   %cmp4 = icmp ne i64 %alignment, 0
   %or.cond8.not11 = and i1 %cmp4, %or.cond7.not10.not12
-  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %alignment)
   %cmp.i = icmp samesign ult i64 %0, 2
   %or.cond9 = select i1 %or.cond8.not11, i1 %cmp.i, i1 false
   br i1 %or.cond9, label %if.end6, label %return

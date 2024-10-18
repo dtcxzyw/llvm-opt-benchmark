@@ -10587,7 +10587,7 @@ _Py_EnterRecursiveCall.exit.i:                    ; preds = %_Py_NewRef.exit.i
   br i1 %tobool2.i.i.not.i, label %if.end35.i, label %failed.i
 
 if.end35.i:                                       ; preds = %_Py_EnterRecursiveCall.exit.i, %_Py_NewRef.exit.i
-  %call36.i = call fastcc i32 @obj2ast_stmt(ptr noundef %ast.i, ptr noundef nonnull %22, ptr noundef %val.i, ptr noundef %arena)
+  %call36.i = call fastcc i32 @obj2ast_stmt(ptr noundef nonnull %ast.i, ptr noundef nonnull %22, ptr noundef %val.i, ptr noundef %arena)
   %26 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %26, i64 44
   %27 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
@@ -10725,7 +10725,7 @@ _Py_NewRef.exit150.i:                             ; preds = %if.end.i.i149.i, %f
   br i1 %tobool85.not.i, label %if.end87.i, label %failed.i
 
 if.end87.i:                                       ; preds = %_Py_NewRef.exit150.i
-  %call88.i = call fastcc i32 @obj2ast_type_ignore(ptr noundef %ast.i, ptr noundef nonnull %47, ptr noundef %val79.i, ptr noundef %arena)
+  %call88.i = call fastcc i32 @obj2ast_type_ignore(ptr noundef nonnull %ast.i, ptr noundef nonnull %47, ptr noundef %val79.i, ptr noundef %arena)
   %49 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i151.i = getelementptr inbounds i8, ptr %49, i64 44
   %50 = load i32, ptr %c_recursion_remaining.i.i151.i, align 4
@@ -10918,7 +10918,7 @@ _Py_EnterRecursiveCall.exit191.i:                 ; preds = %_Py_NewRef.exit183.
   br i1 %tobool2.i.i189.not.i, label %if.end159.i, label %failed.i
 
 if.end159.i:                                      ; preds = %_Py_EnterRecursiveCall.exit191.i, %_Py_NewRef.exit183.i
-  %call160.i = call fastcc i32 @obj2ast_stmt(ptr noundef %ast.i, ptr noundef nonnull %71, ptr noundef %val151.i, ptr noundef %arena)
+  %call160.i = call fastcc i32 @obj2ast_stmt(ptr noundef nonnull %ast.i, ptr noundef nonnull %71, ptr noundef %val151.i, ptr noundef %arena)
   %75 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i192.i = getelementptr inbounds i8, ptr %75, i64 44
   %76 = load i32, ptr %c_recursion_remaining.i.i192.i, align 4
@@ -11028,7 +11028,7 @@ if.else.i:                                        ; preds = %if.end196.i
 
 if.end203.i:                                      ; preds = %if.else.i
   %90 = load ptr, ptr %tmp.i, align 8
-  %call204.i = call fastcc i32 @obj2ast_expr(ptr noundef %ast.i, ptr noundef %90, ptr noundef %body191.i, ptr noundef %arena)
+  %call204.i = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %ast.i, ptr noundef %90, ptr noundef %body191.i, ptr noundef %arena)
   %91 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i198.i = getelementptr inbounds i8, ptr %91, i64 44
   %92 = load i32, ptr %c_recursion_remaining.i.i198.i, align 4
@@ -11145,7 +11145,7 @@ _Py_NewRef.exit206.i:                             ; preds = %if.end.i.i205.i, %f
   br i1 %tobool264.not.i, label %if.end266.i, label %failed.i
 
 if.end266.i:                                      ; preds = %_Py_NewRef.exit206.i
-  %call267.i = call fastcc i32 @obj2ast_expr(ptr noundef %ast.i, ptr noundef nonnull %108, ptr noundef %val258.i, ptr noundef %arena)
+  %call267.i = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %ast.i, ptr noundef nonnull %108, ptr noundef %val258.i, ptr noundef %arena)
   %110 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i207.i = getelementptr inbounds i8, ptr %110, i64 44
   %111 = load i32, ptr %c_recursion_remaining.i.i207.i, align 4
@@ -11236,7 +11236,7 @@ if.else294.i:                                     ; preds = %if.end291.i
 
 if.end299.i:                                      ; preds = %if.else294.i
   %124 = load ptr, ptr %tmp.i, align 8
-  %call300.i = call fastcc i32 @obj2ast_expr(ptr noundef %ast.i, ptr noundef %124, ptr noundef %returns.i, ptr noundef %arena)
+  %call300.i = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %ast.i, ptr noundef %124, ptr noundef %returns.i, ptr noundef %arena)
   %125 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i209.i = getelementptr inbounds i8, ptr %125, i64 44
   %126 = load i32, ptr %c_recursion_remaining.i.i209.i, align 4
@@ -16380,7 +16380,7 @@ Py_DECREF.exit1493:                               ; preds = %if.end405, %if.then
   %simple = getelementptr inbounds i8, ptr %_o, i64 32
   %155 = load i32, ptr %simple, align 8
   %conv = sext i32 %155 to i64
-  %call.i = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool408.not = icmp eq ptr %call.i, null
   br i1 %tobool408.not, label %failed.thread, label %if.end410
 
@@ -17655,7 +17655,7 @@ Py_DECREF.exit1133:                               ; preds = %if.end936, %if.then
   %level = getelementptr inbounds i8, ptr %_o, i64 24
   %333 = load i32, ptr %level, align 8
   %conv938 = sext i32 %333 to i64
-  %call.i887 = tail call ptr @PyLong_FromLong(i64 noundef %conv938) #6
+  %call.i887 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv938) #6
   %tobool940.not = icmp eq ptr %call.i887, null
   br i1 %tobool940.not, label %failed.thread, label %if.end942
 
@@ -17809,7 +17809,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   %lineno = getelementptr inbounds i8, ptr %_o, i64 64
   %355 = load i32, ptr %lineno, align 8
   %conv1015 = sext i32 %355 to i64
-  %call.i888 = tail call ptr @PyLong_FromLong(i64 noundef %conv1015) #6
+  %call.i888 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv1015) #6
   %tobool1017.not = icmp eq ptr %call.i888, null
   br i1 %tobool1017.not, label %failed.thread, label %if.end1019
 
@@ -17840,7 +17840,7 @@ Py_DECREF.exit1088:                               ; preds = %if.end1025, %if.the
   %col_offset = getelementptr inbounds i8, ptr %_o, i64 68
   %359 = load i32, ptr %col_offset, align 4
   %conv1026 = sext i32 %359 to i64
-  %call.i889 = tail call ptr @PyLong_FromLong(i64 noundef %conv1026) #6
+  %call.i889 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv1026) #6
   %tobool1028.not = icmp eq ptr %call.i889, null
   br i1 %tobool1028.not, label %failed.thread, label %if.end1030
 
@@ -17871,7 +17871,7 @@ Py_DECREF.exit1079:                               ; preds = %if.end1036, %if.the
   %end_lineno = getelementptr inbounds i8, ptr %_o, i64 72
   %363 = load i32, ptr %end_lineno, align 8
   %conv1037 = sext i32 %363 to i64
-  %call.i890 = tail call ptr @PyLong_FromLong(i64 noundef %conv1037) #6
+  %call.i890 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv1037) #6
   %tobool1039.not = icmp eq ptr %call.i890, null
   br i1 %tobool1039.not, label %failed.thread, label %if.end1041
 
@@ -17902,7 +17902,7 @@ Py_DECREF.exit1070:                               ; preds = %if.end1047, %if.the
   %end_col_offset = getelementptr inbounds i8, ptr %_o, i64 76
   %367 = load i32, ptr %end_col_offset, align 4
   %conv1048 = sext i32 %367 to i64
-  %call.i891 = tail call ptr @PyLong_FromLong(i64 noundef %conv1048) #6
+  %call.i891 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv1048) #6
   %tobool1050.not = icmp eq ptr %call.i891, null
   br i1 %tobool1050.not, label %failed.thread, label %if.end1052
 
@@ -18032,7 +18032,7 @@ if.end5:                                          ; preds = %sw.bb
   %v = getelementptr inbounds i8, ptr %_o, i64 8
   %6 = load i32, ptr %v, align 8
   %conv = sext i32 %6 to i64
-  %call.i = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool7.not = icmp eq ptr %call.i, null
   br i1 %tobool7.not, label %Py_XDECREF.exit, label %if.end9
 
@@ -19539,7 +19539,7 @@ Py_DECREF.exit1058:                               ; preds = %if.end477, %if.then
   %conversion = getelementptr inbounds i8, ptr %_o, i64 16
   %194 = load i32, ptr %conversion, align 8
   %conv = sext i32 %194 to i64
-  %call.i = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool480.not = icmp eq ptr %call.i, null
   br i1 %tobool480.not, label %failed.thread, label %if.end482
 
@@ -20258,7 +20258,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   %lineno = getelementptr inbounds i8, ptr %_o, i64 32
   %295 = load i32, ptr %lineno, align 8
   %conv778 = sext i32 %295 to i64
-  %call.i679 = tail call ptr @PyLong_FromLong(i64 noundef %conv778) #6
+  %call.i679 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv778) #6
   %tobool780.not = icmp eq ptr %call.i679, null
   br i1 %tobool780.not, label %failed.thread, label %if.end782
 
@@ -20289,7 +20289,7 @@ Py_DECREF.exit851:                                ; preds = %if.end788, %if.then
   %col_offset = getelementptr inbounds i8, ptr %_o, i64 36
   %299 = load i32, ptr %col_offset, align 4
   %conv789 = sext i32 %299 to i64
-  %call.i680 = tail call ptr @PyLong_FromLong(i64 noundef %conv789) #6
+  %call.i680 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv789) #6
   %tobool791.not = icmp eq ptr %call.i680, null
   br i1 %tobool791.not, label %failed.thread, label %if.end793
 
@@ -20320,7 +20320,7 @@ Py_DECREF.exit842:                                ; preds = %if.end799, %if.then
   %end_lineno = getelementptr inbounds i8, ptr %_o, i64 40
   %303 = load i32, ptr %end_lineno, align 8
   %conv800 = sext i32 %303 to i64
-  %call.i681 = tail call ptr @PyLong_FromLong(i64 noundef %conv800) #6
+  %call.i681 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv800) #6
   %tobool802.not = icmp eq ptr %call.i681, null
   br i1 %tobool802.not, label %failed.thread, label %if.end804
 
@@ -20351,7 +20351,7 @@ Py_DECREF.exit833:                                ; preds = %if.end810, %if.then
   %end_col_offset = getelementptr inbounds i8, ptr %_o, i64 44
   %307 = load i32, ptr %end_col_offset, align 4
   %conv811 = sext i32 %307 to i64
-  %call.i682 = tail call ptr @PyLong_FromLong(i64 noundef %conv811) #6
+  %call.i682 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv811) #6
   %tobool813.not = icmp eq ptr %call.i682, null
   br i1 %tobool813.not, label %failed.thread, label %if.end815
 
@@ -21041,7 +21041,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   %lineno = getelementptr inbounds i8, ptr %_o, i64 24
   %26 = load i32, ptr %lineno, align 8
   %conv = sext i32 %26 to i64
-  %call.i = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool58.not = icmp eq ptr %call.i, null
   br i1 %tobool58.not, label %failed.thread, label %if.end60
 
@@ -21072,7 +21072,7 @@ Py_DECREF.exit129:                                ; preds = %if.end66, %if.then1
   %col_offset = getelementptr inbounds i8, ptr %_o, i64 28
   %30 = load i32, ptr %col_offset, align 4
   %conv67 = sext i32 %30 to i64
-  %call.i98 = tail call ptr @PyLong_FromLong(i64 noundef %conv67) #6
+  %call.i98 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv67) #6
   %tobool69.not = icmp eq ptr %call.i98, null
   br i1 %tobool69.not, label %failed.thread, label %if.end71
 
@@ -21103,7 +21103,7 @@ Py_DECREF.exit120:                                ; preds = %if.end77, %if.then1
   %end_lineno = getelementptr inbounds i8, ptr %_o, i64 32
   %34 = load i32, ptr %end_lineno, align 8
   %conv78 = sext i32 %34 to i64
-  %call.i99 = tail call ptr @PyLong_FromLong(i64 noundef %conv78) #6
+  %call.i99 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv78) #6
   %tobool80.not = icmp eq ptr %call.i99, null
   br i1 %tobool80.not, label %failed.thread, label %if.end82
 
@@ -21134,7 +21134,7 @@ Py_DECREF.exit111:                                ; preds = %if.end88, %if.then1
   %end_col_offset = getelementptr inbounds i8, ptr %_o, i64 36
   %38 = load i32, ptr %end_col_offset, align 4
   %conv89 = sext i32 %38 to i64
-  %call.i100 = tail call ptr @PyLong_FromLong(i64 noundef %conv89) #6
+  %call.i100 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv89) #6
   %tobool91.not = icmp eq ptr %call.i100, null
   br i1 %tobool91.not, label %failed.thread, label %if.end93
 
@@ -21319,7 +21319,7 @@ Py_DECREF.exit106:                                ; preds = %if.end24, %if.then1
   %lineno = getelementptr inbounds i8, ptr %_o, i64 16
   %13 = load i32, ptr %lineno, align 8
   %conv = sext i32 %13 to i64
-  %call.i = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool26.not = icmp eq ptr %call.i, null
   br i1 %tobool26.not, label %failed, label %if.end28
 
@@ -21350,7 +21350,7 @@ Py_DECREF.exit97:                                 ; preds = %if.end34, %if.then1
   %col_offset = getelementptr inbounds i8, ptr %_o, i64 20
   %17 = load i32, ptr %col_offset, align 4
   %conv35 = sext i32 %17 to i64
-  %call.i61 = tail call ptr @PyLong_FromLong(i64 noundef %conv35) #6
+  %call.i61 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv35) #6
   %tobool37.not = icmp eq ptr %call.i61, null
   br i1 %tobool37.not, label %failed, label %if.end39
 
@@ -21381,7 +21381,7 @@ Py_DECREF.exit88:                                 ; preds = %if.end45, %if.then1
   %end_lineno = getelementptr inbounds i8, ptr %_o, i64 24
   %21 = load i32, ptr %end_lineno, align 8
   %conv46 = sext i32 %21 to i64
-  %call.i62 = tail call ptr @PyLong_FromLong(i64 noundef %conv46) #6
+  %call.i62 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv46) #6
   %tobool48.not = icmp eq ptr %call.i62, null
   br i1 %tobool48.not, label %failed, label %if.end50
 
@@ -21412,7 +21412,7 @@ Py_DECREF.exit79:                                 ; preds = %if.end56, %if.then1
   %end_col_offset = getelementptr inbounds i8, ptr %_o, i64 28
   %25 = load i32, ptr %end_col_offset, align 4
   %conv57 = sext i32 %25 to i64
-  %call.i63 = tail call ptr @PyLong_FromLong(i64 noundef %conv57) #6
+  %call.i63 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv57) #6
   %tobool59.not = icmp eq ptr %call.i63, null
   br i1 %tobool59.not, label %failed, label %if.end61
 
@@ -22173,7 +22173,7 @@ sw.epilog:                                        ; preds = %if.end.i111, %if.th
   %lineno = getelementptr inbounds i8, ptr %_o, i64 32
   %18 = load i32, ptr %lineno, align 8
   %conv = sext i32 %18 to i64
-  %call.i = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool36.not = icmp eq ptr %call.i, null
   br i1 %tobool36.not, label %failed.thread, label %if.end38
 
@@ -22204,7 +22204,7 @@ Py_DECREF.exit107:                                ; preds = %if.end44, %if.then1
   %col_offset = getelementptr inbounds i8, ptr %_o, i64 36
   %22 = load i32, ptr %col_offset, align 4
   %conv45 = sext i32 %22 to i64
-  %call.i71 = tail call ptr @PyLong_FromLong(i64 noundef %conv45) #6
+  %call.i71 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv45) #6
   %tobool47.not = icmp eq ptr %call.i71, null
   br i1 %tobool47.not, label %failed.thread, label %if.end49
 
@@ -22235,7 +22235,7 @@ Py_DECREF.exit98:                                 ; preds = %if.end55, %if.then1
   %end_lineno = getelementptr inbounds i8, ptr %_o, i64 40
   %26 = load i32, ptr %end_lineno, align 8
   %conv56 = sext i32 %26 to i64
-  %call.i72 = tail call ptr @PyLong_FromLong(i64 noundef %conv56) #6
+  %call.i72 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv56) #6
   %tobool58.not = icmp eq ptr %call.i72, null
   br i1 %tobool58.not, label %failed.thread, label %if.end60
 
@@ -22266,7 +22266,7 @@ Py_DECREF.exit89:                                 ; preds = %if.end66, %if.then1
   %end_col_offset = getelementptr inbounds i8, ptr %_o, i64 44
   %30 = load i32, ptr %end_col_offset, align 4
   %conv67 = sext i32 %30 to i64
-  %call.i73 = tail call ptr @PyLong_FromLong(i64 noundef %conv67) #6
+  %call.i73 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv67) #6
   %tobool69.not = icmp eq ptr %call.i73, null
   br i1 %tobool69.not, label %failed.thread, label %if.end71
 
@@ -22458,7 +22458,7 @@ Py_DECREF.exit105:                                ; preds = %if.end23, %if.then1
   %lineno = getelementptr inbounds i8, ptr %_o, i64 16
   %14 = load i32, ptr %lineno, align 8
   %conv = sext i32 %14 to i64
-  %call.i = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool25.not = icmp eq ptr %call.i, null
   br i1 %tobool25.not, label %failed, label %if.end27
 
@@ -22489,7 +22489,7 @@ Py_DECREF.exit96:                                 ; preds = %if.end33, %if.then1
   %col_offset = getelementptr inbounds i8, ptr %_o, i64 20
   %18 = load i32, ptr %col_offset, align 4
   %conv34 = sext i32 %18 to i64
-  %call.i67 = tail call ptr @PyLong_FromLong(i64 noundef %conv34) #6
+  %call.i67 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv34) #6
   %tobool36.not = icmp eq ptr %call.i67, null
   br i1 %tobool36.not, label %failed, label %if.end38
 
@@ -22520,7 +22520,7 @@ Py_DECREF.exit87:                                 ; preds = %if.end44, %if.then1
   %end_lineno = getelementptr inbounds i8, ptr %_o, i64 24
   %22 = load i32, ptr %end_lineno, align 8
   %conv45 = sext i32 %22 to i64
-  %call.i68 = tail call ptr @PyLong_FromLong(i64 noundef %conv45) #6
+  %call.i68 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv45) #6
   %tobool47.not = icmp eq ptr %call.i68, null
   br i1 %tobool47.not, label %failed, label %if.end49
 
@@ -22551,7 +22551,7 @@ Py_DECREF.exit78:                                 ; preds = %if.end55, %if.then1
   %end_col_offset = getelementptr inbounds i8, ptr %_o, i64 28
   %26 = load i32, ptr %end_col_offset, align 4
   %conv56 = sext i32 %26 to i64
-  %call.i69 = tail call ptr @PyLong_FromLong(i64 noundef %conv56) #6
+  %call.i69 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv56) #6
   %tobool58.not = icmp eq ptr %call.i69, null
   br i1 %tobool58.not, label %failed, label %if.end60
 
@@ -22766,7 +22766,7 @@ Py_DECREF.exit114:                                ; preds = %if.end32, %if.then1
   %lineno = getelementptr inbounds i8, ptr %_o, i64 24
   %18 = load i32, ptr %lineno, align 8
   %conv = sext i32 %18 to i64
-  %call.i = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool34.not = icmp eq ptr %call.i, null
   br i1 %tobool34.not, label %failed, label %if.end36
 
@@ -22797,7 +22797,7 @@ Py_DECREF.exit105:                                ; preds = %if.end42, %if.then1
   %col_offset = getelementptr inbounds i8, ptr %_o, i64 28
   %22 = load i32, ptr %col_offset, align 4
   %conv43 = sext i32 %22 to i64
-  %call.i76 = tail call ptr @PyLong_FromLong(i64 noundef %conv43) #6
+  %call.i76 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv43) #6
   %tobool45.not = icmp eq ptr %call.i76, null
   br i1 %tobool45.not, label %failed, label %if.end47
 
@@ -22828,7 +22828,7 @@ Py_DECREF.exit96:                                 ; preds = %if.end53, %if.then1
   %end_lineno = getelementptr inbounds i8, ptr %_o, i64 32
   %26 = load i32, ptr %end_lineno, align 8
   %conv54 = sext i32 %26 to i64
-  %call.i77 = tail call ptr @PyLong_FromLong(i64 noundef %conv54) #6
+  %call.i77 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv54) #6
   %tobool56.not = icmp eq ptr %call.i77, null
   br i1 %tobool56.not, label %failed, label %if.end58
 
@@ -22859,7 +22859,7 @@ Py_DECREF.exit87:                                 ; preds = %if.end64, %if.then1
   %end_col_offset = getelementptr inbounds i8, ptr %_o, i64 36
   %30 = load i32, ptr %end_col_offset, align 4
   %conv65 = sext i32 %30 to i64
-  %call.i78 = tail call ptr @PyLong_FromLong(i64 noundef %conv65) #6
+  %call.i78 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv65) #6
   %tobool67.not = icmp eq ptr %call.i78, null
   br i1 %tobool67.not, label %failed, label %if.end69
 
@@ -23605,7 +23605,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   %lineno = getelementptr inbounds i8, ptr %_o, i64 40
   %90 = load i32, ptr %lineno, align 8
   %conv = sext i32 %90 to i64
-  %call.i267 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i267 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool187.not = icmp eq ptr %call.i267, null
   br i1 %tobool187.not, label %failed.thread, label %if.end189
 
@@ -23636,7 +23636,7 @@ Py_DECREF.exit258:                                ; preds = %if.end195, %if.then
   %col_offset = getelementptr inbounds i8, ptr %_o, i64 44
   %94 = load i32, ptr %col_offset, align 4
   %conv196 = sext i32 %94 to i64
-  %call.i268 = tail call ptr @PyLong_FromLong(i64 noundef %conv196) #6
+  %call.i268 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv196) #6
   %tobool198.not = icmp eq ptr %call.i268, null
   br i1 %tobool198.not, label %failed.thread, label %if.end200
 
@@ -23667,7 +23667,7 @@ Py_DECREF.exit249:                                ; preds = %if.end206, %if.then
   %end_lineno = getelementptr inbounds i8, ptr %_o, i64 48
   %98 = load i32, ptr %end_lineno, align 8
   %conv207 = sext i32 %98 to i64
-  %call.i269 = tail call ptr @PyLong_FromLong(i64 noundef %conv207) #6
+  %call.i269 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv207) #6
   %tobool209.not = icmp eq ptr %call.i269, null
   br i1 %tobool209.not, label %failed.thread, label %if.end211
 
@@ -23698,7 +23698,7 @@ Py_DECREF.exit240:                                ; preds = %if.end217, %if.then
   %end_col_offset = getelementptr inbounds i8, ptr %_o, i64 52
   %102 = load i32, ptr %end_col_offset, align 4
   %conv218 = sext i32 %102 to i64
-  %call.i270 = tail call ptr @PyLong_FromLong(i64 noundef %conv218) #6
+  %call.i270 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv218) #6
   %tobool220.not = icmp eq ptr %call.i270, null
   br i1 %tobool220.not, label %failed.thread, label %if.end222
 
@@ -24031,7 +24031,7 @@ Py_DECREF.exit54:                                 ; preds = %if.end32, %if.then1
   %is_async = getelementptr inbounds i8, ptr %_o, i64 24
   %22 = load i32, ptr %is_async, align 8
   %conv = sext i32 %22 to i64
-  %call.i44 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #6
+  %call.i44 = tail call ptr @PyLong_FromLong(i64 noundef range(i64 -2147483648, 2147483648) %conv) #6
   %tobool34.not = icmp eq ptr %call.i44, null
   br i1 %tobool34.not, label %failed.thread, label %if.end36
 

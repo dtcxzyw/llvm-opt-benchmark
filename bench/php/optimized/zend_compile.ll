@@ -5998,7 +5998,7 @@ tailrecurse:                                      ; preds = %139
   %278 = load i16, ptr %277, align 2
   %279 = zext i16 %278 to i32
   %280 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 272), align 8
-  %281 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %276, i32 noundef %279, ptr noundef %6, i1 noundef zeroext true, ptr noundef %280)
+  %281 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %276, i32 noundef range(i32 0, 65536) %279, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef %280)
   %282 = load i8, ptr %6, align 1
   %283 = trunc i8 %282 to i1
   %284 = call fastcc zeroext i1 @zend_try_ct_eval_const(ptr noundef nonnull %4, ptr noundef %281, i1 noundef zeroext %283)
@@ -6454,7 +6454,7 @@ zend_compile_const_expr_class_name.exit:          ; preds = %110, %114, %121, %1
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i32
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 272), align 8
-  %137 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %131, i32 noundef %135, ptr noundef %3, i1 noundef zeroext true, ptr noundef %136)
+  %137 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %131, i32 noundef range(i32 0, 65536) %135, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef %136)
   %138 = load i8, ptr %3, align 1
   %139 = trunc i8 %138 to i1
   %140 = call fastcc zeroext i1 @zend_try_ct_eval_const(ptr noundef nonnull %4, ptr noundef %137, i1 noundef zeroext %139)
@@ -7563,7 +7563,7 @@ zend_begin_func_decl.exit:                        ; preds = %zend_register_seen_
   %410 = getelementptr inbounds i8, ptr %23, i64 8
   %411 = load i32, ptr %410, align 8
   call void @_zend_hash_init(ptr noundef nonnull %20, i32 noundef %411, ptr noundef null, i1 noundef zeroext false) #28
-  call fastcc void @find_implicit_binds_recursively(ptr noundef %20, ptr noundef %27)
+  call fastcc void @find_implicit_binds_recursively(ptr noundef nonnull %20, ptr noundef %27)
   %412 = load i32, ptr %410, align 8
   %.not.i203 = icmp eq i32 %412, 0
   br i1 %.not.i203, label %find_implicit_binds.exit, label %.lr.ph.i
@@ -15470,7 +15470,7 @@ define internal fastcc void @zend_compile_for(ptr nocapture noundef nonnull read
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %zend_compile_expr.exit ]
   %17 = getelementptr inbounds [1 x ptr], ptr %15, i64 0, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  call fastcc void @zend_do_free(ptr noundef %3)
+  call fastcc void @zend_do_free(ptr noundef nonnull %3)
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 560), align 8
   %20 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i17 = icmp ugt ptr %20, %19
@@ -15596,7 +15596,7 @@ zend_emit_jump.exit:                              ; preds = %._crit_edge.i.i.i, 
   %indvars.iv39 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next40, %zend_compile_expr.exit19 ]
   %79 = getelementptr inbounds [1 x ptr], ptr %77, i64 0, i64 %indvars.iv39
   %80 = load ptr, ptr %79, align 8
-  call fastcc void @zend_do_free(ptr noundef %3)
+  call fastcc void @zend_do_free(ptr noundef nonnull %3)
   %81 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 560), align 8
   %82 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i18 = icmp ugt ptr %82, %81
@@ -15663,7 +15663,7 @@ zend_update_jump_target_to_next.exit:             ; preds = %100, %102
   %indvars.iv42 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next43, %zend_compile_expr.exit21 ]
   %108 = getelementptr inbounds [1 x ptr], ptr %106, i64 0, i64 %indvars.iv42
   %109 = load ptr, ptr %108, align 8
-  call fastcc void @zend_do_free(ptr noundef %3)
+  call fastcc void @zend_do_free(ptr noundef nonnull %3)
   %110 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 560), align 8
   %111 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i20 = icmp ugt ptr %111, %110
@@ -19773,7 +19773,7 @@ zend_is_valid_default_value.exit.i:               ; preds = %132
   unreachable
 
 zend_is_valid_default_value.exit.thread.i:        ; preds = %135, %128, %125, %zend_const_expr_to_zval.exit.i
-  %144 = call ptr @zend_declare_typed_class_constant(ptr noundef %16, ptr noundef nonnull %69, ptr noundef nonnull %5, i32 noundef %15, ptr noundef %87, ptr noundef nonnull byval(%struct.zend_type) align 8 %6) #28
+  %144 = call ptr @zend_declare_typed_class_constant(ptr noundef %16, ptr noundef nonnull %69, ptr noundef nonnull %5, i32 noundef range(i32 0, 65536) %15, ptr noundef %87, ptr noundef nonnull byval(%struct.zend_type) align 8 %6) #28
   br i1 %.not56.i, label %147, label %145
 
 145:                                              ; preds = %zend_is_valid_default_value.exit.thread.i
@@ -22603,7 +22603,7 @@ define internal fastcc ptr @zend_delayed_compile_var(ptr noundef %0, ptr noundef
 
 18:                                               ; preds = %4
   %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 552)) #28
-  %20 = tail call fastcc ptr @zend_compile_var_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i1 noundef zeroext false)
+  %20 = tail call fastcc ptr @zend_compile_var_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 6) %2, i1 noundef zeroext false)
   tail call fastcc void @zend_short_circuiting_commit(i32 noundef %19, ptr noundef %0, ptr noundef nonnull %1)
   br label %21
 
@@ -23654,13 +23654,13 @@ thread-pre-split:                                 ; preds = %4
 
 20:                                               ; preds = %16, %thread-pre-split
   %21 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 440)) #28
-  %22 = tail call fastcc ptr @zend_delayed_compile_dim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i1 noundef zeroext %3)
+  %22 = tail call fastcc ptr @zend_delayed_compile_dim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 6) %2, i1 noundef zeroext %3)
   %23 = tail call fastcc ptr @zend_delayed_compile_end(i32 noundef %21)
   br label %512
 
 24:                                               ; preds = %16, %16, %thread-pre-split, %thread-pre-split
   %25 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 440)) #28
-  %26 = tail call fastcc ptr @zend_delayed_compile_prop(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
+  %26 = tail call fastcc ptr @zend_delayed_compile_prop(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 6) %2)
   br i1 %3, label %27, label %zend_compile_prop.exit
 
 27:                                               ; preds = %24
@@ -23752,7 +23752,7 @@ zend_compile_expr.exit59:                         ; preds = %46
 74:                                               ; preds = %66, %59
   %75 = getelementptr inbounds i8, ptr %1, i64 4
   %76 = load i32, ptr %75, align 4
-  call fastcc void @zend_compile_ns_call(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %38, i32 noundef %76, i32 noundef %2)
+  call fastcc void @zend_compile_ns_call(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %38, i32 noundef %76, i32 noundef range(i32 0, 6) %2)
   br label %zend_compile_call.exit
 
 77:                                               ; preds = %57
@@ -23886,7 +23886,7 @@ fbc_is_finalized.exit:                            ; preds = %.critedge.i
   br i1 %40, label %152, label %138
 
 138:                                              ; preds = %.thread84
-  %139 = tail call fastcc i32 @zend_try_compile_special_func(ptr noundef %0, ptr noundef nonnull %80, ptr noundef nonnull %38, ptr noundef %84, i32 noundef %2)
+  %139 = tail call fastcc i32 @zend_try_compile_special_func(ptr noundef %0, ptr noundef nonnull %80, ptr noundef nonnull %38, ptr noundef %84, i32 noundef range(i32 0, 6) %2)
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %152
 
@@ -25115,7 +25115,7 @@ define internal fastcc zeroext i1 @zend_compile_function_name(ptr nocapture noun
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 264), align 8
-  %13 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %7, i32 noundef %11, ptr noundef %3, i1 noundef zeroext false, ptr noundef %12)
+  %13 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %7, i32 noundef range(i32 0, 65536) %11, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %12)
   store ptr %13, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
@@ -29298,7 +29298,7 @@ zend_compile_init_user_func.exit:                 ; preds = %10, %zend_add_liter
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 264), align 8
-  %89 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %84, i32 noundef %87, ptr noundef %6, i1 noundef zeroext false, ptr noundef %88)
+  %89 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %84, i32 noundef range(i32 0, 65536) %87, ptr noundef nonnull %6, i1 noundef zeroext false, ptr noundef %88)
   %90 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load i64, ptr %90, align 8
   %92 = icmp eq i64 %91, 11
@@ -29588,7 +29588,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_cuf(ptr noundef w
   %11 = load ptr, ptr %10, align 8
   %12 = add i32 %7, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %13 = tail call fastcc i32 @zend_try_compile_ct_bound_init_user_func(ptr noundef %11, i32 noundef %12)
+  %13 = tail call fastcc i32 @zend_try_compile_ct_bound_init_user_func(ptr noundef %11, i32 noundef range(i32 0, -1) %12)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %zend_compile_init_user_func.exit, label %15
 
@@ -29861,7 +29861,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 272), align 8
-  %29 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %24, i32 noundef %27, ptr noundef %6, i1 noundef zeroext true, ptr noundef %28)
+  %29 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %24, i32 noundef range(i32 0, 65536) %27, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef %28)
   %30 = load i8, ptr %6, align 1
   %31 = trunc i8 %30 to i1
   %32 = call fastcc zeroext i1 @zend_try_ct_eval_const(ptr noundef nonnull %5, ptr noundef %29, i1 noundef zeroext %31)
@@ -30594,7 +30594,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_array_slice(ptr n
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 264), align 8
-  %43 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %38, i32 noundef %41, ptr noundef %3, i1 noundef zeroext false, ptr noundef %42)
+  %43 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %38, i32 noundef range(i32 0, 65536) %41, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %42)
   %44 = load ptr, ptr %13, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -34244,12 +34244,12 @@ zend_compile_expr.exit73:                         ; preds = %zend_compile_expr.e
   %31 = zext i16 %8 to i32
   %32 = getelementptr inbounds i8, ptr %3, i64 8
   %33 = getelementptr inbounds i8, ptr %4, i64 8
-  %34 = call zeroext i1 @zend_binary_op_produces_error(i32 noundef %31, ptr noundef nonnull %32, ptr noundef nonnull %33)
+  %34 = call zeroext i1 @zend_binary_op_produces_error(i32 noundef range(i32 0, 65536) %31, ptr noundef nonnull %32, ptr noundef nonnull %33)
   br i1 %34, label %zend_try_ct_eval_binary_op.exit, label %35
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = call ptr @get_binary_op(i32 noundef %31) #28
+  %37 = call ptr @get_binary_op(i32 noundef range(i32 0, 65536) %31) #28
   %38 = call i32 %37(ptr noundef nonnull %36, ptr noundef nonnull %32, ptr noundef nonnull %33) #28
   store i8 1, ptr %0, align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %32) #28
@@ -34559,7 +34559,7 @@ zend_unary_op_produces_error.exit.i:              ; preds = %27
   br i1 %29, label %30, label %zend_try_ct_eval_unary_op.exit.thread
 
 30:                                               ; preds = %zend_unary_op_produces_error.exit.i, %23, %18
-  %31 = call ptr @get_unary_op(i32 noundef %19) #28
+  %31 = call ptr @get_unary_op(i32 noundef range(i32 0, 65536) %19) #28
   %32 = call i32 %31(ptr noundef nonnull %20, ptr noundef nonnull %21) #28
   store i8 1, ptr %0, align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %21) #28
@@ -37906,7 +37906,7 @@ define internal fastcc void @zend_compile_const(ptr noundef %0, ptr nocapture re
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 272), align 8
-  %11 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %6, i32 noundef %9, ptr noundef %2, i1 noundef zeroext true, ptr noundef %10)
+  %11 = call fastcc ptr @zend_resolve_non_class_name(ptr noundef %6, i32 noundef range(i32 0, 65536) %9, ptr noundef nonnull %2, i1 noundef zeroext true, ptr noundef %10)
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 24

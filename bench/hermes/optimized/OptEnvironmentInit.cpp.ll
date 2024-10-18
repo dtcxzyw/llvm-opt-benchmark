@@ -365,7 +365,7 @@ if.end33:                                         ; preds = %while.body.i6.i.i15
   br i1 %cmp.not.i.i125, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit, label %if.then.i.i126
 
 if.then.i.i126:                                   ; preds = %if.end33
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #5
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #5
   %.pre.i.i127 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
 

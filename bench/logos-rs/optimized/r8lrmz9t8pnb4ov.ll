@@ -508,7 +508,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
   br label %135
 
 138:                                              ; preds = %133
-  invoke fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$9fork_read17ha090c17335e98de0E"(ptr noalias align 8 %32, ptr nonnull align 8 %1, i32 %129, ptr align 8 %35, ptr align 8 %59)
+  invoke fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$9fork_read17ha090c17335e98de0E"(ptr noalias align 8 %32, ptr nonnull align 8 %1, i32 %129, ptr align 8 %35, ptr nonnull align 8 %59)
           to label %139 unwind label %136, !noalias !6
 
 139:                                              ; preds = %138

@@ -19,7 +19,7 @@ define { i32, i32 } @"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$
 
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 4 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h9416767eae22acfcE"(ptr align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = tail call ptr @_ZN4core4sync6atomic11atomic_load17h0cbd2427093c4ab3E(ptr %0, i8 2)
+  %2 = tail call ptr @_ZN4core4sync6atomic11atomic_load17h0cbd2427093c4ab3E(ptr align 8 %0, i8 2)
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
   br i1 %.not, label %4, label %3
 

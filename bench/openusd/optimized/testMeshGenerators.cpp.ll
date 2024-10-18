@@ -262,7 +262,7 @@ define internal fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofst
           to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %.noexc76 unwind label %63
 
 .noexc76:                                         ; preds = %.noexc
@@ -272,7 +272,7 @@ define internal fastcc void @_ZL30TestTopologyAndPointGenerationfRSt14basic_ofst
 44:                                               ; preds = %.noexc76
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #13
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc76
@@ -375,7 +375,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePoi
           to label %77 unwind label %69
 
 77:                                               ; preds = %76
-  %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %.noexc79 unwind label %69
 
 .noexc79:                                         ; preds = %77
@@ -424,7 +424,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit: ; preds = %_Z
           to label %.noexc81 unwind label %200
 
 .noexc81:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %99, ptr noundef nonnull align 1 dereferenceable(1) %22)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef %99, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %.noexc82 unwind label %200
 
 .noexc82:                                         ; preds = %.noexc81
@@ -434,7 +434,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit: ; preds = %_Z
 100:                                              ; preds = %.noexc82
   %101 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
   br label %.body83
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85: ; preds = %.noexc82
@@ -483,7 +483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85: ; 
           to label %119 unwind label %206
 
 119:                                              ; preds = %118
-  %120 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %120 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %.noexc87 unwind label %206
 
 .noexc87:                                         ; preds = %119
@@ -532,7 +532,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit93: ; preds = %
           to label %.noexc94 unwind label %209
 
 .noexc94:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit93
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %141, ptr noundef nonnull align 1 dereferenceable(1) %26)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %141, ptr noundef nonnull align 1 dereferenceable(1) %26)
           to label %.noexc95 unwind label %209
 
 .noexc95:                                         ; preds = %.noexc94
@@ -542,7 +542,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit93: ; preds = %
 142:                                              ; preds = %.noexc95
   %143 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #13
   br label %.body96
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98: ; preds = %.noexc95
@@ -587,7 +587,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98: ; 
           to label %157 unwind label %215
 
 157:                                              ; preds = %156
-  %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %.noexc100 unwind label %215
 
 .noexc100:                                        ; preds = %157
@@ -636,7 +636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit106: ; preds = 
           to label %.noexc107 unwind label %218
 
 .noexc107:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit106
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %179, ptr noundef nonnull align 1 dereferenceable(1) %30)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef %179, ptr noundef nonnull align 1 dereferenceable(1) %30)
           to label %.noexc108 unwind label %218
 
 .noexc108:                                        ; preds = %.noexc107
@@ -646,7 +646,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit106: ; preds = 
 180:                                              ; preds = %.noexc108
   %181 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #13
   br label %.body109
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit111: ; preds = %.noexc108
@@ -818,7 +818,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePo
           to label %232 unwind label %224
 
 232:                                              ; preds = %231
-  %233 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %233 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %.noexc114 unwind label %224
 
 .noexc114:                                        ; preds = %232
@@ -867,7 +867,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit120: ; preds = 
           to label %.noexc121 unwind label %295
 
 .noexc121:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit120
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %254, ptr noundef nonnull align 1 dereferenceable(1) %34)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %254, ptr noundef nonnull align 1 dereferenceable(1) %34)
           to label %.noexc122 unwind label %295
 
 .noexc122:                                        ; preds = %.noexc121
@@ -877,7 +877,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopologyD2Ev.exit120: ; preds = 
 255:                                              ; preds = %.noexc122
   %256 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #13
   br label %.body123
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit125: ; preds = %.noexc122
@@ -924,7 +924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit125: ;
           to label %272 unwind label %301
 
 272:                                              ; preds = %271
-  %273 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %273 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %.noexc127 unwind label %301
 
 .noexc127:                                        ; preds = %272
@@ -1041,7 +1041,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110_LogHeaderERKNSt7__cxx1112basic_
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc7 unwind label %15
 
 .noexc7:                                          ; preds = %.noexc
@@ -1051,7 +1051,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110_LogHeaderERKNSt7__cxx1112basic_
 9:                                                ; preds = %.noexc7
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc7

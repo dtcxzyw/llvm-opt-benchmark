@@ -175,7 +175,7 @@ define range(i32 -1, 1) i32 @H5G__traverse_special(ptr noundef %0, ptr nocapture
   store ptr %4, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %1, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = call fastcc i32 @H5G__traverse_real(ptr noundef %15, ptr noundef %57, i32 noundef %45, ptr noundef nonnull @H5G__traverse_slink_cb, ptr noundef nonnull %11)
+  %58 = call fastcc i32 @H5G__traverse_real(ptr noundef %15, ptr noundef %57, i32 noundef range(i32 0, 9) %45, ptr noundef nonnull @H5G__traverse_slink_cb, ptr noundef nonnull %11)
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %64
 

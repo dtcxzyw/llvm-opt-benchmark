@@ -43,8 +43,8 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %7 = sext i32 %1 to i64
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 68, i64 noundef %7, i64 noundef 8)
-  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 69, i64 noundef %7, i64 noundef 8)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 68, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8)
+  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 69, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8)
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.preheader203.us.preheader.i, label %_ZL6jacobiIPPdEiT_iS0_S2_.exit
 
@@ -436,7 +436,7 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(120) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(120) %1) #11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #11
@@ -482,7 +482,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #11
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #11
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -509,7 +509,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #11
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #11
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
@@ -902,13 +902,13 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = sext i32 %1 to i64
-  %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 199, i64 noundef %5, i64 noundef 8)
+  %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 199, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 204, i64 noundef %5, i64 noundef 8)
-  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 209, i64 noundef %5, i64 noundef 8)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 204, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
+  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 209, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   call void @_Z6jacobiPPdiS_S0_Pi(ptr noundef %6, i32 noundef %1, ptr noundef %9, ptr noundef %8, ptr noundef nonnull %4)
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef %9)
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef %8)
@@ -921,28 +921,28 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr nocapture noundef readonly %0, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
-  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 202, i64 noundef %5, i64 noundef 8)
+  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 202, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   store ptr %11, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 204, i64 noundef %5, i64 noundef 8)
+  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 204, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   %wide.trip.count139 = zext nneg i32 %1 to i64
   br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %._crit_edge, %.lr.ph102
   %indvars.iv136 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next137, %.lr.ph102 ]
   %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv136
-  %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 207, i64 noundef %5, i64 noundef 8)
+  %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 207, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   store ptr %14, ptr %13, align 8
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
   br i1 %exitcond140.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !29
 
 ._crit_edge103:                                   ; preds = %.lr.ph102
-  %15 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 209, i64 noundef %5, i64 noundef 8)
+  %15 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 209, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   %16 = zext nneg i32 %1 to i64
   br label %.preheader98.us
 

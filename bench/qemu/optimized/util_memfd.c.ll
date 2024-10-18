@@ -22,7 +22,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %hugetlbsize, i1 true)
+  %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %hugetlbsize, i1 true)
   %cast.i = trunc nuw nsw i64 %0 to i32
   %tobool1.not = icmp eq i64 %0, 0
   %shl = shl nuw i64 1, %0

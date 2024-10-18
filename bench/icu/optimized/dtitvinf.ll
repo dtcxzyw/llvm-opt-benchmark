@@ -608,7 +608,7 @@ new.notnull:                                      ; preds = %if.end
 
 if.end.i.i:                                       ; preds = %new.notnull
   %hashObj.i.i = getelementptr inbounds i8, ptr %call2, i64 8
-  %call2.i.i6 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i6 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -733,7 +733,7 @@ if.end:                                           ; preds = %entry
   %call4 = call i32 @ures_getFunctionalEquivalent_75(ptr noundef nonnull %localeWithCalendarKey, i32 noundef 258, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef %1, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %status)
   %arrayidx = getelementptr inbounds i8, ptr %localeWithCalendarKey, i64 257
   store i8 0, ptr %arrayidx, align 1
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarType)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarType)
   %len.i = getelementptr inbounds i8, ptr %calendarType, i64 56
   store i32 0, ptr %len.i, align 8
   %2 = load ptr, ptr %calendarType, align 8
@@ -853,7 +853,7 @@ invoke.cont50:                                    ; preds = %invoke.cont49
 lpad.i:                                           ; preds = %invoke.cont50
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink51) #16
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %sink51) #16
   br label %ehcleanup98
 
 invoke.cont52:                                    ; preds = %invoke.cont50
@@ -864,7 +864,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
 
 if.end.i.i:                                       ; preds = %invoke.cont52
   %hashObj.i.i = getelementptr inbounds i8, ptr %loadedCalendarTypes, i64 8
-  %call2.i.i50 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
+  %call2.i.i50 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call2.i.i.noexc unwind label %lpad53
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
@@ -895,7 +895,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup
   %21 = load ptr, ptr %loadedCalendarTypes, align 8
-  %call.i54 = invoke noundef i32 @uhash_geti_75(ptr noundef %21, ptr noundef nonnull %nextCalendarType.i)
+  %call.i54 = invoke noundef i32 @uhash_geti_75(ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType.i)
           to label %invoke.cont65 unwind label %lpad57
 
 invoke.cont65:                                    ; preds = %while.body
@@ -927,7 +927,7 @@ new.notnull.i:                                    ; preds = %if.end69
           to label %new.cont.i unwind label %lpad.i55
 
 new.cont.i:                                       ; preds = %new.notnull.i, %if.end69
-  %call2.i56 = invoke noundef i32 @uhash_puti_75(ptr noundef %24, ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull %status)
+  %call2.i56 = invoke noundef i32 @uhash_puti_75(ptr noundef %24, ptr noundef %call.i, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont70 unwind label %lpad57
 
 lpad.i55:                                         ; preds = %new.notnull.i
@@ -942,7 +942,7 @@ invoke.cont70:                                    ; preds = %new.cont.i
   br i1 %cmp.i58, label %if.end76, label %if.end90
 
 if.end76:                                         ; preds = %invoke.cont70
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calTypeBuffer)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calTypeBuffer)
           to label %invoke.cont77 unwind label %lpad57
 
 invoke.cont77:                                    ; preds = %if.end76
@@ -958,13 +958,13 @@ invoke.cont79:                                    ; preds = %invoke.cont77
   br i1 %cmp.i61, label %if.end85, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %invoke.cont79
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calTypeBuffer) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calTypeBuffer) #16
   br label %if.end90
 
 lpad78:                                           ; preds = %if.end85, %invoke.cont88, %invoke.cont77
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calTypeBuffer) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calTypeBuffer) #16
   br label %ehcleanup
 
 if.end85:                                         ; preds = %invoke.cont79
@@ -977,7 +977,7 @@ invoke.cont88:                                    ; preds = %if.end85
           to label %cleanup unwind label %lpad78
 
 cleanup:                                          ; preds = %invoke.cont88
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calTypeBuffer) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calTypeBuffer) #16
   %31 = load i16, ptr %fUnion.i, align 8
   %conv2.i73 = and i16 %31, 1
   %tobool64.not = icmp eq i16 %conv2.i73, 0
@@ -1002,7 +1002,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN6icu_759HashtableD2Ev.exit:                    ; preds = %invoke.cont52, %if.end90, %if.then.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 16), ptr %sink51, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType.i) #16
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink51) #16
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %sink51) #16
   br label %if.end92
 
 ehcleanup:                                        ; preds = %lpad57, %lpad.i55, %lpad78
@@ -1014,7 +1014,7 @@ ehcleanup91:                                      ; preds = %ehcleanup, %lpad53
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %22, %lpad53 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 16), ptr %sink51, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType.i) #16
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink51) #16
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %sink51) #16
   br label %ehcleanup98
 
 if.end92:                                         ; preds = %_ZN6icu_759HashtableD2Ev.exit, %invoke.cont22
@@ -1026,7 +1026,7 @@ invoke.cont93:                                    ; preds = %if.end92
           to label %cleanup95 unwind label %lpad
 
 cleanup95:                                        ; preds = %invoke.cont93, %invoke.cont15
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarType) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarType) #16
   br label %cleanup.cont97
 
 cleanup.cont97:                                   ; preds = %entry, %cleanup95
@@ -1034,7 +1034,7 @@ cleanup.cont97:                                   ; preds = %entry, %cleanup95
 
 ehcleanup98:                                      ; preds = %lpad, %lpad.i, %ehcleanup91, %lpad46, %lpad44, %lpad6
   %.pn37 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup91 ], [ %15, %lpad46 ], [ %13, %lpad44 ], [ %6, %lpad6 ], [ %5, %lpad ], [ %16, %lpad.i ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calendarType) #16
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calendarType) #16
   resume { ptr, i32 } %.pn37
 }
 
@@ -1088,7 +1088,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %fIntervalPatterns = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %fIntervalPatterns, align 8
   %4 = load ptr, ptr %3, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %4, ptr noundef nonnull %skeleton)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %skeleton)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %if.then4, label %if.end15.thread
 
@@ -1141,7 +1141,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   resume { ptr, i32 } %7
 
 _ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %if.end15, %new.notnull.i
-  %call2.i = tail call noundef ptr @uhash_put_75(ptr noundef %6, ptr noundef %call.i8, ptr noundef nonnull %.ptr, ptr noundef nonnull %status)
+  %call2.i = tail call noundef ptr @uhash_put_75(ptr noundef %6, ptr noundef %call.i8, ptr noundef nonnull %.ptr, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end21
 
 if.end21:                                         ; preds = %sw.default.i, %entry, %if.end15.thread, %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, %if.then13
@@ -1310,7 +1310,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i32 -1, ptr %pos, align 4
   %0 = load ptr, ptr %hTable, align 8
-  %call.i2 = call noundef ptr @uhash_nextElement_75(ptr noundef %0, ptr noundef nonnull %pos)
+  %call.i2 = call noundef ptr @uhash_nextElement_75(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp2.not3 = icmp eq ptr %call.i2, null
   br i1 %cmp2.not3, label %while.end, label %while.body
 
@@ -1344,7 +1344,7 @@ arraydestroy.done4:                               ; preds = %arraydestroy.body, 
 
 delete.end5:                                      ; preds = %arraydestroy.done4, %while.body
   %3 = load ptr, ptr %hTable, align 8
-  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %3, ptr noundef nonnull %pos)
+  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp2.not = icmp eq ptr %call.i, null
   br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !5
 
@@ -1394,7 +1394,7 @@ if.end:                                           ; preds = %entry
 
 while.cond:                                       ; preds = %if.end, %invoke.cont22
   %1 = load ptr, ptr %source, align 8
-  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %1, ptr noundef nonnull %pos)
+  %call.i = call noundef ptr @uhash_nextElement_75(ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %pos)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %if.end28, label %while.body
 
@@ -1450,7 +1450,7 @@ new.notnull.i:                                    ; preds = %for.end
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %for.end
-  %call2.i13 = invoke noundef ptr @uhash_put_75(ptr noundef %2, ptr noundef %call.i12, ptr noundef nonnull %.ptr, ptr noundef nonnull %status)
+  %call2.i13 = invoke noundef ptr @uhash_put_75(ptr noundef %2, ptr noundef %call.i12, ptr noundef nonnull %.ptr, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont22 unwind label %lpad21
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -1618,7 +1618,7 @@ if.end:                                           ; preds = %entry
   %fIntervalPatterns = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %fIntervalPatterns, align 8
   %2 = load ptr, ptr %1, align 8
-  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull %skeleton)
+  %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %skeleton)
   %cmp.not = icmp ne ptr %call.i, null
   %3 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %3, 1
@@ -1724,7 +1724,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 16), ptr %this, align 8
   %nextCalendarType.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType.i) #16
-  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
+  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #16
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -2246,7 +2246,7 @@ while.cond:                                       ; preds = %if.end110, %invoke.
   %bestDistance.0 = phi i32 [ 56632, %invoke.cont66 ], [ %bestDistance.1, %if.end110 ]
   %74 = load ptr, ptr %fIntervalPatterns, align 8
   %75 = load ptr, ptr %74, align 8
-  %call.i159 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %75, ptr noundef nonnull %pos)
+  %call.i159 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %75, ptr noundef nonnull align 4 dereferenceable(4) %pos)
           to label %invoke.cont67 unwind label %lpad.loopexit
 
 invoke.cont67:                                    ; preds = %while.cond
@@ -2897,7 +2897,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %fIntervalPatterns = getelementptr inbounds i8, ptr %3, i64 80
   %4 = load ptr, ptr %fIntervalPatterns, align 8
   %5 = load ptr, ptr %4, align 8
-  %call.i7 = invoke noundef ptr @uhash_get_75(ptr noundef %5, ptr noundef nonnull %skeleton)
+  %call.i7 = invoke noundef ptr @uhash_get_75(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(64) %skeleton)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %switch.lookup

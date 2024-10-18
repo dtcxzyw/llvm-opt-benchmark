@@ -278,7 +278,7 @@ for.body:                                         ; preds = %_ZN3ue2L15maxFloodT
   %engineID.061 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   %best_score.060 = phi i32 [ %best_score.1, %for.inc ], [ 0, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   %add.ptr.i = getelementptr inbounds %"class.ue2::TeddyEngineDescription", ptr %16, i64 %engineID.061
-  %call.i34 = invoke noundef zeroext i1 @_ZNK3ue217EngineDescription15isValidOnTargetERKNS_8target_tE(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %target)
+  %call.i34 = invoke noundef zeroext i1 @_ZNK3ue217EngineDescription15isValidOnTargetERKNS_8target_tE(ptr noundef nonnull align 8 dereferenceable(41) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %target)
           to label %call.i.noexc unwind label %lpad.loopexit
 
 call.i.noexc:                                     ; preds = %for.body
@@ -667,7 +667,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue222TeddyEngineDescriptionD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN3ue217EngineDescriptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #15
+  tail call void @_ZN3ue217EngineDescriptionD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }

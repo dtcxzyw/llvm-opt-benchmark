@@ -97,7 +97,7 @@ define dso_local void @_ZN5clang28PPConditionalDirectiveRecordC2ERNS_13SourceMan
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, i64 noundef 6) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5, i64 noundef 6) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
@@ -679,7 +679,7 @@ define linkonce_odr hidden void @_ZN5clang28PPConditionalDirectiveRecordD2Ev(ptr
 
 _ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EED2Ev.exit: ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #11
+  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %10) #11
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = icmp eq ptr %12, %13
@@ -713,7 +713,7 @@ define linkonce_odr hidden void @_ZN5clang28PPConditionalDirectiveRecordD0Ev(ptr
 
 _ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EED2Ev.exit.i: ; preds = %4, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #11
+  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %10) #11
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = icmp eq ptr %12, %13
@@ -724,7 +724,7 @@ _ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EED2E
   br label %_ZN5clang28PPConditionalDirectiveRecordD2Ev.exit
 
 _ZN5clang28PPConditionalDirectiveRecordD2Ev.exit: ; preds = %_ZNSt6vectorIN5clang28PPConditionalDirectiveRecord16CondDirectiveLocESaIS2_EED2Ev.exit.i, %15
-  tail call void @_ZN5clang11PPCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
+  tail call void @_ZN5clang11PPCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 80) #14
   ret void
 }

@@ -2740,7 +2740,7 @@ proto_item_set_generated.exit274:                 ; preds = %proto_item_set_gene
   br i1 %638, label %639, label %644
 
 639:                                              ; preds = %629
-  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull %.0222)
   %640 = load i32, ptr @preferences_header_checksum, align 4
   %.not188.i = icmp eq i32 %640, 0
   br i1 %.not188.i, label %dissect_rach_channel_info.exit, label %641
@@ -2810,8 +2810,8 @@ proto_item_set_generated.exit274:                 ; preds = %proto_item_set_gene
   %.0177.i = phi ptr [ %676, %672 ], [ null, %669 ]
   %.0166.i = phi i32 [ %674, %672 ], [ 0, %669 ]
   %.2.i = phi i32 [ %677, %672 ], [ %.1.i, %669 ]
-  %679 = call fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %.2.i, ptr noundef %.0222, ptr noundef nonnull @mac_fdd_rach_handle, ptr noundef %3)
-  %680 = call fastcc i32 @dissect_crci_bits(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222, i32 noundef %679)
+  %679 = call fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %.2.i, ptr noundef nonnull %.0222, ptr noundef nonnull @mac_fdd_rach_handle, ptr noundef %3)
+  %680 = call fastcc i32 @dissect_crci_bits(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull %.0222, i32 noundef %679)
   %681 = load i8, ptr %546, align 8
   %682 = and i8 %681, -2
   %switch.i = icmp eq i8 %682, 6
@@ -3045,7 +3045,7 @@ dissect_rach_channel_info.exit:                   ; preds = %639, %641, %verify_
   br i1 %783, label %784, label %789
 
 784:                                              ; preds = %774
-  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull %.0222)
   %785 = load i32, ptr @preferences_header_checksum, align 4
   %.not62.i = icmp eq i32 %785, 0
   br i1 %.not62.i, label %dissect_fach_channel_info.exit, label %786
@@ -3070,7 +3070,7 @@ dissect_rach_channel_info.exit:                   ; preds = %639, %641, %verify_
   %799 = uitofp i8 %798 to float
   %800 = fdiv float %799, 1.000000e+01
   %801 = call ptr @proto_tree_add_float(ptr noundef %18, i32 noundef %797, ptr noundef %0, i32 noundef 3, i32 noundef 1, float noundef %800) #9
-  %802 = call fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef 4, ptr noundef %.0222, ptr noundef nonnull @mac_fdd_fach_handle, ptr noundef %3)
+  %802 = call fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef 4, ptr noundef nonnull %.0222, ptr noundef nonnull @mac_fdd_fach_handle, ptr noundef %3)
   %803 = load i8, ptr %546, align 8
   %804 = icmp eq i8 %803, 7
   br i1 %804, label %805, label %816
@@ -3145,7 +3145,7 @@ dissect_fach_channel_info.exit:                   ; preds = %784, %786, %verify_
   br i1 %840, label %841, label %842
 
 841:                                              ; preds = %831
-  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull %.0222)
   br label %dissect_dsch_channel_info.exit
 
 842:                                              ; preds = %831
@@ -3193,7 +3193,7 @@ dissect_fach_channel_info.exit:                   ; preds = %784, %786, %verify_
 
 873:                                              ; preds = %865, %853
   %.0.i286 = phi i32 [ 6, %853 ], [ 5, %865 ]
-  %874 = call fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %.0.i286, ptr noundef %.0222, ptr noundef null, ptr noundef null)
+  %874 = call fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %.0.i286, ptr noundef nonnull %.0222, ptr noundef null, ptr noundef null)
   call fastcc void @dissect_spare_extension_and_crc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i8 noundef zeroext 1, i32 noundef %874, i32 noundef %.0.i286)
   br label %dissect_dsch_channel_info.exit
 
@@ -3218,7 +3218,7 @@ dissect_dsch_channel_info.exit:                   ; preds = %841, %873
   br i1 %884, label %885, label %886
 
 885:                                              ; preds = %875
-  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull %.0222)
   br label %dissect_usch_channel_info.exit
 
 886:                                              ; preds = %875
@@ -3232,11 +3232,11 @@ dissect_dsch_channel_info.exit:                   ; preds = %841, %873
   %893 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #9
   %894 = load i32, ptr @hf_fp_rx_timing_deviation, align 4
   %895 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %894, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %896 = call fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef 4, ptr noundef %.0222, ptr noundef null, ptr noundef null)
+  %896 = call fastcc i32 @dissect_tb_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef 4, ptr noundef nonnull %.0222, ptr noundef null, ptr noundef null)
   %897 = load i32, ptr @hf_fp_quality_estimate, align 4
   %898 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %897, ptr noundef %0, i32 noundef %896, i32 noundef 1, i32 noundef 0) #9
   %899 = add i32 %896, 1
-  %900 = call fastcc i32 @dissect_crci_bits(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222, i32 noundef %899)
+  %900 = call fastcc i32 @dissect_crci_bits(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull %.0222, i32 noundef %899)
   %901 = load i8, ptr %546, align 8
   %902 = icmp eq i8 %901, 7
   br i1 %902, label %903, label %919

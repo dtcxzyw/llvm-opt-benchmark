@@ -232,7 +232,7 @@ if.then29:                                        ; preds = %if.else
   store i32 %22, ptr %tmp.sroa.2.0.started.sroa_idx.i90, align 8
   %remotehost.i91 = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load ptr, ptr %remotehost.i91, align 8
-  %call4.i92 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef %23, i32 noundef %conv31, i32 noundef 1) #4
+  %call4.i92 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef %23, i32 noundef range(i32 0, 256) %conv31, i32 noundef 1) #4
   %result.i93 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %call4.i92, ptr %result.i93, align 8
   %24 = load ptr, ptr %next.i87, align 8
@@ -429,7 +429,7 @@ if.then51:                                        ; preds = %cf_hc_baller_is_act
   store i32 %59, ptr %tmp.sroa.2.0.started.sroa_idx.i108, align 8
   %remotehost.i109 = getelementptr inbounds i8, ptr %56, i64 8
   %60 = load ptr, ptr %remotehost.i109, align 8
-  %call4.i110 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef %60, i32 noundef %conv55, i32 noundef 1) #4
+  %call4.i110 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %cf, ptr noundef %data, ptr noundef %60, i32 noundef range(i32 0, 256) %conv55, i32 noundef 1) #4
   %result.i111 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %call4.i110, ptr %result.i111, align 8
   %61 = load ptr, ptr %next.i105, align 8

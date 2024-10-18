@@ -517,7 +517,7 @@ if.end5.i.i.i:                                    ; preds = %if.end9.i.i
   br i1 %cmp6.i.i.i, label %if.then8.i.i.i, label %if.end9.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end5.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %litBuffer.i, ptr nonnull align 1 %add.ptr10.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %litBuffer.i, ptr nonnull align 1 %add.ptr10.i.i, i64 range(i64 0, 524288) %conv.i.i, i1 false)
   br label %ZSTD_decodeLiteralsBlock.exit.thread52
 
 if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
@@ -525,7 +525,7 @@ if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
   br i1 %cmp10.i.i.i, label %if.then12.i.i.i, label %if.end14.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %litBuffer.i, i8 %3, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %litBuffer.i, i8 %3, i64 range(i64 0, 524288) %conv.i.i, i1 false)
   br label %ZSTD_decodeLiteralsBlock.exit.thread52
 
 if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
@@ -581,7 +581,7 @@ HUF_decompress.exit.i.i:                          ; preds = %for.body.i.i.i
   %spec.store.select.i.i.i = select i1 %cmp44.i.i.i, i64 2, i64 %spec.select.i.i.i
   %arrayidx49.i.i.i = getelementptr inbounds [3 x ptr], ptr @HUF_decompress.decompress, i64 0, i64 %spec.store.select.i.i.i
   %10 = load ptr, ptr %arrayidx49.i.i.i, align 8
-  %call.i.i.i = tail call i64 %10(ptr noundef nonnull %litBuffer.i, i64 noundef %conv.i.i, ptr noundef nonnull %add.ptr10.i.i, i64 noundef %conv4.i.i) #20
+  %call.i.i.i = tail call i64 %10(ptr noundef nonnull %litBuffer.i, i64 noundef range(i64 0, 524288) %conv.i.i, ptr noundef nonnull %add.ptr10.i.i, i64 noundef range(i64 0, 524288) %conv4.i.i) #20
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %Dtime.i.i.i)
   %cmp.i.i.i.i = icmp ult i64 %call.i.i.i, -119
   br i1 %cmp.i.i.i.i, label %ZSTD_decodeLiteralsBlock.exit, label %ZSTD_decodeLiteralsBlock.exit.thread43
@@ -5177,10 +5177,10 @@ for.end.i:                                        ; preds = %for.cond.for.end_cr
   br i1 %or.cond136.i, label %HUF_decompress4X6_usingDTable.exit, label %if.end173.i
 
 if.end173.i:                                      ; preds = %for.end.i
-  call fastcc void @HUF_decodeStreamX6(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr14.i, ptr noundef readonly %DTable, i32 noundef %14)
-  call fastcc void @HUF_decodeStreamX6(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr15.i, ptr noundef readonly %DTable, i32 noundef %14)
-  call fastcc void @HUF_decodeStreamX6(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr16.i, ptr noundef readonly %DTable, i32 noundef %14)
-  call fastcc void @HUF_decodeStreamX6(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i12, ptr noundef readonly %DTable, i32 noundef %14)
+  call fastcc void @HUF_decodeStreamX6(ptr noundef %op1.0.lcssa.i, ptr noundef %bitD1.i, ptr noundef %add.ptr14.i, ptr noundef nonnull readonly %DTable, i32 noundef %14)
+  call fastcc void @HUF_decodeStreamX6(ptr noundef %op2.0.lcssa.i, ptr noundef %bitD2.i, ptr noundef %add.ptr15.i, ptr noundef nonnull readonly %DTable, i32 noundef %14)
+  call fastcc void @HUF_decodeStreamX6(ptr noundef %op3.0.lcssa.i, ptr noundef %bitD3.i, ptr noundef %add.ptr16.i, ptr noundef nonnull readonly %DTable, i32 noundef %14)
+  call fastcc void @HUF_decodeStreamX6(ptr noundef %op4.0.lcssa.i, ptr noundef %bitD4.i, ptr noundef %add.ptr.i12, ptr noundef nonnull readonly %DTable, i32 noundef %14)
   %ptr.i613.i = getelementptr inbounds i8, ptr %bitD1.i, i64 16
   %125 = load ptr, ptr %ptr.i613.i, align 8
   %126 = load ptr, ptr %start.i.i, align 8
@@ -5314,7 +5314,7 @@ if.end42:                                         ; preds = %if.else37
   br i1 %cmp.i, label %FSE_decompress.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end42
-  %call.i = call fastcc i64 @FSE_readNCount(ptr noundef %counting.i, ptr noundef %maxSymbolValue.i, ptr noundef %tableLog.i, ptr noundef nonnull %add.ptr44, i64 noundef %conv)
+  %call.i = call fastcc i64 @FSE_readNCount(ptr noundef %counting.i, ptr noundef %maxSymbolValue.i, ptr noundef %tableLog.i, ptr noundef nonnull %add.ptr44, i64 noundef range(i64 0, 128) %conv)
   %cmp.i.i.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i.i.i, label %if.end3.i, label %FSE_decompress.exit.thread
 

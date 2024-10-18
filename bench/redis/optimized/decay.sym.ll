@@ -33,7 +33,7 @@ if.then:                                          ; preds = %entry
 
 if.end.i14:                                       ; preds = %if.then
   %sub.i15 = add i64 %call3, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i15, i1 true)
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -1) %sub.i15, i1 true)
   %narrow.i = sub nuw nsw i64 64, %1
   %shl.i = shl nuw i64 1, %narrow.i
   br label %pow2_ceil_u64.exit

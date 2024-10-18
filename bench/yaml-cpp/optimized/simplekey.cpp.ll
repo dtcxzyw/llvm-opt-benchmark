@@ -482,7 +482,7 @@ if.end16:                                         ; preds = %if.then5, %if.then1
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %invoke.cont.i.i.thread
 
 invoke.cont.i.i.thread:                           ; preds = %if.end16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp17, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %20, ptr noundef nonnull align 8 dereferenceable(84) %ref.tmp17, i64 20, i1 false)
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value.i) #17
   %params.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 56
@@ -1036,7 +1036,7 @@ _ZNSt5dequeIN4YAML5TokenESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %__args, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %9, ptr noundef nonnull align 8 dereferenceable(84) %__args, i64 20, i1 false)
   %value.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %value3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value3.i.i.i) #17

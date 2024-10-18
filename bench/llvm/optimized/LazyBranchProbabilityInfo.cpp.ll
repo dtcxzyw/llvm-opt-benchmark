@@ -79,7 +79,7 @@ define dso_local void @_ZN4llvm43initializeLazyBranchProbabilityInfoPassPassERNS
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL47InitializeLazyBranchProbabilityInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #11
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL47InitializeLazyBranchProbabilityInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #11
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -142,7 +142,7 @@ define dso_local void @_ZN4llvm29LazyBranchProbabilityInfoPassC2Ev(ptr nocapture
   store ptr %2, ptr %10, align 8
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %11, align 8
-  %12 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL47InitializeLazyBranchProbabilityInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #11
+  %12 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL47InitializeLazyBranchProbabilityInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #11
   %.not.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i, label %_ZN4llvm43initializeLazyBranchProbabilityInfoPassPassERNS_12PassRegistryE.exit, label %13
 
@@ -176,7 +176,7 @@ define dso_local void @_ZNK4llvm29LazyBranchProbabilityInfoPass5printERNS_11raw_
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %15 = load ptr, ptr %14, align 8
-  tail call void @_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeEPNS_17PostDominatorTreeE(ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef %15, ptr noundef null, ptr noundef null) #11
+  tail call void @_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeEPNS_17PostDominatorTreeE(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef %15, ptr noundef null, ptr noundef null) #11
   store i8 1, ptr %6, align 8
   br label %_ZN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfo13getCalculatedEv.exit
 
@@ -206,7 +206,7 @@ define dso_local void @_ZN4llvm29LazyBranchProbabilityInfoPass13releaseMemoryEv(
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEEclEPS2_.exit.i.i: ; preds = %1
-  tail call void @_ZN4llvm21BranchProbabilityInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %3) #11
+  tail call void @_ZN4llvm21BranchProbabilityInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %3) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 280) #14
   br label %_ZNSt10unique_ptrIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoESt14default_deleteIS2_EE5resetEPS2_.exit
 
@@ -283,7 +283,7 @@ _ZNK4llvm4Pass11getAnalysisINS_28TargetLibraryInfoWrapperPassEEERT_v.exit: ; pre
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 320
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %38, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   br i1 %41, label %_ZN4llvm28TargetLibraryInfoWrapperPass6getTLIERKNS_8FunctionE.exit, label %42
 
 42:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_28TargetLibraryInfoWrapperPassEEERT_v.exit
@@ -295,7 +295,7 @@ _ZN4llvm28TargetLibraryInfoWrapperPass6getTLIERKNS_8FunctionE.exit: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   %43 = call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #13, !noalias !4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %43, i8 0, i64 20, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %43, i8 0, i64 20, i1 false), !noalias !4
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %44, i8 0, i64 20, i1 false), !noalias !4
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 48
@@ -347,7 +347,7 @@ _ZSt11make_uniqueIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityIn
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEEclEPS2_.exit.i.i.i.i: ; preds = %_ZSt11make_uniqueIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEJPNS0_8FunctionEPNS0_8LoopInfoEPNS0_17TargetLibraryInfoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  call void @_ZN4llvm21BranchProbabilityInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %55) #11
+  call void @_ZN4llvm21BranchProbabilityInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %55) #11
   call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef 280) #14
   br label %_ZNSt10unique_ptrIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoESt14default_deleteIS2_EED2Ev.exit
 
@@ -377,7 +377,7 @@ define dso_local void @_ZN4llvm25initializeLazyBPIPassPassERNS_12PassRegistryE(p
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL47InitializeLazyBranchProbabilityInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #11
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL47InitializeLazyBranchProbabilityInfoPassPassFlag, ptr noundef nonnull @__once_proxy) #11
   %.not.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i, label %_ZN4llvm43initializeLazyBranchProbabilityInfoPassPassERNS_12PassRegistryE.exit, label %8
 
@@ -408,7 +408,7 @@ define linkonce_odr hidden void @_ZN4llvm29LazyBranchProbabilityInfoPassD2Ev(ptr
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEEclEPS2_.exit.i: ; preds = %1
-  tail call void @_ZN4llvm21BranchProbabilityInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %3) #11
+  tail call void @_ZN4llvm21BranchProbabilityInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %3) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 280) #14
   br label %_ZNSt10unique_ptrIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoESt14default_deleteIS2_EED2Ev.exit
 
@@ -427,13 +427,13 @@ define linkonce_odr hidden void @_ZN4llvm29LazyBranchProbabilityInfoPassD0Ev(ptr
   br i1 %.not.i.i, label %_ZN4llvm29LazyBranchProbabilityInfoPassD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEEclEPS2_.exit.i.i: ; preds = %1
-  tail call void @_ZN4llvm21BranchProbabilityInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %3) #11
+  tail call void @_ZN4llvm21BranchProbabilityInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %3) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 280) #14
   br label %_ZN4llvm29LazyBranchProbabilityInfoPassD2Ev.exit
 
 _ZN4llvm29LazyBranchProbabilityInfoPassD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityInfoEEclEPS2_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #11
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #14
   ret void
 }

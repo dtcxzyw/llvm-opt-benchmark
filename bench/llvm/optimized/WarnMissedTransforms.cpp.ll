@@ -109,7 +109,7 @@ define dso_local void @_ZN4llvm29WarnMissedTransformationsPass3runERNS_8Function
   br label %45
 
 ._crit_edge.i:                                    ; preds = %_ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitterE.exit.i, %22
-  %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #5
+  %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %20) #5
   %41 = load ptr, ptr %20, align 8
   %42 = getelementptr inbounds i8, ptr %20, i64 16
   %43 = icmp eq ptr %41, %42
@@ -146,11 +146,11 @@ define dso_local void @_ZN4llvm29WarnMissedTransformationsPass3runERNS_8Function
   call void @_ZN4llvm18DiagnosticLocationC1ERKNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #5
   %50 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %46) #5
   call void @_ZN4llvm33DiagnosticInfoOptimizationFailureC1EPKcNS_9StringRefERKNS_18DiagnosticLocationEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull @.str, ptr nonnull @.str.1, i64 24, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %50) #5
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %5, ptr nonnull @.str.2, i64 184) #5
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr nonnull @.str.2, i64 184) #5
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(424) %5) #5
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %5, align 8
   %51 = load ptr, ptr %30, align 8
-  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #5
+  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(336) %30) #5
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %52, 0
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i.i.i
 
@@ -163,7 +163,7 @@ define dso_local void @_ZN4llvm29WarnMissedTransformationsPass3runERNS_8Function
   %54 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 -80
   %55 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %54) #5
   %.not.i.i.i.i.i.i.i = icmp eq ptr %51, %54
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -182,7 +182,7 @@ _ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit.i.i: ; preds = %58, %_ZN4ll
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.i.i, label %60
 
 60:                                               ; preds = %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(8) %59) #5
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %59) #5
   br label %_ZN4llvm8DebugLocD2Ev.exit.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %60, %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit.i.i, %45
@@ -195,11 +195,11 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %60, %_ZN4llvm33Diag
   call void @_ZN4llvm18DiagnosticLocationC1ERKNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #5
   %64 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %46) #5
   call void @_ZN4llvm33DiagnosticInfoOptimizationFailureC1EPKcNS_9StringRefERKNS_18DiagnosticLocationEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %8, ptr noundef nonnull @.str, ptr nonnull @.str.3, i64 31, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %64) #5
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %8, ptr nonnull @.str.4, i64 193) #5
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %8, ptr nonnull @.str.4, i64 193) #5
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(424) %8) #5
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %8, align 8
   %65 = load ptr, ptr %32, align 8
-  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #5
+  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(336) %32) #5
   %.not4.i.i.i.i.i21.i.i = icmp eq i64 %66, 0
   br i1 %.not4.i.i.i.i.i21.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i26.i.i, label %.lr.ph.i.preheader.i.i.i.i22.i.i
 
@@ -212,7 +212,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %60, %_ZN4llvm33Diag
   %68 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i24.i.i, i64 -80
   %69 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i24.i.i, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %68) #5
   %.not.i.i.i.i.i25.i.i = icmp eq ptr %65, %68
   br i1 %.not.i.i.i.i.i25.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i26.i.i, label %.lr.ph.i.i.i.i.i23.i.i, !llvm.loop !4
 
@@ -231,7 +231,7 @@ _ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit27.i.i: ; preds = %72, %_ZN4
   br i1 %.not.i.i.i.i28.i.i, label %_ZN4llvm8DebugLocD2Ev.exit29.i.i, label %74
 
 74:                                               ; preds = %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit27.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(8) %73) #5
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %73) #5
   br label %_ZN4llvm8DebugLocD2Ev.exit29.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit29.i.i:                 ; preds = %74, %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit27.i.i, %_ZN4llvm8DebugLocD2Ev.exit.i.i
@@ -262,11 +262,11 @@ _ZN4llvm8DebugLocD2Ev.exit29.i.i:                 ; preds = %74, %_ZN4llvm33Diag
   call void @_ZN4llvm18DiagnosticLocationC1ERKNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %13) #5
   %86 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %46) #5
   call void @_ZN4llvm33DiagnosticInfoOptimizationFailureC1EPKcNS_9StringRefERKNS_18DiagnosticLocationEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %11, ptr noundef nonnull @.str, ptr nonnull @.str.6, i64 28, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %86) #5
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %11, ptr nonnull @.str.7, i64 186) #5
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %11, ptr nonnull @.str.7, i64 186) #5
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(424) %11) #5
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %11, align 8
   %87 = load ptr, ptr %36, align 8
-  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #5
+  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(336) %36) #5
   %.not4.i.i.i.i.i30.i.i = icmp eq i64 %88, 0
   br i1 %.not4.i.i.i.i.i30.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i35.i.i, label %.lr.ph.i.preheader.i.i.i.i31.i.i
 
@@ -279,7 +279,7 @@ _ZN4llvm8DebugLocD2Ev.exit29.i.i:                 ; preds = %74, %_ZN4llvm33Diag
   %90 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i33.i.i, i64 -80
   %91 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i33.i.i, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %90) #5
   %.not.i.i.i.i.i34.i.i = icmp eq ptr %87, %90
   br i1 %.not.i.i.i.i.i34.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i35.i.i, label %.lr.ph.i.i.i.i.i32.i.i, !llvm.loop !4
 
@@ -298,7 +298,7 @@ _ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit36.i.i: ; preds = %94, %_ZN4
   br i1 %.not.i.i.i.i37.i.i, label %_ZN4llvm8DebugLocD2Ev.exit38.i.i, label %96
 
 96:                                               ; preds = %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit36.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %13, ptr noundef nonnull align 4 dereferenceable(8) %95) #5
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %95) #5
   br label %_ZN4llvm8DebugLocD2Ev.exit38.i.i
 
 97:                                               ; preds = %81
@@ -311,11 +311,11 @@ _ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit36.i.i: ; preds = %94, %_ZN4
   call void @_ZN4llvm18DiagnosticLocationC1ERKNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #5
   %100 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %46) #5
   call void @_ZN4llvm33DiagnosticInfoOptimizationFailureC1EPKcNS_9StringRefERKNS_18DiagnosticLocationEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %14, ptr noundef nonnull @.str, ptr nonnull @.str.8, i64 27, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %100) #5
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %14, ptr nonnull @.str.9, i64 187) #5
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %14, ptr nonnull @.str.9, i64 187) #5
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(424) %14) #5
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %14, align 8
   %101 = load ptr, ptr %34, align 8
-  %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #5
+  %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(336) %34) #5
   %.not4.i.i.i.i.i39.i.i = icmp eq i64 %102, 0
   br i1 %.not4.i.i.i.i.i39.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i44.i.i, label %.lr.ph.i.preheader.i.i.i.i40.i.i
 
@@ -328,7 +328,7 @@ _ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit36.i.i: ; preds = %94, %_ZN4
   %104 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i42.i.i, i64 -80
   %105 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i42.i.i, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %105) #5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %104) #5
   %.not.i.i.i.i.i43.i.i = icmp eq ptr %101, %104
   br i1 %.not.i.i.i.i.i43.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i44.i.i, label %.lr.ph.i.i.i.i.i41.i.i, !llvm.loop !4
 
@@ -347,7 +347,7 @@ _ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit45.i.i: ; preds = %108, %_ZN
   br i1 %.not.i.i.i.i46.i.i, label %_ZN4llvm8DebugLocD2Ev.exit38.i.i, label %110
 
 110:                                              ; preds = %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit45.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %16, ptr noundef nonnull align 4 dereferenceable(8) %109) #5
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %109) #5
   br label %_ZN4llvm8DebugLocD2Ev.exit38.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit38.i.i:                 ; preds = %110, %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit45.i.i, %97, %96, %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit36.i.i, %_ZN4llvm8DebugLocD2Ev.exit29.i.i
@@ -360,11 +360,11 @@ _ZN4llvm8DebugLocD2Ev.exit38.i.i:                 ; preds = %110, %_ZN4llvm33Dia
   call void @_ZN4llvm18DiagnosticLocationC1ERKNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #5
   %114 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %46) #5
   call void @_ZN4llvm33DiagnosticInfoOptimizationFailureC1EPKcNS_9StringRefERKNS_18DiagnosticLocationEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %17, ptr noundef nonnull @.str, ptr nonnull @.str.10, i64 27, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %114) #5
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %17, ptr nonnull @.str.11, i64 187) #5
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %17, ptr nonnull @.str.11, i64 187) #5
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(424) %17) #5
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %17, align 8
   %115 = load ptr, ptr %38, align 8
-  %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #5
+  %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(336) %38) #5
   %.not4.i.i.i.i.i48.i.i = icmp eq i64 %116, 0
   br i1 %.not4.i.i.i.i.i48.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i53.i.i, label %.lr.ph.i.preheader.i.i.i.i49.i.i
 
@@ -377,7 +377,7 @@ _ZN4llvm8DebugLocD2Ev.exit38.i.i:                 ; preds = %110, %_ZN4llvm33Dia
   %118 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i51.i.i, i64 -80
   %119 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i51.i.i, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(80) %118) #5
   %.not.i.i.i.i.i52.i.i = icmp eq ptr %115, %118
   br i1 %.not.i.i.i.i.i52.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i53.i.i, label %.lr.ph.i.i.i.i.i50.i.i, !llvm.loop !4
 
@@ -396,7 +396,7 @@ _ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit54.i.i: ; preds = %122, %_ZN
   br i1 %.not.i.i.i.i55.i.i, label %_ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitterE.exit.i, label %124
 
 124:                                              ; preds = %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit54.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %19, ptr noundef nonnull align 4 dereferenceable(8) %123) #5
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(8) %123) #5
   br label %_ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitterE.exit.i
 
 _ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitterE.exit.i: ; preds = %124, %_ZN4llvm33DiagnosticInfoOptimizationFailureD2Ev.exit54.i.i, %_ZN4llvm8DebugLocD2Ev.exit38.i.i

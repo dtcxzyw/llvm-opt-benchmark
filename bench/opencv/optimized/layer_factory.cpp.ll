@@ -89,7 +89,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv3dnn14dnn4_
 
 3:                                                ; preds = %0
   %4 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv3dnn14dnn4_v2024052122getInitializationMutexEv()
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #16
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %6
 
@@ -116,11 +116,11 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %3
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #16
+  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
   resume { ptr, i32 } %14
 
 16:                                               ; preds = %11, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #16
+  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
   br label %18
 
 18:                                               ; preds = %16, %0
@@ -151,7 +151,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv3dnn14dnn4_
 
 6:                                                ; preds = %3
   %7 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv3dnn14dnn4_v2024052122getInitializationMutexEv()
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #16
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #16
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i, label %9
 
@@ -178,7 +178,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i: ; preds = %6
 common.resume:                                    ; preds = %33, %17
   %.sink = phi ptr [ %21, %33 ], [ %7, %17 ]
   %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %18, %17 ]
-  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink) #16
+  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #16
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %12
@@ -187,12 +187,12 @@ common.resume:                                    ; preds = %33, %17
   br label %common.resume
 
 19:                                               ; preds = %14, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i
-  %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #16
+  %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #16
   br label %_ZN2cv3dnn14dnn4_v2024052120getLayerFactoryMutexEv.exit
 
 _ZN2cv3dnn14dnn4_v2024052120getLayerFactoryMutexEv.exit: ; preds = %3, %19
   %21 = load volatile ptr, ptr @_ZZN2cv3dnn14dnn4_v2024052120getLayerFactoryMutexEvE8instance, align 8
-  %22 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %21) #16
+  %22 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %21) #16
   %.not.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %23
 
@@ -236,7 +236,7 @@ _ZN2cv3dnn14dnn4_v20240521L20getLayerFactoryImpl_B5cxx11Ev.exit: ; preds = %26, 
   br label %common.resume
 
 35:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L20getLayerFactoryImpl_B5cxx11Ev.exit, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %36 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #16
+  %36 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #16
   br label %37
 
 37:                                               ; preds = %35, %0
@@ -277,7 +277,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052112LayerFactory13registerLayerERKNSt7__cxx
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %15
-  %17 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #16
+  %17 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #16
   %.not.i.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i, label %.invoke
 
@@ -300,16 +300,16 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i: ; preds = %.noexc
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #16
+  %26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #16
   br label %.body
 
 27:                                               ; preds = %22, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i
-  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #16
+  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #16
   br label %29
 
 29:                                               ; preds = %27, %12
   %30 = load volatile ptr, ptr @_ZZN2cv3dnn14dnn4_v2024052120getLayerFactoryMutexEvE8instance, align 8
-  %31 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %30) #16
+  %31 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %30) #16
   %.not.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %.invoke
 
@@ -513,7 +513,7 @@ _ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202405215LayerEEERNS3_11LayerParamsEESaI
 
 .noexc23:                                         ; preds = %104
   store ptr %1, ptr %105, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %106 unwind label %124
 
 106:                                              ; preds = %.noexc23
@@ -537,8 +537,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3P
   br label %_ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202405215LayerEEERNS3_11LayerParamsEESaIS9_EED2Ev.exit
 
 _ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202405215LayerEEERNS3_11LayerParamsEESaIS9_EED2Ev.exit: ; preds = %113, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3PtrINS7_3dnn14dnn4_v202405215LayerEEERNSA_11LayerParamsEESaISG_EESt4lessIS5_ESaISt4pairIKS5_SI_EEE6insertISL_IS5_SI_EEENSt9enable_ifIXsr16is_constructibleISN_T_EE5valueESL_ISt17_Rb_tree_iteratorISN_EbEE4typeEOST_.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
-  %114 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #16
+  %114 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %30) #16
   %115 = getelementptr inbounds i8, ptr %3, i64 8
   %116 = load i32, ptr %115, align 8
   %.not.i27 = icmp eq i32 %116, 0
@@ -577,7 +577,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIPFN2cv
 
 _ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202405215LayerEEERNS3_11LayerParamsEESaIS9_EED2Ev.exit29: ; preds = %121, %.thread, %124, %73, %67
   %.pn12.pn = phi { ptr, i32 } [ %.pn12, %73 ], [ %68, %67 ], [ %122, %121 ], [ %123, %.thread ], [ %125, %124 ]
-  %126 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #16
+  %126 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %30) #16
   br label %.body
 
 .body:                                            ; preds = %10, %24, %_ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202405215LayerEEERNS3_11LayerParamsEESaIS9_EED2Ev.exit29
@@ -698,7 +698,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052112LayerFactory15unregisterLayerERKNSt7__c
           to label %.noexc unwind label %6
 
 .noexc:                                           ; preds = %11
-  %13 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %12) #16
+  %13 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %12) #16
   %.not.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i, label %.invoke
 
@@ -721,16 +721,16 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i: ; preds = %.noexc
 20:                                               ; preds = %16
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #16
+  %22 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %12) #16
   br label %.body
 
 23:                                               ; preds = %18, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i
-  %24 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #16
+  %24 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %12) #16
   br label %25
 
 25:                                               ; preds = %23, %8
   %26 = load volatile ptr, ptr @_ZZN2cv3dnn14dnn4_v2024052120getLayerFactoryMutexEvE8instance, align 8
-  %27 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %26) #16
+  %27 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %26) #16
   %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %.invoke
 
@@ -826,7 +826,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3P
 62:                                               ; preds = %65, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3PtrINS7_3dnn14dnn4_v202405215LayerEEERNSA_11LayerParamsEESaISG_EESt4lessIS5_ESaISt4pairIKS5_SI_EEE4findERSM_.exit, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
   %63 = landingpad { ptr, i32 }
           cleanup
-  %64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #16
+  %64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %26) #16
   br label %.body
 
 65:                                               ; preds = %51
@@ -847,7 +847,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3P
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3PtrINS7_3dnn14dnn4_v202405215LayerEEERNSA_11LayerParamsEESaISG_EESt4lessIS5_ESaISt4pairIKS5_SI_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISN_E.exit: ; preds = %67, %72
   %73 = getelementptr inbounds i8, ptr %69, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %73) #16
   call void @_ZdlPv(ptr noundef nonnull %69) #20
   %74 = getelementptr inbounds i8, ptr %66, i64 40
   %75 = load i64, ptr %74, align 8
@@ -856,7 +856,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3P
   br label %77
 
 77:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3PtrINS7_3dnn14dnn4_v202405215LayerEEERNSA_11LayerParamsEESaISG_EESt4lessIS5_ESaISt4pairIKS5_SI_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISN_E.exit, %60, %49
-  %78 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #16
+  %78 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %26) #16
   %79 = getelementptr inbounds i8, ptr %2, i64 8
   %80 = load i32, ptr %79, align 8
   %.not.i = icmp eq i32 %80, 0
@@ -890,7 +890,7 @@ define noundef zeroext i1 @_ZN2cv3dnn14dnn4_v2024052112LayerFactory17isLayerRegi
 
 4:                                                ; preds = %1
   %5 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv3dnn14dnn4_v2024052122getInitializationMutexEv()
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #16
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #16
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i, label %7
 
@@ -917,7 +917,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i: ; preds = %4
 common.resume:                                    ; preds = %43, %15
   %.sink = phi ptr [ %19, %43 ], [ %5, %15 ]
   %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %16, %15 ]
-  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink) #16
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #16
   resume { ptr, i32 } %common.resume.op
 
 15:                                               ; preds = %10
@@ -926,12 +926,12 @@ common.resume:                                    ; preds = %43, %15
   br label %common.resume
 
 17:                                               ; preds = %12, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i
-  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #16
+  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #16
   br label %_ZN2cv3dnn14dnn4_v2024052120getLayerFactoryMutexEv.exit
 
 _ZN2cv3dnn14dnn4_v2024052120getLayerFactoryMutexEv.exit: ; preds = %1, %17
   %19 = load volatile ptr, ptr @_ZZN2cv3dnn14dnn4_v2024052120getLayerFactoryMutexEvE8instance, align 8
-  %20 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %19) #16
+  %20 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %19) #16
   %.not.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %21
 
@@ -997,7 +997,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3PtrINS7_3dnn14dnn4_v202405215LayerEEERNSA_11LayerParamsEESaISG_EESt4lessIS5_ESaISt4pairIKS5_SI_EEE4findERSM_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIPFN2cv3PtrINS9_3dnn14dnn4_v202405215LayerEEERNSC_11LayerParamsEESaISI_EEESt10_Select1stISL_ESt4lessIS5_ESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %23
   %.sroa.0.0.i.i = phi ptr [ %26, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIPFN2cv3PtrINS9_3dnn14dnn4_v202405215LayerEEERNSC_11LayerParamsEESaISI_EEESt10_Select1stISL_ESt4lessIS5_ESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %26, %23 ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   %41 = icmp ne ptr %.sroa.0.0.i.i, %26
-  %42 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #16
+  %42 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %19) #16
   ret i1 %41
 
 43:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -1036,7 +1036,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052112LayerFactory19createLayerInstanceERKNSt
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %15
-  %17 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #16
+  %17 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #16
   %.not.i.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i, label %.invoke
 
@@ -1059,16 +1059,16 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i: ; preds = %.noexc
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #16
+  %26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #16
   br label %.body
 
 27:                                               ; preds = %22, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit.i
-  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #16
+  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #16
   br label %29
 
 29:                                               ; preds = %27, %12
   %30 = load volatile ptr, ptr @_ZZN2cv3dnn14dnn4_v2024052120getLayerFactoryMutexEvE8instance, align 8
-  %31 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %30) #16
+  %31 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %30) #16
   %.not.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %.invoke
 
@@ -1197,7 +1197,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPFN2cv3P
   br label %75
 
 75:                                               ; preds = %71, %74
-  %76 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #16
+  %76 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %30) #16
   %77 = getelementptr inbounds i8, ptr %4, i64 8
   %78 = load i32, ptr %77, align 8
   %.not.i = icmp eq i32 %78, 0
@@ -1219,7 +1219,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %75, %79
 
 83:                                               ; preds = %70, %61
   %.pn.pn = phi { ptr, i32 } [ %.pn, %70 ], [ %62, %61 ]
-  %84 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %30) #16
+  %84 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %30) #16
   br label %.body
 
 .body:                                            ; preds = %10, %24, %83
@@ -1295,7 +1295,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIPFN2cv3PtrINS9_3dnn14dnn4_v202405215LayerEEERNSC_11LayerParamsEESaISI_EEESt10_Select1stISL_ESt4lessIS5_ESaISL_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISL_E.exit: ; preds = %.lr.ph, %9
   %10 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #16
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -1358,7 +1358,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIPFN2cv3PtrINS9_3dnn14dnn4_v202405215LayerEEERNSC_11LayerParamsEESaISI_EEESt10_Select1stISL_ESt4lessIS5_ESaISL_EE17_M_emplace_uniqueIJS6_IS5_SK_EEEES6_ISt17_Rb_tree_iteratorISL_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #18
   %4 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1) #16
   %5 = getelementptr inbounds i8, ptr %3, i64 64
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -1471,7 +1471,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIPFN2cv3PtrINS9_3dnn14dnn4_v202405215LayerEEERNSC_11LayerParamsEESaISI_EEESt10_Select1stISL_ESt4lessIS5_ESaISL_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISL_E.exit.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIPFN2cv3PtrINS9_3dnn14dnn4_v202405215LayerEEERNSC_11LayerParamsEESaISI_EEESt10_Select1stISL_ESt4lessIS5_ESaISL_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISL_E.exit.i: ; preds = %48, %46
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   tail call void @_ZdlPv(ptr noundef nonnull %3) #20
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIPFN2cv3PtrINS9_3dnn14dnn4_v202405215LayerEEERNSC_11LayerParamsEESaISI_EEESt10_Select1stISL_ESt4lessIS5_ESaISL_EE10_Auto_nodeD2Ev.exit
 

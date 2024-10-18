@@ -714,7 +714,7 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr inbounds i8, ptr %14, i64 96
   store ptr %340, ptr %341, align 8
-  %342 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %14, ptr noundef %3, i64 noundef %44, ptr noundef %0) #7
+  %342 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %14, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %44, ptr noundef %0) #7
   %.not215.i = icmp eq i32 %342, 0
   br i1 %.not215.i, label %.preheader22.i, label %reduce_inorder.exit
 

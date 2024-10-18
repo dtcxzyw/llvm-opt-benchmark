@@ -63,13 +63,13 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE)
+  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE)
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8), align 8
-  tail call void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8) to i64), ptr noundef nonnull @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, ptr noundef null)
+  tail call void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -134,13 +134,13 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_9TaskTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE)
+  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE)
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_9TaskTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8), align 8
-  tail call void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8) to i64), ptr noundef nonnull @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, ptr noundef null)
+  tail call void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_9TaskTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_9TaskTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -173,13 +173,13 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE)
+  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE)
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8), align 8
-  tail call void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8) to i64), ptr noundef nonnull @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, ptr noundef null)
+  tail call void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -192,13 +192,13 @@ _ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8interna
   br i1 %tobool.not.i.i1, label %land.lhs.true.i.i2, label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_9TaskTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 land.lhs.true.i.i2:                               ; preds = %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
-  %call3.i.i3 = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE)
+  %call3.i.i3 = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE)
   br i1 %call3.i.i3, label %if.then.i.i4, label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_9TaskTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 if.then.i.i4:                                     ; preds = %land.lhs.true.i.i2
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8), align 8
-  tail call void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8) to i64), ptr noundef nonnull @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, ptr noundef null)
+  tail call void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_9TaskTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_9TaskTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit: ; preds = %_ZN4base12LazyInstanceINS_18ThreadLocalPointerIKNS_13SequenceTokenEEENS_8internal23LeakyLazyInstanceTraitsIS4_EEE3GetEv.exit, %land.lhs.true.i.i2, %if.then.i.i4
@@ -217,7 +217,7 @@ if.end20:
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %invoke.cont21
 
 land.lhs.true.i.i:                                ; preds = %if.end20
-  %call3.i.i3 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE)
+  %call3.i.i3 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE)
           to label %call3.i.i.noexc unwind label %terminate.lpad
 
 call3.i.i.noexc:                                  ; preds = %land.lhs.true.i.i
@@ -225,11 +225,11 @@ call3.i.i.noexc:                                  ; preds = %land.lhs.true.i.i
 
 if.then.i.i:                                      ; preds = %call3.i.i.noexc
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8), align 8
-  invoke void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8))
+  invoke void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8))
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then.i.i
-  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8) to i64), ptr noundef nonnull @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, ptr noundef null)
+  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_126tls_current_sequence_tokenE, ptr noundef null)
           to label %invoke.cont21 unwind label %terminate.lpad
 
 invoke.cont21:                                    ; preds = %call3.i.i.noexc, %if.end20, %.noexc
@@ -245,7 +245,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
   br i1 %tobool.not.i.i6, label %land.lhs.true.i.i7, label %invoke.cont24
 
 land.lhs.true.i.i7:                               ; preds = %invoke.cont23
-  %call3.i.i10 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE)
+  %call3.i.i10 = invoke noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE)
           to label %call3.i.i.noexc9 unwind label %terminate.lpad
 
 call3.i.i.noexc9:                                 ; preds = %land.lhs.true.i.i7
@@ -253,11 +253,11 @@ call3.i.i.noexc9:                                 ; preds = %land.lhs.true.i.i7
 
 if.then.i.i8:                                     ; preds = %call3.i.i.noexc9
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8), align 8
-  invoke void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8))
+  invoke void @_ZN4base8internal19ThreadLocalPlatform12AllocateSlotEPj(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8))
           to label %.noexc11 unwind label %terminate.lpad
 
 .noexc11:                                         ; preds = %if.then.i.i8
-  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8) to i64), ptr noundef nonnull @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, ptr noundef null)
+  invoke void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(16) @_ZN4base12_GLOBAL__N_122tls_current_task_tokenE, ptr noundef null)
           to label %invoke.cont24 unwind label %terminate.lpad
 
 invoke.cont24:                                    ; preds = %call3.i.i.noexc9, %invoke.cont23, %.noexc11

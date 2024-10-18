@@ -3170,11 +3170,11 @@ zbee_zcl_get_cluster_desc.exit.i59:               ; preds = %74
   br i1 %.not16.i, label %zbee_zcl_get_cluster_desc.exit.thread.i, label %82
 
 82:                                               ; preds = %zbee_zcl_get_cluster_desc.exit.i59
-  tail call void %81(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %2, i16 noundef zeroext %27, i32 noundef %52, i32 noundef %11) #5
+  tail call void %81(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %2, i16 noundef zeroext %27, i32 noundef range(i32 0, 256) %52, i32 noundef range(i32 0, 2) %11) #5
   br label %dissect_zcl_attr_data_general.exit
 
 zbee_zcl_get_cluster_desc.exit.thread.i:          ; preds = %78, %zbee_zcl_get_cluster_desc.exit.i59, %69
-  tail call void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %2, i32 noundef %52, i32 noundef %11)
+  tail call void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %52, i32 noundef range(i32 0, 2) %11)
   br label %dissect_zcl_attr_data_general.exit
 
 83:                                               ; preds = %12
@@ -3617,11 +3617,11 @@ zbee_zcl_get_cluster_desc.exit.i62:               ; preds = %86
   br i1 %.not16.i, label %zbee_zcl_get_cluster_desc.exit.thread.i, label %94
 
 94:                                               ; preds = %zbee_zcl_get_cluster_desc.exit.i62
-  tail call void %93(ptr noundef %17, ptr noundef %0, ptr noundef nonnull %2, i16 noundef zeroext %33, i32 noundef %64, i32 noundef %12) #5
+  tail call void %93(ptr noundef %17, ptr noundef %0, ptr noundef nonnull %2, i16 noundef zeroext %33, i32 noundef range(i32 0, 256) %64, i32 noundef range(i32 0, 2) %12) #5
   br label %dissect_zcl_attr_data_general.exit
 
 zbee_zcl_get_cluster_desc.exit.thread.i:          ; preds = %90, %zbee_zcl_get_cluster_desc.exit.i62, %81
-  tail call void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %17, ptr noundef nonnull %2, i32 noundef %64, i32 noundef %12)
+  tail call void @dissect_zcl_attr_data(ptr noundef %0, ptr noundef %17, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %64, i32 noundef range(i32 0, 2) %12)
   br label %dissect_zcl_attr_data_general.exit
 
 95:                                               ; preds = %61

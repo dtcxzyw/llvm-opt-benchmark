@@ -1032,7 +1032,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %Res, align 8
   %OS.i = getelementptr inbounds i8, ptr %Res, i64 40
   store ptr %agg.result, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %Res, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %Res, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   br label %for.body
@@ -1051,7 +1051,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %Res) #16
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %Res) #16
   ret void
 }
 
@@ -1079,7 +1079,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %Res.i, align 8, !noalias !10
   %OS.i.i = getelementptr inbounds i8, ptr %Res.i, i64 40
   store ptr %ref.tmp, ptr %OS.i.i, align 8, !noalias !10
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %Res.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %Res.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %Fmt.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %Vals.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   br label %for.body.i
@@ -1098,7 +1098,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZNK4llvh3MD59MD5Result6digestEv.exit, label %for.body.i, !llvm.loop !9
 
 _ZNK4llvh3MD59MD5Result6digestEv.exit:            ; preds = %for.body.i
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %Res.i) #16
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %Res.i) #16
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %Res.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %Str, %ref.tmp
@@ -1164,7 +1164,7 @@ if.end24.i:                                       ; preds = %if.end12.i
 if.then27.i:                                      ; preds = %if.end24.i
   store i32 0, ptr %Size.i31.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %Str, i64 16
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %Str, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef %conv.i30.i, i64 noundef 1) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %Str, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef %conv.i30.i, i64 noundef 1) #16
   br label %if.end37.i
 
 if.else.i:                                        ; preds = %if.end24.i

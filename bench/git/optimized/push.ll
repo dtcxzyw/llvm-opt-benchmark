@@ -1155,7 +1155,7 @@ if.then18.i.i:                                    ; preds = %if.end12.i.i
   %call2.val.val.i.i = load ptr, ptr %call2.val.i.i, align 8
   %46 = getelementptr i8, ptr %call2.val.val.i.i, i64 8
   %call2.val.val.val.i.i = load ptr, ptr %46, align 8
-  call fastcc void @die_push_simple(ptr %call2.val.val.val.i.i, ptr noundef readonly %call373) #16
+  call fastcc void @die_push_simple(ptr %call2.val.val.val.i.i, ptr noundef nonnull readonly %call373) #16
   unreachable
 
 sw.bb20.i.i:                                      ; preds = %if.end.i.i

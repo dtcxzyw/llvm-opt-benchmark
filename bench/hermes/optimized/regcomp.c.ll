@@ -309,7 +309,7 @@ while.body.i:                                     ; preds = %if.then36, %while.b
   store ptr %incdec.ptr.i, ptr %pa, align 8
   %6 = load i8, ptr %5, align 1
   %conv.i = sext i8 %6 to i32
-  call fastcc void @ordinary(ptr noundef %pa, i32 noundef %conv.i)
+  call fastcc void @ordinary(ptr noundef nonnull %pa, i32 noundef %conv.i)
   %7 = load ptr, ptr %pa, align 8
   %8 = load ptr, ptr %end, align 8
   %cmp3.i = icmp ult ptr %7, %8
@@ -949,7 +949,7 @@ land.lhs.true.i:                                  ; preds = %doemit.exit700
   br i1 %cmp14.i, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %land.lhs.true.i, %doemit.exit700
-  call fastcc void @p_ere(ptr noundef %p, i32 noundef 41)
+  call fastcc void @p_ere(ptr noundef nonnull %p, i32 noundef 41)
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then16.i, %land.lhs.true.i
@@ -1260,7 +1260,7 @@ if.then58.i:                                      ; preds = %sw.bb55.i
   store i8 10, ptr %arrayidx4.i, align 1
   store i8 93, ptr %arrayidx5.i, align 1
   store i8 0, ptr %add.ptr.i550, align 1
-  call fastcc void @p_bracket(ptr noundef %p)
+  call fastcc void @p_bracket(ptr noundef nonnull %p)
   store ptr %incdec.ptr.i, ptr %p, align 8
   store ptr %6, ptr %end, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bracket.i)
@@ -1329,7 +1329,7 @@ if.end4.i529:                                     ; preds = %if.end8.i.i540, %se
   br label %sw.epilog.i
 
 sw.bb60.i:                                        ; preds = %while.body
-  call fastcc void @p_bracket(ptr noundef %p)
+  call fastcc void @p_bracket(ptr noundef nonnull %p)
   br label %sw.epilog.i
 
 sw.bb61.i:                                        ; preds = %while.body
@@ -1585,7 +1585,7 @@ doemit.exit448:                                   ; preds = %dupl.exit, %if.end4
   br label %sw.epilog.i
 
 if.else99.i:                                      ; preds = %lor.end69.i
-  call fastcc void @ordinary(ptr noundef %p, i32 noundef %conv73.i)
+  call fastcc void @ordinary(ptr noundef nonnull %p, i32 noundef %conv73.i)
   br label %sw.epilog.i
 
 sw.bb102.i:                                       ; preds = %while.body
@@ -1618,7 +1618,7 @@ seterr.exit416:                                   ; preds = %lor.rhs115.i, %if.t
   br label %sw.default.i
 
 sw.default.i:                                     ; preds = %seterr.exit416, %lor.lhs.false.i, %sw.bb102.i, %while.body
-  call fastcc void @ordinary(ptr noundef %p, i32 noundef %conv.i)
+  call fastcc void @ordinary(ptr noundef nonnull %p, i32 noundef %conv.i)
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end4.i529, %if.else.i, %sw.default.i, %if.else99.i, %doemit.exit448, %seterr.exit511, %sw.bb60.i, %if.then58.i, %seterr.exit556, %seterr.exit562, %doemit.exit593, %doemit.exit624, %seterr.exit630, %seterr.exit636, %land.lhs.true28.i
@@ -1686,7 +1686,7 @@ sw.bb169.i:                                       ; preds = %lor.end166.i
   %111 = load i64, ptr %slen, align 8
   %reass.sub739 = sub i64 %111, %.pre746.pre748
   %add172.i = add i64 %reass.sub739, 1
-  call fastcc void @doinsert(ptr noundef %p, i64 noundef 1207959552, i64 noundef %add172.i, i64 noundef %.pre746.pre748)
+  call fastcc void @doinsert(ptr noundef nonnull %p, i64 noundef 1207959552, i64 noundef %add172.i, i64 noundef %.pre746.pre748)
   %112 = load i64, ptr %slen, align 8
   %sub174.i = sub i64 %112, %.pre746.pre748
   %113 = load i32, ptr %error.i411, align 8
@@ -1756,7 +1756,7 @@ if.end4.i384:                                     ; preds = %if.end8.i.i396, %se
 doemit.exit404:                                   ; preds = %sw.bb169.i, %if.end4.i384
   %reass.sub740.pre-phi = phi i64 [ %sub174.i, %sw.bb169.i ], [ %.pre750, %if.end4.i384 ]
   %add177.i = add i64 %reass.sub740.pre-phi, 1
-  call fastcc void @doinsert(ptr noundef %p, i64 noundef 1476395008, i64 noundef %add177.i, i64 noundef %.pre746.pre748)
+  call fastcc void @doinsert(ptr noundef nonnull %p, i64 noundef 1476395008, i64 noundef %add177.i, i64 noundef %.pre746.pre748)
   %119 = load i64, ptr %slen, align 8
   %sub179.i = sub nsw i64 %119, %.pre746.pre748
   %120 = load i32, ptr %error.i411, align 8
@@ -1825,7 +1825,7 @@ sw.bb180.i:                                       ; preds = %lor.end166.i
   %126 = load i64, ptr %slen, align 8
   %reass.sub738 = sub i64 %126, %.pre746.pre748
   %add183.i = add i64 %reass.sub738, 1
-  call fastcc void @doinsert(ptr noundef %p, i64 noundef 1207959552, i64 noundef %add183.i, i64 noundef %.pre746.pre748)
+  call fastcc void @doinsert(ptr noundef nonnull %p, i64 noundef 1207959552, i64 noundef %add183.i, i64 noundef %.pre746.pre748)
   %127 = load i64, ptr %slen, align 8
   %sub185.i = sub nsw i64 %127, %.pre746.pre748
   %128 = load i32, ptr %error.i411, align 8
@@ -1894,7 +1894,7 @@ sw.bb186.i:                                       ; preds = %lor.end166.i
   %134 = load i64, ptr %slen, align 8
   %reass.sub = sub i64 %134, %.pre746.pre748
   %add189.i = add i64 %reass.sub, 1
-  call fastcc void @doinsert(ptr noundef %p, i64 noundef 2013265920, i64 noundef %add189.i, i64 noundef %.pre746.pre748)
+  call fastcc void @doinsert(ptr noundef nonnull %p, i64 noundef 2013265920, i64 noundef %add189.i, i64 noundef %.pre746.pre748)
   %135 = load i64, ptr %slen, align 8
   %sub191.i = sub nsw i64 %135, %.pre746.pre748
   %136 = load i32, ptr %error.i411, align 8
@@ -2257,7 +2257,7 @@ if.end238.i.sink.split:                           ; preds = %if.end238.i.sink.sp
 if.end238.i:                                      ; preds = %if.end238.i.sink.split, %p_count.exit, %cond.true.i, %land.lhs.true210.i, %p_count.exit198
   %count.0.lcssa24.i172753 = phi i32 [ %count.0.lcssa.ph.i186, %p_count.exit ], [ %count.0.lcssa.ph.i186, %cond.true.i ], [ %count.0.lcssa.ph.i186, %p_count.exit198 ], [ %count.0.lcssa.ph.i186, %land.lhs.true210.i ], [ %count.0.lcssa24.i172753.ph, %if.end238.i.sink.split ]
   %count2.0.i = phi i32 [ %count.0.lcssa24.i, %p_count.exit ], [ 256, %cond.true.i ], [ %count.0.lcssa.ph.i186, %p_count.exit198 ], [ %count.0.lcssa.ph.i186, %land.lhs.true210.i ], [ %count2.0.i.ph, %if.end238.i.sink.split ]
-  call fastcc void @repeat(ptr noundef %p, i64 noundef %.pre746.pre748, i32 noundef %count.0.lcssa24.i172753, i32 noundef %count2.0.i)
+  call fastcc void @repeat(ptr noundef nonnull %p, i64 noundef %.pre746.pre748, i32 noundef %count.0.lcssa24.i172753, i32 noundef %count2.0.i)
   %182 = load ptr, ptr %p, align 8
   %183 = load ptr, ptr %end, align 8
   %cmp241.i = icmp ult ptr %182, %183
@@ -2866,7 +2866,7 @@ if.then9.i:                                       ; preds = %sw.bb.i
   store i8 10, ptr %arrayidx4.i, align 1
   store i8 93, ptr %arrayidx5.i, align 1
   store i8 0, ptr %add.ptr.i413, align 1
-  call fastcc void @p_bracket(ptr noundef %p)
+  call fastcc void @p_bracket(ptr noundef nonnull %p)
   store ptr %30, ptr %p, align 8
   store ptr %29, ptr %end, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bracket.i)
@@ -2935,7 +2935,7 @@ if.end4.i392:                                     ; preds = %if.end8.i.i403, %se
   br label %sw.epilog.i
 
 sw.bb11.i:                                        ; preds = %if.end.i26
-  call fastcc void @p_bracket(ptr noundef %p)
+  call fastcc void @p_bracket(ptr noundef nonnull %p)
   br label %sw.epilog.i
 
 sw.bb12.i:                                        ; preds = %if.end.i26
@@ -3056,7 +3056,7 @@ land.lhs.true41.i:                                ; preds = %land.lhs.true36.i
   br i1 %cmp45.i, label %if.end48.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %land.lhs.true41.i, %land.lhs.true36.i, %land.lhs.true31.i
-  call fastcc void @p_bre(ptr noundef %p, i32 noundef 92, i32 noundef 41)
+  call fastcc void @p_bre(ptr noundef nonnull %p, i32 noundef 92, i32 noundef 41)
   br label %if.end48.i
 
 if.end48.i:                                       ; preds = %if.then47.i, %land.lhs.true41.i, %doemit.exit374
@@ -3432,7 +3432,7 @@ seterr.exit203:                                   ; preds = %lor.rhs107.i, %if.t
 sw.default.i:                                     ; preds = %seterr.exit203, %sw.bb105.i, %if.end.i26
   %sext.i = shl i32 %c.0.i, 24
   %conv113.i = ashr exact i32 %sext.i, 24
-  call fastcc void @ordinary(ptr noundef %p, i32 noundef %conv113.i)
+  call fastcc void @ordinary(ptr noundef nonnull %p, i32 noundef %conv113.i)
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end4.i392, %if.else.i, %sw.default.i, %if.end103.i, %seterr.exit304, %seterr.exit310, %cond.true.i, %seterr.exit380, %sw.bb11.i, %if.then9.i
@@ -3452,7 +3452,7 @@ cond.true123.i:                                   ; preds = %land.lhs.true118.i
   %99 = load i64, ptr %slen, align 8
   %reass.sub = sub i64 %99, %31
   %add130.i = add i64 %reass.sub, 1
-  call fastcc void @doinsert(ptr noundef %p, i64 noundef 1207959552, i64 noundef %add130.i, i64 noundef %31)
+  call fastcc void @doinsert(ptr noundef nonnull %p, i64 noundef 1207959552, i64 noundef %add130.i, i64 noundef %31)
   %100 = load i64, ptr %slen, align 8
   %sub132.i = sub i64 %100, %31
   %101 = load i32, ptr %error.i414, align 8
@@ -3522,7 +3522,7 @@ if.end4.i177:                                     ; preds = %if.end8.i.i189, %se
 doemit.exit197:                                   ; preds = %cond.true123.i, %if.end4.i177
   %reass.sub429.pre-phi = phi i64 [ %sub132.i, %cond.true123.i ], [ %.pre439, %if.end4.i177 ]
   %add135.i = add i64 %reass.sub429.pre-phi, 1
-  call fastcc void @doinsert(ptr noundef %p, i64 noundef 1476395008, i64 noundef %add135.i, i64 noundef %31)
+  call fastcc void @doinsert(ptr noundef nonnull %p, i64 noundef 1476395008, i64 noundef %add135.i, i64 noundef %31)
   %107 = load i64, ptr %slen, align 8
   %sub137.i = sub nsw i64 %107, %31
   %108 = load i32, ptr %error.i414, align 8
@@ -3750,7 +3750,7 @@ if.end205.i.sink.split:                           ; preds = %if.end205.i.sink.sp
 if.end205.i:                                      ; preds = %if.end205.i.sink.split, %p_count.exit, %land.lhs.true184.i, %cond.true175.i, %land.lhs.true170.i, %p_count.exit133
   %count.0.lcssa24.i107442 = phi i32 [ %count.0.lcssa.ph.i121, %p_count.exit ], [ %count.0.lcssa.ph.i121, %land.lhs.true184.i ], [ %count.0.lcssa.ph.i121, %cond.true175.i ], [ %count.0.lcssa.ph.i121, %p_count.exit133 ], [ %count.0.lcssa.ph.i121, %land.lhs.true170.i ], [ %count.0.lcssa24.i107442.ph, %if.end205.i.sink.split ]
   %count2.0.i = phi i32 [ %count.0.lcssa.ph.i, %p_count.exit ], [ 256, %land.lhs.true184.i ], [ 256, %cond.true175.i ], [ %count.0.lcssa.ph.i121, %p_count.exit133 ], [ %count.0.lcssa.ph.i121, %land.lhs.true170.i ], [ %count2.0.i.ph, %if.end205.i.sink.split ]
-  call fastcc void @repeat(ptr noundef %p, i64 noundef %31, i32 noundef %count.0.lcssa24.i107442, i32 noundef %count2.0.i)
+  call fastcc void @repeat(ptr noundef nonnull %p, i64 noundef %31, i32 noundef %count.0.lcssa24.i107442, i32 noundef %count2.0.i)
   %136 = load ptr, ptr %p, align 8
   %137 = load ptr, ptr %end, align 8
   %cmp208.i = icmp ult ptr %136, %137
@@ -4897,7 +4897,7 @@ lor.rhs134.i:                                     ; preds = %land.lhs.true124.i,
   br i1 %cmp.i128.i, label %lor.rhs.sink.split, label %lor.rhs
 
 sw.default139.i:                                  ; preds = %sw.epilog.i, %sw.bb.i, %cond.end.i
-  %call140.i = tail call fastcc signext i8 @p_b_symbol(ptr noundef %p)
+  %call140.i = tail call fastcc signext i8 @p_b_symbol(ptr noundef nonnull %p)
   %119 = load ptr, ptr %p, align 8
   %120 = load ptr, ptr %end, align 8
   %cmp143.i = icmp ult ptr %119, %120
@@ -4930,7 +4930,7 @@ cond.true172.i:                                   ; preds = %land.lhs.true167.i
   br label %if.end179.i
 
 if.else.i:                                        ; preds = %land.lhs.true167.i
-  %call177.i = tail call fastcc signext i8 @p_b_symbol(ptr noundef %p)
+  %call177.i = tail call fastcc signext i8 @p_b_symbol(ptr noundef nonnull %p)
   br label %if.end179.i
 
 if.end179.i:                                      ; preds = %if.else.i, %cond.true172.i
@@ -5325,7 +5325,7 @@ land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp.not.i225, label %if.else.i228, label %if.then.i226
 
 if.then.i226:                                     ; preds = %land.lhs.true6.i
-  tail call fastcc void @bothcases(ptr noundef %p, i32 noundef %retval.0.i215)
+  tail call fastcc void @bothcases(ptr noundef nonnull %p, i32 noundef %retval.0.i215)
   br label %ordinary.exit
 
 if.else.i228:                                     ; preds = %firstch.exit.if.else.i228_crit_edge, %land.lhs.true6.i, %land.lhs.true.i
@@ -5731,7 +5731,7 @@ if.then:                                          ; preds = %othercase.exit
   %arrayidx6.i = getelementptr inbounds i8, ptr %bracket.i, i64 1
   store i8 93, ptr %arrayidx6.i, align 1
   store i8 0, ptr %add.ptr.i, align 1
-  call fastcc void @p_bracket(ptr noundef %p) #21
+  call fastcc void @p_bracket(ptr noundef nonnull %p) #21
   store ptr %6, ptr %p, align 8
   store ptr %7, ptr %end.i, align 8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %bracket.i)

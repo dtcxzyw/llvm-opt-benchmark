@@ -1542,7 +1542,7 @@ for.body.us.i.us.i:                               ; preds = %for.body.us.i, %for
   br i1 %cmp.us.i.us.i, label %for.inc.us.i.us.i, label %if.end.us.i.us.i
 
 if.end.us.i.us.i:                                 ; preds = %for.body.us.i.us.i
-  %call.us.i.us.i = tail call i32 %3(ptr noundef nonnull %cf.addr.07.us.i.us.i, ptr noundef %data, i32 noundef 7, i32 noundef %conv, ptr noundef null) #11
+  %call.us.i.us.i = tail call i32 %3(ptr noundef nonnull %cf.addr.07.us.i.us.i, ptr noundef %data, i32 noundef 7, i32 noundef range(i32 0, 2) %conv, ptr noundef null) #11
   br label %for.inc.us.i.us.i
 
 for.inc.us.i.us.i:                                ; preds = %if.end.us.i.us.i, %for.body.us.i.us.i
@@ -1584,7 +1584,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
   br i1 %cmp.i.i, label %for.inc.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %call.i.i = tail call i32 %3(ptr noundef nonnull %cf.addr.07.i.i, ptr noundef %data, i32 noundef 6, i32 noundef %conv, ptr noundef null) #11
+  %call.i.i = tail call i32 %3(ptr noundef nonnull %cf.addr.07.i.i, ptr noundef %data, i32 noundef 6, i32 noundef range(i32 0, 2) %conv, ptr noundef null) #11
   %tobool4.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool4.i.i, label %for.inc.i.i, label %cf_cntrl_all.exit
 

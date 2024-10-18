@@ -101,7 +101,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
 .lr.ph.i.i.i.i.i.i:                               ; preds = %17, %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %25, %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i.i.i.i ], [ %16, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 24
-  %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #12
+  %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %19) #12
   %21 = load ptr, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 40
   %23 = icmp eq ptr %21, %22
@@ -173,9 +173,9 @@ define dso_local void @_ZN5clang5index15FileIndexRecord16addDeclOccurenceEjjPKNS
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = getelementptr inbounds i8, ptr %14, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %24, i64 noundef 3) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull %24, i64 noundef 3) #12
   %25 = getelementptr inbounds %"struct.clang::index::SymbolRelation", ptr %4, i64 %5
-  tail call void @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %4, ptr noundef %25)
+  tail call void @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef %4, ptr noundef %25)
   %26 = load ptr, ptr %13, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 88
   store ptr %27, ptr %13, align 8
@@ -221,7 +221,7 @@ define dso_local void @_ZN5clang5index15FileIndexRecord17addMacroOccurenceEjjPKN
   store ptr %3, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %22 = getelementptr inbounds i8, ptr %12, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %22, i64 noundef 3) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull %22, i64 noundef 3) #12
   %23 = load ptr, ptr %11, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 88
   store ptr %24, ptr %11, align 8
@@ -456,10 +456,10 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   br i1 %.not19.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i", label %84
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i", %.lr.ph.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.013.127.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.028.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.013.127.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.07.028.i.i.i.i, i64 24, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.013.127.i.i.i.i, i64 24
   %81 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn26.i.i.i.i, i64 112
-  %82 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %81)
+  %82 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %81)
   %83 = getelementptr inbounds i8, ptr %.sroa.013.127.i.i.i.i, i64 88
   br label %84
 
@@ -490,7 +490,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
   %.05.i.i.i.i.i.i.i = phi ptr [ %97, %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i.i.i.i.i ], [ %90, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ]
   %91 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 24
-  %92 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %91) #12
+  %92 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %91) #12
   %93 = load ptr, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 40
   %95 = icmp eq ptr %93, %94
@@ -969,16 +969,16 @@ define linkonce_odr hidden void @_ZNSt38__uninitialized_construct_buf_dispatchIL
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %8, i64 noundef 3) #12
-  %9 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8, i64 noundef 3) #12
+  %9 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #12
   br i1 %9, label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %11 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %7)
   br label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit
 
 _ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit: ; preds = %5, %10
@@ -989,16 +989,16 @@ _ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit: ; preds = 
 .lr.ph:                                           ; preds = %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit16
   %.01322 = phi ptr [ %.013, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit16 ], [ %.01318, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit ]
   %.021 = phi ptr [ %18, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit16 ], [ %0, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.01322, ptr noundef nonnull align 8 dereferenceable(24) %.021, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.01322, ptr noundef nonnull align 8 dereferenceable(88) %.021, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %.021, i64 112
   %13 = getelementptr inbounds nuw i8, ptr %.021, i64 24
   %14 = getelementptr inbounds i8, ptr %.021, i64 128
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %14, i64 noundef 3) #12
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %14, i64 noundef 3) #12
+  %15 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %13) #12
   br i1 %15, label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit16, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  %17 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %13)
   br label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit16
 
 _ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit16: ; preds = %.lr.ph, %16
@@ -1009,9 +1009,9 @@ _ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit16: ; preds 
 
 ._crit_edge:                                      ; preds = %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit16, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit
   %.0.lcssa = phi ptr [ %0, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit ], [ %18, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJS2_EEvPT_DpOT0_.exit16 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.0.lcssa, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %.0.lcssa, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
-  %20 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %19)
+  %20 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %19)
   br label %21
 
 21:                                               ; preds = %3, %._crit_edge
@@ -1189,14 +1189,14 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   br i1 %16, label %17, label %39
 
 17:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.020, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.020, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %.pn19, i64 112
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 3) #12
-  %19 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull %11, i64 noundef 3) #12
+  %19 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %18) #12
   br i1 %19, label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %18)
+  %21 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %18)
   br label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit
 
 _ZN5clang5index14DeclOccurrenceC2EOS1_.exit:      ; preds = %17, %20
@@ -1216,18 +1216,18 @@ _ZN5clang5index14DeclOccurrenceC2EOS1_.exit:      ; preds = %17, %20
   %.078.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.020, %.lr.ph.preheader.i.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -88
   %28 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull align 8 dereferenceable(88) %27, i64 24, i1 false)
   %29 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -64
   %30 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -64
-  %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %30)
   %32 = add nsw i64 %.010.i.i.i.i.i, -1
   %33 = icmp ugt i64 %.010.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !10
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %35 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 24, i1 false)
+  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %10)
+  %35 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %10) #12
   %36 = load ptr, ptr %10, align 8
   %37 = icmp eq ptr %36, %11
   br i1 %37, label %_ZN5clang5index14DeclOccurrenceD2Ev.exit, label %38
@@ -1238,14 +1238,14 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenc
 
 39:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.020, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.020, i64 24, i1 false)
   %40 = getelementptr inbounds i8, ptr %.pn19, i64 112
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 3) #12
-  %41 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %8, i64 noundef 3) #12
+  %41 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %40) #12
   br i1 %41, label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i, label %42
 
 42:                                               ; preds = %39
-  %43 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %40)
+  %43 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %40)
   br label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i
 
 _ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i:    ; preds = %42, %39
@@ -1258,10 +1258,10 @@ _ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i:    ; preds = %42, %39
 .lr.ph.i:                                         ; preds = %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i, %.lr.ph.i
   %.sroa.03.08.i = phi ptr [ %.sroa.0.0.i, %.lr.ph.i ], [ %.sroa.0.020, %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 -88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.08.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.03.08.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.0.i, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i, i64 24
   %47 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 -64
-  %48 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %47)
+  %48 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %46, ptr noundef nonnull align 8 dereferenceable(64) %47)
   %.val.i8 = load i32, ptr %9, align 4
   %49 = getelementptr i8, ptr %.sroa.03.08.i, i64 -172
   %.val2.i.i = load i32, ptr %49, align 4
@@ -1270,10 +1270,10 @@ _ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i:    ; preds = %42, %39
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i
   %.sroa.03.0.lcssa.i = phi ptr [ %.sroa.0.020, %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i ], [ %.sroa.0.0.i, %.lr.ph.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.03.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 24, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.lcssa.i, i64 24
-  %52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  %52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(64) %7)
+  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #12
   %54 = load ptr, ptr %7, align 8
   %55 = icmp eq ptr %54, %8
   br i1 %55, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_T0_.exit", label %56
@@ -1434,25 +1434,25 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZSt4swapIN5clang5index14DeclOccurrenceEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #0 comdat {
   %3 = alloca %"struct.clang::index::DeclOccurrence", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %6, i64 noundef 3) #12
-  %7 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %6, i64 noundef 3) #12
+  %7 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %5) #12
   br i1 %7, label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5)
   br label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit
 
 _ZN5clang5index14DeclOccurrenceC2EOS1_.exit:      ; preds = %2, %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %10)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 24, i1 false)
+  %12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %4)
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %4) #12
   %14 = load ptr, ptr %4, align 8
   %15 = icmp eq ptr %14, %6
   br i1 %15, label %_ZN5clang5index14DeclOccurrenceD2Ev.exit, label %16
@@ -1527,23 +1527,23 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN5cl
   %.sroa.021.059 = phi ptr [ %46, %_ZSt4swapIN5clang5index14DeclOccurrenceEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit ], [ %33, %.lr.ph62.preheader ]
   %.sroa.022.158 = phi ptr [ %45, %_ZSt4swapIN5clang5index14DeclOccurrenceEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit ], [ %.sroa.022.0, %.lr.ph62.preheader ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.022.158, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.022.158, i64 24, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.022.158, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %27, i64 noundef 3) #12
-  %35 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull %27, i64 noundef 3) #12
+  %35 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %34) #12
   br i1 %35, label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i, label %36
 
 36:                                               ; preds = %.lr.ph62
-  %37 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %34)
+  %37 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %34)
   br label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i
 
 _ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i:    ; preds = %36, %.lr.ph62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.022.158, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.021.059, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.022.158, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.021.059, i64 24, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.021.059, i64 24
-  %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %38)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.021.059, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %40 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %26)
-  %41 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #12
+  %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(64) %38)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.021.059, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 24, i1 false)
+  %40 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %26)
+  %41 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %26) #12
   %42 = load ptr, ptr %26, align 8
   %43 = icmp eq ptr %42, %27
   br i1 %43, label %_ZSt4swapIN5clang5index14DeclOccurrenceEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, label %44
@@ -1584,23 +1584,23 @@ _ZSt4swapIN5clang5index14DeclOccurrenceEENSt9enable_ifIXsr6__and_ISt6__not_ISt15
   %57 = getelementptr inbounds i8, ptr %.sroa.022.355, i64 -88
   %58 = getelementptr inbounds i8, ptr %.sroa.0.056, i64 -88
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %57, i64 24, i1 false)
   %59 = getelementptr inbounds i8, ptr %.sroa.022.355, i64 -64
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %25, i64 noundef 3) #12
-  %60 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull %25, i64 noundef 3) #12
+  %60 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %59) #12
   br i1 %60, label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i18, label %61
 
 61:                                               ; preds = %.lr.ph
-  %62 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %59)
+  %62 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %59)
   br label %_ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i18
 
 _ZN5clang5index14DeclOccurrenceC2EOS1_.exit.i18:  ; preds = %61, %.lr.ph
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %57, ptr noundef nonnull align 8 dereferenceable(88) %58, i64 24, i1 false)
   %63 = getelementptr inbounds i8, ptr %.sroa.0.056, i64 -64
-  %64 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %63)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %65 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %24)
-  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #12
+  %64 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(64) %63)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %58, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 24, i1 false)
+  %65 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(64) %24)
+  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %24) #12
   %67 = load ptr, ptr %24, align 8
   %68 = icmp eq ptr %67, %25
   br i1 %68, label %_ZSt4swapIN5clang5index14DeclOccurrenceEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit19, label %69
@@ -1691,16 +1691,16 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   br i1 %23, label %25, label %29
 
 25:                                               ; preds = %.lr.ph.i28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.027.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016.025.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.027.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.016.025.i, i64 24, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.016.025.i, i64 24
-  %27 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %26)
+  %27 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %26)
   %28 = getelementptr inbounds i8, ptr %.sroa.016.025.i, i64 88
   br label %33
 
 29:                                               ; preds = %.lr.ph.i28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.027.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.020.026.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.027.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.020.026.i, i64 24, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.020.026.i, i64 24
-  %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %30)
   %32 = getelementptr inbounds i8, ptr %.sroa.020.026.i, i64 88
   br label %33
 
@@ -1728,10 +1728,10 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   %.012.i.i.i.i.i.i = phi i64 [ %47, %.lr.ph.i.i.i.i.i.i ], [ %41, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.0811.i.i.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i.i.i ], [ %34, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.0910.i.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.020.1.i, %.lr.ph.preheader.i.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i.i, i64 24, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 24
-  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43)
+  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %43)
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 88
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 88
   %47 = add nsw i64 %.012.i.i.i.i.i.i, -1
@@ -1754,10 +1754,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   %.012.i.i.i.i.i12.i = phi i64 [ %59, %.lr.ph.i.i.i.i.i11.i ], [ %53, %.lr.ph.preheader.i.i.i.i.i10.i ]
   %.0811.i.i.i.i.i13.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i11.i ], [ %.08.lcssa.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i10.i ]
   %.0910.i.i.i.i.i14.i = phi ptr [ %57, %.lr.ph.i.i.i.i.i11.i ], [ %.sroa.016.1.i, %.lr.ph.preheader.i.i.i.i.i10.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i14.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i14.i, i64 24, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13.i, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14.i, i64 24
-  %56 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55)
+  %56 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(64) %55)
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14.i, i64 88
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13.i, i64 88
   %59 = add nsw i64 %.012.i.i.i.i.i12.i, -1
@@ -1806,16 +1806,16 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   br i1 %69, label %71, label %75
 
 71:                                               ; preds = %.lr.ph.i36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.028.i, ptr noundef nonnull align 8 dereferenceable(24) %.01629.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.028.i, ptr noundef nonnull align 8 dereferenceable(88) %.01629.i, i64 24, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %.01629.i, i64 24
-  %73 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %72)
+  %73 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %70, ptr noundef nonnull align 8 dereferenceable(64) %72)
   %74 = getelementptr inbounds i8, ptr %.01629.i, i64 88
   br label %79
 
 75:                                               ; preds = %.lr.ph.i36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.028.i, ptr noundef nonnull align 8 dereferenceable(24) %.030.i37, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.028.i, ptr noundef nonnull align 8 dereferenceable(88) %.030.i37, i64 24, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %.030.i37, i64 24
-  %77 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %76)
+  %77 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %70, ptr noundef nonnull align 8 dereferenceable(64) %76)
   %78 = getelementptr inbounds i8, ptr %.030.i37, i64 88
   br label %79
 
@@ -1846,10 +1846,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   %.012.i.i.i.i.i.i33 = phi i64 [ %94, %.lr.ph.i.i.i.i.i.i32 ], [ %88, %.lr.ph.preheader.i.i.i.i.i.i31 ]
   %.0811.i.i.i.i.i.i34 = phi ptr [ %93, %.lr.ph.i.i.i.i.i.i32 ], [ %.sroa.0.0.lcssa.i, %.lr.ph.preheader.i.i.i.i.i.i31 ]
   %.0910.i.i.i.i.i.i35 = phi ptr [ %92, %.lr.ph.i.i.i.i.i.i32 ], [ %.0.lcssa.i29, %.lr.ph.preheader.i.i.i.i.i.i31 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i.i35, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i.i35, i64 24, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i34, i64 24
   %90 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i35, i64 24
-  %91 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %90)
+  %91 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull align 8 dereferenceable(64) %90)
   %92 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i35, i64 88
   %93 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i34, i64 88
   %94 = add nsw i64 %.012.i.i.i.i.i.i33, -1
@@ -1876,10 +1876,10 @@ _ZSt4moveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6ve
   %.012.i.i.i.i.i21.i = phi i64 [ %110, %.lr.ph.i.i.i.i.i20.i ], [ %104, %.lr.ph.preheader.i.i.i.i.i19.i ]
   %.0811.i.i.i.i.i22.i = phi ptr [ %109, %.lr.ph.i.i.i.i.i20.i ], [ %99, %.lr.ph.preheader.i.i.i.i.i19.i ]
   %.0910.i.i.i.i.i23.i = phi ptr [ %108, %.lr.ph.i.i.i.i.i20.i ], [ %.016.lcssa.i, %.lr.ph.preheader.i.i.i.i.i19.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i22.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i23.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i22.i, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i23.i, i64 24, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i, i64 24
   %106 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i, i64 24
-  %107 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %106)
+  %107 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %105, ptr noundef nonnull align 8 dereferenceable(64) %106)
   %108 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i, i64 88
   %109 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i, i64 88
   %110 = add nsw i64 %.012.i.i.i.i.i21.i, -1
@@ -1941,10 +1941,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %.012.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i ], [ %13, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i.i.i ], [ %5, %.lr.ph.preheader.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i ], [ %.tr.lcssa, %.lr.ph.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
-  %16 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %16 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %15)
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -1968,16 +1968,16 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   br i1 %24, label %26, label %30
 
 26:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.025.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016.024.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.025.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.016.024.i, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.016.024.i, i64 24
-  %28 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %27)
+  %28 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %27)
   %29 = getelementptr inbounds i8, ptr %.sroa.016.024.i, i64 88
   br label %34
 
 30:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.025.i, ptr noundef nonnull align 8 dereferenceable(24) %.026.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.025.i, ptr noundef nonnull align 8 dereferenceable(88) %.026.i, i64 24, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %.026.i, i64 24
-  %32 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %32 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %31)
   %33 = getelementptr inbounds i8, ptr %.026.i, i64 88
   br label %34
 
@@ -2003,10 +2003,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %.012.i.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i ], [ %40, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.0811.i.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.025.i, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.0910.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i ], [ %.026.i, %.lr.ph.preheader.i.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i.i, i64 24, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 24
-  %43 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42)
+  %43 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %42)
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 88
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 88
   %46 = add nsw i64 %.012.i.i.i.i.i.i, -1
@@ -2036,10 +2036,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %.012.i.i.i.i.i86 = phi i64 [ %59, %.lr.ph.i.i.i.i.i85 ], [ %53, %.lr.ph.preheader.i.i.i.i.i84 ]
   %.0811.i.i.i.i.i87 = phi ptr [ %58, %.lr.ph.i.i.i.i.i85 ], [ %5, %.lr.ph.preheader.i.i.i.i.i84 ]
   %.0910.i.i.i.i.i88 = phi ptr [ %57, %.lr.ph.i.i.i.i.i85 ], [ %.tr119140, %.lr.ph.preheader.i.i.i.i.i84 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i87, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i88, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i87, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i88, i64 24, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i87, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i88, i64 24
-  %56 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55)
+  %56 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(64) %55)
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i88, i64 88
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i87, i64 88
   %59 = add nsw i64 %.012.i.i.i.i.i86, -1
@@ -2068,10 +2068,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   %.078.i.i.i.i.i.i = phi ptr [ %68, %.lr.ph.i.i.i.i.i.i93 ], [ %.08.lcssa.i.i.i.i.i83, %.lr.ph.preheader.i.i.i.i.i.i92 ]
   %68 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -88
   %69 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %69, ptr noundef nonnull align 8 dereferenceable(88) %68, i64 24, i1 false)
   %70 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -64
   %71 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -64
-  %72 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71)
+  %72 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %70, ptr noundef nonnull align 8 dereferenceable(64) %71)
   %73 = add nsw i64 %.010.i.i.i.i.i.i, -1
   %74 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %74, label %.lr.ph.i.i.i.i.i.i93, label %"_ZSt21__move_merge_adaptiveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_SG_T1_T2_.exit", !llvm.loop !10
@@ -2104,9 +2104,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   br i1 %82, label %85, label %103
 
 85:                                               ; preds = %80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.028.0.i.ph, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %83, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.028.0.i.ph, i64 24, i1 false)
   %86 = getelementptr inbounds i8, ptr %.sroa.028.0.i.ph.pn, i64 -64
-  %87 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %86)
+  %87 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %86)
   %88 = icmp eq ptr %.tr139, %.sroa.028.0.i.ph
   br i1 %88, label %89, label %.outer, !llvm.loop !27
 
@@ -2128,18 +2128,18 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   %.078.i.i.i.i.i23.i = phi ptr [ %96, %.lr.ph.i.i.i.i.i20.i ], [ %90, %.lr.ph.preheader.i.i.i.i.i19.i ]
   %96 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i23.i, i64 -88
   %97 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i22.i, i64 -88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull align 8 dereferenceable(88) %96, i64 24, i1 false)
   %98 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i22.i, i64 -64
   %99 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i23.i, i64 -64
-  %100 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %99)
+  %100 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %98, ptr noundef nonnull align 8 dereferenceable(64) %99)
   %101 = add nsw i64 %.010.i.i.i.i.i21.i, -1
   %102 = icmp ugt i64 %.010.i.i.i.i.i21.i, 1
   br i1 %102, label %.lr.ph.i.i.i.i.i20.i, label %"_ZSt21__move_merge_adaptiveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_SG_T1_T2_.exit", !llvm.loop !10
 
 103:                                              ; preds = %80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %83, ptr noundef nonnull align 8 dereferenceable(88) %.0.i, i64 24, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %105 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %104)
+  %105 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %104)
   %106 = icmp eq ptr %5, %.0.i
   br i1 %106, label %"_ZSt21__move_merge_adaptiveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_SG_T1_T2_.exit", label %107
 
@@ -2269,16 +2269,16 @@ define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorI
   br i1 %10, label %12, label %16
 
 12:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.027, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016.025, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.027, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.016.025, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.016.025, i64 24
-  %14 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  %14 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %13)
   %15 = getelementptr inbounds i8, ptr %.sroa.016.025, i64 88
   br label %20
 
 16:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.027, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.020.026, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.027, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.020.026, i64 24, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.020.026, i64 24
-  %18 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %18 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %17)
   %19 = getelementptr inbounds i8, ptr %.sroa.020.026, i64 88
   br label %20
 
@@ -2309,10 +2309,10 @@ define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorI
   %.012.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i ], [ %28, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %.0.lcssa, %.lr.ph.preheader.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %.sroa.020.0.lcssa, %.lr.ph.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i, i64 24, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
-  %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %30)
   %32 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %33 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %34 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -2335,10 +2335,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   %.012.i.i.i.i.i12 = phi i64 [ %46, %.lr.ph.i.i.i.i.i11 ], [ %40, %.lr.ph.preheader.i.i.i.i.i10 ]
   %.0811.i.i.i.i.i13 = phi ptr [ %45, %.lr.ph.i.i.i.i.i11 ], [ %.08.lcssa.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i10 ]
   %.0910.i.i.i.i.i14 = phi ptr [ %44, %.lr.ph.i.i.i.i.i11 ], [ %.sroa.016.0.lcssa, %.lr.ph.preheader.i.i.i.i.i10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i14, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i14, i64 24, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i13, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i14, i64 24
-  %43 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42)
+  %43 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %42)
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14, i64 88
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13, i64 88
   %46 = add nsw i64 %.012.i.i.i.i.i12, -1
@@ -2369,16 +2369,16 @@ define internal fastcc void @"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceE
   br i1 %11, label %13, label %17
 
 13:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.028, ptr noundef nonnull align 8 dereferenceable(24) %.01629, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.028, ptr noundef nonnull align 8 dereferenceable(88) %.01629, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %.01629, i64 24
-  %15 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %15 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %14)
   %16 = getelementptr inbounds i8, ptr %.01629, i64 88
   br label %21
 
 17:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.028, ptr noundef nonnull align 8 dereferenceable(24) %.030, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.028, ptr noundef nonnull align 8 dereferenceable(88) %.030, i64 24, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %.030, i64 24
-  %19 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %18)
+  %19 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %18)
   %20 = getelementptr inbounds i8, ptr %.030, i64 88
   br label %21
 
@@ -2409,10 +2409,10 @@ define internal fastcc void @"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceE
   %.012.i.i.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i.i.i ], [ %30, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.0.lcssa, %.lr.ph.preheader.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %.0.lcssa, %.lr.ph.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i, i64 24, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
-  %33 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %32)
+  %33 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %32)
   %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -2439,10 +2439,10 @@ _ZSt4moveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6ve
   %.012.i.i.i.i.i21 = phi i64 [ %52, %.lr.ph.i.i.i.i.i20 ], [ %46, %.lr.ph.preheader.i.i.i.i.i19 ]
   %.0811.i.i.i.i.i22 = phi ptr [ %51, %.lr.ph.i.i.i.i.i20 ], [ %45, %.lr.ph.preheader.i.i.i.i.i19 ]
   %.0910.i.i.i.i.i23 = phi ptr [ %50, %.lr.ph.i.i.i.i.i20 ], [ %.016.lcssa, %.lr.ph.preheader.i.i.i.i.i19 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i23, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i23, i64 24, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23, i64 24
-  %49 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %48)
+  %49 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %48)
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 88
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 88
   %52 = add nsw i64 %.012.i.i.i.i.i21, -1
@@ -2479,10 +2479,10 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorI
   %.012.i.i.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i.i.i ], [ %15, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i ], [ %5, %.lr.ph.preheader.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i ], [ %1, %.lr.ph.preheader.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
-  %18 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %18 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %17)
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %21 = add nsw i64 %.012.i.i.i.i.i, -1
@@ -2506,10 +2506,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   %.078.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i38 ], [ %1, %.lr.ph.preheader.i.i.i.i.i37 ]
   %27 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -88
   %28 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull align 8 dereferenceable(88) %27, i64 24, i1 false)
   %29 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -64
   %30 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -64
-  %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %30)
   %32 = add nsw i64 %.010.i.i.i.i.i, -1
   %33 = icmp ugt i64 %.010.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i38, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !10
@@ -2529,10 +2529,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenc
   %.012.i.i.i.i.i42 = phi i64 [ %44, %.lr.ph.i.i.i.i.i41 ], [ %38, %.lr.ph.preheader.i.i.i.i.i40 ]
   %.0811.i.i.i.i.i43 = phi ptr [ %43, %.lr.ph.i.i.i.i.i41 ], [ %0, %.lr.ph.preheader.i.i.i.i.i40 ]
   %.0910.i.i.i.i.i44 = phi ptr [ %42, %.lr.ph.i.i.i.i.i41 ], [ %5, %.lr.ph.preheader.i.i.i.i.i40 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i44, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i44, i64 24, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i43, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i44, i64 24
-  %41 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %40)
+  %41 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %40)
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44, i64 88
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43, i64 88
   %44 = add nsw i64 %.012.i.i.i.i.i42, -1
@@ -2572,10 +2572,10 @@ _ZSt4moveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6ve
   %.012.i.i.i.i.i48 = phi i64 [ %61, %.lr.ph.i.i.i.i.i47 ], [ %55, %.lr.ph.preheader.i.i.i.i.i46 ]
   %.0811.i.i.i.i.i49 = phi ptr [ %60, %.lr.ph.i.i.i.i.i47 ], [ %5, %.lr.ph.preheader.i.i.i.i.i46 ]
   %.0910.i.i.i.i.i50 = phi ptr [ %59, %.lr.ph.i.i.i.i.i47 ], [ %0, %.lr.ph.preheader.i.i.i.i.i46 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i49, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i50, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i49, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i50, i64 24, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i49, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i50, i64 24
-  %58 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57)
+  %58 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %57)
   %59 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 88
   %60 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 88
   %61 = add nsw i64 %.012.i.i.i.i.i48, -1
@@ -2597,10 +2597,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   %.012.i.i.i.i.i55 = phi i64 [ %72, %.lr.ph.i.i.i.i.i54 ], [ %66, %.lr.ph.preheader.i.i.i.i.i53 ]
   %.0811.i.i.i.i.i56 = phi ptr [ %71, %.lr.ph.i.i.i.i.i54 ], [ %0, %.lr.ph.preheader.i.i.i.i.i53 ]
   %.0910.i.i.i.i.i57 = phi ptr [ %70, %.lr.ph.i.i.i.i.i54 ], [ %1, %.lr.ph.preheader.i.i.i.i.i53 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i57, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i57, i64 24, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i56, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i57, i64 24
-  %69 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %68)
+  %69 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef nonnull align 8 dereferenceable(64) %68)
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 88
   %71 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 88
   %72 = add nsw i64 %.012.i.i.i.i.i55, -1
@@ -2624,10 +2624,10 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   %.078.i.i.i.i.i63 = phi ptr [ %79, %.lr.ph.i.i.i.i.i60 ], [ %.08.lcssa.i.i.i.i.i45, %.lr.ph.preheader.i.i.i.i.i59 ]
   %79 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i63, i64 -88
   %80 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i62, i64 -88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %79, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %80, ptr noundef nonnull align 8 dereferenceable(88) %79, i64 24, i1 false)
   %81 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i62, i64 -64
   %82 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i63, i64 -64
-  %83 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82)
+  %83 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %81, ptr noundef nonnull align 8 dereferenceable(64) %82)
   %84 = add nsw i64 %.010.i.i.i.i.i61, -1
   %85 = icmp ugt i64 %.010.i.i.i.i.i61, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i60, label %_ZSt13move_backwardIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit, !llvm.loop !10
@@ -2707,25 +2707,25 @@ _ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE11_M_allocateEm.exit: 
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %37 = getelementptr inbounds i8, ptr %27, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull %37, i64 noundef 3) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull %37, i64 noundef 3) #12
   %38 = getelementptr inbounds %"struct.clang::index::SymbolRelation", ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
-  tail call void @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef %.sroa.0.0.copyload.i.i, ptr noundef %38)
+  tail call void @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE6appendIPKS3_vEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef %.sroa.0.0.copyload.i.i, ptr noundef %38)
   %.not9.i.i.i.i.i = icmp eq ptr %9, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE11_M_allocateEm.exit, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.011.i.i.i.i.i = phi ptr [ %46, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %26, %_ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE11_M_allocateEm.exit ]
   %.0810.i.i.i.i.i = phi ptr [ %45, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %9, %_ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE11_M_allocateEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.0810.i.i.i.i.i, i64 24, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 24
   %41 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %41, i64 noundef 3) #12
-  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull %41, i64 noundef 3) #12
+  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %40) #12
   br i1 %42, label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %43
 
 43:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %40)
+  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %40)
   br label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %43, %.lr.ph.i.i.i.i.i
@@ -2743,16 +2743,16 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2
 .lr.ph.i.i.i.i.i22:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25
   %.011.i.i.i.i.i23 = phi ptr [ %55, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25 ], [ %47, %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %.0810.i.i.i.i.i24 = phi ptr [ %54, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i.i24, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.011.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(88) %.0810.i.i.i.i.i24, i64 24, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i23, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i24, i64 24
   %50 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i23, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %50, i64 noundef 3) #12
-  %51 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull %50, i64 noundef 3) #12
+  %51 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %49) #12
   br i1 %51, label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25, label %52
 
 52:                                               ; preds = %.lr.ph.i.i.i.i.i22
-  %53 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %49)
+  %53 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %49)
   br label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25
 
 _ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25: ; preds = %52, %.lr.ph.i.i.i.i.i22
@@ -2769,7 +2769,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit28, %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %62, %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i ], [ %9, %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit28 ]
   %56 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
-  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %56) #12
+  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %56) #12
   %58 = load ptr, ptr %56, align 8
   %59 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 40
   %60 = icmp eq ptr %58, %59
@@ -2979,23 +2979,23 @@ _ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE11_M_allocateEm.exit: 
   store ptr %30, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %38 = getelementptr inbounds i8, ptr %27, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %38, i64 noundef 3) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull %38, i64 noundef 3) #12
   %.not9.i.i.i.i.i = icmp eq ptr %9, %1
   br i1 %.not9.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE11_M_allocateEm.exit, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.011.i.i.i.i.i = phi ptr [ %46, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %26, %_ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE11_M_allocateEm.exit ]
   %.0810.i.i.i.i.i = phi ptr [ %45, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %9, %_ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE11_M_allocateEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.0810.i.i.i.i.i, i64 24, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 24
   %41 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %41, i64 noundef 3) #12
-  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull %41, i64 noundef 3) #12
+  %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %40) #12
   br i1 %42, label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %43
 
 43:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %40)
+  %44 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %40)
   br label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %43, %.lr.ph.i.i.i.i.i
@@ -3013,16 +3013,16 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2
 .lr.ph.i.i.i.i.i22:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25
   %.011.i.i.i.i.i23 = phi ptr [ %55, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25 ], [ %47, %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %.0810.i.i.i.i.i24 = phi ptr [ %54, %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i.i24, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.011.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(88) %.0810.i.i.i.i.i24, i64 24, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i23, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i24, i64 24
   %50 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i23, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %50, i64 noundef 3) #12
-  %51 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull %50, i64 noundef 3) #12
+  %51 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %49) #12
   br i1 %51, label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25, label %52
 
 52:                                               ; preds = %.lr.ph.i.i.i.i.i22
-  %53 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %49)
+  %53 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %49)
   br label %_ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25
 
 _ZSt10_ConstructIN5clang5index14DeclOccurrenceEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i25: ; preds = %52, %.lr.ph.i.i.i.i.i22
@@ -3039,7 +3039,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit28, %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %62, %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i ], [ %9, %_ZSt34__uninitialized_move_if_noexcept_aIPN5clang5index14DeclOccurrenceES3_SaIS2_EET0_T_S6_S5_RT1_.exit28 ]
   %56 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
-  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %56) #12
+  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %56) #12
   %58 = load ptr, ptr %56, align 8
   %59 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 40
   %60 = icmp eq ptr %58, %59

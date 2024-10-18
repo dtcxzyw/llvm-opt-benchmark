@@ -103,11 +103,11 @@ define hidden void @_ZN14ZRememberedSet4flipEv() local_unnamed_addr #0 align 2 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14ZRememberedSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 5, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 5, ptr %4, align 8
   ret void
@@ -792,7 +792,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %27, %17
   %38 = load ptr, ptr %.0.i.i.i, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 256
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %13) #18
+  %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   br label %_ZN6ZUtils11object_sizeE8zaddress.exit
 
 42:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -825,7 +825,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %27, %17
   %65 = load ptr, ptr %.0.i.i.i, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 256
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %13) #18
+  %68 = tail call noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   br label %_ZN6ZUtils11object_sizeE8zaddress.exit
 
 _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %34, %37, %44, %64
@@ -889,7 +889,7 @@ define linkonce_odr hidden void @_ZNK5ZPage7log_msgEPKcz(ptr noundef nonnull ali
 
 7:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #18
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #18

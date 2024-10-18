@@ -777,7 +777,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4,
   %43 = sext i16 %29 to i32
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef %43) #12
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef range(i32 -32768, 32768) %43) #12
   tail call void @errfinish(ptr noundef nonnull @.str.43, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 
@@ -2352,7 +2352,7 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
   %195 = sext i16 %182 to i32
   %196 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %196)
-  %197 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef %195) #12
+  %197 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef range(i32 -32768, 32768) %195) #12
   call void @errfinish(ptr noundef nonnull @.str.43, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 
@@ -2609,7 +2609,7 @@ heap_getattr.exit.i:                              ; preds = %207, %206, %200, %1
   %339 = sext i16 %326 to i32
   %340 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %340)
-  %341 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef %339) #12
+  %341 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef range(i32 -32768, 32768) %339) #12
   call void @errfinish(ptr noundef nonnull @.str.43, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 
@@ -6205,7 +6205,7 @@ define internal fastcc void @RelationBuildRuleLock(ptr nocapture noundef %0) unn
   br label %heap_getattr.exit
 
 50:                                               ; preds = %21
-  %51 = call fastcc i64 @fastgetattr(ptr noundef nonnull %22, i32 noundef 8, ptr noundef %17, ptr noundef %3)
+  %51 = call fastcc i64 @fastgetattr(ptr noundef nonnull %22, i32 noundef 8, ptr noundef %17, ptr noundef nonnull %3)
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %48, %50
@@ -6231,7 +6231,7 @@ heap_getattr.exit:                                ; preds = %48, %50
   br label %heap_getattr.exit77
 
 64:                                               ; preds = %heap_getattr.exit
-  %65 = call fastcc i64 @fastgetattr(ptr noundef nonnull %22, i32 noundef 7, ptr noundef %17, ptr noundef %3)
+  %65 = call fastcc i64 @fastgetattr(ptr noundef nonnull %22, i32 noundef 7, ptr noundef %17, ptr noundef nonnull %3)
   br label %heap_getattr.exit77
 
 heap_getattr.exit77:                              ; preds = %62, %64
@@ -7096,7 +7096,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %13, %BuildHardcoded
   br label %heap_getattr.exit
 
 38:                                               ; preds = %GetPgIndexDescriptor.exit
-  %39 = call fastcc i64 @fastgetattr(ptr noundef nonnull %14, i32 noundef 20, ptr noundef nonnull %29, ptr noundef %2)
+  %39 = call fastcc i64 @fastgetattr(ptr noundef nonnull %14, i32 noundef 20, ptr noundef nonnull %29, ptr noundef nonnull %2)
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %36, %38
@@ -7192,7 +7192,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %8, %BuildHardcodedD
   br label %heap_getattr.exit
 
 33:                                               ; preds = %GetPgIndexDescriptor.exit
-  %34 = call fastcc i64 @fastgetattr(ptr noundef nonnull %9, i32 noundef 20, ptr noundef nonnull %24, ptr noundef %2)
+  %34 = call fastcc i64 @fastgetattr(ptr noundef nonnull %9, i32 noundef 20, ptr noundef nonnull %24, ptr noundef nonnull %2)
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %31, %33
@@ -7314,7 +7314,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %13, %BuildHardcoded
   br label %heap_getattr.exit
 
 38:                                               ; preds = %GetPgIndexDescriptor.exit
-  %39 = call fastcc i64 @fastgetattr(ptr noundef nonnull %14, i32 noundef 21, ptr noundef nonnull %29, ptr noundef %2)
+  %39 = call fastcc i64 @fastgetattr(ptr noundef nonnull %14, i32 noundef 21, ptr noundef nonnull %29, ptr noundef nonnull %2)
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %36, %38
@@ -7552,7 +7552,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %50, %BuildHardcoded
   %113 = sext i16 %100 to i32
   %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %114)
-  %115 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef %113) #12
+  %115 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef range(i32 -32768, 32768) %113) #12
   call void @errfinish(ptr noundef nonnull @.str.43, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 
@@ -7701,7 +7701,7 @@ GetPgIndexDescriptor.exit122:                     ; preds = %133, %BuildHardcode
   %191 = sext i16 %178 to i32
   %192 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %192)
-  %193 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef %191) #12
+  %193 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef range(i32 -32768, 32768) %191) #12
   call void @errfinish(ptr noundef nonnull @.str.43, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 

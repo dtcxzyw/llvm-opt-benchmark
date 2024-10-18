@@ -371,9 +371,9 @@ dissect_nano_keepalive.exit:                      ; preds = %46
 
 70:                                               ; preds = %69
   %71 = load i32, ptr @ett_nano_block, align 4
-  %72 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef %.0, i32 noundef 136, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.117) #4
+  %72 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef range(i32 1, 113) %.0, i32 noundef 136, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.117) #4
   %73 = load i32, ptr @hf_nano_block_hash_previous, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %0, i32 noundef %.0, i32 noundef 32, i32 noundef 0) #4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %0, i32 noundef range(i32 1, 113) %.0, i32 noundef 32, i32 noundef 0) #4
   %75 = add nuw nsw i32 %.0, 32
   %76 = load i32, ptr @hf_nano_block_hash_source, align 4
   %77 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 32, i32 noundef 0) #4
@@ -387,9 +387,9 @@ dissect_nano_keepalive.exit:                      ; preds = %46
 
 84:                                               ; preds = %69
   %85 = load i32, ptr @ett_nano_block, align 4
-  %86 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef %.0, i32 noundef 152, i32 noundef %85, ptr noundef null, ptr noundef nonnull @.str.118) #4
+  %86 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef range(i32 1, 113) %.0, i32 noundef 152, i32 noundef %85, ptr noundef null, ptr noundef nonnull @.str.118) #4
   %87 = load i32, ptr @hf_nano_block_hash_previous, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef %.0, i32 noundef 32, i32 noundef 0) #4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef range(i32 1, 113) %.0, i32 noundef 32, i32 noundef 0) #4
   %89 = add nuw nsw i32 %.0, 32
   %90 = load i32, ptr @hf_nano_block_destination_account, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 32, i32 noundef 0) #4
@@ -406,9 +406,9 @@ dissect_nano_keepalive.exit:                      ; preds = %46
 
 101:                                              ; preds = %69
   %102 = load i32, ptr @ett_nano_block, align 4
-  %103 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef %.0, i32 noundef 168, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.119) #4
+  %103 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef range(i32 1, 113) %.0, i32 noundef 168, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.119) #4
   %104 = load i32, ptr @hf_nano_block_hash_source, align 4
-  %105 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %0, i32 noundef %.0, i32 noundef 32, i32 noundef 0) #4
+  %105 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %0, i32 noundef range(i32 1, 113) %.0, i32 noundef 32, i32 noundef 0) #4
   %106 = add nuw nsw i32 %.0, 32
   %107 = load i32, ptr @hf_nano_block_representative_account, align 4
   %108 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %107, ptr noundef %0, i32 noundef %106, i32 noundef 32, i32 noundef 0) #4
@@ -425,9 +425,9 @@ dissect_nano_keepalive.exit:                      ; preds = %46
 
 118:                                              ; preds = %69
   %119 = load i32, ptr @ett_nano_block, align 4
-  %120 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef %.0, i32 noundef 136, i32 noundef %119, ptr noundef null, ptr noundef nonnull @.str.120) #4
+  %120 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef range(i32 1, 113) %.0, i32 noundef 136, i32 noundef %119, ptr noundef null, ptr noundef nonnull @.str.120) #4
   %121 = load i32, ptr @hf_nano_block_hash_previous, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %.0, i32 noundef 32, i32 noundef 0) #4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef range(i32 1, 113) %.0, i32 noundef 32, i32 noundef 0) #4
   %123 = add nuw nsw i32 %.0, 32
   %124 = load i32, ptr @hf_nano_block_representative_account, align 4
   %125 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %124, ptr noundef %0, i32 noundef %123, i32 noundef 32, i32 noundef 0) #4

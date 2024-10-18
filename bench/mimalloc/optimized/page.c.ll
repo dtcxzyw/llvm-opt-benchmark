@@ -41,7 +41,7 @@ if.else3.i:                                       ; preds = %if.else.i
 
 if.else7.i:                                       ; preds = %if.else3.i
   %dec.i = add nsw i64 %div1.i.i, -1
-  %2 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i, i1 true)
+  %2 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 range(i64 8, 16384) %dec.i, i1 true)
   %3 = trunc nuw nsw i64 %2 to i8
   %4 = xor i8 %3, -1
   %shl.i = shl i8 %4, 2
@@ -91,7 +91,7 @@ if.then2.i:                                       ; preds = %if.else.i
 
 if.else7.i:                                       ; preds = %if.else.i
   %dec.i = add nsw i64 %div1.i.i, -1
-  %1 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i, i1 true)
+  %1 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 range(i64 8, 16384) %dec.i, i1 true)
   %2 = shl nuw nsw i64 %1, 2
   %shl.i = xor i64 %2, 252
   %sub.i = sub nuw nsw i64 61, %1
@@ -321,7 +321,7 @@ if.then2.i:                                       ; preds = %if.else.i
 
 if.else7.i:                                       ; preds = %if.else.i
   %dec.i = add nsw i64 %div1.i, -1
-  %5 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i, i1 true)
+  %5 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 range(i64 8, 16384) %dec.i, i1 true)
   %6 = trunc nuw nsw i64 %5 to i8
   %7 = xor i8 %6, -1
   %shl.i = shl i8 %7, 2
@@ -364,7 +364,7 @@ if.else3.i25:                                     ; preds = %if.else.i23
 
 if.else7.i27:                                     ; preds = %if.else3.i25
   %dec.i28 = add nsw i64 %div1.i.i21, -1
-  %12 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i28, i1 true)
+  %12 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 range(i64 8, 16384) %dec.i28, i1 true)
   %13 = trunc nuw nsw i64 %12 to i8
   %14 = xor i8 %13, -1
   %shl.i29 = shl i8 %14, 2
@@ -612,7 +612,7 @@ if.else3.i.i.i:                                   ; preds = %if.else.i.i.i
 
 if.else7.i.i.i:                                   ; preds = %if.else3.i.i.i
   %dec.i.i.i = add nsw i64 %div1.i.i.i.i, -1
-  %5 = call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i.i, i1 true)
+  %5 = call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 range(i64 8, 16384) %dec.i.i.i, i1 true)
   %6 = shl nuw nsw i64 %5, 2
   %shl.i.i.i = xor i64 %6, 252
   %sub.i.i.i3 = sub nuw nsw i64 61, %5
@@ -837,7 +837,7 @@ if.else3.i.i:                                     ; preds = %if.else.i.i
 
 if.else7.i.i:                                     ; preds = %if.else3.i.i
   %dec.i.i = add nsw i64 %div1.i.i.i, -1
-  %5 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i, i1 true)
+  %5 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 range(i64 8, 16384) %dec.i.i, i1 true)
   %6 = shl nuw nsw i64 %5, 2
   %shl.i.i = xor i64 %6, 252
   %sub.i.i = sub nuw nsw i64 61, %5
@@ -1122,7 +1122,7 @@ mi_page_queue_of.exit.thread32:                   ; preds = %if.else3.i.i
 
 if.else7.i.i:                                     ; preds = %if.else3.i.i
   %dec.i.i = add nsw i64 %div1.i.i.i, -1
-  %4 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i, i1 true)
+  %4 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 range(i64 8, 16384) %dec.i.i, i1 true)
   %5 = shl nuw nsw i64 %4, 2
   %shl.i.i = xor i64 %5, 252
   %sub.i.i = sub nuw nsw i64 61, %4
@@ -1631,7 +1631,7 @@ if.then11:                                        ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call i64 @_mi_os_good_alloc_size(i64 noundef %size) #12
+  %call.i = tail call i64 @_mi_os_good_alloc_size(i64 noundef range(i64 0, -9223372036854775808) %size) #12
   %cmp.i = icmp ugt i64 %call.i, 16777216
   %1 = or i1 %cmp1, %cmp.i
   %2 = add i64 %call.i, 7
@@ -1655,7 +1655,7 @@ if.else3.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
 
 if.else7.i.i.i.i:                                 ; preds = %if.else3.i.i.i.i
   %dec.i.i.i.i = add nsw i64 %div1.i.i.i.i.i, -1
-  %4 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i, i1 true)
+  %4 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 range(i64 8, 16384) %dec.i.i.i.i, i1 true)
   %5 = shl nuw nsw i64 %4, 2
   %shl.i.i.i.i = xor i64 %5, 252
   %sub.i.i.i.i = sub nuw nsw i64 61, %4
@@ -1710,7 +1710,7 @@ if.then2.i.i.i.i25:                               ; preds = %if.else.i.i.i.i10
 
 if.else7.i.i.i.i12:                               ; preds = %if.else.i.i.i.i10
   %dec.i.i.i.i13 = add nsw i64 %div1.i.i.i.i.i8, -1
-  %11 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 %dec.i.i.i.i13, i1 true)
+  %11 = tail call range(i64 50, 61) i64 @llvm.ctlz.i64(i64 range(i64 8, 16384) %dec.i.i.i.i13, i1 true)
   %12 = shl nuw nsw i64 %11, 2
   %shl.i.i.i.i14 = xor i64 %12, 252
   %sub.i.i.i.i15 = sub nuw nsw i64 61, %11
@@ -2226,7 +2226,7 @@ cond.end:                                         ; preds = %lor.lhs.false, %mi_
   %bf.clear4.i = and i8 %bf.load3.i, -2
   %bf.set.i = or disjoint i8 %bf.clear4.i, %bf.clear.i
   store i8 %bf.set.i, ptr %free_is_zero.i, align 1
-  call fastcc void @mi_page_extend_free(ptr noundef %call) #13
+  call fastcc void @mi_page_extend_free(ptr noundef nonnull %call) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %page_size.i)
   br i1 %cmp2, label %return, label %if.then7
 

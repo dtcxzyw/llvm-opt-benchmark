@@ -292,7 +292,7 @@ while.body18.us:                                  ; preds = %while.body18.us.pre
 if.then.i.us:                                     ; preds = %while.body18.us
   %11 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
   %conv.i.us = trunc i64 %11 to i32
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i, ptr noundef %zlibStream_, i32 noundef %conv.i.us)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull %zlibStream_, i32 noundef %conv.i.us)
           to label %.noexc.us unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 .noexc.us:                                        ; preds = %if.then.i.us
@@ -378,7 +378,7 @@ while.body18:                                     ; preds = %while.body18.prehea
 if.then.i:                                        ; preds = %while.body18
   %16 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
   %conv.i = trunc i64 %16 to i32
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i, ptr noundef %zlibStream_, i32 noundef %conv.i)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull %zlibStream_, i32 noundef %conv.i)
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
 .noexc:                                           ; preds = %if.then.i
@@ -503,7 +503,7 @@ do.body:                                          ; preds = %for.end, %invoke.co
 if.then.i13:                                      ; preds = %do.body
   %33 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
   %conv.i14 = trunc i64 %33 to i32
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i9, ptr noundef %zlibStream_, i32 noundef %conv.i14)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i9, ptr noundef nonnull %zlibStream_, i32 noundef %conv.i14)
           to label %.noexc20 unwind label %lpad.loopexit
 
 .noexc20:                                         ; preds = %if.then.i13
@@ -551,7 +551,7 @@ do.body41:                                        ; preds = %do.body41.preheader
 if.then.i29:                                      ; preds = %do.body41
   %37 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
   %conv.i30 = trunc i64 %37 to i32
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i25, ptr noundef %zlibStream_, i32 noundef %conv.i30)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias align 8 %ref.tmp.i25, ptr noundef nonnull %zlibStream_, i32 noundef %conv.i30)
           to label %.noexc36 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc36:                                         ; preds = %if.then.i29

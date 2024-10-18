@@ -112,7 +112,7 @@ define dso_local noundef ptr @btbuild(ptr noundef %0, ptr noundef %1, ptr nounde
   %46 = and i8 %44, 1
   %47 = tail call ptr @palloc0(i64 noundef 64) #10
   tail call void @EnterParallelMode() #10
-  %48 = tail call ptr @CreateParallelContext(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef %40) #10
+  %48 = tail call ptr @CreateParallelContext(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef range(i32 1, -2147483648) %40) #10
   %49 = add nuw i32 %40, 1
   br i1 %45, label %50, label %53
 
@@ -766,7 +766,7 @@ _bt_spools_heapscan.exit:                         ; preds = %299, %304, %307
   %421 = sext i16 %408 to i32
   %422 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %422)
-  %423 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %421) #10
+  %423 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef range(i32 -32768, 32768) %421) #10
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
@@ -776,7 +776,7 @@ _bt_spools_heapscan.exit:                         ; preds = %299, %304, %307
 
 426:                                              ; preds = %394
   %427 = trunc nuw nsw i64 %indvars.iv212.i.i to i32
-  %428 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0117.i.i, i32 noundef %427, ptr noundef nonnull %327) #10
+  %428 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0117.i.i, i32 noundef range(i32 -2147483648, 32768) %427, ptr noundef nonnull %327) #10
   br label %index_getattr.exit.i.i
 
 429:                                              ; preds = %390
@@ -794,7 +794,7 @@ _bt_spools_heapscan.exit:                         ; preds = %299, %304, %307
   br i1 %.not.i21.i.i.i, label %index_getattr.exit.i.i, label %440
 
 440:                                              ; preds = %429
-  %441 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0117.i.i, i32 noundef %430, ptr noundef %327) #10
+  %441 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0117.i.i, i32 noundef range(i32 -2147483648, 32768) %430, ptr noundef %327) #10
   br label %index_getattr.exit.i.i
 
 index_getattr.exit.i.i:                           ; preds = %440, %429, %426, %424, %418, %415, %412, %409
@@ -853,7 +853,7 @@ index_getattr.exit.i.i:                           ; preds = %440, %429, %426, %4
   %470 = sext i16 %457 to i32
   %471 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %471)
-  %472 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %470) #10
+  %472 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef range(i32 -32768, 32768) %470) #10
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
@@ -863,7 +863,7 @@ index_getattr.exit.i.i:                           ; preds = %440, %429, %426, %4
 
 475:                                              ; preds = %443
   %476 = trunc nuw nsw i64 %indvars.iv212.i.i to i32
-  %477 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0119.i.i, i32 noundef %476, ptr noundef nonnull %327) #10
+  %477 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0119.i.i, i32 noundef range(i32 -2147483648, 32768) %476, ptr noundef nonnull %327) #10
   br label %index_getattr.exit146.i.i
 
 478:                                              ; preds = %index_getattr.exit.i.i
@@ -881,7 +881,7 @@ index_getattr.exit.i.i:                           ; preds = %440, %429, %426, %4
   br i1 %.not.i21.i144.i.i, label %index_getattr.exit146.thread.i.i, label %489
 
 489:                                              ; preds = %478
-  %490 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0119.i.i, i32 noundef %479, ptr noundef %327) #10
+  %490 = call i64 @nocache_index_getattr(ptr noundef nonnull %.0119.i.i, i32 noundef range(i32 -2147483648, 32768) %479, ptr noundef %327) #10
   br label %index_getattr.exit146.i.i
 
 index_getattr.exit146.i.i:                        ; preds = %489, %475, %473, %467, %464, %461, %458
@@ -1008,13 +1008,13 @@ _bt_pagestate.exit.i.i:                           ; preds = %538, %514
   br i1 %.0121.i.i, label %548, label %551
 
 548:                                              ; preds = %547
-  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0117.i.i, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0117.i.i, i64 noundef 0)
   %549 = load ptr, ptr %310, align 8
   %550 = call ptr @tuplesort_getindextuple(ptr noundef %549, i1 noundef zeroext true) #10
   br label %554
 
 551:                                              ; preds = %547
-  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0119.i.i, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0119.i.i, i64 noundef 0)
   %552 = load ptr, ptr %309, align 8
   %553 = call ptr @tuplesort_getindextuple(ptr noundef %552, i1 noundef zeroext true) #10
   br label %554
@@ -1143,7 +1143,7 @@ _bt_pagestate.exit151.i.i:                        ; preds = %595, %571
   br i1 %614, label %616, label %617
 
 616:                                              ; preds = %612
-  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.3198.i.i, ptr noundef %615, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3198.i.i, ptr noundef %615, i64 noundef 0)
   br label %_bt_sort_dedup_finish_pending.exit.i.i
 
 617:                                              ; preds = %612
@@ -1162,7 +1162,7 @@ _bt_pagestate.exit151.i.i:                        ; preds = %595, %571
   %628 = zext i16 %.val17.i.i.i to i64
   %629 = or disjoint i64 %627, %628
   %630 = sub nsw i64 %624, %629
-  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.3198.i.i, ptr noundef nonnull %620, i64 noundef %630)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3198.i.i, ptr noundef nonnull %620, i64 noundef %630)
   call void @pfree(ptr noundef nonnull %620) #10
   br label %_bt_sort_dedup_finish_pending.exit.i.i
 
@@ -1195,7 +1195,7 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %617, %616
   br i1 %638, label %640, label %641
 
 640:                                              ; preds = %._crit_edge200.i.i
-  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.4.i.i, ptr noundef %639, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.4.i.i, ptr noundef %639, i64 noundef 0)
   br label %.loopexit.i.thread10.i
 
 641:                                              ; preds = %._crit_edge200.i.i
@@ -1214,7 +1214,7 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %617, %616
   %652 = zext i16 %.val17.i154.i.i to i64
   %653 = or disjoint i64 %651, %652
   %654 = sub nsw i64 %648, %653
-  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.4.i.i, ptr noundef nonnull %644, i64 noundef %654)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.4.i.i, ptr noundef nonnull %644, i64 noundef %654)
   call void @pfree(ptr noundef nonnull %644) #10
   br label %.loopexit.i.thread10.i
 
@@ -1296,7 +1296,7 @@ _bt_pagestate.exit159.i.i:                        ; preds = %683, %659
 
 692:                                              ; preds = %_bt_pagestate.exit159.i.i, %.lr.ph195.i.i
   %.6.i.i = phi ptr [ %660, %_bt_pagestate.exit159.i.i ], [ %.5194.i.i, %.lr.ph195.i.i ]
-  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.6.i.i, ptr noundef nonnull %657, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.6.i.i, ptr noundef nonnull %657, i64 noundef 0)
   %693 = add i64 %.2129193.i.i, 1
   call void @pgstat_progress_update_param(i32 noundef 12, i64 noundef %693) #10
   %694 = load ptr, ptr %310, align 8
@@ -1349,7 +1349,7 @@ _bt_pagestate.exit159.i.i:                        ; preds = %683, %659
   store i16 %717, ptr %718, align 2
   %719 = load ptr, ptr %698, align 8
   %720 = load ptr, ptr %713, align 8
-  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef %719, ptr noundef %720, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef %719, ptr noundef %720, i64 noundef 0)
   %721 = load ptr, ptr %713, align 8
   call void @pfree(ptr noundef %721) #10
   store ptr null, ptr %713, align 8

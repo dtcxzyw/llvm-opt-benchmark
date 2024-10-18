@@ -73,7 +73,7 @@ define void @_ZNK22ProfileUrlLinkDelegate5paintEP8QPainterRK20QStyleOptionViewIt
   br label %_ZNK11QModelIndex4dataEi.exit
 
 12:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !4
   %13 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %13, align 8, !alias.scope !4
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -156,7 +156,7 @@ define void @_ZNK23ProfileTreeEditDelegate13setEditorDataEP7QWidgetRK11QModelInd
   br label %_ZNK11QModelIndex4dataEi.exit
 
 15:                                               ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !7
   %16 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %16, align 8, !alias.scope !7
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -383,7 +383,7 @@ define void @_ZN15ProfileTreeViewD0Ev(ptr noundef nonnull align 8 dereferenceabl
 define void @_ZThn16_N15ProfileTreeViewD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15ProfileTreeViewD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %2) #12
   ret void
 }
 
@@ -656,7 +656,7 @@ _ZN17QArrayDataPointerI19QItemSelectionRangeE5derefEv.exit.i.i.i: ; preds = %43
   %.05.i.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i.i ], [ %48, %46 ]
   %52 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 8
   call void @_ZN21QPersistentModelIndexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #10
-  call void @_ZN21QPersistentModelIndexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i.i.i.i) #10
+  call void @_ZN21QPersistentModelIndexD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i.i) #10
   %53 = getelementptr i8, ptr %.05.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %53, %51
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI19QItemSelectionRangeE10destroyAllEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !16
@@ -721,7 +721,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %2
   br label %_ZNK11QModelIndex4dataEi.exit12
 
 27:                                               ; preds = %21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !21
   %28 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %28, align 8, !alias.scope !21
   br label %_ZNK11QModelIndex4dataEi.exit12
@@ -882,7 +882,7 @@ _ZN17QArrayDataPointerI19QItemSelectionRangeE5derefEv.exit.i.i: ; preds = %1
   %.05.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i ], [ %6, %4 ]
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
   tail call void @_ZN21QPersistentModelIndexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #10
-  tail call void @_ZN21QPersistentModelIndexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i.i.i) #10
+  tail call void @_ZN21QPersistentModelIndexD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i) #10
   %11 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI19QItemSelectionRangeE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !16

@@ -135,7 +135,7 @@ _ZN13btGhostObjectD2Ev.exit:                      ; preds = %entry, %if.then.i.i
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 384
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #16
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) #16
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %terminate.lpad.i
 
@@ -320,7 +320,7 @@ if.end:                                           ; preds = %for.inc.i, %entry, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btPairCachingGhostObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this)
+  tail call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this)
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 392
@@ -409,7 +409,7 @@ _ZN13btGhostObjectD2Ev.exit:                      ; preds = %invoke.cont, %if.th
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 384
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #16
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) #16
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -486,7 +486,7 @@ _ZN24btPairCachingGhostObjectD2Ev.exit:           ; preds = %invoke.cont.i, %if.
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
   %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 384
   store i32 0, ptr %m_capacity.i.i.i.i.i, align 8
-  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this) #16
+  tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) #16
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN17btCollisionObjectdlEPv.exit unwind label %terminate.lpad.i1
 
@@ -705,7 +705,7 @@ entry:
   %collisionObjectAabbMax = alloca %class.btVector3, align 8
   %hitLambda = alloca float, align 4
   %hitNormal = alloca %class.btVector3, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(16) %convexFromWorld, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %convexFromWorld, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %convexFromWorld, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %convexFromTrans, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -715,7 +715,7 @@ entry:
   %m_origin.i = getelementptr inbounds i8, ptr %convexFromWorld, i64 48
   %m_origin3.i = getelementptr inbounds i8, ptr %convexFromTrans, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %convexToTrans, ptr noundef nonnull align 4 dereferenceable(16) %convexToWorld, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %convexToTrans, ptr noundef nonnull align 4 dereferenceable(64) %convexToWorld, i64 16, i1 false)
   %arrayidx5.i.i12 = getelementptr inbounds i8, ptr %convexToWorld, i64 16
   %arrayidx7.i.i13 = getelementptr inbounds i8, ptr %convexToTrans, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i13, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i12, i64 16, i1 false)
@@ -772,7 +772,7 @@ entry:
   %10 = getelementptr inbounds i8, ptr %R, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %convexFromTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8

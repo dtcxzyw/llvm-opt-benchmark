@@ -2503,7 +2503,7 @@ entry:
   %region = alloca [4 x i8], align 1
   %len = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %canonicalName)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %canonicalName)
   %len.i = getelementptr inbounds i8, ptr %canonicalName, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %canonicalName, align 8
@@ -2533,7 +2533,7 @@ lpad1:                                            ; preds = %invoke.cont
   br label %ehcleanup66
 
 if.end:                                           ; preds = %invoke.cont2
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calTypeBuf)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calTypeBuf)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
@@ -2696,22 +2696,22 @@ invoke.cont61:                                    ; preds = %invoke.cont60
 
 cleanup:                                          ; preds = %invoke.cont17, %invoke.cont24, %invoke.cont61
   %retval.1 = phi i32 [ %spec.store.select, %invoke.cont61 ], [ %9, %invoke.cont17 ], [ 0, %invoke.cont24 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calTypeBuf) #24
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calTypeBuf) #24
   br label %cleanup65
 
 ehcleanup:                                        ; preds = %lpad5.loopexit, %lpad5.loopexit.split-lp.loopexit.split-lp, %lpad5.loopexit.split-lp.loopexit, %lpad7
   %.pn = phi { ptr, i32 } [ %10, %lpad7 ], [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit37, %lpad5.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp38, %lpad5.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calTypeBuf) #24
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %calTypeBuf) #24
   br label %ehcleanup66
 
 cleanup65:                                        ; preds = %invoke.cont2, %cleanup
   %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %invoke.cont2 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %canonicalName) #24
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %canonicalName) #24
   ret i32 %retval.0
 
 ehcleanup66:                                      ; preds = %ehcleanup, %lpad1, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad ], [ %3, %lpad1 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %canonicalName) #24
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %canonicalName) #24
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2793,7 +2793,7 @@ if.end:                                           ; preds = %entry
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad ]
-  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %ref.tmp) #24
+  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %ref.tmp) #24
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.end
@@ -2808,7 +2808,7 @@ _ZN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEC2ERKNS_6LocaleE.exit: ; preds =
 invoke.cont:                                      ; preds = %_ZN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEC2ERKNS_6LocaleE.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEE, i64 16), ptr %ref.tmp, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #24
-  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %ref.tmp) #24
+  call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %ref.tmp) #24
   br label %return
 
 return:                                           ; preds = %entry, %invoke.cont
@@ -12270,7 +12270,7 @@ new.notnull.i:                                    ; preds = %invoke.cont12
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %invoke.cont12
-  %call2.i15 = invoke noundef ptr @uhash_put_75(ptr noundef %9, ptr noundef %call.i, ptr noundef nonnull %this, ptr noundef nonnull %status)
+  %call2.i15 = invoke noundef ptr @uhash_put_75(ptr noundef %9, ptr noundef %call.i, ptr noundef nonnull %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont15 unwind label %lpad
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -12910,7 +12910,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_14SharedCalendarEEE, i64 16), ptr %this, align 8
   %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #24
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #24
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #24
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #24
   ret void
 }
@@ -12950,7 +12950,7 @@ new.notnull:                                      ; preds = %entry
 lpad.i:                                           ; preds = %new.notnull
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %call) #24
+  tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %call) #24
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #24
   resume { ptr, i32 } %1
 

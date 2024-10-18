@@ -78,7 +78,7 @@ define i32 @cli_parsepng(ptr noundef %0) local_unnamed_addr #0 {
   %16 = sub nuw i64 %14, %.0
   %spec.select.i = call i64 @llvm.umin.i64(i64 %16, i64 4)
   %17 = load ptr, ptr %11, align 8
-  %18 = call ptr %17(ptr noundef nonnull %9, i64 noundef %.0, i64 noundef %spec.select.i, i32 noundef 0) #6
+  %18 = call ptr %17(ptr noundef nonnull %9, i64 noundef %.0, i64 noundef range(i64 0, 2147483648) %spec.select.i, i32 noundef 0) #6
   %.not26.i = icmp eq ptr %18, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -114,7 +114,7 @@ fmap_readn.exit:                                  ; preds = %15
   %34 = sub nuw i64 %32, %23
   %spec.select.i153 = call i64 @llvm.umin.i64(i64 %34, i64 4)
   %35 = load ptr, ptr %11, align 8
-  %36 = call ptr %35(ptr noundef nonnull %9, i64 noundef %23, i64 noundef %spec.select.i153, i32 noundef 0) #6
+  %36 = call ptr %35(ptr noundef nonnull %9, i64 noundef %23, i64 noundef range(i64 0, 2147483648) %spec.select.i153, i32 noundef 0) #6
   %.not26.i154 = icmp eq ptr %36, null
   br i1 %.not26.i154, label %fmap_readn.exit156.thread, label %fmap_readn.exit156
 
@@ -142,7 +142,7 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %11, align 8
-  %46 = call ptr %45(ptr noundef nonnull %9, i64 noundef %43, i64 noundef %22, i32 noundef 0) #6
+  %46 = call ptr %45(ptr noundef nonnull %9, i64 noundef %43, i64 noundef range(i64 0, 2147483648) %22, i32 noundef 0) #6
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %54
 
@@ -369,7 +369,7 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
   %127 = sub nuw i64 %125, %.3172
   %spec.select.i158 = call i64 @llvm.umin.i64(i64 %127, i64 4)
   %128 = load ptr, ptr %11, align 8
-  %129 = call ptr %128(ptr noundef nonnull %9, i64 noundef %.3172, i64 noundef %spec.select.i158, i32 noundef 0) #6
+  %129 = call ptr %128(ptr noundef nonnull %9, i64 noundef %.3172, i64 noundef range(i64 0, 2147483648) %spec.select.i158, i32 noundef 0) #6
   %.not26.i159 = icmp eq ptr %129, null
   br i1 %.not26.i159, label %fmap_readn.exit161.thread, label %fmap_readn.exit161
 

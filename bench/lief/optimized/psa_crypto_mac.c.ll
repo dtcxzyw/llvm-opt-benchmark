@@ -197,7 +197,7 @@ mac_init.exit:                                    ; preds = %12
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = call i32 @psa_hash_compute(i32 noundef %32, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7, i64 noundef 128, ptr noundef nonnull %6) #5
+  %44 = call i32 @psa_hash_compute(i32 noundef range(i32 33554432, 33554688) %32, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7, i64 noundef 128, ptr noundef nonnull %6) #5
   %.not64.i = icmp eq i32 %44, 0
   br i1 %.not64.i, label %46, label %69
 
@@ -257,7 +257,7 @@ mac_init.exit:                                    ; preds = %12
   %64 = getelementptr inbounds i8, ptr %63, i64 %62
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %64, i8 92, i64 %61, i1 false)
   %65 = getelementptr inbounds i8, ptr %0, i64 16
-  %66 = call i32 @psa_hash_setup(ptr noundef nonnull %65, i32 noundef %32) #5
+  %66 = call i32 @psa_hash_setup(ptr noundef nonnull %65, i32 noundef range(i32 33554432, 33554688) %32) #5
   %.not65.i = icmp eq i32 %66, 0
   br i1 %.not65.i, label %67, label %69
 

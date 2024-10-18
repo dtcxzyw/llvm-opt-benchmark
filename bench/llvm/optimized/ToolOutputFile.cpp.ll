@@ -131,7 +131,7 @@ _ZL8isStdoutN4llvm9StringRefE.exit:               ; preds = %5
   br label %17
 
 _ZNSt8optionalIN4llvm14raw_fd_ostreamEE7emplaceIJRNS0_9StringRefERSt10error_codeRNS0_3sys2fs9OpenFlagsEEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOSD_.exit: ; preds = %5, %_ZL8isStdoutN4llvm9StringRefE.exit
-  tail call void @_ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4) #5
+  tail call void @_ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4) #5
   store i8 1, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %6, ptr %13, align 8
@@ -157,7 +157,7 @@ _ZNSt8optionalIN4llvm14raw_fd_ostreamEE7emplaceIJRibEEENSt9enable_ifIX18is_const
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 0, ptr %5, align 8
-  tail call void @_ZN4llvm14raw_fd_ostreamC1EibbNS_11raw_ostream11OStreamKindE(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0) #5
+  tail call void @_ZN4llvm14raw_fd_ostreamC1EibbNS_11raw_ostream11OStreamKindE(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0) #5
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %4, ptr %6, align 8

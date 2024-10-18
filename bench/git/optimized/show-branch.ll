@@ -762,7 +762,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   %conv.i.i = sext i32 %sub.i.i to i64
   %idx.ext.i.i = sext i32 %45 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr @ref_name, i64 %idx.ext.i.i
-  call void @qsort(ptr noundef nonnull %add.ptr.i.i, i64 noundef %conv.i.i, i64 noundef 8, ptr noundef nonnull @compare_ref_name) #16
+  call void @qsort(ptr noundef nonnull %add.ptr.i.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i, i64 noundef 8, ptr noundef nonnull @compare_ref_name) #16
   br label %if.end.i115
 
 if.end.i115:                                      ; preds = %if.then.i.i.i, %if.then.i, %if.then298
@@ -781,7 +781,7 @@ if.then.i.i3.i:                                   ; preds = %if.then2.i
   %conv.i4.i = sext i32 %sub.i1.i to i64
   %idx.ext.i5.i = sext i32 %47 to i64
   %add.ptr.i6.i = getelementptr inbounds ptr, ptr @ref_name, i64 %idx.ext.i5.i
-  call void @qsort(ptr noundef nonnull %add.ptr.i6.i, i64 noundef %conv.i4.i, i64 noundef 8, ptr noundef nonnull @compare_ref_name) #16
+  call void @qsort(ptr noundef nonnull %add.ptr.i6.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i4.i, i64 noundef 8, ptr noundef nonnull @compare_ref_name) #16
   br label %if.end300
 
 if.end300:                                        ; preds = %if.then.i.i3.i, %if.then2.i, %if.end.i115, %while.end, %for.end
@@ -2521,7 +2521,7 @@ if.then.i.i:                                      ; preds = %if.end12
   %conv.i = sext i32 %sub.i to i64
   %idx.ext.i = sext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr @ref_name, i64 %idx.ext.i
-  call void @qsort(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i, i64 noundef 8, ptr noundef nonnull @compare_ref_name) #16
+  call void @qsort(ptr noundef nonnull %add.ptr.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i, i64 noundef 8, ptr noundef nonnull @compare_ref_name) #16
   br label %return
 
 if.end13:                                         ; preds = %if.end

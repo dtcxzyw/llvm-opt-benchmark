@@ -267,11 +267,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %25 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %26 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i.i, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @__func__.handle_primary_tcp_pkt, ptr noundef %call.i39, ptr noundef %call6.i, i32 noundef %call7.i, i32 noundef %call8.i, i32 noundef %conv9.i) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i.i, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @__func__.handle_primary_tcp_pkt, ptr noundef %call.i39, ptr noundef %call6.i, i32 noundef %call7.i, i32 noundef %call8.i, i32 noundef range(i32 0, 256) %conv9.i) #9
   br label %trace_colo_filter_rewriter_pkt_info.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.handle_primary_tcp_pkt, ptr noundef %call.i39, ptr noundef %call6.i, i32 noundef %call7.i, i32 noundef %call8.i, i32 noundef %conv9.i) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.handle_primary_tcp_pkt, ptr noundef %call.i39, ptr noundef %call6.i, i32 noundef %call7.i, i32 noundef %call8.i, i32 noundef range(i32 0, 256) %conv9.i) #9
   br label %trace_colo_filter_rewriter_pkt_info.exit.i
 
 trace_colo_filter_rewriter_pkt_info.exit.i:       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then.i38
@@ -493,11 +493,11 @@ if.then8.i.i.i83:                                 ; preds = %if.then.i.i.i80
   %69 = load i64, ptr %_now.i.i.i40, align 8
   %tv_usec.i.i.i86 = getelementptr inbounds i8, ptr %_now.i.i.i40, i64 8
   %70 = load i64, ptr %tv_usec.i.i.i86, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i.i85, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @__func__.handle_secondary_tcp_pkt, ptr noundef %call.i63, ptr noundef %call6.i65, i32 noundef %call7.i67, i32 noundef %call8.i69, i32 noundef %conv9.i71) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i.i85, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @__func__.handle_secondary_tcp_pkt, ptr noundef %call.i63, ptr noundef %call6.i65, i32 noundef %call7.i67, i32 noundef %call8.i69, i32 noundef range(i32 0, 256) %conv9.i71) #9
   br label %trace_colo_filter_rewriter_pkt_info.exit.i75
 
 if.else.i.i.i82:                                  ; preds = %if.then.i.i.i80
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.handle_secondary_tcp_pkt, ptr noundef %call.i63, ptr noundef %call6.i65, i32 noundef %call7.i67, i32 noundef %call8.i69, i32 noundef %conv9.i71) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.handle_secondary_tcp_pkt, ptr noundef %call.i63, ptr noundef %call6.i65, i32 noundef %call7.i67, i32 noundef %call8.i69, i32 noundef range(i32 0, 256) %conv9.i71) #9
   br label %trace_colo_filter_rewriter_pkt_info.exit.i75
 
 trace_colo_filter_rewriter_pkt_info.exit.i75:     ; preds = %if.else.i.i.i82, %if.then8.i.i.i83, %land.lhs.true5.i.i.i77, %if.then.i61

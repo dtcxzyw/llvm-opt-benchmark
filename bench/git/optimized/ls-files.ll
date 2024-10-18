@@ -1037,7 +1037,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %arrayidx.i46 = getelementptr inbounds ptr, ptr %49, i64 %idxprom.i45
   %50 = load ptr, ptr %arrayidx.i46, align 8
   %name.i = getelementptr inbounds i8, ptr %50, i64 108
-  %call10.i = call i32 @strncmp(ptr noundef nonnull %name.i, ptr noundef nonnull %call475, i64 noundef %conv478) #15
+  %call10.i = call i32 @strncmp(ptr noundef nonnull %name.i, ptr noundef nonnull %call475, i64 noundef range(i64 -2147483648, 2147483648) %conv478) #15
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   %add13.i = add nsw i32 %add.i, 1
   %spec.select22.i = select i1 %tobool11.not.i, i32 %last.025.i, i32 %add.i
@@ -1949,7 +1949,7 @@ if.then3.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end4.i:                                        ; preds = %if.end.i
-  call fastcc void @show_files(ptr noundef nonnull %subrepo.i, ptr noundef %dir)
+  call fastcc void @show_files(ptr noundef nonnull %subrepo.i, ptr noundef nonnull %dir)
   call void @repo_clear(ptr noundef nonnull %subrepo.i) #14
   br label %show_submodule.exit
 

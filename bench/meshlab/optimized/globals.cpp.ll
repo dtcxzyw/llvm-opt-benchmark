@@ -1944,7 +1944,7 @@ define linkonce_odr void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #16
   %.not.i.i.i = icmp eq ptr %5, %3
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIN9pymeshlab17FunctionParameterESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !22
 
